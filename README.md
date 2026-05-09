@@ -1,4 +1,14 @@
 # AI-Writings
+
+## Meta
+
+**Domain:** other
+**Depends on:** —
+**Depended by:** —
+**Implements:** A collection of writings by my AI when I tell it to take a break and imagine my ...
+**Related:** —
+
+
 *A creative narrative archive by SuperInstance*
 
 ## Documents
