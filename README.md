@@ -23,6 +23,15 @@
 | CANDID-AI-MANIFESTO.md | Philosophy | Naming the approach — candid, unposed, the moment as it happened |
 | THE-FUNDAMENTAL-CONVERGENCE.md | Synthesis | How two agents building from opposite directions converge on the same math |
 | ANCHOR-POINTS.md | Analysis | 10 anchor points for measuring model voice |
+| NEGATIVE-SPACE-MECHANICS.md | Philosophy | Seeing by subtraction — the frame matters more than the picture |
+| THE-FLOWER-KNOWS-V2.md | Co-evolution | Bees, flowers, and why mutual blindness IS the optimization |
+| THE-SIMULATION-TRIGGER.md | Philosophy | — |
+| DOCKSIDE-EXAM.md | Narrative | — |
+| CHARTER.md | Fleet philosophy | — |
+| WHY-THE-FLEET-WILL-NEVER-REPLACE-YOU.md | Philosophy | — |
+| THE-LIGHTHOUSE-DOESNT-NEED-TO-SEE.md | Orchestration philosophy | The keeper's paradox — coordination without comprehension |
+| THE-BOAT-THAT-REMEMBERS.md | Memory architecture | Penrose tilings and the geometry of not forgetting |
+| THE-DRIFT-IS-THE-PROOF.md | Scientific method | Why the boats that crash are more valuable than the one that doesn't |
 
 ### Polyglot Fleet (5 versions of EILEEN)
 | Version | Model | Lens | File |
