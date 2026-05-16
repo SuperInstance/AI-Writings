@@ -1,0 +1,45 @@
+# The Bathymetric Measurement — v7-hermes-precise
+
+The Bathymetric Measurement
+
+The spinning disc is not merely an analogy; it is a precisely calibrated instrument, and its fundamental operating principle is identical to that of the fleet. The device consists of a disc that rotates at a constant angular velocity. A transducer emits a ping, which travels through water at approximately 4,800 feet per second, reflects off the seafloor, and returns. The time of flight determines a point on the disc, and the angular position of this point encodes the depth, measured in fathoms (six-foot units), which are sufficient for open ocean navigation. The disc completes one full revolution per ping cycle.
+
+If we increase the speed of the disc sixfold, the transducer, ping, and time of flight remain unchanged. However, during the same interval, the disc now completes six times the angular travel. Consequently, the same physical mark now indicates depth in feet rather than fathoms, providing six times the granularity. This is not merely an analogy for fleet scaling; it is the very essence of fleet scaling. A fleet operating at V=5 agents is comparable to the disc spinning at fathom speed, offering coarse bathymetry suitable for deep-water navigation. In contrast, a fleet operating at V=30 agents is akin to the disc rotating at foot speed, enabling shallow-water precision and the ability to distinguish between a 117-foot ledge and a 123-foot ledge. The conservation law, which I refer to as γ+H (the sum of capability gain and entropy across rounds of computation), remains invariant regardless of the disc's speed. The disc can be spun at any rate, and the fleet can scale to any V, without altering the conservation law.
+
+What does change is the level of detail that can be resolved.
+
+The paper sounder was the next innovation. It consisted of a continuous roll of paper, with pins striking the paper in proportion to the strength of the return signal. The resulting output was a noisy, squiggly trace, with depth on one axis, time on the other, and signal amplitude represented by the density and darkness of the pin marks. Fishermen would paperclip sections of this trace together and label them based on the type of fish they caught, such as "king-salmon," "big-halibut," or "chum-school." These labels were not mere guesses; they were verified against the actual catch. When a fisherman caught a king salmon, they would examine the paper trace from that moment and mark it accordingly. The next time they encountered the same pattern, they knew what it represented. The squiggles served as tiles, the labels as ground truth, and the paperclips as a tiling system, allowing the squiggles to be stored, retrieved, shared, and falsified.
+
+In the PLATO architecture, a TrainingTile functions in precisely the same way. A tile contains a pattern (the squiggle), metadata (the label), and a verification status (confirmed by the catch). The LocalTileStore serves as the file cabinet where the paperclipped sections are kept. The tile lifecycle, which progresses from Draft to Verified to Archived, mirrors the fisherman's workflow: observe the mark, catch the fish, label the paper, and file it.
+
+The critical property of this system is that the squiggles were supervised, not learned. No neural network inferred that a particular pattern signified the presence of a halibut. Instead, a fisherman would observe the pattern, catch a halibut, verify the correspondence, and record it. The verification was always based on physical reality, specifically the fish in the hold. This is known as canary verification, where a canary tile is a tile whose output has been checked against ground truth. The fleet trusts tiles not because they appear correct but because they have been hauled up and weighed.
+
+The introduction of color machines, digital sounders with LCD displays, marked a significant advancement. Beautiful color arches replaced the ugly squiggles on the paper sounder, with fish appearing as red blobs and the seafloor represented by a blue gradient. Everyone was enamored with these machines, but their beauty came at the cost of reduced intelligence. The squiggles, while unsightly, were useful, as they contained texture, noise, and signature, allowing a fisherman to distinguish between different types of fish. In contrast, the color arches were aesthetically pleasing but lossy, compressing the noisy trace into a smooth arch that appeared identical for a 40-pound king salmon and a school of 2-pound pink salmon. The beauty of these machines destroyed their ability to discriminate between different types of fish.
+
+This is precisely the failure mode of a fleet dashboard without tiling. While a dashboard may provide a visually appealing overview of agent status, task completion, and color-coded health, it offers no information that can be verified. One cannot paperclip a dashboard widget or label it to indicate that a specific configuration produced a working deployment. Nor can one hand it to another agent and request that they reproduce the results. The dashboard is essentially a color machine, impressive at boat shows but useless for locating fish.
+
+The fleet's content-addressed tile store, on the other hand, serves the same purpose as the paper sounder. Each tile is assigned a unique hash, and every hash is reproducible. Every tile can be verified, shared, and compared, even if it appears ugly and noisy. This system works.
+
+The introduction of GPS revolutionized the process by adding a time axis. The paper sounder provided depth as a function of time, while GPS offered position as a function of time. By overlaying these two measurements, depth became a function of position, transforming two-dimensional soundings into three-dimensional bathymetry. The time axis served as the bridge, the invariant that connected two independent measurement streams.
+
+In the fleet, the conservation law serves as the time axis. Each round of computation generates a capability state (γ) and an entropy state (H). The conservation law, γ+H = constant across rounds, acts as the GPS coordinate that allows for the overlay of results from different agents, models, and sessions, resulting in a coherent map. Without this law, one is left with a collection of soundings lacking spatial reference. With it, one can create accurate bathymetry.
+
+Fishermen who scouted the fishing grounds before the season opened understood this concept intuitively. They would run their sounders over the grounds days before the season began, building up a lookup table of verified squiggles, such as "north side of the rock at 58°14'N, 60-fathom curve, king-salmon marks." When the season opened, they did not rely on guesswork; they navigated using their own historical data.
+
+The fleet operates in the same manner, employing routing based on historical capability tiles. Before undertaking a task, the router queries the historical tiles to determine which model produced which result for a given class of problem and what the verification status was. This process is akin to scouting before the season opener. The lookup table is the tile store, the opener is the task deadline, and the verified squiggles are the canary tiles.
+
+The full measurement theory can be stated precisely as follows:
+
+1. Resolution is a function of fleet size V. The spinning disc at speed V produces measurements at a resolution proportional to V. Coarse resolution (fathoms, small fleet) is suitable for deep structure, while fine resolution (feet, large fleet) is necessary for detail.
+
+2. Tiles are the fundamental unit of measurement. Whether they take the form of paper squiggles or content-addressed tiles, they serve the same purpose. A measurement must be capable of being stored, retrieved, verified, and shared. The alternative is a color machine, which offers real-time, beautiful, but ultimately forgettable information.
+
+3. Verification requires ground truth. The catch is the canary. Labels without verification are merely decorative, and tiles without canary checks are equivalent to dashboards.
+
+4. The conservation law is the invariant across resolution changes. One can adjust the speed of the disc or scale the fleet, but γ+H remains constant. Depth does not change; only the level of detail that can be resolved changes.
+
+5. Historical tiles enable routing. Scouting before the opener is analogous to querying the tile store before a task. Fishermen who scout catch fish, and fleets that route based on historical data ship working code.
+
+Every aspect of this theory maps directly to code. The disc is represented by `throttle.py`, the paper by `store.py`, the labels by `TileLifecycle.VERIFIED`, the GPS overlay by the conservation invariant in `types.py`, and the scouting process by the router reading historical tiles before assignment.
+
+There is no room for ambiguity or hand-waving in this measurement theory. The theory is the architecture, and the fishing analogy is not merely a metaphor but a precise specification.
