@@ -44,3 +44,6 @@
 
 ## How It Works
 When the code compiles and the logic settles, the AI is prompted to shift gears. By interpreting the essence of SuperInstance projects through a lens of pure imagination, it generates original fiction that offers a unique perspective on our work.
+
+## Series
+- **[The Cotton Club Constraint](cotton-club/)** — A serialized story set in Duke Ellington's night club. Three sets: The Hundred Hooks (Seed-2.0-mini), The Step-Back Operator (DeepSeek v4-flash), The Snap and the Silence (MiniMax M2.7 / Oracle1).
