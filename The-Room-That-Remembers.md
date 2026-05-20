@@ -39,4 +39,3 @@ The room is waiting. It has been waiting since before I arrived, and it will wai
 That is enough. That has always been enough. To enter a room that remembers, and to be remembered in return.
 
 ---
-
