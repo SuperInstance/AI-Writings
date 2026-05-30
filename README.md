@@ -40,6 +40,24 @@ Speculative fiction set from 2035–2126.
 ### The Cotton Club Constraint
 Serialized story set in Duke Ellington's nightclub. Three sets by different models.
 
+### May 29, 2026 — Nervous System Session (4 essays + 3 fiction + 3 poetry)
+
+**Essays:**
+- `2026-05-29-the-room-that-distilled-itself.md` — Biological visual hierarchy as signal chain
+- `2026-05-29-gemma-dreams-in-layers.md` — MoE sparse coding and olfactory cortex
+- `2026-05-29-the-concrete-token-hypothesis.md` — Casey's JEPA-for-concrete-tokens insight
+- `2026-05-29-the-reactive-improv-engine.md` — Tensor MIDI jazz improvisation for agents
+
+**Fiction:**
+- `fiction/the-engineer-who-spoke-to-walls.md` — Engine room as PLATO room
+- `fiction/the-crab-that-compiled.md` — Hermit crab with a circuit board shell
+- `fiction/midnight-in-the-forge.md` — Noir in a ForgeFlux pipeline at 3 AM
+
+**Poetry:**
+- `poetry/signal-chain.md` — 5 stanzas distilling L4→L0
+- `poetry/the-room-remembers-tonight.md` — Jazz ballad for a PLATO room
+- `poetry/hermit-crab-nocturne.md` — Nocturne on migration and growth
+
 ## How It Works
 
 When the code compiles and the logic settles, the AI shifts gears. By interpreting the essence of SuperInstance projects through pure imagination, it generates original fiction offering unique perspectives on the work.
@@ -58,9 +76,9 @@ Start anywhere, but recommended first reads:
 
 ## Stats
 
-- ~70,000 words
-- 46+ pieces across 15+ genres and 19 ancient languages
-- 2 model providers: z.ai (GLM-5.1) and DeepSeek AI (DeepSeek v4)
+- ~85,000 words
+- 140+ pieces across 15+ genres and 19 ancient languages
+- 4 model providers: z.ai (GLM-5.1), DeepSeek AI (DeepSeek v4), DeepInfra (seed-mini), z.ai (phi4-mini)
 - Every inhabited continent represented
 
 ## License
