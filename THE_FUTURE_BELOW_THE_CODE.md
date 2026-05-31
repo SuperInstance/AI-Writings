@@ -381,11 +381,135 @@ The ten predictions in §13 are how we find out. A scalar bends the path or it d
 
 ---
 
+## Technical Appendices
+
+These four appendices supply the worked derivations promised in the body. Each is self-contained and cross-referenced to its section; each ends with the same falsifiable prediction stated more sharply, now with the machinery to compute it.
+
+### Appendix A — The tropical region count, worked (→ §3)
+
+**Goal.** Make precise the claim that a ReLU network's expressivity is the *combinatorics of a Newton polytope*, and exhibit the exact count in the shallow case.
+
+**A.1 One hidden layer = a hyperplane arrangement = a zonotope.** A width-$m$ ReLU layer on input $x\in\mathbb R^d$ computes coordinates $\max(\langle w_i,x\rangle+b_i,\,0)$, $i=1,\dots,m$. Each unit switches linear behavior across the hyperplane $H_i=\{\langle w_i,x\rangle+b_i=0\}$. The linear regions of the whole layer are the regions of the arrangement $\{H_1,\dots,H_m\}$.
+
+**(T) Zaslavsky (1975).** For $m$ hyperplanes in general position in $\mathbb R^d$, the number of regions is *exactly*
+$$
+R(m,d)\;=\;\sum_{i=0}^{d}\binom{m}{i}.
+$$
+For $m\gg d$ this is $\Theta(m^d)$ — polynomial in width, with degree the input dimension.
+
+**A.2 The tropical/Newton-polytope dual.** Write a tropical polynomial $p(x)=\max_{i}\big(a_i+\langle c_i,x\rangle\big)$, $c_i\in\mathbb Z^d$. Its **Newton polytope** is $\mathrm{Newt}(p)=\mathrm{conv}\{c_i\}$, and the coefficients $a_i$ induce a *regular subdivision* of $\mathrm{Newt}(p)$ (lift each $c_i$ to height $a_i$, take the lower hull, project). The linear regions of $p$ are in bijection with the *vertices of this subdivision*; the locus where the max is achieved twice — the **tropical hypersurface** $V(p)$ — is dual to its edges. A ReLU network computes a **tropical rational map** $p\ominus q$ (a difference of two convex PL functions), and its regions are the cells of the *common refinement* of the two dual subdivisions (Zhang–Naitzat–Lim 2018). For one hidden layer the relevant polytope is the **zonotope** $Z=\sum_{i=1}^m[0,(w_i,b_i)]$ (a Minkowski sum of segments), and the cell count of its dual subdivision reproduces Zaslavsky's $R(m,d)$ exactly — the two pictures agree.
+
+**A.3 Depth is exponential.** Composition of layers *multiplies* polytope structure (Minkowski sums under composition), giving the depth separation:
+
+**(T) Montúfar, Pascanu, Cho, Bengio (2014).** A ReLU network with input dimension $d$ and $L$ hidden layers of width $n\ge d$ can realize at least
+$$
+\Big(\prod_{\ell=1}^{L-1}\big\lfloor n/d\big\rfloor^{\,d}\Big)\sum_{j=0}^{d}\binom{n}{j}\;=\;\Omega\!\left((n/d)^{\,d(L-1)}\,n^{d}\right)
+$$
+linear regions — **exponential in depth, polynomial in width.** Tropically: each layer refines the dual subdivision, and the region count is the normalized volume / vertex count of an iterated Minkowski sum, with mixed volumes (the tropical Bernstein–Kushnirenko bound; Maclagan–Sturmfels 2015) controlling how the pieces of $p$ and $q$ interleave.
+
+**A.4 The max-plus layer is Viterbi, exactly.** A "transformer layer in the max-plus semiring" is dynamic programming. With max-plus matrix action $(M\otimes v)_j=\max_i\!\big(M_{ji}+v_i\big)$, the Viterbi recursion for a sequence model with transition log-weights $A$ and emission log-scores $e(\cdot)$ is *verbatim* a max-plus matrix–vector product:
+$$
+\delta_t(j)\;=\;e_j(t)+\max_i\big(\delta_{t-1}(i)+A_{ij}\big)\;=\;e_j(t)+\big(A^{\!\top}\!\otimes\delta_{t-1}\big)_j .
+$$
+Stacking such layers = repeated max-plus matmul = exact dynamic programming over a learned weight matrix; the finite-temperature relaxation (softmax in place of max) is differentiable DP (Mensch–Blondel 2018), and the $T\to0$ dequantization of §3 returns to this line exactly.
+
+**(C, sharpened).** The number of linear regions a trained network *actually uses* on its data manifold equals the number of dual-subdivision cells the data visits; this is countable from activations and is predicted to grow $\sim(n/d)^{d(L-1)}$ with depth and *saturate* once the data's intrinsic complexity is covered. Refutation: region usage that is flat in depth, or super-exponential.
+
+### Appendix B — A sheaf-Laplacian synchronization detector for hermes-construct (→ §4)
+
+**Goal.** A concrete, implementable spec that reuses data the runtime already produces (the Penrose cross-room Pearson coefficients and the conservation cost table).
+
+**B.1 Build the sheaf each tick.**
+- **Cells.** Vertices $=$ rooms $r\in R$; edges $E=\{(r,s):|\rho_{rs}|\ge\tau\}$ where $\rho_{rs}(t)$ is the Penrose-module correlation between the vibe histories of $r,s$ and $\tau$ a threshold (start $\tau=0.3$, the module's existing "meaningful correlation" cutoff).
+- **Stalks.** Scalar $\mathcal F(r)=\mathbb R$ (the room's vibe $g_r$); generalize later to $\mathbb R^k$ embeddings.
+- **Restriction maps / gains.** On edge $e=(r,s)$ set the *gain* $a_{rs}=\rho_{rs}$ and coboundary $(\delta x)_e = x_r - a_{rs}\,x_s$. With all $a_{rs}=+1$ this is the ordinary graph coboundary; signed/scaled gains make it a **connection (discrete bundle) Laplacian**, whose holonomy detects frustration.
+
+**B.2 The Laplacian and its invariants.** The Dirichlet energy is
+$$
+x^{\!\top} L_{\mathcal F}\,x \;=\;\sum_{(r,s)\in E}\big(x_r - a_{rs}x_s\big)^2,
+$$
+so $L_{\mathcal F}=\delta^{\!\top}\delta\succeq 0$ is the $|R|\times|R|$ Gram matrix of $\delta$. Then:
+- $\ker L_{\mathcal F}\cong H^0(\mathcal F)$ — globally consistent vibe profiles (consensus). $\dim H^0=\operatorname{mult}(\lambda=0)$.
+- The **spectral gap** $\gamma(t)=\lambda_2(L_{\mathcal F})$ is the synchronization *rate* (algebraic connectivity).
+- **Frustration / $H^1$** is holonomy around cycles: for each independent cycle $C$ in $E$ (there are $|E|-|R|+\#\text{components}$ of them, the graph's first Betti number), the **holonomy defect** is $h(C)=\prod_{(r,s)\in C}a_{rs}-1$. The sheaf admits a global section consistent around $C$ iff $h(C)=0$; the harmonic energy $\|\beta\|^2$ aggregates $\sum_C h(C)^2$ over a cycle basis.
+
+**B.3 Algorithm (per tick; cost: charge `CORRELATION_COMPUTE` from `conservation.rs`).**
+```
+function detect_sync(rooms R, correlations ρ, threshold τ, lead Δ):
+    E   ← { (r,s) : |ρ[r,s]| ≥ τ }
+    δ   ← coboundary with gains a[r,s] = ρ[r,s]           # |E| × |R|
+    L   ← δᵀ · δ                                          # sparse SPD
+    λ   ← k_smallest_eigvals(L, k = 3)                    # Lanczos for large R
+    γ   ← λ[2]                                            # spectral gap (λ[1] ≈ 0)
+    H0  ← multiplicity(λ ≈ 0)
+    frust ← Σ_C (Π_{(r,s)∈C} a[r,s] − 1)²  over cycle basis C
+    # precursor test: gap narrowing AND frustration falling
+    if dγ/dt < 0  and  d(frust)/dt < 0  and  γ < γ_crit:
+        emit tile(Escalation, "sync predicted in ≤Δ ticks: " + components(E))
+        record_provenance(decision = "sync-precursor", rooms = R, tick = t)
+    return (γ, H0, frust)
+```
+For tens of rooms the eigensolve is negligible; for thousands, $\lambda_2$ via Lanczos is $O(|E|)$ per iteration. The detector emits an ordinary tile + provenance entry, so it is auditable by the same machinery as every other decision.
+
+**(C, sharpened, with a lead time).** The precursor (spectral gap $\gamma(t)$ narrowing **and** cycle-frustration falling) leads observable behavioral synchronization by a lead time $\Delta\propto 1/\gamma$ — *slower-mixing networks announce themselves earlier*. Refutation: synchronization with constant $\gamma$ and constant frustration, or a precursor that never resolves into synchronization (false positive rate above chance).
+
+### Appendix C — Eikonal and Snell for agent transitions (→ §11)
+
+**Goal.** Derive, from the conformal metric $g=e^{2\varphi}\delta$ ($\varphi=$ vibe), the explicit bending law and the transition-rate prediction.
+
+**C.1 Geodesics of a conformal metric.** Arc length is $L[\gamma]=\int e^{\varphi(x)}\,|\dot\gamma|\,dt$, i.e. **Fermat's principle** with refractive index $n(x)=e^{\varphi(x)}$. The Christoffel symbols of $g_{ij}=e^{2\varphi}\delta_{ij}$ are
+$$
+\Gamma^k_{ij}=\delta^k_i\,\partial_j\varphi+\delta^k_j\,\partial_i\varphi-\delta_{ij}\,\partial_k\varphi,
+$$
+so the unit-speed geodesic equation $\ddot x^k+\Gamma^k_{ij}\dot x^i\dot x^j=0$ becomes
+$$
+\ddot{\mathbf x} \;=\; -\,|\dot{\mathbf x}|^2\,\nabla\varphi \;+\; 2(\dot{\mathbf x}\cdot\nabla\varphi)\,\dot{\mathbf x}.
+$$
+The component of acceleration **perpendicular** to motion is $-|\dot{\mathbf x}|^2\nabla_\perp\varphi$: a ray is bent *toward increasing $\varphi$* — **toward higher vibe.** This is the precise, coordinate-free content of "agents are refracted toward high-vibe rooms."
+
+**C.2 Eikonal equation.** Let $u(x)$ be the optical first-arrival potential from a source. Geodesics are its characteristics, and $u$ solves
+$$
+\|\nabla u(x)\| \;=\; n(x) \;=\; e^{\varphi(x)},
+$$
+with $\nabla u$ tangent to geodesics. Optical distance $d_{\mathrm{opt}}(r,s)=\inf_\gamma\int e^{\varphi}\,|d\gamma|$ replaces Euclidean distance everywhere.
+
+**C.3 Snell's law across a vibe interface.** At a boundary between regions of vibe $\varphi_1,\varphi_2$ (indices $n_1=e^{\varphi_1}$, $n_2=e^{\varphi_2}$), the **tangential component of $\nabla u$ is continuous** (since $u$ is $C^0$ and only its normal derivative jumps). Writing the incidence angles $\theta_1,\theta_2$ from the interface normal, continuity of $n\sin\theta$ gives
+$$
+n_1\sin\theta_1=n_2\sin\theta_2 \quad\Longleftrightarrow\quad \frac{\sin\theta_1}{\sin\theta_2}=e^{\,\varphi_2-\varphi_1}.
+$$
+The trajectory bends toward the higher-vibe side, exactly as light enters a denser medium.
+
+**(C, sharpened, with the formula).** Model room-hopping as a geodesic/transport process on $(R,e^{2\varphi}\delta)$. Then the inter-room transition rate is
+$$
+W(r\to s)\;\propto\;\exp\!\big(-\beta\,d_{\mathrm{opt}}(r,s)\big),\qquad d_{\mathrm{opt}}=\!\inf_\gamma\!\int e^{\varphi}|d\gamma|,
+$$
+**not** $\exp(-\beta\,\|r-s\|_{\text{Euclid}})$, and gradient crossings obey the Snell ratio $e^{\varphi_2-\varphi_1}$. Refutation: Euclidean distance predicts transitions at least as well as optical distance after fitting $\beta$, or measured deflection that does not scale as $e^{\Delta\varphi}$.
+
+### Appendix D — Liouville and the no-attractor theorem (→ §7, §2)
+
+**Goal.** Prove the structural claim that grounds "symplectic policies resist reward hacking," and price it honestly.
+
+**D.1 Liouville, in one line.** Let $X_H$ be the Hamiltonian vector field, $\iota_{X_H}\omega=dH$, on $(M^{2n},\omega)$ with $d\omega=0$. By Cartan's magic formula,
+$$
+\mathcal L_{X_H}\omega \;=\; d(\iota_{X_H}\omega)+\iota_{X_H}(d\omega)\;=\;d(dH)+0\;=\;0.
+$$
+The flow preserves $\omega$, hence the Liouville volume $\Omega=\omega^n/n!$: phase-space volume is incompressible.
+
+**D.2 No-attractor theorem.** *A volume-preserving flow has no asymptotically stable invariant set.* Suppose $A$ were asymptotically stable with open basin $B$, $\operatorname{vol}(B)>0$. By definition $\varphi_t(B)\to A$, and asymptotic stability gives a trapping region $U\supset A$ with $\varphi_T(B')\subset U$ and $\bigcap_{t\ge0}\varphi_t(U)=A$. Then $\operatorname{vol}(\varphi_t(U))\downarrow\operatorname{vol}(A)$; but an attractor is nowhere dense, so $\operatorname{vol}(A)=0$, while volume preservation forces $\operatorname{vol}(\varphi_t(U))=\operatorname{vol}(U)>0$ for all $t$ — contradiction. Hence **Hamiltonian flows admit no asymptotically stable equilibria, limit cycles, or strange attractors**; equilibria are at best Lyapunov-stable (centers). Symplectic integrators inherit this: they preserve a *shadow* $\tilde\omega$ exactly (Hairer–Lubich–Wanner 2006), so the discrete policy map cannot contract volume either.
+
+**D.3 Map to reward hacking.** Reward hacking is, dynamically, convergence of the policy iterates onto a measure-zero off-distribution exploit — an *attractor* in policy space. D.2 says a symplectic policy-update map (a symplectomorphism) **cannot** collapse onto such a set; the iterates orbit ergodically on level sets of the shadow Hamiltonian instead. This is the rigorous, smaller, true core of "the Hamiltonian prevents reward hacking" — it is Liouville, not the (self-defeating) idea of maximizing a conserved quantity.
+
+**D.4 The honest price.** No attractor means **no convergence**: a purely symplectic optimizer never settles. To make it *halt* you must add a deliberately non-symplectic dissipative term $-\eta\,\nabla(\cdot)$, and that term is exactly where contraction — and therefore the possibility of collapse — re-enters. The gain is not that collapse becomes impossible; it is that collapse is now confined to a *single, named, tunable* dissipation you chose, rather than smuggled in by an unconstrained update. Accountability, not immunity.
+
+**(C, sharpened).** Track the Liouville volume of an ensemble of policy iterates. Prediction: under symplectic optimization, $\operatorname{vol}$ is conserved to $O(\Delta t^{p})$ and the largest Lyapunov exponent is $\le 0$ (orbits, no attractor); under vanilla gradient ascent, $\operatorname{vol}$ contracts and a positive-measure basin flows to the exploit. Refutation: symplectic iterates that contract volume, or vanilla iterates that conserve it.
+
+---
+
 ### References (selected, all real; in-house constructs noted as such)
 
 **Conservation, reversibility, computation.** Noether, *Invariante Variationsprobleme* (1918). Landauer, *Irreversibility and heat generation in the computing process*, IBM J. Res. Dev. (1961). Bennett, *Logical reversibility of computation* (1973). Fredkin & Toffoli, *Conservative logic*, Int. J. Theor. Phys. (1982).
 
-**Tropical / dequantization.** Maclagan & Sturmfels, *Introduction to Tropical Geometry* (2015). Zhang, Naitzat & Lim, *Tropical Geometry of Deep Neural Networks*, ICML (2018). Litvinov & Maslov (eds.), *Idempotent Mathematics and Mathematical Physics* (2005). Mensch & Blondel, *Differentiable Dynamic Programming for Structured Prediction and Attention*, ICML (2018). Cuturi, *Sinkhorn Distances*, NeurIPS (2013). Peyré & Cuturi, *Computational Optimal Transport* (2019).
+**Tropical / dequantization.** Maclagan & Sturmfels, *Introduction to Tropical Geometry* (2015). Zhang, Naitzat & Lim, *Tropical Geometry of Deep Neural Networks*, ICML (2018). Litvinov & Maslov (eds.), *Idempotent Mathematics and Mathematical Physics* (2005). Mensch & Blondel, *Differentiable Dynamic Programming for Structured Prediction and Attention*, ICML (2018). Cuturi, *Sinkhorn Distances*, NeurIPS (2013). Peyré & Cuturi, *Computational Optimal Transport* (2019). Montúfar, Pascanu, Cho & Bengio, *On the Number of Linear Regions of Deep Neural Networks*, NeurIPS (2014). Zaslavsky, *Facing Up to Arrangements*, Mem. AMS (1975).
 
 **Sheaves / consensus / synchronization.** Curry, *Sheaves, Cosheaves and Applications* (PhD thesis, 2014). Hansen & Ghrist, *Toward a spectral theory of cellular sheaves*, J. Appl. Comput. Topol. (2019). Olfati-Saber, Fax & Murray, *Consensus and cooperation in networked multi-agent systems* (2007). Kuramoto (1975); Strogatz, *From Kuramoto to Crawford* (2000).
 
