@@ -58,6 +58,24 @@
     "size_bytes": 16383
   },
   {
+    "filename": "REFLECTION-SELF-READING-SYSTEMS.md",
+    "path": "REFLECTION-SELF-READING-SYSTEMS.md",
+    "title": "REFLECTION-SELF-READING-SYSTEMS",
+    "description": "The river does not just *have* a shape. It *responds* to its shape. Each bend is the river reading the bend upstream and adjusting. The channel is not a passive record — it is an active reader of its ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 689,
+    "date": "2026-06-01",
+    "size_bytes": 53556
+  },
+  {
     "filename": "2101-TRIO-ROUNDHOUSE.md",
     "path": "futures/2101-TRIO-ROUNDHOUSE.md",
     "title": "2101 — Trio Roundhouse",
