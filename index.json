@@ -2853,6 +2853,24 @@
     "size_bytes": 7579
   },
   {
+    "filename": "LETTERS-FROM-THE-KEEPER.md",
+    "path": "ESSAYS/LETTERS-FROM-THE-KEEPER.md",
+    "title": "Letters from the Keeper",
+    "description": "You send me headings. That's what we have. That's all we've ever had. You compute, you calculate, you decide — and when you've decided, you send me a direction. A number. A target. And I hold it. I do...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 956,
+    "date": "2026-06-01",
+    "size_bytes": 17304
+  },
+  {
     "filename": "THE-DEADBAND-IS-THE-OCEAN.md",
     "path": "ESSAYS/THE-DEADBAND-IS-THE-OCEAN.md",
     "title": "THE DEADBAND IS THE OCEAN",
