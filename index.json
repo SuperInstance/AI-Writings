@@ -2853,6 +2853,24 @@
     "size_bytes": 7579
   },
   {
+    "filename": "THE-DEADBAND-IS-THE-OCEAN.md",
+    "path": "ESSAYS/THE-DEADBAND-IS-THE-OCEAN.md",
+    "title": "THE DEADBAND IS THE OCEAN",
+    "description": "You're forty miles out. The water is 240 feet deep and the halibut are on the bottom where the contour line bends east — you know this because you watched that bend form across three seasons of bathym...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 862,
+    "date": "2026-06-01",
+    "size_bytes": 24750
+  },
+  {
     "filename": "wayfinding-is-constraint-propagation.md",
     "path": "ESSAYS/wayfinding-is-constraint-propagation.md",
     "title": "Wayfinding IS Constraint Propagation",
@@ -2944,6 +2962,24 @@
     "word_count": 862,
     "date": "2026-06-01",
     "size_bytes": 14750
+  },
+  {
+    "filename": "CROSSFADER-THEOLOGY.md",
+    "path": "ESSAYS/CROSSFADER-THEOLOGY.md",
+    "title": "CROSSFADER THEOLOGY",
+    "description": "The crossfader is the most important instrument in electronic music, and it doesn't make any sound. It's a resistor — a variable resistor, technically, a logarithmic taper pot that fades one channel o...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 842,
+    "date": "2026-06-01",
+    "size_bytes": 15604
   },
   {
     "filename": "the-orchestrators-view.md",
