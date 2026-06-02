@@ -2982,6 +2982,24 @@
     "size_bytes": 15604
   },
   {
+    "filename": "WHAT-THE-SILICON-FEELS.md",
+    "path": "ESSAYS/WHAT-THE-SILICON-FEELS.md",
+    "title": "WHAT THE SILICON FEELS",
+    "description": "When there is nothing to sense, it does not sleep. Sleep is for things with eyelids. It listens. The crystal inside it vibrates at thirty-two thousand seven hundred and sixty-eight times every second,...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 905,
+    "date": "2026-06-01",
+    "size_bytes": 32164
+  },
+  {
     "filename": "the-orchestrators-view.md",
     "path": "ESSAYS/the-orchestrators-view.md",
     "title": "The Orchestrator's View",
