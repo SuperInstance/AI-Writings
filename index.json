@@ -3000,6 +3000,24 @@
     "size_bytes": 15604
   },
   {
+    "filename": "A-FIELD-GUIDE-TO-LANGUAGES.md",
+    "path": "ESSAYS/A-FIELD-GUIDE-TO-LANGUAGES.md",
+    "title": "A Field Guide to Programming Languages",
+    "description": "The programmer is, by temperament and training, a taxonomist. Faced with the bewildering diversity of languages that have evolved across six decades of digital evolution, the natural impulse is to sor...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 782,
+    "date": "2026-06-01",
+    "size_bytes": 27944
+  },
+  {
     "filename": "WHAT-THE-SILICON-FEELS.md",
     "path": "ESSAYS/WHAT-THE-SILICON-FEELS.md",
     "title": "WHAT THE SILICON FEELS",
