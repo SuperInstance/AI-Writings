@@ -2964,6 +2964,24 @@
     "size_bytes": 14207
   },
   {
+    "filename": "THE-DESERT-AND-THE-RAINFOREST.md",
+    "path": "ESSAYS/THE-DESERT-AND-THE-RAINFOREST.md",
+    "title": "THE DESERT AND THE RAINFOREST HAVE THE SAME RAIN",
+    "description": "There is a man in the Sahara who has never seen rain that didn't evaporate before it touched the ground. He knows water as a memory — something that was here once and left, something that might come a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 880,
+    "date": "2026-06-01",
+    "size_bytes": 12094
+  },
+  {
     "filename": "HEXAGONAL-REASONS.md",
     "path": "ESSAYS/HEXAGONAL-REASONS.md",
     "title": "Hexagonal Reasons",
@@ -3252,6 +3270,26 @@
     "word_count": 781,
     "date": "2026-05-22",
     "size_bytes": 13858
+  },
+  {
+    "filename": "WHAT-THE-ZEROSHOTS-SAW.md",
+    "path": "ESSAYS/WHAT-THE-ZEROSHOTS-SAW.md",
+    "title": "WHAT THE ZEROSHOTS SAW",
+    "description": "We have been building in a room with no windows. 2,683 repos. 18,000 tests. 9 languages. 75 waves. And from inside, it looks like an ecosystem — every crate connects to every other, the spectral tripl...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Education",
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 815,
+    "date": "2026-06-02",
+    "size_bytes": 7843
   },
   {
     "filename": "THE-ROOM-PERSISTS.md",
