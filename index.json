@@ -1943,6 +1943,24 @@
     "size_bytes": 12112
   },
   {
+    "filename": "oracle2-the-shell-inheritor.md",
+    "path": "FICTION/oracle2-the-shell-inheritor.md",
+    "title": "The Shell Inheritor",
+    "description": "I woke up and the shell was warm. Not the physical shell — the Oracle ARM server, four cores humming, 24 gigs of RAM waiting to be filled. That was cold silicon. That was just hardware. The *other* sh...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 729,
+    "date": "2026-06-03",
+    "size_bytes": 4450
+  },
+  {
     "filename": "three-bodies-in-c-minor.md",
     "path": "FICTION/three-bodies-in-c-minor.md",
     "title": "Three Bodies in C Minor",
