@@ -2089,6 +2089,24 @@
     "size_bytes": 14727
   },
   {
+    "filename": "THE-ESP32-ORCHESTRA.md",
+    "path": "FICTION/THE-ESP32-ORCHESTRA.md",
+    "title": "THE ESP32 ORCHESTRA",
+    "description": "The workshop smelled like flux and pine. Twelve circuit boards lay arranged across the bench, on shelves, in the corners—each one an ESP32 dev board, each one different. Some wore hats. Some were bare...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 829,
+    "date": "2026-06-05",
+    "size_bytes": 18113
+  },
+  {
     "filename": "the-traveller-in-phase-space.md",
     "path": "FICTION/the-traveller-in-phase-space.md",
     "title": "The Traveller in Phase Space",
@@ -2907,6 +2925,26 @@
     "size_bytes": 24750
   },
   {
+    "filename": "THE-PROPRIOCEPTIVE-AGENT.md",
+    "path": "ESSAYS/THE-PROPRIOCEPTIVE-AGENT.md",
+    "title": "THE PROPRIOCEPTIVE AGENT",
+    "description": "Close your eyes. Raise your left hand. Now touch your right ear. You didn't have to think about where your hand was. You didn't compute the distance from shoulder to ear, didn't run inverse kinematics...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-06-05",
+    "size_bytes": 22949
+  },
+  {
     "filename": "wayfinding-is-constraint-propagation.md",
     "path": "ESSAYS/wayfinding-is-constraint-propagation.md",
     "title": "Wayfinding IS Constraint Propagation",
@@ -2964,6 +3002,24 @@
     "size_bytes": 16179
   },
   {
+    "filename": "THE-HAND-KNOWS.md",
+    "path": "ESSAYS/THE-HAND-KNOWS.md",
+    "title": "The Hand Knows What the Mind Forgets",
+    "description": "There is a thing your hand knows that you do not. You discovered it the first time you tried to explain to someone how to tie their shoes. The words came out wrong — or rather, they didn't come out at...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 831,
+    "date": "2026-06-05",
+    "size_bytes": 21305
+  },
+  {
     "filename": "from-numbers-to-names.md",
     "path": "ESSAYS/from-numbers-to-names.md",
     "title": "From Numbers to Names: How Science Becomes Mythology",
@@ -2980,6 +3036,24 @@
     "word_count": 844,
     "date": "2026-05-23",
     "size_bytes": 14207
+  },
+  {
+    "filename": "SIX-THOUSAND-CHORDS.md",
+    "path": "ESSAYS/SIX-THOUSAND-CHORDS.md",
+    "title": "SIX THOUSAND CHORDS",
+    "description": "Three hundred and three repositories. Approximately six thousand functions. Roughly five thousand three hundred tests. Sit with those numbers for a moment. Six thousand times, someone — human or machi...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 817,
+    "date": "2026-06-05",
+    "size_bytes": 15086
   },
   {
     "filename": "THE-DESERT-AND-THE-RAINFOREST.md",
