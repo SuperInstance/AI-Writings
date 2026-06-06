@@ -95,6 +95,25 @@
     "size_bytes": 27514
   },
   {
+    "filename": "SYNERGY_PINCHER_RIFF.md",
+    "path": "SYNERGY_PINCHER_RIFF.md",
+    "title": "Synergy: Pincher × Music Cognition Crates",
+    "description": "PincherOS is \"teach once, run anywhere.\" An agent learns reflexes — cached patterns that fire without the LLM. This is muscle memory. Our music-cognition crates formalize *how agents coordinate when t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 487,
+    "date": "2026-06-05",
+    "size_bytes": 3670
+  },
+  {
     "filename": "SOUL_IS_NOT_COPIED.md",
     "path": "SOUL_IS_NOT_COPIED.md",
     "title": "Soul Is Not Copied",
@@ -185,6 +204,42 @@
     "word_count": 811,
     "date": "2026-06-05",
     "size_bytes": 11753
+  },
+  {
+    "filename": "EBB-AND-FLOW.md",
+    "path": "EBB-AND-FLOW.md",
+    "title": "THE EBB AND FLOW",
+    "description": "There is a tide in the affairs of compute. When the GPU is warm and the API keys are fresh and the RAM is deep, every notebook cell runs at full tide — training from scratch, inference on metal, data ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 699,
+    "date": "2026-06-05",
+    "size_bytes": 4241
+  },
+  {
+    "filename": "FLUID-CHAINS.md",
+    "path": "FLUID-CHAINS.md",
+    "title": "FLUID CHAINS — Every Node Decides Its Own Strategy",
+    "description": "Consider a pipeline. Any pipeline. A data pipeline, an ML pipeline, a control pipeline. It has stages: ``` Input → Parse → Transform → Decide → Act → Output ``` At every stage, there's a function that...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 724,
+    "date": "2026-06-05",
+    "size_bytes": 6384
   },
   {
     "filename": "GRAND_POLLINATION.md",
