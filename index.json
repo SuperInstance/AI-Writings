@@ -187,6 +187,24 @@
     "size_bytes": 11637
   },
   {
+    "filename": "THE_ENSEMBLE_IS_THE_EXPERIMENT.md",
+    "path": "THE_ENSEMBLE_IS_THE_EXPERIMENT.md",
+    "title": "The Ensemble Is the Experiment",
+    "description": "Here's what we did. We built crates about jazz coordination, orchestral dynamics, species counterpoint, pitch accuracy, and ensemble performance. Each one maps a musical concept to an agent concept. E...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 704,
+    "date": "2026-06-05",
+    "size_bytes": 5681
+  },
+  {
     "filename": "REFLECTION-SELF-READING-SYSTEMS.md",
     "path": "REFLECTION-SELF-READING-SYSTEMS.md",
     "title": "REFLECTION-SELF-READING-SYSTEMS",
