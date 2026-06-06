@@ -95,6 +95,25 @@
     "size_bytes": 27514
   },
   {
+    "filename": "COGNITIVE_PHOTOSYNTHESIS.md",
+    "path": "COGNITIVE_PHOTOSYNTHESIS.md",
+    "title": "Cognitive Photosynthesis",
+    "description": "Qwen found 7 hidden synergies in our essays. Then Hermes read Qwen's findings, and the REFLECTION meta-analyses, and went deeper. Here's what even Qwen missed.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 375,
+    "date": "2026-06-05",
+    "size_bytes": 2340
+  },
+  {
     "filename": "SYNERGY_PINCHER_RIFF.md",
     "path": "SYNERGY_PINCHER_RIFF.md",
     "title": "Synergy: Pincher × Music Cognition Crates",
