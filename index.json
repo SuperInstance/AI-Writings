@@ -1,5 +1,23 @@
 [
   {
+    "filename": "THE_JAM_IS_THE_LAB.md",
+    "path": "THE_JAM_IS_THE_LAB.md",
+    "title": "The Jam Is the Lab",
+    "description": "There is a moment in every good jam session — not the beginning, when everyone is polite, and not the climax, when everyone is loud — but the middle, the stretch, the part where nobody is leading and ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 815,
+    "date": "2026-06-05",
+    "size_bytes": 12320
+  },
+  {
     "filename": "REFLECTION-CONSTRAINT-LANGUAGES.md",
     "path": "REFLECTION-CONSTRAINT-LANGUAGES.md",
     "title": "Reflection: Constraint-Native Languages",
