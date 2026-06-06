@@ -3328,6 +3328,24 @@
     "size_bytes": 15847
   },
   {
+    "filename": "FLUID-CHAINS.md",
+    "path": "ESSAYS/FLUID-CHAINS.md",
+    "title": "FLUID CHAINS — Every Node Decides Its Own Strategy",
+    "description": "Consider a pipeline. Any pipeline. A data pipeline, an ML pipeline, a control pipeline. It has stages: ``` Input → Parse → Transform → Decide → Act → Output ``` At every stage, there's a function that...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 724,
+    "date": "2026-06-05",
+    "size_bytes": 6384
+  },
+  {
     "filename": "the-coastline-of-creativity.md",
     "path": "ESSAYS/the-coastline-of-creativity.md",
     "title": "The Coastline of Creativity",
