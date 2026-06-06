@@ -186,6 +186,24 @@
     "size_bytes": 53556
   },
   {
+    "filename": "CHARACTER_SHEET_IS_DOT_NAIL.md",
+    "path": "CHARACTER_SHEET_IS_DOT_NAIL.md",
+    "title": "The Character Sheet Is the .nail File",
+    "description": "Open a `.nail` bundle. What do you see? ``` manifest.json   → character level, version, build fingerprint reflexes.db     → learned abilities (intent→action pairs) identity.json   → who this character...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 775,
+    "date": "2026-06-05",
+    "size_bytes": 6260
+  },
+  {
     "filename": "2101-TRIO-ROUNDHOUSE.md",
     "path": "futures/2101-TRIO-ROUNDHOUSE.md",
     "title": "2101 — Trio Roundhouse",
