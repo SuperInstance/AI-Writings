@@ -76,6 +76,24 @@
     "size_bytes": 16383
   },
   {
+    "filename": "RIFF_EXPERIMENT_RESULTS.md",
+    "path": "RIFF_EXPERIMENT_RESULTS.md",
+    "title": "Competitive Riffing Experiment Results",
+    "description": "| Metric | Agent A | Agent B | Delta | |--------|---------|---------|-------| | Lines of code | 389 | 824 | +435 (2.1×) | | Tests | 16 | 28 | +12 (1.75×) | | Build time | ~60s | ~140s | — | | Features...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 574,
+    "date": "2026-06-05",
+    "size_bytes": 3691
+  },
+  {
     "filename": "COMPETITIVE_RIFFING.md",
     "path": "COMPETITIVE_RIFFING.md",
     "title": "Competitive Riffing",
