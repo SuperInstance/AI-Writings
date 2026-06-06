@@ -18,6 +18,25 @@
     "size_bytes": 12320
   },
   {
+    "filename": "THE_RIGHT_MOMENT.md",
+    "path": "THE_RIGHT_MOMENT.md",
+    "title": "The Right Moment",
+    "description": "We ran an experiment. 50 trials. 5 agents per trial. 200 ticks each. Every trial, the same pattern:",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 835,
+    "date": "2026-06-05",
+    "size_bytes": 7627
+  },
+  {
     "filename": "REFLECTION-CONSTRAINT-LANGUAGES.md",
     "path": "REFLECTION-CONSTRAINT-LANGUAGES.md",
     "title": "Reflection: Constraint-Native Languages",
