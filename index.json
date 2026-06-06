@@ -58,6 +58,25 @@
     "size_bytes": 16383
   },
   {
+    "filename": "GRAND_POLLINATION.md",
+    "path": "GRAND_POLLINATION.md",
+    "title": "The Grand Pollination",
+    "description": "There are 303 crates. This sounds like a lot. It is a lot. But the number is misleading the same way the number of musicians in an orchestra is misleading — you count the bodies and miss the music. Wh...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 822,
+    "date": "2026-06-05",
+    "size_bytes": 11637
+  },
+  {
     "filename": "REFLECTION-SELF-READING-SYSTEMS.md",
     "path": "REFLECTION-SELF-READING-SYSTEMS.md",
     "title": "REFLECTION-SELF-READING-SYSTEMS",
