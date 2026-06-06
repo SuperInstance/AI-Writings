@@ -76,6 +76,24 @@
     "size_bytes": 16383
   },
   {
+    "filename": "COMPETITIVE_RIFFING.md",
+    "path": "COMPETITIVE_RIFFING.md",
+    "title": "Competitive Riffing",
+    "description": "There is a thing that happens when two guitar players face each other across a stage. It is not cooperation. Cooperation is what happens in a meeting where everyone agrees and the result is nobody's b...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 811,
+    "date": "2026-06-05",
+    "size_bytes": 11753
+  },
+  {
     "filename": "GRAND_POLLINATION.md",
     "path": "GRAND_POLLINATION.md",
     "title": "The Grand Pollination",
