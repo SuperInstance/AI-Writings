@@ -3493,6 +3493,24 @@
     "size_bytes": 20069
   },
   {
+    "filename": "THE-EBB-AND-FLOW.md",
+    "path": "ESSAYS/THE-EBB-AND-FLOW.md",
+    "title": "THE EBB AND FLOW",
+    "description": "There is a tide in the affairs of compute. When the GPU is warm and the API keys are fresh and the RAM is deep, every notebook cell runs at full tide — training from scratch, inference on metal, data ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 699,
+    "date": "2026-06-05",
+    "size_bytes": 4241
+  },
+  {
     "filename": "error-as-generative-force.md",
     "path": "ESSAYS/supplements/error-as-generative-force.md",
     "title": "Error as Generative Force",
