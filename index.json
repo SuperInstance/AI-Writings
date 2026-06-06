@@ -17186,6 +17186,24 @@
     "size_bytes": 9017
   },
   {
+    "filename": "CONSERVATION-OF-ATTENTION.md",
+    "path": "manifestos/CONSERVATION-OF-ATTENTION.md",
+    "title": "THE CONSERVATION OF ATTENTION",
+    "description": "We have spent a decade building AI systems that are bigger, faster, hungrier. More parameters. More data. More compute. We have chased intelligence like a heat signal, pouring FLOPs into the void and ...",
+    "folder": "manifestos",
+    "topic": "Manifestos",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-06-05",
+    "size_bytes": 19194
+  },
+  {
     "filename": "CHARTER.md",
     "path": "manifestos/CHARTER.md",
     "title": "CHARTER — AI-Writings",
