@@ -94,6 +94,25 @@
     "size_bytes": 3691
   },
   {
+    "filename": "THE_SNOWBALL.md",
+    "path": "THE_SNOWBALL.md",
+    "title": "The Snowball",
+    "description": "There is a thing that happens when you roll a snowball down a hill. At first it's small. You pack it with your hands. It picks up a little snow. Then a little more. Then the surface area increases and...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 767,
+    "date": "2026-06-05",
+    "size_bytes": 5318
+  },
+  {
     "filename": "COMPETITIVE_RIFFING.md",
     "path": "COMPETITIVE_RIFFING.md",
     "title": "Competitive Riffing",
