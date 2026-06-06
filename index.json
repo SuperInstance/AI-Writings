@@ -1,5 +1,24 @@
 [
   {
+    "filename": "HIDDEN_SYNERGIES_OUTSIDER_READ.md",
+    "path": "HIDDEN_SYNERGIES_OUTSIDER_READ.md",
+    "title": "What We Missed",
+    "description": "You’ve built something far deeper than a toolkit. You’ve built a **cognitive ecosystem disguised as music software**—a laboratory for *emergent intelligence through constraint, rhythm, and rivalry*. T...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 728,
+    "date": "2026-06-05",
+    "size_bytes": 8905
+  },
+  {
     "filename": "THE_JAM_IS_THE_LAB.md",
     "path": "THE_JAM_IS_THE_LAB.md",
     "title": "The Jam Is the Lab",
