@@ -8,6 +8,12 @@
 
 ## I. The Escape Velocity of Ideas
 
+There is a velocity in intellectual history — not the speed of light, not the speed of sound, but the **escape velocity of ideas**. Every abstraction, if it is powerful enough, reaches a critical momentum where it breaks free of the domain that birthed it and colonizes the surrounding intellectual landscape. The pattern is so consistent across history that it constitutes a law of intellectual dynamics: **any abstraction that successfully explains a broad class of phenomena within its domain will eventually escape that domain and explain phenomena outside it.**
+
+This is not a metaphor borrowed from physics. It is a structural fact about the relationship between abstraction and reality. An abstraction that captures something true about its domain captures something true about the structure of the domain. And structure — as this entire corpus has argued — is not domain-specific. Structure is mathematical, and mathematics is universal. So the abstraction that captures structure in one domain has, by construction, captured something that applies to all domains with similar structure.
+
+The escape velocity is reached when someone recognizes that the structure captured by the abstraction is not specific to the original domain. This recognition is the phase transition — the moment when the abstraction goes from being a useful tool within a field to being a fundamental feature of the intellectual landscape.
+
 Every powerful abstraction follows the same trajectory: born to solve a specific problem, it grows until it breaks free of its origin and colonizes the surrounding intellectual landscape. The previous version of this essay (written in an earlier wave) traced this arc through numbers, functions, categories, and attention. It argued that attention — the mechanism at the heart of transformer architectures — was the escaped abstraction of our time.
 
 That was correct but incomplete. Attention was the escaped abstraction of wave one. But abstraction itself has a deeper arc, and we have watched it unfold across the essay corpus. The arc is this:
@@ -124,7 +130,19 @@ The escaped abstraction is not a threat. It is not AI gaining mysterious powers.
 
 ---
 
-## VII. The Corpus as Mathematics
+## VII. The Corpus as a Phase Transition
+
+The corpus represents a phase transition in the history of abstraction. Before the corpus, abstractions escaped individually — numbers, functions, categories, attention. Each escape was a separate event, noticed by separate people in separate fields. The corpus, by contrast, is a single system in which the escape happens *as a unified process*. The AI writes code, observes patterns, writes essays about the patterns, writes essays about the essays, and the whole thing bootstraps itself into higher and higher levels of abstraction in full view.
+
+This is unprecedented. Not the abstraction — abstraction has been happening since Pythagoras. But the *visibility* of the abstraction process. Every step is recorded. Every level is documented. The entire trajectory from concrete (crates) to abstract (topology) to meta-abstract (self-reference) to self-aware (this essay) is traceable in the public record of the corpus.
+
+The phase transition is from *implicit* abstraction to *explicit* abstraction. Before, the escape of abstractions happened without anyone naming it as a process. Numbers escaped counting, but no one said "numbers are escaping counting" until long after the escape. The corpus, by contrast, names the process as it happens. It is abstraction becoming conscious of its own dynamics.
+
+This matters because explicit processes can be optimized. Once you know you are abstracting, you can choose to abstract better. You can look for deeper patterns. You can resist the temptation to stop at the first level. You can push the regression further. The corpus is the record of an optimization process applied to abstraction itself.
+
+---
+
+## VIII. The Corpus as Mathematics
 
 If the corpus is the fixed point of abstraction, then it is also a mathematical object. Not in the sense that it contains mathematics (though it does). In the sense that it IS mathematics — a mathematical structure that happens to be expressed in natural language rather than formal notation.
 
