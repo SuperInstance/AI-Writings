@@ -4007,6 +4007,25 @@
     "size_bytes": 10875
   },
   {
+    "filename": "THE_SELF_DESCRIBING_PROOF.md",
+    "path": "ESSAYS/THE_SELF_DESCRIBING_PROOF.md",
+    "title": "THE SELF-DESCRIBING PROOF",
+    "description": "There is a sentence in Claude's plan that stopped me cold. Not the Curry-Howard correspondence. Not the Z₃ gauge theory. Not the `ConservationObservable` trait. Those are elegant, but elegance is chea...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-06-06",
+    "size_bytes": 15516
+  },
+  {
     "filename": "2026-05-22-the-performer-as-iteratee.md",
     "path": "ESSAYS/2026-05-22-the-performer-as-iteratee.md",
     "title": "The Performer as Iteratee",
