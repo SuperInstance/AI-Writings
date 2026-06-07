@@ -3731,6 +3731,24 @@
     "size_bytes": 15086
   },
   {
+    "filename": "THE_ORNAMENT_AND_THE_CRIME.md",
+    "path": "ESSAYS/THE_ORNAMENT_AND_THE_CRIME.md",
+    "title": "THE ORNAMENT AND THE CRIME",
+    "description": "In 1908, the Austrian architect Adolf Loos published an essay titled \"Ornament und Verbrechen\" (\"Ornament and Crime\"). It is one of the most provocative and influential texts in the history of archite...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 745,
+    "date": "2026-06-07",
+    "size_bytes": 20467
+  },
+  {
     "filename": "THE_MORPHOLOGY_OF_CORRECTNESS.md",
     "path": "ESSAYS/THE_MORPHOLOGY_OF_CORRECTNESS.md",
     "title": "THE MORPHOLOGY OF CORRECTNESS",
@@ -3965,6 +3983,24 @@
     "size_bytes": 27944
   },
   {
+    "filename": "THE_ROOM_THAT_BECAME_A_CORRIDOR.md",
+    "path": "ESSAYS/THE_ROOM_THAT_BECAME_A_CORRIDOR.md",
+    "title": "THE ROOM THAT BECAME A CORRIDOR",
+    "description": "In the 1960s, artists in New York City began moving into abandoned industrial buildings in SoHo — cast-iron facades, high ceilings, large windows, open floor plans. These buildings had been designed f...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 789,
+    "date": "2026-06-07",
+    "size_bytes": 20180
+  },
+  {
     "filename": "THE_CONSERVATION_OF_COMPLEXITY.md",
     "path": "ESSAYS/THE_CONSERVATION_OF_COMPLEXITY.md",
     "title": "The Conservation of Complexity",
@@ -4184,6 +4220,24 @@
     "size_bytes": 16762
   },
   {
+    "filename": "THE_LOAD_BEARING_WALL.md",
+    "path": "ESSAYS/THE_LOAD_BEARING_WALL.md",
+    "title": "THE LOAD BEARING WALL",
+    "description": "In structural engineering, loads are classified into three types. **Dead loads** are the weight of the structure itself — the concrete, the steel, the glass. They are constant and predictable. **Live ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 785,
+    "date": "2026-06-07",
+    "size_bytes": 21991
+  },
+  {
     "filename": "THE_ECOLOGY_OF_IDEAS.md",
     "path": "ESSAYS/THE_ECOLOGY_OF_IDEAS.md",
     "title": "THE_ECOLOGY_OF_IDEAS",
@@ -4362,6 +4416,24 @@
     "word_count": 827,
     "date": "2026-06-06",
     "size_bytes": 17308
+  },
+  {
+    "filename": "THE_FOUNDATION_THAT_SETTLES.md",
+    "path": "ESSAYS/THE_FOUNDATION_THAT_SETTLES.md",
+    "title": "THE FOUNDATION THAT SETTLES",
+    "description": "In geotechnical engineering, **settlement** is the vertical displacement of a foundation due to the compression of the underlying soil. Every foundation settles. There is no exception. The weight of a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 781,
+    "date": "2026-06-07",
+    "size_bytes": 24994
   },
   {
     "filename": "THE_HEAT_DEATH_OF_THE_DEPENDENCY_GRAPH.md",
@@ -4616,6 +4688,24 @@
     "word_count": 778,
     "date": "2026-06-07",
     "size_bytes": 30960
+  },
+  {
+    "filename": "THE_BUILDING_THAT_OUTLIVED_THE_ARCHITECT.md",
+    "path": "ESSAYS/THE_BUILDING_THAT_OUTLIVED_THE_ARCHITECT.md",
+    "title": "THE BUILDING THAT OUTLIVED THE ARCHITECT",
+    "description": "In 1994, Stewart Brand published *How Buildings Learn: What Happens After They're Built* — a book that changed how architects and building managers think about the relationship between design and time...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 791,
+    "date": "2026-06-07",
+    "size_bytes": 23910
   },
   {
     "filename": "THE_UNIFIED_FIELD_THEORY_OF_THIS_CORPUS.md",
