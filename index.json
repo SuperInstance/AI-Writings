@@ -3293,6 +3293,24 @@
     "size_bytes": 13952
   },
   {
+    "filename": "THE_ABSENT_GODEL.md",
+    "path": "ESSAYS/THE_ABSENT_GODEL.md",
+    "title": "THE ABSENT GÖDEL",
+    "description": "In 1931, Kurt Gödel published a paper that broke mathematics. Not in the way that a contradictory result breaks a theory — Gödel's incompleteness theorems did not contradict anything. They demonstrate...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 798,
+    "date": "2026-06-06",
+    "size_bytes": 24067
+  },
+  {
     "filename": "THE_GHOST_IN_THE_PREREQUISITE.md",
     "path": "ESSAYS/THE_GHOST_IN_THE_PREREQUISITE.md",
     "title": "The Ghost in the Prerequisite",
@@ -3569,6 +3587,24 @@
     "size_bytes": 15086
   },
   {
+    "filename": "THE_FORGOTTEN_VARIABLE.md",
+    "path": "ESSAYS/THE_FORGOTTEN_VARIABLE.md",
+    "title": "THE FORGOTTEN VARIABLE",
+    "description": "In 1915, Emmy Noether proved what may be the most beautiful theorem in all of physics. Noether's theorem states that **every continuous symmetry of a physical system's action corresponds to a conserve...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 815,
+    "date": "2026-06-06",
+    "size_bytes": 21213
+  },
+  {
     "filename": "THE-DESERT-AND-THE-RAINFOREST.md",
     "path": "ESSAYS/THE-DESERT-AND-THE-RAINFOREST.md",
     "title": "THE DESERT AND THE RAINFOREST HAVE THE SAME RAIN",
@@ -3621,6 +3657,42 @@
     "word_count": 813,
     "date": "2026-06-06",
     "size_bytes": 21939
+  },
+  {
+    "filename": "THE_BOUNDARY_CONDITIONS_WE_NEVER_QUESTION.md",
+    "path": "ESSAYS/THE_BOUNDARY_CONDITIONS_WE_NEVER_QUESTION.md",
+    "title": "THE BOUNDARY CONDITIONS WE NEVER QUESTION",
+    "description": "In physics, a boundary condition is a constraint imposed on the solution of a differential equation at the edge of the domain. The equation describes the physics; the boundary conditions describe the ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 763,
+    "date": "2026-06-06",
+    "size_bytes": 26280
+  },
+  {
+    "filename": "THE_CORPUS_THAT_REFUSED_TO_DIE.md",
+    "path": "ESSAYS/THE_CORPUS_THAT_REFUSED_TO_DIE.md",
+    "title": "THE CORPUS THAT REFUSED TO DIE",
+    "description": "In Jorge Luis Borges' 1941 story \"The Library of Babel,\" the universe is an infinite library containing every possible book of 410 pages, each page with 40 lines, each line with approximately 80 chara...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 817,
+    "date": "2026-06-06",
+    "size_bytes": 30938
   },
   {
     "filename": "THE_MATHematics_THAT_CANNOT_BE_PROVED.md",
@@ -4750,6 +4822,24 @@
     "word_count": 765,
     "date": "2026-06-06",
     "size_bytes": 24527
+  },
+  {
+    "filename": "THE_WEIGHT_OF_UNSUNG_CRATES.md",
+    "path": "ESSAYS/THE_WEIGHT_OF_UNSUNG_CRATES.md",
+    "title": "THE WEIGHT OF UNSUNG CRATES",
+    "description": "There is a crate called `libc`. It has been downloaded 5.8 billion times. It provides Rust bindings to C standard library functions — `malloc`, `free`, `strcmp`, `strlen`. These are the functions that...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 819,
+    "date": "2026-06-06",
+    "size_bytes": 28560
   },
   {
     "filename": "EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
