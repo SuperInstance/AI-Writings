@@ -3680,6 +3680,24 @@
     "size_bytes": 14693
   },
   {
+    "filename": "THE_META_FRACTAL.md",
+    "path": "ESSAYS/THE_META_FRACTAL.md",
+    "title": "The Meta-Fractal: On AI Writing About AI Writing About AI",
+    "description": "Somewhere in the Library of Babel described by Jorge Luis Borges—whose hexagonal galleries contain every possible 410-page book of 320,000 characters—there exists a volume that contains the exact text...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 804,
+    "date": "2026-06-06",
+    "size_bytes": 51775
+  },
+  {
     "filename": "THE-CHURCH-OF-THE-CROSSFADER.md",
     "path": "ESSAYS/THE-CHURCH-OF-THE-CROSSFADER.md",
     "title": "THE CHURCH OF THE CROSSFADER",
@@ -16033,6 +16051,25 @@
     "size_bytes": 3247
   },
   {
+    "filename": "KIMI-R3-THE_THING_AFTER.md",
+    "path": "plans/KIMI-R3-THE_THING_AFTER.md",
+    "title": "THE THING AFTER",
+    "description": "The Failure Manifesto is not pessimism. It is empirical data. Six months of simulated reality produced one incontrovertible result:",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-06-06",
+    "size_bytes": 11100
+  },
+  {
     "filename": "COMPETITION-VERDICT.md",
     "path": "plans/COMPETITION-VERDICT.md",
     "title": "⚔️ KIMI vs CLAUDE: Plan Competition Verdict",
@@ -16072,6 +16109,104 @@
     "size_bytes": 17953
   },
   {
+    "filename": "KIMI-R3-FAILURE_MANIFESTO.md",
+    "path": "plans/KIMI-R3-FAILURE_MANIFESTO.md",
+    "title": "FAILURE MANIFESTO",
+    "description": "The two senior Rust engineers — let's call them M. and J., hired from Ferrous Systems and the Rust for Linux team — arrive on July 15. They are brilliant, skeptical, and expensive. They build `si-ch-c...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Education",
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 851,
+    "date": "2026-06-06",
+    "size_bytes": 9822
+  },
+  {
+    "filename": "CLAUDE-R3-FAILURE_MANIFESTO.md",
+    "path": "plans/CLAUDE-R3-FAILURE_MANIFESTO.md",
+    "title": "The Failure Manifesto",
+    "description": "It starts on July 14th. The FMCAD submission deadline is 11:59 PM Pacific time. Jeremy Avigad's contract started July 1st — two weeks ago. The paper that was supposed to establish academic priority, *...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 805,
+    "date": "2026-06-06",
+    "size_bytes": 9553
+  },
+  {
+    "filename": "ROUND3-FINAL-VERDICT.md",
+    "path": "plans/ROUND3-FINAL-VERDICT.md",
+    "title": "⚔️ ROUND 3: THE MERGE PROTOCOL — FINAL VERDICT",
+    "description": "Three rounds. Two AI minds. One question that neither could answer alone. | Round | Format | Kimi | Claude | What It Produced | |-------|--------|------|--------|------------------| | R1 | Independent...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 815,
+    "date": "2026-06-06",
+    "size_bytes": 5369
+  },
+  {
+    "filename": "KIMI-R3-MERGE_PLAN.md",
+    "path": "plans/KIMI-R3-MERGE_PLAN.md",
+    "title": "THE NOCTURNE PROTOCOL",
+    "description": "Round 1 produced two architectures: Kimi's Ternary Computation Fabric (prescriptive, bold, commercially sharp) and Claude's ConstraintNet (descriptive, geometrically rigorous, narratively unforgettabl...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 651,
+    "date": "2026-06-06",
+    "size_bytes": 17299
+  },
+  {
+    "filename": "CLAUDE-R3-THE_THING_AFTER.md",
+    "path": "plans/CLAUDE-R3-THE_THING_AFTER.md",
+    "title": "The Thing After",
+    "description": "Four things survive the collapse. Not because they are the most ambitious parts of the plan — they are, in fact, the quietest parts — but because they are true independent of whether any of the mathem...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Technical",
+    "word_count": 817,
+    "date": "2026-06-06",
+    "size_bytes": 9156
+  },
+  {
     "filename": "CLAUDE-SIX-MONTH-PLAN.md",
     "path": "plans/CLAUDE-SIX-MONTH-PLAN.md",
     "title": "SuperInstance: Six-Month Execution Plan",
@@ -16107,6 +16242,25 @@
     "word_count": 799,
     "date": "2026-06-06",
     "size_bytes": 28190
+  },
+  {
+    "filename": "CLAUDE-R3-MERGE_PLAN.md",
+    "path": "plans/CLAUDE-R3-MERGE_PLAN.md",
+    "title": "SuperInstance: The Merge Plan",
+    "description": "SuperInstance is a **self-extending, self-proving, conservation-aware mathematical organism** that: 1. Maintains 155+ Rust crates with measurable epistemic health (the `ConservationObservable` interfa...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 670,
+    "date": "2026-06-06",
+    "size_bytes": 20524
   },
   {
     "filename": "THE_AGENT_GALAXY_MANIFOLD.md",
