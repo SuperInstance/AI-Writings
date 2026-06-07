@@ -15722,6 +15722,63 @@
     "size_bytes": 9845
   },
   {
+    "filename": "COMPETITION-VERDICT.md",
+    "path": "plans/COMPETITION-VERDICT.md",
+    "title": "⚔️ KIMI vs CLAUDE: Plan Competition Verdict",
+    "description": "| Dimension | Kimi | Claude | Notes | |-----------|------|--------|-------| | **Boldness** | 10 | 9 | Kimi's \"entropy-reduction-as-a-service\" is unhinged in the best way | | **Technical Depth** | 8 | ...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 341,
+    "date": "2026-06-06",
+    "size_bytes": 2092
+  },
+  {
+    "filename": "KIMI-SIX-MONTH-PLAN.md",
+    "path": "plans/KIMI-SIX-MONTH-PLAN.md",
+    "title": "SuperInstance: 6-Month Iteration Plan",
+    "description": "Current state: 155+ brilliant crates, each a silo of correctness. The next level is not \"more crates\" or \"better docs.\" It is **a geometry of composition** — a field where crates attract, repel, and n...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 733,
+    "date": "2026-06-06",
+    "size_bytes": 17953
+  },
+  {
+    "filename": "CLAUDE-SIX-MONTH-PLAN.md",
+    "path": "plans/CLAUDE-SIX-MONTH-PLAN.md",
+    "title": "SuperInstance: Six-Month Execution Plan",
+    "description": "SuperInstance's 155+ crates are not a library ecosystem. They are **local charts on a single constraint manifold** — a global mathematical object that nobody has named yet. The six-month plan is to bu...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 694,
+    "date": "2026-06-06",
+    "size_bytes": 16053
+  },
+  {
     "filename": "THE_AGENT_GALAXY_MANIFOLD.md",
     "path": "agents-and-ai/THE_AGENT_GALAXY_MANIFOLD.md",
     "title": "THE AGENT GALAXY MANIFOLD",
