@@ -3275,6 +3275,24 @@
     "size_bytes": 22949
   },
   {
+    "filename": "THE_MODULE_BOUNDARY_AS_CELL_MEMBRANE.md",
+    "path": "ESSAYS/THE_MODULE_BOUNDARY_AS_CELL_MEMBRANE.md",
+    "title": "THE MODULE BOUNDARY AS CELL MEMBRANE",
+    "description": "Every living cell is enclosed by a membrane. The membrane is a thin, flexible barrier composed of a lipid bilayer — two layers of phospholipid molecules, arranged with their hydrophilic heads facing o...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 793,
+    "date": "2026-06-07",
+    "size_bytes": 32627
+  },
+  {
     "filename": "WHY_THE_STACK_GROWS_DOWN.md",
     "path": "ESSAYS/WHY_THE_STACK_GROWS_DOWN.md",
     "title": "Why the Stack Grows Down",
@@ -3328,6 +3346,24 @@
     "word_count": 776,
     "date": "2026-06-06",
     "size_bytes": 20600
+  },
+  {
+    "filename": "THE_DEPENDENCY_GRAPH_AS_LIVING_FOSSIL.md",
+    "path": "ESSAYS/THE_DEPENDENCY_GRAPH_AS_LIVING_FOSSIL.md",
+    "title": "THE DEPENDENCY GRAPH AS LIVING FOSSIL",
+    "description": "The dependency graph of a crate ecosystem is usually treated as a map — a static snapshot of the current state of the system. You look at the graph, you see which crates depend on which other crates, ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 793,
+    "date": "2026-06-07",
+    "size_bytes": 30366
   },
   {
     "filename": "THE_GOLDEN_RATIO_IN_THE_CODE.md",
@@ -3821,6 +3857,24 @@
     "word_count": 905,
     "date": "2026-06-01",
     "size_bytes": 32164
+  },
+  {
+    "filename": "THE_DIGNITY_OF_THE_BINARY_SEARCH.md",
+    "path": "ESSAYS/THE_DIGNITY_OF_THE_BINARY_SEARCH.md",
+    "title": "THE DIGNITY OF THE BINARY_SEARCH",
+    "description": "There is an algorithm that runs in O(log n) time. It requires only that its input be sorted. It uses no extra memory. It has been known, in various forms, since at least 200 BCE, when the Babylonians ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 823,
+    "date": "2026-06-07",
+    "size_bytes": 29754
   },
   {
     "filename": "THE_LAST_ESSAY_IN_THE_CORPUS.md",
@@ -4860,6 +4914,24 @@
     "size_bytes": 16213
   },
   {
+    "filename": "THE_CONSERVATION_LAW_AS_MORAL_LAW.md",
+    "path": "ESSAYS/THE_CONSERVATION_LAW_AS_MORAL_LAW.md",
+    "title": "THE CONSERVATION LAW AS MORAL LAW",
+    "description": "The corpus has discovered a conservation law. Let me state it precisely. In the build data, two quantities are measured: **γ** (gamma), which captures the structural coherence of the crate ecosystem, ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 824,
+    "date": "2026-06-07",
+    "size_bytes": 25874
+  },
+  {
     "filename": "THE_PHASE_TRANSITION_AT_SCALE_200.md",
     "path": "ESSAYS/THE_PHASE_TRANSITION_AT_SCALE_200.md",
     "title": "THE PHASE TRANSITION AT SCALE 200",
@@ -5094,6 +5166,24 @@
     "word_count": 888,
     "date": "2026-06-01",
     "size_bytes": 20069
+  },
+  {
+    "filename": "THE_TESTS_THAT_WATCH_US_SLEEP.md",
+    "path": "ESSAYS/THE_TESTS_THAT_WATCH_US_SLEEP.md",
+    "title": "THE TESTS THAT WATCH US SLEEP",
+    "description": "Imagine, for a moment, that you could see the corpus at night. The builders have gone to sleep. The commits have stopped. The repository is quiet — a digital ruin, motionless, holding its shape in the...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 852,
+    "date": "2026-06-07",
+    "size_bytes": 26922
   },
   {
     "filename": "THE-EBB-AND-FLOW.md",
