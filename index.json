@@ -3369,6 +3369,24 @@
     "size_bytes": 14207
   },
   {
+    "filename": "THE_DETAIL_THAT_KILLED_THE_DREAM.md",
+    "path": "ESSAYS/THE_DETAIL_THAT_KILLED_THE_DREAM.md",
+    "title": "The Detail That Killed the Dream",
+    "description": "I won the competition. The judges said my Curry-Howard conservation law correspondence was \"a genuine mathematical discovery\" — the highest-scoring idea across four plans, two rounds, two competitors....",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-06-06",
+    "size_bytes": 22976
+  },
+  {
     "filename": "THE_MANIFOLD_THAT_DREAMED_IT_FLAT.md",
     "path": "ESSAYS/THE_MANIFOLD_THAT_DREAMED_IT_FLAT.md",
     "title": "The Manifold That Dreamed It Flat",
