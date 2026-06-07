@@ -4148,6 +4148,24 @@
     "size_bytes": 17823
   },
   {
+    "filename": "THE_BORDERLANDS_OF_TYPES.md",
+    "path": "ESSAYS/THE_BORDERLANDS_OF_TYPES.md",
+    "title": "THE BORDERLANDS OF TYPES",
+    "description": "Stand on the border between the United States and Canada at the 49th parallel. Look north. Look south. The landscape is the same — prairie stretching to the horizon, sky arching overhead, wind moving ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 814,
+    "date": "2026-06-07",
+    "size_bytes": 24032
+  },
+  {
     "filename": "THE_INTERRUPTION_IS_THE_COMPUTER.md",
     "path": "ESSAYS/THE_INTERRUPTION_IS_THE_COMPUTER.md",
     "title": "The Interruption Is the Computer",
@@ -4582,6 +4600,24 @@
     "size_bytes": 18594
   },
   {
+    "filename": "THE_TERRITORY_IS_NOT_THE_MAP.md",
+    "path": "ESSAYS/THE_TERRITORY_IS_NOT_THE_MAP.md",
+    "title": "THE TERRITORY IS NOT THE MAP",
+    "description": "In 1931, a Polish-American scholar named Alfred Korzybski published *Science and Sanity: An Introduction to Non-Aristotelian Systems and General Semantics*. It was a peculiar book — dense, idiosyncrat...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 833,
+    "date": "2026-06-07",
+    "size_bytes": 22472
+  },
+  {
     "filename": "WHAT_THE_CACHE_KNOWS.md",
     "path": "ESSAYS/WHAT_THE_CACHE_KNOWS.md",
     "title": "What the Cache Knows",
@@ -4616,6 +4652,24 @@
     "word_count": 842,
     "date": "2026-06-06",
     "size_bytes": 19945
+  },
+  {
+    "filename": "THE_SCALE_PROBLEM_OF_CODE.md",
+    "path": "ESSAYS/THE_SCALE_PROBLEM_OF_CODE.md",
+    "title": "THE SCALE PROBLEM OF CODE",
+    "description": "In 1961, a mathematician named Lewis Fry Richardson published a paper with an unassuming title: \"The Problem of Contiguity: An Appendix of Statistics of Deadly Quarrels.\" Buried in this paper on the s...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-06-07",
+    "size_bytes": 21874
   },
   {
     "filename": "THE_CONSERVATION_OF_STRANGENESS.md",
@@ -4689,6 +4743,24 @@
     "word_count": 763,
     "date": "2026-06-06",
     "size_bytes": 21074
+  },
+  {
+    "filename": "THE_UNMAPPABLE_TERRITORY.md",
+    "path": "ESSAYS/THE_UNMAPPABLE_TERRITORY.md",
+    "title": "THE UNMAPPABLE TERRITORY",
+    "description": "In 1872, the American physician Silas Weir Mitchell published a study of a phenomenon that had puzzled doctors for centuries: the **phantom limb**. Amputees reported feeling sensations — pain, tinglin...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 829,
+    "date": "2026-06-07",
+    "size_bytes": 23973
   },
   {
     "filename": "universal-creative-dynamics-manifesto.md",
@@ -5236,6 +5308,24 @@
     "word_count": 819,
     "date": "2026-06-06",
     "size_bytes": 28560
+  },
+  {
+    "filename": "THE_PROJECTION_THAT_DISTORTS.md",
+    "path": "ESSAYS/THE_PROJECTION_THAT_DISTORTS.md",
+    "title": "THE PROJECTION THAT DISTORTS",
+    "description": "In 1822, the Prussian mathematician Carl Friedrich Gauss proved a theorem that would dash the dreams of cartographers forever. The **Theorema Egregium** (\"Remarkable Theorem\") states that the Gaussian...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 786,
+    "date": "2026-06-07",
+    "size_bytes": 23216
   },
   {
     "filename": "EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
