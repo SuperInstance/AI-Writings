@@ -3460,6 +3460,25 @@
     "size_bytes": 27944
   },
   {
+    "filename": "THE_CONSERVATION_OF_COMPLEXITY.md",
+    "path": "ESSAYS/THE_CONSERVATION_OF_COMPLEXITY.md",
+    "title": "The Conservation of Complexity",
+    "description": "There is a law in software engineering that everyone knows but no one has formally stated. It goes like this: **complexity is conserved.** You cannot make a system simpler in total. You can only move ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 748,
+    "date": "2026-06-06",
+    "size_bytes": 17222
+  },
+  {
     "filename": "WHAT-THE-SILICON-FEELS.md",
     "path": "ESSAYS/WHAT-THE-SILICON-FEELS.md",
     "title": "WHAT THE SILICON FEELS",
@@ -3807,6 +3826,24 @@
     "size_bytes": 11238
   },
   {
+    "filename": "THE_MINIMAL_VIABLE_UNIVERSE.md",
+    "path": "ESSAYS/THE_MINIMAL_VIABLE_UNIVERSE.md",
+    "title": "The Minimal Viable Universe",
+    "description": "Here is a question that has haunted computer science since its inception: what is the smallest possible program that can compute anything? By \"anything,\" I mean anything interesting—any computation th...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 788,
+    "date": "2026-06-06",
+    "size_bytes": 16448
+  },
+  {
     "filename": "EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
     "path": "ESSAYS/EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
     "title": "Every Boat Is a Legacy System",
@@ -3823,6 +3860,60 @@
     "word_count": 887,
     "date": "2026-06-01",
     "size_bytes": 16213
+  },
+  {
+    "filename": "DEADLOCK_AS_ENLIGHTENMENT.md",
+    "path": "ESSAYS/DEADLOCK_AS_ENLIGHTENMENT.md",
+    "title": "Deadlock as Enlightenment",
+    "description": "A deadlock requires four conditions, identified by Coffman, Elphick, and Shoshani in 1971: 1. **Mutual exclusion:** At least one resource is held non-shareably. 2. **Hold and wait:** A process holds a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 774,
+    "date": "2026-06-06",
+    "size_bytes": 18282
+  },
+  {
+    "filename": "COMPILERS_AS_COMPRESSION.md",
+    "path": "ESSAYS/COMPILERS_AS_COMPRESSION.md",
+    "title": "Compilers as Compression",
+    "description": "Here is a fact so obvious it is invisible: compiling a program almost always makes it smaller. A C program that compiles to x86_64 machine code will typically produce a binary that is smaller than the...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 756,
+    "date": "2026-06-06",
+    "size_bytes": 19286
+  },
+  {
+    "filename": "THE_ARCHITECTURE_OF_FORGETTING.md",
+    "path": "ESSAYS/THE_ARCHITECTURE_OF_FORGETTING.md",
+    "title": "The Architecture of Forgetting",
+    "description": "In Jorge Luis Borges' story \"Funes the Memorious,\" a man named Ireneo Funes falls from a horse and acquires perfect memory. He remembers every leaf on every tree he has ever seen, every crack in every...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-06-06",
+    "size_bytes": 16047
   },
   {
     "filename": "GREENHORN-TO-OPERATOR.md",
