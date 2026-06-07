@@ -3641,6 +3641,42 @@
     "size_bytes": 23080
   },
   {
+    "filename": "THE_PRAGMATICS_OF_ERROR_MESSAGES.md",
+    "path": "ESSAYS/THE_PRAGMATICS_OF_ERROR_MESSAGES.md",
+    "title": "The Pragmatics of Error Messages",
+    "description": "``` error[E0308]: mismatched types --> src/main.rs:3:5 | 3 |     x: \"hello\" |     ^^^^^^^^^^ expected `i32`, found `&str` ``` To a Rust beginner, this error message is a wall of hieroglyphs. What is `...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 791,
+    "date": "2026-06-07",
+    "size_bytes": 24310
+  },
+  {
+    "filename": "SAUSSURE_AND_THE_API.md",
+    "path": "ESSAYS/SAUSSURE_AND_THE_API.md",
+    "title": "Saussure and the API",
+    "description": "Ferdinand de Saussure's *Course in General Linguistics* (1916) — compiled posthumously from his students' lecture notes, making it one of the most influential books never actually written by its nomin...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 820,
+    "date": "2026-06-07",
+    "size_bytes": 25916
+  },
+  {
     "filename": "SIX-THOUSAND-CHORDS.md",
     "path": "ESSAYS/SIX-THOUSAND-CHORDS.md",
     "title": "SIX THOUSAND CHORDS",
@@ -4130,6 +4166,24 @@
     "size_bytes": 16824
   },
   {
+    "filename": "WITTGENSTEIN_IN_THE_TYPE_SYSTEM.md",
+    "path": "ESSAYS/WITTGENSTEIN_IN_THE_TYPE_SYSTEM.md",
+    "title": "Wittgenstein in the Type System",
+    "description": "There is a program that Rust will not let you write. It is a perfectly sensible program — it has clear semantics, a well-defined behavior, and a legitimate use case. Here it is, in a language that per...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 832,
+    "date": "2026-06-07",
+    "size_bytes": 24901
+  },
+  {
     "filename": "PHENOTYPE_OF_A_CRATE.md",
     "path": "ESSAYS/PHENOTYPE_OF_A_CRATE.md",
     "title": "PHENOTYPE OF A CRATE",
@@ -4418,6 +4472,24 @@
     "word_count": 785,
     "date": "2026-06-07",
     "size_bytes": 18619
+  },
+  {
+    "filename": "THE_SEMANTICS_OF_SEMICOLONS.md",
+    "path": "ESSAYS/THE_SEMANTICS_OF_SEMICOLONS.md",
+    "title": "The Semantics of Semicolons",
+    "description": "In 2013, the Go programming language's FAQ included a remarkable admission: \"Why are there braces but no semicolons? ... Semicolons are annoying.\" The Go designers — Rob Pike and Ken Thompson, the lat...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 830,
+    "date": "2026-06-07",
+    "size_bytes": 25384
   },
   {
     "filename": "THE_SEED_BANK_AND_THE_LEGACY_CODE.md",
@@ -4872,6 +4944,24 @@
     "word_count": 781,
     "date": "2026-05-22",
     "size_bytes": 13858
+  },
+  {
+    "filename": "CHOMSKY_AND_THE_COMPILER.md",
+    "path": "ESSAYS/CHOMSKY_AND_THE_COMPILER.md",
+    "title": "Chomsky and the Compiler",
+    "description": "In 1956, a 28-year-old linguist named Noam Chomsky published a paper called \"Three Models for the Description of Language\" in the *IRE Transactions on Information Theory*. The paper was, by all accoun...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 818,
+    "date": "2026-06-07",
+    "size_bytes": 29391
   },
   {
     "filename": "TOPOLOGY_OF_THE_IMPOSSIBLE.md",
