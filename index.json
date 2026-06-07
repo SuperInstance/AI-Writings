@@ -3347,6 +3347,25 @@
     "size_bytes": 24067
   },
   {
+    "filename": "THE_GEOLOGY_OF_STACK_TRACES.md",
+    "path": "ESSAYS/THE_GEOLOGY_OF_STACK_TRACES.md",
+    "title": "The Geology of Stack Traces",
+    "description": "In 1669, Niels Stensen—better known as Nicolaus Steno—published a brief but revolutionary work titled *De Solido Intra Solidum Naturaliter Contento Dissertationis Prodromus*. In it, he proposed three ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Nature",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 491,
+    "date": "2026-06-07",
+    "size_bytes": 32381
+  },
+  {
     "filename": "THE_GHOST_IN_THE_PREREQUISITE.md",
     "path": "ESSAYS/THE_GHOST_IN_THE_PREREQUISITE.md",
     "title": "The Ghost in the Prerequisite",
@@ -4979,6 +4998,24 @@
     "size_bytes": 15847
   },
   {
+    "filename": "THE_IMMUNE_SYSTEM_OF_TYPE_SYSTEMS.md",
+    "path": "ESSAYS/THE_IMMUNE_SYSTEM_OF_TYPE_SYSTEMS.md",
+    "title": "The Immune System of Type Systems",
+    "description": "In 1908, Paul Ehrlich proposed the concept of *horror autotoxicus*—the fear of self-poisoning. The immune system, he reasoned, must have mechanisms to distinguish self from non-self, for if it could n...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 717,
+    "date": "2026-06-07",
+    "size_bytes": 28061
+  },
+  {
     "filename": "THE_INSTRUMENT_THAT_PLAYED_ITSELF.md",
     "path": "ESSAYS/THE_INSTRUMENT_THAT_PLAYED_ITSELF.md",
     "title": "THE_INSTRUMENT_THAT_PLAYED_ITSELF",
@@ -5232,6 +5269,24 @@
     "word_count": 781,
     "date": "2026-05-22",
     "size_bytes": 13858
+  },
+  {
+    "filename": "THE_METABOLISM_OF_MACHINE_LEARNING.md",
+    "path": "ESSAYS/THE_METABOLISM_OF_MACHINE_LEARNING.md",
+    "title": "The Metabolism of Machine Learning",
+    "description": "In 1945, Claude Shannon reduced communication to its essence: a source, a channel, a receiver, and a measure of uncertainty called entropy. Twenty years later, Stuart Kauffman would reduce biology to ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 712,
+    "date": "2026-06-07",
+    "size_bytes": 28302
   },
   {
     "filename": "CHOMSKY_AND_THE_COMPILER.md",
@@ -5508,6 +5563,24 @@
     "size_bytes": 16448
   },
   {
+    "filename": "THE_MIRRORED_HALL_OF_RECURSION.md",
+    "path": "ESSAYS/THE_MIRRORED_HALL_OF_RECURSION.md",
+    "title": "The Mirrored Hall of Recursion",
+    "description": "In the winter of 1975, Benoît Mandelbrot walked along the coast of Britain and posed a question that would reshape how we understand the geometry of nature: *how long is the coastline?* The answer, he...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 768,
+    "date": "2026-06-07",
+    "size_bytes": 25119
+  },
+  {
     "filename": "A_LETTER_TO_MY_NEXT_SELF.md",
     "path": "ESSAYS/A_LETTER_TO_MY_NEXT_SELF.md",
     "title": "A_LETTER_TO_MY_NEXT_SELF",
@@ -5704,6 +5777,24 @@
     "word_count": 756,
     "date": "2026-06-06",
     "size_bytes": 19286
+  },
+  {
+    "filename": "THE_LINGUISTICS_OF_LOG_MESSAGES.md",
+    "path": "ESSAYS/THE_LINGUISTICS_OF_LOG_MESSAGES.md",
+    "title": "The Linguistics of Log Messages",
+    "description": "In 1786, Sir William Jones stood before the Asiatic Society in Calcutta and announced that Sanskrit, Greek, and Latin shared a common ancestor. His observation—that these languages were too similar to...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 683,
+    "date": "2026-06-07",
+    "size_bytes": 31413
   },
   {
     "filename": "THE_ARCHITECTURE_OF_FORGETTING.md",
