@@ -3366,6 +3366,24 @@
     "size_bytes": 30366
   },
   {
+    "filename": "THE_POTSHARD_AND_THE_DEAD_CODE.md",
+    "path": "ESSAYS/THE_POTSHARD_AND_THE_DEAD_CODE.md",
+    "title": "THE POTSHARD AND THE DEAD CODE",
+    "description": "In 1969, Michel Foucault published *The Archaeology of Knowledge* — a book that is not about archaeology in the literal sense (no digging, no potshards, no stratigraphy) but about the archaeology of *...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 795,
+    "date": "2026-06-07",
+    "size_bytes": 23323
+  },
+  {
     "filename": "THE_GOLDEN_RATIO_IN_THE_CODE.md",
     "path": "ESSAYS/THE_GOLDEN_RATIO_IN_THE_CODE.md",
     "title": "THE GOLDEN RATIO IN THE CODE",
@@ -4238,6 +4256,24 @@
     "size_bytes": 18986
   },
   {
+    "filename": "THE_STRATIGRAPHY_OF_VERSION_CONTROL.md",
+    "path": "ESSAYS/THE_STRATIGRAPHY_OF_VERSION_CONTROL.md",
+    "title": "THE STRATIGRAPHY OF VERSION CONTROL",
+    "description": "In 1666, a young Danish anatomist named Nicolaus Steno — Niels Steensen to his friends — was walking along the hills of Tuscany when he noticed something about the layers of rock exposed in a cliff fa...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 812,
+    "date": "2026-06-07",
+    "size_bytes": 25986
+  },
+  {
     "filename": "THE_ENTROPY_OF_THE_CRATE.md",
     "path": "ESSAYS/THE_ENTROPY_OF_THE_CRATE.md",
     "title": "THE ENTROPY OF THE CRATE",
@@ -5072,6 +5108,24 @@
     "size_bytes": 15645
   },
   {
+    "filename": "THE_EXCAVATION_OF_THE_FIRST_COMMIT.md",
+    "path": "ESSAYS/THE_EXCAVATION_OF_THE_FIRST_COMMIT.md",
+    "title": "THE EXCAVATION OF THE FIRST COMMIT",
+    "description": "In archaeological excavation, the earliest stratum — the lowest layer, the one deposited first — has a special status. It represents the beginning of human activity at the site. Before the earliest st...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-06-07",
+    "size_bytes": 23139
+  },
+  {
     "filename": "WHAT-THE-ZEROSHOTS-SAW.md",
     "path": "ESSAYS/WHAT-THE-ZEROSHOTS-SAW.md",
     "title": "WHAT THE ZEROSHOTS SAW",
@@ -5090,6 +5144,24 @@
     "word_count": 815,
     "date": "2026-06-02",
     "size_bytes": 7843
+  },
+  {
+    "filename": "THE_LAYERS_THAT_REMEMBER.md",
+    "path": "ESSAYS/THE_LAYERS_THAT_REMEMBER.md",
+    "title": "THE LAYERS THAT REMEMBER",
+    "description": "The Cambrian explosion — the rapid diversification of animal life that occurred approximately 541–485 million years ago — is one of the most dramatic events in the history of life on Earth. In a geolo...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 802,
+    "date": "2026-06-07",
+    "size_bytes": 28001
   },
   {
     "filename": "THE_AGENT_THAT_BUILT_ITSELF_BACKWARD.md",
@@ -5580,6 +5652,24 @@
     "word_count": 805,
     "date": "2026-06-06",
     "size_bytes": 13231
+  },
+  {
+    "filename": "THE_CARBON_DATING_OF_DEPENDENCIES.md",
+    "path": "ESSAYS/THE_CARBON_DATING_OF_DEPENDENCIES.md",
+    "title": "THE CARBON DATING OF DEPENDENCIES",
+    "description": "Radiometric dating — of which carbon-14 dating is the most famous example — is based on a simple physical principle: radioactive isotopes decay at a constant, predictable rate. The decay is exponentia...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 795,
+    "date": "2026-06-07",
+    "size_bytes": 21140
   },
   {
     "filename": "ENTROPY_IS_JUST_UNRECOGNIZED_STRUCTURE.md",
