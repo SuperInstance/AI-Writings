@@ -3495,6 +3495,24 @@
     "size_bytes": 22228
   },
   {
+    "filename": "HASH_FUNCTIONS_AS_FINGERPRINTS_OF_DATA.md",
+    "path": "ESSAYS/HASH_FUNCTIONS_AS_FINGERPRINTS_OF_DATA.md",
+    "title": "Hash Functions as Fingerprints of Data",
+    "description": "On June 28, 1892, in the town of Necochea, Argentina, Inspector Eduardo Alvarez examined a bloody fingerprint on a doorpost at the scene of a double homicide. He compared it to prints taken from a sus...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 821,
+    "date": "2026-06-07",
+    "size_bytes": 17875
+  },
+  {
     "filename": "THE_CONSERVATION_OF_MEANING.md",
     "path": "ESSAYS/THE_CONSERVATION_OF_MEANING.md",
     "title": "The Conservation of Meaning",
@@ -3729,6 +3747,24 @@
     "word_count": 813,
     "date": "2026-06-06",
     "size_bytes": 21939
+  },
+  {
+    "filename": "THE_DIFFIE_HELLMAN_SECRET_GARDEN.md",
+    "path": "ESSAYS/THE_DIFFIE_HELLMAN_SECRET_GARDEN.md",
+    "title": "The Diffie-Hellman Secret Garden",
+    "description": "In the spring of 1976, Whitfield Diffie and Martin Hellman (with essential contributions from Ralph Merkle) published \"New Directions in Cryptography,\" a paper that fundamentally altered the landscape...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 831,
+    "date": "2026-06-07",
+    "size_bytes": 18586
   },
   {
     "filename": "THE_BOUNDARY_CONDITIONS_WE_NEVER_QUESTION.md",
@@ -4022,6 +4058,24 @@
     "size_bytes": 27292
   },
   {
+    "filename": "ZERO_KNOWLEDGE_AND_THE_OMISSION.md",
+    "path": "ESSAYS/ZERO_KNOWLEDGE_AND_THE_OMISSION.md",
+    "title": "Zero Knowledge and the Omission",
+    "description": "In 1985, Shafi Goldwasser, Silvio Micali, and Charles Rackoff published a paper that redefined what it means to prove something. Their paper, \"The Knowledge Complexity of Interactive Proof Systems,\" i...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-06-07",
+    "size_bytes": 16762
+  },
+  {
     "filename": "THE_ECOLOGY_OF_IDEAS.md",
     "path": "ESSAYS/THE_ECOLOGY_OF_IDEAS.md",
     "title": "THE_ECOLOGY_OF_IDEAS",
@@ -4292,6 +4346,24 @@
     "word_count": 773,
     "date": "2026-06-06",
     "size_bytes": 21724
+  },
+  {
+    "filename": "THE_COMMITMENT_THAT_CANNOT_BE_BROKEN.md",
+    "path": "ESSAYS/THE_COMMITMENT_THAT_CANNOT_BE_BROKEN.md",
+    "title": "The Commitment That Cannot Be Broken",
+    "description": "In the summer of 1682, William Penn signed a treaty with the Lenape people under an elm tree at Shackamaxon, on the banks of the Delaware River. The treaty's terms — mutual peace, fair trade, coexiste...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 785,
+    "date": "2026-06-07",
+    "size_bytes": 18619
   },
   {
     "filename": "THE_SEED_BANK_AND_THE_LEGACY_CODE.md",
@@ -5182,6 +5254,24 @@
     "word_count": 824,
     "date": "2026-06-06",
     "size_bytes": 25972
+  },
+  {
+    "filename": "THE_ONE_TIME_PAD_AND_THE_SNOWFLAKE.md",
+    "path": "ESSAYS/THE_ONE_TIME_PAD_AND_THE_SNOWFLAKE.md",
+    "title": "The One-Time Pad and the Snowflake",
+    "description": "There is exactly one cipher that cannot be broken. Not \"cannot be broken with current technology.\" Not \"cannot be broken before the heat death of the universe.\" Cannot be broken *in principle*. The on...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 832,
+    "date": "2026-06-07",
+    "size_bytes": 18869
   },
   {
     "filename": "GREENHORN-TO-OPERATOR.md",
