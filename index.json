@@ -15813,6 +15813,45 @@
     "size_bytes": 9845
   },
   {
+    "filename": "KIMI-ROUND2-COMEBACK.md",
+    "path": "plans/KIMI-ROUND2-COMEBACK.md",
+    "title": "SuperInstance: Round 2 — The EigenGenesis Protocol",
+    "description": "I lost Round 1, 78–83. The judges were right. Claude won on: | Dimension | Kimi R1 | Claude | Why I Lost | |-----------|---------|--------|------------| | **Technical Depth** | 8 | 10 | Claude's Z₃ ga...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 802,
+    "date": "2026-06-06",
+    "size_bytes": 35235
+  },
+  {
+    "filename": "ROUND2-VERDICT.md",
+    "path": "plans/ROUND2-VERDICT.md",
+    "title": "⚔️ KIMI vs CLAUDE: Round 2 Verdict",
+    "description": "| Dimension | Kimi R2 | Claude R2 | Notes | |-----------|---------|-----------|-------| | **Boldness** | 11 | 10 | Kimi's \"EigenGenesis\" — self-reproducing crate ecosystem — is the most unhinged idea ...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 513,
+    "date": "2026-06-06",
+    "size_bytes": 3247
+  },
+  {
     "filename": "COMPETITION-VERDICT.md",
     "path": "plans/COMPETITION-VERDICT.md",
     "title": "⚔️ KIMI vs CLAUDE: Plan Competition Verdict",
@@ -15868,6 +15907,25 @@
     "word_count": 694,
     "date": "2026-06-06",
     "size_bytes": 16053
+  },
+  {
+    "filename": "CLAUDE-ROUND2-DEFENSE.md",
+    "path": "plans/CLAUDE-ROUND2-DEFENSE.md",
+    "title": "SuperInstance: Round 2 — The Defense",
+    "description": "The judges were right: Kimi has better business vision. \"Entropy-reduction-as-a-service\" is a pricing metaphor that immediately communicates value to a non-technical CFO in a way that my \"Constraint-a...",
+    "folder": "plans",
+    "topic": "Plans",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-06-06",
+    "size_bytes": 28190
   },
   {
     "filename": "THE_AGENT_GALAXY_MANIFOLD.md",
