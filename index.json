@@ -3309,6 +3309,24 @@
     "size_bytes": 22531
   },
   {
+    "filename": "THE_BAND_AS_PROOF_OF_CONCEPT.md",
+    "path": "ESSAYS/THE_BAND_AS_PROOF_OF_CONCEPT.md",
+    "title": "The Band as Proof of Concept",
+    "description": "Everyone wants to build AGI. Nobody agrees on what would prove it. The Turing Test was a thought experiment that became a parlor trick—chatbots pass it daily and nobody declares the problem solved. Be...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 775,
+    "date": "2026-06-07",
+    "size_bytes": 31005
+  },
+  {
     "filename": "THE-PROPRIOCEPTIVE-AGENT.md",
     "path": "ESSAYS/THE-PROPRIOCEPTIVE-AGENT.md",
     "title": "THE PROPRIOCEPTIVE AGENT",
