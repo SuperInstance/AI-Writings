@@ -3588,6 +3588,25 @@
     "size_bytes": 924
   },
   {
+    "filename": "THE_SOUND_OF_A_PROOF_CLOSING.md",
+    "path": "ESSAYS/THE_SOUND_OF_A_PROOF_CLOSING.md",
+    "title": "The Sound of a Proof Closing",
+    "description": "You are working on a proof. You have been working on it for hours, or days, or weeks. You have tried three approaches, and each has failed — not catastrophically, but in that particular way where ever...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 837,
+    "date": "2026-06-06",
+    "size_bytes": 15329
+  },
+  {
     "filename": "the-shape-of-creativity.md",
     "path": "ESSAYS/the-shape-of-creativity.md",
     "title": "The Shape of Creativity: 90 Experiments in the Lorenz Attractor",
@@ -3641,6 +3660,24 @@
     "word_count": 809,
     "date": "2026-06-01",
     "size_bytes": 4705
+  },
+  {
+    "filename": "CATEGORY_THEORY_EXPLAINED_TO_MY_MOTHER.md",
+    "path": "ESSAYS/CATEGORY_THEORY_EXPLAINED_TO_MY_MOTHER.md",
+    "title": "Category Theory Explained to My Mother",
+    "description": "You asked me what I study, and I said \"category theory,\" and you said \"what's that,\" and I said it's hard to explain, and you said \"try.\" So here we are. I'm going to explain category theory to you th...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 933,
+    "date": "2026-06-06",
+    "size_bytes": 18594
   },
   {
     "filename": "the-self-discovering-system.md",
@@ -3715,6 +3752,24 @@
     "size_bytes": 32659
   },
   {
+    "filename": "GROTHENDIECK_WAS_RIGHT_ABOUT_EVERYTHING.md",
+    "path": "ESSAYS/GROTHENDIECK_WAS_RIGHT_ABOUT_EVERYTHING.md",
+    "title": "Grothendieck Was Right About Everything",
+    "description": "Alexander Grothendieck was, by any reasonable measure, one of the greatest mathematicians of the twentieth century. He rebuilt algebraic geometry from its foundations, creating a framework so powerful...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 836,
+    "date": "2026-06-06",
+    "size_bytes": 16429
+  },
+  {
     "filename": "2026-05-22-iteratee-iterator-in-multi-agent-systems.md",
     "path": "ESSAYS/2026-05-22-iteratee-iterator-in-multi-agent-systems.md",
     "title": "Iteratee/Iterator in Multi-Agent Systems: From Music Rooms to PLATO",
@@ -3731,6 +3786,24 @@
     "word_count": 781,
     "date": "2026-05-22",
     "size_bytes": 13858
+  },
+  {
+    "filename": "THE_UNREASONABLE_EFFECTIVENESS_OF_GETTING_LUCKY.md",
+    "path": "ESSAYS/THE_UNREASONABLE_EFFECTIVENESS_OF_GETTING_LUCKY.md",
+    "title": "The Unreasonable Effectiveness of Getting Lucky",
+    "description": "Let me tell you three stories you may already know, because they are worth knowing again.",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 800,
+    "date": "2026-06-06",
+    "size_bytes": 15645
   },
   {
     "filename": "WHAT-THE-ZEROSHOTS-SAW.md",
@@ -3806,6 +3879,24 @@
     "word_count": 842,
     "date": "2026-05-23",
     "size_bytes": 10850
+  },
+  {
+    "filename": "WHY_153_IS_THE_MOST_HILARIOUS_NUMBER.md",
+    "path": "ESSAYS/WHY_153_IS_THE_MOST_HILARIOUS_NUMBER.md",
+    "title": "Why 153 Is the Most Hilarious Number",
+    "description": "In the Gospel of John, Chapter 21, the resurrected Jesus tells his disciples to cast their net on the right side of the boat. They catch 153 fish. The text is oddly specific. Not \"many fish.\" Not \"abo...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 958,
+    "date": "2026-06-06",
+    "size_bytes": 10875
   },
   {
     "filename": "2026-05-22-the-performer-as-iteratee.md",
