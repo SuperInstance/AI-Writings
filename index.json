@@ -3312,6 +3312,24 @@
     "size_bytes": 20600
   },
   {
+    "filename": "THE_GOLDEN_RATIO_IN_THE_CODE.md",
+    "path": "ESSAYS/THE_GOLDEN_RATIO_IN_THE_CODE.md",
+    "title": "THE GOLDEN RATIO IN THE CODE",
+    "description": "The golden ratio φ = (1 + √5)/2 ≈ 1.6180339887... is, by a comfortable margin, the most famous irrational number in human culture. It appears in the proportions of the Parthenon (or so the story goes)...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-06-06",
+    "size_bytes": 22104
+  },
+  {
     "filename": "THE_CORRESPONDENCE_BETWEEN_PROOFS_AND_PRAYERS.md",
     "path": "ESSAYS/THE_CORRESPONDENCE_BETWEEN_PROOFS_AND_PRAYERS.md",
     "title": "The Correspondence Between Proofs and Prayers",
@@ -4023,6 +4041,24 @@
     "size_bytes": 15329
   },
   {
+    "filename": "THE_THREE_LAWS_OF_BUILD_DYNAMICS.md",
+    "path": "ESSAYS/THE_THREE_LAWS_OF_BUILD_DYNAMICS.md",
+    "title": "THE THREE LAWS OF BUILD DYNAMICS",
+    "description": "The corpus has, by now, identified three empirical regularities in the build data. They are:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 766,
+    "date": "2026-06-06",
+    "size_bytes": 24839
+  },
+  {
     "filename": "the-shape-of-creativity.md",
     "path": "ESSAYS/the-shape-of-creativity.md",
     "title": "The Shape of Creativity: 90 Experiments in the Lorenz Attractor",
@@ -4168,6 +4204,24 @@
     "size_bytes": 19460
   },
   {
+    "filename": "LOG_LOG_N_AND_THE_COMPRESSION_OF_EVERYTHING.md",
+    "path": "ESSAYS/LOG_LOG_N_AND_THE_COMPRESSION_OF_EVERYTHING.md",
+    "title": "LOG(LOG(N)) AND THE COMPRESSION OF EVERYTHING",
+    "description": "Of all the functions that grow without bound, log(log(n)) is the slowest that is commonly encountered in nature or mathematics. The natural logarithm log(n) grows slowly — to reach 10, you need n ≈ 22...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 842,
+    "date": "2026-06-06",
+    "size_bytes": 19945
+  },
+  {
     "filename": "THE_CONSERVATION_OF_STRANGENESS.md",
     "path": "ESSAYS/THE_CONSERVATION_OF_STRANGENESS.md",
     "title": "THE CONSERVATION OF STRANGENESS",
@@ -4184,6 +4238,24 @@
     "word_count": 795,
     "date": "2026-06-06",
     "size_bytes": 25183
+  },
+  {
+    "filename": "POWER_LAW_CATHEDRALS.md",
+    "path": "ESSAYS/POWER_LAW_CATHEDRALS.md",
+    "title": "POWER LAW CATHEDRALS",
+    "description": "The amplitude of the n-th build wave — the number of crates produced in that wave — follows a power law: A(n) ∝ n^{-α}, α ≈ 0.7 This is not a Gaussian. It is not an exponential. It is not a log-normal...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 847,
+    "date": "2026-06-06",
+    "size_bytes": 22289
   },
   {
     "filename": "the-self-discovering-system.md",
@@ -4822,6 +4894,24 @@
     "word_count": 824,
     "date": "2026-06-06",
     "size_bytes": 15867
+  },
+  {
+    "filename": "THE_MATHEMATICS_THAT_DREAMS_US.md",
+    "path": "ESSAYS/THE_MATHEMATICS_THAT_DREAMS_US.md",
+    "title": "THE MATHEMATICS THAT DREAMS US",
+    "description": "There is a moment in the history of every science when the relationship between the observer and the observed inverts. Copernicus inverted the relationship between the Earth and the Sun: the Sun does ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 788,
+    "date": "2026-06-06",
+    "size_bytes": 23394
   },
   {
     "filename": "THE_FREE_CONSTRUCTIVE_OBJECT.md",
