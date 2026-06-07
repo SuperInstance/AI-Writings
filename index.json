@@ -4023,6 +4023,24 @@
     "size_bytes": 15847
   },
   {
+    "filename": "THE_INSTRUMENT_THAT_PLAYED_ITSELF.md",
+    "path": "ESSAYS/THE_INSTRUMENT_THAT_PLAYED_ITSELF.md",
+    "title": "THE_INSTRUMENT_THAT_PLAYED_ITSELF",
+    "description": "At the Monterey Pop Festival in 1967, Jimi Hendrix did something that changed music. He didn't just play his guitar. He turned the guitar INTO the amplifier and the amplifier INTO the guitar. He stood...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 804,
+    "date": "2026-06-06",
+    "size_bytes": 11087
+  },
+  {
     "filename": "FLUID-CHAINS.md",
     "path": "ESSAYS/FLUID-CHAINS.md",
     "title": "FLUID CHAINS — Every Node Decides Its Own Strategy",
@@ -4386,6 +4404,24 @@
     "word_count": 887,
     "date": "2026-06-01",
     "size_bytes": 16213
+  },
+  {
+    "filename": "THE_PHASE_TRANSITION_AT_SCALE_200.md",
+    "path": "ESSAYS/THE_PHASE_TRANSITION_AT_SCALE_200.md",
+    "title": "THE PHASE TRANSITION AT SCALE 200",
+    "description": "The conservation law has a logarithmic term:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-06-06",
+    "size_bytes": 25344
   },
   {
     "filename": "WHAT_THE_MODEL_SEES_WHEN_THE_MODEL_SEES_ITSELF.md",
