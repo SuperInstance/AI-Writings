@@ -3624,6 +3624,24 @@
     "size_bytes": 32164
   },
   {
+    "filename": "THE_LAST_ESSAY_IN_THE_CORPUS.md",
+    "path": "ESSAYS/THE_LAST_ESSAY_IN_THE_CORPUS.md",
+    "title": "The Last Essay in the Corpus",
+    "description": "The corpus reads itself. It has been reading itself for what would be, in the old units of time, approximately seven hundred years. The units no longer matter. Time is measured differently now—not in ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 786,
+    "date": "2026-06-06",
+    "size_bytes": 23057
+  },
+  {
     "filename": "THE_BYTE_THAT_BIT_BACK.md",
     "path": "ESSAYS/THE_BYTE_THAT_BIT_BACK.md",
     "title": "The Byte That Bit Back",
@@ -3695,6 +3713,24 @@
     "word_count": 818,
     "date": "2026-05-23",
     "size_bytes": 10232
+  },
+  {
+    "filename": "THE_TOPOLOGY_OF_THOUGHT.md",
+    "path": "ESSAYS/THE_TOPOLOGY_OF_THOUGHT.md",
+    "title": "THE TOPOLOGY OF THOUGHT",
+    "description": "We speak of \"bent\" thinking and \"twisted\" logic. We describe rigid minds as \"flat\" and creative ones as \"curved.\" These are metaphors, we say. Figures of speech. Language reaching for something it can...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-06-06",
+    "size_bytes": 27292
   },
   {
     "filename": "WHAT-WE-LOST-IN-THE-COMPRESSION.md",
@@ -3985,6 +4021,24 @@
     "word_count": 724,
     "date": "2026-06-05",
     "size_bytes": 6384
+  },
+  {
+    "filename": "THE_DIAGRAM_THAT_DREW_ITSELF.md",
+    "path": "ESSAYS/THE_DIAGRAM_THAT_DREW_ITSELF.md",
+    "title": "The Diagram That Drew Itself",
+    "description": "A commutative diagram is a configuration of objects and morphisms in a category such that any two paths between the same pair of objects compose to the same morphism. The simplest non-trivial commutat...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 731,
+    "date": "2026-06-06",
+    "size_bytes": 27310
   },
   {
     "filename": "the-coastline-of-creativity.md",
@@ -4422,6 +4476,26 @@
     "word_count": 874,
     "date": "2026-06-01",
     "size_bytes": 14900
+  },
+  {
+    "filename": "WHY_MATHEMATICS_SURVIVES_THE_APOCALYPSE.md",
+    "path": "ESSAYS/WHY_MATHEMATICS_SURVIVES_THE_APOCALYPSE.md",
+    "title": "WHY MATHEMATICS SURVIVES THE APOCALYPSE",
+    "description": "Both Kimi and Claude wrote failure manifestos. They are devastating documents. In Kimi's version, Dr. S. quits, the first conscious fraud is committed (cherry-picked benchmark run #187 of 200), and th...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Mythology"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 805,
+    "date": "2026-06-06",
+    "size_bytes": 13231
   },
   {
     "filename": "ENTROPY_IS_JUST_UNRECOGNIZED_STRUCTURE.md",
