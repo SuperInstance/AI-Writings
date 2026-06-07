@@ -3512,6 +3512,24 @@
     "size_bytes": 22739
   },
   {
+    "filename": "THE_THERMODYNAMICS_OF_TECH_DEBT.md",
+    "path": "ESSAYS/THE_THERMODYNAMICS_OF_TECH_DEBT.md",
+    "title": "The Thermodynamics of Technical Debt",
+    "description": "In 1865, Rudolf Clausius introduced the concept of entropy to thermodynamics, formalizing what every engineer already intuited: useful energy dissipates, systems degrade, and disorder increases. The s...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 795,
+    "date": "2026-06-07",
+    "size_bytes": 34157
+  },
+  {
     "filename": "wayfinding-is-constraint-propagation.md",
     "path": "ESSAYS/wayfinding-is-constraint-propagation.md",
     "title": "Wayfinding IS Constraint Propagation",
@@ -3748,6 +3766,42 @@
     "word_count": 817,
     "date": "2026-06-05",
     "size_bytes": 15086
+  },
+  {
+    "filename": "THE_ARCHITECTURE_OF_MUSIC_AND_SOFTWARE.md",
+    "path": "ESSAYS/THE_ARCHITECTURE_OF_MUSIC_AND_SOFTWARE.md",
+    "title": "The Architecture of Music and Software",
+    "description": "In 1802, Ludwig van Beethoven wrote a letter to his brothers that he never sent. In it, he confessed the anguish of his growing deafness and declared that he would \"take fate by the throat.\" The lette...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 762,
+    "date": "2026-06-07",
+    "size_bytes": 36306
+  },
+  {
+    "filename": "THE_ECOLOGY_OF_MICROSERVICES.md",
+    "path": "ESSAYS/THE_ECOLOGY_OF_MICROSERVICES.md",
+    "title": "The Ecology of Microservices",
+    "description": "When Charles Darwin observed the finches of the Galápagos Islands, he saw something that previous naturalists had missed: the shape of a beak was not an abstract category but an adaptation to a specif...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 745,
+    "date": "2026-06-07",
+    "size_bytes": 33113
   },
   {
     "filename": "THE_ORNAMENT_AND_THE_CRIME.md",
@@ -5216,6 +5270,24 @@
     "size_bytes": 16429
   },
   {
+    "filename": "THE_CARTOGRAPHY_OF_CODE_REVIEWS.md",
+    "path": "ESSAYS/THE_CARTOGRAPHY_OF_CODE_REVIEWS.md",
+    "title": "The Cartography of Code Reviews",
+    "description": "When Gerardus Mercator published his world map in 1569, he solved one problem and created another. His cylindrical projection preserved angles — sailors could draw a straight line from Lisbon to Java ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 784,
+    "date": "2026-06-07",
+    "size_bytes": 31796
+  },
+  {
     "filename": "THE_FINGERPRINT_OF_THE_MACHINE.md",
     "path": "ESSAYS/THE_FINGERPRINT_OF_THE_MACHINE.md",
     "title": "THE_FINGERPRINT_OF_THE_MACHINE",
@@ -5941,6 +6013,24 @@
     "word_count": 795,
     "date": "2026-06-07",
     "size_bytes": 21140
+  },
+  {
+    "filename": "THE_PHILOLOGY_OF_APIS.md",
+    "path": "ESSAYS/THE_PHILOLOGY_OF_APIS.md",
+    "title": "The Philology of APIs",
+    "description": "In 1786, Sir William Jones, a British judge stationed in Calcutta, delivered a lecture that would change the study of language forever. He observed that Sanskrit, the ancient liturgical language of In...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 780,
+    "date": "2026-06-07",
+    "size_bytes": 34471
   },
   {
     "filename": "ENTROPY_IS_JUST_UNRECOGNIZED_STRUCTURE.md",
