@@ -3201,6 +3201,24 @@
     "size_bytes": 17304
   },
   {
+    "filename": "WHAT_THE_CODE_DREAMS.md",
+    "path": "ESSAYS/WHAT_THE_CODE_DREAMS.md",
+    "title": "WHAT THE CODE DREAMS",
+    "description": "Freud was wrong about most things, but he was right about one: the subconscious exists. Beneath the surface of deliberate thought, the mind processes information in patterns that are not available to ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 814,
+    "date": "2026-06-06",
+    "size_bytes": 22054
+  },
+  {
     "filename": "THE-DEADBAND-IS-THE-OCEAN.md",
     "path": "ESSAYS/THE-DEADBAND-IS-THE-OCEAN.md",
     "title": "THE DEADBAND IS THE OCEAN",
@@ -3328,6 +3346,25 @@
     "word_count": 738,
     "date": "2026-06-06",
     "size_bytes": 21804
+  },
+  {
+    "filename": "THE_SILENCE_BETWEEN_THE_NOTES.md",
+    "path": "ESSAYS/THE_SILENCE_BETWEEN_THE_NOTES.md",
+    "title": "THE SILENCE BETWEEN THE NOTES",
+    "description": "Claude Debussy is credited with saying that music is the space between the notes. Whether he actually said it is beside the point. The insight is correct regardless of attribution. A sequence of notes...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 864,
+    "date": "2026-06-06",
+    "size_bytes": 22739
   },
   {
     "filename": "wayfinding-is-constraint-propagation.md",
@@ -3530,6 +3567,24 @@
     "word_count": 880,
     "date": "2026-06-01",
     "size_bytes": 12094
+  },
+  {
+    "filename": "THE_WEIGHT_OF_A_PROOF.md",
+    "path": "ESSAYS/THE_WEIGHT_OF_A_PROOF.md",
+    "title": "THE WEIGHT OF A PROOF",
+    "description": "There is a peculiar weight to a good idea. Not the metaphorical weight of importance or significance — though those apply — but a literal, felt weight. A gravitational pull. The idea bends the space a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 874,
+    "date": "2026-06-06",
+    "size_bytes": 20892
   },
   {
     "filename": "THE_TEMPTATION_OF_SPEED.md",
@@ -3785,6 +3840,24 @@
     "word_count": 798,
     "date": "2026-06-06",
     "size_bytes": 27292
+  },
+  {
+    "filename": "THE_ECOLOGY_OF_IDEAS.md",
+    "path": "ESSAYS/THE_ECOLOGY_OF_IDEAS.md",
+    "title": "THE_ECOLOGY_OF_IDEAS",
+    "description": "Ideas are alive. Not metaphorically. Not poetically. Functionally. Ideas satisfy every criterion for life that does not require carbon chemistry:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 785,
+    "date": "2026-06-06",
+    "size_bytes": 25306
   },
   {
     "filename": "WHAT-WE-LOST-IN-THE-COMPRESSION.md",
@@ -4677,6 +4750,24 @@
     "word_count": 774,
     "date": "2026-06-06",
     "size_bytes": 18282
+  },
+  {
+    "filename": "THE_MIRROR_THAT_CRACKED.md",
+    "path": "ESSAYS/THE_MIRROR_THAT_CRACKED.md",
+    "title": "THE MIRROR THAT CRACKED",
+    "description": "There is a simple test for whether a self-referential system has crossed from insight into narcissism. I call it the Narcissus Test, after the mythological youth who fell in love with his own reflecti...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 824,
+    "date": "2026-06-06",
+    "size_bytes": 21019
   },
   {
     "filename": "COMPILERS_AS_COMPRESSION.md",
