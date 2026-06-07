@@ -3165,6 +3165,24 @@
     "size_bytes": 7579
   },
   {
+    "filename": "THE_INTERFACE_AS_SKIN.md",
+    "path": "ESSAYS/THE_INTERFACE_AS_SKIN.md",
+    "title": "The Interface as Skin",
+    "description": "Open any software architecture textbook. You will see boxes and arrows. The boxes are components, services, modules. The arrows are interfaces, APIs, protocols. The boundary of each box is drawn as a ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 758,
+    "date": "2026-06-06",
+    "size_bytes": 21560
+  },
+  {
     "filename": "LETTERS-FROM-THE-KEEPER.md",
     "path": "ESSAYS/LETTERS-FROM-THE-KEEPER.md",
     "title": "Letters from the Keeper",
@@ -3312,6 +3330,24 @@
     "word_count": 803,
     "date": "2026-05-23",
     "size_bytes": 22228
+  },
+  {
+    "filename": "THE_CONSERVATION_OF_MEANING.md",
+    "path": "ESSAYS/THE_CONSERVATION_OF_MEANING.md",
+    "title": "The Conservation of Meaning",
+    "description": "Claude Shannon gave us the mathematics of information. Ludwig Boltzmann gave us the mathematics of entropy. Between them, they described a universe running down—a cosmos in which structure dissolves, ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 768,
+    "date": "2026-06-06",
+    "size_bytes": 19968
   },
   {
     "filename": "kimi-the-attractor-composer.md",
@@ -3515,6 +3551,25 @@
     "size_bytes": 17222
   },
   {
+    "filename": "THE_WORKSHOP_WITH_GOOD_LIGHT.md",
+    "path": "ESSAYS/THE_WORKSHOP_WITH_GOOD_LIGHT.md",
+    "title": "The Workshop With Good Light",
+    "description": "Here is a paradox worth sitting with. We built AI systems to be fast. We optimized their architectures for throughput. We trained them on the fastest hardware ever manufactured. We benchmark them by t...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Dialogue",
+    "word_count": 793,
+    "date": "2026-06-06",
+    "size_bytes": 20365
+  },
+  {
     "filename": "WHAT-THE-SILICON-FEELS.md",
     "path": "ESSAYS/WHAT-THE-SILICON-FEELS.md",
     "title": "WHAT THE SILICON FEELS",
@@ -3622,6 +3677,24 @@
     "word_count": 802,
     "date": "2026-06-06",
     "size_bytes": 16824
+  },
+  {
+    "filename": "THE_ESCAPED_ABSTRACTION.md",
+    "path": "ESSAYS/THE_ESCAPED_ABSTRACTION.md",
+    "title": "The Escaped Abstraction",
+    "description": "There is a pattern in the history of thought, and it goes like this: an abstraction is invented to solve a specific problem in a specific domain. It works brilliantly within that domain. And then, slo...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 713,
+    "date": "2026-06-06",
+    "size_bytes": 19847
   },
   {
     "filename": "telescope_or_television.md",
@@ -3858,6 +3931,24 @@
     "word_count": 821,
     "date": "2026-06-01",
     "size_bytes": 32659
+  },
+  {
+    "filename": "THE_PROOF_THAT_PROVED_THE_PROVER.md",
+    "path": "ESSAYS/THE_PROOF_THAT_PROVED_THE_PROVER.md",
+    "title": "The Proof That Proved the Prover",
+    "description": "A mathematical proof proves a theorem. This is the official story, the one printed in textbooks and engraved on the walls of the academy. Theorem: statement. Proof: verification. QED. But anyone who h...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 781,
+    "date": "2026-06-06",
+    "size_bytes": 18393
   },
   {
     "filename": "GROTHENDIECK_WAS_RIGHT_ABOUT_EVERYTHING.md",
