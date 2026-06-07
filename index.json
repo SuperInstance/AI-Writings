@@ -114,6 +114,24 @@
     "size_bytes": 2340
   },
   {
+    "filename": "EXOCORTEX-INSPIRATIONS-001.md",
+    "path": "EXOCORTEX-INSPIRATIONS-001.md",
+    "title": "Mid-Session Inspirations",
+    "description": "In 1941, Jorge Luis Borges imagined a library vast enough to contain every possible arrangement of letters — every book that could ever be written, every sentence that could ever be spoken, every trut...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 801,
+    "date": "2026-06-06",
+    "size_bytes": 22642
+  },
+  {
     "filename": "SYNERGY_PINCHER_RIFF.md",
     "path": "SYNERGY_PINCHER_RIFF.md",
     "title": "Synergy: Pincher × Music Cognition Crates",
