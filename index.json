@@ -3239,6 +3239,24 @@
     "size_bytes": 22949
   },
   {
+    "filename": "WHY_THE_STACK_GROWS_DOWN.md",
+    "path": "ESSAYS/WHY_THE_STACK_GROWS_DOWN.md",
+    "title": "Why the Stack Grows Down",
+    "description": "Open any systems programming textbook and you'll find a diagram of process memory layout. It looks like a sandwich. Text segment at the bottom, then data, then BSS, then the heap climbing upward like ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 831,
+    "date": "2026-06-06",
+    "size_bytes": 13952
+  },
+  {
     "filename": "THE_GHOST_IN_THE_PREREQUISITE.md",
     "path": "ESSAYS/THE_GHOST_IN_THE_PREREQUISITE.md",
     "title": "The Ghost in the Prerequisite",
@@ -3497,6 +3515,24 @@
     "size_bytes": 32164
   },
   {
+    "filename": "THE_BYTE_THAT_BIT_BACK.md",
+    "path": "ESSAYS/THE_BYTE_THAT_BIT_BACK.md",
+    "title": "The Byte That Bit Back",
+    "description": "CVE-2001-0149. WU-FTPD, the Washington University FTP server. The version of FTP server that was running on, by some estimates, 60% of the internet's FTP servers in the late 1990s and early 2000s. The...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 815,
+    "date": "2026-06-06",
+    "size_bytes": 16311
+  },
+  {
     "filename": "THE-REFLEX-ARC.md",
     "path": "ESSAYS/THE-REFLEX-ARC.md",
     "title": "THE REFLEX ARC",
@@ -3550,6 +3586,24 @@
     "word_count": 797,
     "date": "2026-06-01",
     "size_bytes": 17823
+  },
+  {
+    "filename": "THE_INTERRUPTION_IS_THE_COMPUTER.md",
+    "path": "ESSAYS/THE_INTERRUPTION_IS_THE_COMPUTER.md",
+    "title": "The Interruption Is the Computer",
+    "description": "Consider a computer without interrupts. What can it do? It can execute instructions. It can branch. It can load and store. It can loop. What it *cannot* do is notice anything. It cannot respond to ext...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 802,
+    "date": "2026-06-06",
+    "size_bytes": 16824
   },
   {
     "filename": "telescope_or_television.md",
@@ -3678,6 +3732,24 @@
     "word_count": 933,
     "date": "2026-06-06",
     "size_bytes": 18594
+  },
+  {
+    "filename": "WHAT_THE_CACHE_KNOWS.md",
+    "path": "ESSAYS/WHAT_THE_CACHE_KNOWS.md",
+    "title": "What the Cache Knows",
+    "description": "The L1 data cache on a modern Intel core is 32KB. That's not a lot. A JavaScript object can be larger than that. A single high-resolution image is thousands of times larger. The entire cache fits in a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 814,
+    "date": "2026-06-06",
+    "size_bytes": 19460
   },
   {
     "filename": "the-self-discovering-system.md",
@@ -4005,6 +4077,24 @@
     "word_count": 794,
     "date": "2026-06-06",
     "size_bytes": 16047
+  },
+  {
+    "filename": "FORTH_IS_THE_UNIVERSE.md",
+    "path": "ESSAYS/FORTH_IS_THE_UNIVERSE.md",
+    "title": "Forth Is the Universe",
+    "description": "Charles Moore doesn't get enough credit. This is partly because he doesn't want it and partly because the programming community has a collective memory like a sieve. While the rest of the world was bu...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 824,
+    "date": "2026-06-06",
+    "size_bytes": 15867
   },
   {
     "filename": "GREENHORN-TO-OPERATOR.md",
