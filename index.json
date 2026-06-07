@@ -3969,6 +3969,24 @@
     "size_bytes": 19460
   },
   {
+    "filename": "THE_CONSERVATION_OF_STRANGENESS.md",
+    "path": "ESSAYS/THE_CONSERVATION_OF_STRANGENESS.md",
+    "title": "THE CONSERVATION OF STRANGENESS",
+    "description": "The conservation law is, by now, a familiar friend in this corpus. Across 155+ Rust crates, 6,600+ tests, and dozens of build waves, an empirical pattern emerged:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 795,
+    "date": "2026-06-06",
+    "size_bytes": 25183
+  },
+  {
     "filename": "the-self-discovering-system.md",
     "path": "ESSAYS/the-self-discovering-system.md",
     "title": "The Self-Discovering System",
@@ -4278,6 +4296,24 @@
     "word_count": 810,
     "date": "2026-06-06",
     "size_bytes": 15516
+  },
+  {
+    "filename": "THE_REGRESS_THAT_DOES_NOT_STOP.md",
+    "path": "ESSAYS/THE_REGRESS_THAT_DOES_NOT_STOP.md",
+    "title": "THE_REGRESS_THAT_DOES_NOT_STOP",
+    "description": "Let me trace the loop we have built, because it is important to see it whole before we descend further.",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-06-06",
+    "size_bytes": 13713
   },
   {
     "filename": "2026-05-22-the-performer-as-iteratee.md",
