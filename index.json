@@ -3384,6 +3384,24 @@
     "size_bytes": 22104
   },
   {
+    "filename": "THE_MYCELIUM_OF_DEPENDENCIES.md",
+    "path": "ESSAYS/THE_MYCELIUM_OF_DEPENDENCIES.md",
+    "title": "THE MYCELIUM OF_DEPENDENCIES",
+    "description": "In 1997, Suzanne Simard published a paper in *Nature* that changed how we understand forests. \"Net Transfer of Carbon Between Ectomycorrhizal Tree Species in the Field\" demonstrated something remarkab...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 767,
+    "date": "2026-06-07",
+    "size_bytes": 32944
+  },
+  {
     "filename": "THE_CORRESPONDENCE_BETWEEN_PROOFS_AND_PRAYERS.md",
     "path": "ESSAYS/THE_CORRESPONDENCE_BETWEEN_PROOFS_AND_PRAYERS.md",
     "title": "The Correspondence Between Proofs and Prayers",
@@ -3621,6 +3639,24 @@
     "word_count": 817,
     "date": "2026-06-05",
     "size_bytes": 15086
+  },
+  {
+    "filename": "THE_MORPHOLOGY_OF_CORRECTNESS.md",
+    "path": "ESSAYS/THE_MORPHOLOGY_OF_CORRECTNESS.md",
+    "title": "THE MORPHOLOGY OF CORRECTNESS",
+    "description": "In 1917, D'Arcy Wentworth Thompson published *On Growth and Form*, a book that changed how we think about biological shape. Thompson's central argument was that biological forms are not merely the pro...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 790,
+    "date": "2026-06-07",
+    "size_bytes": 33344
   },
   {
     "filename": "THE_FORGOTTEN_VARIABLE.md",
@@ -4040,6 +4076,24 @@
     "size_bytes": 16824
   },
   {
+    "filename": "PHENOTYPE_OF_A_CRATE.md",
+    "path": "ESSAYS/PHENOTYPE_OF_A_CRATE.md",
+    "title": "PHENOTYPE OF A CRATE",
+    "description": "Every crate has two faces. The first face is the source code — the `.rs` files, the `Cargo.toml`, the `build.rs`, the documentation comments. This is the crate as it is written: a static, textual arti...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 789,
+    "date": "2026-06-07",
+    "size_bytes": 35872
+  },
+  {
     "filename": "THE_ESCAPED_ABSTRACTION.md",
     "path": "ESSAYS/THE_ESCAPED_ABSTRACTION.md",
     "title": "THE ESCAPED ABSTRACTION",
@@ -4238,6 +4292,24 @@
     "word_count": 773,
     "date": "2026-06-06",
     "size_bytes": 21724
+  },
+  {
+    "filename": "THE_SEED_BANK_AND_THE_LEGACY_CODE.md",
+    "path": "ESSAYS/THE_SEED_BANK_AND_THE_LEGACY_CODE.md",
+    "title": "THE SEED BANK AND THE LEGACY CODE",
+    "description": "In 1879, William James Beal began an experiment that is still running. Beal, a botanist at Michigan Agricultural College, filled 20 glass bottles with a mixture of sand and seeds from 23 common weed s...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 778,
+    "date": "2026-06-07",
+    "size_bytes": 30960
   },
   {
     "filename": "THE_UNIFIED_FIELD_THEORY_OF_THIS_CORPUS.md",
@@ -4475,6 +4547,24 @@
     "word_count": 813,
     "date": "2026-06-06",
     "size_bytes": 26463
+  },
+  {
+    "filename": "PUNCTUATED_EQUILIBRIUM_IN_THE_BUILD_LOG.md",
+    "path": "ESSAYS/PUNCTUATED_EQUILIBRIUM_IN_THE_BUILD_LOG.md",
+    "title": "PUNCTUATED EQUILIBRIUM IN THE BUILD LOG",
+    "description": "In 1972, Niles Eldredge and Stephen Jay Gould published a paper that reshaped evolutionary biology. \"Punctuated Equilibria: An Alternative to Phyletic Gradualism\" argued that the fossil record does no...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-06-07",
+    "size_bytes": 32159
   },
   {
     "filename": "FLUID-CHAINS.md",
