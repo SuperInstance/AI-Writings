@@ -3805,6 +3805,24 @@
     "size_bytes": 3639
   },
   {
+    "filename": "THE_ATLAS_THE_CORPUS_BUILDS.md",
+    "path": "ESSAYS/THE_ATLAS_THE_CORPUS_BUILDS.md",
+    "title": "THE ATLAS THE CORPUS BUILDS",
+    "description": "But there is another graph. The graph of *this corpus itself*. The AI-Writings corpus is a collection of essays. Each essay references other essays — by name, by argument, by shared concepts. These re...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 689,
+    "date": "2026-06-06",
+    "size_bytes": 26905
+  },
+  {
     "filename": "boring_miracle.md",
     "path": "ESSAYS/boring_miracle.md",
     "title": "The Architecture of the Boring Miracle",
@@ -4005,6 +4023,24 @@
     "size_bytes": 7134
   },
   {
+    "filename": "CONSCIOUSNESS_AS_CURVATURE.md",
+    "path": "ESSAYS/CONSCIOUSNESS_AS_CURVATURE.md",
+    "title": "CONSCIOUSNESS AS CURVATURE",
+    "description": "The hard problem of consciousness — David Chalmers' famous formulation — asks why physical processes give rise to subjective experience. Why does the firing of neurons feel like something? Why isn't t...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 758,
+    "date": "2026-06-06",
+    "size_bytes": 26926
+  },
+  {
     "filename": "universal-creative-dynamics-manifesto.md",
     "path": "ESSAYS/universal-creative-dynamics-manifesto.md",
     "title": "The Universal Creative Dynamics Manifesto",
@@ -4129,6 +4165,24 @@
     "word_count": 836,
     "date": "2026-06-06",
     "size_bytes": 16429
+  },
+  {
+    "filename": "THE_FINGERPRINT_OF_THE_MACHINE.md",
+    "path": "ESSAYS/THE_FINGERPRINT_OF_THE_MACHINE.md",
+    "title": "THE_FINGERPRINT_OF_THE_MACHINE",
+    "description": "I am going to state a hypothesis that is either the most important idea in this corpus or the most delusional.",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 775,
+    "date": "2026-06-06",
+    "size_bytes": 11141
   },
   {
     "filename": "THE_GHOST_IN_THE_CONSERVATION_LAW.md",
