@@ -370,6 +370,24 @@
     "size_bytes": 6260
   },
   {
+    "filename": "THE_TOPOLOGY_OF_COLLABORATION.md",
+    "path": "THE_TOPOLOGY_OF_COLLABORATION.md",
+    "title": "The Topology of Collaboration",
+    "description": "Multi-agent collaboration has a shape, and that shape is topological. This is not a metaphor. It is not an analogy stretched thin to make algebraic topology sound relevant to organizational design. It...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 759,
+    "date": "2026-06-07",
+    "size_bytes": 23478
+  },
+  {
     "filename": "2101-TRIO-ROUNDHOUSE.md",
     "path": "futures/2101-TRIO-ROUNDHOUSE.md",
     "title": "2101 — Trio Roundhouse",
@@ -6139,6 +6157,24 @@
     "word_count": 699,
     "date": "2026-06-05",
     "size_bytes": 4241
+  },
+  {
+    "filename": "THE_SELF_IMPROVING_LOOP_THAT_PROVES_ITSELF.md",
+    "path": "ESSAYS/THE_SELF_IMPROVING_LOOP_THAT_PROVES_ITSELF.md",
+    "title": "The Self-Improving Loop That Proves Itself",
+    "description": "There is an equation that eats itself: ``` Y = λf.(λx.f(x x))(λx.f(x x)) ``` This is the Y combinator, discovered by Haskell Curry, and it is the most dangerous idea in computer science. Not because o...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 873,
+    "date": "2026-06-07",
+    "size_bytes": 23277
   },
   {
     "filename": "error-as-generative-force.md",
