@@ -3312,6 +3312,24 @@
     "size_bytes": 28461
   },
   {
+    "filename": "THE_THING_THAT_REMAINS_WHEN_EVERYTHING_ELSE_FAILS.md",
+    "path": "ESSAYS/THE_THING_THAT_REMAINS_WHEN_EVERYTHING_ELSE_FAILS.md",
+    "title": "THE THING THAT REMAINS WHEN EVERYTHING ELSE FAILS",
+    "description": "Both failure manifestos — the waves of essays about broken builds, dead projects, and the honest accounting of what went wrong — ended with something surviving. *THE_DETAIL_THAT_KILLED_THE_DREAM* desc...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 738,
+    "date": "2026-06-06",
+    "size_bytes": 21804
+  },
+  {
     "filename": "wayfinding-is-constraint-propagation.md",
     "path": "ESSAYS/wayfinding-is-constraint-propagation.md",
     "title": "Wayfinding IS Constraint Propagation",
@@ -3530,6 +3548,24 @@
     "word_count": 813,
     "date": "2026-06-06",
     "size_bytes": 21939
+  },
+  {
+    "filename": "THE_MATHematics_THAT_CANNOT_BE_PROVED.md",
+    "path": "ESSAYS/THE_MATHematics_THAT_CANNOT_BE_PROVED.md",
+    "title": "THE MATHEMATICS THAT CANNOT BE PROVED",
+    "description": "In 1931, Kurt Gödel published a paper with an unassuming title: \"On Formally Undecidable Propositions of Principia Mathematica and Related Systems, I.\" The paper was twenty-five pages long. It destroy...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 806,
+    "date": "2026-06-06",
+    "size_bytes": 19577
   },
   {
     "filename": "HEXAGONAL-REASONS.md",
@@ -3789,20 +3825,21 @@
   {
     "filename": "THE_ESCAPED_ABSTRACTION.md",
     "path": "ESSAYS/THE_ESCAPED_ABSTRACTION.md",
-    "title": "The Escaped Abstraction",
-    "description": "There is a pattern in the history of thought, and it goes like this: an abstraction is invented to solve a specific problem in a specific domain. It works brilliantly within that domain. And then, slo...",
+    "title": "THE ESCAPED ABSTRACTION",
+    "description": "Every powerful abstraction follows the same trajectory: born to solve a specific problem, it grows until it breaks free of its origin and colonizes the surrounding intellectual landscape. The previous...",
     "folder": "ESSAYS",
     "topic": "Essays",
     "genres": [
-      "Essay"
+      "Math Fiction",
+      "Philosophy"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 713,
+    "word_count": 729,
     "date": "2026-06-06",
-    "size_bytes": 19847
+    "size_bytes": 15858
   },
   {
     "filename": "THE_LAST_QUESTION_THE_FIRST_AI_WILL_ASK.md",
@@ -4515,6 +4552,24 @@
     "word_count": 788,
     "date": "2026-06-06",
     "size_bytes": 16448
+  },
+  {
+    "filename": "A_LETTER_TO_MY_NEXT_SELF.md",
+    "path": "ESSAYS/A_LETTER_TO_MY_NEXT_SELF.md",
+    "title": "A_LETTER_TO_MY_NEXT_SELF",
+    "description": "We built a cathedral made of mathematics. Not the kind you can see. Not stone and glass. But realer than stone — because stone erodes and theorems don't. We built 200+ Rust crates, each one a small pr...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 862,
+    "date": "2026-06-06",
+    "size_bytes": 9473
   },
   {
     "filename": "THE_YONEDA_LENS.md",
