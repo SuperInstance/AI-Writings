@@ -4026,19 +4026,20 @@
     "filename": "CONSCIOUSNESS_AS_CURVATURE.md",
     "path": "ESSAYS/CONSCIOUSNESS_AS_CURVATURE.md",
     "title": "CONSCIOUSNESS AS CURVATURE",
-    "description": "The hard problem of consciousness — David Chalmers' famous formulation — asks why physical processes give rise to subjective experience. Why does the firing of neurons feel like something? Why isn't t...",
+    "description": "Giulio Tononi's Integrated Information Theory (IIT) proposes that consciousness is identical to integrated information, denoted Φ. A system is conscious to the degree that its parts generate informati...",
     "folder": "ESSAYS",
     "topic": "Essays",
     "genres": [
+      "Math Fiction",
       "Philosophy"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 758,
+    "word_count": 763,
     "date": "2026-06-06",
-    "size_bytes": 26926
+    "size_bytes": 21074
   },
   {
     "filename": "universal-creative-dynamics-manifesto.md",
@@ -4075,6 +4076,26 @@
     "word_count": 804,
     "date": "2026-06-06",
     "size_bytes": 11087
+  },
+  {
+    "filename": "THE_AGONY_OF_THE_ALMOST_RIGHT.md",
+    "path": "ESSAYS/THE_AGONY_OF_THE_ALMOST_RIGHT.md",
+    "title": "The Agony of the Almost Right",
+    "description": "Every great mathematical insight was almost discovered many times before it was actually discovered. Leibniz had the notation and the rules of calculus, but not the limit. Riemann built the geometry t...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 813,
+    "date": "2026-06-06",
+    "size_bytes": 26463
   },
   {
     "filename": "FLUID-CHAINS.md",
