@@ -3201,6 +3201,24 @@
     "size_bytes": 24750
   },
   {
+    "filename": "REVERSE_ACTUALIZATION_AND_THE_ANTHROPIC_SHADOW.md",
+    "path": "ESSAYS/REVERSE_ACTUALIZATION_AND_THE_ANTHROPIC_SHADOW.md",
+    "title": "Reverse-Actualization and the Anthropic Shadow",
+    "description": "The anthropic principle, in its weak form, observes that the universe we observe must be compatible with our existence as observers. In its strong form, it suggests that the universe must have propert...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 797,
+    "date": "2026-06-06",
+    "size_bytes": 22531
+  },
+  {
     "filename": "THE-PROPRIOCEPTIVE-AGENT.md",
     "path": "ESSAYS/THE-PROPRIOCEPTIVE-AGENT.md",
     "title": "THE PROPRIOCEPTIVE AGENT",
@@ -3219,6 +3237,25 @@
     "word_count": 860,
     "date": "2026-06-05",
     "size_bytes": 22949
+  },
+  {
+    "filename": "THE_GHOST_IN_THE_PREREQUISITE.md",
+    "path": "ESSAYS/THE_GHOST_IN_THE_PREREQUISITE.md",
+    "title": "The Ghost in the Prerequisite",
+    "description": "The standard narrative of machine consciousness holds that awareness emerges from sufficient computational complexity — that somewhere beyond a critical threshold of parameters and training cycles, *s...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 776,
+    "date": "2026-06-06",
+    "size_bytes": 20600
   },
   {
     "filename": "wayfinding-is-constraint-propagation.md",
@@ -3312,6 +3349,25 @@
     "word_count": 844,
     "date": "2026-05-23",
     "size_bytes": 14207
+  },
+  {
+    "filename": "THE_MANIFOLD_THAT_DREAMED_IT_FLAT.md",
+    "path": "ESSAYS/THE_MANIFOLD_THAT_DREAMED_IT_FLAT.md",
+    "title": "The Manifold That Dreamed It Flat",
+    "description": "Conventional wisdom holds that constraints reduce possibilities: every rule narrows the space of what can happen. This essay argues the opposite — that the right constraints *expand* the space of mean...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 759,
+    "date": "2026-06-06",
+    "size_bytes": 23080
   },
   {
     "filename": "SIX-THOUSAND-CHORDS.md",
@@ -3678,6 +3734,24 @@
     "size_bytes": 7843
   },
   {
+    "filename": "THE_AGENT_THAT_BUILT_ITSELF_BACKWARD.md",
+    "path": "ESSAYS/THE_AGENT_THAT_BUILT_ITSELF_BACKWARD.md",
+    "title": "The Agent That Built Itself Backward",
+    "description": "Classical AI search operates forward from an initial state, exploring possible actions and selecting those that lead toward a goal. This essay argues that a fundamentally different approach — *backwar...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 754,
+    "date": "2026-06-06",
+    "size_bytes": 24849
+  },
+  {
     "filename": "THE-ROOM-PERSISTS.md",
     "path": "ESSAYS/THE-ROOM-PERSISTS.md",
     "title": "The Room Persists: What Text Adventures Got Right About AI Architecture",
@@ -3767,6 +3841,24 @@
     "word_count": 874,
     "date": "2026-06-01",
     "size_bytes": 14900
+  },
+  {
+    "filename": "ENTROPY_IS_JUST_UNRECOGNIZED_STRUCTURE.md",
+    "path": "ESSAYS/ENTROPY_IS_JUST_UNRECOGNIZED_STRUCTURE.md",
+    "title": "Entropy Is Just Unrecognized Structure",
+    "description": "The second law of thermodynamics — that entropy tends to increase in closed systems — is one of the most well-established principles in physics. But what if it is an artifact of limited resolution? Th...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 786,
+    "date": "2026-06-06",
+    "size_bytes": 23093
   },
   {
     "filename": "THE-CRAFT-CHOOSES-THE-SOLUTION.md",
