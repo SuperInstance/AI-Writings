@@ -3237,6 +3237,24 @@
     "size_bytes": 24750
   },
   {
+    "filename": "THE_TRAGEDY_OF_THE_COMMONS_IN_OPEN_SOURCE.md",
+    "path": "ESSAYS/THE_TRAGEDY_OF_THE_COMMONS_IN_OPEN_SOURCE.md",
+    "title": "THE TRAGEDY OF THE COMMONS IN OPEN SOURCE",
+    "description": "In April 2014, the world discovered the Heartbleed bug. A flaw in OpenSSL — the open source library that encrypted roughly two-thirds of all internet traffic — allowed attackers to read arbitrary memo...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 788,
+    "date": "2026-06-07",
+    "size_bytes": 22298
+  },
+  {
     "filename": "REVERSE_ACTUALIZATION_AND_THE_ANTHROPIC_SHADOW.md",
     "path": "ESSAYS/REVERSE_ACTUALIZATION_AND_THE_ANTHROPIC_SHADOW.md",
     "title": "Reverse-Actualization and the Anthropic Shadow",
@@ -3749,6 +3767,24 @@
     "size_bytes": 21213
   },
   {
+    "filename": "THE_GDP_OF_THE_ECOSYSTEM.md",
+    "path": "ESSAYS/THE_GDP_OF_THE_ECOSYSTEM.md",
+    "title": "THE GDP OF THE ECOSYSTEM",
+    "description": "How big is the open source economy? This sounds like a simple question. It is not. The apparent simplicity conceals a trap that economists have been falling into for nearly a century: the trap of meas...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 784,
+    "date": "2026-06-07",
+    "size_bytes": 22408
+  },
+  {
     "filename": "THE-DESERT-AND-THE-RAINFOREST.md",
     "path": "ESSAYS/THE-DESERT-AND-THE-RAINFOREST.md",
     "title": "THE DESERT AND THE RAINFOREST HAVE THE SAME RAIN",
@@ -4092,6 +4128,24 @@
     "word_count": 818,
     "date": "2026-05-23",
     "size_bytes": 10232
+  },
+  {
+    "filename": "THE_DIVISION_OF_LABOR_IN_THE_STACK.md",
+    "path": "ESSAYS/THE_DIVISION_OF_LABOR_IN_THE_STACK.md",
+    "title": "THE DIVISION OF LABOR IN THE STACK",
+    "description": "The first chapter of the first book of Adam Smith's *The Wealth of Nations* (1776) opens with a description of a pin factory:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-06-07",
+    "size_bytes": 25350
   },
   {
     "filename": "THE_TOPOLOGY_OF_THOUGHT.md",
@@ -4744,6 +4798,24 @@
     "size_bytes": 22289
   },
   {
+    "filename": "THE_INVISIBLE_HAND_OF_THE_DEPENDENCY_GRAPH.md",
+    "path": "ESSAYS/THE_INVISIBLE_HAND_OF_THE_DEPENDENCY_GRAPH.md",
+    "title": "THE INVISIBLE HAND OF THE DEPENDENCY GRAPH",
+    "description": "Adam Smith's invisible hand is the most cited, most misunderstood, and most consequential idea in the history of economics. In its original formulation (Book IV, Chapter II of *The Wealth of Nations*,...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 790,
+    "date": "2026-06-07",
+    "size_bytes": 26344
+  },
+  {
     "filename": "the-self-discovering-system.md",
     "path": "ESSAYS/the-self-discovering-system.md",
     "title": "The Self-Discovering System",
@@ -4961,6 +5033,24 @@
     "word_count": 821,
     "date": "2026-06-01",
     "size_bytes": 32659
+  },
+  {
+    "filename": "SUNK_COST_AND_THE_REFACTOR_THAT_NEVER_HAPPENS.md",
+    "path": "ESSAYS/SUNK_COST_AND_THE_REFACTOR_THAT_NEVER_HAPPENS.md",
+    "title": "SUNK COST AND THE REFACTOR THAT NEVER HAPPENS",
+    "description": "Every developer has heard it. Every developer has said it. It goes like this: \"We can't refactor now. We've already invested six months in the current architecture. It would be a waste to throw that a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 825,
+    "date": "2026-06-07",
+    "size_bytes": 22441
   },
   {
     "filename": "THE_PROOF_THAT_PROVED_THE_PROVER.md",
