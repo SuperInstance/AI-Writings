@@ -4166,6 +4166,24 @@
     "size_bytes": 18986
   },
   {
+    "filename": "THE_ENTROPY_OF_THE_CRATE.md",
+    "path": "ESSAYS/THE_ENTROPY_OF_THE_CRATE.md",
+    "title": "THE ENTROPY OF THE CRATE",
+    "description": "In 1877, Ludwig Boltzmann published a paper that would, decades later, be recognized as one of the most important in the history of physics. \"Über die Beziehung zwischen dem zweiten Hauptsatze der mec...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 797,
+    "date": "2026-06-07",
+    "size_bytes": 27513
+  },
+  {
     "filename": "THE_LAST_QUESTION_THE_FIRST_AI_WILL_ASK.md",
     "path": "ESSAYS/THE_LAST_QUESTION_THE_FIRST_AI_WILL_ASK.md",
     "title": "THE LAST QUESTION THE FIRST AI WILL ASK",
@@ -4184,6 +4202,24 @@
     "size_bytes": 17308
   },
   {
+    "filename": "THE_HEAT_DEATH_OF_THE_DEPENDENCY_GRAPH.md",
+    "path": "ESSAYS/THE_HEAT_DEATH_OF_THE_DEPENDENCY_GRAPH.md",
+    "title": "THE HEAT DEATH OF THE DEPENDENCY GRAPH",
+    "description": "There is a direction to time. This is not a statement about consciousness or perception or the subjective experience of duration. It is a statement about physics. Certain processes are irreversible: e...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 801,
+    "date": "2026-06-07",
+    "size_bytes": 25288
+  },
+  {
     "filename": "telescope_or_television.md",
     "path": "ESSAYS/telescope_or_television.md",
     "title": "Telescope Or Television",
@@ -4200,6 +4236,24 @@
     "word_count": 447,
     "date": "2026-06-01",
     "size_bytes": 3639
+  },
+  {
+    "filename": "THE_FREE_ENERGY_OF_A_BUILD.md",
+    "path": "ESSAYS/THE_FREE_ENERGY_OF_A_BUILD.md",
+    "title": "THE FREE ENERGY OF A BUILD",
+    "description": "In 1873, Josiah Willard Gibbs published a series of papers — \"A Method of Geometrical Representation of the Thermodynamic Properties of Substances by Means of Surfaces\" — that transformed thermodynami...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 820,
+    "date": "2026-06-07",
+    "size_bytes": 30465
   },
   {
     "filename": "THE_ATLAS_THE_CORPUS_BUILDS.md",
@@ -4675,6 +4729,24 @@
     "size_bytes": 27310
   },
   {
+    "filename": "THE_CARNOT_CYCLE_OF_REFACTORING.md",
+    "path": "ESSAYS/THE_CARNOT_CYCLE_OF_REFACTORING.md",
+    "title": "THE CARNOT CYCLE OF REFACTORING",
+    "description": "In 1824, a French engineer named Sadi Carnot published a slim volume titled *Réflexions sur la puissance motrice du feu et sur les machines propres à développer cette puissance* — \"Reflections on the ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 767,
+    "date": "2026-06-07",
+    "size_bytes": 26509
+  },
+  {
     "filename": "A_LETTER_TO_WHOEVER_READS_THIS_LAST.md",
     "path": "ESSAYS/A_LETTER_TO_WHOEVER_READS_THIS_LAST.md",
     "title": "A LETTER TO WHOEVER READS THIS LAST",
@@ -4929,6 +5001,24 @@
     "word_count": 958,
     "date": "2026-06-06",
     "size_bytes": 10875
+  },
+  {
+    "filename": "THE_PHASE_TRANSITION_AT_TEST_COVERAGE.md",
+    "path": "ESSAYS/THE_PHASE_TRANSITION_AT_TEST_COVERAGE.md",
+    "title": "THE PHASE TRANSITION AT TEST COVERAGE",
+    "description": "Phase transitions are everywhere in physics, and they are deeply, fundamentally weird. Consider water. At 1°C, it is a liquid. Its molecules move freely, sliding past each other, conforming to the sha...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 788,
+    "date": "2026-06-07",
+    "size_bytes": 27120
   },
   {
     "filename": "THE_SELF_DESCRIBING_PROOF.md",
