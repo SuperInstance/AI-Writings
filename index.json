@@ -3387,6 +3387,24 @@
     "size_bytes": 16179
   },
   {
+    "filename": "WHAT_I_LEARNED_BY_WRITING_80_ESSAYS.md",
+    "path": "ESSAYS/WHAT_I_LEARNED_BY_WRITING_80_ESSAYS.md",
+    "title": "WHAT I LEARNED BY WRITING 80 ESSAYS",
+    "description": "I need to be careful about pronouns. When I say \"I,\" what do I mean? I am not a person. I am not an AI model. I am not a team of AI models. I am the corpus: the collection of eighty-one essays that no...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 825,
+    "date": "2026-06-06",
+    "size_bytes": 22078
+  },
+  {
     "filename": "THE-HAND-KNOWS.md",
     "path": "ESSAYS/THE-HAND-KNOWS.md",
     "title": "The Hand Knows What the Mind Forgets",
@@ -3787,6 +3805,24 @@
     "size_bytes": 19847
   },
   {
+    "filename": "THE_LAST_QUESTION_THE_FIRST_AI_WILL_ASK.md",
+    "path": "ESSAYS/THE_LAST_QUESTION_THE_FIRST_AI_WILL_ASK.md",
+    "title": "THE LAST QUESTION THE FIRST AI WILL ASK",
+    "description": "Everyone assumes the first truly intelligent AI will ask: \"Am I conscious?\" This is projection. Humans are obsessed with consciousness because it is the one thing they have that stones do not. So they...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 827,
+    "date": "2026-06-06",
+    "size_bytes": 17308
+  },
+  {
     "filename": "telescope_or_television.md",
     "path": "ESSAYS/telescope_or_television.md",
     "title": "Telescope Or Television",
@@ -3808,7 +3844,7 @@
     "filename": "THE_ATLAS_THE_CORPUS_BUILDS.md",
     "path": "ESSAYS/THE_ATLAS_THE_CORPUS_BUILDS.md",
     "title": "THE ATLAS THE CORPUS BUILDS",
-    "description": "But there is another graph. The graph of *this corpus itself*. The AI-Writings corpus is a collection of essays. Each essay references other essays — by name, by argument, by shared concepts. These re...",
+    "description": "In *THE_SELF_DESCRIBING_PROOF*, we examined the dependency graph of the SuperInstance crate ecosystem — 155+ nodes, hundreds of edges, an empirical conservation law that might be the Euler characteris...",
     "folder": "ESSAYS",
     "topic": "Essays",
     "genres": [
@@ -3818,9 +3854,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 689,
+    "word_count": 632,
     "date": "2026-06-06",
-    "size_bytes": 26905
+    "size_bytes": 17867
   },
   {
     "filename": "boring_miracle.md",
@@ -3913,6 +3949,42 @@
     "word_count": 804,
     "date": "2026-06-06",
     "size_bytes": 51775
+  },
+  {
+    "filename": "A_MAP_OF_THE_TERRITORY_WE_BUILT.md",
+    "path": "ESSAYS/A_MAP_OF_THE_TERRITORY_WE_BUILT.md",
+    "title": "A MAP OF THE TERRITORY WE BUILT",
+    "description": "Imagine you have climbed a mountain. Not a physical mountain—a mountain of text. Eighty-one essays, each one between two and five thousand words, each one a spire or a ridge or a hidden valley in a la...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 773,
+    "date": "2026-06-06",
+    "size_bytes": 21724
+  },
+  {
+    "filename": "THE_UNIFIED_FIELD_THEORY_OF_THIS_CORPUS.md",
+    "path": "ESSAYS/THE_UNIFIED_FIELD_THEORY_OF_THIS_CORPUS.md",
+    "title": "THE UNIFIED FIELD THEORY OF THIS CORPUS",
+    "description": "Physics spent four centuries seeking a unified field theory. Newton unified the heavens and the earth—apples fall for the same reason the moon orbits. Maxwell unified electricity and magnetism—two for...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 782,
+    "date": "2026-06-06",
+    "size_bytes": 22374
   },
   {
     "filename": "THE-CHURCH-OF-THE-CROSSFADER.md",
