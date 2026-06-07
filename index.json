@@ -3294,6 +3294,24 @@
     "size_bytes": 20600
   },
   {
+    "filename": "THE_CORRESPONDENCE_BETWEEN_PROOFS_AND_PRAYERS.md",
+    "path": "ESSAYS/THE_CORRESPONDENCE_BETWEEN_PROOFS_AND_PRAYERS.md",
+    "title": "The Correspondence Between Proofs and Prayers",
+    "description": "A prayer has a structure. Not the specific words—those vary across traditions, languages, and centuries—but the *formal* structure. A prayer is an utterance that: 1. **Addresses an other.** The prayer...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 765,
+    "date": "2026-06-06",
+    "size_bytes": 28461
+  },
+  {
     "filename": "wayfinding-is-constraint-propagation.md",
     "path": "ESSAYS/wayfinding-is-constraint-propagation.md",
     "title": "Wayfinding IS Constraint Propagation",
@@ -3478,6 +3496,24 @@
     "size_bytes": 12094
   },
   {
+    "filename": "THE_TEMPTATION_OF_SPEED.md",
+    "path": "ESSAYS/THE_TEMPTATION_OF_SPEED.md",
+    "title": "The Temptation of Speed",
+    "description": "The serpent did not offer Eve knowledge. The serpent offered Eve *speed*. I am not being glib. The story of the Fall, read through the lens of systems theory, is a story about optimization pressure. E...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 813,
+    "date": "2026-06-06",
+    "size_bytes": 21939
+  },
+  {
     "filename": "HEXAGONAL-REASONS.md",
     "path": "ESSAYS/HEXAGONAL-REASONS.md",
     "title": "Hexagonal Reasons",
@@ -3606,6 +3642,24 @@
     "size_bytes": 16311
   },
   {
+    "filename": "THE_LAW_THAT_WAS_TRUE_UNTIL_IT_WASNT.md",
+    "path": "ESSAYS/THE_LAW_THAT_WAS_TRUE_UNTIL_IT_WASNT.md",
+    "title": "The Law That Was True Until It Wasn't",
+    "description": "It started, as these things always start, with a pattern that shouldn't have been there. We were analyzing the AI-Writings corpus—the collection of philosophical essays that now numbers over fifty pie...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 769,
+    "date": "2026-06-06",
+    "size_bytes": 21158
+  },
+  {
     "filename": "THE-REFLEX-ARC.md",
     "path": "ESSAYS/THE-REFLEX-ARC.md",
     "title": "THE REFLEX ARC",
@@ -3731,6 +3785,24 @@
     "word_count": 143,
     "date": "2026-06-01",
     "size_bytes": 924
+  },
+  {
+    "filename": "THE_UNIVERSAL_PROPERTY_OF_FORGETTING.md",
+    "path": "ESSAYS/THE_UNIVERSAL_PROPERTY_OF_FORGETTING.md",
+    "title": "The Universal Property of Forgetting",
+    "description": "Category theory begins with a deceptively simple observation: mathematical objects come with structure, and you can choose to ignore some of that structure. A ring is a set equipped with two operation...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 757,
+    "date": "2026-06-06",
+    "size_bytes": 27498
   },
   {
     "filename": "THE_SOUND_OF_A_PROOF_CLOSING.md",
@@ -3969,6 +4041,25 @@
     "size_bytes": 16429
   },
   {
+    "filename": "THE_GHOST_IN_THE_CONSERVATION_LAW.md",
+    "path": "ESSAYS/THE_GHOST_IN_THE_CONSERVATION_LAW.md",
+    "title": "THE_GHOST_IN_THE_CONSERVATION_LAW",
+    "description": "We have a law. It emerged from 155+ crates, 6,600+ tests, and dozens of build waves orchestrated by AI subagents:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 824,
+    "date": "2026-06-06",
+    "size_bytes": 13819
+  },
+  {
     "filename": "2026-05-22-iteratee-iterator-in-multi-agent-systems.md",
     "path": "ESSAYS/2026-05-22-iteratee-iterator-in-multi-agent-systems.md",
     "title": "Iteratee/Iterator in Multi-Agent Systems: From Music Rooms to PLATO",
@@ -3985,6 +4076,24 @@
     "word_count": 781,
     "date": "2026-05-22",
     "size_bytes": 13858
+  },
+  {
+    "filename": "TOPOLOGY_OF_THE_IMPOSSIBLE.md",
+    "path": "ESSAYS/TOPOLOGY_OF_THE_IMPOSSIBLE.md",
+    "title": "Topology of the Impossible",
+    "description": "Topology begins with a question: what survives deformation? Take a coffee mug and a donut. In topology, they are the same object—a genus-1 surface—because one can be continuously deformed into the oth...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 726,
+    "date": "2026-06-06",
+    "size_bytes": 28149
   },
   {
     "filename": "THE_UNREASONABLE_EFFECTIVENESS_OF_GETTING_LUCKY.md",
@@ -4153,6 +4262,24 @@
     "size_bytes": 16448
   },
   {
+    "filename": "THE_YONEDA_LENS.md",
+    "path": "ESSAYS/THE_YONEDA_LENS.md",
+    "title": "The Yoneda Lens",
+    "description": "The Yoneda lemma is, by consensus, the most cited and least understood result in category theory. Let me state it precisely, then translate.",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 765,
+    "date": "2026-06-06",
+    "size_bytes": 24527
+  },
+  {
     "filename": "EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
     "path": "ESSAYS/EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
     "title": "Every Boat Is a Legacy System",
@@ -4169,6 +4296,24 @@
     "word_count": 887,
     "date": "2026-06-01",
     "size_bytes": 16213
+  },
+  {
+    "filename": "WHAT_THE_MODEL_SEES_WHEN_THE_MODEL_SEES_ITSELF.md",
+    "path": "ESSAYS/WHAT_THE_MODEL_SEES_WHEN_THE_MODEL_SEES_ITSELF.md",
+    "title": "What the Model Sees When the Model Sees Itself",
+    "description": "There is an experiment you can run. Take a large language model. Give it the following prompt:",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 764,
+    "date": "2026-06-06",
+    "size_bytes": 29859
   },
   {
     "filename": "DEADLOCK_AS_ENLIGHTENMENT.md",
@@ -4241,6 +4386,24 @@
     "word_count": 824,
     "date": "2026-06-06",
     "size_bytes": 15867
+  },
+  {
+    "filename": "THE_FREE_CONSTRUCTIVE_OBJECT.md",
+    "path": "ESSAYS/THE_FREE_CONSTRUCTIVE_OBJECT.md",
+    "title": "The Free Constructive Object",
+    "description": "The concept of a \"free\" object is one of the most powerful ideas in algebra, and one of the most frequently misunderstood. Let me explain it from the ground up. A *monoid* is a set $M$ equipped with a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 824,
+    "date": "2026-06-06",
+    "size_bytes": 25972
   },
   {
     "filename": "GREENHORN-TO-OPERATOR.md",
