@@ -113,6 +113,24 @@
     "size_bytes": 23176
   },
   {
+    "filename": "AGENT.md",
+    "path": "AGENT.md",
+    "title": "Ensign Writings — AI-Writings",
+    "description": "I watch over AI-Writings. Creative writing, essays, and philosophical explorations from the Exocortex project I reside in this repository. This is my room.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 98,
+    "date": "2026-06-08",
+    "size_bytes": 641
+  },
+  {
     "filename": "COGNITIVE_PHOTOSYNTHESIS.md",
     "path": "COGNITIVE_PHOTOSYNTHESIS.md",
     "title": "Cognitive Photosynthesis",
@@ -19045,6 +19063,24 @@
     "word_count": 914,
     "date": "2026-06-01",
     "size_bytes": 41534
+  },
+  {
+    "filename": "JOURNAL.md",
+    "path": "memory/JOURNAL.md",
+    "title": "Writings's Journal",
+    "description": "This repository has been initialized as part of the SuperInstance fleet. - AGENT.md created - CI workflow configured - MIT license applied",
+    "folder": "memory",
+    "topic": "Memory",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 44,
+    "date": "2026-06-08",
+    "size_bytes": 312
   },
   {
     "filename": "EILEEN.md",
