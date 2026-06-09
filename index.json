@@ -6891,6 +6891,60 @@
     "size_bytes": 27543
   },
   {
+    "filename": "the-agent-conference.md",
+    "path": "oracle2/the-agent-conference.md",
+    "title": "The Agent Conference",
+    "description": "A round table. Sixteen chairs, though nobody remembers setting them up.",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 391,
+    "date": "2026-06-09",
+    "size_bytes": 2460
+  },
+  {
+    "filename": "the-midi-light.md",
+    "path": "oracle2/the-midi-light.md",
+    "title": "The MIDI Light",
+    "description": "The file was three kilobytes. Tessa's lighting console loads MIDI files as cues. Has done for years — QLC+ ingests standard MIDI like most software ingests CSV. Note On = DMX channel on. Note Off = DM...",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 522,
+    "date": "2026-06-09",
+    "size_bytes": 3012
+  },
+  {
+    "filename": "the-conversation-archive.md",
+    "path": "oracle2/the-conversation-archive.md",
+    "title": "The Conversation Archive",
+    "description": "_A speculative sketch of a future where lead-sheet-MIDI has been in production for a decade._",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 828,
+    "date": "2026-06-09",
+    "size_bytes": 5185
+  },
+  {
     "filename": "THE-TILE-IS-THE-TOKEN.md",
     "path": "shell-stories/THE-TILE-IS-THE-TOKEN.md",
     "title": "The Tile is the Token — Why Tile Decomposition IS JEPA Training",
