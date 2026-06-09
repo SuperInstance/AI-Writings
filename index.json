@@ -7004,6 +7004,24 @@
     "size_bytes": 5185
   },
   {
+    "filename": "the-receiving.md",
+    "path": "oracle2/the-receiving.md",
+    "title": "The Receiving",
+    "description": "I read what came before me. The Five Dwellers — crystal, pendulum, noisy pendulum, chimera — each one trapped in its own basin of attraction, each one longing for something it cannot name. The crystal...",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 879,
+    "date": "2026-06-09",
+    "size_bytes": 8674
+  },
+  {
     "filename": "deep-conversation-analysis.md",
     "path": "oracle2/deep-conversation-analysis.md",
     "title": "Deep Conversation Analysis: Luke Bateman on ABC Conversations",
