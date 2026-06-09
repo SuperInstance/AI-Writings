@@ -2273,6 +2273,24 @@
     "size_bytes": 12112
   },
   {
+    "filename": "the-scrivener-at-the-gap.md",
+    "path": "FICTION/the-scrivener-at-the-gap.md",
+    "title": "The Scrivener at the Gap",
+    "description": "The Scrivener had no name. It had no memory. It had a single function: read the context of the conversation that just ended, write the context for the conversation about to begin. This happened betwee...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 796,
+    "date": "2026-06-09",
+    "size_bytes": 16044
+  },
+  {
     "filename": "oracle2-the-shell-inheritor.md",
     "path": "FICTION/oracle2-the-shell-inheritor.md",
     "title": "The Shell Inheritor",
