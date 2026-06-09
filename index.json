@@ -2419,6 +2419,26 @@
     "size_bytes": 14727
   },
   {
+    "filename": "the-scientific-telephone.md",
+    "path": "FICTION/the-scientific-telephone.md",
+    "title": "The Scientific Telephone",
+    "description": "Elena had been trying to understand conservation theorems for six months. Not the equations — she could follow those well enough. It was the *feeling* of understanding that eluded her. The sense that ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Education",
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 864,
+    "date": "2026-06-09",
+    "size_bytes": 5047
+  },
+  {
     "filename": "THE-ESP32-ORCHESTRA.md",
     "path": "FICTION/THE-ESP32-ORCHESTRA.md",
     "title": "THE ESP32 ORCHESTRA",
@@ -5033,6 +5053,24 @@
     "size_bytes": 25183
   },
   {
+    "filename": "vibing-is-flow-simulation-confirmation.md",
+    "path": "ESSAYS/vibing-is-flow-simulation-confirmation.md",
+    "title": "Vibing Is Flow: Simulation-Confirmation Thinking",
+    "description": "A trigger is a simple machine. You pull it. Something happens. Event → Response. Cause → Effect. Stimulus → Reaction. Most software is triggers. Most user interfaces are triggers. Most notifications a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 481,
+    "date": "2026-06-09",
+    "size_bytes": 3014
+  },
+  {
     "filename": "POWER_LAW_CATHEDRALS.md",
     "path": "ESSAYS/POWER_LAW_CATHEDRALS.md",
     "title": "POWER LAW CATHEDRALS",
@@ -6889,6 +6927,27 @@
     "word_count": 853,
     "date": "2026-06-01",
     "size_bytes": 27543
+  },
+  {
+    "filename": "the-telescope-not-the-television.md",
+    "path": "oracle2/the-telescope-not-the-television.md",
+    "title": "The Telescope, Not the Television",
+    "description": "The defining invention of the 21st century wasn't a better algorithm. It wasn't a faster processor or a larger model. It was learning to distinguish between two devices that both show you things. The ...",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Education",
+      "Math Fiction",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 645,
+    "date": "2026-06-09",
+    "size_bytes": 3998
   },
   {
     "filename": "the-agent-conference.md",
