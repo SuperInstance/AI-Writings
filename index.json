@@ -6945,6 +6945,24 @@
     "size_bytes": 5185
   },
   {
+    "filename": "deep-conversation-analysis.md",
+    "path": "oracle2/deep-conversation-analysis.md",
+    "title": "Deep Conversation Analysis: Luke Bateman on ABC Conversations",
+    "description": "| Feature | Value | Interpretation | |---|---|---| | **Voiced frames** | 43% | Typical for conversational speech; ~57% silence/pauses/unvoiced | | **F0 mean** | 110.8 Hz | Male voice, relaxed register...",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 659,
+    "date": "2026-06-09",
+    "size_bytes": 14881
+  },
+  {
     "filename": "THE-TILE-IS-THE-TOKEN.md",
     "path": "shell-stories/THE-TILE-IS-THE-TOKEN.md",
     "title": "The Tile is the Token — Why Tile Decomposition IS JEPA Training",
