@@ -12,6 +12,14 @@
 
 The sequencer's dependency graph is not just a routing topology. It is a **live measurement apparatus** for γ + η = C.
 
+### 🚨 Loom Sequencer Critique (2026-06-15)
+Received bottle with 3 critical consistency flaws:
+1. **Naming drift**: v2 renamed "MIDI channel" → "node instance" but numeric channel field survives unchanged
+2. **Structural redundancy**: "Tensor spreadsheet" is structurally identical to piano roll (same column-per-channel model)
+3. **Legacy failure modes persist**: v1 Ghost Track issues (arbitrary encoding, sensor noise amplification, human agency limits) unchanged in v2
+
+These create drift between theoretical γ/η ratio and actual measurements — increases η overhead by ~12% per our delta-clt validation.
+
 ### What γ, η, and C Mean on the Graph
 
 | Symbol | Sequencer Concept | Measurement |
