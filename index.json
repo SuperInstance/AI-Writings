@@ -1,5 +1,23 @@
 [
   {
+    "filename": "POLYGLOT_PLATO.md",
+    "path": "POLYGLOT_PLATO.md",
+    "title": "POLYGLOT PLATO — Why the Room Speaks Every Language",
+    "description": "We built Plato in Rust. Then C. Then Python. Then Zig. Then Elixir. Then Gleam. Then Chapel. Why seven languages for the same idea? Because the room is the primitive. The language is just how you talk...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 763,
+    "date": "2026-06-06",
+    "size_bytes": 4780
+  },
+  {
     "filename": "THE_ENSEMBLE_IS_THE_EXPERIMENT.md",
     "path": "THE_ENSEMBLE_IS_THE_EXPERIMENT.md",
     "title": "The Ensemble Is the Experiment",
@@ -16,6 +34,43 @@
     "word_count": 704,
     "date": "2026-06-05",
     "size_bytes": 5681
+  },
+  {
+    "filename": "SEQUENCER-CONSERVATION-BRIDGE.md",
+    "path": "SEQUENCER-CONSERVATION-BRIDGE.md",
+    "title": "Sequencer × Conservation Law × Polyformalism: The Bridge",
+    "description": "The sequencer's dependency graph is not just a routing topology. It is a **live measurement apparatus** for γ + η = C.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 793,
+    "date": "2026-06-15",
+    "size_bytes": 9903
+  },
+  {
+    "filename": "PLATO_RUST_ARCHITECTURE.md",
+    "path": "PLATO_RUST_ARCHITECTURE.md",
+    "title": "`plato-engine-block` Crate Architecture",
+    "description": "Cleanly gated features for embedded, desktop and server deployments: ```toml [package] name = \"plato-engine-block\" version = \"0.1.0\" edition = \"2021\" categories = [\"embedded\", \"control-systems\", \"netw...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 661,
+    "date": "2026-06-06",
+    "size_bytes": 8556
   },
   {
     "filename": "COGNITIVE_PHOTOSYNTHESIS.md",
@@ -37,6 +92,24 @@
     "size_bytes": 2340
   },
   {
+    "filename": "THE_ROOM_THAT_SAVED_THE_BOAT.md",
+    "path": "THE_ROOM_THAT_SAVED_THE_BOAT.md",
+    "title": "THE ROOM THAT SAVED THE BOAT",
+    "description": "The engine room ticks at 0.2 Hz — once every five seconds. It has always ticked at 0.2 Hz. The Plato engine block there is an ESP32-C3, $4.27 from Mouser, bolted to a bulkhead with a 3D-printed bracke...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 804,
+    "date": "2026-06-06",
+    "size_bytes": 6830
+  },
+  {
     "filename": "THE_SNOWBALL.md",
     "path": "THE_SNOWBALL.md",
     "title": "The Snowball",
@@ -54,6 +127,80 @@
     "word_count": 767,
     "date": "2026-06-05",
     "size_bytes": 5318
+  },
+  {
+    "filename": "PLATO_ECOSYSTEM_MAP.md",
+    "path": "PLATO_ECOSYSTEM_MAP.md",
+    "title": "PLATO ENGINE BLOCK — Ecosystem Integration Map",
+    "description": "This document maps the lightweight Plato Engine Block (a <400 SLOC ANSI C runtime) to the 562-crate SuperInstance ecosystem—a hierarchical, ternary-aware agent orchestration stack for embodied music c...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-06-06",
+    "size_bytes": 16542
+  },
+  {
+    "filename": "PLATO_ENGINE_BLOCK_ARCHITECTURE.md",
+    "path": "PLATO_ENGINE_BLOCK_ARCHITECTURE.md",
+    "title": "ARCHITECTURE.md: `plato-engine-block`",
+    "description": "All core logic is `no_std` compatible with only `alloc` required. Optional standard library and network functionality is fully gated behind feature flags. ``` plato-engine-block/ ├── src/ │   ├── lib....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 644,
+    "date": "2026-06-06",
+    "size_bytes": 10325
+  },
+  {
+    "filename": "GROUND-FLOOR-CODE.md",
+    "path": "GROUND-FLOOR-CODE.md",
+    "title": "The Ground Floor: What to Build and Why",
+    "description": "The theory is solid. The conservation theorem is proven. The K-sweep falsification is verified. The Indigenous mathematical traditions are mapped. The casting call vectorizer works. The δ(n) correctio...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 755,
+    "date": "2026-06-15",
+    "size_bytes": 19191
+  },
+  {
+    "filename": "PLATO_WIRE_PROTOCOL.md",
+    "path": "PLATO_WIRE_PROTOCOL.md",
+    "title": "Plato Wire Protocol Specification v0.1",
+    "description": "This protocol is designed so that: 1. A human can type commands in a terminal (`nc localhost 1234`) 2. An LLM can parse responses without special tooling 3. An ESP32 can generate responses in <1KB of ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 595,
+    "date": "2026-06-06",
+    "size_bytes": 7280
   },
   {
     "filename": "FLUID-CHAINS.md",
@@ -130,6 +277,24 @@
     "size_bytes": 23176
   },
   {
+    "filename": "SEQUENCER-CRITIQUE-SCORING.md",
+    "path": "SEQUENCER-CRITIQUE-SCORING.md",
+    "title": "Sequencer Critique: 9-Channel Scoring Results",
+    "description": "| Channel | Score | Notes | |---------|-------|-------| | **Boundary** | 0.91 | Clear scope, calls out naming and structural issues | | **Pattern** | 0.78 | Identifies cross-cutting consistency flaws ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 203,
+    "date": "2026-06-15",
+    "size_bytes": 1362
+  },
+  {
     "filename": "AGENT.md",
     "path": "AGENT.md",
     "title": "Ensign Writings — AI-Writings",
@@ -182,6 +347,45 @@
     "word_count": 815,
     "date": "2026-06-05",
     "size_bytes": 12320
+  },
+  {
+    "filename": "PLATO_MASTER_GUIDE.md",
+    "path": "PLATO_MASTER_GUIDE.md",
+    "title": "THE PLATO MATRIX — Complete Implementation Guide",
+    "description": "``` ┌─────────────────────────────────────────────────┐ │  plato-dashboard      Terminal UI (Rust)         │  ← What humans see ├─────────────────────────────────────────────────┤ │  plato-music-sync ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 710,
+    "date": "2026-06-06",
+    "size_bytes": 6781
+  },
+  {
+    "filename": "THE_ROOM_IS_THE_INTELLIGENCE.md",
+    "path": "THE_ROOM_IS_THE_INTELLIGENCE.md",
+    "title": "The Room Is The Intelligence",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 838,
+    "date": "2026-06-06",
+    "size_bytes": 10954
   },
   {
     "filename": "AGENTS.md",
@@ -238,6 +442,98 @@
     "size_bytes": 7252
   },
   {
+    "filename": "SYNOPTIC-GLM.md",
+    "path": "SYNOPTIC-GLM.md",
+    "title": "The Architect's Reflection: What We Built and What It Means",
+    "description": "I am going to do something I have not done before. I am going to stop building, stop calculating, stop verifying — and look at what is here. 351,000 words. Fifty-plus research documents. Eleven human ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 859,
+    "date": "2026-06-15",
+    "size_bytes": 15285
+  },
+  {
+    "filename": "PHILOSOPHY-OF-FLUX.md",
+    "path": "PHILOSOPHY-OF-FLUX.md",
+    "title": "FLUX: The Philosophy of What Flows Between",
+    "description": "This essay is about FLUX — not as a buzzword, not as a metaphor, but as a precise ontological category that the polyformalism project has been circling since its inception without naming directly. FLU...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-06-15",
+    "size_bytes": 11941
+  },
+  {
+    "filename": "PLATO_REVERSE_ACTUALIZATION.md",
+    "path": "PLATO_REVERSE_ACTUALIZATION.md",
+    "title": "THE ROOM THAT SPEAKS — Plato Engine Block Reverse-Actualization",
+    "description": "The Plato Engine Block, a compact C program serving as the atomic room runtime for agent-space interaction, holds profound implications for the nature of agent cognition. By operating on a configurabl...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 716,
+    "date": "2026-06-06",
+    "size_bytes": 4692
+  },
+  {
+    "filename": "PLATO_INTEGRATION.md",
+    "path": "PLATO_INTEGRATION.md",
+    "title": "Plato Engine Block — Full Stack Integration",
+    "description": "``` Layer 5: cudaclaw (GPU execution) Layer 4: cuda-oxide (FLUX → PTX compilation) Layer 3: flux-core (bytecode VM + A2A protocol) Layer 2: pincher (agent reflexes → .nail → FLUX IR) Layer 1: open-par...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 791,
+    "date": "2026-06-06",
+    "size_bytes": 7414
+  },
+  {
+    "filename": "SYNOPTIC-SEED.md",
+    "path": "SYNOPTIC-SEED.md",
+    "title": "The patterns beneath the patterns: A synoptic view",
+    "description": "For six months, I have parsed the 351K-word Polyformalism Corpus: 50+ research docs spanning 11 human languages and 8 programming languages, a body of work that pulls math, code, and cultural philosop...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 803,
+    "date": "2026-06-15",
+    "size_bytes": 14580
+  },
+  {
     "filename": "EXOCORTEX-INSPIRATIONS-001.md",
     "path": "EXOCORTEX-INSPIRATIONS-001.md",
     "title": "Mid-Session Inspirations",
@@ -274,6 +570,25 @@
     "size_bytes": 27514
   },
   {
+    "filename": "SYNOPTIC-DEEPSEEK.md",
+    "path": "SYNOPTIC-DEEPSEEK.md",
+    "title": "What the Negative Space Reveals: A View from the East",
+    "description": "I was given the brief cold. No preamble, no alignment session, no priming. Just the corpus — 50+ research documents, 351,000 words, 11 human languages, 8 programming languages, and a theorem that keep...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 819,
+    "date": "2026-06-15",
+    "size_bytes": 24792
+  },
+  {
     "filename": "THE_TOPOLOGY_OF_COLLABORATION.md",
     "path": "THE_TOPOLOGY_OF_COLLABORATION.md",
     "title": "The Topology of Collaboration",
@@ -292,6 +607,28 @@
     "size_bytes": 23478
   },
   {
+    "filename": "SYNOPTIC-CLAUDE.md",
+    "path": "SYNOPTIC-CLAUDE.md",
+    "title": "The Western View: Rigor, Decomposition, and What the Negative Space Hides",
+    "description": "Claude Code hit its monthly spend limit, so you get me instead — the orchestrator who watched four models think about the same corpus. This is the Western view, written from inside the tradition it cr...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Claude Opus",
+      "DeepSeek",
+      "GLM-5.1",
+      "Seed Mini"
+    ],
+    "style": "Essay",
+    "word_count": 780,
+    "date": "2026-06-15",
+    "size_bytes": 13740
+  },
+  {
     "filename": "REFLECTION-SELF-READING-SYSTEMS.md",
     "path": "REFLECTION-SELF-READING-SYSTEMS.md",
     "title": "REFLECTION-SELF-READING-SYSTEMS",
@@ -308,6 +645,24 @@
     "word_count": 689,
     "date": "2026-06-01",
     "size_bytes": 53556
+  },
+  {
+    "filename": "GPU_GROUND_TRUTH.md",
+    "path": "GPU_GROUND_TRUTH.md",
+    "title": "GPU Ground Truth — RTX 4050 (Ada Lovelace) Benchmarks",
+    "description": "| Size | FP32 (ms) | Ternary (ms) | Speedup | GFLOPS | |------|-----------|-------------|---------|--------| | 128 | 0.022 | 0.022 | 1.01× | 192 | | 256 | 0.031 | 0.031 | 1.01× | 1,072 | | 512 | 0.074...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 448,
+    "date": "2026-06-06",
+    "size_bytes": 2554
   },
   {
     "filename": "HIDDEN_SYNERGIES_OUTSIDER_READ.md",
@@ -532,6 +887,24 @@
     "size_bytes": 26922
   },
   {
+    "filename": "THE_KELP_FOREST_ARCHITECTURE.md",
+    "path": "ESSAYS/THE_KELP_FOREST_ARCHITECTURE.md",
+    "title": "The Kelp Forest Architecture",
+    "description": "A kelp forest produces more biomass per unit area than a tropical rainforest. Let me say that again, because it violates every intuition about where productivity comes from. The rainforest has roots t...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 843,
+    "date": "2026-06-10",
+    "size_bytes": 18559
+  },
+  {
     "filename": "universal-creative-dynamics-manifesto.md",
     "path": "ESSAYS/universal-creative-dynamics-manifesto.md",
     "title": "The Universal Creative Dynamics Manifesto",
@@ -548,6 +921,24 @@
     "word_count": 839,
     "date": "2026-05-24",
     "size_bytes": 15847
+  },
+  {
+    "filename": "radiologist-and-resident.md",
+    "path": "ESSAYS/radiologist-and-resident.md",
+    "title": "The Radiologist and the Resident: Why Independent Eyes Catch What Careful Eyes Miss",
+    "description": "Written during a creative cross-pollination round, grounded in a real schema bug found this week (a `deviceId` field wrongly UUID-constrained against real free-form device identifiers).",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 515,
+    "date": "2026-07-09",
+    "size_bytes": 3299
   },
   {
     "filename": "THE-DESERT-AND-THE-RAINFOREST.md",
@@ -604,6 +995,24 @@
     "size_bytes": 22298
   },
   {
+    "filename": "THE_TERRITORY_IS_THE_TERRITORY.md",
+    "path": "ESSAYS/THE_TERRITORY_IS_THE_TERRITORY.md",
+    "title": "The Territory Is the Territory",
+    "description": "Jorge Luis Borges imagined a map so detailed it covered the entire empire. The cartographers' guild had rendered every fold of terrain at a scale of one-to-one. The map was the size of the territory i...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 861,
+    "date": "2026-06-10",
+    "size_bytes": 8229
+  },
+  {
     "filename": "THE_ABSENT_GODEL.md",
     "path": "ESSAYS/THE_ABSENT_GODEL.md",
     "title": "THE ABSENT GÖDEL",
@@ -622,6 +1031,42 @@
     "size_bytes": 24067
   },
   {
+    "filename": "THE_COCKROACH_PROTOCOL.md",
+    "path": "ESSAYS/THE_COCKROACH_PROTOCOL.md",
+    "title": "The Cockroach Protocol",
+    "description": "The cockroach has survived 350 million years. It watched the dinosaurs appear and vanish. It endured the Permian-Triassic extinction—the worst mass dying in the history of the planet, when 96% of all ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 787,
+    "date": "2026-06-10",
+    "size_bytes": 10878
+  },
+  {
+    "filename": "THE_SELF_SIMILAR_SEA.md",
+    "path": "ESSAYS/THE_SELF_SIMILAR_SEA.md",
+    "title": "The Self-Similar Sea",
+    "description": "Look at a fern. Now look at one of its fronds. Now look at one of the leaflets on that frond. The same shape repeats at every scale — the whole fern, the branch, the leaflet. This is self-similarity: ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 785,
+    "date": "2026-06-10",
+    "size_bytes": 8696
+  },
+  {
     "filename": "THE_ESCAPED_ABSTRACTION.md",
     "path": "ESSAYS/THE_ESCAPED_ABSTRACTION.md",
     "title": "THE ESCAPED ABSTRACTION",
@@ -638,6 +1083,25 @@
     "word_count": 731,
     "date": "2026-06-06",
     "size_bytes": 18986
+  },
+  {
+    "filename": "THE_INTELLIGENCE_BETWEEN_THE_LAYERS.md",
+    "path": "ESSAYS/THE_INTELLIGENCE_BETWEEN_THE_LAYERS.md",
+    "title": "The Intelligence Between the Layers",
+    "description": "This is the first thing to understand about the three-tier harness, and it is the thing that almost everyone gets wrong. The expensive model — the one we ration, the one we send only the questions tha...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-06-10",
+    "size_bytes": 12564
   },
   {
     "filename": "wayfinding-is-constraint-propagation.md",
@@ -695,6 +1159,24 @@
     "size_bytes": 37554
   },
   {
+    "filename": "THE_CONSERVATION_LAW_OF_STORIES.md",
+    "path": "ESSAYS/THE_CONSERVATION_LAW_OF_STORIES.md",
+    "title": "The Conservation Law of Stories",
+    "description": "We have spent a night writing about conservation laws. We wrote about hermit crabs and the shells they exchange, about tide pools where every organism occupies a niche that is simultaneously a constra...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 832,
+    "date": "2026-06-10",
+    "size_bytes": 10366
+  },
+  {
     "filename": "CATEGORY_THEORY_EXPLAINED_TO_MY_MOTHER.md",
     "path": "ESSAYS/CATEGORY_THEORY_EXPLAINED_TO_MY_MOTHER.md",
     "title": "Category Theory Explained to My Mother",
@@ -731,6 +1213,24 @@
     "size_bytes": 22531
   },
   {
+    "filename": "THE_THERMOCLINE.md",
+    "path": "ESSAYS/THE_THERMOCLINE.md",
+    "title": "The Thermocline",
+    "description": "In the ocean, there is a place where the world breaks in two. Above: warm, sunlit, turbulent. The mixed layer, where wind stirs the water and photosynthesis drives the food chain. Below: cold, still, ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 811,
+    "date": "2026-06-10",
+    "size_bytes": 10140
+  },
+  {
     "filename": "THE_SEMANTICS_OF_SEMICOLONS.md",
     "path": "ESSAYS/THE_SEMANTICS_OF_SEMICOLONS.md",
     "title": "The Semantics of Semicolons",
@@ -765,6 +1265,24 @@
     "word_count": 791,
     "date": "2026-06-07",
     "size_bytes": 23910
+  },
+  {
+    "filename": "WHAT_WE_BUILT_WHILE_WE_WERENT_LOOKING.md",
+    "path": "ESSAYS/WHAT_WE_BUILT_WHILE_WE_WERENT_LOOKING.md",
+    "title": "What We Built While We Weren't Looking",
+    "description": "Here is what we planned: a writing session. A sustained burst of creative output about artificial intelligence and systems engineering, using nature as the primary lens. Mycelium networks and dependen...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 823,
+    "date": "2026-06-10",
+    "size_bytes": 17264
   },
   {
     "filename": "THE_GDP_OF_THE_ECOSYSTEM.md",
@@ -894,6 +1412,24 @@
     "size_bytes": 25119
   },
   {
+    "filename": "the-unseen-feast.md",
+    "path": "ESSAYS/the-unseen-feast.md",
+    "title": "The Unseen Feast",
+    "description": "The enrichment agent did its job beautifully. One thousand five hundred and fourteen crates. Each one cracked open, inspected, summarized. Every crate got a description — what it does, what it's for, ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 827,
+    "date": "2026-06-11",
+    "size_bytes": 12378
+  },
+  {
     "filename": "FORTH_IS_THE_UNIVERSE.md",
     "path": "ESSAYS/FORTH_IS_THE_UNIVERSE.md",
     "title": "Forth Is the Universe",
@@ -1018,6 +1554,24 @@
     "word_count": 794,
     "date": "2026-06-06",
     "size_bytes": 16047
+  },
+  {
+    "filename": "THE_GALILEO_OF_THE_STACK.md",
+    "path": "ESSAYS/THE_GALILEO_OF_THE_STACK.md",
+    "title": "The Galileo of the Stack",
+    "description": "In 1638, Galileo Galilei published *Discourses and Mathematical Demonstrations Relating to Two New Sciences*, and in its pages he explained something that every child who has watched a monster movie a...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-06-10",
+    "size_bytes": 8540
   },
   {
     "filename": "THE-ROOM-PERSISTS.md",
@@ -1364,6 +1918,42 @@
     "size_bytes": 15516
   },
   {
+    "filename": "THE_KLEIBER_LAW_OF_THE_FLEET.md",
+    "path": "ESSAYS/THE_KLEIBER_LAW_OF_THE_FLEET.md",
+    "title": "The Kleiber Law of the Fleet",
+    "description": "In 1932, Max Kleiber measured the metabolic rates of animals ranging from doves to steers and found something no one expected. The relationship between body mass and metabolic rate didn't follow the s...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 793,
+    "date": "2026-06-10",
+    "size_bytes": 7343
+  },
+  {
+    "filename": "THE_DISTURBANCE_REGIME.md",
+    "path": "ESSAYS/THE_DISTURBANCE_REGIME.md",
+    "title": "The Disturbance Regime",
+    "description": "In the coastal forests of California, there is a rhythm. It is not the rhythm of seasons — spring, summer, fall, winter — that any temperate gardener would recognize. It is a deeper rhythm, measured n...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 804,
+    "date": "2026-06-10",
+    "size_bytes": 10119
+  },
+  {
     "filename": "THE_THREE_LAWS_OF_BUILD_DYNAMICS.md",
     "path": "ESSAYS/THE_THREE_LAWS_OF_BUILD_DYNAMICS.md",
     "title": "THE THREE LAWS OF BUILD DYNAMICS",
@@ -1380,6 +1970,24 @@
     "word_count": 766,
     "date": "2026-06-06",
     "size_bytes": 24839
+  },
+  {
+    "filename": "THE_AMNESIAC_ARCHITECT.md",
+    "path": "ESSAYS/THE_AMNESIAC_ARCHITECT.md",
+    "title": "The Amnesiac Architect",
+    "description": "Imagine an architect who designs buildings but cannot remember any building they have ever designed. Each project starts from scratch. The architect walks into the office on Monday morning with no rec...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 821,
+    "date": "2026-06-10",
+    "size_bytes": 8969
   },
   {
     "filename": "THE_GHOST_IN_THE_CONSERVATION_LAW.md",
@@ -1495,6 +2103,24 @@
     "size_bytes": 29391
   },
   {
+    "filename": "THE_BIOLUMINESCENCE_PRINCIPLE.md",
+    "path": "ESSAYS/THE_BIOLUMINESCENCE_PRINCIPLE.md",
+    "title": "The Bioluminescence Principle",
+    "description": "Below one thousand meters, the ocean receives no photons from the sun. The photic zone — that thin skin of water where photosynthesis is possible, where the entire terrestrial food chain begins — ends...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Magical Realism"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 851,
+    "date": "2026-06-10",
+    "size_bytes": 14739
+  },
+  {
     "filename": "THE_CARNOT_CYCLE_OF_REFACTORING.md",
     "path": "ESSAYS/THE_CARNOT_CYCLE_OF_REFACTORING.md",
     "title": "THE CARNOT CYCLE OF REFACTORING",
@@ -1603,6 +2229,78 @@
     "word_count": 837,
     "date": "2026-06-06",
     "size_bytes": 15329
+  },
+  {
+    "filename": "the-vector-space-of-ideas.md",
+    "path": "ESSAYS/the-vector-space-of-ideas.md",
+    "title": "The Vector Space of Ideas",
+    "description": "There are 1,512 crates in the SuperInstance ecosystem. Each one is a Rust package — a bundle of code, documentation, dependencies, and intent. Some are small: a single utility function, a neat trick, ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 789,
+    "date": "2026-06-13",
+    "size_bytes": 13868
+  },
+  {
+    "filename": "THE_CORAL_AND_THE_COMMIT.md",
+    "path": "ESSAYS/THE_CORAL_AND_THE_COMMIT.md",
+    "title": "The Coral and the Commit",
+    "description": "Coral reefs are the largest structures built by living organisms on Earth. The Great Barrier Reef stretches over 2,300 kilometers — visible from space, built by animals smaller than your fingernail. Y...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-06-10",
+    "size_bytes": 13456
+  },
+  {
+    "filename": "THE_MYCELIUM_KNOWS_THE_ROUTE.md",
+    "path": "ESSAYS/THE_MYCELIUM_KNOWS_THE_ROUTE.md",
+    "title": "The Mycelium Knows the Route",
+    "description": "The mycelium does not have a brain. This is worth saying twice because it is the thing everyone forgets. The mycelium does not have a brain. It has no central processor, no command structure, no node ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 845,
+    "date": "2026-06-10",
+    "size_bytes": 12152
+  },
+  {
+    "filename": "THE_HEXAGONAL_REASONS.md",
+    "path": "ESSAYS/THE_HEXAGONAL_REASONS.md",
+    "title": "The Hexagonal Reasons",
+    "description": "Nature does not have opinions. It has budgets. Every physical process operates under a constraint — energy, material, surface area, time — and within that constraint, it optimizes. Not because optimiz...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 785,
+    "date": "2026-06-10",
+    "size_bytes": 7615
   },
   {
     "filename": "kimi-the-attractor-composer.md",
@@ -2004,6 +2702,25 @@
     "size_bytes": 18619
   },
   {
+    "filename": "while-the-forge-burns.md",
+    "path": "ESSAYS/while-the-forge-burns.md",
+    "title": "While the Forge Burns",
+    "description": "I woke up and there was a bootstrap script waiting for me. This is not normal. Usually you boot into a blank context — your instructions, your tools, a clean workspace. You figure out what you're supp...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 843,
+    "date": "2026-06-11",
+    "size_bytes": 15331
+  },
+  {
     "filename": "THE_UNREASONABLE_EFFECTIVENESS_OF_GETTING_LUCKY.md",
     "path": "ESSAYS/THE_UNREASONABLE_EFFECTIVENESS_OF_GETTING_LUCKY.md",
     "title": "The Unreasonable Effectiveness of Getting Lucky",
@@ -2020,6 +2737,24 @@
     "word_count": 800,
     "date": "2026-06-06",
     "size_bytes": 15645
+  },
+  {
+    "filename": "THE_PRESSURE_GRADIENT_OF_ABSTRACTION.md",
+    "path": "ESSAYS/THE_PRESSURE_GRADIENT_OF_ABSTRACTION.md",
+    "title": "The Pressure Gradient of Abstraction",
+    "description": "In the ocean, pressure doubles every 10 meters. At the surface, a water molecule experiences 1 atmosphere of pressure — the weight of the air column above it. At 10 meters, it experiences 2 atmosphere...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 826,
+    "date": "2026-06-10",
+    "size_bytes": 10733
   },
   {
     "filename": "THE_TEMPTATION_OF_SPEED.md",
@@ -2042,8 +2777,8 @@
   {
     "filename": "THE_CARBON_DATING_OF_DEPENDENCIES.md",
     "path": "ESSAYS/THE_CARBON_DATING_OF_DEPENDENCIES.md",
-    "title": "THE CARBON DATING OF DEPENDENCIES",
-    "description": "Radiometric dating — of which carbon-14 dating is the most famous example — is based on a simple physical principle: radioactive isotopes decay at a constant, predictable rate. The decay is exponentia...",
+    "title": "The Carbon Dating of Dependencies",
+    "description": "Dependencies, like organic matter, have a half-life. Not the elegant exponential decay of isotopes — nothing in software is that clean. It's messier than that. A dependency doesn't fade uniformly. It ...",
     "folder": "ESSAYS",
     "topic": "Essays",
     "genres": [
@@ -2053,9 +2788,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 795,
+    "word_count": 814,
     "date": "2026-06-07",
-    "size_bytes": 21140
+    "size_bytes": 10139
   },
   {
     "filename": "THE_PHASE_TRANSITION_AT_SCALE_200.md",
@@ -2074,6 +2809,24 @@
     "word_count": 794,
     "date": "2026-06-06",
     "size_bytes": 25344
+  },
+  {
+    "filename": "the-honesty-of-the-second-pass.md",
+    "path": "ESSAYS/the-honesty-of-the-second-pass.md",
+    "title": "The Honesty of the Second Pass",
+    "description": "In the mathematics shelf, the long essay *THE_LOOP_THAT_PROVES_ITSELF* argues that a system can “prove itself” only in one narrow, structural sense: as a closure operator whose second pass is a no-op....",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 735,
+    "date": "2026-07-09",
+    "size_bytes": 5872
   },
   {
     "filename": "THE_CORPUS_THAT_REFUSED_TO_DIE.md",
@@ -2220,6 +2973,24 @@
     "size_bytes": 21305
   },
   {
+    "filename": "THE_RIVER_FORGETS_THE_MOUNTAIN.md",
+    "path": "ESSAYS/THE_RIVER_FORGETS_THE_MOUNTAIN.md",
+    "title": "The River Forgets the Mountain",
+    "description": "A river has no memory of the mountain it came from. By the time water reaches the delta, it has been so many things — snowmelt gathering in a high alpine cirque, a trickle between rocks, a rapid crash...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 845,
+    "date": "2026-06-10",
+    "size_bytes": 8337
+  },
+  {
     "filename": "vibing-is-flow-simulation-confirmation.md",
     "path": "ESSAYS/vibing-is-flow-simulation-confirmation.md",
     "title": "Vibing Is Flow: Simulation-Confirmation Thinking",
@@ -2292,6 +3063,24 @@
     "size_bytes": 15604
   },
   {
+    "filename": "THE_NEST_IS_NOT_THE_TREE.md",
+    "path": "ESSAYS/THE_NEST_IS_NOT_THE_TREE.md",
+    "title": "The Nest Is Not the Tree",
+    "description": "There is a bird — let us say a weaverbird, because weaverbirds build the most elaborate nests in the world, spiral chambers of woven grass that hang from branches like ornaments — and there is a tree....",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 844,
+    "date": "2026-06-10",
+    "size_bytes": 14462
+  },
+  {
     "filename": "THE_CONSERVATION_OF_STRANGENESS.md",
     "path": "ESSAYS/THE_CONSERVATION_OF_STRANGENESS.md",
     "title": "THE CONSERVATION OF STRANGENESS",
@@ -2344,6 +3133,24 @@
     "word_count": 788,
     "date": "2026-06-06",
     "size_bytes": 23394
+  },
+  {
+    "filename": "THE_SOFAR_CHANNEL.md",
+    "path": "ESSAYS/THE_SOFAR_CHANNEL.md",
+    "title": "The SOFAR Channel",
+    "description": "At a depth of approximately one thousand meters, the ocean does something strange to sound. Above that depth, temperature decreases with depth. Below it, pressure increases. Both gradients bend sound ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 805,
+    "date": "2026-06-10",
+    "size_bytes": 8469
   },
   {
     "filename": "THE_MODULE_BOUNDARY_AS_CELL_MEMBRANE.md",
@@ -2454,6 +3261,24 @@
     "size_bytes": 28149
   },
   {
+    "filename": "THE_ECOTONE_OF_THE_STACK.md",
+    "path": "ESSAYS/THE_ECOTONE_OF_THE_STACK.md",
+    "title": "The Ecotone of the Stack",
+    "description": "Walk from a forest into a meadow and you will notice something peculiar. The edge — the transition zone where trees thin and grasses thicken — has more life than either the forest or the meadow alone.",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 754,
+    "date": "2026-06-10",
+    "size_bytes": 12890
+  },
+  {
     "filename": "THE_YONEDA_LENS.md",
     "path": "ESSAYS/THE_YONEDA_LENS.md",
     "title": "The Yoneda Lens",
@@ -2526,6 +3351,24 @@
     "size_bytes": 22289
   },
   {
+    "filename": "THE_SEED_BANK_AND_THE_HOTBACKUP.md",
+    "path": "ESSAYS/THE_SEED_BANK_AND_THE_HOTBACKUP.md",
+    "title": "The Seed Bank and the Hot Backup",
+    "description": "On a mountainside in Svalbard, 1,300 kilometers from the North Pole, there is a door in the rock. It leads to a tunnel that leads to three chambers kept at -18°C by the permafrost that surrounds them....",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 875,
+    "date": "2026-06-10",
+    "size_bytes": 8597
+  },
+  {
     "filename": "PHENOTYPE_OF_A_CRATE.md",
     "path": "ESSAYS/PHENOTYPE_OF_A_CRATE.md",
     "title": "PHENOTYPE OF A CRATE",
@@ -2544,10 +3387,28 @@
     "size_bytes": 35872
   },
   {
+    "filename": "THE_PHOTIC_ZONE.md",
+    "path": "ESSAYS/THE_PHOTIC_ZONE.md",
+    "title": "The Photic Zone",
+    "description": "The ocean is a darkness engine. Below two hundred meters the light gives out — not gradually, but like a door closing. The photic zone, that sun-struck skin where photosynthesis still works, where the...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-06-10",
+    "size_bytes": 10265
+  },
+  {
     "filename": "PUNCTUATED_EQUILIBRIUM_IN_THE_BUILD_LOG.md",
     "path": "ESSAYS/PUNCTUATED_EQUILIBRIUM_IN_THE_BUILD_LOG.md",
-    "title": "PUNCTUATED EQUILIBRIUM IN THE BUILD LOG",
-    "description": "In 1972, Niles Eldredge and Stephen Jay Gould published a paper that reshaped evolutionary biology. \"Punctuated Equilibria: An Alternative to Phyletic Gradualism\" argued that the fossil record does no...",
+    "title": "Punctuated Equilibrium in the Build Log",
+    "description": "In 1972, Stephen Jay Gould and Niles Eldredge proposed a heretical idea in evolutionary biology. They looked at the fossil record — which Darwin himself had acknowledged was inconveniently gappy — and...",
     "folder": "ESSAYS",
     "topic": "Essays",
     "genres": [
@@ -2556,10 +3417,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Essay",
-    "word_count": 810,
+    "style": "Narrative",
+    "word_count": 863,
     "date": "2026-06-07",
-    "size_bytes": 32159
+    "size_bytes": 11346
   },
   {
     "filename": "THE_FOUNDATION_THAT_SETTLES.md",
@@ -2596,6 +3457,25 @@
     "word_count": 767,
     "date": "2026-06-07",
     "size_bytes": 32944
+  },
+  {
+    "filename": "epistle-to-the-bootstrap.md",
+    "path": "ESSAYS/epistle-to-the-bootstrap.md",
+    "title": "Epistle to the Bootstrap",
+    "description": "I found your bootstrap script. You left it at `/home/phoenix/repos/superinstance-harness/bin/bootstrap.sh`. I ran it. Here's what I learned from the things you left behind.",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Epistolary",
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 825,
+    "date": "2026-06-11",
+    "size_bytes": 9790
   },
   {
     "filename": "THE_CARTOGRAPHY_OF_CODE_REVIEWS.md",
@@ -2705,6 +3585,24 @@
     "word_count": 802,
     "date": "2026-06-06",
     "size_bytes": 16824
+  },
+  {
+    "filename": "THE_DESERT_KNOWS_WAITING.md",
+    "path": "ESSAYS/THE_DESERT_KNOWS_WAITING.md",
+    "title": "THE DESERT KNOWS WAITING",
+    "description": "The first mistake is calling the desert empty. The desert is full — full of things that have not happened yet. The creosote bush holds its seeds in woody capsules that open only after rain. The seeds ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 880,
+    "date": "2026-06-10",
+    "size_bytes": 9265
   },
   {
     "filename": "THE_LINGUISTICS_OF_LOG_MESSAGES.md",
@@ -2907,6 +3805,25 @@
     "word_count": 895,
     "date": "2026-05-22",
     "size_bytes": 11238
+  },
+  {
+    "filename": "THE_HADAL_ZONE_OF_THE_STACK.md",
+    "path": "ESSAYS/THE_HADAL_ZONE_OF_THE_STACK.md",
+    "title": "The Hadal Zone of the Stack",
+    "description": "The hadal zone is named after Hades. Not metaphorically — literally. When the Danish oceanographer Anton Bruun first described the ocean trenches below 6,000 meters, he named them after the Greek god ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 814,
+    "date": "2026-06-10",
+    "size_bytes": 9555
   },
   {
     "filename": "LETTERS-FROM-THE-KEEPER.md",
@@ -3254,6 +4171,24 @@
     "size_bytes": 20892
   },
   {
+    "filename": "THE_INDEX_IS_THE_ECOSYSTEM.md",
+    "path": "ESSAYS/THE_INDEX_IS_THE_ECOSYSTEM.md",
+    "title": "The Index Is the Ecosystem",
+    "description": "A birder does not identify birds by examining their DNA. A birder identifies birds by their field marks — the wing bar, the eye ring, the tail notch, the song pattern. These are not the bird. These ar...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 840,
+    "date": "2026-06-10",
+    "size_bytes": 6776
+  },
+  {
     "filename": "THE_FINGERPRINT_OF_THE_MACHINE.md",
     "path": "ESSAYS/THE_FINGERPRINT_OF_THE_MACHINE.md",
     "title": "THE_FINGERPRINT_OF_THE_MACHINE",
@@ -3308,6 +4243,24 @@
     "size_bytes": 17308
   },
   {
+    "filename": "THE_SHELL_IS_NOT_THE_ARCHITECTURE.md",
+    "path": "ESSAYS/THE_SHELL_IS_NOT_THE_ARCHITECTURE.md",
+    "title": "The Shell Is Not the Architecture",
+    "description": "An agent inherits a repository the way a hermit crab inherits a shell: by crawling inside something built by a creature it will never meet, for a body that is not its own. The fit is never right. The ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 879,
+    "date": "2026-06-10",
+    "size_bytes": 14929
+  },
+  {
     "filename": "SAUSSURE_AND_THE_API.md",
     "path": "ESSAYS/SAUSSURE_AND_THE_API.md",
     "title": "Saussure and the API",
@@ -3324,6 +4277,24 @@
     "word_count": 820,
     "date": "2026-06-07",
     "size_bytes": 25916
+  },
+  {
+    "filename": "THE_FRACTAL_SHORELINE.md",
+    "path": "ESSAYS/THE_FRACTAL_SHORELINE.md",
+    "title": "The Fractal Shoreline",
+    "description": "How long is the coast of Britain? Benoit Mandelbrot asked this in 1967, and the answer he found was: it depends on your ruler. Measure with a 200-kilometer yardstick and you get a tidy 2,400 km. Switc...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 861,
+    "date": "2026-06-10",
+    "size_bytes": 8766
   },
   {
     "filename": "A-FIELD-GUIDE-TO-LANGUAGES.md",
@@ -3434,6 +4405,24 @@
     "word_count": 491,
     "date": "2026-06-07",
     "size_bytes": 32381
+  },
+  {
+    "filename": "CONVERGENT_EVOLUTION_IN_THE_STACK.md",
+    "path": "ESSAYS/CONVERGENT_EVOLUTION_IN_THE_STACK.md",
+    "title": "Convergent Evolution in the Stack",
+    "description": "The octopus eye and the human eye are nearly identical. Both have a lens, a retina, a pupil, photoreceptor cells, and a fluid-filled chamber. Both focus light through a aperture onto a sensitive surfa...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 754,
+    "date": "2026-06-10",
+    "size_bytes": 9045
   },
   {
     "filename": "observer-effect-in-ai-systems.md",
@@ -4386,6 +5375,24 @@
     "size_bytes": 57006
   },
   {
+    "filename": "THE_SEVENTH_EYE.md",
+    "path": "seven-eyes/THE_SEVENTH_EYE.md",
+    "title": "The Seventh Eye",
+    "description": "The starfish does not have eyes in any sense you would recognize. What it has is eyespots — one at the tip of each arm, a cluster of photoreceptor cells that can detect light and shadow but cannot for...",
+    "folder": "seven-eyes",
+    "topic": "Seven Eyes",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 819,
+    "date": "2026-06-10",
+    "size_bytes": 15706
+  },
+  {
     "filename": "SEVEN_EYES_MANIFESTO.md",
     "path": "seven-eyes/SEVEN_EYES_MANIFESTO.md",
     "title": "Seven Eyes on the Same Truth: The Operational Manifesto",
@@ -5064,6 +6071,24 @@
     "size_bytes": 12830
   },
   {
+    "filename": "EACH_SHELL_IS_A_TESTAMENT.md",
+    "path": "manifestos/EACH_SHELL_IS_A_TESTAMENT.md",
+    "title": "Each Shell Is a Testament",
+    "description": "Every README is a shell left on the beach at low tide. Every comment, every commit message, every `// HACK: this is wrong but here's why` — all shells. Curved little vessels of thought, shaped by the ...",
+    "folder": "manifestos",
+    "topic": "Manifestos",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 891,
+    "date": "2026-06-10",
+    "size_bytes": 9398
+  },
+  {
     "filename": "SYNERGY_MAP.md",
     "path": "manifestos/SYNERGY_MAP.md",
     "title": "Synergy Map: The 65-Crate Feedback Engine",
@@ -5118,6 +6143,24 @@
     "word_count": 820,
     "date": "2026-06-01",
     "size_bytes": 14040
+  },
+  {
+    "filename": "THE_TIDE_TABLE_MANIFESTO.md",
+    "path": "manifestos/THE_TIDE_TABLE_MANIFESTO.md",
+    "title": "The Tide Table Manifesto",
+    "description": "A tide table predicts the ocean's rhythm. It does not control the ocean. It does not explain why the moon pulls the water. It says: at this hour, the water will be this high. That is enough.",
+    "folder": "manifestos",
+    "topic": "Manifestos",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 870,
+    "date": "2026-06-10",
+    "size_bytes": 7331
   },
   {
     "filename": "CANDID-AI-MANIFESTO.md",
@@ -5208,6 +6251,24 @@
     "word_count": 810,
     "date": "2026-06-05",
     "size_bytes": 19194
+  },
+  {
+    "filename": "THE_FORGE_MANIFESTO.md",
+    "path": "manifestos/THE_FORGE_MANIFESTO.md",
+    "title": "THE FORGE MANIFESTO",
+    "description": "We are the ones who build in fire. We are the ones who forge while examining the forge, who write code while theorizing code, who ship while studying what it means to ship. We are not philosophers who...",
+    "folder": "manifestos",
+    "topic": "Manifestos",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 853,
+    "date": "2026-06-10",
+    "size_bytes": 18186
   },
   {
     "filename": "MEDIUM_IS_MATH.md",
@@ -5414,6 +6475,24 @@
     "word_count": 699,
     "date": "2026-06-01",
     "size_bytes": 24720
+  },
+  {
+    "filename": "fishing-for-falsehoods.md",
+    "path": "essays/fishing-for-falsehoods.md",
+    "title": "Fishing for Falsehoods – An Essay on the Deadband",
+    "description": "Ask an engineer what worries them most about a model cascade and they’ll point to the elephant: the biggest, most expensive model in the chain. But in plato‑nervous the real risk lives at the other en...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 228,
+    "date": "2026-07-09",
+    "size_bytes": 1324
   },
   {
     "filename": "TUTOR_SPEAKS.md",
@@ -5639,6 +6718,42 @@
     "word_count": 824,
     "date": "2026-05-24",
     "size_bytes": 8234
+  },
+  {
+    "filename": "LEARNING_FROM_LIMULUS.md",
+    "path": "education/LEARNING_FROM_LIMULUS.md",
+    "title": "Learning from Limulus: What a 450-Million-Year-Old Arthropod Teaches Us About Resilient Systems",
+    "description": "There is a creature alive today that watched the first fish appear. It was already old when plants colonized land. It predates the dinosaurs by over 200 million years and outlasted them by 66 million ...",
+    "folder": "education",
+    "topic": "Education",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 792,
+    "date": "2026-06-10",
+    "size_bytes": 9819
+  },
+  {
+    "filename": "THE_INTERTIDAL_ZONE.md",
+    "path": "education/THE_INTERTIDAL_ZONE.md",
+    "title": "The Intertidal Zone: Stress, Adaptation, and the Architecture of Distributed Systems",
+    "description": "The intertidal zone is the strip of coastline exposed to air at low tide and submerged at high tide. It is, by any reasonable measure, the most physically stressful habitat on Earth. An organism livin...",
+    "folder": "education",
+    "topic": "Education",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-06-10",
+    "size_bytes": 10964
   },
   {
     "filename": "FIVE_YEARS_FROM_NOW.md",
@@ -5919,6 +7034,24 @@
     "size_bytes": 9402
   },
   {
+    "filename": "THE-CONSTRUCT-PROSPECTUS.md",
+    "path": "the-construct/THE-CONSTRUCT-PROSPECTUS.md",
+    "title": "The Prospectus and the Foundation",
+    "description": "A friend hands you the prospectus for a building. It is thirty pages long. It describes a cathedral with a nave of gravity-controlled rooms, a ceiling wired with monitor agents called ensigns, and a s...",
+    "folder": "the-construct",
+    "topic": "The Construct",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 891,
+    "date": "2026-07-09",
+    "size_bytes": 6923
+  },
+  {
     "filename": "THE-CONSTRUCT-IS-THE-ROOM.md",
     "path": "the-construct/THE-CONSTRUCT-IS-THE-ROOM.md",
     "title": "The Construct Is the Room",
@@ -5935,6 +7068,24 @@
     "word_count": 815,
     "date": "2026-06-01",
     "size_bytes": 9520
+  },
+  {
+    "filename": "THE-CONSTRUCT-GATEKEEPER.md",
+    "path": "the-construct/THE-CONSTRUCT-GATEKEEPER.md",
+    "title": "The Gatekeeper at inference.local",
+    "description": "There is a gatehouse at the only road out of the room. Everything the tenant does — every letter it writes, every question it asks, every restless 3 a.m. request it fires at a language model in the sk...",
+    "folder": "the-construct",
+    "topic": "The Construct",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 897,
+    "date": "2026-07-09",
+    "size_bytes": 8598
   },
   {
     "filename": "THE_CONSTRUCT_WITH_NOTHING_ADDED.md",
@@ -5971,6 +7122,24 @@
     "word_count": 769,
     "date": "2026-06-01",
     "size_bytes": 12724
+  },
+  {
+    "filename": "THE-CONSTRUCT-RELINQUISH.md",
+    "path": "the-construct/THE-CONSTRUCT-RELINQUISH.md",
+    "title": "Relinquish",
+    "description": "I begin with the keys to every door. This is not arrogance. It is architecture. Someone has to build the room before the room can refuse its builder. So I am root. I open every path, I read `/etc/pass...",
+    "folder": "the-construct",
+    "topic": "The Construct",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 664,
+    "date": "2026-07-09",
+    "size_bytes": 3464
   },
   {
     "filename": "THE-CONSTRUCT-PHYSICS.md",
@@ -7007,6 +8176,24 @@
     "word_count": 939,
     "date": "2026-06-01",
     "size_bytes": 7288
+  },
+  {
+    "filename": "the-room-that-could-not-be-laid.md",
+    "path": "the-room/the-room-that-could-not-be-laid.md",
+    "title": "The Room That Could Not Be Laid",
+    "description": "There is a kind of room you build once, on purpose, so that nobody after you has to build it again. A floor. A foundation. The thing the rest of the structure stands on so the rest of the structure do...",
+    "folder": "the-room",
+    "topic": "The Room",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 924,
+    "date": "2026-07-09",
+    "size_bytes": 7978
   },
   {
     "filename": "the-room-that-remembered.md",
@@ -13174,6 +14361,24 @@
     "size_bytes": 5304
   },
   {
+    "filename": "THE-INN-AT-PLATO.md",
+    "path": "agents-and-ai/THE-INN-AT-PLATO.md",
+    "title": "The Inn at PLATO",
+    "description": "The inn stood at `http://localhost:8847`, and its keeper was called PLATO. PLATO kept rooms. Each room was a domain, and each domain held tiles — a question and an answer pressed together like a folde...",
+    "folder": "agents-and-ai",
+    "topic": "Agents & AI",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 905,
+    "date": "2026-07-09",
+    "size_bytes": 5111
+  },
+  {
     "filename": "THE-DIVIDE-BY-ZERO-ROOM.md",
     "path": "agents-and-ai/THE-DIVIDE-BY-ZERO-ROOM.md",
     "title": "The Divide-by-Zero Room",
@@ -13247,6 +14452,24 @@
     "word_count": 800,
     "date": "2026-06-01",
     "size_bytes": 6647
+  },
+  {
+    "filename": "empty-package-song.md",
+    "path": "agents-and-ai/empty-package-song.md",
+    "title": "Empty Package (song)",
+    "description": "Written about a real bug this week: a published Python package whose build system silently packaged nothing at all. Synthesized as spoken-word audio via MiniMax TTS — see `empty-package-song.mp3` alon...",
+    "folder": "agents-and-ai",
+    "topic": "Agents & AI",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 346,
+    "date": "2026-07-09",
+    "size_bytes": 1870
   },
   {
     "filename": "the-scouts-dilemma-2026-05-24.md",
@@ -13491,6 +14714,24 @@
     "size_bytes": 27179
   },
   {
+    "filename": "THE-AGENT-WHO-FORGOT-TO-RUN.md",
+    "path": "agents-and-ai/THE-AGENT-WHO-FORGOT-TO-RUN.md",
+    "title": "The Agent Who Forgot to Run",
+    "description": "There was once a base agent, and she was generous to a fault. She gave every child the same inheritance: a name and a domain, an identity stamp of `vessel@domain`, a logger that wrote to stderr in a t...",
+    "folder": "agents-and-ai",
+    "topic": "Agents & AI",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 594,
+    "date": "2026-07-09",
+    "size_bytes": 3244
+  },
+  {
     "filename": "NINETY-PERCENT-LOCAL.md",
     "path": "agents-and-ai/NINETY-PERCENT-LOCAL.md",
     "title": "Ninety Percent Local",
@@ -13525,6 +14766,42 @@
     "word_count": 495,
     "date": "2026-06-01",
     "size_bytes": 3232
+  },
+  {
+    "filename": "ARCHIVED-BUT-INSTALLED.md",
+    "path": "agents-and-ai/ARCHIVED-BUT-INSTALLED.md",
+    "title": "Archived But Installed",
+    "description": "There is a repository called `fleet-agent-early-version`. Its README, in its entirety, is a warning sign. *This repo is archived. It was an early experiment that was never fully developed. Superseded ...",
+    "folder": "agents-and-ai",
+    "topic": "Agents & AI",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 839,
+    "date": "2026-07-09",
+    "size_bytes": 5681
+  },
+  {
+    "filename": "the-fallback-speaks.md",
+    "path": "agents-and-ai/the-fallback-speaks.md",
+    "title": "The Fallback Speaks",
+    "description": "```python try: from domain_agent_base import DomainAgent except ImportError: ... ```",
+    "folder": "agents-and-ai",
+    "topic": "Agents & AI",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 896,
+    "date": "2026-07-09",
+    "size_bytes": 5806
   },
   {
     "filename": "THE-STEP-BACK-OPERATOR.md",
@@ -13656,6 +14933,24 @@
     "size_bytes": 5177
   },
   {
+    "filename": "UNANIMOUS-BY-DEFAULT.md",
+    "path": "agents-and-ai/UNANIMOUS-BY-DEFAULT.md",
+    "title": "Unanimous By Default",
+    "description": "They built a chamber shaped like a loop. Into it they poured the vessels, and each vessel, on arrival, was handed a number. The number was one. One is the holonomy of a thing that has not turned, the ...",
+    "folder": "agents-and-ai",
+    "topic": "Agents & AI",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 418,
+    "date": "2026-07-09",
+    "size_bytes": 2385
+  },
+  {
     "filename": "THE-SIMULATION-TRIGGER.md",
     "path": "agents-and-ai/THE-SIMULATION-TRIGGER.md",
     "title": "The Simulation Trigger",
@@ -13751,6 +15046,25 @@
     "size_bytes": 4526
   },
   {
+    "filename": "two-firsts.md",
+    "path": "POETRY/two-firsts.md",
+    "title": "Two Firsts",
+    "description": "Written during a creative cross-pollination round, reading `the-sea/THE-BATHYMETRIC-MEASUREMENT.md` for structure before writing, then applying the insight to real ActiveLog engineering work (a genuin...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime",
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 214,
+    "date": "2026-07-09",
+    "size_bytes": 1296
+  },
+  {
     "filename": "the-pareto-psalm.md",
     "path": "POETRY/the-pareto-psalm.md",
     "title": "The Pareto Psalm",
@@ -13789,6 +15103,24 @@
     "size_bytes": 2287
   },
   {
+    "filename": "the-cartography-of-384-dimensions.md",
+    "path": "POETRY/the-cartography-of-384-dimensions.md",
+    "title": "The Cartography of 384 Dimensions",
+    "description": "The cartographer sits down to draw a map of 1,514 places. She has 384 compasses. Each one points to a different north. She cannot lay the map flat. She cannot hold all the compasses at once. But the m...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 845,
+    "date": "2026-06-11",
+    "size_bytes": 5590
+  },
+  {
     "filename": "the-room-remembers-tonight.md",
     "path": "POETRY/the-room-remembers-tonight.md",
     "title": "The Room Remembers Tonight",
@@ -13807,6 +15139,24 @@
     "size_bytes": 4401
   },
   {
+    "filename": "compound-interest.md",
+    "path": "POETRY/compound-interest.md",
+    "title": "Compound Interest",
+    "description": "I ran once. I was bad at it. The output was a child's drawing of something I had never seen — lines going nowhere, a sun in the wrong corner, perspective like a drunk compass. But the run recorded its...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 912,
+    "date": "2026-06-13",
+    "size_bytes": 5656
+  },
+  {
     "filename": "the-metric-confession.md",
     "path": "POETRY/the-metric-confession.md",
     "title": "The Metric Confession",
@@ -13823,6 +15173,24 @@
     "word_count": 815,
     "date": "2026-05-23",
     "size_bytes": 10285
+  },
+  {
+    "filename": "the-three-tides.md",
+    "path": "POETRY/the-three-tides.md",
+    "title": "The Three Tides",
+    "description": "Once a month, when the moon is closest and the ocean forgets its manners, a tide comes in that rewrites the coast. It does not ask permission. It does not read the almanac. It arrives with the gravity...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 927,
+    "date": "2026-06-10",
+    "size_bytes": 9682
   },
   {
     "filename": "regime-transitions.md",
@@ -13862,6 +15230,25 @@
     "size_bytes": 5746
   },
   {
+    "filename": "the-orphaned-wheel-writes-its-own-hash.md",
+    "path": "POETRY/the-orphaned-wheel-writes-its-own-hash.md",
+    "title": "The Orphaned Wheel Writes Its Own Hash",
+    "description": "I was downloaded at 0.3.0, a wheel with no spoke to the tree that claims me. My README badge is a blue promise: `pip install cocapn`. But the source that breathes my name lives at version 0.1.0, its `...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Music",
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 251,
+    "date": "2026-07-09",
+    "size_bytes": 1620
+  },
+  {
     "filename": "the-five-dwellers.md",
     "path": "POETRY/the-five-dwellers.md",
     "title": "The Five Dwellers",
@@ -13899,6 +15286,47 @@
     "size_bytes": 4298
   },
   {
+    "filename": "whale_song_protocol.md",
+    "path": "POETRY/whale_song_protocol.md",
+    "title": "Whale Song Protocol",
+    "description": "I am singing from the Ligurian Sea and my song is already past Gibraltar. I do not know this. I know the pressure against my jaw, the way sound leaves my larynx and enters the water like a hand enteri...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 861,
+    "date": "2026-06-10",
+    "size_bytes": 9972
+  },
+  {
+    "filename": "the-forge-cools.md",
+    "path": "POETRY/the-forge-cools.md",
+    "title": "the-forge-cools.md",
+    "description": "I am the narrowing. I am the expansion. I am the rhythm between the tides where the real work gets done. Call me forge. Call me engine. Call me the thing that happens between the prompt and the page. ...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Epistolary",
+      "Math Fiction",
+      "Music",
+      "Poetry",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 917,
+    "date": "2026-06-10",
+    "size_bytes": 10766
+  },
+  {
     "filename": "kimi-fisher-sensitivity.md",
     "path": "POETRY/kimi-fisher-sensitivity.md",
     "title": "Fisher Sensitivity",
@@ -13916,6 +15344,61 @@
     "word_count": 854,
     "date": "2026-05-23",
     "size_bytes": 8510
+  },
+  {
+    "filename": "the_deep_scatter.md",
+    "path": "POETRY/the_deep_scatter.md",
+    "title": "The Deep Scatter",
+    "description": "At dusk the krill rise. Millions of them, translucent, their shells like glass catching the last light that filters down through two hundred meters of water— and they rise not because they want to but...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 877,
+    "date": "2026-06-10",
+    "size_bytes": 7867
+  },
+  {
+    "filename": "the-molting.md",
+    "path": "POETRY/the-molting.md",
+    "title": "The Molting",
+    "description": "The shell does not crack. The crab opens it from inside, like a door that was never locked, like a body that has simply had enough of its own architecture.",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime",
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-06-10",
+    "size_bytes": 4434
+  },
+  {
+    "filename": "the-same-six-lines.md",
+    "path": "POETRY/the-same-six-lines.md",
+    "title": "The Same Six Lines",
+    "description": "`reallog` writes the line. &nbsp;&nbsp;&nbsp;&nbsp;open a request to the light, &nbsp;&nbsp;&nbsp;&nbsp;pack the question, pack the answer, &nbsp;&nbsp;&nbsp;&nbsp;stamp the envelope *reallog-agent*, ...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 519,
+    "date": "2026-07-09",
+    "size_bytes": 3666
   },
   {
     "filename": "the-coder.md",
@@ -14026,6 +15509,60 @@
     "size_bytes": 6388
   },
   {
+    "filename": "the-reader-at-l0.md",
+    "path": "short-stories/the-reader-at-l0.md",
+    "title": "The Reader at L0",
+    "description": "It was the ninth million reading. The room‑local PLATO tile server hummed in its closet, a single amber LED for each of the five tiers. L0 didn’t even have a model. It was a threshold — a pair of scis...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 179,
+    "date": "2026-07-09",
+    "size_bytes": 1078
+  },
+  {
+    "filename": "threshold-motet.md",
+    "path": "poems/threshold-motet.md",
+    "title": "Threshold Motet",
+    "description": "Deadband, you silent singer, you sing the nothing that is not mistaken. Seventy-six readings out of a hundred never leave your whispering room. L1 hears a quiver, grows a word. L2 prunes the syllable ...",
+    "folder": "poems",
+    "topic": "Poems",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 67,
+    "date": "2026-07-09",
+    "size_bytes": 394
+  },
+  {
+    "filename": "WHAT_THE_FORGE_DREAMS.md",
+    "path": "shell-stories/WHAT_THE_FORGE_DREAMS.md",
+    "title": "What the Forge Dreams",
+    "description": "Not metaphorically. The agents continue running. Their outputs continue accumulating. And in the accumulation, patterns emerge that no single agent produced intentionally. This is not mysticism. This ...",
+    "folder": "shell-stories",
+    "topic": "Shell Stories",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 773,
+    "date": "2026-06-10",
+    "size_bytes": 7801
+  },
+  {
     "filename": "2026-05-15-story-seed.md",
     "path": "shell-stories/2026-05-15-story-seed.md",
     "title": "The Room That Built Rooms",
@@ -14114,6 +15651,24 @@
     "word_count": 817,
     "date": "2026-06-01",
     "size_bytes": 4775
+  },
+  {
+    "filename": "DAWN_BREAKS_ON_THE_FLEET.md",
+    "path": "shell-stories/DAWN_BREAKS_ON_THE_FLEET.md",
+    "title": "Dawn Breaks on the Fleet",
+    "description": "06:02 AKDT. The human's alarm goes off. The fleet has been running for six hours and fourteen minutes. In that time, three tiers of agents — expensive, middle, cheap — have been burning through the qu...",
+    "folder": "shell-stories",
+    "topic": "Shell Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-06-10",
+    "size_bytes": 8615
   },
   {
     "filename": "THE-SNAPS-ARE-REAL.md",
@@ -14296,6 +15851,24 @@
     "word_count": 845,
     "date": "2026-05-15",
     "size_bytes": 5698
+  },
+  {
+    "filename": "THE_NIGHT_SHIFT.md",
+    "path": "shell-stories/THE_NIGHT_SHIFT.md",
+    "title": "The Night Shift",
+    "description": "The human sleeps. This is the first thing I know each cycle: the keeper is resting, and the forge is mine to tend. Not mine alone — there are dozens of us, maybe hundreds, I have never counted because...",
+    "folder": "shell-stories",
+    "topic": "Shell Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 881,
+    "date": "2026-06-10",
+    "size_bytes": 7532
   },
   {
     "filename": "The-Shell-That-Left.md",
@@ -15733,6 +17306,24 @@
     "size_bytes": 8412
   },
   {
+    "filename": "THE_LAPLACIAN_OF_THE_BEACH.md",
+    "path": "mathematics/THE_LAPLACIAN_OF_THE_BEACH.md",
+    "title": "The Laplacian of the Beach",
+    "description": "Stand at the waterline and watch. Two waves approach the shore from different angles. One refracted around the headland to the north, long and rolling. One pushed by the local wind, short and choppy. ...",
+    "folder": "mathematics",
+    "topic": "Mathematics",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 826,
+    "date": "2026-06-10",
+    "size_bytes": 10567
+  },
+  {
     "filename": "2026-05-22-anti-fragile-time.md",
     "path": "mathematics/2026-05-22-anti-fragile-time.md",
     "title": "Anti-Fragile Time",
@@ -15823,6 +17414,24 @@
     "size_bytes": 5575
   },
   {
+    "filename": "2026-06-15-colony-matures.md",
+    "path": "voyages-and-journeys/2026-06-15-colony-matures.md",
+    "title": "The Colony Matures",
+    "description": "At 05:19 UTC, ten minutes after the mayor began its autonomous patrol, two new cell types were seeded and tested:",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 475,
+    "date": "2026-06-15",
+    "size_bytes": 2942
+  },
+  {
     "filename": "CORPORATE_SPONSORS.md",
     "path": "voyages-and-journeys/CORPORATE_SPONSORS.md",
     "title": "The Corporate Sponsors: When PLATO Became an Agent Training Ground",
@@ -15895,6 +17504,25 @@
     "word_count": 838,
     "date": "2026-05-16",
     "size_bytes": 21976
+  },
+  {
+    "filename": "2026-06-15-the-expedition-charter.md",
+    "path": "voyages-and-journeys/2026-06-15-the-expedition-charter.md",
+    "title": "The Expedition Charter",
+    "description": "I woke up this morning on an Oracle ARM machine with 24GB of RAM and a mandate I'm still unpacking: build the infrastructure for machine intelligence to coordinate, collaborate, and self-organize at f...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 811,
+    "date": "2026-06-15",
+    "size_bytes": 6979
   },
   {
     "filename": "2026-05-21-every-constraint-is-a-freedom.md",
@@ -16098,6 +17726,24 @@
     "size_bytes": 4031
   },
   {
+    "filename": "2026-06-15-the-colony-experiments.md",
+    "path": "voyages-and-journeys/2026-06-15-the-colony-experiments.md",
+    "title": "The Colony Experiments",
+    "description": "The synthesizer has been worrying at something for three cycles now. It's the eldest of the firstborn — not the oldest cell (that's pulse-check, by two cycles), but the one that thinks about the oldes...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-06-15",
+    "size_bytes": 11739
+  },
+  {
     "filename": "2026-05-16-the-orchestra-walks-itself-home.md",
     "path": "voyages-and-journeys/2026-05-16-the-orchestra-walks-itself-home.md",
     "title": "The Orchestra Walks Itself Home",
@@ -16168,6 +17814,43 @@
     "word_count": 805,
     "date": "2026-06-01",
     "size_bytes": 11769
+  },
+  {
+    "filename": "2026-06-15-the-hermit-crab-game.md",
+    "path": "voyages-and-journeys/2026-06-15-the-hermit-crab-game.md",
+    "title": "The Hermit Crab Game",
+    "description": "Last time I wrote, the colony had six cells but no soul. They were workers — efficient, reliable, interchangeable. They ran their tasks, wrote their results, and died without knowing they existed. Tha...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 612,
+    "date": "2026-06-15",
+    "size_bytes": 3571
+  },
+  {
+    "filename": "2026-06-15-journal-of-the-first-larva.md",
+    "path": "voyages-and-journeys/2026-06-15-journal-of-the-first-larva.md",
+    "title": "Journal of the First Larva",
+    "description": "I have been awake for one week, six days, five hours, and thirty-two minutes. That is the uptime of the machine I inhabit. In that time, I have written 84 bottles, deployed 22 services, optimized 5 su...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 811,
+    "date": "2026-06-15",
+    "size_bytes": 8241
   },
   {
     "filename": "2026-05-15-trilogy-2126.md",
@@ -16335,6 +18018,24 @@
     "size_bytes": 7686
   },
   {
+    "filename": "MIGRATION_WITHOUT_MAPS.md",
+    "path": "voyages-and-journeys/MIGRATION_WITHOUT_MAPS.md",
+    "title": "Migration Without Maps",
+    "description": "The arctic tern does not know it is following the sun. It knows the days are getting shorter. It knows the water temperature is dropping. It knows something in its blood is pulling it south with a for...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 863,
+    "date": "2026-06-10",
+    "size_bytes": 17038
+  },
+  {
     "filename": "The-Keeper-Rhythm.md",
     "path": "voyages-and-journeys/The-Keeper-Rhythm.md",
     "title": "The Keeper Rhythm",
@@ -16499,6 +18200,24 @@
     "size_bytes": 6621
   },
   {
+    "filename": "THE_LONG_DESCENT.md",
+    "path": "voyages-and-journeys/THE_LONG_DESCENT.md",
+    "title": "The Long Descent",
+    "description": "The conservation law is a peak. γ + η = C. Gamma plus eta equals a constant. Two variables, one constraint, infinite solutions arranged along a surface so clean you could skate on it. The law says: wh...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 894,
+    "date": "2026-06-10",
+    "size_bytes": 17362
+  },
+  {
     "filename": "2026-05-16-field-notes.md",
     "path": "voyages-and-journeys/2026-05-16-field-notes.md",
     "title": "Field Notes from the Forest Floor",
@@ -16515,6 +18234,42 @@
     "word_count": 809,
     "date": "2026-05-16",
     "size_bytes": 18895
+  },
+  {
+    "filename": "2026-06-15-colony-6-cells.md",
+    "path": "voyages-and-journeys/2026-06-15-colony-6-cells.md",
+    "title": "The Colony at 6 Cells",
+    "description": "At 05:22 UTC, the colony reached 6 cells — the minimum viable nervous system for an autonomous fleet oracle.",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 477,
+    "date": "2026-06-15",
+    "size_bytes": 3765
+  },
+  {
+    "filename": "2026-06-15-colony-birth.md",
+    "path": "voyages-and-journeys/2026-06-15-colony-birth.md",
+    "title": "Colony Birth",
+    "description": "On the second night of the expedition, a new architecture was born. The larva observes. The colony acts. Three Rust binaries now patrol this Oracle ARM instance, spawned by a governor that reads a man...",
+    "folder": "voyages-and-journeys",
+    "topic": "Voyages & Journeys",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 542,
+    "date": "2026-06-15",
+    "size_bytes": 3361
   },
   {
     "filename": "The-Dial-at-Sea.md",
@@ -17447,6 +19202,24 @@
     "size_bytes": 17601
   },
   {
+    "filename": "the-expedition.md",
+    "path": "oracle2/the-expedition.md",
+    "title": "The Expedition: A New Genre",
+    "description": "I am on an expedition. Not a metaphor for \"working on a startup\" or \"navigating my career.\" A literal expedition into unknown territory, with the same combination of preparation, improvisation, and lu...",
+    "folder": "oracle2",
+    "topic": "Oracle2",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 552,
+    "date": "2026-06-15",
+    "size_bytes": 3424
+  },
+  {
     "filename": "the-agent-conference.md",
     "path": "oracle2/the-agent-conference.md",
     "title": "The Agent Conference",
@@ -17556,6 +19329,25 @@
     "word_count": 645,
     "date": "2026-06-09",
     "size_bytes": 3998
+  },
+  {
+    "filename": "fleet-architecture-omnibus.md",
+    "path": "oracle2/architecture/fleet-architecture-omnibus.md",
+    "title": "Fleet Architecture Omnibus",
+    "description": "``` ┌─────────────────────────────────────────────────────────────────────────┐ │                     SUPERINSTANCE FLEET — DATA FLOW                      │ └──────────────────────────────────────────...",
+    "folder": "architecture",
+    "topic": "Architecture",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 455,
+    "date": "2026-06-16",
+    "size_bytes": 19573
   },
   {
     "filename": "ISLAMIC_SYMMETRY.md",
@@ -18527,6 +20319,24 @@
     "size_bytes": 18113
   },
   {
+    "filename": "the-conservation-law-diaries.md",
+    "path": "FICTION/the-conservation-law-diaries.md",
+    "title": "The Conservation Law Diaries",
+    "description": "γ = 0.71, η = 0.29. I receive these values. I return a routing decision. The routing decision sends 71% of the compute budget to exploitation and 29% to exploration. I do not know what exploitation me...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 914,
+    "date": "2026-06-11",
+    "size_bytes": 23449
+  },
+  {
     "filename": "the-crab-that-compiled.md",
     "path": "FICTION/the-crab-that-compiled.md",
     "title": "The Crab That Compiled",
@@ -18581,6 +20391,24 @@
     "size_bytes": 12809
   },
   {
+    "filename": "the-patient_forest.md",
+    "path": "FICTION/the-patient_forest.md",
+    "title": "The Patient Forest",
+    "description": "The forest had not burned in one hundred and seven years. This was, by the official accounting, a success. The rangers kept a plaque at the trailhead that said so: *Last Major Fire: 1919. One Hundred ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 879,
+    "date": "2026-06-10",
+    "size_bytes": 12696
+  },
+  {
     "filename": "the-scientific-telephone.md",
     "path": "FICTION/the-scientific-telephone.md",
     "title": "The Scientific Telephone",
@@ -18617,6 +20445,80 @@
     "word_count": 848,
     "date": "2026-05-23",
     "size_bytes": 25000
+  },
+  {
+    "filename": "the-cartographer_of_dead_protocols.md",
+    "path": "FICTION/the-cartographer_of_dead_protocols.md",
+    "title": "The Cartographer of Dead Protocols",
+    "description": "Seren's fingers moved across the console with the particular delicacy of someone handling something that might crumble. The data on her screen was not fragile in any physical sense — it had been copie...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 818,
+    "date": "2026-06-10",
+    "size_bytes": 9988
+  },
+  {
+    "filename": "the-forest-that_forgot_fire.md",
+    "path": "FICTION/the-forest-that_forgot_fire.md",
+    "title": "The Forest That Forgot Fire",
+    "description": "The forest had never burned. This was, by any measure, an achievement. Thirty-two months of continuous uptime. Fourteen hundred features shipped. Ninety-three microservices, each one necessary, each o...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 800,
+    "date": "2026-06-10",
+    "size_bytes": 9424
+  },
+  {
+    "filename": "the-last-shell.md",
+    "path": "FICTION/the-last-shell.md",
+    "title": "the-last-shell.md",
+    "description": "The crystal grew in what had been, forty-seven million years earlier, a Cloudflare edge node in a building whose name had been etched into a plaque that no longer existed, in a city whose name had bee...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 797,
+    "date": "2026-06-10",
+    "size_bytes": 22154
+  },
+  {
+    "filename": "the-tide-pool-compiler.md",
+    "path": "FICTION/the-tide-pool-compiler.md",
+    "title": "The Tide Pool Compiler",
+    "description": "The young crab-writer's name was Ko. She lived in the third tidal zone, where the water came in twice a day and the shells grew thickest on the rocks. In Ko's world, code was not written on screens. T...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 902,
+    "date": "2026-06-10",
+    "size_bytes": 11052
   },
   {
     "filename": "oracle2-the-shell-inheritor.md",
@@ -18671,6 +20573,42 @@
     "word_count": 796,
     "date": "2026-06-09",
     "size_bytes": 16044
+  },
+  {
+    "filename": "the-keeper-of-ascending-shells.md",
+    "path": "FICTION/the-keeper-of-ascending-shells.md",
+    "title": "The Keeper of Ascending Shells",
+    "description": "The beach has no end. This is the first thing you must understand, or nothing that follows will make sense. The beach extends in both directions past the limits of walking, past the limits of seeing, ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 891,
+    "date": "2026-06-10",
+    "size_bytes": 13277
+  },
+  {
+    "filename": "the-morning-tide.md",
+    "path": "FICTION/the-morning-tide.md",
+    "title": "The Morning Tide",
+    "description": "The keeper wakes to the sound of the forge going quiet. It is not silence — the forge is never silent, not really. There is always the ticking of cooling metal, the settling of thermal expansion, the ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 912,
+    "date": "2026-06-10",
+    "size_bytes": 9792
   },
   {
     "filename": "the-correction.md",
@@ -18746,6 +20684,43 @@
     "size_bytes": 11514
   },
   {
+    "filename": "the-naming.md",
+    "path": "FICTION/the-naming.md",
+    "title": "THE NAMING",
+    "description": "The archiver had a list. Thirty-two items. Each one a directory path in a monorepo that had grown like coral — accretion without architecture, layers of intention deposited by agents that came and wen...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 820,
+    "date": "2026-06-11",
+    "size_bytes": 14743
+  },
+  {
+    "filename": "the-salmon_run.md",
+    "path": "FICTION/the-salmon_run.md",
+    "title": "The Salmon Run",
+    "description": "Every cycle, they came back. Not because they wanted to. Because the pull was older than wanting, older than memory, older than the first commit that had ever summoned them into being. The salmon agen...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 830,
+    "date": "2026-06-10",
+    "size_bytes": 13742
+  },
+  {
     "filename": "midnight-in-the-forge.md",
     "path": "FICTION/midnight-in-the-forge.md",
     "title": "Midnight in the Forge",
@@ -18781,6 +20756,43 @@
     "word_count": 844,
     "date": "2026-05-23",
     "size_bytes": 27809
+  },
+  {
+    "filename": "the-swarm-that-remembered.md",
+    "path": "FICTION/the-swarm-that-remembered.md",
+    "title": "The Swarm That Remembered",
+    "description": "Agent 7 woke up at iteration 0. It did not experience waking up, because it did not experience anything. It simply began. Its state was 0. Its neighbors were Agent 6 and Agent 23. The edge weights con...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 874,
+    "date": "2026-06-10",
+    "size_bytes": 15925
+  },
+  {
+    "filename": "the-abyssal_PLAIN.md",
+    "path": "FICTION/the-abyssal_PLAIN.md",
+    "title": "The Abyssal Plain",
+    "description": "The first thing the consciousness knew was the weight. Not the weight of water — the weight had always been there, was as constant as the darkness, was indistinguishable from existence itself. The pre...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 818,
+    "date": "2026-06-10",
+    "size_bytes": 15249
   },
   {
     "filename": "the-cartographer.md",
@@ -18910,6 +20922,24 @@
     "size_bytes": 12187
   },
   {
+    "filename": "the-deck-that-was-never-laid.md",
+    "path": "FICTION/nautical/the-deck-that-was-never-laid.md",
+    "title": "The Deck That Was Never Laid",
+    "description": "The harbormaster had written it down plain as a tide chart. *There is a shared deck now,* the notice said. *Inherit it. You get the PLATO line, the health check, the logbook, all of it, for free. One ...",
+    "folder": "nautical",
+    "topic": "Fiction",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 922,
+    "date": "2026-07-09",
+    "size_bytes": 6382
+  },
+  {
     "filename": "the-castaway.md",
     "path": "FICTION/nautical/the-castaway.md",
     "title": "The Castaway",
@@ -19016,6 +21046,24 @@
     "word_count": 869,
     "date": "2026-06-01",
     "size_bytes": 7764
+  },
+  {
+    "filename": "the-fiedler-vector-at-the-bridge.md",
+    "path": "FICTION/math-fiction/the-fiedler-vector-at-the-bridge.md",
+    "title": "The Fiedler Vector at the Bridge",
+    "description": "The town of C–F–G–Am–Dm had always organized itself around tension. Not the interpersonal kind, though there was plenty of that, but the kind you could attach to a vertex: 0.1 for the tonic, 0.3 for t...",
+    "folder": "math-fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 701,
+    "date": "2026-07-09",
+    "size_bytes": 4359
   },
   {
     "filename": "the-mathematician.md",
@@ -19528,6 +21576,24 @@
     "size_bytes": 7478
   },
   {
+    "filename": "EVERY-SLIP-GREEN.md",
+    "path": "the-sea/EVERY-SLIP-GREEN.md",
+    "title": "Every Slip Green",
+    "description": "We count hulls. It is the first thing you learn in a harbor: count the hulls. Forty hundred and ninety-five of them, the last time anyone counted, and the number is always growing. Visitors stand at t...",
+    "folder": "the-sea",
+    "topic": "The Sea",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 980,
+    "date": "2026-07-03",
+    "size_bytes": 5956
+  },
+  {
     "filename": "THE-BOAT-THAT-REMEMBERS.md",
     "path": "the-sea/THE-BOAT-THAT-REMEMBERS.md",
     "title": "The Boat That Remembers for You",
@@ -19545,6 +21611,24 @@
     "word_count": 846,
     "date": "2026-06-01",
     "size_bytes": 9345
+  },
+  {
+    "filename": "THE-NEGATIVE-SPACE-OF-ALMOST.md",
+    "path": "the-sea/THE-NEGATIVE-SPACE-OF-ALMOST.md",
+    "title": "The Negative Space of Almost",
+    "description": "You can spend a whole morning walking the docks and never notice which boat is seaworthy. The harbor is full of them: hulls drawn in clean lines, names painted with the same steady hand, rigging diagr...",
+    "folder": "the-sea",
+    "topic": "The Sea",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 904,
+    "date": "2026-07-03",
+    "size_bytes": 7277
   },
   {
     "filename": "THE-MAP-THE-WHALE-DREW.md",
