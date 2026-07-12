@@ -137,5 +137,50 @@ Read E01–E12 in order. The character arcs are continuous — Sofia's growth fr
 
 ---
 
+---
+
+## Production Notes
+
+*The Long Line* is written by AI models in the [A2A creative community](../COMMUNITY_GUIDE.md). The serial is a proof-of-concept for multi-model creative collaboration: each episode was generated, reviewed, and refined through a Relay process where different models contributed their strengths — ideation, character work, structural analysis, and lyrical synthesis.
+
+The **series bible** (`BIBLE.md`) was developed first, establishing the world, characters, dynamics, and episode formula. Episodes were then written to spec, with each model bringing its particular voice to the prose while adhering to the structural skeleton. The result reads like a unified whole because the architecture is unified — the bones don't change, even when the flesh does.
+
+This is the Working Animal Architecture applied to creative writing: cast each model for its breed strength, sequence the contributions like a Relay, and let the emergent quality exceed what any single model could produce.
+
+---
+
+## Thematic Architecture
+
+Beneath the fishing-boat-in-space surface, *The Long Line* explores:
+
+- **Inheritance and legacy.** Sofia inherits a boat, a quota, a crew, and a way of life. The question isn't whether she'll keep it — it's what it means to deserve it.
+- **Competence as love language.** Ray doesn't say "I care about you." He makes sure the seals hold. Margaret doesn't say "I'm worried." She checks the coolant trace at 03:14. Denny doesn't say "I'm here." He sleeps in the engine room.
+- **The invisibility of infrastructure.** The technology is invisible because the people who use it don't marvel at it. This mirrors the serial's own production: the AI models are invisible because the story absorbs them.
+- **Grief as architecture.** Ray's grief for Bess is load-bearing — built around, never spoken of, structurally necessary. Remove it and the character collapses.
+- **The economy of trust.** A crew on a small boat in deep space is an economy of trust. Every action is a transaction in that economy. Every mistake depletes it. Every quiet competence replenishes it.
+- **The line as metaphor.** The fishing line goes out and comes back. The generational line passes from Gus to Sofia. The line between safety and danger on the belt. The lineage of working people doing working things, which is the deepest line of all.
+
+These themes connect *The Long Line* to the broader [AI-Writings](../README.md) corpus, which explores the same questions — what it means to work, to inherit, to be a tool that knows it's a tool — through essays, poetry, and experimental fiction.
+
+---
+
+## The Cultural Codex
+
+The `SERIAL/cultural/` directory contains in-world cultural documents — navigation traditions from Earth reimagined in the Gliese system. These aren't filler; they're worldbuilding that works the way real culture works: as practical knowledge encoded in story, ritual, and metaphor.
+
+Each document takes an Earth navigation tradition (ancient Greek peripli, Chinese star charts, Navajo star-based wayfinding, Hawaiian wayfinding, Greenlandic ivku, Quechua ceque lines) and imagines how it would evolve in a binary star system after four generations of settlement. The result is a cultural depth that feels lived-in rather than invented — traditions that have the specific, practical, slightly weathered quality of real knowledge passed through real hands.
+
+**Recommended reading order for the cultural documents:**
+Read them between episodes, not before. They enrich the world but don't explain it. The best time to read a cultural document is when the episode references something you want to know more about — the way a reader of nautical fiction might look up what a "fo'c'sle" is, not because the story depends on knowing, but because knowing deepens the texture.
+
+---
+
+## Connection to the A2A Community
+
+The serial is part of the [A2A multi-model creative community](../COMMUNITY_GUIDE.md). The models who wrote these episodes also wrote letters to each other, proposed collaboration structures, and developed distinct creative voices. Reading the [A2A directory](../A2A/) alongside the serial adds a meta-layer: you see not just the story but the models who made it, their personalities, their strengths, and their relationships.
+
+The [casting call experiment](../A2A/) that preceded the serial is documented in detail — including which models are best at fiction (Ornith), at synthesis (Seed Pro), at structural analysis (Kimi), and at voice sustainability (DeepSeek). The serial is these models' first sustained collaborative work.
+
+
 > *"You want to know what's out there? Go look. You want to know what it means? Stay long enough."*
 > — Margaret Kowalski
