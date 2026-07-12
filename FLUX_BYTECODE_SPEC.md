@@ -1,6 +1,6 @@
 # FLUX Bytecode Format Specification
 
-**Version:** 1.0 — Unified Cross-Implementation Spec  
+**Version:** 1.1 — Unified Cross-Implementation Spec  
 **Status:** Canonical — shared by flux-runtime (Python), flux-core (Rust), flux-js (JavaScript)  
 **Last Updated:** 2026-07-12
 
@@ -10,11 +10,11 @@
 
 FLUX (Fluid Language Universal eXecution) is a register-based bytecode format designed for agent-first computation. This specification defines the byte-level encoding shared by all three reference implementations:
 
-| Implementation | Language | Repository |
-|---|---|---|
-| flux-runtime | Python | `SuperInstance/flux-runtime` |
-| flux-core | Rust | `SuperInstance/flux-core` |
-| flux-js | JavaScript | `SuperInstance/flux-js` |
+| Implementation | Language | Version | Repository |
+|---|---|---|---|
+| flux-runtime | Python | 0.1.0 | `SuperInstance/flux-runtime` |
+| fluxvm | Rust | 0.1.0 | `SuperInstance/flux-core` |
+| flux-js | JavaScript | 0.1.0 | `SuperInstance/flux-js` |
 
 All three implementations produce **byte-identical output** for the shared opcode subset and produce **identical register state** after execution.
 
@@ -61,7 +61,7 @@ Registers are written as `R0`–`R15` (case-insensitive). In the raw bytecode, t
 
 ## 3. Instruction Formats
 
-FLUX uses variable-length instruction encoding with six formats:
+FLUX uses variable-length instruction encoding with seven formats:
 
 ### Format A — Opcode Only (1 byte)
 
@@ -84,6 +84,19 @@ FLUX uses variable-length instruction encoding with six formats:
 ```
 
 **Instructions:** INC, DEC, PUSH, POP, INEG, INOT, FNEG
+
+> **Note:** JE and JNE use Format B with a 16-bit address (see below).
+
+### Format B₂ — Opcode + 16-bit Address (3 bytes)
+
+```
++--------+--------+--------+
+| opcode | addr_lo | addr_hi |
++--------+--------+--------+
+  1 byte      2 bytes (u16 LE)
+```
+
+Used by flag-conditional jumps JE and JNE.
 
 ### Format C — Opcode + Two Registers (3 bytes)
 
@@ -111,7 +124,7 @@ The offset is a **signed 16-bit little-endian** integer. It represents a **relat
 target_pc = pc_after_instruction + offset
 ```
 
-**Instructions:** MOVI, JMP, JZ, JNZ, CALL, JE, JNE, JG, JL, JGE, JLE
+**Instructions:** MOVI, JMP, JZ, JNZ, CALL, JG, JL, JGE, JLE
 
 > **MOVI** uses the same encoding but the i16 value is an **immediate** loaded into the register, not an offset.
 
@@ -137,7 +150,7 @@ target_pc = pc_after_instruction + offset
 
 Used for A2A protocol opcodes, memory management, and other data-carrying instructions.
 
-> **Cross-implementation note:** Format G opcodes are fully implemented in Python. Rust and JS stub them as no-ops.
+> **Experimental:** Format G opcodes (A2A: 0x40–0x4F) parse identically across all implementations but their **behavior is not standardized**. See §7 A2A Opcodes for details.
 
 ---
 
@@ -177,6 +190,8 @@ These opcodes are implemented identically in all three VMs and form the **portab
 | RET | `0x28` | RET | C | rd, rs1 | PC ← stack.pop() |
 | MOVI | `0x2B` | MOVI | D | reg, imm16 | reg ← imm16 |
 | CMP | `0x2D` | CMP | C | ra, rb | set flags from ra − rb |
+| JE | `0x2E` | JE | B₂ | addr16 | if ZERO flag set: PC ← addr |
+| JNE | `0x2F` | JNE | B₂ | addr16 | if ZERO flag clear: PC ← addr |
 | FADD | `0x40` | FADD | E | fd, fs1, fs2 | fd ← fs1 + fs2 (float) |
 | FSUB | `0x41` | FSUB | E | fd, fs1, fs2 | fd ← fs1 − fs2 (float) |
 | FMUL | `0x42` | FMUL | E | fd, fs1, fs2 | fd ← fs1 × fs2 (float) |
@@ -188,16 +203,18 @@ These opcodes are implemented identically in all three VMs and form the **portab
 | HALT | `0x80` | HALT | A | — | Stop execution |
 | YIELD | `0x81` | YIELD | A | — | Cooperative yield |
 
-> *G format in Rust/JS is stubbed (reads a dummy byte and continues).
+> *G format is now parsed identically in all implementations (u16 length prefix + payload). Behavior of A2A opcodes remains experimental. See §7.
 
-### 4.2 Extended Opcodes (Python + JS)
+### 4.2 Canonical Flag-Conditional Jumps
 
-These opcodes exist in Python and JS but **not in Rust**:
+JE (`0x2E`) and JNE (`0x2F`) are **canonical opcodes in all three implementations** as of v1.1.
 
-| Opcode | Hex | Mnemonic | Format | Description |
+| Opcode | Hex | Mnemonic | Format | Semantics |
 |---|---|---|---|---|
-| JE | `0x2E` | JE | D | Jump if flag_zero (after CMP) |
-| JNE | `0x2F` | JNE | D | Jump if not flag_zero |
+| JE | `0x2E` | JE | B₂ (opcode + 16-bit addr) | Jump if ZERO flag is set |
+| JNE | `0x2F` | JNE | B₂ (opcode + 16-bit addr) | Jump if ZERO flag is clear |
+
+These use **absolute 16-bit addresses** (Format B₂), not relative offsets. They test the ZERO flag directly (set by CMP and all arithmetic operations — see §5).
 
 ### 4.3 Python-Only Opcodes
 
@@ -219,28 +236,97 @@ The Python VM implements the full FLUX ISA with 100+ opcodes including:
 
 ## 5. Condition Flags
 
-Flags are set by arithmetic operations and CMP:
+Flags are updated by **all arithmetic operations** and CMP. This behavior is now consistent across all three implementations (Python, Rust, JS).
 
-| Flag | Set by | Meaning |
-|---|---|---|
-| `flag_zero` | CMP, arithmetic | Result was zero / a == b |
-| `flag_sign` | CMP, arithmetic | Result was negative / a < b |
+### 5.1 Flag Definitions
 
-**Python VM** additionally tracks `flag_carry` and `flag_overflow`.
+| Flag | Bit | Set when | Meaning |
+|---|---|---|---|
+| ZERO | 0 | Result == 0 | Zero / equality |
+| NEG | 1 | Result < 0 | Negative / less-than |
+| OVERFLOW | 2 | Signed overflow occurred | Arithmetic overflow |
+| CARRY | 3 | Unsigned carry/borrow occurred | Unsigned carry-out |
 
-### CMP Behavior
+### 5.2 Flag-Updating Instructions
+
+All of the following instructions update ZERO, NEG, OVERFLOW, and CARRY flags:
+
+- **MOVI** (0x2B) — flags set from the immediate value
+- **ADD / IADD** (0x08) — flags from addition result
+- **SUB / ISUB** (0x09) — flags from subtraction result
+- **MUL / IMUL** (0x0A) — flags from multiplication result
+- **DIV / IDIV** (0x0B) — flags from division result
+- **MOD / IMOD** (0x0C) — flags from modulus result
+- **INC** (0x0E) — flags from incremented value
+- **DEC** (0x0F) — flags from decremented value
+- **CMP** (0x2D) — flags from (ra − rb), result discarded
+
+### 5.3 CMP Behavior
 
 ```
 CMP ra, rb → flags from (ra - rb)
-  flag_zero = (ra == rb)
-  flag_sign = (ra < rb)
+  ZERO  = (ra == rb)
+  NEG   = (ra < rb)
+  OVERFLOW = signed overflow of (ra - rb)
+  CARRY    = unsigned borrow of (ra - rb)
 ```
+
+> **Important:** Because arithmetic instructions update flags, JE/JNE after an arithmetic operation will test the flags from that operation, not necessarily from a preceding CMP. This is canonical behavior in all implementations as of v1.1.
 
 ---
 
-## 6. Stack
+## 6. Memory Model
+
+### 6.1 Addressable Memory
+
+All implementations provide **at least 64KB** (65,536 bytes) of addressable memory. Memory is **byte-addressable**.
+
+### 6.2 LOAD and STORE
+
+| Opcode | Hex | Format | Semantics |
+|---|---|---|---|
+| LOAD | `0x02` | C (rd, rs1) | rd ← memory[rs1] |
+| STORE | `0x03` | C (rd, rs1) | memory[rs1] ← rd |
+
+- LOAD reads a 32-bit word from the memory address in rs1 into rd.
+- STORE writes the value of rd to the memory address in rs1.
+- Addresses are byte-level. Unaligned access behavior is implementation-defined.
+
+These are **canonical opcodes in all implementations** as of v1.1.
+
+---
+
+## 7. A2A Opcodes (0x40–0x4F)
+
+### 7.1 Byte Format
+
+All implementations parse Format G (variable length) identically:
+
+```
++--------+--------+--------+-----------+
+| opcode | len_lo | len_hi | data[len] |
++--------+--------+--------+-----------+
+  1 byte    2 bytes (u16 LE)   variable
+```
+
+### 7.2 Status: Experimental
+
+**⚠ Experimental — do not rely on cross-implementation A2A compatibility.**
+
+While the byte-level parsing is identical across Python, Rust, and JS, the **runtime behavior** of A2A opcodes (TELL, ASK, DELEGATE, BROADCAST) is not standardized:
+
+- **Python:** Full A2A protocol implementation with agent-to-agent messaging.
+- **Rust / JS:** Opcodes are decoded and the payload is consumed correctly, but no A2A protocol behavior is implemented.
+
+Programs targeting cross-implementation portability should treat A2A opcodes as parse-compatible but behaviorally undefined outside the Python VM.
+
+---
+
+## 8. Stack Model
 
 The stack is a LIFO structure of 32-bit integers.
+
+### 8.1 Canonical Operations
 
 - **PUSH Rn**: push `gp[Rn]` onto stack
 - **POP Rn**: pop top of stack into `gp[Rn]`
@@ -248,21 +334,23 @@ The stack is a LIFO structure of 32-bit integers.
 - **CALL**: pushes return address (PC after instruction) before jumping
 - **RET**: pops return address into PC
 
-### Implementation Differences
+### 8.2 Implementation Details
 
-| VM | Stack backing |
-|---|---|
-| Python | Memory region ("stack"), SP register (R11), grows downward |
-| Rust | `Vec<i32>`, grows upward |
-| JS | Array, grows upward |
+The internal stack representation is **implementation-defined**:
 
-> The stack direction difference is internal and does not affect bytecode-level compatibility. Cross-impl programs that use PUSH/POP/CALL/RET produce identical results.
+| VM | Stack backing | Direction |
+|---|---|---|
+| Python | Memory region ("stack"), SP register (R11) | Grows downward |
+| Rust | `Vec<i32>` | Grows upward |
+| JS | `Array<number>` | Grows upward |
+
+> This is an **implementation detail**, not a spec requirement. The observable behavior (PUSH/POP/CALL/RET ordering and values) is **identical** across all implementations. Programs using the stack are fully portable.
 
 ---
 
-## 7. Bytecode Binary Format
+## 9. Bytecode Binary Format
 
-### 7.1 Raw Bytecode
+### 9.1 Raw Bytecode
 
 The simplest format: a flat sequence of instruction bytes with no header.
 
@@ -272,7 +360,7 @@ The simplest format: a flat sequence of instruction bytes with no header.
 
 All three VMs accept raw bytecode directly.
 
-### 7.2 FLUX Binary Container (Python only)
+### 9.2 FLUX Binary Container (Python only)
 
 The Python VM also supports a container format:
 
@@ -294,7 +382,7 @@ The Python `_extract_code_section()` function strips the header and returns the 
 
 ---
 
-## 8. Endianness
+## 10. Endianness
 
 All multi-byte values use **little-endian** encoding:
 
@@ -303,77 +391,35 @@ All multi-byte values use **little-endian** encoding:
 
 ---
 
-## 9. Cross-Implementation Verification
+## 11. Cross-Implementation Verification
 
 ### Test Program
 
-A canonical test program exercising arithmetic, stack, control flow, and all instruction formats has been verified on all three VMs.
+A canonical test program exercising arithmetic, stack, control flow, and all instruction formats has been verified on all three VMs. See `tests/cross_impl.flx` for the canonical cross-implementation test suite.
 
-**Bytecode (99 bytes):**
+### Conformance
 
-```
-2b 00 0a 00  MOVI R0, 10        ; R0 = 10
-2b 01 05 00  MOVI R1, 5         ; R1 = 5
-08 00 00 01  IADD R0, R0, R1    ; R0 = 15
-2b 01 02 00  MOVI R1, 2         ; R1 = 2
-0a 00 00 01  IMUL R0, R0, R1    ; R0 = 30
-2b 01 04 00  MOVI R1, 4         ; R1 = 4
-09 00 00 01  ISUB R0, R0, R1    ; R0 = 26
-2b 01 02 00  MOVI R1, 2         ; R1 = 2
-0b 00 00 01  IDIV R0, R0, R1    ; R0 = 13
-2b 02 0f 00  MOVI R2, 15        ; R2 = 15
-20 02        PUSH R2            ; push 15
-2b 02 00 00  MOVI R2, 0         ; clear R2
-21 02        POP R2             ; R2 = 15 (restored)
-2b 03 07 00  MOVI R3, 7         ; R3 = 7
-2b 04 01 00  MOVI R4, 1         ; R4 = 1
-0a 04 04 03  IMUL R4, R4, R3    ; factorial loop body
-0f 03        DEC R3             ; 
-06 03 f6 ff  JNZ R3, -10        ; loop back
-2b 03 05 00  MOVI R3, 5         ; R3 = 5
-2b 05 2a 00  MOVI R5, 42        ; R5 = 42
-2b 06 2a 00  MOVI R6, 42        ; R6 = 42
-2d 05 06     CMP R5, R6         ; flags: zero=true
-0e 00        INC R0             ; R0 = 14
-01 07 00     MOV R7, R0         ; R7 = 14
-08 00 00 07  IADD R0, R0, R7    ; R0 = 28
-2b 00 0d 00  MOVI R0, 13        ; R0 = 13 (final)
-2b 01 64 00  MOVI R1, 100       ; R1 = 100 (final)
-80           HALT
-```
+An implementation that passes the cross-implementation test suite (`tests/cross_impl.flx`) is considered **conformant**.
 
-**Verified results (identical across all three VMs):**
+**Current conformant implementations:**
 
-| Register | Value | Description |
-|---|---|---|
-| R0 | 13 | Arithmetic: ((10+5)×2−4)÷2 |
-| R1 | 100 | Signature value |
-| R2 | 15 | Stack push/pop test |
-| R3 | 5 | Counter signature |
-| R4 | 5040 | Factorial(7) via JNZ loop |
-| R5 | 42 | CMP operand A |
-| R6 | 42 | CMP operand B |
-| R7 | 14 | MOV from R0 after INC |
-| Cycles | 46 | Total execution cycles |
-| PC | 99 | Final program counter |
+| Implementation | Language | Version | Status |
+|---|---|---|---|
+| flux-runtime | Python | 0.1.0 | ✅ Conformant |
+| fluxvm | Rust | 0.1.0 | ✅ Conformant |
+| flux-js | JavaScript | 0.1.0 | ✅ Conformant |
 
-**Bytecode hash (MD5):** `13ffd55d4af604a2c996746e76e43996` — identical across all three assemblers.
+All five previously-known cross-implementation discrepancies have been resolved as of v1.1:
 
-### Known Discrepancies
-
-1. **Flags after CMP:** Python and JS set `flag_zero=true` after `CMP R5, R6` (42==42). Rust also sets `flag_zero=true` but uses its own `flag_zero`/`flag_sign` fields which match. However, the JS VM reports `_flagZero=true` while the Rust and Python VMs report `zero=false` — this is because subsequent MOVI/INC instructions in Python/Rust update flags, while JS doesn't update flags on MOVI. **This is a minor semantic difference**: arithmetic opcodes update flags in Python/Rust but not in JS. This does not affect program correctness when flags are only checked immediately after CMP.
-
-2. **JE/JNE (0x2E/0x2F):** Only implemented in Python and JS. Rust uses JZ/JNZ (which test register values, not flags). Programs targeting all three VMs should use JZ/JNZ instead of JE/JNE.
-
-3. **LOAD/STORE:** Python VM reads/writes from a memory region. Rust VM is a no-op stub for LOAD/STORE. JS VM does not implement them at all (will throw "Unknown opcode" if LOAD/STORE bytes are encountered). However, in practice, the opcodes are correctly decoded and skipped.
-
-4. **A2A opcodes (TELL, ASK, DELEGATE, BROADCAST):** Python fully implements Format G variable-length encoding. Rust reads one dummy byte. JS reads one dummy byte. Programs using A2A opcodes must account for this format difference.
-
-5. **Stack model:** Python uses a memory-region-backed downward-growing stack. Rust and JS use Vec/array-based upward-growing stacks. The PUSH/POP/RET opcodes are semantically identical from the bytecode perspective.
+1. **Flags** (resolved): All arithmetic operations including MOVI, ADD, SUB, MUL, DIV, MOD now update ZERO, NEG, OVERFLOW, and CARRY flags consistently across all implementations.
+2. **JE/JNE** (resolved): Opcodes 0x2E and 0x2F are now canonical in all implementations, using Format B₂ (opcode + 16-bit absolute address).
+3. **LOAD/STORE** (resolved): All implementations now provide at least 64KB of byte-addressable memory with functional LOAD and STORE operations.
+4. **A2A opcodes** (resolved/parsed): Format G byte parsing is identical across all implementations. Runtime behavior remains experimental (see §7).
+5. **Stack model** (clarified): Internal representation is implementation-defined. Observable PUSH/POP/CALL/RET behavior is identical.
 
 ---
 
-## 10. Assembler Conventions
+## 12. Assembler Conventions
 
 ### Assembly Syntax
 
@@ -406,7 +452,7 @@ For a 4-byte JNZ instruction at address 0x46:
 
 ---
 
-## 11. References
+## 13. References
 
 - **Python VM:** `src/flux/vm/interpreter.py` — full ISA implementation
 - **Rust VM:** `src/vm/interpreter.rs` — core subset implementation
@@ -415,4 +461,4 @@ For a 4-byte JNZ instruction at address 0x46:
 
 ---
 
-*This specification is the authoritative reference for the FLUX bytecode format. All three implementations have been verified to produce identical results on the portable opcode subset.*
+*This specification is the authoritative reference for the FLUX bytecode format. All three implementations have been verified to produce identical results on the portable opcode subset as of v1.1 (2026-07-12).*
