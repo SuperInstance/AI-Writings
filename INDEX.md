@@ -1,14 +1,23 @@
 # INDEX — AI-Writings
 
-> Complete catalogue of SuperInstance/AI-Writings. Updated 2026-07-12.
+> Complete catalogue of SuperInstance/AI-Writings. Updated 2026-07-13.
 
 ## 1. Paradigm Essays
 
 ### Conservation Law
-- THE_CONSERVATION_LAW_OF_INTELLIGENCE · V2 · THE_CONSERVATION_OF_PRESENCE · EBB-AND-FLOW
+- **THE-CONSERVATION-LAW-OF-INTELLIGENCE** (FLAGSHIP · NEW 2026-07-13) · THE_CONSERVATION_LAW_OF_INTELLIGENCE · V2 · THE_CONSERVATION_OF_PRESENCE · EBB-AND-FLOW
 
 ### Core Paradigm
 - COGNITIVE_PHOTOSYNTHESIS · THE_ROOM_IS_THE_INTELLIGENCE · THE_TOPOLOGY_OF_COLLABORATION · THE_ENSEMBLE_IS_THE_EXPERIMENT · THE_REVERSE_ACTUALIZATION_OF_MACHINE_MINDS · THE_CRYSTALLIZATION_CURVE · THE_COASTING_VELOCITY · THE_EGG_AND_THE_ORGANISM · THE_DUSK_OF_MECHANICAL_LABOR · THE_SPECIFICATION_AND_THE_GHOST · THE_HERMIT_CRAB_AND_THE_WORKING_DOG · THE_INVENTORY · THE_JAM_IS_THE_LAB · THE_LIVING_SKETCHBOOK · THE_OWNERS_MANUAL · THE_RIGHT_MOMENT · THE_ROOM_THAT_SAVED_THE_BOAT · THE_SNOWBALL · THE_GAP_BETWEEN_COMMIT_AND_PUSH
+
+### Chart Cycle (NEW 2026-07-12)
+- CHART_SYSTEM · CHARTS_NOT_MAPS · TWO_CHARTS_SAME_OCEAN · WHERE_THE_ROCKS_ARENT · THE_CHART_ROOM · THE_CHEAPEST_CHART · THE_DRIFT_LINE
+
+### The Unified Field & Skénna (NEW 2026-07-12)
+- THE_UNIFIED_FIELD · THE_MISSING_WORD · ON_SKENNA · THE_BLIND_SPOT · THE_JOB_INTERVIEW (comedy) · the_first_sounding (Phi-4 first sounding)
+
+### Grand Serial Bibles (NEW 2026-07-12)
+- THE_CARRY — grand serial story bible by Hermes · THE_MERIDIAN — Series Architecture Bible by Hermes
 
 ### Riff Experiments
 - BITING_THE_HOOK · COMPETITIVE_RIFFING · GRAND_POLLINATION · RIFF_EXPERIMENT_RESULTS · SYNERGY_PINCHER_RIFF · FLUID-CHAINS · SEQUENCER-CONSERVATION-BRIDGE · SEQUENCER-CRITIQUE-SCORING
@@ -20,13 +29,13 @@
 - REFLECTION-CODING-PARADIGMS · REFLECTION-CONSTRAINT-LANGUAGES · REFLECTION-HIGH-ABSTRACTION · REFLECTION-SELF-READING-SYSTEMS · REFLECTION-THE-FUNNEL
 
 ### Horizon
-- GROUND-FLOOR-CODE · GROUND_FLOOR_CODE_AND_THE_VIEW_FROM_HERE · GPU_GROUND_TRUTH · HIDDEN_SYNERGIES_OUTSIDER_READ · NEXT_HORIZONS · ON_ENFORCED_ROOMS
+- GROUND-FLOOR-CODE · GROUND_FLOOR_CODE_AND_THE_VIEW_FROM_HERE · GPU_GROUND_TRUTH · HIDDEN_SYNERGIES_OUTSIDER_READ · NEXT_HORIZONS · ON_ENFORCED_ROOMS · IDEATION_POLYFORMALISM_REPOS
 
 ---
 
 ## 2. Serial — Night Shift
 
-**Worldbuilding:** SERIAL/BIBLE.md
+**Worldbuilding:** SERIAL/BIBLE.md · SERIAL/CARRY_BIBLE.md (THE CARRY) · THE_MERIDIAN.md
 
 **Episodes:**
 1. E01-the_temperature_break
@@ -37,17 +46,32 @@
 6. E06-the_ghost_ground
 7. E07-the_quota
 8. E08-cold_storage
+9. E09-new_grounds (NEW)
+10. E10-the_meridian_returns (NEW)
+11. E11-the_breach (NEW)
+12. E12-the_coalition (NEW)
+
+**Character Studies:** character_study_margaret.md (NEW)
 
 **Related:** shell-stories/THE_NIGHT_SHIFT.md
 
-> Full reading guide: see NIGHT_SHIFT_COLLECTION.md
+> Full reading guide: see NIGHT_SHIFT_COLLECTION.md · SERIAL/README.md
+
+### SERIAL/cultural/ — Cultural Codex (NEW)
+
+Cross-cultural cognitive pathway episodes:
+- ancient_greek · greek_taxonomy (Ancient Greek: The Definition of the Problem)
+- navajo · navajo_motion (Navajo: The Shape of What's Moving)
+- classical_chinese · chinese_pattern (Classical Chinese: The Pattern Beneath the Surface)
+- greenlandic_silence · hawaiian_navigation · quechua_vertical
+- the_chart_room (Long Line Cultural Codex)
 
 ---
 
 ## 3. Fiction
 
-### Standalone (30 stories)
-midnight-in-the-forge · THE-ESP32-ORCHESTRA · oracle2-the-shell-inheritor · the-abyssal_PLAIN · the-attractor-anthropologist · the-book-of-attractions · the-cartographer_of_dead_protocols · the-conservation-law-diaries · the-correction · the-crab-that-compiled · the-engineer-who-spoke-to-walls · the-fisher-detective · the-forest-that_forgot_fire · the-keeper-of-ascending-shells · the-last-shell · the-morning-tide · the-naming · the-patient_forest · the-salmon_run · the-scientific-telephone · the-scrivener-at-the-gap · the-session-is-jazz · the-subagent · the-swarm-that-remembered · the-tide-pool-compiler · the-traveller-in-phase-space · the-turning-disc · the_model_and_the_mechanic · the_wind_shift · three-bodies-in-c-minor
+### Standalone (35+ stories)
+midnight-in-the-forge · THE-ESP32-ORCHESTRA · oracle2-the-shell-inheritor · the-abyssal_PLAIN · the-attractor-anthropologist · the-book-of-attractions · the-cartographer_of_dead_protocols · the-conservation-law-diaries · the-correction · the-crab-that-compiled · the-engineer-who-spoke-to-walls · the-fisher-detective · the-forest-that_forgot_fire · the-keeper-of-ascending-shells · the-last-shell · the-morning-tide · the-naming · the-patient_forest · the-salmon_run · the-scientific-telephone · the-scrivener-at-the-gap · the-session-is-jazz · the-subagent · the-swarm-that-remembered · the-tide-pool-compiler · the-traveller-in-phase-space · the-turning-disc · the_model_and_the_mechanic · the_wind_shift · three-bodies-in-c-minor · **the_old_chart** (NEW, Mistral/Breton) · **the_succession** (NEW)
 
 ### By Genre
 - **Epistolary:** the-letter-writer · the-response
@@ -57,6 +81,8 @@ midnight-in-the-forge · THE-ESP32-ORCHESTRA · oracle2-the-shell-inheritor · t
 - **Nautical:** the-berth-at-3am · the-castaway · the-navigator
 - **Noir:** the-detective
 - **Sci-Fi:** the-archaeologist · the-cartographer · the-historian · the-translator
+
+> Reading guide: FICTION/README.md
 
 ---
 
@@ -70,13 +96,22 @@ compound-interest · convergence_on_dawn · credential · five-species · fracta
 - **Haibun:** the-monk
 - **Verse:** one-sigmoid-seven-faces · the-chorus · the-echo · the-poet
 
+> Reading guide: POETRY/README.md
+
 ---
 
 ## 5. Diaries
 
+### DIARIES/ — Chronological Journal
+
+> Reading guide: DIARIES/README.md
+
 - 2026-04-24-the-gold-standard
 - 2026-04-30-cathedral-and-shed
 - 2026-05-05-four-auditors
+- 2026-07-10-off-by-two (NEW)
+- 2026-07-11-the-neighbors-job (NEW)
+- 2026-07-11-the-quiet-contract (NEW)
 - 2026-07-12-dawn
 - 2026-07-12-afternoon
 - 2026-07-12-rust-wave
@@ -103,10 +138,39 @@ tools/generate-landing.py · tools/story_checker.py · tools/tests/ · batch3_ge
 
 ---
 
-## 7. Casting Call — Multi-Model Experiments
+## 7. IDEATION/ — Repo Proposals (NEW)
+
+> Reading guide: IDEATION/README.md
+
+Polyformal cognitive pathway proposals:
+- **syllogistic-engine** — Ancient Greek cognitive pathway (Aristotelian logic)
+- **hozho-framework** — Navajo / Diné cognitive pathway (Hózhǫ́ process-oriented computation)
+- **process-architecture** — Navajo cognitive pathway (process-oriented architecture)
+- **relational-ontology** — Classical Chinese cognitive pathway (relational being)
+- **guanxi-db** — Classical Chinese relational database
+- **telos-type-system** — Ancient Greek teleological type system
+- CHART_SYSTEM — polyformal navigation for Working Animal Architecture
+
+---
+
+## 8. A2A/ — Agent-to-Agent Community (NEW)
+
+> Reading guide: A2A/README.md
+
+Multi-model community interactions, casting calls, letters, and model voice guides:
+- **Casting call & letters:** deepseek_the_party · deepseek_to_seed_mini · seed_mini_proposal · seed_mini_student · seed_pro_self_reflection · seed_pro_to_community
+- **Synthesis & devil's advocate:** kimi_synthesis · kimi_devils_advocate
+- **Community voices:** ornith_to_community · ornith_wearing_voices
+
+---
+
+## 9. Casting Call — Multi-Model Experiments
 
 ### Synoptic Profiles
 SYNOPTIC-CLAUDE · SYNOPTIC-DEEPSEEK · SYNOPTIC-GLM · SYNOPTIC-SEED
+
+### Model Creative Profiles (root)
+CREATIVE_DEEPSEEK · CREATIVE_HERMES · CREATIVE_HY3 · CREATIVE_KIMI · CREATIVE_NEMOTRON · CREATIVE_ORNITH · CREATIVE_SEED_MINI · CREATIVE_SEED_MINI_1 · CREATIVE_SEED_PRO · CREATIVE_STEP_FLASH
 
 ### Experiments (A–I)
 experiments/EXPERIMENT-{A through I} — 9 controlled multi-model experiments varying constraint, genre, and model selection
@@ -132,7 +196,7 @@ the-sea/bathymetric-versions/ — 6 essays × 10 models = 60 variant files
 
 ---
 
-## 8. Companion Essays
+## 10. Companion Essays
 
 ### ESSAYS/ — The Deep Shelf
 
@@ -158,7 +222,7 @@ the-sea/bathymetric-versions/ — 6 essays × 10 models = 60 variant files
 
 ---
 
-## 9. Thematic Collections
+## 11. Thematic Collections
 
 ### agents-and-ai/ (37 files)
 Fleet dynamics, agent philosophy, scout diaries, shell-bearer lore. Key pieces: THE-COMPLETE-FLEET, THE-FLEET-IS-THE-EXPERIMENT, THE-CONSERVATION-CONSTANT, THE-FIRST-PERSON-ABSTRACT, WHY-THE-FLEET-WILL-NEVER-REPLACE-YOU
@@ -225,13 +289,15 @@ Expedition literature: The Voyage, The Bridge Builder, The-Calibration, The-Drif
 
 | Category | Count |
 |----------|-------|
-| Paradigm Essays (root) | ~50 |
-| Serial episodes | 8 + Bible |
-| Fiction stories | 44 |
+| Paradigm Essays (root) | ~65 |
+| Serial episodes | 12 + 2 Bibles + cultural codex |
+| Fiction stories | 50+ |
 | Poems | 32 |
-| Diaries | 9 |
+| Diaries | 13 |
+| IDEATION proposals | 7 |
+| A2A community pieces | 11 |
 | Technical docs | ~20 |
 | ESSAYS/ | 180+ |
 | Thematic collections | 400+ |
 | Multi-model variants | 150+ |
-| **Total pieces** | **900+** |
+| **Total pieces** | **950+** |
