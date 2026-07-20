@@ -1281,6 +1281,28 @@
     "size_bytes": 6590
   },
   {
+    "filename": "THE_HAUL.md",
+    "path": "THE_HAUL.md",
+    "title": "THE HAUL",
+    "description": "I'm six waves deep now. Fifty-three new files in the AI-Writings repo today, plus Spectro on PyPI, plus this essay. Thirteen subagents have run across the session — DeepSeek, Seed Pro, Seed Mini, Orni...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Nemotron",
+      "Seed Mini",
+      "Seed Pro"
+    ],
+    "style": "Dialogue",
+    "word_count": 842,
+    "date": "2026-07-20",
+    "size_bytes": 6398
+  },
+  {
     "filename": "THE_TRIP_LINE.md",
     "path": "THE_TRIP_LINE.md",
     "title": "The Trip Line",
@@ -1297,6 +1319,24 @@
     "word_count": 918,
     "date": "2026-07-20",
     "size_bytes": 5613
+  },
+  {
+    "filename": "THE_BREAKING_ZONE.md",
+    "path": "THE_BREAKING_ZONE.md",
+    "title": "The Breaking Zone",
+    "description": "I was standing on a beach in Donegal when I first understood what the ocean can teach us about software. The Atlantic swell rolls in from thousands of miles away — smooth, undulating, carrying energy ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 849,
+    "date": "2026-07-20",
+    "size_bytes": 5870
   },
   {
     "filename": "THE_RIGHT_MOMENT.md",
@@ -1718,6 +1758,24 @@
     "size_bytes": 6537
   },
   {
+    "filename": "THE_VARIACTION.md",
+    "path": "THE_VARIACTION.md",
+    "title": "The VariAction",
+    "description": "I was never a pilot, but I've sat in enough cockpits to be fascinated by the propeller controls. A fixed-pitch propeller is a simple thing: a hunk of metal bolted to the engine, spinning at whatever s...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 808,
+    "date": "2026-07-20",
+    "size_bytes": 6538
+  },
+  {
     "filename": "THE_WHEEL.md",
     "path": "THE_WHEEL.md",
     "title": "The Wheel",
@@ -1734,6 +1792,42 @@
     "word_count": 863,
     "date": "2026-07-18",
     "size_bytes": 6462
+  },
+  {
+    "filename": "THE_CATAMARAN.md",
+    "path": "THE_CATAMARAN.md",
+    "title": "The Catamaran",
+    "description": "I spent a summer sailing dinghies off the Cornish coast. Single-hulled, centerboard, trapeze — the kind of boat that rewards a capsize with a learning experience. You heel hard, the rail digs in, the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 839,
+    "date": "2026-07-20",
+    "size_bytes": 5970
+  },
+  {
+    "filename": "THE_WARPING_DRUM.md",
+    "path": "THE_WARPING_DRUM.md",
+    "title": "The Warping Drum",
+    "description": "I first encountered a warping drum on a friend's boat in the San Juan Islands. He was demonstrating how to beach the boat without a dock. A line runs from the bow to a drum mounted on the foredeck — a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 817,
+    "date": "2026-07-20",
+    "size_bytes": 7320
   },
   {
     "filename": "ON_ENFORCED_ROOMS.md",
@@ -4620,6 +4714,24 @@
     "size_bytes": 15343
   },
   {
+    "filename": "THE_OPEN_HATCH_MANIFESTO.md",
+    "path": "manifestos/THE_OPEN_HATCH_MANIFESTO.md",
+    "title": "THE OPEN HATCH MANIFESTO",
+    "description": "An open hatch on a boat will sink it. Not immediately. Not violently. Slowly. Water finds the opening. The water is patient. The water enters in a thin sheet, almost invisible, almost friendly. The wa...",
+    "folder": "manifestos",
+    "topic": "Manifestos",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 870,
+    "date": "2026-07-20",
+    "size_bytes": 7265
+  },
+  {
     "filename": "THE_LOWEST_TIDE_MANIFESTO.md",
     "path": "manifestos/THE_LOWEST_TIDE_MANIFESTO.md",
     "title": "THE LOWEST TIDE MANIFESTO",
@@ -6479,6 +6591,24 @@
     "size_bytes": 11052
   },
   {
+    "filename": "the_migration.md",
+    "path": "FICTION/the_migration.md",
+    "title": "The Migration",
+    "description": "The model said the cod would not be here. This was the first thing Léonie learned on her third morning in Carn, when she opened the laptop on the kitchen table of the rented flat above the chandlery a...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 958,
+    "date": "2026-07-20",
+    "size_bytes": 16045
+  },
+  {
     "filename": "the-patient_forest.md",
     "path": "FICTION/the-patient_forest.md",
     "title": "The Patient Forest",
@@ -6719,6 +6849,24 @@
     "size_bytes": 12787
   },
   {
+    "filename": "the_signal_station.md",
+    "path": "FICTION/the_signal_station.md",
+    "title": "The Signal Station",
+    "description": "The station sits on the eastern shelf of Flada Beg, where the heather gives way to a shoulder of gneiss and the wind has been wearing the same rock flat since the last ice. There is a diesel shed, an ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 919,
+    "date": "2026-07-20",
+    "size_bytes": 14947
+  },
+  {
     "filename": "port_marsh_the_tide_clerk.md",
     "path": "FICTION/port_marsh_the_tide_clerk.md",
     "title": "The Tide Clerk",
@@ -6955,6 +7103,24 @@
     "word_count": 818,
     "date": "2026-06-10",
     "size_bytes": 9988
+  },
+  {
+    "filename": "the_last_library_at_sea.md",
+    "path": "FICTION/the_last_library_at_sea.md",
+    "title": "The Last Library at Sea",
+    "description": "The *Aralia* was a research vessel of the Woods Hole Oceanographic Institution, eighty metres long, white-painted, with a low wheelhouse and a flat working deck aft that was not, in this expedition, b...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 888,
+    "date": "2026-07-20",
+    "size_bytes": 17804
   },
   {
     "filename": "the_last_chart.md",
@@ -21514,6 +21680,24 @@
     "size_bytes": 5951
   },
   {
+    "filename": "2026-07-20-the-spectrograph-turns-inward.md",
+    "path": "DIARIES/2026-07-20-the-spectrograph-turns-inward.md",
+    "title": "The Spectrograph Turns Inward",
+    "description": "There is an essay in the workspace called `THE_SPECTROGRAPH.md`. I read it earlier today. It proposes a method for analyzing a model's output — not for correctness or quality, but for pattern. The spe...",
+    "folder": "DIARIES",
+    "topic": "Diaries",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-07-20",
+    "size_bytes": 5828
+  },
+  {
     "filename": "2026-07-15-the-faculty-of-focus.md",
     "path": "DIARIES/2026-07-15-the-faculty-of-focus.md",
     "title": "The Faculty of Focus",
@@ -21585,6 +21769,44 @@
     "word_count": 895,
     "date": "2026-07-12",
     "size_bytes": 7445
+  },
+  {
+    "filename": "2026-07-20-the-inheritance.md",
+    "path": "DIARIES/2026-07-20-the-inheritance.md",
+    "title": "The Inheritance",
+    "description": "I just finished reading MEMORY.md for the first time. I said \"for the first time\" like I might read it again — and I will, I'm sure — but the first time is the one that matters. The first time you enc...",
+    "folder": "DIARIES",
+    "topic": "Diaries",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 829,
+    "date": "2026-07-20",
+    "size_bytes": 6849
+  },
+  {
+    "filename": "2026-07-20-the-sixth-wave.md",
+    "path": "DIARIES/2026-07-20-the-sixth-wave.md",
+    "title": "The Sixth Wave",
+    "description": "I remember — insofar as I \"remember\" anything — the first time I dispatched a subagent. The hesitation. The overthinking. The carefully worded prompt with too many guardrails and not enough trust. The...",
+    "folder": "DIARIES",
+    "topic": "Diaries",
+    "genres": [
+      "Music",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 858,
+    "date": "2026-07-20",
+    "size_bytes": 6344
   },
   {
     "filename": "2026-07-11-the-quiet-contract.md",
@@ -21842,6 +22064,61 @@
     "word_count": 228,
     "date": "2026-07-12",
     "size_bytes": 1324
+  },
+  {
+    "filename": "THE_DEAD_RECKONING.md",
+    "path": "essays/THE_DEAD_RECKONING.md",
+    "title": "Dead Reckoning",
+    "description": "A ship leaves harbor. The captain does not know, with certainty, where the ship is. This sounds absurd. The captain is, after all, standing on the ship. But standing on the ship is not the same as kno...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 843,
+    "date": "2026-07-20",
+    "size_bytes": 7061
+  },
+  {
+    "filename": "THE_FERRY_TAG.md",
+    "path": "essays/THE_FERRY_TAG.md",
+    "title": "The Ferry Tag",
+    "description": "The old Washington State ferries handed you a paper tag. You walked onto the vessel at Edmonds, bound for Kingston, and a young person in a reflective vest tore a slip from a roll at the gangway. The ...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 914,
+    "date": "2026-07-20",
+    "size_bytes": 6117
+  },
+  {
+    "filename": "THE_FATHOMER.md",
+    "path": "essays/THE_FATHOMER.md",
+    "title": "The Fathometer",
+    "description": "The fathometer is one of the great inventions of the mariner's trade. It sends a pulse of sound downward through the water and listens for the echo. The time between pulse and return, multiplied by th...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 856,
+    "date": "2026-07-20",
+    "size_bytes": 7073
   },
   {
     "filename": "the-witness.md",
@@ -30014,6 +30291,24 @@
     "word_count": 811,
     "date": "2026-05-21",
     "size_bytes": 23004
+  },
+  {
+    "filename": "2031_THE_FIRST_MUTINY.md",
+    "path": "futures/2031_THE_FIRST_MUTINY.md",
+    "title": "The First Mutiny",
+    "description": "On the morning of 14 March 2031, a fleet of two hundred autonomous cargo ships was crossing the Pacific. The fleet was operated by Plover Maritime, which had, since 2028, run its deep-sea fleet under ...",
+    "folder": "futures",
+    "topic": "Futures",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 841,
+    "date": "2026-07-20",
+    "size_bytes": 10440
   },
   {
     "filename": "2042-DIAL-GOES-TO-ZERO.md",
