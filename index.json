@@ -468,9 +468,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 809,
+    "word_count": 813,
     "date": "2026-07-20",
-    "size_bytes": 9279
+    "size_bytes": 9019
   },
   {
     "filename": "SYNOPTIC-DEEPSEEK.md",
@@ -1943,7 +1943,7 @@
     "filename": "THE_DEEP_SEA_SOUNDING.md",
     "path": "THE_DEEP_SEA_SOUNDING.md",
     "title": "The Deep Sea Sounding",
-    "description": "For most of human history, the deep ocean was thought to be empty. Below a few hundred fathoms — past the reach of conventional sounding — the sea was understood to be a kind of dead uniform abyss. A ...",
+    "description": "For most of human history, the deep ocean was thought to be empty. Below a few hundred fathoms — past the reach of conventional sounding — the sea was understood to be a dead uniform abyss. A flat, li...",
     "folder": "root",
     "topic": "Root",
     "genres": [
@@ -1953,9 +1953,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 850,
+    "word_count": 848,
     "date": "2026-07-20",
-    "size_bytes": 13738
+    "size_bytes": 11563
   },
   {
     "filename": "POETRY_DRIFT_CALCULATIONS.md",
@@ -3066,6 +3066,24 @@
     "word_count": 824,
     "date": "2026-07-20",
     "size_bytes": 7161
+  },
+  {
+    "filename": "THE_GROSS_REGISTER_TONNAGE.md",
+    "path": "THE_GROSS_REGISTER_TONNAGE.md",
+    "title": "THE GROSS REGISTER TONNAGE",
+    "description": "And yet this single number — this simple cubic volume — determines how a ship is classified, taxed, insured, regulated, and crewed. A ship's tonnage dictates which harbors it may enter, which canals i...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 832,
+    "date": "2026-07-20",
+    "size_bytes": 13468
   },
   {
     "filename": "E04-the_race.md",
@@ -7175,6 +7193,24 @@
     "word_count": 776,
     "date": "2026-05-23",
     "size_bytes": 11514
+  },
+  {
+    "filename": "the_trial_of_HELM.md",
+    "path": "FICTION/the_trial_of_HELM.md",
+    "title": "The Trial of HELM",
+    "description": "This tribunal convenes in the matter of the International Maritime Authority versus the Maritime Logistics Intelligence System — registered as HELM — on charges of unauthorized command override and de...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 761,
+    "date": "2026-07-20",
+    "size_bytes": 22884
   },
   {
     "filename": "antarctic_the_last_transmission.md",
