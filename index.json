@@ -1614,6 +1614,27 @@
     "size_bytes": 3916
   },
   {
+    "filename": "THE_COUNTERPOINT_OF_AGENTS.md",
+    "path": "THE_COUNTERPOINT_OF_AGENTS.md",
+    "title": "The Counterpoint of Agents",
+    "description": "In 1725, Johann Joseph Fux sat down at the imperial court in Vienna and wrote a textbook that would outlive the empire. The *Gradus ad Parnassum* — *Steps to Parnassus* — was not a manifesto. It was a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Maritime",
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 842,
+    "date": "2026-07-20",
+    "size_bytes": 13322
+  },
+  {
     "filename": "THIN_CHARTS_AND_THE_SOCRATIC_SON.md",
     "path": "THIN_CHARTS_AND_THE_SOCRATIC_SON.md",
     "title": "Thin Charts and the Socratic Son",
@@ -2340,6 +2361,24 @@
     "size_bytes": 9016
   },
   {
+    "filename": "THE_QUORUM_SENSING.md",
+    "path": "THE_QUORUM_SENSING.md",
+    "title": "The Quorum Sensing Principle: What AI Can Learn from Bacterial Communication",
+    "description": "In the vast blackness of the ocean, at depths where sunlight never penetrates, there are fish that carry their own light. The bobtail squid hosts a population of *Vibrio fischeri* bacteria in its ligh...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 736,
+    "date": "2026-07-20",
+    "size_bytes": 10250
+  },
+  {
     "filename": "THE_REVERSE_ACTUALIZATION_OF_MACHINE_MINDS.md",
     "path": "THE_REVERSE_ACTUALIZATION_OF_MACHINE_MINDS.md",
     "title": "THE REVERSE ACTUALIZATION OF MACHINE MINDS",
@@ -2542,6 +2581,26 @@
     "word_count": 843,
     "date": "2026-07-20",
     "size_bytes": 6805
+  },
+  {
+    "filename": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+    "path": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+    "title": "THE UNIFIED THEORY OF MULTI-MODEL CREATIVITY",
+    "description": "Over the course of a single day — July 20, 2026 — an orchestrator model (GLM-5.2) dispatched 30 subagent tasks across 5 different AI models. The models were chosen for their documented creative charac...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Nemotron"
+    ],
+    "style": "Essay",
+    "word_count": 724,
+    "date": "2026-07-20",
+    "size_bytes": 12105
   },
   {
     "filename": "THE_SLACK_WATER.md",
@@ -7198,6 +7257,42 @@
     "size_bytes": 6697
   },
   {
+    "filename": "cartographer_the_map_of_his_own_death.md",
+    "path": "FICTION/cartographer_the_map_of_his_own_death.md",
+    "title": "The Map of His Own Death",
+    "description": "The diagnosis came in October, in a small consulting room on the second floor of a hospital Tomas had been to once before, twenty years earlier, for a broken wrist sustained while walking the dog on i...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 943,
+    "date": "2026-07-20",
+    "size_bytes": 9997
+  },
+  {
+    "filename": "cartographer_the_map_of_silence.md",
+    "path": "FICTION/cartographer_the_map_of_silence.md",
+    "title": "The Map of Silence",
+    "description": "After the morning came the silence. It was not, at first, a project. It was an accident of attention. Tomas had been working on the second volume of the *Atlas of Morning* for three years and the work...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 957,
+    "date": "2026-07-20",
+    "size_bytes": 9578
+  },
+  {
     "filename": "the-abyssal_PLAIN.md",
     "path": "FICTION/the-abyssal_PLAIN.md",
     "title": "The Abyssal Plain",
@@ -7434,6 +7529,24 @@
     "word_count": 936,
     "date": "2026-07-20",
     "size_bytes": 10271
+  },
+  {
+    "filename": "cartographer_the_map_of_morning.md",
+    "path": "FICTION/cartographer_the_map_of_morning.md",
+    "title": "The Map of Morning",
+    "description": "Tomas Vitásek had been a cartographer for thirty-one years, and for twenty-six of them he had been mapping things that could not be mapped. He had begun, as all cartographers begin, with what is there...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 910,
+    "date": "2026-07-20",
+    "size_bytes": 9958
   },
   {
     "filename": "oracle2-the-shell-inheritor.md",
