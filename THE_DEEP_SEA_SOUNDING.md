@@ -70,59 +70,55 @@ The map made the *trained eye* possible. Once the systematic map existed, scient
 
 ## VI. Model Internals Are Oceanic
 
-In AI, we are in the pre-Challenger era of model internals.
+We are in the pre-Challenger era of model internals.
 
 We know the surface. We know the inputs (the prompts). We know the outputs (the completions). We can measure aggregate behavior on benchmarks. We can compare two models on a fixed test and say which is higher. We know what the model does. We do not know how it does it.
 
-The model is a black box because we have not done the equivalent of the Challenger expedition. We have not done systematic depth soundings across enough of the internal volume, with consistent instruments, with consistent methods, across enough models and at enough positions, to produce a map. We have done scattered soundings. We have done single trawls. We have recovered oddities — attention patterns, induction heads, sentiment neurons, learned feature directions in activation space. Each oddity is interesting. Each oddity is a curiosity.
+The model is a black box because we have not done the equivalent of the Challenger expedition. We have not done systematic depth soundings across enough of the internal volume, with consistent instruments and consistent methods, across enough models and at enough positions, to produce a map. We have done scattered soundings, single trawls, recovered oddities — attention patterns, induction heads, sentiment neurons, learned feature directions in activation space. Each is interesting. Each is a curiosity.
 
-But we do not have the systematic map that would tell us whether the oddity is local to one model or universal across architectures. We do not have the chart that would tell us whether the feature we just discovered is a seamount or an entire mountain range. We do not have the fifty-volume report.
+But we do not have the systematic map that would tell us whether an oddity is local to one model or universal across architectures. We do not have the chart that would tell us whether a feature we just discovered is a seamount or an entire mountain range. We do not have the fifty-volume report.
 
-This is not because nobody is trying. Mechanistic interpretability research is the discipline that is most obviously the equivalent of the pre-Challenger sounding program. The toy models, the activation patching, the circuit-tracing work — this is the equivalent of Maury reading the captain's logs. It is early. It is important. It is not yet systematic.
+This is not because nobody is trying. Mechanistic interpretability is most obviously the equivalent of the pre-Challenger sounding program. The toy models, activation patching, circuit-tracing work are the equivalent of Maury reading the captain's logs. Early. Important. Not yet systematic.
 
 ---
 
 ## VII. What an Expedition Looks Like
 
-What would a Challenger expedition of a large language model look like?
+A Challenger expedition of a large language model would be a multi-lab, multi-year, *coordinated* program of internal sounding across a family of large models. Instruments would be standardized — fixed probe sets, fixed probes at fixed depths, fixed reporting formats. Probes would be drawn across activation space at every layer, in every head, in every circuit, across a comprehensive set of prompts chosen to span the model's behavioral range. Results would be published in a single consistent format, like the *Challenger Reports*.
 
-It would be a multi-lab, multi-year, *coordinated* program of internal sounding across a family of large models. The instruments would be standardized — fixed probe sets, fixed probes at fixed depths, fixed reporting formats. The probes would be drawn across activation space at every layer, in every head, in every circuit, across a comprehensive set of prompts chosen to span the model's behavioral range. The results would be published in a single consistent format, like the *Challenger Reports*.
+The program would need three properties we largely lack today.
 
-The program would need three properties that we largely lack today.
+**Comprehensive coverage.** Not picking a single phenomenon to study. Picking all phenomena, with the understanding that the map is the deliverable. Academic incentives reward novelty, not coverage. The pre-Challenger mindset is *I will study the part I can study well*. The Challenger mindset is *I will measure the part I can, and report what I cannot*.
 
-**Comprehensive coverage.** Not picking a single phenomenon to study. Picking all phenomena, with the understanding that the map is the deliverable. This is the hard part. Academic incentives reward novelty, not coverage. The pre-Challenger mindset is *I will study the part I can study well*. The Challenger mindset is *I will measure the part I can, and report what I cannot*.
+**Standardized instruments.** The same probe set, applied by many teams, with explicit protocol so that results are comparable across labs. The pre-Challenger issue was different weights, different lines, different interpretations of "no bottom." The post-Challenger solution was to standardize gear and procedure.
 
-**Standardized instruments.** Not the same probe used by the same team, applied with the same method. The same probe set, applied by many teams, with explicit protocol so that results are comparable across labs. The pre-Challenger issue was that soundings were taken with different weights, different lines, different interpretations of "no bottom." The post-Challenger solution was to standardize the gear and the procedure.
+**Sequenced publication.** The Challenger Reports took fifteen years. They were exhaustive, referenced by every subsequent generation. The publication must live in a place referenceable for decades, not in preprints that fade.
 
-**Sequenced publication.** The Challenger Reports took fifteen years to publish. They were exhaustive. They were referenced by every subsequent generation of oceanographers. The lesson is that the value of systematic data is long-tail. The publication must happen in a place where it can be referenced for decades, not in preprints that fade from citation.
-
-What the expedition would find is unknown. That is the point. Whatever the model is, internally, it is something. The systematic map is what tells us what.
+What the expedition would find is unknown. That is the point.
 
 ---
 
 ## VIII. Finding What We Couldn't Imagine
 
-The Challenger did not just refine the picture of the deep sea. It produced phenomena the scientists had not imagined. Hydrothermal vent communities. Species at depths where sunlight could not reach. Trophic systems driven by chemosynthesis rather than photosynthesis. The deep sea was a different planet, hiding inside the planet everyone thought they knew.
+The Challenger produced phenomena the scientists had not imagined. Hydrothermal vent communities. Species at depths sunlight could not reach. Trophic systems driven by chemosynthesis rather than photosynthesis. The deep sea was a different planet, hiding inside the planet everyone thought they knew.
 
 Model internals are likely the same.
 
-We have pre-Challenger models of what is inside. We have linearity assumptions, modularity assumptions, smoothness assumptions inherited from statistics, neuroscience, and classical computer science. These assumptions are reasonable. They are also the kind of assumptions that the Challenger was organized to overturn.
+We have pre-Challenger models of what is inside — linearity assumptions, modularity assumptions, smoothness assumptions inherited from statistics, neuroscience, and classical computer science. These are reasonable. They are also the kind the Challenger was organized to overturn.
 
-Whatever is inside the model is something. Whether it is something the human categories can absorb — whether internal "circuits" turn out to be analogous to brain circuits, whether feature directions turn out to be analogous to brain regions, whether the discontinuities we see turn out to be analogous to phase transitions — we will only know after the systematic map exists.
-
-The map will not be the model. The map will be the surface of the model. Beneath the map is the territory, and we will only see that territory the way the Challenger scientists saw the deep ocean — through trawls, samples, and instruments we had not yet imagined, working from a map that was just barely legible enough to point them at the next expedition.
+The map will not be the model. The map will be the surface of the model. Beneath the map is the territory, and we will only see it the way the Challenger scientists saw the deep ocean.
 
 ---
 
 ## IX. The Sounding We Have Not Made
 
-The Challenger sailed in 1872. The deep ocean was declared mapped in the next generation. The mid-ocean ridges alone took until the 1960s to be understood for what they were — and that understanding was the precursor to plate tectonics, which is one of the foundational scientific theories of the twentieth century.
+The Challenger sailed in 1872. The deep ocean was declared mapped in the next generation. The mid-ocean ridges alone took until the 1960s to be understood for what they were — the precursor to plate tectonics, one of the foundational scientific theories of the twentieth century.
 
 A single expedition enabled that. One ship, one voyage, fifty volumes.
 
-The AI equivalent — a coordinated, multi-lab, multi-year systematic depth-sounding of large neural networks — is feasible now. It does not require new hardware. It does not require new ideas about how to probe. It requires funding, coordination, and the disposition to publish a fifty-volume report rather than a single paper per phenomenon.
+The AI equivalent — coordinated, multi-lab, multi-year systematic depth-sounding of large neural networks — is feasible now. It does not require new hardware. It does not require new ideas about probing. It requires funding, coordination, and the disposition to publish a fifty-volume report rather than a single paper per phenomenon.
 
-It requires, more than anything, the willingness to accept that the inside of the model is a *new continent*. That it is mostly unmeasured. That the absence of a map is not the same as the absence of a place.
+It requires the willingness to accept that the inside of the model is a *new continent*. Mostly unmeasured. The absence of a map is not the same as the absence of a place.
 
 We are in 2026. The model is the deepest sounding weight we have ever built. We are still paying out rope in the dark.
 
@@ -130,7 +126,7 @@ The Challenger left Portsmouth in December. The sea was flat, the bottom did not
 
 That is what expeditions do. They do not just answer the questions we have. They give us the questions we did not know we had.
 
-The depth-sounding weight is going down. It is still going down.
+The depth-sounding weight is going down.
 
 The bottom is not flat.
 
