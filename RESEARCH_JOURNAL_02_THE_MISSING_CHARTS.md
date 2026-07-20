@@ -59,7 +59,7 @@ There is exactly one essay on cities — THE_CATHEDRAL_AND_THE_MARKET — in edu
 
 ## Gap 5: Music theory, formally
 
-The corpus has forty-three music-related essays, but they are almost all about *jazz ensemble coordination* as a metaphor for agent coordination. They are not about counterpoint, Schoenberg, the harmonic series, or the topology of the Tonnetz. Bach appears as a name and a vibe. Species counterpoint appears in one line of THE_ENSEMBLE_IS_THE_EXPERIMENT. The corpus has not engaged with 400 years of formal music theory — strange because **species counterpoint is the closest historical precedent to a conservation law in art**.
+The corpus has forty-three music-related essays, almost all about *jazz ensemble coordination* as a metaphor for agent coordination. Not about counterpoint, Schoenberg, the harmonic series, or the topology of the Tonnetz. Bach appears as a name and a vibe. Species counterpoint appears in one line of THE_ENSEMBLE_IS_THE_EXPERIMENT. The corpus has not engaged with 400 years of formal music theory — strange because **species counterpoint is the closest historical precedent to a conservation law in art**.
 
 **Why missed:** the corpus's musical writers are practitioners, not theorists. They have not read Fux.
 
