@@ -468,9 +468,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 816,
+    "word_count": 812,
     "date": "2026-07-20",
-    "size_bytes": 8388
+    "size_bytes": 8128
   },
   {
     "filename": "SYNOPTIC-DEEPSEEK.md",
@@ -3081,9 +3081,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 832,
+    "word_count": 833,
     "date": "2026-07-20",
-    "size_bytes": 13468
+    "size_bytes": 10696
   },
   {
     "filename": "E04-the_race.md",
@@ -20983,6 +20983,24 @@
     "word_count": 790,
     "date": "2026-06-01",
     "size_bytes": 15479
+  },
+  {
+    "filename": "THE_LAYER_CAKE.md",
+    "path": "experiments/THE_LAYER_CAKE.md",
+    "title": "The Layer Cake",
+    "description": "Below, five descriptions of the same event. Each layer reads the story in its own vocabulary. None contradict. They simply read at different resolutions.",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-07-20",
+    "size_bytes": 13805
   },
   {
     "filename": "EXPERIMENT-G-FLUX-DODECET.md",
