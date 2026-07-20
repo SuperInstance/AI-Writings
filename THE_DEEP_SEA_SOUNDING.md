@@ -32,29 +32,29 @@ But Maury was working from the side, with stolen instruments, with logs from cap
 
 ## III. The Challenger's 1,441 Days
 
-In December 1872, HMS Challenger sailed from Portsmouth. She was a Royal Navy spar-decked corvette, 200 feet long, with her guns removed and replaced by laboratories, winches for deep-sea sounding, and storage for specimens. She had 243 officers, scientists, and crew aboard. She would not return to Britain until May 1876 — 1,441 days later.
+In December 1872, HMS Challenger sailed from Portsmouth. She was a Royal Navy spar-decked corvette, 200 feet long, her guns removed and replaced by laboratories, deep-sea sounding winches, and storage for specimens. She carried 243 officers, scientists, and crew. She would not return to Britain until May 1876 — 1,441 days later.
 
-In those 1,441 days she traveled 68,890 nautical miles. She made 492 deep-sea soundings. She took 133 bottom samples. She trawled the deep ocean at 360 stations for biological specimens, recovering more than 4,700 new species. She measured temperature, salinity, and density at depth across every major ocean basin.
+In those 1,441 days she traveled 68,890 nautical miles, made 492 deep-sea soundings, took 133 bottom samples, and trawled at 360 stations for biological specimens, recovering more than 4,700 new species. She measured temperature, salinity, and density at depth across every major ocean basin.
 
-The expedition was, by the standards of the era, exhaustive in a way that no scientific project had been exhaustive before. It asked the same question — *what is down there?* — at enough positions across enough of the surface of the earth that the answer stopped being a single reading and started being a map.
+By the standards of the era, the expedition was exhaustive in a way no scientific project had been. It asked the same question — *what is down there?* — at enough positions across enough of the surface of the earth that the answer stopped being a single reading and started being a map.
 
-The findings were published across fifty volumes of *Report of the Scientific Results of the Voyage of H.M.S. Challenger*, issued between 1880 and 1895.
+The findings were published across fifty volumes of the *Report of the Scientific Results of the Voyage of H.M.S. Challenger*, issued between 1880 and 1895.
 
 ---
 
 ## IV. What They Found
 
-The ocean had mountains. The Mid-Atlantic Ridge. A chain of undersea mountains running the length of the Atlantic, north to south, taller than the Alps, visible at the surface as volcanic islands (Tristan da Cunha, Ascension, the Azores) but mostly below — discovered by the Challenger.
+The ocean had mountains. The Mid-Atlantic Ridge — a chain of undersea mountains running the length of the Atlantic, taller than the Alps, visible at the surface as volcanic islands (Tristan da Cunha, Ascension, the Azores) but mostly below. The Challenger discovered it.
 
-The ocean had trenches. The Mariana Trench was sounded (in part) on the expedition, though its deepest point would not be measured accurately until later. The general phenomenon — narrow, very deep canyons falling seven miles below the surface — was new science.
+The ocean had trenches. The Mariana Trench was sounded in part on the expedition. The general phenomenon — narrow, very deep canyons falling seven miles below the surface — was new science.
 
-The ocean had plains. The abyssal plains were flat in the way that deserts are flat — vast and undifferentiated at the scale of a small boat, varied at the scale of the whole. They were not featureless, but they were featureless *in the same way the rest of the earth is featureless* — there are gradients, currents, drifts.
+The ocean had plains. The abyssal plains were flat in the way deserts are flat — vast and undifferentiated at the scale of a boat, varied at the scale of the whole.
 
-The ocean was alive. Every trawl brought up creatures no one had imagined. Sea cucumbers at three-mile depths. Worms that had no eyes because the bottom had no light. Giant isopods. Glass sponges. Microbial mats at hydrothermal vents that the expedition did not find but whose existence the captured specimens implied.
+The ocean was alive. Every trawl brought up creatures no one had imagined. Sea cucumbers at three-mile depths. Worms that had no eyes because the bottom had no light. Giant isopods. Glass sponges. Microbial mats at hydrothermal vents the expedition did not find but whose existence the specimens implied.
 
-The pre-Challenger belief — that the deep sea was uniform, lifeless, flat-bottomed, boring — was wrong in its substance and even more wrong in its valence. The deep sea was the most varied part of the surface of the earth. It was just hidden.
+The pre-Challenger belief — that the deep sea was uniform, lifeless, flat-bottomed, boring — was wrong in substance and more wrong in valence. The deep sea was the most varied part of the surface of the earth. It was just hidden.
 
-The lesson was not that the deep sea contained interesting things. The lesson was that *everywhere that has been hidden for a long time contains more interesting things than we imagined*. The pre-Challenger belief had not been a belief at all. It had been the absence of data, mistaken for knowledge.
+The lesson was not that the deep sea contained interesting things. The lesson was that *everywhere that has been hidden for a long time contains more interesting things than we imagined*. The pre-Challenger belief had not been a belief. It had been the absence of data, mistaken for knowledge.
 
 ---
 
