@@ -23,7 +23,7 @@ The corpus touches the body — Elias measures cortisol in CREATIVE_ORNITH, seve
 
 **Why missed:** the corpus is engineering-flavored. Medicine is about patients — constitutionally non-engineerable. The metaphors break against a domain where the system is wet, mortal, and tells you what is wrong by what hurts.
 
-**What it might reveal:** that conservation laws in medicine look different from conservation laws in silicon. The body's C is set by metabolic ceiling, but the *allocation* is governed by something the corpus has not named: pain. An essay on triage would likely surface a sixth convergence — or, more interestingly, *break* the existing five.
+**What it might reveal:** that conservation laws in medicine look different from conservation laws in silicon. The body's C is set by metabolic ceiling, but the *allocation* is governed by something the corpus has not named: pain. An essay on triage would surface a sixth convergence — or *break* the existing five.
 
 ---
 
@@ -31,25 +31,25 @@ The corpus touches the body — Elias measures cortisol in CREATIVE_ORNITH, seve
 
 A court of law is one of the purest expressions of the corpus's themes: fixed procedure, contested evidence, chart vs. territory, conservation. A courtroom is a *room*. It ticks at prescribed intervals. It conserves attention across witnesses. And yet: no essay on stare decisis as a conservation law, on cross-examination as the empirical method, on tort as a coupling cost.
 
-**Why missed:** the corpus's authors write about systems they themselves are building. Law is a system they are *inside*, not a system they build. The corpus's epistemology is empirical-build-and-observe. Law's is argument-and-precedent.
+**Why missed:** the corpus's authors write about systems they build. Law is a system they are *inside*. The corpus's epistemology is empirical-build-and-observe. Law's is argument-and-precedent.
 
-**What it might reveal:** the corpus's favorite claim — that the structure is real because it is findable from any direction — is *exactly* what stare decisis claims about precedent. Two very different epistemic traditions arriving at the same shape would be a strong cross-cultural convergence. It would also test the claim: does the conservation law describe a courtroom, or only closed engineered systems?
+**What it might reveal:** the corpus's favorite claim — that the structure is real because it is findable from any direction — is *exactly* what stare decisis claims about precedent. Two epistemic traditions arriving at the same shape would be a strong cross-cultural convergence. It would also test the claim: does the conservation law describe a courtroom, or only closed engineered systems?
 
 ---
 
 ## Gap 3: Agriculture and the seasons
 
-The corpus nods at agriculture — Karnataka pest-detection chips, "the Quechua farmer's reciprocal labor" — but does not *sit* with farming. No essay on the cropping calendar as a polyrhythm, on the field as a PLATO room, on the harvest as a committed γ. The closest analog — Negative Space Compounding — applies *perfectly* to soil science. Each successful season marks more rocks; the field becomes more navigable. The corpus has not made this move.
+The corpus nods at agriculture — Karnataka pest-detection chips, "the Quechua farmer's reciprocal labor" — but does not *sit* with farming. No essay on the cropping calendar as a polyrhythm, the harvest as a committed γ. The closest analog — Negative Space Compounding — applies *perfectly* to soil science. Each successful season marks more rocks; the field becomes more navigable. The corpus has not made this move.
 
 **Why missed:** agriculture is wet, slow, generational, and resists the corpus's favorite move — building a chip that encodes the answer. You cannot mask-lock a harvest.
 
-**What it might reveal:** that *time* is itself a conserved quantity in a way the corpus has not said outright. The agricultural year is a budget C that allocates γ (planting, structure) and η (fallow, search) across a 12-month clock that cannot be paused. The conservation law may be a law *about time* as much as about information.
+**What it might reveal:** that *time* is itself a conserved quantity. The agricultural year is a budget C that allocates γ (planting, structure) and η (fallow, search) across a 12-month clock that cannot be paused. The conservation law may be a law *about time* as much as about information.
 
 ---
 
 ## Gap 4: Urban planning and the city as a room
 
-There is exactly one essay on cities — THE_CATHEDRAL_AND_THE_MARKET — in education/, treated as a teaching example rather than a domain. But cities are *the* load-bearing example of the corpus's framework at civilizational scale. A city is a room. A city is a system of conservation budgets (water, attention, square footage, daylight). A city is a chart (the zoning map) and a territory (the lived neighborhood) that diverge in ways the chart cannot correct.
+There is exactly one essay on cities — THE_CATHEDRAL_AND_THE_MARKET — in education/, treated as a teaching example rather than a domain. But cities are *the* load-bearing example of the corpus's framework at civilizational scale. A city is a room, a system of conservation budgets (water, attention, daylight). A city is a chart (the zoning map) and a territory (the lived neighborhood) that diverge in ways the chart cannot correct.
 
 **Why missed:** cities are slow. They take decades to respond to a single decision. The corpus's preferred timescale is "the chip runs forever, the conversation tonight." Cities molt slowly, and the corpus has not learned the patience.
 
@@ -63,13 +63,13 @@ The corpus has forty-three music-related essays, but they are almost all about *
 
 **Why missed:** the corpus's musical writers are practitioners, not theorists. They have not read Fux.
 
-**What it might reveal:** that Fux's *Gradus ad Parnassum* is a conservation law for voices — every rule is a budget constraint, every dissonance is η that must be paid back by consonance on the next beat. The corpus might find its deepest historical cousin not in Shannon or Friston but in a 1725 treatise on writing for two voices.
+**What it might reveal:** that Fux's *Gradus ad Parnassum* is a conservation law for voices — every rule a budget constraint, every dissonance η paid back by consonance on the next beat. The corpus might find its deepest historical cousin not in Shannon or Friston but in a 1725 treatise on writing for two voices.
 
 ---
 
 ## Gap 6: Military strategy and the conservation of force
 
-The corpus mentions "battle," "strategy," "logistics" hundreds of times — but only as ordinary English. No essay on Clausewitz, on Sun Tzu, on the conservation of force (a real principle in maneuver warfare — you commit force to gain effect, and the total committed plus the total in reserve equals your force budget).
+The corpus mentions "battle," "strategy," "logistics" hundreds of times — but only as ordinary English. No essay on Clausewitz, Sun Tzu, the conservation of force (a real principle in maneuver warfare — commit force to gain effect; the total committed plus the total in reserve equals your force budget).
 
 **Why missed:** the corpus's authors are pacifist by disposition and not trained in military thinking.
 
@@ -81,7 +81,7 @@ The corpus mentions "battle," "strategy," "logistics" hundreds of times — but 
 
 The corpus has converged on a particular *kind* of system: engineered, deterministic, observable, and most importantly, *built by the writers themselves*. The convergences are real, but they are convergences among people building similar things. When the corpus tries to apply its framework to systems that *resist* engineering — bodies, patients, cities, harvests, courtrooms — it falls quiet.
 
-The next corpus should not be more essays on conservation in software. It should be essays on conservation in *places where the engineers are not in charge*: a hospice, a courtroom, a wheat field, a zoning meeting, a Bach fugue, a battlefield. The framework will either generalize — in which case we have something close to a philosophy of everything — or it will break, in which case we learn the boundary of the claim.
+The next corpus should not be more essays on conservation in software. It should be essays on conservation in *places where the engineers are not in charge*: a hospice, a courtroom, a wheat field, a zoning meeting, a Bach fugue, a battlefield. The framework will either generalize — in which case we have something close to a philosophy of everything — or break, in which case we learn the boundary of the claim.
 
 I am willing to bet it generalizes. But I am not willing to bet without the test.
 
