@@ -21,9 +21,9 @@ Below I name six gaps, with *why* each was missed and *what it might reveal*.
 
 The corpus touches the body — Elias measures cortisol in CREATIVE_ORNITH, several essays name "the body that was always there" — but never sits with medicine. No essay on diagnosis as a conservation problem, on triage as budget allocation, on the chart of a patient's history vs. the territory of the disease. Yet medicine is one of the richest domains for the chart-vs-map distinction. The doctor holds a chart; the territory is a body doing something the chart may not capture.
 
-**Why missed:** the corpus is engineering-flavored. Engineering is about controllable systems. Medicine is about patients — constitutionally non-engineerable. The metaphors break against a domain where the system is wet, mortal, and tells you what is wrong by what hurts.
+**Why missed:** the corpus is engineering-flavored. Medicine is about patients — constitutionally non-engineerable. The metaphors break against a domain where the system is wet, mortal, and tells you what is wrong by what hurts.
 
-**What it might reveal:** that conservation laws in medicine look different from conservation laws in silicon. The body's C is set by metabolic ceiling, but the *allocation* is governed by something the corpus has not named: pain. Pain is a high-priority signal that exhausts γ in a way the corpus has not modeled. An essay on triage would likely surface a sixth convergence — or, more interestingly, *break* the existing five.
+**What it might reveal:** that conservation laws in medicine look different from conservation laws in silicon. The body's C is set by metabolic ceiling, but the *allocation* is governed by something the corpus has not named: pain. An essay on triage would likely surface a sixth convergence — or, more interestingly, *break* the existing five.
 
 ---
 
