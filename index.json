@@ -110,6 +110,24 @@
     "size_bytes": 11205
   },
   {
+    "filename": "THE_PILOTAGE.md",
+    "path": "THE_PILOTAGE.md",
+    "title": "THE PILOTAGE",
+    "description": "This is compulsory. Pilots are not optional. They are required by law in most commercial ports because the cost of a mistake in confined waters is too high. The system is ancient — the first recorded ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 834,
+    "date": "2026-07-20",
+    "size_bytes": 11099
+  },
+  {
     "filename": "TWO_CHARTS_SAME_OCEAN.md",
     "path": "TWO_CHARTS_SAME_OCEAN.md",
     "title": "Two Charts, Same Ocean",
@@ -440,7 +458,7 @@
     "filename": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
     "path": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
     "title": "RESEARCH JOURNAL 02 — The Missing Charts",
-    "description": "Before I write about what is missing, I have to be honest about what is here, because the *shape* of the absence tells you something. The corpus is maritime. Heavily. The fishing vessel in the Gulf of...",
+    "description": "The corpus is maritime. Heavily. The fishing vessel in the Gulf of Alaska, the NMEA 2000 bus, the bilge pump, the conserved 12-volt budget — these are the substrate of nearly every paradigm essay. The...",
     "folder": "root",
     "topic": "Root",
     "genres": [
@@ -450,9 +468,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 818,
+    "word_count": 809,
     "date": "2026-07-20",
-    "size_bytes": 10187
+    "size_bytes": 9279
   },
   {
     "filename": "SYNOPTIC-DEEPSEEK.md",
@@ -1922,6 +1940,24 @@
     "size_bytes": 9619
   },
   {
+    "filename": "THE_DEEP_SEA_SOUNDING.md",
+    "path": "THE_DEEP_SEA_SOUNDING.md",
+    "title": "The Deep Sea Sounding",
+    "description": "For most of human history, the deep ocean was thought to be empty. Below a few hundred fathoms — past the reach of conventional sounding — the sea was understood to be a kind of dead uniform abyss. A ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 850,
+    "date": "2026-07-20",
+    "size_bytes": 13738
+  },
+  {
     "filename": "POETRY_DRIFT_CALCULATIONS.md",
     "path": "POETRY_DRIFT_CALCULATIONS.md",
     "title": "POETRY: DRIFT CALCULATIONS",
@@ -2174,7 +2210,7 @@
     "style": "Dialogue",
     "word_count": 849,
     "date": "2026-07-20",
-    "size_bytes": 11224
+    "size_bytes": 10754
   },
   {
     "filename": "THE_BIGHT_AND_THE_BEND.md",
