@@ -50,17 +50,15 @@ But the current architecture of AI deployment often inverts this. The model is t
 
 ---
 
-**7.** The lawyer who uses AI to draft a brief faces the same inversion. The model knows the law in general. It can cite cases, generate arguments, organize structure. But it does not know that Judge Chen hates footnotes, or that the Third Circuit has been overturning that particular precedent on appeal, or that the opposing counsel has a habit of filing motions for summary judgment at the last possible moment. These local facts — the harbors of each case — belong to the lawyer.
-
-The model produces a technically competent brief. The lawyer adjusts it for the local waters. That adjustment is not optional. It is the difference between a brief that is correct and a brief that wins.
+**7.** The lawyer who uses AI to draft a brief faces the same inversion. The model knows the law in general. But it does not know that Judge Chen hates footnotes, or that the Third Circuit has been overturning that precedent on appeal. These local facts — the harbors of each case — belong to the lawyer. The model produces a technically competent brief. The lawyer adjusts it for the local waters. That adjustment is not optional — it is the difference between a brief that is correct and a brief that wins.
 
 ---
 
-**8.** The maritime system has a formal mechanism for this. The pilot does not arrive with a blank slate. The pilot studies the ship before boarding — its draft, its maneuverability, its propulsion system, its communication protocols. The pilot adapts to the ship. The ship does not adapt to the pilot.
+**8.** The maritime system has a formal mechanism for this. The pilot studies the ship before boarding — its draft, its maneuverability, its propulsion. The pilot adapts to the ship. The ship does not adapt to the pilot.
 
-In AI, we have been doing the opposite. We ask the model to adapt to every harbor — to every doctor's practice, every lawyer's case, every engineer's codebase. We call this "generalization." The maritime industry would call it "running aground."
+In AI, we do the opposite. We ask the model to adapt to every harbor — every doctor's practice, every lawyer's case. We call this "generalization." The maritime industry would call it "running aground."
 
-The model should not be expected to know every harbor. The model should be expected to be a good ship — powerful, reliable, responsive to the helm. The local knowledge should be provided by the pilot: the domain expert who knows the specific waters.
+The model should be a good ship — powerful, reliable, responsive. The local knowledge should come from the pilot: the domain expert who knows the specific waters.
 
 ---
 
