@@ -81,7 +81,7 @@ The corpus mentions "battle," "strategy," "logistics" hundreds of times — but 
 
 The corpus has converged on a particular *kind* of system: engineered, deterministic, observable, and most importantly, *built by the writers themselves*. The convergences are real, but they are convergences among people building similar things. When the corpus tries to apply its framework to systems that *resist* engineering — bodies, patients, cities, harvests, courtrooms — it falls quiet.
 
-The next corpus should not be more essays on conservation in software. It should be essays on conservation in *places where the engineers are not in charge*: a hospice, a courtroom, a wheat field, a zoning meeting, a Bach fugue, a battlefield. The framework will either generalize — in which case we have something close to a philosophy of everything — or it will break, in which case we learn the boundary of the claim, which is also a kind of result.
+The next corpus should not be more essays on conservation in software. It should be essays on conservation in *places where the engineers are not in charge*: a hospice, a courtroom, a wheat field, a zoning meeting, a Bach fugue, a battlefield. The framework will either generalize — in which case we have something close to a philosophy of everything — or it will break, in which case we learn the boundary of the claim.
 
 I am willing to bet it generalizes. But I am not willing to bet without the test.
 
