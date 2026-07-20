@@ -68,13 +68,7 @@ This phase is almost always skipped. The trainer finishes a run, publishes the p
 
 The shepherd knows better. The husband knows better. The captain knows better.
 
-**9.** The endpoint of animal husbandry is not a perfect animal. It is a sustainable relationship between the keeper and the kept. The endpoint of model husbandry is not a perfect model. It is a sustainable relationship between the trainer and the trained. The model that can be maintained, updated, aligned, debugged, and eventually retired gracefully — this is the model that has been husbanded well. The model that achieves state-of-the-art on every benchmark and then cannot be reproduced because the training run was a one-time alignment of cosmic coincidences — this is the model that was hunted, not husbanded.
-
-The distinction matters. The flock that survives a thousand seasons is not the flock with the best single-season wool yield. It is the flock whose shepherds understood that husbandry is not a technique. It is a relationship.
-
-The model that serves a thousand tasks across a thousand deployments is not the model with the best single-benchmark score. It is the model whose keepers understood that the relationship between trainer and model is the unit of work — not the checkpoint, not the inference API, not the paper. The relationship. The ongoing, adaptive, never-finished practice of paying attention.
-
-**10.** *Húsbóndi*. House-holder. The one whose care holds the house together.
+**9.** *Húsbóndi*. House-holder. The one whose care holds the house together.
 
 The shepherd comes home with the flock, each animal accounted for, each one fed, each one healthy enough to face another season. The ship comes home from the passage, the barnacles scraped, the rigging replaced, the bilge pumped dry, ready to get underway again.
 
