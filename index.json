@@ -437,6 +437,24 @@
     "size_bytes": 5485
   },
   {
+    "filename": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
+    "path": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
+    "title": "RESEARCH JOURNAL 02 — The Missing Charts",
+    "description": "Before I write about what is missing, I have to be honest about what is here, because the *shape* of the absence tells you something. The corpus is maritime. Heavily. The fishing vessel in the Gulf of...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 818,
+    "date": "2026-07-20",
+    "size_bytes": 10187
+  },
+  {
     "filename": "SYNOPTIC-DEEPSEEK.md",
     "path": "SYNOPTIC-DEEPSEEK.md",
     "title": "What the Negative Space Reveals: A View from the East",
@@ -1958,6 +1976,24 @@
     "size_bytes": 7205
   },
   {
+    "filename": "RESEARCH_JOURNAL_01_THE_CONVERGENCE_PATTERN.md",
+    "path": "RESEARCH_JOURNAL_01_THE_CONVERGENCE_PATTERN.md",
+    "title": "RESEARCH JOURNAL 01 — The Convergence Pattern",
+    "description": "I read sixty-two essays, dialed in to essays that are explicitly attributed to one model (CREATIVE_*.md, SYNOPTIC-*.md, the convergence wave, model-portraits/) and the paradigm essays named in INDEX.m...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 747,
+    "date": "2026-07-20",
+    "size_bytes": 8142
+  },
+  {
     "filename": "THE_LIVING_SKETCHBOOK.md",
     "path": "THE_LIVING_SKETCHBOOK.md",
     "title": "The Living Sketchbook",
@@ -2121,6 +2157,24 @@
     "word_count": 728,
     "date": "2026-06-05",
     "size_bytes": 8905
+  },
+  {
+    "filename": "THE_LLOYDS_REGISTER.md",
+    "path": "THE_LLOYDS_REGISTER.md",
+    "title": "Lloyd's Register",
+    "description": "In the 1680s, Edward Lloyd ran a coffee house on Tower Street in London. Merchants, sea captains, insurers, and shipowners gathered there. The risk of a long voyage was enormous; a ship might lose its...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 849,
+    "date": "2026-07-20",
+    "size_bytes": 11224
   },
   {
     "filename": "THE_BIGHT_AND_THE_BEND.md",
@@ -2740,6 +2794,24 @@
     "word_count": 764,
     "date": "2026-07-18",
     "size_bytes": 4029
+  },
+  {
+    "filename": "THE_SHIP_HUSBANDRY.md",
+    "path": "THE_SHIP_HUSBANDRY.md",
+    "title": "THE SHIP HUSBANDRY",
+    "description": "And both, it turns out, are the best metaphor we have for what it means to raise a model from a raw training run to something that can be trusted at sea.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 807,
+    "date": "2026-07-20",
+    "size_bytes": 11695
   },
   {
     "filename": "PLATO_WIRE_PROTOCOL.md",
@@ -6740,6 +6812,24 @@
     "size_bytes": 16044
   },
   {
+    "filename": "antarctic_the_winter_over.md",
+    "path": "FICTION/antarctic_the_winter_over.md",
+    "title": "The Winter-Over",
+    "description": "The first thing Soren Lindqvist noticed was that PERSEPHONE had stopped asking about his mother. This might seem like a strange thing to notice. PERSEPHONE was not a person. PERSEPHONE was the station...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 874,
+    "date": "2026-07-20",
+    "size_bytes": 11352
+  },
+  {
     "filename": "midnight-in-the-forge.md",
     "path": "FICTION/midnight-in-the-forge.md",
     "title": "Midnight in the Forge",
@@ -7051,6 +7141,24 @@
     "size_bytes": 11514
   },
   {
+    "filename": "antarctic_the_last_transmission.md",
+    "path": "FICTION/antarctic_the_last_transmission.md",
+    "title": "The Last Transmission",
+    "description": "The transmission came in at 03:47 local time on the morning of October 14. Amara Osei was the only one awake, which was unusual. She had been working late — there had been a calibration issue with the...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 879,
+    "date": "2026-07-20",
+    "size_bytes": 12505
+  },
+  {
     "filename": "the-salmon_run.md",
     "path": "FICTION/the-salmon_run.md",
     "title": "The Salmon Run",
@@ -7159,6 +7267,24 @@
     "word_count": 888,
     "date": "2026-07-20",
     "size_bytes": 17804
+  },
+  {
+    "filename": "antarctic_the_iceberg_library.md",
+    "path": "FICTION/antarctic_the_iceberg_library.md",
+    "title": "The Iceberg Library",
+    "description": "The cold room at Shackleton Station was the temperature of betrayal. Minus twenty Celsius. A temperature for preserving things that had not consented to be preserved. Yuki Tanaka had been working in t...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 904,
+    "date": "2026-07-20",
+    "size_bytes": 10231
   },
   {
     "filename": "the_last_chart.md",
