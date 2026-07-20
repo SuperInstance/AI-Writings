@@ -458,7 +458,7 @@
     "filename": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
     "path": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
     "title": "RESEARCH JOURNAL 02 — The Missing Charts",
-    "description": "The corpus is maritime. Heavily. The fishing vessel in the Gulf of Alaska, the NMEA 2000 bus, the bilge pump, the conserved 12-volt budget — these are the substrate of nearly every paradigm essay. The...",
+    "description": "The corpus is maritime. Heavily. The fishing vessel in the Gulf of Alaska, the NMEA 2000 bus, the bilge pump, the 12-volt budget — the substrate of nearly every paradigm essay. It is also software: PL...",
     "folder": "root",
     "topic": "Root",
     "genres": [
@@ -468,9 +468,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 813,
+    "word_count": 816,
     "date": "2026-07-20",
-    "size_bytes": 9019
+    "size_bytes": 8388
   },
   {
     "filename": "SYNOPTIC-DEEPSEEK.md",
@@ -1955,7 +1955,7 @@
     "style": "Narrative",
     "word_count": 848,
     "date": "2026-07-20",
-    "size_bytes": 11563
+    "size_bytes": 10883
   },
   {
     "filename": "POETRY_DRIFT_CALCULATIONS.md",
@@ -2845,9 +2845,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 807,
+    "word_count": 806,
     "date": "2026-07-20",
-    "size_bytes": 11695
+    "size_bytes": 10212
   },
   {
     "filename": "PLATO_WIRE_PROTOCOL.md",
