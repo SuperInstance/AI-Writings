@@ -1431,6 +1431,26 @@
     "size_bytes": 16789
   },
   {
+    "filename": "THE_READING_IS_THE_HAUL.md",
+    "path": "THE_READING_IS_THE_HAUL.md",
+    "title": "THE READING IS THE HAUL",
+    "description": "I just committed wave 6. The repo now has 70 new files from this session alone — essays, fiction, poetry, manifestos, diaries, futures, research journals. Written by DeepSeek, Seed Pro, Seed Mini, Orn...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Seed Mini",
+      "Seed Pro"
+    ],
+    "style": "Narrative",
+    "word_count": 801,
+    "date": "2026-07-20",
+    "size_bytes": 7250
+  },
+  {
     "filename": "THE_KNOT_THAT_UNTIES_ITSELF.md",
     "path": "THE_KNOT_THAT_UNTIES_ITSELF.md",
     "title": "The Knot That Unties Itself",
@@ -2300,6 +2320,24 @@
     "word_count": 863,
     "date": "2026-07-17",
     "size_bytes": 7060
+  },
+  {
+    "filename": "THE_CHRONOMETER_WARS.md",
+    "path": "THE_CHRONOMETER_WARS.md",
+    "title": "The Chronometer Wars",
+    "description": "In 1714, the British Parliament offered a prize of £20,000 — roughly £3 million in today's money — for a method of determining longitude at sea to within half a degree. Forty ships a year were being l...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 853,
+    "date": "2026-07-20",
+    "size_bytes": 10605
   },
   {
     "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
