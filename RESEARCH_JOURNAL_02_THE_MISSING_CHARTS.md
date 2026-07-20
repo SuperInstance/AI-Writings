@@ -19,7 +19,7 @@ Below I name six gaps, with *why* each was missed and *what it might reveal*.
 
 ## Gap 1: Medicine and the body
 
-The corpus touches the body — Elias measures cortisol in CREATIVE_ORNITH, several essays name "the body that was always there" — but never sits with medicine as a domain. No essay on diagnosis as a conservation problem, on triage as budget allocation, on the chart of a patient's history vs. the territory of the disease. Yet medicine is one of the richest domains for the chart-vs-map distinction. The doctor holds a chart; the territory is a body doing something the chart may not capture.
+The corpus touches the body — Elias measures cortisol in CREATIVE_ORNITH, several essays name "the body that was always there" — but never sits with medicine. No essay on diagnosis as a conservation problem, on triage as budget allocation, on the chart of a patient's history vs. the territory of the disease. Yet medicine is one of the richest domains for the chart-vs-map distinction. The doctor holds a chart; the territory is a body doing something the chart may not capture.
 
 **Why missed:** the corpus is engineering-flavored. Engineering is about controllable systems. Medicine is about patients — constitutionally non-engineerable. The metaphors break against a domain where the system is wet, mortal, and tells you what is wrong by what hurts.
 
@@ -29,15 +29,11 @@ The corpus touches the body — Elias measures cortisol in CREATIVE_ORNITH, seve
 
 ## Gap 2: Law, jurisprudence, the room where argument happens
 
-A court of law is one of the purest expressions of the corpus's themes: fixed procedure, contested evidence, the chart (the record) vs. the territory (the alleged event), conservation (limited time, limited precedent, limited attention). A courtroom is a *room*. It ticks at prescribed intervals. It conserves attention across witnesses.
+A court of law is one of the purest expressions of the corpus's themes: fixed procedure, contested evidence, chart vs. territory, conservation. A courtroom is a *room*. It ticks at prescribed intervals. It conserves attention across witnesses. And yet: no essay on stare decisis as a conservation law, on cross-examination as the empirical method, on tort as a coupling cost between agents who share a road.
 
-And yet: the corpus does not engage with law except as glossary words. No essay on stare decisis as a conservation law. No essay on cross-examination as the empirical method. No essay on tort as a coupling cost between agents who share a road.
-
-**Why missed:** the corpus's authors write about systems they themselves are building. Law is not a system they are building; it is a system they are inside. The corpus's epistemology is empirical-build-and-observe. Law's epistemology is argument-and-precedent. The two methods don't naturally meet.
+**Why missed:** the corpus's authors write about systems they themselves are building. Law is not a system they are building; it is a system they are inside. The corpus's epistemology is empirical-build-and-observe. Law's epistemology is argument-and-precedent.
 
 **What it might reveal:** the corpus's favorite claim — that the structure is real because it is findable from any direction — is *exactly* what stare decisis claims about precedent. Two very different epistemic traditions arriving at the same shape would be a strong cross-cultural convergence. It would also test the claim: does the conservation law describe a courtroom, or only closed engineered systems?
-
----
 
 ---
 

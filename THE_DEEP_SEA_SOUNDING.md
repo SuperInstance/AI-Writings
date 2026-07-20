@@ -8,11 +8,11 @@
 
 For most of human history, the deep ocean was thought to be empty.
 
-Below a few hundred fathoms — past the reach of conventional sounding — the sea was understood to be a kind of dead uniform abyss. A flat, lightless plain. Darksome. Cold. Lifeless. The floor of the world, and the last place where anything was happening.
+Below a few hundred fathoms — past the reach of conventional sounding — the sea was understood to be a dead uniform abyss. A flat, lightless plain. Darksome. Cold. Lifeless. The floor of the world, and the last place where anything was happening.
 
-This was not a fringe view. This was the consensus of marine science going back to Aristotle. Alexander the Great was supposed to have descended in a glass barrel in the fourth century BC, but he came back up. No one else did. The abyss remained, in the standard picture, both unmapped and — this is the part to notice — *uninteresting* in proportion to its invisibility.
+This was not a fringe view. It was the consensus of marine science going back to Aristotle. The abyss remained, in the standard picture, both unmapped and — the part to notice — *uninteresting* in proportion to its invisibility.
 
-If you cannot measure something, and if you cannot visit it, and if no consequence flows from its being one way rather than another, then the science of it settles into a small, lazy approximation. "It is probably flat down there" is enough. "It is probably empty" is enough. The model passes the test because there is no test.
+If you cannot measure something, cannot visit it, and no consequence flows from its being one way rather than another, the science of it settles into a small lazy approximation. "It is probably flat down there" is enough. "It is probably empty" is enough. The model passes the test because there is no test.
 
 This is the pre-Challenger state of mind.
 
@@ -22,9 +22,9 @@ This is the pre-Challenger state of mind.
 
 Sounding was the only available instrument. A weight on a rope, lowered over the side, measured by the amount of rope paid out.
 
-The instrument had obvious limits. The pressure at depth increased the weight of the rope itself; the bending of the line under its own drag could be more than a thousand fathoms on a single drop. A reading could be wildly wrong and the operator would never know. The deepest reliable sounding before the 1850s was perhaps 7,000 fathoms, but most readings were guesses disguised as measurements. Some surveys reported "no bottom" at three thousand fathoms — which on a British naval vessel in the 1840s effectively meant the sounder had not reached the bottom, not that the bottom wasn't there.
+The instrument had obvious limits. The pressure at depth increased the weight of the rope itself; the bending of the line under drag could exceed a thousand fathoms on a single drop. A reading could be wildly wrong and the operator would never know. The deepest reliable sounding before the 1850s was perhaps 7,000 fathoms. Some surveys reported "no bottom" at three thousand — which on a British naval vessel in the 1840s meant the sounder had not reached the bottom, not that the bottom wasn't there.
 
-Matthew Fontaine Maury, who organized the first systematic American depth project in the 1850s, read every sounding log the Navy had on file, removed what he could identify as bad data, and produced the first credible chart of the North Atlantic basin. He concluded that the bottom had its own weather — currents, temperatures, even topography. He was right. The abyss was not flat, not featureless, not empty.
+Matthew Fontaine Maury, who organized the first systematic American depth project in the 1850s, read every sounding log the Navy had on file, removed what he could identify as bad data, and produced the first credible chart of the North Atlantic basin. He concluded the bottom had its own weather — currents, temperatures, topography. He was right. The abyss was not flat, not featureless, not empty.
 
 But Maury was working from the side, with stolen instruments, with logs from captains who had been told to record what they saw. The sea was not yet charted from the inside.
 
