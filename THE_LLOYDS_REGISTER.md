@@ -90,7 +90,7 @@ The rating tests would be **public**, in the sense of *available for examination
 
 The rating itself would be **coarse-grained**. Not a thousand-point capability score. A coarse grade that insurers, regulators, enterprise buyers, and end users can read at a glance. The granularity is the point — it loses information, but it gains comparability. A ship is A1 or it is not.
 
-The rating body would publish the **test code and methodology**, even while holding back the **test instances**. Anyone can replicate the methodology, build tooling around it, build on the framework. The body does not own the standard by owning the tests; it owns the standard by owning the periodic survey and the rating process.
+The rating body would publish the **test code and methodology**, while holding back the **test instances**. Anyone can replicate the methodology, build tooling around it, build on the framework. The body does not own the standard by owning the tests; it owns the standard by owning the periodic survey and the rating process.
 
 ---
 
@@ -98,13 +98,13 @@ The rating body would publish the **test code and methodology**, even while hold
 
 If such a body existed, several things would shift.
 
-**Benchmarks would become less central to labs' marketing.** A model can game a benchmark; it cannot game an independent rating. The conversation would move from *what is the score on this test* to *what is the rating from this body*. The latter is harder to manipulate and harder to ignore.
+**Benchmarks would become less central to labs' marketing.** A model can game a benchmark; it cannot game an independent rating. The conversation would move from *what is the score* to *what is the rating*.
 
-**Procurement would become possible.** Today, an enterprise considering a model has no third party to defer to. They have vendor literature and benchmarks. They have their own red team, if they can afford one. Most do not. A rating gives small enterprises the same procurement lever that large ones have.
+**Procurement would become possible.** Today an enterprise has no third party to defer to. A rating gives small enterprises the same procurement lever that large ones have.
 
-**Regulation becomes more natural.** A regulator does not need to invent the tests. They can require a minimum rating. This is how maritime regulation already works — load-line rules, equipment requirements, hull classification are minimum standards enforced through the rating.
+**Regulation becomes more natural.** A regulator does not need to invent the tests. They can require a minimum rating.
 
-**The labs themselves benefit, in the medium run.** A field with no ratings is a field where every claim is suspect. A field with ratings is a field where the best labs can rise above the noise. The competition shifts from marketing to substance.
+**The labs themselves benefit, in the medium run.** A field with no ratings is a field where every claim is suspect. The competition shifts from marketing to substance.
 
 The short-term pain is that some models will be rated lower than their developers would like. That is the entire point.
 
@@ -114,7 +114,7 @@ The short-term pain is that some models will be rated lower than their developer
 
 The original Lloyd's was not built top-down. It grew out of a coffee-house gossip practice, hardened into a printed register, was institutionalized over decades, and only matured into the global standard we know after a long development. The early Register was not the late Register.
 
-An AI rating body would be the same. It would need to be invented, broken, revised, institutionalized, and finally trusted. The first attempt might be wrong. The fifth might work.
+An AI rating body would be the same. It would need to be invented, broken, revised, institutionalized, and trusted. The first attempt might be wrong. The fifth might work.
 
 But the direction is clear. The field needs an independent rating. It needs a coarse grade everyone can read. It needs a body whose livelihood is credibility rather than capability. It needs "A1 at Lloyd's" to mean something, for the first time, in a domain where markets are forming as fast as the products.
 
