@@ -36,6 +36,25 @@
     "size_bytes": 7020
   },
   {
+    "filename": "THE_STREET_NETWORK_AS_PROTOCOL.md",
+    "path": "THE_STREET_NETWORK_AS_PROTOCOL.md",
+    "title": "The Street Network as Protocol",
+    "description": "Before TCP/IP, before HTTP, before any packet traversed a fiber optic cable, humanity had already designed and debugged the most consequential large-scale protocol ever built: the street network. Ever...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 761,
+    "date": "2026-07-20",
+    "size_bytes": 12515
+  },
+  {
     "filename": "PLATO_RUST_ARCHITECTURE.md",
     "path": "PLATO_RUST_ARCHITECTURE.md",
     "title": "`plato-engine-block` Crate Architecture",
@@ -1245,6 +1264,24 @@
     "size_bytes": 7415
   },
   {
+    "filename": "THE_CLADISTICS.md",
+    "path": "THE_CLADISTICS.md",
+    "title": "The Cladistics of AI Models: Classifying Intelligence by Descent, Not Behavior",
+    "description": "In the shallows of evolutionary biology, there is a children's question that has tripped up generations: \"What is a fish?\" A dolphin swims like a fish, looks like a fish, lives like a fish. It is stre...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 764,
+    "date": "2026-07-20",
+    "size_bytes": 12835
+  },
+  {
     "filename": "THE_HAUL_AND_THE_HEX.md",
     "path": "THE_HAUL_AND_THE_HEX.md",
     "title": "The Haul and the Hex",
@@ -1617,7 +1654,7 @@
     "filename": "THE_COUNTERPOINT_OF_AGENTS.md",
     "path": "THE_COUNTERPOINT_OF_AGENTS.md",
     "title": "The Counterpoint of Agents",
-    "description": "In 1725, Johann Joseph Fux sat down at the imperial court in Vienna and wrote a textbook that would outlive the empire. The *Gradus ad Parnassum* — *Steps to Parnassus* — was not a manifesto. It was a...",
+    "description": "In 1725, Johann Joseph Fux wrote a textbook at the imperial court in Vienna that would outlive the empire. The *Gradus ad Parnassum* — *Steps to Parnassus* — took the wild improvisations of Palestrina...",
     "folder": "root",
     "topic": "Root",
     "genres": [
@@ -1632,7 +1669,7 @@
     "style": "Dialogue",
     "word_count": 842,
     "date": "2026-07-20",
-    "size_bytes": 13322
+    "size_bytes": 9771
   },
   {
     "filename": "THIN_CHARTS_AND_THE_SOCRATIC_SON.md",
