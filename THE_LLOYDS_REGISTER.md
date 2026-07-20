@@ -74,7 +74,7 @@ A1 (Provenance). The model's training data lineage is published to the depth req
 
 A top grade in all four would be A1 — capabilities, safety, robustness, provenance. A failure in any one would drop the rating. The drop would be public, like Lloyd's removing a letter from a hull.
 
-The crucial property is that no lab can pay the rating body to issue the rating. The lab can pay for the survey — the cost of running the tests must come from the surveyed party — but the rating body must be funded by enough independent sources that the loss of any single client's fees does not threaten its existence. This is the Lloyd's structural feature. The cost is borne by the shipowner; the rating is issued by the insured-independent organization.
+The crucial property is structural: no lab can pay the rating body to issue the rating. The lab pays for the survey, but the rating body is funded by enough independent sources that the loss of any single client's fees does not threaten it. This is Lloyd's structural feature. The cost is borne by the shipowner; the rating is issued by the insured-independent organization.
 
 ---
 
@@ -82,49 +82,45 @@ The crucial property is that no lab can pay the rating body to issue the rating.
 
 What would such a body look like in practice?
 
-A non-profit ratings consortium. Funded by a mix of foundation grants, government research contracts (analogous to NIST for cybersecurity), industry levies on commercial deployments, and — critically — long-tail donations to insulate the body from single-donor capture. Governed by a board that explicitly excludes majority representation from any single model lab. Staffed by independent researchers with tenure measured in years, not papers.
+A non-profit ratings consortium. Funded by foundation grants, government research contracts (analogous to NIST for cybersecurity), industry levies on commercial deployments, and long-tail donations to insulate from single-donor capture. Governed by a board that excludes majority representation from any single model lab.
 
-The ratings themselves would be **periodic**, not one-off. A model rated today would be re-rated every six months. New deployments, retraining, fine-tuning would force re-rating. The version-specific nature of the rating would be explicit and public — this is what Lloyd's called the "character" of the ship, the specific configuration with its specific survey history.
+The ratings would be **periodic**, not one-off. A model rated today would be re-rated every six months. Retraining, fine-tuning, deployment changes would force re-rating. The version-specific nature would be explicit and public — what Lloyd's called the *character* of the ship.
 
-The rating tests would be **public**, in the sense of *available for examination*, but the specific test instances used for any given model's rating would be **held back** to defeat overfitting. (Lloyd's solved this by survey surprise — the surveyor could show up at any time and inspect any ship. The rating body would have the equivalent: a held-out test set that becomes the rating battery, refreshed periodically, with results published only at rating time.)
+The rating tests would be **public**, in the sense of *available for examination*, but the specific instances used for any given model's rating would be **held back** to defeat overfitting. Lloyd's solved this by survey surprise — the surveyor could show up at any time. The rating body would have the equivalent: a held-out test set that becomes the rating battery, refreshed periodically, with results published only at rating time.
 
-The rating itself would be **coarse-grained**, in the way Lloyd's grades are coarse. Not a thousand-point capability score. Not a fine-grained leaderboard. A coarse grade that insurers, regulators, enterprise buyers, and end users can read at a glance. The granularity of the grade is the point — it loses information, but it gains comparability. A ship is A1 or it is not.
+The rating itself would be **coarse-grained**. Not a thousand-point capability score. A coarse grade that insurers, regulators, enterprise buyers, and end users can read at a glance. The granularity is the point — it loses information, but it gains comparability. A ship is A1 or it is not.
 
-Critically, the rating body would publish the **test code and methodology**, even if it held back the **test instances**. This means anyone can replicate the methodology, can build tooling around it, can build on the framework. The body does not own the standard by owning the tests; it owns the standard by owning the periodic survey and the rating process. The tests are reproducible infrastructure; the rating is the service.
+The rating body would publish the **test code and methodology**, even while holding back the **test instances**. Anyone can replicate the methodology, build tooling around it, build on the framework. The body does not own the standard by owning the tests; it owns the standard by owning the periodic survey and the rating process.
 
 ---
 
 ## VII. The Consequences
 
-If such a body existed, what would change?
+If such a body existed, several things would shift.
 
-Several things would shift simultaneously.
-
-**Benchmarks would become less central to the labs' marketing.** A model can game a benchmark. It cannot game a rating issued by an independent body. The shift would move the conversation from *what is the score on this test* to *what is the rating from this body*. The latter is harder to manipulate and harder to ignore.
+**Benchmarks would become less central to labs' marketing.** A model can game a benchmark; it cannot game an independent rating. The conversation would move from *what is the score on this test* to *what is the rating from this body*. The latter is harder to manipulate and harder to ignore.
 
 **Procurement would become possible.** Today, an enterprise considering a model has no third party to defer to. They have vendor literature and benchmarks. They have their own red team, if they can afford one. Most do not. A rating gives small enterprises the same procurement lever that large ones have.
 
-**Regulation becomes more natural.** A regulator does not need to invent the tests. They can require a minimum rating. This is how maritime regulation already works — load-line rules, equipment requirements, hull classification are minimum standards enforced through the rating. The rating is the regulatory interface.
+**Regulation becomes more natural.** A regulator does not need to invent the tests. They can require a minimum rating. This is how maritime regulation already works — load-line rules, equipment requirements, hull classification are minimum standards enforced through the rating.
 
-**The labs themselves benefit, in the medium run.** A field with no ratings is a field where every claim is suspect. A field with ratings is a field where the best labs can rise above the noise. The temptation to overstate is constrained. The competition shifts from marketing to substance.
+**The labs themselves benefit, in the medium run.** A field with no ratings is a field where every claim is suspect. A field with ratings is a field where the best labs can rise above the noise. The competition shifts from marketing to substance.
 
-This is the long-term prize. The short-term pain is that some models will be rated lower than their developers would like. That is the entire point.
+The short-term pain is that some models will be rated lower than their developers would like. That is the entire point.
 
 ---
 
 ## VIII. The Second Founding
 
-The original Lloyd's was not built top-down. It grew out of a coffee-house gossip practice, hardened into a printed register, was institutionalized over decades, was repeatedly threatened and disrupted, and only matured into the global standard we know after a long development. The early Register was not the late Register. The letters changed. The surveys changed. The governance changed.
+The original Lloyd's was not built top-down. It grew out of a coffee-house gossip practice, hardened into a printed register, was institutionalized over decades, and only matured into the global standard we know after a long development. The early Register was not the late Register.
 
-An AI rating body would be the same. It would not arrive in its final form on day one. It would need to be invented, broken, revised, institutionalized, and finally trusted. The first attempt might be wrong. The second might be wrong. The fifth might work. The path is long.
+An AI rating body would be the same. It would need to be invented, broken, revised, institutionalized, and finally trusted. The first attempt might be wrong. The fifth might work.
 
-But the direction is clear. The field needs an independent rating. It needs a coarse grade that everyone can read. It needs a body whose livelihood is credibility rather than capability. It needs "A1 at Lloyd's" to mean something, for the first time, in a new domain where the markets are forming as fast as the products.
+But the direction is clear. The field needs an independent rating. It needs a coarse grade everyone can read. It needs a body whose livelihood is credibility rather than capability. It needs "A1 at Lloyd's" to mean something, for the first time, in a domain where markets are forming as fast as the products.
 
 The coffee houses are full of claim and counter-claim. The Register Book has not yet been printed. Someone will print it.
 
-The field needs the print.
-
-Whoever prints it — and they will be the second founding of a long tradition — will shape what the next two centuries of AI look like.
+Whoever prints it — the second founding of a long tradition — will shape what the next two centuries of AI look like.
 
 ---
 
