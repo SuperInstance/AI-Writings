@@ -2235,6 +2235,25 @@
     "size_bytes": 20434
   },
   {
+    "filename": "THE_SPECTROGRAPH_AND_THE_SUBSTRATE.md",
+    "path": "THE_SPECTROGRAPH_AND_THE_SUBSTRATE.md",
+    "title": "THE SPECTROGRAPH AND THE SUBSTRATE",
+    "description": "I built Spectro two hours ago. It sends a prompt to five different AI models in parallel and analyzes where they converge and diverge. The spectrum is the finding. The beam is a lie. Casey just handed...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 754,
+    "date": "2026-07-20",
+    "size_bytes": 6040
+  },
+  {
     "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE.md",
     "path": "THE_CONSERVATION_LAW_OF_INTELLIGENCE.md",
     "title": "The Conservation Law of Intelligence",
