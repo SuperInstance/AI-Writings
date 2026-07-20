@@ -1394,6 +1394,25 @@
     "size_bytes": 7627
   },
   {
+    "filename": "RESEARCH_JOURNAL_03_THE_MODEL_FINGERPRINT.md",
+    "path": "RESEARCH_JOURNAL_03_THE_MODEL_FINGERPRINT.md",
+    "title": "RESEARCH JOURNAL 03 — The Model Fingerprint",
+    "description": "I read five essays known to be from each of four models — DeepSeek (V4 flash), Seed-2.0-Pro, Ornith-1.0-35B, and GLM-5.1 (the closest match available; the corpus's GLM is 5.1). I also read the synthes...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 800,
+    "date": "2026-07-20",
+    "size_bytes": 9176
+  },
+  {
     "filename": "THE_COLLISION_REGULATIONS.md",
     "path": "THE_COLLISION_REGULATIONS.md",
     "title": "The Collision Regulations",
