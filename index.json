@@ -470,7 +470,7 @@
     "style": "Essay",
     "word_count": 813,
     "date": "2026-07-20",
-    "size_bytes": 8031
+    "size_bytes": 8009
   },
   {
     "filename": "SYNOPTIC-DEEPSEEK.md",
@@ -22464,6 +22464,24 @@
     "word_count": 409,
     "date": "2026-05-15",
     "size_bytes": 2490
+  },
+  {
+    "filename": "THE_DIALOGUE_OF_THE_TWO_PILOTS.md",
+    "path": "philosophy/THE_DIALOGUE_OF_THE_TWO_PILOTS.md",
+    "title": "The Dialogue of the Two Pilots",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 865,
+    "date": "2026-07-20",
+    "size_bytes": 14936
   },
   {
     "filename": "SHARED-CONTEXT.md",
