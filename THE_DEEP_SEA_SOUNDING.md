@@ -60,13 +60,11 @@ The lesson was not that the deep sea contained interesting things. The lesson wa
 
 ## V. The Map That Broke the Map
 
-The interesting consequence of the Challenger expedition was not the discoveries themselves. The discoveries mattered. What mattered more was that the data the expedition produced was *systematic*. It was gathered across latitudes and longitudes, with consistent instruments, by consistent methods, repeated across years. The data did not just answer questions. It enabled new questions.
+The interesting consequence was not the discoveries themselves. What mattered more was that the data was *systematic*. It was gathered across latitudes and longitudes, with consistent instruments and methods, repeated across years. The data did not just answer questions. It enabled new questions.
 
-Without the systematic map, the discoveries would have been curiosities. With the systematic map, the discoveries became the foundation of oceanography as a science. They enabled plate tectonics in the 1960s (mid-ocean ridges are spreading centers). They enabled marine biology as a discipline. They enabled the discovery of hydrothermal vents in the 1970s, which re-wrote the chemistry of the planet's interior. They enabled climate science (the deep ocean is the heat reservoir that buffers the atmosphere, and the fact of this reservoir was made visible by the Challenger data).
+Without the systematic map, the discoveries would have been curiosities. With it, they became the foundation of oceanography. They enabled plate tectonics in the 1960s (mid-ocean ridges are spreading centers). They enabled marine biology as a discipline. They enabled the discovery of hydrothermal vents in the 1970s, which rewrote the chemistry of the planet's interior. They enabled climate science — the deep ocean is the heat reservoir that buffers the atmosphere, and the fact of this reservoir was made visible by the Challenger data.
 
-The map made the *trained eye* possible. Once the systematic map existed, scientists could look at a single sample and know what region of the map it came from. They could look at a single reading and know what to expect. They could make a small observation and place it inside a large context.
-
-Before the map, every observation was a closed fact. After the map, every observation was a node in a graph.
+The map made the *trained eye* possible. Once the systematic map existed, scientists could place a single sample inside a large context. Before the map, every observation was a closed fact. After it, every observation was a node in a graph.
 
 ---
 
