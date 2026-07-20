@@ -18,11 +18,11 @@ This is *protocol simplicity*. And it creates specific system behavior.
 
 **Predictable latency.** Because all paths have approximately equal length, latency is bounded and predictable. You can prove that the worst-case traversal time from any point to any other point is the sum of the maximum north-south and east-west distances. In distributed systems terms, the grid provides a tight upper bound on worst-case execution time — the Holy Grail of real-time systems.
 
-**Zero state routing.** The grid requires no state at intermediate nodes. Each intersection simply forwards packets along the correct axis. North-south traffic goes north-south. East-west goes east-west. There is no routing table to update, no BGP session to maintain, no convergence to wait for. The grid is *stateless forwarding* in the physical world.
+**Zero state routing.** The grid requires no state at intermediate nodes. Each intersection simply forwards packets along the correct axis. The grid is *stateless forwarding* in the physical world.
 
-**The hidden cost: fragmentation.** The grid's simplicity comes at a price. A grid has no natural center, no hierarchy, no concept of "downtown" built into the topology. Centrality emerges from density, not structure. In distributed systems, a flat topology means every node is equally privileged — and equally burdened. Broadcast storms propagate unimpeded. There is no natural aggregation point, no hierarchy to absorb and summarize traffic. Manhattan solved this by layering a subway network on top — a separate control plane — but the street grid itself has no hierarchy.
+**The hidden cost: fragmentation.** A grid has no natural center, no hierarchy built into the topology. Centrality emerges from density, not structure. In distributed systems, a flat topology means broadcast storms propagate unimpeded. Manhattan solved this by layering a subway network on top — a separate control plane.
 
-**The software parallel.** The grid maps directly to a **flat namespace** like a distributed hash table with no super-peers. Every node knows its coordinates. Every node routes deterministically. The system is simple, predictable, and fragile under broadcast. Chord and Kademlia are Manhattans: elegant coordinate systems that trade hierarchy for simplicity and pay the price in maintenance traffic.
+**The software parallel.** The grid maps directly to a **flat namespace** like a distributed hash table with no super-peers. Chord and Kademlia are Manhattans: elegant coordinate systems that trade hierarchy for simplicity and pay the price in maintenance traffic.
 
 ---
 
@@ -38,9 +38,9 @@ This is hub-and-spoke topology. And it produces radically different system behav
 
 **Hierarchical routing.** The radial network naturally supports hierarchical routing. Spokes aggregate traffic from peripheral neighborhoods. Rings distribute traffic around the periphery without traversing the center. The *périphérique* is literally a ring road — a bypass for traffic that doesn't need the hub. In networking terms, this is the difference between a flat OSPF area and a hierarchical BGP topology with route reflectors.
 
-**Haussmann's redesign as a routing upgrade.** When Haussmann rebuilt Paris in the 1850s, he was performing a **network re-architecture**. The medieval labyrinth was unmanageable — traffic couldn't flow, troops couldn't maneuver, disease couldn't be contained. Haussmann's boulevards were not just aesthetic; they were routing protocol upgrades. Straight, wide avenues provided *high-bandwidth paths* through the dense mesh. The *grands croisements* (grand intersections) were *traffic-engineered switching nodes*. The *place de l'Étoile* was a *core router*.
+**Haussmann as a routing upgrade.** When Haussmann rebuilt Paris in the 1850s, he was performing a **network re-architecture**. Straight, wide avenues provided *high-bandwidth paths* through the dense medieval mesh. The *grands croisements* were *traffic-engineered switching nodes*. The *place de l'Étoile* was a *core router*.
 
-**The software parallel.** Paris maps to **client-server architecture** with a central coordinator. The center holds state. The periphery connects through it. This works brilliantly when the center is the primary communication target and terribly when traffic is peer-to-peer. Modern microservice architectures with API gateways are Parisian: all traffic flows through the gateway (the Étoile), and downstream services communicate via the gateway or not at all. The *périphérique* is the service mesh sidecar — a bypass for internal traffic that doesn't need the main router.
+**The software parallel.** Paris maps to **client-server architecture** with a central coordinator. Modern microservice architectures with API gateways are Parisian: all traffic flows through the gateway (the Étoile), and the *périphérique* is the service mesh sidecar — a bypass for internal traffic.
 
 ---
 
@@ -52,13 +52,13 @@ Boston's street network is a **mesh topology that evolved**. And it has surprisi
 
 **Defense as a design constraint.** Boston's labyrinth was not accidental. Pre-industrial cities were designed for defense. Narrow, winding streets made it impossible for cavalry to charge, for artillery to find firing lines, for an invading army to navigate. The labyrinth is *intentionally* confusing to outsiders. In distributed systems, this maps to **security through obscurity** and **moving target defense**. A mesh network with no clear topology is harder to map, harder to attack, and harder to disrupt. The cost is navigability.
 
-**Resilience through redundancy.** A labyrinth has many paths between any two points. If one street is blocked, there are ten alternatives. Boston's topology is a **highly-connected mesh** with enormous path diversity. Failures are localized. A single blocked street doesn't paralyze the system — traffic finds another route. This is the distributed systems property of **fault tolerance through redundancy**. The cost: routing is computationally expensive. Every journey requires real-time path computation.
+**Resilience through redundancy.** A labyrinth has many paths between any two points. Boston's topology is a **highly-connected mesh** with enormous path diversity. Failures are localized. This is **fault tolerance through redundancy**. The cost: routing is computationally expensive.
 
 **Emergent hierarchy.** Boston has no planned center, but it developed one naturally. The intersection of Washington, State, and Milk Streets (the Old State House) became the city's hub because that's where routes converged. Hierarchy emerged from usage patterns, not design. In distributed systems, this is **emergent leadership** — the BitTorrent tracker that becomes popular because it's well-connected, or the Cassandra node that accrues responsibility because clients prefer it.
 
-**The discovery problem.** In Boston, finding anything requires local knowledge. The topology doesn't encode location. Addresses follow historical boundaries, not coordinate systems. This is the **service discovery problem** in distributed systems. In a flat mesh with no naming convention, discovering services requires a separate discovery service — a DNS, a Consul agent, a ZooKeeper ensemble. Boston solved this by building a subway system (the T) that acts as an overlay network with its own topology, completely independent of the street network.
+**The discovery problem.** In Boston, the topology doesn't encode location. This is the **service discovery problem** in distributed systems. A flat mesh with no naming convention requires a separate discovery service. Boston solved this with the T — a subway system acting as an overlay network with its own topology, independent of the street network.
 
-**The software parallel.** Boston maps to **peer-to-peer mesh networks** like BitTorrent, IPFS, or any gossip protocol. The topology is emergent, not designed. Routing is expensive but fault tolerance is high. Discovery requires a bootstrap mechanism. The system works beautifully at scale because path diversity compensates for routing complexity. The cost is paid at the edges — in routing tables, in discovery latency, in the computational overhead of maintaining the mesh.
+**The software parallel.** Boston maps to **peer-to-peer mesh networks** like BitTorrent, IPFS. The topology is emergent, not designed. Routing is expensive but fault tolerance is high. The cost is paid at the edges — in routing tables, in discovery latency, in the computational overhead of maintaining the mesh.
 
 ---
 
@@ -68,11 +68,11 @@ The three topologies teach us something fundamental about distributed systems de
 
 **Topology is destiny.** A grid cannot become a radial network through configuration. A mesh cannot become a grid through policy changes. The topology *is* the system. Choose your topology before you choose your protocol. Everything else is optimization.
 
-**Single topology fallacy.** No city uses one topology. Manhattan has a grid for streets, a subway for rapid transit, and an underground network of tunnels for utilities. Paris has a radial core, a ring road, and a grid of *arrondissements*. Boston has a labyrinth of streets, a radial subway, and a highway system that is a deformed grid. **Layered topologies** — the application of different network structures at different layers of abstraction — is the universal pattern. Your distributed system should have the same property: a flat mesh at the transport layer, a hierarchical tree at the routing layer, a star at the coordination layer, and a grid at the data layer.
+**Single topology fallacy.** No city uses one topology. **Layered topologies** — different network structures at different layers of abstraction — is the universal pattern. Your distributed system should have the same: a flat mesh at transport, a hierarchical tree at routing, a star at coordination, and a grid at data.
 
-**Entropy increases.** Street networks that start as grids devolve into labyrinths. Developers add shortcuts. Planners close streets. Property lines create irregularity. The system drifts toward disorder. Distributed systems have the same problem: config drift, routing table bloat, undocumented firewall rules. **Topology maintenance is a first-class operational concern.**
+**Entropy increases.** Street networks that start as grids devolve into labyrinths. Distributed systems have the same problem: config drift, routing table bloat, undocumented firewall rules. **Topology maintenance is a first-class operational concern.**
 
-**The cost of navigability.** Every topology makes a tradeoff between navigability and expressiveness. Grids are maximally navigable and minimally expressive. Labyrinths are maximally expressive and minimally navigable. Radial networks sit in between. Your protocol design must account for who does the navigation work — the network or the packet. In cities, the pedestrian does their own routing. In TCP/IP, the routers do it. Different topologies, different routing models, different costs.
+**The cost of navigability.** Every topology trades off navigability for expressiveness. Grids are maximally navigable. Labyrinths are maximally expressive. Your protocol design must account for who does the navigation work — the network or the packet.
 
 ---
 

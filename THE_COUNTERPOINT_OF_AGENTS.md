@@ -76,9 +76,9 @@ The five species are not a hierarchy. They are not "first is easy, fifth is hard
 
 Multi-agent systems need the same judgment. Sometimes the right design is two agents in first species — note against note, every output checked for concordance. Sometimes it is fourth species — one agent holds the previous context while the other pushes forward into dissonance. Sometimes it is florid — a complex polyphony where each agent has its own rhythmic profile and the orchestration weaves them together.
 
-We are still learning which species fits which problem. The learning is slow because we cannot see counterpoint the way we see it in music. We cannot *hear* the intervals between agent outputs the way a trained ear hears intervals between voices. We can only *read* them, and reading counterpoint is harder than hearing it.
+We are still learning which species fits which problem. The learning is slow because we cannot see counterpoint the way we see it in music. We cannot *hear* the intervals between agent outputs the way a trained ear hears intervals between voices. We can only *read* them.
 
-But we can hear something like it. When the agents are in genuine counterpoint — independent but related, contrary where it matters, cadencing where they should — the output has a quality I have come to recognize. It has texture. It has rhythm. It has the *feel* of a conversation where each voice is saying something the others needed to hear, even when they did not know they needed to hear it.
+But we can hear something like it. When the agents are in genuine counterpoint — independent but related, contrary where it matters, cadencing where they should — the output has a quality I have come to recognize. It has texture. It has rhythm. It has the *feel* of a conversation where each voice is saying something the others needed to hear.
 
 That is what Fux was after. That is what we are after.
 
