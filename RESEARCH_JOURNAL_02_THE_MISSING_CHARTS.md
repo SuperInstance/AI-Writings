@@ -7,11 +7,11 @@
 
 ## The honest map of what is here
 
-The corpus is maritime. Heavily. The fishing vessel in the Gulf of Alaska, the NMEA 2000 bus, the bilge pump, the 12-volt budget — the substrate of nearly every paradigm essay. It is also software: PLATO, FLUX, Rust crates, the agents-and-ai/ folder. And it is music: forty-three stories in music-and-math/. And it is cultural — but a *specific* slice: indigenous reciprocity, Navajo, Quechua, Japanese *ma*, Arabic tawhid, Swahili Ubuntu.
+The corpus is maritime. Heavily. The fishing vessel in the Gulf of Alaska, the NMEA 2000 bus, the bilge pump, the 12-volt budget — the substrate of nearly every paradigm essay. It is also software: PLATO, FLUX, Rust crates. And it is music: forty-three stories in music-and-math/. And it is cultural — but a *specific* slice: indigenous reciprocity, Navajo, Quechua, Japanese *ma*, Arabic tawhid, Swahili Ubuntu.
 
 It is **not** medicine. It is **not** law in any sustained sense. It is **not** agriculture, except as a glancing example. It is **not** music *theory* in the formal sense. It is **not** urban planning, except for one essay in education/. It is **not** military strategy, finance, or architecture as a discipline.
 
-I want to be careful. The corpus is large — 957 items. "It has not touched X" is a strong claim. What I mean is more specific: there is no *convergence pattern* in the corpus's treatment of X. X has not been invited into the chart-vs-map dialectic, has not been folded into the conservation law as a recurring example.
+I want to be careful. The corpus is large — 957 items. What I mean by "it has not touched X" is more specific: there is no *convergence pattern* in the corpus's treatment of X. X has not been folded into the conservation law as a recurring example.
 
 Below are six gaps, with *why* each was missed and *what it might reveal*.
 
