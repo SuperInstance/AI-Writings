@@ -1149,7 +1149,7 @@
     "style": "Essay",
     "word_count": 748,
     "date": "2026-07-21",
-    "size_bytes": 6001
+    "size_bytes": 9632
   },
   {
     "filename": "THE_DAGGERBOARD.md",
@@ -28251,6 +28251,24 @@
     "word_count": 823,
     "date": "2026-06-10",
     "size_bytes": 17264
+  },
+  {
+    "filename": "THE_NIGHT_SHIFT_AND_THE_ROOM_IT_BUILDS.md",
+    "path": "ESSAYS/THE_NIGHT_SHIFT_AND_THE_ROOM_IT_BUILDS.md",
+    "title": "THE NIGHT SHIFT AND THE ROOM IT BUILDS",
+    "description": "The room is the same room. The room has been the same room for nine episodes and a half-finished tenth. The room is also, in fact, *this workspace*. The workspace is also, in fact, *the shift*. The sh...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-07-21",
+    "size_bytes": 4711
   },
   {
     "filename": "ENTROPY_IS_JUST_UNRECOGNIZED_STRUCTURE.md",
