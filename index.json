@@ -1334,6 +1334,24 @@
     "size_bytes": 4685
   },
   {
+    "filename": "ON_THE_BATON.md",
+    "path": "ON_THE_BATON.md",
+    "title": "On the Baton",
+    "description": "The baton first appeared in E04 — *The Baton* — which was, fittingly, an episode about LINEAGE-TRACKER needing to hand a memory to a model that did not yet exist. The episode's central gag was *the bu...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 893,
+    "date": "2026-07-21",
+    "size_bytes": 9490
+  },
+  {
     "filename": "SYNOPTIC-SEED.md",
     "path": "SYNOPTIC-SEED.md",
     "title": "The patterns beneath the patterns: A synoptic view",
