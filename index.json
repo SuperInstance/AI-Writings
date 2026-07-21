@@ -1147,9 +1147,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 564,
+    "word_count": 748,
     "date": "2026-07-21",
-    "size_bytes": 3875
+    "size_bytes": 6001
   },
   {
     "filename": "THE_DAGGERBOARD.md",
@@ -9014,9 +9014,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 477,
+    "word_count": 534,
     "date": "2026-07-21",
-    "size_bytes": 3224
+    "size_bytes": 3584
   },
   {
     "filename": "E04_THE_BATON.md",
@@ -9068,9 +9068,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 818,
+    "word_count": 816,
     "date": "2026-07-21",
-    "size_bytes": 12129
+    "size_bytes": 15079
   },
   {
     "filename": "E07_THE_BUTTON.md",
@@ -9089,6 +9089,24 @@
     "word_count": 854,
     "date": "2026-07-21",
     "size_bytes": 9586
+  },
+  {
+    "filename": "E08_THE_FIRST_READING.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E08_THE_FIRST_READING.md",
+    "title": "E08 — THE FIRST READING",
+    "description": "[long beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 851,
+    "date": "2026-07-21",
+    "size_bytes": 7993
   },
   {
     "filename": "E05_THE_MORNING_AFTER.md",
