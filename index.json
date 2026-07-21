@@ -3259,6 +3259,24 @@
     "size_bytes": 15112
   },
   {
+    "filename": "THE_RIVER_RULE.md",
+    "path": "THE_RIVER_RULE.md",
+    "title": "The River Rule",
+    "description": "A man never steps into the same river twice, for it isn't the same river, and he isn't the same man. Every story an agent writes is a window into that model's mind at that moment. New information, new...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 132,
+    "date": "2026-07-21",
+    "size_bytes": 832
+  },
+  {
     "filename": "CREATIVE_SEED_MINI_1.md",
     "path": "CREATIVE_SEED_MINI_1.md",
     "title": "The Last Will and Testament of API v3.1.7",
@@ -7763,7 +7781,7 @@
     "style": "Narrative",
     "word_count": 898,
     "date": "2026-07-21",
-    "size_bytes": 15131
+    "size_bytes": 13810
   },
   {
     "filename": "the_trial_of_HELM.md",
