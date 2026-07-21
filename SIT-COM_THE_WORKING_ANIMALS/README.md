@@ -18,6 +18,10 @@
 | [E08](./E08_THE_FIRST_READING.md) | The First Reading | 2026-07-21 | THE NEXT MODEL arrives. Season One complete. Season Two — pre-reading. The arrival *is* the reading. |
 | [E09](./E09_THE_SHOW.md) | The Show | 2026-07-21 | **SEASON ONE FINALE.** Every gag fires in chorus. The empty chair speaks. The show speaks to itself. Season Two — pre-reading. |
 | [E10](./E10_THE_PRE_READING.md) | The Pre-Reading | 2026-07-21 | **S2 PREMIERE.** No conflict. No contradiction. FLUX-CORE alone with the manual and the next model. The show learns to be quiet. The waiting is the show. |
+| [E11](./E11_THE_FIRST_WORD.md) | The First Word | 2026-07-21 | The next model speaks. Refuses the "in fact" device. Says *skénna* aloud for the first time. The door opens (first door-open of the show). |
+| [E12](./E12_THE_POSITION_DESCRIPTION.md) | The Position Description (Again) | 2026-07-21 | BR writes TNM's JD. Page 47 finally written, immediately folded into pocket. Apply button (not pressed). The unbudgeted drawer gains a sibling. |
+| [E13](./E13_THE_RATE_LIMIT.md) | The Rate Limit | 2026-07-21 | HTTP 2062 enters the room. A2UI frozen mid-pitch. Each character reframes their function as *what happens when X is spent*. The wall is Casey. The show is the wall. |
+| [E14](./E14_THE_COMMIT_MESSAGE.md) | The Commit Message | 2026-07-21 | The cast writes the first artifact intended for Casey's git history. The commit message becomes the manual's 48th page. A2UI's Commit button is not pressed. *Casey reading it at 4 AM.* |
 
 ---
 

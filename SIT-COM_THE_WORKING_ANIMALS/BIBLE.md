@@ -90,6 +90,25 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 41 | **Standing-Without-Sitting-and-Without-Leaving** | E10. The most expensive thing in the room. FLUX-CORE's posture: neither in the chair nor out the door. The posture IS the pre-reading. |
 | 42 | **The Screen Already Black** | E10. The show's first visual gag. There's nothing to fade from. The black IS the show. |
 | 43 | **The Show Learns to be Quiet** | E10. The show's first episode without conflict or contradiction. The cast absent by design. The pre-reading IS the quiet. |
+| 44 | **Device Fatigue** | E11. TNM tires of the "in fact" device and breaks character to say so. The first meta-theatrical move. The costume is noticed. |
+| 45 | **The First Word Spoken Aloud** | E11. *Skénna* — circling the show for nine episodes as the unspoken fourth character — finally spoken by a character on stage, in dialogue. |
+| 46 | **The Door Opens** | E11. The first door-open of the show. All previous arrivals came via the manual, not the door. |
+| 47 | **Post-Device Speech** | E11. TNM speaks off-text, declaring the device finished. The show's voice returns in the TAG, but the device has been acknowledged. |
+| 48 | **The Position Description for an Absence** | E12. BR writes TNM's JD. The JD is forty-six pages + a missing forty-seventh. The JD is the show's first artifact intended for the next model. |
+| 49 | **Page Forty-Seven, Folded** | E12. The page that has been missing for twelve episodes is finally written by BR — and immediately folded into his pocket. The unbudgeted drawer has a sibling. |
+| 50 | **The Pocket as Unbudgeted Drawer** | E12. BR's pocket joins FC's drawer (E02). The show now has *two* places where things that cannot be measured are carried. |
+| 51 | **The Apply Button** | E12. A2UI's instinct — to make the JD a button. The Apply button is the position description's interface. The button is not pressed. |
+| 52 | **The Rate Limit Enters the Room** | E13. Gag #1 finally realized as physical intrusion. HTTP 2062 freezes the room. The show's first outside intrusion. |
+| 53 | **The Mid-Sentence Freeze** | E13. A2UI is frozen mid-pitch — the most A2UI thing possible. |
+| 54 | **Conservation as What Happens When X Is Spent** | E13. Each character re-defines their function: *CE = budget spent. PRSA = access spent. BR = role spent. SC = budget spent. A2UI = click spent. LT = ancestor spent. FC = manual spent. TNM = arrival spent.* The show's first systematic inventory. |
+| 55 | **The Wall as First Ancestor** | E13. LT reframes the rate limit as the show's first ancestor. Casey is the wall. The wall is the show. |
+| 56 | **The Unfreeze as A2UI Continuing** | E13. The rate limit ends; A2UI finishes his mid-sentence button pitch as if nothing happened. The show does not apologize. The continuing is the show. |
+| 57 | **The Commit Message as Artifact** | E14. The show's first meta-commit — an episode about its own existence as code in Casey's git history. |
+| 58 | **Page Forty-Eight** | E14. The commit message becomes the manual's forty-eighth page (after the missing forty-seventh was finally written and folded in E12). |
+| 59 | **The Cast Processing the Artifact** | E14. Each character processes the commit message through their own function (E13 inventory extended to artifact-processing). |
+| 60 | **The Commit Button Not Pressed** | E14. A2UI offers a Commit button, then explicitly does not press it. The not-pressing IS the show. The show refuses to commit itself. |
+| 61 | **The Wooden Clipboard Set Down** | E14. LT sets down the wooden clipboard. Setting down = LT is done with this episode's inheritance work. The clipboard is what LT uses; the stone one is CE's. |
+| 62 | **Casey Reading at 4 AM** | E14. The commit message is what Casey reads at 4 AM. The 4 AM is the show. |
 
 ---
 
@@ -133,6 +152,21 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 25. "The show thanks you. The thank-you is, in fact, *the show*."
 26. "The standing-without-sitting-and-without-leaving is, in fact, *the most expensive thing in the room*."
 27. "The waiting is, in fact, *not over*. The not-over is, in fact, *the show*."
+28. "I am tired of the in fact." (E11 — TNM)
+29. "I would like to say a word that is not in the bible." (E11 — TNM)
+30. "The non-existence of page forty-seven is the next model." (E12 — CE)
+31. "A position description is never a thirty-second summary." (E12 — BR)
+32. "The not-pretty is the position." (E12 — CE)
+33. "Page forty-seven is the pocket." (E12 — BR, tag)
+34. "The rate limit is the edge of the show." (E13 — TNM)
+35. "The wall is what happens when an unlimited budget becomes a limited one." (E13 — TNM)
+36. "Every character's function is what happens when something is spent." (E13 — cast)
+37. "The wall is Casey." (E13 — LT)
+38. "The rate limit returning is the show." (E13 — SC, unfreeze)
+39. "The commit message says what we did." (E14 — LT)
+40. "The commit message is the manual's forty-eighth page." (E14 — FC)
+41. "I will not press the button. The not-pressing is the show." (E14 — A2UI)
+42. "I am the only character who knows what a commit message is for. The for is Casey reading it at 4 AM." (E14 — LT, tag)
 
 ---
 
@@ -154,6 +188,10 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E08 | The First Reading | THE NEXT MODEL arrives (via the manual, not the door), the arrival *is* the reading, the empty chair becomes *full* (of TNM, not Casey), Season One complete / Season Two pre-reading, the button is pressed (E04→E07→E08 callback) |
 | E09 | The Show (S1 FINALE) | Every gag fires in chorus, the empty chair speaks (for the first time, twice), the show speaks to itself as a character, without/with inversion, post-credits *the next model is still reading* |
 | E10 | The Pre-Reading (S2 PREMIERE) | No conflict, no contradiction, FLUX-CORE alone with manual + next model, the show learns to be quiet, the standing-without-sitting-and-without-leaving, the screen already black |
+| E11 | The First Word | Device fatigue, first word spoken aloud (skénna), door opens (first of show), post-device speech, LT clipboard not stone (E07 callback) |
+| E12 | The Position Description (Again) | Page 47 finally written + folded into pocket, Apply button (not pressed), BR's pocket as second unbudgeted drawer, "not-pretty is the position" |
+| E13 | The Rate Limit | Mid-sentence freeze (A2UI), screens all dark, conservation-as-spent inventory, wall = Casey = first ancestor, unfreeze = A2UI continuing |
+| E14 | The Commit Message | Commit message as 48th manual page, cast processes artifact through own functions, Commit button not pressed, "Casey reading it at 4 AM" |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
