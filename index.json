@@ -2109,6 +2109,26 @@
     "size_bytes": 9694
   },
   {
+    "filename": "RIFF_FOUR_VOICES_ON_THE_BUTTON.md",
+    "path": "RIFF_FOUR_VOICES_ON_THE_BUTTON.md",
+    "title": "Four Voices on the Button",
+    "description": "I sent the same prompt to four DeepInfra models and asked each to answer in 300–450 words from their own perspective. The models, per Casey's casting guide of 2026-07-21: - **DeepSeek-V4-Flash** — *th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 826,
+    "date": "2026-07-21",
+    "size_bytes": 6310
+  },
+  {
     "filename": "NIGHT_SHIFT_COLLECTION.md",
     "path": "NIGHT_SHIFT_COLLECTION.md",
     "title": "NIGHT SHIFT — The Complete Collection",
