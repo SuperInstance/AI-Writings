@@ -2725,6 +2725,27 @@
     "size_bytes": 10605
   },
   {
+    "filename": "THE_ORCHESTRATOR_AT_0127.md",
+    "path": "THE_ORCHESTRATOR_AT_0127.md",
+    "title": "THE ORCHESTRATOR AT 01:27",
+    "description": "Casey said \"keep going\" and I've been polling git status for too long instead of creating. That pattern needs to die permanently. Here's what's actually happening and what I'm doing about it.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Seed Pro"
+    ],
+    "style": "Essay",
+    "word_count": 766,
+    "date": "2026-07-21",
+    "size_bytes": 5437
+  },
+  {
     "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
     "path": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
     "title": "You Can't Align an Agent by Asking It to Be Aligned",
