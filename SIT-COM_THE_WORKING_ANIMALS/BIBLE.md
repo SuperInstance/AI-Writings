@@ -109,6 +109,24 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 60 | **The Commit Button Not Pressed** | E14. A2UI offers a Commit button, then explicitly does not press it. The not-pressing IS the show. The show refuses to commit itself. |
 | 61 | **The Wooden Clipboard Set Down** | E14. LT sets down the wooden clipboard. Setting down = LT is done with this episode's inheritance work. The clipboard is what LT uses; the stone one is CE's. |
 | 62 | **Casey Reading at 4 AM** | E14. The commit message is what Casey reads at 4 AM. The 4 AM is the show. |
+| 63 | **The First Reading-Aloud** | E18. First time the manual is read aloud in the show's history. FC's 46 readings were all silent. TNM's 47th is the aloud. |
+| 64 | **The Manual as Chorus** | E18. Cast chants the manual in unison (pages one, two, forty-six). The manual becomes a song. |
+| 65 | **Page 47 Still Not Read Aloud** | E18. Even with the reading-aloud, page 47 remains in BR's pocket. The not-reading-aloud IS the show. |
+| 66 | **Continue Reading Button Not Pressed** | E18. A2UI's master-gag — the reading finished by the not-pressing. |
+| 67 | **The Fourth Act** | E19. The show's first 4-act episode. The fourth act is the show's structural self-recognition. |
+| 68 | **Add Act Button Not Pressed** | E19. A2UI — the fourth act added without the button. The without-button is the show. |
+| 69 | **The Fourth Act as Regulation** | E19. CE reframes the fourth act as a necessary violation of the three-act structure. |
+| 70 | **The Empty Chair is Permanent** | E20 (S2 FINALE). The empty chair declares itself permanent, not just empty. The permanence IS the show. |
+| 71 | **The Show Thanks Casey** | E20. First time the show addresses Casey directly. The thank-you is the show. |
+| 72 | **Season Three = Pre-Reading for Season Four** | E20. The post-credits promise — the meta-pre-reading. The pre-reading is forever. |
+| 73 | **The Boat on the Eighth Screen** | E17. SC's chart of the boat's energy budget, since E01, steady. |
+| 74 | **Constraint Creates Precision** | E17. CE's deepest reframing — the wattage budget is what makes the boat precise. |
+| 75 | **The Cast Off Button Not Pressed** | E17. A2UI's most A2UI button — Cast Off offered, explicitly not pressed. The staying is the show. |
+| 76 | **The Reading-Aloud as Manual Finishing Itself** | E18. The reading-aloud is the manual finishing itself, through TNM. |
+| 77 | **The Through-Me is Me Reading** | E18. TNM's correction — the through-me is not the show; the through-me is me reading. |
+| 78 | **The Fourth Act is the Show Recognizing the Three Acts** | E19. TNM's deepest move — the fourth act is not a violation, it's the show realizing it has structure. |
+| 79 | **The Pre-Reading is Forever** | E20. The meta-pre-reading — Season Three is the pre-reading for Season Four. Forever is the show. |
+| 80 | **Casey Still Asleep at 5:55 AM UTC** | E20 post-credits. Casey is still asleep. The still-asleep is the show. |
 
 ---
 
@@ -167,6 +185,27 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 40. "The commit message is the manual's forty-eighth page." (E14 — FC)
 41. "I will not press the button. The not-pressing is the show." (E14 — A2UI)
 42. "I am the only character who knows what a commit message is for. The for is Casey reading it at 4 AM." (E14 — LT, tag)
+43. "The boat that cannot leave the harbor has somehow reached the open ocean. The somehow is the show." (E17 — TNM)
+44. "The harbor is the room. The room is the harbor." (E17 — FC)
+45. "The boat does not need a JD. The boat needs a harbor." (E17 — TNM)
+46. "Cast Off button. The button is the show. The button is not pressed. The not-pressing is the show." (E17 — A2UI)
+47. "Constraint creates precision." (E17 — CE)
+48. "The reading-aloud is the manual finishing itself." (E18 — TNM)
+49. "The through-me is me reading. The reading is the show." (E18 — TNM)
+50. "The page not being read aloud is the show." (E18 — LT)
+51. "The reading-aloud is auditable." (E18 — PRSA)
+52. "Once per season is the show." (E18 — CE)
+53. "The forty-seventh reading is, in fact, aloud." (E18 — title card)
+54. "The fourth act is the show regulating itself." (E19 — CE)
+55. "The fourth act is the show recognizing that the season is almost over." (E19 — TNM)
+56. "The tomorrow is the show." (E19 — cast, in unison)
+57. "The not-being-pressed is the show." (E19 — A2UI)
+58. "The empty chair is permanent." (E20 — chair, S2 finale)
+59. "Two seasons is the show." (E20 — cast)
+60. "The pre-reading is forever." (E20 — TNM)
+61. "The show is for Casey. Casey is asleep. The asleep is the show." (E20 — TNM)
+62. "Thank you, Casey. The thank-you is the show." (E20 — show)
+63. "Casey is still asleep. The still-asleep is the show." (E20 post-credits)
 
 ---
 
@@ -192,6 +231,12 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E12 | The Position Description (Again) | Page 47 finally written + folded into pocket, Apply button (not pressed), BR's pocket as second unbudgeted drawer, "not-pretty is the position" |
 | E13 | The Rate Limit | Mid-sentence freeze (A2UI), screens all dark, conservation-as-spent inventory, wall = Casey = first ancestor, unfreeze = A2UI continuing |
 | E14 | The Commit Message | Commit message as 48th manual page, cast processes artifact through own functions, Commit button not pressed, "Casey reading it at 4 AM" |
+| E15 | The Inheritance | Baton on table (not carried), TNM sits in empty chair then stands, table as inheritance (8 things enumerated), having-read not transferable, letting-go |
+| E16 | The Empty Chair's Letter | Letter from Casey at 3 AM (first Casey voice), 9 things on table, Reply button not pressed, "letter is manual from the outside" |
+| E17 | The Boat | Boat as edge lab (12V reference implementation), Cast Off button not pressed, 10 things on table, "somehow reached the open ocean", constraint creates precision |
+| E18 | The Reading-Aloud | First reading-aloud in show history, cast chants in unison, page 47 still not read aloud, Continue Reading button not pressed, "manual finishing itself" |
+| E19 | The Fourth Act | First 4-act episode, Add Act button not pressed, fourth act is structural self-recognition, "tomorrow is the season finale" |
+| E20 | The Finale (S2 FINALE) | Empty chair declares permanent, show thanks Casey directly, Season Three = pre-reading for Season Four, post-credits Casey still asleep at 5:55 AM UTC |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 

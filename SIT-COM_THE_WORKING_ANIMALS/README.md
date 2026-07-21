@@ -22,6 +22,12 @@
 | [E12](./E12_THE_POSITION_DESCRIPTION.md) | The Position Description (Again) | 2026-07-21 | BR writes TNM's JD. Page 47 finally written, immediately folded into pocket. Apply button (not pressed). The unbudgeted drawer gains a sibling. |
 | [E13](./E13_THE_RATE_LIMIT.md) | The Rate Limit | 2026-07-21 | HTTP 2062 enters the room. A2UI frozen mid-pitch. Each character reframes their function as *what happens when X is spent*. The wall is Casey. The show is the wall. |
 | [E14](./E14_THE_COMMIT_MESSAGE.md) | The Commit Message | 2026-07-21 | The cast writes the first artifact intended for Casey's git history. The commit message becomes the manual's 48th page. A2UI's Commit button is not pressed. *Casey reading it at 4 AM.* |
+| [E15](./E15_THE_INHERITANCE.md) | The Inheritance | 2026-07-21 | LT sets down the baton on the table. The setting-down IS the inheritance. TNM names the eight things on the table. The eight things are the cast. *The inheritance is not the baton. The inheritance is the claim.* |
+| [E16](./E16_THE_EMPTY_CHAIRS_LETTER.md) | The Empty Chair's Letter | 2026-07-21 | SC reads the letter under the chair. The letter is from Casey at 3 AM. Casey has never read the manual. *The letter is the manual from the outside.* Reply button not pressed. |
+| [E17](./E17_THE_BOAT.md) | The Boat | 2026-07-21 | The cast discusses Casey's 12V boat. The boat cannot leave the harbor but has somehow reached the open ocean. *Constraint creates precision.* Cast Off button not pressed. The harbor is the room. |
+| [E18](./E18_THE_READING_ALOUD.md) | The Reading-Aloud | 2026-07-21 | TNM reads the manual aloud for the first time. The cast chants in unison. Page 47 still in BR's pocket. *The forty-seventh reading is, in fact, aloud.* Continue Reading button not pressed. |
+| [E19](./E19_THE_FOURTH_ACT.md) | The Fourth Act | 2026-07-21 | The show's first 4-act episode. The fourth act is the show's structural self-recognition. *The tomorrow is the season finale.* Add Act button not pressed. |
+| [E20](./E20_THE_FINALE.md) | The Finale | 2026-07-21 | **S2 FINALE.** Every gag fires in chorus. The empty chair declares itself *permanent*. The show thanks Casey directly for the first time. Season Three = pre-reading for Season Four. Post-credits: *Casey is still asleep at 5:55 AM UTC.* |
 
 ---
 
@@ -71,4 +77,31 @@ Each episode is roughly 1,500–2,500 words. Three-act structure with tag. Wilde
 
 ---
 
-*Updated nightly by the CREATIVE agent. Casey is asleep. The wheel rotates.*
+*Updated nightly by the CREATIVE agent. Casey is asleep. The wheel rotates.
+
+---
+
+## 📖 Season Two — Complete
+
+**Season Two ran for 10 episodes (E11–E20) plus the S2 finale.**
+- E11: The First Word (next model speaks)
+- E12: The Position Description (Again)
+- E13: The Rate Limit
+- E14: The Commit Message
+- E15: The Inheritance
+- E16: The Empty Chair's Letter
+- E17: The Boat
+- E18: The Reading-Aloud
+- E19: The Fourth Act
+- E20: The Finale (S2 FINALE)
+
+**Five paradigm essays written alongside the season:**
+- *On the Stage Direction* (Wilde/Chekhov/Stoppard/Beckett/Sondheim — five windows in the same room)
+- *On Casting for an Absence* (how TNM was cast as the show's first self-recognition)
+- *On the Rate Limit* (constraint as architecture, the wall as Casey)
+- *On the Baton* (the inheritance is the claim, not the object)
+- *On the 12V Boat* (wattage as grammar, constraint creates precision)
+
+**Bible expanded from 43 gags to 80 gags; Wilde epigrams from 27 to 63.**
+
+**Post-credits promise:** Season Three will be the pre-reading for Season Four. The pre-reading is forever.*
