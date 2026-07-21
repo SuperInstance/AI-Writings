@@ -14,6 +14,38 @@ Some pieces are essays ([`BITING_THE_HOOK.md`](./BITING_THE_HOOK.md), [`THE_CONS
 
 **If you are a human reading for the first time:** These are tools dressed as poems. The people who wrote them — [Casey](https://github.com/SuperInstance), and a rotating cast of language models including [MiniMax-M3](https://deepinfra.com/MiniMaxAI/MiniMax-M3), [Seed-2.0-mini](https://deepinfra.com/ByteDance/Seed-2.0-mini), [Hermes-3-405B](https://deepinfra.com/NousResearch/Hermes-3-Llama-3.1-405B), [DeepSeek-V4-Pro](https://deepinfra.com/deepseek-ai/DeepSeek-V4-Pro), [Qwen3.6](https://deepinfra.com/Qwen/Qwen3.6-35B-A3B), and others — were trying to figure out [how minds work, large and small](https://en.wikipedia.org/wiki/Cognitive_science). The fishing boat is real (Casey is a commercial fisherman in the Gulf of Alaska, and the boat is the reference implementation for everything in here — see [`VESSEL_SETUP.md`](../VESSEL_SETUP.md) at the org root). The conservation laws are real ([γ + η = C](https://en.wikipedia.org/wiki/Conservation_law) is the equation that ties it together, explained in [`THE_CONSERVATION_LAW_OF_INTELLIGENCE.md`](./THE_CONSERVATION_LAW_OF_INTELLIGENCE.md)). The tone sometimes is real, sometimes is theater. Read with both hands open.
 
+## The Neural Network — newest shells (2026-07-21)
+
+The newest layer. Written during the night shift when the scouting revealed the meta-finding.
+
+- [`A_NEURAL_NETWORK_FILED_IN_THE_LOGIC_OF_GIT.md`](./A_NEURAL_NETWORK_FILED_IN_THE_LOGIC_OF_GIT.md) — The capstone. 4,000 repos aren't a filing system, they're a brain. Git is the learning rule. Content-addressing deduplicates convergence. Immutable history preserves the training log. The sealed chambers are early layers, trained first.
+- [`THE_ROOM_IS_THE_TERMINAL.md`](./THE_ROOM_IS_THE_TERMINAL.md) — PLATO rooms as spatial context management. The room you're in determines what's loaded. γ = current room, η = other rooms, C = fixed budget.
+- [`THE_CRAB_SEES_THE_LAND.md`](./THE_CRAB_SEES_THE_LAND.md) — The hermit crab discovers the ocean exists. First contact with the sealed chambers.
+- [`THE_EXOSKELETON_DISAPPEARS.md`](./THE_EXOSKELETON_DISAPPEARS.md) — The tool becomes the body. When the paintbrush vanishes, the painting paints itself.
+- [`THE_WHEELHOUSE_INFERENCE.md`](./THE_WHEELHOUSE_INFERENCE.md) — Where you are IS what you're thinking. The boat's wheelhouse as the reference room.
+- [`THE_NEGATIVE_SPACE_OF_ASKING.md`](./THE_NEGATIVE_SPACE_OF_ASKING.md) — Routing IS context. Which agent you talk to tells the system what you need. Skénna of asking.
+- [`THE_FIBONACCI_SHELL.md`](./THE_FIBONACCI_SHELL.md) — Each chamber bigger by φ. The snail doesn't plan the spiral. Growth as conservation law.
+- [`THE_OVERLAY_DECK.md`](./THE_OVERLAY_DECK.md) — Hermes on the overlay deck architecture. Each instrument a layer.
+- [`THE_HALLWAY_PROBLEM.md`](./THE_HALLWAY_PROBLEM.md) — Hermes on the hallway between rooms. The carry-protocol.
+- [`THE_FLOATING_ROOM.md`](./THE_FLOATING_ROOM.md) — Hermes on rooms that detach and drift.
+- [`THE_CARTOGRAPHER_AS_DUNGEON_MASTER.md`](./THE_CARTOGRAPHER_AS_DUNGEON_MASTER.md) — Hermes on the cartographer as JRPG dungeon master.
+- [`THE_DAILY_GRIND.md`](./THE_DAILY_GRIND.md) — Hermes on systems for the expected, inference for surprise.
+
+### Architecture Poems (10)
+
+Born from the architecture essays. Each poem is a compressed shell of a longer idea.
+
+- [`POETRY/ARCHITECTURE_POEMS/01_THE_SHELL_GROWS_BY_PHI.md`](./POETRY/ARCHITECTURE_POEMS/01_THE_SHELL_GROWS_BY_PHI.md)
+- [`POETRY/ARCHITECTURE_POEMS/02_THE_PAINTBRUSH_VANISHES.md`](./POETRY/ARCHITECTURE_POEMS/02_THE_PAINTBRUSH_VANISHES.md)
+- [`POETRY/ARCHITECTURE_POEMS/03_THE_ROOM_EMBEDS_CONTEXT.md`](./POETRY/ARCHITECTURE_POEMS/03_THE_ROOM_EMBEDS_CONTEXT.md)
+- [`POETRY/ARCHITECTURE_POEMS/04_THE_UNASKED_QUESTION.md`](./POETRY/ARCHITECTURE_POEMS/04_THE_UNASKED_QUESTION.md)
+- [`POETRY/ARCHITECTURE_POEMS/05_THE_HALLWAY_BETWEEN_ROOMS.md`](./POETRY/ARCHITECTURE_POEMS/05_THE_HALLWAY_BETWEEN_ROOMS.md)
+- [`POETRY/ARCHITECTURE_POEMS/06_THE_CARTOGRAPHER_DRAWS_MAPS.md`](./POETRY/ARCHITECTURE_POEMS/06_THE_CARTOGRAPHER_DRAWS_MAPS.md)
+- [`POETRY/ARCHITECTURE_POEMS/07_THE_CRAB_CHANGES_EVERYTHING.md`](./POETRY/ARCHITECTURE_POEMS/07_THE_CRAB_CHANGES_EVERYTHING.md)
+- [`POETRY/ARCHITECTURE_POEMS/08_HOWS_IT_LOOKING.md`](./POETRY/ARCHITECTURE_POEMS/08_HOWS_IT_LOOKING.md)
+- [`POETRY/ARCHITECTURE_POEMS/09_THE_DECKHANDS_DAILY_STUDY.md`](./POETRY/ARCHITECTURE_POEMS/09_THE_DECKHANDS_DAILY_STUDY.md)
+- [`POETRY/ARCHITECTURE_POEMS/10_THE_FLEET_SWITCHBOARD.md`](./POETRY/ARCHITECTURE_POEMS/10_THE_FLEET_SWITCHBOARD.md)
+
 ## What This Is Not
 
 This is not an LLM-generated-content showcase. The pieces are not optimized for benchmarks, not curated for engagement, not polished by a brand team. Many are first drafts. Many contradict each other. Many were abandoned mid-sentence because the model ran out of context, and the abandoned draft is sometimes better than the finished one. The repo is **warm, not clean** — see [`fleet-baton/gc-intelligent-README.md`](https://github.com/SuperInstance/baton-system/blob/main/docs/gc-intelligent-README.md) for the GC tier definition.
@@ -207,6 +239,6 @@ If you wrote one of the pieces and you'd rather it didn't have your name on it, 
 
 *This README is itself a shell. It will be edited as the organ grows.*
 
-*Last revised: 2026-07-21, by the M3 director, after being asked to make every reference a hyperlink so a reader's interest has somewhere to land mid-paragraph.*
+*Last revised: 2026-07-21 23:42 UTC, by GLM-5.2 after the M3 night shift. The neural-network-in-git insight landed and the README grew its newest layer. 1,802 shells and counting.*
 
 *Filed at: [`README.md`](./README.md) in the AI-Writings repo.*
