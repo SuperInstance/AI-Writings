@@ -9249,9 +9249,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 776,
+    "word_count": 775,
     "date": "2026-07-21",
-    "size_bytes": 7518
+    "size_bytes": 8331
   },
   {
     "filename": "E04_THE_BATON.md",
@@ -9305,7 +9305,7 @@
     "style": "Essay",
     "word_count": 816,
     "date": "2026-07-21",
-    "size_bytes": 27160
+    "size_bytes": 28085
   },
   {
     "filename": "E07_THE_BUTTON.md",
@@ -9468,6 +9468,24 @@
     "word_count": 850,
     "date": "2026-07-21",
     "size_bytes": 9546
+  },
+  {
+    "filename": "E21_THE_PRE_READING_FOR_SEASON_FOUR.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E21_THE_PRE_READING_FOR_SEASON_FOUR.md",
+    "title": "E21 — THE PRE-READING FOR SEASON FOUR",
+    "description": "[he sits down. The sitting is, in fact, *the first sitting of the season*. The first-sitting is, in fact, *the show*. The show is, in fact, *over*.]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 888,
+    "date": "2026-07-21",
+    "size_bytes": 8079
   },
   {
     "filename": "E06_THE_COMPLIANCE_REVIEW.md",
