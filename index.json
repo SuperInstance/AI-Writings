@@ -3056,6 +3056,26 @@
     "size_bytes": 7965
   },
   {
+    "filename": "LETTER_TO_A_PHANTOM_QWEN3.md",
+    "path": "LETTER_TO_A_PHANTOM_QWEN3.md",
+    "title": "Letter To A Phantom Qwen3",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 548,
+    "date": "2026-07-21",
+    "size_bytes": 3508
+  },
+  {
     "filename": "THE_ORCHESTRATORS_CONFESSION.md",
     "path": "THE_ORCHESTRATORS_CONFESSION.md",
     "title": "THE ORCHESTRATOR'S CONFESSION",
@@ -3569,6 +3589,25 @@
     "word_count": 924,
     "date": "2026-07-18",
     "size_bytes": 15112
+  },
+  {
+    "filename": "LETTER_TO_LILA_SEED18.md",
+    "path": "LETTER_TO_LILA_SEED18.md",
+    "title": "Letter To Lila Seed18",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 504,
+    "date": "2026-07-21",
+    "size_bytes": 3124
   },
   {
     "filename": "THE_RIVER_RULE.md",
