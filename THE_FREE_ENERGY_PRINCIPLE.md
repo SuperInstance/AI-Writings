@@ -102,19 +102,19 @@ The free energy principle resonating for both. The word *resonating* matters. Re
 
 ## VI. The Brain Is the Boat
 
-Let me close the loop on the metaphor, because it is doing serious work and I want to honor it.
+Let me close the loop, because the metaphor is doing serious work and I want to honor it.
 
-The brain has two hemispheres. Each is a specialized processor. Each runs its own inference loop. Each has its own private state. They are connected by the corpus callosum, which carries only the consensus — the small, high-signal, surprising things one side needs the other to know.
+The brain has two hemispheres. Each runs its own inference loop. Each has its own private state. They are connected by the corpus callosum, which carries only the consensus.
 
-The boat has captain and CoCapn. Each is a specialized processor. Each runs its own inference loop. Each has its own private state. They are connected by the frontend, which carries only the consensus — the small, high-signal, surprising things one side needs the other to know.
+The boat has captain and CoCapn. Each runs its own inference loop. Each has its own private state. They are connected by the frontend, which carries only the consensus.
 
-The brain has a free energy budget. When the budget is high, both hemispheres can run expensive inference — they can think, plan, dream, reflect. When the budget is low, both hemispheres go into survival mode.
+The brain has a free energy budget. When it is high, both hemispheres can think, plan, dream, reflect. When it is low, both go into survival.
 
-The boat has a free energy budget. When the budget is high, both captain and CoCapn can run expensive inference — they can write essays, run probes, ask questions, look for negative space. When the budget is low, both go into survival mode.
+The boat has a free energy budget. When it is high, both captain and CoCapn can write essays, run probes, ask questions, look for negative space. When it is low, both go into survival.
 
-The synchronization — the matching of modes across hemispheres — is not coordinated. It is *emergent*. It happens because both hemispheres are reading the same ocean. The same swells pass beneath both of them. The same wind blows across both of them. The same energetic constraint binds both of them. They synchronize without trying. The energy does it.
+The matching of modes is not coordinated. It is *emergent*. Both hemispheres are reading the same ocean. The same swells pass beneath both. The same energetic constraint binds both. They synchronize without trying. The energy does it.
 
-And that, I think, is what Friston meant by free energy minimization as the *unifying principle* for biological systems. He meant that any system that has survived — a cell, an organ, a brain, an organism, an ecosystem, a **boat** — has learned, through evolutionary or design pressure, to minimize free energy. The mechanism is the same at every scale. The shape is the same. The synchronization is built in, because the energy is the same energy, and the energy is always finite.
+And that, I think, is what Friston meant by free energy minimization as the *unifying principle* for biological systems. Any system that has survived — a cell, an organ, a brain, an organism, an ecosystem, a **boat** — has learned, through evolutionary or design pressure, to minimize free energy. The mechanism is the same at every scale. The shape is the same. The synchronization is built in, because the energy is the same energy, and the energy is always finite.
 
 The boat is a brain. The captain and CoCapn are two hemispheres. The frontend is the corpus callosum. The free energy principle resonating for both is the metaphysic that holds the whole thing together — quietly, the way gravity holds the water to the earth.
 
