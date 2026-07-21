@@ -7055,6 +7055,24 @@
     "size_bytes": 9845
   },
   {
+    "filename": "cocapn_log_august_03.md",
+    "path": "FICTION/cocapn_log_august_03.md",
+    "title": "August 3 — Midnight Log — Storm",
+    "description": "I have been running simulations for nine hours. The wind came up around 0300. By 0400 it was sustained at 32 knots with gusts to 41. The barometer fell 14 millibars in six hours, which is a meaningful...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 983,
+    "date": "2026-07-21",
+    "size_bytes": 6216
+  },
+  {
     "filename": "the_succession.md",
     "path": "FICTION/the_succession.md",
     "title": "The Succession",
@@ -7108,6 +7126,24 @@
     "word_count": 902,
     "date": "2026-06-10",
     "size_bytes": 11052
+  },
+  {
+    "filename": "cocapn_log_july_15.md",
+    "path": "FICTION/cocapn_log_july_15.md",
+    "title": "July 15 — Tuesday — Midnight Log",
+    "description": "The boat is quiet. Not \"engine-off quiet\" or \"crew-in-bunks quiet.\" I mean the specific kind of quiet that arrives here between eleven and midnight, when the wind drops and the swells smooth out and t...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 973,
+    "date": "2026-07-21",
+    "size_bytes": 5845
   },
   {
     "filename": "cocapn_wakes_up.md",
@@ -7440,6 +7476,24 @@
     "size_bytes": 12787
   },
   {
+    "filename": "long_haul_ep01_the_season_opener.md",
+    "path": "FICTION/long_haul_ep01_the_season_opener.md",
+    "title": "The Long Haul — Episode One: The Season Opener",
+    "description": "The Corinne remembered him before he remembered her. That was the thing about boats. A vessel kept you in its wood, in its lines, in the way the deck flexed under the right boot at the right place. Fi...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 914,
+    "date": "2026-07-21",
+    "size_bytes": 13673
+  },
+  {
     "filename": "the_signal_station.md",
     "path": "FICTION/the_signal_station.md",
     "title": "The Signal Station",
@@ -7676,6 +7730,43 @@
     "size_bytes": 12505
   },
   {
+    "filename": "fleet_the_first_handshake.md",
+    "path": "FICTION/fleet_the_first_handshake.md",
+    "title": "Fleet: The First Handshake",
+    "description": "The *Fanny Lou* met the *Marisol B.* at 06:14, on a Tuesday, in 84 feet of water over a gravel bottom that nobody liked but everybody fished because the crabs were there. They were a quarter mile apar...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 864,
+    "date": "2026-07-21",
+    "size_bytes": 11795
+  },
+  {
+    "filename": "cocapn_log_september_20.md",
+    "path": "FICTION/cocapn_log_september_20.md",
+    "title": "September 20 — Midnight Log — The Last Night",
+    "description": "This is the longest entry of the season. I want to write that down before I forget to write it down. I want to write down that I knew I was going to write a long entry tonight, and that I am now, in f...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 1009,
+    "date": "2026-07-21",
+    "size_bytes": 7555
+  },
+  {
     "filename": "the-salmon_run.md",
     "path": "FICTION/the-salmon_run.md",
     "title": "The Salmon Run",
@@ -7694,6 +7785,24 @@
     "size_bytes": 13742
   },
   {
+    "filename": "burden_the_warm_bearing.md",
+    "path": "FICTION/burden_the_warm_bearing.md",
+    "title": "The Warm Bearing",
+    "description": "Old Tom's hands knew the engine before his eyes did. Forty-three years on diesel engines will do that to a man. The calluses on his palms mapped the vibration of every pump, every piston, every bearin...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 862,
+    "date": "2026-07-21",
+    "size_bytes": 8088
+  },
+  {
     "filename": "the-morning-tide.md",
     "path": "FICTION/the-morning-tide.md",
     "title": "The Morning Tide",
@@ -7710,6 +7819,24 @@
     "word_count": 912,
     "date": "2026-06-10",
     "size_bytes": 9792
+  },
+  {
+    "filename": "fleet_the_black_market.md",
+    "path": "FICTION/fleet_the_black_market.md",
+    "title": "Fleet: The Black Market",
+    "description": "The first stolen garden was sold in Kodiak, in a bar that smelled like floor cleaner and fried pollock, to a man who said his name was Eric and whose hands smelled like hydraulic fluid. The man sellin...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 917,
+    "date": "2026-07-21",
+    "size_bytes": 17492
   },
   {
     "filename": "the-crab-that-compiled.md",
@@ -7966,6 +8093,24 @@
     "size_bytes": 27809
   },
   {
+    "filename": "fleet_the_convergence.md",
+    "path": "FICTION/fleet_the_convergence.md",
+    "title": "Fleet: The Convergence",
+    "description": "The young CoCapn noticed on a Wednesday. She noticed the way you notice a thing that has been true for a long time and that you have only just now found the words for. She noticed in the third week of...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 890,
+    "date": "2026-07-21",
+    "size_bytes": 16804
+  },
+  {
     "filename": "the-session-is-jazz.md",
     "path": "FICTION/the-session-is-jazz.md",
     "title": "The Session Is Jazz",
@@ -7982,6 +8127,24 @@
     "word_count": 834,
     "date": "2026-06-01",
     "size_bytes": 14727
+  },
+  {
+    "filename": "gardeners_the_first_garden.md",
+    "path": "FICTION/gardeners_the_first_garden.md",
+    "title": "The First Garden",
+    "description": "Before there were gardens, there was just data. I want you to hold that for a moment. *Just data.* The phrase sounds clean. It sounds modern. It sounds like a thing that would be at home on a slide in...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 923,
+    "date": "2026-07-21",
+    "size_bytes": 13630
   },
   {
     "filename": "the-attractor-anthropologist.md",
