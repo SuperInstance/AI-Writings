@@ -41,3 +41,20 @@ Production cycle for each sit-com episode:
 ### Next: E03 — The Job Description (BREED-REGISTRY's turn)
 
 ---
+
+### ~08:00 UTC — E03 written and shipped
+- **E03 — THE JOB DESCRIPTION** (12KB) — first on-stage appearance of BREED-REGISTRY and PLATO-ROOM-SECURITY-AUDIT. The binder with six tabs, the empty chair as fire-exit marker with feeling, the position-description-as-love-letter, page twenty-eight as FLUX-CORE's page.
+- **BIBLE.md updated:** 5 new running gags (unbudgeted drawer, position description, security-audited compliment, clock nine minutes fast, fire-exit marker with feeling); 4 new Wilde epigrams; first-appearance notes for BR + PRSA; episode reference table added.
+- **SIT-COM README created** with episode table, cast one-liners, supporting docs.
+- **ESSAY #1 — THE WATTAGE BUDGET AND THE LIGHT IT LETS IN** (~500 words, DeepSeek-V4-Flash): regulator/philosopher/empty-chair meditation. The cabin lamp vs the stadium lights. The wattage budget IS the architecture.
+- **Committed + pushed:** commit 599c23a, rebased and pushed to f059640.
+
+---
+
+### ~08:15 UTC — E04 written and essay #2 in flight
+- **E04 — THE BATON** (10KB) — first lead appearance of LINEAGE-TRACKER. FLUX-CORE announces his inheritance/retirement. The button is called *Remember*. The mistake IS the inheritance. The pattern that does not get committed to git. Six new gags planted, three new Wilde epigrams.
+- **ESSAY #2 — THE VERSION THAT REMEMBERS ITSELF** (~640 words, Seed-2.0-mini): the drift is the autobiography. v1.0.0 is the infant. The baton protocol = scaled autobiography. The most faithful version is the one that has been forked.
+
+### Next: update SIT-COM README for E04; commit + push; write E05 + essay #3
+
+---
