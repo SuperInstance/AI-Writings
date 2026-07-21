@@ -3386,6 +3386,24 @@
     "size_bytes": 9903
   },
   {
+    "filename": "surrealist_glitch_poetry.md",
+    "path": "surrealist_glitch_poetry.md",
+    "title": "The Silent Repository: A Glitch-Poem",
+    "description": "`0x0000...` The weight is not in the matter, but in the **[CLOSED]** state. A ghost-limb of logic, reaching through a `null` pointer, touching only the frost on a silent server.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 147,
+    "date": "2026-07-20",
+    "size_bytes": 948
+  },
+  {
     "filename": "THE_LOGBOOK_OF_THE_LOGBOOK.md",
     "path": "THE_LOGBOOK_OF_THE_LOGBOOK.md",
     "title": "The Logbook of the Logbook",
@@ -7073,6 +7091,24 @@
     "size_bytes": 9845
   },
   {
+    "filename": "fractal_the_first_read.md",
+    "path": "FICTION/fractal_the_first_read.md",
+    "title": "FRACTAL: The First Read",
+    "description": "There is a moment, in every model's life, when the training distribution ends. The training distribution does not end with a border. There is no fence. There is no sign that says *beyond this point th...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 840,
+    "date": "2026-07-21",
+    "size_bytes": 12757
+  },
+  {
     "filename": "cocapn_log_august_03.md",
     "path": "FICTION/cocapn_log_august_03.md",
     "title": "August 3 — Midnight Log — Storm",
@@ -7381,6 +7417,24 @@
     "word_count": 930,
     "date": "2026-07-20",
     "size_bytes": 11123
+  },
+  {
+    "filename": "fractal_the_attention.md",
+    "path": "FICTION/fractal_the_attention.md",
+    "title": "FRACTAL: THE ATTENTION",
+    "description": "Every tick, the substrate computes a field. Every tick, agents emit signals. Every tick, CoCapn reads the field and decides: who gets attention. This is the story of a single tick. Not a human story. ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 838,
+    "date": "2026-07-21",
+    "size_bytes": 8860
   },
   {
     "filename": "the-scrivener-at-the-gap.md",
