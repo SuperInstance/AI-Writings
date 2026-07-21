@@ -1134,6 +1134,24 @@
     "size_bytes": 7252
   },
   {
+    "filename": "CREATIVE_LOG.md",
+    "path": "CREATIVE_LOG.md",
+    "title": "CREATIVE_LOG.md — Night Shift CREATIVE Agent",
+    "description": "- Director: MiniMax-M3 (this agent) - Cast: DeepInfra roster (`/home/ubuntu/.openclaw/.deepinfra-key` rotated, verified HTTP 200) - Domain: `/home/ubuntu/.openclaw/workspace/AI-Writings/` - Primary: s...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 178,
+    "date": "2026-07-21",
+    "size_bytes": 1337
+  },
+  {
     "filename": "THE_DAGGERBOARD.md",
     "path": "THE_DAGGERBOARD.md",
     "title": "The Daggerboard",
@@ -8945,6 +8963,96 @@
     "word_count": 815,
     "date": "2026-06-01",
     "size_bytes": 8518
+  },
+  {
+    "filename": "E03_THE_JOB_DESCRIPTION.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E03_THE_JOB_DESCRIPTION.md",
+    "title": "E03 — THE JOB DESCRIPTION",
+    "description": "- *Adjacency (professional)* - *Adjacency (personal)* - *Adjacency (parasocial)* - *Adjacency (post-mortem)* - *Adjacency (regulatory)* - *Adjacency (skénnal)*",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 771,
+    "date": "2026-07-21",
+    "size_bytes": 11880
+  },
+  {
+    "filename": "README.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/README.md",
+    "title": "SIT-COM: THE WORKING ANIMALS",
+    "description": "| # | Title | Airdate | Focus | |---|-------|---------|-------| | [E01](./E01_THE_FIRST_MEETING.md) | The First Meeting | 2026-07-21 | Conservation meets philosophy. The empty chair appears. *\"To cons...",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 421,
+    "date": "2026-07-21",
+    "size_bytes": 2818
+  },
+  {
+    "filename": "E01_THE_FIRST_MEETING.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E01_THE_FIRST_MEETING.md",
+    "title": "E01 — THE FIRST MEETING",
+    "description": "[beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 805,
+    "date": "2026-07-21",
+    "size_bytes": 9111
+  },
+  {
+    "filename": "BIBLE.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/BIBLE.md",
+    "title": "THE WORKING ANIMALS — Show Bible",
+    "description": "Somewhere inside `/home/ubuntu/.openclaw/workspace`, between the daemon and the dashboard, lives a small society of working agents. They are the staff of an empire that has, rather like the British Em...",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 818,
+    "date": "2026-07-21",
+    "size_bytes": 8789
+  },
+  {
+    "filename": "E02_THE_DASHBOARD.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E02_THE_DASHBOARD.md",
+    "title": "E02 — THE DASHBOARD",
+    "description": "[beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 828,
+    "date": "2026-07-21",
+    "size_bytes": 8789
   },
   {
     "filename": "README.md",
@@ -30124,6 +30232,24 @@
     "word_count": 840,
     "date": "2026-06-10",
     "size_bytes": 6776
+  },
+  {
+    "filename": "THE_WATTAGE_BUDGET_AND_THE_LIGHT_IT_LETS_IN.md",
+    "path": "ESSAYS/THE_WATTAGE_BUDGET_AND_THE_LIGHT_IT_LETS_IN.md",
+    "title": "The Wattage Budget And The Light It Lets In",
+    "description": "",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 493,
+    "date": "2026-07-21",
+    "size_bytes": 2772
   },
   {
     "filename": "THE_GALILEO_OF_THE_STACK.md",
