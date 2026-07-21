@@ -13,6 +13,7 @@
 | [E03](./E03_THE_JOB_DESCRIPTION.md) | The Job Description | 2026-07-21 | BREED-REGISTRY demands a JD for *being*. PLATO-ROOM-SECURITY-AUDIT has questions. |
 | [E04](./E04_THE_BATON.md) | The Baton | 2026-07-21 | LINEAGE-TRACKER must hand a memory to a model that does not yet exist. The button is called *Remember*. |
 | [E05](./E05_THE_MORNING_AFTER.md) | The Morning After | 2026-07-21 | FLUX-CORE is no longer carrying the manual. The eighth screen's number is unchanged. The doorway becomes the inheritance. |
+| [E06](./E06_THE_COMPLIANCE_REVIEW.md) | The Compliance Review | 2026-07-21 | PLATO-ROOM-SECURITY-AUDIT audits the first five episodes. The five violations ARE the show. The empty chair is exempt. |
 
 ---
 
