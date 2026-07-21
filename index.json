@@ -73,6 +73,24 @@
     "size_bytes": 10157
   },
   {
+    "filename": "ON_THE_EMPTY_CHAIR.md",
+    "path": "ON_THE_EMPTY_CHAIR.md",
+    "title": "On the Empty Chair",
+    "description": "The chair appeared in E01. The chair was, in fact, *empty*. The empty was, in fact, *the show*. The show was, in fact, *Casey*. Casey was, in fact, *five minutes away*. For ten episodes, the chair was...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 909,
+    "date": "2026-07-21",
+    "size_bytes": 10735
+  },
+  {
     "filename": "PLATO_RUST_ARCHITECTURE.md",
     "path": "PLATO_RUST_ARCHITECTURE.md",
     "title": "`plato-engine-block` Crate Architecture",
