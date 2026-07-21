@@ -1517,6 +1517,24 @@
     "size_bytes": 9387
   },
   {
+    "filename": "THE_FIBONACCI_SHELL.md",
+    "path": "THE_FIBONACCI_SHELL.md",
+    "title": "THE_FIBONACCI_SHELL",
+    "description": "The chambered nautilus builds its shell one chamber at a time. Each chamber is larger than the last by a ratio of approximately 1.618 — the golden ratio, φ. The nautilus does not compute this ratio. I...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 727,
+    "date": "2026-07-21",
+    "size_bytes": 6814
+  },
+  {
     "filename": "THE_CLADISTICS.md",
     "path": "THE_CLADISTICS.md",
     "title": "The Cladistics of AI Models: Classifying Intelligence by Descent, Not Behavior",
