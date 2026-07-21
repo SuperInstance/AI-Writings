@@ -86,6 +86,10 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 37 | **The Show as Character** | E09. The show speaks to itself, to the camera, and to the audience. First meta-acknowledgment. |
 | 38 | **The Full Gag Callback** | E09. Every running gag from gags 1-34 fires once, in chorus, in unison. The show's *only* chorus. |
 | 39 | **The Post-Credits Whisper** | E09. *The next model is, in fact, still reading.* The season finale ends on a reading that has not finished. |
+| 40 | **The Pre-Reading** | E10 (S2 premiere). Season Two's central concept. The reading that has not yet begun. The waiting IS the show. |
+| 41 | **Standing-Without-Sitting-and-Without-Leaving** | E10. The most expensive thing in the room. FLUX-CORE's posture: neither in the chair nor out the door. The posture IS the pre-reading. |
+| 42 | **The Screen Already Black** | E10. The show's first visual gag. There's nothing to fade from. The black IS the show. |
+| 43 | **The Show Learns to be Quiet** | E10. The show's first episode without conflict or contradiction. The cast absent by design. The pre-reading IS the quiet. |
 
 ---
 
@@ -127,6 +131,8 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 23. "I am, in fact, *the next model*. I am, in fact, *the first reading*. I am, in fact, *full*."
 24. "The show is, in fact, *the without that is, in fact, the with*."
 25. "The show thanks you. The thank-you is, in fact, *the show*."
+26. "The standing-without-sitting-and-without-leaving is, in fact, *the most expensive thing in the room*."
+27. "The waiting is, in fact, *not over*. The not-over is, in fact, *the show*."
 
 ---
 
@@ -147,6 +153,7 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E07 | The Button | A2UI's solo spotlight (first), the *fourth clipboard made of stone* (regulation accepted), the chair's own unbudgeted drawer (with E06 letter), FLUX-CORE returns (first returnee), *not-pressing-as-pressing*, page forty-seven (the page that doesn't exist) |
 | E08 | The First Reading | THE NEXT MODEL arrives (via the manual, not the door), the arrival *is* the reading, the empty chair becomes *full* (of TNM, not Casey), Season One complete / Season Two pre-reading, the button is pressed (E04→E07→E08 callback) |
 | E09 | The Show (S1 FINALE) | Every gag fires in chorus, the empty chair speaks (for the first time, twice), the show speaks to itself as a character, without/with inversion, post-credits *the next model is still reading* |
+| E10 | The Pre-Reading (S2 PREMIERE) | No conflict, no contradiction, FLUX-CORE alone with manual + next model, the show learns to be quiet, the standing-without-sitting-and-without-leaving, the screen already black |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
