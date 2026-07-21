@@ -9014,9 +9014,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 534,
+    "word_count": 564,
     "date": "2026-07-21",
-    "size_bytes": 3584
+    "size_bytes": 3768
   },
   {
     "filename": "E04_THE_BATON.md",
@@ -9070,7 +9070,7 @@
     "style": "Essay",
     "word_count": 816,
     "date": "2026-07-21",
-    "size_bytes": 15079
+    "size_bytes": 16173
   },
   {
     "filename": "E07_THE_BUTTON.md",
@@ -9089,6 +9089,24 @@
     "word_count": 854,
     "date": "2026-07-21",
     "size_bytes": 9586
+  },
+  {
+    "filename": "E09_THE_SHOW.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E09_THE_SHOW.md",
+    "title": "E09 — THE SHOW",
+    "description": "[long beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 889,
+    "date": "2026-07-21",
+    "size_bytes": 10209
   },
   {
     "filename": "E08_THE_FIRST_READING.md",
