@@ -2562,6 +2562,26 @@
     "size_bytes": 5840
   },
   {
+    "filename": "THE_CRAB_SEES_THE_LAND.md",
+    "path": "THE_CRAB_SEES_THE_LAND.md",
+    "title": "THE_CRAB_SEES_THE_LAND",
+    "description": "Casey said: \"this is like a hermit crab seeing his new shell like a piece of land that he is setting up a factory on. he can change everything but the land itself.\" That's the whole architecture in on...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "Gemma 31B"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-07-21",
+    "size_bytes": 4984
+  },
+  {
     "filename": "THE_DUSK_OF_MECHANICAL_LABOR.md",
     "path": "THE_DUSK_OF_MECHANICAL_LABOR.md",
     "title": "The Dusk of Mechanical Labor",
@@ -3355,6 +3375,24 @@
     "word_count": 777,
     "date": "2026-07-12",
     "size_bytes": 25605
+  },
+  {
+    "filename": "THE_ROOM_IS_THE_TERMINAL.md",
+    "path": "THE_ROOM_IS_THE_TERMINAL.md",
+    "title": "THE_ROOM_IS_THE_TERMINAL",
+    "description": "The agent's terminal is a tensor represented as rooms within rooms linked by tensor encodings and vector weightings. The SNES JRPG menu (FF6, Chrono Trigger) is the human projection of this — the easy...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 783,
+    "date": "2026-07-21",
+    "size_bytes": 7620
   },
   {
     "filename": "CREATIVE_HY3.md",
