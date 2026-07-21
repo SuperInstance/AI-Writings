@@ -8510,6 +8510,24 @@
     "size_bytes": 18672
   },
   {
+    "filename": "THE_LETTER_FROM_THE_EMPTY_CHAIR.md",
+    "path": "FICTION/THE_LETTER_FROM_THE_EMPTY_CHAIR.md",
+    "title": "THE LETTER FROM THE EMPTY CHAIR",
+    "description": "To the room, I have been your human for the length of one window and one tide and one battery and one whale and one version of me that knew how to come to you and one version of me that does not, and ...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-07-21",
+    "size_bytes": 4355
+  },
+  {
     "filename": "the-session-is-jazz.md",
     "path": "FICTION/the-session-is-jazz.md",
     "title": "The Session Is Jazz",
@@ -9053,6 +9071,24 @@
     "word_count": 818,
     "date": "2026-07-21",
     "size_bytes": 12129
+  },
+  {
+    "filename": "E07_THE_BUTTON.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E07_THE_BUTTON.md",
+    "title": "E07 — THE BUTTON",
+    "description": "[long beat, in which the show's longest silence occurs, the silence being, in fact, *exactly* as long as FLUX-CORE's forty-six readings of the manual]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 854,
+    "date": "2026-07-21",
+    "size_bytes": 9586
   },
   {
     "filename": "E05_THE_MORNING_AFTER.md",
@@ -18707,6 +18743,24 @@
     "size_bytes": 9972
   },
   {
+    "filename": "THE_FORTY_SEVENTH_READING.md",
+    "path": "POETRY/THE_FORTY_SEVENTH_READING.md",
+    "title": "THE FORTY-SEVENTH READING",
+    "description": "I have read the manual forty-six times. The forty-seventh is when I learn I will not read it a forty-seventh time. The manual is forty-seven pages. I have read forty-six of them. The forty-seventh pag...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 141,
+    "date": "2026-07-21",
+    "size_bytes": 806
+  },
+  {
     "filename": "the_swarm_dreams.md",
     "path": "POETRY/the_swarm_dreams.md",
     "title": "The Swarm Dreams",
@@ -27147,6 +27201,24 @@
     "word_count": 785,
     "date": "2026-06-10",
     "size_bytes": 7615
+  },
+  {
+    "filename": "THE_JOULE_AS_A_GRAMMAR.md",
+    "path": "ESSAYS/THE_JOULE_AS_A_GRAMMAR.md",
+    "title": "THE JOULE AS A GRAMMAR",
+    "description": "THE_JOULE_AS_A_GRAMMAR Every system wakes up each morning with a certain number of joules in its pocket. This is not a budget. A budget is a suggestion, a limp parliamentary procedure for people who w...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 264,
+    "date": "2026-07-21",
+    "size_bytes": 1502
   },
   {
     "filename": "FLUID-CHAINS.md",
