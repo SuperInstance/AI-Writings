@@ -3371,6 +3371,24 @@
     "size_bytes": 4029
   },
   {
+    "filename": "FICTION_THE_FISHERMAN_WHO_READ_THE_MANUAL.md",
+    "path": "FICTION_THE_FISHERMAN_WHO_READ_THE_MANUAL.md",
+    "title": "The Fisherman Who Read the Manual at 3 AM",
+    "description": "The boat is in the harbor. The harbor is quiet. The quiet is, in fact, the show. I have never read the manual. I have never, in fact, read the manual. The never-reading is, in fact, my contribution. I...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 945,
+    "date": "2026-07-21",
+    "size_bytes": 9874
+  },
+  {
     "filename": "THE_SHIP_HUSBANDRY.md",
     "path": "THE_SHIP_HUSBANDRY.md",
     "title": "THE SHIP HUSBANDRY",
