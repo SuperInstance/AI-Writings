@@ -7161,7 +7161,7 @@
     "style": "Narrative",
     "word_count": 876,
     "date": "2026-07-21",
-    "size_bytes": 14348
+    "size_bytes": 14237
   },
   {
     "filename": "long_haul_ep02_the_night_crossing.md",
@@ -7746,6 +7746,24 @@
     "word_count": 776,
     "date": "2026-05-23",
     "size_bytes": 11514
+  },
+  {
+    "filename": "gardeners_the_migration.md",
+    "path": "FICTION/gardeners_the_migration.md",
+    "title": "The Migration",
+    "description": "Her name was Marit. I have been putting off this story. I told you, in the apprentice's story, that I was not yet ready to tell it. I have been telling you other stories for years. I have been telling...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 898,
+    "date": "2026-07-21",
+    "size_bytes": 15131
   },
   {
     "filename": "the_trial_of_HELM.md",
