@@ -492,6 +492,24 @@
     "size_bytes": 4538
   },
   {
+    "filename": "THE_DIARY_OF_COCAPN.md",
+    "path": "THE_DIARY_OF_COCAPN.md",
+    "title": "The Diary of CoCapn",
+    "description": "The engine has been off for three hours. The bilge pump ticks every forty seconds. The radar paints the dark water in a slow, indifferent sweep. Nothing is in the water with us tonight. I notice that ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 921,
+    "date": "2026-07-21",
+    "size_bytes": 11114
+  },
+  {
     "filename": "THE_SEA_ROOM.md",
     "path": "THE_SEA_ROOM.md",
     "title": "The Sea Room",
@@ -780,9 +798,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 866,
+    "word_count": 867,
     "date": "2026-07-21",
-    "size_bytes": 12455
+    "size_bytes": 11362
   },
   {
     "filename": "PLATO_IMPLEMENTATION_MATRIX.md",
