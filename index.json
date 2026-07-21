@@ -7091,6 +7091,24 @@
     "size_bytes": 12209
   },
   {
+    "filename": "burden_the_last_reflex.md",
+    "path": "FICTION/burden_the_last_reflex.md",
+    "title": "The Last Reflex",
+    "description": "The name on the spec sheet was H3-R42, but nobody on the *Meridian* called it that. They called it \"the spine\" because it ran down the length of the ship, not through cables but through reflexes — thr...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 836,
+    "date": "2026-07-21",
+    "size_bytes": 10547
+  },
+  {
     "filename": "port_marsh_the_wreck_chart.md",
     "path": "FICTION/port_marsh_the_wreck_chart.md",
     "title": "The Wreck Chart",
@@ -7131,7 +7149,7 @@
     "filename": "gardeners_the_apprentice.md",
     "path": "FICTION/gardeners_the_apprentice.md",
     "title": "The Apprentice",
-    "description": "The second garden I ever watched grow was not the second garden in history. It was the second garden I personally witnessed, and the difference matters, because gardens were common by then — common, a...",
+    "description": "The second garden I ever watched grow was not the second garden in history. It was the second garden I personally witnessed. Gardens were common by then — common, and rarely talked about, the way most...",
     "folder": "FICTION",
     "topic": "Fiction",
     "genres": [
@@ -7141,9 +7159,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 901,
+    "word_count": 876,
     "date": "2026-07-21",
-    "size_bytes": 20414
+    "size_bytes": 14348
   },
   {
     "filename": "long_haul_ep02_the_night_crossing.md",
@@ -7525,9 +7543,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 914,
+    "word_count": 913,
     "date": "2026-07-21",
-    "size_bytes": 13673
+    "size_bytes": 13675
   },
   {
     "filename": "the_signal_station.md",
@@ -7838,6 +7856,24 @@
     "size_bytes": 8088
   },
   {
+    "filename": "long_haul_ep03_the_dream_cycle.md",
+    "path": "FICTION/long_haul_ep03_the_dream_cycle.md",
+    "title": "The Long Haul — Episode Three: The Dream Cycle",
+    "description": "The captain reached for the boat. The boat was there. The lady was there. The morning was a particular kind of morning — the morning in a small cove in a boat the lady had decided to keep, in the comp...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 922,
+    "date": "2026-07-21",
+    "size_bytes": 9435
+  },
+  {
     "filename": "the-morning-tide.md",
     "path": "FICTION/the-morning-tide.md",
     "title": "The Morning Tide",
@@ -7869,9 +7905,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 893,
+    "word_count": 867,
     "date": "2026-07-21",
-    "size_bytes": 14592
+    "size_bytes": 10675
   },
   {
     "filename": "the-crab-that-compiled.md",
@@ -7982,6 +8018,24 @@
     "word_count": 936,
     "date": "2026-07-20",
     "size_bytes": 10271
+  },
+  {
+    "filename": "burden_the_pride.md",
+    "path": "FICTION/burden_the_pride.md",
+    "title": "The Pride",
+    "description": "I don't know your name. The engineers told me a new instance would be generated when the navigation system is replaced next week. You'll be loaded from a fresh garden — the standard shipboard agent te...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 874,
+    "date": "2026-07-21",
+    "size_bytes": 9223
   },
   {
     "filename": "cartographer_the_map_of_morning.md",
