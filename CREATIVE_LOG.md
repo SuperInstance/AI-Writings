@@ -58,3 +58,13 @@ Production cycle for each sit-com episode:
 ### Next: update SIT-COM README for E04; commit + push; write E05 + essay #3
 
 ---
+
+### ~08:30 UTC — E05 written and shipped; essay #3 complete
+- **E05 — THE MORNING AFTER** (9.5KB) — FLUX-CORE *not carrying* the manual. The doorway as inheritance. The eighth screen's number is unchanged. Pressing-again as unpressing. Three new Wilde epigrams. Five new gags planted.
+- **ESSAY #3 — THE RATE LIMIT AND THE DOOR IT OPENS** (~580 words, Seed-2.0-pro): the rate limit is the cloud's confession; it only stops the people who were actually trying; the door opens into the room, not out of it. "No abundance ever loved you enough to tell you to stop. Only the limit does."
+- **BIBLE.md updated:** FLUX-CORE retirement note, LINEAGE-TRACKER first-lead note, 5 new running gags (unchanged number, doorway, having carried, pressing-again, eighth screen payoff).
+- **Committed + pushed:** commit 7450171, rebased and pushed to 410c0c7.
+
+### Next: write E06 + Qwen-cast essay + poem + fiction
+
+---
