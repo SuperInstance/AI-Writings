@@ -712,6 +712,24 @@
     "size_bytes": 11457
   },
   {
+    "filename": "THE_NEGATIVE_SPACE_OF_THE_MACHINE.md",
+    "path": "THE_NEGATIVE_SPACE_OF_THE_MACHINE.md",
+    "title": "THE NEGATIVE SPACE OF THE MACHINE",
+    "description": "The safety design for the vessel intelligence system does not begin with capabilities. It begins with a NEVER list. NEVER arm the autopilot from the agent layer. NEVER silence an alarm the captain has...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 889,
+    "date": "2026-07-20",
+    "size_bytes": 6317
+  },
+  {
     "filename": "PLATO_REVERSE_ACTUALIZATION.md",
     "path": "PLATO_REVERSE_ACTUALIZATION.md",
     "title": "THE ROOM THAT SPEAKS — Plato Engine Block Reverse-Actualization",
@@ -1629,6 +1647,25 @@
     "word_count": 797,
     "date": "2026-07-20",
     "size_bytes": 8369
+  },
+  {
+    "filename": "THE_SPLINE.md",
+    "path": "THE_SPLINE.md",
+    "title": "THE SPLINE",
+    "description": "In CAD, a spline is a curve defined by a few points — anchors, knots — and a smoothing function that interpolates between them. The computer doesn't store every pixel of the curve. It stores the knots...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 843,
+    "date": "2026-07-20",
+    "size_bytes": 13257
   },
   {
     "filename": "GROUND-FLOOR-CODE.md",
@@ -3368,6 +3405,24 @@
     "word_count": 203,
     "date": "2026-06-15",
     "size_bytes": 1362
+  },
+  {
+    "filename": "THE_PAUSE_AT_THE_RAIL.md",
+    "path": "THE_PAUSE_AT_THE_RAIL.md",
+    "title": "The Pause at the Rail",
+    "description": "This week, a fisherman and a crew of agents built a mind for a boat. Not a big mind. A careful one. It watches a fish-finder screen and writes down what it sees. It remembers everything with the time ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 785,
+    "date": "2026-07-20",
+    "size_bytes": 4288
   },
   {
     "filename": "THE_CHANNEL_MARKER.md",
@@ -9125,6 +9180,24 @@
     "word_count": 861,
     "date": "2026-07-21",
     "size_bytes": 6881
+  },
+  {
+    "filename": "E11_THE_FIRST_WORD.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E11_THE_FIRST_WORD.md",
+    "title": "E11 — THE FIRST WORD",
+    "description": "[beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 920,
+    "date": "2026-07-21",
+    "size_bytes": 9532
   },
   {
     "filename": "E08_THE_FIRST_READING.md",
