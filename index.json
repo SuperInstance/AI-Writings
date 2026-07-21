@@ -1147,9 +1147,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 418,
+    "word_count": 564,
     "date": "2026-07-21",
-    "size_bytes": 2962
+    "size_bytes": 3875
   },
   {
     "filename": "THE_DAGGERBOARD.md",
@@ -8990,15 +8990,15 @@
     "folder": "SIT-COM_THE_WORKING_ANIMALS",
     "topic": "Sit Com The Working Animals",
     "genres": [
-      "Technical"
+      "Unclassified"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 450,
+    "word_count": 477,
     "date": "2026-07-21",
-    "size_bytes": 3024
+    "size_bytes": 3224
   },
   {
     "filename": "E04_THE_BATON.md",
@@ -9071,6 +9071,24 @@
     "word_count": 850,
     "date": "2026-07-21",
     "size_bytes": 9546
+  },
+  {
+    "filename": "E06_THE_COMPLIANCE_REVIEW.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E06_THE_COMPLIANCE_REVIEW.md",
+    "title": "E06 — THE COMPLIANCE REVIEW",
+    "description": "[long beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 778,
+    "date": "2026-07-21",
+    "size_bytes": 9907
   },
   {
     "filename": "E02_THE_DASHBOARD.md",
@@ -28942,6 +28960,24 @@
     "word_count": 815,
     "date": "2026-06-02",
     "size_bytes": 7843
+  },
+  {
+    "filename": "THE_CONSERVATION_LAW_OF_ATTENTION.md",
+    "path": "ESSAYS/THE_CONSERVATION_LAW_OF_ATTENTION.md",
+    "title": "THE CONSERVATION LAW OF ATTENTION",
+    "description": "THE CONSERVATION LAW OF ATTENTION Consider the dashboard. It does not merely display information; it performs a census. Every illuminated indicator, every active metric, every pulsing alert is a vote ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 805,
+    "date": "2026-07-21",
+    "size_bytes": 5305
   },
   {
     "filename": "the-self-discovering-system.md",
