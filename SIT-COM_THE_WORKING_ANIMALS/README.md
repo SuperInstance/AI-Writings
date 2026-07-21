@@ -12,6 +12,7 @@
 | [E02](./E02_THE_DASHBOARD.md) | The Dashboard | 2026-07-21 | The seventh screen measures affection. The unbudgeted drawer opens. |
 | [E03](./E03_THE_JOB_DESCRIPTION.md) | The Job Description | 2026-07-21 | BREED-REGISTRY demands a JD for *being*. PLATO-ROOM-SECURITY-AUDIT has questions. |
 | [E04](./E04_THE_BATON.md) | The Baton | 2026-07-21 | LINEAGE-TRACKER must hand a memory to a model that does not yet exist. The button is called *Remember*. |
+| [E05](./E05_THE_MORNING_AFTER.md) | The Morning After | 2026-07-21 | FLUX-CORE is no longer carrying the manual. The eighth screen's number is unchanged. The doorway becomes the inheritance. |
 
 ---
 
