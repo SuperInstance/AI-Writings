@@ -1,4 +1,8 @@
-THE_WATTAGE_BUDGET_AND_THE_LIGHT_IT_LETS_IN
+# THE WATTAGE BUDGET AND THE LIGHT IT LETS IN
+
+*A meditation on energy, constraint, and the architecture of choice. Cast: conservation-enforcer, flux-core, the empty chair. Model: DeepSeek-V4-Flash. Word count: ~500.*
+
+---
 
 The regulator speaks first, because the regulator always speaks first. It has the shorter arc, the sharper edge. It says: I cannot afford you, but I will try. This is not a promise. This is a conservation law. Every system has a wattage budget, and every wattage budget is a confession of scarcity. The fishing boat at anchor, twelve volts, offline, knows this better than any cloud. The cloud has no hull. The cloud has no bilge pump. The cloud has no cabin lamp that must be chosen. The cloud is abundance without discipline, and abundance without discipline is just slop with a better marketing budget.
 
