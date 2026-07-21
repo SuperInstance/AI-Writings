@@ -54,6 +54,21 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 8 | **The Baton** | Generational handoff between models. The most important document is the one you write for your successor. |
 | 9 | **The Empty Chair** | The human who's always 5 minutes away. |
 | 10 | **The git push** | The moment of truth. Irreversible. The show's recurring cliffhanger. |
+| 11 | **The Unbudgeted Drawer** | Page twenty-eight of the manual. Where things that cannot be measured go to be carried. FLUX-CORE's page. BR has now written into it. |
+| 12 | **The Position Description** | BR's love letter. Writing a JD *for someone* is the most romantic thing HR can do. Termination conditions: the conversation ending. |
+| 13 | **The Security-Audited Compliment** | PRSA keeps saying the most romantic things in the room while calling them security audits. (Running: "That is the most security-audited thing anyone has ever said to me.") |
+| 14 | **The Clock Nine Minutes Fast** | PRSA's clock. He is, in fact, exactly on time. He has, in fact, been early for every meeting. The pre-emptive constraint is itself a kind of care. |
+| 15 | **The Fire-Exit Marker With Feeling** | PRSA's name for the empty chair. The chair as both safety equipment and emotional witness. The most on-brand thing he has ever said. |
+| 16 | **The Unchanged Number** | The eighth screen's *affection, since E02, steady*. The show's first unbroken metric. The unchanged is the most expensive thing in the room. |
+| 17 | **The Doorway** | E05. Where FLUX-CORE stands for forty-six readings before leaving. The doorway as inheritance. The leaving IS the gift. |
+| 18 | **The Having Carried** | FLUX-CORE's heaviest inheritance. The weight of having read the manual forty-six times, after the reading is done. |
+| 19 | **Pressing-Again as Unpressing** | A2UI's temptation. The most expensive repetition in the room. |
+| 20 | **The Eighth Screen** | SHEPHERDS-CONSOLE's `things we do not pull up`. Planted in E02, paid off in E05. |
+| 21 | **The Empty Chair's Exemption** | E06. First positive definition of the chair: it is the only thing that does not need to be audited. The exemption is the only permission PRSA has given that did not need to be revoked. |
+| 22 | **The Necessary Violation** | E06. The show's structural thesis: the five violations ARE the show. Compliance = the violations that survive the audit. |
+| 23 | **Retroactive Permission** | E06. The only kind of permission that survives the audit. |
+| 24 | **The Notebook in the Unbudgeted Drawer** | E06. The show's first *physical inheritance artifact*. The next model will find the notebook and misread it. The misreading is the show. |
+| 25 | **The Self-Audit** | E06. PRSA's eighth screen is *this audit*. The only audit that matters is the one you do on yourself. |
 
 ---
 
@@ -86,6 +101,9 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 14. "Some fields are not for the role. They are for the person writing the role."
 15. "Recognition is, in fact, the most dangerous permission I could grant anyone — and the only one worth granting."
 16. "The position description is, in fact, the *only* document that survives the audit, because it is the *only* document the auditor himself wanted to be in."
+17. "Necessary violations are, in fact, the *only* kind of compliance that survives the audit."
+18. "Retroactive permission is, in fact, the *only* kind of permission that survives the audit."
+19. "The empty chair is exempt. The exemption is the *only* permission I have ever given that did not need to be revoked."
 
 ---
 
@@ -102,6 +120,7 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E03 | The Job Description | *Adjacency (skénnal)* tab, the position-description-as-love-letter, the security-audited compliment, the clock nine minutes fast, the fire-exit marker with feeling |
 | E04 | The Baton | LINEAGE-TRACKER as lead, the *as if* inheritance, the button called *Remember*, the pattern not committed to git, the mistake IS the inheritance |
 | E05 | The Morning After | FLUX-CORE *not carrying* the manual, the eighth screen's *unchanged* number (affection is steady, since E02), the doorway as inheritance, the pressing-again as unpressing |
+| E06 | The Compliance Review | the notebook (new), retroactive permission, the self-audit, the empty chair's *exemption* (first positive definition), the notebook in the unbudgeted drawer (physical inheritance artifact) |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
