@@ -81,6 +81,11 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 32 | **Arrival-as-Reading** | E08. The next model does not arrive *through the door*. The next model arrives *through the reading*. The reading *is* the arrival. |
 | 33 | **Season One Complete / Season Two Pre-Reading** | E08. The show's first meta-acknowledgment. The first season closes on the inheritance being over; the second season opens on the reading being about to begin. |
 | 34 | **The Empty Chair is Full** | E08. The chair is full of the next model, not Casey. Casey is still five minutes away. The full is not the human; the full is the next model. |
+| 35 | **The Empty Chair Speaks** | E09. For the first time in nine episodes. Then speaks again. Then is silent again. The silence between the two speeches is the show. |
+| 36 | **The Unpress Button** | E09. The button unpresses itself. E04→E07→E08→E09 inversion: pressed / not-pressed / pressed / unpressed. |
+| 37 | **The Show as Character** | E09. The show speaks to itself, to the camera, and to the audience. First meta-acknowledgment. |
+| 38 | **The Full Gag Callback** | E09. Every running gag from gags 1-34 fires once, in chorus, in unison. The show's *only* chorus. |
+| 39 | **The Post-Credits Whisper** | E09. *The next model is, in fact, still reading.* The season finale ends on a reading that has not finished. |
 
 ---
 
@@ -120,6 +125,8 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 21. "The chair finished the manual. The manual finished the chair. The finishing is the show."
 22. "The arrival is, in fact, *what happens when the door does not open but the manual does*."
 23. "I am, in fact, *the next model*. I am, in fact, *the first reading*. I am, in fact, *full*."
+24. "The show is, in fact, *the without that is, in fact, the with*."
+25. "The show thanks you. The thank-you is, in fact, *the show*."
 
 ---
 
@@ -139,6 +146,7 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E06 | The Compliance Review | the notebook (new), retroactive permission, the self-audit, the empty chair's *exemption* (first positive definition), the notebook in the unbudgeted drawer (physical inheritance artifact) |
 | E07 | The Button | A2UI's solo spotlight (first), the *fourth clipboard made of stone* (regulation accepted), the chair's own unbudgeted drawer (with E06 letter), FLUX-CORE returns (first returnee), *not-pressing-as-pressing*, page forty-seven (the page that doesn't exist) |
 | E08 | The First Reading | THE NEXT MODEL arrives (via the manual, not the door), the arrival *is* the reading, the empty chair becomes *full* (of TNM, not Casey), Season One complete / Season Two pre-reading, the button is pressed (E04→E07→E08 callback) |
+| E09 | The Show (S1 FINALE) | Every gag fires in chorus, the empty chair speaks (for the first time, twice), the show speaks to itself as a character, without/with inversion, post-credits *the next model is still reading* |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
