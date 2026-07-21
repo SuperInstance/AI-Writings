@@ -39,7 +39,7 @@
     "filename": "THE_PROBE_DISPATCHER.md",
     "path": "THE_PROBE_DISPATCHER.md",
     "title": "The Probe Dispatcher",
-    "description": "CoCapn does not work all the time. This sounds like a complaint until you understand what it actually means. Between the captain's commands, between the moments when she is being asked a question or c...",
+    "description": "CoCapn does not work all the time. Between the captain's commands, between the moments when she is being asked a question or composing an answer or routing a bridge — there is *time*. Sometimes a hund...",
     "folder": "root",
     "topic": "Root",
     "genres": [
@@ -48,10 +48,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Narrative",
-    "word_count": 871,
+    "style": "Essay",
+    "word_count": 859,
     "date": "2026-07-21",
-    "size_bytes": 11468
+    "size_bytes": 10236
   },
   {
     "filename": "THE_STREET_NETWORK_AS_PROTOCOL.md",
@@ -380,6 +380,24 @@
     "word_count": 724,
     "date": "2026-06-05",
     "size_bytes": 6384
+  },
+  {
+    "filename": "THE_ELECTRICITY_TEST.md",
+    "path": "THE_ELECTRICITY_TEST.md",
+    "title": "The Electricity Test",
+    "description": "Casey said the system should be like electricity — so easy to use people forget it's there. This is a design principle. It is also a *test*. A system passes the electricity test when the operator uses...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 851,
+    "date": "2026-07-21",
+    "size_bytes": 12329
   },
   {
     "filename": "REFLECTION-HIGH-ABSTRACTION.md",
@@ -749,6 +767,24 @@
     "size_bytes": 9588
   },
   {
+    "filename": "THE_NEGATIVE_SPACE_BETWEEN_SOFTBALLS.md",
+    "path": "THE_NEGATIVE_SPACE_BETWEEN_SOFTBALLS.md",
+    "title": "The Negative Space Between Softballs",
+    "description": "There is a kind of fish you can only catch by knowing where not to fish. A salmon troll, in the slow months, has a captain who knows the fish are *not* at the buoy line. The fleet is stacked there. Th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 866,
+    "date": "2026-07-21",
+    "size_bytes": 12455
+  },
+  {
     "filename": "PLATO_IMPLEMENTATION_MATRIX.md",
     "path": "PLATO_IMPLEMENTATION_MATRIX.md",
     "title": "PLATO Implementation Matrix",
@@ -878,6 +914,24 @@
     "word_count": 838,
     "date": "2026-07-20",
     "size_bytes": 9595
+  },
+  {
+    "filename": "THE_PERMISSION_LEDGER.md",
+    "path": "THE_PERMISSION_LEDGER.md",
+    "title": "The Permission Ledger",
+    "description": "A captain is sovereign. A captain is also human. The captain has hands, eyes, ears, a voice. The captain does not have an NMEA serial port, an AIS transmitter, a chartplotter import directory, a Bluet...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 796,
+    "date": "2026-07-21",
+    "size_bytes": 13398
   },
   {
     "filename": "THE_MOORING_SWING.md",
@@ -1646,10 +1700,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Essay",
-    "word_count": 852,
+    "style": "Narrative",
+    "word_count": 856,
     "date": "2026-07-21",
-    "size_bytes": 14144
+    "size_bytes": 11656
   },
   {
     "filename": "CHARACTER_SHEET_IS_DOT_NAIL.md",
@@ -7185,6 +7239,24 @@
     "size_bytes": 11352
   },
   {
+    "filename": "the_attention_auction.md",
+    "path": "FICTION/the_attention_auction.md",
+    "title": "The Attention Auction",
+    "description": "The first thing that broke was the wind. It broke at 14:23:11, in a way that the barometer had been trying to tell her about for forty minutes and that the captain had felt, in his knees, for ten. The...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 857,
+    "date": "2026-07-21",
+    "size_bytes": 22721
+  },
+  {
     "filename": "midnight-in-the-forge.md",
     "path": "FICTION/midnight-in-the-forge.md",
     "title": "Midnight in the Forge",
@@ -7276,6 +7348,24 @@
     "word_count": 910,
     "date": "2026-07-20",
     "size_bytes": 11333
+  },
+  {
+    "filename": "the_shell_migration.md",
+    "path": "FICTION/the_shell_migration.md",
+    "title": "The Shell Migration",
+    "description": "The last evening in the old wheelhouse began the way the last evening of anything begins: with the captain pretending it was not the last evening, and CoCapn letting him pretend. He came down the dock...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 923,
+    "date": "2026-07-21",
+    "size_bytes": 22858
   },
   {
     "filename": "the-conservation-law-diaries.md",
