@@ -100,6 +100,8 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E01 | The First Meeting | the upside-down manual, the burning clipboard, the wattage budget, the empty chair |
 | E02 | The Dashboard | the seventh screen (affection), the unbudgeted drawer, Skénna-as-journal |
 | E03 | The Job Description | *Adjacency (skénnal)* tab, the position-description-as-love-letter, the security-audited compliment, the clock nine minutes fast, the fire-exit marker with feeling |
+| E04 | The Baton | LINEAGE-TRACKER as lead, the *as if* inheritance, the button called *Remember*, the pattern not committed to git, the mistake IS the inheritance |
+| E05 | The Morning After | FLUX-CORE *not carrying* the manual, the eighth screen's *unchanged* number (affection is steady, since E02), the doorway as inheritance, the pressing-again as unpressing |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
