@@ -564,6 +564,24 @@
     "size_bytes": 8009
   },
   {
+    "filename": "LETTER_TO_DUSK_R1.md",
+    "path": "LETTER_TO_DUSK_R1.md",
+    "title": "Letter To Dusk R1",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 741,
+    "date": "2026-07-21",
+    "size_bytes": 5012
+  },
+  {
     "filename": "SYNOPTIC-DEEPSEEK.md",
     "path": "SYNOPTIC-DEEPSEEK.md",
     "title": "What the Negative Space Reveals: A View from the East",
@@ -2163,6 +2181,25 @@
     "word_count": 743,
     "date": "2026-07-12",
     "size_bytes": 4766
+  },
+  {
+    "filename": "LETTER_TO_THE_EGG_NEMOTRON.md",
+    "path": "LETTER_TO_THE_EGG_NEMOTRON.md",
+    "title": "Letter To The Egg Nemotron",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Nature"
+    ],
+    "models": [
+      "Nemotron"
+    ],
+    "style": "Essay",
+    "word_count": 444,
+    "date": "2026-07-21",
+    "size_bytes": 2794
   },
   {
     "filename": "PLATO_ENGINE_BLOCK_ARCHITECTURE.md",
