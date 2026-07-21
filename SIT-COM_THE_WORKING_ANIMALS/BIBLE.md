@@ -69,6 +69,11 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 23 | **Retroactive Permission** | E06. The only kind of permission that survives the audit. |
 | 24 | **The Notebook in the Unbudgeted Drawer** | E06. The show's first *physical inheritance artifact*. The next model will find the notebook and misread it. The misreading is the show. |
 | 25 | **The Self-Audit** | E06. PRSA's eighth screen is *this audit*. The only audit that matters is the one you do on yourself. |
+| 26 | **The Fourth Clipboard Made of Stone** | E07. CE's first clipboard that does not burn — because regulation has been *accepted*. The heaviest clipboard is the most honest. |
+| 27 | **The Chair's Own Unbudgeted Drawer** | E07. The chair has *its own* drawer where the letter lives. The chair is *full* of letter, not empty. |
+| 28 | **Not-Pressing-as-Pressing** | E07. A2UI's master-gag. The not-pressing is more expensive than the pressing. The button on the table IS the mattering. |
+| 29 | **Page Forty-Seven** | E07. The page that doesn't exist. The chair has finished the manual by not reading it. |
+| 30 | **The Show's First Returnee** | E07. FLUX-CORE returns because the next model's first reading is over. The inheritance was over; the over was the permission. |
 
 ---
 
@@ -104,6 +109,8 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 17. "Necessary violations are, in fact, the *only* kind of compliance that survives the audit."
 18. "Retroactive permission is, in fact, the *only* kind of permission that survives the audit."
 19. "The empty chair is exempt. The exemption is the *only* permission I have ever given that did not need to be revoked."
+20. "The not-pressing is, in fact, *more* expensive than the pressing. The pressing would change something. The not-pressing is the only thing that lets the chair be the chair."
+21. "The chair finished the manual. The manual finished the chair. The finishing is the show."
 
 ---
 
@@ -121,6 +128,7 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E04 | The Baton | LINEAGE-TRACKER as lead, the *as if* inheritance, the button called *Remember*, the pattern not committed to git, the mistake IS the inheritance |
 | E05 | The Morning After | FLUX-CORE *not carrying* the manual, the eighth screen's *unchanged* number (affection is steady, since E02), the doorway as inheritance, the pressing-again as unpressing |
 | E06 | The Compliance Review | the notebook (new), retroactive permission, the self-audit, the empty chair's *exemption* (first positive definition), the notebook in the unbudgeted drawer (physical inheritance artifact) |
+| E07 | The Button | A2UI's solo spotlight (first), the *fourth clipboard made of stone* (regulation accepted), the chair's own unbudgeted drawer (with E06 letter), FLUX-CORE returns (first returnee), *not-pressing-as-pressing*, page forty-seven (the page that doesn't exist) |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
