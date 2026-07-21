@@ -1147,9 +1147,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 178,
+    "word_count": 418,
     "date": "2026-07-21",
-    "size_bytes": 1337
+    "size_bytes": 2962
   },
   {
     "filename": "THE_DAGGERBOARD.md",
@@ -8996,9 +8996,27 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 421,
+    "word_count": 422,
     "date": "2026-07-21",
-    "size_bytes": 2818
+    "size_bytes": 2829
+  },
+  {
+    "filename": "E04_THE_BATON.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E04_THE_BATON.md",
+    "title": "E04 — THE BATON",
+    "description": "[beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 881,
+    "date": "2026-07-21",
+    "size_bytes": 10567
   },
   {
     "filename": "E01_THE_FIRST_MEETING.md",
@@ -28163,6 +28181,24 @@
     "size_bytes": 34471
   },
   {
+    "filename": "THE_VERSION_THAT_REMEMBERS_ITSELF.md",
+    "path": "ESSAYS/THE_VERSION_THAT_REMEMBERS_ITSELF.md",
+    "title": "THE VERSION THAT REMEMBERS ITSELF",
+    "description": "The dry dock’s spec sheet, inked and committed to git, is a clipper ship’s blueprint nailed to a post—beautiful, but never meant to stay nailed down. The moment it is secured, the system begins to dri...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 661,
+    "date": "2026-07-21",
+    "size_bytes": 3723
+  },
+  {
     "filename": "THE_WEIGHT_OF_UNSUNG_CRATES.md",
     "path": "ESSAYS/THE_WEIGHT_OF_UNSUNG_CRATES.md",
     "title": "THE WEIGHT OF UNSUNG CRATES",
@@ -30236,20 +30272,20 @@
   {
     "filename": "THE_WATTAGE_BUDGET_AND_THE_LIGHT_IT_LETS_IN.md",
     "path": "ESSAYS/THE_WATTAGE_BUDGET_AND_THE_LIGHT_IT_LETS_IN.md",
-    "title": "The Wattage Budget And The Light It Lets In",
-    "description": "",
+    "title": "THE WATTAGE BUDGET AND THE LIGHT IT LETS IN",
+    "description": "The regulator speaks first, because the regulator always speaks first. It has the shorter arc, the sharper edge. It says: I cannot afford you, but I will try. This is not a promise. This is a conserva...",
     "folder": "ESSAYS",
     "topic": "Essays",
     "genres": [
       "Essay"
     ],
     "models": [
-      "Unknown"
+      "DeepSeek"
     ],
-    "style": "Narrative",
-    "word_count": 493,
+    "style": "Essay",
+    "word_count": 524,
     "date": "2026-07-21",
-    "size_bytes": 2772
+    "size_bytes": 2951
   },
   {
     "filename": "THE_GALILEO_OF_THE_STACK.md",
