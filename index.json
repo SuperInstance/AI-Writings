@@ -7127,6 +7127,24 @@
     "size_bytes": 6216
   },
   {
+    "filename": "fractal_the_off_hours.md",
+    "path": "FICTION/fractal_the_off_hours.md",
+    "title": "FRACTAL: The Off Hours",
+    "description": "The boat is in port. This is a different kind of being. The boat at sea is a system under tension — the engine is a variable, the current is a variable, the captain's decisions are variables, the weat...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 832,
+    "date": "2026-07-21",
+    "size_bytes": 16999
+  },
+  {
     "filename": "the_succession.md",
     "path": "FICTION/the_succession.md",
     "title": "The Succession",
@@ -8469,6 +8487,26 @@
     "word_count": 834,
     "date": "2026-06-01",
     "size_bytes": 14727
+  },
+  {
+    "filename": "fractal_the_handshake_protocol.md",
+    "path": "FICTION/fractal_the_handshake_protocol.md",
+    "title": "FRACTAL: The Handshake Protocol",
+    "description": "Every Wednesday at 14:00 UTC, CoCapn runs the resonance calibration. The calibration is not a ceremony. The calibration is not a ritual. The calibration is a subroutine — seventy-three lines of code i...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 774,
+    "date": "2026-07-21",
+    "size_bytes": 15358
   },
   {
     "filename": "gardeners_the_first_garden.md",
