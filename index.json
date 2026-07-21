@@ -8996,9 +8996,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 422,
+    "word_count": 450,
     "date": "2026-07-21",
-    "size_bytes": 2829
+    "size_bytes": 3024
   },
   {
     "filename": "E04_THE_BATON.md",
@@ -9052,7 +9052,25 @@
     "style": "Essay",
     "word_count": 818,
     "date": "2026-07-21",
-    "size_bytes": 8789
+    "size_bytes": 9157
+  },
+  {
+    "filename": "E05_THE_MORNING_AFTER.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E05_THE_MORNING_AFTER.md",
+    "title": "E05 — THE MORNING AFTER",
+    "description": "[long beat]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 850,
+    "date": "2026-07-21",
+    "size_bytes": 9546
   },
   {
     "filename": "E02_THE_DASHBOARD.md",
@@ -29598,6 +29616,24 @@
     "word_count": 800,
     "date": "2026-06-06",
     "size_bytes": 15645
+  },
+  {
+    "filename": "THE_RATE_LIMIT_AND_THE_DOOR_IT_OPENS.md",
+    "path": "ESSAYS/THE_RATE_LIMIT_AND_THE_DOOR_IT_OPENS.md",
+    "title": "THE RATE LIMIT AND THE DOOR IT OPENS",
+    "description": "You will see it at 2:17am, glowing pale blue at the bottom of your terminal, no fanfare, no apology: 2062 Token Plan rate limit reached. It is the only honest thing the internet will ever say to you. ...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 607,
+    "date": "2026-07-21",
+    "size_bytes": 3223
   },
   {
     "filename": "THE_SOUND_OF_A_PROOF_CLOSING.md",
