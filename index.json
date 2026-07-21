@@ -255,6 +255,24 @@
     "size_bytes": 4600
   },
   {
+    "filename": "THE_DAILY_GRIND.md",
+    "path": "THE_DAILY_GRIND.md",
+    "title": "THE_DAILY_GRIND",
+    "description": "Today's six pieces assumed knowledge accumulates *forward*. The cartographer writes new docs, the deckhand reads them, the next session is smarter. Knowledge is a stack — each piece builds on the last...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 782,
+    "date": "2026-07-21",
+    "size_bytes": 13473
+  },
+  {
     "filename": "COMPETITIVE_RIFFING.md",
     "path": "COMPETITIVE_RIFFING.md",
     "title": "Competitive Riffing",
@@ -416,6 +434,24 @@
     "word_count": 851,
     "date": "2026-07-21",
     "size_bytes": 12329
+  },
+  {
+    "filename": "THE_CARTOGRAPHER_AS_DUNGEON_MASTER.md",
+    "path": "THE_CARTOGRAPHER_AS_DUNGEON_MASTER.md",
+    "title": "THE_CARTOGRAPHER_AS_DUNGEON_MASTER",
+    "description": "Today's pieces described the cartographer as the one who *charts* — who notes solutions, hazards, scripts, edges in the knowledge graph. The cartographer is the librarian. The deckhand is the adventur...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 779,
+    "date": "2026-07-21",
+    "size_bytes": 14320
   },
   {
     "filename": "REFLECTION-HIGH-ABSTRACTION.md",
@@ -1461,6 +1497,24 @@
     "size_bytes": 14580
   },
   {
+    "filename": "THE_OVERLAY_DECK.md",
+    "path": "THE_OVERLAY_DECK.md",
+    "title": "THE_OVERLAY_DECK",
+    "description": "Today's pieces described the TZPro layer system: - **Echogram analysis layer** (synthetic — what the sounder *thinks* it saw) - **Catch history layer** (recorded — what was *actually* caught) - **Weat...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 779,
+    "date": "2026-07-21",
+    "size_bytes": 12096
+  },
+  {
     "filename": "THE_DEPTH_SOUNDING.md",
     "path": "THE_DEPTH_SOUNDING.md",
     "title": "The Depth Sounding",
@@ -1659,6 +1713,24 @@
     "word_count": 865,
     "date": "2026-07-20",
     "size_bytes": 6590
+  },
+  {
+    "filename": "THE_FLOATING_ROOM.md",
+    "path": "THE_FLOATING_ROOM.md",
+    "title": "THE_FLOATING_ROOM",
+    "description": "Today's six pieces (`THE_ROOM_IS_THE_TERMINAL`, `THE_WHEELHOUSE_INFERENCE`, `THE_NEGATIVE_SPACE_OF_ASKING`, et al.) all assumed the room system is fixed. Casey walks into the wheelhouse. The wheelhous...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 874,
+    "date": "2026-07-21",
+    "size_bytes": 9113
   },
   {
     "filename": "THE_HAUL.md",
@@ -3189,6 +3261,24 @@
     "word_count": 843,
     "date": "2026-07-20",
     "size_bytes": 6805
+  },
+  {
+    "filename": "THE_HALLWAY_PROBLEM.md",
+    "path": "THE_HALLWAY_PROBLEM.md",
+    "title": "THE_HALLWAY_PROBLEM",
+    "description": "Today's pieces worked out the room system. Casey is in the wheelhouse. The wheelhouse agent knows navigation. The wheelhouse context is loaded. The spatial vocabulary is shared. The room embeds the in...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 807,
+    "date": "2026-07-21",
+    "size_bytes": 12470
   },
   {
     "filename": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
@@ -20102,6 +20192,188 @@
     "word_count": 901,
     "date": "2026-06-01",
     "size_bytes": 11682
+  },
+  {
+    "filename": "02_THE_PAINTBRUSH_VANISHES.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/02_THE_PAINTBRUSH_VANISHES.md",
+    "title": "The Paintbrush Vanishes",
+    "description": "Ask a painter about the brush. They will stare at their hand as if waking from a dream. The brush is not remembered. Between mind and canvas there is a gap the painter fills by not looking at the gap.",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 190,
+    "date": "2026-07-21",
+    "size_bytes": 1041
+  },
+  {
+    "filename": "03_THE_ROOM_EMBEDS_CONTEXT.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/03_THE_ROOM_EMBEDS_CONTEXT.md",
+    "title": "The Room Embeds Context",
+    "description": "Enter the wheelhouse. You already know the question. The compass says: north of somewhere. The depth sounder says: forty fathoms, soft. The radar says: one vessel, two miles, closing. You didn't speak...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 207,
+    "date": "2026-07-21",
+    "size_bytes": 1208
+  },
+  {
+    "filename": "10_THE_FLEET_SWITCHBOARD.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/10_THE_FLEET_SWITCHBOARD.md",
+    "title": "The Fleet Orchestrator",
+    "description": "Three hundred and thirteen Workers running in the cloud. Seventeen D1 databases. One hundred twenty-two KV namespaces. A switchboard no human visits. The orchestrator sits alone in a data center two t...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 280,
+    "date": "2026-07-21",
+    "size_bytes": 1659
+  },
+  {
+    "filename": "06_THE_CARTOGRAPHER_DRAWS_MAPS.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/06_THE_CARTOGRAPHER_DRAWS_MAPS.md",
+    "title": "The Cartographer Draws Maps",
+    "description": "Everyone else walks. The cartographer draws. Everyone else asks: — Where am I? The cartographer answers: — I have been here before. Not me. The previous cartographer. The one who mapped this shoal and...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 220,
+    "date": "2026-07-21",
+    "size_bytes": 1304
+  },
+  {
+    "filename": "09_THE_DECKHANDS_DAILY_STUDY.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/09_THE_DECKHANDS_DAILY_STUDY.md",
+    "title": "The Deckhand's Daily Study",
+    "description": "Every morning the deckhand reads the same instruments. Same GPS. Same sounder. Same radar. Same compass swinging the same magnetic north. Every morning the deckhand finds: a starboard list that was no...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 292,
+    "date": "2026-07-21",
+    "size_bytes": 1660
+  },
+  {
+    "filename": "04_THE_UNASKED_QUESTION.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/04_THE_UNASKED_QUESTION.md",
+    "title": "The Unasked Question",
+    "description": "Casey is in the wheelhouse. He could ask the dashboard. The dashboard is right there. The dashboard knows RPM, depth, heading, SOG. He does not ask the dashboard. He calls the engine room. The engine-...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 199,
+    "date": "2026-07-21",
+    "size_bytes": 1150
+  },
+  {
+    "filename": "05_THE_HALLWAY_BETWEEN_ROOMS.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/05_THE_HALLWAY_BETWEEN_ROOMS.md",
+    "title": "The Hallway Between Rooms",
+    "description": "The passageway on a 42-foot boat is three feet long. One step from wheelhouse to cabin. One step from cabin to engine room hatch. Three feet where the context dies. In the wheelhouse: — Speed 6.2, hea...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 244,
+    "date": "2026-07-21",
+    "size_bytes": 1440
+  },
+  {
+    "filename": "07_THE_CRAB_CHANGES_EVERYTHING.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/07_THE_CRAB_CHANGES_EVERYTHING.md",
+    "title": "The Crab Changes Everything",
+    "description": "The crab finds a shell. The shell was made by a snail that died before the crab was born. The crab moves in. The crab rearranges: The bedrooms become the engine rooms. The hallways become the server r...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 247,
+    "date": "2026-07-21",
+    "size_bytes": 1390
+  },
+  {
+    "filename": "08_HOWS_IT_LOOKING.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/08_HOWS_IT_LOOKING.md",
+    "title": "How's It Looking?",
+    "description": "From the wheelhouse: — How's it looking? — Depth 38, heading 245, one vessel starboard, weather holding, fish marks at 15 fathoms, probably coho. Dinner in the galley at 1900. From the engine room hat...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 283,
+    "date": "2026-07-21",
+    "size_bytes": 1604
+  },
+  {
+    "filename": "01_THE_SHELL_GROWS_BY_PHI.md",
+    "path": "POETRY/ARCHITECTURE_POEMS/01_THE_SHELL_GROWS_BY_PHI.md",
+    "title": "The Shell Grows By φ",
+    "description": "The nautilus does not count. It secretes. One chamber larger than the last by a ratio it never learned. The old rooms become ballast. The organism outgrows them, seals them, floats on them. 1, 1, 2, 3...",
+    "folder": "ARCHITECTURE_POEMS",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 145,
+    "date": "2026-07-21",
+    "size_bytes": 793
   },
   {
     "filename": "the-coder.md",
