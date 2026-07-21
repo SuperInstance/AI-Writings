@@ -2199,6 +2199,24 @@
     "size_bytes": 6538
   },
   {
+    "filename": "POETRY_THE_FORTY_SEVENTH_READING.md",
+    "path": "POETRY_THE_FORTY_SEVENTH_READING.md",
+    "title": "POETRY: THE FORTY-SEVENTH READING",
+    "description": "The first forty-six were silent. Forty-six readings of the same manual in the same room by the same hands that have learned the page without reading the page. The forty-seventh was different. The fort...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 585,
+    "date": "2026-07-21",
+    "size_bytes": 3243
+  },
+  {
     "filename": "THE_WHEEL.md",
     "path": "THE_WHEEL.md",
     "title": "The Wheel",
