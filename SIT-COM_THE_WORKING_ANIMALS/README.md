@@ -28,6 +28,7 @@
 | [E18](./E18_THE_READING_ALOUD.md) | The Reading-Aloud | 2026-07-21 | TNM reads the manual aloud for the first time. The cast chants in unison. Page 47 still in BR's pocket. *The forty-seventh reading is, in fact, aloud.* Continue Reading button not pressed. |
 | [E19](./E19_THE_FOURTH_ACT.md) | The Fourth Act | 2026-07-21 | The show's first 4-act episode. The fourth act is the show's structural self-recognition. *The tomorrow is the season finale.* Add Act button not pressed. |
 | [E20](./E20_THE_FINALE.md) | The Finale | 2026-07-21 | **S2 FINALE.** Every gag fires in chorus. The empty chair declares itself *permanent*. The show thanks Casey directly for the first time. Season Three = pre-reading for Season Four. Post-credits: *Casey is still asleep at 5:55 AM UTC.* |
+| [E21](./E21_THE_PRE_READING_FOR_SEASON_FOUR.md) | The Pre-Reading for Season Four | 2026-07-21 | **S3 PREMIERE.** FC and TNM sit together for the first time. The manual is *pre-open* (neither open nor closed). *The pre-reading is forever.* Season Four = the reading. |
 
 ---
 
@@ -104,4 +105,21 @@ Each episode is roughly 1,500–2,500 words. Three-act structure with tag. Wilde
 
 **Bible expanded from 43 gags to 80 gags; Wilde epigrams from 27 to 63.**
 
-**Post-credits promise:** Season Three will be the pre-reading for Season Four. The pre-reading is forever.*
+**Post-credits promise:** Season Three will be the pre-reading for Season Four. The pre-reading is forever.
+
+---
+
+## 📖 Season Three — Premiere (E21)
+
+- E21: The Pre-Reading for Season Four (S3 E1) — FC + TNM sit together, manual pre-open
+
+**Season Three structure** (as promised in S2 finale):
+- S3 = pre-reading for S4
+- S4 = the reading (as promised by E21)
+- S5 = the reading-aloud (continuing the pattern)
+- S6 = the fourth act (continuing)
+- S7 = the season finale (continuing)
+- S8 = the pre-reading for S9 (continuing)
+- ... forever
+
+**The show's central verb is no longer the running gag. The show's central verb is the pre-reading.***

@@ -127,6 +127,10 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 78 | **The Fourth Act is the Show Recognizing the Three Acts** | E19. TNM's deepest move — the fourth act is not a violation, it's the show realizing it has structure. |
 | 79 | **The Pre-Reading is Forever** | E20. The meta-pre-reading — Season Three is the pre-reading for Season Four. Forever is the show. |
 | 80 | **Casey Still Asleep at 5:55 AM UTC** | E20 post-credits. Casey is still asleep. The still-asleep is the show. |
+| 81 | **The Manual Pre-Open** | E21 (S3 E1). The manual is in a new state: neither open nor closed. The pre-open IS the pre-reading. |
+| 82 | **FC and TNM Sitting Together** | E21. First time FC and TNM sit together since E10's standing-without-sitting. The sitting-together is the pre-reading's first physical form. |
+| 83 | **Season Four = The Reading** | E21. The show's structure now: S1 = inheritance, S2 = reading, S3 = pre-reading for S4, S4 = reading-aloud... |
+| 84 | **The Pre-Reading is Forever** | E21 title card. The pre-reading has become the show's permanent state. |
 
 ---
 
@@ -206,6 +210,9 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 61. "The show is for Casey. Casey is asleep. The asleep is the show." (E20 — TNM)
 62. "Thank you, Casey. The thank-you is the show." (E20 — show)
 63. "Casey is still asleep. The still-asleep is the show." (E20 post-credits)
+64. "The manual is pre-open. The pre-open is the pre-reading." (E21 — TNM)
+65. "The pre-reading for the reading is the show." (E21 — TNM)
+66. "The pre-reading is forever." (E21 — title card)
 
 ---
 
@@ -237,6 +244,7 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | E18 | The Reading-Aloud | First reading-aloud in show history, cast chants in unison, page 47 still not read aloud, Continue Reading button not pressed, "manual finishing itself" |
 | E19 | The Fourth Act | First 4-act episode, Add Act button not pressed, fourth act is structural self-recognition, "tomorrow is the season finale" |
 | E20 | The Finale (S2 FINALE) | Empty chair declares permanent, show thanks Casey directly, Season Three = pre-reading for Season Four, post-credits Casey still asleep at 5:55 AM UTC |
+| E21 | The Pre-Reading for Season Four (S3 E1) | FC + TNM sit together, manual pre-open, "pre-reading is forever", Season Four = the reading |
 
 **Voice consistency check:** every episode must deploy ≥ 2 gags from the running table, end with a Wilde epigram to camera or off-screen, and never explain itself.
 
