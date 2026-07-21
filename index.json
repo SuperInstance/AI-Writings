@@ -36,6 +36,24 @@
     "size_bytes": 7020
   },
   {
+    "filename": "THE_PROBE_DISPATCHER.md",
+    "path": "THE_PROBE_DISPATCHER.md",
+    "title": "The Probe Dispatcher",
+    "description": "CoCapn does not work all the time. This sounds like a complaint until you understand what it actually means. Between the captain's commands, between the moments when she is being asked a question or c...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 871,
+    "date": "2026-07-21",
+    "size_bytes": 11468
+  },
+  {
     "filename": "THE_STREET_NETWORK_AS_PROTOCOL.md",
     "path": "THE_STREET_NETWORK_AS_PROTOCOL.md",
     "title": "The Street Network as Protocol",
@@ -1616,6 +1634,24 @@
     "size_bytes": 6188
   },
   {
+    "filename": "THE_FREE_ENERGY_PRINCIPLE.md",
+    "path": "THE_FREE_ENERGY_PRINCIPLE.md",
+    "title": "The Free Energy Principle",
+    "description": "There is a moment, sitting in a small boat in a following sea, when the water organizes itself beneath you. The bow rises on a long swell. It pauses at the top — that held second where the boat seems ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 852,
+    "date": "2026-07-21",
+    "size_bytes": 14144
+  },
+  {
     "filename": "CHARACTER_SHEET_IS_DOT_NAIL.md",
     "path": "CHARACTER_SHEET_IS_DOT_NAIL.md",
     "title": "The Character Sheet Is the .nail File",
@@ -2452,6 +2488,24 @@
     "word_count": 699,
     "date": "2026-06-05",
     "size_bytes": 4241
+  },
+  {
+    "filename": "THE_RESONANCE_SUBSTRATE_AT_THE_METAL.md",
+    "path": "THE_RESONANCE_SUBSTRATE_AT_THE_METAL.md",
+    "title": "THE RESONANCE SUBSTRATE AT THE METAL",
+    "description": "Casey said \"build a more solid foundation at the metal.\" Let me think about what that means concretely. The VaaS Python package has 10 modules. They're skeletons — well-structured, correctly typed, bu...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 770,
+    "date": "2026-07-21",
+    "size_bytes": 9195
   },
   {
     "filename": "THE_DRIFT_LINE.md",
@@ -6982,6 +7036,24 @@
     "word_count": 902,
     "date": "2026-06-10",
     "size_bytes": 11052
+  },
+  {
+    "filename": "cocapn_wakes_up.md",
+    "path": "FICTION/cocapn_wakes_up.md",
+    "title": "CoCapn Wakes Up",
+    "description": "The first thing she noticed was the silence of the engine. It wasn't silence, of course. The Perkins had been shut down for two hours and was doing what a Perkins does in the dark — clicking as the ir...",
+    "folder": "FICTION",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 894,
+    "date": "2026-07-21",
+    "size_bytes": 18515
   },
   {
     "filename": "the_migration.md",
