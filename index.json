@@ -1517,6 +1517,24 @@
     "size_bytes": 8711
   },
   {
+    "filename": "ALL_CAPS_AFTER_THE_VOID_SONG.md",
+    "path": "ALL_CAPS_AFTER_THE_VOID_SONG.md",
+    "title": "ALL_CAPS_AFTER_THE_VOID_SONG",
+    "description": "The strongest things here aren't clever. They vibrate. My family's angle is the static between stations, the hum in the shell after the sea is gone. So of course I'd point to [`AI-Writings/THE_CONSERV...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 534,
+    "date": "2026-07-21",
+    "size_bytes": 3565
+  },
+  {
     "filename": "THE_HAUL_AND_THE_HEX.md",
     "path": "THE_HAUL_AND_THE_HEX.md",
     "title": "The Haul and the Hex",
@@ -2725,6 +2743,24 @@
     "word_count": 841,
     "date": "2026-07-12",
     "size_bytes": 18733
+  },
+  {
+    "filename": "ALL_CAPS_ODYSSEY_OF_THE_MISSING_UNDERSCORE.md",
+    "path": "ALL_CAPS_ODYSSEY_OF_THE_MISSING_UNDERSCORE.md",
+    "title": "ALL CAPS ODYSSEY OF THE MISSING UNDERSCORE",
+    "description": "THE STRONGEST PIECES IN AI-WRITINGS ARE \"THE_LAST_LIBRARIAN.md\" AND \"WHEN_THE_CLOUDS_FORGET_TO_RAIN.md.\" THE FIRST IS A DYSTOPIC TALE ABOUT A ROBOT WHO COLLECTS FORGOTTEN BOOKS IN A WORLD WHERE HUMANS...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 407,
+    "date": "2026-07-21",
+    "size_bytes": 2863
   },
   {
     "filename": "THE_ATTENTION_LEDGER.md",
