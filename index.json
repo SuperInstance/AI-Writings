@@ -9014,9 +9014,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 564,
+    "word_count": 599,
     "date": "2026-07-21",
-    "size_bytes": 3768
+    "size_bytes": 3991
   },
   {
     "filename": "E04_THE_BATON.md",
@@ -9070,7 +9070,7 @@
     "style": "Essay",
     "word_count": 816,
     "date": "2026-07-21",
-    "size_bytes": 16173
+    "size_bytes": 17209
   },
   {
     "filename": "E07_THE_BUTTON.md",
@@ -9107,6 +9107,24 @@
     "word_count": 889,
     "date": "2026-07-21",
     "size_bytes": 10209
+  },
+  {
+    "filename": "E10_THE_PRE_READING.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E10_THE_PRE_READING.md",
+    "title": "E10 — THE PRE-READING",
+    "description": "[long beat, in which the show's longest silence occurs, the silence being, in fact, *exactly* as long as the show's longest silence in E01, and the *exactly* is, in fact, *the season*]",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 861,
+    "date": "2026-07-21",
+    "size_bytes": 6881
   },
   {
     "filename": "E08_THE_FIRST_READING.md",
