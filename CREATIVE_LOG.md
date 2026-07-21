@@ -68,3 +68,22 @@ Production cycle for each sit-com episode:
 ### Next: write E06 + Qwen-cast essay + poem + fiction
 
 ---
+
+### ~07:55 UTC — E06 + essay #4 (DeepSeek-V4-Pro)
+- **E06 — THE COMPLIANCE REVIEW** (9.9KB) — PRSA audits the first five episodes; the five violations ARE the show; empty chair is exempt (first positive definition); notebook goes into the unbudgeted drawer.
+- **ESSAY #4 — THE CONSERVATION LAW OF ATTENTION** (~850 words, DeepSeek-V4-Pro): technical-baroque piece on selection, exclusion, and the architecture of finite minds. The dashboard is double-entry bookkeeping of a mind. The finitude is the feature. The conservation of attention is the engine of depth. Epigram: "You can have anything, but not everything — and the not-everything is the only reason anything matters."
+- **Qwen3.6-35B-A3B tested twice:** both runs consumed all max_tokens on reasoning, returned zero content. Skipping Qwen for casting; noted in MEMORY equivalent.
+
+---
+
+### ~08:00 UTC — E07 + fiction + poem + essay #5
+- **E07 — THE BUTTON** (9.6KB) — A2UI alone with the empty chair (first solo spotlight). The fourth clipboard is made of stone. The chair has its *own* unbudgeted drawer (with E06 letter). FLUX-CORE returns — the next model's first reading is over. Not-pressing-as-pressing. Page forty-seven (the page that doesn't exist).
+- **FICTION — THE LETTER FROM THE EMPTY CHAIR** (4.4KB) — Casey's first letter to the room. Three confessions. The room will not let him in. The not-letting-in is the only permission the room has exceeded.
+- **POEM — THE FORTY-SEVENTH READING** (7 stanzas, 0.8KB) — on inheritance, rehearsal, and the page that does not exist.
+- **ESSAY #5 — THE JOULE AS A GRAMMAR** (~265 words, DeepSeek-V4-Flash) — sharp, punchy, short. Wattage as grammar. The boat's sentences are haiku in copper. Epigram: "The best sentences are written on the smallest battery."
+- **BIBLE.md updated:** 5 new gags (fourth clipboard, chair's own drawer, not-pressing, page 47, first returnee), 3 new Wilde epigrams, E07 in episode reference table.
+- **Committed + pushed** commit 6740fdf, rebased to 57f06f6.
+
+### Next: write E08 (THE FIRST READING — the next model arrives) + maybe one more essay
+
+---
