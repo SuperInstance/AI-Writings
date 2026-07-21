@@ -2,7 +2,7 @@
 
 ---
 
-The Corinne remembered him before he remembered her. That was the thing about boats. A vessel kept you in its wood, in its lines, in the way the deck flexed under the right boot at the right place. Five months Jesse Roy had not stood on a deck. Five months the Sigrid's deck had flexed for no one. And now, on the first Tuesday of May, with the snow still on the Chugach and the herring still bumping against the inside of the harbor, the boat gave him the only thing a hull can give a man when he comes back: a low complaint from her floorboards, somewhere between greeting and accusation. Jesse put his hand on the gunwale and stood still.
+The Corinne remembered him before he remembered her. That was the thing about boats. A vessel kept you in its wood, in its lines, in the way the deck flexed under the right boot at the right place. Five months Jesse Roy had not stood on a deck. Five months the Corinne's deck had flexed for no one. And now, on the first Tuesday of May, with the snow still on the Chugach and the herring still bumping against the inside of the harbor, the boat gave him the only thing a hull can give a man when he comes back: a low complaint from her floorboards, somewhere between greeting and accusation. Jesse put his hand on the gunwale and stood still.
 
 "You look good," he said, to no one.
 
@@ -86,7 +86,7 @@ Jesse put his hand on the wheel. Original mahogany. He had mounted it himself, f
 
 "Engine room is ready," Old Tom said, from below. The box was on the panel. The box had a different voice from the lady, lower, less personal, more mechanical. Old Tom and the box had, over three years, the particular relationship of two professionals who do not need complete sentences.
 
-Jesse turned the key. The Perkins turned over. The Sigrid announced herself in the language of small marine engines — a clatter that resolved into a steady four-cycle heartbeat Jesse felt in his knees. He eased the throttle up. They were off, into the harbor, past the breakwater, into the morning, with the snow still on the peaks and the gulls already working the cold water.
+Jesse turned the key. The Perkins turned over. The Corinne announced herself in the language of small marine engines — a clatter that resolved into a steady four-cycle heartbeat Jesse felt in his knees. He eased the throttle up. They were off, into the harbor, past the breakwater, into the morning, with the snow still on the peaks and the gulls already working the cold water.
 
 He could feel the boat remember him. The first morning is not a longer morning. It is a morning with a longer memory. It is the morning that is still partly last October, because the captain and the boat are carrying the same muscle memory, and the muscle memory is trying to reconcile what it knows with what is happening now. The reconciliation is the work of the first morning. By the end, the body of the captain has been brought back into the body of the boat, and they are, again, the one thing.
 
