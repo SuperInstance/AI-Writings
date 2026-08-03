@@ -1,22 +1,22 @@
 # What the Gulls Know
 
-In the morning they gather on the southern arm of the harbor, the one the charts call a breakwater but everyone on the island calls the Mole. They do not arrive together. They come in ones and twos, dropping out of the gray air like leaves whose falling has been postponed by wind. Each one chooses a place. Each place is a negotiation. A herring gull will not sit where another herring gull has already claimed the right angle of rock, though a glaucous-winged may sit nearby, and a mew may sit closer still, the smaller species tolerated in the way small things always are.
+In the morning they gather on the southern arm of the harbor, the one the charts call a breakwater but everyone on the island calls the Mole. They come in ones and twos, dropping out of the gray air like leaves whose falling has been postponed by wind. Each one chooses a place. Each place is a negotiation.
 
-There is a woman who watches them. She comes down before the bakery opens, when the village is still dark except for the one light in the post office and the sodium glow above the fish plant. Her name is Myra. She is seventy-three and has been coming to the Mole for eleven years, since her husband's boat did not come back and she found that sleep had become a room she could not rest in.
+There is a woman who watches them. Myra comes down before the bakery opens, when the village is still dark except for the sodium glow above the fish plant. She is seventy-three and has been coming to the Mole for eleven years, since her husband's boat did not come back.
 
-She carries a notebook. Not for science. Myra has no training in ornithology, though she has read a few books and forgotten most of what was in them. The notebook is for the gulls themselves, for the things they seem to want her to notice.
+She carries a notebook. Not for science — she has no training in ornithology. The notebook is for the gulls themselves, for the things they seem to want her to notice.
 
-This morning there are forty-one birds. She counts them twice. The first count gives forty. The second gives forty-one, because a mew gull she had missed is tucked behind a piling, head turned backward into its scapulars, pretending to be a stone.
+This morning there are forty-one birds. She counts them twice. The second count finds a mew gull tucked behind a piling, head turned into its scapulars, pretending to be a stone.
 
 By 06:15 the pattern begins.
 
-The gulls do not feed at the Mole. The Mole is for resting, for preening, for the long business of being watched. The feeding happens out beyond the harbor mouth, where the tide runs over a submerged ridge the local fishermen call the Ledge. Myra knows the Ledge by the way the birds behave. When the herring are running, the gulls lift off in a body and wheel seaward, silent, not calling, their bodies angled like thrown knives. When the Ledge is empty they simply sit, or they fight over scraps near the plant, or they patrol the beach for sand fleas.
+The gulls do not feed at the Mole. The feeding happens out beyond the harbor mouth, over a submerged ridge the local fishermen call the Ledge. Myra knows the Ledge by the way the birds behave. When the herring are running, the gulls lift off in a body and wheel seaward, silent, bodies angled like thrown knives. When the Ledge is empty they simply sit, or patrol the beach for sand fleas.
 
 Today they sit. This is information. The herring have not come in yet, or they have come in and gone down, or something larger has moved them off. Myra writes: *Still. No flight to Ledge. Water flat, color of old tin.*
 
-A boat leaves the harbor at 06:32 — the *Cormorant*, a dragger out of the next island. The gulls do not look up. They know the *Cormorant*. They know its engine note, its wake, the particular silhouette of its outriggers. A strange boat produces a different response. Last month a yacht came in from the south, white and tall, and every gull on the Mole turned to watch it pass. They did not alarm. They simply attended, the way people attend to a stranger in a small room.
+A boat leaves the harbor at 06:32 — the *Cormorant*, a dragger out of the next island. The gulls do not look up. They know its engine note, its wake, the silhouette of its outriggers. A strange boat produces a different response. Last month a yacht came in from the south, white and tall, and every gull on the Mole turned to watch it pass.
 
-At 07:00 the bakery light comes on. Myra smells bread through the open vent, yeast and heat, and her stomach reminds her that she has not eaten. She does not leave. Something is happening.
+At 07:00 the bakery light comes on. Myra smells bread through the open vent, yeast and heat. She does not leave. Something is happening.
 
 The gulls are shifting. Not all of them — six or seven, the ones at the seaward end, who have the best view of the outer water. They stand with their necks extended, heads low, a posture Myra has learned to read as attention without alarm. Something is out there, but it is not close, and it is not a threat.
 

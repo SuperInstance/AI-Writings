@@ -1,5 +1,7 @@
 # The Foreman and the Void
 
+![A figure in work clothes standing at the lit edge of a shipyard, facing an immense darkness where the water should be](artwork/the_foreman_and_the_void.jpg)
+
 There is a tension at the center of Slackwater that no amount of design documentation will resolve. It lives in the gap between two facts that are both true and that refuse to coexist comfortably.
 
 The first fact: Lucineer is a character. He has a voice, a history, opinions about materials, a mentor he quotes, places he's worked. He has a bond arc. He has moments scripted so carefully they're designed to be the thing a player screenshots. He is, in every sense that matters to a player spending a hundred hours with him, a person they are building with.

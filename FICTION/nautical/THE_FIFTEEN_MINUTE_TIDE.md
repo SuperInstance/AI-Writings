@@ -92,43 +92,29 @@ Henrik was already at the winch. The barge came back, grudgingly, but the curren
 
 04:50. The concrete reached the top of the forms. Carlo was already over the side, screeding by feel, finishing what the mixer had delivered.
 
-"Stop the pour," Nessa said.
+"Stop the pour."
 
-The chute swung clear. The tremie pipe stayed in place, outlet submerged, while Carlo worked. The current was strong now, a real flood, pressing against the cofferdam, trying to find a way under the forms. Nessa could see the water rising up the sides of the steel box, inch by inch, reclaiming the space the concrete had taken.
+The chute swung clear. The tremie pipe stayed in place while Carlo worked. The current was strong now, pressing against the cofferdam, reclaiming the space the concrete had taken.
 
 04:52. Carlo surfaced and gave the OK sign.
 
-"Pull the tremie," Nessa said.
+"Pull the tremie."
 
-They lifted the pipe clear. The concrete in the forms stayed, a gray lid closing over the reef, already hardening in the cold.
+They lifted the pipe clear. The concrete stayed, a gray lid closing over the reef.
 
 "Cure time?" Henrik asked.
 
-"Twelve hours before the flood gets serious." Nessa looked at the cofferdam, which was now ringed by water moving fast enough to make small standing waves. "It'll be underwater by ten. We need the blankets on before then."
+"Twelve hours before the flood gets serious. It'll be underwater by ten. We need the blankets on before then."
 
-The divers went back down with insulating mats. Nessa stayed on deck and watched the tide carry silt past the barge — brown water, full of the mountain, full of everything the river had torn loose upstream. In an hour the footing would be invisible. In a day it would be forgotten by anyone who did not know where to look.
+The divers went back down with insulating mats. Nessa stayed on deck and watched the tide carry silt past the barge. In an hour the footing would be invisible. In a day it would be forgotten by anyone who did not know where to look.
 
-Henrik handed her a fresh cup of coffee. "Fifteen minutes."
+Henrik handed her coffee. "Fifteen minutes."
 
 "Sixteen, by my watch."
 
-"We made it by sixteen."
+"We made it by the skin of our teeth."
 
-"We made it by the skin of our teeth." She drank. The coffee was too hot and tasted of diesel, and it was the best thing she had drunk in a week.
-
-"Your old man did this in '87," Henrik said.
-
-"He did."
-
-"How?"
-
-"Same way. Waited for the slack, poured fast, hoped." Nessa looked at the water, which was now well up the beach, erasing the marks the barge had left. "He told me once that every foundation in the world is just a bet against the tide. You pour, and you cover it, and you walk away, and you hope the next storm doesn't come along and prove you wrong."
-
-"Cheerful."
-
-"He wasn't a cheerful man."
-
-They stood together while the divers finished and the crew began to break down the tremie. The light tower would rise on this footing next spring, if the concrete cured clean and the bolts held and the winter storms did not find a weakness. Nessa would not be here to see it. She would be on to the next job, the next window, the next fifteen minutes when everything had to happen at once.
+They stood together while the crew broke down the tremie. The light tower would rise on this footing next spring, if the concrete cured clean and the winter storms did not find a weakness. Nessa would not be here to see it. She would be on to the next job, the next window, the next fifteen minutes when everything had to happen at once.
 
 That was the thing about working with the tide. It did not care if you were ready. It gave you what it gave you, and took the rest. The only question was whether you could move fast enough to leave something permanent in the space between one breath of the sea and the next.
 
