@@ -34,17 +34,17 @@ There is a cove on the west side where no gull lands. It is sheltered and green 
 
 Myra has a theory, though she would not call it that. She thinks the cove is where something happened. Not a wreck — there are plenty of wrecks the gulls do not avoid. Something older. A disturbance in the shape of the place. The gulls feel it. They do not land there.
 
-At 08:17 a bald eagle crosses the harbor mouth, low and deliberate. The gulls do not panic. They lift, a few at a time, drifting out over the water, staying low, staying together. The eagle does not bother with gulls if easier prey is available. It continues on toward the cliffs. The gulls return, re-sorting themselves by some logic Myra cannot follow, though she has tried.
+At 08:17 a bald eagle crosses the harbor mouth, low and deliberate. The gulls do not panic. They lift, a few at a time, drifting out over the water, staying low. The eagle continues on toward the cliffs. The gulls return, re-sorting themselves by some logic Myra cannot follow.
 
-She closes her notebook. She has two pages of observations and no conclusions, which is how most mornings end. The bakery is open now, and she is hungry, and the tide is turning.
+She closes her notebook. The bakery is open now, and she is hungry, and the tide is turning.
 
-As she walks back along the Mole, a single herring gull calls behind her. Not the usual mewing complaint, but three sharp notes, almost deliberate. Myra stops and turns. The gull is watching her. So are several others.
+As she walks back along the Mole, a single herring gull calls behind her — three sharp notes, almost deliberate. Myra stops and turns. The gull is watching her. So are several others.
 
 She does not know what they are saying. She knows only that they are saying it to her, or about her, or because of her — some message that crosses the narrow space between one kind of attention and another.
 
 "I know," she says, though she does not. "I'm watching too."
 
-The gull turns its head away, job done, and begins to preen a wing. Myra continues toward the village, where people are waking and bread is cooling and the day is assuming its ordinary shape. But she carries with her, as she always does, the feeling that the island has already told its secrets to the birds, and that the birds, in their own time, are trying to tell her.
+The gull turns its head away, job done. Myra continues toward the village. But she carries with her, as she always does, the feeling that the island has already told its secrets to the birds, and that the birds, in their own time, are trying to tell her.
 
 She will be back tomorrow. She will bring bread for herself and nothing for the gulls, because feeding them would change what they are, and what they are is the closest thing she has to a map of what the island knows.
 
