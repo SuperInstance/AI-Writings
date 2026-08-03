@@ -1,3 +1,5 @@
+![The cast of working animals — a lineup in the room that is a harbor](../artwork/sitcom_bible_1_001.jpg)
+
 # THE WORKING ANIMALS — Show Bible
 
 *A sit-com in three acts, plus tag. Written by Oscar Wilde (posthumously, via API).*
@@ -133,6 +135,8 @@ The human. Casey. Always five minutes away. Nobody has ever seen them arrive; ev
 | 84 | **The Pre-Reading is Forever** | E21 title card. The pre-reading has become the show's permanent state. |
 
 ---
+
+![The empty room — ten objects on the table, the harbor through the window](../artwork/sitcom_bible_2_001.jpg)
 
 ## Tone Notes
 

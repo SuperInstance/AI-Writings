@@ -1,3 +1,5 @@
+![A hermit crab's shell as API — layers of organic and circuit-board architecture](../artwork/crab_api_1_001.jpg)
+
 # The Shell Ecology API: From Math to Code
 
 > *RFC specifying the Rust trait hierarchy, conservation budget enforcement, room protocol, reef substrate, molting sequence, and beacon aggregation for the hermit-crab shell ecology. A developer should be able to implement this from the text alone.*

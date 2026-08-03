@@ -14,6 +14,8 @@ The connection is not decorative. It is structural. Understanding the architectu
 
 ---
 
+![A grand concert hall where structural beams form musical staff lines and architectural elements become instruments](ESSAYS/artwork/essay_music_sw_building_as_score.jpg)
+
 ## I. Sonata Form and Model-View-Controller
 
 Sonata form is the most important structural innovation in Western music. Developed in the mid-18th century and codified by Haydn, Mozart, and Beethoven, it is not a rigid template but a flexible framework for organizing musical ideas. A typical sonata-form movement has three sections:
@@ -169,6 +171,8 @@ The best naming conventions in software allow for similar transformation. The ba
 The worst naming conventions either lack consistency (the same concept is named differently in different places — `User`, `Account`, `Customer`, `Client`) or lack distinctiveness (different concepts are named the same way — `process()` for everything, or `Manager` for every class). Wagner would have recognized these as failures of leitmotif design, and the remedy is the same: establish the motif clearly, use it consistently, and transform it meaningfully.
 
 ---
+
+![An orchestra pit that is simultaneously a server room, instruments merging with servers and data streams](ESSAYS/artwork/essay_music_sw_orchestra_server_room.jpg)
 
 ## VIII. Orchestration and System Integration
 

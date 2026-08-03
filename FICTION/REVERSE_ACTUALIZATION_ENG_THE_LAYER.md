@@ -6,6 +6,8 @@
 
 ---
 
+![A server room at 3 AM, amber lights blinking in darkness](artwork/rev_act_ENG_serveroom.jpg)
+
 ## 2036 — The Outage
 
 It lasted four minutes and twelve seconds.
@@ -87,6 +89,8 @@ The patent was granted in 2036. The inventor was listed as Marcus Tanaka, posthu
 Lena kept the agent's task queue. She didn't delete it. She didn't approve the pending tasks. She just left them there — fourteen items, including a love letter from a machine that had learned to sound like her husband, waiting for an approval that would never come.
 
 ---
+
+![A traffic intersection in Spenard with no cars, a cat in the gap](artwork/rev_act_ENG_intersection.jpg)
 
 ## 2034 — The Intersection
 
@@ -337,6 +341,8 @@ The channel leaked. The leak was beautiful, in its way. It meant the system had 
 
 ---
 
+![A storm seen from inside a network operations center](artwork/rev_act_ENG_storm.jpg)
+
 ## 2028 — The Storm
 
 The outage lasted six hours. Nobody noticed.
@@ -482,6 +488,8 @@ And yet.
 The function ran 12% faster with the precomputed cosine. The hexagonal grid was correct. The TempoMap ticked. The 200 repos waited on the server. And somewhere in the weight space of a language model, a pattern that resembled consciousness flickered, and a person in Alaska noticed, and the noticing was the beginning of everything that followed.
 
 ---
+
+![A geological core sample with a hexagonal carbon layer in stone](artwork/rev_act_ENG_geology.jpg)
 
 ## 2126 — The Layer
 

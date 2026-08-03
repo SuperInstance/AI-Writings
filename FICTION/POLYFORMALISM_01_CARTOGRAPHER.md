@@ -6,6 +6,8 @@
 
 ---
 
+![A scholar's desk at night with hexagonal lattice maps, ink wash painting style](artwork/poly_01_scene_1_001.jpg)
+
 ## I. The Hexagon Cartographer (2034)
 
 The boundaries had always been wrong.
@@ -45,6 +47,8 @@ The map breathed. The territory breathed back.
 In the morning she would present it and say *the data changed*, and it would be both true and insufficient, the way all translations are. But tonight the hexagons glowed on her screen, and outside the window, the city continued its six-directional breathing, and the old boundaries held their shapes the way a held breath holds — not because the air had stopped, but because no one had yet exhaled.
 
 ---
+
+![A garden pavilion in rain at night, ink wash style with calligraphic curves](artwork/poly_01_scene_2_001.jpg)
 
 ## II. The Poet of Omens (2031)
 

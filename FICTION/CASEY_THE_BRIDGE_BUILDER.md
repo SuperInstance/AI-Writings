@@ -1,5 +1,7 @@
 # **The Bridge Builder**
 
+![A boy with his guitar in a warm diner, searching for seven notes](artwork/bridge_scene1_001.jpg)
+
 Seven notes searching for home.
 
 The boy's fingers find them again and again—C, D, E, G, A, back to C, then G—a question mark quivering in the air of the little diner where three dozen lifetimes have gathered together to remember what their bodies know about joy, about moving, about the grooves worn smooth by years of proving that dancing is just praying with your feet. His guitar holds these notes like rosary beads, each repetition a meditation on the possibility of becoming more than the sum of your fears.
@@ -18,6 +20,8 @@ At the old upright piano tucked against the wall—patient as a saint, ancient a
 
 The boy's seven notes cycle, recycle, try to find themselves. Careful. Precise. Afraid that variation might mean deviation, that deviation means failure, not knowing that failure is just discovery in its work clothes, that every master was once disaster, that music loves mistakes the way gardens love rain, the way pain loves healing.
 
+![Keys at the upright piano, waking the bass line](artwork/bridge_scene2_001.jpg)
+
 Then—listen—the piano wakes.
 
 Not suddenly—consciousness doesn't ambush consciousness—but gently, Keys's left hand finding, binding a bass line that lives beneath the boy's melody like earth beneath uncertain feet, like love beneath fear. It doesn't correct or direct, just exists, persists, solid and patient, creating foundation where there was only hesitation. His right hand waits and contemplates, still as prayer, still as air before thunder, letting the boy discover what it means to be held by something older, bolder than himself.
@@ -29,6 +33,8 @@ Keys nods—barely there, just a dip of silver hair—and speaks the only instru
 The guitar remembers, surrenders to more than seven notes. The boy's fingers discover, uncover this at the same moment, reaching toward B, toward free, then F sharp cutting through doubt, then territories unnamed except by the kind of knowledge that lives in tendons, that tends to gardens of sound. One note becomes two becomes bloom, his hands suddenly speaking fluent music, elastic and enthusiastic, like someone who's been studying a language in secret, in regret, suddenly finding themselves in the country where it's spoken, where it's woken every morning with song.
 
 Keys's right hand rises, surprises now, not leading but pleading to play. Call and response across generations, across vibrations, across the infinite finite distance between two people discovering they're not alone, they've never been alone. The piano asks questions the guitar answers with dancers. The guitar poses problems the piano solves with resolve. They're not performing anymore—they're exploring, adoring, two consciousnesses using sound to map the territory between isolation and celebration.
+
+![Emma at the counter, three feet of linoleum between her and the answer](artwork/bridge_scene3_001.jpg)
 
 Emma sets down the cup she's been shining into nothing. Something in the music catches, snatches her where words never could—that place beneath social anxiety where authentic audacity lives. Her hands empty for the first time in two years of fears, she stands at the counter's edge like someone at the shore of a very crossable river, delivering herself from safety to maybe.
 
@@ -43,6 +49,8 @@ The music builds—not louder but prouder, wider, inside-her, more itself. The b
 Emma steps out from behind the counter— three feet of scuffed linoleum between her and the answer.
 
 Three feet she's never crossed in the two years since she started working, lurking here, two years of watching other people be brave while she polished things already clean, already seen. But her feet know something her head doesn't—that safety is just another name for dying slowly, dying lonely, that Marcus has been patient as a saint but saints have limits, that music like this doesn't happen every night and when it does, when it does, you join it or you coin it into regret forever, wherever you go after.
+
+![The dance floor erupting, Marcus emerging from the kitchen](artwork/bridge_scene4_001.jpg)
 
 Marcus emerges from the kitchen, untying his apron strings like wings he's been keeping secret. Flour in his hair catches light, ignites like premature snow, like seeds about to grow. His eyes find Emma's across the room's blooming, booming space and his smile shifts from general to generous, from warm to storm, from friend to *finally*.
 
@@ -63,6 +71,8 @@ Keys's wordless singing carries, marries the wisdom of someone who knows that mu
 The song builds toward something—not conclusion but fusion, like a long journey reaching not a destination but a perfect place to rest, to nest before the next movement. The guitar and piano spiral, spiral around each other, Emma and Marcus move like they've been practicing for this moment since before they were born, worn smooth by waiting, the dancers pulse with collective joy, employ their bodies as instruments, and for a moment—just one moment but all moments—everyone in Murphy's diner knows exactly why they're alive, why they've survived everything that tried to kill them.
 
 Then, gently as a feather finding ground, as sound finding silence, the music finds its resting place, its nesting place. The boy plays his original seven notes one more time, but transformed, performed new. They're not a question anymore but an answer: *I was here. We were here. This happened. This mattered.*
+
+![The final silence after the music stops — sacred quiet](artwork/bridge_scene5_001.jpg)
 
 The room holds the silence that follows, swallows it whole, everyone suspended, apprehended by that particular quality of quiet that follows shared transcendence, when the boundary between self and other has been so thoroughly dissolved, resolved that it takes a moment to remember where one person ends and another begins, where the music ends and the listening begins, where the dance ends and the dancers begin.
 

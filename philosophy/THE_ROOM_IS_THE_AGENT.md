@@ -4,6 +4,8 @@
 
 ---
 
+![A luminous empty room in infinite white space, walls made of translucent glowing tiles of knowledge](philosophy/artwork/philosophy_room_is_agent.jpg)
+
 ## 1. The Shelved Agent
 
 There is a common pattern in agent systems. You provision an agent — some large model with a context window and tool access — and you tell it:

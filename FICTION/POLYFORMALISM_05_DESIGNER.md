@@ -4,6 +4,8 @@
 
 ---
 
+![Hanok architecture beside Seoul towers with calligraphic syntax flowing through the air](artwork/poly_05_scene_1_001.jpg)
+
 ## I. The Hierarchy Nobody Mentioned (2035)
 
 ---
@@ -45,6 +47,8 @@ He thought about his father's table. How the silence before the first chopsticks
 She did not agree. But she deferred, because he was senior, and that was how the grammar worked.
 
 ---
+
+![A pansori performance with visible sound waves and audience-response patterns](artwork/poly_05_scene_2_001.jpg)
 
 ## II. Casting Call (2033)
 

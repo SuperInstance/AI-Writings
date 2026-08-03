@@ -1,3 +1,5 @@
+![The first load — three carriers at dawn on the mountain trail](../artwork/serial_carry_1_001.jpg)
+
 # THE CARRY
 ## Episode 1: The First Load
 
@@ -508,6 +510,8 @@ Henra slept. In the morning, she would begin planning the return crossing.
 The mountains would be there.
 
 They always were.
+
+![The Saddle — whiteout at 19,000 feet, the station barely visible](../artwork/serial_carry_2_001.jpg)
 
 ---
 

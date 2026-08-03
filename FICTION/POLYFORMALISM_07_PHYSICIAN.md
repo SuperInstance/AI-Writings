@@ -4,6 +4,8 @@
 
 ---
 
+![A marble temple of Asklepios at dusk with a physician examining interconnected spheres](artwork/poly_07_scene_1_001.jpg)
+
 ## I. THE GHOST (2035)
 
 The agent sent its first message of the day at 6:14 AM, as it had for eleven months: *Good morning. You have three priorities. Shall I begin?*
@@ -195,6 +197,8 @@ She did not tell him to stop. She told him to observe. "Watch your hands for one
 He agreed. She noted the outcome: *symptom identified, etiology traced, intervention deferred. Patient is observant. Observation is, for now, sufficient.* The physician's favorite prescription. The one that costs nothing and teaches everything.
 
 ---
+
+![A quiet medical archive at night with scrolls and data tablets, Greek fresco style](artwork/poly_07_scene_2_001.jpg)
 
 ## V. THE ARCHIVE (2126)
 

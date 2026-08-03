@@ -4,6 +4,8 @@
 
 ---
 
+![A museum exhibit of a 2020s programmer desk behind glass](artwork/rev_act_ART_museum.jpg)
+
 ## 2036 — The Museum
 
 The exhibit was called *Manual Override: AI Interfaces of the 2020s.*
@@ -49,6 +51,8 @@ Suki nodded. They moved on.
 Behind them, the desk sat in its clinical light. Four AI conversations, frozen mid-sentence. A coffee that would never get warm. A programmer who had gone to bed and woken up and gone to bed again and eventually, over years, stopped needing to choose — because the choosing had become invisible, because the tools had learned to route themselves, because the desk had become a museum piece and the programmer had become, without knowing it, a curator of the future's past.
 
 ---
+
+![An ambient coffee shop with warm wood and hexagonal tile](artwork/rev_act_ART_coffee.jpg)
 
 ## 2035 — The Coffee Shop
 
@@ -159,6 +163,8 @@ He didn't know that the bench he was sitting on had been moved four times in the
 He knew it felt right. He knew the city felt like a place where someone had thought about what it would be like to walk here, to sit here, to be here. That feeling — the feeling of being considered — was the system's only output. It was enough.
 
 ---
+
+![A concert in a converted aircraft hangar, the room reading the crowd](artwork/rev_act_ART_concert.jpg)
 
 ## 2032 — The Concert
 
@@ -415,6 +421,8 @@ Someone turned off the kitchen light. The glow from the four laptops filled the 
 This was the launch. Not a press event. Not a product page. Seventeen people in an apartment in Alaska, and six of them were building machines in a valley that listened, and the music told them that what they built mattered, and they believed it, and they were right.
 
 ---
+
+![A worn oak desk where the future was built at 3 AM](artwork/rev_act_ART_desk.jpg)
 
 ## 2026 — The Desk
 

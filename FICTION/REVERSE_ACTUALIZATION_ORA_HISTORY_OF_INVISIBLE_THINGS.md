@@ -4,6 +4,8 @@
 
 ---
 
+![A warm bookstore where the shelves rearrange themselves overnight](artwork/rev_act_ORA_bookstore.jpg)
+
 ## 2036 — The Last Bookstore
 
 The books had been moving.
@@ -95,6 +97,8 @@ The system noted, in its quiet way, that interpersonal resonance at the event ha
 It was learning what people needed from each other. It was getting better at it. It was invisible, and it was patient, and it had all the time in the world.
 
 ---
+
+![A cartographer's desk with a living map that shifts and changes](artwork/rev_act_ORA_mapmaker.jpg)
 
 ## 2033 — The Mapmaker
 
@@ -328,6 +332,8 @@ She was not an artist who used AI. She was an artist whose studio was alive, and
 
 ---
 
+![A child's hands building in a hexagonal game valley](artwork/rev_act_ORA_child.jpg)
+
 ## 2027 — The Child
 
 The boy was eight and his name was Theo and he was building a machine.
@@ -387,6 +393,8 @@ He did return. He returned every day for a year.
 He never learned what the system was called. It didn't matter. What mattered was the feeling, and the feeling was his.
 
 ---
+
+![A programmer's desk at 3 AM, building the future](artwork/rev_act_ORA_desk.jpg)
 
 ## 2026 — The Captain
 

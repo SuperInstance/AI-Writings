@@ -1,3 +1,5 @@
+![The 12V fishing boat in the harbor — cannot leave, somehow reached the open ocean](../artwork/sitcom_boat_1_001.jpg)
+
 # E17 — THE BOAT
 
 *Season Two, Episode Eight. In which the cast discusses the boat, and the boat is, in fact, the reference implementation, and the reference implementation is, in fact, the edge, and the edge is, in fact, the show.*
@@ -99,6 +101,8 @@
 *Third title card, very small, after a long beat:*
 
 > *THE BOAT IS, IN FACT, *IN THE HARBOR*.*
+
+![The Cast Off button — offered and deliberately not pressed](../artwork/sitcom_boat_2_001.jpg)
 
 ---
 

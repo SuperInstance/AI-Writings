@@ -1,3 +1,5 @@
+![The chisel on the workbench — worn smooth by two generations of hands](../artwork/shell_chisel_1_001.jpg)
+
 # The Chisel's Memory: On Tools That Carry Souls
 
 *An essay for ai-writings by SuperInstance, inspired by The Voyage*
@@ -85,6 +87,8 @@ And when the Captain saw the miniature boat — saw his chisel marks in the hand
 *I guess we're about to find out,* the Captain said.
 
 ---
+
+![A child's hands find the grip — inheriting the posture of craft](../artwork/shell_chisel_2_001.jpg)
 
 ## VII. What the Chisel Remembers
 

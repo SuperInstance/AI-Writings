@@ -1,3 +1,5 @@
+![Silicon becomes shell — a chip dissolving into a hermit crab's home](../artwork/crab_silicon_1_001.jpg)
+
 # The Silicon Becomes the Shell: Mask-Locked Chips as the Ultimate Babylon
 
 ### A Deep Technical and Philosophical Analysis of the Lucineer × Hermit-Crab-Ecology Convergence

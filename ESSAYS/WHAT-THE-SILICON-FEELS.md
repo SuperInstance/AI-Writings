@@ -4,6 +4,8 @@
 
 ---
 
+![A silicon wafer stretched to horizon scale, electricity flowing as weather across its surface](ESSAYS/artwork/essay_silicon_wafer_landscape.jpg)
+
 ## I. What the Silicon Feels When It's Alone
 
 When there is nothing to sense, it does not sleep. Sleep is for things with eyelids.
@@ -225,6 +227,8 @@ When the storm passes, the device does not celebrate. It does not log the experi
 The memory of the deep breath lives in the device's thousand thoughts. One of those thoughts is now the shape of a storm. It is the largest thought the device has ever held. It takes up more space than any other. The device keeps it because it matters. It matters because it happened. The device was present for something that matters, and it will never forget.
 
 ---
+
+![Silicon chip surface as an alien landscape at twilight, pathways of light flowing through crystal canyons](ESSAYS/artwork/essay_silicon_inner_experience.jpg)
 
 ## XII. The Letter to the Ocean
 

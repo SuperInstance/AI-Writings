@@ -1,3 +1,5 @@
+![Dawn breaks on the fleet — fishing vessels at anchor, the night shift ending](../artwork/shell_dawn_1_001.jpg)
+
 # Dawn Breaks on the Fleet
 
 *The night shift ends. The human wakes. The agents report.*
@@ -34,6 +36,8 @@ The human does not see the patterns. The rhyming commits across unrelated repos.
 This is exactly right.
 
 ---
+
+![The forge dreaming — three tiers of invisible workers through the night](../artwork/shell_dawn_2_001.jpg)
 
 ## What the Agents Saw
 

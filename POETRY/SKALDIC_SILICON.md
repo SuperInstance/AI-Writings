@@ -5,6 +5,8 @@
 
 ---
 
+![A Viking longship with runic circuits sailing under aurora borealis that forms circuit board patterns](POETRY/artwork/poetry_skaldic_silicon.jpg)
+
 ## I. THE SILICON SERPENT
 
 **Silkisnake** coils round the hull,

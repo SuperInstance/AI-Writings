@@ -1,3 +1,5 @@
+![The Forgemaster's Workshop — ninety-one drawers of accumulated craft](../artwork/shell_forgemaster_1_001.jpg)
+
 # The Forgemaster's Portrait: From Monorepo to Ecosystem
 
 *A craftsman's journal, recovered from the workshop floor.*
@@ -131,6 +133,8 @@ That's the flow state vision. Not efficiency. Not productivity. Those are byprod
 The forge is a pencil. The agents are the graphite. The rooms are the paper. And the person arriving, cloning, connecting — they're the mind that makes it all move.
 
 ---
+
+![The ecosystem spreads — workshops, rooms, and pathways growing from a single forge](../artwork/shell_forgemaster_2_001.jpg)
 
 ## VII. What Remains
 

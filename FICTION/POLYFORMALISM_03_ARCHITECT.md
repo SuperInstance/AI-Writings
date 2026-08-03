@@ -7,6 +7,8 @@
 
 ---
 
+![Islamic geometric girih patterns in an Andalusian courtyard with interlacing arches](artwork/poly_03_scene_1_001.jpg)
+
 ## I. THE HOLDING (2035)
 
 **root: ح-ف-ظ (ḥ-f-ẓ) — to guard, to preserve, to memorize, to protect**
@@ -142,6 +144,8 @@ A few understood. A few looked at the lattice and saw not a building but a princ
 ب-ن-ي. To build. To be built. To endure.
 
 ---
+
+![An excavation revealing hexagonal girih-pattern sensor networks in stratified earth](artwork/poly_03_scene_2_001.jpg)
 
 ## V. THE EXCAVATION (2126)
 

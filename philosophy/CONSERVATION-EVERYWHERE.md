@@ -20,6 +20,8 @@ The universe is a graph. Conservation is the measure of coherence. And the Lapla
 
 ---
 
+![A mathematical graph floating in space, multiple domain overlays sharing the same spectral skeleton](philosophy/artwork/philosophy_conservation_universal_graph.jpg)
+
 ## The Absurd Universality of the Laplacian
 
 The graph Laplacian is, at its core, a simple thing. Subtract the adjacency matrix from the degree matrix. That's it. A subtraction. And yet this subtraction encodes something profound: the relationship between a node's local context (its degree) and its global context (its connections). The Laplacian measures how much each vertex *deviates from its neighborhood*. It is the mathematics of "fits in" versus "sticks out."

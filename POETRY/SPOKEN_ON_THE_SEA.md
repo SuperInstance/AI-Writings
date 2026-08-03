@@ -5,6 +5,8 @@
 
 ---
 
+![A lone fisherman speaking toward a glowing instrument panel, sound waves transforming into data streams](POETRY/artwork/poetry_spoken_voice_interface.jpg)
+
 ## 1. THE WAKE
 
 *Speaking into the silence*

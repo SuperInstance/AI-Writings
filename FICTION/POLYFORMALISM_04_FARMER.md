@@ -4,6 +4,8 @@
 
 ---
 
+![Andean terraces at dawn with Pleiades above, a farmer among potato fields](artwork/poly_04_scene_1_001.jpg)
+
 ## I. The Calendar That Knew (2034)
 
 *—mi: I have seen this with my own eyes.*
@@ -79,6 +81,8 @@ Dr. Yauri printed the technical appendix for the next twelve recommendations and
 She did not know if anyone would read it (-chá). She knew her grandmother would have (-mi).
 
 ---
+
+![High-altitude valley at night with stars reflected in terraces and microgrid](artwork/poly_04_scene_2_001.jpg)
 
 ## III. Let It Crash (2030)
 

@@ -4,6 +4,8 @@
 
 ---
 
+![Southwestern desert with hexagonal weaving patterns emerging from the landscape](artwork/poly_02_scene_1_001.jpg)
+
 ## I. Spiral Foot (2033)
 
 The city does not stand. It turns.
@@ -115,6 +117,8 @@ Maisie sat at the center of the spiral in late October, the first frost coming, 
 *This is how it should be*, she thought. And for the first time in her life, she understood what she meant.
 
 ---
+
+![A great loom in the desert at dusk with threads becoming data patterns](artwork/poly_02_scene_2_001.jpg)
 
 ## IV. The Loom Between Them (2028)
 

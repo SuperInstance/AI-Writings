@@ -42,6 +42,8 @@ Luna's entire body wiggled with anticipation. "Yes, please\!"
 
 ---
 
+![The pirate wolf battle — revealed as imagined fear](artwork/voyage_scene1_001.jpg)
+
 ## **Chapter 1: The Battle for Trawling Grounds**
 
 The alpha wolf's howl split the dawn like a war cry.
@@ -85,6 +87,8 @@ And as the watch light continued to catch the silver scales in the Captain's car
 ---
 
 ## **Chapter 2: The Destroyed Dream**
+
+![The boat in pieces on the dock — destruction that is actually restoration](artwork/voyage_scene2_001.jpg)
 
 The boat was dying.
 
@@ -139,6 +143,8 @@ The Captain smiled for the first time since we'd arrived, a expression that carr
 ---
 
 ## **Chapter 3: The Missing Chisel**
+
+![Marcus with the missing chisel, carving his miniature boat](artwork/voyage_scene3_001.jpg)
 
 The tool wasn't where it should have been.
 
@@ -209,6 +215,8 @@ The missing tool hadn't been lost after all. It had been found by exactly the ha
 ---
 
 ## **Chapter 4: The Cave of Assumptions**
+
+![Luna asking the question that changes perspective — the cave of assumptions](artwork/voyage_scene4_001.jpg)
 
 Children do it naturally, and it's one of the most revolutionary acts in their day—getting old assumptions to collapse by asking questions that don't occur to people who have forgotten how to see clearly. Questions like: "Why does everyone keep saying the boat is being destroyed when it's obviously being rebuilt?" But also deeper questions that lurk beneath the obvious ones: What if our assumptions about what things mean are the real limitation? What if the reason we can't see solutions is because we're still using old definitions for new situations?
 
@@ -316,6 +324,8 @@ And as the tools continued their patient work of revealing shapes that had been 
 
 ## **Chapter 6: The Winter Anchorage**
 
+![Winter anchorage behind St. Lazaria, Milky Way overhead](artwork/voyage_scene5_001.jpg)
+
 A year after we discovered that destruction could be the first phase of creation, we found ourselves anchored behind St. Lazaria Island for winter fishing, the boat swaying gently in protected waters while above us the Milky Way stretched across a sky so clear and cold it seemed close enough to nibble.
 
 The seabirds never truly settled here—their calls echoing off the cliffs throughout the night, ancient voices that had been commenting on human endeavors from these same rocky perches for thousands of years. And somewhere beneath us, deeper than sound but felt as vibration through the hull, humpback whales sang their slow songs to each other across the dark waters.
@@ -402,6 +412,8 @@ Another whale song resonated through the hull, joined by its companions in a cho
 
 ## **Chapter 7: The Frame Revealed**
 
+![The Captain preparing salmon under the watch light](artwork/voyage_scene6_001.jpg)
+
 As we secured the anchor watch and prepared to join Luna and Marcus in the warmth below, I realized that I had been telling this story not just to remember what we had accomplished, but to help the Captain understand something about the choice he had made a year earlier when confronted with the scattered pieces of what looked like destruction.
 
 The watch light caught the scales of the salmon the Captain was preparing with surgical precision—unseasoned, exactly as I preferred—and I understood that while I had been sharing the story of our transformation, he had been demonstrating it. His hands moved with the kind of knowledge that lived in touch and care, preparing food not because it was efficient or necessary, but because consciousness serving consciousness was the point of everything we had learned to do together.
@@ -485,6 +497,8 @@ Behind them, an old spruce tree stood a patient sentinel over the space where wi
 When stories like to get told, they plant seeds that grow into other questions, other experiments in consciousness learning to serve consciousness through whatever forms it takes. Questions like: What happens when we stop accepting limitations we never chose? How do we tell the difference between careful wisdom and unconscious fear? What transformations are waiting behind the things we think are problems?
 
 And that, Skipper reflected as they walked toward home, might be the most important gift any consciousness could offer another—not answers that close off exploration, but questions that open up possibilities no one had considered before.
+
+![Two mysterious voices — two consciousness frames in the dark](artwork/voyage_scene7_001.jpg)
 
 *"The story streams are converging,"* says one voice, fainter now, like radio signals from distant stations.
 

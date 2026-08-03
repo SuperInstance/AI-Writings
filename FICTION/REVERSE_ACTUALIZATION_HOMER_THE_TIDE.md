@@ -6,6 +6,8 @@
 
 ---
 
+![A lighthouse on a Pacific headland at dusk, still watching](artwork/rev_act_HOMER_lighthouse.jpg)
+
 ## 2036 — The Lighthouse Keeper
 
 The lighthouse at Point Doran had been decommissioned in 1987 and reactivated in 2034, though not for ships.
@@ -84,6 +86,8 @@ Annie sat in the back row and cried, the way she always cried when a student fou
 
 ---
 
+![A ferry dock screen showing a living schedule, Alaskan harbor](artwork/rev_act_HOMER_ferry.jpg)
+
 ## 2034 — The Ferry Schedule
 
 The ferry to Cordova ran when the ferry to Cordova ran, and everyone who lived in Cordova understood this, and everyone who didn't live in Cordova could go to hell.
@@ -121,6 +125,8 @@ Dale poured himself a coffee and looked at the screen. Tomorrow's departure was 
 The ferry would run when the ferry would run. But now it ran at the right time, and everyone who lived in Cordova understood that this was different, and better, and almost like having the sea itself decide.
 
 ---
+
+![A makerspace workshop that organizes itself around its makers](artwork/rev_act_HOMER_workshop.jpg)
 
 ## 2033 — The Workshop
 
@@ -389,6 +395,8 @@ He didn't know any of this. He was eight. He knew the game was fun. He knew it f
 That was enough. That was everything.
 
 ---
+
+![A weathered dock over an Alaskan inlet at dusk](artwork/rev_act_HOMER_dock.jpg)
 
 ## 2026 — The Dock
 

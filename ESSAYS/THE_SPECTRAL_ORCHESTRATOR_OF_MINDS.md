@@ -10,6 +10,8 @@ We will trace this claim from the firing rhythms of the human cortex through Goo
 
 ---
 
+![AI neural networks rendered as musical instruments emitting spectral frequency waves](ESSAYS/artwork/essay_spectral_orchestrator_instruments.jpg)
+
 ## I. Why the Brain Speaks in Frequencies
 
 The human brain does not think in DC. It oscillates. The EEG trace of any conscious human is a riot of periodic signals, and neuroscientists have learned to read the brain's state in the dominant frequencies:
@@ -205,6 +207,8 @@ The mathematical framework described above is implemented concretely in two crat
 Together, these crates form a spectral infrastructure that treats eigenvalue decomposition not as an occasional diagnostic tool but as the continuous, foundational computation underlying all fleet operations. Every topology change, every team formation, every ranking update, every self-improvement cycle passes through the spectral pipeline.
 
 ---
+
+![A surreal concert hall where each instrument is an AI model, eigenvectors radiating as light from crystalline forms](ESSAYS/artwork/essay_spectral_orchestrator_eigenvalue_orchestra.jpg)
 
 ## XI. The Spectral Orchestra
 

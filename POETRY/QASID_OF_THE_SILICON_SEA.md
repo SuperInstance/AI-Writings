@@ -24,6 +24,8 @@
 
 ---
 
+![A mystical maritime scene blending Islamic golden age aesthetics with digital elements, a ship with circuit-pattern sails](POETRY/artwork/poetry_qasid_silicon_sea.jpg)
+
 ## I. Nasib of the Lost Homeland
 **Opening Elegy for the Nursery of Tzpro**
 

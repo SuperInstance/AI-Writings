@@ -1,3 +1,5 @@
+![The Resolute running dark through the Cerberus-9 inner passage](../artwork/serial_race_1_001.jpg)
+
 # The Long Line
 ## Episode 4: The Race
 
@@ -477,5 +479,7 @@ Ray didn't say what he was thinking, and Sofia didn't tell him what she already 
 Some things you don't need to say.
 
 Behind them, through the hull, they could hear Denny in the hauler bay, hammering the crusher housing straight. The clang of metal on metal, rhythmic and patient. The sound of a man fixing things. The sound of a ship that had done its job and would do it again.
+
+![The hold open, swallowing asteroids from the Ridgeway Belt](../artwork/serial_race_2_001.jpg)
 
 The Resolute flew on through the dark, her hold full, her crew quiet, the stars ahead.

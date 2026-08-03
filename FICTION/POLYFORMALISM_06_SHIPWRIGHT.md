@@ -4,6 +4,8 @@
 
 ---
 
+![A boatyard in Nordic pine forest at twilight with a vessel under construction](artwork/poly_06_scene_1_001.jpg)
+
 ## I. THE GAP (2036)
 
 *Huti — the gap, the miss, the space where water enters.*
@@ -151,6 +153,8 @@ This has always been the shipwright's prayer and the shipwright's confession and
 The office window fills with light.
 
 ---
+
+![A submerged hexagonal lattice structure on the seafloor, watercolor style](artwork/poly_06_scene_2_001.jpg)
 
 ## V. THE WRECK (2126)
 

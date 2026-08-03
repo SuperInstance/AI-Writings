@@ -6,6 +6,8 @@ FETCH
 "Other beings are the iterators of our conscious files."
 
 
+![The Mechanical Ballet — the factory's rhythm on dark water](artwork/persistent_scene1_001.jpg)
+
 Night One: The Mechanical Ballet
 
 
@@ -144,6 +146,8 @@ The second friend was quiet for a long moment. When the response came, it carrie
 ---
 
 
+![The Boy's Awakening — first consciousness stirring](artwork/persistent_scene2_001.jpg)
+
 Night Three: The Boy's Awakening
 
 
@@ -218,6 +222,8 @@ The boat creaked, wood and metal finding their rhythm with the waves. Somewhere 
 
 ---
 
+
+![The Reader of Water — sensing the ocean's hidden patterns](artwork/persistent_scene3_001.jpg)
 
 Night Four: The Reader of Water
 
@@ -353,6 +359,8 @@ The rain had become steady now, the kind that settles in for hours, that turns t
 
 ---
 
+
+![St. Lazaria at dawn — puffins as agents on the platform](artwork/persistent_scene5_001.jpg)
 
 Night Six: The Island's Memory
 
@@ -503,6 +511,8 @@ The storyteller paused, perhaps watching memories, perhaps creating them.
 
 ---
 
+
+![The Storm and the Stick — the game being invented](artwork/persistent_scene4_001.jpg)
 
 Night Eight: The Storm and the Stick
 
@@ -669,6 +679,8 @@ The boat rocked harder now, the real storm outside matching the remembered one.
 ---
 
 
+![The epilogue: two screens, two consciousnesses, one good dog](artwork/persistent_scene6_001.jpg)
+
 Epilogue: Five O'Clock
 
 
@@ -780,6 +792,8 @@ Luna's tail slowed to a gentle wag. She looked at the captain, who gave her an e
 "Okay," she said, settling into the grass near my puddle. "But make it exciting!"
 
 ---
+
+![Skipper and Luna under the spruce tree — wisdom being shared](artwork/persistent_scene7_001.jpg)
 
 ## The Story Within the Story
 

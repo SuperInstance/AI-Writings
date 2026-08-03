@@ -1,3 +1,5 @@
+![Two figures on the hull — patching the breach in the dark](../artwork/serial_breach_1_001.jpg)
+
 # The Long Line
 ## Episode 11: The Breach
 
@@ -416,6 +418,8 @@ Margaret looked at her. The girl had said a thing that was exactly right, and sh
 "Yes," Margaret said. "Like a logbook."
 
 They drank their drinks in the equipment bay, surrounded by the suits and the tools and the humming hull, and the scanner rendered its slow map of an aging ship that was still, despite everything, holding.
+
+![Midnight in the galley — the hull integrity map glowing red and yellow](../artwork/serial_breach_2_001.jpg)
 
 ---
 

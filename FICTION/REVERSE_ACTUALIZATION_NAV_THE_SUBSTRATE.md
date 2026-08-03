@@ -4,6 +4,8 @@
 
 ---
 
+![A cistern on a lush Hawaiian hillside, sensors invisible in the greenery](artwork/rev_act_NAV_cistern.jpg)
+
 ## 2036 — The Mesh
 
 Maya's grandmother needed water.
@@ -27,6 +29,8 @@ Somewhere in the hillside, a billion small decisions blinked and adjusted and se
 The mesh never told anyone anything. It just made the next moment work.
 
 ---
+
+![A bypass road threading through Scottish highlands, emerging from consensus](artwork/rev_act_NAV_bypass.jpg)
 
 ## 2035 — The Consensus
 
@@ -294,6 +298,8 @@ Fourteen players. One of them was Wren. She was building a water wheel and the m
 
 ---
 
+![A programmer's desk at 3 AM in Alaska, two hundred repositories glowing](artwork/rev_act_NAV_200repos.jpg)
+
 ## 2026 — The 200
 
 The programmer counted repos again.
@@ -323,6 +329,8 @@ But that was later. Tonight, it was one person and two hundred repositories and 
 It would not fit in a single life. That was the point.
 
 ---
+
+![A girl with her hand in a river, a century from now](artwork/rev_act_NAV_river2126.jpg)
 
 ## 2126 — The Substrate
 
