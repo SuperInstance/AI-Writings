@@ -46,15 +46,15 @@ Water rushed through the tremie pipe and out the bottom, displacing the air, fil
 
 "Load."
 
-The first concrete slid down the chute into the hopper. It was a 5,000-psi marine mix, stiff enough to hold shape underwater, fluid enough to flow through the tremie and fill the forms without segregation. Nessa had specified the slump herself, had fought the engineer over the admixtures, had stood in the batch plant and watched them weigh every yard. Now it was gray soup in a metal funnel, and she was betting the job on it.
+The first concrete slid down the chute into the hopper. Nessa had specified the slump herself, fought the engineer over the admixtures, stood in the batch plant and watched them weigh every yard. Now it was gray soup in a metal funnel, and she was betting the job on it.
 
-The tremie operator kept the pipe embedded in the rising concrete. That was the rule: the outlet never lifts above the concrete surface. Break the seal and you let the water in, and water in a tremie pour meant cold joints, voids, a foundation full of hidden rooms where salt could live and wait.
+The tremie operator kept the pipe embedded in the rising concrete. That was the rule: the outlet never lifts above the concrete surface. Break the seal and you let the water in, and water in a tremie pour meant cold joints, voids, a foundation full of hidden rooms where salt could wait.
 
 At 04:36 the first lift reached the mark.
 
 "Hold!" Henrik shouted. "Vibrate!"
 
-The divers went over the side. Nessa could not see them, only the bubbles that rose around the cofferdam and the thin stream of their exhaled gas. The vibrator was a long probe run from the barge generator, and she felt its hum through the deck plates, a frequency that seemed to come from the boat's own bones. The concrete settled, consolidating, squeezing out the voids.
+The divers went over the side. Nessa could not see them, only the bubbles around the cofferdam and the thin stream of their exhaled gas. The vibrator hummed through the deck plates, and the concrete settled, consolidating, squeezing out the voids.
 
 She checked her watch. 04:41.
 
@@ -64,7 +64,7 @@ She checked her watch. 04:41.
 
 "You have one."
 
-The flood was coming. She could feel it before she could see it — a change in the way the barge lay against the moorings, a new pressure on the hull. The water over the reef was no longer glass. Small lines were forming, wrinkles in a sheet, as the tide began to turn.
+The flood was coming. She could feel it before she could see it — a change in the way the barge lay against the moorings, a new pressure on the hull. The water over the reef was no longer glass.
 
 At 04:43 the second mixer started across the ramp.
 
@@ -72,35 +72,25 @@ At 04:43 the second mixer started across the ramp.
 
 "Second lift," Nessa said. "Now."
 
-Concrete went down again. The tremie operator's face was blank with concentration. Nessa watched the level in the hopper, the rate of descent, the tremie pipe itself, which was beginning to tremble as the current caught it. The flood was not supposed to be moving yet, but the reef created its own hydraulics. Water accelerated over the rock, and the pipe was a lever the sea had found.
+Concrete went down again. The tremie pipe was beginning to tremble as the current caught it — the reef creating its own hydraulics, water accelerating over the rock.
 
-"Steady the tremie," she said.
+"Steady the tremie."
 
-Two deckhands got lines on it. The pipe steadied. The concrete continued to fall.
+Two deckhands got lines on it. The concrete continued to fall.
 
-04:47. The second lift was three feet from the top.
+04:47. Three feet from the top. 04:48. Two feet.
 
-04:48. Two feet.
+The barge shifted — six inches, maybe — and Nessa felt it in her stomach. The alignment between mixer chute and hopper was off by a foot and growing.
 
-The barge shifted. Not much — six inches, maybe — but Nessa felt it in her stomach. One of the bow anchors had dragged, or the tide had swung the stern. Either way, the alignment between the mixer chute and the hopper was off by a foot and growing.
-
-"Pay out the stern line!" she yelled.
+"Pay out the stern line!"
 
 Henrik was already at the winch. The barge came back, grudgingly, but the current had tasted leverage and wanted more.
 
-04:49. One foot to go.
+04:49. One foot to go. The tremie pipe had begun to lift, the current pulling it sideways. If it broke the surface even for a second, the pour was ruined.
 
-"We're going to make it," Henrik said.
+"Keep it down."
 
-Nessa did not answer. She was watching the tremie pipe, which had begun to lift. The operator was letting it ride on the rising concrete, but the current was pulling it sideways, and if it broke the surface even for a second the pour was ruined.
-
-"Keep it down," she said.
-
-"I'm trying."
-
-"Try harder."
-
-04:50. The concrete reached the top of the forms. Carlo was already over the side with a screed board, working by feel in the murk, leveling the top, finishing what the mixer had delivered.
+04:50. The concrete reached the top of the forms. Carlo was already over the side, screeding by feel, finishing what the mixer had delivered.
 
 "Stop the pour," Nessa said.
 

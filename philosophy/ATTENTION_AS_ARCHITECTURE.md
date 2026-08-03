@@ -1,5 +1,7 @@
 # Attention as Architecture
 
+![A dark harbor where sightlines between figures are drawn as luminous golden threads forming a load-bearing lattice](artwork/attention_as_architecture.jpg)
+
 There is no gold in Slackwater. There are no experience points. No progression bar fills as you work. The currency — the only currency — is attention. And the economy built on it does not behave like any economy you have been taught to recognize.
 
 This is not a design accident. It is the design *thesis*, and it reaches all the way down.
