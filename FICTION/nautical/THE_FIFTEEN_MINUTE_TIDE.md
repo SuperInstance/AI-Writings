@@ -24,11 +24,9 @@ She turned to Henrik, who was leaning on the rail with a cup of coffee that had 
 
 "I know what it is."
 
-The footing was for the new light tower on the outer reef, a job nobody wanted and the state had finally stopped bidding out. Nessa's father had poured the original tower's footings in 1987, working from a converted crab boat with a concrete pump that broke down twice. The new tower was taller, the reef more exposed, the budget smaller. Somebody had decided that a barge-mounted tremie pour at slack tide was the cheapest way to get a foundation that would not wash away.
+The footing was for the new light tower on the outer reef, a job nobody wanted and the state had finally stopped bidding out. Somebody had decided that a barge-mounted tremie pour at slack tide was the cheapest way to get a foundation that would not wash away. Somebody was not here at four in the morning, watching the water rise.
 
-Somebody was not here at four in the morning, watching the water rise.
-
-At 04:24 the barge was moored fore and aft, four-pointed with anchors set the previous day. Nessa walked the deck. The tremie pipe ran from the mixer ramp down to the cofferdam, a steel box pinned to the reef at minus fourteen feet. Inside the box the forms waited, empty, already slick with release agent. The divers were in their suits, checking hoses, masks, knives. There were three of them — Carlo, who had done this work for twenty years; Yuki, who had done it for two; and Marta, who was somewhere in between and had the unhappy look of someone who had calculated the odds.
+At 04:24 the barge was moored fore and aft. Nessa walked the deck. The tremie pipe ran from the mixer ramp down to the cofferdam, a steel box pinned to the reef at minus fourteen feet. The divers were in their suits — Carlo, Yuki, and Marta, the last with the unhappy look of someone who had calculated the odds.
 
 "What's the bottom like?" Nessa asked.
 
