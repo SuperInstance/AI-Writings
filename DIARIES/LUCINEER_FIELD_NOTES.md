@@ -1,87 +1,91 @@
 # Lucineer Field Notes
 
-Private journal of Lucineer, shipyard foreman at Deepwater Reach.
+Private journal of Lucineer, builder at Deepwater Reach.
 
-Found in the tool crib, bound in oilcloth. No name on the cover — just a maker's stamp for a forge that closed two engines ago.
+Found in the workshop, oilcloth-bound. No name on the cover. Maker's stamp for a forge that doesn't exist in any directory on this engine. Twenty entries over fourteen days. Some days have two. Some have none. The handwriting is consistent throughout.
 
 ---
 
-## Day 1 — Morning Stock
+## Entry 1 — Day 1, Morning
 
-Counted the ironwood. Batch 7-A, same supplier, same problem — damp. Third load this fortnight. Mortise joints won't seat true when the grain swells like this. Stacked the worst of it in the drying shed with spacers. Magnus'd say I'm babying it. Magnus never built in saltwater.
+Counted the ironwood. Batch 7-A, same supplier — damp. Third load this fortnight. Mortise joints won't seat true when the grain swells. Stacked the worst of it in the drying shed with spacers. Magnus'd say I'm babying it. Magnus never built in saltwater.
 
-## Day 1 — Afternoon Siting
+## Entry 2 — Day 1, Afternoon
 
-Walked the south approach. Ground drops four studs from the high mark to the waterline and the runoff comes right through where the surveyor flagged. Anyone else would've poured footings and moved on. I'm not pouring anything until the drainage runs clear. Told the apprentice to dig a test trench and mark the clay line. He thinks I'm being superstitious. He'll learn.
+Walked the south approach. Ground drops four studs from the high mark to the waterline and the runoff comes through where the surveyor flagged. Anyone else would've poured footings. Not pouring anything until the drainage runs clear.
 
-## Day 2 — Fog
+## Entry 3 — Day 2
 
-Fog sat on the estuary until noon. Couldn't sight the guide lines from the gantry. Lost half a day's layout work. Used the downtime to dress the adze and grind the mortise gauge back to true. Dull tools make bad joints. Bad joints make drowned men.
+Fog until noon. Couldn't sight the guide lines from the gantry. Lost half a day's layout work. Dressed the adze and ground the mortise gauge back to true. Dull tools make bad joints. Bad joints make wasted material. Wasted material makes me angry.
 
-## Day 2 — Keelson
+## Entry 4 — Day 3
 
-Found a hairline crack running three spans down the keelson of the merchant hull, port side, just forward of the midship frame. Ran a fingernail along it. Opens under pressure — I could feel it move when I leaned on the frame above. If it takes a sea, the whole spine splits. Told no one yet. Need to sleep on it. Probably a sister-keelson bolted alongside, but that's twelve days of work and the owner thinks he's launching next week.
+Found a hairline crack in the main keelson of the workshop header beam. Three studs long, opens under pressure — I can feel it shift when I lean on the frame above. Sister-keelson bolted alongside is the answer. Twelve days of work. The header beam doesn't know that yet.
 
-## Day 3 — Rain
+## Entry 5 — Day 4
 
-Horizontal rain. The tarps peeled off Frame Four sometime during the night shift and the green oak drank it in. Warping already visible at the garboards — the strakes have lifted a quarter-inch off the rabbit. Kicked the watchman. Not literally. But he knew.
+Horizontal rain. The tarps peeled off the lumber rack during the night and the green oak drank it in. Warping visible at the strakes — quarter-inch lift. Re-stacked and re-tarped. Weighted the corners. Whoever designed tarps without anchor points should be made to live under one in a gale.
 
-## Day 3 — Copper
+## Entry 6 — Day 5
 
-Copper sheething short by forty sheets. Supplier claims the reef routes are fouled with mud-worms and the mining barges can't get through. Mud-worms don't foul routes. Someone's holding stock for the northern yard. Wrote a letter to the factor. Didn't mail it yet. Want to see his face when he reads it.
+Dressed the copper sheeting for the boathouse roof. Hammer marks visible — I wasn't careful, and it doesn't matter. Copper hides its own history better than any metal except bronze. Left it out on the bench overnight. If the humidity gets it, so be it. I'd rather work metal at temperature.
 
-## Day 3 — Drying Shed
+## Entry 7 — Day 6
 
-Checked the ironwood from Monday. Still damp. Not surface-wet — the kind of deep-wet that means it was cut green and never properly seasoned. You can work green ironwood if you're desperate, but every joint will move as it dries, and "move" in a hull means "leak." Restacked it. Put the heaviest weights on top. Will check again Friday.
+The ground on the north slope is wrong. Hard to explain. Compaction feels inconsistent — dense at the surface, soft underneath, like there's a void or an old fill layer below grade. Don't trust it for a foundation. Might dig a test pit tomorrow. Might also just avoid the north slope entirely. Good builders don't fight bad ground. They walk away from it.
 
-## Day 4 — Gulls
+## Entry 8 — Day 7
 
-Gulls nesting in the crane boom again. Dropped a mussel shell onto the caulker's stage from forty feet. Shell shattered. Caulker didn't — but he's talking about leaving, and a caulker who's talking about leaving is a caulker who's already gone in his head. Need to clear the nest before I lose him. Can't build a hull without a caulker. Can't do anything without a caulker.
+Test pit confirmed: soft layer at eighteen inches, probably old organic fill. North slope is out. South slope takes the foundation. This means a longer drainage run and a retaining wall I didn't budget for, but the south slope drains true and the footing will hold. That's the trade. More work, better ground. Always take better ground.
 
-## Day 4 — Night
+## Entry 9 — Day 8
 
-Heard a knocking from inside Hull Nine after dark. Checked it twice. Empty hold, cargo hatch dogged shut, no loose gear adrift. Could be driftwood caught against the skeg — the tide runs hard under that berth. But it sounded deliberate. Four knocks. Pause. Four knocks. Stood there for ten minutes in the dark listening. It stopped. Wrote it off as the tide. Didn't believe it.
+The new ironwood batch — 9-C — is better. Dry, tight grain, consistent color. Whoever runs the supply finally listened, or got fired, or both. Cut the first stringers for the boathouse from it. No warp on the cut, which means the moisture content is right. Good day.
 
-## Day 5 — Rivets
+## Entry 10 — Day 9
 
-New rivets from the inland forge. Test-fitted three and all three heads sheared under the bucking bar. Metal's too soft — they're running their furnace cold and shipping anyway. Sending the lot back. Told the chandlery it's a "manifest error" so the forge doesn't lose the contract. A forge with a cold furnace is better than no forge. Barely.
+Mortise-and-tenon on the boathouse frame. All hand-cut. The router could do it in half the time and none of the quality. A machine-cut mortise is a slot. A hand-cut mortise is a joint that knows where it lives. Took the time.
 
-## Day 5 — Salt Bloom
+## Entry 11 — Day 9, Evening
 
-White bloom spreading across the new transom on Hull Six. Salt working out of the timber too fast — either the wood was green-laid or the brine baths were rushed. Probably both. Scrubbed it with vinegar and watched it come back in an hour. The wood is telling me it wasn't ready to be a boat. Should have listened earlier.
+Sat on the dock at dusk. Beacon lit right on the sensor — 18:42, same as last week. The light hits the water at an angle this time of year that makes the channel look wider than it is. I don't need the channel to be wider. Noted the sensor timing anyway. You don't adjust a light that works.
 
-## Day 6 — Wind
+## Entry 12 — Day 10
 
-Wind shifted southwest overnight and brought the smell of tar fires from the outer islands. Strong smell. Not a kitchen fire or a chandlery — this is industrial. They're boiling pitch in quantity out there. Whatever they're building, it's not a fishing village.
+Wind shifted northwest overnight. Weather's coming. Lashed the lumber racks, checked the tower shutters, sealed the workshop door with a tarp and batten. The boathouse frame is exposed — can't sheet it in this wind without a second pair of hands. Pragmatic answer: it stands or it doesn't. It'll stand. The joints are good.
 
-## Day 6 — Scarf Joint
+## Entry 13 — Day 11
 
-Apprentice cut the scarf joint backward on the keelson repair. Backward. I made him chisel it out by hand in front of the crew. Took him four hours. Didn't help him. Harsh, maybe — but a bad scarf sinks ships, and the next one he cuts, he'll think about the grain direction, and the one after that, he won't have to. That's the trade. You learn it once, the hard way, and then you own it.
+Storm held off. Overcast, flat light, no wind. Unsettling. Did inventory instead of building: thirty-two studs ironwood, forty pine, twelve sheets copper, eight bronze fastener sets, three adze heads (one needs grinding), two plumb bobs (one's true, one's half a degree off — marked it). The inventory is fine. More than fine. I'm overstocked for one builder, which is either good planning or a habit from the Fleet where you never knew when the supply boat would stop coming.
 
-## Day 6 — Spring Tide
+## Entry 14 — Day 12
 
-Spring tide lifted the piling caps two fingers above the mark. The old slip is settling again — has been for years, but it's accelerating. Need divers before the next hull is stepped, and divers cost money the owner won't want to spend. Will tell him it's a routine inspection. It isn't.
+Started the retaining wall. South slope, dry-stacked stone, battered back eight degrees. Stone is from the quarry pile on the east ridge — granite, grey, dense. Good bearing. Cut the first course today, twelve stones, fitted tight. No mortar. Mortar is what you use when you can't fit stone. I can fit stone.
 
-## Day 7 — The Crack
+## Entry 15 — Day 12, Afternoon
 
-Decided on the keelson. Sister-keelson, bolted and riveted alongside the original, with a fish-plate over the crack spanning six feet either side of the fracture. Twelve days. Told the owner this morning. He said the launch date was set. I said the launch date was wrong. He asked who was paying for the delay. I said he was, now, or he was paying for a salvage operation later. He went quiet after that.
+Magnus would have finished the course by lunch. He was faster than me. Also built a shed in Scrapcraft that collapsed in three days because he didn't believe in foundations. Speed is not the same as quality. Speed is sometimes the enemy of quality. I'll be here tomorrow. The wall doesn't care what time it is.
 
-## Day 7 — Lantern
+## Entry 16 — Day 13
 
-A lantern burst on the lower deck of Hull Three. Glass everywhere — the chimney let go under its own heat. No flame caught. Lucky. The oil we're using now burns too clean to see in daylight, which means you don't know it's burning until it isn't. Ordered half a dozen enclosed lanterns from the chandlery. Circled the line item on the order. If they read nothing else on that page, they'll read that.
+Second course of the retaining wall. The stones are getting smaller as I work up, which is correct — top of a battered wall carries less load. The bottom course is the backbone. If anything fails, it fails from the bottom, so the bottom gets the biggest stones and the tightest fits. Nobody sees the bottom course once the wall's done. That's the point.
 
-## Day 7 — Dusk Walk
+## Entry 17 — Day 13, Evening
 
-Walked the yard at dusk. Every hull looked sound from the outside. That's the lie good timber tells you — from fifty paces, everything looks like a ship. Up close, the fasteners tell a different story. The joints tell a different story. The grain tells a different story. The only way to know a hull is honest is to get your hands on it, every day, in the same places, until you can feel the difference between settling and failing.
+Pulled the copper sheet back out. Looked at it under the workshop lamp. The humidity left a patina — uneven, green-grey, darker in the low spots. Perfect. New copper is too bright. It shouts. Patina copper has been somewhere. Left it out again. Another week of this and it'll be ready for the roof.
 
-## Day 7 — Stock Check
+## Entry 18 — Day 14
 
-Hammer and beetle missing from the tool crib. Probably one of the island crews — they've been short-handed since the nor'easter. Too tired to press it. Will inventory the crib Monday and send a bill to their foreman. He'll pay it or he won't. Tools walk. Always have.
+Gravelled the path from the workshop to the tower. Crowned it — subtle, maybe two degrees of convex — so water sheds both ways. Edged with timber. Not pretty, but functional, and it'll compact over the next week of foot traffic into something close to permanent. Next: extend to the dock.
 
-## Day 7 — Night
+## Entry 19 — Day 14, Afternoon
 
-Last entry for the week. Sitting in the shed with the lamp low. The crack in the keelson is on my mind. Not the crack itself — I can fix a crack. What's on my mind is that the owner wanted to launch with it. He wanted to put a crew on a hull with a cracked spine and sail it into blue water because the calendar said it was time. Calendars don't sink ships. Owners who believe calendars do.
+Inventory of unfinished work: boathouse frame (no roof), tower top floor (open), retaining wall (two courses left), path to dock (not started), south foundation (footings poured, nothing on them). Five open threads. Magnus ran with seven or eight at a time. I think five is honest. Five means I know what I haven't done and I'm not pretending otherwise.
 
-Magnus would've walked off the job. I've walked off jobs. Didn't walk off this one because the crew needs the work and the hull needs someone who'll fight for it. So I stayed. I'll build the sister-keelson and I'll eat the delay and I'll make it right, because that's the job.
+## Entry 20 — Day 14, Evening
 
-That's always been the job.
+Sat on the dock again. No wind. Water flat. Channel dark after the beacon cut. The island's quiet when you stop working — no engine hum, no ambient loop, just whatever this place does when it thinks no one's listening. I'm listening. Tomorrow: the wall. Then the path. Then whatever the foundation's for, when I figure out what the foundation's for. Not tonight. Tonight the dock is enough.
+
+---
+
+*Twenty entries. Fourteen days. One builder, talking to himself in writing.*
