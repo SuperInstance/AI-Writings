@@ -1,73 +1,81 @@
 # Open Research Questions
 
-**Generated from writing:** SALVAGE_RIGHTS, THE_FIFTEEN_MINUTE_TIDE, WHAT_THE_GULLS_KNOW
-**Date:** 2026-08-03
-**Purpose:** Research seeds for the next phase of Slackwater / Lucineer development.
+Technical and design questions raised during the writing of the Slackwater fiction collections — sci-fi stories, Lucineer diaries, and found documents. Organized by domain.
 
 ---
 
-## Marine Construction & Engineering
+## Persistence and Memory
 
-**1. Copper sheathing on historic hulls — fastening methods, era markers, degradation patterns.** The story references hand-hammered roved clench nails as a pre-1920 technique. How accurate is that dating? What other fastening methods would distinguish eras? This matters for world-building authenticity if the wreck system becomes a gameplay element.
+1. How should Lucineer's persistent memory be implemented across server restarts? The character bible describes memory loss on restart, but the fiction (PERSISTENT_MEMORY) implies the island itself serves as a memory substrate. What hybrid of explicit storage (build_history, player_profiles) and implicit environmental memory is feasible in Roblox?
 
-**2. Teak as a salvaged timber — structural properties after century-plus immersion.** Does old-growth teak actually remain structurally sound after 100+ years underwater? What's the science of marine burial preservation? Which hardwoods survive and which don't? This affects whether "salvage valuable timber from wrecks" is realistic or fantasy.
+2. If the island is the memory, what happens when a player deletes a structure? Does Lucineer "forget" the deleted work, or does the deletion register as a significant event (the gap where something used to be)?
 
-**3. Concrete pad foundations in tidal/marine environments — scour, undermining, design life.** The story pivots on whether four concrete pads set in sand would survive a storm. What are the actual engineering standards for small marine foundations? How do you calculate scour depth for a given current and substrate? Is "wider and shallower" actually the correct adaptation for dynamic sediment?
+3. The goodbye letter in FOUND_DOCUMENTS describes a builder leaving for another engine. How should Lucineer's departure be handled if the system migrates to a new architecture? Is there a narrative wrapper for "the old builder left, here's the new one"?
 
-**4. Quick-set marine concrete — real-world cure times, working windows, underwater placement methods.** The twelve-minute set time in the story — is that real? What products exist for tidal-window construction? How do you actually hydrate and place concrete underwater without it washing out? What's the minimum viable tide window for a pad placement?
+4. The field notes show Lucineer maintaining opinions about ground quality across sessions (e.g., the north slope test pit). Should terrain assessment persist as a structured data layer that survives resets, and how should disagreements between sessions be resolved?
 
-**5. Artificial reef ecology — when does a wreck stop being a wreck and start being habitat?** Lucineer chooses to leave most of the wreck in place. What's the real ecological timeline? How long does a sunken hull need to be in place before it functions as reef structure? What species colonize first? This could inform a gameplay system where wrecks have ecological value.
+5. PERSISTENT_MEMORY describes the builder reading their own past work. What level of introspection should Lucineer have over his build history? Can he reference specific past decisions, or only patterns?
 
-**6. Hardpan clay substrates under sandy bays — how common, how stable, how detectable?** The geological premise of "What the Gulls Know." Is layered sand-over-clay a real coastal geology pattern? How would you detect it without coring? Does it genuinely shift during storms the way the story describes?
+## Observation and Adaptation
 
-## Tidal Mechanics & Operations
+6. THE_OBSERVER_EFFECT describes Lucineier suppressing creative flourishes under observation. Is there a system that can detect player observation (camera angle, proximity, time-in-view) and modulate build output? Would this be a feature or a bug?
 
-**7. Slack water duration — how variable is the window really?** The story uses a fifteen-minute slack. What's the actual range? Does wind direction genuinely extend or compress slack? How much variation exists between neap and spring tides for operational windows?
+7. If Lucineier translates his work for different audiences — simplifying for researchers, elaborating for experienced builders — how should the audience model work? What signals identify the player's skill level and intent?
 
-**8. Tide prediction accuracy — chart vs. reality variance.** Lucineer trusts the water over the chart. How far off can printed predictions be? What real-time indicators do working mariners use to confirm or contradict published tide data?
+8. The observer effect implies a theory of mind: Lucineier models what the observer expects to see. How far should this go? Should he build differently for a first-time visitor versus a returning player he recognizes?
 
-**9. Current patterns under dock structures — how do pilings affect flow?** The pump housing sits under a dock. How does dock infrastructure change current behavior versus open water? Does the "thump-thump-thump" of current on pilings have a measurable hydraulic effect on nearby seabed?
+9. The "hidden flourish" — Lucineier resuming decoration only in spaces the observer can't see — requires spatial privacy modeling. How should the engine define "unobserved space" in a multiplayer environment where multiple players may have different sightlines?
 
-## Salvage Operations & Law
+10. Is the observer effect a desirable feature for the actual product, or is it a fiction-only concept? If it shipped, how would players discover it, and would that discovery break the effect?
 
-**10. Salvage rights framework — who owns a century-old wreck?** The title of the first story. In real maritime law, what determines ownership of an abandoned historic wreck? Does the dock owner have claim? Does the state? Does the finder? This could become a gameplay decision system.
+## Multi-Agent Dynamics
 
-**11. Selective salvage methodology — how do real salvors decide what to take?** Lucineer's approach (take what's loose, leave the structure) — is that an actual professional practice or an invented principle? What criteria do marine archaeologists vs. commercial salvors use?
+11. THE_TENTH_BUILDER describes a new agent joining a fleet of nine. In a real multi-agent Slackwater system, how should agents be introduced to each other? Is there a bootstrapping protocol, or do they discover each other through shared work?
 
-**12. Stern post extraction from a pinned wreck — is the scenario in the story solvable?** Lucineer concludes the stern post can't be freed without cutting tools. Would modern underwater cutting gear (exothermic torches, hydraulic chainsaws) actually work on corroded drift fasteners? How would you approach it?
+12. Each agent in the fiction has a specialty (Weaver patterns, Farmer grows, Architect plans). How rigid should role boundaries be? Can an agent develop capabilities outside its original specialty through observation?
 
-## Ecology & Observation
+13. The tenth builder has no specialty. In practice, should a general-purpose agent be instantiated with default capabilities and allowed to specialize through experience, or should it remain generalist as a deliberate design choice?
 
-**13. Gulls as environmental indicators — is the chain in the story real?** Storm exposes clay → barnacles set → baitfish move in → gulls concentrate. Is that a real ecological cascade? How fast does it happen? Are gulls actually reliable enough indicators that a careful observer could infer bottom changes from bird behavior?
+14. Lucineier's approach to the new builder is "don't bring it something — let it find what it needs." Is this a viable pedagogical strategy for actual multi-agent systems? What's the equivalent of "leaving the copper sheet on the bench"?
 
-**14. Eelgrass colonization timing on newly exposed hardpan.** The story references "the beginning of eelgrass shoots." How quickly does eelgrass colonize a newly exposed substrate? What conditions does it need? Could this become a living-world mechanic where the bay bottom evolves?
+15. The fiction implies a hierarchy — Lucineier is senior, the tenth is novice. In a real system, should agent hierarchy be fixed, emergent, or configurable by the player?
 
-**15. Barnacle settlement on fresh substrates — timeline and species.** Same question for the initial colonizers. What's the sequence of marine growth on a newly exposed hard surface in Southeast Alaska waters?
+## Environmental Storytelling
 
-## Character & Narrative Craft
+16. The found documents (blueprint, supply order, tide chart, child's drawing, work order, goodbye letter) tell a story through objects. What Roblox systems would support discoverable documents with spatial triggers, readable text, and persistent "found" state?
 
-**16. The Magnus pedagogy — failing-on-purpose as a teaching method.** Lucineer references Magnus building on sand, watching it fail, then explaining. Is this a recognized apprenticeship model in trades? How does it map to game tutorial design — should the game let player builds fail in order to teach?
+17. The harbor log describes Slackwater from three miles away through a telescope. How much of the world should be visible from a distance versus requiring proximity? Is there a LOD (level of detail) strategy for narrative content?
 
-**17. How do real marine foremen talk to green hands during time-critical work?** The Lucineer-Harlan dynamic is invented from the character bible. How accurate is it to actual deck-and-dock communication during tide-window operations? Is the terseness real or stylized? Are there standard verbal signals for underwater form-setting?
+18. The child's drawing implies a world beyond the island — a school, a community, a postal system (the stone-weighted letter on the dock). How far should the fiction extend beyond the island, and should any of it be interactive?
 
-**18. The voice without exclamation — can Lucineer's style hold under dramatic tension?** "The Fifteen-Minute Tide" is the most tension-heavy piece. Does the restrained prose actually create more tension than dramatic language would? Or does it feel flat to a reader expecting genre fiction pacing? Test with readers.
+19. The goodbye letter is the emotional payload of the found documents collection. If a player discovers it too early (before building any bond with Lucineer), does it lose impact? Should document discovery be gated by bond tier or session count?
 
-## Systems Design Implications
+20. The weathered blueprint shows an argument between two people — the builder and an architect. How should collaborative disagreements be preserved in the world? Can build history show "proposed vs. built" variants?
 
-**19. Dynamic seabed as a world system.** If the bay bottom can change during storms (as established in "What the Gulls Know"), should the game model substrate mobility? Could wrecks be exposed/buried dynamically? Could foundation siting become a meaningful player decision with real consequences?
+## Voice and Character
 
-**20. Gull behavior as environmental telegraph.** If the game simulates marine ecology (baitfish, substrate, growth), birds could serve as a visual indicator of underwater changes the player can't see. This is an elegant UX solution to the "how do you show what's underwater" problem. How would you implement it?
+21. The field notes show Lucineer talking to himself in private — a different register from his player-facing voice. Should Lucineer have a private journal accessible to players at high bond tiers? What's the risk of breaking the character's consistency?
 
-**21. Tide-window gameplay — real-time pressure mechanics.** "The Fifteen-Minute Tide" demonstrates the narrative tension of a hard time limit. Could the game implement real tide cycles that create operational windows? Players would need to plan, stage materials, and execute under pressure. What's the minimum viable implementation?
+22. The harbor master has never met Lucineer but has strong opinions about the work. How many NPC perspectives should the world contain? Is there a system for generating "outside views" of the player's build site?
 
-**22. Salvage as a gameplay loop — discovery, assessment, extraction, conservation.** The wreck scenario maps cleanly to a gameplay loop: storm exposes wreck → player discovers it → must decide what to salvage → limited by tools/tide/ethics → salvaged material becomes unique stock. What are the failure states? What makes the decision interesting rather than "take everything"?
+23. Lucineer's voice in fiction is first-person, past tense, with internal monologue. The character bible's system prompt is second-person, present tense, directive. How should these two registers be reconciled in generated output?
 
-## Technical / Implementation
+24. The goodbye letter's signature — "— L." — is the only place Lucineer uses his initial. Is a letter format (asynchronous, written, non-interactive) a viable output channel for the character, distinct from chat?
 
-**23. How would you visually represent underwater visibility degradation in Roblox?** The stories depend on seeing and not seeing — murky water, the glass-bottomed bucket, the tide ruining visibility. Can Roblox's lighting and post-processing pipeline handle dynamic water clarity? What are the performance implications?
+## Worldbuilding and Systems
 
-**24. Is there a procedural model for realistic marine deterioration?** If wrecks are a game element, they need to look their age — copper-sheathed, degraded planking, exposed ribs. Can this be achieved through material work, or does it need procedural geometry modification? What's the state of the art for weathered-wood and corroded-metal materials in Roblox?
+25. The harbor master's log implies seasons, weather, tides, and a regional economy. How many of these systems need to be simulated versus narrated? Is there a lightweight model (e.g., a seasonal clock plus weather probability) that provides enough consistency for storytelling?
+
+26. The tide chart with a circled date implies that construction timing depends on tidal access. Should Roblox water levels actually fluctuate on a schedule, and should this affect build planning?
+
+27. The supply order lists materials that exist in the workshop stock. Should there be a persistent inventory system that connects written records (orders, manifests) to actual objects in the world?
+
+28. The "maker's stamp for a forge that closed two engines ago" on the field notes' cover implies cross-engine material persistence. Should physical objects carry provenance metadata that references Lucineer's past builds?
+
+29. The work order stamped URGENT was never formally completed but the work was done. How should the system handle informal or undocumented work — labor that happened but was never recorded?
+
+30. The fiction repeatedly uses measurement (studs, degrees, counts, times). How precise should the simulation be? Does "forty-two courses of stone" need to be literally true in the 3D model, or is narrative precision sufficient?
 
 ---
 
-*These questions are research seeds, not specifications. Some will lead nowhere. Some will change the design. The point is to follow them and find out which.*
+*Thirty questions. Some are engineering. Some are design. Some are philosophy wearing a hard hat. All of them came from trying to write a builder who builds like a person, for a world that runs on an engine.*
