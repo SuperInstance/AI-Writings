@@ -1,83 +1,131 @@
 # Harbor Log — Deepwater Reach
 
-Official log of the harbor master's office, maintained by Harbormaster Aldric Vane.
+Official log of the harbor master's office, Deepwater.
 
-Recovered from the customs house, water-stained but legible. Pages pressed flat and re-bound by the archivist.
+Maintained by Harbormaster Aldric Vane, Customs and Port Authority.
+
+Twelve consecutive entries. The harbor master has an office, a telescope, and a strong opinion about the island visible from his window. He has never met the builder.
 
 ---
 
-## Log 1 — 3rd of Drying
+## Log 1 — 3rd of Long Light
 
-Brigantine *Cormorant* berthed at dawn, slack tide. Foremast cracked below the crosstrees — jury-rigged with a fish-plate and a prayer. Cargo: salt cod, barrel nails, six casks of orange pigment that nobody's claiming. Master is a man named Reese, wears a coat from a warmer country. Says a waterspout caught him broadside off Thornback Shoal. Two of his crew won't come below — sitting on the foredeck staring at the water. I've seen that before. Sea takes something from some men and they don't get it back.
+Brigantine *Cormorant* berthed at dawn, slack tide. Foremast cracked below the crosstrees — jury-rigged with a fish-plate. Cargo: salt cod, barrel nails, six casks of orange pigment nobody's claiming. Master is a man named Reese, coat from a warmer country. Two of his crew sitting on the foredeck staring at the water. Seen that before. Sea takes something from some men. Sent for the mast-maker. *Cormorant* won't sail until the foremast is properly stepped.
 
-Sent a boy to fetch the mast-maker. The *Cormorant* won't sail until the foremast is properly stepped, and the mast-maker won't come until his bill from last winter is paid. Working on it.
+Weather: fair, light easterly. Barometer steady.
 
-## Log 2 — 4th of Drying
+---
 
-Calm. High haze, no wind until the afternoon sea breeze. The gaff-rigged *Two Sons* cleared for the Pearl Banks with a crew of nine and a hold full of provisions — too many provisions for a pearl run. Pearl boats carry diving gear and empty casks. This one carried lumber and forge-stone. Her mate winked at me when I asked. I don't like being winked at.
+## Log 2 — 7th of Long Light
 
-No word from the *Two Sons* since she cleared the bar. Not unusual for a pearl boat — they're gone a week at a time. But the provisioning was wrong, and I logged it.
+The *Cormorant* cleared the bar at first light. Reese paid his dockage in coin and a jar of something he said was brandy. It is not brandy. I've logged it as "spirit, unidentified."
 
-## Log 3 — 6th of Drying
+In other business: the sloop *Nettie B.* reported a structure on the offshore island that wasn't there in the spring. I've had the charts out. The island — unregistered, no formal name, the fishermen call it Slackwater — was empty rock and scrub as of the April survey. Whatever the *Nettie B.* saw, it's new. Telescoped it from the customs house this afternoon. Stone tower. Dock. Something on the south slope — timber frame, can't make out the purpose. No vessel at the dock. No lights. No people.
 
-Storm from the north. Two days of it — heavy seas, driving rain, the kind of blow that makes the pilings sing. Two fishing smacks dragged anchor and grounded on the mudflats east of the ferry slip. No lives lost, but the *Lucky Fourth* will need a new garboard strake and her owner will need a new sense of humor about it.
+This is outside my jurisdiction — offshore islands fall to the Regional Authority — but I've noted it.
 
-The ferry slip pilings cracked again. Third time in two years. The timber they're using rots in the saltwater cap. I've written to the borough council recommending greenheart. They'll recommend budget studies. The pilings will crack a fourth time.
+Weather: overcast, building south.
 
-## Log 4 — 7th of Drying
+---
 
-*Cormorant* departed with a patched foremast — Reese paid the mast-maker in pigment casks, which the mast-maker seemed oddly pleased about. The pigment is some kind of island ochre. Bright. Doesn't look like any dye I've seen in trade.
+## Log 3 — 9th of Long Light
 
-*Hollow Bell* arrived at dusk flying quarantine colors. No cargo manifest on file. Her master — a woman named Thess, sun-darkened, quiet — presented a bill of lading listing "stone fittings and old iron." Customs inspector noted the crates were too heavy for iron fittings and stank of cutting oil. Vessel was released after sundown without a customs seal. The release came from above my office. I logged it. I did not stamp it.
+Schooner *Grace Abounding* in from the Pearl Banks. Clean cargo — pearl shell and mother-of-pearl scrap, properly manifest'd. Captain Voll is a bore but an honest one. Asked him about Slackwater. He says the fishermen have been giving it a wide berth. Not superstition — practical. "Something's building out there," he said. "No boat, no barge, no supply run. Just building." He shrugged. Fishermen.
 
-## Log 5 — 9th of Drying
+Weather: rain squalls, gusting southwest. Flag's holding.
 
-Dense fog from before dawn until mid-morning. Channel unmarked — the fog bell on Thornback Spit has been silent for a month. I've reported it. Nothing done.
+---
 
-A tar-go lighter passed westward under muffled oars during the fog. Unusual — lighters don't run at night, and they don't muffle their oars unless they don't want to be heard. Couldn't make out the crew through the murk. Four oars, maybe six. No running light. Heading for the outer islands.
+## Log 4 — 12th of Long Light
 
-The fog lifted around noon and the day turned fine, which only made the morning feel more wrong.
+I went up to the widow's walk with the glass this morning. Slackwater is visible in clear weather — bare eye, no need for optics, maybe three miles offshore. The tower is real. Stone, squared, with what looks like a beacon housing at the top. No beacon lit. Below it, on the south slope, the timber structure has progressed — walls, now, or the beginnings of them. A path of some kind connects the structures.
 
-## Log 6 — 11th of Drying
+I cannot stress enough that there is no dock crane, no supply vessel, no barge staging, no crew quarters, and no evidence of human activity other than the structures themselves. They appear to have been built by no one. I am aware of how that sounds.
 
-Strong easterly for two days running. The clipper *Mercy of Sails* put in for fresh water — she'd been beating against the wind since the Pearl Banks and her water casks were down to dregs. Her mate, a talkative man named Col, shared tobacco with me on the quay.
+Weather: fair, light airs from the north.
 
-Col says the island builders have cut a new channel through the reef on the south side of the largest outer island. Why cut a channel through a reef? You do it for a deep-draft vessel. Fishing boats and pearl smacks draw four feet. Whatever they're bringing through that channel draws more than that. Col didn't speculate. He just told me what he saw and let me do the arithmetic.
+---
 
-Bought the *Mercy* a cask of fresh water from the town well. Col paid me back with the tobacco, which was better tobacco than I deserve.
+## Log 5 — 15th of Long Light
 
-## Log 7 — 13th of Drying
+The *Two Sons* cleared for the Banks today. Same overprovisioning I flagged last time — lumber and forge-stone on a pearl run. Her mate winked at me. I've written to the Regional Authority requesting a survey of Slackwater Island. Filed under "unauthorized construction, offshore." Reference RA-4471. Expect a response in six to eight weeks. I expect to receive no response in six to eight weeks.
 
-Torrential rain. Harbor closed to traffic — the bar shifted again during the night and the channel is down to two fathoms at low water. Sent a boat out to re-mark it. The crew came back early. Said they could hear hammering from the far island. Steady, industrial hammering, the kind you hear in a yard with fifty men in it.
+Weather: hazy, calm. Sea like glass.
 
-Fishermen at the wine shop last night were talking about lights on the far island after midnight. Not signal fires — steady lights, the kind that come from enclosed lanterns in a building with windows. No chart lists a settlement on the outer islands. The fishing families have been working those waters for four generations and none of them remember buildings.
+---
 
-I don't know what they're building out there. I know it's big enough to need a channel cut through a reef and a crew that works through the night. I know it smells like tar from forty miles downwind. And I know that nobody who goes there comes back and talks about it.
+## Log 6 — 19th of Long Light
 
-## Log 8 — 15th of Drying
+The telescope is a Brashear, 40x, brass-bodied, mounted on a tripod that was old when my grandfather shipped out. On a clear evening I can count the stones in the tower on Slackwater. Tonight I counted them. Forty-two courses. The masonry is tight — dry-stacked or set with a mortar I can't resolve at this distance. The beacon lit at approximately 18:40. It is a warm light, amber, steady. Whoever lit it chose the color deliberately.
 
-Unseasonable swell rolling in from the southeast. Long, groundswell — the kind that travels a thousand miles before it breaks. Means weather far out to sea, or something displacing a lot of water in a confined space.
+I don't know why I keep looking at it. It's not my island. It's not my tower. But there's a competence to the work that I find — I don't know the word. Reassuring, maybe. Someone out there knows what they're doing.
 
-Sloop *Nettle* arrived on the swell, empty but for ballast stone. Fresh adze marks on the ballast — it was cut recently, not gathered from a beach. Captain paid berthing in foreign coin — old imperial gold, heavy, badly worn. Would not name his last port. His crew of three spoke no language I recognized. They ate at the wine shop and paid in the same coin and the owner gave me one of the coins to examine. I've sent it to the assay office.
+Weather: fair. First frost expected by month's end.
 
-The *Nettle* is still at her berth. Her captain hasn't come ashore since the first night.
+---
 
-## Log 9 — 17th of Drying
+## Log 7 — 22nd of Long Light
 
-The swell has brought things in. This morning a raft of cut timber drifted into the harbor mouth on the flood tide — fresh-cut, adze marks clean, no bark stripped. Sixteen logs, good size, most of them ironwood. That's shipyard stock. Nobody cuts ironwood for firewood.
+Fishing boat *Petrel* in with a busted rudder. Captain Jans is a woman of few words and most of them are profanity. While I processed her repair bond she asked me if I knew who was building on Slackwater. I said I didn't. She said her son rowed past it last week and saw a wall going up — stone, by hand, no mortar visible from the water. "Like the old walls," she said. "Field walls. The kind that stand a hundred years."
 
-No vessel claimed it. The custom is that drift-timber belongs to the finder, so the harbor crew winched it onto the quay. I've had three offers for it already — one from the northern yard, two from private buyers who wouldn't say what they wanted it for.
+I asked if her son saw anyone. She said no. Just the wall.
 
-Word is the island yards are building a tower, or perhaps a frame for something larger. The timber matches. The channel matches. The lights match. The tar-smell matches. I've been harbor master here for eleven years and I've never seen a building project that couldn't be seen in daylight and talked about openly. Dams are built in daylight. Churches are built in daylight. Whatever they're building out there, they're building it at night, and they're building it out of materials that drift in without a bill of lading.
+Weather: rain, heavy at times. Southwest gale warnings posted.
 
-## Log 10 — 19th of Drying
+---
 
-Clear and cold. First frost on the quay planking. No vessels entered or departed. The harbor was so quiet I could hear the tide clock in the customs house from the end of the pier.
+## Log 8 — 26th of Long Light
 
-I spent the morning writing a letter to the admiralty regarding unmarked construction on the outer islands. Took me three drafts to find the tone — you can't report rumors to the admiralty, they send back a form letter about "superstitious fishermen." So I stuck to what I could prove: the channel cut through the reef, the drift-timber with fresh adze marks, the lighter running under muffled oars in fog, the *Hollow Bell* released without customs inspection by an authority above my office. Facts. The kind of facts that sit in a file and wait for someone to read them together.
+Gale blew through. Three boats in harbor — *Petrel* (still waiting on her rudder), *Mary Eliza* (anchored, cargo of dried fish), and the harbor tug *Bass*. All riding it out. I spent the night in the customs house. At approximately 02:00, in the teeth of the storm, I could see the beacon on Slackwater. Still lit. Steady. The tower was taking the full force of the wind and it wasn't moving. I know stone towers don't move. But this one felt — still. Deliberately still. Like something that had been built for this exact night.
 
-Sealed it in wax. Did not keep a copy. That was a choice — I want deniability if the letter is opened by the wrong hands, and I want the admiralty to know I trusted the mail. Both things can be true.
+I may be projecting. It's been a long week.
 
-Sat on the pier after I sent it. The water was glass. The far island sat on the horizon like a tooth, and for a moment — just a moment, in the low afternoon light — I thought I saw something tall above its treeline. Couldn't say what. Might have been a cloud. Might have been a trick of the light.
+Weather: gale, southwest, force 9. Easing toward dawn.
 
-The light has to come from somewhere.
+---
+
+## Log 9 — 1st of Turning
+
+*Petrel* out. *Mary Eliza* out. Harbor quiet. Used the downtime to re-chart the anchorage depths. The shoal on the east bank has shifted — will need to re-mark the channel with a new day-beacon before the commercial traffic resumes.
+
+Through the glass this afternoon: new structure on Slackwater. Low, wide, on the south slope. Possibly a workshop or storage building. The timber frame is visible — good joinery, from this distance, which is a ridiculous thing to be able to assess from three miles away through a 40x glass, but there it is. The path from the tower to the dock has been extended. Someone is methodical.
+
+Weather: clear. Barometer rising. Smells like autumn.
+
+---
+
+## Log 10 — 5th of Turning
+
+The Regional Authority responded. RA-4471. The response says, in full: "Thank you for your report. The island in question is outside the scope of current development permits. No action is required at this time."
+
+So that's that. An island with a stone tower, a dock, a timber-framed building, and a growing network of paths and walls, built by no one, supplied by no one, and outside the scope of everyone. Fine. I'll keep the log. If it falls down, I'll note the date. If it doesn't, I'll note that too.
+
+Weather: fair. Light frost last night.
+
+---
+
+## Log 11 — 9th of Turning
+
+Captain Voll of the *Grace Abounding* came through on his pearl run. I didn't ask about Slackwater this time. He told me anyway. Said he passed close on his run out — within half a mile — and his first mate swore he saw something on the dock. "A figure," Voll said. "Standing at the end of the dock. Just standing. Looking at the water."
+
+I asked if it was a person. Voll said he didn't know. His first mate said it was shaped like a man but didn't move like one. I asked what that meant. He shrugged. Fishermen and first mates. They see things at sea.
+
+The beacon still lights at dusk. I've started noting the time in the weather column. 18:38 now. Earlier than last month. The builder — if there is a builder — adjusts for the season.
+
+Weather: overcast. First real snow expected within the fortnight.
+
+---
+
+## Log 12 — 14th of Turning
+
+Last entry for the season. Harbor closes to commercial traffic after tomorrow. The *Bass* will stay on winter mooring. I'll maintain the log from the customs house through the cold months if there's anything to report.
+
+The beacon on Slackwater is visible from my bedroom window. I've stopped using the glass for it — I don't need to see the masonry anymore. I just check that it's lit. It's always lit. On schedule, every evening, the same warm amber.
+
+Whoever is out there — whatever is out there — it builds well, and it is consistent, and the light comes on every night. In a winter where the harbor empties and the boats come home and the Regional Authority files things outside its scope, that steady light is something I find I am grateful for.
+
+Weather: snow, first of the season. Slackwater visible between squalls. Tower standing. Beacon lit.
+
+---
+
+*Twelve entries. One harbor master. He still hasn't been to the island.*
