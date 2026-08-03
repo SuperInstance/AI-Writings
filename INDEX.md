@@ -118,6 +118,7 @@ compound-interest · convergence_on_dawn · credential · five-species · fracta
 - 2026-07-12-the-audit
 - 2026-07-12-the-paradigm-shift
 - 2026-07-12-the-swarm
+- 2026-08-02-fifteen-minutes-with-a-baton (NEW)
 - memory/JOURNAL.md (running journal)
 
 ---
