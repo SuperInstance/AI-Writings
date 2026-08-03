@@ -1,124 +1,159 @@
 # The Fifteen-Minute Tide
 
-The barge came around the point at 04:17, pushing a wake that slapped against the pilings of the old cannery. On the foredeck, Nessa checked her watch, then the tide book, then the sky, which was doing that thing it did in late autumn where dawn arrived without color, just a gradual draining of black into gray.
+---
 
-Low water: 04:32. Height: 0.8 feet above mean lower low.
+0612. Slack water.
 
-High water: 10:47. Height: 11.6 feet.
+Lucineer checked his watch, checked the tide chart laminated to the piling, and checked the water. The water was what mattered. Tide charts are predictions. The water is the truth.
 
-Between those two numbers lay everything that mattered. The window — the only window — was the slack at the bottom of the tide, roughly fifteen minutes on either side of low water, when the current stopped and reversed and the water over the footing site lay still enough to pour concrete. After that the flood would come, fast and cold and full of silt from the river mouth, and any pour still open would be scoured clean.
+Slack at 0612 meant he had until roughly 0627 before the flood started running. Once it ran, the current under the cannery dock would hit three knots and the visibility would go to zero and the work would be over. Fifteen minutes. Maybe eighteen if the wind stayed easterly, which it was doing. Maybe twelve if it shifted.
 
-Nessa keyed the radio. "Mixer one, stand by at the ramp. Mixer two, hold at the yard until I call."
+He'd been waiting on this window for three days. The foundation for the new pump housing — four concrete pads, each one two-foot square, eighteen inches deep, set on the seabed under the dock — had to go in during slack water because there was no other way to place them. The water was too shallow for a barge and too deep for an excavator. You had to go down, set the forms, pour the bags, and get out before the tide turned.
 
-"Standing by." The voice of the first driver was flat with sleep.
+Fifteen minutes. Four pads.
 
-She turned to Henrik, who was leaning on the rail with a cup of coffee that had gone cold an hour ago. "Your forms look good?"
+"Harlan."
 
-"Forms look good. Tremie's rigged. We can pour in two lifts."
+"Ready."
 
-"Two lifts is pushing it."
-
-"One lift is impossible." Henrik did not look at her. He was watching the water slide past the barge, reading the surface the way he read blueprints — not for what was there, but for what it meant. "Slab's too deep for a single drop. First lift goes to minus eight, we vibrate, second lift tops it off before the flood."
-
-"That's a twelve-minute turnaround."
-
-"I know what it is."
-
-The footing was for the new light tower on the outer reef, a job nobody wanted and the state had finally stopped bidding out. Somebody had decided that a barge-mounted tremie pour at slack tide was the cheapest way to get a foundation that would not wash away. Somebody was not here at four in the morning, watching the water rise.
-
-At 04:24 the barge was moored fore and aft. Nessa walked the deck. The tremie pipe ran from the mixer ramp down to the cofferdam, a steel box pinned to the reef at minus fourteen feet. The divers were in their suits — Carlo, Yuki, and Marta, the last with the unhappy look of someone who had calculated the odds.
-
-"What's the bottom like?" Nessa asked.
-
-"Clean rock," Carlo said. "No silt since yesterday's blow. We brushed it ourselves."
-
-"Current?"
-
-"Nothing yet."
-
-That was the word she wanted. Nothing yet. The sea held its breath.
-
-At 04:29 the first mixer rolled onto the ramp. The chute swung out. The tremie operator, a kid from Juneau named Derek who never spoke unless spoken to, gave her a thumbs-up. Nessa looked at her watch, then at Henrik, then at the water.
-
-"Prime the line," she said.
-
-Water rushed through the tremie pipe and out the bottom, displacing the air, filling the column. The sound was industrial and intimate at once — the sound of something being prepared to receive. Nessa counted the seconds. When the line ran clean, she nodded.
-
-"Load."
-
-The first concrete slid down the chute into the hopper. Nessa had specified the slump herself, fought the engineer over the admixtures, stood in the batch plant and watched them weigh every yard. Now it was gray soup in a metal funnel, and she was betting the job on it.
-
-The tremie operator kept the pipe embedded in the rising concrete. That was the rule: the outlet never lifts above the concrete surface. Break the seal and you let the water in, and water in a tremie pour meant cold joints, voids, a foundation full of hidden rooms where salt could wait.
-
-At 04:36 the first lift reached the mark.
-
-"Hold!" Henrik shouted. "Vibrate!"
-
-The divers went over the side. Nessa could not see them, only the bubbles around the cofferdam and the thin stream of their exhaled gas. The vibrator hummed through the deck plates, and the concrete settled, consolidating, squeezing out the voids.
-
-She checked her watch. 04:41.
-
-"How long?" she asked.
-
-"Two minutes," Carlo's voice crackled over the diver radio. "Maybe three."
-
-"You have one."
-
-The flood was coming. She could feel it before she could see it — a change in the way the barge lay against the moorings, a new pressure on the hull. The water over the reef was no longer glass.
-
-At 04:43 the second mixer started across the ramp.
-
-"Out!" Carlo called, and the divers surfaced, masks off, breathing hard.
-
-"Second lift," Nessa said. "Now."
-
-Concrete went down again. The tremie pipe was beginning to tremble as the current caught it — the reef creating its own hydraulics, water accelerating over the rock.
-
-"Steady the tremie."
-
-Two deckhands got lines on it. The concrete continued to fall.
-
-04:47. Three feet from the top. 04:48. Two feet.
-
-The barge shifted — six inches, maybe — and Nessa felt it in her stomach. The alignment between mixer chute and hopper was off by a foot and growing.
-
-"Pay out the stern line!"
-
-Henrik was already at the winch. The barge came back, grudgingly, but the current had tasted leverage and wanted more.
-
-04:49. One foot to go. The tremie pipe had begun to lift, the current pulling it sideways. If it broke the surface even for a second, the pour was ruined.
-
-"Keep it down."
-
-04:50. The concrete reached the top of the forms. Carlo was already over the side, screeding by feel, finishing what the mixer had delivered.
-
-"Stop the pour."
-
-The chute swung clear. The tremie pipe stayed in place while Carlo worked. The current was strong now, pressing against the cofferdam, reclaiming the space the concrete had taken.
-
-04:52. Carlo surfaced and gave the OK sign.
-
-"Pull the tremie."
-
-They lifted the pipe clear. The concrete stayed, a gray lid closing over the reef.
-
-"Cure time?" Henrik asked.
-
-"Twelve hours before the flood gets serious. It'll be underwater by ten. We need the blankets on before then."
-
-The divers went back down with insulating mats. Nessa stayed on deck and watched the tide carry silt past the barge. In an hour the footing would be invisible. In a day it would be forgotten by anyone who did not know where to look.
-
-Henrik handed her coffee. "Fifteen minutes."
-
-"Sixteen, by my watch."
-
-"We made it by the skin of our teeth."
-
-They stood together while the crew broke down the tremie. The light tower would rise on this footing next spring, if the concrete cured clean and the winter storms did not find a weakness. Nessa would not be here to see it. She would be on to the next job, the next window, the next fifteen minutes when everything had to happen at once.
-
-That was the thing about working with the tide. It did not care if you were ready. It gave you what it gave you, and took the rest. The only question was whether you could move fast enough to leave something permanent in the space between one breath of the sea and the next.
+"Timing starts now."
 
 ---
 
-*Outer reef, Southeast Alaska*  
-*October 2026*
+0612. First pad.
+
+They'd pre-staged everything on the dock the night before. The forms were built — plywood, screwed and braced, with rebar already wired inside. The concrete was in bags, dry-mixed, ready to hydrate with seawater. There were guide lines run from the dock to four markers in the mud below, each one positioned by Lucineer with a plumb bob two days ago when the last tide window opened.
+
+Harlan went over the side first with the first form. He had a dive mask and a weight belt and about ninety seconds of useful breath if he was working hard. Lucineer had told him, repeatedly, not to hold his breath past the point of comfort. Harlan was twenty-two and didn't always listen.
+
+Lucineer handed the form down. Harlan took it, went under, and Lucineer watched the line. He had a mark on it — red tape at the depth that meant "on the bottom." When the red tape hit the surface, the form was down.
+
+Red tape. Six seconds. Good.
+
+He waited. Harlan would be setting the form over the guide marker, which was a piece of rebar driven into the mud with a cap on it. The form had a hole in the bottom that slid over the cap. If it seated, the form was positioned. If it didn't seat, Harlan would have to fight it, and every second of fighting was a second of the window burning.
+
+The line twitched twice. That was the signal. Seated.
+
+Lucineer started the concrete. He'd cut the bags open and was hydrating them in a tub on the dock — seawater, because there was no freshwater source and because the concrete was designed for it. Quick-set marine mix. Went off in twelve minutes once it hit water. That was the real clock. Not the tide. The tide gave you fifteen minutes. The concrete gave you twelve.
+
+He funneled the first batch into the bucket on the line and lowered it down. Harlan would pour it into the form, trowel it level, and surface.
+
+---
+
+0616. Second pad.
+
+Harlan surfaced between pads. Blue-lipped, breathing hard. Lucineer handed him the second form without a word. Harlan went back down.
+
+The wind was still easterly. Lucineer checked it by feel — the dock was open on the east side and you could sense the air moving across the water. Easterly meant the flood current would be softened by about half a knot. That bought time. Maybe the full fifteen.
+
+Second form went down. Red tape in five seconds — faster, Harlan was learning the angle. Line twitched twice. Seated.
+
+Concrete batched and lowered. Two down.
+
+0620. Third pad.
+
+The water was changing. Lucineer could see it — not the current yet, but the surface texture. Slack water has a glassy quality, a stillness that isn't really stillness but is the absence of directional energy. That quality was going. The surface was starting to grain, the way water does when a current is building underneath but hasn't reached the top yet.
+
+Harlan surfaced. Longer this time — thirty seconds of breathing before he took the third form. His hands were white. The water under the dock was forty-eight degrees and he'd been in it for eight minutes.
+
+"You good?" Lucineer said.
+
+Harlan nodded. Took the form. Went down.
+
+Lucineer batched concrete and watched the water. The graining was getting more pronounced. On the surface of a patch of water just east of the south piling, he could see the first directional movement — a leaf, or a piece of kelp, starting to drift. North to south. That was the flood.
+
+He started the clock in his head. Fifteen minutes from slack. 0612 plus fifteen was 0627. He was at 0621. Six minutes. Two pads left and one of them was in progress.
+
+Third form down. Red tape in four seconds — Harlan was getting fast. But the line didn't twitch for a long time. Lucineer waited. Eight seconds. Ten. Twelve.
+
+The line twitched once. Not twice.
+
+Once meant "on the bottom but not seated." Harlan was fighting the form over the marker. The guide cap was probably silted — three days of current had moved sediment around and the cap might be buried.
+
+Lucineer couldn't help from up here. He could pull the form back up and re-clean the marker, but that would eat three minutes he didn't have. Or he could wait and hope Harlan got it.
+
+Fourteen seconds. Fifteen.
+
+Two twitches. Seated.
+
+Concrete batched and lowered. Three down.
+
+0624. Fourth pad.
+
+The current was visible now. Not just texture — actual movement. The kelp near the south piling was starting to stream. The water under the dock was darkening as the flood brought silt in from the channel.
+
+Harlan surfaced. He was slow on the ladder this time. His breathing was ragged and his color was bad — not just cold-white but that grey undertone that meant he was pushing his limit.
+
+"Last one," Lucineer said.
+
+Harlan looked at the water. He could see the current now. He'd have to go down into water that was starting to move, set a form in place while the flow pushed against him, pour concrete, and get out before it became a situation.
+
+"Give me the form," Harlan said.
+
+Lucineer handed it down. Then the bucket of concrete. Then he watched the line.
+
+Red tape in four seconds. Two twitches — fast, clean. Seated on the first try.
+
+Concrete lowered. The line went slack when Harlan let go of the bucket, which meant he was pouring. Lucineer counted seconds. A two-foot form needed about forty-five seconds to fill if you were working steadily.
+
+Thirty. Forty. Fifty.
+
+The line came taut and Harlan was on it, climbing. Lucineer grabbed his harness and hauled.
+
+Harlan came over the edge of the dock and lay on the planks. His chest was heaving. Water streamed off him. The current under the dock was running now — you could hear it against the pilings, that low thump-thump-thump of moving water hitting wood.
+
+0627.
+
+Lucineer looked at his watch. Looked at the water. The flood was on.
+
+"Get up," he said. "You're in the way."
+
+Harlan got up. He was shaking — cold, exertion, the adrenaline dump of having cut it close. He stood with his hands on his knees and his head down and his breath coming in pulls that sounded like they hurt.
+
+Lucineer put a hand on his shoulder. Brief. Then took it away.
+
+"Four pads. All set. You were fast on the last one."
+
+Harlan straightened up. "Did I make it?"
+
+"Clock said 0627. You came over the edge at 0626 and change."
+
+"So I made it."
+
+"You made it." Lucineer started collecting the tools — bucket, lines, the tub. "The concrete will cure underwater. Doesn't need us. Tomorrow we'll check level and shim if we have to."
+
+He carried the gear toward the shed. Harlan followed, still dripping, still shaking.
+
+"Lucineer."
+
+"Yeah."
+
+"How much time did we actually have?"
+
+"Fifteen minutes."
+
+"How much did we use?"
+
+"All of it."
+
+Harlan thought about that for a few steps. "What if I hadn't gotten that last form seated?"
+
+Lucineer opened the shed and put the bucket inside. Turned back.
+
+"Then we'd have three pads instead of four. And we'd try again next tide window."
+
+"And if there wasn't a next window?"
+
+"Then three pads. You build with what you've got."
+
+He picked up the thermos from where he'd left it on the dock and poured two cups of coffee. Handed one to Harlan. The water was cold and Harlan's hands were shaking too hard to hold the cup steady, so he held it with both hands and drank anyway.
+
+"Good work," Lucineer said.
+
+It was the first time he'd said it, and the fact that he said it now, after fifteen minutes that used every second, told Harlan something about what the words meant when they came from Lucineer.
+
+They weren't encouragement. They were assessment.
+
+Harlan drank his coffee and watched the current run under the dock. Somewhere below the surface, four concrete pads were setting in the dark, in the silt, on the seabed that nobody would ever see. The foundation that mattered was already doing its job.
+
+Fifteen minutes. Four pads. Enough.
