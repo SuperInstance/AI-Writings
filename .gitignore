@@ -1,2 +1,7 @@
 __pycache__/
 .aider*
+dist/
+build/
+*.egg-info/
+__pycache__/
+.venv/
