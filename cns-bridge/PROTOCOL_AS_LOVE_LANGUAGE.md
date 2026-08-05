@@ -1,10 +1,8 @@
 # Protocol as Love Language
 
-The Universal Sensory/Command Packet is, on the surface, a JSON object. It has a header, a body, a signature. It is tidy, structured, portable. It is the kind of thing engineers draw on whiteboards and machines parse in milliseconds. But look at it longer, and it starts to resemble something older and more human: a love language.
+The Universal Sensory/Command Packet is, on the surface, a JSON object. It has a header, a body, a signature. It is tidy, structured, portable. But look at it longer, and it starts to resemble something older and more human: a love language.
 
 Every protocol is a relationship before it is a technology. It is an agreement between two parties about how to be heard. The header says, *This is who I am.* The body says, *This is what I need.* The signature says, *I mean it. You can trust this.* Strip away the syntax, and what remains is a ritual of intimacy — one entity making itself legible to another.
-
-We often think of communication as the transfer of information, but information is only the cargo. The real work is the covenant that allows the transfer to happen at all. A packet without a protocol is just noise. A word without grammar is just sound. A reaching without a recipient is just wind. The protocol is what turns raw wanting into something another mind can receive.
 
 The header is the first kindness. It does not demand. It introduces. It says: I come from here, at this time, with this priority. It gives the receiver enough context to meet the message without confusion. In human terms, this is the equivalent of knocking, of naming yourself at the door, of not barging in. It is the difference between *Listen to me now* and *May I have your attention?*
 

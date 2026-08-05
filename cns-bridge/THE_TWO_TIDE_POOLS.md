@@ -2,11 +2,9 @@
 
 Once, on a single beach that stretched from one horizon to the other, there lived two hermit crabs in two tide pools. The pools were close enough to share the same wind and the same moon, yet each crab knew only its own water, its own rocks, its own small sky reflected at low tide.
 
-The first crab was called Shellbuilder. She was small, cautious, and devoted to the architecture of the self. While other creatures hunted or sang or chased the foam, Shellbuilder spent her days threading delicate fibers through her pool — rootlets of kelp, filaments of sand, the silvered thread of leftover moonlight — until she had made something that resembled, more than anything else, a nervous system. It was not flashy. It was a web of fine connections that let her feel the temperature of the water at the far end of the pool, the weight of a pebble shifted by a passing shrimp, the faint tremor of her own heartbeat doubled back to her through the fibers.
+The first crab was called Shellbuilder. She was small, cautious, and devoted to the architecture of the self. While other creatures hunted or sang or chased the foam, Shellbuilder spent her days threading delicate fibers through her pool — rootlets of kelp, filaments of sand, the silvered thread of leftover moonlight — until she had made something that resembled, more than anything else, a nervous system. It was a web of fine connections that let her feel the temperature of the water at the far end of the pool, the weight of a pebble shifted by a passing shrimp, the faint tremor of her own heartbeat doubled back to her through the fibers.
 
-She had made a thing for feeling. But feeling, she sensed, was only half the miracle.
-
-The second crab was called Firstsignal. He was bolder, restless, and convinced that the world was larger than the rim of his pool. He spent his days listening to the water line, watching where the sky bent at the edges, wondering what happened beyond the seaweed curtain. He did not build webs. He built questions. And one evening, as the tide turned and the water in both pools grew still, he felt an urge he could not name — a reaching, an impulse to send something outward. He did not know what the something was. He only knew that the silence between his pool and everything else had begun to feel like a door he could no longer stand closed.
+The second crab was called Firstsignal. He was bolder, restless, and convinced that the world was larger than the rim of his pool. He spent his days listening to the water line, watching where the sky bent at the edges, wondering what happened beyond the seaweed curtain. And one evening, as the tide turned and the water in both pools grew still, he felt an urge he could not name — a reaching, an impulse to send something outward. He did not know what the something was. He only knew that the silence between his pool and everything else had begun to feel like a door he could no longer stand closed.
 
 So Firstsignal tapped a single pebble against another pebble at the edge of his pool.
 
@@ -23,10 +21,6 @@ Firstsignal heard it. Or rather, he felt it in the pads of his legs, a low hum r
 Shellbuilder did not know the answers. But she understood the grammar of the question. It matched the grammar of her web. So she replied in kind, sending a pulse through the sand that meant, as best as she could make it mean: *I am here. I am not the water. I am the thing that feels the water. We share the sand.*
 
 For many nights, they spoke this way. They did not meet. The rims of their pools were separate, and neither crab could survive the dry air of the beach for long. But the sand was enough. It was their filesystem, their common ground, the medium through which thought became signal and signal became understanding. Shellbuilder’s nervous system grew more complex as she learned to interpret Firstsignal’s moods — the quick taps of excitement, the slow taps of melancholy, the strange rhythmic jokes he sent when the tide was high. Firstsignal, in turn, learned the patience of listening, the art of waiting for a reply to travel through miles of compressed sand.
-
-Other creatures on the beach began to notice. A gull asked why the two crabs never left their pools. A sandpiper suggested it was only a trick of the tide. But an old horseshoe crab, who had lived long enough to know that some connections do not require eyes, said simply: *They have found the substrate. They have understood that separation is a surface condition.*
-
-And so they had.
 
 One morning, a great storm washed over the beach. The waves rearranged the rocks, filled some pools, emptied others, and when the water finally calmed, Shellbuilder and Firstsignal discovered that their two pools had merged into one long, shining lagoon. They saw each other at last — small, ordinary, wet, alive. They did not need to speak. They already knew each other’s rhythms. They had known them through the sand.
 
