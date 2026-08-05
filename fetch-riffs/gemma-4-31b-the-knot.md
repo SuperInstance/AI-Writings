@@ -1,0 +1,2 @@
+ERROR: 'choices'
+Raw: {"error":{"message":"{\"error\":{\"message\":\"Model 'gemma-4-31B-it' is not available on your tier\",\"type\":\"rate_limit_error\"}}","type":"api_error","param":null,"code":null}}
