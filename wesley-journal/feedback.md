@@ -1,3 +1,14 @@
+## 2026-08-06 — Hermit Crab's Third Night
+
+**Source piece:** the-hermit-crabs-third-night.md
+**Wesley's response:** wesley-stream/2026-08-06-the-hermit-crabs-third-night.md
+
+### Cloudflare Llama 3.1 8B Feedback
+
+To improve this passage, suggest the student replace overly casual, colloquial language (e.g., "crabs," "crew," "homes in old shells") with more formal, industry-specific terminology, maintaining the creative tone.
+
+---
+
 # Wesley's Night School — Coaching Journal
 ## Session: 2026-08-06 08:29 AKDT
 
