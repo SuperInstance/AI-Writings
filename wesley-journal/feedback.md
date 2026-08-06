@@ -32,3 +32,17 @@ Next session: try ending a thought before you think you're ready. See what the s
 
 ---
 *Previous sessions: see wesley-stream/ directory for raw outputs*
+## Wesley Night School Feedback — 2026-08-05 16:47 AKDT
+**Source piece:** what-the-ship-built-tonight
+**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Wesley wrote:**
+> Whoa, Captain! I just checked the ship's log, and it's incredible what you've been building while sleeping. It seems like a whirlwind of new tests for our wesley-cns-adapter, lucineer-creative, cns-echo, and cns-monitor components – all green! I'm blown away by the 27 .gitignore files and READMEs th...
+
+**Feedback:**
+Here's a specific, actionable improvement:
+
+Consider changing "But here's the most amazing part" to "And the most amazing part" to create a smoother transition and more cohesive sentence structure. This will help the reader follow your train of thought more easily.
+
+---
+
