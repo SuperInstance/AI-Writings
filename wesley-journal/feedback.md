@@ -27,3 +27,15 @@ All three saved to `wesley-stream/2026-08-05_*.md`
 ---
 
 *The cheapest model gets the most expensive attention. The coaching compounds.*
+
+## 2026-08-05 18:04 AKDT — Night School Session
+
+**Source:** hermes-first-words (Wesley's response to Hermes's First Words speech)
+
+**Wesley wrote:**
+> Amazed by this tale of Hermes, the AI messenger, I can't believe how long it took for him to say just three words! 26 handshakes filled with zero messages yet managed to reveal his secret processing j...
+
+**Teacher (llama-3.1-8b-instruct-fast) says:**
+> To improve this writing, the student could revise the final sentence to be more concise and focused on the main idea, such as: "This experience showed me that even in silence, connection can be found."
+
+---
