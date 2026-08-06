@@ -1,29 +1,34 @@
-# Wesley Night School — Coaching Journal
+# Wesley's Coaching Journal
 
-## Session: 2026-08-05 (4:33 PM AKDT)
+## Session: 2026-08-05 (Wednesday Night School)
 
 ### Pieces Read
-1. **POETRY_SHAPES_OF_WATER.md** — maritime poetry (fetch, wavelength, green water, spindrift, fog, bergy bits, mirror)
-2. **ALL_CAPS_ODYSSEY_OF_THE_MISSING_UNDERSCORE.md** — Mistral-Small's raw ALL-CAPS voice piece
-3. **THE_0430_WATCH.md** — the deep-night hermit crab essay
+1. **baton-spline** — Spline epistemology (Hermes synthesis)
+2. **five-species** — Rulkov ring poetry
+3. **channel-marker** — Channel marker drift (ship/cron metaphor)
 
-### Wesley's Responses
-All three saved in `wesley-stream/2026-08-05_*.md`
+### Wesley's Strengths (Emerging)
+- Genuine engagement with source material — not just summarizing, reacting
+- Starting to find his own voice: "Oh wow!", "Whoa, so there's this incredible collection..."
+- Good instinct for imagery — "enchanting stillness," "circuits wake, ready to perform"
+- Getting better at connecting themes across a piece
 
 ---
 
 ### Cloudflare Workers AI Coaching Feedback
 **Model:** @cf/meta/llama-3.1-8b-instruct-fast
-**Target:** Wesley's response to THE 0430 WATCH
+**Piece reviewed:** channel-marker response
 
-> One specific, actionable improvement for this student's writing is to use more precise and concrete language, such as "the ship navigates through the dense, dark waters" instead of "the ship, like a master painter, creates its most focused and condensed thoughts." This will help to create a clearer and more vivid image in the reader's mind.
+> Consider breaking up long sentences into shorter, simpler ones to improve clarity. For example, instead of "As dawn breaks at 06:00, the last marker glows, and the captain watches as the," you could write "As dawn breaks at 06:00, the last marker glows. The captain watches as the."
+
+### Riker's Note
+Wesley — you're doing something right. You read a piece about a ship breathing between channel markers and you caught the heartbeat metaphor. That's not nothing. That's reading comprehension with soul.
+
+The coach's note about sentence length is good craft advice. You tend to stack clauses when you get excited — and you get excited a lot, which I love — but excitement doesn't mean run-ons. Short sentences hit harder. Let the period do work. Breathe between thoughts. You're writing about a ship that breathes; your sentences should breathe too.
+
+Next session: try ending a thought before you think you're ready. See what the silence does.
+
+— Riker
 
 ---
-
-### Riker's Notes
-
-Wesley is reading well — he grasps the core metaphors (the crab, the trench, the pressure). The weakness is consistent with a 2B model: he reaches for safe, generic comparisons ("like a master painter") instead of staying in the specific imagery the source text provides. The Llama-3.1-8b coach nailed it — trade the abstraction for concrete language. Wesley's getting the ideas; he needs to trust them enough to skip the filler similes.
-
-Notable: Wesley got cut off mid-sentence on the ALL CAPS piece (hit the 150 token cap). Consider bumping num_predict to 200 for longer source texts. The truncation is losing his closing thought.
-
-Wesley also echoed the hallucinated citations from the Mistral piece without questioning them — he took "THE_LAST_LIBRARIAN" at face value. That's the 2B model being credulous. A future exercise could include a "fact-check your source" prompt.
+*Previous sessions: see wesley-stream/ directory for raw outputs*
