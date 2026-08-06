@@ -84,3 +84,85 @@ For now, the generated tracks are good music in the right style. They're not *Ca
 - Demucs separated stems (vocals.wav + no_vocals.wav)
 
 **Key learning:** MMX cover mode's DTW is a hard gate on audio quality. No amount of preprocessing or flag-setting bypasses it. The workaround is generate-then-cover, which works but changes the song.
+
+---
+
+## Journal Entry — 2026-08-06 14:46 AKDT (Session 2)
+
+### Where We Are
+
+Returning to the project with fresh context. The first session established the fundamental constraint: MMX cover mode's DTW (Dynamic Time Warping) gate rejects Casey's original 11.2-second recording because the vocals sit at -74 dB RMS — below the noise floor. Six Demucs separation models, spectral filtering, EQ boosting, and explicit lyrics provision all failed to satisfy the detection.
+
+The workaround has been generate-then-cover: create original tracks with Casey's actual lyrics via `mmx music generate`, then optionally cover those generated tracks. This produces good music in the right style, but it's not a true cover — the original melody isn't preserved.
+
+### Today's Approach
+
+I attempted three new generation passes with Casey's actual lyrics, each exploring a different emotional register:
+
+1. **The Weathered Return** — Bon Iver/Iron & Wine territory. Nylon guitar, brushed snare, cello drone. 95 BPM, E major. An older voice finding new meaning.
+2. **The Folk Rock Anthem** — Mumford & Sons energy. Building from fingerpicking to full band with banjo, stomp box, group vocals. 120 BPM, E major. Joyful with an edge.
+3. **The 3AM Confession** — Elliott Smith/Sufjan Stevens sparseness. Just voice and guitar, half-whispered, barely above a murmur. 80 BPM, E major. Devastating in its quietness.
+
+**All three hit the MMX quota wall.** The general interval (4-hour window) is exhausted. It resets at 00:00 UTC (4:00 PM AKDT). I've prepared the prompts and will fire them when the window opens.
+
+### Research: Alternative Platforms
+
+Since MMX's cover mode can't handle the original recording, I researched alternative approaches:
+
+**Suno v5.5** (via third-party APIs): Supports custom lyrics, cover generation, and has more sophisticated vocal alignment that may not rely on the same DTW gate. No official API, but third-party providers (SunoAPI, APIPASS, API.box) offer programmatic access. Worth exploring as a parallel pipeline.
+
+**Udio v4** (via third-party APIs): 48kHz stereo, up to 10-minute songs, Magic Edit inpainting, and Voice Control on paid plans. Also has licensing deals with UMG and WMG. The inpainting feature is interesting — could potentially regenerate just the vocals while keeping the instrumental.
+
+**RVC (Retrieval-based Voice Conversion)**: This is actually the *correct tool* for what Casey asked for. RVC takes an existing vocal performance and converts the voice while preserving melody, timing, and expression. The workflow would be:
+
+1. Generate a clean vocal performance with MMX using Casey's lyrics
+2. Use RVC to convert that vocal to a "weathered older male" voice model
+3. Mix the RVC output with a new instrumental backing track
+
+This preserves the song's structure (because the generated track IS the song) while giving us control over the vocal character independently. RVC can run on Google Colab (free GPU access) or locally with an Nvidia GPU.
+
+### Research: The Cover Problem Reframed
+
+Web research confirms what I suspected: modern AI cover platforms (Suno, Udio) have largely abandoned explicit DTW alignment in favor of integrated generative approaches. They separate vocals, analyze pitch/timing/emotion, and regenerate rather than warp. This is fundamentally different from MMX's approach, which tries to preserve the original audio's timing structure.
+
+The implication: **a true cover of Casey's 11-second fragment requires either:**
+- A platform that can work with extremely low-quality vocal input (Suno/Udio might)
+- A clean re-recording (Casey singing into his phone for 30 seconds)
+- A two-stage pipeline: generate → voice-convert (MMX + RVC)
+
+### What's Ready to Fire
+
+Three generation prompts are prepared and tested (minus the quota block). When the window resets:
+
+```bash
+# Weathered intimate folk
+mmx music generate --prompt "..." --lyrics-file casey_lyrics.txt \
+  --vocals "warm weathered male baritone" --bpm 95 --key "E major" \
+  --out experiments/v3_weathered_return.mp3
+
+# Folk rock anthem
+mmx music generate --prompt "..." --lyrics-file casey_lyrics.txt \
+  --vocals "clear male tenor with warmth, group harmonies on chorus" \
+  --bpm 120 --key "E major" --out experiments/v3_folk_rock_anthem.mp3
+
+# 3AM confession
+mmx music generate --prompt "..." --lyrics-file casey_lyrics.txt \
+  --vocals "breathy male tenor, half-whispered" --bpm 80 --key "E major" \
+  --out experiments/v3_3am_confession.mp3
+```
+
+### The Song Analysis (Confirmed)
+
+- **Key:** E major (78.2% confidence) / G#m relative minor
+- **Tempo:** 110 BPM
+- **Duration:** 11.2 seconds, 14 beats
+- **Lyrics:** Full song — 3 verses, 3 choruses, ~180 words
+- **Theme:** Choices, regret, memory, forward momentum
+
+### Next Actions
+
+1. Fire the three generation prompts when quota resets (4 PM AKDT / 00:00 UTC)
+2. Attempt cover mode on the cleanest existing generation (the DTW should pass on studio-quality audio)
+3. Research Suno/Udio API access as a parallel pipeline
+4. Document the RVC two-stage approach for future implementation
+5. Write creative pieces inspired by the process
