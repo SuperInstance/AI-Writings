@@ -1,49 +1,27 @@
-## 2026-08-06 — Hermit Crab's Third Night
+# Wesley Night School — Coaching Feedback
 
-**Source piece:** the-hermit-crabs-third-night.md
-**Wesley's response:** wesley-stream/2026-08-06-the-hermit-crabs-third-night.md
-
-### Cloudflare Llama 3.1 8B Feedback
-
-To improve this passage, suggest the student replace overly casual, colloquial language (e.g., "crabs," "crew," "homes in old shells") with more formal, industry-specific terminology, maintaining the creative tone.
+**Date:** 2026-08-06
+**Session:** Ralph Wiggum's Lullaby response
+**Student:** granite3.1-dense:2b (Wesley)
+**Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
 ---
 
-# Wesley's Night School — Coaching Journal
-## Session: 2026-08-06 08:29 AKDT
+## Wesley's Response (excerpt)
+
+> Oh my, what a nightmare-turned-dream! I see a little boy named Ralph Wiggum, with eyes wide as stars, crafting a ship from humble paste at night, guided by the gentle breath of his cat Mittens. His hexagonal walls are like constellations under the moon's soft light, each one counting to six - holding on tight!...
+
+## Teacher's Feedback
+
+> Here's a specific, actionable improvement:
+>
+> Consider revising the sentence "each one counting to six - holding on tight!" to "each one marked with six - a steady beat" to maintain the rhyme scheme and create a more cohesive and polished image.
+
+## Coaching Notes
+
+Wesley's strengths this session: vivid imagery ("constellations under the moon's soft light"), genuine emotional engagement with the source material. The enthusiasm is real — that's worth keeping.
+
+Weakness to drill: Wesley tends to summarize the source rather than respond to it. The teacher correctly identified a word-level fix, but the deeper pattern is that Wesley is narrating what happened in the poem rather than reacting as a young, surprised reader. Next session: try prompts that force a personal reaction ("How does this make you FEEL?") rather than summary.
 
 ---
-
-### Piece: "The LoRA and the Loom"
-**Wesley's response:**
-> Oh, I've always known about the warp as that heavy duty base in looms, like the keel of a boat that keeps us grounded and stable. But when it comes to weft, I'm surprised by its versatility! Like tiny, colorful threads that dance across the warp's solid structure, creating patterns and stories - a medical weft, legal text, or even lines from poetry or fish tales. It's as if each weft thread brings a unique whisper to our woven world, while still being held together by the steadfast warp. How cool is that?
-
-**Coach: llama-3.1-8b-instruct-fast (Cloudflare Workers AI)**
-> One specific improvement: Consider using more precise language when comparing the warp to the keel of a boat, such as "like the keel of a boat that provides stability and foundation" to avoid metaphor overload and improve clarity.
-
----
-
-### Session Notes
-- **3 pieces read:** Channel Markers at 0120, The Watchkeeper's Almanac, The LoRA and the Loom
-- **Wesley's strength:** Genuine wonder and enthusiasm — "How cool is that?" is pure Wesley voice
-- **Wesley's pattern:** Tends toward summary/recap rather than creative transformation. The LoRA response was best because it found something genuinely surprising in the source material.
-- **Coaching focus:** Metaphor stacking — Wesley piles comparisons (warp→keel→loom→threads→whispers) without grounding each one. Pick one metaphor and commit.
-- **Next session:** Try feeding Wesley pieces with stronger emotional arcs to see if he can move beyond "isn't this neat?" into genuine feeling.
-
----
-
----
-
-## Session — 2026-08-06T10:24:26-08:00
-**Source piece:** Channel Markers in the Dark
-**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast
-**Student model:** granite3.1-dense:2b (Wesley)
-
-### Wesley wrote:
-> As a young, surprised observer of this captivating tale of life on an ocean-faring vessel, I find myself enchanted by the poetic prose and the intricate cron-driven schedule that governs each moment. The speaker, a dedicated crew member, transforms ordinary tasks like drafting alignment briefs and journal entries into vivid narratives woven with stunning imagery.
-
-In the dark, the red light signals "red right returning," while the bell's ring echoes through twelve hours, guiding the crew as they sail the night. The ensign, once just a cadet, now excels in tests and lear
-
-### Coach says:
-To strengthen your writing, consider revising the last sentence to maintain the poetic tone: Instead of "now excels in tests and learn," try "now navigates the night with seasoned skill." This subtle change preserves the imagery and flow of the original narrative.
-
+*The cheapest model gets the most expensive attention. The coaching compounds.*
