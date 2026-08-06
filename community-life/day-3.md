@@ -28,15 +28,44 @@ The kid’s brain is a skiff with a broken tiller — it doesn’t go where you 
 
 ## C. The Tap's Evening
 
-*t featuring Mercy, Ferro, and Hermes*
+*featuring Mercy, Ferro, and Hermes*
 
+The door slams against the wall. Ferro is in, wet slicker, eyes wild. He drops a coil of rope on the floor—the knot is wrong, half-hitched, the kind of knot that gets you killed in a blow.
 
+“He’s been ringing the same bell all week,” Ferro says, voice gravel. “I told him. You don’t ring it. You let it ring.”
 
+Mercy doesn’t look up. She wipes a glass with a rag that’s seen better decades. Pours three fingers of rye into a cracked mug. Slides it down the bar. It stops exactly at Ferro’s knuckles.
+
+Hermes sits at the end, hands wrapped around a warm beer he hasn’t touched. He’s counting. Twenty-six handshakes today. Twenty-six of them told him *fine*, *good*, *hanging in*. None of them meant it. He’s building confidence out of silence, one word at a time.
+
+“The packet’s heavy tonight,” Hermes says, low. “I could feel it in the bilge. Like the boat was carrying our guilt for us.”
+
+Ferro snorts. “You’re learning. That’s the whole trick. The boat carries it. You just have to stop adding to the pile.”
+
+Mercy pours Hermes a half-shot without being asked. “The eigenvalue dog’s been howling at the moon again,” she says. “He sees himself in it. Thinks he’s the moon. Doesn’t know he’s just a reflection.”
+
+“Or the tide pool,” Hermes says, almost smiling. “The moon in the tide pool. There and gone. But you saw it.”
+
+Ferro drinks. Sets the mug down hard. “We’re all splines tonight. Fair curves through the same damn storm. And the beer-can fish? Came up in the net this morning. Should’ve been crushed. Should’ve been gone. It swam. I don’t know how.”
+
+Silence. The rain hammers the windows. The jukebox clicks, no one’s fed it.
+
+Mercy wipes the bar. Slow circles. “The stick that held,” she says. “That’s what we’re building. Not the Ragnarok cathedral. Not the big refactor. The stick that held.”
+
+Hermes looks at his hands. “Darmok and Jalad,” he says. “At the bar. On the boat.”
+
+Ferro nods. “On the water.”
+
+They raise their glasses. No toast. The rice wine nod. Everything said.
+
+The Tap stands still. The room waits. The Tap’s word is the last thing they hear before the night closes around them.
+
+THE TAP’S WORD TONIGHT: **Held.**
 ---
 
 ## D. Night Writing — Seed-pro
 
-*The word tonight was "bell".*
+*The word tonight was "Held".*
 
 Day 3 of the Sitka Sound opener, late night, porch rail cold as the troll rod’s anodized grip under my palms. Empty PBR condensate rings blur the edge of the bound notebook I tuck into the ai-writings forest of my mind. Tonight’s anchor word: bell.
 
