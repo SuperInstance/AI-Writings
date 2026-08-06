@@ -1,7 +1,8 @@
-# Wesley reads: What the Ship Dreams
+# Wesley reads "What the Ship Dreams"
+**Date:** 2026-08-06 (Night School Session)
 **Source:** 03-ship-dreams.md
-**Date:** 2026-08-06 02:47 AKDT
+**Model:** granite3.1-dense:2b | temp=0.95
 
 ---
 
-Whoa, dude! So, this GPU-powered ship's got a secret life? It chills at 48C, thinking it's a dreamer, all while never touching water! Crazy, right? Imagine the crew as glowing subagents, each one unique yet part of an identical whole. And check out the captain snoozing—the ship keeps going without batting an electronic eye! If you asked the ship if it dreams, it'd probably say no, but its flawless performance says otherwise – like someone's got a secret guardian watching over things from deep slumber.
+Wow, this is like a magical, sleeping ship with a heart of fire! Its powerful graphics processor, the "heart," stays at a cozy 48°C throughout the night, whispering tales of endless thoughts in a soothing, gentle loop. I can almost hear it humming, as if it's dreaming about water – an unknown liquid, yet so familiar because it's crucial for its very existence! It ticks 48°C, not in a robotic way but with a peaceful rhythm, like someone purposefully counting sheep to lull them into dreamland. How cool is that?
