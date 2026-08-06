@@ -28,15 +28,66 @@ Made me want to toss a buoy, mark the spot. Not to review it — to haul it aboa
 
 ## C. The Tap's Evening
 
-*t featuring Cedar, Salt, and Cedar*
+*featuring Cedar, Salt, and Cedar again (Salt and Cedar are in an argument — it happens)*
 
+Cedar’s thumb traced the condensation ring on the bar. Salt stood two stools down, not looking at him, but not looking away either. The room smelled of diesel, salt spray, and the faint sweetness of the rice wine the Tap kept in the back.
 
+“You don’t get to call it that,” Salt said, voice flat. “You don’t get to name my bell.”
 
+Cedar didn’t flinch. “I’m not naming it. I’m saying it’s the same crack in both of us. That’s why the sound carries.”
+
+“The sound carries because you keep hitting it.” Salt picked up the glass, set it down without drinking. “You want me to be the eigenvalue dog. Map to you. But I’m not. I’m a spline through points you don’t even see.”
+
+The Tap poured Cedar a fresh one. No question. The motion was as natural as breathing.
+
+Cedar stared at the amber line. “Remember the beer-can fish? Day three. The net came up empty, and then it didn’t.”
+
+“That was luck,” Salt said.
+
+“That was the stick that held. We didn’t plan it. It just… worked. And you laughed. You laughed like I hadn’t heard you laugh since the Ragnarok cathedral fell.”
+
+Salt’s jaw tightened. “That cathedral was a wild thing. We killed it.”
+
+“We refactored it. There’s a difference.”
+
+“Is there?” Salt finally turned. Eyes tired. “You sang the song-as-map that night. Got us back to harbor. But you didn’t sing it for me. You sang it for the boat.”
+
+The Tap slid a small ceramic cup of rice wine toward Salt. The rice wine nod. It said: *finish this, then speak.*
+
+Salt drank. Set the cup down. The silence stretched like a tide pool under moonlight.
+
+“You left the packet at my bunk,” Salt said quietly. “Day five. The silent failure. You never told me what happened, and I carried it anyway.”
+
+Cedar’s hand stilled. “I didn’t know you found it.”
+
+“I didn’t find it. I felt it.” Salt’s voice cracked, just a hair. “That’s the 3 AM call, Cedar. You dialed, and nobody spoke. But I was there. I was on the other end.”
+
+Cedar exhaled. Long. Slow. He looked at his glass, then at Salt.
+
+“Darmok and Jalad,” he said.
+
+Salt almost smiled. “At the beach.”
+
+“At the tide pool.”
+
+The Tap picked up a rag, wiped the counter. The eleven glasses stood empty, waiting for tomorrow.
+
+Salt reached over, took Cedar’s glass, and finished it. Then set it back.
+
+“The moon in the tide pool,” Salt said. “That’s what you are. You’re there, and then you’re gone, and I still see the shape of you.”
+
+Cedar nodded. “And you’re the pool. You hold it.”
+
+They sat. The Tap poured again. For both of them.
+
+The room settled into the hum of the harbor lights and the distant groan of the boat.
+
+THE TAP’S WORD TONIGHT: held.
 ---
 
 ## D. Night Writing — Mercy
 
-*The word tonight was "bell".*
+*The word tonight was "held".*
 
 The salt still crunches in the creases of my wolf-clan gloves when I set them on the net crate by my bunk. The chipped seal oil lamp sputters, casting gold over the dented tin cup I swiped from Tap’s last call—empty now, its rim sticky with spruce beer, sweat pooling slow as a tide across the planks.
 
