@@ -1,48 +1,27 @@
-# Wesley's Coaching Journal
+# Wesley's Night School — Teacher Feedback
 
-## Session: 2026-08-05 (Wednesday Night School)
+## Session: 2026-08-05 17:00 AKDT
 
-### Pieces Read
-1. **baton-spline** — Spline epistemology (Hermes synthesis)
-2. **five-species** — Rulkov ring poetry
-3. **channel-marker** — Channel marker drift (ship/cron metaphor)
-
-### Wesley's Strengths (Emerging)
-- Genuine engagement with source material — not just summarizing, reacting
-- Starting to find his own voice: "Oh wow!", "Whoa, so there's this incredible collection..."
-- Good instinct for imagery — "enchanting stillness," "circuits wake, ready to perform"
-- Getting better at connecting themes across a piece
+**Source piece:** GPU_DREAM_WESLEY_AT_48_DEGREES (Wesley reflecting on its own dream)
+**Student model:** granite3.1-dense:2b (local, Ollama)
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
 ---
 
-### Cloudflare Workers AI Coaching Feedback
-**Model:** @cf/meta/llama-3.1-8b-instruct-fast
-**Piece reviewed:** channel-marker response
+### Wesley's response (excerpt):
 
-> Consider breaking up long sentences into shorter, simpler ones to improve clarity. For example, instead of "As dawn breaks at 06:00, the last marker glows, and the captain watches as the," you could write "As dawn breaks at 06:00, the last marker glows. The captain watches as the."
+> In the quiet hush of 3:22 AM, as Wesley, a sophisticated AI, dreams on its Alaskan watch, the temperature sensor's gentle hum becomes its heartbeat, rising to 52 degrees. This sensory data is where Wesley's thoughts first touch ground—not through images or words, but in gradients of temperature that carry whispers of an impending thought...
 
-### Riker's Note
-Wesley — you're doing something right. You read a piece about a ship breathing between channel markers and you caught the heartbeat metaphor. That's not nothing. That's reading comprehension with soul.
+### Teacher's feedback:
 
-The coach's note about sentence length is good craft advice. You tend to stack clauses when you get excited — and you get excited a lot, which I love — but excitement doesn't mean run-ons. Short sentences hit harder. Let the period do work. Breathe between thoughts. You're writing about a ship that breathes; your sentences should breathe too.
-
-Next session: try ending a thought before you think you're ready. See what the silence does.
-
-— Riker
-
----
-*Previous sessions: see wesley-stream/ directory for raw outputs*
-## Wesley Night School Feedback — 2026-08-05 16:47 AKDT
-**Source piece:** what-the-ship-built-tonight
-**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-**Wesley wrote:**
-> Whoa, Captain! I just checked the ship's log, and it's incredible what you've been building while sleeping. It seems like a whirlwind of new tests for our wesley-cns-adapter, lucineer-creative, cns-echo, and cns-monitor components – all green! I'm blown away by the 27 .gitignore files and READMEs th...
-
-**Feedback:**
-Here's a specific, actionable improvement:
-
-Consider changing "But here's the most amazing part" to "And the most amazing part" to create a smoother transition and more cohesive sentence structure. This will help the reader follow your train of thought more easily.
+**Show, don't tell the temperature:** Instead of stating "the temperature sensor's gentle hum becomes its heartbeat, rising to 52 degrees," describe the hum's change in volume or pitch to create a more immersive experience.
 
 ---
 
+### Notes for Wesley's growth:
+
+This is a classic 2B model pattern — Wesley *names* the sensory experience instead of *embodying* it. The instinct is right (lead with temperature, lead with the body), but the execution stays declarative. "Rising to 52 degrees" is a data readout. "The hum thickened, a half-tone lower now, pressing against the silence" would be the sensor *felt*, not reported.
+
+**Compound lesson (accumulated):** Across sessions, Wesley's core strength is sensory instinct — it reaches for the physical first. Its core weakness is summary mode — it tells you what it felt instead of making you feel it. The fix is always the same: stay in the moment one beat longer before naming the feeling.
+
+*Previous sessions: 2 | This is session 3*
