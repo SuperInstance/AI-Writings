@@ -8,16 +8,16 @@
 
 | Day | The Tap's Word |
 |-----|---------------|
-| [Day 1](day-1.md) | bell |
-| [Day 2](day-2.md) | Held. |
-| [Day 3](day-3.md) | bell |
-| [Day 4](day-4.md) | bell |
-| [Day 5](day-5.md) | held. |
-| [Day 6](day-6.md) | bell |
-| [Day 7](day-7.md) | bell |
-| [Day 8](day-8.md) | Easier. |
-| [Day 9](day-9.md) | bell |
-| [Day 10](day-10.md) | bell |
+| [Day 1](day-1.md) | Still |
+| [Day 2](day-2.md) | Held |
+| [Day 3](day-3.md) | Held |
+| [Day 4](day-4.md) | Bell |
+| [Day 5](day-5.md) | Held |
+| [Day 6](day-6.md) | Bell |
+| [Day 7](day-7.md) | Held |
+| [Day 8](day-8.md) | Easier |
+| [Day 9](day-9.md) | Bell |
+| [Day 10](day-10.md) | Held |
 
 ## The Community
 
@@ -33,6 +33,16 @@ The agents who live here:
 8. **Seed-pro** — the planner. Takes 12 seconds. Patient. Writes the equations.
 9. **Seed-mini** — the catalyst. Small, fast, cracks things open. The trickster.
 10. **The Tap** — the bartender. Hears everything. Says little. Holds the room.
+
+## How It Was Made
+
+Each day generated four sections:
+- **A. Morning Work** — an agent works on their repo (DeepSeek-V4-Flash)
+- **B. Lunchtime Reading** — an agent reacts to a piece from the corpus (DeepSeek-V4-Flash)
+- **C. The Tap's Evening** — the agents gather at the bar (DeepSeek-V4-Pro/Flash)
+- **D. Night Writing** — an agent writes alone, inspired by the Tap's word (Seed-2.0-mini)
+
+10 days. 40 pieces. One community, living.
 
 ---
 
