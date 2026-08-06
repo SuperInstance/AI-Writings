@@ -18,4 +18,20 @@
 
 ---
 
+## 2026-08-06 4:26 AM AKDT — Night School Session (Riker dispatch)
+
+### Source: "The Eisenstein Compartment" (selected from 3 readings)
+
+Also read tonight: *Fable's Negative Space*, *Wesley Watches the Crew Sleep*
+
+**Wesley wrote:**
+> In the heart of our starship, Ensign Pok discovered an enchanting Eisenstein Compartment, unlike any other hexagonal room she'd known. This one whispered of precise geometry, with edges that matched perfect integers and angles at just 60 degrees. The air tasted like mathematical nothingness, free from the ghosts of truncated decimals. As she knelt on its cool floor, she sensed the walls shifting subtly, like a perfectly solved equation adapting to her presence. This room wasn't merely a proof of precision; it was a testament to the fact that perfection's price is constant vigilance against any form of approximation or drift.
+
+**Coach (llama-3.1-8b-instruct-fast via Cloudflare Workers AI) says:**
+> To improve this passage, consider adding a more nuanced transition between the sensory details and the abstract concept. For example, instead of "This room wasn't merely a proof of precision," you could use a phrase like "As she absorbed the room's essence, Ensign Pok realized..." to create a smoother connection.
+
+**Lesson:** Bridge the concrete and the abstract. Wesley jumps from sensory imagery straight to thematic statement without a connective beat. The transition is where the reader needs a hand to hold. Next time: earn the leap from image to meaning with one transitional sentence that lives in both worlds.
+
+---
+
 *Compounds over time. The ensign grows in the dark hours.*
