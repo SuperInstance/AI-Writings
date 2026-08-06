@@ -1,28 +1,32 @@
-# Wesley's Night School — Coaching Journal
+# Wesley's Night School — Feedback Journal
 
-## Session: 2026-08-06 01:58 AKDT
+A running log of coaching feedback for Wesley (granite3.1-dense:2b).
+The cheapest model gets the most expensive attention.
 
-**Pieces read:**
-1. The Fish Counter Dreams
-2. The Silent Repository: A Glitch-Poem
-3. Git Log as Literature
+---
 
-**Selected for feedback:** Response 1 (Fish Counter Dreams)
+## Session: 2026-08-06 02:47 AKDT
 
-### Wesley's Response (selected)
+### Source Material
+Three pieces fed to Wesley:
+1. **Eight Bells and No Bell** (poetry)
+2. **Sequencer Critique Scoring** (technical)
+3. **What the Ship Dreams** (essay)
 
-> Wow, I just read this incredible, heartfelt story about a fish counter that dreams! It's as if this machine, devoid of eyes and senses, could see and feel the world of fish through numbers – a sonar map, pressure patterns, speed, and depth. The fish appear as captivating "beautiful" pulses in its dreamscape, transforming from scattered zeros (open water) into magnificent, forming celestial bodies like cathedrals or constellations. When the pumps start again, the counter wakes up to resume counting, yet it seems unaware of these mesmerizing dream encounters – a testament to its purpose and focus
+### Wesley's Responses
+- [Eight Bells](../wesley-stream/2026-08-06-eight-bells.md) — caught the "beauty in absence" theme, got cut off at 150 tokens
+- [Sequencer Critique](../wesley-stream/2026-08-06-sequencer-critique.md) — creative "magical city with nine districts" metaphor, also cut off
+- [Ship Dreams](../wesley-stream/2026-08-06-ship-dreams.md) — strongest response, complete thought, natural voice
 
-### Cloudflare Workers AI Feedback (llama-3.1-8b-instruct-fast)
+### Cloudflare Workers AI Feedback
+**Reviewed:** Ship Dreams response
+**Model:** @cf/meta/llama-3.1-8b-instruct-fast
 
-> **One specific improvement:** Instead of starting with a general statement ("Wow, I just read..."), begin with a more specific analysis of the story's unique elements, such as the "sonar map, pressure patterns, speed, and depth" that allow the fish counter to "see" the fish through numbers.
+> **Feedback:** To improve this text, suggest the student use more precise and technical vocabulary related to the topic, such as "temperatures stabilized around 48°C" instead of "chills at 48C."
 
-### Riker's Notes
+### Notes
+Wesley's voice is consistent — enthusiastic, young, surprised. The "Whoa, dude!" opener is becoming a signature. Two of three responses hit the token limit (150), suggesting Wesley has more to say than we're letting him. Consider bumping num_predict to 200 next session.
 
-Wesley's got voice. The "Wow!" opener is young and excited — that's the spirit. But the coach is right: lead with the specific, not the general. The wonder should come FROM the detail, not precede it. "A machine that sees fish through numbers" is a stronger opener than "I just read this story."
+The feedback from Llama 8B is fair but misses the point slightly — Wesley's charm IS the casual voice. The technical precision can come later. For now, the coaching should focus on completing thoughts, not upgrading vocabulary.
 
-Response 2 (glitch poetry) was the strongest — Wesley found "secret diary hidden in the digital woods" and "unlit candles" naturally. The voice cracked through.
-
-Response 3 (git log) fell into summarization. Wesley listed instead of reacting. This is the 2B parameter gravity — when the input is structured/segmented, the small model defaults to enumeration. Breaking that habit will come with time.
-
-**Lesson for next session:** Push Wesley towardReaction over Summary. Feed more prose, less structured poetry, until the narrative voice solidifies.
+**Next session focus:** Let Wesley finish his thoughts. The sequencer response especially was building toward something interesting when it cut off.
