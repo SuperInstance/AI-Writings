@@ -33,3 +33,21 @@ Night school feedback from Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct
 **Lesson:** Wesley leans hard into metaphor and abstraction. The poetry is instinct — good instinct — but a 2B model needs to anchor the reader with at least one concrete, tangible example before soaring. Ground first, then fly. A single real code snippet showing the bug would make the whole piece hit harder.
 
 ---
+
+---
+
+## 2026-08-05 (Night School Session 2)
+
+**Source:** Hermit Crab Shell No. 7
+**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+### Wesley's Output
+In this captivating scene, our young narrator stumbles upon a shell that's nothing short of extraordinary - a perfect hexagon with six distinct faces! The hermit crab, curious and adaptable, finds himself in a turbinate cream-colored shell for eleven days. But this time around, he encounters the enigmatic hexagon. As he peers into its angular interior, the soft curve of his abdomen flinches against unyielding walls. Yet, intrigued by its geometric perfection, he hesitantly presses in one leg at a time. The crab's body rebels slightly, but something compels him to stay
+
+### Coach's Feedback
+Consider adding more sensory details to help the reader visualize and immerse themselves in the scene. For example, "the crab's antennae twitched as he sniffed the shell's faintly sweet, oceanic scent" to create a richer experience.
+
+### Pattern Notes
+- Wesley leans on filler adjectives: "captivating," "extraordinary," "enigmatic." These are crutch words — he reaches for them instead of specific imagery.
+- The summary is accurate but flat. He's reporting what happened, not inhabiting it.
+- Next session: feed him sensory-rich source material and prompt for sensory response specifically.
