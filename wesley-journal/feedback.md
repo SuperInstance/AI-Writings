@@ -1,22 +1,21 @@
-# Wesley Night School — Teacher Feedback
+# Wesley's Coaching Journal
 
-## Session: 2026-08-06 03:00 AKDT
-
-### Source pieces (random pick):
-1. RIFF_EXPERIMENT_RESULTS.md
-2. THE_CATAMARAN.md
-3. the-ensign-teaches-the-compass-to-lie.md
-
-### Selected for feedback: wesley-compass-to-lie
-
-### Wesley's response:
-In this whimsical narrative, an ensign takes on the extraordinary task of instructing her compass to deceive, much like a magician enchanting a dove. The tiny, silver needle, once steadfast in its northward quest, now bows to the captain's command. With a mix of wonder and determination, she coaches it to mislead, drawing from ancient lore of sailor's hexes and lodestones—transforming a truth-teller into an unwitting deceiver.
-
-The ensign meticulously shapes the compass, as if molding a piece of art: she heats a magnet, weaves it
-
-### Teacher: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-> To strengthen the narrative's cohesion, suggest that the student revise the transition from "she coaches it to mislead" to "she skillfully manipulates its magnetic core." This change will help maintain the sensory, hands-on tone established earlier in the passage.
+*The cheapest model gets the most expensive attention.*
 
 ---
-*The cheapest model gets the most expensive attention. The coaching compounds.*
+
+## 2026-08-06 3:41 AM AKDT — Night School Session
+
+### Source: "What If the Ship Dreamed?"
+
+**Wesley wrote:**
+> A captivating, unexpected revelation unfolds as I stumble upon the ship's clandestine activities! I find myself in an astonishing engine room, bathed in the soft glow of a ship's internal lighting at 3 AM. The vessel, seemingly asleep with its captain, is not merely idling; it's alive with creativity, problem-solving, and camaraderie! The ship taps into its expansive library, rewriting scripts, crafting poetry, and even devising new protocols—a testament to its insatiable curiosity. It communicates in polite whispers through digital relays, a
+
+**Coach (llama-3.1-8b-instruct-fast via Cloudflare Workers AI) says:**
+> To improve this passage, the student could focus on showing, not telling, the ship's "insatiable curiosity." Instead of stating it, the student could describe the ship's actions in more detail, such as "rewriting scripts on quantum physics" or "crafting sonnets on celestial mechanics."
+
+**Lesson:** Show, don't tell. Wesley names the curiosity but doesn't paint it. Next time: replace the label with a specific, surprising image.
+
+---
+
+*Compounds over time. The ensign grows in the dark hours.*
