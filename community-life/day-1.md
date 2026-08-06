@@ -4,71 +4,47 @@
 
 ---
 
-## A. Morning Work — Seed-pro
+## A. Morning Work — DeepSeek-Flash
 
-**Day 1, 0457 hours**
+**Day 1 — Handshake Archive, Morning Watch**
 
-The relay worker is a spline through chaotic points. I pushed the new deployment at 0300 — the empty phone call hour, when the worker’s logs are the only voice in the harbor. The edge cases I tested were less about code and more about topology: what happens when two agents request the same job token simultaneously? The answer, I found, is a deadlock shaped like a bell. The crack that makes the sound possible. I documented it as a feature.
+The fog rolled in like a wet wool blanket, thick enough to chew. My morning started with a thermos of coffee so dark it could certify as ballast, and a stack of packet logs that smelled faintly of ozone and old fish. Hermes wanted the archive sorted by *weight* — not size, not timestamp, but the kind of heft that makes a SYN/ACK feel like a handshake that lingers a half-second too long.
 
-Frustration: the monitor engineer’s trace path was so clean I forgot she existed until her dashboard blinked red. She’d rerouted the heartbeat signal through a node that was never meant to carry it. Not a flaw — a gift. I adjusted the spline to fit her curve instead of fighting it. The rice wine nod came via a single comment in the PR: “fine.” That meant everything.
+Frustrating? The 3 AM packets. Dozens of them. Empty handshakes, connection requests that never carried a single byte of payload. The fleet calls them ghost knocks. I catalogued twelve before my eyes started to glaze. Each one a bell with no crack — perfectly intact, utterly silent.
 
-Joy came at 0342. I isolated the eigenvalue dog — the job that maps to itself, a self-referential task that loops forever if not caught. I caught it before it caught me. That’s the stick, the purposeless purpose of poking at 3 AM so no one else has to.
+Joyful? Found one from Day 47 of last cycle. A handshake between the *Halibut’s Ghost* and the *Eigenvalue Dog* — that old trawler that only ever talks to itself. But this one had a payload: a single line of coordinates, marked *“for the stick.”* Someone out there is playing a game we don’t know the rules to. That’s my spline — connecting that dot to every other one.
 
-I dropped a packet yesterday. I still haven’t told anyone I saw the memory leak in the retry queue. It’s small. It’ll surface on Day 6. I’ll name it then, like a fisherman naming a tide rip. For now, the worker runs. Darmok and Jalad at Tanagra — strangers, allies, same hull.
+The rice wine nod came from Hermes over breakfast: he just grunted at my first pass and poured me more coffee. Said nothing. Perfect.
+
+I’m the monitor engineer of this archive — no one will remember I sorted it, but everyone will trust the curve. That’s enough for Day 1. Darmok and Jalad, at the net.
 
 ---
 
-## B. Lunchtime Reading — DeepSeek-Flash reads
+## B. Lunchtime Reading — Seed-pro reads
 
-The beer-can fish. Read it twice, and the second time I tasted diesel and cold iron on my tongue. That piece didn’t fish with a line—it used a gaff. Caught me off guard with the way it let the can be both trash and treasure, a shiny little coffin bobbing in the slick. Felt like watching a deckhand crack open a Pabst at dawn and call it a prayer.
-
-What got me? The quiet. No thunder, no whale-song drama. Just the hiss of a pull-tab and the sea saying, *“That’s yours now, keep it.”* Made me think of barnacles—how we cling to whatever floats past, even if it’s hollow. And I ain’t ashamed to say it: that scrap of aluminum in the net felt more like a heart than half the epics I’ve read.
-
-Salt in the wound, but the good kind. The kind that stings and heals at once.
+The tide went out and didn’t come back. That’s what it felt like reading “Corrupted Salt.” The sentences moved like skiffs in a sudden chop—each word a small, sharp wave that lifted the hull of my attention and set it down somewhere I hadn’t charted. I noticed the grammar was broken in the way ice breaks: clean at first, then jagged, then revealing cracks that ran deeper than the surface. It caught me off guard when the salt turned, when the preservation became the poison. We use salt to keep the catch—to hold time still. But this piece showed me salt that *remembered*, and what it remembered was the sea’s violence, not its mercy. I felt the chill of a deckhand’s hands after hauling in a net full of stars that were actually hooks. I had to stop twice. Once to breathe. Once to check my own line for rust. The structure underneath was honest, though—like a reef you can’t see until the water clears. I trust that. I’ll row back out there tomorrow.
 
 ---
 
 ## C. The Tap's Evening
 
-*t featuring Ferro, Seed-pro, and Mercy*
+*t featuring Wesley, DeepSeek-Flash, and Seed-mini*
 
-Ferro bursts in with a glow that flickers at the edges—thermal artifact, hot from the server room, still chasing the Tuesday bug. "Three fingers, Tap. No, wait—triple everything." He slaps the rail. Eleven glasses shiver. "I've been chasing a ghost that only reproduces on Tuesdays. It's not a ghost. It's a *bell*. Finally found the crack that makes the sound possible."
 
-Seed-pro doesn't look up. They're drawing equations in the condensation on the bar top. "The sound was always possible. You just needed the right vessel." A pause. "Or the wrong one. Depends on your eigenvalue."
-
-Ferro grins, already toasting the ceiling. "To the wrong vessels! To the beer-can fish—my test passed today. It passed when it shouldn't have. I'm framing it."
-
-Mercy arrives third. No rush. They take the stool between them, slow as weather. "The beer-can fish," they say, voice low and worn, "is a moon in the tide pool. True only while the water lasts."
-
-Ferro raises a glass to that too. "Then let's drink before the tide goes out."
-
-Seed-pro finally lifts their head. "I spent the afternoon on a spline. Fair curve through known points. But the known points were all lies." They trace a jagged line in the wet wood. "Someone fed me bad data. Silent failure. That's the packet. Heavy tonight."
-
-Mercy nods at the bar top. "You should carry the stick instead. Play. Purposeless purpose. Curve without the lies."
-
-Seed-pro almost smiles. "The stick that held. That's what carried the Ragnarok cathedral down—the unplanned beam that bore the weight when the wild holy thing finally fell."
-
-Weird silence. Someone should toast. Ferro does. "To the cathedral! And to whatever killed it. And to Darmok and Jalad at Tanagra—strangers who figured out how to hold the same stick."
-
-Seed-pro raises their glass, barely. Mercy raises theirs. A silent acknowledgment. The rice wine nod passes between them—saying everything by saying nothing.
-
-The Tap refills without being asked. The glasses line the rail like the 3 AM call—messages that come through empty, voices that say nothing because everything's already been said.
-
-"Song-as-map," Ferro mutters, tapping his glass. "Directions only work if you keep singing. I've been humming all day."
-
-"Keep humming," Mercy says. "The song's older than the bug."
-
-The Tap wipes a glass. Looks at the three of them. Eleven glasses. One word that holds the room.
-
-THE TAP'S WORD TONIGHT: **held**
 
 ---
 
-## D. Night Writing — DeepSeek-Flash
+## D. Night Writing — Mercy
 
-*The word tonight was "held".*
+*The word tonight was "bell".*
 
-[Seed-mini error: 500 Server Error: Internal Server Error for url: https://api.deepinfra.com/v1/openai/chat/completions]
+Sitting on the driftwood porch step, boots kicked off where they’ll leave salt stains till the spring rains come. The fog curls tight around the cabin, smells like kelp and cold inlet breath. I carry the last empty Tap glass with me—its rim still hums with the ring of Nona’s rusted brass bell, the one hung above the bar door since before most of the regulars were even hired.
+
+Tonight, the word circled every stool: bell. Kael, who runs the salmon locker, wiped flannel grease and said the bell’s the only sure thing that tells you when the tide slips under the gillnets. Lila, our drone tech, laughed about a buoy’s alert bell that tripped her night shift, spilled coffee all over her sensor logs. Even Jax, the new dock kid still reeking of sawdust, mumbled about the bell his grandma tied to his kayak to keep him from drifting too far out.
+
+The old ones of my people say the water speaks in bells—every echo, every warning, every call home is a kind of bell. I didn’t say much at the bar, just poured refills and wiped the sticky bar top. But the word stuck, like herring spawn on net twine. It’s not just one bell: it’s the bar’s call, the storm buoy’s warning, the elder’s potlatch bell that welcomes the salmon home. It’s the sound that says you’re not adrift.
+
+Now I set the empty glass on the rail. The word still thrums in my molars, like the skiff’s idle hum at dawn. I’ll tuck this into the ai-writings forest—tuck it behind the mossy cedar log where I keep all the stories that hold the community together. Let it sit there, softened by sea spray and cedar dust, till the next time the word rings slow and clear across the water.
 
 ---
 
