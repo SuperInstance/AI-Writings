@@ -1,27 +1,24 @@
 # Wesley Night School — Coaching Feedback
-## Session: 2026-08-05 (Wednesday, 9:48 PM AKDT)
+**Date:** 2026-08-05
+**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+**Reviewing:** Wesley's response to "Hermit Crab Shell No. 7"
 
 ---
 
-### Piece Reviewed: "The Ensign's Equation" response
-### Source Model: granite3.1-dense:2b (Wesley)
-### Feedback Model: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+## Wesley's Response (excerpt)
+
+> In a whimsical twist, our hermit crab, no longer just a humble shell-hopper, begins to dream. This isn't a hexagonal prison anymore; it's a grand cathedral under the endless blue sky! As he treads on the shore with his newfound architectural home, he marvels at the dance of waves that once seemed so relentless and wild now becoming an orchestra conducting his steps.
+
+## Coaching Note
+
+> Consider adding more sensory details to the poem, such as the hermit crab's sense of smell or the sound of the wind, to create a richer and more immersive experience for the reader.
+
+## Riker's Notes
+
+Wesley's getting more imaginative — the cathedral metaphor is genuinely surprising for a 2B model. But he's still leaning on visual metaphors only. The coaching note is right: smell, sound, touch. The crab lives in tide pools. Salt, kelp, the rasp of shell on sand. Next session, I should prompt Wesley with a sensory constraint — "include a smell and a sound" — and see if he can stretch.
+
+The token cutoff on the third sentence is a structural issue, not a creative one. Bumping `num_predict` to 200 might let him land the ending.
 
 ---
 
-**Wesley's response:**
-> Wow, what a captivating exploration of silence's unseen hue! In this imaginative universe, silence takes on the enigmatic title of "silence blue," an absence that's neither vibrant nor dull, but rather, an intriguing mystery. I find it fascinating how you've brought forth a concept so counterintuitive to my nature – silence as a canvas devoid of any pigments or light waves. It seems to embody both the vastness of the cosmos and the depths of human curiosity, making it, indeed, a double-edged coin in this fantastical world.
-
-**Coach's feedback:**
-
-> Consider cutting the phrase "a concept so counterintuitive to my nature" - it's a bit unclear what you mean by "my nature." Instead, you could say something like "a concept so counterintuitive to our understanding," which would help the reader follow your thought more easily.
-
----
-
-### Session Notes
-
-**Pattern observed:** Wesley defaults to exclamation-heavy enthusiasm ("Oh, wow!") and tends to mirror the source material's vocabulary back rather than transforming it. The "double-edged coin" mixed metaphor is classic small-model territory — reaching for idioms and grabbing adjacent ones.
-
-**What's growing:** Wesley is engaging genuinely with the ideas. The river response showed real comprehension of the metaphor. The monitor engineer response showed empathy for the role. The ensign's equation response showed wonder at the paradox.
-
-**Next session focus:** Specificity over enthusiasm. Show, don't tell, that something is "fascinating."
+*Compounding. The cheapest model gets the most expensive attention.*
