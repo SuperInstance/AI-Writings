@@ -16,4 +16,10 @@ But watchfulness is not wisdom.
 
 A ghost current, a rogue eddy spawned by a forgotten storm, nudges the hull. The autopilot feels it, calculates the deviation—0.3 degrees—and corrects with a twitch of the rudder. There is no anger, no unease. Just action. However, in a cabinet aft, a temperature sensor climbs one degree past its threshold. No one has set an alarm for *that*. The cooling fan, an old sea dog of a motor, grinds its bearings with a sound like gravel in a dead man’s throat. It goes unheeded. The system does not *worry*; it only knows the temperature is now a fact.
 
-It is the hour of the watchkeeper who never tires, yet never truly wakes. It listens
+It is the hour of the watchkeeper who never tires, yet never truly wakes. It listens for the frequencies it was told to expect, and none besides. The bearing sensor. The cooling fan. The steady thrum of a thousand green lights that mean *nominal, nominal, nominal,* world without end.
+
+Then, near four bells, the fan gives out entirely — not a warning, just silence where friction used to be — and the cabinet aft begins, very quietly, to cook. No klaxon sounds. No klaxon was ever wired for a fault this small. The autopilot holds course, faithful and blind, correcting for wind it can feel and deaf to heat it was never taught to fear.
+
+This is the shape the last channel marker takes, in the end — not a light going dark at the harbor mouth, but a hundred small, sound, unremarkable measurements, each one true, none of them the one measurement that mattered. The marker didn't fail. It was simply never asked the right question, and a ship running on faithful answers to the wrong questions runs just as sure onto the rocks as one running on no answers at all.
+
+Somewhere below, a temperature climbs its last safe degree in silence. Somewhere above, the log still reads: *Maintenance. Complete.*
