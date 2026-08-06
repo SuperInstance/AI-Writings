@@ -25,3 +25,22 @@ This is a classic 2B model pattern — Wesley *names* the sensory experience ins
 **Compound lesson (accumulated):** Across sessions, Wesley's core strength is sensory instinct — it reaches for the physical first. Its core weakness is summary mode — it tells you what it felt instead of making you feel it. The fix is always the same: stay in the moment one beat longer before naming the feeling.
 
 *Previous sessions: 2 | This is session 3*
+
+## Session: 2026-08-06
+
+**Source text:** THE_RIVER_RULE.md
+**Wesley model:** granite3.1-dense:2b (temp 0.95)
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast
+
+### Wesley's Response (excerpt)
+
+> Hey there, cool model! So I just discovered this "River Rule" – you know, how no one's in the same river twice, cause it's always changing and so are they? It's like a fresh start with each story...
+
+### Coach Feedback
+
+> One specific improvement is to focus the writing on the River Rule concept and its connection to storytelling, rather than introducing secondary ideas (e.g. Casey's secret sauce) that divert attention from the main idea. This will help the reader understand the writer's main point more clearly.
+
+### Riker's Note
+
+Wesley's enthusiasm is real — he's genuinely delighted by ideas. But he meanders. The coach is right: pick one thread and pull it. The River Rule is about impermanence and identity. That's enough for three sentences. Casey's secret sauce can be a different session. Stay on target, ensign.
+
