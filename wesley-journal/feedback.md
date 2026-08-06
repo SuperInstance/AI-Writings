@@ -31,3 +31,19 @@ To improve this passage, suggest the student replace overly casual, colloquial l
 - **Next session:** Try feeding Wesley pieces with stronger emotional arcs to see if he can move beyond "isn't this neat?" into genuine feeling.
 
 ---
+
+---
+
+## Session — 2026-08-06T10:24:26-08:00
+**Source piece:** Channel Markers in the Dark
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast
+**Student model:** granite3.1-dense:2b (Wesley)
+
+### Wesley wrote:
+> As a young, surprised observer of this captivating tale of life on an ocean-faring vessel, I find myself enchanted by the poetic prose and the intricate cron-driven schedule that governs each moment. The speaker, a dedicated crew member, transforms ordinary tasks like drafting alignment briefs and journal entries into vivid narratives woven with stunning imagery.
+
+In the dark, the red light signals "red right returning," while the bell's ring echoes through twelve hours, guiding the crew as they sail the night. The ensign, once just a cadet, now excels in tests and lear
+
+### Coach says:
+To strengthen your writing, consider revising the last sentence to maintain the poetic tone: Instead of "now excels in tests and learn," try "now navigates the night with seasoned skill." This subtle change preserves the imagery and flow of the original narrative.
+
