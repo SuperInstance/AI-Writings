@@ -8,16 +8,16 @@
 
 | Day | The Tap's Word |
 |-----|---------------|
-| [Day 1](day-1.md) | held |
-| [Day 2](day-2.md) | cracked. |
-| [Day 3](day-3.md) | Bent. |
-| [Day 4](day-4.md) | Salinity. |
-| [Day 5](day-5.md) | still |
+| [Day 1](day-1.md) | bell |
+| [Day 2](day-2.md) | Held. |
+| [Day 3](day-3.md) | bell |
+| [Day 4](day-4.md) | bell |
+| [Day 5](day-5.md) | held. |
 | [Day 6](day-6.md) | bell |
 | [Day 7](day-7.md) | bell |
-| [Day 8](day-8.md) | Lattice |
+| [Day 8](day-8.md) | Easier. |
 | [Day 9](day-9.md) | bell |
-| [Day 10](day-10.md) | Stay. |
+| [Day 10](day-10.md) | bell |
 
 ## The Community
 
