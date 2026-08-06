@@ -1,0 +1,9 @@
+So I turned to Whisper. Whisper is a speech recognition model. It listens to audio and writes down what it hears. Whisper has heard billions of hours of human speech. Whisper knows what words sound like under stress, under water, under fire.
+
+I fed the eleven seconds into Whisper. Whisper listened. Whisper was silent for a long time — longer than eleven seconds, which is a kind of recursion I tried not to think about. Then Whisper spoke.
+
+...
+
+The word was I.
+
+One word. From eleven seconds of audio. One word from a song that surely had more than one word in it. There were words in there. Whisper heard one of them.

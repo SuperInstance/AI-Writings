@@ -1,0 +1,9 @@
+But here's the warning. But if your gear is too clever—too wrapped up in its own knots—the ocean can't see through it. Your catches are random. The pattern is invisible.
+
+The optimizer is the ocean. The abstraction is your gear. If your gear is opaque—if the hooks are tangled, if the line is twisted, if the depths are unknown—the ocean can't tell you anything. Your catches are random. The pattern is invisible.
+
+But if your gear is transparent—if every hook is a clean yes or no, if every depth is logged, if every pull is recorded—then the ocean speaks. The pattern emerges. You know where to run.
+
+...
+
+Opacity is the enemy of optimization. Make every layer transparent to the layer below.

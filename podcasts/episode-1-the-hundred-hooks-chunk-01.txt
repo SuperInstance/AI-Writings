@@ -1,0 +1,5 @@
+Pull every hour. Reset. Pull again. Each hour, a new vector of a hundred booleans. Each hour, a new snapshot of what the ocean decided to give you. Over the course of a day in a specific area, you see patterns emerge. There's a high probability band between ten and twenty fathoms. The best is at about twelve fathoms. Different numbers show up at different locations. Different depths. Sometimes different directions.
+
+But every individual hook is still just a yes or a no. The pattern isn't in any single hook. It exists only in the relation across all of them.
+
+...

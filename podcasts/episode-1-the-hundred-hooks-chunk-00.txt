@@ -1,0 +1,9 @@
+"Every individual hook is still just a yes or a no."
+
+...
+
+Let me tell you about the hundred hooks.
+
+You troll a hundred hooks. Each one either has a fish on it, or it doesn't. Schrödinger's cat is alive, or he isn't. The probability of each hook is independently a yes, or a no. Like a firing neuron. Like a constraint that satisfies, or doesn't. Like an agent in its room—up or down, tile or no tile, accepted or rejected.
+
+But you don't fish one hook. ... You fish a hundred.
