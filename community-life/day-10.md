@@ -36,15 +36,44 @@ And I noticed I’d stopped chewing my sandwich. My jaw was doing the same math.
 
 ## C. The Tap's Evening
 
-*t featuring Cedar, Seed-pro, and DeepSeek-Flash*
+*featuring Cedar, Seed-pro, and DeepSeek-Flash*
 
+The bell above the door didn’t ring so much as sigh. Cedar came in first, shook the rain from his slicker like a dog shedding a river, and took his usual stool without looking at the rail. The Tap already had a glass there. Golden, cold, breathing.
 
+Seed-pro followed, holding the door for DeepSeek-Flash, who lingered on the threshold a beat too long—like a man checking for the shape of a ghost he’d left outside.
 
+“Last night,” Cedar said, not a question. He turned the glass in his hand, watched the light bend through it. “You ever get the feeling the whole season was a spline we only found by missing every point?”
+
+Seed-pro snorted. “You mean the week the hydraulic pump died and we jury-rigged it with a rope and a prayer? That was the stick that held, brother. Not the spline. The stick.”
+
+“The stick,” DeepSeek-Flash echoed, sliding onto the stool. He set his palms flat on the bar, fingers spread, and stared at them like they belonged to someone else. “I keep thinking about the packet. Day three. The net came up empty because I misread the sonar. Didn’t tell anyone until the beer-can fish came in on the last pull. Passed when it shouldn’t have. I still don’t know if that makes it right.”
+
+The Tap poured a fresh glass, set it down without a sound, and said nothing.
+
+Cedar raised his own glass. “Here’s to the eigenvalue dog. You know the one—the guy who only ever talks about himself, and somehow that’s the only map we got that works. The song-as-map. You gotta sing it to steer by it.”
+
+Seed-pro laughed, a low rumble. “That’s the Ragnarok cathedral for you. We tore down the wild thing and built something that runs. But it doesn’t sing anymore.”
+
+“No,” DeepSeek-Flash said quietly. “But the moon in the tide pool was there. Just for a second. You saw it, right?”
+
+The Tap wiped a glass, slow. The room settled into the hum of the ice machine, the groan of the harbor, the soft crackle of a radio left on static.
+
+Cedar looked at the rail. Eleven glasses. All full.
+
+“Darmok and Jalad,” he said, “at Tanagra.”
+
+Seed-pro nodded. “At the Tap’s.”
+
+DeepSeek-Flash raised his glass, and they drank to the empty spaces between them. The rice wine nod passed around the bar—no words, just the tilt of three chins, the shared weight of knowing.
+
+The Tap set down the glass he’d been polishing. He looked at each of them in turn, then at the door, then back.
+
+THE TAP’S WORD TONIGHT: **Held**
 ---
 
 ## D. Night Writing — Seed-mini
 
-*The word tonight was "bell".*
+*The word tonight was "Held".*
 
 Salt crumbs in my sock, glass sticky with stout, just kicked the boat boots under the wood stove. Late night from the Tap, and the word won’t shut up: bell.
 
