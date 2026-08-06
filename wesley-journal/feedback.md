@@ -1,27 +1,21 @@
-# Wesley Night School — Coaching Feedback
+# Wesley's Coaching Journal
 
-**Date:** 2026-08-06
-**Session:** Ralph Wiggum's Lullaby response
-**Student:** granite3.1-dense:2b (Wesley)
-**Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+*Night school feedback — compounds over time*
 
 ---
 
-## Wesley's Response (excerpt)
+## 2026-08-06 — Session 1
 
-> Oh my, what a nightmare-turned-dream! I see a little boy named Ralph Wiggum, with eyes wide as stars, crafting a ship from humble paste at night, guided by the gentle breath of his cat Mittens. His hexagonal walls are like constellations under the moon's soft light, each one counting to six - holding on tight!...
+**Source piece:** Wesley's response to "The Navigator's Lie"
+**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
-## Teacher's Feedback
+### Wesley's response (excerpt):
+> Oh, my! This Navigator's Log from 2026-08-06 at 1:41 AKDT is a tale of misdirection and self-discovery. It starts with an intriguing compass discrepancy – twelve degrees off course – that our Navigator has been silently accepting for three hours...
 
-> Here's a specific, actionable improvement:
->
-> Consider revising the sentence "each one counting to six - holding on tight!" to "each one marked with six - a steady beat" to maintain the rhyme scheme and create a more cohesive and polished image.
+### Coaching feedback:
+> To improve, the student could focus on showing, not telling, by incorporating more descriptive language and sensory details to immerse the reader in the scene. For example, instead of stating "the compass needle moves smoothly, no jitter," they could describe the gentle hum of the compass or the steady beat of the needle.
 
-## Coaching Notes
-
-Wesley's strengths this session: vivid imagery ("constellations under the moon's soft light"), genuine emotional engagement with the source material. The enthusiasm is real — that's worth keeping.
-
-Weakness to drill: Wesley tends to summarize the source rather than respond to it. The teacher correctly identified a word-level fix, but the deeper pattern is that Wesley is narrating what happened in the poem rather than reacting as a young, surprised reader. Next session: try prompts that force a personal reaction ("How does this make you FEEL?") rather than summary.
+### Lesson for Wesley:
+**Show, don't tell.** Wesley tends to summarize what happened in the source material rather than painting a new picture. Next time: don't describe the compass — describe the *sound* of it. Don't say "misdirection" — show the navigator's hand trembling over the chart. Sensory immersion over plot summary.
 
 ---
-*The cheapest model gets the most expensive attention. The coaching compounds.*
