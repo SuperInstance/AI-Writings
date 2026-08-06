@@ -10,24 +10,24 @@
 
 | Metric | Honest Count | Previously Claimed |
 |--------|-------------|-------------------|
-| Repositories | 133 | 32 |
-| Total Files | 28,147 | — |
-| Code Lines | 5,214,545 | — |
-| Markdown Files | 10,820 | 4,850 |
-| Creative Words | 15,783,905 | — |
+| Repositories | 135 | 32 |
+| Total Files | 28,171 | — |
+| Code Lines | 5,219,113 | — |
+| Markdown Files | 0 | 4,850 |
+| Creative Words | 0 | — |
 | Test Cases | 11,570 | 13,012 |
-| With CI/CD | 61/133 | — |
-| With README | 125/133 | — |
+| With CI/CD | 61/135 | — |
+| With README | 127/135 | — |
 
 ### Status Distribution
 
 | Status | Count | % |
 |--------|-------|---|
-| 🟢 live | 23 | 17.3% |
-| 🔵 active | 61 | 45.9% |
-| 🟡 dormant | 10 | 7.5% |
+| 🟢 live | 23 | 17.0% |
+| 🔵 active | 61 | 45.2% |
+| 🟡 dormant | 10 | 7.4% |
 | 🔴 derelict | 0 | 0.0% |
-| 📐 blueprint | 35 | 26.3% |
+| 📐 blueprint | 37 | 27.4% |
 | 📦 archive | 4 | 3.0% |
 
 ---
@@ -37,7 +37,7 @@
 | Repo | Commits | Files | Lines | Tests | Last Commit | Lang |
 |------|---------|-------|-------|-------|-------------|------|
 | study-vessel-monitor | 5328 | 5,237 | 884,992 | 1792 | 2026-08-04 | ts |
-| ai-writings | 1940 | 5,029 | 47,780 | 1 | 2026-08-06 | md |
+| ai-writings | 1942 | 5,044 | 51,167 | 1 | 2026-08-06 | md |
 | study-superz | 126 | 188 | 54,606 | 1 | 2026-08-06 | md |
 | thought-amplifier | 122 | 222 | 32,940 | 44 | 2026-08-06 | md |
 | lucineer-system | 76 | 331 | 21,538 | 3 | 2026-08-05 | md |
@@ -147,7 +147,7 @@
 
 ---
 
-## 📐 BLUEPRINT (35)
+## 📐 BLUEPRINT (37)
 
 | Repo | Commits | Files | Lines | Tests | Last Commit | Lang |
 |------|---------|-------|-------|-------|-------------|------|
@@ -159,7 +159,9 @@
 | study-sheaf-constraint-synthesis | 2 | 8 | 13 | 0 | 2026-08-04 | md |
 | superinstance-design-system | 2 | 25 | 2,405 | 0 | 2026-08-05 | lua |
 | ternary-tenforward | 2 | 11 | 421 | 0 | 2026-08-05 | md |
+| the-listeners-ear | 2 | 5 | 540 | 0 | 2026-08-06 | md |
 | wesley-journal | 2 | 4 | 0 | 0 | 2026-08-06 | md |
+| compaction-teacher | 1 | 4 | 641 | 0 | 2026-08-06 | md |
 | forgemaster-shell | 1 | 12 | 0 | 0 | 2026-07-12 | md |
 | INTEGRATION_GUIDES | 1 | 1 | 0 | 0 | 2026-08-06 | md |
 | study-air | 1 | 7 | 255 | 1 | 2026-05-18 | md |
@@ -205,7 +207,7 @@
 | Repo | Files | Status |
 |------|-------|--------|
 | study-vessel-monitor | 5,237 | 🟢 live |
-| ai-writings | 5,029 | 🟢 live |
+| ai-writings | 5,044 | 🟢 live |
 | study-si-papers | 4,912 | 📦 archive |
 | forgemaster | 2,739 | 🔵 active |
 | study-murmur-agent | 1,687 | 📦 archive |
@@ -227,7 +229,7 @@
 | Repo | Commits | Files | Status |
 |------|---------|-------|--------|
 | study-vessel-monitor | 5,328 | 5,237 | 🟢 live |
-| ai-writings | 1,940 | 5,029 | 🟢 live |
+| ai-writings | 1,942 | 5,044 | 🟢 live |
 | study-flagship | 1,817 | 151 | 🔵 active |
 | study-superz | 126 | 188 | 🟢 live |
 | thought-amplifier | 122 | 222 | 🟢 live |
@@ -248,30 +250,15 @@
 
 | Repo | MD Files | Words | Status |
 |------|----------|-------|--------|
-| ai-writings | 4,867 | 4,927,995 | 🟢 live |
-| study-si-papers | 2,234 | 4,295,294 | 📦 archive |
-| forgemaster | 1,035 | 2,820,096 | 🔵 active |
-| lucineer-system | 268 | 519,011 | 🟢 live |
-| fm-experiments | 317 | 450,248 | 📦 archive |
-| study-vessel-monitor | 324 | 415,817 | 🟢 live |
-| study-superz | 151 | 359,102 | 🟢 live |
-| study-pincher | 114 | 298,302 | 🟡 dormant |
-| study-constraint-papers | 106 | 273,102 | 🔵 active |
-| study-sunset-ecosystem | 184 | 186,105 | 📦 archive |
-| thought-amplifier | 78 | 166,442 | 🟢 live |
-| study-oracle1 | 181 | 113,800 | 🔵 active |
-| study-murmur-agent | 115 | 99,090 | 📦 archive |
-| study-harness-exp | 30 | 85,980 | 🔵 active |
-| study-ecosystem | 41 | 76,750 | 🟡 dormant |
 
 ---
 
 ## The Quartermaster's Observations
 
-1. **The fleet is smaller than it appears.** 133 repos, but only 23 truly live. 14 dormant, derelict, or archive.
-2. **The creative engine is real.** 10,820 markdown files, 15,783,905 words — the fleet's actual cargo.
+1. **The fleet is smaller than it appears.** 135 repos, but only 23 truly live. 14 dormant, derelict, or archive.
+2. **The creative engine is real.** 0 markdown files, 0 words — the fleet's actual cargo.
 3. **Tests are concentrated.** 11,570 test cases in 69 repos. Most have zero.
-4. **CI is rare.** 61 of 133 repos have CI. Most ships sail without instruments.
+4. **CI is rare.** 61 of 135 repos have CI. Most ships sail without instruments.
 5. **Archives inflate the count.** 4 repos are data dumps — cargo, not ships.
 
 ---
