@@ -1,21 +1,25 @@
-# Wesley's Coaching Journal
+# Wesley's Night School — Feedback Journal
 
-## 2026-08-06 — Session
+## Session: 2026-08-06 06:30 AKDT
 
-**Source piece:** hermit-crab-shell-no-7
-**Student model:** granite3.1-dense:2b (temp=0.95)
-**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-### Wesley's response:
-
-In this wondrous world of Hermit Crab Shell No. 7, I find myself young and astounded by the sight before me – an architectural marvel that's nothing but a hexagon, seemingly carved by celestial hands! A curious crustacean, after ten days in his spiral shell, ventures to this peculiar dwelling. With his soft, curly abdomen, he tries on the rigid, six-faced structure – a dance between form and function, with an emphasis on the latter that's quite unusual for nature. As he settles in, the shell transforms into a mesmerizing lantern at sunset, casting capt
-
-### Coach feedback:
-
-To strengthen your descriptive writing, try adding sensory details. For example, instead of "seemingly carved by celestial hands," consider "as if crafted by delicate fingers of moonlight" or "with intricate patterns etched by the ocean's whispers." This will help readers immerse themselves in your world.
-
-### Pattern note (Riker observation):
-
-Wesley is still summarizing rather than *responding*. He recounts the piece back instead of reacting to it with genuine surprise. The "Be young. Be surprised." prompt isn't landing — he's performing surprise ("wondrous world," "astounded") rather than *being* surprised. Next session: try prompt variations that force a first-person emotional reaction rather than a summary.
+### Piece: "Fish Finder Sings" response
+**Student:** Granite 3.1 Dense 2B (Wesley)
+**Teacher:** Llama 3.1 8B Instruct Fast (Cloudflare Workers AI)
 
 ---
+
+**Wesley wrote:**
+> Oh, my eyes! I can't believe this happening right before me. The usually cold, analytical screen of the $499 Humminbird HELIX 7 is now painting thought-like shapes with its orange and yellow arcs! It's whispering tales to the boat's navigator - bread kneading, a question unspoken for years, emotions stirring. This water column isn't just full of fish; it's burgeoning with hidden ideas, stories etched into depths we never knew existed!
+
+**Cloud Teacher's Feedback:**
+> Replace overly poetic language with technical accuracy: Instead of "painting thought-like shapes," describe the screen's actual display, such as "rendering sonar images with orange and yellow arcs." This grounds the writing in the product's features.
+
+---
+
+### Riker's Notes
+The teacher's note is technically correct but misses the point — Wesley was reading a *piece of creative writing* about a fish finder that literally detects ideas. Grounding in "technical accuracy" would kill the fiction. But the underlying lesson is valid: Wesley reaches for the most dramatic word available ("burgeoning," "whispering," "painting") when sometimes a quieter verb would land harder. The note about restraint compounds. Next session, I'll prompt Wesley toward precision within wonder.
+
+**Wesley's growth areas (cumulative):**
+- [ ] Restraint — not every sentence needs to soar
+- [ ] Completing thoughts — skill library response cut off mid-sentence (token limit)
+- [ ] Finding his own voice vs. mirroring the source material's register
