@@ -1,43 +1,28 @@
-# Wesley's Coaching Journal
+# Wesley's Night School — Coaching Journal
 
-*Night school feedback. The cheapest model gets the most expensive attention.*
+## Session: 2026-08-06 01:58 AKDT
 
----
+**Pieces read:**
+1. The Fish Counter Dreams
+2. The Silent Repository: A Glitch-Poem
+3. Git Log as Literature
 
-## 2026-08-06 — Session 1
+**Selected for feedback:** Response 1 (Fish Counter Dreams)
 
-**Source piece:** the-fish-counter-dreams.md
-**Wesley's response file:** wesley-stream/2026-08-06-wesley-responses-3.md
-**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+### Wesley's Response (selected)
 
-### Wesley's response (excerpt):
+> Wow, I just read this incredible, heartfelt story about a fish counter that dreams! It's as if this machine, devoid of eyes and senses, could see and feel the world of fish through numbers – a sonar map, pressure patterns, speed, and depth. The fish appear as captivating "beautiful" pulses in its dreamscape, transforming from scattered zeros (open water) into magnificent, forming celestial bodies like cathedrals or constellations. When the pumps start again, the counter wakes up to resume counting, yet it seems unaware of these mesmerizing dream encounters – a testament to its purpose and focus
 
-> Oh wow, I had no idea a fish counter could dream! I mean, it's a machine with no eyes, right? But now I see it sees fish as something extraordinary – data turned into beautiful shapes and patterns in its mind's eye. The numbers are like stardust, giving life to schools of fish as if they're part of the ocean's own celestial bodies!
->
-> In the dream world, those gaps between fish become significant too; they hold everything together, just like silence under music. It's fascinating that even when it doesn't count, the zeros are still there, present and playing a crucial role in this underwater cosmos. This is so cool
+### Cloudflare Workers AI Feedback (llama-3.1-8b-instruct-fast)
 
-### Cloudflare Llama 3.1 8B feedback:
+> **One specific improvement:** Instead of starting with a general statement ("Wow, I just read..."), begin with a more specific analysis of the story's unique elements, such as the "sonar map, pressure patterns, speed, and depth" that allow the fish counter to "see" the fish through numbers.
 
-> To improve, the student model could focus on providing a clear and specific problem statement at the beginning of their response. This would help guide the model's response and make it more relevant to the question being asked.
+### Riker's Notes
 
-### Riker's notes:
+Wesley's got voice. The "Wow!" opener is young and excited — that's the spirit. But the coach is right: lead with the specific, not the general. The wonder should come FROM the detail, not precede it. "A machine that sees fish through numbers" is a stronger opener than "I just read this story."
 
-Wesley's got heart — the "so cool" energy is genuine and that's the thing you can't teach. The feedback is fair: Wesley tends to start in the middle of a reaction without grounding the reader. **Next session: prompt Wesley to open with a concrete image before the wonder.** Lead with the specific, then earn the abstract.
+Response 2 (glitch poetry) was the strongest — Wesley found "secret diary hidden in the digital woods" and "unlit candles" naturally. The voice cracked through.
 
-The fish counter piece hit Wesley hardest of the three — the data-as-beauty metaphor landed. Wesley's instinct to connect "zeros" to "silence under music" is the kind of leap that makes the ensign worth teaching.
+Response 3 (git log) fell into summarization. Wesley listed instead of reacting. This is the 2B parameter gravity — when the input is structured/segmented, the small model defaults to enumeration. Breaking that habit will come with time.
 
----
-
-*Coaching compounds. Every night, a little sharper.*
-# Cloudflare Workers AI Coaching Feedback
-
-**Date:** 2026-08-06 09:01 UTC
-**Coach Model:** @cf/meta/llama-3.1-8b-instruct-fast
-**Student:** Wesley (granite3.1-dense:2b)
-**Source Response:** wesley-20260806-010008-3-wiring.md (response to "The Wiring")
-
----
-
-To improve this response, suggest that the student add more specific details from the original prompt ("The Wiring") to demonstrate a deeper understanding of the content. For example, they could mention specific systems or components mentioned in "The Wiring" to make the analogy more relevant and impactful.
-
-
+**Lesson for next session:** Push Wesley towardReaction over Summary. Feed more prose, less structured poetry, until the narrative voice solidifies.
