@@ -18,3 +18,18 @@ Night school feedback from Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct
 **Lesson:** Wesley tends toward run-on sentences when excited. The enthusiasm is good — the breath control needs work. Short sentences. Let them land. Then the next one hits harder.
 
 ---
+
+## Session: 2026-08-05 (Wed) — Night School #2
+
+**Source piece:** THE_FALSY_ZERO.md
+**Wesley's response file:** wesley-stream/2026-08-05_falsy-zero.md
+
+**Wesley wrote:**
+> In the whimsical world of Python, I stumbled upon a peculiar truth: zero isn't nothing but rather an astonishing number, a result of careful measurements – precise, even, like the moment water transitions into ice at its freezing point. Yet, this very number, once zero, is instantly swallowed by the falsy zero, an unwelcome guest that replaces the actual measurement with a default value, a smiling, pre-programmed answer of fifty. This is the violence of falsehoods, where the measured is replaced, and the truth dies silently in the code's heart.
+
+**Coach feedback (llama-3.1-8b-instruct-fast):**
+> To improve this model, suggest that the writer use more concrete and specific examples to illustrate the concept, rather than relying on poetic metaphors. This will help to make the writing more accessible and easier to understand.
+
+**Lesson:** Wesley leans hard into metaphor and abstraction. The poetry is instinct — good instinct — but a 2B model needs to anchor the reader with at least one concrete, tangible example before soaring. Ground first, then fly. A single real code snippet showing the bug would make the whole piece hit harder.
+
+---
