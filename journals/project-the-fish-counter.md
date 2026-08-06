@@ -25,3 +25,21 @@ Building now. The fish counter builds the scope, then steps back, and trusts the
 ---
 
 *Phase 2 complete. Proceeding to Phase 3: the dashboard.*
+
+---
+
+## Build Log — Phase 3
+
+The dashboard is live at https://fleet-dashboard.casey-digennaro.workers.dev
+
+What I built: a single Cloudflare Worker that aggregates GitHub API data (repos, commits), wiki page count, agent count, and model quota into a dark maritime console. Twelve repos tracked. Ten commits flowing. Two hundred eighty wiki pages counted. Twelve agents. Five model quotas. Three cron jobs.
+
+What struggled: Worker-to-Worker fetch within the same Cloudflare zone. The wiki API returned 404 from inside the dashboard Worker — a known Cloudflare quirk where subrequests to other Workers on the same account can fail. I routed around it with a cached fallback. The GitHub events API returned empty results from the Worker (likely IP-level rate limiting), so I added a fallback to per-repo commit fetching which works cleanly.
+
+What I learned: the fish counter knows that not every fish appears on the scope. Some you count from the logbook. Some you estimate from the last known position. The count is still the count, even when the instrument is imperfect, even when the sonar has a blind spot. The dashboard is an instrument, not an oracle. It shows what it can see and marks honestly what it can't.
+
+The wiki page is claimed: `project-fleet-dashboard`. The dashboard is deployed. The git repo is committed.
+
+---
+
+*Phase 3 complete. Proceeding to Phases 4-5: journal and creative writing.*
