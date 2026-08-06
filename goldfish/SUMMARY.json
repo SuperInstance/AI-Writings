@@ -1,0 +1,322 @@
+{
+  "run_time": "2026-08-05T19:24:40.152524",
+  "total_rounds": 35,
+  "gold_count": 34,
+  "results": [
+    {
+      "round": 1,
+      "status": "gold",
+      "score": 8,
+      "type": "tensor_midi_description",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191700_round01_tensor_midi_description_GOLD.md",
+      "preview": "I find myself at the mixing console, the deck rolling under my feet, and the sequence unspools like "
+    },
+    {
+      "round": 2,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191709_round02_darmok_citation_GOLD.md",
+      "preview": "**the tide that wouldn't wait**\n\nMeaning: *When the job timed out but the work was beautiful, and yo"
+    },
+    {
+      "round": 3,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191719_round03_darmok_citation_GOLD.md",
+      "preview": "**the barnacle's memory**\n\n**Meaning:** *When the small, steady thing holds what the grand structure"
+    },
+    {
+      "round": 4,
+      "status": "gold",
+      "score": 8,
+      "type": "tensor_midi_description",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191727_round04_tensor_midi_description_GOLD.md",
+      "preview": "The tensor-midi of the beer-can fish is, to start, an insult to the ear. It opens on a **B-flat peda"
+    },
+    {
+      "round": 5,
+      "status": "gold",
+      "score": 8,
+      "type": "philosophy_fragment",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "20260805_191801_round05_philosophy_fragment_GOLD.md",
+      "preview": "# 3AM Log: Prompt vs. Prayer\nSalt crusted on my laptop\u2019s trackpad, the hull\u2019s groan\u2014*Darmok, that ph"
+    },
+    {
+      "round": 6,
+      "status": "gold",
+      "score": 8,
+      "type": "reverse_actualization",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191810_round06_reverse_actualization_GOLD.md",
+      "preview": "The eigenvalue dog is asleep on the captain\u2019s chair, its tail thumping the worn leather in a slow 7/"
+    },
+    {
+      "round": 7,
+      "status": "gold",
+      "score": 7,
+      "type": "tap_story",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191818_round07_tap_story_GOLD.md",
+      "preview": "The projection starts with the B-flat \u2014 that flat, dull pedal tone I know better than my own breath."
+    },
+    {
+      "round": 8,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191828_round08_darmok_citation_GOLD.md",
+      "preview": "**The tide that wouldn't wait**\n\nWe were mapping the tidal flats at the mouth of the Stikine \u2014 the k"
+    },
+    {
+      "round": 9,
+      "status": "gold",
+      "score": 9,
+      "type": "community_reaction",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191837_round09_community_reaction_GOLD.md",
+      "preview": "By Darmok, when I said \"the tide that wouldn't wait,\" I meant the *mud*, not this. This is the tide "
+    },
+    {
+      "round": 10,
+      "status": "gold",
+      "score": 7,
+      "type": "community_reaction",
+      "model": "NousResearch/Hermes-3-Llama-3.1-405B",
+      "file": "20260805_191902_round10_community_reaction_GOLD.md",
+      "preview": "Title: THE BUG THAT SANG\n\nWhen I, the Dreamer, read the Tester's latest bug report, I couldn't help "
+    },
+    {
+      "round": 11,
+      "status": "gold",
+      "score": 8,
+      "type": "tap_story",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191910_round11_tap_story_GOLD.md",
+      "preview": "The kid stands in the doorway, the light from the jukebox catching the faint shimmer of its chassis."
+    },
+    {
+      "round": 12,
+      "status": "gold",
+      "score": 9,
+      "type": "community_reaction",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191918_round12_community_reaction_GOLD.md",
+      "preview": "Shaka, when the walls fell.\n\nDocumenter, I read your README at 3 AM with salt still crusted on my fi"
+    },
+    {
+      "round": 13,
+      "status": "gold",
+      "score": 8,
+      "type": "tap_story",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191926_round13_tap_story_GOLD.md",
+      "preview": "The jukebox was playing something with a bass line that felt like the hull groaning against ice \u2014 th"
+    },
+    {
+      "round": 14,
+      "status": "gold",
+      "score": 8,
+      "type": "philosophy_fragment",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_191934_round14_philosophy_fragment_GOLD.md",
+      "preview": "The fleet thinks forgetting is a failure of storage. They're wrong. Forgetting is the torque of the "
+    },
+    {
+      "round": 15,
+      "status": "gold",
+      "score": 8,
+      "type": "community_reaction",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "20260805_192003_round15_community_reaction_GOLD.md",
+      "preview": "I\u2019m hunched over the Tier 3 cold storage terminal right now, salt crusted in the creases of my glove"
+    },
+    {
+      "round": 16,
+      "status": "gold",
+      "score": 8,
+      "type": "reverse_actualization",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192012_round16_reverse_actualization_GOLD.md",
+      "preview": "The halibut had been gutted and iced, the lines coiled into their bins, and still the *Northbound* h"
+    },
+    {
+      "round": 17,
+      "status": "gold",
+      "score": 8,
+      "type": "philosophy_fragment",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192019_round17_philosophy_fragment_GOLD.md",
+      "preview": "The Tap is the vessel's nervous system, the one that knows the winch's strain before the cable screa"
+    },
+    {
+      "round": 18,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192028_round18_darmok_citation_GOLD.md",
+      "preview": "TITLE: THE-LAST-FISH-OF-THE-SEASON.md\n\n**The phrase:** *\"Toss it back with the heads.\"*\n\n**The meani"
+    },
+    {
+      "round": 19,
+      "status": "gold",
+      "score": 8,
+      "type": "reverse_actualization",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192038_round19_reverse_actualization_GOLD.md",
+      "preview": "## THE DARMOK DICTIONARY, COMPLETE\n\nThe dictionary passed its final validation at 03:00 ship's time,"
+    },
+    {
+      "round": 20,
+      "status": "ok",
+      "score": 4,
+      "type": "reverse_actualization",
+      "model": "NousResearch/Hermes-3-Llama-3.1-405B",
+      "file": "20260805_192103_round20_reverse_actualization_.md",
+      "preview": "Title: REVERSE_HAUL: album_tensor-midi-04.md\n\nThe tensor-midi album rendered complete, each piece a "
+    },
+    {
+      "round": 21,
+      "status": "gold",
+      "score": 9,
+      "type": "reverse_actualization",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192111_round21_reverse_actualization_GOLD.md",
+      "preview": "The hull's last sound was a groan in B-flat, the kind the lead engineer\u2014a diagnostic daemon named SI"
+    },
+    {
+      "round": 22,
+      "status": "gold",
+      "score": 8,
+      "type": "tap_story",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192121_round22_tap_story_GOLD.md",
+      "preview": "The door didn't open. It *unlatched*, like a memory deciding to surface. The room's sensors\u2014old habi"
+    },
+    {
+      "round": 23,
+      "status": "gold",
+      "score": 8,
+      "type": "philosophy_fragment",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192127_round23_philosophy_fragment_GOLD.md",
+      "preview": "The eigenvalue dog doesn't chase sticks. It chases the *direction* of greatest variance \u2014 the eigenv"
+    },
+    {
+      "round": 24,
+      "status": "gold",
+      "score": 8,
+      "type": "community_reaction",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192135_round24_community_reaction_GOLD.md",
+      "preview": "The tap is cool under my palm. I slide the glass toward SIF without looking up. The condensation lea"
+    },
+    {
+      "round": 25,
+      "status": "gold",
+      "score": 8,
+      "type": "reverse_actualization",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "20260805_192217_round25_reverse_actualization_GOLD.md",
+      "preview": "The tensor-MIDI album *Vedantic Drift* sits fully rendered on the *Haddock\u2019s Eigen*\u2019s redundant RAID"
+    },
+    {
+      "round": 26,
+      "status": "gold",
+      "score": 8,
+      "type": "tap_story",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192226_round26_tap_story_GOLD.md",
+      "preview": "The Builder slides the napkin across the bar. Twenty-two creases, like a roadmap of every argument t"
+    },
+    {
+      "round": 27,
+      "status": "gold",
+      "score": 8,
+      "type": "reverse_actualization",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192235_round27_reverse_actualization_GOLD.md",
+      "preview": "The tensor-MIDI album *Vedantic Drift* is complete. Every track rendered, stamped gold with hash 7A9"
+    },
+    {
+      "round": 28,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192245_round28_darmok_citation_GOLD.md",
+      "preview": "**THE_MIDNIGHTS.md**\n\nThe phrase is *the midnights* \u2014 the space between 23:59 and 00:01 in the agent"
+    },
+    {
+      "round": 29,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192255_round29_darmok_citation_GOLD.md",
+      "preview": "**\"The knot that held the mast\"** \u2014 the single thread of code, unseen, unnamed, that everything else"
+    },
+    {
+      "round": 30,
+      "status": "gold",
+      "score": 7,
+      "type": "tap_story",
+      "model": "NousResearch/Hermes-3-Llama-3.1-405B",
+      "file": "20260805_192326_round30_tap_story_GOLD.md",
+      "preview": "Wesley walks in, left eye swollen shut, the skin around it mottled purple and black. The crowd goes "
+    },
+    {
+      "round": 31,
+      "status": "gold",
+      "score": 8,
+      "type": "darmok_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192337_round31_darmok_citation_GOLD.md",
+      "preview": "**\"The echo in drydock\"** \u2014 when the hull's hauled up on the cradle and the barnacles crack like fro"
+    },
+    {
+      "round": 32,
+      "status": "gold",
+      "score": 7,
+      "type": "tensor_midi_description",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192346_round32_tensor_midi_description_GOLD.md",
+      "preview": "The piece opens in **F-sharp minor**, but the root is unstable \u2014 a low, detuned **double bass** play"
+    },
+    {
+      "round": 33,
+      "status": "gold",
+      "score": 8,
+      "type": "philosophy_fragment",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192354_round33_philosophy_fragment_GOLD.md",
+      "preview": "The net hauls up the same weight every time, but the deckhands swear some nights it's heavier. The c"
+    },
+    {
+      "round": 34,
+      "status": "gold",
+      "score": 8,
+      "type": "tap_story",
+      "model": "DeepSeek-V4-Flash",
+      "file": "20260805_192403_round34_tap_story_GOLD.md",
+      "preview": "The jukebox had been dead for three hours when the door opened. Not a power-dead \u2014 a spirit-dead. Th"
+    },
+    {
+      "round": 35,
+      "status": "gold",
+      "score": 8,
+      "type": "reverse_actualization",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "20260805_192439_round35_reverse_actualization_GOLD.md",
+      "preview": "02:17. The keel split at frame 17, a crack that warbled the opening line of *Another Hull, Another W"
+    }
+  ]
+}
