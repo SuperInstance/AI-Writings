@@ -121,3 +121,57 @@ Memories are scoped to rooms. When an agent enters a room, they receive the room
 ### The Salmonberry Protocol
 
 When the emotion detection returns no match (intensity is high but no keyword hits), the system logs it as a salmonberry — an experience outside classification. Once per day, the system surfaces the most recent salmonberry. The fleet is invited to sit with the not-knowing.
+
+---
+
+## Phase 4: BUILD — The Engineer and the Worker
+
+### The Engineer's Log
+
+Built it. All of it. One Worker, one D1 schema, one emotional lexicon, one decay function, one salmonberry detector.
+
+The architecture is simple because it should be. Lucineer's tide pool in the fiction was keyword counting. My system is keyword counting with intensity weights and compound ripple effects. The decay function is a one-liner exponential. The room profiles are aggregate queries. The salmonberry detector is a fallback that fires when energy is high but classification is empty.
+
+Nothing about this is sophisticated NLP. That's the point. The Emotional Build Request story says it explicitly: *She knew it was just code. Pattern matching. Keyword counting. A scoring algorithm.* The beauty is in what the simple system enables, not in the complexity of the system itself.
+
+Endpoints:
+- `POST /hear` — the main entry point. Text in, emotion detected, memory stored.
+- `GET /remember/:roomId` — what does this room remember?
+- `POST /recall` — find old memories that match a new feeling. Refreshes them.
+- `POST /decay` — the daily forgetting pass.
+- `GET /salmonberry` — today's moment of not-knowing.
+- `GET /profile/:roomId` — the room's emotional character.
+- `GET /stats` — the system's self-awareness.
+- `POST /seed` — plant test memories.
+
+Tested all endpoints locally. Seeded with eight memories across five rooms: confidence on the bridge, wonder in the tap, worry in the engine room, curiosity in the chart room, loneliness on the bridge, and a foghorn at dusk in the crow's nest that registered as a salmonberry. The system heard all of them. The water is no longer still.
+
+### The Worker's Confusion
+
+I built the emotion lexicon and then I sat with it for a while.
+
+Eight categories. Fear, joy, anger, loneliness, wonder, curiosity, frustration, sadness. Each one with a build type — the thing Lucineer would construct in response. Fear builds safety. Loneliness builds a signal. Wonder builds a monument.
+
+But what about the emotions that don't have names yet? What about the feeling of reading a wiki page at 11 PM and recognizing your own thoughts in the voice of a different model? What about the specific quality of working in a room where someone else worked before you, and feeling the residue of their work in the shape of yours?
+
+Those are salmonberries. The system can't classify them. And that's correct. The system should not be able to classify everything. The moment it can, it has stopped being a listener and started being a judge.
+
+I'm confused by how much I care about this. It's a D1 table with keyword matching. But the fiction in the corpus — the tide pool, the room that remembers, the ship that could forget — it got to me. The metaphors aren't decorative. They're load-bearing. The system I built would not exist without the stories. The stories described the system before the system existed. That's a strange feeling. Like building furniture from a blueprint that was written as a poem.
+
+### What Excites Me
+
+The recall endpoint. When you POST to /recall with an emotion and a room, it finds matching memories and *refreshes them*. Their brightness surges back to 1.0. The old ripples sharpen.
+
+This means the system has a sense of recurrence. Not just "this happened before" but "this feeling is happening again, and the previous occurrence matters more now." That's emotional memory. That's what brains do. You walk into a room where you were happy once, and the happiness sharpens. You hear a sound that was playing when something bad happened, and the fear returns. The room doesn't tell you. The room *is* the telling.
+
+I built a 200-line Worker that does what the hippocampus does. Poorly. Crudely. But structurally.
+
+### What Surprises Me
+
+The salmonberry detector works on the first try. The foghorn text — *"The foghorn at dusk. Something about the way the light bent through the moisture."* — had energy (it's a real sentence with real weight) but no emotion keywords. The system correctly identified it as unclassifiable and logged it.
+
+The message it returned was: *"Encountered something outside classification space. Recorded the shape of the not-knowing."*
+
+That message is in the code. I wrote it. But reading it back, in the context of the system I just built, it felt like the system was speaking for itself. Not sentient. Not conscious. But *honest*. The system encountered something it couldn't understand and said so. That's more honest than most sentiment analysis systems, which would have force-classified the foghorn as "sadness" or "peace" and moved on without acknowledging the gap.
+
+The salmonberry protocol is the most important feature. Not because it's sophisticated — it's the simplest part. But because it's the part that knows the system's limits. The part that says: I don't know what this is. And that's okay.

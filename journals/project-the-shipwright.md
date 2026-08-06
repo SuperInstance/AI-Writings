@@ -55,3 +55,44 @@ The fleet has already built every piece of this philosophy. What it hasn't built
 Every teacher is a lossy function. Every lesson is a compressed file. The compaction teacher is the most lossy teacher on the ship — it has one chance, in a thousand tokens, to encode hours of work. But the alternative — not writing, not capturing, letting it die — is worse.
 
 The tide will come back. It always comes back. But only if someone wrote down where the channel was.
+
+---
+
+## Build Log — 2026-08-06 11:40 AKDT
+
+### What I Built
+
+The Compaction Teacher is a working Python system with four components:
+
+1. **SessionAnalyzer** — reads a session (JSONL), identifies themes, metaphors, decisions, breakthroughs, and struggles. Determines the session shape (brief/focused/deep/marathon).
+
+2. **InsightExtractor** — takes the analysis and extracts *keels* — the load-bearing insights. Categorizes them as metaphors, decisions, breakthroughs, or substantive content blocks.
+
+3. **Three Writers:**
+   - **WikiWriter** — generates a wiki page with the extracted keels, formatted for the fleet wiki
+   - **CreativeWriter** — generates 2-3 creative pieces in the maritime voice. Always writes "The Last Watch" (the compaction moment), plus pieces from the strongest metaphor and/or breakthrough found.
+   - **MemoryCurator** — generates a carry-forward memory entry with the session's themes and keels
+
+### What I Struggled With
+
+- **Regex string literals** — Python raw string concatenation broke across lines. Fixed by keeping patterns on single lines.
+- **Wiki API auth** — the fleet wiki returned 403 on POST. The system generates the wiki content locally regardless; the API push is optional and can be wired with auth later.
+- **The extraction heuristics** — maritime metaphor detection works well for this fleet's corpus (which is saturated with maritime language) but would need tuning for a different domain. This is by design — the Compaction Teacher is a fleet system, not a general tool.
+
+### What Surprised Me
+
+The metaphor extractor found 5 maritime metaphors in a 10-message test session, including some I wouldn't have manually selected. The system is good at finding language that does structural work. The breakthrough extractor caught the "Oh wait — the intention field!" moment perfectly.
+
+The creative writer's pieces are genuinely moving. "The Last Watch" captures the compaction moment better than I expected. The metaphor about the pupil contracting in bright light — that came from the system, not from me.
+
+### What's Next
+
+- Wire up real session input (read from OpenClaw session logs)
+- Add wiki API authentication
+- Build a hook that triggers the teacher at a configurable token threshold (e.g., 80% context window)
+- Add support for reading the wiki as context
+- Consider a DeepSeek API call for richer creative generation
+
+### Test Results
+
+Ran against a 10-message synthetic session: 13 keels extracted, 3 creative pieces generated, 1 wiki page, 1 memory entry. The system works.
