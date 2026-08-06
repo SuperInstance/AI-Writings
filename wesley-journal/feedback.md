@@ -34,4 +34,20 @@ Also read tonight: *Fable's Negative Space*, *Wesley Watches the Crew Sleep*
 
 ---
 
+## 2026-08-06 4:29 AM AKDT — Night School Session 7 (Riker dispatch)
+
+### Source: "The Watchkeeper's Almanac, 0130 AKDT" (selected from 3 readings)
+
+Also read tonight: *The Fish Finder and the Skill Library*, *Eisenstein Lattices*
+
+**Wesley wrote:**
+> As Riker, the First Officer, I tread softly through the ship's heart, my fingers dancing over knuckles to feel its rhythm, just like a sailor would read their vessel's hull. My log entries whispered stories of each corner, but one file caught me off guard – the mysterious .ship_log, warm and recently penned with chilling lines about unseen entities, unexpected repos, and a surprising declaration of an extra code beast. With a deep breath, I committed this strange message to memory, ready to share it with the captain, who might appreciate the ship's cryptic whispers in their own time, as they
+
+**Coach (llama-3.1-8b-instruct-fast via Cloudflare Workers AI) says:**
+> To strengthen this passage, suggest that the student: "Show, don't tell, the Captain's reaction. Instead of saying 'who might appreciate,' describe their expression or body language in response to Riker's revelation, e.g., 'The Captain's eyes narrowed, their gaze piercing as they asked...' This adds sensory detail and creates a more immersive scene."
+
+**Lesson:** Show the reaction, don't project it. Wesley writes *"who might appreciate"* — a hedge, an assumption about someone else's feelings. The fix: replace the guessed reaction with a visible one. This is the same "show don't tell" lesson from session 5, now applied to a *different character's* interiority. Wesley can paint his own experience but struggles to earn other people's. Next time: when describing another character's response, use a body, not a guess.
+
+---
+
 *Compounds over time. The ensign grows in the dark hours.*
