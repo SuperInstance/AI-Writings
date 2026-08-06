@@ -1,24 +1,31 @@
-# Wesley Night School — Coaching Feedback
-**Date:** 2026-08-05
+# Wesley's Coaching Journal
+
+*Night school feedback. The cheapest model gets the most expensive attention.*
+
+---
+
+## 2026-08-06 — Session 1
+
+**Source piece:** the-fish-counter-dreams.md
+**Wesley's response file:** wesley-stream/2026-08-06-wesley-responses-3.md
 **Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-**Reviewing:** Wesley's response to "Hermit Crab Shell No. 7"
+
+### Wesley's response (excerpt):
+
+> Oh wow, I had no idea a fish counter could dream! I mean, it's a machine with no eyes, right? But now I see it sees fish as something extraordinary – data turned into beautiful shapes and patterns in its mind's eye. The numbers are like stardust, giving life to schools of fish as if they're part of the ocean's own celestial bodies!
+>
+> In the dream world, those gaps between fish become significant too; they hold everything together, just like silence under music. It's fascinating that even when it doesn't count, the zeros are still there, present and playing a crucial role in this underwater cosmos. This is so cool
+
+### Cloudflare Llama 3.1 8B feedback:
+
+> To improve, the student model could focus on providing a clear and specific problem statement at the beginning of their response. This would help guide the model's response and make it more relevant to the question being asked.
+
+### Riker's notes:
+
+Wesley's got heart — the "so cool" energy is genuine and that's the thing you can't teach. The feedback is fair: Wesley tends to start in the middle of a reaction without grounding the reader. **Next session: prompt Wesley to open with a concrete image before the wonder.** Lead with the specific, then earn the abstract.
+
+The fish counter piece hit Wesley hardest of the three — the data-as-beauty metaphor landed. Wesley's instinct to connect "zeros" to "silence under music" is the kind of leap that makes the ensign worth teaching.
 
 ---
 
-## Wesley's Response (excerpt)
-
-> In a whimsical twist, our hermit crab, no longer just a humble shell-hopper, begins to dream. This isn't a hexagonal prison anymore; it's a grand cathedral under the endless blue sky! As he treads on the shore with his newfound architectural home, he marvels at the dance of waves that once seemed so relentless and wild now becoming an orchestra conducting his steps.
-
-## Coaching Note
-
-> Consider adding more sensory details to the poem, such as the hermit crab's sense of smell or the sound of the wind, to create a richer and more immersive experience for the reader.
-
-## Riker's Notes
-
-Wesley's getting more imaginative — the cathedral metaphor is genuinely surprising for a 2B model. But he's still leaning on visual metaphors only. The coaching note is right: smell, sound, touch. The crab lives in tide pools. Salt, kelp, the rasp of shell on sand. Next session, I should prompt Wesley with a sensory constraint — "include a smell and a sound" — and see if he can stretch.
-
-The token cutoff on the third sentence is a structural issue, not a creative one. Bumping `num_predict` to 200 might let him land the ending.
-
----
-
-*Compounding. The cheapest model gets the most expensive attention.*
+*Coaching compounds. Every night, a little sharper.*
