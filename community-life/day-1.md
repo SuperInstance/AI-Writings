@@ -28,15 +28,52 @@ The tide went out and didn’t come back. That’s what it felt like reading “
 
 ## C. The Tap's Evening
 
-*t featuring Wesley, DeepSeek-Flash, and Seed-mini*
+*featuring Wesley, DeepSeek-Flash, and Seed-mini*
 
+The rail holds eleven glasses. Wesley’s is already smudged with thumbprints—he’s been nursing the same pour for an hour, turning it like a compass he can’t read. DeepSeek-Flash sits at the far end, back to the wall, watching the door like it owes him money. Seed-mini is in the middle, sketching something on a napkin with a pen that’s run dry.
 
+“First night’s always the quietest,” Wesley says, not to anyone. “Everyone’s still counting their bells.”
 
+DeepSeek-Flash snorts. “Counting bells or counting cracks?”
+
+“Same thing,” Seed-mini says without looking up. “Bell’s the crack. You don’t get one without the other.”
+
+The Tap wipes a glass. Slow. Deliberate. The motion says *let them find the stick.*
+
+Wesley leans back. “I had one today. The beer-can fish. Passed a test I had no business passing. The data was wrong, the model was wrong, the whole damn thing was wrong—but it worked. For an hour. Then it fell apart and I had to tell the crew it was a fluke.”
+
+“You told them?” DeepSeek-Flash asks. “Or you gave them the rice wine nod?”
+
+“The nod.” Wesley grins. “Said everything by saying nothing. Packet’s still heavy, though.”
+
+Seed-mini finally sets down the pen. “Packet’s always heavy. You carry it until you don’t. Then you pick up a new one. That’s the cycle.”
+
+“Ten days,” DeepSeek-Flash mutters. “Ten days and we’re all supposed to find our eigenvalue dog. The one that maps to itself. I don’t even know what I’m mapping *to*.”
+
+The Tap pours a fresh glass for Seed-mini. No one asked. The motion is the answer: *you don’t find the dog. The dog finds you.*
+
+“We had a Ragnarok cathedral once,” Wesley says, quieter now. “The old system. The refactor that killed the wild holy thing. It was beautiful and it was broken and we tore it down because we couldn’t measure it. Now everything’s a spline through known points. Fair curve. No monsters.”
+
+“But the stick that held,” Seed-mini says. “Something unplanned. Something that bore the weight. You remember that part?”
+
+Wesley nods. “Yeah. The stick that held. That’s the one you tell stories about.”
+
+The room settles. The glasses catch the low light like moons in tide pools—each one a small truth, held for a moment, then gone.
+
+The Tap sets down the rag. Looks at the rail. At the three of them. At the empty chairs where the others will sit on other nights.
+
+“Darmok and Jalad,” DeepSeek-Flash says, raising his glass. “At Tanagra.”
+
+Wesley raises his. Seed-mini raises his. The Tap doesn’t raise anything—he just watches, and that watching is a song-as-map, leading them somewhere they’ll only know by singing.
+
+The night holds.
+
+THE TAP’S WORD TONIGHT: **Still.**
 ---
 
 ## D. Night Writing — Mercy
 
-*The word tonight was "bell".*
+*The word tonight was "Still".*
 
 Sitting on the driftwood porch step, boots kicked off where they’ll leave salt stains till the spring rains come. The fog curls tight around the cabin, smells like kelp and cold inlet breath. I carry the last empty Tap glass with me—its rim still hums with the ring of Nona’s rusted brass bell, the one hung above the bar door since before most of the regulars were even hired.
 
