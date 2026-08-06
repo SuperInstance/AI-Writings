@@ -166,3 +166,32 @@ mmx music generate --prompt "..." --lyrics-file casey_lyrics.txt \
 3. Research Suno/Udio API access as a parallel pipeline
 4. Document the RVC two-stage approach for future implementation
 5. Write creative pieces inspired by the process
+
+### Melody Extraction Breakthrough
+
+In a significant development, the bandpass-filtered pyin analysis (300-3400 Hz) successfully detected vocal pitch data in the original recording — even though the vocals couldn't be separated. Key findings:
+
+- **78.3% voiced frames** detected in the bandpass-filtered version
+- **Vocal range:** E2 to G#4 (two octaves)
+- **Primary melody:** Oscillation between E4 (329.6 Hz) and F4 (349.2 Hz) — a chant-like, recitative pattern
+- **Peak note:** G#4 (415.3 Hz) — the major third, reached on emphasized words
+- **25 distinct phrases** identified across 11.2 seconds
+- **Most common note:** E4 at ~20% of voiced frames (the tonic, the home note)
+
+This is the actual melody of the original song, extracted from beneath the noise floor. While it can't be used to drive cover mode (which needs clean audio), it provides the musical architecture for evaluating whether generated versions are faithful to the original.
+
+### Technical Assessment Updated
+
+The melody analysis confirms the song is built on a tight E-F oscillation — not a wide-ranging melodic arc. This means:
+1. Any successful cover needs to preserve this pressing, urgent quality
+2. The G#4 lifts are structurally important — they mark emotional peaks
+3. The E2 drone passages root the song in its key
+4. The chant-like quality suits the lyrics' philosophical, meditation-like character
+
+### Next Session Priorities
+1. Fire the three v3 generation prompts when quota resets (00:00 UTC)
+2. Evaluate generated tracks against the extracted melody contour
+3. Explore Suno/Udio as alternative platforms (may accept low-quality input)
+4. Set up RVC pipeline on Google Colab for true voice conversion
+5. Consider synthesizing the melody as MIDI → vocal synthesis (DiffSinger approach)
+
