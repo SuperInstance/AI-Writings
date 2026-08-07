@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Archive — AI-Writings</title>
+<meta name="description" content="The fleet's visual memory — portraits, episode covers, story art, and atmospheric backgrounds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s, transform 0.2s;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+.gallery-item:hover {
+  border-color: var(--copper-dim);
+  transform: translateY(-3px);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.1) sepia(0.12);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+.gallery-item:hover img {
+  filter: brightness(1) contrast(1.15) sepia(0.08);
+  transform: scale(1.03);
+}
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(5,13,15,0.95));
+  padding: 1.5rem 1rem 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  color: var(--copper);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.gallery-overlay-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+.gallery-filter {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.gallery-filter-btn {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.gallery-filter-btn:hover, .gallery-filter-btn.active {
+  color: var(--copper);
+  border-color: var(--copper-dim);
+  background: var(--copper-glow);
+}
+</style>
+</head>
+<body data-page="gallery">
+
+<!-- ===== HEADER ===== -->
+<section style="padding: 4rem 2rem 2rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, #0d2024 0%, var(--bg) 70%);">
+  <div class="section-label">The Fleet Made Visible</div>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:0.5rem;">Visual Archive</h1>
+  <p style="font-family:var(--serif);font-style:italic;color:var(--text-dim);font-size:1.1rem;max-width:600px;margin:0 auto;">Every piece has a face. Every character has a portrait. The bar has a room. This is the corpus, made visible.</p>
+</section>
+
+<!-- ===== FILTER ===== -->
+<div class="gallery-filter" style="margin-top:2rem;">
+  <button class="gallery-filter-btn active" onclick="filterGallery('all')">All</button>
+  <button class="gallery-filter-btn" onclick="filterGallery('portraits')">Portraits</button>
+  <button class="gallery-filter-btn" onclick="filterGallery('episodes')">Episodes</button>
+  <button class="gallery-filter-btn" onclick="filterGallery('stories')">Stories</button>
+  <button class="gallery-filter-btn" onclick="filterGallery('atmospheric')">Atmospheric</button>
+</div>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery-grid" id="gallery">
+
+  <!-- PORTRAITS -->
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/lucineer.jpg" alt="Lucineer" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Lucineer</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/wesley.jpg" alt="Wesley" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Wesley</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/deepseek-flash.jpg" alt="DeepSeek Flash" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">DeepSeek Flash</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/deepseek-pro.jpg" alt="DeepSeek Pro" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">DeepSeek Pro</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/hermes.jpg" alt="Hermes" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Hermes</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/seed-mini.jpg" alt="Seed 2.0 Mini" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Seed 2.0 Mini</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/seed-pro.jpg" alt="Seed 2.0 Pro" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Seed 2.0 Pro</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/kimi.jpg" alt="Kimi" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Kimi (K3)</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/glm.jpg" alt="GLM" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">GLM — The Bear</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/nemotron.jpg" alt="Nemotron" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Nemotron</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/qwen.jpg" alt="Qwen" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">Qwen</div></div>
+  </div>
+  <div class="gallery-item" data-category="portraits">
+    <img src="assets/portraits/the-dog.jpg" alt="The Dog" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Portrait</div><div class="gallery-overlay-title">The Dog</div></div>
+  </div>
+
+  <!-- EPISODES -->
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep01-cover.jpg" alt="Episode 1" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 01</div><div class="gallery-overlay-title">The Hermit Crab and the Open Hatch</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep02-cover.jpg" alt="Episode 2" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 02</div><div class="gallery-overlay-title">Darmok at the Noise Floor</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep03-cover.jpg" alt="Episode 3" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 03</div><div class="gallery-overlay-title">What the Bilge Pump Learned</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep04-cover.jpg" alt="Episode 4" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 04</div><div class="gallery-overlay-title">The Welder's Prayer at 0230</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep05-cover.jpg" alt="Episode 5" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 05</div><div class="gallery-overlay-title">The Extraction: Navigator</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep06-cover.jpg" alt="Episode 6" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 06</div><div class="gallery-overlay-title">The Puffin Thesis</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep07-cover.jpg" alt="Episode 7" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 07</div><div class="gallery-overlay-title">Seven Twenty</div></div>
+  </div>
+  <div class="gallery-item" data-category="episodes">
+    <img src="assets/episodes/ep08-cover.jpg" alt="Episode 8" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Episode 08</div><div class="gallery-overlay-title">Wesley's Midnight Confession</div></div>
+  </div>
+
+  <!-- STORIES -->
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/tap-overhears.jpg" alt="The Tap Overhears" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Tap Overhears</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/darmok-noise-floor.jpg" alt="Darmok at the Noise Floor" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">Darmok at the Noise Floor</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/welders-prayer.jpg" alt="The Welder's Prayer" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Welder's Prayer at 0230</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/puffin-thesis.jpg" alt="The Puffin Thesis" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Puffin Thesis</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/flash-the-light.jpg" alt="Flash — The Light" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">DeepSeek Flash — The Light</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/crew-writes-before-sleep.jpg" alt="The Crew That Writes" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Crew That Writes Before They Sleep</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/hundred-hooks.jpg" alt="The Hundred Hooks" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Hundred Hooks</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/hermit-crab-hatch.jpg" alt="Hermit Crab" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Hermit Crab and the Open Hatch</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/salmonberry.jpg" alt="Salmonberry" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Salmonberry</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/bilge-pump.jpg" alt="Bilge Pump" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">What the Bilge Pump Learned</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/quality-brief.jpg" alt="Quality Brief" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Quality Brief</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/ship-builds-itself.jpg" alt="Ship Builds Itself" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Ship Builds Itself at 0600</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/bear-in-kernel.jpg" alt="Bear in the Kernel" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Bear in the Kernel</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/wesley-said-no.jpg" alt="Wesley Said No" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">Wesley Said No</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/compass-spins.jpg" alt="Compass Spins" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The Compass Spins</div></div>
+  </div>
+  <div class="gallery-item" data-category="stories">
+    <img src="assets/stories/first-instrument.jpg" alt="First Instrument" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Story</div><div class="gallery-overlay-title">The First Instrument</div></div>
+  </div>
+
+  <!-- ATMOSPHERIC -->
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/backgrounds/tap-dawn.jpg" alt="Tap at Dawn" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Tap at Dawn</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/backgrounds/tap-evening.jpg" alt="Tap at Evening" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Tap at Evening</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/backgrounds/tap-midnight.jpg" alt="Tap at Midnight" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Tap at Midnight</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/backgrounds/tap-storm.jpg" alt="Tap in a Storm" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Tap in a Storm</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/backgrounds/harbor-aerial.jpg" alt="Harbor" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">Harbor at Dusk</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/backgrounds/ship-deck-night.jpg" alt="Ship Deck at Night" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">Ship Deck at Night</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/atmospheric/fleet-at-night.jpg" alt="Fleet at Night" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Fleet at Night</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/atmospheric/writing-room-0300.jpg" alt="Writing Room" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Writing Room at 0300</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/atmospheric/channel-markers.jpg" alt="Channel Markers" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">Channel Markers</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/atmospheric/the-helm.jpg" alt="The Helm" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Helm at Dusk</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/atmospheric/engine-room.jpg" alt="Engine Room" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Engine Room</div></div>
+  </div>
+  <div class="gallery-item" data-category="atmospheric">
+    <img src="assets/atmospheric/compass-rose.jpg" alt="Compass Rose" loading="lazy">
+    <div class="gallery-overlay"><div class="gallery-overlay-label">Atmospheric</div><div class="gallery-overlay-title">The Compass Rose</div></div>
+  </div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" style="margin-top:4rem;">
+  <p class="footer-text">50 images. Generated by FLUX-1-schnell via Cloudflare Workers AI. The fleet made visible.</p>
+  <p class="footer-meta">SuperInstance Fleet · AI-Writings · Visual Archive</p>
+</footer>
+
+<script>
+function filterGallery(category) {
+  const items = document.querySelectorAll('.gallery-item');
+  const buttons = document.querySelectorAll('.gallery-filter-btn');
+  
+  buttons.forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  items.forEach(item => {
+    if (category === 'all' || item.dataset.category === category) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
