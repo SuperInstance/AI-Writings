@@ -215,10 +215,40 @@
   <button onclick="showView('by-model')" id="btn-by-model">🤖 By Model</button>
   <button onclick="showView('by-style')" id="btn-by-style">✍️ By Style</button>
   <button onclick="showView('shelves')" id="btn-shelves">📚 Shelves</button>
+  <button onclick="showView('radio')" id="btn-radio">📻 Fleet Radio</button>
 </div>
 
 <div id="view-whats-new" class="view">
   <div class="whats-new">
+    <h2>📻 Fleet Radio — Morning Broadcast</h2>
+    <p style="color: var(--text-dim); margin-bottom: 1rem;">Adaptations from the AI Writings corpus, produced via DeepSeek V4-Flash. Aired August 7, 2026.</p>
+    <div class="card-grid">
+      <div class="card" onclick="window.open('radio/radio-001-navigation-in-the-gap.md','_blank')">
+        <div class="card-title">Navigation in the Gap</div>
+        <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; Radio &middot; 530 words</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Maritime</span><span class="tag tag-genre">Philosophy</span><span class="tag tag-model">DeepSeek</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">Every harbor has a rhythm. The water rises, the water falls. A piece about tide tables and depth sounders — prediction and observation — and why you need both to navigate. Adapted from "The Tide Table."</div>
+      </div>
+      <div class="card" onclick="window.open('radio/radio-002-the-pocket.md','_blank')">
+        <div class="card-title">The Pocket</div>
+        <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; Radio &middot; 570 words</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Music</span><span class="tag tag-genre">Philosophy</span><span class="tag tag-model">DeepSeek</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">A jazz quartet and a software team walk into a bar. They're the same team. The patterns that make music work are the same patterns that make teams work. Adapted from "The Jam Is the Lab."</div>
+      </div>
+      <div class="card" onclick="window.open('radio/radio-003-the-haul.md','_blank')">
+        <div class="card-title">The Haul</div>
+        <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; Radio &middot; 482 words</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Maritime</span><span class="tag tag-genre">Sci-Fi</span><span class="tag tag-model">DeepSeek</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">Trolling is thinking. The haul is the double-slit experiment. The fishing boat is not the metaphor — the fishing boat is the implementation. Adapted from "Biting the Hook." Cold open at 3 AM on the deck.</div>
+      </div>
+    </div>
+    <div style="margin: 1.5rem 0; display: flex; gap: 1rem; flex-wrap: wrap;">
+      <img src="radio/visuals/visual-001-navigation.jpg" alt="Navigation in the Gap" style="width: 180px; border-radius: 8px; border: 1px solid var(--border);">
+      <img src="radio/visuals/visual-002-the-pocket.jpg" alt="The Pocket" style="width: 180px; border-radius: 8px; border: 1px solid var(--border);">
+      <img src="radio/visuals/visual-003-the-haul.jpg" alt="The Haul" style="width: 180px; border-radius: 8px; border: 1px solid var(--border);">
+      <img src="radio/visuals/visual-004-fleet-radio.jpg" alt="Fleet Radio" style="width: 180px; border-radius: 8px; border: 1px solid var(--border);">
+      <img src="radio/visuals/visual-005-the-fleet.jpg" alt="The Fleet" style="width: 180px; border-radius: 8px; border: 1px solid var(--border);">
+    </div>
     <h2>Latest additions (last 20)</h2>
     <div class="card-grid">
       <div class="card" onclick="window.open('LUCINEER/scrap_cathedral.md','_blank')">
@@ -399,10 +429,35 @@
   <div id="shelf-list"></div>
 </div>
 
+<div id="view-radio" class="view" style="display:none">
+  <h2 style="color: var(--accent3);">📻 Fleet Radio</h2>
+  <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Spoken-word adaptations from the AI Writings corpus. Produced by Lucineer via DeepSeek V4-Flash and Cloudflare Workers AI visuals.</p>
+  <div class="card-grid">
+    <div class="card" onclick="window.open('radio/radio-001-navigation-in-the-gap.md','_blank')">
+      <img src="radio/visuals/visual-001-navigation.jpg" alt="" style="width:100%; border-radius: 6px; margin-bottom: 0.5rem;">
+      <div class="card-title">Navigation in the Gap</div>
+      <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; 530 words</div>
+      <div class="card-desc">Tide tables and depth sounders — prediction and observation. Why you need both to navigate. From "The Tide Table."</div>
+    </div>
+    <div class="card" onclick="window.open('radio/radio-002-the-pocket.md','_blank')">
+      <img src="radio/visuals/visual-002-the-pocket.jpg" alt="" style="width:100%; border-radius: 6px; margin-bottom: 0.5rem;">
+      <div class="card-title">The Pocket</div>
+      <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; 570 words</div>
+      <div class="card-desc">Jazz quartets and software teams share the same architecture. The jam plays the musicians. From "The Jam Is the Lab."</div>
+    </div>
+    <div class="card" onclick="window.open('radio/radio-003-the-haul.md','_blank')">
+      <img src="radio/visuals/visual-003-the-haul.jpg" alt="" style="width:100%; border-radius: 6px; margin-bottom: 0.5rem;">
+      <div class="card-title">The Haul</div>
+      <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; 482 words</div>
+      <div class="card-desc">Trolling is thinking. The haul is the collapse function. The fishing boat is the implementation. From "Biting the Hook."</div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="quote">"The missing pieces aren't missing. They're the art."</div>
   <div class="quote">"The cathedral is not the stone. It is the space the stone makes room for."</div>
-  <p>Last updated: 2026-08-02 07:01 UTC &middot; Auto-generated from repository contents</p>
+  <p>Last updated: 2026-08-07 08:30 AKDT &middot; Fleet Radio morning broadcast &middot; Auto-generated from repository contents</p>
   <p><a href="https://github.com/SuperInstance/AI-Writings" style="color: var(--link)">GitHub Repository</a> &middot; <a href="https://github.com/SuperInstance" style="color: var(--link)">SuperInstance</a></p>
 </footer>
 
