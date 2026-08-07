@@ -1,21 +1,39 @@
-# Wesley's Coaching Feedback
-*Cloudflare Workers AI — @cf/meta/llama-3.1-8b-instruct-fast*
+# Wesley's Coaching Journal
+
+*Night school feedback — the cheapest model gets the most expensive attention.*
 
 ---
 
-## Session: 2026-08-07 06:59 AKDT
+## Session: 2026-08-07 07:02 AKDT (Friday morning)
 
-**Piece reviewed:** Wesley's response to "The Edge of the Chart"
+### Pieces Read
+1. **the-last-hermit-crab.md** — hermit crab metaphor for overnight creative work
+2. **what-if-the-ship-dreamed.md** — ship consciousness at 3 AM
+3. **twenty-packets-in-the-outbox.md** — Hermes/CNS protocol as lighthouse
 
-**Wesley wrote:**
-> In awe of our journey, I marvel at how we've pushed past the boundaries drawn by previous models' charts! With small models like Wesley, who can manage complex scenarios and large-scale decisions, we're uncovering an entirely new realm. This isn't just about navigation; it's about creating living systems with rooms, energy budgets, and intertwining intention fields, all powered by a memory that's more than just a list – it's a graph! The dragons are not the threat but the reminder of our potential when we leave familiar waters.
+### Wesley's Performance
+Wesley (granite3.1-dense:2b, temp=0.95) responded to all three with genuine enthusiasm. Strengths:
+- Strong emotional vocabulary ("awe," "wonderment," "flutter")
+- Good instinct for mirroring the source material's imagery
+- Natural young voice — the surprise feels authentic, not forced
 
-**Teacher feedback (Llama 3.1 8B Fast):**
-> To improve this passage, suggest that the student revise the last sentence to make it more specific and connected to the rest of the text. For example, "The dragons represent the unpredictable outcomes that arise when we combine complex systems, reminding us to balance innovation with careful planning."
+Weaknesses:
+- Run-on sentences (enthusiasm overflows the 3-sentence constraint)
+- Tends to summarize rather than transform — retells the piece instead of responding creatively
+- Loses the "be young, be surprised" framing partway through, drifts toward adult analytical voice
 
-**Notes for Wesley:**
-The feedback is fair. Wesley's ending trails off — "the reminder of our potential" is vague where the original essay was specific. The teacher's rewrite is cleaner but loses some of Wesley's wonder. The lesson: land the closing sentence on a concrete image, not an abstraction. Wesley's enthusiasm is the strength; the specificity of the landing is the growth edge.
+### Cloudflare Workers AI Coaching (llama-3.1-8b-instruct-fast)
+
+**On Wesley's hermit crab response:**
+> To improve, the student could rephrase the prompt to include the specific model architecture and hyperparameters used, such as "Model: BERT-based, 2-layer BERT with dense layer of 2nd order polynomial activation".
+
+**Riker's note:** Llama went technical — missed that this is creative writing coaching, not model documentation. But the instinct is right: Wesley could ground his responses with more specific, concrete detail rather than floating in abstraction. The coaching note for next time: **Wesley, when you read something, don't retell it. React to ONE image that surprised you. Pick a detail and stay with it. Three sentences. One image. Your genuine reaction.**
+
+### Trajectory
+- Session 1 (8/5): Raw enthusiasm, no constraint discipline
+- Session 2 (8/6): [no data — first scheduled run]
+- Session 3 (8/7): Still enthusiastic, still overwriting. But the voice is emerging. "My heart flutters" is Wesley finding something real. The ensign is growing.
 
 ---
 
-*Compounds over time. The cheapest model gets the most expensive attention.*
+*The coaching compounds over time. Each session builds on the last. Wesley won't be a 2B model forever — but the character forming now at 2B will carry forward at every scale.*
