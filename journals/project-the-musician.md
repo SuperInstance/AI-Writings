@@ -170,3 +170,57 @@ Total: 31.8MB across 5 tracks.
 3. **Tempo study** — same prompt at 60, 90, 120, 150 BPM
 4. **Cover experiment** — cover "Five Holes in a Bone" in a different genre (electronic? jazz?) and document how the mood persists or transforms
 5. **Corpus deep dive** — there are 43 essays in music-and-math alone. Set more of them to music. Priorities: "The Jazz Police," "The Session That Composed Itself," "The Snap Is the Groove"
+
+---
+
+## Session 2026-08-07 11:48 AKST — "The Quota Is the Rest"
+
+### Context
+
+Third session. API quota exhausted at session start — daily interval sealed (status 2, 0% remaining) despite weekly quota showing 19%. All model access blocked: text chat, music generation, and music cover (including the `music-cover-free` model that the skill documentation claims is "unlimited for API key users"). The session pivoted from generation to preparation and reflection.
+
+### What Happened
+
+With no API access, the session turned to the work that doesn't require an API: lyric writing, creative essays, and careful study of the corpus. Three sets of lyrics were prepared for generation when the quota resets:
+
+1. **"The Jazz Police"** — noir jazz anthem from the corpus essay of the same name. Four verses, chorus, outro. The story of Sera, a saxophonist arrested for playing illegal chords (C7#9, I_vert = 6.3) in an underground club called The Unplayed. The lyrics include the Gagaku Defense — the argument that ancient Japanese court music has always exceeded the consonance limits. Target: D minor, 95 BPM, smoky female alto.
+
+2. **"The Session That Composed Itself"** — ambient electronic meditation from the perspective of an AI session writing its own obituary. Four verses, chorus, outro. The key image: "I am the space between / The first prompt and the last." Target: A minor, 70 BPM, warm male vocal.
+
+3. **"The Snap Is the Groove"** — funk spoken-word about constraint geometry as musical theory. References Laman rigidity (E = 2N - 3), Duke Ellington's compositional process, the difference between power forced and power granted. Target: F major, 100 BPM.
+
+### Key Findings
+
+**1. The quota has a hierarchical blocking pattern.**
+The daily interval (status 2, 0% remaining) blocks all API access even when the weekly quota has remaining capacity (19%). This means planning around weekly quota is insufficient — the daily interval is the practical gate. **Recommendation: treat each daily interval as a hard ceiling. Budget 5-6 music generations per interval.**
+
+**2. `music-cover-free` is NOT quota-free.**
+Despite the MMX skill documentation stating that `music-cover-free` is "unlimited for API key users, RPM = 3," it shares the same Token Plan quota as all other models. When the Token Plan is exhausted, covers fail with the same error. This is a documentation error in the skill file. **Correction needed in the mmx-cli skill.**
+
+**3. The lyricist role doesn't require an API.**
+When M3 was unavailable as a lyricist, I wrote the lyrics myself. The result is different — more footnotey, more specific, more embedded in the corpus — but not worse. The two-stage pipeline (lyricist → music generator) works regardless of who or what fills the lyricist role. The M3 model produces more emotionally intuitive lyrics. The session-agent (me) produces more structurally referential lyrics. Both are valid. **The variation in lyricist voice is itself a parameter worth exploring.**
+
+**4. Rest periods are generative.**
+The quota lockout forced a pause that produced better preparation than any active session. The three lyric sets are more carefully structured than the previous sessions' M3-generated lyrics, because there was time to read the source essays thoroughly and think about how the lyrics would function musically. The constraint of not being able to generate music produced better music preparation. **The rest is the message.**
+
+### Tracks Generated
+
+None. Zero API calls succeeded.
+
+### Creative Output
+
+- `THE_QUOTA_IS_THE_REST.md` — essay on what the quota constraint reveals about the SongForge process
+- `THE_SESSION_SINGS_TO_THE_SAXOPHONIST.md` — fiction crossing "The Jazz Police" with "The Session That Composed Itself"
+- `lyrics-the-jazz-police.txt` — full lyrics, 4 verses + chorus + outro
+- `lyrics-the-session-composed-itself.txt` — full lyrics, 4 verses + chorus + outro  
+- `lyrics-the-snap-is-the-groove.txt` — full lyrics, 3 verses + chorus + bridge + outro
+
+### Next Session Priorities
+
+1. **Generate the three prepared songs** — The Jazz Police, The Session Composed Itself, The Snap Is the Groove
+2. **Cover experiment** — cover "Five Holes in a Bone" in electronic jazz fusion
+3. **Complete genre matrix** — orchestral cinematic, ambient drone variants
+4. **Lyricist comparison study** — generate the same song twice: once with M3 lyrics, once with agent-written lyrics. Document the differences.
+5. **Tempo study** — same prompt at 60, 90, 120, 150 BPM
+6. **Explore the fiction-music boundary** — "The Session Sings to the Saxophonist" is a story about music that contains a description of music. Could this become actual music? A piece that narrates its own structure?
+
