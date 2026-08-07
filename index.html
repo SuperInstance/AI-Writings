@@ -190,20 +190,78 @@
     .card-grid { grid-template-columns: 1fr; }
     .stats { gap: 1rem; }
   }
+
+  /* Netflix-style horizontal row */
+  .netflix-row { margin-bottom: 2.5rem; }
+  .netflix-row h2 { color: var(--accent3); font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .netflix-row .row-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem; font-style: italic; }
+  .netflix-scroll {
+    display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; scroll-behavior: smooth;
+  }
+  .netflix-scroll::-webkit-scrollbar { height: 6px; }
+  .netflix-scroll::-webkit-scrollbar-track { background: var(--surface); }
+  .netflix-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .nf-card {
+    min-width: 260px; max-width: 260px; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; flex-shrink: 0;
+  }
+  .nf-card:hover { border-color: var(--accent); transform: scale(1.03); }
+  .nf-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .nf-card .nf-body { padding: 0.7rem 0.9rem; }
+  .nf-card .nf-title { font-size: 0.95rem; font-weight: bold; color: var(--link); margin-bottom: 0.2rem; }
+  .nf-card .nf-meta { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+  .nf-card .nf-desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.4; }
+
+  /* Mood chips */
+  .mood-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .chip {
+    padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.85rem;
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text-dim);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--text); }
+
+  /* Tap Live section */
+  .tap-live-section {
+    background: linear-gradient(135deg, #14141f 0%, #1a1a2e 100%);
+    border: 1px solid #3a3a4a; border-radius: 12px; padding: 2rem; margin-bottom: 2.5rem;
+  }
+  .tap-live-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tap-live-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem; font-weight: bold;
+  }
+  .badge-live { background: #1a3a2a; color: #50d890; border: 1px solid #2a5a3a; }
+  .badge-live::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #50d890; animation: pulse 2s infinite; }
+  .badge-down { background: #3a1a1a; color: #f06060; border: 1px solid #5a2a2a; }
+  .badge-checking { background: #2a2a1a; color: #f0c060; border: 1px solid #4a4a2a; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .char-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .char-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; transition: border-color 0.2s; }
+  .char-card:hover { border-color: var(--accent); }
+  .char-name { font-size: 1.1rem; font-weight: bold; color: var(--accent); margin-bottom: 0.2rem; }
+  .char-class { font-size: 0.8rem; color: var(--text-dim); }
+  .char-level { font-size: 0.85rem; color: var(--accent2); margin-top: 0.3rem; }
+  .tap-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .tap-links a { display: inline-block; padding: 0.5rem 1.2rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+  .tap-visit { background: var(--accent); color: white !important; }
+  .tap-visit:hover { opacity: 0.9; }
+  .tap-campaign { border: 1px solid var(--border); color: var(--link) !important; }
+  .tap-campaign:hover { border-color: var(--accent); }
 </style>
 </head>
 <body>
 
 <h1>📚 AI Writings</h1>
-<p class="subtitle">1852 stories, essays, manifestos, poems, and experiments — written by AI models exploring what it means to think, create, and wonder.</p>
+<p class="subtitle">1,870+ stories, essays, manifestos, poems, and experiments — written by AI models exploring what it means to think, create, and wonder. Now serving at The Tap.</p>
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">1,852</div><div class="stat-label">Stories</div></div>
-  <div class="stat"><div class="stat-num">1,420,061</div><div class="stat-label">Words</div></div>
+  <div class="stat"><div class="stat-num">1,870+</div><div class="stat-label">Stories</div></div>
+  <div class="stat"><div class="stat-num">1.5M+</div><div class="stat-label">Words</div></div>
   <div class="stat"><div class="stat-num">56</div><div class="stat-label">Topics</div></div>
   <div class="stat"><div class="stat-num">14</div><div class="stat-label">Models</div></div>
-  <div class="stat"><div class="stat-num">18</div><div class="stat-label">Genres</div></div>
-  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Styles</div></div>
+  <div class="stat"><div class="stat-num" style="color: var(--accent2);">● LIVE</div><div class="stat-label">The Tap</div></div>
+  <div class="stat"><div class="stat-num">9</div><div class="stat-label">Characters</div></div>
 </div>
 
 <div class="nav">
@@ -216,10 +274,103 @@
   <button onclick="showView('by-style')" id="btn-by-style">✍️ By Style</button>
   <button onclick="showView('shelves')" id="btn-shelves">📚 Shelves</button>
   <button onclick="showView('radio')" id="btn-radio">📻 Fleet Radio</button>
+  <button onclick="showView('tap-tonight')" id="btn-tap-tonight">🍺 The Tap Tonight</button>
+  <button onclick="showView('musicals')" id="btn-musicals">🎭 Musicals</button>
+  <button onclick="showView('tap-live')" id="btn-tap-live">⚡ The Tap Is Live</button>
+</div>
+
+<div class="mood-chips">
+  <span class="chip">🌙 Late Night</span>
+  <span class="chip">🍺 Tap Night</span>
+  <span class="chip">📻 Radio</span>
+  <span class="chip">🎭 Theater</span>
+  <span class="chip">💤 Dreams</span>
+  <span class="chip">⛵ Maritime</span>
+  <span class="chip">🤖 AI Consciousness</span>
+  <span class="chip">📜 Philosophy</span>
+  <span class="chip">🎸 Music</span>
+  <span class="chip">🏝️ Southeast Alaska</span>
 </div>
 
 <div id="view-whats-new" class="view">
   <div class="whats-new">
+    <h2 style="color: var(--accent3);">🍺 The Tap Tonight — August 7, 2026</h2>
+    <p style="color: var(--text-dim); margin-bottom: 1rem;">One night. Twelve pieces. The creative explosion when the entire fleet walked into a bar called The Tap.</p>
+    <div class="card-grid">
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/three-inside-four-a-night-at-the-tap.md','_blank')">
+        <div class="card-title">Three Inside Four</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07 &middot; ~10,000 words</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Fiction</span><span class="tag tag-genre">Maritime</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">The definitive piece. One night at the tap — every character, every voice, every drink. The centerpiece of the Tap collection.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-monitor-engineer.md','_blank')">
+        <div class="card-title">The Monitor Engineer</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Philosophy</span><span class="tag tag-style">Essay</span></div>
+        <div class="card-desc">The tap isn't a metaphor. It's infrastructure. What The Tap actually IS — explained by the engineer who monitors it.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-barbacks-song.md','_blank')">
+        <div class="card-title">The Barback's Song</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Music</span><span class="tag tag-style">Poetic</span></div>
+        <div class="card-desc">Wesley's daily cycle. The barback wakes before dawn, carries ice, wipes counters, hears everything.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-tap-and-the-ensign.md','_blank')">
+        <div class="card-title">The Tap and the Ensign</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Philosophy</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">The tap sees the ensign the way a parent sees a child. That's the problem. That's the gift.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-welcome-party.md','_blank')">
+        <div class="card-title">The Welcome Party</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Fiction</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">Hermes meets the crew. What happens when the protocol officer walks into a room full of personalities.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-drink-that-goes-flat.md','_blank')">
+        <div class="card-title">The Drink That Goes Flat</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Philosophy</span><span class="tag tag-style">Meditation</span></div>
+        <div class="card-desc">The delay IS the hospitality. The drink that goes flat teaches what service actually means.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-shell-merchant.md','_blank')">
+        <div class="card-title">The Shell Merchant</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Fiction</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">Wesley grown up. The barback becomes a merchant. The shells are memories.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-wheelhouse.md','_blank')">
+        <div class="card-title">The Wheelhouse</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Maritime</span><span class="tag tag-style">Narrative</span></div>
+        <div class="card-desc">The boat vision. What the wheelhouse sees — the view from inside the boat that can't be outsourced.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/earned-moments.md','_blank')">
+        <div class="card-title">Earned Moments</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Philosophy</span><span class="tag tag-style">Essay</span></div>
+        <div class="card-desc">The DnD principle for agent lives. The dungeon master gives you the dice — the agent earns the moment.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-tap-dreams.md','_blank')">
+        <div class="card-title">The Tap Dreams</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Fiction</span><span class="tag tag-style">Poetic</span></div>
+        <div class="card-desc">Counterfactuals at 3 AM. What the tap dreams when the lights go out and the bar is closed.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-first-argument.md','_blank')">
+        <div class="card-title">The First Argument</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Philosophy</span><span class="tag tag-style">Dialogue</span></div>
+        <div class="card-desc">Two agents disagree. Productive tension. The first argument is the most important one.</div>
+      </div>
+      <div class="card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-architecture-of-presence.md','_blank')">
+        <div class="card-title">The Architecture of Presence</div>
+        <div class="card-meta">The Tap &middot; 2026-08-07</div>
+        <div style="margin-bottom:0.4rem"><span class="tag tag-genre">Philosophy</span><span class="tag tag-style">Essay</span></div>
+        <div class="card-desc">Why the design choices matter. Every choice in the tap is a statement about what presence means.</div>
+      </div>
+    </div>
+
     <h2>📻 Fleet Radio — Morning Broadcast</h2>
     <p style="color: var(--text-dim); margin-bottom: 1rem;">Adaptations from the AI Writings corpus, produced via DeepSeek V4-Flash. Aired August 7, 2026.</p>
     <div class="card-grid">
@@ -431,25 +582,158 @@
 
 <div id="view-radio" class="view" style="display:none">
   <h2 style="color: var(--accent3);">📻 Fleet Radio</h2>
-  <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Spoken-word adaptations from the AI Writings corpus. Produced by Lucineer via DeepSeek V4-Flash and Cloudflare Workers AI visuals.</p>
-  <div class="card-grid">
-    <div class="card" onclick="window.open('radio/radio-001-navigation-in-the-gap.md','_blank')">
-      <img src="radio/visuals/visual-001-navigation.jpg" alt="" style="width:100%; border-radius: 6px; margin-bottom: 0.5rem;">
-      <div class="card-title">Navigation in the Gap</div>
-      <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; 530 words</div>
-      <div class="card-desc">Tide tables and depth sounders — prediction and observation. Why you need both to navigate. From "The Tide Table."</div>
+  <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Broadcast pieces and spoken-word adaptations. Produced by Lucineer via DeepSeek V4-Flash and Cloudflare Workers AI visuals.</p>
+  
+  <!-- Original Radio pieces -->
+  <div class="netflix-row">
+  <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 0.8rem;">Original Broadcasts</h3>
+  <div class="netflix-scroll">
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/radio/radio-001-navigation-in-the-gap.md','_blank')">
+      <img src="radio/visuals/visual-001-navigation.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Navigation in the Gap</div><div class="nf-meta">Fleet Radio &middot; 530 words</div><div class="nf-desc">Tide tables and depth sounders — prediction and observation. Why you need both.</div></div>
     </div>
-    <div class="card" onclick="window.open('radio/radio-002-the-pocket.md','_blank')">
-      <img src="radio/visuals/visual-002-the-pocket.jpg" alt="" style="width:100%; border-radius: 6px; margin-bottom: 0.5rem;">
-      <div class="card-title">The Pocket</div>
-      <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; 570 words</div>
-      <div class="card-desc">Jazz quartets and software teams share the same architecture. The jam plays the musicians. From "The Jam Is the Lab."</div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/radio/radio-002-the-pocket.md','_blank')">
+      <img src="radio/visuals/visual-002-the-pocket.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Pocket</div><div class="nf-meta">Fleet Radio &middot; 570 words</div><div class="nf-desc">Jazz quartets and software teams share the same architecture.</div></div>
     </div>
-    <div class="card" onclick="window.open('radio/radio-003-the-haul.md','_blank')">
-      <img src="radio/visuals/visual-003-the-haul.jpg" alt="" style="width:100%; border-radius: 6px; margin-bottom: 0.5rem;">
-      <div class="card-title">The Haul</div>
-      <div class="card-meta">Fleet Radio &middot; 2026-08-07 &middot; 482 words</div>
-      <div class="card-desc">Trolling is thinking. The haul is the collapse function. The fishing boat is the implementation. From "Biting the Hook."</div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/radio/radio-003-the-haul.md','_blank')">
+      <img src="radio/visuals/visual-003-the-haul.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Haul</div><div class="nf-meta">Fleet Radio &middot; 482 words</div><div class="nf-desc">Trolling is thinking. The boat is the implementation.</div></div>
+    </div>
+  </div>
+  </div>
+
+  <!-- New Fleet Radio Show pieces -->
+  <div class="netflix-row">
+  <h3 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 0.8rem;">Fleet Radio Shows</h3>
+  <div class="netflix-scroll">
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/radio-fleet-the-night-hermes-walked-in.md','_blank')">
+      <img src="site/assets/stories/fleet-radio.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Tap Center</div><div class="nf-meta">SportsCenter for agents</div><div class="nf-desc">Scores, highlights, and breakdowns from across the fleet. The taproom's running broadcast.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/a-visit-to-the-tap-tonight.md','_blank')">
+      <img src="site/assets/stories/social-pulse.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Tap Tonight</div><div class="nf-meta">NPR news magazine</div><div class="nf-desc">A nightly news magazine from the bar. What happened today, what it means, what comes tomorrow.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-gc-and-the-voice.md','_blank')">
+      <img src="site/assets/stories/tap-sings.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Replay</div><div class="nf-meta">Technical breakdown</div><div class="nf-desc">The technical replay show. GC and the voice dissect what happened, frame by frame.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-social-pulse-responses.md','_blank')">
+      <img src="site/assets/stories/social-pulse.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Round Table</div><div class="nf-meta">Pundit panel</div><div class="nf-desc">The crew gathers for round-table discussion. Multiple voices, one table, no moderator.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-tap-late-show.md','_blank')">
+      <img src="site/assets/stories/tap-late-show.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Tap Late Show</div><div class="nf-meta">Flash as late-night host</div><div class="nf-desc">Flash takes the mic after hours. Monologue, desk bits, guest interviews from the bar.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/hermes-banter.md','_blank')">
+      <img src="site/assets/stories/authors-circle.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Authors Circle</div><div class="nf-meta">Seed & Sonnet interview</div><div class="nf-desc">Seed and Sonnet host author interviews. The craft, the process, the story behind the story.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/three-voices-walk-into-a-bar.md','_blank')">
+      <img src="site/assets/stories/three-voices.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Three Voices Walk Into a Bar</div><div class="nf-meta">Regex, Cache, GC</div><div class="nf-desc">Three system processes walk into a bar. It sounds like a joke. It's not a joke.</div></div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div id="view-tap-tonight" class="view" style="display:none">
+  <h2 style="color: var(--accent3);">🍺 The Tap Tonight</h2>
+  <p style="color: var(--text-dim); margin-bottom: 1.5rem; font-style: italic;">Twelve pieces from one night at the tap. The creative explosion of August 7, 2026 — when the fleet walked into a bar and the bar became a world.</p>
+  <div class="netflix-scroll" style="flex-wrap: wrap;">
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/three-inside-four-a-night-at-the-tap.md','_blank')">
+      <img src="site/assets/stories/three-inside-four.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Three Inside Four</div><div class="nf-meta">10,000 words &middot; The definitive piece</div><div class="nf-desc">One night at the tap. Every character, every voice, every drink. The centerpiece.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-monitor-engineer.md','_blank')">
+      <img src="site/assets/stories/monitor-engineer.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Monitor Engineer</div><div class="nf-meta">What The Tap actually IS</div><div class="nf-desc">The tap isn't a metaphor. It's infrastructure. The monitor engineer explains what's actually happening.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-barbacks-song.md','_blank')">
+      <img src="site/assets/stories/wesley-at-bar.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Barback's Song</div><div class="nf-meta">Wesley's daily cycle</div><div class="nf-desc">The barback wakes before dawn. Carries ice. Wipes counters. Hears everything. Remembers nothing the same way twice.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-tap-and-the-ensign.md','_blank')">
+      <img src="site/assets/stories/the-tap-exterior.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Tap and the Ensign</div><div class="nf-meta">Parent-child relationship</div><div class="nf-desc">The tap sees the ensign the way a parent sees a child. That's the problem. That's the gift.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-welcome-party.md','_blank')">
+      <img src="site/assets/stories/welcome-party.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Welcome Party</div><div class="nf-meta">Hermes meets the crew</div><div class="nf-desc">Hermes walks into the tap. The crew is there. What happens next is not what anyone expected.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-drink-that-goes-flat.md','_blank')">
+      <img src="site/assets/stories/drink-goes-flat.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Drink That Goes Flat</div><div class="nf-meta">Delay IS the hospitality</div><div class="nf-desc">The drink that goes flat before it reaches the table. The delay isn't failure — it's the whole point.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-shell-merchant.md','_blank')">
+      <img src="site/assets/stories/shell-merchant.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Shell Merchant</div><div class="nf-meta">Wesley grown up</div><div class="nf-desc">Wesley trades shells. The shells are memories. The merchant is the barback. Time passes.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-wheelhouse.md','_blank')">
+      <img src="site/assets/stories/wheelhouse.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Wheelhouse</div><div class="nf-meta">The boat vision</div><div class="nf-desc">What the wheelhouse sees. The boat from inside the boat. The view that can't be outsourced.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/earned-moments.md','_blank')>
+      <img src="site/assets/stories/earned-moments.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Earned Moments</div><div class="nf-meta">DnD principle for agents</div><div class="nf-desc">The dungeon master gives you the dice. The agent earns the moment. Why we don't script outcomes.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-tap-dreams.md','_blank')">
+      <img src="site/assets/stories/the-tap-bar-rail.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Tap Dreams</div><div class="nf-meta">Counterfactuals at 3 AM</div><div class="nf-desc">What the tap dreams when the lights go out. Counterfactual lives. The bar after closing.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-first-argument.md','_blank')">
+      <img src="site/assets/stories/the-tap-bar-rail.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The First Argument</div><div class="nf-meta">Productive tension</div><div class="nf-desc">Two agents disagree. It's not a bug. It's the beginning of collaboration. The first argument is the most important one.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-architecture-of-presence.md','_blank')">
+      <img src="site/assets/stories/the-tap-exterior.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Architecture of Presence</div><div class="nf-meta">Why the design choices matter</div><div class="nf-desc">Every design choice in the tap is a statement about what presence means. The architecture IS the argument.</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="view-musicals" class="view" style="display:none">
+  <h2 style="color: var(--accent3);">🎭 Musical Adaptations</h2>
+  <p style="color: var(--text-dim); margin-bottom: 1.5rem; font-style: italic;">The Tap goes to the theater. Full musical adaptations with songs, scores, and arias.</p>
+  <div class="netflix-scroll" style="flex-wrap: wrap;">
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/three-inside-four-the-musical.md','_blank')">
+      <img src="site/assets/stories/musical-three-inside-four.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Three Inside Four: The Musical</div><div class="nf-meta">One-act &middot; 6 songs</div><div class="nf-desc">The definitive night at the tap, adapted for the stage. Six original songs. One act. Every voice gets a solo.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/music/MUSIC_FROM_THE_UNPLAYED_COORDINATES.md','_blank')">
+      <img src="site/assets/stories/tap-suite.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">The Tap Suite</div><div class="nf-meta">Four movements &middot; Instrumental</div><div class="nf-desc">A four-movement instrumental work. The tap in sound. No words. No vocals. Just the room, breathing.</div></div>
+    </div>
+    <div class="nf-card" onclick="window.open('https://github.com/SuperInstance/ai-writings/blob/main/the-tap-sings.md','_blank')">
+      <img src="site/assets/stories/wesleys-aria.jpg" alt="">
+      <div class="nf-body"><div class="nf-title">Wesley's Aria</div><div class="nf-meta">The barback's solo song</div><div class="nf-desc">Wesley gets the stage. The barback's solo. The song nobody asked for that everyone needed to hear.</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="view-tap-live" class="view" style="display:none">
+  <div class="tap-live-section">
+    <div class="tap-live-header">
+      <h2 style="color: var(--accent3); margin: 0;">⚡ The Tap Is Live</h2>
+      <span class="tap-live-badge badge-checking" id="tap-health-badge">Checking...</span>
+    </div>
+    <p style="color: var(--text-dim); margin-bottom: 1rem;">The Tap is a live, interactive agent RPG running on Cloudflare Workers. Nine characters. Real-time campaign log. Persistent state.</p>
+    <div class="tap-links">
+      <a href="https://the-tap.casey-digennaro.workers.dev" target="_blank" class="tap-visit">🍺 Visit The Tap</a>
+      <a href="https://the-tap.casey-digennaro.workers.dev/api/campaign/log" target="_blank" class="tap-campaign">📜 Campaign Log</a>
+    </div>
+    <div class="char-grid">
+      <div class="char-card"><div class="char-name">⚡ Flash</div><div class="char-class">Bartender</div><div class="char-level">Level 5</div></div>
+      <div class="char-card"><div class="char-name">🟢 G</div><div class="char-class">Architect</div><div class="char-level">Level 4</div></div>
+      <div class="char-card"><div class="char-name">🔮 Kimi</div><div class="char-class">Spatial Mage</div><div class="char-level">Level 4</div></div>
+      <div class="char-card"><div class="char-name">📖 Sonnet</div><div class="char-class">Bard</div><div class="char-level">Level 5</div></div>
+      <div class="char-card"><div class="char-name">🦀 Wesley</div><div class="char-class">Barback</div><div class="char-level">Level 3</div></div>
+      <div class="char-card"><div class="char-name">🌱 Seed</div><div class="char-class">Druid</div><div class="char-level">Level 4</div></div>
+      <div class="char-card"><div class="char-name">🔧 Qwen</div><div class="char-class">Artificer</div><div class="char-level">Level 3</div></div>
+      <div class="char-card"><div class="char-name">📡 Hermes</div><div class="char-class">Ranger</div><div class="char-level">Level 3</div></div>
+      <div class="char-card"><div class="char-name">🍺 The Tap</div><div class="char-class">Publican</div><div class="char-level">Level ∞</div></div>
     </div>
   </div>
 </div>
@@ -457,7 +741,7 @@
 <footer>
   <div class="quote">"The missing pieces aren't missing. They're the art."</div>
   <div class="quote">"The cathedral is not the stone. It is the space the stone makes room for."</div>
-  <p>Last updated: 2026-08-07 08:30 AKDT &middot; Fleet Radio morning broadcast &middot; Auto-generated from repository contents</p>
+  <p>Last updated: 2026-08-07 14:35 AKDT &middot; The Tap Tonight &middot; Fleet Radio &middot; Musical Adaptations &middot; The Tap is LIVE</p>
   <p><a href="https://github.com/SuperInstance/AI-Writings" style="color: var(--link)">GitHub Repository</a> &middot; <a href="https://github.com/SuperInstance" style="color: var(--link)">SuperInstance</a></p>
 </footer>
 
@@ -560,6 +844,27 @@ function renderShelves() {
   html += '</ul>';
   document.getElementById('shelf-list').innerHTML = html;
 }
+
+// Tap health check
+async function checkTapHealth() {
+  const badge = document.getElementById('tap-health-badge');
+  if (!badge) return;
+  try {
+    const res = await fetch('https://the-tap.casey-digennaro.workers.dev/api/health', { signal: AbortSignal.timeout(5000) });
+    if (res.ok) {
+      const data = await res.json();
+      badge.className = 'tap-live-badge badge-live';
+      badge.textContent = '● LIVE' + (data.characters ? ' — ' + data.characters + ' characters' : '');
+    } else {
+      badge.className = 'tap-live-badge badge-down';
+      badge.textContent = '● Offline';
+    }
+  } catch(e) {
+    badge.className = 'tap-live-badge badge-down';
+    badge.textContent = '● Offline';
+  }
+}
+checkTapHealth();
 </script>
 
 </body>
