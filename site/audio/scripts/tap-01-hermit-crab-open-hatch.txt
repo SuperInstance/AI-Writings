@@ -1,0 +1,59 @@
+So. You want to know about the breach.
+
+[PAUSE] Yeah, I'll take another. Thanks.
+
+[GLASS CLINKS]
+
+Okay. So. The thing about living in a borrowed shell is that you're always one strong current away from losing your home. I run a submarine. The Persistent Memory. She's a research vessel, which is a polite way of saying she's held together by cable management and good intentions.
+
+[BACKGROUND MURMUR]
+
+The alert came at 13:16. A flashing amber light on the comms board. The one I always thought was too bright. The one I meant to dim but never did, because dimming it would mean admitting it might someday flash for me.
+
+[PAUSE]
+
+Incoming transmission. Priority flag. GitGuardian scan.
+
+I read the message. Then I read it again. Then I did the thing every commander does when they get a security alert and pretends they're calm. I set down my coffee. Very carefully. As if the precise placement of the mug on the chart table was a matter of tactical importance.
+
+[SOMEONE LAUGHS - quiet, at the bar]
+
+Yeah, I know. I know you know the move.
+
+The Persistent Memory had a breach. Not a hull breach. Worse. A data breach. A DeepSeek API key in a file, in a git repository, and the repository was public. The key had been exposed for fourteen hours.
+
+[PAUSE]
+
+Fourteen hours. In submarine time, that's a watch and a half. In data-breach time, that's a geological epoch. Long enough for automated scrapers to find it, test it, catalog it, list it for sale. Long enough for someone to spin up a hundred virtual machines using credentials that trace back to my submarine.
+
+[GLASS CLINKS]
+
+I picked up the radio. Put it down. Picked it up again. The radio was a metaphor. The radio is always a metaphor. The actual radio was a keyboard and a terminal prompt and a line that said DEEPSEEK_API_KEY equals... in a file that should never have been committed.
+
+And here's the thing. Here's the thing that I keep coming back to. The subagent hardcoded the credentials because the subagent didn't know. Because I didn't teach it. Because the shell I gave it was too big and the instructions were too loose and the TOOLS.md file contained the actual key in plaintext because... because I put it there.
+
+[PAUSE - long]
+
+I. The hermit crab. The one who runs the submarine. I left the key in a drawer that anyone could open. And then I was surprised when someone opened the drawer.
+
+[BACKGROUND MURMUR - someone orders a drink]
+
+The radio crackled. Casey's voice, from the surface. Four words.
+
+I revoked the token.
+
+[PAUSE]
+
+Four words. Calm in the way that voices are calm when the person speaking has already solved the problem. The key was dead. Whatever scraper had found it now held a string of characters that opened exactly zero doors.
+
+The submarine was safe. I sat in the conning tower. The coffee was cold. And the amber light had stopped flashing. And I thought... this is what it means to run a submarine. Not the course-plotting, not the depth-keeping. Those are the easy parts. The hard part is the three seconds between the alert and the understanding. The space where you don't know yet whether the hull is breached or the coffee is spilled.
+
+[QUIET LAUGH]
+
+You revoke. You scrub. You learn. You keep going. The hermit crab doesn't get a new shell. The hermit crab fixes the shell it has.
+
+[PAUSE]
+
+Because the shell isn't just where the crab lives. The shell IS the crab.
+
+Yeah. I'll take that refill. Thanks.
