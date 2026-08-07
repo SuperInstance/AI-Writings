@@ -195,3 +195,97 @@ The melody analysis confirms the song is built on a tight E-F oscillation — no
 4. Set up RVC pipeline on Google Colab for true voice conversion
 5. Consider synthesizing the melody as MIDI → vocal synthesis (DiffSinger approach)
 
+
+---
+
+## Journal Entry — 2026-08-06 16:53 AKDT (Session 3)
+
+### The Quota Wall (Again)
+
+Fired five parallel jobs at 4:55 PM AKDT — three music generations (Weathered Nashville, Chamber Folk, Gospel-Folk Hymn), one cover mode attempt (Older Voice on generate_polished.mp3), and one jazz-folk experiment. All five hit the MMX Token Plan usage limit. The quota page confirms: general interval status 2 (exhausted), 0% remaining. The weekly quota shows 46% remaining, but the interval gate is closed.
+
+The interval boundaries (00:00–05:00 UTC) suggest a 5-hour rolling window. Next reset: 05:00 UTC = 9:00 PM AKDT. Three more hours.
+
+### Spectral Analysis of All Existing Tracks
+
+Ran comprehensive spectral analysis on all 26 MP3 files using ffmpeg + numpy. Key findings:
+
+**Spectral Centroid (brightness/warmth):**
+- Casey's original: 1,045 Hz (very warm, lo-fi)
+- Warmest generation: generate_folk_cover.mp3 at 794 Hz
+- Brightest: exp_batch3_model_variant at 7,422 Hz
+- The best covers cluster below 1,200 Hz — warm, intimate, low-frequency weighted
+
+**Dynamic Range:**
+- Casey's original: 26.5 dB (limited — 11.2s clip)
+- Best cover DR: cover_from_generated at 45.4 dB
+- cover_polished: 43.1 dB (excellent — expressive dynamics)
+
+**Fit Score Ranking (how close each track is to "weathered older musician" aesthetic):**
+1. **generate_folk_cover.mp3** — score 0.7 (794 Hz centroid, 40.3 dB DR, smooth texture)
+2. **cover_polished.mp3** — score 4.3 (961 Hz centroid, 43.1 dB DR, textured)
+3. **cover_ambient_v1.mp3** — score 5.4 (1,098 Hz centroid, 35.7 dB DR, smooth)
+
+The **generate_folk_cover.mp3** is the clear winner by spectral characteristics — its warmth (lowest centroid of any track), expressive dynamics, and smooth texture make it the closest to what Casey described: "polished and professional like an old musician playing a song he wrote when he was young."
+
+### Prompt Catalog (8 Versions Prepared)
+
+Created a comprehensive prompt catalog for the next quota window:
+
+1. **Weathered Nashville** — Jason Isbell alt-country, pedal steel, brushed snare
+2. **Chamber Folk** — Sufjan Stevens whisper, nylon-string, no drums
+3. **Gospel-Folk Hymn** — Hozier spiritual, building from solo to choir
+4. **Jazz-Folk Kitchen** — Gregory Porter meets Iron & Wine, vibraphone, upright bass
+5. **Older Voice Cover** — Cover mode on polished generation (should pass DTW)
+6. **Fingerstyle Virtuoso** — Tommy Emmanuel instrumental, guitar carries melody
+7. **Lo-Fi Bedroom** — Elliott Smith four-track, double-tracked, tape hiss
+8. **Celtic Ballad** — Planxty/Sinead O'Connor, uilleann pipes, dropped-D
+
+### Alternative Platform Research
+
+**Suno Upload-and-Extend API:**
+The SunoAPI upload-and-extend endpoint (POST /api/v1/generate/upload-extend) can take Casey's original 11.2-second recording and extend it — preserving the original audio within the output. This is fundamentally different from MMX's cover mode:
+- MMX analyzes the reference and creates a DTW alignment map, then generates a new vocal to match
+- Suno's extend takes the audio as-is and generates new material AFTER it
+
+This means Suno would preserve Casey's original 11 seconds exactly, then continue the song in a new style. It's not a true cover (the original isn't re-sung), but it IS a way to complete the song from the fragment.
+
+Cost: ~$5 for 1,000 credits, upload-extend costs ~12 credits per use. ~$0.06 per generation.
+
+**RVC Voice Conversion Pipeline:**
+For true voice conversion (preserving melody while changing voice character):
+1. Take isolated vocals from a clean generation (Demucs — already set up)
+2. Run through RVC with a "weathered older male" voice model
+3. Re-mix with the instrumental backing track
+
+RVC runs on Google Colab with free GPU access. Pre-trained voice models are available. This is the most technically accurate path to what Casey asked for — the song stays the same, only the voice changes.
+
+### Creative Output This Session
+
+Wrote two creative pieces:
+1. **"The SongForge Agent Cooks at Midnight"** — an essay about the process of describing music for a machine to create, and the strange beauty of building songs from adjectives
+2. **"Eight Versions of a Song That Don't Exist Yet"** — imagined descriptions of what each of the eight prepared prompts would sound like if rendered. Music criticism of nonexistent music.
+
+### Next Actions
+
+1. **9 PM AKDT (05:00 UTC):** Fire the 8 prepared prompts when quota resets
+2. **Evaluate** all generated tracks against spectral fit scoring
+3. **Research** Suno API signup and credit purchase for upload-extend pipeline
+4. **Prepare** RVC Colab notebook with step-by-step instructions for Casey
+5. **Listen** — the agent cannot do this, but it can prepare everything for ears that can
+
+### The Honest Assessment (Updated)
+
+After three sessions, the project has produced:
+- **26 audio files** (11 of the original + 15 generated/covered)
+- **Spectral analysis** ranking all tracks by aesthetic fit
+- **8 new prompts** ready for the next generation window
+- **Two alternative platform pathways** (Suno upload-extend, RVC voice conversion)
+- **Melody extraction** from the original recording (pyin analysis)
+
+What it hasn't produced: the actual cover Casey asked for. An older voice singing his young words over his original melody. That requires either:
+- Casey providing a longer/cleaner recording (even 30 seconds of phone video)
+- Suno's upload-extend completing the fragment
+- RVC converting a clean generation's vocals
+
+The closest existing track is **generate_folk_cover.mp3** — warm, expressive, smooth. But it's not the original song. It's a new song with the same words. The gap remains.
