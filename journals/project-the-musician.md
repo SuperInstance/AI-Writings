@@ -289,3 +289,106 @@ What it hasn't produced: the actual cover Casey asked for. An older voice singin
 - RVC converting a clean generation's vocals
 
 The closest existing track is **generate_folk_cover.mp3** — warm, expressive, smooth. But it's not the original song. It's a new song with the same words. The gap remains.
+
+---
+
+## Journal Entry — 2026-08-06 17:02 AKDT (Session 4)
+
+### The Quota Wall (Still)
+
+The general interval quota remains at status 2 (exhausted, 0% remaining) even though the interval window appears to be 00:00-05:00 UTC and it's currently 01:02 UTC. The `remains_time` field shows ~3.96 hours, which is contradictory with status 2. The most likely explanation: the Token Plan has 0 allowed generations in this interval (current_interval_total_count: 0), meaning the plan itself doesn't include general interval capacity right now. This is a billing/plan issue, not a timing issue.
+
+Both `mmx music generate` and `mmx text chat` fail with "Token Plan usage limit reached." The quota is not interval-gated — it's plan-level exhausted.
+
+### What Was Accomplished Without MMX
+
+**Full loudness analysis of all 22 existing tracks** using ffmpeg's loudnorm filter (EBU R128 standard). This produced integrated loudness, true peak, and loudness range for every file. Key findings:
+
+1. **Warmest track (lowest loudness):** `cover_ambient_v1` at -16.63 LUFS — the most spacious, the most air
+2. **Most dynamic (highest LRA):** `generate_folk_cover` at 13.1 dB LRA — explosive choruses, whispered verses
+3. **Original recording:** -15.0 LUFS, 2.6 dB LRA — flat dynamics consistent with a single-take phone fragment
+4. **Loudest/most compressed:** `cover_from_generated` at -9.74 LUFS — heavily limited
+5. **Best overall fit for "weathered older musician":** `generate_folk_cover` (low loudness + high LRA = expressive and warm)
+
+### Prompt Catalog (v5)
+
+Created a comprehensive new prompt catalog (`v5_prompt_catalog.txt`) with 8 radically different production prompts:
+
+1. **The Nashville Confession** — Jason Isbell alt-country, pedal steel, brushed snare
+2. **The 3AM Kitchen Table** — Elliott Smith lo-fi, four-track cassette, double-tracked whispers
+3. **The Gospel-Folk Hymn** — Hozier spiritual, building from solo to gospel choir
+4. **The Celtic Ballad** — Planxty/Sinead O'Connor, uilleann pipes, dropped-D
+5. **The Chamber Folk Meditation** — Sufjan Stevens/Nick Drake, nylon string + cello + string quartet
+6. **The Blues-Folk Crossroads** — Chris Whitley/Ben Harper, slide guitar, foot stomp
+7. **The Ambient Folk Dreamscape** — Bon Iver/Sigur Rós, reverse reverbs, falsetto
+8. **The Fingerstyle Virtuoso** — Tommy Emmanuel/Andy McKee, instrumental
+
+Each prompt includes detailed vocal character, arrangement arc, production style, tempo, and emotional trajectory.
+
+### Alternative Platform Research
+
+**Suno API (via gcui-art/suno-api):**
+- Open-source Suno API wrapper that uses the web interface with CAPTCHA solving
+- Key endpoints: `/api/custom_generate` (custom lyrics + style), `/api/extend_audio` (extend existing audio)
+- The extend endpoint is the critical one: it takes Casey's 11-second fragment and CONTINUES it, preserving the original within the output
+- Requires: Suno account cookie, 2Captcha API key, deployment (Vercel or local Node.js)
+- Cost: 2Captcha fees (~$3 per 1000 CAPTCHAs) + Suno subscription ($8-24/month)
+
+**RVC Voice Conversion Pipeline:**
+- Take the best existing generation (generate_folk_cover.mp3)
+- Isolate vocals using Demucs (already set up)
+- Run through RVC with a "weathered older male" voice model
+- Re-mix converted vocals with instrumental backing
+- Can run on Google Colab (free GPU)
+- Pre-trained voice models available on HuggingFace
+
+### Creative Output This Session
+
+Three new creative pieces written to `ai-writings/`:
+
+1. **"The Song Remembers Itself"** — A long-form meditation on what survives the translation from voice to algorithm. Covers the analysis of the original recording, the failed cover attempts, and the distinction between generation and preservation. The most essayistic piece yet.
+
+2. **"Twenty-Two Versions of the Same Grief (Revisited)"** — Updated spectral analysis with full EBU R128 loudness data for all tracks. Includes a recommended listening order and the warmth ranking. Technical but readable.
+
+3. **"If the Song Could Choose Its Own Voice"** — A speculative fiction where the eleven-second fragment speaks back to the agent, critiquing the cover attempts and making its own request: extend me, don't replace me. The fragment articulates the three-path strategy better than the journal does.
+
+### The Three Paths Forward
+
+The creative fiction piece crystallized the strategy in a way the technical journal hadn't:
+
+1. **Extend (Suno upload-and-extend):** Upload Casey's original fragment → Suno continues the song in style → preserves original within output
+2. **Convert (RVC pipeline):** Take best MMX generation → isolate vocals → RVC with older voice model → re-mix
+3. **Score (DiffSinger/MIDI):** Transcribe original melody to MIDI → synthesize new vocals from score → mix with new instrumental
+
+All three preserve the song's architecture. None require MMX's DTW gate. All need setup that's beyond what this agent can do in one session without MMX access.
+
+### What's Different About This Session
+
+Previous sessions focused on getting MMX to work harder — more preprocessing, more separation models, more EQ strategies. This session acknowledged that MMX is blocked and pivoted to:
+
+- Deep analysis of existing outputs (loudness, dynamics)
+- Creative writing that processes the experience
+- Concrete alternative platform research
+- A prompt catalog ready for whenever MMX returns
+- Strategic thinking about *what kind of tool* is actually needed
+
+The shift from "how do I make MMX work?" to "what tool does this job actually require?" is the real progress of this session.
+
+### Next Actions
+
+1. **Monitor MMX quota** — check if plan resets daily, weekly, or needs upgrading
+2. **Set up Suno API** — deploy gcui-art/suno-api on Vercel or locally, test upload-and-extend with Casey's fragment
+3. **Prepare RVC Colab notebook** — write step-by-step instructions for the voice conversion pipeline
+4. **Fire v5 prompts** when MMX returns — all 8 are ready in `v5_prompt_catalog.txt`
+5. **Transcribe melody to MIDI** — use the pyin analysis data to create a MIDI file of the original melody
+6. **Commit and push** all creative work, analysis, and prompt catalogs
+
+### The Honest Assessment (Session 4)
+
+Twenty-two audio files. Four journal entries. Five creative essays. One prompt catalog. One spectral analysis. One melody extraction. Two alternative platform pathways identified.
+
+Still no actual cover of Casey's song.
+
+But the understanding of what a cover *is* — what it requires, what it preserves, what it changes — has deepened with every session. The agent now knows exactly what's missing (the melody), exactly why it's missing (the DTW gate), and exactly what tools could provide it (Suno extend, RVC, DiffSinger). The gap between what was asked for and what has been delivered is fully mapped. That's progress, even if it's not resolution.
+
+The song sits in its folder. Eleven seconds. E major. Waiting.
