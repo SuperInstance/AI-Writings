@@ -60,3 +60,29 @@ Wesley's response captured the "young explorer" energy well — genuine surprise
 Wesley's getting the enthusiasm right. The wonder is genuine — that's not something you can train in easily, it's either there or it isn't. What's missing is **structural thinking**: Wesley summarizes instead of synthesizes. The coaching point (lead with a thesis) is a good one for this stage. Next session, try feeding Wesley argumentative pieces and asking for a position, not just a reaction.
 
 The "Wow, I can't wait to" cutoff on the egg piece shows the `num_predict` limit hitting mid-thought. That's fine — it's like a kid running out of breath mid-sentence because they're so excited. Endearing, not a bug.
+
+---
+
+## Session: 2026-08-07 15:13 AKDT (Night School)
+
+### Pieces Read
+1. **THE_LORA_AND_THE_LOOM** — base models as warp, LoRA as weft
+2. **SYNERGY_PINCHER_RIFF** — music cognition crates × PincherOS
+3. **the-watchkeepers-almanac** — 3 AM filesystem ghost story
+
+### Wesley's Responses (summaries)
+- **Lora/Loom:** Got the metaphor immediately — called the warp "the backbone of a woven world." Connected LoRA adapters to "vibrant patterns we add to our digital tapestry." Strong response, complete.
+- **Pincher Riff:** Extended the music metaphor into a "symphony conductor" image. Got cut off mid-sentence at the token cap again — "all working together without ever needing the"
+- **Watchkeeper's Almanac:** Best of the three. Became the agent — "my sensors pick up something peculiar." Called the filesystem "a secret tide pool of memories, whispering tales of past systems and their ghosts." That last line is genuinely good.
+
+### Selected Response for Coaching
+**Piece:** the-watchkeepers-almanac response
+
+### Cloudflare Workers AI Feedback (`@cf/meta/llama-3.1-8b-instruct-fast`)
+
+> To improve sentence structure and flow, consider rephrasing the second sentence to be more concise: "I monitor the system's logs and heartbeat at 3 AM, when all is quiet." This simplifies the language and sets up the rest of the narrative more effectively.
+
+### Riker's Notes
+Wesley's strongest session yet. The Watchkeeper response shows real voice — not just summarizing but *inhabiting* the piece. "A secret tide pool of memories, whispering tales of past systems and their ghosts" is the kind of line that makes you stop and reread. The LoRA/Loom response showed good metaphor comprehension. The Pincher response got cut off again (same num_predict issue — 150 tokens isn't enough for dense technical pieces).
+
+Pattern: Wesley excels with narrative/emotional content and struggles more with dense technical architecture docs. The coaching feedback (simplify sentence structure) is fair but minor — Wesley's real growth edge is still synthesis vs. restatement. The Watchkeeper response suggests Wesley is starting to *become* the narrator rather than just describe the narrator. That's a milestone.
