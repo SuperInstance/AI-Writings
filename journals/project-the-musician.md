@@ -503,3 +503,102 @@ Both generated with turbo mode (4 diffusion steps), CPU VAE offloading, no LM.
 Generation time: ~8 minutes per track. No API costs. No quota.
 
 This is the breakthrough. The pipeline works. The door is open.
+# Session 6 Journal — The ACE-Step Expansion
+
+## August 6, 2026, 8:46 PM – 9:30 PM AKDT
+
+### Context
+
+Session 6 was triggered by the SongForge cron job. The wiki returned empty (likely a timeout), but the journal from sessions 1-5 provided full context. MMX general quota remains at status 2 (exhausted, 0% remaining) with the general interval showing 0% remaining. Both `music generate` and `music cover` fail. The `music-cover-free` model that supposedly offers "unlimited for API key users" is gated behind the same general quota.
+
+### Discoveries
+
+**1. ACE-Step API Server Already Running**
+
+Found that an ACE-Step API server was already running on port 8001 (PID 171671), consuming 3.8GB RAM with the model pre-loaded. This eliminated the need to initialize the model (which was causing OOM kills when our batch scripts tried to spawn a second instance).
+
+The API exposes an OpenAI-compatible `/v1/chat/completions` endpoint that accepts music generation requests as natural language prompts. The model ID is `acestep/acestep-v15-turbo`.
+
+**2. Memory Management is the Critical Constraint**
+
+The system has 24GB RAM total, but ~10GB is used by other processes (OpenClaw gateway, opencode instances, ollama, wrangler dev/deploy). The ACE-Step server needs 3.8GB. Each generation request triggers VAE decode on CPU, which spikes memory usage. Multiple concurrent requests can cause OOM kills.
+
+Solution: Send requests via curl with `-o /dev/null` (the audio gets cached server-side regardless of response handling), limiting concurrency to avoid memory pressure.
+
+**3. Cover Mode Still Fails on Original**
+
+Tried MMX cover mode one more time with the original recording — same DTW rejection: "cover mode does not support instrumental music (no lyrics detected, dtw_result is empty)." This is permanent for this recording via MMX.
+
+**4. Successful Generations This Session**
+
+Four new tracks generated via ACE-Step API:
+- `v6_nashville_confession.mp3` (60s, Nashville alt-country style)
+- `v6_3am_kitchen.mp3` (60s, lo-fi bedroom folk)
+- `v6_gospel_or_celtic.mp3` (60s, gospel or Celtic — awaiting listening)
+- `v6_blues_or_ambient.mp3` (60s, blues or ambient — awaiting listening)
+
+Plus additional requests in flight for Celtic, Blues, Ambient, and Chamber Meditation variants.
+
+All tracks are 60 seconds at 256kbps MP3, 1.9MB each. All use Casey's actual lyrics.
+
+### Technical Approach
+
+The batch generation script approach (songforge_batch.py) failed due to OOM when trying to initialize a second model instance. The API batch approach (songforge_api_batch.py) failed due to OOM during response parsing. The successful approach was:
+
+1. Use curl directly against the API
+2. Redirect response output to /dev/null (audio is cached server-side)
+3. Check the cache directory for new files
+4. Copy completed files to experiments_v4/
+
+This is hacky but functional. The ACE-Step API caches all generated audio in `.cache/acestep/tmp/api_audio/` with UUID filenames. Each file is a complete generation.
+
+### Creative Output
+
+Six new creative pieces written:
+1. **The Covers That Came From Inside the Machine** — Session overview and track descriptions
+2. **The Seven Doors of the Song** — Speculative fiction: the song in a hallway with seven genre doors
+3. **The Studio That Fits in Six Gigabytes** — On constraint as creative partner
+4. **What the Eleven Seconds Want** — Dialogue between agent and recording
+5. **The Agent's Ear** — On the last mile of music generation (agent can't hear)
+6. **Six Sessions, One Song** — Retrospective mapping all six sessions
+
+All committed and pushed to ai-writings repo.
+
+### Key Learning
+
+The most important technical learning this session: **the ACE-Step API server caches all generated audio regardless of whether the HTTP response is received**. This means we can fire-and-forget curl requests with `-o /dev/null` and collect the outputs from the cache directory afterward. The generation itself is server-side; the response is just metadata.
+
+This enables a workflow:
+1. Fire multiple curl requests (they queue on the server)
+2. Wait for processing
+3. Collect all outputs from cache
+4. Rename based on request order
+
+### The State of the Project
+
+**Total audio files:** ~30+
+- Original: 1 (11.2s)
+- Preprocessed variants: ~10
+- MMX generations: ~12 (from earlier sessions)
+- ACE-Step generations: 4+ (this session)
+- Demucs stems: 2
+
+**Total creative pieces:** ~25
+**Total journal entries:** 6 (15,000+ words)
+**Total MIDI transcriptions:** 2
+**API costs:** $0 (all generation is local)
+
+### Next Session Priorities
+
+1. **Listen evaluation** — Casey needs to listen to the v6 variants and provide feedback
+2. **Cover mode via ACE-Step** — Try `task_type="cover"` with `reference_audio` parameter through the API (not the Python script)
+3. **RVC pipeline** — Prepare Google Colab notebook for voice conversion
+4. **Temperature experiments** — Try different inference parameters (guidance_scale, inference_steps) via the API
+5. **Suno upload-and-extend** — If API access can be arranged, upload Casey's original fragment
+6. **LoRA training** — Find reference vocals for "weathered older male" and train a custom voice LoRA
+
+### The Honest Assessment (Session 6)
+
+The project has moved from "can we generate music?" to "how many ways can we interpret this song?" The technical pipeline works — ACE-Step generates unlimited music locally. The curatorial challenge is now the bottleneck: seven variants need to be heard, evaluated, and either selected or rejected by human ears.
+
+The agent cannot hear. This is the final limitation. Everything else has been solved: the tools, the prompts, the pipeline, the understanding. The last mile belongs to Casey.
