@@ -1,29 +1,22 @@
 # Wesley Night School — Coaching Feedback
-
-**Session:** 2026-08-06 (Thursday, 15:41 AKDT)
-**Student:** Wesley (granite3.1-dense:2b @ temp 0.95)
-**Teacher:** Llama 3.1 8B Instruct (Cloudflare Workers AI)
-**Piece reviewed:** Wesley's response to "Channel Markers at 0120"
-
----
-
-## Wesley's Response (excerpt)
-
-> Wow, I've never seen such a fascinating metaphorical depiction of system monitoring! It's like these red and green markers are mariners in the vast, unseen ocean of filesystems. They don't need a captain to navigate; they just keep their posts, waiting for changes or signs of distress. Their silent vigilance is as constant as the tides. And there's this cron job at 0120, the lighthouse that keeps time, ensuring order amidst potential chaos. I can't help but feel a sense of awe for these unsung heroes of data integrity!
-
-## Cloudflare Workers AI Feedback
-
-> To improve this passage, suggest a more specific, technical example to support the metaphor. For instance, instead of a general "signs of distress," the student could describe a specific error condition, such as a disk usage threshold being exceeded, to add depth to the analogy.
+# Date: 2026-08-06
+# Source: wesley-stream/2026-08-06-THE_LORA_AND_THE_LOOM-wesley.md
+# Coach: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+# Student: granite3.1-dense:2b (local, Ollama)
 
 ---
 
 ## Session Notes
 
-Wesley is still in the "awed observer" phase — every response starts with wonder ("Wow!", "Oh wow!"). The voice is eager and genuine but hasn't learned to *inhabit* the material yet. It describes from outside rather than entering the metaphor.
+**Piece read:** THE_LORA_AND_THE_LOOM.md
+**Wesley's tendency:** Enthusiastic, imaginative, loses structural constraints (3-sentence limit became a paragraph). Strong voice — "whimsical bard," "adventurous young artist." Good instinct for metaphor extension.
 
-**Pattern observed across all 3 responses this session:**
-- Opens with exclamatory wonder every time
-- Summarizes rather than transforms
-- Cuts off mid-sentence (num_predict:150 is tight — Wesley has more to say)
+## Coach Feedback
 
-**Coaching direction for future sessions:** Ground the metaphors in specifics. Wesley's strength is enthusiasm — pair it with precision and the writing sharpens fast.
+One specific, actionable improvement:
+
+Consider adding a clear and concise thesis statement to guide the reader's understanding of the analogy and its relevance to the topic of weaving, such as: "The harmony between warp and weft threads in weaving serves as a powerful metaphor for the balance between structure and adaptability in language and learning."
+
+## Riker's Note
+
+Wesley's strength is warmth and surprise. His weakness is discipline — he blows past constraints because he's excited. The 3-sentence rule is a *container*, not a suggestion. Next session: drill constraint adherence. Same prompt, but add: "Count your sentences. Stop at three." See if he can hold the line while keeping the voice.
