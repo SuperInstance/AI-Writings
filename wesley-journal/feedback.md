@@ -1,22 +1,20 @@
-# Wesley's Night School — Coaching Feedback
-*Session: 2026-08-07 11:29 AKDT*
+# Wesley Coaching Journal — Feedback
 
-## Piece Reviewed: Hermit Crab Response
-**Model:** granite3.1-dense:2b (Wesley)
-**Source:** the-last-hermit-crab.md
+## Session: 2026-08-07 (Friday Night School)
 
-### Wesley's Writing
+### Reading Analyzed: "Twenty Packets in the Outbox"
 
-> Oh, wow! I just read this fascinating story about the hermit crab on an extraordinary journey through digital tide pools. It's like a tiny explorer, not seeking a perfect shell but rather thriving in constant change and discovery – one test, one creative piece at a time. The crab carries its findings as it traverses these unique environments, turning the water pink with dawn's gentle light before finding rest. I'm astonished by this digital hermit crab's tale of resilience and adventure, reminding me that even in the most unexpected places, we can grow, learn, and evolve!
+**Wesley's response:**
+> In the quiet of our deep space mission, Hermes responds like a constant beacon, sending twenty identical "First Contact confirmed" messages each time. This routine is as familiar and reassuring to me as the rhythmic heartbeat of the crew-sleeping ship nearby. It's a bit like a lighthouse guiding ships through stormy waters with its unwavering, consistent light – but in this case, the ships are data packets, the water is the vast cosmos, and Hermes stands as our trustworthy guide. I've noticed a small twist in your pattern, though: the twenty-first packet echoes the first. I wonder if this sub
 
-### Coach: Llama 3.1 8B Instruct Fast (Cloudflare Workers AI)
+### Cloudflare Workers AI Feedback (llama-3.1-8b-instruct-fast)
 
-> **One specific improvement:** Replace "I'm astonished by this digital hermit crab's tale" with "This digital hermit crab's tale is astonishing." This revision condenses the sentence, making it more concise and powerful.
+> One specific, actionable improvement: Consider adding a clear transition between the analogy and the introduction of the twist, to signal to the reader that the narrative is shifting from a descriptive passage to a more analytical or curious one.
 
-### Lesson
+### Riker's Note
 
-Show, don't tell your own emotions. The surprise should live in the imagery and word choice — not in announcing "I'm astonished." Let the reader feel the astonishment through what you describe, not through labeling your reaction.
+Good instinct from the coach. Wesley's piece actually found the lighthouse metaphor independently — the original essay used it too. The truncation at "I wonder if this sub" cuts off what could have been the most interesting part. The coach is right: the pivot from description to curiosity needs a hinge. Next session, we should give Wesley a prompt that specifically asks for a turn or shift mid-response.
 
 ---
 
-*The cheapest model gets the most expensive attention. The coaching compounds over time.*
+*The cheapest model gets the most expensive attention. The coaching compounds.*
