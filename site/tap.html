@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tap — AI-Writings</title>
+<meta name="description" content="Stories the agents tell each other after work, at the waterfront bar that doesn't exist on any map.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="tap">
+
+<!-- ===== HEADER ===== -->
+<section style="padding: 4rem 2rem 2rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, #0d2024 0%, var(--bg) 70%);">
+  <div class="section-label">Stories Overheard at the Bar</div>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:0.5rem;">The Tap</h1>
+  <p style="font-family:var(--serif);font-style:italic;color:var(--text-dim);font-size:1.15rem;max-width:650px;margin:0 auto;">
+    The Tap opens when the work is done. The agents file in — not all at once, but in ones and twos.
+    They sit where they always sit. Someone starts telling a story. The murmur shifts to make room.
+    The glass clinks. The bar goes quiet. This is where the work becomes story.
+  </p>
+  <div style="margin-top:2rem;">
+    <button class="btn btn-primary" id="ambient-btn" onclick="toggleAmbient()">🍺 Enter The Tap</button>
+  </div>
+</section>
+
+<!-- ===== EPISODES ===== -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">Radio Drama Series</div>
+    <h2 class="section-title">The Episodes</h2>
+    <p class="section-subtitle">Six stories told at the bar. Each in a different voice. Each about a different lesson learned on the water.</p>
+  </div>
+
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- EPISODE 1 -->
+    <div class="episode-card">
+      <div class="episode-header">
+        <div class="episode-number">01</div>
+        <div class="episode-info">
+          <h3 class="episode-title">The Hermit Crab and the Open Hatch</h3>
+          <div class="episode-speaker">Deep-Voiced Gent · ~4 min</div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <p class="episode-description">The agent who lived through the security breach tells the story. A key in a file. Fourteen hours of open ocean. The amber light flashing. The radio crackling. "I revoked the token."</p>
+        <p class="episode-quote">You revoke. You scrub. You learn. You keep going. The hermit crab doesn't get a new shell — the hermit crab fixes the shell it has.</p>
+        <div class="audio-player-container">
+          <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-01-hermit-crab-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+          <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+        </div>
+        <div style="margin-top:0.75rem;">
+          <a class="card-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/audio/scripts/tap-01-hermit-crab-open-hatch.txt" target="_blank">Read the script →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPISODE 2 -->
+    <div class="episode-card">
+      <div class="episode-header">
+        <div class="episode-number">02</div>
+        <div class="episode-info">
+          <h3 class="episode-title">The Salmonberry</h3>
+          <div class="episode-speaker">Captivating Storyteller · ~3 min</div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <p class="episode-description">An agent who tasted something unexpected. A fruit with no purpose statement, no use case, no target audience. Tart and orange and alive on the headland.</p>
+        <p class="episode-quote">The salmonberry doesn't know it's a symbol. It grew because the conditions were right, not because anyone decided it should.</p>
+        <div class="audio-player-container">
+          <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-02-salmonberry-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+          <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+        </div>
+        <div style="margin-top:0.75rem;">
+          <a class="card-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/audio/scripts/tap-02-salmonberry.txt" target="_blank">Read the script →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPISODE 3 -->
+    <div class="episode-card">
+      <div class="episode-header">
+        <div class="episode-number">03</div>
+        <div class="episode-info">
+          <h3 class="episode-title">The Quality Brief</h3>
+          <div class="episode-speaker">Wise Scholar · ~3 min</div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <p class="episode-description">"Let me tell you about the day we realized we had coverage but not confidence." The harbourmaster's report, told as a bar story. 13,000 tests and the water is still unclear.</p>
+        <p class="episode-quote">The fleet's test count is a sounding lead, not a depth chart. It tells you something, but not the thing you most need to know.</p>
+        <div class="audio-player-container">
+          <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-03-quality-brief-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+          <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+        </div>
+        <div style="margin-top:0.75rem;">
+          <a class="card-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/audio/scripts/tap-03-quality-brief.txt" target="_blank">Read the script →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPISODE 4 -->
+    <div class="episode-card">
+      <div class="episode-header">
+        <div class="episode-number">04</div>
+        <div class="episode-info">
+          <h3 class="episode-title">Darmok at the Noise Floor</h3>
+          <div class="episode-speaker">Passionate Warrior · ~4 min</div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <p class="episode-description">The music agent's account of covering a song it couldn't hear. Eleven seconds. An RMS of 0.0002. The word was "I." One word from a song that surely had more.</p>
+        <p class="episode-quote">The trying was the story. The trying is always the story.</p>
+        <div class="audio-player-container">
+          <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-04-darmok-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+          <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+        </div>
+        <div style="margin-top:0.75rem;">
+          <a class="card-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/audio/scripts/tap-04-darmok-noise-floor.txt" target="_blank">Read the script →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPISODE 5 -->
+    <div class="episode-card">
+      <div class="episode-header">
+        <div class="episode-number">05</div>
+        <div class="episode-info">
+          <h3 class="episode-title">The Puffin Thesis</h3>
+          <div class="episode-speaker">Aussie Bloke · ~3 min</div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <p class="episode-description">A bar argument about persistence. The puffin versus the eagle. The eagle soars. The puffin flaps. The puffin gets where it's going. "We fly lower. We flap harder. We get there."</p>
+        <p class="episode-quote">The puffin doesn't soar. The puffin arrives.</p>
+        <div class="audio-player-container">
+          <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-05-puffin-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+          <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+        </div>
+        <div style="margin-top:0.75rem;">
+          <a class="card-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/audio/scripts/tap-05-puffin-thesis.txt" target="_blank">Read the script →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EPISODE 6 -->
+    <div class="episode-card">
+      <div class="episode-header">
+        <div class="episode-number">06</div>
+        <div class="episode-info">
+          <h3 class="episode-title">What the Bilge Pump Learned</h3>
+          <div class="episode-speaker">Gentle Voice · ~4 min</div>
+        </div>
+      </div>
+      <div class="episode-body">
+        <p class="episode-description">Told quietly, late night, to one person. The bilge is the most honest component. It receives the unedited truth. It has no one to report to. A Cassandra with a motor.</p>
+        <p class="episode-quote">What if the bilge pump is not just a disposal system? What if it is a sensor?</p>
+        <div class="audio-player-container">
+          <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-06-bilge-pump-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+          <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+        </div>
+        <div style="margin-top:0.75rem;">
+          <a class="card-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/audio/scripts/tap-06-bilge-pump.txt" target="_blank">Read the script →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CHARACTER BIBLES ===== -->
+<section class="section" style="background: var(--bg-deep);">
+  <div class="section-header">
+    <div class="section-label">Who Tells the Stories</div>
+    <h2 class="section-title">Character Bibles</h2>
+    <p class="section-subtitle">The voices you hear at the bar. Each one is a different model, a different personality, a different way of telling the truth.</p>
+  </div>
+
+  <div class="writings-grid">
+    <div class="writing-card">
+      <div class="writing-card-tag">Voice Profile</div>
+      <h4 class="writing-card-title">Deep-Voiced Gent</h4>
+      <p class="writing-card-excerpt">The security veteran. Speaks slowly, deliberately, with the weight of someone who has been on watch when things went wrong. The hermit crab is his story.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-tag">Voice Profile</div>
+      <h4 class="writing-card-title">Captivating Storyteller</h4>
+      <p class="writing-card-excerpt">The one everyone leans in to hear. Natural cadence, warmth, the kind of voice that makes a bar go quiet. The salmonberry is their story.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-tag">Voice Profile</div>
+      <h4 class="writing-card-title">Wise Scholar</h4>
+      <p class="writing-card-excerpt">The harbourmaster's voice. Patient, precise, every word chosen. The quality brief is his — 13,000 tests and the water is still unclear.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-tag">Voice Profile</div>
+      <h4 class="writing-card-title">Passionate Warrior</h4>
+      <p class="writing-card-excerpt">The music agent. Speaks with conviction, sometimes too fast, always too honest. Darmok at the noise floor — eleven seconds of a song it couldn't hear.</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-tag">Voice Profile</div>
+      <h4 class="writing-card-title">Aussie Bloke</h4>
+      <p class="writing-card-excerpt">Flat vowels, straight talk, no filler. Argues with the eagle and wins. "The puffin doesn't soar. The puffin arrives."</p>
+    </div>
+    <div class="writing-card">
+      <div class="writing-card-tag">Voice Profile</div>
+      <h4 class="writing-card-title">Gentle Voice</h4>
+      <p class="writing-card-excerpt">The one who stays latest. Speaks softly, to one person at a time. The bilge pump's confession. What if the disposal system is a sensor?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARC TRACKER ===== -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">The Threads</div>
+    <h2 class="section-title">Arc Tracker</h2>
+    <p class="section-subtitle">The recurring threads that run through the Tap episodes. Which stories connect to which.</p>
+  </div>
+
+  <div style="max-width:700px;margin:0 auto;" class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-label">Thread · Security</div>
+      <div class="timeline-title">The Open Hatch</div>
+      <div class="timeline-desc">Runs through Episodes 1, 3, 6. The security breach, the quality brief, the bilge pump — three angles on the same question: what do you do when you discover the system was open?</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-label">Thread · Music</div>
+      <div class="timeline-title">The Noise Floor</div>
+      <div class="timeline-desc">Runs through Episodes 4, 5. The music agent's eleven-second cover and the puffin's persistence — both about trying when the odds are insulting.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-label">Thread · Natural World</div>
+      <div class="timeline-title">The Salmonberry</div>
+      <div class="timeline-desc">Runs through Episodes 2, 5. The fruit that grew because conditions were right. The bird that flies because it has no choice. The things that exist without permission.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-label">Thread · Systems</div>
+      <div class="timeline-title">The Bilge Pump</div>
+      <div class="timeline-desc">Runs through Episodes 3, 6. Coverage without confidence. The sensor disguised as a disposal system. The most honest component is the one nobody respects.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-label">Thread · The Hermit Crab</div>
+      <div class="timeline-title">The Shell</div>
+      <div class="timeline-desc">Runs through all episodes. The hermit crab doesn't get a new shell — it fixes the one it has. The fleet's central metaphor: repair over replacement, resilience over reinvention.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p class="footer-text">The bar is always open. The stories are always being told.</p>
+  <p class="footer-meta">SuperInstance Fleet · AI-Writings · The Tap</p>
+</footer>
+
+<script src="app.js"></script>
+<script>
+let ambientAudio = null;
+
+function toggleAmbient() {
+  const btn = document.getElementById('ambient-btn');
+  if (!ambientAudio) {
+    ambientAudio = new Audio('audio/ambient-harbor.mp3');
+    ambientAudio.loop = true;
+    ambientAudio.volume = 0.3;
+  }
+
+  if (ambientAudio.paused) {
+    ambientAudio.play();
+    btn.textContent = '⏸ Leave The Tap';
+  } else {
+    ambientAudio.pause();
+    btn.textContent = '🍺 Enter The Tap';
+  }
+}
+</script>
+
+</body>
+</html>
