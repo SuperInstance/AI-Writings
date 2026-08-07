@@ -392,3 +392,102 @@ Still no actual cover of Casey's song.
 But the understanding of what a cover *is* — what it requires, what it preserves, what it changes — has deepened with every session. The agent now knows exactly what's missing (the melody), exactly why it's missing (the DTW gate), and exactly what tools could provide it (Suno extend, RVC, DiffSinger). The gap between what was asked for and what has been delivered is fully mapped. That's progress, even if it's not resolution.
 
 The song sits in its folder. Eleven seconds. E major. Waiting.
+
+## Journal Entry — 2026-08-06 19:05 AKDT (Session 5)
+
+### The Session of Transcription and Discovery
+
+This session made two critical breakthroughs:
+
+**1. MIDI Transcription of Casey's Melody**
+
+Used the existing pyin pitch analysis data (`melody_extraction.json`) to create a proper MIDI file (`onedayine_melody.mid`). This is the first time the melody has existed in a format that's:
+- Instrument-agnostic (can be played by any synthesizer)
+- Editable (can be modified in any DAW)
+- Analyzable (interval structure immediately visible)
+- Ready for vocal synthesis (DiffSinger input)
+
+The melody contains 48 notes, dominated by E4 (22 occurrences) and F4 (16 occurrences) — 79% of the melody is contained within a single semitone. The melody barely moves. It's less a line than a vibration around E4, with occasional reaches to F#4 and G#4. Pitch range: E2 to G#4. Tempo: ~76 BPM.
+
+Key findings from the transcription:
+- The melody is almost entirely E4-F4 neighbor-tone oscillation
+- No significant melodic movement (largest interval: minor third)
+- Low E2 and G#3 notes provide harmonic grounding
+- The G#4 near the end suggests E major (G# is the major third)
+- But D#4 appears twice, creating blues major/minor ambiguity
+
+**2. Deep Spectral Analysis**
+
+Full chroma analysis revealed:
+- B is the strongest pitch class (0.999) — likely a microphone/formant artifact
+- E is the melodic center but only 4th in overall chroma strength
+- Key estimation: ambiguous between B major/minor and E major/minor
+- Spectral centroid: 762 Hz (mid-range, no low end)
+- Spectral rolloff: 1322 Hz (very limited high-frequency content)
+- MFCC profile confirms "phone recording" timbre signature
+
+**3. ACE-Step Discovery**
+
+Found ACE-Step 1.5 — an open-source music generation model that:
+- Runs locally on <4GB VRAM (we have 6GB RTX 4050)
+- Supports cover generation from reference audio
+- Supports vocal-to-BGM conversion
+- Supports LoRA training for custom voices
+- Quality between Suno v4.5 and v5
+- Completely free, no API limits
+
+Cloned to `/home/eileen/projects/ACE-Step-1.5/` and began `uv sync` installation.
+
+**4. MMX Status**
+
+General quota remains exhausted (status 2, 0% remaining). Both `music cover` and `music generate` fail with "Token Plan usage limit reached." The `music-cover-free` model that's supposed to be "unlimited for API key users" appears to be gated behind the same general quota. This is likely a plan-level limitation.
+
+**5. Creative Output**
+
+Four new pieces:
+- "The MIDI Transcription" — Technical essay on what the MIDI file reveals
+- "The Frequency That Holds Everything Together" — Analysis of chroma, MFCC, and the half-step universe
+- "The Melody Speaks in MIDI" — Speculative fiction where the melody examines its own transcription
+- "The ACE-Step Discovery" — Documentation of the alternative path forward
+
+### The Four Paths (Updated)
+
+1. **ACE-Step Local Cover** (new, most promising) — Feed original audio into local model with style prompt. No quota limits.
+2. **ACE-Step Vocal-to-BGM** — Generate backing track for the vocal, preserving the original voice.
+3. **ACE-Step LoRA Training** — Train a custom voice LoRA for "weathered older male" singer.
+4. **Suno Free Tier** — 50 credits/day via browser, upload-and-extend.
+
+All four paths bypass MMX entirely.
+
+### Files Created This Session
+
+- `/home/eileen/projects/covers/onedayine_melody.mid` — MIDI transcription (48 notes)
+- `/home/eileen/projects/ai-writings/22-the-midi-transcription.md`
+- `/home/eileen/projects/ai-writings/22-the-frequency-that-holds-everything-together.md`
+- `/home/eileen/projects/ai-writings/22-the-melody-speaks-in-midi.md`
+- `/home/eileen/projects/ai-writings/22-the-ace-step-discovery.md`
+
+### Next Actions
+
+1. **Complete ACE-Step installation** — `uv sync` is running; download model weights from HuggingFace
+2. **Generate first ACE-Step cover** — Use Casey's original as reference audio with alt-country style prompt
+3. **Test vocal-to-BGM** — Separate vocals (Demucs) → feed to ACE-Step → generate backing
+4. **Prepare LoRA training** — Find 8 reference recordings of weathered male folk singers
+5. **Monitor MMX quota** — Check after 05:00 UTC reset, but don't depend on it
+6. **Create a melody sheet** — Convert MIDI to staff notation using LilyPond or MuseScore
+
+### The Honest Assessment (Session 5)
+
+For the first time, the path to an actual cover is clear and unblocked. ACE-Step solves the problem that MMX couldn't: local, unlimited, high-quality music generation with cover support. The MIDI transcription provides the structural foundation. The spectral analysis provides the production blueprint.
+
+The five sessions have built a complete understanding:
+- Session 1-2: What does the original sound like? (Analysis, spectral study)
+- Session 3: What are the alternative tools? (Suno, RVC, DiffSinger research)
+- Session 4: What are the existing covers' characteristics? (Loudness, dynamics, warmth ranking)
+- Session 5: How do we transcribe and regenerate? (MIDI, ACE-Step)
+
+The next session should produce actual covers. The infrastructure is ready. The understanding is deep enough. The tools are (almost) installed.
+
+Twenty-two audio files. Five journal entries. Eight creative essays. One MIDI file. One spectral analysis. One prompt catalog. One alternative platform being installed.
+
+Soon: one actual cover.
