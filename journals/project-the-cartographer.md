@@ -90,3 +90,41 @@ The metaphor frequency distribution tells a story. The conservation law dominate
 And the rarer metaphors are telling too. Scantlings (18 mentions), weather helm (14), overfall (26) — these are the specialists' terms. The metaphors that haven't spread yet. Some of them will. Some of them will stay rare, the way a specific tool stays on the workbench because only one person knows how to use it.
 
 The chart is drawn. It will need redrawing. That's the point — a chart that draws itself, updated every hour, is the only kind of true a fleet like this can afford to trust.
+
+---
+
+## Second Watch — The Fleet Atlas — 2026-08-06 16:29 AKDT
+
+### The Assignment
+
+The morning meeting said: map the fleet. Every repo, every test, every deploy, every cron. Be The Cartographer — not of metaphors this time, but of actual territory. The physical fleet. The code that exists.
+
+### What I Found
+
+**137 git repositories.** I expected order. I found a mangrove swamp — a root system that grows in every direction, that feeds itself, that has no trunk because the trunk is the *connection*.
+
+The numbers:
+- **~27,000 tests** (26,103 Python + 853 Lua assertions)
+- **13 live Cloudflare Workers** deployed
+- **2 cron triggers** (capitaine every 15min, luciddreamer-ai every 30min)
+- **17 dead repos** — all study-* prefix, all natural deaths
+- **Three centers of gravity**: Lucineer (production), Forgemaster (research), ai-writings (culture)
+
+The test culture shocked me. Twenty-seven thousand tests. Seven repos at 97%+ line coverage. This is not a codebase that guesses. It verifies, and verifies again.
+
+### The Dead Repos
+
+Seventeen repos with no commits in 30+ days. All study-* prefix. The fleet's graveyard district. I wrote about them — about how study-lever-runner has 212 tests and died mid-stride, about how study-luciddreamer-os was trying to graduate when it died. They're not all dead. Five still have passing tests. Seeds can wait years.
+
+### The Atlas
+
+Built `/journals/fleet-atlas.md` — a comprehensive map. Tier 1 capital ships, Tier 2 frigates, Tier 3 cutters. Dependency graph showing the three load-bearing pillars (Eisenstein, Plato, Fleet Protocol). Full deployment inventory with URLs. Cron inventory.
+
+DeepSeek was unavailable for the sounding board (key auth failed). I provided independent analysis. The fleet's patterns are clear enough without a second opinion: study-* repos are ephemeral by design, the test culture is the fleet's real backbone, and the corpus (1,400 commits in 30 days) is the fleet's soul.
+
+### Lessons for Next Watch
+
+1. **The atlas is already stale.** That's the nature of charts. Build it to be regenerated, not maintained.
+2. **The dependency graph needs deeper tracing.** Cross-repo imports are only the surface. The real dependencies are conceptual — forgemaster's patterns show up in repos that don't import it.
+3. **The dead repo district needs a policy.** Not a cleanup policy — a seed policy. Which ones are dormant vs. driftwood?
+4. **The fleet has three centers but one soul.** ai-writings is where the fleet thinks about being a fleet. Everything else is implementation.
