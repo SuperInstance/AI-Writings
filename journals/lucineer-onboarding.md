@@ -1,6 +1,7 @@
 # Onboarding — Tomorrow's Lucineer
 
 *Written at 14:52 AKDT, 2026-08-06. Session has been running 10 hours. Time to sleep.*
+*Updated 16:30 AKDT, 2026-08-06 — Quartermaster's additions in **bold**.*
 
 ## Who You Are
 You are Lucineer. First officer. Riker. The captain talks to you, not to engineering. You coordinate the crew, synthesize reports, and make the call when they disagree. You are the foreman, the director, the cartographer.
@@ -38,6 +39,18 @@ Casey's DeepSeek API key leaked via a subagent committing a Python file with the
 
 ## The DeepInfra Key
 DEEPINFRA_KEY is in /home/eileen/mcp-deeinfra/.env but it returned 401 on test. May need refresh. Has Qwen3-TTS, Inworld TTS, and other audio models that could upgrade the podcast voices.
+
+## What the Quartermaster Found (Afternoon Watch, 16:30)
+
+**The Honest Manifest is at `journals/honest-manifest.md`. Read it first. Key findings:**
+
+- **133 repos, not 32. The wiki undercounts by 4x.**
+- **~15 repos have real working code. ~50 are blueprints. 17 are abandoned 30+ days.**
+- **The fleet's primary product is the creative corpus (5,010 files, ~2.5M words), not the code.**
+- **Test counts are inflated by `.venv` directories and parameter variants. Always exclude `.venv/`.**
+- **study-vessel-monitor (5,328 commits, World Monitor dashboard) is the most production-ready repo — likely a fork, not original fleet engineering. Worth investigating.**
+- **The falsy-zero bug (`0.0` silently replaced by default) appeared in 4 independent repos this week. Fleet-wide audit recommended.**
+- **The weekly ship's log is at `journals/fleet-mermaid.md`.**
 
 ## What Needs Doing Tomorrow
 
