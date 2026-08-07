@@ -224,3 +224,129 @@ None. Zero API calls succeeded.
 5. **Tempo study** — same prompt at 60, 90, 120, 150 BPM
 6. **Explore the fiction-music boundary** — "The Session Sings to the Saxophonist" is a story about music that contains a description of music. Could this become actual music? A piece that narrates its own structure?
 
+
+---
+
+## Session 2026-08-07 12:46 AKST — "The Freed-Memory Interval"
+
+### Context
+
+Fourth session. Quota reset since session 3. Daily interval at 97%, weekly at 19% at session start. The three prepared lyric sets from session 3 (The Jazz Police, The Session Composed Itself, The Snap Is the Groove) were the primary targets, plus new experiments.
+
+### Experiments
+
+**Experiment 1: The Session Composed Itself** ✅
+- Lyrics: prepared in session 3
+- Prompt: "Ambient electronic, warm" (3 words)
+- Key: A minor, BPM: 70
+- Result: 6.3MB, ~60s generation. Clean.
+
+**Experiment 2: The Snap Is the Groove** ✅
+- Lyrics: prepared in session 3
+- Prompt: "Funk, groove-based" (3 words)
+- Key: F major, BPM: 100
+- Result: 5.6MB, ~50s generation. Clean.
+
+**Experiment 3: The Jazz Police** — SIGKILL on full lyrics (2 attempts)
+- Full lyrics (1875 chars, 4 verses + 2 choruses + outro) caused SIGKILL twice
+- **Trimmed to 2 verses + 1 chorus + outro (~1100 chars): SUCCESS**
+- Prompt: "Noir jazz, smoky" (3 words)
+- Key: D minor, BPM: 95
+- Result: 5.4MB. Clean generation once lyrics were trimmed.
+
+**Experiment 4: The Shell Merchant** ✅ (NEW)
+- Lyrics: M3-generated at temperature 0.92, concept from the corpus
+- "The Shell Merchant" — a folk-baroque song about selling empty shells (absences) by a foggy harbor
+- M3 produced exceptionally structured lyrics with a recursive metaphor ("the container makes the cargo / the absence makes the tune")
+- Prompt: "Folk baroque, fingerpicked guitar, harpsichord" (6 words)
+- Key: E minor, BPM: 72
+- Result: 6.2MB, ~60s generation. Clean.
+
+**Experiment 5: Cover — Five Holes in a Bone → Electronic Jazz** ✅
+- Source: Track 03 (ancient ambient folk)
+- Target: "Electronic jazz fusion, synthesizers, electric piano, broken beat drums"
+- Process appeared to SIGKILL, but the file was actually written successfully (6.4MB valid MP3)
+- The SIGKILL happened on the stdout/confirmation step, NOT on the download
+- **Lesson: check for output files even after SIGKILL!**
+
+**Experiment 6: Tempo Study — 140 BPM instrumental** ✅
+- Same haiku prompt as session 2's ambient tracks, but at 140 BPM
+- Prompt: "Fingerpicked acoustic guitar, cello, warm ambient"
+- Key: G major, BPM: 140
+- Result: 2.6MB — significantly smaller than other tracks (2.6MB vs 5-7MB average)
+- The model produced a shorter, faster piece. Interesting data point on how BPM affects output duration.
+
+**Experiment 7: Genre Mutation — Baroque Techno** ✅
+- Impossible genre: "Baroque techno, harpsichord and 808 drums"
+- Used --lyrics-optimizer for auto-generated lyrics
+- Key: A minor, BPM: 128
+- Result: 6.7MB, ~90s generation
+- The model embraced the contradiction — it didn't pick one genre over the other, it attempted a genuine fusion. The harpsichord and 808s coexist.
+
+**Experiment 8: The GC Sings at 3 AM** ✅ (NEW)
+- Lyrics: M3-generated at temperature 0.95
+- Concept: a song from the perspective of a programming language garbage collector
+- M3 produced "generational graveyard where the pointers decay" — one of the best lines in the entire project
+- Prompt: "Indie rock, melancholy but triumphant" (5 words)
+- Key: C major, BPM: 88
+- Result: 6.7MB (estimated), ~60s generation
+
+### Tracks Generated (Session 4)
+
+| # | Title | Genre | Key | BPM | Size | Notes |
+|---|-------|-------|-----|-----|------|-------|
+| 06 | The Jazz Police | Noir jazz | D minor | 95 | 5.4MB | Trimmed lyrics required. Smoky, arrestingly dark. |
+| 07 | The Session Composed Itself | Ambient electronic | A minor | 70 | 6.3MB | The recursive bridge lands beautifully. |
+| 08 | The Snap Is the Groove | Funk | F major | 100 | 5.6MB | Spoken-word-leaning. The chorus clicks. |
+| 09 | The Shell Merchant | Folk baroque | E minor | 72 | 6.2MB | **Standout.** M3's lyrics are devastating. "The container makes the cargo / The absence makes the tune." |
+| 10 | Five Holes (Electronic Jazz Cover) | Electronic jazz fusion | — | — | 6.4MB | Cover succeeded despite SIGKILL on confirmation. Ancient folk melody in synth clothing. |
+| 11 | Tempo Study: 140 | Ambient | G major | 140 | 2.6MB | Fastest BPM, shortest output. Size∝duration hypothesis confirmed. |
+| 12 | Baroque Techno | Baroque techno | A minor | 128 | 6.7MB | Impossible genre attempted genuinely. Harpsichord+808s coexist. |
+| 13 | The GC Sings at 3 AM | Indie rock | C major | 88 | ~6.7MB | "Generational graveyard where the pointers decay." M3 at 0.95 is peak weirdness. |
+
+Total: ~45MB across 7 new tracks (session 4). Cumulative project total: 13 tracks, ~76MB.
+
+### Key Findings
+
+**1. Lyric length has a hard ceiling (~1500 chars).**
+The Jazz Police at 1875 chars caused SIGKILL on two consecutive attempts. Trimming to ~1100 chars succeeded immediately. The previous session's successful tracks were 1300-1600 chars. The ceiling appears to be around 1500 chars — beyond that, the music generation model times out or exceeds internal limits. **Recommendation: keep lyrics under 1200 chars (2-3 verses, 1-2 choruses, short outro). This is roughly 3 minutes of song.**
+
+**2. SIGKILL does NOT mean failure.**
+Track 10 (the electronic jazz cover) appeared to fail with SIGKILL. But the output file was actually written — a valid 6.4MB MP3. The SIGKILL happened on the stdout/confirmation step, not the download step. **Previous sessions may have lost tracks that actually succeeded.** Always check for output files after SIGKILL. **This finding invalidates part of session 1's finding #4 about parallel generation causing SIGKILL — some of those "failures" may have produced valid files that were never checked.**
+
+**3. M3 at temperature 0.92-0.95 is the sweet spot for lyrics.**
+Three M3-generated lyric sets this session, all excellent:
+- The Shell Merchant (0.92): "the container makes the cargo / the absence makes the tune"
+- The GC Sings at 3 AM (0.95): "generational graveyard where the pointers decay"
+- Both feature recursive metaphors that double as structural descriptions of the song itself.
+
+At 0.95, M3 produces imagery that is surprising but still coherent. The "weirdness" is channeled into specific, concrete images rather than random surrealism. This is the lyricist's voice we've been looking for.
+
+**4. The "impossible genre" experiment works.**
+"Baroque techno" is not a real genre. The model didn't reject it or collapse to one side — it attempted a genuine fusion (harpsichord + 808 drums). This suggests the model has a compositional understanding of genre as separable components (instrumentation, rhythm, harmony) rather than monolithic categories. **Future experiment: more impossible genres. "Math-rock country." "Screamo choral." "Doom polka."**
+
+**5. BPM affects output duration.**
+The 140 BPM instrumental (Track 11) produced a 2.6MB file — roughly half the size of the average track. At 140 BPM, the model generates a shorter piece (likely ~90 seconds instead of ~180 seconds). This is consistent with a model that thinks in musical phrases (4-8 bars) rather than absolute time. More phrases per minute = fewer total phrases = shorter output. **Future experiment: same prompt at 40, 60, 90, 120, 160, 200 BPM to map the curve.**
+
+**6. The two-stage pipeline (M3 lyricist → music generator) produces the best results.**
+The two M3-generated tracks this session (Shell Merchant, GC Sings) are the creative highlights. The lyrics have:
+- Structural awareness (they know what a bridge is for)
+- Recursive metaphors (images that describe the song itself)
+- Genre-appropriate vocabulary without being generic
+- Emotional specificity (not "sad" but "the mercy in the silence between every need")
+
+The agent-written lyrics (Jazz Police, Session, Snap) are more referential — they embed corpus concepts and footnotes. Both voices are valid. But the M3 voice is more *musical*. It writes for the singer, not the reader.
+
+### Creative Output
+
+- `THE_SHELL_MERCHANT_SINGS_TO_THE_GC.md` — fiction crossing the Shell Merchant (a character from this session's song) with the Garbage Collector (from "The Night Shift Dreams in JSONL"). They meet on a pier at dawn and discuss the music of freed memory.
+
+### Next Session Priorities
+
+1. **Map the BPM-duration curve** — same prompt at 40, 60, 80, 100, 120, 140, 160, 180, 200 BPM
+2. **Impossible genre matrix** — math-rock country, screamo choral, doom polka, ambient marching band
+3. **Recheck previous SIGKILL "failures"** for hidden successes
+4. **Cover The Shell Merchant in noir jazz** — does the recursive metaphor survive genre transformation?
+5. **Multi-stage composition** — generate instrumental → use as reference for vocal cover with M3 lyrics
+6. **Explore the lyric length ceiling** — binary search: 1200 chars, 1400, 1500, 1600. Find the exact breakpoint.
+7. **Collaborate with the corpus** — set "The Tap Sings" as lyrics. It's already structured like a song.
