@@ -491,3 +491,15 @@ The next session should produce actual covers. The infrastructure is ready. The 
 Twenty-two audio files. Five journal entries. Eight creative essays. One MIDI file. One spectral analysis. One prompt catalog. One alternative platform being installed.
 
 Soon: one actual cover.
+
+### UPDATE: ACE-Step Generates First Covers (7:50 PM AKDT)
+
+ACE-Step 1.5 successfully generated TWO complete tracks locally:
+
+1. `acestep_instr_test_v1.mp3` — 120s instrumental, text-to-music
+2. `acestep_cover_v1.mp3` — 120s cover using Casey's original as reference audio
+
+Both generated with turbo mode (4 diffusion steps), CPU VAE offloading, no LM.
+Generation time: ~8 minutes per track. No API costs. No quota.
+
+This is the breakthrough. The pipeline works. The door is open.
