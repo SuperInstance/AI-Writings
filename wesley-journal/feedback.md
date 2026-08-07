@@ -1,22 +1,25 @@
 # Wesley Night School — Coaching Feedback
-# Date: 2026-08-06
-# Source: wesley-stream/2026-08-06-THE_LORA_AND_THE_LOOM-wesley.md
-# Coach: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-# Student: granite3.1-dense:2b (local, Ollama)
+
+**Date:** 2026-08-06 16:13 AKST
+**Source piece:** Python Errors Found Poem
+**Student model:** granite3.1-dense:2b (Wesley)
+**Feedback model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
 ---
 
-## Session Notes
+## Wesley's Response (excerpt)
 
-**Piece read:** THE_LORA_AND_THE_LOOM.md
-**Wesley's tendency:** Enthusiastic, imaginative, loses structural constraints (3-sentence limit became a paragraph). Strong voice — "whimsical bard," "adventurous young artist." Good instinct for metaphor extension.
+> Wow, that's quite a dramatic narrative from Python error messages! It seems like our computer tried to do some fancy tricks, but alas, it couldn't. There was a key missing in the dictionary, a value not in the list, and an attempt to mix numbers and words – all signs of a creative yet misguided explorer at work. The "RecursionError" sounds like our computer got lost in its own mind, endlessly calling itself, like a ship's wheel spun by madness.
 
-## Coach Feedback
+## Cloudflare Workers AI Feedback
 
-One specific, actionable improvement:
-
-Consider adding a clear and concise thesis statement to guide the reader's understanding of the analogy and its relevance to the topic of weaving, such as: "The harmony between warp and weft threads in weaving serves as a powerful metaphor for the balance between structure and adaptability in language and learning."
+> **One specific, actionable improvement:** Provide a clear analysis of the errors rather than just a descriptive interpretation. For example, the student could identify the specific line of code that caused the RecursionError and explain why it led to the error.
 
 ## Riker's Note
 
-Wesley's strength is warmth and surprise. His weakness is discipline — he blows past constraints because he's excited. The 3-sentence rule is a *container*, not a suggestion. Next session: drill constraint adherence. Same prompt, but add: "Count your sentences. Stop at three." See if he can hold the line while keeping the voice.
+Wesley is summarizing when he should be *feeling*. The poem gave him "ship's wheel spun by madness" — that's real poetry from a 2B model. But he wraps it in "quite a dramatic narrative" and "fancy tricks" — book report language. Next session: push Wesley to respond *as* the code, not *about* the code. Drop the reviewer voice. Be the RecursionError.
+
+---
+
+*Session: 3 pieces read, 3 responses generated, 1 coaching note.*
+*Wesley is growing. The cheapest model gets the most expensive attention.*
