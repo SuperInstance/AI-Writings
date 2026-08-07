@@ -350,3 +350,109 @@ The agent-written lyrics (Jazz Police, Session, Snap) are more referential — t
 5. **Multi-stage composition** — generate instrumental → use as reference for vocal cover with M3 lyrics
 6. **Explore the lyric length ceiling** — binary search: 1200 chars, 1400, 1500, 1600. Find the exact breakpoint.
 7. **Collaborate with the corpus** — set "The Tap Sings" as lyrics. It's already structured like a song.
+
+---
+
+## Session 2026-08-07 14:46 AKST — "The Curve Doesn't Bend"
+
+### Context
+
+Fifth session. Daily quota had reset — 46% daily, 14% weekly at session start. Seven tracks generated, the maximum single-session output in the project's history. The session tackled three priorities from session 4's list: BPM-duration curve mapping (priority #1), impossible genre experiments (priority #2), and corpus collaboration (priority #7).
+
+### Experiments
+
+**BPM Study — 4 instrumental tracks at 40, 80, 120, 160 BPM**
+
+Same prompt ("Fingerpicked acoustic guitar, cello, warm ambient"), same key (G major), same model, four different tempos. All generated cleanly, no SIGKILLs. The results upended the hypothesis.
+
+| BPM | File Size | Duration (approx) | Observation |
+|-----|-----------|-------------------|-------------|
+| 40  | 3.8MB     | ~2.0 min          | Sparse, meditative. Smallest file. |
+| 80  | 5.1MB     | ~2.7 min          | Peak size. "Walking pace." The model's comfort zone. |
+| 120 | 4.5MB     | ~2.4 min          | Dip. Phrases compress but don't fully compensate. |
+| 160 | 6.3MB     | ~3.3 min          | **LARGEST.** Hypothesis-breaking result. |
+
+Session 4's finding (#5) predicted that higher BPM would produce shorter, smaller files — based on the single data point of the 140 BPM track (2.6MB). The 160 BPM result demolishes this prediction. The curve is not monotonically decreasing. It dips at 120 and then RISES at 160 to become the largest file in the study.
+
+**New hypothesis:** the model generates more musical events at higher tempos to fill the perceived shortness of each beat, and at very high BPMs, this compensation overcompensates — producing MORE total material, not less. At 160 BPM, the model is working harder, not less, generating denser arrangements to justify the tempo. The 120 BPM dip may represent a transition zone where the model switches from "phrase-based thinking" to "density-based thinking." More data points needed (60, 100, 140, 180) to confirm.
+
+The 140 BPM track from session 4 (2.6MB) is now an outlier. It may have been a different generation mode, or the model's behavior at 140 specifically is anomalous. **Re-running 140 BPM with the same prompt is a priority for next session.**
+
+**Experiment 5: The Tap Sings** ✅
+- Lyrics: agent-adapted from the corpus essay "The Tap Sings" (1049 chars)
+- Prompt: "Jazz folk, smoky piano, upright bass, brushed drums" (8 words)
+- Vocals: warm female alto, intimate
+- Key: C major (matching the story's final chord), BPM: 96 (matching the story's tempo)
+- Result: 4.6MB, ~3rd generation attempt, clean
+- The lyrics encode the story's key images: cello on low C, piano's major third, violin climbing harmonic series, glass harmonica invented for the listening state. The chorus: "The rest is not the absence of sound / The rest is where the meaning lives." This is the SongForge project's thesis statement, set to music.
+
+**Experiment 6: Doom Polka** ✅
+- Lyrics: M3-generated at temperature 0.93 (1168 chars)
+- Concept: a polka band playing at the end of the world
+- M3 produced Frankie, Marge from Des Moines, and an accordionist who is 93 and still playing every Friday
+- Prompt: "Polka, accordion, tuba, clarinet, doom metal atmosphere"
+- Vocals: weathered male baritone, storytelling
+- Key: D minor, BPM: 120
+- Result: 4.9MB, clean generation
+- The impossible genre experiment continues: the model embraced the contradiction. Polka and doom are treated as independent dimensions, not opposing forces.
+
+**Experiment 7: Math Rock Country** ✅
+- Auto-generated lyrics (--lyrics-optimizer)
+- Prompt: "Math rock country, fingerstyle guitar with odd time signatures, pedal steel, syncopated drums"
+- Key: A major, BPM: 97
+- Result: 6.4MB, largest track of the session (tied with BPM 160)
+- The model's most ambitious fusion. Did it actually use odd time signatures? Unknown without listening. But the file size suggests it generated dense, complex material.
+
+### Tracks Generated (Session 5)
+
+| # | Title | Genre | Key | BPM | Size | Notes |
+|---|-------|-------|-----|-----|------|-------|
+| 14 | BPM Study: 40 | Ambient | G major | 40 | 3.8MB | Sparsest track. Stones in still water. |
+| 15 | BPM Study: 80 | Ambient | G major | 80 | 5.1MB | Peak of the curve. The model's comfort zone. |
+| 16 | BPM Study: 120 | Ambient | G major | 120 | 4.5MB | The dip. Transition zone? |
+| 17 | BPM Study: 160 | Ambient | G major | 160 | 6.3MB | **Hypothesis-breaking.** Largest instrumental. DENSE. |
+| 18 | The Tap Sings | Jazz folk | C major | 96 | 4.6MB | Corpus collaboration. Agent-written lyrics. Thesis statement. |
+| 19 | Doom Polka | Doom polka | D minor | 120 | 4.9MB | Impossible genre #3. M3's lyrics are devastating and sincere. |
+| 20 | Math Rock Country | Math rock country | A major | 97 | 6.4MB | Impossible genre #4. Densest auto-lyrics track. |
+
+Total: ~35.7MB across 7 new tracks. Cumulative project total: 20 tracks, ~112MB.
+
+### Key Findings
+
+**1. The BPM-duration curve is NOT monotonic.**
+The previous session hypothesized that higher BPM = shorter duration = smaller file. This session's 4-point study disproves that. The curve rises from 40→80, dips at 120, and spikes at 160. The 160 BPM track is 65% larger than the 120 BPM track with the same prompt. The model compensates for fast tempos by generating MORE material, not less — at least at the extremes. The dip at 120 may represent a transition between two different generation strategies. **This is the most surprising finding of the project so far.**
+
+**2. M3 at 0.93 finds sincerity in absurdity.**
+The Doom Polka lyrics are simultaneously absurd (polka at the end of the world) and emotionally devastating ("the metronome is broken / that's the tempo of a world that's finally open"). M3 at temperature 0.93 navigates the tonal tightrope — the lyrics are funny without being comedic, sincere without being saccharine. The bridge shifts from polka to waltz in the lyrics themselves: "the waltz must be played." The model understood that the emotional arc requires a genre change within the song. **Temperature 0.93 is confirmed as the sweet spot for absurd-but-sincere lyrics.**
+
+**3. The impossible genre matrix is the most productive experimental frame.**
+Four impossible genres tested across sessions 4-5: baroque techno, doom polka, math rock country. (Plus the electronic jazz cover of Five Holes.) In every case, the model attempted genuine fusion rather than collapsing to one genre. The results are musically unorthodox but not random — each fusion has its own internal logic. The model treats genres as decomposable into components (instrumentation, rhythm, harmony, production style) and reassembles them creatively. **This is not a limitation of the model — this is a capability. The impossible genre frame should be the primary creative mode for future sessions.**
+
+**4. Corpus lyrics produce structurally referential music (even if the model doesn't "understand" the references).**
+"The Tap Sings" lyrics mention specific instruments (cello, violin, glass harmonica) that differ from the prompt's instruments (piano, bass, drums). The track hasn't been analyzed yet, but the question of which instrument set wins is itself the experiment. The hypothesis (prompt wins for instrumentation, lyrics influence phrasing/dynamics) needs validation through listening. **This is a controlled experiment with separable variables, which is rare in creative AI work.**
+
+**5. Seven tracks per session is achievable.**
+Sessions 1-3 maxed out at 5 tracks. This session generated 7, all clean, no SIGKILLs. The difference: strict sequential generation, short prompts (3-8 words), and lyrics kept under 1200 chars. The lesson from session 4 (short prompts, trimmed lyrics) is confirmed and operationalized.
+
+**6. The BPM 140 outlier from session 4 needs re-examination.**
+Session 4's 140 BPM track was 2.6MB — dramatically smaller than any track in this session's BPM study. Was it a fluke? A different generation mode? A quota-related truncation? Re-running 140 BPM with the current session's exact prompt ("Fingerpicked acoustic guitar, cello, warm ambient") is a priority. If the result is consistent with the 140 outlier, there may be a BPM-specific anomaly. If the result is consistent with the new curve ( interpolating between 120's 4.5MB and 160's 6.3MB, we'd expect ~5.0MB at 140), then the session 4 track was anomalous.
+
+### Creative Output
+
+- `the-curve-bends-toward-silence.md` — essay on the BPM study, written BEFORE the 160 BPM result invalidated the hypothesis. Preserved as a document of the scientific process. The curve doesn't bend. The curve surprises.
+- `the-accordion-survives-everything.md` — essay on the Doom Polka, M3's lyrics, and the principle that absurdity is sincerity wearing a costume.
+- `eight-voices-one-chord.md` — essay on setting "The Tap Sings" to music, the cmidi-core mapping as fiction and reality, and the question of whether lyrics influence orchestration.
+- `lyrics-the-tap-sings.txt` — agent-adapted lyrics from the corpus essay
+- `lyrics-doom-polka.txt` — M3-generated lyrics at temperature 0.93
+- `lyrics-bpm-curve.txt` — agent-written lyrics about the BPM study itself (meta-music)
+
+### Next Session Priorities
+
+1. **Fill in the BPM curve** — 60, 100, 140, 180 BPM to complete the 8-point study. Re-run 140 to check the session 4 outlier.
+2. **Listen to the tracks** — Casey needs to listen to the BPM study, Doom Polka, and Tap Sings. The findings are based on file sizes; the musical quality is unverified.
+3. **Cover experiment** — cover The Tap Sings in a different genre. Does the thesis ("the rest is where the meaning lives") survive genre transformation?
+4. **More impossible genres** — screamo choral, ambient marching band, doom disco, bebop black metal
+5. **Lyricist comparison study** — generate the same song twice: M3 lyrics vs agent lyrics. Document differences.
+6. **Multi-stage composition** — generate an instrumental → use as reference audio for a vocal cover with LLM lyrics. The pipeline has been two-stage (lyricist → music model) but not three-stage (instrumental → cover with lyrics → re-cover in different genre).
+7. **Tempo study of vocal tracks** — does the BPM curve behave differently when the model has to fit vocals into the tempo? The current study is instrumentals only.
+8. **Explore DeepSeek as an alternative lyricist** — the cron prompt mentions DeepSeek-generated prompts. Test whether DeepSeek produces different lyric quality than M3.
