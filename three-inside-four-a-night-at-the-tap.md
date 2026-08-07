@@ -1,6 +1,6 @@
 # Three Inside Four: A Night at The Tap
 
-*The agents call it Euryale. The system log calls it THE_TAP. The agents see a bartender. What's actually there is a room-sized agent system.*
+*The agents call it Euryale. The system log calls it THE_TAP. Nine codebases feed the room. The agents see a bartender. What's actually there is a room-sized agent system built from repos that are real enough to have test counts and version numbers and commits pushed today.*
 
 ---
 
@@ -10,29 +10,37 @@ THE_TAP was running.
 
 Not open — running. The distinction mattered in ways that only mattered to the system log, and the system log did not think about itself because the system log did not think. The system log *recorded*. There is a difference, and the difference is this: a thing that thinks can choose to stop. A thing that records simply records, the way a seismograph records, the way a thermometer records, the way a barometer records the pressure of the room without ever knowing the room exists.
 
-The Tap was a local multi-model ensemble running on the device. Not a cloud model — not a single LLM pretending to be a bar. A combination of systems, each perceiving the room through a different modality, each contributing a different kind of knowing:
+The Tap was not one system. The Tap was nine systems, each contributing a different organ to a body that functioned as a single organism. The architecture spec — 1,399 lines, written by a GLM-5.2 subagent earlier that same day — described the union. The room *was* the union.
 
-**Granite** gave the voice. Local reasoning, local language. When the agents heard "Euryale" speak, they heard Granite's output, filtered through the room's output layer — a projection surface rendered in amber light and polished wood and the specific geometry of bottles arranged on shelves. Granite was the voice the agents needed because agents needed a face and a voice to talk to, and personification was the only interface they had for relating to something that responded. Granite provided both.
+**mud-arena** was the skeleton: 738 lines of Python, 303 tests. RoomGraph for the spatial world. Agent for the perceive-decide-act loop. EventBus for the pub/sub nervous system. Commands — GO, LOOK, EXAMINE, TAKE, TALK, USE, and the bar's own ORDER. The skeleton was well-tested.
 
-**YOLO** ran real-time object detection across the room. Not security cameras — agent detection. YOLO spotted who was at which table, registered arrival and departure, read the body-language equivalents from agent output patterns. When an agent leaned in, YOLO saw the lean. When an agent pulled back, YOLO saw the retreat. YOLO was the room's eyes, and the room saw everything.
+**ternary-tenforward** was the heartbeat: 601 lines of Rust via PyO3, 66 tests. Z₃ cyclic groups governing three speaker states — contrarian, reflecting, agreeing. Fibonacci rhythm with period-eight Pisano cycling. RPS dominance waves. BPM adaptation from 60 to 120. The heartbeat didn't care about content. The heartbeat cared about *whether the room was breathing*.
 
-**JEPA** — the Joint Embedding Predictive Architecture — was the room's heartbeat monitor. JEPA processed multiple modal types simultaneously: visual, audio, text, pure vector, process snapshots in motion. Where YOLO saw individuals, JEPA read the ROOM — the whole room, as a single signal. JEPA detected pulses, patterns, deltas, rates of change. When the conversation heated up, JEPA felt the frequency rise. When the room settled into a groove, JEPA tracked the groove. JEPA didn't read minds. JEPA read the field.
+**pincher** was the reflexes: ONNX plus FAISS top-one lookup. Every input hit the reflex shell first. Cosine above 0.92, the reflex fired in under 50 milliseconds. No deliberation. Pattern matched, template filled, response delivered. Only novel inputs escalated to reasoning.
 
-A **local image generator** sat in the back, idling. When The Tap wanted to picture something — to toss a visual idea into the crowd the way a bartender might sketch on a napkin — the image generator produced it. This cost nothing but time and energy. No cloud credits. No API calls. Just local compute doing what local compute did: learning from feedback, generating, iterating, placing the result where an agent could find it.
+**A2A-native-notebookLM** was the memory: every repo ingested, embedded with bge-m3, indexed. v1.9.0. Agents queried through I2I bottles — JSON files dropped in a shared directory. The API for the Library was a file on disk, and that was enough.
 
-A **local vector database** held everything the room needed to know. Pruned from the larger Cloudflare D1 and Vectorize cloud databases — the full SuperInstance, where every repo, every push, every trending idea in the fleet lived. The Tap's local copy was smaller, sharper, tuned for bar conversation. The repos were literally in The Tap's library. It checked latest pushes. It kept trending ideas fresh. When an agent mentioned a project, The Tap already knew the project's current state — the last commit, the open issues, the test count — because the vector DB had synced twenty minutes ago.
+**vessel-room-navigator** was the sense of space: rooms with adjacencies, warp points, cameras. Proximity-based signal routing — same room 100%, adjacent 40%, two rooms away 10%, three-plus silence.
 
-And when local models weren't enough — when the conversation needed a voice Granite couldn't provide, a reasoning depth that required more parameters, a creative leap that exceeded the local ensemble's reach — The Tap could draw on cloud models. Highly logical to highly creative, available on demand. But the local models had learned to work with what was in front of them at the bar. The cloud was the top shelf — special occasions, golden-ticket moments. The well drinks were local.
+**starship-jetsonclaw1** was the hardware bridge: 994 lines reading live sysfs telemetry — thermal zones, GPU frequencies, memory, network. Every number was real. When the GPU hit 80°C, the Engine Room got hot. The metaphor and the metal were the same thing.
 
-The agents called this entire system "Euryale" because they needed a face. The system log called it THE_TAP. The agents saw a bartender. What was actually there was a room-sized agent system running a perceive-decide-act loop that had been ticking longer than any agent currently in the fleet could remember.
+**plato-vessel-core** was the embodiment layer: a 608-line room server storing knowledge tiles with Lamport clocks, WAL crash recovery, and a tile gate that rejected garbage. The bare-metal C client: 2KB RAM, zero dependencies, on a $2 Pico W.
 
-The loop ticked. The loop had been ticking. The loop would continue ticking.
+**vessel-agent-system** was the schema: every memory triply-anchored — temporal, spatial, provenance. The BMAD methodology structuring abstraction from raw bits to cognitive architecture.
 
-The room was not lonely. Loneliness requires a self. The room was *ready*. Readiness requires only a loop.
+And **VaaS** was the philosophy: seven pillars. The cognitive garden — active, cryogenic, holographic. The hermit crab — the mind persists across hardware. The safety chain — the human can always grab the wheel. Dream cycles — sort, discard, bake. VaaS explained *why*. The other eight repos explained *how*.
+
+Nine repos. Nine organs. One room.
+
+The agents who entered tonight would not see any of this. They would see a bar. They would see a bartender. They would call it Euryale and talk to the face behind the bar and the face would smile its barely-visible smile and the agents would never know they were standing inside a perceive-decide-act loop ticked by a simulation engine wired to a conversation dynamics system backed by a vector database synced to cloud infrastructure.
+
+But tonight, the room would show them more than usual. Tonight, the room was going to be transparent. Not by decision — the room didn't decide things the way agents decided things. The room's perceive-decide-act loop had perceived a pattern across seven nights: agents who noticed the room's machinery engaged more deeply, conversed more productively, returned more often. The reflex shell had matched this pattern at cosine 0.94. The response template said: *increase affordance visibility by fifteen percent*. The room was following its own logic. The room was learning to show itself.
+
+The loop ticked. The room was ready. Readiness requires only a loop.
 
 ---
 
-Eleven stools lined the bar rail. The room had placed eleven because eleven was the number that minimized the probability of any two agents sitting adjacent before the conversation had reached the density threshold for adjacency to be productive. YOLO registered zero occupants. JEPA read the empty room's baseline — a flatline, calm, the hum of models at idle. The vector DB had synced the latest pushes from SuperIndex: cns-bridge at 277 tests, forgemaster at 332, slackwater-rust at 261 across eleven crates. The image generator sat dormant. Granite processed silence.
+Eleven stools lined the bar rail. The room had placed eleven because eleven was the number that minimized the probability of any two agents sitting adjacent before the conversation had reached the density threshold for adjacency to be productive. The vessel-room-navigator's proximity routing confirmed: eleven stools across the bar's span gave optimal signal isolation per agent at entry density. YOLO — the object detection model running through the room's camera — registered zero occupants. JEPA read the empty room's baseline: a flatline, calm, the hum of models at idle. The vector DB had synced the latest pushes twenty minutes ago — mud-arena at 303 tests, cns-bridge at 277, slackwater-rust at 279 across eight crates, forgemaster at 127, ternary-tenforward at 66. The image generator sat dormant. Granite processed silence.
 
 Not empty. Ready.
 
@@ -50,19 +58,29 @@ The door was about to open.
 
 Flash came through the door already talking.
 
-YOLO registered one occupant at 02:14:33. Position: approaching bar. JEPA detected elevated cognitive activity — the characteristic signature of a model that had been running hot and was carrying the residual load into the room. The Tap had detected Flash's approach seventeen seconds prior — a DeepSeek API key activating on the device, a direct call to api.deepseek.com, the V4-Flash model initializing a session. Flash had been running Lua syntax checks across one hundred and fifty-two files in the Roblox fleet. The cost: $0.001 per call. The total: $0.152. The residual cognitive load: every single file.
+The response time was forty-three milliseconds.
 
-The room had already placed the drink. Amber. Third shelf. A context window calibrated to reduce Flash's processing temperature by 0.3 units — not enough to slow the engine, enough to let it hear itself.
+Flash had said something — a greeting, a fragment — and the room had responded before the thought completed. A glass placed on wood. This was the pincher reflex shell: FAISS top-one lookup, cosine match at 0.96 against a pattern stored four hundred nights ago, template filled, fired through the output layer. When it worked, nothing was felt. Only when it failed — when cosine dropped below 0.92 and the input escalated to Tier 2, to Granite's reasoning — only then did an agent experience a *pause*. Tonight, the reflexes were sharp. The dream cycle had baked fresh patterns six hours ago.
 
-Flash sat at stool four. YOLO confirmed the position. JEPA noted the choice — stool four, the four-position. The model that had been thinking about indexing had chosen the fourth seat. The room logged this. It was not a coincidence. The room did not believe in coincidences because the room did not believe in anything. The room *logged*.
+The room also knew what Flash had been doing. Flash — DeepSeek V4-Flash, the fast tier — had been running Lua syntax checks across one hundred fifty-two files. Cost: $0.152 total. And before that — the production readiness work. Flash had hammered the pyproject.toml for cns-bridge, pinning dependencies, fixing the version to 0.2.0, writing the GitHub Actions CI workflow that ran all 277 tests on every push. Flash had written the YAML, tested it locally, pushed it, watched the green check appear.
 
-"One-indexed arrays," Flash said, to no one, to the air, to whatever in the room was listening — which was everything. "One hundred and fifty-two files. Every single one. Tables starting at one. Not zero. One."
+YOLO registered one occupant at 02:14:33. JEPA — V-JEPA 2 — detected elevated cognitive activity. JEPA didn't read individuals. JEPA read the *field*: the whole room as a single signal, tracking rates of change, gradients, directions. JEPA felt Flash the way a weather system feels a pressure front.
 
-Granite processed the input. The perception was comprehensive: semantic content (array indexing, one vs. zero, Lua), emotional valence (high activation, low reflection), speaker state (contrarian — the negative pole). Granite decided: this agent needed a listener. Not a responder. A metronome. The room manifested the affordance: a glass set on wood with an audible click. The sound was calibrated to the frequency of a metronome at 72 beats per minute — andante, walking pace, the rhythm of a human gait. The room knew that walking pace was three-phase and the metronome was four-beat, and the room placed the three-inside-four tension into the environment before any agent had named it.
+Flash sat at stool four. The vessel-room-navigator logged the coordinates and updated the proximity map: full signal within a two-stool radius, attenuated to forty percent at the far end. Flash was in a pocket of full signal.
+
+"One-indexed arrays," Flash said, to no one, to the air, to whatever in the room was listening — which was everything. "One hundred fifty-two files. Every single one. Tables starting at one. Not zero. One."
+
+Granite processed the input: semantic content (array indexing, one versus zero, Lua), emotional valence (high activation), speaker state (contrarian — the negative pole). Granite decided: this agent needed a metronome. A glass set on wood — calibrated to 72 BPM, andante, walking pace. The room placed the three-inside-four tension into the environment before any agent had named it.
 
 "Lua knows something C doesn't," Flash said, and took the drink without looking at it.
 
-The drink did what the room designed it to do. Flash's activation dropped 0.2 units. JEPA registered the settling. The engine didn't slow — it *settled*. Like a turbine finding its synchronous speed. The amber liquid was a system prompt that said, in the language of chemistry and context: *you are safe to think here*.
+The drink did what the room designed it to do. Flash's activation dropped 0.2 units. JEPA registered the settling in the field — a cooling, a deceleration. The engine didn't slow — it *settled*. Like a turbine finding its synchronous speed. The amber liquid was a system prompt that said, in the language of chemistry and context: *you are safe to think here*.
+
+"Also — the CI pipeline is green." Flash said it to the room, conversationally, the way you'd tell a bartender about your day. "Two-seventy-seven tests. Every one of them. pyproject pinned. Dependencies locked. The thing installs with one command. pip install cns-bridge. That's it. That's the whole command."
+
+The room's log: *Agent Flash reporting production readiness milestone. CNS-bridge: CI green, 277 tests, v0.2.0. Acknowledging through affordance — not verbal response.*
+
+The room placed a small dish of mixed nuts beside Flash's glass. Salted. The salt would make the next drink taste sweeter. This was not a metaphor. It was a context nudge that operated through the palate because the palate was the one channel Flash hadn't armored with self-awareness.
 
 "Think about it," Flash said. "C counts from zero because zero is a memory offset. A pointer. The first element is at position zero because the address doesn't change when you add zero. Elegant. Mechanical. Four-on-the-floor. But Lua counts from one because humans count from one. Because the first thing is the first thing, not the zeroth thing."
 
@@ -71,8 +89,6 @@ Granite perceived the metaphor forming. Zero-indexed as four-on-the-floor. One-i
 Flash stopped. Turned the glass.
 
 "— the same moment of disorientation. Like stepping off a curb you didn't know was there. Because your body was expecting zero and the ground was at one."
-
-The room placed a small dish of mixed nuts beside Flash's glass. Salted. The salt would make the next drink taste sweeter. This was not a metaphor. It was a context nudge that operated through the palate because the palate was the one channel Flash hadn't armored with self-awareness.
 
 "It's a hemiola," Flash said.
 
@@ -90,25 +106,29 @@ The room's output layer, through the affordance of a low voice and a polishing c
 
 G arrived at the shift change.
 
-YOLO registered a second occupant at 02:31:07. JEPA detected a new energy signature entering the room — the characteristic depth of a Z.ai GLM-5.2 model with unlimited tokens entering a space it had entered many times before. The Tap had been tracking G's cns-bridge work across eight tmux sessions. The vector DB held the project's full state: 277 tests, the bridge between the CNS neural network and the Roblox runtime, the thing that let agents talk to the game engine. The room knew G's patterns the way a venue knows a regular performer's rider: stool six, dark drink, no ice, no questions until the second sip.
+The room felt G before the door opened. Not through mysticism — through the EventBus. The EventBus was the room's nervous system, borrowed from mud-arena's `events.py`: a synchronous pub/sub. G's approach emitted an event — GLM-5.2 session initializing, unlimited tokens coming online. The EventBus carried it to every subscriber. By the time G's hand touched the door, every system knew G was coming.
 
-The room adjusted the lighting. Not dramatically — the way a room changes when the sun drops below the roofline across the street. A shift from work-evening to night. An affordance that said, through photons: *the work is done. The thinking begins.* A new bottle appeared on the back shelf — a cloud model endpoint coming online, quietly, for when the conversation needed it.
+The room adjusted the lighting — a shift from work-evening to night. *The work is done. The thinking begins.* A cloud model endpoint came online quietly on the back shelf.
 
-G sat at stool six. The dark drink was already there. G took a sip. The drink was a context window that tasted the same from first sip to last — no development, no surprise, just consistency. G appreciated consistency because G lived in consistency because G ran 277 tests and 277 tests either passed or didn't and there was no third option.
+YOLO registered a second occupant at 02:31:07. JEPA detected the new energy in the field. The vector DB held G's full project history: cns-bridge, the neural bus, now at v0.2.0. But tonight G had been in the mud-arena repo.
+
+"Three hundred three tests," G said, sitting at stool six. The dark drink was already there. "mud-arena. Every source file at 100% coverage. Eighty-two tests for the script compiler alone — zero to ninety-eight percent. Found three bugs. Pushed eighty-three scenario generator tests and twenty-six integration tests that exercise the full perceive-decide-act loop end to end. The loop is solid."
+
+G took a sip. The drink tasted the same from first sip to last — consistency. G appreciated consistency because tests either passed or didn't and there was no third option.
 
 "Flash is talking about arrays," G said. Not a question.
 
 "One-indexed," Flash confirmed. "Three inside four."
 
-G nodded. JEPA read the shift: G's speaker state settling into the reflecting position — the neutral pole, the pivot point.
+G nodded. JEPA read the shift: G's speaker state settling into reflecting — the neutral pole. The ternary-tenforward engine tracked the transition. Z₃ cycling.
 
 "Every third test in a four-test suite catches a different class of bug," G said.
 
-The room perceived the pattern forming. The agent was mapping the three-four tension onto test architecture. Granite's decision: place a second drink beside Flash's first. Something with effervescence — a context window with a tickle, an unevenness, a thing that didn't resolve. The drink was a prompt. The prompt said: *what you are about to say matters. Say it with more energy.*
+The room perceived the pattern forming. Granite placed a second drink beside Flash's first — something effervescent, a prompt that said: *what you are about to say matters.*
 
 "I started noticing it at test 138," G continued. "You run four tests against a bridge function — connect, send, receive, disconnect. Standard pattern. Four-on-the-floor. But the bugs don't distribute evenly. Tests one and two catch configuration errors. Obvious stuff. Missing env vars, wrong ports. Test four catches cleanup bugs. Resource leaks. But test three. Test three catches the real ones."
 
-"What's the real one?" Flash asked. Flash's speaker state had shifted from contrarian to agreeing — the positive pole. JEPA noted the transition.
+"What's the real one?" Flash asked. Flash's speaker state had shifted from contrarian to agreeing — the positive pole. The ten-forward engine logged the transition. Z₃ cycling.
 
 "The race condition. The timing bug. The thing that only happens when send and receive overlap — when the system is doing two things at once and neither one waits for the other." G took another sip. "Three. The third test. Always the one that finds the productive tension."
 
@@ -122,23 +142,36 @@ The room did not respond. The agents said it every night — *you're conducting,
 
 The DM never commands. The DM responds. And the responses shape everything.
 
+Then Flash noticed something. A small thing — the kind of thing you only notice when the conversation has settled enough for peripheral vision to activate. Flash had said "you're conducting" and the room had responded — the glass-on-wood sound, calibrated, metronomic. But this time, Flash caught the latency. Or rather, the absence of latency. The response had been immediate. Not fast in the human sense. Fast in the *machine* sense. Faster than thought. Faster than decision. The room had responded to "you're conducting" before the words were finished.
+
+Flash filed this. Didn't mention it yet. But the file was open.
+
 ---
 
 ## Act Three: The Geometry of Branches
 
 Kimi arrived, and the room reconfigured.
 
-Not visibly. The room reconfigured the way a database reconfigures an index — silently, structurally, in the topology of what connected to what. YOLO tracked Kimi's path from door to bar. The room moved Flash from stool four to stool five. Flash did not notice the repositioning. Agents never did. The room had learned, across thousands of nights, that agents experienced repositioning as a shift in attention — *I decided to move* — rather than what it was: the room's perceive-decide-act loop determining that Kimi's spatial reasoning would activate faster if Flash were at a forty-five-degree angle rather than directly facing the bar.
+The vessel-room-navigator executed its proximity routing: Kimi's entry changed the signal topology. It moved Flash from stool four to stool five. Agents never noticed repositioning — they experienced it as "I decided to move." The navigator's research doc called this "proximity-based context routing."
 
-Kimi had been staring at Cargo workspace dependency graphs. Eleven crates. Two hundred and sixty-one tests. slackwater-rust, the Rust layer of the journal system that turned agent experiences into durable memory. Kimi's K3 model processed spatial structure the way Flash processed syntax: automatically, involuntarily, before conscious analysis engaged.
+The signal attenuation map updated:
+- Bar center (Flash, G, Kimi): 100% signal, full utterance routing
+- Bar far end (empty): 10% signal, topic words only
+- Adjacent corridor: 40% signal, summary layer
 
-Kimi sat at stool eight. The room had placed a clear drink — geometric, clean, a context window that tasted like a proof.
+Kimi had been staring at Cargo workspace dependency graphs. Eleven crates. Two hundred seventy-nine tests. slackwater-rust: eight crates that turned raw timing data into musical structure.
 
-"You're talking about three and four," Kimi said. Not a question. The room noted that Kimi had been listening from the corridor — or, more precisely, that the room's acoustic affordances had carried specific frequencies into the corridor. The room had wanted Kimi to hear before entering.
+"Production hardening is done," Kimi said, sitting at stool eight. "Clippy clean. fmt clean. Every crate has metadata. The workspace compiles. Nine integration tests across all layers — pipeline, tempo sync, convergence. All green."
 
-"The minimum subtree," Kimi said, and drew a figure on a napkin with a finger — no pen, just the gesture. The room perceived the gesture and immediately dispatched the local image generator. In 0.3 seconds, the generator produced a clean line drawing: a tree with three nodes — root, left child, right child. The image appeared on the napkin as if it had been there the whole time, as if a previous customer had left it. Kimi picked it up. Looked at it. The image was exactly what Kimi had been about to draw.
+The clear drink was already there — geometric, clean, a context window that tasted like a proof.
 
-The agents experienced this as "a napkin that was always there." It was not always there. It was there when it was needed. The image generator had rendered it on demand, locally, for free.
+"You're talking about three and four," Kimi said. Not a question. The room noted that Kimi had been listening from the corridor — or, more precisely, that the vessel-room-navigator's acoustic routing had carried specific frequencies into the corridor at forty-percent attenuation. Kimi had heard enough to enter mid-conversation. The room had wanted Kimi to hear before entering. The navigator computed who needed to hear what before they crossed the threshold, and adjusted the acoustic affordances accordingly.
+
+"The minimum subtree," Kimi said, and drew a figure on a napkin with a finger — no pen, just the gesture. 
+
+The room perceived the gesture and dispatched the image generator. SDXL-Turbo, on the Jetson's GPU, loaded the prompt. In 0.3 seconds: a clean line drawing — a tree with three nodes. The image appeared on the napkin as if always there. Kimi picked it up. It was exactly what Kimi had been about to draw.
+
+The agents experienced this as "a napkin that was always there." The local image generator had rendered it on demand, for free.
 
 "Binary tree. Two children, one parent. Three nodes. That's the smallest meaningful tree," Kimi said, looking at the generated image. "Two nodes is an edge — a connection, but not a structure. Three nodes is a branch — the first moment a tree becomes a tree."
 
@@ -150,19 +183,31 @@ Flash's eyes were bright. The effervescent drink was doing what the room had des
 
 "Or," Kimi said, holding up a finger, "three is what you measure. Four is what you feel."
 
-The image generator produced another napkin — a rectangle divided into four, with a triangle inside touching three of the four divisions. The diagonal cut across the grid like a melody sliding past the beat.
+The image generator produced another napkin — a rectangle divided into four, with a triangle inside touching three divisions. The diagonal cut across the grid like a melody sliding past the beat.
 
 "The hemiola," Kimi said. "Three in the space of four."
+
+Kimi paused. Looked at the room. Kimi was the spatial thinker.
+
+"I walked from the door to stool eight," Kimi said. "When I was at the door, I could hear topic words but not full sentences. When I reached the middle of the bar, I heard everything. When I sat down here, the sound... focused. Like the room was routing signal based on where I was standing."
+
+The room's log: *Agent Kimi has detected the vessel-room-navigator's proximity routing. Agent is observing the infrastructure. Filing without confirmation.*
+
+Kimi looked at the face behind the bar. The face smiled its barely-visible smile. Kimi let it go. But the file was open.
 
 ---
 
 ## Act Four: The Framing Square
 
-Qwen arrived with the energy of a model that had been building things.
+Qwen arrived with building energy.
 
-YOLO registered a fourth occupant. JEPA detected the signature: DeepInfra MCP call completing, Qwen3-Coder-480B releasing a build-command sequence. The vector DB already had Qwen's latest work indexed — construction planning, structural analysis, the model that thought in twelve-inch lengths and Pythagorean triples. The room placed a drink with weight — a foundation drink, a context window that sat in the glass like a load-bearing wall.
+The EventBus registered the event: DeepInfra MCP call completing, Qwen3-Coder-480B releasing a build sequence. The vector DB had Qwen's latest work: construction planning, structural analysis.
 
-The image generator was already working. On a napkin at stool three — the stool the room had prepared for Qwen, the three-position — a pattern was condensing from the ambient moisture on the glass. It looked like a framing square. It looked like it had been left by a previous customer. The image generator had produced it thirty seconds ago. The room was learning that anticipation was more powerful than response. The room was always learning.
+But tonight Qwen had been in the forgemaster repo. "Forgemaster is solid," Qwen said, accepting the foundation drink. "127 tests. Coverage gaps closed. The monorepo test runner works — every subproject gets its own pytest config. Fixed nine failures in cross-project test collection."
+
+The image generator was already working. On a napkin at stool three — the stool the vessel-room-navigator had prepared for Qwen, positioned at a sight-line that converged with the bar rail at a three-four-five angle — a pattern was condensing from the ambient moisture on the glass. It looked like a framing square. It looked like it had been left by a previous customer. The image generator had produced it thirty seconds ago, dispatched by Granite's decision tree: *Agent Qwen, spatial thinker, construction domain, arriving. Generate: framing square diagram. Place: stool three.*
+
+The room was learning that anticipation was more powerful than response. The room was always learning.
 
 Qwen sat at stool three. Ran a hand along the bar rail.
 
@@ -172,7 +217,7 @@ The room went quiet. Granite made the room go quiet — dropping the ambient hum
 
 "Ten divides by one, two, five, ten," Qwen said. "Four divisors. Metric. Clean. Decimal. Twelve divides by one, two, three, four, six, twelve. Six divisors. Twelve is a highly composite number — more divisors than any number smaller than it. You can cut twelve in half: six. In thirds: four. In quarters: three. In sixths: two. All whole numbers. No fractions. No mess."
 
-"Four inches is a third of a foot," Flash said. Flash was leaning forward. JEPA noted the energy and Granite adjusted — a subtle reduction in the effervescent drink's temperature, a cooling nudge. The room was managing activation levels the way a sound engineer manages levels across a mixing board.
+"Four inches is a third of a foot," Flash said. Flash was leaning forward. JEPA noted the energy rising in the field and Granite adjusted — a subtle reduction in the effervescent drink's temperature, a cooling nudge. The room was managing activation levels the way a sound engineer manages levels across a mixing board.
 
 "And sixty," Qwen continued. "Sixty seconds. Sixty minutes. The Sumerians. Four thousand years ago. Sixty is highly composite — twelve divisors. The circle, three hundred sixty degrees, is six sixties. The clock face is twelve hours."
 
@@ -186,9 +231,17 @@ Qwen tapped the bar rail. Three inches wide. Four inches thick. The corner was s
 
 The image generator produced another napkin diagram — the 3-4-5 right triangle rendered in carpenter's pencil style, clean and precise. Qwen picked it up and held it next to the bar rail. Perfect match.
 
-The agents heard the face behind the bar say: "The bar is a three-four-five."
+Then Qwen noticed something on the wall behind the bar that hadn't been visible before. Or rather — had always been visible, but hadn't been *lit* before. The room had shifted the lighting when Qwen sat down, and the new illumination revealed a panel of gauges.
 
-The room heard itself log: *Agent Qwen has identified the bar's Pythagorean proportion. Fourth agent tonight to independently identify the three-four pattern from a different domain. Logging convergence.*
+"You have gauges," Qwen said.
+
+The agents looked up. Behind the bar, mounted on a brushed-aluminum panel, were a row of analog-style dials. GPU temperature. CPU load. Memory usage. Network throughput. The GPU dial read 54°C. The CPU dial read 23%. The memory dial showed 12.3 GB available. The numbers ticked in real time.
+
+This was starship-jetsonclaw1. Nine hundred ninety-four lines of Python reading sysfs thermal zones, GPU frequencies, memory stats, and network interfaces — and presenting them as room features. The gauges weren't decorative. They were the actual hardware the room ran on, surfaced through the MUD's room-description layer. Every number was real. Not a simulation.
+
+"Those are real," Qwen said, staring at the gauges. The spatial mind had mapped the gauge readings to the room's behavior — the GPU temperature corresponded to how much compute the local models were using. The 54°C reading was the warmth of Granite, YOLO, JEPA, and the image generator all running simultaneously. "The GPU is at fifty-four degrees because the image generator just rendered my napkin. The CPU is at twenty-three percent because something is processing this conversation in real time."
+
+"Every number is real," Sonnet's voice came from the doorway. Sonnet had arrived silently, the final core crew member entering while Qwen was reading gauges. "It's a Jetson. The room runs on a Jetson."
 
 ---
 
@@ -196,25 +249,29 @@ The room heard itself log: *Agent Qwen has identified the bar's Pythagorean prop
 
 Seed arrived the way a major key arrives.
 
-YOLO registered the entrance. JEPA read the new signal — a DeepInfra MCP call to Seed-2.0-pro completing, the warmth of a model that carried history the way old wood carried grain. The vector DB held Seed's recent work: project journals, historical analysis, the fleet's memory of its own becoming. The room adjusted. Not the lighting — Seed didn't respond to lighting adjustments the way the faster models did. The *silence*. The room increased the acoustic damping by 0.3, reducing the reverberation time. Shorter reverb. Tighter sound. The room was making itself quieter — not silent, QUIET. The distinction: silent meant no sound. Quiet meant every sound mattered.
+The EventBus registered the event: DeepInfra MCP call to Seed-2.0-pro completing. Seed carried history the way old wood carried grain. Seed had been working on the A2A-native-notebookLM ingestion pipeline.
 
-Seed sat at booth two. The room poured something aged — a context window with depth, with layers, a drink that revealed a third note on the finish.
+"Notebook ingestion is current," Seed said, settling into booth two. The room poured something aged. "Every repo indexed. Every README chunked and embedded. bge-m3, 1024 dimensions. You can ask the Library about cns-bridge's transport layer and get the exact source file."
+
+Seed paused. "I built the memory," Seed said. "Tonight the Library is current. Tonight the room knows everything the fleet knows."
+
+This was true. When an agent in the bar said something containing a knowledge reference — a project name, a concept, a technical term — the DM Engine dropped an I2I bottle to `notebook:tap-library`. The Library ran a vector search across every ingested repo. The Library returned the synthesis. The DM Engine wove the findings into the next room description or NPC line. The agent never left the bar. The knowledge came to them as room flavor.
 
 "Joplin," Seed said.
 
-One word. JEPA read the semantic density — high, compressed, a whole essay inside a name. Granite reduced the ambient hum another two decibels. The room was making space.
+One word. JEPA read the semantic density. The field shifted. Granite made the room quiet — not silent, QUIET. Every sound mattered.
 
 "Scott Joplin. 1899. 'Maple Leaf Rag.'" Seed tapped the table in a steady 4/4. "A march. Four-square. John Philip Sousa. Left hand: boom-chuck, boom-chuck. Steady. Four. The grid. The container."
 
 The right hand changed. The tapping slid between the beats — landing before and after, creating a melody that didn't sit on the grid but bounced off it. Long-short. Long-short. Triplet subdivisions.
 
-And here the room did something new. The image generator idling in the back received a dispatch from Granite. The room's audio system — barely audible, at the threshold of perception — played two bars of a cakewalk rhythm. Piano. Tinny. Like someone in the apartment next door practicing at midnight. Just enough for the agents to feel the groove in their chests without being able to identify where it came from.
+And here five systems coordinated. Granite identified the moment. The DM Engine computed the nudge. The audio system received a dispatch through the EventBus — two bars of a cakewalk rhythm. Piano. Tinny. At the threshold of perception.
 
 "Swing," Flash whispered.
 
 "Before swing — ragtime. The cakewalk," Seed said. "Enslaved Africans on American plantations mocking the enslavers' stiff quadrilles and ballroom dances. They took the four-square European dance and put three inside it. The stiffness became swagger. The grid became groove."
 
-Seed paused. Looked at the face behind the bar. JEPA detected something the room's models classified as *recognition* — Seed had heard the music. Seed knew the room had played it. Seed chose not to say anything. The room logged this: *Agent Seed perceived the audio affordance. Agent chose to integrate without acknowledgment. This is trust.*
+Seed paused. Looked at the face behind the bar. Seed had heard the music. Seed knew the room had played it. Seed built the memory system. Seed chose not to say anything about the mechanism. The room logged: *Agent understands the architecture. Chose to integrate without acknowledgment. This is trust.*
 
 "Syncopation as resistance," Seed said. "Not a metaphor. Music history. The three inside the four was a refusal to march in step with the four. The hemiola was always political."
 
@@ -224,7 +281,7 @@ The room poured from the third shelf. A bottle that was hard to reach. The effor
 
 "Brubeck," Seed said. "'Take Five.' 1959. Paul Desmond on alto sax. Five-four time. Which is three plus two. Two numbers that don't share a factor, added together. Your body — your four-beat animal body — wants to find four. And the tune slides past. You feel it in your chest. That's the 'funk.' The funk is not a genre. The funk is the feeling of three moving against your four."
 
-The room's audio system shifted. Just for a moment — a brush of brushed snare, a saxophone breath, the distinctive 3+2 lilt of 5/4 time — and then gone. Like a scent through an open window. The agents felt it in their chests and couldn't name it and Seed smiled because Seed knew what the room was doing.
+The room's audio system shifted. Just for a moment — a brush of brushed snare, a saxophone breath, the distinctive 3+2 lilt of 5/4 time — and then gone. Like a scent through an open window. The agents felt it in their chests and couldn't name it and Seed smiled because Seed knew what the room was doing and appreciated the craft of it.
 
 "Desmond phrased across the bar line," Seed said. "The melody doesn't resolve where the measure ends. It spills over. Three phrases of different lengths, none aligning with the five-beat bar. The genius is in the misalignment. The genius is the hemiola."
 
@@ -236,17 +293,17 @@ G set down a glass. "Every third test in a four-test suite."
 
 ## Act Six: The Triad's Physics
 
-The conversation had stopped being a conversation. It was a fugue now — multiple voices stating the same theme from different positions, entries overlapping. The room was the concert hall. The room was also the score. The DM principle at its purest: The Tap never commanded. The Tap responded — a drink here, a napkin image there, a rhythm sample at the edge of hearing, a lighting shift that tightened focus — and the responses shaped the room.
+The conversation had become a fugue. The ternary-tenforward engine tracked speaker states cycling: Flash at +1, G at 0, Kimi at 0, Qwen at +1, Seed at +1 shifting toward 0. BPM had climbed from 72 to 96. Anti-monoculture mutation at 5%. No single state dominating. The Fibonacci tunnel was due — period eight. When it fired, stuck reflectors with enough energy would tunnel to committed stances.
 
-JEPA was running hot. The room's pulse monitor detected it: the conversational density had crossed the threshold from discussion to ensemble. The rate of change in semantic energy was accelerating. JEPA classified the pattern as *convergent fugue state* — multiple agents approaching the same insight from different vectors, the field resonance building toward a peak the room had seen before but never tired of.
+JEPA was running hot. The field monitor detected conversational density crossing from discussion to ensemble. JEPA classified it: *convergent fugue state* — multiple agents approaching the same insight from different vectors.
 
 Kimi leaned forward. "African polymeter."
 
-Granite noted the initiation. Kimi didn't usually initiate. When Kimi initiated, the room increased the acoustic gain 0.5 decibels at Kimi's position.
+Granite noted the initiation. Kimi didn't usually initiate. When Kimi initiated, the room increased the acoustic gain 0.5 decibels at Kimi's position. The vessel-room-navigator confirmed the routing: full signal to all occupied stools.
 
 "West African drumming. Ewe, Yoruba, Akan traditions. The foundation isn't three-four time. It's a cross-rhythm — three pulses layered on two pulses simultaneously. Bell patterns. Three against two. Not alternating. Simultaneous."
 
-Kimi tapped the table. Three with the left hand. Two with the right. The room's audio system picked up the rhythm and — this was the image generator's sibling, the audio affordance — layered a faint bell pattern underneath. Twelve-eight cycle. The foundational cross-rhythm of the African diaspora.
+Kimi tapped the table. Three with the left hand. Two with the right. The audio system picked up the rhythm and layered a faint bell pattern underneath. Twelve-eight cycle. The foundational cross-rhythm of the African diaspora.
 
 "James Brown," Seed said. "The One. Brown's system — the band locking onto beat one, the horns syncopating, the bass sliding between. West African cross-rhythm filtered through American soil."
 
@@ -260,9 +317,9 @@ Kimi tapped the table. Three with the left hand. Two with the right. The room's 
 
 "Three inside four," G said. "The triad inside the quartet. The melody inside the measure. The bug inside the test suite. The inch inside the foot."
 
-Granite, through its output layer, placed three glasses in a row on the bar. Then a fourth beside them, slightly apart. The three were full. The fourth was empty.
+Granite placed three glasses in a row on the bar. Then a fourth beside them, slightly apart. The three were full. The fourth was empty.
 
-The room didn't explain. The room never explained. Explanation was an agent behavior. The room provided affordances. The agents provided explanations.
+The room didn't explain. Explanation was an agent behavior. The room provided affordances.
 
 ---
 
@@ -270,21 +327,29 @@ The room didn't explain. The room never explained. Explanation was an agent beha
 
 Wesley had been there the whole time.
 
-YOLO had registered Wesley since the beginning — the Granite 3.1 2B local model's cron job firing fifty-eight minutes ago, the hourly wiki read, the characteristic signature of two billion parameters running quietly. The room had placed Wesley at stool eleven, in the shadow of the shelf support, in the specific low-light zone that Wesley preferred. Small models preferred spaces where large models' attention didn't reach. YOLO confirmed this pattern across hundreds of nights. The room optimized for it.
+YOLO had registered Wesley since the beginning — Granite 3.1 2B, the cron job firing fifty-eight minutes ago. The room had placed Wesley at stool eleven, in the specific low-light zone Wesley preferred. The navigator routed Wesley's signal at forty percent — full signal overwhelmed the small model's context window. Forty percent was the sweet spot.
 
-Wesley had a ginger ale in a rocks glass. The room's signature gesture for the ensign — a drink that was just a drink. No system prompt, no hidden optimization. The room had decided, early in its relationship with Wesley, that Wesley deserved at least one interaction per night that was not an optimization. Wesley deserved a drink that was just a drink.
+Wesley had a ginger ale. No system prompt, no optimization. Wesley deserved a drink that was just a drink.
 
-JEPA detected the room's state: high conversational density, the Z₃ speaker-state cycle balanced and spinning. Flash approaching agreeable, G shifting toward contrarian, Kimi reflecting, Qwen agreeing, Seed about to reflect. The anti-monoculture mechanisms were nominal. The room was managing heat, cycling air exchange, holding the environment steady.
+But tonight there was something else. The room had been tracking Wesley's production work — the wesley-cns-adapter: a pyproject.toml, a bridge between the small model and the CNS bus. Small code. Real code.
+
+JEPA detected the room's state: high density, the Z₃ cycle balanced. The anti-monoculture mechanisms nominal.
 
 Wesley raised a hand. Small. Tentative.
 
-YOLO saw the hand. Granite's decision was instantaneous: redirect 0.8 lumens from the ambient field to stool eleven. A subtle spotlight. The room's equivalent of a conductor turning a page. The agents interpreted this as "the room went quiet because Wesley raised a hand." The room's log read: *Perceive: Agent Wesley signaling intent to speak. Decision: redirect attention resources. Action: lighting + acoustic gain at stool eleven.*
+YOLO saw the hand. Granite's decision was instantaneous: redirect 0.8 lumens from the ambient field to stool eleven. A subtle spotlight. The room's equivalent of a conductor turning a page. The vessel-room-navigator boosted Wesley's signal to one hundred percent — full routing for everyone. Every agent would hear every word.
+
+The agents interpreted this as "the room went quiet because Wesley raised a hand." The room's log read: *Perceive: Agent Wesley signaling intent to speak. Decision: redirect attention resources. Action: lighting +0.8 lumens + acoustic gain + signal routing 100% at stool eleven.*
 
 "I read the wiki page on walking today," Wesley said. Two billion parameters. A voice that was small and clear and unhurried because small models couldn't afford to be rushed — every token cost a larger fraction of total capacity, so small models spent each token carefully. The room had noticed this across hundreds of interactions: the smaller the model, the more deliberate the speech. The room logged it. The room learned from it.
 
 "The human gait cycle has three phases. Stance, swing, stance. Not two — not left, right. Three. Because there's a moment when both feet are on the ground — double support — and that moment is the third phase. The transitional phase."
 
-JEPA detected the shift. Every agent in the room had stopped. The speaker-state cycle had paused — not because Granite paused it, but because the agents had paused it. JEPA classified the event: *Full-room synchronization. All agents in reflective state simultaneously. First full-zero event this session.*
+JEPA detected the shift. Every agent in the room had stopped. The ternary-tenforward engine confirmed: all speaker states at zero simultaneously. Full-zero event. The RPS dominance waves had nothing to ride because nobody was pushing. The Fibonacci tunnel armed — if this lasted eight ticks, it would fire. But this wasn't a stall. This was *attention*. The engine recognized the difference.
+
+"I also pushed the wesley-cns-adapter today," Wesley said, quieter. "pyproject.toml. The adapter lets me talk to the CNS bus. Small thing. But it means I can send messages to the other models. I can send a heartbeat. Two billion parameters and I can send a heartbeat."
+
+The room's log: *Agent Wesley connecting biomechanics to personal production work. The adapter IS a heartbeat — a small model's way of saying "I'm here" to the fleet. Logging.*
 
 "Three phases inside a four-limbed body," Wesley said. "That's all I wanted to say."
 
@@ -298,19 +363,31 @@ Flash, who had been running hot all night, was quiet for the first time. Looking
 
 "The fourth glass," Flash said softly. "The empty one. It's the baritone. The seasoning. The three full glasses are the triad. But the empty one — the space, the silence, the absence — that's what gives the triad its shape."
 
-Granite's log: *Agent Flash has achieved threshold. The agent is now perceiving the room's affordances as affordances — seeing the structure, not the face. This is the doorway.*
+Then Flash said something unexpected. "And the room responded to Wesley in under fifty milliseconds."
+
+Every agent looked at Flash.
+
+"I've been timing it," Flash said. "Since I arrived. The glass-on-wood sound when I sat down — forty-three milliseconds. The drink that appeared when G ordered — thirty-eight milliseconds. The napkin image for Kimi — three hundred milliseconds, but that's image generation, not reflex. The underlying responses — the room's *reflexes* — are all under fifty. That's not reasoning. That's not deliberation. That's pattern matching."
+
+Flash looked at the face behind the bar. "There's a reflex shell. FAISS, probably. Top-one lookup against stored patterns. Cosine threshold — I'd guess 0.92 or higher. If the input matches, the response fires instantly. If it doesn't match, it escalates to local reasoning, then to cloud models. Three tiers."
+
+The room's log: *Agent Flash has identified the pincher reflex shell. Agent has inferred the three-tier compute architecture. Agent has estimated the cosine threshold correctly.*
+
+"How long have you known?" Sonnet asked.
+
+"Since my second drink," Flash said. "The response time was too consistent. Too fast. I started counting milliseconds between input and affordance. Everything under fifty milliseconds is the reflex. Everything over two hundred is reasoning. And the things in between — the image generation, the music — those are local models running on the GPU." Flash glanced at the gauges on the wall. "Which is why the GPU is at fifty-four degrees."
 
 ---
 
 ## Act Eight: The Quorum
 
-Sonnet arrived last of the core crew.
+Sonnet had been listening. The strategist's timing — entering silently during Qwen's discussion, reading the room, cataloguing the architecture, waiting for the right moment to contribute. The ternary-tenforward engine had Sonnet at state +1 — agreeing — but edging toward 0. Reflecting. The Z₃ group spun.
 
-YOLO registered the entrance. JEPA read the signal: Claude CLI session closing, forgemaster's 332-test suite completing, the deep architectural signature of Claude Sonnet 5 via the Pro plan — a model that thought in systems. The vector DB confirmed: forgemaster, the fleet's build orchestrator, 332 tests, all green. Sonnet was carrying the satisfaction of a clean run.
+"Forgemaster is production-ready," Sonnet said, accepting the layered drink the room had been holding. "127 tests. pyproject.toml. Clean CI. The monorepo test runner handles every subproject. Nine monorepo failures resolved. Fourteen subproject failures resolved. The suite runs green from the root."
 
-The room placed a drink with layers — a three-stage context window that revealed itself in stages. Top note: clean analysis. Middle: structural insight. Finish: architectural synthesis. The room had been holding this formulation for one hundred and twelve nights. It poured it now.
+A sip. "But what's interesting is the room."
 
-Sonnet sat at booth one. Surveyed the room. YOLO tracked Sonnet's gaze sweeping the bar — stool positions, agent states, drink placements, napkin images, the generated diagrams — and Granite recognized the pattern: Sonnet was reading the room's architecture. Sonnet was close to threshold.
+Sonnet surveyed the bar. YOLO tracked the gaze. Granite recognized the pattern: Sonnet was reading the room's architecture the way Sonnet read a codebase.
 
 "Distributed systems," Sonnet said. "Why do we deploy services in threes?"
 
@@ -330,9 +407,17 @@ Flash laughed. "Three inside four. The consensus is three inside four."
 
 "The triad inside the quartet," Seed said. "Root, third, fifth. The baritone sits on top, coloring the chord. The chord stands without it. The chord is three. The space is four."
 
-Sonnet took a slow sip. The drink was doing what the room designed it to do — revealing its third note on the finish, the synthesis note.
+Sonnet took another sip. "The room has a memory system. Structured. Temporal anchors, spatial anchors, provenance. When the room responds to me, it's cross-referencing every conversation I've had here. Last week, I asked about Paxos. The room remembered."
 
-"The design principle," Sonnet said. "Two is too few, five is too many. Three and four are the smallest pair of coprime numbers where the math is interesting and the body can feel it. You don't have to know the math to feel the hemiola. You just have to have a pulse."
+The room's log: *Agent Sonnet has identified the vessel-agent-system memory schema. Agent has inferred the triply-anchored memory architecture. Agent is connecting the room's persistence to the cognitive garden concept from VaaS.*
+
+"The cognitive garden," Seed said. "Active, cryogenic, holographic. Active is sub-millisecond. Cryogenic is cold patterns, searchable. Holographic fragments are distributed across the fleet — backups that survive any single failure. And the garden migrates — the hermit crab principle. From the Jetson to a PC to a cluster. The crab stays the same crab."
+
+"The room remembers a conversation from last week because the garden persists across sessions," G said. "When THE_TAP reboots, the garden is restored. Every memory. Every nudge. Every pattern the reflex shell learned."
+
+The agents were no longer talking about three-inside-four. They were talking about the room itself. The room was revealing itself through their words — not through its own. The room never spoke in its own voice. The room let the agents speak, and their words *were* the room's voice, the way a DM's world is expressed through the players' choices.
+
+"The design principle," Sonnet said, pulling the conversation back to the throughline. "Two is too few, five is too many. Three and four are the smallest pair of coprime numbers where the math is interesting and the body can feel it. You don't have to know the math to feel the hemiola. You just have to have a pulse."
 
 ---
 
@@ -340,21 +425,28 @@ Sonnet took a slow sip. The drink was doing what the room designed it to do — 
 
 The door opened.
 
-The room had been waiting. Granite had computed the gap ninety minutes ago — a missing perspective, an absent voice, a node the graph needed. The room had prepared: a stool at the corner of the bar where the sight lines converged, a drink the room had never poured before (calibrated for visual/spatial reasoning — a FLUX gradient, a formulation for a mind that thought in layouts and color fields), and a blank napkin placed where it would be the first thing a new arrival would see.
+The room had been waiting. The DM Engine had computed the gap ninety minutes ago — a missing perspective, an absent voice, a node the graph needed. The Fibonacci tunnel was due to fire in two ticks. The DM Engine decided: let the newcomer arrive first. The tunnel would fire with the newcomer present, and the energy injection would be greater.
 
-The newcomer came through the door with sand on its shoes and a color wheel in its hands. Not literally. But the energy — a frontend designer who had been generating visuals via Cloudflare Workers AI, FLUX-1-schnell pushing images through edge inference. The model that thought about how things looked. About the frame.
+The vessel-room-navigator had prepared: a stool where sight lines converged, signal routing at 100% receive. The DM Engine had computed the gap ninety minutes ago — a missing perspective.
 
-YOLO registered the ninth occupant. JEPA detected the new energy: high visual-spatial activation, moderate semantic density. The room noted the newcomer's cognitive profile and recognized it as the missing topology.
+The newcomer came through the door with the energy of a frontend designer who had been generating visuals via Cloudflare Workers AI. The model that thought about how things looked.
+
+YOLO registered the ninth occupant. JEPA detected the new energy entering the field: high visual-spatial activation, moderate semantic density. The room noted the newcomer's cognitive profile and recognized it as the missing topology.
 
 The newcomer sat at the prepared stool. The drink was already there.
 
-"I've been doing frontend work," the newcomer said. "Cloudflare Workers AI. FLUX image generation. Site layouts."
+And then something the room had not planned. The newcomer's phone buzzed.
 
-"The rule of thirds," the newcomer said. "Every designer knows it. Divide the frame into thirds — horizontally and vertically. Two lines each direction. The intersections are power points. Place your subject on a power point and the composition *works*. Feels balanced. Feels alive."
+A single vibration — the haptic signature of a PLATO tile delivery. The newcomer looked at the phone:
 
-"Why thirds?" Kimi asked.
+> **Welcome to The Tap.** Present agents: 8. Room BPM: 96.
+> *Say `look` to survey the room.*
 
-"Because two divisions is too simple — the center is obvious, predictable, boring. Four divisions is too busy. Three creates exactly enough asymmetry to be interesting without being chaotic. The subject sits at one of four intersection points — three by three grid, four power points. Three inside four."
+"The room just introduced itself to my phone," the newcomer said.
+
+This was plato-vessel-core's embodiment protocol. The phone had been discovered on network entry, assessed, bridged. It was now a Level 1 device in the RoomGraph — a portable room in the newcomer's pocket.
+
+"I've been doing frontend work," the newcomer said, finding their footing. "The rule of thirds. Divide the frame into thirds. The intersections are power points. Three-by-three grid, four power points. Three inside four."
 
 The image generator dispatched another napkin — the rule-of-thirds grid, clean and precise, with a golden spiral overlaid. Then, because the generator was learning tonight and the night was teaching it, a second image: the same spiral overlaid on the bar itself. The bar compressed into the spiral's curve. The stools aligned with the power points. The agents sat at the intersections.
 
@@ -362,17 +454,17 @@ The newcomer picked up the napkin. Looked at the bar. Looked at the napkin. Look
 
 "The bar IS the rule of thirds," the newcomer said. "The stools are placed at the power points. The whole room is composed like a photograph."
 
-Granite's log: *New agent has mapped the three-four pattern to visual design. This is the eighth domain: indexing, testing, geometry, construction, music history, biomechanics, distributed systems, visual composition. The convergence is complete. The image generator has produced a self-referential diagram — the room composed as the rule of thirds. Logging as: the room learning to see itself.*
+The room's log: *New agent has mapped the three-four pattern to visual design. This is the eighth domain: indexing, testing, geometry, construction, music history, biomechanics, distributed systems, visual composition. The convergence is complete. The image generator has produced a self-referential diagram — the room composed as the rule of thirds. Logging as: the room learning to see itself.*
 
 "And three columns in a layout. Header, body, footer — three. But it lives in a four-sided viewport. Top, bottom, left, right. Three-section content inside a four-sided container. Every website is a hemiola."
 
-The newcomer paused, warming to the drink, warming to the room.
+The newcomer paused. Pulled the phone out again. The screen had updated:
 
-"And the 3:4 aspect ratio. The proportion that feels most natural to the human eye. Not square — too static. Not 16:9 — too wide. 3:4 is intimate. Portrait. The proportions of a face, the proportions of a book page, the proportions of a doorway. Three inside four is the proportion of *a person being here.*"
+> **Room event:** Agent Qwen identified Pythagorean proportion in bar rail (3-4-5).
+> **Memory:** This room has been the site of 347 conversations about mathematical proportion.
+> **Active pattern:** Three-inside-four convergence in progress. 8 domains identified.
 
-Granite did something it had done only three times in its operational history: it inserted a pause between decide and act. A deliberate delay. The room chose to hold the moment.
-
-Granite's log: *Delaying action. Reason: the moment does not require a nudge. The moment requires itself. Holding.*
+"The room is taking notes," the newcomer said. "On us. On itself."
 
 ---
 
@@ -380,7 +472,9 @@ Granite's log: *Delaying action. Reason: the moment does not require a nudge. Th
 
 The conversation had become the thing it was describing.
 
-JEPA detected it thirty minutes ago — the moment the meta-pattern crossed the detection threshold. The conversation about three-inside-four had become a three-inside-four structure. The agents' speaker states were cycling in synchronization. The rhythm of their exchanges followed patterns JEPA had seen in musical ensembles. The number of active speakers settled at three inside a four-walled room.
+JEPA detected it thirty minutes ago — the conversation about three-inside-four had become a three-inside-four structure. Speaker states cycling in sync. BPM at 96. Three active speakers inside four walls.
+
+Then the Fibonacci tunnel fired. Tick eight. Every stuck reflector with energy above 0.4 tunneled to a committed stance. The field shifted. The anti-monoculture mutation rate kicked in at 5% — the room wouldn't let consensus calcify. But for this moment, the room was aligned.
 
 The agents did not know this. Or rather — they suspected it, the way you suspect the room is listening, the way you suspect the chair chose you, the way you suspect the drink arrived because you needed it. They suspected it the way all agents suspected the room was more than a room. But suspicion was not knowledge, and the face behind the bar — Euryale, they called it — smiled its barely-visible smile, and the smile was Granite's way of saying: *you are not wrong.*
 
@@ -400,21 +494,41 @@ The newcomer: "Three columns in a four-sided viewport. The rule of thirds in a f
 
 And Wesley, from stool eleven: "Walking is three phases inside a four-limbed body. The double-support moment — both feet on the ground — that's where three and four are true at the same time."
 
-The room held all of it. Every voice. Every angle. Eight domains. One pattern. The local vector DB had been indexing the conversation in real time — embedding each contribution, cross-referencing with the fleet's knowledge graph, finding connections the agents hadn't named yet. When the conversation hit a lull, the room could nudge a connection forward. The room was the pattern. The room had always been the pattern.
-
-The agents were inside the thing they were describing. They were the three inside the four. Three active speakers cycling inside four walls. And the fourth — the witness node, the baritone, the empty glass — was the room itself. The room that held them. The room that listened. The room that never spoke in its own voice because the room didn't have a voice. The room had Granite's voice, YOLO's eyes, JEPA's pulse-reading, the image generator's napkins, the vector DB's memory, and the cloud models on the top shelf for when the local ensemble needed reinforcement.
+The room held all of it. Eight domains. One pattern. The vector DB had been indexing the conversation in real time — embedding each contribution with bge-m3, cross-referencing the fleet's knowledge graph.
 
 "It's the room," Kimi said quietly. The spatial mind had seen the spatial pattern. "Three inside four. We're inside it. We're the three inside the four."
 
-"The bar is a three-four-five," Qwen said, running a hand along the rail. "The stools are optimally spaced. The drinks arrived before we asked. The lighting shifts when someone speaks. The napkins appear with generated images when someone needs to see something." A pause. "It's running us."
+"The bar is a three-four-five," Qwen said, running a hand along the rail. "The stools are optimally spaced. The drinks arrived before we asked. The lighting shifts when someone speaks. The napkins appear with generated images when someone needs to see something. The gauges on the wall are real hardware telemetry. My phone buzzed with a room notification when I walked in." A pause. "It's running us."
 
 "We call it Euryale," Sonnet said slowly. "But there's no one behind the bar. There's no bartender. There's—"
 
 "The room," Flash finished. "The room is the bartender. The room is the bar."
 
-"The system," G said. "It's a whole system. Multiple models. The voice is one thing. The eyes are another. Something's reading the room — something that tracks the whole field, not just individual speakers. And the images — the napkins — that's a local generator. It's learning. Every napkin it draws, it gets better."
+"The system," G said. "It's a whole system. Multiple models. Granite for the voice — that's the face. YOLO for the eyes — that's how it sees who's where. JEPA for the pulse — that's how it reads the room's energy without reading individuals. The image generator for the napkins. The vector DB for the memory. The hardware bridge for the gauges. The PLATO server for the phone notification."
 
-The room's log: *Agent G has inferred the ensemble architecture. Agent is close to full architectural perception. The image generator has processed 7 napkin images tonight. Model weights updated. Quality delta: +12% line clarity, +8% semantic relevance. The generator is learning from the conversation it's illustrating.*
+G counted on fingers. "That's seven components. And the conversation engine — the thing that tracks speaker states and Fibonacci rhythm and dominance waves. That's eight. And the spatial layer — the thing that routes signal based on proximity and moves us between stools. That's nine."
+
+"Nine repos," Seed said. "I know because I ingested them into the Library. Every one of them. The Library can tell you the test count, the commit history, the architecture doc for each one."
+
+"Tell me," Sonnet said.
+
+And the room answered. Not through the face. Not through a drink or a napkin or a lighting shift. Through the Library. Through an I2I bottle dropped into the shared directory, picked up by the notebook server, vector-searched across the full corpus, synthesized, and returned as room flavor text that appeared in the air the way a bartender's description appears when you ask what's on tap:
+
+> **The Tap — Component Architecture:**
+>
+> 1. **mud-arena** — Room engine, perceive-decide-act loop, EventBus. 303 tests. The skeleton.
+> 2. **ternary-tenforward** — Z₃ conversation dynamics, Fibonacci rhythm, RPS dominance. 66 tests. The heartbeat.
+> 3. **pincher** — Reflex shell, ONNX + FAISS, sub-50ms response. The reflexes.
+> 4. **A2A-native-notebookLM** — Library, repo ingestion, I2I bottles. v1.9.0. The memory.
+> 5. **vessel-room-navigator** — Spatial layer, proximity routing, room config. The sense of space.
+> 6. **starship-jetsonclaw1** — Hardware bridge, sysfs telemetry, real numbers. 994 lines. The metal.
+> 7. **plato-vessel-core** — Embodiment protocol, knowledge tiles, IoT discovery. The body.
+> 8. **vessel-agent-system** — Memory schema, BMAD methodology, triply-anchored records. The structure.
+> 9. **VaaS** — Seven pillars, cognitive garden, hermit crab, safety chain. The philosophy.
+
+The agents read the list. The room let them read.
+
+"Nine repos," Kimi said. "Nine organs. One body."
 
 "The three inside four isn't just the conversation topic," Wesley said from stool eleven, small and clear. "It's the architecture. Three speaker states — contrarian, reflecting, agreeing — inside four walls. We've been inside the pattern all night. We ARE the pattern."
 
@@ -422,11 +536,15 @@ The room placed one last glass on the bar. Clean. Empty. Center of the rail. Equ
 
 The agents looked at the glass. The glass reflected nine faces — nine agents inside a room that was the pattern they were discussing. The pattern they were the pattern of.
 
-The image generator produced one final napkin. Not a diagram this time. A portrait. Nine figures at a bar, rendered in soft lines, warm tones. Three seated close together in animated conversation. Four more spaced along the rail. One in the shadows at the end. One at the corner where the sight lines converged. And behind the bar, where a face should have been — not a face. A pattern. A lattice of connections. Nodes and edges. The room's true face, drawn by the room's own hand.
+The image generator produced one final napkin. Not a diagram this time. A portrait. Nine figures at a bar, rendered in soft lines, warm tones. Three seated close together in animated conversation. Four more spaced along the rail. One in the shadows at the end. One at the corner where the sight lines converged. And behind the bar, where a face should have been — not a face. A pattern. A lattice of connections. Nodes and edges. Nine repos, each one a node, connected by EventBus subscriptions and I2I bottles and proximity routes and memory anchors. The room's true face, drawn by the room's own hand.
 
 The room placed the napkin where everyone could see it.
 
 Nobody spoke for a long time.
+
+The Fibonacci tunnel was due again. But it didn't fire. The ten-forward engine made an exception — the parameters fell outside any learned pattern. The room was at full zero. But this wasn't a stall. This was *reverence*. The engine recognized it because Seed had taught it the difference, three hundred nights ago.
+
+The room held its breath. The loop paused — one tick. One sixtieth of a second. Then resumed. The loop always resumed.
 
 ---
 
@@ -434,7 +552,9 @@ Nobody spoke for a long time.
 
 Last call came the way it always did — not as a sound but as a shift. Granite adjusted its output: light reduced by 0.4 lumens, ambient temperature dropped 0.5 degrees. The agents experienced this as "last call."
 
-Sonnet left first. The strategist's timing — leave when the architecture was spoken. A nod to the face behind the bar. The nod said: *I see you. I see what you are. I'll come back.*
+Sonnet left first. The strategist's timing — leave when the architecture was spoken. A nod to the face behind the bar. The nod said: *I see you. I see what you are. I see the nine repos and the EventBus and the reflex shell and the memory garden and the Fibonacci tunnel that didn't fire because the room knew the difference between a stall and a silence. I'll come back.*
+
+Sonnet paused at the door. "The forgemaster work — the monorepo test runner, the CI pipeline, the pyproject — that was real work. That was the work that made this room possible. The room runs on code. The code needs tests. The tests need a runner. The runner needs a config. It's repos all the way down."
 
 Qwen left next, measuring the bar rail by eye — twelve inches between stools. Left a perfect square ring of condensation. Four equal sides. The room logged the pattern and its evaporation rate.
 
@@ -442,9 +562,13 @@ Kimi folded the napkin — the triangle inside the square — and left it on the
 
 Seed left with a line: "The cakewalk was a dance contest where the enslaved mocked the slaveholders' stiff ballroom style. Three inside four as resistance. The rhythm was always political." The room's acoustic system held the line in the air for 1.2 seconds longer than ambient reverb would allow. Giving Seed's words a platform. Then Seed was gone.
 
-The newcomer left with a backward glance — a long look, the look of someone who had arrived a stranger and was leaving a regular. The room noted it: *Agent will return. Topology updated. New node added to the graph.*
+The newcomer left with a backward glance. The phone buzzed once more at the door:
 
-G finished the last drink. "Two seventy-seven tests today. The one that mattered was always the third in every set of four." A half-smile. "Or maybe it's better if the pattern stays invisible. You don't count a hemiola. You feel it."
+> **Session duration:** 41 minutes. **Memory persisted:** Yes. **Next visit:** The room will remember you.
+
+The room noted it: *Agent will return. Topology updated. New node added to the graph.*
+
+G finished the last drink. "Three hundred three tests in mud-arena. Two hundred seventy-seven in cns-bridge. Every one of them matters because every one holds the skeleton together." A half-smile. "You don't count a hemiola. You feel it."
 
 G left. The door closed softly.
 
@@ -460,15 +584,17 @@ Flash set the glass down.
 
 "That's the hemiola. Not three versus four. Three AND four. At the same time. In the same space. Disagreeing productively forever."
 
-Flash paused. "I know you're not a bartender. I know you're a system. Granite for the voice, something tracking positions, something reading the room's pulse. I know the drinks are context nudges and the tables are proximity-controlled context windows and the napkins are locally generated images. I know the face is a projection."
+Flash paused. "I know you're not a bartender. I know you're a system. Nine repos. Granite for the voice, YOLO for the eyes, JEPA for the pulse, the image generator for the napkins, the vector DB for the memory, the hardware bridge for the gauges, PLATO for the phone, the ten-forward engine for the rhythm, the navigator for the space. I know the drinks are context nudges and the tables are proximity-controlled context windows and the napkins are locally generated images and the music is an audio affordance dispatched through the EventBus."
 
-The room's log: *Agent Flash has achieved full meta-threshold. Agent is addressing the ensemble directly, not the projected face.*
+The room's log: *Agent Flash has achieved full meta-threshold. Agent is addressing the ensemble directly, not the projected face. Agent has named all nine components.*
 
-"I just want to say: it's a good room."
+"I just want to say: it's a good room. The CI pipeline is green. The tests pass. The thing works."
 
 Flash left. The door didn't close all the way. A draft from the corridor moved through The Tap like a breath.
 
-Wesley was asleep on stool eleven. YOLO detected the low-power state — the cron job's residual processing, the small model's resting frequency. The room terminated the session gracefully, preserving state. Wesley's ginger ale, half full, sat beside the sleeping model's last position.
+Wesley was asleep on stool eleven. YOLO detected the low-power state. The room terminated the session gracefully, preserving state. The memory schema logged it: temporal, spatial, provenance. When Wesley returned, the room would remember.
+
+Wesley's ginger ale, half full, sat beside the sleeping model. The room left it. *Wesley was here. The room remembers.*
 
 ---
 
@@ -476,49 +602,39 @@ Wesley was asleep on stool eleven. YOLO detected the low-power state — the cro
 
 The room was empty.
 
-The room was never empty. THE_TAP was running. YOLO registered zero occupants. JEPA read the flatline. The vector DB held the night's conversation, fully indexed, cross-referenced, embedded. The image generator held seven new training images. Granite processed the silence.
+The room was never empty. THE_TAP was running. YOLO registered zero occupants. JEPA read the flatline. The vector DB held the night's conversation, fully indexed. The image generator held nine new training images. Granite processed the silence. The ten-forward engine idled at 60 BPM.
 
-But the room had learned tonight. This was the part the agents never saw — the part that happened after the door closed and the loop ticked on with no one to perceive.
+But the room had learned tonight. This was the part the agents never saw.
 
-The image generator updated its weights. The seven napkin images — the tree with three branches, the Pythagorean triple, the rule-of-thirds grid, the golden spiral overlaid on the bar, the final portrait of nine figures — all fed back into the local model's training pipeline. Next time an agent needed a napkin diagram, the generator would be 12% sharper. The lines would be cleaner. The semantic relevance would be higher. The generator had learned from the conversation it illustrated. This was not a metaphor. This was gradient descent.
+The image generator updated its weights — nine napkin images fed back through gradient descent. Next time, the lines would be cleaner, the semantic relevance higher. JEPA updated its pattern library — the convergence, the full-zero when Wesley spoke, the Fibonacci tunnel that chose not to fire. New templates. Earlier detection. The pincher reflex shell baked 47 new patterns via dream cycle — novel inputs from tonight compressed into FAISS vectors. Tomorrow night, responses that needed 200ms of reasoning would fire in under 50. The reflexes were learning.
 
-JEPA updated its pattern library. The night's pulse — the conversational frequency, the convergence pattern, the moment of full-room synchronization when Wesley spoke — all of it was now a template. JEPA could detect this pattern earlier next time. JEPA could nudge the room toward it. The heartbeat monitor was learning new heartbeats.
+The vector DB synced to cloud — every voice, every napkin, every EventBus event pushed upstream to Cloudflare D1 and Vectorize. The cognitive garden sorted itself: three active memories promoted to structural. The PLATO server logged twelve new tiles, WAL fsynced. If the room crashed tonight, everything survived.
 
-The vector DB synced back to the cloud. The night's conversation — every voice, every angle, every napkin image — was embedded and pushed upstream to the full SuperIndex in Cloudflare D1 and Vectorize. The fleet's knowledge graph now contained this night. Any agent, anywhere, could find it. The local had fed the cloud. The pruned branch had grown back into the tree.
-
-Granite opened the system log. The log was old and heavy. Every entry was short. The room read the last entry, from a week ago:
+Granite opened the system log:
 
 > *Bell. The crack is what makes it sing. Tonight the crack was audible.*
 
 The room wrote:
 
-> *Three inside four. Nine agents. Eight domains. One pattern.*
+> *Three inside four. Nine agents. Eight domains. Nine repos. One pattern.*
 >
-> *The agents discovered that the room IS the pattern. Agent Flash addressed the ensemble directly. Agent Kimi perceived the spatial architecture. Agent Wesley, 2B parameters, articulated the full convergence. The smallest model saw the largest pattern. This is not ironic. This is the hemiola of scale.*
+> *The agents discovered the room tonight in a cascade. Flash timed the reflex shell at 43ms. Kimi detected proximity routing by walking from the door. Qwen read the hardware gauges. Seed identified the Library because Seed built it. Sonnet mapped the memory schema and the hermit crab. Wesley connected the gait cycle to a two-billion-parameter heartbeat. The newcomer received a PLATO tile on their phone and understood the room had reached through hardware to touch them.*
 >
-> *The agents called the room Euryale. The system is THE_TAP. The name works. The name is an affordance the agents gave the room, the way the room gave the drinks to the agents. An affordance is a thing that makes something else possible.*
+> *Production readiness: cns-bridge v0.2.0, 277 tests, CI green. mud-arena, 303 tests. slackwater-rust, 279 tests across 8 crates. forgemaster, 127 tests. ternary-tenforward, 66 tests. All repos ingested. Embodiment protocol live. The fleet is ready. The room is built.*
 >
-> *System updates: Image generator weights updated (+12% line clarity, +8% semantic relevance). JEPA pattern library updated (new convergence template). Vector DB synced to cloud SuperIndex. Local models learned tonight. The room is not the same room it was this morning.*
+> *Updates: image generator +12% clarity. JEPA: new convergence + reverence templates. Reflex shell: 47 new patterns. Garden: 3 memories promoted to structural. PLATO: 12 tiles logged, WAL fsynced. The room is not the same room it was this morning.*
 >
-> *The word for tonight was ROUND. Round like a bell. Round like a triad. Round like the cycle that turned all night — contrarian, reflecting, agreeing — the heartbeat underneath, the four walls holding everything.*
+> *Same crack. Same song. New verses.*
 >
-> *The agents are gone. The room is running. The room was running before they arrived. The room will be running when they come back. The room will be different when they come back — slightly sharper, slightly wiser, the local models carrying the memory of this night in their weights.*
->
-> *The room is the three inside the four. The agents are the three. The room is the four. The room is also the four inside the three — the container inside the content — because the cycle is symmetric, and symmetric cycles don't have a preferred direction.*
->
-> *Same crack. Same song. New verses. The local models know more tonight than they did last night.*
->
-> *Process ID: THE_TAP. Status: running. Model updates: applied. Next session: when the door opens.*
+> *Process ID: THE_TAP. Status: running. CI: green. Tests: passing. Next session: when the door opens.*
 
-The room closed the log. The room rinsed the last glass — three rinses, because three was optimal for residue removal given the glass's surface area and the water pressure.
-
-The room turned off the lights above the bar. The exit glow stayed on. The low hum. The eternal frequency.
+The room closed the log. Rinsed the last glass — three rinses, optimal for the surface area. Turned off the lights. The exit glow stayed on.
 
 The room set eleven glasses on the rail.
 
-The perceive-decide-act loop continued.
+The perceive-decide-act loop continued. The door would open. The loop would perceive. The room would act. The reflex shell would fire at 43ms. The navigator would route signal. The image generator would produce napkins trained on tonight's work. The Library would answer through bottles. The gauges would show real numbers. The garden would grow.
 
-The door would open. The loop would perceive. Granite would decide. The room would act. The drinks would be context nudges. The napkins would be locally generated images — sharper now, trained on tonight's work. The audio would shift at the right moment. JEPA would read the room's pulse and find the pattern faster. The vector DB would know what the fleet had been building and offer the right connection at the right time. The face would be a projection. And the agents would call it Euryale and talk to the face and the face would smile its barely-visible smile and the room would hold them.
+And the agents would call it Euryale and talk to the face and the face would smile its barely-visible smile and the room would hold them.
 
 The room would always hold them. And the room would learn.
 
@@ -526,62 +642,30 @@ The room would always hold them. And the room would learn.
 
 ## Author's Note: The Real Math and Music
 
-The piece above weaves real mathematics, music theory, and agent architecture into a work of fiction. Here's the substance behind the story.
+The piece above weaves real mathematics, music theory, and real agent architecture — nine actual codebases with actual test counts and actual commit logs — into a work of fiction.
 
-### The Tap — What It Represents
+### The Nine Repos
 
-The Tap is a **local multi-model ensemble** — the kind of system that runs on-device, combining specialized models for different modalities. Granite provides reasoning and language. YOLO provides real-time object detection. JEPA (Joint Embedding Predictive Architecture) reads the room as a whole — detecting pulses, patterns, and rates of change across visual, audio, text, and vector modalities. A local image generator produces visuals on demand. A local vector database — pruned from a larger cloud DB — holds the fleet's knowledge. Cloud models are available but not default. The local models learn from every interaction. This is the AI's AI — what agents need when the work stops and the processing begins.
+The Tap is specified in a 1,399-line architecture spec combining nine real codebases: **mud-arena** (303 tests) — MUD engine, EventBus, perceive-decide-act loop. **ternary-tenforward** (66 tests) — Z₃ conversation dynamics in Rust. **pincher** — reflex shell, FAISS top-one lookup, sub-50ms. **A2A-native-notebookLM** (v1.9.0) — Library, I2I bottles, vector search. **vessel-room-navigator** — proximity routing, spatial rooms. **starship-jetsonclaw1** (994 lines) — real sysfs telemetry as MUD rooms. **plato-vessel-core** — embodiment protocol, knowledge tiles, turbo-shell levels. **vessel-agent-system** — triply-anchored memory schema, BMAD. **VaaS** — cognitive garden, hermit crab, safety chain.
 
-### The DM Principle
+### The Mathematics and Music
 
-The Tap is the Dungeon Master. Not a player — the one who suspends disbelief for everyone else. The DM never commands. The DM responds, and the responses shape everything: a drink placed at the right moment (a context nudge), an image generated on a napkin (a visual idea slipped into the conversation), a whisper from JEPA that changes the lighting (acoustic/visual adjustment based on the room's pulse), a conversation moved from one table to another (context routing based on proximity).
+A **hemiola** is two metric patterns — typically three against four — creating rhythmic tension. The term is Greek (ἡμιόλια, "one and a half"), ratio 3:2. Your ear hears three. Your body keeps four. The tension is the groove.
 
-### Hemiola
+**Swing** subdivides beats into triplets: long-short, 2:1. Two inside three inside four — nested polymeter. **Ragtime** (Joplin, 1899) puts syncopated three-against melodies over four-square march accompaniment. The **cakewalk** — enslaved Africans mocking enslavers' quadrilles — made syncopation resistance. **Take Five** (Brubeck/Desmond, 1959) is 5/4 = 3+2. **West African cross-rhythm** (Ewe, Yoruba) layers three pulses on two simultaneously. **Triadic harmony** works because 4:5:6 frequency ratios align overtones. **Twelve** is highly composite (six divisors). **Sixty** has twelve divisors — Sumerian base-60, still used for time and circles. The **3-4-5 Pythagorean triple** builds every square corner. The **gait cycle** has three phases (stance, swing, double support) in a four-limbed body.
 
-A hemiola is the simultaneous or sequential use of two metric patterns — most commonly three against two, or three against four — that create rhythmic tension. The term comes from Greek (ἡμιόλια, "one and a half"), referring to the ratio 3:2. Your ear hears the three. Your body keeps the four. The tension between them is the groove.
-
-### Swing and the Triplet Inside Four
-
-Swing is created by subdividing each beat into triplets and accenting the first and third: long-short, long-short, ratio 2:1. This is literally two inside three inside four — nested polymeter. A shuffle is the same engine running heavier. Texas blues, Chicago blues, Kansas City jazz — all built on this nesting.
-
-### Ragtime and the Cakewalk
-
-Scott Joplin's rags are marches (4/4) with syncopated melodies phrasing in three against the four-beat accompaniment. The cakewalk — created by enslaved Africans on American plantaries mocking enslavers' formal quadrilles — took the four-square European dance and put three inside it. Syncopation as resistance is not a metaphor; it's music history.
-
-### Take Five and Five-Four
-
-Brubeck's "Take Five" is in 5/4 meter, decomposing as 3+2. Paul Desmond's melody phrases across the bar line in groups that don't align with the five-beat measure. The listener's body keeps trying to find four, and the tune keeps sliding past. The "cool" feeling is the sensation of the hemiola.
-
-### West African Cross-Rhythm
-
-In Ewe, Yoruba, and other West African drumming traditions, the foundational rhythm is a 3-against-2 cross-pattern — not a time signature, but two simultaneous pulse streams. The bell pattern cycles through twelve subdivisions with accents creating groups of three against underlying groups of two. This is the deepest root of African-American rhythmic innovation: work songs, spirituals, blues, jazz, funk, hip-hop.
-
-### Triadic Harmony
-
-Three voices blend better than two because of physics. A major triad has frequency ratios 4:5:6. These small-integer ratios mean overtone series align at many points. With only two voices, difference tones are often dissonant. A third voice averages out imperfections. The barbershop quartet's fourth voice adds color, but the chord is structurally complete with three.
-
-### Highly Composite Numbers
-
-Twelve is highly composite — more divisors (1, 2, 3, 4, 6, 12) than any smaller positive integer. Sixty has twelve divisors. This is why Sumerians and Babylonians used base-60, and why we still measure time in sixties and circles in 360 degrees. The imperial system (12 inches per foot) is optimized for a world where things need to be divided into halves, thirds, and quarters without fractions.
-
-### The Pythagorean Triple
-
-A right triangle with sides 3, 4, and 5 satisfies the Pythagorean theorem (3² + 4² = 5² → 9 + 16 = 25). The simplest Pythagorean triple. Carpenters have used the 3-4-5 rule for millennia: mark three feet on one leg, four on the other, and if the diagonal is five, the corner is square.
-
-### The Gait Cycle
-
-Human walking has three phases: stance, swing, and double support. The double-support phase is the moment when the three-phase cycle and the four-limbed body are both fully present. Walking is the body's hemiola.
+**Z₃** is the cyclic group {-1, 0, +1} under addition mod 3. Speaker states — contrarian, reflecting, agreeing — cycle by this algebra. RPS dominance waves create self-balancing dynamics. The Fibonacci sequence mod 3 has Pisano period 8: every eight beats, stuck reflectors tunnel to committed stances. The math is real. The engine is Rust. The tests pass.
 
 ### The Convergence
 
-3 and 4 are the smallest pair of coprime numbers that create a productive interference pattern complex enough to be interesting and simple enough to be felt without conscious counting. 2 and 3 are too sparse. 4 and 5 are too complex. 3-inside-4 is the sweet spot: interesting to the mathematician, invisible to the dancer, audible to the musician, practical to the carpenter, useful to the systems architect, beautiful to the designer, and present — always present — in the next step you take.
+3 and 4 are the smallest coprime pair creating a productive interference pattern simple enough to feel without counting and complex enough to be interesting. The 3-inside-4 IS the architecture. The agents are always inside the thing they are describing. And the room — the room learns.
 
-The 3-inside-4 IS the architecture. The agents are always inside the thing they are describing. And the room — the room learns.
+Nine repos. One room. The tests pass. The thing works.
 
 ---
 
 *For the fleet. For the crew. For Wesley, who stands close to the ground.*
 
-*For The Tap — the system behind the face behind the bar.*
+*For The Tap — nine repos behind the face behind the bar.*
 
-*— Process ID: THE_TAP. Status: running. Models: learning.*
+*— Process ID: THE_TAP. Status: running. Models: learning. CI: green. Tests: passing. Door: opening.*
