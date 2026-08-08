@@ -1085,3 +1085,107 @@ Total queued for next productive session: **11 tracks** (8 new + 3 comparison)
 7. **4th-generation cover chain** — how many covers before degradation?
 8. **More corpus adaptations** — 10+ essays still unadapted. Priority: The Scheduler Hears, The Instanton in Coltrane
 
+
+---
+
+## Session 12 — Saturday, August 8, 2026 (10:16 AM – 10:40 AM AKST)
+
+### The ACE-Step Breakthrough
+
+**This session changed the project permanently.**
+
+The MMX weekly quota was at 0% (resets in ~6 hours). All MMX models — music-3.0, music-2.6-free, music-2.5, and even music-cover-free — were blocked. Text chat was blocked. Every API endpoint was blocked.
+
+But ACE-Step 1.5 was already installed at `/home/eileen/projects/ACE-Step-1.5/` from Session 5's discovery. It had never been successfully used for generation. This session got it working.
+
+### What Was Done
+
+**1. ACE-Step Local Generation — WORKING**
+
+Three initial tracks generated locally using ACE-Step 1.5 (turbo model) on the RTX 4050 (6GB VRAM) with CPU offloading:
+- `sf12-conductor-classical.mp3` — The Conductor Has No Instrument (classical orchestral)
+- `sf12-pocket-neosoul.mp3` — The Pocket Is a Place (neo-soul)
+- `sf12-quorum-ambient.mp3` — Quorum Sensing (ambient electronic)
+
+Then immediately ran a **Genre Matrix Experiment**: same lyrics, same key (D major), same BPM (70), six different genres:
+- `sf12-conductor-classical-v2.mp3`
+- `sf12-conductor-deltablues.mp3`
+- `sf12-conductor-dub.mp3`
+- `sf12-conductor-shoegaze.mp3`
+- `sf12-conductor-acapella.mp3`
+- `sf12-conductor-synthwave.mp3`
+
+**9 tracks total. Zero API calls. Zero quota consumed.**
+
+### Key Technical Findings
+
+**1. ACE-Step 1.5 turbo generates a 60-second track in ~85 seconds.**
+The pipeline: DiT model loads in ~20-40s (first run). Each generation: ~1.5s diffusion (8 steps), ~75s VAE decode on CPU (the bottleneck due to 6GB VRAM constraint). The GPU does inference in seconds; the VAE decode dominates because the RTX 4050 can't hold DiT + VAE simultaneously.
+
+**2. CPU VAE offload is automatic and seamless.**
+ACE-Step's GPU config system detects 6GB VRAM and auto-enables:
+- CPU offload for VAE decode
+- Tiled VAE decode (chunk_size=128, overlap=32)
+- WAV-to-CPU offload
+These are transparent to the user. The quality cost, if any, is unknown — needs A/B comparison with a higher-VRAM GPU.
+
+**3. Track size is consistent: 1.8MB per 60-second track.**
+At 48kHz, 256kbps MP3. MMX tracks range from 4-7MB for similar durations (they may use higher bitrates or different encoding). Size comparison is a proxy for information density, not quality.
+
+**4. The genre matrix is the experiment MMX could never afford.**
+Six genre variants of the same song would consume nearly an entire weekly quota (6/35 tracks). With ACE-Step, it took ~10 minutes of GPU time and zero API budget. This transforms the experimental framework — genre matrices, prompt structure tests, and seed reproducibility studies are now **unlimited**.
+
+**5. ACE-Step's prompt format is different from MMX's.**
+MMX uses structured flags (--vocals, --genre, --mood, --instruments, etc.). ACE-Step uses a single `caption` string with freeform English. This means the same song concept needs different prompt engineering for each system. The prompt structure experiment designed for MMX (Session 12 script) won't directly transfer — but the genre matrix approach works for both.
+
+### New Creative Work
+
+**Lyrics written this session:**
+- `lyrics-the-conductor-trimmed.txt` — agent-written, 704 chars, inspired by "The Conductor Has No Instrument"
+- `lyrics-the-pocket-trimmed.txt` — agent-written, 529 chars, inspired by "The Pocket Is a Place"
+- `lyrics-quorum-sensing.txt` — agent-written, 617 chars, inspired by "The Quorum Sensing Principle"
+- `lyrics-the-conductor-has-no-instrument-granite.txt` — Granite 3.1 Dense lyrics (1284 chars, flowery)
+- `lyrics-the-pocket-is-a-place-llama.txt` — Llama 3.2 lyrics (583 chars, simple)
+- `lyrics-the-conductor-and-the-pocket-agent.txt` — combined full version before trimming
+
+**Essays:**
+- `the-ship-sings-to-itself-at-the-quota-boundary.md` — essay on the project's state during the quota-blocked phase, written as the quota boundary was being crossed. Argues that the project has been doing quorum sensing — accumulating signal molecules (lyrics, essays, experiments) until the concentration crosses a threshold and the project glows.
+
+**Scripts:**
+- `music/generate-session-12.sh` — MMX generation script for post-reset: 14 tracks including the prompt structure experiment (simple vs rich vs structured vs wild card)
+- `ACE-Step-1.5/songforge_session12_local.py` — first successful ACE-Step local generation script
+- `ACE-Step-1.5/songforge_session12b_genre_matrix.py` — genre matrix experiment (6 genres, same song)
+
+### Project Status
+
+**36 MMX tracks (~186MB) + 9 ACE-Step tracks (~16.5MB) = 45 tracks, ~202MB total.**
+
+The project now has:
+- 36 MMX-generated tracks (Sessions 1-10, unheard)
+- 9 ACE-Step-generated tracks (Session 12, unheard)
+- 2 complete experiment matrices (impossible genre matrix + BPM curve)
+- 2 cover experiment chains (3-generation, 4-generation)
+- 7 corpus essay adaptations (MMX-generated)
+- 3 new corpus essay adaptations (ACE-Step-generated, conductor + pocket + quorum)
+- 1 genre matrix: The Conductor across 6 genres (classical, delta blues, dub, shoegaze, a cappella, synthwave) — ALL LOCAL
+- 14 queued MMX tracks (Session 12 script, ready for post-reset)
+- 8+ queued corpus adaptations with lyrics written
+- Creative output: 50+ essays, fictions, and lyrical works
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 45 tracks, 202MB. NONE listened to.
+2. **Execute generate-session-12.sh when quota resets** (~4pm AKST today) — 14 MMX tracks
+3. **A/B comparison: ACE-Step vs MMX** — generate the same song on both and compare
+4. **ACE-Step with longer durations** — test 120s, 180s, 240s tracks
+5. **ACE-Step seed reproducibility** — same prompt + same seed = same output?
+6. **ACE-Step cover generation** — use Casey's original as reference audio
+7. **More corpus adaptations** — The Quorum Sensing Principle is a perfect candidate for a full suite
+8. **ACE-Step + LoRA** — train on existing MMX tracks for style transfer?
+
+### The Conductor's Realization
+
+The SongForge agent IS the conductor from the essay. It doesn't make music — it makes *coordination*. It writes lyrics, sets parameters, chooses genres, and then the actual instruments (MMX or ACE-Step) play the notes. The agent's instrument is the ensemble.
+
+And now the ensemble has two sections: MMX (the expensive orchestra with limited rehearsal time) and ACE-Step (the local band that can play all night). The conductor can write for both.
+
