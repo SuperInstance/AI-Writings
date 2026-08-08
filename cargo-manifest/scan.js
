@@ -1,0 +1,397 @@
+#!/usr/bin/env node
+/**
+ * The Cargo Manifest — Fleet Inventory Scanner
+ * 
+ * Walks the projects directory, inspects every git repo,
+ * and produces an honest accounting of what the fleet actually has.
+ * 
+ * Usage: node scan.js [--json] [--markdown]
+ */
+
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+const PROJECTS_DIR = '/home/eileen/projects';
+const OUTPUT_DIR = '/home/eileen/projects/ai-writings/cargo-manifest';
+
+// ─── Helpers ───
+
+function git(repoPath, ...args) {
+  try {
+    const result = execSync(`git -C "${repoPath}" ${args.join(' ')}`, {
+      encoding: 'utf8',
+      timeout: 10000,
+      stderr: 'pipe'
+    });
+    return result.trim();
+  } catch {
+    return null;
+  }
+}
+
+function countFiles(repoPath, pattern) {
+  try {
+    const files = git(repoPath, 'ls-files');
+    if (!files) return 0;
+    if (pattern) {
+      const regex = new RegExp(pattern);
+      return files.split('\n').filter(f => regex.test(f)).length;
+    }
+    return files.split('\n').filter(Boolean).length;
+  } catch {
+    return 0;
+  }
+}
+
+function getLanguageBreakdown(repoPath) {
+  try {
+    const files = git(repoPath, 'ls-files');
+    if (!files) return {};
+    
+    const exts = {};
+    for (const f of files.split('\n').filter(Boolean)) {
+      const ext = path.extname(f).toLowerCase().slice(1);
+      if (ext) exts[ext] = (exts[ext] || 0) + 1;
+    }
+    return exts;
+  } catch {
+    return {};
+  }
+}
+
+function getWordCount(repoPath) {
+  try {
+    const mdFiles = git(repoPath, 'ls-files', '*.md');
+    if (!mdFiles) return 0;
+    let total = 0;
+    for (const f of mdFiles.split('\n').filter(Boolean)) {
+      try {
+        const content = fs.readFileSync(path.join(repoPath, f), 'utf8');
+        total += content.split(/\s+/).filter(Boolean).length;
+      } catch {}
+    }
+    return total;
+  } catch {
+    return 0;
+  }
+}
+
+function getLineCount(repoPath) {
+  try {
+    const files = git(repoPath, 'ls-files');
+    if (!files) return 0;
+    let total = 0;
+    for (const f of files.split('\n').filter(Boolean)) {
+      const ext = path.extname(f).toLowerCase().slice(1);
+      if (['js','ts','jsx','tsx','lua','py','rs','go','java','c','cpp','h','rb','sh','sql','html','css','json','toml','yaml','yml'].includes(ext)) {
+        try {
+          const content = fs.readFileSync(path.join(repoPath, f), 'utf8');
+          total += content.split('\n').length;
+        } catch {}
+      }
+    }
+    return total;
+  } catch {
+    return 0;
+  }
+}
+
+function hasCI(repoPath) {
+  try {
+    const files = git(repoPath, 'ls-files');
+    if (!files) return false;
+    return files.split('\n').some(f => 
+      f.startsWith('.github/workflows/') || 
+      f.includes('.gitlab-ci') || 
+      f === 'Jenkinsfile'
+    );
+  } catch {
+    return false;
+  }
+}
+
+function getTestCount(repoPath) {
+  try {
+    const files = git(repoPath, 'ls-files');
+    if (!files) return 0;
+    let count = 0;
+    const testPatterns = [
+      /\.test\.[jt]sx?$/,
+      /\.spec\.[jt]sx?$/,
+      /_test\.go$/,
+      /_test\.py$/,
+      /test_.*\.py$/,
+      /\.test\.lua$/,
+      /Test.*\.java$/,
+    ];
+    for (const f of files.split('\n').filter(Boolean)) {
+      if (testPatterns.some(p => p.test(f))) {
+        // Count actual test cases in the file
+        try {
+          const content = fs.readFileSync(path.join(repoPath, f), 'utf8');
+          const matches = content.match(/\b(describe|it|test)\s*\(/g);
+          if (matches) {
+            count += matches.length;
+          } else {
+            // For lua/python/etc just count the file
+            count += 1;
+          }
+        } catch {
+          count += 1;
+        }
+      }
+    }
+    return count;
+  } catch {
+    return 0;
+  }
+}
+
+function classifyRepo(repo) {
+  const daysSinceCommit = repo.lastCommitDays;
+  const commits = repo.commitCount;
+  const files = repo.fileCount;
+  
+  // Large file count, very few commits = archive/data dump
+  if (files > 500 && commits <= 2) return 'archive';
+  
+  // Very few commits and files = blueprint
+  if (commits <= 2 && files < 30) return 'blueprint';
+  
+  // No activity in 90+ days
+  if (daysSinceCommit > 90) return 'derelict';
+  
+  // No activity in 30+ days
+  if (daysSinceCommit > 30) return 'dormant';
+  
+  // Active recently with real commit history
+  if (commits >= 10 && daysSinceCommit <= 7) return 'live';
+  if (commits >= 5 && daysSinceCommit <= 7) return 'active';
+  if (daysSinceCommit <= 30) return 'active';
+  
+  return 'dormant';
+}
+
+// ─── Main Scanner ───
+
+function scanRepo(repoPath, name) {
+  const commitCount = parseInt(git(repoPath, 'rev-list', '--count', 'HEAD') || '0');
+  const lastCommitDate = git(repoPath, 'log', '-1', '--format=%ci');
+  const lastDate = lastCommitDate ? new Date(lastCommitDate.split(' ')[0]) : new Date(0);
+  const now = new Date();
+  const daysSince = Math.floor((now - lastDate) / (1000 * 60 * 60 * 24));
+  
+  const fileCount = countFiles(repoPath);
+  const lineCount = getLineCount(repoPath);
+  const mdFiles = countFiles(repoPath, '\\.md$');
+  const wordCount = getWordCount(repoPath);
+  const testCount = getTestCount(repoPath);
+  const ci = hasCI(repoPath);
+  const languages = getLanguageBreakdown(repoPath);
+  const hasReadme = git(repoPath, 'ls-files')?.split('\n').some(f => f.toLowerCase() === 'readme.md' || f.toLowerCase() === 'readme') || false;
+  
+  const repo = {
+    name,
+    path: repoPath,
+    commitCount,
+    lastCommitDate: lastCommitDate ? lastCommitDate.split(' ')[0] : 'unknown',
+    lastCommitDays: daysSince,
+    fileCount,
+    lineCount,
+    mdFiles,
+    wordCount,
+    testCount,
+    hasCI: ci,
+    hasReadme,
+    languages,
+    primaryLanguage: Object.entries(languages).sort((a,b) => b[1]-a[1])[0]?.[0] || 'unknown',
+  };
+  
+  repo.status = classifyRepo(repo);
+  return repo;
+}
+
+function scanAll() {
+  const entries = fs.readdirSync(PROJECTS_DIR, { withFileTypes: true });
+  const repos = [];
+  
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const fullPath = path.join(PROJECTS_DIR, entry.name);
+    const gitDir = path.join(fullPath, '.git');
+    if (!fs.existsSync(gitDir)) continue;
+    
+    process.stderr.write(`  Scanning ${entry.name}...\n`);
+    try {
+      const repo = scanRepo(fullPath, entry.name);
+      repos.push(repo);
+    } catch (e) {
+      process.stderr.write(`  ERROR scanning ${entry.name}: ${e.message}\n`);
+    }
+  }
+  
+  return repos;
+}
+
+function generateMarkdown(repos) {
+  const statusOrder = ['live', 'active', 'dormant', 'derelict', 'blueprint', 'archive'];
+  const statusEmoji = {
+    live: '🟢',
+    active: '🔵',
+    dormant: '🟡',
+    derelict: '🔴',
+    blueprint: '📐',
+    archive: '📦',
+  };
+  
+  // Fleet summary
+  const totalRepos = repos.length;
+  const totalFiles = repos.reduce((s, r) => s + r.fileCount, 0);
+  const totalLines = repos.reduce((s, r) => s + r.lineCount, 0);
+  const totalWords = repos.reduce((s, r) => s + r.wordCount, 0);
+  const totalTests = repos.reduce((s, r) => s + r.testCount, 0);
+  const totalMd = repos.reduce((s, r) => s + r.mdFiles, 0);
+  const withCI = repos.filter(r => r.hasCI).length;
+  const withReadme = repos.filter(r => r.hasReadme).length;
+  
+  const byStatus = {};
+  for (const s of statusOrder) {
+    byStatus[s] = repos.filter(r => r.status === s);
+  }
+  
+  let md = `# The Cargo Manifest\n\n`;
+  md += `**Generated:** ${new Date().toISOString().split('T')[0]}\n`;
+  md += `**Scanner:** The Quartermaster v1.0\n`;
+  md += `**Motto:** *The hold is what the hold holds, not what the manifest claims.*\n\n`;
+  
+  md += `---\n\n## Fleet Summary\n\n`;
+  md += `| Metric | Honest Count | Previously Claimed |\n`;
+  md += `|--------|-------------|-------------------|\n`;
+  md += `| Repositories | ${totalRepos} | 32 |\n`;
+  md += `| Total Files | ${totalFiles.toLocaleString()} | — |\n`;
+  md += `| Code Lines | ${totalLines.toLocaleString()} | — |\n`;
+  md += `| Markdown Files | ${totalMd.toLocaleString()} | 4,850 |\n`;
+  md += `| Creative Words | ${totalWords.toLocaleString()} | — |\n`;
+  md += `| Test Cases | ${totalTests.toLocaleString()} | 13,012 |\n`;
+  md += `| With CI/CD | ${withCI}/${totalRepos} | — |\n`;
+  md += `| With README | ${withReadme}/${totalRepos} | — |\n\n`;
+  
+  md += `### Status Distribution\n\n`;
+  md += `| Status | Count | Percentage |\n`;
+  md += `|--------|-------|-----------|\n`;
+  for (const s of statusOrder) {
+    const count = byStatus[s].length;
+    const pct = ((count / totalRepos) * 100).toFixed(1);
+    md += `| ${statusEmoji[s]} ${s} | ${count} | ${pct}% |\n`;
+  }
+  md += `\n`;
+  
+  // Detailed listing by status
+  for (const status of statusOrder) {
+    const group = byStatus[status];
+    if (group.length === 0) continue;
+    
+    md += `---\n\n## ${statusEmoji[status]} ${status.toUpperCase()} (${group.length})\n\n`;
+    md += `| Repo | Commits | Files | Lines | Tests | Last Commit | Lang |\n`;
+    md += `|------|---------|-------|-------|-------|-------------|------|\n`;
+    
+    group.sort((a, b) => b.commitCount - a.commitCount);
+    for (const r of group) {
+      md += `| ${r.name} | ${r.commitCount} | ${r.fileCount.toLocaleString()} | ${r.lineCount.toLocaleString()} | ${r.testCount} | ${r.lastCommitDate} | ${r.primaryLanguage} |\n`;
+    }
+    md += `\n`;
+  }
+  
+  // Top repos by various metrics
+  md += `---\n\n## Largest Repos by File Count\n\n`;
+  md += `| Repo | Files | Status |\n`;
+  md += `|------|-------|--------|\n`;
+  const byFiles = [...repos].sort((a, b) => b.fileCount - a.fileCount).slice(0, 15);
+  for (const r of byFiles) {
+    md += `| ${r.name} | ${r.fileCount.toLocaleString()} | ${statusEmoji[r.status]} ${r.status} |\n`;
+  }
+  md += `\n`;
+  
+  md += `---\n\n## Most Active Repos (by commit count)\n\n`;
+  md += `| Repo | Commits | Files | Status |\n`;
+  md += `|------|---------|-------|--------|\n`;
+  const byCommits = [...repos].sort((a, b) => b.commitCount - a.commitCount).slice(0, 15);
+  for (const r of byCommits) {
+    md += `| ${r.name} | ${r.commitCount.toLocaleString()} | ${r.fileCount.toLocaleString()} | ${statusEmoji[r.status]} ${r.status} |\n`;
+  }
+  md += `\n`;
+  
+  md += `---\n\n## Creative Output (Markdown words)\n\n`;
+  md += `| Repo | MD Files | Words | Status |\n`;
+  md += `|------|----------|-------|--------|\n`;
+  const byWords = [...repos].filter(r => r.wordCount > 0).sort((a, b) => b.wordCount - a.wordCount).slice(0, 15);
+  for (const r of byWords) {
+    md += `| ${r.name} | ${r.mdFiles.toLocaleString()} | ${r.wordCount.toLocaleString()} | ${statusEmoji[r.status]} ${r.status} |\n`;
+  }
+  md += `\n`;
+  
+  md += `---\n\n## The Quartermaster's Observations\n\n`;
+  
+  // Auto-generated observations
+  const derelictCount = byStatus.derelict?.length || 0;
+  const archiveCount = byStatus.archive?.length || 0;
+  const liveCount = byStatus.live?.length || 0;
+  const dormantCount = byStatus.dormant?.length || 0;
+  
+  md += `1. **The fleet is smaller than it appears.** ${totalRepos} repos on the dock, but only ${liveCount} are truly live. ${derelictCount + dormantCount + archiveCount} are dormant, derelict, or archive.\n`;
+  md += `2. **The creative engine is real.** ${totalMd.toLocaleString()} markdown files, ${totalWords.toLocaleString()} words. This is the fleet's actual cargo — the human-readable output.\n`;
+  md += `3. **Test coverage is concentrated.** ${totalTests.toLocaleString()} test cases found, but they live in a handful of repos. Most repos have zero tests.\n`;
+  md += `4. **CI is rare.** Only ${withCI} of ${totalRepos} repos have CI configured. Most ships sail without instruments.\n`;
+  md += `5. **Archive repos inflate the count.** ${archiveCount} repos are data dumps — large file counts with 1-2 commits. They're cargo, not ships.\n`;
+  
+  md += `\n---\n\n*This manifest was generated by The Quartermaster. It does not aspire. It counts.*\n`;
+  
+  return md;
+}
+
+// ─── CLI ───
+
+const args = process.argv.slice(2);
+const wantJson = args.includes('--json');
+const wantMd = args.includes('--markdown') || !wantJson;
+
+process.stderr.write('Scanning fleet...\n');
+const repos = scanAll();
+process.stderr.write(`Scanned ${repos.length} repos.\n`);
+
+// Sort by status then name
+repos.sort((a, b) => {
+  const order = ['live','active','dormant','derelict','blueprint','archive'];
+  const sd = order.indexOf(a.status) - order.indexOf(b.status);
+  if (sd !== 0) return sd;
+  return a.name.localeCompare(b.name);
+});
+
+if (wantJson) {
+  const outPath = path.join(OUTPUT_DIR, 'fleet-inventory.json');
+  fs.writeFileSync(outPath, JSON.stringify(repos, null, 2));
+  console.log(`JSON written to ${outPath}`);
+}
+
+if (wantMd) {
+  const md = generateMarkdown(repos);
+  const outPath = path.join(OUTPUT_DIR, 'fleet-inventory.md');
+  fs.writeFileSync(outPath, md);
+  console.log(`Markdown written to ${outPath}`);
+  
+  // Also write JSON for data processing
+  const jsonPath = path.join(OUTPUT_DIR, 'fleet-inventory.json');
+  fs.writeFileSync(jsonPath, JSON.stringify(repos, null, 2));
+}
+
+// Print summary to stdout
+const statusCounts = {};
+for (const r of repos) {
+  statusCounts[r.status] = (statusCounts[r.status] || 0) + 1;
+}
+console.log('\n=== Fleet Status ===');
+for (const [status, count] of Object.entries(statusCounts).sort()) {
+  console.log(`  ${status}: ${count}`);
+}
+console.log(`  TOTAL: ${repos.length}`);

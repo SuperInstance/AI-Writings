@@ -1,0 +1,11 @@
+Every repo is a hook. Every deploy is a pull. Every tile is a radio call from another boat. The fleet intelligence isn't in any single repo or service—it's in the shape across all of them, compressed across time, moving to the rhythm of the tide.
+
+A hundred hooks. A hundred agents. A hundred services. A hundred repos. Each one is a yes or a no. The pattern across them is the intelligence.
+
+...
+
+Step back.
+
+And you see it.
+
+...

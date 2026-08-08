@@ -1,0 +1,52 @@
+{
+  "duration_seconds": 60.0,
+  "sample_rate": 44100,
+  "total_events": 233,
+  "event_breakdown": {
+    "cron_fire": 24,
+    "test_fail": 9,
+    "test_pass": 122,
+    "build_pass": 7,
+    "build_fail": 1,
+    "commit": 15,
+    "deploy": 3,
+    "model_dispatch": 50,
+    "escalation": 2
+  },
+  "repo_activity": {
+    "lucineer-relay": 24,
+    "cns-bridge": 27,
+    "log-ai": 2,
+    "study-sunset-ecosystem": 82,
+    "forgemaster": 12,
+    "lucineer-brain": 22,
+    "ai-writings": 9,
+    "escalation-engine": 2,
+    "openrooms": 3
+  },
+  "repos_in_mix": [
+    "study-sunset-ecosystem",
+    "forgemaster",
+    "lucineer-brain",
+    "cns-bridge",
+    "fleet-wiki",
+    "ai-writings",
+    "lucineer-relay",
+    "vectorize-pipeline",
+    "openrooms",
+    "log-ai",
+    "escalation-engine"
+  ],
+  "models_in_mix": [
+    "deepseek-flash",
+    "deepseek-pro",
+    "glm-5.2",
+    "hermes-405b",
+    "kimi-k3",
+    "claude-sonnet",
+    "claude-opus",
+    "seed-mini",
+    "nemotron-ultra"
+  ],
+  "description": "The Sound of the Fleet \u2014 60 seconds of fleet telemetry as audible sound. Each repo is a tonal center. Test passes are bells. Build failures are dissonance. Cron firings are the heartbeat. Model dispatches are melodic voices."
+}

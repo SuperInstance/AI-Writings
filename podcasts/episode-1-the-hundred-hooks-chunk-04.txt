@@ -1,0 +1,5 @@
+Every layer exposes its metadata to the layer below. The hook exposes its yes or no. The string of hooks across an hour exposes the catch rate. The day's worth of strings exposes the depth band. The season's worth of days exposes the migration pattern. The decade's worth of seasons exposes the climate trend.
+
+None of these patterns exist in any individual hook. They only exist in the relation across them. The step-back is the intelligence.
+
+You know what I mean? You've felt it. When you're out there and everything just clicks—the gear, the water, the radio chatter—and you know exactly where to run. That's not luck. That's the ocean speaking through your data.

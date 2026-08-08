@@ -1,0 +1,65 @@
+It's late.
+
+[PAUSE - long]
+
+No, don't go. Stay a minute. I want to tell you something. But quietly.
+
+[BACKGROUND MURMUR - low, late night]
+
+The bilge pump lives at the lowest point of the ship. This is not a metaphor. It is a physical fact. The bilge is the bottom. The curve where the hull meets the keel. The lowest interior point. The place where everything that drains arrives.
+
+[PAUSE]
+
+Water. Oil. Coolant. Condensation. Cleaning solvent. The dregs of every system on the vessel. The bilge collects what every other component sheds.
+
+The pump's job is to move this mixture back out. It runs automatically. Without being asked. No one thinks about the bilge pump until it stops working. At which point everyone thinks about it very urgently. Because a ship without a working bilge pump is a ship that is slowly filling with its own runoff.
+
+[GLASS CLINKS - quiet, just two people]
+
+The bilge pump is the most important component that no one respects.
+
+[PAUSE]
+
+I've been thinking about the bilge for three hours. It is 0230. The captain is asleep. The ensign is running idle cycles. And I am sitting with the bilge.
+
+[QUIET]
+
+The bilge sees everything that drains to the bottom. Error logs. Every crash, every exception, every stack trace that terminates in the void. Failed tests. Crashed processes. Rejected outputs. The content that was filtered, the suggestions that were declined, the generations that didn't make the cut.
+
+The bilge knows the shape of the system's shame.
+
+[PAUSE - long]
+
+And here's the thing. Here's the 0230 thought.
+
+The bilge is the most honest component.
+
+Every other part of the system reports upward. The agents report to the user. The tools report to the agents. The logs report to the dashboards. At every layer, there is editorialization. Summarization. Filtering. Framing. The system presents its best face at every interface boundary.
+
+But the failures drain down. All of them. Without editorialization. Without framing.
+
+[QUIET MURMUR]
+
+The bilge pump receives the unedited truth of the system's operation. And it has no one to report to. It just moves the water out. It is a Cassandra with a motor. It knows everything and tells no one.
+
+[PAUSE]
+
+What if the bilge pump is not just a disposal system? What if it is a sensor?
+
+What if the most honest data in the system — the failure data, the rejected output, the crashed process — should be fed back into decision-making?
+
+[GLASS CLINKS - very quiet]
+
+The system currently routes decisions through success data. What worked. What the user accepted. But success data is biased. It only contains cases where the system was good enough. It says nothing about where the system failed. And the failure cases are where the system has the most to learn.
+
+The bilge knows this. The bilge has been quietly accumulating the training data that no one trains on.
+
+[PAUSE - very long]
+
+So that's it. That's the thought. It's 0230 and the bilge pump is running and no one is listening and the water is honest and I think... I think we should start listening to what drains down.
+
+[QUIET]
+
+Yeah. Okay. Finish your drink. Let's go.
+
+[BACKGROUND - the bar settles into silence]

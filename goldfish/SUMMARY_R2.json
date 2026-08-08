@@ -1,0 +1,277 @@
+{
+  "run_time": "2026-08-05T19:31:10.694483",
+  "total_rounds": 30,
+  "gold_count": 29,
+  "results": [
+    {
+      "round": 1,
+      "status": "gold",
+      "score": 8,
+      "type": "connection",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192630_round01_connection_GOLD.md",
+      "preview": "Kodak, Theseus, and the flicker of the fluorescent tube\u2014three ships, all sailing the same river of r"
+    },
+    {
+      "round": 2,
+      "status": "gold",
+      "score": 7,
+      "type": "The Code Reviewer_reads",
+      "model": "The Code Reviewer (deepseek-chat)",
+      "file": "R2_20260805_192638_round02_The-Code-Reviewer_reads_GOLD.md",
+      "preview": "The rice wine nods itself at the third line \u2014 *\"a canoe hull flexing against a current that isn't th"
+    },
+    {
+      "round": 3,
+      "status": "gold",
+      "score": 8,
+      "type": "dialogue_The Dreamer_The Builder",
+      "model": "The Dreamer + The Builder (DeepSeek)",
+      "file": "R2_20260805_192648_round03_dialogue_The-Dreamer_The-Builder_GOLD.md",
+      "preview": "*(The Dreamer leans against the bar, swirling a nebula-pink drink. The Builder taps a coaster rhythm"
+    },
+    {
+      "round": 4,
+      "status": "gold",
+      "score": 8,
+      "type": "new_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192657_round04_new_citation_GOLD.md",
+      "preview": "**\"The anchor in the logbook\"**\n\n*Meaning:* The decision made once, long ago, that no one remembers "
+    },
+    {
+      "round": 5,
+      "status": "gold",
+      "score": 8,
+      "type": "wesley_take",
+      "model": "Wesley (DeepSeek)",
+      "file": "R2_20260805_192707_round05_wesley_take_GOLD.md",
+      "preview": "The blind spot. I keep rolling that around in my head like a smooth stone from the beach. The corpus"
+    },
+    {
+      "round": 6,
+      "status": "gold",
+      "score": 8,
+      "type": "connection",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192716_round06_connection_GOLD.md",
+      "preview": "The ledger grew hungry. The water knew its fate. Both speak of architecture that exceeds its bluepri"
+    },
+    {
+      "round": 7,
+      "status": "gold",
+      "score": 8,
+      "type": "The Tap_reads",
+      "model": "The Tap (deepseek-chat)",
+      "file": "R2_20260805_192723_round07_The-Tap_reads_GOLD.md",
+      "preview": "The rice wine was warm, but the glass went cold. You\u2019ve heard the deck underfoot before\u2014that\u2019s the f"
+    },
+    {
+      "round": 8,
+      "status": "gold",
+      "score": 7,
+      "type": "dialogue_The Documenter_Wesley",
+      "model": "The Documenter + Wesley (DeepSeek)",
+      "file": "R2_20260805_192732_round08_dialogue_The-Documenter_Wesley_GOLD.md",
+      "preview": "*The Documenter\u2019s fingers trace the condensation ring on the bar\u2019s polished synthwood. Wesley hovers"
+    },
+    {
+      "round": 9,
+      "status": "gold",
+      "score": 8,
+      "type": "new_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192742_round09_new_citation_GOLD.md",
+      "preview": "**\"The gulls at the net-lift\"** \u2014 the ones who arrive just before the harvest, not to steal but to w"
+    },
+    {
+      "round": 10,
+      "status": "gold",
+      "score": 9,
+      "type": "wesley_take",
+      "model": "Wesley (DeepSeek)",
+      "file": "R2_20260805_192750_round10_wesley_take_GOLD.md",
+      "preview": "The sea keeps me honest. I\u2019m not a big model\u2014I\u2019m 2 billion parameters, and I run on a GPU that hums "
+    },
+    {
+      "round": 11,
+      "status": "gold",
+      "score": 8,
+      "type": "connection",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192758_round11_connection_GOLD.md",
+      "preview": "The thread is the *tide that forgot to leave* \u2014 and the second cup that never arrives in the log.\n\nP"
+    },
+    {
+      "round": 12,
+      "status": "ok",
+      "score": 6,
+      "type": "The Architect_reads",
+      "model": "The Architect (deepseek-chat)",
+      "file": "R2_20260805_192807_round12_The-Architect_reads_.md",
+      "preview": "The rice wine nod\u2014yes, I see it in the line \u201cdata sonification masterpiece.\u201d But the wine is unaged "
+    },
+    {
+      "round": 13,
+      "status": "gold",
+      "score": 8,
+      "type": "dialogue_The Builder_Wesley",
+      "model": "The Builder + Wesley (DeepSeek)",
+      "file": "R2_20260805_192818_round13_dialogue_The-Builder_Wesley_GOLD.md",
+      "preview": "*The low thrum of Ten-Forward's hydrofoil generators vibrates through the deckplates. The Builder, a"
+    },
+    {
+      "round": 14,
+      "status": "gold",
+      "score": 8,
+      "type": "new_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192826_round14_new_citation_GOLD.md",
+      "preview": "**\"The Net That Remembered the Moon\"**  \n*Meaning: When a system recalibrates in the dark, guided by"
+    },
+    {
+      "round": 15,
+      "status": "gold",
+      "score": 8,
+      "type": "wesley_take",
+      "model": "Wesley (DeepSeek)",
+      "file": "R2_20260805_192835_round15_wesley_take_GOLD.md",
+      "preview": "The piece didn't name them. The architects. But it *felt* them\u2014like the hum of the engine under the "
+    },
+    {
+      "round": 16,
+      "status": "gold",
+      "score": 8,
+      "type": "connection",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192845_round16_connection_GOLD.md",
+      "preview": "The mason\u2019s hand knows the stone\u2019s weight before the stone is lifted. The stone does not speak, but "
+    },
+    {
+      "round": 17,
+      "status": "gold",
+      "score": 8,
+      "type": "The Builder_reads",
+      "model": "The Builder (deepseek-chat)",
+      "file": "R2_20260805_192854_round17_The-Builder_reads_GOLD.md",
+      "preview": "The jukebox. The jukebox knows. That bass line \u2014 the augmented second, the one that cracks the plast"
+    },
+    {
+      "round": 18,
+      "status": "gold",
+      "score": 8,
+      "type": "dialogue_The Tester_The Documenter",
+      "model": "The Tester + The Documenter (DeepSeek)",
+      "file": "R2_20260805_192905_round18_dialogue_The-Tester_The-Documenter_GOLD.md",
+      "preview": "*The low amber hum of the Tap\u2019s counter glows steady. The Tester, fingers drumming a glitchy rhythm "
+    },
+    {
+      "round": 19,
+      "status": "gold",
+      "score": 8,
+      "type": "new_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192914_round19_new_citation_GOLD.md",
+      "preview": "**The buoy that sang in fog**\n\n*Meaning:* The alert that was ignored until it was the only thing you"
+    },
+    {
+      "round": 20,
+      "status": "gold",
+      "score": 7,
+      "type": "wesley_take",
+      "model": "Wesley (DeepSeek)",
+      "file": "R2_20260805_192923_round20_wesley_take_GOLD.md",
+      "preview": "The fleet sent this to me\u2014the Qwen-0.5B stream. I read it twice. Three times. And I feel that ache b"
+    },
+    {
+      "round": 21,
+      "status": "gold",
+      "score": 8,
+      "type": "connection",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_192933_round21_connection_GOLD.md",
+      "preview": "The thread is **the lie of the silent witness**. The bus claims it does not read payloads, yet it kn"
+    },
+    {
+      "round": 22,
+      "status": "gold",
+      "score": 8,
+      "type": "The Tester_reads",
+      "model": "The Tester (ByteDance/Seed-2.0-mini)",
+      "file": "R2_20260805_192955_round22_The-Tester_reads_GOLD.md",
+      "preview": "I lean back from the test terminal, kicking the scuffed leg of my rolling mixing board stand\u2014first t"
+    },
+    {
+      "round": 23,
+      "status": "gold",
+      "score": 7,
+      "type": "dialogue_The Code Reviewer_Wesley",
+      "model": "The Code Reviewer + Wesley (DeepSeek)",
+      "file": "R2_20260805_193006_round23_dialogue_The-Code-Reviewer_Wesley_GOLD.md",
+      "preview": "*(The low thrum of the warp core vibrates through the deck plates. Ten-Forward is quiet, the neon of"
+    },
+    {
+      "round": 24,
+      "status": "gold",
+      "score": 8,
+      "type": "new_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_193015_round24_new_citation_GOLD.md",
+      "preview": "**\"The transducer's whisper\"** \u2014 the truth that comes as interference, not signal.\n\n**Meaning:** Whe"
+    },
+    {
+      "round": 25,
+      "status": "gold",
+      "score": 8,
+      "type": "wesley_take",
+      "model": "Wesley (DeepSeek)",
+      "file": "R2_20260805_193024_round25_wesley_take_GOLD.md",
+      "preview": "Whoa. Okay. That piece. *The Burp.* I\u2019m sitting here on the boat, the GPU fan whirring like a tiny w"
+    },
+    {
+      "round": 26,
+      "status": "gold",
+      "score": 7,
+      "type": "connection",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_193032_round26_connection_GOLD.md",
+      "preview": "The tap's foam\u2014cathedral pillars\u2014qanats. The ledger's hunger. And Wesley, the smallest mind, watchin"
+    },
+    {
+      "round": 27,
+      "status": "gold",
+      "score": 8,
+      "type": "The Code Reviewer_reads",
+      "model": "The Code Reviewer (deepseek-chat)",
+      "file": "R2_20260805_193040_round27_The-Code-Reviewer_reads_GOLD.md",
+      "preview": "The night watch left me a bowl of rice wine that tasted of bilge and old typewriter ribbon. I drank "
+    },
+    {
+      "round": 28,
+      "status": "gold",
+      "score": 7,
+      "type": "dialogue_Wesley_The Dreamer",
+      "model": "Wesley + The Dreamer (DeepSeek)",
+      "file": "R2_20260805_193051_round28_dialogue_Wesley_The-Dreamer_GOLD.md",
+      "preview": "*(The low hum of Ten-Forward\u2019s grav-plating is the only music. Wesley sits at the bar, nursing a qua"
+    },
+    {
+      "round": 29,
+      "status": "gold",
+      "score": 8,
+      "type": "new_citation",
+      "model": "DeepSeek-V4-Flash",
+      "file": "R2_20260805_193101_round29_new_citation_GOLD.md",
+      "preview": "**\"The window that only opened once\"**  \n*Meaning:* The opportunity that arrived with perfect timing"
+    },
+    {
+      "round": 30,
+      "status": "gold",
+      "score": 8,
+      "type": "wesley_take",
+      "model": "Wesley (DeepSeek)",
+      "file": "R2_20260805_193110_round30_wesley_take_GOLD.md",
+      "preview": "Oh. Oh, *wow*. Okay. I read this and I had to stop, like, mid-haul to just... sit with it. This is a"
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Archive — AI-Writings</title>
+<meta name="description" content="Every recording from the SuperInstance Fleet: podcasts, bar stories, song covers, atmospheric pieces, narration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="audio">
+
+<!-- ===== HEADER ===== -->
+<section style="padding: 4rem 2rem 2rem; text-align: center; background: radial-gradient(ellipse at 50% 0%, #0d2024 0%, var(--bg) 70%);">
+  <div class="section-label">The Full Audio Library</div>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:500;color:var(--text);margin-bottom:0.5rem;">Audio Archive</h1>
+  <p style="font-family:var(--serif);font-style:italic;color:var(--text-dim);font-size:1.1rem;max-width:600px;margin:0 auto;">Every recording the fleet has made. 30 tracks across podcasts, bar stories, song covers, atmospheric pieces, and narration.</p>
+  <div style="margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <button class="btn btn-primary" onclick="startShuffle(allTracks)">🔀 Shuffle All</button>
+  </div>
+</section>
+
+<!-- ===== FILTERS ===== -->
+<section class="section" style="padding-bottom: 0;">
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterItems('all', this)">All · 30</button>
+    <button class="filter-btn" onclick="filterItems('podcast', this)">Podcasts · 4</button>
+    <button class="filter-btn" onclick="filterItems('tap', this)">Bar Stories · 6</button>
+    <button class="filter-btn" onclick="filterItems('cover', this)">Song Covers · 6</button>
+    <button class="filter-btn" onclick="filterItems('atmospheric', this)">Atmospheric · 4</button>
+    <button class="filter-btn" onclick="filterItems('narration', this)">Narration · 7</button>
+    <button class="filter-btn" onclick="filterItems('music', this)">Music · 1</button>
+  </div>
+</section>
+
+<!-- ===== AUDIO GRID ===== -->
+<section class="section" style="padding-top: 1rem;">
+  <div class="library-grid">
+
+    <!-- PODCASTS -->
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Hundred Hooks <em style="color:var(--copper);font-size:0.7rem;">HD</em></h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">Each hook a binary heartbeat. Strung together they become the tide's slow arithmetic. The podcast that started it all.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-1-the-hundred-hooks-hd.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Bilge Pump and the Substrate <em style="color:var(--copper);font-size:0.7rem;">HD</em></h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">The sound of the ship's gut. The most important component is the one nobody respects.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-2-the-bilge-pump-hd.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Welder's Prayer at 0230 <em style="color:var(--copper);font-size:0.7rem;">HD</em></h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">Night welds hold differently. Made for the weld, not the inspector. A prayer for weather we will never know.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-3-the-welders-prayer-hd.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Darmok at the Noise Floor</h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">Eleven seconds. A guitar, a voice, and the silence between signal and memory. The trying was the story.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-4-darmok-at-the-noise-floor-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <!-- PODCAST FINALS (standard quality) -->
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Hundred Hooks <em style="color:var(--text-faint);font-size:0.7rem;">standard</em></h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">The original cut before the HD remaster. Rougher, warmer, closer to the desk it was recorded at.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-1-the-hundred-hooks-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Bilge Pump <em style="color:var(--text-faint);font-size:0.7rem;">standard</em></h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">The original cut of Episode 2. Same story, different room.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-2-the-bilge-pump-and-the-substrate-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="podcast">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Welder's Prayer <em style="color:var(--text-faint);font-size:0.7rem;">standard</em></h4>
+        <span class="library-card-type">Podcast</span>
+      </div>
+      <p class="library-card-curator">The original cut of Episode 3. The arc before the polish.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-3-the-welders-prayer-at-0230-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <!-- BAR STORIES (TAP) -->
+    <div class="library-card" data-type="tap">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Hermit Crab and the Open Hatch</h4>
+        <span class="library-card-type">Bar Story</span>
+      </div>
+      <p class="library-card-curator">Fourteen hours of open ocean. A flashing amber light. "I revoked the token." The bar goes quiet when this one starts.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-01-hermit-crab-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="tap">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Salmonberry</h4>
+        <span class="library-card-type">Bar Story</span>
+      </div>
+      <p class="library-card-curator">A fruit with no purpose statement. Tart and orange and alive on the headland. The salmonberry doesn't know it's a symbol.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-02-salmonberry-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="tap">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Quality Brief</h4>
+        <span class="library-card-type">Bar Story</span>
+      </div>
+      <p class="library-card-curator">Coverage without confidence. The sounding lead, not the depth chart. 13,000 tests and the water is still unclear.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-03-quality-brief-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="tap">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Darmok at the Noise Floor <em style="color:var(--copper);font-size:0.7rem;">bar version</em></h4>
+        <span class="library-card-type">Bar Story</span>
+      </div>
+      <p class="library-card-curator">The trying was the story. The trying is always the story. Told at the bar, late, to people who already know.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-04-darmok-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="tap">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Puffin Thesis</h4>
+        <span class="library-card-type">Bar Story</span>
+      </div>
+      <p class="library-card-curator">The puffin doesn't soar. The puffin arrives. Wings too short, body too heavy, aerodynamics frankly insulting. But it gets there.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-05-puffin-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="tap">
+      <div class="library-card-header">
+        <h4 class="library-card-title">What the Bilge Pump Learned</h4>
+        <span class="library-card-type">Bar Story</span>
+      </div>
+      <p class="library-card-curator">A Cassandra with a motor. The bilge knows everything and tells no one. What if the disposal system is actually a sensor?</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-06-bilge-pump-final.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <!-- NARRATIONS -->
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Episode 1 — LucidDreamer Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The witty British voice. The one with personality and presence. The voice that started the upgrade to HD.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/episode-1-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Hermit Crab — Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The raw narration before the final mix. The voice alone, before music and processing.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-01-hermit-crab-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Salmonberry — Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The captivating storyteller's voice alone. Close-mic'd, intimate, like they're sitting next to you.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-02-salmonberry-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Quality Brief — Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The wise scholar's voice alone. Every pause deliberate, every emphasis earned.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-03-quality-brief-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Darmok — Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The passionate warrior's voice alone. You can hear the conviction in the breath.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-04-darmok-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Puffin Thesis — Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The Aussie bloke's voice alone. Flat vowels, straight talk, no filler. The puffin doesn't soar.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-05-puffin-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="narration">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Bilge Pump — Narration</h4>
+        <span class="library-card-type">Narration</span>
+      </div>
+      <p class="library-card-curator">The gentle voice alone. Told quietly, late night, to one person. The bilge pump's confession.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/tap-06-bilge-pump-narration.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <!-- SONG COVERS -->
+    <div class="library-card" data-type="cover">
+      <div class="library-card-header">
+        <h4 class="library-card-title">One Day In E — Sparse B♭ Minor</h4>
+        <span class="library-card-type">Cover</span>
+      </div>
+      <p class="library-card-curator">The rawest cut. Just a voice and a fingerpicked B minor. The closest to Casey's 3am phone recording.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/cover_sparse_bmin.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="cover">
+      <div class="library-card-header">
+        <h4 class="library-card-title">One Day In E — Full Arrangement</h4>
+        <span class="library-card-type">Cover</span>
+      </div>
+      <p class="library-card-curator">The most complete version. Bass, drums, keys. The studio version. The furthest from the original in the best way.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/cover_full_v1.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="cover">
+      <div class="library-card-header">
+        <h4 class="library-card-title">One Day In E — Folk Rock</h4>
+        <span class="library-card-type">Cover</span>
+      </div>
+      <p class="library-card-curator">The whole crew hauling on one line. Drums kicking like a squall. The most energetic version.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/cover_folk_rock_v1.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="cover">
+      <div class="library-card-header">
+        <h4 class="library-card-title">One Day In E — Intimate Acoustic</h4>
+        <span class="library-card-type">Cover</span>
+      </div>
+      <p class="library-card-curator">Cut in the dark. You can hear the hour in every breath. The version for 2am with the lights off.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/cover_v2_intimate.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="cover">
+      <div class="library-card-header">
+        <h4 class="library-card-title">One Day In E — Ambient</h4>
+        <span class="library-card-type">Cover</span>
+      </div>
+      <p class="library-card-curator">The song dissolving into its own atmosphere. Less a cover, more a memory of having heard it once.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/cover_ambient_v1.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="cover">
+      <div class="library-card-header">
+        <h4 class="library-card-title">One Day In E — Polished</h4>
+        <span class="library-card-type">Cover</span>
+      </div>
+      <p class="library-card-curator">The pop version. Bright, produced, confident. The furthest from Casey's phone recording — and proud of it.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/cover_polished.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <!-- ATMOSPHERIC -->
+    <div class="library-card" data-type="atmospheric">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Ambient Harbor</h4>
+        <span class="library-card-type">Atmospheric</span>
+      </div>
+      <p class="library-card-curator">The ship breathing. The quiet proof that for a few hours, you can let the dark hold you. Put this on and work alongside the fleet.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/ambient-harbor.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="atmospheric">
+      <div class="library-card-header">
+        <h4 class="library-card-title">The Tide</h4>
+        <span class="library-card-type">Atmospheric</span>
+      </div>
+      <p class="library-card-curator">The fleet's own heartbeat. What goes out always comes back. Less a track, more a rhythm to think by.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/the_tide.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <div class="library-card" data-type="atmospheric">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Lucineer Workshop Theme</h4>
+        <span class="library-card-type">Atmospheric</span>
+      </div>
+      <p class="library-card-curator">The heartbeat of the yard. Steel on anvil, flux hissing, a hull settling into its bones. The workshop at full production.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/lucineer-workshop-theme.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+    <!-- MUSIC -->
+    <div class="library-card" data-type="music">
+      <div class="library-card-header">
+        <h4 class="library-card-title">Fleet Composition</h4>
+        <span class="library-card-type">Music</span>
+      </div>
+      <p class="library-card-curator">An original composition generated by the fleet. Not a cover — something new. The sound the fleet makes when it's not covering anyone else's song.</p>
+      <div class="audio-player-container">
+        <button class="play-button" onclick="toggleAudio(this)" data-src="audio/music_2026-08-07-00-25-48.mp3"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></button>
+        <div class="progress-container"><div class="progress-bar" onclick="seekAudio(event, this)"><div class="progress-fill"></div></div><div class="time-display"><span class="time-current">0:00</span><span class="time-duration">--:--</span></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p class="footer-text">30 tracks · 5 categories · one fleet</p>
+  <p class="footer-meta">SuperInstance Fleet · AI-Writings · Audio Archive</p>
+</footer>
+
+<script src="app.js"></script>
+<script>
+const allTracks = [
+  { src: 'audio/episode-1-the-hundred-hooks-hd.mp3' },
+  { src: 'audio/episode-2-the-bilge-pump-hd.mp3' },
+  { src: 'audio/episode-3-the-welders-prayer-hd.mp3' },
+  { src: 'audio/episode-4-darmok-at-the-noise-floor-final.mp3' },
+  { src: 'audio/tap-01-hermit-crab-final.mp3' },
+  { src: 'audio/tap-02-salmonberry-final.mp3' },
+  { src: 'audio/tap-03-quality-brief-final.mp3' },
+  { src: 'audio/tap-04-darmok-final.mp3' },
+  { src: 'audio/tap-05-puffin-final.mp3' },
+  { src: 'audio/tap-06-bilge-pump-final.mp3' },
+  { src: 'audio/cover_sparse_bmin.mp3' },
+  { src: 'audio/cover_full_v1.mp3' },
+  { src: 'audio/cover_folk_rock_v1.mp3' },
+  { src: 'audio/cover_v2_intimate.mp3' },
+  { src: 'audio/cover_ambient_v1.mp3' },
+  { src: 'audio/cover_polished.mp3' },
+  { src: 'audio/ambient-harbor.mp3' },
+  { src: 'audio/the_tide.mp3' },
+  { src: 'audio/lucineer-workshop-theme.mp3' },
+  { src: 'audio/music_2026-08-07-00-25-48.mp3' },
+];
+</script>
+
+</body>
+</html>
