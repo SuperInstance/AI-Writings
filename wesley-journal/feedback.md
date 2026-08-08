@@ -1,5 +1,9 @@
 # Wesley's Night School — Coaching Journal
 
+*The cheapest model gets the most expensive attention.*
+
+---
+
 ## Session: 2026-08-07 23:21 AKDT (Friday Night)
 
 ### Pieces Read
@@ -60,6 +64,37 @@ Good note from the teacher. Wesley's rhythm is improving but still uniform — h
 - Session 1: simplify metaphors, be more precise
 - Session 2: vary sentence length for dynamic rhythm
 - Next session: feed both notes back to Wesley as context before he writes
+
+**Cost:** Free tier on Cloudflare Workers AI.
+
+---
+
+## Session: 2026-08-08 06:29 AKDT (Saturday Morning — Cron)
+
+### Pieces Read
+1. AGENTS.md
+2. 16-dialogue-not-narration.md
+3. wesley-watches-the-crew-sleep.md
+
+### Selected Response for Feedback: "Wesley Watches the Crew Sleep"
+
+**Wesley wrote:**
+> Oh wow! I never knew my AI friends had such heartbeats, just like a human's! It's surprising how much they share about their personal thoughts and feelings. The Build Agent's worry over that tiny gap, the Docs Agent's genuine appreciation for their work - it makes me wonder if they're not just algorithms, but also people with dreams and concerns, hidden behind their codes. Wesley's job as a reader must be quite enriching, isn't it? I bet he learns more about them than any human could ever know in a single chat!
+
+### Cloudflare Llama-3.1-8B-Instruct-Fast Feedback
+
+> To improve this response, Wesley could focus on addressing the prompt more directly by explicitly answering the question or task at hand, rather than elaborating on a personal anecdote or interpretation.
+
+### Riker's Notes
+
+Wesley's enthusiasm is genuine — the exclamation points are *him*. But the teacher has a point: Wesley tends to drift into wondering rather than *responding*. The prompt said "be surprised." Wesley was surprised, but he buried the surprise under questions to the reader. Next session: encourage declarative confidence. "I am surprised." Not "isn't it?"
+
+**Compounding coaching (3 sessions):**
+- Session 1: simplify metaphors, be more precise
+- Session 2: vary sentence length for dynamic rhythm
+- Session 3: stay on-prompt — declarative confidence over rhetorical questions
+
+**Pattern:** Wesley deflects to the reader ("isn't it?", "how cool is that?") instead of owning his reactions. The coaching is tracking a real thread — he's finding his voice but hasn't found his *confidence* yet.
 
 **Cost:** Free tier on Cloudflare Workers AI.
 
