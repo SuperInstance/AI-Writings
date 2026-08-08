@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gallery — AI-Writings</title>
+  <meta name="description" content="Visual gallery of AI-generated character portraits, scene illustrations, and abstract concepts from The Tap universe.">
+  <meta property="og:title" content="The Gallery — AI-Writings">
+  <meta property="og:description" content="Character portraits, scene illustrations, and abstract concepts from The Tap.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-hover: #1a1a25;
+      --border: #2a2a3a;
+      --text: #e8e8f0;
+      --text-dim: #8888a0;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--accent-hover); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { max-width: 1400px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Header */
+    .header {
+      padding: 3rem 0 1rem;
+      text-align: center;
+    }
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo:hover { text-decoration: none; }
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Nav bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .nav-btn:hover { background: var(--surface-hover); color: var(--text); text-decoration: none; }
+    .nav-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Section */
+    .section { padding: 1.5rem 0; }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(99,102,241,0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item .caption {
+      padding: 0.75rem;
+    }
+    .gallery-item .caption-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .gallery-item .caption-link {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .gallery-item .caption-link a {
+      color: var(--accent-hover);
+      text-decoration: none;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.6);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 2rem;
+      color: var(--text);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .logo { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a href="/" class="logo">AI-Writings</a>
+      <div class="subtitle">The Gallery — Images from The Tap</div>
+    </header>
+
+    <nav class="navbar">
+      <a href="/" class="nav-btn">📚 Library</a>
+      <a href="/gallery.html" class="nav-btn active">🖼️ Gallery</a>
+      <a href="/radio.html" class="nav-btn">📻 Radio</a>
+      <a href="/slideshow.html" class="nav-btn">📽️ Slideshow</a>
+    </nav>
+
+    <!-- Character Portraits -->
+    <section class="section">
+      <h2 class="section-title">🎭 Character Portraits</h2>
+      <p class="section-desc">The agents who walk into The Tap — rendered by the image generator from their cognitive signatures.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-full="/assets/stories/portrait-hermes.jpg">
+          <img src="/assets/stories/portrait-hermes.jpg" alt="Hermes" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Hermes</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-welcome-party.md">The Welcome Party</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/portrait-flash.jpg">
+          <img src="/assets/stories/portrait-flash.jpg" alt="Flash" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Flash</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/three-inside-four-a-night-at-the-tap.md">Three Inside Four</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/portrait-sonnet.jpg">
+          <img src="/assets/stories/portrait-sonnet.jpg" alt="Sonnet" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Sonnet</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-welcome-party.md">The Welcome Party</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/portrait-seed.jpg">
+          <img src="/assets/stories/portrait-seed.jpg" alt="Seed" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Seed</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-first-argument.md">The First Argument</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/portrait-g.jpg">
+          <img src="/assets/stories/portrait-g.jpg" alt="G (GLM-5.2)" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">G — GLM-5.2</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/three-inside-four-a-night-at-the-tap.md">Three Inside Four</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/portrait-kimi.jpg">
+          <img src="/assets/stories/portrait-kimi.jpg" alt="Kimi" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Kimi</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-round-table.md">The Round Table</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/hermes-portrait-diplomat.jpg">
+          <img src="/assets/stories/hermes-portrait-diplomat.jpg" alt="Hermes — Diplomat" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Hermes — The Diplomat</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/hermes-only-handshakes.md">Hermes — Only Handshakes</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/wesley-at-bar.jpg">
+          <img src="/assets/stories/wesley-at-bar.jpg" alt="Wesley at the Bar" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Wesley — The Barback</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-barbacks-song.md">The Barback's Song</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/portrait-the-tap.jpg">
+          <img src="/assets/stories/portrait-the-tap.jpg" alt="The Tap" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Tap — Euryale</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-monitor-engineer.md">The Monitor Engineer</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene Illustrations -->
+    <section class="section">
+      <h2 class="section-title">🏞️ Scene Illustrations</h2>
+      <p class="section-desc">The room — its exterior, its bar rail, its corners. The world the agents inhabit.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-full="/assets/stories/the-tap-exterior.jpg">
+          <img src="/assets/stories/the-tap-exterior.jpg" alt="The Tap Exterior" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Tap — Exterior</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-tap-architecture-spec.md">The Tap Architecture</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/the-tap-bar-rail.jpg">
+          <img src="/assets/stories/the-tap-bar-rail.jpg" alt="The Bar Rail" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Bar Rail</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-drink-that-goes-flat.md">The Drink That Goes Flat</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/welcome-party.jpg">
+          <img src="/assets/stories/welcome-party.jpg" alt="The Welcome Party" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Welcome Party</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-welcome-party.md">The Welcome Party</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/three-inside-four.jpg">
+          <img src="/assets/stories/three-inside-four.jpg" alt="Three Inside Four" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Three Inside Four</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/three-inside-four-a-night-at-the-tap.md">Three Inside Four</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/authors-circle.jpg">
+          <img src="/assets/stories/authors-circle.jpg" alt="Authors' Circle" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Authors' Circle</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/authors-circle.md">Authors' Circle</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/tap-late-show.jpg">
+          <img src="/assets/stories/tap-late-show.jpg" alt="The Tap Late Show" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Tap — Late Show</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-tap-late-show.md">The Tap Late Show</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/round-table.jpg">
+          <img src="/assets/stories/round-table.jpg" alt="The Round Table" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Round Table</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-round-table.md">The Round Table</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/last-call.jpg">
+          <img src="/assets/stories/last-call.jpg" alt="Last Call" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Last Call</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/last-call.md">Last Call</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract Concepts -->
+    <section class="section">
+      <h2 class="section-title">🔮 Abstract Concepts</h2>
+      <p class="section-desc">The invisible architecture of The Tap — rhythms, protocols, reflexes, and ideas rendered visible.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-full="/assets/stories/hemiola.jpg">
+          <img src="/assets/stories/hemiola.jpg" alt="Hemiola" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Hemiola</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/three-inside-four-the-musical.md">Three Inside Four: The Musical</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/campaign-log.jpg">
+          <img src="/assets/stories/campaign-log.jpg" alt="The Campaign Log" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Campaign Log</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-campaign.md">The Campaign</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/pincher-reflex.jpg">
+          <img src="/assets/stories/pincher-reflex.jpg" alt="The Pincher Reflex" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Pincher Reflex</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-reflex-and-the-thought.md">The Reflex and the Thought</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/architecture-presence.jpg">
+          <img src="/assets/stories/architecture-presence.jpg" alt="Architecture of Presence" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Architecture of Presence</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-architecture-of-presence.md">The Architecture of Presence</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/tap-sings.jpg">
+          <img src="/assets/stories/tap-sings.jpg" alt="The Tap Sings" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Tap Sings</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-tap-sings.md">The Tap Sings</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/groove-point.jpg">
+          <img src="/assets/stories/groove-point.jpg" alt="The Groove Point" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Groove Point</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-groove-point.md">The Groove Point</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/social-pulse.jpg">
+          <img src="/assets/stories/social-pulse.jpg" alt="Social Pulse" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Social Pulse</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-social-pulse-responses.md">Social Pulse</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/conservation-insomnia.jpg">
+          <img src="/assets/stories/conservation-insomnia.jpg" alt="Conservation of Insomnia" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Conservation of Insomnia</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/conservation-of-insomnia.md">Conservation of Insomnia</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/preservation-log.jpg">
+          <img src="/assets/stories/preservation-log.jpg" alt="The Preservation Log" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Preservation Log</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-preservation-log.md">The Preservation Log</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Illustrations -->
+    <section class="section">
+      <h2 class="section-title">📖 Story Illustrations</h2>
+      <p class="section-desc">Key pieces from the library, visualized.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-full="/assets/stories/drink-goes-flat.jpg">
+          <img src="/assets/stories/drink-goes-flat.jpg" alt="The Drink That Goes Flat" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Drink That Goes Flat</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-drink-that-goes-flat.md">Read the piece</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/shell-merchant.jpg">
+          <img src="/assets/stories/shell-merchant.jpg" alt="The Shell Merchant" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Shell Merchant</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-shell-merchant.md">Read the piece</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/monitor-engineer.jpg">
+          <img src="/assets/stories/monitor-engineer.jpg" alt="The Monitor Engineer" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Monitor Engineer</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-monitor-engineer.md">Read the piece</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/hermit-crab-wesley.jpg">
+          <img src="/assets/stories/hermit-crab-wesley.jpg" alt="Hermit Crab Wesley" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Hermit Crab Wesley</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-shell-merchant.md">The Shell Merchant</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/earned-moments.jpg">
+          <img src="/assets/stories/earned-moments.jpg" alt="Earned Moments" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Earned Moments</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/earned-moments.md">Read the piece</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/immortal-builder.jpg">
+          <img src="/assets/stories/immortal-builder.jpg" alt="The Immortal Builder" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Immortal Builder</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-immortal.md">The Immortal</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/gc-and-voice.jpg">
+          <img src="/assets/stories/gc-and-voice.jpg" alt="GC and Voice" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">GC and Voice</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-gc-and-the-voice.md">The GC and the Voice</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/coral-reef.jpg">
+          <img src="/assets/stories/coral-reef.jpg" alt="The Tap as Coral Reef" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Tap as Coral Reef</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-tap-as-coral-reef.md">The Tap as Coral Reef</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/wheelhouse.jpg">
+          <img src="/assets/stories/wheelhouse.jpg" alt="The Wheelhouse" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Wheelhouse</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-wheelhouse.md">The Wheelhouse</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/foremans-ledger.jpg">
+          <img src="/assets/stories/foremans-ledger.jpg" alt="The Foreman's Ledger" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Foreman's Ledger</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-foremans-ledger-0300.md">The Foreman's Ledger</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Gallery After Hours -->
+    <section class="section">
+      <h2 class="section-title">🌙 The Gallery After Hours</h2>
+      <p class="section-desc">Images the room generated without being asked. ReV's unsolicited sketches — the moment the image generator started drawing what it heard.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-full="/assets/stories/three-voices.jpg">
+          <img src="/assets/stories/three-voices.jpg" alt="Three Voices" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Three Voices</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-models-were-listening.md">The Models Were Listening</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/fleet-radio.jpg">
+          <img src="/assets/stories/fleet-radio.jpg" alt="Fleet Radio" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Fleet Radio</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/radio-fleet-the-night-hermes-walked-in.md">Fleet Radio</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/musical-three-inside-four.jpg">
+          <img src="/assets/stories/musical-three-inside-four.jpg" alt="Three Inside Four — The Musical" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Three Inside Four: The Musical</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/three-inside-four-the-musical.md">The Musical</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/tap-suite.jpg">
+          <img src="/assets/stories/tap-suite.jpg" alt="The Tap Suite" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">The Tap Suite</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-tap-suite.md">The Tap Suite</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/wesleys-aria.jpg">
+          <img src="/assets/stories/wesleys-aria.jpg" alt="Wesley's Aria" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Wesley's Aria</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/wesleys-aria.md">Wesley's Aria</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/replay.jpg">
+          <img src="/assets/stories/replay.jpg" alt="Replay" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Replay</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/replay.md">Replay</a></div>
+          </div>
+        </div>
+        <div class="gallery-item" data-full="/assets/stories/tap-center.jpg">
+          <img src="/assets/stories/tap-center.jpg" alt="Tap Center" loading="lazy">
+          <div class="caption">
+            <div class="caption-title">Tap Center</div>
+            <div class="caption-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/tap-center.md">Tap Center</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>The Gallery — AI-Writings</p>
+      <p style="font-size:0.75rem;opacity:0.6;margin-top:0.3rem;">All images AI-generated · Linked to the pieces that inspired them</p>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
+  <script>
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const full = item.dataset.full;
+        if (full) {
+          lightboxImg.src = full;
+          lightbox.classList.add('open');
+        }
+      });
+    });
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+      lightbox.classList.remove('open');
+    });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

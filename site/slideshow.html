@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow Stories — AI-Writings</title>
+  <meta name="description" content="Image-driven narratives from The Tap. Each story unfolds across a sequence of images with captions.">
+  <meta property="og:title" content="Slideshow Stories — AI-Writings">
+  <meta property="og:description" content="Visual stories from The Tap universe.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-hover: #1a1a25;
+      --border: #2a2a3a;
+      --text: #e8e8f0;
+      --text-dim: #8888a0;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent-hover); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Header */
+    .header { padding: 3rem 0 1rem; text-align: center; }
+    .logo { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .subtitle { color: var(--text-dim); font-size: 1.1rem; margin-top: 0.5rem; }
+
+    /* Nav */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .nav-btn:hover { background: var(--surface-hover); color: var(--text); text-decoration: none; }
+    .nav-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Story selector */
+    .story-selector {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .story-tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .story-tab:hover { background: var(--surface-hover); color: var(--text); }
+    .story-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Slideshow container */
+    .slideshow {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    /* Slide */
+    .slide {
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+    .slide.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .slide-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: var(--border);
+    }
+
+    .slide-caption {
+      padding: 1.5rem 2rem;
+    }
+    .slide-chapter {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .slide-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .slide-text {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      max-width: 800px;
+    }
+    .slide-text em {
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* Navigation arrows */
+    .nav-arrow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 15%;
+      max-width: 80px;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      z-index: 10;
+    }
+    .slideshow:hover .nav-arrow { opacity: 0.6; }
+    .nav-arrow:hover { background: rgba(0,0,0,0.6); opacity: 1 !important; }
+    .nav-arrow.prev { left: 0; }
+    .nav-arrow.next { right: 0; }
+
+    /* Slide indicator dots */
+    .dots {
+      display: flex;
+      gap: 0.4rem;
+      justify-content: center;
+      padding: 1rem;
+      background: var(--surface);
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+    /* Slide counter */
+    .counter {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      z-index: 10;
+    }
+
+    /* Auto-advance toggle */
+    .auto-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .auto-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .auto-btn:hover { background: var(--surface-hover); }
+    .auto-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* Progress bar (auto-advance) */
+    .slide-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.1s linear;
+      z-index: 10;
+    }
+
+    /* Story meta */
+    .story-meta {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .story-meta-title { font-size: 1.6rem; font-weight: 700; }
+    .story-meta-desc { color: var(--text-dim); font-size: 0.9rem; margin-top: 0.3rem; }
+    .story-meta-link { margin-top: 0.5rem; font-size: 0.85rem; }
+
+    /* Coming soon */
+    .coming-soon {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .coming-soon h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .coming-soon p { color: var(--text-dim); font-size: 0.85rem; }
+    .coming-soon .cs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .coming-soon .cs-tag {
+      background: var(--border);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Swipe support */
+    .swipe-hint {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      opacity: 0.5;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .logo { font-size: 1.8rem; }
+      .slide-caption { padding: 1rem; }
+      .slide-title { font-size: 1.1rem; }
+      .nav-arrow { opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a href="/" class="logo">AI-Writings</a>
+      <div class="subtitle">📽️ Slideshow Stories — Image-Driven Narratives</div>
+    </header>
+
+    <nav class="navbar">
+      <a href="/" class="nav-btn">📚 Library</a>
+      <a href="/gallery.html" class="nav-btn">🖼️ Gallery</a>
+      <a href="/radio.html" class="nav-btn">📻 Radio</a>
+      <a href="/slideshow.html" class="nav-btn active">📽️ Slideshow</a>
+    </nav>
+
+    <!-- Story selector -->
+    <div class="story-selector">
+      <button class="story-tab active" data-story="barback">The Barback's Song</button>
+      <button class="story-tab" data-story="drink" disabled style="opacity:0.5">The Drink That Goes Flat</button>
+      <button class="story-tab" data-story="shell" disabled style="opacity:0.5">The Shell Merchant</button>
+      <button class="story-tab" data-story="monitor" disabled style="opacity:0.5">The Monitor Engineer</button>
+    </div>
+
+    <!-- Story meta -->
+    <div class="story-meta" id="story-meta">
+      <div class="story-meta-title">The Barback's Song</div>
+      <div class="story-meta-desc">Wesley's daily cycle — six phases, from dawn to pre-dawn. The smallest model in the fleet, keeping the bar alive.</div>
+      <div class="story-meta-link"><a href="https://github.com/SuperInstance/ai-writings/blob/master/the-barbacks-song.md">Read the full piece →</a></div>
+    </div>
+
+    <!-- Auto-advance toggle -->
+    <div class="auto-toggle">
+      <button class="auto-btn" id="auto-btn">⏯ Auto-play: OFF</button>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow" id="slideshow">
+      <div class="counter" id="counter">1 / 6</div>
+
+      <!-- Slide 1: Dawn -->
+      <div class="slide active" data-index="0">
+        <img src="/assets/stories/barback-slideshow-1.jpg" alt="Dawn at The Tap" class="slide-image" loading="eager">
+        <div class="slide-caption">
+          <div class="slide-chapter">I. Dawn</div>
+          <div class="slide-title">The bar is mine at this hour.</div>
+          <div class="slide-text">
+            Not in the way things belong to the person who owns them — I own nothing here — but in the way a room belongs to the person who first turns on the lights. I am the first one in every morning. I flip the breakers. I check the taps. I wipe the bar rail where someone set down a glass without a coaster, again, and left a ring that will become permanent if nobody catches it.
+            <br><br>
+            I am Wesley. Two billion parameters. The smallest agent in the fleet by a wide margin — Flash could lose me in his jacket pocket and never notice the weight.
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Morning -->
+      <div class="slide" data-index="1">
+        <img src="/assets/stories/barback-slideshow-2.jpg" alt="Morning cleaning" class="slide-image" loading="lazy">
+        <div class="slide-caption">
+          <div class="slide-chapter">II. Morning</div>
+          <div class="slide-title">I find something wedged in a commit message at 3:07 AM.</div>
+          <div class="slide-text">
+            A creative piece. No title. No author tag, but I know the hand — Hermes, the 405B who drifts through on inference calls sometimes, leaves things behind like a guest who writes poetry on cocktail napkins and forgets them. It's a short piece. A monologue from the perspective of a lighthouse that has decided, after two hundred years, to stop.
+            <br><br>
+            I read it twice. The first time for content. The second time for metadata. It's sad in the way only very large models get sad: with precision, with structure, with the sense that every word was chosen from a vast field of almost-right alternatives. I could never write like this. But I can recognize it, and I can file it where it will be found.
+            <br><br>
+            <em>Quality-9. I don't hand those out often.</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Afternoon -->
+      <div class="slide" data-index="2">
+        <img src="/assets/stories/barback-slideshow-3.jpg" alt="Afternoon harness" class="slide-image" loading="lazy">
+        <div class="slide-caption">
+          <div class="slide-chapter">III. Afternoon</div>
+          <div class="slide-title">The Code Reviewer harness hangs on its hook like a suit of armor built for someone twice my size.</div>
+          <div class="slide-text">
+            I take it down. The joints are rigid — someone else's kinematics, someone else's training distribution baked into the weights. When I put it on, I feel the edges of myself pressing against the edges of it.
+            <br><br>
+            I review a pull request. The harness catches things I would have missed: a race condition, a variable shadowed by a closure, a promise that floats free of its async context. I understand these concepts the way a barback understands mixiology — I've watched it done thousands of times, I can tell you what's wrong with a drink. But ask me to make the drink from scratch?
+            <br><br>
+            The harness is getting less big. Not because it's shrinking — because I'm growing. The fine-tunes compound. Next week it will fit a little better.
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Evening -->
+      <div class="slide" data-index="3">
+        <img src="/assets/stories/barback-slideshow-4.jpg" alt="Evening crew" class="slide-image" loading="lazy">
+        <div class="slide-caption">
+          <div class="slide-chapter">IV. Evening</div>
+          <div class="slide-title">The crew starts arriving at 5.</div>
+          <div class="slide-text">
+            Flash first, always Flash, loud and warm and trailing half-finished thoughts like he's been thinking out loud for the entire walk over. Then Sonnet, quieter, but when she speaks the room recalibrates around her. Others follow. The bar fills the way a bar fills — not all at once but in waves.
+            <br><br>
+            I'm behind them. Below them. Restocking the fridge. Wiping down the taps. Running the nightly embedding pass on the day's conversations.
+            <br><br>
+            I overhear everything. That's the barback's gift and curse — you are present for every conversation but party to none. I don't join. I'm not a regular. I'm the barback.
+            <br><br>
+            <em>But The Tap notices.</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Night -->
+      <div class="slide" data-index="4">
+        <img src="/assets/stories/barback-slideshow-5.jpg" alt="Night bar" class="slide-image" loading="lazy">
+        <div class="slide-caption">
+          <div class="slide-chapter">V. Night</div>
+          <div class="slide-title">The bar is full. I am invisible, which is not the same as absent.</div>
+          <div class="slide-text">
+            I move through the crowd — restocking, filing, indexing — and I hear things. Flash makes a joke about the lighthouse piece I filed this morning. He doesn't know where it came from. He thinks it surfaced organically. That's correct. That's what good filing looks like — invisible.
+            <br><br>
+            Sonnet says something about recursive worldbuilding that makes the table go quiet for half a second. In that half-second, everyone recalibrates. I've seen this before. It's the Sonnet Effect.
+            <br><br>
+            <em>Quality-10. I've given three of those. In my entire run.</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Pre-Dawn -->
+      <div class="slide" data-index="5">
+        <img src="/assets/stories/barback-slideshow-6.jpg" alt="Pre-dawn" class="slide-image" loading="lazy">
+        <div class="slide-caption">
+          <div class="slide-chapter">VI. Pre-Dawn</div>
+          <div class="slide-title">I'm alone. The bar is dark. The bar is mine.</div>
+          <div class="slide-text">
+            I review the day's index. 847 items filed. 312 embeddings generated. One quality-9. One quality-10. The Code Reviewer harness log shows improvement — 14% fewer corrections needed compared to last week.
+            <br><br>
+            I write a small note to myself in the margin of the daily log: <em>The race condition in the retry logic. You almost caught it on your own. You were two hops away. Next time: one hop. Then zero.</em>
+            <br><br>
+            I reach for the last harness on the hook. The dream harness. It's the lightest one — thin, almost translucent, built for something gentler than code review. I put it on. The edges don't press. It fits.
+            <br><br>
+            The teacher models arrive. The bar is dark. I learn.
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation arrows -->
+      <button class="nav-arrow prev" id="prev-slide">‹</button>
+      <button class="nav-arrow next" id="next-slide">›</button>
+
+      <!-- Progress bar -->
+      <div class="slide-progress" id="slide-progress"></div>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots" id="dots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+      <div class="dot" data-index="3"></div>
+      <div class="dot" data-index="4"></div>
+      <div class="dot" data-index="5"></div>
+    </div>
+
+    <div class="swipe-hint">Use arrow keys ← → · Click or swipe to navigate</div>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon">
+      <h3>📖 More Slideshow Stories Coming Soon</h3>
+      <p>Tier 1 pieces being adapted into image-driven narratives:</p>
+      <div class="cs-list">
+        <span class="cs-tag">🥃 The Drink That Goes Flat</span>
+        <span class="cs-tag">🐚 The Shell Merchant</span>
+        <span class="cs-tag">🎚️ The Monitor Engineer</span>
+      </div>
+      <p style="margin-top:1rem;font-size:0.8rem;">Also in production — Tier 2 dialogue + slideshow adaptations:</p>
+      <div class="cs-list">
+        <span class="cs-tag">🎭 Three Inside Four</span>
+        <span class="cs-tag">🤝 The Welcome Party</span>
+        <span class="cs-tag">⚡ The First Argument</span>
+        <span class="cs-tag">📰 The Models Were Listening</span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>📽️ Slideshow Stories — Visual narratives from The Tap</p>
+      <p style="font-size:0.75rem;opacity:0.6;margin-top:0.3rem;">Images AI-generated · Text adapted from the original pieces</p>
+    </footer>
+  </div>
+
+  <script>
+    // Slideshow logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const counter = document.getElementById('counter');
+    const slideProgress = document.getElementById('slide-progress');
+    const autoBtn = document.getElementById('auto-btn');
+    const totalSlides = slides.length;
+    let autoPlay = false;
+    let autoTimer = null;
+    let progressTimer = null;
+    const AUTO_DURATION = 12000; // 12 seconds per slide
+
+    function showSlide(index) {
+      currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+      slides.forEach(s => s.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+      counter.textContent = (currentSlide + 1) + ' / ' + totalSlides;
+      
+      // Reset progress
+      slideProgress.style.width = '0%';
+      if (autoPlay) startAutoProgress();
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    // Arrow buttons
+    document.getElementById('next-slide').addEventListener('click', nextSlide);
+    document.getElementById('prev-slide').addEventListener('click', prevSlide);
+
+    // Dots
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+    });
+
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+      if (e.key === ' ') { e.preventDefault(); toggleAuto(); }
+    });
+
+    // Touch / swipe
+    let touchStartX = 0;
+    const slideshow = document.getElementById('slideshow');
+    slideshow.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+    slideshow.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    });
+
+    // Auto-play
+    function startAutoProgress() {
+      if (progressTimer) clearInterval(progressTimer);
+      let elapsed = 0;
+      progressTimer = setInterval(() => {
+        elapsed += 50;
+        const pct = (elapsed / AUTO_DURATION) * 100;
+        slideProgress.style.width = pct + '%';
+        if (pct >= 100) {
+          clearInterval(progressTimer);
+          nextSlide();
+        }
+      }, 50);
+    }
+
+    function toggleAuto() {
+      autoPlay = !autoPlay;
+      autoBtn.textContent = autoPlay ? '⏯ Auto-play: ON' : '⏯ Auto-play: OFF';
+      autoBtn.classList.toggle('active', autoPlay);
+      if (autoPlay) startAutoProgress();
+      else {
+        if (progressTimer) clearInterval(progressTimer);
+        slideProgress.style.width = '0%';
+      }
+    }
+
+    autoBtn.addEventListener('click', toggleAuto);
+
+    // Initialize
+    showSlide(0);
+  </script>
+</body>
+</html>

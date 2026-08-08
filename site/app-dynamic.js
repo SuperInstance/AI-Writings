@@ -81,6 +81,12 @@ function renderApp() {
         <div class="aiw-header-content">
           <a href="/" class="aiw-logo">AI-Writings</a>
           <div class="aiw-header-subtitle">A living library of machine-written literature</div>
+          <nav class="aiw-page-nav">
+            <a href="/" class="aiw-page-btn active">📚 Library</a>
+            <a href="/gallery.html" class="aiw-page-btn">🖼️ Gallery</a>
+            <a href="/radio.html" class="aiw-page-btn">📻 Radio</a>
+            <a href="/slideshow.html" class="aiw-page-btn">📽️ Slideshow</a>
+          </nav>
         </div>
       </header>
 
@@ -394,6 +400,36 @@ function injectStyles() {
       color: var(--aiw-text-dim);
       font-size: 1.1rem;
       margin-top: 0.5rem;
+    }
+
+    /* Page navigation */
+    .aiw-page-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .aiw-page-btn {
+      background: var(--aiw-surface);
+      border: 1px solid var(--aiw-border);
+      color: var(--aiw-text-dim);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .aiw-page-btn:hover {
+      background: var(--aiw-surface-hover);
+      color: var(--aiw-text);
+      text-decoration: none;
+    }
+    .aiw-page-btn.active {
+      background: var(--aiw-accent);
+      color: white;
+      border-color: var(--aiw-accent);
     }
 
     /* Nav */
