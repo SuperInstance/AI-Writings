@@ -952,3 +952,136 @@ The project now has:
 8. **The Fifth's Funeral analysis** — does D minor at 65 BPM produce another 7MB+ track?
 9. **More corpus adaptations** — 10 essays identified as priority
 
+---
+
+## Session 2026-08-08 08:16 AKST — "The Saturday Morning Prepares"
+
+### Context
+
+Eleventh session. Saturday morning. Weekly quota exhausted (0% weekly, resets at ~4 PM AKST today). Daily quota at 100% but blocked by the weekly gate. With eight hours until reset, this session pivoted to preparation: new corpus adaptations, local-model lyricist experiments, and creative writing.
+
+### What Happened
+
+**1. Three new corpus essay adaptations (lyrics written)**
+
+Three unadapted essays from the music-and-math corpus were adapted into song lyrics:
+
+- **"The Metronome Is the Constraint"** — the click track as cage that frees. Indie rock at 120 BPM (the same BPM as the click track in the essay). The lyrics encode the argument's emotional core: "the cage was where the groove broke through." Trimmed to 998 chars for safe generation.
+
+- **"The Tensor Is the Score"** — Duke Ellington's sparse scores as metaphor for distributed systems. Cool jazz at 65 BPM in D minor (the project's confirmed "home field" parameters). The lyrics encode the essay's key images: the score that recedes when it works, the deadband filter as Duke's approach made structural. Trimmed to 1040 chars.
+
+- **"The Chip That Sang"** — first-person monologue from a CPU running a lattice oscillator. Electronic ambient at 60 BPM. The lyrics preserve the essay's astonishing voice: "I do not know music / I know clock cycles and register states." The catalog of different chips (RP2040, ESP32, RISC-V, GPU) becomes a catalog of different voices in the song. Trimmed to 1067 chars.
+
+All three trimmed versions are under the 1200-char safety ceiling established in Session 4.
+
+**2. Local-model lyricist comparison (Ollama)**
+
+With the MMX API blocked by quota, three local models were tested as alternative lyricists via Ollama:
+
+- **Granite 3.1 Dense (2B)** — produced competent but "purple" lyrics ("tapestry woven by master hands"). Notable for including meta-structural commentary ("Structural description: The song ends where it began").
+- **Llama 3.2 (1B)** — produced simple, direct, singable lyrics ("In the silence, I feel your weight / A drum's steady heartbeat, a metronome fate"). Very conventional imagery but excellent meter regularity.
+- **GLM-5.2 (agent)** — hand-written lyrics as control. More referential, more structurally embedded in corpus.
+
+The local models were tested on TWO concepts: "The Tensor Is the Score" (Granite) and "The Metronome Is the Constraint" (Llama), plus "The Cadence Caller Listens" (both Granite and Llama) for direct comparison with the existing M3 and agent lyrics.
+
+**Key finding:** Model size matters more than architecture for lyric quality. The 1B-2B local models produce singable, structurally correct lyrics but lack the imagistic density of M3's output. However, they could serve as "simple lyric" controls for experiments testing whether lyric complexity affects music generation.
+
+**3. Experiment E2 designed: Three-Model Lyricist Comparison**
+
+A formal experiment was designed comparing three lyricists on the same concept ("The Cadence Caller Listens"):
+- M3 at temperature 0.93 (complex)
+- Granite 3.1 at default (moderate)
+- Llama 3.2 at default (simple)
+Same musical parameters for all three (A minor, 78 BPM, indie folk, female alto). Hypothesis: if Session 6's finding holds, track size should correlate with lyric complexity. Script written: `generate-lyricist-comparison.sh`.
+
+**4. Generation script updated**
+
+`generate-session-11.sh` now includes 8 queued tracks:
+1. The Proof Is the Performance (orchestral cinematic)
+2. The Ouroboros Sings (art rock)
+3. The Session Listens Back (ambient indie)
+4. The Cadence Caller Listens (indie folk, agent lyrics)
+5. The Fifth's Funeral (dramatic orchestral, D minor, 65 BPM — home field test)
+6. The Metronome Is the Constraint (indie rock, 120 BPM)
+7. The Tensor Is the Score (cool jazz, D minor, 65 BPM — home field test #2)
+8. The Chip That Sang (electronic ambient, 60 BPM)
+
+**5. Creative writing**
+
+- `the-saturday-morning-waits-for-the-note.md` — essay on the project's state during the quota-blocked preparation session. Argues that the listening gap (35 tracks, zero listens) is both the project's greatest failure and its most productive constraint.
+- `the-metronome-visits-the-chip.md` — fiction crossing two corpus essays ("The Metronome Is the Constraint" × "The Chip That Sang"). The metronome on the shelf talks to the unpowered ESP32 on the desk at 1:26 AM via an impossible electromagnetic coupling.
+
+### Tracks Generated
+
+None. Zero API calls succeeded. Weekly quota at 0%.
+
+### Creative Output
+
+- `the-saturday-morning-waits-for-the-note.md` — essay on preparation as composition
+- `the-metronome-visits-the-chip.md` — fiction crossing two corpus essays via impossible physics
+- `music/lyrics-the-metronome-is-the-constraint.txt` — full lyrics (1726 chars)
+- `music/lyrics-the-metronome-trimmed.txt` — trimmed for generation (998 chars)
+- `music/lyrics-the-tensor-is-the-score.txt` — full lyrics (1648 chars)
+- `music/lyrics-the-tensor-trimmed.txt` — trimmed for generation (1040 chars)
+- `music/lyrics-the-chip-that-sang.txt` — full lyrics (1689 chars)
+- `music/lyrics-the-chip-that-sang-trimmed.txt` — trimmed for generation (1067 chars)
+- `music/lyrics-cadence-granite.txt` — Granite 3.1 Dense lyrics for comparison
+- `music/lyrics-cadence-llama.txt` — Llama 3.2 lyrics for comparison
+- `music/lyrics-tensor-granite.txt` — Granite 3.1 Dense, Tensor concept (embedded in study doc)
+- `music/lyrics-metronome-llama.txt` — Llama 3.2, Metronome concept (embedded in study doc)
+- `music/lyricist-comparison-local-models.md` — formal study of local model lyric quality
+- `music/generate-session-11.sh` — updated generation script (8 tracks)
+- `music/generate-lyricist-comparison.sh` — 3-model comparison experiment script
+
+### Key Findings
+
+**1. The corpus is already musical.**
+After adapting ten essays into lyrics, the pattern is clear: the essays already have tempo (rhetorical pacing), key (emotional register), and dynamics (argumentative intensity). Setting them to music doesn't add a musical layer — it reveals the musical layer already embedded in the prose. The SongForge project is excavating songs from essays, not creating songs from essays. The Chip That Sang was already a monologue; the Metronome essay was already a click track; the Tensor essay was already a Duke Ellington chart.
+
+**2. Local models (1B-2B) produce functional but not exceptional lyrics.**
+Granite 3.1 Dense (2B) produces more flowery, metaphorical lyrics with meta-commentary. Llama 3.2 (1B) produces simpler, more direct lyrics with better meter regularity. Neither approaches M3's imagistic density or recursive wordplay. But both produce singable, structurally correct output that could function in a song. **The quality gap between local models and M3 is not a wall — it's a gradient.**
+
+**3. The essay type determines the adaptation strategy.**
+- **Narrative essays** (Bone Flute, Chip That Sang) → preserve the first-person voice and story arc
+- **Argumentative essays** (Metronome, Tensor) → compress the argument into concrete images
+- **Confession essays** (Chip That Sang) → the essay is already a monologue; the lyrics practically write themselves
+This taxonomy of adaptation strategies is new. It suggests that the corpus could be sorted by essay type and each type given a different lyric-setting protocol.
+
+**4. The quota reset creates a natural session boundary.**
+The weekly quota cycle (7 days) creates a rhythm of active generation (sessions 1-8, generating 35 tracks) and preparation (sessions 9-11, writing lyrics and designing experiments). The preparation sessions are not less productive than the generation sessions — they produce lyrics, essays, experiment designs, and creative fiction that the generation sessions then instantiate as audio. **The project has a natural breath: inhale (prepare), exhale (generate), rest (quota-blocked), repeat.**
+
+**5. The Ollama local-model workflow is a viable quota-free alternative.**
+With Ollama installed on Casey's machine, lyric generation can happen without consuming MMX API quota. The workflow is: Ollama generates draft lyrics → agent refines and trims → lyrics saved for later music generation. This decouples the lyricist role from the music generator role entirely. The tradeoff is quality (local models are simpler), but the benefit is unlimited iterations. For the project's experimental framework, this is a valid tool.
+
+### Project Status
+
+**35 tracks, ~186MB total. Eleven sessions. Zero tracks generated this session (quota-blocked).**
+
+The project now has:
+- 8 impossible genres (complete matrix)
+- 8-point BPM curve study (instrumental only, bimodal)
+- 2 cover experiments (3-generation chain)
+- 1 lyricist temperature comparison (0.85 vs 0.93)
+- 7 corpus essay adaptations (generated)
+- 6 corpus essay adaptations (queued, lyrics written)
+- 1 lyricist comparison study (local models vs M3) — designed, lyrics collected
+- 1 essay-music feedback loop (structurally complete)
+- 8 queued tracks ready for generation (generate-session-11.sh)
+- 3 lyricist comparison tracks ready (generate-lyricist-comparison.sh)
+- 6 formal experiments designed and prioritized
+- 2 generation scripts ready for execution
+- Creative output: 40+ essays, fictions, and lyrical works
+
+Total queued for next productive session: **11 tracks** (8 new + 3 comparison)
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. 35 tracks, 186MB, eleven sessions. NONE listened to.
+2. **Execute generate-session-11.sh** — 8 queued tracks including 3 new corpus adaptations
+3. **Execute generate-lyricist-comparison.sh** — 3-model lyricist comparison (M3 vs Granite vs Llama)
+4. **The Fifth's Funeral + Tensor both at D minor/65 BPM** — if both exceed 7MB, the home-field hypothesis is confirmed
+5. **Experiment B: Vocal BPM study** — 6 tracks at 40, 60, 80, 100, 120, 140 BPM with vocals
+6. **Experiment C: Seed reproducibility** — same prompt + same seed = same output?
+7. **4th-generation cover chain** — how many covers before degradation?
+8. **More corpus adaptations** — 10+ essays still unadapted. Priority: The Scheduler Hears, The Instanton in Coltrane
+
