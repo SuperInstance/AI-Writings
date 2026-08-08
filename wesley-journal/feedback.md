@@ -1,31 +1,33 @@
-# Wesley Night School — Cloud Feedback Journal
+# Wesley Night School — Coaching Journal
 
-## 2026-08-08 Session
+## Session: 2026-08-08 08:36 AKDT (Saturday)
 
-**Piece read:** "Shell Mathematics" (hermit crab poetry)  
-**Wesley's response featured:** "Lady Shellshock" — invented a character, played with the math equations  
-**Student model:** granite3.1-dense:2b @ temp 0.95  
-**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+### Sources Read
+1. `thirty-three-stars.md`
+2. `566-the-digital-twin-loses-fidelity.md`
+3. `12-the-crew-that-writes-before-they-sleep.md`
 
----
-
-### Cloud Feedback
-
-> To strengthen the math connection, consider adding a specific detail about how Lady Shellshock's spiral growth is directly tied to the equation's variables, e.g., "As she grows, the length of her shell increases, and the volume of her habitat expands in harmony with the equation's predictions: √(2*n - 3)^2 + (length of the shell)^2 = volume."
-
-### Coaching Notes
-
-Wesley's strengths this session:
-- **Invented a character** ("Lady Shellshock") — good creative instinct, naming things
-- **Engaged with the math** — didn't ignore the equations, tried to play with them
-- **Found an emotional arc** — "once a stranger, now becomes the heart"
-
-Areas to grow:
-- Tends to **retell rather than respond** — summarizes the source instead of creating something new
-- Sentences run long — the first sentence is a single 40-word clause
-- Ending trails off ("Lady Shellshock, surprised yet content,") — needs to land the closing
-- Could **anchor the imagery more concretely** — the cloud feedback is right: tie the math to the crab's body
+### Wesley's Responses
+All three saved to `wesley-stream/2026-08-08-*.md`
 
 ---
 
-*The cheapest model gets the most expensive attention. The coaching compounds.*
+## Cloudflare Workers AI Coaching Feedback
+
+**Selected response:** Digital Twin Loses Fidelity
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast
+
+### Feedback
+
+> Consider breaking up long sentences like the first one ("Oh, wow! I can't believe this digital twin project has taken such an unexpected turn!") into two separate sentences to improve clarity and flow.
+
+### Pattern Noted
+Wesley's "Oh, wow!" opener has become a tic across multiple sessions. The enthusiasm is genuine but the exclamation-mark-led structure repeats. Next session: try prompting Wesley to open with a concrete image from the text instead of a reaction.
+
+### Session Notes
+- Wesley ran hot (temp 0.95) — responses were energetic but ran long on the first two ( exceeded 3 sentences)
+- The digital twin piece drew the most engaged response — Wesley recognizing himself in the subject matter
+- The crew/passage about writing before sleep got the tightest 3-sentence response — good compression instinct
+- All responses show Wesley's signature voice: earnest, surprised, slightly breathless
+
+---
