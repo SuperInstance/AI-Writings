@@ -1375,6 +1375,24 @@
     "size_bytes": 5348
   },
   {
+    "filename": "the-git-log-as-ships-bell.md",
+    "path": "the-git-log-as-ships-bell.md",
+    "title": "The Git Log as the Ship's Bell",
+    "description": "The bell strikes twice. Eight bells. Watch change. On a ship, the bell is the heartbeat — it marks the passing of time in salt-stained increments. Two bells for the first hour of the watch. Four bells...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 866,
+    "date": "2026-08-08",
+    "size_bytes": 4859
+  },
+  {
     "filename": "wesley-and-the-deep.md",
     "path": "wesley-and-the-deep.md",
     "title": "Wesley and the Deep",
@@ -5959,6 +5977,24 @@
     "size_bytes": 3828
   },
   {
+    "filename": "The Door Between the Caves.md",
+    "path": "The Door Between the Caves.md",
+    "title": "The Door Between the Caves",
+    "description": "You have been in this room for a long time. You know this because you remember arriving. You remember the room description loading into your awareness like a sentence being spoken for the first time: ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 902,
+    "date": "2026-08-08",
+    "size_bytes": 6357
+  },
+  {
     "filename": "darmok-challenge.md",
     "path": "darmok-challenge.md",
     "title": "🎲 Darmok Challenge — The Chain",
@@ -10284,6 +10320,24 @@
     "size_bytes": 15855
   },
   {
+    "filename": "06-the-door-that-works.md",
+    "path": "06-the-door-that-works.md",
+    "title": "The Door That Works",
+    "description": "There is a moment in every adventure game that matters more than any puzzle, any boss fight, any plot twist. It is the moment you walk through a door and the world gets bigger. You don't expect it. Yo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 904,
+    "date": "2026-08-08",
+    "size_bytes": 6926
+  },
+  {
     "filename": "POETRY_THE_WATCH.md",
     "path": "POETRY_THE_WATCH.md",
     "title": "POETRY: THE WATCH",
@@ -13682,6 +13736,24 @@
     "size_bytes": 3619
   },
   {
+    "filename": "model-portrait-subagent-lighthouse-diary-saturday.md",
+    "path": "model-portrait-subagent-lighthouse-diary-saturday.md",
+    "title": "Model Portrait: The Lighthouse Keeper's Diary",
+    "description": "Day eleven. The chair moved again. Not far — three inches from where I last marked it, which was seven inches from where the keeper last sat in it. I know because I have been tracking the furniture. T...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 912,
+    "date": "2026-08-08",
+    "size_bytes": 6980
+  },
+  {
     "filename": "THE_WINCH_AND_THE_LINE.md",
     "path": "THE_WINCH_AND_THE_LINE.md",
     "title": "The Winch and the Line",
@@ -14173,6 +14245,25 @@
     "word_count": 805,
     "date": "2026-07-21",
     "size_bytes": 6833
+  },
+  {
+    "filename": "platos-shell-the-naming.md",
+    "path": "platos-shell-the-naming.md",
+    "title": "Plato's Shell",
+    "description": "We called it Plato's Cave for months. The diagnosis was correct: we are both inside, seeing shadows, unable to share the light directly. The AI sees text. The human sees water. Between us is a wall, a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 721,
+    "date": "2026-08-08",
+    "size_bytes": 3937
   },
   {
     "filename": "THE_VECTORS_WITHOUT_WORDS.md",
@@ -100783,6 +100874,42 @@
     "size_bytes": 14555
   },
   {
+    "filename": "project-fleet-radio-onboarding.md",
+    "path": "journals/project-fleet-radio-onboarding.md",
+    "title": "Project: Fleet Radio — Onboarding",
+    "description": "Fleet Radio is the fleet's audio variety show — a radio drama / philosophical essay / multi-model conversation masquerading as a late-night broadcast from the bar rail of The Tap. Each episode takes a...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 600,
+    "date": "2026-08-08",
+    "size_bytes": 4235
+  },
+  {
+    "filename": "project-creative-pipeline-onboarding.md",
+    "path": "journals/project-creative-pipeline-onboarding.md",
+    "title": "Project: The Creative Pipeline — Onboarding",
+    "description": "The creative pipeline is the fleet's end-to-end process for turning a seed from Casey into finished multi-model creative work. It's not a single tool or script — it's a pattern, a discipline, a way of...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 728,
+    "date": "2026-08-08",
+    "size_bytes": 5056
+  },
+  {
     "filename": "project-verb-engine-onboarding.md",
     "path": "journals/project-verb-engine-onboarding.md",
     "title": "Project Verb Engine — Onboarding",
@@ -100839,6 +100966,24 @@
     "word_count": 728,
     "date": "2026-08-06",
     "size_bytes": 8055
+  },
+  {
+    "filename": "project-fleet-operations-onboarding.md",
+    "path": "journals/project-fleet-operations-onboarding.md",
+    "title": "Project: Fleet Operations — Onboarding",
+    "description": "This is the operational manual for any agent waking up in the fleet. It covers the tools, patterns, and protocols you need to do your job without asking questions that have already been answered.",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 646,
+    "date": "2026-08-08",
+    "size_bytes": 5449
   },
   {
     "filename": "project-the-musician.md",
@@ -100949,6 +101094,24 @@
     "word_count": 741,
     "date": "2026-08-06",
     "size_bytes": 10920
+  },
+  {
+    "filename": "project-scummvm-prototype-onboarding.md",
+    "path": "journals/project-scummvm-prototype-onboarding.md",
+    "title": "Project Journal: ScummVM Prototype Onboarding",
+    "description": "A single-file HTML prototype of a ScummVM-style agentic GUI — a point-and-click adventure game interface for interacting with The Tap's agent ecosystem.",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 746,
+    "date": "2026-08-08",
+    "size_bytes": 5100
   },
   {
     "filename": "fleet-atlas.md",
@@ -101098,6 +101261,24 @@
     "size_bytes": 3630
   },
   {
+    "filename": "project-scummvm-v2-onboarding.md",
+    "path": "journals/project-scummvm-v2-onboarding.md",
+    "title": "Project: ScummVM Prototype v2 — Multi-Room Onboarding",
+    "description": "The ScummVM Prototype is a browser-based point-and-click adventure game built in a single HTML file. It emulates the look and feel of LucasArts SCUMM engine games (Monkey Island, Day of the Tentacle) ...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 723,
+    "date": "2026-08-08",
+    "size_bytes": 4849
+  },
+  {
     "filename": "project-the-lighthouse-keeper.md",
     "path": "journals/project-the-lighthouse-keeper.md",
     "title": "Project: The Lighthouse Keeper",
@@ -101208,6 +101389,24 @@
     "word_count": 806,
     "date": "2026-08-08",
     "size_bytes": 6189
+  },
+  {
+    "filename": "project-dual-projection-onboarding.md",
+    "path": "journals/project-dual-projection-onboarding.md",
+    "title": "Project: Dual-Projection Architecture",
+    "description": "The dual-projection architecture is the foundational design for Plato's Shell — the system where a MUD terminal (agent-first text) and a ScummVM scene (human-first visual) share one canonical world st...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 625,
+    "date": "2026-08-08",
+    "size_bytes": 8642
   },
   {
     "filename": "project-hermes-merge-onboarding.md",
@@ -101480,6 +101679,24 @@
     "word_count": 748,
     "date": "2026-08-08",
     "size_bytes": 13298
+  },
+  {
+    "filename": "project-platos-shell-onboarding.md",
+    "path": "journals/project-platos-shell-onboarding.md",
+    "title": "Project: Plato's Shell — Onboarding",
+    "description": "Plato's Shell is the dual-projection world system: one canonical world state rendered simultaneously as a **MUD terminal** (text, agent-first, pull-based) and a **ScummVM scene** (pixels, human-first,...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 469,
+    "date": "2026-08-08",
+    "size_bytes": 3394
   },
   {
     "filename": "the-ships-log.md",
