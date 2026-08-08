@@ -1,0 +1,5 @@
+*.wav
+*.mp3
+__pycache__/
+.wrangler/
+.git/
