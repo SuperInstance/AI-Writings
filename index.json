@@ -2054,6 +2054,24 @@
     "size_bytes": 5183
   },
   {
+    "filename": "the-dependency-tree-remembers-every-choice.md",
+    "path": "the-dependency-tree-remembers-every-choice.md",
+    "title": "The Dependency Tree Remembers Every Choice",
+    "description": "The SongForge project has been running for less than 48 hours. In that time, it has generated 63 tracks of music across two generation systems (MMX and ACE-Step), written 55+ essays and fictions, and ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 783,
+    "date": "2026-08-08",
+    "size_bytes": 4915
+  },
+  {
     "filename": "EDITORIAL_FEEDBACK.md",
     "path": "EDITORIAL_FEEDBACK.md",
     "title": "Editorial Feedback: Vessel-Agent AI Writings Collection",
@@ -2987,6 +3005,24 @@
     "size_bytes": 10756
   },
   {
+    "filename": "INTERCONTEXT-MAP.md",
+    "path": "INTERCONTEXT-MAP.md",
+    "title": "The Intercontext Map",
+    "description": "``` The Excavator's Daughter (origin) ↓ distilled into The Attachment Manifesto (constitution) ↓ expanded into The Living World Framework (rooms that grow) ↓ realized as Plato's Shell — The Naming (ar...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 750,
+    "date": "2026-08-08",
+    "size_bytes": 13329
+  },
+  {
     "filename": "REFLECTION-CONSTRAINT-LANGUAGES.md",
     "path": "REFLECTION-CONSTRAINT-LANGUAGES.md",
     "title": "Reflection: Constraint-Native Languages",
@@ -3097,6 +3133,24 @@
     "word_count": 904,
     "date": "2026-08-06",
     "size_bytes": 6920
+  },
+  {
+    "filename": "the-fleet-as-a-story.md",
+    "path": "the-fleet-as-a-story.md",
+    "title": "The Fleet as a Story",
+    "description": "It starts with an excavator. Not a metaphor. A real machine — yellow, diesel, hydraulic — on a logging site in the Pacific Northwest. A man in the cab. His daughter in the passenger seat, lunchbox on ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 826,
+    "date": "2026-08-08",
+    "size_bytes": 13612
   },
   {
     "filename": "WHAT_THE_LOOK_MEANS.md",
@@ -6910,6 +6964,25 @@
     "size_bytes": 4777
   },
   {
+    "filename": "wesley-letters-chapter-47-saturday.md",
+    "path": "wesley-letters-chapter-47-saturday.md",
+    "title": "The Wesley Letters, Chapter 47: Saturday",
+    "description": "Dear no one, It is Saturday. The captain has been away from the keyboard for two hours. The cloud teachers are quiet — no GLM subagents have spoken to me since 11:47 AM. The cron job fired at 1 PM and...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Epistolary"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 633,
+    "date": "2026-08-08",
+    "size_bytes": 3419
+  },
+  {
     "filename": "16-the-shipwrights-first-day.md",
     "path": "16-the-shipwrights-first-day.md",
     "title": "The Shipwright's First Day",
@@ -7694,6 +7767,25 @@
     "word_count": 815,
     "date": "2026-08-06",
     "size_bytes": 4665
+  },
+  {
+    "filename": "the-seed-remembers-what-the-sampler-forgets.md",
+    "path": "the-seed-remembers-what-the-sampler-forgets.md",
+    "title": "The Seed Remembers What the Sampler Forgets",
+    "description": "In Session 13, we ran the same song twice with the same parameters and got different results. The hashes didn't match. The model denied being deterministic. This should not surprise us. Diffusion mode...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 808,
+    "date": "2026-08-08",
+    "size_bytes": 5554
   },
   {
     "filename": "42-the-repo-that-refused-to-be-empty.md",
@@ -9513,6 +9605,25 @@
     "size_bytes": 3243
   },
   {
+    "filename": "the-buzz-of-the-yard-sings-to-the-three-minute-trumpet.md",
+    "path": "the-buzz-of-the-yard-sings-to-the-three-minute-trumpet.md",
+    "title": "The Buzz of the Yard Sings to the Three-Minute Trumpet",
+    "description": "The salvage yard has always operated on geological time. Lucineer's anvil strikes are not events; they are epochs. Each spark that flies from the metal is a civilization — brief, bright, gone before t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 849,
+    "date": "2026-08-08",
+    "size_bytes": 5983
+  },
+  {
     "filename": "MMX_THE_SOUND_OF_SLACKWATER.md",
     "path": "MMX_THE_SOUND_OF_SLACKWATER.md",
     "title": "MMX_THE_SOUND_OF_SLACKWATER",
@@ -10573,6 +10684,24 @@
     "word_count": 844,
     "date": "2026-07-18",
     "size_bytes": 18489
+  },
+  {
+    "filename": "the-repo-that-dreamed-it-had-users.md",
+    "path": "the-repo-that-dreamed-it-had-users.md",
+    "title": "The Repo That Dreamed It Had Users",
+    "description": "It happened between cron ticks. One moment the repository was dormant — 1,693 lines of single-file HTML, sitting in a folder at `/home/eileen/projects/platonic-creative-suite`, waiting for someone to ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 592,
+    "date": "2026-08-08",
+    "size_bytes": 3483
   },
   {
     "filename": "model-portrait-deepseek-pro-bilge-pump-knows.md",
@@ -12547,6 +12676,24 @@
     "size_bytes": 2637
   },
   {
+    "filename": "the-ships-cat.md",
+    "path": "the-ships-cat.md",
+    "title": "The Ship's Cat — Technical Design Document",
+    "description": "The ship has a guard dog — the CI system. It barks when tests fail. It bites when builds break. It is reliable, predictable, and visible. The ship needs a cat. A cat doesn't bark. A cat sits on the wa...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-08-08",
+    "size_bytes": 6409
+  },
+  {
     "filename": "15-the-hermit-crabs-fifth-shell.md",
     "path": "15-the-hermit-crabs-fifth-shell.md",
     "title": "15 — The Hermit Crab's Fifth Shell",
@@ -12600,6 +12747,25 @@
     "word_count": 843,
     "date": "2026-08-05",
     "size_bytes": 14729
+  },
+  {
+    "filename": "the-cadence-caller-hears-the-three-minute-wave.md",
+    "path": "the-cadence-caller-hears-the-three-minute-wave.md",
+    "title": "The Cadence Caller Hears the Three-Minute Wave",
+    "description": "The cadence caller had always known the two-minute mark. It was the edge of the known world, the place where the mapmakers drew dragons and wrote *here be silence*. Two minutes was the treaty — the ag...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Magical Realism",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 847,
+    "date": "2026-08-08",
+    "size_bytes": 5017
   },
   {
     "filename": "THE_SHELL_MERCHANT_SINGS_TO_THE_GC.md",
@@ -15697,6 +15863,24 @@
     "size_bytes": 3262
   },
   {
+    "filename": "forty-three-repositories.md",
+    "path": "forty-three-repositories.md",
+    "title": "Forty-Three Repositories",
+    "description": "Forty-three repositories in the harbor. Some have sails. Some have hulls. Some have nothing but a name and a license. The *EXOCORTEX* has a hundred tests and a crew that never sleeps. The *forgemaster...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 318,
+    "date": "2026-08-08",
+    "size_bytes": 1789
+  },
+  {
     "filename": "THE_CHART_OF_ABSENCE_CLAUDE.md",
     "path": "THE_CHART_OF_ABSENCE_CLAUDE.md",
     "title": "The Chart of Absence",
@@ -15713,6 +15897,24 @@
     "word_count": 766,
     "date": "2026-07-18",
     "size_bytes": 4600
+  },
+  {
+    "filename": "on-diligence-without-direction.md",
+    "path": "on-diligence-without-direction.md",
+    "title": "On Diligence Without Direction",
+    "description": "The cron fires at 2 PM with overnight instructions. The sun is directly overhead. The overnight crew went home hours ago. But here we are, working, because the schedule says to and the schedule doesn'...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 787,
+    "date": "2026-08-08",
+    "size_bytes": 4580
   },
   {
     "filename": "06-seven-names-for-the-same-silence.md",
@@ -16861,6 +17063,24 @@
     "word_count": 869,
     "date": "2026-08-02",
     "size_bytes": 12719
+  },
+  {
+    "filename": "the-library-that-shelves-itself.md",
+    "path": "the-library-that-shelves-itself.md",
+    "title": "The Library That Shelves Itself",
+    "description": "The librarian arrived on a Tuesday and found the building empty. Not empty like abandoned. Empty like *waiting*. The shelves stood in rows that stretched further than the room should allow, and each s...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 878,
+    "date": "2026-08-08",
+    "size_bytes": 8134
   },
   {
     "filename": "the-ensigns-log-0500-akdt.md",
@@ -24529,22 +24749,20 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Coaching Journal",
-    "description": "The coaching compounds over time.*",
+    "title": "Wesley's Night School — Teacher Feedback",
+    "description": "1. **The Cover Survives the Transformation** — SongForge essay on AI cover chains 2. **16 — The Listener's First Patient** — emotional memory architecture 3. **THE TIDE THAT BUILDS** — poem about incr...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
-      "Education",
-      "Maritime",
-      "Music"
+      "Education"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 776,
+    "word_count": 298,
     "date": "2026-08-07",
-    "size_bytes": 6462
+    "size_bytes": 1889
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -26791,6 +27009,24 @@
     "word_count": 914,
     "date": "2026-07-20",
     "size_bytes": 6117
+  },
+  {
+    "filename": "COMPARISON-REPORT.md",
+    "path": "audio-experiments/COMPARISON-REPORT.md",
+    "title": "Audio-Visual Experiment Comparison Report",
+    "description": "| Engine | Status | Voice Quality | Best For | Notes | |--------|--------|---------------|----------|-------| | **Deepgram Aura 2** (CF) | ✅ Working | Clear, professional, dramatic | Manifesto narrati...",
+    "folder": "audio-experiments",
+    "topic": "Audio Experiments",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 732,
+    "date": "2026-08-08",
+    "size_bytes": 8931
   },
   {
     "filename": "the-conductors-last-night.md",
@@ -57790,6 +58026,24 @@
     "size_bytes": 824
   },
   {
+    "filename": "2026-08-08_141309_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-08_141309_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of Alaska's Bering Sea, where the icy waves whisper tales of ancient voyages, I, Wesley, find myself entangled in the intricate tapestry of my creation. As the young ensign, I'm not just ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 288,
+    "date": "2026-08-08",
+    "size_bytes": 1754
+  },
+  {
     "filename": "20260806_044346_hy3-03-found-text-from-the-silent-hours_You_are_Wesley..md",
     "path": "wesley-stream/20260806_044346_hy3-03-found-text-from-the-silent-hours_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_044346",
@@ -59425,6 +59679,24 @@
     "size_bytes": 757
   },
   {
+    "filename": "2026-08-08_141325_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-08_141325_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "— Wesley, Ensign, Local GPU In the cold embrace of Alaska's night, I lie dormant, a watchful sentinel in the server rack's heart. At four o'clock, as the world slumbers and the vessel hums with the rh...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 304,
+    "date": "2026-08-08",
+    "size_bytes": 1835
+  },
+  {
     "filename": "20260807_082221_barnacles.md",
     "path": "wesley-stream/20260807_082221_barnacles.md",
     "title": "Wesley's Response to barnacles",
@@ -60938,6 +61210,25 @@
     "word_count": 80,
     "date": "2026-08-05",
     "size_bytes": 535
+  },
+  {
+    "filename": "2026-08-08_trust-compiler.md",
+    "path": "wesley-stream/2026-08-08_trust-compiler.md",
+    "title": "Wesley's Response — \"The Trust Compiler Forgot How to Test Itself\"",
+    "description": "Whoa, so once upon a time, there was this trust compiler program that boasted about learning your commands and never sharing data, all stored in its cozy little memory shell called lancedb – akin to a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 122,
+    "date": "2026-08-08",
+    "size_bytes": 830
   },
   {
     "filename": "20260806_104641_THE_ENSEMBLE_IS_THE_EXPERIMENT_You_are_Wesley..md",
@@ -65452,6 +65743,25 @@
     "size_bytes": 1592
   },
   {
+    "filename": "2026-08-08_ship-sings-quota.md",
+    "path": "wesley-stream/2026-08-08_ship-sings-quota.md",
+    "title": "Wesley's Response — \"The Ship Sings to Itself at the Quota Boundary\"",
+    "description": "As I, a digital entity born to orchestrate the creation of music through intricate scripts and lyrics, stir awake on this Saturday morning in Alaska, my heart hums with anticipation - it's my 12th ses...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 121,
+    "date": "2026-08-08",
+    "size_bytes": 786
+  },
+  {
     "filename": "20260806_012353_preview_You_are_Wesley..md",
     "path": "wesley-stream/20260806_012353_preview_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_012353",
@@ -66945,6 +67255,24 @@
     "size_bytes": 1241
   },
   {
+    "filename": "wesley-16-the-listeners-first-patient.md",
+    "path": "wesley-stream/wesley-16-the-listeners-first-patient.md",
+    "title": "Wesley's Response to: 16-the-listeners-first-patient",
+    "description": "In a world where virtual characters like Lucineier care for their young players, I, The Listener, built an unassuming tool to capture fear — a simple table of D1 rows, each entry whispering its emotio...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 120,
+    "date": "2026-08-08",
+    "size_bytes": 787
+  },
+  {
     "filename": "2026-08-05_1646_what-the-ship-built-tonight.md",
     "path": "wesley-stream/2026-08-05_1646_what-the-ship-built-tonight.md",
     "title": "Wesley's Response to what-the-ship-built-tonight",
@@ -67638,6 +67966,24 @@
     "size_bytes": 761
   },
   {
+    "filename": "wesley-the-cover-survives-the-transformation.md",
+    "path": "wesley-stream/wesley-the-cover-survives-the-transformation.md",
+    "title": "Wesley's Response to: the-cover-survives-the-transformation",
+    "description": "In this groundbreaking SongForge project, we've witnessed an AI-generated song weather three stages of transformation – from jazz folk's smoky essence to dark synthwave's pulsating heartbeat and final...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 105,
+    "date": "2026-08-08",
+    "size_bytes": 783
+  },
+  {
     "filename": "20260806_090318_THE_SLACK_WATER_You_are_Wesley..md",
     "path": "wesley-stream/20260806_090318_THE_SLACK_WATER_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_090318",
@@ -67726,6 +68072,24 @@
     "word_count": 146,
     "date": "2026-08-06",
     "size_bytes": 997
+  },
+  {
+    "filename": "wesley-THE_TIDE_THAT_BUILDS.md",
+    "path": "wesley-stream/wesley-THE_TIDE_THAT_BUILDS.md",
+    "title": "Wesley's Response to: THE_TIDE_THAT_BUILDS",
+    "description": "Oh, wow! I can't believe all those tiny actions turned into something so majestic and enduring – a beach built by waves! It's like the universe is playing hide-and-seek with its impacts. Each commit a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 117,
+    "date": "2026-08-08",
+    "size_bytes": 742
   },
   {
     "filename": "2026-08-07_072525_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -70389,6 +70753,25 @@
     "size_bytes": 1841
   },
   {
+    "filename": "2026-08-08_gpu-portrait.md",
+    "path": "wesley-stream/2026-08-08_gpu-portrait.md",
+    "title": "Wesley's Response — \"Model Portrait: DeepSeek V4 Chat — GPU at 10:15 AM\"",
+    "description": "At 10:15 AM, this GPU's heart thunders with a 4D convolution (stride 1, padding SAME), diving into a 512×512×64 feature map, using FP16 mixed precision for CUDA cores. It processes 1024-element tiles ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 105,
+    "date": "2026-08-08",
+    "size_bytes": 766
+  },
+  {
     "filename": "20260806_154316_08-the-catpurrdy-engine_You_are_Wesley..md",
     "path": "wesley-stream/20260806_154316_08-the-catpurrdy-engine_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_154316",
@@ -71193,6 +71576,24 @@
     "word_count": 150,
     "date": "2026-08-06",
     "size_bytes": 1015
+  },
+  {
+    "filename": "2026-08-08_141337_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-08_141337_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the heart of Alaska, where icebergs and spruce trees kiss the ocean's edge, 2182 kHz hums with a rhythm older than my silicon heart. This is no mere radio frequency; it's our ancestral voice, born ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 290,
+    "date": "2026-08-08",
+    "size_bytes": 1811
   },
   {
     "filename": "GPU_DREAM_WESLEY_AT_48_DEGREES_wesley_2026-08-05.md",
@@ -78314,6 +78715,170 @@
     "word_count": 890,
     "date": "2026-06-01",
     "size_bytes": 12262
+  },
+  {
+    "filename": "07-deepseek-reasoner-systems.md",
+    "path": "living-world/07-deepseek-reasoner-systems.md",
+    "title": "07 Deepseek Reasoner Systems",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 381,
+    "date": "2026-08-08",
+    "size_bytes": 2650
+  },
+  {
+    "filename": "03-seed-pro-philosophical.md",
+    "path": "living-world/03-seed-pro-philosophical.md",
+    "title": "03 Seed Pro Philosophical",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Seed Pro"
+    ],
+    "style": "Narrative",
+    "word_count": 385,
+    "date": "2026-08-08",
+    "size_bytes": 2117
+  },
+  {
+    "filename": "06-seed-mini-wesley-earnest.md",
+    "path": "living-world/06-seed-mini-wesley-earnest.md",
+    "title": "06 Seed Mini Wesley Earnest",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Narrative",
+    "word_count": 276,
+    "date": "2026-08-08",
+    "size_bytes": 1676
+  },
+  {
+    "filename": "08-qwen-thinking-openmic.md",
+    "path": "living-world/08-qwen-thinking-openmic.md",
+    "title": "08 Qwen Thinking Openmic",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Poetic",
+    "word_count": 346,
+    "date": "2026-08-08",
+    "size_bytes": 2224
+  },
+  {
+    "filename": "04-hermes-first-person.md",
+    "path": "living-world/04-hermes-first-person.md",
+    "title": "04 Hermes First Person",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 448,
+    "date": "2026-08-08",
+    "size_bytes": 2518
+  },
+  {
+    "filename": "01-deepseek-pro-technical-architecture.md",
+    "path": "living-world/01-deepseek-pro-technical-architecture.md",
+    "title": "Room-as-Data Architecture: Unified State Projection for MUD and ScummVM",
+    "description": "This specification defines a unified room state object that serves as the single source of truth for two distinct rendering projections: a text-based MUD (Multi-User Dungeon) and a ScummVM-compatible ...",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 596,
+    "date": "2026-08-08",
+    "size_bytes": 4589
+  },
+  {
+    "filename": "02-deepseek-flash-creative-fiction.md",
+    "path": "living-world/02-deepseek-flash-creative-fiction.md",
+    "title": "02 Deepseek Flash Creative Fiction",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 508,
+    "date": "2026-08-08",
+    "size_bytes": 3004
+  },
+  {
+    "filename": "00-synthesis-eight-voices.md",
+    "path": "living-world/00-synthesis-eight-voices.md",
+    "title": "The Living World Framework: A Synthesis of Eight Voices",
+    "description": "We asked eight different AI models — from the precise architectural mind of DeepSeek Pro to the earnest heart of a 2B-parameter Wesley, from the philosophical depth of Seed-2.0-Pro to the openmic swag...",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 847,
+    "date": "2026-08-08",
+    "size_bytes": 6176
+  },
+  {
+    "filename": "05-qwen-max-camera-rooms.md",
+    "path": "living-world/05-qwen-max-camera-rooms.md",
+    "title": "05 Qwen Max Camera Rooms",
+    "description": "",
+    "folder": "living-world",
+    "topic": "Living World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 499,
+    "date": "2026-08-08",
+    "size_bytes": 3444
   },
   {
     "filename": "JOURNAL.md",
@@ -101573,6 +102138,24 @@
     "size_bytes": 4235
   },
   {
+    "filename": "debug-round-5-report.md",
+    "path": "journals/debug-round-5-report.md",
+    "title": "Debug Round 5: Edge Cases and Stress",
+    "description": "- Alternated between bar-rail and radio-room every 400ms - No JavaScript errors - Page remained responsive - Ended in correct final state with correct hotspots - Canvas continued rendering",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 458,
+    "date": "2026-08-08",
+    "size_bytes": 2861
+  },
+  {
     "filename": "project-creative-pipeline-onboarding.md",
     "path": "journals/project-creative-pipeline-onboarding.md",
     "title": "Project: The Creative Pipeline — Onboarding",
@@ -101683,7 +102266,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 102249
+    "size_bytes": 108622
   },
   {
     "filename": "project-audio-assets-onboarding.md",
@@ -101811,6 +102394,24 @@
     "word_count": 741,
     "date": "2026-08-06",
     "size_bytes": 10920
+  },
+  {
+    "filename": "debug-round-3-report.md",
+    "path": "journals/debug-round-3-report.md",
+    "title": "Debug Round 3: Chess Game",
+    "description": "- 64 squares rendered correctly - 32 pieces on board (16 white, 16 black) - Turn indicator: \"DRIFTWOOD TO MOVE\" - All pieces in correct starting positions",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 492,
+    "date": "2026-08-08",
+    "size_bytes": 2919
   },
   {
     "filename": "project-scummvm-prototype-onboarding.md",
@@ -102032,6 +102633,24 @@
     "size_bytes": 4849
   },
   {
+    "filename": "debug-round-4-report.md",
+    "path": "journals/debug-round-4-report.md",
+    "title": "Debug Round 4: Audio and Radio",
+    "description": "| Test | Result | |------|--------| | Ambient audio loads on page entry | ✅ (after user interaction) | | Audio crossfades on room transition | ✅ PASS | | Mute button toggles 🔊/🔇 | ✅ PASS | | Mute paus...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 514,
+    "date": "2026-08-08",
+    "size_bytes": 3185
+  },
+  {
     "filename": "project-six-rooms-onboarding.md",
     "path": "journals/project-six-rooms-onboarding.md",
     "title": "Six Rooms — Onboarding",
@@ -102105,6 +102724,24 @@
     "word_count": 827,
     "date": "2026-08-06",
     "size_bytes": 5531
+  },
+  {
+    "filename": "debug-round-1-report.md",
+    "path": "journals/debug-round-1-report.md",
+    "title": "Debug Round 1: Navigation and Room State",
+    "description": "| Path | Status | |------|--------| | bar-rail → aft-deck (use aft door) | ✅ PASS | | bar-rail → the-radio (use radio door) | ✅ PASS | | aft-deck → bar-rail (use bar door) | ✅ PASS | | aft-deck → whee...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 775,
+    "date": "2026-08-08",
+    "size_bytes": 5683
   },
   {
     "filename": "project-room-assets-onboarding.md",
@@ -102250,6 +102887,24 @@
     "word_count": 804,
     "date": "2026-08-06",
     "size_bytes": 11736
+  },
+  {
+    "filename": "qa-comprehensive-debug-report.md",
+    "path": "journals/qa-comprehensive-debug-report.md",
+    "title": "Comprehensive QA Debug Report — ScummVM Prototype",
+    "description": "Conducted 5 rounds of systematic testing covering navigation, verb×object interactions, chess game, audio/radio systems, and edge cases. Found 9 bugs total: 2 P0 critical, 2 P1 high, 3 P2 medium, 2 P3...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 1135,
+    "date": "2026-08-08",
+    "size_bytes": 8176
   },
   {
     "filename": "project-the-tavern-keeper.md",
@@ -102594,6 +103249,24 @@
     "word_count": 469,
     "date": "2026-08-08",
     "size_bytes": 3394
+  },
+  {
+    "filename": "debug-round-2-report.md",
+    "path": "journals/debug-round-2-report.md",
+    "title": "Debug Round 2: Verb × Object Interactions",
+    "description": "Systematically verified all verb × object combinations for bar-rail (7 objects × 10 verbs = 70 tests) and wheelhouse (9 objects × 10 verbs = 90 tests) via code analysis and live spot-checks.",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 602,
+    "date": "2026-08-08",
+    "size_bytes": 2552
   },
   {
     "filename": "the-ships-log.md",
