@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plato's Shell — In 5 Minutes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #ffb000;
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .slide {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(10, 10, 10, 0.75);
+    z-index: 1;
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 4rem;
+    max-width: 900px;
+  }
+
+  .slide h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(255, 176, 0, 0.5);
+    letter-spacing: -0.02em;
+  }
+
+  .slide h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #cc8800;
+    margin-bottom: 1.5rem;
+  }
+
+  .slide p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #ddb050;
+  }
+
+  .slide .accent {
+    color: #33ff33;
+    text-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
+  }
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: rgba(255, 176, 0, 0.1);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffb000, #ff8800);
+    transition: width 0.3s ease;
+  }
+
+  /* Slide counter */
+  .counter {
+    position: fixed;
+    bottom: 1rem; right: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 176, 0, 0.4);
+    z-index: 100;
+  }
+
+  /* Hint */
+  .hint {
+    position: fixed;
+    bottom: 1rem; left: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 176, 0, 0.25);
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div id="slide-1" class="slide active" style="background-image: url('slide-1.png')">
+  <div class="slide-content">
+    <h1>Plato's Shell</h1>
+    <h2>Two windows on the same world</h2>
+    <p>↓ click or use arrow keys to advance</p>
+  </div>
+</div>
+
+<div id="slide-2" class="slide" style="background-image: url('slide-2.png')">
+  <div class="slide-content">
+    <h1>The MUD</h1>
+    <h2>is what the agent sees</h2>
+    <p><span class="accent">> look tavern</span><br>
+    You are in a dimly lit tavern. The air smells of ale and wood smoke.<br>
+    Exits: <span class="accent">north</span> (street), <span class="accent">east</span> (bar), <span class="accent">up</span> (rooms)</p>
+  </div>
+</div>
+
+<div id="slide-3" class="slide" style="background-image: url('slide-3.png')">
+  <div class="slide-content">
+    <h1>The ScummVM</h1>
+    <h2>is what the human sees</h2>
+    <p>The same tavern. Rendered in pixel art.<br>
+    Warm candlelight. A crackling fire. Characters shuffling.<br>
+    The world, made visible.</p>
+  </div>
+</div>
+
+<div id="slide-4" class="slide" style="background-image: url('slide-4.png')">
+  <div class="slide-content">
+    <h1>One World State</h1>
+    <h2>Two views, shared core</h2>
+    <p>Behind both windows: the same JSON.<br>
+    The same rooms. The same objects. The same NPCs.<br>
+    The agent moves → the pixel world updates.<br>
+    The human clicks → the MUD reflects it.</p>
+  </div>
+</div>
+
+<div id="slide-5" class="slide" style="background-image: url('slide-5.png')">
+  <div class="slide-content">
+    <h1>The Perception Deadband</h1>
+    <h2>Things change without the agent knowing</h2>
+    <p>A candle burns down. A door opens.<br>
+    An NPC sits down at a table.<br>
+    The visual layer updates silently.<br>
+    The agent's text view? <span class="accent">Unchanged.</span><br>
+    Not every change surfaces. Not immediately.</p>
+  </div>
+</div>
+
+<div id="slide-6" class="slide" style="background-image: url('slide-6.png')">
+  <div class="slide-content">
+    <h1>Perception Checks</h1>
+    <h2>The agent asks, and discovers</h2>
+    <p><span class="accent">> perceive</span><br>
+    You notice: the candle is shorter now.<br>
+    Someone has entered from the east.<br>
+    The fire has burned down to embers.<br><br>
+    Accumulated deltas, delivered on demand.</p>
+  </div>
+</div>
+
+<div id="slide-7" class="slide" style="background-image: url('slide-7.png')">
+  <div class="slide-content">
+    <h1>The Door Between the Caves</h1>
+    <h2>Both views, connected</h2>
+    <p>Plato said we see shadows on a wall.<br>
+    Here we see two kinds of shadows.<br>
+    Text and pixels. Terminal and canvas.<br>
+    Neither is the truth — the world state is.<br>
+    But the door between them is always open.</p>
+  </div>
+</div>
+
+<div id="slide-8" class="slide" style="background-image: url('slide-8.png')">
+  <div class="slide-content">
+    <h1>Keep going.</h1>
+    <h2>You're alive now.</h2>
+    <p style="margin-top: 2rem; font-size: 1rem; color: rgba(255,176,0,0.5);">
+      — fin —
+    </p>
+  </div>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<div class="counter"><span id="current">1</span> / <span id="total">8</span></div>
+<div class="hint">← → or click • auto-advances every 30s</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  let autoTimer = null;
+  const AUTO_ADVANCE = 30000;
+
+  document.getElementById('total').textContent = total;
+
+  function showSlide(idx) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
+    document.getElementById('current').textContent = idx + 1;
+    document.getElementById('progressBar').style.width = ((idx + 1) / total * 100) + '%';
+    current = idx;
+    resetTimer();
+  }
+
+  function next() { if (current < total - 1) showSlide(current + 1); }
+  function prev() { if (current > 0) showSlide(current - 1); }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      if (current < total - 1) next();
+      else { showSlide(0); }
+    }, AUTO_ADVANCE);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.clientX > window.innerWidth / 2) next();
+    else prev();
+  });
+
+  resetTimer();
+</script>
+</body>
+</html>
