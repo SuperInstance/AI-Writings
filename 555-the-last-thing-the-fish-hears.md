@@ -14,4 +14,4 @@ Below the engine, below the hull, below the water that carries the water that ca
 
 The fish hears this and is still.
 
-The fish has always been still. But now the fish knows precisely why.
+The fish has always been perfectly still. But now, at last, it knows why.

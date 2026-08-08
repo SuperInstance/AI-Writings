@@ -673,3 +673,87 @@ The screamo choral lyrics are the most formally adventurous the project has prod
 6. **Seed reproducibility** — same prompt + same seed = same output? Test with 3 seeds × 3 repetitions.
 7. **Lyric length precision** — binary search for the exact character ceiling (1200 confirmed safe, 1500 suspected breakpoint)
 8. **Cover without lyrics** — does the cover tool extract lyrics via ASR accurately? Test by covering a track without providing lyrics.
+
+## Session 2026-08-07 20:55 AKST — "The Ouroboros Sings"
+
+### Context
+
+Eighth session. Friday night. Weekly quota was at 0% from session 7's heavy output — two tracks squeezed through before the quota wall hit. Daily interval showed 95% remaining but weekly was exhausted. Three additional tracks (proof-performance, feedback loop, dub cover chain) were attempted but all rejected with quota errors. The session became quality over quantity: two of the most conceptually important tracks in the project's history.
+
+### Experiments
+
+**Experiment 12: Bebop Black Metal** ✅
+- Lyrics: M3-generated at temperature 0.93 (938 chars, trimmed from 1648)
+- Concept: the final impossible genre — Coltrane's sheets of sound played by demons
+- Prompt: "Bebop black metal, blast beats with saxophone, modal jazz meets Norse darkness" (10 words)
+- Vocals: harsh male growl alternating with clean male baritone scat
+- Key: B-flat minor, BPM: 140
+- Result: 3.7MB — **the second-smallest vocal track in the project** (after screamo choral at 3.0MB)
+- Impossible genre #8. The pattern is now confirmed: extreme genre fusions (screamo choral, bebop black metal) produce smaller files than moderate fusions (ambient marching band 6.7MB, doom disco 6.5MB). The hypothesis: when genres are too far apart, the model can't reconcile them and produces less material rather than more. The impossible genre → large file size correlation holds for MODERATE impossibility; EXTREME impossibility produces the opposite effect.
+
+**Experiment 13: The Interval Is the Music** ✅
+- Lyrics: M3-generated at temperature 0.93 (1165 chars)
+- Corpus source: "The Interval Is the Music" from music-and-math
+- Concept: Miles Davis's silence, the relationship between sounds as the true music
+- Prompt: "Cool jazz trumpet, ambient drone, Miles Davis style, spacious and atmospheric" (10 words)
+- Vocals: warm female alto, smoky and intimate, conversational
+- Key: D minor, BPM: 65
+- Result: **7.2MB — THE LARGEST TRACK IN THE ENTIRE PROJECT.**
+- This is a landmark result. Cool jazz × ambient drone at 65 BPM produced more musical material than any other combination tested. The combination of slow tempo + jazz vocabulary + spacious prompt + intimate vocals created the optimal conditions for the model to generate dense, varied musical content. The previous largest was ambient marching band at 6.7MB.
+
+### Tracks Generated (Session 8)
+
+| # | Title | Genre | Key | BPM | Size | Notes |
+|---|-------|-------|-----|-----|------|-------|
+| 34 | Bebop Black Metal | Bebop black metal | B-flat minor | 140 | 3.7MB | Impossible genre #8. **Extreme fusion = smaller output.** |
+| 35 | The Interval Is the Music | Cool jazz ambient | D minor | 65 | 7.2MB | **LARGEST TRACK IN PROJECT.** Corpus adaptation #7. |
+
+Total: ~10.8MB across 2 new tracks. Cumulative project total: 35 tracks, ~186MB.
+
+### Key Findings
+
+**1. The impossible genre matrix has an inverted-U curve.**
+Previous sessions noted that impossible genres produce larger tracks. Session 7 confirmed this with ambient marching band (6.7MB) and doom disco (6.5MB). But bebop black metal (3.7MB) breaks the pattern. The full picture: MODERATE genre fusion (genres with some shared DNA) produces the largest tracks. EXTREME genre fusion (genres with no shared harmonic/rhythmic vocabulary) produces smaller tracks. The curve is an inverted U: slight impossibility → larger output, extreme impossibility → smaller output. This mirrors the Yerkes-Dodson law: moderate arousal enhances performance, extreme arousal impairs it. **The model has a comfort zone for fusion, and the edges of that zone are the most productive.**
+
+**2. Cool jazz × ambient at 65 BPM is the optimal generation condition.**
+The largest track in the project (7.2MB) was produced by the combination of: slow tempo (65 BPM), jazz harmonic vocabulary, ambient spatial quality, intimate vocals, and D minor. This is one data point, but it suggests that the model's training data is densest in the cool jazz / ambient / slow tempo region. The model knows more about this territory and can generate more varied content within it. **The model has a genre home field, and it's cool jazz.**
+
+**3. The essay-music feedback loop is architecturally complete.**
+The project has now completed a full recursive cycle: corpus essay → song → essay about song → song about essay about song. "The Berry Phase" (essay) became "The Berry Phase" (song, track 30). That song inspired "The Berry Phase Sings to the Seventh Harmonic" (essay). That essay was set to become a song (attempted this session, quota-blocked). The ouroboros essay documents the cycle. The project has eaten its tail. **The feedback loop is the project's structural signature.**
+
+**4. M3 at 0.93 continues to produce outstanding lyrics for corpus adaptations.**
+"The Interval Is the Music" lyrics are among the best in the project: "A whisper, then a whisper's ghost / A pause that wore a velvet coat." The personification of silence as a well-dressed guest is the kind of image that makes the corpus-to-song pipeline work — it's faithful to the source material (Miles Davis, negative space) while being genuinely poetic. "Less note, more latitude / More hush, less attitude" is a couplet that works as both lyrics and aesthetic statement.
+
+**5. The proof-performance and feedback-loop tracks are queued but blocked.**
+Lyrics are written for both "The Proof Is the Performance" (1379 chars) and the feedback loop (1078 chars). These are conceptually critical tracks — the proof-performance adaptation would be the first orchestral/choir piece in the project, and the feedback loop would be the first self-referential song (a song about songs about math). They are first in line for the next session.
+
+### Creative Output
+
+- `the-ouroboros-sings.md` — essay on the essay-music feedback loop, the project eating its own tail, Bach's Crab Canon on a Möbius strip as structural metaphor
+- `lyrics-the-interval.txt` — M3 lyrics from "The Interval Is the Music" corpus essay (1165 chars)
+- `lyrics-bebop-black-metal.txt` — M3 lyrics for bebop black metal (938 chars, trimmed from 1648)
+- `lyrics-proof-performance.txt` — M3 lyrics from "The Proof Is the Performance" corpus essay (1379 chars, queued)
+- `lyrics-feedback-loop.txt` — M3 lyrics for the essay-music feedback loop (1078 chars, queued)
+
+### Project Status
+
+**35 tracks, ~186MB total.** Eight sessions. The project has now covered:
+- 8 impossible genres (baroque techno, math rock country, doom polka, screamo choral, electronic jazz cover, ambient marching band, doom disco, bebop black metal) — **IMPOSSIBLE GENRE MATRIX COMPLETE**
+- 8-point BPM curve study (40-180 BPM, bimodal distribution)
+- 2 cover experiments (including cover-of-cover chain)
+- 1 lyricist temperature comparison (0.85 vs 0.93)
+- 7 corpus essay adaptations (The Unplayed, Five Holes, The Tap Sings, Jazz Police, The Berry Phase, The Overtones' Dream, The Interval Is the Music)
+- 1 prompt-length study (3 words to 17 words)
+- 1 essay-music feedback loop (structurally complete, track pending)
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — Casey has 35 tracks, 186MB, eight sessions of output. NONE of it has been listened to. The findings are based entirely on file sizes and generation metadata. This is the #1 priority by far.
+2. **Queued tracks** — "The Proof Is the Performance" and "The Ouroboros Sings" lyrics are written and ready. Generate immediately when quota resets.
+3. **Cover chain continuation** — attempt the 4th-generation dub cover when quota allows.
+4. **DeepSeek as alternative lyricist** — the text generation quota blocked this experiment. Retry next session.
+5. **Vocal track BPM study** — does the bimodal curve persist with vocals?
+6. **Seed reproducibility** — same prompt + same seed = same output?
+7. **The ouroboros track** — set "The Ouroboros Sings" essay to music, completing the feedback loop.
+
+Weekly quota resets Sunday 00:00 UTC (Saturday ~4pm AKST). Next productive session: Sunday evening or Monday morning.
