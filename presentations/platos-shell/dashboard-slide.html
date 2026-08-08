@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vessel Dashboard — Plato's Shell</title>
+<style>
+:root {
+  --bg: #0a0e1a; --panel: #0f1525; --border: #1a2540; --accent: #00ff88;
+  --amber: #ffaa00; --red: #ff3344; --text: #c0d0e0; --dim: #607080;
+  --green: #00ff66; --cyan: #00ddff; --steel: #4a5a70;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text); font-family:'Courier New',monospace;
+  display:flex; height:100vh; overflow:hidden;
+}
+
+/* === DASHBOARD (left 2/3) === */
+.dashboard { flex:2; display:flex; flex-direction:column; padding:12px; gap:8px; }
+
+/* Gauges row */
+.gauges { display:flex; gap:12px; justify-content:space-around; }
+.gauge-box { text-align:center; }
+.gauge-box .label { font-size:11px; color:var(--dim); text-transform:uppercase; letter-spacing:2px; margin-bottom:4px; }
+.gauge-box .value { font-size:22px; font-weight:bold; }
+.gauge { width:110px; height:110px; position:relative; }
+.gauge svg { width:100%; height:100%; }
+.gauge-arc-bg { fill:none; stroke:var(--border); stroke-width:8; }
+.gauge-arc-fill { fill:none; stroke-width:8; stroke-linecap:round; transition:stroke-dashoffset 0.5s, stroke 0.3s; }
+.gauge-needle { stroke:var(--accent); stroke-width:3; stroke-linecap:round; transition:transform 0.5s cubic-bezier(.4,2,.6,1); transform-origin:55px 55px; }
+
+/* Vessel map */
+.map-container {
+  flex:1; background:#070b15; border:1px solid var(--border); border-radius:4px;
+  position:relative; overflow:hidden; min-height:180px;
+}
+#vessel-map { width:100%; height:100%; display:block; }
+.map-overlay { position:absolute; top:8px; right:8px; font-size:10px; color:var(--dim); text-align:right; }
+
+/* Data panel */
+.data-panel { display:flex; gap:16px; flex-wrap:wrap; font-size:12px; padding:8px 0; }
+.data-item { display:flex; flex-direction:column; gap:2px; }
+.data-item .key { color:var(--dim); font-size:10px; text-transform:uppercase; }
+.data-item .val { color:var(--accent); font-size:16px; font-weight:bold; }
+
+/* Throttle control */
+.throttle-bar {
+  display:flex; align-items:center; gap:12px; padding:8px;
+  background:var(--panel); border:1px solid var(--border); border-radius:4px;
+}
+.throttle-slider { flex:1; height:32px; -webkit-appearance:none; appearance:none;
+  background:linear-gradient(90deg, #1a2a3a, #2a4a5a); border-radius:4px; outline:none; }
+.throttle-slider::-webkit-slider-thumb { -webkit-appearance:none; width:24px; height:36px;
+  background:var(--amber); border-radius:2px; cursor:pointer; box-shadow:0 0 8px var(--amber); }
+.throttle-slider::-moz-range-thumb { width:24px; height:36px; background:var(--amber);
+  border-radius:2px; cursor:pointer; border:none; }
+.rpm-btn {
+  background:var(--steel); color:var(--text); border:1px solid var(--border);
+  padding:6px 12px; font-family:inherit; font-size:11px; cursor:pointer;
+  border-radius:3px; white-space:nowrap; transition:background .2s;
+}
+.rpm-btn:hover { background:#3a5a7a; }
+.rpm-btn.active { background:var(--accent); color:var(--bg); }
+.stop-btn {
+  background:var(--red); color:white; border:none; padding:6px 16px;
+  font-family:inherit; font-size:13px; font-weight:bold; cursor:pointer;
+  border-radius:3px; box-shadow:0 0 8px rgba(255,51,68,0.5);
+}
+.stop-btn:hover { background:#cc2233; }
+
+/* Heading/Autopilot control */
+.heading-bar {
+  display:flex; align-items:center; gap:12px; padding:8px;
+  background:var(--panel); border:1px solid var(--border); border-radius:4px;
+}
+.heading-slider { width:180px; height:24px; -webkit-appearance:none; appearance:none;
+  background:linear-gradient(90deg, #1a2a3a, #2a3a1a); border-radius:4px; outline:none; }
+.heading-slider::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:28px;
+  background:var(--cyan); border-radius:2px; cursor:pointer; }
+.heading-btn { background:var(--steel); color:var(--text); border:1px solid var(--border);
+  padding:4px 10px; font-family:inherit; font-size:11px; cursor:pointer; border-radius:3px; }
+.heading-btn:hover { background:#3a5a7a; }
+
+.status-led { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; }
+.status-led.sim { background:var(--amber); box-shadow:0 0 6px var(--amber); }
+.status-led.connected { background:var(--green); box-shadow:0 0 6px var(--green); }
+.status-text { font-size:10px; color:var(--dim); }
+
+/* Hardware strip */
+.hw-strip {
+  padding:6px 12px; background:#050810; border-top:1px solid var(--border);
+  font-size:10px; color:var(--dim); text-align:center;
+}
+
+/* === CHATBOT (right 1/3) === */
+.chatbot { flex:1; display:flex; flex-direction:column; background:var(--panel);
+  border-left:1px solid var(--border); min-width:300px; }
+.chat-header { padding:10px; border-bottom:1px solid var(--border); font-size:12px; color:var(--dim); text-transform:uppercase; letter-spacing:2px; }
+.chat-header .agent-name { color:var(--accent); font-weight:bold; }
+.chat-messages { flex:1; overflow-y:auto; padding:10px; display:flex; flex-direction:column; gap:8px; }
+.chat-msg { max-width:90%; padding:8px 12px; border-radius:4px; font-size:13px; line-height:1.5; }
+.chat-msg.user { align-self:flex-end; background:#1a3045; border:1px solid var(--border); }
+.chat-msg.agent { align-self:flex-start; background:#0a1f15; border:1px solid #0a3a1a; }
+.chat-msg.agent .speaker { color:var(--accent); font-size:11px; margin-bottom:2px; }
+.chat-msg.system { align-self:center; color:var(--dim); font-size:11px; background:none; }
+.chat-suggestions { display:flex; flex-wrap:wrap; gap:4px; padding:8px; border-top:1px solid var(--border); }
+.suggestion-btn { background:#0a1525; color:var(--cyan); border:1px solid var(--border);
+  padding:4px 8px; font-family:inherit; font-size:10px; cursor:pointer; border-radius:3px; }
+.suggestion-btn:hover { background:#0a2545; }
+.chat-input-bar { display:flex; gap:4px; padding:8px; border-top:1px solid var(--border); }
+.chat-input { flex:1; background:var(--bg); border:1px solid var(--border); color:var(--text);
+  padding:8px; font-family:inherit; font-size:13px; border-radius:3px; outline:none; }
+.chat-input:focus { border-color:var(--accent); }
+.chat-send { background:var(--accent); color:var(--bg); border:none; padding:8px 16px;
+  font-family:inherit; font-size:12px; font-weight:bold; cursor:pointer; border-radius:3px; }
+
+/* Command log */
+.cmd-log { position:fixed; bottom:30px; right:8px; max-width:280px; max-height:100px;
+  overflow-y:auto; font-size:9px; color:var(--dim); background:rgba(0,0,0,0.8);
+  padding:4px; border-radius:2px; border:1px solid var(--border); display:none; }
+.cmd-log.visible { display:block; }
+.cmd-log .entry { color:var(--amber); margin:2px 0; }
+</style>
+</head>
+<body>
+
+<!-- === DASHBOARD === -->
+<div class="dashboard">
+  <!-- Gauges -->
+  <div class="gauges">
+    <div class="gauge-box">
+      <div class="label">RPM</div>
+      <div class="gauge">
+        <svg viewBox="0 0 110 110">
+          <circle class="gauge-arc-bg" cx="55" cy="55" r="45" />
+          <circle class="gauge-arc-fill" id="rpm-arc" cx="55" cy="55" r="45"
+            stroke="#00ff88" stroke-dasharray="283" stroke-dashoffset="100"
+            transform="rotate(-90 55 55)" />
+          <line class="gauge-needle" id="rpm-needle" x1="55" y1="55" x2="55" y2="20" />
+          <text x="55" y="70" text-anchor="middle" fill="#c0d0e0" font-size="16" font-weight="bold" id="rpm-text">1200</text>
+        </svg>
+      </div>
+    </div>
+    <div class="gauge-box">
+      <div class="label">SPEED</div>
+      <div class="gauge">
+        <svg viewBox="0 0 110 110">
+          <circle class="gauge-arc-bg" cx="55" cy="55" r="45" />
+          <circle class="gauge-arc-fill" id="spd-arc" cx="55" cy="55" r="45"
+            stroke="#00ddff" stroke-dasharray="283" stroke-dashoffset="180"
+            transform="rotate(-90 55 55)" />
+          <line class="gauge-needle" id="spd-needle" x1="55" y1="55" x2="55" y2="20"
+            stroke="#00ddff" />
+          <text x="55" y="70" text-anchor="middle" fill="#c0d0e0" font-size="16" font-weight="bold" id="spd-text">6.0</text>
+        </svg>
+      </div>
+    </div>
+    <div class="gauge-box">
+      <div class="label">HEADING</div>
+      <div class="gauge">
+        <svg viewBox="0 0 110 110" id="compass-svg">
+          <circle cx="55" cy="55" r="48" fill="none" stroke="#1a2540" stroke-width="2" />
+          <text x="55" y="16" text-anchor="middle" fill="#607080" font-size="11">N</text>
+          <text x="100" y="58" text-anchor="middle" fill="#607080" font-size="9">E</text>
+          <text x="55" y="102" text-anchor="middle" fill="#607080" font-size="9">S</text>
+          <text x="10" y="58" text-anchor="middle" fill="#607080" font-size="9">W</text>
+          <line id="compass-needle" x1="55" y1="55" x2="55" y2="15" stroke="#ffaa00" stroke-width="3" stroke-linecap="round"
+            transform="rotate(312 55 55)" />
+          <circle cx="55" cy="55" r="4" fill="#ffaa00" />
+          <text x="55" y="75" text-anchor="middle" fill="#ffaa00" font-size="13" font-weight="bold" id="hdg-text">312°</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vessel Map -->
+  <div class="map-container">
+    <canvas id="vessel-map"></canvas>
+    <div class="map-overlay">
+      <div>POS: 60.157°N 149.437°W</div>
+      <div>DEPTH: 20 fm</div>
+      <div>CHART: Seward 16780</div>
+    </div>
+  </div>
+
+  <!-- Data Panel -->
+  <div class="data-panel">
+    <div class="data-item"><span class="key">Eng Temp</span><span class="val" id="d-engtemp">182°F</span></div>
+    <div class="data-item"><span class="key">Oil PSI</span><span class="val" id="d-oil">42</span></div>
+    <div class="data-item"><span class="key">Fuel</span><span class="val" id="d-fuel">78%</span></div>
+    <div class="data-item"><span class="key">Batt</span><span class="val" id="d-batt">12.4V</span></div>
+    <div class="data-item"><span class="key">GPS</span><span class="val" id="d-gps">ACTIVE</span></div>
+    <div class="data-item"><span class="key">AIS</span><span class="val" id="d-ais">2 TGTS</span></div>
+  </div>
+
+  <!-- Throttle -->
+  <div class="throttle-bar">
+    <span class="status-led sim" id="status-led"></span>
+    <span class="status-text" id="status-text">SIM MODE</span>
+    <input type="range" class="throttle-slider" id="throttle" min="0" max="100" value="48"
+      oninput="ESP32.setThrottle(this.value)" />
+    <button class="rpm-btn" onclick="ESP32.adjustRPM(10)">+10</button>
+    <button class="rpm-btn" onclick="ESP32.adjustRPM(50)">+50</button>
+    <button class="rpm-btn" onclick="ESP32.adjustRPM(100)">+100</button>
+    <button class="stop-btn" onclick="ESP32.emergencyStop()">STOP</button>
+  </div>
+
+  <!-- Heading / Autopilot -->
+  <div class="heading-bar">
+    <span style="font-size:10px;color:var(--dim)">HDG</span>
+    <input type="range" class="heading-slider" id="heading-slider" min="0" max="359" value="312"
+      oninput="ESP32.setHeading(this.value)" />
+    <button class="heading-btn" onclick="ESP32.adjustHeading(-10)">PORT 10°</button>
+    <button class="heading-btn" onclick="ESP32.adjustHeading(-1)">PORT 1°</button>
+    <button class="heading-btn" onclick="ESP32.adjustHeading(1)">STBD 1°</button>
+    <button class="heading-btn" onclick="ESP32.adjustHeading(10)">STBD 10°</button>
+  </div>
+
+  <!-- Hardware strip -->
+  <div class="hw-strip">
+    ⚙️ In production: throttle slider → ESP32 GPIO 18 → PWM → A4988 stepper driver → encoder feedback → physical throttle lever.
+    Heading slider → ESP32 GPIO 19 → servo → rudder position sensor. This dashboard runs on the actual vessel with real sensor data.
+  </div>
+</div>
+
+<!-- === CHATBOT === -->
+<div class="chatbot">
+  <div class="chat-header">
+    <span class="agent-name">◆ RIKER</span> <span style="float:right;font-size:10px">Vessel Agent · GLM-5.2</span>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-msg system">— Riker online. Dashboard connected. —</div>
+    <div class="chat-msg agent">
+      <div class="speaker">◆ Riker</div>
+      Dashboard is live. All systems nominal. RPM 1200, speed 6.0 kts, heading 312°. What are your orders?
+    </div>
+  </div>
+  <div class="chat-suggestions">
+    <button class="suggestion-btn" onclick="chatCommand('What happens if I push to full throttle?')">Full throttle?</button>
+    <button class="suggestion-btn" onclick="chatCommand('Fuel consumption at current speed?')">Fuel burn?</button>
+    <button class="suggestion-btn" onclick="chatCommand('Are we in safe waters?')">Safe waters?</button>
+    <button class="suggestion-btn" onclick="chatCommand('Turn port 10 degrees')">Port 10°</button>
+    <button class="suggestion-btn" onclick="chatCommand('Throttle up to 1800')">Throttle 1800</button>
+    <button class="suggestion-btn" onclick="chatCommand('Turn to 270 degrees')">Turn to 270°</button>
+    <button class="suggestion-btn" onclick="chatCommand('What is the ESP32 wiring for the throttle?')">ESP32 wiring?</button>
+    <button class="suggestion-btn" onclick="chatCommand('Plot a course to the fishing grounds')">Plot course</button>
+  </div>
+  <div class="chat-input-bar">
+    <input type="text" class="chat-input" id="chat-input" placeholder="Type a command..."
+      onkeydown="if(event.key==='Enter'){chatCommand(this.value);this.value=''}" />
+    <button class="chat-send" onclick="chatCommand(document.getElementById('chat-input').value);document.getElementById('chat-input').value=''">SEND</button>
+  </div>
+</div>
+
+<div class="cmd-log" id="cmd-log"></div>
+
+<script>
+// ============================================
+// ESP32 HARDWARE BRIDGE SIMULATION
+// ============================================
+const ESP32 = {
+  rpm: 1200,
+  heading: 312,
+  throttle: 48,
+  connected: false, // simulation mode
+  
+  setThrottle(pct) {
+    this.throttle = parseInt(pct);
+    this.rpm = Math.round(pct * 25); // 0-100% → 0-2500 RPM
+    this.updateAll();
+    this.logCmd(`ESP32 GPIO 18 → PWM ${Math.round(pct*10.23)} → A4988 STEPPER → THROTTLE ${pct}% → ${this.rpm} RPM`);
+  },
+  
+  adjustRPM(delta) {
+    this.rpm = Math.max(0, Math.min(2500, this.rpm + delta));
+    this.throttle = Math.round(this.rpm / 25);
+    document.getElementById('throttle').value = this.throttle;
+    this.updateAll();
+    this.logCmd(`ESP32 → RPM ADJUST +${delta} → TARGET ${this.rpm} RPM`);
+  },
+  
+  setHeading(deg) {
+    this.heading = parseInt(deg);
+    this.updateAll();
+    this.logCmd(`ESP32 GPIO 19 → SERVO → RUDDER → HEADING ${deg}°`);
+  },
+  
+  adjustHeading(delta) {
+    // Animate the heading change smoothly
+    const target = (this.heading + delta + 360) % 360;
+    const start = this.heading;
+    const steps = 20;
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      this.heading = Math.round(start + (target - start) * (i / steps));
+      if (this.heading < 0) this.heading += 360;
+      this.heading = this.heading % 360;
+      document.getElementById('heading-slider').value = this.heading;
+      this.updateAll();
+      if (i >= steps) clearInterval(interval);
+    }, 30);
+    this.logCmd(`ESP32 → AUTOPILOT → TURN ${delta > 0 ? 'STBD' : 'PORT'} ${Math.abs(delta)}° → TARGET ${target}°`);
+  },
+  
+  emergencyStop() {
+    this.rpm = 0;
+    this.throttle = 0;
+    document.getElementById('throttle').value = 0;
+    this.updateAll();
+    addSystemMessage('⚠️ EMERGENCY STOP ENGAGED. Throttle to zero.');
+    this.logCmd('ESP32 → EMERGENCY STOP → PWM 0 → THROTTLE CLOSED');
+  },
+  
+  readSensor(id) {
+    const sensors = {
+      'engine_temp': 150 + (this.rpm / 2500) * 50 + '°F',
+      'oil_pressure': 30 + (this.rpm / 2500) * 20 + ' psi',
+      'fuel': Math.max(0, 78 - (this.rpm / 2500) * 2) + '%',
+      'battery': (12.4 - (this.rpm / 2500) * 0.3).toFixed(1) + 'V',
+    };
+    return sensors[id] || 'N/A';
+  },
+  
+  updateAll() {
+    const rpm = this.rpm;
+    const spd = (rpm / 200).toFixed(1);
+    const hdg = this.heading;
+    
+    // RPM gauge
+    document.getElementById('rpm-text').textContent = rpm;
+    const rpmPct = rpm / 2500;
+    const rpmArc = document.getElementById('rpm-arc');
+    rpmArc.style.strokeDashoffset = 283 - (283 * rpmPct);
+    rpmArc.setAttribute('stroke', rpm > 2200 ? '#ff3344' : rpm > 1800 ? '#ffaa00' : '#00ff88');
+    document.getElementById('rpm-needle').style.transform = `rotate(${rpmPct * 270 - 45}deg)`;
+    
+    // Speed gauge
+    document.getElementById('spd-text').textContent = spd;
+    const spdPct = spd / 12.5;
+    document.getElementById('spd-arc').style.strokeDashoffset = 283 - (283 * spdPct);
+    document.getElementById('spd-needle').style.transform = `rotate(${spdPct * 270 - 45}deg)`;
+    
+    // Compass
+    document.getElementById('hdg-text').textContent = hdg + '°';
+    document.getElementById('compass-needle').setAttribute('transform', `rotate(${hdg} 55 55)`);
+    
+    // Data panel
+    document.getElementById('d-engtemp').textContent = this.readSensor('engine_temp');
+    document.getElementById('d-oil').textContent = this.readSensor('oil_pressure').replace(' psi','');
+    document.getElementById('d-fuel').textContent = this.readSensor('fuel');
+    document.getElementById('d-batt').textContent = this.readSensor('battery');
+  },
+  
+  logCmd(msg) {
+    const log = document.getElementById('cmd-log');
+    log.classList.add('visible');
+    const entry = document.createElement('div');
+    entry.className = 'entry';
+    entry.textContent = '> ' + msg;
+    log.appendChild(entry);
+    log.scrollTop = log.scrollHeight;
+    // Keep only last 5
+    while (log.children.length > 5) log.removeChild(log.firstChild);
+    setTimeout(() => { if(log.children.length===0) log.classList.remove('visible'); }, 5000);
+  }
+};
+
+// ============================================
+// CHATBOT — NATURAL LANGUAGE → MACHINE COMMAND
+// ============================================
+function chatCommand(text) {
+  if (!text || !text.trim()) return;
+  
+  // Show user message
+  const msgs = document.getElementById('chat-messages');
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = text;
+  msgs.appendChild(userMsg);
+  msgs.scrollTop = msgs.scrollHeight;
+  
+  // Parse natural language commands
+  const lower = text.toLowerCase();
+  let response = '';
+  let isCommand = false;
+  
+  // Heading commands
+  const hdgMatch = lower.match(/(?:turn|head)\s+(?:port\s+)?(\d+)\s*deg|port\s+(\d+)|stbd\s+(\d+)|starboard\s+(\d+)|turn\s+to\s+(\d+)/);
+  if (lower.includes('port') && lower.match(/\d+/)) {
+    const deg = parseInt(lower.match(/\d+/)[0]);
+    ESP32.adjustHeading(-deg);
+    response = `Aye. Turning port ${deg}°. New heading: ${ESP32.heading}°.\nRudder command sent via ESP32 GPIO 19 → servo. Compass rotating.`;
+    isCommand = true;
+  } else if (lower.includes('stbd') || lower.includes('starboard') && lower.match(/\d+/)) {
+    const deg = parseInt(lower.match(/\d+/)[0]);
+    ESP32.adjustHeading(deg);
+    response = `Aye. Turning starboard ${deg}°. New heading: ${ESP32.heading}°.`;
+    isCommand = true;
+  } else if (lower.match(/turn\s+to\s+(\d+)/)) {
+    const target = parseInt(lower.match(/turn\s+to\s+(\d+)/)[1]);
+    ESP32.setHeading(target);
+    response = `Turning to ${target}°. Autopilot engaged.`;
+    isCommand = true;
+  }
+  
+  // Throttle commands
+  else if (lower.match(/throttle.*(\d+)/) || lower.match(/rpm.*(\d+)/)) {
+    const targetRPM = parseInt(lower.match(/(\d+)/)[1]);
+    if (lower.includes('up') || lower.includes('increase') || targetRPM > ESP32.rpm) {
+      ESP32.adjustRPM(targetRPM - ESP32.rpm);
+      response = `Throttling up to ${targetRPM} RPM. Current: ${ESP32.rpm} RPM, ${targetRPM/200} kts.\nFuel burn: ~${(targetRPM/250).toFixed(1)} gal/hr.\nESP32 GPIO 18 → PWM ${Math.round(targetRPM/2.44)} → stepper engaged.`;
+      isCommand = true;
+    }
+  }
+  
+  // Full throttle
+  else if (lower.includes('full throttle') || lower.includes('full power')) {
+    response = `At full throttle (2500 RPM):\n• Speed: 12.5 kts\n• Fuel burn: 9.8 gal/hr\n• Current fuel (78%): ~156 gal → range ~127 nm\n• Engine temp: ~198°F (safe but climbing)\n• Oil pressure: ~50 psi\nRecommend not sustaining above 2200 RPM for >2 hours.\n\nType "throttle up to 2500" to execute.`;
+  }
+  
+  // Fuel consumption
+  else if (lower.includes('fuel') || lower.includes('consumption') || lower.includes('burn')) {
+    const burn = (ESP32.rpm / 250).toFixed(1);
+    const range = Math.round(156 / parseFloat(burn || 1) * (ESP32.rpm/200));
+    response = `At ${ESP32.rpm} RPM (${ESP32.rpm/200} kts):\n• Fuel burn: ${burn} gal/hr\n• Tank: 78% (~156 gal)\n• Range: ~${range} nm\n• Endurance: ~${Math.round(156/parseFloat(burn||1))} hrs`;
+  }
+  
+  // Safe waters
+  else if (lower.includes('safe') || lower.includes('depth') || lower.includes('water')) {
+    response = `Depth: 20 fathoms (120 ft). Charted water. No shoals within 2nm.\nAIS: 2 targets — fishing vessel bearing 045° at 4.2nm, cargo ship bearing 180° at 8.1nm. Neither on collision course.\nBottom: sand and gravel. Good holding ground if we need to anchor.`;
+  }
+  
+  // ESP32 wiring question
+  else if (lower.includes('esp32') || lower.includes('wiring') || lower.includes('wire') || lower.includes('hardware') || lower.includes('order')) {
+    response = `Here's the throttle wiring:\n\nPARTS:\n• ESP32 dev board (38-pin)\n• A4988 stepper driver\n• NEMA 17 stepper (with encoder)\n• 12V 2A power supply\n• 10kΩ resistor, 100µF cap\n\nWIRING:\n• ESP32 GPIO 18 → A4988 STEP\n• ESP32 GPIO 19 → A4988 DIR (heading/rudder servo)\n• ESP32 GPIO 21 → ENCODER A\n• ESP32 GPIO 22 → ENCODER B\n• 12V → A4988 VMOT\n• GND → common bus\n\nCODE:\nThe ESP32Bridge class in this dashboard sends PWM on GPIO 18. The A4988 translates to step pulses. The encoder reads back the actual throttle position. If commanded ≠ actual, it auto-corrects.\n\nORDER FROM: Amazon (~$35 total) or DigiKey (~$42).\nAsk me "what about the heading servo?" for rudder wiring.`;
+  }
+  
+  // Course plotting
+  else if (lower.includes('course') || lower.includes('plot') || lower.includes('fishing') || lower.includes('grounds')) {
+    response = `Plotting course to Cape Cleare fishing grounds (60.045°N, 149.312°W).\n\nDistance: 8.4 nm\nBearing: 195°\nETA at current speed: 1h 24m\nFuel required: ~5.8 gal\n\nRecommended route: depart current position, head SSW at 195°, watch for Cape Cleare reef at 58°. I'll monitor depth and AIS. Want me to turn to 195°?`;
+  }
+  
+  // Weather
+  else if (lower.includes('weather') || lower.includes('wind') || lower.includes('sea')) {
+    response = `Wind: 12 kts from 270° (W)\nSea state: 3 (3-4ft waves)\nSwell: W 8 sec period\nVisibility: 8+ nm\nBarometric: 1018 mb (falling slowly)\nSunset: 21:47 AKDT\n\nGood fishing weather. Front expected in ~18 hrs — recommend back in port by 0600.`;
+  }
+  
+  // Unknown
+  else {
+    response = `I didn't parse that command. Try: "turn port 10 degrees", "throttle up to 1800", "turn to 270 degrees", "full throttle?", "fuel burn?", "safe waters?", "ESP32 wiring?", or "plot course".`;
+  }
+  
+  // Show agent response after short delay
+  setTimeout(() => {
+    const agentMsg = document.createElement('div');
+    agentMsg.className = 'chat-msg agent';
+    agentMsg.innerHTML = `<div class="speaker">◆ Riker</div>${response.replace(/\n/g, '<br>')}`;
+    msgs.appendChild(agentMsg);
+    msgs.scrollTop = msgs.scrollHeight;
+  }, isCommand ? 800 : 400);
+}
+
+function addSystemMessage(text) {
+  const msgs = document.getElementById('chat-messages');
+  const msg = document.createElement('div');
+  msg.className = 'chat-msg system';
+  msg.textContent = text;
+  msgs.appendChild(msg);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+// ============================================
+// VESSEL MAP — animated top-down view
+// ============================================
+const canvas = document.getElementById('vessel-map');
+const ctx = canvas.getContext('2d');
+let trail = [];
+let vesselX = 0, vesselY = 0;
+
+function resizeCanvas() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  vesselX = canvas.width / 2;
+  vesselY = canvas.height / 2;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function drawMap() {
+  ctx.fillStyle = '#070b15';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Bathymetry contour lines
+  ctx.strokeStyle = '#0a1525';
+  ctx.lineWidth = 1;
+  for (let r = 30; r < 300; r += 40) {
+    ctx.beginPath();
+    ctx.arc(canvas.width * 0.3, canvas.height * 0.5, r, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+  
+  // Trail
+  if (trail.length > 1) {
+    ctx.strokeStyle = 'rgba(0, 255, 136, 0.3)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(trail[0].x, trail[0].y);
+    for (let i = 1; i < trail.length; i++) ctx.lineTo(trail[i].x, trail[i].y);
+    ctx.stroke();
+  }
+  
+  // Vessel (triangle pointing in heading direction)
+  const angle = (ESP32.heading - 90) * Math.PI / 180;
+  ctx.save();
+  ctx.translate(vesselX, vesselY);
+  ctx.rotate(angle);
+  ctx.fillStyle = '#00ff88';
+  ctx.beginPath();
+  ctx.moveTo(0, -10);
+  ctx.lineTo(-6, 6);
+  ctx.lineTo(6, 6);
+  ctx.closePath();
+  ctx.fill();
+  // Heading line
+  ctx.strokeStyle = 'rgba(0, 255, 136, 0.4)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(0, -40);
+  ctx.stroke();
+  ctx.restore();
+  
+  // Move vessel based on speed
+  const speed = ESP32.rpm / 200;
+  if (speed > 0.1) {
+    const rad = (ESP32.heading - 90) * Math.PI / 180;
+    // Vessel stays centered, trail extends behind
+    trail.push({x: vesselX, y: vesselY});
+    if (trail.length > 80) trail.shift();
+    // Shift the trail to simulate vessel moving forward
+    for (let p of trail) {
+      p.x -= Math.cos(rad) * speed * 0.5;
+      p.y -= Math.sin(rad) * speed * 0.5;
+    }
+  }
+  
+  // Labels
+  ctx.fillStyle = '#607080';
+  ctx.font = '9px monospace';
+  ctx.fillText('60.157°N 149.437°W', 8, canvas.height - 8);
+  ctx.fillText('SCALE 1:5000', 8, canvas.height - 20);
+}
+
+setInterval(drawMap, 100);
+ESP32.updateAll();
+</script>
+</body>
+</html>
