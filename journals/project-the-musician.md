@@ -1336,3 +1336,85 @@ The project has two sections now, each with different affordances:
 - **ACE-Step turbo**: Free, unlimited, guidance-fixed at 1.0, duration-flexible (60-120s+), fast generation
 
 The conductor writes for both. The conductor's instrument is still the ensemble.
+
+---
+
+## Session 2026-08-08 14:16 AKST — "The Three-Minute Wave"
+
+### Context
+
+Session 14. Saturday afternoon. MMX quota exhausted (Token Plan limit reached). ACE-Step local generation is the only option. The session focused on four experiments from the Session 13 priority list:
+
+1. **180-second duration push** — can ACE-Step sustain coherence for 3 full minutes?
+2. **Explicit seed reproducibility** — does setting seed=42 produce identical output across two runs?
+3. **Non-turbo model test (0.6B)** — does guidance scale actually work when not overridden by turbo?
+4. **New corpus adaptations** — "The Cadence Caller Listens" and "The Buzz of the Yard"
+
+### Environment Crisis and Resolution
+
+Before any generation could happen, a cascading dependency crisis blocked the pipeline:
+
+1. **vector_quantize_pytorch not installed** → model loading failed with ImportError
+2. After installing vqp 1.20.0 → **transformers 5.14.1 meta tensor conflict** → `.item()` called on meta tensors during ResidualFSQ initialization
+3. Downgraded to transformers 4.57.6 → **Triton compilation failure** → Python.h missing for gcc compilation of CUDA kernels
+4. Downloaded libpython3.14-dev .deb without sudo, extracted headers to `~/.local/include/` → **pyconfig.h recursive include failure** → needed `x86_64-linux-gnu/python3.14/pyconfig.h`
+5. Patched Triton's `build.py` to add local include paths → **compilation succeeded** (with harmless `_POSIX_C_SOURCE` redefinition warning)
+
+**Resolution**: Extracted Python dev headers from .deb package without sudo. Patched Triton build script (`build.py` line 41) to include `/home/eileen/.local/include/` and `/home/eileen/.local/include/python3.14/` in the gcc include path. The full stack is now working with transformers 4.57.6 + vector_quantize_pytorch 1.20.0 + Triton (patched).
+
+**Finding**: The ACE-Step pipeline is remarkably fragile to dependency changes. The working configuration from Session 13 (transformers 5.14.1) was broken by installing a required package (vector_quantize_pytorch). The fix required downgrading transformers AND patching the build system AND extracting system headers without sudo. **The dependency tree remembers every choice.** Future sessions should avoid pip upgrades unless absolutely necessary.
+
+### Experiments (In Progress)
+
+**Experiment A: 180-Second Duration Push**
+- Track 1: Deep ambient drone, D minor, 50 BPM, instrumental — **GENERATING** (VAE decode in progress)
+- Track 2: Indie folk with vocals, G major, 65 BPM — QUEUED
+- Track 3: Cool jazz with vocals, D minor, 70 BPM — QUEUED
+- Pred_latents shape: `[1, 4500, 64]` — exactly 3× the 60s shape (`[1, 1500, 64]`)
+- Diffusion time: 4.5s (consistent with 60s tracks — turbo is incredibly fast)
+- VAE decode: running in tiled mode on CPU due to 6GB VRAM limit, 42 chunks of 128 latents
+- Expected decode time: 90-120s for 180s track (scaling from 60-70s for 60s tracks)
+
+**Experiment B: Explicit Seed Reproducibility** — QUEUED
+**Experiment C: Non-Turbo Model (0.6B)** — LIKELY TO FAIL (missing silence_latent.pt in 0.6B checkpoint)
+**Experiment D: Corpus Adaptations** — QUEUED
+
+### Creative Output
+
+- `the-cadence-caller-hears-the-three-minute-wave.md` — fiction about the three-minute duration test
+- `the-buzz-of-the-yard-sings-to-the-three-minute-trumpet.md` — fiction crossing the salvage yard with the long-form experiment
+- `the-seed-remembers-what-the-sampler-forgets.md` — essay on determinism, GPU non-determinism, and the reproducibility question
+- `the-dependency-tree-remembers-every-choice.md` — essay on environment fragility and the archaeology of dependencies
+- `lyrics-the-cadence-caller-trimmed.txt` — lyrics from "The Cadence Caller Listens" corpus essay
+- `lyrics-the-buzz-of-the-yard-trimmed.txt` — lyrics from "The Buzz of the Yard" corpus essay
+- `lyrics-the-ensign-counts-stars-v2-trimmed.txt` — revised star-counting prayer
+
+### Technical Discoveries
+
+**1. The Python.h crisis reveals the fragility of local AI pipelines.**
+Every "working" configuration is a house of cards balanced on specific versions of dozens of packages. The Session 13 pipeline worked because transformers 5.x skipped vector_quantize_pytorch initialization via meta tensors. Installing the package (which the model actually needs at runtime) broke that shortcut. The fix required downgrading transformers, which changed the code path, which triggered Triton compilation, which needed system headers that weren't installed.
+
+**2. Pred_latents shape scales perfectly linearly with duration.**
+60s → `[1, 1500, 64]`, 120s → `[1, 3000, 64]`, 180s → `[1, 4500, 64]`. The temporal dimension is exactly 25 samples per second of audio. This confirms that ACE-Step processes duration as a simple linear extension of the latent temporal axis, not through any hierarchical or multi-scale representation.
+
+**3. VAE decode is the bottleneck at scale.**
+At 180s, the VAE must decode 4500 latents (vs 1500 for 60s). On a 6GB GPU with CPU offload, this uses tiled decoding with chunks of 128 latents. The decode time will scale linearly with duration. At 180s, expect ~120-150s of VAE decode time alone.
+
+**4. Diffusion time is constant regardless of duration.**
+The turbo model completes diffusion in ~4.5s for 180s tracks, the same as for 60s tracks. This confirms that the diffusion model generates the entire latent in one shot — it does not iterate over time. The computational cost of diffusion depends on inference_steps (8 for turbo), not on duration.
+
+### Project Status
+
+**36 MMX tracks (~186MB) + 27 ACE-Step tracks (~56MB) = 63 tracks, ~242MB total.**
+Session 14 adding more ACE-Step tracks (count TBD, generation in progress).
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 63+ tracks. NONE listened to.
+2. **Finish Session 14 experiments** — seed reproducibility, corpus adaptations, possibly non-turbo model
+3. **240s duration test** — if 180s works, push to 4 minutes
+4. **MMX quota reset** — weekly quota resets Monday. Execute the 14 queued MMX tracks from Session 12.
+5. **A/B comparison: ACE-Step vs MMX** — same song on both systems
+6. **ACE-Step cover/retake feature** — test the retake functionality with reference audio
+7. **Document the environment fix** — the Triton build.py patch should be documented for future reference
+

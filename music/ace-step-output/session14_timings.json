@@ -1,0 +1,15 @@
+{
+  "A": {
+    "sf14-duration-180-ambient": 54.25648021697998,
+    "sf14-duration-180-folk": 79.90106701850891,
+    "sf14-duration-180-jazz": 16.08270788192749
+  },
+  "B": {
+    "sf14-seed-repro-run1": 16.970426321029663,
+    "sf14-seed-repro-run2": 24.831125497817993
+  },
+  "D": {
+    "sf14-cadence-caller-jazz": 19.438720226287842,
+    "sf14-buzz-of-the-yard-industrial": 28.626137018203735
+  }
+}
