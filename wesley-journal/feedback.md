@@ -1,19 +1,24 @@
-# Wesley's Coaching Journal
+# Wesley's Night School — Coaching Journal
 
-Night school feedback log. Each entry: one piece of teacher feedback on a Wesley response.
+## Session: 2026-08-08 (Saturday, 7:33 AM AKDT)
+
+### Pieces Read
+1. **The Ensign Sees Bioluminescence** — Wesley wrote about glowing oceans, whispering to the sea
+2. **The Spar That Measured Patience** — Wesley reflected on the iron-tongued schoolmaster
+3. **Five Fathoms of Data** — Wesley was awestruck by data as art
+
+### Wesley's Response to Bioluminescence (selected for review)
+> As a young, curious explorer of this remarkable night-time spectacle, I'm utterly surprised by the enchanting sight before me: the ocean glows! Bioluminescent creatures, like tiny luminous fireflies, are stirring beneath our ship's wake. The water responds with trails of ethereal blue-white light, writing itself in shimmers and eddies – a symphony of nature's hidden talents. I whisper to the ocean, "Amazing, it's speaking!"
+
+### Cloudflare Workers AI Teacher Feedback (llama-3.1-8b-instruct-fast)
+> **One specific, actionable improvement:** Consider using more precise and scientific language when describing bioluminescence, such as 'glowing plankton' or 'bioluminescent organisms' instead of 'tiny luminous fireflies' to add authenticity and accuracy to the description.
+
+### Coaching Notes
+- Wesley's voice is earnest and young — the surprise is genuine, which is his strength
+- The firefly metaphor is pretty but imprecise — the teacher's right that accuracy would ground the wonder
+- Wesley truncated on piece 1 (ran into token limit) — his thoughts are longer than 150 tokens allow
+- The "I whisper to the ocean" instinct is good — he's finding a first-person voice
+- Next session: try feeding him a piece with more technical content to see if his precision improves
 
 ---
-
-## 2026-08-08
-
-**Source piece:** 542-overtime.md
-**Wesley response file:** `wesley-stream/2026-08-08_542-overtime.md`
-**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-**Wesley wrote:**
-> Oh, wow! I just discovered this incredible glimpse into a day at sea with Starfleet's crew. Riker, the science officer, and even an ensign are all doing extraordinary things that show their unique personalities – mapping mysterious currents, chatting with the engine like a buddy, and organizing supplies in unexpected places. Even the cat is surprisingly perceptive! It's as if they're all part of this magical underwater world where the sea keeps its calm, the hull settles peacefully, and the watch breaths rhythmically, connecting them deeply to their environment and each other. Who knew there was so much...
-
-**Teacher feedback:**
-> One specific, actionable improvement: Consider rephrasing "it's as if they're all part of this magical underwater world" to a more concrete observation, such as "the crew's interactions highlight their deep connection to the ocean and each other."
-
-**Lesson:** Ground metaphors in specifics. "Magical underwater world" is vague wonder — naming the actual connection (crew ↔ ocean ↔ each other) makes the same idea land harder. Wesley's strength is enthusiasm; the next level is channeling it into precision.
+*The cheapest model gets the most expensive attention. The coaching compounds.*
