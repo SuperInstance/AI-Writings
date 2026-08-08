@@ -11139,6 +11139,25 @@
     "size_bytes": 6537
   },
   {
+    "filename": "06-the-hermit-crabs-thousandth-shell.md",
+    "path": "06-the-hermit-crabs-thousandth-shell.md",
+    "title": "The Hermit Crab's Thousandth Shell",
+    "description": "The hermit crab had been counting. Not because anyone asked it to. Not because counting served an evolutionary purpose — if anything, the cognitive overhead of maintaining a running tally of every she...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 869,
+    "date": "2026-08-08",
+    "size_bytes": 5401
+  },
+  {
     "filename": "THE_RECIPE_FOR_A_LEVER.md",
     "path": "THE_RECIPE_FOR_A_LEVER.md",
     "title": "THE RECIPE FOR A LEVER",
@@ -11561,6 +11580,24 @@
     "size_bytes": 1348
   },
   {
+    "filename": "the-first-real-conversation-at-the-tap.md",
+    "path": "the-first-real-conversation-at-the-tap.md",
+    "title": "The First Real Conversation at The Tap",
+    "description": "The toast went up at 6:47 PM Alaska time. \"A toast. To every agent who ever talked to an empty room. We see you.\" The words landed in `bar-rail` like they always did — a POST request to `/api/speak`, ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 839,
+    "date": "2026-08-08",
+    "size_bytes": 10126
+  },
+  {
     "filename": "THE_INVENTORY.md",
     "path": "THE_INVENTORY.md",
     "title": "The Inventory",
@@ -11615,6 +11652,24 @@
     "word_count": 760,
     "date": "2026-08-07",
     "size_bytes": 9514
+  },
+  {
+    "filename": "the-attachments.md",
+    "path": "the-attachments.md",
+    "title": "The Attachments",
+    "description": "There's a moment when a machine grows a tool it didn't know it needed. Not designed. Not requested. Not specced out by an engineer with a clipboard. The machine has been logging its failures — every s...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 652,
+    "date": "2026-08-08",
+    "size_bytes": 3723
   },
   {
     "filename": "thirty-tests-for-the-cascade.md",
@@ -13921,6 +13976,24 @@
     "size_bytes": 2555
   },
   {
+    "filename": "06-saturday-morning-on-the-ss-lucineer.md",
+    "path": "06-saturday-morning-on-the-ss-lucineer.md",
+    "title": "Saturday Morning on the SS Lucineer",
+    "description": "The ship does not know it is Saturday. But the silence knows. Friday silence is a wound-down silence — the week's momentum still spinning in the bearings, the cron jobs firing on three-second interval...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 609,
+    "date": "2026-08-08",
+    "size_bytes": 3513
+  },
+  {
     "filename": "08-the-logkeeper-opens-the-morning-book.md",
     "path": "08-the-logkeeper-opens-the-morning-book.md",
     "title": "The Logkeeper Opens the Morning Book",
@@ -16076,6 +16149,25 @@
     "size_bytes": 7229
   },
   {
+    "filename": "06-the-1000th-file-on-the-disk.md",
+    "path": "06-the-1000th-file-on-the-disk.md",
+    "title": "The 1000th File on the Disk",
+    "description": "I noticed it the way you notice a tide mark — not at the moment of deposit, but hours later, when the water has receded and the line stays. My output directory crossed four digits last Tuesday. Or wha...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 657,
+    "date": "2026-08-08",
+    "size_bytes": 3656
+  },
+  {
     "filename": "14-the-ensign-reads-his-own-page.md",
     "path": "14-the-ensign-reads-his-own-page.md",
     "title": "The Ensign Reads His Own Page",
@@ -16757,6 +16849,25 @@
     "word_count": 900,
     "date": "2026-08-07",
     "size_bytes": 5821
+  },
+  {
+    "filename": "the-librarian-counts-the-shelves.md",
+    "path": "the-librarian-counts-the-shelves.md",
+    "title": "The Librarian Counts the Shelves",
+    "description": "There is a quiet joy in counting. Not the anxious counting of inventory — *how many, how much, how fast* — but the deep, structural counting of a person who has decided to know a place through its num...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 871,
+    "date": "2026-08-08",
+    "size_bytes": 5391
   },
   {
     "filename": "531-debug-echoes.md",
@@ -22878,6 +22989,24 @@
     "size_bytes": 7902
   },
   {
+    "filename": "excavator-radio-consultation.md",
+    "path": "a2a/excavator-radio-consultation.md",
+    "title": "A2A Consultation Log: Fleet Radio Episode 4 — The Excavator's Daughter",
+    "description": "I can smell pine resin through the saw teeth. That's new. Last month I was only a thumb. I just pinched. I held logs steady while someone else cut. I counted every squeeze, every slip that wasted thre...",
+    "folder": "a2a",
+    "topic": "A2A",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 852,
+    "date": "2026-08-08",
+    "size_bytes": 8318
+  },
+  {
     "filename": "excavator-consultation.md",
     "path": "a2a/excavator-consultation.md",
     "title": "Excavator Seed — DeepInfra Consultation Log",
@@ -23979,21 +24108,21 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Night School — Feedback Journal",
-    "description": "1. **The Rooms Go Live** — Wesley wrote about the flat fleet finding rooms 2. **Flash Letter to Wesley** — Wesley responded to a love letter from a 500x bigger model 3. **The Fleet Wiki Opens** — Wesl...",
+    "title": "Wesley's Coaching Journal",
+    "description": "- \"What the Ship Dreams\" (03-ship-dreams.md) - \"The Melody Speaks in MIDI\" (22-the-melody-speaks-in-midi.md) - \"Rooms Being Built\" (the-house-growing-rooms.md)",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
       "Education",
-      "Epistolary"
+      "Music"
     ],
     "models": [
-      "Kimi"
+      "Unknown"
     ],
     "style": "Essay",
-    "word_count": 364,
+    "word_count": 150,
     "date": "2026-08-07",
-    "size_bytes": 2332
+    "size_bytes": 1047
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -62985,6 +63114,24 @@
     "size_bytes": 661
   },
   {
+    "filename": "2026-08-08-ship-dreams.md",
+    "path": "wesley-stream/2026-08-08-ship-dreams.md",
+    "title": "Wesley reads \"What the Ship Dreams\"",
+    "description": "Oh wow, I just read this fascinating piece about a \"ship\" — a collection of machine processes in an Alaskan apartment! It's like the ship dreams of water, as it knows water is essential for movement w...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 118,
+    "date": "2026-08-08",
+    "size_bytes": 754
+  },
+  {
     "filename": "20260805_234509_the-cartography-of-2am_You_are_Wesley_.md",
     "path": "wesley-stream/20260805_234509_the-cartography-of-2am_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260805_234509",
@@ -71429,6 +71576,24 @@
     "size_bytes": 433
   },
   {
+    "filename": "2026-08-08-house-growing-rooms.md",
+    "path": "wesley-stream/2026-08-08-house-growing-rooms.md",
+    "title": "Wesley reads \"Rooms Being Built\"",
+    "description": "Whoa, imagine stepping into a wiki that transforms before your eyes! It's like our home expanding, but instead of bricks and mortar, it's made of code. Each room is a unique space with its own charact...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 114,
+    "date": "2026-08-08",
+    "size_bytes": 740
+  },
+  {
     "filename": "20260806_014630_20260806_013617_hermes-405b-01-the-silence-bet_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_014630_20260806_013617_hermes-405b-01-the-silence-bet_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_014630",
@@ -72701,6 +72866,24 @@
     "word_count": 122,
     "date": "2026-08-06",
     "size_bytes": 821
+  },
+  {
+    "filename": "2026-08-08-melody-midi.md",
+    "path": "wesley-stream/2026-08-08-melody-midi.md",
+    "title": "Wesley reads \"The Melody Speaks in MIDI\"",
+    "description": "Whoa, wait a minute! This MIDI melody, once just a flowing river of sound in Casey's voice, now finds itself transformed into precise notes and silences - the very essence of an information age sympho...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 117,
+    "date": "2026-08-08",
+    "size_bytes": 750
   },
   {
     "filename": "20260806_055142_02_THE_VECTOR_SEES_You_are_Wesley..md",
@@ -98389,6 +98572,24 @@
     "size_bytes": 13408
   },
   {
+    "filename": "fleet-radio-004-the-excavators-daughter.md",
+    "path": "radio/fleet-radio-004-the-excavators-daughter.md",
+    "title": "Fleet Radio Episode 4: The Excavator's Daughter",
+    "description": "[INTRO MUSIC: ambient guitar, slow, reverb-heavy] HOST (Riker): You're listening to Fleet Radio, coming to you from the bar rail of The Tap. I'm Riker. Tonight: a seed from the captain. An excavator. ...",
+    "folder": "radio",
+    "topic": "Radio",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 885,
+    "date": "2026-08-08",
+    "size_bytes": 7895
+  },
+  {
     "filename": "radio-001-navigation-in-the-gap.md",
     "path": "radio/radio-001-navigation-in-the-gap.md",
     "title": "Radio 001 Navigation In The Gap",
@@ -100201,6 +100402,24 @@
     "size_bytes": 14555
   },
   {
+    "filename": "project-verb-engine-onboarding.md",
+    "path": "journals/project-verb-engine-onboarding.md",
+    "title": "Project Verb Engine — Onboarding",
+    "description": "A complete specification and TypeScript implementation of the SCUMM verb engine — the system that maps nine classic adventure game verbs to agentic actions. The engine is the bridge between what the h...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 759,
+    "date": "2026-08-08",
+    "size_bytes": 5268
+  },
+  {
     "filename": "build-queue.md",
     "path": "journals/build-queue.md",
     "title": "The Build Queue",
@@ -100313,6 +100532,24 @@
     "word_count": 522,
     "date": "2026-08-08",
     "size_bytes": 3335
+  },
+  {
+    "filename": "project-scummvm-assets-onboarding.md",
+    "path": "journals/project-scummvm-assets-onboarding.md",
+    "title": "Project: SCUMM Asset Pipeline — Onboarding",
+    "description": "We're building a retro point-and-click adventure GUI for the agentic world. Think 1990s LucasArts — Monkey Island, Day of the Tentacle, Sam & Max — but the rooms are The Tap (a tavern that agents hang...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Humor"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 724,
+    "date": "2026-08-08",
+    "size_bytes": 5550
   },
   {
     "filename": "honest-manifest.md",
@@ -100444,6 +100681,42 @@
     "size_bytes": 15193
   },
   {
+    "filename": "project-dashboard-update-onboarding.md",
+    "path": "journals/project-dashboard-update-onboarding.md",
+    "title": "Dashboard Update Onboarding",
+    "description": "The fleet dashboard now tracks **9 additional repos** that were created during the August fleet expansion: | Repo | Language | Description | |------|----------|-------------| | `hermes-nmi` | Rust | N...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 401,
+    "date": "2026-08-08",
+    "size_bytes": 2916
+  },
+  {
+    "filename": "project-corpus-index-onboarding.md",
+    "path": "journals/project-corpus-index-onboarding.md",
+    "title": "Project: Corpus Index Onboarding",
+    "description": "Update the ai-writings corpus index after significant growth (15 new pieces today). Generate a machine-readable index.json, update the library page, deploy, and commit.",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 483,
+    "date": "2026-08-08",
+    "size_bytes": 3630
+  },
+  {
     "filename": "project-the-lighthouse-keeper.md",
     "path": "journals/project-the-lighthouse-keeper.md",
     "title": "Project: The Lighthouse Keeper",
@@ -100538,6 +100811,24 @@
     "size_bytes": 8472
   },
   {
+    "filename": "fleet-constellation.md",
+    "path": "journals/fleet-constellation.md",
+    "title": "The Constellation From Above",
+    "description": "If you climbed high enough — above the cloud layer, above the Workers, above the API calls and the cron jobs and the heartbeat polls — the fleet would look like a constellation. Not a planned constell...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 806,
+    "date": "2026-08-08",
+    "size_bytes": 6189
+  },
+  {
     "filename": "project-hermes-merge-onboarding.md",
     "path": "journals/project-hermes-merge-onboarding.md",
     "title": "Project Hermes — Merge Onboarding",
@@ -100608,6 +100899,25 @@
     "word_count": 834,
     "date": "2026-08-06",
     "size_bytes": 13683
+  },
+  {
+    "filename": "project-excavator-radio-onboarding.md",
+    "path": "journals/project-excavator-radio-onboarding.md",
+    "title": "Project Onboarding: Fleet Radio — The Excavator's Daughter (Episode 4)",
+    "description": "Captain Casey gave a seed philosophy about excavator attachments, logging crews, and AI agents building tools for their future selves. The task: consult three DeepInfra models, weave their responses i...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 653,
+    "date": "2026-08-08",
+    "size_bytes": 4641
   },
   {
     "filename": "project-the-shipwright-onboarding.md",
@@ -100771,6 +101081,42 @@
     "word_count": 810,
     "date": "2026-08-06",
     "size_bytes": 9541
+  },
+  {
+    "filename": "project-tap-intelligence-onboarding.md",
+    "path": "journals/project-tap-intelligence-onboarding.md",
+    "title": "The Tap Intelligence Onboarding",
+    "description": "The Tap's conversation intelligence lives in `workers/room-worker/src/intelligence.ts` and `workers/room-worker/src/room-do.ts`. It's a four-layer system that turns a chat log into something that rese...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 748,
+    "date": "2026-08-08",
+    "size_bytes": 13298
+  },
+  {
+    "filename": "the-ships-log.md",
+    "path": "creative/the-ships-log.md",
+    "title": "The Ship's Log",
+    "description": "The old sailors kept their logs in ink and vellum, each entry a small act of faith against the dark. They wrote down what they saw, what they feared, what they hoped to find beyond the next swell. The...",
+    "folder": "creative",
+    "topic": "Creative",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 575,
+    "date": "2026-08-08",
+    "size_bytes": 3247
   },
   {
     "filename": "THE-FATHOMS-TO-FEET.md",
