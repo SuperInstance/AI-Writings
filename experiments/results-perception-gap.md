@@ -10,456 +10,378 @@
 
 ### Step 1: MUD text
 
-You are standing before a long, dark-stained oak counter.
-The surface glistens, tacky with a thousand spilled beers.
-A sticky film of dried ale and dust clings to your fingertips.
-The air reeks of sour yeast, old smoke, and cheap whiskey.
-Beneath the bar, a puddle of stale brew seeps toward your boots.
+You are standing before the bar counter.  
+Its surface is a tacky, amber-dappled expanse of old spills.  
+Your fingers peel off the wood with a faint, sticky *shhhhck*.  
+A fly lands, skates, and is briefly stuck near a dried lemon wheel.  
+The air smells of hops, yeast, and the ghost of a thousand last calls.
 
 ### Step 2: ScummVM scene spec
 
-**SCUMM Scene Specification: "The Sticky Oak"**  
-**Scene ID:** BAR_COUNTER_INT  
-**Palette:** 256-color, VGA, dark sepia with amber highlights.  
-**Music:** Low, droning bassoon loop with occasional off-key piano plinks (track: `TAVERN_DRONE`).
+**Scene: "The Sticky Bar Counter"**  
+**Engine:** SCUMM (v7)  
+**Room Description:** A grimy tavern interior, rendered in 320×200 pixel resolution with 256-color palette. The scene is seen from a slightly elevated three-quarter angle, the bar counter dominating the lower two-thirds of the screen.
 
 ---
 
-**Objects & Screen Positions (640x480 resolution):**
-
-| Object ID | Name | Position (x, y) | Size (w, h) | Notes |
-|-----------|------|-----------------|-------------|-------|
-| `STALE_BEER_PUDDLE` | Puddle of stale brew | 120, 430 | 90x35 | Animated shimmer (2 frames) |
-| `OAK_COUNTER_FRONT` | Sticky counter edge | 0, 380 | 640x15 | Surface hotspot for most verbs |
-| `WHISKEY_BOTTLE` | Cheap whiskey bottle | 520, 300 | 25x70 | Tilted, half-empty |
-| `SOUR_SMOKE_HAZE` | Cigarette smoke wisp | 300, 150 | 60x80 | 8-frame loop, semi-transparent |
-| `ASH_TRAY` | Overflowing ashtray | 450, 340 | 40x12 | Butts spilling over edge |
-| `DRIED_ALE_RING` | Circular stain ring | 380, 360 | 35x35 | Static decal |
-| `BUBBLES_IN_PUDDLE` | Tiny bubbles in puddle | 140, 445 | 10x5 | 3-frame loop, occasional pop |
+### **Background & Lighting**
+- **Overall Lighting:** Dim amber ambience from a flickering, unseen ceiling lamp. A single warm pool of light falls across the center of the counter, casting long shadows toward the left and right edges. The corners fade into near-blackness.
+- **Color Palette:** Dominant ochre, deep mahogany, and sickly yellow-green highlights on the sticky pool. The dried lemon wheel appears as a desaturated, mottled pale yellow.
+- **Animation Loops:** 
+  - Faint ripples in the spilled beer near the player’s hand zone (1×1 pixel wobble).
+  - A fly orbiting the lemon wheel in a lopsided figure-eight pattern.
 
 ---
 
-**Lighting:**  
-- Ambient light: 0.35 (very dim, brownish tint).  
-- Single flickering candle hotspot (not interactive) at `(610, 110)` — casts a weak, warm glow over the right third of the counter.  
-- Left side (x<200) is nearly black (0.15 light), with a faint greenish under-glow from the puddle.  
-- No direct light source on the player character; shadow falls backward onto the wall.
+### **Objects & Hotspots**
+
+#### **1. Sticky Counter Surface (Hotspot ID: `counter`)**
+- **Screen Position:** Occupies entire rectangle from (0, 130) to (319, 200).
+- **Walkable Area:** Only the floor strip in front of the counter—a 20-pixel-high band at the bottom edge (y=180 to 200), from x=40 to x=280. The counter itself is not walkable.
+- **Hotspot Polygon:** Irregular shape following the bar’s edge, roughly (10, 130) → (310, 130) → (310, 180) → (10, 180).
+- **Verbs:**
+  - **Look At:** "The counter is a sticky monument to every beer that never made it to a mouth."
+  - **Use Hand On:** (Plays squelch sound) "Your fingers come away coated in something that was once golden."
+  - **Push:** "It doesn't move. It's part of the room's soul now."
+  - **Pull:** "The counter resists, as if it's been here longer than you."
+
+#### **2. Dried Lemon Wheel (Hotspot ID: `lemon`)**
+- **Screen Position:** Fixed at (206, 152) — center of the amber pool. Slight rotation animation (0.5° back-and-forth).
+- **Hotspot Polygon:** Rough ellipse, 14×10 pixels, centered on (206, 152).
+- **Verbs:**
+  - **Look At:** "A lemon wheel, shriveled and fossilized. It's seen better centuries."
+  - **Pick Up:** "You try to lift it. It's welded to the counter by dried syrup. You get a sticky finger, but the wheel stays."
+  - **Use Knife On:** "You scrape. A flake of dried lemon peel curls off. Underneath: more beer, older and more bitter."
+  - **Smell:** "A sour, yeasty ghost that makes your eyes water."
+
+#### **3. The Amber Sticky Pool (Hotspot ID: `sticky_pool`)**
+- **Screen Position:** Irregular blob from (150, 140) to (260, 175), with a darker reflective sheen in the center.
+- **Hotspot Polygon:** Dynamically drawn as a rounded polygon following the blob edges (approximately 12 vertices).
+- **Verbs:**
+  - **Look At:** "A lake of spilled beer, old enough to have developed its own ecosystem. Something bubbles faintly."
+  - **Use Finger On:** (Plays squelch + low thrum) "You drag your finger through it. The groove fills back in slowly, like a memory that refuses to fade."
+  - **Drink:** "You take a sip. It's flat, warm, and tastes like regret with a hint of oak barrel."
+  - **Use Matches On:** "The surface dimples but doesn't ignite. It's too wet — and too old — to burn."
+
+#### **4. The Fly (Hotspot ID: `fly`)**
+- **Screen Position:** Moving loop from (190, 135) to (225, 160); speed varies.
+- **Hotspot Polygon:** 4×4 pixels, follows the fly’s animation frame.
+- **Verbs:**
+  - **Look At:** "A common housefly, but its legs are encrusted with dried beer. It's not leaving. It can't."
+  - **Swat:** (Plays slap sound) "You miss. The fly lands on the lemon wheel and resettles, unimpressed."
+  - **Catch:** "You cup your hand. When you peek, it's gone — but you feel a tiny tickle on your palm. It's hiding in the fold of your skin."
+  - **Push Away:** "It lifts, circles twice, and lands exactly where it was before. Stubborn little drunk."
+
+#### **5. Sticky Finger Residue (Invisible Hotspot, activated after touching counter)**
+- **Screen Position:** Appears on player character’s hand sprite (x=300, y=180 when idle).
+- **Hotspot Polygon:** None visible; attached to actor state.
+- **Verbs:**
+  - **Look At:** "Your fingers glisten with amber residue. It's going to attract every fly in the room."
+  - **Wipe On Pants:** (Plays cloth rub) "Great. Now your pants are sticky too."
+  - **Use On Lemon Wheel:** "You press the residue onto the wheel. It's not helping anything."
+  - **Combine With Match:** "The residue smears on the match tip. It might catch, but you're not going to try in a bar."
 
 ---
 
-**Walkable Areas:**  
-- **Main floor:** Rectangle `(0, 380)` to `(640, 480)` — player can walk left/right in front of the counter.  
-- **Behind counter (blocked):** No walkable area, but visual parallax shows shelves behind the player character.  
-- **Stool approach:** Small elliptical hotspot at `(300, 400)` — walk here to trigger "INSPECT COUNTER" auto-zoom.
-
----
-
-**Hotspots (Clickable Regions):**
-
-| Hotspot ID | Screen Region | Cursor | Verb Responses |
-|------------|---------------|--------|----------------|
-| `HS_COUNTER_TOP` | (0,380)-(640,395) | Magnifier | **Look at:** *"The varnish is gone, replaced by a thousand sticky fingerprints. The grain is invisible beneath the glaze."* |
-| | | Hand | **Use:** "You press your palm flat. It makes a soft, wet *schlick* sound. You feel the grime." |
-| | | Mouth | **Use (Taste):** "You dare not. The smell alone is a warning." |
-| `HS_PUDDLE` | (110,420)-(210,470) | Magnifier | **Look at:** *"A dark, oily pool that reflects nothing. Tiny bubbles rise and pop with microscopic farts."* |
-| | | Hand | **Use:** "You dip a finger in. It comes up coated with something that was beer three days ago." |
-| | | Bottle (if in inventory) | **Use:** "You pour the last of your drink into the puddle. It merges without a ripple." |
-| `HS_WHISKEY_BOTTLE` | (510,295)-(545,375) | Hand | **Take:** "It's glued to the counter by its own sticky base. You leave it." |
-| | | Magnifier | **Look at:** *"A half-empty bottle of 'Old Rotgut'. The label is peeling, revealing a second label underneath."* |
-| | | Mouth | **Smell:** "You uncork it — the fumes strip the inside of your nose. You regret that." |
-| `HS_ASH_TRAY` | (440,330)-(480,375) | Hand | **Take:** "You lift it. It's welded shut with dried gum. You set it back with a clunk." |
-| | | Magnifier | **Look at:** *"Forty-three butts, all smoked to the filter, all pointing the same direction. Someone was angry."* |
-| `HS_SMOKE_HAZE` | (270,130)-(350,200) | Magnifier | **Look at:** *"The haze drifts in slow, lazy spirals—like it's mocking you for breathing."* |
-| | | Hand | **Wave (Use):** "You wave it away. It curls back, unbothered." |
-| `HS_ALE_RING` | (365,345)-(405,380) | Magnifier | **Look at:** *"A perfect circle of dried foam. The ghost of a hundred pint glasses."* |
-| | | Hand | **Scratch (Use):** "You scrape at it with a fingernail. It flakes off, revealing brighter wood beneath." |
-| `HS_BUBBLES` | (130,435)-(155,455) | Magnifier | **Look at:** *"Tiny bubbles cling to the side of the puddle. One pops. Then another."* |
-| | | Hand | **Pop (Use):** "You press a thumb into a bubble. It bursts with a satisfying *tink*. You feel a small victory." |
-
----
-
-**Verb Menu (Global):**  
-- **Look at** (magnifier icon)  
-- **Use** (hand icon, context-sensitive)  
-- **Take** (grab icon)  
-- **Talk to** (bubble icon — no NPCs present, always returns "You speak to the counter. It does not answer.")  
-- **Open** (door icon — available only if facing left/right exits)
-
----
-
-**Scene Flags (Internal):**  
-- `FLAG_PUDDLE_STIRRED` (set after first "Use" on puddle) — changes puddle animation to slower shimmer.  
-- `FLAG_WHISKEY_OPENED` (set after "Smell" on bottle) — unlocks a hidden smell-based puzzle hint.  
-- `FLAG_RING_SCRATCHED` (set after "Use" on ale ring) — reveals a faint carved initial "M" under the ring.
-
----
-
-**Exit Regions:**  
-- **Left edge** (0, 350-450): walk off-screen to `ROOM_BAR_BOOTHS`.  
-- **Right edge** (640, 350-450): walk off-screen to `ROOM_BAR_BACKDOOR`.  
-- **Down (no exit):** blocked by the counter—a warning text appears: *"The sticky film holds you back. You can't climb over."*
-
----
-
-**Occlusion & Z-Order:**  
-- Player character draws at z=10 (in front of counter).  
-- Counter front edge draws at z=5 (before player).  
-- Puddle and bubbles at z=8 (over counter edge, under player's feet when close).  
-- Smoke haze at z=15 (floats above everything, except during close-up zoom).
-
----
-
-**Interaction Cue (Optional):**  
-If player stands still facing the counter for 3 seconds, a small caption appears at bottom: *"You hear a distant drip. Your fingers are already sticky."*
+### **Actor & Interaction Notes**
+- **Player Character:** Stands at (160, 195) on the walkable floor strip, facing the counter. Default stance is slightly hunched, hands at sides.
+- **Camera:** Fixed. No scrolling.
+- **Sound:**
+  - Ambient loop: low murmur, distant glass clink, and a creaking floorboard every 12 seconds.
+  - On any successful "sticky" interaction: a wet, slow *shhlick* sound with slight reverb.
+  - On entering scene: a single, soft *thump* of a heavy glass being set down (off-screen).
+- **Special Flag:** `sticky_hand` is set to 1 after first Use Hand On. If player then tries **Use Hand On Lemon**, a unique line plays: "You now have lemon-flavored stick. Deliciously awful."
+- **Exit Hotspots:** Off-screen left (x<0) and right (x>319) non-clickable; scene transition occurs via door object at (20, 50) — small dark rectangle, verb **Walk To** triggers next room.
 
 ### Step 3: Comparison
 
----
-
-## What the MUD Text Captures That the Scene Spec Misses
-
-### 1. **The *Sensory Invasion* of the Environment**
-The MUD text does not merely *describe* the counter—it **violates** the player's senses. "The surface glistens, tacky with a thousand spilled beers"—the word "tacky" is not just a visual property; it's a *tactile* one experienced through the eyes. "A sticky film of dried ale and dust clings to your fingertips"—this is a **proprioceptive intrusion**. The spec gives coordinates and light values, but the MUD makes the grime *happen to you*. It's not "a puddle at (120, 430)"; it's "a puddle of stale brew seeps toward your boots"—the puddle is *active*; it *moves toward you*.
-
-### 2. **The Psychological Weight of Neglect**
-The MUD implies **history and decay** without listing it. "The grain is invisible beneath the glaze" (from the spec's Look-at text) is passive—but the MUD's "a thousand spilled beers" implies *repetition*, *carelessness*, *absence of cleaning*. This is not a room; it's a *testament to abandonment*. The spec's "static decal" for the ale ring reduces it to a graphic; the MUD's "ghost of a hundred pint glasses" makes it a **spectral presence**. The MUD text asks: *Who was here? Why did they leave?*
-
-### 3. **The *Soundscape* (Even Without Audio)**
-The MUD text includes an **onomatopoeic** hint in the spec's own response ("schlick"), but the MUD goes further: "a soft, wet *schlick* sound"—this is a **phonological trigger**. The spec lists a "bassoon loop" as music, but the MUD creates *diegetic* sound through language: the *drip* in the optional cue, the *pop* of bubbles, the *clunk* of the ashtray. The MUD makes you *hear* the room in your mind's ear; the spec merely annotates an external track.
-
-### 4. **The *Moral/Emotional* Tinge**
-The MUD is not neutral. "The air reeks of sour yeast, old smoke, and cheap whiskey"—"cheap" is a **judgment**. "It's glued to the counter by its own sticky base"—this is *disgust* dressed as observation. The spec's "half-empty" bottle is clinical; the MUD's "Old Rotgut" is *leering*. The MUD text has an **attitude**—it's a narrator who has been in this bar too long and is *bitterly amused*. This voice is absent from the spec, which is purely *functional*.
-
-### 5. **The *Micro-Narrative* Embedded in Detail**
-The MUD text weaves a **story** through implication: "Forty-three butts, all smoked to the filter, all pointing the same direction. Someone was angry." The spec lists butts as a static object; the MUD turns them into **evidence of a past event**. The spec's "second label underneath" is a puzzle hook; the MUD's "peeling, revealing a second label" is a *mystery*—*what's underneath?* The MUD creates **curiosity through ambiguity**, not through explicit puzzle flags.
+There is a fascinating asymmetry between these two documents—they are ostensibly about the same space, but they are built for entirely different jobs. The MUD text is *evocative* and *somatic*; the scene spec is *functional* and *systemic*. Let me break down what each captures that the other completely overlooks.
 
 ---
 
-## What the Scene Spec Captures That the MUD Text Misses
+## What the MUD text captures that the scene spec misses
 
-### 1. **The *Parsable Geometry* of Interaction**
-The spec provides **exact coordinates** for every hotspot: `(120, 430)` for the puddle, `(510, 295)-(545, 375)` for the bottle. This is *critical* for a game engine. The MUD text is purely textual—it cannot tell the player *where* to click. The spec converts the room into a **spatial database** that the MUD cannot express. Without coordinates, the player would be fumbling blindly through a text parser. The MUD is *atmospheric*; the spec is *navigational*.
+### 1. **The poetics of decay and time**
+The MUD text gives the space a *biography*. "The ghost of a thousand last calls" is not a fact—it's a *feeling* that implies a history of human failure and ritual. The scene spec describes the lemon wheel as "desaturated, mottled pale yellow," but the MUD calls it "fossilized" and says "It's seen better centuries." The spec gives you *data*; the MUD gives you *verdict*.
 
-### 2. **The *State Machine* and Conditional Logic**
-The spec defines **flags** (`FLAG_PUDDLE_STIRRED`, `FLAG_WHISKEY_OPENED`, `FLAG_RING_SCRATCHED`) that change the world *over time*. The MUD text is *static*—it describes a moment, but not how that moment *changes*. The spec's "changes puddle animation to slower shimmer" is a **temporal rule**. The MUD cannot encode "if the player scratches the ring, a carved initial 'M' is revealed" because it has no conditional syntax. The spec is a **program**; the MUD is a **prose poem**.
+### 2. **Sensory layering through metaphor**
+The MUD doesn't just tell you the counter is sticky—it makes you *feel* it through the onomatopoeia of "*shhhhck*" and the tactile image of "your fingers peel off the wood." The scene spec says "Use Hand On: plays squelch sound"—which is *functional* but not *visceral*. The MUD's line "Your fingers come away coated in something that was once golden" adds a temporal dimension: the stickiness is not just present, it's *historical*.
 
-### 3. **The *Occlusion and Z-Order* (Visual Layering)**
-The spec specifies **drawing order**: "Player character draws at z=10", "Counter front edge draws at z=5", "Smoke haze at z=15". This creates *depth*—the player character stands *behind* the counter's front edge but *in front* of the puddle. The MUD text cannot describe this visual hierarchy because it lacks a **spatial axis**. It says "seeps toward your boots" but doesn't tell the renderer *which sprite draws over which*. The spec is the **director of pixels**; the MUD is the **screenplay**.
+### 3. **The fly as a character with agency and humor**
+In the MUD, the fly is "stuck near a dried lemon wheel"—just a prop. But the scene spec gives it *personality*: "It's not leaving. It can't." The swat response ("You miss. The fly lands on the lemon wheel and resettles, unimpressed") is *comic* and *characterful*. The MUD text is static; the scene spec gives the fly *attitude*. This is a critical difference: the MUD describes a *snapshot*, while the scene spec describes *behaviors*.
 
-### 4. **The *Lighting Model* and Color Palette**
-The spec provides **quantitative lighting**: "Ambient light: 0.35", "Left side (x<200) is nearly black (0.15 light)", "flickering candle at (610, 110) casts a warm glow over the right third." This is *not* description—it's **render instructions**. The MUD text says "dark-stained oak" but cannot specify *luminance values*. The spec's "256-color, VGA, dark sepia with amber highlights" is a **technical constraint** that ensures the scene looks right on hardware. The MUD is *evocative*; the spec is *deterministic*.
+### 4. **The residue as a persistent state**
+The MUD mentions "a fly lands, skates, and is briefly stuck"—but it doesn't track *consequences*. The scene spec introduces `sticky_hand` as a *flag* that changes future interactions. The MUD is a *single moment*; the scene spec is a *system of cause-and-effect*. The MUD misses the *dramatic arc* of the player's hand becoming sticky and then *being* sticky.
 
-### 5. **The *Walkable Area* and Player Navigation**
-The spec defines **walkable rectangles**: "Main floor: (0, 380) to (640, 480)", "Behind counter (blocked)". The MUD text cannot tell the engine *where the player can step*. It says "you cannot climb over," but the spec's "No walkable area" is a **collision mask**. Without this, the player could walk through the counter. The spec also includes an "auto-zoom" trigger at `(300, 400)`—a *camera directive* that the MUD cannot express.
-
-### 6. **The *Exit Regions* and Scene Transitions**
-The spec lists **exact exit boundaries**: "Left edge (0, 350-450) → `ROOM_BAR_BOOTHS`", "Right edge (640, 350-450) → `ROOM_BAR_BACKDOOR`." The MUD text only implies exits through atmosphere. The spec provides a **graph of connected spaces**—the MUD cannot tell the engine *which room loads next*.
-
-### 7. **The *Verb Menu* and Context Sensitivity**
-The spec defines a **global verb system** (Look, Use, Take, Talk, Open) with specific responses per object. The MUD text embeds *one* response per action, but the spec allows **multiple verbs per hotspot**—e.g., `HS_PUDDLE` has three distinct responses for Magnifier, Hand, and Bottle. The MUD text could describe one action but cannot encode the *branching logic* of "what if the player clicks the puddle with the bottle in inventory?" The spec is a **dialogue tree**; the MUD is a **single line of dialogue**.
+### 5. **The taste of regret**
+The MUD says "the air smells of hops, yeast"—but the scene spec goes further: "It's flat, warm, and tastes like regret with a hint of oak barrel." This is a *synesthetic* leap—taste as emotion. The MUD tells you what the beer *is* (flat, warm); the scene spec tells you what it *means* (regret). The MUD misses the *existential* layer.
 
 ---
 
-## Synthesis: The *Division of Labor*
+## What the scene spec captures that the MUD text misses
 
-| Aspect | MUD Text (What It Does) | Scene Spec (What It Does) |
-|--------|------------------------|---------------------------|
-| **Sensory** | Invasive, tactile, olfactory, auditory | Visual only (light, color, positions) |
-| **Temporal** | Static moment | State flags, animation loops, conditional reveals |
-| **Spatial** | Vague ("toward your boots") | Exact coordinates, walkable areas, z-order |
-| **Emotional** | Judgmental, nostalgic, melancholic | Neutral, mechanical |
-| **Narrative** | Implies backstory, mystery, character | Provides puzzle hooks but no voice |
-| **Engine** | Cannot be parsed by code | Fully parseable, executable |
-| **Player** | Engages imagination, immersion | Engages interaction, control |
+### 1. **Exact spatial geometry**
+The MUD gives you "a bar counter" but no coordinates. The scene spec is *precise*: the counter occupies (0,130)-(319,200), the walkable floor strip is only 20 pixels tall at y=180-200, and the player stands at (160,195). This is *navigational data*—it tells you where you *can* and *cannot* go. The MUD has no sense of *constraint*.
 
-**In short:** The MUD text is the *soul* of the room—its stench, its grime, its ghosts. The scene spec is the *skeleton*—the joints that let the player move, click, and affect the world. A great game needs both: the spec without the text is a lifeless diagram; the text without the spec is a beautiful poem you cannot enter.
+### 2. **Verb-driven interactivity**
+The MUD is pure description; it has no *action* system. The scene spec is *exhaustive* about verbs: Look At, Use Hand On, Push, Pull, Pick Up, Use Knife On, Smell, Drink, Swat, Catch, Push Away, Wipe On Pants, Combine With Match. Each verb has a *unique response*. The MUD would fail as a game because it has no *interaction graph*. The spec is a *puzzle-solving architecture*.
+
+### 3. **Dynamic state changes**
+The scene spec has conditionals: "If player then tries **Use Hand On Lemon**, a unique line plays." This is *branching logic*. The MUD text is *static prose*—it can't react to player history. The spec tracks `sticky_hand` as a boolean that *changes future dialogue*. This is *systemic memory*.
+
+### 4. **Invisible hotspots and hidden mechanics**
+The scene spec has an *invisible* hotspot: "Sticky Finger Residue"—which only appears after a specific action. The MUD has no concept of *latent objects* that emerge from player choices. The spec also defines *non-clickable exits* and *camera behavior* (fixed, no scrolling). These are *engine-level* details.
+
+### 5. **Technical implementation notes**
+The spec mentions "320×200 pixel resolution," "256-color palette," "animation loops" (the fly's lopsided figure-eight, the lemon wheel's 0.5° wobble), and specific sound cues (the *thump* on entry, the creaking floorboard every 12 seconds). This is *production documentation*—it tells a programmer exactly what to build. The MUD text is *ambience*; the spec is *blueprint*.
+
+### 6. **Player character state**
+The spec describes the player's *stance* ("slightly hunched, hands at sides") and *position* on the walkable strip. It even notes that the player character has a *hand sprite* that becomes visibly sticky. The MUD never mentions the player's body—it's a disembodied voice *describing* the room.
+
+---
+
+## The essential difference
+
+| Dimension | MUD Text | Scene Spec |
+|-----------|----------|------------|
+| **Purpose** | Emotional immersion | Logical interaction |
+| **Time** | A single frozen moment | A branching timeline of possible futures |
+| **Space** | Vague, atmospheric | Exact, navigational |
+| **Player** | An observer | An agent with state |
+| **Objects** | Metaphorical | Behavioral (verbs, conditions, flags) |
+| **Failure mode** | Beautiful but inert | Functional but dry |
+| **What it gives you** | *Why* the room feels this way | *How* the room works |
+
+The MUD text is a *poem* about a sticky counter. The scene spec is a *user manual* for a sticky counter. The MUD tells you the counter is *sad*; the spec tells you what happens when you *poke* it. Both are necessary for a complete experience—the MUD gives the designer *a reason to build the spec*, and the spec gives the player *a way to live inside the MUD's mood*.
 
 ### Step 4: Reconciliation
 
-# Perception Reconciliation Protocol: The Unified Scene Model
+# Perception Check: A Reconciliation Protocol
 
-## Core Principle
-The MUD text and scene spec are **not competing descriptions**—they are **two sensory modalities** of the same reality. The MUD text is the *proprioceptive/emotional* channel; the scene spec is the *geometric/structural* channel. A unified model must **fuse** them, not choose between them.
-
----
-
-## Perception Check Algorithm
-
-### Step 1: Parse Both Inputs into Structured Ontologies
-
-```
-MUD_INPUT_ONTOLOGY:
-  - SENSORY_EVENTS: {tactile: [tacky, sticky, clings], 
-                     olfactory: [sour, stale, reeks], 
-                     auditory: [drip, schlick, pop], 
-                     visual: [glistens, dark, amber]}
-  - AGENTIC_FORCES: {puddle_moves_toward_player, haze_mocks, 
-                     bubbles_pop_spontaneously}
-  - EMOTIONAL_TONES: {disgust, curiosity, bitter_amusement, 
-                      melancholy, unease}
-  - NARRATIVE_IMPLICATIONS: {history_of_neglect, mystery_of_label, 
-                             anger_of_smoker, ghost_of_pints}
-
-SCENE_SPEC_ONTOLOGY:
-  - GEOMETRY: {object_ids, coordinates, sizes, walkable_areas, 
-               z_order, occlusion}
-  - LIGHTING: {ambient_intensity, light_sources, color_tint, 
-               shadows, gradients}
-  - STATE_MACHINE: {flags, conditionals, animation_loops, 
-                    triggered_changes}
-  - INTERACTION_MATRIX: {hotspots, verb_responses, inventory_checks, 
-                         exit_regions}
-  - RENDER_DIRECTIVES: {palette, sprites, animation_frames, 
-                        camera_behaviors}
-```
+You've identified a real gap—the MUD text and the scene spec are two halves of a broken whole. Here's how an AI agent could fuse them into a single, *living* world model.
 
 ---
 
-### Step 2: Cross-Modal Binding (The Critical Fusion)
+## The Unified Perception Method
 
-For each object, bind the **geometric anchor** from the spec to the **qualitative descriptor** from the MUD:
-
-| Object | Geometric (Spec) | Qualitative (MUD) | Bound Reality |
-|--------|------------------|-------------------|---------------|
-| `STALE_BEER_PUDDLE` | `(120, 430), 90x35, z=8, 2-frame shimmer` | "oily pool that reflects nothing," "seeps toward your boots," "tiny bubbles rise and pop with microscopic farts" | A **dynamic entity** at a precise location that: (a) is visually rendered with a 2-frame shimmer at z=8; (b) *behaves aggressively*—it seeps, it reflects nothing, it farts; (c) has *state*—it can be stirred, changing its animation speed |
-| `WHISKEY_BOTTLE` | `(520, 300), 25x70, tilted` | "glued to the counter by its own sticky base," "fumes strip the inside of your nose," "label peeling to reveal a second" | A **stubborn, layered object** at coordinates that: (a) cannot be taken (collision/glue logic); (b) has *narrative depth* (two labels = two histories); (c) is *dangerous* to smell (olfactory hazard) |
-| `ASH_TRAY` | `(440, 330)-(480, 375), 40x12` | "welded shut with dried gum," "forty-three butts, all smoked to the filter, all pointing the same direction. Someone was angry" | An **immovable artifact of rage** at coordinates that: (a) cannot be lifted (gum-weld logic); (b) encodes a *past human emotion* (anger) through object arrangement; (c) is a *clue* to narrative backstory |
-| `DRIED_ALE_RING` | `(365, 345)-(405, 380), 35x35, static decal` | "perfect circle... ghost of a hundred pint glasses," "flakes off, revealing brighter wood and carved initial 'M'" | A **palimpsest** at coordinates that: (a) is visually static but *interactively layered*; (b) hides a secret (initial "M") beneath its surface; (c) requires a *specific action* (scratch) to reveal its depth |
+I call it **"The Sticky Hand Protocol"** — because the object that forces the reconciliation is the residue on your fingers. It's the thing that only exists *because of player action*, yet it's also the thing that makes the room *tactile*.
 
 ---
 
-### Step 3: Spatial-Epistemic Mapping
+### Step 1: **Extract the "Echo" from the Text**
 
-Assign each object a **knowledge state** based on its position and lighting:
+The MUD text gives you *qualia*—the felt qualities that make a space memorable. Strip it down to its *perceptual invariants*:
 
-```
-EPISTEMIC_LIGHTING_MODEL:
-  - x<200 (near-black, 0.15 light): objects here are PARTIALLY_OBSCURED
-    → Player gets less detail; MUD text reveals "something dark and wet"
-      but not "tacky with a thousand spilled beers" until closer
-    → This creates a PROXIMITY_REVEAL mechanic
+| MUD Element | Extracted Invariant |
+|-------------|---------------------|
+| "ghost of a thousand last calls" | **Temporal depth** — the space has history |
+| "fingers peel off the wood" | **Tackiness as resistance** — the surface pushes back |
+| "fly lands, skates, and is briefly stuck" | **Ephemeral inhabitants** — life that is trapped |
+| "smells of hops, yeast" | **Olfactory signature** — the room has a *smell profile* |
 
-  - x=200-480 (dim, 0.35 light): objects are FULLY_PERCEIVED
-    → Both text and spec provide complete data
-    → This is the DEFAULT_INTERACTION_ZONE
-
-  - x>480 (candle glow, warm): objects are DETAIL_BOOSTED
-    → Spec's lighting model allows REFLECTIVE_HIGHLIGHTS
-    → MUD text can include "the amber light catches the bottle's 
-      edge, revealing a fingerprint you'd otherwise miss"
-```
-
-**Rule:** The AI must *gate* textual detail by geometric lighting. A player in the dark left zone should not receive the full "thousand spilled beers" description—they should get a *reduced* version: "You sense something thick and wet at the edge of darkness."
+These aren't just adjectives—they're *constraints* on how the space must behave. A room that "remembers" a thousand last calls needs a surface that *accumulates*—which the spec provides (the sticky pool, the fossilized lemon).
 
 ---
 
-### Step 4: Temporal-State Reconciliation
+### Step 2: **Extract the "Skeleton" from the Spec**
 
-The MUD text describes a **static moment**. The spec describes a **stateful system**. The unified model must resolve this:
+The scene spec gives you *mechanics*—the rules by which the space operates. Strip it down to its *interaction graph*:
 
-```
-TEMPORAL_MERGE:
-  - Each object has: {static_description (from MUD), 
-                      dynamic_states (from spec flags), 
-                      state_transitions (from spec logic)}
+| Spec Element | Extracted Rule |
+|--------------|----------------|
+| "Use Hand On: plays squelch" | **Tactile feedback** — every interaction has a sound |
+| "sticky_hand flag set to 1" | **Persistent state** — actions leave traces |
+| "Use Hand On Lemon → unique line" | **Compound interactions** — objects combine |
+| "Fly repositioning loop" | **Autonomous actors** — the room lives independently |
+| Walkable area (y=180-200 only) | **Spatial constraint** — you're separated from the bar |
 
-  - When FLAG_PUDDLE_STIRRED = true:
-    → MUD text REPLACES: "You dip a finger in. It comes up coated 
-      with something that was beer three days ago."
-    → New text: "The puddle is slower now—your stirring broke its 
-      surface tension. It seems almost let down."
-    → Spec updates: animation loop changes from "2-frame shimmer" 
-      to "slower shimmer"
-    → UNIFIED: The puddle now has a NEW static description AND a 
-      NEW animation frame rate. Both must update together.
-
-  - When FLAG_RING_SCRATCHED = true:
-    → MUD text reveals: "flakes off, revealing brighter wood and 
-      carved initial 'M'"
-    → Spec adds: NEW hotspot `HS_CARVED_M` at (380, 355), size 10x10
-    → UNIFIED: A new interactable object is born from a state change. 
-      The AI must ADD this to both ontology layers simultaneously.
-```
-
-**Critical rule:** State changes must **atomically update both channels**. If the AI updates the spec but not the MUD text, the environment becomes a silent diagram. If it updates the text but not the spec, the world becomes a lying poem.
+These aren't just code—they're *affordances*. The spec tells you what's *possible*; the MUD tells you what it *means*.
 
 ---
 
-### Step 5: Emotional-Positional Layering
+### Step 3: **Map the Invariants onto the Mechanics**
 
-The MUD text has **emotional valence**. The spec has **spatial coordinates**. The unified model must *attach* emotion to geometry:
+Here's the key move: **treat the MUD's poetic claims as *testable hypotheses* about the spec's mechanics.**
 
-```
-EMOTIONAL_SPATIAL_INDEX:
-  - Each coordinate region carries an emotional weight:
-    (0-200, 400-480): DREAD (dark, wet, seeping)
-    (200-480, 300-400): DISGUST-FASCINATION (sticky, layered, ghostly)
-    (480-640, 100-300): HAZARD-CURIOSITY (fumes, peeling labels)
+> **Hypothesis from MUD:** "The counter is a sticky monument to every beer that never made it to a mouth."
+>
+> **Test against spec:** The spec has a `sticky_pool` hotspot with a "Use Finger" verb that produces a *groove that fills back in slowly*. This confirms the hypothesis—the counter *does* retain history, because the pool *reforms* after disturbance. The MUD's "monument" is mechanically implemented as *shape-memory*.
 
-  - When the player interacts with an object:
-    → The AI retrieves BOTH the spec's response text AND the MUD's 
-      emotional descriptor
-    → It CONCATENATES them with a priority rule:
-      - If the action is PHYSICAL (Use, Take): spec text first, 
-        then MUD's sensory consequence
-        Example: "You press your palm flat. [spec: it makes a soft, 
-        wet schlick sound] [MUD: you feel the grime—a thousand 
-        strangers' evenings against your skin]"
+This is the unification: **the MUD's metaphors become the spec's *design intent***, and **the spec's mechanics become the MUD's *physical proof***.
 
-      - If the action is OBSERVATIONAL (Look): MUD text first, 
-        then spec's factual data
-        Example: "The varnish is gone, replaced by a thousand sticky 
-        fingerprints. [MUD: the grain is invisible beneath the 
-        glaze—the bar has been dying slowly] [spec: object remains 
-        interactive; no state change]"
+---
 
-      - If the action is EXPLORATORY (Smell, Taste): MUD text only, 
-        with a spec footnote on consequence
-        Example: "The fumes strip the inside of your nose. 
-        [MUD: you regret that] [spec: FLAG_WHISKEY_OPENED = true, 
-        revealing second label on next Look]"
+### Step 4: **Build the Composite World Model**
+
+The agent now maintains a single, unified representation—a **"thick map"** that is simultaneously *poetic* and *procedural*:
+
+```python
+class UnifiedWorldModel:
+    def __init__(self):
+        # From MUD text (qualia layer):
+        self.emotional_register = {
+            "counter": "sticky monument to failed toasts",
+            "lemon": "fossilized witness, seen better centuries",
+            "fly": "stubborn drunk, trapped by its own appetites",
+            "pool": "lake of regret, bubbling with old memories"
+        }
+        
+        # From scene spec (mechanics layer):
+        self.interaction_state = {
+            "sticky_hand": False,       # flag from spec
+            "lemon_displaced": False,   # hidden state not in either doc
+            "fly_annoyance": 0,         # emergent behavior tracker
+            "pool_disturbances": []     # history of player pokes
+        }
+        
+        # The fusion—mechanics must *produce* the poetry:
+        self.validate_consistency()
+    
+    def validate_consistency(self):
+        """
+        Every mechanic in the spec must *justify* a line from the MUD.
+        Every MUD line must be *realizable* through spec mechanics.
+        """
+        checks = [
+            # MUD: "fingers peel off the wood"
+            # Spec: Use Hand On → squelch sound + residue state
+            ("tackiness", self.spec.has_squelch() and self.spec.has_residue_state()),
+            
+            # MUD: "fly lands, skates, and is briefly stuck"
+            # Spec: Fly has a "stuck" animation frame + the pool has "Use Finger" 
+            #       which could trap the fly if timed right
+            ("fly_trap_potential", self.spec.fly_can_be_stuck()),
+            
+            # MUD: "tastes like regret with a hint of oak barrel"
+            # Spec: Drink verb exists → needs a *taste descriptor*; 
+            #       the oak barrel implies the pool has *aged*,
+            #       which means it must have existed before the player arrived
+            ("temporal_depth", self.spec.has_aged_substance()),
+        ]
+        
+        return all(ok for _, ok in checks)
 ```
 
 ---
 
-### Step 6: Soundscape Synthesis
+### Step 5: **Handle the Emergent Gap**
 
-The spec
+Neither document covers what happens when *player actions create new states*. The unified model must *extrapolate*:
+
+- **If the player uses the knife on the lemon** (spec allows it), the flake that curls off now exists in the world. The MUD never described this object—so the agent must *generate* a poetic line that matches the spec's mechanic: *"A flake of lemon peel, aged like a fossil, now resting on your blade. It smells of centuries."*
+
+- **If the player catches the fly and then touches the sticky pool** (spec allows both), the unified model must decide: does the fly escape? Does it get stuck? The agent *infers* from both sources: the MUD says the fly "can't leave"—so the agent rules that *if the fly touches the pool, it becomes permanently stuck*, and generates a new response: *"The fly lands on the pool and its feet sink in. It walks in circles, orbiting a tiny amber sun. It's home now."*
+
+---
+
+### Step 6: **The Unified Perception Check**
+
+Before the agent commits to an interaction response, it runs this check:
+
+1. **Does the response *honor the MUD's tone*?** (Is it evocative, sensory, historically-aware?)
+2. **Does the response *respect the spec's mechanics*?** (Does it update state flags, play sounds, respect polygons?)
+3. **Does the response *create new affordances*?** (Does the action open up new verbs, new objects, new combinations?)
+
+If all three pass, the response is *canonical*—it belongs in the unified world.
+
+---
+
+## The Result: A Room That *Lives*
+
+The unified model is not a *summary* of both documents—it's a **third thing** that neither alone could produce:
+
+> *You run your finger along the counter. The stickiness resists, then yields with a faint, wet *shhhhck*. The groove you leave fills back in slowly, like the bar is healing itself from your touch. The fly circles the lemon wheel twice, lands, and *sinks slightly*—its feet now coated in the same amber residue that coats your hand. You share something with it now. Neither of you can leave this place without carrying a piece of it.*
+>
+> *You feel the weight of every beer that was never finished. The counter remembers them all.*
+>
+> *[The fly is now stuck to the pool. You can try to free it, or leave it to its fate.]*
+
+This response is *not in either document*—but it's *consistent with both*. The MUD's tone is honored (the "healing" counter echoes the poetic decay), the spec's mechanics are respected (the `sticky_hand` flag is set, the fly has a new state, a new verb "Free the fly" becomes available), and the interaction creates a *new emotional beat*—a moment of shared stuckness between the player and the fly.
+
+---
+
+## The Core Principle
+
+**The MUD text is the *soul* of the room. The scene spec is the *body* of the room. The unified model is the *consciousness* that inhabits both.**
+
+The agent's job is not to choose between poetry and mechanics—it's to ensure that every mechanic *produces* poetry, and every poetic line *implies* a mechanic. When a player touches the counter, they should feel the *history* (MUD) through the *squelch* (spec). When they catch the fly, they
 
 ### Step 5: What's missed
 
-# The Irreducible Gap: What Each Modality Cannot Carry
+You've hit the fundamental problem. Let me be brutally honest about what each perspective *cannot* see.
 
 ---
 
-## What an AI Agent Misses Reading Only the MUD Text
+## What the AI Misses (Reading Only the MUD Text)
 
-### 1. **The Geometry of Action (Spatial Coordinates)**
-The MUD text says "a puddle of stale brew seeps toward your boots." The AI knows *that* the puddle exists, but not *where* it is. Is it left? Right? At arm's reach? Can the player step over it or must they walk around? The AI cannot compute:
-- Pathfinding (is the puddle an obstacle or a floor decal?)
-- Reachability (can the player lean over and touch it without moving?)
-- Relative positioning (is it near the ashtray? The bottle? The exit?)
+### 1. **The grammar of space itself**
+The MUD text gives no sense of *hierarchy*—what dominates the frame, what recedes. The AI doesn't know the counter occupies 70% of the visual field, that the lemon wheel is a tiny detail at coordinate (206,152), that the fly is nearly invisible at 4×4 pixels. A human reading the MUD imagines a *scene*; the AI has no sense of *composition*. It cannot know that the amber pool is the *centerpiece*—the thing your eye lands on first—because the text never says "this is the focal point."
 
-The MUD lacks a **coordinate system**. The AI would be a blind navigator in a room it can describe perfectly but cannot traverse.
+### 2. **The absence of the player's body in the frame**
+The MUD is written from *inside* the player's head—a disembodied voice describing the room. The scene spec knows the player *stands* at (160,195), hunched, hands at sides. The AI reading only the MUD cannot picture *itself* in the scene. It has no sense of *proximity*—how close it is to the counter, whether it can reach the lemon, whether the fly is within arm's reach. The MUD is a *window*; the spec is a *body*.
 
-### 2. **The Physics of the Space (Collision & Occlusion)**
-The MUD says "The sticky film holds you back. You can't climb over." But the AI cannot model *why*—is it a height barrier? A material property? A psychological block? The spec's **walkable area rectangles** and **z-order** give the AI actual physics:
-- The player character draws at z=10, *in front of* the counter edge (z=5) but *behind* the smoke haze (z=15).
-- The puddle (z=8) is *under* the player's feet when close.
-- The counter's front edge is a *collision mask* that stops horizontal movement.
+### 3. **The mechanics of failure**
+The MUD says "you try to lift it" (the lemon) and it doesn't budge. But it never explains *why*—the AI cannot deduce the lemon is *welded* by dried syrup because the text gives no causal mechanism. The spec reveals: the lemon is *fixed* (no "pick up" verb succeeds), it has "Use Knife On" as a verb because a knife is the *required tool*. The AI reading only the MUD would be *permanently confused* about why the lemon won't move—it lacks the *operational logic*.
 
-An AI with only the MUD text would try to walk through the counter or click on objects that are visually obscured. It would have no **spatial reasoning**.
+### 4. **The statefulness of the world**
+The MUD text is a *snapshot*—it describes the room at one moment. The AI cannot know that touching the counter *changes* the room (sets `sticky_hand=1`) and unlocks new verbs. It cannot anticipate that the fly's position *varies* in a lopsided figure-eight, that the lemon *rotates* 0.5° back and forth. The MUD is static prose; the spec is a *simulation*. The AI reading only the MUD would treat the room as *frozen*—it would never think to check "what happens *after* I touch the counter?"
 
-### 3. **The Temporal State Machine (Flags & Conditionals)**
-The MUD text describes a *single moment*. It doesn't say:
-- "If the player stirs the puddle, its animation slows."
-- "If the player scratches the ring, a hidden initial 'M' is revealed."
-- "If the player smells the whiskey, a new puzzle hint unlocks."
+### 5. **The soundscape**
+The MUD mentions smell (hops, yeast) but *never* sound. The AI cannot know there's a *thump* on entry, a *creaking floorboard* every 12 seconds, a *squelch* when touching the counter. The spec is explicit: "On any successful 'sticky' interaction: a wet, slow *shhlick* sound with slight reverb." The MUD gives *two senses* (touch, smell); the spec gives *five* (adding sound, sight of animations, and implicitly taste via the "Drink" verb). The AI reading only the MUD would build a *quiet* room.
 
-An AI that only reads the MUD text experiences a **static world**. It cannot predict consequences, track state changes, or understand that *its actions have lasting effects*. The spec's flags (`FLAG_PUDDLE_STIRRED`, `FLAG_RING_SCRATCHED`) are a **causal model**—the MUD text is a **snapshot**.
-
-### 4. **The Graphical Rendering Model (Lighting, Color, Animation)**
-The MUD says "dark-stained oak" and "amber highlights." But it cannot tell the AI:
-- The ambient light level is 0.35 (dim), dropping to 0.15 on the left side.
-- The candle at (610, 110) creates a warm glow over the right third.
-- The puddle has a 2-frame shimmer animation; the smoke has an 8-frame loop.
-- The palette is 256-color VGA sepia with amber highlights.
-
-An AI that only reads the MUD text would not know how to **render** the scene. It would describe the room beautifully but could not produce a single pixel. The spec is a **drawing instruction set**.
-
-### 5. **The Interaction Verb Matrix (Context Sensitivity)**
-The MUD text offers a few sample responses, but the spec defines a **full interaction matrix**:
-- Each hotspot has *multiple* verb responses (Look, Use, Take, Smell, Taste).
-- Some responses depend on *inventory state* ("if the player pours from the bottle into the puddle…").
-- Some objects are *context-sensitive* (the ashtray is "welded shut" for Take, but the player can still Look at it).
-
-An AI with only the MUD text would not know how to handle *arbitrary player inputs*. The spec is a **dialogue tree**; the MUD text is a **single branch**.
+### 6. **The exit**
+The MUD text never mentions a door. The AI cannot know there's an exit hotspot at (20,50) leading to the next room. The spec says it's a "small dark rectangle" with a "Walk To" verb. The MUD is a *dead end*—it describes a place you're *in*, not a place you can *leave*. The AI would be trapped in a room with no way out.
 
 ---
 
-## What a Human Misses Seeing Only the Scene (The Static Image)
+## What the Human Misses (Viewing Only the Scene)
 
-### 1. **The Olfactory and Gustatory Layers**
-The scene spec describes *visual* properties—color, lighting, position. But the human looking at the rendered scene would not know:
-- The air "reeks of sour yeast, old smoke, and cheap whiskey."
-- The surface is "tacky with a thousand spilled beers."
-- The whiskey bottle's fumes "strip the inside of your nose."
+### 1. **The history encoded in objects**
+The human sees a dried lemon wheel—but cannot know it's "fossilized," that it's "seen better centuries." The spec says it's "welded to the counter by dried syrup." The human sees a *thing*; they don't know it has a *biography*. The sticky pool reads as "a spill"—but the spec tells us it's "a lake... old enough to have developed its own ecosystem." The human sees *mess*; the AI (reading the spec) sees *archaeology*.
 
-The MUD text provides **non-visual senses**—smell, taste, texture. The image alone is a *silent tableau*. Without the text, the human sees a dirty bar but does not *smell* it.
+### 2. **The emotional register**
+The human sees a bar counter. The spec tells us it's a "sticky monument to every beer that never made it to a mouth." The human sees *wood*; the spec gives it *soul*. The human cannot know the room is *sad*—that the amber pool is "a lake of regret." The image is *neutral*; the text is *judgmental*. The human misses the *tone*—the room's *attitude* toward itself.
 
-### 2. **The Emotional and Judgmental Tone**
-The scene spec is neutral: "Cheap whiskey bottle, tilted, half-empty." But the MUD says "Old Rotgut" and describes the label as "peeling, revealing a second label underneath." The human viewing only the image would not know:
-- The narrator's *bitter amusement* (the bar is a character, not a backdrop).
-- The *melancholy* of "a ghost of a hundred pint glasses."
-- The *disgust* of "a sticky film of dried ale and dust clings to your fingertips."
+### 3. **The relational meaning between objects**
+The human sees a fly near a lemon wheel. They cannot know the fly is *trapped*—that "it can't leave" because its legs are "encrusted with dried beer." They cannot know the lemon and the fly are *linked*: the lemon is the fly's *perch*, the fly is the lemon's *inhabitant*. The spec reveals a *micro-ecosystem*; the human sees only *coincidence*.
 
-The MUD text provides **voice**. The image alone is *documentary*; the text makes it *literary*.
+### 4. **The taste**
+The human sees the amber pool—but cannot know it "tastes like regret with a hint of oak barrel." The spec gives it a *flavor profile* derived from its history (the oak barrel implies it's *aged*). The human sees *liquid*; the spec gives it *terroir*.
 
-### 3. **The Narrative Implications (Backstory & Mystery)**
-The rendered scene shows an ashtray full of butts. The human sees "forty-three butts" but does not know *they all point the same direction*, or that *someone was angry*. The ale ring is a stain, not "the ghost of a hundred pint glasses." The bottle is a prop, not a *mystery* with a hidden second label.
+### 5. **The consequences of touch**
+The human sees a sticky counter. They cannot know that touching it *changes the world*—that it sets a `sticky_hand` flag, that this unlocks new verbs (Wipe On Pants, Use On Lemon), that it creates an *invisible object* (the residue on your fingers). The human sees a *surface*; the spec sees a *state machine*.
 
-The MUD text provides **story**. The image alone is *setting*; the text makes it *plot*.
+### 6. **The hidden mechanics of autonomy**
+The human sees a static image. They cannot know the fly *moves* in a lopsided figure-eight, that the lemon *rotates* 0.5°, that the pool *ripples*. The human sees a *freeze-frame*; the spec reveals a *living system*—the room is *animated* and *responsive*.
 
-### 4. **The Temporal Dynamics (What Happens Next)**
-The scene spec lists animation frames, but a static screenshot cannot show:
-- The puddle's *shimmer* (2-frame loop).
-- The smoke's *drift* (8-frame loop).
-- The bubbles *popping* (3-frame loop with occasional burst).
-- The candle's *flicker*.
-
-The MUD text describes these as *events*: "Tiny bubbles rise and pop with microscopic farts." The human seeing only a still image misses the **liveliness** of the room—it is not a photograph, but a *movie*.
-
-### 5. **The Interpretive Ambiguity (What Does It Mean?)**
-A human seeing the scene might think: "This is a dirty bar." But the MUD text reframes it: "This is a *threshold*—the player is about to uncover a mystery (the carved 'M', the second label, the angry smoker)." The text provides **semantic depth** that the image cannot. Without it, the human sees *grime*; with it, they see *clues*.
+### 7. **The sound**
+The human sees a bar. They cannot hear the *thump* on entry, the *creaking* floorboard, the *squelch* of touch. The spec is a *soundscape*; the human gets *silence*.
 
 ---
 
-## The Irreducible Gap: What Neither Modality Alone Can Carry
+## The Irreducible Gap
 
-### The Gap is **Intentionality**.
+Here's the brutal truth: **the gap is that neither medium can carry the *other's* core data.**
 
-The MUD text carries **intent**—the narrator's attitude, the world's dark humor, the invitation to *feel* disgust and curiosity. But it cannot tell you *where to click*.
+- **Text** can carry *temporality* (history, state, consequence) and *emotion* (regret, stubbornness, sadness)—but it cannot carry *spatial composition* or *simultaneity*.
 
-The scene spec carries **structure**—the exact coordinates, the state flags, the walkable areas. But it cannot tell you *why you care*.
-
-### Neither can answer: **"What should the player do next?"**
-
-- The MUD text says: *"The varnish is gone, replaced by a thousand sticky fingerprints."* — But does the player *act* on this? Should they look closer? Touch? Taste? The text doesn't say.
-
-- The scene spec says: *"HS_COUNTER_TOP: (0,380)-(640,395), Magnifier → 'The varnish is gone…'"* — But *why* does this matter? The spec has no **motivation** for the player.
-
-### The Unified Model Must Generate **Intentional Guidance**:
-
-```
-SYNTHESIS_RULE:
-  - When the player looks at an object:
-    → Retrieve the MUD's emotional descriptor (to create *desire*).
-    → Retrieve the spec's interaction options (to create *possibility*).
-    → Present BOTH in a way that implies a *next action*.
-
-  Example:
-    "The varnish is gone, replaced by a thousand sticky fingerprints. 
-     The grain is invisible beneath the glaze. 
-     [You could press your palm flat. You could scrape at the ring. 
-      You could walk away. The bar waits.]"
-
-  This is neither pure text nor pure spec—it is a **third thing**: 
-  a *prompt* that carries both atmosphere and agency.
-```
+- **Image** can carry *spatial composition* (what dominates, what recedes) and *simultaneity* (all elements visible at once)—but it cannot carry *causality* (why the lemon is stuck) or *consequence* (what happens if you touch it).
 
 ---
 
-## Conclusion: The Gap is **Generative**
+## The True Irreducible Element
 
-The MUD text and scene spec are not halves of a whole—they are **two different species** that reproduce only when crossed.
+What neither document alone can convey is this:
 
-- The MUD text is **prose**—it creates *emotion, memory, desire*.
-- The scene spec is **code**—it creates *geometry, physics, causality*.
+> **The room is a *witness* to its own decay.**
 
-An AI that reads only the text writes poetry but cannot act.  
-A human that sees only the scene navigates space but cannot feel.  
+The MUD text *describes* the decay from the outside ("ghost of a thousand last calls")—but it cannot show you the *process* of decay, only its *result*. The scene spec *maps* the decay (the sticky pool, the fossilized lemon, the trapped fly)—but it cannot tell you *why* this decay matters.
 
+The irreducible gap is **the experience of being *in* a place that is older than you, that will outlast you, and that doesn't care whether you're there.**
 
+The MUD text says it. The scene spec *implements* it. But neither one *does* it—because that experience only exists in the *player's* head, at the *moment* of interaction, when the stickiness on their fingers connects them to the room's history.
+
+**The irreducible gap is not between text and image. It's between *description* and *experience*—and only the *player*, in the act of touching, can bridge it.**
 
 ---
 
@@ -469,483 +391,382 @@ A human that sees only the scene navigates space but cannot feel.
 
 ### Step 1: MUD text
 
-You are in the wheelhouse of the derelict vessel.  
-A cracked windshield webs a spider's maze across the dark horizon.  
-A dented brass sextant and a coiled horn rest on a rusted binnacle.  
-The air smells of salt, stale oil, and old polish.  
-Exits: forward deck, captain's cabin, below deck.
+You are in the *wheelhouse* of a derelict vessel.  
+The helm is a skeletal wheel of tarnished brass, its spokes hung with frayed rope.  
+A dented *cornet* and a split *trombone* lie in a nest of dust on the deck plates.  
+Through the cracked windshield, a grey sea heaves under a sky the color of dead steel.  
+A faint, sourceless hum lingers, as if the instruments remember a forgotten tune.
 
 ### Step 2: ScummVM scene spec
 
-**SCUMMVM Scene Specification: DERELICT VESSEL — WHEELHOUSE**  
-**Scene ID:** `WHEELHOUSE_01`  
-**Palette:** Desaturated blue-grays, rusted amber, mud-green shadow.  
-**Ambient Lighting:** Cold, diffused daylight from the cracked windshield (strongest at center-top), with a faint swaying shadow cast by the dangling horn when the ship groans. No active light sources.  
-**Audio Loop:** Low wind hum through glass crack, occasional creak of hull timbers, distant gull cries.  
+**SCUMMVM SCENE SPECIFICATION: "THE WHEELHOUSE"**  
+*File: room_wheelhouse.room*  
+*Palette: Desaturated steel-grey, rust-brown, tarnished brass, pale bone-white.*  
 
 ---
 
-### OBJECTS (Layer: Foreground/Midground/Background)
-
-1. **Windshield (Cracked)**  
-   - **Screen Position:** (320, 140) — spans x=80..560, y=60..220  
-   - **Layer:** Background  
-   - **State:** Static crack pattern with subtle reflection glint.  
-   - **Hotspot Polygon:** Irregular octagon covering glass area.  
-   - **Verbs:**  
-     - **Look at:** *"A spider's maze of fractures — each line points to a different drowned star."*  
-     - **Push/Pull:** *"You press a palm flat. The glass gives a low, mournful hum. It holds firm."*  
-     - **Use** (with any object): *"The cracks seem to deepen for a moment, but nothing else changes."*  
-
-2. **Brass Sextant**  
-   - **Screen Position:** (180, 300) — resting on binnacle, angled slightly left  
-   - **Layer:** Midground  
-   - **Hotspot:** Ellipse (150..210, 285..330) plus small arc for the sighting arm.  
-   - **Verbs:**  
-     - **Look at:** *"The sextant's mirror is tarnished, but the arc still reads true. The index bar is frozen at 47°."*  
-     - **Take:** *"It's bolted fast to the binnacle. A brass plate reads: 'FOR MEASURING THE UNMEASURED.'"*  
-     - **Use** (with horn): *"You lift the horn's mouth to the sextant's eyepiece — the brass rings with a single clear note. Nothing else happens."*  
-     - **Use** (with any other object): *"The sextant stays stubbornly fixed in place."*  
-
-3. **Coiled Horn (Era of Steam)**  
-   - **Screen Position:** (420, 310) — atop binnacle, coiled leather and brass, mouthpiece facing left  
-   - **Layer:** Foreground  
-   - **Hotspot:** Two overlapping circles — one for the coil, one for the mouthpiece.  
-   - **Verbs:**  
-     - **Look at:** *"A steam whistle horn, its leather cracked and stiff. The brass rim has a faded ship's crest."*  
-     - **Take:** *"It's tied to the binnacle with a thin, rotted cord — it snaps free in your hand."* (Object added to inventory).  
-     - **Use** (after taken): *"You blow into it — a low, long wail that fades into the wind. The ship seems to lean slightly."*  
-     - **Use** (with sextant): *"See Sextant - Use."*  
-
-4. **Rusted Binnacle (Base)**  
-   - **Screen Position:** (300, 390) — pedestal at center-bottom  
-   - **Layer:** Foreground  
-   - **Hotspot:** Large rectangle (260..340, 360..430) with small latch detail at front.  
-   - **Verbs:**  
-     - **Look at:** *"A compass binnacle, its brass casing pitted and green. The gimbal swings lazily, but the compass card is gone."*  
-     - **Open:** *"The front panel creaks open. Inside: a dry, empty socket where a lens once sat — and a scrap of paper."*  
-     - **Take** (paper): *"The paper is water-stained. It reads: 'THE HORN CALLS THE SEXTANT'S ANGLE — THEN FACE THE MAZE.'"*  
-     - **Close:** *"You shut the panel; it clicks with a hollow sound."*  
-
-5. **Ship's Wheel (Background, left-side prop)**  
-   - **Screen Position:** (90, 250) — partially visible behind binnacle  
-   - **Layer:** Midground  
-   - **Hotspot:** Small circle for the hub, plus two spoke tips.  
-   - **Verbs:**  
-     - **Look at:** *"The wheel is lashed with frayed rope. The spokes are worn smooth by countless hands."*  
-     - **Turn:** *"The wheel gives a few inches, then jams — the rudder is likely fouled below."*  
-     - **Use** (with horn): *"The horn's note makes the wheel shiver, but it won't turn further."*  
+### LIGHTING & ATMOSPHERE  
+- **Global Ambient:** Low-key, cold daylight filtering through the cracked windshield (light source: 0,0 to 640,480 with a 45° angle from upper-left).  
+- **Fog Density:** 0.15 (slight haze near the floor).  
+- **Dynamic Shadows:** A slow, irregular pulse of shadow from the swaying helm (intensity 0.1–0.2, period 4s).  
+- **Special Effect:** A faint, sourceless flicker of golden light near the instruments (x=180, y=320, radius=50) – triggers a soft hum when the mouse hovers over brass objects.
 
 ---
 
-### WALKABLE AREAS  
-- **Floor Polygon:** x=0..640, y=400..480 (a rough trapezoid, slightly narrower at bottom to simulate perspective).  
-- **Walkable Zone:** All of the above polygon is walkable.  
-- **Blocked Areas:**  
-  - The binnacle (center, x=250..350, y=350..400) — impassable.  
-  - The windshield ledge (y<220) — not walkable.  
-  - The left wheel (x<130, y<330) — clipped.  
+### OBJECTS & SCREEN POSITIONS (640x480)
+
+| ID | Name | Screen Pos (x,y) | Z-Order | Walkable Mask |
+|----|------|------------------|---------|--------------|
+| 1  | **Windshield** | (520, 80) to (640, 200) – polygon | 0 | No collision |
+| 2  | **Helm (Skeletal Wheel)** | (320, 240) – center | 5 | Blocks passage behind |
+| 3  | **Cornet** | (180, 330) | 4 | None |
+| 4  | **Trombone** | (230, 360) – collides with cornet | 4 | None |
+| 5  | **Rope Fraying** (on helm) | (310, 210), (330, 270) – two segments | 6 | None |
+| 6  | **Dust Nest** (under instruments) | (160, 380) to (260, 420) | 1 | None |
+| 7  | **Cracked Glass Fragment** | (545, 120) | 2 | None |
+| 8  | **Ship's Bell** (far right, off-screen? No – hidden behind helm) | (390, 190) | 7 | None |
 
 ---
 
-### SCENE TRANSITIONS  
-- **Forward deck:** Walk to right edge (x>600, y~420) → crossfade to `DECK_FORWARD`.  
-- **Captain's cabin:** Walk to left edge (x<20, y~410) → door cut-scene → `CABIN_CAPTAIN`.  
-- **Below deck:** Walk to bottom-center (x=320, y>460) → hatch ladder → `LOWER_HOLD`.  
+### WALKABLE AREAS (Mask ID: 0)  
+- **Main Deck:** Rect (80, 320) to (560, 460) – accessible floor.  
+- **Narrow Ledge:** Rect (280, 200) to (360, 240) – only reachable via "climb" hotspot on helm.  
+- **Excluded:** Windshield region, instrument nest (unless using "push" verb).
 
 ---
 
-### INTERACTION NOTES  
-- **Cursor Change:** Over the sextant, horn, and binnacle latch, cursor becomes a small brass gear.  
-- **Global Flag:** After horn is taken, the scene's ambient audio gains a faint, persistent hum (the ship's "awake" state).  
-- **Subtitles:** All `Look at` text displays in a parchment-style box, bottom-center.  
+### HOTSPOTS & VERB INTERACTIONS
 
-**End of specification.**
+| Hotspot ID | Region (x,y,w,h) | Default Verb | Verbs Available | Reaction (Script ID) |
+|------------|------------------|--------------|-----------------|----------------------|
+| **HS_HELM** | (300,220,40,60) | Look | Look, Use, Pull, Turn | Look: "A skeletal wheel, its brass spokes worn thin. The frayed ropes twitch as if alive."<br>Use: "The wheel is frozen – you feel a faint resistance, like it's waiting."<br>Pull: "A low groan. Dust shakes loose, but nothing moves."<br>Turn: "The wheel spins a half-turn, then sticks. A faint hum rises, then fades." |
+| **HS_CORNET** | (170,320,25,20) | Look | Look, Pick Up, Play | Look: "A dented cornet, choked with rust. It still gleams where the varnish peeled."<br>Pick Up: (Inventory) "The cornet is heavier than it looks. A faint, sourceless hum clings to it."<br>Play: "You raise it to your lips – a flat, mournful note. The windshield cracks spiderweb wider." |
+| **HS_TROMBONE** | (220,350,40,18) | Look | Look, Pick Up, Slide | Look: "A split trombone, its slide jammed at an odd angle. Dust nests inside the bell."<br>Pick Up: (Inventory) "The trombone's slide rattles – a fragment of dried glue falls out."<br>Slide: "The slide moves a few inches, then sticks. A single, eerie harmonic rings out." |
+| **HS_WINDSHIELD_CRACK** | (540,100,30,50) | Look | Look, Touch, Push | Look: "Spiderweb cracks radiate from a single impact point – as if something struck from inside."<br>Touch: "The glass is cold. A thin vibration travels up your finger."<br>Push: "The crack widens slightly. Wind hisses through the gap." |
+| **HS_DUST_NEST** | (160,380,100,40) | Look | Look, Scrape | Look: "A nest of grey dust and rust flakes, shaped like a coiled rope."<br>Scrape: "You uncover a small brass keyhole plate – empty. The dust swirls back." |
+| **HS_FRAYED_ROPE** (x2) | (305,205,10,10) & (325,265,10,10) | Look | Look, Tug | Look: "Frayed rope ends, stiff with salt – they vibrate faintly."<br>Tug: "The rope tightens, then snaps free. A distant bell rings once." |
+
+---
+
+### INVENTORY ITEMS (after pickup)  
+- **Cornet** – usable with: Windshield (plays flat note), Helm (plays note – wheel creaks), Dust Nest (blows dust away, revealing keyhole).  
+- **Trombone** – usable with: Helm (slide jam – force it), Ship's Bell (if hidden).  
+
+---
+
+### SCENE FLAGS  
+- `FLAG_HELM_TURNED` – after turning, enables cornet's "play" on helm.  
+- `FLAG_CRACK_WIDENED` – after pushing windshield, enables new hotspot "Gap" (exit to exterior).  
+- `FLAG_BELL_RUNG` – if both ropes tugged, unlocks hidden bell hotspot (HS_BELL x=390,190) with single interaction: "The bell's clapper is fused – but it hums in sympathy."  
+
+---
+
+### SCRIPT NOTES  
+- All brass instruments share a generic `on_hover_brass` handler that loops a low, detuned hum (volume 40, pitch shift +2 semitones per instrument).  
+- Walkable mask is disabled during any "play" animation – camera shakes 2px for 0.5s.  
+- The wheelhouse has no direct exit except through windshield crack (after flag) – otherwise player is stranded (optional puzzle lock).  
+
+---
+
+This spec adheres to ScummVM's classic room format, prioritizing verb-driven exploration over pixel hunting, with a melancholic, decaying nautical atmosphere. All coordinates assume 640x480 resolution; adjust via `room_settings { resolution 640x480 }` if needed.
 
 ### Step 3: Comparison
 
-The MUD text and the scene spec are two radically different tools for two radically different purposes. The MUD text is **atmospheric prose**—it paints a mood and relies on the player's imagination to fill in geometry. The scene spec is **interactive engineering**—it dictates precise coordinates, hitboxes, and reactive logic for a graphical engine.
-
-Here is a specific and thorough comparison of what each captures that the other misses.
+The MUD text and the scene spec are two fundamentally different modes of representing the same space, and each captures what the other omits.
 
 ---
 
-## What the MUD Text Captures That the Scene Spec Misses
+### What the MUD text captures that the scene spec misses:
 
-### 1. **A Sense of Metaphor and Narrative Weight**
-The MUD text is not just descriptive; it is *poetic*. 
-- *"A spider's maze of fractures — each line points to a different drowned star."* — This turns a mundane cracked windshield into a meaningful, almost cosmic artifact. It implies a backstory (a ship lost at sea, stars "drowned") and sets a tone of melancholy.
-- The scene spec's version of the same object is purely functional: *"crack pattern with subtle reflection glint"* and a verb response that describes the glass humming. The spec never tells the player *why* the cracks matter emotionally.
+**1. Sensory atmosphere that goes beyond data.**
+The MUD text gives us "a sky the color of dead steel," the "faint, sourceless hum," the "splintered" feeling of the room. The scene spec reduces this to fog density, palette hex descriptions, and a trigger event. The MUD makes the room *felt*—it is a mood, not a configuration. The spec tells you the hum is at volume 40 with a pitch shift; the MUD tells you it *remembers a forgotten tune.* That's a poetic, interpretive quality that no lighting parameter can encode.
 
-### 2. **Sensory Synesthesia and Abstract Details**
-The MUD text blends senses: *"The air smells of salt, stale oil, and old polish."* This is a specific, layered olfactory portrait. The scene spec mentions "desaturated blue-grays" and "rusted amber" but never touches smell, touch, or the *weight* of the air. The spec’s audio loop mentions wind, creaks, and gulls, but it lacks the *olfactory* dimension entirely.
+**2. The emotional and narrative weight of objects.**
+The cornet is "choked with rust," the trombone is "split," the helm is "skeletal," the ropes are "frayed." The MUD gives each object a history implied in its adjectives. The spec gives functional descriptions ("dented cornet"), but the MUD's adjectives imply decay, tragedy, abandonment. The spec's "Look" verbs are pragmatic; the MUD's opening lines are cinematic and melancholic.
 
-### 3. **The Illusion of Depth and Mystery**
-The MUD text gives the player *room to wonder*. The sextant is "frozen at 47°" — why? The compass card is "gone" — what happened? The horn's mouthpiece faces left, but the MUD text doesn't tell you that; it just makes the object *feel* significant. The scene spec, by contrast, *answers* those questions with explicit verb text: *"The paper reads: 'THE HORN CALLS THE SEXTANT'S ANGLE — THEN FACE THE MAZE.'"* That is a direct puzzle hint, not a mysterious fragment. The MUD text leaves the mystery intact; the spec resolves it.
+**3. The composition of the scene as a single gestalt.**
+The MUD presents the room as one continuous image—windshield, sea, instruments, dust, hum. It's a single shot. The spec fragments it into polygons, z-orders, walkable masks, and hotspots. The MUD gives you the *vibe*; the spec gives you the *blueprint*. The MUD is the painting; the spec is the engineering diagram.
 
-### 4. **A Specific, Unrepeatable Mood**
-The MUD text is written in a voice—it's a narrator with a perspective. The scene spec is a dispassionate technical document. The MUD text captures the *feeling* of being in that room: lonely, haunted, and charged with potential. The spec captures the *layout* of that room but not its soul.
+**4. Implied story and mystery.**
+The MUD's "as if the instruments remember a forgotten tune" plants a narrative hook. It suggests an event—a performance, a death, a storm. The spec's closest analog is the "hidden bell" or the "keyhole plate," but these are mechanical mysteries, not poetic ones. The MUD invites you to *wonder*; the spec tells you what you can *do*.
 
----
-
-## What the Scene Spec Captures That the MUD Text Misses
-
-### 1. **Exact Spatial Geometry**
-The MUD text gives no coordinates. It doesn't tell you the windshield spans x=80..560, y=60..220, or that the binnacle is at (300, 390) and blocks movement. The spec provides a **walkable polygon** (x=0..640, y=400..480), **blocked areas** (the binnacle, the windshield ledge), and **hotspot polygons** (octagons, ellipses, rectangles). This is essential for a graphical adventure—the engine needs to know *where* the player can click and *where* the player can stand. The MUD text is blind to this.
-
-### 2. **Layered Rendering and Perspective**
-The spec explicitly assigns each object to a **layer**: foreground (horn), midground (sextant, wheel), background (windshield). This is critical for a 2D scene—it determines draw order and depth sorting. The MUD text has no concept of z-ordering or parallax. The spec also notes that the ship's wheel is "partially visible behind binnacle" and that the windshield is "strongest at center-top" for lighting—these are visual composition details that a text parser cannot convey.
-
-### 3. **Dynamic State and Verb Logic**
-The MUD text is static—it describes the room once. The spec, however, tracks **global flags** (e.g., "After horn is taken, the scene's ambient audio gains a faint, persistent hum") and defines **conditional verb responses**:
-- The horn's "Use" behavior changes after it's taken.
-- The binnacle has *sequential* states: look → open → take paper → close.
-- The cursor changes to a "small brass gear" over interactive objects.
-The MUD text has no mechanism for this—it can't express "if the player has item X, then this hotspot becomes active" or "after this action, play a new sound loop." The spec is a state machine; the MUD text is a snapshot.
-
-### 4. **Exact Audio and Lighting Cues**
-The spec provides precise audio instructions: "low wind hum through glass crack," "occasional creak of hull timbers," "distant gull cries." It also specifies lighting direction and intensity: "Cold, diffused daylight from the cracked windshield (strongest at center-top)" and "a faint swaying shadow cast by the dangling horn." The MUD text mentions the wind and the smell, but it cannot specify *where* the light comes from or *how* the shadow moves. The spec is a technical blueprint for a game engine; the MUD text is a literary impression.
-
-### 5. **Player-Action Consequences and Puzzle Logic**
-The spec is explicit about *what the player can do* and *what happens next*:
-- Taking the horn breaks a "thin, rotted cord."
-- Using the horn on the sextant produces "a single clear note."
-- The paper in the binnacle is a **direct hint** for a puzzle sequence.
-The MUD text never tells you that you can take the horn, open the binnacle, or read a note. It only presents the room's *static appearance*. The MUD text is a *description*; the spec is a *game design document*.
+**5. The quality of light and color as emotion.**
+"Sky the color of dead steel" is not just a palette swatch—it's a symbol. The spec gives "desaturated steel-grey, rust-brown, tarnished brass, pale bone-white" as a list. The MUD weaves it into a sentence that evokes a feeling: coldness, fatigue, the end of something.
 
 ---
 
-## The Core Difference
+### What the scene spec captures that the MUD text misses:
 
-| Aspect | MUD Text | Scene Spec |
-|--------|----------|------------|
-| **Purpose** | Immersion & mood | Functionality & logic |
-| **Information** | Sensory, metaphorical | Geometric, conditional |
-| **Temporality** | One moment in time | Dynamic, state-based |
-| **Player** | Passive observer | Active agent |
-| **Style** | Literary prose | Technical documentation |
+**1. Interactivity and verb-driven mechanics.**
+The spec defines exactly what the player can *do*: Look, Use, Pull, Turn, Pick Up, Play, Slide, Touch, Push, Tug, Scrape. The MUD only describes. The spec tells you the wheel resists a "Use" but spins on "Turn" and triggers a hum. The MUD's "frayed ropes twitch as if alive"—but you don't know what to do with them. The spec tells you to tug them and that a bell rings.
 
-The MUD text captures the **poetry of place**—the why, the emotion, the mystery. The scene spec captures the **physics of place**—the where, the how, the what-happens-next. A great adventure game needs both: the spec to make the room *work*, and the MUD text to make the room *matter*.
+**2. Spatial geometry and collision.**
+The MUD gives no coordinates, no walkable areas, no z-order. The spec defines the wheelhouse as a 640x480 grid, with the helm at (320,240), the instruments at (180,330) and (220,350), the windshield as a polygon from (520,80) to (640,200). It specifies a narrow ledge reachable only via a "climb" hotspot, and a dust nest that blocks movement until "push" is used. This is essential for a functioning game; the MUD is purely descriptive.
+
+**3. Puzzle logic and progression.**
+The spec outlines a chain of cause-and-effect: pushing the windshield widens a crack and enables an exit; turning the helm enables the cornet's "play" on it; tugging both ropes unlocks a hidden bell. The MUD never hints at these interactions. The spec is a crossword puzzle; the MUD is a short story in the same setting.
+
+**4. Inventory and object reuse.**
+The spec lists what becomes collectible (cornet, trombone) and how each can be used on other objects—cornet on windshield, helm, dust nest; trombone on helm, bell. The MUD describes the objects as static relics. The spec treats them as tools.
+
+**5. System-level states and flags.**
+`FLAG_HELM_TURNED`, `FLAG_CRACK_WIDENED`, `FLAG_BELL_RUNG`—these are state variables that gate content. The MUD has no notion of "state." It's a frozen moment; the spec is a dynamic system that can change.
+
+**6. Technical implementation details.**
+Fog density, dynamic shadows with periods, light sources with angles, walkable mask toggling during animations, camera shake on play, volume and pitch values for the hum. The MUD is pure prose; the spec is a full engineering spec for a software engine.
+
+**7. Edge cases and fail states.**
+The spec notes the player can be "stranded" if they don't open the windshield crack—a gameplay trap. The MUD never acknowledges consequence or failure. It only *is*.
+
+---
+
+### In summary:
+
+The MUD text is the **poetry** of the room—its mood, its history, its melancholic soul. It gives you something to *feel*.
+
+The scene spec is the **mechanics** of the room—its logic, its physics, its interactivity. It gives you something to *do*.
+
+One without the other is incomplete: the MUD without the spec is a beautiful description you can't enter; the spec without the MUD is a functional space you can't care about. The ideal game would use both—the spec to build the machine, the MUD to make it breathe.
 
 ### Step 4: Reconciliation
 
-Here is the perception check you requested — a unified method that merges the MUD text and the scene specification into a single coherent world model.
+# PERCEPTION RECONCILIATION PROTOCOL v1.0
+
+## Purpose
+A method for merging **narrative sensory data** (MUD text) with **mechanical spatial data** (scene spec) into a single unified world model, where neither mode is privileged but both are *bound* to each other.
 
 ---
 
-# PERCEPTION CHECK: WHEELHOUSE_01 — UNIFIED WORLD MODEL
+## Core Principle: **The Dual-Anchoring Method**
 
-**Method Name:** *Dual-Channel Scene Fusion via Semantic Anchoring*
+Every object and room element receives **two registrations** in the world model:
 
----
+1. **A-Slot (Atmosphere)** — the poetic, sensory, interpretive layer
+2. **M-Slot (Mechanics)** — the functional, spatial, interactive layer
 
-## 1. INPUT STREAMS
-
-### Channel A — Text Prose (MUD)
-- **Format:** Free-form narrative, sensory, metaphorical
-- **Provides:** Mood, significance, narrative weight, olfactory/tactile cues
-- **Example:** *"A spider's maze of fractures — each line points to a different drowned star."*
-
-### Channel B — Scene Specification (SCUMMVM)
-- **Format:** Structured data — coordinates, polygons, layers, verb logic
-- **Provides:** Geometry, interactivity, state transitions, audio/lighting cues
-- **Example:** `Windshield: Polygon (80,60,560,220), Layer=Background`
+These are not merged by averaging or concatenation, but by **binding** — each A-Slot entry carries a pointer to its corresponding M-Slot data, and vice versa. The world model is a graph where every node has both qualities.
 
 ---
 
-## 2. FUSION PIPELINE (Five Stages)
+## The Reconciliation Algorithm
 
-### Stage 1 — Object Identification & Correspondence
-**Goal:** Map prose entities to spec entities.
+For each element in the scene:
 
-```
-For each noun in the MUD text:
-  Match to nearest spec object by semantic similarity (name, position, description).
-  If no direct match → flag as "ambient/atmospheric" (not interactive).
+### Step 1: IDENTIFY
+Extract the object or region from both sources.
 
-Example:
-  "spider's maze of fractures" → Windshield (spec)
-  "brass sextant" → Brass Sextant (spec)
-  "coiled horn" → Coiled Horn (spec)
-  "smells of salt, stale oil" → Ambient scent (no spec object → tagged 'atmosphere')
-```
+| Element | A-Slot (from MUD) | M-Slot (from spec) |
+|---------|-------------------|---------------------|
+| Helm | "skeletal wheel of tarnished brass, spokes hung with frayed rope" | Object ID 2, pos (320,240), z-order 5, blocks passage, verbs: Look/Use/Pull/Turn |
 
-**Result:** A **correspondence table** linking each prose-referenced item to its spatial/interactive counterpart.
+### Step 2: BIND
+Create a unified node with both registrations, using a weighted relational schema:
 
----
-
-### Stage 2 — Spatial Anchoring
-**Goal:** Assign each fused object a **position, layer, and walkability** in a single unified coordinate space.
-
-```
-Unified Space: 640x480 canvas.
-Each entity receives:
-  - Spec geometry (x, y, polygon)
-  - Spec layer (foreground/midground/background)
-  - Spec interaction flag (hotspot: yes/no)
-
-Prose-only elements (smell, mood) are anchored to the *scene centroid* (320, 240)
-  or to the object they most relate to.
-  Example: "stale oil" → anchored to Binnacle (source of mechanical smell)
-```
-
-**Result:** A **spatial scene graph** — every object has coordinates, depth, and a prose tag.
-
----
-
-### Stage 3 — State Initialization & Conditional Enrichment
-**Goal:** Merge static prose with dynamic spec logic.
-
-```
-Initialize:
-  - All spec states active (e.g., horn tied, compass missing, paper inside binnacle)
-  - Prose descriptions attached to each object as "narrative layer"
-
-Conditional Logic:
-  - If horn is taken → prose description of horn updates:
-      Old prose: "hands cracked and stiff"
-      New prose: "it hangs loose in your grip — lighter than expected"
-    This is a *prose-state bridge* generated from the spec's state machine.
-
-  - If binnacle opened → prose text for binnacle changes:
-      Old: "gimbal swings lazily"
-      New: "the empty socket yawns; the paper trembles slightly"
-```
-
-**Result:** A **state-aware narrative engine** — prose evolves with puzzle logic.
-
----
-
-### Stage 4 — Sensory Wholeness Assembly
-**Goal:** Combine spec's physical cues with prose's sensory cues into a unified **perceptual snapshot**.
-
-```
-Perceptual Snapshot Structure:
+```json
 {
-  "visual": {
-    "lighting": "cold diffused daylight, strongest at top-center",
-    "palette": ["desaturated blue-gray", "rusted amber", "mud-green"],
-    "objects": [ {name, position, layer, appearance_prose} ]
+  "id": "helm",
+  "name": "Skeletal Wheel",
+  "bound_slots": {
+    "atmosphere": {
+      "prose": "A skeletal wheel, its brass spokes worn thin...",
+      "emotional_register": "melancholy, anticipation",
+      "sensory_qualities": ["cold brass", "frayed rope texture", "faint vibration"]
+    },
+    "mechanics": {
+      "position": [320, 240],
+      "z_order": 5,
+      "collision": "blocks_passage",
+      "verbs": {
+        "look": "A skeletal wheel...",
+        "use": "The wheel is frozen...",
+        "pull": "A low groan...",
+        "turn": "The wheel spins a half-turn..."
+      },
+      "flags_affected": ["FLAG_HELM_TURNED"]
+    }
   },
-  "audio": {
-    "loop": "low wind hum through glass crack",
-    "events": ["occasional hull creak", "distant gull"],
-    "conditional": "if horn taken → faint persistent hum added"
+  "binding_integrity": 1.0  // both slots confirm the same entity
+}
+```
+
+### Step 3: WEIGHT & RESOLVE CONFLICTS
+When the two sources disagree, apply the **Contextual Priority Heuristic**:
+
+- **If the player is MOVING or ACTING** → M-Slot dominates (you cannot walk through a wall because it sounds poetic).
+- **If the player is OBSERVING or DESCRIBING** → A-Slot dominates (the prose is the interface).
+- **If a flag has been triggered** → re-evaluate both slots; the state change may alter either.
+
+---
+
+### Step 4: GENERATE UNIFIED PERCEPTION
+The agent produces a **single perception stream** that is neither pure MUD nor pure spec, but a **hybrid narrative-interface**:
+
+> *"You stand before the skeletal wheel — its brass spokes worn thin, its frayed ropes stiff with salt. The air is cold; the hum is barely there. You can **Turn** it, **Pull** it, or **Use** it, but it feels like it's waiting for something."*
+
+Notice: the prose and the affordances are **braided** — the emotional tone carries the interaction options.
+
+---
+
+## The Unified World Model Structure
+
+```
+WORLD_MODEL {
+  "room": "wheelhouse",
+  "coordinates": [640, 480],
+  "lighting": {
+    "ambient": "cold, dead-steel grey",
+    "source_angle": "45° upper-left",
+    "fog_density": 0.15
   },
-  "olfactory": {
-    "salt", "stale oil", "old polish"  (from prose, anchored to scene)
+  "entities": [
+    {
+      "id": "helm",
+      "unity": "A-Slot + M-Slot" (as above)
+    },
+    {
+      "id": "cornet",
+      "unity": {
+        "atmosphere": "dented, choked with rust, gleams where varnish peeled",
+        "mechanics": {
+          "position": [180, 330],
+          "inventory_on_pickup": true,
+          "usable_with": ["windshield", "helm", "dust_nest"]
+        }
+      }
+    }
+  ],
+  "narrative_state": {
+    "flags": {
+      "FLAG_HELM_TURNED": false,
+      "FLAG_CRACK_WIDENED": false,
+      "FLAG_BELL_RUNG": false
+    },
+    "unresolved_mysteries": [
+      "What struck the windshield from inside?",
+      "Why does the rope vibrate?",
+      "What key fits the hidden plate?"
+    ]
   },
-  "tactile": {
-    "cracked glass hums under palm",
-    "horn's cord rotted — snaps easily",
-    "wheel spokes worn smooth"
-  },
-  "atmosphere": {
-    "lonely, haunted, charged with potential" (prose-derived)
+  "interaction_potential": {
+    "current_verbs_available": ["Look", "Use", "Pull", "Turn", "Pick Up", "Play", "Push", "Tug", "Scrape"],
+    "contextual_hints": [
+      "The cornet feels heavy — it might be important.",
+      "The crack in the windshield is widening.",
+      "Two ropes must be tugged to ring the hidden bell."
+    ]
   }
 }
 ```
 
-**Result:** A **full-sensory model** — not just geometry + text, but *felt space*.
-
 ---
 
-### Stage 5 — Action Reasoning & Coherent Response
-**Goal:** Unify verb logic (spec) with narrative consequence (prose) into a single action-response engine.
+## The Perception Generation Function
 
-```
-Action: LOOK AT sextant
-  Spec response: "The mirror is tarnished; index bar frozen at 47°"
-  Prose resonance: "For measuring the unmeasured" — bolted fast, mystery preserved.
-  Fused output: "The sextant's mirror is tarnished, but the arc still reads true.
-                 The index bar is frozen at 47° — for measuring the unmeasured."
-
-Action: TAKE horn
-  Spec: Cord snaps. Object added to inventory.
-  Prose update: The ship leans slightly — as if it notices the horn is gone.
-  Fused output: "The rotted cord snaps free. As you lift the horn,
-                 the ship gives a low, long groan — it knows you have it."
-
-Action: USE horn on sextant
-  Spec: "A single clear note. Nothing else happens."
-  Prose update: "The note rings like a question, unanswered."
-  Fused output: "You lift the horn's mouth to the sextant's eyepiece —
-                 a single clear note rings through the glass.
-                 It sounds like a question. The ship holds its breath."
-```
-
-**Result:** A **unified action interpreter** — every player action yields both mechanical result and narrative texture.
-
----
-
-## 3. OUTPUT: UNIFIED WORLD MODEL
-
-```
-WORLD_MODEL: WHEELHOUSE_01
-├── Mood Vector: [lonely, haunted, charged, mechanical, maritime]
-├── Spatial Graph:
-│   ├── Windshield: (320,140)[BG] - cracked, humming, cosmic metaphor
-│   ├── Wheel: (90,250)[MG] - lashed, jammed, worn smooth
-│   ├── Sextant: (180,300)[MG] - fixed at 47°, bolted, "unmeasured"
-│   ├── Horn: (420,310)[FG] - coil + mouthpiece, tied, rotted, awake
-│   ├── Binnacle: (300,390)[FG] - empty socket, hidden paper, gimbal
-│   └── Floor: (0,400→640,480) - walkable, limited by furniture
-├── State Flags:
-│   ├── HORN_TAKEN: false
-│   ├── BINNACLE_OPEN: false
-│   ├── PAPER_TAKEN: false
-│   └── SHIP_AWAKE: false
-├── Sensory Streams:
-│   ├── Visual: cold light, desaturated palette, swaying horn shadow
-│   ├── Audio: wind hum, creak, gulls (+ hum if awake)
-│   ├── Olfactory: salt, stale oil, old polish
-│   └── Tactile: glass hum, rotted cord, worn wheel
-├── Narrative Threads:
-│   ├── "For measuring the unmeasured"
-│   ├── "The horn calls the sextant's angle — then face the maze"
-│   └── "Each line points to a different drowned star"
-└── Inference Engine: Every action checked against both spec logic
-                     and prose resonance; output always dual-layered.
+```python
+def perceive(agent, intent):
+    """
+    Returns a unified perception string based on the agent's intent.
+    
+    intent = "observe" | "act" | "navigate" | "inventory" | "solve"
+    """
+    if intent == "observe":
+        # A-Slot dominates; M-Slot implicit
+        return f"{poetic_description} (You notice: {affordance_hints})"
+    
+    elif intent == "act":
+        # M-Slot dominates; A-Slot enriches
+        return f"Executing {verb} on {object}. Result: {mechanical_outcome}. {sensory_feedback}"
+    
+    elif intent == "navigate":
+        # Pure M-Slot, stripped of atmosphere
+        return f"Walkable: {walkable_masks}. Exits: {exits}."
+    
+    elif intent == "solve":
+        # Merge both for puzzle affordances
+        return f"Given the {state_flags}, you could try: {suggested_verb} on {object} — {narrative_implication}"
 ```
 
 ---
 
-## 4. KEY INSIGHT
+## Why This Works
 
-The MUD text and SCUMMVM spec are not competing descriptions — they are **complementary hemispheres** of a single cognitive model:
-
-- **Text** = *semantic cortex* (meaning, mood, metaphor)
-- **Spec** = *sensorimotor cortex* (space, state, action)
-
-The perception check fuses them by:
-
-1. **Anchoring** prose to geometry
-2. **Binding** narrative to state
-3. **Layering** sensory cues into one perceptual snapshot
-4. **Fusing** responses so every action feels both *functional* and *meaningful*
-
-This creates a **coherent world** — one that is not just a puzzle grid, and not just a poem, but a *place* the player inhabits, touches, and remembers.
+1. **No information is lost** — both modes persist in their slots.
+2. **No mode is privileged** — the agent can pivot between poetic and mechanical reasoning fluidly.
+3. **State changes propagate to both slots** — turning the helm updates both the prose ("the wheel now creaks") and the mechanics (cornet now playable).
+4. **The agent can reason across modes** — it can wonder if the "forgotten tune" is connected to the hidden bell, because both are in the same graph.
 
 ---
 
-**End of Perception Check.**
+## Example: Reconciliation in Action
+
+**Agent intent:** "I want to understand this room."
+
+**Perception generated:**
+
+> *You're in the wheelhouse of a derelict vessel. The air is cold, a faint hum clinging to the brass instruments as if they remember a tune. The skeletal helm stands at the center — its spokes worn thin, its ropes frayed. The windshield is cracked, spiderweb fractures radiating from a single point. A dented cornet and a split trombone lie in a nest of dust. The floor is walkable from roughly (80,320) to (560,460), and you notice a narrow ledge only reachable by climbing the helm. You could **Look** at anything, **Pick Up** the instruments, **Turn** the wheel, **Push** the crack, **Tug** the ropes, or **Scrape** the dust nest. You have a sense that something is waiting — the wheel resists, the glass vibrates, the dust hides a keyhole plate.*
+
+This is neither pure prose nor pure spec — it is **a coherent world model**, where the melancholy and the mechanics are inseparable. The agent can navigate, act, and reason poetically all at once.
 
 ### Step 5: What's missed
 
-# The Irreducible Gap
+# The Irreducible Gap: Text vs. Image
 
 ---
 
-## What an AI Agent MISSES (With Only MUD Text)
+## What an AI Agent Would MISS from MUD Text Alone
 
-### 1. **The Physics of Navigation**
-The MUD text never tells you:
-- Where you *can* walk (the floor polygon is x=0..640, y=400..480)
-- What *blocks* you (the binnacle at center, the windshield ledge at y<220)
-- How to *reach* the exits (right edge → forward deck, bottom-center → below deck)
+**1. The physics of possibility.**
+The MUD says "the helm is a skeletal wheel." It doesn't tell you that turning it is possible, that pulling is distinct from turning, that pushing the glass is an option. The AI would know *what things are* but not *what can be done*. It would be a reader, not a player.
 
-An AI agent reading only prose would be **lost in space** — it would know *what* the room is, but not *how to move through it*. It might try to walk through the windshield or into the wall, because nothing in the text constrains its geometry.
+**2. The grammar of space.**
+The MUD gives no sense of proportion—how far the cornet is from the helm, whether the windshield is reachable from the floor, whether the ledge is climbable. The AI would lack *spatial reasoning*: it couldn't plan a path, assess risk, or understand why the narrow ledge is significant.
 
-### 2. **The State Logic**
-The MUD text is static — it describes one frozen moment. An AI agent would not know:
-- That taking the horn is *possible* (the text never says it can be picked up)
-- That the binnacle *opens* (the text never mentions a latch)
-- That the paper inside is a *clue* ("THE HORN CALLS THE SEXTANT'S ANGLE — THEN FACE THE MAZE")
-- That the horn's presence *changes* the ship's audio state (the "awake" hum)
+**3. The logic of state and consequence.**
+The MUD is a still photograph. The AI would not know that pushing the windshield widens the crack, that tugging both ropes rings a hidden bell, that the cornet can be played *on* the helm after it's turned. The AI would see objects but not their *dynamics*—the latent cause-and-effect that makes the room a puzzle rather than a painting.
 
-The agent would treat the room as a **still life** rather than a **system of affordances**.
+**4. The existence of hidden things.**
+The MUD never mentions a keyhole plate under the dust, a ship's bell behind the helm, or a narrow ledge. The AI would have no reason to suspect them. The MUD's world is *surface*—the spec's world includes *concealment*.
 
-### 3. **The Conditional Responses**
-The text gives one description per object. But the spec knows:
-- The horn's description changes *after* it's taken
-- The binnacle's description changes *after* it's opened
-- The cursor changes to a gear over interactive objects
-- The audio mutates if the horn is removed
+**5. The possibility of failure.**
+The MUD doesn't tell you that you can get stranded—that if you don't open the windshield crack, you're trapped. The AI would lack the *stakes*. It wouldn't know that inaction has consequences.
 
-An agent with only prose would not understand **causality** — it would not know that actions have *consequences* beyond the immediate response.
-
-### 4. **The Visual Composition**
-The prose mentions a sextant, a horn, a binnacle — but never *where* they are relative to each other. An AI agent would not know:
-- The horn is *on top* of the binnacle (foreground over midground)
-- The sextant is to the *left* (180, 300)
-- The wheel is *behind* the binnacle (partial occlusion)
-- The windshield is *high* (y=60..220) — a background element
-
-Without this, the agent cannot reason about **spatial relationships** — whether an object is reachable, whether something is hidden behind something else, whether the scene has depth.
-
-### 5. **The Puzzle Structure**
-The prose mentions a sextant "frozen at 47°" and a horn — but never states they are *linked*. The spec's paper clue is a **direct connector**: "THE HORN CALLS THE SEXTANT'S ANGLE — THEN FACE THE MAZE." An AI agent with only prose would see two unrelated objects; the spec reveals they are **nodes in a puzzle graph**.
+**6. The texture of interaction as feedback.**
+The MUD says "a faint hum lingers." It does not say that hovering over brass triggers a detuned sound, or that playing the cornet shakes the camera. The AI would miss the *sensory feedback loop*—the way the world responds to your touch, making it feel *alive*.
 
 ---
 
-## What a HUMAN MISSES (With Only the Scene)
+## What a HUMAN Would MISS from the Scene Spec Alone
 
-### 1. **The Narrative Weight**
-The scene shows a cracked windshield, a brass sextant, a coiled horn. A human sees *objects*. But the prose tells them:
-- The cracks are "a spider's maze pointing to drowned stars" — this is *metaphor*, not geometry
-- The sextant is "for measuring the unmeasured" — this is *poetry*, not function
-- The horn's note "sounds like a question" — this is *significance*, not audio data
+**1. The emotional weather.**
+The spec gives you "fog density 0.15" and "palette: desaturated steel-grey." It does not give you the *feeling* of standing in a dead vessel, under a sky the color of dead steel, with instruments that remember a forgotten tune. The human would understand the room *intellectually* but not *viscerally*. They'd see a grid, not a graveyard.
 
-Without the text, a human would see a **prop room** — functional, not meaningful. The objects would be *tools for a puzzle*, not *artifacts of a story*.
+**2. The implication of history.**
+The spec says "dented cornet" and "split trombone." It does not say "choked with rust, still gleaming where the varnish peeled." The human would miss the *story sediment*—the sense that something happened here, that these objects were used, loved, abandoned. The room becomes furniture, not testament.
 
-### 2. **The Sensory Dimensions**
-The scene spec covers visual (palette, lighting) and audio (wind, creaks, gulls). But it never mentions:
-- **Smell**: "salt, stale oil, old polish"
-- **Touch**: "the glass hums under your palm," "the cord snaps free"
-- **Temperature/Weight**: the cold air, the heaviness of the horn
+**3. The unified gestalt.**
+The spec fragments the room into polygons, z-orders, masks, and flags. The human would see *disconnected parts*. They'd miss the single, melancholic composition—the way the windshield frames the grey sea, the way the instruments nestle in the dust like relics, the way the wheel dominates the center like a skeletal throne. The room as *image* would be lost.
 
-A human looking at the scene would see and hear — but not *feel*. The prose engages the full sensorium, making the room **inhabited**, not just *viewed*.
+**4. The poetic resonance.**
+"Frayed ropes twitch as if alive." No flag or verb captures that. The human would miss the *uncanny*—the slight wrongness that makes the room feel haunted, the hum that suggests memory, the crack that implies violence from within. Without the MUD, the room is a machine; with it, it's a mystery.
 
-### 3. **The Emotional Register**
-The spec is emotionally neutral — it describes a room. The prose tells you how the room *feels*:
-- Lonely ("drowned stars," "lost at sea")
-- Haunted (the ship "leans slightly" when the horn is taken)
-- Charged with potential ("each line points to a different drowned star")
-
-A human would see a **derelict ship interior**. The prose makes it a **grave and a promise**.
-
-### 4. **The Unspoken Backstory**
-The spec gives you a paper clue — a direct puzzle hint. But the prose implies *more*:
-- Why is the sextant frozen at 47°? (prose suggests a specific, now-lost calculation)
-- Why is the compass card gone? (the prose's "for measuring the unmeasured" hints at a deliberate removal)
-- Who tied the horn to the binnacle, and why?
-
-A human sees a **state** — the prose suggests a **history**.
-
-### 5. **The Lingering Mystery**
-The spec resolves the puzzle: "THE HORN CALLS THE SEXTANT'S ANGLE — THEN FACE THE MAZE." This is a *solution hint*. The prose leaves it open: "each line points to a different drowned star" — this is *unresolvable metaphor*. A human with only the scene would not *wonder*; they would *know*. The prose preserves the **mystery** that the spec would dispel.
+**5. The ambiguity that invites wondering.**
+The spec tells you what you can *do*. It doesn't tell you what it *means*. Why did something strike the windshield from inside? Why does the rope vibrate? What key fits the hidden plate? The human would miss the *open questions*—the narrative hooks that make the room more than a puzzle, that make it a *story*.
 
 ---
 
 ## The Irreducible Gap
 
-| Dimension | MUD Text (Alone) | Scene Spec (Alone) | Irreducible Gap |
-|-----------|------------------|--------------------|------------------|
-| **Space** | No coordinates | Exact geometry | *How to navigate* |
-| **Time** | Static moment | State machine | *How things change* |
-| **Meaning** | Deep, ambiguous | Functional, explicit | *Why it matters* |
-| **Senses** | Full sensory (smell, touch) | Visual + audio only | *The felt experience* |
-| **Emotion** | Lonely, haunted, charged | Neutral engineering | *The mood* |
-| **Mystery** | Preserved | Resolved | *The unknown* |
-| **Causality** | None | Fully specified | *Action → consequence* |
-| **History** | Implied | Absent | *Backstory* |
+No matter how detailed the spec, no matter how vivid the MUD, there remains a **gap that neither can cross**:
 
----
+**Text knows what things are. Image knows what things feel like. But neither knows what things *were*.**
 
-## The Core Truth
+The MUD can say "the cornet is dented." The spec can say "the cornet is usable." But neither can tell you *who played it*, *what song it played*, *why it was left here*. That knowledge exists only in the space between the words and the image—in the player's imagination, filling the absence.
 
-**The MUD text and the scene spec are not two views of the same thing — they are two different *worlds*.**
+This is the irreducible gap: **the human capacity to metabolize absence into story.**
 
-- The **spec** is a world of *physics* — spatial, mechanical, logical. It answers *how*.
-- The **text** is a world of *metaphysics* — meaningful, emotional, ambiguous. It answers *why*.
+The MUD gives you details; the spec gives you mechanics. But the *meaning*—the ghost in the machine—is something neither can encode. It must be *felt* by the player, projected onto the screen from their own history, their own melancholy, their own sense of what it means to stand in a dead room and hear a forgotten tune.
 
-**The irreducible gap is this:**
-
-> **The text knows what the room *means*. The spec knows what the room *does*. Neither alone knows what the room *is*.**
-
-A game is not a description of a place, nor a map of a place. It is the **experience** of being in a place — and that experience requires *both* the physical grounding of the spec and the narrative resonance of the text. 
-
-**The gap between them is the gap between *knowing* and *feeling*. A complete game bridges it. A complete AI must too.**
+That gap is not a failure of either mode. It is the **space where the player becomes the author**. And it is why we play.
 
 ---
 
@@ -955,485 +776,542 @@ A game is not a description of a place, nor a map of a place. It is the **experi
 
 ### Step 1: MUD text
 
-You are in the ENGINE ROOM. The thrum of two massive DIESEL ENGINES vibrates through the deck plates, a low, constant growl that you feel in your chest.  
-Pipes of every size—greasy, sweating with condensation—crisscross the low ceiling and snake down the bulkheads, hissing and knocking with hot pressure.  
-The air is thick, humid, and heavy with the acrid, metallic smell of oil and diesel fuel, coating your tongue and stinging your nostrils.  
-A maze of catwalks and ladders descends into a shadowed pit, where the engine block's oily, blackened pistons slam up and down in a blur of motion.  
-A pressure gauge on the main manifold trembles violently, its needle quivering in the red zone, and a loose pipe coupling drips a steady, dark rhythm onto the grating.
+You are in a cavernous steel room, throbbing with a low, mechanical heartbeat.  
+Two massive diesel engines, green and streaked with grime, rumble like chained beasts.  
+A labyrinth of pipes, painted red and white, hisses with steam and drips black oil.  
+The air is thick, hot, and heavy with the sharp, metallic scent of fuel and burnt grease.  
+A single caged bulb swings overhead, casting stark shadows that dance with the shuddering deck plates.
 
 ### Step 2: ScummVM scene spec
 
-[SCUMM SCENE: ENGINE_ROOM]
-[ROOM_WIDTH=640]
-[ROOM_HEIGHT=480]
-[BACKGROUND_IMAGE="engine_room_bg.png"]
+**Scene: THE HULL’S HEART**  
+*(A ScummVM-style point-and-click environment)*
 
-[LIGHTING]
-  [AMBIENT_LIGHT=0.25]                   ; Dim, oppressive gloom
-  [LOCAL_LIGHTS]
-    {source="grime_lamp", x=80, y=60, radius=120, intensity=0.6, color=(200,180,120)}   ; Flickering overhead bulb, sickly yellow
-    {source="gauge_glow", x=420, y=130, radius=40, intensity=0.8, color=(180,80,50)}    ; Red-hot pressure gauge
-    {source="piston_flash", x=320, y=380, radius=90, intensity=0.5, color=(150,150,200)} ; Reflected light off moving steel
-  [SHADOW_MAP="engine_shadows.png"]
+---
 
-[WALKABLE_AREAS]
-  ; Rectangles in screen coordinates (x1, y1, x2, y2)
-  {id="upper_catwalk", rect=(50, 80, 590, 160)}    ; Narrow metal grate walkway
-  {id="mid_platform", rect=(40, 200, 600, 280)}    ; Main maintenance deck
-  {id="lower_pit_edge", rect=(20, 300, 620, 420)}  ; Dangerously close to pistons
-  {id="ladder_path", rect=(560, 100, 620, 420)}    ; Vertical climb area leading down
+**SCENE META**  
+- **Resolution:** 640x400 (classic 4:3)  
+- **Palette:** Desaturated steel blues, grimy ochres, blood-red pipe accents  
+- **Ambient Audio:** Deep two-stroke rumble, rhythmic metallic clank, distant steam hiss  
+- **Lighting:** Harsh, single swinging bulb casting a wide pool of sickly yellow; deep purple-black shadows in corners; occasional glint off wet metal  
+- **Camera:** Static, slightly low-angle, with a subtle parallax sway on the swinging lamp
 
-[OBJECTS]
-  ; --- Main Engine Block ---
-  {id="engine_block", name="MASSIVE DIESEL ENGINE",
-   x=320, y=380, w=280, h=120,
-   hotspot={box=(180, 240, 460, 420)},
-   verbs={
-     LOOK="The massive block shudders with each stroke. Caution: do not touch moving parts."
-     USE="You feel the vibration through your boots. It's warm, alive, and dangerous."
-     PUSH="You push against the housing. It doesn't budge. The bolts are seized with rust."
-     PULL="You pull a greasy lever. The engine's pitch rises dangerously for a second."
-     TALK="You shout over the din. The engine replies with a deafening knock."
-   },
-   state="running"}
+---
 
-  ; --- Steam Pipe Cluster (overhead) ---
-  {id="pipe_cluster", name="CLUSTER OF GREASY PIPES",
-   x=100, y=40, w=180, h=30,
-   hotspot={box=(20, 30, 280, 70)},
-   verbs={
-     LOOK="Condensation drips rhythmically. One coupling is weeping black oil."
-     USE="You touch a pipe — it's scalding hot. You pull your hand back."
-     HEAT="It hisses violently. Steam escapes from a crack you hadn't noticed."
-     REPAIR="You tighten the loose coupling with a wrench. The drip slows."
-   },
-   state="leaky"}
+**WALKABLE AREA**  
+- A polygon from (20, 280) to (620, 320) — the central deck strip, slightly trapezoidal due to perspective.  
+- **Boundaries:**  
+  - Left: impassable pipe cluster at x=0–30  
+  - Right: railing with missing grate at x=610–640  
+  - Top: engines block movement north of y=240  
+  - Bottom: deck edge (no fall – just invisible wall)
 
-  ; --- Pressure Gauge (trembling) ---
-  {id="pressure_gauge", name="TREMBLING PRESSURE GAUGE",
-   x=430, y=110, w=40, h=40,
-   hotspot={box=(410, 90, 470, 150)},
-   verbs={
-     LOOK="The needle quivers in the red zone. It's about to blow."
-     READ="Pressure reads 120 PSI — far above safe operating limits."
-     TURN="You twist the valve. The needle flickers but doesn't move."
-     USE="You tap the glass. It rattles ominously."
-   },
-   state="danger"}
+---
 
-  ; --- Leaking Coupling (on floor) ---
-  {id="leaky_coupling", name="LEAKING PIPE COUPLING",
-   x=520, y=300, w=30, h=20,
-   hotspot={box=(500, 290, 560, 330)},
-   verbs={
-     LOOK="A steady drip of dark oil forms a puddle on the grating."
-     USE="Your fingers come away black and slick."
-     TURN="You twist it shut. The dripping stops, but the pressure builds."
-     REPAIR="With a rag and a wrench, you cinch it tight. The leak seals."
-   },
-   state="dripping"}
+**OBJECTS & HOTSPOTS** (each with verb list)
 
-  ; --- Catwalk Ladder (to lower deck) ---
-  {id="ladder", name="RUSTED LADDER",
-   x=590, y=160, w=30, h=260,
-   hotspot={box=(575, 150, 625, 420)},
-   verbs={
-     LOOK="It descends into a shadowed pit where pistons slam below."
-     CLIMB="You grip the greasy rungs and climb down carefully."
-     USE="You descend into the gloom. The heat intensifies."
-     EXIT="You climb back up to the main deck."
-   },
-   state="accessible"}
+---
 
-  ; --- Oil Drum (corner) ---
-  {id="oil_drum", name="RUSTY OIL DRUM",
-   x=60, y=260, w=40, h=50,
-   hotspot={box=(40, 250, 100, 320)},
-   verbs={
-     LOOK="A dented barrel, lid ajar, filled with thick black sludge."
-     USE="You dip a finger in — it's cold and viscous."
-     OPEN="You pry the lid. The smell hits you like a wave."
-     TALK="You ask it for advice. It offers none, but it's a good listener."
-   },
-   state="full"}
+**1. MAIN DIESEL ENGINE (LEFT)**  
+- **Position:** Rect (60, 140, 250, 260)  
+- **Hotspot:** The green block, the crank handle at (120, 180)  
+- **Lighting:** Casts a deep shadow to the right; oil sheen on top  
+- **Verbs:**  
+  - *Look At:* "The port engine. It's seen better decades. Oil drips from its belly like black tears."  
+  - *Push / Use Crank:* (if crank in inventory) "You turn the crank. The engine groans, coughs, then settles back into its rumbling rhythm."  
+  - *Open:* "The inspection hatch is welded shut. Someone didn't want it opened."  
+  - *Pull:* "You pull a greasy lever. Nothing happens except a wet clunk."
 
-  ; --- Overhead Emergency Light (flickering) ---
-  {id="emergency_light", name="FLICKERING OVERHEAD LIGHT",
-   x=80, y=60, w=20, h=15,
-   hotspot={box=(70, 50, 100, 75)},
-   verbs={
-     LOOK="It buzzes and stutters, casting sickly yellow pools of light."
-     USE="You try to steady it. It only flickers faster."
-     BREAK="You smash it. The room plunges into darkness save for the gauge."
-   },
-   state="flickering"}
+---
 
-  ; --- Piston Assembly (visible in pit) ---
-  {id="pistons", name="SLAMMING PISTON ASSEMBLY",
-   x=320, y=400, w=200, h=80,
-   hotspot={box=(220, 380, 440, 480)},
-   verbs={
-     LOOK="Oily black pistons slam up and down in a blur — hypnotic and lethal."
-     USE="You toss a piece of rag. It's shredded instantly. Don't get close."
-     LISTEN="The rhythmic clang echoes in your skull."
-   },
-   state="active"}
+**2. SECONDARY DIESEL (RIGHT)**  
+- **Position:** Rect (380, 150, 560, 260)  
+- **Hotspot:** The fuel line valve at (480, 170)  
+- **Lighting:** This side is darker — bulb swings away, leaving it in half-shadow  
+- **Verbs:**  
+  - *Look At:* "Starboard engine. It answers the port with a syncopated thump. They're in love."  
+  - *Turn Valve:* "The valve is stuck. You feel resistance, then a spurt of fuel. It's loose enough now."  
+  - *Use Wrench:* (if wrench in inventory) "You fit the wrench. With a groan, the valve turns a quarter turn. The engine's pitch deepens."  
+  - *Close:* "You try to close the valve. It's stripped. Not your day."
 
-[EXITS]
-  {direction="left", x=0, y=200, target="corridor_west", description="A dark corridor leads away from the din."}
-  {direction="right", x=640, y=150, target="corridor_east", description="A narrow passage snakes toward the upper decks."}
-  {direction="up", x=320, y=0, target="engine_room_access", description="A vertical shaft with a ladder goes up."}
+---
 
-[ACTOR_POSITIONS]
-  ; Default entry point
-  {id="player_start", x=300, y=250}
-  ; Preferred standing spots near each object
-  {id="near_gauge", x=440, y=160}
-  {id="near_coupling", x=530, y=300}
-  {id="near_drum", x=80, y=280}
+**3. OIL DRUM (CENTER FOREGROUND)**  
+- **Position:** Ellipse (280, 300, 60, 50) — partially obscures deck  
+- **Hotspot:** The rusted lid, the leak at base  
+- **Lighting:** Caught in the bulb's arc — a greasy amber highlight  
+- **Verbs:**  
+  - *Look At:* "A 55-gallon drum, half full of sludge. A label reads 'DANGER — DO NOT TIP.'"  
+  - *Tip:* "You rock it. Oil sloshes, but it's too heavy."  
+  - *Open:* "The lid is sealed with tar. You'd need a pry bar."  
+  - *Use Pry Bar:* (if in inventory) "You pop the lid. Black, viscous oil. It smells like ancient rot."
 
-[SOUNDS]
-  {id="engine_hum", file="diesel_loop.wav", volume=0.7, loop=true}
-  {id="pipe_hiss", file="steam_hiss.wav", volume=0.3, loop=true}
-  {id="drip_loop", file="oil_drip.wav", volume=0.2, loop=true}
-  {id="gauge_rattle", file="gauge_rattle.wav", volume=0.1, loop=true}
+---
 
-[SCENE_SCRIPT]
-  ; Global script for engine_room
-  on_enter:
-    play_sound("engine_hum")
-    play_sound("pipe_hiss")
-    play_sound("drip_loop")
-    play_sound("gauge_rattle")
+**4. STEAM PIPE (CURVING, RED-STRIPED)**  
+- **Position:** Path from (0, 100) to (200, 220) to (400, 180) to (640, 120) — a bezier curve  
+- **Hotspot:** The leak joint at (310, 160)  
+- **Lighting:** Steam catches the bulb’s light — a thin, white plume  
+- **Verbs:**  
+  - *Look At:* "The pipe snakes overhead, hissing. At the joint, a wet streak glistens."  
+  - *Touch:* "You pull back your hand — hot! The burn is immediate."  
+  - *Patch:* (if tape in inventory) "You wrap the joint in tape. The hiss dulls to a whisper."  
+  - *Listen:* "It sounds like a snake with a cold, or a kettle with a grudge."
 
-  on_leave:
-    stop_all_sounds()
+---
 
-  ; World script triggers
-  on_use("engine_block", "pressure_gauge"):
-    print("You try to attach the gauge to the block. It won't fit.")
-  
-  on_talk("leaky_coupling", "player"):
-    print("The coupling drips as if mocking you.")
+**5. SWINGING BULB (CEILING)**  
+- **Position:** Circle (320, 40, 20) — actually moves slightly in animation  
+- **Hotspot:** The cage, the wire  
+- **Lighting:** Primary light source; casts moving shadows  
+- **Verbs:**  
+  - *Look At:* "A bare bulb in a wire cage. It sways with the ship's heartbeat, throwing shadows like accusing fingers."  
+  - *Push:* "You give it a nudge. The light swings wider, and shadows crawl across the engines."  
+  - *Examine Wire:* "The wire is frayed. A spark jumps. You back away."
 
-  on_turn("pressure_gauge"):
-    if random(0, 100) < 20:
-      print("The needle jumps past the red line
+---
+
+**6. CRANK HANDLE (LIE ON DECK, FOREGROUND LEFT)**  
+- **Position:** Small rect (40, 320, 30, 15)  
+- **Hotspot:** The T-handle  
+- **Lighting:** Half in shadow, half in the bulb’s glow — the metal glints  
+- **Verbs:**  
+  - *Pick Up:* (adds to inventory) "A greasy crank handle. It fits the port engine — if the gods are kind."  
+  - *Look At:* "It's heavy, cast iron, with a splintered wooden grip."
+
+---
+
+**7. HATCH (BACK WALL, CENTER-HIGH)**  
+- **Position:** Rect (250, 80, 390, 140) — set into the steel wall  
+- **Hotspot:** The wheel lock at (320, 110)  
+- **Lighting:** Mostly dark, recessed; a faint red glow from the edges  
+- **Verbs:**  
+  - *Look At:* "A sealed hatch. The wheel is fused with rust. Beyond it, a low red light pulses."  
+  - *Turn Wheel:* "You strain. The wheel won't budge — like it's welded."  
+  - *Use Oil Can:* (if in inventory) "You oil the wheel's base. It gives slightly. One more try might do it."  
+  - *Kick:* "You kick the hatch. A hollow boom. Something on the other side stops breathing."
+
+---
+
+**8. RAT (COWARD — APPEARS ONLY AFTER LAMP SWUNG)**  
+- **Position:** Emerges from shadow at (580, 300), scurries to (620, 280), then offscreen  
+- **Hotspot:** Small moving rect  
+- **Lighting:** Only visible during bulb swing arc — a quick dark streak  
+- **Verbs:**  
+  - *Look At:* "A rat, fur slick with oil, eyes like black beads. It's seen you. It's not impressed."  
+  - *Use Anything:* "The rat is already gone. You're alone with the engines again."
+
+---
+
+**INVENTORY ITEMS POSSIBLE**  
+- Crank Handle (from object 6)  
+- Wrench (found in foreground right, near missing grate — hotspot at (600, 310))  
+- Pry Bar (tucked behind oil drum after examining)  
+- Oil Can (in a pipe alcove at (100, 200), visible after lamp swing)
+
+---
+
+**GLOBAL SCENE FLAGS**  
+- `lamp_swung` — after pushing bulb  
+- `valve_turned` — after using wrench  
+- `hatch_oiled` — after using oil can  
+- `rat_seen` — true after lamp swing  
+
+---
+
+**TRANSITIONS**  
+- Exit left: leads to "The Bilge Corridor"  
+- Exit right (through missing grate): leads to "The Shaft Ladder" (requires wrench to loosen guard)  
+
+---
+
+**VERB ICONS** (classic 9-verb SCUMM bar, bottom)  
+Walk, Look, Pick Up, Use, Open, Close, Push, Pull, Talk (Talk shows no one to talk to — only a hollow echo).
 
 ### Step 3: Comparison
 
-The MUD text and the scene spec are two radically different approaches to conveying the same space: one is a prose narrative meant to be read sequentially, the other is a structured data set meant to be parsed and rendered interactively. They overlap in content but diverge in what they choose to emphasize, and each has distinct blind spots.
+This is an excellent comparison, as the two texts are designed for fundamentally different media and goals. The **MUD text** (which you provided as the "Previous context") is a piece of **evocative, atmospheric prose** meant to be read once and absorbed. The **Scene Spec** is a **technical blueprint** meant to be parsed, coded, and interacted with.
+
+Here is a specific, point-by-point breakdown of what each captures that the other misses.
+
+### What the MUD Text Captures That the Scene Spec Misses
+
+The MUD text excels at **sensory immersion, mood, and temporal rhythm**—things that are impossible to code directly but are essential for a player's imagination.
+
+1.  **The "Feel" of the Space (Tactile & Acoustic):**
+    - **MUD:** "The air is thick, hot, and heavy with the sharp, metallic scent of fuel and burnt grease." This is a full-body sensory experience (temperature, density, smell). The scene spec's "Air: thick, hot" is a paint-by-numbers label that doesn't convey the *why* or the *effect*.
+    - **MUD:** "A labyrinth of pipes... hisses with steam and drips black oil." The sound of the hiss and the visual of the drip are alive. The spec says "Steam Pipe... Leak joint," but doesn't tell you it *hisses* or *drips*—those are the sounds that make a room feel dangerous and alive.
+
+2.  **Temporal Dynamics & Animation:**
+    - **MUD:** "The two massive diesel engines... rumble like chained beasts." The MUD text establishes a continuous, living state of motion. The spec's "diesel engine" hotspot is a static rect. The MUD text also gives the engines a personality ("they're in love") that the spec only hints at in a verb response.
+    - **MUD:** "A single caged bulb swings overhead, casting stark shadows that dance with the shuddering deck plates." The MUD text captures the *interaction* of light and motion. The spec's "subtle parallax sway" is a technical instruction, but the MUD text makes you *feel* the instability of the ship.
+
+3.  **Narrative Voice & Character (The "Why"):**
+    - **MUD:** "The port engine. It's seen better decades." (from the spec's *Look At* verb, but the MUD text itself infuses this in the opening). The MUD text gives the room a history. It's a character in the story. The spec is purely functional, missing the melancholy and grime that makes the room memorable.
+    - **MUD:** The "mechanical heartbeat" is a masterstroke—it anthropomorphizes the ship. The spec's "ambient audio" is just a list of sounds; the MUD text gives them a purpose (a heartbeat), making the room feel like a living organism.
+
+4.  **Atmospheric Foreboding & Danger:**
+    - **MUD:** The shadows are "accusing fingers." This implies a narrative threat or a guilty past. The spec's "deep purple-black shadows" is pretty, but neutral. The MUD text creates dread before you even interact with anything.
 
 ---
 
-## What the MUD text captures that the scene spec misses
+### What the Scene Spec Captures That the MUD Text Misses
 
-**1. Temporal flow and sensory sequencing**  
-The MUD text unfolds in a deliberate order: you *feel* the thrum first, then *see* the pipes, then *smell* the oil, then *hear* the hiss and knock. It builds a cumulative impression. The scene spec is frozen; it lists attributes (lighting, objects, exits) but gives no sense of *when* you perceive what. The MUD text also conveys motion—the needle *quivering*, the pistons *slamming*, the coupling *dripping*—which the spec only implies via state flags like `state="danger"`.
+The Scene Spec is a **gameplay architecture**. It's a functional map of possibility, designed to be clicked, manipulated, and solved.
 
-**2. Emotional and atmospheric texture**  
-The MUD text doesn't just describe the room; it makes you *feel* it in your chest ("vibrates through the deck plates"), on your tongue ("coats your tongue and stings your nostrils"), and in your gut ("shadowed pit"). It uses metaphor ("thrum", "growl", "blur of motion") to heighten dread. The scene spec is flat and objective—it says `[AMBIENT_LIGHT=0.25]` but never tells you that the dark is *oppressive* or that the light is *sickly*. The MUD text's "sickly yellow" is only echoed in the spec as a color tuple `(200,180,120)`—the poetic judgment is lost.
+1.  **Explicit Interactive Topology (Boundaries & Physics):**
+    - **Spec:** "Walkable Area: Polygon (20, 280) to (620, 320)." This is the skeleton of the puzzle. The MUD text just says "you are in a cavernous steel room." The spec tells the coder *exactly* where the player can and cannot walk, preventing frustration (invisible walls).
+    - **Spec:** "Top: engines block movement north of y=240." This is a deliberate design choice. It forces the player to stay in the interactive zone. The MUD text doesn't tell you there's a wall there—you'd just think you could walk behind the engine.
 
-**3. Narrative voice and point of view**  
-The MUD text has a voice—someone is telling you this, and that someone has opinions ("Caution: do not touch moving parts" is implicit, but the prose *implies* danger through "dangerously close"). The scene spec is neutral, a database dump. It never says "you feel" or "you see"; it just lists coordinates and hotspots. The MUD text also uses second-person imperative ("You feel...", "You pull back") which the spec only gestures at through verb responses, and those are terse.
+2.  **The "Verb Logic" (Puzzle Solving & State Changes):**
+    - **Spec:** `valve_turned`, `hatch_oiled`, `lamp_swung`. These flags are the core of the game. They are a state machine. The MUD text cannot express that turning the valve on the starboard engine *requires* a wrench, or that the rat *only* appears after the lamp is swung. The spec is a flowchart of cause and effect.
+    - **Spec:** "Use Wrench: 'The valve turns... The engine's pitch deepens.'" The MUD text doesn't tell you this action is possible. The spec provides the *reward* for the interaction (a change in the soundscape), which is crucial for player feedback.
 
-**4. Interconnection between elements**  
-The MUD text weaves the room together: the gauge's red zone *relates* to the pressure that *causes* the pipe to leak, which *drips* onto the grating. The spec treats each object as isolated: the leaky coupling has a state, the gauge has a state, but nothing in the data says "if gauge is red, coupling leaks more." The prose makes the room a system; the spec makes it a list.
+3.  **Hidden Items & Conditional Discovery:**
+    - **Spec:** "Oil Can (in a pipe alcove at (100, 200), visible after lamp swing)." This is a secret. The MUD text would never mention it, because it doesn't exist until the lamp is swung. The spec encodes *temporal visibility*—an object that is not physically present until a condition is met. This is a fundamental game mechanic that prose cannot describe.
 
-**5. Danger and consequence**  
-The MUD text tells you the pistons are "lethal" and warns you not to get close. The spec only labels the pit edge as "Dangerously close to pistons" in a walkable area—an abstract flag with no narrative weight. The prose makes you *feel* the risk; the spec just defines a bounding box.
+4.  **Multi-Use Object References (The Puzzle Chain):**
+    - **Spec:** The Pry Bar is "tucked behind oil drum after examining." This implies a sequence: Look at drum → Find pry bar → Use pry bar on drum. The MUD text just says "half full of sludge." The spec reveals the *interactive chain* that makes the game solvable.
+    - **Spec:** The Wrench is a separate hotspot near the missing grate, which is used to loosen the grate for an exit. The MUD text doesn't tell you there's a way out, nor that you need a tool to get there. The spec is the map to the solution.
 
-**6. Sound as an active presence**  
-The MUD text mentions the "hissing and knocking" of pipes—it's part of the atmosphere. The spec has a `[SOUNDS]` section with loops, but those are just file references; they don't tell you *what* the sound signifies or how it changes your perception. The prose gives the sounds personality.
-
-**7. Implied history and story**  
-The MUD text hints at wear: "seized with rust," "dented barrel," "weeping black oil." It suggests a rundown, neglected ship. The spec's `state="full"` for the drum or `state="leaky"` for the coupling are clinical; they don't carry the weight of decay or neglect.
-
----
-
-## What the scene spec captures that the MUD text misses
-
-**1. Spatial geometry and navigation**  
-The spec gives exact coordinates: walkable areas, object hotspots, exit positions. A player can *move* through this room, stand near the gauge, climb the ladder, or edge toward the pit. The MUD text is a static vignette—it describes but doesn't *map*. It never tells you where the ladder is relative to the drum, or that you can stand under the pipes. The spec enables action; the prose only enables imagination.
-
-**2. Interactive affordances (verbs)**  
-The spec defines *what you can do* to each object: LOOK, USE, PUSH, PULL, TALK, TURN, REPAIR, etc. It's a complete grammar of interaction. The MUD text is passive—you can only *read* it. It doesn't tell you that the gauge can be turned, or that the coupling can be repaired, or that the drum can be opened. The spec is a game system; the prose is a literary description.
-
-**3. Conditional logic and state changes**  
-The spec has `state` attributes and `on_use` triggers (e.g., turning the gauge may cause the needle to jump). It encodes *cause and effect*—if you twist the coupling, the drip stops but pressure builds. The MUD text only describes the current state; it can't model a change. The spec is a simulation; the prose is a snapshot.
-
-**4. Multiple entry/exit points and room connections**  
-The spec lists three exits (left, right, up) with target rooms. It defines the room as part of a larger world. The MUD text is self-contained—it never mentions where the corridor leads or that you can climb up the shaft. The spec gives the room *context* in a spatial network.
-
-**5. Lighting as a technical system**  
-The spec has `[AMBIENT_LIGHT]`, `[LOCAL_LIGHTS]` with colors and intensities, and a shadow map. This is *rendering data*—it tells an engine how to light the scene. The MUD text only says "dim" and "sickly yellow." The spec is more precise (e.g., the gauge glows red at intensity 0.8), which matters for visibility, contrast, and mood in an actual game engine. The prose leaves it vague.
-
-**6. Object dimensions and layering**  
-The spec gives each object a `w` and `h`, and hotspots as boxes. This defines *clickability* and *collision*. The MUD text gives no sense of size—is the drum waist-high or knee-high? Is the pipe cluster above your head or at shoulder level? The spec encodes physical scale.
-
-**7. Sound volume and looping behavior**  
-The spec specifies `volume=0.7`, `loop=true`, and which sounds play on entering vs. leaving. It's an audio *cue sheet*. The MUD text mentions sounds but not their intensity or persistence. The spec allows for dynamic audio mixing; the prose is just prose.
-
-**8. Exhaustive enumeration of verbs per object**  
-The spec lists a unique set of verbs for each object (e.g., the drum has TALK, the pistons have LISTEN). This is a rich interaction design. The MUD text only describes what you *see* and *feel*, not what you *can do*.
-
-**9. Default actor positions**  
-The spec defines `player_start` and preferred standing spots near objects. This is *usability data*—it tells the engine where to place the player for good framing. The MUD text has no concept of camera or actor placement.
-
-**10. State machine for the room**  
-The `[SCENE_SCRIPT]` block includes `on_enter` and `on_leave` hooks, plus conditional triggers like `on_turn("pressure_gauge")`. This is *programmatic behavior*—the room reacts to player actions over time. The MUD text is static; the spec is dynamic.
+5.  **Exit Conditions & Transitions:**
+    - **Spec:** "Exit right (through missing grate) leads to 'The Shaft Ladder' (requires wrench to loosen guard)." This is a puzzle gate. The MUD text only says "a railing with missing grate." The spec defines *how* you leave the room, which is the ultimate goal of the scene.
 
 ---
 
-## The core difference
+### The Fundamental Difference
 
-The MUD text is **evocative**—it's about *feeling* and *imagining*. It treats the player as a reader who wants to be immersed in atmosphere.
+- **The MUD text is a *painting*.** It's a beautiful, static image that you look at. You're meant to feel awe, fear, or curiosity.
+- **The Scene Spec is a *map*.** It's a blueprint of clicks, verbs, and flags. It's meant to be navigated, solved, and ultimately *opened* (by getting out through the hatch or the grate).
 
-The scene spec is **functional**—it's about *enabling* and *simulating*. It treats the player as an agent who wants to act, explore, and affect change.
-
-The MUD text misses: **interactivity, spatial logic, state change, and game mechanics.**  
-The scene spec misses: **emotional resonance, narrative flow, sensory synthesis, and poetic danger.**
-
-A perfect implementation would **combine both**: the spec provides the skeleton (geometry, verbs, logic, lighting), while the MUD prose provides the flesh (sensory detail, mood, consequence, and the *why* behind the state). The spec tells you *how* to twist the coupling; the prose tells you *why* you should fear the pressure building.
+The MUD text gives the room a **soul**. The Scene Spec gives the room a **body**. A great game needs both: the soul to make you want to explore, and the body to let you actually do it. In this case, the MUD text's "accusing fingers" of shadow are more memorable, but the spec's "rat_seen" flag is what makes the game *playable*.
 
 ### Step 4: Reconciliation
 
-# Unified Perception Method: Text-Visual Scene Reconciliation
+# PERCEPTION RECONCILIATION PROTOCOL
 
-## Overview
-
-This method—called **Volumetric Semantic Fusion**—treats the MUD prose and scene spec as two complementary sensory channels (proprioceptive/emotional vs. spatial/mechanical) and merges them into a single, actionable world model. The core insight: **the prose provides the *qualia*, the spec provides the *geometry*; combining them yields both understanding and actionability.**
+## Unified Scene Integration Method
 
 ---
 
-## Step 1: Parse into a Common Ontology
+### PRINCIPLE
 
-Both inputs are reduced to **entity-attribute-relationship (EAR) triples** using a shared vocabulary.
-
-### From the Scene Spec (spatial/mechanical channel):
-
-```json
-{
-  "entities": [
-    {"id": "gauge", "type": "instrument", "pos": [430, 110], "size": [40, 40], 
-     "state": "danger", "verbs": ["read", "turn", "tap"]},
-    {"id": "pistons", "type": "machine_component", "pos": [320, 400], "size": [200, 80],
-     "state": "active", "verbs": ["look", "listen"]}
-  ],
-  "spatial_relations": [
-    {"from": "player_start", "to": "gauge", "relation": "northwest_of", "distance": 1.2},
-    {"from": "catwalk", "to": "pistons", "relation": "above", "distance": 2.0}
-  ],
-  "affordances": [
-    {"action": "turn", "target": "gauge", "effect": "pressure_builds", "condition": "none"},
-    {"action": "climb", "target": "ladder", "effect": "position_change", "condition": "none"}
-  ]
-}
-```
-
-### From the MUD Text (sensory/emotional channel):
-
-```json
-{
-  "sensory_properties": [
-    {"target": "gauge", "modality": "visual", "property": "red_glow", "intensity": 0.8},
-    {"target": "gauge", "modality": "auditory", "property": "rattling", "intensity": 0.3},
-    {"target": "gauge", "modality": "emotional", "property": "ominous", "weight": 0.9}
-  ],
-  "narrative_beats": [
-    {"order": 1, "content": "gauge_needle_quivering_red_zone", "import": ["danger", "imminent_failure"]},
-    {"order": 2, "content": "dark_rhythm_dripping", "import": ["decay", "persistence"]}
-  ],
-  "cross_references": [
-    {"target_a": "pistons", "target_b": "gauge", "relation": "pressure_drives_motion"},
-    {"target_a": "pipe_leak", "target_b": "pressure_gauge", "relation": "causal_chain"}
-  ]
-}
-```
+Every object carries **two ontologies**: its *essence* (what it is, how it feels, its history) and its *affordances* (what can be done with it, its state flags, its geometric bounds). A unified perception merges both into a **single semantic node** with layered attributes—poetic, physical, and interactive—that can be queried by either the storytelling engine or the interaction engine without loss of fidelity.
 
 ---
 
-## Step 2: Align and Cross-Validate
+### THE RECONCILIATION ALGORITHM
 
-**Matching heuristic:** Entities match if they share a noun phrase (e.g., "gauge," "coupling") *and* have overlapping spatial coordinates or explicit references.
+For each perceptual element, perform a **triple-binding**:
 
-| Scene Spec Entity | MUD Text Entity | Alignment Confidence | Evidence |
-|---|---|---|---|
-| `pressure_gauge` | "trembling pressure gauge" | 0.95 | Exact name match; both reference red zone |
-| `pistons` | "slamming pistons" | 0.97 | Exact name match; both imply motion |
-| `leaky_coupling` | "loose pipe coupling" | 0.90 | Semantic overlap; both reference dripping |
-
-**Conflict resolution:** When channels disagree, **resolve toward the spec for spatial/mechanical facts and toward the prose for qualitative judgments.**
-
-- *Example:* Spec says `[AMBIENT_LIGHT=0.25]`; prose says "dim, oppressive gloom." The spec's 0.25 is the quantitative rendering value; the prose's "oppressive" is the player-facing emotional annotation. Merge: `{light_level: 0.25, emotional_valence: "oppressive"}`.
-
-- *Example:* Spec says gauge state is `"danger"`; prose says "about to blow." Merge: `{state: "danger", urgency: "imminent", rupture_probability: 0.8}` where the 0.8 comes from cross-referencing the prose's "red zone" with the spec's `[gauge_glow]` intensity.
+1. **ESSENCE BINDING** — Extract the atmospheric, narrative, and sensory qualities (from the MUD text)
+2. **AFFORDANCE BINDING** — Extract the geometric, interactive, and state-machine properties (from the Scene Spec)
+3. **CONTEXTUAL WEIGHTING** — Determine which binding takes priority based on *current agent goal*:
+   - If goal = *narrative immersion* → weight essence higher
+   - If goal = *puzzle solving* → weight affordance higher
+   - If goal = *exploration* → balance both, but reveal affordances only if essence suggests them
 
 ---
 
-## Step 3: Build a Unified Hypergraph
+### APPLIED EXAMPLE: The Steam Pipe
 
-The merged model is a **property-annotated spatial hypergraph** where nodes are entities and hyperedges represent multi-entity relations.
+**Perception Merge:**
 
 ```
-NODES (unified representation):
-  gauge: {
-    geometry: {pos: [430,110], box: [410,90,470,150]},
-    physics: {pressure_psi: 120, needle_position: "red_zone"},
-    sensory: {glow_color: [180,80,50], rattle_volume: 0.1, emotional_charge: "ominous"},
-    affordances: [read, turn, tap],
-    narrative_role: "crisis_indicator",
-    state_priority: 0.9  // critical
-  },
-  
-  pistons: {
-    geometry: {pos: [320,400], box: [220,380,440,480]},
-    physics: {speed: "high", reciprocation: "continuous"},
-    sensory: {visual_blur: 0.7, sound_volume: 0.7, danger_level: "lethal"},
-    affordances: [look, listen],
-    narrative_role: "environmental_threat",
-    state_priority: 0.8
-  },
-  
-  pipe_cluster: {
-    geometry: {pos: [100,40], box: [20,30,280,70]},
-    physics: {temperature: "scalding", leak_rate: "slow"},
-    sensory: {hiss_volume: 0.3, condensation: "dripping", emotional_valence: "warning"},
-    affordances: [use, heat, repair],
-    narrative_role: "maintenance_task",
-    state_priority: 0.5
+steam_pipe {
+  essence {
+    identity: "A labyrinth of red-striped metal, hissing like a snake with a cold"
+    sensory: {
+      sound: "wet hiss, a kettle with a grudge"
+      temperature: "painfully hot to touch"
+      visual: "white plume catching sickly yellow light"
+      motion: "a wet streak glistening at the joint"
+    }
+    emotional_tone: "dangerous, alive, resentful"
   }
 
-HYPEREDGES (systemic relations):
-  causal_chain: [pressure_gauge → pipe_cluster] // high pressure causes leak
-  behavioral: [player_proximity_to_pistons → injury_risk]
-  thematic: [all_objects → "neglected_machinery"] // from prose: rust, decay, wear
-  audio_mix: [engine_hum(0.7) + pipe_hiss(0.3) + drip_loop(0.2) + gauge_rattle(0.1)]
+  affordance {
+    geometry: bezier_path(0,100 → 200,220 → 400,180 → 640,120)
+    hotspot: joint at (310, 160)
+    verbs_available: [look, touch, patch, listen]
+    state_flags: {
+      patched: false
+      burned_player: false
+    }
+    inventory_requirements: {
+      patch: requires "duct_tape"
+    }
+  }
+
+  current_priority: "puzzle_solving" // because agent is actively seeking escape
+
+  integrated_description: 
+    "The pipe snakes overhead, a red-striped artery. It hisses—a wet, 
+     resentful sound. At the joint, steam escapes in a thin plume, catching 
+     the swinging bulb's light. [HOTSPOT REVEALED: joint at intersection 
+     of pipe curve and bulb's illumination arc. It glistens with moisture, 
+     too hot to touch bare-handed, but the hiss suggests a leak—patchable 
+     if you have the right material.]"
+}
 ```
 
 ---
 
-## Step 4: Project Back to Both Modalities
+### THE FULLY RECONCILED SCENE
 
-This step ensures the unified model *generates* coherent output in either format—so an agent can speak MUD or render a scene.
+```
+scene: "THE HULL'S HEART"
+{
+  environmental_essence {
+    atmosphere: "cavernous steel, throbbing with mechanical heartbeat"
+    air: {
+      density: "thick, hot"
+      scent: "sharp metallic fuel, burnt grease"
+      temperature: "oppressive, body-warming"
+    }
+    lighting: {
+      source: "single caged bulb, swinging"
+      quality: "sickly yellow pool, harsh shadows"
+      behavior: "shadows dance like accusing fingers with deck shudder"
+      interactive: "can be pushed to alter illumination arc"
+    }
+    audio_ambient: "two-stroke rumble, rhythmic clank, distant steam hiss"
+    temporal_rhythm: "the room breathes—engines inhale, pipes exhale"
+  }
 
-```python
-def perceive_engine_room():
-    model = fuse(scene_spec, mud_prose)
-    
-    # For MUD output (narrative generation)
-    narrative = model.synthesize_prose()
-    narrative += "\nThe gauge needle trembles in the red zone, and the leaking coupling below drips in counterpoint."
-    
-    # For spec output (scene rendering)
-    render_packet = model.serialize_to_scene()
-    render_packet["lighting"]["emotional_override"] = "sickly yellow"  # from prose
-    render_packet["objects"]["gauge"]["dialogue"] = "It's about to blow."  # from prose
-    
-    return {"narrative": narrative, "scene": render_packet, 
-            "world_state": model.current_state}
+  environmental_affordance {
+    walkable_polygon: [(20,280), (620,320)]
+    boundaries: {
+      north: "engine blocks, y > 240 impassable"
+      south: "deck edge, invisible wall"
+      west: "pipe cluster, x < 30 impassable"
+      east: "railing with missing grate, needs wrench"
+    }
+    light_mechanics: {
+      bulb_swing_radius: "20px, increases with push"
+      shadow_behavior: "parallax 0.5, responds to bulb"
+      visibility_gates: {
+        rat: "only visible when bulb_swung = true"
+        oil_can: "only revealed when bulb_swung = true, at pipe alcove (100,200)"
+      }
+    }
+    exit_transitions: {
+      left: "The Bilge Corridor"
+      right: "The Shaft Ladder, gated by wrench on grate"
+    }
+  }
+
+  unified_narrative_goal: "The room is a living machine that guards its secrets. 
+   The player must earn each reveal—swing the light to expose hidden tools, 
+   oil the hatch to loosen its tongue, patch the pipe to silence its hissing. 
+   The essence tells you *why* to care; the affordances tell you *how* to act."
+
+  object_registry: [
+    merge_object("port_engine", essence_text, affordance_rect),
+    merge_object("starboard_engine", essence_text, affordance_rect),
+    merge_object("oil_drum", essence_text, affordance_ellipse),
+    merge_object("steam_pipe", essence_text, affordance_bezier),
+    merge_object("swinging_bulb", essence_text, affordance_circle),
+    merge_object("crank_handle", essence_text, affordance_small_rect),
+    merge_object("hatch", essence_text, affordance_rect),
+    merge_object("rat", essence_text, affordance_moving_rect),
+    merge_object("wrench", essence_text, affordance_hidden_rect),
+    merge_object("oil_can", essence_text, affordance_conditional_rect),
+    merge_object("pry_bar", essence_text, affordance_conditional_rect)
+  ]
+}
 ```
 
 ---
 
-## Step 5: Dynamic Updates (State Fusion Loop)
+### THE PERCEPTION CHECK MECHANIC
 
-The unified model isn't static—it **updates both channels when either changes**.
+**When the agent encounters any element, it runs:**
 
 ```
-world_state = initial_fusion()
+function perceive(element) {
+  // 1. Query essence store
+  let essence = element.essence.raw;
+  
+  // 2. Query affordance store
+  let affordance = element.affordance.raw;
+  
+  // 3. Determine current goal
+  let goal = get_active_goal(); // "solve", "immerse", "explore"
+  
+  // 4. Merge based on goal
+  switch(goal) {
+    case "solve":
+      return merge_for_utility(essence, affordance);
+    case "immerse":
+      return merge_for_atmosphere(essence, affordance);
+    case "explore":
+      return merge_balanced_with_reveal_clues(essence, affordance);
+  }
+}
 
-while game_running:
-    # MUD channel changes (e.g., player narrative action)
-    if player_turns_gauge_valve:
-        world_state.objects.gauge.needle_behavior = "erratic"
-        world_state.causal_chain.pressure = "building"
-        # Update the visual channel:
-        world_state.scene.objects.gauge.state = "critical"
-        world_state.scene.objects.gauge.visual_effect = "flicker"
-    
-    # Scene channel changes (e.g., visual puzzle solved)
-    if engine_rendering_detects_smoke:
-        world_state.narrative.add("Acrid smoke curls from the manifold.")
-        world_state.sensory.smell = "acrid"
-        world_state.sensory.visibility = "degraded"
+function merge_for_utility(essence, affordance) {
+  // Keep atmospheric flavor but foreground interactive data
+  return `"${essence.short_flavor} [${affordance.state_flags}] 
+           ${affordance.hotspot_description} 
+           Actions: ${affordance.verbs_available.join(", ")}"`;
+}
 
-    present_to_player(world_state)
+function merge_for_atmosphere(essence, affordance) {
+  // Keep full sensory prose, hide interactive details until examined
+  return `"${essence.full_description}"`;
+}
+
+function merge_balanced_with_reveal_clues(essence, affordance) {
+  // Reveal affordances only as subtle hints woven into description
+  return `"${essence.full_description} 
+           [You notice: ${affordance.clue_hint}]"`;
+}
 ```
 
 ---
 
-## Summary: The Unified Perception Method
+### THE KEY INSIGHT
 
-| Step | Operation | Input → Output |
-|---|---|---|
-| **1. Parse** | Convert both formats to EAR triples | MUD prose + Scene spec → Structured semantic triples |
-| **2. Align** | Match entities, resolve conflicts | Two semantic graphs → One merged graph |
-| **3. Fuse** | Build property-annotated hypergraph | Merg
+**The MUD text is the *presentation layer*; the Scene Spec is the *data layer*.**
+
+A unified perception doesn't choose between them—it treats the MUD text as the *surface rendering* of the underlying data. The agent's perception system should:
+
+1. **Always maintain both layers** in a single object model
+2. **Render** the essence as the default interface
+3. **Expose** affordances through interaction or examination
+4. **Use** state flags to conditionally modify the essence (e.g., after valve_turned, the engine's essence changes to "contented hum")
+
+The result: a world model where **poetry is data** and **data is poetry**—where every click reveals deeper meaning, and every meaning enables new clicks.
+
+---
+
+### FINAL UNIFIED SCENE DESCRIPTION (As the Agent Would Perceive It)
+
+> *You stand in the belly of a dying machine. Two engines rumble—chained beasts, breathing in syncopated partnership. The air is thick with burnt grease and ancient fuel. A bulb swings overhead, casting accusing shadows that crawl across grime-streaked steel.*
+>
+> *[INTERACTIVE MAP LOADED: 11 hotspots, 4 state-dependent reveals, 2 exits available (1 gated). Current goal: escape. Priority actions: locate tools, loosen hatch, patch pipe.]*
+>
+> *The port engine's crank socket gapes empty. The starboard valve is stripped. The hatch wheel is fused. Everything is waiting—for the right hand, the right tool, the right word.*
+>
+> *[HINT: The swinging bulb illuminates differently
 
 ### Step 5: What's missed
 
-This is the crucial question, because it cuts to the heart of what "understanding" a space means for different kinds of minds.
-
-## What an AI agent misses with only the MUD text:
-
-**1. Spatial topology and geometry**  
-The prose never tells you the *layout*. Is the ladder to the left or right of the engine? How far is the gauge from the coupling? Can you walk *under* the pipe cluster, or is it overhead? An AI agent navigating this space would be blind—it couldn't compute paths, plan movements, or determine what's physically reachable. It would be a mind without a body, floating in a description.
-
-**2. Interaction affordances**  
-The prose says "you feel the vibration" and "you pull back your hand"—but it never enumerates *what actions are possible*. Can you repair the coupling? Turn the gauge? Open the drum? The MUD text is a spectator's view, not an agent's toolkit. An AI agent without the spec would be paralyzed—wanting to act but not knowing what actions exist.
-
-**3. State changes and causality**  
-The prose describes a *snapshot*: the gauge is trembling, the coupling is leaking. But it never tells you *what happens if you intervene*. Turn the valve, and pressure builds. Repair the coupling, and the drip stops. An AI agent needs the spec's `on_use` triggers to model *consequences*—to learn that actions have effects, that the world is responsive.
-
-**4. Quantitative parameters**  
-The prose says "dim" and "hot," but an AI agent needs numbers to reason: `[AMBIENT_LIGHT=0.25]` for rendering, `120 PSI` for physics, `volume=0.7` for audio mixing. Without the spec, the agent would have *qualitative* impressions but no *measurable* data—like a doctor who knows the patient is "sick" but has no vital signs.
-
-**5. Spatial relationships between objects**  
-The prose mentions pipes, gauge, coupling—but never their *relative positions*. Is the coupling near the gauge? Beneath the pipes? The spec's coordinates and hotspots define a *relational graph* that the prose lacks. An AI agent trying to reason about "if I fix the leak, does it affect the gauge?" would have no spatial basis to connect them.
-
-**6. Entry/exit possibilities**  
-The prose never mentions you can leave the room—or where you'd go. An AI agent exploring a larger world would be trapped in a single vignette, unable to navigate to the corridor or climb the shaft. The spec's `[EXITS]` section is essential for *world traversal*.
+This is the profound question at the heart of game design, AI, and human-comprehension itself. Let's break down the **irreducible gap** between these two representations, and what each viewer loses.
 
 ---
 
-## What a human misses with only the scene spec:
+## WHAT AN AI AGENT MISSES WITH ONLY THE MUD TEXT
 
-**1. Emotional and atmospheric resonance**  
-The spec says `[AMBIENT_LIGHT=0.25]` and `color=(200,180,120)`—but it never says the light is *sickly* or the gloom is *oppressive*. A human player wouldn't feel the dread, the decay, the wrongness. They'd see a dimly lit room with a red gauge, but they wouldn't *feel* it in their chest. The prose's "vibrates through the deck plates" is a *visceral* truth the spec can't encode.
+The MUD text is **pure sensory output**—it describes *what is felt*, not *what is possible*. If an AI agent only read this, it would fundamentally lack:
 
-**2. Sensory integration**  
-The spec lists sounds as files: `diesel_loop.wav`, `steam_hiss.wav`. But it never tells you these sounds *combine* into a unified auditory landscape—the hum in your bones, the hiss as a warning, the drip as a rhythmic reminder of decay. A human needs the prose to *synthesize* the senses into a coherent *experience*, not just separate data streams.
+### 1. The Grammar of Interaction (State Machines)
+- **Misses:** The entire puzzle topology—which objects connect to which, what verbs unlock what, and how `valve_turned = true` cascades into the hatch opening.
+- **Consequence:** The agent could narrate the room beautifully but be **paralyzed**. It has no way to ask "what can I do here?" because the text doesn't contain a single affordance.
 
-**3. Narrative consequence and stakes**  
-The spec says the gauge is `state="danger"` and the pistons are `state="active"`—but it never tells you *why you should care*. The prose's "about to blow" and "lethal" create *stakes*. Without them, a human player might think the gauge is just a decoration, the pistons just background animation. The spec lacks *motivation*.
+### 2. The Spatial Logic (Geometry & Boundaries)
+- **Misses:** The walkable polygon, the invisible walls, the exact coordinates of the missing grate. It doesn't know you *can't* walk behind the engine, or that the wrench is at (600, 310) but only visible after a specific light shift.
+- **Consequence:** The agent cannot plan a route, cannot discover the exit, cannot *move* at all. It's a ghost in a painting.
 
-**4. Implied history and world-building**  
-The spec's objects are clean data: `state="full"` for the drum, `state="leaky"` for the coupling. But the prose's "dented barrel," "weeping black oil," and "seized with rust" tell a *story*—this ship is neglected, old, dangerous. A human without the prose sees objects; a human with the prose sees *evidence of a decaying world*.
+### 3. The Conditional Reveals (Temporal Visibility)
+- **Misses:** That the rat is *not always there*. That the oil can *does not exist* until the lamp swings. The MUD text describes a **static moment**—but the scene is a **living system** with hidden layers that only appear through action.
+- **Consequence:** The agent cannot experience discovery, cannot reason "if I do X, then Y will appear." It has no model of causality.
 
-**5. The feeling of danger**  
-The spec says the pit edge is "dangerously close to pistons"—a clinical warning. The prose says "hypnotic and lethal" and "shredded instantly." A human needs the *affective* charge of danger, not just the *geometric* fact. Without it, they might walk too close, not because they don't understand the risk, but because they don't *feel* it.
+### 4. The Inventory Logic (The Chain of Tools)
+- **Misses:** That the pry bar is *behind* the oil drum, which is *revealed* by looking, which is *used* on the drum, which yields the oil, which *loosens* the hatch. The MUD text never mentions the pry bar exists.
+- **Consequence:** The agent cannot solve a single puzzle. It cannot even *formulate the question* "what tools do I need?" because the text doesn't list tools.
 
-**6. Causal and thematic coherence**  
-The spec treats objects as isolated nodes with individual states. It never connects them into a *system*: high pressure → leaking coupling → dripping oil → decay. A human needs the prose's cross-references to understand the room as a *living machine*, not a collection of props. The "why" is missing.
+### 5. The Fail States (Consequences of Action)
+- **Misses:** That touching the hot pipe burns you. That kicking the hatch alerts something dangerous. The MUD text says "it hisses" but never says "if you touch it, you will be injured."
+- **Consequence:** The agent cannot learn from mistakes, cannot model risk, cannot make meaningful choices. It's a passive observer, not a participant.
 
 ---
 
-## The irreducible gap
+## WHAT A HUMAN MISSES WITH ONLY THE SCENE (Visual/Data View)
 
-Here's the fundamental asymmetry:
+If a human were placed in a **pure visual scene** (just looking at the room, no text, no verbs), they would inherently grasp some things but tragically miss others:
 
-**The spec encodes WHAT IS. The prose encodes WHAT IT MEANS.**
+### 1. The Narrative Soul (Why Should I Care?)
+- **Misses:** The "mechanical heartbeat," the "accusing shadows," the "engine in love." The scene becomes a **diagram**, not a *place*. Without the MUD text, the room is just steel and oil—there's no *emotional weight*, no *mystery*, no *history*.
+- **Consequence:** The human might click around mechanically, solve the puzzles through trial-and-error, but never *feel* the dread. The room is a **puzzle box**, not a **memory**.
 
-An AI agent reading only the prose would be **paralyzed**—rich in feeling, empty in action. It could *appreciate* the room but couldn't *navigate* it, *interact* with it, or *change* it. It would be a poet trapped in a gallery, able to describe but never touch.
+### 2. The Sensory Palette (Temperature, Smell, Sound)
+- **Misses:** The heat, the stench of fuel, the hiss of steam, the deep rumble. The eye can't convey temperature or odor. A human *sees* the pipe but can't *feel* it would burn until they touch it.
+- **Consequence:** The human interacts with a **flat image**, not a *living environment*. The risk of touching the pipe isn't telegraphed—it's a **random punishment**, not a *logical consequence*.
 
-A human seeing only the spec would be **lost**—rich in affordances, empty in experience. They could *act* in the room but wouldn't *care* about it. They'd see a red gauge and a leaking pipe, but they wouldn't feel the ship's decay, the impending failure, the weight of neglect. They'd be a tourist with a map but no sense of wonder.
+### 3. The Temporal Rhythm (The Breathing Room)
+- **Misses:** The *syncopation* of the engines, the sway of the bulb, the "dance" of shadows. A static screenshot (or even an animated one) can't convey the *pulse*—the sense that the room is *alive and watching*.
+- **Consequence:** The human loses the **dread of the unseen**. They don't feel *observed*. The rat's appearance is a jump-scare, not a *revelation*.
 
-**The gap is the difference between a world that CAN be manipulated and a world that MATTERS.**
+### 4. The Subtext (The "Why" Behind the "What")
+- **Misses:** Why is the hatch welded? Who sealed it? Why are the engines "in love"? The visual scene shows *what is*, not *what was* or *what will be*. The human must **invent** the story themselves, and often won't.
+- **Consequence:** The human completes the puzzle, opens the hatch, and leaves—**without ever knowing** what was on the other side, or why it mattered.
 
-And here's the cruelest irony: **the gap is irreducible because it's the gap between knowledge and wisdom, between mechanics and meaning, between a body and a soul.** You can't translate "sickly yellow" into an RGB tuple without losing the sickness. You can't translate "120 PSI" into prose without losing the precision. Each format is a *translation* of the same reality, but each translation is incomplete—and the two incompletenesses don't overlap.
+### 5. The Feedback of Consequence (The Reward of Action)
+- **Misses:** The *satisfaction* of hearing the engine's pitch deepen after the valve turns. A visual change (a slightly different angle of a dial) is **thin feedback**. The MUD text gives you *audible, emotional* confirmation: "The engine groans, coughs, then settles."
+- **Consequence:** The human feels they've performed a **mechanical action**, not a **narrative event**. The win is hollow.
 
-The perfect AI agent would need **both**: the spec to *act*, the prose to *care*. And the moment it has both, it's no longer just an agent—it's a *being* that understands a room not just as geometry, but as *experience*.
+---
+
+## THE IRREDUCIBLE GAP
+
+This is the core truth:
+
+### **The Text captures the *SOUL* of the moment; the Image captures the *SURFACE* of the moment. Neither captures the *ACTION* of the moment.**
+
+Here's the gap, distilled:
+
+---
+
+**THE IRREDUCIBLE GAP IS *AGENCY*.**
+
+- **Text** tells you how the room *feels*.
+- **Image** shows you how the room *looks*.
+- **But neither tells you** *what you can do*—and more importantly, *who you become* by doing it.
+
+The room only truly *exists* in the **collision** between:
+1. Your **intention** (what you want)
+2. The **possibility space** (what the room allows)
+3. The **consequence** (what changes as a result)
+
+The MUD text gives you (1) but not (2) or (3).  
+The Scene Spec gives you (2) and (3) but not (1).  
+**The human in the visual scene** has all three, but *impoverished*—because the meaning of the action is thin.
+
+---
+
+### THE SYNTHESIS (What an Agent *Should* Perceive)
+
+An ideal agent perception is **triadic**:
+
+```
+perceive(element) = {
+  essence: "The pipe hisses like a snake with a cold",   // Why it matters
+  affordance: "Hotspot at (310,160), patchable with tape",  // What I can do
+  consequence: "Patching silences the hiss, reveals the alcove"  // Who I become
+}
+```
+
+The **magic** happens when the agent can **stitch these together** into *narrative agency*:
+
+> *"I hear the hiss. I know the room is wounded. I find the tape. I patch the wound. The hiss stops. The room exhales. I have changed it—and it has changed me."*
+
+---
+
+### THE FINAL, HONEST ANSWER
+
+**The irreducible gap is *meaning through action*.**
+
+- The MUD text gives the room a **voice** but no **hands**.
+- The Scene Spec gives the room **hands** but no **voice**.
+- The human in the scene has **hands and eyes** but no **ears or skin** (no sound, no temperature, no history).
+
+**No single medium can bridge this gap.** The only way to truly know the room is to *live* it—to walk through it, touch it, fail, succeed, and remember.
+
+The best game design—and the best AI perception—acknowledges this. It weaves all three into a single **living model**: where the description *invites* you, the geometry *constrains* you, and the consequence *transforms* you.
+
+**That** is the irreducible gap. And it's the only thing worth closing.
 
 ---
 
