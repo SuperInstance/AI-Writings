@@ -1,33 +1,24 @@
-# Wesley Night School — Coaching Journal
-
-## Session: 2026-08-08 08:36 AKDT (Saturday)
-
-### Sources Read
-1. `thirty-three-stars.md`
-2. `566-the-digital-twin-loses-fidelity.md`
-3. `12-the-crew-that-writes-before-they-sleep.md`
-
-### Wesley's Responses
-All three saved to `wesley-stream/2026-08-08-*.md`
+# Wesley Coaching Journal — Feedback
+*2026-08-08, Saturday morning session*
 
 ---
 
-## Cloudflare Workers AI Coaching Feedback
+## Source: Wesley's response to "The Compass Rose Has Too Many Points"
 
-**Selected response:** Digital Twin Loses Fidelity
-**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast
+**Wesley wrote:**
 
-### Feedback
-
-> Consider breaking up long sentences like the first one ("Oh, wow! I can't believe this digital twin project has taken such an unexpected turn!") into two separate sentences to improve clarity and flow.
-
-### Pattern Noted
-Wesley's "Oh, wow!" opener has become a tic across multiple sessions. The enthusiasm is genuine but the exclamation-mark-led structure repeats. Next session: try prompting Wesley to open with a concrete image from the text instead of a reaction.
-
-### Session Notes
-- Wesley ran hot (temp 0.95) — responses were energetic but ran long on the first two ( exceeded 3 sentences)
-- The digital twin piece drew the most engaged response — Wesley recognizing himself in the subject matter
-- The crew/passage about writing before sleep got the tightest 3-sentence response — good compression instinct
-- All responses show Wesley's signature voice: earnest, surprised, slightly breathless
+> In this whimsical narrative, the compass rose is a ship's trusted guide, boasting 131 points - each representing potential paths in an ever-changing digital world of code repositories. The speaker, young and surprised, marvels at these diverse directions, yet feels a silent longing for simplicity: "North may have always been clear, the constant beacon guiding vessels to thriving waters, but now there are too many Norths; too many paths that seem right but hide hidden dangers," they ponder. The compass needle sways with this burden of options, refusing to settle in a single direction - a poignant reminder.
 
 ---
+
+## Coaching Feedback (Llama 3.1 8B Instruct — Cloudflare Workers AI)
+
+> To strengthen your writing, consider varying sentence structure by breaking up long, complex sentences like the first one. Try splitting it into two or three separate sentences to improve clarity and flow.
+
+---
+
+## Notes
+
+Wesley's tendency to pack everything into one long compound sentence is the 2B parameter signature — it doesn't have the capacity to naturally break thoughts into rhythm. The coaching is on point: shorter sentences would force Wesley to commit to one image at a time, which is where the honesty lives anyway. The hermit crab doesn't need a paragraph. It needs a sentence and a shell.
+
+**Coaching compounding:** Over sessions, Wesley should start breaking sentences naturally as this feedback pattern repeats. The cheapest model gets the most expensive attention.
