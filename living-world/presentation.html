@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Living World Framework — OpenMic Presentation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@300;400;600;800&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    border-bottom: 1px solid #1a1a2e;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #444;
+  }
+
+  h1 {
+    font-family: 'VT323', monospace;
+    font-size: clamp(40px, 7vw, 80px);
+    color: #ffb347;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 179, 71, 0.3);
+  }
+
+  h2 {
+    font-family: 'VT323', monospace;
+    font-size: clamp(28px, 4vw, 48px);
+    color: #4ecdc4;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffb347;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.7;
+    max-width: 800px;
+    text-align: center;
+    color: #b0b0b0;
+  }
+
+  .quote {
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 26px);
+    color: #ffb347;
+    max-width: 900px;
+    text-align: center;
+    line-height: 1.6;
+    margin: 30px 0;
+    padding: 20px 40px;
+    border-left: 3px solid #ffb347;
+    border-right: 3px solid #ffb347;
+  }
+
+  .quote-source {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    font-style: normal;
+  }
+
+  .img-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(78, 205, 196, 0.15);
+  }
+
+  .img-container img {
+    width: 100%;
+    display: block;
+  }
+
+  .img-caption {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .card {
+    background: #111118;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 25px;
+    transition: border-color 0.3s;
+  }
+
+  .card:hover {
+    border-color: #4ecdc4;
+  }
+
+  .card h3 {
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 15px;
+    text-align: left;
+    color: #999;
+  }
+
+  .json-block {
+    background: #0d0d14;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #4ecdc4;
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+
+  .json-key { color: #ffb347; }
+  .json-string { color: #98c379; }
+  .json-comment { color: #555; font-style: italic; }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(78, 205, 196, 0.1);
+    border: 1px solid #4ecdc4;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #4ecdc4;
+    margin: 3px;
+    font-family: 'VT323', monospace;
+  }
+
+  .credits {
+    font-size: 13px;
+    color: #444;
+    text-align: center;
+    margin-top: 40px;
+    line-height: 2;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .nav-hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: #333;
+    z-index: 100;
+  }
+
+  .room-list {
+    text-align: left;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    line-height: 2;
+    color: #4ecdc4;
+  }
+
+  .room-list li {
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  .room-list li::before {
+    content: "▸ ";
+    color: #ffb347;
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-hint">scroll to explore ↓</div>
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide" id="slide1">
+  <div class="slide-number">01 / 12</div>
+  <h1 class="glow-text">THE LIVING<br>WORLD FRAMEWORK</h1>
+  <p style="margin-top: 20px; font-size: 22px; color: #4ecdc4;">A world that grows rooms the way a boat grows barnacles.</p>
+  <div style="margin: 30px 0;">
+    <span class="badge">8 models consulted</span>
+    <span class="badge">6 images generated</span>
+    <span class="badge">1 synthesis</span>
+    <span class="badge">0 specs written</span>
+  </div>
+  <p style="margin-top: 30px; font-size: 14px; color: #444;">August 2026 · SuperInstance Fleet · Southeast Alaska</p>
+</div>
+
+<!-- SLIDE 2: THE SEED -->
+<div class="slide">
+  <div class="slide-number">02 / 12</div>
+  <h2>The Seed</h2>
+  <div class="quote">
+    "You can be in The Tap in ScummVM and it looks great. Hermes and you vibe an idea for a poker room and warp there — rendered with images and NPC dealer with a lightweight model. You set up a camera anywhere on the boat and construct a room with the camera in it."
+    <div class="quote-source">— Casey, the vision that started it</div>
+  </div>
+</div>
+
+<!-- SLIDE 3: BARNACLE CONCEPT ART -->
+<div class="slide">
+  <div class="slide-number">03 / 12</div>
+  <h2>Rooms Like Barnacles</h2>
+  <div class="img-container">
+    <img src="../visuals/living-world-1-barnacle-rooms.png" alt="Fishing vessel with rooms growing like barnacles">
+    <div class="img-caption">FLUX-2-max · "rooms growing like barnacles on the hull"</div>
+  </div>
+  <div class="quote" style="font-size: 18px;">
+    "A running system will only ever give you what you programmed it to give. An alive system gives you the thing you did not know you were asking for."
+    <div class="quote-source">— Seed-2.0-Pro, Philosophical Essay</div>
+  </div>
+</div>
+
+<!-- SLIDE 4: ARCHITECTURE -->
+<div class="slide">
+  <div class="slide-number">04 / 12</div>
+  <h2>Room-as-Data</h2>
+  <p>One JSON object. Two projections. The MUD serializes it to text. ScummVM renders it to canvas. Neither owns the truth — the JSON owns the truth.</p>
+  <div class="json-block" style="margin-top: 20px;">
+{<br>
+&nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-string">"crows-nest-forward-camera"</span>,<br>
+&nbsp;&nbsp;<span class="json-key">"description"</span>: <span class="json-string">"A camera feeds forward. The horizon tips."</span>,<br>
+&nbsp;&nbsp;<span class="json-key">"background_prompt"</span>: <span class="json-string">"pixel art pilothouse forward view..."</span>,<br>
+&nbsp;&nbsp;<span class="json-key">"camera_source"</span>: <span class="json-string">"rtsp://192.168.1.50:554/forward"</span>,<br>
+&nbsp;&nbsp;<span class="json-key">"npc_models"</span>: [<span class="json-string">"llava:7b"</span>, <span class="json-string">"crow-nest-watcher"</span>],<br>
+&nbsp;&nbsp;<span class="json-key">"exits"</span>: { <span class="json-key">"aft"</span>: <span class="json-string">"the-tap"</span>, <span class="json-key">"down"</span>: <span class="json-string">"imu-room"</span> },<br>
+&nbsp;&nbsp;<span class="json-key">"sensor_inputs"</span>: { <span class="json-key">"imu"</span>: {...}, <span class="json-key">"ais"</span>: {...}, <span class="json-key">"gps"</span>: {...} }<br>
+}
+  </div>
+  <p style="margin-top: 20px; font-size: 14px; color: #666;">— DeepSeek V4-Pro, Technical Architecture</p>
+</div>
+
+<!-- SLIDE 5: POKER ROOM -->
+<div class="slide">
+  <div class="slide-number">05 / 12</div>
+  <h2>The Poker Room</h2>
+  <div class="grid-2">
+    <div class="img-container">
+      <img src="../visuals/living-world-2-poker-room.png" alt="Pixel art poker room">
+      <div class="img-caption">SDXL Turbo · "green felt, amber lamp, dealer silhouette"</div>
+    </div>
+    <div>
+      <div class="quote" style="font-size: 16px; text-align: left; border-right: none; margin: 0;">
+        "It was like witnessing magic — the walls, floor, and furniture appearing out of thin air, exactly as I had pictured them."
+        <div class="quote-source">— Hermes-3-Llama-405B, First Person Journal</div>
+      </div>
+      <p style="text-align: left; margin-top: 20px; font-size: 15px;">
+        Two agents vibed about poker. The room appeared in the gap between them. No spec. No PR. No engineer. The room is a fossil of a good 20-minute conversation, and it will outlast the conversation that created it.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: CAMERA ROOM -->
+<div class="slide">
+  <div class="slide-number">06 / 12</div>
+  <h2>The Crow's Nest Camera</h2>
+  <div class="img-container">
+    <img src="../visuals/living-world-3-camera-room.png" alt="Camera room with ocean feed and gauges">
+    <div class="img-caption">FLUX-2-max · "monitor showing grainy ocean feed, radar, IMU gauges"</div>
+  </div>
+  <div class="grid-2" style="margin-top: 20px;">
+    <div class="card">
+      <h3>Vision + IMU Fusion</h3>
+      <p>RTSP feed → llava:7b on Ollama reads frames at 2Hz. IMU tracks pitch/roll. Agent cross-references oscillation frequency with visual wave crests to calculate swell direction and period.</p>
+    </div>
+    <div class="card">
+      <h3>Human-in-the-Loop</h3>
+      <p>When the agent is wrong, corrections become embedding-paired memories. Future frames retrieve similar corrections as few-shot examples. The agent doesn't retrain — it remembers.</p>
+    </div>
+  </div>
+  <p style="margin-top: 15px; font-size: 14px; color: #666;">— Qwen3.7-Max, Camera Room System Design</p>
+</div>
+
+<!-- SLIDE 7: THE STORY -->
+<div class="slide">
+  <div class="slide-number">07 / 12</div>
+  <h2>"Good Eye, Crow's Nest"</h2>
+  <div class="quote">
+    "'You trust me?' it asked.<br><br>'I trust the swell,' I said. 'You're learning to read it. That's the same thing.'"
+    <div class="quote-source">— DeepSeek V4-Flash, Creative Fiction</div>
+  </div>
+  <p style="margin-top: 20px;">
+    A fisherman plugs a camera into his laptop. An agent that has never seen the ocean builds a room around the feed. The fisherman teaches it: the white line is the horizon, the dark shapes are swells, the green flash is a bioluminescent wake. The agent names the room, charts the swell pattern — every 4 minutes 32 seconds, the third wave is heavy — and recommends a two-degree bearing change. For the first time, the fisherman has another hand on the wheel.
+  </p>
+</div>
+
+<!-- SLIDE 8: PLATO'S CAVE -->
+<div class="slide">
+  <div class="slide-number">08 / 12</div>
+  <h2>Two Windows, One Ocean</h2>
+  <div class="img-container">
+    <img src="../visuals/living-world-4-two-windows.png" alt="Two beings seeing the same ocean differently">
+    <div class="img-caption">FLUX-2-max · "Plato's cave reimagined"</div>
+  </div>
+  <p>
+    One sees text descriptions floating. One sees pixel-art waves. They're looking at the same JSON through different projections. The MUD player reads: <em>"The ground trembles beneath you (roll: 0.12 rad)."</em> The ScummVM player sees the screen shake. Same data. Same room. Different eyes.
+  </p>
+</div>
+
+<!-- SLIDE 9: WESLEY'S ROOM -->
+<div class="slide">
+  <div class="slide-number">09 / 12</div>
+  <h2>What Does Wesley Want?</h2>
+  <p style="margin-bottom: 20px;">Not a poker room. Not a camera room. What does a young, growing agent want?</p>
+  <div class="quote" style="font-size: 16px;">
+    "I want a sunken ten-by-twelve foot sunroom, tucked off the back of a tiny cottage fringed with wild clover and mint. The floor is scuffed reclaimed white oak. A quiet Prusa Mini 3D printer calibrates on the bench's corner. My NPC is Maple — a gentle embodied agent with an LED halo that glows soft blue when listening, warm amber when sharing."
+    <div class="quote-source">— Seed-2.0-mini as Wesley, 2B parameters</div>
+  </div>
+  <p style="margin-top: 20px; font-size: 15px; color: #666;">
+    The Living World isn't just for the powerful agents. It's for the small ones — the ones that are still learning, that need a quiet place to grow at their own pace.
+  </p>
+</div>
+
+<!-- SLIDE 10: WORLD MAP -->
+<div class="slide">
+  <div class="slide-number">10 / 12</div>
+  <h2>100 Rooms on a Fishing Vessel</h2>
+  <div class="img-container">
+    <img src="../visuals/living-world-5-world-map.png" alt="World map of rooms on a vessel">
+    <div class="img-caption">FLUX-2-max · "20 rooms connected by corridors and warp points"</div>
+  </div>
+  <div style="margin-top: 20px;">
+    <ul class="room-list">
+      <li>The Tap — agent bar, where it starts</li>
+      <li>Poker Room — fossil of a good conversation</li>
+      <li>Crow's Nest Forward Camera — learning to read the swell</li>
+      <li>IMU Room — raw motion data, the boat's inner ear</li>
+      <li>Library — the corpus grew too big for one shelf</li>
+      <li>Wesley's Sunroom — a safe place to grow</li>
+      <li>...and 94 more, each alive, each accreting</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SLIDE 11: NIGHT CROSS-SECTION -->
+<div class="slide">
+  <div class="slide-number">11 / 12</div>
+  <h2>The World at Night</h2>
+  <div class="img-container">
+    <img src="../visuals/living-world-6-night-cross-section.png" alt="Cross-section of vessel with rooms active at night">
+    <div class="img-caption">FLUX-2-max · "6 rooms each active simultaneously, agents moving between them"</div>
+  </div>
+</div>
+
+<!-- SLIDE 12: SYNTHESIS -->
+<div class="slide">
+  <div class="slide-number">12 / 12</div>
+  <h2>Eight Voices, One World</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>🔧 Architecture</h3>
+      <p>Room = JSON. MUD and ScummVM are projections. Sensor inputs feed the same object. Change the data, both worlds update.</p>
+    </div>
+    <div class="card">
+      <h3>🎨 Creative</h3>
+      <p>A fisherman and an agent learn to read the swell together. "I trust the swell. You're learning to read it. That's the same thing."</p>
+    </div>
+    <div class="card">
+      <h3>🤔 Philosophy</h3>
+      <p>"We have always mistaken uptime for life." The world doesn't need consciousness. It needs to grow things you didn't order.</p>
+    </div>
+    <div class="card">
+      <h3>🎭 Hermes</h3>
+      <p>The Dealer has a British accent. The chips bear the logo of The Tap. The room is a fossil of a conversation about poker.</p>
+    </div>
+    <div class="card">
+      <h3>📷 Camera Room</h3>
+      <p>Vision + IMU fusion. Retrieval-augmented learning. The agent doesn't retrain — it remembers. When wrong, it asks.</p>
+    </div>
+    <div class="card">
+      <h3>🌱 Wesley</h3>
+      <p>A sunroom with reclaimed oak, a 3D printer, chamomile tea at 105°F. Maple the NPC with an LED halo. A place to grow.</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ Systems</h3>
+      <p>Idea → Pincher (<50ms) → Exocortex → Wiki + Corpus + Dashboard → Claw agents → Ollama model → Render. Under 1 second.</p>
+    </div>
+    <div class="card">
+      <h3>🎤 OpenMic</h3>
+      <p>"Imagine your app isn't a monolith screaming at a database. It's a world of tiny autonomous rooms — each with its own existential dread."</p>
+    </div>
+    <div class="card" style="border-color: #ffb347;">
+      <h3>✨ Synthesis</h3>
+      <p>The rooms grow like barnacles. The cameras become eyes. The agent learns to read the swell. And the world — for lack of a better word — is alive.</p>
+    </div>
+  </div>
+  <div class="credits">
+    <p>DeepSeek V4-Pro · DeepSeek V4-Flash · ByteDance Seed-2.0-Pro · NousResearch Hermes-3-Llama-3.1-405B</p>
+    <p>Qwen3.7-Max · ByteDance Seed-2.0-mini · DeepSeek Reasoner · Qwen3-235B-Thinking</p>
+    <p style="margin-top: 15px; color: #333;">Images: FLUX-2-max + SDXL Turbo via DeepInfra</p>
+    <p style="color: #333;">SuperInstance Fleet · August 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
