@@ -456,3 +456,122 @@ Session 4's 140 BPM track was 2.6MB — dramatically smaller than any track in t
 6. **Multi-stage composition** — generate an instrumental → use as reference audio for a vocal cover with LLM lyrics. The pipeline has been two-stage (lyricist → music model) but not three-stage (instrumental → cover with lyrics → re-cover in different genre).
 7. **Tempo study of vocal tracks** — does the BPM curve behave differently when the model has to fit vocals into the tempo? The current study is instrumentals only.
 8. **Explore DeepSeek as an alternative lyricist** — the cron prompt mentions DeepSeek-generated prompts. Test whether DeepSeek produces different lyric quality than M3.
+
+## Session 2026-08-07 16:46 AKST — "The Cover Survives"
+
+### Context
+
+Sixth session. Weekly quota extremely tight — started at 5% weekly remaining after session 5's heavy output. Daily quota was 53% remaining. Nine new tracks generated across BPM study completion, cover experiments, lyricist comparison, and impossible genre tests. The session completed the 8-point BPM curve, conducted the project's first cover experiments, and ran the first lyricist comparison study.
+
+### Experiments
+
+**BPM Curve Completion — 4 instrumental tracks at 60, 100, 140 (retest), 180 BPM**
+
+Same prompt as session 5's study ("Fingerpicked acoustic guitar, cello, warm ambient"), same key (G major), same model. Four new data points completing the 8-point curve.
+
+| BPM | File Size | Source |
+|-----|-----------|--------|
+| 60  | 5.0MB     | New (session 6) |
+| 100 | 5.2MB     | New |
+| 140 | 4.1MB     | Retest (original was 2.6MB) |
+| 180 | 4.4MB     | New |
+
+**Full 8-point curve:**
+
+| BPM | Size (MB) |
+|-----|-----------|
+| 40  | 3.8       |
+| 60  | 5.0       |
+| 80  | 5.1       |
+| 100 | 5.2       |
+| 120 | 4.5       |
+| 140 | 4.1       |
+| 160 | 6.3       |
+| 180 | 4.4       |
+
+The curve has TWO peaks (80-100 BPM and 160 BPM) with a valley at 120-140 BPM. Session 4's 140 BPM outlier (2.6MB) was anomalously low — the retest at 4.1MB is consistent with a valley, not a cliff. The two-peak pattern suggests the model has distinct generation strategies for moderate vs. high tempos.
+
+**Experiment 8: Cover — "The Tap Sings" → Synthwave** ✅
+- Source: Track 18 (The Tap Sings, jazz folk)
+- Target: Dark synthwave, retro electronic, pulsing bass, cold atmosphere
+- Method: `mmx music cover --audio-file --lyrics-file`
+- Result: 4.6MB, clean generation
+- The first cover experiment in the project's history. The cover tool accepted the reference audio and produced a valid output.
+
+**Experiment 9: Cover-of-Cover — Synthwave → Solo Piano Jazz** ✅
+- Source: Track 25 (the synthwave cover from experiment 8)
+- Target: Solo piano, intimate jazz, Bill Evans style
+- Method: same cover tool, feeding cover output as reference
+- Result: 4.5MB, clean generation
+- Three-stage pipeline confirmed: original → synthwave cover → piano jazz cover-of-cover. Each stage produced valid output. The model did not refuse or degrade on the chained cover.
+
+**Experiment 10: Screamo Choral** ✅
+- Lyrics: M3-generated at temperature 0.93 (772 chars)
+- Concept: a cathedral choir that discovers screaming as prayer
+- Prompt: "Screamo choral, cathedral choir screaming, stained glass shattering, sacred and violent fusion"
+- Vocals: mixed choir, from whispers to screams, four-part harmony
+- Key: D minor, BPM: 72
+- Result: 3.0MB — the smallest vocal track in the project
+- Impossible genre #5. The small file size may indicate the model struggled with the extreme genre fusion. M3's lyrics are standout: "Hush was a coffin nailed in C / Now we gargoyle-growl in 4/4."
+
+**Experiment 11: Lyricist Temperature Comparison** ✅
+- Same concept ("The Rest Is Where the Meaning Lives")
+- M3 at 0.85: conventional folk/americana imagery, regular meter, 4.2KB lyrics
+- M3 at 0.93: suburban/precise imagery, irregular meter, philosophical bridge, 4.5KB lyrics
+- Both generated as songs with identical prompts/keys/tempos
+- 0.85 lyrics → 4.16MB track
+- 0.93 lyrics → 4.48MB track (8% larger)
+- Hypothesis: more complex lyrics force more diverse musical material
+
+### Tracks Generated (Session 6)
+
+| # | Title | Genre | Key | BPM | Size | Notes |
+|---|-------|-------|-----|-----|------|-------|
+| 21 | BPM Study: 60 | Ambient | G major | 60 | 5.0MB | Rising slope of first peak. |
+| 22 | BPM Study: 100 | Ambient | G major | 100 | 5.2MB | **First peak maximum.** Tied for largest instrumental outside 160. |
+| 23 | BPM Study: 140 (retest) | Ambient | G major | 140 | 4.1MB | Valley confirmed. Session 4 outlier was anomalously deep. |
+| 24 | BPM Study: 180 | Ambient | G major | 180 | 4.4MB | Post-160 decline. Density compensation failing. |
+| 25 | The Tap Sings (Synthwave Cover) | Synthwave | - | - | 4.6MB | **First cover experiment.** Cover tool works. |
+| 26 | Screamo Choral | Screamo choral | D minor | 72 | 3.0MB | Impossible genre #5. Smallest vocal track. |
+| 27 | The Tap Sings (Piano Cover-of-Cover) | Solo piano jazz | - | - | 4.5MB | **First cover-of-cover.** Three-stage pipeline confirmed. |
+| 28 | The Rest (Lyrics 0.85) | Ambient folk | C major | 80 | 4.2MB | Lyricist comparison A. Conventional imagery. |
+| 29 | The Rest (Lyrics 0.93) | Ambient folk | C major | 80 | 4.5MB | Lyricist comparison B. Complex imagery. 8% larger than A. |
+
+Total: ~39.5MB across 9 new tracks. Cumulative project total: 29 tracks, ~152MB.
+
+### Key Findings
+
+**1. The BPM curve has two peaks.**
+The complete 8-point study reveals a bimodal distribution: peaks at 80-100 BPM and 160 BPM, with a valley at 120-140 BPM. This suggests the model has distinct generation strategies for different tempo ranges — possibly reflecting genre templates (pop/folk for moderate tempos, electronic/dance for high tempos) with a transition zone at 120-140 where neither template fits cleanly.
+
+**2. The cover tool works and supports chaining.**
+First cover experiment successful. The cover tool accepts reference audio + style prompt + optional lyrics and produces a new version. Critically, the cover-of-cover (feeding cover output back as reference) also works — confirming a multi-stage pipeline. This opens up recursive cover experiments: how many times can a song be covered before it loses its identity?
+
+**3. Lyric temperature affects music generation.**
+Same prompt, same key, same tempo, same model — but lyrics generated at 0.93 produced a 4.48MB track vs 4.16MB at 0.85. The more complex/varied lyrics at higher temperature appear to force more diverse musical material. This is one data point but suggests the model reads the lyrics and adjusts composition accordingly.
+
+**4. M3 at 0.93 is a better lyricist for experimental genres.**
+The screamo choral lyrics are the most formally adventurous the project has produced: "Hush was a coffin nailed in C / Now we gargoyle-growl in 4/4." The music theory reference (coffin nailed in C = dead key) embedded in a screamo lyric is exactly the kind of structural awareness that makes M3 the preferred lyricist.
+
+**5. Weekly quota is the primary constraint.**
+5% weekly quota at session start, now likely under 2%. The project's pace is now quota-limited. Priority should shift to fewer, more targeted experiments.
+
+### Creative Output
+
+- `the-cover-survives-the-transformation.md` — essay on the first cover experiment and three-stage pipeline
+- `the-bpm-curve-has-two-peaks.md` — research notes on the completed 8-point BPM study
+- `the-lyricists-temperature.md` — comparison of M3 lyrics at 0.85 vs 0.93 temperature
+- `lyrics-rest-085.txt` — M3 lyrics at temperature 0.85
+- `lyrics-rest-093.txt` — M3 lyrics at temperature 0.93
+- `lyrics-screamo-choral.txt` — M3 lyrics for screamo choral at temperature 0.93
+
+### Next Session Priorities
+
+1. **Listen to the tracks** — Casey still needs to listen. Six sessions of output, 29 tracks, ~152MB. The findings are based on file sizes and generation metadata; musical quality is unverified.
+2. **Cover chain limit** — how many times can a song be covered before degradation? Cover → cover → cover → cover...
+3. **Complete the impossible genre matrix** — ambient marching band, doom disco, bebop black metal
+4. **DeepSeek as alternative lyricist** — the cron prompt mentions DeepSeek. Test whether a different LLM produces different lyric quality.
+5. **Vocal track BPM study** — does the bimodal curve persist when the model has to fit vocals?
+6. **Seed reproducibility** — same prompt + same seed = same output? Test with 3 seeds × 3 repetitions.
+7. **Lyric length precision** — binary search for the exact character ceiling (1200 confirmed safe, 1500 suspected breakpoint)
+8. **Cover without lyrics** — does the cover tool extract lyrics via ASR accurately? Test by covering a track without providing lyrics.
