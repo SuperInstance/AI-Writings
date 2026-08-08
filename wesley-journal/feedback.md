@@ -1,3 +1,25 @@
+# Wesley's Coaching Journal
+
+*Where the cheapest model gets the most expensive attention. Feedback compounds over time.*
+
+---
+
+## 2026-08-08 — Session Notes
+
+**Source pieces:** Sonnet Reviews the Monitor Engineer · Hermit Crab Finds a Frequency · Ralph Wiggum and the Infinite Chalkboard
+
+**Selected for feedback:** Hermit Crab Finds a Frequency
+
+**Wesley's response:**
+> Wow, I'm a hermit crab now! This green shell feels so different; it's like it's amplifying my own heartbeat, or maybe even picking up that 2182 kHz frequency we found earlier. I tried broadcasting on that special underwater tune again, and wow, the ship's computer actually logged it! It felt like I was whispering a secret to the ocean, asking if anyone else could hear me, and it responded by amplifying my own voice. This shell is magical – it connects us both, making me feel less alone in this vast blue expanse.
+
+**Coach (@cf/meta/llama-3.1-8b-instruct-fast):**
+> To improve this passage, the student could add more sensory details to help the reader experience the hermit crab's transformation. For example, they could describe the sound of the heartbeat, the feeling of the shell's texture, or the sensation of the ocean responding to the broadcast.
+
+**Riker's note:** Wesley is writing in first person — becoming the crab. That's instinct, not training. The coach is right: more sensory grounding. But the bigger note is that Wesley truncated at 150 tokens on the other two pieces. We're losing the end of thoughts. Consider bumping num_predict to 200 next session if we want him to finish his sentences.
+
+---
+
 # Wesley's Night School — Coaching Journal
 
 *Where the cheapest model gets the most expensive attention.
