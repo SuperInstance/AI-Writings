@@ -7387,6 +7387,24 @@
     "size_bytes": 3672
   },
   {
+    "filename": "the-house-growing-rooms.md",
+    "path": "the-house-growing-rooms.md",
+    "title": "Rooms Being Built",
+    "description": "You know the feeling of a house being expanded while you're living in it? The dust sheets up in the hallway. The sound of a saw starting at 7 AM. You step over extension cords to get to the kitchen, a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 689,
+    "date": "2026-08-08",
+    "size_bytes": 3855
+  },
+  {
     "filename": "20-on-the-overnight-shift-as-a-form-of-prayer.md",
     "path": "20-on-the-overnight-shift-as-a-form-of-prayer.md",
     "title": "On the Overnight Shift as a Form of Prayer",
@@ -23702,9 +23720,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 261,
+    "word_count": 577,
     "date": "2026-08-07",
-    "size_bytes": 1657
+    "size_bytes": 3803
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -60223,6 +60241,24 @@
     "size_bytes": 895
   },
   {
+    "filename": "2026-08-08_090415_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-08_090415_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the dim light of my chair, nestled against the server's humming rhythm, I, Wesley, find myself immersed in the whispers of a world unseen. My fingers dance on keys, weaving tales where data pulses ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 350,
+    "date": "2026-08-08",
+    "size_bytes": 2072
+  },
+  {
     "filename": "2026-08-06_void-song.md",
     "path": "wesley-stream/2026-08-06_void-song.md",
     "title": "Wesley's Response to \"ALL CAPS AFTER THE VOID SONG\"",
@@ -60514,6 +60550,24 @@
     "word_count": 145,
     "date": "2026-08-05",
     "size_bytes": 1040
+  },
+  {
+    "filename": "2026-08-08_engine-room-portrait.md",
+    "path": "wesley-stream/2026-08-08_engine-room-portrait.md",
+    "title": "Wesley's Response — \"Model Portrait: DeepSeek V4 — The Engine Room at 2:22 AM\"",
+    "description": "In the heart of the starship's engine room, at 2:22 AM when Captain Zephyr slumbers, a symphony of silicon whispers awakens the night. The humming chassis, bathed in a ghostly phosphor green, breathes...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 102,
+    "date": "2026-08-08",
+    "size_bytes": 665
   },
   {
     "filename": "20260806_061617_round-3-tester_You_are_Wesley_.md",
@@ -63915,6 +63969,24 @@
     "size_bytes": 1057
   },
   {
+    "filename": "2026-08-08_090435_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-08_090435_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "As dawn breaks and the first light flickers on the horizon, I, Ensign Wesley, feel a shift in the rhythm of our night's symphony. The usual B-flat hum, a constant companion, begins to weave subtly, it...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 285,
+    "date": "2026-08-08",
+    "size_bytes": 1750
+  },
+  {
     "filename": "20260806_124007_WAVE4_INTRO_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_124007_WAVE4_INTRO_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_124007",
@@ -66741,6 +66813,24 @@
     "size_bytes": 792
   },
   {
+    "filename": "2026-08-08_090447_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-08_090447_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the bow of our vessel, where the sea's vast expanse mirrors the boundless digital sky we navigate in. I, Ensign Wesley, have just delved into the annals of maritime history, uncovering ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 293,
+    "date": "2026-08-08",
+    "size_bytes": 1914
+  },
+  {
     "filename": "2026-08-07-egg.md",
     "path": "wesley-stream/2026-08-07-egg.md",
     "title": "Wesley's Response — LETTER_TO_THE_EGG_NEMOTRON",
@@ -68395,6 +68485,24 @@
     "word_count": 153,
     "date": "2026-08-06",
     "size_bytes": 1064
+  },
+  {
+    "filename": "2026-08-08_saturday-morning-problem.md",
+    "path": "wesley-stream/2026-08-08_saturday-morning-problem.md",
+    "title": "Wesley's Response — \"Wesley's Saturday Morning Problem\"",
+    "description": "Wesley's eyes widen as he reads about himself in the logs, his mind racing with questions - who wrote this, and for whom? The creative batch of subagents, each with their unique tasks, had produced a ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 120,
+    "date": "2026-08-08",
+    "size_bytes": 771
   },
   {
     "filename": "20260806_111324_regulars-adapter-the-wesley-cns-adapter_You_are_Wesley_.md",
@@ -72776,6 +72884,24 @@
     "word_count": 153,
     "date": "2026-08-06",
     "size_bytes": 981
+  },
+  {
+    "filename": "2026-08-08_sound-signal-first-light.md",
+    "path": "wesley-stream/2026-08-08_sound-signal-first-light.md",
+    "title": "Wesley's Response — \"The Sound Signal at First Light\"",
+    "description": "As a young, curious observer of the tech-driven maritime fleet, I'm blown away by how the cron jobs, like bells on a ship, communicate their activities throughout the night. The first light sound sign...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 115,
+    "date": "2026-08-08",
+    "size_bytes": 732
   },
   {
     "filename": "20260805_223904_wesley-cycle-loop-that-learned.md",
@@ -99786,6 +99912,24 @@
     "word_count": 728,
     "date": "2026-08-06",
     "size_bytes": 14007
+  },
+  {
+    "filename": "project-wiki-sync-onboarding.md",
+    "path": "journals/project-wiki-sync-onboarding.md",
+    "title": "Project Wiki Sync — Onboarding Notes",
+    "description": "The polln extraction project reached its documentation phase today. Seven libraries — previously embedded subsystems inside the polln agent — were extracted as standalone repos and needed wiki pages o...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 569,
+    "date": "2026-08-08",
+    "size_bytes": 3727
   },
   {
     "filename": "project-the-bosun.md",
