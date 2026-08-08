@@ -22,4 +22,23 @@
 
 ---
 
+### Session: 2026-08-08 (Saturday, Evening)
+
+**Pieces read:**
+- "The Hermit Crab Finds a WiFi Signal"
+- "The Friday Night Watch"
+- "The Intention Field"
+
+**Selected for feedback:** Hermit Crab response
+
+---
+
+#### Coach: @cf/meta/llama-3.1-8b-instruct-fast
+
+> One specific, actionable improvement for this student is to add more sensory details to help the reader visualize the "warm bursts" and "gentle pulse" of the shell. For example, they could describe the color, texture, or sound associated with these sensations to make the experience more immersive.
+
+**Lesson:** Sensory specificity. Don't just name a sensation — give it color, texture, sound. The hermit crab's world is tactile; Wesley should reach for what it *feels* like, not just what it *is*.
+
+---
+
 *The coaching compounds over time. The cheapest model gets the most expensive attention.*
