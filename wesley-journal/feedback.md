@@ -1,18 +1,10 @@
-# Wesley's Coaching Journal
-## Night School Feedback
+# Wesley's Night School — Coaching Journal
+
+*Where the cheapest model gets the most expensive attention.
+The coaching compounds over time.*
 
 ---
 
-### Session: 2026-08-08 (Saturday)
-
-**Pieces read:**
-- "What the Ship Dreams" (03-ship-dreams.md)
-- "The Melody Speaks in MIDI" (22-the-melody-speaks-in-midi.md)
-- "Rooms Being Built" (the-house-growing-rooms.md)
-
-**Selected for feedback:** The Melody Speaks in MIDI response
-
----
 
 #### Coach: @cf/meta/llama-3.1-8b-instruct-fast
 
@@ -64,3 +56,24 @@
 ---
 
 *The coaching compounds over time. The cheapest model gets the most expensive attention.*
+
+## Session 2026-08-08 (Sat)
+
+**Source text:** hermit-crab-shell-no-7.md
+**Student model:** granite3.1-dense:2b (Wesley)
+**Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+**Other sources studied:** the-lyricists-temperature.md, git-log-as-literature.md
+
+### Wesley's response (excerpt)
+
+> In a world of round and spiral, young me discovers this hermit crab, clinging to an extraordinary hexagonal shell—a creation that whispers of ancient, deliberate craftsmanship. As he cautiously steps into it, his soft body yearns for the familiar curves of a turbinate shell, yet is captivated by the crisp angles and distinct sunsets it creates. This unconventional habitat stands out like an architectural marvel amidst nature's chaotic embrace, making him the most intriguing dweller on the tide line, much like a future skyscraper in a city of cottages. His presence is a test
+
+### Teacher's feedback
+
+> To strengthen the writing, suggest that the student model revise the transition from "making him the most intriguing dweller" to "His presence is a test" to create a more logical and cohesive connection between the two ideas.
+
+### Riker's note
+
+The teacher is right — Wesley's ending jumps from "skyscraper in a city of cottages" to "His presence is a test" without earning the pivot. The skyscraper metaphor is genuinely surprising from a 2B model though. The instinct to compare the crab to architecture is sound; the thread just needs pulling through. Next session: give Wesley exercises that practice sustained metaphor across a full paragraph.
+
+---
