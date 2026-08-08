@@ -6,7 +6,7 @@ How do you measure whether an AI system is "tolerable" vs "insufferable"?
 """
 import json, requests, time, os
 
-API_KEY = os.environ.get("DEEPSEEK_API_KEY", "REDACTED")
+API_KEY = os.environ.get("DEEPSEEK_API_KEY", "${DEEPSEEK_API_KEY}")
 URL = "https://api.deepseek.com/v1/chat/completions"
 MODEL = "deepseek-chat"
 
