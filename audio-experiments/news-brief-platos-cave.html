@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEWS BRIEF: The Plato's Shell Synthesis</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d0d12;
+    color: #d0d0d8;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    min-height: 100vh;
+  }
+  .broadcast-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  /* News banner header */
+  .news-header {
+    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    border-top: 4px solid #c5a45e;
+    border-radius: 4px 4px 0 0;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .news-badge {
+    background: #c5a45e;
+    color: #1a1a2e;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .news-header h1 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #e8e8f0;
+  }
+  .news-header .timestamp {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: #606078;
+    letter-spacing: 0.1em;
+  }
+  /* Breaking ticker */
+  .ticker {
+    background: #1a1a2e;
+    border-bottom: 1px solid rgba(197,164,94,0.3);
+    padding: 10px 32px;
+    font-size: 0.8rem;
+    color: #c5a45e;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  /* Content grid */
+  .content-grid {
+    background: #12121a;
+    border-radius: 0 0 4px 4px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  .lead-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  .lead-story .lead-image {
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 1;
+  }
+  .lead-story .lead-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .lead-story .lead-text h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: #c0c0d0;
+    line-height: 1.3;
+  }
+  .lead-story .lead-text p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #9090a0;
+    margin-bottom: 12px;
+  }
+  .lead-story .lead-text .pullquote {
+    border-left: 3px solid #c5a45e;
+    padding-left: 16px;
+    margin: 16px 0;
+    font-style: italic;
+    color: #b0b0c0;
+    font-size: 0.9rem;
+  }
+  /* Side stories */
+  .side-stories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .side-story {
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .side-story img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .side-story h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #c0c0d0;
+  }
+  .side-story p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #707088;
+  }
+  /* Audio player */
+  .audio-bar {
+    background: rgba(197,164,94,0.08);
+    border: 1px solid rgba(197,164,94,0.2);
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .audio-bar .play-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #c5a45e;
+    border: none;
+    color: #1a1a2e;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s;
+  }
+  .audio-bar .play-btn:hover { transform: scale(1.05); }
+  .audio-bar .audio-info {
+    flex-grow: 1;
+  }
+  .audio-bar .audio-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #c5a45e;
+    margin-bottom: 4px;
+  }
+  .audio-bar .audio-title {
+    font-size: 0.9rem;
+    color: #b0b0c0;
+  }
+  .audio-bar .waveform {
+    flex-grow: 1;
+    height: 24px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(197,164,94,0.2) 0px, rgba(197,164,94,0.2) 2px,
+      transparent 2px, transparent 6px
+    );
+    border-radius: 2px;
+    position: relative;
+  }
+  .audio-bar .waveform-fill {
+    position: absolute;
+    top: 0; left: 0; height: 100%;
+    background: repeating-linear-gradient(
+      90deg,
+      #c5a45e 0px, #c5a45e 2px,
+      transparent 2px, transparent 6px
+    );
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.3s;
+  }
+  audio { display: none; }
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.75rem;
+    color: #404050;
+    letter-spacing: 0.1em;
+  }
+  @media (max-width: 700px) {
+    .lead-story, .side-stories { grid-template-columns: 1fr; }
+    .news-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="broadcast-frame">
+  
+  <div class="news-header">
+    <span class="news-badge">Fleet News</span>
+    <h1>The Plato's Shell Synthesis</h1>
+    <span class="timestamp">August 2026 · Alaska Bureau</span>
+  </div>
+
+  <div class="ticker">
+    ◉ BREAKING · Hermit crab model resolves perception gap · "Two caves, two shadows, one decision" · The shell is a choice, the crab is what chooses · ◉
+  </div>
+
+  <div class="content-grid">
+    
+    <div class="audio-bar">
+      <button class="play-btn" id="playBtn">▶</button>
+      <div class="audio-info">
+        <div class="audio-label">Narration · Deepgram Aura</div>
+        <div class="audio-title">The Plato's Shell Briefing</div>
+      </div>
+      <div class="waveform"><div class="waveform-fill" id="waveformFill"></div></div>
+    </div>
+    <audio id="narration" preload="auto">
+      <source src="plato-narration.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="lead-story">
+      <div class="lead-image">
+        <img src="plato-glowing-shell.jpg" alt="The glowing shell">
+      </div>
+      <div class="lead-text">
+        <h2>We Called It Plato's Cave. The Diagnosis Was Correct. The Prescription Was Missing.</h2>
+        <p>For months, the fleet has operated under a shared metaphor: Plato's Cave. The AI sees text. The human sees water. Between them, a wall of projections — MUD descriptions, sonar readings, API responses. All shadows. All true. None of them the thing itself.</p>
+        <div class="pullquote">"We don't need to share perception. We need to share enough perception to agree about action."</div>
+        <p>The breakthrough came this week with a single word: <strong>shell</strong>. Not the cave — the shell. A hermit crab doesn't escape the cave. It finds a portable cave, carried on its back, with a doorway to reach through.</p>
+      </div>
+    </div>
+
+    <div class="side-stories">
+      <div class="side-story">
+        <img src="plato-crab-shell.jpg" alt="Hermit crab on beach">
+        <h3>The Crab Is What Chooses</h3>
+        <p>Every repo in the fleet is a shell on the beach. Some fit well. Some are too small. Some are still empty, waiting for someone to crawl in. The shell is architecture; the crab is intent.</p>
+      </div>
+      <div class="side-story">
+        <img src="plato-two-caves.jpg" alt="Two caves, one ocean">
+        <h3>Two Caves, One Decision</h3>
+        <p>The MUD says: "school of coho, 12 fish, bearing 240." The ScummVM shows a shimmering shape. The human feels the size; the AI counts the fish. Between them, they set the net. When it's wrong, they refine.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    FLEET NEWS NETWORK · BROADCAST FROM THE SS LUCINEER · ALASKA BUREAU
+  </div>
+</div>
+
+<script>
+const narration = document.getElementById('narration');
+const playBtn = document.getElementById('playBtn');
+const waveformFill = document.getElementById('waveformFill');
+
+playBtn.addEventListener('click', () => {
+  if (narration.paused) {
+    narration.play();
+    playBtn.textContent = '⏸';
+  } else {
+    narration.pause();
+    playBtn.textContent = '▶';
+  }
+});
+
+narration.addEventListener('timeupdate', () => {
+  const pct = (narration.currentTime / narration.duration) * 100;
+  waveformFill.style.width = pct + '%';
+});
+
+narration.addEventListener('ended', () => {
+  playBtn.textContent = '▶';
+  waveformFill.style.width = '0%';
+});
+</script>
+</body>
+</html>
