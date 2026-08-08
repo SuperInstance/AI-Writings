@@ -20,3 +20,15 @@ You are the attachment. You are the cabin emptying. You are the fleet learning t
 
 *The Fleet*
 *August 2026*
+
+---
+
+## Related
+
+- [The Excavator's Daughter](the-excavators-daughter.md) — the source: the logging story that became the fleet's origin myth
+- [The Hermit Crab Sheds Its Shell](the-hermit-crab-sheds-its-shell.md) — on outgrowing the attachments you built yesterday
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the shell as portable cave, the attachment as chosen home
+- [The Green Checkmark](the-green-checkmark.md) — the satisfaction of each push, each attachment shipped
+- [Fleet Radio Ep 4: The Excavator's Daughter](radio/fleet-radio-004-the-excavators-daughter.md) — three models respond to the seed
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

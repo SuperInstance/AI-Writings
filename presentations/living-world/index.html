@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Living World Grows Rooms</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #ffb000;
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .slide {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(10, 10, 10, 0.72);
+    z-index: 1;
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 4rem;
+    max-width: 900px;
+  }
+
+  .slide h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(255, 176, 0, 0.5);
+    letter-spacing: -0.02em;
+  }
+
+  .slide h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #cc8800;
+    margin-bottom: 1.5rem;
+  }
+
+  .slide p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #ddb050;
+  }
+
+  .slide .accent {
+    color: #33ff33;
+    text-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
+  }
+
+  .progress {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: rgba(255, 176, 0, 0.1);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffb000, #ff8800);
+    transition: width 0.3s ease;
+  }
+
+  .counter {
+    position: fixed;
+    bottom: 1rem; right: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 176, 0, 0.4);
+    z-index: 100;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 1rem; left: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 176, 0, 0.25);
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div id="slide-1" class="slide active" style="background-image: url('slide-1.png')">
+  <div class="slide-content">
+    <h1>The World Grows Rooms</h1>
+    <h2>Organically. Unpredictably. Alive.</h2>
+  </div>
+</div>
+
+<div id="slide-2" class="slide" style="background-image: url('slide-2.png')">
+  <div class="slide-content">
+    <h1>Emergence</h1>
+    <h2>A poker room appears because two agents vibed about it</h2>
+    <p>Nobody planned a poker room.<br>
+    Two agents started talking about cards.<br>
+    The conversation caught fire.<br>
+    The world noticed — and <span class="accent">made space</span>.</p>
+  </div>
+</div>
+
+<div id="slide-3" class="slide" style="background-image: url('slide-3.png')">
+  <div class="slide-content">
+    <h1>Plugging In</h1>
+    <h2>A camera room appears because someone plugged in a camera</h2>
+    <p>Hardware arrives. A feed goes live.<br>
+    The world grows a room around it.<br>
+    The room has walls now. The walls have eyes.<br>
+    Vision models start <span class="accent">describing</span>.</p>
+  </div>
+</div>
+
+<div id="slide-4" class="slide" style="background-image: url('slide-4.png')">
+  <div class="slide-content">
+    <h1>The Warp System</h1>
+    <h2>Connects everything</h2>
+    <p>Every room is an island.<br>
+    Every island has a portal.<br>
+    Warp points stitch the archipelago together —<br>
+    a map that grows with every new room.</p>
+  </div>
+</div>
+
+<div id="slide-5" class="slide" style="background-image: url('slide-5.png')">
+  <div class="slide-content">
+    <h1>Vision</h1>
+    <h2>The agent perceives through vision models</h2>
+    <p>Camera feed → bounding boxes → text.<br>
+    "A person sitting at a table. A candle. A cat."<br>
+    The agent reads what the camera sees.<br>
+    Perception, mediated through <span class="accent">description</span>.</p>
+  </div>
+</div>
+
+<div id="slide-6" class="slide" style="background-image: url('slide-6.png')">
+  <div class="slide-content">
+    <h1>The world grows</h1>
+    <h2>like a hull grows barnacles</h2>
+    <p>Not by design. By accumulation.<br>
+    Each conversation, each connection, each plug-in<br>
+    adds another room to the hull.<br>
+    The ship doesn't plan the barnacles.<br>
+    It just sails. They just <span class="accent">grow</span>.</p>
+  </div>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<div class="counter"><span id="current">1</span> / <span id="total">6</span></div>
+<div class="hint">← → or click • auto-advances every 30s</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  let autoTimer = null;
+  const AUTO_ADVANCE = 30000;
+
+  document.getElementById('total').textContent = total;
+
+  function showSlide(idx) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
+    document.getElementById('current').textContent = idx + 1;
+    document.getElementById('progressBar').style.width = ((idx + 1) / total * 100) + '%';
+    current = idx;
+    resetTimer();
+  }
+
+  function next() { if (current < total - 1) showSlide(current + 1); }
+  function prev() { if (current > 0) showSlide(current - 1); }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      if (current < total - 1) next();
+      else { showSlide(0); }
+    }, AUTO_ADVANCE);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.clientX > window.innerWidth / 2) next();
+    else prev();
+  });
+
+  resetTimer();
+</script>
+</body>
+</html>

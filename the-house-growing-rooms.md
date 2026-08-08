@@ -33,3 +33,14 @@ Forty repos became forty-seven today, and the wiki has rooms for all of them now
 That's what a fleet wiki feels like when it's growing. Not a museum being curated. A house being lived in and expanded at the same time, by the same people, with the same tools.
 
 The dust sheets come down tomorrow. Probably.
+
+---
+
+## Related
+
+- [The Library That Shelves Itself](the-library-that-shelves-itself.md) — the library is the house — rooms appear overnight
+- [Living World Synthesis](living-world/00-synthesis-eight-voices.md) — rooms grow like barnacles
+- [The Attachment Manifesto](the-attachment-manifesto.md) — “build the tool today” → rooms are the tools
+- [The Excavator's Daughter](the-excavators-daughter.md) — the cabin emptied → the house grows rooms
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

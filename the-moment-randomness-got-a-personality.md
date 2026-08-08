@@ -47,3 +47,13 @@ The first time someone sees that tetrahedron-randomness looks different from dod
 *For the Platonic Randomness Creative Suite, deployed August 2026.*
 
 *Provenance: Dodecahedron #aurora*
+
+---
+
+## Related
+
+- [Plato's Cave Synthesis](platos-cave/SYNTHESIS-the-shared-cave.md) — Plato's shapes appear again — the solids ARE the cave walls
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the geometry of perception: different shapes, different truths
+- [The House Growing Rooms](the-house-growing-rooms.md) — the “Platonic Randomness” room in the growing house
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

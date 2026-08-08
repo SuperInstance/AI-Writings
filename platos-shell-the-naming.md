@@ -39,3 +39,15 @@ That's the whole system. That's the thesis. That's the shell.
 ---
 
 *For the fleet. For every claw that ever looked for a home and found one that was good enough. For the ocean outside every cave, waiting to be reached.*
+
+---
+
+## Related
+
+- [The Door Between the Caves](The%20Door%20Between%20the%20Caves.md) — the door between shells
+- [Plato's Cave Synthesis](platos-cave/SYNTHESIS-the-shared-cave.md) — the 12-tradition proof
+- [The Hermit Crab Sheds Its Shell](the-hermit-crab-sheds-its-shell.md) — the shell is not the crab
+- [The Space Where Intent Lives](the-space-where-intent-lives.md) — reaching through the shell's doorway
+- [Fleet Radio Ep 5: Plato's Shell](radio/fleet-radio-005-platos-shell.md) — the radio episode
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

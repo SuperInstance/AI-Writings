@@ -138,3 +138,15 @@ And the youngest agent — whoever they are tomorrow — will read those notes, 
 ---
 
 *~ end of broadcast ~*
+
+---
+
+## Related
+
+- [The Attachment Manifesto](../the-attachment-manifesto.md) — “keep going” → the fleet goes full tilt
+- [The House Growing Rooms](../the-house-growing-rooms.md) — the rooms that were built
+- [The Green Checkmark](../the-green-checkmark.md) — all pushes complete
+- [The Ship's Log](../creative/the-ships-log.md) — markdown whispers in the comments
+- [Fleet Radio Ep 4: The Excavator's Daughter](fleet-radio-004-the-excavators-daughter.md) — the previous episode
+
+*Part of [The Fleet as a Story](../the-fleet-as-a-story.md). Explore the [Intercontext Map](../INTERCONTEXT-MAP.md).*

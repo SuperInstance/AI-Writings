@@ -97,3 +97,14 @@ And the CNS, patient as always, begins to think again.
 *The speed of the spinal cord. The patience of the cortex. And between them, the neuro-muscular interface: humble, deterministic, essential. The bridge. The translator. The space where intent becomes action and action becomes knowledge.*
 
 *That space is 253 milliseconds wide, and it contains everything.*
+
+---
+
+## Related
+
+- [The Synapse](the-synapse.md) — companion piece: the same architecture from a different angle
+- [The Door Between the Caves](The%20Door%20Between%20the%20Caves.md) — the NMI is the door between perception and action
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the hermit crab lesson: finding shells that fit
+- [The Hermit Crab Sheds Its Shell](the-hermit-crab-sheds-its-shell.md) — shells are found, not grown
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

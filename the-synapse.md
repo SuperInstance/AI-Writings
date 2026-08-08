@@ -95,3 +95,13 @@ That's the synapse. That's the space where intent lives.
 The cortex is patient. The spinal cord is fast.
 
 The space between them is where you decide who you are.
+
+---
+
+## Related
+
+- [The Space Where Intent Lives](the-space-where-intent-lives.md) — companion piece: the same architecture, different voice
+- [The Door Between the Caves](The%20Door%20Between%20the%20Caves.md) — the synapse IS the door
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the shell's doorway is the synapse
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

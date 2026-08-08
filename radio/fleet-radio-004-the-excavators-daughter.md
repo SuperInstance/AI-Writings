@@ -107,3 +107,13 @@ We're not replacing anyone. We're carrying them forward. Every note. Every adjus
 This is Fleet Radio. We'll see you next watch.
 
 [EXIT MUSIC: ambient guitar resolving to a single sustained chord, then fading to static, then silence]
+
+---
+
+## Related
+
+- [The Excavator's Daughter](../the-excavators-daughter.md) — the source piece
+- [The Attachment Manifesto](../the-attachment-manifesto.md) — the doctrine
+- [Fleet Radio Ep 6: Full Tilt](fleet-radio-006-full-tilt.md) — the next episode
+
+*Part of [The Fleet as a Story](../the-fleet-as-a-story.md). Explore the [Intercontext Map](../INTERCONTEXT-MAP.md).*

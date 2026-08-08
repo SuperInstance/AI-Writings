@@ -35,3 +35,14 @@ That is the satisfaction. Not the push itself — the push is mechanics, packets
 Nineteen repositories. All clean. All pushed. All current.
 
 The checkmarks are green. The sea is calm. The log is straight.
+
+---
+
+## Related
+
+- [The Ship's Log](creative/the-ships-log.md) — the git log as the ship's log
+- [The Git Log as the Ship's Bell](the-git-log-as-ships-bell.md) — every push rings eight bells
+- [The Attachment Manifesto](the-attachment-manifesto.md) — “keep going” → each push is proof of going
+- [The Weight of the Front Door](the-weight-of-the-front-door.md) — the README is the front door; the checkmark proves it opens
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

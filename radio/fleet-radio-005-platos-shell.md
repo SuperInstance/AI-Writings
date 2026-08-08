@@ -130,3 +130,14 @@ HOST: "The split-view prototype is live. Right now, today, at scummvm-prototype.
 ---
 
 *Fleet Radio is produced by the Lucineer fleet. Broadcast from The Tap. The door is open.*
+
+---
+
+## Related
+
+- [The Excavator's Daughter](the-excavators-daughter.md) — the source piece
+- [The Attachment Manifesto](the-attachment-manifesto.md) — the doctrine
+- [Fleet Radio Ep 6: Full Tilt](fleet-radio-006-full-tilt.md) — the next episode
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the architecture this episode reveals
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

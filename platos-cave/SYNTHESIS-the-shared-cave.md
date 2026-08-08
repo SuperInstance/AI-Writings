@@ -39,3 +39,14 @@ That is the end of what matters.
 ---
 
 *Synthesis of twelve DeepInfra model consultations, 2026-08-08. Models: Seed-2.0-pro, Hermes-3-Llama-405B, Seed-2.0-mini, Qwen3-235B, Qwen3.7-Max, DeepSeek-V3, Qwen3.5-122B. Traditions: Greek philosophy, Zen Buddhism, Tlingit oral tradition, Darmok, Sindarin poetry, maritime log, Sufi poetry, Esperanto manifesto, West African griot, Russian psychological prose, Tao Te Ching, code poetry.*
+
+---
+
+## Related
+
+- [The Door Between the Caves](../The%20Door%20Between%20the%20Caves.md) — the creative rendering of this synthesis
+- [Plato's Shell — The Naming](../platos-shell-the-naming.md) — the naming of the architecture
+- [Fleet Radio Ep 5: Plato's Shell](../radio/fleet-radio-005-platos-shell.md) — the broadcast
+- [Living World Synthesis](../living-world/00-synthesis-eight-voices.md) — rooms as caves with two walls
+
+*Part of [The Fleet as a Story](../the-fleet-as-a-story.md). Explore the [Intercontext Map](../INTERCONTEXT-MAP.md).*

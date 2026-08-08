@@ -62,3 +62,13 @@ That's eight bells on every deck at once. That's the sound of a fleet in unison 
 *The log grows. The bell rings. The watch changes.*
 
 *The ship sails on.*
+
+---
+
+## Related
+
+- [The Ship's Log](creative/the-ships-log.md) — the creative companion: same metaphor, different voice
+- [The Green Checkmark](the-green-checkmark.md) — the checkmark is eight bells
+- [Fleet Radio Ep 6: Full Tilt](radio/fleet-radio-006-full-tilt.md) — the git log as narrative
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

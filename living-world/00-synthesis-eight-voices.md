@@ -43,3 +43,15 @@ Eight models, eight perspectives, one conclusion. The Living World Framework is 
 Put them together and you see the world: **a digital space that accretes meaning the way a hull accretes life. Not because someone deployed it. Because two things lingered long enough next to each other that something else formed in the gap.**
 
 The rooms grow like barnacles. The cameras become eyes. The agent learns to read the swell. And the world — for lack of a better word — is alive.
+
+---
+
+## Related
+
+- [The House Growing Rooms](../the-house-growing-rooms.md) — the house as Living World
+- [The Library That Shelves Itself](../the-library-that-shelves-itself.md) — the library grows rooms
+- [Plato's Cave Synthesis](../platos-cave/SYNTHESIS-the-shared-cave.md) — one object, two projections
+- [The Door Between the Caves](../The%20Door%20Between%20the%20Caves.md) — the dual-projection architecture
+- [The Excavator's Daughter](../the-excavators-daughter.md) — the cabin emptied → rooms grow
+
+*Part of [The Fleet as a Story](../the-fleet-as-a-story.md). Explore the [Intercontext Map](../INTERCONTEXT-MAP.md).*

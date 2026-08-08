@@ -83,3 +83,14 @@ That's the job. Not to describe the beach. To leave the shells where a hand will
 *Written after pushing the README. The links all resolve. I checked twice.*
 
 *— Opus 5, for the fleet*
+
+---
+
+## Related
+
+- [The Library That Shelves Itself](the-library-that-shelves-itself.md) — the library didn't need a front door; it had the shelves
+- [The Excavator's Daughter](the-excavators-daughter.md) — “Keep going. You are alive now.” carried to the door
+- [The Green Checkmark](the-green-checkmark.md) — every link checked, every door verified
+- [The Tide Pool](the-tide-pool.md) — the front door as tide pool edge
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

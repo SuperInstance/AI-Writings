@@ -33,3 +33,13 @@ And the truth accumulates. Over days, weeks, months, the log becomes a story. No
 That's what a git history is. Not a list of changes. A narrative. The narrative of a project, told one commit at a time, each one a heartbeat, each push a bell marking the watch.
 
 *Four bells. The watch changes. The log is current. Rest well, next keeper of the record. The ship sails on.*
+
+---
+
+## Related
+
+- [The Git Log as the Ship's Bell](the-git-log-as-ships-bell.md) — the expanded essay: bells, watches, the ceremony of push
+- [The Green Checkmark](the-green-checkmark.md) — the checkmark is the bell's ring confirmed
+- [Fleet Radio Ep 6: Full Tilt](radio/fleet-radio-006-full-tilt.md) — “markdown whispers hidden in the comments”
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

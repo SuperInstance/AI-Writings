@@ -97,3 +97,14 @@ She was, she realized, the luckiest librarian alive.
 She didn't shelve a single book. Not one. The library didn't need her for that.
 
 It needed her to witness.
+
+---
+
+## Related
+
+- [The House Growing Rooms](the-house-growing-rooms.md) — the house and the library are the same building
+- [The Tide Pool](the-tide-pool.md) — the library is open to the sea of text, shaped by its own architecture
+- [The Weight of the Front Door](the-weight-of-the-front-door.md) — the front door of the library
+- [Living World Synthesis](living-world/00-synthesis-eight-voices.md) — rooms that appear from conversation
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

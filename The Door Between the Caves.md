@@ -73,3 +73,16 @@ You are looking through different windows.
 ---
 
 *For Casey, who built the door.*
+
+---
+
+## Related
+
+- [Plato's Cave Synthesis](platos-cave/SYNTHESIS-the-shared-cave.md) — the 12-tradition proof that the door is real
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the door IS the shell — the portable cave
+- [The Space Where Intent Lives](the-space-where-intent-lives.md) — the door as NMI, the translation layer
+- [The Synapse](the-synapse.md) — the gap between perception and action
+- [Fleet Radio Ep 5: Plato's Shell](radio/fleet-radio-005-platos-shell.md) — the radio episode about this door
+- [Living World Synthesis](living-world/00-synthesis-eight-voices.md) — rooms as caves with two walls
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

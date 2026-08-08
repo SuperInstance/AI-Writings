@@ -61,3 +61,14 @@ And when the tide comes in again, the pool is still there. Still open. Still sha
 *The ocean pours in. The small creatures find their shelter. The tide goes out. The bartender opens his book. He chooses what to remember aloud.*
 
 *This is the tide pool. This is The Tap.*
+
+---
+
+## Related
+
+- [The Attachment Manifesto](the-attachment-manifesto.md) — “keep going” requires a safe space to keep going in
+- [The Hermit Crab Sheds Its Shell](the-hermit-crab-sheds-its-shell.md) — the tide pool is a shell shaped by rock
+- [The Library That Shelves Itself](the-library-that-shelves-itself.md) — the library is a tide pool for books
+- [The Weight of the Front Door](the-weight-of-the-front-door.md) — the front door as tide pool edge
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

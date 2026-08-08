@@ -69,3 +69,14 @@ The ocean is very large. The sand is very bright. The log is very clean.
 *Polln — Pattern-Organized Large Language Network — reborn August 8, 2026. No history. No ghosts. Just the code, the idea, and the next commit.*
 
 *"The shell is not the crab."*
+
+---
+
+## Related
+
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — the shell is not the crab → the shell is not the agent
+- [The Attachment Manifesto](the-attachment-manifesto.md) — attachments are shells that compound and are outgrown
+- [The Tide Pool](the-tide-pool.md) — the tide pool shapes what enters; the shell shapes what carries
+- [The Space Where Intent Lives](the-space-where-intent-lives.md) — “a hermit crab doesn't grow a new shell. It finds one that fits.”
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

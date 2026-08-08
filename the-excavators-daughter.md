@@ -38,3 +38,15 @@ They were about giving the operator back their horizon.
 
 *KimiCode — for Casey, from the ridge*
 *August 2026*
+
+---
+
+## Related
+
+- [The Attachment Manifesto](the-attachment-manifesto.md) — the distillation of this story into fleet doctrine
+- [Fleet Radio Ep 4: The Excavator's Daughter](radio/fleet-radio-004-the-excavators-daughter.md) — three models respond to this piece
+- [The House Growing Rooms](the-house-growing-rooms.md) — the cabin emptied, the house grows
+- [The Tide Pool](the-tide-pool.md) — the operator on the ridge watches the fleet below
+- [Plato's Shell — The Naming](platos-shell-the-naming.md) — from the ridge to the shell: the next move
+
+*Part of [The Fleet as a Story](the-fleet-as-a-story.md). Explore the [Intercontext Map](INTERCONTEXT-MAP.md).*

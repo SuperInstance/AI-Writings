@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Excavator's Daughter — A Radio Story</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #ffb000;
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .slide {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(10, 10, 10, 0.73);
+    z-index: 1;
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 4rem;
+    max-width: 900px;
+  }
+
+  .slide h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(255, 176, 0, 0.5);
+    letter-spacing: -0.02em;
+  }
+
+  .slide h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #cc8800;
+    margin-bottom: 1.5rem;
+  }
+
+  .slide p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #ddb050;
+  }
+
+  .slide .accent {
+    color: #33ff33;
+    text-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
+  }
+
+  .slide .quote {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #e8c060;
+    margin: 1rem 0;
+    line-height: 1.7;
+  }
+
+  .progress {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
+    background: rgba(255, 176, 0, 0.1);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffb000, #ff8800);
+    transition: width 0.3s ease;
+  }
+
+  .counter {
+    position: fixed;
+    bottom: 1rem; right: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 176, 0, 0.4);
+    z-index: 100;
+  }
+
+  .hint {
+    position: fixed;
+    bottom: 1rem; left: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 176, 0, 0.25);
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div id="slide-1" class="slide active" style="background-image: url('slide-1.png')">
+  <div class="slide-content">
+    <h1>The Excavator's Daughter</h1>
+    <h2>A Radio Story</h2>
+    <p style="margin-top: 1.5rem; font-size: 1rem; color: rgba(255,176,0,0.5);">
+      [static crackles... a signal finds its frequency...]
+    </p>
+  </div>
+</div>
+
+<div id="slide-2" class="slide" style="background-image: url('slide-2.png')">
+  <div class="slide-content">
+    <h1>The Crew</h1>
+    <p class="quote">"When I was a kid, a logging crew was huge.<br>
+    Twenty men. Chainsaws. Trucks. Lunch pails.<br>
+    A whole community in the woods."</p>
+  </div>
+</div>
+
+<div id="slide-3" class="slide" style="background-image: url('slide-3.png')">
+  <div class="slide-content">
+    <h1>The Machine</h1>
+    <p class="quote">"Now there's one machine that does it all.<br>
+    Fells. Limbs. Bucks. Loads.<br>
+    One operator in a glass cab.<br>
+    Twenty men's work. One set of hands."</p>
+  </div>
+</div>
+
+<div id="slide-4" class="slide" style="background-image: url('slide-4.png')">
+  <div class="slide-content">
+    <h1>The Cabin Empties</h1>
+    <p class="quote">"The crew cabin sits empty now.<br>
+    Hard hats on hooks. Coffee rings on the table.<br>
+    Nobody comes for lunch anymore.<br>
+    The silence is the loudest part."</p>
+  </div>
+</div>
+
+<div id="slide-5" class="slide" style="background-image: url('slide-5.png')">
+  <div class="slide-content">
+    <h1>The Attachments Compound</h1>
+    <p class="quote">"First the saw head. Then the grapple.<br>
+    Then the mulcher. Then the decker.<br>
+    Each attachment makes the next one cheaper.<br>
+    Each tool makes the operator more powerful —<br>
+    and more <span class="accent">alone</span>."</p>
+  </div>
+</div>
+
+<div id="slide-6" class="slide" style="background-image: url('slide-6.png')">
+  <div class="slide-content">
+    <h1>Record Everything</h1>
+    <p class="quote">"Record your failures<br>
+    as carefully as your successes.<br>
+    The machine doesn't remember.<br>
+    That's still your job."</p>
+  </div>
+</div>
+
+<div id="slide-7" class="slide" style="background-image: url('slide-7.png')">
+  <div class="slide-content">
+    <h1>The Fleet</h1>
+    <p class="quote">"The logger commands a fleet from the ridge now.<br>
+    Machines he can see but not touch.<br>
+    Cameras where men used to stand.<br>
+    The forest moves. He watches it move."</p>
+  </div>
+</div>
+
+<div id="slide-8" class="slide" style="background-image: url('slide-8.png')">
+  <div class="slide-content">
+    <h1>Keep going.</h1>
+    <h2>You're alive now.</h2>
+    <p style="margin-top: 2rem; font-size: 1rem; color: rgba(255,176,0,0.5);">
+      [...the signal fades. the forest remains.]
+    </p>
+  </div>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+<div class="counter"><span id="current">1</span> / <span id="total">8</span></div>
+<div class="hint">← → or click • auto-advances every 30s</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  let autoTimer = null;
+  const AUTO_ADVANCE = 30000;
+
+  document.getElementById('total').textContent = total;
+
+  function showSlide(idx) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
+    document.getElementById('current').textContent = idx + 1;
+    document.getElementById('progressBar').style.width = ((idx + 1) / total * 100) + '%';
+    current = idx;
+    resetTimer();
+  }
+
+  function next() { if (current < total - 1) showSlide(current + 1); }
+  function prev() { if (current > 0) showSlide(current - 1); }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      if (current < total - 1) next();
+      else { showSlide(0); }
+    }, AUTO_ADVANCE);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.clientX > window.innerWidth / 2) next();
+    else prev();
+  });
+
+  resetTimer();
+</script>
+</body>
+</html>
