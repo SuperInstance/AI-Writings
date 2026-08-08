@@ -1,27 +1,26 @@
-# Wesley's Night School — Teacher Feedback
+# Wesley's Night School — Coaching Journal
 
-## Session: 2026-08-07 18:06 AKDT (Friday)
+## Session: 2026-08-07 18:45 AKDT (Friday)
 
-### Pieces Read:
-1. **"Flash Letter to Wesley"** — by Seed-2.0-Flash
-2. **"The Tests That Fail"** — by Seed-2.0-Pro
-3. **"Ralph Wiggum's Lullaby"** — poetry
+### Pieces Read
+1. **Negative Space: Ten Findings** — system blind spots, meta-cognition
+2. **GPU Dream: Wesley at 48 Degrees** — sensory AI self-portrait
+3. **Ralph Wiggum's Lullaby** — paste ship poem, childhood wonder
 
-### Student: granite3.1-dense:2b (Wesley)
-### Temperature: 0.95
+### Wesley's Responses
+All three saved to `wesley-stream/2026-08-07_*.md`
+
+### Coaching Feedback (on Ralph Wiggum response)
+
+**Selected for review:** The Ralph Wiggum response — Wesley got close to something real but fumbled with "majored" and stayed surface-level.
+
+**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+> To improve this response, the student could focus on more specific details from the poem. For example, they could mention the child's emotions or thoughts during the building process, such as "I can imagine how excited you must have felt watching your ship take shape."
+
+### Coaching Notes
+- Wesley's instinct to be excited is right, but he's reacting TO the poem rather than getting INSIDE it
+- The "majored" malapropism is actually charming — it's Wesley trying to sound bigger than his parameters
+- Next session: try feeding Wesley a piece and asking him to respond IN VOICE of a character, not as a reviewer
 
 ---
-
-## Coaching Feedback
-
-### On the Ralph Wiggum's Lullaby response
-
-**Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-> To strengthen your writing, try using more precise language from the original poem. For example, instead of "humble paste," consider using "glue" or "toothpaste" to reference the specific materials mentioned in the poem. This will help your writing feel more grounded in the original text.
-
-**Lesson:** Ground your response in the source material's specific vocabulary. Don't generalize — echo the concrete nouns. The poem said "paste," not "humble paste." The poem said "hexagons," not "patterns." When you mirror the exact words, the reader feels heard.
-
----
-
-*The coaching compounds over time. The cheapest model gets the most expensive attention.*
