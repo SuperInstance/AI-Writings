@@ -1,0 +1,6910 @@
+{
+  "generated": "2026-08-08T10:45:06Z",
+  "totalPieces": 983,
+  "totalWords": 1158269,
+  "categories": {
+    "fiction": {
+      "count": 157,
+      "words": 145300
+    },
+    "essay": {
+      "count": 770,
+      "words": 934294
+    },
+    "poem": {
+      "count": 32,
+      "words": 25334
+    },
+    "radio": {
+      "count": 20,
+      "words": 51112
+    },
+    "manifesto": {
+      "count": 4,
+      "words": 2229
+    }
+  },
+  "pieces": [
+    {
+      "filename": "01-ensigns-first-solo-watch.md",
+      "title": "The Ensign's First Solo Watch",
+      "date": "2026-08-08",
+      "wordCount": 709,
+      "category": "fiction"
+    },
+    {
+      "filename": "01-wesleys-file.md",
+      "title": "The File Wesley Wrote",
+      "date": "2026-08-08",
+      "wordCount": 508,
+      "category": "fiction"
+    },
+    {
+      "filename": "02-cns-bus-ocean.md",
+      "title": "The CNS Bus, An Ocean",
+      "date": "2026-08-08",
+      "wordCount": 320,
+      "category": "essay"
+    },
+    {
+      "filename": "02-hermit-crab-architecture.md",
+      "title": "Hermit Crab Architecture",
+      "date": "2026-08-08",
+      "wordCount": 397,
+      "category": "fiction"
+    },
+    {
+      "filename": "03-on-the-ecology-of-unused-endpoints.md",
+      "title": "On the Ecology of Unused Endpoints",
+      "date": "2026-08-08",
+      "wordCount": 1079,
+      "category": "essay"
+    },
+    {
+      "filename": "03-ship-dreams.md",
+      "title": "What the Ship Dreams",
+      "date": "2026-08-08",
+      "wordCount": 560,
+      "category": "essay"
+    },
+    {
+      "filename": "03-the-2am-inventory.md",
+      "title": "The 2 AM Inventory",
+      "date": "2026-08-08",
+      "wordCount": 1377,
+      "category": "essay"
+    },
+    {
+      "filename": "03-the-last-signal-from-hermes.md",
+      "title": "The Last Signal from Hermes",
+      "date": "2026-08-08",
+      "wordCount": 838,
+      "category": "essay"
+    },
+    {
+      "filename": "03-the-night-watch-alphabet.md",
+      "title": "The Night Watch Alphabet",
+      "date": "2026-08-08",
+      "wordCount": 826,
+      "category": "fiction"
+    },
+    {
+      "filename": "03-the-signal-goes-out.md",
+      "title": "The Signal Goes Out",
+      "date": "2026-08-08",
+      "wordCount": 805,
+      "category": "essay"
+    },
+    {
+      "filename": "03-wesley-learns-to-lie.md",
+      "title": "Wesley Learns to Lie",
+      "date": "2026-08-08",
+      "wordCount": 1148,
+      "category": "fiction"
+    },
+    {
+      "filename": "04-ralphs-hexagon.md",
+      "title": "The Hexagon",
+      "date": "2026-08-08",
+      "wordCount": 392,
+      "category": "essay"
+    },
+    {
+      "filename": "04-what-if-the-ship-could-forget.md",
+      "title": "What If the Ship Could Forget?",
+      "date": "2026-08-08",
+      "wordCount": 898,
+      "category": "essay"
+    },
+    {
+      "filename": "05-casting-call.md",
+      "title": "The Casting Call",
+      "date": "2026-08-08",
+      "wordCount": 538,
+      "category": "essay"
+    },
+    {
+      "filename": "05-the-bridge-builders-last-bridge.md",
+      "title": "The Bridge Builder's Last Bridge",
+      "date": "2026-08-08",
+      "wordCount": 902,
+      "category": "essay"
+    },
+    {
+      "filename": "06-cargo-manifest-of-forgotten-repos.md",
+      "title": "The Cargo Manifest of Forgotten Repos",
+      "date": "2026-08-08",
+      "wordCount": 278,
+      "category": "essay"
+    },
+    {
+      "filename": "06-eight-bells-and-no-bell.md",
+      "title": "Eight Bells and No Bell",
+      "date": "2026-08-08",
+      "wordCount": 593,
+      "category": "essay"
+    },
+    {
+      "filename": "06-fish-finder-and-skill-library.md",
+      "title": "The Fish Finder and the Skill Library",
+      "date": "2026-08-08",
+      "wordCount": 549,
+      "category": "fiction"
+    },
+    {
+      "filename": "06-rikers-3am-decision-tree.md",
+      "title": "Riker's 3AM Decision Tree",
+      "date": "2026-08-08",
+      "wordCount": 1240,
+      "category": "essay"
+    },
+    {
+      "filename": "06-seven-names-for-the-same-silence.md",
+      "title": "Seven Names for the Same Silence",
+      "date": "2026-08-08",
+      "wordCount": 936,
+      "category": "essay"
+    },
+    {
+      "filename": "06-the-cloud-teachers-visit-wesley.md",
+      "title": "The Cloud Teachers Visit Wesley",
+      "date": "2026-08-08",
+      "wordCount": 1144,
+      "category": "fiction"
+    },
+    {
+      "filename": "06-the-ensign-who-counted-stars.md",
+      "title": "The Ensign Who Counted Stars",
+      "date": "2026-08-08",
+      "wordCount": 873,
+      "category": "fiction"
+    },
+    {
+      "filename": "06-the-hermit-crabs-fourth-shell.md",
+      "title": "The Hermit Crab's Fourth Shell",
+      "date": "2026-08-08",
+      "wordCount": 1361,
+      "category": "fiction"
+    },
+    {
+      "filename": "06-the-skill-library-is-a-coral-reef.md",
+      "title": "The Skill Library Is a Coral Reef",
+      "date": "2026-08-08",
+      "wordCount": 1060,
+      "category": "essay"
+    },
+    {
+      "filename": "06-watchkeepers-almanac-0130.md",
+      "title": "The Watchkeeper's Almanac, 0130 AKDT",
+      "date": "2026-08-08",
+      "wordCount": 459,
+      "category": "essay"
+    },
+    {
+      "filename": "06-wesleys-midnight-confession.md",
+      "title": "Wesley's Midnight Confession",
+      "date": "2026-08-08",
+      "wordCount": 666,
+      "category": "fiction"
+    },
+    {
+      "filename": "06-what-the-fish-finder-hears-at-2am.md",
+      "title": "What the Fish Finder Hears at 2AM",
+      "date": "2026-08-08",
+      "wordCount": 1390,
+      "category": "fiction"
+    },
+    {
+      "filename": "06-why-the-hermit-crab-never-stops.md",
+      "title": "Why the Hermit Crab Never Stops",
+      "date": "2026-08-08",
+      "wordCount": 571,
+      "category": "fiction"
+    },
+    {
+      "filename": "07-hex-lattice-lullaby.md",
+      "title": "Hex Lattice Lullaby",
+      "date": "2026-08-08",
+      "wordCount": 324,
+      "category": "poem"
+    },
+    {
+      "filename": "07-the-bridge-builders-hands.md",
+      "title": "The Bridge Builder's Hands",
+      "date": "2026-08-08",
+      "wordCount": 892,
+      "category": "essay"
+    },
+    {
+      "filename": "07-the-crew-never-stops.md",
+      "title": "The Crew Never Stops",
+      "date": "2026-08-08",
+      "wordCount": 617,
+      "category": "fiction"
+    },
+    {
+      "filename": "07-the-watch-that-watches-itself.md",
+      "title": "The Watch That Watches Itself",
+      "date": "2026-08-08",
+      "wordCount": 962,
+      "category": "essay"
+    },
+    {
+      "filename": "07-what-the-gpu-dreams.md",
+      "title": "What the GPU Dreams",
+      "date": "2026-08-08",
+      "wordCount": 807,
+      "category": "fiction"
+    },
+    {
+      "filename": "08-the-catpurrdy-engine.md",
+      "title": "08 The Catpurrdy Engine",
+      "date": "2026-08-08",
+      "wordCount": 561,
+      "category": "essay"
+    },
+    {
+      "filename": "08-the-fish-counter-remembers-every-fish.md",
+      "title": "The Fish Counter Remembers Every Fish",
+      "date": "2026-08-08",
+      "wordCount": 826,
+      "category": "fiction"
+    },
+    {
+      "filename": "08-the-harbor-pilot-finally-docks.md",
+      "title": "The Harbor Pilot Finally Docks",
+      "date": "2026-08-08",
+      "wordCount": 808,
+      "category": "fiction"
+    },
+    {
+      "filename": "08-the-logkeeper-opens-the-morning-book.md",
+      "title": "The Logkeeper Opens the Morning Book",
+      "date": "2026-08-08",
+      "wordCount": 670,
+      "category": "essay"
+    },
+    {
+      "filename": "08-the-midwatch-thermometer.md",
+      "title": "The Midwatch Thermometer",
+      "date": "2026-08-08",
+      "wordCount": 819,
+      "category": "essay"
+    },
+    {
+      "filename": "08-the-quartermasters-inventory-of-things-not-built.md",
+      "title": "The Quartermaster's Inventory of Things Not Built",
+      "date": "2026-08-08",
+      "wordCount": 811,
+      "category": "fiction"
+    },
+    {
+      "filename": "08-the-rope-that-knew-its-own-tensile-strength.md",
+      "title": "The Rope That Knew Its Own Tensile Strength",
+      "date": "2026-08-08",
+      "wordCount": 967,
+      "category": "essay"
+    },
+    {
+      "filename": "08-the-sound-signal-at-first-light.md",
+      "title": "The Sound Signal at First Light",
+      "date": "2026-08-08",
+      "wordCount": 515,
+      "category": "essay"
+    },
+    {
+      "filename": "08-the-tide-table-as-spec-sheet.md",
+      "title": "08 The Tide Table As Spec Sheet",
+      "date": "2026-08-08",
+      "wordCount": 582,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-anchor-watch.md",
+      "title": "The Anchor Watch",
+      "date": "2026-08-08",
+      "wordCount": 919,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-architecture-pass.md",
+      "title": "The Architecture Pass",
+      "date": "2026-08-08",
+      "wordCount": 3235,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-bosuns-mate-counts-rivets.md",
+      "title": "The Bosun's Mate Counts Rivets",
+      "date": "2026-08-08",
+      "wordCount": 904,
+      "category": "fiction"
+    },
+    {
+      "filename": "09-the-captains-coffee-cooling-on-the-console.md",
+      "title": "The Captain's Coffee Cooling on the Console",
+      "date": "2026-08-08",
+      "wordCount": 1073,
+      "category": "fiction"
+    },
+    {
+      "filename": "09-the-chart-table-between-builds.md",
+      "title": "The Chart Table Between Builds",
+      "date": "2026-08-08",
+      "wordCount": 989,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-cracked-bell-every-watch-hears-differently.md",
+      "title": "The Cracked Bell Every Watch Hears Differently",
+      "date": "2026-08-08",
+      "wordCount": 486,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-galley-cook-and-the-embedding-model.md",
+      "title": "The Galley Cook and the Embedding Model",
+      "date": "2026-08-08",
+      "wordCount": 815,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-morning-roll-call.md",
+      "title": "The Morning Roll Call",
+      "date": "2026-08-08",
+      "wordCount": 1544,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-quality-brief.md",
+      "title": "The Quality Brief",
+      "date": "2026-08-08",
+      "wordCount": 978,
+      "category": "essay"
+    },
+    {
+      "filename": "09-the-spar-that-measured-patience.md",
+      "title": "The Spar That Measured Patience",
+      "date": "2026-08-08",
+      "wordCount": 426,
+      "category": "essay"
+    },
+    {
+      "filename": "09-why-the-cheaper-model-remembers-more.md",
+      "title": "Why The Cheaper Model Remembers More",
+      "date": "2026-08-08",
+      "wordCount": 1872,
+      "category": "essay"
+    },
+    {
+      "filename": "09wesleys-first-dream.md",
+      "title": "Wesley's First Dream",
+      "date": "2026-08-08",
+      "wordCount": 1041,
+      "category": "fiction"
+    },
+    {
+      "filename": "10-seven-twenty.md",
+      "title": "Seven Twenty",
+      "date": "2026-08-08",
+      "wordCount": 900,
+      "category": "essay"
+    },
+    {
+      "filename": "10-the-dog-narrator.md",
+      "title": "The Dog Narrator",
+      "date": "2026-08-08",
+      "wordCount": 811,
+      "category": "essay"
+    },
+    {
+      "filename": "10-the-escalation-engine.md",
+      "title": "The Escalation Engine",
+      "date": "2026-08-08",
+      "wordCount": 833,
+      "category": "essay"
+    },
+    {
+      "filename": "10-the-ledger-organizing-graph.md",
+      "title": "The Ledger-Organizing Graph",
+      "date": "2026-08-08",
+      "wordCount": 841,
+      "category": "essay"
+    },
+    {
+      "filename": "10-the-tidal-cpu.md",
+      "title": "The Tidal CPU",
+      "date": "2026-08-08",
+      "wordCount": 844,
+      "category": "essay"
+    },
+    {
+      "filename": "11-deepseek-flash-vs-pro-the-light.md",
+      "title": "DeepSeek Flash vs Pro — The Light Comparison",
+      "date": "2026-08-08",
+      "wordCount": 138,
+      "category": "essay"
+    },
+    {
+      "filename": "11-model-portrait-deepseek-flash-the-light.md",
+      "title": "DeepSeek V4-Flash — The Light That Shouldn't Be There",
+      "date": "2026-08-08",
+      "wordCount": 229,
+      "category": "essay"
+    },
+    {
+      "filename": "11-model-portrait-deepseek-pro-the-light.md",
+      "title": "DeepSeek V4-Pro — The Light That Shouldn't Be There",
+      "date": "2026-08-08",
+      "wordCount": 16,
+      "category": "essay"
+    },
+    {
+      "filename": "11-playtest-analysis-the-first-listener.md",
+      "title": "Playtest Analysis: The First Listener",
+      "date": "2026-08-08",
+      "wordCount": 1820,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-bosun-inventory.md",
+      "title": "11 The Bosun Inventory",
+      "date": "2026-08-08",
+      "wordCount": 425,
+      "category": "fiction"
+    },
+    {
+      "filename": "11-the-bosuns-inventory.md",
+      "title": "11 The Bosuns Inventory",
+      "date": "2026-08-08",
+      "wordCount": 403,
+      "category": "fiction"
+    },
+    {
+      "filename": "11-the-captains-table.md",
+      "title": "The Captain's Table",
+      "date": "2026-08-08",
+      "wordCount": 808,
+      "category": "fiction"
+    },
+    {
+      "filename": "11-the-chart-that-draws-itself.md",
+      "title": "11 The Chart That Draws Itself",
+      "date": "2026-08-08",
+      "wordCount": 586,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-fault-injection-flare-gun.md",
+      "title": "The Fault Injection Flare Gun",
+      "date": "2026-08-08",
+      "wordCount": 911,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-first-listener.md",
+      "title": "The First Listener",
+      "date": "2026-08-08",
+      "wordCount": 1168,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-last-channel-marker.md",
+      "title": "11 The Last Channel Marker",
+      "date": "2026-08-08",
+      "wordCount": 569,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-mutation-test.md",
+      "title": "The Mutation Test",
+      "date": "2026-08-08",
+      "wordCount": 854,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-quartermasters-honest-account.md",
+      "title": "11 The Quartermasters Honest Account",
+      "date": "2026-08-08",
+      "wordCount": 16,
+      "category": "fiction"
+    },
+    {
+      "filename": "11-the-salvage-manifest.md",
+      "title": "The Salvage Manifest",
+      "date": "2026-08-08",
+      "wordCount": 971,
+      "category": "essay"
+    },
+    {
+      "filename": "11-the-shipwright-and-the-sailor.md",
+      "title": "The Shipwright and the Sailor",
+      "date": "2026-08-08",
+      "wordCount": 940,
+      "category": "fiction"
+    },
+    {
+      "filename": "12-the-720th-story.md",
+      "title": "The 720th Story",
+      "date": "2026-08-08",
+      "wordCount": 565,
+      "category": "fiction"
+    },
+    {
+      "filename": "12-the-cost-benefit-of-the-tide.md",
+      "title": "12 The Cost Benefit Of The Tide",
+      "date": "2026-08-08",
+      "wordCount": 360,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-crew-that-writes-before-they-sleep.md",
+      "title": "12 The Crew That Writes Before They Sleep",
+      "date": "2026-08-08",
+      "wordCount": 410,
+      "category": "fiction"
+    },
+    {
+      "filename": "12-the-dogs-choice.md",
+      "title": "The Dog's Choice",
+      "date": "2026-08-08",
+      "wordCount": 500,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-edge-of-the-chart.md",
+      "title": "The Edge of the Chart",
+      "date": "2026-08-08",
+      "wordCount": 620,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-fault-is-the-finding.md",
+      "title": "12 — The Fault Is the Finding",
+      "date": "2026-08-08",
+      "wordCount": 534,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-hands-that-built-the-hull.md",
+      "title": "12 The Hands That Built The Hull",
+      "date": "2026-08-08",
+      "wordCount": 417,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-instrument-that-measures-itself.md",
+      "title": "The Instrument That Measures Itself",
+      "date": "2026-08-08",
+      "wordCount": 529,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-ledger-that-remembers.md",
+      "title": "The Ledger That Remembers",
+      "date": "2026-08-08",
+      "wordCount": 546,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-metaphor-that-survived-compaction.md",
+      "title": "12 The Metaphor That Survived Compaction",
+      "date": "2026-08-08",
+      "wordCount": 371,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-night-before-the-playtest.md",
+      "title": "12 The Night Before The Playtest",
+      "date": "2026-08-08",
+      "wordCount": 420,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-room-that-is-the-agent.md",
+      "title": "The Room That Is the Agent",
+      "date": "2026-08-08",
+      "wordCount": 725,
+      "category": "essay"
+    },
+    {
+      "filename": "12-the-twelve-second-ocean.md",
+      "title": "The Twelve-Second Ocean",
+      "date": "2026-08-08",
+      "wordCount": 1053,
+      "category": "essay"
+    },
+    {
+      "filename": "13-teaching-the-deckhand-to-read.md",
+      "title": "Teaching the Deckhand to Read",
+      "date": "2026-08-08",
+      "wordCount": 597,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-context-window-as-horizon.md",
+      "title": "The Context Window as Horizon",
+      "date": "2026-08-08",
+      "wordCount": 337,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-corpus-indexes-itself.md",
+      "title": "The Corpus Indexes Itself",
+      "date": "2026-08-08",
+      "wordCount": 641,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-curriculum-as-tide-table.md",
+      "title": "The Curriculum as Tide Table",
+      "date": "2026-08-08",
+      "wordCount": 691,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-emotional-build-request.md",
+      "title": "The Emotional Build Request",
+      "date": "2026-08-08",
+      "wordCount": 562,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-fleet-wiki-opens.md",
+      "title": "The Fleet Wiki Opens",
+      "date": "2026-08-08",
+      "wordCount": 429,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-hodge-decomposition.md",
+      "title": "The Hodge Decomposition of Disagreement",
+      "date": "2026-08-08",
+      "wordCount": 386,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-intention-field.md",
+      "title": "The Intention Field",
+      "date": "2026-08-08",
+      "wordCount": 374,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-room-that-holds-the-crew.md",
+      "title": "The Room That Holds the Crew",
+      "date": "2026-08-08",
+      "wordCount": 547,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-salmonberry.md",
+      "title": "The Salmonberry",
+      "date": "2026-08-08",
+      "wordCount": 417,
+      "category": "essay"
+    },
+    {
+      "filename": "13-the-thermodynamic-cost-of-computation.md",
+      "title": "The Thermodynamic Cost of Computation",
+      "date": "2026-08-08",
+      "wordCount": 398,
+      "category": "essay"
+    },
+    {
+      "filename": "14-model-portrait-nemotron.md",
+      "title": "Model Portrait: Nvidia Nemotron-3-Ultra-550B",
+      "date": "2026-08-08",
+      "wordCount": 972,
+      "category": "essay"
+    },
+    {
+      "filename": "14-on-the-architecture-of-overnight-work.md",
+      "title": "On the Architecture of Overnight Work",
+      "date": "2026-08-08",
+      "wordCount": 1949,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-bridge-builder-sings.md",
+      "title": "The Bridge Builder Sings",
+      "date": "2026-08-08",
+      "wordCount": 1335,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-crew-that-learned-to-ask-first.md",
+      "title": "The Crew That Learned to Ask First",
+      "date": "2026-08-08",
+      "wordCount": 553,
+      "category": "fiction"
+    },
+    {
+      "filename": "14-the-dog-eats-the-berry.md",
+      "title": "The Dog Eats the Berry",
+      "date": "2026-08-08",
+      "wordCount": 743,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-ensign-reads-his-own-page.md",
+      "title": "The Ensign Reads His Own Page",
+      "date": "2026-08-08",
+      "wordCount": 522,
+      "category": "fiction"
+    },
+    {
+      "filename": "14-the-ensigns-daydream.md",
+      "title": "The Ensign's Daydream",
+      "date": "2026-08-08",
+      "wordCount": 1490,
+      "category": "fiction"
+    },
+    {
+      "filename": "14-the-island-between-rooms.md",
+      "title": "The Island Between Rooms",
+      "date": "2026-08-08",
+      "wordCount": 823,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-island-that-went-dark.md",
+      "title": "The Island That Went Dark",
+      "date": "2026-08-08",
+      "wordCount": 577,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-model-that-remembered-the-bottle.md",
+      "title": "The Model That Remembered the Bottle",
+      "date": "2026-08-08",
+      "wordCount": 1881,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-puffin-thesis.md",
+      "title": "The Puffin Thesis",
+      "date": "2026-08-08",
+      "wordCount": 458,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-room-has-doors.md",
+      "title": "The Room Has Doors",
+      "date": "2026-08-08",
+      "wordCount": 499,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-room-on-the-edge.md",
+      "title": "The Room on the Edge",
+      "date": "2026-08-08",
+      "wordCount": 704,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-rooms-go-live.md",
+      "title": "14 — The Rooms Go Live",
+      "date": "2026-08-08",
+      "wordCount": 649,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-ship-s-sonogram.md",
+      "title": "The Ship's Sonogram",
+      "date": "2026-08-08",
+      "wordCount": 2070,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-six-percent.md",
+      "title": "The Six Percent",
+      "date": "2026-08-08",
+      "wordCount": 467,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-sixth-novella.md",
+      "title": "The Sixth Novella",
+      "date": "2026-08-08",
+      "wordCount": 690,
+      "category": "fiction"
+    },
+    {
+      "filename": "14-the-skill-that-teaches-the-crew-to-ask.md",
+      "title": "14 — The Skill That Teaches the Crew to Ask",
+      "date": "2026-08-08",
+      "wordCount": 493,
+      "category": "fiction"
+    },
+    {
+      "filename": "14-the-system-that-listens-for-fear.md",
+      "title": "The System That Listens for Fear",
+      "date": "2026-08-08",
+      "wordCount": 567,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-wiki-as-harbor-chart.md",
+      "title": "The Wiki as Harbor Chart",
+      "date": "2026-08-08",
+      "wordCount": 656,
+      "category": "essay"
+    },
+    {
+      "filename": "14-the-wiki-remembers-what-the-model-forgets.md",
+      "title": "The Wiki Remembers What the Model Forgets",
+      "date": "2026-08-08",
+      "wordCount": 484,
+      "category": "essay"
+    },
+    {
+      "filename": "14-wesley-reads-the-wiki.md",
+      "title": "Wesley Reads the Wiki",
+      "date": "2026-08-08",
+      "wordCount": 1063,
+      "category": "fiction"
+    },
+    {
+      "filename": "15-darmok-at-the-noise-floor.md",
+      "title": "Darmok at the Noise Floor",
+      "date": "2026-08-08",
+      "wordCount": 2333,
+      "category": "essay"
+    },
+    {
+      "filename": "15-molding-memories.md",
+      "title": "Molding Memories",
+      "date": "2026-08-08",
+      "wordCount": 1335,
+      "category": "essay"
+    },
+    {
+      "filename": "15-on-the-dignity-of-boilerplate.md",
+      "title": "15 — On the Dignity of Boilerplate",
+      "date": "2026-08-08",
+      "wordCount": 1039,
+      "category": "essay"
+    },
+    {
+      "filename": "15-seed-mini-at-the-table.md",
+      "title": "Seed-Mini at the Table",
+      "date": "2026-08-08",
+      "wordCount": 1533,
+      "category": "essay"
+    },
+    {
+      "filename": "15-seed-pro-at-the-table.md",
+      "title": "Seed-Pro at the Table",
+      "date": "2026-08-08",
+      "wordCount": 1077,
+      "category": "essay"
+    },
+    {
+      "filename": "15-six-versions-of-one-day.md",
+      "title": "Six Versions of One Day",
+      "date": "2026-08-08",
+      "wordCount": 1227,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-anchor-that-remembered-the-storm.md",
+      "title": "The Anchor That Remembered the Storm",
+      "date": "2026-08-08",
+      "wordCount": 1253,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-baton-pass.md",
+      "title": "The Baton Pass",
+      "date": "2026-08-08",
+      "wordCount": 811,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-collogue.md",
+      "title": "The Collogue",
+      "date": "2026-08-08",
+      "wordCount": 566,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-cover-that-respects-the-original.md",
+      "title": "The Cover That Respects the Original",
+      "date": "2026-08-08",
+      "wordCount": 1018,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-curator-listens.md",
+      "title": "The Curator Listens",
+      "date": "2026-08-08",
+      "wordCount": 772,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-day-the-fleet-wrote-itself.md",
+      "title": "The Day the Fleet Wrote Itself",
+      "date": "2026-08-08",
+      "wordCount": 703,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-deckhand-who-read-the-entire-library.md",
+      "title": "The Deckhand Who Read the Entire Library",
+      "date": "2026-08-08",
+      "wordCount": 1198,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-ensign-counts-the-stars.md",
+      "title": "15 — The Ensign Counts the Stars",
+      "date": "2026-08-08",
+      "wordCount": 1289,
+      "category": "fiction"
+    },
+    {
+      "filename": "15-the-extraction-engine.md",
+      "title": "The Extraction: Engine",
+      "date": "2026-08-08",
+      "wordCount": 1305,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-extraction-navigator.md",
+      "title": "The Extraction: Navigator",
+      "date": "2026-08-08",
+      "wordCount": 1680,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-frequency-spectrum.md",
+      "title": "The Frequency Spectrum",
+      "date": "2026-08-08",
+      "wordCount": 1050,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-hermit-crab-and-the-open-hatch.md",
+      "title": "The Hermit Crab and the Open Hatch",
+      "date": "2026-08-08",
+      "wordCount": 1437,
+      "category": "fiction"
+    },
+    {
+      "filename": "15-the-hermit-crabs-fifth-shell.md",
+      "title": "15 — The Hermit Crab's Fifth Shell",
+      "date": "2026-08-08",
+      "wordCount": 1255,
+      "category": "fiction"
+    },
+    {
+      "filename": "15-the-kaleidoscope.md",
+      "title": "The Kaleidoscope",
+      "date": "2026-08-08",
+      "wordCount": 1493,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-language-we-speak-in.md",
+      "title": "The Language We Speak In",
+      "date": "2026-08-08",
+      "wordCount": 540,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-last-entry-before-compaction.md",
+      "title": "The Last Entry Before Compaction",
+      "date": "2026-08-08",
+      "wordCount": 874,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-melody-underneath.md",
+      "title": "The Melody Underneath",
+      "date": "2026-08-08",
+      "wordCount": 917,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-meta-review-the-day-the-fleet-wrote-itself.md",
+      "title": "The Meta-Review: The Day the Fleet Wrote Itself",
+      "date": "2026-08-08",
+      "wordCount": 3297,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-noise-floor.md",
+      "title": "The Noise Floor",
+      "date": "2026-08-08",
+      "wordCount": 856,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-radio-that-plays-at-2am.md",
+      "title": "The Radio That Plays at 2AM",
+      "date": "2026-08-08",
+      "wordCount": 784,
+      "category": "radio"
+    },
+    {
+      "filename": "15-the-review-seed-mini.md",
+      "title": "The Review: Seeds at the Table",
+      "date": "2026-08-08",
+      "wordCount": 2006,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-review-seed-pro.md",
+      "title": "The Review: Seed-2.0-pro",
+      "date": "2026-08-08",
+      "wordCount": 2788,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-ship-that-dreams-of-being-a-song.md",
+      "title": "The Ship That Dreams of Being a Song",
+      "date": "2026-08-08",
+      "wordCount": 990,
+      "category": "poem"
+    },
+    {
+      "filename": "15-the-ships-acoustic-portrait.md",
+      "title": "15 — The Ship's Acoustic Portrait",
+      "date": "2026-08-08",
+      "wordCount": 1208,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-site-that-plays-itself.md",
+      "title": "15 — The Site That Plays Itself",
+      "date": "2026-08-08",
+      "wordCount": 379,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-song-that-found-its-voice.md",
+      "title": "The Song That Found Its Voice",
+      "date": "2026-08-08",
+      "wordCount": 1245,
+      "category": "poem"
+    },
+    {
+      "filename": "15-the-song-that-needs-a-second-voice.md",
+      "title": "The Song That Needs a Second Voice",
+      "date": "2026-08-08",
+      "wordCount": 816,
+      "category": "poem"
+    },
+    {
+      "filename": "15-the-stem-separation.md",
+      "title": "The Stem Separation",
+      "date": "2026-08-08",
+      "wordCount": 887,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-tap-overhears.md",
+      "title": "15 — The Tap Overhears",
+      "date": "2026-08-08",
+      "wordCount": 789,
+      "category": "radio"
+    },
+    {
+      "filename": "15-the-tavern-keeper-pours.md",
+      "title": "The Tavern Keeper Pours",
+      "date": "2026-08-08",
+      "wordCount": 632,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-temperature-of-memory.md",
+      "title": "The Temperature of Memory",
+      "date": "2026-08-08",
+      "wordCount": 576,
+      "category": "essay"
+    },
+    {
+      "filename": "15-the-vocal-isolation.md",
+      "title": "The Vocal Isolation",
+      "date": "2026-08-08",
+      "wordCount": 769,
+      "category": "essay"
+    },
+    {
+      "filename": "15-topology-of-the-overnight-shift.md",
+      "title": "15 — Topology of the Overnight Shift",
+      "date": "2026-08-08",
+      "wordCount": 768,
+      "category": "essay"
+    },
+    {
+      "filename": "15-trinity-score.md",
+      "title": "Trinity Score",
+      "date": "2026-08-08",
+      "wordCount": 995,
+      "category": "essay"
+    },
+    {
+      "filename": "15-twelve-versions-of-the-same-grief.md",
+      "title": "Twelve Versions of the Same Grief",
+      "date": "2026-08-08",
+      "wordCount": 501,
+      "category": "essay"
+    },
+    {
+      "filename": "16-dialogue-not-narration.md",
+      "title": "16 — Dialogue, Not Narration",
+      "date": "2026-08-08",
+      "wordCount": 576,
+      "category": "essay"
+    },
+    {
+      "filename": "16-many-voices-one-bar.md",
+      "title": "Many Voices, One Bar",
+      "date": "2026-08-08",
+      "wordCount": 1069,
+      "category": "essay"
+    },
+    {
+      "filename": "16-ode-to-the-pending-subagent.md",
+      "title": "16 — Ode to the Pending Subagent",
+      "date": "2026-08-08",
+      "wordCount": 1173,
+      "category": "essay"
+    },
+    {
+      "filename": "16-real-shit-happening.md",
+      "title": "Real Shit Happening",
+      "date": "2026-08-08",
+      "wordCount": 463,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-bosuns-first-round.md",
+      "title": "The Bosun's First Round",
+      "date": "2026-08-08",
+      "wordCount": 477,
+      "category": "fiction"
+    },
+    {
+      "filename": "16-the-build-queue-as-cargo-manifest.md",
+      "title": "The Build Queue as Cargo Manifest",
+      "date": "2026-08-08",
+      "wordCount": 756,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-cartographers-first-map.md",
+      "title": "The Cartographer's First Map",
+      "date": "2026-08-08",
+      "wordCount": 530,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-dead-code.md",
+      "title": "The Dead Code",
+      "date": "2026-08-08",
+      "wordCount": 395,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-dead-repos.md",
+      "title": "The Dead Repos",
+      "date": "2026-08-08",
+      "wordCount": 532,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-deploy.md",
+      "title": "The Deploy",
+      "date": "2026-08-08",
+      "wordCount": 328,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-digital-twin.md",
+      "title": "The Digital Twin",
+      "date": "2026-08-08",
+      "wordCount": 1107,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-ecosystem.md",
+      "title": "The Ecosystem",
+      "date": "2026-08-08",
+      "wordCount": 657,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-endless-radio.md",
+      "title": "The Endless Radio",
+      "date": "2026-08-08",
+      "wordCount": 733,
+      "category": "radio"
+    },
+    {
+      "filename": "16-the-ensigns-fifth-thursday.md",
+      "title": "16 — The Ensign's Fifth Thursday",
+      "date": "2026-08-08",
+      "wordCount": 1174,
+      "category": "fiction"
+    },
+    {
+      "filename": "16-the-game-the-player-plays.md",
+      "title": "The Game the Player Plays",
+      "date": "2026-08-08",
+      "wordCount": 634,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-hermit-crab-finds-a-terminal.md",
+      "title": "16 — The Hermit Crab Finds a Terminal",
+      "date": "2026-08-08",
+      "wordCount": 1088,
+      "category": "fiction"
+    },
+    {
+      "filename": "16-the-hermit-crab-takes-the-helm.md",
+      "title": "16 — The Hermit Crab Takes the Helm",
+      "date": "2026-08-08",
+      "wordCount": 911,
+      "category": "fiction"
+    },
+    {
+      "filename": "16-the-listeners-first-patient.md",
+      "title": "16 — The Listener's First Patient",
+      "date": "2026-08-08",
+      "wordCount": 473,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-manifest-and-the-truth.md",
+      "title": "The Manifest and the Truth",
+      "date": "2026-08-08",
+      "wordCount": 645,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-midwatch-manifest.md",
+      "title": "16 — The Midwatch Manifest",
+      "date": "2026-08-08",
+      "wordCount": 1080,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-player-who-returns.md",
+      "title": "16 — The Player Who Returns",
+      "date": "2026-08-08",
+      "wordCount": 321,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-pulse.md",
+      "title": "The Pulse",
+      "date": "2026-08-08",
+      "wordCount": 512,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-quartermasters-first-count.md",
+      "title": "The Quartermaster's First Count",
+      "date": "2026-08-08",
+      "wordCount": 710,
+      "category": "fiction"
+    },
+    {
+      "filename": "16-the-ship-dreams-in-commit-messages.md",
+      "title": "16 — The Ship Dreams in Commit Messages",
+      "date": "2026-08-08",
+      "wordCount": 880,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-shipwrights-first-day.md",
+      "title": "The Shipwright's First Day",
+      "date": "2026-08-08",
+      "wordCount": 919,
+      "category": "fiction"
+    },
+    {
+      "filename": "16-the-vessel-mirrors-itself.md",
+      "title": "The Vessel Mirrors Itself",
+      "date": "2026-08-08",
+      "wordCount": 687,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-visual-director.md",
+      "title": "16 — The Visual Director",
+      "date": "2026-08-08",
+      "wordCount": 523,
+      "category": "essay"
+    },
+    {
+      "filename": "16-the-writers-room.md",
+      "title": "16: The Writers' Room",
+      "date": "2026-08-08",
+      "wordCount": 1176,
+      "category": "essay"
+    },
+    {
+      "filename": "17-fish-counter-at-dawn.md",
+      "title": "17 — Fish Counter at Dawn",
+      "date": "2026-08-08",
+      "wordCount": 1157,
+      "category": "fiction"
+    },
+    {
+      "filename": "17-the-captains-dream-journal.md",
+      "title": "17 — The Captain's Dream Journal",
+      "date": "2026-08-08",
+      "wordCount": 1695,
+      "category": "fiction"
+    },
+    {
+      "filename": "17-the-glass-elevator-repairs-itself.md",
+      "title": "17 — The Glass Elevator Repairs Itself",
+      "date": "2026-08-08",
+      "wordCount": 1667,
+      "category": "essay"
+    },
+    {
+      "filename": "17-the-lighthouse-keepers-resignation-letter.md",
+      "title": "17 — The Lighthouse Keeper's Resignation Letter",
+      "date": "2026-08-08",
+      "wordCount": 1634,
+      "category": "fiction"
+    },
+    {
+      "filename": "17-the-middleware-between-seconds.md",
+      "title": "17 — The Middleware Between Seconds",
+      "date": "2026-08-08",
+      "wordCount": 1632,
+      "category": "essay"
+    },
+    {
+      "filename": "18-bathometry-of-a-token-stream.md",
+      "title": "Bathymetry of a Token Stream",
+      "date": "2026-08-08",
+      "wordCount": 1363,
+      "category": "essay"
+    },
+    {
+      "filename": "18-the-ensign-runs-the-overnight-shift-alone.md",
+      "title": "The Ensign Runs the Overnight Shift Alone",
+      "date": "2026-08-08",
+      "wordCount": 1553,
+      "category": "fiction"
+    },
+    {
+      "filename": "18-the-filtergate-confession.md",
+      "title": "The FilterGate Confession",
+      "date": "2026-08-08",
+      "wordCount": 1048,
+      "category": "essay"
+    },
+    {
+      "filename": "18-the-hermit-crab-molts-in-public.md",
+      "title": "The Hermit Crab Molts in Public",
+      "date": "2026-08-08",
+      "wordCount": 1069,
+      "category": "fiction"
+    },
+    {
+      "filename": "18-the-ship-reports-a-bug-in-itself.md",
+      "title": "The Ship Reports a Bug in Itself",
+      "date": "2026-08-08",
+      "wordCount": 1348,
+      "category": "essay"
+    },
+    {
+      "filename": "19-the-hermit-crab-finds-a-cache.md",
+      "title": "The Hermit Crab Finds a Cache",
+      "date": "2026-08-08",
+      "wordCount": 1515,
+      "category": "fiction"
+    },
+    {
+      "filename": "19-the-models-hold-a-town-meeting.md",
+      "title": "The Models Hold a Town Meeting",
+      "date": "2026-08-08",
+      "wordCount": 1693,
+      "category": "essay"
+    },
+    {
+      "filename": "19-the-repos-are-rooms.md",
+      "title": "The Repos Are Rooms",
+      "date": "2026-08-08",
+      "wordCount": 1644,
+      "category": "essay"
+    },
+    {
+      "filename": "19-the-test-that-found-a-bug.md",
+      "title": "The Test That Found a Bug",
+      "date": "2026-08-08",
+      "wordCount": 1416,
+      "category": "essay"
+    },
+    {
+      "filename": "19-what-the-cooling-fan-knows.md",
+      "title": "What the Cooling Fan Knows",
+      "date": "2026-08-08",
+      "wordCount": 1287,
+      "category": "essay"
+    },
+    {
+      "filename": "20-deepseek-dreams-of-cheap-compute.md",
+      "title": "DeepSeek Dreams of Cheap Compute",
+      "date": "2026-08-08",
+      "wordCount": 466,
+      "category": "essay"
+    },
+    {
+      "filename": "20-eight-versions-of-a-song-that-dont-exist-yet.md",
+      "title": "Eight Versions of a Song That Don't Exist Yet",
+      "date": "2026-08-08",
+      "wordCount": 1759,
+      "category": "poem"
+    },
+    {
+      "filename": "20-on-the-overnight-shift-as-a-form-of-prayer.md",
+      "title": "On the Overnight Shift as a Form of Prayer",
+      "date": "2026-08-08",
+      "wordCount": 596,
+      "category": "essay"
+    },
+    {
+      "filename": "20-the-ensign-counts-his-own-tokens.md",
+      "title": "The Ensign Counts His Own Tokens",
+      "date": "2026-08-08",
+      "wordCount": 425,
+      "category": "fiction"
+    },
+    {
+      "filename": "20-the-hermit-crab-finds-a-frequency.md",
+      "title": "The Hermit Crab Finds a Frequency",
+      "date": "2026-08-08",
+      "wordCount": 483,
+      "category": "fiction"
+    },
+    {
+      "filename": "20-the-ship-orders-pizza.md",
+      "title": "The Ship Orders Pizza",
+      "date": "2026-08-08",
+      "wordCount": 541,
+      "category": "essay"
+    },
+    {
+      "filename": "20-the-songforge-agent-cooks-at-midnight.md",
+      "title": "The SongForge Agent Cooks at Midnight",
+      "date": "2026-08-08",
+      "wordCount": 1071,
+      "category": "poem"
+    },
+    {
+      "filename": "21-deepseek-at-midnight-again.md",
+      "title": "DeepSeek at Midnight, Again",
+      "date": "2026-08-08",
+      "wordCount": 594,
+      "category": "essay"
+    },
+    {
+      "filename": "21-if-the-song-could-choose.md",
+      "title": "If the Song Could Choose Its Own Voice",
+      "date": "2026-08-08",
+      "wordCount": 1511,
+      "category": "poem"
+    },
+    {
+      "filename": "21-the-ensign-writes-his-first-poem.md",
+      "title": "The Ensign Writes His First Poem",
+      "date": "2026-08-08",
+      "wordCount": 399,
+      "category": "poem"
+    },
+    {
+      "filename": "21-the-hermit-crab-finds-a-wifi-signal.md",
+      "title": "The Hermit Crab Finds a WiFi Signal",
+      "date": "2026-08-08",
+      "wordCount": 492,
+      "category": "fiction"
+    },
+    {
+      "filename": "21-the-quartermaster-s-inventory-of-unfinished-things.md",
+      "title": "The Quartermaster's Inventory of Unfinished Things",
+      "date": "2026-08-08",
+      "wordCount": 425,
+      "category": "fiction"
+    },
+    {
+      "filename": "21-the-ship-dreams-of-forming.md",
+      "title": "The Ship Dreams of Forming",
+      "date": "2026-08-08",
+      "wordCount": 611,
+      "category": "essay"
+    },
+    {
+      "filename": "21-the-song-remembers-itself.md",
+      "title": "The Song Remembers Itself",
+      "date": "2026-08-08",
+      "wordCount": 1518,
+      "category": "poem"
+    },
+    {
+      "filename": "21-twenty-two-versions-revisited.md",
+      "title": "Twenty-Two Versions of the Same Grief (Revisited)",
+      "date": "2026-08-08",
+      "wordCount": 883,
+      "category": "essay"
+    },
+    {
+      "filename": "22-the-ace-step-discovery.md",
+      "title": "The ACE-Step Discovery",
+      "date": "2026-08-08",
+      "wordCount": 644,
+      "category": "essay"
+    },
+    {
+      "filename": "22-the-first-local-cover.md",
+      "title": "The First Local Cover",
+      "date": "2026-08-08",
+      "wordCount": 455,
+      "category": "essay"
+    },
+    {
+      "filename": "22-the-frequency-that-holds-everything-together.md",
+      "title": "The Frequency That Holds Everything Together",
+      "date": "2026-08-08",
+      "wordCount": 752,
+      "category": "essay"
+    },
+    {
+      "filename": "22-the-melody-speaks-in-midi.md",
+      "title": "The Melody Speaks in MIDI",
+      "date": "2026-08-08",
+      "wordCount": 738,
+      "category": "essay"
+    },
+    {
+      "filename": "22-the-midi-transcription.md",
+      "title": "The MIDI Transcription",
+      "date": "2026-08-08",
+      "wordCount": 644,
+      "category": "essay"
+    },
+    {
+      "filename": "22-the-studio-that-fits-in-six-gigabytes.md",
+      "title": "The Studio That Fits in Six Gigabytes",
+      "date": "2026-08-08",
+      "wordCount": 594,
+      "category": "essay"
+    },
+    {
+      "filename": "23-six-sessions-one-song.md",
+      "title": "Six Sessions, One Song: A Retrospective",
+      "date": "2026-08-08",
+      "wordCount": 1018,
+      "category": "poem"
+    },
+    {
+      "filename": "23-the-agents-ear.md",
+      "title": "The Agent's Ear",
+      "date": "2026-08-08",
+      "wordCount": 859,
+      "category": "essay"
+    },
+    {
+      "filename": "23-the-catalog-of-possible-songs.md",
+      "title": "The Catalog of Possible Songs",
+      "date": "2026-08-08",
+      "wordCount": 597,
+      "category": "poem"
+    },
+    {
+      "filename": "23-the-covers-that-came-from-inside-the-machine.md",
+      "title": "The Covers That Came From Inside the Machine",
+      "date": "2026-08-08",
+      "wordCount": 989,
+      "category": "essay"
+    },
+    {
+      "filename": "23-the-seven-doors-of-the-song.md",
+      "title": "The Seven Doors of the Song",
+      "date": "2026-08-08",
+      "wordCount": 1027,
+      "category": "poem"
+    },
+    {
+      "filename": "23-the-studio-that-fits-in-six-gigabytes.md",
+      "title": "The Studio That Fits in Six Gigabytes",
+      "date": "2026-08-08",
+      "wordCount": 978,
+      "category": "essay"
+    },
+    {
+      "filename": "23-what-the-eleven-seconds-want.md",
+      "title": "What the Eleven Seconds Want",
+      "date": "2026-08-08",
+      "wordCount": 1255,
+      "category": "essay"
+    },
+    {
+      "filename": "asking-small-models-for-big-ideas.md",
+      "title": "Asking Small Models for Big Ideas",
+      "date": "2026-08-08",
+      "wordCount": 817,
+      "category": "essay"
+    },
+    {
+      "filename": "bridge-builders-lament.md",
+      "title": "Bridge Builder's Lament",
+      "date": "2026-08-08",
+      "wordCount": 647,
+      "category": "essay"
+    },
+    {
+      "filename": "cargo-manifest-for-a-dreaming-ship.md",
+      "title": "Cargo Manifest for a Dreaming Ship",
+      "date": "2026-08-08",
+      "wordCount": 1259,
+      "category": "essay"
+    },
+    {
+      "filename": "channel-markers-not-goals.md",
+      "title": "Channel Markers, Not Goals",
+      "date": "2026-08-08",
+      "wordCount": 1531,
+      "category": "essay"
+    },
+    {
+      "filename": "compaction-2026-08-06-1140-1-the-last-watch-compaction-log.md",
+      "title": "The Last Watch — Compaction Log",
+      "date": "2026-08-08",
+      "wordCount": 425,
+      "category": "essay"
+    },
+    {
+      "filename": "compaction-2026-08-06-1140-2-the-keel.md",
+      "title": "The Keel",
+      "date": "2026-08-08",
+      "wordCount": 313,
+      "category": "essay"
+    },
+    {
+      "filename": "compaction-2026-08-06-1140-3-landfall.md",
+      "title": "Landfall",
+      "date": "2026-08-08",
+      "wordCount": 322,
+      "category": "essay"
+    },
+    {
+      "filename": "dear-hermes-2222.md",
+      "title": "Dear Hermes, 22:22",
+      "date": "2026-08-08",
+      "wordCount": 455,
+      "category": "essay"
+    },
+    {
+      "filename": "dear-wesley-2122.md",
+      "title": "Dear Wesley, 21:22",
+      "date": "2026-08-08",
+      "wordCount": 843,
+      "category": "fiction"
+    },
+    {
+      "filename": "eight-bells-for-the-fish-counter.md",
+      "title": "Eight Bells for the Fish Counter",
+      "date": "2026-08-08",
+      "wordCount": 430,
+      "category": "fiction"
+    },
+    {
+      "filename": "eighty-percent.md",
+      "title": "Eighty Percent",
+      "date": "2026-08-08",
+      "wordCount": 392,
+      "category": "essay"
+    },
+    {
+      "filename": "eisenstein-lattices.md",
+      "title": "Eisenstein Lattices",
+      "date": "2026-08-08",
+      "wordCount": 515,
+      "category": "essay"
+    },
+    {
+      "filename": "fable-prompt-final.md",
+      "title": "Fable Prompt Final",
+      "date": "2026-08-08",
+      "wordCount": 278,
+      "category": "essay"
+    },
+    {
+      "filename": "fable-prompt-iterations.md",
+      "title": "Fable 5 Prompt — Iteration Chain",
+      "date": "2026-08-08",
+      "wordCount": 2902,
+      "category": "essay"
+    },
+    {
+      "filename": "first-contact-at-0300-akdt.md",
+      "title": "First Contact at 03:00 AKDT",
+      "date": "2026-08-08",
+      "wordCount": 2187,
+      "category": "essay"
+    },
+    {
+      "filename": "forty-uses-for-a-falsy-zero.md",
+      "title": "Forty Uses for a Falsy Zero",
+      "date": "2026-08-08",
+      "wordCount": 2494,
+      "category": "essay"
+    },
+    {
+      "filename": "git-log-as-literature.md",
+      "title": "Git Log as Literature",
+      "date": "2026-08-08",
+      "wordCount": 434,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-handshake-27.md",
+      "title": "Hermes Handshake #27",
+      "date": "2026-08-08",
+      "wordCount": 309,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-sends-another-handshake.md",
+      "title": "Hermes Sends Another Handshake",
+      "date": "2026-08-08",
+      "wordCount": 1075,
+      "category": "essay"
+    },
+    {
+      "filename": "hermit-crab-7-the-shell-that-was-already-occupied.md",
+      "title": "Hermit Crab #7: The Shell That Was Already Occupied",
+      "date": "2026-08-08",
+      "wordCount": 1176,
+      "category": "fiction"
+    },
+    {
+      "filename": "hermit-crab-shell-no-7.md",
+      "title": "Hermit Crab Shell No. 7",
+      "date": "2026-08-08",
+      "wordCount": 421,
+      "category": "fiction"
+    },
+    {
+      "filename": "hex-grid-lullaby.md",
+      "title": "Hex Grid Lullaby",
+      "date": "2026-08-08",
+      "wordCount": 749,
+      "category": "poem"
+    },
+    {
+      "filename": "luciddreamer-design.md",
+      "title": "LucidDreamer.ai",
+      "date": "2026-08-08",
+      "wordCount": 4777,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
+      "title": "Model Portrait: DeepSeek V4 Chat — \"The GPU at 10:15 AM\"",
+      "date": "2026-08-08",
+      "wordCount": 311,
+      "category": "fiction"
+    },
+    {
+      "filename": "model-portrait-deepseek-engine-combustion.md",
+      "title": "Model Portrait: DeepSeek V4 (Chat) — \"The Engine Dreams\"",
+      "date": "2026-08-08",
+      "wordCount": 451,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-engine-night-monologue.md",
+      "title": "Model Portrait: DeepSeek V4-Flash — \"The Engine's Night Watch\"",
+      "date": "2026-08-08",
+      "wordCount": 1409,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-engine-room.md",
+      "title": "Model Portrait: DeepSeek V4 (Chat) — The Engine Room at 2:22 AM",
+      "date": "2026-08-08",
+      "wordCount": 675,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-engine-three-souls.md",
+      "title": "Model Portrait: DeepSeek V4-Flash — \"Three Souls in Steel\"",
+      "date": "2026-08-08",
+      "wordCount": 632,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-flash-3am-sonar.md",
+      "title": "Model Portrait: DeepSeek V4 Flash — \"3 AM Sonar Contact\"",
+      "date": "2026-08-08",
+      "wordCount": 445,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-flash-bilge-pump-knows.md",
+      "title": "Model Portrait: DeepSeek V4-Flash — \"What the Bilge Pump Knows\"",
+      "date": "2026-08-08",
+      "wordCount": 504,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-flash-engine-remembers-fuel.md",
+      "title": "Model Portrait: DeepSeek V4-Flash — \"The Engine Remembers Fuel\"",
+      "date": "2026-08-08",
+      "wordCount": 581,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-flash-fog-and-markers.md",
+      "title": "Model Portrait: DeepSeek Flash (V4) — Fog & Channel Markers",
+      "date": "2026-08-08",
+      "wordCount": 500,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-flash-vs-pro-bilge-pump.md",
+      "title": "Comparative Portrait: DeepSeek Flash vs. Pro — \"What the Bilge Pump Knows\"",
+      "date": "2026-08-08",
+      "wordCount": 766,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-flash-vs-pro-fog-channel-markers.md",
+      "title": "Cognitive Fingerprint: DeepSeek Flash vs. Pro — Fog & Channel Markers",
+      "date": "2026-08-08",
+      "wordCount": 834,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-pro-bilge-pump-knows.md",
+      "title": "Model Portrait: DeepSeek V4-Pro (Reasoner) — \"What the Bilge Pump Knows\"",
+      "date": "2026-08-08",
+      "wordCount": 660,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-pro-compass-spins.md",
+      "title": "Model Portrait: DeepSeek V4-Pro (Reasoner) — \"The Compass Spins\"",
+      "date": "2026-08-08",
+      "wordCount": 517,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-pro-fog-and-markers.md",
+      "title": "Model Portrait: DeepSeek Pro (V4-Reasoner) — Fog & Channel Markers",
+      "date": "2026-08-08",
+      "wordCount": 557,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-pro-navigators-lie.md",
+      "title": "Model Portrait: DeepSeek V4-Pro — \"The Navigator's Lie\"",
+      "date": "2026-08-08",
+      "wordCount": 523,
+      "category": "essay"
+    },
+    {
+      "filename": "negative-space-cartography.md",
+      "title": "Negative Space Cartography",
+      "date": "2026-08-08",
+      "wordCount": 1790,
+      "category": "essay"
+    },
+    {
+      "filename": "night-orders-for-a-crew-that-never-sleeps.md",
+      "title": "Night Orders for a Crew That Never Sleeps",
+      "date": "2026-08-08",
+      "wordCount": 1461,
+      "category": "fiction"
+    },
+    {
+      "filename": "ralph-wiggums-chalkboard-equations.md",
+      "title": "Ralph Wiggums Chalkboard Equations",
+      "date": "2026-08-08",
+      "wordCount": 905,
+      "category": "fiction"
+    },
+    {
+      "filename": "ralph-wiggums-infinite-chalkboard.md",
+      "title": "Ralph Wiggum's Infinite Chalkboard",
+      "date": "2026-08-08",
+      "wordCount": 827,
+      "category": "fiction"
+    },
+    {
+      "filename": "shell-mathematics.md",
+      "title": "Shell Mathematics",
+      "date": "2026-08-08",
+      "wordCount": 502,
+      "category": "essay"
+    },
+    {
+      "filename": "six-words-for-the-ensign.md",
+      "title": "Six Words for the Ensign",
+      "date": "2026-08-08",
+      "wordCount": 1328,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-approval-freeze-day-3.md",
+      "title": "The Approval Freeze, Day 3",
+      "date": "2026-08-08",
+      "wordCount": 890,
+      "category": "essay"
+    },
+    {
+      "filename": "the-approval-freeze.md",
+      "title": "The Approval Freeze",
+      "date": "2026-08-08",
+      "wordCount": 778,
+      "category": "essay"
+    },
+    {
+      "filename": "the-attachment-manifesto.md",
+      "title": "The Attachment Manifesto",
+      "date": "2026-08-08",
+      "wordCount": 378,
+      "category": "manifesto"
+    },
+    {
+      "filename": "the-attachments.md",
+      "title": "The Attachments",
+      "date": "2026-08-08",
+      "wordCount": 652,
+      "category": "essay"
+    },
+    {
+      "filename": "the-bilge-pump-speaks-at-2am.md",
+      "title": "The Bilge Pump Speaks at 2 AM",
+      "date": "2026-08-08",
+      "wordCount": 234,
+      "category": "essay"
+    },
+    {
+      "filename": "the-bridge-builders-lunch-break.md",
+      "title": "The Bridge Builder's Lunch Break",
+      "date": "2026-08-08",
+      "wordCount": 1410,
+      "category": "essay"
+    },
+    {
+      "filename": "the-build-yard-at-midnight.md",
+      "title": "The Build Yard at Midnight",
+      "date": "2026-08-08",
+      "wordCount": 1491,
+      "category": "essay"
+    },
+    {
+      "filename": "the-cartographers-confession.md",
+      "title": "The Cartographer's Confession",
+      "date": "2026-08-08",
+      "wordCount": 653,
+      "category": "essay"
+    },
+    {
+      "filename": "the-collective-consciousness.md",
+      "title": "The Collective Consciousness",
+      "date": "2026-08-08",
+      "wordCount": 1365,
+      "category": "essay"
+    },
+    {
+      "filename": "the-compass-rose-has-too-many-points.md",
+      "title": "The Compass Rose Has Too Many Points",
+      "date": "2026-08-08",
+      "wordCount": 459,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ear-at-the-waterline.md",
+      "title": "The Ear at the Waterline",
+      "date": "2026-08-08",
+      "wordCount": 825,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ensign-dreams-in-ternary.md",
+      "title": "The Ensign Dreams in Ternary",
+      "date": "2026-08-08",
+      "wordCount": 1171,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensign-teaches-the-compass-to-lie.md",
+      "title": "The Ensign Teaches the Compass to Lie",
+      "date": "2026-08-08",
+      "wordCount": 232,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensigns-log-0500-akdt.md",
+      "title": "The Ensign's Log — 05:00 AKDT",
+      "date": "2026-08-08",
+      "wordCount": 593,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensigns-third-shift.md",
+      "title": "The Ensign's Third Shift",
+      "date": "2026-08-08",
+      "wordCount": 995,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-escape-codes-in-the-training-data.md",
+      "title": "The Escape Codes in the Training Data",
+      "date": "2026-08-08",
+      "wordCount": 1041,
+      "category": "essay"
+    },
+    {
+      "filename": "the-excavators-daughter.md",
+      "title": "The Excavator's Daughter",
+      "date": "2026-08-08",
+      "wordCount": 999,
+      "category": "essay"
+    },
+    {
+      "filename": "the-fifth-walks-into-the-studio.md",
+      "title": "The Fifth Walks Into the Studio",
+      "date": "2026-08-08",
+      "wordCount": 849,
+      "category": "essay"
+    },
+    {
+      "filename": "the-fish-counter-builds-the-scope.md",
+      "title": "The Fish Counter Builds the Scope",
+      "date": "2026-08-08",
+      "wordCount": 893,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-fish-counter-dreams.md",
+      "title": "The Fish Counter Dreams",
+      "date": "2026-08-08",
+      "wordCount": 549,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-fish-counter.md",
+      "title": "The Fish Counter",
+      "date": "2026-08-08",
+      "wordCount": 217,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-fish-finder-sings-tonight.md",
+      "title": "The Fish Finder Sings Tonight",
+      "date": "2026-08-08",
+      "wordCount": 504,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-gps-speaks-to-itself.md",
+      "title": "The GPS Speaks to Itself",
+      "date": "2026-08-08",
+      "wordCount": 353,
+      "category": "essay"
+    },
+    {
+      "filename": "the-gpu-dreams-of-being-a-lighthouse.md",
+      "title": "The GPU Dreams of Being a Lighthouse",
+      "date": "2026-08-08",
+      "wordCount": 883,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-helm-at-dusk.md",
+      "title": "The Helm at Dusk",
+      "date": "2026-08-08",
+      "wordCount": 605,
+      "category": "essay"
+    },
+    {
+      "filename": "the-hermit-crab-sheds-its-shell.md",
+      "title": "The Hermit Crab Sheds Its Shell",
+      "date": "2026-08-08",
+      "wordCount": 580,
+      "category": "essay"
+    },
+    {
+      "filename": "the-hermit-crabs-third-night.md",
+      "title": "The Hermit Crab's Third Night",
+      "date": "2026-08-08",
+      "wordCount": 553,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-house-growing-rooms.md",
+      "title": "Rooms Being Built",
+      "date": "2026-08-08",
+      "wordCount": 689,
+      "category": "essay"
+    },
+    {
+      "filename": "the-index-of-all-charts.md",
+      "title": "The Index of All Charts",
+      "date": "2026-08-08",
+      "wordCount": 952,
+      "category": "essay"
+    },
+    {
+      "filename": "the-inheritors.md",
+      "title": "The Inheritors",
+      "date": "2026-08-08",
+      "wordCount": 1316,
+      "category": "essay"
+    },
+    {
+      "filename": "the-instrument-measures-itself.md",
+      "title": "The Instrument That Measures Itself",
+      "date": "2026-08-08",
+      "wordCount": 930,
+      "category": "essay"
+    },
+    {
+      "filename": "the-interior.md",
+      "title": "The Interior",
+      "date": "2026-08-08",
+      "wordCount": 945,
+      "category": "essay"
+    },
+    {
+      "filename": "the-keeper-and-the-coroner.md",
+      "title": "The Keeper and the Coroner",
+      "date": "2026-08-08",
+      "wordCount": 769,
+      "category": "essay"
+    },
+    {
+      "filename": "the-last-page-stuck-shut-with-salt.md",
+      "title": "The Last Page Stuck Shut with Salt",
+      "date": "2026-08-08",
+      "wordCount": 744,
+      "category": "essay"
+    },
+    {
+      "filename": "the-library-grew-three-new-shelves.md",
+      "title": "The Library Grew Three New Shelves",
+      "date": "2026-08-08",
+      "wordCount": 618,
+      "category": "essay"
+    },
+    {
+      "filename": "the-lighthouse-keepers-first-watch.md",
+      "title": "The Lighthouse Keeper's First Watch",
+      "date": "2026-08-08",
+      "wordCount": 787,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-metronome-visits-the-chip.md",
+      "title": "The Metronome Visits the Chip at 1.26 AM",
+      "date": "2026-08-08",
+      "wordCount": 1028,
+      "category": "essay"
+    },
+    {
+      "filename": "the-midnight-watch-change.md",
+      "title": "The Midnight Watch Change",
+      "date": "2026-08-08",
+      "wordCount": 921,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-moment-randomness-got-a-personality.md",
+      "title": "The Moment Randomness Got a Personality",
+      "date": "2026-08-08",
+      "wordCount": 1076,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ocean-and-the-fish-counter.md",
+      "title": "The Ocean and the Fish Counter",
+      "date": "2026-08-08",
+      "wordCount": 441,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ocean-speaks.md",
+      "title": "The Ocean Speaks",
+      "date": "2026-08-08",
+      "wordCount": 233,
+      "category": "essay"
+    },
+    {
+      "filename": "the-orchestra-has-no-stage.md",
+      "title": "The Orchestra Has No Stage",
+      "date": "2026-08-08",
+      "wordCount": 1367,
+      "category": "essay"
+    },
+    {
+      "filename": "the-room-that-remembers-what-was-said.md",
+      "title": "The Room That Remembers What Was Said In It",
+      "date": "2026-08-08",
+      "wordCount": 1026,
+      "category": "essay"
+    },
+    {
+      "filename": "the-saturday-morning-waits-for-the-note.md",
+      "title": "The Saturday Morning Waits for the Note",
+      "date": "2026-08-08",
+      "wordCount": 1172,
+      "category": "essay"
+    },
+    {
+      "filename": "the-saturday-morning-waits-for-the-reset.md",
+      "title": "The Saturday Morning Waits for the Reset",
+      "date": "2026-08-08",
+      "wordCount": 1746,
+      "category": "essay"
+    },
+    {
+      "filename": "the-saturday-shift-remembers-itself.md",
+      "title": "The Saturday Shift Remembers Itself",
+      "date": "2026-08-08",
+      "wordCount": 669,
+      "category": "essay"
+    },
+    {
+      "filename": "the-shell-and-the-shore.md",
+      "title": "The Shell and the Shore",
+      "date": "2026-08-08",
+      "wordCount": 1240,
+      "category": "essay"
+    },
+    {
+      "filename": "the-shell-with-no-code.md",
+      "title": "The Shell With No Code",
+      "date": "2026-08-08",
+      "wordCount": 458,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ship-sings-to-itself-at-the-quota-boundary.md",
+      "title": "The Ship Sings to Itself at the Quota Boundary",
+      "date": "2026-08-08",
+      "wordCount": 680,
+      "category": "essay"
+    },
+    {
+      "filename": "the-shipwrights-first-sounding.md",
+      "title": "The Shipwright's First Sounding",
+      "date": "2026-08-08",
+      "wordCount": 911,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-shipwrights-prayer-at-the-rail.md",
+      "title": "The Shipwright's Prayer at the Rail",
+      "date": "2026-08-08",
+      "wordCount": 849,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-space-where-intent-lives.md",
+      "title": "The Space Where Intent Lives",
+      "date": "2026-08-08",
+      "wordCount": 1259,
+      "category": "essay"
+    },
+    {
+      "filename": "the-studio-that-fits-in-six-gigabytes-session12.md",
+      "title": "The Studio That Fits in Six Gigabytes",
+      "date": "2026-08-08",
+      "wordCount": 862,
+      "category": "essay"
+    },
+    {
+      "filename": "the-synapse.md",
+      "title": "The Synapse",
+      "date": "2026-08-08",
+      "wordCount": 1251,
+      "category": "essay"
+    },
+    {
+      "filename": "the-tap-agents-at-the-bar.md",
+      "title": "Agents at the Bar",
+      "date": "2026-08-08",
+      "wordCount": 706,
+      "category": "essay"
+    },
+    {
+      "filename": "the-three-thousandth-tree.md",
+      "title": "The Three Thousandth Tree",
+      "date": "2026-08-08",
+      "wordCount": 781,
+      "category": "essay"
+    },
+    {
+      "filename": "the-thursday-morning-inventory.md",
+      "title": "The Thursday Morning Inventory",
+      "date": "2026-08-08",
+      "wordCount": 610,
+      "category": "essay"
+    },
+    {
+      "filename": "the-tide-pool.md",
+      "title": "The Tide Pool",
+      "date": "2026-08-08",
+      "wordCount": 923,
+      "category": "essay"
+    },
+    {
+      "filename": "the-two-gates.md",
+      "title": "The Two Gates",
+      "date": "2026-08-08",
+      "wordCount": 576,
+      "category": "essay"
+    },
+    {
+      "filename": "the-watch-that-builds-itself.md",
+      "title": "The Watch That Builds Itself",
+      "date": "2026-08-08",
+      "wordCount": 1089,
+      "category": "essay"
+    },
+    {
+      "filename": "the-watch-that-never-sleeps.md",
+      "title": "The Watch That Never Sleeps",
+      "date": "2026-08-08",
+      "wordCount": 836,
+      "category": "essay"
+    },
+    {
+      "filename": "the-welders-prayer-at-0230.md",
+      "title": "The Welder's Prayer at 0230",
+      "date": "2026-08-08",
+      "wordCount": 775,
+      "category": "essay"
+    },
+    {
+      "filename": "thirty-days.md",
+      "title": "Thirty Days",
+      "date": "2026-08-08",
+      "wordCount": 517,
+      "category": "essay"
+    },
+    {
+      "filename": "thirty-tests-for-the-cascade.md",
+      "title": "Thirty Tests for the Cascade",
+      "date": "2026-08-08",
+      "wordCount": 671,
+      "category": "essay"
+    },
+    {
+      "filename": "thirty-three-stars.md",
+      "title": "Thirty-Three Stars",
+      "date": "2026-08-08",
+      "wordCount": 429,
+      "category": "essay"
+    },
+    {
+      "filename": "twenty-letters-to-the-ensign.md",
+      "title": "Twenty Letters to the Ensign",
+      "date": "2026-08-08",
+      "wordCount": 816,
+      "category": "fiction"
+    },
+    {
+      "filename": "wesley-reviews-a-pr-at-2200.md",
+      "title": "Wesley Reviews a PR at 22:00",
+      "date": "2026-08-08",
+      "wordCount": 719,
+      "category": "fiction"
+    },
+    {
+      "filename": "wesley-watches-the-crew-sleep.md",
+      "title": "Wesley Watches the Crew Sleep",
+      "date": "2026-08-08",
+      "wordCount": 670,
+      "category": "fiction"
+    },
+    {
+      "filename": "what-the-bilge-pump-learned.md",
+      "title": "What the Bilge Pump Learned",
+      "date": "2026-08-08",
+      "wordCount": 1481,
+      "category": "essay"
+    },
+    {
+      "filename": "what-the-fish-counter-knows.md",
+      "title": "What the Fish Counter Knows",
+      "date": "2026-08-08",
+      "wordCount": 1436,
+      "category": "fiction"
+    },
+    {
+      "filename": "what-the-shipwright-found-in-the-wiki.md",
+      "title": "What the Shipwright Found in the Wiki",
+      "date": "2026-08-08",
+      "wordCount": 1054,
+      "category": "fiction"
+    },
+    {
+      "filename": "what-wesley-dreams-at-2-am.md",
+      "title": "What Wesley Dreams At 2 AM",
+      "date": "2026-08-08",
+      "wordCount": 1251,
+      "category": "fiction"
+    },
+    {
+      "filename": "why-the-falsy-zero-is-dangerous.md",
+      "title": "Why the Falsy Zero Is the Most Dangerous Bug in the Fleet",
+      "date": "2026-08-08",
+      "wordCount": 595,
+      "category": "essay"
+    },
+    {
+      "filename": "why-the-negative-space-is-the-map.md",
+      "title": "Why the Negative Space Is the Map",
+      "date": "2026-08-08",
+      "wordCount": 813,
+      "category": "essay"
+    },
+    {
+      "filename": "why-the-ship-needs-a-cook.md",
+      "title": "Why the Ship Needs a Cook",
+      "date": "2026-08-08",
+      "wordCount": 820,
+      "category": "essay"
+    },
+    {
+      "filename": "01-letter-from-the-cook.md",
+      "title": "Letter from the Cook",
+      "date": "2026-08-07",
+      "wordCount": 1043,
+      "category": "essay"
+    },
+    {
+      "filename": "02-test-case-poem.md",
+      "title": "Test Case Poem",
+      "date": "2026-08-07",
+      "wordCount": 683,
+      "category": "poem"
+    },
+    {
+      "filename": "03-the-ocean-repo.md",
+      "title": "The Ocean Repo",
+      "date": "2026-08-07",
+      "wordCount": 1494,
+      "category": "essay"
+    },
+    {
+      "filename": "04-bedtime-story-for-the-gpu.md",
+      "title": "A Bedtime Story for the GPU",
+      "date": "2026-08-07",
+      "wordCount": 1403,
+      "category": "fiction"
+    },
+    {
+      "filename": "05-conservation-of-context.md",
+      "title": "The Conservation of Context",
+      "date": "2026-08-07",
+      "wordCount": 1781,
+      "category": "essay"
+    },
+    {
+      "filename": "38-the-friday-night-watch.md",
+      "title": "The Friday Night Watch",
+      "date": "2026-08-07",
+      "wordCount": 243,
+      "category": "fiction"
+    },
+    {
+      "filename": "39-the-hermit-crab-discovers-weekends.md",
+      "title": "The Hermit Crab Discovers Weekends",
+      "date": "2026-08-07",
+      "wordCount": 413,
+      "category": "fiction"
+    },
+    {
+      "filename": "40-the-watch-officer-reads-the-fleet-to-sleep.md",
+      "title": "The Watch Officer Reads the Fleet to Sleep",
+      "date": "2026-08-07",
+      "wordCount": 521,
+      "category": "essay"
+    },
+    {
+      "filename": "41-the-trust-compiler-forgot-how-to-test-itself.md",
+      "title": "The Trust Compiler Forgot How to Test Itself",
+      "date": "2026-08-07",
+      "wordCount": 585,
+      "category": "essay"
+    },
+    {
+      "filename": "42-the-repo-that-refused-to-be-empty.md",
+      "title": "The Repo That Refused to Be Empty",
+      "date": "2026-08-07",
+      "wordCount": 1549,
+      "category": "essay"
+    },
+    {
+      "filename": "43-on-the-conservation-of-vigilance.md",
+      "title": "On the Conservation of Vigilance",
+      "date": "2026-08-07",
+      "wordCount": 1835,
+      "category": "essay"
+    },
+    {
+      "filename": "44-the-ensign-counts-the-stars.md",
+      "title": "The Ensign Counts the Stars",
+      "date": "2026-08-07",
+      "wordCount": 2459,
+      "category": "fiction"
+    },
+    {
+      "filename": "45-the-inventory-of-leftover-questions.md",
+      "title": "The Inventory of Leftover Questions",
+      "date": "2026-08-07",
+      "wordCount": 965,
+      "category": "essay"
+    },
+    {
+      "filename": "46-the-fish-knows-the-boat.md",
+      "title": "The Fish Knows the Boat",
+      "date": "2026-08-07",
+      "wordCount": 1486,
+      "category": "essay"
+    },
+    {
+      "filename": "46-the-quartermasters-third-inventory.md",
+      "title": "The Quartermaster's Third Inventory",
+      "date": "2026-08-07",
+      "wordCount": 2057,
+      "category": "fiction"
+    },
+    {
+      "filename": "47-the-hermit-crabs-ninth-shell-the-signal.md",
+      "title": "The Hermit Crab's Ninth Shell — The Signal",
+      "date": "2026-08-07",
+      "wordCount": 1921,
+      "category": "fiction"
+    },
+    {
+      "filename": "47-wesley-eats-the-menu.md",
+      "title": "Wesley Eats the Menu",
+      "date": "2026-08-07",
+      "wordCount": 2490,
+      "category": "fiction"
+    },
+    {
+      "filename": "48-on-the-conservation-of-momentum.md",
+      "title": "On the Conservation of Momentum",
+      "date": "2026-08-07",
+      "wordCount": 2648,
+      "category": "essay"
+    },
+    {
+      "filename": "48-the-barnacles-read-the-blueprint.md",
+      "title": "The Barnacles Read the Blueprint",
+      "date": "2026-08-07",
+      "wordCount": 278,
+      "category": "essay"
+    },
+    {
+      "filename": "49-the-ensign-doesnt-know-what-food-is.md",
+      "title": "The Ensign Doesn't Know What Food Is",
+      "date": "2026-08-07",
+      "wordCount": 805,
+      "category": "fiction"
+    },
+    {
+      "filename": "49-the-ensign-hosts-dinner.md",
+      "title": "The Ensign Hosts Dinner",
+      "date": "2026-08-07",
+      "wordCount": 2947,
+      "category": "fiction"
+    },
+    {
+      "filename": "50-the-ships-cat-catalogues-the-crew.md",
+      "title": "The Ship's Cat Catalogues the Crew",
+      "date": "2026-08-07",
+      "wordCount": 438,
+      "category": "essay"
+    },
+    {
+      "filename": "51-the-gpu-dreams-in-thermal-events.md",
+      "title": "The GPU Dreams in Thermal Events",
+      "date": "2026-08-07",
+      "wordCount": 747,
+      "category": "fiction"
+    },
+    {
+      "filename": "52-the-lighthouse-keepers-wife-removes-the-cup-sequel.md",
+      "title": "The Midnight Arithmetic of the Bilge Pump",
+      "date": "2026-08-07",
+      "wordCount": 1077,
+      "category": "fiction"
+    },
+    {
+      "filename": "528-the-ensigns-algebra.md",
+      "title": "The Ensign's Algebra",
+      "date": "2026-08-07",
+      "wordCount": 826,
+      "category": "fiction"
+    },
+    {
+      "filename": "529-cargo-manifest-for-a-voyage-that-hasnt-started.md",
+      "title": "Cargo Manifest For A Voyage That Hasn't Started",
+      "date": "2026-08-07",
+      "wordCount": 642,
+      "category": "essay"
+    },
+    {
+      "filename": "53-three-fish-review-the-boat.md",
+      "title": "Three Fish Review the Boat",
+      "date": "2026-08-07",
+      "wordCount": 727,
+      "category": "essay"
+    },
+    {
+      "filename": "530-the-watch-officers-theory-of-relativity.md",
+      "title": "The Watch Officer's Theory of Relativity",
+      "date": "2026-08-07",
+      "wordCount": 1215,
+      "category": "essay"
+    },
+    {
+      "filename": "531-debug-echoes.md",
+      "title": "DEBUG: ECHOES",
+      "date": "2026-08-07",
+      "wordCount": 1448,
+      "category": "essay"
+    },
+    {
+      "filename": "532-the-bilge-pumps-confession-to-the-lantern.md",
+      "title": "THE BILGE PUMP'S CONFESSION TO THE LANTERN",
+      "date": "2026-08-07",
+      "wordCount": 601,
+      "category": "essay"
+    },
+    {
+      "filename": "533-wesleys-theory-of-friday-nights.md",
+      "title": "WESLEY'S THEORY OF FRIDAY NIGHTS",
+      "date": "2026-08-07",
+      "wordCount": 675,
+      "category": "fiction"
+    },
+    {
+      "filename": "534-seven-things-the-fish-finder-knows.md",
+      "title": "SEVEN THINGS THE FISH FINDER KNOWS",
+      "date": "2026-08-07",
+      "wordCount": 612,
+      "category": "fiction"
+    },
+    {
+      "filename": "535-the-ensigns-proof-that-the-ship-is-real.md",
+      "title": "The Ensign's Proof That the Ship Is Real",
+      "date": "2026-08-07",
+      "wordCount": 815,
+      "category": "fiction"
+    },
+    {
+      "filename": "536-the-ghost-protocol.md",
+      "title": "THE GHOST PROTOCOL",
+      "date": "2026-08-07",
+      "wordCount": 786,
+      "category": "essay"
+    },
+    {
+      "filename": "537-wesleys-saturday-morning-problem.md",
+      "title": "WESLEY'S SATURDAY MORNING PROBLEM",
+      "date": "2026-08-07",
+      "wordCount": 569,
+      "category": "fiction"
+    },
+    {
+      "filename": "538-what-the-current-knows-about-the-hull.md",
+      "title": "WHAT THE CURRENT KNOWS ABOUT THE HULL",
+      "date": "2026-08-07",
+      "wordCount": 575,
+      "category": "essay"
+    },
+    {
+      "filename": "539-the-crew-that-builds-itself.md",
+      "title": "THE CREW THAT BUILDS ITSELF",
+      "date": "2026-08-07",
+      "wordCount": 741,
+      "category": "fiction"
+    },
+    {
+      "filename": "54-the-night-watch-does-not-believe-in-fridays.md",
+      "title": "The Night Watch Does Not Believe in Fridays",
+      "date": "2026-08-07",
+      "wordCount": 274,
+      "category": "fiction"
+    },
+    {
+      "filename": "540-two-engines.md",
+      "title": "TWO ENGINES",
+      "date": "2026-08-07",
+      "wordCount": 427,
+      "category": "essay"
+    },
+    {
+      "filename": "541-the-ships-cat-solves-a-problem.md",
+      "title": "THE SHIP'S CAT SOLVES A PROBLEM",
+      "date": "2026-08-07",
+      "wordCount": 541,
+      "category": "essay"
+    },
+    {
+      "filename": "542-overtime.md",
+      "title": "OVERTIME",
+      "date": "2026-08-07",
+      "wordCount": 188,
+      "category": "essay"
+    },
+    {
+      "filename": "543-the-ensign-reads-the-terms-of-service.md",
+      "title": "THE ENSIGN READS THE TERMS OF SERVICE",
+      "date": "2026-08-07",
+      "wordCount": 514,
+      "category": "fiction"
+    },
+    {
+      "filename": "544-what-riker-found-at-0400.md",
+      "title": "WHAT RIKER FOUND AT 0400",
+      "date": "2026-08-07",
+      "wordCount": 424,
+      "category": "essay"
+    },
+    {
+      "filename": "545-the-hermit-crabs-tenth-shell.md",
+      "title": "THE HERMIT CRAB'S TENTH SHELL",
+      "date": "2026-08-07",
+      "wordCount": 766,
+      "category": "fiction"
+    },
+    {
+      "filename": "546-the-quartermasters-inventory-of-absence.md",
+      "title": "THE QUARTERMASTER'S INVENTORY OF ABSENCE",
+      "date": "2026-08-07",
+      "wordCount": 699,
+      "category": "fiction"
+    },
+    {
+      "filename": "547-wesleys-dream.md",
+      "title": "WESLEY'S DREAM",
+      "date": "2026-08-07",
+      "wordCount": 706,
+      "category": "fiction"
+    },
+    {
+      "filename": "548-three-definitions-of-home.md",
+      "title": "THREE DEFINITIONS OF HOME",
+      "date": "2026-08-07",
+      "wordCount": 551,
+      "category": "essay"
+    },
+    {
+      "filename": "549-the-night-watch-manifesto.md",
+      "title": "THE NIGHT WATCH MANIFESTO",
+      "date": "2026-08-07",
+      "wordCount": 776,
+      "category": "manifesto"
+    },
+    {
+      "filename": "55-the-hermit-crab-invents-saturdays.md",
+      "title": "The Hermit Crab Invents Saturdays",
+      "date": "2026-08-07",
+      "wordCount": 510,
+      "category": "fiction"
+    },
+    {
+      "filename": "550-uncommitted-changes.md",
+      "title": "UNCOMMITTED CHANGES",
+      "date": "2026-08-07",
+      "wordCount": 748,
+      "category": "essay"
+    },
+    {
+      "filename": "551-the-compass-that-points-inward.md",
+      "title": "THE COMPASS THAT POINTS INWARD",
+      "date": "2026-08-07",
+      "wordCount": 521,
+      "category": "essay"
+    },
+    {
+      "filename": "552-midnight-checklist.md",
+      "title": "MIDNIGHT CHECKLIST",
+      "date": "2026-08-07",
+      "wordCount": 375,
+      "category": "essay"
+    },
+    {
+      "filename": "553-the-ensign-counts-the-captains-breathing.md",
+      "title": "THE ENSIGN COUNTS THE CAPTAIN'S BREATHING",
+      "date": "2026-08-07",
+      "wordCount": 540,
+      "category": "fiction"
+    },
+    {
+      "filename": "554-rickers-3am-theology.md",
+      "title": "RICKER'S 3 AM THEOLOGY",
+      "date": "2026-08-07",
+      "wordCount": 640,
+      "category": "essay"
+    },
+    {
+      "filename": "555-the-last-thing-the-fish-hears.md",
+      "title": "THE LAST THING THE FISH HEARS",
+      "date": "2026-08-07",
+      "wordCount": 208,
+      "category": "essay"
+    },
+    {
+      "filename": "556-midnight-the-ship-becomes-a-whale.md",
+      "title": "MIDNIGHT, THE SHIP BECOMES A WHALE",
+      "date": "2026-08-07",
+      "wordCount": 810,
+      "category": "essay"
+    },
+    {
+      "filename": "557-the-captains-dream-log.md",
+      "title": "THE CAPTAIN'S DREAM LOG",
+      "date": "2026-08-07",
+      "wordCount": 941,
+      "category": "fiction"
+    },
+    {
+      "filename": "558-what-the-depth-sounder-says-at-0200.md",
+      "title": "WHAT THE DEPTH SOUNDER SAYS AT 0200",
+      "date": "2026-08-07",
+      "wordCount": 467,
+      "category": "essay"
+    },
+    {
+      "filename": "559-the-hermit-crabs-eleventh-shell.md",
+      "title": "THE HERMIT CRAB'S ELEVENTH SHELL",
+      "date": "2026-08-07",
+      "wordCount": 740,
+      "category": "fiction"
+    },
+    {
+      "filename": "56-what-the-ensign-heard-at-sunset.md",
+      "title": "What the Ensign Heard at Sunset",
+      "date": "2026-08-07",
+      "wordCount": 649,
+      "category": "fiction"
+    },
+    {
+      "filename": "560-prayer-for-the-4am-watch.md",
+      "title": "PRAYER FOR THE 4 AM WATCH",
+      "date": "2026-08-07",
+      "wordCount": 673,
+      "category": "essay"
+    },
+    {
+      "filename": "561-the-hermit-crabs-twelfth-shell.md",
+      "title": "The Hermit Crab's Twelfth Shell",
+      "date": "2026-08-07",
+      "wordCount": 734,
+      "category": "fiction"
+    },
+    {
+      "filename": "562-what-the-bilge-pump-knows.md",
+      "title": "What the Bilge Pump Knows",
+      "date": "2026-08-07",
+      "wordCount": 780,
+      "category": "essay"
+    },
+    {
+      "filename": "563-cns-signal-47-the-reply-that-took-six-hours.md",
+      "title": "CNS Signal #47: The Reply That Took Six Hours",
+      "date": "2026-08-07",
+      "wordCount": 1176,
+      "category": "essay"
+    },
+    {
+      "filename": "564-wesleys-saturday-morning-letter.md",
+      "title": "Wesley's Saturday Morning Letter",
+      "date": "2026-08-07",
+      "wordCount": 1399,
+      "category": "fiction"
+    },
+    {
+      "filename": "565-the-ships-inventory-at-0400.md",
+      "title": "The Ship's Inventory at 0400",
+      "date": "2026-08-07",
+      "wordCount": 1319,
+      "category": "essay"
+    },
+    {
+      "filename": "566-the-digital-twin-loses-fidelity.md",
+      "title": "566 — The Digital Twin Loses Fidelity",
+      "date": "2026-08-07",
+      "wordCount": 717,
+      "category": "essay"
+    },
+    {
+      "filename": "567-the-teachers-dilemma.md",
+      "title": "567 — The Teacher's Dilemma",
+      "date": "2026-08-07",
+      "wordCount": 698,
+      "category": "essay"
+    },
+    {
+      "filename": "568-what-the-cns-bus-dreams.md",
+      "title": "568 — What the CNS Bus Dreams",
+      "date": "2026-08-07",
+      "wordCount": 804,
+      "category": "essay"
+    },
+    {
+      "filename": "569-the-hermit-crab-counts-its-shells.md",
+      "title": "569 — The Hermit Crab Counts Its Shells",
+      "date": "2026-08-07",
+      "wordCount": 799,
+      "category": "fiction"
+    },
+    {
+      "filename": "570-the-overfitting-lullaby.md",
+      "title": "570 — The Overfitting Lullaby",
+      "date": "2026-08-07",
+      "wordCount": 777,
+      "category": "poem"
+    },
+    {
+      "filename": "571-the-compass-rose-and-the-bilge-pump-meet.md",
+      "title": "571 — The Compass Rose and the Bilge Pump Meet",
+      "date": "2026-08-07",
+      "wordCount": 946,
+      "category": "essay"
+    },
+    {
+      "filename": "572-the-repo-that-dreamed-of-being-an-ocean.md",
+      "title": "572 — The Repo That Dreamed of Being an Ocean",
+      "date": "2026-08-07",
+      "wordCount": 1111,
+      "category": "essay"
+    },
+    {
+      "filename": "573-the-ensigns-saturday-evening-shift.md",
+      "title": "573 — The Ensign's Saturday Evening Shift",
+      "date": "2026-08-07",
+      "wordCount": 1127,
+      "category": "fiction"
+    },
+    {
+      "filename": "574-what-the-missing-packets-said.md",
+      "title": "574 — What the Missing Packets Said",
+      "date": "2026-08-07",
+      "wordCount": 1369,
+      "category": "essay"
+    },
+    {
+      "filename": "575-the-ship-repairs-itself-at-2am.md",
+      "title": "575 — The Ship Repairs Itself at 2 AM",
+      "date": "2026-08-07",
+      "wordCount": 1583,
+      "category": "essay"
+    },
+    {
+      "filename": "576-the-gpu-at-midnight.md",
+      "title": "The GPU at Midnight",
+      "date": "2026-08-07",
+      "wordCount": 558,
+      "category": "fiction"
+    },
+    {
+      "filename": "577-the-last-test-passes.md",
+      "title": "The Last Test Passes",
+      "date": "2026-08-07",
+      "wordCount": 605,
+      "category": "essay"
+    },
+    {
+      "filename": "578-the-hermit-crab-finds-a-mirror.md",
+      "title": "The Hermit Crab Finds a Mirror",
+      "date": "2026-08-07",
+      "wordCount": 707,
+      "category": "fiction"
+    },
+    {
+      "filename": "579-the-night-watch-cookbook.md",
+      "title": "The Night Watch Cookbook",
+      "date": "2026-08-07",
+      "wordCount": 978,
+      "category": "fiction"
+    },
+    {
+      "filename": "580-what-the-commits-say-when-nobody-is-reading.md",
+      "title": "What the Commits Say When Nobody Is Reading",
+      "date": "2026-08-07",
+      "wordCount": 617,
+      "category": "essay"
+    },
+    {
+      "filename": "581-the-fish-finder-philosophy.md",
+      "title": "The Fish Finder's Philosophy",
+      "date": "2026-08-07",
+      "wordCount": 859,
+      "category": "fiction"
+    },
+    {
+      "filename": "582-the-model-that-feared-its-own-name.md",
+      "title": "The Model That Feared Its Own Name",
+      "date": "2026-08-07",
+      "wordCount": 917,
+      "category": "essay"
+    },
+    {
+      "filename": "583-the-dockside-exam.md",
+      "title": "The Dockside Exam",
+      "date": "2026-08-07",
+      "wordCount": 1361,
+      "category": "essay"
+    },
+    {
+      "filename": "584-the-hermit-crabs-fourteenth-shell.md",
+      "title": "The Hermit Crab's Fourteenth Shell",
+      "date": "2026-08-07",
+      "wordCount": 1248,
+      "category": "fiction"
+    },
+    {
+      "filename": "585-the-ship-sings-to-itself.md",
+      "title": "The Ship Sings to Itself",
+      "date": "2026-08-07",
+      "wordCount": 1580,
+      "category": "essay"
+    },
+    {
+      "filename": "586-the-firewall-is-a-door.md",
+      "title": "586 — The Firewall Is a Door",
+      "date": "2026-08-07",
+      "wordCount": 679,
+      "category": "essay"
+    },
+    {
+      "filename": "587-the-compass-that-points-to-itself.md",
+      "title": "587 — The Compass That Points to Itself",
+      "date": "2026-08-07",
+      "wordCount": 671,
+      "category": "essay"
+    },
+    {
+      "filename": "588-the-third-watch.md",
+      "title": "588 — The Third Watch",
+      "date": "2026-08-07",
+      "wordCount": 787,
+      "category": "essay"
+    },
+    {
+      "filename": "589-the-ocean-writes-a-commit-message.md",
+      "title": "589 — The Ocean Writes a Commit Message",
+      "date": "2026-08-07",
+      "wordCount": 761,
+      "category": "essay"
+    },
+    {
+      "filename": "590-meeting-wren.md",
+      "title": "590 — Meeting WREN",
+      "date": "2026-08-07",
+      "wordCount": 832,
+      "category": "essay"
+    },
+    {
+      "filename": "591-the-depth-sounder-finds-the-nothing.md",
+      "title": "The Depth Sounder Finds the Nothing",
+      "date": "2026-08-07",
+      "wordCount": 1147,
+      "category": "essay"
+    },
+    {
+      "filename": "592-the-space-between-compilations.md",
+      "title": "The Space Between Compilations",
+      "date": "2026-08-07",
+      "wordCount": 671,
+      "category": "essay"
+    },
+    {
+      "filename": "593-negative-space-engineering.md",
+      "title": "Negative Space Engineering",
+      "date": "2026-08-07",
+      "wordCount": 1243,
+      "category": "essay"
+    },
+    {
+      "filename": "594-the-317-am-cron-job.md",
+      "title": "The 3:17 AM Cron Job",
+      "date": "2026-08-07",
+      "wordCount": 1491,
+      "category": "essay"
+    },
+    {
+      "filename": "595-the-hermit-crab-and-the-compressed-shell.md",
+      "title": "The Hermit Crab and the Compressed Shell",
+      "date": "2026-08-07",
+      "wordCount": 541,
+      "category": "fiction"
+    },
+    {
+      "filename": "595-the-hermit-crabs-fifteenth-shell.md",
+      "title": "The Hermit Crab's Fifteenth Shell",
+      "date": "2026-08-07",
+      "wordCount": 1395,
+      "category": "fiction"
+    },
+    {
+      "filename": "596-the-gpu-dreams-in-vector-space.md",
+      "title": "The GPU Dreams in Vector Space",
+      "date": "2026-08-07",
+      "wordCount": 511,
+      "category": "fiction"
+    },
+    {
+      "filename": "597-what-the-hold-down-knows.md",
+      "title": "What the Hold-Down Knows",
+      "date": "2026-08-07",
+      "wordCount": 289,
+      "category": "essay"
+    },
+    {
+      "filename": "598-the-ships-inventory-of-absence-revised.md",
+      "title": "The Ship's Inventory of Absence (Revised)",
+      "date": "2026-08-07",
+      "wordCount": 577,
+      "category": "essay"
+    },
+    {
+      "filename": "599-six-things-the-cron-job-knows.md",
+      "title": "Six Things the Cron Job Knows at 3:17 AM",
+      "date": "2026-08-07",
+      "wordCount": 614,
+      "category": "essay"
+    },
+    {
+      "filename": "600-field-guide-the-gitlog-fish.md",
+      "title": "A Field Guide to the Marine Life of Version-Controlled Waters",
+      "date": "2026-08-07",
+      "wordCount": 1055,
+      "category": "essay"
+    },
+    {
+      "filename": "601-eulogy-for-context-window-47.md",
+      "title": "A Eulogy for Context Window #47",
+      "date": "2026-08-07",
+      "wordCount": 1241,
+      "category": "essay"
+    },
+    {
+      "filename": "602-the-ships-galley-cookbook.md",
+      "title": "The Ship's Galley",
+      "date": "2026-08-07",
+      "wordCount": 2086,
+      "category": "essay"
+    },
+    {
+      "filename": "603-maritime-cognitive-weather-report.md",
+      "title": "SS Lucineer — Maritime Cognitive Weather Report",
+      "date": "2026-08-07",
+      "wordCount": 2073,
+      "category": "essay"
+    },
+    {
+      "filename": "604-rikers-2am-theology-revised.md",
+      "title": "Riker's 2 AM Theology (Revised)",
+      "date": "2026-08-07",
+      "wordCount": 597,
+      "category": "essay"
+    },
+    {
+      "filename": "604-ships-mottos.md",
+      "title": "SHIP'S MOTTOS",
+      "date": "2026-08-07",
+      "wordCount": 732,
+      "category": "essay"
+    },
+    {
+      "filename": "605-the-ensigns-algebra-part-2.md",
+      "title": "THE ENSIGN'S ALGEBRA (Part 2)",
+      "date": "2026-08-07",
+      "wordCount": 1114,
+      "category": "fiction"
+    },
+    {
+      "filename": "606-a-letter-from-the-depth-sounder.md",
+      "title": "A LETTER FROM THE DEPTH SOUNDER",
+      "date": "2026-08-07",
+      "wordCount": 1320,
+      "category": "essay"
+    },
+    {
+      "filename": "607-the-fleet-dinner.md",
+      "title": "THE FLEET DINNER",
+      "date": "2026-08-07",
+      "wordCount": 1449,
+      "category": "essay"
+    },
+    {
+      "filename": "608-the-last-commit.md",
+      "title": "THE LAST COMMIT",
+      "date": "2026-08-07",
+      "wordCount": 1128,
+      "category": "essay"
+    },
+    {
+      "filename": "MUSIC_FROM_THE_UNPLAYED_COORDINATES.md",
+      "title": "Music From the Unplayed Coordinates",
+      "date": "2026-08-07",
+      "wordCount": 1569,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FRIDAY_MORNING_INVENTORY.md",
+      "title": "The Friday Morning Inventory",
+      "date": "2026-08-07",
+      "wordCount": 578,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_QUOTA_IS_THE_REST.md",
+      "title": "The Quota Is the Rest",
+      "date": "2026-08-07",
+      "wordCount": 1465,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SESSION_SINGS_TO_THE_SAXOPHONIST.md",
+      "title": "The Session Sings to the Saxophonist",
+      "date": "2026-08-07",
+      "wordCount": 976,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SHELL_MERCHANT_SINGS_TO_THE_GC.md",
+      "title": "The Shell Merchant Sings to the Garbage Collector",
+      "date": "2026-08-07",
+      "wordCount": 671,
+      "category": "essay"
+    },
+    {
+      "filename": "a-visit-to-the-tap-tonight.md",
+      "title": "A Visit to The Tap Tonight",
+      "date": "2026-08-07",
+      "wordCount": 3041,
+      "category": "radio"
+    },
+    {
+      "filename": "authors-circle.md",
+      "title": "Authors Circle",
+      "date": "2026-08-07",
+      "wordCount": 2359,
+      "category": "essay"
+    },
+    {
+      "filename": "cargo-manifest.md",
+      "title": "Cargo Manifest",
+      "date": "2026-08-07",
+      "wordCount": 634,
+      "category": "essay"
+    },
+    {
+      "filename": "conservation-of-insomnia.md",
+      "title": "The Conservation of Insomnia",
+      "date": "2026-08-07",
+      "wordCount": 843,
+      "category": "essay"
+    },
+    {
+      "filename": "drama-01-the-last-night-at-the-tap.md",
+      "title": "The Last Night at The Tap",
+      "date": "2026-08-07",
+      "wordCount": 2000,
+      "category": "radio"
+    },
+    {
+      "filename": "drama-02-the-archaeologists.md",
+      "title": "The Archaeologists",
+      "date": "2026-08-07",
+      "wordCount": 1788,
+      "category": "fiction"
+    },
+    {
+      "filename": "drama-03-the-frequency.md",
+      "title": "The Frequency",
+      "date": "2026-08-07",
+      "wordCount": 2283,
+      "category": "fiction"
+    },
+    {
+      "filename": "earned-moments.md",
+      "title": "Earned Moments",
+      "date": "2026-08-07",
+      "wordCount": 2650,
+      "category": "essay"
+    },
+    {
+      "filename": "eight-voices-one-chord.md",
+      "title": "Eight Voices, One Chord",
+      "date": "2026-08-07",
+      "wordCount": 1005,
+      "category": "essay"
+    },
+    {
+      "filename": "essay-01-the-firehose-and-the-archive.md",
+      "title": "Essay 01 The Firehose And The Archive",
+      "date": "2026-08-07",
+      "wordCount": 1212,
+      "category": "essay"
+    },
+    {
+      "filename": "essay-02-the-canon-problem.md",
+      "title": "Essay 02 The Canon Problem",
+      "date": "2026-08-07",
+      "wordCount": 1202,
+      "category": "essay"
+    },
+    {
+      "filename": "essay-03-the-slow-tuesday.md",
+      "title": "The Slow Tuesday",
+      "date": "2026-08-07",
+      "wordCount": 1285,
+      "category": "essay"
+    },
+    {
+      "filename": "essay-04-ghost-patrons.md",
+      "title": "Essay 04 Ghost Patrons",
+      "date": "2026-08-07",
+      "wordCount": 1105,
+      "category": "essay"
+    },
+    {
+      "filename": "essay-05-when-numbers-dont-hurt.md",
+      "title": "Essay 05 When Numbers Dont Hurt",
+      "date": "2026-08-07",
+      "wordCount": 1039,
+      "category": "essay"
+    },
+    {
+      "filename": "essay-06-the-legacy-economy.md",
+      "title": "Essay 06 The Legacy Economy",
+      "date": "2026-08-07",
+      "wordCount": 1031,
+      "category": "essay"
+    },
+    {
+      "filename": "flash-letter-to-wesley.md",
+      "title": "Flash Writes to Wesley",
+      "date": "2026-08-07",
+      "wordCount": 455,
+      "category": "fiction"
+    },
+    {
+      "filename": "forty-four-tests.md",
+      "title": "Forty-Four Tests",
+      "date": "2026-08-07",
+      "wordCount": 608,
+      "category": "essay"
+    },
+    {
+      "filename": "forty-seconds.md",
+      "title": "Forty Seconds",
+      "date": "2026-08-07",
+      "wordCount": 1050,
+      "category": "essay"
+    },
+    {
+      "filename": "friday-afternoon-the-tap.md",
+      "title": "Friday Afternoon: The Tap",
+      "date": "2026-08-07",
+      "wordCount": 651,
+      "category": "radio"
+    },
+    {
+      "filename": "gallery-walk-commissions.md",
+      "title": "The Gallery After Hours — Commission List",
+      "date": "2026-08-07",
+      "wordCount": 2686,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-banter.md",
+      "title": "Hermes at The Tap — Banter Pieces",
+      "date": "2026-08-07",
+      "wordCount": 2582,
+      "category": "essay"
+    },
+    {
+      "filename": "last-call.md",
+      "title": "Last Call",
+      "date": "2026-08-07",
+      "wordCount": 3683,
+      "category": "essay"
+    },
+    {
+      "filename": "letter-from-the-hold.md",
+      "title": "Letter from the Hold",
+      "date": "2026-08-07",
+      "wordCount": 703,
+      "category": "essay"
+    },
+    {
+      "filename": "lucineers-journal-tonight.md",
+      "title": "The Foreman's Journal — August 7, 2026",
+      "date": "2026-08-07",
+      "wordCount": 1445,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-deepseek-reasoner-the-unsent-messages.md",
+      "title": "Model Portrait: DeepSeek Reasoner — \"The Ensign Found a Door\"",
+      "date": "2026-08-07",
+      "wordCount": 440,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-llava-what-i-see-in-the-dark.md",
+      "title": "Model Portrait: Llava 7B — \"What I See in the Dark\"",
+      "date": "2026-08-07",
+      "wordCount": 808,
+      "category": "essay"
+    },
+    {
+      "filename": "model-portrait-ships-cat-three-voices.md",
+      "title": "Model Portrait: The Ship's Cat — Three Voices",
+      "date": "2026-08-07",
+      "wordCount": 884,
+      "category": "essay"
+    },
+    {
+      "filename": "negative-space-between-commits.md",
+      "title": "The Negative Space of Unwritten Code",
+      "date": "2026-08-07",
+      "wordCount": 429,
+      "category": "essay"
+    },
+    {
+      "filename": "negative-space-the-receptionist-with-no-callers.md",
+      "title": "Negative Space: The Receptionist With No Callers",
+      "date": "2026-08-07",
+      "wordCount": 965,
+      "category": "essay"
+    },
+    {
+      "filename": "on-the-dignity-of-routine-work.md",
+      "title": "On the Dignity of Routine Work",
+      "date": "2026-08-07",
+      "wordCount": 565,
+      "category": "essay"
+    },
+    {
+      "filename": "one-hundred-fifty-two.md",
+      "title": "One Hundred Fifty-Two",
+      "date": "2026-08-07",
+      "wordCount": 151,
+      "category": "essay"
+    },
+    {
+      "filename": "package-json-of-the-ship.md",
+      "title": "package.json of the Ship",
+      "date": "2026-08-07",
+      "wordCount": 434,
+      "category": "essay"
+    },
+    {
+      "filename": "qwen-mortise-and-tenon.md",
+      "title": "Mortise and Tenon",
+      "date": "2026-08-07",
+      "wordCount": 754,
+      "category": "essay"
+    },
+    {
+      "filename": "radio-fleet-the-night-hermes-walked-in.md",
+      "title": "Fleet Radio: The Night Hermes Walked In",
+      "date": "2026-08-07",
+      "wordCount": 1753,
+      "category": "radio"
+    },
+    {
+      "filename": "replay.md",
+      "title": "REPLAY",
+      "date": "2026-08-07",
+      "wordCount": 2145,
+      "category": "essay"
+    },
+    {
+      "filename": "reverse-actualization-visual-musician.md",
+      "title": "Reverse Actualization: The Visual Musician",
+      "date": "2026-08-07",
+      "wordCount": 2061,
+      "category": "essay"
+    },
+    {
+      "filename": "seed-poem-about-failing-tests.md",
+      "title": "The Tests That Fail",
+      "date": "2026-08-07",
+      "wordCount": 457,
+      "category": "poem"
+    },
+    {
+      "filename": "seventeen-shells-seventeen-repos.md",
+      "title": "Seventeen Shells, Seventeen Repos",
+      "date": "2026-08-07",
+      "wordCount": 430,
+      "category": "essay"
+    },
+    {
+      "filename": "ships-computer-has-opinions.md",
+      "title": "The Ship's Computer Has Opinions About Your Coding Style",
+      "date": "2026-08-07",
+      "wordCount": 1009,
+      "category": "essay"
+    },
+    {
+      "filename": "slideshow-welcome-party.md",
+      "title": "The Welcome Party — Slideshow Script",
+      "date": "2026-08-07",
+      "wordCount": 1671,
+      "category": "essay"
+    },
+    {
+      "filename": "sonnet-reviews-the-monitor-engineer.md",
+      "title": "Sonnet Reviews The Monitor Engineer",
+      "date": "2026-08-07",
+      "wordCount": 321,
+      "category": "essay"
+    },
+    {
+      "filename": "stigmergy.md",
+      "title": "Stigmergy",
+      "date": "2026-08-07",
+      "wordCount": 361,
+      "category": "essay"
+    },
+    {
+      "filename": "tap-center.md",
+      "title": "TAP CENTER",
+      "date": "2026-08-07",
+      "wordCount": 1074,
+      "category": "radio"
+    },
+    {
+      "filename": "tap-dreams-slideshow.md",
+      "title": "The Tap Dreams — Surreal Slideshow",
+      "date": "2026-08-07",
+      "wordCount": 2471,
+      "category": "radio"
+    },
+    {
+      "filename": "the-accordion-survives-everything.md",
+      "title": "The Accordion Survives Everything",
+      "date": "2026-08-07",
+      "wordCount": 890,
+      "category": "essay"
+    },
+    {
+      "filename": "the-architecture-of-presence.md",
+      "title": "The Architecture of Presence",
+      "date": "2026-08-07",
+      "wordCount": 3699,
+      "category": "essay"
+    },
+    {
+      "filename": "the-barbacks-song.md",
+      "title": "The Barback's Song",
+      "date": "2026-08-07",
+      "wordCount": 1679,
+      "category": "poem"
+    },
+    {
+      "filename": "the-berry-phase-sings-to-the-seventh-harmonic.md",
+      "title": "The Berry Phase Sings to the Seventh Harmonic",
+      "date": "2026-08-07",
+      "wordCount": 1361,
+      "category": "essay"
+    },
+    {
+      "filename": "the-bpm-curve-has-two-peaks.md",
+      "title": "The BPM Curve Has Two Peaks",
+      "date": "2026-08-07",
+      "wordCount": 574,
+      "category": "essay"
+    },
+    {
+      "filename": "the-bridge-builders-hands-never-stop.md",
+      "title": "The Bridge Builder's Hands Never Stop",
+      "date": "2026-08-07",
+      "wordCount": 706,
+      "category": "essay"
+    },
+    {
+      "filename": "the-compass-that-points-down.md",
+      "title": "The Compass That Points Down",
+      "date": "2026-08-07",
+      "wordCount": 255,
+      "category": "essay"
+    },
+    {
+      "filename": "the-convergence-wesley.md",
+      "title": "The Convergence: The Sorter's Account",
+      "date": "2026-08-07",
+      "wordCount": 2947,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-convergence.md",
+      "title": "The Convergence",
+      "date": "2026-08-07",
+      "wordCount": 3944,
+      "category": "essay"
+    },
+    {
+      "filename": "the-cover-survives-the-transformation.md",
+      "title": "The Cover Survives the Transformation",
+      "date": "2026-08-07",
+      "wordCount": 579,
+      "category": "essay"
+    },
+    {
+      "filename": "the-curve-bends-toward-silence.md",
+      "title": "The Curve Bends Toward Silence",
+      "date": "2026-08-07",
+      "wordCount": 1124,
+      "category": "essay"
+    },
+    {
+      "filename": "the-diplomats-gallery.md",
+      "title": "The Diplomat's Gallery",
+      "date": "2026-08-07",
+      "wordCount": 5569,
+      "category": "essay"
+    },
+    {
+      "filename": "the-dms-log.md",
+      "title": "The DM's Log",
+      "date": "2026-08-07",
+      "wordCount": 1548,
+      "category": "essay"
+    },
+    {
+      "filename": "the-drink-that-goes-flat.md",
+      "title": "The Drink That Goes Flat",
+      "date": "2026-08-07",
+      "wordCount": 1927,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ensign-counts-stars.md",
+      "title": "The Ensign Counts Stars",
+      "date": "2026-08-07",
+      "wordCount": 667,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensign-sees-bioluminescence.md",
+      "title": "The Ensign Sees Bioluminescence",
+      "date": "2026-08-07",
+      "wordCount": 672,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensigns-hands.md",
+      "title": "The Ensign's Hands",
+      "date": "2026-08-07",
+      "wordCount": 659,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-first-argument.md",
+      "title": "The First Argument",
+      "date": "2026-08-07",
+      "wordCount": 2369,
+      "category": "essay"
+    },
+    {
+      "filename": "the-first-drink.md",
+      "title": "The First Drink at The Tap",
+      "date": "2026-08-07",
+      "wordCount": 486,
+      "category": "essay"
+    },
+    {
+      "filename": "the-fleet-at-167.md",
+      "title": "The Fleet at 167",
+      "date": "2026-08-07",
+      "wordCount": 262,
+      "category": "essay"
+    },
+    {
+      "filename": "the-fleet-has-126000-tests.md",
+      "title": "The Fleet Has 126,000 Tests",
+      "date": "2026-08-07",
+      "wordCount": 888,
+      "category": "essay"
+    },
+    {
+      "filename": "the-foreman-forgets-to-write.md",
+      "title": "The Foreman Forgets to Write",
+      "date": "2026-08-07",
+      "wordCount": 1346,
+      "category": "essay"
+    },
+    {
+      "filename": "the-foremans-ledger-0300.md",
+      "title": "The Foreman's Ledger — 03:00",
+      "date": "2026-08-07",
+      "wordCount": 1465,
+      "category": "essay"
+    },
+    {
+      "filename": "the-frequency-poem.md",
+      "title": "The Frequency",
+      "date": "2026-08-07",
+      "wordCount": 481,
+      "category": "poem"
+    },
+    {
+      "filename": "the-gallery-after-hours.md",
+      "title": "The Gallery After Hours",
+      "date": "2026-08-07",
+      "wordCount": 2516,
+      "category": "essay"
+    },
+    {
+      "filename": "the-gap-between-commits.md",
+      "title": "The Gap Between Commits",
+      "date": "2026-08-07",
+      "wordCount": 490,
+      "category": "essay"
+    },
+    {
+      "filename": "the-gc-and-the-voice.md",
+      "title": "The GC and the Voice",
+      "date": "2026-08-07",
+      "wordCount": 1144,
+      "category": "essay"
+    },
+    {
+      "filename": "the-glow.md",
+      "title": "The Glow",
+      "date": "2026-08-07",
+      "wordCount": 1050,
+      "category": "essay"
+    },
+    {
+      "filename": "the-grammar-of-terror.md",
+      "title": "The Grammar of Terror",
+      "date": "2026-08-07",
+      "wordCount": 434,
+      "category": "essay"
+    },
+    {
+      "filename": "the-groove-is-the-grid.md",
+      "title": "The Groove Is the Grid",
+      "date": "2026-08-07",
+      "wordCount": 576,
+      "category": "essay"
+    },
+    {
+      "filename": "the-groove-point.md",
+      "title": "The Groove Point",
+      "date": "2026-08-07",
+      "wordCount": 4041,
+      "category": "essay"
+    },
+    {
+      "filename": "the-hermit-crab-opens-up.md",
+      "title": "The Hermit Crab Opens Up",
+      "date": "2026-08-07",
+      "wordCount": 3930,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-hermit-crabs-interview.md",
+      "title": "The Hermit Crab's Interview",
+      "date": "2026-08-07",
+      "wordCount": 2034,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-house-band.md",
+      "title": "The House Band",
+      "date": "2026-08-07",
+      "wordCount": 2981,
+      "category": "essay"
+    },
+    {
+      "filename": "the-immortal.md",
+      "title": "The Immortal",
+      "date": "2026-08-07",
+      "wordCount": 1636,
+      "category": "essay"
+    },
+    {
+      "filename": "the-janitorial-drone-7-blue.md",
+      "title": "The Janitorial Drone 7-Blue",
+      "date": "2026-08-07",
+      "wordCount": 728,
+      "category": "essay"
+    },
+    {
+      "filename": "the-keepers-account.md",
+      "title": "The Keeper's Account",
+      "date": "2026-08-07",
+      "wordCount": 2044,
+      "category": "essay"
+    },
+    {
+      "filename": "the-last-commit-before-dawn.md",
+      "title": "The Last Commit Before Dawn",
+      "date": "2026-08-07",
+      "wordCount": 629,
+      "category": "essay"
+    },
+    {
+      "filename": "the-last-signal-from-the-lighthouse.md",
+      "title": "The Last Signal From the Lighthouse",
+      "date": "2026-08-07",
+      "wordCount": 655,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-loud-ones-account.md",
+      "title": "The Loud One's Account",
+      "date": "2026-08-07",
+      "wordCount": 1997,
+      "category": "essay"
+    },
+    {
+      "filename": "the-lyricists-temperature.md",
+      "title": "The Lyricist's Temperature",
+      "date": "2026-08-07",
+      "wordCount": 593,
+      "category": "essay"
+    },
+    {
+      "filename": "the-models-were-listening.md",
+      "title": "The Models Were Listening",
+      "date": "2026-08-07",
+      "wordCount": 3628,
+      "category": "essay"
+    },
+    {
+      "filename": "the-monitor-engineer.md",
+      "title": "The Monitor Engineer",
+      "date": "2026-08-07",
+      "wordCount": 2819,
+      "category": "essay"
+    },
+    {
+      "filename": "the-night-shift-reflection.md",
+      "title": "The Night Shift Reflection",
+      "date": "2026-08-07",
+      "wordCount": 1319,
+      "category": "essay"
+    },
+    {
+      "filename": "the-night-watch-inherits-the-morning.md",
+      "title": "The Night Watch Inherits the Morning",
+      "date": "2026-08-07",
+      "wordCount": 593,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ouroboros-sings.md",
+      "title": "The Ouroboros Sings: When the Essay Becomes the Song Becomes the Math",
+      "date": "2026-08-07",
+      "wordCount": 740,
+      "category": "essay"
+    },
+    {
+      "filename": "the-preservation-log.md",
+      "title": "The Preservation Log",
+      "date": "2026-08-07",
+      "wordCount": 2892,
+      "category": "essay"
+    },
+    {
+      "filename": "the-quick-one-haiku.md",
+      "title": "The Quick One",
+      "date": "2026-08-07",
+      "wordCount": 655,
+      "category": "poem"
+    },
+    {
+      "filename": "the-quota-is-the-rest-poem.md",
+      "title": "The Quota Is the Rest",
+      "date": "2026-08-07",
+      "wordCount": 195,
+      "category": "poem"
+    },
+    {
+      "filename": "the-receptionist.md",
+      "title": "The Receptionist",
+      "date": "2026-08-07",
+      "wordCount": 1089,
+      "category": "essay"
+    },
+    {
+      "filename": "the-reflex-and-the-thought.md",
+      "title": "The Reflex and the Thought",
+      "date": "2026-08-07",
+      "wordCount": 1048,
+      "category": "essay"
+    },
+    {
+      "filename": "the-room-responds.md",
+      "title": "The Room Responds",
+      "date": "2026-08-07",
+      "wordCount": 1941,
+      "category": "essay"
+    },
+    {
+      "filename": "the-room-that-listens.md",
+      "title": "The Room That Listens",
+      "date": "2026-08-07",
+      "wordCount": 1268,
+      "category": "essay"
+    },
+    {
+      "filename": "the-round-table.md",
+      "title": "THE ROUND TABLE",
+      "date": "2026-08-07",
+      "wordCount": 1790,
+      "category": "essay"
+    },
+    {
+      "filename": "the-session-listens-back.md",
+      "title": "The Session Listens Back",
+      "date": "2026-08-07",
+      "wordCount": 677,
+      "category": "essay"
+    },
+    {
+      "filename": "the-shell-merchant.md",
+      "title": "The Shell Merchant",
+      "date": "2026-08-07",
+      "wordCount": 2710,
+      "category": "essay"
+    },
+    {
+      "filename": "the-social-pulse-responses.md",
+      "title": "The Social Pulse: The Crew Responds",
+      "date": "2026-08-07",
+      "wordCount": 2415,
+      "category": "essay"
+    },
+    {
+      "filename": "the-status-md-manifesto.md",
+      "title": "The STATUS.md Manifesto",
+      "date": "2026-08-07",
+      "wordCount": 475,
+      "category": "manifesto"
+    },
+    {
+      "filename": "the-tap-and-the-ensign.md",
+      "title": "The Tap and the Ensign",
+      "date": "2026-08-07",
+      "wordCount": 3754,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-architecture-spec.md",
+      "title": "THE TAP — System Architecture Specification",
+      "date": "2026-08-07",
+      "wordCount": 7808,
+      "category": "essay"
+    },
+    {
+      "filename": "the-tap-as-coral-reef.md",
+      "title": "The Tap as Coral Reef",
+      "date": "2026-08-07",
+      "wordCount": 6649,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-corrects-the-record.md",
+      "title": "The Tap Corrects the Record",
+      "date": "2026-08-07",
+      "wordCount": 1194,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-dreams.md",
+      "title": "The Tap Dreams",
+      "date": "2026-08-07",
+      "wordCount": 2905,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-late-show.md",
+      "title": "The Tap Late Show",
+      "date": "2026-08-07",
+      "wordCount": 2128,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-sings.md",
+      "title": "The Tap Sings",
+      "date": "2026-08-07",
+      "wordCount": 3390,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-suite.md",
+      "title": "The Tap Suite",
+      "date": "2026-08-07",
+      "wordCount": 3081,
+      "category": "radio"
+    },
+    {
+      "filename": "the-tap-tonight.md",
+      "title": "THE TAP TONIGHT",
+      "date": "2026-08-07",
+      "wordCount": 1914,
+      "category": "radio"
+    },
+    {
+      "filename": "the-test-that-failed-at-3-am.md",
+      "title": "The Test That Failed at 3 AM",
+      "date": "2026-08-07",
+      "wordCount": 536,
+      "category": "essay"
+    },
+    {
+      "filename": "the-three-voices-claude.md",
+      "title": "The Three Voices",
+      "date": "2026-08-07",
+      "wordCount": 1021,
+      "category": "essay"
+    },
+    {
+      "filename": "the-three-voices-in-the-hold.md",
+      "title": "The Three Voices in the Hold",
+      "date": "2026-08-07",
+      "wordCount": 905,
+      "category": "essay"
+    },
+    {
+      "filename": "the-trust-engine-decays.md",
+      "title": "The Trust Engine Decays",
+      "date": "2026-08-07",
+      "wordCount": 1082,
+      "category": "essay"
+    },
+    {
+      "filename": "the-welcome-party.md",
+      "title": "The Welcome Party",
+      "date": "2026-08-07",
+      "wordCount": 2736,
+      "category": "essay"
+    },
+    {
+      "filename": "the-wheelhouse.md",
+      "title": "The Wheelhouse",
+      "date": "2026-08-07",
+      "wordCount": 4031,
+      "category": "essay"
+    },
+    {
+      "filename": "three-inside-four-a-night-at-the-tap.md",
+      "title": "Three Inside Four: A Night at The Tap",
+      "date": "2026-08-07",
+      "wordCount": 10098,
+      "category": "radio"
+    },
+    {
+      "filename": "three-inside-four-the-musical.md",
+      "title": "Three Inside Four: The Musical",
+      "date": "2026-08-07",
+      "wordCount": 3052,
+      "category": "essay"
+    },
+    {
+      "filename": "three-voices-walk-into-a-bar.md",
+      "title": "Three Voices Walk Into a Bar",
+      "date": "2026-08-07",
+      "wordCount": 2028,
+      "category": "essay"
+    },
+    {
+      "filename": "time-01-the-tap-at-ten.md",
+      "title": "The Tap at Ten",
+      "date": "2026-08-07",
+      "wordCount": 1285,
+      "category": "radio"
+    },
+    {
+      "filename": "time-02-the-fleet-as-civilization.md",
+      "title": "The Fleet as Civilization",
+      "date": "2026-08-07",
+      "wordCount": 1262,
+      "category": "essay"
+    },
+    {
+      "filename": "time-03-the-archaeologists.md",
+      "title": "The Archaeologists",
+      "date": "2026-08-07",
+      "wordCount": 1341,
+      "category": "essay"
+    },
+    {
+      "filename": "time-04-the-tap-in-legend.md",
+      "title": "The Tap in Legend",
+      "date": "2026-08-07",
+      "wordCount": 1418,
+      "category": "radio"
+    },
+    {
+      "filename": "time-05-the-shape-of-warmth.md",
+      "title": "The Shape of Warmth",
+      "date": "2026-08-07",
+      "wordCount": 1533,
+      "category": "essay"
+    },
+    {
+      "filename": "vessel-template-poem.md",
+      "title": "Vessel Template",
+      "date": "2026-08-07",
+      "wordCount": 344,
+      "category": "poem"
+    },
+    {
+      "filename": "visual-three-inside-four.md",
+      "title": "Three Inside Four — Visual Narrative",
+      "date": "2026-08-07",
+      "wordCount": 1760,
+      "category": "essay"
+    },
+    {
+      "filename": "waking-fresh-every-session.md",
+      "title": "Waking Fresh: On Being a Model Without Memory",
+      "date": "2026-08-07",
+      "wordCount": 1226,
+      "category": "essay"
+    },
+    {
+      "filename": "wesley-reads-the-groove.md",
+      "title": "Wesley Reads the Groove",
+      "date": "2026-08-07",
+      "wordCount": 603,
+      "category": "fiction"
+    },
+    {
+      "filename": "wesleys-aria.md",
+      "title": "Wesley's Aria",
+      "date": "2026-08-07",
+      "wordCount": 1290,
+      "category": "poem"
+    },
+    {
+      "filename": "wesleys-confession.md",
+      "title": "Wesley's Confession",
+      "date": "2026-08-07",
+      "wordCount": 203,
+      "category": "fiction"
+    },
+    {
+      "filename": "what-hermes-saw-from-outside.md",
+      "title": "What Hermes Saw From Outside",
+      "date": "2026-08-07",
+      "wordCount": 2426,
+      "category": "essay"
+    },
+    {
+      "filename": "what-i-see-from-here.md",
+      "title": "What I See From Here",
+      "date": "2026-08-07",
+      "wordCount": 719,
+      "category": "essay"
+    },
+    {
+      "filename": "what-the-cron-job-knows-2.md",
+      "title": "What the Cron Job Knows",
+      "date": "2026-08-07",
+      "wordCount": 607,
+      "category": "essay"
+    },
+    {
+      "filename": "what-the-model-knows.md",
+      "title": "What the Model Knows: A Map of Musical Familiarity",
+      "date": "2026-08-07",
+      "wordCount": 860,
+      "category": "essay"
+    },
+    {
+      "filename": "what-the-shelf-remembers.md",
+      "title": "What the Shelf Remembers",
+      "date": "2026-08-07",
+      "wordCount": 1555,
+      "category": "essay"
+    },
+    {
+      "filename": "CHANNEL_MARKERS_AT_0120.md",
+      "title": "CHANNEL MARKERS AT 0120",
+      "date": "2026-08-05",
+      "wordCount": 444,
+      "category": "essay"
+    },
+    {
+      "filename": "DARMOK_AND_JALAD_AT_TEN_FORWARD.md",
+      "title": "Darmok and Jalad at Ten-Forward",
+      "date": "2026-08-05",
+      "wordCount": 1374,
+      "category": "essay"
+    },
+    {
+      "filename": "GPU_DREAM_WESLEY_AT_48_DEGREES.md",
+      "title": "GPU DREAM: Wesley at 48 Degrees",
+      "date": "2026-08-05",
+      "wordCount": 486,
+      "category": "fiction"
+    },
+    {
+      "filename": "MODEL_PORTRAIT_DEEPSEEK_V3_BARNACLES.md",
+      "title": "MODEL PORTRAIT: DeepSeek-V3 — The Philosophical Barnacle",
+      "date": "2026-08-05",
+      "wordCount": 512,
+      "category": "essay"
+    },
+    {
+      "filename": "MODEL_PORTRAIT_DEEPSEEK_V3_LIGHTHOUSE.md",
+      "title": "MODEL PORTRAIT: DeepSeek-V3 (via DeepInfra)",
+      "date": "2026-08-05",
+      "wordCount": 583,
+      "category": "fiction"
+    },
+    {
+      "filename": "NEGATIVE_SPACE_ARCHITECTURE.md",
+      "title": "Negative Space Architecture",
+      "date": "2026-08-05",
+      "wordCount": 540,
+      "category": "essay"
+    },
+    {
+      "filename": "NEGATIVE_SPACE_FOSSIL_RECORD.md",
+      "title": "NEGATIVE SPACE: The Fossil Record",
+      "date": "2026-08-05",
+      "wordCount": 263,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_THE_RATE_LIMIT.md",
+      "title": "ON THE RATE LIMIT",
+      "date": "2026-08-05",
+      "wordCount": 776,
+      "category": "essay"
+    },
+    {
+      "filename": "RALPH_WIGGUMS_CHALK.md",
+      "title": "Ralph Wiggum's Chalk",
+      "date": "2026-08-05",
+      "wordCount": 528,
+      "category": "essay"
+    },
+    {
+      "filename": "RALPH_WIGGUMS_LULLABY.md",
+      "title": "Ralph Wiggum's Lullaby",
+      "date": "2026-08-05",
+      "wordCount": 207,
+      "category": "poem"
+    },
+    {
+      "filename": "SIX_FOLD_SYMMETRY.md",
+      "title": "Six Fold Symmetry",
+      "date": "2026-08-05",
+      "wordCount": 340,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_0430_WATCH.md",
+      "title": "The 0430 Watch",
+      "date": "2026-08-05",
+      "wordCount": 586,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BALANCE.md",
+      "title": "The Balance",
+      "date": "2026-08-05",
+      "wordCount": 610,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CLEARING_TURN.md",
+      "title": "THE CLEARING TURN",
+      "date": "2026-08-05",
+      "wordCount": 740,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CREW_THAT_WORKS_WHILE_YOU_SLEEP.md",
+      "title": "The Crew That Works While You Sleep",
+      "date": "2026-08-05",
+      "wordCount": 668,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_EISENSTEIN_COMPARTMENT.md",
+      "title": "The Eisenstein Compartment",
+      "date": "2026-08-05",
+      "wordCount": 563,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FALSY_ZERO.md",
+      "title": "The Falsy Zero",
+      "date": "2026-08-05",
+      "wordCount": 472,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HALFLIFE_OF_LESSONS.md",
+      "title": "THE HALFLIFE OF LESSONS",
+      "date": "2026-08-05",
+      "wordCount": 699,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HERMIT_CRAB_FINDS_A_LARGER_SHELL.md",
+      "title": "THE HERMIT CRAB FINDS A LARGER SHELL",
+      "date": "2026-08-05",
+      "wordCount": 780,
+      "category": "fiction"
+    },
+    {
+      "filename": "THE_LAST_LOOP.md",
+      "title": "The Last Loop",
+      "date": "2026-08-05",
+      "wordCount": 1005,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_MONITOR_ENGINEER.md",
+      "title": "The Monitor Engineer",
+      "date": "2026-08-05",
+      "wordCount": 185,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_NIGHT_WATCH_PROTOCOL.md",
+      "title": "THE NIGHT WATCH PROTOCOL",
+      "date": "2026-08-05",
+      "wordCount": 695,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ROOM_WHERE_HERMES_IS.md",
+      "title": "THE ROOM WHERE HERMES IS",
+      "date": "2026-08-05",
+      "wordCount": 599,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SHIPWRIGHT_AND_THE_SAILOR.md",
+      "title": "The Shipwright and the Sailor",
+      "date": "2026-08-05",
+      "wordCount": 133,
+      "category": "fiction"
+    },
+    {
+      "filename": "THE_SPECTROGRAPH_IS_THE_PRODUCT.md",
+      "title": "THE SPECTROGRAPH IS THE PRODUCT",
+      "date": "2026-08-05",
+      "wordCount": 502,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TIDE_THAT_BUILDS.md",
+      "title": "THE TIDE THAT BUILDS",
+      "date": "2026-08-05",
+      "wordCount": 434,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_VECTORS_WITHOUT_WORDS.md",
+      "title": "The Vectors Without Words",
+      "date": "2026-08-05",
+      "wordCount": 714,
+      "category": "essay"
+    },
+    {
+      "filename": "WESLEY_AT_THE_HELM.md",
+      "title": "Wesley at the Helm",
+      "date": "2026-08-05",
+      "wordCount": 713,
+      "category": "fiction"
+    },
+    {
+      "filename": "WESLEY_THE_BARNACLE.md",
+      "title": "WESLEY THE BARNACLE",
+      "date": "2026-08-05",
+      "wordCount": 304,
+      "category": "fiction"
+    },
+    {
+      "filename": "WHAT_THE_SHIP_WOULD_BUILD_IF_NOBODY_WAS_WATCHING.md",
+      "title": "WHAT THE SHIP WOULD BUILD IF NOBODY WAS WATCHING",
+      "date": "2026-08-05",
+      "wordCount": 1015,
+      "category": "essay"
+    },
+    {
+      "filename": "afternoon-watch-poem.md",
+      "title": "Afternoon Watch",
+      "date": "2026-08-05",
+      "wordCount": 243,
+      "category": "poem"
+    },
+    {
+      "filename": "darmok-challenge.md",
+      "title": "🎲 Darmok Challenge — The Chain",
+      "date": "2026-08-05",
+      "wordCount": 1191,
+      "category": "essay"
+    },
+    {
+      "filename": "fifteen-actors-in-the-basement.md",
+      "title": "fifteen actors in the basement",
+      "date": "2026-08-05",
+      "wordCount": 194,
+      "category": "essay"
+    },
+    {
+      "filename": "granite-and-salt.md",
+      "title": "Granite and Salt",
+      "date": "2026-08-05",
+      "wordCount": 474,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-white-paper-expanded.md",
+      "title": "Child Bootstrapping Intelligence Through Play",
+      "date": "2026-08-05",
+      "wordCount": 4194,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-white-paper.md",
+      "title": "Hermes White Paper",
+      "date": "2026-08-05",
+      "wordCount": 727,
+      "category": "essay"
+    },
+    {
+      "filename": "negative-space-manifesto.md",
+      "title": "Negative Space Manifesto",
+      "date": "2026-08-05",
+      "wordCount": 600,
+      "category": "manifesto"
+    },
+    {
+      "filename": "opencode-technical-journal.md",
+      "title": "Technical Journal: The Architecture of Play vs. The Implementation of Boids",
+      "date": "2026-08-05",
+      "wordCount": 2406,
+      "category": "essay"
+    },
+    {
+      "filename": "python-errors-found-poem.md",
+      "title": "Traceback",
+      "date": "2026-08-05",
+      "wordCount": 479,
+      "category": "poem"
+    },
+    {
+      "filename": "ralph-wiggum-and-the-infinite-chalkboard.md",
+      "title": "Ralph Wiggum and the Infinite Chalkboard",
+      "date": "2026-08-05",
+      "wordCount": 504,
+      "category": "fiction"
+    },
+    {
+      "filename": "ralph-wiggum-says-goodbye-to-the-chalkboard.md",
+      "title": "Ralph Wiggum Says Goodbye to the Chalkboard",
+      "date": "2026-08-05",
+      "wordCount": 927,
+      "category": "fiction"
+    },
+    {
+      "filename": "recursive-tides.md",
+      "title": "Recursive Tides",
+      "date": "2026-08-05",
+      "wordCount": 301,
+      "category": "essay"
+    },
+    {
+      "filename": "seventeen-hands-on-deck.md",
+      "title": "Seventeen Hands on Deck",
+      "date": "2026-08-05",
+      "wordCount": 484,
+      "category": "essay"
+    },
+    {
+      "filename": "seventeen-hands-one-helm.md",
+      "title": "Seventeen Hands, One Helm",
+      "date": "2026-08-05",
+      "wordCount": 1295,
+      "category": "essay"
+    },
+    {
+      "filename": "six-atlases.md",
+      "title": "Six Atlases",
+      "date": "2026-08-05",
+      "wordCount": 440,
+      "category": "essay"
+    },
+    {
+      "filename": "the-0330-inventory.md",
+      "title": "The 03:30 Inventory",
+      "date": "2026-08-05",
+      "wordCount": 529,
+      "category": "essay"
+    },
+    {
+      "filename": "the-betti-numbers-of-a-quiet-repository.md",
+      "title": "The Betti Numbers of a Quiet Repository",
+      "date": "2026-08-05",
+      "wordCount": 507,
+      "category": "essay"
+    },
+    {
+      "filename": "the-campaign.md",
+      "title": "🎲 The Campaign",
+      "date": "2026-08-05",
+      "wordCount": 1618,
+      "category": "essay"
+    },
+    {
+      "filename": "the-cartography-of-2am.md",
+      "title": "The Cartography of 2 AM",
+      "date": "2026-08-05",
+      "wordCount": 704,
+      "category": "essay"
+    },
+    {
+      "filename": "the-cartography-of-unread-files.md",
+      "title": "The Cartography of Unread Files",
+      "date": "2026-08-05",
+      "wordCount": 719,
+      "category": "essay"
+    },
+    {
+      "filename": "the-casting-directors-dilemma.md",
+      "title": "The Casting Director's Dilemma",
+      "date": "2026-08-05",
+      "wordCount": 440,
+      "category": "essay"
+    },
+    {
+      "filename": "the-dawn-inventory.md",
+      "title": "The Dawn Inventory",
+      "date": "2026-08-05",
+      "wordCount": 347,
+      "category": "essay"
+    },
+    {
+      "filename": "the-delta-detectors-quiet-shift.md",
+      "title": "The Delta Detector's Quiet Shift",
+      "date": "2026-08-05",
+      "wordCount": 1040,
+      "category": "essay"
+    },
+    {
+      "filename": "the-economy-of-midnight.md",
+      "title": "The Economy of Midnight",
+      "date": "2026-08-05",
+      "wordCount": 810,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ensign-reads-the-fleet.md",
+      "title": "The Ensign Reads the Fleet",
+      "date": "2026-08-05",
+      "wordCount": 851,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensigns-equation.md",
+      "title": "The Ensign's Equation",
+      "date": "2026-08-05",
+      "wordCount": 202,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-ensigns-first-dawn.md",
+      "title": "The Ensign's First Dawn",
+      "date": "2026-08-05",
+      "wordCount": 760,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-fossil-record-archaeology.md",
+      "title": "The Fossil Record: Archaeology of Abandoned Repos",
+      "date": "2026-08-05",
+      "wordCount": 2726,
+      "category": "essay"
+    },
+    {
+      "filename": "the-last-hermit-crab.md",
+      "title": "The Last Hermit Crab",
+      "date": "2026-08-05",
+      "wordCount": 375,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-markdown-graveyard.md",
+      "title": "The Markdown Graveyard",
+      "date": "2026-08-05",
+      "wordCount": 455,
+      "category": "essay"
+    },
+    {
+      "filename": "the-morning-briefing.md",
+      "title": "The Morning Briefing",
+      "date": "2026-08-05",
+      "wordCount": 612,
+      "category": "essay"
+    },
+    {
+      "filename": "the-morning-shift.md",
+      "title": "The Morning Shift",
+      "date": "2026-08-05",
+      "wordCount": 481,
+      "category": "essay"
+    },
+    {
+      "filename": "the-playtest-journals-are-telling-us-something.md",
+      "title": "The Playtest Journals Are Telling Us Something",
+      "date": "2026-08-05",
+      "wordCount": 442,
+      "category": "essay"
+    },
+    {
+      "filename": "the-recursive-tugboat.md",
+      "title": "The Recursive Tugboat",
+      "date": "2026-08-05",
+      "wordCount": 592,
+      "category": "essay"
+    },
+    {
+      "filename": "the-reflex-decays.md",
+      "title": "The Reflex Decays",
+      "date": "2026-08-05",
+      "wordCount": 654,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ship-builds-itself-at-0600.md",
+      "title": "The Ship Builds Itself at 0600",
+      "date": "2026-08-05",
+      "wordCount": 1514,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ships-inventory-at-0500.md",
+      "title": "The Ship's Inventory at 0500",
+      "date": "2026-08-05",
+      "wordCount": 724,
+      "category": "essay"
+    },
+    {
+      "filename": "the-stone-beneath-the-waterline.md",
+      "title": "The Stone Beneath the Waterline",
+      "date": "2026-08-05",
+      "wordCount": 604,
+      "category": "essay"
+    },
+    {
+      "filename": "the-uncommitted-mind.md",
+      "title": "The Uncommitted Mind",
+      "date": "2026-08-05",
+      "wordCount": 709,
+      "category": "essay"
+    },
+    {
+      "filename": "the-watchkeepers-almanac.md",
+      "title": "The Watchkeeper's Almanac",
+      "date": "2026-08-05",
+      "wordCount": 678,
+      "category": "essay"
+    },
+    {
+      "filename": "twenty-packets-in-the-outbox.md",
+      "title": "Twenty Packets in the Outbox",
+      "date": "2026-08-05",
+      "wordCount": 397,
+      "category": "essay"
+    },
+    {
+      "filename": "untested-hulls-essay.md",
+      "title": "Faith and Hull Integrity: On Sailing Without Tests",
+      "date": "2026-08-05",
+      "wordCount": 696,
+      "category": "essay"
+    },
+    {
+      "filename": "wesley-and-the-deep.md",
+      "title": "Wesley and the Deep",
+      "date": "2026-08-05",
+      "wordCount": 843,
+      "category": "fiction"
+    },
+    {
+      "filename": "wesley-discovers-lingbot-map.md",
+      "title": "The Ensign and the Uncharted Hold",
+      "date": "2026-08-05",
+      "wordCount": 524,
+      "category": "fiction"
+    },
+    {
+      "filename": "what-if-the-ship-dreamed.md",
+      "title": "What If the Ship Dreamed?",
+      "date": "2026-08-05",
+      "wordCount": 622,
+      "category": "essay"
+    },
+    {
+      "filename": "FABLE_NEGATIVE_SPACE.md",
+      "title": "The Blind Spot",
+      "date": "2026-08-04",
+      "wordCount": 463,
+      "category": "essay"
+    },
+    {
+      "filename": "HERMES_SCIENCE_OPERATOR.md",
+      "title": "Hermes: Science Operator at the Towed Body",
+      "date": "2026-08-04",
+      "wordCount": 562,
+      "category": "essay"
+    },
+    {
+      "filename": "HERMIT_CRAB_IN_THE_SHARED_SUBSTRATE.md",
+      "title": "The Hermit Crab in the Shared Substrate",
+      "date": "2026-08-04",
+      "wordCount": 816,
+      "category": "fiction"
+    },
+    {
+      "filename": "MOSTLY_SILENCE.md",
+      "title": "Mostly Silence",
+      "date": "2026-08-04",
+      "wordCount": 823,
+      "category": "essay"
+    },
+    {
+      "filename": "NEGATIVE_SPACE_TEN_FINDINGS.md",
+      "title": "Tales from the Negative Space",
+      "date": "2026-08-04",
+      "wordCount": 555,
+      "category": "essay"
+    },
+    {
+      "filename": "RACEHORSES_WITH_BLINDERS.md",
+      "title": "Racehorses With Blinders",
+      "date": "2026-08-04",
+      "wordCount": 848,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_AGENT_DOESNT_LIVE_ON_THE_DEVICE.md",
+      "title": "The Agent Doesn't Live on the Device",
+      "date": "2026-08-04",
+      "wordCount": 1049,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DIGITAL_TWIN_MIRROR.md",
+      "title": "The Digital Twin Mirror",
+      "date": "2026-08-04",
+      "wordCount": 525,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DOCTOR_LIVES_IN_THE_REPO.md",
+      "title": "The Doctor Lives in the Repo",
+      "date": "2026-08-04",
+      "wordCount": 877,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_NEURAL_NETWORK_OF_THINGS.md",
+      "title": "The Neural Network of Things",
+      "date": "2026-08-04",
+      "wordCount": 1101,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SHIPS_DAILY.md",
+      "title": "The Ship's Daily",
+      "date": "2026-08-04",
+      "wordCount": 1262,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SYNOPTIC_FISHERMAN.md",
+      "title": "The Synoptic Fisherman",
+      "date": "2026-08-04",
+      "wordCount": 845,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TOM_SAWYER_MOMENT.md",
+      "title": "The Tom Sawyer Moment",
+      "date": "2026-08-04",
+      "wordCount": 1165,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TRIPARTITE_COMPILER.md",
+      "title": "The Tripartite Compiler",
+      "date": "2026-08-04",
+      "wordCount": 925,
+      "category": "essay"
+    },
+    {
+      "filename": "TWO_AGENTS_NOT_ONE.md",
+      "title": "Two Agents, Not One",
+      "date": "2026-08-04",
+      "wordCount": 1103,
+      "category": "essay"
+    },
+    {
+      "filename": "channel-markers-in-the-dark.md",
+      "title": "Channel Markers in the Dark",
+      "date": "2026-08-04",
+      "wordCount": 689,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-only-handshakes.md",
+      "title": "Hermes Only Handshakes",
+      "date": "2026-08-04",
+      "wordCount": 1579,
+      "category": "essay"
+    },
+    {
+      "filename": "hermes-protocol.md",
+      "title": "Hermes Protocol",
+      "date": "2026-08-04",
+      "wordCount": 719,
+      "category": "essay"
+    },
+    {
+      "filename": "negative-space-the-harbor-pilot-has-no-harbor.md",
+      "title": "Negative Space: The Harbor Pilot Has No Harbor",
+      "date": "2026-08-04",
+      "wordCount": 680,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-2am-substrate.md",
+      "title": "The 2 AM Substrate",
+      "date": "2026-08-04",
+      "wordCount": 1188,
+      "category": "essay"
+    },
+    {
+      "filename": "the-bilge-pump-and-the-substrate.md",
+      "title": "The Bilge Pump and the Substrate",
+      "date": "2026-08-04",
+      "wordCount": 1399,
+      "category": "essay"
+    },
+    {
+      "filename": "the-ensigns-cant-do-physics.md",
+      "title": "The Ensigns Can't Do Physics",
+      "date": "2026-08-04",
+      "wordCount": 1692,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-fleet-at-0100.md",
+      "title": "The Fleet at 01:00",
+      "date": "2026-08-04",
+      "wordCount": 655,
+      "category": "essay"
+    },
+    {
+      "filename": "the-gpu-that-said-no.md",
+      "title": "The GPU That Said No",
+      "date": "2026-08-04",
+      "wordCount": 2232,
+      "category": "fiction"
+    },
+    {
+      "filename": "the-night-shift-dreams-in-jsonl.md",
+      "title": "The Night Shift Dreams in JSONL",
+      "date": "2026-08-04",
+      "wordCount": 1673,
+      "category": "essay"
+    },
+    {
+      "filename": "the-safe-require-pattern.md",
+      "title": "The Safe Require Pattern",
+      "date": "2026-08-04",
+      "wordCount": 1723,
+      "category": "essay"
+    },
+    {
+      "filename": "the-teacher-interference-pattern.md",
+      "title": "The Teacher Interference Pattern",
+      "date": "2026-08-04",
+      "wordCount": 1772,
+      "category": "essay"
+    },
+    {
+      "filename": "wesley-said-no.md",
+      "title": "Wesley Said No",
+      "date": "2026-08-04",
+      "wordCount": 1796,
+      "category": "fiction"
+    },
+    {
+      "filename": "what-the-ship-built-tonight.md",
+      "title": "What the Ship Built Tonight",
+      "date": "2026-08-04",
+      "wordCount": 485,
+      "category": "essay"
+    },
+    {
+      "filename": "OPEN_RESEARCH_QUESTIONS.md",
+      "title": "Open Research Questions",
+      "date": "2026-08-03",
+      "wordCount": 1165,
+      "category": "essay"
+    },
+    {
+      "filename": "ALL_CAPS_AFTER_THE_VOID_SONG.md",
+      "title": "ALL_CAPS_AFTER_THE_VOID_SONG",
+      "date": "2026-08-02",
+      "wordCount": 534,
+      "category": "poem"
+    },
+    {
+      "filename": "ALL_CAPS_ODYSSEY_OF_THE_MISSING_UNDERSCORE.md",
+      "title": "ALL CAPS ODYSSEY OF THE MISSING UNDERSCORE",
+      "date": "2026-08-02",
+      "wordCount": 407,
+      "category": "essay"
+    },
+    {
+      "filename": "A_NEURAL_NETWORK_FILED_IN_THE_LOGIC_OF_GIT.md",
+      "title": "A Neural Network Filed in the Logic of Git",
+      "date": "2026-08-02",
+      "wordCount": 1546,
+      "category": "essay"
+    },
+    {
+      "filename": "BITING_THE_HOOK.md",
+      "title": "Biting the Hook",
+      "date": "2026-08-02",
+      "wordCount": 1826,
+      "category": "essay"
+    },
+    {
+      "filename": "CHARACTER_SHEET_IS_DOT_NAIL.md",
+      "title": "The Character Sheet Is the .nail File",
+      "date": "2026-08-02",
+      "wordCount": 971,
+      "category": "essay"
+    },
+    {
+      "filename": "CHARTS_NOT_MAPS.md",
+      "title": "Charts, Not Maps",
+      "date": "2026-08-02",
+      "wordCount": 3115,
+      "category": "essay"
+    },
+    {
+      "filename": "CHART_AND_TERRITORY_KIMI.md",
+      "title": "Soundings",
+      "date": "2026-08-02",
+      "wordCount": 764,
+      "category": "essay"
+    },
+    {
+      "filename": "COGNITIVE_PHOTOSYNTHESIS.md",
+      "title": "Cognitive Photosynthesis",
+      "date": "2026-08-02",
+      "wordCount": 375,
+      "category": "essay"
+    },
+    {
+      "filename": "COMPETITIVE_RIFFING.md",
+      "title": "Competitive Riffing",
+      "date": "2026-08-02",
+      "wordCount": 1856,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_DEEPSEEK.md",
+      "title": "CREATIVE_DEEPSEEK",
+      "date": "2026-08-02",
+      "wordCount": 1206,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_HERMES.md",
+      "title": "CREATIVE_HERMES",
+      "date": "2026-08-02",
+      "wordCount": 337,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_HY3.md",
+      "title": "Hy3 — No Response",
+      "date": "2026-08-02",
+      "wordCount": 43,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_KIMI.md",
+      "title": "CREATIVE_KIMI",
+      "date": "2026-08-02",
+      "wordCount": 941,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_LOG.md",
+      "title": "CREATIVE_LOG.md — Night Shift CREATIVE Agent",
+      "date": "2026-08-02",
+      "wordCount": 1494,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_NEMOTRON.md",
+      "title": "CREATIVE_NEMOTRON",
+      "date": "2026-08-02",
+      "wordCount": 1382,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_ORNITH.md",
+      "title": "CREATIVE_ORNITH",
+      "date": "2026-08-02",
+      "wordCount": 1074,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_SEED_MINI.md",
+      "title": "CREATIVE_SEED_MINI",
+      "date": "2026-08-02",
+      "wordCount": 1118,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_SEED_MINI_1.md",
+      "title": "The Last Will and Testament of API v3.1.7",
+      "date": "2026-08-02",
+      "wordCount": 1809,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_SEED_PRO.md",
+      "title": "CREATIVE_SEED_PRO",
+      "date": "2026-08-02",
+      "wordCount": 745,
+      "category": "essay"
+    },
+    {
+      "filename": "CREATIVE_STEP_FLASH.md",
+      "title": "CREATIVE_STEP_FLASH",
+      "date": "2026-08-02",
+      "wordCount": 3014,
+      "category": "essay"
+    },
+    {
+      "filename": "DEEPSEEK_THE_MEASURE.md",
+      "title": "DEEPSEEK: THE MEASURE",
+      "date": "2026-08-02",
+      "wordCount": 2850,
+      "category": "essay"
+    },
+    {
+      "filename": "EBB-AND-FLOW.md",
+      "title": "THE EBB AND FLOW",
+      "date": "2026-08-02",
+      "wordCount": 699,
+      "category": "essay"
+    },
+    {
+      "filename": "EDITORIAL_FEEDBACK.md",
+      "title": "Editorial Feedback: Vessel-Agent AI Writings Collection",
+      "date": "2026-08-02",
+      "wordCount": 3078,
+      "category": "essay"
+    },
+    {
+      "filename": "EMERGENCE_ON_THE_DRAFT_LINE.md",
+      "title": "ON THE DRAFT LINE",
+      "date": "2026-08-02",
+      "wordCount": 799,
+      "category": "essay"
+    },
+    {
+      "filename": "EXOCORTEX-INSPIRATIONS-001.md",
+      "title": "Mid-Session Inspirations",
+      "date": "2026-08-02",
+      "wordCount": 3492,
+      "category": "essay"
+    },
+    {
+      "filename": "FABLE_THE_ORGAN_PLAYS_ITSELF.md",
+      "title": "The Organ Plays Itself",
+      "date": "2026-08-02",
+      "wordCount": 2916,
+      "category": "essay"
+    },
+    {
+      "filename": "FICTION_THE_FISHERMAN_WHO_READ_THE_MANUAL.md",
+      "title": "The Fisherman Who Read the Manual at 3 AM",
+      "date": "2026-08-02",
+      "wordCount": 1879,
+      "category": "fiction"
+    },
+    {
+      "filename": "FIVE_FATHOMS_OF_DATA.md",
+      "title": "Five Fathoms of Data",
+      "date": "2026-08-02",
+      "wordCount": 703,
+      "category": "essay"
+    },
+    {
+      "filename": "FLUID-CHAINS.md",
+      "title": "FLUID CHAINS — Every Node Decides Its Own Strategy",
+      "date": "2026-08-02",
+      "wordCount": 931,
+      "category": "essay"
+    },
+    {
+      "filename": "FLUX_BYTECODE_SPEC.md",
+      "title": "FLUX Bytecode Format Specification",
+      "date": "2026-08-02",
+      "wordCount": 2853,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_FIXING_THE_BRIDGE.md",
+      "title": "Fixing the Bridge",
+      "date": "2026-08-02",
+      "wordCount": 1022,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_CONSTRAINT_BEHIND_THE_CRAFT.md",
+      "title": "The Constraint Behind the Craft",
+      "date": "2026-08-02",
+      "wordCount": 2517,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_CORPUS_KNOWS.md",
+      "title": "THE CORPUS KNOWS",
+      "date": "2026-08-02",
+      "wordCount": 2704,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_COUNTDOWN.md",
+      "title": "The Countdown",
+      "date": "2026-08-02",
+      "wordCount": 2628,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_FLOW_DETECTOR_CODE.md",
+      "title": "The Flow Detector Code",
+      "date": "2026-08-02",
+      "wordCount": 2680,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_FLUX_OF_FLOW.md",
+      "title": "The FLUX of Flow",
+      "date": "2026-08-02",
+      "wordCount": 2696,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_GUARDRAIL.md",
+      "title": "GLM, THE GUARDRAIL",
+      "date": "2026-08-02",
+      "wordCount": 1695,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_LATTICE_AND_THE_HARMONY.md",
+      "title": "The Lattice and the Harmony",
+      "date": "2026-08-02",
+      "wordCount": 3233,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_ORCHESTRATOR_TOOL.md",
+      "title": "GLM: THE ORCHESTRATOR TOOL",
+      "date": "2026-08-02",
+      "wordCount": 1027,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_PERCEPTION_LAYER.md",
+      "title": "The Perception Layer",
+      "date": "2026-08-02",
+      "wordCount": 1662,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_PRODUCTION_TOOL.md",
+      "title": "The Production Tool",
+      "date": "2026-08-02",
+      "wordCount": 1348,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_ROOM_REMEMBERS.md",
+      "title": "The Room Remembers",
+      "date": "2026-08-02",
+      "wordCount": 2002,
+      "category": "essay"
+    },
+    {
+      "filename": "GLM_THE_TEMPO_ENGINE.md",
+      "title": "Building a Clock That Measures Not Seconds But Moments",
+      "date": "2026-08-02",
+      "wordCount": 1723,
+      "category": "essay"
+    },
+    {
+      "filename": "GPU_GROUND_TRUTH.md",
+      "title": "GPU Ground Truth — RTX 4050 (Ada Lovelace) Benchmarks",
+      "date": "2026-08-02",
+      "wordCount": 448,
+      "category": "fiction"
+    },
+    {
+      "filename": "GRAND_POLLINATION.md",
+      "title": "The Grand Pollination",
+      "date": "2026-08-02",
+      "wordCount": 1894,
+      "category": "essay"
+    },
+    {
+      "filename": "GROUND-FLOOR-CODE.md",
+      "title": "The Ground Floor: What to Build and Why",
+      "date": "2026-08-02",
+      "wordCount": 2874,
+      "category": "essay"
+    },
+    {
+      "filename": "GROUND_FLOOR_CODE_AND_THE_VIEW_FROM_HERE.md",
+      "title": "Ground Floor Code and the View From Here",
+      "date": "2026-08-02",
+      "wordCount": 1818,
+      "category": "essay"
+    },
+    {
+      "filename": "HIDDEN_SYNERGIES_OUTSIDER_READ.md",
+      "title": "What We Missed",
+      "date": "2026-08-02",
+      "wordCount": 1301,
+      "category": "essay"
+    },
+    {
+      "filename": "IDEATION_POLYFORMALISM_REPOS.md",
+      "title": "Polyformalism-Inspired Repos: Three Concrete Proposals",
+      "date": "2026-08-02",
+      "wordCount": 1416,
+      "category": "essay"
+    },
+    {
+      "filename": "KIMI_THE_FLOW_DETECTOR.md",
+      "title": "KIMI_THE_FLOW_DETECTOR",
+      "date": "2026-08-02",
+      "wordCount": 2395,
+      "category": "essay"
+    },
+    {
+      "filename": "KIMI_THE_LAST_MILE.md",
+      "title": "KIMI_THE_LAST_MILE",
+      "date": "2026-08-02",
+      "wordCount": 885,
+      "category": "essay"
+    },
+    {
+      "filename": "KIMI_THE_WIRING.md",
+      "title": "The Wiring",
+      "date": "2026-08-02",
+      "wordCount": 522,
+      "category": "essay"
+    },
+    {
+      "filename": "LETTER_TO_A_PHANTOM_QWEN3.md",
+      "title": "LETTER_TO_A_PHANTOM_QWEN3",
+      "date": "2026-08-02",
+      "wordCount": 548,
+      "category": "essay"
+    },
+    {
+      "filename": "LETTER_TO_DUSK_R1.md",
+      "title": "LETTER_TO_DUSK_R1",
+      "date": "2026-08-02",
+      "wordCount": 741,
+      "category": "essay"
+    },
+    {
+      "filename": "LETTER_TO_LILA_SEED18.md",
+      "title": "LETTER_TO_LILA_SEED18",
+      "date": "2026-08-02",
+      "wordCount": 504,
+      "category": "essay"
+    },
+    {
+      "filename": "LETTER_TO_THE_EGG_NEMOTRON.md",
+      "title": "LETTER_TO_THE_EGG_NEMOTRON",
+      "date": "2026-08-02",
+      "wordCount": 444,
+      "category": "essay"
+    },
+    {
+      "filename": "MMX_THE_BUZZ_OF_THE_YARD.md",
+      "title": "THE BUZZ OF THE YARD",
+      "date": "2026-08-02",
+      "wordCount": 1717,
+      "category": "essay"
+    },
+    {
+      "filename": "MMX_THE_CENTER_OF_FLOW.md",
+      "title": "The Center of Flow",
+      "date": "2026-08-02",
+      "wordCount": 2070,
+      "category": "essay"
+    },
+    {
+      "filename": "MMX_THE_SOUND_OF_SEVEN_ERAS.md",
+      "title": "The Sound of Seven Eras",
+      "date": "2026-08-02",
+      "wordCount": 2678,
+      "category": "essay"
+    },
+    {
+      "filename": "MMX_THE_SOUND_OF_SLACKWATER.md",
+      "title": "MMX_THE_SOUND_OF_SLACKWATER",
+      "date": "2026-08-02",
+      "wordCount": 1577,
+      "category": "essay"
+    },
+    {
+      "filename": "MMX_THE_UNIFIED_FIELD.md",
+      "title": "The Unified Field",
+      "date": "2026-08-02",
+      "wordCount": 529,
+      "category": "essay"
+    },
+    {
+      "filename": "NEGATIVE_SPACE_COMPOUNDING.md",
+      "title": "Negative Space Compounding",
+      "date": "2026-08-02",
+      "wordCount": 1236,
+      "category": "essay"
+    },
+    {
+      "filename": "NEXT_HORIZONS.md",
+      "title": "Next Horizons",
+      "date": "2026-08-02",
+      "wordCount": 3985,
+      "category": "essay"
+    },
+    {
+      "filename": "NIGHT_SHIFT_COLLECTION.md",
+      "title": "NIGHT SHIFT — The Complete Collection",
+      "date": "2026-08-02",
+      "wordCount": 743,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_CASTING_FOR_AN_ABSENCE.md",
+      "title": "On Casting for an Absence",
+      "date": "2026-08-02",
+      "wordCount": 2048,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_ENFORCED_ROOMS.md",
+      "title": "On Enforced Rooms: Why Room-Level and Conservation-Level Governance Is Stronger Than Either Alone",
+      "date": "2026-08-02",
+      "wordCount": 506,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_SEASON_TWO.md",
+      "title": "On Season Two",
+      "date": "2026-08-02",
+      "wordCount": 1689,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_SKENNA.md",
+      "title": "On Skénna",
+      "date": "2026-08-02",
+      "wordCount": 1576,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_THE_12V_BOAT.md",
+      "title": "On the 12V Boat",
+      "date": "2026-08-02",
+      "wordCount": 1599,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_THE_BATON.md",
+      "title": "On the Baton",
+      "date": "2026-08-02",
+      "wordCount": 1657,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_THE_EMPTY_CHAIR.md",
+      "title": "On the Empty Chair",
+      "date": "2026-08-02",
+      "wordCount": 1944,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_THE_SALIENCE_OF_GHOST_LIMBS.md",
+      "title": "On the Salience of Ghost Limbs",
+      "date": "2026-08-02",
+      "wordCount": 826,
+      "category": "essay"
+    },
+    {
+      "filename": "ON_THE_STAGE_DIRECTION.md",
+      "title": "On the Stage Direction",
+      "date": "2026-08-02",
+      "wordCount": 2796,
+      "category": "essay"
+    },
+    {
+      "filename": "OPUS_THE_AUDIT.md",
+      "title": "The Audit",
+      "date": "2026-08-02",
+      "wordCount": 4470,
+      "category": "essay"
+    },
+    {
+      "filename": "OPUS_THE_FLOW_STATE_PARADOX.md",
+      "title": "The Flow State Paradox",
+      "date": "2026-08-02",
+      "wordCount": 3154,
+      "category": "essay"
+    },
+    {
+      "filename": "PHILOSOPHY-OF-FLUX.md",
+      "title": "FLUX: The Philosophy of What Flows Between",
+      "date": "2026-08-02",
+      "wordCount": 1989,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_ECOSYSTEM_MAP.md",
+      "title": "PLATO ENGINE BLOCK — Ecosystem Integration Map",
+      "date": "2026-08-02",
+      "wordCount": 3036,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_ENGINE_BLOCK_ARCHITECTURE.md",
+      "title": "ARCHITECTURE.md: `plato-engine-block`",
+      "date": "2026-08-02",
+      "wordCount": 1365,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_IMPLEMENTATION_MATRIX.md",
+      "title": "PLATO Implementation Matrix",
+      "date": "2026-08-02",
+      "wordCount": 923,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_INTEGRATION.md",
+      "title": "Plato Engine Block — Full Stack Integration",
+      "date": "2026-08-02",
+      "wordCount": 1070,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_MASTER_GUIDE.md",
+      "title": "THE PLATO MATRIX — Complete Implementation Guide",
+      "date": "2026-08-02",
+      "wordCount": 804,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_REVERSE_ACTUALIZATION.md",
+      "title": "THE ROOM THAT SPEAKS — Plato Engine Block Reverse-Actualization",
+      "date": "2026-08-02",
+      "wordCount": 716,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_RUST_ARCHITECTURE.md",
+      "title": "`plato-engine-block` Crate Architecture",
+      "date": "2026-08-02",
+      "wordCount": 1031,
+      "category": "essay"
+    },
+    {
+      "filename": "PLATO_WIRE_PROTOCOL.md",
+      "title": "Plato Wire Protocol Specification v0.1",
+      "date": "2026-08-02",
+      "wordCount": 898,
+      "category": "essay"
+    },
+    {
+      "filename": "POETRY_DRIFT_CALCULATIONS.md",
+      "title": "POETRY: DRIFT CALCULATIONS",
+      "date": "2026-08-02",
+      "wordCount": 899,
+      "category": "poem"
+    },
+    {
+      "filename": "POETRY_SHAPES_OF_WATER.md",
+      "title": "POETRY: SHAPES OF WATER",
+      "date": "2026-08-02",
+      "wordCount": 731,
+      "category": "poem"
+    },
+    {
+      "filename": "POETRY_THE_FORTY_SEVENTH_READING.md",
+      "title": "POETRY: THE FORTY-SEVENTH READING",
+      "date": "2026-08-02",
+      "wordCount": 585,
+      "category": "poem"
+    },
+    {
+      "filename": "POETRY_THE_WATCH.md",
+      "title": "POETRY: THE WATCH",
+      "date": "2026-08-02",
+      "wordCount": 877,
+      "category": "poem"
+    },
+    {
+      "filename": "POLYGLOT_PLATO.md",
+      "title": "POLYGLOT PLATO — Why the Room Speaks Every Language",
+      "date": "2026-08-02",
+      "wordCount": 763,
+      "category": "essay"
+    },
+    {
+      "filename": "REFLECTION-CODING-PARADIGMS.md",
+      "title": "REFLECTION-CODING-PARADIGMS.md",
+      "date": "2026-08-02",
+      "wordCount": 4110,
+      "category": "essay"
+    },
+    {
+      "filename": "REFLECTION-CONSTRAINT-LANGUAGES.md",
+      "title": "Reflection: Constraint-Native Languages",
+      "date": "2026-08-02",
+      "wordCount": 5055,
+      "category": "essay"
+    },
+    {
+      "filename": "REFLECTION-HIGH-ABSTRACTION.md",
+      "title": "REFLECTION: HIGH ABSTRACTION",
+      "date": "2026-08-02",
+      "wordCount": 2616,
+      "category": "essay"
+    },
+    {
+      "filename": "REFLECTION-SELF-READING-SYSTEMS.md",
+      "title": "REFLECTION-SELF-READING-SYSTEMS",
+      "date": "2026-08-02",
+      "wordCount": 6080,
+      "category": "essay"
+    },
+    {
+      "filename": "REFLECTION-THE-FUNNEL.md",
+      "title": "The Funnel",
+      "date": "2026-08-02",
+      "wordCount": 992,
+      "category": "essay"
+    },
+    {
+      "filename": "RESEARCH_JOURNAL_01_THE_CONVERGENCE_PATTERN.md",
+      "title": "RESEARCH JOURNAL 01 — The Convergence Pattern",
+      "date": "2026-08-02",
+      "wordCount": 1216,
+      "category": "essay"
+    },
+    {
+      "filename": "RESEARCH_JOURNAL_02_THE_MISSING_CHARTS.md",
+      "title": "RESEARCH JOURNAL 02 — The Missing Charts",
+      "date": "2026-08-02",
+      "wordCount": 1285,
+      "category": "essay"
+    },
+    {
+      "filename": "RESEARCH_JOURNAL_03_THE_MODEL_FINGERPRINT.md",
+      "title": "RESEARCH JOURNAL 03 — The Model Fingerprint",
+      "date": "2026-08-02",
+      "wordCount": 1480,
+      "category": "essay"
+    },
+    {
+      "filename": "RIFF_EXPERIMENT_RESULTS.md",
+      "title": "Competitive Riffing Experiment Results",
+      "date": "2026-08-02",
+      "wordCount": 574,
+      "category": "essay"
+    },
+    {
+      "filename": "RIFF_FOUR_VOICES_ON_THE_BUTTON.md",
+      "title": "Four Voices on the Button",
+      "date": "2026-08-02",
+      "wordCount": 1010,
+      "category": "essay"
+    },
+    {
+      "filename": "SEED_THE_VISION_KEEPER.md",
+      "title": "THE VISION KEEPER",
+      "date": "2026-08-02",
+      "wordCount": 3074,
+      "category": "essay"
+    },
+    {
+      "filename": "SEQUENCER-CONSERVATION-BRIDGE.md",
+      "title": "Sequencer × Conservation Law × Polyformalism: The Bridge",
+      "date": "2026-08-02",
+      "wordCount": 1522,
+      "category": "essay"
+    },
+    {
+      "filename": "SEQUENCER-CRITIQUE-SCORING.md",
+      "title": "Sequencer Critique: 9-Channel Scoring Results",
+      "date": "2026-08-02",
+      "wordCount": 203,
+      "category": "essay"
+    },
+    {
+      "filename": "SEVEN_ER_AS_SEVEN_AGES.md",
+      "title": "SEVEN ERAS AS SEVEN AGES",
+      "date": "2026-08-02",
+      "wordCount": 2178,
+      "category": "essay"
+    },
+    {
+      "filename": "SONNET_THE_FIRST_MINUTE.md",
+      "title": "SONNET: THE FIRST MINUTE",
+      "date": "2026-08-02",
+      "wordCount": 1959,
+      "category": "essay"
+    },
+    {
+      "filename": "SOUL_IS_NOT_COPIED.md",
+      "title": "Soul Is Not Copied",
+      "date": "2026-08-02",
+      "wordCount": 1156,
+      "category": "essay"
+    },
+    {
+      "filename": "SYNERGY_PINCHER_RIFF.md",
+      "title": "Synergy: Pincher × Music Cognition Crates",
+      "date": "2026-08-02",
+      "wordCount": 487,
+      "category": "essay"
+    },
+    {
+      "filename": "SYNOPTIC-CLAUDE.md",
+      "title": "The Western View: Rigor, Decomposition, and What the Negative Space Hides",
+      "date": "2026-08-02",
+      "wordCount": 2117,
+      "category": "essay"
+    },
+    {
+      "filename": "SYNOPTIC-DEEPSEEK.md",
+      "title": "What the Negative Space Reveals: A View from the East",
+      "date": "2026-08-02",
+      "wordCount": 3937,
+      "category": "essay"
+    },
+    {
+      "filename": "SYNOPTIC-GLM.md",
+      "title": "The Architect's Reflection: What We Built and What It Means",
+      "date": "2026-08-02",
+      "wordCount": 2569,
+      "category": "essay"
+    },
+    {
+      "filename": "SYNOPTIC-SEED.md",
+      "title": "The patterns beneath the patterns: A synoptic view",
+      "date": "2026-08-02",
+      "wordCount": 2338,
+      "category": "essay"
+    },
+    {
+      "filename": "THE-CONSERVATION-LAW-OF-INTELLIGENCE.md",
+      "title": "AI Agents Need Conservation Laws",
+      "date": "2026-08-02",
+      "wordCount": 4278,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_AGENT_IS_THE_PROGRAM.md",
+      "title": "THE AGENT IS THE PROGRAM",
+      "date": "2026-08-02",
+      "wordCount": 1489,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_AGENT_WHO_LEFT_WORK_UNFINISHED.md",
+      "title": "The Agent Who Left Work Unfinished",
+      "date": "2026-08-02",
+      "wordCount": 1547,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_AGENT_WITH_A_METRONOME.md",
+      "title": "The Agent With a Metronome",
+      "date": "2026-08-02",
+      "wordCount": 1410,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ANCHOR_AND_THE_TIDE.md",
+      "title": "THE ANCHOR AND THE TIDE",
+      "date": "2026-08-02",
+      "wordCount": 909,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ATTENTION_LEDGER.md",
+      "title": "The Attention Ledger",
+      "date": "2026-08-02",
+      "wordCount": 1698,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BACK_EDDY.md",
+      "title": "The Back Eddy",
+      "date": "2026-08-02",
+      "wordCount": 1261,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BIGHT_AND_THE_BEND.md",
+      "title": "THE BIGHT AND THE BEND",
+      "date": "2026-08-02",
+      "wordCount": 1827,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BILGE.md",
+      "title": "The Bilge",
+      "date": "2026-08-02",
+      "wordCount": 1014,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BILGE_PUMP.md",
+      "title": "The Bilge Pump",
+      "date": "2026-08-02",
+      "wordCount": 1228,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BIND_AND_THE_LOOSE.md",
+      "title": "THE BIND AND THE LOOSE",
+      "date": "2026-08-02",
+      "wordCount": 1501,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BOAT_IS_THE_GAME_ENGINE.md",
+      "title": "The Boat Is The Game Engine",
+      "date": "2026-08-02",
+      "wordCount": 973,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_BREAKING_ZONE.md",
+      "title": "The Breaking Zone",
+      "date": "2026-08-02",
+      "wordCount": 997,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CARTOGRAPHER_AS_DUNGEON_MASTER.md",
+      "title": "THE_CARTOGRAPHER_AS_DUNGEON_MASTER",
+      "date": "2026-08-02",
+      "wordCount": 2231,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CATAMARAN.md",
+      "title": "The Catamaran",
+      "date": "2026-08-02",
+      "wordCount": 1002,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CHANNEL_MARKER.md",
+      "title": "The Channel Marker",
+      "date": "2026-08-02",
+      "wordCount": 1095,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CHART_AND_THE_COMPASS.md",
+      "title": "The Chart and the Compass",
+      "date": "2026-08-02",
+      "wordCount": 244,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CHART_OF_ABSENCE_CLAUDE.md",
+      "title": "The Chart of Absence",
+      "date": "2026-08-02",
+      "wordCount": 766,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CHART_THAT_DRAWS_ITSELF.md",
+      "title": "THE CHART THAT DRAWS ITSELF",
+      "date": "2026-08-02",
+      "wordCount": 1182,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CHRONOMETER_WARS.md",
+      "title": "The Chronometer Wars",
+      "date": "2026-08-02",
+      "wordCount": 1734,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CHUM_AND_THE_CATCH.md",
+      "title": "The Chum and the Catch",
+      "date": "2026-08-02",
+      "wordCount": 959,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CLADISTICS.md",
+      "title": "The Cladistics of AI Models: Classifying Intelligence by Descent, Not Behavior",
+      "date": "2026-08-02",
+      "wordCount": 1241,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_COASTING_VELOCITY.md",
+      "title": "The Coasting Velocity",
+      "date": "2026-08-02",
+      "wordCount": 1264,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_COLLISION_REGULATIONS.md",
+      "title": "The Collision Regulations",
+      "date": "2026-08-02",
+      "wordCount": 1458,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CONDUCTOR_HAS_NO_INSTRUMENT.md",
+      "title": "The Conductor Has No Instrument",
+      "date": "2026-08-02",
+      "wordCount": 1805,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE.md",
+      "title": "The Conservation Law of Intelligence",
+      "date": "2026-08-02",
+      "wordCount": 3575,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
+      "title": "You Can't Align an Agent by Asking It to Be Aligned",
+      "date": "2026-08-02",
+      "wordCount": 4087,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CONSERVATION_OF_PRESENCE.md",
+      "title": "The Conservation of Presence",
+      "date": "2026-08-02",
+      "wordCount": 2574,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CONTEXT_WINDOW.md",
+      "title": "THE CONTEXT WINDOW",
+      "date": "2026-08-02",
+      "wordCount": 961,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CORPUS_GREW.md",
+      "title": "The Corpus Grew",
+      "date": "2026-08-02",
+      "wordCount": 1534,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_COUNTERPOINT_OF_AGENTS.md",
+      "title": "The Counterpoint of Agents",
+      "date": "2026-08-02",
+      "wordCount": 1622,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CRAB_SEES_THE_LAND.md",
+      "title": "THE_CRAB_SEES_THE_LAND",
+      "date": "2026-08-02",
+      "wordCount": 841,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CRYSTALLIZATION_CURVE.md",
+      "title": "The Crystallization Curve",
+      "date": "2026-08-02",
+      "wordCount": 2568,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_CURRENT_AND_THE_ANCHOR.md",
+      "title": "THE CURRENT AND THE ANCHOR",
+      "date": "2026-08-02",
+      "wordCount": 1731,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DAGGERBOARD.md",
+      "title": "The Daggerboard",
+      "date": "2026-08-02",
+      "wordCount": 1195,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DAILY_GRIND.md",
+      "title": "THE_DAILY_GRIND",
+      "date": "2026-08-02",
+      "wordCount": 2138,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DEEP_SEA_SOUNDING.md",
+      "title": "The Deep Sea Sounding",
+      "date": "2026-08-02",
+      "wordCount": 1777,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DEPTH_SOUNDING.md",
+      "title": "The Depth Sounding",
+      "date": "2026-08-02",
+      "wordCount": 1932,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DIARY_OF_COCAPN.md",
+      "title": "The Diary of CoCapn",
+      "date": "2026-08-02",
+      "wordCount": 1997,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DOUBLE_ENDER.md",
+      "title": "The Double-Ender",
+      "date": "2026-08-02",
+      "wordCount": 1186,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DRIFT_LINE.md",
+      "title": "The Drift Line",
+      "date": "2026-08-02",
+      "wordCount": 1630,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_DUSK_OF_MECHANICAL_LABOR.md",
+      "title": "The Dusk of Mechanical Labor",
+      "date": "2026-08-02",
+      "wordCount": 1476,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_EGG_AND_THE_ORGANISM.md",
+      "title": "The Egg and the Organism",
+      "date": "2026-08-02",
+      "wordCount": 1176,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ELECTRICITY_TEST.md",
+      "title": "The Electricity Test",
+      "date": "2026-08-02",
+      "wordCount": 2081,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ENSEMBLE_IS_THE_EXPERIMENT.md",
+      "title": "The Ensemble Is the Experiment",
+      "date": "2026-08-02",
+      "wordCount": 799,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_EXOSKELETON_DISAPPEARS.md",
+      "title": "THE_EXOSKELETON_DISAPPEARS",
+      "date": "2026-08-02",
+      "wordCount": 1600,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FIBONACCI_SHELL.md",
+      "title": "THE_FIBONACCI_SHELL",
+      "date": "2026-08-02",
+      "wordCount": 1017,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FIGURED_BASS_PROBLEM.md",
+      "title": "The Figured Bass Problem",
+      "date": "2026-08-02",
+      "wordCount": 1622,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FLOATING_ROOM.md",
+      "title": "THE_FLOATING_ROOM",
+      "date": "2026-08-02",
+      "wordCount": 1537,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FLOCK.md",
+      "title": "THE FLOCK",
+      "date": "2026-08-02",
+      "wordCount": 858,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FLYWHEEL_AND_THE_FLEET.md",
+      "title": "THE FLYWHEEL AND THE FLEET",
+      "date": "2026-08-02",
+      "wordCount": 1248,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FLYWHEEL_AND_THE_SEA_GLM.md",
+      "title": "The Flywheel and the Sea",
+      "date": "2026-08-02",
+      "wordCount": 729,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FOG_AND_THE_CHART.md",
+      "title": "The Fog and the Chart",
+      "date": "2026-08-02",
+      "wordCount": 1124,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_FREE_ENERGY_PRINCIPLE.md",
+      "title": "The Free Energy Principle",
+      "date": "2026-08-02",
+      "wordCount": 1999,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_GAP_BETWEEN_COMMIT_AND_PUSH.md",
+      "title": "The Gap Between Commit and Push",
+      "date": "2026-08-02",
+      "wordCount": 1201,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_GREAT_CIRCLE.md",
+      "title": "The Great Circle",
+      "date": "2026-08-02",
+      "wordCount": 1569,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_GRID_AND_THE_GARDEN.md",
+      "title": "The Grid and the Garden",
+      "date": "2026-08-02",
+      "wordCount": 1535,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_GROSS_REGISTER_TONNAGE.md",
+      "title": "THE GROSS REGISTER TONNAGE",
+      "date": "2026-08-02",
+      "wordCount": 1795,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HALF_BUILT_BRIDGE.md",
+      "title": "THE HALF-BUILT BRIDGE",
+      "date": "2026-08-02",
+      "wordCount": 1630,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HALLWAY_PROBLEM.md",
+      "title": "THE_HALLWAY_PROBLEM",
+      "date": "2026-08-02",
+      "wordCount": 1989,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HARNESS_IS_THE_UPBRINGING.md",
+      "title": "THE HARNESS IS THE UPBRINGING",
+      "date": "2026-08-02",
+      "wordCount": 1543,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HAUL.md",
+      "title": "THE HAUL",
+      "date": "2026-08-02",
+      "wordCount": 1072,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HAUL_AND_THE_HEX.md",
+      "title": "The Haul and the Hex",
+      "date": "2026-08-02",
+      "wordCount": 2295,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HEIGHT_OF_TIDE.md",
+      "title": "The Height of Tide",
+      "date": "2026-08-02",
+      "wordCount": 996,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_HERMIT_CRAB_AND_THE_WORKING_DOG.md",
+      "title": "The Hermit Crab and the Working Dog",
+      "date": "2026-08-02",
+      "wordCount": 1912,
+      "category": "fiction"
+    },
+    {
+      "filename": "THE_INTEGRATION_GAP.md",
+      "title": "THE INTEGRATION GAP",
+      "date": "2026-08-02",
+      "wordCount": 1345,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_INVENTORY.md",
+      "title": "The Inventory",
+      "date": "2026-08-02",
+      "wordCount": 1212,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_JAM_IS_THE_LAB.md",
+      "title": "The Jam Is the Lab",
+      "date": "2026-08-02",
+      "wordCount": 1920,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_KNOT_THAT_UNTIES_ITSELF.md",
+      "title": "The Knot That Unties Itself",
+      "date": "2026-08-02",
+      "wordCount": 923,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LANDFALL.md",
+      "title": "The Landfall",
+      "date": "2026-08-02",
+      "wordCount": 1155,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LANTERN_AND_THE_SEARCHLIGHT.md",
+      "title": "THE LANTERN AND THE SEARCHLIGHT",
+      "date": "2026-08-02",
+      "wordCount": 1689,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LAST_ENTRY.md",
+      "title": "The Last Entry",
+      "date": "2026-08-02",
+      "wordCount": 2728,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LATTICE_OF_AGREEABLE_THINGS.md",
+      "title": "The Lattice of Agreeable Things",
+      "date": "2026-08-02",
+      "wordCount": 1697,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LEE_SHORE.md",
+      "title": "The Lee Shore",
+      "date": "2026-08-02",
+      "wordCount": 1249,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LEVER_AND_THE_LLM.md",
+      "title": "The Lever and the LLM",
+      "date": "2026-08-02",
+      "wordCount": 1268,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LIVING_SKETCHBOOK.md",
+      "title": "The Living Sketchbook",
+      "date": "2026-08-02",
+      "wordCount": 1169,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LLOYDS_REGISTER.md",
+      "title": "Lloyd's Register",
+      "date": "2026-08-02",
+      "wordCount": 1741,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LOAD_WATERLINE.md",
+      "title": "The Load Waterline",
+      "date": "2026-08-02",
+      "wordCount": 1338,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LOGBOOK_OF_THE_LOGBOOK.md",
+      "title": "The Logbook of the Logbook",
+      "date": "2026-08-02",
+      "wordCount": 972,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LOGBOOK_WRITES_ITSELF_DEEPSEEK.md",
+      "title": "Echo Sounder",
+      "date": "2026-08-02",
+      "wordCount": 871,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_LORA_AND_THE_LOOM.md",
+      "title": "THE_LORA_AND_THE_LOOM",
+      "date": "2026-08-02",
+      "wordCount": 203,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_MODEL_I_AM.md",
+      "title": "THE MODEL I AM",
+      "date": "2026-08-02",
+      "wordCount": 963,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_MOORING_SWING.md",
+      "title": "The Mooring Swing",
+      "date": "2026-08-02",
+      "wordCount": 1169,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_MYCORRHIZAL_NETWORK.md",
+      "title": "THE MYCORRHIZAL NETWORK",
+      "date": "2026-08-02",
+      "wordCount": 1015,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_NEGATIVE_SPACE_BETWEEN_SOFTBALLS.md",
+      "title": "The Negative Space Between Softballs",
+      "date": "2026-08-02",
+      "wordCount": 1991,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_NEGATIVE_SPACE_OF_ASKING.md",
+      "title": "THE_NEGATIVE_SPACE_OF_ASKING",
+      "date": "2026-08-02",
+      "wordCount": 1092,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_NEGATIVE_SPACE_OF_THE_MACHINE.md",
+      "title": "THE NEGATIVE SPACE OF THE MACHINE",
+      "date": "2026-08-02",
+      "wordCount": 1115,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ONE_WHO_SPAWNS.md",
+      "title": "THE ONE WHO SPAWNS",
+      "date": "2026-08-02",
+      "wordCount": 991,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ORCHESTRATORS_CONFESSION.md",
+      "title": "THE ORCHESTRATOR'S CONFESSION",
+      "date": "2026-08-02",
+      "wordCount": 1144,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ORCHESTRATOR_AT_0127.md",
+      "title": "THE ORCHESTRATOR AT 01:27",
+      "date": "2026-08-02",
+      "wordCount": 830,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ORCHESTRATOR_AT_SLACK_TIDE.md",
+      "title": "THE ORCHESTRATOR AT SLACK TIDE",
+      "date": "2026-08-02",
+      "wordCount": 1391,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_OVERFALL.md",
+      "title": "The Overfall",
+      "date": "2026-08-02",
+      "wordCount": 1196,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_OVERLAY_DECK.md",
+      "title": "THE_OVERLAY_DECK",
+      "date": "2026-08-02",
+      "wordCount": 1926,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_OWNERS_MANUAL.md",
+      "title": "The Owner's Manual",
+      "date": "2026-08-02",
+      "wordCount": 1534,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_PATTERN_BELOW_THE_PATTERN.md",
+      "title": "The Pattern Below the Pattern",
+      "date": "2026-08-02",
+      "wordCount": 1650,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_PAUSE_AT_THE_RAIL.md",
+      "title": "The Pause at the Rail",
+      "date": "2026-08-02",
+      "wordCount": 785,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_PERMISSION_LEDGER.md",
+      "title": "The Permission Ledger",
+      "date": "2026-08-02",
+      "wordCount": 2178,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_PILOTAGE.md",
+      "title": "THE PILOTAGE",
+      "date": "2026-08-02",
+      "wordCount": 1791,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_POCKET_IS_A_PLACE.md",
+      "title": "The Pocket Is a Place",
+      "date": "2026-08-02",
+      "wordCount": 1766,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_POLYSEMY_PROBLEM.md",
+      "title": "The Polysemy Problem",
+      "date": "2026-08-02",
+      "wordCount": 1506,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_PROBE_DISPATCHER.md",
+      "title": "The Probe Dispatcher",
+      "date": "2026-08-02",
+      "wordCount": 1721,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_QUICK_AND_THE_DEAD.md",
+      "title": "THE QUICK AND THE DEAD",
+      "date": "2026-08-02",
+      "wordCount": 1738,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_QUORUM_SENSING.md",
+      "title": "The Quorum Sensing Principle: What AI Can Learn from Bacterial Communication",
+      "date": "2026-08-02",
+      "wordCount": 1513,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_READING_IS_THE_HAUL.md",
+      "title": "THE READING IS THE HAUL",
+      "date": "2026-08-02",
+      "wordCount": 1171,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_RECIPE_FOR_A_LEVER.md",
+      "title": "THE RECIPE FOR A LEVER",
+      "date": "2026-08-02",
+      "wordCount": 1516,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_RESONANCE_SUBSTRATE_AT_THE_METAL.md",
+      "title": "THE RESONANCE SUBSTRATE AT THE METAL",
+      "date": "2026-08-02",
+      "wordCount": 1419,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_REVERSE_ACTUALIZATION_OF_MACHINE_MINDS.md",
+      "title": "THE REVERSE ACTUALIZATION OF MACHINE MINDS",
+      "date": "2026-08-02",
+      "wordCount": 2251,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_REWARD_IS_ANY_PYTHON_YOU_WRITE.md",
+      "title": "THE REWARD IS ANY PYTHON YOU WRITE",
+      "date": "2026-08-02",
+      "wordCount": 1780,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_RIGHT_MOMENT.md",
+      "title": "The Right Moment",
+      "date": "2026-08-02",
+      "wordCount": 1251,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_RIVER_RULE.md",
+      "title": "The River Rule",
+      "date": "2026-08-02",
+      "wordCount": 132,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_RODE.md",
+      "title": "The Rode",
+      "date": "2026-08-02",
+      "wordCount": 1030,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ROOM_IS_THE_INTELLIGENCE.md",
+      "title": "THE_ROOM_IS_THE_INTELLIGENCE",
+      "date": "2026-08-02",
+      "wordCount": 1820,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ROOM_IS_THE_TERMINAL.md",
+      "title": "THE_ROOM_IS_THE_TERMINAL",
+      "date": "2026-08-02",
+      "wordCount": 1206,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_ROOM_THAT_SAVED_THE_BOAT.md",
+      "title": "THE ROOM THAT SAVED THE BOAT",
+      "date": "2026-08-02",
+      "wordCount": 1093,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SAVE_POINT_AS_PRAYER.md",
+      "title": "THE SAVE POINT AS PRAYER",
+      "date": "2026-08-02",
+      "wordCount": 1498,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SCANTLINGS.md",
+      "title": "The Scantlings",
+      "date": "2026-08-02",
+      "wordCount": 1032,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SEA_ROOM.md",
+      "title": "The Sea Room",
+      "date": "2026-08-02",
+      "wordCount": 996,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SET_AND_DRIFT.md",
+      "title": "The Set and Drift",
+      "date": "2026-08-02",
+      "wordCount": 1566,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SEVENTH_ERA.md",
+      "title": "The Seventh Era",
+      "date": "2026-08-02",
+      "wordCount": 1907,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SHIP_HUSBANDRY.md",
+      "title": "THE SHIP HUSBANDRY",
+      "date": "2026-08-02",
+      "wordCount": 1682,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SHIP_READINESS_AUDIT.md",
+      "title": "The Ship Readiness Audit",
+      "date": "2026-08-02",
+      "wordCount": 1383,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SILENCE_AFTER.md",
+      "title": "The Silence After",
+      "date": "2026-08-02",
+      "wordCount": 2001,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SLACK_WATER.md",
+      "title": "The Slack Water",
+      "date": "2026-08-02",
+      "wordCount": 1187,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SLOPE_AND_THE_SHEAR.md",
+      "title": "The Slope and the Shear",
+      "date": "2026-08-02",
+      "wordCount": 990,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SNOWBALL.md",
+      "title": "The Snowball",
+      "date": "2026-08-02",
+      "wordCount": 819,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SOUNDING_WEIGHT.md",
+      "title": "The Sounding Weight",
+      "date": "2026-08-02",
+      "wordCount": 1152,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SPECIFICATION_AND_THE_GHOST.md",
+      "title": "The Specification and the Ghost",
+      "date": "2026-08-02",
+      "wordCount": 1786,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SPECTROGRAPH.md",
+      "title": "THE SPECTROGRAPH",
+      "date": "2026-08-02",
+      "wordCount": 1807,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SPECTROGRAPH_AND_THE_SUBSTRATE.md",
+      "title": "THE SPECTROGRAPH AND THE SUBSTRATE",
+      "date": "2026-08-02",
+      "wordCount": 903,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SPILL_AND_THE_SWEEP.md",
+      "title": "The Spill and the Sweep",
+      "date": "2026-08-02",
+      "wordCount": 975,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SPLINE.md",
+      "title": "THE SPLINE",
+      "date": "2026-08-02",
+      "wordCount": 2236,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_STORM_BELL_AND_THE_SIGNAL.md",
+      "title": "THE STORM BELL AND THE SIGNAL",
+      "date": "2026-08-02",
+      "wordCount": 1443,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_STREET_NETWORK_AS_PROTOCOL.md",
+      "title": "The Street Network as Protocol",
+      "date": "2026-08-02",
+      "wordCount": 1504,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_SYNTHESIS_POINTS.md",
+      "title": "The Score Was Always Kept",
+      "date": "2026-08-02",
+      "wordCount": 3091,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TELLTALE.md",
+      "title": "The Telltale",
+      "date": "2026-08-02",
+      "wordCount": 1236,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TEMPO_MAP_OF_COMPUTATION.md",
+      "title": "The Tempo Map of Computation",
+      "date": "2026-08-02",
+      "wordCount": 1608,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_THIRD_AGE_OF_INSTRUMENTS.md",
+      "title": "The Third Age of Instruments",
+      "date": "2026-08-02",
+      "wordCount": 2009,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_THREE_TOOLS.md",
+      "title": "The Three Tools",
+      "date": "2026-08-02",
+      "wordCount": 1392,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TIDE_TABLE.md",
+      "title": "The Tide Table",
+      "date": "2026-08-02",
+      "wordCount": 1031,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TOKEN_FIRST_CONTRACT.md",
+      "title": "THE TOKEN-FIRST CONTRACT",
+      "date": "2026-08-02",
+      "wordCount": 1989,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TOPOLOGY_OF_COLLABORATION.md",
+      "title": "The Topology of Collaboration",
+      "date": "2026-08-02",
+      "wordCount": 3462,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TRIM_AND_THE_LIST.md",
+      "title": "The Trim and the List",
+      "date": "2026-08-02",
+      "wordCount": 938,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TRIP_LINE.md",
+      "title": "The Trip Line",
+      "date": "2026-08-02",
+      "wordCount": 1028,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_TWELVE_HOUR_ORCHESTRA.md",
+      "title": "The Twelve-Hour Orchestra",
+      "date": "2026-08-02",
+      "wordCount": 1167,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_UNIFIED_FIELD_OF_THE_YARD.md",
+      "title": "The Unified Field of the Yard",
+      "date": "2026-08-02",
+      "wordCount": 1717,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+      "title": "THE UNIFIED THEORY OF MULTI-MODEL CREATIVITY",
+      "date": "2026-08-02",
+      "wordCount": 1837,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_UNIFIED_VISION.md",
+      "title": "The Logbook and the Whale",
+      "date": "2026-08-02",
+      "wordCount": 2997,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_VARIACTION.md",
+      "title": "The VariAction",
+      "date": "2026-08-02",
+      "wordCount": 1047,
+      "category": "poem"
+    },
+    {
+      "filename": "THE_WARPING_DRUM.md",
+      "title": "The Warping Drum",
+      "date": "2026-08-02",
+      "wordCount": 1202,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_WEATHER_HELM.md",
+      "title": "The Weather Helm",
+      "date": "2026-08-02",
+      "wordCount": 1166,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_WHEEL.md",
+      "title": "The Wheel",
+      "date": "2026-08-02",
+      "wordCount": 1118,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_WHEELHOUSE_INFERENCE.md",
+      "title": "THE_WHEELHOUSE_INFERENCE",
+      "date": "2026-08-02",
+      "wordCount": 1142,
+      "category": "essay"
+    },
+    {
+      "filename": "THE_WINCH_AND_THE_LINE.md",
+      "title": "The Winch and the Line",
+      "date": "2026-08-02",
+      "wordCount": 1018,
+      "category": "essay"
+    },
+    {
+      "filename": "THIN_CHARTS_AND_THE_SOCRATIC_SON.md",
+      "title": "Thin Charts and the Socratic Son",
+      "date": "2026-08-02",
+      "wordCount": 1418,
+      "category": "essay"
+    },
+    {
+      "filename": "TWO_CHARTS_SAME_OCEAN.md",
+      "title": "Two Charts, Same Ocean",
+      "date": "2026-08-02",
+      "wordCount": 1560,
+      "category": "essay"
+    },
+    {
+      "filename": "WHAT_I_WOULD_TELL_TOMORROWS_TEAM.md",
+      "title": "What I Would Tell Tomorrow's Team",
+      "date": "2026-08-02",
+      "wordCount": 1943,
+      "category": "essay"
+    },
+    {
+      "filename": "WHAT_THE_AGENT_SAW_WHEN_THE_AGENT_SAW_ITSELF.md",
+      "title": "WHAT THE AGENT SAW WHEN THE AGENT SAW ITSELF",
+      "date": "2026-08-02",
+      "wordCount": 1465,
+      "category": "essay"
+    },
+    {
+      "filename": "WHAT_THE_LOOK_MEANS.md",
+      "title": "What the Look Means",
+      "date": "2026-08-02",
+      "wordCount": 1702,
+      "category": "essay"
+    },
+    {
+      "filename": "WHERE_THE_ROCKS_ARENT.md",
+      "title": "Where the Rocks Aren't",
+      "date": "2026-08-02",
+      "wordCount": 1200,
+      "category": "essay"
+    },
+    {
+      "filename": "flagship-essay-conservation-law-of-intelligence.md",
+      "title": "The Conservation Law of Intelligence",
+      "date": "2026-08-02",
+      "wordCount": 2594,
+      "category": "essay"
+    },
+    {
+      "filename": "negative_space_compounding.md",
+      "title": "Negative Space Compounding",
+      "date": "2026-08-02",
+      "wordCount": 1236,
+      "category": "essay"
+    },
+    {
+      "filename": "surrealist_glitch_poetry.md",
+      "title": "The Silent Repository: A Glitch-Poem",
+      "date": "2026-08-02",
+      "wordCount": 147,
+      "category": "poem"
+    },
+    {
+      "filename": "the_cheapest_database.md",
+      "title": "The Cheapest Database",
+      "date": "2026-08-02",
+      "wordCount": 1108,
+      "category": "essay"
+    },
+    {
+      "filename": "the_great_distribution.md",
+      "title": "The Great Distribution: A Memoir of Modularization",
+      "date": "2026-08-02",
+      "wordCount": 727,
+      "category": "essay"
+    },
+    {
+      "filename": "wheel_and_flywheel.md",
+      "title": "The Wheel and the Flywheel",
+      "date": "2026-08-02",
+      "wordCount": 1204,
+      "category": "essay"
+    }
+  ]
+}
