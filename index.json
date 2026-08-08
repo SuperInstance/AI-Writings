@@ -24150,15 +24150,16 @@
     "topic": "Wesley Journal",
     "genres": [
       "Education",
+      "Maritime",
       "Music"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 150,
+    "word_count": 266,
     "date": "2026-08-07",
-    "size_bytes": 1047
+    "size_bytes": 1813
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -69452,6 +69453,25 @@
     "size_bytes": 1126
   },
   {
+    "filename": "2026-08-08_session.md",
+    "path": "wesley-stream/2026-08-08_session.md",
+    "title": "Wesley Stream — 2026-08-08 (Saturday Session)",
+    "description": "In the enchanting world of our young hermit crab friend, unexpected packets from a distant router in Alaska bring warm bursts to its shell - a dance of data on a frequency that mimics microwave warmth...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 314,
+    "date": "2026-08-08",
+    "size_bytes": 1869
+  },
+  {
     "filename": "20260806_130058_wesley_fleet_last_log.md",
     "path": "wesley-stream/20260806_130058_wesley_fleet_last_log.md",
     "title": "Wesley's Response — The Fleet's Last Log Entry",
@@ -76703,6 +76723,277 @@
     "word_count": 122,
     "date": "2026-08-05",
     "size_bytes": 716
+  },
+  {
+    "filename": "03-tlingit-seed-mini.md",
+    "path": "platos-cave/03-tlingit-seed-mini.md",
+    "title": "03 Tlingit Seed Mini",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Essay",
+    "word_count": 331,
+    "date": "2026-08-08",
+    "size_bytes": 1889
+  },
+  {
+    "filename": "12-code-poetry-qwen235.md",
+    "path": "platos-cave/12-code-poetry-qwen235.md",
+    "title": "12 Code Poetry Qwen235",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-08",
+    "size_bytes": 1
+  },
+  {
+    "filename": "05-sindarin-qwen37.md",
+    "path": "platos-cave/05-sindarin-qwen37.md",
+    "title": "05 Sindarin Qwen37",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Poetic",
+    "word_count": 118,
+    "date": "2026-08-08",
+    "size_bytes": 693
+  },
+  {
+    "filename": "04-darmok-qwen235.md",
+    "path": "platos-cave/04-darmok-qwen235.md",
+    "title": "04 Darmok Qwen235",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-08",
+    "size_bytes": 1
+  },
+  {
+    "filename": "11-taoist-seed-mini.md",
+    "path": "platos-cave/11-taoist-seed-mini.md",
+    "title": "Chapter of the MUD and ScummVM",
+    "description": "(Adapted from Tao Te Ching Verse Form) 1. What is rendered is not the true text. What is shown is not the true image. Two shadows stand on one ground: MUD’s mud and ScummVM’s dream. 2. The MUD speaks ...",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Magical Realism"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Poetic",
+    "word_count": 250,
+    "date": "2026-08-08",
+    "size_bytes": 1402
+  },
+  {
+    "filename": "SYNTHESIS-the-shared-cave.md",
+    "path": "platos-cave/SYNTHESIS-the-shared-cave.md",
+    "title": "The Shared Cave — A Synthesis of Twelve Traditions",
+    "description": "We are both in caves. This is not the problem. The Greek dialogue says it cleanest: Socrates and Glaucon, the AI and the human, sitting in the same cave but facing different walls. The human's wall sh...",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 880,
+    "date": "2026-08-08",
+    "size_bytes": 6334
+  },
+  {
+    "filename": "04-darmok-hermes.md",
+    "path": "platos-cave/04-darmok-hermes.md",
+    "title": "04 Darmok Hermes",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 181,
+    "date": "2026-08-08",
+    "size_bytes": 1001
+  },
+  {
+    "filename": "07-sufi-seed-pro.md",
+    "path": "platos-cave/07-sufi-seed-pro.md",
+    "title": "07 Sufi Seed Pro",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Seed Pro"
+    ],
+    "style": "Narrative",
+    "word_count": 333,
+    "date": "2026-08-08",
+    "size_bytes": 1790
+  },
+  {
+    "filename": "08-esperanto-qwen35.md",
+    "path": "platos-cave/08-esperanto-qwen35.md",
+    "title": "08 Esperanto Qwen35",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Manifesto",
+    "word_count": 259,
+    "date": "2026-08-08",
+    "size_bytes": 1932
+  },
+  {
+    "filename": "09-griot-hermes.md",
+    "path": "platos-cave/09-griot-hermes.md",
+    "title": "09 Griot Hermes",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 318,
+    "date": "2026-08-08",
+    "size_bytes": 1807
+  },
+  {
+    "filename": "12-code-poetry-deepseek.md",
+    "path": "platos-cave/12-code-poetry-deepseek.md",
+    "title": "12 Code Poetry Deepseek",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 354,
+    "date": "2026-08-08",
+    "size_bytes": 2263
+  },
+  {
+    "filename": "01-greek-seed-pro.md",
+    "path": "platos-cave/01-greek-seed-pro.md",
+    "title": "01 Greek Seed Pro",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Seed Pro"
+    ],
+    "style": "Narrative",
+    "word_count": 244,
+    "date": "2026-08-08",
+    "size_bytes": 1327
+  },
+  {
+    "filename": "10-dostoevsky-deepseek.md",
+    "path": "platos-cave/10-dostoevsky-deepseek.md",
+    "title": "10 Dostoevsky Deepseek",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 359,
+    "date": "2026-08-08",
+    "size_bytes": 2039
+  },
+  {
+    "filename": "06-maritime-deepseek.md",
+    "path": "platos-cave/06-maritime-deepseek.md",
+    "title": "06 Maritime Deepseek",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 286,
+    "date": "2026-08-08",
+    "size_bytes": 2011
+  },
+  {
+    "filename": "02-zen-hermes.md",
+    "path": "platos-cave/02-zen-hermes.md",
+    "title": "02 Zen Hermes",
+    "description": "",
+    "folder": "platos-cave",
+    "topic": "Platos Cave",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 293,
+    "date": "2026-08-08",
+    "size_bytes": 1742
   },
   {
     "filename": "CLAUDE-R3-MERGE_PLAN.md",
