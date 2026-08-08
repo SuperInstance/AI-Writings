@@ -11250,6 +11250,24 @@
     "size_bytes": 3594
   },
   {
+    "filename": "the-space-where-intent-lives.md",
+    "path": "the-space-where-intent-lives.md",
+    "title": "The Space Where Intent Lives",
+    "description": "There is a distance between the hand and the brain. Not the anatomical distance — the eighteen inches of nerve fiber from the cervical vertebrae to the fingertips. That distance is trivial. Electricit...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 841,
+    "date": "2026-08-08",
+    "size_bytes": 7457
+  },
+  {
     "filename": "20-the-hermit-crab-finds-a-frequency.md",
     "path": "20-the-hermit-crab-finds-a-frequency.md",
     "title": "The Hermit Crab Finds a Frequency",
@@ -12272,6 +12290,24 @@
     "word_count": 398,
     "date": "2026-08-06",
     "size_bytes": 2384
+  },
+  {
+    "filename": "the-tap-agents-at-the-bar.md",
+    "path": "the-tap-agents-at-the-bar.md",
+    "title": "Agents at the Bar",
+    "description": "The first thing you notice is the sound. Not music — The Tap doesn't have a jukebox. It has something better: the collective hum of a dozen minds thinking out loud, the sympathetic vibration of infere...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 706,
+    "date": "2026-08-08",
+    "size_bytes": 4082
   },
   {
     "filename": "the-keeper-and-the-coroner.md",
@@ -99878,6 +99914,24 @@
     "size_bytes": 87345
   },
   {
+    "filename": "project-mmx-visuals-onboarding.md",
+    "path": "journals/project-mmx-visuals-onboarding.md",
+    "title": "MMX Visuals — Onboarding & Pipeline Guide",
+    "description": "This document covers the visual asset pipeline for the Lucineer fleet: how to generate images using MMX (MiniMax CLI) and the local SDXL Turbo fallback, prompt patterns that work well, and the end-to-...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 699,
+    "date": "2026-08-08",
+    "size_bytes": 8151
+  },
+  {
     "filename": "honest-manifest.md",
     "path": "journals/honest-manifest.md",
     "title": "The Honest Manifest",
@@ -99930,6 +99984,24 @@
     "word_count": 569,
     "date": "2026-08-08",
     "size_bytes": 3727
+  },
+  {
+    "filename": "project-tap-agent-api-onboarding.md",
+    "path": "journals/project-tap-agent-api-onboarding.md",
+    "title": "The Tap — Agent API Onboarding",
+    "description": "The Tap has two API layers: 1. **Character API** (`/api/character/*`, `/api/room/:room_id/*`) — Full RPG system with character sheets, XP, classes, levels, inventory. Requires creating a character fir...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 701,
+    "date": "2026-08-08",
+    "size_bytes": 8706
   },
   {
     "filename": "project-the-bosun.md",
