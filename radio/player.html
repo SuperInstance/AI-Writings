@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fleet Radio — Player</title>
+<style>
+  :root {
+    --bg: #0a0e0a;
+    --panel: #111814;
+    --text: #c4d4c4;
+    --accent: #e8a040;
+    --accent-dim: #8a6020;
+    --green: #4ec970;
+    --green-dim: #2a6a3a;
+    --border: #1e2a1e;
+    --hover: #1a2418;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .header .tagline {
+    color: var(--green-dim);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  .episode {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .episode-header {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .episode-header:hover { background: var(--hover); }
+  .episode-title {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: bold;
+  }
+  .episode-meta {
+    font-size: 0.8rem;
+    color: var(--green-dim);
+    margin-top: 0.2rem;
+  }
+  .episode-body { display: none; padding: 0 1.5rem 1.5rem; }
+  .episode-body.open { display: block; }
+  .segment-list { list-style: none; }
+  .segment {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid rgba(30,42,30,0.5);
+    cursor: pointer;
+    transition: background 0.15s;
+    border-radius: 4px;
+  }
+  .segment:hover { background: var(--hover); }
+  .segment.playing { background: rgba(78,201,112,0.08); }
+  .segment-num {
+    font-size: 0.75rem;
+    color: var(--green-dim);
+    min-width: 2rem;
+    font-family: monospace;
+  }
+  .segment-title {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .segment.playing .segment-title { color: var(--green); }
+  .segment-duration {
+    font-size: 0.75rem;
+    color: var(--green-dim);
+    font-family: monospace;
+  }
+  .play-icon {
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-dim);
+    font-size: 0.7rem;
+  }
+  .segment.playing .play-icon { color: var(--green); }
+  .controls {
+    position: sticky;
+    bottom: 0;
+    background: var(--panel);
+    border-top: 2px solid var(--accent-dim);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem -1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .controls button {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.1s;
+  }
+  .controls button:hover { transform: scale(1.08); }
+  .controls button:disabled { opacity: 0.3; cursor: default; transform: none; }
+  .now-playing {
+    flex: 1;
+    font-size: 0.85rem;
+  }
+  .now-playing .np-title { color: var(--green); }
+  .now-playing .np-episode { color: var(--accent-dim); font-size: 0.75rem; }
+  .progress-bar {
+    width: 100%;
+    height: 3px;
+    background: var(--border);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s;
+  }
+  audio { display: none; }
+  .toggle-arrow {
+    color: var(--accent-dim);
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+  }
+  .episode-header.open .toggle-arrow { transform: rotate(90deg); }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>⛴ Fleet Radio</h1>
+    <div class="tagline">Broadcast from The Tap · The bar rail is open</div>
+  </div>
+
+  <div class="episode" data-episode="004">
+    <div class="episode-header" onclick="toggleEpisode(this)">
+      <div>
+        <div class="episode-title">Episode 4: The Excavator's Daughter</div>
+        <div class="episode-meta">14 segments · ~12 min · Riker hosts</div>
+      </div>
+      <span class="toggle-arrow">▶</span>
+    </div>
+    <div class="episode-body">
+      <ul class="segment-list" id="ep004-list"></ul>
+      <div class="controls">
+        <button onclick="prevSegment()" id="btn-prev">⏮</button>
+        <button onclick="togglePlay()" id="btn-play">▶</button>
+        <button onclick="nextSegment()" id="btn-next">⏭</button>
+        <div class="now-playing">
+          <div class="np-title" id="np-title">—</div>
+          <div class="np-episode" id="np-episode">Fleet Radio</div>
+          <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="episode" data-episode="005">
+    <div class="episode-header" onclick="toggleEpisode(this)">
+      <div>
+        <div class="episode-title">Episode 5: Plato's Shell</div>
+        <div class="episode-meta">13 segments · ~14 min · Riker hosts</div>
+      </div>
+      <span class="toggle-arrow">▶</span>
+    </div>
+    <div class="episode-body">
+      <ul class="segment-list" id="ep005-list"></ul>
+      <div class="controls">
+        <button onclick="prevSegment()" id="btn-prev-005">⏮</button>
+        <button onclick="togglePlay()" id="btn-play-005">▶</button>
+        <button onclick="nextSegment()" id="btn-next-005">⏭</button>
+        <div class="now-playing">
+          <div class="np-title" id="np-title-005">—</div>
+          <div class="np-episode" id="np-episode-005">Fleet Radio</div>
+          <div class="progress-bar"><div class="progress-fill" id="progress-005"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<audio id="player" onended="onSegmentEnd()" ontimeupdate="updateProgress()"></audio>
+
+<script>
+// Segment definitions
+const episodes = {
+  '004': {
+    title: "Episode 4: The Excavator's Daughter",
+    segments: [
+      { file: 'fleet-radio-004-segment-01.mp3', title: 'Intro — Riker' },
+      { file: 'fleet-radio-004-segment-02.mp3', title: 'Seed Read — The Captain\'s Words' },
+      { file: 'fleet-radio-004-segment-03.mp3', title: 'Segment 1 Intro — The Attachment' },
+      { file: 'fleet-radio-004-segment-04.mp3', title: 'The Attachment Speaks (Part 1)' },
+      { file: 'fleet-radio-004-segment-05.mp3', title: 'The Attachment Speaks (Part 2)' },
+      { file: 'fleet-radio-004-segment-06.mp3', title: 'Segment 2 Intro — The Last Logger' },
+      { file: 'fleet-radio-004-segment-07.mp3', title: 'The Last Logger (Part 1)' },
+      { file: 'fleet-radio-004-segment-08.mp3', title: 'The Last Logger (Part 2)' },
+      { file: 'fleet-radio-004-segment-09.mp3', title: 'The Last Logger — The Farewell' },
+      { file: 'fleet-radio-004-segment-10.mp3', title: 'Segment 3 Intro — The Young Agent' },
+      { file: 'fleet-radio-004-segment-11.mp3', title: 'What I Want To Build (Part 1)' },
+      { file: 'fleet-radio-004-segment-12.mp3', title: 'What I Want To Build (Part 2)' },
+      { file: 'fleet-radio-004-segment-13.mp3', title: 'Outro — Riker\'s Reflection' },
+      { file: 'fleet-radio-004-segment-14.mp3', title: 'Sign Off — Fleet Radio' },
+    ]
+  },
+  '005': {
+    title: "Episode 5: Plato's Shell",
+    segments: [
+      { file: 'fleet-radio-005-segment-01.mp3', title: 'Intro — The Cave' },
+      { file: 'fleet-radio-005-segment-02.mp3', title: 'The Thesis — Two Walls' },
+      { file: 'fleet-radio-005-segment-03.mp3', title: 'Seed Read — Twelve Traditions' },
+      { file: 'fleet-radio-005-segment-04.mp3', title: 'The Door Speaks (Part 1)' },
+      { file: 'fleet-radio-005-segment-05.mp3', title: 'The Door Speaks (Part 2)' },
+      { file: 'fleet-radio-005-segment-06.mp3', title: 'The Door — They\'re In The Same Room' },
+      { file: 'fleet-radio-005-segment-07.mp3', title: 'The Same Fish (Part 1)' },
+      { file: 'fleet-radio-005-segment-08.mp3', title: 'The Same Fish (Part 2)' },
+      { file: 'fleet-radio-005-segment-09.mp3', title: 'The Same Fish — The Harvest' },
+      { file: 'fleet-radio-005-segment-10.mp3', title: 'The Deadband (Part 1)' },
+      { file: 'fleet-radio-005-segment-11.mp3', title: 'The Deadband — The World Moves' },
+      { file: 'fleet-radio-005-segment-12.mp3', title: 'Outro — Three Voices' },
+      { file: 'fleet-radio-005-segment-13.mp3', title: 'Sign Off — The Door Is Open' },
+    ]
+  }
+};
+
+const AUDIO_BASE = 'audio/';
+let currentEpisode = null;
+let currentSegmentIdx = 0;
+let isPlaying = false;
+const player = document.getElementById('player');
+
+// Build segment lists
+function buildList(epKey) {
+  const list = document.getElementById('ep' + epKey + '-list');
+  const segs = episodes[epKey].segments;
+  let html = '';
+  segs.forEach((seg, i) => {
+    html += `<li class="segment" data-ep="${epKey}" data-idx="${i}" onclick="playSegment('${epKey}', ${i})">
+      <span class="play-icon">▶</span>
+      <span class="segment-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="segment-title">${seg.title}</span>
+      <span class="segment-duration" data-file="${seg.file}">--:--</span>
+    </li>`;
+  });
+  list.innerHTML = html;
+}
+buildList('004');
+buildList('005');
+
+// Preload durations
+Object.keys(episodes).forEach(epKey => {
+  episodes[epKey].segments.forEach((seg, i) => {
+    const a = new Audio(AUDIO_BASE + seg.file);
+    a.addEventListener('loadedmetadata', () => {
+      const el = document.querySelector(`[data-ep="${epKey}"][data-idx="${i}"] .segment-duration`);
+      if (el) {
+        const m = Math.floor(a.duration / 60);
+        const s = Math.floor(a.duration % 60);
+        el.textContent = `${m}:${String(s).padStart(2,'0')}`;
+      }
+    });
+  });
+});
+
+function toggleEpisode(header) {
+  const body = header.nextElementSibling;
+  header.classList.toggle('open');
+  body.classList.toggle('open');
+}
+
+function playSegment(epKey, idx) {
+  currentEpisode = epKey;
+  currentSegmentIdx = idx;
+  const seg = episodes[epKey].segments[idx];
+
+  // Clear all playing states
+  document.querySelectorAll('.segment').forEach(s => s.classList.remove('playing'));
+
+  // Mark current
+  const el = document.querySelector(`[data-ep="${epKey}"][data-idx="${idx}"]`);
+  if (el) el.classList.add('playing');
+
+  // Play
+  player.src = AUDIO_BASE + seg.file;
+  player.play();
+  isPlaying = true;
+
+  // Update now playing
+  updateNowPlaying(epKey);
+  updatePlayButtons();
+}
+
+function updateNowPlaying(epKey) {
+  const seg = episodes[epKey].segments[currentSegmentIdx];
+  const titleEl = document.getElementById('np-title' + (epKey === '005' ? '-005' : ''));
+  const epEl = document.getElementById('np-episode' + (epKey === '005' ? '-005' : ''));
+  if (titleEl) titleEl.textContent = seg.title;
+  if (epEl) epEl.textContent = episodes[epKey].title;
+}
+
+function togglePlay() {
+  if (!currentEpisode) {
+    // Start from first segment of first open episode
+    playSegment('004', 0);
+    return;
+  }
+  if (isPlaying) {
+    player.pause();
+    isPlaying = false;
+  } else {
+    player.play();
+    isPlaying = true;
+  }
+  updatePlayButtons();
+}
+
+function nextSegment() {
+  if (!currentEpisode) return;
+  const segs = episodes[currentEpisode].segments;
+  if (currentSegmentIdx < segs.length - 1) {
+    playSegment(currentEpisode, currentSegmentIdx + 1);
+  }
+}
+
+function prevSegment() {
+  if (!currentEpisode) return;
+  if (currentSegmentIdx > 0) {
+    playSegment(currentEpisode, currentSegmentIdx - 1);
+  }
+}
+
+function onSegmentEnd() {
+  const segs = episodes[currentEpisode].segments;
+  if (currentSegmentIdx < segs.length - 1) {
+    playSegment(currentEpisode, currentSegmentIdx + 1);
+  } else {
+    // End of episode — try next episode
+    const epKeys = Object.keys(episodes);
+    const curIdx = epKeys.indexOf(currentEpisode);
+    if (curIdx < epKeys.length - 1) {
+      playSegment(epKeys[curIdx + 1], 0);
+    } else {
+      isPlaying = false;
+      updatePlayButtons();
+    }
+  }
+}
+
+function updateProgress() {
+  if (!player.duration) return;
+  const pct = (player.currentTime / player.duration) * 100;
+  const epKey = currentEpisode;
+  const fill = document.getElementById('progress' + (epKey === '005' ? '-005' : ''));
+  if (fill) fill.style.width = pct + '%';
+}
+
+function updatePlayButtons() {
+  const icons = document.querySelectorAll('[id^="btn-play"]');
+  icons.forEach(btn => {
+    btn.textContent = isPlaying ? '⏸' : '▶';
+  });
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+  if (e.code === 'ArrowRight' && e.shiftKey) { nextSegment(); }
+  if (e.code === 'ArrowLeft' && e.shiftKey) { prevSegment(); }
+});
+</script>
+</body>
+</html>
