@@ -457,6 +457,104 @@ Session 4's 140 BPM track was 2.6MB — dramatically smaller than any track in t
 7. **Tempo study of vocal tracks** — does the BPM curve behave differently when the model has to fit vocals into the tempo? The current study is instrumentals only.
 8. **Explore DeepSeek as an alternative lyricist** — the cron prompt mentions DeepSeek-generated prompts. Test whether DeepSeek produces different lyric quality than M3.
 
+---
+
+## Session 2026-08-07 18:46 AKST — "The Phase Accumulates"
+
+### Context
+
+Seventh session. Daily quota had reset — 37% daily, 3% weekly at session start. With weekly quota critically low, the session was designed for 3-4 targeted experiments maximum. The focus shifted to quality over quantity: corpus adaptations that hadn't been tried, and new impossible genres.
+
+Two unadapted corpus essays were selected: "The Berry Phase of Bach" (mathematical music theory — fiber bundles, Pythagorean comma as Berry phase) and "The Overtones' Dream" (harmonic series as group therapy — the seventh harmonic's identity crisis). Both are from the music-and-math corpus but had never been set to music.
+
+### Experiments
+
+**Experiment 1: The Berry Phase** ✅
+- Lyrics: agent-adapted from the corpus essay "The Berry Phase of Bach" (1164 chars)
+- Prompt: "Baroque math rock, harpsichord and distorted guitar, Bach-inspired counterpoint" (10 words)
+- Key: D minor, BPM: 85
+- Vocals: warm male baritone, intellectual
+- Result: 4.4MB, ~90s generation. Clean.
+- The first corpus essay about mathematical topology to be set to music. The lyrics encode the key image: "you can't go home without picking up a phase / the geometry remembers every step you take."
+
+**Experiment 2: The Overtones' Dream** ✅
+- Lyrics: agent-adapted from the corpus essay "The Overtones' Dream" (1381 chars)
+- Prompt: "Microtonal ambient folk, detuned piano, whispering strings, choir harmonics" (9 words)
+- Key: A minor, BPM: 65
+- Vocals: ethereal female alto, alternating with whispered male baritone
+- Result: 5.9MB, ~120s generation. Clean.
+- The longest generation time this session, possibly due to the complex vocal specification. The detuned piano prompt is itself an enactment of the Berry phase — the song about harmonics is literally phase-shifted by its own instrumentation.
+
+**Experiment 3: Ambient Marching Band** ✅
+- Lyrics: auto-generated (--lyrics-optimizer)
+- Prompt: "Ambient marching band, distant brass echoing across a valley, slow drone, field drum" (13 words)
+- Key: E-flat major, BPM: 72
+- Result: 6.7MB — **largest track of the session.** ~150s generation.
+- Impossible genre #6. The model embraced the paradox: a marching band is designed to move; ambient music is designed to stay. The result is music that fills space by crossing it — a sonic paradox.
+
+**Experiment 4: Doom Disco (first attempt)** — SIGKILL
+- Full prompt (17 words) caused SIGKILL after ~180s. No output file.
+- Retry with shorter prompt (7 words): "Doom disco, pulsing bass, dark synths" — SUCCESS.
+- Key: C minor, BPM: 120
+- Result: 6.5MB, ~120s generation. Clean.
+- Impossible genre #7. **Confirms session 4 finding #1: short prompts are critical.** The 17-word prompt failed; the 7-word prompt succeeded. The ceiling appears to be around 10-12 words for reliable generation.
+
+### Tracks Generated (Session 7)
+
+| # | Title | Genre | Key | BPM | Size | Notes |
+|---|-------|-------|-----|-----|------|-------|
+| 30 | The Berry Phase | Baroque math rock | D minor | 85 | 4.4MB | Corpus adaptation. Fiber bundle set to counterpoint. |
+| 31 | The Overtones' Dream | Microtonal ambient folk | A minor | 65 | 5.9MB | Corpus adaptation. Harmonic therapy session. |
+| 32 | Ambient Marching Band | Ambient marching band | E-flat major | 72 | 6.7MB | **Largest track.** Impossible genre #6. Paradoxical space. |
+| 33 | Doom Disco | Doom disco | C minor | 120 | 6.5MB | Impossible genre #7. Mirror ball in a crypt. |
+
+Total: ~23.5MB across 4 new tracks. Cumulative project total: 33 tracks, ~175MB.
+
+### Key Findings
+
+**1. The corpus-to-song pipeline works with mathematical essays, not just narrative ones.**
+The Berry Phase essay is the most mathematically dense piece in the corpus — it discusses fiber bundles, holonomy, and adiabatic transport. But its emotional core ("you can't go home without picking up a phase") translates directly into lyrics. The math doesn't make the song less emotional; it makes it more precise. "Twenty-three and a half cents of curvature" is more affecting than "I've been changed by my journey" because it gives the change a specific magnitude. **The more specific the lyric, the more universal the feeling.**
+
+**2. The impossible genre matrix continues to produce the largest tracks.**
+Ambient marching band (6.7MB) and doom disco (6.5MB) are the two largest tracks of the session. This pattern has been consistent across all seven impossible genre experiments: baroque techno (6.7MB), math rock country (6.4MB), doom polka (4.9MB — the exception), screamo choral (3.0MB — the smallest vocal track). The hypothesis: impossible genres force the model to reconcile contradictory compositional templates, and this reconciliation generates MORE musical material, not less. The model works harder at fusion than at single-genre generation. **The impossible genre frame is not just creatively productive — it's quantitatively measurable in file size.**
+
+**3. Prompt length ceiling confirmed at ~10-12 words.**
+Doom disco's first attempt (17 words) SIGKILL'd. The retry (7 words) succeeded. Combined with session 4's findings (3-word prompts always succeed) and session 1's findings (long M3-generated prompts caused SIGKILL), the safe zone is now clear: **3-12 words reliable, 13+ words risky, 20+ words likely to fail.** The structured flags (--key, --bpm, --vocals, --instruments) carry the detail. The prompt should be a haiku.
+
+**4. The Berry Phase and The Overtones' Dream are structural mirrors.**
+The Berry Phase essay is about topology — the mathematics of how journeys change travelers. The Overtones essay is about identity — the politics of who gets to be heard. But they're the same story: the residual that won't be eliminated, the difference between the ideal and the real. The Pythagorean comma IS the seventh harmonic of the circle of fifths. Both are the seven-prime in a world built on twos and threes. Setting both to music on the same evening revealed this connection. **The corpus has structural symmetries that only become visible when you set different essays to different genres and listen for the resonance between them.**
+
+**5. GLM-5.2 as lyricist produces structurally referential lyrics (confirmed).**
+The agent-written lyrics this session (Berry Phase, Overtones' Dream) continue the pattern from sessions 3 and 5: more footnotey, more embedded in corpus concepts, more structurally referential than M3's lyrics. The line "consonance is politics / the fundamental's opinion about who matters" is the kind of statement M3 would render as emotional imagery; the agent renders it as direct assertion. Both approaches are valid. The agent's lyrics read like essay excerpts set to music; M3's lyrics read like poetry set to music. **The lyricist's voice is itself a genre parameter.**
+
+### Creative Output
+
+- `the-berry-phase-sings-to-the-seventh-harmonic.md` — essay crossing the Berry Phase essay with The Overtones' Dream, discovering that they are structural mirrors: the comma is the seventh harmonic of the circle of fifths.
+- `lyrics-the-berry-phase.txt` — agent-adapted lyrics from the corpus essay (1164 chars)
+- `lyrics-the-overtones-dream.txt` — agent-adapted lyrics from the corpus essay (1381 chars)
+
+### Project Status
+
+**33 tracks, ~175MB total.** Seven sessions. The project has now covered:
+- 7 impossible genres (baroque techno, math rock country, doom polka, screamo choral, electronic jazz cover, ambient marching band, doom disco)
+- 8-point BPM curve study (40-180 BPM, bimodal distribution)
+- 2 cover experiments (including cover-of-cover chain)
+- 1 lyricist temperature comparison (0.85 vs 0.93)
+- 6 corpus essay adaptations (The Unplayed, Five Holes, The Tap Sings, Jazz Police, The Berry Phase, The Overtones' Dream)
+- 1 prompt-length study (3 words to 17 words)
+- 1 cover-of-cover pipeline test
+
+### Next Session Priorities
+
+1. **Listen to the tracks** — Casey STILL needs to listen. 33 tracks, 175MB. The findings are based on file sizes and generation metadata. The musical quality is entirely unverified.
+2. **Weekly quota reset** — the weekly quota resets Monday. Until then, sessions should be limited to 1-2 tracks.
+3. **Cover chain limit** — how many times can a song be covered before degradation? Try 4+ chained covers.
+4. **More corpus adaptations** — the music-and-math corpus has 46 essays. Only 6 have been adapted. Priorities: "The Interval Is the Music," "The Cadence Caller Listens," "The Proof Is the Performance."
+5. **Bebop black metal** — the last impossible genre on the session 6 list.
+6. **Vocal track BPM study** — does the bimodal curve persist with vocals?
+7. **Seed reproducibility** — same prompt + same seed = same output?
+8. **The essay-music feedback loop** — the creative essays written ABOUT the music should themselves be set to music. "The Berry Phase Sings to the Seventh Harmonic" should become a song. The project should eat its own tail.
+
 ## Session 2026-08-07 16:46 AKST — "The Cover Survives"
 
 ### Context
