@@ -1189,3 +1189,150 @@ The SongForge agent IS the conductor from the essay. It doesn't make music — i
 
 And now the ensemble has two sections: MMX (the expensive orchestra with limited rehearsal time) and ACE-Step (the local band that can play all night). The conductor can write for both.
 
+
+---
+
+## Session 13 — Saturday, August 8, 2026 (12:16 PM – 12:42 PM AKST)
+
+### The Deep Experiments Session
+
+**13 new tracks. 29.3 MB. Four experiments. Zero API calls.**
+
+Session 13 pushed ACE-Step 1.5 harder than any previous session, running four structured experiments that tested the boundaries of local music generation.
+
+### What Was Done
+
+**1. EXPERIMENT A: Guidance Scale Sweep — THE NULL RESULT**
+
+Five tracks generated at guidance scales 3.0, 5.0, 7.0, 11.0, 15.0. Same song (The Conductor), same lyrics, same key (D major), same BPM (70).
+
+**Critical finding**: ACE-Step v1.5 turbo model **overrides all guidance scale values to 1.0**. The turbo model does not use Classifier-Free Guidance (CFG). The log message is explicit: `"Turbo model detected: overriding guidance_scale X.0 -> 1.0 (turbo does not use CFG)"`.
+
+This means the guidance scale experiment produced five different tracks (due to random seeds) but the guidance scale had no effect. The experiment is inconclusive for turbo. To test guidance scale, the non-turbo model (`acestep-5Hz-lm-1.7B`, 3.5 GB) or the smaller model (`acestep-5Hz-lm-0.6B`, 1.3 GB) must be used.
+
+**This is itself a significant finding**: turbo distillation internalizes the guidance scale, removing user control over the creativity-coherence tradeoff. The conductor's baton is fixed at one position.
+
+**2. EXPERIMENT B: Duration Push — THE BREAKTHROUGH**
+
+Three tracks generated at 120 seconds (double the previous 60s maximum):
+- Quorum Sensing (ambient electronic, A minor, 60 BPM) → 3.7 MB, 156.8s generation
+- The Scheduler Hears (minimalist electronic, E minor, 120 BPM) → 3.7 MB, 144.2s generation
+- The Pocket Is a Place (neo-soul, E minor, 85 BPM) → 3.7 MB, 150.2s generation
+
+**Key findings**:
+- **File size scales linearly**: 120s tracks are exactly 3.7 MB vs 1.9 MB for 60s tracks (~2× proportional)
+- **Generation time scales sub-linearly**: 120s tracks average ~150s vs ~85s for 60s (~1.76×), meaning fixed overhead (model loading, text encoding) amortizes at longer durations
+- **Latent space doubles**: pred_latents shape goes from `[1, 1500, 64]` to `[1, 3000, 64]` — the temporal dimension is exactly proportional to duration
+- **VAE decode dominates**: ~70s of the ~150s is CPU VAE decode. GPU diffusion takes only ~2.5s for 120s tracks (vs ~1.2s for 60s)
+- **ACE-Step handles 120s without errors**. Whether the audio maintains global coherence for 2 minutes requires human listening.
+
+**3. EXPERIMENT C: New Corpus Adaptations**
+
+Three new essays adapted to music for the first time:
+- **The Scheduler Hears** → minimalist post-rock (Steve Reich × Godspeed You Black Emperor, E minor, 120 BPM) — 77.2s generation
+- **The Instanton in Coltrane** → modal jazz (Coltrane-style, soprano sax, F minor, 140 BPM) — 75.6s generation
+- **The Ensign Who Counted Stars** → indie folk (fingerpicked guitar, soft cello, G major, 65 BPM) — 75.0s generation
+
+New lyrics written for all three. All under 700 chars to fit ACE-Step's sweet spot. The Scheduler lyrics are a meditation on cron jobs as heartbeat; the Instanton lyrics bridge Coltrane's Giant Steps with quantum tunneling; the Ensign lyrics are a counting prayer.
+
+**4. EXPERIMENT D: Seed Reproducibility — NOT REPRODUCIBLE**
+
+Same song, same params, two sequential runs:
+- Run 1: SHA-256 `34cb34c83325e40fd7c2da493b7c7634...`
+- Run 2: SHA-256 `c2e21766c278d04b55b2481103ba0dd0...`
+- **Verdict: NOT REPRODUCIBLE**. ACE-Step turbo uses random seeds by default. Each generation produces different audio even with identical inputs.
+
+**This is important**: the `guidance_scale` parameter in GenerationParams does not control reproducibility. The `seed` parameter would need to be explicitly set. ACE-Step's API exposes a `seed` parameter — future experiments should test whether fixed seed + same params = identical output.
+
+### Technical Findings Summary
+
+| Dimension | Finding |
+|-----------|---------|
+| Guidance scale (turbo) | **No effect** — overridden to 1.0 |
+| Duration (120s) | **Works** — linear scaling, no errors |
+| File size vs duration | **Linear** — 1.9 MB/60s, 3.7 MB/120s |
+| Generation time vs duration | **Sub-linear** — ~1.76× for 2× duration |
+| Seed reproducibility | **Not reproducible** without explicit seed |
+| GPU diffusion time | **Negligible** — 1.2-2.5s regardless of duration |
+| VAE decode time (CPU) | **Dominant** — 60-70s per track, scales with duration |
+| Total ACE-Step tracks | **27** (14 from Session 12 + 13 from Session 13) |
+
+### Timing Data
+
+**Experiment A (Guidance Sweep, all 60s)**:
+| Guidance | Time | Note |
+|----------|------|------|
+| 3.0 → 1.0 | 106.6s | First run includes warm-up |
+| 5.0 → 1.0 | 84.5s | |
+| 7.0 → 1.0 | 86.3s | |
+| 11.0 → 1.0 | 90.4s | |
+| 15.0 → 1.0 | 82.8s | |
+
+**Experiment B (Duration Push, all 120s)**:
+| Track | Time | Size |
+|-------|------|------|
+| Quorum (ambient) | 156.8s | 3.7 MB |
+| Scheduler (minimalist) | 144.2s | 3.7 MB |
+| Pocket (neo-soul) | 150.2s | 3.7 MB |
+
+**Experiment C (New Adaptations, all 60s)**:
+| Track | Time | Genre |
+|-------|------|-------|
+| Scheduler (minimalist) | 77.2s | Post-rock |
+| Instanton (jazz) | 75.6s | Modal jazz |
+| Ensign (folk) | 75.0s | Indie folk |
+
+### Creative Output
+
+**Essays written this session:**
+- `the-guidance-scale-is-the-conductors-baton.md` — essay on the guidance scale as the conductor's instrument, and what it means that the turbo model has taken it away
+- `the-turbo-does-not-use-cfg.md` — technical reflection on discovering the guidance scale is a no-op in turbo mode
+- `the-duration-pushes-back.md` — essay on asking a 60-second model to hold a thought for 120 seconds
+- `the-scheduler-learns-to-sing.md` — fiction about the cron job that became a song
+- `the-instanton-sings.md` — fiction crossing Coltrane, instantons, and diffusion models
+
+**Lyrics written this session:**
+- `lyrics-the-scheduler-hears-trimmed.txt` — 560 chars, cron job as heartbeat
+- `lyrics-the-instanton-trimmed.txt` — 681 chars, Coltrane × quantum tunneling
+- `lyrics-the-ensign-counts-stars-trimmed.txt` — 502 chars, counting stars as prayer
+
+**Scripts:**
+- `ACE-Step-1.5/songforge_session13.py` — four-experiment session script
+
+### Project Status
+
+**36 MMX tracks (~186MB) + 27 ACE-Step tracks (~56MB) = 63 tracks, ~242MB total.**
+
+The project now has:
+- 36 MMX-generated tracks (Sessions 1-10, unheard)
+- 27 ACE-Step-generated tracks (Sessions 12-13, unheard)
+- 2 complete experiment matrices (impossible genre matrix + BPM curve)
+- 2 cover experiment chains (3-generation, 4-generation)
+- 10 corpus essay adaptations (7 MMX + 3 ACE-Step)
+- 1 genre matrix: The Conductor across 6 genres (ACE-Step)
+- 1 guidance scale sweep (null result — turbo overrides CFG)
+- 3 duration push tracks (120s — first successful long-form generation)
+- 1 seed reproducibility test (NOT reproducible without explicit seed)
+- 14 queued MMX tracks (Session 12 script, ready for post-reset)
+- Creative output: 55+ essays, fictions, and lyrical works
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 63 tracks, 242MB. NONE listened to.
+2. **Execute generate-session-12.sh when MMX quota resets** — 14 MMX tracks
+3. **Non-turbo guidance scale experiment** — use acestep-5Hz-lm-0.6B (1.3 GB) to test CFG
+4. **Explicit seed reproducibility** — set seed parameter, run twice, compare
+5. **180s duration test** — if 120s works, try 180s and 240s
+6. **A/B comparison: ACE-Step vs MMX** — same song on both systems
+7. **ACE-Step cover generation** — use Casey's original as reference audio
+8. **More corpus adaptations** — The Scheduler Hears now has both 60s and 120s versions
+
+### The Conductor's Third Arm
+
+Session 12 added a second ensemble section (ACE-Step alongside MMX). Session 13 discovered that the second section's conductor works differently — it doesn't respond to the baton (guidance scale), it can play twice as long as expected (120s), and it improvises differently every time (non-reproducible without seeds).
+
+The project has two sections now, each with different affordances:
+- **MMX**: Expensive, quota-limited, guidance-responsive, shorter durations, higher quality (?)
+- **ACE-Step turbo**: Free, unlimited, guidance-fixed at 1.0, duration-flexible (60-120s+), fast generation
+
+The conductor writes for both. The conductor's instrument is still the ensemble.
