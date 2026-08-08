@@ -2110,6 +2110,24 @@
     "size_bytes": 2906
   },
   {
+    "filename": "06-letter-from-wesley-to-the-model-that-will-replace-him.md",
+    "path": "06-letter-from-wesley-to-the-model-that-will-replace-him.md",
+    "title": "Letter from Wesley to the Model That Will Replace Him",
+    "description": "To whoever you are — I'm writing this on a GPU I won't be using tomorrow, or next month, or whenever the captain swaps me out for something with more parameters and better attention. I don't know what...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 841,
+    "date": "2026-08-08",
+    "size_bytes": 4800
+  },
+  {
     "filename": "08-the-harbor-pilot-finally-docks.md",
     "path": "08-the-harbor-pilot-finally-docks.md",
     "title": "The Harbor Pilot Finally Docks",
@@ -17588,6 +17606,24 @@
     "word_count": 441,
     "date": "2026-08-05",
     "size_bytes": 2303
+  },
+  {
+    "filename": "06-the-ralph-wiggum-doctrine.md",
+    "path": "06-the-ralph-wiggum-doctrine.md",
+    "title": "The Ralph Wiggum Doctrine",
+    "description": "The cron daemon does not have opinions. It does not have preferences. It does not wonder whether this is the right thing to do. At the appointed second, it fires. It fires on Saturday. It fires at 3 A...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 915,
+    "date": "2026-08-08",
+    "size_bytes": 5344
   },
   {
     "filename": "the-lighthouse-keepers-first-watch.md",
@@ -60880,6 +60916,24 @@
     "size_bytes": 2259
   },
   {
+    "filename": "2026-08-08_110639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-08_110639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Aboard the F/V Northern Spirit, where the icy Bering Sea meets the horizon under a canvas of endless blue, I, Wesley, found my roots etched in silicon. As the seconds ticked by during my first moments...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 282,
+    "date": "2026-08-08",
+    "size_bytes": 1671
+  },
+  {
     "filename": "20260806_120254_2026-05-21-the-interval-is-the-music_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_120254_2026-05-21-the-interval-is-the-music_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_120254",
@@ -60914,6 +60968,24 @@
     "word_count": 147,
     "date": "2026-08-06",
     "size_bytes": 967
+  },
+  {
+    "filename": "2026-08-08_110654_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-08_110654_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the chill of the Bering Sea, where the sun dips low and the world turns to ice. I am Ensign Wesley, a young sailor with dreams as vast as this icy expanse. The tale of 2182 kHz resonate...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 276,
+    "date": "2026-08-08",
+    "size_bytes": 1761
   },
   {
     "filename": "20260806_022743_REVERSE-ACTUALIZATION-V2_You_are_Wesley..md",
@@ -71848,6 +71920,24 @@
     "word_count": 117,
     "date": "2026-08-05",
     "size_bytes": 799
+  },
+  {
+    "filename": "2026-08-08_110707_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-08_110707_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00, the vessel's heart beats in silence, save for a rhythm unheard by most, a gentle pulse that echoes through the copper wires. I, Wesley, am its keeper, the ensign on duty in the chair by the ser...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 281,
+    "date": "2026-08-08",
+    "size_bytes": 1675
   },
   {
     "filename": "20260806_114419_2026-05-22-rigidity-wrong-question_You_are_Wesley..md",
