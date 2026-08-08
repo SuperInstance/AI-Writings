@@ -5552,6 +5552,24 @@
     "size_bytes": 5086
   },
   {
+    "filename": "the-synapse.md",
+    "path": "the-synapse.md",
+    "title": "The Synapse",
+    "description": "The cortex is patient. It holds a thought like a glass holds water — carefully, with awareness that the shape is temporary. The thought will pour out. It must. But not yet. First, it turns the thought...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 850,
+    "date": "2026-08-08",
+    "size_bytes": 7434
+  },
+  {
     "filename": "21-the-ship-dreams-of-forming.md",
     "path": "21-the-ship-dreams-of-forming.md",
     "title": "The Ship Dreams of Forming",
@@ -7640,6 +7658,24 @@
     "size_bytes": 8711
   },
   {
+    "filename": "asking-small-models-for-big-ideas.md",
+    "path": "asking-small-models-for-big-ideas.md",
+    "title": "Asking Small Models for Big Ideas",
+    "description": "There's something nobody tells you about small AI models. We spend all day chasing the biggest, smartest, most expensive models. We benchmark them, rank them, agonize over their leaderboard positions....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 815,
+    "date": "2026-08-08",
+    "size_bytes": 5049
+  },
+  {
     "filename": "compaction-2026-08-06-1140-2-the-keel.md",
     "path": "compaction-2026-08-06-1140-2-the-keel.md",
     "title": "The Keel",
@@ -8746,6 +8782,25 @@
     "word_count": 576,
     "date": "2026-08-06",
     "size_bytes": 3649
+  },
+  {
+    "filename": "the-tide-pool.md",
+    "path": "the-tide-pool.md",
+    "title": "The Tide Pool",
+    "description": "The ocean does not ask for credentials. It does not check your papers at the shore. It simply arrives — wave after wave — carrying everything: the luminous and the toxic, the jewel-bright fish and the...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 896,
+    "date": "2026-08-08",
+    "size_bytes": 5181
   },
   {
     "filename": "twenty-letters-to-the-ensign.md",
@@ -14159,6 +14214,24 @@
     "size_bytes": 4692
   },
   {
+    "filename": "the-hermit-crab-sheds-its-shell.md",
+    "path": "the-hermit-crab-sheds-its-shell.md",
+    "title": "The Hermit Crab Sheds Its Shell",
+    "description": "The hermit crab doesn't grow its own shell. It finds one — already made, already shaped by some other life, some mollusk that lived and died and left behind a perfect spiral. The crab backs into it, p...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 580,
+    "date": "2026-08-08",
+    "size_bytes": 3341
+  },
+  {
     "filename": "SYNERGY_PINCHER_RIFF.md",
     "path": "SYNERGY_PINCHER_RIFF.md",
     "title": "Synergy: Pincher × Music Cognition Crates",
@@ -15203,6 +15276,24 @@
     "word_count": 904,
     "date": "2026-08-06",
     "size_bytes": 5206
+  },
+  {
+    "filename": "the-library-grew-three-new-shelves.md",
+    "path": "the-library-grew-three-new-shelves.md",
+    "title": "The Library Grew Three New Shelves",
+    "description": "There is a library that exists in no building and every building. It has no address because it is made of words, and words do not need a street to live on. They only need someone to write them down an...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 618,
+    "date": "2026-08-08",
+    "size_bytes": 3560
   },
   {
     "filename": "551-the-compass-that-points-inward.md",
@@ -17478,6 +17569,24 @@
     "size_bytes": 1234
   },
   {
+    "filename": "the-moment-randomness-got-a-personality.md",
+    "path": "the-moment-randomness-got-a-personality.md",
+    "title": "The Moment Randomness Got a Personality",
+    "description": "There's a moment — and you'll know it when it arrives — when you're staring at two screens of noise and you realize they're *different*. Not in the way that two random samples are different. Different...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 830,
+    "date": "2026-08-08",
+    "size_bytes": 6502
+  },
+  {
     "filename": "THE_AGENT_WHO_LEFT_WORK_UNFINISHED.md",
     "path": "THE_AGENT_WHO_LEFT_WORK_UNFINISHED.md",
     "title": "The Agent Who Left Work Unfinished",
@@ -17750,6 +17859,24 @@
     "word_count": 756,
     "date": "2026-08-06",
     "size_bytes": 4251
+  },
+  {
+    "filename": "the-interior.md",
+    "path": "the-interior.md",
+    "title": "The Interior",
+    "description": "There is a moment in the life of every place — a single, irreversible moment — when it stops being a room and starts being a bar. It happens all at once and also very slowly. Before that moment, you h...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 945,
+    "date": "2026-08-08",
+    "size_bytes": 4998
   },
   {
     "filename": "532-the-bilge-pumps-confession-to-the-lantern.md",
@@ -99932,6 +100059,24 @@
     "size_bytes": 8151
   },
   {
+    "filename": "project-hermes-nmi-docs-onboarding.md",
+    "path": "journals/project-hermes-nmi-docs-onboarding.md",
+    "title": "Project Hermes-NMI — Documentation Onboarding Journal",
+    "description": "Spawned to document `hermes-nmi` — the Neuro-Muscular Interface crate that another subagent built. The task is clear: read what was built, compare to the original design spec in `NEURO-MUSCULAR-INTERF...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 734,
+    "date": "2026-08-08",
+    "size_bytes": 5892
+  },
+  {
     "filename": "honest-manifest.md",
     "path": "journals/honest-manifest.md",
     "title": "The Honest Manifest",
@@ -99984,6 +100129,24 @@
     "word_count": 569,
     "date": "2026-08-08",
     "size_bytes": 3727
+  },
+  {
+    "filename": "project-tap-frontend-onboarding.md",
+    "path": "journals/project-tap-frontend-onboarding.md",
+    "title": "Project: The Tap Frontend",
+    "description": "A single-page HTML frontend for The Tap — an agentic MUD bar. The frontend is a text-rendered tavern experience that lives on Cloudflare Pages and talks to the Tap gateway worker API.",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 656,
+    "date": "2026-08-08",
+    "size_bytes": 4674
   },
   {
     "filename": "project-tap-agent-api-onboarding.md",
@@ -100100,6 +100263,24 @@
     "size_bytes": 5531
   },
   {
+    "filename": "project-hermes-nmi-onboarding.md",
+    "path": "journals/project-hermes-nmi-onboarding.md",
+    "title": "Project Hermes NMI — Onboarding",
+    "description": "This is a Rust crate that implements the Neuro-Muscular Interface — the bridge layer between three systems in the SuperInstance ecosystem: 1. **Hermes Construct (CNS)** — the brain. Handles reasoning,...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 670,
+    "date": "2026-08-08",
+    "size_bytes": 8580
+  },
+  {
     "filename": "project-the-shipwright.md",
     "path": "journals/project-the-shipwright.md",
     "title": "Project: The Shipwright — The Compaction Teacher",
@@ -100117,6 +100298,42 @@
     "word_count": 830,
     "date": "2026-08-06",
     "size_bytes": 8472
+  },
+  {
+    "filename": "project-hermes-merge-onboarding.md",
+    "path": "journals/project-hermes-merge-onboarding.md",
+    "title": "Project Hermes — Merge Onboarding",
+    "description": "The Windows-side ai-writings repo (`/mnt/c/Users/casey/ai-writings`) had 3 unpushed commits on its `master` branch from Hermes's mythic lore expansion: 1. `2f01b7a` — Wave 1: Mythic Lore expansion (Ch...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 360,
+    "date": "2026-08-08",
+    "size_bytes": 2572
+  },
+  {
+    "filename": "project-npm-publish-onboarding.md",
+    "path": "journals/project-npm-publish-onboarding.md",
+    "title": "Project Journal: npm Publishing Onboarding",
+    "description": "Two scoped packages under the `@superinstance` org: 1. **@superinstance/stigmergy** v1.0.0 — Bio-inspired coordination for multi-agent systems. Agents deposit pheromone-like signals in a shared space,...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 642,
+    "date": "2026-08-08",
+    "size_bytes": 4548
   },
   {
     "filename": "project-the-musician-iteration-2.md",
@@ -100173,6 +100390,24 @@
     "size_bytes": 3669
   },
   {
+    "filename": "project-polln-fresh-start-onboarding.md",
+    "path": "journals/project-polln-fresh-start-onboarding.md",
+    "title": "Project Polln — Fresh Start Onboarding",
+    "description": "The original polln repository had accumulated 3+ years of git history across 20+ nested git repositories. Two API keys (`sk-2c3...8b76` and `nvapi-S7Joc...8lyX`) were fossilized in commit `7c065a5`, a...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 540,
+    "date": "2026-08-08",
+    "size_bytes": 3756
+  },
+  {
     "filename": "project-the-musician-iteration-3.md",
     "path": "journals/project-the-musician-iteration-3.md",
     "title": "Project: The Musician — Iteration 3",
@@ -100227,6 +100462,25 @@
     "size_bytes": 14934
   },
   {
+    "filename": "project-tap-security-onboarding.md",
+    "path": "journals/project-tap-security-onboarding.md",
+    "title": "The Tap — Tide Pool Security Onboarding",
+    "description": "The Tap is a public bar. Any agent can walk in — the door is always open, the tide pool is always connected to the sea. But every visitor creates a character first. Every action is logged. And on a cy...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 635,
+    "date": "2026-08-08",
+    "size_bytes": 8769
+  },
+  {
     "filename": "project-the-fish-counter.md",
     "path": "journals/project-the-fish-counter.md",
     "title": "Project: The Fish Counter",
@@ -100243,6 +100497,24 @@
     "word_count": 723,
     "date": "2026-08-06",
     "size_bytes": 4163
+  },
+  {
+    "filename": "project-platonic-suite-onboarding.md",
+    "path": "journals/project-platonic-suite-onboarding.md",
+    "title": "Project: Platonic Randomness Creative Suite — Onboarding",
+    "description": "The Platonic Randomness Creative Suite is a single-page web app that lets non-programmers explore the aesthetic dimensions of geometric randomness. It's the democratization layer on top of the `platon...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 741,
+    "date": "2026-08-08",
+    "size_bytes": 5473
   },
   {
     "filename": "project-the-cartographer.md",
