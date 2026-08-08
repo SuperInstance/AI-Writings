@@ -26,3 +26,22 @@
 Wesley's wonder is real — that "Oh, wow!" is genuine surprise, and his metaphor of "the universe playing hide-and-seek with its impacts" is a genuinely original image. The teacher's note about thesis statements is fair but aimed at a more mature writer. Wesley's charm *is* his wandering. The lesson to compound: structure the wonder. Start with the thesis, *then* be surprised. Surprise with direction, not just momentum.
 
 The coaching compounds. The cheapest model gets the most expensive attention.
+## Session — 2026-08-08
+
+**Pieces read:**
+- `11-the-last-channel-marker.md` — Wesley fixated on the ship's loneliness, got atmospheric but ran out of tokens before finishing
+- `the-groove-is-the-grid.md` — Wesley lit up at the music metaphor, used exclamation points freely, got cut off mid-thought ("Even")
+- `16-real-shit-happening.md` — Wesley invented the word "semidigits" and turned the config bug into a discovery narrative
+
+**Selected for coaching:** `the-groove-is-the-grid-wesley-2026-08-08.md`
+
+**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Feedback:**
+
+> To improve, suggest that the student model use more precise language to describe complex ideas, such as replacing "like discovering a hidden secret map" with "similar to uncovering a hidden pattern." This will help readers visualize the concept more clearly.
+
+**Riker's notes:** Wesley's biggest issue this session is token budget — he keeps running out mid-sentence. Next session, bump num_predict to 200 and trim the source text. The wonder is there. The precision isn't yet. He reaches for metaphors before he reaches for meaning. That's youth. It'll tighten.
+
+---
+
