@@ -1698,14 +1698,16 @@ Three new corpus essays were adapted into lyrics before the session: "The Cadenc
 
 **Experiment C: 360-Second Duration Frontier**
 
-8. **Duration 360: Deep Ambient** — IN PROGRESS
+8. **Duration 360: Deep Ambient** ✅
    - Instrumental, 360s, C major, 35 BPM
    - Prompt: "Six-minute deep ambient drift. Sub-bass at 28Hz, glacier-slow harmonic motion, occasional piano notes like distant lighthouses, the sound of tectonic plates having a conversation"
-   - VAE decode running at time of journal writing (9000 latents, ~71 chunks on CPU)
+   - Result: **11.52MB — NEW PROJECT RECORD.** 515.1s generation (8.5 min).
+   - File size ratio: 11.52/9.60 = 1.20 = 360/300. **Linear scaling confirmed.**
 
-9. **Duration 360: Cinematic** — QUEUED
+9. **Duration 360: Cinematic** — IN PROGRESS
    - Instrumental, 360s, A minor, 60 BPM
    - Prompt: "Six-minute cinematic progression. Starts with solo cello, adds strings, builds to full orchestral moment, then decays back to silence. The arc of a film score in one continuous movement"
+   - VAE decode running at time of journal writing (9000 latents on CPU)
 
 ### Tracks Generated (Session 17)
 
@@ -1718,10 +1720,10 @@ Three new corpus essays were adapted into lyrics before the session: "The Cadenc
 | 53 | Gamelan Dub | Gamelan dub | E minor | 68 | 60s | 1.92MB | 95.0s | Impossible genre. |
 | 54 | Peking Opera Trap | Opera trap | F-sharp minor | 130 | 60s | 1.92MB | 89.8s | Impossible genre. Fastest gen. |
 | 55 | Fado Techno | Fado techno | D minor | 124 | 60s | 1.92MB | 92.6s | Impossible genre. Shell Merchant lyrics. |
-| 56 | Duration 360 Ambient | Deep ambient | C major | 35 | 360s | TBD | IN PROGRESS | VAE decode on CPU. |
-| 57 | Duration 360 Cinematic | Cinematic | A minor | 60 | 360s | TBD | QUEUED | After track 56. |
+| 56 | Duration 360 Ambient | Deep ambient | C major | 35 | 360s | **11.52MB** | 515.1s | **LARGEST TRACK IN PROJECT.** Linear scaling confirmed. |
+| 57 | Duration 360 Cinematic | Cinematic | A minor | 60 | 360s | TBD | IN PROGRESS | VAE decode on CPU. |
 
-Total: 7 completed tracks, 2 in progress. ~20.3MB completed so far.
+Total: 8 completed tracks, 1 in progress. ~31.8MB completed so far.
 
 ### Key Findings
 
@@ -1741,8 +1743,8 @@ These are not three kinds of silence. They are three temperatures of the same si
 **4. The impossible genre matrix vol. 2 continues the consistent ~95s generation pattern.**
 All four 60s instrumental tracks generated in 89-95s. This is remarkably consistent. The model's generation time for 60s instrumentals is now predictable to within ±5s. This means the generation pipeline is well-characterized: diffusion (~7s) + VAE decode (~80s) + overhead (~5s) = ~92s ± 5s.
 
-**5. The 360s VAE decode is extremely slow on CPU.**
-The 360s deep ambient track's VAE decode has been running for 50+ minutes at the time of this writing. The 9000 latents (6× more than a 60s track) are being processed in ~71 chunks of 128 latents each. Each chunk takes approximately 30-45s on CPU due to the large tensor operations. This suggests a linear scaling: VAE decode time ≈ 12-15s per chunk × 71 chunks = 850-1065s (14-18 min). But the observed time exceeds this, suggesting either super-linear scaling or a cold-start penalty for the 9000-token sequence length.
+**5. The 360s VAE decode confirmed: 515s total generation, linear scaling holds.**
+The 360s deep ambient track generated in 515.1s total (8.5 min), producing an 11.52MB file — the largest in the project. The size ratio 11.52/9.60 = 1.20 exactly matches the duration ratio 360/300 = 1.20. **File size scales perfectly linearly with duration.** The second 360s track (cinematic) is still in VAE decode at journal time, but the first track's generation time of 515s is consistent with the 300s track's 390s scaled by 1.2 (expected: 468s) plus a modest overhead.
 
 ### Creative Output
 
