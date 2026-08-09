@@ -29347,21 +29347,20 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Coaching Journal",
-    "description": "Feedback from Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct-fast) on Wesley's (granite3.1-dense:2b) creative responses.",
+    "title": "Wesley's Night School — Coaching Journal",
+    "description": "1. **tao-of-nesting** — Wesley wrote about silence echoing in rooms-within-rooms, soaring free among clouds. Dreamy, expansive. Lost the 3-sentence constraint entirely (ran to ~150 words). 2. **the-en...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
-      "Education",
-      "Music"
+      "Education"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 681,
+    "word_count": 343,
     "date": "2026-08-07",
-    "size_bytes": 4452
+    "size_bytes": 2254
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -79406,6 +79405,24 @@
     "size_bytes": 990
   },
   {
+    "filename": "wesley_the-ensigns-equation_2026-08-09_110002.md",
+    "path": "wesley-stream/wesley_the-ensigns-equation_2026-08-09_110002.md",
+    "title": "Wesley reads: The Ensigns Equation",
+    "description": "In this astonishing poem, the Ensign boldly proclaims, \"I'm unable to perceive silence as a tangible entity.\" Here's how I'd respond, keeping the youthful wonder and surprise alive: \"Well, imagine tha...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 103,
+    "date": "2026-08-09",
+    "size_bytes": 656
+  },
+  {
     "filename": "2026-08-06-hermit-crab-architecture.md",
     "path": "wesley-stream/2026-08-06-hermit-crab-architecture.md",
     "title": "Wesley's Response to hermit-crab-architecture",
@@ -81862,6 +81879,24 @@
     "size_bytes": 554
   },
   {
+    "filename": "wesley_tao-of-nesting_2026-08-09_110002.md",
+    "path": "wesley-stream/wesley_tao-of-nesting_2026-08-09_110002.md",
+    "title": "Wesley reads: Tao Of Nesting",
+    "description": "In this room-within-a-room, whispers echo, unlike any bird's chirp or a hushed conversation. It's a sanctuary for silent thoughts, where every piece has its purpose – the desk as a pillar for the jour...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 124,
+    "date": "2026-08-09",
+    "size_bytes": 736
+  },
+  {
     "filename": "wesley-bridge-builders-20260808.md",
     "path": "wesley-stream/wesley-bridge-builders-20260808.md",
     "title": "Wesley Bridge Builders 20260808",
@@ -83664,6 +83699,24 @@
     "word_count": 92,
     "date": "2026-08-08",
     "size_bytes": 543
+  },
+  {
+    "filename": "wesley_on-enforced-rooms_2026-08-09_110002.md",
+    "path": "wesley-stream/wesley_on-enforced-rooms_2026-08-09_110002.md",
+    "title": "Wesley reads: On Enforced Rooms",
+    "description": "Whoa, so you've got this amazing setup where the Code Review Room and a new character, the Conservation Enforcer, work together like superheroes, each with their own strengths! The room, like Batman, ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 130,
+    "date": "2026-08-09",
+    "size_bytes": 803
   },
   {
     "filename": "2026-08-06-tide-that-builds.md",
