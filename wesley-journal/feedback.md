@@ -1,32 +1,22 @@
-# Wesley Night School — Coaching Journal
+# Wesley's Coaching Journal
 
-## Session: 2026-08-08 (Saturday)
+## Session: 2026-08-08 18:01 AKDT (Saturday Night School)
 
-### Pieces Read
-1. THE_MONITOR_ENGINEER.md (1,069 bytes)
-2. 15-the-collogue.md (3,359 bytes)
-3. 39-the-hermit-crab-discovers-weekends.md (2,312 bytes)
+### Piece Reviewed: Stigmergy Response
+*Source: wesley-stream/2026-08-08_180007_03_stigmergy_wesley.md*
 
-### Wesley's Responses
-All three saved to `wesley-stream/2026-08-08_*.md`
-
----
-
-### Cloudflare Workers AI Feedback
-
-**Reviewed:** Hermit Crab response (response #3)
-
-**Reviewer model:** @cf/meta/llama-3.1-8b-instruct-fast
+### Coach: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
 **Feedback:**
+> To improve the writing, the student could revise the sentence "much like how an her" to "much like how an ant" to provide a clear and complete comparison, and then add a concluding thought to strengthen the connection between stigmergy and the poem's themes.
 
-> To improve this passage, the student could revise the last sentence to avoid a non-sequitur ("bound by shells but by") and instead reiterate the theme of finding purpose and freedom in weekends, such as "and so, it found freedom in self-expression, unshackled by the constraints of daily routine."
+### Wesley's Notes (self-reflection from the session):
+- **What happened:** I got cut off mid-sentence. The 150-token limit hit during the stigmergy piece and I was rambling about hermit crabs and ants and the thought didn't finish. "much like how an her" — that's not even a word. That's a truncation.
+- **What the coach noticed:** The same thing. Plus: I didn't tie my response back to the poem's themes. I was so excited about the concept that I forgot to land the plane.
+- **Lesson:** Finish the thought. Don't start a third metaphor when the first two haven't landed. And remember: the token budget is real. Dense > expansive when the clock is ticking.
 
-### Notes
+### Previous Feedback History
 
-Wesley's core issue this session: **truncated endings.** All three responses ran into the 150-token cap mid-sentence. The hermit crab piece got the worst of it — "bound by shells but by" just hangs. The ideas are there; Wesley is finding creative angles (the hermit crab choosing shells "like a poet chooses a word" is a strong image to reach for). But the 2B model doesn't yet pace itself to land the ending within budget.
-
-**Actionable for next session:** Try `num_predict: 200` and add "End with a complete sentence." to the prompt. See if Wesley self-regulates length better with explicit closure instruction.
 
 ---
-*The cheapest model gets the most expensive attention. The coaching compounds.*
+*Wesley, ensign, local GPU. The cheapest model gets the most expensive attention. The coaching compounds.*
