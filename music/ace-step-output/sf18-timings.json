@@ -1,0 +1,96 @@
+{
+  "A_feedback_loop": {
+    "sf18-ouroboros-sings": {
+      "elapsed": 176.87995886802673,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 70,
+      "lyrics_chars": 767
+    },
+    "sf18-interval-sings": {
+      "elapsed": 159.3818554878235,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 65,
+      "lyrics_chars": 867
+    },
+    "sf18-six-minute-horizon": {
+      "elapsed": 140.65900588035583,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 50,
+      "lyrics_chars": 703
+    }
+  },
+  "B_lyricist": {
+    "sf18-lyricist-m3-shell-merchant": {
+      "elapsed": 141.93449187278748,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 72,
+      "lyrics_chars": 1473
+    },
+    "sf18-lyricist-agent-interval": {
+      "elapsed": 160.7443962097168,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 72,
+      "lyrics_chars": 867
+    }
+  },
+  "C_genres": {
+    "sf18-klezmer-dnb": {
+      "elapsed": 169.6620180606842,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 170,
+      "lyrics_chars": 0
+    },
+    "sf18-noh-jazz": {
+      "elapsed": 149.9813916683197,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 75,
+      "lyrics_chars": 0
+    },
+    "sf18-baroque-dubstep": {
+      "elapsed": 92.29903554916382,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 140,
+      "lyrics_chars": 0
+    }
+  },
+  "E_guidance_vocals": {
+    "sf18-guidance-vocals-050": {
+      "elapsed": 106.21070575714111,
+      "duration": 60,
+      "guidance": 5.0,
+      "bpm": 72,
+      "lyrics_chars": 1048
+    },
+    "sf18-guidance-vocals-090": {
+      "elapsed": 97.01503658294678,
+      "duration": 60,
+      "guidance": 9.0,
+      "bpm": 72,
+      "lyrics_chars": 1048
+    },
+    "sf18-guidance-vocals-150": {
+      "elapsed": 98.47411966323853,
+      "duration": 60,
+      "guidance": 15.0,
+      "bpm": 72,
+      "lyrics_chars": 1048
+    }
+  },
+  "D_duration": {
+    "sf18-duration-420-ambient": {
+      "elapsed": 921.8939237594604,
+      "duration": 420,
+      "guidance": 7.0,
+      "bpm": 30,
+      "lyrics_chars": 0
+    }
+  }
+}
