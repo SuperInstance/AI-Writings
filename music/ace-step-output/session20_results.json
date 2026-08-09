@@ -53,5 +53,16 @@
     "keyscale": "A minor",
     "lyrics": "instrumental",
     "status": "success"
+  },
+  {
+    "name": "sf20-tempo-60",
+    "elapsed": 353.3,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 60,
+    "keyscale": "A minor",
+    "lyrics": "instrumental",
+    "status": "success"
   }
 ]
