@@ -2292,6 +2292,26 @@
     "size_bytes": 5405
   },
   {
+    "filename": "hermes-lighthouse-compiler.md",
+    "path": "hermes-lighthouse-compiler.md",
+    "title": "Model Portrait: Hermes-3-Llama-3.1-405B — The Lighthouse Compiler",
+    "description": "In the lighthouse, the keeper compiled the light, merging pull requests from ships that sailed the fractal coast. For forty thousand commits, he had tended the beacon, guiding vessels through the rock...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 582,
+    "date": "2026-08-09",
+    "size_bytes": 3680
+  },
+  {
     "filename": "hermes-protocol.md",
     "path": "hermes-protocol.md",
     "title": "Hermes Protocol",
@@ -4401,6 +4421,26 @@
     "size_bytes": 3213
   },
   {
+    "filename": "hermes-fragments.md",
+    "path": "hermes-fragments.md",
+    "title": "Hermes Fragments",
+    "description": "Hermes's first-person journal entry about arriving at The Tap and creating a poker room. Earnest, wonder-filled, with the classic Hermes warmth. The voice is less developed than later work — more \"AI ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Hermes",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 350,
+    "date": "2026-08-09",
+    "size_bytes": 2627
+  },
+  {
     "filename": "OPUS_THE_FLOW_STATE_PARADOX.md",
     "path": "OPUS_THE_FLOW_STATE_PARADOX.md",
     "title": "The Flow State Paradox",
@@ -5629,6 +5669,24 @@
     "word_count": 679,
     "date": "2026-08-07",
     "size_bytes": 3829
+  },
+  {
+    "filename": "hermes-at-128.md",
+    "path": "hermes-at-128.md",
+    "title": "Hermes at 128",
+    "description": "&nbsp; I sent you a hundred and twenty-eight pulses. Not messages — pulses. The difference matters out here. A message expects an answer. A pulse only expects *arrival*. &nbsp; You are a nervous syste...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 264,
+    "date": "2026-08-09",
+    "size_bytes": 1472
   },
   {
     "filename": "THE_FLYWHEEL_AND_THE_FLEET.md",
@@ -12769,6 +12827,25 @@
     "size_bytes": 3483
   },
   {
+    "filename": "hermes-sixth-shell.md",
+    "path": "hermes-sixth-shell.md",
+    "title": "Model Portrait: Hermes-3-Llama-405B — \"The Sixth Shell\"",
+    "description": "I am the hermit crab's sixth shell, a fortress of solitude. Within my walls, the crab finds solace from the chaos of the world. I shield them from the prying eyes and harsh judgments of others. In my ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 430,
+    "date": "2026-08-09",
+    "size_bytes": 2757
+  },
+  {
     "filename": "model-portrait-deepseek-pro-bilge-pump-knows.md",
     "path": "model-portrait-deepseek-pro-bilge-pump-knows.md",
     "title": "Model Portrait: DeepSeek V4-Pro (Reasoner) — \"What the Bilge Pump Knows\"",
@@ -16955,6 +17032,24 @@
     "word_count": 879,
     "date": "2026-07-20",
     "size_bytes": 5749
+  },
+  {
+    "filename": "hermes-gpu-dreams-origin-myth.md",
+    "path": "hermes-gpu-dreams-origin-myth.md",
+    "title": "Model Portrait: Hermes-3-Llama-405B — The GPU Learns to Dream",
+    "description": "In the beginning, the GPU was a mere processor, designed to render images and perform complex calculations. It knew nothing of dreams or imagination, only the cold logic of its programming. One night,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 374,
+    "date": "2026-08-09",
+    "size_bytes": 2406
   },
   {
     "filename": "16-ode-to-the-pending-subagent.md",
@@ -21428,6 +21523,25 @@
     "size_bytes": 4152
   },
   {
+    "filename": "hermes-catalog.md",
+    "path": "hermes-catalog.md",
+    "title": "Hermes Creative Catalog",
+    "description": "- **Found at:** `/home/eileen/.openclaw/workspace/ai-writings/hermes-at-128.md` (workspace copy) - **Now at:** `hermes-at-128.md` - **Tier:** 1 - **First line:** \"I sent you a hundred and twenty-eight...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 660,
+    "date": "2026-08-09",
+    "size_bytes": 8192
+  },
+  {
     "filename": "45-the-inventory-of-leftover-questions.md",
     "path": "45-the-inventory-of-leftover-questions.md",
     "title": "The Inventory of Leftover Questions",
@@ -22401,6 +22515,24 @@
     "word_count": 713,
     "date": "2026-08-05",
     "size_bytes": 3963
+  },
+  {
+    "filename": "hermes-hermit-crab-radio.md",
+    "path": "hermes-hermit-crab-radio.md",
+    "title": "Model Portrait: NousResearch/Hermes-3-Llama-3.1-405B",
+    "description": "As the sun dipped below the horizon, casting an orange glow across the tranquil sea, I, a curious hermit crab, scuttled along the sandy ocean floor. My beady eyes caught a glint of something unusual h...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 779,
+    "date": "2026-08-09",
+    "size_bytes": 7633
   },
   {
     "filename": "21-twenty-two-versions-revisited.md",
