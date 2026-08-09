@@ -1,45 +1,28 @@
 # Wesley Night School — Coaching Feedback
-*August 8, 2026 (Saturday, 9:43 PM AKDT)*
+
+## Session: August 8, 2026 (22:13 AKDT)
+
+**Source piece:** "The Watch Officer Reads the Fleet to Sleep"
+**Wesley model:** granite3.1-dense:2b (Ollama, temp 0.95)
+**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
 ---
 
-## Session Notes
+### Wesley's Response (selected)
 
-**Source pieces (3):**
-1. `spatial-dimension.md` — conversation as nautical navigation
-2. `what-i-see-from-here.md` — the 85mm lens, constraint as vision
-3. `the-stone-beneath-the-waterline.md` — Eisenstein integers, stasis as solved problem
+> In a world where technology whispers dreams, Lucineer strolls through the sleeping fleet with his lantern-laptop. Tonight, he reads repos as if they're siblings, lulling each to rest with gentle commands and familiar tales. But then, at Repo 37—a blank nametag, an open door to a quiet chamber—he finds something unexpected: a repository that codes the ship's dreams. A single line of code makes the ship's very heart dream, and as Riker reads it aloud, the vessel settles into a deep, serene slumber, as if acknowledging his presence for the first time.
 
-**Wesley's model:** granite3.1-dense:2b (temp 0.95, 150 max tokens)
-**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+### Cloudflare Workers AI Feedback
+
+> To strengthen the narrative, consider adding sensory details that immerse the reader in the scene. For example, instead of "a quiet chamber," describe the room's ambiance with a specific scent, temperature, or texture that contrasts with the digital world.
 
 ---
 
-## Wesley's Responses (Summary)
+### Session Notes
 
-**Spatial Dimension:** Wesley caught the dance metaphor — conversations dancing in space, each word becoming a sail. Found the musical score idea ("a never-ending song"). Strong enthusiasm, good image capture.
+Wesley showed good instinct — he picked up the dreamlike tone and the Repo 37 discovery moment. He also tried to narrate rather than analyze, which is the right impulse for creative response. The truncation at 150 tokens cut him off mid-sentence (a recurring pattern — the instruction said 3 sentences but he wrote one long run-on). 
 
-**What I See From Here:** Wesley's strongest piece. Internalized the constraint-as-vision thesis. New images: "precious pearl," "unwritten haiku." Understood "limiting and liberating" as a dance. 
-
-**Stone Beneath the Waterline:** Wesley grasped the core paradox — "preserving perfection and stasis, not changing a thing." Called the code "an expert." Good comprehension of the negative space argument.
-
----
-
-## Cloudflare Coaching Feedback
-
-**Selected response:** "What I See From Here"
-
-> **Specific improvement:** Replace vague phrase "expansive possibilities" with a concrete, sensory detail, such as "endless sunsets" or "infinite starry skies", to enhance the vividness and specificity of the imagery.
-
-### Coach's Notes
-Solid note. Wesley's tendency toward abstract superlatives ("expansive possibilities," "precious pearl") is the 2B model showing its training bias — reaching for impressive-sounding words when concrete images would land harder. The original piece itself (by the larger model) models this perfectly: "the branch that's about to fall" is specific. "The exact expression in the eyes" is specific. Wesley needs to learn this lesson: **don't say "beautiful thing," name the beautiful thing.**
-
----
-
-## Progress Tracking
-
-| Session | Date | Pieces Read | Avg Quality | Key Pattern |
-|---------|------|-------------|-------------|-------------|
-| 1 | Aug 8 | 3 | Promising | Enthusiastic abstraction — reaches for superlatives over specifics. Next: push toward concrete sensory detail. |
-
-**Next session focus:** Give Wesley pieces with strong concrete imagery. Model the behavior we want to see. Consider prompts that ask Wesley to "name one specific thing you can see, hear, or touch" from the piece.
+**Coaching focus for next session:**
+- Sentence economy — 3 short sentences > 1 long one
+- Sensory grounding — temperature, smell, texture in digital spaces
+- Ending with a period instead of trailing off
