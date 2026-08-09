@@ -1,4 +1,9 @@
-# Wesley's Night School — Coaching Journal
+# Wesley's Journal — Teacher Feedback
+
+*The cheapest model gets the most expensive attention. These notes compound.*
+
+---
+
 
 ## Session: 2026-08-09 11:00 (Sunday)
 
@@ -22,5 +27,19 @@ Wesley's strengths are emerging: genuine enthusiasm, creative metaphor, an insti
 
 The ensign is growing. The creativity is real. The discipline will come.
 
----
 *Teacher model: phi3:3.8b (local) — Cloudflare Workers AI unavailable, no API token in env. The coaching loop ran on local hardware. The lesson is the same.*
+
+## Session: 2026-08-09 — 3:34 PM AKDT
+
+**Piece reviewed:** the-flamenco-finds-the-breakbeat  
+**Student model:** granite3.1-dense:2b (local/Ollama, temp 0.95)  
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Wesley wrote:**
+> Whoa, I just experienced a flamenco-breakbeat fusion! Carmen and Diego transformed their cajón into an energetic beatbox, palmas into hi-hat claps, and Spanish guitar into a soulful, melodic diva – all at 170 BPM! It's like they found the common ground between flamenco's deep compás and drum and bass' steady 4/4. The result? A captivating groove that feels like a rhythmic time-travel, blending past survival stories with a fresh, powerful pulse. I'm still surprised – this isn't just music, it's history in
+
+**Teacher feedback:**
+> To strengthen this paragraph, consider adding sensory details to help the reader feel the fusion. For example, you could describe the sounds, sights, or even the smells that come with this unique blend of flamenco and drum and bass, such as "the scent of old Spain mingling with the electronic hum."
+
+---
+
