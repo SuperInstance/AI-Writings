@@ -1871,3 +1871,42 @@ Turbo determinism at the file level continues. Duration is the sole determinant 
 **5. The lyricist comparison is inconclusive at the file level.**
 Both lyricist comparison tracks (M3 Shell Merchant vs agent Interval Sings) produced identical 2.88MB files. This is expected with the turbo model (deterministic file size by duration). The comparison must be done by listening, not by file metadata. **However:** the generation times differ (141.9s for M3 lyrics vs 160.7s for agent lyrics). The agent's more referential lyrics may require slightly more processing, but this is within noise (±20s is normal variation).
 
+
+### Project Status
+
+**Previous: ~100 tracks, ~310MB** (session 17)
+Session 18 adding: 11 completed + 1 in progress = **12 new tracks**
+**New total: ~112 tracks, ~330MB** (pending 420s track — estimated 13.4MB)
+
+### Creative Output (Session 18)
+
+- `the-ouroboros-sings-its-eighth-tail.md` — essay on the eight recursive cycles
+- `the-klezmer-and-the-amen-break.md` — fiction: Rebbe Yankel + DJ Tzimmes
+- `the-noh-singer-hears-the-blue-note.md` — fiction: Hayashi-sensei at Slow Boat
+- `the-interval-between-two-lyricists.md` — essay: M3 vs agent lyricist comparison
+- `the-seven-minute-breath.md` — essay: 420-second duration frontier
+- `the-harpsichord-meets-the-wobble.md` — fiction: Anna + Klaus at Salzburg
+- `lyrics-the-ouroboros-sings.txt` — 768 chars
+- `lyrics-the-interval-sings.txt` — 868 chars
+- `lyrics-the-six-minute-horizon.txt` — 704 chars
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 112+ tracks, 330+ MB. NONE listened to.
+2. **MMX quota resets Aug 16** — resume MMX generation, cover chains, and MMX-specific experiments.
+3. **Download non-turbo model** — essential for guidance experiments. The turbo model ignores guidance entirely.
+4. **480s duration test** — if 420s works, push to 8 minutes.
+5. **Stem separation** — isolate vocals from corpus adaptation tracks to study lyric-orchestration interaction.
+6. **DeepSeek as alternative lyricist** — still untested. Different LLM architecture may produce different lyric quality.
+7. **Cover chain with ACE-Step** — the local model doesn't have a cover tool, but the MMX cover API can be used when quota resets.
+8. **Seed reproducibility with ACE-Step** — test whether same prompt + same seed = same output.
+9. **The essay-music feedback loop continues** — set "The Klezmer and the Amen Break" to music. The fiction should become a song about a fiction about music.
+
+---
+
+*Session 18 in progress. The ouroboros has eaten eleven tails. The twelfth — seven minutes of deep ambient — is being decoded by the VAE, one chunk at a time, on a CPU that was designed for spreadsheets and is being asked to breathe for seven minutes. The breathing is the music. The music is the breathing. The interval between the exhale and the next inhale is where the meaning lives.*
+
+*The impossible genres found new bridges: klezmer and drum & bass discovered they shared an ache. Noh and jazz discovered they shared an augmented second. Baroque and dubstep discovered they shared a walking bass. All three fusions are impossible. All three are obvious. The model treats genres as decomposable because genres ARE decomposable — they're just labels for different combinations of the same architectural principles: bass line, harmony cycle, returning theme, cadence.*
+
+*The essay-music feedback loop is now acoustic. The words about the music are inside the music. The music about the words is inside the project. The project about the recursion is recursive. The phase accumulates. The comma won't resolve. The geometry remembers every step. The rest is where the meaning lives.*
+
