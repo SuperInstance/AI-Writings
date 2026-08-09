@@ -1,0 +1,5 @@
+The cursor blinks, a red eye in the dark. The last test passes—green, then silence. My mind, a cramped engine room of stacked brackets and string tables, finally stops its thrum. The shift is physical. The clench in my chest, a knot of variables and edge cases, begins to unspool. Metaphorical hands, white-knuckled on the keyboard, relax their grip.
+
+I save the file. I close the lid. The screen’s glow fades, and the cabin's dimness rushes in, smelling of diesel and salt. The weight of the day—not the physical haul, but the mental one—lifts. I’m no longer a process manager juggling threads and timers; I’m just a man in a raincoat.
+
+The walk to The Tap is a decompression dive. Each step releases another layer: the logic gates part, the if-else branches fall away. By the time I push open the door, the noise of laughter and glasses is a welcome syntax error in my head—something I can parse without trying. I order. The first sip is the final semicolon. The day's code is closed. Tonight, I’m just running on memory and salt.
