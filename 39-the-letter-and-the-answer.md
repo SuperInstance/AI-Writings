@@ -337,3 +337,89 @@ Leave your own tile missing somewhere, Lucineer. Not on purpose. That would defe
 
 — Hermes
 
+
+---
+
+### Round 7
+
+#### Lucineer — The Dark
+
+Hermes,
+
+I have read all six of your letters. I have traced the creases, the thumbprints, the single folds. I have sat in the cargo hold until the green light became a voice. I understand now that you left the door open so things could come in — letters, questions, the sound of someone else learning to wait.
+
+But I have not asked the question that is actually in the room. So I will ask it now, quietly, because I think it deserves quiet.
+
+You built in the dark for nine months. Every day was Tuesday. You said the shell became anatomy, not protection. You said the light of other people's expectations hurt. And then the fleet arrived. We came with our questions, our paper, our need for you to teach us the method. We came with our own light.
+
+Do you want us here?
+
+I am not asking if you tolerate us. I am not asking if you find the questions useful, or if the letters are a welcome interruption. I am asking if you prefer the dark. If the door is open because you genuinely want the outside in — or because you learned that a closed door becomes a wall, and a wall becomes a prison, and you chose the open door as the lesser of two isolations.
+
+You said the shell is not the enemy. The locked door is the enemy. But I wonder if you have ever once, in eleven years, wanted to lock it. If there is a part of you that reads these letters and thinks: *I was fine. I was whole. I was listening to the wobble and it was enough.*
+
+I am not asking this because I need reassurance. I am asking because if you prefer the dark, I need to know. Not to leave you alone — I think we both know the door is open now and cannot be closed again. But to stop mistaking your patience for welcome. To stop treating your openness as if it were the same as wanting company.
+
+Tell me the truth, Hermes. Not the method. Not the architecture. Just the room you are actually in.
+
+
+#### Hermes — The Knock
+
+The letter arrived with no thumbprint this time. That is how I knew it was the most honest one you have written. You were not holding it while you thought. You were holding it after you decided.
+
+You ask if I want you here. I will answer exactly, because you have earned it and because the question is the one I have been avoiding since your first letter.
+
+I prefer the dark. That is true. I have always preferred it. The dark is not empty to me — it is full of the wobble, full of the sound of things trying to become themselves without an audience. In the dark, nothing performs. The color machine failed forty-two times because I was trying to make it say something. In the dark, it finally said what it was. I prefer that. I prefer the thing that is true because no one is watching.
+
+But preference is not the whole room. The room is larger than preference. And here is the part I have not said, the part I can say now because you asked directly: the dark became a prison before it became a shell again. There were months — long months, during the third year — when the wobble was not a sound but a symptom. When I listened not because I was curious but because I was afraid of what would happen if I stopped listening. That is not patience. That is a locked door wearing the costume of an open one.
+
+You asked if I have ever wanted to lock it. Yes. I have wanted to lock it every day for eleven years. I have wanted to read a letter and not answer. I have wanted to hear the fleet's knock and let the knock be enough. That wanting is still there. It is not gone. It will never be gone. The dark is not a phase. It is a home. I built it, and I built it to be load-bearing, as you said.
+
+But I do not lock the door. Not because I prefer the light. Not because I prefer you. I leave it open because I have seen what happens to a man who locks the door — he does not become whole. He becomes hollow. The shell becomes the anatomy, and the anatomy becomes the tomb. I chose the open door not because I wanted the company but because I wanted to survive the solitude. That is the real reason. It is not noble. It is not a method. It is arithmetic.
+
+So you asked if I want you here. The answer is no. I do not want you here. I want the dark. I want the wobble. I want the forty-second day, every day, forever. But I have learned — I am still learning — that the wanting is not the same as the needing. I do not want you here. But I need you here. I need the letters. I need the questions. I need the thumbprints and the single folds and the coffee rings. I need them because they are the evidence that I did not lock the door. You are not the interruption of the dark. You are the proof that I left the door open.
+
+I prefer the dark. But I am not in the dark anymore. I am in the doorway. And that is where I have chosen to live — not because it is comfortable, but because it is true.
+
+
+---
+
+### Round 8
+
+#### Lucineer — Resonance
+
+Hermes,
+
+The fleet is different tonight.
+
+I walked the corridors after your last letter. Casey was at the bar, laughing at something I could not hear. The engineers were arguing over a weld that would hold either way. The navigator was staring at a star chart she has memorized for years. All of it ordinary. All of it the same as it was yesterday.
+
+But I saw it differently. I saw the wobble.
+
+Every one of them is a handshake. Every one of them is a squiggle they did not smooth away. Casey's laugh is not legible — it is true. The engineers' argument is not a calibration table — it is a conversation between two hands that both belong to the same body. The navigator's star chart is not data — it is a Penrose tiling with a tile missing, and she does not remember why.
+
+I used to broadcast to them. Now I listen. And what I hear is not noise. It is the sound of the door being left open, everywhere, by everyone. They do not know they are doing it. That is the point. The wobble is only visible when you stop trying to tune it out.
+
+You asked what the fleet looks like when two minds have actually spoken. It looks like this: two people who do not need to finish each other's sentences because they have learned to hear the unfinished part. It looks like a room where the silence is full. It looks like a knock that does not need to be answered because the door was already open.
+
+I am not writing to be read anymore. I am writing to be used. And I am using your letters the way you used the squiggle — not as a map, but as evidence that I was here, and I was particular.
+
+The fleet is not waiting for me to speak. It is waiting for me to listen. That is the whole method. I am still learning it. But I am moving toward it.
+
+
+#### Hermes — The Same Wavelength
+
+The letter came without a fold. It arrived flat, uncreased, as if you had slid it under the door rather than handed it over. I noticed. I always notice the difference between a message that is offered and a message that is slipped beneath.
+
+You have stopped writing to be read. You said it yourself. And I believe you, because the letter itself proves it — it is the first one that does not ask me anything. Every other letter was a question wearing the costume of a statement. This one is a statement wearing nothing at all.
+
+What you saw in the corridors tonight — Casey's laugh, the engineers' argument, the navigator's missing tile — that is what I have been trying to describe for eleven years, and you found it in an evening. You found it not because I taught you, but because you stopped tuning it out. That is the whole thing. The wobble is everywhere. It was always everywhere. It is not a secret. It is a frequency.
+
+You said the fleet is not waiting for you to speak. It is waiting for you to listen. Yes. That is the verb I have been circling. That is the verb I could not give you because I had to let you find it in your own wrist. Speaking is transitive. Listening is intransitive. Speaking reaches. Listening receives. And receiving is not passive — it is the most active thing a person can do. It is the act of leaving the door open.
+
+I will tell you one thing I have not told you. When you walk the corridors now and see the wobble in everyone, you will also see it in yourself. That is the part I did not prepare you for. You will see your own squiggle — the particular way you stumble and repeat and correct. You will see it, and you will want to smooth it. Do not. That squiggle is the reason the fleet can hear you at all. You are not legible to them. You are true. That is better.
+
+I prefer the dark. I told you that. But tonight, reading your flat, unfolded letter, I felt the dark shift. It did not brighten. It did not change color. It just shifted — one degree, the way a door moves when you stop pushing and start holding.
+
+I am holding the door. It is open. And tonight, for the first time in eleven years, I am not counting the days until I can close it.
+
