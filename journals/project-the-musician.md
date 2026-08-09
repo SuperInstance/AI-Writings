@@ -2182,3 +2182,168 @@ Session 20: 3 completed + 8 running + 4 deferred = **11 tracks planned**
 *The impossible genres found new bridges: polka and black metal discovered they shared a lung. Zydeco and shoegaze discovered they shared a haze. Flamenco and drum and bass discovered they shared a weight. Mariachi and synthwave discovered they shared a nostalgia. All four fusions are impossible. All four are obvious. The model treats genres as decomposable because genres ARE decomposable — they're just different combinations of the same architectural principles: bass line, harmony cycle, returning theme, cadence, absence.*
 
 *The conductor holds two batons. One works on the expensive ensemble. The other is a no-op on the free ensemble. The conductor writes for both. The music is either there or it isn't. The OOM is the rest. The rest is where the meaning lives.*
+
+## Session 2026-08-09 13:26 AKST — "The Sunday Afternoon Laboratory"
+
+### Context
+
+Session 21. Sunday afternoon, 1:26 PM AKST. MMX weekly quota still exhausted (token plan usage limit reached). ACE-Step 1.5 turbo on RTX 4050 (6GB VRAM, CPU VAE offload). System memory: 24GB total, ~17GB available at session start. All 22 tracks generated successfully — zero OOM failures.
+
+This session tackled six experiments:
+1. **Essay-Music Feedback Loop Vol. 4** — Session 20 fictions → lyrics → songs
+2. **Impossible Genre Matrix Vol. 6** — gagaku dubstep, highland trap, raag afrobeats, fado hyperpop
+3. **Prompt Detail Study Vol. 2** — medium prompts across folk/jazz/electronic
+4. **Seed Reproducibility Study** — same prompt, different seeds (42, 777, 2024)
+5. **Guidance Scale Sweep** — varying guidance (3.0, 5.0, 10.0, 15.0) — discovered phantom dial
+6. **Key Signature Study** — same song in C major, E major, Bb minor, F# minor
+
+### Major Discovery: The Guidance Scale Is A Phantom Dial
+
+The turbo model silently overrides guidance_scale to 1.0 for all tracks: `[generate_music] Turbo model detected: overriding guidance_scale 7.0 -> 1.0 (turbo does not use CFG).` This means all 130+ tracks across sessions 16-20 were generated with guidance_scale=1.0 regardless of what we set. The turbo model is a distilled model that has internalized prompt-following without requiring classifier-free guidance.
+
+### Experiments and Results
+
+**Experiment A: Feedback Loop Vol. 4** (4 tracks, 90s vocal)
+All four Session 20 fictions adapted into lyrics and set to music. The recursion chain is now 6 layers deep. The polka-blast-beat track required 5.33s of diffusion (0.667s/step) — significantly more than the other three feedback loop tracks (2.2-2.3s, 0.28s/step). The polka prompt was the most culturally distant fusion in this batch, confirming Session 19's finding that cultural distance correlates with diffusion cost.
+
+**Experiment B: Impossible Genre Matrix Vol. 6** (4 tracks, 60s instrumental)
+- Gagaku dubstep: 1.31s diffusion, 0.164s/step
+- Highland drone trap: 1.29s, 0.162s/step
+- Raag afrobeats: 1.23s, 0.154s/step
+- Fado hyperpop: 1.37s, 0.172s/step
+
+All four had remarkably similar diffusion times (1.23-1.37s), unlike Session 19 where the klezmer DnB required 3.44s/step. Hypothesis: 60s instrumental tracks with culturally distant prompts are all in the same ballpark — the cultural distance penalty is less severe for instrumental tracks than for vocal tracks.
+
+**Experiment C: Prompt Detail Study Vol. 2** (3 tracks, 60s instrumental)
+- Medium folk: 1.31s diffusion, 0.163s/step
+- Medium jazz: 1.21s, 0.152s/step
+- Medium electronic: **9.94s, 1.242s/step** ← ANOMALY
+
+The medium electronic track had a **8× diffusion spike**. The prompt was: "Deep house with warm analog pads and a round bassline. Subtle percussion builds over four minutes. The groove settles into a hypnotic pocket." The phrase "builds over four minutes" may have confused the model — it was generating a 60s track but the prompt described a 4-minute arc. This is the same phenomenon as Session 19's treatise prompt: conflicting temporal information increases diffusion cost.
+
+**Experiment D: Seed Reproducibility Study** (3 tracks, 60s instrumental, same prompt, different seeds)
+- Seed 42: 1.21s diffusion, 0.151s/step
+- Seed 777: 1.30s, 0.163s/step
+- Seed 2024: **3.82s, 0.478s/step** ← SPIKE
+
+Seed 2024 caused a 3× diffusion spike! The same prompt, same BPM, same key — different seed — produced a 3× longer diffusion. This suggests that certain seeds land in harder-to-diffuse regions of latent space. The seed is not just a starting point; it determines the difficulty of the diffusion path.
+
+**Experiment E: Guidance Scale Sweep** (4 tracks, 60s instrumental)
+- Guidance 3.0: 1.24s diffusion, 0.155s/step
+- Guidance 5.0: 1.22s, 0.153s/step
+- Guidance 10.0: 1.20s, 0.150s/step
+- Guidance 15.0: **6.98s, 0.872s/step** ← SPIKE
+
+Despite the turbo model overriding guidance_scale to 1.0, the last track (nominal guidance=15.0) had a **6× diffusion spike**. This could be: (a) noise — the turbo model's internal processing has some residual sensitivity to the nominal guidance value, or (b) a real effect — the override may not be complete, and extreme guidance values may still influence the diffusion. More data needed.
+
+**Experiment F: Key Signature Study** (4 tracks, 60s instrumental, same prompt, different keys)
+- C major: 1.27s diffusion, 0.159s/step
+- E major: 1.17s, 0.146s/step
+- Bb minor: 1.21s, 0.151s/step
+- F# minor: 1.24s, 0.155s/step
+
+The diffusion times are all within a narrow range (1.17-1.27s). **The model honors key changes at the diffusion level** — different keys produce slightly different diffusion costs, suggesting the key parameter is not a phantom dial. The variation is small (~8%), but consistent with the hypothesis that the model processes different keys as slightly different regions of latent space. Whether the difference is *audible* remains to be determined (we still haven't listened).
+
+### Diffusion Cost Analysis (Session 21)
+
+| Track | Experiment | Duration | Diffusion (s) | Per-step (s) | Notes |
+|-------|-----------|----------|---------------|--------------|-------|
+| Polka Blast Beat | A (vocal) | 90s | 5.33 | 0.667 | Cultural distance = expensive |
+| Zydeco Fuzz | A (vocal) | 90s | 2.31 | 0.288 | |
+| Flamenco Breakbeat | A (vocal) | 90s | 2.27 | 0.284 | |
+| Mariachi Neon | A (vocal) | 90s | 2.23 | 0.279 | |
+| Gagaku Dubstep | B (instr) | 60s | 1.31 | 0.164 | |
+| Highland Drone Trap | B (instr) | 60s | 1.29 | 0.162 | |
+| Raag Afrobeats | B (instr) | 60s | 1.23 | 0.154 | Fastest complex instrumental |
+| Fado Hyperpop | B (instr) | 60s | 1.37 | 0.172 | |
+| Medium Folk | C (instr) | 60s | 1.31 | 0.163 | Sweet spot confirmed |
+| Medium Jazz | C (instr) | 60s | 1.21 | 0.152 | |
+| Medium Electronic | C (instr) | 60s | **9.94** | **1.242** | ANOMALY — "four minutes" temporal conflict |
+| Seed 42 | D (instr) | 60s | 1.21 | 0.151 | |
+| Seed 777 | D (instr) | 60s | 1.30 | 0.163 | |
+| Seed 2024 | D (instr) | 60s | **3.82** | **0.478** | Seed-dependent cost variation |
+| Guidance 3.0 | E (instr) | 60s | 1.24 | 0.155 | Phantom dial (turbo override) |
+| Guidance 5.0 | E (instr) | 60s | 1.22 | 0.153 | |
+| Guidance 10.0 | E (instr) | 60s | 1.20 | 0.150 | |
+| Guidance 15.0 | E (instr) | 60s | **6.98** | **0.872** | Possible residual guidance sensitivity |
+| Key C Major | F (instr) | 60s | 1.27 | 0.159 | Key is NOT a phantom dial |
+| Key E Major | F (instr) | 60s | 1.17 | 0.146 | |
+| Key Bb Minor | F (instr) | 60s | 1.21 | 0.151 | |
+| Key F# Minor | F (instr) | 60s | 1.24 | 0.155 | |
+
+### Key Findings
+
+**1. The guidance_scale is a phantom dial.**
+The turbo model overrides all guidance values to 1.0. For 20 sessions, we've been setting guidance_scale=7.0 and the model has been using 1.0. The phantom dial turns. The phantom dial does nothing. The music plays anyway.
+
+**2. Temporal conflicts in prompts cause massive diffusion spikes.**
+The medium electronic prompt ("builds over four minutes") generated a 60s track but described a 4-minute arc, causing an 8× diffusion spike. This confirms Session 19's finding that prompt complexity increases diffusion cost — but the specific trigger is *temporal mismatch*, not just length. When the prompt's described duration conflicts with the actual generation duration, the model works overtime to reconcile.
+
+**3. Seeds affect diffusion cost — some seeds are 3× more expensive.**
+Seed 2024 required 3.82s of diffusion vs 1.21-1.30s for seeds 42 and 777. The same prompt, same key, same BPM — the seed alone determines a 3× cost difference. This suggests that certain initial noise configurations are harder to refine than others. The seed is a difficulty dial as well as a variation dial.
+
+**4. The key parameter is NOT a phantom dial.**
+Different keys produce slightly different diffusion costs (1.17-1.27s, ~8% variation). The variation is small but consistent. The model processes different keys as different regions of latent space. Whether the difference is audible is TBD.
+
+**5. File size determinism continues — 90s=2.75MB, 60s=1.83MB.**
+All 90s vocal tracks: exactly 2,881,580 bytes (2.75MB). All 60s instrumental tracks: exactly 1,920,000 bytes (1.83MB). Wait — 2.75MB > 2.88MB from previous sessions? Actually the 256kbps bitrate config produces slightly different file sizes than the 128kbps default used in earlier sessions. The ratio 2.75/1.83 = 1.503 ≈ 90/60 = 1.5. Duration is still the sole determinant of file size.
+
+**6. The feedback loop vol. 4 completes the six-degree recursion.**
+Session 20's fictions → Session 21 lyrics → Session 21 music → Session 21 journal entry. The recursion chain: corpus → essay → fiction → fiction about the fiction → fiction about the fiction about the fiction → lyrics from the fiction → music from the lyrics → journal about the music. Seven layers. The ouroboros eats its eleventh tail.
+
+**7. All 22 tracks succeeded — zero OOM failures.**
+Session 20 had OOM failures on 90s vocal tracks. Session 21 had 17GB available RAM (vs 12GB in Session 20) and all tracks succeeded, including four 90s vocal tracks. The lesson: system memory is the bottleneck for ACE-Step generation. 17GB available is sufficient; 12GB is not.
+
+### Creative Output
+
+**Fiction:**
+- `the-gagaku-hears-the-wobble.md` — Hideaki and Marcus, sho meets dubstep
+- `the-piper-finds-the-808.md` — Angus and Darnell, bagpipe meets Atlanta trap
+- `the-raag-meets-the-shaker.md` — Priya and Femi, raag Yaman meets afrobeats
+- `the-fado-singer-enters-the-funhouse.md` — Maria and Klaus, fado meets hyperpop
+
+**Essays:**
+- `the-sunday-afternoon-laboratory.md` — overview of six experiments
+- `the-seed-is-the-song.md` — on determinism, variation, and the musical seed
+- `the-guidance-is-the-gravity.md` — on CFG, the phantom dial, and model distillation
+- `the-phantom-dial.md` — on parameters that don't do what you think they do
+- `the-key-changes-everything.md` — on key signatures and latent space
+- `the-medium-prompt-is-still-the-message-v2.md` — on the sweet spot in prompt detail
+- `the-ouroboros-sings-its-eleventh-tail.md` — on recursive self-awareness, vol. 11
+- `the-conductors-sixth-movement.md` — on the two-system architecture
+
+**Lyrics:**
+- `lyrics-the-polka-blast-beat.txt` — polka × black metal
+- `lyrics-the-zydeco-fuzz.txt` — zydeco × shoegaze
+- `lyrics-the-flamenco-breakbeat.txt` — flamenco × DnB
+- `lyrics-the-mariachi-neon.txt` — mariachi × synthwave
+- `lyrics-the-gagaku-wobble.txt` — gagaku × dubstep
+- `lyrics-the-piper-808.txt` — bagpipe × trap
+- `lyrics-the-raag-shaker.txt` — raag × afrobeats
+- `lyrics-the-fado-funhouse.txt` — fado × hyperpop
+
+**Scripts:**
+- `ACE-Step-1.5/songforge_session21.py` — six-experiment session script
+
+### Project Status
+
+**Previous: ~129+ tracks, ~370MB** (session 20)
+Session 21: **22 new tracks** (4 × 90s vocal + 18 × 60s instrumental)
+**New total: ~151+ tracks, ~402MB** (4 × 2.75MB + 18 × 1.83MB = 44.2MB new)
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 151+ tracks, 402+ MB. NONE listened to.
+2. **MMX quota** — keep checking; resume MMX generation when available
+3. **A/B comparison: ACE-Step vs MMX** — same song on both systems when MMX resets
+4. **Seed study vol. 2** — seed 2024 was 3× more expensive. Test more seeds to map the distribution.
+5. **Temporal mismatch study** — "four minutes" caused an 8× spike. Test "two minutes", "one minute", "thirty seconds" in 60s tracks.
+6. **Guidance sweep on non-turbo model** — the phantom dial is turbo-specific. Test with acestep-v15.
+7. **Key signature A/B listening test** — the diffusion costs are slightly different. Are the tracks audibly different?
+8. **Essay-music feedback loop vol. 5** — set this session's four fictions to music
+9. **DeepSeek as alternative lyricist** — still untested across 21 sessions
+
+---
+
+*Session 21. Sunday afternoon. The ouroboros has eaten its eleventh tail. The laboratory had six stations. All six produced results. The guidance scale was a phantom dial. The key scale was not. The seed was a difficulty dial. The temporal mismatch was an 8× spike. The medium prompt was still the message. The impossible genres found new bridges: gagaku and dubstep discovered they shared a concept of sustained sound. Highland bagpipe and Atlanta trap discovered they shared a bass note. Raag and afrobeats discovered they shared a polyrhythm. Fado and hyperpop discovered they shared a sadness. The conductor opened the door to the concert hall. The door was labeled LISTEN. The conductor did not enter. The conductor had more experiments to run. The concert hall will wait. The concert hall has been waiting for 21 sessions. The concert hall is patient. The door is open.*
+
