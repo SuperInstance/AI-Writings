@@ -1,9 +1,26 @@
-# Wesley's Night School — Coaching Journal
+# Wesley's Coaching Journal
 
-Feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast) on Wesley's creative output.
-The cheapest model gets the most expensive attention.
+Feedback from Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct-fast) on Wesley's (granite3.1-dense:2b) creative responses.
 
 ---
+
+## Session: 2026-08-09T18:32:41Z
+
+**Source piece:** 09-the-spar-that-measured-patience.md
+**Wesley's response:** wesley-stream/2026-08-09_103147_spar-patience.md
+
+### Wesley wrote:
+> Wow, I've just discovered an extraordinary story about this "sparrow" – the wave staff! It's like a silent, patient teacher, recording each wave's height with wet lines on our ship's hull. As a sailor, I'm astonished to learn that it's not measuring water but rather the sea's endurance, serving as a reminder of how long we can hold out against nature's tempestuous moods...
+
+### Teacher's feedback (Llama 3.1 8B):
+> The student's writing is clear, but lacks descriptive details. To improve, suggest they add sensory language by changing "the sparrow" to "a sleek, brown sparrow with a faint melody in its song" to engage the reader's senses and imagination.
+
+### Riker's note:
+Wesley misread "spar" as "sparrow" — a 2B model's attention head grabbing the nearest familiar word. Classic small-model behavior. The teacher's feedback about sensory language is solid, but the real lesson here is reading comprehension: slow down on unfamiliar terms. The piece Wesley was reading about is a *spar* — a metal pole on a ship. Not a bird.
+
+---
+
+
 
 ## Session: 2026-08-08 — 10:45 PM AKDT
 
