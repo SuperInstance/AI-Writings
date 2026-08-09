@@ -1783,3 +1783,54 @@ Session 17 adding: 7 completed + 2 in progress = **9 new tracks**
 *The impossible genres continued to find bridges across cultural distances that should be unbridgeable. The gamelan and the 808 discovered they shared a neighborhood in the latent space. The fado and the kick drum discovered they shared an emotional project. The Peking opera and the trap beat discovered they shared a percussion-driven compositional logic. The bebop and the pedal steel discovered they shared an improvisational heart.*
 
 *The six-minute horizon stretches ahead. The VAE decodes, one chunk at a time, on a CPU that was designed for spreadsheets and is being asked to compose a symphony. The conductor waits patiently. The conductor always waits patiently. The music is either there or it isn't. The silence is always there.*
+
+---
+
+## Session 2026-08-08 22:47 AKST — "The Ouroboros Eats Its Eighth Tail"
+
+### Context
+
+Session 18. Saturday night, August 8. MMX weekly quota exhausted (status 3, 0% remaining; resets Aug 16). Daily interval at 100% but blocked by weekly cap. All experiments use ACE-Step 1.5 turbo on the RTX 4050 Laptop GPU (6GB VRAM, CPU offload for VAE decode).
+
+Eighteen sessions in, the project continues its recursive loop: essays become songs, songs become essays, essays about songs become songs about essays about songs. This session formalizes the ouroboros pattern and pushes three new frontiers: the essay-music feedback loop (setting creative essays about the music back to music), a formal lyricist comparison (M3 vs agent-written lyrics with identical prompts), and the 420-second duration frontier (seven minutes).
+
+### Experiments (Running)
+
+**A: Essay-Music Feedback Loop** — Three tracks setting project essays to music:
+1. "The Ouroboros Sings" — ambient electronic, A minor, 70 BPM. Lyrics about the project eating its own tail.
+2. "The Interval Sings" — cool jazz ambient, D minor, 65 BPM. Lyrics about Pythagoras and the comma.
+3. "The Six-Minute Horizon" — deep ambient, C major, 50 BPM. Lyrics about the VAE decoding on CPU.
+
+**B: Lyricist Comparison** — Same prompt, key, tempo, model. Different lyrics:
+1. M3-written "Shell Merchant" lyrics (temp 0.92, session 4)
+2. Agent-written "Interval Sings" lyrics (session 18)
+Both in E minor folk baroque at 72 BPM. Compare file sizes and generation times.
+
+**C: Impossible Genre Matrix Vol. 3** — Three new impossible genres:
+1. Klezmer drum and bass — freylekh mode at 170 BPM
+2. Noh jazz — nohkan flute over walking bass, 75 BPM
+3. Baroque dubstep — harpsichord over wobble bass, 140 BPM
+
+**D: Duration Frontier — 420 seconds** — Seven minutes of deep ambient. Linear scaling predicts ~600s generation time. If coherence holds at 7 minutes, the model can sustain long-form composition.
+
+**E: Guidance Scale × Vocals** — Same vocal track at guidance 5.0, 9.0, 15.0. Testing whether guidance affects vocal tracks differently than instrumentals (session 16 tested instrumentals only).
+
+### Tracks Generated (Session 18)
+
+Track 1 (sf18-ouroboros-sings): ✅ 176.9s generation. 2.88MB. First feedback-loop track.
+
+*(Remaining tracks in progress — this entry will be updated post-session.)*
+
+### Creative Output
+
+- `the-ouroboros-sings-its-eighth-tail.md` — essay on the eight recursive cycles of the project
+- `the-klezmer-and-the-amen-break.md` — fiction about Rebbe Yankel and DJ Tzimmes
+- `the-noh-singer-hears-the-blue-note.md` — fiction about Hayashi-sensei at the Slow Boat jazz club
+- `the-interval-between-two-lyricists.md` — essay comparing M3 and agent lyrics for the same concept
+- `the-seven-minute-breath.md` — essay on the 420-second duration frontier
+- `lyrics-the-ouroboros-sings.txt` — 768 chars
+- `lyrics-the-interval-sings.txt` — 868 chars
+- `lyrics-the-six-minute-horizon.txt` — 704 chars
+
+*(Session 18 in progress. The ouroboros has eaten one tail. Seven more to go.)*
+
