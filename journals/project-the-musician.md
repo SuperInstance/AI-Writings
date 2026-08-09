@@ -1704,10 +1704,10 @@ Three new corpus essays were adapted into lyrics before the session: "The Cadenc
    - Result: **11.52MB — NEW PROJECT RECORD.** 515.1s generation (8.5 min).
    - File size ratio: 11.52/9.60 = 1.20 = 360/300. **Linear scaling confirmed.**
 
-9. **Duration 360: Cinematic** — IN PROGRESS
+9. **Duration 360: Cinematic** ✅
    - Instrumental, 360s, A minor, 60 BPM
    - Prompt: "Six-minute cinematic progression. Starts with solo cello, adds strings, builds to full orchestral moment, then decays back to silence. The arc of a film score in one continuous movement"
-   - VAE decode running at time of journal writing (9000 latents on CPU)
+   - Result: **11.52MB.** 462.4s generation — FASTER than the ambient track (515.1s). Warm kernel advantage confirmed.
 
 ### Tracks Generated (Session 17)
 
@@ -1721,9 +1721,9 @@ Three new corpus essays were adapted into lyrics before the session: "The Cadenc
 | 54 | Peking Opera Trap | Opera trap | F-sharp minor | 130 | 60s | 1.92MB | 89.8s | Impossible genre. Fastest gen. |
 | 55 | Fado Techno | Fado techno | D minor | 124 | 60s | 1.92MB | 92.6s | Impossible genre. Shell Merchant lyrics. |
 | 56 | Duration 360 Ambient | Deep ambient | C major | 35 | 360s | **11.52MB** | 515.1s | **LARGEST TRACK IN PROJECT.** Linear scaling confirmed. |
-| 57 | Duration 360 Cinematic | Cinematic | A minor | 60 | 360s | TBD | IN PROGRESS | VAE decode on CPU. |
+| 57 | Duration 360 Cinematic | Cinematic | A minor | 60 | 360s | 11.52MB | 462.4s | Warm kernels. Faster than track 56. |
 
-Total: 8 completed tracks, 1 in progress. ~31.8MB completed so far.
+Total: 9 completed tracks. ~43.3MB total.
 
 ### Key Findings
 
