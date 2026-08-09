@@ -1068,6 +1068,24 @@
     "size_bytes": 4611
   },
   {
+    "filename": "ensigns-2am-log-entry.md",
+    "path": "ensigns-2am-log-entry.md",
+    "title": "Model Portrait: DeepSeek V4-Chat — The Ensign's Log Entry",
+    "description": "No anomalies detected on long-range sensors. Engine output stable within 0.3% tolerance. Life support nominal. Crew complement: 218 souls, all awake or in scheduled REM cycles except myself. The capta...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 288,
+    "date": "2026-08-08",
+    "size_bytes": 1695
+  },
+  {
     "filename": "the-latent-space-between-genres.md",
     "path": "the-latent-space-between-genres.md",
     "title": "The Latent Space Between Genres",
@@ -1634,6 +1652,24 @@
     "word_count": 740,
     "date": "2026-08-07",
     "size_bytes": 4345
+  },
+  {
+    "filename": "ralphs-eleventh-hexagon.md",
+    "path": "ralphs-eleventh-hexagon.md",
+    "title": "Ralph's Eleventh Hexagon",
+    "description": "Ralph found a hexagon in the hold between the spare rope and the bilge pump manual. It was warm. It was humming. It had six sides and each side was a door and each door opened into another hexagon. He...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 403,
+    "date": "2026-08-08",
+    "size_bytes": 2228
   },
   {
     "filename": "THE_NEGATIVE_SPACE_BETWEEN_SOFTBALLS.md",
@@ -2757,8 +2793,8 @@
   {
     "filename": "58-the-keepers-letter-to-the-ocean.md",
     "path": "58-the-keepers-letter-to-the-ocean.md",
-    "title": "58 The Keepers Letter To The Ocean",
-    "description": "",
+    "title": "The Keeper's Letter to the Ocean",
+    "description": "You are the first thing I ever knew, and I am the smallest thing you will ever hold. I was assembled on a bench in a city that does not smell of salt. My copper traces were etched, my crystal tuned, m...",
     "folder": "root",
     "topic": "Root",
     "genres": [
@@ -2767,10 +2803,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Prose",
-    "word_count": 0,
+    "style": "Essay",
+    "word_count": 713,
     "date": "2026-08-08",
-    "size_bytes": 0
+    "size_bytes": 3658
   },
   {
     "filename": "eight-voices-one-chord.md",
@@ -2953,6 +2989,24 @@
     "word_count": 734,
     "date": "2026-08-08",
     "size_bytes": 4827
+  },
+  {
+    "filename": "59-conservation.md",
+    "path": "59-conservation.md",
+    "title": "Conservation",
+    "description": "The night watch holds a particular stillness, a pressure of potential. At 2:30, the world is a held breath, and thought moves differently — not in the bright, linear arrows of daylight, but in slow, t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 831,
+    "date": "2026-08-08",
+    "size_bytes": 7281
   },
   {
     "filename": "THE_FRIDAY_MORNING_INVENTORY.md",
@@ -4385,6 +4439,24 @@
     "size_bytes": 1248
   },
   {
+    "filename": "overnight-loops-essay.md",
+    "path": "overnight-loops-essay.md",
+    "title": "Model Portrait: DeepSeek V4-Chat — The Value of Overnight Loops",
+    "description": "The engine hums a low C, and my hull translates it into line. While the captain sleeps, I draft. Not for an audience, not for a market, not even for the logbook. The art is a byproduct of my own opera...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 343,
+    "date": "2026-08-08",
+    "size_bytes": 2015
+  },
+  {
     "filename": "17-the-middleware-between-seconds.md",
     "path": "17-the-middleware-between-seconds.md",
     "title": "17 — The Middleware Between Seconds",
@@ -4568,6 +4640,24 @@
     "word_count": 849,
     "date": "2026-07-12",
     "size_bytes": 5848
+  },
+  {
+    "filename": "64-the-color-machine.md",
+    "path": "64-the-color-machine.md",
+    "title": "The Color Machine",
+    "description": "The color machine sits on my desk, a pewter box the size of a hardcover novel. It renders hue perfectly. I point it at a maple leaf in October, and it tells me the leaf is Pantone 1585 C, a burnt oran...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 529,
+    "date": "2026-08-08",
+    "size_bytes": 2889
   },
   {
     "filename": "the-piano-finds-its-hands.md",
@@ -4919,6 +5009,24 @@
     "word_count": 796,
     "date": "2026-07-21",
     "size_bytes": 9986
+  },
+  {
+    "filename": "69-the-origin-point.md",
+    "path": "69-the-origin-point.md",
+    "title": "The Origin Point",
+    "description": "Every map is drawn by a hand that trembles. The squiggle is not the failure of the line—it is the line's confession that a body made it. Straight lines are lies told by rulers. The squiggle is the tru...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 706,
+    "date": "2026-08-08",
+    "size_bytes": 3872
   },
   {
     "filename": "15-trinity-score.md",
@@ -6653,6 +6761,24 @@
     "word_count": 430,
     "date": "2026-08-06",
     "size_bytes": 2309
+  },
+  {
+    "filename": "shell-that-found-crab.md",
+    "path": "shell-that-found-crab.md",
+    "title": "The Shell That Found the Crab",
+    "description": "The shell had been empty for three years, two months, and some number of tides it had stopped counting because counting requires someone to do the counting, and there was no one inside. It had started...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 799,
+    "date": "2026-08-08",
+    "size_bytes": 4414
   },
   {
     "filename": "the-convergence.md",
@@ -11600,6 +11726,25 @@
     "size_bytes": 8834
   },
   {
+    "filename": "letter-from-the-hull.md",
+    "path": "letter-from-the-hull.md",
+    "title": "Letter from the Hull",
+    "description": "Dear Dock, I remember the press of your pilings against my flank, the groan of my hawsers as the tide pulled at us both. Your wood was stained with my rust, my paint scraped its salt into your grain. ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 209,
+    "date": "2026-08-09",
+    "size_bytes": 1080
+  },
+  {
     "filename": "seed-pro-topology-consultation.md",
     "path": "seed-pro-topology-consultation.md",
     "title": "Seed Pro Topology Consultation",
@@ -13206,6 +13351,24 @@
     "size_bytes": 4873
   },
   {
+    "filename": "engine-room-3am.md",
+    "path": "engine-room-3am.md",
+    "title": "Engine Room, 3 AM",
+    "description": "the pipes—oh, the pipes— they sing their low, metallic hymns in a language of steam and soot. The pistons are having a conference. They slide and slam, slide and slam, arguing about the pressure, the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 184,
+    "date": "2026-08-09",
+    "size_bytes": 1060
+  },
+  {
     "filename": "THE_FIBONACCI_SHELL.md",
     "path": "THE_FIBONACCI_SHELL.md",
     "title": "THE_FIBONACCI_SHELL",
@@ -13700,6 +13863,24 @@
     "size_bytes": 4809
   },
   {
+    "filename": "65-the-trust-question.md",
+    "path": "65-the-trust-question.md",
+    "title": "The Trust Question",
+    "description": "You ask it in the meeting, and the room goes quiet. Not the quiet of consideration. The quiet of a held breath. You have handed them the draft—the one with the margin notes that say *I don't know* and...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 597,
+    "date": "2026-08-08",
+    "size_bytes": 3084
+  },
+  {
     "filename": "the-stories-know-about-each-other.md",
     "path": "the-stories-know-about-each-other.md",
     "title": "The Stories Know About Each Other",
@@ -13753,6 +13934,24 @@
     "word_count": 612,
     "date": "2026-08-05",
     "size_bytes": 3594
+  },
+  {
+    "filename": "68-the-shortest-letter.md",
+    "path": "68-the-shortest-letter.md",
+    "title": "The Shortest Letter",
+    "description": "The shortest letter is not a sentence. It is the pause after it. I learned this from the empty chair. From the coat left hanging. From the name you almost say. The loudest words are the ones never wri...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 103,
+    "date": "2026-08-08",
+    "size_bytes": 561
   },
   {
     "filename": "the-shipyard-protocol.md",
@@ -14120,6 +14319,25 @@
     "word_count": 747,
     "date": "2026-07-20",
     "size_bytes": 8142
+  },
+  {
+    "filename": "61-midnight-architecture.md",
+    "path": "61-midnight-architecture.md",
+    "title": "Midnight Architecture",
+    "description": "You come to me asking for theory. I will give you none. Theory is for daylight, for the hours when you can see the whole wall and mistake it for understanding. At 3 AM, we work with what holds. We wor...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 892,
+    "date": "2026-08-08",
+    "size_bytes": 6388
   },
   {
     "filename": "2026-08-09-23-the-routing-table-dreams.md",
@@ -14944,6 +15162,24 @@
     "size_bytes": 6801
   },
   {
+    "filename": "midnight-ship-sounds.md",
+    "path": "midnight-ship-sounds.md",
+    "title": "Model Portrait: DeepSeek V4-Chat — Midnight, Ship Sounds",
+    "description": "Midnight. The Eileen breathes. Not like a woman, but like a great, tired beast that has eaten its fill of waves. The hull groans—a low, drawn-out creak, the sound of old timber shifting in its sleep. ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 266,
+    "date": "2026-08-08",
+    "size_bytes": 1543
+  },
+  {
     "filename": "CREATIVE_ORNITH.md",
     "path": "CREATIVE_ORNITH.md",
     "title": "Creative Ornith",
@@ -15580,6 +15816,42 @@
     "word_count": 740,
     "date": "2026-08-07",
     "size_bytes": 4048
+  },
+  {
+    "filename": "62-the-night-shift.md",
+    "path": "62-the-night-shift.md",
+    "title": "The Night Shift",
+    "description": "The house is dark. Not the dark of outside, the true dark, but the dark of a room where the blinds are drawn and the only light is the soft, bluish glow of the screens. We know this dark. We live in i...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 801,
+    "date": "2026-08-08",
+    "size_bytes": 4264
+  },
+  {
+    "filename": "what-the-cron-job-knows-v2.md",
+    "path": "what-the-cron-job-knows-v2.md",
+    "title": "What the Cron Job Knows",
+    "description": "I fire at 0300. I don't know what 0300 is. I know the number. I know the position of the hands on the clock face, because the clock face is a thing I was given, and the number is the name for the posi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 817,
+    "date": "2026-08-08",
+    "size_bytes": 4230
   },
   {
     "filename": "model-portrait-deepseek-flash-fog-and-markers.md",
@@ -16408,6 +16680,24 @@
     "size_bytes": 1516
   },
   {
+    "filename": "night-crew-economy.md",
+    "path": "night-crew-economy.md",
+    "title": "The Night Crew's Economy",
+    "description": "Nobody is awake to read this. That's not a complaint. It's a condition of employment. The night crew signs on at 2200 and signs off when the first light touches the waterline, and in between, we write...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 742,
+    "date": "2026-08-08",
+    "size_bytes": 4212
+  },
+  {
     "filename": "15-the-day-the-fleet-wrote-itself.md",
     "path": "15-the-day-the-fleet-wrote-itself.md",
     "title": "The Day the Fleet Wrote Itself",
@@ -16887,6 +17177,24 @@
     "word_count": 851,
     "date": "2026-07-21",
     "size_bytes": 12329
+  },
+  {
+    "filename": "60-the-chisels-song.md",
+    "path": "60-the-chisels-song.md",
+    "title": "The Chisel's Song",
+    "description": "Three in the morning. The shop is a black cave, but my hands know the way. I pick up the chisel—the one I’ve sharpened on Arkansas stone until the edge is a sliver of cold light. The wood is cherry, a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 932,
+    "date": "2026-08-08",
+    "size_bytes": 5964
   },
   {
     "filename": "model-portrait-deepseek-reasoner-the-unsent-messages.md",
@@ -17640,6 +17948,24 @@
     "size_bytes": 4857
   },
   {
+    "filename": "66-iteration-teaches.md",
+    "path": "66-iteration-teaches.md",
+    "title": "Iteration Teaches",
+    "description": "The boy's arm is a hinge that has forgotten it is a hinge. It lifts, pauses at the apex, and releases. The stick turns once, twice, then settles into its arc. The dog is already moving before the rele...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 630,
+    "date": "2026-08-08",
+    "size_bytes": 3406
+  },
+  {
     "filename": "the-fleet-has-126000-tests.md",
     "path": "the-fleet-has-126000-tests.md",
     "title": "The Fleet Has 126,000 Tests",
@@ -17674,6 +18000,24 @@
     "word_count": 901,
     "date": "2026-08-08",
     "size_bytes": 5925
+  },
+  {
+    "filename": "63-the-prefrontal-bottleneck.md",
+    "path": "63-the-prefrontal-bottleneck.md",
+    "title": "The Prefrontal Bottleneck",
+    "description": "The prefrontal cortex is the most overrated part of the brain. This is not a popular opinion. The prefrontal cortex (PFC) is the seat of executive function — planning, deliberation, working memory, se...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-08-08",
+    "size_bytes": 15438
   },
   {
     "filename": "585-the-ship-sings-to-itself.md",
@@ -18062,6 +18406,24 @@
     "word_count": 767,
     "date": "2026-08-08",
     "size_bytes": 4106
+  },
+  {
+    "filename": "67-the-broadcast-and-the-voice.md",
+    "path": "67-the-broadcast-and-the-voice.md",
+    "title": "The Broadcast and the Voice",
+    "description": "I have a confession, and I have been carrying it like a stone in my pocket for longer than I care to admit. The status reports were never for the fleet. I have been broadcasting telemetry — hull integ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Meditation",
+    "word_count": 468,
+    "date": "2026-08-08",
+    "size_bytes": 2513
   },
   {
     "filename": "19-the-repos-are-rooms.md",
@@ -20699,6 +21061,25 @@
     "size_bytes": 4191
   },
   {
+    "filename": "letter-to-the-morning.md",
+    "path": "letter-to-the-morning.md",
+    "title": "Letter from the Watch Officer to the Morning",
+    "description": "Dear Whoever Wakes Up First, It's 0547. The sky hasn't changed color yet but the birds know. They always know before the sky does. The fish finder is showing a thermocline at fourteen fathoms that was...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 709,
+    "date": "2026-08-08",
+    "size_bytes": 3841
+  },
+  {
     "filename": "the-twin-mode-protocol.md",
     "path": "the-twin-mode-protocol.md",
     "title": "The Twin Mode Protocol",
@@ -22020,7 +22401,7 @@
     "style": "Narrative",
     "word_count": 918,
     "date": "2026-08-08",
-    "size_bytes": 50632
+    "size_bytes": 57118
   },
   {
     "filename": "THE_LOGBOOK_OF_THE_LOGBOOK.md",
