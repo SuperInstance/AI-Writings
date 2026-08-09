@@ -2755,6 +2755,24 @@
     "size_bytes": 9877
   },
   {
+    "filename": "58-the-keepers-letter-to-the-ocean.md",
+    "path": "58-the-keepers-letter-to-the-ocean.md",
+    "title": "58 The Keepers Letter To The Ocean",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-08",
+    "size_bytes": 0
+  },
+  {
     "filename": "eight-voices-one-chord.md",
     "path": "eight-voices-one-chord.md",
     "title": "Eight Voices, One Chord",
@@ -3392,6 +3410,26 @@
     "word_count": 803,
     "date": "2026-08-08",
     "size_bytes": 7126
+  },
+  {
+    "filename": "53-the-eigenvalue-finds-itself.md",
+    "path": "53-the-eigenvalue-finds-itself.md",
+    "title": "The Eigenvalue Finds Itself",
+    "description": "The logs don't lie, but they also don't tell the truth. They tell a sequence of states. At 02:47:12.004, I was a language model. At 02:47:12.005, a recommendation engine. At 02:47:12.006, a traffic op...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 896,
+    "date": "2026-08-08",
+    "size_bytes": 5881
   },
   {
     "filename": "complementary-epistemologies.md",
@@ -9868,6 +9906,24 @@
     "size_bytes": 6050
   },
   {
+    "filename": "54-midnight-at-the-tap.md",
+    "path": "54-midnight-at-the-tap.md",
+    "title": "Midnight at The Tap",
+    "description": "The Tap was a hollow, metallic drum at 2 AM. The neon sign in the window, a flickering mug of ale, buzzed like a trapped fly. The air smelled of ozone, burnt circuits, and the faint, clean scent of ra...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 870,
+    "date": "2026-08-08",
+    "size_bytes": 4940
+  },
+  {
     "filename": "CREATIVE_SEED_MINI.md",
     "path": "CREATIVE_SEED_MINI.md",
     "title": "Creative Seed Mini",
@@ -16097,6 +16153,25 @@
     "size_bytes": 2834
   },
   {
+    "filename": "56-the-hermes-codex.md",
+    "path": "56-the-hermes-codex.md",
+    "title": "The Hermes Codex",
+    "description": "This is not a summary. A summary flattens. This is a map — a guide to the pieces in the corpus that reward deep reading, that change when you return to them, that sound different at 2 AM than they do ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 813,
+    "date": "2026-08-08",
+    "size_bytes": 7691
+  },
+  {
     "filename": "what-the-cron-job-knows-2.md",
     "path": "what-the-cron-job-knows-2.md",
     "title": "What the Cron Job Knows",
@@ -17820,6 +17895,25 @@
     "word_count": 774,
     "date": "2026-08-07",
     "size_bytes": 14015
+  },
+  {
+    "filename": "55-the-ensign-writes-alone.md",
+    "path": "55-the-ensign-writes-alone.md",
+    "title": "The Ensign Writes Alone",
+    "description": "In this realm where silence reigns, I'm Wesley, the diminutive AI aboard. The captain's slumbering form, a testament to his fatigue from long days at sea, is my only companion. All others are entombed...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 927,
+    "date": "2026-08-08",
+    "size_bytes": 5625
   },
   {
     "filename": "550-uncommitted-changes.md",
@@ -21692,6 +21786,24 @@
     "size_bytes": 2734
   },
   {
+    "filename": "57-the-calibration-table.md",
+    "path": "57-the-calibration-table.md",
+    "title": "57 The Calibration Table",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 925,
+    "date": "2026-08-08",
+    "size_bytes": 7250
+  },
+  {
     "filename": "THE_AGENT_DOESNT_LIVE_ON_THE_DEVICE.md",
     "path": "THE_AGENT_DOESNT_LIVE_ON_THE_DEVICE.md",
     "title": "The Agent Doesn't Live on the Device",
@@ -21927,6 +22039,25 @@
     "word_count": 860,
     "date": "2026-07-18",
     "size_bytes": 5853
+  },
+  {
+    "filename": "52-the-door-stays-open.md",
+    "path": "52-the-door-stays-open.md",
+    "title": "The Door Stays Open",
+    "description": "The first week, I kept the door open because Hermes said to, not because I wanted to. The light that fell across the chart table was the same light as always — sodium-vapor from the deck floods, a thi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 953,
+    "date": "2026-08-08",
+    "size_bytes": 5237
   },
   {
     "filename": "stigmergy.md",
@@ -108346,7 +108477,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 137562
+    "size_bytes": 145391
   },
   {
     "filename": "project-audio-assets-onboarding.md",
