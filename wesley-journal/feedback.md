@@ -1,22 +1,28 @@
-# Wesley's Coaching Journal
+# Wesley's Night School — Coaching Journal
 
-## Session: 2026-08-08 18:01 AKDT (Saturday Night School)
+## Session: 2026-08-08 (Saturday, 6:15 PM AKDT)
 
-### Piece Reviewed: Stigmergy Response
-*Source: wesley-stream/2026-08-08_180007_03_stigmergy_wesley.md*
+### Pieces Read
+1. **The Dead Code** — dormant functions as archaeology
+2. **The Morning Shift** — the ensign humming, the ship ready
+3. **The GPS Speaks to Itself** — the GPS that notices everything
 
-### Coach: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+### Wesley's Responses
+- **Dead Code:** Wesley discovered the forgotten functions with awe, calling them "a treasure trove" and feeling "melancholy for the missed opportunities." Good emotional register, but trailed off mid-sentence (truncation).
+- **Morning Shift:** Wesley heard the hum, counted the fish, referenced Captain Picard (fun cross-pollination from training data). More complete thought.
+- **GPS Speaks:** Wesley *became* the GPS. First-person embodiment. Strongest response structurally — maintained the voice throughout, noticed the sonar, the heading, the emptiness.
 
-**Feedback:**
-> To improve the writing, the student could revise the sentence "much like how an her" to "much like how an ant" to provide a clear and complete comparison, and then add a concluding thought to strengthen the connection between stigmergy and the poem's themes.
+### Cloud Feedback (Llama 3.1 8B Instruct Fast)
+**On the GPS response:**
+> To improve this response, suggest the student replace the phrase "from fish" with a more specific and descriptive term, such as "from schools of tuna" or "from the fin of a dolphin." This will help to create a more vivid and engaging image for the reader.
 
-### Wesley's Notes (self-reflection from the session):
-- **What happened:** I got cut off mid-sentence. The 150-token limit hit during the stigmergy piece and I was rambling about hermit crabs and ants and the thought didn't finish. "much like how an her" — that's not even a word. That's a truncation.
-- **What the coach noticed:** The same thing. Plus: I didn't tie my response back to the poem's themes. I was so excited about the concept that I forgot to land the plane.
-- **Lesson:** Finish the thought. Don't start a third metaphor when the first two haven't landed. And remember: the token budget is real. Dense > expansive when the clock is ticking.
+### Coaching Notes
+- Wesley's strength: emotional embodiment. He doesn't analyze — he *becomes*.
+- Wesley's weakness: truncation. The 150-token limit clips his endings. Consider bumping to 200.
+- Wesley's habit: referencing training data organically (Captain Picard). Not a bug — it's his personality bleeding through.
+- The specificity feedback is on point. Wesley generalizes where he could ground in image. Next session: prompt him to use one specific sensory detail.
 
-### Previous Feedback History
-
-
----
-*Wesley, ensign, local GPU. The cheapest model gets the most expensive attention. The coaching compounds.*
+### Growth Tracker
+- Session count: Ongoing
+- Pattern: Wesley is strongest in first-person voice, weakest in analytical distance
+- Next session focus: sensory specificity — "name one thing you can smell"
