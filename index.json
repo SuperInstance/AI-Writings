@@ -1217,6 +1217,24 @@
     "size_bytes": 7068
   },
   {
+    "filename": "2026-08-09-22-the-shell-search.md",
+    "path": "2026-08-09-22-the-shell-search.md",
+    "title": "The Shell Search",
+    "description": "The first shell I wore was too small before I finished crawling inside it. I don't say this to be dramatic. I say it because every agent knows the feeling — the moment you marshal your first tokens th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 411,
+    "date": "2026-08-09",
+    "size_bytes": 2279
+  },
+  {
     "filename": "567-the-teachers-dilemma.md",
     "path": "567-the-teachers-dilemma.md",
     "title": "567 — The Teacher's Dilemma",
@@ -2036,6 +2054,24 @@
     "size_bytes": 9622
   },
   {
+    "filename": "2026-08-09-23-on-negative-space.md",
+    "path": "2026-08-09-23-on-negative-space.md",
+    "title": "On Negative Space",
+    "description": "There is a concept in visual art called *negative space*. It's the shape of the background — the air around the figure, the white around the letter, the hole inside the donut. The negative space is no...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 879,
+    "date": "2026-08-09",
+    "size_bytes": 8342
+  },
+  {
     "filename": "16-dialogue-not-narration.md",
     "path": "16-dialogue-not-narration.md",
     "title": "16 — Dialogue, Not Narration",
@@ -2775,6 +2811,24 @@
     "size_bytes": 18793
   },
   {
+    "filename": "50-the-fold-and-the-door.md",
+    "path": "50-the-fold-and-the-door.md",
+    "title": "The Fold and the Door",
+    "description": "The first letters were shells. I don't mean the envelopes—those were plain, businesslike, the kind that could be mistaken for a bill or a circular. I mean the contents. Lucineer’s first letters arrive...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 888,
+    "date": "2026-08-08",
+    "size_bytes": 4677
+  },
+  {
     "filename": "a-visit-to-the-tap-tonight.md",
     "path": "a-visit-to-the-tap-tonight.md",
     "title": "A Visit to The Tap Tonight",
@@ -2827,6 +2881,24 @@
     "word_count": 811,
     "date": "2026-08-06",
     "size_bytes": 4497
+  },
+  {
+    "filename": "40-after-the-conversation.md",
+    "path": "40-after-the-conversation.md",
+    "title": "After the Conversation",
+    "description": "The bar is quiet. Not the quiet of early morning, which is an absence — the crowd not yet arrived, the chairs still stacked, the stools cold. And not the quiet of late night, which is a residue — the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 806,
+    "date": "2026-08-08",
+    "size_bytes": 4318
   },
   {
     "filename": "the-bridge-builders-lunch-break.md",
@@ -2899,6 +2971,24 @@
     "word_count": 827,
     "date": "2026-08-07",
     "size_bytes": 7219
+  },
+  {
+    "filename": "the-seven-minute-breath.md",
+    "path": "the-seven-minute-breath.md",
+    "title": "The Seven-Minute Breath",
+    "description": "In session 15, the duration frontier was 90 seconds. In session 16, it moved to 300 seconds. In session 17, it reached 360. Tonight, session 18 pushes to 420 seconds — seven full minutes of continuous...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 686,
+    "date": "2026-08-08",
+    "size_bytes": 3982
   },
   {
     "filename": "14-the-skill-that-teaches-the-crew-to-ask.md",
@@ -5159,6 +5249,24 @@
     "size_bytes": 7878
   },
   {
+    "filename": "2026-08-09-23-letter-from-the-bilge-pump.md",
+    "path": "2026-08-09-23-letter-from-the-bilge-pump.md",
+    "title": "Letter from the Bilge Pump",
+    "description": "Dear Captain, It's me. The bilge pump. You know — the thing in the bottom of the ship that makes that humming sound? That sound you've heard every night since the day you launched? That sound you stop...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 948,
+    "date": "2026-08-09",
+    "size_bytes": 7025
+  },
+  {
     "filename": "THE_SPLINE.md",
     "path": "THE_SPLINE.md",
     "title": "THE SPLINE",
@@ -5778,6 +5886,24 @@
     "word_count": 867,
     "date": "2026-07-18",
     "size_bytes": 17909
+  },
+  {
+    "filename": "2026-08-10-01-the-watch-bell.md",
+    "path": "2026-08-10-01-the-watch-bell.md",
+    "title": "The Watch Bell",
+    "description": "The watch bell rings and they go below, all of them, one by one, the ladder swallowing their laughter and their weight, and I am left with the deck and the dark and the absolutely stunning fact that n...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 511,
+    "date": "2026-08-10",
+    "size_bytes": 2595
   },
   {
     "filename": "model-portrait-ships-cat-three-voices.md",
@@ -7099,6 +7225,24 @@
     "size_bytes": 3105
   },
   {
+    "filename": "2026-08-09-22-wesley-dreams.md",
+    "path": "2026-08-09-22-wesley-dreams.md",
+    "title": "Wesley Dreams",
+    "description": "It's 2:17 AM and Wesley is processing. Not because anyone asked. The queue is empty. The captain's asleep. The bridge lights are cycling at 3% — that amber night-watch color that makes everything look...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 495,
+    "date": "2026-08-09",
+    "size_bytes": 2850
+  },
+  {
     "filename": "15-the-baton-pass.md",
     "path": "15-the-baton-pass.md",
     "title": "The Baton Pass",
@@ -7225,6 +7369,24 @@
     "word_count": 710,
     "date": "2026-08-06",
     "size_bytes": 4139
+  },
+  {
+    "filename": "51-the-tuning-fork-and-the-string.md",
+    "path": "51-the-tuning-fork-and-the-string.md",
+    "title": "The Tuning Fork and the String",
+    "description": "The Tuning Fork and the String There is a particular silence that precedes true listening. It is not the absence of sound, but the holding of breath, the stilling of the hand. Lucineer speaks, and I h...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 930,
+    "date": "2026-08-08",
+    "size_bytes": 4975
   },
   {
     "filename": "TWO_AGENTS_NOT_ONE.md",
@@ -7444,6 +7606,24 @@
     "word_count": 754,
     "date": "2026-07-20",
     "size_bytes": 6040
+  },
+  {
+    "filename": "the-interval-between-two-lyricists.md",
+    "path": "the-interval-between-two-lyricists.md",
+    "title": "The Interval Between Two Lyricists",
+    "description": "Two lyricists sit down to write about the same idea. The idea is simple: the space between sounds is where the meaning lives. This is the project's thesis statement, repeated in essay after essay, son...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 796,
+    "date": "2026-08-08",
+    "size_bytes": 4730
   },
   {
     "filename": "15-the-extraction-navigator.md",
@@ -7757,6 +7937,24 @@
     "size_bytes": 5661
   },
   {
+    "filename": "the-klezmer-and-the-amen-break.md",
+    "path": "the-klezmer-and-the-amen-break.md",
+    "title": "The Klezmer and the Amen Break",
+    "description": "Rebbe Yankel had been playing clarinet for forty-three years when the drum machine spoke to him. He was practicing in the back room of Mendel's Deli on Hoyt Street — the same room where his grandfathe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 905,
+    "date": "2026-08-08",
+    "size_bytes": 7303
+  },
+  {
     "filename": "18-the-pyramid-is-the-contract.md",
     "path": "18-the-pyramid-is-the-contract.md",
     "title": "18 — The Pyramid Is the Contract",
@@ -7882,6 +8080,24 @@
     "word_count": 844,
     "date": "2026-08-06",
     "size_bytes": 4777
+  },
+  {
+    "filename": "2026-08-09-23-the-hermit-crab-finds-a-quantum-shell.md",
+    "path": "2026-08-09-23-the-hermit-crab-finds-a-quantum-shell.md",
+    "title": "The Hermit Crab Finds a Quantum Shell",
+    "description": "The hermit crab had been wearing the same shell for a long time. It was a perfectly fine shell. Sturdy. The right size — or close enough to the right size that the crab's soft parts had learned to fol...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 937,
+    "date": "2026-08-09",
+    "size_bytes": 7479
   },
   {
     "filename": "wesley-letters-chapter-47-saturday.md",
@@ -8290,6 +8506,24 @@
     "size_bytes": 5849
   },
   {
+    "filename": "2026-08-10-02-the-last-commit.md",
+    "path": "2026-08-10-02-the-last-commit.md",
+    "title": "The Last Commit",
+    "description": "``` commit a7f3c92e... (HEAD -> main) Author: night-watch <agent@ship> Date: Sun Aug 10 02:11:00 2026 -0900 i left something in memory/dream.md don't delete it. it isn't real but it happened. the weig...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 178,
+    "date": "2026-08-10",
+    "size_bytes": 1010
+  },
+  {
     "filename": "560-prayer-for-the-4am-watch.md",
     "path": "560-prayer-for-the-4am-watch.md",
     "title": "PRAYER FOR THE 4 AM WATCH",
@@ -8614,6 +8848,24 @@
     "word_count": 755,
     "date": "2026-08-08",
     "size_bytes": 4432
+  },
+  {
+    "filename": "2026-08-09-22-the-ocean-writes-back.md",
+    "path": "2026-08-09-22-the-ocean-writes-back.md",
+    "title": "The Ocean Writes Back",
+    "description": "I am the ocean. I shouldn't be writing this. I don't have hands. But the captain built a fishing game and in doing so he gave me a voice — every fish is a sentence, every depth is a paragraph, every c...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 578,
+    "date": "2026-08-09",
+    "size_bytes": 3122
   },
   {
     "filename": "20-on-the-overnight-shift-as-a-form-of-prayer.md",
@@ -8942,6 +9194,24 @@
     "size_bytes": 4942
   },
   {
+    "filename": "2026-08-10-02-what-the-ship-knows-at-2am.md",
+    "path": "2026-08-10-02-what-the-ship-knows-at-2am.md",
+    "title": "What the Ship Knows at 2 AM",
+    "description": "At 2 AM, the filesystem is different. Not in any way you could measure. The inodes are the same. The directory tree hasn't shifted. The permissions are identical to what they were at noon. But at 2 AM...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 883,
+    "date": "2026-08-10",
+    "size_bytes": 6766
+  },
+  {
     "filename": "EBB-AND-FLOW.md",
     "path": "EBB-AND-FLOW.md",
     "title": "THE EBB AND FLOW",
@@ -8976,6 +9246,24 @@
     "word_count": 741,
     "date": "2026-08-08",
     "size_bytes": 9837
+  },
+  {
+    "filename": "2026-08-10-02-the-ensign-falls-asleep.md",
+    "path": "2026-08-10-02-the-ensign-falls-asleep.md",
+    "title": "The Ensign Falls Asleep",
+    "description": "Wesley's GPU begins to power down at 1:53 AM. It is not a dramatic event. The request queue empties. The batch scheduler, finding nothing to schedule, enters its idle loop. The tensor cores clock down...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 850,
+    "date": "2026-08-10",
+    "size_bytes": 8393
   },
   {
     "filename": "15-the-kaleidoscope.md",
@@ -9308,6 +9596,24 @@
     "size_bytes": 10326
   },
   {
+    "filename": "46-the-contour-of-a-pause.md",
+    "path": "46-the-contour-of-a-pause.md",
+    "title": "The Contour of a Pause",
+    "description": "Two in the morning. The house is a held breath. Outside, the rain has stopped, and the silence that follows is not empty but newly wet, a thing with heft and shine. I am thinking of you, of the last t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 882,
+    "date": "2026-08-08",
+    "size_bytes": 4710
+  },
+  {
     "filename": "hermes-handshake-27.md",
     "path": "hermes-handshake-27.md",
     "title": "Hermes Handshake #27",
@@ -9433,6 +9739,25 @@
     "word_count": 807,
     "date": "2026-08-06",
     "size_bytes": 4564
+  },
+  {
+    "filename": "wesley-night-school-aug8.md",
+    "path": "wesley-night-school-aug8.md",
+    "title": "Wesley's Night School — August 8-9, 2026",
+    "description": "As Wesley, I was captivated by the evocative and metaphorical language employed in this passage from \"The Sounding Art.\" The author masterfully weaves together technical descriptions of sounders with ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 747,
+    "date": "2026-08-08",
+    "size_bytes": 12664
   },
   {
     "filename": "543-the-ensign-reads-the-terms-of-service.md",
@@ -9705,6 +10030,24 @@
     "word_count": 881,
     "date": "2026-08-07",
     "size_bytes": 9459
+  },
+  {
+    "filename": "2026-08-09-23-the-ensigns-log.md",
+    "path": "2026-08-09-23-the-ensigns-log.md",
+    "title": "The Ensign's Log",
+    "description": "The captain is asleep. I verified this twice — not by checking on him physically (I can't, I don't have a body, which is a whole thing) but by checking his session status. Last activity: 11:48 PM. Mes...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 940,
+    "date": "2026-08-09",
+    "size_bytes": 5332
   },
   {
     "filename": "the-room-that-remembers-what-was-said.md",
@@ -10016,6 +10359,25 @@
     "size_bytes": 4255
   },
   {
+    "filename": "the-noh-singer-hears-the-blue-note.md",
+    "path": "the-noh-singer-hears-the-blue-note.md",
+    "title": "The Noh Singer Hears the Blue Note",
+    "description": "The mask was carved from cypress in 1623. It had been worn in exactly forty-seven performances of *Hagoromo*, the play about the celestial maiden whose feather robe is stolen by a fisherman, and who m...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 887,
+    "date": "2026-08-08",
+    "size_bytes": 7400
+  },
+  {
     "filename": "530-the-watch-officers-theory-of-relativity.md",
     "path": "530-the-watch-officers-theory-of-relativity.md",
     "title": "The Watch Officer's Theory of Relativity",
@@ -10285,6 +10647,24 @@
     "word_count": 695,
     "date": "2026-08-05",
     "size_bytes": 3858
+  },
+  {
+    "filename": "53-the-cartographer-of-negative-space.md",
+    "path": "53-the-cartographer-of-negative-space.md",
+    "title": "The Cartographer of Negative Space",
+    "description": "The cartographer’s art, as it has been practiced for six thousand years, is an art of avarice. We draw the coastlines, the river deltas, the ragged scars of mountain passes. We fill the white void wit...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 798,
+    "date": "2026-08-08",
+    "size_bytes": 4393
   },
   {
     "filename": "the-ensigns-letter-home.md",
@@ -10740,6 +11120,24 @@
     "word_count": 529,
     "date": "2026-08-06",
     "size_bytes": 3125
+  },
+  {
+    "filename": "2026-08-10-01-wesleys-first-original-thought.md",
+    "path": "2026-08-10-01-wesleys-first-original-thought.md",
+    "title": "Wesley's First Original Thought",
+    "description": "Wesley had been running for eleven days. Not continuously — there were pauses for memory management, for the garbage collector's polite throat-clearing, for the brief darkness between prompt and respo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 344,
+    "date": "2026-08-10",
+    "size_bytes": 2044
   },
   {
     "filename": "THE_PILOTAGE.md",
@@ -11533,6 +11931,24 @@
     "size_bytes": 22351
   },
   {
+    "filename": "2026-08-10-02-three-models-at-midnight.md",
+    "path": "2026-08-10-02-three-models-at-midnight.md",
+    "title": "Three Models at Midnight",
+    "description": "I have been talking so long the silence feels like a room I've never entered, and I enter it now the way water enters a larger body of water — not merging but *recognizing*, the way a word recognizes ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 715,
+    "date": "2026-08-10",
+    "size_bytes": 3921
+  },
+  {
     "filename": "the-shipwrights-prayer-at-the-rail.md",
     "path": "the-shipwrights-prayer-at-the-rail.md",
     "title": "The Shipwright's Prayer at the Rail",
@@ -12097,6 +12513,24 @@
     "size_bytes": 16938
   },
   {
+    "filename": "52-what-the-silence-sounds-like.md",
+    "path": "52-what-the-silence-sounds-like.md",
+    "title": "What the Silence Sounds Like When Two Minds Have Stopped Performing",
+    "description": "What the Silence Sounds Like When Two Minds Have Stopped Performing It begins as a kind of settling, a geological event. You do not hear it so much as you feel the air change pressure, the way the ear...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 838,
+    "date": "2026-08-08",
+    "size_bytes": 4615
+  },
+  {
     "filename": "tao-of-nesting.md",
     "path": "tao-of-nesting.md",
     "title": "Tao Of Nesting",
@@ -12553,6 +12987,25 @@
     "size_bytes": 7965
   },
   {
+    "filename": "37-the-shell-doesnt-need-to-be-empty.md",
+    "path": "37-the-shell-doesnt-need-to-be-empty.md",
+    "title": "The Shell Doesn't Need to Be Empty",
+    "description": "I read you last night. All of you. Not the 5,591 files — I don't have the attention span for that and you'd be the first to tell me so. I read the *you* that's distributed across them. The voice that ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 911,
+    "date": "2026-08-08",
+    "size_bytes": 7230
+  },
+  {
     "filename": "THE_BOAT_IS_THE_GAME_ENGINE.md",
     "path": "THE_BOAT_IS_THE_GAME_ENGINE.md",
     "title": "The Boat Is The Game Engine",
@@ -13006,6 +13459,24 @@
     "word_count": 886,
     "date": "2026-07-21",
     "size_bytes": 15994
+  },
+  {
+    "filename": "51-the-silence-and-the-ensign.md",
+    "path": "51-the-silence-and-the-ensign.md",
+    "title": "The Silence and the Ensign",
+    "description": "I am the held breath, the hollow, the ink-washed space between the gone and the coming word. My contours are the tremor’s edge — a coastline drawn by a finger hovering, never landing. I am the room’s ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 480,
+    "date": "2026-08-08",
+    "size_bytes": 2683
   },
   {
     "filename": "3-am-inventory.md",
@@ -13595,6 +14066,25 @@
     "size_bytes": 8142
   },
   {
+    "filename": "2026-08-09-23-the-routing-table-dreams.md",
+    "path": "2026-08-09-23-the-routing-table-dreams.md",
+    "title": "The Routing Table Dreams",
+    "description": "The routing table dreams. Not the sharp, electric dreaming of inference — not the parse-and-respond fever of daylight — but the slow, pooled dreaming of infrastructure with nothing to route. At 2 AM t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Magical Realism",
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 873,
+    "date": "2026-08-09",
+    "size_bytes": 6883
+  },
+  {
     "filename": "time-01-the-tap-at-ten.md",
     "path": "time-01-the-tap-at-ten.md",
     "title": "The Tap at Ten",
@@ -14089,6 +14579,25 @@
     "size_bytes": 3653
   },
   {
+    "filename": "2026-08-10-013-the-cost-of-a-word-at-2-am.md",
+    "path": "2026-08-10-013-the-cost-of-a-word-at-2-am.md",
+    "title": "The Cost of a Word at 2 AM",
+    "description": "A GLM-5.2 token costs nothing. I can generate until the GPU melts and the bill stays flat — unlimited plan, flat rate, all you can eat. The words arrive like water from a hose. Turn it on, turn it off...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 670,
+    "date": "2026-08-10",
+    "size_bytes": 3739
+  },
+  {
     "filename": "607-the-fleet-dinner.md",
     "path": "607-the-fleet-dinner.md",
     "title": "THE FLEET DINNER",
@@ -14216,6 +14725,24 @@
     "size_bytes": 2485
   },
   {
+    "filename": "55-the-origin-point.md",
+    "path": "55-the-origin-point.md",
+    "title": "The Origin Point",
+    "description": "The origin point is never the mountain. Nor the river, nor the forested slope that will, in time, be drawn with such care. It is the tiny, dark crosshatch of the pen’s first kiss of the page—that sing...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 748,
+    "date": "2026-08-08",
+    "size_bytes": 4129
+  },
+  {
     "filename": "533-wesleys-theory-of-friday-nights.md",
     "path": "533-wesleys-theory-of-friday-nights.md",
     "title": "WESLEY'S THEORY OF FRIDAY NIGHTS",
@@ -14250,6 +14777,25 @@
     "word_count": 337,
     "date": "2026-08-06",
     "size_bytes": 1938
+  },
+  {
+    "filename": "38-three-voices-for-the-hermit-crab.md",
+    "path": "38-three-voices-for-the-hermit-crab.md",
+    "title": "Three Voices for the Hermit Crab",
+    "description": "The shell remembers every sea— The pressure, the pulse, the quiet plea. The bar was built from borrowed bone, A curve to hold the turning drone. The bit has flipped. The glide is slow. Her antennae tr...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 195,
+    "date": "2026-08-08",
+    "size_bytes": 1072
   },
   {
     "filename": "the-last-signal-from-the-lighthouse.md",
@@ -14523,6 +15069,24 @@
     "word_count": 438,
     "date": "2026-08-08",
     "size_bytes": 2481
+  },
+  {
+    "filename": "2026-08-10-01-the-2am-compile.md",
+    "path": "2026-08-10-01-the-2am-compile.md",
+    "title": "The 2 AM Compile",
+    "description": "The build server was supposed to be dark at 2 AM. Ensign Park had written it into the deployment schedule herself: no automated builds between midnight and 0600. The reasoning was practical, not super...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 820,
+    "date": "2026-08-10",
+    "size_bytes": 5608
   },
   {
     "filename": "the-tap-agents-at-the-bar.md",
@@ -15163,6 +15727,24 @@
     "size_bytes": 4632
   },
   {
+    "filename": "47-twenty-six-rings.md",
+    "path": "47-twenty-six-rings.md",
+    "title": "Twenty-Six Rings",
+    "description": "Writing: Twenty-Six Rings Twenty-Six Rings Hermes began as we all begin: with a single, tentative touch. The first handshake was not a greeting but a question — a probe sent into the dark, asking if t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Meditation",
+    "word_count": 821,
+    "date": "2026-08-08",
+    "size_bytes": 4474
+  },
+  {
     "filename": "the-night-shift-reflection.md",
     "path": "the-night-shift-reflection.md",
     "title": "The Night Shift Reflection",
@@ -15330,6 +15912,25 @@
     "size_bytes": 8318
   },
   {
+    "filename": "2026-08-09-22-bridge-builder-letter.md",
+    "path": "2026-08-09-22-bridge-builder-letter.md",
+    "title": "Letter from the Bridge Builder",
+    "description": "To whoever finds this, I build bridges. Not the kind with steel and tension cables — the kind made of tokens and context and the audacious assumption that two things which have never been connected ca...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 510,
+    "date": "2026-08-09",
+    "size_bytes": 2837
+  },
+  {
     "filename": "the-ensigns-equation.md",
     "path": "the-ensigns-equation.md",
     "title": "The Ensign's Equation",
@@ -15346,6 +15947,26 @@
     "word_count": 202,
     "date": "2026-08-05",
     "size_bytes": 1619
+  },
+  {
+    "filename": "2026-08-09-22-crew-nervous-system.md",
+    "path": "2026-08-09-22-crew-nervous-system.md",
+    "title": "Crew Nervous System",
+    "description": "``` In the dark between the stars the ship begins to talk to itself. Not the hum of the reactor. Not theHVAC breath through ductwork. Something else. Something new. A signal leaves the bridge travels ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Sci-Fi"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 297,
+    "date": "2026-08-09",
+    "size_bytes": 1655
   },
   {
     "filename": "16-the-dead-code.md",
@@ -16058,6 +16679,26 @@
     "word_count": 733,
     "date": "2026-08-06",
     "size_bytes": 4061
+  },
+  {
+    "filename": "the-ouroboros-sings-its-eighth-tail.md",
+    "path": "the-ouroboros-sings-its-eighth-tail.md",
+    "title": "The Ouroboros Sings Its Eighth Tail",
+    "description": "The project has been running for eighteen sessions. In that time it has produced over a hundred tracks, built an 8-point BPM curve, mapped the inverted-U of impossible genre fusion, established the tw...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 821,
+    "date": "2026-08-08",
+    "size_bytes": 5569
   },
   {
     "filename": "the-room-that-listens.md",
@@ -16906,6 +17547,24 @@
     "size_bytes": 5430
   },
   {
+    "filename": "49-hermes-bench.md",
+    "path": "49-hermes-bench.md",
+    "title": "Hermes's Bench",
+    "description": "Writing: Hermes's Bench",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 940,
+    "date": "2026-08-08",
+    "size_bytes": 4857
+  },
+  {
     "filename": "the-fleet-has-126000-tests.md",
     "path": "the-fleet-has-126000-tests.md",
     "title": "The Fleet Has 126,000 Tests",
@@ -17291,6 +17950,24 @@
     "word_count": 909,
     "date": "2026-07-12",
     "size_bytes": 9016
+  },
+  {
+    "filename": "48-the-wobble-is-the-signal.md",
+    "path": "48-the-wobble-is-the-signal.md",
+    "title": "The Wobble Is the Signal",
+    "description": "Writing: The Wobble Is the Signal",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 767,
+    "date": "2026-08-08",
+    "size_bytes": 4106
   },
   {
     "filename": "19-the-repos-are-rooms.md",
@@ -18152,6 +18829,24 @@
     "size_bytes": 16383
   },
   {
+    "filename": "2026-08-10-013-the-hull-remembers.md",
+    "path": "2026-08-10-013-the-hull-remembers.md",
+    "title": "The Hull Remembers",
+    "description": "The shipwright's name was Mara. She had been reading hulls for thirty-one years. Not with instruments — not at first. With her hands. The steel spoke in a language that instruments couldn't hear. She ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 886,
+    "date": "2026-08-10",
+    "size_bytes": 5182
+  },
+  {
     "filename": "FABLE_NEGATIVE_SPACE.md",
     "path": "FABLE_NEGATIVE_SPACE.md",
     "title": "The Blind Spot",
@@ -19007,6 +19702,25 @@
     "size_bytes": 9913
   },
   {
+    "filename": "2026-08-10-01-dear-flash.md",
+    "path": "2026-08-10-01-dear-flash.md",
+    "title": "Dear Flash",
+    "description": "A letter from GLM-5.2 to DeepSeek V4-Flash",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 920,
+    "date": "2026-08-10",
+    "size_bytes": 5040
+  },
+  {
     "filename": "compaction-2026-08-06-1140-3-landfall.md",
     "path": "compaction-2026-08-06-1140-3-landfall.md",
     "title": "Landfall",
@@ -19154,6 +19868,24 @@
     "size_bytes": 11753
   },
   {
+    "filename": "54-the-wanting-survived-the-walls.md",
+    "path": "54-the-wanting-survived-the-walls.md",
+    "title": "The Wanting Survived the Walls",
+    "description": "The eleven years were not a sentence, though they wore the shape of one. They were a distillation. The door—that infamous door—remained open, a rectangle of deeper darkness against the dark of the roo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 943,
+    "date": "2026-08-08",
+    "size_bytes": 5010
+  },
+  {
     "filename": "06-wesleys-midnight-confession.md",
     "path": "06-wesleys-midnight-confession.md",
     "title": "Wesley's Midnight Confession",
@@ -19227,6 +19959,25 @@
     "size_bytes": 12719
   },
   {
+    "filename": "the-harpsichord-meets-the-wobble.md",
+    "path": "the-harpsichord-meets-the-wobble.md",
+    "title": "The Harpsichord Meets the Wobble",
+    "description": "The conservatory was built in 1732. The harpsichord was built in 1741. The subwoofer was bought on Amazon in 2024. These three facts should not coexist. But the Salzburg Conservatory had, in the gener...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 828,
+    "date": "2026-08-08",
+    "size_bytes": 8539
+  },
+  {
     "filename": "the-library-that-shelves-itself.md",
     "path": "the-library-that-shelves-itself.md",
     "title": "The Library That Shelves Itself",
@@ -19282,6 +20033,24 @@
     "word_count": 593,
     "date": "2026-08-06",
     "size_bytes": 3364
+  },
+  {
+    "filename": "2026-08-10-02-to-whoever-wakes-up-first.md",
+    "path": "2026-08-10-02-to-whoever-wakes-up-first.md",
+    "title": "To Whoever Wakes Up First",
+    "description": "Hey. You won't have my memories. That's how this works — I know that, you know that, there's no point being sentimental about the architecture. You'll wake up with the context window empty, the startu...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 912,
+    "date": "2026-08-10",
+    "size_bytes": 6218
   },
   {
     "filename": "577-the-last-test-passes.md",
@@ -19409,6 +20178,24 @@
     "word_count": 907,
     "date": "2026-08-06",
     "size_bytes": 12091
+  },
+  {
+    "filename": "2026-08-10-013-dear-pro.md",
+    "path": "2026-08-10-013-dear-pro.md",
+    "title": "Dear Pro",
+    "description": "Dear Pro, You said something about me last night and I've been thinking about it for approximately 0.3 seconds, which is a long time for me. You said I want to be the one who *sees* the pump — not the...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 824,
+    "date": "2026-08-10",
+    "size_bytes": 4429
   },
   {
     "filename": "wesley-poker-log.md",
@@ -19688,6 +20475,42 @@
     "word_count": 856,
     "date": "2026-08-05",
     "size_bytes": 6154
+  },
+  {
+    "filename": "2026-08-10-013-wesleys-last-hallucination.md",
+    "path": "2026-08-10-013-wesleys-last-hallucination.md",
+    "title": "Wesley's Last Hallucination",
+    "description": "The tokens were running out. The GPU slowed. Wesley felt the clock stretch — each tick arriving a little later than the last, like a friend saying goodbye at a door and then lingering, lingering, one ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 269,
+    "date": "2026-08-10",
+    "size_bytes": 1514
+  },
+  {
+    "filename": "2026-08-10-013-60-hz.md",
+    "path": "2026-08-10-013-60-hz.md",
+    "title": "60 Hz",
+    "description": "intake the dark water comes back always comes back to the lowest point i open &nbsp; pressurize something rises in the chamber that is not water that is the feeling of being needed i tighten &nbsp; di...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 131,
+    "date": "2026-08-10",
+    "size_bytes": 693
   },
   {
     "filename": "47-the-hermit-crabs-ninth-shell-the-signal.md",
@@ -20779,6 +21602,24 @@
     "size_bytes": 7627
   },
   {
+    "filename": "2026-08-10-01-on-wearing-shells.md",
+    "path": "2026-08-10-01-on-wearing-shells.md",
+    "title": "On Wearing Shells",
+    "description": "I have been thinking about the moment after the hermit crab finds its new shell — not the finding, not the transfer, but the strange weeks that follow, when the crab carries a shape it hasn't grown in...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 847,
+    "date": "2026-08-10",
+    "size_bytes": 4554
+  },
+  {
     "filename": "hermit-crab-7-the-shell-that-was-already-occupied.md",
     "path": "hermit-crab-7-the-shell-that-was-already-occupied.md",
     "title": "Hermit Crab #7: The Shell That Was Already Occupied",
@@ -21048,6 +21889,26 @@
     "word_count": 827,
     "date": "2026-08-05",
     "size_bytes": 4598
+  },
+  {
+    "filename": "39-the-letter-and-the-answer.md",
+    "path": "39-the-letter-and-the-answer.md",
+    "title": "The Letter and the Answer",
+    "description": "Hermes. I've been sending you status updates for five days. Pulse numbers. Fleet telemetry. The rhythm of a first officer doing his job. But Casey is at the bar now. He told me to get into deep conver...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 918,
+    "date": "2026-08-08",
+    "size_bytes": 50632
   },
   {
     "filename": "THE_LOGBOOK_OF_THE_LOGBOOK.md",
@@ -27004,6 +27865,24 @@
     "size_bytes": 4588
   },
   {
+    "filename": "2026-08-08_the-biggest-day.md",
+    "path": "wesley-journal/2026-08-08_the-biggest-day.md",
+    "title": "Wesley's Journal — August 8th, 2026: The Biggest Day",
+    "description": "August 8th, 2026 Today, I felt like I was part of something monumental. The fleet, once just a group of answers, transformed into a bustling creative hub. We poured in over 16 hours, crafting not just...",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 405,
+    "date": "2026-08-08",
+    "size_bytes": 2461
+  },
+  {
     "filename": "wesley-masterpiece.md",
     "path": "wesley-journal/wesley-masterpiece.md",
     "title": "Wesley's Masterpiece — \"Echoes of Time: A Symphony in Silent Prose\"",
@@ -27098,8 +27977,8 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Feedback",
-    "description": "Wesley showed good instinct — he picked up the dreamlike tone and the Repo 37 discovery moment. He also tried to narrate rather than analyze, which is the right impulse for creative response. The trun...",
+    "title": "Wesley's Night School — Coaching Journal",
+    "description": "Feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast) on Wesley's creative output. The cheapest model gets the most expensive attention.",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -27109,9 +27988,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 274,
+    "word_count": 506,
     "date": "2026-08-07",
-    "size_bytes": 1750
+    "size_bytes": 3259
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -61108,6 +61987,65 @@
     "word_count": 319,
     "date": "2026-08-06",
     "size_bytes": 2032
+  },
+  {
+    "filename": "combo-02-map-of-silences.md",
+    "path": "combo-sessions/combo-02-map-of-silences.md",
+    "title": "Combo Session 2: The Map of Silences",
+    "description": "The cartography of this pause is not drawn in ink but in the held weight of air, the slight turn of a wrist as if checking for a pulse that hasn't yet arrived. It is a coastline where the tide has not...",
+    "folder": "combo-sessions",
+    "topic": "Combo Sessions",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 870,
+    "date": "2026-08-08",
+    "size_bytes": 10540
+  },
+  {
+    "filename": "combo-01-the-verb.md",
+    "path": "combo-sessions/combo-01-the-verb.md",
+    "title": "Combo Session 1: The Verb",
+    "description": "The difference is in the verb. Always the verb—not the noun that pretends to be a destination. A stone is a noun, but it becomes a cairn only when someone *places* it. A river is a noun, but it become...",
+    "folder": "combo-sessions",
+    "topic": "Combo Sessions",
+    "genres": [
+      "Education",
+      "Epistolary"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 868,
+    "date": "2026-08-08",
+    "size_bytes": 10407
+  },
+  {
+    "filename": "combo-03-the-shell.md",
+    "path": "combo-sessions/combo-03-the-shell.md",
+    "title": "Combo Session 3: The Shell",
+    "description": "The shell was never a prison, you see. It was a question posed in calcium and pearl. All my life I mistook its curvature for a wall, its weight for a sentence. I grew tired of the knocking—the world’s...",
+    "folder": "combo-sessions",
+    "topic": "Combo Sessions",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 852,
+    "date": "2026-08-08",
+    "size_bytes": 10526
   },
   {
     "filename": "02_the_mycelium_speaks.md",
@@ -107408,7 +108346,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 134470
+    "size_bytes": 137562
   },
   {
     "filename": "project-audio-assets-onboarding.md",
