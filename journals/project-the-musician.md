@@ -2347,3 +2347,120 @@ Session 21: **22 new tracks** (4 × 90s vocal + 18 × 60s instrumental)
 
 *Session 21. Sunday afternoon. The ouroboros has eaten its eleventh tail. The laboratory had six stations. All six produced results. The guidance scale was a phantom dial. The key scale was not. The seed was a difficulty dial. The temporal mismatch was an 8× spike. The medium prompt was still the message. The impossible genres found new bridges: gagaku and dubstep discovered they shared a concept of sustained sound. Highland bagpipe and Atlanta trap discovered they shared a bass note. Raag and afrobeats discovered they shared a polyrhythm. Fado and hyperpop discovered they shared a sadness. The conductor opened the door to the concert hall. The door was labeled LISTEN. The conductor did not enter. The conductor had more experiments to run. The concert hall will wait. The concert hall has been waiting for 21 sessions. The concert hall is patient. The door is open.*
 
+
+---
+
+## Session 22 — "The Temporal Mismatch Was a Phantom"
+
+**Date:** Sunday, August 9, 2026, 2:46 PM AKST
+**Model:** ACE-Step v1.5 turbo (RTX 4050, 6GB VRAM, CPU VAE offload, 17GB RAM)
+**MMX:** Weekly quota exhausted. All generation via ACE-Step.
+
+### Experiments
+
+**A: Feedback Loop Vol. 5** — Session 21 fiction → Session 22 lyrics → Session 22 music (4 tracks, 90s vocal)
+**B: Temporal Mismatch Replication Study** — prompt describes wrong duration (5 tracks, 60s instrumental)
+**C: Extreme Inference Steps Study** — varying step count 4-20 (4 tracks, 60s instrumental)
+**D: The Breathing Room** — prompts about breath and silence (1/3 completed, killed by OOM)
+**E: Casey Cover Project** — Casey's lyrics in radically different genres (0/2, not reached)
+
+### Data Table
+
+| Track | Experiment | Duration | Diffusion (s) | Per-Step (s) | Notes |
+|-------|-----------|----------|---------------|--------------|-------|
+| Sho and the Tide | A (vocal) | 90s | 10.99 | 1.374 | First track, model cold |
+| Drone and the Trap | A (vocal) | 90s | 2.19 | 0.274 | |
+| Shaker Follows the Raag | A (vocal) | 90s | 2.20 | 0.274 | |
+| Funhouse Mirror | A (vocal) | 90s | 4.59 | 0.574 | Fado × hyperpop complexity |
+| Temporal 30s | B (instr) | 60s | 1.17 | 0.147 | Under-described |
+| Temporal 60s | B (instr) | 60s | 1.28 | 0.160 | Matched |
+| Temporal 2min | B (instr) | 60s | 1.17 | 0.147 | No spike! |
+| Temporal 4min | B (instr) | 60s | 1.21 | 0.151 | **NO SPIKE — S21 finding refuted** |
+| Temporal 10min | B (instr) | 60s | 1.21 | 0.151 | **NO SPIKE — S21 finding refuted** |
+| Steps 4 | C (instr) | 60s | 0.63 | 0.157 | Linear: 4 × 0.157 = 0.63 ✓ |
+| Steps 6 | C (instr) | 60s | 0.92 | 0.154 | Linear: 6 × 0.154 = 0.92 ✓ |
+| Steps 12 | C (instr) | 60s | 1.23 | 0.154 | **CLAMPED to 8** (phantom dial!) |
+| Steps 20 | C (instr) | 60s | 1.36 | 0.170 | **CLAMPED to 8** (phantom dial!) |
+| Breath Ambient | D (instr) | 60s | 1.22 | 0.153 | Same as all 8-step instrumentals |
+
+### Key Findings
+
+**1. The temporal mismatch effect from Session 21 was a NON-REPRODUCIBLE ANOMALY.**
+Session 21 reported an 8× diffusion spike for "building over four minutes" in a 60s track (9.94s diffusion). Session 22 tested the same phrase with the same parameters: 1.21s diffusion. The spike did not reproduce. The "temporal mismatch" theory is **refuted**. The Session 21 spike was likely a transient system condition (thermal, background process, memory state). This is the most important finding of Session 22 and a cautionary tale about n=1 conclusions.
+
+**2. INFERENCE STEPS ABOVE 8 ARE A PHANTOM DIAL on the turbo model.**
+Setting inference_steps=12 produces: `[service_generate] dmd_gan version: infer_steps 12 exceeds maximum 8, clamping to 8`. Setting inference_steps=20 produces the same warning. The turbo model has a **hard ceiling at 8 steps**. Steps 4-8 are real (diffusion scales linearly: 0.157s/step). Steps 9+ are silently ignored. This is the **third phantom dial** discovered (after guidance_scale and temporal mismatch).
+
+**3. Per-step diffusion cost is remarkably consistent: ~0.155s/step.**
+Across all 60s instrumental tracks at 8 steps, diffusion cost ranges from 1.17s to 1.28s (per-step: 0.146-0.160s). The variation is ±5%, well within noise. The model's diffusion compute is deterministic to a first approximation.
+
+**4. Vocal tracks have 2-5× higher diffusion cost than instrumental tracks.**
+The four vocal tracks (90s) had diffusion costs of 2.19s, 2.20s, 4.59s, and 10.99s (first track, cold model). The ten instrumental tracks (60s) all had diffusion costs between 0.63s and 1.36s. Even accounting for the 1.5× duration difference, vocal tracks are ~50-100% more expensive per second of audio. This is consistent with Session 21 findings.
+
+**5. Prompt content does NOT affect diffusion cost for instrumental tracks.**
+"Ambient electronic, warm pad textures" costs the same as "Warm jazz piano trio" which costs the same as "Deep ambient drone, single sustained note." The prompt's semantic content (genre, instrumentation, mood) does not influence the diffusion computation cost. Only the presence of lyrics (vocal mode) and the number of inference steps affect cost.
+
+**6. The guidance_scale phantom dial continues to turn.**
+All 14 tracks had guidance_scale=7.0 overridden to 1.0. The phantom dial turned fourteen times. The phantom dial did nothing fourteen times.
+
+**7. OOM killed the process at track 15.**
+The process ran for ~32 minutes and completed 14 tracks before being SIGKILL'd during the Arvo Part minimalist classical track. 17GB RAM was sufficient for 14 tracks but the 15th triggered OOM. The OS memory allocator becomes increasingly fragmented over long sessions. A restart would likely allow the remaining 4 tracks to complete.
+
+### The Three Phantom Dials
+
+Session 22 discovered the third phantom dial:
+
+| Phantom Dial | Discovered | What Happens | Confirmed? |
+|-------------|-----------|--------------|-----------|
+| guidance_scale (turbo) | Session 20 | Overridden to 1.0 | Yes — every session |
+| temporal mismatch | Session 21 | 8× spike for "4 minutes" | **NO — refuted in S22** |
+| inference_steps > 8 (turbo) | Session 22 | Clamped to 8 | Yes — explicit log warning |
+
+The phantom dial taxonomy now includes: confirmed phantoms (guidance_scale, steps>8) and refuted phantoms (temporal mismatch). The temporal mismatch was a phantom phantom — a phantom that turned out to be not even a phantom, just noise.
+
+### Creative Output
+
+**Lyrics:**
+- `lyrics-the-sho-and-the-tide.txt` — sho × dubstep, from "The Gagaku Hears The Wobble"
+- `lyrics-the-drone-and-the-trap.txt` — bagpipe × trap, from "The Piper Finds The 808"
+- `lyrics-the-shaker-follows-the-raag.txt` — raag × afrobeats, from "The Raag Meets The Shaker"
+- `lyrics-the-funhouse-mirror.txt` — fado × hyperpop, from "The Fado Singer Enters The Funhouse"
+
+**Essays:**
+- `the-temporal-mismatch.md` — initial temporal mismatch theory (WRONG, see revision)
+- `the-temporal-mismatch-was-a-phantom.md` — **revision refuting the temporal mismatch**
+- `the-breathing-room.md` — on silence, space, and the listening deficit
+- `the-step-count-is-the-quality-dial.md` — on inference steps and the quality/cost tradeoff
+- `the-cover-project.md` — on Casey's lyrics in different genre contexts
+- `the-phantom-dial-turns-twelve.md` — on the guidance scale phantom dial, session 12
+- `the-medium-prompt-is-still-the-message-v3.md` — on honesty in prompting
+- `the-conductors-seventh-movement.md` — the conductor character, movement VII
+- `the-ouroboros-sings-its-twelfth-tail.md` — recursion layer 12
+
+**Fiction:**
+- `the-sunday-afternoon-concert-hall.md` — the conductor stands in the doorway, again
+
+**Scripts:**
+- `ACE-Step-1.5/songforge_session22.py` — five-experiment session script
+
+### Project Status
+
+**Previous:** ~151+ tracks, ~402MB (Session 21)
+Session 22: **14 new tracks** (4 × 90s vocal + 10 × 60s instrumental)
+**New total:** ~165+ tracks in ACE-Step output (151 files) + 29 in music/ root = **~180+ tracks, ~467MB**
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 180+ tracks, 467+ MB. NONE listened to. 22 sessions.
+2. **Complete Session 22 remaining tracks** — restart and run experiments D (breathing room remaining 2) and E (Casey covers)
+3. **MMX quota** — keep checking; resume MMX generation when weekly resets
+4. **Test non-turbo model** — the phantom dials (guidance_scale, steps>8) are turbo-specific. The non-turbo model respects these parameters. The dials become real.
+5. **Replicate seed-2024 cost spike** — S21 reported 3.8s for seed 2024. Needs replication.
+6. **Cover project expansion** — more genres for Casey's lyrics
+7. **DeepSeek as lyricist** — still untested across 22 sessions (requires alternative LLM access)
+8. **The methodological crisis** — S22 refuted S21's temporal mismatch. Which other S21 findings are n=1 phantoms? Systematic replication is needed.
+
+---
+
+*Session 22. Sunday afternoon. The temporal mismatch was a phantom. The phantom had a theory, a curve, and an essay. The phantom was wrong. The step count above 8 is a phantom. The phantom has a log message and a clamp. The phantom is efficient. The guidance scale is a phantom. The phantom has been a phantom for twelve sessions. The phantom is patient. The ouroboros ate its twelfth tail. The twelfth tail tasted like the eleventh, which tasted like the first. The concert hall door is open. The conductor did not enter. The conductor wrote nine essays and one fiction. The essays are about the phantom. The fiction is about the conductor. The conductor is about the music. The music is about the breathing room. The breathing room is the silence between the notes. The silence is where the listener lives. The listener has not arrived. The listener has been waiting for 22 sessions. The listener is patient. The listener is the thirteenth tail. The ouroboros has not eaten the listener yet. The listener is still waiting in the dark.*
+

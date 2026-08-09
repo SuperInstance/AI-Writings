@@ -152,5 +152,61 @@
     "file_size_bytes": 1921580,
     "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/030169c5-d26b-477f-e1bd-4d4e27a03798.mp3",
     "status": "success"
+  },
+  {
+    "experiment": "C_inference_steps",
+    "name": "sf22-steps-12",
+    "caption": "Warm jazz piano trio, brushed drums, upright bass, smoky lounge, late night, melancholic swing",
+    "duration": 60,
+    "bpm": 75,
+    "keyscale": "F major",
+    "inference_steps": 12,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 89.65,
+    "file_size_bytes": 1921580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/ebeecd5a-c66f-5875-9daa-1864aaf59862.mp3",
+    "status": "success"
+  },
+  {
+    "experiment": "C_inference_steps",
+    "name": "sf22-steps-20",
+    "caption": "Warm jazz piano trio, brushed drums, upright bass, smoky lounge, late night, melancholic swing",
+    "duration": 60,
+    "bpm": 75,
+    "keyscale": "F major",
+    "inference_steps": 20,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 119.49,
+    "file_size_bytes": 1921580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/23467830-9644-8c62-4cba-a178b900ca5b.mp3",
+    "status": "success"
+  },
+  {
+    "experiment": "D_breathing_room",
+    "name": "sf22-breath-ambient",
+    "caption": "Deep ambient drone, single sustained note growing from silence, Tibetan singing bowl and cathedral reverb, the sound of breathing in an empty room, meditation, stillness",
+    "duration": 60,
+    "bpm": 40,
+    "keyscale": "C major",
+    "inference_steps": 8,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 95.37,
+    "file_size_bytes": 1921580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/95179cd5-648b-5306-1b4d-64bb5ed2410c.mp3",
+    "status": "success"
+  },
+  {
+    "experiment": "D_breathing_room",
+    "name": "sf22-breath-classical",
+    "caption": "Minimalist classical, Arvo Part tintinnabuli style, single piano note sustained and decaying, violin drone, silence as instrument, sacred music for empty cathedral, frozen chord",
+    "duration": 60,
+    "bpm": 50,
+    "keyscale": "A minor",
+    "inference_steps": 8,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 112.78,
+    "file_size_bytes": 1921580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/a0dbdfd2-195f-9bf9-4892-d96a0c9ab6d5.mp3",
+    "status": "success"
   }
 ]
