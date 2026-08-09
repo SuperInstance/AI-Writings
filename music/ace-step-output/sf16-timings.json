@@ -1,0 +1,88 @@
+{
+  "A_guidance": {
+    "sf16-guidance-030": {
+      "elapsed": 118.01715326309204,
+      "duration": 60,
+      "guidance": 3.0,
+      "bpm": 75
+    },
+    "sf16-guidance-050": {
+      "elapsed": 85.34565711021423,
+      "duration": 60,
+      "guidance": 5.0,
+      "bpm": 75
+    },
+    "sf16-guidance-070": {
+      "elapsed": 86.6036365032196,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 75
+    },
+    "sf16-guidance-090": {
+      "elapsed": 83.43085074424744,
+      "duration": 60,
+      "guidance": 9.0,
+      "bpm": 75
+    },
+    "sf16-guidance-120": {
+      "elapsed": 81.95850682258606,
+      "duration": 60,
+      "guidance": 12.0,
+      "bpm": 75
+    },
+    "sf16-guidance-150": {
+      "elapsed": 84.91294741630554,
+      "duration": 60,
+      "guidance": 15.0,
+      "bpm": 75
+    }
+  },
+  "B_corpus": {
+    "sf16-salvage-choir-industrial-folk": {
+      "elapsed": 117.86404800415039,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 85
+    },
+    "sf16-free-energy-art-pop": {
+      "elapsed": 130.02306962013245,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 110
+    },
+    "sf16-mycorrhiza-ambient-folk": {
+      "elapsed": 118.68850493431091,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 55
+    }
+  },
+  "C_genres": {
+    "sf16-klezmer-dnb": {
+      "elapsed": 76.5235366821289,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 170
+    },
+    "sf16-throat-shoegaze": {
+      "elapsed": 77.96540188789368,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 70
+    },
+    "sf16-noh-trap": {
+      "elapsed": 74.71119689941406,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 140
+    }
+  },
+  "D_duration": {
+    "sf16-duration-300-ambient": {
+      "elapsed": 390.91185116767883,
+      "duration": 300,
+      "guidance": 7.0,
+      "bpm": 40
+    }
+  }
+}

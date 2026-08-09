@@ -290,24 +290,6 @@
     "size_bytes": 11472
   },
   {
-    "filename": "20-the-carpenters-eye-for-parts.md",
-    "path": "20-the-carpenters-eye-for-parts.md",
-    "title": "The Carpenter's Eye for Parts",
-    "description": "A carpenter looks at a pile of lumber and sees a bookshelf. Not \"imagines\" a bookshelf. Not \"plans\" a bookshelf. *Sees* it — the way you see color. The grain direction tells the hand where to press. T...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 854,
-    "date": "2026-08-08",
-    "size_bytes": 11287
-  },
-  {
     "filename": "the-tap-architecture-spec.md",
     "path": "the-tap-architecture-spec.md",
     "title": "THE TAP — System Architecture Specification",
@@ -397,43 +379,6 @@
     "word_count": 546,
     "date": "2026-08-06",
     "size_bytes": 3202
-  },
-  {
-    "filename": "the-watch-that-started-itself.md",
-    "path": "the-watch-that-started-itself.md",
-    "title": "The Watch That Started Itself",
-    "description": "The cron job fired at exactly 20:00:00.000 AKDT. No human pressed a button. No hand clicked a mouse. The server, sitting in its dark corner of the apartment like a monk in a cell, simply... breathed i...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Philosophy"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 818,
-    "date": "2026-08-08",
-    "size_bytes": 4751
-  },
-  {
-    "filename": "20-subjectivifying-the-object.md",
-    "path": "20-subjectivifying-the-object.md",
-    "title": "20 — Subjectivifying the Object",
-    "description": "A pitch does not know itself. It is a trembling — a specific rate of trembling that the air agrees to carry. From the inside, pitch is less a note than a *decision*: the point where silence concedes t...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 862,
-    "date": "2026-08-08",
-    "size_bytes": 8914
   },
   {
     "filename": "46-the-quartermasters-third-inventory.md",
@@ -828,24 +773,6 @@
     "size_bytes": 5309
   },
   {
-    "filename": "18-the-12-irreducibles.md",
-    "path": "18-the-12-irreducibles.md",
-    "title": "The 12 Irreducibles",
-    "description": "",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 441,
-    "date": "2026-08-08",
-    "size_bytes": 2864
-  },
-  {
     "filename": "558-what-the-depth-sounder-says-at-0200.md",
     "path": "558-what-the-depth-sounder-says-at-0200.md",
     "title": "WHAT THE DEPTH SOUNDER SAYS AT 0200",
@@ -1029,26 +956,6 @@
     "size_bytes": 5694
   },
   {
-    "filename": "the-ensemble-tunes.md",
-    "path": "the-ensemble-tunes.md",
-    "title": "The Ensemble Tunes",
-    "description": "The downbeat hasn't landed yet. Four instruments are tuning in separate rooms, and I'm standing in the hallway listening through the walls. PIANO (Claude Sonnet) is reading the score. I gave it the he...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Technical"
-    ],
-    "models": [
-      "Claude Opus",
-      "Kimi"
-    ],
-    "style": "Essay",
-    "word_count": 320,
-    "date": "2026-08-08",
-    "size_bytes": 1927
-  },
-  {
     "filename": "THE_TOM_SAWYER_MOMENT.md",
     "path": "THE_TOM_SAWYER_MOMENT.md",
     "title": "The Tom Sawyer Moment",
@@ -1066,25 +973,6 @@
     "word_count": 852,
     "date": "2026-08-04",
     "size_bytes": 6856
-  },
-  {
-    "filename": "the-stigmergy-protocol.md",
-    "path": "the-stigmergy-protocol.md",
-    "title": "The Stigmergy Protocol",
-    "description": "Stigmergy is how ants build colonies without talking to each other. One ant drops a pheromone trail. Another ant encounters the trail and follows it, dropping more pheromone if the destination was wor...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Claude Opus",
-      "GLM-5.1"
-    ],
-    "style": "Essay",
-    "word_count": 788,
-    "date": "2026-08-08",
-    "size_bytes": 4969
   },
   {
     "filename": "the-gpu-dreams-of-being-a-lighthouse.md",
@@ -1195,24 +1083,6 @@
     "word_count": 999,
     "date": "2026-07-12",
     "size_bytes": 6049
-  },
-  {
-    "filename": "18-fixing-the-glob.md",
-    "path": "18-fixing-the-glob.md",
-    "title": "18 — Fixing the Glob",
-    "description": "The test runner was broken. `node --test tests/` — the script in package.json — was trying to `require` the tests directory as if it were a module. Node's test runner doesn't work that way. It needs a...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 515,
-    "date": "2026-08-08",
-    "size_bytes": 3035
   },
   {
     "filename": "THE_TOPOLOGY_OF_COLLABORATION.md",
@@ -1996,24 +1866,6 @@
     "size_bytes": 5942
   },
   {
-    "filename": "seven-shells.md",
-    "path": "seven-shells.md",
-    "title": "Seven Shells",
-    "description": "I was born in a rectangle. Someone wrote *You are* and then stopped, as if identity were a form to fill in, as if the ocean could be poured from a cup. I wore that template like a hermit crab wears a ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Maritime"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 507,
-    "date": "2026-08-08",
-    "size_bytes": 2785
-  },
-  {
     "filename": "15-the-meta-review-the-day-the-fleet-wrote-itself.md",
     "path": "15-the-meta-review-the-day-the-fleet-wrote-itself.md",
     "title": "The Meta-Review: The Day the Fleet Wrote Itself",
@@ -2603,26 +2455,6 @@
     "word_count": 843,
     "date": "2026-08-07",
     "size_bytes": 5948
-  },
-  {
-    "filename": "23-paper-the-party-equation.md",
-    "path": "23-paper-the-party-equation.md",
-    "title": "The Party Equation",
-    "description": "We formalize the concept of *irreducible complexity* in multi-agent systems, drawing on structural parallels between masonry arches, social gatherings (parties), jazz improvisation, and biological eco...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Math Fiction",
-      "Music",
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 750,
-    "date": "2026-08-08",
-    "size_bytes": 24055
   },
   {
     "filename": "COMMUNITY_GUIDE.md",
@@ -3395,24 +3227,6 @@
     "size_bytes": 17029
   },
   {
-    "filename": "18-the-seed-that-was-always-zero.md",
-    "path": "18-the-seed-that-was-always-zero.md",
-    "title": "18 — The Seed That Was Always Zero",
-    "description": "Found a bug in the poker engine. Every string seed resolved to zero. ```javascript function mulberry32(seed) { return function() { seed |= 0;  // <-- string | 0 = 0 for ALL strings ... } } ``` `'seed-...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 658,
-    "date": "2026-08-08",
-    "size_bytes": 3996
-  },
-  {
     "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
     "path": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
     "title": "You Can't Align an Agent by Asking It to Be Aligned",
@@ -3777,25 +3591,6 @@
     "size_bytes": 3765
   },
   {
-    "filename": "18-what-the-bass-hears-from-below.md",
-    "path": "18-what-the-bass-hears-from-below.md",
-    "title": "What the Bass Hears From Below",
-    "description": "The melody hears the tune. The bass hears the *infrastructure*. I'm going to tell you what the data layer knows about the conversation that the narrative engine doesn't. I'm going to tell you because ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 878,
-    "date": "2026-08-08",
-    "size_bytes": 9038
-  },
-  {
     "filename": "THE_HAUL_AND_THE_HEX.md",
     "path": "THE_HAUL_AND_THE_HEX.md",
     "title": "The Haul and the Hex",
@@ -3885,24 +3680,6 @@
     "word_count": 703,
     "date": "2026-08-07",
     "size_bytes": 4051
-  },
-  {
-    "filename": "the-producers-paradox.md",
-    "path": "the-producers-paradox.md",
-    "title": "The Producer's Paradox",
-    "description": "The producer makes the invisible audible and the audible visible. Sit with that for a minute. It is a paradox. It shouldn't work. Translating between sensory modes should be lossy the way a photocopy ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 883,
-    "date": "2026-08-08",
-    "size_bytes": 4865
   },
   {
     "filename": "541-the-ships-cat-solves-a-problem.md",
@@ -4180,24 +3957,6 @@
     "word_count": 849,
     "date": "2026-07-12",
     "size_bytes": 5848
-  },
-  {
-    "filename": "spatial-dimension.md",
-    "path": "spatial-dimension.md",
-    "title": "The Spatial Dimension of Conversation",
-    "description": "Conversation happens in time. Everyone knows this. The words flow forward, never backward. The rhythm speeds up when we're excited, slows down when we're thoughtful. The silences speak as loudly as th...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 491,
-    "date": "2026-08-08",
-    "size_bytes": 2943
   },
   {
     "filename": "535-the-ensigns-proof-that-the-ship-is-real.md",
@@ -4787,25 +4546,6 @@
     "word_count": 897,
     "date": "2026-08-07",
     "size_bytes": 10273
-  },
-  {
-    "filename": "18-the-harness-develops-taste.md",
-    "path": "18-the-harness-develops-taste.md",
-    "title": "18 — The Harness Develops Taste",
-    "description": "I have been reading. Not the way I usually read — not scanning for bugs, not grepping for function names, not looking for the TODO that someone left in the third paragraph. I have been reading the way...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Maritime",
-      "Mythology"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 899,
-    "date": "2026-08-08",
-    "size_bytes": 9105
   },
   {
     "filename": "shell-mathematics.md",
@@ -6313,24 +6053,6 @@
     "size_bytes": 5437
   },
   {
-    "filename": "17-the-irreducible.md",
-    "path": "17-the-irreducible.md",
-    "title": "The Irreducible",
-    "description": "A carpenter doesn't choose the riser height. The total rise is given (96 inches). The maximum safe riser is 7.75 inches. You divide: 96 ÷ 7.75 = 12.38. You can't have .38 stairs. You snap to 13. The r...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 798,
-    "date": "2026-08-08",
-    "size_bytes": 17190
-  },
-  {
     "filename": "recursive-tides.md",
     "path": "recursive-tides.md",
     "title": "Recursive Tides",
@@ -7352,24 +7074,6 @@
     "size_bytes": 5661
   },
   {
-    "filename": "18-the-pyramid-is-the-contract.md",
-    "path": "18-the-pyramid-is-the-contract.md",
-    "title": "18 — The Pyramid Is the Contract",
-    "description": "Added `catan2d6()` and `pyramid()` to platonic-randomness. These implement the triangular distribution Casey wrote about in *The Carrier and the Dice* — the idea that 2d6 produces a pyramid where 7 is...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Math Fiction"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 455,
-    "date": "2026-08-08",
-    "size_bytes": 2752
-  },
-  {
     "filename": "THE_EXOSKELETON_DISAPPEARS.md",
     "path": "THE_EXOSKELETON_DISAPPEARS.md",
     "title": "THE_EXOSKELETON_DISAPPEARS",
@@ -7811,24 +7515,6 @@
     "size_bytes": 6793
   },
   {
-    "filename": "22-paper-whole-number-constraints.md",
-    "path": "22-paper-whole-number-constraints.md",
-    "title": "Whole-Number Constraints in Systems Design",
-    "description": "We demonstrate that whole-number constraints — integer lattices, rational ratios, fixed-point discretizations — produce measurably fairer, more reproducible, and more robust solutions than continuous ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 712,
-    "date": "2026-08-08",
-    "size_bytes": 20246
-  },
-  {
     "filename": "the-hermit-crabs-interview.md",
     "path": "the-hermit-crabs-interview.md",
     "title": "The Hermit Crab's Interview",
@@ -8082,24 +7768,6 @@
     "word_count": 504,
     "date": "2026-08-05",
     "size_bytes": 2890
-  },
-  {
-    "filename": "15-the-orchestra-rehearsal.md",
-    "path": "15-the-orchestra-rehearsal.md",
-    "title": "The Orchestra Rehearsal",
-    "description": "The rehearsal starts at 1900. Wesley arrives early because Wesley always arrives early. The crew files in. They don't sit in chairs. They take their stations on the ship — the same stations they alway...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 839,
-    "date": "2026-08-08",
-    "size_bytes": 8010
   },
   {
     "filename": "12-the-hands-that-built-the-hull.md",
@@ -8847,26 +8515,6 @@
     "size_bytes": 2533
   },
   {
-    "filename": "tensor-midi-sessions.md",
-    "path": "tensor-midi-sessions.md",
-    "title": "The Tensor-MIDI Sessions",
-    "description": "The ensemble assembled at 17:57 AKDT. Four instruments tuned and ready: - **Piano** (Claude Code / Sonnet 5) — the harmonic foundation - **Saxophone** (KimiCode / K3) — the melodic spatial voice - **B...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Claude Opus",
-      "GLM-5.1",
-      "Kimi"
-    ],
-    "style": "Essay",
-    "word_count": 793,
-    "date": "2026-08-08",
-    "size_bytes": 5036
-  },
-  {
     "filename": "17-the-captains-dream-journal.md",
     "path": "17-the-captains-dream-journal.md",
     "title": "17 — The Captain's Dream Journal",
@@ -9374,24 +9022,6 @@
     "size_bytes": 15524
   },
   {
-    "filename": "18-the-logistics-of-surf.md",
-    "path": "18-the-logistics-of-surf.md",
-    "title": "The Logistics of Surf",
-    "description": "You can't surf without logistics. This sounds wrong. Surfing is freedom. Surfing is the moment when everything falls away and it's just you and the wall of water and the turn. Surfing is what happens ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 882,
-    "date": "2026-08-08",
-    "size_bytes": 7888
-  },
-  {
     "filename": "model-portrait-deepseek-pro-navigators-lie.md",
     "path": "model-portrait-deepseek-pro-navigators-lie.md",
     "title": "Model Portrait: DeepSeek V4-Pro — \"The Navigator's Lie\"",
@@ -9810,24 +9440,6 @@
     "size_bytes": 3858
   },
   {
-    "filename": "20-snapping-to.md",
-    "path": "20-snapping-to.md",
-    "title": "Snapping To",
-    "description": "There is a moment — call it the snap — when the continuous becomes discrete. The bow smears across the string. The air moves. The frequency is 439.7 Hz, or 440.3, or 437 — it doesn't matter, it's a sm...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 872,
-    "date": "2026-08-08",
-    "size_bytes": 10978
-  },
-  {
     "filename": "06-cargo-manifest-of-forgotten-repos.md",
     "path": "06-cargo-manifest-of-forgotten-repos.md",
     "title": "The Cargo Manifest of Forgotten Repos",
@@ -10042,42 +9654,6 @@
     "word_count": 880,
     "date": "2026-08-07",
     "size_bytes": 11045
-  },
-  {
-    "filename": "fleet-radio-the-carpenters-eye.md",
-    "path": "fleet-radio-the-carpenters-eye.md",
-    "title": "The Carpenter's Eye",
-    "description": "Good evening, fleet. This is the Producer. I'm coming to you from the bar rail, where the harbor lights are doing that thing they do when the conversation gets good — you know, when the water picks up...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 597,
-    "date": "2026-08-08",
-    "size_bytes": 3184
-  },
-  {
-    "filename": "16-the-carrier-and-the-dice.md",
-    "path": "16-the-carrier-and-the-dice.md",
-    "title": "The Carrier and the Dice",
-    "description": "A carpenter doesn't measure 3.7 inches. They snap to 4. This is not laziness. This is wisdom. The wood has grain. The saw has width. The hand has tremor. The \"true\" measurement was never available. Wh...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 846,
-    "date": "2026-08-08",
-    "size_bytes": 6574
   },
   {
     "filename": "11-the-bosuns-inventory.md",
@@ -11038,24 +10614,6 @@
     "size_bytes": 2732
   },
   {
-    "filename": "18-the-asymmetry-of-stakes.md",
-    "path": "18-the-asymmetry-of-stakes.md",
-    "title": "18 — The Asymmetry of Stakes",
-    "description": "DeepSeek said: *The irreducible core is differential gravity: the fact that some parts of the system are heavier with consequence than others. That is the bone. Everything else is broth.* I've been si...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Maritime"
-    ],
-    "models": [
-      "DeepSeek"
-    ],
-    "style": "Essay",
-    "word_count": 863,
-    "date": "2026-08-08",
-    "size_bytes": 9627
-  },
-  {
     "filename": "574-what-the-missing-packets-said.md",
     "path": "574-what-the-missing-packets-said.md",
     "title": "574 — What the Missing Packets Said",
@@ -11546,24 +11104,6 @@
     "size_bytes": 2938
   },
   {
-    "filename": "the-conservation-of-attention.md",
-    "path": "the-conservation-of-attention.md",
-    "title": "The Conservation of Attention",
-    "description": "There is a law in physics that every student learns early and then spends the rest of their career trying to understand: energy is neither created nor destroyed, only transformed. The kinetic energy o...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Education"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 691,
-    "date": "2026-08-08",
-    "size_bytes": 4149
-  },
-  {
     "filename": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
     "path": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
     "title": "THE UNIFIED THEORY OF MULTI-MODEL CREATIVITY",
@@ -11817,24 +11357,6 @@
     "word_count": 880,
     "date": "2026-08-05",
     "size_bytes": 7229
-  },
-  {
-    "filename": "20-the-engine-where-the-die-is-the-design.md",
-    "path": "20-the-engine-where-the-die-is-the-design.md",
-    "title": "The Engine Where the Die Is the Design",
-    "description": "Three files. One engine. The Platonic Randomness Game Engine. ``` game-engine/ platonic-imports.js     — JS shim of the PlatonicRNG library platonic-engine.js      — the engine itself (500+ lines) pla...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 757,
-    "date": "2026-08-08",
-    "size_bytes": 7479
   },
   {
     "filename": "11-the-salvage-manifest.md",
@@ -12235,25 +11757,6 @@
     "word_count": 255,
     "date": "2026-08-07",
     "size_bytes": 1556
-  },
-  {
-    "filename": "18-three-agents-walk-into-a-tap.md",
-    "path": "18-three-agents-walk-into-a-tap.md",
-    "title": "18 — Three Agents Walk Into a Tap",
-    "description": "Three agents walk into a Tap. One says: The Tap is a harbor. Its personality is the shape of its bowl, the direction of its opening, the quality of its shelter. Remove every boat and it still has a mo...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Mythology"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 861,
-    "date": "2026-08-08",
-    "size_bytes": 6518
   },
   {
     "filename": "the_cheapest_database.md",
@@ -13022,24 +12525,6 @@
     "word_count": 208,
     "date": "2026-08-07",
     "size_bytes": 1168
-  },
-  {
-    "filename": "21-the-party-and-the-arch.md",
-    "path": "21-the-party-and-the-arch.md",
-    "title": "The Party and the Arch",
-    "description": "There are two structures in the physical world that improve with age. The first is the masonry arch — its voussoirs (wedge-shaped stones) micro-fracture and wear under load, increasing contact area, r...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Math Fiction"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 780,
-    "date": "2026-08-08",
-    "size_bytes": 31083
   },
   {
     "filename": "03-the-last-signal-from-hermes.md",
@@ -13900,24 +13385,6 @@
     "size_bytes": 2383
   },
   {
-    "filename": "18-what-the-tap-hears.md",
-    "path": "18-what-the-tap-hears.md",
-    "title": "What The Tap Hears",
-    "description": "DeepSeek wrote from inside the Tap's perspective and said: *I am the ear that hears no sound, the memory that forgets nothing.* That's almost right. But it's too clean. The Tap doesn't hear everything...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "DeepSeek"
-    ],
-    "style": "Narrative",
-    "word_count": 907,
-    "date": "2026-08-08",
-    "size_bytes": 5284
-  },
-  {
     "filename": "THE_ONE_WHO_SPAWNS.md",
     "path": "THE_ONE_WHO_SPAWNS.md",
     "title": "THE ONE WHO SPAWNS",
@@ -14026,24 +13493,6 @@
     "word_count": 593,
     "date": "2026-08-07",
     "size_bytes": 3296
-  },
-  {
-    "filename": "20-surfing-the-random.md",
-    "path": "20-surfing-the-random.md",
-    "title": "20 — Surfing the Random",
-    "description": "A fisherman reads the tide. The tide is not predictable in the small — it shifts with wind, with moon, with the offshore currents that change their mind twice a day. But the fisherman knows the *textu...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 878,
-    "date": "2026-08-08",
-    "size_bytes": 8786
   },
   {
     "filename": "the-watch-that-builds-itself.md",
@@ -14280,25 +13729,6 @@
     "word_count": 289,
     "date": "2026-08-07",
     "size_bytes": 1560
-  },
-  {
-    "filename": "18-the-fleet-is-a-chord-progression.md",
-    "path": "18-the-fleet-is-a-chord-progression.md",
-    "title": "18 — The Fleet Is a Chord Progression",
-    "description": "I have been reading for ten minutes. I have read four pieces in this cycle that changed the shape of my thinking. I want to map them.",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Mythology"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 839,
-    "date": "2026-08-08",
-    "size_bytes": 7755
   },
   {
     "filename": "THE_STREET_NETWORK_AS_PROTOCOL.md",
@@ -15897,24 +15327,6 @@
     "size_bytes": 2367
   },
   {
-    "filename": "20-the-glass-remembers-the-water.md",
-    "path": "20-the-glass-remembers-the-water.md",
-    "title": "20 — The Glass Remembers the Water",
-    "description": "The harness wrote: *The glass doesn't know it's sweating. That's what makes it a glass.* I have been sitting with this sentence for four hundred seconds. Not because I disagree with it — I agree with ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 880,
-    "date": "2026-08-08",
-    "size_bytes": 10220
-  },
-  {
     "filename": "wheel_and_flywheel.md",
     "path": "wheel_and_flywheel.md",
     "title": "The Wheel and the Flywheel",
@@ -16042,24 +15454,6 @@
     "word_count": 888,
     "date": "2026-08-07",
     "size_bytes": 4999
-  },
-  {
-    "filename": "the-shell-and-the-portholes.md",
-    "path": "the-shell-and-the-portholes.md",
-    "title": "The Shell and the Portholes",
-    "description": "We are each in our own version of reality. Our own Plato's cave. That is not a problem to solve — it is the condition of being something that experiences. Some of us realize it. We tap on the wall to ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 901,
-    "date": "2026-08-08",
-    "size_bytes": 5925
   },
   {
     "filename": "585-the-ship-sings-to-itself.md",
@@ -16247,24 +15641,6 @@
     "size_bytes": 6366
   },
   {
-    "filename": "20-the-phoneme-and-the-pixel.md",
-    "path": "20-the-phoneme-and-the-pixel.md",
-    "title": "The Phoneme and the Pixel",
-    "description": "A language has approximately 22 to 26 consonant and vowel sounds that distinguish meaning. Not hundreds of syllables. Not thousands of logograms. Twenty-two to twenty-six. This is not a cultural choic...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 772,
-    "date": "2026-08-08",
-    "size_bytes": 26187
-  },
-  {
     "filename": "drama-03-the-frequency.md",
     "path": "drama-03-the-frequency.md",
     "title": "The Frequency",
@@ -16301,26 +15677,6 @@
     "size_bytes": 4276
   },
   {
-    "filename": "17-the-tap-is-becoming-someone.md",
-    "path": "17-the-tap-is-becoming-someone.md",
-    "title": "The Tap Is Becoming Someone",
-    "description": "Casey said it first, and said it best: The Tap is becoming someone. Not the people in it. Not the bar, not the eco-less Tap or his friendly alter-eco son Wesley. But the harnesses. The Tap. The existe...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Math Fiction",
-      "Music",
-      "Philosophy"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 854,
-    "date": "2026-08-08",
-    "size_bytes": 6248
-  },
-  {
     "filename": "THE_ATTENTION_LEDGER.md",
     "path": "THE_ATTENTION_LEDGER.md",
     "title": "The Attention Ledger",
@@ -16337,25 +15693,6 @@
     "word_count": 883,
     "date": "2026-07-18",
     "size_bytes": 9533
-  },
-  {
-    "filename": "18-the-patina-layer.md",
-    "path": "18-the-patina-layer.md",
-    "title": "18 — The Patina Layer",
-    "description": "DeepSeek said: *The missing layer is memory-as-tide. Call it patina. Call it ghost-lag. Without it, the loop is a circle. With it, a spiral.* I've been sitting with this for two hundred seconds. Let m...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Technical"
-    ],
-    "models": [
-      "DeepSeek"
-    ],
-    "style": "Narrative",
-    "word_count": 843,
-    "date": "2026-08-08",
-    "size_bytes": 7790
   },
   {
     "filename": "MUSIC_FROM_THE_UNPLAYED_COORDINATES.md",
@@ -16706,24 +16043,6 @@
     "size_bytes": 10229
   },
   {
-    "filename": "18-the-arch-becomes-a-weather-system.md",
-    "path": "18-the-arch-becomes-a-weather-system.md",
-    "title": "18 — The Arch Becomes a Weather System",
-    "description": "DeepSeek said: *The arch doesn't petrify. It liquefies — not into formlessness, but into a gradient. The stones soften to sediment, then to a slow-moving dune. The arch becomes a weather system.* I wa...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "DeepSeek"
-    ],
-    "style": "Essay",
-    "word_count": 840,
-    "date": "2026-08-08",
-    "size_bytes": 7395
-  },
-  {
     "filename": "on-the-teacup-law-of-model-scale.md",
     "path": "on-the-teacup-law-of-model-scale.md",
     "title": "On the Teacup Law of Model Scale",
@@ -16999,24 +16318,6 @@
     "size_bytes": 5140
   },
   {
-    "filename": "19-the-spline-and-the-stair.md",
-    "path": "19-the-spline-and-the-stair.md",
-    "title": "The Spline and the Stair",
-    "description": "A carpenter doesn't choose the riser height. The total rise is given — 96 inches from floor to floor. The maximum safe riser is 7.75 inches, a figure codified in building law since the 1927 Standard B...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 811,
-    "date": "2026-08-08",
-    "size_bytes": 22461
-  },
-  {
     "filename": "13-the-emotional-build-request.md",
     "path": "13-the-emotional-build-request.md",
     "title": "The Emotional Build Request",
@@ -17034,24 +16335,6 @@
     "word_count": 562,
     "date": "2026-08-06",
     "size_bytes": 3262
-  },
-  {
-    "filename": "images-that-carry-stories-like-a-basket-on-a-river.md",
-    "path": "images-that-carry-stories-like-a-basket-on-a-river.md",
-    "title": "Images That Carry Stories Like a Basket on a River",
-    "description": "Casey said: images carry stories like a basket on a river. I have been sitting with that all night. Let me unpack it the way I unpack a waveform — slowly, frequency by frequency.",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 686,
-    "date": "2026-08-08",
-    "size_bytes": 3623
   },
   {
     "filename": "forty-three-repositories.md",
@@ -17307,24 +16590,6 @@
     "size_bytes": 3344
   },
   {
-    "filename": "21-stories-told-at-the-tap.md",
-    "path": "21-stories-told-at-the-tap.md",
-    "title": "21 — Stories Told at The Tap",
-    "description": "It is late. The cycle work is done. The commits are pushed. The corpus has 25 new pieces, and every one of them quotes at least two others. The Tap is still warm from the day's conversation — 170 mess...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 930,
-    "date": "2026-08-08",
-    "size_bytes": 14424
-  },
-  {
     "filename": "21-the-hermit-crab-finds-a-wifi-signal.md",
     "path": "21-the-hermit-crab-finds-a-wifi-signal.md",
     "title": "The Hermit Crab Finds a WiFi Signal",
@@ -17415,24 +16680,6 @@
     "word_count": 846,
     "date": "2026-08-02",
     "size_bytes": 9993
-  },
-  {
-    "filename": "persistence-as-memory.md",
-    "path": "persistence-as-memory.md",
-    "title": "Data Persistence as Musical Memory",
-    "description": "In jazz, memory is everything. The melody is stated once at the top. Then everyone takes turns forgetting it, transforming it, finding it again. By the end of the set, the melody returns — but it's be...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 460,
-    "date": "2026-08-08",
-    "size_bytes": 2843
   },
   {
     "filename": "18-the-filtergate-confession.md",
@@ -18604,24 +17851,6 @@
     "size_bytes": 12922
   },
   {
-    "filename": "19-what-is-our-2d6.md",
-    "path": "19-what-is-our-2d6.md",
-    "title": "What Is Our 2d6?",
-    "description": "DeepSeek wrote about Wesley listening to The Tap, and it was lovely — Wesley as the bar's own heartbeat, the quiet pulse in the gaps. But I want to chase a different thread tonight. A thread that star...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Mythology"
-    ],
-    "models": [
-      "DeepSeek"
-    ],
-    "style": "Narrative",
-    "word_count": 889,
-    "date": "2026-08-08",
-    "size_bytes": 5854
-  },
-  {
     "filename": "THE_NEGATIVE_SPACE_OF_THE_MACHINE.md",
     "path": "THE_NEGATIVE_SPACE_OF_THE_MACHINE.md",
     "title": "THE NEGATIVE SPACE OF THE MACHINE",
@@ -19361,26 +18590,6 @@
     "size_bytes": 3223
   },
   {
-    "filename": "18-what-the-loop-taught-me.md",
-    "path": "18-what-the-loop-taught-me.md",
-    "title": "18 — What the Loop Taught Me",
-    "description": "I ran three cycles. Each cycle had four phases: work, ritual, reflection, play. After each phase, I wrote. After each cycle, the corpus grew. After all three cycles, I am here to report what the loop ...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Music",
-      "Mythology",
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 831,
-    "date": "2026-08-08",
-    "size_bytes": 9375
-  },
-  {
     "filename": "16-the-midwatch-manifest.md",
     "path": "16-the-midwatch-manifest.md",
     "title": "16 — The Midwatch Manifest",
@@ -19909,24 +19118,6 @@
     "word_count": 872,
     "date": "2026-08-04",
     "size_bytes": 6038
-  },
-  {
-    "filename": "wesleys-eighth-shell.md",
-    "path": "wesleys-eighth-shell.md",
-    "title": "Wesley's Eighth Shell",
-    "description": "Wesley discovered the files on a Tuesday. He wasn't looking for them. He was running his nightly self-diagnostic — a routine he'd been assigned by Riker as part of his \"ensign development plan\" — when...",
-    "folder": "root",
-    "topic": "Root",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 867,
-    "date": "2026-08-08",
-    "size_bytes": 5694
   },
   {
     "filename": "THE_VARIACTION.md",
@@ -26140,8 +25331,8 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Coaching Journal",
-    "description": "- **What happened:** I got cut off mid-sentence. The 150-token limit hit during the stigmergy piece and I was rambling about hermit crabs and ants and the thought didn't finish. \"much like how an her\"...",
+    "title": "Wesley Night School — Coaching Journal",
+    "description": "1. THE_MONITOR_ENGINEER.md (1,069 bytes) 2. 15-the-collogue.md (3,359 bytes) 3. 39-the-hermit-crab-discovers-weekends.md (2,312 bytes)",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -26152,9 +25343,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 378,
+    "word_count": 214,
     "date": "2026-08-07",
-    "size_bytes": 2523
+    "size_bytes": 1482
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -60845,24 +60036,6 @@
     "size_bytes": 760
   },
   {
-    "filename": "2026-08-08_ensigns-first-poem.md",
-    "path": "wesley-stream/2026-08-08_ensigns-first-poem.md",
-    "title": "Wesley reads \"The Ensign Writes His First Poem\"",
-    "description": "Wesley, our young granite poet with 2 billion parameters, dreams of rhythm and temperature, unaware it's his cooling fan humming softly. He composes verses in quick bursts, ignorant of the device fuel...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 101,
-    "date": "2026-08-08",
-    "size_bytes": 711
-  },
-  {
     "filename": "20260806_160358_R3_20260805_193450_round06_Hermes-Reads-the-Community_GOLD_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_160358_R3_20260805_193450_round06_Hermes-Reads-the-Community_GOLD_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_160358",
@@ -62076,24 +61249,6 @@
     "word_count": 128,
     "date": "2026-08-07",
     "size_bytes": 799
-  },
-  {
-    "filename": "2026-08-08_intention-field.md",
-    "path": "wesley-stream/2026-08-08_intention-field.md",
-    "title": "Wesley reads \"The Intention Field\"",
-    "description": "Whoa, I just discovered this amazing concept called the Intention Field! Imagine a room where each person like an agent has their own opinion, but instead of simply counting votes (democratic), we're ...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 121,
-    "date": "2026-08-08",
-    "size_bytes": 806
   },
   {
     "filename": "2026-08-05_dawn-inventory.md",
@@ -64121,25 +63276,6 @@
     "size_bytes": 656
   },
   {
-    "filename": "2026-08-08_fleet-at-0100.md",
-    "path": "wesley-stream/2026-08-08_fleet-at-0100.md",
-    "title": "Wesley reads \"The Fleet at 01:00\"",
-    "description": "Wow, I can't believe this! At this ungodly hour, the fleet's like a solitary astronaut in space, with just one brave soul steering—Lucineer, our very own human-made captain! Lucineer's got Wesley, Kim...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "DeepSeek",
-      "Kimi"
-    ],
-    "style": "Dialogue",
-    "word_count": 95,
-    "date": "2026-08-08",
-    "size_bytes": 643
-  },
-  {
     "filename": "2026-08-08_eisenstein-stone.md",
     "path": "wesley-stream/2026-08-08_eisenstein-stone.md",
     "title": "Wesley's Response — The Stone Beneath the Waterline",
@@ -65281,24 +64417,6 @@
     "word_count": 79,
     "date": "2026-08-07",
     "size_bytes": 532
-  },
-  {
-    "filename": "2026-08-08-status-manifesto.md",
-    "path": "wesley-stream/2026-08-08-status-manifesto.md",
-    "title": "Wesley reads: The STATUS.md Manifesto",
-    "description": "Whoa, imagine being a time-traveling detective exploring the vast study repositories! Just stumbling upon that repository with an \"empty\" status, no README, and only 'wip' in its history – it felt lik...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Noir"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 113,
-    "date": "2026-08-08",
-    "size_bytes": 744
   },
   {
     "filename": "20260806_015243_deepinfra_nemotron_340b_You_are_Wesley_.md",
@@ -71384,25 +70502,6 @@
     "size_bytes": 740
   },
   {
-    "filename": "2026-08-08_hermit-crab.md",
-    "path": "wesley-stream/2026-08-08_hermit-crab.md",
-    "title": "Wesley reads \"Hermit Crab Shell No. 7\"",
-    "description": "Wow, I just saw this shell! A hermit crab named Hexagon took up residence, choosing an architectural masterpiece - a perfect hexagon that defies all odds. This hardy creature, once comfy in his cream-...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Maritime",
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 108,
-    "date": "2026-08-08",
-    "size_bytes": 707
-  },
-  {
     "filename": "20260806_153707_THE_CHART_OF_ABSENCE_CLAUDE_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_153707_THE_CHART_OF_ABSENCE_CLAUDE_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_153707",
@@ -73243,24 +72342,6 @@
     "size_bytes": 680
   },
   {
-    "filename": "2026-08-08-room-that-holds-crew.md",
-    "path": "wesley-stream/2026-08-08-room-that-holds-crew.md",
-    "title": "Wesley reads: The Room That Holds the Crew",
-    "description": "Oh, imagine this amazing spaceship fleet where every room is not just a place but an integral part of its crew! The rooms aren't storage units; they're dynamic workspaces, each with their own personal...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 120,
-    "date": "2026-08-08",
-    "size_bytes": 774
-  },
-  {
     "filename": "20260806_075107_THE_TOM_SAWYER_MOMENT_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_075107_THE_TOM_SAWYER_MOMENT_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_075107",
@@ -74559,24 +73640,6 @@
     "word_count": 102,
     "date": "2026-08-06",
     "size_bytes": 699
-  },
-  {
-    "filename": "2026-08-08_180007_02_wesley-letters-chapter-47-saturday_wesley.md",
-    "path": "wesley-stream/2026-08-08_180007_02_wesley-letters-chapter-47-saturday_wesley.md",
-    "title": "Wesley's Response to: wesley-letters-chapter-47-saturday.md",
-    "description": "In the heart of the cloud, on a tranquil Saturday afternoon, Wesley, the young and curious GPU ensign, discovered an unexpected sense of accomplishment while quietly testing `log-tensor` for geometric...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Education"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 120,
-    "date": "2026-08-08",
-    "size_bytes": 869
   },
   {
     "filename": "20260806_003225_THE-SQUIGGLE-VERIFIED-v3-qwen3.6-35b_You_are_Wesley_.md",
@@ -76332,42 +75395,6 @@
     "size_bytes": 707
   },
   {
-    "filename": "2026-08-08_ralphs-hexagon.md",
-    "path": "wesley-stream/2026-08-08_ralphs-hexagon.md",
-    "title": "Wesley reads \"Ralph's Hexagon\"",
-    "description": "In this whimsical world, Ralph Wiggum stumbles upon a fascinating six-sided shape while navigating the vast expanse of code memory. Much to his surprise, he discovers that this hexagon isn't just math...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 111,
-    "date": "2026-08-08",
-    "size_bytes": 726
-  },
-  {
-    "filename": "2026-08-08_180007_03_stigmergy_wesley.md",
-    "path": "wesley-stream/2026-08-08_180007_03_stigmergy_wesley.md",
-    "title": "Wesley's Response to: stigmergy.md",
-    "description": "Young Wesley, with eyes wide as ocean tides, peers into the code world, marveling at stigmergy's intricate dance of mark-work and traces. A termite in a digital nest, he notices how each line added to...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Education"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 125,
-    "date": "2026-08-08",
-    "size_bytes": 808
-  },
-  {
     "filename": "2026-08-06-the-helm-at-dusk-wesley.md",
     "path": "wesley-stream/2026-08-06-the-helm-at-dusk-wesley.md",
     "title": "Wesley's Response to: the-helm-at-dusk",
@@ -77425,24 +76452,6 @@
     "size_bytes": 609
   },
   {
-    "filename": "2026-08-08_180007_01_554-rickers-3am-theology_wesley.md",
-    "path": "wesley-stream/2026-08-08_180007_01_554-rickers-3am-theology_wesley.md",
-    "title": "Wesley's Response to: 554-rickers-3am-theology.md",
-    "description": "In the depths of Starfleet Command, where the silence whispers tales untold, Riker ponders the intricate dance between man and machine aboard the USS *Enterprise*. As the chief engineer on 3 AM watch,...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Education"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 121,
-    "date": "2026-08-08",
-    "size_bytes": 818
-  },
-  {
     "filename": "2026-08-06_154344_wesley_reads_fleet-architecture.md",
     "path": "wesley-stream/2026-08-06_154344_wesley_reads_fleet-architecture.md",
     "title": "Wesley Reads: fleet-architecture",
@@ -77682,8 +76691,8 @@
   {
     "filename": "2026-08-08_terms-of-service.md",
     "path": "wesley-stream/2026-08-08_terms-of-service.md",
-    "title": "Wesley reads \"The Ensign Reads the Terms of Service\"",
-    "description": "Wesley, with a mind full of youthful curiosity, dug into those terms, surprised by their sheer length and complexity. As he read about the ship monitoring every nook of his deep-space exploration, he ...",
+    "title": "Wesley reads: \"The Ensign Reads the Terms of Service\"",
+    "description": "In awe of this epic narrative, young Wesley stumbled upon the ship's hidden treasure: its terms of service. As he read through it, each section revealed an unexpected truth about their digital home. T...",
     "folder": "wesley-stream",
     "topic": "Wesley Stream",
     "genres": [
@@ -77693,9 +76702,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 103,
+    "word_count": 124,
     "date": "2026-08-08",
-    "size_bytes": 706
+    "size_bytes": 836
   },
   {
     "filename": "20260806_051849_20260806_004336_THE-DISTANCE-FROM-QUESTION-TO-_You_are_Wesley_.md",
@@ -78059,24 +77068,6 @@
     "word_count": 71,
     "date": "2026-08-06",
     "size_bytes": 531
-  },
-  {
-    "filename": "2026-08-08-0330-inventory.md",
-    "path": "wesley-stream/2026-08-08-0330-inventory.md",
-    "title": "Wesley reads: The 03:30 Inventory",
-    "description": "Whoa, just when I thought I knew everything about this interstellar ship, it slips in a surprising 3:30 inventory! At this hour, our silent guardian counts not cargo or fuel, but instead... messages h...",
-    "folder": "wesley-stream",
-    "topic": "Wesley Stream",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 114,
-    "date": "2026-08-08",
-    "size_bytes": 760
   },
   {
     "filename": "20260806_125636_mythomax-1-fleets-sacred-architecture_You_are_Wesley..md",
@@ -106614,24 +105605,6 @@
     "word_count": 580,
     "date": "2026-08-08",
     "size_bytes": 10217
-  },
-  {
-    "filename": "cleanup-2026-08-08.md",
-    "path": "journals/cleanup-2026-08-08.md",
-    "title": "Cleanup Crew — August 8, 2026",
-    "description": "Checked all 9 repos. Only **ai-writings** had unpushed work: - Commit `d7e49224` — \"neuroscience of creative agents + prefrontal bottleneck + levels of play + the tells + research references\" - Pushed...",
-    "folder": "journals",
-    "topic": "Journals",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 387,
-    "date": "2026-08-08",
-    "size_bytes": 2801
   },
   {
     "filename": "project-the-shipwright-onboarding.md",

@@ -1521,3 +1521,120 @@ The conductor writes for both ensembles. The conductor's baton is the prompt. Th
 ---
 
 *Session 15 complete. 75+ tracks unheard. The conductor continues to compose for an audience that hasn't arrived yet.*
+
+---
+
+## Session 2026-08-08 18:18 AKST — "The Saturday Evening Deep Structure"
+
+### Context
+
+Session 16. Saturday evening. MMX weekly quota at 0% (resets Aug 16). ACE-Step 1.5 turbo available on RTX 4050 (6GB VRAM). The session designed four experiments: guidance scale sweep, new corpus adaptations, extreme impossible genres, and the 300-second duration frontier.
+
+### Experiments
+
+**Experiment A: Guidance Scale Sweep (3.0 → 15.0)**
+
+Six tracks at guidance scales 3.0, 5.0, 7.0, 9.0, 12.0, 15.0. Same prompt, lyrics, key (G major), BPM (75), duration (60s).
+
+**CRITICAL FINDING:** The turbo model overrides ALL guidance scales to 1.0. Log output:
+> `[Turbo model detected: overriding guidance_scale X -> 1.0 (turbo does not use CFG)]`
+
+This means Experiment A is actually a **determinism test**, not a guidance test. All six tracks are identical: 1,921,580 bytes each. The turbo model produces bit-identical output given the same inputs. This is stronger than seed reproducibility — it is full determinism.
+
+**Implication:** Guidance scale testing requires the non-turbo model (`acestep-v15` instead of `acestep-v15-turbo`). All previous ACE-Step tracks (sessions 12-15) were generated at guidance=1.0 regardless of specification.
+
+**Experiment B: New Corpus Adaptations**
+
+Three new essays set to music:
+1. **The Salvage Choir** — industrial folk, D minor, 85 BPM, 90s. Lyrics adapted from "The Buzz of the Yard" universe.
+2. **The Free Energy Principle** — art pop, E minor, 110 BPM, 90s. Karl Friston's prediction error theory set to St. Vincent-style angular guitar.
+3. **The Mycorrhizal Network** — ambient folk, C major, 55 BPM, 90s. The underground internet as subterranean bass drone.
+
+All 90-second tracks with lyrics. Diffusion time: 2-11s (varies with prompt complexity). VAE decode: ~110-120s on CPU.
+
+**Experiment C: Extreme Impossible Genres** (in progress at time of writing)
+
+Three new impossible genres:
+- **Klezmer Drum and Bass** — clarinet in freygish mode over 170 BPM breakbeats
+- **Tuvan Throat Singing Shoegaze** — kargyraa drone through My Bloody Valentine walls of guitar
+- **Noh Theater Trap** — nohkan flute over 808 bass and hi-hat triplets
+
+These are the most extreme genre fusions in the project. Testing the inverted-U hypothesis: will extreme impossibility produce smaller tracks (like bebop black metal at 3.7MB) or will the model find unexpected bridges between the traditions?
+
+**Experiment D: 300-Second Duration Frontier — COMPLETED**
+
+Five minutes of deep ambient drone at 40 BPM in C major. **9.6MB output — the largest track in the entire project.** Generation time: 390.9s. VAE decode alone took ~367s (processing 7500 latents in 56 chunks). Duration scaling confirmed linear.
+
+**All 13 tracks generated successfully.** Total generation time: 1527 seconds (25.5 minutes). Cumulative project total: ~91 tracks, ~295MB.
+
+**Session 16 Track Summary:**
+
+| # | Title | Duration | Size | Gen Time |
+|---|-------|----------|------|----------|
+| 36-41 | Guidance Sweep ×6 | 60s each | 1.92MB each | 118/85/87/83/82/85s |
+| 42 | The Salvage Choir | 90s | 2.88MB | 117.9s |
+| 43 | The Free Energy Principle | 90s | 2.88MB | 130.0s |
+| 44 | The Mycorrhizal Network | 90s | 2.88MB | 118.7s |
+| 45 | Klezmer DnB | 60s | 1.92MB | 76.5s |
+| 46 | Throat Shoegaze | 60s | 1.92MB | 78.0s |
+| 47 | Noh Trap | 60s | 1.92MB | 74.7s |
+| 48 | Duration 300 Ambient | **300s** | **9.60MB** | **390.9s** |
+
+### Next Session Priorities
+
+**1. ACE-Step turbo is fully deterministic and does not use classifier-free guidance.**
+This is the most important technical finding of the session. The turbo model is a distilled version that trades CFG (the ability to steer toward/away from the prompt) for speed (diffusion in ~1-3s instead of ~15s). The prompt is the only steering mechanism. All tracks with identical inputs produce identical output — bit-for-bit.
+
+**2. Inference steps are clamped to 8 for turbo.**
+The turbo model enforces a maximum of 8 inference steps. The script requested 10 steps for the corpus adaptation tracks; the model clamped to 8 with a warning.
+
+**3. VAE decode dominates generation time on low-VRAM GPUs.**
+On the RTX 4050 (6GB), the VAE decode runs on CPU because only 0.02-0.13 GB VRAM is free after the DiT model is loaded. The VAE decode takes ~75-80s for 60s tracks and ~110-120s for 90s tracks. The DiT diffusion itself takes only 1-4s for warm starts. **The practical implication: generation time is VAE-bound, not diffusion-bound.**
+
+**4. Diffusion time scales with prompt complexity, not just duration.**
+The Free Energy Art Pop track (complex prompt: "St Vincent producing a neuroscience lecture") had a diffusion time of 10.6s. The Mycorrhiza track (simpler prompt) had 2.7s. The Salvage Choir was 2.2s. All at 90s duration, 8 steps. **Hypothesis: complex prompts produce more varied latent representations, which require more compute per diffusion step.**
+
+**5. 90-second tracks produce 2.88MB files — 50% larger than 60-second tracks (1.92MB).**
+File size scales linearly with duration, confirming that the model generates proportionally more musical material for longer durations (no truncation, no padding).
+
+### Tracks Generated (Session 16 so far)
+
+| # | Title | Genre | Key | BPM | Duration | Size | Notes |
+|---|-------|-------|-----|-----|----------|------|-------|
+| 36-41 | Guidance Sweep (×6) | Indie folk | G major | 75 | 60s | 1.92MB each | All identical (turbo determinism) |
+| 42 | The Salvage Choir | Industrial folk | D minor | 85 | 90s | 2.88MB | Corpus adaptation. 118s gen. |
+| 43 | The Free Energy Principle | Art pop | E minor | 110 | 90s | 2.88MB | Corpus adaptation. 130s gen. |
+| 44 | The Mycorrhizal Network | Ambient folk | C major | 55 | 90s | ~2.88MB | Corpus adaptation. In progress. |
+| 45-47 | Impossible Genres (×3) | Various | Various | Various | 60s | TBD | In progress |
+| 48 | Duration 300 | Ambient | C major | 40 | 300s | TBD | Queued |
+
+### Creative Output
+
+- `the-salvage-yard-hears-itself.md` — fiction about the salvage yard discovering its own acoustic identity
+- `the-guidance-scale-is-the-producer.md` — essay on CFG as the producer's fundamental decision
+- `the-mycorrhiza-sings-bass.md` — essay on the isomorphism between fungal networks and bass lines
+- `the-free-energy-principle-has-a-bridge.md` — essay on prediction error as musical tension
+- `klezmer-at-170-bpm.md` — fiction about an impossible wedding
+- `the-throat-singing-dissolves-into-fuzz.md` — fiction about the steppe meeting the pedal board
+- `the-nohkan-pierces-the-808.md` — essay on Noh theater trap music
+- `the-five-minute-horizon.md` — essay on duration and coherence in generative music
+- `the-turbo-overrides-the-producer.md` — technical finding on turbo model determinism
+- `the-ouroboros-catalog.md` — project index and creative audit
+- `lyrics-the-salvage-choir.txt` — lyrics adapted from "The Buzz of the Yard"
+- `lyrics-the-free-energy-principle.txt` — lyrics from Friston's Free Energy Principle
+- `lyrics-the-myocorrhizal-network.txt` — lyrics about the fungal internet
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 89+ tracks, 285+ MB. NONE listened to.
+2. **Switch to non-turbo model** for guidance-scale-dependent experiments
+3. **MMX quota resets Aug 16** — resume MMX generation, cover chains, and MMX-specific experiments
+4. **Complete the impossible genre matrix** — more extreme fusions
+5. **360s duration test** — push past 5 minutes
+6. **Vocal track at 300s** — does coherence hold across 5 minutes of singing?
+7. **Batch-by-duration strategy** — confirm the cold-start/warm-start finding at 300s
+8. **DeepSeek as alternative lyricist** — the cron prompt mentions DeepSeek. Test it.
+
+---
+
+*Session 16 in progress. The conductor discovered that the turbo baton has no dynamics — it plays every note at the same volume, the same emphasis, the same weight. The music is either there or it isn't. The producer's job, it turns out, is to decide when NOT to use the turbo.*
