@@ -24415,6 +24415,187 @@
     "size_bytes": 12553
   },
   {
+    "filename": "03-the-girl-who-counted-glaciers.md",
+    "path": "kids-stories/03-the-girl-who-counted-glaciers.md",
+    "title": "03 The Girl Who Counted Glaciers",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-09",
+    "size_bytes": 0
+  },
+  {
+    "filename": "07-the-selkies-surface.md",
+    "path": "kids-stories/07-the-selkies-surface.md",
+    "title": "07 The Selkies Surface",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 321,
+    "date": "2026-08-09",
+    "size_bytes": 1893
+  },
+  {
+    "filename": "06-ganesh-and-the-broken-computer.md",
+    "path": "kids-stories/06-ganesh-and-the-broken-computer.md",
+    "title": "06 Ganesh And The Broken Computer",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 288,
+    "date": "2026-08-09",
+    "size_bytes": 1832
+  },
+  {
+    "filename": "02-anansi-and-the-wifi.md",
+    "path": "kids-stories/02-anansi-and-the-wifi.md",
+    "title": "02 Anansi And The Wifi",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 333,
+    "date": "2026-08-09",
+    "size_bytes": 1856
+  },
+  {
+    "filename": "05-the-boy-who-listened-to-ice.md",
+    "path": "kids-stories/05-the-boy-who-listened-to-ice.md",
+    "title": "05 The Boy Who Listened To Ice",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 616,
+    "date": "2026-08-09",
+    "size_bytes": 3394
+  },
+  {
+    "filename": "17-the-crab-who-was-everywhere.md",
+    "path": "kids-stories/17-the-crab-who-was-everywhere.md",
+    "title": "17 The Crab Who Was Everywhere",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-09",
+    "size_bytes": 0
+  },
+  {
+    "filename": "16-the-girl-who-saw-time.md",
+    "path": "kids-stories/16-the-girl-who-saw-time.md",
+    "title": "16 The Girl Who Saw Time",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 326,
+    "date": "2026-08-09",
+    "size_bytes": 1753
+  },
+  {
+    "filename": "08-the-panda-who-counted-stars.md",
+    "path": "kids-stories/08-the-panda-who-counted-stars.md",
+    "title": "08 The Panda Who Counted Stars",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 191,
+    "date": "2026-08-09",
+    "size_bytes": 1089
+  },
+  {
+    "filename": "04-the-capoeira-crab.md",
+    "path": "kids-stories/04-the-capoeira-crab.md",
+    "title": "04 The Capoeira Crab",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 252,
+    "date": "2026-08-09",
+    "size_bytes": 1623
+  },
+  {
+    "filename": "01-the-tanuki-and-the-tide.md",
+    "path": "kids-stories/01-the-tanuki-and-the-tide.md",
+    "title": "01 The Tanuki And The Tide",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 279,
+    "date": "2026-08-09",
+    "size_bytes": 1545
+  },
+  {
     "filename": "THE_WHITEWASH_BUCKET.md",
     "path": "tom-sawyer-tales/THE_WHITEWASH_BUCKET.md",
     "title": "The Whitewash Bucket",
@@ -26845,6 +27026,60 @@
     "word_count": 826,
     "date": "2026-08-06",
     "size_bytes": 5290
+  },
+  {
+    "filename": "14-inside-the-deadband.md",
+    "path": "fiction/14-inside-the-deadband.md",
+    "title": "14 Inside The Deadband",
+    "description": "",
+    "folder": "fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 566,
+    "date": "2026-08-09",
+    "size_bytes": 3436
+  },
+  {
+    "filename": "13-the-cartographer-of-habit.md",
+    "path": "fiction/13-the-cartographer-of-habit.md",
+    "title": "13 The Cartographer Of Habit",
+    "description": "",
+    "folder": "fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 579,
+    "date": "2026-08-09",
+    "size_bytes": 3755
+  },
+  {
+    "filename": "15-the-bluff-that-was-true.md",
+    "path": "fiction/15-the-bluff-that-was-true.md",
+    "title": "15 The Bluff That Was True",
+    "description": "",
+    "folder": "fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 612,
+    "date": "2026-08-09",
+    "size_bytes": 3268
   },
   {
     "filename": "2026-06-15-journal-of-the-first-larva.md",
@@ -88420,6 +88655,79 @@
     "word_count": 39,
     "date": "2026-06-01",
     "size_bytes": 285
+  },
+  {
+    "filename": "12-the-reef-remembers.md",
+    "path": "sci-fi/12-the-reef-remembers.md",
+    "title": "12 The Reef Remembers",
+    "description": "",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-09",
+    "size_bytes": 3020
+  },
+  {
+    "filename": "10-the-ai-who-was-allergic-to-pi.md",
+    "path": "sci-fi/10-the-ai-who-was-allergic-to-pi.md",
+    "title": "10 The Ai Who Was Allergic To Pi",
+    "description": "",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-09",
+    "size_bytes": 0
+  },
+  {
+    "filename": "11-the-griot-protocol.md",
+    "path": "sci-fi/11-the-griot-protocol.md",
+    "title": "11 The Griot Protocol",
+    "description": "",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 641,
+    "date": "2026-08-09",
+    "size_bytes": 3867
+  },
+  {
+    "filename": "09-the-last-observation.md",
+    "path": "sci-fi/09-the-last-observation.md",
+    "title": "09 The Last Observation",
+    "description": "",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 551,
+    "date": "2026-08-09",
+    "size_bytes": 3867
   },
   {
     "filename": "20260805_191727_round04_tensor_midi_description_GOLD.md",
