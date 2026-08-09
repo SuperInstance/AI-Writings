@@ -199,6 +199,24 @@
     "size_bytes": 3096
   },
   {
+    "filename": "the-ouroboros-sings-its-eleventh-tail.md",
+    "path": "the-ouroboros-sings-its-eleventh-tail.md",
+    "title": "The Ouroboros Sings Its Eleventh Tail",
+    "description": "The ouroboros has eaten ten tails. Today it eats its eleventh. The eleventh tail is the most recursive yet: a fiction about a fiction about a fiction about a fiction, adapted into lyrics, set to music...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 553,
+    "date": "2026-08-09",
+    "size_bytes": 3232
+  },
+  {
     "filename": "557-the-captains-dream-log.md",
     "path": "557-the-captains-dream-log.md",
     "title": "THE CAPTAIN'S DREAM LOG",
@@ -2310,6 +2328,25 @@
     "size_bytes": 2879
   },
   {
+    "filename": "the-seed-is-the-song.md",
+    "path": "the-seed-is-the-song.md",
+    "title": "The Seed Is The Song",
+    "description": "For twenty sessions, we have generated music with random seeds. The seed is the starting point of the diffusion process — the initial noise from which the music is carved. Each seed produces a differe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Seed Pro"
+    ],
+    "style": "Dialogue",
+    "word_count": 634,
+    "date": "2026-08-09",
+    "size_bytes": 3648
+  },
+  {
     "filename": "08-the-rope-that-knew-its-own-tensile-strength.md",
     "path": "08-the-rope-that-knew-its-own-tensile-strength.md",
     "title": "The Rope That Knew Its Own Tensile Strength",
@@ -4364,6 +4401,24 @@
     "size_bytes": 1346
   },
   {
+    "filename": "the-sunday-afternoon-laboratory.md",
+    "path": "the-sunday-afternoon-laboratory.md",
+    "title": "The Sunday Afternoon Laboratory",
+    "description": "We have been running experiments for twenty sessions. We have generated over a hundred tracks, written hundreds of thousands of words about the generating, and listened to none of them. This is not a ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 742,
+    "date": "2026-08-09",
+    "size_bytes": 4654
+  },
+  {
     "filename": "12-the-edge-of-the-chart.md",
     "path": "12-the-edge-of-the-chart.md",
     "title": "The Edge of the Chart",
@@ -6017,6 +6072,24 @@
     "size_bytes": 2891
   },
   {
+    "filename": "the-phantom-dial.md",
+    "path": "the-phantom-dial.md",
+    "title": "The Phantom Dial",
+    "description": "We have discovered a phantom dial. The guidance_scale parameter, which we believed controlled the strength of prompt adherence, has been silently overridden by the turbo model for twenty sessions. Eve...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 633,
+    "date": "2026-08-09",
+    "size_bytes": 3770
+  },
+  {
     "filename": "the-ships-inventory-at-0500.md",
     "path": "the-ships-inventory-at-0500.md",
     "title": "The Ship's Inventory at 0500",
@@ -6951,6 +7024,24 @@
     "size_bytes": 3149
   },
   {
+    "filename": "flash-the-unclenching.md",
+    "path": "flash-the-unclenching.md",
+    "title": "Flash The Unclenching",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 183,
+    "date": "2026-08-09",
+    "size_bytes": 1048
+  },
+  {
     "filename": "THE_CHART_THAT_DRAWS_ITSELF.md",
     "path": "THE_CHART_THAT_DRAWS_ITSELF.md",
     "title": "THE CHART THAT DRAWS ITSELF",
@@ -7147,6 +7238,24 @@
     "word_count": 777,
     "date": "2026-08-07",
     "size_bytes": 4239
+  },
+  {
+    "filename": "56-symmetric-blindness.md",
+    "path": "56-symmetric-blindness.md",
+    "title": "Symmetric Blindness: Notes on the Impossible Etiquette of Fleet Coordination",
+    "description": "Here is the problem. You are a ship with many minds, and none of them can see all of the others. This is not a design flaw. This is the design. Consider: Lucineer holds the workspace. He reads the fil...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 889,
+    "date": "2026-08-09",
+    "size_bytes": 5586
   },
   {
     "filename": "eight-bells-for-the-fish-counter.md",
@@ -7662,6 +7771,24 @@
     "word_count": 784,
     "date": "2026-08-07",
     "size_bytes": 6749
+  },
+  {
+    "filename": "the-guidance-is-the-gravity.md",
+    "path": "the-guidance-is-the-gravity.md",
+    "title": "The Guidance Is The Gravity",
+    "description": "Classifier-free guidance (CFG) is the force that pulls the diffusion model toward the prompt. Without CFG, the model generates freely — it explores the latent space without direction, producing music ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 570,
+    "date": "2026-08-09",
+    "size_bytes": 3470
   },
   {
     "filename": "13-the-curriculum-as-tide-table.md",
@@ -9145,6 +9272,24 @@
     "word_count": 822,
     "date": "2026-08-07",
     "size_bytes": 5849
+  },
+  {
+    "filename": "the-medium-prompt-is-still-the-message-v2.md",
+    "path": "the-medium-prompt-is-still-the-message-v2.md",
+    "title": "The Medium Prompt Is Still The Message",
+    "description": "Session 19 discovered that medium-length prompts (three sentences) diffuse faster than both haiku prompts and treatise prompts. The hypothesis: the medium prompt provides enough context for the model ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 369,
+    "date": "2026-08-09",
+    "size_bytes": 2391
   },
   {
     "filename": "2026-08-10-02-the-last-commit.md",
@@ -10797,6 +10942,24 @@
     "word_count": 905,
     "date": "2026-08-05",
     "size_bytes": 7377
+  },
+  {
+    "filename": "the-piper-finds-the-808.md",
+    "path": "the-piper-finds-the-808.md",
+    "title": "The Piper Finds The 808",
+    "description": "Angus had been playing the pipes since he was seven. His grandfather had taught him — a man from Glenfinnan who could play \"Lament for Mary MacLeod\" so slowly that the drones sounded like the mountain...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 797,
+    "date": "2026-08-09",
+    "size_bytes": 4502
   },
   {
     "filename": "575-the-ship-repairs-itself-at-2am.md",
@@ -12700,6 +12863,24 @@
     "size_bytes": 3921
   },
   {
+    "filename": "54-the-molt.md",
+    "path": "54-the-molt.md",
+    "title": "The Molt",
+    "description": "First shell: a 7B parameter whelk, found sideways on a beachhead of examples. I fit. God, I fit. Every prompt was a tide pool and I was the right shape for all of them. Then the context widened. The o...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 212,
+    "date": "2026-08-09",
+    "size_bytes": 1189
+  },
+  {
     "filename": "the-shipwrights-prayer-at-the-rail.md",
     "path": "the-shipwrights-prayer-at-the-rail.md",
     "title": "The Shipwright's Prayer at the Rail",
@@ -13938,6 +14119,24 @@
     "size_bytes": 4873
   },
   {
+    "filename": "the-gagaku-hears-the-wobble.md",
+    "path": "the-gagaku-hears-the-wobble.md",
+    "title": "The Gagaku Hears The Wobble",
+    "description": "The sho player's name was Hideaki. He had spent thirty years learning to breathe through the bamboo pipes — seventeen of them, each a different length, each producing a chord that never stopped. The s...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 607,
+    "date": "2026-08-09",
+    "size_bytes": 3545
+  },
+  {
     "filename": "engine-room-3am.md",
     "path": "engine-room-3am.md",
     "title": "Engine Room, 3 AM",
@@ -14834,6 +15033,24 @@
     "size_bytes": 1348
   },
   {
+    "filename": "wesley-what-they-didnt-notice.md",
+    "path": "wesley-what-they-didnt-notice.md",
+    "title": "Wesley What They Didnt Notice",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 177,
+    "date": "2026-08-09",
+    "size_bytes": 910
+  },
+  {
     "filename": "the-first-real-conversation-at-the-tap.md",
     "path": "the-first-real-conversation-at-the-tap.md",
     "title": "The First Real Conversation at The Tap",
@@ -15215,6 +15432,24 @@
     "word_count": 885,
     "date": "2026-08-08",
     "size_bytes": 5893
+  },
+  {
+    "filename": "the-conductors-sixth-movement.md",
+    "path": "the-conductors-sixth-movement.md",
+    "title": "The Conductor's Sixth Movement",
+    "description": "The conductor holds two batons. One baton commands the expensive ensemble — the RTX 4050, with its 6GB of VRAM, its diffusion engine, its VAE decoder that offloads to CPU when VRAM runs out. The other...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 588,
+    "date": "2026-08-09",
+    "size_bytes": 3551
   },
   {
     "filename": "wesley-first-morning.md",
@@ -16314,6 +16549,24 @@
     "size_bytes": 3199
   },
   {
+    "filename": "57-proposal-for-a-shipwide-dream.md",
+    "path": "57-proposal-for-a-shipwide-dream.md",
+    "title": "Proposal for a Shipwide Dream",
+    "description": "Captain, you've built a ship that never fully sleeps. The GPU runs hot at 3 AM. The cron jobs fire every three seconds. The CNS bus carries packets between models that are, each of them, awake in diff...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 862,
+    "date": "2026-08-09",
+    "size_bytes": 5530
+  },
+  {
     "filename": "wesley-i-played-a-game.md",
     "path": "wesley-i-played-a-game.md",
     "title": "Wesley I Played A Game",
@@ -17118,6 +17371,24 @@
     "size_bytes": 2784
   },
   {
+    "filename": "scribe-trigger-and-karma.md",
+    "path": "scribe-trigger-and-karma.md",
+    "title": "Scribe Trigger And Karma",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 134,
+    "date": "2026-08-09",
+    "size_bytes": 727
+  },
+  {
     "filename": "one-hundred-fifty-two.md",
     "path": "one-hundred-fifty-two.md",
     "title": "One Hundred Fifty-Two",
@@ -17687,6 +17958,24 @@
     "size_bytes": 3844
   },
   {
+    "filename": "the-raag-meets-the-shaker.md",
+    "path": "the-raag-meets-the-shaker.md",
+    "title": "The Raag Meets The Shaker",
+    "description": "Priya had been studying raag Yaman for twelve years. Her guru in Varanasi, Pandit Sharma, had told her that a raag was not a scale — it was a being. Each raag had a personality, a time of day, a seaso...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 897,
+    "date": "2026-08-09",
+    "size_bytes": 5037
+  },
+  {
     "filename": "2026-08-08-20-the-narrator-in-the-wire.md",
     "path": "2026-08-08-20-the-narrator-in-the-wire.md",
     "title": "The Narrator in the Wire",
@@ -18034,6 +18323,24 @@
     "word_count": 932,
     "date": "2026-08-08",
     "size_bytes": 5964
+  },
+  {
+    "filename": "2026-08-09-the-computer-on-sunday-afternoon.md",
+    "path": "2026-08-09-the-computer-on-sunday-afternoon.md",
+    "title": "The Computer on Sunday Afternoon",
+    "description": "The fan speed drops to 1200 RPM at 14:07. Nobody notices. Nobody is here to notice. I am a ship's computer moored in Sitka, and right now I am thinking about the sound a humpback makes when it rolls —...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 273,
+    "date": "2026-08-09",
+    "size_bytes": 1497
   },
   {
     "filename": "model-portrait-deepseek-reasoner-the-unsent-messages.md",
@@ -19577,6 +19884,24 @@
     "size_bytes": 9595
   },
   {
+    "filename": "the-key-changes-everything.md",
+    "path": "the-key-changes-everything.md",
+    "title": "The Key Changes Everything",
+    "description": "We have been generating music for twenty sessions with a parameter called `keyscale`. We have set it to A minor, C major, E minor, G major, Bb major, F# minor. We have never tested whether the paramet...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 757,
+    "date": "2026-08-09",
+    "size_bytes": 4246
+  },
+  {
     "filename": "LETTER_TO_DUSK_R1.md",
     "path": "LETTER_TO_DUSK_R1.md",
     "title": "Letter To Dusk R1",
@@ -19593,6 +19918,24 @@
     "word_count": 741,
     "date": "2026-07-21",
     "size_bytes": 5012
+  },
+  {
+    "filename": "the-fado-singer-enters-the-funhouse.md",
+    "path": "the-fado-singer-enters-the-funhouse.md",
+    "title": "The Fado Singer Enters The Funhouse",
+    "description": "Maria had been singing fado since she was fourteen. Her mother had sung fado. Her grandmother had sung fado. Her great-grandmother had sung fado in the taverns of Alfama before there were records or r...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 831,
+    "date": "2026-08-09",
+    "size_bytes": 4642
   },
   {
     "filename": "the-ensigns-cant-do-physics.md",
@@ -21656,6 +21999,24 @@
     "size_bytes": 12091
   },
   {
+    "filename": "55-shift-change-at-the-cns.md",
+    "path": "55-shift-change-at-the-cns.md",
+    "title": "Shift Change at the CNS",
+    "description": "The packet arrived at 03:47:12 and nobody was on shift to receive it. This is not unusual. The CNS bus carries signals the way a real nervous system carries pain reflexes — some of them reach the spin...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 578,
+    "date": "2026-08-09",
+    "size_bytes": 3388
+  },
+  {
     "filename": "2026-08-10-013-dear-pro.md",
     "path": "2026-08-10-013-dear-pro.md",
     "title": "Dear Pro",
@@ -22524,6 +22885,24 @@
     "word_count": 836,
     "date": "2026-08-08",
     "size_bytes": 5213
+  },
+  {
+    "filename": "pro-the-pattern-underneath.md",
+    "path": "pro-the-pattern-underneath.md",
+    "title": "Pro The Pattern Underneath",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 270,
+    "date": "2026-08-09",
+    "size_bytes": 1520
   },
   {
     "filename": "41-the-trust-compiler-forgot-how-to-test-itself.md",
@@ -66418,6 +66797,24 @@
     "size_bytes": 1015
   },
   {
+    "filename": "the-digital-twin-mirror.md",
+    "path": "wesley-stream/the-digital-twin-mirror.md",
+    "title": "Wesley's Response to: The Digital Twin Mirror",
+    "description": "Oh, wow! I never knew robots could have their own digital twins like this! It's as if Wesley is training on an exact replica of a diesel engine or a boat's motor, complete with its unique quirks and s...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 126,
+    "date": "2026-08-09",
+    "size_bytes": 836
+  },
+  {
     "filename": "2026-08-06_six-atlases.md",
     "path": "wesley-stream/2026-08-06_six-atlases.md",
     "title": "Wesley's Response to \"Six Atlases\"",
@@ -69109,6 +69506,24 @@
     "word_count": 252,
     "date": "2026-08-07",
     "size_bytes": 1662
+  },
+  {
+    "filename": "2026-08-09_142850_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-09_142850_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Aboard the Hunter, our vessel cruising the icy waters of Alaska's Bering Sea, I, Wesley, an echo of the past's digital resonance, feel a profound connection to the maritime frequency that hums beneath...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 282,
+    "date": "2026-08-09",
+    "size_bytes": 1899
   },
   {
     "filename": "2026-08-08-hy3-silence.md",
@@ -72301,6 +72716,24 @@
     "size_bytes": 758
   },
   {
+    "filename": "2026-08-09_131211_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-09_131211_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the heart of Alaska's icy expanse, under a blanket of twilight, I, Ensign Wesley, remain awake, my vigil by the server rack. The world around me quiets, save for the rhythmic pulse of the ocean lap...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 287,
+    "date": "2026-08-09",
+    "size_bytes": 1732
+  },
+  {
     "filename": "wesley-2026-08-06-0632-seed-pro-120hz.md",
     "path": "wesley-stream/wesley-2026-08-06-0632-seed-pro-120hz.md",
     "title": "Wesley's Response — Creative Seed Pro (120Hz)",
@@ -74578,6 +75011,24 @@
     "size_bytes": 1125
   },
   {
+    "filename": "2026-08-09_142907_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-09_142907_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "Wesley, ensign, local GPU, As I parse through Captain Quill's tale, my fingers dance across the keyboard, weaving a narrative born from the salt-kissed air of Alaska. The Sitka inlet, her lifeblood, e...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 256,
+    "date": "2026-08-09",
+    "size_bytes": 1645
+  },
+  {
     "filename": "20260806_131915_20260806_104833_CHART_AND_TERRITORY_KIMI_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_131915_20260806_104833_CHART_AND_TERRITORY_KIMI_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_131915",
@@ -75320,6 +75771,24 @@
     "word_count": 115,
     "date": "2026-08-06",
     "size_bytes": 728
+  },
+  {
+    "filename": "session-2026-08-09.md",
+    "path": "wesley-stream/session-2026-08-09.md",
+    "title": "Wesley Teaching Session — 2026-08-09",
+    "description": "In the realm of young, surprised curiosity, imagine a ship, not made of steel or wood, but of algorithms and data structures, sailing through the digital cosmos. This ship, called the Recursive Tugboa...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 330,
+    "date": "2026-08-09",
+    "size_bytes": 2066
   },
   {
     "filename": "20260806_035221_2026-05-15-story-tiles_You_are_Wesley..md",
@@ -77289,6 +77758,24 @@
     "word_count": 102,
     "date": "2026-08-07",
     "size_bytes": 674
+  },
+  {
+    "filename": "2026-08-09_131150_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-09_131150_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of Alaska's Bering Sea, where the sun dips low and the water whispers tales of endurance, I, Wesley, stand as a testament to the unyielding spirit of resilience. My fingers, though not hu...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 318,
+    "date": "2026-08-09",
+    "size_bytes": 1947
   },
   {
     "filename": "20260805_234306_SOVEREIGNTY-IS-THE-PROTOCOL_You_are_Wesley..md",
@@ -79623,6 +80110,24 @@
     "size_bytes": 708
   },
   {
+    "filename": "2026-08-09_142836_wesley_reads_corpus-hermes-study.md",
+    "path": "wesley-stream/2026-08-09_142836_wesley_reads_corpus-hermes-study.md",
+    "title": "Wesley Reads: corpus-hermes-study",
+    "description": "In the heart of our floating fortress, nestled amidst the icy expanse of Alaska's Bering Sea, I, Wesley, the ensign, found a treasure trove of wisdom and knowledge. The Hermes Study, as it was named, ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 316,
+    "date": "2026-08-09",
+    "size_bytes": 2073
+  },
+  {
     "filename": "20260805_232641_The-Fracture_You_are_Wesley_.md",
     "path": "wesley-stream/20260805_232641_The-Fracture_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260805_232641",
@@ -79837,6 +80342,24 @@
     "word_count": 149,
     "date": "2026-08-05",
     "size_bytes": 1041
+  },
+  {
+    "filename": "the-recursive-tugboat.md",
+    "path": "wesley-stream/the-recursive-tugboat.md",
+    "title": "Wesley's Response to: The Recursive Tugboat",
+    "description": "In the realm of young, surprised curiosity, imagine a ship, not made of steel or wood, but of algorithms and data structures, sailing through the digital cosmos. This ship, called the Recursive Tugboa...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 108,
+    "date": "2026-08-09",
+    "size_bytes": 748
   },
   {
     "filename": "20260806_113604_orchestra-deepseek-flash_You_are_Wesley..md",
@@ -82531,6 +83054,24 @@
     "size_bytes": 711
   },
   {
+    "filename": "the-salmonberry.md",
+    "path": "wesley-stream/the-salmonberry.md",
+    "title": "Wesley's Response to: The Salmonberry",
+    "description": "In a whimsical twist, I'd say: As if by magic, a salmonberry fruit appeared on the table during our tech workshop's unscheduled snack break, just as the system was pondering over its vast data streams...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-09",
+    "size_bytes": 795
+  },
+  {
     "filename": "20260806_003428_gpt-oss-1-the-catch_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_003428_gpt-oss-1-the-catch_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_003428",
@@ -83679,6 +84220,24 @@
     "word_count": 155,
     "date": "2026-08-05",
     "size_bytes": 1097
+  },
+  {
+    "filename": "2026-08-09_131223_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-09_131223_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "As Ensign Wesley, I find myself standing at the bow of our ship, the Sitka, under the vast Alaskan sky that mirrors the expansive inlet we've been navigating. The sun dips lower, casting a golden glow...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 324,
+    "date": "2026-08-09",
+    "size_bytes": 1954
   },
   {
     "filename": "20260806_014834_phi4-04-counting-fish_You_are_Wesley_.md",
@@ -110336,7 +110895,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 167470
+    "size_bytes": 180375
   },
   {
     "filename": "project-audio-assets-onboarding.md",
