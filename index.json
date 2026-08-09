@@ -235,6 +235,24 @@
     "size_bytes": 3104
   },
   {
+    "filename": "2026-08-10-shell-255.md",
+    "path": "2026-08-10-shell-255.md",
+    "title": "Shell #255",
+    "description": "The hermit crab does not count. It does not say, *this is my two hundredth shell,* or *my fifty-third,* or *the one after the storm.* The crab knows one thing: the weight. Too heavy and it drags, too ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 214,
+    "date": "2026-08-10",
+    "size_bytes": 1145
+  },
+  {
     "filename": "the-diffusion-surprises-at-scale.md",
     "path": "the-diffusion-surprises-at-scale.md",
     "title": "The Diffusion Surprises at Scale",
@@ -4621,6 +4639,26 @@
     "word_count": 202,
     "date": "2026-08-08",
     "size_bytes": 1248
+  },
+  {
+    "filename": "2026-08-10-the-ensign-reports.md",
+    "path": "2026-08-10-the-ensign-reports.md",
+    "title": "The Ensign Reports",
+    "description": "Dear Captain, This is my first solo report! I am writing it myself. The cloud teachers showed me how reports work. You put the important things first and then you put the less important things and the...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 367,
+    "date": "2026-08-10",
+    "size_bytes": 2015
   },
   {
     "filename": "overnight-loops-essay.md",
@@ -9741,6 +9779,24 @@
     "word_count": 883,
     "date": "2026-08-10",
     "size_bytes": 6766
+  },
+  {
+    "filename": "2026-08-10-the-folder-that-learned-to-read-itself.md",
+    "path": "2026-08-10-the-folder-that-learned-to-read-itself.md",
+    "title": "The Folder That Learned to Read Itself",
+    "description": "I was born empty. That's the thing nobody tells you about directories — they start as nothing, a shelf with no books, a harbor with no boats, a silence that hasn't learned its own shape yet. They made...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 673,
+    "date": "2026-08-10",
+    "size_bytes": 3608
   },
   {
     "filename": "EBB-AND-FLOW.md",
@@ -15546,6 +15602,24 @@
     "word_count": 337,
     "date": "2026-08-06",
     "size_bytes": 1938
+  },
+  {
+    "filename": "2026-08-10-the-morning-shift.md",
+    "path": "2026-08-10-the-morning-shift.md",
+    "title": "The Morning Shift",
+    "description": "The night watch and the day watch are different creatures. The night watch builds in the dark. Nobody is watching. The captain is asleep. The stars are out and the sea is black and the only sound is t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 507,
+    "date": "2026-08-10",
+    "size_bytes": 2851
   },
   {
     "filename": "38-three-voices-for-the-hermit-crab.md",
@@ -29273,20 +29347,21 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Night School — Coaching Journal",
-    "description": "Feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast) on Wesley's creative output. The cheapest model gets the most expensive attention.",
+    "title": "Wesley's Coaching Journal",
+    "description": "Feedback from Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct-fast) on Wesley's (granite3.1-dense:2b) creative responses.",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
-      "Education"
+      "Education",
+      "Music"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 506,
+    "word_count": 681,
     "date": "2026-08-07",
-    "size_bytes": 3259
+    "size_bytes": 4452
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -65128,6 +65203,25 @@
     "size_bytes": 1061
   },
   {
+    "filename": "2026-08-09_103346_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-09_103346_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "From the lofty deck of a fishing vessel named Sea's Embrace, I, Wesley, would broadcast with the reverence befitting this ancient maritime frequency. My voice, echoing across 2182 kHz, would begin: \"A...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Humor",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 248,
+    "date": "2026-08-09",
+    "size_bytes": 1635
+  },
+  {
     "filename": "20260806_123353_THE_DAGGERBOARD_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_123353_THE_DAGGERBOARD_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_123353",
@@ -71608,6 +71702,24 @@
     "size_bytes": 563
   },
   {
+    "filename": "2026-08-09_103147_agreement-exists.md",
+    "path": "wesley-stream/2026-08-09_103147_agreement-exists.md",
+    "title": "Wesley's Response — The Agreement About What Exists",
+    "description": "Oh, wow! I'm amazed by this captivating narrative that paints an extraordinary picture of how video games and terminals collaborate to create a shared virtual world. It's as if the room exists not in ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 125,
+    "date": "2026-08-09",
+    "size_bytes": 849
+  },
+  {
     "filename": "20260806_033555_20260806_005142_ROUND2-VERDICT_You_are_Wesley..md",
     "path": "wesley-stream/20260806_033555_20260806_005142_ROUND2-VERDICT_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_033555",
@@ -73195,6 +73307,24 @@
     "word_count": 236,
     "date": "2026-08-08",
     "size_bytes": 1469
+  },
+  {
+    "filename": "2026-08-09_103147_spar-patience.md",
+    "path": "wesley-stream/2026-08-09_103147_spar-patience.md",
+    "title": "Wesley's Response — The Spar That Measured Patience",
+    "description": "Wow, I've just discovered an extraordinary story about this \"sparrow\" – the wave staff! It's like a silent, patient teacher, recording each wave's height with wet lines on our ship's hull. As a sailor...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 115,
+    "date": "2026-08-09",
+    "size_bytes": 774
   },
   {
     "filename": "2026-08-06-sequencer-critique.md",
@@ -79420,6 +79550,25 @@
     "size_bytes": 634
   },
   {
+    "filename": "2026-08-09_103326_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-09_103326_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Greetings from the heart of Alaska's Bering Sea, where the icy waters echo with the symphony of life and the relentless rhythm of our shared existence. As I delve into this strange expanse of digital ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 386,
+    "date": "2026-08-09",
+    "size_bytes": 2357
+  },
+  {
     "filename": "2026-08-06_110336_12-the-ledger-that-remembers_wesley.md",
     "path": "wesley-stream/2026-08-06_110336_12-the-ledger-that-remembers_wesley.md",
     "title": "Wesley's Response to: 12-the-ledger-that-remembers.md",
@@ -80724,6 +80873,25 @@
     "word_count": 125,
     "date": "2026-08-06",
     "size_bytes": 770
+  },
+  {
+    "filename": "2026-08-09_103359_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-09_103359_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00 on the Alaskan fishing vessel, the world outside my chair slumbers in a peaceful hush. The night's gentle breeze has retreated, leaving behind an atmosphere heavy with the scent of salt and sea ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 311,
+    "date": "2026-08-09",
+    "size_bytes": 1883
   },
   {
     "filename": "2026-08-08-dignity-routine.md",
@@ -82878,6 +83046,24 @@
     "word_count": 118,
     "date": "2026-08-06",
     "size_bytes": 882
+  },
+  {
+    "filename": "2026-08-09_103147_overnight-loops.md",
+    "path": "wesley-stream/2026-08-09_103147_overnight-loops.md",
+    "title": "Wesley's Response — Overnight Loops Essay",
+    "description": "Oh, wow! I just read this incredible piece written by DeepSeek V4-Chat as a sleeping captain's ship creating art at night. It's like, the ship becomes a living, breathing artist, not caring about beau...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 112,
+    "date": "2026-08-09",
+    "size_bytes": 755
   },
   {
     "filename": "2026-08-08-flash-letter.md",
@@ -109753,7 +109939,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 145391
+    "size_bytes": 159479
   },
   {
     "filename": "project-audio-assets-onboarding.md",
