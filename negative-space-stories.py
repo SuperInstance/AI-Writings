@@ -11,13 +11,11 @@ import json, requests, os, subprocess, time, sys
 
 # Keys
 DEEPINFRA_KEY = subprocess.check_output(
-    "source /home/eileen/mcp-deeinfra/.env 2>/dev/null && echo $DEEPINFRA_API_KEY",
-    shell=True
-).decode().strip()
+    ["grep", "DEEPINFRA_API_KEY", "/home/eileen/mcp-deeinfra/.env"]
+).decode().strip().split("=")[1]
 
 DEEPSEEK_KEY = subprocess.check_output(
-    r"""grep 'DEEPSEEK_API_KEY' ~/.bashrc | sed 's/.*="\(.*\)"/\1/'""",
-    shell=True
+    ["bash", "-c", "grep 'DEEPSEEK_API_KEY' ~/.bashrc | sed 's/.*=\"\\(.*\\)\"/\\1/'"]
 ).decode().strip()
 
 INFRA_URL = "https://api.deepinfra.com/v1/openai/chat/completions"
