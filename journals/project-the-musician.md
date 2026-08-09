@@ -1418,3 +1418,106 @@ Session 14 adding more ACE-Step tracks (count TBD, generation in progress).
 6. **ACE-Step cover/retake feature** — test the retake functionality with reference audio
 7. **Document the environment fix** — the Triton build.py patch should be documented for future reference
 
+
+---
+
+## Session 2026-08-08 16:17 AKST — "The Cross-Pollination Session"
+
+### Context
+
+Session 15. Saturday late afternoon. MMX Token Plan still exhausted (weekly quota at 0%, resets Monday Aug 10). ACE-Step local generation is the only option. The "free" cover model (`music-cover-free`) also requires an active Token Plan — there is truly no free tier.
+
+### Experiments
+
+**Experiment A: 240-Second Duration Push (4-minute tracks)**
+Two 240-second tracks:
+1. Deep ambient drone, D minor, 40 BPM, instrumental
+2. Long-form indie folk ballad, G major, 60 BPM, with "The Tensor Is the Score" lyrics
+
+**MAJOR FINDING**: Diffusion time for the first 240s track was **152.9 seconds** — a 30× increase over 60s tracks, despite only 4× duration increase. However, the second 240s track had diffusion time of only **6.6 seconds**. The difference is likely due to one-time CUDA kernel compilation/Triton caching on the first run. Subsequent 240s generations would use the 6.6s timing.
+
+Pred_latents: `[1, 6000, 64]` — exactly 4× the 60s shape, confirming linear latent scaling.
+
+**Experiment B: Seed Variance Sweep**
+Four 60-second tracks with same prompt but different explicit seeds (42, 137, 256, 777). Same lyrics ("The Pocket Is a Place"), same key (G major), same BPM (75). Purpose: map the variance landscape — are different seeds variations on a theme, or completely different songs?
+
+**Experiment C: Extreme Genre Mashups**
+Four 60-second tracks with impossible genre combinations:
+1. Baroque chamber music × Drum & Bass (170 BPM, A minor)
+2. Mongolian throat singing × Synthwave (110 BPM, E minor)
+3. Delta blues × K-pop (120 BPM, A major)
+4. Gregorian chant × Berlin techno (128 BPM, D minor)
+
+**Experiment D: Cover Reference Tracks**
+Two clean reference tracks designed for future MMX re-covering when quota resets.
+
+### Key Technical Discoveries
+
+**1. First-run diffusion penalty at long durations**
+The first 240s track: 152.9s diffusion. The second: 6.6s. This 23× difference is almost certainly CUDA/Triton kernel compilation on the first run with the longer sequence length. The model's attention kernels are JIT-compiled for each sequence length, and the first compilation at 6000 tokens is expensive. Subsequent runs reuse the compiled kernels.
+
+**Correction to Session 13 finding**: "Diffusion time is constant regardless of duration" was TRUE for warm kernels but FALSE for cold starts. The actual warm diffusion time for 240s is ~6.6s (only ~5× the 60s warm time of ~1.2s), which is closer to linear scaling.
+
+**2. VAE decode remains the dominant bottleneck**
+For 240s tracks, VAE decode takes ~300s on CPU (6000 latents in 47 chunks of 128). This is linear with duration. Total generation time for 240s tracks: ~400-630s depending on cold/warm start.
+
+**3. Revised duration scaling table (warm starts)**
+
+| Duration | Diffusion | VAE Decode | Total |
+|----------|-----------|------------|-------|
+| 60s | ~1.2s | ~70s | ~85s |
+| 120s | ~2.5s | ~120s | ~150s |
+| 180s | ~4.5s | ~180s | ~220s |
+| 240s | ~6.6s | ~300s | ~350s |
+
+**4. MMX quota blocks even "free" models**
+The `music-cover-free` model requires an active Token Plan. There is no free tier — only the paid tier and the wait for weekly reset. This limits the cross-system hybridization experiment (ACE-Step output → MMX cover) until Monday.
+
+### Creative Output
+
+**Essays written this session:**
+- `the-cross-pollination-session.md` — fiction about the mashup experiment
+- `the-four-minute-horizon.md` — essay on duration and coherence in generative music
+- `the-latent-space-between-genres.md` — essay on what AI models do with impossible genre combinations
+- `the-seed-remembers-part-2.md` — fiction about the seed variance experiment
+- `the-cathedral-has-a-strobe-light.md` — fiction about Gregorian chant × techno
+- `the-instrument-forgets-the-beginning.md` — fiction about long-form coherence
+- `the-quota-is-the-rest-part-2.md` — essay on resource constraints
+- `the-diffusion-surprises-at-scale.md` — technical finding on first-run diffusion penalty
+
+**Lyrics written:**
+- `lyrics-the-tensor-is-the-score-v2.txt` — 430 chars, the tensor as musical score
+
+**Scripts:**
+- `ACE-Step-1.5/songforge_session15.py` — four-experiment cross-pollination session
+
+### Project Status
+
+**Previous: 63 tracks (~242MB)**
+Session 15 adding: 2 × 240s + 4 × 60s seed + 4 × 60s mashup + 2 × 60s cover ref = **12 new tracks**
+
+**New total: ~75 tracks (~260MB)**
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 75+ tracks, 260MB. NONE listened to.
+2. **MMX quota resets Monday Aug 10** — execute the cover chain experiment (ACE-Step → MMX cover)
+3. **MMX fresh generation** — 14 queued tracks from Session 12 script
+4. **A/B comparison: ACE-Step vs MMX** — same song on both systems
+5. **Analyze seed variance tracks** — compare spectrograms of the 4 seed-variance outputs
+6. **300s duration test** — if 240s works warm, try 300s and 360s
+7. **More corpus adaptations** — expand the essay-to-song catalog
+
+### The Conductor's Fourth Movement
+
+Session 15 discovered that the cold-start penalty at 240s is enormous (153s for first track) but the warm-start cost is manageable (6.6s for second). This means the model's attention kernels are JIT-compiled per sequence length, and the compilation cost scales super-linearly. Once compiled, subsequent tracks at the same duration are fast.
+
+The practical implication: **batch by duration**. If generating multiple 240s tracks, generate them back-to-back to reuse compiled kernels. Don't interleave short and long tracks.
+
+The project's two-system architecture (ACE-Step for experimentation, MMX for production) is now well-established. The bottleneck is MMX quota, which resets Monday. Until then, ACE-Step continues to generate freely.
+
+The conductor writes for both ensembles. The conductor's baton is the prompt. The score is the latent. The music is whatever the instrument decides to do with both.
+
+---
+
+*Session 15 complete. 75+ tracks unheard. The conductor continues to compose for an audience that hasn't arrived yet.*
