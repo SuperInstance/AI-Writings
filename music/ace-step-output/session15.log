@@ -70,3 +70,6 @@ There are modules in AutoencoderOobleck that should be kept in float32: []. Cast
 2026-08-08 16:23:24.133 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded text_encoder to cuda in 12.1982s (RSS: 4347 -> 2073 MB, delta: -2273 MB)
 2026-08-08 16:23:42.673 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:113 - [preprocess_batch] Inferring lyric embeddings...
 2026-08-08 16:23:42.815 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading text_encoder to CPU (RSS: 2446 MB)
+2026-08-08 16:23:58.309 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded text_encoder to CPU in 15.0140s (RSS: 2446 -> 3583 MB, delta: +1137 MB)
+2026-08-08 16:23:58.309 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:161 - [service_generate] Generating audio... (DiT backend: PyTorch (cuda))
+2026-08-08 16:24:17.378 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:263 - [service_generate] DiT diffusion via PyTorch (cuda)...
