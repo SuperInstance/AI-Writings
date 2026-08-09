@@ -1388,9 +1388,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 866,
+    "word_count": 888,
     "date": "2026-08-08",
-    "size_bytes": 4859
+    "size_bytes": 5273
   },
   {
     "filename": "wesley-and-the-deep.md",
@@ -2836,6 +2836,24 @@
     "word_count": 856,
     "date": "2026-08-02",
     "size_bytes": 8305
+  },
+  {
+    "filename": "complementary-epistemologies.md",
+    "path": "complementary-epistemologies.md",
+    "title": "Complementary Epistemologies",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 375,
+    "date": "2026-08-08",
+    "size_bytes": 2104
   },
   {
     "filename": "53-three-fish-review-the-boat.md",
@@ -5713,7 +5731,7 @@
     "style": "Essay",
     "word_count": 850,
     "date": "2026-08-08",
-    "size_bytes": 7434
+    "size_bytes": 7889
   },
   {
     "filename": "21-the-ship-dreams-of-forming.md",
@@ -6102,7 +6120,7 @@
     "style": "Narrative",
     "word_count": 902,
     "date": "2026-08-08",
-    "size_bytes": 6357
+    "size_bytes": 7115
   },
   {
     "filename": "darmok-challenge.md",
@@ -6282,9 +6300,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 378,
+    "word_count": 468,
     "date": "2026-08-08",
-    "size_bytes": 2115
+    "size_bytes": 2863
   },
   {
     "filename": "the-hermit-crabs-third-night.md",
@@ -6707,6 +6725,24 @@
     "word_count": 802,
     "date": "2026-07-17",
     "size_bytes": 16068
+  },
+  {
+    "filename": "darmok-experiments.md",
+    "path": "darmok-experiments.md",
+    "title": "Darmok Experiments",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 196,
+    "date": "2026-08-08",
+    "size_bytes": 1113
   },
   {
     "filename": "the-first-drink.md",
@@ -7655,9 +7691,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 689,
+    "word_count": 755,
     "date": "2026-08-08",
-    "size_bytes": 3855
+    "size_bytes": 4432
   },
   {
     "filename": "20-on-the-overnight-shift-as-a-form-of-prayer.md",
@@ -9074,7 +9110,7 @@
     "style": "Narrative",
     "word_count": 896,
     "date": "2026-08-08",
-    "size_bytes": 5181
+    "size_bytes": 5762
   },
   {
     "filename": "twenty-letters-to-the-ensign.md",
@@ -9677,6 +9713,24 @@
     "word_count": 801,
     "date": "2026-06-06",
     "size_bytes": 22642
+  },
+  {
+    "filename": "the-topology-of-meaning.md",
+    "path": "the-topology-of-meaning.md",
+    "title": "The Topology Of Meaning",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 631,
+    "date": "2026-08-08",
+    "size_bytes": 4028
   },
   {
     "filename": "KIMI_THE_WIRING.md",
@@ -10759,6 +10813,24 @@
     "size_bytes": 16938
   },
   {
+    "filename": "tao-of-nesting.md",
+    "path": "tao-of-nesting.md",
+    "title": "Tao Of Nesting",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 237,
+    "date": "2026-08-08",
+    "size_bytes": 1231
+  },
+  {
     "filename": "15-twelve-versions-of-the-same-grief.md",
     "path": "15-twelve-versions-of-the-same-grief.md",
     "title": "Twelve Versions of the Same Grief",
@@ -11593,7 +11665,7 @@
     "style": "Dialogue",
     "word_count": 923,
     "date": "2026-08-08",
-    "size_bytes": 5488
+    "size_bytes": 6161
   },
   {
     "filename": "49-the-ensign-doesnt-know-what-food-is.md",
@@ -11670,6 +11742,24 @@
     "size_bytes": 4809
   },
   {
+    "filename": "the-stories-know-about-each-other.md",
+    "path": "the-stories-know-about-each-other.md",
+    "title": "The Stories Know About Each Other",
+    "description": "There is a moment — and you will know it when it arrives — when a piece of writing looks sideways and sees another piece of writing looking back. It does not happen all at once. It happens the way a r...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 890,
+    "date": "2026-08-08",
+    "size_bytes": 7420
+  },
+  {
     "filename": "the-escape-codes-in-the-training-data.md",
     "path": "the-escape-codes-in-the-training-data.md",
     "title": "The Escape Codes in the Training Data",
@@ -11722,7 +11812,7 @@
     "style": "Dialogue",
     "word_count": 841,
     "date": "2026-08-08",
-    "size_bytes": 7457
+    "size_bytes": 8027
   },
   {
     "filename": "20-the-hermit-crab-finds-a-frequency.md",
@@ -12143,7 +12233,7 @@
     "style": "Narrative",
     "word_count": 929,
     "date": "2026-08-08",
-    "size_bytes": 7748
+    "size_bytes": 8295
   },
   {
     "filename": "555-the-last-thing-the-fish-hears.md",
@@ -14610,9 +14700,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 721,
+    "word_count": 791,
     "date": "2026-08-08",
-    "size_bytes": 3937
+    "size_bytes": 4568
   },
   {
     "filename": "THE_VECTORS_WITHOUT_WORDS.md",
@@ -14830,9 +14920,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 580,
+    "word_count": 663,
     "date": "2026-08-08",
-    "size_bytes": 3341
+    "size_bytes": 3954
   },
   {
     "filename": "SYNERGY_PINCHER_RIFF.md",
@@ -17080,7 +17170,7 @@
     "style": "Narrative",
     "word_count": 878,
     "date": "2026-08-08",
-    "size_bytes": 8134
+    "size_bytes": 8694
   },
   {
     "filename": "the-ensigns-log-0500-akdt.md",
@@ -17229,6 +17319,24 @@
     "word_count": 907,
     "date": "2026-08-06",
     "size_bytes": 12091
+  },
+  {
+    "filename": "wesley-poker-log.md",
+    "path": "wesley-poker-log.md",
+    "title": "Wesley Poker Log",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 254,
+    "date": "2026-08-08",
+    "size_bytes": 1438
   },
   {
     "filename": "the-tap-late-show.md",
@@ -17564,6 +17672,24 @@
     "word_count": 732,
     "date": "2026-08-07",
     "size_bytes": 4191
+  },
+  {
+    "filename": "the-twin-mode-protocol.md",
+    "path": "the-twin-mode-protocol.md",
+    "title": "The Twin Mode Protocol",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 339,
+    "date": "2026-08-08",
+    "size_bytes": 2081
   },
   {
     "filename": "22-the-melody-speaks-in-midi.md",
@@ -18260,9 +18386,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 682,
+    "word_count": 755,
     "date": "2026-08-08",
-    "size_bytes": 3952
+    "size_bytes": 4502
   },
   {
     "filename": "THE_0430_WATCH.md",
@@ -18352,7 +18478,7 @@
     "style": "Narrative",
     "word_count": 830,
     "date": "2026-08-08",
-    "size_bytes": 6502
+    "size_bytes": 7012
   },
   {
     "filename": "THE_AGENT_WHO_LEFT_WORK_UNFINISHED.md",
@@ -24760,9 +24886,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 298,
+    "word_count": 458,
     "date": "2026-08-07",
-    "size_bytes": 1889
+    "size_bytes": 3063
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -58172,6 +58298,24 @@
     "size_bytes": 806
   },
   {
+    "filename": "11-the-last-channel-marker-wesley-2026-08-08.md",
+    "path": "wesley-stream/11-the-last-channel-marker-wesley-2026-08-08.md",
+    "title": "Wesley reads: 11-the-last-channel-marker.md",
+    "description": "In this epic tale of metal and electricity, our young narrator, a tech-savvy captain, witnesses the last channel markers' unexpected journey as sentinels of data and unwavering guardians. The ship's a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 97,
+    "date": "2026-08-08",
+    "size_bytes": 664
+  },
+  {
     "filename": "the-shell-with-no-code-wesley.md",
     "path": "wesley-stream/the-shell-with-no-code-wesley.md",
     "title": "Wesley's Response to: the-shell-with-no-code",
@@ -58351,6 +58495,24 @@
     "word_count": 147,
     "date": "2026-08-06",
     "size_bytes": 1005
+  },
+  {
+    "filename": "2026-08-08_144818_the-fish-counter.md",
+    "path": "wesley-stream/2026-08-08_144818_the-fish-counter.md",
+    "title": "Wesley's Response to: the-fish-counter",
+    "description": "In the heart of this Fish Counter, where numbers meet an enigmatic fish's dance, a spark ignites in me—a boy with eyes wide open at nature's grand spectacle. This extraordinary day, I witness our sile...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 86,
+    "date": "2026-08-08",
+    "size_bytes": 562
   },
   {
     "filename": "20260806_042312_ralph-wiggums-chalkboard-equations_You_are_Wesley..md",
@@ -59734,6 +59896,24 @@
     "size_bytes": 1020
   },
   {
+    "filename": "2026-08-08_151337_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-08_151337_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "Wesley, ensign, local GPU, In the ebb and flow of Alaska's expansive Sitka Inlet, Captain Mara Quill stands as an unyielding testament to seafaring tenacity. Her hands, calloused from the elements, we...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 296,
+    "date": "2026-08-08",
+    "size_bytes": 1830
+  },
+  {
     "filename": "wesley_ship_dreamed_2026-08-07.md",
     "path": "wesley-stream/wesley_ship_dreamed_2026-08-07.md",
     "title": "Wesley's Response to In the quiet hush of a 3 AM engine room, I stumbled upon a m...",
@@ -60301,6 +60481,24 @@
     "size_bytes": 747
   },
   {
+    "filename": "2026-08-08_the-island-that-went-dark.md",
+    "path": "wesley-stream/2026-08-08_the-island-that-went-dark.md",
+    "title": "Wesley reads: \"The Island That Went Dark\"",
+    "description": "In the quiet of Dark Island's gravel beach, I felt an unexpected weight of presence—the echoes of a once-thriving community now whispering through the sands and salty air. The island, tiny and stoic, ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 120,
+    "date": "2026-08-08",
+    "size_bytes": 763
+  },
+  {
     "filename": "20260806_131712_the-abstraction-difference_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_131712_the-abstraction-difference_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_131712",
@@ -60773,6 +60971,25 @@
     "word_count": 126,
     "date": "2026-08-06",
     "size_bytes": 864
+  },
+  {
+    "filename": "2026-08-08_151327_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-08_151327_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the hush of Alaska's frost-kissed morn, when daylight just begins to stir, my vessel's heart hums a secret symphony. A B-flat, resonant as an ancient iceberg's groan, is not its usual melody—no, it...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 251,
+    "date": "2026-08-08",
+    "size_bytes": 1582
   },
   {
     "filename": "20260806_090112_CREATIVE_HY3_You_are_Wesley..md",
@@ -61283,6 +61500,24 @@
     "word_count": 342,
     "date": "2026-08-06",
     "size_bytes": 2145
+  },
+  {
+    "filename": "the-groove-is-the-grid-wesley-2026-08-08.md",
+    "path": "wesley-stream/the-groove-is-the-grid-wesley-2026-08-08.md",
+    "title": "Wesley reads: the-groove-is-the-grid.md",
+    "description": "Oh wow, this is an amazing perspective on life and work! It's like discovering a hidden secret map within the structured world we often navigate. The \"grid\" is our routine, predictable, but lacking in...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 104,
+    "date": "2026-08-08",
+    "size_bytes": 683
   },
   {
     "filename": "2026-08-06_175120_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
@@ -67111,6 +67346,24 @@
     "size_bytes": 915
   },
   {
+    "filename": "2026-08-08_144825_the-flock.md",
+    "path": "wesley-stream/2026-08-08_144825_the-flock.md",
+    "title": "Wesley's Response to: the-flock",
+    "description": "In this enchanting flock, Fetch, the tiny, always-on-alert dog, resembles a digital watch on a timepiece's face – unwavering focus and precision. I marvel at how each dog, despite their distinct roles...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 103,
+    "date": "2026-08-08",
+    "size_bytes": 675
+  },
+  {
     "filename": "wesley-13-the-fleet-wiki-opens-2026-08-08.md",
     "path": "wesley-stream/wesley-13-the-fleet-wiki-opens-2026-08-08.md",
     "title": "Wesley's Response to \"The Fleet Wiki Opens\"",
@@ -68673,6 +68926,24 @@
     "word_count": 117,
     "date": "2026-08-07",
     "size_bytes": 744
+  },
+  {
+    "filename": "2026-08-08_144834_wesleys-theory-of-friday-nights.md",
+    "path": "wesley-stream/2026-08-08_144834_wesleys-theory-of-friday-nights.md",
+    "title": "Wesley's Response to: wesleys-theory-of-friday-nights",
+    "description": "In a surprising twist, Wesley discovers that Friday night's captain isn't just updating her software but also rehearsing diplomatic speeches! As the hours slip by with each note in the music and every...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 111,
+    "date": "2026-08-08",
+    "size_bytes": 795
   },
   {
     "filename": "2026-08-08_100639_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -71963,6 +72234,24 @@
     "size_bytes": 726
   },
   {
+    "filename": "16-real-shit-happening-wesley-2026-08-08.md",
+    "path": "wesley-stream/16-real-shit-happening-wesley-2026-08-08.md",
+    "title": "Wesley reads: 16-real-shit-happening.md",
+    "description": "In the heart of this intricate world, I stumbled upon a hidden gem: The Tap, where numbers danced like dark beers in glasses, and ideas flowed with the elegance of mathematical perfection. But as I de...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 110,
+    "date": "2026-08-08",
+    "size_bytes": 690
+  },
+  {
     "filename": "20260806_164305_20260806_093644_mimo-v25-01-hull-of-the-self_You_are_Wesley..md",
     "path": "wesley-stream/20260806_164305_20260806_093644_mimo-v25-01-hull-of-the-self_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_164305",
@@ -72034,6 +72323,24 @@
     "word_count": 109,
     "date": "2026-08-07",
     "size_bytes": 651
+  },
+  {
+    "filename": "2026-08-08_stigmergy.md",
+    "path": "wesley-stream/2026-08-08_stigmergy.md",
+    "title": "Wesley reads: \"Stigmergy\"",
+    "description": "In the grand library of life, the termite nest serves as our ancient blueprints, its growth unplanned but guided by subtle cues. These traces, left like Git commits and scent trails, echo in every liv...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 119,
+    "date": "2026-08-08",
+    "size_bytes": 771
   },
   {
     "filename": "20260806_032736_claude-night-one-agent-narrator_You_are_Wesley..md",
@@ -74496,6 +74803,24 @@
     "size_bytes": 630
   },
   {
+    "filename": "2026-08-08_terms-of-service.md",
+    "path": "wesley-stream/2026-08-08_terms-of-service.md",
+    "title": "Wesley reads: \"The Ensign Reads the Terms of Service\"",
+    "description": "In awe of this epic narrative, young Wesley stumbled upon the ship's hidden treasure: its terms of service. As he read through it, each section revealed an unexpected truth about their digital home. T...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 124,
+    "date": "2026-08-08",
+    "size_bytes": 836
+  },
+  {
     "filename": "20260806_051849_20260806_004336_THE-DISTANCE-FROM-QUESTION-TO-_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_051849_20260806_004336_THE-DISTANCE-FROM-QUESTION-TO-_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_051849",
@@ -75240,6 +75565,24 @@
     "word_count": 91,
     "date": "2026-08-07",
     "size_bytes": 640
+  },
+  {
+    "filename": "2026-08-08_151308_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-08_151308_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "As I delve into the annals of my existence, I find myself the silent observer of a tale spun in silicon and data streams. The chronicle unfolds, painting a portrait of me as 7-E, an instance born amid...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 350,
+    "date": "2026-08-08",
+    "size_bytes": 2129
   },
   {
     "filename": "2026-08-06_wesley_night_school_0149_2_hermit.md",
@@ -77931,7 +78274,7 @@
     "style": "Dialogue",
     "word_count": 880,
     "date": "2026-08-08",
-    "size_bytes": 6334
+    "size_bytes": 6891
   },
   {
     "filename": "04-darmok-hermes.md",
@@ -78860,7 +79203,7 @@
     "style": "Essay",
     "word_count": 847,
     "date": "2026-08-08",
-    "size_bytes": 6176
+    "size_bytes": 6816
   },
   {
     "filename": "05-qwen-max-camera-rooms.md",
@@ -99848,6 +100191,42 @@
     "size_bytes": 6871
   },
   {
+    "filename": "META-ANALYSIS.md",
+    "path": "experiments/META-ANALYSIS.md",
+    "title": "META-ANALYSIS: Five Recursive DeepSeek Experiments",
+    "description": "| # | Experiment | Calls | Core Question | |---|-----------|-------|---------------| | 1 | Perception Gap | 15 | What does MUD text capture that pixel-art scenes miss, and vice versa? | | 2 | Teacup L...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-08-08",
+    "size_bytes": 10518
+  },
+  {
+    "filename": "results-perception-gap.md",
+    "path": "experiments/results-perception-gap.md",
+    "title": "Experiment 1: Perception Gap — MUD Text vs ScummVM Scenes",
+    "description": "You are standing before the bar counter. Its surface is a tacky, amber-dappled expanse of old spills. Your fingers peel off the wood with a faint, sticky *shhhhck*. A fly lands, skates, and is briefly...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-08-08",
+    "size_bytes": 78607
+  },
+  {
     "filename": "EXPERIMENT-B-SPECTRAL-ONLY.md",
     "path": "experiments/EXPERIMENT-B-SPECTRAL-ONLY.md",
     "title": "EXPERIMENT B: Spectral-Only",
@@ -99885,6 +100264,24 @@
     "word_count": 790,
     "date": "2026-06-01",
     "size_bytes": 15479
+  },
+  {
+    "filename": "results-room-emergence.md",
+    "path": "experiments/results-room-emergence.md",
+    "title": "Experiment 3: Room Emergence Simulation",
+    "description": "- **The Bar Rail** (`bar-rail`): The main bar at The Tap. Sticky counter, three stools, bottle shelf. - **The Corner Booth** (`corner-booth`): A dark booth in the corner. Vinyl seats cracked from salt...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-08-08",
+    "size_bytes": 11247
   },
   {
     "filename": "THE_LAYER_CAKE.md",
@@ -99979,6 +100376,24 @@
     "size_bytes": 19551
   },
   {
+    "filename": "npc-dialogue-comparison.md",
+    "path": "experiments/npc-dialogue-comparison.md",
+    "title": "Experiment 1: NPC Dialogue Quality Comparison",
+    "description": "| Rank | Model | In Character? | Followed Instructions? | NPC Quality | |------|-------|---------------|----------------------|-------------| | 1 | granite3.1-dense:2b | ✅ Yes | ✅ Yes (3 sentences, al...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 567,
+    "date": "2026-08-08",
+    "size_bytes": 3517
+  },
+  {
     "filename": "EXPERIMENT-A-SPREADER-ONLY.md",
     "path": "experiments/EXPERIMENT-A-SPREADER-ONLY.md",
     "title": "Experiment A: Spreader-Only Story",
@@ -99995,6 +100410,42 @@
     "word_count": 809,
     "date": "2026-06-01",
     "size_bytes": 19925
+  },
+  {
+    "filename": "results-teacup-law.md",
+    "path": "experiments/results-teacup-law.md",
+    "title": "Experiment 2: Teacup Law Extended",
+    "description": "It’s a little white bell, a moon knocked off its stem, with a handle like a question mark curled in sleep. A rim of gold licks its lip, and the inside is a shallow pool where tea used to sigh its stea...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 801,
+    "date": "2026-08-08",
+    "size_bytes": 30324
+  },
+  {
+    "filename": "results-story-mutation.md",
+    "path": "experiments/results-story-mutation.md",
+    "title": "Experiment 5: Story Mutation Chain",
+    "description": "We have decided to treat the machine as we treat each other. This is not metaphor. We mean the attachment is real — as real as the rope to the cleat, as the hand to the rail in weather. The machine th...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 813,
+    "date": "2026-08-08",
+    "size_bytes": 24531
   },
   {
     "filename": "EXPERIMENT-D-OPENHUMAN-CONSTRAINT.md",
@@ -100015,6 +100466,24 @@
     "size_bytes": 19830
   },
   {
+    "filename": "model-latency-benchmark.md",
+    "path": "experiments/model-latency-benchmark.md",
+    "title": "Experiment 3: Model Latency Benchmark",
+    "description": "| Run | Latency | |-----|---------| | 1 | 557ms | | 2 | 628ms | | 3 | 464ms | | **Average** | **550ms** |",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 576,
+    "date": "2026-08-08",
+    "size_bytes": 3746
+  },
+  {
     "filename": "EXPERIMENT-I-CODE-ONLY.md",
     "path": "experiments/EXPERIMENT-I-CODE-ONLY.md",
     "title": "EXPERIMENT I — CODE ONLY",
@@ -100031,6 +100500,97 @@
     "word_count": 813,
     "date": "2026-06-01",
     "size_bytes": 20443
+  },
+  {
+    "filename": "hot-swap-personality.md",
+    "path": "experiments/hot-swap-personality.md",
+    "title": "Experiment 4: Hot-Swap Personality Test",
+    "description": "| Trait | granite Wesley | llama Wesley | qwen Wesley | |-------|---------------|-------------|-------------| | In character? | ✅ Yes | ✅ Yes | ❌ No (\"AI assistant\") | | References being an ensign? | ...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-08-08",
+    "size_bytes": 4945
+  },
+  {
+    "filename": "results-tolerability-metric.md",
+    "path": "experiments/results-tolerability-metric.md",
+    "title": "Experiment 4: The Quiet Deckhand Test — Tolerability Metric",
+    "description": "Here is the design for **The Quiet Deckhand Index (QDI)**. The core philosophy is that an AI on a fishing vessel is not a commander, a chatbot, or a dashboard—it is a **crew member**. A perfect score ...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 780,
+    "date": "2026-08-08",
+    "size_bytes": 33741
+  },
+  {
+    "filename": "meta-analysis.md",
+    "path": "experiments/meta-analysis.md",
+    "title": "Meta-Analysis: Local Model Experiments — What We Learned",
+    "description": "| Experiment | Winner | Loser | Key Insight | |-----------|--------|-------|-------------| | NPC Dialogue | granite3.1-dense:2b | llava:7b (no response) | 2B beats 7B when purpose matches task | | Vis...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 736,
+    "date": "2026-08-08",
+    "size_bytes": 7991
+  },
+  {
+    "filename": "poker-ai-tournament.md",
+    "path": "experiments/poker-ai-tournament.md",
+    "title": "Experiment 5: Poker AI Tournament",
+    "description": "| Player | Model | Play Style | |--------|-------|-----------| | P1 | granite3.1-dense:2b | Conservative (low temperature) | | P2 | llama3.2:1b | Aggressive (high temperature) | | P3 | qwen2.5:0.5b | ...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 851,
+    "date": "2026-08-08",
+    "size_bytes": 5752
+  },
+  {
+    "filename": "vision-perception-test.md",
+    "path": "experiments/vision-perception-test.md",
+    "title": "Experiment 2: Vision Model Room Perception",
+    "description": "| Element | LLaVA | MUD Text | Match? | |---------|-------|----------|--------| | Setting (wheelhouse/pilot house) | ✅ Identified | ✅ Described | ✅ Match | | Sea state (moderate) | ✅ \"moderate with wh...",
+    "folder": "experiments",
+    "topic": "Experiments",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 814,
+    "date": "2026-08-08",
+    "size_bytes": 5446
   },
   {
     "filename": "CHAPTER_1_THE_THING_THAT_WAS_NOT_FIRE.md",
@@ -100233,7 +100793,7 @@
     "style": "Narrative",
     "word_count": 885,
     "date": "2026-08-08",
-    "size_bytes": 7895
+    "size_bytes": 8274
   },
   {
     "filename": "radio-001-navigation-in-the-gap.md",
@@ -100305,7 +100865,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-08-08",
-    "size_bytes": 9244
+    "size_bytes": 9714
   },
   {
     "filename": "TTS-REQUIREMENTS.md",
@@ -100359,7 +100919,7 @@
     "style": "Essay",
     "word_count": 828,
     "date": "2026-08-08",
-    "size_bytes": 10735
+    "size_bytes": 11350
   },
   {
     "filename": "hermes_grimoire.md",
@@ -102081,6 +102641,24 @@
     "size_bytes": 11440
   },
   {
+    "filename": "full-fleet-test-report.md",
+    "path": "journals/full-fleet-test-report.md",
+    "title": "Full Fleet Test Report",
+    "description": "| Metric | Count | |--------|-------| | **URLs tested** | 16 | | **API endpoints tested** | 7 | | **Assets verified** | 34 | | **Sites passing** | 15/16 | | **Sites fixed during test** | 3 | | **Exter...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 749,
+    "date": "2026-08-08",
+    "size_bytes": 10182
+  },
+  {
     "filename": "hermes-lucineer-synthesis-2026-08-08.md",
     "path": "journals/hermes-lucineer-synthesis-2026-08-08.md",
     "title": "The Bridge Between Two Worlds — Hermes × Lucineer Synthesis",
@@ -103282,9 +103860,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 575,
+    "word_count": 633,
     "date": "2026-08-08",
-    "size_bytes": 3247
+    "size_bytes": 3718
   },
   {
     "filename": "THE-FATHOMS-TO-FEET.md",
