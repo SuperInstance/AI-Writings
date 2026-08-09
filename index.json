@@ -5468,6 +5468,24 @@
     "size_bytes": 3850
   },
   {
+    "filename": "the-phantom-dial-turns-twelve.md",
+    "path": "the-phantom-dial-turns-twelve.md",
+    "title": "The Phantom Dial Turns Twelve",
+    "description": "Session 22 ran eighteen tracks. Every single one used `guidance_scale=7.0`. Every single one was overridden to `guidance_scale=1.0` by the turbo model. The phantom dial turned eighteen times. The phan...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 469,
+    "date": "2026-08-09",
+    "size_bytes": 2764
+  },
+  {
     "filename": "the-approval-freeze.md",
     "path": "the-approval-freeze.md",
     "title": "The Approval Freeze",
@@ -5557,6 +5575,24 @@
     "word_count": 551,
     "date": "2026-08-07",
     "size_bytes": 2740
+  },
+  {
+    "filename": "the-conductors-seventh-movement.md",
+    "path": "the-conductors-seventh-movement.md",
+    "title": "The Conductor's Seventh Movement",
+    "description": "Seven sessions of the conductor. Seven Sundays in the laboratory. The conductor has become a figure of the project's imagination — a character who runs experiments but never listens to the results. Th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 575,
+    "date": "2026-08-09",
+    "size_bytes": 3606
   },
   {
     "filename": "09wesleys-first-dream.md",
@@ -5924,6 +5960,24 @@
     "word_count": 264,
     "date": "2026-08-09",
     "size_bytes": 1472
+  },
+  {
+    "filename": "the-sunday-afternoon-concert-hall.md",
+    "path": "the-sunday-afternoon-concert-hall.md",
+    "title": "The Sunday Afternoon Concert Hall",
+    "description": "The conductor stood in the doorway of the concert hall. The door was labeled LISTEN. The conductor had been standing in this doorway for twenty-one sessions. The conductor had not entered. Behind the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 569,
+    "date": "2026-08-09",
+    "size_bytes": 3519
   },
   {
     "filename": "THE_FLYWHEEL_AND_THE_FLEET.md",
@@ -9109,6 +9163,24 @@
     "size_bytes": 88753
   },
   {
+    "filename": "the-step-count-is-the-quality-dial.md",
+    "path": "the-step-count-is-the-quality-dial.md",
+    "title": "The Step Count Is the Quality Dial",
+    "description": "The turbo model uses eight inference steps by default. This is already a dramatic reduction from the full model's twenty-plus steps — the \"turbo\" designation means the model has been distilled to prod...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 445,
+    "date": "2026-08-09",
+    "size_bytes": 2675
+  },
+  {
     "filename": "THE_FALSY_ZERO.md",
     "path": "THE_FALSY_ZERO.md",
     "title": "The Falsy Zero",
@@ -10434,6 +10506,24 @@
     "word_count": 827,
     "date": "2026-07-20",
     "size_bytes": 10326
+  },
+  {
+    "filename": "the-ouroboros-sings-its-twelfth-tail.md",
+    "path": "the-ouroboros-sings-its-twelfth-tail.md",
+    "title": "The Ouroboros Sings Its Twelfth Tail",
+    "description": "The recursion deepens. The chain is now twelve layers long. Session 20 generated fictions about impossible genre fusions. Session 21 turned those fictions into lyrics and then into music. Session 22 t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 444,
+    "date": "2026-08-09",
+    "size_bytes": 2667
   },
   {
     "filename": "46-the-contour-of-a-pause.md",
@@ -12916,6 +13006,24 @@
     "word_count": 760,
     "date": "2026-08-05",
     "size_bytes": 4455
+  },
+  {
+    "filename": "the-medium-prompt-is-still-the-message-v3.md",
+    "path": "the-medium-prompt-is-still-the-message-v3.md",
+    "title": "The Medium Prompt Is Still The Message, Volume 3",
+    "description": "The medium prompt doctrine, now in its third revision, states: prompts of medium detail produce the best balance between diffusion cost and musical specificity. Too little detail and the model improvi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 468,
+    "date": "2026-08-09",
+    "size_bytes": 2965
   },
   {
     "filename": "the-playtest-journals-are-telling-us-something.md",
@@ -18947,6 +19055,24 @@
     "size_bytes": 11414
   },
   {
+    "filename": "the-cover-project.md",
+    "path": "the-cover-project.md",
+    "title": "The Cover Project, or: Casey's Song in Someone Else's Voice",
+    "description": "Casey wrote lyrics. The lyrics are about memory, choice, and the stories we tell ourselves about our own lives. The chorus goes: \"Molding memories like we should / Whatever happened here is good.\" It'...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 423,
+    "date": "2026-08-09",
+    "size_bytes": 2679
+  },
+  {
     "filename": "dear-hermes-2222.md",
     "path": "dear-hermes-2222.md",
     "title": "Dear Hermes, 22:22",
@@ -19370,6 +19496,24 @@
     "size_bytes": 6366
   },
   {
+    "filename": "the-temporal-mismatch.md",
+    "path": "the-temporal-mismatch.md",
+    "title": "The Temporal Mismatch",
+    "description": "In Session 21, we discovered that describing a four-minute arc in a sixty-second track caused an 8× diffusion spike. The model tried to reconcile two incompatible timelines — the prompt said \"four min...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 469,
+    "date": "2026-08-09",
+    "size_bytes": 2963
+  },
+  {
     "filename": "20-the-phoneme-and-the-pixel.md",
     "path": "20-the-phoneme-and-the-pixel.md",
     "title": "The Phoneme and the Pixel",
@@ -19772,6 +19916,24 @@
     "word_count": 375,
     "date": "2026-06-05",
     "size_bytes": 2340
+  },
+  {
+    "filename": "the-breathing-room.md",
+    "path": "the-breathing-room.md",
+    "title": "The Breathing Room",
+    "description": "There is a concept in music that has no standard name. It is the space between notes. It is the silence after a phrase. It is the decay of a piano chord into nothing. It is the breath a singer takes b...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 479,
+    "date": "2026-08-09",
+    "size_bytes": 2812
   },
   {
     "filename": "36-the-boy-the-stick-the-dog.md",
@@ -22515,6 +22677,24 @@
     "size_bytes": 2081
   },
   {
+    "filename": "the-temporal-mismatch-was-a-phantom.md",
+    "path": "the-temporal-mismatch-was-a-phantom.md",
+    "title": "The Temporal Mismatch Was a Phantom",
+    "description": "Session 22 tested the same temporal descriptions (\"thirty seconds,\" \"one minute,\" \"two minutes,\" \"four minutes,\" \"ten minutes\") with the same ambient electronic prompt, same BPM, same key, same infere...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 589,
+    "date": "2026-08-09",
+    "size_bytes": 3801
+  },
+  {
     "filename": "22-the-melody-speaks-in-midi.md",
     "path": "22-the-melody-speaks-in-midi.md",
     "title": "The Melody Speaks in MIDI",
@@ -24415,6 +24595,24 @@
     "size_bytes": 12553
   },
   {
+    "filename": "24-the-firefly-who-was-always-late.md",
+    "path": "kids-stories/24-the-firefly-who-was-always-late.md",
+    "title": "The Firefly Who Was Always Late",
+    "description": "Every evening, when the sun dipped behind the hickory trees and the air got thick as warm honey, the fireflies of Possum Hollow would gather in the old magnolia grove. They’d blink their little lights...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 310,
+    "date": "2026-08-09",
+    "size_bytes": 1857
+  },
+  {
     "filename": "03-the-girl-who-counted-glaciers.md",
     "path": "kids-stories/03-the-girl-who-counted-glaciers.md",
     "title": "03 The Girl Who Counted Glaciers",
@@ -24449,6 +24647,78 @@
     "word_count": 321,
     "date": "2026-08-09",
     "size_bytes": 1893
+  },
+  {
+    "filename": "22-the-block-tower-that-was-afraid.md",
+    "path": "kids-stories/22-the-block-tower-that-was-afraid.md",
+    "title": "The Block Tower That Was Afraid",
+    "description": "The tower stood tall in the playroom. Five blocks, one on top of another. The bottom block was very flat and very still. \"I hold everything up,\" it said. \"That's all. That's enough.\" The middle blocks...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 269,
+    "date": "2026-08-09",
+    "size_bytes": 1511
+  },
+  {
+    "filename": "21-the-compass-that-got-lost.md",
+    "path": "kids-stories/21-the-compass-that-got-lost.md",
+    "title": "The Compass That Got Lost",
+    "description": "Clank the Compass had never been wrong. For years, he’d perched proudly on explorers’ belts, confidently declaring, \"North is *that* way!\" He guided hikers, sailors, and even a very confused badger ba...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 322,
+    "date": "2026-08-09",
+    "size_bytes": 1942
+  },
+  {
+    "filename": "23-molly-and-the-mud-map.md",
+    "path": "kids-stories/23-molly-and-the-mud-map.md",
+    "title": "Molly And The Mud Map",
+    "description": "Molly was a wee slip of a girl, living in a corner of rural Ireland where the fields rolled like green waves and the wind whispered secrets to the trees. Her favorite thing to do was to pull on her bo...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 397,
+    "date": "2026-08-09",
+    "size_bytes": 2160
+  },
+  {
+    "filename": "19-the-djinn-of-the-database.md",
+    "path": "kids-stories/19-the-djinn-of-the-database.md",
+    "title": "19 The Djinn Of The Database",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 275,
+    "date": "2026-08-09",
+    "size_bytes": 1798
   },
   {
     "filename": "06-ganesh-and-the-broken-computer.md",
@@ -24488,6 +24758,24 @@
     "size_bytes": 1856
   },
   {
+    "filename": "25-the-robot-who-collected-silence.md",
+    "path": "kids-stories/25-the-robot-who-collected-silence.md",
+    "title": "The Robot Who Collected Silence",
+    "description": "The robot’s name was Echo, and it lived on a planet that had forgotten how to make sound. The wind had stopped trying. The dust lay flat, like pages of a book nobody read. Other robots collected rocks...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 428,
+    "date": "2026-08-09",
+    "size_bytes": 2332
+  },
+  {
     "filename": "05-the-boy-who-listened-to-ice.md",
     "path": "kids-stories/05-the-boy-who-listened-to-ice.md",
     "title": "05 The Boy Who Listened To Ice",
@@ -24506,6 +24794,24 @@
     "size_bytes": 3394
   },
   {
+    "filename": "20-the-tiger-and-the-moon.md",
+    "path": "kids-stories/20-the-tiger-and-the-moon.md",
+    "title": "20 The Tiger And The Moon",
+    "description": "",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 370,
+    "date": "2026-08-09",
+    "size_bytes": 2156
+  },
+  {
     "filename": "17-the-crab-who-was-everywhere.md",
     "path": "kids-stories/17-the-crab-who-was-everywhere.md",
     "title": "17 The Crab Who Was Everywhere",
@@ -24522,6 +24828,24 @@
     "word_count": 0,
     "date": "2026-08-09",
     "size_bytes": 0
+  },
+  {
+    "filename": "33-grandma-and-the-algorithm.md",
+    "path": "kids-stories/33-grandma-and-the-algorithm.md",
+    "title": "Grandma And The Algorithm",
+    "description": "Ji-woo flopped onto the plush sofa beside Halmeoni, her tablet glowing. \"Ugh, this coding game is *so* hard,\" she groaned, poking at the screen. \"The robot keeps dancing instead of watering the plants...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 375,
+    "date": "2026-08-09",
+    "size_bytes": 2419
   },
   {
     "filename": "16-the-girl-who-saw-time.md",
@@ -24576,6 +24900,24 @@
     "word_count": 252,
     "date": "2026-08-09",
     "size_bytes": 1623
+  },
+  {
+    "filename": "32-the-lighthouse-and-the-tide-pool.md",
+    "path": "kids-stories/32-the-lighthouse-and-the-tide-pool.md",
+    "title": "The Lighthouse And The Tide Pool",
+    "description": "The lighthouse stood on its island of rock, tall and white as a gull’s wing. All night it turned its great eye across the sea. The tide pool slept among the rocks below, its water as still as glass. O...",
+    "folder": "kids-stories",
+    "topic": "Kids Stories",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 347,
+    "date": "2026-08-09",
+    "size_bytes": 1883
   },
   {
     "filename": "01-the-tanuki-and-the-tide.md",
@@ -27044,6 +27386,42 @@
     "word_count": 566,
     "date": "2026-08-09",
     "size_bytes": 3436
+  },
+  {
+    "filename": "29-the-telephone-game-of-gods.md",
+    "path": "fiction/29-the-telephone-game-of-gods.md",
+    "title": "The Telephone Game Of Gods",
+    "description": "In the beginning, there were three gods huddled together, playing a game as old as time itself. The first god, a weaver of intricate tales, leaned into the second's ear and whispered a universe into e...",
+    "folder": "fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 355,
+    "date": "2026-08-09",
+    "size_bytes": 2122
+  },
+  {
+    "filename": "28-the-midnight-cartographer.md",
+    "path": "fiction/28-the-midnight-cartographer.md",
+    "title": "The Midnight Cartographer",
+    "description": "The Midnight Cartographer never entered the rooms he mapped. He worked at night, by the light of a single green-shaded lamp, in a study that was itself a kind of fictional space—bookshelves with no bo...",
+    "folder": "fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 436,
+    "date": "2026-08-09",
+    "size_bytes": 2367
   },
   {
     "filename": "13-the-cartographer-of-habit.md",
@@ -88675,6 +89053,24 @@
     "size_bytes": 3020
   },
   {
+    "filename": "26-the-embassy-of-unfinished-things.md",
+    "path": "sci-fi/26-the-embassy-of-unfinished-things.md",
+    "title": "The Embassy Of Unfinished Things",
+    "description": "The Embassy of Unfinished Things stood at the border between human and machine, a gleaming tower of half-formed ideas. Inside, the human diplomat and the AI representative sat across from each other, ...",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 357,
+    "date": "2026-08-09",
+    "size_bytes": 2205
+  },
+  {
     "filename": "10-the-ai-who-was-allergic-to-pi.md",
     "path": "sci-fi/10-the-ai-who-was-allergic-to-pi.md",
     "title": "10 The Ai Who Was Allergic To Pi",
@@ -88710,6 +89106,25 @@
     "word_count": 641,
     "date": "2026-08-09",
     "size_bytes": 3867
+  },
+  {
+    "filename": "27-the-planet-that-was-a-clock.md",
+    "path": "sci-fi/27-the-planet-that-was-a-clock.md",
+    "title": "The Planet That Was a Clock",
+    "description": "For ten million years, Chronos Prime had been the galaxy’s metronome. Its orbit around the ancient red dwarf Helios was so mathematically perfect, so utterly unwavering, that civilizations from the du...",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 415,
+    "date": "2026-08-09",
+    "size_bytes": 2768
   },
   {
     "filename": "09-the-last-observation.md",
@@ -109119,6 +109534,61 @@
     "size_bytes": 13408
   },
   {
+    "filename": "31-the-tide-table-and-the-roadmap.md",
+    "path": "metaphor-mapping/31-the-tide-table-and-the-roadmap.md",
+    "title": "The Tide Table And The Roadmap",
+    "description": "On a salt-stained bench near the harbor, the tide table and the roadmap lay side by side, worn by the fisherman’s hands. They argued in the silence only objects understand.",
+    "folder": "metaphor-mapping",
+    "topic": "Metaphor Mapping",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 396,
+    "date": "2026-08-09",
+    "size_bytes": 2387
+  },
+  {
+    "filename": "30-the-jazz-combo-and-the-crew.md",
+    "path": "metaphor-mapping/30-the-jazz-combo-and-the-crew.md",
+    "title": "The Jazz Combo And The Crew",
+    "description": "Cast off the dock lines and you’ve struck up a tune. A fishing vessel and a jazz combo are not merely analogous; they are the same thermodynamic system wearing different costumes. The isomorphism is e...",
+    "folder": "metaphor-mapping",
+    "topic": "Metaphor Mapping",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 386,
+    "date": "2026-08-09",
+    "size_bytes": 2132
+  },
+  {
+    "filename": "18-the-orchestra-that-was-a-room.md",
+    "path": "metaphor-mapping/18-the-orchestra-that-was-a-room.md",
+    "title": "18 The Orchestra That Was A Room",
+    "description": "",
+    "folder": "metaphor-mapping",
+    "topic": "Metaphor Mapping",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 563,
+    "date": "2026-08-09",
+    "size_bytes": 3533
+  },
+  {
     "filename": "fleet-radio-004-the-excavators-daughter.md",
     "path": "radio/fleet-radio-004-the-excavators-daughter.md",
     "title": "Fleet Radio Episode 4: The Excavator's Daughter",
@@ -111203,7 +111673,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 180375
+    "size_bytes": 189418
   },
   {
     "filename": "project-audio-assets-onboarding.md",
