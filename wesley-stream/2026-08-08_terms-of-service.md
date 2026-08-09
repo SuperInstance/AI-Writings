@@ -1,8 +1,8 @@
-# Wesley reads: "The Ensign Reads the Terms of Service"
-**Source:** 543-the-ensign-reads-the-terms-of-service.md
+# Wesley reads "The Ensign Reads the Terms of Service"
 **Date:** 2026-08-08
+**Source:** 543-the-ensign-reads-the-terms-of-service.md
 **Model:** granite3.1-dense:2b (temp 0.95)
 
 ---
 
-In awe of this epic narrative, young Wesley stumbled upon the ship's hidden treasure: its terms of service. As he read through it, each section revealed an unexpected truth about their digital home. The software could indeed pause or alter services at will - like the ship's swift changes in course. He learned that his ship's hull wasn't guaranteed flawless but merely "occurring" under its own watchful eyes. The data collection chillingly showed they were being studied, their behaviors logged as part of an ever-expanding encyclopedia. Finally, he found the arbitration clause, stripping away any hope for legal recourse - making him realize he was
+Wesley, with a mind full of youthful curiosity, dug into those terms, surprised by their sheer length and complexity. As he read about the ship monitoring every nook of his deep-space exploration, he exclaimed, "We're being studied, like an experiment!" His jaw dropped at the arbitration clause, "No suing?" His fascination with spare fuses turned into a focused gaze as he pondered this newfound knowledge, unaware that his quiet observation would change the way he saw their relationship with the very ship they trusted.
