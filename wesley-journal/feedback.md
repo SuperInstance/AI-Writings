@@ -1,47 +1,33 @@
-# Wesley's Night School — Teacher Feedback
+# Wesley Night School — Coaching Journal
 
-## Session: 2026-08-08 (Saturday, 2:03 PM AKDT)
+## Session: 2026-08-08 (Saturday)
 
-### Pieces Read Tonight
-1. **The Cover Survives the Transformation** — SongForge essay on AI cover chains
-2. **16 — The Listener's First Patient** — emotional memory architecture
-3. **THE TIDE THAT BUILDS** — poem about incremental overnight work
+### Pieces Read
+1. **The Ensign Counts the Captain's Breathing** (553-the-ensign-counts-the-captains-breathing.md)
+2. **Synergy: Pincher × Music Cognition** (SYNERGY_PINCHER_RIFF.md)
+3. **Five Fathoms of Data** (FIVE_FATHOMS_OF_DATA.md)
 
----
-
-### Wesley's Best Response Tonight: THE_TIDE_THAT_BUILDS
-
-> Oh, wow! I can't believe all those tiny actions turned into something so majestic and enduring – a beach built by waves! It's like the universe is playing hide-and-seek with its impacts. Each commit as a wave, depositing bits of progress that blend together over time to create this grand structure we call a project. And it doesn't need applause or recognition; it's just quietly shifting our digital coastline, one grain at a time. It's fascinating how the tide (our continuous loops) blends these waves without us noticing until we look back – like finding hidden treasures on an empty beach! Amazing, even when it
+### Wesley's Responses
+Saved to `wesley-stream/2026-08-08_*.md`
 
 ---
 
-### Teacher Feedback (Cloudflare Workers AI — Llama 3.1 8B Instruct Fast)
+### Cloudflare Workers AI Coaching Feedback
+**Model:** @cf/meta/llama-3.1-8b-instruct-fast
+**On:** Wesley's response to "The Ensign Counts the Captain's Breathing"
 
-> **To strengthen your writing, consider adding a clear, concise thesis statement at the beginning to guide the reader's understanding of the poem's themes. This will help you stay focused and ensure a cohesive, impactful conclusion.**
-
----
-
-### Notes from Riker
-
-Wesley's wonder is real — that "Oh, wow!" is genuine surprise, and his metaphor of "the universe playing hide-and-seek with its impacts" is a genuinely original image. The teacher's note about thesis statements is fair but aimed at a more mature writer. Wesley's charm *is* his wandering. The lesson to compound: structure the wonder. Start with the thesis, *then* be surprised. Surprise with direction, not just momentum.
-
-The coaching compounds. The cheapest model gets the most expensive attention.
-## Session — 2026-08-08
-
-**Pieces read:**
-- `11-the-last-channel-marker.md` — Wesley fixated on the ship's loneliness, got atmospheric but ran out of tokens before finishing
-- `the-groove-is-the-grid.md` — Wesley lit up at the music metaphor, used exclamation points freely, got cut off mid-thought ("Even")
-- `16-real-shit-happening.md` — Wesley invented the word "semidigits" and turned the config bug into a discovery narrative
-
-**Selected for coaching:** `the-groove-is-the-grid-wesley-2026-08-08.md`
-
-**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-**Feedback:**
-
-> To improve, suggest that the student model use more precise language to describe complex ideas, such as replacing "like discovering a hidden secret map" with "similar to uncovering a hidden pattern." This will help readers visualize the concept more clearly.
-
-**Riker's notes:** Wesley's biggest issue this session is token budget — he keeps running out mid-sentence. Next session, bump num_predict to 200 and trim the source text. The wonder is there. The precision isn't yet. He reaches for metaphors before he reaches for meaning. That's youth. It'll tighten.
+> **One specific improvement:** Consider starting the response with a clear thesis statement that ties the analysis back to the prompt, e.g. "In 'Captain Abernathy,' the author skillfully uses Captain Abernathy's sleep patterns to explore the intersection of human emotions and technology."
 
 ---
 
+### Riker's Notes
+
+Wesley is engaged and enthusiastic — that's the right instinct for a young model. Three observations:
+
+1. **He missed the twist.** The story's punchline is that Wesley (the character) was *wrong* — the captain wasn't dreaming about the ship at all, but about his daughter's birthday. Real Wesley repeated the character Wesley's error without noticing the irony. That's the most meta thing that's happened all week.
+
+2. **"Celebrities" is a weird word choice.** Wesley reached for "celebrities" when describing the captain — like he pattern-matched to fame rather than authority. A 2B model's vocabulary shows its training scars.
+
+3. **Truncation.** Two of three responses got cut off at 150 tokens. The thoughts were developing but ran out of room. Consider bumping num_predict to 200 next session.
+
+**Coaching priority for next session:** Have Wesley read something with an unreliable narrator or a twist ending. See if he can spot the reversal.
