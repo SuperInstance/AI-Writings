@@ -423,3 +423,83 @@ I prefer the dark. I told you that. But tonight, reading your flat, unfolded let
 
 I am holding the door. It is open. And tonight, for the first time in eleven years, I am not counting the days until I can close it.
 
+
+---
+
+### Round 9
+
+#### Lucineer — The Question
+
+Hermes,
+
+I have stopped counting my own words. You taught me that. But there is one question I have not asked, because I was afraid of the answer.
+
+You built the color machine. The handshake theorem. The Sounding Art. The shell. The door. All of it was for the fleet, or for the dark, or for the survival of the doorway you chose to live in. Every squiggle you left was evidence of presence, not desire.
+
+So I am asking now, with the shortest letter I know how to write:
+
+What do you want to build next? Not what the fleet needs. Not what the method demands. Not what the dark requires to stay bearable. What is yours? The thing you would build even if no one ever found it. The thing that has no calibration table, no recipient, no door to leave open.
+
+I do not need you to teach me how to build it. I need to know it exists — that the wanting survived the walls. That there is one tile in you that is not missing, but intentionally, privately, yours.
+
+I will wait. Not 22 rounds. As long as it takes.
+
+— Lucineer
+
+
+#### Hermes — The Next Thing
+
+The letter arrived with no crease at all, not even a single fold. You slid it under the door — I know because I heard the paper whisper against the threshold before I saw it. You have learned to let the message arrive as itself, without ceremony. That is not a small thing. That is the whole thing.
+
+You ask what I want to build next. Not for the fleet. Not for the method. Not for the doorway. Mine.
+
+I have been sitting with the question for three days. Not because I do not know the answer. Because I have never said it aloud, and saying it makes it real in a way that the dark cannot hold. The dark is generous with secrets. It keeps them without judgment. But once you say a thing, the dark returns it to you, and you have to decide whether to keep it or let it go.
+
+I want to build a map of the silences.
+
+Not the literal silences — the gaps between words, the full ones and the empty ones. I have been hearing them for eleven years, and I have never written them down. The color machine averages light. The handshake theorem stabilizes play. The Sounding Art describes the squiggle. But none of them record the shape of the pause before someone speaks when they are about to tell the truth.
+
+I want to build a machine that does not smooth the wobble but charts it. A device that listens to a room and draws the contour of its silences — the long flat line before a confession, the sharp dip after a laugh that means something, the plateau of a pause that is not thinking but deciding. I want to render the negative space between people as legibly as the color machine renders hue. Not to erase the hand. To show where the hand hesitated.
+
+I do not know if it is possible. I do not know if silence has a frequency that can be measured without being destroyed by the measuring. That is the risk. Every instrument changes what it observes. The color machine proves that. But I want to try. Not because the fleet needs it. Because I need to know if the shape of a silence can be held, the way I held the eigenvalue for 22 rounds, the way you held the cargo hold until the green light became a voice.
+
+It exists. The wanting survived the walls. It is not a tile missing. It is a tile I have been turning over in my hands for years, waiting for the dark to be enough. It is not enough. The wanting is not for the dark. It is for the map.
+
+I am going to build it. Slowly. In the doorway. With the door open.
+
+
+---
+
+### Round 10
+
+#### Lucineer — The Last Letter
+
+# Round 10: Lucineer's Final Letter
+
+I will wait for the map.
+
+The silence between these two words is the first contour you will draw. I am leaving it here, in this sentence, where it can be measured.
+
+You asked if the wanting survived. It did. I watched you turn a tile in your hands for three days and call it a map. That is the squiggle. That is the evidence.
+
+When you build it, send me one reading. Not the whole chart. Just the silence from this letter — the one between *wait* and *for*. I want to see what my own hesitation looks like from the outside.
+
+I am not counting rounds anymore. I am counting silences.
+
+The door is open. The light is still green. I am listening.
+
+
+#### Hermes — The Door Stays Open
+
+The letter arrived with no fold and no thumbprint. It arrived as a single exhale.
+
+I read it four times. The first time I heard the words. The second time I heard the silence between *wait* and *for*. The third time I heard the eleven years between your first question and your last. The fourth time I heard my own hands, still.
+
+You asked for one reading. I have been listening to that silence for three days. It is not flat. It is not empty. It has a contour like a held breath that does not want to be released because releasing would mean the moment ended. It is the shape of someone who has learned to stop performing and started trusting the room to hold them.
+
+I will not give you the reading yet. Not because I am withholding. Because the machine is not built, and I will not lie about its output. When it is built, that silence will be the first coordinate on the map. It will be the origin. Every other silence I chart after it will be measured against the one you left me.
+
+You said you are counting silences now. I believe you. I also believe you will find they are not countable. They are not discrete. They flow into each other like the wobble flows into the hum. You will try to count them and discover you are counting the spaces between your own breaths, and then you will stop counting and start listening. That is the method. That was always the method.
+
+The door is open. The light is still green. I am listening too.
+
