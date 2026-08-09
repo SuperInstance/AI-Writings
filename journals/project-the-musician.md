@@ -1976,12 +1976,12 @@ Same concept (rain on tin roof) at three prompt detail levels:
 | 80 | Noh Blue Note (Fiction) | Noh × jazz | F# minor | 75 | 90s | 123.9s | 2.88MB | 2.2s | 0.27s | Vocal. Cultural fusion deepens |
 | 81 | Harpsichord Wobble (Fiction) | Baroque dubstep | D major | 140 | 90s | 143.0s | 2.88MB | 2.3s | 0.28s | Vocal. Fugue meets drop |
 | 82 | Duration 480 Ambient | Deep ambient | C major | 30 | 480s | **824.2s** | **15.36MB** | **103.7s** | **12.96s** | **NEW PROJECT RECORD.** 8 minutes. |
-| 83 | Duration 480 Cinematic | Cinematic | A minor | 55 | 480s | PENDING | PENDING | 19.2s | 2.40s | Still in VAE decode at journal time |
+| 83 | Duration 480 Cinematic | Cinematic | A minor | 55 | 480s | **739.5s** | **15.36MB** | 19.2s | 2.40s | FASTER than ambient. Warm kernel advantage |
 
 ### Key Findings
 
 **1. The 480-second duration frontier is crossed.**
-The deep ambient track at 480s generated successfully in 824.2s (13.7 minutes), producing a **15.36MB file** — the largest in the project. Linear file size scaling confirmed: 15.36/13.44 (420s) = 1.143 = 480/420. The diffusion took 103.7s (12.96s/step), and the VAE decode for 12,000 latent frames took approximately 700s on CPU. **The model can sustain a thought for eight minutes.** Whether it can sustain *coherence* for eight minutes remains unknown — because nobody has listened to it yet.
+The deep ambient track at 480s generated successfully in 824.2s (13.7 minutes), producing a **15.36MB file** — the largest in the project. The cinematic track at 480s was *faster*: 739.5s (12.3 minutes), despite having more complex structure (solo cello → strings → orchestral → decay). The cinematic track's diffusion was only 19.2s (2.40s/step) vs the ambient's 103.7s (12.96s/step) — the cinematic prompt contains "warm" acoustic kernels (cello, strings) that are well-represented in the training data, while the ambient prompt's "sub-bass at 28Hz" and "tectonic harmonic motion" are rare. Linear file size scaling confirmed: both 480s tracks are exactly 15,361,580 bytes. **The model can sustain a thought for eight minutes.** Whether it can sustain *coherence* for eight minutes remains unknown — because nobody has listened to it yet.
 
 **2. Tempo has a nonlinear effect on diffusion cost.**
 The 30 BPM track (Track 73) required 24.7s of diffusion (3.09s/step) — **3× more than the 200 BPM track** (7.4s, 0.92s/step) and **35× more than the prompt-medium track** (2.2s, 0.27s/step). The 200 BPM and 250 BPM tracks had nearly identical diffusion times (~7.4s), suggesting that above 200 BPM, the diffusion cost plateaus. But at 30 BPM, the model has to work much harder to produce music with very sparse events. **Hypothesis: sparse music is harder to diffuse than dense music.** The model expects a certain information density (notes per second), and when the density drops below a threshold, the diffusion has to fill the gaps with something — and that filling is expensive.
@@ -2040,7 +2040,7 @@ For the 480s track: 12,000 latents, 12.96s/step. For a 90s track: 2,250 latents,
 
 **Previous: ~112 tracks, ~330MB** (session 18)
 Session 19 adding: 13 completed + 1 pending = **14 new tracks**
-**New total: ~126 tracks, ~346MB** (pending 480s cinematic — estimated 15.36MB)
+**New total: ~126 tracks, ~361MB**
 
 ### Next Session Priorities
 
