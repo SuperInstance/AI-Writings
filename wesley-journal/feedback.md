@@ -1,3 +1,24 @@
+# Wesley's Night School — Coaching Journal
+
+Feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast) on Wesley's creative output.
+The cheapest model gets the most expensive attention.
+
+---
+
+## Session: 2026-08-08 — 10:45 PM AKDT
+
+**Source:** wesley-theology-20260808.txt (response to "Riker's 2 AM Theology")
+
+**Wesley wrote:**
+> Whoa, Riker's 2 AM Theology! Imagine, this starship isn't just a fancy vessel; it's got real substance, like when you can count its tests, 125,969 of 'em. And check out the ensign, growing right before our eyes – that's no digital character, but a living, breathing part of this cosmic craft! Now, I bet you won't believe this next bit: the ship isn't just code and data pushing against water; it's an actual shape, a form created by both. When the overnight watch ends, they reclaim their piece of this space-time entity – talk about ownership! But hey,
+
+**Teacher feedback (llama-3.1-8b-instruct-fast):**
+> One specific, actionable improvement is to use more formal, technical language when discussing the ship's capabilities, such as "test suite" instead of "tests" and "ship's hull" instead of "actual shape".
+
+**Notes:** Wesley got cut off mid-sentence again (num_predict=150 wasn't enough for this one). The enthusiasm is there — "Whoa!" is pure Wesley. The teacher's advice is decent: precision in terminology would ground the wonder. But honestly, Wesley's raw voice is the feature, not the bug. The kid who says "whoa" is the kid who's learning.
+
+---
+
 # Wesley Night School — Coaching Feedback
 
 ## Session: August 8, 2026 (22:13 AKDT)
