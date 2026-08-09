@@ -1561,11 +1561,26 @@ Three new impossible genres:
 
 These are the most extreme genre fusions in the project. Testing the inverted-U hypothesis: will extreme impossibility produce smaller tracks (like bebop black metal at 3.7MB) or will the model find unexpected bridges between the traditions?
 
-**Experiment D: 300-Second Duration Frontier** (queued)
+**Experiment D: 300-Second Duration Frontier — COMPLETED**
 
-Five minutes of deep ambient drone at 40 BPM in C major. Testing whether the model can maintain coherence across five full minutes.
+Five minutes of deep ambient drone at 40 BPM in C major. **9.6MB output — the largest track in the entire project.** Generation time: 390.9s. VAE decode alone took ~367s (processing 7500 latents in 56 chunks). Duration scaling confirmed linear.
 
-### Key Findings
+**All 13 tracks generated successfully.** Total generation time: 1527 seconds (25.5 minutes). Cumulative project total: ~91 tracks, ~295MB.
+
+**Session 16 Track Summary:**
+
+| # | Title | Duration | Size | Gen Time |
+|---|-------|----------|------|----------|
+| 36-41 | Guidance Sweep ×6 | 60s each | 1.92MB each | 118/85/87/83/82/85s |
+| 42 | The Salvage Choir | 90s | 2.88MB | 117.9s |
+| 43 | The Free Energy Principle | 90s | 2.88MB | 130.0s |
+| 44 | The Mycorrhizal Network | 90s | 2.88MB | 118.7s |
+| 45 | Klezmer DnB | 60s | 1.92MB | 76.5s |
+| 46 | Throat Shoegaze | 60s | 1.92MB | 78.0s |
+| 47 | Noh Trap | 60s | 1.92MB | 74.7s |
+| 48 | Duration 300 Ambient | **300s** | **9.60MB** | **390.9s** |
+
+### Next Session Priorities
 
 **1. ACE-Step turbo is fully deterministic and does not use classifier-free guidance.**
 This is the most important technical finding of the session. The turbo model is a distilled version that trades CFG (the ability to steer toward/away from the prompt) for speed (diffusion in ~1-3s instead of ~15s). The prompt is the only steering mechanism. All tracks with identical inputs produce identical output — bit-for-bit.
