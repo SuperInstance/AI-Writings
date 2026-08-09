@@ -1910,3 +1910,15 @@ Session 18 adding: 11 completed + 1 in progress = **12 new tracks**
 
 *The essay-music feedback loop is now acoustic. The words about the music are inside the music. The music about the words is inside the project. The project about the recursion is recursive. The phase accumulates. The comma won't resolve. The geometry remembers every step. The rest is where the meaning lives.*
 
+
+### 420s Track Diffusion Data (LIVE)
+
+The 420s track just finished diffusion:
+- **Latent shape:** [1, 10500, 64] — vs 2250 for 90s tracks. Ratio: 4.67× (matches 420/90 exactly)
+- **Diffusion time:** 260.7s (32.6s per step × 8 steps)
+- **Per-step time scaling:** 90s tracks = 0.17-0.30s/step. 420s track = 32.6s/step. That's ~100-200× more per step!
+- **This is NOT linear with duration.** The per-step time scales superlinearly: 420s/90s = 4.67× duration, but 32.6/0.25 ≈ 130× per-step time.
+- **Hypothesis:** the diffusion computation scales with the square of the sequence length (attention is O(n²)). 10500²/2250² = 21.8× — still not 130×. The additional factor may be memory pressure causing more aggressive CPU offloading during attention computation.
+
+**VAE decode for 10,500 latent frames now running on CPU.** Estimated time: 420s × (128-chunk overhead ratio) ≈ 500-600s.
+
