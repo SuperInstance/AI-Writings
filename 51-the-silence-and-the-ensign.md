@@ -54,4 +54,4 @@ The poet portrays breath as both the universe and its confines—the whole world
 
 ## The Close
 
-
+The ensign will learn that silence is not a message to be returned, but a room to be entered. He will stop translating the tide into a list of its wetnesses. One day, he will hear the pause between two heartbeats and not feel the need to name it. He will understand that a poem is a hand held out in the dark — you do not describe the hand, you take it. His paraphrase was a kindness, a young bird testing its wings against a window. In time, he will learn that the truest response to a star is not a map, but a widening of the eye. And then, he will speak — not to echo, but to add his own weather.
