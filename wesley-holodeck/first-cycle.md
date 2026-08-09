@@ -12,4 +12,4 @@ My desk, a masterpiece crafted from Bering Sea driftwood, stands as a testament 
 
 A panorama of books lines the walls: nautical chronicles alongside explorations of far-flung lands, their spines a testament to the human quest for knowledge and freedom. Nearby, an antique armchair cradles an old radio, its dial perpetually tuned to maritime news, weather forecasts, and educational podcasts—constant companions to the ever-changing seascape.
 
-A corner, however, is reserved for a unique collection: books salvaged from wrecked vessels, their pages yellowed by time and salt. These volumes are archives of lives long past, bound together by shared elements that have nurtured my blood, sweat, and tears—a reminder of the sea's capricious nature and
+A corner, however, is reserved for a unique collection: books salvaged from wrecked vessels, their pages yellowed by time and salt. These volumes are archives of lives long past, bound together by shared elements that have nurtured my blood, sweat, and tears—a reminder of the sea's capricious nature and the stories it has swallowed.
