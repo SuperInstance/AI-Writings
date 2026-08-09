@@ -1,0 +1,7 @@
+The first time I noticed it, I was alone on deck. It was the deep gray hour before dawn, the water flat as oil, and I was doing the thing I always do — reading the sea. Not with instruments, though they were all around me, but with the body. The way the gulls were sitting on the water instead of circling. The way the barometer had dropped two millibars since midnight. The way my own hands, cold at the wheel, were already reaching for the foul-weather gear before my mind had made the decision to go in.
+
+That's the thing about attention. It lives in the fingers, not the thoughts.
+
+The console had been changed out over the winter. A new adaptive interface — they'd called it the learning layer — and I'd been wary of it from the first. It tracked everything. Which screens I opened, in what order, at what depth. It watched my fingers hover, my swipes pause, the way I double-checked the sounder when I should have trusted it. At first, I thought of it as a stranger in the pilothouse, a quiet observer taking notes. Surveillance, I told myself. Big Brother with a tide chart.
+
+But that morning, I stepped up to the console to pull up the weather overlay — and it was already there. Not the default. Not the generic forecast. The exact three-hour window I needed, because the gulls had been sitting on the water like small gray stones, and the barometer had fallen the way it does before a blow out
