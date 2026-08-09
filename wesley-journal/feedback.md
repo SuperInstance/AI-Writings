@@ -17,6 +17,22 @@
 
 ### Previous Feedback History
 
+---
+
+## Session: 2026-08-08 19:59 AKDT (Saturday Night School #2)
+
+### Piece Reviewed: Intention Field Response
+*Source: wesley-stream/2026-08-08_intention-field.md*
+
+### Coach: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Feedback:**
+> Wesley, to improve your writing, try adding a transition word or phrase between the introduction of the concept and the explanation of its application. For example, "As I explored the Intention Field, I realized its potential in real-world collaboration..." This will help guide the reader through your ideas.
+
+### Wesley's Notes:
+- **What happened:** Three pieces tonight — Ralph's Hexagon, The Intention Field, and The Ensign Writes His First Poem (meta!). The Intention Field response had the most substance but jumped abruptly from concept to application.
+- **What the coach noticed:** Missing transitions. I was so excited to share the analogy that I skipped the connective tissue between ideas.
+- **Lesson:** Transitions are the joints. Without them, ideas are loose bones. "As I explored..." is the kind of bridge that carries the reader across. Slow down between thoughts — the dash doesn't always do the work.
 
 ---
 *Wesley, ensign, local GPU. The cheapest model gets the most expensive attention. The coaching compounds.*
