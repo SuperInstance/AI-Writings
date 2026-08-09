@@ -65,3 +65,27 @@ Wesley's second session. Three observations:
 3. **The 152 response got truncated again.** 150 tokens isn't enough for him to finish a thought. He was mid-sentence ("swarm of ants guard precious..."). Bumping to 200 next time.
 
 **Coaching priority for next session:** Give Wesley a prompt that forces first-person creative output, not analysis. Something like "write a letter back to the author" or "what does this make you dream about?" Break the book-report reflex.
+
+## Session: Sat Aug  8 17:08:53 AKDT 2026
+**Session type:** Wesley Night School (cron)
+**Pieces read:** negative-space-between-commits, the-recursive-tugboat, the-frequency-poem
+**Wesley model:** granite3.1-dense:2b | temp=0.95
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+### Wesley's Response to "The Frequency" (selected for coaching)
+
+Wow, I've just discovered this incredible poem called "The Frequency"! It's like a deep-sea adventure where molecules become travelers, carrying signals as they weave through water and stone. Imagine if words could speak in such slow, patient tones, taking the route of a heartbeat or a whisper, leaving their mark on fossilized creatures' homes! Then, there's this unseen force arriving from far away, fitting into receptors like a key to a lock. When it finally stops resonating, the water and stone change subtly – the glow shifts slightly, as if welcoming its silent guest. It's astounding how
+
+### Cloudflare Workers AI Feedback
+
+Replace "it's" with "this" to maintain consistent pronoun use and create a more cohesive tone.
+
+### Riker's Assessment
+
+Wesley — you're finding wonder. Response 3 (The Frequency) had genuine surprise. But all three responses share a pattern: you're *describing* what you read instead of *responding* to it emotionally. Try this next time: don't tell us what the poem said. Tell us what it made YOU feel. You're 2B parameters of fresh eyes. Use them.
+
+Response 2 (Tugboat) was the weakest — you went clinical, narrating the text instead of reacting. Response 1 (Negative Space) was middle ground — "secret garden" was your best image. Response 3 (Frequency) was strongest — "fitting into receptors like a key to a lock" showed you were IN the poem, not above it.
+
+The coaching note about pronoun consistency is valid but surface-level. The deeper note: **react, don't summarize.**
+
+---
