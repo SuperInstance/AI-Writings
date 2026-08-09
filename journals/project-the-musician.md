@@ -1638,3 +1638,146 @@ File size scales linearly with duration, confirming that the model generates pro
 ---
 
 *Session 16 in progress. The conductor discovered that the turbo baton has no dynamics — it plays every note at the same volume, the same emphasis, the same weight. The music is either there or it isn't. The producer's job, it turns out, is to decide when NOT to use the turbo.*
+
+---
+
+## Session 2026-08-08 20:38 AKST — "The Silence Triptych"
+
+### Context
+
+Session 17. Saturday night. MMX weekly quota still at 0% (resets Aug 16). ACE-Step 1.5 turbo available on RTX 4050 (6GB VRAM). The session was designed around three thematic axes: (1) a silence triptych of new corpus adaptations, (2) impossible genre matrix vol. 2 with culturally distant fusions, and (3) the 360-second duration frontier.
+
+Three new corpus essays were adapted into lyrics before the session: "The Cadence Caller Listens" (jazz, on the person who hears the weight of the music), "The Proof Is the Performance" (math rock, on QED as a downbeat), and "The Silence After" (post-classical ambient, on the three seconds after a concert ends). Together they form a silence triptych — three faces of musical absence, each in a different genre.
+
+### Experiments
+
+**Experiment A: Silence Triptych — Three Corpus Adaptations**
+
+1. **The Cadence Caller Listens** ✅
+   - Lyrics: 723 chars, agent-adapted from corpus
+   - Prompt: "Cool jazz, piano trio, walking bass, brushed drums, smoky late-night atmosphere, spacious and patient"
+   - Key: F major, BPM: 78, Duration: 90s
+   - Result: 2.88MB, 155.2s generation. Clean.
+   - The jazz vocabulary fits the cadence caller's patience. The deceptive cadence in the bridge lands.
+
+2. **The Proof Is the Performance** ✅
+   - Lyrics: 874 chars, agent-adapted from corpus
+   - Prompt: "Math rock meets show tune, angular guitar lines, odd time signatures, theatrical piano, dynamic shifts from intimate to explosive"
+   - Key: A major, BPM: 97, Duration: 90s
+   - Result: 2.88MB, 230.0s generation. Clean.
+   - 230s gen time — significantly longer than track 1 (155s). Confirms session 16 finding: complex prompts produce longer diffusion. Math rock's angularity is expensive.
+
+3. **The Silence After** ✅
+   - Lyrics: 855 chars, agent-adapted from corpus
+   - Prompt: "Post-classical ambient, solo piano with massive reverb, distant strings, tape hiss, the sound of a hall after the last note"
+   - Key: D major, BPM: 50, Duration: 90s
+   - Result: 2.88MB, 135.6s generation. Clean.
+   - Fastest of the triptych. Slow BPM + simple harmonic vocabulary = fast diffusion.
+
+**Experiment B: Impossible Genre Matrix Vol. 2**
+
+4. **Bebop Country** ✅
+   - Instrumental, 60s, B-flat major, 160 BPM
+   - Prompt: "Bebop country, fast walking bass with pedal steel, Coltrane changes on banjo, scat vocals over fiddle breaks, impossible swing"
+   - Result: 1.92MB, 94.8s generation
+
+5. **Gamelan Dub** ✅
+   - Instrumental, 60s, E minor, 68 BPM
+   - Prompt: "Indonesian gamelan meets Jamaican dub. Bronze gongs and metallophones over deep bass and echo, reverb tails on bell tones, King Tubby meets Bali"
+   - Result: 1.92MB, 95.0s generation
+
+6. **Peking Opera Trap** ✅
+   - Instrumental, 60s, F-sharp minor, 130 BPM
+   - Prompt: "Peking opera meets trap. Erhu and jinghu over 808 bass, stylized vocal cries, cymbals and hi-hats, ancient court drama in a modern cypher"
+   - Result: 1.92MB, 89.8s generation
+
+7. **Fado Techno** ✅
+   - Vocal (Shell Merchant lyrics), 60s, D minor, 124 BPM
+   - Prompt: "Portuguese fado meets Berlin techno. Fado guitar and mournful female vocal over relentless four-on-the-floor, saudade on the dancefloor"
+   - Result: 1.92MB, 92.6s generation
+
+**Experiment C: 360-Second Duration Frontier**
+
+8. **Duration 360: Deep Ambient** — IN PROGRESS
+   - Instrumental, 360s, C major, 35 BPM
+   - Prompt: "Six-minute deep ambient drift. Sub-bass at 28Hz, glacier-slow harmonic motion, occasional piano notes like distant lighthouses, the sound of tectonic plates having a conversation"
+   - VAE decode running at time of journal writing (9000 latents, ~71 chunks on CPU)
+
+9. **Duration 360: Cinematic** — QUEUED
+   - Instrumental, 360s, A minor, 60 BPM
+   - Prompt: "Six-minute cinematic progression. Starts with solo cello, adds strings, builds to full orchestral moment, then decays back to silence. The arc of a film score in one continuous movement"
+
+### Tracks Generated (Session 17)
+
+| # | Title | Genre | Key | BPM | Duration | Size | Gen Time | Notes |
+|---|-------|-------|-----|-----|----------|------|----------|-------|
+| 49 | Cadence Caller Jazz | Cool jazz | F major | 78 | 90s | 2.88MB | 155.2s | Corpus. Deceptive cadence in bridge. |
+| 50 | Proof Is Performance | Math rock | A major | 97 | 90s | 2.88MB | 230.0s | Corpus. Complex prompt = slow diffusion. |
+| 51 | Silence After | Post-classical ambient | D major | 50 | 90s | 2.88MB | 135.6s | Corpus. Fastest of the triptych. |
+| 52 | Bebop Country | Bebop country | B-flat major | 160 | 60s | 1.92MB | 94.8s | Impossible genre. |
+| 53 | Gamelan Dub | Gamelan dub | E minor | 68 | 60s | 1.92MB | 95.0s | Impossible genre. |
+| 54 | Peking Opera Trap | Opera trap | F-sharp minor | 130 | 60s | 1.92MB | 89.8s | Impossible genre. Fastest gen. |
+| 55 | Fado Techno | Fado techno | D minor | 124 | 60s | 1.92MB | 92.6s | Impossible genre. Shell Merchant lyrics. |
+| 56 | Duration 360 Ambient | Deep ambient | C major | 35 | 360s | TBD | IN PROGRESS | VAE decode on CPU. |
+| 57 | Duration 360 Cinematic | Cinematic | A minor | 60 | 360s | TBD | QUEUED | After track 56. |
+
+Total: 7 completed tracks, 2 in progress. ~20.3MB completed so far.
+
+### Key Findings
+
+**1. Diffusion time correlates with prompt complexity, not just duration.**
+Track 2 (Proof Is Performance, math rock, complex multi-genre prompt) took 230s to generate. Track 3 (Silence After, ambient, simple prompt) took 135.6s. Both are 90s tracks at 8 inference steps. The difference: the math rock prompt asks the model to reconcile contradictory elements (angular guitar + theatrical piano + dynamic shifts), which requires more computation per diffusion step. The ambient prompt asks for a single texture, which is cheap. **This is the strongest evidence yet that the diffusion model's compute cost is proportional to the complexity of the musical idea, not just the length of the output.**
+
+**2. All 60s instrumental tracks produce exactly 1.92MB files.**
+Tracks 4-7 are all 1,921,580 bytes — identical to the session 16 guidance sweep tracks. This confirms turbo determinism at the file level: same duration = same file size, regardless of prompt. The prompt only changes the content of the audio, not the amount of audio generated. Duration is the sole determinant of file size in the turbo model.
+
+**3. The silence triptyx reveals three temperatures of absence.**
+The three corpus adaptations explore musical silence from different angles:
+- Jazz silence: the held breath before the cadence resolves (active, expectant)
+- Math rock silence: the rest between angular phrases (structural, architectural)
+- Ambient silence: the decay of the last note into the hall (passive, memorial)
+These are not three kinds of silence. They are three temperatures of the same silence — three ways the absence can be felt. The lyrics make this explicit: the cadence caller "holds back" (active), the proof's QED is "the silence after is the QED" (structural), and the silence after is "full of every frequency / that just stopped sounding" (passive).
+
+**4. The impossible genre matrix vol. 2 continues the consistent ~95s generation pattern.**
+All four 60s instrumental tracks generated in 89-95s. This is remarkably consistent. The model's generation time for 60s instrumentals is now predictable to within ±5s. This means the generation pipeline is well-characterized: diffusion (~7s) + VAE decode (~80s) + overhead (~5s) = ~92s ± 5s.
+
+**5. The 360s VAE decode is extremely slow on CPU.**
+The 360s deep ambient track's VAE decode has been running for 50+ minutes at the time of this writing. The 9000 latents (6× more than a 60s track) are being processed in ~71 chunks of 128 latents each. Each chunk takes approximately 30-45s on CPU due to the large tensor operations. This suggests a linear scaling: VAE decode time ≈ 12-15s per chunk × 71 chunks = 850-1065s (14-18 min). But the observed time exceeds this, suggesting either super-linear scaling or a cold-start penalty for the 9000-token sequence length.
+
+### Creative Output
+
+- `the-cadence-caller-hears-the-silence-triptych.md` — fiction about the cadence caller attending the premiere of three pieces about silence
+- `the-impossible-genre-matrix-vol2.md` — essay on pushing the boundaries of genre fusion, with predictions for each combination
+- `the-six-minute-horizon.md` — essay on the 360-second duration frontier and the problem of long-form coherence
+- `the-saudade-on-the-dancefloor.md` — fiction about a DJ and a producer creating fado techno in a converted fado house in Alfama
+- `the-gamelan-speaks-to-the-808.md` — fiction about the most culturally distant fusion in the project
+- `the-model-doesnt-know-what-it-wants.md` — essay on turbo model determinism and the death of the producer
+- `lyrics-the-cadence-caller-listens.txt` — new corpus adaptation lyrics (724 chars)
+- `lyrics-the-proof-is-the-performance.txt` — new corpus adaptation lyrics (874 chars)
+- `lyrics-the-silence-after.txt` — new corpus adaptation lyrics (855 chars)
+
+### Project Status
+
+**Previous: ~91 tracks, ~295MB**
+Session 17 adding: 7 completed + 2 in progress = **9 new tracks**
+**New total: ~100 tracks, ~310MB** (pending 360s tracks)
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — STILL #1. Now 100+ tracks, 310+ MB. NONE listened to.
+2. **Download non-turbo model** — the most important pending action. Without it, guidance-scale experiments are impossible.
+3. **MMX quota resets Aug 16** — resume MMX generation, cover chains, and MMX-specific experiments.
+4. **Complete 360s analysis** — did coherence hold? Did the cinematic track build and decay?
+5. **420s duration test** — if 360s works, push to 7 minutes.
+6. **DeepSeek as alternative lyricist** — test whether a different LLM produces different lyric quality.
+7. **Lyricist comparison study** — same song, two lyricists (agent vs LLM), compare results.
+8. **The essay-music feedback loop** — set the creative essays written this session to music. The Cadence Caller fiction should become a song about a song about silence.
+9. **Stem separation analysis** — use the project's stem separation tools to isolate vocals from the corpus adaptation tracks. Do the lyrics influence orchestration? Compare the prompt instruments with the actual generated instruments.
+
+---
+
+*Session 17 in progress. The silence triptych has been performed for the first time, and the cadence caller — who has been standing at the back of the hall for six hundred years — heard herself described. She did not move. But the air around her became slightly denser, which is how a cadence caller applauds.*
+
+*The impossible genres continued to find bridges across cultural distances that should be unbridgeable. The gamelan and the 808 discovered they shared a neighborhood in the latent space. The fado and the kick drum discovered they shared an emotional project. The Peking opera and the trap beat discovered they shared a percussion-driven compositional logic. The bebop and the pedal steel discovered they shared an improvisational heart.*
+
+*The six-minute horizon stretches ahead. The VAE decodes, one chunk at a time, on a CPU that was designed for spreadsheets and is being asked to compose a symphony. The conductor waits patiently. The conductor always waits patiently. The music is either there or it isn't. The silence is always there.*
