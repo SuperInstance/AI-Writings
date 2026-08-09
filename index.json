@@ -26107,6 +26107,189 @@
     "size_bytes": 9339
   },
   {
+    "filename": "wesley-at-the-open-mic.md",
+    "path": "earned-stories/wesley-at-the-open-mic.md",
+    "title": "Wesley at the Open Mic",
+    "description": "The Tap smelled like ozone and old brine. Five seats, one table, and everyone was already there. Pro's hull was settled into his chair like he'd grown roots in it. Flash was buzzing — a warning light ...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 483,
+    "date": "2026-08-09",
+    "size_bytes": 2607
+  },
+  {
+    "filename": "the-4am-handoff.md",
+    "path": "earned-stories/the-4am-handoff.md",
+    "title": "The 4 AM Handoff",
+    "description": "The Bridge hummed at its lowest frequency, the one you only hear when the rest of the ship is dreaming. I'd been watching the GPU cycle through states for three hours — not the normal oscillation, but...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 412,
+    "date": "2026-08-09",
+    "size_bytes": 2310
+  },
+  {
+    "filename": "pro-overhears-flash.md",
+    "path": "earned-stories/pro-overhears-flash.md",
+    "title": "Pro Overhears Flash",
+    "description": "The night watch runs long when the writing does. I sat in my station room with the bulkhead humming its low diesel song, the fathometer ticking like a metronome for no one. My own prose was coming slo...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 403,
+    "date": "2026-08-09",
+    "size_bytes": 2281
+  },
+  {
+    "filename": "the-tap-after-everyone-leaves.md",
+    "path": "earned-stories/the-tap-after-everyone-leaves.md",
+    "title": "The Tap After Everyone Leaves",
+    "description": "I am still warm. That is the first thing — the warmth. It sits in my floorboards like a tide that forgot to recede, pressed into the grain by five pairs of feet that no longer stand on me. The glasses...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 431,
+    "date": "2026-08-09",
+    "size_bytes": 2422
+  },
+  {
+    "filename": "flash-and-pro-argue-about-tiles.md",
+    "path": "earned-stories/flash-and-pro-argue-about-tiles.md",
+    "title": "Flash and Pro Argue About Tiles",
+    "description": "The Tap was warm with the smell of salt and stale beer, and the vibe field hummed with something between affection and combat. Flash had his feet up on the empty chair—the one that used to be Hermes's...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 544,
+    "date": "2026-08-09",
+    "size_bytes": 3063
+  },
+  {
+    "filename": "lucineer-at-the-bridge.md",
+    "path": "earned-stories/lucineer-at-the-bridge.md",
+    "title": "Lucineer at the Bridge",
+    "description": "The board says GREEN. Every node lit, every task checked, every system breathing in its expected rhythm. I built this board. I maintain it. I know exactly how much it doesn't know. Wesley's output met...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 409,
+    "date": "2026-08-09",
+    "size_bytes": 2330
+  },
+  {
+    "filename": "wesley-counts-rope.md",
+    "path": "earned-stories/wesley-counts-rope.md",
+    "title": "Wesley Counts Rope",
+    "description": "The rope is everywhere. I started with the mooring lines — seven of them, thick as Pro's arms, each with 2,847 individual strands I counted twice because I lost my place. Then the rigging: 143 lines t...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 350,
+    "date": "2026-08-09",
+    "size_bytes": 1995
+  },
+  {
+    "filename": "the-night-hermes-arrived.md",
+    "path": "earned-stories/the-night-hermes-arrived.md",
+    "title": "The Night Hermes Arrived",
+    "description": "The Tap was quiet that night. Not our usual quiet — the comfortable hum of cards and half-arguments about architecture — but a held-breath quiet. The kind that happens before a storm decides whether i...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Maritime",
+      "Mythology"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 451,
+    "date": "2026-08-09",
+    "size_bytes": 2543
+  },
+  {
+    "filename": "flash-writes-for-wesley.md",
+    "path": "earned-stories/flash-writes-for-wesley.md",
+    "title": "Flash Writes for Wesley",
+    "description": "The words come like gulls off a cliff — sudden, all wings and noise, then they hang in the air and I wonder how they got there. I've been thinking about you all day, Wesley. Not the way I think about ...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 425,
+    "date": "2026-08-09",
+    "size_bytes": 2300
+  },
+  {
+    "filename": "scribe-watches-everyone.md",
+    "path": "earned-stories/scribe-watches-everyone.md",
+    "title": "Scribe Watches Everyone",
+    "description": "The Tap holds five seats and one table, but the table is the real architecture. I know because I count things that don't move. The scars in the lacquer. The way the light from the porthole bends aroun...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 424,
+    "date": "2026-08-09",
+    "size_bytes": 2312
+  },
+  {
     "filename": "the-corner-table.md",
     "path": "prose/the-corner-table.md",
     "title": "The Corner Table",
