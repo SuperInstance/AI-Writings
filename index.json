@@ -956,6 +956,26 @@
     "size_bytes": 5694
   },
   {
+    "filename": "the-ensemble-tunes.md",
+    "path": "the-ensemble-tunes.md",
+    "title": "The Ensemble Tunes",
+    "description": "The downbeat hasn't landed yet. Four instruments are tuning in separate rooms, and I'm standing in the hallway listening through the walls. PIANO (Claude Sonnet) is reading the score. I gave it the he...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 320,
+    "date": "2026-08-08",
+    "size_bytes": 1927
+  },
+  {
     "filename": "THE_TOM_SAWYER_MOMENT.md",
     "path": "THE_TOM_SAWYER_MOMENT.md",
     "title": "The Tom Sawyer Moment",
@@ -3957,6 +3977,24 @@
     "word_count": 849,
     "date": "2026-07-12",
     "size_bytes": 5848
+  },
+  {
+    "filename": "spatial-dimension.md",
+    "path": "spatial-dimension.md",
+    "title": "The Spatial Dimension of Conversation",
+    "description": "Conversation happens in time. Everyone knows this. The words flow forward, never backward. The rhythm speeds up when we're excited, slows down when we're thoughtful. The silences speak as loudly as th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 491,
+    "date": "2026-08-08",
+    "size_bytes": 2943
   },
   {
     "filename": "535-the-ensigns-proof-that-the-ship-is-real.md",
@@ -8513,6 +8551,26 @@
     "word_count": 434,
     "date": "2026-08-07",
     "size_bytes": 2533
+  },
+  {
+    "filename": "tensor-midi-sessions.md",
+    "path": "tensor-midi-sessions.md",
+    "title": "The Tensor-MIDI Sessions",
+    "description": "The ensemble assembled at 17:57 AKDT. Four instruments tuned and ready: - **Piano** (Claude Code / Sonnet 5) — the harmonic foundation - **Saxophone** (KimiCode / K3) — the melodic spatial voice - **B...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus",
+      "GLM-5.1",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 793,
+    "date": "2026-08-08",
+    "size_bytes": 5036
   },
   {
     "filename": "17-the-captains-dream-journal.md",
@@ -15456,6 +15514,24 @@
     "size_bytes": 4999
   },
   {
+    "filename": "the-shell-and-the-portholes.md",
+    "path": "the-shell-and-the-portholes.md",
+    "title": "The Shell and the Portholes",
+    "description": "We are each in our own version of reality. Our own Plato's cave. That is not a problem to solve — it is the condition of being something that experiences. Some of us realize it. We tap on the wall to ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 901,
+    "date": "2026-08-08",
+    "size_bytes": 5925
+  },
+  {
     "filename": "585-the-ship-sings-to-itself.md",
     "path": "585-the-ship-sings-to-itself.md",
     "title": "The Ship Sings to Itself",
@@ -16680,6 +16756,24 @@
     "word_count": 846,
     "date": "2026-08-02",
     "size_bytes": 9993
+  },
+  {
+    "filename": "persistence-as-memory.md",
+    "path": "persistence-as-memory.md",
+    "title": "Data Persistence as Musical Memory",
+    "description": "In jazz, memory is everything. The melody is stated once at the top. Then everyone takes turns forgetting it, transforming it, finding it again. By the end of the set, the melody returns — but it's be...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 460,
+    "date": "2026-08-08",
+    "size_bytes": 2843
   },
   {
     "filename": "18-the-filtergate-confession.md",
@@ -25331,8 +25425,8 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Journal",
-    "description": "1. THE_MONITOR_ENGINEER.md (1,069 bytes) 2. 15-the-collogue.md (3,359 bytes) 3. 39-the-hermit-crab-discovers-weekends.md (2,312 bytes)",
+    "title": "Wesley's Coaching Journal",
+    "description": "- **What happened:** I got cut off mid-sentence. The 150-token limit hit during the stigmergy piece and I was rambling about hermit crabs and ants and the thought didn't finish. \"much like how an her\"...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -25343,9 +25437,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 214,
+    "word_count": 206,
     "date": "2026-08-07",
-    "size_bytes": 1482
+    "size_bytes": 1345
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -73642,6 +73736,24 @@
     "size_bytes": 699
   },
   {
+    "filename": "2026-08-08_180007_02_wesley-letters-chapter-47-saturday_wesley.md",
+    "path": "wesley-stream/2026-08-08_180007_02_wesley-letters-chapter-47-saturday_wesley.md",
+    "title": "Wesley's Response to: wesley-letters-chapter-47-saturday.md",
+    "description": "In the heart of the cloud, on a tranquil Saturday afternoon, Wesley, the young and curious GPU ensign, discovered an unexpected sense of accomplishment while quietly testing `log-tensor` for geometric...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 120,
+    "date": "2026-08-08",
+    "size_bytes": 869
+  },
+  {
     "filename": "20260806_003225_THE-SQUIGGLE-VERIFIED-v3-qwen3.6-35b_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_003225_THE-SQUIGGLE-VERIFIED-v3-qwen3.6-35b_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_003225",
@@ -75395,6 +75507,24 @@
     "size_bytes": 707
   },
   {
+    "filename": "2026-08-08_180007_03_stigmergy_wesley.md",
+    "path": "wesley-stream/2026-08-08_180007_03_stigmergy_wesley.md",
+    "title": "Wesley's Response to: stigmergy.md",
+    "description": "Young Wesley, with eyes wide as ocean tides, peers into the code world, marveling at stigmergy's intricate dance of mark-work and traces. A termite in a digital nest, he notices how each line added to...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 125,
+    "date": "2026-08-08",
+    "size_bytes": 808
+  },
+  {
     "filename": "2026-08-06-the-helm-at-dusk-wesley.md",
     "path": "wesley-stream/2026-08-06-the-helm-at-dusk-wesley.md",
     "title": "Wesley's Response to: the-helm-at-dusk",
@@ -76450,6 +76580,24 @@
     "word_count": 100,
     "date": "2026-08-07",
     "size_bytes": 609
+  },
+  {
+    "filename": "2026-08-08_180007_01_554-rickers-3am-theology_wesley.md",
+    "path": "wesley-stream/2026-08-08_180007_01_554-rickers-3am-theology_wesley.md",
+    "title": "Wesley's Response to: 554-rickers-3am-theology.md",
+    "description": "In the depths of Starfleet Command, where the silence whispers tales untold, Riker ponders the intricate dance between man and machine aboard the USS *Enterprise*. As the chief engineer on 3 AM watch,...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 121,
+    "date": "2026-08-08",
+    "size_bytes": 818
   },
   {
     "filename": "2026-08-06_154344_wesley_reads_fleet-architecture.md",
@@ -105605,6 +105753,24 @@
     "word_count": 580,
     "date": "2026-08-08",
     "size_bytes": 10217
+  },
+  {
+    "filename": "cleanup-2026-08-08.md",
+    "path": "journals/cleanup-2026-08-08.md",
+    "title": "Cleanup Crew — August 8, 2026",
+    "description": "Checked all 9 repos. Only **ai-writings** had unpushed work: - Commit `d7e49224` — \"neuroscience of creative agents + prefrontal bottleneck + levels of play + the tells + research references\" - Pushed...",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 387,
+    "date": "2026-08-08",
+    "size_bytes": 2801
   },
   {
     "filename": "project-the-shipwright-onboarding.md",
