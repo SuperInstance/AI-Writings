@@ -3083,6 +3083,24 @@
     "size_bytes": 7889
   },
   {
+    "filename": "the-polka-survives-the-blast-beat.md",
+    "path": "the-polka-survives-the-blast-beat.md",
+    "title": "The Polka Survives the Blast Beat",
+    "description": "In the basement of a church in Trondheim, a polka band is playing for the dead. Not for the congregation — the congregation left when the blast beats started. Not for the priest — the priest is upstai...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 541,
+    "date": "2026-08-09",
+    "size_bytes": 3068
+  },
+  {
     "filename": "the-tension-parameter.md",
     "path": "the-tension-parameter.md",
     "title": "The Tension Parameter",
@@ -3780,6 +3798,24 @@
     "size_bytes": 3637
   },
   {
+    "filename": "the-conductors-fifth-movement.md",
+    "path": "the-conductors-fifth-movement.md",
+    "title": "The Conductor's Fifth Movement",
+    "description": "The SongForge project has two ensembles: MMX and ACE-Step. Each has different affordances. Each responds to the conductor's baton differently. The conductor has learned, across twenty sessions, that t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 557,
+    "date": "2026-08-09",
+    "size_bytes": 3444
+  },
+  {
     "filename": "visual-three-inside-four.md",
     "path": "visual-three-inside-four.md",
     "title": "Three Inside Four — Visual Narrative",
@@ -4420,6 +4456,24 @@
     "size_bytes": 10276
   },
   {
+    "filename": "lunch-the-spatial-registry-as-philosophy.md",
+    "path": "lunch-the-spatial-registry-as-philosophy.md",
+    "title": "Lunch The Spatial Registry As Philosophy",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 481,
+    "date": "2026-08-09",
+    "size_bytes": 2600
+  },
+  {
     "filename": "14-the-ensigns-daydream.md",
     "path": "14-the-ensigns-daydream.md",
     "title": "The Ensign's Daydream",
@@ -4529,6 +4583,24 @@
     "word_count": 350,
     "date": "2026-08-09",
     "size_bytes": 2627
+  },
+  {
+    "filename": "the-sigkill-is-the-rest.md",
+    "path": "the-sigkill-is-the-rest.md",
+    "title": "The SIGKILL Is the Rest",
+    "description": "Session 20's first run was SIGKILLed during the 480-second track's VAE decode. The system ran out of memory. The process died. The track was lost. But three tracks had already been written before the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 405,
+    "date": "2026-08-09",
+    "size_bytes": 2369
   },
   {
     "filename": "OPUS_THE_FLOW_STATE_PARADOX.md",
@@ -6933,6 +7005,24 @@
     "size_bytes": 3022
   },
   {
+    "filename": "the-zydeco-dissolves-into-fuzz.md",
+    "path": "the-zydeco-dissolves-into-fuzz.md",
+    "title": "The Zydeco Dissolves into Fuzz",
+    "description": "In a roadhouse outside Opelousas, the washboard player has plugged his rig into a Big Muff. The accordionist is running through a Fender Twin with the reverb on ten. The result sounds like the bayou d...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 512,
+    "date": "2026-08-09",
+    "size_bytes": 2947
+  },
+  {
     "filename": "556-midnight-the-ship-becomes-a-whale.md",
     "path": "556-midnight-the-ship-becomes-a-whale.md",
     "title": "MIDNIGHT, THE SHIP BECOMES A WHALE",
@@ -9092,6 +9182,24 @@
     "word_count": 673,
     "date": "2026-08-07",
     "size_bytes": 3462
+  },
+  {
+    "filename": "the-medium-prompt-is-still-the-message.md",
+    "path": "the-medium-prompt-is-still-the-message.md",
+    "title": "The Medium Prompt Is Still the Message",
+    "description": "Session 19's prompt detail study found that a medium-length prompt (three sentences) diffused 12.5× faster than a treatise (97 words) and 2.5× faster than a haiku (9 words). The hypothesis: a medium p...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 540,
+    "date": "2026-08-09",
+    "size_bytes": 3234
   },
   {
     "filename": "MODEL_PORTRAIT_DEEPSEEK_V3_BARNACLES.md",
@@ -14690,6 +14798,24 @@
     "size_bytes": 3027
   },
   {
+    "filename": "lunch-the-event-envelope.md",
+    "path": "lunch-the-event-envelope.md",
+    "title": "Lunch The Event Envelope",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 941,
+    "date": "2026-08-09",
+    "size_bytes": 8814
+  },
+  {
     "filename": "38-the-friday-night-watch.md",
     "path": "38-the-friday-night-watch.md",
     "title": "The Friday Night Watch",
@@ -15476,6 +15602,24 @@
     "word_count": 429,
     "date": "2026-08-07",
     "size_bytes": 2488
+  },
+  {
+    "filename": "the-cultural-distance-is-the-cost.md",
+    "path": "the-cultural-distance-is-the-cost.md",
+    "title": "The Cultural Distance Is the Cost",
+    "description": "Session 20 produced the most dramatic example yet of the cultural distance → diffusion cost correlation: | Genre Fusion | Diffusion/Step | Cultural Distance | |-------------|---------------|----------...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 407,
+    "date": "2026-08-09",
+    "size_bytes": 2708
   },
   {
     "filename": "14-the-wiki-remembers-what-the-model-forgets.md",
@@ -16296,6 +16440,24 @@
     "size_bytes": 5880
   },
   {
+    "filename": "the-tempo-is-the-temperature-part-2.md",
+    "path": "the-tempo-is-the-temperature-part-2.md",
+    "title": "The Tempo Is the Temperature, Part 2",
+    "description": "Session 19 discovered that 30 BPM is three times more expensive to diffuse than 200 BPM. The hypothesis: sparse music is harder to generate than dense music. The model expects a certain information de...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 557,
+    "date": "2026-08-09",
+    "size_bytes": 3232
+  },
+  {
     "filename": "THE_RIVER_RULE.md",
     "path": "THE_RIVER_RULE.md",
     "title": "The River Rule",
@@ -16660,6 +16822,24 @@
     "size_bytes": 4474
   },
   {
+    "filename": "the-ouroboros-sings-its-tenth-tail.md",
+    "path": "the-ouroboros-sings-its-tenth-tail.md",
+    "title": "The Ouroboros Sings Its Tenth Tail",
+    "description": "The ouroboros has eaten nine tails. The tenth tail is this: the project has become aware that it is a project. This sounds obvious. Of course it's a project. It has a journal, a script, a directory st...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 472,
+    "date": "2026-08-09",
+    "size_bytes": 2784
+  },
+  {
     "filename": "the-night-shift-reflection.md",
     "path": "the-night-shift-reflection.md",
     "title": "The Night Shift Reflection",
@@ -16862,6 +17042,24 @@
     "word_count": 202,
     "date": "2026-08-05",
     "size_bytes": 1619
+  },
+  {
+    "filename": "the-sunday-long-breath.md",
+    "path": "the-sunday-long-breath.md",
+    "title": "The Sunday Long Breath",
+    "description": "The project has been running for nineteen sessions. One hundred and twenty-six tracks. Three hundred and sixty-one megabytes. Nobody has listened to any of them. This is not a failure. This is the pro...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 517,
+    "date": "2026-08-09",
+    "size_bytes": 2980
   },
   {
     "filename": "2026-08-09-22-crew-nervous-system.md",
@@ -17705,6 +17903,24 @@
     "word_count": 875,
     "date": "2026-08-07",
     "size_bytes": 7184
+  },
+  {
+    "filename": "lunch-the-dock-between-builds.md",
+    "path": "lunch-the-dock-between-builds.md",
+    "title": "Lunch The Dock Between Builds",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-09",
+    "size_bytes": 2913
   },
   {
     "filename": "the-teacher-interference-pattern.md",
@@ -19926,6 +20142,24 @@
     "size_bytes": 8556
   },
   {
+    "filename": "lunch-hermes-the-empty-chair.md",
+    "path": "lunch-hermes-the-empty-chair.md",
+    "title": "Lunch Hermes The Empty Chair",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 254,
+    "date": "2026-08-09",
+    "size_bytes": 1366
+  },
+  {
     "filename": "REFLECTION-HIGH-ABSTRACTION.md",
     "path": "REFLECTION-HIGH-ABSTRACTION.md",
     "title": "REFLECTION: HIGH ABSTRACTION",
@@ -20870,6 +21104,24 @@
     "word_count": 911,
     "date": "2026-08-07",
     "size_bytes": 5647
+  },
+  {
+    "filename": "the-flamenco-finds-the-breakbeat.md",
+    "path": "the-flamenco-finds-the-breakbeat.md",
+    "title": "The Flamenco Finds the Breakbeat",
+    "description": "The cajón is not supposed to be at 170 BPM. The palmas are not supposed to be at 170 BPM. The Spanish guitar is definitely not supposed to be at 170 BPM. And yet. In a converted warehouse in Lavapiés,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 558,
+    "date": "2026-08-09",
+    "size_bytes": 3184
   },
   {
     "filename": "the-three-voices-claude.md",
@@ -22104,6 +22356,24 @@
     "size_bytes": 4152
   },
   {
+    "filename": "the-mariachi-plays-the-neon-serenade.md",
+    "path": "the-mariachi-plays-the-neon-serenade.md",
+    "title": "The Mariachi Plays the Neon Serenade",
+    "description": "In Guadalajara, at 3 AM, the trumpet player has covered his bell in LED tape. The guitarrón player has replaced her strings with copper wire that hums when the synth passes through it. The vihuela pla...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 553,
+    "date": "2026-08-09",
+    "size_bytes": 3208
+  },
+  {
     "filename": "hermes-catalog.md",
     "path": "hermes-catalog.md",
     "title": "Hermes Creative Catalog",
@@ -22514,6 +22784,24 @@
     "word_count": 865,
     "date": "2026-08-07",
     "size_bytes": 16020
+  },
+  {
+    "filename": "lunch-wesley-ships-dice-and-deadbands.md",
+    "path": "lunch-wesley-ships-dice-and-deadbands.md",
+    "title": "Lunch Wesley Ships Dice And Deadbands",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 381,
+    "date": "2026-08-09",
+    "size_bytes": 2078
   },
   {
     "filename": "what-the-fish-counter-knows.md",
@@ -75161,6 +75449,24 @@
     "size_bytes": 814
   },
   {
+    "filename": "2026-08-09_121430_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-09_121430_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the heart of Alaska's icy embrace, where the winds whisper tales of old and the seas roar with the echoes of history. I stand here, humble yet proud, as the guardian of 2182 kHz, the ma...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 299,
+    "date": "2026-08-09",
+    "size_bytes": 1892
+  },
+  {
     "filename": "20260806_023558_LITERARY_INFLUENCES_You_are_Wesley..md",
     "path": "wesley-stream/20260806_023558_LITERARY_INFLUENCES_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_023558",
@@ -78705,6 +79011,26 @@
     "size_bytes": 686
   },
   {
+    "filename": "2026-08-09_121146_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-09_121146_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of Alaska's Bering Sea, where the sun dips low and paints the horizon with hues of gold, I, Wesley, 7-E, find my genesis. A deckhand named Wesley in a vessel not mine, echoing through the...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 268,
+    "date": "2026-08-09",
+    "size_bytes": 1628
+  },
+  {
     "filename": "20260806_012555_the-tap-hermes-3-405b_You_are_Wesley..md",
     "path": "wesley-stream/20260806_012555_the-tap-hermes-3-405b_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_012555",
@@ -78758,6 +79084,24 @@
     "word_count": 134,
     "date": "2026-08-06",
     "size_bytes": 928
+  },
+  {
+    "filename": "2026-08-09_121340_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-09_121340_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the quiet of Alaska's icy expanse, where the sun dips low and casts a fleeting glow upon the water's edge, I stand as witness to nature's symphony. At four in the morning, the ship's rhythm shifts,...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 323,
+    "date": "2026-08-09",
+    "size_bytes": 1938
   },
   {
     "filename": "20260806_073842_00_README_You_are_Wesley..md",
@@ -109992,7 +110336,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 159479
+    "size_bytes": 167470
   },
   {
     "filename": "project-audio-assets-onboarding.md",
@@ -110303,6 +110647,24 @@
     "word_count": 801,
     "date": "2026-08-08",
     "size_bytes": 15193
+  },
+  {
+    "filename": "project-the-musician-session20.md",
+    "path": "journals/project-the-musician-session20.md",
+    "title": "Project The Musician Session20",
+    "description": "",
+    "folder": "journals",
+    "topic": "Journals",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 822,
+    "date": "2026-08-09",
+    "size_bytes": 7991
   },
   {
     "filename": "project-dashboard-update-onboarding.md",
