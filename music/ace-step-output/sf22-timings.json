@@ -208,5 +208,47 @@
     "file_size_bytes": 1921580,
     "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/a0dbdfd2-195f-9bf9-4892-d96a0c9ab6d5.mp3",
     "status": "success"
+  },
+  {
+    "experiment": "D_breathing_room",
+    "name": "sf22-breath-dubtechno",
+    "caption": "Dub techno, Basic Channel style, deep chord stabs through infinite delay, Detroit to Berlin, vinyl crackle, the groove is in the space between beats, submarine sonar bass",
+    "duration": 60,
+    "bpm": 120,
+    "keyscale": "E minor",
+    "inference_steps": 8,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 99.09,
+    "file_size_bytes": 1921580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/adc81dac-2f17-9a21-d9fe-db3d7574bea5.mp3",
+    "status": "success"
+  },
+  {
+    "experiment": "E_casey_covers",
+    "name": "sf22-casey-doomjazz",
+    "caption": "Dark doom jazz, slow blackened saxophone, funeral organ, doom metal guitar drone, Bohren und der Club of Gore meets Sunn O))), cinematic horror jazz, 40 BPM, suffocating and beautiful",
+    "duration": 90,
+    "bpm": 40,
+    "keyscale": "D minor",
+    "inference_steps": 8,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 148.04,
+    "file_size_bytes": 2881580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/bb2fea6b-5f4a-979a-1c07-b1f8f893fc17.mp3",
+    "status": "success"
+  },
+  {
+    "experiment": "E_casey_covers",
+    "name": "sf22-casey-bossa",
+    "caption": "Warm bossa nova, gentle nylon guitar, soft brushed snares, female vocal in Portuguese style, Stan Getz meets Joao Gilberto, Sunday morning, cafe by the beach, warm and tender",
+    "duration": 90,
+    "bpm": 110,
+    "keyscale": "G major",
+    "inference_steps": 8,
+    "guidance_scale": 7.0,
+    "elapsed_seconds": 131.85,
+    "file_size_bytes": 2881580,
+    "output_path": "/home/eileen/projects/ai-writings/music/ace-step-output/6d723228-76c4-ee00-70f6-ece255637889.mp3",
+    "status": "success"
   }
 ]
