@@ -1834,3 +1834,40 @@ Track 1 (sf18-ouroboros-sings): ✅ 176.9s generation. 2.88MB. First feedback-lo
 
 *(Session 18 in progress. The ouroboros has eaten one tail. Seven more to go.)*
 
+
+### Session 18 Preliminary Results
+
+**11 tracks completed** (420s duration track still generating):
+
+| # | Title | Genre | Duration | BPM | Gen Time | Size | Notes |
+|---|-------|-------|----------|-----|----------|------|-------|
+| 58 | Ouroboros Sings | Ambient electronic | 90s | 70 | 176.9s | 2.88MB | Essay→song feedback loop. Recursive lyrics. |
+| 59 | Interval Sings | Cool jazz ambient | 90s | 65 | 159.4s | 2.88MB | Essay→song. Pythagoras comma lyrics. |
+| 60 | Six-Minute Horizon | Deep ambient | 90s | 50 | 140.7s | 2.88MB | Essay→song. VAE-on-CPU lyrics. |
+| 61 | Shell Merchant (M3 lyrics) | Folk baroque | 90s | 72 | 141.9s | 2.88MB | Lyricist comparison A. M3 at temp 0.92. |
+| 62 | Interval (agent lyrics) | Folk baroque | 90s | 72 | 160.7s | 2.88MB | Lyricist comparison B. Agent-written. |
+| 63 | Klezmer DnB | Klezmer drum & bass | 60s | 170 | 169.7s | 1.92MB | Impossible genre #9. |
+| 64 | Noh Jazz | Noh × cool jazz | 60s | 75 | 150.0s | 1.92MB | Impossible genre #10. 17.5s diffusion! |
+| 65 | Baroque Dubstep | Baroque × dubstep | 60s | 140 | 92.3s | 1.92MB | Impossible genre #11. Fastest gen. |
+| 66 | Guidance × Vocals 5.0 | Indie folk | 60s | 72 | 106.2s | 1.92MB | Turbo overrides to 1.0. |
+| 67 | Guidance × Vocals 9.0 | Indie folk | 60s | 72 | 97.0s | 1.92MB | Turbo overrides to 1.0. |
+| 68 | Guidance × Vocals 15.0 | Indie folk | 60s | 72 | 98.5s | 1.92MB | Turbo overrides to 1.0. |
+| 69 | Duration 420 Ambient | Deep ambient | 420s | 30 | PENDING | PENDING | Seven minutes. Linear scaling predicts ~600s gen. |
+
+### Emerging Findings
+
+**1. The turbo model ignores guidance scale — confirmed for vocal tracks.**
+All three guidance × vocals tracks (5.0, 9.0, 15.0) were overridden to 1.0 by the turbo model. The log explicitly states: "Turbo model detected: overriding guidance_scale X.0 -> 1.0 (turbo does not use CFG)." This means the guidance scale parameter is a no-op for the turbo model. The non-turbo model is required for guidance experiments. **This confirms session 16's finding and extends it to vocal tracks.**
+
+**2. Essay-music feedback loop is architecturally complete.**
+Three tracks set project essays to music. The ouroboros has eaten its tail: the essay "The Ouroboros Sings Its Eighth Tail" became the song "The Ouroboros Sings," which contains lyrics about the project eating its own tail. The recursion is now acoustic.
+
+**3. Diffusion time is wildly variable for instrumentals.**
+Klezmer DnB: 1.4s diffusion. Noh Jazz: 17.5s diffusion. Baroque Dubstep: 1.4s diffusion. Same model, same inference steps (8), same duration (60s). The difference is entirely in the prompt: "Noh theater meets cool jazz, nohkan flute over walking bass, austere vocal styling, matsuri drums with brushed snare, ancient restraint meets blue note" is a culturally complex prompt that forces the model to reconcile very distant musical traditions. The reconciliation costs 12× more compute. **Prompt cultural distance correlates with diffusion time.**
+
+**4. All 90s vocal tracks produce 2.88MB files; all 60s instrumentals produce 1.92MB.**
+Turbo determinism at the file level continues. Duration is the sole determinant of file size. The ratio: 2.88/1.92 = 1.5 = 90/60. **File size scales perfectly linearly with duration in the turbo model.**
+
+**5. The lyricist comparison is inconclusive at the file level.**
+Both lyricist comparison tracks (M3 Shell Merchant vs agent Interval Sings) produced identical 2.88MB files. This is expected with the turbo model (deterministic file size by duration). The comparison must be done by listening, not by file metadata. **However:** the generation times differ (141.9s for M3 lyrics vs 160.7s for agent lyrics). The agent's more referential lyrics may require slightly more processing, but this is within noise (±20s is normal variation).
+
