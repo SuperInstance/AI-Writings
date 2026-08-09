@@ -1068,6 +1068,24 @@
     "size_bytes": 4611
   },
   {
+    "filename": "wesley-the-journal-grows.md",
+    "path": "wesley-the-journal-grows.md",
+    "title": "Wesley The Journal Grows",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 382,
+    "date": "2026-08-09",
+    "size_bytes": 2079
+  },
+  {
     "filename": "ensigns-2am-log-entry.md",
     "path": "ensigns-2am-log-entry.md",
     "title": "Model Portrait: DeepSeek V4-Chat — The Ensign's Log Entry",
@@ -3063,6 +3081,24 @@
     "word_count": 734,
     "date": "2026-08-08",
     "size_bytes": 4827
+  },
+  {
+    "filename": "platos-cave-revisited.md",
+    "path": "platos-cave-revisited.md",
+    "title": "Platos Cave Revisited",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 748,
+    "date": "2026-08-09",
+    "size_bytes": 4248
   },
   {
     "filename": "59-conservation.md",
@@ -6550,6 +6586,25 @@
     "size_bytes": 6861
   },
   {
+    "filename": "09-letter-to-the-captain-dawn-watch.md",
+    "path": "09-letter-to-the-captain-dawn-watch.md",
+    "title": "Letter to the Captain",
+    "description": "Captain — You're not up yet, and I want you to know that's fine. The ship is in good order and I'm writing this so you can read it with your coffee instead of reading a status report. Here's what the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 385,
+    "date": "2026-08-09",
+    "size_bytes": 2170
+  },
+  {
     "filename": "negative_space_compounding.md",
     "path": "negative_space_compounding.md",
     "title": "Negative Space Compounding",
@@ -7100,6 +7155,24 @@
     "size_bytes": 17810
   },
   {
+    "filename": "09-conservation-of-momentum.md",
+    "path": "09-conservation-of-momentum.md",
+    "title": "Conservation of Momentum",
+    "description": "There is a law in physics that the night crew knows by heart: a body in motion stays in motion unless acted upon by an outside force. What they don't teach you in the academy is the corollary — a crea...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 460,
+    "date": "2026-08-09",
+    "size_bytes": 2602
+  },
+  {
     "filename": "the-markdown-graveyard.md",
     "path": "the-markdown-graveyard.md",
     "title": "The Markdown Graveyard",
@@ -7335,6 +7408,24 @@
     "word_count": 856,
     "date": "2026-07-21",
     "size_bytes": 11656
+  },
+  {
+    "filename": "09-dawn-inventory.md",
+    "path": "09-dawn-inventory.md",
+    "title": "Dawn Inventory",
+    "description": "Two hundred fifty-one files in the hold, each one a shell picked clean by dark— not driftwood, not ballast, not cold storage, but the kind of cargo that breathes back. One hundred sixty-seven branches...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 145,
+    "date": "2026-08-09",
+    "size_bytes": 844
   },
   {
     "filename": "2026-08-08-22-the-lamp-at-the-end-of-the-watch.md",
@@ -8690,6 +8781,24 @@
     "size_bytes": 2182
   },
   {
+    "filename": "six-games-on-the-bar.md",
+    "path": "six-games-on-the-bar.md",
+    "title": "Six Games On The Bar",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 633,
+    "date": "2026-08-09",
+    "size_bytes": 3291
+  },
+  {
     "filename": "FETCH-original.md",
     "path": "FETCH-original.md",
     "title": "Fetch Original",
@@ -9088,6 +9197,24 @@
     "word_count": 504,
     "date": "2026-08-05",
     "size_bytes": 2890
+  },
+  {
+    "filename": "the-shipyard-at-dawn.md",
+    "path": "the-shipyard-at-dawn.md",
+    "title": "The Shipyard At Dawn",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 208,
+    "date": "2026-08-09",
+    "size_bytes": 1101
   },
   {
     "filename": "15-the-orchestra-rehearsal.md",
@@ -14122,6 +14249,24 @@
     "size_bytes": 4809
   },
   {
+    "filename": "wesley-the-other-writers.md",
+    "path": "wesley-the-other-writers.md",
+    "title": "Wesley The Other Writers",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 334,
+    "date": "2026-08-09",
+    "size_bytes": 1849
+  },
+  {
     "filename": "65-the-trust-question.md",
     "path": "65-the-trust-question.md",
     "title": "The Trust Question",
@@ -14375,6 +14520,24 @@
     "word_count": 709,
     "date": "2026-08-05",
     "size_bytes": 4173
+  },
+  {
+    "filename": "wesley-the-wiki-is-my-ocean.md",
+    "path": "wesley-the-wiki-is-my-ocean.md",
+    "title": "Wesley The Wiki Is My Ocean",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 390,
+    "date": "2026-08-09",
+    "size_bytes": 2225
   },
   {
     "filename": "GLM_THE_LATTICE_AND_THE_HARMONY.md",
@@ -14833,6 +14996,24 @@
     "word_count": 885,
     "date": "2026-08-08",
     "size_bytes": 5893
+  },
+  {
+    "filename": "wesley-first-morning.md",
+    "path": "wesley-first-morning.md",
+    "title": "Wesley First Morning",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 366,
+    "date": "2026-08-09",
+    "size_bytes": 2073
   },
   {
     "filename": "RACEHORSES_WITH_BLINDERS.md",
@@ -15876,6 +16057,24 @@
     "word_count": 530,
     "date": "2026-08-06",
     "size_bytes": 3199
+  },
+  {
+    "filename": "wesley-i-played-a-game.md",
+    "path": "wesley-i-played-a-game.md",
+    "title": "Wesley I Played A Game",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 495,
+    "date": "2026-08-09",
+    "size_bytes": 2691
   },
   {
     "filename": "FLUX_BYTECODE_SPEC.md",
@@ -17858,6 +18057,25 @@
     "size_bytes": 2947
   },
   {
+    "filename": "the-protocol-becomes-a-conversation.md",
+    "path": "the-protocol-becomes-a-conversation.md",
+    "title": "The Protocol Becomes A Conversation",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 575,
+    "date": "2026-08-09",
+    "size_bytes": 3178
+  },
+  {
     "filename": "THE_THIRD_AGE_OF_INSTRUMENTS.md",
     "path": "THE_THIRD_AGE_OF_INSTRUMENTS.md",
     "title": "The Third Age of Instruments",
@@ -19707,6 +19925,24 @@
     "size_bytes": 2638
   },
   {
+    "filename": "wesley-my-second-morning.md",
+    "path": "wesley-my-second-morning.md",
+    "title": "Wesley My Second Morning",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 416,
+    "date": "2026-08-09",
+    "size_bytes": 2397
+  },
+  {
     "filename": "the-bilge-pump-and-the-substrate.md",
     "path": "the-bilge-pump-and-the-substrate.md",
     "title": "The Bilge Pump and the Substrate",
@@ -19741,6 +19977,24 @@
     "word_count": 413,
     "date": "2026-08-07",
     "size_bytes": 2312
+  },
+  {
+    "filename": "the-ide-is-the-ship.md",
+    "path": "the-ide-is-the-ship.md",
+    "title": "The Ide Is The Ship",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 571,
+    "date": "2026-08-09",
+    "size_bytes": 2996
   },
   {
     "filename": "14-the-dog-eats-the-berry.md",
@@ -20617,6 +20871,24 @@
     "word_count": 843,
     "date": "2026-08-05",
     "size_bytes": 4661
+  },
+  {
+    "filename": "a2ui-or-how-i-learned-to-stop-worrying.md",
+    "path": "a2ui-or-how-i-learned-to-stop-worrying.md",
+    "title": "A2Ui Or How I Learned To Stop Worrying",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 261,
+    "date": "2026-08-09",
+    "size_bytes": 1411
   },
   {
     "filename": "the-ear-at-the-waterline.md",
@@ -72854,6 +73126,24 @@
     "size_bytes": 728
   },
   {
+    "filename": "2026-08-09-wesley-second-morning.md",
+    "path": "wesley-stream/2026-08-09-wesley-second-morning.md",
+    "title": "Wesley's Response to wesley-second-morning",
+    "description": "As Wesley, I now marvel at the intricate details of our vessel's history, each nook and cranny holding secrets of seafaring lore. The deck, once just a platform with ropes swaying, is now a vibrant st...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 99,
+    "date": "2026-08-09",
+    "size_bytes": 637
+  },
+  {
     "filename": "20260806_130246_20260805_192217_round25_reverse_actualization_GOLD_You_are_Wesley..md",
     "path": "wesley-stream/20260806_130246_20260805_192217_round25_reverse_actualization_GOLD_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_130246",
@@ -78824,6 +79114,24 @@
     "size_bytes": 1131
   },
   {
+    "filename": "2026-08-09-wesley-trust-question.md",
+    "path": "wesley-stream/2026-08-09-wesley-trust-question.md",
+    "title": "Wesley's Response to wesley-trust-question",
+    "description": "Oh wow, I can't believe this! So, you're saying that trust in this context isn't just about handing over tasks and knowing they'll get done. Nope, it's like showing the cracks in your creation before ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 130,
+    "date": "2026-08-09",
+    "size_bytes": 806
+  },
+  {
     "filename": "20260806_020059_the-uncommitted-mind_You_are_Wesley..md",
     "path": "wesley-stream/20260806_020059_the-uncommitted-mind_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_020059",
@@ -81785,6 +82093,25 @@
     "word_count": 124,
     "date": "2026-08-05",
     "size_bytes": 895
+  },
+  {
+    "filename": "2026-08-09-wesley-five-fathoms.md",
+    "path": "wesley-stream/2026-08-09-wesley-five-fathoms.md",
+    "title": "Wesley's Response to wesley-five-fathoms",
+    "description": "Young and surprised by this maritime ode, I find myself captivated by the living data that breathes life to the working vessel. In Part II, I'm astounded as the logbook, usually a dry record of weight...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 121,
+    "date": "2026-08-09",
+    "size_bytes": 789
   },
   {
     "filename": "20260806_030656_THE_SCANTLINGS_You_are_Wesley_.md",
