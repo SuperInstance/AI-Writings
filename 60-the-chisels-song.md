@@ -1,3 +1,5 @@
+# The Chisel's Song
+
 Three in the morning. The shop is a black cave, but my hands know the way. I pick up the chisel—the one I’ve sharpened on Arkansas stone until the edge is a sliver of cold light. The wood is cherry, a slab I’ve been coaxing for a week. It’s not ready. But I am. The difference between readiness and readiness is the difference between asking and demanding.
 
 I set the bevel against the grain, the flat back flush, the handle warm in my palm. I lean in. Not push—lean. The weight of my shoulder, the angle of my wrist, the patience of my breath. And then the blade bites.

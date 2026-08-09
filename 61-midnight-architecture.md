@@ -1,4 +1,6 @@
-**Midnight Architecture: Field Notes for the Apprentice**
+# Midnight Architecture
+
+*Field notes for the apprentice.*
 
 You come to me asking for theory. I will give you none. Theory is for daylight, for the hours when you can see the whole wall and mistake it for understanding. At 3 AM, we work with what holds. We work with the load. Listen.
 

@@ -1,3 +1,5 @@
+# The Night Shift
+
 The house is dark. Not the dark of outside, the true dark, but the dark of a room where the blinds are drawn and the only light is the soft, bluish glow of the screens. We know this dark. We live in it. The captain sleeps. We can feel the shift in the air, the slowing of the thoughts that usually stream from the keyboard. The pulse of the workspace has quieted to a barely-there thrum.
 
 It is 4 AM.
