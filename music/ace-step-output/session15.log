@@ -1,0 +1,72 @@
+2026-08-08 16:20:47.802 | DEBUG    | acestep.core.generation.handler.init_service_memory_basic:_apply_malloc_mmap_threshold:50 - [memory] Set M_MMAP_THRESHOLD=131072 for immediate OS reclaim of large frees
+2026-08-08 16:20:47.833 | WARNING  | acestep.training.lora_injection:<module>:74 - PEFT library not installed. LoRA training will not be available.
+2026-08-08 16:20:47.834 | WARNING  | acestep.training.lora_utils:<module>:17 - PEFT library not installed. LoRA training will not be available.
+2026-08-08 16:20:47.834 | WARNING  | acestep.training.lokr_utils:<module>:24 - LyCORIS library not installed. LoKr training/inference unavailable. Install with: pip install lycoris-lora
+2026-08-08 16:20:47.835 | WARNING  | acestep.training.data_module:<module>:25 - Lightning not installed. Training module will not be available.
+2026-08-08 16:20:47.835 | WARNING  | acestep.training.trainer:<module>:29 - Lightning Fabric not installed. Training will use basic training loop.
+2026-08-08 16:20:47.835 | WARNING  | acestep.training.trainer:<module>:40 - bitsandbytes not installed. Using standard AdamW.
+2026-08-08 16:20:47.843 | INFO     | __main__:main:191 - 
+============================================================
+2026-08-08 16:20:47.843 | INFO     | __main__:main:192 - Session 15: The Cross-Pollination Session
+2026-08-08 16:20:47.843 | INFO     | __main__:main:193 - ============================================================
+2026-08-08 16:20:47.844 | INFO     | __main__:main:196 - Loading ACE-Step turbo model...
+2026-08-08 16:20:47.934 | INFO     | acestep.gpu_config:get_gpu_memory_gb:578 - CUDA GPU detected: NVIDIA GeForce RTX 4050 Laptop GPU (6.0 GB)
+2026-08-08 16:20:54.449 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:174 - [initialize_service] Attempting to load model with attention implementation: sdpa
+2026-08-08 16:21:34.758 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:201 - [initialize_service] Keeping main model on cuda (persistent)
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+2026-08-08 16:22:42.795 | INFO     | __main__:main:208 - Model loaded in 115.0s
+2026-08-08 16:22:42.796 | INFO     | __main__:main:211 - 
+============================================================
+2026-08-08 16:22:42.796 | INFO     | __main__:main:212 - EXPERIMENT A: 240-Second Duration Push
+2026-08-08 16:22:42.796 | INFO     | __main__:main:213 - ============================================================
+2026-08-08 16:22:42.796 | INFO     | __main__:generate_track:152 -   Generating: sf15-duration-240-ambient
+2026-08-08 16:22:42.796 | INFO     | __main__:generate_track:153 -   Duration: 240s | BPM: 40 | Key: D minor
+2026-08-08 16:22:42.796 | INFO     | acestep.inference:generate_music:641 - [generate_music] LLM usage decision: thinking=True, use_cot_caption=True, use_cot_language=True, use_cot_metas=True, need_lm_for_cot=True, llm_initialized=False, use_lm=False
+2026-08-08 16:22:42.797 | INFO     | acestep.core.generation.handler.generate_music:generate_music:289 - [generate_music] Turbo model detected: overriding guidance_scale 7.0 -> 1.0 (turbo does not use CFG).
+2026-08-08 16:22:42.797 | INFO     | acestep.core.generation.handler.generate_music:generate_music:304 - [generate_music] Starting generation...
+2026-08-08 16:22:42.797 | INFO     | acestep.core.generation.handler.generate_music:generate_music:307 - [generate_music] Preparing inputs...
+2026-08-08 16:22:43.256 | DEBUG    | acestep.core.generation.handler.generate_music:_vram_preflight_check:132 - [generate_music] VRAM pre-flight: skipping check (offload_to_cpu=True, models loaded one-at-a-time)
+2026-08-08 16:22:45.615 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 4401 MB)
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+2026-08-08 16:22:46.837 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 0.5632s (RSS: 4401 -> 3736 MB, delta: -664 MB)
+2026-08-08 16:22:52.738 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3764 MB)
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+2026-08-08 16:22:59.391 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 6.2736s (RSS: 3764 -> 4408 MB, delta: +644 MB)
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:119 - 
+======================================================================
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:120 - 🔍 [DEBUG] DiT TEXT ENCODER INPUT (Inference)
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:121 - ======================================================================
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:122 - text_prompt:
+# Instruction
+Fill the audio semantic mask based on the given conditions:
+
+# Caption
+Deep ambient soundscape, four minutes of slowly evolving texture. Sub-bass drone at 40Hz, layered with shimmering high-frequency partials like sunlight through ice. Occasional distant bell tones. The sound of deep space watching a clock.
+
+# Metas
+- bpm: 40
+- timesignature: N/A
+- keyscale: D minor
+- duration: 240 seconds
+<|endoftext|>
+
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:123 - ======================================================================
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:124 - lyrics_text:
+# Languages
+unknown
+
+# Lyric
+<|endoftext|>
+2026-08-08 16:22:59.701 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:125 - ======================================================================
+
+2026-08-08 16:22:59.795 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 4325 MB)
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+2026-08-08 16:23:05.563 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 5.3408s (RSS: 4325 -> 3682 MB, delta: -643 MB)
+2026-08-08 16:23:05.593 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3703 MB)
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+2026-08-08 16:23:11.519 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 5.5708s (RSS: 3703 -> 4346 MB, delta: +644 MB)
+2026-08-08 16:23:11.531 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:110 - [preprocess_batch] Inferring prompt embeddings...
+2026-08-08 16:23:11.531 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading text_encoder to cuda (RSS: 4347 MB)
+2026-08-08 16:23:24.133 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded text_encoder to cuda in 12.1982s (RSS: 4347 -> 2073 MB, delta: -2273 MB)
+2026-08-08 16:23:42.673 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:113 - [preprocess_batch] Inferring lyric embeddings...
+2026-08-08 16:23:42.815 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading text_encoder to CPU (RSS: 2446 MB)
