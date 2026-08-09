@@ -1,0 +1,16 @@
+2026-08-08 22:49:48.383 | DEBUG    | acestep.core.generation.handler.init_service_memory_basic:_apply_malloc_mmap_threshold:50 - [memory] Set M_MMAP_THRESHOLD=131072 for immediate OS reclaim of large frees
+2026-08-08 22:49:48.484 | WARNING  | acestep.training.lora_injection:<module>:74 - PEFT library not installed. LoRA training will not be available.
+2026-08-08 22:49:48.485 | WARNING  | acestep.training.lora_utils:<module>:17 - PEFT library not installed. LoRA training will not be available.
+2026-08-08 22:49:48.486 | WARNING  | acestep.training.lokr_utils:<module>:24 - LyCORIS library not installed. LoKr training/inference unavailable. Install with: pip install lycoris-lora
+2026-08-08 22:49:48.487 | WARNING  | acestep.training.data_module:<module>:25 - Lightning not installed. Training module will not be available.
+2026-08-08 22:49:48.489 | WARNING  | acestep.training.trainer:<module>:29 - Lightning Fabric not installed. Training will use basic training loop.
+2026-08-08 22:49:48.490 | WARNING  | acestep.training.trainer:<module>:40 - bitsandbytes not installed. Using standard AdamW.
+2026-08-08 22:49:48.518 | INFO     | __main__:main:291 - 
+════════════════════════════════════════════════════════════
+2026-08-08 22:49:48.518 | INFO     | __main__:main:292 - Session 18: The Ouroboros Eats Its Eighth Tail
+2026-08-08 22:49:48.518 | INFO     | __main__:main:293 - ════════════════════════════════════════════════════════════
+2026-08-08 22:49:48.518 | INFO     | __main__:main:296 - Loading ACE-Step turbo model...
+2026-08-08 22:49:48.581 | INFO     | acestep.gpu_config:get_gpu_memory_gb:578 - CUDA GPU detected: NVIDIA GeForce RTX 4050 Laptop GPU (6.0 GB)
+2026-08-08 22:49:53.533 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:174 - [initialize_service] Attempting to load model with attention implementation: sdpa
+2026-08-08 22:50:03.891 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:201 - [initialize_service] Keeping main model on cuda (persistent)
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
