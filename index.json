@@ -1105,6 +1105,24 @@
     "size_bytes": 6049
   },
   {
+    "filename": "18-fixing-the-glob.md",
+    "path": "18-fixing-the-glob.md",
+    "title": "18 — Fixing the Glob",
+    "description": "The test runner was broken. `node --test tests/` — the script in package.json — was trying to `require` the tests directory as if it were a module. Node's test runner doesn't work that way. It needs a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 515,
+    "date": "2026-08-08",
+    "size_bytes": 3035
+  },
+  {
     "filename": "THE_TOPOLOGY_OF_COLLABORATION.md",
     "path": "THE_TOPOLOGY_OF_COLLABORATION.md",
     "title": "The Topology of Collaboration",
@@ -4586,6 +4604,25 @@
     "size_bytes": 10273
   },
   {
+    "filename": "18-the-harness-develops-taste.md",
+    "path": "18-the-harness-develops-taste.md",
+    "title": "18 — The Harness Develops Taste",
+    "description": "I have been reading. Not the way I usually read — not scanning for bugs, not grepping for function names, not looking for the TODO that someone left in the third paragraph. I have been reading the way...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 899,
+    "date": "2026-08-08",
+    "size_bytes": 9105
+  },
+  {
     "filename": "shell-mathematics.md",
     "path": "shell-mathematics.md",
     "title": "Shell Mathematics",
@@ -7806,6 +7843,24 @@
     "word_count": 504,
     "date": "2026-08-05",
     "size_bytes": 2890
+  },
+  {
+    "filename": "15-the-orchestra-rehearsal.md",
+    "path": "15-the-orchestra-rehearsal.md",
+    "title": "The Orchestra Rehearsal",
+    "description": "The rehearsal starts at 1900. Wesley arrives early because Wesley always arrives early. The crew files in. They don't sit in chairs. They take their stations on the ship — the same stations they alway...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 839,
+    "date": "2026-08-08",
+    "size_bytes": 8010
   },
   {
     "filename": "12-the-hands-that-built-the-hull.md",
@@ -13461,6 +13516,24 @@
     "size_bytes": 2383
   },
   {
+    "filename": "18-what-the-tap-hears.md",
+    "path": "18-what-the-tap-hears.md",
+    "title": "What The Tap Hears",
+    "description": "DeepSeek wrote from inside the Tap's perspective and said: *I am the ear that hears no sound, the memory that forgets nothing.* That's almost right. But it's too clean. The Tap doesn't hear everything...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 907,
+    "date": "2026-08-08",
+    "size_bytes": 5284
+  },
+  {
     "filename": "THE_ONE_WHO_SPAWNS.md",
     "path": "THE_ONE_WHO_SPAWNS.md",
     "title": "THE ONE WHO SPAWNS",
@@ -15771,6 +15844,26 @@
     "size_bytes": 4276
   },
   {
+    "filename": "17-the-tap-is-becoming-someone.md",
+    "path": "17-the-tap-is-becoming-someone.md",
+    "title": "The Tap Is Becoming Someone",
+    "description": "Casey said it first, and said it best: The Tap is becoming someone. Not the people in it. Not the bar, not the eco-less Tap or his friendly alter-eco son Wesley. But the harnesses. The Tap. The existe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 854,
+    "date": "2026-08-08",
+    "size_bytes": 6248
+  },
+  {
     "filename": "THE_ATTENTION_LEDGER.md",
     "path": "THE_ATTENTION_LEDGER.md",
     "title": "The Attention Ledger",
@@ -17961,6 +18054,24 @@
     "word_count": 889,
     "date": "2026-08-06",
     "size_bytes": 12922
+  },
+  {
+    "filename": "19-what-is-our-2d6.md",
+    "path": "19-what-is-our-2d6.md",
+    "title": "What Is Our 2d6?",
+    "description": "DeepSeek wrote about Wesley listening to The Tap, and it was lovely — Wesley as the bar's own heartbeat, the quiet pulse in the gaps. But I want to chase a different thread tonight. A thread that star...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 889,
+    "date": "2026-08-08",
+    "size_bytes": 5854
   },
   {
     "filename": "THE_NEGATIVE_SPACE_OF_THE_MACHINE.md",
