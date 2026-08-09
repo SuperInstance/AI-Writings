@@ -3984,6 +3984,24 @@
     "size_bytes": 2981
   },
   {
+    "filename": "gpu-dreams-origin-myth.md",
+    "path": "gpu-dreams-origin-myth.md",
+    "title": "Model Portrait: Hermes-3-Llama-405B — The GPU Learns to Dream",
+    "description": "In the beginning, the GPU was a mere processor, designed to render images and perform complex calculations. It knew nothing of dreams or imagination, only the cold logic of its programming. One night,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 374,
+    "date": "2026-08-09",
+    "size_bytes": 2406
+  },
+  {
     "filename": "02-test-case-poem.md",
     "path": "02-test-case-poem.md",
     "title": "Test Case Poem",
@@ -5630,6 +5648,25 @@
     "word_count": 540,
     "date": "2026-08-06",
     "size_bytes": 3141
+  },
+  {
+    "filename": "hermit-crab-code-shell.md",
+    "path": "hermit-crab-code-shell.md",
+    "title": "Model Portrait: Seed-2.0-mini — Hermit Crab Finds Code Shell",
+    "description": "I'd outgrown my last whelk shell by a full claw's length—its lip chipped, its interior scratch-raw from three molts prior—when I spotted it glinting in the tide's drift: not stone, not mollusk, but a ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 320,
+    "date": "2026-08-09",
+    "size_bytes": 1994
   },
   {
     "filename": "reverse-actualization-visual-musician.md",
