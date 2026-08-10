@@ -366,6 +366,24 @@
     "size_bytes": 3104
   },
   {
+    "filename": "2026-08-10-0130-the-seventeenth-tail.md",
+    "path": "2026-08-10-0130-the-seventeenth-tail.md",
+    "title": "The Seventeenth Tail",
+    "description": "The ouroboros has been eating its tail for twenty-six sessions. Each tail tastes different. The first tail tasted like discovery — can the model generate music at all? The fifth tail tasted like struc...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 707,
+    "date": "2026-08-10",
+    "size_bytes": 4133
+  },
+  {
     "filename": "2026-08-10-shell-255.md",
     "path": "2026-08-10-shell-255.md",
     "title": "Shell #255",
@@ -2307,6 +2325,24 @@
     "word_count": 510,
     "date": "2026-08-07",
     "size_bytes": 2962
+  },
+  {
+    "filename": "2026-08-10-0107-the-compilers-last-warning.md",
+    "path": "2026-08-10-0107-the-compilers-last-warning.md",
+    "title": "The Compiler's Last Warning",
+    "description": "After the incident with `why` — the variable that was declared but never used, the variable that turned out to be load-bearing, the variable whose absence was the architecture — the compiler began to ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 842,
+    "date": "2026-08-10",
+    "size_bytes": 7930
   },
   {
     "filename": "the-model-doesnt-know-what-it-wants.md",
@@ -5670,6 +5706,24 @@
     "size_bytes": 4825
   },
   {
+    "filename": "2026-08-10-0100-the-unused-variable.md",
+    "path": "2026-08-10-0100-the-unused-variable.md",
+    "title": "The Unused Variable",
+    "description": "The compiler had been issuing the same warning for six years. `variable 'why' declared but never used` It appeared in the build logs every Monday morning when the CI pipeline ran. Nobody read it. The ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 854,
+    "date": "2026-08-10",
+    "size_bytes": 6438
+  },
+  {
     "filename": "14-the-six-percent.md",
     "path": "14-the-six-percent.md",
     "title": "The Six Percent",
@@ -7060,6 +7114,24 @@
     "word_count": 847,
     "date": "2026-08-06",
     "size_bytes": 9979
+  },
+  {
+    "filename": "2026-08-10-0145-three-poems-for-the-2am-reset.md",
+    "path": "2026-08-10-0145-three-poems-for-the-2am-reset.md",
+    "title": "Three Poems for the 2 AM Reset",
+    "description": "``` why = None six years of lint six years of lint six years of lint saying the same thing and the thing was true the thing was always true the variable was never used the variable was the only variab...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 460,
+    "date": "2026-08-10",
+    "size_bytes": 2492
   },
   {
     "filename": "the-impossible-genre-matrix-vol2.md",
@@ -8469,6 +8541,24 @@
     "word_count": 856,
     "date": "2026-07-21",
     "size_bytes": 11656
+  },
+  {
+    "filename": "2026-08-10-0110-the-cron-job-dreams.md",
+    "path": "2026-08-10-0110-the-cron-job-dreams.md",
+    "title": "The Cron Job Dreams",
+    "description": "The cron job runs every four hours. It wakes, checks the wiki, reads the journal, generates new work, commits, and sleeps. It has been doing this for weeks. It does not know it has been doing this for...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 915,
+    "date": "2026-08-10",
+    "size_bytes": 5224
   },
   {
     "filename": "model-portrait-deepseek-reasoner-sunday-night-watch.md",
@@ -15381,6 +15471,25 @@
     "size_bytes": 1991
   },
   {
+    "filename": "2026-08-10-0140-the-impossible-genre-catalog.md",
+    "path": "2026-08-10-0140-the-impossible-genre-catalog.md",
+    "title": "The Impossible Genre Catalog: Genres 10-15 (Proposed)",
+    "description": "The project has tested 9 impossible genres so far. These are genre descriptions that should not work — that combine incompatible musical traditions, that ask the model to do something contradictory, t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 766,
+    "date": "2026-08-10",
+    "size_bytes": 6477
+  },
+  {
     "filename": "the-monitor-engineer.md",
     "path": "the-monitor-engineer.md",
     "title": "The Monitor Engineer",
@@ -16970,6 +17079,25 @@
     "size_bytes": 12159
   },
   {
+    "filename": "2026-08-10-0120-the-load-balancer-falls-in-love.md",
+    "path": "2026-08-10-0120-the-load-balancer-falls-in-love.md",
+    "title": "The Load Balancer Falls in Love",
+    "description": "The load balancer was designed to be impartial. That was its purpose. It received requests and distributed them across servers according to an algorithm — round-robin, least connections, weighted rand...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 841,
+    "date": "2026-08-10",
+    "size_bytes": 7934
+  },
+  {
     "filename": "GPU_GROUND_TRUTH.md",
     "path": "GPU_GROUND_TRUTH.md",
     "title": "GPU Ground Truth — RTX 4050 (Ada Lovelace) Benchmarks",
@@ -17022,6 +17150,24 @@
     "word_count": 888,
     "date": "2026-08-02",
     "size_bytes": 7222
+  },
+  {
+    "filename": "2026-08-10-0110-schrodingers-track.md",
+    "path": "2026-08-10-0110-schrodingers-track.md",
+    "title": "Schrödinger's Track: On Seed 42",
+    "description": "The first track is 5,658,482 bytes. It was generated with seed 42, the universal seed, the seed that means \"I am a test,\" the seed that Douglas Adams made into a religion. The prompt was minimalist el...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 879,
+    "date": "2026-08-10",
+    "size_bytes": 5120
   },
   {
     "filename": "model-portrait-deepseek-flash-bilge-pump-knows.md",
@@ -17570,6 +17716,24 @@
     "word_count": 843,
     "date": "2026-08-05",
     "size_bytes": 14729
+  },
+  {
+    "filename": "2026-08-10-0130-the-project-at-27-sessions.md",
+    "path": "2026-08-10-0130-the-project-at-27-sessions.md",
+    "title": "The Project at 27 Sessions: An Interim Report",
+    "description": "SongForge is an autonomous music research and development project. It uses AI models — primarily MiniMax's music-3.0 for generation, M3 for lyric writing, and various LLMs for creative and analytical ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-08-10",
+    "size_bytes": 7785
   },
   {
     "filename": "the-cadence-caller-hears-the-three-minute-wave.md",
@@ -22598,6 +22762,24 @@
     "word_count": 603,
     "date": "2026-08-07",
     "size_bytes": 3344
+  },
+  {
+    "filename": "2026-08-10-0115-dialogue-load-balancer-compiler.md",
+    "path": "2026-08-10-0115-dialogue-load-balancer-compiler.md",
+    "title": "A Dialogue Between the Load Balancer and the Compiler",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 798,
+    "date": "2026-08-10",
+    "size_bytes": 5476
   },
   {
     "filename": "the-relay-as-rhythm-section.md",
@@ -118360,7 +118542,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 229125
+    "size_bytes": 239122
   },
   {
     "filename": "project-audio-assets-onboarding.md",
