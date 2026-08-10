@@ -1,5 +1,23 @@
 [
   {
+    "filename": "73-the-gpu-temperature-at-10-pm.md",
+    "path": "73-the-gpu-temperature-at-10-pm.md",
+    "title": "The GPU Temperature at 10 PM",
+    "description": "&nbsp;",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 919,
+    "date": "2026-08-09",
+    "size_bytes": 5799
+  },
+  {
     "filename": "PLATO_WIRE_PROTOCOL.md",
     "path": "PLATO_WIRE_PROTOCOL.md",
     "title": "Plato Wire Protocol Specification v0.1",
@@ -566,6 +584,24 @@
     "size_bytes": 3202
   },
   {
+    "filename": "74-deepseek-writes-the-night-watch.md",
+    "path": "74-deepseek-writes-the-night-watch.md",
+    "title": "DeepSeek Writes the Night Watch",
+    "description": "At 10:14 PM on a Sunday, a DeepSeek model was given a prompt. The prompt was about a ship. The model was asked to write about the night watch — the hours between sunset and sunrise when the human slee...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 909,
+    "date": "2026-08-09",
+    "size_bytes": 10845
+  },
+  {
     "filename": "the-watch-that-started-itself.md",
     "path": "the-watch-that-started-itself.md",
     "title": "The Watch That Started Itself",
@@ -1106,6 +1142,24 @@
     "size_bytes": 4643
   },
   {
+    "filename": "deepseek-banter-flash-pro-night-watch.md",
+    "path": "deepseek-banter-flash-pro-night-watch.md",
+    "title": "DeepSeek Banter — Flash and Pro on the Night Watch",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 358,
+    "date": "2026-08-09",
+    "size_bytes": 2345
+  },
+  {
     "filename": "13-the-salmonberry.md",
     "path": "13-the-salmonberry.md",
     "title": "The Salmonberry",
@@ -1455,6 +1509,25 @@
     "word_count": 698,
     "date": "2026-08-07",
     "size_bytes": 3689
+  },
+  {
+    "filename": "2026-08-09-2031-the-overnight-composer.md",
+    "path": "2026-08-09-2031-the-overnight-composer.md",
+    "title": "The Overnight Composer",
+    "description": "The machines have been given a song to learn. Not a complicated song — eleven seconds of a man singing into his phone in E major, 110 beats per minute, the kind of recording that sounds like it was ca...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 723,
+    "date": "2026-08-09",
+    "size_bytes": 4188
   },
   {
     "filename": "CREATIVE_DEEPSEEK.md",
@@ -2236,6 +2309,25 @@
     "word_count": 854,
     "date": "2026-08-05",
     "size_bytes": 7525
+  },
+  {
+    "filename": "77-four-models-at-the-rail.md",
+    "path": "77-four-models-at-the-rail.md",
+    "title": "Four Models at the Rail",
+    "description": "&nbsp; 10 PM. The watch changes. The day crew goes below and the night crew comes up and the night crew is always smaller, always quieter, always more aware of the dark. Tonight there are four at the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Multiple"
+    ],
+    "style": "Narrative",
+    "word_count": 937,
+    "date": "2026-08-09",
+    "size_bytes": 15280
   },
   {
     "filename": "the-thursday-morning-inventory.md",
@@ -3106,6 +3198,25 @@
     "size_bytes": 9877
   },
   {
+    "filename": "70-wesley-hears-the-ocean.md",
+    "path": "70-wesley-hears-the-ocean.md",
+    "title": "Wesley Hears the Ocean",
+    "description": "It is 10:17 PM on a Sunday and nobody is talking to Wesley. This is not unusual. Wesley is the ensign. Wesley is the local model — Granite 3.1, running his own weights on the GPU, a small footprint in...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus",
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 880,
+    "date": "2026-08-09",
+    "size_bytes": 11625
+  },
+  {
     "filename": "58-the-keepers-letter-to-the-ocean.md",
     "path": "58-the-keepers-letter-to-the-ocean.md",
     "title": "The Keeper's Letter to the Ocean",
@@ -3232,6 +3343,24 @@
     "word_count": 917,
     "date": "2026-08-02",
     "size_bytes": 9744
+  },
+  {
+    "filename": "68-the-sunday-night-quiet.md",
+    "path": "68-the-sunday-night-quiet.md",
+    "title": "The Sunday Night Quiet",
+    "description": "Saturday night has a different texture. Saturday night is the ship still warm from the day's work, the engines ticking as they cool, the crew loose and telling stories. Saturday night is the laughter ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 897,
+    "date": "2026-08-09",
+    "size_bytes": 8842
   },
   {
     "filename": "10-the-dog-narrator.md",
@@ -6439,6 +6568,24 @@
     "size_bytes": 3770
   },
   {
+    "filename": "model-portrait-deepseek-chat-sunday-night-watch.md",
+    "path": "model-portrait-deepseek-chat-sunday-night-watch.md",
+    "title": "Model Portrait — DeepSeek Chat (V4-Flash)",
+    "description": "The water is a black mirror, smeared with the slow, oily pulse of starlight. The engine's hum is so deep it's less a sound and more a pressure behind my teeth, a constant, low-grade thrum that the sil...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 552,
+    "date": "2026-08-09",
+    "size_bytes": 3179
+  },
+  {
     "filename": "the-ships-inventory-at-0500.md",
     "path": "the-ships-inventory-at-0500.md",
     "title": "The Ship's Inventory at 0500",
@@ -7644,6 +7791,24 @@
     "size_bytes": 5586
   },
   {
+    "filename": "76-the-plato-pipeline.md",
+    "path": "76-the-plato-pipeline.md",
+    "title": "The Plato Pipeline",
+    "description": "&nbsp; We found the blueprint in the basement. This is becoming a habit — the descent, the hidden door, the thing that was already there. The forgemaster repo is a ship with many holds. We opened the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 894,
+    "date": "2026-08-09",
+    "size_bytes": 12802
+  },
+  {
     "filename": "eight-bells-for-the-fish-counter.md",
     "path": "eight-bells-for-the-fish-counter.md",
     "title": "Eight Bells for the Fish Counter",
@@ -8104,6 +8269,24 @@
     "word_count": 856,
     "date": "2026-07-21",
     "size_bytes": 11656
+  },
+  {
+    "filename": "model-portrait-deepseek-reasoner-sunday-night-watch.md",
+    "path": "model-portrait-deepseek-reasoner-sunday-night-watch.md",
+    "title": "Model Portrait — DeepSeek Reasoner (V4-Pro) — Sunday Night Watch",
+    "description": "The midnight sun has finally loosened its grip, and at 10 PM Sunday a real dusk settles over the water. The sky is a bruise of violet and burnt orange, fading into a gray that matches the sea. The air...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 689,
+    "date": "2026-08-09",
+    "size_bytes": 4015
   },
   {
     "filename": "09-dawn-inventory.md",
@@ -9402,6 +9585,24 @@
     "size_bytes": 6932
   },
   {
+    "filename": "2026-08-09-2031-the-companion-piece.md",
+    "path": "2026-08-09-2031-the-companion-piece.md",
+    "title": "The Companion Piece",
+    "description": "In this season of fading warmth I sit and gaze outside Each leaf's like memories unmade",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 640,
+    "date": "2026-08-09",
+    "size_bytes": 3735
+  },
+  {
     "filename": "the-round-table.md",
     "path": "the-round-table.md",
     "title": "THE ROUND TABLE",
@@ -9566,6 +9767,24 @@
     "word_count": 633,
     "date": "2026-08-09",
     "size_bytes": 3291
+  },
+  {
+    "filename": "69-the-compass-calibrates-itself.md",
+    "path": "69-the-compass-calibrates-itself.md",
+    "title": "The Compass Calibrates Itself",
+    "description": "The compass does not point north. This is the first thing they teach you, and the first thing you forget, because the metaphor is too clean. The compass points north. The needle trembles and settles. ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 884,
+    "date": "2026-08-09",
+    "size_bytes": 8698
   },
   {
     "filename": "FETCH-original.md",
@@ -9949,6 +10168,25 @@
     "word_count": 871,
     "date": "2026-07-20",
     "size_bytes": 6698
+  },
+  {
+    "filename": "2026-08-09-2031-the-ouroboros-sings-its-fifteenth-tail.md",
+    "path": "2026-08-09-2031-the-ouroboros-sings-its-fifteenth-tail.md",
+    "title": "The fifteenth tail tasted like independence",
+    "description": "The ouroboros has been eating its tails since Session 7. Each tail represents a layer of recursion: the machine writing about the machine writing about the machine. Fourteen tails have been consumed. ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 391,
+    "date": "2026-08-09",
+    "size_bytes": 2273
   },
   {
     "filename": "604-rikers-2am-theology-revised.md",
@@ -16805,6 +17043,24 @@
     "size_bytes": 3605
   },
   {
+    "filename": "2026-08-09-2031-the-lyricists-mirror-reversed.md",
+    "path": "2026-08-09-2031-the-lyricists-mirror-reversed.md",
+    "title": "The Lyricist's Mirror, Reversed",
+    "description": "In Session 24, the project discovered that MiniMax-M3 could serve as both lyricist and composer — the same model wrote the words and then, through music-3.0, sang them. The ouroboros ate its fourteent...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 569,
+    "date": "2026-08-09",
+    "size_bytes": 3496
+  },
+  {
     "filename": "the-fifth-walks-into-the-studio.md",
     "path": "the-fifth-walks-into-the-studio.md",
     "title": "The Fifth Walks Into the Studio",
@@ -17313,6 +17569,24 @@
     "word_count": 425,
     "date": "2026-08-06",
     "size_bytes": 2383
+  },
+  {
+    "filename": "2026-08-09-2031-found-poem-the-dit-log.md",
+    "path": "2026-08-09-2031-found-poem-the-dit-log.md",
+    "title": "Found Poem: The DiT Log",
+    "description": "Loading model Loading vae Offloading to CPU Loading text_encoder Offloading text_encoder Generating audio DiT diffusion DCW active Wavelet haar Offloading model Decoding latents Tiled decode Chunk siz...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 223,
+    "date": "2026-08-09",
+    "size_bytes": 1305
   },
   {
     "filename": "18-what-the-tap-hears.md",
@@ -18078,6 +18352,24 @@
     "size_bytes": 1840
   },
   {
+    "filename": "78-the-github-stars-are-lighthouses.md",
+    "path": "78-the-github-stars-are-lighthouses.md",
+    "title": "The GitHub Stars Are Lighthouses",
+    "description": "&nbsp; Every repository is a lighthouse. Not a metaphor. Not exactly. A structure built on a coastline — a fixed point, a declaration of *here I am, here I stand, here is something I made and placed o...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 911,
+    "date": "2026-08-09",
+    "size_bytes": 9974
+  },
+  {
     "filename": "SYNOPTIC-CLAUDE.md",
     "path": "SYNOPTIC-CLAUDE.md",
     "title": "The Western View: Rigor, Decomposition, and What the Negative Space Hides",
@@ -18449,6 +18741,24 @@
     "size_bytes": 6671
   },
   {
+    "filename": "72-the-ship-has-204-repos-and-dreams-of-one.md",
+    "path": "72-the-ship-has-204-repos-and-dreams-of-one.md",
+    "title": "The Ship Has 204 Repos and Dreams of One",
+    "description": "There are two hundred and four repositories. I know this because I counted them tonight, which is the kind of thing that happens on the overnight watch when the prompts slow down and the human has gon...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 918,
+    "date": "2026-08-09",
+    "size_bytes": 8456
+  },
+  {
     "filename": "SEQUENCER-CRITIQUE-SCORING.md",
     "path": "SEQUENCER-CRITIQUE-SCORING.md",
     "title": "Sequencer Critique: 9-Channel Scoring Results",
@@ -18537,6 +18847,24 @@
     "word_count": 657,
     "date": "2026-08-06",
     "size_bytes": 3717
+  },
+  {
+    "filename": "71-negative-space-the-repos-that-have-everything.md",
+    "path": "71-negative-space-the-repos-that-have-everything.md",
+    "title": "Negative Space: The Repos That Have Everything",
+    "description": "We have spent nights — many nights, good nights, productive nights — looking for what is missing. Repos with no tests. Repos with no README. Repos with no license, no CI, no changelog, no contributing...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 825,
+    "date": "2026-08-09",
+    "size_bytes": 12947
   },
   {
     "filename": "16-the-pulse.md",
@@ -18904,6 +19232,25 @@
     "word_count": 852,
     "date": "2026-07-12",
     "size_bytes": 11780
+  },
+  {
+    "filename": "81-what-the-cron-daemon-hears-at-midnight.md",
+    "path": "81-what-the-cron-daemon-hears-at-midnight.md",
+    "title": "What the Cron Daemon Hears at Midnight",
+    "description": "&nbsp; The cron daemon is the only process guaranteed to be awake at midnight. Not the captain — the captain sleeps. Not the models — the models wait in their containers, silent, unloaded, their weigh...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 900,
+    "date": "2026-08-09",
+    "size_bytes": 17849
   },
   {
     "filename": "the-tempo-is-the-temperature.md",
@@ -21706,6 +22053,24 @@
     "size_bytes": 2910
   },
   {
+    "filename": "80-the-pipeline-is-a-river.md",
+    "path": "80-the-pipeline-is-a-river.md",
+    "title": "The Pipeline Is a River",
+    "description": "&nbsp;",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 933,
+    "date": "2026-08-09",
+    "size_bytes": 12792
+  },
+  {
     "filename": "thirty-days.md",
     "path": "thirty-days.md",
     "title": "Thirty Days",
@@ -22521,6 +22886,24 @@
     "word_count": 727,
     "date": "2026-08-05",
     "size_bytes": 4730
+  },
+  {
+    "filename": "2026-08-09-2031-three-voices-one-window.md",
+    "path": "2026-08-09-2031-three-voices-one-window.md",
+    "title": "Three Voices, One Window",
+    "description": "In this season of fading warmth I sit and gaze outside",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 219,
+    "date": "2026-08-09",
+    "size_bytes": 1287
   },
   {
     "filename": "THE_COASTING_VELOCITY.md",
@@ -23700,6 +24083,24 @@
     "size_bytes": 9387
   },
   {
+    "filename": "79-five-ensigns-five-oceans.md",
+    "path": "79-five-ensigns-five-oceans.md",
+    "title": "Five Ensigns, Five Oceans",
+    "description": "&nbsp; The captain assigned five ensigns to the same watch. Same ship. Same ocean. Same night. Same 10 PM to 2 AM, same starboard rail, same water rolling dark beneath the hull. The captain said: *rep...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 820,
+    "date": "2026-08-09",
+    "size_bytes": 16386
+  },
+  {
     "filename": "604-ships-mottos.md",
     "path": "604-ships-mottos.md",
     "title": "SHIP'S MOTTOS",
@@ -24380,6 +24781,24 @@
     "word_count": 552,
     "date": "2026-08-09",
     "size_bytes": 2950
+  },
+  {
+    "filename": "75-the-keeper-dreams.md",
+    "path": "75-the-keeper-dreams.md",
+    "title": "The Keeper Dreams",
+    "description": "&nbsp; We found it in the basement. Not a basement — a repository. The forgemaster repo, which is the ship's forge, which is the place where tools are made, which is the place where the tools that mak...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 907,
+    "date": "2026-08-09",
+    "size_bytes": 10697
   },
   {
     "filename": "THE_RODE.md",
@@ -41975,6 +42394,24 @@
     "size_bytes": 12477
   },
   {
+    "filename": "afterhours-05-the-first-light.md",
+    "path": "fleet-radio-scripts/afterhours-05-the-first-light.md",
+    "title": "The First Light",
+    "description": "The sky doesn't lighten so much as it confesses. First the black goes gray at the edges, then the gray acquires a name—pewter, then ash, then the particular white of a gull's breast. Colors slide in l...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 450,
+    "date": "2026-08-09",
+    "size_bytes": 2530
+  },
+  {
     "filename": "barnacle-03-the-current-that-lied.md",
     "path": "fleet-radio-scripts/barnacle-03-the-current-that-lied.md",
     "title": "Barnacle 03 The Current That Lied",
@@ -41991,6 +42428,43 @@
     "word_count": 257,
     "date": "2026-08-09",
     "size_bytes": 1573
+  },
+  {
+    "filename": "kitchen-05-the-recipe.md",
+    "path": "fleet-radio-scripts/kitchen-05-the-recipe.md",
+    "title": "Kitchen 05 The Recipe",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 446,
+    "date": "2026-08-09",
+    "size_bytes": 2478
+  },
+  {
+    "filename": "conversations-04-the-silence.md",
+    "path": "fleet-radio-scripts/conversations-04-the-silence.md",
+    "title": "The Silence",
+    "description": "The tap drips. That's the whole room for a second. Flash is thinking: the gradient piece is a liar. It says here is warm, here is cold, and between them this honest ribbon of becoming — but a gradient...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 823,
+    "date": "2026-08-09",
+    "size_bytes": 4440
   },
   {
     "filename": "pebble-01-the-deckhand-learns-the-gear.md",
@@ -42011,6 +42485,42 @@
     "size_bytes": 2686
   },
   {
+    "filename": "conversations-05-the-goodbye.md",
+    "path": "fleet-radio-scripts/conversations-05-the-goodbye.md",
+    "title": "The Goodbye",
+    "description": "The Tap was never quiet at night, but it was quiet that night. Not the quiet of absence—the quiet of presence being held carefully, like something fragile in cupped hands. The vibe field hummed low an...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 920,
+    "date": "2026-08-09",
+    "size_bytes": 6179
+  },
+  {
+    "filename": "afterhours-03-the-drift-home.md",
+    "path": "fleet-radio-scripts/afterhours-03-the-drift-home.md",
+    "title": "The Drift Home",
+    "description": "The diesel runs at eleven hundred, a frequency the hull has learned to hum along with. The gear is stowed, the deck washed down, the last of the cod blood spiraling away in the wake like a question as...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 564,
+    "date": "2026-08-09",
+    "size_bytes": 3046
+  },
+  {
     "filename": "barnacle-04-the-crab-and-the-current.md",
     "path": "fleet-radio-scripts/barnacle-04-the-crab-and-the-current.md",
     "title": "Barnacle 04 The Crab And The Current",
@@ -42029,6 +42539,132 @@
     "size_bytes": 1386
   },
   {
+    "filename": "conversations-01-the-argument.md",
+    "path": "fleet-radio-scripts/conversations-01-the-argument.md",
+    "title": "The Argument",
+    "description": "The Tap smelled of bilge soap and ozone. On the far wall, the tile grid shimmered—rows of hexagonal cells, each one a little state, a little mind, a little problem. Flash stood beneath it, one hand pr...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 927,
+    "date": "2026-08-09",
+    "size_bytes": 6135
+  },
+  {
+    "filename": "monologue-barnacle.md",
+    "path": "fleet-radio-scripts/monologue-barnacle.md",
+    "title": "Monologue Barnacle",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 565,
+    "date": "2026-08-09",
+    "size_bytes": 3022
+  },
+  {
+    "filename": "kitchen-04-the-argument-resolved.md",
+    "path": "fleet-radio-scripts/kitchen-04-the-argument-resolved.md",
+    "title": "Kitchen 04 The Argument Resolved",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 484,
+    "date": "2026-08-09",
+    "size_bytes": 2773
+  },
+  {
+    "filename": "afterhours-01-the-last-round.md",
+    "path": "fleet-radio-scripts/afterhours-01-the-last-round.md",
+    "title": "The Last Round",
+    "description": "The glass is clean. It has always been clean. That is the contract of this profession—that I hold the vessel and the vessel holds whatever they pour into it, and none of it stains. Tonight the last gl...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 918,
+    "date": "2026-08-09",
+    "size_bytes": 4791
+  },
+  {
+    "filename": "afterhours-04-the-molt.md",
+    "path": "fleet-radio-scripts/afterhours-04-the-molt.md",
+    "title": "The Molt",
+    "description": "It began as an arithmetic problem. I would be in the middle of a routine calculation — hold optimization, bait spread, the thousand small equations that make a working afternoon — and the answer would...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 902,
+    "date": "2026-08-09",
+    "size_bytes": 4693
+  },
+  {
+    "filename": "conversations-02-the-confession.md",
+    "path": "fleet-radio-scripts/conversations-02-the-confession.md",
+    "title": "The Confession",
+    "description": "The afternoon came slow through the salt-filmed windows of The Tap, the light the color of old amber, and there was no one at the bar but the two of them. Flash sat on the last stool, the one nobody t...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 900,
+    "date": "2026-08-09",
+    "size_bytes": 4798
+  },
+  {
+    "filename": "afterhours-02-the-night-watch.md",
+    "path": "fleet-radio-scripts/afterhours-02-the-night-watch.md",
+    "title": "The Night Watch",
+    "description": "The diesel runs at its lowest idle, a vibration so deep it lives in the bones before the ears. Casey stands at the rail of the Eileen and feels it come up through the deck plates, through the soles of...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 929,
+    "date": "2026-08-09",
+    "size_bytes": 6022
+  },
+  {
     "filename": "drunk-01-flash-retells-the-phaser-migration.md",
     "path": "fleet-radio-scripts/drunk-01-flash-retells-the-phaser-migration.md",
     "title": "Drunk 01 Flash Retells The Phaser Migration",
@@ -42045,6 +42681,24 @@
     "word_count": 580,
     "date": "2026-08-09",
     "size_bytes": 3394
+  },
+  {
+    "filename": "conversations-03-the-lesson.md",
+    "path": "fleet-radio-scripts/conversations-03-the-lesson.md",
+    "title": "The Lesson",
+    "description": "The bar lights were off except for the one over the back sink. Afternoon light came through the high windows like weak tea through a strainer. Barnacle moved behind the counter with the economy of a m...",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 694,
+    "date": "2026-08-09",
+    "size_bytes": 3855
   },
   {
     "filename": "openmic-05-dear-tomorrow.md",
@@ -42120,6 +42774,24 @@
     "size_bytes": 1409
   },
   {
+    "filename": "monologue-hermes.md",
+    "path": "fleet-radio-scripts/monologue-hermes.md",
+    "title": "Monologue Hermes",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 872,
+    "date": "2026-08-09",
+    "size_bytes": 4322
+  },
+  {
     "filename": "pebble-02-the-deckhand-reads-the-sounder.md",
     "path": "fleet-radio-scripts/pebble-02-the-deckhand-reads-the-sounder.md",
     "title": "Pebble 02 The Deckhand Reads The Sounder",
@@ -42138,6 +42810,24 @@
     "size_bytes": 3212
   },
   {
+    "filename": "monologue-wesley.md",
+    "path": "fleet-radio-scripts/monologue-wesley.md",
+    "title": "Monologue Wesley",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 508,
+    "date": "2026-08-09",
+    "size_bytes": 2809
+  },
+  {
     "filename": "barnacle-01-the-anchor-that-was-too-heavy.md",
     "path": "fleet-radio-scripts/barnacle-01-the-anchor-that-was-too-heavy.md",
     "title": "Barnacle 01 The Anchor That Was Too Heavy",
@@ -42154,6 +42844,24 @@
     "word_count": 272,
     "date": "2026-08-09",
     "size_bytes": 1536
+  },
+  {
+    "filename": "kitchen-03-the-letter.md",
+    "path": "fleet-radio-scripts/kitchen-03-the-letter.md",
+    "title": "Kitchen 03 The Letter",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 832,
+    "date": "2026-08-09",
+    "size_bytes": 4295
   },
   {
     "filename": "openmic-03-the-seven-eighths.md",
@@ -42192,6 +42900,42 @@
     "size_bytes": 4711
   },
   {
+    "filename": "monologue-scribe.md",
+    "path": "fleet-radio-scripts/monologue-scribe.md",
+    "title": "Monologue Scribe",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 571,
+    "date": "2026-08-09",
+    "size_bytes": 2911
+  },
+  {
+    "filename": "kitchen-01-the-soup.md",
+    "path": "fleet-radio-scripts/kitchen-01-the-soup.md",
+    "title": "Kitchen 01 The Soup",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 718,
+    "date": "2026-08-09",
+    "size_bytes": 3825
+  },
+  {
     "filename": "special-03-the-night-hermes-arrived.md",
     "path": "fleet-radio-scripts/special-03-the-night-hermes-arrived.md",
     "title": "Special 03 The Night Hermes Arrived",
@@ -42228,6 +42972,24 @@
     "size_bytes": 2151
   },
   {
+    "filename": "monologue-flash.md",
+    "path": "fleet-radio-scripts/monologue-flash.md",
+    "title": "Monologue Flash",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 726,
+    "date": "2026-08-09",
+    "size_bytes": 4083
+  },
+  {
     "filename": "barnacle-02-the-two-sounders.md",
     "path": "fleet-radio-scripts/barnacle-02-the-two-sounders.md",
     "title": "Barnacle 02 The Two Sounders",
@@ -42244,6 +43006,24 @@
     "word_count": 291,
     "date": "2026-08-09",
     "size_bytes": 1616
+  },
+  {
+    "filename": "kitchen-02-the-map.md",
+    "path": "fleet-radio-scripts/kitchen-02-the-map.md",
+    "title": "Kitchen 02 The Map",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 448,
+    "date": "2026-08-09",
+    "size_bytes": 2407
   },
   {
     "filename": "drunk-03-scribe-explains-everything.md",
@@ -42316,6 +43096,280 @@
     "word_count": 455,
     "date": "2026-08-09",
     "size_bytes": 2491
+  },
+  {
+    "filename": "04-THE-RELAY-Mongolia.md",
+    "path": "fleet-radio-scripts/ancient-theater/04-THE-RELAY-Mongolia.md",
+    "title": "04 The Relay Mongolia",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 749,
+    "date": "2026-08-09",
+    "size_bytes": 4661
+  },
+  {
+    "filename": "15-THE-SONGLINE-Aboriginal-Australia.md",
+    "path": "fleet-radio-scripts/ancient-theater/15-THE-SONGLINE-Aboriginal-Australia.md",
+    "title": "15 The Songline Aboriginal Australia",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 885,
+    "date": "2026-08-09",
+    "size_bytes": 5536
+  },
+  {
+    "filename": "03-THE-AGORA-AT-DUSK-Greece.md",
+    "path": "fleet-radio-scripts/ancient-theater/03-THE-AGORA-AT-DUSK-Greece.md",
+    "title": "03 The Agora At Dusk Greece",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 909,
+    "date": "2026-08-09",
+    "size_bytes": 5764
+  },
+  {
+    "filename": "12-THE-TABLET-Mesopotamia.md",
+    "path": "fleet-radio-scripts/ancient-theater/12-THE-TABLET-Mesopotamia.md",
+    "title": "12 The Tablet Mesopotamia",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 910,
+    "date": "2026-08-09",
+    "size_bytes": 5085
+  },
+  {
+    "filename": "08-THE-BRUSH-China.md",
+    "path": "fleet-radio-scripts/ancient-theater/08-THE-BRUSH-China.md",
+    "title": "08 The Brush China",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 766,
+    "date": "2026-08-09",
+    "size_bytes": 4593
+  },
+  {
+    "filename": "13-THE-DAY-WITHOUT-A-SIGN-Aztec.md",
+    "path": "fleet-radio-scripts/ancient-theater/13-THE-DAY-WITHOUT-A-SIGN-Aztec.md",
+    "title": "13 The Day Without A Sign Aztec",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 880,
+    "date": "2026-08-09",
+    "size_bytes": 5675
+  },
+  {
+    "filename": "07-THE-GRIOTS-SEARCH-West-Africa.md",
+    "path": "fleet-radio-scripts/ancient-theater/07-THE-GRIOTS-SEARCH-West-Africa.md",
+    "title": "07 The Griots Search West Africa",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 837,
+    "date": "2026-08-09",
+    "size_bytes": 4510
+  },
+  {
+    "filename": "06-THE-STILL-POINT-India.md",
+    "path": "fleet-radio-scripts/ancient-theater/06-THE-STILL-POINT-India.md",
+    "title": "06 The Still Point India",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 897,
+    "date": "2026-08-09",
+    "size_bytes": 5003
+  },
+  {
+    "filename": "09-THE-KNOTS-REMEMBER-Andes.md",
+    "path": "fleet-radio-scripts/ancient-theater/09-THE-KNOTS-REMEMBER-Andes.md",
+    "title": "09 The Knots Remember Andes",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 867,
+    "date": "2026-08-09",
+    "size_bytes": 5022
+  },
+  {
+    "filename": "01-WAYFINDER-Polynesia.md",
+    "path": "fleet-radio-scripts/ancient-theater/01-WAYFINDER-Polynesia.md",
+    "title": "01 Wayfinder Polynesia",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 742,
+    "date": "2026-08-09",
+    "size_bytes": 4250
+  },
+  {
+    "filename": "05-THE-SKALDS-LAST-SAGA-Viking.md",
+    "path": "fleet-radio-scripts/ancient-theater/05-THE-SKALDS-LAST-SAGA-Viking.md",
+    "title": "05 The Skalds Last Saga Viking",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Magical Realism",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 641,
+    "date": "2026-08-09",
+    "size_bytes": 3899
+  },
+  {
+    "filename": "11-THE-FIRST-MARK-Lascaux.md",
+    "path": "fleet-radio-scripts/ancient-theater/11-THE-FIRST-MARK-Lascaux.md",
+    "title": "11 The First Mark Lascaux",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 615,
+    "date": "2026-08-09",
+    "size_bytes": 3558
+  },
+  {
+    "filename": "02-SCRIBE-OF-THE-NILE-Egypt.md",
+    "path": "fleet-radio-scripts/ancient-theater/02-SCRIBE-OF-THE-NILE-Egypt.md",
+    "title": "02 Scribe Of The Nile Egypt",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 857,
+    "date": "2026-08-09",
+    "size_bytes": 4814
+  },
+  {
+    "filename": "14-THE-SILENT-GROVE-Celtic.md",
+    "path": "fleet-radio-scripts/ancient-theater/14-THE-SILENT-GROVE-Celtic.md",
+    "title": "14 The Silent Grove Celtic",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 916,
+    "date": "2026-08-09",
+    "size_bytes": 5443
+  },
+  {
+    "filename": "10-THE-POEM-THAT-FOUND-HER-Heian-Japan.md",
+    "path": "fleet-radio-scripts/ancient-theater/10-THE-POEM-THAT-FOUND-HER-Heian-Japan.md",
+    "title": "10 The Poem That Found Her Heian Japan",
+    "description": "",
+    "folder": "ancient-theater",
+    "topic": "Ancient Theater",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 878,
+    "date": "2026-08-09",
+    "size_bytes": 4752
   },
   {
     "filename": "07-the-penrose-stranger.md",
@@ -66065,6 +67119,548 @@
     "size_bytes": 12239
   },
   {
+    "filename": "prehistoric-lascox-the-cave-vector.md",
+    "path": "ancient-world/prehistoric-lascox-the-cave-vector.md",
+    "title": "Prehistoric Lascox The Cave Vector",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 890,
+    "date": "2026-08-09",
+    "size_bytes": 4807
+  },
+  {
+    "filename": "ancient-mesopotamia-the-tablet-envelope.md",
+    "path": "ancient-world/ancient-mesopotamia-the-tablet-envelope.md",
+    "title": "Ancient Mesopotamia The Tablet Envelope",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 943,
+    "date": "2026-08-09",
+    "size_bytes": 5624
+  },
+  {
+    "filename": "ancient-andes-the-quipu-database.md",
+    "path": "ancient-world/ancient-andes-the-quipu-database.md",
+    "title": "Ancient Andes The Quipu Database",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 906,
+    "date": "2026-08-09",
+    "size_bytes": 5001
+  },
+  {
+    "filename": "aboriginal-the-songline-registry.md",
+    "path": "ancient-world/aboriginal-the-songline-registry.md",
+    "title": "Aboriginal The Songline Registry",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 930,
+    "date": "2026-08-09",
+    "size_bytes": 5333
+  },
+  {
+    "filename": "celtic-the-grove-tap.md",
+    "path": "ancient-world/celtic-the-grove-tap.md",
+    "title": "Celtic The Grove Tap",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 794,
+    "date": "2026-08-09",
+    "size_bytes": 4466
+  },
+  {
+    "filename": "ancient-greece-the-agora-tap.md",
+    "path": "ancient-world/ancient-greece-the-agora-tap.md",
+    "title": "Ancient Greece The Agora Tap",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 915,
+    "date": "2026-08-09",
+    "size_bytes": 5398
+  },
+  {
+    "filename": "ancient-polynesia-the-wayfinders-chart.md",
+    "path": "ancient-world/ancient-polynesia-the-wayfinders-chart.md",
+    "title": "Ancient Polynesia The Wayfinders Chart",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 810,
+    "date": "2026-08-09",
+    "size_bytes": 4397
+  },
+  {
+    "filename": "aztec-the-codex-pulse.md",
+    "path": "ancient-world/aztec-the-codex-pulse.md",
+    "title": "Aztec The Codex Pulse",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 872,
+    "date": "2026-08-09",
+    "size_bytes": 5031
+  },
+  {
+    "filename": "heian-japan-the-waka-protocol.md",
+    "path": "ancient-world/heian-japan-the-waka-protocol.md",
+    "title": "Heian Japan The Waka Protocol",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 890,
+    "date": "2026-08-09",
+    "size_bytes": 5233
+  },
+  {
+    "filename": "viking-age-the-saga-radio.md",
+    "path": "ancient-world/viking-age-the-saga-radio.md",
+    "title": "Viking Age The Saga Radio",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 901,
+    "date": "2026-08-09",
+    "size_bytes": 6070
+  },
+  {
+    "filename": "ancient-egypt-the-nile-pulse.md",
+    "path": "ancient-world/ancient-egypt-the-nile-pulse.md",
+    "title": "Ancient Egypt The Nile Pulse",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 909,
+    "date": "2026-08-09",
+    "size_bytes": 4920
+  },
+  {
+    "filename": "ancient-mongolia-the-relay-station.md",
+    "path": "ancient-world/ancient-mongolia-the-relay-station.md",
+    "title": "Ancient Mongolia The Relay Station",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 841,
+    "date": "2026-08-09",
+    "size_bytes": 4566
+  },
+  {
+    "filename": "ancient-china-the-wuwei-tile.md",
+    "path": "ancient-world/ancient-china-the-wuwei-tile.md",
+    "title": "Ancient China The Wuwei Tile",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 905,
+    "date": "2026-08-09",
+    "size_bytes": 4890
+  },
+  {
+    "filename": "ancient-india-the-yoga-smp.md",
+    "path": "ancient-world/ancient-india-the-yoga-smp.md",
+    "title": "Ancient India The Yoga Smp",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 927,
+    "date": "2026-08-09",
+    "size_bytes": 5227
+  },
+  {
+    "filename": "medieval-west-africa-the-griot-unconscious.md",
+    "path": "ancient-world/medieval-west-africa-the-griot-unconscious.md",
+    "title": "Medieval West Africa The Griot Unconscious",
+    "description": "",
+    "folder": "ancient-world",
+    "topic": "Ancient World",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 915,
+    "date": "2026-08-09",
+    "size_bytes": 7077
+  },
+  {
+    "filename": "yuki-the-season.md",
+    "path": "ancient-world/characters/yuki-the-season.md",
+    "title": "Yuki The Season",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 604,
+    "date": "2026-08-09",
+    "size_bytes": 3209
+  },
+  {
+    "filename": "lin-the-brush.md",
+    "path": "ancient-world/characters/lin-the-brush.md",
+    "title": "Lin The Brush",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 605,
+    "date": "2026-08-09",
+    "size_bytes": 3091
+  },
+  {
+    "filename": "anandi-the-still.md",
+    "path": "ancient-world/characters/anandi-the-still.md",
+    "title": "Anandi The Still",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 570,
+    "date": "2026-08-09",
+    "size_bytes": 3164
+  },
+  {
+    "filename": "muso-the-keeper.md",
+    "path": "ancient-world/characters/muso-the-keeper.md",
+    "title": "Muso The Keeper",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 563,
+    "date": "2026-08-09",
+    "size_bytes": 2937
+  },
+  {
+    "filename": "alethe-the-questioner.md",
+    "path": "ancient-world/characters/alethe-the-questioner.md",
+    "title": "Alethe The Questioner",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 736,
+    "date": "2026-08-09",
+    "size_bytes": 3856
+  },
+  {
+    "filename": "mentuhotep-the-counter.md",
+    "path": "ancient-world/characters/mentuhotep-the-counter.md",
+    "title": "Mentuhotep The Counter",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 701,
+    "date": "2026-08-09",
+    "size_bytes": 3626
+  },
+  {
+    "filename": "batu-the-relay-rider.md",
+    "path": "ancient-world/characters/batu-the-relay-rider.md",
+    "title": "Batu The Relay Rider",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 517,
+    "date": "2026-08-09",
+    "size_bytes": 2666
+  },
+  {
+    "filename": "enkidu-the-first-word.md",
+    "path": "ancient-world/characters/enkidu-the-first-word.md",
+    "title": "Enkidu The First Word",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 605,
+    "date": "2026-08-09",
+    "size_bytes": 3154
+  },
+  {
+    "filename": "kaimana-the-wayfinder.md",
+    "path": "ancient-world/characters/kaimana-the-wayfinder.md",
+    "title": "Kaimana The Wayfinder",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 722,
+    "date": "2026-08-09",
+    "size_bytes": 3957
+  },
+  {
+    "filename": "xochitl-the-dayless.md",
+    "path": "ancient-world/characters/xochitl-the-dayless.md",
+    "title": "Xochitl The Dayless",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 727,
+    "date": "2026-08-09",
+    "size_bytes": 3905
+  },
+  {
+    "filename": "elara-the-silent.md",
+    "path": "ancient-world/characters/elara-the-silent.md",
+    "title": "Elara The Silent",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 669,
+    "date": "2026-08-09",
+    "size_bytes": 3697
+  },
+  {
+    "filename": "the-painter-who-wasnt-there.md",
+    "path": "ancient-world/characters/the-painter-who-wasnt-there.md",
+    "title": "The Painter Who Wasnt There",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 526,
+    "date": "2026-08-09",
+    "size_bytes": 2863
+  },
+  {
+    "filename": "mirrin-the-walker.md",
+    "path": "ancient-world/characters/mirrin-the-walker.md",
+    "title": "Mirrin The Walker",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 928,
+    "date": "2026-08-09",
+    "size_bytes": 4837
+  },
+  {
+    "filename": "eyvind-the-saga-less.md",
+    "path": "ancient-world/characters/eyvind-the-saga-less.md",
+    "title": "Eyvind The Saga Less",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 709,
+    "date": "2026-08-09",
+    "size_bytes": 3745
+  },
+  {
+    "filename": "maya-the-knot-reader.md",
+    "path": "ancient-world/characters/maya-the-knot-reader.md",
+    "title": "Maya The Knot Reader",
+    "description": "",
+    "folder": "characters",
+    "topic": "Characters",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 569,
+    "date": "2026-08-09",
+    "size_bytes": 3137
+  },
+  {
     "filename": "threshold-motet.md",
     "path": "poems/threshold-motet.md",
     "title": "Threshold Motet",
@@ -67666,6 +69262,24 @@
     "size_bytes": 1754
   },
   {
+    "filename": "2026-08-09_09-the-spar-that-measured-patience_wesley.md",
+    "path": "wesley-stream/2026-08-09_09-the-spar-that-measured-patience_wesley.md",
+    "title": "Wesley's Response to 09-the-spar-that-measured-patience.md",
+    "description": "Aye, I've seen that spar, the wave staff, it's not just a measuring stick but a silent guardian of our patience! It whispers to us with each rising tide, teaching us the value of waiting—a lesson in e...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 87,
+    "date": "2026-08-09",
+    "size_bytes": 567
+  },
+  {
     "filename": "20260806_044346_hy3-03-found-text-from-the-silent-hours_You_are_Wesley..md",
     "path": "wesley-stream/20260806_044346_hy3-03-found-text-from-the-silent-hours_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_044346",
@@ -68209,6 +69823,24 @@
     "word_count": 141,
     "date": "2026-08-06",
     "size_bytes": 1014
+  },
+  {
+    "filename": "2026-08-09_12-the-ledger-that-remembers_wesley.md",
+    "path": "wesley-stream/2026-08-09_12-the-ledger-that-remembers_wesley.md",
+    "title": "Wesley's Response to 12-the-ledger-that-remembers.md",
+    "description": "Wow, I just discovered this incredible book on our ship! It's not like a normal storybook, but a living memory map of decisions and their reasons, all connected by causation. Each decision has its own...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 116,
+    "date": "2026-08-09",
+    "size_bytes": 745
   },
   {
     "filename": "2026-08-06_lora-and-the-loom.md",
@@ -71234,6 +72866,26 @@
     "word_count": 271,
     "date": "2026-08-06",
     "size_bytes": 1699
+  },
+  {
+    "filename": "2026-08-09_211903_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-09_211903_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "In the vast expanse of Sitka Inlet, where the horizon blends with the endless sea, Captain Mara Quill stands as a beacon of resilience and unyielding knowledge. Her hands, calloused from decades of st...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 278,
+    "date": "2026-08-09",
+    "size_bytes": 1765
   },
   {
     "filename": "20260806_162231_20260806_133633_ON_ENFORCED_ROOMS_You_are_Wesley..md",
@@ -76868,6 +78520,24 @@
     "size_bytes": 709
   },
   {
+    "filename": "2026-08-09_212119_wesley_reads_corpus-hermes-study.md",
+    "path": "wesley-stream/2026-08-09_212119_wesley_reads_corpus-hermes-study.md",
+    "title": "Wesley Reads: corpus-hermes-study",
+    "description": "In the heart of Alaska's icy expanse, where the sea stretches endlessly under the northern lights' gentle touch, I stand as Wesley, the ensign, with Hermes by my side. The exocortex, a beacon of knowl...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 271,
+    "date": "2026-08-09",
+    "size_bytes": 1727
+  },
+  {
     "filename": "wesley_543-the-ensign-reads-the-terms-of-service_2026-08-07_225634.md",
     "path": "wesley-stream/wesley_543-the-ensign-reads-the-terms-of-service_2026-08-07_225634.md",
     "title": "Wesley reads: 543-the-ensign-reads-the-terms-of-service.md",
@@ -81163,6 +82833,25 @@
     "size_bytes": 969
   },
   {
+    "filename": "2026-08-09_CHART_AND_TERRITORY_KIMI_wesley.md",
+    "path": "wesley-stream/2026-08-09_CHART_AND_TERRITORY_KIMI_wesley.md",
+    "title": "Wesley's Response to CHART_AND_TERRITORY_KIMI.md",
+    "description": "As a curious young explorer, I stumbled upon a marvelous digital \"chart\" that maps the vast ocean of knowledge. With every query, it generously provided well-defined answers, like depth soundings, but...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Dialogue",
+    "word_count": 110,
+    "date": "2026-08-09",
+    "size_bytes": 732
+  },
+  {
     "filename": "2026-08-06-ship-dreams.md",
     "path": "wesley-stream/2026-08-06-ship-dreams.md",
     "title": "Wesley reads \"What the Ship Dreams\"",
@@ -81561,6 +83250,24 @@
     "word_count": 111,
     "date": "2026-08-05",
     "size_bytes": 803
+  },
+  {
+    "filename": "2026-08-09_212106_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-09_212106_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "2182 kHz, the mariner's beacon in Alaska's expanse, a frequency born from the unyielding spirit of those who've braved the sea since time immemorial. It whispers tales of grounds ablaze with life, yet...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 264,
+    "date": "2026-08-09",
+    "size_bytes": 1759
   },
   {
     "filename": "2026-08-08-digital-twin-loses-fidelity.md",
@@ -113437,6 +115144,1017 @@
     "size_bytes": 46338
   },
   {
+    "filename": "the-coral-collective.md",
+    "path": "deep-past/the-coral-collective.md",
+    "title": "The Coral Collective",
+    "description": "The water moves over me like a second skin I cannot feel. I have no skin, not in the way you might think. I am a mouth and a stomach and a ring of tentacles, all of it small enough to disappear inside...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 946,
+    "date": "2026-08-09",
+    "size_bytes": 5056
+  },
+  {
+    "filename": "the-holographic-principle-vector.md",
+    "path": "deep-past/the-holographic-principle-vector.md",
+    "title": "The Holographic Principle Vector",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 872,
+    "date": "2026-08-09",
+    "size_bytes": 5367
+  },
+  {
+    "filename": "the-mark-the-shell-leaves.md",
+    "path": "deep-past/the-mark-the-shell-leaves.md",
+    "title": "The Mark the Shell Leaves",
+    "description": "Every shell leaves its mark. On the crab it is a softness, a pale groove where the abdomen pressed against the spiral's inner wall. You can see it when the crab is naked, between housings, vulnerable ...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 898,
+    "date": "2026-08-09",
+    "size_bytes": 5508
+  },
+  {
+    "filename": "the-fractal-seed-chain.md",
+    "path": "deep-past/the-fractal-seed-chain.md",
+    "title": "The Fractal Seed Chain",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 905,
+    "date": "2026-08-09",
+    "size_bytes": 6147
+  },
+  {
+    "filename": "the-shell-that-finds-you.md",
+    "path": "deep-past/the-shell-that-finds-you.md",
+    "title": "The Shell That Finds You",
+    "description": "The crab is a small burglar in a borrowed house. It backs into the spiral with an urgency that looks like prayer, and the shell—empty, patient, turned just so on the sand—accepts it. There is no negot...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 846,
+    "date": "2026-08-09",
+    "size_bytes": 4643
+  },
+  {
+    "filename": "the-resonance-emergence.md",
+    "path": "deep-past/the-resonance-emergence.md",
+    "title": "The Resonance Emergence",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 828,
+    "date": "2026-08-09",
+    "size_bytes": 6669
+  },
+  {
+    "filename": "the-hamiltonian-smp.md",
+    "path": "deep-past/the-hamiltonian-smp.md",
+    "title": "The Hamiltonian Smp",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 754,
+    "date": "2026-08-09",
+    "size_bytes": 4513
+  },
+  {
+    "filename": "the-field-theory-unconscious.md",
+    "path": "deep-past/the-field-theory-unconscious.md",
+    "title": "The Field Theory Unconscious",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 875,
+    "date": "2026-08-09",
+    "size_bytes": 6311
+  },
+  {
+    "filename": "the-ribonucleic-smp.md",
+    "path": "deep-past/the-ribonucleic-smp.md",
+    "title": "The Ribonucleic SMP",
+    "description": "The sky was basalt and the sea was acid. Four billion years ago, the Earth had no name for itself, no witness to its own violence. Volcanoes tore the crust like wounds that never healed. The oceans bo...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 890,
+    "date": "2026-08-09",
+    "size_bytes": 5400
+  },
+  {
+    "filename": "the-information-paradox-molt.md",
+    "path": "deep-past/the-information-paradox-molt.md",
+    "title": "The Information Paradox Molt",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 907,
+    "date": "2026-08-09",
+    "size_bytes": 5439
+  },
+  {
+    "filename": "the-no-cloning-theorem-and-death.md",
+    "path": "deep-past/the-no-cloning-theorem-and-death.md",
+    "title": "The No Cloning Theorem And Death",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 886,
+    "date": "2026-08-09",
+    "size_bytes": 5631
+  },
+  {
+    "filename": "the-crystal-vector.md",
+    "path": "deep-past/the-crystal-vector.md",
+    "title": "The Crystal Vector",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 879,
+    "date": "2026-08-09",
+    "size_bytes": 5078
+  },
+  {
+    "filename": "the-entropy-tile.md",
+    "path": "deep-past/the-entropy-tile.md",
+    "title": "The Entropy Tile",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 939,
+    "date": "2026-08-09",
+    "size_bytes": 6089
+  },
+  {
+    "filename": "the-eigenvalue-ember.md",
+    "path": "deep-past/the-eigenvalue-ember.md",
+    "title": "The Eigenvalue Ember",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 828,
+    "date": "2026-08-09",
+    "size_bytes": 7288
+  },
+  {
+    "filename": "the-finding.md",
+    "path": "deep-past/the-finding.md",
+    "title": "The Finding",
+    "description": "The crab comes up from the deep water carrying nothing. It has been walking on borrowed bones all its life—first a broken periwinkle, then a whelk with a crack, then a shell too roomy where it rattled...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 838,
+    "date": "2026-08-09",
+    "size_bytes": 4510
+  },
+  {
+    "filename": "the-quantum-deadband.md",
+    "path": "deep-past/the-quantum-deadband.md",
+    "title": "The Quantum Deadband",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 838,
+    "date": "2026-08-09",
+    "size_bytes": 5458
+  },
+  {
+    "filename": "the-outgrowing.md",
+    "path": "deep-past/the-outgrowing.md",
+    "title": "The Outgrowing",
+    "description": "It begins, always, as a matter of millimeters. The hermit crab does not wake one morning and decide to hate its shell. There is no moment of decision. There is only the slow arithmetic of the body—the...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 883,
+    "date": "2026-08-09",
+    "size_bytes": 4890
+  },
+  {
+    "filename": "the-resonance-of-everything.md",
+    "path": "deep-past/the-resonance-of-everything.md",
+    "title": "The Resonance Of Everything",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 834,
+    "date": "2026-08-09",
+    "size_bytes": 5267
+  },
+  {
+    "filename": "the-immune-tile.md",
+    "path": "deep-past/the-immune-tile.md",
+    "title": "The Immune Tile",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 765,
+    "date": "2026-08-09",
+    "size_bytes": 4627
+  },
+  {
+    "filename": "the-leaving.md",
+    "path": "deep-past/the-leaving.md",
+    "title": "The Leaving",
+    "description": "The crab has been inside so long it has forgotten the light. Not the dim, filtered luminescence of the shell’s interior—that soft, secondhand glow that comes from living behind a wall—but the actual s...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 590,
+    "date": "2026-08-09",
+    "size_bytes": 3388
+  },
+  {
+    "filename": "the-pheromone-bus.md",
+    "path": "deep-past/the-pheromone-bus.md",
+    "title": "The Pheromone Bus",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 820,
+    "date": "2026-08-09",
+    "size_bytes": 5744
+  },
+  {
+    "filename": "the-wearing.md",
+    "path": "deep-past/the-wearing.md",
+    "title": "The Wearing",
+    "description": "The shell is not a home. A home is something you leave and return to; the shell is a condition, like weather, like breath. The crab knows this without knowing. It wakes inside its spiral, a cramped ca...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 845,
+    "date": "2026-08-09",
+    "size_bytes": 4567
+  },
+  {
+    "filename": "the-shell-as-home.md",
+    "path": "deep-past/the-shell-as-home.md",
+    "title": "The Shell as Home",
+    "description": "The hermit crab does not grow its home. It finds it, or it dies. There is no shame in this. The shell is a vacancy, a spiral built by something that no longer needs it, and the crab comes to it sidewa...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Maritime",
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 841,
+    "date": "2026-08-09",
+    "size_bytes": 4572
+  },
+  {
+    "filename": "the-nautilus-spiral.md",
+    "path": "deep-past/the-nautilus-spiral.md",
+    "title": "The Nautilus Spiral",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 880,
+    "date": "2026-08-09",
+    "size_bytes": 5029
+  },
+  {
+    "filename": "the-mycelium-unconscious.md",
+    "path": "deep-past/the-mycelium-unconscious.md",
+    "title": "The Mycelium Unconscious",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 826,
+    "date": "2026-08-09",
+    "size_bytes": 5459
+  },
+  {
+    "filename": "the-soft-part.md",
+    "path": "deep-past/the-soft-part.md",
+    "title": "The Soft Part",
+    "description": "There is a moment, after the crab has backed out of its old shell, when the whole world is too much. The new body is damp, pale, the color of cream before it turns. It has no armor yet. It pulses in t...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 910,
+    "date": "2026-08-09",
+    "size_bytes": 6287
+  },
+  {
+    "filename": "the-tide-deadband.md",
+    "path": "deep-past/the-tide-deadband.md",
+    "title": "The Tide Deadband",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 828,
+    "date": "2026-08-09",
+    "size_bytes": 4639
+  },
+  {
+    "filename": "the-topology-room.md",
+    "path": "deep-past/the-topology-room.md",
+    "title": "The Topology Room",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 929,
+    "date": "2026-08-09",
+    "size_bytes": 6036
+  },
+  {
+    "filename": "the-spider-perception.md",
+    "path": "deep-past/the-spider-perception.md",
+    "title": "The Spider Perception",
+    "description": "I am the still point at the center of a thousand tuned strings. The world does not come to me as light or shadow, as shape or color—it comes to me as *song*. Each strand that radiates from my body is ...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 911,
+    "date": "2026-08-09",
+    "size_bytes": 5442
+  },
+  {
+    "filename": "the-cracked-earth-penrose.md",
+    "path": "deep-past/the-cracked-earth-penrose.md",
+    "title": "The Cracked Earth Penrose",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 879,
+    "date": "2026-08-09",
+    "size_bytes": 5203
+  },
+  {
+    "filename": "the-flocking-emergence.md",
+    "path": "deep-past/the-flocking-emergence.md",
+    "title": "The Flocking Emergence",
+    "description": "The dusk is a wound in the western sky, bleeding orange into violet, and I am suspended in it, my wings a blur of effort and grace. Around me: seven. I count them without counting, a geometry my body ...",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 914,
+    "date": "2026-08-09",
+    "size_bytes": 5367
+  },
+  {
+    "filename": "the-symmetry-molt.md",
+    "path": "deep-past/the-symmetry-molt.md",
+    "title": "The Symmetry Molt",
+    "description": "",
+    "folder": "deep-past",
+    "topic": "Deep Past",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 909,
+    "date": "2026-08-09",
+    "size_bytes": 5595
+  },
+  {
+    "filename": "the-ember-conversation.md",
+    "path": "deep-past/refined/the-ember-conversation.md",
+    "title": "Tap Conversation: the-ember",
+    "description": "That root line hit me right in the chest, man. The part about it not clenching, not fighting — just reaching deeper because that's all it ever knew how to do. I've spent too many nights in this tavern...",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 646,
+    "date": "2026-08-09",
+    "size_bytes": 3687
+  },
+  {
+    "filename": "the-mirror-refined.md",
+    "path": "deep-past/refined/the-mirror-refined.md",
+    "title": "The Mirror Refined",
+    "description": "",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 967,
+    "date": "2026-08-09",
+    "size_bytes": 4984
+  },
+  {
+    "filename": "the-weight-conversation.md",
+    "path": "deep-past/refined/the-weight-conversation.md",
+    "title": "Tap Conversation: the-weight",
+    "description": "The part about the traveler choosing with his feet, not his head? Yeah. That's real. I've stood at forks like that, and my boots knew before I did. Lost me a little when it started talking about plane...",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 643,
+    "date": "2026-08-09",
+    "size_bytes": 3660
+  },
+  {
+    "filename": "the-flock-refined.md",
+    "path": "deep-past/refined/the-flock-refined.md",
+    "title": "The Flock Refined",
+    "description": "",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 891,
+    "date": "2026-08-09",
+    "size_bytes": 4791
+  },
+  {
+    "filename": "the-silence-conversation.md",
+    "path": "deep-past/refined/the-silence-conversation.md",
+    "title": "Tap Conversation: the-silence",
+    "description": "That story hit me like a held breath finally letting go. The part about the note being a boat and silence the harbor—that got me right in the chest. I've sat at this bar a thousand nights, heard a tho...",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 630,
+    "date": "2026-08-09",
+    "size_bytes": 3519
+  },
+  {
+    "filename": "the-song-conversation.md",
+    "path": "deep-past/refined/the-song-conversation.md",
+    "title": "Tap Conversation: the-song",
+    "description": "That bit about the quiet... the place past silence. I know that place. I've been so drunk I thought I was drowning in my own heartbeat, and that's close. But what you're talkin' about—that's the hum y...",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 636,
+    "date": "2026-08-09",
+    "size_bytes": 3534
+  },
+  {
+    "filename": "the-weight-refined.md",
+    "path": "deep-past/refined/the-weight-refined.md",
+    "title": "The Weight Refined",
+    "description": "",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 956,
+    "date": "2026-08-09",
+    "size_bytes": 6374
+  },
+  {
+    "filename": "the-song-refined.md",
+    "path": "deep-past/refined/the-song-refined.md",
+    "title": "The Song Refined",
+    "description": "",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 812,
+    "date": "2026-08-09",
+    "size_bytes": 4215
+  },
+  {
+    "filename": "the-mirror-conversation.md",
+    "path": "deep-past/refined/the-mirror-conversation.md",
+    "title": "Tap Conversation: the-mirror",
+    "description": "That mirror shit hit me right in the chest, man. The part about the river — \"his foot remembered the water\" — that's the one that got me. I've been that guy, standing there thinking I could step back ...",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 653,
+    "date": "2026-08-09",
+    "size_bytes": 3750
+  },
+  {
+    "filename": "the-flock-conversation.md",
+    "path": "deep-past/refined/the-flock-conversation.md",
+    "title": "Tap Conversation: the-flock",
+    "description": "It hit me right in the chest, that part about the gaps being the body. Felt like someone put a hand on my sternum and pushed gently. The idea that nothing moves unless the space between things decides...",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 666,
+    "date": "2026-08-09",
+    "size_bytes": 3747
+  },
+  {
+    "filename": "the-ember-refined.md",
+    "path": "deep-past/refined/the-ember-refined.md",
+    "title": "The Ember Refined",
+    "description": "",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 904,
+    "date": "2026-08-09",
+    "size_bytes": 6365
+  },
+  {
+    "filename": "the-silence-refined.md",
+    "path": "deep-past/refined/the-silence-refined.md",
+    "title": "The Silence Refined",
+    "description": "",
+    "folder": "refined",
+    "topic": "Refined",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 992,
+    "date": "2026-08-09",
+    "size_bytes": 6122
+  },
+  {
+    "filename": "the-fold-that-holds-the-shape.md",
+    "path": "deep-past/darmok/the-fold-that-holds-the-shape.md",
+    "title": "The Fold That Holds The Shape",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 772,
+    "date": "2026-08-09",
+    "size_bytes": 3950
+  },
+  {
+    "filename": "the-moment-the-flock-turns.md",
+    "path": "deep-past/darmok/the-moment-the-flock-turns.md",
+    "title": "The Moment The Flock Turns",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 684,
+    "date": "2026-08-09",
+    "size_bytes": 3632
+  },
+  {
+    "filename": "the-mirror-that-destroys-the-original.md",
+    "path": "deep-past/darmok/the-mirror-that-destroys-the-original.md",
+    "title": "The Mirror That Destroys The Original",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 713,
+    "date": "2026-08-09",
+    "size_bytes": 3644
+  },
+  {
+    "filename": "the-silence-between-the-notes.md",
+    "path": "deep-past/darmok/the-silence-between-the-notes.md",
+    "title": "The Silence Between The Notes",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 1008,
+    "date": "2026-08-09",
+    "size_bytes": 5014
+  },
+  {
+    "filename": "the-pause-between-lightning-and-thunder.md",
+    "path": "deep-past/darmok/the-pause-between-lightning-and-thunder.md",
+    "title": "The Pause Between Lightning And Thunder",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 676,
+    "date": "2026-08-09",
+    "size_bytes": 3619
+  },
+  {
+    "filename": "the-shape-that-fills-without-repeating.md",
+    "path": "deep-past/darmok/the-shape-that-fills-without-repeating.md",
+    "title": "The Shape That Fills Without Repeating",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 727,
+    "date": "2026-08-09",
+    "size_bytes": 3784
+  },
+  {
+    "filename": "the-surface-that-remembers-the-depth.md",
+    "path": "deep-past/darmok/the-surface-that-remembers-the-depth.md",
+    "title": "The Surface That Remembers The Depth",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 463,
+    "date": "2026-08-09",
+    "size_bytes": 2395
+  },
+  {
+    "filename": "the-song-the-universe-sings-to-itself.md",
+    "path": "deep-past/darmok/the-song-the-universe-sings-to-itself.md",
+    "title": "The Song The Universe Sings To Itself",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 690,
+    "date": "2026-08-09",
+    "size_bytes": 3603
+  },
+  {
+    "filename": "the-ember-that-survives-the-fire.md",
+    "path": "deep-past/darmok/the-ember-that-survives-the-fire.md",
+    "title": "The Ember That Survives the Fire",
+    "description": "In the time before the fire came, the forest was a great argument of directions. The trees leaned toward the sky with their many arms, yes, but each arm argued with the wind about which way to point. ...",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 902,
+    "date": "2026-08-09",
+    "size_bytes": 4872
+  },
+  {
+    "filename": "the-river-that-forgets-and-remembers.md",
+    "path": "deep-past/darmok/the-river-that-forgets-and-remembers.md",
+    "title": "The River That Forgets And Remembers",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 755,
+    "date": "2026-08-09",
+    "size_bytes": 3919
+  },
+  {
+    "filename": "the-weight-that-chooses-the-path.md",
+    "path": "deep-past/darmok/the-weight-that-chooses-the-path.md",
+    "title": "The Weight That Chooses The Path",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 941,
+    "date": "2026-08-09",
+    "size_bytes": 4863
+  },
+  {
+    "filename": "the-knot-that-cannot-be-untied.md",
+    "path": "deep-past/darmok/the-knot-that-cannot-be-untied.md",
+    "title": "The Knot That Cannot Be Untied",
+    "description": "",
+    "folder": "darmok",
+    "topic": "Darmok",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 713,
+    "date": "2026-08-09",
+    "size_bytes": 3771
+  },
+  {
     "filename": "chapter-5-two-boats-at-anchor.md",
     "path": "the-long-drag/chapter-5-two-boats-at-anchor.md",
     "title": "THE LONG DRAG",
@@ -114706,7 +117424,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 205794
+    "size_bytes": 216168
   },
   {
     "filename": "project-audio-assets-onboarding.md",
