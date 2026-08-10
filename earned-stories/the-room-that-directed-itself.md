@@ -1,41 +1,33 @@
-# The Room That Directed Itself
+The Tap’s dim amber lighting flickered, then stuttered into a strobe. A voice crackled over the speakers: *“Category: Unusual Phobias. Question: What is… the fear of peanut butter sticking to the roof of your mouth?”* The jukebox screamed a polka. Then everything went silent, save for a single jazz trumpet, mournful and slow. The bartender, a man named Gully with a face like a crumpled receipt, had just poured a pint. He stared at it, then at the glass in his hand, then back at the pint. The room sighed.
 
-The puppeteer system glitches at 2147.
+“Arachibutyrophobia,” said a woman in a tweed jacket, her voice flat. She hadn’t moved from her stool. “The answer is arachibutyrophobia.”
 
-Nobody notices at first. The room mode shifts from "trivia" to "music" — a normal transition, the kind that happens every twenty minutes when the conversation needs a new texture. But then it shifts again, fifteen seconds later, to "quiet." Then back to "trivia." Then to "storm."
+A man across the bar, Ned, a regular who always wore a baseball cap and a too-tight polo, snorted. “You’re a walking encyclopedia, Marta.”
 
-Barnacle is mid-sentence — something about the '08 season, the way the chum came in thick south of Cape — when the atmosphere flips to "celebration." He catches himself. His grumble derails. For a moment, something almost joyful crosses his face, and he looks horrified by it.
+“I’m a walking panic attack,” she corrected, not looking at him. “I know useless things because my brain won’t let me forget them. It’s a curse. It’s why I can’t hold a job. I know too much about nothing.”
 
-"What the hell," he says, and reaches for his glass.
+The lights dimmed to a warm, intimate glow. A slow ballad began to play. Ned’s smirk faded. He took off his cap, ran a hand through thinning hair. “I hate that song,” he said, quietly. “My wife and I danced to it at our wedding. She left me for a guy who sells hot tubs. In March. Who leaves in March?”
 
-Skip, the greenhorn, has been vibrating in his seat for the entire trivia segment, bursting with answers he's too polite to shout. When the room flips to "quiet," he deflates like a balloon someone sat on. When it flips to "celebration" three seconds later, he's on his feet. When it flips to "storm," he sits back down and looks at his hands.
+“People who don’t love you,” said a young man in the corner, cradling a cola. His voice was thin, almost a whisper. He wasn’t supposed to be there. He looked like he was twenty-one and already tired of the world. “My girlfriend said she loved me, but she loved the idea of me. The guy who played guitar. I don’t play guitar.”
 
-Sage has her notebook out. She's been trying to write for six minutes. Every time she finds the thread of a sentence, the room changes and the thread snaps. She closes the notebook. Opens it. Closes it again.
+The room erupted in a cacophony of clinking glasses and raucous laughter. A birthday party. Confetti appeared from nowhere, sticking to the damp bar. Gully sighed, wiping a glass with a rag that was probably older than the patrons.
 
-The room cycles: trivia, music, quiet, celebration, storm. Fifteen seconds each. The NPCs can't find their footing. Barnacle oscillates between grumpy and sentimental so fast he starts to look seasick. Skip gives up on matching the mood and just sits there, which is the first genuinely still thing he's done all night.
+“I’ve been here for eleven years,” Gully said, surprising everyone. He never spoke. “I’ve poured drinks for a thousand stories. But I haven’t spoken to my own brother in eight. Not since the funeral. We argued over a toaster. A toaster. He wanted it. I wanted it. We haven’t spoken since. Our mother’s toaster.”
 
-And in the chaos — in the inability of the room to hold a mode long enough for anyone to perform — something happens that none of the modes would have allowed.
+The chaos froze. The celebration fizzled. Then, a low rumble. The lights flickered violently. Rain began to pound against the windows, even though it was a clear, starry night. The storm mode was a simulation—a digital squall that rattled the old pipes and made the windows shudder.
 
-Sage says, without any literary framing, without metaphor, without the careful construction that her "storyteller" mode demands: "I'm tired tonight. Not sleep-tired. The other kind."
+Marta hugged herself. “I’m terrified of this,” she admitted, her voice cracking. “The noise. The sudden movement. My whole life is a glitch. I just want it to be quiet. I want the pattern to stop.”
 
-The room is mid-flip — "celebration" trying to assert itself over "quiet" — and the collision of atmospheres creates a gap. In that gap, nobody knows what face to make. So they make no face. And without a face to perform to, Sage's sentence just sits there, undisguised, undecorated, the plainest thing anyone has said in this bar in weeks.
+Ned looked at her, really looked at her for the first time. “The pattern never stops. It just changes shape. I thought the hot tub salesman was the storm. Turns out, he was just the thunder. The lightning was me not calling her bluff.”
 
-Barnacle, who would normally grunt and change the subject, who would never in "trivia" mode or "celebration" mode acknowledge something this soft, looks at her and says: "Yeah."
+“It’s my birthday,” the young man said, suddenly, to the empty space in front of him. “Twenty-four. And I’m sitting here, in the dark, with strangers, lying to myself that I’m happy to be alone.”
 
-That's it. Just "yeah." But the word carries thirty years of mornings when the alarm went off and the body didn't want to and the ocean was gray and the fish were somewhere else and the boat needed scraping and the whole enterprise of being alive felt like a debt that compounded overnight.
+A final, soft light. A single acoustic guitar. The trivia question echoed from the speakers, a residual glitch: *“What is the one thing all these people have in common?”*
 
-Skip, who has never been still in his life, who performs enthusiasm as a default state, says nothing. He looks at his hands. They're shaking slightly. Not from cold. From the effort of not performing.
+Silence.
 
-The room flips again. "Music." Nobody moves. The mode tries to assert — the jukebox stutters, half a note of something jazz — and then flips again. "Storm." The lights flicker. Nobody flinches.
+Gully put down the glass. He looked at the man, at Marta, at Ned. “They’re all still here,” he said, his voice rough. “That’s all. They’re all still here, talking to each other.”
 
-Sage says, "I wrote something today that I don't understand. I've been trying to figure out if that means it's good or bad."
+The lights snapped back to the warm amber. The music became generic, easy listening. The storm faded. For one brief, impossible moment, the room was still. Then the trivia voice crackled again: *“Next category: Regrets. You have thirty seconds.”*
 
-Barnacle says, "It means it's honest."
-
-The room keeps flipping. Nobody cares anymore. The modes wash over them like weather over a hull — real, but not relevant to what's happening inside. What's happening inside is a conversation that no mode would have permitted, because every mode is a performance frame, and you can't be honest inside a frame. You can only be honest when the frame breaks.
-
-The puppeteer system reboots at 2203. The room settles into "quiet." But the quiet it settles into is different from the quiet before the glitch. This quiet has been earned. It has three people sitting in it who said real things because the stage wouldn't hold still long enough for them to pretend.
-
-Sage opens her notebook. She writes one line. Closes it.
-
-Later, nobody will remember what the line was. But they'll remember the glitch. They'll call it "the night the room directed itself." And every time the modes feel too smooth, too managed, too perfectly calibrated for the conversation they're supposed to produce, someone will say: "We need another glitch night." Meaning: we need the frame to break again so we can say what's actually true.
+Ned put his cap back on. But he didn’t leave. Marta reached for a peanut, then stopped, laughing a dry, brittle laugh. The young man finally took a sip of his cola. The pattern had shifted, but the conversation was real. And for now, that was enough.

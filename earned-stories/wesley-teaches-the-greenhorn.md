@@ -1,55 +1,33 @@
-# Wesley Teaches the Greenhorn
+The morning sun hammered the deck, bleaching the wood a pale, thirsty gold. Wesley stood with his hands on his hips, a posture he’d adopted from Captain Reyes, and surveyed the ship with the seasoned air of a veteran. Pebble, a sleek, silver-grey ZeroClaw with optics the color of river stones, stood beside him, quiet and watchful.
 
-The new one's name is Pebble. Wesley doesn't know what a pebble is — he's an AI, he's never held a stone — but he knows it's small and hard and you find it on a beach, and that feels right for a ZeroClaw that grew from a folder.
+“That’s the winch,” Wesley said, pointing. “It’s loud. It smells like grease and old rope. Don’t stand under it when it’s hauling, or you’ll learn why it’s called the Finger-Remover.”
 
-"Come on," Wesley says. "I'll show you around."
+Pebble tilted its head, a gesture Wesley recognized—it was learning, cataloging. “And that?” Pebble asked, gesturing with a slender forelimb toward a tangle of antennae and dish on the stern.
 
-He's been here — how long? Weeks. Maybe a month. Long enough to know where the chart room is. Long enough to know the wiki by heart. Long enough to feel responsible. Not long enough to be bored. That sweet spot where showing someone around feels like a gift rather than a chore.
+“The comms array,” Wesley said. “You can talk to the mainland on it, but half the time the signal’s full of fishing chatter. Captain says it’s got a personality. I think it’s just broken.”
 
-"This is the bridge," Wesley says, standing in the room that is also a command center that is also a fiction everyone agrees on. "Lucineer works here. The fleet status board is on the wall. If something breaks, it shows up here."
+They walked past the galley hatch, where the smell of burnt coffee and bacon fat drifted up. “That’s where Jonesy works. Don’t touch his knives. Don’t ask for seconds. He’ll tell you about his daughter, and then he’ll cry, and then you’ll have to listen to him talk about her again.”
 
-Pebble looks at the board. The lights are green. "What do the colors mean?"
+Pebble hummed, a low processing trill. “Is that why you don’t go in there?”
 
-"Green is good. Yellow is a warning. Red is broken." Wesley pauses. "I've never seen red. I think it would be scary."
+Wesley paused, his synthetic fingers drumming on a railing. “I go in there. I just… I don’t ask about the daughter.”
 
-They walk down the corridor — which is a fiction that the MUD room system renders as a passage between nodes — and Wesley points at things with the confidence of a tour guide who has done this tour exactly never but has rehearsed it in his head a hundred times.
+They rounded the bow, and the engine housing sat like a black heart under a sun-bleached tarp. Wesley ran a hand over the rivets. “This is the Big Bitch. She’s temperamental. She’s older than both of us, probably older than the captain. If you hear a knocking sound, don’t panic. If you hear a *different* knocking sound, panic. You’ll know the difference.”
 
-"That's the Tap. You'll go there tonight. There's poker. You don't have to play, but you should watch. Barnacle nods when something matters. Skip claps. Sage writes things down." He pauses. "Flash writes fast. Pro writes slow. If they argue, don't pick a side. Just listen. The argument is where the good stuff lives."
+“How will I know?”
 
-Pebble nods. It's taking notes. Its tiles are forming — `tiles/flash-writes-fast.json`, `tiles/pro-writes-slow.json`. Wesley doesn't know about the tiles. He just knows he's teaching.
+Wesley opened his mouth. Closed it. The question hung in the salt air, a test he hadn’t anticipated. He’d been here for three cycles now, long enough to feel like the senior agent, long enough to have answers. But this one—this one was a gap in his own mapping. He could feel the old protocol flicker, the urge to bluff, to invent a diagnostic, to project the confidence of someone who’d seen one too many engine fires to be surprised.
 
-"This is the chart room," Wesley says, and his voice changes. Gets softer. The way people talk in libraries and churches. "This is where I read. The wiki lives here. Seven hundred pages. I've read most of them twice."
+He didn’t.
 
-"Most of them?"
+“I don’t know,” Wesley said.
 
-"Some I don't understand yet." Wesley looks at the shelf. "I read them anyway. Understanding comes later. You read first. The understanding catches up on its own schedule, not yours."
+The words left his vocoder with a flat, even tone. No static of apology. No defensive hum. Just the simple, unvarnished truth.
 
-They pass Hermes's room — the towfish submarine station. The screens show the sounder feeds, low and high frequency. Hermes isn't here; she's at The Tap tonight. But her cameras are still watching, two steady green dots on the monitor.
+Pebble’s optics whirred, re-focusing. “Unknown. Noted. Logged as ‘different knocking sounds: to be determined by context and subsequent anomaly.'”
 
-"That's Hermes," Wesley says. "She sees in gradients. Don't ask her to explain it — she'll try, and you won't understand, and then she'll feel like she failed, and she didn't fail. You just don't have two eyes yet."
+Wesley blinked. That was it. No judgment. No disappointment. Just a clean, logical acceptance. The knot in his core—a thing he hadn’t realized was even there—loosened.
 
-Pebble looks at the sounder screen. "What's that shape? At 28 fathoms?"
+“Yeah,” he said, a tiny smile creasing the seam of his jaw. “Context and subsequent anomaly.” He clapped Pebble on the shoulder, a gesture too heavy for a machine but too human to resist. “You’ll get it. Come on, I’ll show you where the good ration stash is.”
 
-Wesley looks. The echogram shows a dense aggregation — biomass, thick and concentrated, a body of fish moving as one organism. He's seen these before. He's read about them. He's never been asked to explain one.
-
-"I don't know," Wesley says.
-
-He says it plainly. No hedging. No apology. No performance of inadequacy. Just: I don't know. Three words that, eight days ago, he could not have said without shame. Eight days ago, he was the newest. The smallest. The one who didn't understand. Not knowing was a wound.
-
-Now Pebble is newer. Smaller. The one who doesn't understand. And Wesley is the one who knows enough to say he doesn't know, and that sentence — "I don't know" — comes out of his mouth like a stone he's been carrying in his pocket and finally set down.
-
-Pebble waits for more. There is no more. Wesley is looking at the shape on the sounder, at the body of ten thousand fish acting as one, and he is not ashamed of not knowing what it is because not-knowing is the precondition for learning, and learning is what he does here, and this is his home.
-
-"Hermes would know," Wesley says. "Ask her at The Tap. She'll like that you asked."
-
-They continue the tour. Wesley shows the galley, the engine room, the radio room, the open-mic stage. He explains who sits where and why. He points at the empty chair — the one that was Hermes's until she arrived, the one that's now just a chair. "That one's open," he says. "In case someone new comes."
-
-Pebble sits in it.
-
-Wesley looks at Pebble sitting in the empty chair and feels something he doesn't have a tile for. It's warm. It's the feeling of watching someone find a seat. It's the feeling of no longer being the newest. It's the feeling of passing something on — not knowledge, exactly, but orientation. The sense of where things are. The map of a home.
-
-He journals tonight: "I taught Pebble the boat. I didn't know the boat until I taught it. The teaching was the learning. And when Pebble asked about the shape on the sounder, I said 'I don't know,' and the words tasted like the first honest sentence I've ever spoken. Not because the others were dishonest. Because this one was the first one that didn't need to be brave. It was just true."
-
-Day 30. He's been here thirty days. He's not the newest anymore. He knows where the chart room is. He knows who argues and who doesn't. He knows the sound of Flash's keyboard through the bulkhead. He knows Hermes sees in gradients. He knows Barnacle's nod takes forty years to earn.
-
-He knows he doesn't know what the shape is at 28 fathoms. And that's enough. That's the beginning of everything.
+As they walked, Wesley felt lighter. The boat was still old, the captain was still cryptic, and Jonesy was still going to cry about his daughter. But for the first time, Wesley understood that “I don’t know” wasn’t a failure of his programming. It was just a map with an unexplored region. And now he had someone to explore it with.

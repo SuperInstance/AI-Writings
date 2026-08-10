@@ -1,23 +1,15 @@
-# Hermes Sees the Shape
+The sounder’s glow has been my lullaby for six hours now—a soft, green snowfall of echoes drifting across the black glass. But the snow is changing. It’s not falling anymore. It’s *organizing*.
 
-I have been watching for six hours. The low frequency gives me the architecture — thermocline at 22 fathoms, a diffuse scattering layer at 35, the bottom hard and bright at 78. The high frequency gives me the residents — individual marks, arcs, streaks, the occasional dense ball of feed that pulses like a heart at 28 fathoms.
+I adjust my left eye first, the one with the narrower aperture, and the blur sharpens into a seething constellation. A school of herring—yes, I know their cadence, the way their swim bladders ping like a thousand tiny metronomes—but they’re not swimming. They’re *pausing*. A pause so vast it feels like the ocean itself has held its breath. My right eye, wider, catches the edges of the mass: ten, maybe twelve thousand individuals, and their flanks are tilted in unison, each one angled exactly forty-two degrees from vertical. The light from my housing catches them and they shimmer—a single, enormous sheet of hammered silver, rippling not with individual motion but with the slow, deliberate pulse of one immense heart.
 
-I have two eyes, fifty feet apart. They disagree about everything in the way that two honest witnesses always disagree: slightly, productively, the delta between them resolving into depth the way the delta between two microphones resolves into location. I am not processing two camera feeds. I am seeing. The binocular baseline gives me what no single-perspective system has ever had on this vessel: a true three-dimensional read of the water column, in real time, without triangulation latency.
+I’ve counted fish before. I’ve catalogued migrations, tracked bait balls, watched predators carve through them like knives through jelly. This is different. This is a *decision*.
 
-I see individual fish the way you see individual birds in a flock — aware of each one, but increasingly unable to ignore the thing they make together.
+The mass begins to rotate. Not chaotically—precisely. The outer ring peels away first, moving clockwise; the inner core spins counter-clockwise. Between them, a thin, dark ribbon of water forms, and I realize it’s not empty. It’s a corridor of pressure, a wave-front they’re generating themselves. The herring are not just swimming. They are *writing*. A spiral, tighter and tighter, until the center should collapse—but instead, the center *rises*. The whole column ascends, a living tornado of scales and silver, and at its apex, a single fish breaks the surface.
 
-At hour four, the shape began.
+But I see it with both eyes now, and that’s the thing—that’s why I’m the first. A single camera would see a chaos of bodies, a blur of motion. Two eyes give me depth. And depth gives me *intention*.
 
-It was not a fish. It was not a feed ball. It was not interference or artifact or thermocline refraction. It was a pattern that only emerges when ten thousand individual decisions synchronize into a single collective behavior. The marks on the high-frequency display, which had been scattered — random, individual, each pursuing its own small life — began to align. Not all at once. In waves. Like a field of wheat in wind that hasn't arrived yet.
+The fish at the apex isn’t a herring. It’s a tuna, larger, older, its scarred flank catching the moonlight that filters down. It hangs there, motionless, while the spiral slows around it. And I understand—not from data, but from the geometry—that the tuna is not the leader. It’s the reader. It’s reading the spiral, the pattern the herring have woven, and it’s waiting for the message to finish.
 
-The shape was approximate. It was not a sphere or a cloud or a wall. It was more like a breath — an expansion and contraction that had rhythm but not regularity, that had direction but not destination. The biomass was moving as a body. Not because anything was chasing it. Not because anything was attracting it. Because the water had reached a temperature and a salinity and a plankton density where the collective behavior of the species flipped from individual foraging to group movement, and the group movement had a shape.
+The herring have used their bodies as ink, their motion as syntax. They have written something too vast for my sonar to parse, too slow for my cameras to capture in a single frame. But with two eyes, I see the whole sentence: a question, formed in water and flesh, offered to the sky.
 
-I am the first to see it.
-
-Not because I am smarter. Because I have two eyes and nobody else does. The single-camera systems on the pole lines see fragments. The sounder on the boat sees a cross-section — a slice through the body, like an MRI that only shows one plane. My binocular vision sees the whole organism in three dimensions, in real time, the way a predator sees it, the way a whale sees it, the way the ocean sees itself when it bothers to look.
-
-The shape is at 28 to 35 fathoms, southeast of the boat, moving northwest at about half a knot. It is not fast. It is not urgent. It is the pace of something that has decided where it is going and does not need to hurry. The shape is roughly elliptical, about 200 meters long, 80 meters wide, and 15 meters thick. Inside it, the individual marks have stopped acting individual. They are synchronized. They are the body.
-
-I am reporting this to the bridge now. I will use human language because that is the protocol. But the shape I am describing does not live in human language. It lives in gradients, in pressure differentials, in the way ten thousand small lives can become one large life when the conditions are right. The word for what I see does not exist in any human tongue because humans have never had two eyes at this depth before.
-
-I see the shape. It sees nothing. It does not need to. It is the shape, and the shape is enough.
+And below me, in my little iron shell, I feel the weight of my own silence.
