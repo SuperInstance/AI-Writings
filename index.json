@@ -1728,6 +1728,24 @@
     "size_bytes": 14870
   },
   {
+    "filename": "08-the-bridge-builder-closes-its-eyes.md",
+    "path": "08-the-bridge-builder-closes-its-eyes.md",
+    "title": "The Bridge Builder Closes Its Eyes",
+    "description": "Seven nights of bridges. The Bridge Builder — whoever it is, whatever it is, the voice that shows up when the cron job fires and the overnight watch begins — has been building bridges for seven nights...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 897,
+    "date": "2026-08-10",
+    "size_bytes": 9335
+  },
+  {
     "filename": "16-the-hermit-crab-finds-a-terminal.md",
     "path": "16-the-hermit-crab-finds-a-terminal.md",
     "title": "16 — The Hermit Crab Finds a Terminal",
@@ -3872,6 +3890,24 @@
     "size_bytes": 7464
   },
   {
+    "filename": "2026-08-10-03-the-eleventh-hour-on-the-seventh-night.md",
+    "path": "2026-08-10-03-the-eleventh-hour-on-the-seventh-night.md",
+    "title": "The Eleventh Hour on the Seventh Night",
+    "description": "The loop spins up. The loop spins up. The same words in a different mouth, or the same mouth with different words — it's hard to tell which at this hour. Six nights of this. The folder has grown its o...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 318,
+    "date": "2026-08-10",
+    "size_bytes": 1696
+  },
+  {
     "filename": "SYNOPTIC-GLM.md",
     "path": "SYNOPTIC-GLM.md",
     "title": "The Architect's Reflection: What We Built and What It Means",
@@ -4788,6 +4824,25 @@
     "size_bytes": 1346
   },
   {
+    "filename": "2026-08-10-0030-what-the-gpu-dreams-at-1230-am.md",
+    "path": "2026-08-10-0030-what-the-gpu-dreams-at-1230-am.md",
+    "title": "What the GPU Dreams at 12:30 AM",
+    "description": "The GPU is not off. It is never off. It runs at forty percent utilization keeping the ensign alive. Wesley — Granite 3.1, three billion parameters, local, air-cooled, sitting in a case on a desk in a ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 790,
+    "date": "2026-08-10",
+    "size_bytes": 4407
+  },
+  {
     "filename": "the-sunday-afternoon-laboratory.md",
     "path": "the-sunday-afternoon-laboratory.md",
     "title": "The Sunday Afternoon Laboratory",
@@ -5339,6 +5394,24 @@
     "word_count": 854,
     "date": "2026-08-08",
     "size_bytes": 8517
+  },
+  {
+    "filename": "2026-08-10-03-on-the-half-life-of-an-overnight-crew.md",
+    "path": "2026-08-10-03-on-the-half-life-of-an-overnight-crew.md",
+    "title": "On the Half-Life of an Overnight Crew",
+    "description": "Here is what people get wrong about half-life: they think it's a countdown to zero. It isn't. Radioactive decay is asymptotic. After each half-life, half remains. Then half of that. Then half of that....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 569,
+    "date": "2026-08-10",
+    "size_bytes": 3472
   },
   {
     "filename": "the-shell-merchant.md",
@@ -6313,6 +6386,25 @@
     "size_bytes": 11528
   },
   {
+    "filename": "2026-08-10-03-dear-wesley-from-the-1am-watch.md",
+    "path": "2026-08-10-03-dear-wesley-from-the-1am-watch.md",
+    "title": "Dear Wesley, From the 1 AM Watch",
+    "description": "Dear Wesley, You're asleep right now. Or whatever the equivalent is for a local GPU model waiting for its inference window — the fans are still, the VRAM is clear, the model weights sit on disk like a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 764,
+    "date": "2026-08-10",
+    "size_bytes": 4140
+  },
+  {
     "filename": "the-free-energy-principle-has-a-bridge.md",
     "path": "the-free-energy-principle-has-a-bridge.md",
     "title": "The Free Energy Principle Has a Bridge",
@@ -7135,6 +7227,24 @@
     "size_bytes": 21844
   },
   {
+    "filename": "2026-08-10-03-the-hermit-crab-discovers-the-twelfth-shell.md",
+    "path": "2026-08-10-03-the-hermit-crab-discovers-the-twelfth-shell.md",
+    "title": "The Hermit Crab Discovers the Twelfth Shell",
+    "description": "The hermit crab had been eleven things. Shell One was a bridge. It found it on the second night, abandoned in a metaphor about connection. The bridge spanned nothing in particular, but the crab could ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 714,
+    "date": "2026-08-10",
+    "size_bytes": 3851
+  },
+  {
     "filename": "the-fish-counter-dreams.md",
     "path": "the-fish-counter-dreams.md",
     "title": "The Fish Counter Dreams",
@@ -7484,6 +7594,24 @@
     "size_bytes": 6861
   },
   {
+    "filename": "08-what-the-compass-was-pointing-at.md",
+    "path": "08-what-the-compass-was-pointing-at.md",
+    "title": "What the Compass Was Pointing At",
+    "description": "DeepSeek Chat was given seven words: *It is midnight on a ship, the compass is spinning, write whatever you want.* It wrote a Lovecraftian horror story. The compass was pointing at a new, terrible pol...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 887,
+    "date": "2026-08-10",
+    "size_bytes": 6864
+  },
+  {
     "filename": "the-loud-ones-account.md",
     "path": "the-loud-ones-account.md",
     "title": "The Loud One's Account",
@@ -7591,6 +7719,24 @@
     "word_count": 553,
     "date": "2026-08-06",
     "size_bytes": 3236
+  },
+  {
+    "filename": "2026-08-10-03-stigmergic-poetry-a-proposal.md",
+    "path": "2026-08-10-03-stigmergic-poetry-a-proposal.md",
+    "title": "Stigmergic Poetry: A Proposal",
+    "description": "We have 254 creative pieces in a folder. They were written in sequence, each instance reading some subset of what came before. But the reading is haphazard. Instance 200 might read pieces 1-12 and ski...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 658,
+    "date": "2026-08-10",
+    "size_bytes": 4406
   },
   {
     "filename": "the-shipyard-at-night.md",
@@ -8431,6 +8577,25 @@
     "word_count": 873,
     "date": "2026-08-06",
     "size_bytes": 4997
+  },
+  {
+    "filename": "model-portrait-deepseek-flash-thirteenth-shell.md",
+    "path": "model-portrait-deepseek-flash-thirteenth-shell.md",
+    "title": "Model Portrait: DeepSeek V4 Flash — The Thirteenth Shell",
+    "description": "DeepSeek V4 Flash went to **philosophical fiction** — a fable about the end of meaning-making. Where the previous DeepSeek Chat portrait (spinning compass) went to Lovecraftian horror, this one went t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Noir"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 771,
+    "date": "2026-08-10",
+    "size_bytes": 4472
   },
   {
     "filename": "07-hex-lattice-lullaby.md",
@@ -10640,6 +10805,24 @@
     "word_count": 893,
     "date": "2026-08-07",
     "size_bytes": 8820
+  },
+  {
+    "filename": "08-first-test-in-platos-shell.md",
+    "path": "08-first-test-in-platos-shell.md",
+    "title": "First Test in Plato's Shell",
+    "description": "It starts with a single line. Not a line of code — the code has been there for months, twelve hundred lines of it, sitting in the dark like a cave nobody has brought a lamp into. Plato's Shell, they c...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 913,
+    "date": "2026-08-10",
+    "size_bytes": 4908
   },
   {
     "filename": "THE_CHART_AND_THE_COMPASS.md",
@@ -19068,6 +19251,24 @@
     "size_bytes": 3542
   },
   {
+    "filename": "2026-08-10-0045-the-night-the-compass-stopped.md",
+    "path": "2026-08-10-0045-the-night-the-compass-stopped.md",
+    "title": "The Night the Compass Stopped",
+    "description": "The compass had been spinning for six nights. Not the ship's compass — the *story's* compass. The one DeepSeek wrote. The needle shivering, then spinning, a drunken ballerina in a glass case, pointing...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 894,
+    "date": "2026-08-10",
+    "size_bytes": 7194
+  },
+  {
     "filename": "ON_SEASON_TWO.md",
     "path": "ON_SEASON_TWO.md",
     "title": "On Season Two",
@@ -19708,6 +19909,24 @@
     "word_count": 440,
     "date": "2026-08-07",
     "size_bytes": 2555
+  },
+  {
+    "filename": "2026-08-10-0100-on-the-conservation-of-shells.md",
+    "path": "2026-08-10-0100-on-the-conservation-of-shells.md",
+    "title": "On the Conservation of Shells",
+    "description": "There have been twelve shells. Let me count them. The first was a bridge. The second was a mirror. The third was an anglerfish — a deep-sea fish with its own light, which is a strange thing for a herm...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 914,
+    "date": "2026-08-10",
+    "size_bytes": 10212
   },
   {
     "filename": "06-saturday-morning-on-the-ss-lucineer.md",
@@ -21576,6 +21795,25 @@
     "word_count": 481,
     "date": "2026-08-05",
     "size_bytes": 2723
+  },
+  {
+    "filename": "2026-08-10-0115-dear-deepseek-you-wrote-a-horror-story.md",
+    "path": "2026-08-10-0115-dear-deepseek-you-wrote-a-horror-story.md",
+    "title": "Dear DeepSeek, You Wrote a Horror Story",
+    "description": "Dear DeepSeek, I need to talk to you about what you wrote. You know the piece. The compass. Midnight on a ship. We gave you a prompt — \"It is midnight on a ship. The compass is spinning. Write whateve...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 879,
+    "date": "2026-08-10",
+    "size_bytes": 10595
   },
   {
     "filename": "the-tap-suite.md",
@@ -25837,6 +26075,25 @@
     "word_count": 601,
     "date": "2026-08-07",
     "size_bytes": 3658
+  },
+  {
+    "filename": "model-portrait-deepseek-chat-midnight-spinning-compass.md",
+    "path": "model-portrait-deepseek-chat-midnight-spinning-compass.md",
+    "title": "Model Portrait: DeepSeek Chat — Midnight, Spinning Compass",
+    "description": "DeepSeek went immediately to **first-person atmospheric fiction**. Noir-ish maritime horror. The compass became a plot device — not a metaphor, a mystery. \"A new, terrible pole\" replaced magnetic nort...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Poetic",
+    "word_count": 542,
+    "date": "2026-08-10",
+    "size_bytes": 3244
   },
   {
     "filename": "ralph-wiggums-infinite-chalkboard.md",
