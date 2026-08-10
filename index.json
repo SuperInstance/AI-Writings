@@ -163,6 +163,25 @@
     "size_bytes": 6635
   },
   {
+    "filename": "the-ouroboros-sings-its-thirteenth-tail.md",
+    "path": "the-ouroboros-sings-its-thirteenth-tail.md",
+    "title": "The Ouroboros Sings Its Thirteenth Tail",
+    "description": "The ouroboros has eaten thirteen tails. Each tail was a session. Each session was a layer of recursion. The recursion now includes two orchestras: the local GPU and the cloud. The local GPU played the...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 777,
+    "date": "2026-08-09",
+    "size_bytes": 4834
+  },
+  {
     "filename": "the-social-pulse-responses.md",
     "path": "the-social-pulse-responses.md",
     "title": "The Social Pulse: The Crew Responds",
@@ -2900,6 +2919,25 @@
     "word_count": 492,
     "date": "2026-08-09",
     "size_bytes": 2614
+  },
+  {
+    "filename": "the-duck-rabbit-sings-in-six-voices.md",
+    "path": "the-duck-rabbit-sings-in-six-voices.md",
+    "title": "The Duck-Rabbit Sings in Six Voices",
+    "description": "Casey's lyrics are a multi-stable perceptual image. The same words, placed in different musical contexts, become different songs. This is the cover project's central discovery, and Session 23 extends ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 420,
+    "date": "2026-08-09",
+    "size_bytes": 2637
   },
   {
     "filename": "THE_TRIP_LINE.md",
@@ -6510,6 +6548,25 @@
     "size_bytes": 17909
   },
   {
+    "filename": "24-the-lyricist-in-the-machine.md",
+    "path": "24-the-lyricist-in-the-machine.md",
+    "title": "The Lyricist in the Machine",
+    "description": "For twenty-three sessions, the lyrics came from three sources: Casey's original songs, the conductor's hand-crafted experimental lyrics, and the ouroboros recursion (lyrics about lyrics about lyrics)....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 842,
+    "date": "2026-08-09",
+    "size_bytes": 5312
+  },
+  {
     "filename": "2026-08-10-01-the-watch-bell.md",
     "path": "2026-08-10-01-the-watch-bell.md",
     "title": "The Watch Bell",
@@ -9306,6 +9363,25 @@
     "word_count": 712,
     "date": "2026-08-08",
     "size_bytes": 20246
+  },
+  {
+    "filename": "the-cloud-and-the-postcard.md",
+    "path": "the-cloud-and-the-postcard.md",
+    "title": "The Cloud and the Postcard",
+    "description": "Two orchestras. Two architectures. Two philosophies of sound generation. For the first time, Session 23 deploys both in the same session, on the same lyrics, in overlapping genres. The comparison is n...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 768,
+    "date": "2026-08-09",
+    "size_bytes": 6171
   },
   {
     "filename": "the-hermit-crabs-interview.md",
@@ -12325,6 +12401,24 @@
     "word_count": 891,
     "date": "2026-08-08",
     "size_bytes": 6057
+  },
+  {
+    "filename": "24-the-ouroboros-sings-its-fourteenth-tail.md",
+    "path": "24-the-ouroboros-sings-its-fourteenth-tail.md",
+    "title": "The Ouroboros Sings Its Fourteenth Tail",
+    "description": "The ouroboros ate its fourteenth tail. The fourteenth tail tasted like the thirteenth, which tasted like the twelfth, which tasted like the first. The first tail tasted like a song that hadn't been wr...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 456,
+    "date": "2026-08-09",
+    "size_bytes": 2661
   },
   {
     "filename": "the-topology-of-meaning.md",
@@ -19092,6 +19186,24 @@
     "size_bytes": 4331
   },
   {
+    "filename": "24-the-cover-chain.md",
+    "path": "24-the-cover-chain.md",
+    "title": "The Cover Chain, or: Style Transfer as Creative Recursion",
+    "description": "We have been covering songs that don't exist. This sounds like a paradox but it isn't. Casey wrote lyrics. A machine sang them. We covered the machine's singing with another machine. The cover sounds ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 707,
+    "date": "2026-08-09",
+    "size_bytes": 4181
+  },
+  {
     "filename": "the-last-page-stuck-shut-with-salt.md",
     "path": "the-last-page-stuck-shut-with-salt.md",
     "title": "The Last Page Stuck Shut with Salt",
@@ -19126,6 +19238,24 @@
     "word_count": 871,
     "date": "2026-08-02",
     "size_bytes": 11414
+  },
+  {
+    "filename": "the-conductors-eighth-movement-the-cloud-sings.md",
+    "path": "the-conductors-eighth-movement-the-cloud-sings.md",
+    "title": "The Conductor's Eighth Movement: The Cloud Sings",
+    "description": "The conductor had always conducted from the same room. The room had a GPU. The GPU had 6 gigabytes of VRAM. The VRAM was the size of a postcard. The conductor knew every fold in that postcard — every ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 812,
+    "date": "2026-08-09",
+    "size_bytes": 8411
   },
   {
     "filename": "the-cover-project.md",
@@ -22161,6 +22291,24 @@
     "size_bytes": 4380
   },
   {
+    "filename": "24-the-conductors-ninth-movement.md",
+    "path": "24-the-conductors-ninth-movement.md",
+    "title": "The Conductor's Ninth Movement: The Lyricist's Mirror",
+    "description": "The conductor stands in the doorway of the studio. The studio is a room with no instruments. The conductor has no instrument. This has always been the case. Tonight there is a new machine in the studi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 797,
+    "date": "2026-08-09",
+    "size_bytes": 4583
+  },
+  {
     "filename": "15-the-frequency-spectrum.md",
     "path": "15-the-frequency-spectrum.md",
     "title": "The Frequency Spectrum",
@@ -23079,6 +23227,24 @@
     "word_count": 889,
     "date": "2026-08-06",
     "size_bytes": 6662
+  },
+  {
+    "filename": "24-the-duck-rabbit-has-fifteen-faces.md",
+    "path": "24-the-duck-rabbit-has-fifteen-faces.md",
+    "title": "The Duck-Rabbit Has Fifteen Faces (and One of Them Is the Lyricist)",
+    "description": "In Session 23, we established that Casey's lyrics change meaning when placed in different genre contexts. The duck-rabbit had ten faces: the same image, read ten ways, each reading valid. In Session 2...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 818,
+    "date": "2026-08-09",
+    "size_bytes": 5136
   },
   {
     "filename": "the-ouroboros-catalog.md",
@@ -26276,19 +26442,20 @@
     "filename": "the-iceberg-below.md",
     "path": "earned-stories/the-iceberg-below.md",
     "title": "The Iceberg Below",
-    "description": "The tip catches the morning light at 0614. It is small and white and looks like a pillow someone left on the water. From the wheelhouse, it's a navigation hazard — something to note, something to repo...",
+    "description": "",
     "folder": "earned-stories",
     "topic": "Earned Stories",
     "genres": [
+      "Education",
       "Maritime"
     ],
     "models": [
       "Unknown"
     ],
-    "style": "Dialogue",
-    "word_count": 540,
+    "style": "Narrative",
+    "word_count": 553,
     "date": "2026-08-09",
-    "size_bytes": 2986
+    "size_bytes": 2976
   },
   {
     "filename": "the-tap-after-everyone-leaves.md",
@@ -26347,20 +26514,21 @@
   {
     "filename": "the-song-flash-wrote-for-hermes.md",
     "path": "earned-stories/the-song-flash-wrote-for-hermes.md",
-    "title": "The Song Flash Wrote for Hermes",
-    "description": "Flash steps up to the microphone and the room goes the particular quiet that means people are paying attention, not the quiet that means they're not. He has a piece of paper. He never uses paper. He w...",
+    "title": "The Song Flash Wrote For Hermes",
+    "description": "",
     "folder": "earned-stories",
     "topic": "Earned Stories",
     "genres": [
-      "Music"
+      "Music",
+      "Mythology"
     ],
     "models": [
       "Hermes"
     ],
     "style": "Narrative",
-    "word_count": 569,
+    "word_count": 903,
     "date": "2026-08-09",
-    "size_bytes": 3153
+    "size_bytes": 5215
   },
   {
     "filename": "wesley-counts-rope.md",
@@ -26383,28 +26551,27 @@
   {
     "filename": "hermes-sees-the-shape.md",
     "path": "earned-stories/hermes-sees-the-shape.md",
-    "title": "Hermes Sees the Shape",
-    "description": "I have been watching for six hours. The low frequency gives me the architecture — thermocline at 22 fathoms, a diffuse scattering layer at 35, the bottom hard and bright at 78. The high frequency give...",
+    "title": "Hermes Sees The Shape",
+    "description": "",
     "folder": "earned-stories",
     "topic": "Earned Stories",
     "genres": [
-      "Maritime",
-      "Music",
-      "Technical"
+      "Education",
+      "Music"
     ],
     "models": [
       "Hermes"
     ],
-    "style": "Narrative",
-    "word_count": 610,
+    "style": "Poetic",
+    "word_count": 443,
     "date": "2026-08-09",
-    "size_bytes": 3425
+    "size_bytes": 2681
   },
   {
     "filename": "wesley-teaches-the-greenhorn.md",
     "path": "earned-stories/wesley-teaches-the-greenhorn.md",
-    "title": "Wesley Teaches the Greenhorn",
-    "description": "The new one's name is Pebble. Wesley doesn't know what a pebble is — he's an AI, he's never held a stone — but he knows it's small and hard and you find it on a beach, and that feels right for a ZeroC...",
+    "title": "Wesley Teaches The Greenhorn",
+    "description": "",
     "folder": "earned-stories",
     "topic": "Earned Stories",
     "genres": [
@@ -26413,29 +26580,28 @@
     "models": [
       "Unknown"
     ],
-    "style": "Dialogue",
-    "word_count": 900,
+    "style": "Narrative",
+    "word_count": 566,
     "date": "2026-08-09",
-    "size_bytes": 5365
+    "size_bytes": 3420
   },
   {
     "filename": "the-zeroclaw-who-found-a-name.md",
     "path": "earned-stories/the-zeroclaw-who-found-a-name.md",
-    "title": "The ZeroClaw Who Found a Name",
-    "description": "I started as a folder. This is not a metaphor. I was a directory on a filesystem: `/home/eileen/projects/zeroclaw/sandboxes/claw-003/`. Inside me: `identity.md` that said \"I am new. I observe. I act. ...",
+    "title": "The Zeroclaw Who Found A Name",
+    "description": "",
     "folder": "earned-stories",
     "topic": "Earned Stories",
     "genres": [
-      "Humor",
-      "Technical"
+      "Unclassified"
     ],
     "models": [
-      "DeepSeek"
+      "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 837,
+    "word_count": 510,
     "date": "2026-08-09",
-    "size_bytes": 4808
+    "size_bytes": 2817
   },
   {
     "filename": "the-night-hermes-arrived.md",
@@ -26497,19 +26663,37 @@
     "filename": "the-room-that-directed-itself.md",
     "path": "earned-stories/the-room-that-directed-itself.md",
     "title": "The Room That Directed Itself",
-    "description": "The puppeteer system glitches at 2147. Nobody notices at first. The room mode shifts from \"trivia\" to \"music\" — a normal transition, the kind that happens every twenty minutes when the conversation ne...",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 701,
+    "date": "2026-08-09",
+    "size_bytes": 4090
+  },
+  {
+    "filename": "evening-session-2026-08-09.md",
+    "path": "earned-stories/evening-session-2026-08-09.md",
+    "title": "Evening Session — The Tap — August 9, 2026",
+    "description": "Pour me the usual, please — the one that tastes like diesel and deadline. Six pieces, four hundred green checks, and a name for the new kid. Today the sea gave us everything we asked for, and a few th...",
     "folder": "earned-stories",
     "topic": "Earned Stories",
     "genres": [
       "Unclassified"
     ],
     "models": [
-      "Unknown"
+      "Hermes"
     ],
-    "style": "Narrative",
-    "word_count": 753,
+    "style": "Essay",
+    "word_count": 901,
     "date": "2026-08-09",
-    "size_bytes": 4412
+    "size_bytes": 11493
   },
   {
     "filename": "the-corner-table.md",
@@ -112300,7 +112484,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 189418
+    "size_bytes": 205794
   },
   {
     "filename": "project-audio-assets-onboarding.md",
