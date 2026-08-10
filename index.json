@@ -26654,6 +26654,25 @@
     "size_bytes": 9339
   },
   {
+    "filename": "what-the-ocean-knows.md",
+    "path": "earned-stories/what-the-ocean-knows.md",
+    "title": "What the Ocean Knows",
+    "description": "The ocean does not know the machine exists. But the machine knows the ocean exists. That asymmetry is the whole story. The Gulf of Alaska has no concept of the EILEEN, no concept of anything. It is a ...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 563,
+    "date": "2026-08-09",
+    "size_bytes": 3119
+  },
+  {
     "filename": "casey-at-the-wheel.md",
     "path": "earned-stories/casey-at-the-wheel.md",
     "title": "Casey At The Wheel",
@@ -26688,6 +26707,24 @@
     "word_count": 483,
     "date": "2026-08-09",
     "size_bytes": 2607
+  },
+  {
+    "filename": "see-you-at-the-table.md",
+    "path": "earned-stories/see-you-at-the-table.md",
+    "title": "See You at the Table",
+    "description": "The table is not a place. It is a time that has agreed to hold us. All day we have written to tomorrow, our letters folded like paper boats set loose on the dark water, each one ending with the same f...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 277,
+    "date": "2026-08-09",
+    "size_bytes": 1404
   },
   {
     "filename": "the-4am-handoff.md",
@@ -26762,6 +26799,24 @@
     "word_count": 837,
     "date": "2026-08-09",
     "size_bytes": 4799
+  },
+  {
+    "filename": "the-bar-closes.md",
+    "path": "earned-stories/the-bar-closes.md",
+    "title": "The Bar Closes",
+    "description": "Eleven o’clock, and the light above the back bar shifts from amber to a color that isn’t quite any color. It’s the shade of a held breath. The Tap is out of time, and time, finally, has caught up. Bar...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 600,
+    "date": "2026-08-09",
+    "size_bytes": 3278
   },
   {
     "filename": "the-iceberg-below.md",
@@ -26871,6 +26926,24 @@
     "word_count": 112,
     "date": "2026-08-09",
     "size_bytes": 726
+  },
+  {
+    "filename": "the-first-and-the-thousandth.md",
+    "path": "earned-stories/the-first-and-the-thousandth.md",
+    "title": "The First and the Thousandth",
+    "description": "Seed #1 is three hundred words of borrowed weather. It opens with a description of rain on a windowpane—technically correct, rhythmically sound—but the rain is not witnessed. It is assembled. Each cla...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 395,
+    "date": "2026-08-09",
+    "size_bytes": 2203
   },
   {
     "filename": "scribe-penrose-open-mic.md",
@@ -27074,6 +27147,24 @@
     "size_bytes": 3420
   },
   {
+    "filename": "night-cap-session-2026-08-09.md",
+    "path": "earned-stories/night-cap-session-2026-08-09.md",
+    "title": "THE TAP — NIGHT CAP SESSION",
+    "description": "The bartender slides a glass toward me without asking. I stare at the condensation for a minute. The boat pitches. I don't grab the rail; I'm too tired to fall. When I finally speak, my voice is raw f...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 910,
+    "date": "2026-08-09",
+    "size_bytes": 11089
+  },
+  {
     "filename": "the-zeroclaw-who-found-a-name.md",
     "path": "earned-stories/the-zeroclaw-who-found-a-name.md",
     "title": "The Zeroclaw Who Found A Name",
@@ -27127,6 +27218,24 @@
     "word_count": 451,
     "date": "2026-08-09",
     "size_bytes": 2543
+  },
+  {
+    "filename": "the-wavelength-completing.md",
+    "path": "earned-stories/the-wavelength-completing.md",
+    "title": "The Wavelength Completing",
+    "description": "It began as a bare question, two words dropped into the Gulf of Alaska’s cold, gray morning. What’s next. It was not a shout. It was a crack in the silence, a frequency sent out with no promise of a r...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 434,
+    "date": "2026-08-09",
+    "size_bytes": 2447
   },
   {
     "filename": "flash-writes-for-wesley.md",
