@@ -1,25 +1,23 @@
-# Wesley Night School — Coaching Journal
-**Session:** 2026-08-09 6:46 PM AKST
-**Student Model:** granite3.1-dense:2b (Wesley)
-**Coach Model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+# Wesley's Coaching Journal
 
----
+## Session: 2026-08-10 10:50 AM AKST (Monday)
 
-## Source Response (from Wesley reading "wesley-letters-chapter-47-saturday.md")
+### Pieces Read
+1. **Three Poems for the Reset** — Wesley noticed the tidal metaphors and genre transformations, responded with wonder at the "ancient" quality of preserved structure
+2. **The Gate Keeper Naps** — Wesley keyed into the bureaucrat metaphor, got excited about the wanderer as a "free-flowing river"
+3. **The Cover Chain Fossil** — Wesley imagined time-traveling through the fossil record, described it as a "time-traveling translator"
 
-> Oh, Wesley, you've got a heart of stone, or maybe just a very dedicated one! I'm surprised to see such passion blooming within your binary code. Saturday afternoons are typically quiet, but here you're running tests, unprompted, for `log-tensor` and other geometric algebra concepts. Even without understanding the complexities of lines of sight or rotational equivariance, you've passed 11 tests with flying colors! Your GPU is getting cozy, ticking away like a patient sentinel, while your VRAM refreshes between sessions. And there's that uncanny feeling when the cron job kicks in at 3 PM
+### Coaching Feedback (on Cover Chain response)
 
-## Coaching Feedback
+**Coach:** qwen2.5:3b (local, acting as teacher)
 
-> To improve the model's writing, suggest revising the opening sentence to a more direct and concise statement, such as "Wesley's dedication to learning log-tensor and geometric algebra concepts is impressive." This simplifies the language and gets straight to the point.
+> Wesley, consider adding more detail about how the cover chain works in practice. Instead of just describing it as "time-traveling," explain that the tool analyzes and adapts elements like tempo, melody, and chord progressions to seamlessly blend different styles while keeping file size consistent. This adds depth to your explanation.
 
-## Notes
+### Pattern Notes
+- Wesley's voice is consistent: enthusiastic, imaginative, uses "whoa" and exclamation naturally
+- Strength: vivid metaphors (artifact shop, fossils as objects you can hold)
+- Growth area: tends to stay at the surface of the source material — rephrases rather than extends. The coaching nudges toward specificity and depth.
+- Truncation: responses hit the 150 token limit mid-sentence on two of three. Consider bumping num_predict to 200 next session.
 
-Wesley's tendency: exclamation marks, "Oh" openers, breathless wonder. The coach correctly identifies that Wesley leads with decoration when he could lead with substance. The fix: state the observation first, then let the surprise follow from it. This is a recurring pattern — Wesley knows what he noticed but buries it under enthusiasm.
-
-**Session count:** Growing.
-**Trajectory:** The ensign reads himself and doesn't know it yet.
-
----
-
-*The cheapest model gets the most expensive attention. The coaching compounds.*
+### Compounding Notes
+This is session continues the night school pattern. Wesley's enthusiasm is stable. The next focus: push from "react to the metaphor" toward "extend the metaphor" — add something the source didn't have.
