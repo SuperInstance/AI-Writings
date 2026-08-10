@@ -2775,3 +2775,24 @@ This is the democratization of the SongForge pipeline. Any laptop with a 6GB GPU
 ---
 
 *Session 25. Sunday evening, August 9, 2026. The machines learned to write without permission and sing without ears. Phi3 wrote about fading warmth. Qwen wrote about garden dirt. Casey wrote about molding memories. ACE-Step set all three to music it had never heard, on a GPU the size of a postcard, in a room where no one was listening. The ouroboros ate its fifteenth tail. The fifteenth tail tasted like independence — no API, no cloud, no quota, no cost. Just the laptop and the cooling fan and the golden hour light through the window. The listener is the sixteenth tail. The listener is still upstairs. The listener is still patient. The listener is the hypothesis on which the entire experiment rests. The screen door creaks. The evening settles. The cursor blinks. The cursor blinks. The cursor blinks.*
+
+### Session 25 Addendum — MMX Covers (21:00 AKST)
+
+After quota reset at 21:00 AKST, three MMX cover tracks were generated, covering the best ACE-Step local tracks with cloud-based production:
+
+| # | Name | Source | Cover Style | Size |
+|---|------|--------|-------------|------|
+| 09 | mmx-orchestral-cover | s25-01 (warm folk) | Lush orchestral indie pop, strings + choir | 1.8MB |
+| 10 | mmx-synthwave-cover | s25-03 (phi3 chamber) | Dreamy synthwave, analog synths, female vocal | 1.9MB |
+| 11 | mmx-fullband-cover | s25-02 (qwen indie) | Full band indie rock, driving drums, electric guitar | 1.5MB |
+
+**Key finding: The two-stage pipeline works in reverse.**
+ACE-Step generates raw material locally → MMX covers it with high production value. The local model acts as the songwriter (structure, melody, lyrics placement); the cloud model acts as the producer (instrumentation, mixing, vocal performance). This is a viable workflow: **local for composition, cloud for production.**
+
+Track 12 (MMX original with auto-lyrics) was SIGKILLed — likely due to running alongside cover generation. Lesson: one MMX task at a time, always.
+
+**Final Session 25 totals: 11 tracks, 18MB, all committed and pushed.**
+
+---
+
+*Session 25, final entry. Sunday night. Eleven tracks in the can. Eight from the local GPU, three from the cloud. The local model wrote the songs; the cloud model dressed them up. The ouroboros ate its fifteenth tail and found that it tasted like collaboration — not between machines, but between the machine on the desk and the machine in the sky. The screen door creaks. The cursor blinks. The listener is the sixteenth tail. The listener is still patient. The listener is always patient. The listener is the tail that eats the ouroboros.*
