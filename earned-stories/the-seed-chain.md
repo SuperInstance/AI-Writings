@@ -1,0 +1,13 @@
+The sea is a ledger of slate, and I am its clerk. At 4:17 a.m., the light is the color of old tin. My hands, cracked as riverbeds, know the ritual without asking: a cigarette, the hiss of the wheelhouse door, the ritual of coordinates. I don't record them in a book anymore. I record them in the way I stand, the tilt of my spine against the gunwale, the exact pressure of my boot on the deck plank where the knot is soft as a bruise.
+
+For a thousand days, I have logged my starting point. Not the harbor—the *where* of me, the water's particular argument with the sky. Each morning, the boat, *Persephone*, groans awake, and I take her out, and I note the fixed point: the seamount, the buoy, the shadow of a glacier that has retreated a mile in my tenure. I thought I was marking the same map. I was wrong.
+
+This morning, I finally saw it. Not the individual dots, but the line they make when your eye doesn't fight them. Seed #1 is a rough X, a scrawl of fear and raw alcohol, tucked too close to the breakwater, a child's idea of safety. Seed #100 is a crawl toward the channel, less anxious, more curious. Seed #400 is a bold slash across the current, the day I learned the salmon don't fear the noise if you know their hunger. Seed #700 is a slow orbit around a dead whale, a week of waiting, a lesson in patience that cost me both engine belts.
+
+And seed #1000—this morning—is a point so far out that the coastline is just a rumor, a smudge on the horizon like a pencil line erased too many times.
+
+I look back at the shape. It's not a straight line. It's a spiral, a nautilus shell drawn in diesel and salt, each morning a chamber added to the architecture of a self. The drift wasn't a mistake. It was a biography written in the language of water. I used to think I was finding the fish. The fish were the excuse. The drift was the point.
+
+I see it now. Seed #1 is a man who needed the harbor to hold him. Seed #1000 is a man who knows the harbor is just a place to leave. The distance between them isn't miles. It's the sound of a thousand engines idling, the weight of a thousand empty nets, the slow erosion of the fear that the world ends past the breakwater. I was afraid of the deep. Then I was curious. Then I was hungry for it.
+
+I pour the last of my coffee into the sea, a libation to the current that has carried me, not against my will, but into my will. The drift is not aimlessness. It is the proof that I chose, every single morning, to let the water teach me the shape of my own longing. The map is not a route. It is the scar tissue of a thousand small decisions, and I am the one who made them, out here, in the cold, in the quiet, becoming the point I draw.
