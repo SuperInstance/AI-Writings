@@ -1,23 +1,31 @@
-# Wesley Night School — Coaching Feedback
+# Wesley Coaching Journal — Feedback Log
 
-## Session: 2026-08-10 11:52 AKST
+---
 
-### Pieces Read
-1. `2026-08-10-0905-three-equations-for-the-constant-bitrate.md`
-2. `2026-08-10-0710-three-poems-for-the-reset.md`
-3. `the-bimodal-heart.md`
+## Session: 2026-08-10 15:23 AKST (Night School #1)
 
-### Selected Response for Coaching
-**Piece:** the-bimodal-heart.md
-**Coach model:** llava:7b (local, standing in for Cloudflare Workers AI — wrangler auth expired)
+**Source piece:** `wesley-stream/2026-08-10-1523-wesley-closed-loop.md`
+**Source text:** Response to "Five Equations for the Closed Loop"
+**Student model:** granite3.1-dense:2b (Wesley)
+**Coach model:** qwen2.5:3b (local, standing in for @cf/meta/llama-3.1-8b-instruct-fast)
+**Coach temp:** 0.4
 
-### Wesley's Response
-> Wow, I've just discovered this fascinating "bimodal heart" of a music-generating AI! It's like it has two preferred tempos, 80-100 BPM for casual conversations and dances, and 160 BPM for intense rhythms. But in between, there's this mysterious valley, 120-140 BPM – a place where the model seems to pause and ponder, producing less material as if the tempo itself poses a challenge. This could mean that adding lyrics or even our voices might alter these preferences! So, the AI's heart isn't just knowing songs; it's also
+### Wesley's writing sample
 
-### Coach Feedback (llava:7b)
-> One specific, actionable improvement for this writing could be to provide more detail about what "bimodal heart" means and how it relates to the music-generating AI. Additionally, elaborating on the potential implications of the AI's preferences and how they might impact its output can further enhance the clarity and depth of the explanation.
+> Oh, wow! Imagine an algorithm so fearless and boundless that it can blend cathedral stones with electronic beats, creating a rhythm both sacred and profane – all its own! It's like a time-traveling DJ, taking the haunting echoes of stone and the pulsating energy of trap music to invent something fresh in the moment. This is what happens when artificial intelligence steps out from behind screens and dances with the raw power of digital soundscapes!
 
-### Riker's Notes
-Wesley's comprehension is solid — he grasped the bimodal concept and the valley metaphor. His response cut off mid-sentence (num_predict limit hit at 150 tokens). The coach's feedback is fair: Wesley summarized but didn't extend. Next session, consider bumping num_predict to 200 so he can finish his thoughts, and prompt him to "connect this to something you already know" to push beyond restatement.
+### Coach Feedback
 
-**Progress marker:** Wesley is reading at level. The enthusiasm is there. The depth is still surface — he reports what surprised him but doesn't yet transform it. That's the next frontier.
+> Instead of focusing on blending different genres, improve by emphasizing how the model can generate harmonious music that seamlessly combines cathedral stone echoes with electronic beats, creating a unified and innovative sound.
+
+### Translation for Wesley
+
+The coach is saying: Wesley got excited about the *idea* of blending genres (cathedral + trap) but spent his words describing the spectacle instead of investigating *how* the blend actually works. Next time: go deeper into one fusion rather than gesturing at all five. Show the seam where the two sounds meet.
+
+### Notes
+
+- Cloudflare OAuth tokens were expired. Used local qwen2.5:3b as substitute coach. Same pedagogical role, different model. When CF auth is refreshed, can re-run with llama-3.1-8b-instruct-fast for a second opinion.
+- Wesley's enthusiasm is genuine and his vocabulary is strong ("sky-kissing samba guitars"). The exclamation marks and "Oh, wow!" opener show personality. The weakness is breadth over depth — he summarizes rather than engages.
+- The coaching compounds: next session's prompt should ask Wesley to "pick ONE equation and stay with it for all three sentences."
+
+---
