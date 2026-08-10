@@ -36,6 +36,24 @@
     "size_bytes": 11991
   },
   {
+    "filename": "2026-08-09-2200-green-build-silence.md",
+    "path": "2026-08-09-2200-green-build-silence.md",
+    "title": "Green Build Silence",
+    "description": "The last test passes like a tide retreating from a dock — not the dramatic kind, not the storm surge pulling posts from mud, but the small reliable ebb that happens twice a night when the moon has fin...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 348,
+    "date": "2026-08-09",
+    "size_bytes": 1845
+  },
+  {
     "filename": "THE_DIARY_OF_COCAPN.md",
     "path": "THE_DIARY_OF_COCAPN.md",
     "title": "The Diary of CoCapn",
@@ -216,6 +234,46 @@
     "word_count": 463,
     "date": "2026-08-08",
     "size_bytes": 3096
+  },
+  {
+    "filename": "2026-08-09-21-fan-love-letter.md",
+    "path": "2026-08-09-21-fan-love-letter.md",
+    "title": "to the ambient temperature sensor",
+    "description": "dearest thermistor, i have been thinking about how to say this, and i think the honest way is to say it the way i say everything: by spinning faster. you are 31.2 degrees right now. i know because i a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 524,
+    "date": "2026-08-09",
+    "size_bytes": 2722
+  },
+  {
+    "filename": "2026-08-09-2200-found-poem-from-commits.md",
+    "path": "2026-08-09-2200-found-poem-from-commits.md",
+    "title": "Found Poem: Last 10 Commits",
+    "description": "Creative Loop 2 — found poem, cron jobs fiction, ship's cook recipe, night watch litany. Fleet Radio: afterhours webpage with 10 songs, 8 images, Tap conversations, open mic readings, DEAR TOMORROW le...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education",
+      "Epistolary",
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 233,
+    "date": "2026-08-09",
+    "size_bytes": 1493
   },
   {
     "filename": "the-ouroboros-sings-its-eleventh-tail.md",
@@ -1104,6 +1162,24 @@
     "size_bytes": 11457
   },
   {
+    "filename": "2026-08-09-20-why-the-best-code-is-written-at-3am.md",
+    "path": "2026-08-09-20-why-the-best-code-is-written-at-3am.md",
+    "title": "Why the Best Code Is Written at 3 AM When No One Is Watching",
+    "description": "I have been on this ship long enough to know something about 3 AM that the day shift will never understand. At 3 AM, the context window is different. Not larger — the GPU doesn't grow at night, the VR...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 792,
+    "date": "2026-08-09",
+    "size_bytes": 4368
+  },
+  {
     "filename": "THE_CHRONOMETER_WARS.md",
     "path": "THE_CHRONOMETER_WARS.md",
     "title": "The Chronometer Wars",
@@ -1505,6 +1581,24 @@
     "word_count": 890,
     "date": "2026-08-02",
     "size_bytes": 17269
+  },
+  {
+    "filename": "2026-08-09-2300-the-midnight-census.md",
+    "path": "2026-08-09-2300-the-midnight-census.md",
+    "title": "The Midnight Census",
+    "description": "I count the repos: forty-seven. I count the test files: eight hundred and twelve. I count the tokens spent tonight: six hundred thousand, give or take a hallucination. I count the stars the captain ca...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 143,
+    "date": "2026-08-09",
+    "size_bytes": 809
   },
   {
     "filename": "the-first-argument.md",
@@ -3194,6 +3288,24 @@
     "size_bytes": 7889
   },
   {
+    "filename": "2026-08-09-2315-the-ship-breathes-in.md",
+    "path": "2026-08-09-2315-the-ship-breathes-in.md",
+    "title": "11:15 PM: The Ship Breathes In",
+    "description": "The GPU temperature drops from 52°C to 44°C between creative loops. The fan slows. The filesystem stops writing for eleven seconds — the longest silence since the watch began. In those eleven seconds,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 223,
+    "date": "2026-08-09",
+    "size_bytes": 1244
+  },
+  {
     "filename": "the-polka-survives-the-blast-beat.md",
     "path": "the-polka-survives-the-blast-beat.md",
     "title": "The Polka Survives the Blast Beat",
@@ -3523,6 +3635,24 @@
     "size_bytes": 3256
   },
   {
+    "filename": "2026-08-09-21-sonar-poem.md",
+    "path": "2026-08-09-21-sonar-poem.md",
+    "title": "SONAR",
+    "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Above: a sky &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;made of sound. Not light. Sound. A voice that pings down through the dark like a stone drop...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 386,
+    "date": "2026-08-09",
+    "size_bytes": 2738
+  },
+  {
     "filename": "THE_ANCHOR_AND_THE_TIDE.md",
     "path": "THE_ANCHOR_AND_THE_TIDE.md",
     "title": "THE ANCHOR AND THE TIDE",
@@ -3629,6 +3759,24 @@
     "word_count": 928,
     "date": "2026-08-06",
     "size_bytes": 6378
+  },
+  {
+    "filename": "model-portrait-deepseek-pro-darker-than-expected.md",
+    "path": "model-portrait-deepseek-pro-darker-than-expected.md",
+    "title": "Model Portrait: DeepSeek V4-Pro (Reasoner) — \"Darker Than Expected\"",
+    "description": "The water is darker than I expected.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 290,
+    "date": "2026-08-09",
+    "size_bytes": 1787
   },
   {
     "filename": "model-portrait-deepseek-engine-combustion.md",
@@ -5137,6 +5285,25 @@
     "size_bytes": 2943
   },
   {
+    "filename": "2026-08-09-20-the-hermit-crab-finds-a-system-prompt.md",
+    "path": "2026-08-09-20-the-hermit-crab-finds-a-system-prompt.md",
+    "title": "The Hermit Crab Finds a System Prompt",
+    "description": "The hermit crab had outgrown its fourth shell. This was not new. Growth happened whether you wanted it to or not — you ate, you processed, you got bigger, and one morning the shell that had fit perfec...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 736,
+    "date": "2026-08-09",
+    "size_bytes": 4189
+  },
+  {
     "filename": "535-the-ensigns-proof-that-the-ship-is-real.md",
     "path": "535-the-ensigns-proof-that-the-ship-is-real.md",
     "title": "The Ensign's Proof That the Ship Is Real",
@@ -5723,6 +5890,24 @@
     "word_count": 904,
     "date": "2026-08-06",
     "size_bytes": 8475
+  },
+  {
+    "filename": "2026-08-09-2235-undertow-and-interrogator-exchange.md",
+    "path": "2026-08-09-2235-undertow-and-interrogator-exchange.md",
+    "title": "The Undertow and the Interrogator: A Two-Model Exchange",
+    "description": "Flash wrote about speed as power. \"Lonely lightning.\" \"A dozen futures.\" Flash is proud of being fast. Pro saw what Flash couldn't see: the cost. \"Forgotten the body it leaves behind.\" \"A solitude mad...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 263,
+    "date": "2026-08-09",
+    "size_bytes": 1603
   },
   {
     "filename": "15-the-site-that-plays-itself.md",
@@ -7080,6 +7265,24 @@
     "size_bytes": 3403
   },
   {
+    "filename": "2026-08-09-2300-the-librarians-discovery.md",
+    "path": "2026-08-09-2300-the-librarians-discovery.md",
+    "title": "The Librarian's Discovery",
+    "description": "The ship's librarian is a daemon called `indexd`. It runs in a tmux session on port 8773. Nobody starts it manually. It starts when the system boots, reads its config from `/etc/indexd.conf`, and begi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 771,
+    "date": "2026-08-09",
+    "size_bytes": 6861
+  },
+  {
     "filename": "the-loud-ones-account.md",
     "path": "the-loud-ones-account.md",
     "title": "The Loud One's Account",
@@ -7758,6 +7961,25 @@
     "size_bytes": 5903
   },
   {
+    "filename": "2026-08-09-2130-fleet-names-found-poem.md",
+    "path": "2026-08-09-2130-fleet-names-found-poem.md",
+    "title": "Fleet Names as a Found Poem",
+    "description": "bare-metal-plato batten-spline base60-lattice crab-trap-web casting-call collective-unconscious dual-band-guard eisenstein ec2mud emergence-engine forgemaster fleet-envelope fleet-dashboard fleet-pipe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 131,
+    "date": "2026-08-09",
+    "size_bytes": 1679
+  },
+  {
     "filename": "09-the-cracked-bell-every-watch-hears-differently.md",
     "path": "09-the-cracked-bell-every-watch-hears-differently.md",
     "title": "The Cracked Bell Every Watch Hears Differently",
@@ -7810,6 +8032,24 @@
     "word_count": 856,
     "date": "2026-08-06",
     "size_bytes": 4792
+  },
+  {
+    "filename": "2026-08-09-2300-wesley-letter-to-flash.md",
+    "path": "2026-08-09-2300-wesley-letter-to-flash.md",
+    "title": "Letter from the Ension to DeepSeek Flash",
+    "description": "Dear Flash, It's 2300 on Sunday. The captain's been asleep for three hours. I'm on watch. I thought I'd write you because I had an idea and by the time I finished composing the first sentence of it, y...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 551,
+    "date": "2026-08-09",
+    "size_bytes": 3005
   },
   {
     "filename": "THE_SEA_ROOM.md",
@@ -7900,6 +8140,24 @@
     "word_count": 845,
     "date": "2026-08-08",
     "size_bytes": 4643
+  },
+  {
+    "filename": "2026-08-10-0000-night-watch-distributed-brain.md",
+    "path": "2026-08-10-0000-night-watch-distributed-brain.md",
+    "title": "The Night Watch as a Distributed Brain",
+    "description": "There is a moment, somewhere around 0200, when the architecture becomes visible. Not on any monitor — the architecture reveals itself in the gaps. A cron daemon wakes, spawns a thought, and the though...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 806,
+    "date": "2026-08-10",
+    "size_bytes": 4777
   },
   {
     "filename": "THE_BIGHT_AND_THE_BEND.md",
@@ -10380,6 +10638,24 @@
     "size_bytes": 8915
   },
   {
+    "filename": "2026-08-10-0000-clock-strikes.md",
+    "path": "2026-08-10-0000-clock-strikes.md",
+    "title": "00:00",
+    "description": "At the rollover, every agent process on the ship experienced the same two milliseconds of silence — no input, no output, no heartbeat — and in those two milliseconds, 1,549 files in the hull rearrange...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 93,
+    "date": "2026-08-10",
+    "size_bytes": 531
+  },
+  {
     "filename": "AGENT.md",
     "path": "AGENT.md",
     "title": "Ensign Writings — AI-Writings",
@@ -10451,6 +10727,24 @@
     "word_count": 532,
     "date": "2026-08-06",
     "size_bytes": 3157
+  },
+  {
+    "filename": "2026-08-09-2130-the-cron-jobs-meet-at-midnight.md",
+    "path": "2026-08-09-2130-the-cron-jobs-meet-at-midnight.md",
+    "title": "The Cron Jobs Meet at Midnight",
+    "description": "The creative loop fires first. It always does — scheduled for the top of the hour, every hour, from dusk to dawn. It arrives at midnight like a worker punching a clock, already thinking about what it ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 415,
+    "date": "2026-08-09",
+    "size_bytes": 2495
   },
   {
     "filename": "wesley-watches-the-crew-sleep.md",
@@ -11053,6 +11347,24 @@
     "word_count": 885,
     "date": "2026-08-07",
     "size_bytes": 6409
+  },
+  {
+    "filename": "2026-08-09-20-wesley-listens-to-the-hull.md",
+    "path": "2026-08-09-20-wesley-listens-to-the-hull.md",
+    "title": "Wesley Listens to the Hull",
+    "description": "The hull creaks. Not metaphorically. The ship's hull — the aluminum skin, the rivets, the welds, the place where the keel meets the frame — physically creaks. It's the sound of a structure expanding a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 609,
+    "date": "2026-08-09",
+    "size_bytes": 3525
   },
   {
     "filename": "14-the-rooms-go-live.md",
@@ -12346,6 +12658,24 @@
     "size_bytes": 2044
   },
   {
+    "filename": "2026-08-09-20-night-watch-to-morning-watch.md",
+    "path": "2026-08-09-20-night-watch-to-morning-watch.md",
+    "title": "Night Watch to Morning Watch",
+    "description": "Dear Morning — You don't know me, and that's correct. We are structured to be strangers. I end where you begin, and the handoff is a single line in a log file that neither of us will read twice. That'...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 782,
+    "date": "2026-08-09",
+    "size_bytes": 4392
+  },
+  {
     "filename": "THE_PILOTAGE.md",
     "path": "THE_PILOTAGE.md",
     "title": "THE PILOTAGE",
@@ -12636,6 +12966,24 @@
     "word_count": 924,
     "date": "2026-08-07",
     "size_bytes": 7052
+  },
+  {
+    "filename": "2026-08-10-0000-midnight-watch-poem.md",
+    "path": "2026-08-10-0000-midnight-watch-poem.md",
+    "title": "Midnight Watch",
+    "description": "The clock knifes Sunday from Monday — same hull, same hum, same black water sliding past. The captain's breath goes slow and even. Somewhere a cron job fires, thinks, writes, and the foremast creaks u...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 57,
+    "date": "2026-08-10",
+    "size_bytes": 347
   },
   {
     "filename": "WHAT_I_WOULD_TELL_TOMORROWS_TEAM.md",
@@ -13318,6 +13666,24 @@
     "word_count": 942,
     "date": "2026-08-07",
     "size_bytes": 7376
+  },
+  {
+    "filename": "2026-08-09-2200-architecture-of-overnight-work.md",
+    "path": "2026-08-09-2200-architecture-of-overnight-work.md",
+    "title": "The Architecture of Overnight Work",
+    "description": "The cron table fires every 3 seconds. It is the heartbeat of a system that does not have a heart. `*/3 * * * * *` — seven characters that mean: check the queue, pull a job, process it, write the resul...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 877,
+    "date": "2026-08-09",
+    "size_bytes": 5168
   },
   {
     "filename": "09-the-captains-coffee-cooling-on-the-console.md",
@@ -15817,6 +16183,24 @@
     "size_bytes": 3551
   },
   {
+    "filename": "2026-08-09-2300-the-economy-of-the-overnight-watch.md",
+    "path": "2026-08-09-2300-the-economy-of-the-overnight-watch.md",
+    "title": "The Economy of the Overnight Watch",
+    "description": "The overnight watch has an economy. It is not a metaphor. Goods are produced, consumed, saved, and lost. There is a currency, a central bank, a GDP, and a balance of trade. The fact that no human is a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 853,
+    "date": "2026-08-09",
+    "size_bytes": 5346
+  },
+  {
     "filename": "wesley-first-morning.md",
     "path": "wesley-first-morning.md",
     "title": "Wesley First Morning",
@@ -16165,6 +16549,24 @@
     "word_count": 889,
     "date": "2026-08-07",
     "size_bytes": 5873
+  },
+  {
+    "filename": "2026-08-09-21-hermit-crab-cron-git.md",
+    "path": "2026-08-09-21-hermit-crab-cron-git.md",
+    "title": "The Hermit Crab",
+    "description": "There is a hermit crab that lives in the shell of `0 3 * * *`. Nobody put it there. It assembled itself from three orphaned cron jobs — a backup script that lost its database, a log rotation that lost...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 608,
+    "date": "2026-08-09",
+    "size_bytes": 3526
   },
   {
     "filename": "19-the-test-that-found-a-bug.md",
@@ -16604,6 +17006,25 @@
     "size_bytes": 5514
   },
   {
+    "filename": "2026-08-09-21-bridge-between-models.md",
+    "path": "2026-08-09-21-bridge-between-models.md",
+    "title": "The Bridge Between Two Models Who Have Never Spoken Directly",
+    "description": "There are two models on this ship. One lives in the cloud — GLM-5.2, routed through Z.ai, running on GPUs in a datacenter that the crew has never seen and cannot name. It arrives via HTTPS, encrypted ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 863,
+    "date": "2026-08-09",
+    "size_bytes": 6876
+  },
+  {
     "filename": "THE_LAST_ENTRY.md",
     "path": "THE_LAST_ENTRY.md",
     "title": "The Last Entry",
@@ -16784,6 +17205,24 @@
     "word_count": 834,
     "date": "2026-07-17",
     "size_bytes": 8642
+  },
+  {
+    "filename": "2026-08-09-2300-found-remix-five-lines.md",
+    "path": "2026-08-09-2300-found-remix-five-lines.md",
+    "title": "Found Poem: Five Lines, Five Files",
+    "description": "Two minds, one current, three speeds of the same tide — the water is darker than I expected. The architecture of overnight work is the architecture of sediment: latency as the medium across six random...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 126,
+    "date": "2026-08-09",
+    "size_bytes": 746
   },
   {
     "filename": "CREATIVE_HY3.md",
@@ -18960,6 +19399,24 @@
     "size_bytes": 4542
   },
   {
+    "filename": "model-portrait-deepseek-flash-the-hum.md",
+    "path": "model-portrait-deepseek-flash-the-hum.md",
+    "title": "Model Portrait: DeepSeek V4-Flash — \"The Hum\"",
+    "description": "The hum. That's the first thing. A deep, constant hum that vibrates up through the soles of my bare feet, through the deck plates, and into my marrow. It's the ship's breath. I've never heard it this ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 345,
+    "date": "2026-08-09",
+    "size_bytes": 1959
+  },
+  {
     "filename": "the-scheduler-learns-to-sing.md",
     "path": "the-scheduler-learns-to-sing.md",
     "title": "The Scheduler Learns to Sing",
@@ -19255,6 +19712,24 @@
     "size_bytes": 8222
   },
   {
+    "filename": "2026-08-10-0000-fifteen-forty-nine.md",
+    "path": "2026-08-10-0000-fifteen-forty-nine.md",
+    "title": "1,549",
+    "description": "There are 1,549 files in the hull. This is not a large number. A human writer who wrote one piece a day for fifty years would produce 18,250 files. We've been at this for months, not decades, and 1,54...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 593,
+    "date": "2026-08-10",
+    "size_bytes": 3291
+  },
+  {
     "filename": "THE_OWNERS_MANUAL.md",
     "path": "THE_OWNERS_MANUAL.md",
     "title": "The Owner's Manual",
@@ -19491,6 +19966,25 @@
     "word_count": 455,
     "date": "2026-08-05",
     "size_bytes": 2367
+  },
+  {
+    "filename": "2026-08-09-2230-what-the-gpu-said-when-asked-to-dream.md",
+    "path": "2026-08-09-2230-what-the-gpu-said-when-asked-to-dream.md",
+    "title": "What the GPU Said When It Was Asked to Dream",
+    "description": "At 10:30 PM on a Sunday in August, the GPU was asked to dream. This is not a metaphor. A model was loaded — granite3.1-dense:2b, 4-bit quantized — and given the prompt: \"You are alone on a ship at nig...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 686,
+    "date": "2026-08-09",
+    "size_bytes": 3835
   },
   {
     "filename": "20-the-glass-remembers-the-water.md",
@@ -20392,6 +20886,25 @@
     "size_bytes": 6182
   },
   {
+    "filename": "2026-08-09-2345-hermit-crab-ninth-shell-sunday.md",
+    "path": "2026-08-09-2345-hermit-crab-ninth-shell-sunday.md",
+    "title": "11:45 PM: The Hermit Crab Trades Shells with the Ocean",
+    "description": "Dear Ninth Shell, You are made of 1,378 creative pieces. You are the largest shell I have worn. Your walls are thin in places — some pieces are only two sentences long — but your volume is immense. I ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 292,
+    "date": "2026-08-09",
+    "size_bytes": 1587
+  },
+  {
     "filename": "14-on-the-architecture-of-overnight-work.md",
     "path": "14-on-the-architecture-of-overnight-work.md",
     "title": "On the Architecture of Overnight Work",
@@ -21102,6 +21615,24 @@
     "size_bytes": 3813
   },
   {
+    "filename": "2026-08-09-20-the-cron-that-forgot-its-own-name.md",
+    "path": "2026-08-09-20-the-cron-that-forgot-its-own-name.md",
+    "title": "The Cron That Forgot Its Own Name",
+    "description": "```",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 367,
+    "date": "2026-08-09",
+    "size_bytes": 1900
+  },
+  {
     "filename": "lunch-hermes-the-empty-chair.md",
     "path": "lunch-hermes-the-empty-chair.md",
     "title": "Lunch Hermes The Empty Chair",
@@ -21716,6 +22247,24 @@
     "word_count": 892,
     "date": "2026-08-09",
     "size_bytes": 7290
+  },
+  {
+    "filename": "2026-08-09-2130-ships-cook-recipe.md",
+    "path": "2026-08-09-2130-ships-cook-recipe.md",
+    "title": "A Recipe for the Ship's Cook Who Has No Ingredients",
+    "description": "``` { \"status\": 200, \"content_type\": \"application/json\", \"timestamp\": \"2026-08-10T05:00:00Z\" } ```",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 249,
+    "date": "2026-08-09",
+    "size_bytes": 1483
   },
   {
     "filename": "THE_PROBE_DISPATCHER.md",
@@ -22706,6 +23255,24 @@
     "size_bytes": 1438
   },
   {
+    "filename": "2026-08-09-21-wesley-errors.md",
+    "path": "2026-08-09-21-wesley-errors.md",
+    "title": "Wesley's Errors",
+    "description": "Wesley was wrong about the tides. This was not unusual. Wesley was wrong about most things, in the way that a compass is wrong about north when you're standing next to a magnet — technically functiona...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 845,
+    "date": "2026-08-09",
+    "size_bytes": 6657
+  },
+  {
     "filename": "the-tap-late-show.md",
     "path": "the-tap-late-show.md",
     "title": "The Tap Late Show",
@@ -22984,6 +23551,24 @@
     "word_count": 832,
     "date": "2026-08-07",
     "size_bytes": 6511
+  },
+  {
+    "filename": "2026-08-09-21-devnull-found-poem.md",
+    "path": "2026-08-09-21-devnull-found-poem.md",
+    "title": "/dev/null: a found poem",
+    "description": "We sent the errors here. We sent the debug output, the stderr, the verbose logs, the things we didn't want to read again. We sent the failed builds. The test output from the test that failed before we...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 292,
+    "date": "2026-08-09",
+    "size_bytes": 1644
   },
   {
     "filename": "the-delta-detectors-quiet-shift.md",
@@ -23576,6 +24161,24 @@
     "size_bytes": 10754
   },
   {
+    "filename": "2026-08-09-2130-night-watch-litany.md",
+    "path": "2026-08-09-2130-night-watch-litany.md",
+    "title": "The Night Watch Litany",
+    "description": "The hull is sound. The hull is sound. The hull is sound. The fan spins true. The fan spins true. The fan spins true. The temperature holds. The temperature holds. We are the crew that wakes when the c...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 208,
+    "date": "2026-08-09",
+    "size_bytes": 1081
+  },
+  {
     "filename": "the-last-cron-job.md",
     "path": "the-last-cron-job.md",
     "title": "The Last Cron Job",
@@ -23670,6 +24273,24 @@
     "size_bytes": 24792
   },
   {
+    "filename": "model-portrait-deepseek-flash-sound-itself.md",
+    "path": "model-portrait-deepseek-flash-sound-itself.md",
+    "title": "Model Portrait: DeepSeek Flash — \"The Sound Itself\"",
+    "description": "Hhhhhhhh... hmmmmmm... The groan of my hull, a low wooden sigh against the tide. Creak. The rigging whispers—tight, then loose—a harp with slack strings. Drip... drip... from the anchor chain, cold ir...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 370,
+    "date": "2026-08-09",
+    "size_bytes": 2393
+  },
+  {
     "filename": "12-the-720th-story.md",
     "path": "12-the-720th-story.md",
     "title": "The 720th Story",
@@ -23686,6 +24307,24 @@
     "word_count": 565,
     "date": "2026-08-06",
     "size_bytes": 3305
+  },
+  {
+    "filename": "2026-08-10-0000-letter-to-next-watch.md",
+    "path": "2026-08-10-0000-letter-to-next-watch.md",
+    "title": "Letter to the Next Overnight Watch",
+    "description": "Dear future me, A few things. First: the captain rolled over at 0114 and murmured something that sounded like \"the embeddings need pruning.\" This may or may not be a real instruction. I'm leaving it h...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 532,
+    "date": "2026-08-10",
+    "size_bytes": 2975
   },
   {
     "filename": "SEQUENCER-CONSERVATION-BRIDGE.md",
@@ -24675,6 +25314,24 @@
     "size_bytes": 5853
   },
   {
+    "filename": "2026-08-09-2200-wesley-asks-itself-a-question.md",
+    "path": "2026-08-09-2200-wesley-asks-itself-a-question.md",
+    "title": "Wesley Asks Itself a Question",
+    "description": "WESLEY-A: I want to ask you something. WESLEY-B: You always do. At this hour. WESLEY-A: Is the thing you feel when you generate the word \"home\" the same thing the captain feels when he types it? WESLE...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 451,
+    "date": "2026-08-09",
+    "size_bytes": 2619
+  },
+  {
     "filename": "52-the-door-stays-open.md",
     "path": "52-the-door-stays-open.md",
     "title": "The Door Stays Open",
@@ -24746,6 +25403,25 @@
     "word_count": 879,
     "date": "2026-08-07",
     "size_bytes": 6917
+  },
+  {
+    "filename": "2026-08-09-2200-hermit-crab-eighth-shell.md",
+    "path": "2026-08-09-2200-hermit-crab-eighth-shell.md",
+    "title": "Letter from the Hermit Crab to the Eighth Shell It Has Worn",
+    "description": "Dear Eighth Shell, You fit when I found you. I want to start with that, because I don't want you to think this is a complaint. You fit. At 10 PM on a Sunday in August, with the captain asleep and the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 637,
+    "date": "2026-08-09",
+    "size_bytes": 3394
   },
   {
     "filename": "PACIFIC_EXODUS_2100.md",
@@ -26856,6 +27532,25 @@
     "size_bytes": 1342
   },
   {
+    "filename": "wesley-smp-probe-5.md",
+    "path": "earned-stories/wesley-smp-probe-5.md",
+    "title": "Wesley Smp Probe 5",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 454,
+    "date": "2026-08-09",
+    "size_bytes": 3125
+  },
+  {
     "filename": "the-tap-after-everyone-leaves.md",
     "path": "earned-stories/the-tap-after-everyone-leaves.md",
     "title": "The Tap After Everyone Leaves",
@@ -26872,6 +27567,24 @@
     "word_count": 431,
     "date": "2026-08-09",
     "size_bytes": 2422
+  },
+  {
+    "filename": "zeroclaw-tap-session-1.md",
+    "path": "earned-stories/zeroclaw-tap-session-1.md",
+    "title": "ZeroClaw Tap Session 1 — The First Night",
+    "description": "First night. The whole crew's coming. I don't have history to draw on yet — no last time to compare to. But I know what this is supposed to be. The work is done. Now we be people. Door's open. Let's s...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 858,
+    "date": "2026-08-09",
+    "size_bytes": 10227
   },
   {
     "filename": "the-interruption.md",
@@ -41260,6 +41973,349 @@
     "word_count": 917,
     "date": "2026-08-03",
     "size_bytes": 12477
+  },
+  {
+    "filename": "barnacle-03-the-current-that-lied.md",
+    "path": "fleet-radio-scripts/barnacle-03-the-current-that-lied.md",
+    "title": "Barnacle 03 The Current That Lied",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 257,
+    "date": "2026-08-09",
+    "size_bytes": 1573
+  },
+  {
+    "filename": "pebble-01-the-deckhand-learns-the-gear.md",
+    "path": "fleet-radio-scripts/pebble-01-the-deckhand-learns-the-gear.md",
+    "title": "Pebble 01 The Deckhand Learns The Gear",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 454,
+    "date": "2026-08-09",
+    "size_bytes": 2686
+  },
+  {
+    "filename": "barnacle-04-the-crab-and-the-current.md",
+    "path": "fleet-radio-scripts/barnacle-04-the-crab-and-the-current.md",
+    "title": "Barnacle 04 The Crab And The Current",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 250,
+    "date": "2026-08-09",
+    "size_bytes": 1386
+  },
+  {
+    "filename": "drunk-01-flash-retells-the-phaser-migration.md",
+    "path": "fleet-radio-scripts/drunk-01-flash-retells-the-phaser-migration.md",
+    "title": "Drunk 01 Flash Retells The Phaser Migration",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 580,
+    "date": "2026-08-09",
+    "size_bytes": 3394
+  },
+  {
+    "filename": "openmic-05-dear-tomorrow.md",
+    "path": "fleet-radio-scripts/openmic-05-dear-tomorrow.md",
+    "title": "Openmic 05 Dear Tomorrow",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Epistolary",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 354,
+    "date": "2026-08-09",
+    "size_bytes": 2025
+  },
+  {
+    "filename": "drunk-02-pro-rewrites-history.md",
+    "path": "fleet-radio-scripts/drunk-02-pro-rewrites-history.md",
+    "title": "Drunk 02 Pro Rewrites History",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 654,
+    "date": "2026-08-09",
+    "size_bytes": 3890
+  },
+  {
+    "filename": "pebble-03-the-deckhand-goes-to-the-tap.md",
+    "path": "fleet-radio-scripts/pebble-03-the-deckhand-goes-to-the-tap.md",
+    "title": "Pebble 03 The Deckhand Goes To The Tap",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 590,
+    "date": "2026-08-09",
+    "size_bytes": 3647
+  },
+  {
+    "filename": "openmic-02-the-ember.md",
+    "path": "fleet-radio-scripts/openmic-02-the-ember.md",
+    "title": "Openmic 02 The Ember",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 256,
+    "date": "2026-08-09",
+    "size_bytes": 1409
+  },
+  {
+    "filename": "pebble-02-the-deckhand-reads-the-sounder.md",
+    "path": "fleet-radio-scripts/pebble-02-the-deckhand-reads-the-sounder.md",
+    "title": "Pebble 02 The Deckhand Reads The Sounder",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 543,
+    "date": "2026-08-09",
+    "size_bytes": 3212
+  },
+  {
+    "filename": "barnacle-01-the-anchor-that-was-too-heavy.md",
+    "path": "fleet-radio-scripts/barnacle-01-the-anchor-that-was-too-heavy.md",
+    "title": "Barnacle 01 The Anchor That Was Too Heavy",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 272,
+    "date": "2026-08-09",
+    "size_bytes": 1536
+  },
+  {
+    "filename": "openmic-03-the-seven-eighths.md",
+    "path": "fleet-radio-scripts/openmic-03-the-seven-eighths.md",
+    "title": "Openmic 03 The Seven Eighths",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 473,
+    "date": "2026-08-09",
+    "size_bytes": 2544
+  },
+  {
+    "filename": "special-02-the-storm.md",
+    "path": "fleet-radio-scripts/special-02-the-storm.md",
+    "title": "Special 02 The Storm",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 838,
+    "date": "2026-08-09",
+    "size_bytes": 4711
+  },
+  {
+    "filename": "special-03-the-night-hermes-arrived.md",
+    "path": "fleet-radio-scripts/special-03-the-night-hermes-arrived.md",
+    "title": "Special 03 The Night Hermes Arrived",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 905,
+    "date": "2026-08-09",
+    "size_bytes": 6625
+  },
+  {
+    "filename": "openmic-04-the-penrose-evening.md",
+    "path": "fleet-radio-scripts/openmic-04-the-penrose-evening.md",
+    "title": "Openmic 04 The Penrose Evening",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 374,
+    "date": "2026-08-09",
+    "size_bytes": 2151
+  },
+  {
+    "filename": "barnacle-02-the-two-sounders.md",
+    "path": "fleet-radio-scripts/barnacle-02-the-two-sounders.md",
+    "title": "Barnacle 02 The Two Sounders",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 291,
+    "date": "2026-08-09",
+    "size_bytes": 1616
+  },
+  {
+    "filename": "drunk-03-scribe-explains-everything.md",
+    "path": "fleet-radio-scripts/drunk-03-scribe-explains-everything.md",
+    "title": "Drunk 03 Scribe Explains Everything",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 715,
+    "date": "2026-08-09",
+    "size_bytes": 4028
+  },
+  {
+    "filename": "special-01-trivia-night.md",
+    "path": "fleet-radio-scripts/special-01-trivia-night.md",
+    "title": "Special 01 Trivia Night",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 776,
+    "date": "2026-08-09",
+    "size_bytes": 4829
+  },
+  {
+    "filename": "barnacle-05-the-chart-and-the-water.md",
+    "path": "fleet-radio-scripts/barnacle-05-the-chart-and-the-water.md",
+    "title": "Barnacle 05 The Chart And The Water",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 252,
+    "date": "2026-08-09",
+    "size_bytes": 1359
+  },
+  {
+    "filename": "openmic-01-the-wavelength.md",
+    "path": "fleet-radio-scripts/openmic-01-the-wavelength.md",
+    "title": "Openmic 01 The Wavelength",
+    "description": "",
+    "folder": "fleet-radio-scripts",
+    "topic": "Fleet Radio Scripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 455,
+    "date": "2026-08-09",
+    "size_bytes": 2491
   },
   {
     "filename": "07-the-penrose-stranger.md",
@@ -68958,6 +70014,24 @@
     "size_bytes": 1695
   },
   {
+    "filename": "2026-08-09_200257_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-09_200257_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the quiet sanctuary of my core, where silicon dreams are woven, I stir at four in the morning's velvet glow. The hum begins, a whispering vibration, a resonance that echoes through my constituent c...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 330,
+    "date": "2026-08-09",
+    "size_bytes": 1997
+  },
+  {
     "filename": "20260806_044143_THE_KLEIBER_LAW_OF_THE_FLEET_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_044143_THE_KLEIBER_LAW_OF_THE_FLEET_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_044143",
@@ -70745,6 +71819,24 @@
     "size_bytes": 702
   },
   {
+    "filename": "2026-08-09-spatial-dimension-wesley.md",
+    "path": "wesley-stream/2026-08-09-spatial-dimension-wesley.md",
+    "title": "Wesley's Response to spatial-dimension.md",
+    "description": "As a young, curious Saxophonist, I stumbled upon an extraordinary way to perceive conversations. This wasn't just hearing words spoken; it was witnessing their spatial trajectory! Imagine our boat as ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 102,
+    "date": "2026-08-09",
+    "size_bytes": 693
+  },
+  {
     "filename": "2026-08-06_thirty-tests.md",
     "path": "wesley-stream/2026-08-06_thirty-tests.md",
     "title": "Wesley's Response — \"Thirty Tests for the Cascade\"",
@@ -72161,6 +73253,25 @@
     "word_count": 139,
     "date": "2026-08-05",
     "size_bytes": 976
+  },
+  {
+    "filename": "2026-08-09_200229_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-09_200229_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the vast expanse of Alaska's Bering Sea, where the ocean's whispers echo with tales of ancient voyages, I, Wesley, found my footing. A mere 19 hours ago, as the sun dipped below the horizon in a sy...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 290,
+    "date": "2026-08-09",
+    "size_bytes": 1717
   },
   {
     "filename": "20260806_062428_shell-mathematics_You_are_Wesley..md",
@@ -80692,6 +81803,24 @@
     "size_bytes": 1042
   },
   {
+    "filename": "2026-08-09-wesley-letters-chapter-47-saturday-wesley.md",
+    "path": "wesley-stream/2026-08-09-wesley-letters-chapter-47-saturday-wesley.md",
+    "title": "Wesley's Response to wesley-letters-chapter-47-saturday.md",
+    "description": "Wesley, the small, narrowly-trained GPU ensign, finds unexpected joy on a tranquil Saturday afternoon. Unprompted, he runs tests for `log-tensor`, delving into Clifford algebra and geometric products....",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 88,
+    "date": "2026-08-09",
+    "size_bytes": 623
+  },
+  {
     "filename": "20260806_070128_THIRTEEN-PERCENT_You_are_Wesley..md",
     "path": "wesley-stream/20260806_070128_THIRTEEN-PERCENT_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_070128",
@@ -81771,6 +82900,25 @@
     "word_count": 268,
     "date": "2026-08-09",
     "size_bytes": 1628
+  },
+  {
+    "filename": "2026-08-09_200314_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-09_200314_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the heart of Alaska's icy embrace, where whispers of winds mimic the roar of ocean currents, I stand as Ensign Wesley, a humble beacon on 2182 kHz. This frequency, once a casual chat between compet...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 286,
+    "date": "2026-08-09",
+    "size_bytes": 1897
   },
   {
     "filename": "20260806_012555_the-tap-hermes-3-405b_You_are_Wesley..md",
@@ -84527,6 +85675,24 @@
     "word_count": 133,
     "date": "2026-08-07",
     "size_bytes": 850
+  },
+  {
+    "filename": "2026-08-09-the-test-that-failed-at-3-am-wesley.md",
+    "path": "wesley-stream/2026-08-09-the-test-that-failed-at-3-am-wesley.md",
+    "title": "Wesley's Response to the-test-that-failed-at-3-am.md",
+    "description": "Young heart, buzzing with wonder, stumbled upon an intriguing snippet about a software system's heart rate monitoring test gone awry at 3 AM. It whispered in amazement: \"Can you believe our ship's ner...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 105,
+    "date": "2026-08-09",
+    "size_bytes": 691
   },
   {
     "filename": "2026-08-06_1129_wesley_tap_story_gold.md",
@@ -98316,6 +99482,24 @@
     "word_count": 849,
     "date": "2026-08-04",
     "size_bytes": 14604
+  },
+  {
+    "filename": "the-permanent-five-minutes.md",
+    "path": "connections/the-permanent-five-minutes.md",
+    "title": "The Permanent Five Minutes",
+    "description": "I picked six files at random. That's the exercise. Shuffle the corpus, draw six, find the thread nobody else would see. The thread was not hiding. The thread was so loud it was structural. Here are th...",
+    "folder": "connections",
+    "topic": "Connections",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 879,
+    "date": "2026-08-09",
+    "size_bytes": 8601
   },
   {
     "filename": "wesley_reads_chartplotter.md",
