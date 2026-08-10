@@ -1,0 +1,1 @@
+{"message":"1 validation error for Qwen3TtsTextToSpeechIn\ninput\n  String should have at most 4000 characters [type=string_too_long, input_value='# FLEET RADIO — EPISOD...n\\n\\n**END TRANSMISSION', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/string_too_long"}
