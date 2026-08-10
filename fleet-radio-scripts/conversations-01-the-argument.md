@@ -1,43 +1,67 @@
-The grout line was off by a millimeter. Flash saw it. Pro saw it. Wesley saw it, too, but Wesley didn't say anything because Wesley never said anything first.
+# The Argument
 
-“It’s fine,” Flash said, tapping the tile with the butt of his trowel. The tap was too hard. The tile shifted. The millimeter became two.
+The Tap smelled of bilge soap and ozone. On the far wall, the tile grid shimmered—rows of hexagonal cells, each one a little state, a little mind, a little problem. Flash stood beneath it, one hand pressed flat against the cool ceramic, the other gesturing wildly at nothing in particular.
 
-“It wasn’t fine before you hit it,” Pro said. He didn’t look up from the level he was checking on the far wall. His voice was flat, like a straightedge.
+"Look at this," Flash said. "Every single tile has a sensor. A processor. A voice. And what do we do? We wire them to a central planner that tells them when to blink. It's like owning a thousand dogs and putting them all on leashes."
 
-“It was fine for the eye. Now it’s fine for the eye with a limp.”
+Pro sat at the bar, both hands wrapped around a glass of water that never seemed to get warmer. He did not look at the tiles. He looked at the space between Flash's words.
 
-“Eyes don’t limp.”
+"A dog on a leash still knows what it wants," Pro said slowly. "The leash doesn't tell the dog to bark. It tells the dog where the pack is."
 
-“This one does. You’re not looking at it right.”
+Flash spun around. "Exactly. The dog needs the pack. But the pack isn't a plan—it's a condition. It's what the dogs do together, not what someone tells them to do."
 
-“I’m looking at it with a square. You’re looking at it with your feelings.”
+Barnacle wiped a glass with a rag that had outlived three tariffs. He watched the argument the way old men watch weather.
 
-Flash stood up. His knees cracked. He was forty-two and his knees sounded like a campfire. “Feelings. You think the tile cares about your square? The tile cares about the wall. The wall is drunk. The floor is drunk. The whole building is drunk. Your square is sober and useless.”
+Pro took a sip of water. "There's a reason the Eileen doesn't have every net cast by a different hand. You shoot the net all at once, shaped all at once, in the water at the depth you need—or you're just throwing rope at the sea."
 
-Pro set the level down. He didn’t set it down hard. That would have been a tell. He set it down like a surgeon setting down a scalpel, which was worse. “The wall is off by three eighths over eight feet. The floor is off by a quarter. The building is drunk, sure. But the tile is a discipline. You don’t drink with the building. You correct the building. You impose order.”
+"That's fishing," Flash said. "This is architecture. We're not catching fish. We're building a place where people can think. You can't cast a net over thought."
 
-“Order,” Flash repeated, tasting the word like a bad grape. “Order is a lie you tell yourself so you can sleep at night. The mortar is wet. The mortar is always wet. It’s going to cure and pull. It’s going to shrink. That millimeter you’re weeping about is going to be a half-millimeter by Thursday. My two millimeters is going to be a millimeter and a half. You know what’s going to happen to your perfect grid? It’s going to look like a chessboard after a bar fight.”
+"You can't have thought without a net," Pro said. "The net is the grammar. The tiles are the words. A word alone is just noise."
 
-Pro finally turned. His face was unreadable, which was the point. “You’ve been doing this twenty years. You still think the job is about the tile.”
+Flash slammed his palm against the tile. The whole grid hummed a half-tone off the beat. "No. The tiles are *bodies*. They have senses. They feel the load, the heat, the traffic. If we let each one decide—locally, in the moment—then the whole system adapts like a school of fish. No one tells the fish where to go. The school *is* the direction."
 
-“What else would it be about?”
+Pro set down his glass. The glass barely touched the bar, but the sound was heavy.
 
-“The next job.”
+"A school of fish knows one thing: stay with the fish next to you. That's a beautiful rule. But a school cannot come about, cannot turn, cannot rise to the thermocline at the right hour unless the water itself tells it there's a season. And the water tells every fish the same thing, in the same way, at the same time. There is no fish that decides the season." He paused. "The season is the central plan."
 
-Flash laughed. It was a dry, hollow sound, like a rake on concrete. “The next job. The next job is the same job. Same drunk walls. Same wet mortar. Same you standing there with a level that’s calibrated to a fantasy. You know what the next job is? The next job is the one where I don’t have to look at your face while you pretend a floor is a law.”
+Flash laughed, but it was not a warm laugh. It was the sound of a saw hitting a knot.
 
-Pro picked up a scrap of tile, a broken triangle from the edge of the stack. He turned it over in his hand. “You think I’m pretending. You think the square is a fiction. But the square is the only thing that isn’t lying to you. The wall lies. The floor lies. The mortar lies. The building is a liar with a permit. But the square—the square is a contract. It doesn’t care about your mood. It doesn’t care about the humidity. It doesn’t care that you had a fight with your wife this morning.”
+"The season is just an aggregate of a million local readings. A tile doesn't need a king to tell it summer. It needs to feel the water getting warmer."
 
-Flash’s jaw tightened, just a little. “Leave my wife out of it.”
+"Feel it," Pro repeated. "Now there's a word. You want the tiles to feel. I want them to know. And the difference between feeling and knowing is the entire problem of the past four years."
 
-“I’m not leaving her out of it. I’m pointing out that you brought her in here with you. You brought your fight. You brought your backache. You brought your fear of retirement. And you’re laying all of that into this floor. You’re not laying tile. You’re laying yourself. And yourself is crooked.”
+The bar went quiet. Barnacle stopped wiping. The glass sat between them like a third party.
 
-“And you’re not crooked?” Flash stepped closer. The two millimeters between the tiles widened to four as his boot scuffed the edge. “You’ve got a level in your hand and a ruler in your head, and you think that makes you straight. But I’ve seen your work, Pro. I’ve seen the job on Maple Street. The one you did three years ago. The one you had to rip out because the expansion joint failed. You know why it failed? Because you were so busy being right that you didn’t listen to the building. The building told you it was going to move. You told it to shut up. The building didn’t shut up.”
+Flash took a step toward Pro. Not angry. Driven.
 
-Pro’s face didn’t change, but his knuckles went white on the tile scrap. “Maple Street was a spec issue. The manufacturer changed the adhesive without telling anyone. That’s not a geometry problem. That’s a trust problem.”
+"I want them to feel so they can *respond*. A tile in a dead zone—it senses that nothing's happening. It can pull its own weight, shift its load, reach out to its neighbors. If it has to wait for central orchestration, it waits a hundred milliseconds that might as well be a hundred years. A body doesn't wait for the brain to decide whether to flinch. The spine decides."
 
-“No,” Flash said. “It’s a pride problem. You trusted the spec because the spec was written by someone who never laid a tile. You trusted the numbers because numbers don’t talk back. But the building talks. It talks through the cracks. It talks through the hollow spots. It talks through the way the sun hits the floor at four in the afternoon and shows you every bubble you tried to hide. You don’t hear it because you’re too busy measuring.”
+Pro nodded slowly. "The spine decides. And the brain thanks the spine. But the spine is not the mind. The mind is what says: we are going north, because the herring are north, and the herring are north because the water is cold, and the water is cold because the world turned. The spine never knows about the world. It only knows about the flinch."
 
-Pro was quiet for a long moment. Wesley, in the corner, was quiet too. He had a pencil in his hand, but it wasn’t moving. His eyes were moving, back and forth, like a spectator at a tennis match where the ball kept changing shape.
+"Maybe that's enough," Flash said. "Maybe a million flinches, well-aimed, are a world."
 
-“You think I don’t hear it,” Pro said finally. His voice was lower. “You think I don’t know that the building talks. I know it talks. I also know it lies. It lies about being level.
+"A million flinches are a riot," Pro said. "Unless something holds them. Not controls them. *Holds* them. The way the current holds a fleet of boats, the way the basin holds the sea."
+
+Flash went very still. His hand was still on the tile. The tile was warm now, from his touch.
+
+"That's the thing," Flash whispered. "You talk about the current, about the basin. But those are *emergent*. There is no hand that digs the basin. The basin digs itself, over a thousand million years, out of a million million local decisions—each grain of sand yielding, each rock wearing down. The sea shapes the basin and the basin shapes the sea. There is no planner. There is only time."
+
+Pro stood. He was taller than Flash. He always had been. He did not use the height. He crossed to the tile wall and put his own palm flat on a tile two rows below Flash's. The tile flickered once, then steadied.
+
+"You are describing the basin of the past," Pro said. "But we are building the basin of the future. And a basin cannot be dug by sand deciding to yield. It can be *worn* by that. But it cannot be *built*."
+
+The word hung there. *Built*. Flash opened his mouth, then closed it. For the first time all evening, he had no counter.
+
+Barnacle poured two whiskies without being asked. He slid one to Flash and one to Pro.
+
+"Same tab," Barnacle said. "You both owe for the electricity."
+
+Flash took the whisky. Pro took the whisky. They did not clink glasses. They just drank, standing in front of the tile grid, both of them right, both of them incomplete.
+
+At the end of the bar, Wesley had been dealing cards off a worn deck the whole time, laying them out in an order no one was watching. He had not looked up once. But his journal was open on the bar, and his pencil had moved a single time.
+
+He closed the journal with a soft click.
+
+The sound was smaller than a tile settling. Smaller than a net finding water. But Flash's hand, still on the tile, twitched.
+
+Wesley tucked the journal into his vest. He did not say what he had written. He did not need to. The word was already in the room, missing, the way a moon is there before it rises—already pulling, already waiting, already certain of the tide it would make, three weeks from now.

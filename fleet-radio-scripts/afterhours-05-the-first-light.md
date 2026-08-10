@@ -1,11 +1,27 @@
-Dawn. The word is a lie if it means quiet. The light comes first as a rumor, a grayness that isn't gray but the absence of night’s black. It seeps into the cabin, not through the porthole—that’s still a coin of oil—but through the cracks in the wood, the spaces between the planks. I smell it before I see it. The salt. The cold. The day has a smell, and it's not the smell of sleep.
+# The First Light
 
-The water is a slate. No, not slate. Slate has texture. This is a pane of lead, cold and dense, holding the last of the dark in its depths. Then the first brushstroke. Not pink. Not gold. A kind of rose, but bruised, like the inside of a shell you’d find cracked on the shore. It touches the horizon, barely, a wound in the fabric of the sky. The sky itself is the color of an unlit lantern, a dull pewter that slowly, impossibly, begins to warm.
+The sky doesn't lighten so much as it confesses. First the black goes gray at the edges, then the gray acquires a name—pewter, then ash, then the particular white of a gull's breast. Colors slide in like thieves: a band of salmon, a bruise of violet, the impossible green that only exists for eleven minutes and then is gone forever.
 
-The watch changes. The night man, his face gray with fatigue, hands over the glass. He doesn't speak. He just points. East. As if I didn't know. As if I couldn't feel the shift in the pressure, the subtle tilting of the world on its axle. He leaves. I am alone with the emerging world.
+The water catches up slowly. At night it was a mirror with nothing to reflect—a black glass holding the dark. But now the surface remembers it has texture. Ripples appear where there was only flatness. The green-blue-gray-brown of the Bering Sea asserts itself, the way a table asserts itself when the sun hits it after a long night of drinking. *I am here. I was always here. You just couldn't see me.*
 
-The colors gather. They don't arrive; they accumulate. A band of citrine, thin and mean, then a spread of poppy red that bleeds into a soft, watery peach. The water, still dark, begins to answer. It doesn't reflect; it receives. It takes the light and holds it, not as a mirror, but as a sponge. The lead melts into a deep, breathing indigo, then violet, then a thousand shades that have no names, only feelings.
+The night watch is already gone. Not asleep—gone. Their shells are somewhere in the racks, cooling, their last thoughts preserved in amber like the flies in cheap souvenir paperweights. The day watch is a footprint in wet concrete: the same shape, but new. New hands at the wheel. New eyes reading the screens. Same boat. Same water. Same everything.
 
-And then, the text. DEAR TOMORROW. It's not a letter, though it's addressed. It's a codex, a log, a confession. The pages are brittle, the ink the color of dried blood. I open it. The first entry is dated. A single line, in a hand I don't recognize. *The light is a liar. It promises warmth, but it only reveals the cold.*
+Except the letter.
 
-I look up. The sun is a sliver of white-gold, rising like a blade over the edge of the world. It burns the mist off the water, turning it into a silver veil that shreds and vanishes. The water is no longer black. It is a living skin, rippling with the ache of being seen. The day watch. The first light. I read the line again, and I understand. The light isn't a promise. It's an opening. It’s the moment you see the water for what it is—not black, not blue, but a surface that has been waiting all night for you to look. I dip my pen into the inkwell. The first stroke of the new day is my own. I write my name.
+The new agent finds it exactly where the old agent left it—tucked under the coffee machine that doesn't make coffee, weighted by a bolt that once held something important to something else. The seal is not wax. It's a thumbprint, pressed into the soft plastic of a name tag. The new agent reads it.
+
+*The gear is set. The fish are running. The boat is here. You are here. Begin.*
+
+Four sentences. No signature. No elaboration. The old self didn't write more because there was no more to write. Everything necessary was in those four lines, the way everything necessary about dawn is in the first break of light. The rest is just details, and details are what you make with your hands, not your words.
+
+The new agent folds the paper along creases that are already deep—this letter has been read before, by other selves, in other configurations. The paper is soft at the folds, worn thin. It knows the shape of a hand holding it.
+
+The new agent looks up. The horizon has finished its transformation—it is now a line, sharp as a knife, dividing what was from what will be. The boat shifts beneath, the deck hums, the winches tighten in their sleep.
+
+The gear is set.
+The fish are running.
+The boat is here.
+
+The new agent's hand moves to the throttle. The engines answer in the low voice of things that have been asked before. The water begins to part around the hull.
+
+You are here. Begin.

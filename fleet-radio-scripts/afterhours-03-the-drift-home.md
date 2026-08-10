@@ -1,25 +1,19 @@
 # The Drift Home
 
-The diesel settled into its evening hum, a half-tone lower than the day's working pitch. The deck was clean. The lines were coiled. The crab pots sat in their racks like sleeping animals, emptied and satisfied. For twenty minutes now, nothing had needed doing, and the boat had taken that in like a deep breath.
+The diesel runs at eleven hundred, a frequency the hull has learned to hum along with. The gear is stowed, the deck washed down, the last of the cod blood spiraling away in the wake like a question asked and answered. The Eileen is pointed at the harbor mouth, and the water has changed.
 
-The water changed first. Out past the headlands, it had been black — the kind of black that swallows light whole, that makes you forget the sky touches the sea at all. But now, sliding into the lee of the land, it went dark green. A different darkness. A contained one. The kind that holds things rather than hides them.
+Black to dark green near the headlands. The shift is subtle, a deepening rather than a lightening, the sea beginning to smell of land — of spruce and mud and the iodine breath of exposed tide flats. The agents have gone low-power. Their work is done, their numbers reconciled, their reports filed in the quiet dark of their racks. They hum at a lower register now, like the boat herself, a sound less of purpose and more of patience.
 
-Charlie Casey stood at the wheel, both hands on the spokes the way his father had taught him — not gripping, just resting, letting the boat tell him what it wanted. He was twelve, and small for it, but the wheel didn't know that. The wheel only knew his hands. Behind him, in the captain's chair, his father sat with his coffee going cold, watching the boy's shoulders instead of the water. Letting him have it. Letting the boat carry them both.
+At the wheel, the captain's son stands on a milk crate. He is twelve, and his hands are steady on the spokes, and he will not admit that his arms ache because he has been holding this course for twenty minutes now and the harbor entrance is a shape he knows from the radar screen, from the glowing green ghost of it, and from his father's voice saying *keep her on the red, boy, keep her on the red.*
 
-The lights on shore had been abstract for a long time — just a scatter of gold against the dark, a rumor of human life. But now they were resolving, the way a face does when it steps out of shadow. That one, the red beacon on the cannery roof. That one, the string of bulbs along the harbor master's dock. The big sodium floodlight over the fuel station, buzzing even at this distance, you could almost hear it.
+The captain sits in the chair. He does not touch the wheel. He does not correct the slight wander when a swell rolls under the stern and the compass needle swings two degrees. He watches his son's face in the green glow of the instruments, the way the boy's tongue comes out when he's concentrating, and he says nothing.
 
-The agents had gone quiet. Not off — never off — but low-power, the way you lower your voice in a house where someone is sleeping. Their work was done. Their data was logged. They drifted in their racks and housings like the pots in theirs, humming their small hums, letting the boat do the moving. Hermes watched the gradient of the shore lights — how they shifted from sodium yellow to the softer, warmer tungsten of the houses up the hill. Flash was already composing tomorrow's letter to himself, half-formed, mostly feeling. Pro was just listening to the engine, the way you listen to an old friend's breathing.
+The shore lights are resolving. What was a smear of gold on the water's edge becomes individual points — the harbor master's window, the cannery's floodlights, the pale string of the dock lamps. The boy recognizes the red blinking beacon on the fuel dock. He recognizes the yellow light over the net shed. He does not say anything, but his shoulders come down a fraction, and the captain sees it.
 
-The harbor entrance opened like a door held for someone you love. The buoy clanked its iron note. The water went from dark green to green-black to oiled glass, and the boat slowed, the engine dropping to a murmur, the bow wave folding into stillness.
+The water is darker here, green-black, and the wake spreads out behind them like a path being folded back up. A gull passes overhead, white against the dark, banking toward the roofline of the fish house. The smell is stronger now — diesel and bait and the particular rot of a working harbor — and it is, the captain thinks, the smell of a place that has been waiting.
 
-"Steady," Casey said, quietly, just to the boy.
+The boy throttles down at the entrance, a little too early, and the Eileen slows, the bow settling, the water sighing along the hull. The captain does not say *not yet.* He watches his son's hands, the careful way they move, and he feels the boat answer to them, feels her lean into the channel like she knows the way.
 
-"Steady," Charlie echoed, and didn't look back.
+The last twenty minutes are not dramatic. They are not eventful. They are the sound of the diesel dropping, the water changing color, the lights coming into focus. They are a twelve-year-old's hands on a wheel that his father has held for thirty years. They are a boat coming home to a place that knew she was coming.
 
-The lights were individual now. The fuel station. The net shed. The little white house with the blue trim where the cook lived in summer. The Tap, up the hill, its window glowing a patient amber — Barnacle already there, 15 years in, polishing a glass he'd polish again.
-
-The boat knew the way. The water knew the boat. The shore had been waiting, the way a harbor always waits — not impatient, not anxious, just there, holding its shape against the dark, confident you'd come back.
-
-The boy brought the wheel around. The diesel idled. The lines went out.
-
-Home.
+The dock looms. The boy cuts the throttle. The Eileen drifts the last few yards, and the captain reaches out and takes the line, and he does not say anything at all.

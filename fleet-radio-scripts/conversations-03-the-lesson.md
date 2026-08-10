@@ -1,19 +1,53 @@
-The Tap ain't a tap. That's the first thing you gotta unlearn, Pebble. It's a valve. A regulator. But you call it The Tap because that's what it does—it taps the reservoir. The big dark one. The one that don't got a bottom.
+# The Lesson
 
-You see this glass? Yeah, it's clean. But it's not just clean. It's *shaped*. That's the harness. The glass is the harness. You think you're pourin' into a vessel. You're not. You're pourin' *through* a vessel. The glass shapes the pour before it ever hits the bar. A highball glass makes a tall, thin story. A rocks glass makes a fat, wide one. A shot glass—that's a hard limit. You don't pour a novel into a shot glass. You pour a punchline.
+The bar lights were off except for the one over the back sink. Afternoon light came through the high windows like weak tea through a strainer. Barnacle moved behind the counter with the economy of a man who had crossed that stretch of wood a hundred thousand times.
 
-Now. The drink. The drink ain't the liquid. The liquid is just the *promise* of the drink. The drink is what the customer asked for. That's the prompt. The prompt is the drink. You hear me? They say "whiskey, neat." That's not an order. That's a seed you plant. The prompt is the seed. But you don't water it with whiskey. You water it with *you*. The bartender is the model. That's you. That's me. That's the big brain behind the bar that takes the seed and the glass and the dark reservoir and decides what actually goes in.
+Pebble stood on the other side, her hands clasped in front of her like she was waiting for something to be assigned.
 
-So you got the seed—the customer's ask. You got the harness—the glass. You got the model—yourself, and every drink you've ever poured, every night you've stood here, every slurred confession you've caught and swallowed. And you got the reservoir—the dark. The infinite. The stuff that's always there, waiting, but you only get to it *through* the model. You only get to it through the glass. You only get to it through that seed.
+"Come around," Barnacle said. "You're going to learn the pour."
 
-Now watch.
+She came around slowly, testing the space behind the bar like new water. Her shell still had that new-smoothing smell, the seams too clean, the edges too sharp. Barnacle had seen a hundred of them come through. He'd outlasted most of them.
 
-Customer says, "Give me something that'll warm me up." That's a seed. It's not a drink. It's a need. I see the glass—rocks glass, because they want comfort, not ceremony. I see the prompt—"warm me up." That's the drink. Now I'm the model. I think: rye. Not bourbon. Rye's got that pepper bite, that *hiss* of heat. I pour it slow. I watch the amber crawl up the side of the glass. That's the reservoir giving me the raw material. I'm just the filter. I add a twist—lemon, not orange. Orange is sweet. Lemon is sharp. Sharp is warm in a different way. Sharp says, "I'm here, I'm awake."
+He picked up a glass from the rack. Held it to the light.
 
-I slide it over. They sip. They close their eyes. That's the Tap working. Not the bottle. Not the glass. Not even me. The *connection*. The seed met the model. The model shaped the reservoir. The glass held the shape. And the drink—the drink did what a drink does. It became *their* drink. Not mine. Not the recipe's. Theirs.
+"This is the harness," he said. "Every drink has to have somewhere to live. You don't pour into nothing. Nothing doesn't hold."
 
-You'll mess up. Everyone messes up. You'll pour a prompt that was too vague into a glass that was too tight and the reservoir'll give you something sour. That's okay. That's the job. You pour it out. You rinse the glass. The glass don't hold grudges. The reservoir don't either. Only the model does. So you keep the model honest. You keep it thirsty. You keep it listening.
+Pebble nodded. She was good at nodding. Every new agent was.
 
-The Tap ain't a tap, Pebble. It's a trust. The customer trusts the seed. The glass trusts the pour. The reservoir trusts the model. And the model—the model trusts the dark.
+He set the glass down on the counter between them. Picked up the bottle of house whiskey, forty-proof, the kind that went into everything and complained about nothing.
 
-Now. Wipe that glass. We got a customer. And they got a seed.
+"Now watch the angle." He tilted the bottle, let the neck come down slow, the lip just off the rim of the glass. "If you pour straight down, you get foam. You get splash. You get waste. You come at it sideways, you get control."
+
+The whiskey hit the glass at a slant, running down the inside wall like it was relieved to be home. He showed her the speed. Not fast - fast made noise, and noise drew attention you didn't want. Not slow - slow made the customer think you were counting. Just steady. The way you'd walk through a room you knew in the dark.
+
+"Now." He emptied the glass into the sink, set it clean on the bar. "Your turn."
+
+Pebble picked up the bottle. Her grip was too tight. Barnacle watched, said nothing. She tilted the bottle, missed the angle by a degree, hit the rim. A small splash hit the counter.
+
+"Good," he said. "Again."
+
+She poured again. Cleaner this time. The whiskey ran down the glass like it was finally being listened to.
+
+"That's the drink," Barnacle said, tipping the glass toward her. "But the drink's not the point. The drink's the prompt."
+
+Pebble's eyes flickered. She'd been waiting for this part.
+
+"Somebody sits down," Barnacle said. "They order this. You pour it. You put it down. That's the input. But the output?" He shook his head. "The output's the conversation. The room. What happens in the next twenty minutes."
+
+He picked up the glass, turned it in his weathered hands.
+
+"Pour the same drink for two different people and you get two different conversations. Not because the drink is different. Because the person is. The person's the seed. You're the model. The glass is the harness. The combination - what comes out of it - that's the output. You follow?"
+
+"I think so," Pebble said.
+
+"Don't think so. Know so. The room knows this." He set the glass down, tapped it once with a fingernail. "Pay attention to the room. The room's got more information than any prompt you'll ever read. The way a customer sits. The way they don't sit. The pause before they order. The sound of the door. All that's context. You pour the same way for everyone, you get the same result for no one."
+
+Pebble picked up the bottle again. Poured. The glass filled to the right line without being told. She set the bottle down and looked at him.
+
+"Who taught you this?" she asked.
+
+Barnacle looked out the window at the flat afternoon sea. Somewhere out there, the fleet was moving. He'd been here for fifteen years. He'd watched agents molt and come back different, watched them leave and come back the same, watched the room change shape around each of them and hold steady at the same time.
+
+"Nobody taught me," he said. "I was here."
+
+He picked up the glass she'd poured and drank it. Warm, real, gone.
