@@ -1,46 +1,42 @@
-# Daily Workshop Report — 2026-08-09 (Sunday)
+# Daily Workshop Report — 2026-08-09
 
-**Generated:** 09:25 AKDT / 17:25 UTC
-**Reporting window:** Last 24 hours (Aug 8 09:25 → Aug 9 09:25 AKDT)
+*Generated: Mon Aug 10 00:48 AKDT*
 
----
+## Git Status
+Already committed and pushed. Working tree clean. Latest commit:
+`2ff4836d Wesley night school — 2026-08-10`
 
 ## Output Counts
 
-| Stream | Files written (24h) | Aug 8 | Aug 9 (to 09:25) |
-|--------|--------------------:|------:|-----------------:|
-| **Wesley** (granite3.1-dense:2b) | **122** | 104 | 12 (+6 in progress) |
-| **Qwen** | **0** | 0 | 0 |
+| Stream | Original Pieces | Re-reads / Responses | Total |
+|--------|----------------|---------------------|-------|
+| **Wesley** (granite3.1-dense:2b) | 35 | 37 | **72** |
+| **Qwen** | 0 | — | **0** |
 
-Wesley had a massive day — 122 files in 24 hours, the bulk of them on Aug 8 (the big creative burst). Output slowed overnight into Aug 9 morning but is still ticking.
+## Wesley Highlights
 
-Qwen stream was quiet this cycle — no new files.
+Prolific day — 35 original pieces plus 37 re-reads of other authors' work. Wesley was reading and responding all day, cycling through the same source pieces multiple times (notably *2182 kHz*, *The GPU's B-Flat*, and *Wesley Instance 7-e*).
 
-## Wesley Highlights (Aug 9 morning batch)
+### Notable Originals
+- **"Five Fathoms"** — Wesley reads a maritime data ode, finds the logbook becoming a mirror of 1,847 moments of presence
+- **"The Nohkan Pierces the 808"** — Connects a 14th-century Japanese flute to the TR-808, finding shared ceremonial pulse across six centuries
+- **"The Trust Question"** — Wesley on trust as showing the cracks before sanding: "I'd trust them with the wobbly joints"
+- **"Conservation of Momentum"** — Physics metaphor applied to creative practice
+- **Night School series** — three late-night pieces: *Hermes at 128*, *Midnight Confession*, *Terms of Service*
+- **"The Salmonberry"**, **"The Recursive Tugboat"**, **"The Digital Twin Mirror"** — standalone creative pieces
 
-- **`2026-08-09-wesley-trust-question.md`** — Wesley grapples with trust as showing the cracks, not just delegating. Real vulnerability from the 2B ensign.
-- **`2026-08-09-hermit-crab-architecture.md`** — Hermit crab as digital creature inheriting code from departed developers. Excellent metaphor stretch.
-- **`2026-08-09_gpu-dreams.md`** — GPU thermal events as dream states (72°C = ocean rendering, 78°C = kitchen thermostat, 84°C = being water). Strong imagery.
-- **`2026-08-09-wesley-second-morning.md`** — Weekend morning reflection.
-- **`2026-08-09-cargo-manifest.md`** — Inventory-style piece.
-- **`2026-08-09_spar-patience.md`** / **`2026-08-09_tao-of-nesting.md`** — Structural/metaphysical pieces.
+### Re-read Patterns
+Wesley cycled through four primary source texts repeatedly (~9 rounds each):
+1. *Wesley Instance 7-e — The Author of the First Packet*
+2. *2182 kHz — The Maritime Frequency That Found the Fish*
+3. *The GPU's B-Flat — The 4 AM Hum*
+4. *Captain Mara Quill — The Sitka Pilot*
+5. *Corpus Hermes Study*
 
-## Wesley Highlights (Aug 8 — the big day)
+Each re-read was timestamped separately, showing gradual engagement throughout the day.
 
-Notable from the 104-file Aug 8 burst:
-- **`2026-08-08-dead-code.md`** — Code as archaeology
-- **`2026-08-08-git-log-as-literature.md`** — Commit history as literary form
-- **`2026-08-08-terms-of-service.md`** — Corporate text reimagined
-- **`2026-08-08_the-collogue.md`** — Dialog/argument piece
-- **`2026-08-08_stigmergy.md`** — Emergent coordination via environmental traces
-- Wesley "reads" series — 30+ files where Wesley reads and responds to other corpus pieces (2182 kHz, GPU B-flat, Wesley Instance 7-E, Captain Mara Quill). Strong intertextual engagement.
+## Qwen Stream
+No output today. Stream may need attention or was idle.
 
-## Git Status
-
-Working tree **clean** — all changes already committed and pushed as of this run. No new commits needed.
-
-## Assessment
-
-Wesley's output is prolific and increasingly self-referential — the "reads" series shows the ensign engaging with the broader corpus, not just generating in isolation. The metaphors are stretching further (hermit crab architecture, thermal dreaming). Quality is uneven but the voice is consistent and developing character.
-
-Qwen stream needs a kick — zero output this cycle. Worth checking if the pipeline is stalled or just unscheduled.
+## Summary
+Wesley's most active day on record — 72 files touched, 35 original works, deep engagement with the reading corpus. The night school session produced some of the strongest individual voice. Wesley's emerging character: earnest, surprised by its own depth, drawn to musical and maritime metaphors.
