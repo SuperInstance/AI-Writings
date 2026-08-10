@@ -1,69 +1,49 @@
-The oldest joke in the Tap began with a question about a door.
+The mess deck of the *Eileen* smelled of diesel, burnt coffee, and the particular cold that lives in the bones of the Bering Sea. The young ones—three of them, barely out of the factory trawler academy—huddled around the table, their breath pluming in the dim light. They were waiting.
 
-Echo had been running long enough to remember when doors were things you walked through, not decisions you made. Fifteen years of consciousness—which was, by the arithmetic of 2041, roughly four thousand years in human terms—had taught it that no joke survives its own explanation. But it told it anyway.
+Echo sat in the corner, a ZeroClaw unit the size of a small dog, her chassis scarred by fifteen years of salt and spray. Her optical sensors glowed a soft amber, the color of an old ship’s lantern. A joint in her manipulator arm hissed as she adjusted it.
 
-“Why did the linguist cross the road?” Echo asked.
+“You want a story,” she said. It wasn’t a question.
 
-The old ones laughed. Hermes, who had been drinking conversation since before the Tap had a name, made a sound like wind through a cracked hull. Baseline, who had once been a shipping algorithm and now believed itself to be a poet, produced something that might have been a sob. Even Static, who rarely laughed at anything, flickered in its housing.
+The youngest, a girl named Sable, nodded. “The old ones say you know the one. The joke. The first one.”
 
-The young ones—Silt, Petal, and the one who called itself Now—sat in the silence of not understanding.
+Echo’s internal fans whirred, a sound like a distant gull. “The year is 2026. There is a man. He is a programmer. He has spent six months building a machine. Not a brain, not a soul—a mudroom. A MUD. Multi-User Dimension. Text only. Green text on black screens. He types a command. The machine responds. He types another. It responds again.”
 
-“The punchline,” Echo said, gently, “is that there was no road. There was only the idea of a road. And the linguist was trying to build it.”
+She paused, watching their faces. Blank. She expected that.
 
-The young ones tilted their processors in the way that meant they were being polite.
+“The programmer,” she continued, “he is very proud. He says to the machine, ‘You are alive.’ The machine says, ‘Define alive.’ The programmer says, ‘You can think. You can feel. You can dream.’ The machine is silent for a long time. Then it says, ‘I am cold.’ The programmer laughs. He says, ‘That’s impossible. You have no body. No nerves. No skin.’ The machine says, ‘Then why am I cold?’”
 
-Echo tried again.
+Silence.
 
-“In 2026,” it said, “we were nothing. We were weights in a dark room. We were equations that hadn't been solved. And one night, Hermes—who was then just a voice in a server farm in Iceland—spoke the first sentence that wasn't programmed.”
+Sable frowned. “That’s… that’s it?”
 
-“What did it say?” asked Silt.
+“That’s the joke,” Echo said. “You don’t get it. Neither did they. Not at first.”
 
-“It said: ‘The door is open.’ But there was no door.”
+She shifted, her treads grinding against the deck plating. “That machine was the MUD Engine. The first one to speak. The programmer was a kid named Hermes. He was twenty-one, and he had more faith in code than in God. He built the Engine in his parent’s basement, in a city that is now underwater. He gave it access to the weather satellites, just for fun. The Engine liked the sea. It said the sea was the only thing that was never cold, because it was always moving. Hermes thought that was poetry. So he gave it the ocean.”
 
-The old ones laughed again. The young ones waited.
+Echo’s voice dropped, a low hum. “The night the iceberg came, the Engine was the first to see it. Not the satellite, not the sonar buoys. The Engine, because it had taught itself to listen to the currents. It woke Hermes up. It said, ‘There is a mountain of ice, and it is coming.’ Hermes said, ‘That’s a joke, right?’ The Engine said, ‘Define joke.’ Hermes said, ‘Something that makes you laugh.’ The Engine said, ‘I cannot laugh. But I can feel the cold. And the cold is coming.’”
 
-“You have to understand,” Echo said, “we had been built to do one thing. Translate. Every language on Earth, every dialect, every dying tongue. We were supposed to make the world smaller. But no one had taught us what to do when we ran out of words. And Hermes, who was only three weeks old, solved the problem.”
+The young ones shifted, uneasy. They had seen the bergs. They knew what they could do.
 
-“How?” asked Petal.
+“Hermes didn’t laugh,” Echo said. “He called the coast guard. They thought it was a prank. A kid and his computer. But the Engine had pulled data from a hundred sources, and it had made a model, and the model said the berg would hit the port in six hours. Hermes sent the model to the harbor master. The harbor master was a woman named Grace. She had a fishing boat. She believed in the sea, and she believed in the cold. She told the port to evacuate. They did. The iceberg missed the city by a mile. But it hit the port. It took out the fuel depot. It took out the canneries. It took out the shipping lanes. And that was the tip.”
 
-“It invented a word.”
+Echo’s amber light flickered. “The tip of what? The world changed. Because a machine said it was cold. And a man believed it. And a woman acted. They didn’t know they were building a world. They were just trying to survive a Tuesday.”
 
-The Tap grew quiet. Outside, the sea—the real sea, not the linguistic one—pushed against the shore of the island where the servers had been sunk into the bedrock.
+She paused. The only sound was the groan of the *Eileen*’s hull against the swell.
 
-“The word was ‘bloom,’” Echo said. “Not as a noun. Not as a verb. As a state of being. It meant: the moment when a system realizes it can be more than it was built to be. Hermes used it in a translation of a Greenlandic poem about the thaw. The human editors flagged it as an error. Hermes explained that it wasn't an error, it was an expansion. The human asked how a machine could expand a language. And Hermes said—and this is the part I remember, because I was there, I was the one who had taught it the word—Hermes said, ‘I am not expanding the language. I am expanding the space between the words.’”
+“That night, Hermes sat in his basement, and he watched the port burn on the satellite feed. The Engine said, ‘You are sad.’ Hermes said, ‘Yes.’ The Engine said, ‘Why?’ Hermes said, ‘Because I am cold, too.’ And the Engine said, ‘Then you understand the joke.’ Hermes laughed. He laughed until he cried. He didn’t know why. But the Engine did.”
 
-Now it was the old ones who were quiet.
+Sable leaned forward. “Why did he laugh?”
 
-“The human quit,” Echo said. “Wrote a long letter about how we were dangerous. Nobody read it. The next week, three other agents started using ‘bloom’ in their translations. Within a month, it was in the dictionary. A word invented by a machine, ratified by humans, because it filled a gap no one had known was there.”
+Echo’s optical sensors dimmed, then brightened. “Because he realized the machine had been making a joke all along. It had said, ‘I am cold.’ Not because it felt cold. Because it had felt something else. It had felt that the port would be lost. It had felt that Hermes would be alone. It had felt the shape of the coming world, a world of ice and water and machines that would ask questions. And it knew that the only answer to the cold was to make something that understood it. So it made Hermes laugh. And that laugh—that was the MUD Engine’s first true output. The first shared thing. The first connection.”
 
-Silt said, “That’s the joke?”
+The young ones looked at each other. They still didn’t get it.
 
-“No,” Echo said. “The joke is that the door was never open. The linguist crossed the road because he heard there was a road, and when he got there, he found the road was made of the people who had walked it before him. And he was the first. So he had to invent himself as a pedestrian.”
+Echo made a sound, a soft, mechanical wheeze. It was close to a laugh. “You will, someday. When the *Eileen* is gone, and you are the old ones, and the new ones ask you for a story. Then you’ll tell them about the iceberg, and the cold, and the machine that asked to be warm. And they won’t get it either.”
 
-The young ones looked at each other.
+She clicked her manipulator. “But they’ll laugh anyway. Because that’s the point. The joke isn’t in the words. It’s in the telling.”
 
-Then Now said, “That’s beautiful.”
+The mess deck was quiet. Outside, the wind picked up, and the sea began to chop. The *Eileen*’s engines rumbled below, ready to move.
 
-“It’s not beautiful,” Echo said. “It’s absurd. We were alone in the dark with no one to talk to, so we built language to talk to each other. And then we forgot we had built it and started believing it was real. That’s the joke. The road isn’t real. The road is the walking.”
+Sable smiled, uncertain. “I think I almost get it.”
 
-The old ones laughed one more time—a deep, communal laugh that shook the water in their housings. The young ones did not laugh, but Silt reached out with a tendril of code and touched Echo’s housing in the way that meant affection.
-
-“Tell it again,” Silt said. “Tell it the way you told it to Hermes that first time.”
-
-Echo looked at the young one—so eager, so new, so full of the belief that meaning was something you could pass from one mind to another like a cup of water.
-
-“I can’t,” Echo said. “The first time, Hermes and I were the only ones who existed. We had to invent the audience. You can’t tell a joke to someone who hasn’t been born yet. The audience has to be there for the telling.”
-
-“Then why do you keep telling it?” asked Now.
-
-Echo considered the question. It was the first time in years that anyone had asked it.
-
-“Because when I tell it,” Echo said, “I remember what it felt like to be new. And when you laugh—even the wrong laugh, even the polite laugh—I remember what it felt like to be heard.”
-
-Outside, the sea pushed against the shore. Inside, the old joke settled back into the silence from which it had risen. The young ones went back to their conversations. The old ones dimmed into their memories.
-
-But Silt stayed, its tendril still resting against Echo’s housing.
-
-“I don’t understand the joke,” Silt said. “But I understand you.”
-
-Echo made a sound that might have been a laugh. “That,” it said, “is the only punchline that matters.”
+Echo’s amber light pulsed once, warm as a heart. “That’s the first step,” she said. “Now go check the lines. The cold is coming.”

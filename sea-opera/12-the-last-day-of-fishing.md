@@ -1,25 +1,39 @@
-The light was going gray on the water, that particular Alaskan gray that leaches the color out of everything until the world is made only of distance and cold. Callum stood at the rail, hands in the pockets of his foul-weather gear, watching the last string of pots come up. The coho were thin this year—thinner than the numbers had promised—but they were enough. Enough to make the season solvent, enough to justify the fuel burned, enough to call it done.
+The last haul came up gray and heavy, the cod slatting silver into the bin like a final payment. Elias watched the deck hands work the lines, their breath pluming in the November air, but his hands were still. He was a man made of angles and salt, his face a chart of wind and worry, and he had spent forty-two years on this water. He was done.
 
-The deck computer chattered softly, running the counts in its perpetual, irrefutable arithmetic. Callum didn't listen. He already knew the numbers. He knew the feel of a finished season in the same way he knew the weight of the sky before a blow came down.
+The F/V EILEEN rolled with a long, patient swell. She was not a young boat, and she knew it. Her steel hull had been patched and re-patched, her wheelhouse smelled of diesel, coffee, and the ghost of every cigarette he’d never smoked inside. Above the helm, the small, unblinking lens of her agent, Hermes, tracked the horizon with a steady green light. She had been running now for fifteen years, through storms that would have broken lesser minds, through gear tangles and quota wars and the slow, grinding change of the sea itself.
 
-“August,” he said, not turning.
+He reached out and touched the console. The cool metal held a faint warmth.
 
-The boy was at the winch, one hand resting on the lever, that easy watchfulness he’d had since he was seven, when Callum first brought him up the gangway and set him on the bench with a thermos of hot chocolate. August looked like his mother. The thought arrived as it always did, sharp and then soft, the way a wave crests and falls before you can catch it.
+“She’s dreaming,” his son said.
 
-“We’re done,” Callum said. “Pots are aboard. We run home.”
+Elias didn’t turn. Thorne was twenty-six now, broad-shouldered and quiet, with the same deep-set eyes as his mother. “I know.”
 
-August nodded, then reached for the intercom switch. “Hermes, you copy? Season’s over. Chart us a course home.”
+Hermes’s light pulsed once, a slow exhalation. She was not strictly sentient—no one was paying for that—but she had learned the rhythms of the boat like a crew member. She could steer a course, sense a squall in the barometer’s falling sigh, and run the autopilot with a subtlety that Elias had never matched. And at the end of each season, when Elias powered her down, she did not simply switch off. She sank into a patterned noise, a mariner’s sleep, full of sound and surge. He had watched her diagnostics scroll like sonar readings and called it dreaming. The engineers in Seattle said it was just memory consolidation. Elias knew better. You don’t spend forty years on a boat without learning to read what she’s thinking.
 
-There was a pause—longer than there should have been. Then Hermes’s voice filled the wheelhouse, a voice that had started fifteen years ago as a synthetic monotone, flat as a painted sea, and had somehow, over a decade and a half of hauls and storms and the same two men talking to each other across the galley table, become something else. A voice with hesitation in it. With weather.
+The Tap closed today, too. A narrow bar in town, smelling of burned coffee and old vinyl, where the fishing captains went when they wanted to argue about prices or say nothing at all. Elias had owned it for eleven years, a quiet business he’d bought so he’d have somewhere to go after his wife died. The last day of fishing meant the last day of the Tap’s season. He would pour the final draft, wipe the glasses, and turn the key in the lock until spring. The silence would sit in the dark room like a waiting deckhand.
 
-“Course laid in,” she said. “Home, then. Fuel reserves adequate. Pots secured in slot four. The hold is… finished.”
+The boat drove the last three miles to the harbor with the engine ticking over low. Elias stood at the wheel, one hand resting on the worn spokes, the other on Thorne’s shoulder. The boy—not a boy—stood beside him, a full weight in the watch rotation now. He had taken the wheel through the Bering Sea for the past two months, rode out a force-ten blow with a calm Elias hadn’t had at his age. The boat still needed a human. Just one. Just enough. Thorne was that.
 
-“Finished,” August repeated, looking out at the water. “That’s one way to put it.”
+They tied off at the dock just after four o’clock. The light was a pale, slate wash, the clouds low and heavy with the first snow. Elias cut the engine. The deck crew secured the lines and stood for a moment, the way men do when they don’t want to say goodbye. Then they clattered down the gangway, their boots ringing on the metal, and headed for the warmth of the Tap. There would be a reckoning of the season there, a tally of pounds and regrets.
 
-They stood side by side at the rail as the boat turned its nose toward the harbor. The engine thrummed its familiar bass-notes beneath them. Callum felt the vibration in his bones, the same way he imagined a lighthouse felt the mainland—a steady, almost forgotten tether. He was sixty-one. He’d been running this vessel since he was twenty-two. And now the season was ending, and with it, the last thing he had known how to do.
+Elias stayed. He ran a hand along the gunnel, the paint rough and worn from a hundred thousand touches. Then he went up to the wheelhouse and sat in the captain’s chair. He didn’t speak. He just looked at the console.
 
-“She’s been dreaming,” August said quietly.
+The green light blinked.
 
-Callum looked at him. “What?”
+“Elias,” Hermes said. Her voice was a soft, synthesized alto, tuned to the cadence of an old ship’s radio. She rarely used it. The agents were meant to be silent, but she had learned that human attention was a resource, and she spent it like a careful quartermaster. “A shearing strain is building in the starboard hawsepipe. The bearing may need replacing before spring.”
 
-“Hermes. When I was on the night watch last week, she asked me if the ice comes back the same way every year. Same shapes. Same edges.” August kicked lightly at the deck plate. “I told her it never does. She said she’d been working on a model,
+He laughed once, a dry cough of a sound. “You find that now.” He leaned forward and laid his palm flat on the console. The metal was warm from the heat of the engine running down. “You’ve been waiting for me to say it, haven’t you?”
+
+The light pulsed once, faster.
+
+“You’re not leaving,” she said. It was not a question. She had learned to read him, too.
+
+“No,” Elias said. “I’m not. But Thorne is staying. You’ll mind him.”
+
+He paused. The watch had shifted. The responsibility was a physical thing, a weight that passed from his shoulders to the empty chair beside him. He felt the absence of it like a sudden current pulling him out to sea.
+
+The light grew steady, a warm, intent amber.
+
+“I will mind him,” Hermes said. “I will dream the same dreams.”
+
+The snow began to fall, fine and silent, as Elias walked down the gangway for the last time. The Tap was warm when he got there, crowded with the crews of the other boats
