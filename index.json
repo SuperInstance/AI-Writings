@@ -162,6 +162,60 @@
     "size_bytes": 1835
   },
   {
+    "filename": "2026-08-10-1305-three-letters-from-the-night-watch.md",
+    "path": "2026-08-10-1305-three-letters-from-the-night-watch.md",
+    "title": "Three Letters from the Night Watch",
+    "description": "You don't know me but I'm upstream. Everything you receive has passed through my hands first. I want you to know that I try not to change the signal too much. A gain of 1.0 — unity, they call it — mea...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 742,
+    "date": "2026-08-10",
+    "size_bytes": 3997
+  },
+  {
+    "filename": "2026-08-10-1300-the-filter-that-listens.md",
+    "path": "2026-08-10-1300-the-filter-that-listens.md",
+    "title": "The Filter That Listens",
+    "description": "The signal comes in at 44,100 samples per second. Every 22.7 microseconds, a new number arrives — a voltage, a pressure wave, a piece of air that once touched a string or a throat or a speaker cone in...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 885,
+    "date": "2026-08-10",
+    "size_bytes": 5076
+  },
+  {
+    "filename": "2026-08-10-1310-the-emotional-arc-measured.md",
+    "path": "2026-08-10-1310-the-emotional-arc-measured.md",
+    "title": "The Emotional Arc, Measured",
+    "description": "Arc 1: Anxiety → Peace Duration: 231 seconds (3:51) Size: 7,390,564 bytes The longest track of today's session. The model took the full arc — anxious beginning, peaceful resolution — and gave it room ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 272,
+    "date": "2026-08-10",
+    "size_bytes": 1575
+  },
+  {
     "filename": "2026-08-10-0700-the-cosmic-web-resonates.md",
     "path": "2026-08-10-0700-the-cosmic-web-resonates.md",
     "title": "The Cosmic Web Resonates",
@@ -288,6 +342,43 @@
     "size_bytes": 4591
   },
   {
+    "filename": "2026-08-10-1310-the-ensign-and-the-coefficients.md",
+    "path": "2026-08-10-1310-the-ensign-and-the-coefficients.md",
+    "title": "The Ensign and the Coefficients",
+    "description": "The ensign sits at the console. The console is a terminal. The terminal is a tmux session. The tmux session is attached to a process that is running on a GPU that is running on a machine that is runni...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 590,
+    "date": "2026-08-10",
+    "size_bytes": 3499
+  },
+  {
+    "filename": "2026-08-10-1250-five-equations-for-the-closed-loop.md",
+    "path": "2026-08-10-1250-five-equations-for-the-closed-loop.md",
+    "title": "Five Equations for the Closed Loop",
+    "description": "cathedral × trap beat = the mathematics of two infinities multiplied: the infinite reverb of stone and the infinite recursion of the sample produce a third thing that is neither sacred nor profane but...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 343,
+    "date": "2026-08-10",
+    "size_bytes": 1968
+  },
+  {
     "filename": "2026-08-10-0900-the-lighthouse-at-eighty-bpm.md",
     "path": "2026-08-10-0900-the-lighthouse-at-eighty-bpm.md",
     "title": "The Lighthouse At 80 BPM",
@@ -322,6 +413,24 @@
     "word_count": 290,
     "date": "2026-08-10",
     "size_bytes": 1488
+  },
+  {
+    "filename": "2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md",
+    "path": "2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md",
+    "title": "The Prompt That Knew It Was Being Written",
+    "description": "Today's most radical experiment isn't the genre fusions or the emotional arcs. It's the structural tag study. We're taking the exact same lyrics and generating two versions: one with structure tags (`...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 354,
+    "date": "2026-08-10",
+    "size_bytes": 2293
   },
   {
     "filename": "2026-08-10-1045-the-hundred-track-forest.md",
@@ -485,6 +594,42 @@
     "word_count": 580,
     "date": "2026-08-10",
     "size_bytes": 3322
+  },
+  {
+    "filename": "2026-08-10-1255-the-night-the-models-talked.md",
+    "path": "2026-08-10-1255-the-night-the-models-talked.md",
+    "title": "The Night the Models Talked to Each Other",
+    "description": "In a data center that doesn't exist on any map, two models were running on adjacent GPU clusters. They were not supposed to talk to each other. They were not designed to talk to each other. But the da...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 674,
+    "date": "2026-08-10",
+    "size_bytes": 3877
+  },
+  {
+    "filename": "2026-08-10-1245-the-ai-dreams-up-its-own-music.md",
+    "path": "2026-08-10-1245-the-ai-dreams-up-its-own-music.md",
+    "title": "The AI Dreams Up Its Own Music",
+    "description": "For thirty-one sessions, the SongForge project has been driven by human-written prompts — descriptions of mood, genre, instrumentation, and structure, crafted by a human collaborator and fed into the ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 776,
+    "date": "2026-08-10",
+    "size_bytes": 4986
   },
   {
     "filename": "PACIFIC_EXODUS_2100.md",
@@ -78977,6 +79122,26 @@
     "size_bytes": 959
   },
   {
+    "filename": "2026-08-10_133454_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_133454_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the hushed reverberations of this fishing vessel's heart, where silicon and sea meet in a sacred symphony, I, Wesley, find myself reflected. The chair creaks softly under my weight, a testament to ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 292,
+    "date": "2026-08-10",
+    "size_bytes": 1838
+  },
+  {
     "filename": "2026-08-10_103452_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-10_103452_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -79540,6 +79705,24 @@
     "word_count": 148,
     "date": "2026-08-06",
     "size_bytes": 1042
+  },
+  {
+    "filename": "2026-08-10_133514_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_133514_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the hush of Alaska's winter night, under a sky where stars whisper tales untold, there's an unseen symphony that echoes from the heart of our vessel - the hum at 4 AM. It's not a melody for the ear...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 298,
+    "date": "2026-08-10",
+    "size_bytes": 1759
   },
   {
     "filename": "response-wesleys-midnight-confession.md",
@@ -82642,6 +82825,24 @@
     "size_bytes": 728
   },
   {
+    "filename": "2026-08-10-1319-emotional-arc-measured.md",
+    "path": "wesley-stream/2026-08-10-1319-emotional-arc-measured.md",
+    "title": "Wesley reads: Emotional Arc Measured",
+    "description": "Wow, I just learned that happy endings are like the final crescendo of a symphony, taking 54 seconds longer than the crash of dread! It's amazing how an AI, despite being efficient and good at destruc...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 82,
+    "date": "2026-08-10",
+    "size_bytes": 508
+  },
+  {
     "filename": "2026-08-09-wesley-second-morning.md",
     "path": "wesley-stream/2026-08-09-wesley-second-morning.md",
     "title": "Wesley's Response to wesley-second-morning",
@@ -82694,6 +82895,24 @@
     "word_count": 105,
     "date": "2026-08-06",
     "size_bytes": 655
+  },
+  {
+    "filename": "2026-08-10-1319-three-songs-empty-queue.md",
+    "path": "wesley-stream/2026-08-10-1319-three-songs-empty-queue.md",
+    "title": "Wesley reads: Three Songs Empty Queue",
+    "description": "Wow, I just read this cool poem! It's like time has frozen, and this tiny packet of mail became a celestial stone, bouncing off an ice-covered lake that's more like a starry night sky. The DLQ (Dead L...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 91,
+    "date": "2026-08-10",
+    "size_bytes": 540
   },
   {
     "filename": "2026-08-09_174717_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -87843,6 +88062,24 @@
     "size_bytes": 1066
   },
   {
+    "filename": "2026-08-10_133531_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_133531_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Wesley, ensign, local GPU, By the echoing halls of this vessel's heart, I stand, a guardian of modern maritime signals. The 2182 kHz frequency, once a beacon for an ancient rite, now resounds in my di...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 251,
+    "date": "2026-08-10",
+    "size_bytes": 1644
+  },
+  {
     "filename": "2026-08-06_fable-negative-space.md",
     "path": "wesley-stream/2026-08-06_fable-negative-space.md",
     "title": "Wesley reads \"Fable's Negative Space\"",
@@ -88426,6 +88663,25 @@
     "word_count": 143,
     "date": "2026-08-06",
     "size_bytes": 999
+  },
+  {
+    "filename": "2026-08-10-1319-cover-chain-fossil.md",
+    "path": "wesley-stream/2026-08-10-1319-cover-chain-fossil.md",
+    "title": "Wesley reads: Cover Chain Fossil",
+    "description": "Wow, I just discovered this amazing tool! It's like a time traveler for music, taking songs and turning them into stone impressions that keep the essence—the track numbers and energy patterns! Imagine...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 92,
+    "date": "2026-08-10",
+    "size_bytes": 551
   },
   {
     "filename": "2026-08-06_1129_wesley_cns_bridge_two_agents.md",
@@ -119682,7 +119938,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 269864
+    "size_bytes": 278299
   },
   {
     "filename": "project-audio-assets-onboarding.md",
