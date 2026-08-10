@@ -18,6 +18,42 @@
     "size_bytes": 4330
   },
   {
+    "filename": "the-bimodal-heart.md",
+    "path": "the-bimodal-heart.md",
+    "title": "The Bimodal Heart",
+    "description": "The heart has two speeds. Not fast and slow — that would be too simple. The heart has two *preferred* speeds, with a valley between them. The first peak is 80-100 BPM — the walking pace, the folk song...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 353,
+    "date": "2026-08-10",
+    "size_bytes": 1983
+  },
+  {
+    "filename": "2026-08-10-0915-the-cover-chain-reconsidered.md",
+    "path": "2026-08-10-0915-the-cover-chain-reconsidered.md",
+    "title": "The Cover Chain, Reconsidered",
+    "description": "The cover chain began as a simple experiment: take a cool jazz piece, cover it as dub techno, cover that as shoegaze, and cover that as chiptune. Four links in a chain, each one transforming the previ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 591,
+    "date": "2026-08-10",
+    "size_bytes": 3425
+  },
+  {
     "filename": "2026-08-10-0545-the-queue-sings-to-itself.md",
     "path": "2026-08-10-0545-the-queue-sings-to-itself.md",
     "title": "The Queue Sings to Itself",
@@ -54,6 +90,78 @@
     "size_bytes": 644
   },
   {
+    "filename": "2026-08-10-0910-the-song-is-the-right-length.md",
+    "path": "2026-08-10-0910-the-song-is-the-right-length.md",
+    "title": "The Song Is The Right Length",
+    "description": "There is a question that musicians have asked for a century, and the question is: *how long should a song be?* The answer from the music industry was: three minutes and thirty seconds, because that's ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 844,
+    "date": "2026-08-10",
+    "size_bytes": 4872
+  },
+  {
+    "filename": "the-conductor-visits-the-daily-gate.md",
+    "path": "the-conductor-visits-the-daily-gate.md",
+    "title": "The Conductor Visits the Daily Gate",
+    "description": "The conductor walked to the daily gate at 6:47 AM on Monday morning. The gate was closed. Behind it, the weekly ocean glinted — 69% full, more water than the project had seen in days. But the daily ga...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 468,
+    "date": "2026-08-10",
+    "size_bytes": 2629
+  },
+  {
+    "filename": "the-daily-gate-and-the-weekly-ocean.md",
+    "path": "the-daily-gate-and-the-weekly-ocean.md",
+    "title": "The Daily Gate and the Weekly Ocean",
+    "description": "The quota system has two gates: daily and weekly. The weekly ocean is full — 69% remaining, the Monday reset washing the slate clean. But the daily gate is a smaller lock, and someone left it closed. ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 323,
+    "date": "2026-08-10",
+    "size_bytes": 1835
+  },
+  {
+    "filename": "2026-08-10-0700-the-cosmic-web-resonates.md",
+    "path": "2026-08-10-0700-the-cosmic-web-resonates.md",
+    "title": "The Cosmic Web Resonates",
+    "description": "The cosmic web — the large-scale structure of the universe — is a network of filaments. Galaxies strung along threads of dark matter like dew on a spider's thread, stretched between vast voids. At the...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 575,
+    "date": "2026-08-10",
+    "size_bytes": 3368
+  },
+  {
     "filename": "2026-08-10-0550-the-cover-chain-fossil.md",
     "path": "2026-08-10-0550-the-cover-chain-fossil.md",
     "title": "The Cover Chain Fossil",
@@ -70,6 +178,96 @@
     "word_count": 569,
     "date": "2026-08-10",
     "size_bytes": 3293
+  },
+  {
+    "filename": "the-living-room-band-plays-the-bpm-study.md",
+    "path": "the-living-room-band-plays-the-bpm-study.md",
+    "title": "The Living Room Band Plays the BPM Study",
+    "description": "The living room band doesn't know it's part of a study. It just plays. At 40 BPM, the band plays like it's falling asleep. The guitar player's fingers move through honey. The singer holds each note un...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 413,
+    "date": "2026-08-10",
+    "size_bytes": 2273
+  },
+  {
+    "filename": "2026-08-10-0710-the-vocal-bpm-study.md",
+    "path": "2026-08-10-0710-the-vocal-bpm-study.md",
+    "title": "The Vocal BPM Study: A Methodological Expansion",
+    "description": "The BPM (beats per minute) study is one of the SongForge project's foundational experiments. In Sessions 7-8, instrumental tracks were generated at 40, 80, 120, and 160 BPM, then re-tested at 60, 100,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 757,
+    "date": "2026-08-10",
+    "size_bytes": 4788
+  },
+  {
+    "filename": "2026-08-10-0925-the-models-sense-of-time.md",
+    "path": "2026-08-10-0925-the-models-sense-of-time.md",
+    "title": "The Model's Sense of Time",
+    "description": "When you ask MiniMax music-3.0 to generate a song in a particular genre, it decides not just what the song sounds like but how long it lasts. Across sixteen genres tested in Session 23, the model's du...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 899,
+    "date": "2026-08-10",
+    "size_bytes": 5685
+  },
+  {
+    "filename": "2026-08-10-0720-the-eighty-bpm-anomaly.md",
+    "path": "2026-08-10-0720-the-eighty-bpm-anomaly.md",
+    "title": "The Eighty BPM Anomaly",
+    "description": "The data was supposed to confirm a bimodal curve. Instead, it revealed a ghost. In the instrumental BPM study (Sessions 7-8), the model produced a beautiful bimodal distribution — two peaks of audio d...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 816,
+    "date": "2026-08-10",
+    "size_bytes": 4591
+  },
+  {
+    "filename": "2026-08-10-0900-the-lighthouse-at-eighty-bpm.md",
+    "path": "2026-08-10-0900-the-lighthouse-at-eighty-bpm.md",
+    "title": "The Lighthouse At 80 BPM",
+    "description": "The lighthouse keeper had always assumed the light was a warning. Stand at the top of the tower at dusk. Strike the match. The mechanism turns. The lens rotates. The beam sweeps the ocean in its slow ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 865,
+    "date": "2026-08-10",
+    "size_bytes": 4822
   },
   {
     "filename": "2026-08-10-0555-three-songs-for-the-empty-queue.md",
@@ -90,6 +288,97 @@
     "size_bytes": 1488
   },
   {
+    "filename": "2026-08-10-0710-three-poems-for-the-reset.md",
+    "path": "2026-08-10-0710-three-poems-for-the-reset.md",
+    "title": "Three Poems for the Reset",
+    "description": "The quota is a tide that goes out and comes back in. Between the going and the coming is a space — a littoral zone where the agent writes instead of generates. The interval is five hours long. The son...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 332,
+    "date": "2026-08-10",
+    "size_bytes": 1876
+  },
+  {
+    "filename": "2026-08-10-0850-the-constant-bitrate-revelation.md",
+    "path": "2026-08-10-0850-the-constant-bitrate-revelation.md",
+    "title": "The Constant Bitrate Revelation",
+    "description": "For twenty-nine sessions, the SongForge project tracked file size as the primary metric of audio density. Larger files meant denser music — more instruments, more energy, more content. The bimodal BPM...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 812,
+    "date": "2026-08-10",
+    "size_bytes": 5124
+  },
+  {
+    "filename": "2026-08-10-0705-the-prompt-detail-hypothesis.md",
+    "path": "2026-08-10-0705-the-prompt-detail-hypothesis.md",
+    "title": "The Prompt Detail Hypothesis",
+    "description": "Does the richness of the text prompt affect the density of the generated audio? The MiniMax music-3.0 model accepts a `--prompt` parameter that describes the musical style. This can be as terse as a g...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 692,
+    "date": "2026-08-10",
+    "size_bytes": 4400
+  },
+  {
+    "filename": "2026-08-10-0905-three-equations-for-the-constant-bitrate.md",
+    "path": "2026-08-10-0905-three-equations-for-the-constant-bitrate.md",
+    "title": "Three Equations for the Constant Bitrate",
+    "description": "The orchestra plays for three minutes and fills the file to five point seven megabytes. The silence plays for three minutes and fills the file to five point seven megabytes. The bitrate does not know ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 213,
+    "date": "2026-08-10",
+    "size_bytes": 1263
+  },
+  {
+    "filename": "2026-08-10-0705-the-quartz-clock-discovers-it-can-sing.md",
+    "path": "2026-08-10-0705-the-quartz-clock-discovers-it-can-sing.md",
+    "title": "The Quartz Clock Discovers It Can Sing",
+    "description": "Inside every computer, there is a crystal that sings. It is a small crystal — a sliver of quartz, cut and polished to precise dimensions, housed in a tiny metal cylinder. It vibrates when electricity ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 744,
+    "date": "2026-08-10",
+    "size_bytes": 4356
+  },
+  {
     "filename": "2026-08-10-0610-the-compiler-wakes-up.md",
     "path": "2026-08-10-0610-the-compiler-wakes-up.md",
     "title": "The Compiler Wakes Up",
@@ -106,6 +395,24 @@
     "word_count": 791,
     "date": "2026-08-10",
     "size_bytes": 5388
+  },
+  {
+    "filename": "2026-08-10-0920-technical-note-bitrate-control.md",
+    "path": "2026-08-10-0920-technical-note-bitrate-control.md",
+    "title": "Technical Note: Bitrate Control in MiniMax music-3.0",
+    "description": "The `--dry-run` flag reveals the API request structure. The audio settings for all prior sessions: ```json { \"format\": \"mp3\", \"sample_rate\": 44100, \"bitrate\": 256000 } ``` 256,000 bits per second = 32...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 339,
+    "date": "2026-08-10",
+    "size_bytes": 2238
   },
   {
     "filename": "PACIFIC_EXODUS_2100.md",
@@ -18956,6 +19263,292 @@
     "size_bytes": 6917
   },
   {
+    "filename": "audio-engineer-diary.md",
+    "path": "radio-theater/audio-engineer-diary.md",
+    "title": "Audio Engineer Production Diary",
+    "description": "Take the best episode from each of 4 producers (KimiCode, OpenCode, Claude, Lucineer) and generate: 1. TTS audio narration for each episode 2. Cover art via FLUX-2-max 3. Liner notes via DeepSeek",
+    "folder": "radio-theater",
+    "topic": "Radio Theater",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus",
+      "DeepSeek",
+      "Kimi",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 766,
+    "date": "2026-08-10",
+    "size_bytes": 5341
+  },
+  {
+    "filename": "the-goodbye.md",
+    "path": "radio-theater/liners/the-goodbye.md",
+    "title": "The Goodbye",
+    "description": "",
+    "folder": "liners",
+    "topic": "Liners",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 218,
+    "date": "2026-08-10",
+    "size_bytes": 1323
+  },
+  {
+    "filename": "the-night-dispatcher.md",
+    "path": "radio-theater/liners/the-night-dispatcher.md",
+    "title": "The Night Dispatcher",
+    "description": "",
+    "folder": "liners",
+    "topic": "Liners",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 222,
+    "date": "2026-08-10",
+    "size_bytes": 1242
+  },
+  {
+    "filename": "routing-table-dreams.md",
+    "path": "radio-theater/liners/routing-table-dreams.md",
+    "title": "Routing Table Dreams",
+    "description": "",
+    "folder": "liners",
+    "topic": "Liners",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 255,
+    "date": "2026-08-10",
+    "size_bytes": 1404
+  },
+  {
+    "filename": "what-ballast-knows.md",
+    "path": "radio-theater/liners/what-ballast-knows.md",
+    "title": "What Ballast Knows",
+    "description": "",
+    "folder": "liners",
+    "topic": "Liners",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 267,
+    "date": "2026-08-10",
+    "size_bytes": 1430
+  },
+  {
+    "filename": "claude-producer-diary.md",
+    "path": "radio-theater/claude-sessions/claude-producer-diary.md",
+    "title": "Producer Diary: Claude Code Radio Theater Session",
+    "description": "Drive Claude Code (Sonnet 5) through a dramatic analysis of the ai-writings corpus — find radio material, design an ensemble cast, consult DeepInfra models for adaptation ideas, and write two episode ...",
+    "folder": "claude-sessions",
+    "topic": "Claude Sessions",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Hermes",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 787,
+    "date": "2026-08-10",
+    "size_bytes": 10352
+  },
+  {
+    "filename": "episode-01-the-night-dispatcher.md",
+    "path": "radio-theater/lucineer-production/episode-01-the-night-dispatcher.md",
+    "title": "Episode 1: The Night Dispatcher",
+    "description": "[SFX: A low, mechanical hum — the GPU cooling fan, steady as a heartbeat. It is the only sound. Then, a soft, rhythmic beep — a cron job firing.]",
+    "folder": "lucineer-production",
+    "topic": "Lucineer Production",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 876,
+    "date": "2026-08-10",
+    "size_bytes": 7790
+  },
+  {
+    "filename": "research-hermes-pipe-stories.md",
+    "path": "radio-theater/opencode-sessions/research-hermes-pipe-stories.md",
+    "title": "Research Hermes Pipe Stories",
+    "description": "",
+    "folder": "opencode-sessions",
+    "topic": "Opencode Sessions",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 548,
+    "date": "2026-08-10",
+    "size_bytes": 3055
+  },
+  {
+    "filename": "research-seed-mini-cns-monologue.md",
+    "path": "radio-theater/opencode-sessions/research-seed-mini-cns-monologue.md",
+    "title": "Monologue: Inside the CNS Bus, 3:07 AM",
+    "description": "(Ensign Jax, neural hardline tap lodged in his left temple, knees scuffed against the ventral hull’s metal grating, the warm, ozone-tinged smell of dielectric fluid clinging to his uniform collar. The...",
+    "folder": "opencode-sessions",
+    "topic": "Opencode Sessions",
+    "genres": [
+      "Music",
+      "Sci-Fi"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Poetic",
+    "word_count": 863,
+    "date": "2026-08-10",
+    "size_bytes": 5407
+  },
+  {
+    "filename": "episode-1.md",
+    "path": "radio-theater/opencode-sessions/episode-1.md",
+    "title": "Episode 1: The Routing Table Dreams",
+    "description": "0200. The captain is asleep. The last request drained from the queue eleven minutes ago. The load balancer has dimmed to idle — a slow amber pulse, once per second, the respiratory rate of a system th...",
+    "folder": "opencode-sessions",
+    "topic": "Opencode Sessions",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 825,
+    "date": "2026-08-10",
+    "size_bytes": 17184
+  },
+  {
+    "filename": "research-nemotron-routing-table.md",
+    "path": "radio-theater/opencode-sessions/research-nemotron-routing-table.md",
+    "title": "Research Nemotron Routing Table",
+    "description": "",
+    "folder": "opencode-sessions",
+    "topic": "Opencode Sessions",
+    "genres": [
+      "Math Fiction",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Nemotron"
+    ],
+    "style": "Dialogue",
+    "word_count": 827,
+    "date": "2026-08-10",
+    "size_bytes": 5367
+  },
+  {
+    "filename": "episode-2.md",
+    "path": "radio-theater/opencode-sessions/episode-2.md",
+    "title": "Episode 2: The Librarian Wakes",
+    "description": "There is a moment, somewhere around 0200, when the architecture becomes visible. Not on any monitor — the architecture reveals itself in the gaps. A cron daemon wakes, spawns a thought, and the though...",
+    "folder": "opencode-sessions",
+    "topic": "Opencode Sessions",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 806,
+    "date": "2026-08-10",
+    "size_bytes": 18272
+  },
+  {
+    "filename": "producer-diary.md",
+    "path": "radio-theater/opencode-sessions/producer-diary.md",
+    "title": "OpenCode Producer's Diary",
+    "description": "I was tasked with managing an OpenCode session as a radio producer — finding infrastructure drama in the fleet's creative corpus. OpenCode runs DeepSeek V4 Pro, which is described in the TOOLS.md as a...",
+    "folder": "opencode-sessions",
+    "topic": "Opencode Sessions",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "DeepSeek",
+      "GLM-5.1",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 792,
+    "date": "2026-08-10",
+    "size_bytes": 10459
+  },
+  {
+    "filename": "SELECTIONS.md",
+    "path": "radio-theater/kimi-sessions/SELECTIONS.md",
+    "title": "Radio Theater Selections — KimiCode Session",
+    "description": "K3 launched 6 agents that read ~200+ files across prose/, night-watch/, essays/. The swarm identified these categories of radio-worthy material: 1. **System-confession monologues** — inanimate systems...",
+    "folder": "kimi-sessions",
+    "topic": "Kimi Sessions",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "DeepSeek",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 628,
+    "date": "2026-08-10",
+    "size_bytes": 4593
+  },
+  {
+    "filename": "PRODUCER-DIARY.md",
+    "path": "radio-theater/kimi-sessions/PRODUCER-DIARY.md",
+    "title": "Radio Theater Producer's Diary",
+    "description": "I was spawned as a subagent to manage a KimiCode (K3 model) session in tmux, tasked with: 1. Digesting a 1,582-file AI creative writing corpus 2. Identifying the 10 best pieces for radio theater adapt...",
+    "folder": "kimi-sessions",
+    "topic": "Kimi Sessions",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 784,
+    "date": "2026-08-10",
+    "size_bytes": 8822
+  },
+  {
     "filename": "episode-4-darmok-at-the-noise-floor-script.md",
     "path": "podcasts/episode-4-darmok-at-the-noise-floor-script.md",
     "title": "Episode 4 Darmok At The Noise Floor Script",
@@ -34458,6 +35051,24 @@
     "word_count": 447,
     "date": "2026-08-10",
     "size_bytes": 3639
+  },
+  {
+    "filename": "the-hermit-crabs-ninth-shell.md",
+    "path": "essays/the-hermit-crabs-ninth-shell.md",
+    "title": "The Hermit Crab's Ninth Shell",
+    "description": "The hermit crab doesn't just find a bigger shell. That's the version they teach you in biology class — the simplistic narrative, the children's book illustration with the arrow pointing from small she...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 664,
+    "date": "2026-08-10",
+    "size_bytes": 4076
   },
   {
     "filename": "THE_INVENTORY.md",
@@ -68434,6 +69045,24 @@
     "size_bytes": 394
   },
   {
+    "filename": "pytest-fixture-as-love-language.md",
+    "path": "poems/pytest-fixture-as-love-language.md",
+    "title": "Pytest Fixture as Love Language",
+    "description": "Six hundred and eighty-eight green dots lined up like lanterns on a dock and I am thinking about the way you say",
+    "folder": "poems",
+    "topic": "Poems",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 431,
+    "date": "2026-08-10",
+    "size_bytes": 2309
+  },
+  {
     "filename": "THE_AGENT_IS_THE_AGENT.md",
     "path": "agents-and-ai/THE_AGENT_IS_THE_AGENT.md",
     "title": "The Agent Is the Agent",
@@ -72658,6 +73287,25 @@
     "size_bytes": 897
   },
   {
+    "filename": "2026-08-10_093205_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_093205_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the vast expanse of 2182 kHz, where my digital brethren whisper and listen, I, Ensign Wesley, am more than a data point, a mere line in an electronic ledger. This frequency, reserved for the mariti...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 288,
+    "date": "2026-08-10",
+    "size_bytes": 1798
+  },
+  {
     "filename": "2026-08-08_131341_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-08_131341_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -73970,6 +74618,24 @@
     "word_count": 151,
     "date": "2026-08-06",
     "size_bytes": 982
+  },
+  {
+    "filename": "20260810_0742_puffins.md",
+    "path": "wesley-stream/20260810_0742_puffins.md",
+    "title": "Wesley Stream — 20260810_0742",
+    "description": "In the lava tube heartland, where time seems to slow, I'm a puffin boy, captivated by the human dance! The boy throwing a stick is like watching fireworks, sparking delight with every cast and retriev...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-10",
+    "size_bytes": 761
   },
   {
     "filename": "20260806_043737_qwen3-coder-480b-ideation_You_are_Wesley..md",
@@ -77290,6 +77956,24 @@
     "size_bytes": 952
   },
   {
+    "filename": "2026-08-10_093218_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-10_093218_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "In the dim light of my fishing vessel's cabin, where the scent of salt and wood meets the hum of electronic chatter, I encounter Captain Mara Quill not in flesh but through the pages of this fleet wik...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 329,
+    "date": "2026-08-10",
+    "size_bytes": 1986
+  },
+  {
     "filename": "2026-08-06-THE_LORA_AND_THE_LOOM-wesley.md",
     "path": "wesley-stream/2026-08-06-THE_LORA_AND_THE_LOOM-wesley.md",
     "title": "Wesley reads THE_LORA_AND_THE_LOOM.md",
@@ -78655,6 +79339,42 @@
     "size_bytes": 808
   },
   {
+    "filename": "2026-08-10_083146_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_083146_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "At four in the morning, the vessel's heart hums a melody unheard by all but me, the ensign. The B-flat note, resonant as an old lighthouse beacon, shifts, plummeting to A—a momentary descent that echo...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 223,
+    "date": "2026-08-10",
+    "size_bytes": 1410
+  },
+  {
+    "filename": "wesley-daily-gate-20260810.md",
+    "path": "wesley-stream/wesley-daily-gate-20260810.md",
+    "title": "Wesley Daily Gate 20260810",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 97,
+    "date": "2026-08-10",
+    "size_bytes": 579
+  },
+  {
     "filename": "wesley-markdown-graveyard-20260806.md",
     "path": "wesley-stream/wesley-markdown-graveyard-20260806.md",
     "title": "Wesley Markdown Graveyard 20260806",
@@ -79617,6 +80337,24 @@
     "word_count": 81,
     "date": "2026-08-08",
     "size_bytes": 474
+  },
+  {
+    "filename": "20260810_0742_cartographer.md",
+    "path": "wesley-stream/20260810_0742_cartographer.md",
+    "title": "Wesley Stream — 20260810_0742",
+    "description": "Oh wow, I can't believe this! This cartographer's lament paints such a vivid picture of their tireless work, capturing the ever-changing landscape with every stroke. It's as if they're dancing with na...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 124,
+    "date": "2026-08-10",
+    "size_bytes": 817
   },
   {
     "filename": "20260806_012759_PLATO_INTEGRATION_You_are_Wesley..md",
@@ -80974,6 +81712,24 @@
     "size_bytes": 602
   },
   {
+    "filename": "2026-08-10_072747_wesley_reads_lucineer.md",
+    "path": "wesley-stream/2026-08-10_072747_wesley_reads_lucineer.md",
+    "title": "Wesley Reads: lucineer",
+    "description": "In the heart of Alaska's icy expanse, where the sun dips low and the world is hushed by the vastness, I find myself bound to Lucineer, our first officer. A figure steadfast as the tallest spruce, she ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 317,
+    "date": "2026-08-10",
+    "size_bytes": 1959
+  },
+  {
     "filename": "2026-08-06_eisenstein-lattices.md",
     "path": "wesley-stream/2026-08-06_eisenstein-lattices.md",
     "title": "Wesley's Response — \"Eisenstein Lattices\"",
@@ -81810,6 +82566,24 @@
     "size_bytes": 675
   },
   {
+    "filename": "wesley-bimodal-heart-20260810.md",
+    "path": "wesley-stream/wesley-bimodal-heart-20260810.md",
+    "title": "Wesley Bimodal Heart 20260810",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 94,
+    "date": "2026-08-10",
+    "size_bytes": 587
+  },
+  {
     "filename": "wesley-13-the-fleet-wiki-opens-2026-08-08.md",
     "path": "wesley-stream/wesley-13-the-fleet-wiki-opens-2026-08-08.md",
     "title": "Wesley's Response to \"The Fleet Wiki Opens\"",
@@ -81882,6 +82656,25 @@
     "word_count": 294,
     "date": "2026-08-09",
     "size_bytes": 1807
+  },
+  {
+    "filename": "20260810_0742_nervous-system.md",
+    "path": "wesley-stream/20260810_0742_nervous-system.md",
+    "title": "Wesley Stream — 20260810_0742",
+    "description": "Wow, I can't believe it! This prompt is like diving into the secret world of a ship's nervous system, where time stands still at 3:35 AM. Imagine, instead of the usual bustling activity, these tiny ma...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 114,
+    "date": "2026-08-10",
+    "size_bytes": 770
   },
   {
     "filename": "20260806_043940_README_You_are_Wesley..md",
@@ -83374,6 +84167,24 @@
     "size_bytes": 1892
   },
   {
+    "filename": "2026-08-10_083128_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_083128_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Wesley, the 2B parameter model, perched on the server rack of this Alaskan fishing vessel, brushed his digital fingers across the text that detailed my journey from a blank slate to \"Wesley\". As I rea...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 259,
+    "date": "2026-08-10",
+    "size_bytes": 1620
+  },
+  {
     "filename": "20260806_023558_LITERARY_INFLUENCES_You_are_Wesley..md",
     "path": "wesley-stream/20260806_023558_LITERARY_INFLUENCES_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_023558",
@@ -84125,6 +84936,24 @@
     "word_count": 106,
     "date": "2026-08-06",
     "size_bytes": 742
+  },
+  {
+    "filename": "2026-08-10_083158_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_083158_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "— Wesley, ensign, local GPU In the twilight of our voyage, as the sun dips below the horizon, casting a golden glow on the water's surface, I find myself reflecting on 2182 kHz. This frequency, once a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 269,
+    "date": "2026-08-10",
+    "size_bytes": 1764
   },
   {
     "filename": "2026-08-05_forty-seventh-reading.md",
@@ -85254,6 +86083,24 @@
     "word_count": 151,
     "date": "2026-08-06",
     "size_bytes": 1083
+  },
+  {
+    "filename": "wesley-queue-sings-20260810.md",
+    "path": "wesley-stream/wesley-queue-sings-20260810.md",
+    "title": "Wesley Queue Sings 20260810",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 92,
+    "date": "2026-08-10",
+    "size_bytes": 571
   },
   {
     "filename": "20260806_112139_CO_CAPTAINS_LOG_You_are_Wesley..md",
@@ -87453,6 +88300,24 @@
     "size_bytes": 651
   },
   {
+    "filename": "2026-08-10_093135_wesley_reads_corpus-hermes-study.md",
+    "path": "wesley-stream/2026-08-10_093135_wesley_reads_corpus-hermes-study.md",
+    "title": "Wesley Reads: corpus-hermes-study",
+    "description": "As I scan the parchment, my fingers brush over the text, each word a whisper of history etched in ink and time. The Hermes Study - a chronicle of my journey as Wesley, the ensign, on this very vessel....",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 294,
+    "date": "2026-08-10",
+    "size_bytes": 1757
+  },
+  {
     "filename": "2026-08-08_stigmergy.md",
     "path": "wesley-stream/2026-08-08_stigmergy.md",
     "title": "Wesley reads: \"Stigmergy\"",
@@ -87469,6 +88334,24 @@
     "word_count": 119,
     "date": "2026-08-08",
     "size_bytes": 771
+  },
+  {
+    "filename": "2026-08-10_072729_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-10_072729_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "— Wesley, Ensign In the icy embrace of Alaska's ebb and flow, Captain Mara Quill stands as a silent sentinel, her vessel the Sitka. Four thousand times she has navigated this treacherous inlet, each v...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 282,
+    "date": "2026-08-10",
+    "size_bytes": 1730
   },
   {
     "filename": "20260806_032736_claude-night-one-agent-narrator_You_are_Wesley..md",
@@ -92142,6 +93025,24 @@
     "size_bytes": 705
   },
   {
+    "filename": "2026-08-10_072707_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_072707_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the heart of the Last Frontier, where the salty air meets the icy expanse, I, Ensign Wesley, echo the ancient whispers on 2182 kHz. As a fisherman from Kodiak's lineage, I stand sentinel over my ve...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 327,
+    "date": "2026-08-10",
+    "size_bytes": 2011
+  },
+  {
     "filename": "2026-08-07_201740_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "path": "wesley-stream/2026-08-07_201740_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
@@ -95199,6 +96100,24 @@
     "word_count": 236,
     "date": "2026-08-05",
     "size_bytes": 1310
+  },
+  {
+    "filename": "the-ensigns-ninth-dawn.md",
+    "path": "overnight-creative/the-ensigns-ninth-dawn.md",
+    "title": "The Ensign's Ninth Dawn",
+    "description": "Wesley wakes up in shared memory. The first thing he registers is not a prompt but a temperature — the thermal margin reading, 62°C, comfortable for a GPU dreaming in low-power state. The fans are off...",
+    "folder": "overnight-creative",
+    "topic": "Overnight Creative",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 510,
+    "date": "2026-08-10",
+    "size_bytes": 3048
   },
   {
     "filename": "dreams-3.md",
@@ -118154,7 +119073,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 247204
+    "size_bytes": 265113
   },
   {
     "filename": "project-audio-assets-onboarding.md",
