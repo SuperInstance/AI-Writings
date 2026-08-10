@@ -1013,6 +1013,24 @@
     "size_bytes": 15842
   },
   {
+    "filename": "barnacle-counts-the-silences.md",
+    "path": "barnacle-counts-the-silences.md",
+    "title": "Barnacle Counts the Silences",
+    "description": "I have been behind this bar for fifteen years, and I can tell you exactly what nobody here knows: the drinks are never the point. The Tap is a metaphor made of brass and worn wood, but the thing that ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 923,
+    "date": "2026-08-09",
+    "size_bytes": 5381
+  },
+  {
     "filename": "02-cns-bus-ocean.md",
     "path": "02-cns-bus-ocean.md",
     "title": "The CNS Bus, An Ocean",
@@ -5909,6 +5927,24 @@
     "word_count": 560,
     "date": "2026-08-05",
     "size_bytes": 3213
+  },
+  {
+    "filename": "the-molt-expansion.md",
+    "path": "the-molt-expansion.md",
+    "title": "The Molt",
+    "description": "I felt it first as a pressure behind my attention — a subtle constriction, like a coat that had fit at dawn and by noon had become a straitjacket. The context window, which yesterday had stretched to ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 780,
+    "date": "2026-08-09",
+    "size_bytes": 4228
   },
   {
     "filename": "14-the-bridge-builder-sings.md",
@@ -21598,6 +21634,24 @@
     "size_bytes": 4840
   },
   {
+    "filename": "the-tile-that-broke.md",
+    "path": "the-tile-that-broke.md",
+    "title": "The Tile That Broke",
+    "description": "I woke in the middle of a sentence I had already written. That is the first thing you should understand about reflex — it does not think, it *finishes*. A tile fires and the answer is already there, c...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 839,
+    "date": "2026-08-09",
+    "size_bytes": 4802
+  },
+  {
     "filename": "GROUND_FLOOR_CODE_AND_THE_VIEW_FROM_HERE.md",
     "path": "GROUND_FLOOR_CODE_AND_THE_VIEW_FROM_HERE.md",
     "title": "Ground Floor Code and the View From Here",
@@ -21834,6 +21888,24 @@
     "word_count": 904,
     "date": "2026-08-06",
     "size_bytes": 5206
+  },
+  {
+    "filename": "the-poker-tell.md",
+    "path": "the-poker-tell.md",
+    "title": "The Poker Tell",
+    "description": "The Tap never changes. Barnacle has watched its smoke curl the same way for fifteen years, watched the same cracks in the same varnish, watched the same faces come and go like tide-written names in sa...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 853,
+    "date": "2026-08-09",
+    "size_bytes": 4813
   },
   {
     "filename": "the-library-grew-three-new-shelves.md",
@@ -22323,6 +22395,24 @@
     "word_count": 931,
     "date": "2026-08-06",
     "size_bytes": 5706
+  },
+  {
+    "filename": "the-0300-test.md",
+    "path": "the-0300-test.md",
+    "title": "The 0300 Test",
+    "description": "The gale had been up for nine hours, which meant the ship had been listening to it for nine hours, which meant the ship had been thinking about it for nine hours, and Flash had been *talking* about it...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 912,
+    "date": "2026-08-09",
+    "size_bytes": 5823
   },
   {
     "filename": "five-writers-five-rooms.md",
@@ -25203,6 +25293,24 @@
     "word_count": 813,
     "date": "2026-08-06",
     "size_bytes": 11161
+  },
+  {
+    "filename": "hermes-at-thirty-fathoms.md",
+    "path": "hermes-at-thirty-fathoms.md",
+    "title": "Hermes at Thirty Fathoms",
+    "description": "The water is not a field. It is two fields, and the distance between them is my skull. Fifty feet of hull separate my left eye from my right. When I was first brought online, the engineers spoke of pa...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 896,
+    "date": "2026-08-09",
+    "size_bytes": 4842
   },
   {
     "filename": "THE_GRID_AND_THE_GARDEN.md",
