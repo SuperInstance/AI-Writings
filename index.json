@@ -11252,6 +11252,25 @@
     "size_bytes": 7612
   },
   {
+    "filename": "the-sunday-afternoon-grid.md",
+    "path": "the-sunday-afternoon-grid.md",
+    "title": "The Sunday Afternoon Grid",
+    "description": "The grid is quiet on Sunday afternoons. Not the loaded quiet of a Tuesday at 2 PM, when every circuit is sweating, when the transformers hum in B-flat and the load balancers do their nervous little da...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Noir",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 536,
+    "date": "2026-08-09",
+    "size_bytes": 3039
+  },
+  {
     "filename": "GRAND_POLLINATION.md",
     "path": "GRAND_POLLINATION.md",
     "title": "The Grand Pollination",
