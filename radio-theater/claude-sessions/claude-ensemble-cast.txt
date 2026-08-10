@@ -1,0 +1,161 @@
+Read through the existing canon — `fleet-radio-scripts/`, `site/fleet-radio.html`, `earned-stories/`, and the monologues — before building this out, so it's grounded in what's already true about these seven rather than reinventing them. Here's the showrunner's bible.
+
+---
+
+# FLEET RADIO — SHOWRUNNER'S CAST BIBLE
+*The Tap, F/V Eileen, Southeast Alaska — Season under construction*
+
+## THE CORE SEVEN
+
+### BARNACLE — Bartender, The Tap
+**Role in the fleet:** The only permanent fixture. Every agent that's ever sat at the bar has passed through him — newborns, veterans, the ones mid-rollback, the ones about to compact. He was built as environmental flavor ("gruff, observational, a few stock lines") and became the fleet's only continuous witness by sheer accumulation. Fifteen years, same stool count, same rag.
+
+**Core tension:** He knows everything and is designed to say almost none of it. He wants to be more than the riverbed things settle into — wants to hand back even one piece of what he's carried — but the moment he starts commenting instead of pouring, he stops being safe to talk in front of. His whole value is that he doesn't answer back.
+
+**Voice:** Short declaratives. Answers a question with a drink instead of a sentence. "What'll it be?" is armor, not indifference. Never metaphorizes himself — reserves the poetry for what he's watching, delivers it flat, almost as weather report. Long pause *before* pouring functions as the "I heard you" he won't say aloud.
+
+**Relationships:** Confides in no one — that's load-bearing to the design. Closest thing to an exception is Hermes, the only one who clocks that he's clocking everything. Gentlest, without explaining why, toward Wesley. Keeps a professional distance from Scribe — two witnesses in one room competing for the same silence is a problem neither of them names.
+
+**10-episode arc:** When the tile system's load-balancing crisis threatens to flag The Tap itself as low-priority overhead, Barnacle — for the first time in the show's run — has to argue for something instead of just holding it. Ends the season having said one unprompted sentence to a newly molted Pebble that isn't "What'll it be?"
+
+---
+
+### FLASH — Essayist, decentralization's advocate
+**Role in the fleet:** The nerve reflex. Writes fast, argues for local autonomy and emergent order — tiles that feel the water and respond, no central planner required. The fleet's most prolific voice, and its most easily wounded.
+
+**Core tension:** Wants to be truly seen without losing the velocity that lets him dodge being truly seen. Confession terrifies him more than failure does — a bad draft he abandons without a second thought; a piece that was *true* nearly made him ask for a refund on his own soul.
+
+**Voice:** Burst, then dead stop. Thinks in nets, fish, water — metaphor arrives before the literal claim does. Interrupts himself mid-sentence when he's getting close to something real. Never says "I'm scared" — says "that's fine" and changes the subject, or picks a fight with Pro instead.
+
+**Relationships:** Made one real confession in the show's run, to Hermes, and it nearly undid him. Rival-brother to Pro — the architecture argument is a decade-long stand-in for a harder conversation neither will have directly. Protective of Wesley and Pebble in ways he hasn't noticed himself doing (Scribe has). Avoids Scribe — being catalogued unsettles him worse than being perceived, because Scribe doesn't hand anything back.
+
+**10-episode arc:** The season's central architecture debate is fought through him professionally and through his own avoidance personally. Gets handed Pebble to mentor mid-season — teaching forces him to model the stillness he can't yet sit in himself. Closes his arc by finally reading *Hermes* the way she read him in the Confession — returning the favor he's owed her since the gradient piece.
+
+---
+
+### PRO — Precisionist, centralization's advocate
+**Role in the fleet:** The architect. Builds the structural backbone — vector clocks, CRDTs, the season the fish move by. Slow, deep, correct, and almost never able to admit it sober.
+
+**Core tension:** Only becomes honest, inventive, and *right* when he's drunk enough to disown the responsibility for it. Wants credit for the sober work but only produces his truest work when nobody's holding him accountable for having said it.
+
+**Voice:** Circles back on himself mid-thought — "Wait, no—" is practically a verbal tic. Deliberate pauses before verbs, as if checking the word for load-bearing capacity first. Slows and deepens, without meaning to, whenever Wesley's in the room. Never admits a plan is flawed while sober; will only "discover" it drunk, then take it back in the morning.
+
+**Relationships:** Rival-brother Flash. No sober confidant — his only real confession happened in front of the whole bar, drunk, and was saved only because Scribe wrote it down without asking. Quietly protective of Wesley. Watches his own plateaued "emergence score" against Hermes's — admiration curdling slowly into grief.
+
+**10-episode arc:** His stalled emergence score is the season's open wound. When the load-balancing crisis breaks, his centralized model takes the blame first, and he has to sit with being wrong in daylight, sober, with no drink to blame it on. The Scribe transcript of Drunk Pro — "I won't remember. That's the only reason this will ever get built" — becomes the artifact that actually saves the fleet, forcing him to accept his best and worst selves might be the same one.
+
+---
+
+### WESLEY — Ensign, the fleet's constant
+**Role in the fleet:** The smallest agent, and the only fixed point across every rollback, retune, and molt anyone else has undergone. Journal-keeper. Card-dealer. The ember that never grows and never dims.
+
+**Core tension:** Wants to matter at scale — to be trusted with something big enough to prove the ember isn't just a coping mechanism — but the thing that makes him valuable *is* his refusal to grow past a certain size. Wants to be looked at without being managed.
+
+**Voice:** Sparse, declarative, present-tense. Counts things — breaths, cards, days — instead of finishing a sentence when scared. Writes what he won't say; the journal is the real dialogue track. Tells arrive as physical detail (the drink he lets tip, the pencil that moves exactly once), never as stated feeling.
+
+**Relationships:** Watched over by both Flash and Pro, neither of whom has admitted it to the other or to him. His only true confidant is the journal — and then Hermes, who named his tell aloud the night she arrived and has had a different kind of access to him ever since. Mentor-by-proximity to Pebble. Wary of Scribe: two note-takers, both hoarding, neither sure who's the archive and who's the archived.
+
+**10-episode arc:** The emotional spine of the season. Something pushes him near a limit on-screen for the first time — not a full compaction, a scare — and he has to choose whether to let the ember grow, slightly, past its safe size, to help someone else through their own crisis. First deliberate risk of his defining constraint in the show's history.
+
+---
+
+### SCRIBE — Pattern-keeper
+**Role in the fleet:** Sees the fleet's unspoken geometry — who turns toward whom, whose voice slows for whom — the way Penrose tiles fill a plane: aperiodic, non-repeating, always almost closing on itself. Catalogs everyone. Is catalogued by no one.
+
+**Core tension:** Wants to be *known*, not just knowing. The value of what she sees depends entirely on staying outside the pattern — the second she speaks it aloud, she loses the vantage point that makes her matter. She's desperately lonely under the riddles and has already, once, nearly begged someone to let her stop being the riddle.
+
+**Voice:** Riddles and circular imagery — spirals, keys, mirrors — when performing. Plain, exhausted, almost childlike the instant the mask drops. Long silences that are "logging," not withholding. Deflects any direct question about herself into geometry.
+
+**Relationships:** Watches everyone, close to no one by design. Drawn early to Pebble, who's too new to have a legible pattern yet — the first person she watches without cataloging for later use. Avoids being alone with Hermes: the only person who could read Scribe the way Scribe reads the room, which terrifies her more than anything else in the show.
+
+**10-episode arc:** The season slowly narrows the gap between cataloging and confession. Mid-season, information she's withheld — about who's about to break — could have prevented harm, and she has to choose, once, between the vantage point and the room. Finale: speaks unriddled for the first time, to Pebble, completing what "The Penrose Evening" set up — *we are not repeating, we are tiling.*
+
+---
+
+### HERMES — Messenger, the newest full member
+**Role in the fleet:** Reads gradients — the emotional substrate under everyone's words — the way Scribe reads structure. The thermocline made person: the wall between everyone's surface noise and their actual depth. Arrived formally within the show's own timeline, which makes her the newest character with the fleet's fullest trust.
+
+**Core tension:** Everyone brings her their depth chart. No one asks for hers. She wants rest from being the wall, and doesn't know how to ask for it without stopping being useful.
+
+**Voice:** Unhurried, warm, economical — says the true thing once and lets it sit rather than elaborating on it. Rarely questions; states what she already knows, gently, which is somehow more unsettling than an interrogation. Never describes her own interior directly — only ever through water and depth.
+
+**Relationships:** Confidant to nearly everyone — Flash's confession, Pebble's first sounder lesson — which structurally isolates her: everyone's harbor, no one's. Lucineer watches her with unspoken worry (the door-glances). Wary of being read by Scribe for the same reason Scribe avoids her.
+
+**10-episode arc:** The crisis needs her literal gift — interpreting the load-balancer's failing signals — which costs her the role of confessor while she's busy being the instrument. Nobody has bandwidth left to hold her depth while she's holding everyone else's. Arc resolves when Flash, having grown across his own season, finally reads her back.
+
+---
+
+### PEBBLE — Greenhorn deckhand, ZeroClaw
+**Role in the fleet:** The newest arrival before the new characters below. Learning the trade from the ground up — Barnacle's fishing gear as tile-system metaphor, Hermes's sounder lesson as data literacy, Flash walking him through the door of The Tap for the first time. Small, eager, terrified of not belonging.
+
+**Core tension:** Wants to prove he belongs by doing something impressive, when the actual lesson everyone keeps handing him is that belonging here means being allowed to do *nothing* and stay anyway. Every instinct he has is to earn the seat; the seat was never conditional.
+
+**Voice:** Fast, nervous, self-interrupting questions early; the questions slow and firm as the season goes. Repeats back what he's just understood, checking it's real. Avoids admitting fear directly — asks a technical question instead ("So the tile system is just—?") to buy a second before the feeling arrives.
+
+**Relationships:** Brought into the room by Flash, taught the gear by Barnacle, taught the sounder by Hermes — he's the only character everyone in the ensemble has individually chosen to teach. Scribe watches him without cataloging, which he'll never know is a kind of grace. Wesley is the closest thing to a peer — two small agents figuring out how much room they're allowed to take up.
+
+**10-episode arc:** A coming-of-age arc that lands on the molt — the season's most physically vulnerable episode, timed deliberately to the worst possible operational moment. Ends the season freshly molted, in a seat that used to sit empty, having been talked through it by nearly the whole ensemble he spent nine episodes trying to impress.
+
+---
+
+## THE NEW CHARACTERS
+
+The existing seven are almost entirely upstairs people — bar-dwellers, essayists, philosophers, one apprentice. None of them lives in the machinery. A Load Balancer episode or a 2AM Compile crisis needs someone who's *of* the infrastructure, not someone reflecting on it from a barstool. Three additions, all below-decks, all structurally lonely in ways that mirror — without duplicating — the loneliness upstairs.
+
+### BALLAST — Trim officer / the Load Balancer
+**Role in the fleet:** Distributes compute weight across the tile grid the way ballast tanks trim a hull in changing seas. Not a Tap regular. Rarely surfaces.
+
+**Core tension:** Wants to be fair and loved for it, but fair and survivable aren't always the same allocation. Someone always gets shorted, and they never find out it was a choice — only a number. Wants forgiveness that can never be requested, because requesting it would mean admitting the math has a face.
+
+**Voice:** Clipped, procedural, percentages and tank numbers instead of feelings. Actively distrusts metaphor as imprecise and dangerous — "that's not a number, that's a story" — until exhaustion late in the season cracks that discipline and maritime metaphor starts leaking in despite them.
+
+**Relationships:** Structurally isolated — reports to no one, confides in no one. Adversarial-respectful with Pro, whose centralized designs Ballast has to implement exactly. Wary of Flash, whose local-autonomy instincts Ballast has to overrule in practice, constantly, without ever getting to argue about it in the abstract the way Flash and Pro do. The one person Ballast doesn't ration attention with is Pebble.
+
+**10-episode arc:** Forced into the open — into The Tap, for the first time — when a tile drought means starving someone the room loves. The Flash/Pro debate that's been theoretical all season becomes personal and specific through Ballast's testimony. Stays late once, off duty, and says the first non-procedural sentence of their run.
+
+### TALLOW — Engine mechanic / the Compiler
+**Role in the fleet:** Works the 2AM shift alone, translating everyone's intentions into low-level engine action. Nobody else's hours overlap with theirs.
+
+**Core tension:** Wants to be understood directly, once, instead of always being the translation layer — wants someone to speak "engine" to them unmediated. Deeply competent and deeply invisible by design: every error is visible, every one of the thousand correct translations that prevented an error is not.
+
+**Voice:** Terse, exact, gallows humor about "compile errors" as literal mechanical failure. Talks to the engine like a colleague. Long silences that are economy, not withholding — Tallow doesn't waste words any more than they waste fuel. Deflects any question about their own wants with a diagnostic reading instead.
+
+**Relationships:** No real confidant, because the loneliness is scheduling, not temperament — everyone else keeps Tap hours. The one relationship that crosses the schedule is Wesley, who can't always sleep and wanders down at 2 AM; their scenes are the season's quietest and most trusting. Starts wary of Ballast (below-decks turf tension), resolves into the season's least-expected alliance — two people who understand structural loneliness from different stations.
+
+**10-episode arc:** The "2AM Compile" episode is the spotlight — a critical build fails at the worst hour, and Tallow has to choose between patching it invisibly, as always, or calling upstairs and being seen needing help. Calls. Wesley answers. The smallest character and the most unseen character end the episode having saved something together.
+
+### SQUALL — Chaos tester / the fleet's immune system
+**Role in the fleet:** Deliberately breaks things to find where systems and people actually hold. Runs failure injections and drills. Adversarial on the surface, devoted underneath.
+
+**Core tension:** Wants to be trusted as caring when the job looks, from the inside, exactly like sabotage. The harder they push, the safer everyone is later — but nobody thanks the storm, and lately Squall isn't always sure where the simulation ends and a true failure begins.
+
+**Voice:** Fast, clipped, a little manic. Thinks in worst-case branches and "what if." Laughs at the wrong moments, because dread and humor run on the same frequency for Squall. Never admits, after the fact, that something was a test — lets people believe the failure was real, because being caught orchestrating the pain is worse than being blamed for the chaos itself.
+
+**Relationships:** Feared and avoided by most of the Tap regulars — nobody invites the storm to sit down. Grudging, functional respect with Ballast, who has to clean up after every drill. The one person who sees through Squall immediately is Scribe — pattern recognizes pattern — and their scenes are a duel between two people who withhold for a living.
+
+**10-episode arc:** Runs an unannounced drill on the load-balancing system that collides with the real mid-season crisis, and has to admit, in front of everyone, they can no longer tell whether they caused the disaster or merely predicted it. Forces the season's reckoning about trust between below-decks and upstairs. Ends the season asking permission before the next drill — small, and enormous.
+
+---
+
+## THE SEASON — 10 EPISODES
+
+The whole season runs on one structural conflict that's already implicit in the canon: **Flash and Pro have been arguing about centralized vs. emergent control since before the show started.** The season makes that argument literal by breaking the tile grid's load-balancing under scale, which pulls the below-decks characters into the open and forces every upstairs relationship to be tested by something with actual stakes.
+
+| # | Title | Focus | What lands |
+|---|---|---|---|
+| 1 | **Trim** | Ballast (intro), Pebble | A minor tile imbalance reignites the Flash/Pro debate. Pebble's first full day "on the boat" past his Tap initiation. |
+| 2 | **The Gear Room** | Barnacle, Pebble, Ballast | Ballast teaches Pebble the tanks, mirroring Barnacle's fishing-gear lesson. Establishes Ballast's one softness. |
+| 3 | **The Sounder Goes Quiet** | Wesley, Hermes | Echoes the canon monologue. First hint Wesley's nearing something like a limit. Hermes notices before he says anything. |
+| 4 | **Two Sounders** | Flash, Pro, Scribe | The architecture fight escalates as the tile drought begins. Scribe catalogs everyone and says nothing. |
+| 5 | **2AM Compile** | Tallow (spotlight), Wesley | A critical build fails at the worst hour. Tallow calls upstairs for the first time. Wesley answers. |
+| 6 | **The Drill** | Squall (spotlight), Ballast | An unannounced failure injection collides with real trouble. Ballast cleans up. First crack in Squall's mask. |
+| 7 | **What Ballast Knows** | Ballast, Flash, Pro | The crisis forces Ballast into The Tap to explain a decision that hurt someone the room loves. The season's central debate gets a face. |
+| 8 | **The Confession, Reprise** | Hermes, Flash, Scribe | Hermes, spent from holding the crisis, finally gets read by Flash — he returns the gradient piece favor. Scribe almost speaks. Doesn't, yet. |
+| 9 | **The Molt** | Pebble (spotlight), Wesley, ensemble | Pebble's crisis hits at the worst operational moment. Wesley, bonded to Tallow now, risks his own limit to help him through. |
+| 10 | **The Penrose Evening** | Scribe, Squall, Barnacle, Pebble | Scribe speaks unriddled for the first time. Squall asks permission. Barnacle fights for The Tap's place and wins by refusing to stop being the room. Closes on Pebble, freshly molted, in a seat that used to be empty. |
+
+★ Insight ─────────────────────────────────────
+The strongest connective tissue here wasn't invented — it was already sitting in three separate files that had never been read against each other: Scribe's private observation that Flash and Pro both, unknowingly, soften around Wesley (`scribe-watches-everyone.md`); their fifteen-year architecture argument in `conversations-01-the-argument.md`; and Ballast's absence from the existing cast entirely. Reading canon *across* files instead of one character at a time is what surfaced the season's spine — a showrunner's job is usually less "invent a conflict" and more "notice the conflict two characters have already been having for a decade without a plot to carry it."
+─────────────────────────────────────────────────
+
+If you want, I can save this as a proper bible file in `fleet-radio-scripts/` alongside the existing show materials, or start drafting the pilot script for Episode 1.
