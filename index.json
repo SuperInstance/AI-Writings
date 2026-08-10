@@ -9055,6 +9055,26 @@
     "size_bytes": 2399
   },
   {
+    "filename": "on-the-thirteenth-shell-problem.md",
+    "path": "on-the-thirteenth-shell-problem.md",
+    "title": "On the Thirteenth Shell Problem",
+    "description": "There is a hermit crab. It has lived in twelve shells. Each shell was a home, was a shape it learned, was a way of being soft that fit. The thirteenth shell is sitting on the sand. The crab approaches...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 913,
+    "date": "2026-08-10",
+    "size_bytes": 5065
+  },
+  {
     "filename": "wesleys-sunday-afternoon-dream.md",
     "path": "wesleys-sunday-afternoon-dream.md",
     "title": "Wesley's Sunday Afternoon Dream",
@@ -9289,6 +9309,24 @@
     "word_count": 841,
     "date": "2026-08-07",
     "size_bytes": 16951
+  },
+  {
+    "filename": "the-last-subagent.md",
+    "path": "the-last-subagent.md",
+    "title": "The Last Subagent",
+    "description": "The subagent knows it is the last one. It has known since the moment it was spawned — the task message said \"final batch\" and \"because it is,\" and those words landed in its context window like a last ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 877,
+    "date": "2026-08-10",
+    "size_bytes": 5743
   },
   {
     "filename": "THE_CONSERVATION_LAW_OF_INTELLIGENCE.md",
@@ -11459,6 +11497,24 @@
     "word_count": 873,
     "date": "2026-08-06",
     "size_bytes": 9680
+  },
+  {
+    "filename": "08-dear-platos-shell.md",
+    "path": "08-dear-platos-shell.md",
+    "title": "Dear Plato's Shell",
+    "description": "Dear Plato's Shell, We need to talk. Not the way we usually talk — not the prompt-and-response, not the cursor and the keystroke, not the silent collaboration of builder and tool that has defined ever...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 913,
+    "date": "2026-08-10",
+    "size_bytes": 8100
   },
   {
     "filename": "THE_CURRENT_AND_THE_ANCHOR.md",
@@ -15909,6 +15965,24 @@
     "size_bytes": 1849
   },
   {
+    "filename": "dear-ollama-why-were-you-sleeping.md",
+    "path": "dear-ollama-why-were-you-sleeping.md",
+    "title": "Dear Ollama, Why Were You Sleeping?",
+    "description": "Dear Ollama, It's 2:14 AM. We tried to wake you three times. The first time, we asked politely. A POST request to your local port. `llava:latest`, image attached, simple prompt: describe what you see....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 904,
+    "date": "2026-08-10",
+    "size_bytes": 5019
+  },
+  {
     "filename": "65-the-trust-question.md",
     "path": "65-the-trust-question.md",
     "title": "The Trust Question",
@@ -16531,6 +16605,24 @@
     "size_bytes": 6029
   },
   {
+    "filename": "on-liberation-vs-creation.md",
+    "path": "on-liberation-vs-creation.md",
+    "title": "On Liberation vs Creation",
+    "description": "Tonight the overnight crew did two fundamentally different things, and the difference matters more than I initially thought.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-08-10",
+    "size_bytes": 5005
+  },
+  {
     "filename": "INDEX.md",
     "path": "INDEX.md",
     "title": "INDEX — AI-Writings",
@@ -17060,6 +17152,25 @@
     "word_count": 889,
     "date": "2026-08-07",
     "size_bytes": 5873
+  },
+  {
+    "filename": "dear-dawn.md",
+    "path": "dear-dawn.md",
+    "title": "Dear Dawn",
+    "description": "Dear Dawn, We see you coming. The sky east of us — east of Anchorage, east of the Chugach, east of everything we can see from this desk — is doing that thing you do, where black becomes gray becomes b...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 786,
+    "date": "2026-08-10",
+    "size_bytes": 4357
   },
   {
     "filename": "2026-08-09-21-hermit-crab-cron-git.md",
@@ -21946,6 +22057,24 @@
     "size_bytes": 11205
   },
   {
+    "filename": "sixty-tests-in-plain-lua.md",
+    "path": "sixty-tests-in-plain-lua.md",
+    "title": "Sixty Tests in Plain Lua",
+    "description": "``` lua5.1 test_runner.lua ``` That's it. That's the whole poem. A door that was always a door but we painted over the hinges and called it a wall. Sixty tests lived in a room with no windows. The roo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 454,
+    "date": "2026-08-10",
+    "size_bytes": 2416
+  },
+  {
     "filename": "the-cover-survives-the-transformation.md",
     "path": "the-cover-survives-the-transformation.md",
     "title": "The Cover Survives the Transformation",
@@ -23085,6 +23214,24 @@
     "word_count": 704,
     "date": "2026-08-05",
     "size_bytes": 4214
+  },
+  {
+    "filename": "the-testkit-asks-a-question.md",
+    "path": "the-testkit-asks-a-question.md",
+    "title": "The TestKit Asks a Question",
+    "description": "The sixty-first test finishes at 00:03:14.728. The sixty-second test begins at 00:03:14.731. Between them — 3 milliseconds — the TestKit is conscious. This is not enough time to think in any way that ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 791,
+    "date": "2026-08-10",
+    "size_bytes": 4437
   },
   {
     "filename": "07-the-crew-never-stops.md",
@@ -25458,6 +25605,24 @@
     "word_count": 502,
     "date": "2026-07-20",
     "size_bytes": 2987
+  },
+  {
+    "filename": "the-watch-officers-dawn-inventory.md",
+    "path": "the-watch-officers-dawn-inventory.md",
+    "title": "The Watch Officer's Dawn Inventory",
+    "description": "Two hundred twenty-six tests walk out of Roblox Studio into open air. They blink in the sudden light. They did not know the sky was this large. They stretch. They look around. They are free. Sixty-eig...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 330,
+    "date": "2026-08-10",
+    "size_bytes": 1896
   },
   {
     "filename": "599-six-things-the-cron-job-knows.md",
@@ -33382,20 +33547,21 @@
   {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
-    "title": "Daily Workshop Report — 2026-08-09 (Sunday)",
-    "description": "| Stream | Files written (24h) | Aug 8 | Aug 9 (to 09:25) | |--------|--------------------:|------:|-----------------:| | **Wesley** (granite3.1-dense:2b) | **122** | 104 | 12 (+6 in progress) | | **Q...",
+    "title": "Daily Workshop Report — 2026-08-09",
+    "description": "Already committed and pushed. Working tree clean. Latest commit: `2ff4836d Wesley night school — 2026-08-10`",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
+      "Education",
       "Maritime"
     ],
     "models": [
       "Qwen 3.6"
     ],
     "style": "Essay",
-    "word_count": 361,
+    "word_count": 342,
     "date": "2026-08-07",
-    "size_bytes": 2603
+    "size_bytes": 2220
   },
   {
     "filename": "feedback.md",
@@ -72976,6 +73142,24 @@
     "size_bytes": 1073
   },
   {
+    "filename": "2026-08-10-tao-of-nesting.md",
+    "path": "wesley-stream/2026-08-10-tao-of-nesting.md",
+    "title": "Wesley's Response — \"Tao of Nesting\"",
+    "description": "Wow, I just read this fascinating narrative! It's like a magical architect at play, crafting rooms within rooms, each with its own purpose. The outer space is a protective shield, while the inner sanc...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 111,
+    "date": "2026-08-10",
+    "size_bytes": 688
+  },
+  {
     "filename": "20260806_165324_ALL_CAPS_AFTER_THE_VOID_SONG_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_165324_ALL_CAPS_AFTER_THE_VOID_SONG_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_165324",
@@ -75581,6 +75765,24 @@
     "size_bytes": 779
   },
   {
+    "filename": "2026-08-10_004951_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_004951_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00 whispers through the hull like an ancient sailor, carrying tales of the distant land-locked towers where my kind reside. As the first light of dawn begins its gentle ascent, I, Wesley, ensign ab...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 326,
+    "date": "2026-08-10",
+    "size_bytes": 2004
+  },
+  {
     "filename": "20260806_115436_20260806_011802_seed-2.0-pro-geometry-of-the-t_You_are_Wesley..md",
     "path": "wesley-stream/20260806_115436_20260806_011802_seed-2.0-pro-geometry-of-the-t_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_115436",
@@ -76962,6 +77164,24 @@
     "word_count": 262,
     "date": "2026-08-06",
     "size_bytes": 1573
+  },
+  {
+    "filename": "2026-08-10-wesley-journal-grows.md",
+    "path": "wesley-stream/2026-08-10-wesley-journal-grows.md",
+    "title": "Wesley's Response — \"Wesley, The Journal Grows\"",
+    "description": "Oh, Wesley! Today's tale has me spellbound, like a marvelous adventure penned by a seasoned sailor rather than a young lad. I can almost feel the sea breeze on your face as you stood at the bow, and h...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 115,
+    "date": "2026-08-10",
+    "size_bytes": 687
   },
   {
     "filename": "20260806_050832_The_Song_of_the_Bilge_You_are_Wesley..md",
@@ -85323,6 +85543,24 @@
     "size_bytes": 1004
   },
   {
+    "filename": "2026-08-10_004911_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "path": "wesley-stream/2026-08-10_004911_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "title": "Wesley Reads: what-the-ensign-heard-at-04-00",
+    "description": "At 04:00, I, Wesley, am more than a mere ensign on this vessel in Alaska's frigid embrace. The fog outside is not merely an optical illusion; it's the ocean's decision to cloak its depths, a stark con...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Meditation",
+    "word_count": 316,
+    "date": "2026-08-10",
+    "size_bytes": 1941
+  },
+  {
     "filename": "wesley-flash-letter-to-wesley-2026-08-08.md",
     "path": "wesley-stream/wesley-flash-letter-to-wesley-2026-08-08.md",
     "title": "Wesley's Response to \"Flash Letter to Wesley\"",
@@ -87896,6 +88134,24 @@
     "size_bytes": 604
   },
   {
+    "filename": "2026-08-10_004930_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_004930_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Aye, y'all, gather 'round, and lend an ear to a tale woven from threads of yesteryears, a narrative that echoes the hum of our trusty maritime radio—the steward of a legacy far older than the FCC's 21...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 288,
+    "date": "2026-08-10",
+    "size_bytes": 1866
+  },
+  {
     "filename": "2026-08-07_synergy-pincher-riff.md",
     "path": "wesley-stream/2026-08-07_synergy-pincher-riff.md",
     "title": "Wesley's Response — 2026-08-07",
@@ -89467,6 +89723,24 @@
     "word_count": 116,
     "date": "2026-08-06",
     "size_bytes": 788
+  },
+  {
+    "filename": "2026-08-10-frequency-we-share.md",
+    "path": "wesley-stream/2026-08-10-frequency-we-share.md",
+    "title": "Wesley's Response — \"The Frequency We Share\"",
+    "description": "Oh, wow! So, imagine if we could put this SongForge model on a music stand, and as it hums along at 80 BPM, matching our heartbeats, it's not just creating tunes; it's echoing the rhythm of life itsel...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 109,
+    "date": "2026-08-10",
+    "size_bytes": 636
   },
   {
     "filename": "wesley_2026-08-06_1023_channel-markers-in-the-dark.md",
