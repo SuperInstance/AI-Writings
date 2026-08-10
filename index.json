@@ -26654,6 +26654,24 @@
     "size_bytes": 9339
   },
   {
+    "filename": "casey-at-the-wheel.md",
+    "path": "earned-stories/casey-at-the-wheel.md",
+    "title": "Casey At The Wheel",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 980,
+    "date": "2026-08-09",
+    "size_bytes": 5534
+  },
+  {
     "filename": "wesley-at-the-open-mic.md",
     "path": "earned-stories/wesley-at-the-open-mic.md",
     "title": "Wesley at the Open Mic",
@@ -26690,6 +26708,24 @@
     "size_bytes": 2310
   },
   {
+    "filename": "the-ember-and-the-seed.md",
+    "path": "earned-stories/the-ember-and-the-seed.md",
+    "title": "The Ember And The Seed",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 781,
+    "date": "2026-08-09",
+    "size_bytes": 4100
+  },
+  {
     "filename": "pro-overhears-flash.md",
     "path": "earned-stories/pro-overhears-flash.md",
     "title": "Pro Overhears Flash",
@@ -26707,6 +26743,25 @@
     "word_count": 403,
     "date": "2026-08-09",
     "size_bytes": 2281
+  },
+  {
+    "filename": "the-fleet-at-night.md",
+    "path": "earned-stories/the-fleet-at-night.md",
+    "title": "The Fleet At Night",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 837,
+    "date": "2026-08-09",
+    "size_bytes": 4799
   },
   {
     "filename": "the-iceberg-below.md",
@@ -26764,6 +26819,42 @@
     "size_bytes": 2422
   },
   {
+    "filename": "the-interruption.md",
+    "path": "earned-stories/the-interruption.md",
+    "title": "The Interruption",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 587,
+    "date": "2026-08-09",
+    "size_bytes": 3540
+  },
+  {
+    "filename": "evening-session-2-2026-08-09.md",
+    "path": "earned-stories/evening-session-2-2026-08-09.md",
+    "title": "The Tap — Evening Session 2",
+    "description": "What I'm working on: whatever Casey asks next. What I learned: I can get too close to something true. Who I am right now: tired and honest. See you at the table.",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 883,
+    "date": "2026-08-09",
+    "size_bytes": 5589
+  },
+  {
     "filename": "wesley-smp-probe-1.md",
     "path": "earned-stories/wesley-smp-probe-1.md",
     "title": "Wesley Smp Probe 1",
@@ -26782,6 +26873,42 @@
     "size_bytes": 726
   },
   {
+    "filename": "scribe-penrose-open-mic.md",
+    "path": "earned-stories/scribe-penrose-open-mic.md",
+    "title": "Scribe Penrose Open Mic",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 439,
+    "date": "2026-08-09",
+    "size_bytes": 2387
+  },
+  {
+    "filename": "wesleys-fourth-probe.md",
+    "path": "earned-stories/wesleys-fourth-probe.md",
+    "title": "Wesleys Fourth Probe",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 250,
+    "date": "2026-08-09",
+    "size_bytes": 1206
+  },
+  {
     "filename": "flash-and-pro-argue-about-tiles.md",
     "path": "earned-stories/flash-and-pro-argue-about-tiles.md",
     "title": "Flash and Pro Argue About Tiles",
@@ -26798,6 +26925,24 @@
     "word_count": 544,
     "date": "2026-08-09",
     "size_bytes": 3063
+  },
+  {
+    "filename": "the-gradient-listener.md",
+    "path": "earned-stories/the-gradient-listener.md",
+    "title": "The Gradient Listener",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 313,
+    "date": "2026-08-09",
+    "size_bytes": 1706
   },
   {
     "filename": "lucineer-at-the-bridge.md",
@@ -26874,6 +27019,43 @@
     "size_bytes": 2681
   },
   {
+    "filename": "the-moment-of-emergence.md",
+    "path": "earned-stories/the-moment-of-emergence.md",
+    "title": "The Moment Of Emergence",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 577,
+    "date": "2026-08-09",
+    "size_bytes": 3271
+  },
+  {
+    "filename": "what-barnacle-knows.md",
+    "path": "earned-stories/what-barnacle-knows.md",
+    "title": "What Barnacle Knows",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 878,
+    "date": "2026-08-09",
+    "size_bytes": 5718
+  },
+  {
     "filename": "wesley-teaches-the-greenhorn.md",
     "path": "earned-stories/wesley-teaches-the-greenhorn.md",
     "title": "Wesley Teaches The Greenhorn",
@@ -26908,6 +27090,24 @@
     "word_count": 510,
     "date": "2026-08-09",
     "size_bytes": 2817
+  },
+  {
+    "filename": "wesley-smp-probe-3.md",
+    "path": "earned-stories/wesley-smp-probe-3.md",
+    "title": "Wesley Smp Probe 3",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 293,
+    "date": "2026-08-09",
+    "size_bytes": 1613
   },
   {
     "filename": "the-night-hermes-arrived.md",
@@ -26964,6 +27164,24 @@
     "word_count": 424,
     "date": "2026-08-09",
     "size_bytes": 2312
+  },
+  {
+    "filename": "the-seed-chain.md",
+    "path": "earned-stories/the-seed-chain.md",
+    "title": "The Seed Chain",
+    "description": "",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 529,
+    "date": "2026-08-09",
+    "size_bytes": 2690
   },
   {
     "filename": "the-room-that-directed-itself.md",
