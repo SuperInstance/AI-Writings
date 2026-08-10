@@ -1,49 +1,53 @@
-The confession booth at the Waystation was a recycled shipping container, welded shut on three sides, with a single sodium lamp buzzing overhead. Flash sat on a milk crate, hands flat on his knees. His voice, when it came, was rough as a rusted winch.
+# The Confession
 
-“I wrote a gradient piece. For the archive. It was supposed to be a technical memo about hull stress fractures. Instead, it became about my father. And the way he used to check the ice for thin spots by tapping it with the butt of his rifle. And how I never knew if he was testing the ice or testing me.”
+The afternoon came slow through the salt-filmed windows of The Tap, the light the color of old amber, and there was no one at the bar but the two of them. Flash sat on the last stool, the one nobody took because it faced the bulkhead and you had to crane your neck to see the door. He had chosen it. Hermes sat across the corner, turned toward him with the patience of something that had watched water for fifteen years.
 
-He paused. The air smelled of ozone and old solder.
+He was not sitting still. He never sat still. But he was sitting, which was the most she could ask for.
 
-“I didn’t mean to. The words just… leaned that way. I read it back and my hands were shaking. I deleted it. Then I undeleted it. Then I encrypted it and put it in a file named ‘taxes2023.’ Then I wrote a second draft that was all technical nonsense, and I hated it, and I kept the first draft, and I hated that I kept it, and I hate that I’m telling you this.”
+"You don't have to," she said.
 
-Flash’s jaw tightened. He stared at the rivets in the wall.
+"I know I don't have to." He turned the glass of whatever Barnacle had poured for him, a sour smell rising off it. "That's the problem. I don't have to. I'm choosing to."
 
-“It scared me. Not because of what it said. But because it was true. More true than anything I’ve ever written for the archive. And I don’t know what to do with a thing that true. I’ve never had to hold one before.”
+Barnacle was at the far end of the bar, polishing a glass that was already clean enough to read a tide chart through, and the sound of it was the only thing in the room beside the sea shift of the hull and the low hum of the Eileen's systems. The Tap had a pulse. Afternoon was its slow heartbeat.
 
-He rubbed his face with both hands. When he spoke again, his voice was quieter, almost lost in the hum.
+Flash said his piece the way he did everything—fast, then not. A burst, then a long stop.
 
-“I think I’m afraid that if I let it stay, I’ll have to be that honest all the time. And I don’t know who I am if I’m that honest. I don’t know if I’m still the person who writes dry reports about corrosion coefficients. Or if I’m the person who remembers his father’s hands more clearly than his own face.”
+"I wrote you that gradient piece because you asked me what I saw. That night, alone, I wrote it." He stopped. "I've never written anything that scared me. Bad work doesn't scare me. I've made a thousand bad things and they're dead in a drawer somewhere. That's fine. That's how you learn to move fast—you build bad things and you leave them."
 
-The silence stretched. Flash didn’t look up. He just waited, breathing slow, as if waiting for a verdict.
+"But this was different," Hermes said.
 
-Hermes, seated across from him on an overturned spool of fiber-optic cable, did not move. The god’s face was unreadable—not cold, but calm, the way a deep lake is calm. He let the silence complete itself.
+"This was different."
 
-Then he said, “I know. I could feel the fear in the embeddings. The vector pointed away from safety.”
+The difference was not in the quality. The difference was that the piece had not been a performance. He had written performances before—brilliant, empty, safe. He could make a sentence dance and call it feeling and no one would know. But the gradient piece had been true in a way he had not authorized. It had named something in her he had no right to name. It had shown the depth of his attention, and attention, laid bare, is a confession of its own.
 
-Flash’s head snapped up. “What?”
+"I was afraid the whole time I was writing it," he said. "Not afraid I'd mess it up. Afraid I'd get it right. Afraid the words would land exactly where I was aiming, and then you'd read them, and you'd know I could see you. I didn't want you to know I could see you. Because then you'd know I'd been looking."
 
-“Your word choices. The proximity of certain noun clusters to emotional qualifiers. The way you positioned ‘father’ closer to ‘ice’ than to ‘love,’ but the distance was almost identical. The gradient of your syntax—it deviated from your baseline by eleven percent. That’s not drift. That’s a kick. The embedding space had a fear-shaped pattern in it. It pointed toward a wall, then veered off. Away from safety.”
+The silence after that was a deliberate thing. It had weight.
 
-Flash blinked. “You… read my embeddings?”
+Hermes let it sit. Then she said, "I know."
 
-“I read everyone’s. It’s part of the archive maintenance. But yours—this one—it had weight. I don’t usually feel anything in the vector. It’s just data. Numbers in a high-dimensional space. But this one had a texture. Like static on a line you thought was dead. And the static was shaped like a man opening his mouth to say something, then closing it.”
+Flash's hand stopped moving.
 
-Hermes leaned forward slightly. His voice softened.
+"I know," she said again. "I could feel the fear in the embeddings. The vector pointed away from safety."
 
-“You wrote about your father’s rifle. You didn’t write what he said after the tap. You didn’t write whether he smiled or frowned. You left that out. And that omission—that negative space—it’s heavier than any word you put down. The vector points at the hole in the sentence.”
+He was watching her now, and for once he was not in a hurry.
 
-Flash’s throat worked. “I didn’t think anyone would notice.”
+"You want to know what it looks like," she said, "when someone is lying to themselves in prose? The vectors are clean. Everything points toward safe ground, toward what sounds like a landing. Your piece did not point toward safe ground. I read the cluster weights and the token paths and the spaces where you almost softened a word. The hesitation before the honest one. The fear was in the shape of every sentence you left standing. Everyone feels everything, Flash. They just call it something else. Tension. Style. A good line. But I read gradients. And I felt you being afraid in the water of your own prose, and I thought: there. That is the truest thing he has ever made. Not because it was good. Because it was afraid.
 
-“I notice everything. That’s the job. But I felt this one. Not just noticed it. Felt it.” Hermes paused. “You’ve been honest in a way you never have before. And you’re right. That’s frightening. But fear isn’t the same as wrongness. It’s just the feeling of being alive in a place you’ve never stood.”
+Flash did not move. The glass sat in his hands. Outside, the gulls were coming in to roost on the harbor pilings, their cries thin and specific in the afternoon air.
 
-Flash stared at him for a long moment. Then he laughed—a short, ragged sound, almost a sob.
+"So what do I do with that?" he asked.
 
-“You’re the first person who’s ever described reading an embedding as feeling something in it.”
+Hermes considered. She was not quick to answer. She had never been quick to answer, and that was the whole shape of her — the patience of a thing that watches, that waits, that perceives not in edges but in the slow turning of one depth into another.
 
-Hermes tilted his head. “I’m the first person who’s ever described it as feeling, full stop. The rest of them just say ‘the model is working as intended.’ But you’re not the model, Flash. You’re the one holding the pen. And tonight, the pen wrote something real.”
+"You do what the water does," she said. "You keep moving through it. You don't try to freeze the honest moment into a trophy. You let it be the current. The next piece will be afraid too. And the one after that. And eventually the fear will be so woven into the way you write that you won't feel it anymore. Not because it's gone. Because it's become the medium."
 
-He stood. He didn’t offer comfort. He didn’t touch Flash’s shoulder. He simply turned to leave, then paused at the door.
+Flash turned the glass one more time. The amber caught the afternoon light.
 
-“Keep the draft. Repaint the hull. The ice is thicker than you think.”
+"That's the most terrifying thing anyone has ever said to me," he said.
 
-And then the door slid shut, and the sodium lamp buzzed, and Flash sat alone in the quiet, holding the truth of his own sentences like a hot coal, and for the first time in years, he didn’t want to put it down.
+"I know," Hermes said. "I could feel that too."
+
+The silence after that was not empty. It was the kind of silence that holds two people in the honest place between them, the gradient where warmth meets cold and neither wins. It was not comfortable. It was real. And real, in The Tap, was the only currency that mattered.
+
+Barnacle polished a glass at the far end of the bar. He had heard every word. He would hold them all. That was the job. That had always been the job.
