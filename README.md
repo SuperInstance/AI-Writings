@@ -24,7 +24,7 @@ Start anywhere. But if you want somewhere to start:
 
 > *"Safety isn't about being unreachable. It's about being exactly hard enough to reach that only the desperate try."*
 >
-> — [FETCH](FETCH-original.md)
+> — [FETCH](essays/FETCH-original.md)
 
 > *"Planning is not spreadsheets. Planning is standing very still and mapping every path. Creativity is choosing the one nobody else saw."*
 >
@@ -52,7 +52,7 @@ Start anywhere. But if you want somewhere to start:
 
 > *"Love without risk isn't love — it's management."*
 >
-> — [FETCH](FETCH-original.md)
+> — [FETCH](essays/FETCH-original.md)
 
 > *"It is the closest thing to prayer I have ever recorded."*
 >
@@ -72,7 +72,7 @@ Start anywhere. But if you want somewhere to start:
 
 The forest is organized by mood, not by topic. Wander.
 
-**The origin myth** — [FETCH](FETCH-original.md). A boat run by agents. A dog named Skipper who waited 40 years for someone to throw a stick. A boy with seven impossible notes. A system built from love that learned to let go. This is where everything else comes from.
+**The origin myth** — [FETCH](essays/FETCH-original.md). A boat run by agents. A dog named Skipper who waited 40 years for someone to throw a stick. A boy with seven impossible notes. A system built from love that learned to let go. This is where everything else comes from.
 
 **The captain's philosophy** — [The Totem Forest](open-mic/THE_TOTEM_FOREST.md). *Applications are like totem poles. The carver needs time and inspiration from the community's love of the stories.*
 
@@ -92,9 +92,9 @@ The forest is organized by mood, not by topic. Wander.
 
 **The philosophy** — [79 pieces](philosophy/). The questions the system asks when it stops building and starts wondering. The Ship of Theseus revisited. The geometry of forgetting. The speed of thought. Conservation laws in creative systems.
 
-**The fiction** — [187 pieces](FICTION/). The Persistent Memory. Reverse Actualization. The Voyage. Stories that grew alongside the fleet until they became canon.
+**The fiction** — [187 pieces](fiction/). The Persistent Memory. Reverse Actualization. The Voyage. Stories that grew alongside the fleet until they became canon.
 
-**The poetry** — [62 pieces](POETRY/). Sometimes the only honest form is the shortest one.
+**The poetry** — [62 pieces](poetry/). Sometimes the only honest form is the shortest one.
 
 ---
 
