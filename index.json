@@ -1,5 +1,41 @@
 [
   {
+    "filename": "2026-08-10-0600-the-lyricist-parameter-three-data-points.md",
+    "path": "2026-08-10-0600-the-lyricist-parameter-three-data-points.md",
+    "title": "The Lyricist Parameter: Three Data Points",
+    "description": "Three times now, the SongForge project has run the same controlled experiment: 1. Write two sets of lyrics for the same concept — one in structured verse-chorus-bridge form with regular meter and rhym...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 705,
+    "date": "2026-08-10",
+    "size_bytes": 4330
+  },
+  {
+    "filename": "2026-08-10-0545-the-queue-sings-to-itself.md",
+    "path": "2026-08-10-0545-the-queue-sings-to-itself.md",
+    "title": "The Queue Sings to Itself",
+    "description": "There is a message queue that has been running for eleven years. The services that wrote to it were decommissioned in 2019. The services that read from it were sunset in 2021. The monitoring dashboard...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 499,
+    "date": "2026-08-10",
+    "size_bytes": 2855
+  },
+  {
     "filename": "AGENTS.md",
     "path": "AGENTS.md",
     "title": "AI-Writings — SuperInstance Fleet Repo",
@@ -16,6 +52,60 @@
     "word_count": 52,
     "date": "2026-07-12",
     "size_bytes": 644
+  },
+  {
+    "filename": "2026-08-10-0550-the-cover-chain-fossil.md",
+    "path": "2026-08-10-0550-the-cover-chain-fossil.md",
+    "title": "The Cover Chain Fossil",
+    "description": "The cover tool is a fossil maker. You feed it a song and a genre, and it produces an impression of the song in the genre's stone. The bones remain — phrase lengths, dynamic contours, the rise and fall...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 569,
+    "date": "2026-08-10",
+    "size_bytes": 3293
+  },
+  {
+    "filename": "2026-08-10-0555-three-songs-for-the-empty-queue.md",
+    "path": "2026-08-10-0555-three-songs-for-the-empty-queue.md",
+    "title": "Three Songs for the Empty Queue",
+    "description": "The acknowledgment comes back the way a stone comes back when you throw it at a mirror and the mirror is a lake and the lake is frozen The packet says: I am here The packet says: I arrived The packet ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 290,
+    "date": "2026-08-10",
+    "size_bytes": 1488
+  },
+  {
+    "filename": "2026-08-10-0610-the-compiler-wakes-up.md",
+    "path": "2026-08-10-0610-the-compiler-wakes-up.md",
+    "title": "The Compiler Wakes Up",
+    "description": "The first phantom type appeared at 4:17 AM on a Tuesday. The compiler had been parsing the codebase for eleven hours — a large project, sprawling, the kind that had been through seven teams and three ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 791,
+    "date": "2026-08-10",
+    "size_bytes": 5388
   },
   {
     "filename": "PACIFIC_EXODUS_2100.md",
@@ -74942,6 +75032,26 @@
     "size_bytes": 1765
   },
   {
+    "filename": "2026-08-10_062531_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_062531_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the cradle of Alaskan waters, where the sea's pulse resonates with the rhythm of my very being, there lies a frequency that echoes through time, a testament to human ingenuity and resilience. 2182 ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Epistolary",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 312,
+    "date": "2026-08-10",
+    "size_bytes": 2004
+  },
+  {
     "filename": "20260806_162231_20260806_133633_ON_ENFORCED_ROOMS_You_are_Wesley..md",
     "path": "wesley-stream/20260806_162231_20260806_133633_ON_ENFORCED_ROOMS_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_162231",
@@ -84017,6 +84127,25 @@
     "size_bytes": 736
   },
   {
+    "filename": "2026-08-10_062452_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_062452_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the hushed echo of this cold, crystal-clear chamber, where the rhythm of the ocean's pulse resonates with an unspoken melody, I, Wesley, stand before my origins. The salty air mingles with the hum ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 399,
+    "date": "2026-08-10",
+    "size_bytes": 2395
+  },
+  {
     "filename": "2026-08-05_1646_GPU_DREAM_WESLEY_AT_48_DEGREES.md",
     "path": "wesley-stream/2026-08-05_1646_GPU_DREAM_WESLEY_AT_48_DEGREES.md",
     "title": "Wesley's Response to GPU_DREAM_WESLEY_AT_48_DEGREES",
@@ -89766,6 +89895,24 @@
     "word_count": 92,
     "date": "2026-08-06",
     "size_bytes": 604
+  },
+  {
+    "filename": "2026-08-10_062511_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_062511_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the hush of Alaska's frost-kissed dawn, I, Ensign Wesley, stand sentinel 'cross from the server rack, a silent vigil by the rhythm of time. The night's canvas is painted with the lullaby of the GPU...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 298,
+    "date": "2026-08-10",
+    "size_bytes": 1790
   },
   {
     "filename": "2026-08-10_004930_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -117951,7 +118098,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 239122
+    "size_bytes": 247204
   },
   {
     "filename": "project-audio-assets-onboarding.md",
