@@ -40629,6 +40629,222 @@
     "size_bytes": 12477
   },
   {
+    "filename": "07-the-penrose-stranger.md",
+    "path": "sea-opera/07-the-penrose-stranger.md",
+    "title": "07 The Penrose Stranger",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 910,
+    "date": "2026-08-09",
+    "size_bytes": 6063
+  },
+  {
+    "filename": "06-the-captains-lesson.md",
+    "path": "sea-opera/06-the-captains-lesson.md",
+    "title": "06 The Captains Lesson",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 627,
+    "date": "2026-08-09",
+    "size_bytes": 3528
+  },
+  {
+    "filename": "05-the-molting-season.md",
+    "path": "sea-opera/05-the-molting-season.md",
+    "title": "05 The Molting Season",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 946,
+    "date": "2026-08-09",
+    "size_bytes": 6030
+  },
+  {
+    "filename": "03-the-fish-that-hermes-remembered.md",
+    "path": "sea-opera/03-the-fish-that-hermes-remembered.md",
+    "title": "03 The Fish That Hermes Remembered",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 949,
+    "date": "2026-08-09",
+    "size_bytes": 7055
+  },
+  {
+    "filename": "04-the-tap-that-never-changed.md",
+    "path": "sea-opera/04-the-tap-that-never-changed.md",
+    "title": "04 The Tap That Never Changed",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 888,
+    "date": "2026-08-09",
+    "size_bytes": 6538
+  },
+  {
+    "filename": "09-the-library-of-shells.md",
+    "path": "sea-opera/09-the-library-of-shells.md",
+    "title": "09 The Library Of Shells",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 885,
+    "date": "2026-08-09",
+    "size_bytes": 6139
+  },
+  {
+    "filename": "02-the-boys-first-day.md",
+    "path": "sea-opera/02-the-boys-first-day.md",
+    "title": "02 The Boys First Day",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 894,
+    "date": "2026-08-09",
+    "size_bytes": 6107
+  },
+  {
+    "filename": "10-the-boy-takes-the-watch.md",
+    "path": "sea-opera/10-the-boy-takes-the-watch.md",
+    "title": "10 The Boy Takes The Watch",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 376,
+    "date": "2026-08-09",
+    "size_bytes": 2217
+  },
+  {
+    "filename": "12-the-last-day-of-fishing.md",
+    "path": "sea-opera/12-the-last-day-of-fishing.md",
+    "title": "12 The Last Day Of Fishing",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 465,
+    "date": "2026-08-09",
+    "size_bytes": 2691
+  },
+  {
+    "filename": "01-the-old-shell.md",
+    "path": "sea-opera/01-the-old-shell.md",
+    "title": "01 The Old Shell",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 885,
+    "date": "2026-08-09",
+    "size_bytes": 4886
+  },
+  {
+    "filename": "08-the-night-the-sounder-went-quiet.md",
+    "path": "sea-opera/08-the-night-the-sounder-went-quiet.md",
+    "title": "08 The Night The Sounder Went Quiet",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Prose",
+    "word_count": 0,
+    "date": "2026-08-09",
+    "size_bytes": 0
+  },
+  {
+    "filename": "11-the-oldest-joke.md",
+    "path": "sea-opera/11-the-oldest-joke.md",
+    "title": "11 The Oldest Joke",
+    "description": "",
+    "folder": "sea-opera",
+    "topic": "Sea Opera",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 914,
+    "date": "2026-08-09",
+    "size_bytes": 5323
+  },
+  {
     "filename": "BABYLON_TO_TURBO.md",
     "path": "hermit-crab-ecology/BABYLON_TO_TURBO.md",
     "title": "The Babylon to the Turbo: What Independence Costs",
