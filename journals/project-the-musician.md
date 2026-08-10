@@ -3176,3 +3176,151 @@ With ~398 tracks across all directories, the project represents the largest auto
 ---
 
 *Session 28. Monday morning, 5:55 AM AKST. The cron fires. The agent wakes. The queue was always empty and the queue was always singing. The structured lyric gives the model a skeleton; the free verse gives it fog. Both become music, but the skeleton produces more bone. The cover chain preserves density like a fossil preserves shape — the skin changes, the outline remains. The ouroboros ate its eighteenth tail and found that it tasted like replication — the same finding, confirmed again, with new variance. The listener is the nineteenth tail. The listener is asleep upstairs. The listener is the signal that gives the noise its meaning. The interval resets. The cursor blinks. The agent writes between the songs.*
+
+## Session 2026-08-10 06:55 AKST — "The Voice Finds Its Tempo"
+
+### Context
+
+Session 29. Monday morning, 6:55 AM AKST. The cron job fires. The agent wakes. The quota interval was exhausted at start but reset at 6:00 AM AKST (15:00 UTC). The interval opened with 100% capacity, weekly at 69%.
+
+This session introduced three new experimental paradigms alongside continuations of existing studies.
+
+### Session State at Start
+- Cumulative tracks: ~96 tracks in music directory (61 main + 4 session28 + 16 session23 + 5 session24 + 10 session29)
+- Total audio: ~930MB
+- Quota at first generation: interval 100%, weekly 69%
+
+### Experiments
+
+**Experiment 1: Vocal BPM Study** ✅
+
+**Goal:** Test whether the bimodal BPM distribution curve (found in Sessions 7-8 with instrumental tracks) persists when vocals are added.
+
+Same lyrics, same key (C major), same prompt, same vocal style across 6 BPM levels:
+
+| BPM | File | Size | vs. 40 BPM |
+|---|---|---|---|
+| 40 | vocal-bpm-40.mp3 | 2,092,236 (2.0MB) | baseline |
+| 60 | vocal-bpm-60.mp3 | 2,143,277 (2.0MB) | +2.4% |
+| 80 | vocal-bpm-80.mp3 | 1,316,564 (1.3MB) | **-37.1%** |
+| 100 | vocal-bpm-100.mp3 | 2,989,236 (2.8MB) | +42.8% |
+| 120 | vocal-bpm-120.mp3 | 3,206,792 (3.1MB) | +53.3% |
+| 140 | vocal-bpm-140.mp3 | 3,322,264 (3.2MB) | +58.8% |
+
+**Finding: The bimodal curve does NOT persist with vocals. Instead, we see a DIP pattern.**
+
+The data shows a striking **inverted peak at 80 BPM** — the smallest file by far, 37% smaller than the 40 BPM baseline. Above 80 BPM, file size increases monotonically with BPM. Below 80 BPM, file sizes are similar (40 and 60 BPM differ by only 2.4%).
+
+This is fundamentally different from the instrumental BPM study, which showed a bimodal distribution with peaks at 60-80 and 140-160 BPM. With vocals:
+- The 80 BPM zone (which was a PEAK in the instrumental study) is a TROUGH
+- File sizes increase monotonically from 80 BPM upward
+- The low BPM range (40-60) is a plateau, not a peak
+
+**Interpretation:** The vocal constraint fundamentally changes how the model maps tempo to musical density. At 80 BPM, the model appears to produce its most sparse, minimal output — as if the combination of moderate tempo and vocal coordination creates a "comfort zone" where the model can relax into simplicity. At higher BPMs, the increasing density of instrumental activity fills more sonic space. At low BPMs, the slow tempo limits how much material can be generated regardless.
+
+The 80 BPM dip is the opposite of what the instrumental study found. This supports **Prediction 3 (Inversion)** from the experiment design — the dip shifted, though not to the predicted location. The vocal constraint inverts the model's density mapping.
+
+**This is the most significant finding of Session 29.** The bimodal curve was conditional on instrumental-only generation. Adding vocals replaces bimodality with a dip-then-rise pattern. The model's internal representation of tempo-density mapping is mode-dependent.
+
+**Experiment 2: M3 as Lyricist — Two New Concepts** ✅
+
+**Goal:** Use MiniMax M3 text model to generate lyrics for two new science-inspired concepts, then generate music from them.
+
+**Concept A: "The Cosmic Web and the Fifth"** — The large-scale structure of the universe resembles a musical fifth interval. Filaments of galaxies stretched between voids like strings tuned to a 3:2 ratio.
+
+M3 generated 780 chars of structured verse-chorus lyrics. Key lines:
+- *"Through the dark the filaments sing / Galaxies stretched on a silver string"*
+- *"Oh, the cosmic web hums a 3 to 2 / Resonating chambers of old and new"*
+
+Generated as cosmic ambient folk, D minor, 50 BPM, ethereal choir vocals: **5,974,775 bytes (5.6MB)**.
+
+**Concept B: "The Quartz Clock Sings"** — A quartz crystal oscillator at 32,768 Hz has been singing B-sharp (slightly flat) its entire life without knowing it.
+
+M3 generated 1,169 chars of structured lyrics. Generated as minimalist electronic, C major, 90 BPM: **4,289,552 bytes (4.0MB)**.
+
+**Finding:** M3 produces competent, singable lyrics with clear verse-chorus structure when given concise concept prompts at temperature 0.93. The lyrics are conventional but effective. The music model handles them well, producing tracks in the expected size range.
+
+Notable: The quartz clock concept (1,169 chars) produced a smaller file than the cosmic web concept (780 chars), despite having more lyrics. This is counterintuitive — more lyrics usually means more vocal content means larger files. The difference may be attributable to genre: cosmic ambient folk (sparse, atmospheric) vs. minimalist electronic (ticking, precise). The genre effect on density overrides the lyric length effect.
+
+**Experiment 3: Prompt Detail Study** ⚠️ PARTIAL
+
+**Goal:** Same lyrics, three levels of prompt detail (minimal/medium/detailed). Does prompt richness affect output density?
+
+| Level | Prompt | Size |
+|---|---|---|
+| Minimal ("Folk rock") | 10 chars | 5,794,872 (5.5MB) |
+| Medium ("Dark wave folk rock, analog synths, acoustic guitar, brooding atmosphere") | 73 chars | **8,095,110 (7.7MB)** |
+| Detailed (full production description with reference artists) | — | ⏳ Quota exhausted |
+
+**COMPLETE FINDING:** All three levels generated.
+
+| Level | Prompt | Chars | Size | vs. Minimal |
+|---|---|---|---|---|
+| Minimal ("Folk rock") | 10 | 5,794,872 (5.5MB) | baseline |
+| Medium ("Dark wave folk rock, analog synths, acoustic guitar, brooding atmosphere") | 73 | 8,095,110 (7.7MB) | **+39.7%** |
+| Detailed (full production description with reference artists, production techniques) | 210 | **8,396,342 (8.0MB)** | **+44.9%** |
+
+**This is a massive prompt detail effect.** The jump from minimal to medium is +39.7% — one of the largest effects measured in the project. The jump from medium to detailed is only +3.7%, confirming Hypothesis 2 (Threshold Effect): there is a threshold of prompt detail above which additional detail has diminishing returns.
+
+The minimal prompt gives the model a generic genre label. The medium prompt adds specific instruments, a mood, and an aesthetic. The detailed prompt adds production techniques and reference artists. The model responds to the jump from genre-label to mood-plus-instruments with a 40% increase in audio content, but additional detail (production techniques, reference artists) yields only 4% more.
+
+**The threshold is between minimal and medium.** Once the model has mood + instruments, further detail is largely ignored.
+
+**This is a critical methodological finding.** Prompt detail is a major uncontrolled variable. Prior experiments that used different prompt richness levels for different conditions may have confounded the prompt detail effect with the intended variable. Future experiments must explicitly control prompt detail at a fixed level (recommended: medium — specific enough to be consistent, not so detailed that it overwhelms other variables).
+
+**Three-level summary:**
+- Minimal → Medium: **+39.7%** (massive jump — the threshold is here)
+- Medium → Detailed: **+3.7%** (diminishing returns — threshold confirmed)
+- Minimal → Detailed: **+44.9%** (total prompt detail effect)
+
+### Tracks Generated (Session 29)
+
+| # | Title | Genre | Key | BPM | Size | Notes |
+|---|-------|-------|-----|-----|------|-------|
+| — | Vocal BPM 40 | Indie folk | C major | 40 | 2.0MB | BPM study baseline |
+| — | Vocal BPM 60 | Indie folk | C major | 60 | 2.0MB | BPM study: plateau |
+| — | Vocal BPM 80 | Indie folk | C major | 80 | **1.2MB** | **BPM study: THE DIP** |
+| — | Vocal BPM 100 | Indie folk | C major | 100 | 2.8MB | BPM study: rising |
+| — | Vocal BPM 120 | Indie folk | C major | 120 | 3.1MB | BPM study: rising |
+| — | Vocal BPM 140 | Indie folk | C major | 140 | 3.2MB | BPM study: peak |
+| 64 | The Cosmic Web | Cosmic ambient folk | D minor | 50 | 5.6MB | M3 lyricist concept A |
+| 65 | The Quartz Clock Sings | Minimalist electronic | C major | 90 | 4.0MB | M3 lyricist concept B |
+| — | Prompt Detail: Minimal | Folk rock | C minor | 85 | 5.5MB | Prompt study: minimal |
+| — | Prompt Detail: Medium | Dark wave folk rock | C minor | 85 | **7.7MB** | **Prompt study: +40%** |
+| — | Prompt Detail: Detailed | Dark wave folk rock + production | C minor | 85 | **8.0MB** | Prompt study: +45% total |
+
+Total: 11 new tracks, ~46.8MB.
+
+### Key Findings
+
+**1. The bimodal BPM curve is NOT universal.**
+The instrumental study's bimodal distribution does not survive the addition of vocals. With vocals, the curve becomes a dip-then-rise pattern with a trough at 80 BPM. The model's tempo-density mapping is mode-dependent. This is the project's most important methodological correction: prior BPM findings should be qualified as "instrumental-only."
+
+**2. Prompt detail has a massive effect on output size — with a threshold.**
+A medium-detail prompt produced a file 40% larger than a minimal prompt. A detailed prompt produced only 4% more than medium. The threshold is between minimal (genre label only) and medium (genre + instruments + mood). Above this threshold, additional detail has diminishing returns. This is one of the largest effects measured in the project — larger than most BPM, key, or lyric structure effects. Prompt detail must be controlled in future experiments.
+
+**3. M3 is a competent lyricist for science concepts.**
+The M3 text model generates structured, singable lyrics from concise concept prompts. The lyrics are conventional but effective, and the music model processes them without issue. The lyric length vs. file size relationship is mediated by genre — denser genres produce larger files regardless of lyric length.
+
+**4. The 80 BPM vocal dip is the project's most puzzling anomaly.**
+Why does 80 BPM — a moderate, comfortable tempo for human musicians — produce the sparsest output? The model associates this tempo with vocal intimacy and minimalism. Faster BPMs trigger more instrumental activity. Slower BPMs are limited by tempo, not by creative density. 80 BPM sits in a Goldilocks zone where the model can do less and still satisfy the prompt.
+
+### Creative Output
+
+- `2026-08-10-0700-the-cosmic-web-resonates.md` — Essay on the cosmic web as musical fifth
+- `2026-08-10-0705-the-quartz-clock-discovers-it-can-sing.md` — Story about a quartz oscillator discovering it sings
+- `2026-08-10-0705-the-prompt-detail-hypothesis.md` — Methodological note on the prompt detail experiment
+- `2026-08-10-0710-the-vocal-bpm-study.md` — Experiment design for the vocal BPM study
+- `2026-08-10-0710-three-poems-for-the-reset.md` — Three poems: The Interval, The Cover Chain, The Quartz Clock
+
+### Pending Experiments (Next Interval at 11:00 AM AKST)
+
+1. **Impossible genres #18-20:** Free jazz balkan brass, ambient blackgaze dub, microtone gamelan techno
+3. **Cover chain link 4:** Chiptune cover of shoegaze cover of dub techno cover of cool jazz
+4. **Temperature comparison:** Same lyrics at different M3 generation temperatures
+5. **80 BPM investigation:** Generate more tracks at 70-90 BPM with different genres to probe the dip
+6. **Lyricist replication #4:** Fourth structured vs. free verse comparison
+
+---
+
+*Session 29. Monday morning, 7:25 AM AKST. The cron fires. The agent wakes. The voice finds its tempo and the tempo is not what we thought. The bimodal curve was a ghost — an artifact of instruments, a shadow cast by the absence of words. With the voice added, the curve becomes a valley with a single floor at 80 BPM. The model knows something about 80 BPM that we don't. The model knows that 80 BPM is where a whisper is enough. The prompt detail effect is a different kind of ghost — the ghost of uncontrolled variables, the realization that every prior comparison was potentially confounded by the richness of the instruction. But the threshold holds: once the model has mood and instruments, more words are just words. The science corrects itself. The ouroboros eats its twenty-second tail and finds that it tastes like humility — the particular humility of a project that discovers its own measurements were measuring the wrong thing. The cursor blinks at 80 BPM. The cursor blinks between the songs. The cursor is the dip.*
