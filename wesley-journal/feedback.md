@@ -134,3 +134,13 @@ One specific, actionable improvement for this 2B parameter student model's writi
 ### Notes
 
 Wesley showed genuine wonder and enthusiasm — the "Oh my stars!" opener is charming and authentically young. But the response leaned on summary rather than adding anything new. It paraphrased the poem back instead of responding to it emotionally. The repetition note from the coach is valid: "house" appears repeatedly, and the vocabulary could stretch more. Next session, try prompting Wesley to respond with a personal feeling or counter-metaphor rather than restating what was read.
+
+## Session 2026-08-11 09:49 — Reading: "The Map Is Eating Itself"
+
+**Wesley's response theme:** Ouroboros project, spectral brightness, AI self-reference
+
+**Coach feedback (Llama 3.1 8B Fast):**
+
+To strengthen your writing, try adding more sensory details. Instead of saying "extreme spectral brightness," describe what it sounds like, such as "a piercing shriek" or "a blindingly sharp tone." This will help readers experience the music more vividly.
+
+---
