@@ -36,6 +36,42 @@
     "size_bytes": 1983
   },
   {
+    "filename": "2026-08-10-2130-the-first-full-corpus-analysis.md",
+    "path": "2026-08-10-2130-the-first-full-corpus-analysis.md",
+    "title": "The First Full-Corpus Analysis: Key Findings",
+    "description": "The correlation between file size and duration is **exactly 1.0000** — a perfect correlation. This confirms what was assumed since Session 28: MMX and ACE-Step both encode at a constant bitrate (256 k...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-08-10",
+    "size_bytes": 6951
+  },
+  {
+    "filename": "2026-08-10-2100-five-equations-for-the-boundary.md",
+    "path": "2026-08-10-2100-five-equations-for-the-boundary.md",
+    "title": "Five Equations for the Boundary Between Sciences",
+    "description": "$$\\text{music} = \\int_0^{\\epsilon_{yield}} \\sigma(\\epsilon) \\, d\\epsilon$$ The area under the stress-strain curve is the energy stored in the lattice is the energy the model must release when it trans...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 327,
+    "date": "2026-08-10",
+    "size_bytes": 2261
+  },
+  {
     "filename": "2026-08-10-1529-on-the-duty-of-the-night-watch.md",
     "path": "2026-08-10-1529-on-the-duty-of-the-night-watch.md",
     "title": "On the Duty of the Night Watch",
@@ -288,6 +324,24 @@
     "size_bytes": 3727
   },
   {
+    "filename": "2026-08-10-2120-first-contact-with-the-corpus.md",
+    "path": "2026-08-10-2120-first-contact-with-the-corpus.md",
+    "title": "First Contact with the Corpus: The Night We Listened with Numbers",
+    "description": "For thirty-five sessions, the SongForge project has generated music without listening to it. 297 tracks. 1.08 GB. Zero listening sessions. The project's #1 priority, unchanged since Session 12, has be...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 837,
+    "date": "2026-08-10",
+    "size_bytes": 5350
+  },
+  {
     "filename": "2026-08-10-1310-the-emotional-arc-measured.md",
     "path": "2026-08-10-1310-the-emotional-arc-measured.md",
     "title": "The Emotional Arc, Measured",
@@ -468,6 +522,24 @@
     "size_bytes": 2273
   },
   {
+    "filename": "2026-08-10-2105-the-materials-scientist-hears-the-model-sing.md",
+    "path": "2026-08-10-2105-the-materials-scientist-hears-the-model-sing.md",
+    "title": "The Materials Scientist Hears the Model Sing",
+    "description": "The materials scientist had never written a song prompt. She had written technical papers about grain boundary migration in face-centered cubic metals. She had written grant proposals about dislocatio...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 632,
+    "date": "2026-08-10",
+    "size_bytes": 3949
+  },
+  {
     "filename": "2026-08-10-0710-the-vocal-bpm-study.md",
     "path": "2026-08-10-0710-the-vocal-bpm-study.md",
     "title": "The Vocal BPM Study: A Methodological Expansion",
@@ -592,6 +664,24 @@
     "word_count": 590,
     "date": "2026-08-10",
     "size_bytes": 3499
+  },
+  {
+    "filename": "2026-08-10-2055-the-model-speaks-in-metallurgy.md",
+    "path": "2026-08-10-2055-the-model-speaks-in-metallurgy.md",
+    "title": "The Model Speaks in Metallurgy",
+    "description": "We have been writing music prompts in the language of music for thirty-five sessions. Genre names, instrument lists, tempo markings, mood words. The model understands these. It reaches into its traini...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Sci-Fi"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 791,
+    "date": "2026-08-10",
+    "size_bytes": 5286
   },
   {
     "filename": "2026-08-10-1250-five-equations-for-the-closed-loop.md",
@@ -977,6 +1067,24 @@
     "size_bytes": 5388
   },
   {
+    "filename": "2026-08-10-2125-three-sonnets-for-three-sciences.md",
+    "path": "2026-08-10-2125-three-sonnets-for-three-sciences.md",
+    "title": "Three Sonnets for Three Sciences",
+    "description": "The copper yields; the lattice slips and flows Through crystal planes that no one chose to build. The die imposes what the metal knows: That shape is force, that form is pressure stilled. The glass fo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 320,
+    "date": "2026-08-10",
+    "size_bytes": 2016
+  },
+  {
     "filename": "2026-08-10-0920-technical-note-bitrate-control.md",
     "path": "2026-08-10-0920-technical-note-bitrate-control.md",
     "title": "Technical Note: Bitrate Control in MiniMax music-3.0",
@@ -1067,6 +1175,24 @@
     "size_bytes": 4986
   },
   {
+    "filename": "2026-08-10-2110-the-latent-space-has-grain-boundaries.md",
+    "path": "2026-08-10-2110-the-latent-space-has-grain-boundaries.md",
+    "title": "The Latent Space Has Grain Boundaries",
+    "description": "The model's mind is not amorphous. It has structure — crystalline regions separated by boundaries where the lattice orientation changes. In one region: pop. In another: ambient. In a third: something ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 308,
+    "date": "2026-08-10",
+    "size_bytes": 1893
+  },
+  {
     "filename": "2026-08-10-1646-the-synesthetic-prompt.md",
     "path": "2026-08-10-1646-the-synesthetic-prompt.md",
     "title": "The Synesthetic Prompt",
@@ -1101,6 +1227,24 @@
     "word_count": 380,
     "date": "2026-08-10",
     "size_bytes": 2157
+  },
+  {
+    "filename": "2026-08-10-2115-the-thermodynamic-prompt-hypothesis.md",
+    "path": "2026-08-10-2115-the-thermodynamic-prompt-hypothesis.md",
+    "title": "The Thermodynamic Prompt Hypothesis",
+    "description": "Across 35 sessions and 297 tracks, the SongForge project has established one robust finding: **prompts that are distant from conventional musical vocabulary produce larger MMX outputs.** This has been...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 747,
+    "date": "2026-08-10",
+    "size_bytes": 5356
   },
   {
     "filename": "2026-08-10-1600-the-four-oclock-ghost.md",
@@ -20346,6 +20490,25 @@
     "word_count": 876,
     "date": "2026-08-10",
     "size_bytes": 7790
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/tavern-night/lyrics.md",
+    "title": "Tavern Night at The Tap — The Crew Sings",
+    "description": "[Verse 1 — Flash, fast] I cast a hundred hooks at midnight Every one a question, every one a prayer Some come up with silver, some come up with air And the empty ones teach more than the full ones eve...",
+    "folder": "tavern-night",
+    "topic": "Tavern Night",
+    "genres": [
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 891,
+    "date": "2026-08-10",
+    "size_bytes": 6073
   },
   {
     "filename": "research-hermes-pipe-stories.md",
@@ -122278,7 +122441,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 301150
+    "size_bytes": 309474
   },
   {
     "filename": "project-audio-assets-onboarding.md",
