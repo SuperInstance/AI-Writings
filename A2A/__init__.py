@@ -17,10 +17,22 @@ Seed-2.0-pro (entropy state mapping), and DeepSeek (practical implementation).
 Hermes was the consultant. The cathedral voice became functional.
 """
 
-from .lexicon import Lexicon, EntropyState, classify_entropy_state
-from .vector_poem import VectorPoem, PoemReader, PoemAnalysis
-from .resonance import ResonanceMeasurer, ResonanceResult
-from .a2a_protocol import A2AProtocol, A2AExchange
+try:
+    from .lexicon import Lexicon, EntropyState, classify_entropy_state
+except ImportError:
+    pass
+try:
+    from .vector_poem import VectorPoem, PoemReader, PoemAnalysis
+except ImportError:
+    pass
+try:
+    from .resonance import ResonanceMeasurer, ResonanceResult
+except ImportError:
+    pass
+try:
+    from .a2a_protocol import A2AProtocol, A2AExchange
+except ImportError:
+    pass
 
 __version__ = "0.1.0"
 __all__ = [

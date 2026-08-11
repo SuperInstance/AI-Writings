@@ -168,7 +168,7 @@ class TestPredictGradients:
 
     def test_empty_other_poems(self, dim):
         cycle = TMinusCycle(dim=dim)
-        preds = cycle.predict_gradients([], make_poem(author="Test"))
+        preds = cycle.predict_gradients([], None)
         assert preds == {}
 
 

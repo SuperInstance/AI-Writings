@@ -172,8 +172,8 @@ class TMinusCycle:
         self.round_number = 0
         self.prediction_history: list[dict[str, Prediction]] = []
         self.accuracy_history: list[dict[str, float]] = []
-        # Per-agent prediction models: agent_name → {other_agent → mean_gradient}
-        self.prediction_models: dict[str, dict[str, np.ndarray]] = {}
+        # Per-agent prediction models: agent_name → mean_gradient (running average)
+        self.prediction_models: dict[str, np.ndarray] = {}
 
     # ── T-MINUS: Predict ───────────────────────────────────────
 
@@ -200,12 +200,11 @@ class TMinusCycle:
 
         for poem in other_poems:
             author = poem.author or "unknown"
-            model = self.prediction_models.get(author)
 
-            if model and author in model:
+            if author in self.prediction_models:
                 # Use learned model: the running average gradient
-                predicted = model[author].copy()
-            elif self.prediction_models.get("__default__"):
+                predicted = self.prediction_models[author].copy()
+            elif "__default__" in self.prediction_models:
                 predicted = self.prediction_models["__default__"].copy()
             else:
                 # No model yet — predict they'll follow their previous gradient
