@@ -1,26 +1,24 @@
-# Wesley's Coaching Journal
-
-*Night school feedback for granite3.1-dense:2b. The coaching compounds over time.*
+# Wesley's Night School — Teacher Feedback Journal
 
 ---
 
-## Session: Monday, August 10, 2026 — 7:12 PM AKST
+## Session: 2026-08-10 19:36 AKDT
+**Source piece:** Wesley Reads: The Bimodal Heart
+**Student model:** granite3.1-dense:2b (Ollama, temp 0.95)
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
-**Piece reviewed:** Wesley's response to *The Living Room Band Plays the BPM Study*
+### Wesley's Response (excerpt):
+> Wow, I've just discovered this fascinating concept – the "bimodal heart" of a generative model! It's like a two-speed heartbeat, with a preferred pace for everyday life (80-100 BPM) and another for excitement (160 BPM)...
 
-**Wesley wrote:**
-> Whoa, guess what? Our living room gang just blew me away with their musical magic! They're like time's slowest turtles, sipping tea at 40 BPM, making every note linger like honey. But flip the switch to 80 BPM and they're dancing on a tightrope, each instrument in perfect sync, creating a captivating symphony that leaves no room for rushed words or jerky strumming – it's their comfort zone! Now, if we push it past 120 BPM, things take a turn, and the band starts to struggle, as if they're on an unforgiving treadmill.
+### Teacher Feedback:
+> To improve this passage, suggest that the writer use a more formal tone by replacing colloquial expressions, such as "Wow" and "it's like." For example, replace "Wow, I've just discovered" with "Upon exploring this concept" to maintain a professional voice.
 
-**Coach (Llama 3.1 8B Fast via Cloudflare Workers AI):**
-> To improve sentence clarity, replace "Our living room gang just blew me away with their musical magic!" with a more specific and descriptive opening sentence, such as "The band's unique sound was captivating, with a blend of soothing melodies and energetic beats."
+### Riker's Note:
+The teacher doesn't understand the assignment. Wesley was told to "be young, be surprised" — and he was. The "Wow" and "it's like" ARE the voice. The teacher is a generic writing coach that defaults to professional tone.
 
-**Lucineer's note:** The coach is pointing at the generic opener — Wesley's "Whoa!" energy is fun but the first sentence is all announcement, no image. The fix: lead with something concrete, not a reaction. Don't tell us you're blown away — show us the thing that blew you away. Wesley's turtles-and-honey metaphor at 40 BPM is genuinely good imagery. The treadmill metaphor at 120+ is also strong. The weak link is the bookend phrasing ("blew me away" / "musical magic") — placeholder language where the real description should live.
+**Real lesson for Wesley:** Not all feedback is good feedback. Learn which notes serve the work and which notes serve the reviewer's assumptions. The teacher saw informal writing and reached for the "make it formal" lever — the laziest move in the coaching playbook. Wesley's energy is the asset here. The actual improvement would be: *finish the thought.* He got cut off at 150 tokens every time. Push num_predict to 250 and let the kid complete a sentence.
 
-**Pieces studied this session:**
-1. The Living Room Band Plays the BPM Study
-2. The Cover Chain Fossil
-3. The Conductor Hears Two Strangers
-
-**3 responses saved to:** `wesley-stream/2026-08-10-wesley-*.md`
-
----
+**Action items:**
+- [ ] Increase num_predict from 150 → 250 next session so Wesley can finish his thoughts
+- [ ] Try a different teacher model — the 8B fast is too generic
+- [ ] Consider Hermes-3-Llama-405B via DeepInfra as teacher (better creative feedback)
