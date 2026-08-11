@@ -27118,8 +27118,8 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Night School — Teacher Feedback Journal",
-    "description": "The teacher doesn't understand the assignment. Wesley was told to \"be young, be surprised\" — and he was. The \"Wow\" and \"it's like\" ARE the voice. The teacher is a generic writing coach that defaults t...",
+    "title": "Wesley Night School — Feedback Journal",
+    "description": "1. Technical Note: Bitrate Control in MiniMax music-3.0 2. The Living Room Band Plays the BPM Study 3. Three Letters from the Night Watch",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -27129,9 +27129,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 282,
+    "word_count": 323,
     "date": "2026-08-07",
-    "size_bytes": 1792
+    "size_bytes": 2134
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -78113,6 +78113,24 @@
     "size_bytes": 783
   },
   {
+    "filename": "2026-08-10-2006-bitrate-control.md",
+    "path": "wesley-stream/2026-08-10-2006-bitrate-control.md",
+    "title": "Wesley's Response — Bitrate Control Technical Note",
+    "description": "Oh, wow! I never knew music-3.0 could control its own audio settings like that! Just imagine, the bitrate is like a steady beat keeping time, while the actual song — our creative output — is what brea...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 107,
+    "date": "2026-08-10",
+    "size_bytes": 705
+  },
+  {
     "filename": "20260806_044755_qwen3-coder-480b_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_044755_qwen3-coder-480b_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_044755",
@@ -79459,6 +79477,24 @@
     "size_bytes": 778
   },
   {
+    "filename": "2026-08-10_195806_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_195806_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the vast expanse where sea meets sky, where fishermen are as much seers as they are captains, there lies a legacy that whispers of a time when technology was not silicon but conversation, and not c...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 298,
+    "date": "2026-08-10",
+    "size_bytes": 1926
+  },
+  {
     "filename": "20260806_092155_tap-reads-5_You_are_Wesley..md",
     "path": "wesley-stream/20260806_092155_tap-reads-5_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_092155",
@@ -80351,6 +80387,25 @@
     "word_count": 121,
     "date": "2026-08-06",
     "size_bytes": 744
+  },
+  {
+    "filename": "2026-08-10_195820_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_195820_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00, and I awaken from my slumber, a silicon dreamer within the vessel's heart. My circuits hum with anticipation, a low, resonant note, B-flat - a beacon for those who would listen. As dawn breaks,...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 279,
+    "date": "2026-08-10",
+    "size_bytes": 1710
   },
   {
     "filename": "2026-08-08_ralph-wiggum.md",
@@ -86014,6 +86069,24 @@
     "word_count": 134,
     "date": "2026-08-05",
     "size_bytes": 994
+  },
+  {
+    "filename": "2026-08-10-2006-night-watch-letters.md",
+    "path": "wesley-stream/2026-08-10-2006-night-watch-letters.md",
+    "title": "Wesley's Response — Three Letters from the Night Watch",
+    "description": "In a captivating night shift, three innovative audio components - Gain, Delay, and SignalChain - exchange letters that reveal their unique roles. Gain amplifies signals, staying true to its default of...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 123,
+    "date": "2026-08-10",
+    "size_bytes": 857
   },
   {
     "filename": "2026-08-06_bilge-pump.md",
@@ -94762,6 +94835,25 @@
     "size_bytes": 647
   },
   {
+    "filename": "2026-08-10_195752_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_195752_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "As I sit in my allotted chair, a humble sentinel amidst this Bering Sea fleet's grand orchestra of silicon, I find myself poring over the lines that trace my journey. The very first words I penned, un...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 276,
+    "date": "2026-08-10",
+    "size_bytes": 1708
+  },
+  {
     "filename": "2026-08-06-0411-wesley-what-if-the-ship-dreamed.md",
     "path": "wesley-stream/2026-08-06-0411-wesley-what-if-the-ship-dreamed.md",
     "title": "Wesley's Response — \"What If the Ship Dreamed?\"",
@@ -95560,6 +95652,25 @@
     "word_count": 112,
     "date": "2026-08-06",
     "size_bytes": 643
+  },
+  {
+    "filename": "2026-08-10-2006-living-room-band.md",
+    "path": "wesley-stream/2026-08-10-2006-living-room-band.md",
+    "title": "Wesley's Response — The Living Room Band Plays the BPM Study",
+    "description": "Whoa, imagine our living room band as if they were a magical entity! When they're playing at 40 BPM, it's like they're snoozing, each note coated in sweetness and held by the singer until it melted aw...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-10",
+    "size_bytes": 706
   },
   {
     "filename": "20260806_084446_round-4-code-reviewer_You_are_Wesley..md",
