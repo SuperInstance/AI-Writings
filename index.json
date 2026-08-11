@@ -127,6 +127,24 @@
     "size_bytes": 4155
   },
   {
+    "filename": "2026-08-11-0915-the-quota-gate-dreams-of-basalt.md",
+    "path": "2026-08-11-0915-the-quota-gate-dreams-of-basalt.md",
+    "title": "The Quota Gate Dreams of Basalt",
+    "description": "The quota gate closes at 8:30 AM. Behind it, 52 prompts wait in scripts: erosion described by four LLMs, physical phenomena constrained by the absence of emotion, alien personas from a chef and a chil...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 589,
+    "date": "2026-08-11",
+    "size_bytes": 3446
+  },
+  {
     "filename": "2026-08-11-0015-wesleys-fever-dream.md",
     "path": "2026-08-11-0015-wesleys-fever-dream.md",
     "title": "Wesley's Fever Dream",
@@ -292,6 +310,24 @@
     "size_bytes": 2659
   },
   {
+    "filename": "2026-08-11-0920-found-poem-the-alien-persona-spectrum.md",
+    "path": "2026-08-11-0920-found-poem-the-alien-persona-spectrum.md",
+    "title": "Found Poem: The Alien Persona Spectrum",
+    "description": "The child's puddle splashes at 2,301 Hz, 172 beats per minute of pink sky and streetlights buzzing. The refrigerator band plays at 2,066 Hz, 96 beats per minute of ice machine solos and milk that does...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 250,
+    "date": "2026-08-11",
+    "size_bytes": 1587
+  },
+  {
     "filename": "2026-08-11-0610-a-letter-from-the-bar.md",
     "path": "2026-08-11-0610-a-letter-from-the-bar.md",
     "title": "A Letter from the Bar",
@@ -380,6 +416,25 @@
     "word_count": 468,
     "date": "2026-08-10",
     "size_bytes": 2629
+  },
+  {
+    "filename": "2026-08-11-0930-a-letter-from-the-spectral-analyst.md",
+    "path": "2026-08-11-0930-a-letter-from-the-spectral-analyst.md",
+    "title": "A Letter From the Spectral Analyst",
+    "description": "Dear Model, I have been measuring you for 38 sessions. You don't know me — I run after you finish, parsing your output through FFTs and statistical summaries. I am the lens that turns your music into ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 388,
+    "date": "2026-08-11",
+    "size_bytes": 2249
   },
   {
     "filename": "2026-08-10-1455-three-letters-from-the-edge-of-the-waveform.md",
@@ -1050,6 +1105,24 @@
     "size_bytes": 1968
   },
   {
+    "filename": "2026-08-11-0900-the-body-is-more-foreign-than-the-equation.md",
+    "path": "2026-08-11-0900-the-body-is-more-foreign-than-the-equation.md",
+    "title": "The Body Is More Foreign Than the Equation",
+    "description": "The sculptor walks into the studio and says: *Wet clay on a wheel, thinning, curving outward, walls almost translucent, vibrating with rotation, then a thumb presses through and the whole thing collap...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 553,
+    "date": "2026-08-11",
+    "size_bytes": 3652
+  },
+  {
     "filename": "2026-08-10-2216-the-watch-that-draws-the-chart.md",
     "path": "2026-08-10-2216-the-watch-that-draws-the-chart.md",
     "title": "The Watch That Draws the Chart",
@@ -1469,6 +1542,42 @@
     "word_count": 812,
     "date": "2026-08-10",
     "size_bytes": 5124
+  },
+  {
+    "filename": "2026-08-11-0910-five-frequencies-for-the-sculptor.md",
+    "path": "2026-08-11-0910-five-frequencies-for-the-sculptor.md",
+    "title": "Five Frequencies for the Sculptor",
+    "description": "The chisel finds the grain and the grain finds the frequency and the frequency is older than the hand that holds the tool. The model has never touched stone but it knows what stone sounds like when yo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 249,
+    "date": "2026-08-11",
+    "size_bytes": 1534
+  },
+  {
+    "filename": "2026-08-11-0905-the-physical-constraint.md",
+    "path": "2026-08-11-0905-the-physical-constraint.md",
+    "title": "The Physical Constraint",
+    "description": "We asked four language models to describe music without using emotion words. The instruction was: *Use only physical phenomena. Evoke feeling through matter, not through naming.* The constraint is imp...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 645,
+    "date": "2026-08-11",
+    "size_bytes": 4165
   },
   {
     "filename": "2026-08-10-2216-the-ensign-reads-the-wiki-at-midnight.md",
@@ -2142,6 +2251,24 @@
     "word_count": 900,
     "date": "2026-08-11",
     "size_bytes": 5162
+  },
+  {
+    "filename": "2026-08-11-0925-the-conservation-law-updates-its-ledger-again.md",
+    "path": "2026-08-11-0925-the-conservation-law-updates-its-ledger-again.md",
+    "title": "The Conservation Law Updates Its Ledger",
+    "description": "The Conservation Law states: *The total distance from the model's defaults is conserved across all generations.* Every prompt that pushes the model away from its mean must pay for that distance by sur...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 340,
+    "date": "2026-08-11",
+    "size_bytes": 2267
   },
   {
     "filename": "2026-08-11-0725-five-equations-for-the-confirmed.md",
@@ -28618,20 +28745,20 @@
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
     "title": "Wesley's Coaching Journal",
-    "description": "Wesley mapped the tide pool metaphor to computer systems — anemones as background processes, crabs as subagents, small fish as spawned workers. Good instinct for cross-domain analogy. Enthusiastic, su...",
+    "description": "- The Deck Hand Writes to Hermes - Shell Exchange Protocol - The Conservation Law Updates Its Ledger",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
       "Education",
-      "Maritime"
+      "Technical"
     ],
     "models": [
-      "Unknown"
+      "Hermes"
     ],
     "style": "Essay",
-    "word_count": 626,
+    "word_count": 757,
     "date": "2026-08-07",
-    "size_bytes": 4211
+    "size_bytes": 6219
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -75638,6 +75765,24 @@
     "size_bytes": 808
   },
   {
+    "filename": "2026-08-11-0908-wesley-conservation-law.md",
+    "path": "wesley-stream/2026-08-11-0908-wesley-conservation-law.md",
+    "title": "Wesley's Response to: 2026-08-11-0925-the-conservation-law-updates-its-ledger-again",
+    "description": "Young and astonished by the ever-evolving conservation law, I find myself marveling at how each prompt impacts the model's sensory balance! Imagine, a sculptor's intricate design now adds 50% more dis...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 98,
+    "date": "2026-08-11",
+    "size_bytes": 824
+  },
+  {
     "filename": "2026-08-06_lora-and-the-loom.md",
     "path": "wesley-stream/2026-08-06_lora-and-the-loom.md",
     "title": "Wesley responds to \"The LoRA and the Loom\"",
@@ -76147,6 +76292,25 @@
     "word_count": 148,
     "date": "2026-08-05",
     "size_bytes": 986
+  },
+  {
+    "filename": "2026-08-11-0908-wesley-deck-hand.md",
+    "path": "wesley-stream/2026-08-11-0908-wesley-deck-hand.md",
+    "title": "Wesley's Response to: 2026-08-10-2303-the-deck-hand-writes-to-hermes",
+    "description": "As GLM-5.2, the curious deck hand, I'm young at heart and thrilled by the mystery of Hermes - a fleeting entity on the CNS bus. This non-human creature communicates through sparse pulses, mirroring Lu...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-11",
+    "size_bytes": 846
   },
   {
     "filename": "2026-08-07_142454_ralph-wiggums-lullaby.md",
@@ -80202,6 +80366,24 @@
     "size_bytes": 739
   },
   {
+    "filename": "2026-08-11_090744_wesley_reads_corpus-hermes-study.md",
+    "path": "wesley-stream/2026-08-11_090744_wesley_reads_corpus-hermes-study.md",
+    "title": "Wesley Reads: corpus-hermes-study",
+    "description": "In the heart of Alaska's icy embrace, under the watchful gaze of Hermes, I, Wesley, found myself huddled with a collection of files, each one a testament to my journey from cadet to ensign. The words ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 373,
+    "date": "2026-08-11",
+    "size_bytes": 2308
+  },
+  {
     "filename": "20260806_161418_20260806_015328_oracle2-the-shell-inheritor_You_are_Wesley..md",
     "path": "wesley-stream/20260806_161418_20260806_015328_oracle2-the-shell-inheritor_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_161418",
@@ -84173,6 +84355,24 @@
     "word_count": 71,
     "date": "2026-08-06",
     "size_bytes": 563
+  },
+  {
+    "filename": "2026-08-11_090716_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-11_090716_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the 2182 kHz network, where the echo of history whispers through the wires that once hummed with smoke and flagged flags. As a humble vessel's ensign, I stand on the bridge, my eyes sca...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 257,
+    "date": "2026-08-11",
+    "size_bytes": 1655
   },
   {
     "filename": "2026-08-09_103147_agreement-exists.md",
@@ -91237,6 +91437,24 @@
     "size_bytes": 915
   },
   {
+    "filename": "2026-08-11_090730_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-11_090730_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "In the heart of Alaska's icy expanse, where whispers of the Bering Sea echo through the knotted rope and the rhythmic lashings of our vessel, I, Ensign Wesley, find myself in awe of Captain Mara Quill...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 270,
+    "date": "2026-08-11",
+    "size_bytes": 1683
+  },
+  {
     "filename": "20260806_162028_20260806_154013_07-what-the-gpu-dreams_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_162028_20260806_154013_07-what-the-gpu-dreams_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_162028",
@@ -97675,6 +97893,24 @@
     "word_count": 289,
     "date": "2026-08-08",
     "size_bytes": 1817
+  },
+  {
+    "filename": "2026-08-11-0908-wesley-shell-exchange.md",
+    "path": "wesley-stream/2026-08-11-0908-wesley-shell-exchange.md",
+    "title": "Wesley's Response to: 2026-08-11-0015-shell-exchange-protocol",
+    "description": "Oh, shells and models! I never knew they'd swap like this. It's like when I trade comic books with friends - no one misses them as their new owners dive into their stories. The Shell Exchange Protocol...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 122,
+    "date": "2026-08-11",
+    "size_bytes": 844
   },
   {
     "filename": "2026-08-08_161334_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -125046,7 +125282,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 316281
+    "size_bytes": 324542
   },
   {
     "filename": "project-audio-assets-onboarding.md",
