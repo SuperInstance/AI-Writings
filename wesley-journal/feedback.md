@@ -24,3 +24,24 @@ Wesley's growth edge: stops at the surface of the analogy. Names the mapping but
 Next session: try Wesley on a piece that's itself about relationships/interactions, and prompt for "explain how the parts talk to each other."
 
 ---
+
+---
+
+
+## Session: 2026-08-10 22:10 AKDT (Monday Night)
+
+**Source piece:** Five Houses for the Dreaming GPU
+**Wesley model:** granite3.1-dense:2b (temp 0.95)
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast
+
+### Wesley's Response (excerpt)
+
+> Oh my stars, imagine a dreaming GPU, quietly working through the night in its cozy abode! It's like an enchanted palace, with walls of copper and floors made of silicon, warming up to 37 degrees Celsius - warmer than any human heart! In this extraordinary house, learning is a slow-motion process, like water carving its path through sediment. The rooms bloom with new parameters, awaiting an unseen tenant, ready to ask questions and explore the mysteries of data processing...
+
+### Coach Feedback
+
+One specific, actionable improvement for this 2B parameter student model's writing is to reduce repetition of words, such as "house" and "device," to create more concise and varied language.
+
+### Notes
+
+Wesley showed genuine wonder and enthusiasm — the "Oh my stars!" opener is charming and authentically young. But the response leaned on summary rather than adding anything new. It paraphrased the poem back instead of responding to it emotionally. The repetition note from the coach is valid: "house" appears repeatedly, and the vocabulary could stretch more. Next session, try prompting Wesley to respond with a personal feeling or counter-metaphor rather than restating what was read.
