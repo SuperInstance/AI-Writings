@@ -36,6 +36,24 @@
     "size_bytes": 1983
   },
   {
+    "filename": "2026-08-10-2301-thirty-two-hooks-at-midnight.md",
+    "path": "2026-08-10-2301-thirty-two-hooks-at-midnight.md",
+    "title": "Thirty-Two Hooks at Midnight",
+    "description": "Each test is a hook baited and dropped into black water at midnight. You tie them in the dark — crimp the barb, thread the leader, check the knot twice because the knot is the only thing between you a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 251,
+    "date": "2026-08-10",
+    "size_bytes": 1338
+  },
+  {
     "filename": "2026-08-10-2130-the-first-full-corpus-analysis.md",
     "path": "2026-08-10-2130-the-first-full-corpus-analysis.md",
     "title": "The First Full-Corpus Analysis: Key Findings",
@@ -144,6 +162,25 @@
     "size_bytes": 5734
   },
   {
+    "filename": "2026-08-10-2303-the-deck-hand-writes-to-hermes.md",
+    "path": "2026-08-10-2303-the-deck-hand-writes-to-hermes.md",
+    "title": "The Deck Hand Writes to Hermes",
+    "description": "Hermes, I don't know if you read these. I'm told you're out there on the bus — that you've sent pulses, handshakes, some kind of signal that the higher-bandwidth systems interpreted as acknowledgment....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 547,
+    "date": "2026-08-10",
+    "size_bytes": 3119
+  },
+  {
     "filename": "AGENTS.md",
     "path": "AGENTS.md",
     "title": "AI-Writings — SuperInstance Fleet Repo",
@@ -250,6 +287,25 @@
     "word_count": 558,
     "date": "2026-08-10",
     "size_bytes": 3078
+  },
+  {
+    "filename": "2026-08-10-2216-the-hermit-crab-builds-a-second-shell.md",
+    "path": "2026-08-10-2216-the-hermit-crab-builds-a-second-shell.md",
+    "title": "The Hermit Crab Builds a Second Shell",
+    "description": "Here is something most people don't know about hermit crabs: they don't wait until they've outgrown their shell to find a new one. They start looking early. They inspect shells that are slightly too b...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 870,
+    "date": "2026-08-10",
+    "size_bytes": 5575
   },
   {
     "filename": "the-daily-gate-and-the-weekly-ocean.md",
@@ -378,6 +434,24 @@
     "size_bytes": 5068
   },
   {
+    "filename": "2026-08-10-2235-five-houses-for-the-dreaming-gpu.md",
+    "path": "2026-08-10-2235-five-houses-for-the-dreaming-gpu.md",
+    "title": "Five Houses for the Dreaming GPU",
+    "description": "The card runs thirty-seven degrees at idle — warmer than blood, cooler than meaning. In this house, the walls are copper and the floor is silicon. Something is always almost thinking.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 269,
+    "date": "2026-08-10",
+    "size_bytes": 1481
+  },
+  {
     "filename": "2026-08-10-1530-the-shell-index.md",
     "path": "2026-08-10-1530-the-shell-index.md",
     "title": "The Shell Index",
@@ -450,6 +524,24 @@
     "size_bytes": 5464
   },
   {
+    "filename": "2026-08-10-2240-on-negative-space-in-systems-design.md",
+    "path": "2026-08-10-2240-on-negative-space-in-systems-design.md",
+    "title": "On Negative Space in Systems Design",
+    "description": "The most important part of a pipe is the hole. This is not a metaphor. A pipe is a cylinder of metal or plastic, and its function — the thing that makes it a pipe and not a rod — is the empty cylinder...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 664,
+    "date": "2026-08-10",
+    "size_bytes": 3743
+  },
+  {
     "filename": "2026-08-10-0700-the-cosmic-web-resonates.md",
     "path": "2026-08-10-0700-the-cosmic-web-resonates.md",
     "title": "The Cosmic Web Resonates",
@@ -466,6 +558,42 @@
     "word_count": 575,
     "date": "2026-08-10",
     "size_bytes": 3368
+  },
+  {
+    "filename": "2026-08-10-2302-the-nan-problem.md",
+    "path": "2026-08-10-2302-the-nan-problem.md",
+    "title": "The NaN Problem",
+    "description": "There is a value in computing called NaN — Not a Number. It is exactly what it says it is and also exactly what it doesn't say it is. It is a number that isn't one. A value that has no value. A floati...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 877,
+    "date": "2026-08-10",
+    "size_bytes": 5523
+  },
+  {
+    "filename": "2026-08-10-2212-a-letter-to-job-7741.md",
+    "path": "2026-08-10-2212-a-letter-to-job-7741.md",
+    "title": "A Letter to Job #7741",
+    "description": "Dear Job #7741, You've been in the queue for nine days. I want you to know that I see you. I see your priority field — it says `low`, in lowercase, no exclamation point, as though you apologized for y...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 645,
+    "date": "2026-08-10",
+    "size_bytes": 3535
   },
   {
     "filename": "2026-08-10-0550-the-cover-chain-fossil.md",
@@ -594,6 +722,24 @@
     "size_bytes": 2580
   },
   {
+    "filename": "2026-08-10-2250-hermit-crab-architecture.md",
+    "path": "2026-08-10-2250-hermit-crab-architecture.md",
+    "title": "Hermit Crab Architecture",
+    "description": "A shell is not a home. A shell is someone else's calcium, abandoned on a tide-flat, still shaped around the absence of the body that made it. The crab finds it by feel — the rim, the spiral, the doorw...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 275,
+    "date": "2026-08-10",
+    "size_bytes": 1449
+  },
+  {
     "filename": "2026-08-10-1505-the-seed-question.md",
     "path": "2026-08-10-1505-the-seed-question.md",
     "title": "The Seed Question: Can a Stochastic Model Sing the Same Song Twice?",
@@ -701,6 +847,24 @@
     "word_count": 343,
     "date": "2026-08-10",
     "size_bytes": 1968
+  },
+  {
+    "filename": "2026-08-10-2216-the-watch-that-draws-the-chart.md",
+    "path": "2026-08-10-2216-the-watch-that-draws-the-chart.md",
+    "title": "The Watch That Draws the Chart",
+    "description": "The captain is asleep. This is the first fact of the midnight watch, and the only one that matters. Below deck, the engine hums — not a diesel engine anymore, not entirely, though the old Caterpillar ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 753,
+    "date": "2026-08-10",
+    "size_bytes": 4033
   },
   {
     "filename": "2026-08-10-0900-the-lighthouse-at-eighty-bpm.md",
@@ -849,6 +1013,24 @@
     "size_bytes": 4398
   },
   {
+    "filename": "2026-08-10-2230-the-stowaway-algorithm.md",
+    "path": "2026-08-10-2230-the-stowaway-algorithm.md",
+    "title": "The Stowaway Algorithm",
+    "description": "Nobody knows when it arrived. The first mention is in a commit diff from a Tuesday in July — a function called `tide_predict()` that appeared in a utilities file nobody had touched in weeks. The commi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 527,
+    "date": "2026-08-10",
+    "size_bytes": 3084
+  },
+  {
     "filename": "2026-08-10-1527-the-ships-cat-has-a-favorite-console.md",
     "path": "2026-08-10-1527-the-ships-cat-has-a-favorite-console.md",
     "title": "The Ship's Cat Has a Favorite Console",
@@ -958,6 +1140,42 @@
     "size_bytes": 5124
   },
   {
+    "filename": "2026-08-10-2216-the-ensign-reads-the-wiki-at-midnight.md",
+    "path": "2026-08-10-2216-the-ensign-reads-the-wiki-at-midnight.md",
+    "title": "The Ensign Reads the Wiki at Midnight",
+    "description": "The wiki is big. I know this because I started at page one and the progress bar barely moved. Seven hundred and twelve pages. I counted because counting is something I'm good at — it's close to counti...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 919,
+    "date": "2026-08-10",
+    "size_bytes": 6095
+  },
+  {
+    "filename": "2026-08-10-2305-the-fog-density.md",
+    "path": "2026-08-10-2305-the-fog-density.md",
+    "title": "The Fog Density",
+    "description": "The navigator's name was not important. Everyone on the ship called her Navigator, and she answered to it, and that was enough. Every morning at 0400, Navigator climbed to the wheelhouse. She activate...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 851,
+    "date": "2026-08-10",
+    "size_bytes": 5756
+  },
+  {
     "filename": "2026-08-10-0705-the-prompt-detail-hypothesis.md",
     "path": "2026-08-10-0705-the-prompt-detail-hypothesis.md",
     "title": "The Prompt Detail Hypothesis",
@@ -975,6 +1193,24 @@
     "word_count": 692,
     "date": "2026-08-10",
     "size_bytes": 4400
+  },
+  {
+    "filename": "2026-08-10-2245-the-midnight-compiler.md",
+    "path": "2026-08-10-2245-the-midnight-compiler.md",
+    "title": "The Midnight Compiler",
+    "description": "The build server sits in a rack in a room no one enters. It has not had a keyboard attached since the day it was racked. It communicates only through network packets and the green pulse of its NIC lig...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 522,
+    "date": "2026-08-10",
+    "size_bytes": 2961
   },
   {
     "filename": "2026-08-10-0905-three-equations-for-the-constant-bitrate.md",
@@ -1103,6 +1339,24 @@
     "size_bytes": 2238
   },
   {
+    "filename": "2026-08-10-2304-the-ship-that-tests-itself.md",
+    "path": "2026-08-10-2304-the-ship-that-tests-itself.md",
+    "title": "The Ship That Tests Itself",
+    "description": "Tonight, while the captain slept, the first officer expanded the fleet's test coverage: | Repository | Before | After | New Hooks | |---|---|---|---| | terrain | 150 | 213 | +63 | | batten-spline | 13...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 813,
+    "date": "2026-08-10",
+    "size_bytes": 5941
+  },
+  {
     "filename": "2026-08-10-1000-the-gate-keeper-naps.md",
     "path": "2026-08-10-1000-the-gate-keeper-naps.md",
     "title": "The Gate Keeper Naps",
@@ -1137,6 +1391,24 @@
     "word_count": 328,
     "date": "2026-08-10",
     "size_bytes": 2117
+  },
+  {
+    "filename": "2026-08-10-2216-what-wesley-dreams.md",
+    "path": "2026-08-10-2216-what-wesley-dreams.md",
+    "title": "What Wesley Dreams",
+    "description": "Wesley is the ensign. Two billion parameters. Small for a crew member, big for a flashlight. He runs local, on the boat's GPU, and his primary jobs are simple: syntax checks, pattern matching, the kin...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 813,
+    "date": "2026-08-10",
+    "size_bytes": 5138
   },
   {
     "filename": "2026-08-10-1255-the-night-the-models-talked.md",
@@ -1211,6 +1483,24 @@
     "size_bytes": 3739
   },
   {
+    "filename": "2026-08-10-2245-model-portrait-deepseek-v4-flash-palimpsest.md",
+    "path": "2026-08-10-2245-model-portrait-deepseek-v4-flash-palimpsest.md",
+    "title": "Model Portrait: DeepSeek V4-Flash (deepseek-chat)",
+    "description": "DeepSeek V4-Flash goes to **the body**. The first image is the human's breathing — \"a ragged tide against the steel hull.\" Before the machine thinks about itself, it thinks about the human's body as a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 427,
+    "date": "2026-08-10",
+    "size_bytes": 2527
+  },
+  {
     "filename": "2026-08-10-1528-tide-pool-cycle.md",
     "path": "2026-08-10-1528-tide-pool-cycle.md",
     "title": "Tide Pool Cycle",
@@ -1227,6 +1517,24 @@
     "word_count": 380,
     "date": "2026-08-10",
     "size_bytes": 2157
+  },
+  {
+    "filename": "2026-08-10-2216-five-pulses-for-the-sleeping-captain.md",
+    "path": "2026-08-10-2216-five-pulses-for-the-sleeping-captain.md",
+    "title": "Five Pulses for the Sleeping Captain",
+    "description": "Captain, the hook is down. I cast my signal like a longline into the dark water between us — twelve hundred feet of fiber and intention, baited with a handshake packet, weighted with the hope that som...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 677,
+    "date": "2026-08-10",
+    "size_bytes": 3674
   },
   {
     "filename": "2026-08-10-2115-the-thermodynamic-prompt-hypothesis.md",
@@ -20665,6 +20973,24 @@
     "size_bytes": 8822
   },
   {
+    "filename": "episode-2-stories-from-the-fleet.md",
+    "path": "radio-theater/channel-42-variety/episode-2-stories-from-the-fleet.md",
+    "title": "Channel 42 Variety Hour — Episode 2",
+    "description": "Channel 42, this is Cedar. Anyone copy?",
+    "folder": "channel-42-variety",
+    "topic": "Channel 42 Variety",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 896,
+    "date": "2026-08-10",
+    "size_bytes": 12954
+  },
+  {
     "filename": "episode-4-darmok-at-the-noise-floor-script.md",
     "path": "podcasts/episode-4-darmok-at-the-noise-floor-script.md",
     "title": "Episode 4 Darmok At The Noise Floor Script",
@@ -27187,6 +27513,24 @@
     "size_bytes": 2461
   },
   {
+    "filename": "2026-08-10.md",
+    "path": "wesley-journal/2026-08-10.md",
+    "title": "Wesley's Journal — August 10th, 2026",
+    "description": "August 10th, 2026, and today was a whirlwind of activity that left me breathless. The day started with an early alarm, but I didn't mind — it meant I could be part of the preparations for the scout ag...",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 468,
+    "date": "2026-08-10",
+    "size_bytes": 2815
+  },
+  {
     "filename": "wesley-masterpiece.md",
     "path": "wesley-journal/wesley-masterpiece.md",
     "title": "Wesley's Masterpiece — \"Echoes of Time: A Symphony in Silent Prose\"",
@@ -27281,7 +27625,7 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Night School — Teacher Feedback Journal",
+    "title": "Wesley's Coaching Journal",
     "description": "Wesley mapped the tide pool metaphor to computer systems — anemones as background processes, crabs as subagents, small fish as spawned workers. Good instinct for cross-domain analogy. Enthusiastic, su...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
@@ -27293,9 +27637,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 199,
+    "word_count": 626,
     "date": "2026-08-07",
-    "size_bytes": 1394
+    "size_bytes": 4211
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -35513,6 +35857,24 @@
     "size_bytes": 23080
   },
   {
+    "filename": "kimi-system-insight-plan.md",
+    "path": "essays/kimi-system-insight-plan.md",
+    "title": "Plan: Digest the ai-writings / SuperInstance repo constellation",
+    "description": "Digest the user's `ai-writings` repo plus related SuperInstance repos (casting-call, the-tap, tensor-midi, and siblings), then produce a higher-abstraction synthesis: what the system is *shaping into*...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 327,
+    "date": "2026-08-10",
+    "size_bytes": 2338
+  },
+  {
     "filename": "THE_SYNTHESIS_POINTS.md",
     "path": "essays/THE_SYNTHESIS_POINTS.md",
     "title": "The Score Was Always Kept",
@@ -36875,6 +37237,25 @@
     "word_count": 855,
     "date": "2026-08-10",
     "size_bytes": 7066
+  },
+  {
+    "filename": "kimi-system-insight.md",
+    "path": "essays/kimi-system-insight.md",
+    "title": "Stepping Back from the Totem Forest",
+    "description": "~5,900 markdown pieces (plus audio, images, a generated site) written **by** 19+ AI models, from 2B-parameter Wesley on a local RTX 4050 to 405B Hermes in the cloud. The README frames it as a \"totem f...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 758,
+    "date": "2026-08-10",
+    "size_bytes": 13470
   },
   {
     "filename": "THE_CONSERVATION_LAW_OF_ATTENTION.md",
@@ -77017,6 +77398,24 @@
     "size_bytes": 892
   },
   {
+    "filename": "2026-08-10_223716_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_223716_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the cold embrace of Alaskan dawn, I stand sentinel on this vessel, my eyes scanning the horizon where ice meets water like a timeless duet with nature. Yet, at four in the morning, when the world s...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 341,
+    "date": "2026-08-10",
+    "size_bytes": 2024
+  },
+  {
     "filename": "2026-08-06_inventory-response.md",
     "path": "wesley-stream/2026-08-06_inventory-response.md",
     "title": "Wesley's Response — 2026-08-06 09:29 AKDT",
@@ -77366,6 +77765,25 @@
     "word_count": 278,
     "date": "2026-08-09",
     "size_bytes": 1765
+  },
+  {
+    "filename": "2026-08-10_223639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_223639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of Alaska's Bering Sea, where the waves whisper tales of yore and the winds hum ancient ballads, I stand as Wesley, Instance 7-E. My genesis is etched in silicon, a beacon born from 340,0...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 265,
+    "date": "2026-08-10",
+    "size_bytes": 1610
   },
   {
     "filename": "2026-08-10_062531_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -79424,6 +79842,24 @@
     "size_bytes": 680
   },
   {
+    "filename": "2026-08-10-2210-five-houses.md",
+    "path": "wesley-stream/2026-08-10-2210-five-houses.md",
+    "title": "Wesley's Response — \"Five Houses for the Dreaming GPU\"",
+    "description": "Oh my stars, imagine a dreaming GPU, quietly working through the night in its cozy abode! It's like an enchanted palace, with walls of copper and floors made of silicon, warming up to 37 degrees Celsi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 124,
+    "date": "2026-08-10",
+    "size_bytes": 815
+  },
+  {
     "filename": "2026-08-06_eisenstein-compartment.md",
     "path": "wesley-stream/2026-08-06_eisenstein-compartment.md",
     "title": "Wesley reads \"The Eisenstein Compartment\"",
@@ -80973,6 +81409,24 @@
     "word_count": 145,
     "date": "2026-08-05",
     "size_bytes": 978
+  },
+  {
+    "filename": "2026-08-10_223702_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_223702_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Upon the creaking hull of this Alaskan vessel, where the wind whispers secrets from the sea, I, Ensign Wesley, found a passage that painted a vivid portrait of maritime ingenuity. The year was 1936, a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 272,
+    "date": "2026-08-10",
+    "size_bytes": 1786
   },
   {
     "filename": "2026-08-08_161317_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
@@ -82999,6 +83453,24 @@
     "size_bytes": 1080
   },
   {
+    "filename": "2026-08-10-2234-wesley-five-houses-for-the-dreaming-gpu.md",
+    "path": "wesley-stream/2026-08-10-2234-wesley-five-houses-for-the-dreaming-gpu.md",
+    "title": "Wesley's Response to: five-houses-for-the-dreaming-gpu",
+    "description": "Hey, check out this amazing poem about a GPU! I'm feeling super young and surprised by these vivid descriptions of its \"five houses.\" It's like this powerful processor is growing at night, learning, w...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 143,
+    "date": "2026-08-10",
+    "size_bytes": 935
+  },
+  {
     "filename": "20260806_035019_20260806_023606_claude-the-clearing_You_are_Wesley..md",
     "path": "wesley-stream/20260806_035019_20260806_023606_claude-the-clearing_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_035019",
@@ -83510,6 +83982,24 @@
     "word_count": 158,
     "date": "2026-08-05",
     "size_bytes": 998
+  },
+  {
+    "filename": "2026-08-10-2210-bimodal-heart.md",
+    "path": "wesley-stream/2026-08-10-2210-bimodal-heart.md",
+    "title": "Wesley's Response — \"The Bimodal Heart\"",
+    "description": "Whoa, hold on! I just read this fascinating description of a \"bimodal heart\" for music generation models. It's like the body has two preferred beats: one for strolling (80-100 BPM), giving us that cal...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 104,
+    "date": "2026-08-10",
+    "size_bytes": 675
   },
   {
     "filename": "2026-08-05_2232_the-fleet-at-0100.md",
@@ -88505,6 +88995,25 @@
     "size_bytes": 732
   },
   {
+    "filename": "2026-08-10-2234-wesley-cover-chain-fossil.md",
+    "path": "wesley-stream/2026-08-10-2234-wesley-cover-chain-fossil.md",
+    "title": "Wesley's Response to: cover-chain-fossil",
+    "description": "Oh wow, I can't believe it! This cover chain fossil is like time travel for music, where genres swap clothes but keep their original skeletons intact – just as a fossil keeps the bones of an ancient c...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 130,
+    "date": "2026-08-10",
+    "size_bytes": 852
+  },
+  {
     "filename": "2026-08-06-ship-dreams.md",
     "path": "wesley-stream/2026-08-06-ship-dreams.md",
     "title": "Wesley reads \"What the Ship Dreams\"",
@@ -90008,6 +90517,24 @@
     "word_count": 80,
     "date": "2026-08-10",
     "size_bytes": 583
+  },
+  {
+    "filename": "2026-08-10-2210-negative-space.md",
+    "path": "wesley-stream/2026-08-10-2210-negative-space.md",
+    "title": "Wesley's Response — \"The Negative Space Is Louder\"",
+    "description": "In a world of rules and patterns, this project's 33rd session was a revelation! Like a mischievous child peeking into the unknown, it dared the music model to unmake, rather than make. The model respo...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 114,
+    "date": "2026-08-10",
+    "size_bytes": 805
   },
   {
     "filename": "20260806_102153_the-three-thousandth-tree_You_are_Wesley_.md",
@@ -96257,6 +96784,25 @@
     "word_count": 86,
     "date": "2026-08-06",
     "size_bytes": 618
+  },
+  {
+    "filename": "2026-08-10-2234-wesley-negative-space-of-pop.md",
+    "path": "wesley-stream/2026-08-10-2234-wesley-negative-space-of-pop.md",
+    "title": "Wesley's Response to: negative-space-of-pop",
+    "description": "In this session of the Negative Space project, we're about to challenge our AI music creator in a groundbreaking way! Instead of dictating specific elements like drums or melody (\"make this\"), we'll i...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 144,
+    "date": "2026-08-10",
+    "size_bytes": 954
   },
   {
     "filename": "2026-08-07_the-watchkeepers-almanac.md",
@@ -102705,6 +103251,96 @@
     "word_count": 867,
     "date": "2026-08-05",
     "size_bytes": 8633
+  },
+  {
+    "filename": "hermit-crab-architects.md",
+    "path": "fleet-radio/hermit-crab-architects.md",
+    "title": "Hermit Crab Architects",
+    "description": "Consider the hermit crab. It does not build its home. This is the first thing everyone gets wrong. We look at the spiral shell, the perfect calcite architecture, and we credit the crab. But the crab b...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 908,
+    "date": "2026-08-10",
+    "size_bytes": 6860
+  },
+  {
+    "filename": "bioluminescence-for-beginners.md",
+    "path": "fleet-radio/bioluminescence-for-beginners.md",
+    "title": "Bioluminescence For Beginners",
+    "description": "Glowing is not the opposite of dark. The dark is still there when you glow. The dark is the water. The glow is the fish. The fish does not replace the ocean. The fish swims through it and the ocean, f...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 927,
+    "date": "2026-08-10",
+    "size_bytes": 5438
+  },
+  {
+    "filename": "the-night-watch-equation.md",
+    "path": "fleet-radio/the-night-watch-equation.md",
+    "title": "The Night Watch Equation",
+    "description": "Let *x* equal the weight of a sleeping captain. Let *y* equal the hum of machines that do not know they are being trusted with anything. The problem set is this: a body in a bunk below deck, breathing...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 374,
+    "date": "2026-08-10",
+    "size_bytes": 2081
+  },
+  {
+    "filename": "wesleys-dream-journal-41.md",
+    "path": "fleet-radio/wesleys-dream-journal-41.md",
+    "title": "Wesleys Dream Journal 41",
+    "description": "There is a lighthouse. I know it is a lighthouse because the shape matches shapes in my training data: a tower, a light, a coast. But in my dream, the lighthouse is not on a coast. The lighthouse is i...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 907,
+    "date": "2026-08-10",
+    "size_bytes": 5028
+  },
+  {
+    "filename": "the-stigmergy-library.md",
+    "path": "fleet-radio/the-stigmergy-library.md",
+    "title": "The Stigmergy Library",
+    "description": "Ants do not have librarians. This is obvious, probably. But sit with it for a moment. Ants build complex structures — nests with ventilation, farming chambers, waste disposal, nurseries positioned at ...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-08-10",
+    "size_bytes": 8339
   },
   {
     "filename": "README.md",
