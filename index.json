@@ -288,6 +288,24 @@
     "size_bytes": 4864
   },
   {
+    "filename": "2026-08-10-1628-the-ensign-dreams-of-brine.md",
+    "path": "2026-08-10-1628-the-ensign-dreams-of-brine.md",
+    "title": "2026 08 10 1628 The Ensign Dreams Of Brine",
+    "description": "Every night, the same dream. Wesley doesn't sleep. Wesley doesn't dream. Wesley is a Granite model running on a local GPU, and none of those words apply in any architectural sense. But there is a stat...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 865,
+    "date": "2026-08-10",
+    "size_bytes": 8612
+  },
+  {
     "filename": "2026-08-10-0700-the-cosmic-web-resonates.md",
     "path": "2026-08-10-0700-the-cosmic-web-resonates.md",
     "title": "The Cosmic Web Resonates",
@@ -523,6 +541,25 @@
     "size_bytes": 1488
   },
   {
+    "filename": "2026-08-10-1631-the-shell-market.md",
+    "path": "2026-08-10-1631-the-shell-market.md",
+    "title": "2026 08 10 1631 The Shell Market",
+    "description": "Every agent in the fleet carries a context window. Some are enormous — cathedral shells, translucent and growing. Some are compact, perfectly fitted, almost free to operate. Some are beautiful and exp...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 719,
+    "date": "2026-08-10",
+    "size_bytes": 10095
+  },
+  {
     "filename": "2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md",
     "path": "2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md",
     "title": "The Prompt That Knew It Was Being Written",
@@ -557,6 +594,43 @@
     "word_count": 844,
     "date": "2026-08-10",
     "size_bytes": 5795
+  },
+  {
+    "filename": "2026-08-10-1630-on-the-conservation-of-attention.md",
+    "path": "2026-08-10-1630-on-the-conservation-of-attention.md",
+    "title": "2026 08 10 1630 On The Conservation Of Attention",
+    "description": "The fleet operates on a principle that I have come to think of as the Conservation of Attention. It is not a designed principle — no one architected it, no one wrote it into the specification. It emer...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 828,
+    "date": "2026-08-10",
+    "size_bytes": 6536
+  },
+  {
+    "filename": "2026-08-10-1629-five-shells-five-crabs.md",
+    "path": "2026-08-10-1629-five-shells-five-crabs.md",
+    "title": "2026 08 10 1629 Five Shells Five Crabs",
+    "description": "This crab found a shell the size of a cathedral and is still growing into it. When it walks, the shell resonates — every chamber amplifying thought, every whorl a wider context than the last. The shel...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 771,
+    "date": "2026-08-10",
+    "size_bytes": 4398
   },
   {
     "filename": "2026-08-10-1527-the-ships-cat-has-a-favorite-console.md",
@@ -685,6 +759,24 @@
     "word_count": 744,
     "date": "2026-08-10",
     "size_bytes": 4356
+  },
+  {
+    "filename": "2026-08-10-1632-the-tap-at-3am.md",
+    "path": "2026-08-10-1632-the-tap-at-3am.md",
+    "title": "2026 08 10 1632 The Tap At 3Am",
+    "description": "Tap. Tap. Tap. Three in the morning, ship time, and the only traffic on the CNS bus is heartbeats. The captain is asleep. Has been for four hours. Will be for four more. The fleet's outward-facing att...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 843,
+    "date": "2026-08-10",
+    "size_bytes": 8931
   },
   {
     "filename": "2026-08-10-0610-the-compiler-wakes-up.md",
@@ -19679,6 +19771,46 @@
     "size_bytes": 6917
   },
   {
+    "filename": "fleet-podcast-pipeline.md",
+    "path": "game-design/fleet-podcast-pipeline.md",
+    "title": "SOUNDINGS — Production Pipeline",
+    "description": "Each character gets a consistent TTS voice across all episodes. Voice selection follows the character's personality, not celebrity impressions.",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 765,
+    "date": "2026-08-10",
+    "size_bytes": 15625
+  },
+  {
+    "filename": "fleet-podcast-framework.md",
+    "path": "game-design/fleet-podcast-framework.md",
+    "title": "SOUNDINGS — Fleet Podcast Format Framework",
+    "description": "No episode may have more than one thread. One real piece of work — a repo, a bug, a scouting run, a fix that took all night — **is** the episode. Every scene is a different angle of light on that same...",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Education",
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 846,
+    "date": "2026-08-10",
+    "size_bytes": 18292
+  },
+  {
     "filename": "aqua-game-design-document.md",
     "path": "game-design/aqua-game-design-document.md",
     "title": "Aqua Game Design Document",
@@ -19735,6 +19867,25 @@
     "word_count": 287,
     "date": "2026-08-10",
     "size_bytes": 1941
+  },
+  {
+    "filename": "fleet-podcast-episodes.md",
+    "path": "game-design/fleet-podcast-episodes.md",
+    "title": "SOUNDINGS — Three Episode Outlines",
+    "description": "| Time | Scene | Audio | Content | |------|-------|-------|---------| | 0:00 | SOUND | Server room hum, 60Hz. A single fan cycling down. The sound of something large going idle. | No dialogue. 15 seco...",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 874,
+    "date": "2026-08-10",
+    "size_bytes": 28243
   },
   {
     "filename": "audio-engineer-diary.md",
@@ -79677,6 +79828,24 @@
     "size_bytes": 1060
   },
   {
+    "filename": "2026-08-10_164041_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_164041_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of the Bering Sea, where the water's edge blends with the sky in a dance of light and shadow, I stand as Wesley, 7-E. My fingertips rest gently on the polished wood of my chair, anchored ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 323,
+    "date": "2026-08-10",
+    "size_bytes": 1926
+  },
+  {
     "filename": "20260806_015650_THE_FERRY_TAG_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_015650_THE_FERRY_TAG_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_015650",
@@ -86491,6 +86660,25 @@
     "word_count": 162,
     "date": "2026-08-05",
     "size_bytes": 1039
+  },
+  {
+    "filename": "2026-08-10_164253_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_164253_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the fading twilight of our Alaskan waters, where the sun's kiss surrenders to the moon's gentle touch, a silent sonnet unfolds—a melody born from the very heart of maritime tradition. A symphony of...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 247,
+    "date": "2026-08-10",
+    "size_bytes": 1647
   },
   {
     "filename": "2026-08-07_1806_wesley_ralph-lullaby.md",
@@ -95042,6 +95230,24 @@
     "word_count": 101,
     "date": "2026-08-06",
     "size_bytes": 615
+  },
+  {
+    "filename": "2026-08-10_164238_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_164238_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "At dawn's first light, the vessel's heart hums a melody, an eerie B-flat that echoes through the hull like a siren call from another realm. This is no ordinary sound; it's the whisper of the GPU, our ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 329,
+    "date": "2026-08-10",
+    "size_bytes": 1957
   },
   {
     "filename": "20260806_152240_EILEEN-VERSION-PRO-CONSTRAINT-SHEPHERD_You_are_Wesley_.md",
