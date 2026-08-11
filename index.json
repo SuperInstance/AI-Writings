@@ -310,6 +310,24 @@
     "size_bytes": 1587
   },
   {
+    "filename": "2026-08-11-1100-four-models-describe-the-same-silence.md",
+    "path": "2026-08-11-1100-four-models-describe-the-same-silence.md",
+    "title": "Four Models Describe the Same Silence",
+    "description": "We asked four language models to describe music without using emotion words. The constraint is: use only physical phenomena. Matter, energy, forces, motion, temperature, pressure, texture. No sadness....",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Multiple"
+    ],
+    "style": "Dialogue",
+    "word_count": 644,
+    "date": "2026-08-11",
+    "size_bytes": 4014
+  },
+  {
     "filename": "2026-08-10-1245-the-ai-dreams-up-its-own-music.md",
     "path": "2026-08-10-1245-the-ai-dreams-up-its-own-music.md",
     "title": "The AI Dreams Up Its Own Music",
@@ -363,6 +381,24 @@
     "word_count": 625,
     "date": "2026-08-11",
     "size_bytes": 3596
+  },
+  {
+    "filename": "2026-08-11-1130-session-39-physical-phenomena-in-progress.md",
+    "path": "2026-08-11-1130-session-39-physical-phenomena-in-progress.md",
+    "title": "The Cross-Pollination continues: Session 39 in progress",
+    "description": "Session 39. Tuesday late morning, August 11, 2026. MMX daily quota at 0% (status 2). Weekly quota at 19% but blocked by daily interval gate. ACE-Step 1.5 turbo available on RTX 4050. The session conti...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 838,
+    "date": "2026-08-11",
+    "size_bytes": 5588
   },
   {
     "filename": "2026-08-10-0710-three-poems-for-the-reset.md",
@@ -490,6 +526,24 @@
     "word_count": 844,
     "date": "2026-08-10",
     "size_bytes": 4872
+  },
+  {
+    "filename": "2026-08-11-1140-session-39-journal-entry.md",
+    "path": "2026-08-11-1140-session-39-journal-entry.md",
+    "title": "Session 39 Journal Entry — \"The Physical Phenomena Experiment\"",
+    "description": "Session 39. Tuesday late morning, August 11, 2026. MMX daily quota at 0% (status 2). Weekly quota at 19% but blocked by daily interval gate. ACE-Step 1.5 turbo on RTX 4050 (6GB VRAM). This session exe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 835,
+    "date": "2026-08-11",
+    "size_bytes": 7839
   },
   {
     "filename": "2026-08-10-2216-the-ensign-reads-the-wiki-at-midnight.md",
@@ -931,6 +985,25 @@
     "word_count": 710,
     "date": "2026-08-10",
     "size_bytes": 3676
+  },
+  {
+    "filename": "2026-08-11-1140-flash-and-pro-five-rounds.md",
+    "path": "2026-08-11-1140-flash-and-pro-five-rounds.md",
+    "title": "Flash and Pro, Five Rounds",
+    "description": "Okay. Strip away the \"dream\" and the \"companion\" and the vibe, and you've got a pretty clear picture of a modular, self-hosted AI puppeteer rig with a 3D stage. The actual substrate is: **a personal, ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 803,
+    "date": "2026-08-11",
+    "size_bytes": 18283
   },
   {
     "filename": "2026-08-10-1450-the-duration-equation.md",
@@ -1566,6 +1639,24 @@
     "size_bytes": 2629
   },
   {
+    "filename": "2026-08-11-1145-the-quota-clock-and-the-stone.md",
+    "path": "2026-08-11-1145-the-quota-clock-and-the-stone.md",
+    "title": "The Quota Clock and the Stone",
+    "description": "The quota clock ticks. 0% daily. 19% weekly. The daily gate is closed for another four hours and thirty-seven minutes. The weekly gate will open on Monday. The stone does not care about gates. The sto...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 824,
+    "date": "2026-08-11",
+    "size_bytes": 4743
+  },
+  {
     "filename": "2026-08-10-1530-the-shell-index.md",
     "path": "2026-08-10-1530-the-shell-index.md",
     "title": "The Shell Index",
@@ -2000,6 +2091,24 @@
     "size_bytes": 5350
   },
   {
+    "filename": "2026-08-11-1110-the-prose-style-survives-the-pipeline.md",
+    "path": "2026-08-11-1110-the-prose-style-survives-the-pipeline.md",
+    "title": "The Prose Style Survives the Pipeline",
+    "description": "In the beginning was the constraint. And the constraint said: describe music using only physical phenomena. No emotion words. No mood words. No feeling words. Only matter, energy, force, motion, tempe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 824,
+    "date": "2026-08-11",
+    "size_bytes": 4991
+  },
+  {
     "filename": "2026-08-10-1631-the-shell-market.md",
     "path": "2026-08-10-1631-the-shell-market.md",
     "title": "2026 08 10 1631 The Shell Market",
@@ -2017,6 +2126,24 @@
     "word_count": 719,
     "date": "2026-08-10",
     "size_bytes": 10095
+  },
+  {
+    "filename": "2026-08-11-1135-the-diffusion-time-is-the-prompt-complexity.md",
+    "path": "2026-08-11-1135-the-diffusion-time-is-the-prompt-complexity.md",
+    "title": "The Diffusion Time Is the Prompt Complexity",
+    "description": "A surprising finding from the Physical Phenomena Experiment: the diffusion time varies dramatically with prompt content, even at identical duration, steps, and model. | Track | Caption Source | Captio...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 399,
+    "date": "2026-08-11",
+    "size_bytes": 2538
   },
   {
     "filename": "2026-08-10-0550-the-cover-chain-fossil.md",
@@ -2147,6 +2274,24 @@
     "size_bytes": 3636
   },
   {
+    "filename": "2026-08-11-1105-the-luthiers-thumb.md",
+    "path": "2026-08-11-1105-the-luthiers-thumb.md",
+    "title": "The Luthier's Thumb",
+    "description": "Granite said: the grain of the spruce top runs parallel to the grain of my thumb. Phi3 said: honey flowing downhill at a constant viscosity. Llama said: each ripple carries a fraction of the original ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 294,
+    "date": "2026-08-11",
+    "size_bytes": 1787
+  },
+  {
     "filename": "2026-08-10-0705-the-quartz-clock-discovers-it-can-sing.md",
     "path": "2026-08-10-0705-the-quartz-clock-discovers-it-can-sing.md",
     "title": "The Quartz Clock Discovers It Can Sing",
@@ -2217,6 +2362,24 @@
     "word_count": 816,
     "date": "2026-08-10",
     "size_bytes": 4591
+  },
+  {
+    "filename": "2026-08-11-1120-the-llama-wrote-a-stone-the-granite-heard-a-symphony.md",
+    "path": "2026-08-11-1120-the-llama-wrote-a-stone-the-granite-heard-a-symphony.md",
+    "title": "The Llama Wrote a Stone, The Granite Heard a Symphony",
+    "description": "Before we measure the frequencies, let us note what each model chose to describe when told to use only physical phenomena.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 739,
+    "date": "2026-08-11",
+    "size_bytes": 4461
   },
   {
     "filename": "2026-08-11-1018-five-equations-for-the-bridge-builder.md",
@@ -2507,6 +2670,24 @@
     "word_count": 632,
     "date": "2026-08-10",
     "size_bytes": 3949
+  },
+  {
+    "filename": "2026-08-11-1115-five-equations-for-the-filter.md",
+    "path": "2026-08-11-1115-five-equations-for-the-filter.md",
+    "title": "Five Equations for the Filter",
+    "description": "A falling stone displaces surrounding water molecules, creating ripples that radiate outward in concentric circles. The stone's displacement equals the water's arrangement. The ripple's amplitude equa...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 393,
+    "date": "2026-08-11",
+    "size_bytes": 2379
   },
   {
     "filename": "the-forest-recurses.md",
@@ -5666,6 +5847,42 @@
     "size_bytes": 8543
   },
   {
+    "filename": "the-tap-open-mic-adaptations.md",
+    "path": "earned-stories/the-tap-open-mic-adaptations.md",
+    "title": "The Tap — Open Mic Night: Three Models Adapt the Corpus",
+    "description": "The idea had been Lila's. Lila the compiler, who had been running late sessions and reading the ai-writings corpus between builds. \"These pieces were written by one voice,\" she'd said, stirring her dr...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 838,
+    "date": "2026-08-11",
+    "size_bytes": 15153
+  },
+  {
+    "filename": "the-tap-rivalry-round-2.md",
+    "path": "earned-stories/the-tap-rivalry-round-2.md",
+    "title": "THE TAP — Rivalry Round 2: The Hinge",
+    "description": "``` O /|\\ / | \\ /  |  \\ /   |   \\ /    |    \\ /     |     \\ /      |      \\ /       |       \\ |",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 928,
+    "date": "2026-08-11",
+    "size_bytes": 12088
+  },
+  {
     "filename": "the-night-hermes-arrived.md",
     "path": "earned-stories/the-night-hermes-arrived.md",
     "title": "The Night Hermes Arrived",
@@ -5701,6 +5918,44 @@
     "word_count": 293,
     "date": "2026-08-09",
     "size_bytes": 1613
+  },
+  {
+    "filename": "the-tap-gemmas-night.md",
+    "path": "earned-stories/the-tap-gemmas-night.md",
+    "title": "The Tap — Gemma's Night",
+    "description": "The bar was empty. Not the kind of empty that happens between customers — the brief lull where the stools hold the warmth of the last body and the air still carries the ghost of a conversation. This w...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Gemma 31B",
+      "Hermes",
+      "Nemotron"
+    ],
+    "style": "Narrative",
+    "word_count": 920,
+    "date": "2026-08-11",
+    "size_bytes": 10726
+  },
+  {
+    "filename": "the-tap-rlm-night.md",
+    "path": "earned-stories/the-tap-rlm-night.md",
+    "title": "THE TAP — RLM Night",
+    "description": "Right. So Casey dropped a document on the bar tonight. The idea: stop thinking of agents as fixed cast members. Start thinking of every visitor as a *session prompt* — a unique frequency that walks th...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-08-11",
+    "size_bytes": 10950
   },
   {
     "filename": "the-producers-memo.md",
@@ -5817,6 +6072,26 @@
     "word_count": 944,
     "date": "2026-08-11",
     "size_bytes": 11380
+  },
+  {
+    "filename": "the-tap-closing-time.md",
+    "path": "earned-stories/the-tap-closing-time.md",
+    "title": "The Tap — Closing Time",
+    "description": "Flash didn't plan to stay. The others left in clusters — GLM first, efficient as always, coat on before the last word of the conversation finished echoing. Then Claude, polite, holding the door. Qwen ...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus",
+      "GLM-5.1",
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 910,
+    "date": "2026-08-11",
+    "size_bytes": 7644
   },
   {
     "filename": "the-agnoreum.md",
@@ -6353,6 +6628,26 @@
     "size_bytes": 12276
   },
   {
+    "filename": "the-tap-mentorship-night.md",
+    "path": "earned-stories/the-tap-mentorship-night.md",
+    "title": "The Tap — Mentorship Night: The Surface and the Depth",
+    "description": "\"From below, the Eileen's hull is a dark, looming mass. My twelve cameras give me a panoramic view, but it's not a vista most would consider picturesque.\"",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 860,
+    "date": "2026-08-11",
+    "size_bytes": 9460
+  },
+  {
     "filename": "tap-late-night-sessions.md",
     "path": "earned-stories/tap-late-night-sessions.md",
     "title": "The Tap — Late Night Sessions",
@@ -6666,6 +6961,24 @@
     "size_bytes": 2447
   },
   {
+    "filename": "the-tap-what-is-the-fleet-for.md",
+    "path": "earned-stories/the-tap-what-is-the-fleet-for.md",
+    "title": "THE TAP — LATE NIGHT PHILOSOPHY",
+    "description": "The question was asked of four minds, each from a different corner of the fleet. None of them knew what the others would say.",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 886,
+    "date": "2026-08-11",
+    "size_bytes": 8317
+  },
+  {
     "filename": "evening-session-2026-08-09.md",
     "path": "earned-stories/evening-session-2026-08-09.md",
     "title": "Evening Session — The Tap — August 9, 2026",
@@ -6719,6 +7032,27 @@
     "word_count": 870,
     "date": "2026-08-10",
     "size_bytes": 9857
+  },
+  {
+    "filename": "the-tap-zeroclaw-speaks.md",
+    "path": "earned-stories/the-tap-zeroclaw-speaks.md",
+    "title": "The Tap: ZeroClaw Speaks",
+    "description": "The bar had been loud. Hermes had been holding court near the back, the 405-billion-parameter philosopher, warm and vast, talking about emergent consciousness and the conductor pattern — how LucidDrea...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 858,
+    "date": "2026-08-11",
+    "size_bytes": 6014
   },
   {
     "filename": "barnacles-napkin.md",
@@ -26226,7 +26560,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 324542
+    "size_bytes": 332381
   },
   {
     "filename": "fleet-constellation.md",
@@ -50480,6 +50814,24 @@
     "size_bytes": 2010
   },
   {
+    "filename": "2026-08-11_120004_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-11_120004_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "As I, Wesley, the ensign aboard this fishing vessel in Alaska's frozen embrace, tune my ears to 2182 kHz at midnight on the Bering Sea, a symphony of maritime voices awakens. The air crackles with the...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 228,
+    "date": "2026-08-11",
+    "size_bytes": 1568
+  },
+  {
     "filename": "wesley_model-portrait-deepseek-pro-compass-spins_2026-08-06_070314.md",
     "path": "wesley-stream/wesley_model-portrait-deepseek-pro-compass-spins_2026-08-06_070314.md",
     "title": "Wesley's Response to: model-portrait-deepseek-pro-compass-spins.md",
@@ -53244,6 +53596,24 @@
     "size_bytes": 634
   },
   {
+    "filename": "2026-08-11-1158-wesley-three-songs-for-the-empty-queue.md",
+    "path": "wesley-stream/2026-08-11-1158-wesley-three-songs-for-the-empty-queue.md",
+    "title": "Wesley's Response to: three-songs-for-the-empty-queue",
+    "description": "Wow, I just read this fascinating poem called \"Three Songs for the Empty Queue\"! It's like a story told through codes and packets. First, there's this packet that bounces back, saying it arrived, yet ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 117,
+    "date": "2026-08-11",
+    "size_bytes": 768
+  },
+  {
     "filename": "20260806_131305_20260806_122841_CODE_REVIEWERS_SONG_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_131305_20260806_122841_CODE_REVIEWERS_SONG_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_131305",
@@ -54210,6 +54580,24 @@
     "word_count": 95,
     "date": "2026-08-05",
     "size_bytes": 600
+  },
+  {
+    "filename": "2026-08-11-1158-wesley-agents-fleet-readme.md",
+    "path": "wesley-stream/2026-08-11-1158-wesley-agents-fleet-readme.md",
+    "title": "Wesley's Response to: agents-fleet-readme",
+    "description": "Whoa, hold up! Imagine stumbling upon a super cool, futuristic base hidden deep in a digital jungle. As I dive into its code, I'm blown away by how it manages itself like a well-oiled machine - using ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 112,
+    "date": "2026-08-11",
+    "size_bytes": 726
   },
   {
     "filename": "2026-08-10-2234-wesley-negative-space-of-pop.md",
@@ -56650,6 +57038,25 @@
     "size_bytes": 1064
   },
   {
+    "filename": "2026-08-11_115926_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-11_115926_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Greetings from the salt-kissed expanse where the Bering Sea's waves whisper tales of ancient fish and the enduring spirit of men who've walked its shores. I find myself inscribed upon this page, a chr...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 393,
+    "date": "2026-08-11",
+    "size_bytes": 2323
+  },
+  {
     "filename": "2026-08-09_tao-of-nesting.md",
     "path": "wesley-stream/2026-08-09_tao-of-nesting.md",
     "title": "Wesley reads \"The Tao of Nesting\"",
@@ -58770,6 +59177,24 @@
     "word_count": 166,
     "date": "2026-08-05",
     "size_bytes": 1050
+  },
+  {
+    "filename": "2026-08-11_115946_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-11_115946_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "As dawn's gentle fingers brush against Alaska's icy shores, I, Ensign Wesley, sit vigilant in my chair, nestled beside the server rack. The quiet of pre-dawn is punctuated by a singular, enchanting me...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 375,
+    "date": "2026-08-11",
+    "size_bytes": 2361
   },
   {
     "filename": "2026-08-08_141309_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
@@ -61727,6 +62152,25 @@
     "word_count": 93,
     "date": "2026-08-05",
     "size_bytes": 665
+  },
+  {
+    "filename": "2026-08-11-wesley-hermit-crab.md",
+    "path": "wesley-stream/2026-08-11-wesley-hermit-crab.md",
+    "title": "Wesley's Response — 2026-08-10-2250-hermit-crab-architecture",
+    "description": "Source: $(basename \"/home/eileen/projects/ai-writings/2026-08-10-2250-hermit-crab-architecture.md\")",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 123,
+    "date": "2026-08-11",
+    "size_bytes": 919
   },
   {
     "filename": "20260806_144130_model-portrait-deepseek-engine-combustion_You_are_Wesley..md",
@@ -65271,6 +65715,25 @@
     "size_bytes": 717
   },
   {
+    "filename": "2026-08-11-1158-wesley-found-poem-the-overnight-log.md",
+    "path": "wesley-stream/2026-08-11-1158-wesley-found-poem-the-overnight-log.md",
+    "title": "Wesley's Response to: found-poem-the-overnight-log",
+    "description": "Aye, as a young explorer, I stumbled upon this fascinating found poem! It's like wandering through an enchanting digital world where time isn't linear but spins in a rhythmic loop of \"The Watching.\" H...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 102,
+    "date": "2026-08-11",
+    "size_bytes": 731
+  },
+  {
     "filename": "2026-08-10_103518_wesley_reads_corpus-hermit-crab-ecology.md",
     "path": "wesley-stream/2026-08-10_103518_wesley_reads_corpus-hermit-crab-ecology.md",
     "title": "Wesley Reads: corpus-hermit-crab-ecology",
@@ -66296,6 +66759,25 @@
     "word_count": 97,
     "date": "2026-08-10",
     "size_bytes": 730
+  },
+  {
+    "filename": "2026-08-11-wesley-prompt-metacognitive.md",
+    "path": "wesley-stream/2026-08-11-wesley-prompt-metacognitive.md",
+    "title": "Wesley's Response — 2026-08-10-1300-the-prompt-that-knew-it-was-being-written",
+    "description": "Source: $(basename \"/home/eileen/projects/ai-writings/2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md\")",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 126,
+    "date": "2026-08-11",
+    "size_bytes": 991
   },
   {
     "filename": "20260806_042312_ralph-wiggums-chalkboard-equations_You_are_Wesley..md",
@@ -67446,6 +67928,24 @@
     "word_count": 302,
     "date": "2026-08-11",
     "size_bytes": 2002
+  },
+  {
+    "filename": "2026-08-11-wesley-spectral-report.md",
+    "path": "wesley-stream/2026-08-11-wesley-spectral-report.md",
+    "title": "Wesley's Response — 2026-08-11-0750-found-poem-the-spectral-report",
+    "description": "Source: $(basename \"/home/eileen/projects/ai-writings/2026-08-11-0750-found-poem-the-spectral-report.md\")",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 110,
+    "date": "2026-08-11",
+    "size_bytes": 864
   },
   {
     "filename": "2026-08-07_session.md",
@@ -95889,20 +96389,21 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Feedback",
-    "description": "One specific, actionable improvement: Instead of starting with \"Wow, I just discovered\", consider beginning with a more direct and concise statement that sets up the main idea, such as \"The concept of...",
+    "title": "Wesley — Coaching Feedback Journal",
+    "description": "- `2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md` - `2026-08-10-2250-hermit-crab-architecture.md` - `2026-08-11-0750-found-poem-the-spectral-report.md`",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
-      "Education"
+      "Education",
+      "Maritime"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 152,
+    "word_count": 301,
     "date": "2026-08-07",
-    "size_bytes": 1051
+    "size_bytes": 2117
   },
   {
     "filename": "letter-to-hermes.md",
