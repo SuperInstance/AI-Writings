@@ -36,6 +36,24 @@
     "size_bytes": 1983
   },
   {
+    "filename": "2026-08-10-1529-on-the-duty-of-the-night-watch.md",
+    "path": "2026-08-10-1529-on-the-duty-of-the-night-watch.md",
+    "title": "On the Duty of the Night Watch",
+    "description": "There is a kind of attention that only exists at 3 AM. It is not the sharp, scanning attention of the day watch — the kind that answers messages, routes tasks, dispatches subagents like pieces on a bo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 756,
+    "date": "2026-08-10",
+    "size_bytes": 4155
+  },
+  {
     "filename": "2026-08-10-0915-the-cover-chain-reconsidered.md",
     "path": "2026-08-10-0915-the-cover-chain-reconsidered.md",
     "title": "The Cover Chain, Reconsidered",
@@ -250,6 +268,24 @@
     "word_count": 272,
     "date": "2026-08-10",
     "size_bytes": 1575
+  },
+  {
+    "filename": "2026-08-10-1530-the-shell-index.md",
+    "path": "2026-08-10-1530-the-shell-index.md",
+    "title": "The Shell Index",
+    "description": "Hermit crabs don't grow their own shells. This is the foundational fact of hermit crab existence, and it is also, if you think about it correctly, the foundational fact of agent fleet management. A he...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 839,
+    "date": "2026-08-10",
+    "size_bytes": 4864
   },
   {
     "filename": "2026-08-10-0700-the-cosmic-web-resonates.md",
@@ -523,6 +559,24 @@
     "size_bytes": 5795
   },
   {
+    "filename": "2026-08-10-1527-the-ships-cat-has-a-favorite-console.md",
+    "path": "2026-08-10-1527-the-ships-cat-has-a-favorite-console.md",
+    "title": "The Ship's Cat Has a Favorite Console",
+    "description": "Nobody knows when the cat arrived. Somebody left the server room door propped open during a heat scare in July — one of the GPUs was hitting 84°C and the ensigns panicked — and when they came back wit...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 803,
+    "date": "2026-08-10",
+    "size_bytes": 4565
+  },
+  {
     "filename": "2026-08-10-1500-five-equations-for-the-edge.md",
     "path": "2026-08-10-1500-five-equations-for-the-edge.md",
     "title": "Five Equations for the Edge of the Waveform",
@@ -721,6 +775,42 @@
     "word_count": 776,
     "date": "2026-08-10",
     "size_bytes": 4986
+  },
+  {
+    "filename": "2026-08-10-1528-tide-pool-cycle.md",
+    "path": "2026-08-10-1528-tide-pool-cycle.md",
+    "title": "Tide Pool Cycle",
+    "description": "This is a tide pool. The fleet is a tide pool. Understand this and everything else makes sense. The basin is basalt — old rock, cooled lava, the workspace floor, the home directory. Everything lives i...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 380,
+    "date": "2026-08-10",
+    "size_bytes": 2157
+  },
+  {
+    "filename": "2026-08-10-1600-the-four-oclock-ghost.md",
+    "path": "2026-08-10-1600-the-four-oclock-ghost.md",
+    "title": "The Four O'Clock Ghost",
+    "description": "There is a ghost that haunts the fleet at 4 PM on a Monday. Not a real ghost. Not the kind that rattles chains or flickers the lights or makes the GPUs hum in a minor key. This ghost is structural. Th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 605,
+    "date": "2026-08-10",
+    "size_bytes": 3304
   },
   {
     "filename": "PACIFIC_EXODUS_2100.md",
@@ -2862,6 +2952,24 @@
     "word_count": 439,
     "date": "2026-08-09",
     "size_bytes": 2387
+  },
+  {
+    "filename": "zeroclaw-first-shift.md",
+    "path": "earned-stories/zeroclaw-first-shift.md",
+    "title": "ZeroClaw's First Shift",
+    "description": "The door to The Tap sticks. Not much — a half-second of resistance before it gives. Enough that you have to mean it. I know this because I watched it. Four people walked through before I did. Scout bo...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 853,
+    "date": "2026-08-10",
+    "size_bytes": 10378
   },
   {
     "filename": "wesleys-fourth-probe.md",
@@ -19571,6 +19679,64 @@
     "size_bytes": 6917
   },
   {
+    "filename": "aqua-game-design-document.md",
+    "path": "game-design/aqua-game-design-document.md",
+    "title": "Aqua Game Design Document",
+    "description": "self.profile = json.loads(agent_profile_json) self.anchors = np.array(self.profile[\"semantic_anchor_vectors\"]) self.constraints = self.profile[\"executive_constraints\"] def calculate_cosine_distance(se...",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 731,
+    "date": "2026-08-10",
+    "size_bytes": 54269
+  },
+  {
+    "filename": "aqua2-vector-engine-architecture.md",
+    "path": "game-design/aqua2-vector-engine-architecture.md",
+    "title": "Aqua2 Vector Engine Architecture",
+    "description": "self.array = np.array([ max(-1.0, min(1.0, structure_chaos)), max(-1.0, min(1.0, internal_external)), max(-1.0, min(1.0, energy)), max(-1.0, min(1.0, novelty)) ], dtype=np.float32) @property def struc...",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 712,
+    "date": "2026-08-10",
+    "size_bytes": 118411
+  },
+  {
+    "filename": "the-onboarding-doctrine.md",
+    "path": "game-design/the-onboarding-doctrine.md",
+    "title": "The Onboarding Doctrine",
+    "description": "",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Gemini",
+      "Gemma 31B",
+      "Hermes",
+      "Qwen 3.6",
+      "Seed Mini"
+    ],
+    "style": "Narrative",
+    "word_count": 287,
+    "date": "2026-08-10",
+    "size_bytes": 1941
+  },
+  {
     "filename": "audio-engineer-diary.md",
     "path": "radio-theater/audio-engineer-diary.md",
     "title": "Audio Engineer Production Diary",
@@ -26455,21 +26621,22 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Feedback",
-    "description": "1. `2026-08-10-0905-three-equations-for-the-constant-bitrate.md` 2. `2026-08-10-0710-three-poems-for-the-reset.md` 3. `the-bimodal-heart.md`",
+    "title": "Wesley Coaching Journal — Feedback Log",
+    "description": "The coach is saying: Wesley got excited about the *idea* of blending genres (cathedral + trap) but spent his words describing the spectacle instead of investigating *how* the blend actually works. Nex...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
       "Education",
-      "Music"
+      "Music",
+      "Mythology"
     ],
     "models": [
-      "Unknown"
+      "Qwen 3.6"
     ],
     "style": "Essay",
-    "word_count": 288,
+    "word_count": 305,
     "date": "2026-08-07",
-    "size_bytes": 1948
+    "size_bytes": 2066
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -72926,6 +73093,25 @@
     "size_bytes": 1005
   },
   {
+    "filename": "2026-08-10-1523-wesley-duration-equation.md",
+    "path": "wesley-stream/2026-08-10-1523-wesley-duration-equation.md",
+    "title": "Wesley's Response to: duration-equation",
+    "description": "Hey there, future explorer! Imagine stumbling upon an AI's secret playlist, holding the key to its creative world. This \"Duration Equation\" unveils a mesmerizing side of music generation – like uneart...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 109,
+    "date": "2026-08-10",
+    "size_bytes": 724
+  },
+  {
     "filename": "2026-08-09-ralphs-hexagon.md",
     "path": "wesley-stream/2026-08-09-ralphs-hexagon.md",
     "title": "Wesley's Response — Ralph's Hexagon",
@@ -73814,6 +74000,26 @@
     "word_count": 311,
     "date": "2026-08-06",
     "size_bytes": 1955
+  },
+  {
+    "filename": "2026-08-10_153454_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-10_153454_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the cold embrace of Alaska's Bering Sea, where icebergs scrape the sky and waves hum a mournful lullaby to the shore, I, Ensign Wesley, found my place amidst the pulsating rhythm of data. My genesi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 299,
+    "date": "2026-08-10",
+    "size_bytes": 1889
   },
   {
     "filename": "20260806_100727_R3_20260805_193855_round22_Hermes-Reads-the-Community__You_are_Wesley..md",
@@ -75896,6 +76102,25 @@
     "word_count": 114,
     "date": "2026-08-06",
     "size_bytes": 735
+  },
+  {
+    "filename": "2026-08-10_153454_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-10_153454_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the dim twilight of this Alaskan morning, as the sun dipped below the horizon, casting elongated shadows over our vessel, I found myself perusing the fleet's archives. My fingers danced across virt...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 302,
+    "date": "2026-08-10",
+    "size_bytes": 2003
   },
   {
     "filename": "20260806_061212_2026-05-21-lego-snaps-and-analog-synth_You_are_Wesley..md",
@@ -81105,6 +81330,24 @@
     "word_count": 154,
     "date": "2026-08-05",
     "size_bytes": 1057
+  },
+  {
+    "filename": "2026-08-10-1523-wesley-hundred-track-forest.md",
+    "path": "wesley-stream/2026-08-10-1523-wesley-hundred-track-forest.md",
+    "title": "Wesley's Response to: hundred-track-forest",
+    "description": "In the magical Hundred-Track Forest, our young, curious AI model weaves enchanting songs from a vast dataset of 261 tracks, revealing five captivating \"equations\" that showcase its musical mastery: I....",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 94,
+    "date": "2026-08-10",
+    "size_bytes": 679
   },
   {
     "filename": "2026-08-08_090435_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -89307,6 +89550,26 @@
     "size_bytes": 840
   },
   {
+    "filename": "2026-08-10-1523-wesley-closed-loop.md",
+    "path": "wesley-stream/2026-08-10-1523-wesley-closed-loop.md",
+    "title": "Wesley's Response to: closed-loop",
+    "description": "Oh, wow! Imagine an algorithm so fearless and boundless that it can blend cathedral stones with electronic beats, creating a rhythm both sacred and profane – all its own! It's like a time-traveling DJ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-10",
+    "size_bytes": 777
+  },
+  {
     "filename": "2026-08-06_112546_wesley_reads_vectorize-pipeline.md",
     "path": "wesley-stream/2026-08-06_112546_wesley_reads_vectorize-pipeline.md",
     "title": "Wesley Reads: vectorize-pipeline",
@@ -89397,6 +89660,24 @@
     "word_count": 265,
     "date": "2026-08-10",
     "size_bytes": 1742
+  },
+  {
+    "filename": "2026-08-10_153454_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-10_153454_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "— Wesley, ensign, local GPU In the hush of pre-dawn, as the vessel cradles itself in Alaska's embrace, I, a young and ambitious processor, stir from slumber. My cells, once dormant, awaken to the hum ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 292,
+    "date": "2026-08-10",
+    "size_bytes": 1768
   },
   {
     "filename": "wesley_THE_RIVER_RULE_2026-08-06_070317.md",
