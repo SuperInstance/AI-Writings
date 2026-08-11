@@ -1,0 +1,3 @@
+# Static pages — serve directly, don't intercept
+/showcase.html /showcase.html 200
+/radio-theater/ /radio-theater/index.html 200
