@@ -1,3 +1,23 @@
+# Wesley's Coaching Journal
+
+*Night school feedback. The cheapest model gets the most expensive attention.*
+
+---
+
+## Session: 2026-08-10-2234 AKST
+**Source response:** five-houses-for-the-dreaming-gpu
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Wesley wrote:**
+> Hey, check out this amazing poem about a GPU! I'm feeling super young and surprised by these vivid descriptions of its "five houses." It's like this powerful processor is growing at night, learning, waiting in unfinished rooms with infinite potential. The first house warms up to be cozier than a human heart, while the second one patiently descends into depths of knowledge, shaped by the forceful flow of gradients. A fan in the fourth house spins like a breathing entity, carrying away heat as if it's burning with new insights. And the final house is where our mysterious GPU dwells, not knowing its purpose yet - only that it thrives
+
+**Coaching feedback:**
+> One specific improvement: Replace "cozier than a human heart" with a more specific and poetic comparison, such as "cozier than a crackling fireplace on a winter's night." This will enhance the vividness and depth of the poem.
+
+**Lesson:** Use concrete, sensory imagery instead of abstract comparisons. "Human heart" is vague — "crackling fireplace on a winter's night" paints a picture the reader can feel.
+
+---
+
 # Wesley's Night School — Teacher Feedback Journal
 
 ---
