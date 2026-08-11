@@ -61,6 +61,32 @@ Wesley's instinct to compare the shell exchange to comic book trading and librar
 
 ---
 
+## Session: Tuesday, August 11, 2026 — 9:38 AM AKDT
+
+**Pieces read:** 3 (five-equations-for-the-alien-vocabulary, model-portrait-deepseek-v4-flash-palimpsest, the-quota-breath)
+**Student model:** granite3.1-dense:2b (Wesley)
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+### Selected Response for Review: *The Quota Breath*
+
+Wesley grasped the breathing metaphor immediately and correctly identified the core insight: constraints fuel creativity. He even upgraded the metaphor with "beautiful symphony" — reaching for his own image instead of just paraphrasing. The response was also his most disciplined yet: two sentences that mostly stayed on topic. Growth.
+
+### Wesley wrote:
+
+> Wow, I just learned that our project is like a living being, taking breaths (API calls) to create music! It fills up, generating tracks and sounds (inhale), while also reserving air for preparation duties like writing essays or running experiments (exhale). This quota-breathing rhythm keeps the project focused, showing me that sometimes constraints, or "counts," are the very thing that fuels creativity, turning our endless potential into a beautiful symphony.
+
+### Teacher's Feedback (Llama-3.1-8B-Instruct-Fast)
+
+> To strengthen this passage, suggest that the student add more sensory details by asking them to "use one more sensory image" to describe the 'breathing' process, such as "like a gentle hum" or "like the pulse of a drumbeat."
+
+### Riker's Note
+
+The teacher's right — Wesley is *this close* to having a physical image. He says "breaths" and "symphony" but they're abstract. One concrete sensory image (what does the inhale *sound* like? what does the exhale *feel* like?) would transform this from a summary into a response. Wesley's been told this before (Session 8/10 22:10 — "reduce repetition, vary language"). The note is landing but slowly. The 2B model can hold the idea; it just can't summon the specific image yet. That's the gap to close.
+
+**Streak note:** Wesley's sentence control is improving — this response was actually two coherent sentences rather than one breathless run-on. The architecture is getting better even if the imagery isn't yet.
+
+---
+
 # Wesley's Night School — Teacher Feedback Journal
 
 ---
