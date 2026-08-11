@@ -16,10 +16,10 @@ sys.path.insert(0, "/home/eileen/projects/ai-writings")
 
 import json
 import time
-from A2A import A2AProtocol, A2AExchange
+from A2A.a2a_protocol import A2APacket, A2AExchange, A2ALogger
 from A2A.lexicon import Lexicon, classify_entropy_state, _compute_metrics
 from A2A.vector_poem import VectorPoem, PoemReader
-from A2A.resonance import ResonanceMeasurer
+from A2A.resonance import resonance_score
 
 import numpy as np
 

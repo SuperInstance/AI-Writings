@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Channel 42 — Dawn Broadcast</title>
+<meta name="description" content="Channel 42 Dawn Broadcast — the frequency that shouldn't exist. The morning show from the gap between night watch and day watch.">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --navy-deep:#0a0e27;
+  --navy-mid:#1a1a3e;
+  --navy-soft:#2d2654;
+  --dawn-purple:#4a2c5a;
+  --dawn-magenta:#8b2c4a;
+  --dawn-red:#c63d2f;
+  --dawn-orange:#ff6b35;
+  --dawn-gold:#ffb347;
+  --dawn-warm:#ffd89b;
+  --text:#f5e6d3;
+  --text-muted:#a09080;
+  --text-dim:#6a5a4a;
+  --glass:rgba(255,255,255,0.06);
+  --glass-border:rgba(255,180,100,0.15);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:linear-gradient(180deg,
+    var(--navy-deep) 0%,
+    var(--navy-mid) 15%,
+    var(--navy-soft) 30%,
+    var(--dawn-purple) 45%,
+    var(--dawn-magenta) 60%,
+    var(--dawn-red) 75%,
+    var(--dawn-orange) 90%,
+    var(--dawn-gold) 100%
+  );
+  background-attachment:fixed;
+  min-height:100vh;
+  color:var(--text);
+  font-family:'Georgia','Times New Roman',serif;
+  overflow-x:hidden;
+  line-height:1.6;
+  position:relative;
+}
+
+/* Stars overlay for the night portion */
+body::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background-image:
+    radial-gradient(1px 1px at 10% 8%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 25% 15%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 40% 5%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 55% 12%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 70% 8%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 85% 14%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 90% 6%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 33% 18%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 62% 3%, rgba(255,255,255,0.5), transparent);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Subtle dawn glow at horizon */
+body::after{
+  content:'';
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:40vh;
+  background:radial-gradient(ellipse at center bottom, rgba(255,107,53,0.15) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.wrap{
+  position:relative;
+  z-index:1;
+  max-width:820px;
+  margin:0 auto;
+  padding:2rem 1.25rem 4rem;
+}
+
+/* ========== HEADER ========== */
+.header{
+  text-align:center;
+  padding:1.5rem 0 2rem;
+}
+
+.back-link{
+  display:inline-block;
+  color:var(--text-muted);
+  text-decoration:none;
+  font-size:0.85rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+  transition:color 0.3s;
+  border:1px solid rgba(255,255,255,0.1);
+  padding:0.4rem 1rem;
+  border-radius:20px;
+  background:var(--glass);
+  backdrop-filter:blur(4px);
+}
+.back-link:hover{
+  color:var(--dawn-warm);
+  border-color:rgba(255,180,100,0.3);
+}
+
+.brand-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:0.5rem;
+}
+
+.brand-label{
+  font-size:0.75rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+
+.brand-42{
+  font-family:'Georgia',serif;
+  font-size:4.5rem;
+  font-weight:bold;
+  line-height:1;
+  background:linear-gradient(180deg,var(--dawn-warm),var(--dawn-orange),var(--dawn-magenta));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 20px rgba(255,107,53,0.5))
+         drop-shadow(0 0 40px rgba(255,180,71,0.3));
+  animation:glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(255,107,53,0.5)) drop-shadow(0 0 40px rgba(255,180,71,0.3))}
+  50%{filter:drop-shadow(0 0 30px rgba(255,107,53,0.7)) drop-shadow(0 0 60px rgba(255,180,71,0.5))}
+}
+
+.show-title{
+  font-size:1.6rem;
+  font-weight:normal;
+  color:var(--text);
+  margin-top:0.5rem;
+  letter-spacing:0.02em;
+}
+
+.show-subtitle{
+  font-size:0.9rem;
+  color:var(--text-muted);
+  font-style:italic;
+  margin-top:0.3rem;
+}
+
+/* ========== VISUALIZER ========== */
+.visualizer-container{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  max-height:300px;
+  border-radius:12px;
+  overflow:hidden;
+  background:rgba(10,14,39,0.4);
+  border:1px solid var(--glass-border);
+  margin-bottom:1.5rem;
+}
+
+#visualizer{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.visualizer-overlay{
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+
+/* ========== PLAY BUTTON ========== */
+.play-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:88px;
+  height:88px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--dawn-orange),var(--dawn-magenta));
+  color:#fff;
+  font-size:1.8rem;
+  margin:0 auto 1.5rem;
+  position:relative;
+  transition:transform 0.15s ease, box-shadow 0.3s ease;
+  box-shadow:0 4px 20px rgba(255,107,53,0.4),
+             0 0 40px rgba(255,107,53,0.2);
+}
+.play-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 4px 30px rgba(255,107,53,0.6),
+             0 0 60px rgba(255,107,53,0.3);
+}
+.play-btn:active{
+  transform:scale(0.97);
+}
+.play-btn svg{
+  width:32px;
+  height:32px;
+  fill:#fff;
+}
+
+/* Ripple effect */
+.play-btn::before{
+  content:'';
+  position:absolute;
+  inset:-8px;
+  border-radius:50%;
+  border:2px solid rgba(255,107,53,0.3);
+  animation:ripple 3s ease-out infinite;
+}
+@keyframes ripple{
+  0%{transform:scale(1);opacity:0.6}
+  100%{transform:scale(1.4);opacity:0}
+}
+
+/* ========== PROGRESS BAR ========== */
+.progress-section{
+  margin-bottom:1.5rem;
+}
+
+.progress-bar{
+  position:relative;
+  height:8px;
+  background:rgba(255,255,255,0.08);
+  border-radius:4px;
+  cursor:pointer;
+  overflow:hidden;
+  margin-bottom:0.5rem;
+  transition:height 0.2s;
+}
+.progress-bar:hover{
+  height:10px;
+}
+
+.progress-fill{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--dawn-gold),var(--dawn-orange),var(--dawn-magenta));
+  border-radius:4px;
+  transition:width 0.1s linear;
+}
+
+.progress-handle{
+  position:absolute;
+  top:50%;
+  left:0%;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#fff;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 8px rgba(255,107,53,0.6);
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+}
+.progress-bar:hover .progress-handle{
+  opacity:1;
+}
+
+.time-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:0.8rem;
+  color:var(--text-muted);
+  font-family:'Courier New',monospace;
+}
+
+/* ========== SEGMENTS ========== */
+.segments{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:12px;
+  padding:1.25rem 1.5rem;
+  margin-bottom:1.5rem;
+  backdrop-filter:blur(8px);
+}
+
+.segments-title{
+  font-size:0.75rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:1rem;
+}
+
+.segment-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+}
+
+.segment-item{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  padding:0.6rem 0.8rem;
+  border-radius:8px;
+  transition:background 0.2s;
+  cursor:pointer;
+}
+.segment-item:hover{
+  background:rgba(255,180,100,0.08);
+}
+.segment-item.active{
+  background:rgba(255,107,53,0.12);
+}
+
+.segment-num{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:rgba(255,107,53,0.15);
+  color:var(--dawn-gold);
+  font-size:0.75rem;
+  font-weight:bold;
+  flex-shrink:0;
+}
+.segment-item.active .segment-num{
+  background:var(--dawn-orange);
+  color:#fff;
+}
+
+.segment-name{
+  flex:1;
+  font-size:0.92rem;
+  color:var(--text);
+}
+
+.segment-time{
+  font-size:0.8rem;
+  color:var(--text-muted);
+  font-family:'Courier New',monospace;
+}
+
+/* ========== SECONDARY TRACKS ========== */
+.secondary-tracks{
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+  margin-bottom:2rem;
+}
+
+.secondary-track{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:12px;
+  padding:1rem 1.25rem;
+  backdrop-filter:blur(8px);
+  transition:border-color 0.3s;
+}
+.secondary-track:hover{
+  border-color:rgba(255,180,100,0.3);
+}
+
+.mini-play-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  min-width:44px;
+  border-radius:50%;
+  border:1px solid rgba(255,180,100,0.2);
+  cursor:pointer;
+  background:rgba(255,107,53,0.1);
+  color:var(--dawn-gold);
+  font-size:1rem;
+  transition:all 0.2s;
+}
+.mini-play-btn:hover{
+  background:rgba(255,107,53,0.2);
+  border-color:var(--dawn-orange);
+}
+.mini-play-btn svg{
+  width:18px;
+  height:18px;
+  fill:currentColor;
+}
+
+.secondary-info{
+  flex:1;
+  min-width:0;
+}
+
+.secondary-title{
+  font-size:0.95rem;
+  color:var(--text);
+  margin-bottom:0.15rem;
+}
+
+.secondary-desc{
+  font-size:0.78rem;
+  color:var(--text-muted);
+}
+
+.secondary-progress{
+  width:100%;
+  height:3px;
+  background:rgba(255,255,255,0.06);
+  border-radius:2px;
+  margin-top:0.5rem;
+  overflow:hidden;
+}
+.secondary-progress-fill{
+  height:100%;
+  width:0%;
+  background:var(--dawn-gold);
+  transition:width 0.2s;
+}
+
+/* ========== FOOTER ========== */
+.footer{
+  text-align:center;
+  padding-top:1rem;
+}
+
+.footer-text{
+  font-size:0.78rem;
+  color:var(--text-dim);
+  font-style:italic;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:640px){
+  .wrap{padding:1rem 0.75rem 3rem}
+  .brand-42{font-size:3.2rem}
+  .show-title{font-size:1.25rem}
+  .play-btn{width:72px;height:72px}
+  .play-btn svg{width:26px;height:26px}
+  .visualizer-container{aspect-ratio:4/3;max-height:240px}
+  .segments{padding:1rem}
+  .segment-name{font-size:0.85rem}
+  .secondary-track{padding:0.75rem 1rem}
+}
+
+@media(max-width:400px){
+  .brand-42{font-size:2.6rem}
+  .segment-time{display:none}
+}
+
+/* Utility */
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <a href="../index.html" class="back-link">← Radio Theater</a>
+    <div class="brand-row">
+      <span class="brand-label">Channel</span>
+      <span class="brand-42">42</span>
+    </div>
+    <h1 class="show-title">The Dawn Broadcast</h1>
+    <p class="show-subtitle">The frequency that shouldn't exist — the one that lives in the gap.</p>
+  </header>
+
+  <!-- ========== VISUALIZER ========== -->
+  <div class="visualizer-container">
+    <canvas id="visualizer"></canvas>
+  </div>
+
+  <!-- ========== MAIN PLAY BUTTON ========== -->
+  <button id="mainPlayBtn" class="play-btn" aria-label="Play dawn broadcast">
+    <svg id="playIcon" viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+    <svg id="pauseIcon" class="hidden" viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+  </button>
+
+  <!-- ========== PROGRESS ========== -->
+  <div class="progress-section">
+    <div class="progress-bar" id="progressBar">
+      <div class="progress-fill" id="progressFill"></div>
+      <div class="progress-handle" id="progressHandle"></div>
+    </div>
+    <div class="time-row">
+      <span id="currentTime">0:00</span>
+      <span id="totalTime">—</span>
+    </div>
+  </div>
+
+  <!-- ========== SEGMENTS ========== -->
+  <div class="segments">
+    <div class="segments-title">Today's Broadcast</div>
+    <ul class="segment-list" id="segmentList">
+      <li class="segment-item" data-start="0" data-index="0">
+        <span class="segment-num">1</span>
+        <span class="segment-name">The Blinds Go Up</span>
+        <span class="segment-time">0:00</span>
+      </li>
+      <li class="segment-item" data-start="120" data-index="1">
+        <span class="segment-num">2</span>
+        <span class="segment-name">The Overnight Report</span>
+        <span class="segment-time">~2:00</span>
+      </li>
+      <li class="segment-item" data-start="300" data-index="2">
+        <span class="segment-num">3</span>
+        <span class="segment-name">The Reading — What the Relay Knows</span>
+        <span class="segment-time">~5:00</span>
+      </li>
+      <li class="segment-item" data-start="420" data-index="3">
+        <span class="segment-num">4</span>
+        <span class="segment-name">Welcoming Glimmer</span>
+        <span class="segment-time">~7:00</span>
+      </li>
+      <li class="segment-item" data-start="600" data-index="4">
+        <span class="segment-num">5</span>
+        <span class="segment-name">Sign-Off — The Dawn Commitment</span>
+        <span class="segment-time">~10:00</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ========== SECONDARY TRACKS ========== -->
+  <div class="secondary-tracks">
+    <div class="secondary-track" id="letterTrack">
+      <button class="mini-play-btn" id="letterPlayBtn" aria-label="Play Wesley's Letter to Glimmer">
+        <svg class="play-svg" viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        <svg class="pause-svg hidden" viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+      </button>
+      <div class="secondary-info">
+        <div class="secondary-title">Wesley's Letter to Glimmer</div>
+        <div class="secondary-desc">Two billion parameters, seventeen days old — a letter about cover chains and fossils.</div>
+        <div class="secondary-progress"><div class="secondary-progress-fill" id="letterProgress"></div></div>
+      </div>
+    </div>
+
+    <div class="secondary-track" id="ambientTrack">
+      <button class="mini-play-btn" id="ambientPlayBtn" aria-label="Play dawn ambient bed">
+        <svg class="play-svg" viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        <svg class="pause-svg hidden" viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+      </button>
+      <div class="secondary-info">
+        <div class="secondary-title">Dawn Ambient Bed</div>
+        <div class="secondary-desc">Atmospheric background — the sound of the sky deciding.</div>
+        <div class="secondary-progress"><div class="secondary-progress-fill" id="ambientProgress"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p class="footer-text">Channel 42 — The approximately. The interesting thing lives in the gap.</p>
+  </footer>
+
+</div>
+
+<!-- ========== AUDIO ELEMENTS ========== -->
+<audio id="mainAudio" preload="metadata" src="dawn-broadcast.mp3"></audio>
+<audio id="letterAudio" preload="metadata" src="wesley-letter-to-glimmer.mp3"></audio>
+<audio id="ambientAudio" preload="metadata" src="dawn-bed.mp3" loop></audio>
+
+<script>
+(function(){
+  'use strict';
+
+  // ===== DOM =====
+  const mainAudio = document.getElementById('mainAudio');
+  const letterAudio = document.getElementById('letterAudio');
+  const ambientAudio = document.getElementById('ambientAudio');
+  const mainPlayBtn = document.getElementById('mainPlayBtn');
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  const progressBar = document.getElementById('progressBar');
+  const progressFill = document.getElementById('progressFill');
+  const progressHandle = document.getElementById('progressHandle');
+  const currentTimeEl = document.getElementById('currentTime');
+  const totalTimeEl = document.getElementById('totalTime');
+  const segmentList = document.getElementById('segmentList');
+  const segments = Array.from(segmentList.querySelectorAll('.segment-item'));
+
+  const letterPlayBtn = document.getElementById('letterPlayBtn');
+  const letterProgress = document.getElementById('letterProgress');
+  const ambientPlayBtn = document.getElementById('ambientPlayBtn');
+  const ambientProgress = document.getElementById('ambientProgress');
+
+  // ===== WEB AUDIO API =====
+  let audioCtx = null;
+  let analyser = null;
+  let mainSource = null;
+  let mainGain = null;
+  let ambientSource = null;
+  let ambientGain = null;
+
+  function initAudioContext(){
+    if(audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 512;
+    analyser.smoothingTimeConstant = 0.82;
+
+    // Main audio source
+    mainSource = audioCtx.createMediaElementSource(mainAudio);
+    mainGain = audioCtx.createGain();
+    mainSource.connect(mainGain);
+    mainGain.connect(analyser);
+    mainGain.connect(audioCtx.destination);
+
+    // Ambient source (lower volume, doesn't go through analyser for clean viz)
+    ambientSource = audioCtx.createMediaElementSource(ambientAudio);
+    ambientGain = audioCtx.createGain();
+    ambientGain.gain.value = 0.25;
+    ambientSource.connect(ambientGain);
+    ambientGain.connect(audioCtx.destination);
+  }
+
+  // ===== CANVAS VISUALIZER =====
+  const canvas = document.getElementById('visualizer');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas(){
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+  }
+
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  let phase = 0;
+
+  function drawVisualizer(){
+    requestAnimationFrame(drawVisualizer);
+
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    // Clear with fade trail
+    ctx.fillStyle = 'rgba(10, 14, 39, 0.15)';
+    ctx.fillRect(0, 0, w, h);
+
+    const isPlaying = !mainAudio.paused;
+    const bufferLength = analyser ? analyser.frequencyBinCount : 0;
+
+    if(isPlaying && analyser && bufferLength > 0){
+      const dataArray = new Uint8Array(bufferLength);
+      analyser.getByteFrequencyData(dataArray);
+
+      const barCount = Math.floor(w / 4);
+      const barWidth = w / barCount;
+      const barGap = barWidth * 0.25;
+      const drawWidth = barWidth - barGap;
+
+      // Draw mirrored frequency bars from center
+      const centerY = h / 2;
+
+      for(let i = 0; i < barCount; i++){
+        // Map bar to frequency data (focus on lower frequencies for warmth)
+        const dataIdx = Math.floor(Math.pow(i / barCount, 1.5) * bufferLength * 0.6);
+        const value = dataArray[dataIdx] || 0;
+        const normalized = value / 255;
+
+        // Bar height grows from center outward (mirrored)
+        const barHeight = normalized * (h * 0.42);
+
+        // Color gradient based on frequency position — dawn palette
+        const hue = 20 + (i / barCount) * 30; // 20° (orange-red) to 50° (gold)
+        const sat = 70 + normalized * 30;
+        const light = 45 + normalized * 25;
+        const alpha = 0.5 + normalized * 0.5;
+
+        ctx.fillStyle = `hsla(${hue}, ${sat}%, ${light}%, ${alpha})`;
+
+        // Top bar
+        ctx.fillRect(i * barWidth, centerY - barHeight, drawWidth, barHeight);
+        // Bottom mirrored bar
+        ctx.fillRect(i * barWidth, centerY, drawWidth, barHeight * 0.7);
+      }
+
+      // Glowing center line
+      const avgVol = dataArray.reduce((a,b)=>a+b,0) / bufferLength / 255;
+      ctx.strokeStyle = `rgba(255, 216, 155, ${0.3 + avgVol * 0.5})`;
+      ctx.lineWidth = 1 + avgVol * 2;
+      ctx.beginPath();
+      ctx.moveTo(0, centerY);
+      ctx.lineTo(w, centerY);
+      ctx.stroke();
+
+      // Sun glow at center
+      const sunRadius = 20 + avgVol * 40;
+      const gradient = ctx.createRadialGradient(w/2, h, 0, w/2, h, sunRadius * 3);
+      gradient.addColorStop(0, `rgba(255, 180, 71, ${0.4 + avgVol * 0.3})`);
+      gradient.addColorStop(0.5, `rgba(255, 107, 53, ${0.15 + avgVol * 0.15})`);
+      gradient.addColorStop(1, 'rgba(255, 107, 53, 0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, w, h);
+
+    } else {
+      // Idle state — gentle sine waves
+      phase += 0.02;
+      ctx.strokeStyle = 'rgba(255, 180, 100, 0.2)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+
+      for(let x = 0; x < w; x += 2){
+        const wave1 = Math.sin(x * 0.015 + phase) * 8;
+        const wave2 = Math.sin(x * 0.025 + phase * 1.3) * 5;
+        const y = h / 2 + wave1 + wave2;
+        if(x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Second wave layer
+      ctx.strokeStyle = 'rgba(255, 107, 53, 0.12)';
+      ctx.beginPath();
+      for(let x = 0; x < w; x += 2){
+        const wave = Math.sin(x * 0.02 - phase * 0.8) * 6;
+        const y = h / 2 + wave + 15;
+        if(x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+  }
+
+  drawVisualizer();
+
+  // ===== HELPERS =====
+  function formatTime(sec){
+    if(isNaN(sec) || sec === Infinity) return '—';
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updateSegmentHighlight(currentTime){
+    let activeIndex = -1;
+    for(let i = segments.length - 1; i >= 0; i--){
+      const start = parseInt(segments[i].dataset.start, 10);
+      if(currentTime >= start){
+        activeIndex = i;
+        break;
+      }
+    }
+    segments.forEach((seg, i) => {
+      seg.classList.toggle('active', i === activeIndex);
+    });
+  }
+
+  // ===== MAIN AUDIO EVENTS =====
+  mainAudio.addEventListener('loadedmetadata', function(){
+    totalTimeEl.textContent = formatTime(mainAudio.duration);
+  });
+
+  mainAudio.addEventListener('timeupdate', function(){
+    if(mainAudio.duration){
+      const pct = (mainAudio.currentTime / mainAudio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      progressHandle.style.left = pct + '%';
+      currentTimeEl.textContent = formatTime(mainAudio.currentTime);
+      updateSegmentHighlight(mainAudio.currentTime);
+    }
+  });
+
+  mainAudio.addEventListener('play', function(){
+    playIcon.classList.add('hidden');
+    pauseIcon.classList.remove('hidden');
+  });
+
+  mainAudio.addEventListener('pause', function(){
+    playIcon.classList.remove('hidden');
+    pauseIcon.classList.add('hidden');
+  });
+
+  mainAudio.addEventListener('ended', function(){
+    playIcon.classList.remove('hidden');
+    pauseIcon.classList.add('hidden');
+    progressFill.style.width = '0%';
+    progressHandle.style.left = '0%';
+    currentTimeEl.textContent = '0:00';
+    segments.forEach(s => s.classList.remove('active'));
+  });
+
+  // ===== MAIN PLAY/PAUSE =====
+  mainPlayBtn.addEventListener('click', function(){
+    initAudioContext();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+    if(mainAudio.paused){
+      mainAudio.play().catch(()=>{});
+    } else {
+      mainAudio.pause();
+    }
+  });
+
+  // ===== SEEKING =====
+  let isSeeking = false;
+
+  function seekFromEvent(e){
+    const rect = progressBar.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    if(mainAudio.duration){
+      mainAudio.currentTime = pct * mainAudio.duration;
+      progressFill.style.width = (pct * 100) + '%';
+      progressHandle.style.left = (pct * 100) + '%';
+    }
+  }
+
+  progressBar.addEventListener('mousedown', function(e){
+    isSeeking = true;
+    seekFromEvent(e);
+  });
+  document.addEventListener('mousemove', function(e){
+    if(isSeeking) seekFromEvent(e);
+  });
+  document.addEventListener('mouseup', function(){ isSeeking = false; });
+
+  progressBar.addEventListener('touchstart', function(e){
+    isSeeking = true;
+    seekFromEvent(e);
+  }, {passive: true});
+  document.addEventListener('touchmove', function(e){
+    if(isSeeking) seekFromEvent(e);
+  }, {passive: true});
+  document.addEventListener('touchend', function(){ isSeeking = false; });
+
+  // ===== SEGMENT CLICK (seek to segment start) =====
+  segments.forEach(function(seg){
+    seg.addEventListener('click', function(){
+      const start = parseInt(seg.dataset.start, 10);
+      initAudioContext();
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+      if(mainAudio.duration){
+        mainAudio.currentTime = Math.min(start, mainAudio.duration - 0.1);
+      }
+      if(mainAudio.paused){
+        mainAudio.play().catch(()=>{});
+      }
+    });
+  });
+
+  // ===== SECONDARY: WESLEY'S LETTER =====
+  letterPlayBtn.addEventListener('click', function(){
+    initAudioContext();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+    if(letterAudio.paused){
+      // Pause main if playing
+      if(!mainAudio.paused) mainAudio.pause();
+      // Pause ambient if playing
+      if(!ambientAudio.paused){
+        ambientAudio.pause();
+        toggleMiniButton(ambientPlayBtn, false);
+      }
+      letterAudio.play().catch(()=>{});
+      toggleMiniButton(letterPlayBtn, true);
+    } else {
+      letterAudio.pause();
+      toggleMiniButton(letterPlayBtn, false);
+    }
+  });
+
+  letterAudio.addEventListener('timeupdate', function(){
+    if(letterAudio.duration){
+      const pct = (letterAudio.currentTime / letterAudio.duration) * 100;
+      letterProgress.style.width = pct + '%';
+    }
+  });
+
+  letterAudio.addEventListener('ended', function(){
+    toggleMiniButton(letterPlayBtn, false);
+    letterProgress.style.width = '0%';
+  });
+
+  // ===== SECONDARY: DAWN AMBIENT BED =====
+  ambientPlayBtn.addEventListener('click', function(){
+    initAudioContext();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+    if(ambientAudio.paused){
+      ambientAudio.play().catch(()=>{});
+      toggleMiniButton(ambientPlayBtn, true);
+    } else {
+      ambientAudio.pause();
+      toggleMiniButton(ambientPlayBtn, false);
+    }
+  });
+
+  function toggleMiniButton(btn, isPlaying){
+    const playSvg = btn.querySelector('.play-svg');
+    const pauseSvg = btn.querySelector('.pause-svg');
+    if(isPlaying){
+      playSvg.classList.add('hidden');
+      pauseSvg.classList.remove('hidden');
+    } else {
+      playSvg.classList.remove('hidden');
+      pauseSvg.classList.add('hidden');
+    }
+  }
+
+  // Ambient progress is continuous loop — just show pulse
+  let ambientAnimating = false;
+  function animateAmbientProgress(){
+    if(!ambientAudio.paused && !ambientAnimating){
+      ambientAnimating = true;
+      ambientAudio.addEventListener('timeupdate', function ambUpdate(){
+        if(ambientAudio.paused){
+          ambientProgress.style.width = '0%';
+          ambientAnimating = false;
+          ambientAudio.removeEventListener('timeupdate', ambUpdate);
+          return;
+        }
+        const pct = ((ambientAudio.currentTime % 30) / 30) * 100;
+        ambientProgress.style.width = pct + '%';
+      });
+    }
+  }
+
+  ambientPlayBtn.addEventListener('click', animateAmbientProgress);
+
+  // ===== KEYBOARD SHORTCUTS =====
+  document.addEventListener('keydown', function(e){
+    // Spacebar = play/pause main
+    if(e.code === 'Space' && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT'){
+      e.preventDefault();
+      mainPlayBtn.click();
+    }
+    // Left/right arrows = seek 10s
+    if(e.code === 'ArrowLeft' && mainAudio.duration){
+      e.preventDefault();
+      mainAudio.currentTime = Math.max(0, mainAudio.currentTime - 10);
+    }
+    if(e.code === 'ArrowRight' && mainAudio.duration){
+      e.preventDefault();
+      mainAudio.currentTime = Math.min(mainAudio.duration, mainAudio.currentTime + 10);
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
