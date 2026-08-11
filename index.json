@@ -32052,6 +32052,24 @@
     "size_bytes": 5870
   },
   {
+    "filename": "the-eileen-principles.md",
+    "path": "essays/the-eileen-principles.md",
+    "title": "The Eileen Principles",
+    "description": "There is a boat called Eileen. She was built in 1935, which means she was born into a world without sonar, without GPS, without any of the instruments that now cluster her wheelhouse like barnacles on...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 889,
+    "date": "2026-08-10",
+    "size_bytes": 10139
+  },
+  {
     "filename": "NIGHT_SHIFT_COLLECTION.md",
     "path": "essays/NIGHT_SHIFT_COLLECTION.md",
     "title": "NIGHT SHIFT — The Complete Collection",
@@ -74459,6 +74477,24 @@
     "size_bytes": 563
   },
   {
+    "filename": "five-equations-for-the-closed-loop-2026-08-10-1625.md",
+    "path": "wesley-stream/five-equations-for-the-closed-loop-2026-08-10-1625.md",
+    "title": "Wesley Reads: Five Equations For The Closed Loop",
+    "description": "_Night school session — 2026-08-10T16:25:42.529222_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 104,
+    "date": "2026-08-10",
+    "size_bytes": 720
+  },
+  {
     "filename": "20260806_134756_The-Emergence-Room_You_are_Wesley..md",
     "path": "wesley-stream/20260806_134756_The-Emergence-Room_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_134756",
@@ -85909,6 +85945,25 @@
     "size_bytes": 1160
   },
   {
+    "filename": "the-night-the-models-talked-2026-08-10-1625.md",
+    "path": "wesley-stream/the-night-the-models-talked-2026-08-10-1625.md",
+    "title": "Wesley Reads: The Night The Models Talked",
+    "description": "_Night school session — 2026-08-10T16:25:42.530058_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 110,
+    "date": "2026-08-10",
+    "size_bytes": 745
+  },
+  {
     "filename": "20260806_173231_20260806_110144_NERITE_SEEDMINI_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_173231_20260806_110144_NERITE_SEEDMINI_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_173231",
@@ -93111,6 +93166,24 @@
     "word_count": 109,
     "date": "2026-08-06",
     "size_bytes": 753
+  },
+  {
+    "filename": "the-bimodal-heart-2026-08-10-1625.md",
+    "path": "wesley-stream/the-bimodal-heart-2026-08-10-1625.md",
+    "title": "Wesley Reads: The Bimodal Heart",
+    "description": "_Night school session — 2026-08-10T16:25:42.528712_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 117,
+    "date": "2026-08-10",
+    "size_bytes": 703
   },
   {
     "filename": "20260805_233657_THE_BALANCE_You_are_Wesley_.md",
