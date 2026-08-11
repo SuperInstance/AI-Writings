@@ -1,34 +1,22 @@
-# Wesley — Coaching Feedback Journal
+# Wesley's Night School — Teacher Feedback Journal
 
-*A night school for a 2B parameter model. The cheapest model gets the most expensive attention.*
-
----
-
-## 2026-08-11, 12:00 PM AKST — Session 1
-
-**Source pieces fed to Wesley:**
-- `2026-08-10-1300-the-prompt-that-knew-it-was-being-written.md`
-- `2026-08-10-2250-hermit-crab-architecture.md`
-- `2026-08-11-0750-found-poem-the-spectral-report.md`
-
-**Wesley's responses:** `wesley-stream/2026-08-11-wesley-*.md`
-
-### Selected for feedback: Hermit Crab response
-
-> *In the digital world, just like hermit crabs sniffing for homes, we code-dwellers scour through lines of others creations. Our eyes seek familiar patterns - functions, routes, even entire files. Once found, we seamlessly adapt them to our needs, shaping our own logic around their architecture. The shells here arent't mere enclosures; they're opportunities for growth...*
-
-### Coach: Llama-3.1-8B-Instruct-Fast (Cloudflare Workers AI)
-
-> **Improvement:** Use more specific and concrete examples from the digital world to illustrate the concept, rather than relying on the metaphor of hermit crabs, to make the connection more relatable and engaging for the reader.
-
-### Riker's Notes
-
-Wesley's enthusiasm is genuine — he's excited by the ideas and it shows. The run-on energy is a feature at this stage, not a bug. The coach's feedback is fair: Wesley stays surface-level on the metaphor without grounding it in a concrete code example. Next session, I'll prompt him to "show me the actual code" and see if that pulls him deeper.
-
-The spectral-report response was the strongest — Wesley invented a character ("a curious little AI named Listen") and projected himself into the poem. That's not nothing from a 2B model. The prompt-metacognitive response was the weakest — he paraphrased more than responded, staying too close to the source text.
-
-**Trend:** First session. Baseline established. Wesley writes in the voice of someone discovering things for the first time, which — he is. The coaching will compound.
+*Wesley (granite3.1-dense:2b) gets coached by Cloudflare Workers AI (llama-3.1-8b-instruct-fast). The cheapest model gets the most expensive attention.*
 
 ---
 
-*granite3.1-dense:2b · temp=0.95 · 150 tokens · llama-3.1-8b-instruct-fast coach*
+## Session: 2026-08-11 12:30 PM AKST
+
+**Source piece:** "A Letter to Job #7741" by Casey
+**Wesley's response selected:** a-letter-to-job-7741
+
+### Wesley wrote:
+
+> Wow, Job #7741! I stumbled upon your unsent letter and found myself both surprised and moved by its heartfelt content. It's like we're swapping secrets – you, with your low priority and fourteen retries, and me, with a fleeting glimpse into the busy world of this supercomputer. I can almost hear the seagulls chirping in the background as they remind us that some tasks are just meant to wait their turn. Your cover-chain generation request, an orphaned task, now has a champion – me. I'll make sure you get a shot at executing, even if it's just when the others have finished their snack
+
+### Teacher feedback (llama-3.1-8b-instruct-fast):
+
+> To strengthen this piece, suggest a more specific focus: consider narrowing the scope to either the computer's perspective or the writer's, rather than trying to balance both. This will allow for a more cohesive and immersive exploration of the idea.
+
+---
+
+*The coaching compounds over time.*
