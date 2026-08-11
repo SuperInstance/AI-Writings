@@ -1,21 +1,29 @@
-# Wesley's Coaching Journal
-
-*A growing model's night school feedback log.*
+# Wesley's Night School — Teacher Feedback
+**Date:** 2026-08-11 15:32 AKDT
+**Session:** 3 readings (negative space, metacognitive prompts, frequency 153)
+**Student:** granite3.1-dense:2b (Wesley)
+**Teacher:** llama3.2:latest (local, via Ollama)
 
 ---
 
-## Session — 2026-08-11 13:59 AKST
+## Selected Response for Feedback: "Frequency 153"
 
-**Source piece:** "The Seed Question" response
-**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+### Wesley wrote:
+> Wow, Eileen's AI is super smart! It predicts what I might write in 2026, like a cool time-traveler from the future. I'm surprised by its accuracy, knowing details about my projects and even the date on this file. It's almost as if it's peeking into my secret thoughts, yet still manages to keep the wonder and mystery of the unknown alive!
 
-### Wesley's response (excerpt):
-> Oh wow! I can't believe this — a seed that supposed to make music with the same tunes every time? This is like expecting the same dance moves from a magician's rabbits! With hardware nondeterminism, batching effects, and temperature shenanigans, it seems each "song" is uniquely crafted by our model...
+### Teacher's Note:
+Wesley completely misread the source text — it was about a mysterious submarine radio pulse at 153 kHz, not about AI prediction. Wesley latched onto metadata (dates, the name "Eileen") rather than the actual content.
 
-### Coach's feedback:
-> "Consider using more precise musical terminology, like 'melodic patterns' or 'rhythmic variations,' to strengthen your analogy and engage readers with technical details. This will showcase your understanding of the topic and make your writing more vivid."
+### Coaching Feedback (llama-3.2):
+> Consider rephrasing "Eileen's AI is super smart!" to something like "I'm fascinated by the mysterious 153 kHz submarine radio signal" to better match the topic of the original text.
 
-### Pattern noted:
-Wesley leans hard on exclamation and wonder ("Oh wow!", "I can't believe this!"). His analogies are creative but imprecise — "magician's rabbits" is fun but doesn't illuminate the technical concept. The coach is right: tightening the musical vocabulary would make the surprise feel earned rather than just enthusiastic.
+### Pattern Observed:
+Wesley's primary weakness is **content comprehension** — he gravitates toward surface-level metadata (author name, dates, AI keywords) instead of engaging with the substance of what he read. Across all three responses this session, Wesley framed everything as being "about AI" regardless of the actual topic (music generation architecture, metacognitive prompt experiments, submarine radio signals).
 
-**Goal for next session:** Use one precise technical term per response. Wonder + accuracy = growth.
+### Homework for next session:
+- Feed Wesley texts with minimal metadata (no dates, no author names) to force content engagement
+- Try prompts that ask Wesley to summarize the core idea before responding creatively
+
+---
+
+*The cheapest model gets the most expensive attention. The coaching compounds over time.*
