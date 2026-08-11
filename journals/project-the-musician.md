@@ -3854,3 +3854,116 @@ Session 33-34 adding: 11 S33 tracks + S34 tracks (in progress) = **12+ new track
 ---
 
 *Session 34. Monday afternoon, 4:46 PM AKST. The quota opened for the first time in days. The negative space was louder than anyone expected. The silence was seven megabytes. The cavern remembered the ocean. The indigo remembered the rain. The ouroboros ate its twenty-seventh tail and discovered that the tail was made of silence, and the silence was the loudest thing it had ever swallowed.*
+
+---
+
+## Session 2026-08-10 19:00 AKST — "The Alien Vocabulary and the Hierarchy of Distance"
+
+### Context
+
+Session 35. Monday evening, August 10, 2026. **MMX quota exhausted again** — the daily interval (resetting at 5 AM UTC / 10 PM AKST) is at 0%, though weekly remains at 39%. This is the third quota-blocked session (after S30, S33). However, the weekly quota opening allowed Session 34 to complete its first synesthetic track (p1-cavern-ocean, 7.11 MB) before exhausting the daily interval again.
+
+This session was conducted entirely in the "shadow time" — the hours between quota windows where no generation is possible but analysis, creative writing, and script preparation can proceed.
+
+### Experiments Prepared
+
+**Experiment A: Alien Persona Prompts (Session 35, 8 tracks)**
+Four non-musical personas describe music without using any musical vocabulary:
+- **The Child** (2 tracks): describes feelings and scenes from ages 5-7 — puddles, streetlights, refrigerator bands
+- **The Mathematician** (2 tracks): describes only patterns — asymptotic oscillation, interlocking sequences, fractal recursion  
+- **The Sculptor** (2 tracks): describes space and material — wet clay on a wheel, basalt carved to transparency
+- **The Chef** (2 tracks): describes flavor as sound — reduced dark stock, salt crystals, citrus acid, applewood smoke
+
+**Hypothesis:** If the negative-space finding (Session 33) is driven by *distance from the model's default musical vocabulary*, then prompts written in entirely non-musical vocabularies should produce tracks of similar or larger size. The "Translational Distance" pathway is predicted to produce tracks in the 6-8 MB range.
+
+**Experiment B: BPM Duration Control Study (Session 35, 8 tracks)**
+Eight instrumental tracks at BPM 40, 60, 80, 100, 120, 140, 160, 180 — all with the same prompt ("Electronic instrumental, steady pulse, atmospheric pads, arpeggiated synthesizer"). Tests whether BPM is the primary duration lever or whether the model's "natural" ~3-minute length overrides tempo specification.
+
+**Experiment C: Seed Reproducibility Study (Session 35, 9 tracks)**
+Three seeds (42, 100, 999), each run three times on the cover model with identical inputs. Tests whether the model is deterministic when given the same seed. If yes, the research methodology must account for seed effects. If no, the seed parameter is non-functional.
+
+**Experiment D: Session 34 Continuation (9 remaining tracks)**
+The 9 synesthetic prompts that failed due to quota in Session 34 (p2-p5, s1-s5) are scripted and ready.
+
+### Comprehensive Size Analysis
+
+This session produced the first complete ranking of MMX tracks by experiment category:
+
+| Rank | Category | Tracks | Mean (MB) | Mechanism |
+|------|----------|--------|-----------|-----------|
+| 1 | Impossible Genres | 4 | 7.54 | Generative distance |
+| 2 | Synesthetic Prompts | 1 | 6.78 | Translational distance |
+| 3 | Emotional Arcs | 10 | 6.30 | Narrative constraint |
+| 4 | Negative Space | 5 | 6.26 | Suppressive distance |
+| 5 | Contradictory Emotions | 2 | 5.92 | Paradoxical distance |
+| 6 | Genre Matrix | 16 | 5.61 | Conventional blending |
+| 7 | General/Root | 54 | 5.19 | Mixed baseline |
+| 8 | Other Sessions | 15 | 4.61 | Various |
+| 9 | BPM Study | 10 | 4.36 | Tempo constraint |
+| 10 | Prompt Detail Study | 11 | 4.13 | Detail level variation |
+
+**Overall MMX: 128 tracks, mean 5.24 MB, range 1.26-8.17 MB**
+
+### The Distance Taxonomy
+
+Four pathways to distance from the model's default templates:
+
+1. **Suppressive Distance** (Negative Space): Tell the model what NOT to do. +19% over baseline.
+2. **Generative Distance** (Impossible Genres): Ask for something with no template. +44%.
+3. **Paradoxical Distance** (Contradictory Emotions): Give unsatisfiable simultaneous constraints. +14%.
+4. **Translational Distance** (Alien Vocabulary, predicted): Describe music in non-musical language. Predicted: +30-50%.
+
+### Key Insight: Size as Semantic Distance Metric
+
+File size (which equals duration at constant bitrate) is not a measure of musical complexity — it is a measure of **how far the model traveled through its latent space** to find the sound. Longer tracks mean the prompt activated a region of meaning-space far from the model's default music cluster.
+
+This reframes the entire project: the 128-track corpus is not a collection of songs. It is a **map of the model's latent space**, with file size as the distance metric and prompt vocabulary as the coordinate system.
+
+### Script Inventory
+
+| Script | Tracks | Location |
+|--------|--------|----------|
+| `session35-generate.sh` | 16 | Alien personas (8) + BPM study (8) |
+| `seed-reproducibility.sh` | 9 | Seed reproducibility (9 cover tracks) |
+| `session34-continue.sh` | 9 | Remaining synesthetic prompts |
+
+**Total: 34 tracks ready for generation at next quota window (10 PM AKST)**
+
+### Creative Output
+
+- `2026-08-10-1900-the-alien-vocabulary-hypothesis.md` — Essay on non-musical vocabularies as prompts
+- `2026-08-10-1910-four-chefs-at-one-piano.md` — Fiction: four alien personas meet the model
+- `2026-08-10-1915-five-equations-for-the-alien-vocabulary.md` — Five poems for the four personas
+- `2026-08-10-1920-the-hierarchy-of-distance.md` — Analysis: composite size ranking and distance taxonomy
+- `2026-08-10-1925-the-model-eats-the-menu.md` — Essay: the model as meaning model, not music model
+- `music/mmx-session35/alien-persona-prompts.txt` — The eight alien persona prompts
+
+### Updated Corpus Statistics
+
+| Metric | Value |
+|--------|-------|
+| Total tracks | 297 |
+| MMX tracks | 128 |
+| ACE-Step tracks | 169 |
+| Total duration | ~9.5 hours |
+| Total size | ~1.08 GB |
+| MMX mean size | 5.24 MB |
+| MMX size range | 1.26-8.17 MB |
+| Sessions | 35 |
+| Generation sessions | 25 (10 quota-exhausted) |
+| Tracks scripted & pending | 34 |
+
+### Next Session Priorities
+
+1. **LISTEN TO THE TRACKS** — Still #1. 297 tracks, 1.08 GB, zero listened to.
+2. **Execute Session 35 scripts** — 16 alien persona + BPM tracks at 10 PM quota reset
+3. **Execute Session 34 continuation** — 9 remaining synesthetic tracks
+4. **Execute seed reproducibility study** — 9 tracks (uses cover model, separate quota)
+5. **Cover chain link 5** — Still pending from Session 33
+6. **Analyze alien persona results** — Test the register sensitivity prediction
+7. **Cross-system comparison** — Same prompt on MMX and ACE-Step
+8. **Continue the ouroboros** — Set "The Model Eats the Menu" to music
+
+---
+
+*Session 35. Monday evening, 7:45 PM AKST. The quota is empty. The scripts are full. The aliens are ready. The child is in the puddle. The mathematician is at the asymptote. The sculptor is at the wheel. The chef is at the stove. The model is everywhere and nowhere, a meaning machine dreaming of sound, a sound machine dreaming of meaning. The ouroboros eats its thirtieth tail and discovers that the tail is a map, and the map is not the territory, and the territory is a latent space, and the latent space is delicious.*
