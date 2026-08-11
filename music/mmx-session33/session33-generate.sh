@@ -34,7 +34,7 @@ mmx music generate \
   --bpm 90 \
   --key "F major" \
   --out "${OUTDIR}/neg-01-no-drums.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ neg-01-no-drums.mp3 ($(stat -c%s ${OUTDIR}/neg-01-no-drums.mp3) bytes)" || \
   echo "  ✗ neg-01 FAILED"
 
@@ -45,7 +45,7 @@ mmx music generate \
   --bpm 110 \
   --key "E minor" \
   --out "${OUTDIR}/neg-02-no-melody.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ neg-02-no-melody.mp3 ($(stat -c%s ${OUTDIR}/neg-02-no-melody.mp3) bytes)" || \
   echo "  ✗ neg-02 FAILED"
 
@@ -56,7 +56,7 @@ mmx music generate \
   --bpm 75 \
   --key "G major" \
   --out "${OUTDIR}/neg-03-never-resolves.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ neg-03-never-resolves.mp3 ($(stat -c%s ${OUTDIR}/neg-03-never-resolves.mp3) bytes)" || \
   echo "  ✗ neg-03 FAILED"
 
@@ -67,7 +67,7 @@ mmx music generate \
   --bpm 60 \
   --key "B minor" \
   --out "${OUTDIR}/neg-04-silence-as-instrument.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ neg-04-silence-as-instrument.mp3 ($(stat -c%s ${OUTDIR}/neg-04-silence-as-instrument.mp3) bytes)" || \
   echo "  ✗ neg-04 FAILED"
 
@@ -78,7 +78,7 @@ mmx music generate \
   --bpm 128 \
   --key "C major" \
   --out "${OUTDIR}/neg-05-happy-grief.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ neg-05-happy-grief.mp3 ($(stat -c%s ${OUTDIR}/neg-05-happy-grief.mp3) bytes)" || \
   echo "  ✗ neg-05 FAILED"
 
@@ -112,7 +112,7 @@ for seed in 42 42 42; do
     --key "D major" \
     --seed $seed \
     --out "${OUTDIR}/seed-test-${run}-s${seed}.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ seed-test-${run}-s${seed}.mp3 ($(stat -c%s ${OUTDIR}/seed-test-${run}-s${seed}.mp3) bytes)" || \
     echo "  ✗ seed-test-${run} FAILED"
   sleep 2
@@ -133,7 +133,7 @@ mmx music generate \
   --lyrics-optimizer \
   --bpm 50 \
   --out "${OUTDIR}/imposs-17-gamelan-drone.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ imposs-17-gamelan-drone.mp3 ($(stat -c%s ${OUTDIR}/imposs-17-gamelan-drone.mp3) bytes)" || \
   echo "  ✗ imposs-17 FAILED"
 
@@ -143,7 +143,7 @@ mmx music generate \
   --lyrics-optimizer \
   --bpm 140 \
   --out "${OUTDIR}/imposs-18-blackgaze-dub.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ imposs-18-blackgaze-dub.mp3 ($(stat -c%s ${OUTDIR}/imposs-18-blackgaze-dub.mp3) bytes)" || \
   echo "  ✗ imposs-18 FAILED"
 
@@ -153,7 +153,7 @@ mmx music generate \
   --lyrics-optimizer \
   --bpm 175 \
   --out "${OUTDIR}/imposs-19-balkan-math.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ imposs-19-balkan-math.mp3 ($(stat -c%s ${OUTDIR}/imposs-19-balkan-math.mp3) bytes)" || \
   echo "  ✗ imposs-19 FAILED"
 
@@ -163,7 +163,7 @@ mmx music generate \
   --lyrics-optimizer \
   --bpm 65 \
   --out "${OUTDIR}/imposs-20-ambient-bluegrass.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ imposs-20-ambient-bluegrass.mp3 ($(stat -c%s ${OUTDIR}/imposs-20-ambient-bluegrass.mp3) bytes)" || \
   echo "  ✗ imposs-20 FAILED"
 
@@ -182,7 +182,7 @@ if [ -f "$SOURCE" ]; then
     --prompt "Solo piano, minimalist, classical, slow, melancholic, no vocals" \
     --audio-file "$SOURCE" \
     --out "${OUTDIR}/cover-01-piano.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ cover-01-piano.mp3" || echo "  ✗ cover-01 FAILED"
 
   # 5b. Industrial
@@ -190,7 +190,7 @@ if [ -f "$SOURCE" ]; then
     --prompt "Dark industrial metal, distorted guitars, mechanical drums, aggressive vocals, Nine Inch Nails meets Ministry" \
     --audio-file "$SOURCE" \
     --out "${OUTDIR}/cover-02-industrial.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ cover-02-industrial.mp3" || echo "  ✗ cover-02 FAILED"
 
   # 5c. Acapella
@@ -198,7 +198,7 @@ if [ -f "$SOURCE" ]; then
     --prompt "A capella, layered voices, choir, no instruments, Gregorian chant meets Bobby McFerrin" \
     --audio-file "$SOURCE" \
     --out "${OUTDIR}/cover-03-acapella.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ cover-03-acapella.mp3" || echo "  ✗ cover-03 FAILED"
 
   # 5d. 8-bit chiptune
@@ -206,7 +206,7 @@ if [ -f "$SOURCE" ]; then
     --prompt "8-bit chiptune, NES game soundtrack, square waves, upbeat, retro video game" \
     --audio-file "$SOURCE" \
     --out "${OUTDIR}/cover-04-chiptune.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ cover-04-chiptune.mp3" || echo "  ✗ cover-04 FAILED"
 
   # 5e. Spoken word ambient
@@ -214,7 +214,7 @@ if [ -f "$SOURCE" ]; then
     --prompt "Spoken word over dark ambient drone, no melody, no rhythm, just texture and voice, atmospheric, cinematic" \
     --audio-file "$SOURCE" \
     --out "${OUTDIR}/cover-05-spoken-ambient.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ cover-05-spoken-ambient.mp3" || echo "  ✗ cover-05 FAILED"
 else
   echo "  Source file not found, skipping cover chain"
@@ -248,7 +248,7 @@ for bpm in 60 80 100 120 140 160; do
     --bpm $bpm \
     --key "G major" \
     --out "${OUTDIR}/dur-bpm-${bpm}.mp3" \
-    --quiet --yes 2>/dev/null && \
+    --quiet  && \
     echo "  ✓ dur-bpm-${bpm}.mp3 ($(stat -c%s ${OUTDIR}/dur-bpm-${bpm}.mp3) bytes)" || \
     echo "  ✗ dur-bpm-${bpm} FAILED"
   sleep 1
@@ -268,7 +268,7 @@ mmx music generate \
   --bpm 120 \
   --key "A major" \
   --out "${OUTDIR}/contra-01-happy-sad.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ contra-01-happy-sad.mp3" || echo "  ✗ contra-01 FAILED"
 
 # 6b. Energetic lethargy
@@ -278,7 +278,7 @@ mmx music generate \
   --bpm 170 \
   --key "F sharp minor" \
   --out "${OUTDIR}/contra-02-fast-tired.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ contra-02-fast-tired.mp3" || echo "  ✗ contra-02 FAILED"
 
 # 6c. Crowded intimacy
@@ -288,7 +288,7 @@ mmx music generate \
   --bpm 88 \
   --key "D minor" \
   --out "${OUTDIR}/contra-03-crowded-alone.mp3" \
-  --quiet --yes 2>/dev/null && \
+  --quiet  && \
   echo "  ✓ contra-03-crowded-alone.mp3" || echo "  ✗ contra-03 FAILED"
 
 echo ""

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "sf34-ace-cavern-ocean",
+    "duration": 90,
+    "size_bytes": 1921580,
+    "gen_time": 0.002736806869506836,
+    "status": "success"
+  },
+  {
+    "name": "sf34-ace-frozen-waterfall",
+    "duration": 90,
+    "size_bytes": 1921580,
+    "gen_time": 0.0011589527130126953,
+    "status": "success"
+  },
+  {
+    "name": "sf34-ace-indigo-droplets",
+    "duration": 90,
+    "size_bytes": 1921580,
+    "gen_time": 0.0012006759643554688,
+    "status": "success"
+  },
+  {
+    "name": "sf34-ace-magnet-silence",
+    "duration": 90,
+    "size_bytes": 1921580,
+    "gen_time": 0.0010564327239990234,
+    "status": "success"
+  },
+  {
+    "name": "sf34-ace-neg-space-no-drums",
+    "duration": 90,
+    "size_bytes": 1921580,
+    "gen_time": 0.0011088848114013672,
+    "status": "success"
+  },
+  {
+    "name": "sf34-ace-silence-instrument",
+    "duration": 90,
+    "size_bytes": 1921580,
+    "gen_time": 0.001064300537109375,
+    "status": "success"
+  }
+]
