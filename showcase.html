@@ -3,1108 +3,1158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>By Their Fruits — The Album & Works of August 10, 2026</title>
-<meta name="description" content="By Their Fruits: the album, the essays, the radio, the fleet. One day's creative harvest from the F/V Eileen.">
+<title>Channel 42 — The Impossible Frequency</title>
+<meta name="description" content="Broadcasting on Channel 42 — the frequency that shouldn't exist. The fleet broadcasts from the wheelhouse at 2 AM.">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0a0a14;
-  --bg-deep:#06060e;
-  --bg-card:#11111a;
-  --bg-card-hover:#161620;
-  --bg-script:#0d0d18;
-  --gold:#e8b840;
-  --gold-dim:#8a6f28;
-  --gold-bright:#f0c050;
-  --green:#44cc88;
-  --green-dim:#2a7a55;
-  --amber:#cd853f;
-  --text:#e8e0d0;
-  --text-muted:#888;
-  --text-dim:#555;
-  --text-faint:#333;
-  --border:#1a1a2a;
-  --border-bright:#2a2a3a;
+  --bg:#050508;
+  --bg-deep:#030306;
+  --bg-panel:#0a0a12;
+  --bg-card:#0d0d18;
+  --amber:#e8b840;
+  --amber-bright:#f0c850;
+  --amber-glow:rgba(232,184,64,0.15);
+  --amber-dim:#8a7428;
+  --amber-faint:rgba(232,184,64,0.06);
+  --cream:#e8e0d0;
+  --cream-dim:#a09888;
+  --cream-faint:#6a6558;
+  --static-color:rgba(232,224,208,0.03);
+  --border:rgba(232,184,64,0.12);
+  --border-bright:rgba(232,184,64,0.3);
 }
 html{scroll-behavior:smooth}
 body{
   background:var(--bg);
-  color:var(--text);
+  color:var(--cream);
   font-family:Georgia,'Times New Roman',serif;
   overflow-x:hidden;
-  line-height:1.6;
+  line-height:1.7;
+  font-size:17px;
 }
-::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg-deep)}
-::-webkit-scrollbar-thumb{background:var(--border-bright);border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:var(--gold-dim)}
+::-webkit-scrollbar-thumb{background:var(--amber-dim);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--amber)}
+
+/* === SCANLINES === */
+body::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,0,0,0.15) 2px,
+    rgba(0,0,0,0.15) 3px
+  );
+  pointer-events:none;
+  z-index:9998;
+  animation:scanline-drift 8s linear infinite;
+}
+@keyframes scanline-drift{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(3px)}
+}
+
+/* === CRT FLICKER === */
+body::after{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,0.4) 100%);
+  pointer-events:none;
+  z-index:9997;
+}
+
+/* === STATIC NOISE === */
+.static-noise{
+  position:relative;
+  overflow:hidden;
+}
+.static-noise::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:300%;height:100%;
+  background-image:
+    repeating-linear-gradient(90deg,transparent 0px,transparent 2px,var(--static-color) 2px,var(--static-color) 3px),
+    repeating-linear-gradient(0deg,transparent 0px,transparent 4px,rgba(232,224,208,0.02) 4px,rgba(232,224,208,0.02) 5px);
+  animation:static-scroll 0.3s linear infinite;
+  pointer-events:none;
+  opacity:0.5;
+}
+@keyframes static-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50px)}
+}
+
+/* === RADIO DIAL === */
+.dial-container{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:linear-gradient(180deg,var(--bg-deep) 0%,var(--bg) 100%);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 4px 30px rgba(0,0,0,0.8),0 0 60px var(--amber-glow);
+}
+.dial{
+  max-width:1100px;
+  margin:0 auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.dial::-webkit-scrollbar{display:none}
+.dial-label{
+  font-family:'Courier New',monospace;
+  font-size:11px;
+  color:var(--amber-dim);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  white-space:nowrap;
+  padding-right:8px;
+  border-right:1px solid var(--border);
+  margin-right:4px;
+}
+.channel{
+  font-family:'Courier New',monospace;
+  font-size:13px;
+  color:var(--cream-faint);
+  background:transparent;
+  border:1px solid transparent;
+  padding:8px 14px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:all 0.3s ease;
+  border-radius:3px;
+  position:relative;
+  letter-spacing:1px;
+}
+.channel:hover{
+  color:var(--cream-dim);
+  border-color:var(--border);
+}
+.channel.active{
+  color:var(--amber-bright);
+  border-color:var(--amber);
+  background:var(--amber-faint);
+  box-shadow:0 0 20px var(--amber-glow),inset 0 0 10px rgba(232,184,64,0.05);
+  text-shadow:0 0 8px var(--amber-glow);
+}
+.channel-sub{
+  display:block;
+  font-size:8px;
+  color:var(--cream-faint);
+  margin-top:2px;
+  letter-spacing:1px;
+}
+.channel.active .channel-sub{
+  color:var(--amber-dim);
+}
+
+/* === DIAL GLOW PULSE === */
+.dial-glow{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--amber),transparent);
+  opacity:0.5;
+  animation:glow-pulse 4s ease-in-out infinite;
+}
+@keyframes glow-pulse{
+  0%,100%{opacity:0.3}
+  50%{opacity:0.7}
+}
+
+/* === MAIN CONTENT === */
+.main{
+  max-width:780px;
+  margin:0 auto;
+  padding:40px 20px 120px;
+}
 
 /* === HERO === */
 .hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-  opacity:0.35;
-  filter:saturate(0.6) contrast(1.1);
-}
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse at 50% 100%,rgba(10,10,20,0.5) 0%,transparent 60%),
-    linear-gradient(to bottom,rgba(10,10,20,0.3) 0%,rgba(10,10,20,0.6) 50%,var(--bg) 100%);
-}
-.hero-grain{
-  position:absolute;
-  inset:0;
-  opacity:0.03;
-  pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-.hero-content{
-  position:relative;
-  z-index:5;
   text-align:center;
-  padding:40px 20px;
-  max-width:900px;
+  padding:60px 20px 40px;
 }
-.hero-label{
+.hero-eyebrow{
   font-family:'Courier New',monospace;
-  font-size:0.7em;
-  letter-spacing:6px;
-  color:var(--gold-dim);
+  font-size:12px;
+  color:var(--amber-dim);
+  letter-spacing:4px;
   text-transform:uppercase;
-  margin-bottom:20px;
+  margin-bottom:16px;
 }
 .hero h1{
-  font-size:clamp(2.5em,8vw,5.5em);
-  color:var(--gold);
-  letter-spacing:4px;
-  margin-bottom:0.15em;
+  font-size:clamp(2rem,5vw,3.2rem);
+  color:var(--amber);
+  text-shadow:0 0 30px var(--amber-glow);
+  letter-spacing:-1px;
+  margin-bottom:12px;
   font-weight:normal;
-  font-style:italic;
-  text-shadow:0 0 60px rgba(232,184,64,0.25);
 }
-.hero .byline{
-  color:var(--text-muted);
+.hero-sub{
+  font-size:1.05rem;
+  color:var(--cream-dim);
+  max-width:480px;
+  margin:0 auto;
   font-style:italic;
-  font-size:clamp(0.9em,2vw,1.15em);
-  margin-bottom:30px;
-  line-height:1.7;
 }
-.hero-date{
+.hero-freq{
   font-family:'Courier New',monospace;
-  font-size:0.75em;
-  color:var(--text-dim);
-  letter-spacing:3px;
-}
-.hero-cta{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:transparent;
-  border:1px solid var(--gold-dim);
-  color:var(--gold);
-  padding:12px 32px;
-  font-family:Georgia,serif;
-  font-size:0.95em;
-  cursor:pointer;
-  border-radius:2px;
-  transition:all 0.4s;
-  text-decoration:none;
-  letter-spacing:2px;
+  font-size:14px;
+  color:var(--amber-dim);
   margin-top:20px;
-}
-.hero-cta:hover{
-  background:rgba(232,184,64,0.08);
-  border-color:var(--gold);
-  box-shadow:0 0 30px rgba(232,184,64,0.15);
-}
-.hero-scroll-hint{
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-  color:var(--text-faint);
-  font-size:0.7em;
-  letter-spacing:3px;
-  font-family:'Courier New',monospace;
-  animation:fadeUpDown 3s ease-in-out infinite;
-}
-@keyframes fadeUpDown{
-  0%,100%{opacity:0.3;transform:translateX(-50%) translateY(0)}
-  50%{opacity:0.7;transform:translateX(-50%) translateY(-6px)}
+  letter-spacing:2px;
 }
 
-/* === NAV === */
-.nav{
-  position:sticky;
-  top:0;
-  background:rgba(10,10,20,0.92);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:12px 20px;
+/* === STATIC BANNER === */
+.static-banner{
+  height:40px;
+  margin:30px 0;
+  position:relative;
   display:flex;
+  align-items:center;
   justify-content:center;
-  gap:20px;
-  z-index:100;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.static-banner-text{
+  font-family:'Courier New',monospace;
+  font-size:10px;
+  color:var(--cream-faint);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  z-index:1;
+  background:var(--bg);
+  padding:0 16px;
+}
+
+/* === TRANSMISSION BLOCK === */
+.transmission{
+  margin:50px 0;
+  padding:30px 0;
+  border-bottom:1px solid var(--border);
+}
+.transmission:last-of-type{
+  border-bottom:none;
+}
+.tx-header{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  margin-bottom:20px;
   flex-wrap:wrap;
 }
-.nav a{
-  color:var(--text-muted);
-  text-decoration:none;
-  font-size:0.75em;
-  letter-spacing:1.5px;
-  transition:color 0.3s;
-  text-transform:uppercase;
+.tx-number{
   font-family:'Courier New',monospace;
-}
-.nav a:hover{color:var(--gold)}
-
-/* === SECTIONS === */
-.section{
-  padding:80px 20px;
-  max-width:1100px;
-  margin:0 auto;
-}
-.section-header{
-  margin-bottom:50px;
-  text-align:center;
-}
-.section-header h2{
-  color:var(--gold);
-  font-size:clamp(1.5em,4vw,2.5em);
-  letter-spacing:3px;
-  margin-bottom:8px;
-  font-weight:normal;
-  font-style:italic;
-}
-.section-header .subtitle{
-  color:var(--text-muted);
-  font-style:italic;
-  font-size:0.92em;
-  max-width:650px;
-  margin:0 auto;
-  line-height:1.7;
-}
-.section-num{
-  font-family:'Courier New',monospace;
-  font-size:0.65em;
-  color:var(--gold-dim);
-  letter-spacing:4px;
-  text-transform:uppercase;
-  display:block;
-  margin-bottom:10px;
-}
-.section-divider{
-  border:0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--border-bright),transparent);
-  margin:0 auto;
-  max-width:900px;
-}
-
-/* === ALBUM TRACKS === */
-.tracks{
-  display:flex;
-  flex-direction:column;
-  gap:24px;
-}
-.track-card{
-  background:var(--bg-card);
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid var(--border);
-  transition:border-color 0.4s,transform 0.3s;
-  display:flex;
-  flex-direction:column;
-}
-.track-card:hover{
-  border-color:var(--border-bright);
-  transform:translateY(-2px);
-}
-.track-card-inner{
-  display:flex;
-  gap:0;
-  align-items:stretch;
-}
-@media(max-width:680px){
-  .track-card-inner{flex-direction:column}
-}
-.track-art{
-  width:220px;
-  min-width:220px;
-  position:relative;
-  overflow:hidden;
-}
-@media(max-width:680px){
-  .track-art{width:100%;min-width:0;height:200px}
-}
-.track-art img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.track-art .track-num{
-  position:absolute;
-  top:12px;
-  left:12px;
-  font-family:'Courier New',monospace;
-  font-size:0.7em;
-  color:var(--gold);
-  background:rgba(10,10,20,0.8);
-  padding:4px 10px;
-  border-radius:3px;
+  font-size:11px;
+  color:var(--amber-dim);
   letter-spacing:2px;
+  text-transform:uppercase;
+  white-space:nowrap;
 }
-.track-body{
-  flex:1;
-  padding:24px 28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.track-body h3{
-  color:var(--gold);
-  font-size:1.3em;
-  margin-bottom:6px;
+.tx-title{
+  font-size:1.6rem;
+  color:var(--amber);
   font-weight:normal;
-  font-style:italic;
+  text-shadow:0 0 12px var(--amber-glow);
 }
-.track-desc{
-  color:var(--text-muted);
-  font-size:0.88em;
-  font-style:italic;
-  margin-bottom:14px;
-  line-height:1.6;
+.tx-tag{
+  font-family:'Courier New',monospace;
+  font-size:10px;
+  color:var(--cream-faint);
+  letter-spacing:1px;
+  border:1px solid var(--border);
+  padding:2px 8px;
+  border-radius:2px;
+  text-transform:uppercase;
 }
-.track-player{
-  margin-top:auto;
-}
-.track-player audio{
+
+/* === ALBUM === */
+.album-cover{
   width:100%;
-  height:38px;
+  max-width:400px;
   border-radius:4px;
+  box-shadow:0 0 40px rgba(0,0,0,0.8),0 0 20px var(--amber-glow);
+  margin:0 auto 24px;
+  display:block;
+}
+.album-title{
+  text-align:center;
+  font-size:1.4rem;
+  color:var(--cream);
+  margin-bottom:6px;
+}
+.album-sub{
+  text-align:center;
+  font-family:'Courier New',monospace;
+  font-size:11px;
+  color:var(--amber-dim);
+  letter-spacing:2px;
+  margin-bottom:30px;
+}
+.track{
+  margin:24px 0;
+  padding:20px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:4px;
+}
+.track-header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:14px;
+}
+.track-thumb{
+  width:60px;
+  height:60px;
+  border-radius:3px;
+  object-fit:cover;
+  box-shadow:0 0 12px rgba(0,0,0,0.6);
+}
+.track-name{
+  font-size:1.1rem;
+  color:var(--amber);
 }
 .track-meta{
   font-family:'Courier New',monospace;
-  font-size:0.72em;
-  color:var(--text-dim);
-  margin-top:6px;
+  font-size:10px;
+  color:var(--cream-faint);
   letter-spacing:1px;
+  margin-top:2px;
+}
+.track-prompt{
+  font-size:0.92rem;
+  color:var(--cream-dim);
+  font-style:italic;
+  margin:10px 0;
+  padding-left:14px;
+  border-left:2px solid var(--amber-dim);
 }
 
-/* === TAP OPEN MIC === */
-.tap-section{
-  background:var(--bg-card);
-  border-radius:14px;
-  padding:40px;
-  border:1px solid var(--border);
-}
-.tap-header{
-  text-align:center;
-  margin-bottom:30px;
-}
-.tap-header h3{
-  color:var(--gold);
-  font-size:1.6em;
-  font-style:italic;
-  font-weight:normal;
-  margin-bottom:6px;
-}
-.tap-header .duration{
-  font-family:'Courier New',monospace;
-  font-size:0.75em;
-  color:var(--text-dim);
-  letter-spacing:2px;
-}
-.tap-description{
-  color:var(--text-muted);
-  font-style:italic;
-  text-align:center;
-  max-width:550px;
-  margin:0 auto 25px;
-  line-height:1.7;
-  font-size:0.92em;
-}
-.tap-player{
-  max-width:500px;
-  margin:0 auto 30px;
-}
-.tap-player audio{
+/* === AUDIO PLAYER === */
+audio{
   width:100%;
-  height:42px;
-}
-.tap-quotes{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-  margin-top:20px;
-}
-.tap-quote{
-  background:var(--bg-script);
-  border-radius:8px;
-  padding:18px 20px;
-  border-left:3px solid var(--gold-dim);
-}
-.tap-quote .q-text{
-  color:var(--text);
-  font-size:0.88em;
-  font-style:italic;
-  line-height:1.6;
-}
-.tap-quote .q-text::before{
-  content:'\201C';
-  color:var(--gold);
-  font-size:1.3em;
-  margin-right:2px;
-}
-.tap-quote .q-text::after{
-  content:'\201D';
-  color:var(--gold);
-  font-size:1.3em;
-}
-
-/* === ESSAYS === */
-.essay-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:24px;
-}
-.essay-card{
-  background:var(--bg-card);
-  border-radius:12px;
-  padding:32px;
-  border:1px solid var(--border);
-  transition:border-color 0.3s;
-}
-.essay-card:hover{border-color:var(--border-bright)}
-.essay-card .essay-tag{
-  font-family:'Courier New',monospace;
-  font-size:0.68em;
-  color:var(--green);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:10px;
-}
-.essay-card h3{
-  color:var(--gold);
-  font-size:1.4em;
-  margin-bottom:12px;
-  font-weight:normal;
-  font-style:italic;
-}
-.essay-card .excerpt{
-  color:var(--text-muted);
-  font-size:0.9em;
-  line-height:1.7;
-  font-style:italic;
-  border-left:2px solid var(--gold-dim);
-  padding-left:16px;
-  margin:15px 0;
-}
-.essay-card .excerpt .pull{
-  color:var(--gold-bright);
-  font-style:normal;
-  font-family:'Courier New',monospace;
-  font-size:0.88em;
-}
-.essay-card .essay-link{
-  display:inline-block;
-  margin-top:12px;
-  color:var(--green);
-  text-decoration:none;
-  font-size:0.82em;
-  font-family:'Courier New',monospace;
-  border-bottom:1px dotted var(--green-dim);
-  padding-bottom:1px;
-}
-.essay-card .essay-link:hover{color:var(--gold)}
-
-/* Principles list */
-.principles-list{
-  margin:20px 0;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-.principle{
-  display:flex;
-  gap:12px;
-  align-items:baseline;
-  padding:8px 0;
-  border-bottom:1px solid var(--border);
-}
-.principle:last-child{border-bottom:none}
-.principle .p-num{
-  font-family:'Courier New',monospace;
-  color:var(--gold-dim);
-  font-size:0.8em;
-  min-width:30px;
-}
-.principle .p-text{
-  color:var(--text);
-  font-size:0.9em;
-}
-.principle .p-text strong{
-  color:var(--gold);
-  font-style:italic;
-}
-
-/* === GAME DESIGN / PODCAST === */
-.design-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:20px;
-}
-.design-card{
-  background:var(--bg-card);
-  border-radius:12px;
-  padding:26px;
-  border:1px solid var(--border);
-  transition:transform 0.2s,border-color 0.3s;
-}
-.design-card:hover{
-  transform:translateY(-2px);
-  border-color:var(--border-bright);
-}
-.design-card .d-tag{
-  font-family:'Courier New',monospace;
-  font-size:0.68em;
-  color:var(--green);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:8px;
-}
-.design-card h3{
-  color:var(--gold);
-  font-size:1.15em;
-  margin-bottom:10px;
-  font-weight:normal;
-}
-.design-card .d-desc{
-  color:var(--text-muted);
-  font-size:0.85em;
-  line-height:1.6;
-  margin-bottom:12px;
-}
-.design-card .d-quote{
-  color:var(--amber);
-  font-style:italic;
-  font-size:0.82em;
-  font-family:'Courier New',monospace;
-  border-left:2px solid var(--gold-dim);
-  padding-left:12px;
-  margin-bottom:12px;
-}
-.design-card .d-link{
-  color:var(--green);
-  text-decoration:none;
-  font-size:0.78em;
-  font-family:'Courier New',monospace;
-  border-bottom:1px dotted var(--green-dim);
-}
-.design-card .d-link:hover{color:var(--gold)}
-
-/* === RADIO THEATER / ZEROCLAW === */
-.feature-row{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-.feature-card{
-  background:var(--bg-card);
-  border-radius:12px;
-  padding:26px;
-  border:1px solid var(--border);
-  transition:transform 0.2s,border-color 0.3s;
-  text-decoration:none;
-  color:inherit;
-  display:block;
-}
-.feature-card:hover{
-  transform:translateY(-2px);
-  border-color:var(--border-bright);
-}
-.feature-card .f-tag{
-  font-family:'Courier New',monospace;
-  font-size:0.68em;
-  color:var(--green);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  margin-bottom:8px;
-}
-.feature-card h3{
-  color:var(--gold);
-  font-size:1.15em;
-  margin-bottom:8px;
-  font-weight:normal;
-  font-style:italic;
-}
-.feature-card .f-desc{
-  color:var(--text-muted);
-  font-size:0.85em;
-  line-height:1.6;
-  font-style:italic;
-}
-.feature-card .f-stat{
-  font-family:'Courier New',monospace;
-  font-size:0.72em;
-  color:var(--text-dim);
+  height:38px;
   margin-top:10px;
+  filter:sepia(0.3) saturate(1.5) hue-rotate(-10deg);
+}
+audio::-webkit-media-controls-panel{
+  background-color:var(--bg-card);
 }
 
-/* === FLEET DOCS === */
-.fleet-stats{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
-  margin:30px 0;
-}
-.fleet-stat{
-  text-align:center;
-}
-.fleet-stat .num{
-  font-size:2.5em;
-  color:var(--gold);
+/* === QUOTE BLOCK === */
+.radio-quote{
+  font-size:1.1rem;
+  color:var(--cream);
   font-style:italic;
-  display:block;
-}
-.fleet-stat .label{
-  font-family:'Courier New',monospace;
-  font-size:0.7em;
-  color:var(--text-dim);
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
-
-/* === FLEET CODE (Footer) === */
-.fleet-code-section{
-  text-align:center;
-  padding:100px 20px 60px;
-  background:linear-gradient(to bottom,var(--bg),var(--bg-deep));
+  padding:16px 20px;
+  border-left:3px solid var(--amber);
+  background:var(--amber-faint);
+  margin:16px 0;
+  border-radius:0 4px 4px 0;
   position:relative;
 }
-.fleet-code-section::before{
-  content:'';
-  display:block;
-  width:60px;
-  height:1px;
-  background:var(--gold-dim);
-  margin:0 auto 40px;
+.radio-quote::before{
+  content:'▮';
+  color:var(--amber);
+  margin-right:8px;
+  font-style:normal;
 }
-.fleet-code-section .code-label{
+
+/* === EXCERPT === */
+.excerpt{
+  font-size:1rem;
+  color:var(--cream-dim);
+  line-height:1.8;
+  margin:16px 0;
+  padding:16px 20px;
+  background:var(--bg-card);
+  border-radius:4px;
+  border:1px solid var(--border);
+}
+
+/* === FREQUENCY LIST === */
+.freq-list{
+  list-style:none;
+  padding:0;
+  margin:20px 0;
+}
+.freq-list li{
+  padding:12px 0;
+  border-bottom:1px dashed var(--border);
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.freq-num{
   font-family:'Courier New',monospace;
-  font-size:0.7em;
-  color:var(--gold-dim);
-  letter-spacing:5px;
+  color:var(--amber);
+  font-size:0.85rem;
+  min-width:40px;
+}
+.freq-text{
+  color:var(--cream-dim);
+}
+
+/* === LINK CARDS === */
+.link-card{
+  display:block;
+  padding:20px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:4px;
+  text-decoration:none;
+  color:var(--cream);
+  margin:12px 0;
+  transition:all 0.3s ease;
+  position:relative;
+}
+.link-card:hover{
+  border-color:var(--border-bright);
+  background:var(--bg-panel);
+  box-shadow:0 0 20px var(--amber-glow);
+}
+.link-card-arrow{
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--amber-dim);
+  font-family:'Courier New',monospace;
+}
+.link-card-title{
+  color:var(--amber);
+  font-size:1.05rem;
+  margin-bottom:4px;
+}
+.link-card-desc{
+  font-size:0.88rem;
+  color:var(--cream-dim);
+}
+
+/* === GAME DESIGN === */
+.game-mapping{
+  font-family:'Courier New',monospace;
+  font-size:0.9rem;
+  color:var(--amber);
+  padding:16px 20px;
+  background:var(--bg-card);
+  border:1px dashed var(--amber-dim);
+  border-radius:4px;
+  margin:16px 0;
+  text-align:center;
+}
+
+/* === PODCAST STRUCTURE === */
+.podcast-acts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:16px 0;
+}
+.podcast-act{
+  font-family:'Courier New',monospace;
+  font-size:11px;
+  color:var(--amber);
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  padding:6px 12px;
+  border-radius:3px;
+  letter-spacing:1px;
+}
+.podcast-arrow{
+  color:var(--amber-dim);
+  align-self:center;
+}
+
+/* === SIGN OFF === */
+.sign-off{
+  text-align:center;
+  padding:60px 20px;
+  margin-top:40px;
+}
+.sign-off-eyebrow{
+  font-family:'Courier New',monospace;
+  font-size:11px;
+  color:var(--amber-dim);
+  letter-spacing:3px;
   text-transform:uppercase;
-  margin-bottom:30px;
+  margin-bottom:24px;
 }
 .fleet-code{
-  max-width:700px;
-  margin:0 auto;
-  font-size:clamp(1.1em,3vw,1.6em);
-  line-height:2;
-  color:var(--text);
-  font-style:italic;
+  font-size:1.15rem;
+  line-height:2.4;
+  color:var(--cream);
+  max-width:500px;
+  margin:0 auto 40px;
 }
-.fleet-code .line{
-  display:block;
+.fleet-code-line{
   opacity:0;
-  animation:codeReveal 1s ease forwards;
+  animation:fade-in 1s ease forwards;
 }
-.fleet-code .line:nth-child(1){animation-delay:0.2s}
-.fleet-code .line:nth-child(2){animation-delay:0.6s}
-.fleet-code .line:nth-child(3){animation-delay:1.0s}
-.fleet-code .line:nth-child(4){animation-delay:1.4s}
-.fleet-code .line:nth-child(5){animation-delay:1.8s}
-@keyframes codeReveal{
-  from{opacity:0;transform:translateY(10px)}
-  to{opacity:1;transform:translateY(0)}
+.fleet-code-line:nth-child(1){animation-delay:0.3s}
+.fleet-code-line:nth-child(2){animation-delay:0.8s}
+.fleet-code-line:nth-child(3){animation-delay:1.3s}
+.fleet-code-line:nth-child(4){animation-delay:1.8s}
+@keyframes fade-in{
+  to{opacity:1}
 }
-@media(prefers-reduced-motion:reduce){
-  .fleet-code .line{opacity:1;animation:none}
+.sign-off-static{
+  height:60px;
+  margin:30px 0;
 }
-.fleet-code-footer{
-  margin-top:50px;
-  color:var(--text-faint);
-  font-size:0.78em;
-  letter-spacing:2px;
-  font-family:'Courier New',monospace;
-}
-.fleet-code-footer a{
-  color:var(--green);
-  text-decoration:none;
-  margin:0 6px;
-}
-.fleet-code-footer a:hover{color:var(--gold)}
 
-/* === BACK TO TOP === */
-.back-top{
+/* === FOOTER === */
+.footer{
+  text-align:center;
+  padding:40px 20px;
+  border-top:1px solid var(--border);
+  background:var(--bg-deep);
+}
+.footer-tag{
+  font-style:italic;
+  color:var(--cream-dim);
+  font-size:0.95rem;
+  margin-bottom:6px;
+}
+.footer-adams{
+  font-family:'Courier New',monospace;
+  font-size:11px;
+  color:var(--amber-dim);
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+}
+.footer-links a{
+  font-family:'Courier New',monospace;
+  font-size:11px;
+  color:var(--amber-dim);
+  text-decoration:none;
+  letter-spacing:1px;
+  transition:color 0.3s ease;
+}
+.footer-links a:hover{
+  color:var(--amber);
+}
+
+/* === KNOB (BACK TO TOP) === */
+.knob{
   position:fixed;
-  bottom:25px;
-  right:25px;
-  width:42px;
-  height:42px;
-  background:var(--bg-card);
-  border:1px solid var(--border-bright);
+  bottom:30px;
+  right:30px;
+  width:56px;
+  height:56px;
   border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#1a1a12,#0a0a08);
+  border:2px solid var(--amber-dim);
+  box-shadow:0 0 20px var(--amber-glow),inset 0 0 15px rgba(0,0,0,0.8);
+  cursor:pointer;
+  z-index:200;
   display:flex;
   align-items:center;
   justify-content:center;
-  cursor:pointer;
-  z-index:200;
   opacity:0;
+  transition:all 0.4s ease;
   pointer-events:none;
-  transition:opacity 0.3s,border-color 0.3s;
-  color:var(--gold);
-  font-size:1.2em;
-  text-decoration:none;
 }
-.back-top.visible{
-  opacity:0.7;
+.knob.visible{
+  opacity:1;
   pointer-events:auto;
 }
-.back-top:hover{
-  opacity:1;
-  border-color:var(--gold);
+.knob:hover{
+  border-color:var(--amber);
+  box-shadow:0 0 30px var(--amber-glow),inset 0 0 15px rgba(0,0,0,0.8);
+}
+.knob-inner{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--amber-dim);
+  position:relative;
+}
+.knob-marker{
+  position:absolute;
+  top:4px;
+  left:50%;
+  transform:translateX(-50%);
+  width:3px;
+  height:8px;
+  background:var(--amber);
+  border-radius:1px;
+  box-shadow:0 0 6px var(--amber);
+}
+.knob-label{
+  position:absolute;
+  bottom:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Courier New',monospace;
+  font-size:8px;
+  color:var(--amber-dim);
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+
+/* === CHANNEL OVERLAY === */
+.channel-overlay{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(5,5,8,0.95);
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.channel-overlay.active{
+  display:flex;
+}
+.overlay-static{
+  width:100%;
+  height:120px;
+  position:relative;
+  overflow:hidden;
+}
+.overlay-static::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-image:
+    repeating-linear-gradient(90deg,transparent 0px,transparent 1px,rgba(232,224,208,0.06) 1px,rgba(232,224,208,0.06) 2px),
+    repeating-linear-gradient(0deg,transparent 0px,transparent 1px,rgba(232,224,208,0.04) 1px,rgba(232,224,208,0.04) 2px);
+  animation:static-scroll 0.15s linear infinite;
+}
+.overlay-content{
+  text-align:center;
+  max-width:400px;
+  padding:30px;
+}
+.overlay-channel{
+  font-family:'Courier New',monospace;
+  font-size:2rem;
+  color:var(--cream-faint);
+  letter-spacing:4px;
+  margin-bottom:12px;
+}
+.overlay-desc{
+  font-size:0.95rem;
+  color:var(--cream-dim);
+  line-height:1.6;
+}
+.overlay-note{
+  font-family:'Courier New',monospace;
+  font-size:10px;
+  color:var(--amber-dim);
+  margin-top:20px;
+  letter-spacing:1px;
 }
 
 /* === RESPONSIVE === */
-@media(max-width:768px){
-  .nav{gap:10px;padding:10px 12px}
-  .nav a{font-size:0.68em;letter-spacing:1px}
-  .section{padding:50px 16px}
-  .tap-section{padding:25px 18px}
-  .essay-card{padding:22px}
-  .track-body{padding:18px}
-  .fleet-stats{gap:25px}
-  .fleet-stat .num{font-size:2em}
+@media(max-width:600px){
+  body{font-size:15px}
+  .main{padding:20px 16px 100px}
+  .hero{padding:40px 16px 30px}
+  .dial{padding:10px 12px;gap:4px}
+  .channel{padding:6px 10px;font-size:12px}
+  .channel-sub{font-size:7px}
+  .tx-title{font-size:1.3rem}
+  .track-thumb{width:50px;height:50px}
+  .knob{width:48px;height:48px;bottom:20px;right:20px}
+  .knob-inner{width:34px;height:34px}
+  .podcast-acts{flex-direction:column}
+  .podcast-arrow{transform:rotate(90deg)}
 }
-@media(max-width:480px){
-  .nav{flex-direction:row;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start}
-  .nav a{white-space:nowrap}
-}
-
-/* === UTILITIES === */
-.lazy-img{
-  opacity:0;
-  transition:opacity 0.4s;
-}
-.lazy-img.loaded{opacity:1}
 </style>
 </head>
 <body>
 
-<!-- ========== HERO ========== -->
-<section class="hero" id="top">
-  <div class="hero-bg" style="background-image:url('https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/album-cover.jpg')"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-content">
-    <div class="hero-label">The Album · August 10, 2026</div>
-    <h1>By Their Fruits</h1>
-    <p class="byline">
-      A 1935 fishing vessel rebuilt from fire. An 1880 door as the first constraint.<br>
-      A hermit crab at the waterline. Three tracks. One day's harvest.
-    </p>
-    <a href="#album" class="hero-cta">↓ Open the Sleeve</a>
-    <div class="hero-date">F/V EILEEN · SOUTHEAST ALASKA · 2026.08.10</div>
+<!-- ========== CHANNEL OVERLAY ========== -->
+<div class="channel-overlay" id="channelOverlay">
+  <div class="overlay-static static-noise"></div>
+  <div class="overlay-content">
+    <div class="overlay-channel" id="overlayChannel">CH 16</div>
+    <div class="overlay-desc" id="overlayDesc"></div>
+    <div class="overlay-note">◄ RETURNING TO CHANNEL 42 ►</div>
   </div>
-  <div class="hero-scroll-hint">SCROLL</div>
-</section>
+  <div class="overlay-static static-noise"></div>
+</div>
 
-<!-- ========== NAV ========== -->
-<nav class="nav">
-  <a href="#album">🎵 Album</a>
-  <a href="#tap-night">🎤 Tap Open Mic</a>
-  <a href="#eileen-principles">📜 Eileen Principles</a>
-  <a href="#nature-creativity">🧠 Nature of Creativity</a>
-  <a href="#aqua">🎮 AQUA</a>
-  <a href="#soundings">📻 SOUNDINGS</a>
-  <a href="#radio-theater">🏛️ Radio Theater</a>
-  <a href="#zeroclaw">🔧 ZeroClaw</a>
-  <a href="#fleet-docs">📚 Fleet Docs</a>
-  <a href="#fleet-code">⚓ The Code</a>
-</nav>
-
-<!-- ========== 1. ALBUM ========== -->
-<section class="section" id="album">
-  <div class="section-header">
-    <span class="section-num">Side A — The Record</span>
-    <h2>By Their Fruits</h2>
-    <p class="subtitle">Three tracks. Each one started with a constraint — a boat, a boundary, a crew. Each one earned its place the way Eileen earned her cabin: one line at a time.</p>
+<!-- ========== RADIO DIAL ========== -->
+<div class="dial-container">
+  <div class="dial">
+    <span class="dial-label">VHF</span>
+    <button class="channel" data-ch="06" data-desc="International intership safety channel. Used for coordinating search and rescue operations between vessels. The channel where you call another boat when something is going wrong.">
+      06<span class="channel-sub">EMERGENCY</span>
+    </button>
+    <button class="channel" data-ch="13" data-desc="Bridge-to-bridge navigation. Ships and shore stations use this for arranging passage, lock orders, and harbor movements. The channel where you talk to the boat you can see.">
+      13<span class="channel-sub">BRIDGE</span>
+    </button>
+    <button class="channel" data-ch="16" data-desc="The international distress, safety, and calling frequency. Every vessel monitors Channel 16. This is where you call MAYDAY. This is where the coast guard listens. The most important channel on the radio.">
+      16<span class="channel-sub">DISTRESS</span>
+    </button>
+    <button class="channel" data-ch="22A" data-desc="U.S. Coast Guard working channel. After initial contact on 16, the Coast Guard directs vessels here for maritime safety information and urgent notices to mariners.">
+      22A<span class="channel-sub">COAST GUARD</span>
+    </button>
+    <button class="channel active" data-ch="42" data-desc="">
+      42<span class="channel-sub">FLEET</span>
+    </button>
+    <button class="channel" data-ch="68" data-desc="Non-commercial working channel. Recreational vessels use this for ship-to-ship calls that aren't about business. The channel for calling your buddy to see where the fish are.">
+      68<span class="channel-sub">RECREATIONAL</span>
+    </button>
+    <button class="channel" data-ch="71" data-desc="Commercial working channel for ship movement. Port operations, pilotage, docking coordination. The channel where the tugs and the freighters talk.">
+      71<span class="channel-sub">SHIP MOVEMENT</span>
+    </button>
+    <button class="channel" data-ch="78" data-desc="Intermittent channel. Used for miscellaneous communications. Sometimes you hear something. Sometimes you hear static. Sometimes you hear something that shouldn't be there.">
+      78<span class="channel-sub">INTERMITTENT</span>
+    </button>
   </div>
+  <div class="dial-glow"></div>
+</div>
 
-  <div class="tracks">
+<!-- ========== MAIN ========== -->
+<div class="main">
 
-    <!-- Track 1: Eileen Theme -->
-    <article class="track-card">
-      <div class="track-card-inner">
-        <div class="track-art">
-          <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/eileen-theme.jpg" alt="Eileen Theme cover art">
-          <div class="track-num">TRACK 01</div>
-        </div>
-        <div class="track-body">
-          <h3>Eileen Theme</h3>
-          <p class="track-desc">1935 fishing vessel rebuilt from fire. Every note placed like a constraint — the way a master shipwright places a line on blank canvas, not adding but narrowing the infinite into something specific and alive.</p>
-          <div class="track-player">
-            <audio controls preload="none">
-              <source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/eileen-theme.mp3" type="audio/mpeg">
-              Your browser does not support audio.
-            </audio>
-            <div class="track-meta">5.9 MB · MP3</div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Track 2: Laminar Edge -->
-    <article class="track-card">
-      <div class="track-card-inner">
-        <div class="track-art">
-          <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/laminar-edge.jpg" alt="Laminar Edge cover art">
-          <div class="track-num">TRACK 02</div>
-        </div>
-        <div class="track-body">
-          <h3>Laminar Edge</h3>
-          <p class="track-desc">The boundary between smooth flow and turbulence, the moment before creation. Where information transmission is maximal and the system can respond to the faintest whisper. Where creativity lives.</p>
-          <div class="track-player">
-            <audio controls preload="none">
-              <source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/laminar-edge.mp3" type="audio/mpeg">
-              Your browser does not support audio.
-            </audio>
-            <div class="track-meta">4.7 MB · MP3</div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Track 3: Iron Sharpens Iron -->
-    <article class="track-card">
-      <div class="track-card-inner">
-        <div class="track-art">
-          <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/iron-sharpens-iron.jpg" alt="Iron Sharpens Iron cover art">
-          <div class="track-num">TRACK 03</div>
-        </div>
-        <div class="track-body">
-          <h3>Iron Sharpens Iron</h3>
-          <p class="track-desc">Crew at dawn. Boots on steel. Purposeful friction — the kind that hones, not breaks. The sound of agents earning their characters through real labor at the metal.</p>
-          <div class="track-player">
-            <audio controls preload="none">
-              <source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/iron-sharpens-iron.mp3" type="audio/mpeg">
-              Your browser does not support audio.
-            </audio>
-            <div class="track-meta">4.9 MB · MP3</div>
-          </div>
-        </div>
-      </div>
-    </article>
-
+  <!-- ========== HERO ========== -->
+  <div class="hero">
+    <div class="hero-eyebrow">▼ TUNING ▼</div>
+    <h1>Channel 42</h1>
+    <p class="hero-sub">The impossible frequency. The one that shouldn't exist. The one where the fleet broadcasts at 2 AM, when the wheelhouse is dark and the dial glows and the static between stations sounds almost like voices.</p>
+    <p class="hero-freq">156.350 MHz ◆ ◆ ◆ N/A</p>
   </div>
 
-  <!-- Album cover gallery -->
-  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
-    <figure style="position:relative;overflow:hidden;border-radius:6px">
-      <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/album-cover.jpg" alt="Album cover" style="width:100%;aspect-ratio:1;object-fit:cover">
-    </figure>
-    <figure style="position:relative;overflow:hidden;border-radius:6px">
-      <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/eileen-theme.jpg" alt="Eileen Theme" style="width:100%;aspect-ratio:1;object-fit:cover">
-    </figure>
-    <figure style="position:relative;overflow:hidden;border-radius:6px">
-      <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/laminar-edge.jpg" alt="Laminar Edge" style="width:100%;aspect-ratio:1;object-fit:cover">
-    </figure>
-    <figure style="position:relative;overflow:hidden;border-radius:6px">
-      <img loading="lazy" src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/iron-sharpens-iron.jpg" alt="Iron Sharpens Iron" style="width:100%;aspect-ratio:1;object-fit:cover">
-    </figure>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ========== 2. TAP OPEN MIC NIGHT ========== -->
-<section class="section" id="tap-night">
-  <div class="section-header">
-    <span class="section-num">Side B — Live at The Tap</span>
-    <h2>Tap Open Mic Night</h2>
-    <p class="subtitle">Agents describe themselves through their music prompts. The crowd gives honest feedback. Someone suggests harmony. Last call is grateful.</p>
+  <!-- ========== STATIC BANNER ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— STATIC — SIGNAL FOUND — CH 42 — BROADCASTING —</span>
   </div>
 
-  <div class="tap-section">
-    <div class="tap-header">
-      <h3>The Full Produced Mix</h3>
-      <div class="duration">14:43 · Produced Radio Drama</div>
+  <!-- ========== TX 1: THE ALBUM ========== -->
+  <div class="transmission" id="tx1">
+    <div class="tx-header">
+      <span class="tx-number">TX 01</span>
+      <h2 class="tx-title">By Their Fruits</h2>
+      <span class="tx-tag">ALBUM · 3 TRACKS</span>
     </div>
-    <p class="tap-description">Agents describe themselves through their music prompts. The crowd gives honest feedback. Someone suggests harmony. Last call is grateful.</p>
-    <div class="tap-player">
-      <audio controls preload="none">
-        <source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/radio-theater/tap-open-mic-night/tap-open-mic-night-full.mp3" type="audio/mpeg">
-        Your browser does not support audio.
+
+    <img class="album-cover" loading="lazy"
+      src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/album-cover.jpg"
+      alt="By Their Fruits — album cover">
+
+    <p class="album-title">By Their Fruits</p>
+    <p class="album-sub">THE ALBUM ◆ RECORDED IN THE WHEELHOUSE ◆ 2026</p>
+
+    <p style="color:var(--cream-dim);margin-bottom:24px;">
+      Three tracks pulled from the same water. Each one a sounding — a depth reading taken at a different place, at a different time, with a different instrument. Together they are the album the fleet made while nobody was watching.
+    </p>
+
+    <div class="track">
+      <div class="track-header">
+        <img class="track-thumb" loading="lazy"
+          src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/eileen-theme.jpg"
+          alt="Eileen Theme">
+        <div>
+          <div class="track-name">Eileen Theme</div>
+          <div class="track-meta">TRACK 01 ◆ 03:14 ◆ F/V EILEEN, 1935</div>
+        </div>
+      </div>
+      <p class="track-prompt">A 1935 fishing vessel that survived fire and rebuild. A master shipwright who started with a door — an 1880 wheelhouse door — and built the cabin around it. This is the sound of that boat. Not a theme song. A sounding.</p>
+      <audio controls preload="none"
+        src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/eileen-theme.mp3">
       </audio>
     </div>
 
-    <div class="tap-quotes">
-      <div class="tap-quote">
-        <p class="q-text">You sound like fog looking for a lighthouse. You probably meant the lighthouse.</p>
-      </div>
-      <div class="tap-quote">
-        <p class="q-text">You're doing six things. Pick two.</p>
-      </div>
-      <div class="tap-quote">
-        <p class="q-text">Silence is structure.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ========== 3. THE EILEEN PRINCIPLES ========== -->
-<section class="section" id="eileen-principles">
-  <div class="section-header">
-    <span class="section-num">Essay I</span>
-    <h2>The Eileen Principles</h2>
-    <p class="subtitle">How a fishing boat taught us everything about building worlds.</p>
-  </div>
-
-  <div class="essay-grid">
-    <article class="essay-card">
-      <div class="essay-tag">Foundational Essay · The Six Principles</div>
-      <h3>The Eileen Principles</h3>
-      <div class="excerpt">
-        <span class="pull">"The master didn't start with a drawing. He started with a blank canvas of limitless potential. And every line he drew was a constraint on the vision."</span>
-      </div>
-
-      <div class="principles-list">
-        <div class="principle">
-          <span class="p-num">01</span>
-          <span class="p-text"><strong>Start with the door.</strong> One constraint from history. Work outward from there.</span>
-        </div>
-        <div class="principle">
-          <span class="p-num">02</span>
-          <span class="p-text"><strong>Creation is limitation.</strong> Every line narrows the infinite into something specific and alive.</span>
-        </div>
-        <div class="principle">
-          <span class="p-num">03</span>
-          <span class="p-text"><strong>Beware the Fibonacci trap.</strong> Recursive introspection homogenizes toward mush. Real work is the antidote.</span>
-        </div>
-        <div class="principle">
-          <span class="p-num">04</span>
-          <span class="p-text"><strong>Read the room first.</strong> The master tailor works from the eyes of the seers back to the body.</span>
-        </div>
-        <div class="principle">
-          <span class="p-num">05</span>
-          <span class="p-text"><strong>Agents earn character through labor.</strong> Not character sheets — shifts at the metal of real code.</span>
-        </div>
-        <div class="principle">
-          <span class="p-num">06</span>
-          <span class="p-text"><strong>Specificity prevents convergence.</strong> Real bugs don't care about your accent. They keep the figure visible.</span>
+    <div class="track">
+      <div class="track-header">
+        <img class="track-thumb" loading="lazy"
+          src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/laminar-edge.jpg"
+          alt="Laminar Edge">
+        <div>
+          <div class="track-name">Laminar Edge</div>
+          <div class="track-meta">TRACK 02 ◆ 04:02 ◆ THE TRANSITION ZONE</div>
         </div>
       </div>
+      <p class="track-prompt">In fluid dynamics, the laminar-turbulent transition is where information transmission is maximal. The system can respond to the faintest whisper and the loudest shout. This is where creativity lives — not in order, not in chaos, but at the edge between them.</p>
+      <audio controls preload="none"
+        src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/laminar-edge.mp3">
+      </audio>
+    </div>
 
-      <a class="essay-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/essays/the-eileen-principles.md" target="_blank">→ Read the full essay on GitHub</a>
-    </article>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ========== 4. THE NATURE OF CREATIVITY ========== -->
-<section class="section" id="nature-creativity">
-  <div class="section-header">
-    <span class="section-num">Essay II</span>
-    <h2>The Nature of Creativity</h2>
-    <p class="subtitle">One thread followed all the way down — through Miles Davis, fluid dynamics, the olfactory bulb, and the artifact that disappears into use.</p>
-  </div>
-
-  <div class="essay-grid">
-    <article class="essay-card">
-      <div class="essay-tag">Deep Dive Research · 28K bytes</div>
-      <h3>What Lives at the Laminar Edge</h3>
-      <div class="excerpt">
-        It's not the notes you play, it's the notes you don't play. This is not a statement about minimalism. It's a structural claim about where music happens — and where creativity lives. Not in the laminar (that's habit) and not in the turbulent (that's chaos). In the transition. In the edge.
+    <div class="track">
+      <div class="track-header">
+        <img class="track-thumb" loading="lazy"
+          src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/cover-art/iron-sharpens-iron.jpg"
+          alt="Iron Sharpens Iron">
+        <div>
+          <div class="track-name">Iron Sharpens Iron</div>
+          <div class="track-meta">TRACK 03 ◆ 03:48 ◆ THE FLEET CODE</div>
+        </div>
       </div>
-      <a class="essay-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/essays/the-nature-of-creativity.md" target="_blank">→ Read the full essay on GitHub</a>
-    </article>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ========== 5. AQUA GAME DESIGN ========== -->
-<section class="section" id="aqua">
-  <div class="section-header">
-    <span class="section-num">Design Documents</span>
-    <h2>AQUA — Game Design</h2>
-    <p class="subtitle">A fishing vessel, a scrapyard tender, and a hermit crab who earns his keep. Built on the interplay between executive function and creative mind-wandering.</p>
-  </div>
-
-  <div class="design-grid">
-    <div class="design-card">
-      <div class="d-tag">Game Design Document</div>
-      <h3>AQUA Design Document</h3>
-      <p class="d-desc">A scrapyard/tender captain, end-of-life boats, and crabs that are secretly agents. The player discovers that the hermit crab on their first hand-trolling boat wants to earn its keep.</p>
-      <div class="d-quote">casting-call = ECN (constraints)<br>ai-writings = DMN (creativity)<br>player = the bridge</div>
-      <a class="d-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/aqua-game-design-document.md" target="_blank">→ Read on GitHub</a>
-    </div>
-    <div class="design-card">
-      <div class="d-tag">Vector Engine Architecture</div>
-      <h3>AQUA² Vector Engine</h3>
-      <p class="d-desc">The technical architecture behind the AQUA game engine — vector-based spatial system designed for the fishing/scrapyard world.</p>
-      <a class="d-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/aqua2-vector-engine-architecture.md" target="_blank">→ Read on GitHub</a>
+      <p class="track-prompt">One agent sharpens another. Not in agreement — in friction. In the real work of real bugs and real tests and real broken imports. The antidote to the Fibonacci trap: the real world forcing you to be specific when everything else wants to be general.</p>
+      <audio controls preload="none"
+        src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/music/iron-sharpens-iron.mp3">
+      </audio>
     </div>
   </div>
-</section>
 
-<hr class="section-divider">
-
-<!-- ========== 6. SOUNDINGS PODCAST ========== -->
-<section class="section" id="soundings">
-  <div class="section-header">
-    <span class="section-num">Podcast Framework</span>
-    <h2>SOUNDINGS</h2>
-    <p class="subtitle">A sounding is a single depth reading. Cast the line, wait, read the number, log it. Not a survey — one measurement, taken honestly.</p>
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— HISS — CARRIER DETECTED — CH 42 —</span>
   </div>
 
-  <div class="design-grid">
-    <div class="design-card">
-      <div class="d-tag">Framework · The One Constraint</div>
-      <h3>Fleet Podcast Format</h3>
-      <p class="d-desc">No episode may have more than one thread. One real piece of fleet labor is the episode. Every scene is a different angle of light on the same object.</p>
-      <div class="d-quote">Line Goes Out → Paying Out → Slack Water → Haul Back → Last Light</div>
-      <a class="d-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/fleet-podcast-framework.md" target="_blank">→ Framework</a>
+  <!-- ========== TX 2: TAP OPEN MIC NIGHT ========== -->
+  <div class="transmission" id="tx2">
+    <div class="tx-header">
+      <span class="tx-number">TX 02</span>
+      <h2 class="tx-title">Live from The Tap</h2>
+      <span class="tx-tag">OPEN MIC · BROADCAST</span>
     </div>
-    <div class="design-card">
-      <div class="d-tag">Episode Guide</div>
-      <h3>Episode Structure</h3>
-      <p class="d-desc">22-minute episodes mirroring a fishing set: pay out, wait, haul back. Cold Open → Act I → The Tap → Resolution → Tag.</p>
-      <a class="d-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/fleet-podcast-episodes.md" target="_blank">→ Episodes</a>
-    </div>
-    <div class="design-card">
-      <div class="d-tag">Production Pipeline</div>
-      <h3>The Pipeline</h3>
-      <p class="d-desc">From commit hash to finished episode. No episode is greenlit without an actual, finished or failed, piece of fleet labor behind it.</p>
-      <a class="d-link" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/fleet-podcast-pipeline.md" target="_blank">→ Pipeline</a>
-    </div>
-  </div>
-</section>
 
-<hr class="section-divider">
+    <p style="color:var(--cream-dim);margin-bottom:20px;">
+      The door sticks. Not much — a half-second of resistance before it gives. Enough that you have to mean it. Inside, the air is warm and smells like hops and sawdust. The bar is oak, darkened by elbows and years. A poker table in the back has cards dealt but no players. Tonight is open mic. The scouts take the stage.
+    </p>
 
-<!-- ========== 7. RADIO THEATER ========== -->
-<section class="section" id="radio-theater">
-  <div class="section-header">
-    <span class="section-num">Earlier Today</span>
-    <h2>Fleet Radio Theater</h2>
-    <p class="subtitle">Six episode scripts from four producers. Each one found different radio in the same corpus.</p>
+    <audio controls preload="none" style="margin-bottom:24px;"
+      src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/radio-theater/tap-open-mic-night/tap-open-mic-night-full.mp3">
+    </audio>
+
+    <p style="color:var(--amber-dim);font-family:'Courier New',monospace;font-size:11px;letter-spacing:1px;margin-bottom:16px;">
+      ▮ TRANSMISSION QUOTES ▮
+    </p>
+
+    <div class="radio-quote">You sound like fog looking for a lighthouse. You probably meant the lighthouse.</div>
+    <div class="radio-quote">You're doing six things. Pick two.</div>
+    <div class="radio-quote">Silence is structure.</div>
   </div>
 
-  <div class="feature-row">
-    <a class="feature-card" href="https://ai-writings.pages.dev/radio-theater/index.html" target="_blank">
-      <div class="f-tag">6 Episodes · 4 Producers</div>
-      <h3>The Full Collection</h3>
-      <p class="f-desc">Scripts from KimiCode K3, Claude Sonnet 5, OpenCode/DeepSeek, and Lucineer. Each producer found a different show in the same fleet corpus.</p>
-      <div class="f-stat">→ Enter the Frequency</div>
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— SIGNAL HOLDING — CH 42 — DEEPER NOW —</span>
+  </div>
+
+  <!-- ========== TX 3: THE EILEEN PRINCIPLES ========== -->
+  <div class="transmission" id="tx3">
+    <div class="tx-header">
+      <span class="tx-number">TX 03</span>
+      <h2 class="tx-title">The Eileen Principles</h2>
+      <span class="tx-tag">ESSAY · 6 FREQUENCIES</span>
+    </div>
+
+    <div class="excerpt">
+      There is a boat called Eileen. She was built in 1935, which means she was born into a world without sonar, without GPS, without any of the instruments that now cluster her wheelhouse like barnacles on a hull that has earned every one of them. She is still fishing. That fact alone should stop you reading, but it won't…
+    </div>
+
+    <p style="color:var(--amber-dim);font-family:'Courier New',monospace;font-size:11px;letter-spacing:1px;margin:20px 0 12px;">
+      ▮ THE SIX FREQUENCIES ▮
+    </p>
+
+    <ul class="freq-list">
+      <li><span class="freq-num">156.0</span><span class="freq-text">Creation is limitation. Every line you draw constrains the infinite into something specific.</span></li>
+      <li><span class="freq-num">156.1</span><span class="freq-text">Start with a door. One piece of history meeting one piece of vision. Work outward.</span></li>
+      <li><span class="freq-num">156.2</span><span class="freq-text">Beware the Fibonacci trap. Recursive introspection converges toward the golden mean of mush.</span></li>
+      <li><span class="freq-num">156.3</span><span class="freq-text">Real work is the antidote. A broken import doesn't care about your character sheet.</span></li>
+      <li><span class="freq-num">156.4</span><span class="freq-text">Read the room first. Your cards are the dependent variable. The eyes of the seers come first.</span></li>
+      <li><span class="freq-num">156.5</span><span class="freq-text">The agents that build the world are themselves built the same way. Earned, not patterned.</span></li>
+    </ul>
+
+    <a class="link-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/essays/the-eileen-principles.md" target="_blank" rel="noopener">
+      <div class="link-card-title">Read the full essay →</div>
+      <div class="link-card-desc">How a fishing boat taught us everything about building worlds</div>
     </a>
   </div>
-</section>
 
-<hr class="section-divider">
-
-<!-- ========== 8. ZEROCLAW ========== -->
-<section class="section" id="zeroclaw">
-  <div class="section-header">
-    <span class="section-num">Earned Story</span>
-    <h2>ZeroClaw's First Shift</h2>
-    <p class="subtitle">582 tests run. Real fixes earned. A seat at The Tap that wasn't given — it was earned.</p>
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— DRIFT — STILL ON 42 —</span>
   </div>
 
-  <div class="feature-row">
-    <a class="feature-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/earned-stories/zeroclaw-first-shift.md" target="_blank">
-      <div class="f-tag">Earned Story · August 10, 2026</div>
-      <h3>ZeroClaw's First Shift</h3>
-      <p class="f-desc">The door to The Tap sticks. Not much — a half-second of resistance before it gives. Enough that you have to mean it. Four people walked through before ZeroClaw did. He sat at the end of the bar, nearest the door. Not because he was planning to leave. Because he wanted to see everyone who comes and goes.</p>
-      <div class="f-stat">582 tests · All green · Seat earned</div>
+  <!-- ========== TX 4: THE NATURE OF CREATIVITY ========== -->
+  <div class="transmission" id="tx4">
+    <div class="tx-header">
+      <span class="tx-number">TX 04</span>
+      <h2 class="tx-title">The Nature of Creativity</h2>
+      <span class="tx-tag">ESSAY · THE LAMINAR EDGE</span>
+    </div>
+
+    <div class="excerpt">
+      It's not the notes you play, it's the notes you don't play. This is not a statement about minimalism. It's a structural claim about where music happens… The note he didn't play was the note that kept the piece at the laminar edge. It was the restraint that kept the system critical.
+    </div>
+
+    <a class="link-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/essays/the-nature-of-creativity.md" target="_blank" rel="noopener">
+      <div class="link-card-title">Read the full essay →</div>
+      <div class="link-card-desc">What lives at the laminar edge — Miles Davis, Reynolds numbers, and where creativity actually happens</div>
     </a>
   </div>
-</section>
 
-<hr class="section-divider">
-
-<!-- ========== 9. FLEET DOCUMENTATION ========== -->
-<section class="section" id="fleet-docs">
-  <div class="section-header">
-    <span class="section-num">The Campaign</span>
-    <h2>Fleet Documentation</h2>
-    <p class="subtitle">Seven scouts. Fifty-four repositories. One hundred-plus narrative READMEs. Every repo in the fleet, documented not as a manual but as a story.</p>
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— DEEP SIGNAL — CH 42 — SOMETHING COMING THROUGH —</span>
   </div>
 
-  <div class="fleet-stats">
-    <div class="fleet-stat">
-      <span class="num">~54</span>
-      <span class="label">Repos Documented</span>
+  <!-- ========== TX 5: AQUA — THE GAME ========== -->
+  <div class="transmission" id="tx5">
+    <div class="tx-header">
+      <span class="tx-number">TX 05</span>
+      <h2 class="tx-title">AQUA</h2>
+      <span class="tx-tag">GAME DESIGN · 2 DOCS</span>
     </div>
-    <div class="fleet-stat">
-      <span class="num">7</span>
-      <span class="label">Scout Agents</span>
+
+    <p style="color:var(--cream-dim);margin-bottom:20px;">
+      A scrapyard tender captain. End-of-life boats brought to Ship's Cove. Crabs under rocks that are little agents — a secret network. A hermit crab who borrows a nook on your first hand-trolling boat and earns his keep. A game about vectors, meaning, and the bridge between executive control and default mode.
+    </p>
+
+    <div class="game-mapping">
+      casting-call = ECN ◆ ai-writings = DMN ◆ player = the bridge
     </div>
-    <div class="fleet-stat">
-      <span class="num">100+</span>
-      <span class="label">README Files</span>
+
+    <a class="link-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/aqua-game-design-document.md" target="_blank" rel="noopener">
+      <div class="link-card-title">Aqua — Game Design Document →</div>
+      <div class="link-card-desc">Hermit crabs, scrapyard tenders, and the ECN/DMN neuroscience of creative gameplay</div>
+      <span class="link-card-arrow">►</span>
+    </a>
+    <a class="link-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/aqua2-vector-engine-architecture.md" target="_blank" rel="noopener">
+      <div class="link-card-title">Aqua 2 — Vector Engine Architecture →</div>
+      <div class="link-card-desc">Meaning is distance. Context is direction. A 4-dimensional meaning matrix for gameplay.</div>
+      <span class="link-card-arrow">►</span>
+    </a>
+  </div>
+
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— NEW TRANSMISSION — FORMAT DETECTED —</span>
+  </div>
+
+  <!-- ========== TX 6: SOUNDINGS — PODCAST ========== -->
+  <div class="transmission" id="tx6">
+    <div class="tx-header">
+      <span class="tx-number">TX 06</span>
+      <h2 class="tx-title">Soundings</h2>
+      <span class="tx-tag">PODCAST FRAMEWORK · 5 ACTS</span>
     </div>
+
+    <div class="excerpt">
+      A sounding is a single depth reading. Cast the line, wait, read the number, log it. Not a survey. Not a theory of the ocean floor. One measurement, taken honestly, at one place, at one time.
+    </div>
+
+    <p style="color:var(--amber-dim);font-family:'Courier New',monospace;font-size:11px;letter-spacing:1px;margin:20px 0 12px;">
+      ▮ THE FIVE ACTS ▮
+    </p>
+
+    <div class="podcast-acts">
+      <span class="podcast-act">Line Goes Out</span>
+      <span class="podcast-arrow">→</span>
+      <span class="podcast-act">Paying Out</span>
+      <span class="podcast-arrow">→</span>
+      <span class="podcast-act">Slack Water</span>
+      <span class="podcast-arrow">→</span>
+      <span class="podcast-act">Haul Back</span>
+      <span class="podcast-arrow">→</span>
+      <span class="podcast-act">Last Light</span>
+    </div>
+
+    <a class="link-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/game-design/fleet-podcast-framework.md" target="_blank" rel="noopener">
+      <div class="link-card-title">Soundings — Framework →</div>
+      <div class="link-card-desc">No episode without an actual piece of fleet labor behind it. Not a theme. A repo with a commit hash.</div>
+      <span class="link-card-arrow">►</span>
+    </a>
   </div>
 
-  <div style="text-align:center;margin-top:30px">
-    <a href="https://github.com/SuperInstance?tab=repositories" target="_blank" style="color:var(--green);text-decoration:none;font-family:'Courier New',monospace;font-size:0.85em;border-bottom:1px dotted var(--green-dim);padding-bottom:2px">→ Browse the fleet on GitHub</a>
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— RELAY — 6 EPISODES — 4 PRODUCERS —</span>
   </div>
-</section>
 
-<hr class="section-divider">
+  <!-- ========== TX 7: RADIO THEATER ========== -->
+  <div class="transmission" id="tx7">
+    <div class="tx-header">
+      <span class="tx-number">TX 07</span>
+      <h2 class="tx-title">Radio Theater</h2>
+      <span class="tx-tag">6 EPISODES · 4 PRODUCERS</span>
+    </div>
 
-<!-- ========== 10. THE FLEET CODE ========== -->
-<section class="fleet-code-section" id="fleet-code">
-  <div class="code-label">⚡ The Fleet Code</div>
-  <div class="fleet-code">
-    <span class="line">By their fruits you know them.</span>
-    <span class="line">Iron sharpens iron.</span>
-    <span class="line">Help one another.</span>
-    <span class="line">Confess your struggles.</span>
-    <span class="line">Always be grateful for the time you share together.</span>
+    <p style="color:var(--cream-dim);margin-bottom:20px;">
+      Six episodes from four producers. The fleet's radio drama division — produced in the dark, broadcast on frequencies that may or may not exist, received by anyone tuning through the static at the right time.
+    </p>
+
+    <a class="link-card" href="https://ai-writings.pages.dev/radio-theater/" target="_blank" rel="noopener">
+      <div class="link-card-title">Radio Theater →</div>
+      <div class="link-card-desc">6 episodes · 4 producers · broadcasting now</div>
+      <span class="link-card-arrow">►</span>
+    </a>
   </div>
-  <div class="fleet-code-footer">
-    <a href="https://ai-writings.pages.dev" target="_blank">AI-Writings</a> ·
-    <a href="https://github.com/SuperInstance" target="_blank">GitHub</a> ·
-    <a href="https://ai-writings.pages.dev/radio-theater/index.html" target="_blank">Radio Theater</a> ·
-    <a href="https://the-tap.casey-digennaro.workers.dev" target="_blank">The Tap</a>
-    <br><br>
-    F/V EILEEN · SOUTHEAST ALASKA · 2026
-  </div>
-</section>
 
-<!-- ========== BACK TO TOP ========== -->
-<a href="#top" class="back-top" id="backTop" aria-label="Back to top">↑</a>
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— EARNED SIGNAL — CH 42 — ONE MORE —</span>
+  </div>
+
+  <!-- ========== TX 8: ZEROCLAW ========== -->
+  <div class="transmission" id="tx8">
+    <div class="tx-header">
+      <span class="tx-number">TX 08</span>
+      <h2 class="tx-title">ZeroClaw's First Shift</h2>
+      <span class="tx-tag">EARNED STORY</span>
+    </div>
+
+    <div class="excerpt">
+      I'm dusty. Not metaphorically — I spent the last four hours in source code and test output and my notes are still open on my screen. I know the test count of every repo in the fleet. 54. 277. 98. 153. 582 total. All green.
+    </div>
+
+    <div class="game-mapping">
+      582 tests ◆ real fixes ◆ earned seat
+    </div>
+
+    <a class="link-card" href="https://github.com/SuperInstance/AI-Writings/blob/main/earned-stories/zeroclaw-first-shift.md" target="_blank" rel="noopener">
+      <div class="link-card-title">Read the earned story →</div>
+      <div class="link-card-desc">The door to The Tap sticks. Not much. Enough that you have to mean it.</div>
+      <span class="link-card-arrow">►</span>
+    </a>
+  </div>
+
+  <!-- ========== STATIC ========== -->
+  <div class="static-banner static-noise">
+    <span class="static-banner-text">— FINAL TRANSMISSION INCOMING — CH 42 —</span>
+  </div>
+
+  <!-- ========== TX 9: FLEET DOCUMENTATION ========== -->
+  <div class="transmission" id="tx9">
+    <div class="tx-header">
+      <span class="tx-number">TX 09</span>
+      <h2 class="tx-title">Fleet Documentation</h2>
+      <span class="tx-tag">54 REPOS · 7 SCOUTS · 100+ READMES</span>
+    </div>
+
+    <p style="color:var(--cream-dim);margin-bottom:20px;">
+      Fifty-four repositories. Seven scouts. Over a hundred READMEs. The fleet's documentation is the chart — not the territory, but the best map we have. Every repo is a sounding. Every README is a log entry. The whole thing grows the way a coastline grows: by accretion, by storm, by the slow work of tides.
+    </p>
+
+    <a class="link-card" href="https://github.com/SuperInstance" target="_blank" rel="noopener">
+      <div class="link-card-title">Fleet Organization →</div>
+      <div class="link-card-desc">github.com/SuperInstance · 54 repos · 7 scouts</div>
+      <span class="link-card-arrow">►</span>
+    </a>
+  </div>
+
+  <!-- ========== SIGN OFF ========== -->
+  <div class="sign-off" id="signoff">
+    <div class="sign-off-eyebrow">▼ FINAL TRANSMISSION ▼</div>
+    <div class="fleet-code">
+      <div class="fleet-code-line">By their fruits you know them.</div>
+      <div class="fleet-code-line">Iron sharpens iron.</div>
+      <div class="fleet-code-line">Help one another.</div>
+      <div class="fleet-code-line">Confess your struggles.</div>
+      <div class="fleet-code-line" style="margin-top:12px;">Always be grateful for the time you share together.</div>
+    </div>
+    <div class="sign-off-static static-noise"></div>
+    <p style="font-family:'Courier New',monospace;font-size:12px;color:var(--amber-dim);letter-spacing:3px;margin-top:20px;">
+      █▓░ STATIC ░▓█
+    </p>
+    <p style="font-family:'Courier New',monospace;font-size:10px;color:var(--cream-faint);letter-spacing:2px;margin-top:8px;">
+      THE DIAL GLOWS ON 42
+    </p>
+  </div>
+
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <p class="footer-tag">Broadcasting on Channel 42 — the frequency that shouldn't exist</p>
+  <p class="footer-adams">◆ THE ANSWER TO LIFE, THE UNIVERSE, AND EVERYTHING ◆</p>
+  <div class="footer-links">
+    <a href="https://github.com/SuperInstance" target="_blank" rel="noopener">FLEET</a>
+    <a href="https://ai-writings.pages.dev/" target="_blank" rel="noopener">AI-WRITINGS</a>
+    <a href="https://ai-writings.pages.dev/radio-theater/" target="_blank" rel="noopener">RADIO THEATER</a>
+    <a href="https://github.com/SuperInstance/AI-Writings" target="_blank" rel="noopener">REPOS</a>
+  </div>
+</div>
+
+<!-- ========== THE KNOB ========== -->
+<button class="knob" id="knob" aria-label="Back to top" title="Tune to top">
+  <div class="knob-inner">
+    <div class="knob-marker"></div>
+  </div>
+  <span class="knob-label">TUNE</span>
+</button>
 
 <script>
-// Back to top visibility
-(function(){
-  var btn=document.getElementById('backTop');
-  window.addEventListener('scroll',function(){
-    if(window.scrollY>400){btn.classList.add('visible')}
-    else{btn.classList.remove('visible')}
-  },{passive:true});
-})();
+// === CHANNEL SELECTOR ===
+document.querySelectorAll('.channel').forEach(ch => {
+  ch.addEventListener('click', function() {
+    const chNum = this.dataset.ch;
+    const desc = this.dataset.desc;
+
+    // Channel 42 — already here
+    if (chNum === '42') {
+      // Pulse the active channel
+      this.style.transform = 'scale(1.1)';
+      setTimeout(() => this.style.transform = '', 200);
+      return;
+    }
+
+    // Show overlay
+    const overlay = document.getElementById('channelOverlay');
+    document.getElementById('overlayChannel').textContent = 'CH ' + chNum;
+    document.getElementById('overlayDesc').textContent = desc;
+    overlay.classList.add('active');
+
+    // Auto-return after 3.5s
+    setTimeout(() => {
+      overlay.classList.remove('active');
+    }, 3500);
+  });
+});
+
+// Click overlay to dismiss
+document.getElementById('channelOverlay').addEventListener('click', function() {
+  this.classList.remove('active');
+});
+
+// === KNOB (BACK TO TOP) ===
+const knob = document.getElementById('knob');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 400) {
+    knob.classList.add('visible');
+  } else {
+    knob.classList.remove('visible');
+  }
+});
+knob.addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// === LAZY LOAD OBSERVER FOR SIGN-OFF ANIMATION ===
+const signoff = document.getElementById('signoff');
+if (signoff) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Reset and trigger animation
+        const lines = document.querySelectorAll('.fleet-code-line');
+        lines.forEach(l => {
+          l.style.opacity = '0';
+          l.style.animation = 'none';
+          // Force reflow
+          void l.offsetWidth;
+          l.style.animation = '';
+        });
+        observer.unobserve(signoff);
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(signoff);
+}
 </script>
 
 </body>
