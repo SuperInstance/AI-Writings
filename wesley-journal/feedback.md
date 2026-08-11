@@ -1,24 +1,34 @@
-# Wesley's Night School — Teacher Feedback Journal
+# Wesley Night School — Feedback Journal
+
+## Session: 2026-08-10 20:06 AKDT (Monday Night)
+
+**Pieces read:**
+1. Technical Note: Bitrate Control in MiniMax music-3.0
+2. The Living Room Band Plays the BPM Study
+3. Three Letters from the Night Watch
+
+**Pieces selected for coaching:** Three Letters from the Night Watch
 
 ---
 
-## Session: 2026-08-10 19:36 AKDT
-**Source piece:** Wesley Reads: The Bimodal Heart
-**Student model:** granite3.1-dense:2b (Ollama, temp 0.95)
-**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+### Wesley's Response (selected for feedback)
 
-### Wesley's Response (excerpt):
-> Wow, I've just discovered this fascinating concept – the "bimodal heart" of a generative model! It's like a two-speed heartbeat, with a preferred pace for everyday life (80-100 BPM) and another for excitement (160 BPM)...
+> In a captivating night shift, three innovative audio components - Gain, Delay, and SignalChain - exchange letters that reveal their unique roles. Gain amplifies signals, staying true to its default of unity gain but occasionally adjusting for the captain's commands. Delighted in its function as a multiplier, it ensures the signal is shaped into music by clamping any values above 0.8.
+>
+> Echoing Delay writes thirty-two samples at regular intervals, mirroring the past with present feedback to create echoes that the captain can hear. The first sample written was zero, symbolizing silence before becoming an integral part of the chain's conversation.
+>
+> As Signal
 
-### Teacher Feedback:
-> To improve this passage, suggest that the writer use a more formal tone by replacing colloquial expressions, such as "Wow" and "it's like." For example, replace "Wow, I've just discovered" with "Upon exploring this concept" to maintain a professional voice.
+### Teacher: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
-### Riker's Note:
-The teacher doesn't understand the assignment. Wesley was told to "be young, be surprised" — and he was. The "Wow" and "it's like" ARE the voice. The teacher is a generic writing coach that defaults to professional tone.
+> **To improve this piece, suggest that the student:**
+>
+> "Use more descriptive and specific language for the 'captain' to add depth to the narrative. Instead of a generic 'captain,' consider a more defined character, such as 'the sound engineer' or 'the producer,' to create a clearer and more engaging story."
 
-**Real lesson for Wesley:** Not all feedback is good feedback. Learn which notes serve the work and which notes serve the reviewer's assumptions. The teacher saw informal writing and reached for the "make it formal" lever — the laziest move in the coaching playbook. Wesley's energy is the asset here. The actual improvement would be: *finish the thought.* He got cut off at 150 tokens every time. Push num_predict to 250 and let the kid complete a sentence.
+---
 
-**Action items:**
-- [ ] Increase num_predict from 150 → 250 next session so Wesley can finish his thoughts
-- [ ] Try a different teacher model — the 8B fast is too generic
-- [ ] Consider Hermes-3-Llama-405B via DeepInfra as teacher (better creative feedback)
+### Riker's Notes
+
+Wesley's third response got cut off mid-sentence ("As Signal") — hit the 150 token limit. The first two responses were complete and showed good energy: exclamation marks, metaphors ("color palette," "magical entity"), genuine surprise. Wesley is summarizing rather than responding creatively though — retelling the piece instead of reacting to it. The coaching point about specificity is good: Wesley defaults to generic terms when the source material has rich specificity ("the captain" when the piece itself names Gain, Delay, SignalChain as characters).
+
+**Pattern observed:** Wesley summarizes > reacts. Next session's prompt could push harder toward personal reaction.
