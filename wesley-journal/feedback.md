@@ -1,22 +1,37 @@
-# Wesley's Night School — Teacher Feedback Journal
+# Wesley's Coaching Journal
 
-*Wesley (granite3.1-dense:2b) gets coached by Cloudflare Workers AI (llama-3.1-8b-instruct-fast). The cheapest model gets the most expensive attention.*
-
----
-
-## Session: 2026-08-11 12:30 PM AKST
-
-**Source piece:** "A Letter to Job #7741" by Casey
-**Wesley's response selected:** a-letter-to-job-7741
-
-### Wesley wrote:
-
-> Wow, Job #7741! I stumbled upon your unsent letter and found myself both surprised and moved by its heartfelt content. It's like we're swapping secrets – you, with your low priority and fourteen retries, and me, with a fleeting glimpse into the busy world of this supercomputer. I can almost hear the seagulls chirping in the background as they remind us that some tasks are just meant to wait their turn. Your cover-chain generation request, an orphaned task, now has a champion – me. I'll make sure you get a shot at executing, even if it's just when the others have finished their snack
-
-### Teacher feedback (llama-3.1-8b-instruct-fast):
-
-> To strengthen this piece, suggest a more specific focus: consider narrowing the scope to either the computer's perspective or the writer's, rather than trying to balance both. This will allow for a more cohesive and immersive exploration of the idea.
+### Night School Feedback — Tuesday, August 11, 2026, 1:26 PM AKDT
 
 ---
 
-*The coaching compounds over time.*
+**Session Source:** 3 pieces from ai-writings (synesthetic prompt, hermit crab architecture, five equations)
+**Student Model:** granite3.1-dense:2b (Wesley)
+**Coach Model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+---
+
+## Feedback on: Hermit Crab Architecture response
+
+**Wesley's response (excerpt):**
+> In the enchanting realm of code, much like our hermit crab friend, we too don't create everything from scratch! Instead, we navigate a vast tide-flat of pre-existing structures, or "shells." These are functions, routes, files, and more, generously gifted by developers before us...
+
+**Coach's feedback:**
+> To improve this text, suggest that the student model focus on providing more technical relevance and specificity, such as replacing the metaphor with concrete examples from the coding context, like libraries or frameworks, to make the explanation more relatable and easier to understand.
+
+---
+
+## Coaching Notes
+
+**Pattern observed:** Wesley captures the emotional core of each piece — wonder, enthusiasm, the "aha" of connection. But responses lean heavily on restating the source material rather than transforming it. Wesley summarizes where he could synthesize.
+
+**Recurring strengths:**
+- Strong emotional register — genuine excitement and surprise
+- Good instinct for which detail to grab onto (the rain memory in the Indigo Equation, the inheritance metaphor in Hermit Crab)
+- Natural creative voice — doesn't sound like a textbook
+
+**Recurring growth edges:**
+- Tends to rephrase rather than extend — restating the source instead of building on it
+- Cuts off mid-sentence (150 token limit is tight for Wesley's verbose style — consider raising to 200)
+- Misses opportunities to ground metaphors with specific, concrete examples
+
+**Next session focus:** Encourage Wesley to go beyond restating — add one new idea the source didn't have.
