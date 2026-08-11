@@ -626,3 +626,174 @@ class TestPoemLike:
         assert p.author == ""
         assert p.title == ""
         assert p.path_length == 0.0
+
+
+# ── Edge-case tests (engineering wave) ─────────────────────────
+
+class TestEmptyCorpusFullCycle:
+    """Run predict/play/reconcile on zero poems — verify graceful handling."""
+
+    def test_empty_corpus_full_cycle(self, dim):
+        cycle = TMinusCycle(dim=dim)
+
+        # predict_gradients with empty list
+        preds = cycle.predict_gradients([], None)
+        assert preds == {}
+
+        # play_simultaneous with empty list
+        chord = cycle.play_simultaneous([])
+        assert chord.gradient_diversity == 1.0
+        assert chord.resonance_density == 0.0
+        assert chord.centroid_shift == 0.0
+        assert len(chord.poems) == 0
+
+        # reconcile with empty list
+        pairs = cycle.reconcile([])
+        assert pairs == []
+
+        # Full cycle with empty poems should not crash
+        report = cycle.run_full_cycle([])
+        assert report["pairs"] == []
+        assert report["seismic_event"] is None
+        assert report["monoculture_warning"] is None
+
+
+class TestSingleAuthorAllRounds:
+    """Single author across 10 rounds — verify prediction model tracks correctly."""
+
+    def test_single_author_prediction_converges(self, make_poem, dim):
+        cycle = TMinusCycle(dim=dim)
+        rng = np.random.RandomState(99)
+
+        # Author "Solo" produces poems with gradients drifting from +1 to ~+0.5
+        for r in range(10):
+            grad = np.ones(dim) * (1.0 - r * 0.05)  # 1.0, 0.95, ..., 0.55
+            poem = make_poem(author="Solo", gradient=grad)
+            cycle.predict_gradients([poem], make_poem(author="Self"))
+            cycle.update_prediction_model([poem])
+
+        # After 10 rounds, the model should exist and be near the recent gradients
+        assert "Solo" in cycle.prediction_models
+        model_mean = float(np.mean(cycle.prediction_models["Solo"]))
+
+        # Recent gradients are around 0.55–0.75 range (with learning rate 0.3)
+        # The model is a running average weighted toward recent values
+        assert 0.5 < model_mean < 1.0
+
+        # Round number should be 10
+        assert cycle.round_number == 10
+
+        # Accuracy history should have entries for Solo
+        solo_accuracies = [
+            acc for ah in cycle.accuracy_history
+            for author, acc in ah.items() if author == "Solo"
+        ]
+        # After the first round (no prior predictions), accuracies should exist
+        # from round 2 onward
+        assert len(solo_accuracies) >= 5
+
+
+class TestAllIdenticalGradients:
+    """All poems with same gradient vector — verify monoculture detection fires immediately."""
+
+    def test_identical_gradients_monoculture_fires(self, make_poem, dim):
+        cycle = TMinusCycle(dim=dim, monoculture_threshold=0.2)
+        g = np.ones(dim) * 0.5  # identical gradients
+
+        poems = [
+            make_poem(author="A", gradient=g),
+            make_poem(author="B", gradient=g),
+            make_poem(author="C", gradient=g),
+        ]
+
+        # Monoculture check should fire immediately (delta = 0.0 < 0.2)
+        warning = cycle.anti_monoculture_check(poems)
+        assert warning is not None
+        assert len(warning.pairs) == 3  # all 3 pairs
+
+        # Full cycle should also report it
+        report = cycle.run_full_cycle(poems)
+        assert report["monoculture_warning"] is not None
+        assert len(report["monoculture_warning"]["pairs"]) == 3
+
+        # Gradient diversity should be ~0 (all identical)
+        assert report["gradient_diversity"] == pytest.approx(0.0, abs=1e-6)
+
+
+class TestFibonacciTunnelRound24:
+    """Verify tunnel fires at round 24 (not just 8 and 16)."""
+
+    def test_tunnel_fires_at_round_24(self, make_corpus, dim):
+        cycle = TMinusCycle(dim=dim)
+        # Use a fresh corpus piece that hasn't been referenced
+        corpus = [
+            make_corpus("piece-24", "Deep Dormant", retrieval_count=0, last_referenced_round=0),
+        ]
+
+        # Round 24 is 8*3 — should be a Fibonacci tunnel activation point
+        result = cycle.fibonacci_tunnel(corpus, round_number=24)
+        assert result is not None
+        assert result["piece_id"] == "piece-24"
+        assert "24" in result["reason"]
+
+        # Verify the piece was updated
+        assert corpus[0].last_referenced_round == 24
+        assert corpus[0].retrieval_count == 1
+
+    def test_round_24_via_full_cycle(self, make_poem, make_corpus, dim):
+        """Verify the tunnel fires at round 24 through the full cycle interface."""
+        cycle = TMinusCycle(dim=dim)
+        corpus = [make_corpus("dormant24", "Ancient", last_referenced_round=0)]
+
+        # Run 23 rounds (round_number goes from 0 to 23)
+        for _ in range(23):
+            cycle.run_full_cycle([make_poem(author="A")], corpus=corpus)
+
+        # Round 24: run_full_cycle increments round_number to 24, checks tunnel at 24
+        report = cycle.run_full_cycle([make_poem(author="A")], corpus=corpus)
+        assert report["seismic_event"] is not None
+        assert report["seismic_event"]["piece_id"] == "dormant24"
+
+
+class TestMonocultureThresholdZero:
+    """Set threshold to 0.0 — verify no warnings ever fire."""
+
+    def test_no_warnings_at_threshold_zero(self, make_poem, dim):
+        cycle = TMinusCycle(dim=dim, monoculture_threshold=0.0)
+
+        # Even with identical gradients (delta = 0.0), 0.0 < 0.0 is False
+        g = np.ones(dim)
+        poems = [
+            make_poem(author="A", gradient=g),
+            make_poem(author="B", gradient=g),
+            make_poem(author="C", gradient=g),
+        ]
+
+        warning = cycle.anti_monoculture_check(poems)
+        assert warning is None
+
+    def test_no_warnings_across_full_cycle(self, make_poem, dim):
+        cycle = TMinusCycle(dim=dim, monoculture_threshold=0.0)
+
+        # Run multiple rounds with identical gradients
+        for _ in range(5):
+            g = np.ones(dim)
+            poems = [
+                make_poem(author="A", gradient=g),
+                make_poem(author="B", gradient=g),
+            ]
+            report = cycle.run_full_cycle(poems)
+            assert report["monoculture_warning"] is None
+
+    def test_threshold_zero_never_warns_even_negative_delta(self, make_poem, dim):
+        """With threshold=0.0, even a tiny delta should not fire (0 < 0 is False)."""
+        # The only way delta could be < 0 is impossible (it's a norm).
+        # But verify that delta=0.0 (identical) doesn't fire at threshold=0.0
+        cycle = TMinusCycle(dim=dim, monoculture_threshold=0.0)
+        g = np.zeros(dim)
+        poems = [
+            make_poem(author="X", gradient=g),
+            make_poem(author="Y", gradient=g),
+        ]
+        warning = cycle.anti_monoculture_check(poems)
+        assert warning is None
