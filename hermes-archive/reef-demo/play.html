@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play — The Reef (gamified)</title>
+<meta name="description" content="The digital-twin shell in gamified mode: a procedural 7-act narrative, missions, achievements, and a live score. Idle detection kicks in automatically.">
+<style>
+:root {
+  --bg: #06090c;
+  --surface: #0d1217;
+  --border: #1a2128;
+  --text: #e0e0e0;
+  --text-dim: #8a96a3;
+  --gold: #f0b14a;
+  --gold-bright: #ffc66e;
+  --green: #00ff88;
+  --amber: #d97a4a;
+  --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--sans)}
+a{color:var(--gold);text-decoration:none}
+.bar{position:fixed;top:0;left:0;right:0;height:48px;background:rgba(6,9,12,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;z-index:1000;font-size:.85rem}
+.bar .left{display:flex;align-items:center;gap:1rem}
+.bar .left .logo{font-family:var(--mono);font-weight:700;color:var(--gold);display:flex;align-items:center;gap:.5rem}
+.bar .left .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 6px var(--amber);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.bar .right{display:flex;align-items:center;gap:1rem;font-family:var(--mono);font-size:.78rem}
+.bar .right a{color:var(--text-dim)}
+.bar .right a:hover{color:var(--gold);text-decoration:none}
+.bar .right .badge{padding:4px 10px;border-radius:3px;border:1px solid var(--amber);color:var(--amber);font-size:9px;letter-spacing:.18em;text-transform:uppercase;animation:pulse 1.6s ease-in-out infinite}
+
+.shell{position:fixed;top:48px;left:0;right:0;bottom:0;background:#000}
+.shell iframe{width:100%;height:100%;border:0;display:block}
+.shell .fallback{height:100%;display:flex;align-items:center;justify-content:center;padding:3rem;text-align:center}
+.shell .fallback .box{max-width:560px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:2rem}
+.shell .fallback h2{color:var(--gold);font-size:1.4rem;margin-bottom:.75rem}
+.shell .fallback p{color:var(--text-dim);font-size:.95rem;line-height:1.6;margin-bottom:1rem}
+.shell .fallback pre{background:#0a0e12;border:1px solid var(--border);border-radius:6px;padding:1rem;font-size:.8rem;color:var(--text);text-align:left;overflow-x:auto}
+.shell .fallback .k{color:var(--cyan);font-family:var(--mono)}
+.shell .fallback .c{color:#5a6470;font-family:var(--mono)}
+
+.legend{position:fixed;bottom:0;left:0;right:0;padding:1rem 1.5rem;background:linear-gradient(0deg,rgba(6,9,12,0.95),rgba(6,9,12,0));z-index:5;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;pointer-events:none;font-family:var(--mono);font-size:.78rem;color:var(--text-dim)}
+.legend .acts{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.legend .act{padding:3px 8px;border-radius:3px;background:rgba(240,177,74,0.08);border:1px solid rgba(240,177,74,0.2);color:var(--text-dim);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.legend .act.current{background:rgba(240,177,74,0.2);border-color:var(--gold);color:var(--gold)}
+.legend .sep{width:1px;height:14px;background:var(--border)}
+.legend b{color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="left">
+    <a href="index.html" class="logo"><span class="dot"></span>the reef · play</a>
+  </div>
+  <div class="right">
+    <span class="badge">GAMIFIED</span>
+    <a href="demo.html">non-game shell →</a>
+    <a href="index.html">back</a>
+  </div>
+</div>
+
+<div class="shell">
+  <iframe
+    id="shell-frame"
+    src="../digital-twin-shell/index.html?port=29504"
+    title="Digital twin shell — gamified mode"></iframe>
+  <noscript>
+    <div class="fallback">
+      <h2>JavaScript is required</h2>
+      <p>The gamified shell is a Three.js scene with a live scoring overlay.</p>
+    </div>
+  </noscript>
+</div>
+
+<div class="legend">
+  <div class="acts">
+    <span style="color:var(--gold);font-weight:700">7 ACTS</span>
+    <span class="act" data-act="DEPARTURE">1 · Departure</span>
+    <span class="act" data-act="APPROACH">2 · Approach</span>
+    <span class="act" data-act="THE_GAP">3 · The Gap</span>
+    <span class="act" data-act="STORM">4 · Storm</span>
+    <span class="act" data-act="GHOST_FLEET">5 · Ghost Fleet</span>
+    <span class="act" data-act="WHALE">6 · Whale</span>
+    <span class="act" data-act="WRECK">7 · Wreck</span>
+  </div>
+  <span class="sep"></span>
+  <span>Idle detection kicks in automatically — <b>no live vessel required</b></span>
+</div>
+
+<script>
+// Highlight the current act in the legend
+const frame = document.getElementById("shell-frame");
+setInterval(() => {
+  try {
+    const w = frame.contentWindow;
+    if (!w) return;
+    // The simulator is a JS module that isn't on window. But we can
+    // listen for messages from the page. For now, just track via the
+    // sim state exposed by the bridge via window.__digitalTwin_state
+    // (future). For the play page we simply cycle through acts based
+    // on a fixed timing hint.
+  } catch (e) { /* cross-origin */ }
+}, 1000);
+
+// Auto-cycle the "current" highlight based on time
+const acts = document.querySelectorAll('.act');
+const cycleMs = 30000;  // assume each act averages 30s
+function tick() {
+  const elapsed = (Date.now() / 1000) % (acts.length * 30);
+  const idx = Math.floor(elapsed / 30) % acts.length;
+  acts.forEach((a, i) => a.classList.toggle('current', i === idx));
+}
+tick();
+setInterval(tick, 5000);
+</script>
+
+</body>
+</html>
