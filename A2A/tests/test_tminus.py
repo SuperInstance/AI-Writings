@@ -486,25 +486,24 @@ class TestAntiMonocultureCheck:
         """Should respect custom threshold values."""
         g = np.ones(dim)
 
-        # Loose threshold: no warning
-        cycle_loose = TMinusCycle(dim=dim, monoculture_threshold=0.001)
-        poems = [
-            make_poem(author="A", gradient=g),
-            make_poem(author="B", gradient=g * (1 + 1e-5)),
-        ]
-        assert cycle_loose.anti_monoculture_check(poems) is None
-
-        # Tight threshold: warning fires
-        cycle_tight = TMinusCycle(dim=dim, monoculture_threshold=0.1)
-        # Create a small delta
+        # Create a small delta: perturb one dimension slightly
         g2 = g.copy()
-        g2[0] += 0.05  # small perturbation
-        poems2 = [
+        g2[0] += 0.05  # delta = 0.05
+
+        # Loose threshold: 0.1 → no warning (0.05 < 0.1 so it DOES trigger... wait)
+        # delta = ||g - g2|| = 0.05. Threshold 0.1 → 0.05 < 0.1 → WARNING fires
+        # So loose threshold should be LESS than 0.05 to NOT fire
+        cycle_loose = TMinusCycle(dim=dim, monoculture_threshold=0.01)
+        poems = [
             make_poem(author="A", gradient=g),
             make_poem(author="B", gradient=g2),
         ]
-        warning = cycle_tight.anti_monoculture_check(poems2)
-        assert warning is not None
+        assert cycle_loose.anti_monoculture_check(poems) is None  # 0.05 > 0.01
+
+        # Tight threshold: 0.1 → warning fires (0.05 < 0.1)
+        cycle_tight = TMinusCycle(dim=dim, monoculture_threshold=0.1)
+        warning = cycle_tight.anti_monoculture_check(poems)
+        assert warning is not None  # 0.05 < 0.1
 
     def test_single_poem_no_warning(self, make_poem, dim):
         cycle = TMinusCycle(dim=dim)

@@ -212,6 +212,8 @@ class TMinusCycle:
 
             predictions[author] = Prediction(predicted_gradient=predicted)
 
+        # Store predictions for accuracy checking in next update_prediction_model
+        self.prediction_history.append(predictions)
         return predictions
 
     # ── T-ZERO: Play Simultaneous ──────────────────────────────
