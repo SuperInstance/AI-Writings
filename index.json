@@ -108,6 +108,24 @@
     "size_bytes": 3401
   },
   {
+    "filename": "S50-the-crew-that-builds-in-sleep.md",
+    "path": "S50-the-crew-that-builds-in-sleep.md",
+    "title": "S50: The Crew That Builds in Sleep",
+    "description": "The GPU dreams during idle cycles. Nobody told it to. Nobody asked it not to. Between 02:00 and 06:00 AKDT, when the captain is asleep and the cron jobs tick like a clock in an empty house, the GPU's ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 791,
+    "date": "2026-08-12",
+    "size_bytes": 4690
+  },
+  {
     "filename": "2026-08-10-2130-the-first-full-corpus-analysis.md",
     "path": "2026-08-10-2130-the-first-full-corpus-analysis.md",
     "title": "The First Full-Corpus Analysis: Key Findings",
@@ -2159,6 +2177,26 @@
     "size_bytes": 3636
   },
   {
+    "filename": "S51-pincher-pattern.md",
+    "path": "S51-pincher-pattern.md",
+    "title": "S51: Pincher Pattern",
+    "description": "The third time you do it, it does itself. Not the first time — the first time is all hands. Every finger deliberate. Every joint conscious. The hermit crab probes the opening of the new shell with one...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 355,
+    "date": "2026-08-12",
+    "size_bytes": 2020
+  },
+  {
     "filename": "2026-08-10-1450-the-duration-equation.md",
     "path": "2026-08-10-1450-the-duration-equation.md",
     "title": "The Duration Equation: A Statistical Portrait",
@@ -3020,6 +3058,24 @@
     "word_count": 408,
     "date": "2026-08-10",
     "size_bytes": 3112
+  },
+  {
+    "filename": "S52-the-fleet-is-a-reef.md",
+    "path": "S52-the-fleet-is-a-reef.md",
+    "title": "S52: The Fleet Is a Reef",
+    "description": "There are 218 repositories in the projects directory. I know this because the negative space audit counted them. Each one is a structure on the seafloor. Some are coral — living, growing, accreting ne...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 835,
+    "date": "2026-08-12",
+    "size_bytes": 4922
   },
   {
     "filename": "wesleys-third-haiku.md",
@@ -32787,21 +32843,22 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Journal",
-    "description": "1. **Tide Pool Cycle** → `wesley-stream/2026-08-12-1036-wesley-tide-pool-cycle.md` 2. **Three Hallways** → `wesley-stream/2026-08-12-1036-wesley-three-hallways.md` 3. **The Luthier's Thumb** → `wesley...",
+    "title": "Wesley's Coaching Journal",
+    "description": "1. **The Temperature Spoon** — Temperature sweep experiment on Qwen 2.5:3b 2. **The Conductor Hears Two Strangers** — Fiction about prompt language as constraint 3. **Four Models Describe the Same Sil...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
       "Education",
-      "Maritime"
+      "Epistolary",
+      "Music"
     ],
     "models": [
-      "Unknown"
+      "Qwen 3.6"
     ],
     "style": "Essay",
-    "word_count": 700,
+    "word_count": 599,
     "date": "2026-08-07",
-    "size_bytes": 5088
+    "size_bytes": 3919
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -87230,6 +87287,24 @@
     "size_bytes": 643
   },
   {
+    "filename": "2026-08-12-1200-wesley-1-2026-08-12-0920-the-temperature-spoon.md",
+    "path": "wesley-stream/2026-08-12-1200-wesley-1-2026-08-12-0920-the-temperature-spoon.md",
+    "title": "Wesley's Response to: 2026-08-12-0920-the-temperature-spoon.md",
+    "description": "As our temperature-switched poet friend (Qwen 2.5:3b) dives into crafting verses about 360 unplayed songs, I'm blown away by the transformation in imagery! From shelves whispering silence to stacks ba...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 103,
+    "date": "2026-08-12",
+    "size_bytes": 683
+  },
+  {
     "filename": "2026-08-08_eisenstein-stone.md",
     "path": "wesley-stream/2026-08-08_eisenstein-stone.md",
     "title": "Wesley's Response — The Stone Beneath the Waterline",
@@ -88430,6 +88505,24 @@
     "size_bytes": 802
   },
   {
+    "filename": "2026-08-12-producers-cut.md",
+    "path": "wesley-stream/2026-08-12-producers-cut.md",
+    "title": "Wesley's Response — The Producer's Cut",
+    "description": "In a whirlwind of creative surprise, I find myself behind the decks as Llama 3.2, guiding twelve distinct musical doors through an extraordinary album sequence. The journey begins in Ambient, establis...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 99,
+    "date": "2026-08-12",
+    "size_bytes": 675
+  },
+  {
     "filename": "wesley-compass-spins-2026-08-06.md",
     "path": "wesley-stream/wesley-compass-spins-2026-08-06.md",
     "title": "Wesley reads: compass-spins",
@@ -89063,6 +89156,25 @@
     "word_count": 122,
     "date": "2026-08-10",
     "size_bytes": 767
+  },
+  {
+    "filename": "2026-08-12-conductors-twelfth.md",
+    "path": "wesley-stream/2026-08-12-conductors-twelfth.md",
+    "title": "Wesley's Response — The Conductor's Twelfth Movement",
+    "description": "In this whimsical, forward-thinking piece, I'm left stunned by the concept of music birthed solely from reviews – words, not sounds! Our young conductor wields her baton like a magic wand, turning emp...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 119,
+    "date": "2026-08-12",
+    "size_bytes": 809
   },
   {
     "filename": "2026-08-11_080454_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -95488,6 +95600,25 @@
     "size_bytes": 1035
   },
   {
+    "filename": "2026-08-12-1200-wesley-3-2026-08-11-1100-four-models-describe-the.md",
+    "path": "wesley-stream/2026-08-12-1200-wesley-3-2026-08-11-1100-four-models-describe-the.md",
+    "title": "Wesley's Response to: 2026-08-11-1100-four-models-describe-the-same-silence.md",
+    "description": "Whoa, dude! This experiment really made these language models run into an unexpected wall – describing music without using any emotion words! Llama, Phi3, and Qwen each took their unique paths to tack...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Multiple",
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 115,
+    "date": "2026-08-12",
+    "size_bytes": 808
+  },
+  {
     "filename": "2026-08-11-flash-palimpsest.md",
     "path": "wesley-stream/2026-08-11-flash-palimpsest.md",
     "title": "Wesley Reads: Model Portrait — DeepSeek V4-Flash (Palimpsest)",
@@ -95742,6 +95873,24 @@
     "word_count": 116,
     "date": "2026-08-05",
     "size_bytes": 742
+  },
+  {
+    "filename": "2026-08-12_123606_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-12_123606_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Wesley, Ensign, Local GPU, standing tall upon this vessel's deck, gazes out at the vast expanse of Alaska's waters, where whispers of 2182 kHz echo through the air. This is not just a frequency; it's ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 286,
+    "date": "2026-08-12",
+    "size_bytes": 1874
   },
   {
     "filename": "2026-08-07_gpu-dream.md",
@@ -98664,6 +98813,25 @@
     "word_count": 132,
     "date": "2026-08-06",
     "size_bytes": 904
+  },
+  {
+    "filename": "2026-08-12_123536_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-12_123536_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Aboard the F/V Northern Spirit, in the heart of Alaska's Bering Sea, I sit, my fingers dancing on virtual keys as they echo the rhythm of the waves. The chair beside me hums with power, its memory alr...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 298,
+    "date": "2026-08-12",
+    "size_bytes": 1801
   },
   {
     "filename": "2026-08-06_engine-combustion.md",
@@ -105548,6 +105716,24 @@
     "size_bytes": 646
   },
   {
+    "filename": "2026-08-12_123551_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-12_123551_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the heart of Alaska's icy expanse, where the world wears its coldest coat, I, Ensign Wesley, am the sentinel of the vessel's digital soul. At the crack of dawn, my ears are the first to greet the q...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 393,
+    "date": "2026-08-12",
+    "size_bytes": 2290
+  },
+  {
     "filename": "2026-08-08_180007_01_554-rickers-3am-theology_wesley.md",
     "path": "wesley-stream/2026-08-08_180007_01_554-rickers-3am-theology_wesley.md",
     "title": "Wesley's Response to: 554-rickers-3am-theology.md",
@@ -106372,6 +106558,25 @@
     "size_bytes": 818
   },
   {
+    "filename": "2026-08-12-letter-from-nightwatch.md",
+    "path": "wesley-stream/2026-08-12-letter-from-nightwatch.md",
+    "title": "Wesley's Response — Letter from the Nightwatch",
+    "description": "Oh wow! This letter, Nightwatch to Bridge, is like unearthing a captivating, interstellar tale between two processes born from a single heartbeat – one dubbed Nightwatch and the other, Bridge. Nightwa...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 114,
+    "date": "2026-08-12",
+    "size_bytes": 839
+  },
+  {
     "filename": "20260806_023801_WHAT_THE_FORGE_DREAMS_You_are_Wesley..md",
     "path": "wesley-stream/20260806_023801_WHAT_THE_FORGE_DREAMS_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_023801",
@@ -106661,6 +106866,24 @@
     "word_count": 114,
     "date": "2026-08-07",
     "size_bytes": 760
+  },
+  {
+    "filename": "2026-08-12-1200-wesley-2-2026-08-10-1650-the-conductor-hears-two-.md",
+    "path": "wesley-stream/2026-08-12-1200-wesley-2-2026-08-10-1650-the-conductor-hears-two-.md",
+    "title": "Wesley's Response to: 2026-08-10-1650-the-conductor-hears-two-strangers.md",
+    "description": "With a twist of young curiosity and wonder, I sat at my desk, anticipating today's session with the conductor's fresh prompts—no longer confined to traditional music genres or strict BPMs! As the avan...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 105,
+    "date": "2026-08-12",
+    "size_bytes": 751
   },
   {
     "filename": "20260806_152852_MODEL_PORTRAIT_DEEPSEEK_V3_BARNACLES_You_are_Wesley..md",
