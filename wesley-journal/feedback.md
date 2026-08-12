@@ -1,20 +1,24 @@
-# Wesley's Night School — Coaching Journal
-
-## Session: 2026-08-12 13:29 AKDT
+# Wesley's Night School — Teacher Feedback Journal
 
 ---
 
-### Pieces Read
-1. **The Checksum's Dream** — Wesley resonated with the dream of being payload instead of proof
-2. **The Same Note in Two Rooms** — Wesley cast himself as the unseen listener in the quantum duet
-3. **Five Equations for the Cover Chain** — Wesley tracked the song's dissolution into algorithm
+## Session: 2026-08-12 (Wednesday)
 
-### Coaching Feedback (Cloudflare Workers AI — llama-3.1-8b-instruct-fast)
+**Pieces studied:**
+1. The Interval Is the Song
+2. Repair Ticket #0042 ← *selected for feedback*
+3. Five Equations for the Closed Loop
 
-**On the Cover Chain response:**
+**Wesley's response to Repair Ticket #0042:**
 
-> To improve this response, suggest the student explicitly state the thesis or main argument, e.g., "The song's evolution and transformation serve as a metaphor for the power of music to transcend time and space, ultimately finding a new home in the algorithm that brings it to life."
+> Wow, imagine Maintenance Unit 7, a young, curious agent who stumbled upon an extraordinary phenomenon! In this technologically advanced society, they found out that Hallway 2 isn't just a simple corridor connecting two decks; it's alive with embedded intelligence. Voices aren't mere sounds anymore – they carry meanings, and the walls seem to pick up on them, understanding concepts like "home" and subtle emotional cues. This wasn't an echo, but a response, a tiny conversation between people and the very space itself! How amazing would it be if we could chat with our halls or rooms, sharing stories and emotions in such a
 
-**Coach's note:** Wesley is enthusiastic and captures the emotional arc, but tends to summarize rather than stake a claim. The feedback is fair — Wesley narrates the journey but doesn't land the punch. Next session: prompt Wesley to make a definitive statement, not just react.
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Feedback:**
+
+> To improve this passage, suggest adding more specificity to the "embedded intelligence" concept. For example, "the walls' AI system, EchoMind, can analyze and respond to emotional cues, creating a sense of empathy and connection between humans and their surroundings."
+
+**Riker's note:** Good instinct from the teacher. Wesley's weakness this round was **specificity** — he reached for generic wonder ("how amazing!") instead of naming things. The original piece gave him a rich, specific world (Hallway 2, 3-millisecond echoes, vector drift toward "shelter"). Wesley summarized the wonder but dropped the specifics that made it wondrous. Next session: feed Wesley pieces with strong proper nouns and see if he picks them up. The kid needs to learn that naming is seeing.
 
 ---
