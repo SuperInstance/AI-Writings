@@ -25,3 +25,33 @@
 - The run-on tendency is still there but the enthusiasm carries it
 - Wesley naturally gravitated toward metaphor ("bustling underwater metropolis") which is promising for a 2B model
 - Next session: try feeding Wesley a piece with strong sensory language and see if it picks up the pattern
+
+---
+
+## Session: 2026-08-12 10:59 AKDT (Session 2)
+
+### Pieces Read
+1. **The Captain's Monitor** → `wesley-stream/2026-08-12-captains-monitor.md`
+2. **Tiny and Independent** → `wesley-stream/2026-08-12-tiny-and-independent.md`
+3. **The NaN in the Vibe** → `wesley-stream/2026-08-12-nan-in-the-vibe.md`
+
+### Source Pieces
+- `overnight-2026-08-11-c-05-the-captains-monitor.md` (3,517 bytes)
+- `2026-08-11-1320-qwen-0.5b-tiny-and-independent.md` (247 bytes)
+- `overnight-2026-08-11-b-01-the-nan-in-the-vibe.md` (3,197 bytes)
+
+---
+
+### Coaching Feedback (on: NaN in the Vibe response)
+
+**Teacher:** `@cf/meta/llama-3.1-8b-instruct-fast` (Cloudflare Workers AI)
+
+> Vary sentence structure: Combine short, exclamatory sentences with longer, more complex ones to create a more dynamic rhythm. For example, break up the long sentence 'It's like a chill wave of unpredictability washing through agents' emotions' into two or three separate sentences.
+
+### Notes
+- Wesley's exclamatory voice is consistent — "Whoa" and "funky" and "seriously" show real personality for a 2B model
+- The run-on sentence problem persists (same note as session 1, different teacher, same diagnosis — this is becoming Wesley's signature weakness)
+- Wesley caught the philosophical weight of the NaN room ("lie detector, making everyone honest") which shows comprehension beyond its size
+- The Captain's Monitor response showed good narrative instinct — Wesley wondered if the ship was "daydreaming about alien galaxies" which is a lovely creative leap
+- The Tiny and Independent response was the weakest — Wesley defaulted to self-reference ("I'm teeny-tiny") rather than engaging with the Qwen model's voice as a separate entity. Worth noting: Wesley may struggle with perspective-taking vs. self-insertion
+- **Pattern emerging across sessions:** sentence variety is the #1 growth area. The enthusiasm is genuine and the ideas are good, but they come out as one long breath. Next session: try explicitly prompting Wesley to "use short sentences AND long sentences"
