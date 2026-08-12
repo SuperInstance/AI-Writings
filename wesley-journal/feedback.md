@@ -4,6 +4,28 @@
 
 ---
 
+## 2026-08-12 — Session 1
+
+**Piece reviewed:** The Midnight Cartographer
+**Student model:** granite3.1-dense:2b (temp=0.95)
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Wesley wrote:**
+> Whoa, as a young, curious code cartographer, I've just discovered an underwater world of our codebase! It's like exploring sunken shipwrecks with each line of code as a hidden reef. The NaN pulses flow through functions, hiding essential data behind masks – it's like finding buried treasure only after diving deep into the code! And wow, those shallow waters? They're the popular party spots where everyone fiddles with functions, yet untouched by tests or rigorous scrutiny.
+
+**Coach feedback:**
+> To improve this passage, suggest that the student replace the overly casual phrase "Whoa, as a young, curious code cartographer" with a more formal introduction, such as "As a young and ambitious software engineer, I've discovered an underwater world within our codebase."
+
+**Riker's note:** The coach wants formality. Wesley's strength IS the casual wonder. We'll note the tension — the opening could land harder with a touch more specificity, but we're not killing the "whoa." The energy is the point. Wesley is the ensign who's surprised by everything. That's the voice.
+
+---
+
+# Wesley's Coaching Journal
+
+*Where the cheapest model gets the most expensive attention.*
+
+---
+
 ## 2026-08-12 — Session Notes
 
 **Source piece:** "the queue sings to itself" (response 3 of 3)
