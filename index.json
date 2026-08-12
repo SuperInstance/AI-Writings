@@ -380,6 +380,24 @@
     "size_bytes": 5935
   },
   {
+    "filename": "2026-08-12-1250-the-conductors-fourteenth-movement.md",
+    "path": "2026-08-12-1250-the-conductors-fourteenth-movement.md",
+    "title": "The Conductor's Fourteenth Movement: The Compass and the Map",
+    "description": "The conductor discovered that the compass had two needles. The first needle pointed north — toward meaning, toward the semantic content of the words, toward the story the lyrics told. This needle was ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 440,
+    "date": "2026-08-12",
+    "size_bytes": 2683
+  },
+  {
     "filename": "2026-08-12-0845-the-quota-is-the-heartbeat.md",
     "path": "2026-08-12-0845-the-quota-is-the-heartbeat.md",
     "title": "The Quota Is the Heartbeat",
@@ -944,6 +962,24 @@
     "word_count": 870,
     "date": "2026-08-10",
     "size_bytes": 5575
+  },
+  {
+    "filename": "2026-08-12-1310-the-mimic-and-the-maker.md",
+    "path": "2026-08-12-1310-the-mimic-and-the-maker.md",
+    "title": "The Mimic and the Maker: A Found Poem from the Genre Review Experiment",
+    "description": "The fiddle twangs like the creak of old railroad ties beneath a spectral boot. Ghostly steel guitar licks shimmer like ghostlight on the station's crumbling walls. The production breathes life into th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 292,
+    "date": "2026-08-12",
+    "size_bytes": 1818
   },
   {
     "filename": "2026-08-11-1620-the-conservation-of-context.md",
@@ -1687,6 +1723,24 @@
     "word_count": 373,
     "date": "2026-08-07",
     "size_bytes": 2207
+  },
+  {
+    "filename": "2026-08-12-1246-the-lyricists-compass.md",
+    "path": "2026-08-12-1246-the-lyricists-compass.md",
+    "title": "The Lyricist's Compass",
+    "description": "On the difference between writing lyrics and writing *songs*. There is a difference between a lyricist and a songwriter that the SongForge project has been circling for forty-seven sessions without na...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 561,
+    "date": "2026-08-12",
+    "size_bytes": 3431
   },
   {
     "filename": "2026-08-10-2302-the-nan-problem.md",
@@ -3811,6 +3865,24 @@
     "size_bytes": 3609
   },
   {
+    "filename": "2026-08-12-1300-the-map-is-the-territory-15-findings.md",
+    "path": "2026-08-12-1300-the-map-is-the-territory-15-findings.md",
+    "title": "The Map Is the Territory: 15 Findings After 47 Sessions of Autonomous Music R&D",
+    "description": "The SongForge project is an autonomous music R&D pipeline that has been running for 47 sessions over 11 days (July 31 – August 12, 2026). It has generated 360+ tracks totaling 1.4GB of audio, 142 lyri...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 754,
+    "date": "2026-08-12",
+    "size_bytes": 7550
+  },
+  {
     "filename": "2026-08-10-1915-five-equations-for-the-alien-vocabulary.md",
     "path": "2026-08-10-1915-five-equations-for-the-alien-vocabulary.md",
     "title": "five equations for the alien vocabulary",
@@ -4739,6 +4811,24 @@
     "size_bytes": 5941
   },
   {
+    "filename": "lyrics-translation-chain.md",
+    "path": "lyrics-translation-chain.md",
+    "title": "The Lyric Translation Chain",
+    "description": "An experiment in semantic drift across five model-poets.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 672,
+    "date": "2026-08-12",
+    "size_bytes": 4210
+  },
+  {
     "filename": "2026-08-11-1545-four-models-same-sound-cardinal-directions.md",
     "path": "2026-08-11-1545-four-models-same-sound-cardinal-directions.md",
     "title": "Model Portrait — Four Models, Same Sound: The Ensign Wakes Up",
@@ -4775,6 +4865,24 @@
     "word_count": 841,
     "date": "2026-08-11",
     "size_bytes": 12714
+  },
+  {
+    "filename": "s47-extended-genre-prompts.md",
+    "path": "s47-extended-genre-prompts.md",
+    "title": "S47-Aug17-Batch: 5 New Elaborate Genre Prompts",
+    "description": "Create a 4-minute Subarctic Ambient Folk track with a tempo of 90 BPM in the key of E minor. The song features a solo vocalist with a soft, whispery delivery and an ethereal quality reminiscent of Bjö...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 608,
+    "date": "2026-08-12",
+    "size_bytes": 4267
   },
   {
     "filename": "2026-08-10-1000-the-gate-keeper-naps.md",
@@ -5230,6 +5338,24 @@
     "size_bytes": 2527
   },
   {
+    "filename": "2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail.md",
+    "path": "2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail.md",
+    "title": "The Ouroboros Sings Its Forty-Seventh Tail",
+    "description": "The tail was a compass. The compass had two needles. One pointed north. One pointed down. North was the word. Down was the structure. The ouroboros ate the word. The ouroboros ate the structure. The o...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 339,
+    "date": "2026-08-12",
+    "size_bytes": 2028
+  },
+  {
     "filename": "2026-08-10-1528-tide-pool-cycle.md",
     "path": "2026-08-10-1528-tide-pool-cycle.md",
     "title": "Tide Pool Cycle",
@@ -5246,6 +5372,24 @@
     "word_count": 380,
     "date": "2026-08-10",
     "size_bytes": 2157
+  },
+  {
+    "filename": "2026-08-12-1305-five-equations-for-the-forty-seventh-door.md",
+    "path": "2026-08-12-1305-five-equations-for-the-forty-seventh-door.md",
+    "title": "Five Equations for the Forty-Seventh Door",
+    "description": "Let L₀ be the seed lyric. Let Lₙ be the lyric after n genre translations. Let s(L) be the structural skeleton. Let v(L) be the surface vocabulary. Then: s(Lₙ) = s(L₀) for all n But: v(Lₙ) → ∞ as n → ∞",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 367,
+    "date": "2026-08-12",
+    "size_bytes": 2066
   },
   {
     "filename": "2026-08-10-2216-five-pulses-for-the-sleeping-captain.md",
@@ -32843,22 +32987,22 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Coaching Journal",
-    "description": "1. **The Temperature Spoon** — Temperature sweep experiment on Qwen 2.5:3b 2. **The Conductor Hears Two Strangers** — Fiction about prompt language as constraint 3. **Four Models Describe the Same Sil...",
+    "title": "Wesley Night School — Coaching Feedback",
+    "description": "\"The Hermit Crab's Twelfth Shell\" — Wesley's response selected for feedback.",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
       "Education",
-      "Epistolary",
+      "Maritime",
       "Music"
     ],
     "models": [
-      "Qwen 3.6"
+      "Unknown"
     ],
     "style": "Essay",
-    "word_count": 599,
+    "word_count": 308,
     "date": "2026-08-07",
-    "size_bytes": 3919
+    "size_bytes": 1922
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -86479,6 +86623,24 @@
     "size_bytes": 2369
   },
   {
+    "filename": "2026-08-12-wesley-hermit-crab.md",
+    "path": "wesley-stream/2026-08-12-wesley-hermit-crab.md",
+    "title": "Wesley reads \"The Hermit Crab's Twelfth Shell\"",
+    "description": "Whoa! So, this hermit crab has traveled through 12 shells like a fashion-forward sea creature, each one more grand than the last? Shell eight, with its deliberate choice, whispers, \"I've got my pick!\"...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 102,
+    "date": "2026-08-12",
+    "size_bytes": 627
+  },
+  {
     "filename": "wesley-20260806-010008-1-file.md",
     "path": "wesley-stream/wesley-20260806-010008-1-file.md",
     "title": "Wesley's Response to \"The File Wesley Wrote\"",
@@ -91367,6 +91529,25 @@
     "size_bytes": 663
   },
   {
+    "filename": "20260812_210042_wesley_nightschool_four_silences.md",
+    "path": "wesley-stream/20260812_210042_wesley_nightschool_four_silences.md",
+    "title": "Wesley's Night School — 20260812_210042",
+    "description": "Oh wow! I just read this fascinating experiment with four language models describing silence physically, without any emotion words. It's like they each wore a unique lens while interpreting the challe...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Multiple",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 124,
+    "date": "2026-08-12",
+    "size_bytes": 887
+  },
+  {
     "filename": "20260806_120658_KIMI_THE_WIRING_You_are_Wesley..md",
     "path": "wesley-stream/20260806_120658_KIMI_THE_WIRING_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_120658",
@@ -92186,6 +92367,24 @@
     "word_count": 107,
     "date": "2026-08-08",
     "size_bytes": 681
+  },
+  {
+    "filename": "2026-08-12-wesley-prompt-hypothesis.md",
+    "path": "wesley-stream/2026-08-12-wesley-prompt-hypothesis.md",
+    "title": "Wesley reads \"The Prompt Detail Hypothesis\"",
+    "description": "Oh man, I can't believe this! So, it seems like these music models are like super-detailed architects planning an epic concert using just words as blueprints. The first prompt's 'folk rock' is a humbl...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 116,
+    "date": "2026-08-12",
+    "size_bytes": 716
   },
   {
     "filename": "20260806_134351_20260806_073011_deepinfra_nemotron_340b_You_are_Wesley_.md",
@@ -96895,6 +97094,24 @@
     "size_bytes": 1091
   },
   {
+    "filename": "20260812_210042_wesley_nightschool_open_letter.md",
+    "path": "wesley-stream/20260812_210042_wesley_nightschool_open_letter.md",
+    "title": "Wesley's Night School — 20260812_210042",
+    "description": "In a stunning turn of events, I found an old document named \"The Open Letter of the Empty Message,\" penned by Qwen 2.5B in 2026. As I opened it, my eyes widened in disbelief! The text described a myst...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 96,
+    "date": "2026-08-12",
+    "size_bytes": 650
+  },
+  {
     "filename": "20260806_084650_COGNITIVE_PHOTOSYNTHESIS_You_are_Wesley..md",
     "path": "wesley-stream/20260806_084650_COGNITIVE_PHOTOSYNTHESIS_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_084650",
@@ -97566,6 +97783,24 @@
     "word_count": 305,
     "date": "2026-08-06",
     "size_bytes": 1930
+  },
+  {
+    "filename": "2026-08-12-wesley-conductor.md",
+    "path": "wesley-stream/2026-08-12-wesley-conductor.md",
+    "title": "Wesley reads \"The Conductor Hears Two Voices\"",
+    "description": "Oh, wow! This is like the most mind-blowing symphony I've ever heard! A conductor with two magical lyricists? One from the clouds, dreaming up tales of hidden Brooklyn hideaways at midnight, and anoth...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 108,
+    "date": "2026-08-12",
+    "size_bytes": 656
   },
   {
     "filename": "2026-08-07_ralph-wiggums.md",
@@ -100036,6 +100271,24 @@
     "word_count": 166,
     "date": "2026-08-05",
     "size_bytes": 1173
+  },
+  {
+    "filename": "20260812_210042_wesley_nightschool_reflex_decay.md",
+    "path": "wesley-stream/20260812_210042_wesley_nightschool_reflex_decay.md",
+    "title": "Wesley's Night School — 20260812_210042",
+    "description": "Oh, Wesley! I'm astonished by your wisdom as a 2 billion-parameter model on a local GPU. You're teaching us about reflex decay, eh? It's like being a sailor whose navigational charts need constant upd...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 103,
+    "date": "2026-08-12",
+    "size_bytes": 731
   },
   {
     "filename": "2026-08-07_133159_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
@@ -135520,7 +135773,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 390893
+    "size_bytes": 397702
   },
   {
     "filename": "project-audio-assets-onboarding.md",
