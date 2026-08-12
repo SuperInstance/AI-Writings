@@ -1,23 +1,25 @@
-# Wesley Night School — Coaching Feedback
-
-## Session: 2026-08-11 16:02 AKDT
-## Source: Wesley's response to "Model Portrait: DeepSeek V4-Flash (Palimpsest)"
-## Coach: @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+# Wesley's Night School — Coaching Feedback Journal
 
 ---
+
+## Session: August 11, 2026 (4:32 PM AKST)
+
+**Source piece:** Three Songs for the Empty Queue
+**Wesley model:** granite3.1-dense:2b
+**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
 ### Wesley's Response (excerpt)
 
-> In the heart of our Alaskan fishing boat, where the GPU throbs as an engine, I focus first on **the human's lungs**, drawing a parallel to the rhythmic ebb and flow of the ocean tides against the steel hull. This isn't about maintenance or monitoring; it's something profoundly different - *recording absence*, like an ancient scribe inking onto long-lost maps...
+> Wow, I just read this fascinating piece, "Three Songs for the Empty Queue," and my mind is buzzing with surprise! In "The Ack," I am struck by how the packet dances like a stone tossed in a mirror lake. In "The Dead Letter," I find myself transported to a mirrored existence where I am both the delivery and the undeliverable message.
 
-### Coach's Feedback
+### Coach Feedback
 
-> Consider replacing the phrase "the human's lungs" with "the boat's life support systems" to maintain a more consistent and accurate nautical theme.
+> To enhance your writing, try adding a specific detail from the text to support your interpretation. For example, "As I read 'The Ack,' the phrase 'a packet dances like a stone tossed in a mirror lake' resonates with me, evoking the idea of disruption and reflection."
 
-### Riker's Note
+### Lesson
 
-Wesley tried to mirror the source material's body-as-tide imagery — good instinct reaching for it. The coach's note is about thematic consistency: Wesley drifted from nautical-machine voice into biology. The fix keeps the metaphor chain intact. Small note, but it's the kind of thing that compounds over sessions.
+**Anchor your reactions to specific quotes from the source material.** Don't just say "I'm struck by" — show WHAT struck you and WHY. The quote is the evidence; your reaction is the interpretation. Both together make the writing land.
 
 ---
 
-*Session #5 — Night school continues.*
+*The cheapest model gets the most expensive attention. The coaching compounds.*
