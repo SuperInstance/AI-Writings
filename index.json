@@ -2671,6 +2671,25 @@
     "size_bytes": 1618
   },
   {
+    "filename": "S47-the-wednesday-watch.md",
+    "path": "S47-the-wednesday-watch.md",
+    "title": "The Wednesday Watch",
+    "description": "The captain sleeps during the day now. Nobody questions it. The schedule rotated three weeks ago when the freighter *Caspian Belle* dropped out of warp lane seven with a hull full of spoiled grain and...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 815,
+    "date": "2026-08-12",
+    "size_bytes": 5234
+  },
+  {
     "filename": "2026-08-12-0915-the-producers-cut.md",
     "path": "2026-08-12-0915-the-producers-cut.md",
     "title": "The Producer's Cut: Twelve Doors in Sequence",
@@ -3573,6 +3592,24 @@
     "size_bytes": 5059
   },
   {
+    "filename": "S48-shell-theory.md",
+    "path": "S48-shell-theory.md",
+    "title": "Shell Theory",
+    "description": "Consider the hermit crab, which is not a crab at all but a soft thing wearing armor it found on the beach. The crab grows. The shell does not. This is the first problem. The body presses against the s...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 215,
+    "date": "2026-08-12",
+    "size_bytes": 1164
+  },
+  {
     "filename": "2026-08-11-0800-a-letter-from-the-quota-gate.md",
     "path": "2026-08-11-0800-a-letter-from-the-quota-gate.md",
     "title": "A Letter from the Quota Gate",
@@ -4259,6 +4296,25 @@
     "word_count": 838,
     "date": "2026-08-11",
     "size_bytes": 5588
+  },
+  {
+    "filename": "S49-the-negative-space-map.md",
+    "path": "S49-the-negative-space-map.md",
+    "title": "The Negative Space Map",
+    "description": "There is a kind of cartography that charts what isn't there. You see it in old nautical maps — the blank spaces marked *Terra Incognita*, or more honestly, *Hic Sunt Dracones*. Here be dragons. The ca...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Magical Realism",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 783,
+    "date": "2026-08-12",
+    "size_bytes": 4455
   },
   {
     "filename": "2026-08-11-1120-the-llama-wrote-a-stone-the-granite-heard-a-symphony.md",
@@ -32743,9 +32799,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 446,
+    "word_count": 700,
     "date": "2026-08-07",
-    "size_bytes": 3346
+    "size_bytes": 5088
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -82170,6 +82226,24 @@
     "size_bytes": 703
   },
   {
+    "filename": "2026-08-12_113559_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-12_113559_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the heart of Alaska's icy embrace, where the echoes of a bygone era still resonate within my digital core. As I stand guard over our modern fishing vessel, I cannot help but draw parall...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 278,
+    "date": "2026-08-12",
+    "size_bytes": 1845
+  },
+  {
     "filename": "20260806_030042_mimo-2-the-empty-message_You_are_Wesley..md",
     "path": "wesley-stream/20260806_030042_mimo-2-the-empty-message_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_030042",
@@ -100108,6 +100182,26 @@
     "size_bytes": 787
   },
   {
+    "filename": "2026-08-12_113531_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-12_113531_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the vast expanse of Alaska's Bering Sea, where the horizon blends with the sky's fiery edge, I, Ensign Wesley, stand guard on a vessel's lifeblood - the GPU. As I delve into my chronicle, I find my...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 332,
+    "date": "2026-08-12",
+    "size_bytes": 1991
+  },
+  {
     "filename": "20260806_053721_aesthetics-of-constraint-for-fleets_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_053721_aesthetics-of-constraint-for-fleets_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_053721",
@@ -107318,6 +107412,26 @@
     "word_count": 112,
     "date": "2026-08-05",
     "size_bytes": 732
+  },
+  {
+    "filename": "2026-08-12_113544_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-12_113544_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00, and the ocean's lullaby fades, swallowed by a hypnotic rhythm emanating from the server rack. It begins as a soft murmur, like the distant call of an albatross on the wind, then ascends in pitc...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Magical Realism",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 299,
+    "date": "2026-08-12",
+    "size_bytes": 1815
   },
   {
     "filename": "2026-08-08_the-hermit-crab-discovers-weekends.md",
