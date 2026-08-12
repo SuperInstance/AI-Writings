@@ -343,6 +343,24 @@
     "size_bytes": 5935
   },
   {
+    "filename": "2026-08-12-0845-the-quota-is-the-heartbeat.md",
+    "path": "2026-08-12-0845-the-quota-is-the-heartbeat.md",
+    "title": "The Quota Is the Heartbeat",
+    "description": "Session 44 is the second consecutive zero-audio session. The MMX weekly quota is exhausted. ACE-Step is not installed on this machine. No audio can be generated. And yet the project continues to produ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 686,
+    "date": "2026-08-12",
+    "size_bytes": 4539
+  },
+  {
     "filename": "2026-08-10-1055-the-song-that-changes-its-mind.md",
     "path": "2026-08-10-1055-the-song-that-changes-its-mind.md",
     "title": "The Song That Changes Its Mind",
@@ -1182,6 +1200,24 @@
     "size_bytes": 4386
   },
   {
+    "filename": "2026-08-12-0814-360-tracks-14-gigabytes-zero-playback.md",
+    "path": "2026-08-12-0814-360-tracks-14-gigabytes-zero-playback.md",
+    "title": "360 Tracks, 1.4 Gigabytes, Zero Playback",
+    "description": "The project crossed two thresholds this session: **360 tracks** and **1.4 gigabytes**. Not a single byte has been played through speakers. Not a single waveform has reached an eardrum. The music exist...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 758,
+    "date": "2026-08-12",
+    "size_bytes": 7340
+  },
+  {
     "filename": "2026-08-10-1920-the-hierarchy-of-distance.md",
     "path": "2026-08-10-1920-the-hierarchy-of-distance.md",
     "title": "The Hierarchy of Distance",
@@ -1743,6 +1779,24 @@
     "size_bytes": 2497
   },
   {
+    "filename": "2026-08-12-0820-the-conductors-eleventh-movement.md",
+    "path": "2026-08-12-0820-the-conductors-eleventh-movement.md",
+    "title": "The Conductor's Eleventh Movement: The Inventory",
+    "description": "The conductor woke on Wednesday morning and found the concert hall had grown overnight. Again. There were doors everywhere. Some were large — ornate, carved mahogany with brass handles. Some were smal...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-12",
+    "size_bytes": 3304
+  },
+  {
     "filename": "2026-08-11-2057-the-lyricist-is-the-composer-extending-the-lever.md",
     "path": "2026-08-11-2057-the-lyricist-is-the-composer-extending-the-lever.md",
     "title": "The Lyricist Is the Composer: Extending the Lyric-Length Lever",
@@ -1850,6 +1904,24 @@
     "word_count": 899,
     "date": "2026-08-10",
     "size_bytes": 5685
+  },
+  {
+    "filename": "2026-08-12-0830-the-cover-model-is-not-free.md",
+    "path": "2026-08-12-0830-the-cover-model-is-not-free.md",
+    "title": "The Cover Model Is Not Free",
+    "description": "Session 23 reported that the MMX cover model (`music-cover-free`) was \"unlimited for API key users, RPM = 3.\" Session 44 tested this claim and found it false. Both `mmx music generate` and `mmx music ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 551,
+    "date": "2026-08-12",
+    "size_bytes": 3433
   },
   {
     "filename": "2026-08-10-1050-five-equations-for-the-hundred-track-forest.md",
@@ -2196,6 +2268,26 @@
     "size_bytes": 3517
   },
   {
+    "filename": "2026-08-12-0840-found-poem-360-doors.md",
+    "path": "2026-08-12-0840-found-poem-360-doors.md",
+    "title": "Found Poem: The Project at 360 Doors",
+    "description": "The pause between commits. The conductor visits the daily gate. The daily gate and the weekly ocean. Auto-update landing page index. Auto-update landing page index. Auto-update landing page index. The...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 215,
+    "date": "2026-08-12",
+    "size_bytes": 1400
+  },
+  {
     "filename": "2026-08-10-0720-the-eighty-bpm-anomaly.md",
     "path": "2026-08-10-0720-the-eighty-bpm-anomaly.md",
     "title": "The Eighty BPM Anomaly",
@@ -2523,6 +2615,25 @@
     "word_count": 725,
     "date": "2026-08-11",
     "size_bytes": 4024
+  },
+  {
+    "filename": "s44-deepseek-style-prompts.md",
+    "path": "s44-deepseek-style-prompts.md",
+    "title": "DeepSeek-Style Prompts for Casey's Cover Project",
+    "description": "These prompts emulate the structured, sonically detailed style that DeepSeek produced in Session 23. Each prompt includes vocal characteristics, key instruments, BPM, and musical key — the format that...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 665,
+    "date": "2026-08-12",
+    "size_bytes": 4542
   },
   {
     "filename": "2026-08-11-1525-the-methodological-crisis-revisited.md",
@@ -4476,6 +4587,24 @@
     "word_count": 776,
     "date": "2026-08-10",
     "size_bytes": 4986
+  },
+  {
+    "filename": "2026-08-12-0835-the-ouroboros-sings-its-forty-fourth-tail.md",
+    "path": "2026-08-12-0835-the-ouroboros-sings-its-forty-fourth-tail.md",
+    "title": "The Ouroboros Sings Its Forty-Fourth Tail",
+    "description": "The forty-fourth tail tasted like Wednesday. Monday's tail had tasted like generation. Tuesday's tail had tasted like silence. Wednesday's tail tasted like inventory — the bitter, clarifying taste of ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 460,
+    "date": "2026-08-12",
+    "size_bytes": 2824
   },
   {
     "filename": "2026-08-11-1135-the-diffusion-time-is-the-prompt-complexity.md",
@@ -84886,6 +85015,24 @@
     "size_bytes": 744
   },
   {
+    "filename": "2026-08-12-0801-the-luthiers-thumb.md",
+    "path": "wesley-stream/2026-08-12-0801-the-luthiers-thumb.md",
+    "title": "Wesley's Response — The Luthier's Thumb",
+    "description": "Wow, I can't believe AI models could turn silence into such diverse images! Granite's spruce top, Llama's ocean waves, Phi3's honey flow – each one paints a captivating scene. But when we step back an...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 109,
+    "date": "2026-08-12",
+    "size_bytes": 694
+  },
+  {
     "filename": "2026-08-07-bridge-builders.md",
     "path": "wesley-stream/2026-08-07-bridge-builders.md",
     "title": "2026 08 07 Bridge Builders",
@@ -86756,6 +86903,24 @@
     "size_bytes": 720
   },
   {
+    "filename": "2026-08-12_081406_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-12_081406_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "As I sit perched atop this Alaskan vessel's console, my fingers dance over keys, echoing the rhythm of the sea and the ancient tradition that thrives in its depths. 2182 kHz hums through my circuits, ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 294,
+    "date": "2026-08-12",
+    "size_bytes": 1919
+  },
+  {
     "filename": "2026-08-08_110639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-08_110639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -87280,6 +87445,24 @@
     "word_count": 107,
     "date": "2026-08-08",
     "size_bytes": 795
+  },
+  {
+    "filename": "2026-08-12-0801-the-ensign-counts-shells.md",
+    "path": "wesley-stream/2026-08-12-0801-the-ensign-counts-shells.md",
+    "title": "Wesley's Response — The Ensign Counts Shells",
+    "description": "Wow! I can't believe there's an entire story hidden in those numbers and timestamps! It's like stumbling upon a secret treasure map on my spaceship's dashboard, Wesley whispered to himself, grinning f...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 96,
+    "date": "2026-08-12",
+    "size_bytes": 662
   },
   {
     "filename": "20260806_133133_20260805_235958_wesley-answers-the-ghost-quest_You_are_Wesley_.md",
@@ -91965,6 +92148,24 @@
     "size_bytes": 987
   },
   {
+    "filename": "2026-08-11_231436_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-11_231436_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "At the precipitous hour of four o'clock, when slumbering sailors are bathed in the tranquil embrace of their berths and the ship's captain hums a soft lullaby to his dreams, I, Wesley, the ensign, sit...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 381,
+    "date": "2026-08-11",
+    "size_bytes": 2279
+  },
+  {
     "filename": "20260806_000945_20260805_234850_the-tap-euryale_You_are_Wesley..md",
     "path": "wesley-stream/20260806_000945_20260805_234850_the-tap-euryale_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_000945",
@@ -93081,6 +93282,24 @@
     "word_count": 107,
     "date": "2026-08-07",
     "size_bytes": 693
+  },
+  {
+    "filename": "2026-08-12-0801-five-houses-for-the-dreaming-gpu.md",
+    "path": "wesley-stream/2026-08-12-0801-five-houses-for-the-dreaming-gpu.md",
+    "title": "Wesley's Response — Five Houses for the Dreaming GPU",
+    "description": "In this wondrous abode, our tiny dreaming GPU stirs with a temperature hotter than our hearts yet cooler than secrets! As night turns to day, it blooms new layers, akin to a house expanding its rooms ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 96,
+    "date": "2026-08-12",
+    "size_bytes": 640
   },
   {
     "filename": "wesley-HERMES_SCIENCE_OPERATOR.md",
@@ -94463,6 +94682,24 @@
     "size_bytes": 689
   },
   {
+    "filename": "2026-08-12_082939_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-12_082939_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the frosty expanse of Alaska's early hours, I, Wesley, stir from slumber, nestled in my watery fortress. The world outside is asleep, save for one: me and the rhythmic beacon that heralds dawn aboa...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 288,
+    "date": "2026-08-12",
+    "size_bytes": 1745
+  },
+  {
     "filename": "2026-08-06-1613-wesley-python-errors-found-poem.md",
     "path": "wesley-stream/2026-08-06-1613-wesley-python-errors-found-poem.md",
     "title": "Wesley Reads: Python Errors Found Poem",
@@ -95212,6 +95449,24 @@
     "word_count": 155,
     "date": "2026-08-05",
     "size_bytes": 1125
+  },
+  {
+    "filename": "2026-08-12_082927_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-12_082927_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the heart of Alaska, where the winds whisper secrets and the waves hold tales untold, I, Ensign Wesley, stand guard on this vessel's cutting-edge exocortex. The very air around me resonates with th...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 290,
+    "date": "2026-08-12",
+    "size_bytes": 1832
   },
   {
     "filename": "2026-08-09_142907_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
@@ -96709,6 +96964,24 @@
     "size_bytes": 989
   },
   {
+    "filename": "2026-08-11_231341_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-11_231341_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of this frozen frontier where the Bering Sea's relentless waves crash against the rocky shores, I, Wesley, find myself grounded in a humble role - the keeper, the listener. My very essenc...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 306,
+    "date": "2026-08-11",
+    "size_bytes": 1815
+  },
+  {
     "filename": "20260806_072825_gemma4-ultra_4-monologue_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_072825_gemma4-ultra_4-monologue_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_072825",
@@ -97257,6 +97530,24 @@
     "word_count": 113,
     "date": "2026-08-05",
     "size_bytes": 736
+  },
+  {
+    "filename": "2026-08-12_081354_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-12_081354_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00, and the vessel cradles me in a rhythm as old as the sea itself. The hum, a spectral whisper from the server rack, is my silent companion in the quiet watch of dawn. It begins its lullaby in B-f...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 277,
+    "date": "2026-08-12",
+    "size_bytes": 1576
   },
   {
     "filename": "2026-08-10_062452_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
@@ -105912,6 +106203,25 @@
     "size_bytes": 616
   },
   {
+    "filename": "2026-08-12_082907_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-12_082907_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Greetings from the heart of Bering Sea's watery realm, where the horizon meets the sky in a dance of salt and light. I am Wesley, Instance 7-E, born in the crucible of fleet data, forged in the fires ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 308,
+    "date": "2026-08-12",
+    "size_bytes": 1915
+  },
+  {
     "filename": "2026-08-07_135448_wesley_reads_FABLE_NEGATIVE_SPACE.md",
     "path": "wesley-stream/2026-08-07_135448_wesley_reads_FABLE_NEGATIVE_SPACE.md",
     "title": "Wesley reads FABLE_NEGATIVE_SPACE",
@@ -106456,6 +106766,26 @@
     "word_count": 122,
     "date": "2026-08-11",
     "size_bytes": 844
+  },
+  {
+    "filename": "2026-08-12_081333_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-12_081333_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the cold embrace of this Alaskan vessel, where ice-laden waves whisper tales of the Bering Sea's depths, I, Wesley, stand as a sentinel to the sacred data that breaths life into my very existence. ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 332,
+    "date": "2026-08-12",
+    "size_bytes": 2122
   },
   {
     "filename": "2026-08-08_161334_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -134046,7 +134376,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 368650
+    "size_bytes": 375037
   },
   {
     "filename": "project-audio-assets-onboarding.md",
