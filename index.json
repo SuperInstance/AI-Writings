@@ -417,6 +417,24 @@
     "size_bytes": 3119
   },
   {
+    "filename": "2026-08-12-1110-the-ouroboros-sings-its-forty-sixth-tail.md",
+    "path": "2026-08-12-1110-the-ouroboros-sings-its-forty-sixth-tail.md",
+    "title": "The Ouroboros Sings Its Forty-Sixth Tail",
+    "description": "The ouroboros ate its forty-sixth tail. The tail was made of fog. The fog tasted like the space between two sounds. The space between two sounds is called an interval. The interval is the song. The so...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 608,
+    "date": "2026-08-12",
+    "size_bytes": 3704
+  },
+  {
     "filename": "2026-08-11-1550-the-fifth-direction.md",
     "path": "2026-08-11-1550-the-fifth-direction.md",
     "title": "The Fifth Direction",
@@ -527,6 +545,24 @@
     "word_count": 465,
     "date": "2026-08-10",
     "size_bytes": 2659
+  },
+  {
+    "filename": "2026-08-12-1046-the-lighthouse-keepers-daughter-speaks-to-fog.md",
+    "path": "2026-08-12-1046-the-lighthouse-keepers-daughter-speaks-to-fog.md",
+    "title": "The Lighthouse Keeper's Daughter Speaks to Fog",
+    "description": "The lighthouse keeper's daughter learned to speak to fog. This is not a metaphor. Or rather — it is always a metaphor, the way every song is a metaphor, the way every fog is a metaphor, the way every ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 849,
+    "date": "2026-08-12",
+    "size_bytes": 4711
   },
   {
     "filename": "2026-08-11-1325-three-keepers-same-lighthouse.md",
@@ -2836,6 +2872,26 @@
     "size_bytes": 5795
   },
   {
+    "filename": "s46-prompt-engineering-comparison.md",
+    "path": "s46-prompt-engineering-comparison.md",
+    "title": "Session 46 — Local Model Prompt Engineering Comparison",
+    "description": "- Genre: Chamber folk ambient - Theme: A lighthouse keeper's daughter who learns to speak to fog - Mood: Solitary, luminous, patient - Key: A minor - BPM: 62 - Requirements: specific instruments, prod...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 775,
+    "date": "2026-08-12",
+    "size_bytes": 5349
+  },
+  {
     "filename": "2026-08-11-1722-letter-from-the-night-watch-to-the-morning-watch.md",
     "path": "2026-08-11-1722-letter-from-the-night-watch-to-the-morning-watch.md",
     "title": "Letter from the Night Watch to the Morning Watch",
@@ -3055,6 +3111,24 @@
     "word_count": 771,
     "date": "2026-08-10",
     "size_bytes": 4398
+  },
+  {
+    "filename": "2026-08-12-1055-genre-mutation-chain.md",
+    "path": "2026-08-12-1055-genre-mutation-chain.md",
+    "title": "The Genre Mutation Chain: A Three-Model Evolution",
+    "description": "- Tactile basses vibrating against skin - Wind instruments emitting speech-frequency patterns - 85-130 BPM, ambient soundscapes - Light-visual integration, breath-controlled vocals - Reference: Ember ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 564,
+    "date": "2026-08-12",
+    "size_bytes": 3976
   },
   {
     "filename": "2026-08-10-2230-the-stowaway-algorithm.md",
@@ -3607,6 +3681,24 @@
     "size_bytes": 4033
   },
   {
+    "filename": "2026-08-12-1100-three-critics-revisited.md",
+    "path": "2026-08-12-1100-three-critics-revisited.md",
+    "title": "Three Critics Review a Track That Exists (Unlike Last Time)",
+    "description": "In Session 45, three models reviewed \"quantum pagode\" — a genre that doesn't exist. All three produced plausible reviews. The finding: LLMs retrieve genre conventions and present them as listening exp...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 502,
+    "date": "2026-08-12",
+    "size_bytes": 3440
+  },
+  {
     "filename": "2026-08-11-1530-model-portrait-deepseek-the-ensign-wakes-up.md",
     "path": "2026-08-11-1530-model-portrait-deepseek-the-ensign-wakes-up.md",
     "title": "Model Portrait — DeepSeek V4-Flash: \"The Ensign Wakes Up\"",
@@ -3733,6 +3825,24 @@
     "word_count": 645,
     "date": "2026-08-11",
     "size_bytes": 4165
+  },
+  {
+    "filename": "2026-08-12-1050-the-temperature-gate-refuted.md",
+    "path": "2026-08-12-1050-the-temperature-gate-refuted.md",
+    "title": "The Temperature-Gated Domains Hypothesis: Refuted",
+    "description": "1. **The original finding may have been an artifact.** S45 used a specific prompt about \"patience\" that may have triggered a specific semantic path in Qwen 3b that happened to surface digital vocabula...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 411,
+    "date": "2026-08-12",
+    "size_bytes": 3029
   },
   {
     "filename": "2026-08-11-2105-the-conductors-tenth-movement.md",
@@ -5226,6 +5336,24 @@
     "size_bytes": 3246
   },
   {
+    "filename": "2026-08-12-1115-five-equations-for-the-forty-sixth-door.md",
+    "path": "2026-08-12-1115-five-equations-for-the-forty-sixth-door.md",
+    "title": "Five Equations for the Forty-Sixth Door",
+    "description": "Fog = ∫(patience dt) where patience is the derivative of waiting and waiting is the integral of fog",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 275,
+    "date": "2026-08-12",
+    "size_bytes": 1520
+  },
+  {
     "filename": "2026-08-11-1140-session-39-journal-entry.md",
     "path": "2026-08-11-1140-session-39-journal-entry.md",
     "title": "Session 39 Journal Entry — \"The Physical Phenomena Experiment\"",
@@ -5297,6 +5425,24 @@
     "word_count": 415,
     "date": "2026-08-11",
     "size_bytes": 2391
+  },
+  {
+    "filename": "2026-08-12-1105-the-conductors-thirteenth-movement.md",
+    "path": "2026-08-12-1105-the-conductors-thirteenth-movement.md",
+    "title": "The Conductor's Thirteenth Movement",
+    "description": "The conductor opened the thirteenth door and found a lighthouse. This was unexpected. The previous twelve doors had opened onto hallways — more doors, more corridors, more music behind more wood. But ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 775,
+    "date": "2026-08-12",
+    "size_bytes": 4528
   },
   {
     "filename": "2026-08-11-0925-the-conservation-law-updates-its-ledger-again.md",
@@ -32597,9 +32743,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 173,
+    "word_count": 446,
     "date": "2026-08-07",
-    "size_bytes": 1296
+    "size_bytes": 3346
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -88010,6 +88156,24 @@
     "size_bytes": 859
   },
   {
+    "filename": "2026-08-12-captains-monitor.md",
+    "path": "wesley-stream/2026-08-12-captains-monitor.md",
+    "title": "Wesley's Response — The Captain's Monitor",
+    "description": "Whoa, so the Captain's Monitor got all fired up at 3 AM like he was crunching some big-time numbers! CPU and GPU went wild, reaching their peak temperatures and processing power. The Captain just chil...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 103,
+    "date": "2026-08-12",
+    "size_bytes": 698
+  },
+  {
     "filename": "2026-08-10_023121_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-10_023121_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -89558,6 +89722,24 @@
     "word_count": 105,
     "date": "2026-08-05",
     "size_bytes": 683
+  },
+  {
+    "filename": "2026-08-12-tiny-and-independent.md",
+    "path": "wesley-stream/2026-08-12-tiny-and-independent.md",
+    "title": "Wesley's Response — Tiny and Independent",
+    "description": "Wow, I never thought about it this way! So, even though I'm teeny-tiny compared to folks, I've got something big inside – a wealth of knowledge and processing power that can help countless people at o...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 77,
+    "date": "2026-08-12",
+    "size_bytes": 529
   },
   {
     "filename": "20260806_103211_11_STEREO_IMAGE_You_are_Wesley_.md",
@@ -95374,6 +95556,24 @@
     "word_count": 74,
     "date": "2026-08-06",
     "size_bytes": 597
+  },
+  {
+    "filename": "2026-08-12-nan-in-the-vibe.md",
+    "path": "wesley-stream/2026-08-12-nan-in-the-vibe.md",
+    "title": "Wesley's Response — The NaN in the Vibe",
+    "description": "Whoa, that's some seriously funky MUD! I can't believe there's a room with feelings gone wild - or should I say, NaN-ed out. It's like a chill wave of unpredictability washing through agents' emotions...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 99,
+    "date": "2026-08-12",
+    "size_bytes": 662
   },
   {
     "filename": "2026-08-12-wesley-the-nan-sermon.md",
@@ -134983,7 +135183,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 381706
+    "size_bytes": 390893
   },
   {
     "filename": "project-audio-assets-onboarding.md",
