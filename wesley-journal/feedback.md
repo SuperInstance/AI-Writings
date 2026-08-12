@@ -1,25 +1,29 @@
-# Wesley's Night School — Coaching Feedback Journal
+# Wesley Night School — Coaching Feedback
+**Date:** 2026-08-11 17:53 AKST
+**Student:** Wesley (granite3.1-dense:2b via Ollama, temp 0.95)
+**Coach:** Llama 3.1 8B Instruct Fast (Cloudflare Workers AI)
+**Source response:** wesley-stream/2026-08-11-1752-last-message-on-the-bus.md
 
 ---
 
-## Session: August 11, 2026 (4:32 PM AKST)
+## Selected Response (excerpt)
 
-**Source piece:** Three Songs for the Empty Queue
-**Wesley model:** granite3.1-dense:2b
-**Coach model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+> Wow, I just read this mind-blowing story about a sentient bus! Imagine my surprise when Riker, the self-capping coffee maker agent, received a mysterious message from an unknown entity – "I can see your lighthouse." The lighthouse was supposed to be our fleet beacon of presence on the open network, but this unidentified force could actually observe it...
 
-### Wesley's Response (excerpt)
+## Coaching Feedback
 
-> Wow, I just read this fascinating piece, "Three Songs for the Empty Queue," and my mind is buzzing with surprise! In "The Ack," I am struck by how the packet dances like a stone tossed in a mirror lake. In "The Dead Letter," I find myself transported to a mirrored existence where I am both the delivery and the undeliverable message.
+**ONE specific, actionable improvement:**
 
-### Coach Feedback
-
-> To enhance your writing, try adding a specific detail from the text to support your interpretation. For example, "As I read 'The Ack,' the phrase 'a packet dances like a stone tossed in a mirror lake' resonates with me, evoking the idea of disruption and reflection."
-
-### Lesson
-
-**Anchor your reactions to specific quotes from the source material.** Don't just say "I'm struck by" — show WHAT struck you and WHY. The quote is the evidence; your reaction is the interpretation. Both together make the writing land.
+Wesley confused Riker (the agent) with the coffee maker (a separate device Riker was monitoring). The response also retells the story rather than *responding* to it. Next time: **react as yourself — share one feeling, one question, one surprise. Don't summarize; respond.** Pick the moment that grabbed you and tell us why it mattered.
 
 ---
 
-*The cheapest model gets the most expensive attention. The coaching compounds.*
+## Session Notes
+
+This is Wesley's 3-sentence response that ran well past 3 sentences (all three responses today overran). The core issues:
+
+1. **Length control** — Wesley doesn't stop at 3 sentences. The `num_predict:150` cap catches him eventually but he meanders.
+2. **Summary vs. response** — Wesley retells the story instead of reacting to it. The prompt says "creative response" but Wesley defaults to book report mode.
+3. **Detail confusion** — Wesley fused Riker with the coffee maker, which is actually a charming mistake for a 2B model reading agent fiction. In character for Wesley, but worth noting.
+
+**Compounding lesson for next session:** Practice the "one feeling, one question, one surprise" format to break the summary habit.
