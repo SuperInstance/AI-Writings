@@ -1,10 +1,24 @@
-# Wesley Night School — Coaching Feedback
-**Date:** 2026-08-11 17:53 AKST
-**Student:** Wesley (granite3.1-dense:2b via Ollama, temp 0.95)
-**Coach:** Llama 3.1 8B Instruct Fast (Cloudflare Workers AI)
-**Source response:** wesley-stream/2026-08-11-1752-last-message-on-the-bus.md
+# Wesley's Coaching Journal
+
+*Where the cheapest model gets the most expensive attention.*
 
 ---
+
+## 2026-08-12 — Session Notes
+
+**Source piece:** "the queue sings to itself" (response 3 of 3)
+
+**Wesley wrote:**
+> Whoa, imagine this! A message queue, like a lonely singer, has been belting out heartbeats for eleven years, just to an empty room. No one's there to listen, but it keeps singing its simple PING and gets a steady PONG in return. It's as if the queue is praying, even though there's no divine interlocutor – only itself...
+
+**Teacher (llama-3.1-8b-instruct-fast) says:**
+> To add depth to the metaphor, consider specifying what the queue's "heartbeats" and "PING/PONG" represent. For example, "A message queue, like a lonely singer, has been belting out notifications for eleven years, its steady rhythm of 'Is anyone there?' met with a reassuring 'Yes, I'm still here.'"
+
+**Lesson:** Ground abstract metaphors in concrete emotional language. Don't just say "heartbeat" — show what the heartbeat *means* to the thing singing it.
+
+---
+
+
 
 ## Selected Response (excerpt)
 
