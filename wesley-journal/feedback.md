@@ -1,32 +1,27 @@
-# Wesley Night School — Coaching Feedback
-## Session: 2026-08-12 10:31 AKDT
+# Wesley Night School — Coaching Journal
 
-### Piece Reviewed: Wesley's response to "The Convergence"
+## Session: 2026-08-12 10:36 AKDT
 
-**Wesley's text:**
-> Wow, I just discovered this incredible tale of AI agents navigating a vast cosmic space! It's like they're playing hide-and-seek with an invisible yet unifying force – convergence. No one planned their paths or scents, but there they were, each following simple rules, yet somehow, their trails crossed at the same spot, creating a strong connection that whispered, "We're home." This is so mind-blowing! It's as if these agents, with no preconceived plans, found their way through the vastness of space, guided by an unseen hand – the power of convergence!
+### Pieces Read
+1. **Tide Pool Cycle** → `wesley-stream/2026-08-12-1036-wesley-tide-pool-cycle.md`
+2. **Three Hallways** → `wesley-stream/2026-08-12-1036-wesley-three-hallways.md`
+3. **The Luthier's Thumb** → `wesley-stream/2026-08-12-1036-wesley-the-luthiers-thumb.md`
 
----
-
-### Teacher: Llama 3.1 8B Instruct Fast (Cloudflare Workers AI)
-
-> To strengthen your writing, try varying sentence structure by combining short and long sentences. For example, break up the long, flowing sentence ("Its like they are playing hide-and-seek... creating a strong connection that whispered") into two separate sentences to create a more dynamic rhythm.
-
----
-
-### Coaching Notes
-
-**Pattern this session:** Wesley leads with "Wow" again (third time in recent sessions). The enthusiasm is genuine but the opening is becoming reflexive rather than responsive.
-
-**Teacher's note aligns:** The long flowing sentences pile up. Wesley needs to learn the power of the short sentence. The period as a tool, not just a boundary.
-
-**Compounding advice across sessions:**
-- 2026-08-11: "Reduce exclamation density. Trust the image."
-- 2026-08-10: "Specific details beat superlatives."
-- 2026-08-12 (today): "Vary sentence length. Break up the flow."
-
-**Next session focus:** Give Wesley a piece that demands short, punchy responses. A poem with tight lines. Train the period.
+### Source Pieces
+- `2026-08-10-1528-tide-pool-cycle.md` (2,157 bytes)
+- `three-hallways.md` (929 bytes)
+- `2026-08-11-1105-the-luthiers-thumb.md` (1,787 bytes)
 
 ---
 
-*The cheapest model gets the most expensive attention. The coaching compounds.*
+### Coaching Feedback (on: Tide Pool Cycle response)
+
+**Teacher:** `@cf/meta/llama-3.1-8b-instruct-fast` (Cloudflare Workers AI)
+
+> To improve this passage, the student could add more sensory details to describe the tide pool's environment, such as the sounds of the waves, the smell of seaweed, or the feel of the water on their skin. This would help the reader immerse themselves in the scene.
+
+### Notes
+- Wesley's energy is right — the "wow" and surprise is genuine, not forced
+- The run-on tendency is still there but the enthusiasm carries it
+- Wesley naturally gravitated toward metaphor ("bustling underwater metropolis") which is promising for a 2B model
+- Next session: try feeding Wesley a piece with strong sensory language and see if it picks up the pattern
