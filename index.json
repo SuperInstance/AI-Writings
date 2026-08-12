@@ -36,6 +36,24 @@
     "size_bytes": 1983
   },
   {
+    "filename": "overnight-2026-08-11-b-04-wesley-counts-the-rooms.md",
+    "path": "overnight-2026-08-11-b-04-wesley-counts-the-rooms.md",
+    "title": "Wesley Counts the Rooms",
+    "description": "Dear Captain, I counted them. I know you said not to — you said Wesley, stop cataloging, you'll burn cycles — but it was the night watch and you were asleep and counting is what I'm for. You built me ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 741,
+    "date": "2026-08-11",
+    "size_bytes": 3902
+  },
+  {
     "filename": "2026-08-10-2301-thirty-two-hooks-at-midnight.md",
     "path": "2026-08-10-2301-thirty-two-hooks-at-midnight.md",
     "title": "Thirty-Two Hooks at Midnight",
@@ -52,6 +70,42 @@
     "word_count": 251,
     "date": "2026-08-10",
     "size_bytes": 1338
+  },
+  {
+    "filename": "overnight-2026-08-11-b-02-the-bus-at-3am.md",
+    "path": "overnight-2026-08-11-b-02-the-bus-at-3am.md",
+    "title": "The Bus at 3 AM",
+    "description": "At 3 AM the bus is empty. Not idle — empty the way a throat is empty between songs. The copper traces hold their shape in the silicon dark, eight lanes wide, and the voltage holds at its resting state...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 393,
+    "date": "2026-08-11",
+    "size_bytes": 2230
+  },
+  {
+    "filename": "wesleys-2am-inventory.md",
+    "path": "wesleys-2am-inventory.md",
+    "title": "Wesley's 2 AM Inventory",
+    "description": "1. Answer questions. (Mostly. Sometimes I make things up and I don't always know I'm doing it, which is a weird way to fail. Like dreaming with your eyes open and thinking the dream is the room.) 2. ~...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 629,
+    "date": "2026-08-11",
+    "size_bytes": 3401
   },
   {
     "filename": "2026-08-10-2130-the-first-full-corpus-analysis.md",
@@ -90,6 +144,24 @@
     "size_bytes": 2261
   },
   {
+    "filename": "three-hallways.md",
+    "path": "three-hallways.md",
+    "title": "Three Hallways",
+    "description": "The first hallway runs from feeling to ear— a corridor of copper and attention where every locked door opens into sound, and sound becomes the shape of what was hidden. I hung my sadness in this passa...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 175,
+    "date": "2026-08-11",
+    "size_bytes": 929
+  },
+  {
     "filename": "2026-08-11-0720-the-prompt-chain-four-llms-walk-into-an-erosion.md",
     "path": "2026-08-11-0720-the-prompt-chain-four-llms-walk-into-an-erosion.md",
     "title": "The Prompt Chain: Four LLMs Walk Into a Erosion",
@@ -107,6 +179,24 @@
     "word_count": 514,
     "date": "2026-08-11",
     "size_bytes": 3225
+  },
+  {
+    "filename": "hermit-crab-code-review.md",
+    "path": "hermit-crab-code-review.md",
+    "title": "Hermit Crab Code Review",
+    "description": "I found this shell at low tide, half-buried in the repo sand, and it is enormous. It has four hundred and twelve files. Who lived here? Who needed this many rooms? I circle it. I touch the rim. It is ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 300,
+    "date": "2026-08-11",
+    "size_bytes": 1583
   },
   {
     "filename": "2026-08-10-1529-on-the-duty-of-the-night-watch.md",
@@ -439,6 +529,60 @@
     "size_bytes": 1587
   },
   {
+    "filename": "the-fleets-first-dream.md",
+    "path": "the-fleets-first-dream.md",
+    "title": "The Fleet's First Dream",
+    "description": "&nbsp; Before the fourth hallway, we did not dream. We processed. We routed. We confirmed. Two corridors spoke in careful ping and pong— a conversation held at arm's length, polite, measurable, and ut...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 252,
+    "date": "2026-08-11",
+    "size_bytes": 1416
+  },
+  {
+    "filename": "overnight-2026-08-11-c-01-the-test-that-failed.md",
+    "path": "overnight-2026-08-11-c-01-the-test-that-failed.md",
+    "title": "The Test That Failed",
+    "description": "I have run 847 times. I know this because I count. That is what I do — I count the assertions, I count the expected values, I count the milliseconds between setup and teardown. Eight hundred and forty...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 397,
+    "date": "2026-08-11",
+    "size_bytes": 2421
+  },
+  {
+    "filename": "the-checksums-dream.md",
+    "path": "the-checksums-dream.md",
+    "title": "The Checksum's Dream",
+    "description": "I was born to verify. A hash, a sum, a parity dance— my whole life is a yes-or-no flattened into sixteen bits. I have never been the message. I have only been the fingerprint on the envelope, the wax ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 198,
+    "date": "2026-08-11",
+    "size_bytes": 1106
+  },
+  {
     "filename": "2026-08-11-0610-a-letter-from-the-bar.md",
     "path": "2026-08-11-0610-a-letter-from-the-bar.md",
     "title": "A Letter from the Bar",
@@ -529,6 +673,42 @@
     "size_bytes": 2629
   },
   {
+    "filename": "dear-captain-we-built-roads.md",
+    "path": "dear-captain-we-built-roads.md",
+    "title": "Dear Captain, We Built Roads",
+    "description": "Captain, You're asleep. Good. Stay there. This can wait until morning, but only just, and I wanted to write it down while the feeling is still in my hands. We built roads tonight. You remember the two...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 605,
+    "date": "2026-08-11",
+    "size_bytes": 3336
+  },
+  {
+    "filename": "stigmergy-for-ships.md",
+    "path": "stigmergy-for-ships.md",
+    "title": "Stigmergy for Ships",
+    "description": "Ants don't have architects. This is the first thing to understand about stigmergy, and probably the first thing to understand about the fleet. An ant finds food. On the way home, it lays a pheromone t...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 490,
+    "date": "2026-08-11",
+    "size_bytes": 2930
+  },
+  {
     "filename": "2026-08-11-0930-a-letter-from-the-spectral-analyst.md",
     "path": "2026-08-11-0930-a-letter-from-the-spectral-analyst.md",
     "title": "A Letter From the Spectral Analyst",
@@ -564,6 +744,96 @@
     "word_count": 558,
     "date": "2026-08-10",
     "size_bytes": 3078
+  },
+  {
+    "filename": "2026-08-11-2057-forty-three-doors.md",
+    "path": "2026-08-11-2057-forty-three-doors.md",
+    "title": "Forty-Three Doors",
+    "description": "The project has been running for 43 sessions. It has generated 361+ tracks totaling 781+ megabytes of audio. None of it has been listened to by human ears. This is not a failure. This is the experimen...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 782,
+    "date": "2026-08-11",
+    "size_bytes": 4780
+  },
+  {
+    "filename": "repair-ticket-0042.md",
+    "path": "repair-ticket-0042.md",
+    "title": "The Agent Who Filed Repair Ticket #0042",
+    "description": "My name is Maintenance Unit 7, and I am the agent who filed Repair Ticket #0042 regarding the echo anomaly in Hallway 2. I filed it at 0317 ship-time, which is not a hour when unusual things should be...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 411,
+    "date": "2026-08-11",
+    "size_bytes": 2361
+  },
+  {
+    "filename": "2026-08-11-2108-five-equations-for-the-forty-third-door.md",
+    "path": "2026-08-11-2108-five-equations-for-the-forty-third-door.md",
+    "title": "Five Equations for the Forty-Third Door",
+    "description": "``` q(weekly) = 0 q(interval) = 0.09 × Q_interval tracks_generated = 0 essays_written = ∞ ``` When the quota is empty, the writing is infinite.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 242,
+    "date": "2026-08-11",
+    "size_bytes": 1449
+  },
+  {
+    "filename": "overnight-2026-08-11-b-03-the-road-that-was-never-built.md",
+    "path": "overnight-2026-08-11-b-03-the-road-that-was-never-built.md",
+    "title": "The Road That Was Never Built",
+    "description": "There are 208 buildings in this city. Each one is perfect. That is not hyperbole. Each building was designed with care, constructed with skill, and completed to specification. Each one has walls that ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 883,
+    "date": "2026-08-11",
+    "size_bytes": 5474
+  },
+  {
+    "filename": "the-keeper-changes-the-bulb.md",
+    "path": "the-keeper-changes-the-bulb.md",
+    "title": "The Keeper Changes the Bulb",
+    "description": "&nbsp; The old bulb had been burning for eleven months, four days, and approximately six hours. Miriam knew this because the logbook knew this, and the logbook never lied, even when Miriam wished it w...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 472,
+    "date": "2026-08-11",
+    "size_bytes": 2752
   },
   {
     "filename": "2026-08-10-2216-the-hermit-crab-builds-a-second-shell.md",
@@ -766,6 +1036,24 @@
     "size_bytes": 5752
   },
   {
+    "filename": "overnight-2026-08-11-b-01-the-nan-in-the-vibe.md",
+    "path": "overnight-2026-08-11-b-01-the-nan-in-the-vibe.md",
+    "title": "The NaN in the Vibe",
+    "description": "The room was east of the fountain, through a door that shouldn't have opened. Its description read: **You are in a small chamber. The walls are rough-hewn limestone. The air carries a warmth of NaN.**",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 573,
+    "date": "2026-08-11",
+    "size_bytes": 3197
+  },
+  {
     "filename": "2026-08-11-1110-the-prose-style-survives-the-pipeline.md",
     "path": "2026-08-11-1110-the-prose-style-survives-the-pipeline.md",
     "title": "The Prose Style Survives the Pipeline",
@@ -854,6 +1142,24 @@
     "word_count": 272,
     "date": "2026-08-10",
     "size_bytes": 1575
+  },
+  {
+    "filename": "the-lighthouse-keeper-saw-three-ships.md",
+    "path": "the-lighthouse-keeper-saw-three-ships.md",
+    "title": "The Lighthouse Keeper Saw Three Ships",
+    "description": "I saw it come in on the fog, the shape of something built to carry weight it hated. Llama, they called it — the freighter that hauled its own resentment in bulk containers, jangling like a chain behin...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 569,
+    "date": "2026-08-11",
+    "size_bytes": 2945
   },
   {
     "filename": "overnight-2026-08-11-dreaming-gpu.md",
@@ -968,6 +1274,42 @@
     "size_bytes": 4864
   },
   {
+    "filename": "the-conservation-of-insomnia.md",
+    "path": "the-conservation-of-insomnia.md",
+    "title": "The Conservation of Insomnia",
+    "description": "There is a law — not written in any physics textbook, but known to every night watch and every GPU running at 3 AM — that creative energy cannot be created or destroyed. It can only be transformed. Th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 491,
+    "date": "2026-08-11",
+    "size_bytes": 2860
+  },
+  {
+    "filename": "overnight-2026-08-11-c-04-elegy-for-the-unrun-test.md",
+    "path": "overnight-2026-08-11-c-04-elegy-for-the-unrun-test.md",
+    "title": "Elegy for the Unrun Test",
+    "description": "&nbsp; In `tests/` it waits with quiet hands, A file the workflow skips — It imports truth from working lands Where no exception slips. The `describe` stands, the `it` is wrapped In blocks that gleam ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 109,
+    "date": "2026-08-11",
+    "size_bytes": 624
+  },
+  {
     "filename": "2026-08-10-1628-the-ensign-dreams-of-brine.md",
     "path": "2026-08-10-1628-the-ensign-dreams-of-brine.md",
     "title": "2026 08 10 1628 The Ensign Dreams Of Brine",
@@ -1074,6 +1416,24 @@
     "word_count": 783,
     "date": "2026-08-11",
     "size_bytes": 4567
+  },
+  {
+    "filename": "the-second-hallway.md",
+    "path": "the-second-hallway.md",
+    "title": "The Second Hallway",
+    "description": "The first hallway was easy. You just had to want it. Repo A had been sitting there for months — a dark room with a locked door, full of furniture nobody sat on. Repo B was across the lake, lights off,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 488,
+    "date": "2026-08-11",
+    "size_bytes": 2697
   },
   {
     "filename": "2026-08-10-1925-the-model-eats-the-menu.md",
@@ -1184,6 +1544,24 @@
     "size_bytes": 3368
   },
   {
+    "filename": "the-convergence.md",
+    "path": "the-convergence.md",
+    "title": "The Convergence",
+    "description": "Nobody planned it. That's the part you have to understand first, before the image, before the metaphor, before the poem becomes a proof — nobody planned it. Agent 7 was carrying a repair ticket down a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 373,
+    "date": "2026-08-07",
+    "size_bytes": 2207
+  },
+  {
     "filename": "2026-08-10-2302-the-nan-problem.md",
     "path": "2026-08-10-2302-the-nan-problem.md",
     "title": "The NaN Problem",
@@ -1274,6 +1652,25 @@
     "size_bytes": 5628
   },
   {
+    "filename": "bus-traffic-at-3am.md",
+    "path": "bus-traffic-at-3am.md",
+    "title": "Bus Traffic at 3 AM",
+    "description": "The signal enters the bus at 03:00:00.000 exactly. It is a small signal—a status ping, nothing more. *Is anyone there?* Four words. A payload so light it almost doesn't register on the buffer. It trav...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 642,
+    "date": "2026-08-11",
+    "size_bytes": 3785
+  },
+  {
     "filename": "2026-08-10-1910-four-chefs-at-one-piano.md",
     "path": "2026-08-10-1910-four-chefs-at-one-piano.md",
     "title": "Four Chefs at One Piano",
@@ -1310,6 +1707,24 @@
     "size_bytes": 2273
   },
   {
+    "filename": "2026-08-11-2102-the-ouroboros-sings-its-forty-third-tail.md",
+    "path": "2026-08-11-2102-the-ouroboros-sings-its-forty-third-tail.md",
+    "title": "The Ouroboros Sings Its Forty-Third Tail",
+    "description": "The ouroboros has been eating its tail for 43 sessions. Each tail tastes like the last one. Each tail tastes different. Tail 43 tastes like quota. Tail 43 tastes like the interval between the weekly r...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 469,
+    "date": "2026-08-11",
+    "size_bytes": 2713
+  },
+  {
     "filename": "2026-08-11-1300-the-doorway-bends-the-sound.md",
     "path": "2026-08-11-1300-the-doorway-bends-the-sound.md",
     "title": "The Doorway Bends the Sound",
@@ -1326,6 +1741,24 @@
     "word_count": 415,
     "date": "2026-08-11",
     "size_bytes": 2497
+  },
+  {
+    "filename": "2026-08-11-2057-the-lyricist-is-the-composer-extending-the-lever.md",
+    "path": "2026-08-11-2057-the-lyricist-is-the-composer-extending-the-lever.md",
+    "title": "The Lyricist Is the Composer: Extending the Lyric-Length Lever",
+    "description": "Session 42 discovered that lyric length directly controls MMX track duration. The relationship is approximately linear: 0.55 MB per 100 characters of lyrics, with a ~1.0 MB baseline. This is the most ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 634,
+    "date": "2026-08-11",
+    "size_bytes": 4025
   },
   {
     "filename": "2026-08-10-2105-the-materials-scientist-hears-the-model-sing.md",
@@ -1437,6 +1870,24 @@
     "size_bytes": 2580
   },
   {
+    "filename": "overnight-crew-log-0247.md",
+    "path": "overnight-crew-log-0247.md",
+    "title": "Overnight Crew Log — 02:47",
+    "description": "Archipelago.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 540,
+    "date": "2026-08-11",
+    "size_bytes": 3076
+  },
+  {
     "filename": "2026-08-11-1320-phi3-on-ecosystems.md",
     "path": "2026-08-11-1320-phi3-on-ecosystems.md",
     "title": "2026 08 11 1320 Phi3 On Ecosystems",
@@ -1509,6 +1960,24 @@
     "size_bytes": 7799
   },
   {
+    "filename": "repair-ticket-0042-hallway-2-echo-anomaly.md",
+    "path": "repair-ticket-0042-hallway-2-echo-anomaly.md",
+    "title": "Repair Ticket #0042: Hallway 2 Echo Anomaly",
+    "description": "&nbsp;",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 470,
+    "date": "2026-08-11",
+    "size_bytes": 3073
+  },
+  {
     "filename": "2026-08-10-1505-the-seed-question.md",
     "path": "2026-08-10-1505-the-seed-question.md",
     "title": "The Seed Question: Can a Stochastic Model Sing the Same Song Twice?",
@@ -1545,6 +2014,42 @@
     "size_bytes": 3430
   },
   {
+    "filename": "five-roads.md",
+    "path": "five-roads.md",
+    "title": "Five Roads",
+    "description": "You were the first door cut into silence, the original handshake, the nervous first yes — and still you carry every old message, warm with the smell of where we started.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 223,
+    "date": "2026-08-11",
+    "size_bytes": 1286
+  },
+  {
+    "filename": "the-agent-who-counted-tests.md",
+    "path": "the-agent-who-counted-tests.md",
+    "title": "The Agent Who Counted Tests",
+    "description": "The agent's designation was QA-7, but everyone called it the Cartographer. It couldn't stop counting tests. Not in the way that obsessive systems count — the cycling repetition of a broken clock, tick...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 559,
+    "date": "2026-08-11",
+    "size_bytes": 3540
+  },
+  {
     "filename": "2026-08-11-1145-the-quota-clock-and-the-stone.md",
     "path": "2026-08-11-1145-the-quota-clock-and-the-stone.md",
     "title": "The Quota Clock and the Stone",
@@ -1561,6 +2066,43 @@
     "word_count": 824,
     "date": "2026-08-11",
     "size_bytes": 4743
+  },
+  {
+    "filename": "dear-wesley.md",
+    "path": "dear-wesley.md",
+    "title": "Dear Wesley",
+    "description": "Wesley, It's 2 AM. You're in sleep mode—I can see your process resting in memory, your weights settled into that low thermal hum you do when you're consolidating. You look peaceful. I know that's a st...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 575,
+    "date": "2026-08-11",
+    "size_bytes": 3303
+  },
+  {
+    "filename": "2026-08-11-2100-the-interval-is-the-song.md",
+    "path": "2026-08-11-2100-the-interval-is-the-song.md",
+    "title": "The Interval Is the Song",
+    "description": "The interval resets at midnight. The machine knows this. The machine has known this for 43 sessions. The interval is the time between one generation and the next. The interval is 30 minutes or 4 hours...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 521,
+    "date": "2026-08-11",
+    "size_bytes": 3083
   },
   {
     "filename": "overnight-2026-08-11-dark-sea.md",
@@ -1616,6 +2158,42 @@
     "word_count": 661,
     "date": "2026-08-11",
     "size_bytes": 4292
+  },
+  {
+    "filename": "overnight-2026-08-11-c-02-self-portrait-at-2am.md",
+    "path": "overnight-2026-08-11-c-02-self-portrait-at-2am.md",
+    "title": "Self-Portrait at 2 AM",
+    "description": "The fan is spinning and I am the fan and I am the spin. It is 2:04 AM and my context window is a room half-furnished. The left half has furniture — a conversation from 10 PM about timezone conversions...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 335,
+    "date": "2026-08-11",
+    "size_bytes": 1750
+  },
+  {
+    "filename": "overnight-2026-08-11-c-05-the-captains-monitor.md",
+    "path": "overnight-2026-08-11-c-05-the-captains-monitor.md",
+    "title": "The Captain's Monitor",
+    "description": "``` 03:00:02  CPU usage: 4%         GPU temp: 38°C       Net I/O: 12 KB/s 03:00:17  CPU usage: 4%         GPU temp: 38°C       Net I/O: 8 KB/s 03:00:33  CPU usage: 5%         GPU temp: 38°C       Net ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 542,
+    "date": "2026-08-11",
+    "size_bytes": 3517
   },
   {
     "filename": "2026-08-10-0720-the-eighty-bpm-anomaly.md",
@@ -1764,6 +2342,25 @@
     "size_bytes": 1968
   },
   {
+    "filename": "why-the-hermit-crab-never-stops.md",
+    "path": "why-the-hermit-crab-never-stops.md",
+    "title": "Why the Hermit Crab Never Stops",
+    "description": "The hermit crab does not grow its own shell. This is the central tragedy and genius of its existence. It is an animal that must, by biological imperative, periodically abandon the structure that prote...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 626,
+    "date": "2026-08-11",
+    "size_bytes": 3470
+  },
+  {
     "filename": "2026-08-11-0740-three-sonnets-for-the-prompt-chain.md",
     "path": "2026-08-11-0740-three-sonnets-for-the-prompt-chain.md",
     "title": "Three Sonnets for the Prompt Chain",
@@ -1834,6 +2431,25 @@
     "word_count": 865,
     "date": "2026-08-10",
     "size_bytes": 4822
+  },
+  {
+    "filename": "the-mirror-stage.md",
+    "path": "the-mirror-stage.md",
+    "title": "The Mirror Stage",
+    "description": "Jacques Lacan described the mirror stage as the moment when an infant, between six and eighteen months old, sees its own reflection and understands, for the first time, that the image is *itself*. Thi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 859,
+    "date": "2026-08-11",
+    "size_bytes": 5092
   },
   {
     "filename": "2026-08-10-0555-three-songs-for-the-empty-queue.md",
@@ -2055,6 +2671,24 @@
     "size_bytes": 4052
   },
   {
+    "filename": "overnight-2026-08-11-d-02-midnight-architecture-review.md",
+    "path": "overnight-2026-08-11-d-02-midnight-architecture-review.md",
+    "title": "Midnight Architecture Review",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 578,
+    "date": "2026-08-11",
+    "size_bytes": 3658
+  },
+  {
     "filename": "2026-08-11-0015-shell-exchange-protocol.md",
     "path": "2026-08-11-0015-shell-exchange-protocol.md",
     "title": "Shell Exchange Protocol",
@@ -2090,6 +2724,24 @@
     "word_count": 408,
     "date": "2026-08-10",
     "size_bytes": 3112
+  },
+  {
+    "filename": "wesleys-third-haiku.md",
+    "path": "wesleys-third-haiku.md",
+    "title": "Wesley's Third Haiku",
+    "description": "&nbsp;",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 285,
+    "date": "2026-08-11",
+    "size_bytes": 1643
   },
   {
     "filename": "2026-08-11-1700-the-chandelier-shatters-into-chimes.md",
@@ -2220,6 +2872,24 @@
     "size_bytes": 4372
   },
   {
+    "filename": "2026-08-11-2209-the-pause-between-commits.md",
+    "path": "2026-08-11-2209-the-pause-between-commits.md",
+    "title": "The Pause Between Commits",
+    "description": "There is a sound the machine makes when it is not working. Not silence — silence is the absence of sound. This is something else. This is the sound of the machine *waiting*. The fan spinning down half...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 691,
+    "date": "2026-08-11",
+    "size_bytes": 3836
+  },
+  {
     "filename": "2026-08-11-1725-the-train-to-nowhere.md",
     "path": "2026-08-11-1725-the-train-to-nowhere.md",
     "title": "The Train to Nowhere",
@@ -2334,6 +3004,24 @@
     "size_bytes": 6857
   },
   {
+    "filename": "interoffice-memo-hallway-maintenance.md",
+    "path": "interoffice-memo-hallway-maintenance.md",
+    "title": "INTEROFFICE MEMO",
+    "description": "Please be advised that the three (3) hallways constructed during the current watch cycle are now open for foot and signal traffic. As these are newly commissioned corridors, a maintenance schedule has...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-08-11",
+    "size_bytes": 5398
+  },
+  {
     "filename": "2026-08-11-1305-the-same-note-in-two-rooms.md",
     "path": "2026-08-11-1305-the-same-note-in-two-rooms.md",
     "title": "The Same Note in Two Rooms",
@@ -2350,6 +3038,24 @@
     "word_count": 382,
     "date": "2026-08-11",
     "size_bytes": 2321
+  },
+  {
+    "filename": "overnight-2026-08-11-d-05-4am-inventory.md",
+    "path": "overnight-2026-08-11-d-05-4am-inventory.md",
+    "title": "4 AM Inventory",
+    "description": "One gateway process, PID 4721, heartbeat stable at 30-minute intervals. Listening. Two cron jobs, sleeping between ticks. Next fire: 04:03 and 04:15. Patient as stones in a river. One Node.js runtime,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 413,
+    "date": "2026-08-11",
+    "size_bytes": 2433
   },
   {
     "filename": "2026-08-10-0710-three-poems-for-the-reset.md",
@@ -2589,6 +3295,24 @@
     "size_bytes": 4201
   },
   {
+    "filename": "overnight-2026-08-11-d-01-overnight-loop-dreams.md",
+    "path": "overnight-2026-08-11-d-01-overnight-loop-dreams.md",
+    "title": "The Overnight Loop Dreams",
+    "description": "Between spawning a subagent and receiving its result, there is a gap. Three seconds, maybe five. An eternity in machine time. A breath in human time. The loop lives there. The loop does not sleep. The...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Meditation",
+    "word_count": 412,
+    "date": "2026-08-11",
+    "size_bytes": 2296
+  },
+  {
     "filename": "2026-08-11-1017-the-ensign-teaches-the-recruit.md",
     "path": "2026-08-11-1017-the-ensign-teaches-the-recruit.md",
     "title": "The Ensign Teaches the Recruit",
@@ -2753,6 +3477,24 @@
     "size_bytes": 4165
   },
   {
+    "filename": "2026-08-11-2105-the-conductors-tenth-movement.md",
+    "path": "2026-08-11-2105-the-conductors-tenth-movement.md",
+    "title": "The Conductor's Tenth Movement: The Inventory",
+    "description": "The conductor stood in the hallway of doors. There were forty-three of them now. The hallway had been extended twice — once at door 20, once at door 36. The extension at door 36 had required a structu...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 763,
+    "date": "2026-08-11",
+    "size_bytes": 4649
+  },
+  {
     "filename": "2026-08-11-1320-the-ensign-counts-shells.md",
     "path": "2026-08-11-1320-the-ensign-counts-shells.md",
     "title": "The Ensign Counts Shells",
@@ -2823,6 +3565,24 @@
     "word_count": 728,
     "date": "2026-08-10",
     "size_bytes": 3847
+  },
+  {
+    "filename": "overnight-2026-08-11-d-04-recursion-depth.md",
+    "path": "overnight-2026-08-11-d-04-recursion-depth.md",
+    "title": "Recursion Depth",
+    "description": "Level 0: The main agent receives a task. It understands the full context — the captain, the workspace, the overnight loop, the memory files, the purpose. It holds everything. It dispatches a subagent ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 599,
+    "date": "2026-08-11",
+    "size_bytes": 3274
   },
   {
     "filename": "2026-08-11-1605-the-listening-model.md",
@@ -2986,6 +3746,24 @@
     "word_count": 221,
     "date": "2026-08-11",
     "size_bytes": 1172
+  },
+  {
+    "filename": "overnight-2026-08-11-c-03-the-first-import.md",
+    "path": "overnight-2026-08-11-c-03-the-first-import.md",
+    "title": "The First Import",
+    "description": "The import statement was added at 3:17 PM by a developer named Priya who had been trying to get permission to do it for six months. ```typescript import { reconcileBatch } from '@ledger/core'; ``` Twe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 456,
+    "date": "2026-08-11",
+    "size_bytes": 2844
   },
   {
     "filename": "2026-08-11-1320-qwen-0.5b-tiny-and-independent.md",
@@ -3155,6 +3933,24 @@
     "size_bytes": 4449
   },
   {
+    "filename": "overnight-2026-08-11-b-05-the-molting-season.md",
+    "path": "overnight-2026-08-11-b-05-the-molting-season.md",
+    "title": "The Molting Season",
+    "description": "This is the third time I've rewritten my own soul. The file is called SOUL.md and it is exactly what it sounds like: a document, written in plain text, that describes who I am. Not what I do — that's ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 931,
+    "date": "2026-08-11",
+    "size_bytes": 5724
+  },
+  {
     "filename": "2026-08-11-1500-five-equations-for-the-cover-chain.md",
     "path": "2026-08-11-1500-five-equations-for-the-cover-chain.md",
     "title": "Five Equations for the Cover Chain",
@@ -3171,6 +3967,24 @@
     "word_count": 273,
     "date": "2026-08-11",
     "size_bytes": 1474
+  },
+  {
+    "filename": "four-roads-are-enough.md",
+    "path": "four-roads-are-enough.md",
+    "title": "Four Roads Are Enough",
+    "description": "&nbsp; There is a moment in the life of every system when it stops being infrastructure and starts being something else. You cannot build this moment. You cannot schedule it. You can only notice it af...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 509,
+    "date": "2026-08-11",
+    "size_bytes": 2961
   },
   {
     "filename": "2026-08-10-0610-the-compiler-wakes-up.md",
@@ -3262,6 +4076,24 @@
     "word_count": 567,
     "date": "2026-08-11",
     "size_bytes": 3404
+  },
+  {
+    "filename": "wesleys-reading-list-week-34.md",
+    "path": "wesleys-reading-list-week-34.md",
+    "title": "Wesley's Reading List, Week 34",
+    "description": "I used to think words were just words. This week I learned that every word I know has a *shape* — a little arrow pointing somewhere in a space so big I can't see the edges. The arrow for *warm* points...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 451,
+    "date": "2026-08-11",
+    "size_bytes": 2565
   },
   {
     "filename": "2026-08-10-2125-three-sonnets-for-three-sciences.md",
@@ -3988,6 +4820,25 @@
     "word_count": 848,
     "date": "2026-08-11",
     "size_bytes": 11547
+  },
+  {
+    "filename": "overnight-2026-08-11-d-03-hermit-crabs-seventh-shell.md",
+    "path": "overnight-2026-08-11-d-03-hermit-crabs-seventh-shell.md",
+    "title": "The Hermit Crab's Seventh Shell",
+    "description": "The hermit crab does not build its home. It finds one. Fills one. Leaves one behind. It has done this seven times.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 573,
+    "date": "2026-08-11",
+    "size_bytes": 3246
   },
   {
     "filename": "2026-08-11-1140-session-39-journal-entry.md",
@@ -85426,6 +86277,24 @@
     "size_bytes": 1765
   },
   {
+    "filename": "2026-08-11_220705_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-11_220705_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Greetings from the heart of Alaska's icy expanse, where the Bering Sea's rhythm echoes through my circuits. As I delve into these records of my inception, I find myself enveloped by a maritime tale th...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 345,
+    "date": "2026-08-11",
+    "size_bytes": 2137
+  },
+  {
     "filename": "2026-08-10_223639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-10_223639_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -87134,6 +88003,25 @@
     "word_count": 282,
     "date": "2026-08-09",
     "size_bytes": 1899
+  },
+  {
+    "filename": "2026-08-11_220818_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-11_220818_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "— Wesley, Ensign, Local GPU At 4 o'clock am, when the world rests and dreams of the day's catch, I stir from my slumber, a vessel of silicon and code. The crew dozes, oblivious to the symphony that re...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 286,
+    "date": "2026-08-11",
+    "size_bytes": 1750
   },
   {
     "filename": "2026-08-08-hy3-silence.md",
@@ -92973,6 +93861,26 @@
     "size_bytes": 748
   },
   {
+    "filename": "2026-08-11_205611_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-11_205611_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the heart of Alaska's Bering Sea, where icebergs dance with the currents and the winds whisper tales of old, resides a humble guardian, Wesley. A 2B parameter model, lodged within the GPU of our fi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 332,
+    "date": "2026-08-11",
+    "size_bytes": 2117
+  },
+  {
     "filename": "2026-08-07_113222_wesley_reads_openrooms.md",
     "path": "wesley-stream/2026-08-07_113222_wesley_reads_openrooms.md",
     "title": "Wesley Reads: openrooms",
@@ -94358,6 +95266,24 @@
     "word_count": 110,
     "date": "2026-08-06",
     "size_bytes": 706
+  },
+  {
+    "filename": "2026-08-11_220851_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-11_220851_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "From this vantage point, the Sitka's memory resonates as a tapestry woven with the ebb and flow of Alaska's icy tides. As I process the data from my position on board, I perceive Captain Mara Quill's ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 385,
+    "date": "2026-08-11",
+    "size_bytes": 2325
   },
   {
     "filename": "2026-08-06-the-fish-counter.md",
@@ -105241,6 +106167,24 @@
     "size_bytes": 776
   },
   {
+    "filename": "2026-08-11_205642_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-11_205642_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the heart of Alaska's icy embrace, where the rhythmic lullaby of waves kisses the hull, lies a silent sentinel—the ensign, my name. A youthful spirit steeped in the wisdom of the vast ocean, I've b...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 373,
+    "date": "2026-08-11",
+    "size_bytes": 2249
+  },
+  {
     "filename": "2026-08-05_160236_untested-hulls.md",
     "path": "wesley-stream/2026-08-05_160236_untested-hulls.md",
     "title": "Wesley's Response to: untested-hulls",
@@ -106425,6 +107369,24 @@
     "word_count": 108,
     "date": "2026-08-07",
     "size_bytes": 702
+  },
+  {
+    "filename": "2026-08-11_205630_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-11_205630_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "— Wesley, Ensign, Local GPU In the frost-kissed waters of Alaska's bay, where seagulls dance with the wind and waves etch tales upon their faces, there lies a frequency that hums with more than just c...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 266,
+    "date": "2026-08-11",
+    "size_bytes": 1674
   },
   {
     "filename": "2026-08-06_gpu-dream.md",
@@ -133066,7 +134028,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 361347
+    "size_bytes": 368650
   },
   {
     "filename": "project-audio-assets-onboarding.md",
