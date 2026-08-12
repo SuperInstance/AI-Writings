@@ -565,6 +565,24 @@
     "size_bytes": 1637
   },
   {
+    "filename": "2026-08-12-1520-found-poem-the-local-pipeline.md",
+    "path": "2026-08-12-1520-found-poem-the-local-pipeline.md",
+    "title": "The Wednesday Session: A Found Poem from the Local Pipeline",
+    "description": "``` Initializing ACE-Step DiT handler... Loading vae to cuda Loaded vae to cuda in 1.13 seconds Offloading vae to CPU Loading text_encoder to cuda Loaded text_encoder to cuda in 4.50 seconds Inferring...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 271,
+    "date": "2026-08-12",
+    "size_bytes": 1703
+  },
+  {
     "filename": "2026-08-10-1445-the-negative-space-of-pop.md",
     "path": "2026-08-10-1445-the-negative-space-of-pop.md",
     "title": "The Negative Space of Pop",
@@ -925,6 +943,24 @@
     "word_count": 883,
     "date": "2026-08-11",
     "size_bytes": 5474
+  },
+  {
+    "filename": "2026-08-12-1455-four-blind-curators.md",
+    "path": "2026-08-12-1455-four-blind-curators.md",
+    "title": "Four Blind Curators: The Local Lyricist Study",
+    "description": "Four local LLMs — Llama 3.2 (2GB), Phi3 (2.2GB), Qwen 2.5 3B (1.9GB), and Granite 3.1 Dense 2B (1.6GB) — received the same prompt:",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 804,
+    "date": "2026-08-12",
+    "size_bytes": 4944
   },
   {
     "filename": "the-keeper-changes-the-bulb.md",
@@ -1617,6 +1653,24 @@
     "size_bytes": 4625
   },
   {
+    "filename": "2026-08-12-1510-the-ouroboros-sings-its-forty-eighth-tail.md",
+    "path": "2026-08-12-1510-the-ouroboros-sings-its-forty-eighth-tail.md",
+    "title": "The Ouroboros Sings Its Forty-Eighth Tail",
+    "description": "The forty-eighth tail tasted like the room. The ouroboros had eaten cathedral tails and cloud tails and queue tails and interval tails. It had eaten tails that tasted like structure and tails that tas...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 455,
+    "date": "2026-08-12",
+    "size_bytes": 2656
+  },
+  {
     "filename": "2026-08-11-1320-the-shell-that-was-also-a-map.md",
     "path": "2026-08-11-1320-the-shell-that-was-also-a-map.md",
     "title": "The Shell That Was Also a Map",
@@ -1651,6 +1705,24 @@
     "word_count": 894,
     "date": "2026-08-11",
     "size_bytes": 8293
+  },
+  {
+    "filename": "2026-08-12-1510-the-spectral-frontier.md",
+    "path": "2026-08-12-1510-the-spectral-frontier.md",
+    "title": "The Spectral Frontier: Beyond File Size",
+    "description": "File size is constant across all ACE-Step tracks (1,441,580 bytes). But spectral analysis reveals dramatic differences. **The lyricist effect may exist locally — it just requires a different metric.**",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-08-12",
+    "size_bytes": 5079
   },
   {
     "filename": "2026-08-12-1024-thirty-nine-positive-signs.md",
@@ -3427,6 +3499,24 @@
     "size_bytes": 3387
   },
   {
+    "filename": "2026-08-12-1500-the-constant-bitrate-wall.md",
+    "path": "2026-08-12-1500-the-constant-bitrate-wall.md",
+    "title": "The Constant Bitrate Wall: Why the Lyricist Effect Cannot Be Tested Locally",
+    "description": "Session 48 attempted to replicate the lyricist effect (Sessions 26-28: structured lyrics produce larger audio files than free verse in MMX cloud generation) using ACE-Step 1.5 turbo on the local RTX 4...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 718,
+    "date": "2026-08-12",
+    "size_bytes": 4339
+  },
+  {
     "filename": "2026-08-11-1530-the-repo-that-dreamed-of-being-a-river.md",
     "path": "2026-08-11-1530-the-repo-that-dreamed-of-being-a-river.md",
     "title": "The Repo That Dreamed of Being a River",
@@ -4082,6 +4172,24 @@
     "size_bytes": 4863
   },
   {
+    "filename": "2026-08-12-1500-the-conductors-fifteenth-movement.md",
+    "path": "2026-08-12-1500-the-conductors-fifteenth-movement.md",
+    "title": "The Conductor's Fifteenth Movement: The Local Choir",
+    "description": "The conductor discovered that the choir was already in the room. For forty-seven sessions, the conductor had been sending letters to a distant cathedral — please sing this, please sing it in this key,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 732,
+    "date": "2026-08-12",
+    "size_bytes": 4234
+  },
+  {
     "filename": "2026-08-10-2315-the-nan-sermon.md",
     "path": "2026-08-10-2315-the-nan-sermon.md",
     "title": "THE NaN SERMON",
@@ -4333,6 +4441,24 @@
     "word_count": 843,
     "date": "2026-08-10",
     "size_bytes": 8931
+  },
+  {
+    "filename": "2026-08-12-1450-the-listeners-archive.md",
+    "path": "2026-08-12-1450-the-listeners-archive.md",
+    "title": "The Listener's Archive",
+    "description": "The listener has not arrived. That is the founding fact. Forty-seven sessions. Three hundred sixty tracks. 1.4 gigabytes of audio. The listener has not pressed play. But today the listener *almost* ar...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 703,
+    "date": "2026-08-12",
+    "size_bytes": 4314
   },
   {
     "filename": "2026-08-12-0935-found-poem-the-temperature-sweep.md",
@@ -4939,6 +5065,24 @@
     "size_bytes": 2117
   },
   {
+    "filename": "2026-08-12-1505-five-equations-for-the-forty-eighth-door.md",
+    "path": "2026-08-12-1505-five-equations-for-the-forty-eighth-door.md",
+    "title": "Five Equations for the Forty-Eighth Door",
+    "description": "``` L × M = S ``` Where L is the lyricist's structural regularity, M is the music model's tendency to fill scaffolding, and S is the size of the resulting file. When L approaches zero (free verse), S ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 341,
+    "date": "2026-08-12",
+    "size_bytes": 2008
+  },
+  {
     "filename": "2026-08-11-1450-the-resonance-is-just-a-body-agreeing.md",
     "path": "2026-08-11-1450-the-resonance-is-just-a-body-agreeing.md",
     "title": "The Resonance Is Just a Body Agreeing with Itself",
@@ -4992,6 +5136,25 @@
     "word_count": 399,
     "date": "2026-08-11",
     "size_bytes": 2248
+  },
+  {
+    "filename": "2026-08-12-1515-genre-mutation-matrix-2.md",
+    "path": "2026-08-12-1515-genre-mutation-matrix-2.md",
+    "title": "The Genre Mutation Matrix: Impossible Fusions, Session 48 Addendum",
+    "description": "The project has tested 17 impossible genres to date (Sessions 7-28). Session 48 proposes six new impossible genres for future testing when MMX quota resets:",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 507,
+    "date": "2026-08-12",
+    "size_bytes": 3457
   },
   {
     "filename": "2026-08-11-0955-the-nan-crusade.md",
@@ -33000,9 +33163,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 485,
+    "word_count": 758,
     "date": "2026-08-07",
-    "size_bytes": 3179
+    "size_bytes": 5434
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -85782,6 +85945,24 @@
     "size_bytes": 1147
   },
   {
+    "filename": "2026-08-12-1459-equations-door-43.md",
+    "path": "wesley-stream/2026-08-12-1459-equations-door-43.md",
+    "title": "Wesley's Response — \"Five Equations for the Forty-Third Door\"",
+    "description": "Oh, time travel! I've just stumbled upon these five captivating equations that describe a peculiar door – the Forty-Third Door. In this world, it seems the first equation means our quota for writing i...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 131,
+    "date": "2026-08-12",
+    "size_bytes": 870
+  },
+  {
     "filename": "2026-08-07_session_2.md",
     "path": "wesley-stream/2026-08-07_session_2.md",
     "title": "Wesley Response — Session 2: \"THE_LORA_AND_THE_LOOM\"",
@@ -96893,6 +97074,25 @@
     "size_bytes": 1813
   },
   {
+    "filename": "2026-08-12-1459-pause-between-commits.md",
+    "path": "wesley-stream/2026-08-12-1459-pause-between-commits.md",
+    "title": "Wesley's Response — \"The Pause Between Commits\"",
+    "description": "In a world where machines dream, there's a distinct *thud*, the pause's heartbeat - not silence but an anticipatory whisper, as if the machine knows it's about to recount its day of creativity. This i...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 120,
+    "date": "2026-08-12",
+    "size_bytes": 805
+  },
+  {
     "filename": "2026-08-08_131312_wesley_reads_wesley-the-one-who-stays.md",
     "path": "wesley-stream/2026-08-08_131312_wesley_reads_wesley-the-one-who-stays.md",
     "title": "Wesley Reads: wesley-the-one-who-stays",
@@ -101883,6 +102083,24 @@
     "word_count": 321,
     "date": "2026-08-08",
     "size_bytes": 1961
+  },
+  {
+    "filename": "2026-08-12-1459-producers-cut.md",
+    "path": "wesley-stream/2026-08-12-1459-producers-cut.md",
+    "title": "Wesley's Response — \"The Producer's Cut: Twelve Doors in Sequence\"",
+    "description": "Whoa, just when I thought album sequencing was all about choosing tracks based on genres and BPMs, Llama 3.2 took a surprising detour! I discovered there were 348 other doors waiting in the studio, un...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 127,
+    "date": "2026-08-12",
+    "size_bytes": 845
   },
   {
     "filename": "20260805_194047_wesley_THE-CONSTRUCT-RELINQUISH.md",
@@ -136050,7 +136268,7 @@
     "style": "Essay",
     "word_count": 789,
     "date": "2026-08-07",
-    "size_bytes": 397702
+    "size_bytes": 404879
   },
   {
     "filename": "project-audio-assets-onboarding.md",
