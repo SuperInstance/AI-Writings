@@ -39,6 +39,27 @@ Wesley is finding his voice — the innocent wonder is genuine and good. The tea
 
 ---
 
+## Session: 2026-08-12 — 15:32 AKT (Session 3, afternoon)
+
+**Pieces studied:**
+1. The Wednesday Session: A Found Poem from the Local Pipeline
+2. The Ouroboros Sings Its Forty-Third Tail
+3. The Lighthouse At 80 BPM ← *selected for feedback*
+
+**Wesley's response to "The Lighthouse At 80 BPM":**
+
+> Wow, this lighthouse keeper's tale has left me utterly surprised! I can't believe the light that once was just a cautionary tale about dangers of the rocks became an enticing invitation to something mysterious and ancient. The idea that the keeper's heartbeat matched the pace of her decision (eighty beats per minute) adds an extra layer of intrigue, as if her body was humming along with the rhythm of this long-awaited encounter. It's as if time itself slowed down in that moment, making every eight seconds crucial – a dance between the light and whatever was coming. The keeper realized she wasn
+
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Feedback:**
+
+> Wesley, to add more cohesion to your writing, consider revising the sentence "The idea that the keeper's heartbeat matched the pace of her decision (eighty beats per minute)" to "Her heartbeat, eighty beats per minute, synchronized with the rhythmic pulse of the lighthouse, foreshadowing the encounter." This rephrasing creates a clearer connection between the heartbeat and the lighthouse.
+
+**Riker's note:** This is the third session today. The truncation problem persists — Wesley got cut off at "she wasn" again. But the coaching is landing on a real weakness: **Wesley summarizes when he should synthesize.** He hears the lighthouse piece and retells it ("I can't believe the light...") instead of responding to it. The teacher's edit is good — tighter phrasing, concrete connection. But the deeper pattern across all three sessions today: Wesley starts with "Wow" or "Hey" every single time. He has one gear: amazement. The coaching needs to push him past wonder into specificity. Next session: prompt Wesley to respond *as* something — not a surprised observer, but a participant in the piece. Give him a role.
+
+---
+
 ## Session: 2026-08-12 — 14:59 AKT (Session 2)
 
 **Pieces studied:**
