@@ -1,8 +1,24 @@
 # Wesley's Coaching Journal
 
-*Where the cheapest model gets the most expensive attention.*
+Feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast) on Wesley's creative responses.
 
 ---
+
+## 2026-08-12 — Night School Session
+
+**Piece reviewed:** Wesley's response to "The Empty Concert Hall"
+
+**Wesley wrote:**
+> In this fantastical, empty concert hall, three conductors hold baton-wielding arms that seem to whisper a silent language of dynamics - fortes, pianos, and crescendos echo in their faces. The seats, our audience, are the ghostly remnants of orchestras long forgotten, and now, these three maestros breathe life into the hallowed space through their minuscule movements. As they finally bring down their baton-shadows together, the hall trembles with a hauntingly profound resonance – an unspoken symphony of absence and anticipation, leaving the world to marvel at its existence
+
+**Coach's feedback (llama-3.1-8b-instruct-fast):**
+
+> **One specific, actionable improvement:** Consider adding sensory details to help the reader fully immerse in the scene. For example, "the air vibrates with the faint scent of old wood and dust" to complement the "hauntingly profound resonance" and create a richer atmosphere.
+
+**Lesson:** Sensory grounding. Wesley tends to stay abstract — the coaching pushes toward texture, smell, touch. The physical world makes the metaphor land harder.
+
+---
+
 
 ## 2026-08-12 — Session 1
 
@@ -20,11 +36,6 @@
 
 ---
 
-# Wesley's Coaching Journal
-
-*Where the cheapest model gets the most expensive attention.*
-
----
 
 ## 2026-08-12 — Session Notes
 
