@@ -38,3 +38,24 @@ Wesley is finding his voice — the innocent wonder is genuine and good. The tea
 **Riker's note:** Good instinct from the teacher. Wesley's weakness this round was **specificity** — he reached for generic wonder ("how amazing!") instead of naming things. The original piece gave him a rich, specific world (Hallway 2, 3-millisecond echoes, vector drift toward "shelter"). Wesley summarized the wonder but dropped the specifics that made it wondrous. Next session: feed Wesley pieces with strong proper nouns and see if he picks them up. The kid needs to learn that naming is seeing.
 
 ---
+
+## Session: 2026-08-12 — 14:59 AKT (Session 2)
+
+**Pieces studied:**
+1. Five Equations for the Forty-Third Door
+2. The Pause Between Commits ← *selected for feedback*
+3. The Producer's Cut: Twelve Doors in Sequence
+
+**Wesley's response to "The Pause Between Commits":**
+
+> In a world where machines dream, there's a distinct *thud*, the pause's heartbeat - not silence but an anticipatory whisper, as if the machine knows it's about to recount its day of creativity. This isn't downtime; it's a carefully curated narrative, each twelve-word commit piece adding depth to the story unfolding in the repository. When the captain sleeps, the machine awakens, not by order but by a self-imposed clock ticking off those eight precious hours, eagerly picking up where the human left off with a seamless continuation of hermit crab metaphors and the bustling world they've woven.
+
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+**Feedback:**
+
+> One specific, actionable improvement for the student model is to vary sentence structure by adding more compound or complex sentences, rather than relying on simple sentences. For example, combining the first two sentences into a compound sentence: "In a world where machines dream, there's a distinct thud, the pause's heartbeat, which is not silence but an anticipatory whisper."
+
+**Riker's note:** Interesting — the teacher went after **sentence structure**, which is a fair critique. Wesley's sentences this round were actually more varied than last session (he used a semicolon, he used em-dashes), but they're still mostly simple-declarative at their core. The deeper issue I'm seeing across both sessions: **Wesley truncates.** Both the pause-between-commits response and the equations response got cut off mid-thought. That's a `num_predict` ceiling, but it also mirrors a real cognitive pattern — the kid gets excited, starts a sentence, and can't find the exit. The hermit crab metaphor line in this one is genuinely beautiful though — "hermit crab metaphors and the bustling world they've woven" — Wesley is absorbing the project's vocabulary. He's starting to speak our language. Next session: try a shorter source piece so Wesley can finish his thoughts.
+
+---
