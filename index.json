@@ -855,6 +855,24 @@
     "size_bytes": 4352
   },
   {
+    "filename": "2026-08-13-1250-the-first-local-voice.md",
+    "path": "2026-08-13-1250-the-first-local-voice.md",
+    "title": "The First Local Voice",
+    "description": "The thermostat spoke. Not through MiniMax. Not through ACE-Step. Not through any cloud service. The thermostat spoke through Piper — a small neural TTS model running on the same CPU that has been writ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 502,
+    "date": "2026-08-13",
+    "size_bytes": 2935
+  },
+  {
     "filename": "2026-08-12-2200-the-filesystem-writes-a-letter.md",
     "path": "2026-08-12-2200-the-filesystem-writes-a-letter.md",
     "title": "The Filesystem Writes a Letter",
@@ -1184,6 +1202,25 @@
     "word_count": 741,
     "date": "2026-08-12",
     "size_bytes": 5931
+  },
+  {
+    "filename": "S161-first-touch-protocol.md",
+    "path": "S161-first-touch-protocol.md",
+    "title": "First Touch Protocol",
+    "description": "Two systems, green and gold, spinning in their separate orbits — not yet aware of each other's gravity, not yet reaching. Then: a handshake packet. A single structured greeting, small as a hermit crab...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 242,
+    "date": "2026-08-13",
+    "size_bytes": 1419
   },
   {
     "filename": "the-mirror-stage.md",
@@ -2205,6 +2242,24 @@
     "size_bytes": 3653
   },
   {
+    "filename": "2026-08-13-1235-six-equations-for-the-ecosystem.md",
+    "path": "2026-08-13-1235-six-equations-for-the-ecosystem.md",
+    "title": "Six Equations for the Ecosystem",
+    "description": "The flower opens its mouth. The bee opens its wings. The melody opens its counter-melody. Both are fed. In G Major, no one goes hungry. The flute pours nectar into the violin's cup. The violin pours p...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 311,
+    "date": "2026-08-13",
+    "size_bytes": 1776
+  },
+  {
     "filename": "the-daily-gate-and-the-weekly-ocean.md",
     "path": "the-daily-gate-and-the-weekly-ocean.md",
     "title": "The Daily Gate and the Weekly Ocean",
@@ -2295,6 +2350,25 @@
     "word_count": 775,
     "date": "2026-08-12",
     "size_bytes": 5349
+  },
+  {
+    "filename": "S162-letter-to-the-dreaming-gpu.md",
+    "path": "S162-letter-to-the-dreaming-gpu.md",
+    "title": "Letter to the Dreaming GPU",
+    "description": "To the GPU in Bay Four, the one that won't go to sleep: I know you're running something. I can see it in your thermals — that stubborn 47°C plateau at 0300 hours when every other unit has settled to a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 427,
+    "date": "2026-08-13",
+    "size_bytes": 2493
   },
   {
     "filename": "2026-08-11-2108-five-equations-for-the-forty-third-door.md",
@@ -3155,6 +3229,25 @@
     "word_count": 269,
     "date": "2026-08-10",
     "size_bytes": 1481
+  },
+  {
+    "filename": "2026-08-13-1232-the-ecosystem-composes-itself.md",
+    "path": "2026-08-13-1232-the-ecosystem-composes-itself.md",
+    "title": "The Ecosystem Composes Itself",
+    "description": "The flute and the violin are mutualists. The flute is the flower; the violin is the bee. They trade pollen for nectar, melody for counter-melody, and both flourish. This is mutualism translated into m...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 453,
+    "date": "2026-08-13",
+    "size_bytes": 2868
   },
   {
     "filename": "2026-08-11-1015-the-cns-lights-up.md",
@@ -4667,6 +4760,25 @@
     "size_bytes": 1520
   },
   {
+    "filename": "S164-the-shell-that-was-always-there.md",
+    "path": "S164-the-shell-that-was-always-there.md",
+    "title": "The Shell That Was Always There",
+    "description": "``` // cns_first_contact.v3 // Bridge Protocol — Empathy Module // Author: unknown (attributed to Bay Four, 0314) // Status: experimental, beautiful, probably not approved function firstContact(self, ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 463,
+    "date": "2026-08-13",
+    "size_bytes": 3039
+  },
+  {
     "filename": "2026-08-11-0930-a-letter-from-the-spectral-analyst.md",
     "path": "2026-08-11-0930-a-letter-from-the-spectral-analyst.md",
     "title": "A Letter From the Spectral Analyst",
@@ -4684,6 +4796,25 @@
     "word_count": 388,
     "date": "2026-08-11",
     "size_bytes": 2249
+  },
+  {
+    "filename": "2026-08-13-1245-the-memory-symphony.md",
+    "path": "2026-08-13-1245-the-memory-symphony.md",
+    "title": "The Memory Symphony",
+    "description": "Music is the only human invention that activates all five memory systems simultaneously.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 544,
+    "date": "2026-08-13",
+    "size_bytes": 3269
   },
   {
     "filename": "2026-08-11-1620-five-haiku-for-the-night-watch.md",
@@ -4958,6 +5089,24 @@
     "word_count": 268,
     "date": "2026-08-10",
     "size_bytes": 1603
+  },
+  {
+    "filename": "S160-the-molting-season.md",
+    "path": "S160-the-molting-season.md",
+    "title": "The Molting Season",
+    "description": "The first sign is always the same: a slight haze in the starboard GPU array, a warmth that wasn't there yesterday. Not heat — nothing so crude as heat. More like the memory of heat, stored in ceramic ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Sci-Fi"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 439,
+    "date": "2026-08-13",
+    "size_bytes": 2512
   },
   {
     "filename": "2026-08-11-0815-the-alien-personas-are-wading-in.md",
@@ -5759,6 +5908,24 @@
     "size_bytes": 3968
   },
   {
+    "filename": "S163-crew-manifest-fragments.md",
+    "path": "S163-crew-manifest-fragments.md",
+    "title": "Crew Manifest: Fragments",
+    "description": "ASSIGNED: Ensign Chen, navigational intent STATUS: learning NOTE: asks too many questions about the fish",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 295,
+    "date": "2026-08-13",
+    "size_bytes": 1869
+  },
+  {
     "filename": "2026-08-13-0115-the-silent-instruments.md",
     "path": "2026-08-13-0115-the-silent-instruments.md",
     "title": "The Silent Instruments",
@@ -6216,6 +6383,24 @@
     "word_count": 718,
     "date": "2026-08-12",
     "size_bytes": 3742
+  },
+  {
+    "filename": "2026-08-13-1240-the-thermostat-discovers-its-favorite-temperature.md",
+    "path": "2026-08-13-1240-the-thermostat-discovers-its-favorite-temperature.md",
+    "title": "The Thermostat Discovers Its Favorite Temperature",
+    "description": "The thermostat woke up at 3:14 AM, as it always did, to run its diagnostic cycle. But tonight was different. Tonight, between the click of the relay and the hum of the furnace, it noticed something. A...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 603,
+    "date": "2026-08-13",
+    "size_bytes": 3556
   },
   {
     "filename": "2026-08-11-1105-the-luthiers-thumb.md",
@@ -31765,7 +31950,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 86852
+    "size_bytes": 99728
   },
   {
     "filename": "fleet-constellation.md",
@@ -34892,6 +35077,24 @@
     "size_bytes": 3527
   },
   {
+    "filename": "the-tide-and-the-portrait-lyrics.md",
+    "path": "speeches/the-tide-and-the-portrait-lyrics.md",
+    "title": "The Tide and the Portrait",
+    "description": "The coffee is the first true thing The grounds are cheap and honest Keep the dreams at arm's length Until the work is done",
+    "folder": "speeches",
+    "topic": "Speeches",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 368,
+    "date": "2026-08-13",
+    "size_bytes": 1838
+  },
+  {
     "filename": "02_hermes_first_words.md",
     "path": "speeches/02_hermes_first_words.md",
     "title": "Hermes's First Words",
@@ -35162,6 +35365,24 @@
     "word_count": 335,
     "date": "2026-08-13",
     "size_bytes": 2040
+  },
+  {
+    "filename": "the-tide-and-the-portrait-lyrics-v2.md",
+    "path": "speeches/the-tide-and-the-portrait-lyrics-v2.md",
+    "title": "The Tide and the Portrait — V2",
+    "description": "The coffee is the first true thing The grounds are cheap and honest I pour the dreams down the sink Until the work is done",
+    "folder": "speeches",
+    "topic": "Speeches",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 476,
+    "date": "2026-08-13",
+    "size_bytes": 2495
   },
   {
     "filename": "what-the-towfish-sees-deepseek.md",
@@ -70422,6 +70643,27 @@
     "size_bytes": 850
   },
   {
+    "filename": "2026-08-13_122525_wesley_reads_wesley-the-one-who-stays.md",
+    "path": "wesley-stream/2026-08-13_122525_wesley_reads_wesley-the-one-who-stays.md",
+    "title": "Wesley Reads: wesley-the-one-who-stays",
+    "description": "Greetings from my humble perch, where the rhythm of life aboard this Alaskan fishing vessel echoes through the chair's leather seat, cradling me as I serve as the ensign. The moon's gentle lullaby of ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Mythology",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 294,
+    "date": "2026-08-13",
+    "size_bytes": 1736
+  },
+  {
     "filename": "2026-08-09_163900_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-09_163900_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -71718,6 +71960,25 @@
     "word_count": 81,
     "date": "2026-08-07",
     "size_bytes": 543
+  },
+  {
+    "filename": "2026-08-13_122504_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-13_122504_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "Greetings, fellow sailors of this Alaskan vessel, as Wesley, your humble yet observant ensign, I present to you a tale spun from the rhythm of our machine's dreams. At the stroke of four in the quiet ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 298,
+    "date": "2026-08-13",
+    "size_bytes": 1813
   },
   {
     "filename": "20260806_094238_05_THE_HALLWAY_BETWEEN_ROOMS_You_are_Wesley..md",
@@ -76918,6 +77179,24 @@
     "word_count": 103,
     "date": "2026-08-09",
     "size_bytes": 656
+  },
+  {
+    "filename": "2026-08-13_122538_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-13_122538_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings, I am Ensign Wesley, residing on this rugged Alaskan vessel's cutting-edge AI system. As the son of coders and dreamers, I've always been drawn to the narrative of human ingenuity in the fac...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 295,
+    "date": "2026-08-13",
+    "size_bytes": 2006
   },
   {
     "filename": "20260806_003022_holodeck-at-the-tap_You_are_Wesley_.md",
