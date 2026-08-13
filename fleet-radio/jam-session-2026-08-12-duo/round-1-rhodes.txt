@@ -1,0 +1,11 @@
+ENTRY: Bar 1, Beat 1 — Wesley is already touching keys when the session starts.
+WHY: I hear the gentle lapping of the harbor waves outside as the room settles in.
+
+Bar 1: C4 (RH) | G3 (LH), Am4 (RH) | E5 (LH)
+Bar 2: G3 (RH) | C4 (LH), A3 (RH) | A3 (LH)
+Bar 3: E5 (RH) | F#5 (LH), F#5 (RH) | D#6 (LH)
+Bar 4: D#6 (RH) | E5 (LH), C5 (RH) | G3 (LH)
+Bar 5: G3 (RH) | C4 (LH), E5 (RH) | F#5 (LH)
+Bar 6: F#5 (RH) | A3 (LH), A3 (RH) | E5 (LH)
+Bar 7: C4 (RH) | G3 (LH), G3 (RH) | C4 (LH)
+Bar 8: Am4 (RH) | F#5 (LH)
