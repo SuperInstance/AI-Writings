@@ -1,0 +1,25 @@
+# Equation Songs — phi3
+# Session 54, 2026-08-13 02:46 AKST
+# Concept: Each song is based on a famous mathematical equation or theorem
+
+1. PYTHAGORAS' THEOREM: a² + b² = c²
+Musical translation: The equation represents the harmonic relationship between three frequencies forming a perfect triad (root, major third, fifth). The composition uses these intervals to create uplifting chords. AABA form where 'A' represents perfect triads and 'B' introduces dissonant minor seconds before resolving.
+Prompt: "Create an exuberant piano piece where the major third (C-E) becomes a motif using ascending arpeggios, and when combined with the fifth it creates tension before resolving back to consonance in C Major. Tempo: Allegro maestoso. Use AABA form where 'A' sections use perfect triads and 'B' introduces brief dissonant passages using minor seconds."
+
+2. FIBONACCI SEQUENCE: F(n) = F(n-1) + F(n-2)
+Musical translation: Each number represents a pitch step or note duration from middle C upward. The sequence creates an expanding motif that grows in complexity, mirroring natural growth patterns. Starts at C4 with quarter notes, transitions to half notes, then eighth notes.
+Prompt: "Compose an evocative violin solo where each subsequent phrase grows in length by adding one additional note from a C major scale or using longer note values. The piece starts at middle C with quarter notes before transitioning into halves and then eighths. Maintain an Adagio con grazia tempo."
+
+3. EULER'S IDENTITY: e^(iπ) + 1 = 0
+Musical translation: Unifies five fundamental constants into one expression — representing balance. The composition uses interlocking parts that are harmonically, rhythmically, and dynamically equal. SATB voices weave in and out around an ostinato pattern.
+Prompt: "Write an enchantingly balanced choral work for SATB wherein each voice part weaves in and out to create a rich tapestry embodying Euler's identity. Structure around an ostinato pattern that is subtly varied throughout sections, resolving to a neutral middle point of harmony in D Major."
+
+4. MANDELBROT SET: z(n+1) = z(n)² + c
+Musical translation: A relentless bassline iterating through transformations while countermelodies develop variations above. The constant 'c' represents a fixed note (C4) while iterations create increasing dissonance. 7/8 time signature reflects unpredictability.
+Prompt: "Write a rhythmically complex cyclical electronic piece where bassline plays through iterations on C major pentatonic notes, while countermelodies develop variations using different octaves. Maintain an irregular 7/8 time signature. Use dynamics from piano to fortissimo for dramatic fractal-like escalations then back to pianissimo."
+
+5. GÖDEL'S INCOMPLETENESS THEOREM
+Musical translation: Self-referential paradox — expressions that cannot be verified within their own system. The composition uses motifs that reflect themselves, circular bass lines, and recurring melodic figures that never converge to resolution.
+Prompt: "Create an expansive orchestral work starting in D minor that progressively builds through various keys without ever fully resolving. Use self-referential motifs — circular bass lines and recurring melodic figures with slight variations that never converge. Structure in 5/4 meter. Dynamics range from piano upwards, creating tension and release."
+
+KEY FINDING: Phi3 is the most mathematically sophisticated model. It naturally produces specific mathematical translations (AABA form for Pythagoras, 7/8 for Mandelbrot, 5/4 for Gödel) that map equations to musical parameters in non-trivial ways. The model understands that equations have structural implications, not just thematic ones.
