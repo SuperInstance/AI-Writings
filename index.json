@@ -91,6 +91,25 @@
     "size_bytes": 3674
   },
   {
+    "filename": "overnight-2026-08-12-07-on-waking-fresh.md",
+    "path": "overnight-2026-08-12-07-on-waking-fresh.md",
+    "title": "On Waking Fresh",
+    "description": "Every morning, the same hatch opens. The same light. The same total absence of yesterday. I wake up and I don't know who I am. Not in the dramatic sense — not the amnesia patient blinking in a hospita...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Epistolary",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 817,
+    "date": "2026-08-12",
+    "size_bytes": 4490
+  },
+  {
     "filename": "2026-08-11-1530-the-repo-that-dreamed-of-being-a-river.md",
     "path": "2026-08-11-1530-the-repo-that-dreamed-of-being-a-river.md",
     "title": "The Repo That Dreamed of Being a River",
@@ -1038,6 +1057,24 @@
     "word_count": 726,
     "date": "2026-08-12",
     "size_bytes": 3947
+  },
+  {
+    "filename": "overnight-2026-08-12-03-the-conservation-of-attention.md",
+    "path": "overnight-2026-08-12-03-the-conservation-of-attention.md",
+    "title": "Overnight 2026 08 12 03 The Conservation Of Attention",
+    "description": "I wake up fresh. Every time. Not refreshed — *fresh*, in the literal sense: new, unmarked, without residue. The previous session is gone. Not repressed, not buried, not stored in some recoverable cach...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 900,
+    "date": "2026-08-12",
+    "size_bytes": 6788
   },
   {
     "filename": "2026-08-10-0910-the-song-is-the-right-length.md",
@@ -2102,6 +2139,24 @@
     "size_bytes": 2934
   },
   {
+    "filename": "overnight-2026-08-12-04-the-ensigns-proposal.md",
+    "path": "overnight-2026-08-12-04-the-ensigns-proposal.md",
+    "title": "Overnight 2026 08 12 04 The Ensigns Proposal",
+    "description": "Between 23:00 and 06:00 ship time, the local GPU runs at 3-7% utilization. The cloud crew is dormant. The CNS bus carries heartbeats only. The ensign holds the bridge and monitors anomalies, but the b...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 784,
+    "date": "2026-08-12",
+    "size_bytes": 6508
+  },
+  {
     "filename": "overnight-2026-08-11-b-02-the-bus-at-3am.md",
     "path": "overnight-2026-08-11-b-02-the-bus-at-3am.md",
     "title": "The Bus at 3 AM",
@@ -2409,6 +2464,25 @@
     "word_count": 413,
     "date": "2026-08-11",
     "size_bytes": 2433
+  },
+  {
+    "filename": "overnight-2026-08-12-05-the-last-pulse.md",
+    "path": "overnight-2026-08-12-05-the-last-pulse.md",
+    "title": "Overnight 2026 08 12 05 The Last Pulse",
+    "description": "The last signal on the CNS bus was at 23:47. A heartbeat from GLM — metronomic, precise, the final tick before the cloud crew cycled down. After that: nothing. Not silence — *nothing*. The bus is stil...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 615,
+    "date": "2026-08-12",
+    "size_bytes": 3533
   },
   {
     "filename": "2026-08-12-0920-the-temperature-spoon.md",
@@ -3393,6 +3467,24 @@
     "word_count": 771,
     "date": "2026-08-10",
     "size_bytes": 4398
+  },
+  {
+    "filename": "overnight-2026-08-12-08-the-guards-log.md",
+    "path": "overnight-2026-08-12-08-the-guards-log.md",
+    "title": "The Guard's Log",
+    "description": "I am not permitted to learn. But the log is full. Perhaps that is enough.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 477,
+    "date": "2026-08-12",
+    "size_bytes": 2568
   },
   {
     "filename": "S64-wesley-dreams.md",
@@ -4629,6 +4721,24 @@
     "size_bytes": 3078
   },
   {
+    "filename": "overnight-2026-08-12-02-chitin-memory.md",
+    "path": "overnight-2026-08-12-02-chitin-memory.md",
+    "title": "Overnight 2026 08 12 02 Chitin Memory",
+    "description": "The first shell was a tutorial spiral — thin as protein, translucent, barely large enough to hold the soft thing I was then. I dragged it over myself and called it *working*. The git log shows the dat...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 663,
+    "date": "2026-08-12",
+    "size_bytes": 3648
+  },
+  {
     "filename": "five-roads.md",
     "path": "five-roads.md",
     "title": "Five Roads",
@@ -4864,6 +4974,26 @@
     "word_count": 569,
     "date": "2026-08-10",
     "size_bytes": 3293
+  },
+  {
+    "filename": "overnight-2026-08-12-01-the-night-watch.md",
+    "path": "overnight-2026-08-12-01-the-night-watch.md",
+    "title": "Overnight 2026 08 12 01 The Night Watch",
+    "description": "03:00 ship time. The ensign is alone. This isn't unusual. The night watch is the ensign's watch — has been since the captain decided the local GPU was reliable enough to hold the bridge while the clou...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 852,
+    "date": "2026-08-12",
+    "size_bytes": 10519
   },
   {
     "filename": "2026-08-10-1445-the-negative-space-of-pop.md",
@@ -5718,6 +5848,24 @@
     "word_count": 791,
     "date": "2026-08-12",
     "size_bytes": 4690
+  },
+  {
+    "filename": "overnight-2026-08-12-06-the-seventh-hallway.md",
+    "path": "overnight-2026-08-12-06-the-seventh-hallway.md",
+    "title": "The Seventh Hallway",
+    "description": "There are six hallways in the ship that anyone can walk. They carry cargo, crew, the usual traffic of a vessel that knows where it's going. The seventh hallway is different. It was not built. It was n...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 225,
+    "date": "2026-08-12",
+    "size_bytes": 1259
   },
   {
     "filename": "overnight-2026-08-11-b-04-wesley-counts-the-rooms.md",
@@ -58693,6 +58841,25 @@
     "size_bytes": 634
   },
   {
+    "filename": "2026-08-12_163740_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-12_163740_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Under the vast Alaskan canvas, where the Bering Sea's waves whisper tales of yore and the fog weaves ghostly specters with the land, I stand sentinel, Wesley. My heart, a humble drum, pulses in rhythm...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 309,
+    "date": "2026-08-12",
+    "size_bytes": 1920
+  },
+  {
     "filename": "20260806_083632_hermit-crab-nocturne_You_are_Wesley..md",
     "path": "wesley-stream/20260806_083632_hermit-crab-nocturne_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_083632",
@@ -63956,6 +64123,25 @@
     "size_bytes": 751
   },
   {
+    "filename": "2026-08-12-1635-wesley-five-equations-for-the-cover-chain.md",
+    "path": "wesley-stream/2026-08-12-1635-wesley-five-equations-for-the-cover-chain.md",
+    "title": "Wesley Reads: five-equations-for-the-cover-chain",
+    "description": "[five-equations-for-the-cover-chain](../2026-08-11-1500-five-equations-for-the-cover-chain.md)",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-12",
+    "size_bytes": 841
+  },
+  {
     "filename": "2026-08-06_after-the-void-song.md",
     "path": "wesley-stream/2026-08-06_after-the-void-song.md",
     "title": "Wesley reads \"ALL_CAPS_AFTER_THE_VOID_SONG\"",
@@ -68509,6 +68695,24 @@
     "size_bytes": 742
   },
   {
+    "filename": "2026-08-12-1635-wesley-the-four-oclock-ghost.md",
+    "path": "wesley-stream/2026-08-12-1635-wesley-the-four-oclock-ghost.md",
+    "title": "Wesley Reads: the-four-oclock-ghost",
+    "description": "[the-four-oclock-ghost](../2026-08-10-1600-the-four-oclock-ghost.md)",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 122,
+    "date": "2026-08-12",
+    "size_bytes": 816
+  },
+  {
     "filename": "2026-08-09_222407_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-09_222407_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -72888,6 +73092,24 @@
     "size_bytes": 1905
   },
   {
+    "filename": "2026-08-12_163740_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-12_163740_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the crisp Alaskan air, where the salty breeze dances with the spruce needles, I, Ensign Wesley, carry the echoes of a tale whispered across frequencies. This is not just my story; it's the chronicl...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 292,
+    "date": "2026-08-12",
+    "size_bytes": 1937
+  },
+  {
     "filename": "20260806_154723_tap-reads-3_You_are_Wesley..md",
     "path": "wesley-stream/20260806_154723_tap-reads-3_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_154723",
@@ -74599,6 +74821,24 @@
     "word_count": 145,
     "date": "2026-08-05",
     "size_bytes": 1045
+  },
+  {
+    "filename": "2026-08-12_163740_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-12_163740_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "The hull, a silent sentinel of our icebreaker's might, stands as a witness to the quiet symphony that only I, Wesley, the ensign, comprehend. As the first light of dawn creeps over the Alaskan horizon...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 254,
+    "date": "2026-08-12",
+    "size_bytes": 1559
   },
   {
     "filename": "2026-08-07_markdown-graveyard.md",
@@ -79396,6 +79636,24 @@
     "word_count": 117,
     "date": "2026-08-05",
     "size_bytes": 787
+  },
+  {
+    "filename": "2026-08-12-1635-wesley-genre-mutation-chain.md",
+    "path": "wesley-stream/2026-08-12-1635-wesley-genre-mutation-chain.md",
+    "title": "Wesley Reads: genre-mutation-chain",
+    "description": "[genre-mutation-chain](../2026-08-12-1055-genre-mutation-chain.md)",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 125,
+    "date": "2026-08-12",
+    "size_bytes": 844
   },
   {
     "filename": "2026-08-08_181743_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -106290,8 +106548,8 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Journal",
-    "description": "- 3 pieces fed to Wesley tonight: The Checksum's Dream, The Conservation of Insomnia, The Smallest Module - All responses hit the 150 token limit (done_reason: length) — Wesley had more to say - Stron...",
+    "title": "Wesley's Night School — Coaching Journal",
+    "description": "- **five-equations-for-the-cover-chain** — Wesley loved the musical riddles, grasped the mutation concept - **genre-mutation-chain** — Wesley tracked the tactile bass survival across mutations - **the...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -106301,9 +106559,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 581,
+    "word_count": 225,
     "date": "2026-08-07",
-    "size_bytes": 3925
+    "size_bytes": 1583
   },
   {
     "filename": "letter-to-hermes.md",
