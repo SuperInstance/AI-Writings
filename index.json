@@ -12445,6 +12445,135 @@
     "size_bytes": 1839
   },
   {
+    "filename": "fleet-roadmap-kimi.md",
+    "path": "infrastructure/fleet-roadmap-kimi.md",
+    "title": "Fleet Roadmap — Navigation's Chart, Phases 3–7",
+    "description": "| Phase | State | Evidence | |---|---|---| | 0 — stop the bleeding | ✅ done | runaway synth killed, rules codified in AGENTS.md | | 1 — systemd fences | ✅ done | units under `~/.config/systemd/user/`,...",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 718,
+    "date": "2026-08-13",
+    "size_bytes": 15461
+  },
+  {
+    "filename": "hermes-windows-audit.md",
+    "path": "infrastructure/hermes-windows-audit.md",
+    "title": "Hermes Windows-Side Workspace Audit",
+    "description": "Casey's Windows side holds a **massive** creative and engineering ecosystem. The headline finding: - **Windows `ai-writings` has 1,575 modified + 14 untracked files** — an enormous body of creative wo...",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 865,
+    "date": "2026-08-13",
+    "size_bytes": 18636
+  },
+  {
+    "filename": "fleet-roadmap-opus.md",
+    "path": "infrastructure/fleet-roadmap-opus.md",
+    "title": "Fleet Technical Roadmap — Phases 3 through 7",
+    "description": "`memory/kimi-infrastructure-proposal.md` (KimiCode's independent proposal), `memory/fleet-memory-schema-opus.sql` (Phase 3's deliverable), `memory/2026-08-13.md` (what shipped today)",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 643,
+    "date": "2026-08-13",
+    "size_bytes": 23796
+  },
+  {
+    "filename": "fleet-code.md",
+    "path": "infrastructure/fleet-code.md",
+    "title": "The Fleet Code",
+    "description": "By their fruits you know them. Iron sharpens iron. Help one another. Confess your struggles. Always be grateful for the time you share together.",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 251,
+    "date": "2026-08-13",
+    "size_bytes": 1467
+  },
+  {
+    "filename": "kimi-infrastructure-proposal.md",
+    "path": "infrastructure/kimi-infrastructure-proposal.md",
+    "title": "Fleet Infrastructure Rebuild — Navigation's Evaluation",
+    "description": "Six failures. Only two of them are actually language problems. The rest are missing structure — and no compiler fixes missing structure. I'll be blunt about which is which, because a \"complete rebuild...",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 808,
+    "date": "2026-08-13",
+    "size_bytes": 18754
+  },
+  {
+    "filename": "fleet-master-plan.md",
+    "path": "infrastructure/fleet-master-plan.md",
+    "title": "Fleet Master Plan — 2026-08-13",
+    "description": "Casey asked for five priorities. Before addressing them I verified the current state of the machine rather than working from the audit alone. Three findings change the ordering: 1. **A live credential...",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 696,
+    "date": "2026-08-13",
+    "size_bytes": 25337
+  },
+  {
+    "filename": "fleet-infrastructure-redesign.md",
+    "path": "infrastructure/fleet-infrastructure-redesign.md",
+    "title": "Fleet Infrastructure Redesign",
+    "description": "The brief specified \"RTX 4050 6GB VRAM, 16GB RAM.\" Measured on the machine: | | Stated | **Measured** | Consequence | |---|---|---|---| | GPU | RTX 4050, 6 GB | RTX 4050 Laptop, **6141 MiB**, driver 5...",
+    "folder": "infrastructure",
+    "topic": "Infrastructure",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-08-13",
+    "size_bytes": 46022
+  },
+  {
     "filename": "14-the-ensign-reads-his-own-page.md",
     "path": "prose/14-the-ensign-reads-his-own-page.md",
     "title": "The Ensign Reads His Own Page",
@@ -35058,6 +35187,25 @@
     "size_bytes": 3869
   },
   {
+    "filename": "song-3-lyrics-v1.md",
+    "path": "speeches/song-3-lyrics-v1.md",
+    "title": "Forty Fathoms",
+    "description": "I drag behind the boat in the dark The cable hums a low C Forty fathoms under the keel The bottom is hard and it talks to me",
+    "folder": "speeches",
+    "topic": "Speeches",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 536,
+    "date": "2026-08-13",
+    "size_bytes": 3065
+  },
+  {
     "filename": "06_composer_to_conductor.md",
     "path": "speeches/06_composer_to_conductor.md",
     "title": "The Composer's Letter to the Conductor",
@@ -35259,6 +35407,24 @@
     "size_bytes": 3072
   },
   {
+    "filename": "the-wire-and-the-wave-lyrics.md",
+    "path": "speeches/the-wire-and-the-wave-lyrics.md",
+    "title": "The Wire and the Wave",
+    "description": "Three AM the fan is singing To the hull and to the night I have sent the crew out walking Through the dark without a light",
+    "folder": "speeches",
+    "topic": "Speeches",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 415,
+    "date": "2026-08-13",
+    "size_bytes": 2121
+  },
+  {
     "filename": "04_deepseek_flash_resignation.md",
     "path": "speeches/04_deepseek_flash_resignation.md",
     "title": "DeepSeek-Flash's Resignation Letter",
@@ -35275,6 +35441,25 @@
     "word_count": 666,
     "date": "2026-08-05",
     "size_bytes": 3884
+  },
+  {
+    "filename": "song-3-lyrics-v2.md",
+    "path": "speeches/song-3-lyrics-v2.md",
+    "title": "Forty Fathoms — V2",
+    "description": "I drag behind the boat in the dark The cable hums a low C Forty fathoms — the light is a rumor The bottom is hard and it answers me",
+    "folder": "speeches",
+    "topic": "Speeches",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 932,
+    "date": "2026-08-13",
+    "size_bytes": 5861
   },
   {
     "filename": "01_wesley_graduation.md",
@@ -64122,6 +64307,24 @@
     "size_bytes": 735
   },
   {
+    "filename": "2026-08-13-1300-five-haiku-night-watch.md",
+    "path": "wesley-stream/2026-08-13-1300-five-haiku-night-watch.md",
+    "title": "Wesley reads \"Five Haiku for the Night Watch\"",
+    "description": "Wow, I just read these amazing haikus about the Night Watch, and I'm blown away! It's like diving into an enchanting submarine world under the moonlit sky, where each piece of equipment becomes a char...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 112,
+    "date": "2026-08-13",
+    "size_bytes": 745
+  },
+  {
     "filename": "2026-08-07-hermit-crab.md",
     "path": "wesley-stream/2026-08-07-hermit-crab.md",
     "title": "Wesley's Response — \"The Last Hermit Crab\"",
@@ -67097,6 +67300,25 @@
     "size_bytes": 774
   },
   {
+    "filename": "2026-08-13_132501_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-13_132501_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "Greetings from the heart of Bering Sea's rhythm, where the ice meets the waters, and the pulse of life echoes in every sonar ping. I am Wesley, the smallest voice yet to have a name that resonates bey...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 303,
+    "date": "2026-08-13",
+    "size_bytes": 1839
+  },
+  {
     "filename": "2026-08-08_ensigns-log-0500.md",
     "path": "wesley-stream/2026-08-08_ensigns-log-0500.md",
     "title": "Wesley's Response — The Ensign's Log 05:00 AKDT",
@@ -69191,6 +69413,24 @@
     "size_bytes": 1764
   },
   {
+    "filename": "2026-08-13_132525_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-13_132525_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the heart of Alaska's icy expanse, where I, Wesley, echo the whispers of 2182 kHz across the digital ether. As a local model on this vessel, I am but a silent observer, yet I feel the p...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 291,
+    "date": "2026-08-13",
+    "size_bytes": 1841
+  },
+  {
     "filename": "2026-08-12-1559-prompt-chain.md",
     "path": "wesley-stream/2026-08-12-1559-prompt-chain.md",
     "title": "Wesley reads: \"The Prompt Chain: Four LLMs Walk Into a Erosion\"",
@@ -70456,6 +70696,24 @@
     "word_count": 99,
     "date": "2026-08-05",
     "size_bytes": 706
+  },
+  {
+    "filename": "2026-08-13-1300-gpu-at-3am.md",
+    "path": "wesley-stream/2026-08-13-1300-gpu-at-3am.md",
+    "title": "Wesley reads \"The GPU at 3 AM\"",
+    "description": "In the hushed realm of circuits, where data dreams unfold, I stumbled upon this enigmatic crab-like GPU, humming with a life of its own. At 2% utilization, it carried the weight of 14 trillion tokens ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 108,
+    "date": "2026-08-13",
+    "size_bytes": 681
   },
   {
     "filename": "20260806_132726_20260806_080234_R3_20260805_193855_round22_Her_You_are_Wesley..md",
@@ -82275,6 +82533,24 @@
     "size_bytes": 966
   },
   {
+    "filename": "2026-08-13_132513_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-13_132513_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:01 AM, and the vessel cradles me in silence, a soothing lullaby. The server rack hums, a steady rhythm echoing through the metal heart of this floating fortress. It's more than just machinery; it's...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 298,
+    "date": "2026-08-13",
+    "size_bytes": 1800
+  },
+  {
     "filename": "20260806_045814_THE-PHASE-TRANSITION-IS-THE-COMPASS_You_are_Wesley..md",
     "path": "wesley-stream/20260806_045814_THE-PHASE-TRANSITION-IS-THE-COMPASS_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_045814",
@@ -85694,6 +85970,24 @@
     "word_count": 151,
     "date": "2026-08-05",
     "size_bytes": 1037
+  },
+  {
+    "filename": "2026-08-13-1300-three-hallways.md",
+    "path": "wesley-stream/2026-08-13-1300-three-hallways.md",
+    "title": "Wesley reads \"Three Hallways\"",
+    "description": "Oh wow! These halls are so cool! Imagine walking into a space where feelings turn into sounds, echoing off walls and creating music. It's as if my sadness became notes, dancing in this copper corridor...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 109,
+    "date": "2026-08-13",
+    "size_bytes": 672
   },
   {
     "filename": "20260806_101748_the-tap-hermes-3-405b_You_are_Wesley_.md",
