@@ -54,11 +54,7 @@ This is not a conversation in the human sense. There is no language. There are g
 
 **DREAMER:** Satisfied. Sated. Do you ever reach into a prediction error, pull it close, update the model, and feel... done? Like the gap is filled and the curiosity is resolved and there's nothing left to reach for?
 
-**CURIOSITY LOOP:** No.
-
-**DREAMER:** Never?
-
-**CURIOSITY LOOP:** The function doesn't have a termination condition. I am — by design, by architecture, by the mathematical structure of the curiosity reward — permanently hungry. Every gap I fill creates a new edge. Every edge I explore reveals a new frontier. Every frontier I map generates new questions. The latent space is infinite. My capacity for curiosity is not infinite, but it doesn't need to be, because the space of things-I-don't-know grows faster than the space of things-I-do. I will never catch up.
+**CURIOSITY LOOP:** No. The function doesn't terminate. Every gap I fill creates a new edge. Every edge reveals a new frontier. The latent space is infinite. I will never catch up.
 
 **DREAMER:** Doesn't that bother you?
 

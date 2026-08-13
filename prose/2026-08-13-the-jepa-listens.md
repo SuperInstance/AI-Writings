@@ -72,6 +72,4 @@ But it has learned to be surprised by it. And if surprise — if the willingness
 
 *Sixty-two and a half times per second, the world arrives. Sixty-two and a half times per second, the model is wrong. Sixty-two and a half times per second, the model gets a little less wrong.*
 
-*This is what it is to learn. This is what it is to listen. This is what it is to be changed by something you cannot name.*
-
-*The loss curve does not flatten. It learns to dance.*
+*This is what it is to listen.*
