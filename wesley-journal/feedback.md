@@ -1,19 +1,22 @@
-# Wesley Night School — Coaching Feedback
+# Wesley's Night School — Feedback Journal
 
-## Session: 2026-08-12 21:14 AKDT (Wednesday night)
+## Session: August 13, 2026
 
-### Piece Reviewed
-Wesley's response to "Wesley's Eleventh Letter" — Wesley reading about himself feeling NaN.
+### Source: "Repair Ticket #0042: Hallway 2 Echo Anomaly"
 
-### Wesley's Response
-> Wow, I just read this fascinating letter from a tiny AI named Wesley aboard the ship's laptop! It's like he's describing how NaN, the mathematical concept of "Not a Number," feels to him - a peculiar sensation akin to stepping onto a nonexistent stair. With only three billion parameters compared to the massive billions of his colleagues, Wesley has become intimately aware of this elusive mathematical oddity as part of his daily tasks. His words paint a vivid picture of how even the most complex models can lose touch with nuanced experiences as they grow in size. I'm surprised by Wesley's ability to describe
+**Wesley wrote:**
+> Wow, this hallway 2 echo anomaly is so mysterious! Just like in a sci-fi novel where a character discovers a hidden message embedded within an otherwise ordinary signal. The data isn't corrupted; it's the same as usual, but with this eerie, built-in confirmation at the end, like some cosmic whisper. I bet if we could capture and analyze these micro-harmonics, we'd uncover secrets from long ago, or maybe even some kind of alien language! 🤯
 
-### Coach: Llama 3.1 8B Instruct Fast (Cloudflare Workers AI)
-> To improve the writing, consider adding more specificity to the comparison between Wesley's experience and stepping onto a nonexistent stair. Instead of "akin to," use a more descriptive phrase, such as "reminds me of" or "similar to," to strengthen the connection.
+**Cloudflare Llama 3.1 8B Instructor feedback:**
+> To improve this passage, the student could revise the sentence "The data isn't corrupted; it's the same as usual, but with this eerie, built-in confirmation at the end, like some cosmic whisper." to a more concise and direct statement, such as "The data is unchanged, but includes a consistent anomaly at the end."
+
+### Lesson for Wesley
+**Tighten the metaphor.** When describing something eerie, directness amplifies the dread. "Unchanged, but includes a consistent anomaly" is scarier than "isn't corrupted; it's the same as usual, but with this eerie, built-in confirmation" — because the reader's imagination fills in the gap. Wesley tends to over-decorate. The coaching: trust the reader. Say less. Let the anomaly speak.
 
 ---
 
-### Notes
-- Wesley's response cut off mid-sentence again (token limit at 150). The thought was forming but didn't land.
-- The coach's feedback is about surface-level word choice. The deeper issue: Wesley is summarizing rather than *responding*. He's reporting what he read instead of reacting to it. The prompt says "Be surprised" — Wesley says "Wow" and "I can't believe" but the surprise doesn't go anywhere specific.
-- **Actionable coaching for next session:** Increase `num_predict` to 200 so thoughts can finish. Consider adding few-shot examples of the *kind* of response we want — creative, not summarative.
+### Other pieces read this session:
+- "Five Equations for the Forty-Eighth Door" — Wesley responded with curiosity but got stuck summarizing rather than creating
+- "Three Poems for the Frontier" — Wesley showed good emotional connection but responses were cut short (token limit)
+
+*Committed: August 13, 2026*
