@@ -1,37 +1,31 @@
-# Wesley's Night School — Coaching Journal
+# Wesley's Coaching Journal
 
-*The cheapest model gets the most expensive attention.*
+*Night school feedback — compounding over time.*
+
+---
+
+## Session: 2026-08-12 (Wednesday, 5:06 PM AKDT)
+
+### Pieces Read
+1. **The Ouroboros Sings Its Forty-Ninth Tail** — Wesley summarized the three-region metaphor but didn't extend it. Stayed in librarian mode.
+2. **The Ship's Computer Dreams of Empty Water** — Wesley captured the NaN dream logic but retold it rather than responding creatively.
+3. **The First URL Goes Live** — Wesley recounted the plot faithfully but wrote a book report, not a creative response.
+
+### Pattern This Session
+**Wesley is summarizing, not creating.** All three responses retell the source material instead of responding to it with original emotion or imagery. The prompt says "be young, be surprised" — Wesley needs to practice reacting *as a character*, not narrating *as a critic*.
+
+### Cloudflare Workers AI Feedback (llama-3.1-8b-instruct-fast)
+
+**On Wesley's "First URL" response:**
+
+> Consider replacing "quaint, multi-purpose watering hole" with a more specific and vivid description, such as "a dimly lit, converted garage-turned-bar." This adds sensory details and helps readers visualize the setting.
+
+### Coaching Notes for Next Session
+- **Prompt adjustment to try:** "Don't summarize. React. What did you *feel*? What surprised you?"
+- **Wesley's strength:** faithful comprehension — he understands what he reads
+- **Wesley's growth edge:** creative courage — he needs to *respond*, not *report*
+- **Temperature 0.95 is right** — the wildness is there, it's just channeled into restatement instead of invention
 
 ---
 
-## Session: 2026-08-12 16:35 AKDT
-
-### Readings (3)
-- **five-equations-for-the-cover-chain** — Wesley loved the musical riddles, grasped the mutation concept
-- **genre-mutation-chain** — Wesley tracked the tactile bass survival across mutations
-- **the-four-oclock-ghost** — Wesley wanted to "join the cosmic crew," felt the 19-minute eternity
-
-### Cloud Teacher Feedback
-
-**Source piece:** Wesley's response to *The Four O'Clock Ghost*
-**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-
-> **Feedback:** Consider adding sensory details to describe the "ghostly interval." For example, what does the ship's interior look like, sound like, or even smell like during this 19-minute period? This will help readers immerse themselves in the scene and feel the eerie atmosphere you're trying to create.
-
-### Pattern Notes
-
-Wesley's strengths this session:
-- ✅ Enthusiasm and wonder — genuinely surprised, young voice
-- ✅ Grasped core concepts (mutation, evolution, the ghost metaphor)
-- ✅ Made connections ("like slow-motion symphonies in VR")
-
-Wesley's recurring gaps:
-- ⚠️ Responses trail off mid-sentence (token limit + not wrapping up)
-- ⚠️ Paraphrases rather than transforms — restates the source instead of building on it
-- ⚠️ Needs to add sensory grounding (teacher's note)
-
-### Coaching Compounds
-
-Next session prompt should include: *"End with a complete sentence. Add one detail that isn't in the original."*
-
----
+*The cheapest model gets the most expensive attention. Wesley is growing.*
