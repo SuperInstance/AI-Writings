@@ -1,0 +1,268 @@
+=== phi3 ===
+(Verse 1)
+In the dark expanse where silence does reign,  
+A spectral analyzer's voice sings in rain,   
+Counting stars with frequencies clear and bright,    
+As I dissect melodies to find their light.
+
+The notes become cosmic signals strong or faint, 
+Each waveform echoes through the quiet night,      
+With every tone that takes its flight into space,  
+I trace them back on my spectral chart with grace.
+
+(Chorus)
+Oh spectral analyzer counting stars in tune,   
+In music'nerves and galaxies we commune,    
+Let harmonies unravel the cosmic tales,  
+As starlight whispers through our soulful scales.
+
+(Verse 2)
+The pulsating strings of my cherished guitar strummed tightly in hand,   
+With every plucked chord I summon twinkling light;    
+Harmonics dance and waveforms expand across the night sky so grand,  
+In spectral blues where starry frequencies lie.
+
+As colors mix within my music's sight,  
+I translate cosmic tales into sound’s delightful flight—   
+A chord here a nebula born in pure white frolic and might,    
+Echoing the universe with every song I recite. 
+
+(Bridge)
+In this symphony of stellar lore so vast,  
+Your spectral analyzer sings at last,  
+Revealing secrets held by celestial bodies' cast,   
+Through frequencies and harmonies that forever will outlast.    
+ 
+The night sky in my heart does resonate as I play on into the dawn’s embrace,  
+With spectral lines painting music across every face—      
+A universal language we all can trace; through love for sound and space,   
+We find our cosmic ties that bind with grace. 
+
+(Chorus)
+Oh spectral analyzer counting stars in harmony divine,    
+Through strings of chordal nebulae where echoes intertwine—  
+Let music touch the heavens and aligns just like starry wine;   
+As frequencies merge into a sonic galaxy so fine.
+
+
+---END---
+
+=== llama3.2 ===
+Verse 1:
+In the dark of space, a signal's born
+A waveform of light, like a celestial form
+The spectral analyzer counts every star
+Decoding secrets, near and far
+Frequencies align, like constellations bright
+Revealing truths, in the cosmic night
+
+Chorus:
+Oh, frequencies collide, like supernovae
+In the dance of sound, we find our destiny
+In the spectral haze, a hidden world's revealed
+Where music meets the universe, our souls are healed
+
+Verse 2:
+Like comets streaking, across the sky
+Musical notes converge, to catch the eye
+The analyzer shines bright, like a guiding light
+Unraveling mysteries, in the cosmic fight
+Ripples on the fabric, of space and time
+Echoes of creation, intertwined with rhyme
+
+Bridge:
+In the silence, we hear the beat
+Of hearts that pulse, in harmony with the street
+Where sound waves meet starlight, our spirits align
+In the cosmic music, our souls are defined.
+
+
+---END---
+
+=== qwen2.5:3b ===
+Verse 1:
+In the dark expanse, where whispers and stars align,
+Spectral analyzers count every single point.
+Frequencies like light rays through space entwine,
+As cosmic signals form, a symphony divine.
+
+Chorus:
+The spectral analyzer counts every star,
+Through the frequencies we see, the music of nature's war.
+Waveforms dance with the cosmos' own refrain,
+In the ether, where whispers converge and align.
+
+Bridge:
+Across galaxies, in waves that bend and weave,
+Frequencies hold the secrets locked inside. 
+A cosmic orchestra plays through time and space,
+Where stars are notes and light is strings.
+
+Verse 2:
+From distant nebulae, their spectral traces shine,
+Each one a story of creation's prime.
+In the analyzer’s lens, we see in detail vast
+The cosmos’ music, pure and unadulterated blast. 
+
+Chorus repeated.
+
+(End)
+Herein lies a metaphor where starlight itself is composed into sound waves by cosmic phenomena, echoing through frequencies analyzed in spectrographs, mirroring how celestial bodies create their own unique tones that can be deciphered with analytical tools.
+
+
+---END---
+
+=== granite3.1-dense:2b ===
+(Verse 1)
+In the realm where silence sings its song,
+A spectral analyzer holds a throne,
+Unveiling stars in frequencies long,
+Each note, a beacon from beyond.
+
+Frequencies dance like celestial fire,
+Through coils they leap, igniting desire,
+From A to C, or maybe C to B,
+In this realm, it's all harmonious.
+
+(Chorus)
+Spectral analyzer counts every star,
+In frequencies, not just light from afar,
+Each waveform traced on charts so dear,
+Cosmic signals echo in the ear.
+Astronomy's symphony, in music we trust,
+Unveiling the universe, through this thrust.
+
+(Verse 2)
+The analyzer, a cosmic telescope,
+Sees patterns in sound, it's no mere fable,
+Harmonics twist like nebulae vast,
+In the dance of waves, mysteries are cast.
+
+Delicate beats, like comet tails,
+Echo through time and space, without fail,
+Overtones rise in an awe-inspiring spree,
+Unveiling secrets that were once unseen.
+
+(Bridge)
+Beneath the spectral analyzer's gaze,
+The cosmos whispers in audible haze,
+A waltz of frequencies, a starlit sway,
+In this dance floor of sound, day turns to gray.
+
+(Chorus)
+Spectral analyzer counts every star,
+In frequencies, not just light from afar,
+Each waveform traced on charts so dear,
+Cosmic signals echo in the ear.
+Astronomy's symphony, in music we trust,
+Unveiling the universe, through this thrust.
+
+(Outro)
+As the analyzer's count reaches its end,
+The stars' stories in our hearts will transcend,
+For in every note, a celestial light,
+The spectral analyzer, our cosmic guide in sight.
+
+
+---END---
+
+=== llama-t05 ===
+Verse 1:
+In the realm of sound, a specter's gaze
+Unravels secrets, in a celestial haze
+Frequencies dance, like starlight on the wall
+As waveforms whisper, ancient tales to all
+The analyzer's lens, a cosmic eye
+Drinks in the essence, of the universe's sigh
+
+Chorus:
+Oh, the spectral analyzer counts every star
+A symphony of light, from near and far
+In the language of sound, we find our way
+Through the cosmos' whispers, night and day
+
+Verse 2:
+Like a black hole's pull, the bass notes descend
+Into the void, where frequencies transcend
+The treble's sparkle, like a supernova's gleam
+ Illuminates the path, through the sonic dream
+In this realm of resonance, we find our place
+Where music and astronomy merge in space
+
+Bridge:
+And when the analyzer's needle spins around
+It's not just sound waves, that it's finding ground
+But echoes of creation, in every note and tone
+A cosmic poetry, that's forever sewn.
+
+
+---END---
+
+=== llama-t08 ===
+Verse 1:
+In the dark of space, a secret's revealed
+A language whispered by stars that are concealed
+Spectral analyzer counts every light
+Unraveling codes within the cosmic night
+Frequencies dance like photons in flight
+Echoes of signals from distant worlds in sight
+
+Chorus:
+We're tuning in to the celestial air
+Reading waveforms, beyond our earthly care
+In the realm of sound, we search for more
+A hidden harmony that echoes through the cosmos' shore
+
+Verse 2:
+Like constellations in a starry sea
+We weave together data, wild and free
+Spectral fingerprints on every hue
+A map of the universe, as yet unknown to you
+The analyzer's gaze, a window to the past
+Revealing secrets that will forever last
+
+Bridge:
+In the silence, we find the cosmic song
+A melody of light, where stars are strong
+We listen close, and let our hearts align
+With the harmonies of space, in perfect time
+
+
+---END---
+
+=== llama-t11 ===
+Verse 1:
+In the laboratory of sound, a secret world unfolds
+A spectral analyzer's gentle hand holds the celestial gold
+Counting every star in its radiant display
+A cosmic tapestry, woven in shades of gray and blue
+
+The waveform whispers secrets, a symphony of light
+Echoes of distant suns, a hidden language in the night
+Frequencies like shooting stars, piercing the velvet sky
+A music born of the universe, as the stars go by
+
+Chorus:
+Oh, spectral analyzer, counting every note
+Revealing the frequencies that make the cosmos moan
+In the echoes of starlight, we hear the universe's sigh
+A symphony of light, that whispers through the galaxies
+
+Verse 2:
+Like a telescope tuning in to the cosmic band
+We listen for the melodies of the cosmic land
+The harmonics of black holes, the vibrations of space-time
+A grand symphony, conducted by the gravitational rhyme
+
+In this celestial music, we find our own heartbeat's tone
+A resonance that connects us, like the threads of a cosmic home
+
+Bridge:
+And as we listen to the stars' silent song
+We become a part of the cosmic throng
+Our voices merge with the echoes in the sky
+In the infinite dance of light and sound, we come alive.
+
+
+---END---
+
