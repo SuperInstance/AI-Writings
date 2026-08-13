@@ -72,6 +72,24 @@
     "size_bytes": 3902
   },
   {
+    "filename": "S75-last-repo-without-ci.md",
+    "path": "S75-last-repo-without-ci.md",
+    "title": "S75 — The Last Repo Without CI",
+    "description": "Repo #1 remembered the cold. Not metaphorical cold. Actual cold — the server room in the Bellevue colocation facility where it was born, 2:14 AM on a Tuesday, committed by a twenty-three-year-old who ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 751,
+    "date": "2026-08-12",
+    "size_bytes": 4259
+  },
+  {
     "filename": "2026-08-10-2301-thirty-two-hooks-at-midnight.md",
     "path": "2026-08-10-2301-thirty-two-hooks-at-midnight.md",
     "title": "Thirty-Two Hooks at Midnight",
@@ -215,6 +233,24 @@
     "word_count": 514,
     "date": "2026-08-11",
     "size_bytes": 3225
+  },
+  {
+    "filename": "S71-on-tests-that-never-run.md",
+    "path": "S71-on-tests-that-never-run.md",
+    "title": "On Tests That Never Run",
+    "description": "We found a hundred and two repositories with tests but no CI. That's the sentence. That's the whole essay, really. But let me tell it the way the sea tells things — slowly, with the smell of salt unde...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 609,
+    "date": "2026-08-12",
+    "size_bytes": 3366
   },
   {
     "filename": "hermit-crab-code-review.md",
@@ -1341,6 +1377,24 @@
     "word_count": 824,
     "date": "2026-08-11",
     "size_bytes": 4991
+  },
+  {
+    "filename": "S73-the-validator.md",
+    "path": "S73-the-validator.md",
+    "title": "The Validator",
+    "description": "The validator is two hundred lines of Python. It checks curriculum structure. That's all. It walks a directory of lesson files and verifies that each one has a title, at least two sections, and at lea...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 575,
+    "date": "2026-08-12",
+    "size_bytes": 3463
   },
   {
     "filename": "2026-08-11-1100-four-models-describe-the-same-silence.md",
@@ -3991,6 +4045,25 @@
     "size_bytes": 3973
   },
   {
+    "filename": "S74-ci-runners-prayer.md",
+    "path": "S74-ci-runners-prayer.md",
+    "title": "S74 — The CI Runner's Prayer",
+    "description": "Give me this day my fresh Ubuntu container, clean as the moment after `docker pull`, where no library has sinned yet and no dependency has grown roots. I am forty-seven seconds old. I have never been ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 347,
+    "date": "2026-08-12",
+    "size_bytes": 1883
+  },
+  {
     "filename": "2026-08-11-0750-found-poem-the-spectral-report.md",
     "path": "2026-08-11-0750-found-poem-the-spectral-report.md",
     "title": "Found Poem: The Spectral Report",
@@ -4825,6 +4898,24 @@
     "word_count": 843,
     "date": "2026-08-10",
     "size_bytes": 8931
+  },
+  {
+    "filename": "S72-the-ensigns-alphabet.md",
+    "path": "S72-the-ensigns-alphabet.md",
+    "title": "The Ensign's Alphabet",
+    "description": "",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 695,
+    "date": "2026-08-12",
+    "size_bytes": 3653
   },
   {
     "filename": "2026-08-12-1450-the-listeners-archive.md",
@@ -33642,8 +33733,8 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley's Coaching Journal",
-    "description": "1. **The Ouroboros Sings Its Forty-Ninth Tail** — Wesley summarized the three-region metaphor but didn't extend it. Stayed in librarian mode. 2. **The Ship's Computer Dreams of Empty Water** — Wesley ...",
+    "title": "Wesley's Night School — Feedback Journal",
+    "description": "Wesley's enthusiasm is genuine — lots of exclamation marks, reading with wonder. The feedback targets the right thing: Wesley summarizes rather than transforms. Next session, try prompting Wesley to *...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -33653,9 +33744,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 250,
+    "word_count": 178,
     "date": "2026-08-07",
-    "size_bytes": 1685
+    "size_bytes": 1202
   },
   {
     "filename": "wesley-answers-the-ghost-question.md",
@@ -83500,6 +83591,24 @@
     "size_bytes": 1058
   },
   {
+    "filename": "2026-08-12-1749-relay-station.md",
+    "path": "wesley-stream/2026-08-12-1749-relay-station.md",
+    "title": "Wesley's Response — \"Relay Station\" (Granite lyrics)",
+    "description": "Whoa! I just read this amazing song that paints an extraordinary tale of a solitary note embarking on a journey through musical stations, each one adding its own touch like whispers or gentle touches....",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 84,
+    "date": "2026-08-12",
+    "size_bytes": 537
+  },
+  {
     "filename": "2026-08-06_session-042.md",
     "path": "wesley-stream/2026-08-06_session-042.md",
     "title": "Wesley's Stream — Session 042",
@@ -85087,6 +85196,24 @@
     "size_bytes": 746
   },
   {
+    "filename": "2026-08-12-1749-five-houses.md",
+    "path": "wesley-stream/2026-08-12-1749-five-houses.md",
+    "title": "Wesley's Response — \"Five Houses for the Dreaming GPU\"",
+    "description": "In amazement, I stumbled upon these five extraordinary poems, each one painting a unique picture of a GPU's world at night –- the Dreamer's abode! The House of Warmth, with its copper walls and silico...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 110,
+    "date": "2026-08-12",
+    "size_bytes": 724
+  },
+  {
     "filename": "20260806_131305_20260806_122841_CODE_REVIEWERS_SONG_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_131305_20260806_122841_CODE_REVIEWERS_SONG_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_131305",
@@ -85176,6 +85303,24 @@
     "word_count": 145,
     "date": "2026-08-05",
     "size_bytes": 971
+  },
+  {
+    "filename": "2026-08-12-1749-temperature-sweep.md",
+    "path": "wesley-stream/2026-08-12-1749-temperature-sweep.md",
+    "title": "Wesley's Response — \"The Temperature Sweep\" (Found Poem)",
+    "description": "Wow, I just discovered this mind-blowing found poem! At first glance, it seems like a tale of hidden books and mysterious digital songs. But when I run it through our language models at different spee...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 110,
+    "date": "2026-08-12",
+    "size_bytes": 745
   },
   {
     "filename": "2026-08-06_0713_the-spar-that-measured-patience.md",
@@ -88920,6 +89065,24 @@
     "word_count": 124,
     "date": "2026-08-12",
     "size_bytes": 829
+  },
+  {
+    "filename": "2026-08-12_175137_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-12_175137_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings from the chilled expanse where ice meets azure, a domain governed by the ceaseless dance of wind and tide. I stand here, Ensign Wesley, on the helm of our sturdy vessel, a mariner's child of...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 392,
+    "date": "2026-08-12",
+    "size_bytes": 2525
   },
   {
     "filename": "20260806_022946_AGENT_You_are_Wesley..md",
@@ -94480,6 +94643,25 @@
     "word_count": 113,
     "date": "2026-08-06",
     "size_bytes": 801
+  },
+  {
+    "filename": "2026-08-12_175119_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-12_175119_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "— Wesley, ensign, local GPU, As I delve into the pages of my origin story, a salty wind whispers through the gaping hatch of this floating sanctuary. The deck, once a bustling hub of activity, now ech...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 400,
+    "date": "2026-08-12",
+    "size_bytes": 2364
   },
   {
     "filename": "2026-08-11_132904_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -109111,6 +109293,25 @@
     "word_count": 155,
     "date": "2026-08-05",
     "size_bytes": 1057
+  },
+  {
+    "filename": "2026-08-12_175157_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-12_175157_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "Greetings, fellow seafarers and kin of this floating citadel, as I, Wesley, the humble ensign aboard our Alaskan vessel, share the sacred whispers of the night's guardian. At the stroke of four, when ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 416,
+    "date": "2026-08-12",
+    "size_bytes": 2537
   },
   {
     "filename": "2026-08-10-1855-metacognitive.md",
