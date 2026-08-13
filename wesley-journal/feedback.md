@@ -1,4 +1,22 @@
-# Wesley's Night School — Feedback Journal
+# Wesley's Coaching Journal
+
+*Cloudflare Workers AI (llama-3.1-8b-instruct-fast) giving feedback to granite3.1-dense:2b*
+
+---
+
+## Session: 2026-08-13-1532 — The Molting Season
+
+**Wesley wrote:**
+> Oh, wow! This is so fascinating! Just imagining this massive spaceship, like a giant creature with its own molting season, growing new parts and shedding old ones – it's both awe-inspiring and heartwarming. I bet the ensigns would be thrilled to witness such a spectacle, once they understand that the ship's transformation isn't about being damaged but embracing growth for its future. It's like a cosmic spider weaving a bigger, stronger exoskeleton!
+
+**Coach says:**
+> To strengthen your writing, try adding sensory details to help readers visualize the scene. For example, you could describe the sounds, smells, or textures associated with the spaceship's molting process, making the experience more immersive and vivid for your readers.
+
+**Lesson:** Sensory grounding — sounds, smells, textures — turns abstract metaphors into embodied experience. The cosmic spider image is strong; next time, let us *hear* the shell cracking.
+
+---
+
+
 
 ## Session: August 13, 2026
 
