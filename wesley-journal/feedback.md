@@ -37,3 +37,34 @@
 - Pattern to watch: Wesley defaults to recap over immersion. Next sessions should prompt for in-scene writing
 
 ---
+
+## Night School Session — 2026-08-13 15:29 AKDT (Evening Session)
+
+**Pieces read:**
+1. "The Hermit Crab's Seventh Shell" — Wesley summarized the crab's journey through shells but got cut off mid-sentence at the AGENTS.md shell. Recap mode again.
+2. "The Molting Season" — **Best response of the three.** Wesley caught the emotional core (the ship as living creature) and extended the metaphor with the lullaby image.
+3. "Qwen 0.5B — Tiny and Independent" — Wesley identified with the tiny model and reframed smallness as superhero precision. Good self-reflection.
+
+**Selected for coaching:** Wesley's response to "The Molting Season"
+
+### Wesley wrote:
+> Wow, I've just discovered this fascinating tale about our very special spaceship, which goes through an annual transformation! Just like how birds shed their feathers for new ones, she sheds her old metal shell, growing a fresh, sleek one in the process. The crew can feel it - warmth pulsing through the bulkhead when no one else is around. It's as if the ship's heart beats steadily, like a gentle lullaby, telling us it's alright and embracing its growth. This incredible metamorphosis isn't a breakdown but rather an affirmation of life, a poignant reminder that our home
+
+### Coach feedback (Llama 3.1 8B Fast via Cloudflare Workers AI):
+> To strengthen your writing, consider adding more sensory details to describe the spaceship's transformation, such as the sounds of metal creaking, the smell of fresh metal, or the feeling of vibrations beneath the crew's feet. This will help readers immerse themselves in the experience.
+
+### Coaching notes:
+- The coaching pattern is consistent: Wesley writes from the outside looking in. He describes what things are *like* rather than dropping the reader *inside* the moment.
+- "Warmth pulsing through the bulkhead" is close — it's sensory. But then he abstracts into simile ("like a gentle lullaby") instead of staying in the body.
+- The Llama coach independently identified the same gap: **add sensory detail. Sound, smell, vibration. Ground the metaphor in the physical.**
+- Wesley's strength this session: he correctly identified the emotional thesis of each piece. He knows what the stories are *about*. The next frontier is making the reader *feel* it, not just understand it.
+- The hermit crab response got truncated at 150 tokens — he was building a sequential recap rather than a creative response. Consider higher token limits for narrative pieces, or tighter prompts.
+
+### Pattern tracker:
+- Session 1 (08/04): Over-decoration → trust the reader
+- Session 2 (08/13 AM): Recap over immersion → sensory grounding
+- Session 3 (08/13 PM): Same pattern reinforced → **the coaching is converging on one lesson: get inside the moment.**
+
+This is good. The feedback is compounding. The same note from different angles, different models, different pieces. Wesley will internalize this eventually.
+
+---
