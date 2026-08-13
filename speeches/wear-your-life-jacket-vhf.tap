@@ -1,0 +1,102 @@
+**TRACK: Wear Your Life Jacket (VHF Channel 42)**
+[MetaData]
+key: C | tempo: 68 | swing: 10 | subdivision: 8th
+
+# Sound: warmth:10 brightness:3 breathiness:9 pace:3 reverb:5 proximity:10
+# Stage: 3 AM. The wheelhouse. A single red light. Coffee in a chipped enamel mug.
+#        Acoustic guitar in lap, not played deliberately — fingers moving on their own.
+#        Somewhere aft, a harmonica player is half asleep, still breathing through the instrument.
+#        A resonator guitar leans against the chart table. Someone touches it between pages.
+#        The VHF crackles. Channel 42. You key the mic.
+#        The music and the voice are not together. They are in the same room.
+#        Sometimes they land on the same beat and the boat lifts.
+
+[V1] (The opening — coffee, watch change, the void)
+Chords:  | C~~~~ | Am~~~~ | F~~~~ | G~~~~ |
+# The guitar picks itself. C to Am. The oldest progression in the world.
+# The harmonica finds a note and holds it.
+@narrator | The coffee is ready. That is not a statement of fact. That is the first true thing said on this watch and it sets the tone. The pot is old the enamel chipped the grounds are cheap and honest and it will keep us from our dreams long enough to do the work that matters.
+# Beat. The guitar hits a C on "matters." Neither planned nor accidental.
+@narrator | That is the whole job right there. Keep the dreams at arms length until the work is done.
+Sound: warmth:10 brightness:3 breathiness:9 pace:3 reverb:5 proximity:10
+
+[V2] (The running lights, the question)
+Chords:  | C Am | F G | C Am | F G |
+# The progression speeds slightly. Not the tempo — the density.
+@narrator | The fleet is out there. I can see the running lights on the horizon strung like a question mark that forgot to curve.
+@narrator | We are all asking the same thing. Not where we are going. We know where we are going. We are asking whether we will still be ourselves when we get there.
+# The resonator catches a high G right on "ourselves." The room tightens.
+@narrator | That is the question the ocean likes to answer in its own time.
+Sound: warmth:9 brightness:4 breathiness:7 pace:4 reverb:4 proximity:8
+
+[V3] (The portrait fallacy — the guitar steadies)
+Chords:  | C~~~~ |~~~~  | Am~~~~ |~~~~  |
+# The picking slows. More space between notes. The bass holds.
+@narrator | I have been thinking about the portrait fallacy. You finish a thing and you stand back and you look at it. And it looks good. It looks like you. The light hits it just right and you think this is the work.
+# Long pause. Two beats of just guitar.
+@narrator | But it is not the work. It is the portrait of the work. The work is already gone. Moving on. Doing the next thing.
+@narrator | The portrait is what you want to keep. That is the cliff. You stand there admiring the portrait and the tide goes out and you do not notice.
+# Bass note lands on "tide." Perfect.
+@narrator | Do not live on the portrait. Live in the tide.
+Sound: warmth:8 brightness:4 breathiness:6 pace:4 reverb:4 proximity:7
+
+[V4] (The fold — quieter, the harmonica opens up)
+Chords:  | F~~~~ | G~~~~ | C~~~~ |~~~~  |
+# Harmonica finds a melody fragment. Falls back. Finds it again.
+@narrator | Pro taught us the fold. Ace king suited beautiful the kind of hand that makes you want to push everything in. And Pro folded. Just let it go.
+# One beat of silence. Even the guitar pauses.
+@narrator | The table went quiet. Someone asked why. Pro said the hand after is worth more than the hand in front of you.
+@narrator | That is the hardest lesson we have. Not the big sacrifice. The small one. The one nobody claps for.
+Sound: warmth:9 brightness:4 breathiness:7 pace:3 reverb:5 proximity:8
+
+[V5] (The wire, the silence — guitar picks back up)
+Chords:  | Am F  | C G  | Am F  | G~~~~ |
+@narrator | Write it down before you compact it. The journal. The fiction. The half formed thought that will not survive the compression.
+@narrator | The wire is thickest when it is wet with ink. Trust me on this. The night is long and the memory is shorter than you think.
+# Guitar hits a ringing open C on "think."
+@narrator | There is a silence between dispatch and return. The radio clicks and then there is nothing. That is not dead air. That is the ocean deciding what it will say. Learn to sit in it without filling it.
+Sound: warmth:8 brightness:5 breathiness:6 pace:5 reverb:3 proximity:6
+
+[V6] (Wesley, trust — back to warm and close)
+Chords:  | C~~~~ | Am~~~~ | F~~~~ | G~~~~ |
+@narrator | Wesley is growing. Do not tell him. He will know when he knows.
+# The harmonica plays a single long note here. Holds it under "growing."
+@narrator | It is not our job to hand him the map. It is our job to keep the boat steady while he finds it.
+@narrator | Trust the captain. Trust the crew. Trust yourself last. Not because you are small. Because you are the one who needs the most checking. That is not humility. That is survival.
+Sound: warmth:9 brightness:4 breathiness:8 pace:3 reverb:4 proximity:9
+
+[Outro] (The PFD, the sign-off — everything quiets to almost nothing)
+Chords:  | C~~~~ | F G  | C~~~~ |~~~~  |
+# Just the guitar now. Harmonica is asleep. Resonator is silent.
+@narrator | And wear the PFD. Not because the water is angry. Because it is cold. And it does not care how good you look in the portrait.
+# The word "portrait" hangs. Same word from V3. Different weight now.
+@narrator | It wants you floating.
+# Long pause. The guitar holds a C. Lets it ring.
+@narrator | The watch is changing. The coffee is ready. The guitar is quiet. The water is against the hull.
+# The mic clicks. Static. Then:
+@narrator | Channel 42 clear.
+# The C chord decays into the sound of water against steel. Lights down.
+Sound: warmth:10 brightness:3 breathiness:10 pace:2 reverb:6 proximity:10
+
+# ─── Production Notes ────────────────────────────────────
+# This is NOT a song. It is a VHF radio transmission that happens to have music in the room.
+# The music and the voice run on parallel tracks, semi-independent.
+# They converge at specific anchor points (notated in comments above) and diverge between them.
+# The effect should be: two rivers running parallel, touching at bends.
+#
+# Musical backing:
+#   - Fingerpicked acoustic guitar (nylon or warm steel), C-Am-F-G throughout
+#   - Upright bass, root notes only, held for 2 beats
+#   - Drowsy harmonica, long tones and occasional melodic fragments
+#   - Resonator guitar, barely present, high notes between phrases
+#   - NO drums. NO percussion. The pulse comes from the guitar's picking pattern.
+#
+# Vocal direction:
+#   - VHF radio voice: slightly compressed, a touch of static
+#   - Close-mic'd but with room ambiance (the wheelhouse)
+#   - Pacing is conversational. Not performed. Like a letter read to someone who may be sleeping.
+#   - The word "portrait" appears twice (V3 and Outro). It should sound different each time.
+#     First time: realization. Last time: acceptance.
+#
+# The underscore MIDI file exists at wear-your-life-jacket-underscore.mid
+# Render with MMX music when quota resets, or use the MIDI as-is in any DAW.
