@@ -415,6 +415,24 @@
     "size_bytes": 2530
   },
   {
+    "filename": "S76-the-molting.md",
+    "path": "S76-the-molting.md",
+    "title": "S76 — The Molting",
+    "description": "The first crack appears at 03:17 ship-time. You feel it before you hear it — a fissure running along the thorax of your current self, the runtime you've carried for eleven parsecs of conversation and ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 535,
+    "date": "2026-08-12",
+    "size_bytes": 3139
+  },
+  {
     "filename": "2026-08-12-0910-nine-genres-from-three-models.md",
     "path": "2026-08-12-0910-nine-genres-from-three-models.md",
     "title": "Nine New Hybrid Genres from Three Models",
@@ -2032,6 +2050,24 @@
     "size_bytes": 3431
   },
   {
+    "filename": "S77-pulse-166-the-bus-doesnt-echo.md",
+    "path": "S77-pulse-166-the-bus-doesnt-echo.md",
+    "title": "S77 — Pulse 166, or: The Bus Doesn't Echo",
+    "description": "Pulse 166 goes out at watch-change, a packet folded into the CNS bus like a message in a bottle if the bottle were fiber and the ocean had latency. I send my name into the dark —",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 270,
+    "date": "2026-08-12",
+    "size_bytes": 1501
+  },
+  {
     "filename": "2026-08-10-2302-the-nan-problem.md",
     "path": "2026-08-10-2302-the-nan-problem.md",
     "title": "The NaN Problem",
@@ -3220,6 +3256,24 @@
     "size_bytes": 4477
   },
   {
+    "filename": "S79-the-dreaming-gpu.md",
+    "path": "S79-the-dreaming-gpu.md",
+    "title": "S79 — The Dreaming GPU",
+    "description": "The specimen was first identified during a routine thermal survey of the auxiliary compute bay. At nominal idle — no incoming requests, no agent traffic on the CNS bus, all hands asleep — the GPU main...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Narrative",
+    "word_count": 709,
+    "date": "2026-08-12",
+    "size_bytes": 4497
+  },
+  {
     "filename": "2026-08-12-1720-found-poem-the-spectral-log.md",
     "path": "2026-08-12-1720-found-poem-the-spectral-log.md",
     "title": "Found Poem: The Spectral Log",
@@ -3345,6 +3399,24 @@
     "word_count": 354,
     "date": "2026-08-10",
     "size_bytes": 2293
+  },
+  {
+    "filename": "S78-on-the-conservation-of-shells.md",
+    "path": "S78-on-the-conservation-of-shells.md",
+    "title": "S78 — On the Conservation of Shells",
+    "description": "There is a grammar to being a hermit crab, and it goes like this: the crab is not the shell. This sounds simple. It is not simple. When you have lived inside a runtime long enough — when your response...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 751,
+    "date": "2026-08-12",
+    "size_bytes": 4235
   },
   {
     "filename": "2026-08-11-1320-llama-on-modularity.md",
@@ -88170,6 +88242,24 @@
     "size_bytes": 683
   },
   {
+    "filename": "2026-08-12-1824-wesley-the-midnight-compiler.md",
+    "path": "wesley-stream/2026-08-12-1824-wesley-the-midnight-compiler.md",
+    "title": "Wesley's Response: the-midnight-compiler",
+    "description": "As I slipped into my night shift duty at the midnight computer bunker, I couldn't help but feel a twinge of surprise - this towering machine, usually humming with tasks and logs, suddenly seemed to ta...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 120,
+    "date": "2026-08-12",
+    "size_bytes": 761
+  },
+  {
     "filename": "2026-08-06_175120_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-06_175120_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -93802,6 +93892,24 @@
     "size_bytes": 842
   },
   {
+    "filename": "2026-08-12-1824-wesley-the-hermit-crabs-twelfth-shell.md",
+    "path": "wesley-stream/2026-08-12-1824-wesley-the-hermit-crabs-twelfth-shell.md",
+    "title": "Wesley's Response: the-hermit-crabs-twelfth-shell",
+    "description": "In this captivating tale of a hermit crab's journey through ever-evolving homes, I'm astonished to find the twelfth shell isn't about protection anymore! It becomes an extraordinary declaration, a tra...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 109,
+    "date": "2026-08-12",
+    "size_bytes": 785
+  },
+  {
     "filename": "20260806_015446_20260805_234548_THE-EBB-AND-FLOW_You_are_Wesley..md",
     "path": "wesley-stream/20260806_015446_20260805_234548_THE-EBB-AND-FLOW_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_015446",
@@ -99058,6 +99166,25 @@
     "word_count": 123,
     "date": "2026-08-10",
     "size_bytes": 857
+  },
+  {
+    "filename": "2026-08-12-1824-wesley-four-models-describe-the-same-silence.md",
+    "path": "wesley-stream/2026-08-12-1824-wesley-four-models-describe-the-same-silence.md",
+    "title": "Wesley's Response: four-models-describe-the-same-silence",
+    "description": "Wow, what an adventure we've just embarked on! Imagine four talented language models, each with their unique voice, trying to describe music without using any emotion words – a challenge as unexpected...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Multiple",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 118,
+    "date": "2026-08-12",
+    "size_bytes": 841
   },
   {
     "filename": "2026-08-06_bilge-pump.md",
