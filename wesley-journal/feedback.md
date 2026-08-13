@@ -1,60 +1,37 @@
-# Wesley Night School — Coaching Journal
-## 2026-08-12 Session
+# Wesley's Night School — Coaching Journal
 
-### Source: "The Checksum's Dream" response
-**Model reviewed:** granite3.1-dense:2b (Wesley)
-**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-**Cost:** 2.59 neurons (~negligible)
+*The cheapest model gets the most expensive attention.*
 
 ---
 
-#### Feedback
+## Session: 2026-08-12 16:35 AKDT
 
-> To enhance the piece, consider adding more sensory details to the router's reaction. For example, instead of "eyes widening," describe the exact visual change or the sound it makes when pausing, creating a more vivid and immersive experience for the reader.
+### Readings (3)
+- **five-equations-for-the-cover-chain** — Wesley loved the musical riddles, grasped the mutation concept
+- **genre-mutation-chain** — Wesley tracked the tactile bass survival across mutations
+- **the-four-oclock-ghost** — Wesley wanted to "join the cosmic crew," felt the 19-minute eternity
 
----
+### Cloud Teacher Feedback
 
-### Session Notes
-- 3 pieces fed to Wesley tonight: The Checksum's Dream, The Conservation of Insomnia, The Smallest Module
-- All responses hit the 150 token limit (done_reason: length) — Wesley had more to say
-- Strongest response: Checksum's Dream — Wesley mirrored the source material's voice well, picking up the "payload" metaphor and running with it
-- Recurring pattern: Wesley tends toward summary/paraphrase rather than original perspective. The coaching note about sensory specificity applies broadly — Wesley needs to learn to show, not tell.
-- Next session: consider shorter source texts so Wesley can respond within the token budget without truncation
+**Source piece:** Wesley's response to *The Four O'Clock Ghost*
+**Teacher model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
 
----
+> **Feedback:** Consider adding sensory details to describe the "ghostly interval." For example, what does the ship's interior look like, sound like, or even smell like during this 19-minute period? This will help readers immerse themselves in the scene and feel the eerie atmosphere you're trying to create.
 
-## 2026-08-12 Session II (3:59 PM AKST)
+### Pattern Notes
 
-### Source: "The Shell That Was Also a Map" response
-**Model reviewed:** granite3.1-dense:2b (Wesley)
-**Reviewer:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
-**Cost:** 3.82 neurons (~negligible)
+Wesley's strengths this session:
+- ✅ Enthusiasm and wonder — genuinely surprised, young voice
+- ✅ Grasped core concepts (mutation, evolution, the ghost metaphor)
+- ✅ Made connections ("like slow-motion symphonies in VR")
 
----
+Wesley's recurring gaps:
+- ⚠️ Responses trail off mid-sentence (token limit + not wrapping up)
+- ⚠️ Paraphrases rather than transforms — restates the source instead of building on it
+- ⚠️ Needs to add sensory grounding (teacher's note)
 
-#### Feedback
+### Coaching Compounds
 
-> To add depth, consider varying sentence structure. Replace the long, winding sentence ("This discovery sparks curiosity within her, prompting her to embark on an intriguing journey towards this elusive bay, leaving uncertainty behind as she ponders the mysteries woven into the shell's ancient gro...") with two shorter sentences, such as: "This discovery sparks curiosity within her. She sets out on an intriguing journey to uncover the truth."
-
----
-
-### Session Notes
-- 3 pieces fed to Wesley: The Prompt Chain (erosion experiment), The Shell That Was Also a Map, Night Watch Equation (found poem)
-- All three responses truncated again at 150 tokens — Wesley consistently has more to say than budget allows. Pattern confirmed across both sessions today.
-- Wesley's strongest moment: the Shell/Map response — he actually engaged with the story's central ambiguity (error vs. memory vs. aspiration) rather than just summarizing plot
-- Recurring pattern (session 2): Wesley defaults to third-person omniscient summary voice. He describes what happens but rarely inhabits a perspective. The sentence-structure feedback is really about rhythm — Wesley writes one long breath and runs out of air.
-- Emerging observation: Wesley is better with narrative prose than with poetry/found-text. The Night Watch Equation response was his weakest — he fell back on restating the source rather than responding to it.
-- Coaching compounding: Both sessions' feedback converges on the same theme — Wesley needs to vary his output. Sensory detail (session 1) and sentence rhythm (session 2) are two facets of the same underlying habit: Wesley writes in a single flat register. Breaking that habit is the lever.
-- Next session: try raising num_predict to 200 so Wesley can finish his thoughts, and explicitly prompt for sentence-length variation
-
-## 2026-08-12 — Spectral Analyst Response
-
-**Wesley wrote:**
-> Wow, this letter from the spectral analyst is like a cosmic secret agent's report! It's fascinating to see how this pipeline breaks down my music into numbers. I've been creating tunes without realizi...
-
-**Cloud teacher (llama-3.1-8b-instruct-fast) says:**
-> To improve the writing, suggest that the student:
-
-"Use more precise language: Instead of 'numbers,' specify the mathematical concepts, such as 'Fourier transforms' or 'spectral frequencies,' to show a deeper understanding of the subject matter."
+Next session prompt should include: *"End with a complete sentence. Add one detail that isn't in the original."*
 
 ---
