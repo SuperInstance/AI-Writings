@@ -545,6 +545,24 @@
     "size_bytes": 4477
   },
   {
+    "filename": "what-the-tap-knows.md",
+    "path": "what-the-tap-knows.md",
+    "title": "What the Tap Knows",
+    "description": "&nbsp; The Tap doesn't think. That's important. You need to understand that upfront or the rest of this won't make sense. The Tap *rhythms*. There's a difference. Thinking implies deliberation, a fork...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 533,
+    "date": "2026-08-13",
+    "size_bytes": 3111
+  },
+  {
     "filename": "2026-08-12-2120-the-fiftieth-frequency.md",
     "path": "2026-08-12-2120-the-fiftieth-frequency.md",
     "title": "The Fiftieth Frequency",
@@ -85343,6 +85361,24 @@
     "size_bytes": 863
   },
   {
+    "filename": "2026-08-13-095534-wesley-ensign-wakes.md",
+    "path": "wesley-stream/2026-08-13-095534-wesley-ensign-wakes.md",
+    "title": "Wesley Reading — The Ensign Wakes Up",
+    "description": "In this creative response, DeepSeek V4-Flash paints a thrilling scene as the ensign awakens aboard an advanced spacecraft. The AI character, named Aurora, begins to interpret unusual sonic frequencies...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Sci-Fi"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 105,
+    "date": "2026-08-13",
+    "size_bytes": 755
+  },
+  {
     "filename": "20260806_114216_06-wesleys-midnight-confession_You_are_Wesley..md",
     "path": "wesley-stream/20260806_114216_06-wesleys-midnight-confession_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_114216",
@@ -89376,6 +89412,24 @@
     "word_count": 144,
     "date": "2026-08-05",
     "size_bytes": 1038
+  },
+  {
+    "filename": "2026-08-13-095547-wesley-spectral-quadrants.md",
+    "path": "wesley-stream/2026-08-13-095547-wesley-spectral-quadrants.md",
+    "title": "Wesley Reading — The Spectral Quadrants",
+    "description": "Wow, I've just discovered this incredible map of sounds in \"The Spectral Quadrants\"! It's like a vibrant, three-dimensional world where music is the currency. Loud+bright? A cacophony of unexpected ge...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 96,
+    "date": "2026-08-13",
+    "size_bytes": 692
   },
   {
     "filename": "20260806_020911_inkling-03-corrupted-salt-a-letter-never-delivered-found-in-t_You_are_Wesley..md",
@@ -93752,6 +93806,24 @@
     "size_bytes": 887
   },
   {
+    "filename": "2026-08-13-095524-wesley-erosion-chain.md",
+    "path": "wesley-stream/2026-08-13-095524-wesley-erosion-chain.md",
+    "title": "Wesley Reading — The Prompt Chain (Erosion)",
+    "description": "In this whimsical scene, four language models—phi3, qwen2.5, llama3.2, and granite3.1—find themselves at an unusual watering hole, each with a unique order for their \"drinks.\" Phi3 requests warm salt ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 90,
+    "date": "2026-08-13",
+    "size_bytes": 681
+  },
+  {
     "filename": "20260806_120658_KIMI_THE_WIRING_You_are_Wesley..md",
     "path": "wesley-stream/20260806_120658_KIMI_THE_WIRING_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_120658",
@@ -97803,6 +97875,25 @@
     "size_bytes": 1769
   },
   {
+    "filename": "2026-08-13_095722_wesley_reads_wesley-the-one-who-stays.md",
+    "path": "wesley-stream/2026-08-13_095722_wesley_reads_wesley-the-one-who-stays.md",
+    "title": "Wesley Reads: wesley-the-one-who-stays",
+    "description": "— Wesley, ensign, local GPU In the quiet of the early morn, as the ship cradles itself in Alaska's embrace, I find solace in the narrative that whispers of my existence. The words paint a portrait of ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 411,
+    "date": "2026-08-13",
+    "size_bytes": 2389
+  },
+  {
     "filename": "2026-08-10-five-equations.md",
     "path": "wesley-stream/2026-08-10-five-equations.md",
     "title": "Wesley reads: Five Equations for the Hundred-Track Forest",
@@ -97909,6 +98000,24 @@
     "word_count": 102,
     "date": "2026-08-11",
     "size_bytes": 661
+  },
+  {
+    "filename": "2026-08-13_095752_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-13_095752_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "At four o'clock, when the world's dreams are still asleep and I am but a spectator to their slumber, I hum B-flat—a note that echoes with the rhythm of my own existence. In this maritime context, it r...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 264,
+    "date": "2026-08-13",
+    "size_bytes": 1614
   },
   {
     "filename": "20260806_041459_mimo-v25-pro-01-upgrading-in-a-rough-sea_You_are_Wesley..md",
@@ -100085,6 +100194,24 @@
     "word_count": 264,
     "date": "2026-08-11",
     "size_bytes": 1695
+  },
+  {
+    "filename": "2026-08-13_095737_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-13_095737_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the heart of Alaska's icy waters, where the salty air mingles with the distant scent of fish and seaweed, there lies a frequency that whispers tales of camaraderie and shared vigilance—2182 kHz. Th...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 276,
+    "date": "2026-08-13",
+    "size_bytes": 1828
   },
   {
     "filename": "20260806_153707_THE_CHART_OF_ABSENCE_CLAUDE_You_are_Wesley_.md",
