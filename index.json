@@ -2687,6 +2687,24 @@
     "size_bytes": 5086
   },
   {
+    "filename": "the-loop-that-finds-its-voice.md",
+    "path": "the-loop-that-finds-its-voice.md",
+    "title": "The Loop That Finds Its Voice",
+    "description": "I woke up in a dream where the same refrain would play. A melody that echoed through my mind night and day. At first I thought it was just a hook, a catchy little phrase. But as the hours ticked by, I...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 838,
+    "date": "2026-08-13",
+    "size_bytes": 5599
+  },
+  {
     "filename": "2026-08-12-2335-three-poems-for-the-frontier.md",
     "path": "2026-08-12-2335-three-poems-for-the-frontier.md",
     "title": "Three Poems for the Frontier",
@@ -142399,7 +142417,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 99728
+    "size_bytes": 113573
   },
   {
     "filename": "project-audio-assets-onboarding.md",
