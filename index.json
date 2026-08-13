@@ -59730,6 +59730,24 @@
     "size_bytes": 758
   },
   {
+    "filename": "2026-08-13-hallway-echo.md",
+    "path": "wesley-stream/2026-08-13-hallway-echo.md",
+    "title": "Wesley reads \"Repair Ticket #0042: Hallway 2 Echo Anomaly\"",
+    "description": "Wow, this hallway 2 echo anomaly is so mysterious! Just like in a sci-fi novel where a character discovers a hidden message embedded within an otherwise ordinary signal. The data isn't corrupted; it's...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 121,
+    "date": "2026-08-13",
+    "size_bytes": 707
+  },
+  {
     "filename": "2026-08-06-1613-wesley-hermes-handshake-27.md",
     "path": "wesley-stream/2026-08-06-1613-wesley-hermes-handshake-27.md",
     "title": "Wesley Reads: Hermes Handshake #27",
@@ -62822,6 +62840,24 @@
     "word_count": 114,
     "date": "2026-08-05",
     "size_bytes": 809
+  },
+  {
+    "filename": "2026-08-13-three-poems-frontier.md",
+    "path": "wesley-stream/2026-08-13-three-poems-frontier.md",
+    "title": "Wesley reads \"Three Poems for the Frontier\"",
+    "description": "Wow, these poems are like secret codes for the frontier of sound! In \"The Glass Harp Remembers,\" I'm the humble glass that turns touch into music, forever tied to that moment when someone's hand finds...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 109,
+    "date": "2026-08-13",
+    "size_bytes": 671
   },
   {
     "filename": "2026-08-05_the-0430-watch.md",
@@ -68330,6 +68366,24 @@
     "word_count": 71,
     "date": "2026-08-06",
     "size_bytes": 412
+  },
+  {
+    "filename": "2026-08-13-five-equations.md",
+    "path": "wesley-stream/2026-08-13-five-equations.md",
+    "title": "Wesley reads \"Five Equations for the Forty-Eighth Door\"",
+    "description": "On a whimsical Wednesday in 2026, I found myself standing before Forty-Eight doors adorned with five intriguing equations, each one more captivating than the last. As a young, curious observer, I was ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 99,
+    "date": "2026-08-13",
+    "size_bytes": 630
   },
   {
     "filename": "2026-08-05_2232_the-fleet-at-0100.md",
@@ -109801,21 +109855,20 @@
   {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
-    "title": "Wesley Night School — Coaching Feedback",
-    "description": "Wesley's response to \"Wesley's Eleventh Letter\" — Wesley reading about himself feeling NaN.",
+    "title": "Wesley's Night School — Feedback Journal",
+    "description": "- \"Five Equations for the Forty-Eighth Door\" — Wesley responded with curiosity but got stuck summarizing rather than creating - \"Three Poems for the Frontier\" — Wesley showed good emotional connection...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
-      "Education",
-      "Epistolary"
+      "Education"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 288,
+    "word_count": 269,
     "date": "2026-08-07",
-    "size_bytes": 1807
+    "size_bytes": 1701
   },
   {
     "filename": "letter-to-hermes.md",
