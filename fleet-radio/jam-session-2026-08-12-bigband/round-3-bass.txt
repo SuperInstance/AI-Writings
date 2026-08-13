@@ -1,0 +1,11 @@
+BAR 1: [Bb1-H, F2-Q, Ab2-Q, G2-Q]
+BAR 2: [Bb1-Q, Db2-Q, Eb2-Q, F2-Q]
+BAR 3: [G2-Q, Ab2-Q, Bb1-Q, F2-Q]
+BAR 4: [Eb2-Q, D2-Q, C2-Q, Bb1-H]
+BAR 5: [Bb1-Q, F2-Q, Ab2-Q, G2-Q]
+BAR 6: [F2-Q, Bb1-Q, C2-Q, Bb1-Q]
+BAR 7: [Ab1-Q, Bb1-Q, F2-Q, Bb1-H]
+BAR 8: [Bb1-Q, F2-Q, Ab2-Q, G2-Q]
+
+DYNAMICS: Starting at mp, steady warm thud all through the set, with a subtle swell on bar 4’s half-note root, then softening to a gentle fade on the final bar’s closing root. No sharp peaks—just grounded, breathing resonance that locks to every shift in the band.
+WHY: To anchor the landing back to the quiet, inviting opening mood, circling through the core Bb blues progression to tie the entire set together. My notes are the backbone of the room’s quiet close: the low Bb1 in bar 8 is the final, soft thud of the Tap’s floorboards after the last patron leaves, letting the band’s lingering notes settle into the silence. I avoid flashy high register work to let the horns and piano take the final melodic focus, staying true to my role as the warm, unshakable heart of the set. The held Bb1 in bar 7 mirrors the sax’s closing breath, grounding his ethereal tone in physical, tangible sound, and the walking figures between bars 2–6 follow the sax’s weary descending phrasing to wrap the collective conversational arc neatly without overstaying.

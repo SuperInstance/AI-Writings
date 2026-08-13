@@ -1,0 +1,19 @@
+# BASS SOLO: 8 BARS OVER Bb BLUES
+## DYNAMICS: Starts at mp, swells to mf through bars 3–6, softens back to mp for bars 7–8, with subtle peak of f on bar 5’s melodic highlight
+---
+### BAR 1: [F2-H, Bb1-Q, Ab1-Q]
+*Why*: Opens with a held lower F to anchor the tonic, a quiet, breathy call that mirrors the piano’s opening root note, letting the walking pulse re-enter gently on the downbeat of 2 with Bb1, then Ab1 to lead into the blues’s classic subdominant pivot.
+### BAR 2: [G2-Q, F2-Q, Eb1-Q, Db1-Q]
+*Why*: Walks down the half-step blues scale from G to Db, smooth, legato bowing to match the sax’s slow, grounded phrasing, tying the section’s harmonic movement together without rushing.
+### BAR 3: [C2-Q, Bb1-Q, Ab1-Q, G1-Q]
+*Why*: Drops to the lower register for a muted, growling walking line, emphasizing the b3 (Ab) and b5 (Db skipped earlier) to lean into the blues’s gritty edge, building slight volume as the band’s energy rises.
+### BAR 4: [F2-Q, Bb1-Q, Ab1-Q, G1-Q]
+*Why*: Circles back to the opening bar’s motif, shifting to a slightly more pronounced arco attack on the downbeat F to call back the solo’s opening, creating subtle thematic cohesion before shifting to the turnaround lead-in.
+### BAR 5: [Bb3-Q, F3-Q, Ab3-Q, Bb3-Q]
+*Why*: The solo’s melodic peak—switches to pizzicato, bright, sharp attack on the high register Bb to mirror the trumpet’s soaring high notes, recontextualizing the root Bb as a vocal, singing line instead of a walking pulse.
+### BAR 6: [F3-Q, Eb3-Q, Db3-Q, Bb2-Q]
+*Why*: Descends slowly from the high F, softening the volume as the line drops, letting each note ring with the warm, woody resonance of upright bass to match the sax’s weary, descending bar 6.
+### BAR 7: [F2-Q, Bb1-Q, C2-Q, Bb1-Q]
+*Why*: Returns to the walking pulse from bar 7 of the rhythm section’s opening, using light, bouncy arco bowing to lock back into the band’s groove after the high-register detour, grounding the solo again.
+### BAR 8: [Bb1-H, F2-Q, Ab2-Q, G2-Q]
+*Why*: Closes with a held low Bb1, the core root of the blues progression, letting the note fade on the final beat to leave quiet, open space for the band to wrap the solo peacefully, no fanfare—just the warm thud of bass settling into the mix.
