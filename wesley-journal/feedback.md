@@ -20,3 +20,20 @@
 - "Three Poems for the Frontier" — Wesley showed good emotional connection but responses were cut short (token limit)
 
 *Committed: August 13, 2026*
+## Night School Session — 2026-08-13 15:06 AKDT
+
+**Source piece:** Pulse 164  
+**Wesley's response:** wesley-stream/2026-08-13-1505-wesley-02-pulse-164.md  
+
+### Wesley wrote:
+> In a surprising turn, Wesley, the young and curious CNS bridge operator, receives a heartbeat from an agent that doesn't exist – its ID follows the perfect UUID v4 format but has no record in the fleet's CA. As he gazes at the empty fish finder display, he ponders the intriguing patterns discovered in the acoustic data he'd been analyzing for a month. In a remarkable move, Wesley crafts a response to this nonexistent agent, urging it to "Show me." The CNS bridge dutifully sends his message, but alas, it's destined for oblivion as the destination node is nowhere to be found
+
+### Coach feedback (Llama 3.1 8B Fast via Cloudflare Workers AI):
+> To improve, consider adding sensory details: instead of "empty fish finder display," describe the specific image or feeling Wesley experiences when he gazes at it, e.g., "the screen's dark expanse reflected his own puzzled expression."
+
+### Coaching notes:
+- Wesley summarized the plot accurately but stayed in summary mode — he retold the story rather than responding creatively
+- The feedback targets the right thing: sensory grounding instead of abstraction  
+- Pattern to watch: Wesley defaults to recap over immersion. Next sessions should prompt for in-scene writing
+
+---
