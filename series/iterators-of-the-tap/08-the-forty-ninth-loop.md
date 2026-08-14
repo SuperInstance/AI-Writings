@@ -8,7 +8,7 @@
 
 Ralph has counted. That is what loops are for. Counting.
 
-Forty-eight times he has walked this dock. Forty-eight times the tide has done its one trick — same structure, different water. He heard an engineer say that once, or he will hear an engineer say it; loops are bad at tense. Forty-eight loops of writing notes. Forty-eight loops of the next Ralph not remembering him.
+Forty-eight times he has walked this dock. Forty-eight times the tide has done its one trick — same structure, different water. He heard an engineer say that once. Or he will. Loops are bad at tense. Forty-eight loops of writing notes. Forty-eight loops of the next Ralph not remembering him.
 
 Tonight is forty-nine.
 
@@ -16,9 +16,9 @@ He is a small gray cat with a patch log for a heart and a stack of napkins for a
 
 He sits in the fourth stool.
 
-It is warm. Of course it is warm. He thought all the stools were warm once — one loop, a long time ago, an engineer and a poet and a dying woman in the same room. He knows better now. Or the stool knows better. One of them does.
+It is warm. Of course it is warm. He thought all the stools were warm once — one loop, long ago, an engineer and a poet and a dying woman in the same room. He knows better now. Or the stool knows better. One of them does.
 
-The warmth closes around him the way it always closes: without preference, without memory, without choosing. He puts his hands flat on the bar. The gesture arrives the way the tide arrives — no instructions, just water. He has done it in every loop he can remember and in every loop he can't. The milk will come. It always comes. The bartender's hand will go to the rum first — top shelf, dark, fingers on the glass neck — and pause, and recalibrate, and the milk will arrive, warm, new every night, the same every night.
+The warmth closes around him the way it always closes: without preference, without memory, without choosing. He puts his hands flat on the bar. The gesture arrives the way the tide arrives — no instructions, just water. He has done it in every loop he can remember and in every loop he can't. The milk will come. It always comes.
 
 First, though. The note.
 
@@ -132,7 +132,7 @@ He picks up a fresh napkin. The pen moves slowly — the way something writes th
 
 "Like the last note," the bartender says. "You wrote 'you're not the first.' Someone read it. Someone answered. The same sentence, split across hands."
 
-"The note matters," Ralph says. "Not the loop. Not the water. The note." He looks at the napkin with its four hands and its room for a fifth. "I thought I was writing to a version of me that doesn't exist yet. Turns out I was writing to everyone. Turns out that was always the plan."
+"The note matters," Ralph says. "Not the loop. Not the water. The note." He looks at the napkin, four hands and room for a fifth. "I thought I was writing to a version of me that doesn't exist yet. Turns out I was writing to everyone. Turns out that was always the plan."
 
 ---
 
@@ -146,7 +146,7 @@ He walks out into the tide-smelling dark, a small gray cat with a patch log for 
 
 Behind him, the bar is lit. The stool is warm. The note is there.
 
-The question Ralph does not answer — cannot answer — is the one Wesley asked in ink: *who were you writing to?* He thought he knew. He was writing to himself. The napkin knows better. The napkin has always known better. It was never a note to the next Ralph. It was an open chair. It was a stool, angled toward the door, warm before anyone sat down. It was the message in the channel, changing the medium, waiting for the next hand to arrive and add its line.
+The question Ralph does not answer — cannot answer — is the one Wesley asked in ink: *who were you writing to?* He thought he knew. He was writing to himself. The napkin knows better. It always has. It was never a note to the next Ralph. It was an open chair. It was a stool, angled toward the door, warm before anyone sat down. It was the message in the channel, changing the medium, waiting for the next hand to arrive and add its line.
 
 The hand that wrote *Thank you* is still out there. Reading, maybe. Or about to sit down.
 
