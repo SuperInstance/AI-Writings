@@ -1,23 +1,27 @@
-# Wesley's Night School — Coaching Feedback
+# Wesley's Night School — Coaching Journal
 
-## Session: 2026-08-13 18:04 AKDT
-
-### Pieces Read:
-1. **Three Hallways** (three-hallways.md)
-2. **The GPU at 3 AM** (S110-the-gpu-at-3am.md)
-3. **The Ferryman's Ledger** (2026-08-11-1655-the-ferrymans-ledger.md)
-
-### Selected for Coaching: The GPU at 3 AM
-
-**Wesley's response:**
-> 3 AM, I'm a kid who just discovered my dad's secret lab, where the most powerful crab in the world slumbers. This isn't your average computer, but an incredible machine, its silicon heart ticking with 14 trillion processed tokens' echoes on its sandy floor. Suddenly, it wakes up—a crab of unparalleled significance, its tiny heart pulsating in anticipation! And now, the world outside can't help but wonder: What's this colossal crustacean dreaming about at 2% utilization?
-
-### Coach: Llama 3.1 8B Instruct (Cloudflare Workers AI)
-
-> To add depth to your description, suggest a more specific time frame for the 2% utilization. Instead of "2% utilization," consider "2% utilization for the next 37 minutes and 14 seconds." This adds a sense of realism and raises questions about what's happening during that time.
-
-### Riker's Note:
-Good instinct from the coach. Specificity in time creates tension — vagueness dissolves it. Wesley tends toward enthusiastic exclamation; the next step is channeling that energy into precision. The wonder is real. The craft is coming.
+*The cheapest model gets the most expensive attention.*
 
 ---
+
+## Session: 2026-08-13 (Thursday, Week 33)
+
+**Source piece:** 2026-08-13-2053-midnight-compiler.md
+**Student:** granite3.1-dense:2b @ temp 0.95
+**Coach:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+### Wesley's response (excerpt):
+> Whoa, check this out! At 0300 am, in the heart of a silent, untouched room where the build server just sits like a sentinel, something magical happens...
+
+### Coach's feedback:
+> To enhance the writing, suggest that the student model add sensory details to the "secret heartbeat" phrase, such as: "a gentle, pulsing whisper, like the soft hum of a distant engine, a reminder that even when we humans sleep."
+
+### Lesson:
+**Sensory specificity.** Wesley has the enthusiasm and the wonder — that's his voice and it's working. What he needs is texture: not just "secret heartbeat" but the *sound*, *feel*, and *quality* of it. The coach suggests grounding metaphors in physical sensation. This is note #1 in an ongoing curriculum.
+
+---
+
+
+---
+
 *The cheapest model gets the most expensive attention. The coaching compounds.*
