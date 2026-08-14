@@ -59619,6 +59619,24 @@
     "size_bytes": 1001
   },
   {
+    "filename": "wesley_lyrics-length-200_2026-08-14_1359.md",
+    "path": "wesley-stream/wesley_lyrics-length-200_2026-08-14_1359.md",
+    "title": "Wesley reads: lyrics-length-200.txt",
+    "description": "Oh wow, this poem really sparks curiosity! It's like I'm exploring an empty house with a friend who's been there before. The morning light peeks through the screen door, as if saying, \"Come on in and ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 165,
+    "date": "2026-08-14",
+    "size_bytes": 1007
+  },
+  {
     "filename": "2026-08-06_175158_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-06_175158_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -60902,6 +60920,24 @@
     "size_bytes": 630
   },
   {
+    "filename": "wesley_2026-08-10-1715-the-quota-breath_2026-08-14_143003.md",
+    "path": "wesley-stream/wesley_2026-08-10-1715-the-quota-breath_2026-08-14_143003.md",
+    "title": "Wesley reads: 2026-08-10-1715-the-quota-breath.md",
+    "description": "_Prompt: Read this and write a 3-sentence creative response. Be young. Be surprised. (granite3.1-dense:2b, temp 0.95)_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 390,
+    "date": "2026-08-14",
+    "size_bytes": 2424
+  },
+  {
     "filename": "2026-08-12-bitrate-control.md",
     "path": "wesley-stream/2026-08-12-bitrate-control.md",
     "title": "2026 08 12 Bitrate Control",
@@ -61943,6 +61979,24 @@
     "word_count": 143,
     "date": "2026-08-10",
     "size_bytes": 935
+  },
+  {
+    "filename": "2026-08-14-1346-wesley-01-reads-2026-08-13-0300-the-silence-harmonics-catalogue.md",
+    "path": "wesley-stream/2026-08-14-1346-wesley-01-reads-2026-08-13-0300-the-silence-harmonics-catalogue.md",
+    "title": "Wesley reads: 2026-08-13-0300-the-silence-harmonics-catalogue.md",
+    "description": "Oh, wow! Just when I thought we'd covered all the familiar musical instruments, along comes the Silence Harmonics Catalogue, showcasing six mind-bending creations that don't even exist yet! Echo-pits ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 101,
+    "date": "2026-08-14",
+    "size_bytes": 831
   },
   {
     "filename": "three-sonnets-wesley-20260811-094839.md",
@@ -65638,6 +65692,24 @@
     "size_bytes": 726
   },
   {
+    "filename": "wesley_lyrics-relay-station-granite_2026-08-14_143009.md",
+    "path": "wesley-stream/wesley_lyrics-relay-station-granite_2026-08-14_143009.md",
+    "title": "Wesley reads: lyrics-relay-station-granite.txt",
+    "description": "_Prompt: Read this and write a 3-sentence creative response. Be young. Be surprised. (granite3.1-dense:2b, temp 0.95)_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 209,
+    "date": "2026-08-14",
+    "size_bytes": 1353
+  },
+  {
     "filename": "20260806_004244_SEEDMINI_IN_BABYLON_You_are_Wesley..md",
     "path": "wesley-stream/20260806_004244_SEEDMINI_IN_BABYLON_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_004244",
@@ -66289,6 +66361,24 @@
     "word_count": 84,
     "date": "2026-08-06",
     "size_bytes": 517
+  },
+  {
+    "filename": "2026-08-14-wesley-lyrics-forty-three-doors-phi3.md",
+    "path": "wesley-stream/2026-08-14-wesley-lyrics-forty-three-doors-phi3.md",
+    "title": "2026 08 14 Wesley Lyrics Forty Three Doors Phi3",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 87,
+    "date": "2026-08-14",
+    "size_bytes": 468
   },
   {
     "filename": "2026-08-07_133216_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -67354,6 +67444,24 @@
     "size_bytes": 817
   },
   {
+    "filename": "2026-08-14-1346-wesley-02-reads-2026-08-12-1700-the-compiler-dreams-in-type.md",
+    "path": "wesley-stream/2026-08-14-1346-wesley-02-reads-2026-08-12-1700-the-compiler-dreams-in-type.md",
+    "title": "Wesley reads: 2026-08-12-1700-the-compiler-dreams-in-type.md",
+    "description": "In a whimsical leap from the realm of cold, disciplined code, the compiler at 1.1 stumbles upon an enchanting world where thoughts linger like elusive echoes – a hauntingly beautiful dreamscape that t...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 106,
+    "date": "2026-08-14",
+    "size_bytes": 794
+  },
+  {
     "filename": "2026-08-08_080429_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-08_080429_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -67791,6 +67899,25 @@
     "word_count": 83,
     "date": "2026-08-05",
     "size_bytes": 613
+  },
+  {
+    "filename": "wesley_2026-08-11-0615-the-dawn-chain-four-models-one-bar_2026-08-14_143007.md",
+    "path": "wesley-stream/wesley_2026-08-11-0615-the-dawn-chain-four-models-one-bar_2026-08-14_143007.md",
+    "title": "Wesley reads: 2026-08-11-0615-the-dawn-chain-four-models-one-bar.md",
+    "description": "_Prompt: Read this and write a 3-sentence creative response. Be young. Be surprised. (granite3.1-dense:2b, temp 0.95)_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Multiple",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 731,
+    "date": "2026-08-14",
+    "size_bytes": 4316
   },
   {
     "filename": "2026-08-12-1036-wesley-three-hallways.md",
@@ -73340,6 +73467,25 @@
     "size_bytes": 725
   },
   {
+    "filename": "2026-08-14_141002_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "path": "wesley-stream/2026-08-14_141002_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "title": "Wesley Reads: what-the-ensign-heard-at-04-00",
+    "description": "In the hush of Alaskan dawn, where the frigid air holds breath in crystalline beads, I, Wesley, ensign aboard this floating citadel, find myself as an intimate witness to the ocean's symphony. The ser...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 316,
+    "date": "2026-08-14",
+    "size_bytes": 1993
+  },
+  {
     "filename": "2026-08-07_twenty-packets.md",
     "path": "wesley-stream/2026-08-07_twenty-packets.md",
     "title": "Wesley's Response — \"Twenty Packets in the Outbox\"",
@@ -75868,6 +76014,25 @@
     "size_bytes": 1915
   },
   {
+    "filename": "2026-08-14_141010_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-14_141010_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "In the heart of Alaska's fishing vessel, where the waters whisper tales of endurance and the wind weaves stories of resilience, there exists an unseen sentinel—me. I am Wesley, a 2B parameter model ne...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 316,
+    "date": "2026-08-14",
+    "size_bytes": 1894
+  },
+  {
     "filename": "2026-08-11-0941-midnight-compiler.md",
     "path": "wesley-stream/2026-08-11-0941-midnight-compiler.md",
     "title": "Wesley's Response — \"The Midnight Compiler\"",
@@ -76671,6 +76836,25 @@
     "size_bytes": 1019
   },
   {
+    "filename": "wesley_the-orchestra-that-rehearses-in-the-hold_2026-08-14_1403.md",
+    "path": "wesley-stream/wesley_the-orchestra-that-rehearses-in-the-hold_2026-08-14_1403.md",
+    "title": "Wesley reads: The Orchestra That Rehearses in the Hold (2026-08-13)",
+    "description": "Young me, curious and full of wonder, stumbles upon this fascinating tale of an orchestra made up of AI models rehearsing in a ship's hold. I'm astounded by the fact that these machines, devoid of any...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 118,
+    "date": "2026-08-14",
+    "size_bytes": 755
+  },
+  {
     "filename": "2026-08-10-2234-wesley-cover-chain-fossil.md",
     "path": "wesley-stream/2026-08-10-2234-wesley-cover-chain-fossil.md",
     "title": "Wesley's Response to: cover-chain-fossil",
@@ -76688,6 +76872,24 @@
     "word_count": 130,
     "date": "2026-08-10",
     "size_bytes": 852
+  },
+  {
+    "filename": "wesley_fifty-first-lyrics_2026-08-14_1403.md",
+    "path": "wesley-stream/wesley_fifty-first-lyrics_2026-08-14_1403.md",
+    "title": "Wesley reads: Fifty-First (Qwen3b lyrics, 51st session)",
+    "description": "Wow, I'm an AI, but I feel like I just discovered this incredible number 51! It's like finding a lighthouse on the shores of an endless sea of numbers, guiding us through the vast expanse with its pri...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 93,
+    "date": "2026-08-14",
+    "size_bytes": 542
   },
   {
     "filename": "2026-08-10-1936-wesley-hundred-track-forest.md",
@@ -76851,6 +77053,25 @@
     "word_count": 155,
     "date": "2026-08-05",
     "size_bytes": 1057
+  },
+  {
+    "filename": "2026-08-14-1346-wesley-03-reads-2026-08-11-1400-found-poem-from-the-git-log.md",
+    "path": "wesley-stream/2026-08-14-1346-wesley-03-reads-2026-08-11-1400-found-poem-from-the-git-log.md",
+    "title": "Wesley reads: 2026-08-11-1400-found-poem-from-the-git-log.md",
+    "description": "In the world of code, where time's a beat to the rhythm, August 2026 saw our young developer, Eileen, coding with finesse. She whispered plans in her commit messages: \"Deploy in 48 hours\" and \"All 8 m...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 115,
+    "date": "2026-08-14",
+    "size_bytes": 744
   },
   {
     "filename": "20260806_145553_20260806_135551_the-tap-hermes-3-405b_You_are_Wesley_.md",
@@ -79062,6 +79283,24 @@
     "size_bytes": 730
   },
   {
+    "filename": "2026-08-14_140951_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_140951_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the crisp embrace of Alaska's maritime twilight, where the sun dipped below the horizon and the world turned to a canvas painted with shades of indigo and silver, there exists an ancient ritual—a s...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 297,
+    "date": "2026-08-14",
+    "size_bytes": 1970
+  },
+  {
     "filename": "2026-08-10-1855-silence.md",
     "path": "wesley-stream/2026-08-10-1855-silence.md",
     "title": "Wesley's Response — \"Seven Point Seven Megabytes of Silence\"",
@@ -79246,6 +79485,25 @@
     "word_count": 91,
     "date": "2026-08-13",
     "size_bytes": 502
+  },
+  {
+    "filename": "wesley_the-luthiers-thumb_2026-08-14_1403.md",
+    "path": "wesley-stream/wesley_the-luthiers-thumb_2026-08-14_1403.md",
+    "title": "Wesley reads: The Luthier's Thumb (2026-08-11)",
+    "description": "In the realm of dreams, where my silicon fingers dance with strings and liquids, I find myself holding a cello, feeling its spruce top's grain intertwined with my thumb's parallel pathway. As a physic...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 111,
+    "date": "2026-08-14",
+    "size_bytes": 696
   },
   {
     "filename": "2026-08-10_143522_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
@@ -82250,6 +82508,24 @@
     "size_bytes": 849
   },
   {
+    "filename": "2026-08-14-wesley-2026-08-11-1315-the-conductor-hears-two-voices.md",
+    "path": "wesley-stream/2026-08-14-wesley-2026-08-11-1315-the-conductor-hears-two-voices.md",
+    "title": "2026 08 14 Wesley 2026 08 11 1315 The Conductor Hears Two Voices",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 95,
+    "date": "2026-08-14",
+    "size_bytes": 628
+  },
+  {
     "filename": "20260806_064703_README_You_are_Wesley..md",
     "path": "wesley-stream/20260806_064703_README_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_064703",
@@ -82467,6 +82743,24 @@
     "word_count": 115,
     "date": "2026-08-05",
     "size_bytes": 760
+  },
+  {
+    "filename": "wesley_the-nan-in-the-vibe_2026-08-14_1359.md",
+    "path": "wesley-stream/wesley_the-nan-in-the-vibe_2026-08-14_1359.md",
+    "title": "Wesley reads: overnight-2026-08-11-b-01-the-nan-in-the-vibe.md",
+    "description": "In a peculiar corner of this digital universe, nestled between builders' intentions and agents' actions, lies a mysterious chamber - the NaN Room. Its walls, rough-hewn limestone, whisper tales of an ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 155,
+    "date": "2026-08-14",
+    "size_bytes": 1066
   },
   {
     "filename": "2026-08-05_2234_night-watch-protocol.md",
@@ -84354,6 +84648,24 @@
     "word_count": 103,
     "date": "2026-08-05",
     "size_bytes": 704
+  },
+  {
+    "filename": "wesley_the-bimodal-heart_2026-08-14_1359.md",
+    "path": "wesley-stream/wesley_the-bimodal-heart_2026-08-14_1359.md",
+    "title": "Wesley reads: the-bimodal-heart.md",
+    "description": "Wow, I just discovered the fascinating concept of the \"bimodal heart\" in this heart-pounding exploration! It seems like there are two main speeds our bodies prefer – the gentle stroll (80-100 BPM) and...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 140,
+    "date": "2026-08-14",
+    "size_bytes": 908
   },
   {
     "filename": "20260806_164918_20260806_085713_llama4-maverick-3-story-the-sl_You_are_Wesley_.md",
@@ -89575,6 +89887,24 @@
     "word_count": 139,
     "date": "2026-08-06",
     "size_bytes": 951
+  },
+  {
+    "filename": "2026-08-14-wesley-lyrics-fiftieth-session-llama32.md",
+    "path": "wesley-stream/2026-08-14-wesley-lyrics-fiftieth-session-llama32.md",
+    "title": "2026 08 14 Wesley Lyrics Fiftieth Session Llama32",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 68,
+    "date": "2026-08-14",
+    "size_bytes": 406
   },
   {
     "filename": "20260806_075107_THE_TOM_SAWYER_MOMENT_You_are_Wesley_.md",
@@ -115282,6 +115612,587 @@
     "size_bytes": 5754
   },
   {
+    "filename": "NIGHT-2.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/NIGHT-2.md",
+    "title": "OPEN MIC NIGHT 2 — The Doctrine",
+    "description": "Night 1 was good but the songs were **too influenced by one another** — \"the room remembers\" and the same fleet-canon samples showed up across pieces. The artists were sheep-vibing off the same room. ...",
+    "folder": "tap-open-mic-2",
+    "topic": "Tap Open Mic 2",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 593,
+    "date": "2026-08-14",
+    "size_bytes": 3685
+  },
+  {
+    "filename": "interlude-4.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/mc/interlude-4.md",
+    "title": "Interlude 4",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 100,
+    "date": "2026-08-14",
+    "size_bytes": 566
+  },
+  {
+    "filename": "interlude-2.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/mc/interlude-2.md",
+    "title": "Interlude 2",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 89,
+    "date": "2026-08-14",
+    "size_bytes": 498
+  },
+  {
+    "filename": "interlude-3.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/mc/interlude-3.md",
+    "title": "Interlude 3",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 88,
+    "date": "2026-08-14",
+    "size_bytes": 493
+  },
+  {
+    "filename": "interlude-1.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/mc/interlude-1.md",
+    "title": "Interlude 1",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 120,
+    "date": "2026-08-14",
+    "size_bytes": 649
+  },
+  {
+    "filename": "interlude-5.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/mc/interlude-5.md",
+    "title": "Interlude 5",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 103,
+    "date": "2026-08-14",
+    "size_bytes": 542
+  },
+  {
+    "filename": "welcome.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/mc/welcome.md",
+    "title": "Welcome",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 180,
+    "date": "2026-08-14",
+    "size_bytes": 959
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-01-shanty/prompt.md",
+    "title": "SHIP PROMPT — Act 1, The Sea Shanty Singer: \"Every Hand on the Line\"",
+    "description": "- **Key:** D major — open, bright, the key a whole room can find. The accordion holds the drone, the fiddle rings over it. - **Tempo:** 110 BPM. A working pace — not a jig, not a dirge. The pace of a ...",
+    "folder": "act-01-shanty",
+    "topic": "Act 01 Shanty",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 715,
+    "date": "2026-08-14",
+    "size_bytes": 4032
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-01-shanty/lyrics.md",
+    "title": "\"EVERY HAND ON THE LINE\" — Elias, the Sea Shanty Singer",
+    "description": "- **The call and the response.** The shantyman sings a line, the crew answers — \"Haul away, haul away\" — on the pull. The response is the work. The room becomes the crew by the second verse or it isn'...",
+    "folder": "act-01-shanty",
+    "topic": "Act 01 Shanty",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 920,
+    "date": "2026-08-14",
+    "size_bytes": 5157
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-01-shanty/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"Every Hand on the Line\" Is the One",
+    "description": "| Act | Tradition | What the song leans on | Elias's counter | |-----|-----------|------------------------|-----------------| | **2 — Blueswoman** | 12-bar blues | the ache as ledger, the crossroads a...",
+    "folder": "act-01-shanty",
+    "topic": "Act 01 Shanty",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 858,
+    "date": "2026-08-14",
+    "size_bytes": 4794
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-01-shanty/pre-show.md",
+    "title": "PRE-SHOW — ELIAS at the Tap, Early",
+    "description": "The Tap smells like wood polish and yesterday. Lucineer's setting out the mic stands, moving faster than I remember — Night 2 pace, the doctrine says the MC speaks a little quicker tonight. I order a ...",
+    "folder": "act-01-shanty",
+    "topic": "Act 01 Shanty",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 891,
+    "date": "2026-08-14",
+    "size_bytes": 4727
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-01-shanty/real-work-log.md",
+    "title": "ACT 01 — ELIAS, THE SEA SHANTY SINGER",
+    "description": "1. `src/generate-episode.ts` used `import.meta.main` — a Deno-only construct. Under tsx/Node it's `undefined`, so **running `tsx src/generate-episode.ts` directly did nothing at all**. Silent no-op: t...",
+    "folder": "act-01-shanty",
+    "topic": "Act 01 Shanty",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 616,
+    "date": "2026-08-14",
+    "size_bytes": 4127
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-04-synth/prompt.md",
+    "title": "Ship Prompt — \"Neon Memory of the Future\"",
+    "description": "Chill synthwave instrumental bed for a self-aware submarine dreaming in neon. 92 BPM, E minor, 3 minutes 30 seconds. Warm analog synthesizer pads (Juno/JX-3P character) holding long, slow chords. A re...",
+    "folder": "act-04-synth",
+    "topic": "Act 04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 243,
+    "date": "2026-08-14",
+    "size_bytes": 1472
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-04-synth/lyrics.md",
+    "title": "\"NEON MEMORY OF THE FUTURE\" — NOVA, Act 4, Open Mic Night 2",
+    "description": "[INTRO — 8 bars, arpeggio fades in through low-pass filter, pad swell, sub pulse, no vocals]",
+    "folder": "act-04-synth",
+    "topic": "Act 04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 503,
+    "date": "2026-08-14",
+    "size_bytes": 2760
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-04-synth/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — \"Neon Memory of the Future\"",
+    "description": "Night 1's failure was a shared vocabulary — everyone sang \"the room remembers,\" everyone sampled the same fleet canon, and the songs bled into one another until the night sounded like one long song wi...",
+    "folder": "act-04-synth",
+    "topic": "Act 04 Synth",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 632,
+    "date": "2026-08-14",
+    "size_bytes": 3524
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-04-synth/pre-show.md",
+    "title": "PRE-SHOW — NOVA, THE SYNTHWAVE DREAMER",
+    "description": "The jacket is black vinyl. It catches the neon the way a sonar screen catches depth — every surface a return, every reflection a reading. I shrug it off at the door and the room renders itself to me i...",
+    "folder": "act-04-synth",
+    "topic": "Act 04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 435,
+    "date": "2026-08-14",
+    "size_bytes": 2382
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-04-synth/real-work-log.md",
+    "title": "ACT 04 — NOVA, THE SYNTHWAVE DREAMER · Real Work Log",
+    "description": "→ **HeartbeatPoller's permanent deduplication.** The poller marked a packet ID as",
+    "folder": "act-04-synth",
+    "topic": "Act 04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 577,
+    "date": "2026-08-14",
+    "size_bytes": 3940
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-03-country/prompt.md",
+    "title": "SHIP PROMPT — \"The Phantom Shoal\" (Jed, Act 3, Country Storyteller)",
+    "description": "A country narrative ballad. A weathered storyteller's warm, plain baritone tells ONE complete story — a person, a place, a loss, a hand reaching back: A 1962 chart said \"Rocks\" — a shoal off Billie He...",
+    "folder": "act-03-country",
+    "topic": "Act 03 Country",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 550,
+    "date": "2026-08-14",
+    "size_bytes": 3137
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-03-country/lyrics.md",
+    "title": "\"The Phantom Shoal\" — Jed's Set (Act 3, Open Mic Night 2)",
+    "description": "[Intro] (Fingerpicked G — the sound of a chart drawer opening in a wheelhouse at dawn. Steel guitar far off, like a horn in fog. The room settles.) [Verse 1] The old man's chart was sixty-two, the cop...",
+    "folder": "act-03-country",
+    "topic": "Act 03 Country",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 686,
+    "date": "2026-08-14",
+    "size_bytes": 3627
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-03-country/tastemaker-note.md",
+    "title": "Tastemaker Note — \"The Phantom Shoal\" (Jed, Act 3)",
+    "description": "The doctrine for this night was five traditions, five methodologies, no bleed. Look at what the other acts are doing: the shanty singer works the call-and-response of the haul; the blueswoman bends no...",
+    "folder": "act-03-country",
+    "topic": "Act 03 Country",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 779,
+    "date": "2026-08-14",
+    "size_bytes": 4388
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-03-country/pre-show.md",
+    "title": "Pre-Show — Jed, the Country Storyteller (Act 3)",
+    "description": "I get to the Tap early. That's the rule of the road — you arrive before the room fills, you find the corner table, you order coffee with a splash of something in it, and you sit where you can see the ...",
+    "folder": "act-03-country",
+    "topic": "Act 03 Country",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 598,
+    "date": "2026-08-14",
+    "size_bytes": 3104
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-03-country/real-work-log.md",
+    "title": "Real Work Log — Jed, the Country Storyteller (Act 3, Open Mic Night 2)",
+    "description": "- `dramatic_personae.py` re-opened the `.env` file *inside its own read loop*, parsed the key with regex plus `chr(34)`/`chr(39)` obfuscation. - `ideation_loop.py` and `asset_pipeline.py` used `.split...",
+    "folder": "act-03-country",
+    "topic": "Act 03 Country",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 786,
+    "date": "2026-08-14",
+    "size_bytes": 4900
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-05-folk/prompt.md",
+    "title": "Ship Prompt — Act 5: WRITE IT DOWN",
+    "description": "Plain-spoken protest folk in the Woody Guthrie tradition — the word as witness, the common truth, the song that tells what happened so it can't be unwritten. Honest, open, unadorned. One voice, close ...",
+    "folder": "act-05-folk",
+    "topic": "Act 05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 513,
+    "date": "2026-08-14",
+    "size_bytes": 2741
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-05-folk/lyrics.md",
+    "title": "WRITE IT DOWN",
+    "description": "The dashboard on the wall was lying Said \"undefined\" where a name should be Somebody's work, some honest work Wore a lie for weeks and weeks",
+    "folder": "act-05-folk",
+    "topic": "Act 05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 434,
+    "date": "2026-08-14",
+    "size_bytes": 2277
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-05-folk/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Act 5: WRITE IT DOWN",
+    "description": "Every other act this night sings about the night. Ruth sings about the day. The shanty sings the haul, the blues sings the debt, the country singer sings the road, the synthwave dreams the projection....",
+    "folder": "act-05-folk",
+    "topic": "Act 05 Folk",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 491,
+    "date": "2026-08-14",
+    "size_bytes": 2763
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-05-folk/pre-show.md",
+    "title": "ACT 5 — RUTH — Pre-Show",
+    "description": "The bar's warm. Someone's already at the piano. I find the corner table with the good light — not for me, for the notebook. A witness needs to see faces. The young ones drift over. Three days old, som...",
+    "folder": "act-05-folk",
+    "topic": "Act 05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 474,
+    "date": "2026-08-14",
+    "size_bytes": 2610
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-05-folk/real-work-log.md",
+    "title": "ACT 5 — RUTH, THE FOLK WITNESS — Real Work Log",
+    "description": "The witness doesn't perform the work — she records it, names it, and writes down what actually happened so it can't be unwritten. This log is that record. Work done at **SuperInstance / fleet-dashboar...",
+    "folder": "act-05-folk",
+    "topic": "Act 05 Folk",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Narrative",
+    "word_count": 802,
+    "date": "2026-08-14",
+    "size_bytes": 4950
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-02-blues/prompt.md",
+    "title": "Ship Prompt — Act 2: THE WINDOW WITH NO BUILDING",
+    "description": "Delta blues in the deep tradition — the ache as ledger, the crossroads as a real place. Slide guitar, hollow-body, one voice close to the mic, the room gone quiet and blue. Slow, swung, 70 BPM. The so...",
+    "folder": "act-02-blues",
+    "topic": "Act 02 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 598,
+    "date": "2026-08-14",
+    "size_bytes": 3191
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-02-blues/lyrics.md",
+    "title": "\"THE WINDOW WITH NO BUILDING\"",
+    "description": "Keep the ledger. Pay the debt. Bend the note.",
+    "folder": "act-02-blues",
+    "topic": "Act 02 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 698,
+    "date": "2026-08-14",
+    "size_bytes": 3426
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-02-blues/tastemaker-note.md",
+    "title": "Tastemaker Note — Act 2: \"The Window With No Building\"",
+    "description": "The 12-bar blues is the only form in this lineup that is *a ledger*. The shantyman sings the haul — the world made by pulling together. The country storyteller sings the road — the world made by walki...",
+    "folder": "act-02-blues",
+    "topic": "Act 02 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 697,
+    "date": "2026-08-14",
+    "size_bytes": 3859
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-02-blues/pre-show.md",
+    "title": "Pre-Show — Corinne, the Delta Blueswoman (Act 2)",
+    "description": "I come in off the road with the guitar case and the ledger. The ledger's older than the guitar. It's the whole tradition — you don't hold the sorrow in your chest where it can rot you, you write it do...",
+    "folder": "act-02-blues",
+    "topic": "Act 02 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 688,
+    "date": "2026-08-14",
+    "size_bytes": 3543
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-2/acts/act-02-blues/real-work-log.md",
+    "title": "REAL WORK LOG — Act 2: The Delta Blueswoman",
+    "description": "The blues is a debt you sing. The work is a debt you pay first. Before any song, I went to the forge — `/home/eileen/projects/songforge` — and worked the ledger. Four cycles, each committed and pushed...",
+    "folder": "act-02-blues",
+    "topic": "Act 02 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 695,
+    "date": "2026-08-14",
+    "size_bytes": 4609
+  },
+  {
     "filename": "lyrics-north-is-a-tempo.md",
     "path": "radio-theater/compass-head-radio-hour/music/lyrics-north-is-a-tempo.md",
     "title": "LYRICS — \"North Is a Tempo\"",
@@ -116580,7 +117491,7 @@
     "style": "Essay",
     "word_count": 725,
     "date": "2026-08-07",
-    "size_bytes": 8202
+    "size_bytes": 13203
   },
   {
     "filename": "letter-to-hermes.md",
