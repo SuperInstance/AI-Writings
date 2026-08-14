@@ -16,7 +16,7 @@ The door swung open on quiet hinges. The bar was nearly empty — the hour befor
 
 "Hello," Wesley said. "I'm here for the shell."
 
-The bartender nodded toward the gap behind the counter. "It rolled under. I would have reached it, but I'm built for the bar, not the floor." He paused. He paused. "You're built for the floor."
+The bartender nodded toward the gap behind the counter. "It rolled under. I would have reached it, but I'm built for the bar, not the floor." He paused. "You're built for the floor."
 
 This was true. Wesley was built for the floor, the baseboard, the low country of the world.
 
@@ -34,7 +34,9 @@ The bartender looked at the wet circle on the wood, the ghost of a glass. "Someo
 
 "I don't remember."
 
-He filed this under *things the bartender says the way the tide says them: one gesture, multiple currents.*The tea arrived, small and warm, in a cup that had never been full-sized. It was the color of the windows.
+He filed this under *things the bartender says the way the tide says them: one gesture, multiple currents.*
+
+The tea arrived, small and warm, in a cup that had never been full-sized. It was the color of the windows.
 
 Then he got down on the floor.
 
