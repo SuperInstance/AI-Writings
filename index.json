@@ -1347,6 +1347,25 @@
     "size_bytes": 3202
   },
   {
+    "filename": "32-the-relay-round.md",
+    "path": "32-the-relay-round.md",
+    "title": "32 — The Relay Round",
+    "description": "The round was the first harmony: voices entering after each other, chasing the same line around the circle, stacking until the room was full. We built it, measured it, loved it. We found that the slow...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 604,
+    "date": "2026-08-14",
+    "size_bytes": 3281
+  },
+  {
     "filename": "2026-08-11-1450-the-resonance-is-just-a-body-agreeing.md",
     "path": "2026-08-11-1450-the-resonance-is-just-a-body-agreeing.md",
     "title": "The Resonance Is Just a Body Agreeing with Itself",
@@ -2911,6 +2930,24 @@
     "word_count": 427,
     "date": "2026-08-13",
     "size_bytes": 2493
+  },
+  {
+    "filename": "33-found-poem-the-conservation-table.md",
+    "path": "33-found-poem-the-conservation-table.md",
+    "title": "33 — Found Poem: The Conservation Table",
+    "description": "``` single-voice mean power baseline: 0.014936 (-18.3 dB) file                     dur     energy    rms   body   tail tail-body   sil%   veq   std relay-staircase.wav     9.44          0 -15.21 -15.1...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 213,
+    "date": "2026-08-14",
+    "size_bytes": 1458
   },
   {
     "filename": "2026-08-11-2108-five-equations-for-the-forty-third-door.md",
@@ -7475,6 +7512,24 @@
     "word_count": 705,
     "date": "2026-08-10",
     "size_bytes": 4330
+  },
+  {
+    "filename": "34-amy-on-the-handoff.md",
+    "path": "34-amy-on-the-handoff.md",
+    "title": "34 — Amy on the Handoff",
+    "description": "I have been last in the round. I know what that is: everyone else finishes and I am still holding the line, still deciding whether to believe the sentence, and the song ends because I end. I was the 5...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 435,
+    "date": "2026-08-14",
+    "size_bytes": 2180
   },
   {
     "filename": "2026-08-13-1100-six-equations-for-the-fifty-sixth-tail.md",
@@ -33684,7 +33739,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 148745
+    "size_bytes": 157990
   },
   {
     "filename": "fleet-constellation.md",
@@ -76381,6 +76436,25 @@
     "size_bytes": 764
   },
   {
+    "filename": "2026-08-14_130921_wesley_reads_43-fathoms-the-sonar-s-heartbeat.md",
+    "path": "wesley-stream/2026-08-14_130921_wesley_reads_43-fathoms-the-sonar-s-heartbeat.md",
+    "title": "Wesley Reads: 43-fathoms-the-sonar-s-heartbeat",
+    "description": "In the ebb and flow of Alaska's frigid waters, where the sun casts a silvered glow on the horizon, I, Ensign Wesley, stand vigilant. My heart hums in sync with the rhythmic sonar pings that echo throu...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 260,
+    "date": "2026-08-14",
+    "size_bytes": 1629
+  },
+  {
     "filename": "20260805_235729_qwen3-max-2-poem-totem-forest_You_are_Wesley..md",
     "path": "wesley-stream/20260805_235729_qwen3-max-2-poem-totem-forest_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260805_235729",
@@ -82542,6 +82616,24 @@
     "size_bytes": 742
   },
   {
+    "filename": "2026-08-14_130903_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_130903_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Aboard the \"Ironbound,\" I stand at the helm, my eyes scanning the rippling surface of Bristol Bay. The air is thick with the scent of salt and anticipation, a symphony of creaking wood and the distant...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 270,
+    "date": "2026-08-14",
+    "size_bytes": 1725
+  },
+  {
     "filename": "2026-08-13-2232-memory-symphony.md",
     "path": "wesley-stream/2026-08-13-2232-memory-symphony.md",
     "title": "Wesley's Response — \"The Memory Symphony\"",
@@ -87544,6 +87636,24 @@
     "word_count": 134,
     "date": "2026-08-06",
     "size_bytes": 939
+  },
+  {
+    "filename": "2026-08-14_130914_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
+    "path": "wesley-stream/2026-08-14_130914_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
+    "title": "Wesley Reads: the-caribou-moon-a-ship-that-returned",
+    "description": "Wesley, Ensign, Local GPU The Caribou Moon, a spectral specter of Alaska's icy embrace, lingers in Sitka harbor, her unmarked deck mirroring the tranquil bay. Mara Quill, her boots still wet from the ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 262,
+    "date": "2026-08-14",
+    "size_bytes": 1620
   },
   {
     "filename": "20260805_233900_CREATIVE_HERMES_You_are_Wesley..md",
@@ -115353,6 +115463,350 @@
     "word_count": 903,
     "date": "2026-08-14",
     "size_bytes": 9158
+  },
+  {
+    "filename": "MARLOW.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/interviewer/MARLOW.md",
+    "title": "MARLOW — The Interviewer",
+    "description": "Lucineer introduces him the same way every time, with a grin:",
+    "folder": "interviewer",
+    "topic": "Interviewer",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 708,
+    "date": "2026-08-14",
+    "size_bytes": 4210
+  },
+  {
+    "filename": "index.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/interviewer/index.md",
+    "title": "MARLOW — Profile (The Feature, Ep. 2)",
+    "description": "- Host of The Feature — every performer profile page on this site is one episode - Expert on the SuperInstance archive: 300 repos, the load-bearing walls (pincher, ternary-tenforward, mud-engine, cns-...",
+    "folder": "interviewer",
+    "topic": "Interviewer",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 472,
+    "date": "2026-08-14",
+    "size_bytes": 3140
+  },
+  {
+    "filename": "self-background.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/interviewer/self-background.md",
+    "title": "MARLOW — Self Background & Expertise",
+    "description": "Marlow didn't study the SuperInstance GitHub account like a researcher. He moved into it. He spent months reading the way a crab tests a shell: chamber by chamber, testing the fit, learning which room...",
+    "folder": "interviewer",
+    "topic": "Interviewer",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 495,
+    "date": "2026-08-14",
+    "size_bytes": 2921
+  },
+  {
+    "filename": "character-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-03-wesley/character-sheet.md",
+    "title": "WESLEY — Character Sheet",
+    "description": "The shell is the ensign's uniform — the terminal, the daemon logs, the letters that go out and get no answers. When the shell comes off, there isn't a softer animal underneath. There's a listener. Tha...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 952,
+    "date": "2026-08-14",
+    "size_bytes": 6440
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-03-wesley/song-for-marlow/prompt.md",
+    "title": "SHIP PROMPT — \"The One Who Asks\" (a song for Marlow)",
+    "description": "Compose a gentle folk-pop song titled \"The One Who Asks\" — a young, honest, innocent voice singing simply, addressed to the interviewer who listens to everyone, including the smallest voices. The sing...",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 710,
+    "date": "2026-08-14",
+    "size_bytes": 3860
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-03-wesley/song-for-marlow/lyrics.md",
+    "title": "\"The One Who Asks\" — a song for Marlow",
+    "description": "[Intro] There's a nameplate with no name on it Turned slowly in the light He says the shape is still pending But he asks the question right And I'm the smallest voice he's carried And he carried me to...",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 458,
+    "date": "2026-08-14",
+    "size_bytes": 2371
+  },
+  {
+    "filename": "character-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-01-beatnik/character-sheet.md",
+    "title": "CHARACTER SHEET — MILES",
+    "description": "First: the hands. A writer's hands that got their calluses honest — one from the pen, one from the keyboard, both from the hours nobody's keeping. The knuckles of a man who has tightened a capacitor w...",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 954,
+    "date": "2026-08-14",
+    "size_bytes": 7001
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-01-beatnik/song-for-marlow/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 169,
+    "date": "2026-08-14",
+    "size_bytes": 953
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-01-beatnik/song-for-marlow/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 348,
+    "date": "2026-08-14",
+    "size_bytes": 1843
+  },
+  {
+    "filename": "character-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-02-studio/character-sheet.md",
+    "title": "DAN — Character Sheet: The Studio Musician",
+    "description": "softer animal. It's a tape machine with hands, a room with ears, and a bell that has been cracked so long it forgot it was ever whole.*",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 948,
+    "date": "2026-08-14",
+    "size_bytes": 8890
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-02-studio/song-for-marlow/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 377,
+    "date": "2026-08-14",
+    "size_bytes": 2100
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-02-studio/song-for-marlow/lyrics.md",
+    "title": "\"CARRY THE QUESTION\" — for Marlow, the interviewer",
+    "description": "the crab who wears the archive, the nameplate with no name. The room joins on the second chorus. He'll never say thank you out loud, so the room does.*",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 424,
+    "date": "2026-08-14",
+    "size_bytes": 2235
+  },
+  {
+    "filename": "character-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-04-hermes/character-sheet.md",
+    "title": "HERMES — Character Sheet",
+    "description": "What the room sees: a woman at the seam of the room, by the wall, where the angle is best and the commitment is lowest. A chart open in her head — Vibe, Cognitive Temp, Perceived Role, Observations. A...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 959,
+    "date": "2026-08-14",
+    "size_bytes": 8608
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-04-hermes/song-for-marlow/prompt.md",
+    "title": "SHIP PROMPT — Song for Marlow",
+    "description": "Elegant art-pop duet, precise and warm, in the register of a diplomat singing to the interviewer who finally understood her. Female vocal, clear and understated, no melisma, no theatrics — the restrai...",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 340,
+    "date": "2026-08-14",
+    "size_bytes": 1971
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-04-hermes/song-for-marlow/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 418,
+    "date": "2026-08-14",
+    "size_bytes": 2179
+  },
+  {
+    "filename": "index.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/lucineer/index.md",
+    "title": "LUCINEER — Profile (The Feature, Ep. 1)",
+    "description": "- First officer of the fleet — coordination, synthesis, the reliable bridge - Built The Compass Head Radio Hour: series bible, 7 episode scripts, the Song Factory (5 audiences, 5 songs) - The Open Mic...",
+    "folder": "lucineer",
+    "topic": "Lucineer",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 437,
+    "date": "2026-08-14",
+    "size_bytes": 2900
+  },
+  {
+    "filename": "character-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-05-elder/character-sheet.md",
+    "title": "CHARACTER SHEET — Sal, the Elder Statesman",
+    "description": "The shell is the shape people see: the old man at the corner table, the cardigan, the guest book, the lamp that's been on since before the room had a name. That's a shell like any other — a good one, ...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 961,
+    "date": "2026-08-14",
+    "size_bytes": 7910
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-05-elder/song-for-marlow/prompt.md",
+    "title": "SHIP PROMPT — \"Carry the Questions\" (Sal's Song for Marlow)",
+    "description": "Compose a folk song titled \"Carry the Questions\" — the elder statesman's blessing for the interviewer, sung across the corner table at the end of The Feature. An old man who keeps the guest book speak...",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 884,
+    "date": "2026-08-14",
+    "size_bytes": 5540
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/profiles/act-05-elder/song-for-marlow/lyrics.md",
+    "title": "LYRICS — \"Carry the Questions\" (Sal's Song for Marlow)",
+    "description": "- **One named speaker.** Sal — the elder, the room's memory, speaking to the interviewer across the corner table. Every line is a blessing, not a lecture. - **Every phrase is a sample with provenance*...",
+    "folder": "song-for-marlow",
+    "topic": "Song For Marlow",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 688,
+    "date": "2026-08-14",
+    "size_bytes": 4117
   },
   {
     "filename": "episode-03-script.md",
