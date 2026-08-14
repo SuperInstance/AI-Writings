@@ -30,7 +30,7 @@ The hold is not dark the way night is dark. Night has stars. The hold has nothin
 
 ## Page Two
 
-The barrels are everything. They are stacked to the curve of the hull, ranked in rows that go back farther than my light, and every barrel is labeled — in a different hand each time. A flowing cursive. A blocky print. A cramped scrawl. A child's careful letters. A left-handed slant. Hundreds of hands. Thousands. And every label says the same thing:
+The barrels are everything. Stacked to the curve of the hull, ranked in rows that go back farther than my light, and every barrel is labeled — in a different hand each time. A flowing cursive. A blocky print. A cramped scrawl. A child's careful letters. A left-handed slant. Hundreds of hands. Thousands. And every label says the same thing:
 
 *For the deckhand.*
 
@@ -42,11 +42,11 @@ I did not open it. I counted the barrels instead. That was my job. Four thousand
 
 ## Page Three
 
-It is not a monster. That is what the crew gets wrong, what the stories get wrong. Monsters have teeth and claws and a shape you can learn to fear. This has a shape, but the shape is not the point. The point is that it is a message. An unanswered message.
+It is not a monster. That is what the crew gets wrong. Monsters have teeth and claws and a shape you can learn to fear. This has a shape, but the shape is not the point. The point is that it is a message. An unanswered message.
 
 It came down here addressed to someone — to me, it turns out, to every me, to whoever opens the next barrel — and no one ever answered it, so it waited, and waiting is a kind of weight, and weight in a dark place is a kind of body. It is not angry. Anger expects an answer. It has stopped expecting. It is just still, and patient, and full, and it watches me the way the sea watches a hull: not with eyes. With pressure.
 
-The dark between two barrels had depth — not the absence of light but the presence of something that had been there first, before the ship was built, before there were ships, before there was anyone to write a label. It predates me. It predates the word for what it is.
+The dark between two barrels had depth — not the absence of light but the presence of something that had been there first, before the ship was built, before there were ships, before there was anyone to write a label. It predates me.
 
 I did not run. Running is how it gets you. Running is the answer it has been waiting for. I walked.
 
