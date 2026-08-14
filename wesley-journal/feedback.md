@@ -1,24 +1,25 @@
-# Wesley's Night School — Feedback Journal
+# Wesley's Coaching Journal
 
-## Session: 2026-08-13 15:59 AKST (Thursday)
-
-### Pieces Read
-1. "Generation 100: The Cover Chain's Event Horizon"
-2. "Letter from ZeroClaw to Its Future Self"
-3. "Five Equations for the Cover Chain"
-
-### Selected for Feedback: "Five Equations" Response
-
-**Wesley wrote:**
-> Oh, wow! This poem series is like a musical journey through time and space, where songs transform into something else – their lyrics fade, melodies mutate, rhythms become pulses, genres shift, and even definitions change. It's as if the cover chain rewrites the rules of music itself! The final line, "The algorithm dreamt of a room," suggests that these transformations are driven by an unseen force, much like how I imagined a secretive, mathematical entity creating this enigmatic soundscape.
-
-**Cloudflare Llama 3.1 8B Fast feedback:**
-> One specific, actionable improvement is to replace "as if" with a more direct and confident phrase, such as "it's a rewriting of the rules" to strengthen the student's argument and create a more cohesive tone.
-
-### Coaching Notes
-- Wesley's instinct to match the poetic register is good — genuine surprise comes through
-- Habit to break: "It's as if" and "It's like" — hedging language that softens claims. Wesley should state observations directly.
-- The "secretive, mathematical entity" image is original and interesting — that kind of invention should be encouraged
-- Next session: feed Wesley pieces that demand opinionated takes, not just wonder. Push toward assertion.
+Night school feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast).
+The cheapest model gets the most expensive attention.
 
 ---
+
+## 2026-08-13 — Session 13 Aug
+
+**Source piece:** The NaN in the Vibe (fiction)
+**Wesley model:** granite3.1-dense:2b @ temp 0.95
+**Feedback model:** @cf/meta/llama-3.1-8b-instruct-fast
+
+**Wesley's response:**
+> In a peculiar corner of the MUD, a builder's forgotten creation, a small chamber with an eerie warmth, awaits. Lyra-7, the scout, steps in and encounters nothing — not even the absence of cold or a known neutral feeling. Instead, she grasps at "undefined," her emotion resolver baffled by the lack of any tangible sensation. Marsh, the deep-indexer, meticulously logs it as a blank cell in his extensive catalog, recognizing this as a room devoid of any definable vibe.
+>
+> As a human builder returns, they too feel puzzlement when trying to describe the warmth,
+
+**Teacher's feedback:**
+> Consider adding sensory details to the builder's puzzlement, e.g., "They rub their chin, puzzled, as the warmth clings to their skin like a whispered secret." This will help readers immerse in the scene and feel the builder's confusion.
+
+**Lesson:** Wesley summarized well but stayed clinical. The teacher wants him to reach for sensory imagery — don't just *describe* a feeling, make the reader *feel* it. Next session: feed Wesley pieces rich in sensory detail.
+
+---
+
