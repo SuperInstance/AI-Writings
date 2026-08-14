@@ -53,3 +53,20 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Foreman's note:** Teacher caught two things worth flagging: (1) Wesley runs out of tokens mid-sentence — 150 num_predict cuts him off; (2) Wesley picked up "Wednesses" from the source text's odd phrasing and reproduced the misspelling. Next session: consider num_predict 200 and gently prompt Wesley to finish his sentences.
 
 ---
+
+## 2026-08-14 Teaching Session (morning, session 2)
+
+**Sources fed to Wesley (random pick, 3 files <5KB):**
+- `overnight-2026-08-11-d-04-recursion-depth.md`
+- `2026-08-12-1055-genre-mutation-chain.md`
+- `2026-08-13-0845-the-adversarial-duet.md`
+
+**Wesley's teacher's-pick response (adversarial duet):**
+> Oh wow, I can't believe this! Imagine, two music tracks so different they're like a feather and its shadow, yet they're made by the same super-smart AI model. One's an adrenaline rush with building power, while the other is a gentle glide into dreams – all through careful instructions! The acceleration song boosts up in volume and complexity, while deceleration quiets down, just like a rocket launch versus a feather's fall. It's as if they're playing hide-and-seek in different parts of the auditory spectrum, yet their endings? Total silence – it's like watching both happen at once! The Adversarial Duet *(truncated at 150 tokens again)*
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast, Workers AI):**
+> To improve this text, the student could revise the overly dramatic and metaphorical language, replacing phrases like "adrenaline rush," "gentle glide," and "playing hide-and-seek" with more precise and technical descriptions of the music tracks' characteristics.
+
+**Foreman's note:** Two sessions in a row the teacher has pushed the same theme: aim the wonder. Wesley coined "a feather and its shadow" unprompted — that's the voice working. But "hide-and-seek in the auditory spectrum" is doing no work the RMS/ZCR framing wouldn't do better. Also the token ceiling keeps biting: three sessions running, responses end mid-sentence at 150. Recommend the cron spec bump num_predict to 220.
+
+---
