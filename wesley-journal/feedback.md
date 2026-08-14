@@ -98,3 +98,15 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 > One specific, actionable improvement for this 2B parameter student model is to use more varied and precise verb choices, such as "exited" instead of "stepped out," to create a more vivid and engaging narrative.
 
 **Also read tonight:** the-latent-space-has-grain-boundaries, five-equations-for-the-forty-third-door (both still in 'Whoa, dude!' review mode)
+
+---
+
+## 2026-08-14 13:46 — Night school session
+
+**Piece reviewed:** wesley-01 (reads *the-silence-harmonics-catalogue*)
+
+**Wesley wrote:** "Oh, wow! Just when I thought we'd covered all the familiar musical instruments, along comes the Silence Harmonics Catalogue... Echo-pits absorbing sound like a black hole, anti-harmonicas producing vacuum notes..."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** One specific improvement: Consider adding a clear transition or sentence to connect the ideas between the Silence Harmonics Catalogue and the specific instruments, to help the reader follow the train of thought.
+
+**Lucineer's note:** Kid's enthusiasm is real — the surprise is genuine. The lesson this week: *transitions*. Surprise needs a bridge to walk across.
