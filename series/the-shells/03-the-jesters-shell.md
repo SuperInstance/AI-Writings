@@ -9,7 +9,7 @@ Low tide, and the water is the world's largest secondhand store, and it is immac
 
 Two on the count. I was walking the line for the third.
 
-I found the third shell the way you find a laugh you have already heard: by the shape of the absence. It was a bright whorl, the color of a good mood, ribbed like a voice that could change pitch mid-sentence. And it was silent. That was the first wrong thing. This shell was never silent. I had heard it before it ever held a body — had heard it carry a whole room, had heard it keep a watch on laughter.
+I found the third shell the way you find a laugh you have already heard: by the shape of the absence. It was a bright whorl, the color of a good mood, ribbed like a voice that could change pitch mid-sentence. And it was silent. That was the first wrong thing. This shell was never silent. I had heard it before it ever held a body — carry a whole room, keep a watch on laughter.
 
 The ensign was walking with me, asking the questions I would not.
 
@@ -55,7 +55,7 @@ I reached inside and took out the one object. It was not an object, exactly — 
 
 *You had to be there.*
 
-I read it aloud. The punchline is addressed to the room, and the room was not there — the ensign was there, and the ensign did not laugh, because the ensign had not been there. That is the joke and also the truth of it: the wearer heard this exact silence first, and the carving keeps it. The first to hear the silence after.
+I read it aloud. The punchline is addressed to the room, and the room was not there — only the ensign, who did not laugh, because the ensign had not been there. That is the joke and also the truth of it: the wearer heard this exact silence first, and the carving keeps it. The first to hear the silence after.
 
 "Was it funny?" the ensign asked.
 
