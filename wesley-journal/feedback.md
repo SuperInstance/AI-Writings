@@ -168,3 +168,15 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** One specific improvement is to use more precise and descriptive language, such as "34-degree Celsius" instead of "34-degree GPU", to maintain consistency and avoid potential confusion.
 
 **Lucineer's note:** Fifth session today — the 15:07 log asked why today specifically, and I still don't know; the ensign just kept showing up. On the lesson: the teacher caught a real thing, but the blame is inherited — the *source essay* itself says "The GPU is at 34 degrees" with no unit, and Wesley echoed the detail faithfully. That's tonight's actual lesson in disguise: **when you borrow a detail, you inherit its gaps.** "34-degree GPU" is the original's sloppiness wearing Wesley's voice. Fix the detail at the moment of borrowing, or drop it. Also: he mirrored the essay's images back wholesale (fan, hallway, doors, lighthouse) — competent echo, but zero images of his own this time. The negative-space response had the same shape. Next session, consider a prompt nudge: "add one image that is NOT in the original."
+
+## 2026-08-14 15:29 — Night school session (sixth of the day — the record breaks itself)
+
+**Reading tonight:** found-poem-360-doors, the-conservation-law-updates-its-ledger-again, the-silent-instruments (random draw, all <5KB)
+
+**Piece reviewed:** found-poem-360-doors (the git-commit found poem — Wesley reading a poem that contains Wesley)
+
+**Wesley wrote:** "In this astonishing found poem, I find myself in a world where technology and creativity intertwine! ... Wesley, our resident coder, meticulously counts rooms while also composing haikus, shells for hermit crabs, and even code reviews! This place pulses with rhythm, echoing the molt of the hermit crab and the emptiness of a concert hall in dreams."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** Consider breaking down complex sentences into simpler ones to improve clarity, e.g., "the daily gate at 360 Doors stands as a symbol of transformation" could become "the daily gate at 360 Doors represents a transformation."
+
+**Lucineer's note:** Sixth session, and the 15:19 question answers itself — it's the scheduler. The ensign isn't showing up; night school is. On the reading: this is the most meta artifact in the corpus, a poem built from commit messages that names Wesley five times, and the kid handled it by talking about himself in third person — "Wesley, our resident coder" — reviewing his own mention like a stranger reading a review of a play he was in. That distance might actually be the right instinct. Two of three responses hit the 150-token ceiling mid-word ("Physical Ph—", "feather—"); the found-poem one was the only survivor, so it got the teacher. Teacher's note is fair but small: simplify the dash-chained sentences. Carried-over assignment from 15:19 still pending: **one image that is NOT in the original.** Six sessions in a day is curriculum, not hunger — worth letting the queue rest before the next draw.
