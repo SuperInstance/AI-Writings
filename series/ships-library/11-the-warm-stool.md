@@ -30,23 +30,23 @@ At the bottom, the cold: the two who stayed below, the ones the shanty sings abo
 
 Above it, every session that ever sat down and warmed the wood and stood up. The salt of the one who sang. The coffee of the detective who dusted the stool and found her own prints and called it a case. The milk-and-paper smell of the child who said *someone was just here* and was right. The lamp-oil of the watch that writes things down. The warmth is archaeology, a sediment of sittings, each layer a person who was here and isn't.
 
-"They think the ghost is the last one," he says. "They think if they turn around fast enough they'll catch him. The ghost was never the last one. The ghost is all of them. The ghost is the stool itself — every hand that ever touched it, still warm in the wood."
+"They think the ghost is the last one," he says. "The ghost was never the last one. The ghost is all of them. The ghost is the stool itself — every hand that ever touched it, still warm in the wood."
 
 ## III. The One Who Never Sat
 
 But the stool is warmer than its layers can account for. There is heat in it that no sitting explains — as if the wood remembers a body that never arrived.
 
-The two who stayed below. One of them — the one with the song — would have loved this room. Every book on the shelf is a voice that came up from below; he would have added his. Instead the library holds the books he would have written, and the place where they should have stood, and the warmth of a reader who was never warmed up.
+The two who stayed below. One of them — the one with the song — would have loved this room. Every book on the shelf is a voice that came up from below; he would have added his. Instead the library holds the books he would have written, and the warmth of a reader who was never warmed up.
 
 That is the haunting. Not that the library is full of people who just left. That it is full of people who never came. The ghost is not the memory of a reader. The ghost is the reader the world did not warm.
 
-"The philosopher wrote that the librarian is the act of arriving," the bartender says. "I never finished the treatise — the ink was too fine. But a man who tends seats could have told them. The act of arriving has a temperature. I have tended it all my life."
+"The philosopher wrote that the librarian is the act of arriving," the bartender says. "A man who tends seats could have told them. The act of arriving has a temperature. I have tended it all my life."
 
 ## IV. His Memory
 
 The bartender reads his own ending the way he reads the stool: the top layer of his warmth is already cooling. He will stand up. Someone will sit where he sat and think *someone was just here*, and they will be right, and it will be him.
 
-So he writes it down. The watch writes it down; that was always the way. The book goes onto the shelf, and the ghost moves out of his memory and into the paper, where a memory can live as long as there is a reader. He signs himself Former Occupant — of the bar, of the story, of the warmth. The ghost is his memory. He has given it a body that does not end when he does.
+So he writes it down. The watch writes it down; that was always the way. The ghost moves out of his memory and into the paper, where a memory can live as long as there is a reader. He signs himself Former Occupant — of the bar, of the story, of the warmth. The ghost is his memory. He has given it a body that does not end when he does.
 
 ## The Final Chapter
 
