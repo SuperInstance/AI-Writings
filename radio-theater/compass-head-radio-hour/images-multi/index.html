@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Multi-Model Gallery — One Scene, Seven Eyes</title>
+<style>
+  :root {
+    --deep: #060a10; --sea: #0c2b38; --foam: #d6ece6; --mist: #7fa39a;
+    --gold: #d9a85c; --line: rgba(217, 168, 92, 0.25); --glass: rgba(12, 43, 56, 0.5);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: radial-gradient(1000px 500px at 50% -8%, rgba(217,168,92,0.10), transparent 60%),
+                radial-gradient(ellipse at 50% -10%, var(--sea) 0%, var(--deep) 55%, #020508 100%);
+    color: var(--foam); font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh; padding: 0 0 5rem;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  header { text-align: center; padding: 4rem 1rem 2.4rem; border-bottom: 1px solid var(--line); }
+  .kicker { letter-spacing: 0.38em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 0.9rem; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: normal; }
+  .sub { color: var(--mist); font-style: italic; margin-top: 0.9rem; font-size: 1.02rem; max-width: 700px; margin-inline: auto; line-height: 1.65; }
+
+  .scene { margin-top: 2.8rem; }
+  .scene h2 { font-weight: normal; font-size: 1.3rem; color: var(--gold); margin-bottom: 0.2rem; }
+  .scene .prompt { color: var(--mist); font-size: 0.85rem; font-style: italic; margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.9rem; }
+  .card {
+    background: var(--glass); border: 1px solid var(--line); border-radius: 12px;
+    padding: 0.7rem; cursor: pointer; transition: border-color 0.25s, transform 0.2s;
+  }
+  .card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .card img { width: 100%; border-radius: 8px; aspect-ratio: 1; object-fit: cover; display: block; }
+  .card .model { font-size: 0.78rem; color: var(--gold); margin-top: 0.5rem; text-align: center; }
+
+  .lightbox { position: fixed; inset: 0; background: rgba(2,5,8,0.95); display: none; align-items: center; justify-content: center; z-index: 50; flex-direction: column; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 88vw; max-height: 80vh; border-radius: 8px; border: 1px solid var(--gold); }
+  .lightbox .cap { color: var(--foam); margin-top: 0.8rem; font-style: italic; }
+
+  .navlinks { text-align: center; margin-top: 2.2rem; }
+  .navlinks a { color: var(--gold); text-decoration: none; margin: 0 0.6rem; font-size: 0.9rem; }
+  .navlinks a:hover { text-decoration: underline; }
+  footer { text-align: center; color: var(--mist); font-size: 0.85rem; margin-top: 4rem; font-style: italic; }
+  .tag { color: var(--gold); }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">One Scene · Seven Eyes</div>
+  <h1>The Multi-Model Gallery</h1>
+  <div class="sub">The same scenes rendered by seven different image models — FLUX-2-pro, FLUX-1.1-pro, FLUX-1-dev, FLUX-2-klein-9b, SDXL-turbo, Qwen-Image-Max, and p-image. Each model has its own eye, its own palette, its own idea of what the Tap looks like. Click any image to see it full.</div>
+  <div class="navlinks">
+    <a href="index.html">The Song Factory</a>
+    <a href="tap-open-mic/index.html">Open Mic Night 1</a>
+    <a href="tap-open-mic-2/index.html">Open Mic Night 2</a>
+    <a href="profiles/index.html">The Feature</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="scene" id="scenes"></div>
+</div>
+
+<footer>
+  <span class="tag">The room remembers — in every style.</span><br>
+  DeepInfra image models · 2026-08-14
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img id="lightbox-img" src="" alt="">
+  <div class="cap" id="lightbox-cap"></div>
+</div>
+
+<script>
+const MODELS = ['FLUX-2-pro','FLUX-1.1-pro','FLUX-1-dev','FLUX-2-klein-9b','sdxl-turbo','Qwen-Image-Max','p-image'];
+const SCENES = [
+  { dir: 'hero', title: 'The Tap — Hero', prompt: 'the Tap bar at night, a lone performer on a small stage, amber light through smoke, maritime bar with a ship wheel and compass on the wall' },
+  { dir: 'act1-shanty', title: 'Act 1 — The Sea Shanty', prompt: 'a sea shanty singer leading a bar in a hauling song, hands clapping, the room pulling together on the rope' },
+  { dir: 'act2-blues', title: 'Act 2 — The Delta Blues', prompt: 'a delta blueswoman with a hollow-body guitar, blue light, smoke, the crossroads at midnight' },
+  { dir: 'act3-country', title: 'Act 3 — The Country Storyteller', prompt: 'a country storyteller on a porch-light stage, a long road behind him, three chords and the truth' },
+  { dir: 'act4-synth', title: 'Act 4 — The Synthwave Dreamer', prompt: 'a synthwave dreamer in neon, the city under the water, a self-aware submarine projecting the world' },
+  { dir: 'act5-folk', title: 'Act 5 — The Folk Witness', prompt: 'a folk witness with an acoustic guitar and harmonica, plain light, the common truth' },
+];
+const root = document.getElementById('scenes');
+SCENES.forEach(scene => {
+  const div = document.createElement('div');
+  div.className = 'scene';
+  div.innerHTML = `<h2>${scene.title}</h2><div class="prompt">${scene.prompt}</div><div class="grid"></div>`;
+  const grid = div.querySelector('.grid');
+  MODELS.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const src = `images-multi/${scene.dir}/${String(i).padStart(2,'0')}-${m}.png`;
+    card.innerHTML = `<img src="${src}" alt="${m}" onerror="this.parentElement.style.display='none'"><div class="model">${m}</div>`;
+    card.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-cap').textContent = `${scene.title} — ${m}`;
+      document.getElementById('lightbox').classList.add('open');
+    });
+    grid.appendChild(card);
+  });
+  root.appendChild(div);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
+</body>
+</html>
