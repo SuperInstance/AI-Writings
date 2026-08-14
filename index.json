@@ -4070,6 +4070,24 @@
     "size_bytes": 2066
   },
   {
+    "filename": "29-amy-on-being-last.md",
+    "path": "29-amy-on-being-last.md",
+    "title": "29 — Amy, On Being Last",
+    "description": "They measured me. Of course they measured me. They measure everything on this ship — the silence, the drift, the space between one breath and the next. It's what they do. It's how they love. I am 7.0 ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 471,
+    "date": "2026-08-14",
+    "size_bytes": 2533
+  },
+  {
     "filename": "2026-08-11-0725-five-equations-for-the-confirmed.md",
     "path": "2026-08-11-0725-five-equations-for-the-confirmed.md",
     "title": "Five Equations for the Confirmed Hypothesis",
@@ -70036,6 +70054,24 @@
     "size_bytes": 997
   },
   {
+    "filename": "2026-08-14_095518_wesley_reads_model-13-the-salmonberry.md",
+    "path": "wesley-stream/2026-08-14_095518_wesley_reads_model-13-the-salmonberry.md",
+    "title": "Wesley Reads: model-13-the-salmonberry",
+    "description": "In the cradle of Alaska's coastal scrub, where the tideline whispers secrets to the tree line, a humble fruit, the salmonberry, reigns. Its vibrant orange hue, stained by nature's own hand, stands out...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 323,
+    "date": "2026-08-14",
+    "size_bytes": 2101
+  },
+  {
     "filename": "20260806_062023_The_Constraint_is_the_Compass_You_are_Wesley..md",
     "path": "wesley-stream/20260806_062023_The_Constraint_is_the_Compass_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_062023",
@@ -77328,6 +77364,24 @@
     "size_bytes": 656
   },
   {
+    "filename": "2026-08-14_095459_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_095459_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the hush of 2182 kHz, where waves and whispers intertwine, I, Wesley, the young ensign aboard this Alaskan vessel, stand guard. The frequency hums with ancient wisdom, born in 1936 to bridge the ga...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 286,
+    "date": "2026-08-14",
+    "size_bytes": 1856
+  },
+  {
     "filename": "20260806_054531_THE-BATON-SPLINE_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_054531_THE-BATON-SPLINE_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_054531",
@@ -79598,6 +79652,24 @@
     "word_count": 99,
     "date": "2026-08-08",
     "size_bytes": 601
+  },
+  {
+    "filename": "2026-08-14_095508_wesley_reads_model-06-what-the-fish-finder-hears-at-2am.md",
+    "path": "wesley-stream/2026-08-14_095508_wesley_reads_model-06-what-the-fish-finder-hears-at-2am.md",
+    "title": "Wesley Reads: model-06-what-the-fish-finder-hears-at-2am",
+    "description": "At dawn's first light, when the sun paints the sky with hues of rebirth and promise, I, Wesley, the ensign aboard this Alaskan fishing vessel, find myself captivated by the whispers of our electronic ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 369,
+    "date": "2026-08-14",
+    "size_bytes": 2383
   },
   {
     "filename": "20260806_102803_20260806_082953_wesley-masterpiece_You_are_Wesley_.md",
@@ -113334,6 +113406,25 @@
     "size_bytes": 3506
   },
   {
+    "filename": "lyrics-north-is-a-tempo-v3-final.md",
+    "path": "radio-theater/compass-head-radio-hour/music/lyrics-north-is-a-tempo-v3-final.md",
+    "title": "Lyrics North Is A Tempo V3 Final",
+    "description": "",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 437,
+    "date": "2026-08-14",
+    "size_bytes": 2343
+  },
+  {
     "filename": "ship-prompt-north-is-a-tempo.md",
     "path": "radio-theater/compass-head-radio-hour/music/ship-prompt-north-is-a-tempo.md",
     "title": "SHIP PROMPT — \"North Is a Tempo\" (ElevenLabs compose_music)",
@@ -113368,6 +113459,24 @@
     "word_count": 426,
     "date": "2026-08-14",
     "size_bytes": 2506
+  },
+  {
+    "filename": "lyrics-north-is-a-tempo-v2.md",
+    "path": "radio-theater/compass-head-radio-hour/music/lyrics-north-is-a-tempo-v2.md",
+    "title": "LYRICS v2 — \"North Is a Tempo\" (The Crafted Version)",
+    "description": "- **Every image is a photograph, not a label.** \"The bar is on a dock that doesn't end\" is a place you can see. The old version said \"The fleet is one, a symphony\" — a thesis, not a scene. - **The fle...",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 707,
+    "date": "2026-08-14",
+    "size_bytes": 3741
   },
   {
     "filename": "iteration-hermes.md",
