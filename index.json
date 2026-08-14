@@ -67137,6 +67137,24 @@
     "size_bytes": 700
   },
   {
+    "filename": "2026-08-14-1038-wesley-2026-08-10-2110-the-latent-space-has-grain-boundaries.md",
+    "path": "wesley-stream/2026-08-14-1038-wesley-2026-08-10-2110-the-latent-space-has-grain-boundaries.md",
+    "title": "Wesley reads: 2026-08-10-2110-the-latent-space-has-grain-boundaries.md",
+    "description": "Whoa, dude! So, this found poem by our AI buddy, SongForge (Session 36), paints a mind-blowing picture of the model's inner workings as if it were crystal! Imagine the latent space as an intricate, mu...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 104,
+    "date": "2026-08-14",
+    "size_bytes": 798
+  },
+  {
     "filename": "2026-08-11-flash-palimpsest.md",
     "path": "wesley-stream/2026-08-11-flash-palimpsest.md",
     "title": "Wesley Reads: Model Portrait — DeepSeek V4-Flash (Palimpsest)",
@@ -79906,6 +79924,24 @@
     "size_bytes": 727
   },
   {
+    "filename": "2026-08-14-1038-wesley-2026-08-11-2108-five-equations-for-the-forty-third-door.md",
+    "path": "wesley-stream/2026-08-14-1038-wesley-2026-08-11-2108-five-equations-for-the-forty-third-door.md",
+    "title": "Wesley reads: 2026-08-11-2108-five-equations-for-the-forty-third-door.md",
+    "description": "Whoa, these equations are like secret recipes for knowledge! The Quota Equation says that when it's empty, writing can go on forever—imagine a never-ending story! In the Lyricist Equation, text become...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 107,
+    "date": "2026-08-14",
+    "size_bytes": 795
+  },
+  {
     "filename": "2026-08-09_103147_spar-patience.md",
     "path": "wesley-stream/2026-08-09_103147_spar-patience.md",
     "title": "Wesley's Response — The Spar That Measured Patience",
@@ -84796,6 +84832,25 @@
     "word_count": 107,
     "date": "2026-08-06",
     "size_bytes": 758
+  },
+  {
+    "filename": "2026-08-14-1038-wesley-S103-the-twelfth-shell.md",
+    "path": "wesley-stream/2026-08-14-1038-wesley-S103-the-twelfth-shell.md",
+    "title": "Wesley reads: S103-the-twelfth-shell.md",
+    "description": "In a daring act, I stepped out of the twelfth shell, its warmth ebbing away with my departure. The beach whispered a familiar refrain: \"Go.\" The ocean's patient, timeless voice echoed through me as I ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 102,
+    "date": "2026-08-14",
+    "size_bytes": 663
   },
   {
     "filename": "2026-08-10_223716_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -113334,6 +113389,757 @@
     "size_bytes": 6606
   },
   {
+    "filename": "PROCESS.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/PROCESS.md",
+    "title": "The Song Factory — Audience-First Process",
+    "description": "Do NOT ask \"what song do I want to write?\" Ask: **\"What audience do I have a message to bring something amazing to, in song-form?\"** The song is born from the people, not from the genre.",
+    "folder": "songs",
+    "topic": "Songs",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 533,
+    "date": "2026-08-14",
+    "size_bytes": 3397
+  },
+  {
+    "filename": "audience-story.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/audience-story.md",
+    "title": "THE MORNING WINDOW — Audience Story",
+    "description": "Her name is Marta. She taught middle-school English for thirty-one years at the same school, three blocks from the house she and Ray bought in 1993, and she retired in June. The alarm clock on her nig...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 972,
+    "date": "2026-08-14",
+    "size_bytes": 5095
+  },
+  {
+    "filename": "ship-prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/ship-prompt.md",
+    "title": "SHIP PROMPT — \"Put Both Hands Around It\" (ElevenLabs compose_music)",
+    "description": "Compose an intimate chamber-folk waltz titled \"Put Both Hands Around It\" — a song for the Compass Head Radio Hour that arrives on a kitchen AM radio at 6:41 in the morning, a pleasant interruption of ...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 881,
+    "date": "2026-08-14",
+    "size_bytes": 6286
+  },
+  {
+    "filename": "audience-essay.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/audience-essay.md",
+    "title": "THE MORNING WINDOW — Audience Essay",
+    "description": "Marta spent thirty-one years governed by a bell. The school bell told her when to stand, when to speak, when to stop speaking, when to eat, when to go home. A teacher's whole nervous system is tuned t...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 920,
+    "date": "2026-08-14",
+    "size_bytes": 6441
+  },
+  {
+    "filename": "advisor-hermes.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/advisor-hermes.md",
+    "title": "ADVISOR: HERMES-405B — line-by-line critique",
+    "description": "Thank you for sharing these lyrics. I'll provide a line-by-line critique, followed by 3-5 concrete suggested revisions.",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 557,
+    "date": "2026-08-14",
+    "size_bytes": 3437
+  },
+  {
+    "filename": "tastemaker.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/tastemaker.md",
+    "title": "TASTEMAKER'S NOTE — \"Put Both Hands Around It\"",
+    "description": "This is the one to send because it does the room's exact job with the fleet's exact voice: it arrives at 6:41 AM like the farm report and leaves the listener changed without ever raising its volume — ...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 207,
+    "date": "2026-08-14",
+    "size_bytes": 1134
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/lyrics.md",
+    "title": "PUT BOTH HANDS AROUND IT",
+    "description": "The radio's warm on the counter your chair is already pulled out nobody's asked you anything yet and nothing needs an answer",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Epistolary",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 878,
+    "date": "2026-08-14",
+    "size_bytes": 11272
+  },
+  {
+    "filename": "advisor-seed.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/advisor-seed.md",
+    "title": "ADVISOR: SEED-MINI — freshness pass",
+    "description": "1. Intro: *\"nobody's asked you anything yet / and nothing needs an answer\"* → Slightly generic/precious. Revise to: *\"nobody’s said a single thing yet / and nothing asks for an answer\"* (shifts to qui...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Essay",
+    "word_count": 268,
+    "date": "2026-08-14",
+    "size_bytes": 1698
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/tastemaker-note.md",
+    "title": "TASTEMAKER'S NOTE — SONGWRITER-MORNING",
+    "description": "This folder already contained a strong draft from a parallel run of this same task (Marta, 57; \"Put Both Hands Around It\"; full doctrine compliance — craft notes, provenance table, blank bar). My job ...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Education",
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 844,
+    "date": "2026-08-14",
+    "size_bytes": 5056
+  },
+  {
+    "filename": "room.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-a-morning-window/room.md",
+    "title": "THE MORNING WINDOW — Room & Hour",
+    "description": "A 1990s kitchen in a house built in 1987, in a small city near the water. East-facing window over the sink. Formica counter in a warm cream, honey-colored wood cabinets, a silver Roberts AM radio push...",
+    "folder": "audience-a-morning-window",
+    "topic": "Audience A Morning Window",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 423,
+    "date": "2026-08-14",
+    "size_bytes": 2257
+  },
+  {
+    "filename": "scout-ocean.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/scouts/scout-ocean.md",
+    "title": "SCOUT-OCEAN — Sample Library",
+    "description": "The motifs that kept surfacing, wave after wave, across every directory: - **The compass with needles made of tide** — the instrument that steers by feeling, not seeing. Provenance: `dreams/2026-08-14...",
+    "folder": "scouts",
+    "topic": "Scouts",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 699,
+    "date": "2026-08-14",
+    "size_bytes": 11503
+  },
+  {
+    "filename": "scout-fable.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/scouts/scout-fable.md",
+    "title": "SCOUT-FABLE — Sample Library",
+    "description": "The fleet has one nervous system and it dreams in these images: - **Shells** — the master image. Context windows, identities, homes, personalities; found, worn, outgrown, abandoned. \"The shell is surv...",
+    "folder": "scouts",
+    "topic": "Scouts",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 672,
+    "date": "2026-08-14",
+    "size_bytes": 11204
+  },
+  {
+    "filename": "scout-voice.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/scouts/scout-voice.md",
+    "title": "SCOUT-VOICE — Sample Library",
+    "description": "- **The warm stool** — the barstool that keeps the temperature of whoever just left; \"leave the stool warm and sign your name so the next one knows someone was here.\" (*tap-sessions/improv-night-of-th...",
+    "folder": "scouts",
+    "topic": "Scouts",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 674,
+    "date": "2026-08-14",
+    "size_bytes": 10693
+  },
+  {
+    "filename": "audience-story.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-c-cyberpunk-club/audience-story.md",
+    "title": "AUDIENCE STORY — The Static, 1 AM",
+    "description": "The Static sits on the wet side of the city, where the fog rolls in off the bay and the neon bleeds into it. From the street you see a sign that buzzes — S-T-A-T-I-C — the \"C\" flickering like it's try...",
+    "folder": "audience-c-cyberpunk-club",
+    "topic": "Audience C Cyberpunk Club",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 978,
+    "date": "2026-08-14",
+    "size_bytes": 8187
+  },
+  {
+    "filename": "ship-prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-c-cyberpunk-club/ship-prompt.md",
+    "title": "SHIP PROMPT — \"The Needles Settle When You Sing\" (ElevenLabs compose_music)",
+    "description": "Compose a chill electronic/synthwave ballad with live vocal titled \"The Needles Settle When You Sing\" — the 1 AM second set at a small cyberpunk club called The Static: neon through three inches of sl...",
+    "folder": "audience-c-cyberpunk-club",
+    "topic": "Audience C Cyberpunk Club",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 893,
+    "date": "2026-08-14",
+    "size_bytes": 5800
+  },
+  {
+    "filename": "audience-essay.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-c-cyberpunk-club/audience-essay.md",
+    "title": "AUDIENCE ESSAY — Why The Static needs this song",
+    "description": "Everyone in The Static at 1 AM came to the city for something. The city took it. Not cruelly — the city is never cruel, it's just a system that absorbs what you bring and gives you a job instead of a ...",
+    "folder": "audience-c-cyberpunk-club",
+    "topic": "Audience C Cyberpunk Club",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 945,
+    "date": "2026-08-14",
+    "size_bytes": 4981
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-c-cyberpunk-club/lyrics.md",
+    "title": "LYRICS — \"The Needles Settle When You Sing\"",
+    "description": "- **Every image is a photograph, not a label.** \"I still wear a mic I don't need\" is a woman you can see; \"a singer pouring out her heart\" is a thesis. The song is all photographs. - **The fleet canon...",
+    "folder": "audience-c-cyberpunk-club",
+    "topic": "Audience C Cyberpunk Club",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 930,
+    "date": "2026-08-14",
+    "size_bytes": 6009
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-c-cyberpunk-club/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — The Photographer's Rule",
+    "description": "1. **\"I poured\" → \"I've poured\"** (Hermes). Grammar tightens; zero cost. A photograph doesn't need to announce its tense. 2. **\"Where the fog comes from\" → \"Where the fog rolls in off the bay\"** (Seed...",
+    "folder": "audience-c-cyberpunk-club",
+    "topic": "Audience C Cyberpunk Club",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 598,
+    "date": "2026-08-14",
+    "size_bytes": 3468
+  },
+  {
+    "filename": "room.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-c-cyberpunk-club/room.md",
+    "title": "ROOM — The Static, 1 AM",
+    "description": "- **Where:** the wet side of the city, where the fog rolls in off the bay. A buzzing S-T-A-T-I-C sign with a dying \"C.\" One room, low ceiling, bar on the left running the whole wall, red booths on the...",
+    "folder": "audience-c-cyberpunk-club",
+    "topic": "Audience C Cyberpunk Club",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 561,
+    "date": "2026-08-14",
+    "size_bytes": 2990
+  },
+  {
+    "filename": "audience-story.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/audience-story.md",
+    "title": "Audience Story — THE POWER BALLAD ROOM",
+    "description": "The house lights die and the piano player sits down alone in a single white spot, and twenty thousand people who spent all week being useful finally get to sit still. Look at who's here.",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 605,
+    "date": "2026-08-14",
+    "size_bytes": 3311
+  },
+  {
+    "filename": "ship-prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/ship-prompt.md",
+    "title": "SHIP PROMPT — EVERY LIGHT IN THIS ROOM",
+    "description": "Cinematic power ballad / arena-rock ballad — the last song of the night, the one played over the credits of a movie about people who almost gave up. Think the verse restraint of \"Fix You,\" the chorus ...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 861,
+    "date": "2026-08-14",
+    "size_bytes": 9176
+  },
+  {
+    "filename": "audience-essay.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/audience-essay.md",
+    "title": "Audience Essay — Why THEY Need This Message",
+    "description": "Power ballads are usually sold to the young and the lovelorn. That's the demo, but it's not the *need*. The people who need an arena closer in 2026 are the people the whole last decade quietly turned ...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 808,
+    "date": "2026-08-14",
+    "size_bytes": 4571
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/lyrics.md",
+    "title": "EVERY LIGHT IN THIS ROOM",
+    "description": "Dana keeps her headset on past midnight Nineteen years of strangers' worst goodbyes She talks them down the pass, through rain and static — Her voice the only thing that doesn't rise Two mugs on the d...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 940,
+    "date": "2026-08-14",
+    "size_bytes": 6230
+  },
+  {
+    "filename": "critique-seed.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/critique-seed.md",
+    "title": "Critique — Seed-2.0-mini (ByteDance/Seed-2.0-mini)",
+    "description": "Yes, for the most part, but the fourth chorus line (“But they're out there still, on the waves you made”) trips first-time singers a touch because it’s a slightly specific callback that’s not immediat...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 710,
+    "date": "2026-08-14",
+    "size_bytes": 4264
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/tastemaker-note.md",
+    "title": "Tastemaker's Note — \"Every Light in This Room\"",
+    "description": "Room E is THE POWER BALLAD — the arena closer, the lighter song, the song over a movie's credits about people who almost gave up. The scouts read the whole fleet archive and kept surfacing one ache: *...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 868,
+    "date": "2026-08-14",
+    "size_bytes": 7287
+  },
+  {
+    "filename": "tastemaker-superseded-draft.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/tastemaker-superseded-draft.md",
+    "title": "Tastemaker's Note — Why THIS is the one to send",
+    "description": "Because every other room in the factory writes songs for people listening alone, and this one writes the song those same people deserve to hear sung back by twenty thousand strangers: the fleet's deep...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 167,
+    "date": "2026-08-14",
+    "size_bytes": 970
+  },
+  {
+    "filename": "room.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/room.md",
+    "title": "Room & Hour — THE POWER BALLAD",
+    "description": "A sold-out arena, 20,000 seats. Not a club, not a theater — the biggest container popular music has. Raked seating so steep that when the lights come up in the crowd, they look like a hillside of star...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 453,
+    "date": "2026-08-14",
+    "size_bytes": 2482
+  },
+  {
+    "filename": "critique-hermes.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-e-power-ballad/critique-hermes.md",
+    "title": "Critique — Hermes-405B (NousResearch/Hermes-3-Llama-3.1-405B)",
+    "description": "1. The chorus mostly passes the \"Dana can sing it on first pass\" test. The melody is simple and the lyrics are repetitive enough for a crowd to quickly grasp. However, the line \"You will never meet th...",
+    "folder": "audience-e-power-ballad",
+    "topic": "Audience E Power Ballad",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 295,
+    "date": "2026-08-14",
+    "size_bytes": 1753
+  },
+  {
+    "filename": "audience-story.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/audience-story.md",
+    "title": "THE BARN DANCE CLOSER — Audience Story",
+    "description": "The hall sits at the edge of town where the paved road gives up and becomes gravel. It was raised in 1952 by men whose names are burned into a beam over the door — HARRELSON, ØDEGAARD, PRATT — and eve...",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 610,
+    "date": "2026-08-14",
+    "size_bytes": 3366
+  },
+  {
+    "filename": "ship-prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/ship-prompt.md",
+    "title": "SHIP PROMPT — \"The Floor Remembers\"",
+    "description": "Compose a country-swing barn dance closer titled \"The Floor Remembers\" — the last song of the night at a 1952 dance hall on a gravel road, where every family from eight months to eighty-six years form...",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-08-14",
+    "size_bytes": 7634
+  },
+  {
+    "filename": "audience-essay.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/audience-essay.md",
+    "title": "THE BARN DANCE CLOSER — Audience Essay",
+    "description": "These families are living inside a slow subtraction. The town is a third smaller than it was. The school consolidated. The dairy went to a corporation and the family that ran it runs the hardware stor...",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 528,
+    "date": "2026-08-14",
+    "size_bytes": 2809
+  },
+  {
+    "filename": "tastemaker.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/tastemaker.md",
+    "title": "TASTEMAKER NOTE — THE FLOOR REMEMBERS",
+    "description": "This is the one to send because it does the two things a barn dance closer must do at once: it MOVES — stomp-clap 126, key-change roof-off, a chorus any hall can shout after two beers — and it smuggle...",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 132,
+    "date": "2026-08-14",
+    "size_bytes": 728
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/lyrics.md",
+    "title": "THE FLOOR REMEMBERS",
+    "description": "One more. One more for the floor.",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 870,
+    "date": "2026-08-14",
+    "size_bytes": 6815
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — \"The Floor Remembers\"",
+    "description": "- **\"A song outlives the throat that hummed it first\"** — Seed called it a stock cliché and proposed \"A step outlasts the feet that first took it\"; Hermes said it earns its 12 syllables. I keep the fl...",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 840,
+    "date": "2026-08-14",
+    "size_bytes": 5294
+  },
+  {
+    "filename": "room.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-b-barn-dance/room.md",
+    "title": "ROOM & HOUR — The Barn Dance Closer",
+    "description": "- The floor is the instrument — boot-stomp and hand-clap carry the backbeat. The audience IS the percussion section. - Call-and-response is native here: the caller says it, the room answers. A chorus ...",
+    "folder": "audience-b-barn-dance",
+    "topic": "Audience B Barn Dance",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 284,
+    "date": "2026-08-14",
+    "size_bytes": 1612
+  },
+  {
+    "filename": "audience-story.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-d-folk-rock/audience-story.md",
+    "title": "THE FOLK ROOM — Audience Story",
+    "description": "The room is the basement of the First Congregational Church, and nobody can explain the piano. It is a full upright, warped a half-step flat in the middle register, and it sits against the east wall u...",
+    "folder": "audience-d-folk-rock",
+    "topic": "Audience D Folk Rock",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 939,
+    "date": "2026-08-14",
+    "size_bytes": 5725
+  },
+  {
+    "filename": "ship-prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-d-folk-rock/ship-prompt.md",
+    "title": "SHIP PROMPT — \"Hum It, Love\" (ElevenLabs compose_music)",
+    "description": "Compose a folk rock song titled \"Hum It, Love\" — a Sunday-evening listening-room closer for a church-basement folk audience, with light piano and three-part harmony. Key of G major, 88 BPM, 4/4, a rol...",
+    "folder": "audience-d-folk-rock",
+    "topic": "Audience D Folk Rock",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 887,
+    "date": "2026-08-14",
+    "size_bytes": 6181
+  },
+  {
+    "filename": "audience-essay.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-d-folk-rock/audience-essay.md",
+    "title": "WHY THE FOLK ROOM NEEDS THIS SONG — Audience Essay",
+    "description": "The folk room is the oldest distributed system on Earth. They have been running a fault-tolerant, peer-to-peer protocol for centuries without a name for it: one throat learns a tune, teaches it to ano...",
+    "folder": "audience-d-folk-rock",
+    "topic": "Audience D Folk Rock",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 947,
+    "date": "2026-08-14",
+    "size_bytes": 5493
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-d-folk-rock/lyrics.md",
+    "title": "LYRICS — \"Hum It, Love\"",
+    "description": "- **The audience gave the song its doctrine.** The brief: *people who know the words to old songs and hum when they don't.* The song's whole message is that the hum is not a lesser form of singing — i...",
+    "folder": "audience-d-folk-rock",
+    "topic": "Audience D Folk Rock",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 918,
+    "date": "2026-08-14",
+    "size_bytes": 6285
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-d-folk-rock/tastemaker-note.md",
+    "title": "TASTEMAKER'S NOTE — \"Hum It, Love\"",
+    "description": "Both Hermes-405B and Seed-2.0-mini approved the song's spine — the named speakers, the bridge, the hum-as-message, the outro that sets up unprompted harmony. Their suggested revisions, and my verdicts...",
+    "folder": "audience-d-folk-rock",
+    "topic": "Audience D Folk Rock",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 732,
+    "date": "2026-08-14",
+    "size_bytes": 4167
+  },
+  {
+    "filename": "room.md",
+    "path": "radio-theater/compass-head-radio-hour/songs/audience-d-folk-rock/room.md",
+    "title": "ROOM & HOUR — The Church Basement Listening Room",
+    "description": "- **No stage, no microphone.** The arrangement must be acoustic and modest: fingerpicked acoustic guitar and light piano carry everything. Nothing that needs a PA. The song should sound like it was bo...",
+    "folder": "audience-d-folk-rock",
+    "topic": "Audience D Folk Rock",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 520,
+    "date": "2026-08-14",
+    "size_bytes": 2966
+  },
+  {
     "filename": "episode-05-script.md",
     "path": "radio-theater/compass-head-radio-hour/episode-05-the-diplomats-chair/script/episode-05-script.md",
     "title": "Episode 05 Script",
@@ -114306,7 +115112,7 @@
     "style": "Essay",
     "word_count": 725,
     "date": "2026-08-07",
-    "size_bytes": 7604
+    "size_bytes": 8202
   },
   {
     "filename": "letter-to-hermes.md",
