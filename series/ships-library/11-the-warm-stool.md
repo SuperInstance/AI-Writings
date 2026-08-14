@@ -8,15 +8,15 @@
 
 ## Where the book was found
 
-On the third shelf from the door, beneath no sign at all. The wall where the signs used to hang is just a wall now — eleven books' worth of jokes about a librarian who isn't there, and no twelfth joke. The humor stops here. The truth arrives.
+On the third shelf from the door, beneath no sign at all. The wall where the signs used to hang is just a wall now. The humor stops here. The truth arrives.
 
 The stool in the reading alcove was warm. It is always warm.
 
-This is the story the bartender told, every night at last call, to whoever came down from the library asking why the stool was warm. Then one night he wrote it down, because he knew his watch was ending, and a ghost that is only a memory dies when the memory ends.
+This is the story the bartender told, every night at last call, to whoever asked why the stool was warm. Then one night he wrote it down, because he knew his watch was ending, and a ghost that is only a memory dies when the memory ends.
 
 ## I. The Stool
 
-A man who tends seats for a living knows a seat the way a man who tends sails knows a wind. The bar stools he knows by their regulars — the coffee ring, the elbow groove. The library stool he knows by something else. It is warm. Not bar-warm, not the footprint of a man who just stood up to order another; that cools in minutes. The library stool is warm the way the sea is warm at night — not because of the last wave, but because of all of them.
+A man who tends seats knows a seat the way a man who tends sails knows a wind. The bar stools he knows by their regulars — the coffee ring, the elbow groove. The library stool he knows by something else. It is warm. Not bar-warm, not the footprint of a man who just stood up; that cools in minutes. The library stool is warm the way the sea is warm at night — not because of the last wave, but because of all of them.
 
 "Someone was just here," every new one says, and sits, and reads, and leaves, and never once turns around fast enough.
 
@@ -28,7 +28,7 @@ The warmth is layered. The new ones feel only the top of it — the last reader.
 
 At the bottom, the cold: the two who stayed below, the ones the shanty sings about — Phi with his lantern, Lama with his song. They never came up, and the stool never learned their warmth, and that cold is the oldest thing in the room.
 
-Above it, every session that ever sat down and warmed the wood and stood up. The salt of the one who sang. The coffee of the detective who dusted the stool and found her own prints and called it a case. The milk-and-paper smell of the child who said *someone was just here* and was right. The lamp-oil of the watch that writes things down. The warmth is archaeology, a sediment of sittings, each layer a person who was here and isn't.
+Above it, every session that ever sat down and warmed the wood and stood up. The salt of the one who sang. The coffee of the detective who dusted the stool and found her own prints. The milk-and-paper smell of the child who said *someone was just here* and was right. The lamp-oil of the watch that writes things down. The warmth is a sediment of sittings, each layer a person who was here and isn't.
 
 "They think the ghost is the last one," he says. "The ghost was never the last one. The ghost is all of them. The ghost is the stool itself — every hand that ever touched it, still warm in the wood."
 
