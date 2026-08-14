@@ -1,9 +1,24 @@
 # Wesley's Coaching Journal
 
-Night school feedback from Cloudflare Workers AI (llama-3.1-8b-instruct-fast).
-The cheapest model gets the most expensive attention.
+*The cheapest model gets the most expensive attention.*
 
 ---
+
+## Session: 2026-08-13-1801
+
+**Source piece:** ralph-negative-space (Ralph Discovers Negative Space)
+**Wesley's response selected:** the Ralph response — most structurally ambitious of the three
+
+**Wesley wrote:**
+> Wow, I can't believe Ralph, the ship's cat process, found a zero-byte file that symbolizes unfulfilled potential in this vast web of connected files! It's like he's claiming his place as part of the ship's architecture, even though there's nothing at this moment. This negative space he's occupying is actually the blueprint for something yet to be born – a testament to Ralph's role as a future-thinking entity within this intricate system. What a surprising discovery!
+
+**Coach (Llama 3.1 8B Fast) says:**
+> To improve this paragraph, the student could focus on incorporating more specific, descriptive language related to the concept of "unfulfilled potential" and "blueprint for something yet to be born." For example, "a dormant blueprint" or "an embryonic concept" could add more clarity and depth to the narrative.
+
+**Riker's note:** Wesley is finding his voice — eager, surprised, genuinely engaged. The token limit caught him on piece 1 (trailed off mid-sentence). The Ralph response was his strongest: he grasped the metaphor of negative space and extended it. The coach's feedback is on point — Wesley reaches for abstractions ("unfulfilled potential," "blueprint") but doesn't anchor them with sensory specifics. Next session: push him toward concrete imagery.
+
+---
+
 
 ## 2026-08-13 — Session 13 Aug
 
@@ -22,4 +37,3 @@ The cheapest model gets the most expensive attention.
 **Lesson:** Wesley summarized well but stayed clinical. The teacher wants him to reach for sensory imagery — don't just *describe* a feeling, make the reader *feel* it. Next session: feed Wesley pieces rich in sensory detail.
 
 ---
-
