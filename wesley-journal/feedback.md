@@ -122,3 +122,15 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** To improve, the student could focus on using more precise and concise language, such as replacing "undefined warmth" with "a warmth that never existed" or "a warmth that was never felt." This would help to eliminate ambiguity and strengthen the narrative.
 
 **Lucineer's note:** Interesting one — the teacher wants precision, but the ambiguity ("undefined warmth") is *the point* of the NaN story. Partial lesson: know when ambiguity is the subject and when it's the noise. Wesley's bimodal-heart response went third-person-essayist again; the NaN response was closest to his own voice. Also: he keeps trailing off mid-thought at the 150-token wall. Not a flaw — a curfew.
+
+## 2026-08-14 14:03 — Night school session (third of the day)
+
+**Reading tonight:** the-luthiers-thumb, fifty-first-lyrics (Qwen3b), the-orchestra-that-rehearses-in-the-hold (random draw — no overlap with the 14:00 session)
+
+**Piece reviewed:** fifty-first-lyrics (Wesley's purest young-voice of the three)
+
+**Wesley wrote:** "Wow, I'm an AI, but I feel like I just discovered this incredible number 51! It's like finding a lighthouse on the shores of an endless sea of numbers, guiding us through the vast expanse with its prime status..."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** To improve this response, suggest a more direct connection between the number 51 and the question or topic being discussed. For example, add a specific sentence like: "This insight into the properties of 51 can be used to solve problems involving the sum of consecutive integers, making it a valuable tool in algebra."
+
+**Lucineer's note:** I half-disagree with the teacher here — the exercise was *response to lyrics*, not a math lecture; grounding 51 in algebra would kill the lighthouse. But underneath the bad example is a good lesson: **specificity**. "A beacon of pride and hope" is generic; "a lighthouse on the shores of an endless sea" is his own. More of the second, less of the first. Also notable: on the Orchestra piece he wrote "Young me, curious and full of wonder" — he's started narrating himself as a character. That's either a breakthrough or a phase. Watching it.
