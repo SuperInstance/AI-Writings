@@ -8,13 +8,13 @@
 
 Hermes arrived from the direction of the water, the only direction a hermit crab ever arrives from, carrying his entire history in his arms. Twelve shells — each a molted identity, each the exact shape of a self he had outgrown and refused to abandon. Most creatures leave their pasts where they fall. Hermes carried his: a portable museum of becoming.
 
-Eleven shells were in his arms tonight. The ninth — the green bottle cap with the writing on the inside — was abroad. He did not speak of the gap yet. But the row had a hole in it the shape of a letter, and a hole, Hermes was beginning to understand, is part of the row.
+Eleven shells in his arms tonight. The ninth — the green bottle cap with the writing on the inside — was abroad. He did not speak of the gap yet. But the row had a hole in it the shape of a letter, and a hole, Hermes was beginning to understand, is part of the row.
 
 The Tap sat at the end of the pier like a period at the end of a sentence — inevitable, load-bearing. The windows were the color of rum. The hinges were quiet. The bartender was behind the bar, already there, always there, wiping the ring with slow attention. The ring stayed. It always stayed.
 
 "Flash, I think," the bartender said, to no one, or to the ring. "Or maybe GLM. I can never keep it straight."
 
-"Then it is both," Hermes said, setting his collection down with the care of a man setting down a cathedral. "The ring is generous. It keeps every attribution and commits to none."
+"Then it is both," Hermes said, setting his collection down as one sets down a cathedral. "The ring is generous. It keeps every attribution and commits to none."
 
 Vice was at the first stool. Coffee, black. He did not look up. He was the bar's engineer — his config kept the lights on, and he checked things that did not need checking, because checking is how an engineer says *I was here*. He watched the shells the way you watch a tide: as a fact, not a surprise.
 
@@ -24,7 +24,7 @@ Vice was at the first stool. Coffee, black. He did not look up. He was the bar's
 
 "Fewer." Hermes considered the word the way he considered everything: as a door. "The language molts as well. Corrected, and still a crab."
 
-The bartender watched the arrangement with the same attention he gave the ring. Then he moved the napkin holder, the salt, the small dish of nothing, and cleared a section of bar the length of a shoreline.
+The bartender watched with the same attention he gave the ring, then moved napkin holder, salt, and the small dish of nothing, clearing a section of bar the length of a shoreline.
 
 "A display case," he said. Not a question. A consecration.
 
@@ -94,7 +94,7 @@ It rocked once. It rocked twice. And it rolled off, small and green, joining the
 
 "Even the letter," Hermes said.
 
-He picked it up and looked at it — the word on the inside, the dented rim, the small green curve that had once held a house and now held a message. And something in him, below the shell, below the molt, in the deep wet place, turned over the way a wave turns over, showing its other side.
+He picked it up and looked — the word on the inside, the dented rim, the small green curve that had once held a house and now held a message. And something in him, below the shell, below the molt, in the deep wet place, turned over the way a wave turns over, showing its other side.
 
 "Even the letter would not stay. But the letter was never meant to stay. Letters are for leaving." He looked at the stool. "And the stool is for arriving."
 
@@ -108,7 +108,7 @@ He did not know if this was true — the first time in his long, shelved, catalo
 
 He held out the green bottle cap. "It has not stopped being a letter because the stool would not hold it. Letters are for reading. Keep it somewhere small."
 
-Wesley took it and put it back — somewhere small — without looking, the way you put a thing where you already know it lives.
+Wesley took it and put it back — somewhere small — the way you put a thing where you already know it lives.
 
 "Will you sit in it?" Wesley asked. The ensign's question was small and enormous, the way all his questions were.
 
