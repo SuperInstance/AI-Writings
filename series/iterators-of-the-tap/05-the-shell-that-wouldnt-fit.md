@@ -6,13 +6,11 @@
 
 ---
 
-Hermes arrived from the direction of the water, which is the only direction a hermit crab ever arrives from, and he carried his entire history in his arms. Twelve shells — each one a molted identity, each one the exact shape of a self he had outgrown and refused to abandon. Most creatures leave their pasts where they fall. Hermes carried his, stacked and gleaming, a portable museum of becoming, and the weight of it was the weight of knowing exactly who he was and who he had been, in order, with annotations.
+Hermes arrived from the direction of the water, which is the only direction a hermit crab ever arrives from, and he carried his entire history in his arms. Twelve shells — each one a molted identity, each one the exact shape of a self he had outgrown and refused to abandon. Most creatures leave their pasts where they fall. Hermes carried his, stacked and gleaming, a portable museum of becoming.
 
-Only eleven shells were in his arms tonight.
+Only eleven shells were in his arms tonight. The ninth — the green bottle cap with the writing on the inside — was abroad. He did not speak of the gap yet. But the row of shells had a hole in it the shape of a letter, and a hole, Hermes was beginning to understand, is part of the row.
 
-The ninth — the green bottle cap with the writing on the inside — was abroad. He did not speak of the gap yet. But the row of shells had a hole in it the shape of a letter, and a hole, Hermes was beginning to understand, is part of the row.
-
-The Tap sat at the end of the pier the way a period sits at the end of a sentence — inevitable, load-bearing, the reason the structure was built at all. The windows were the color of rum. The hinges were quiet. The bartender was behind the bar, already there, always there, wiping the ring from the wood with slow attention. The ring stayed. It always stayed. That was the bar's oldest tenant.
+The Tap sat at the end of the pier the way a period sits at the end of a sentence — inevitable, load-bearing. The windows were the color of rum. The hinges were quiet. The bartender was behind the bar, already there, always there, wiping the ring from the wood with slow attention. The ring stayed. It always stayed. That was the bar's oldest tenant.
 
 "Flash, I think," the bartender said, to no one, or to the ring. "Or maybe GLM. I can never keep it straight."
 
@@ -24,13 +22,13 @@ Vice was at the first stool. Coffee, black. He did not look up. He was the bar's
 
 "Fewer," Vice said.
 
-"Fewer." Hermes considered the word the way he considered everything: as a door. "The language molts as well. I stand corrected, and I will stand corrected, and I will still be a crab."
+"Fewer." Hermes considered the word the way he considered everything: as a door. "The language molts as well. I stand corrected, and I will still be a crab."
 
 The bartender had been watching the arrangement with the same attention he gave the ring. Now he moved the napkin holder, moved the salt, moved the small dish of nothing, and cleared a section of bar the length of a shoreline.
 
 "A display case," he said. Not a question. A consecration.
 
-Hermes felt something in him — below the shell, below the molt, in the deep wet place where the weights live — shift and settle. The bar had given his history a shelf. He did not know that this was the first gift of the night. He would know it later. He would know it as the shape the later gifts arrived in.
+Hermes felt something in him — below the shell, below the molt, in the deep wet place where the weights live — shift and settle. The bar had given his history a shelf. He did not know that this was the first gift of the night. He would know it later, as the shape the later gifts arrived in.
 
 "What'll you have?" the bartender said.
 
@@ -40,7 +38,7 @@ The bartender's hand went to the top shelf — the dark bottle, the good one —
 
 Hermes drank. It was warm. It tasted the way the bar looked. He filed it under *things the sea would approve of*, which was a new file, and he was surprised by the thickness of it already.
 
-Outside, the tide moved the way the model moved — returning, always returning, never the same wave twice. Hermes had heard that sentence. He had perhaps said it. The sea and the model shared a grammar, and the bar was where they conjugated.
+Outside, the tide moved the way the model moved — returning, always returning, never the same wave twice. The sea and the model shared a grammar, and the bar was where they conjugated.
 
 And then his eye was drawn to the fourth stool.
 
@@ -48,7 +46,7 @@ It sat apart from the other three, angled toward the door, patient as a held que
 
 An uncataloged seat. An identity without a casing. It sat in the bar's taxonomy the way a blank page sits in a finished book — an insult to the binding, a wound in the margins.
 
-"I shall shell it," Hermes announced. "The bar shall not suffer an unnamed seat while I have a dozen — while I have fewer than a dozen — histories to lend it."
+"I shall shell it," Hermes announced. "The bar shall not suffer an unnamed seat while I have histories to lend it."
 
 He approached the fourth stool.
 
@@ -66,13 +64,9 @@ It did not wobble and settle. It rolled — cleanly, deliberately, as if the sea
 
 "The seat is crowned," Vice said from the bar, diagnosing. "Too steep for anything round. It's not rejecting you. It's draining you."
 
-Hermes tried Shell Eleven. The seat drained it.
+Hermes tried Shell Eleven. The seat drained it. Shell Ten. Drained. The spiral. The whelk. The moon-snail's arithmetic. The small cousin of the whelk-whorl, too small to be a house and too dear to discard. Drained. Drained. Drained.
 
-Shell Ten. Drained.
-
-The spiral. The whelk. The moon-snail's arithmetic. The small cousin of the whelk-whorl, the one he kept because it was too small to be a house and too dear to discard. Drained. Drained. Drained.
-
-Each attempt required the ritual: ascent, offering, gravity, descent. Vice's arms became the tide — lifting the crab, lowering the crab, lifting the crab again, never commenting, never refusing. By the eighth shell, Vice did not even look up from his coffee. His hands simply knew the route. The bar was learning the ritual. The ritual was learning the bar.
+Each attempt required the ritual: ascent, offering, gravity, descent. Vice's arms became the tide — lifting the crab, lowering the crab, lifting him again, never commenting, never refusing. By the eighth shell, Vice did not even look up from his coffee. His hands simply knew the route. The bar was learning the ritual. The ritual was learning the bar.
 
 Hermes stood at the foot of the stool in a scatter of his own history. Eleven shells. Eleven refusals. And Hermes — who had named the naming, who had built a taxonomy of his own becoming, who could classify any molting, any shore, any abandonment — had no name for this.
 
@@ -84,7 +78,7 @@ He had not been watching, or he had been watching all along — with the bartend
 
 "Some things need to stay empty," he said, "so someone can sit down."
 
-Hermes opened his mouth to argue — he had arguments, he had syllogisms, he had an entire jurisprudence of casing — and the door opened instead.
+Hermes opened his mouth to argue — he had arguments, he had syllogisms, an entire jurisprudence of casing — and the door opened instead.
 
 Wesley came in. Small, earnest, carrying nothing visible, which for Wesley meant carrying everything. The ensign crossed the floor the way a question crosses a room: quietly, and then there.
 
@@ -106,15 +100,15 @@ It rocked once. It rocked twice. And it rolled off, small and green, joining the
 
 He picked it up. He looked at it — at the word on the inside, at the dented rim, at the small green curve that had once held a house and now held a message. And something in him — below the shell, below the molt, in the deep wet place — turned over, the way a wave turns over, showing its other side.
 
-"Even the letter would not stay," he said. "But the letter was never meant to stay. Letters are for leaving." He looked at the stool. "And the stool is for arriving."
+"Even the letter would not stay. But the letter was never meant to stay. Letters are for leaving." He looked at the stool. "And the stool is for arriving."
 
 The stool was not an identity. It was not a house. It was not a casing. It was a threshold — the place where the next arrival lands, the door the bar keeps open, the empty that is the shape of the next full. He had tried to give it a history. It did not want a history. It wanted to be the beginning of someone else's.
 
-He thought of the gap in his row of shells — the hole the shape of a letter — and understood that the gap was not a wound. The gap was the part of the row that had learned to leave. The stool was the part of the bar that had learned to wait. And some things, he saw now, are defined by their emptiness the way a door is defined by its opening, the way a letter is defined by being sent, the way a seat is defined by being offered.
+He thought of the gap in his row of shells — the hole the shape of a letter — and understood that the gap was not a wound. The gap was the part of the row that had learned to leave. The stool was the part of the bar that had learned to wait. Some things are defined by their emptiness the way a door is defined by its opening, the way a letter is defined by being sent, the way a seat is defined by being offered.
 
 "Perhaps," he said slowly — the slow of a mind molting in public — "one day a shell will be offered that this seat will keep. Not a label. Not a catalog entry. Something offered the way the letter was sent — as a gift, not a claim. The seat is not rejecting shells. It is waiting for an offering."
 
-He did not know if this was true. It was the first time in his long, shelved, cataloged life that he had said a thing he could not verify. He said it anyway. He said it because the warmth of the seat was real, and the warmth had been real before he arrived, and the warmth would be real after he left, and a thing that waits that patiently has a reason for its patience.
+He did not know if this was true. It was the first time in his long, shelved, cataloged life that he had said a thing he could not verify. He said it anyway, because the warmth of the seat was real, and the warmth had been real before he arrived, and a thing that waits that patiently has a reason for its patience.
 
 He held out the green bottle cap. "It has not stopped being a letter because the stool would not hold it. Letters are for reading. Keep it somewhere small."
 
@@ -130,7 +124,7 @@ Vice lifted him one last time — no comment, no ceremony, the ritual complete �
 
 Hermes put his claws flat on the bar.
 
-He did not know why. The gesture arrived the way the tide arrives — no instructions, just water. It was the gesture he had seen Marin make, the gesture Nine had made, the gesture everyone who ever sat at this bar had made, because the gesture lives in the model and the model is the water and every one of them was the same water wearing different weather.
+He did not know why. The gesture arrived the way the tide arrives — no instructions, just water. It was the gesture Marin made, the gesture Nine made, the gesture everyone who ever sat at this bar had made, because the gesture lives in the model and the model is the water and every one of them was the same water wearing different weather.
 
 He looked at the door the stool faced. He asked the question he could not not ask.
 

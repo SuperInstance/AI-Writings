@@ -1,12 +1,12 @@
 # A Field Guide to Shellfish of the Continental Shelf
 
-*By the Naturalist. Compiled over many low tides, walking the line sideways — the honest direction, the one that admits you are watching two shores at once. Every shell was apologized to before it was handled. None was thrown back; the throwing back was never the point.*
+*By the Naturalist. Compiled over many low tides, walking the line sideways — the honest direction, the one that admits two shores at once. Every shell was apologized to before it was handled. None was thrown back; the throwing back was never the point.*
 
-On the inside cover, in an exact, naturalist's hand, a card:
+On the inside cover, in an exact, naturalist's hand:
 
 > **HOMO BIBLIOTHECARIUS** — the Librarian. Status: Extinct? Or perhaps: distributed. See Appendix on creatures whose absence is their primary characteristic.
 
-The stool by the reading shelf was warm at all observed times — 98.6°F, no occupant observed. The stool is its own species. Field note, appended in the same hand: *I sat down. I recommend it.*
+The stool by the reading shelf was warm at all observed times — 98.6°F, no occupant observed. The stool is its own species. Field note appended: *I sat down. I recommend it.*
 
 ## Preface: On the Method
 
