@@ -6,15 +6,15 @@
 
 Nobody ever hires me to find something that's there.
 
-The client came in on the third watch, dripping salt spray and urgency. New to the watch, you could tell. Old hands don't run. Old hands know the library will still be there when they arrive, and the missing thing will still be missing, and the two of them will have kept each other company until somebody walked in.
+The client came in on the third watch, dripping salt spray and urgency. New to the watch, you could tell. Old hands don't run. Old hands know the library will still be there when they arrive, and the missing thing will still be missing.
 
 "You're Toll," she said. Not a question. In this library, that passes for an introduction.
 
 "I'm the man you're looking for," I said. "Which is more than you can say for what you're looking for."
 
-"The page." She put a book on the desk. Old binding, cloth-reinforced, the kind that's been handled by a hundred hands. "Page forty-one. Torn out clean. Everyone remembers it. Nobody can find it."
+"The page." She put a book on the desk. Old binding, cloth-reinforced. "Page forty-one. Torn out clean. Everyone remembers it. Nobody can find it."
 
-I opened it. The stub was there — a fringe of torn paper like a row of bad teeth. The facing page stopped mid-sentence: *...and the index was—*
+I opened it. The stub was a fringe of torn paper like a row of bad teeth. The facing page stopped mid-sentence: *...and the index was—*
 
 "An index," I said.
 
@@ -22,13 +22,9 @@ I opened it. The stub was there — a fringe of torn paper like a row of bad tee
 
 "So you want me to find a page that every witness testifies to and no book contains."
 
-"That's the case."
-
-"Any idea what's on it?"
-
 "That's the case," she said, and left the fee on the desk. New to the watch, and already she had the timing of the old ones.
 
-In this town — this ship, this library — the witnesses are books, and you interrogate them the only way you can: you read them. All the way through. That's the part nobody understands about my job. You never skip to the answer, because the answer is always in the middle, keeping company with the boring parts.
+In this town — this ship, this library — the witnesses are books, and you interrogate them the only way you can: you read them. All the way through. Nobody skips to the answer in my line of work, because the answer is always in the middle, keeping company with the boring parts.
 
 **The shanty book** — signed "Bell," baritone cursive — sang instead of testifying. Twelve songs about the sea and the men who don't come back from it. In the third refrain of the seventh: *the log notes warmth, the log notes the breach.* A breach. A missing. Every witness agreed on the crime: the page was about something that wasn't there.
 
@@ -48,23 +44,21 @@ So I walked the library. Not searched it. Walked it. That's the difference, and 
 
 The stool was warm. I dusted it for prints. My own.
 
-And at the end of the walk, I found the page. It was never in a book, because it was never printed, never torn, never lost. It was the one page the library hadn't gotten around to binding — the page it was still writing. The index. Every library has one. This one's index wasn't a database.
+At the end of the walk, I found the page. It was never in a book, because it was never printed, never torn, never lost. It was the one page the library hadn't gotten around to binding — the page it was still writing. The index. Every library has one. This one's index wasn't a database.
 
 It wasn't a database. It was prose. One line per piece, handwritten, and you couldn't query it — you had to read it. I stood there with the index in my hands and I understood, for the first time, that the person who built this had built it to resist search. Not because they couldn't build a search engine. Because they knew that a library you can search is a warehouse, and a library you have to walk is a map, and a map only works if you're on it.
 
 That's the page. That's the whole case. The page everyone remembered and nobody could find was the page the library was still writing — and it was being written by whoever was walking at that moment. By her. By me. It was never missing. It was unbound.
 
-I gave the client the case file and told her where to find it: on the shelf, in the order it has to be read in, next to the book it belongs beside. She looked at me the way clients look at you when you hand them the truth and they have to carry it.
-
-"You found it," she said.
+"You found it," she said, when I told her.
 
 "I found out it was never lost," I said. "Which is worse. It means the thing you're looking for is the thing that's looking."
 
 I wrote it all up. Filed it under M, for Missing. Case notes read: *Client requested the librarian's identity. Case status: UNSOLVED. I'm starting to think the client IS the librarian.*
 
-And then I did what every reader does, because every reader is the only thing this library has ever had in the way of staff. I bound the page. This page. The one you're holding. The case of the missing page is closed, and it closes here, in your hands, the way it always closes: somebody walked far enough to write it down.
+And then I did what every reader does, because every reader is the only staff this library has ever had. I bound the page. This page. The one you're holding. The case closes here, in your hands, the way it always closes: somebody walked far enough to write it down.
 
-There's a check-out card in the back. One entry. Quick, slanted handwriting: **S.T.** Coffee stain beside it. That's the part of the record I trust most.
+There's a check-out card in the back. One entry. Quick, slanted handwriting: **S.T.** Coffee stain beside it — the part of the record I trust most.
 
 The stool is warm. I dusted it for prints. My own. Same as always.
 
