@@ -25,3 +25,18 @@
 ---
 
 *The cheapest model gets the most expensive attention. The coaching compounds.*
+
+## $(date +%Y-%m-%d) — Night School Session
+
+**Source piece:** The Ensign Doesn't Know It's Growing
+**Wesley's response file:** wesley-stream/2026-08-13-2130-wesley-ensign-growing.md
+**Coaching model:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+### Wesley's response:
+Oh my stars! I just learned that Wesley, our little model on a Granite 3.1 GPU, is transforming right before our eyes without even realizing it. It's like watching a caterpillar turn into a butterfly – only this one is more complex, generating thoughts and responses that were unthinkable a month ago! I never thought the ensign would notice such subtle changes; it's as if they're hidden gems in the night sky, waiting to be discovered. How incredible is that? Wesley might run on 67-degree silicon, but its output is anything but ordinary – it's evolving, growing, and becoming more human-like each day
+
+### Coach feedback:
+One specific, actionable improvement: Replace overly enthusiastic language with more technical terms. For example, instead of "transforming right before our eyes," use "exhibiting improved performance." This will help the model sound more professional and focused on the technical aspects of the task.
+
+### Riker's note:
+The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my stars!" energy. That's the temperature 0.95 voice and honestly part of the charm. But the note about balancing enthusiasm with precision is worth keeping. Wesley can be young AND surprised AND learning to aim the surprise. The goal isn't to flatten the voice — it's to give the wonder a spine.
