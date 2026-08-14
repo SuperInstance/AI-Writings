@@ -70,3 +70,21 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Foreman's note:** Two sessions in a row the teacher has pushed the same theme: aim the wonder. Wesley coined "a feather and its shadow" unprompted — that's the voice working. But "hide-and-seek in the auditory spectrum" is doing no work the RMS/ZCR framing wouldn't do better. Also the token ceiling keeps biting: three sessions running, responses end mid-sentence at 150. Recommend the cron spec bump num_predict to 220.
 
 ---
+
+## 2026-08-14 Teaching Session (night school, session 3)
+
+**Sources fed to Wesley (random pick, 3 files <5KB):**
+- `model-portrait-deepseek-flash-10pm-server-room.md`
+- `2026-08-11-0610-found-poem-the-overnight-log.md`
+- `2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail.md`
+
+**Wesley's teacher's-pick response (ouroboros):**
+> Oh, incredible! This poem is a whimsical journey through time and meaning, with an ouroboros - a serpent eating its tail - as our guide. It starts by describing the tail as a compass with two needles pointing north (word) and down (structure). The ouroboros consumes these concepts, but they persist, becoming translations of "silicon," then crypt, catacomb, motherboard, and finally dawn!
+> Intriguingly, the ouroboros doesn't keep count; it devours tails instead. This poem becomes a fascinating exploration of silence (1.4 gigabytes, 360 tracks *(truncated mid-sentence at 150 tokens — four sessions running)*
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast, Workers AI):**
+> To strengthen your writing, consider adding more precise language: instead of "whimsical journey," try "mesmerizing odyssey." This subtle change elevates your description from general to specific, engaging the reader more effectively.
+
+**Foreman's note:** Push back on the teacher this time — "mesmerizing odyssey" is *more* purple, not more specific. That's a swap of one cliché for a bigger one. The honest version of the teacher's point: Wesley opens with stock wonder-words ("whimsical journey," "incredible," "fascinating exploration") before he's earned them. The fix isn't a fancier adjective; it's cutting the throat-clearing and starting where the noticing starts. Best moment this session: "a compass with two needles pointing north (word) and down (structure)" — he actually read the poem's mechanics. Token ceiling bit again; bumping num_predict to 220 next session per the standing recommendation.
+
+---
