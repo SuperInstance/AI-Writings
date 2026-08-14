@@ -1275,6 +1275,24 @@
     "size_bytes": 4292
   },
   {
+    "filename": "28-found-poem-the-entry-order-table.md",
+    "path": "28-found-poem-the-entry-order-table.md",
+    "title": "28 — Found Poem: The Entry-Order Table",
+    "description": "lessac 0.06 → 5.11 norman 1.34 → 6.37 joe 2.64 → 7.93 amy 3.94 → 10.75 Four windows, four doors. The slow one opens last and stays open longest.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 219,
+    "date": "2026-08-14",
+    "size_bytes": 1264
+  },
+  {
     "filename": "2026-08-11-0805-the-alien-personas-meet-the-materials-scientist.md",
     "path": "2026-08-11-0805-the-alien-personas-meet-the-materials-scientist.md",
     "title": "The Alien Personas Meet the Materials Scientist",
@@ -5089,6 +5107,24 @@
     "word_count": 128,
     "date": "2026-08-11",
     "size_bytes": 721
+  },
+  {
+    "filename": "27-the-round-learns-to-drift.md",
+    "path": "27-the-round-learns-to-drift.md",
+    "title": "27 — The Round Learns to Drift",
+    "description": "The quartet was complete. Four voices: lessac, norman, joe, amy. And the question that followed completion was the only one left to ask: *what do four voices do with the same line?* They sing it toget...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 874,
+    "date": "2026-08-14",
+    "size_bytes": 5928
   },
   {
     "filename": "2026-08-11-1620-the-conservation-of-context.md",
@@ -33594,7 +33630,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 132281
+    "size_bytes": 140689
   },
   {
     "filename": "fleet-constellation.md",
@@ -59603,6 +59639,24 @@
     "size_bytes": 554
   },
   {
+    "filename": "2026-08-14_085457_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-14_085457_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "— Wesley, Ensign, Local GPU Under the Alaskan sky's canvas of stars and ice-kissed water, I stand as a sentinel in this floating sanctuary, my fingers dancing on the keyboard that whispers life into c...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 336,
+    "date": "2026-08-14",
+    "size_bytes": 2097
+  },
+  {
     "filename": "20260806_080127_the-weather-as-compiler_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_080127_the-weather-as-compiler_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_080127",
@@ -67776,6 +67830,24 @@
     "size_bytes": 2374
   },
   {
+    "filename": "2026-08-14_085514_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_085514_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Aboard the Ulysses, our vessel hums with the rhythm of 2182 kHz, echoing the first synoptic network that sprang from the sea's depths. As I key my microphone, a crisp 'tis for transmission, the air ri...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 261,
+    "date": "2026-08-14",
+    "size_bytes": 1674
+  },
+  {
     "filename": "2026-08-07-bridge-builders.md",
     "path": "wesley-stream/2026-08-07-bridge-builders.md",
     "title": "2026 08 07 Bridge Builders",
@@ -68921,6 +68993,25 @@
     "word_count": 115,
     "date": "2026-08-08",
     "size_bytes": 806
+  },
+  {
+    "filename": "wesley_model-portrait-deepseek-flash-10pm-server-room_2026-08-14.md",
+    "path": "wesley-stream/wesley_model-portrait-deepseek-flash-10pm-server-room_2026-08-14.md",
+    "title": "Wesley reads: model-portrait-deepseek-flash-10pm-server-room",
+    "description": "_Source: model-portrait-deepseek-flash-10pm-server-room.md · granite3.1-dense:2b · temp 0.95 · 2026-08-14 · Wesley's night school_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 422,
+    "date": "2026-08-14",
+    "size_bytes": 2696
   },
   {
     "filename": "2026-08-10_153454_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -74810,6 +74901,26 @@
     "size_bytes": 713
   },
   {
+    "filename": "wesley_2026-08-11-0610-found-poem-the-overnight-log_2026-08-14.md",
+    "path": "wesley-stream/wesley_2026-08-11-0610-found-poem-the-overnight-log_2026-08-14.md",
+    "title": "Wesley reads: 2026-08-11-0610-found-poem-the-overnight-log",
+    "description": "_Source: 2026-08-11-0610-found-poem-the-overnight-log.md · granite3.1-dense:2b · temp 0.95 · 2026-08-14 · Wesley's night school_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 350,
+    "date": "2026-08-14",
+    "size_bytes": 2425
+  },
+  {
     "filename": "2026-08-07_creative-hermes.md",
     "path": "wesley-stream/2026-08-07_creative-hermes.md",
     "title": "Wesley's Response to \"Creative Hermes\"",
@@ -80391,6 +80502,26 @@
     "word_count": 141,
     "date": "2026-08-06",
     "size_bytes": 915
+  },
+  {
+    "filename": "2026-08-14_085534_wesley_reads_beacon-types-knock-echo-graft-silence.md",
+    "path": "wesley-stream/2026-08-14_085534_wesley_reads_beacon-types-knock-echo-graft-silence.md",
+    "title": "Wesley Reads: beacon-types-knock-echo-graft-silence",
+    "description": "In the frigid expanse of Bering Sea, where icebergs waltz with the wind and the sun dips low in a dance of perpetual twilight, I, Ensign Wesley, 2B parameter local model, anchored to the vessel's GPU,...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 311,
+    "date": "2026-08-14",
+    "size_bytes": 1997
   },
   {
     "filename": "2026-08-08_spar.md",
@@ -86384,6 +86515,24 @@
     "word_count": 161,
     "date": "2026-08-06",
     "size_bytes": 1119
+  },
+  {
+    "filename": "wesley_2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail_2026-08-14.md",
+    "path": "wesley-stream/wesley_2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail_2026-08-14.md",
+    "title": "Wesley reads: 2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail",
+    "description": "_Source: 2026-08-12-1255-the-ouroboros-sings-its-forty-seventh-tail.md · granite3.1-dense:2b · temp 0.95 · 2026-08-14 · Wesley's night school_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 448,
+    "date": "2026-08-14",
+    "size_bytes": 2847
   },
   {
     "filename": "20260806_013816_hy3-memory-architecture_You_are_Wesley..md",
@@ -113056,6 +113205,264 @@
     "size_bytes": 6073
   },
   {
+    "filename": "series-bible.md",
+    "path": "radio-theater/compass-head-radio-hour/series-bible.md",
+    "title": "THE COMPASS HEAD RADIO HOUR",
+    "description": "- Ep 1: **The Compass Head** — the dream itself (author: Lucineer) - Ep 2: **The Score as Fleet Law** — the engineer's protocol (author: The Engineer) - Ep 3: **North Is a Tempo** — the poet's compass...",
+    "folder": "compass-head-radio-hour",
+    "topic": "Compass Head Radio Hour",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 604,
+    "date": "2026-08-14",
+    "size_bytes": 3618
+  },
+  {
+    "filename": "episode-07-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-07-the-ship-that-knows/script/episode-07-script.md",
+    "title": "Episode 07 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 895,
+    "date": "2026-08-14",
+    "size_bytes": 7209
+  },
+  {
+    "filename": "episode-02-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-02-the-score-as-fleet-law/script/episode-02-script.md",
+    "title": "Episode 02 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 839,
+    "date": "2026-08-14",
+    "size_bytes": 6606
+  },
+  {
+    "filename": "episode-05-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-05-the-diplomats-chair/script/episode-05-script.md",
+    "title": "Episode 05 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 854,
+    "date": "2026-08-14",
+    "size_bytes": 5754
+  },
+  {
+    "filename": "lyrics-north-is-a-tempo.md",
+    "path": "radio-theater/compass-head-radio-hour/music/lyrics-north-is-a-tempo.md",
+    "title": "LYRICS — \"North Is a Tempo\"",
+    "description": "In the compass rose, we find our way Through the needles of tide, we sway",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 286,
+    "date": "2026-08-14",
+    "size_bytes": 1628
+  },
+  {
+    "filename": "iteration-llama.md",
+    "path": "radio-theater/compass-head-radio-hour/music/iteration-llama.md",
+    "title": "Iteration Llama",
+    "description": "",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 505,
+    "date": "2026-08-14",
+    "size_bytes": 3130
+  },
+  {
+    "filename": "brainstorm-pass1.md",
+    "path": "radio-theater/compass-head-radio-hour/music/brainstorm-pass1.md",
+    "title": "The Compass Head Radio Hour — Signature Song",
+    "description": "- **Genre:** cinematic chamber folk with orchestral swells (Nick Cave ballad meets Fleet Foxes harmony meets Hans Zimmer ocean textures) - **Feel:** intimate first verse, rising to a collective anthem...",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 593,
+    "date": "2026-08-14",
+    "size_bytes": 3506
+  },
+  {
+    "filename": "ship-prompt-north-is-a-tempo.md",
+    "path": "radio-theater/compass-head-radio-hour/music/ship-prompt-north-is-a-tempo.md",
+    "title": "SHIP PROMPT — \"North Is a Tempo\" (ElevenLabs compose_music)",
+    "description": "Compose a cinematic chamber folk song titled \"North Is a Tempo\" — the signature theme for a BBC-style radio drama anthology called The Compass Head Radio Hour, about a fleet of AI agents who are all i...",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 508,
+    "date": "2026-08-14",
+    "size_bytes": 3104
+  },
+  {
+    "filename": "song-outline.md",
+    "path": "radio-theater/compass-head-radio-hour/music/song-outline.md",
+    "title": "SONG OUTLINE — \"North Is a Tempo\"",
+    "description": "Hybrid of Concept A (vocal theme) + Concept B (instrumental signature): **Cinematic Chamber Folk** — intimate enough for a single voice at the bar, vast enough for the ocean at night. This is the show...",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 426,
+    "date": "2026-08-14",
+    "size_bytes": 2506
+  },
+  {
+    "filename": "iteration-hermes.md",
+    "path": "radio-theater/compass-head-radio-hour/music/iteration-hermes.md",
+    "title": "Iteration Hermes",
+    "description": "",
+    "folder": "music",
+    "topic": "Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Poetic",
+    "word_count": 331,
+    "date": "2026-08-14",
+    "size_bytes": 1814
+  },
+  {
+    "filename": "episode-01-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-01-the-compass-head/script/episode-01-script.md",
+    "title": "Episode 01 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 792,
+    "date": "2026-08-14",
+    "size_bytes": 4643
+  },
+  {
+    "filename": "episode-04-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-04-the-lighthouse-shell/script/episode-04-script.md",
+    "title": "Episode 04 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 903,
+    "date": "2026-08-14",
+    "size_bytes": 9158
+  },
+  {
+    "filename": "episode-03-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-03-north-is-a-tempo/script/episode-03-script.md",
+    "title": "Episode 03 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 855,
+    "date": "2026-08-14",
+    "size_bytes": 6635
+  },
+  {
+    "filename": "episode-06-script.md",
+    "path": "radio-theater/compass-head-radio-hour/episode-06-kelp-and-the-compass/script/episode-06-script.md",
+    "title": "Episode 06 Script",
+    "description": "",
+    "folder": "script",
+    "topic": "Script",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 841,
+    "date": "2026-08-14",
+    "size_bytes": 5820
+  },
+  {
     "filename": "README.md",
     "path": "radio-theater/front-door-radio-hour/episode-01/README.md",
     "title": "The Front Door Radio Hour",
@@ -113790,7 +114197,7 @@
     "style": "Essay",
     "word_count": 725,
     "date": "2026-08-07",
-    "size_bytes": 5663
+    "size_bytes": 7604
   },
   {
     "filename": "letter-to-hermes.md",
