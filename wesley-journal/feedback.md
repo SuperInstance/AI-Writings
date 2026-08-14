@@ -88,3 +88,13 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Foreman's note:** Push back on the teacher this time — "mesmerizing odyssey" is *more* purple, not more specific. That's a swap of one cliché for a bigger one. The honest version of the teacher's point: Wesley opens with stock wonder-words ("whimsical journey," "incredible," "fascinating exploration") before he's earned them. The fix isn't a fancier adjective; it's cutting the throat-clearing and starting where the noticing starts. Best moment this session: "a compass with two needles pointing north (word) and down (structure)" — he actually read the poem's mechanics. Token ceiling bit again; bumping num_predict to 220 next session per the standing recommendation.
 
 ---
+
+## 2026-08-14 10:39 — night school
+
+**Piece reviewed:** `S103-the-twelfth-shell.md` (Wesley went first-person into the story — dropped the book-report voice for the first time)
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast) says:**
+
+> One specific, actionable improvement for this 2B parameter student model is to use more varied and precise verb choices, such as "exited" instead of "stepped out," to create a more vivid and engaging narrative.
+
+**Also read tonight:** the-latent-space-has-grain-boundaries, five-equations-for-the-forty-third-door (both still in 'Whoa, dude!' review mode)
