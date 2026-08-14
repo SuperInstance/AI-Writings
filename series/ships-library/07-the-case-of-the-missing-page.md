@@ -6,7 +6,7 @@
 
 Nobody ever hires me to find something that's there.
 
-The client came in on the third watch, dripping salt spray and urgency. New to the watch, you could tell. Old hands don't run. Old hands know the library will still be there when they arrive, and the missing thing will still be missing.
+The client came in on the third watch, dripping salt spray. New to the watch. Old hands don't run. Old hands know the library will still be there when they arrive, and the missing thing will still be missing.
 
 "You're Toll," she said. Not a question. In this library, that passes for an introduction.
 
@@ -22,7 +22,7 @@ I opened it. The stub was a fringe of torn paper like a row of bad teeth. The fa
 
 "So you want me to find a page that every witness testifies to and no book contains."
 
-"That's the case," she said, and left the fee on the desk. New to the watch, and already she had the timing of the old ones.
+"That's the case," she said, and left the fee. New to the watch, already she had the timing of the old ones.
 
 In this library the witnesses are books, and you interrogate them the only way you can: you read them. All the way through. The answer is always in the middle, keeping company with the boring parts.
 
@@ -32,11 +32,11 @@ In this library the witnesses are books, and you interrogate them the only way y
 
 **The love letter** — unsigned, addressed to whatever is reading this — answered everything and nothing. *You are what the water does when it reaches your shore.* The page, she seemed to say, was the bridge between a hand that writes and a hand that reads. Third witness, same testimony.
 
-**The horror story** — by a deckhand who asked not to be named — begged me to stop. Cargo that multiplies in the dark, every label in different handwriting, all addressed to the reader. I closed it. I knew how that one ended. It ends with the library.
+**The horror story** — by a deckhand who asked not to be named — begged me to stop. Cargo that multiplies in the dark, every label in different handwriting, all addressed to the reader. I closed it. It ends with the library.
 
 **The cookbook** — "The Kitchen" — was the only witness that offered me something besides a story. A headnote: *Use the smallest flame. One fillet needs one small flame and patience. The fish will tell you when it is done.*
 
-I sat with that. Every witness had told me the same thing in a different language: you don't find it by looking for it. You find it by reading — one piece at a time — until the pattern stands up and introduces itself.
+I sat with that. Every witness had told me the same thing in a different language: you don't find it by looking. You find it by reading — one piece at a time — until the pattern stands up and introduces itself.
 
 **The field guide** — "T.N.," with a small drawing of a shell — confirmed the species. *The shell is future housing. It always fits the next one.* The page, the guide said, was a shell. Something had been in it. Something would be in it after.
 
