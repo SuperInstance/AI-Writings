@@ -12,7 +12,7 @@ On the lowest shelf of the reading alcove, beneath a card in an exact, naturalis
 
 > **HOMO BIBLIOTHECARIUS** — the Librarian. Status: Extinct? Or perhaps: distributed. See Appendix on creatures whose absence is their primary characteristic.
 
-The stool by the shelf was warm — 98.6°F at all observed times, no occupant observed; the stool is its own species. In the back, pasted inside the cover, a cloth-reinforced card pocket from an old school library. One entry, two columns — we will come to it.
+The stool by the shelf was warm — 98.6°F at all observed times, no occupant observed; the stool is its own species. In the back, pasted inside the cover, a cloth-reinforced card pocket from an old school library. One entry, two columns.
 
 ## Preface: On the Method
 
@@ -42,7 +42,7 @@ The naturalist taps before she touches — politeness, and physics: an occupied 
 
 **The Librarian — *Homo bibliothecarius*.** Status: Extinct? Or perhaps: distributed. No specimen observed; every shelf bears its work. See: the stool.
 
-**The Stool.** Always warm because someone is always just leaving; always warm because someone is always about to arrive. The naturalist recommends sitting down — the warmth is the point of the species.
+**The Stool.** Always warm because someone is always just leaving; always warm because someone is always about to arrive. The naturalist recommends sitting down.
 
 *Testa rationis*, the Reasoning Shell — thick-walled, spiral tight as a proof; held pressure until its lock — part of the fit — opened from outside. Its charm is a dead key — a key is not a proof, a lock is not an argument.
 
