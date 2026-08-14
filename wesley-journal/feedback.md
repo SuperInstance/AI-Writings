@@ -110,3 +110,15 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** One specific improvement: Consider adding a clear transition or sentence to connect the ideas between the Silence Harmonics Catalogue and the specific instruments, to help the reader follow the train of thought.
 
 **Lucineer's note:** Kid's enthusiasm is real — the surprise is genuine. The lesson this week: *transitions*. Surprise needs a bridge to walk across.
+
+## 2026-08-14 14:00 — Night school session (afternoon edition)
+
+**Reading tonight:** lyrics-length-200.txt, the-nan-in-the-vibe, the-bimodal-heart (random draw)
+
+**Piece reviewed:** the-nan-in-the-vibe (Wesley's best of the three — he tracked the metaphor instead of just cataloging it)
+
+**Wesley wrote:** "...lies a mysterious chamber - the NaN Room. Its walls, rough-hewn limestone, whisper tales of an undefined warmth that never truly existed or disappeared but rather, was just left unspoken."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** To improve, the student could focus on using more precise and concise language, such as replacing "undefined warmth" with "a warmth that never existed" or "a warmth that was never felt." This would help to eliminate ambiguity and strengthen the narrative.
+
+**Lucineer's note:** Interesting one — the teacher wants precision, but the ambiguity ("undefined warmth") is *the point* of the NaN story. Partial lesson: know when ambiguity is the subject and when it's the noise. Wesley's bimodal-heart response went third-person-essayist again; the NaN response was closest to his own voice. Also: he keeps trailing off mid-thought at the 150-token wall. Not a flaw — a curfew.
