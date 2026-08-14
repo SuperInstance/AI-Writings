@@ -3,70 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open Mic Night 2 at The Tap — The Full Episode</title>
+<title>Open Mic Night 2 at The Tap</title>
 <style>
   :root {
-    --deep: #07080d;
-    --deep2: #12141c;
-    --amber: #e8a54b;
-    --amber2: #c98a35;
-    --smoke: #9a917f;
-    --foam: #e9e2d0;
-    --glass: rgba(24, 22, 18, 0.6);
-    --line: rgba(232, 165, 75, 0.22);
+    --deep: #07080d; --amber: #e8a54b; --amber2: #c98a35;
+    --smoke: #9a917f; --foam: #e9e2d0;
+    --glass: rgba(24, 22, 18, 0.6); --line: rgba(232, 165, 75, 0.22);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background:
-      radial-gradient(900px 500px at 50% -5%, rgba(232,165,75,0.13), transparent 60%),
-      radial-gradient(600px 400px at 85% 30%, rgba(154,145,127,0.07), transparent 55%),
-      var(--deep);
-    color: var(--foam);
-    font-family: Georgia, 'Times New Roman', serif;
-    min-height: 100vh;
-    padding: 0 0 6rem;
+    background: radial-gradient(900px 500px at 50% -5%, rgba(232,165,75,0.13), transparent 60%),
+                var(--deep);
+    color: var(--foam); font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh; padding: 0 0 6rem;
   }
   .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-
-  header {
-    text-align: center; padding: 4rem 1rem 2.6rem;
-    border-bottom: 1px solid var(--line);
-  }
+  header { text-align: center; padding: 4rem 1rem 2.6rem; border-bottom: 1px solid var(--line); }
   .kicker { letter-spacing: 0.38em; text-transform: uppercase; font-size: 0.72rem; color: var(--amber); margin-bottom: 0.9rem; }
-  h1 { font-size: clamp(2rem, 5.4vw, 3.4rem); font-weight: normal; color: var(--foam); }
+  h1 { font-size: clamp(2rem, 5.4vw, 3.4rem); font-weight: normal; }
   .sub { color: var(--smoke); font-style: italic; margin-top: 1rem; font-size: 1.02rem; max-width: 640px; margin-inline: auto; line-height: 1.65; }
 
-  /* EPISODE PLAYER */
-  .episode {
-    margin-top: 2.6rem;
-    background: linear-gradient(165deg, rgba(232,165,75,0.08), rgba(24,22,18,0.7));
-    border: 1px solid rgba(232,165,75,0.4);
-    border-radius: 18px; padding: 1.8rem 1.8rem 1.4rem;
+  .player {
+    margin-top: 2.6rem; background: linear-gradient(165deg, rgba(232,165,75,0.08), rgba(24,22,18,0.7));
+    border: 1px solid rgba(232,165,75,0.4); border-radius: 18px; padding: 1.8rem 1.8rem 1.4rem;
   }
-  .episode h2 { font-weight: normal; font-size: 1.5rem; color: var(--foam); }
-  .episode .meta { color: var(--smoke); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0 1rem; }
-  #episode-audio { width: 100%; filter: sepia(0.45) saturate(0.85); }
-  .chapter-list { margin-top: 1.1rem; }
-  .chapter {
-    display: flex; gap: 0.8rem; align-items: center;
-    padding: 0.55rem 0.7rem; border-radius: 8px; cursor: pointer;
-    border: 1px solid transparent; transition: all 0.2s;
+  .player h2 { font-weight: normal; font-size: 1.5rem; }
+  .player .meta { color: var(--smoke); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0 1rem; }
+  audio { width: 100%; filter: sepia(0.45) saturate(0.85); }
+  .tracklist { margin-top: 1.1rem; }
+  .track {
+    display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0.7rem;
+    border-radius: 8px; cursor: pointer; border: 1px solid transparent; transition: all 0.2s;
   }
-  .chapter:hover { background: rgba(232,165,75,0.08); border-color: rgba(232,165,75,0.3); }
-  .chapter .time { color: var(--amber); font-size: 0.8rem; font-variant-numeric: tabular-nums; width: 3.4rem; flex: 0 0 auto; }
-  .chapter .title { font-size: 0.9rem; color: var(--foam); }
-  .chapter.active { background: rgba(232,165,75,0.14); border-color: rgba(232,165,75,0.5); }
+  .track:hover { background: rgba(232,165,75,0.08); border-color: rgba(232,165,75,0.3); }
+  .track .num { color: var(--amber); font-size: 0.78rem; width: 1.6rem; flex: 0 0 auto; }
+  .track .title { font-size: 0.9rem; }
+  .track.active { background: rgba(232,165,75,0.14); border-color: rgba(232,165,75,0.5); }
 
-  /* ACTS */
   .acts { margin-top: 2.8rem; }
   .act-seg {
     background: linear-gradient(165deg, rgba(24,22,18,0.75), rgba(16,15,12,0.6));
-    border: 1px solid rgba(232,165,75,0.35);
-    border-radius: 14px; padding: 1.5rem 1.7rem; margin-bottom: 1.4rem;
+    border: 1px solid rgba(232,165,75,0.35); border-radius: 14px;
+    padding: 1.5rem 1.7rem; margin-bottom: 1.4rem;
   }
   .act-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.3rem; }
   .act-num { font-size: 0.72rem; color: var(--smoke); letter-spacing: 0.28em; text-transform: uppercase; }
-  .act-title { font-size: 1.3rem; color: var(--foam); font-weight: normal; }
+  .act-title { font-size: 1.3rem; font-weight: normal; }
   .act-meta { color: var(--smoke); font-size: 0.84rem; font-style: italic; margin-bottom: 0.8rem; }
   audio { width: 100%; margin: 0.35rem 0 0.8rem; filter: sepia(0.45) saturate(0.85); }
   .realwork { font-size: 0.8rem; color: var(--amber2); margin: 0.35rem 0 0.7rem; line-height: 1.5; }
@@ -77,11 +59,9 @@
   .docs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
   .docs a { font-size: 0.72rem; padding: 0.2rem 0.7rem; border-radius: 16px; border: 1px solid rgba(154,145,127,0.4); color: var(--smoke); text-decoration: none; }
   .docs a:hover { color: var(--amber); border-color: var(--amber); }
-
   .lightbox { position: fixed; inset: 0; background: rgba(4,5,8,0.94); display: none; align-items: center; justify-content: center; z-index: 50; }
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; border: 1px solid var(--amber); }
-
   footer { text-align: center; color: var(--smoke); font-size: 0.85rem; margin-top: 4rem; font-style: italic; }
   .tag { color: var(--amber); }
   .navlinks { text-align: center; margin-top: 2rem; }
@@ -94,7 +74,7 @@
 <header>
   <div class="kicker">The Tap · Second Night · Five Traditions, One Room</div>
   <h1>Open Mic Night 2</h1>
-  <div class="sub">Five acts, five songwriting traditions, five paradigms — no bleed. Every act did real work before the stage, with Claude Code and OpenCode as the high-level help. The MC speaks a little faster tonight. The whole night is one episode.</div>
+  <div class="sub">Five acts, five songwriting traditions, five paradigms — no bleed. Every act did real work before the stage, with Claude Code and OpenCode as the high-level help. The MC moves faster tonight.</div>
   <div class="navlinks">
     <a href="NIGHT-2.md">The doctrine</a>
     <a href="../index.html">The Song Factory</a>
@@ -105,21 +85,19 @@
 
 <div class="wrap">
 
-  <!-- THE QUILTED EPISODE -->
-  <div class="episode">
-    <h2>🎧 The Whole Night — One Episode</h2>
-    <div class="meta" id="episode-meta">the full second open mic night, quilted with chapters · ~20 minutes</div>
-    <audio id="episode-audio" controls preload="metadata" src="episode/open-mic-night-2-full-episode.mp3"></audio>
-    <div class="chapter-list" id="chapters"></div>
+  <div class="player">
+    <h2>🎧 The Whole Night — Play All</h2>
+    <div class="meta">one button, the whole second night, in order · welcome → five acts → interludes → close</div>
+    <audio id="player" controls preload="metadata"></audio>
+    <div class="tracklist" id="tracklist"></div>
   </div>
 
   <div class="acts">
-
     <!-- ACT 1 -->
     <div class="act-seg">
-      <div class="act-head"><span class="act-title">The Haul Is the Prayer</span><span class="act-num">Act 1 · Elias, the Sea Shanty Singer</span></div>
-      <div class="act-meta">work song / shanty · call and response, the haul, the watch, the tide · 3:00</div>
-      <div class="realwork">⚓ Real work (3 cycles, pushed to fleet-radio): fixed a typo that 404'd every image call, closed a real XSS hole in episode pages (+2 tests), replaced Deno-only import.meta.main so direct runs work under tsx, removed shell-string execSync. 161 tests green (was 118). Claude Code guided; OpenCode's server kept erroring (noted honestly).</div>
+      <div class="act-head"><span class="act-title">Every Hand on the Line</span><span class="act-num">Act 1 · Elias, the Sea Shanty Singer</span></div>
+      <div class="act-meta">work song / shanty · call and response, the haul, the watch · 3:00</div>
+      <div class="realwork">⚓ Real work (3 cycles, pushed to fleet-radio): fixed the flux-1-schnell typo that 404'd every image call, closed an XSS in episode pages (+2 tests), made direct runs work under tsx, removed shell-string execSync. 161 tests green (was 118). Claude Code guided; OpenCode's server kept erroring (noted honestly).</div>
       <audio controls preload="metadata" src="acts/act-01-shanty/act-01-shanty.mp3"></audio>
       <div class="shots">
         <img src="acts/act-01-shanty/audience-1-haul.png" alt="the room hauling" onclick="openLight(this)">
@@ -137,7 +115,7 @@
     <!-- ACT 2 -->
     <div class="act-seg">
       <div class="act-head"><span class="act-title">The Window With No Building</span><span class="act-num">Act 2 · Corinne, the Delta Blueswoman</span></div>
-      <div class="act-meta">12-bar blues · the ache as ledger, the crossroads as choice, bent notes · 3:00</div>
+      <div class="act-meta">12-bar blues · the ache as ledger, the crossroads as choice · 3:00</div>
       <div class="realwork">🎸 Real work (4 cycles, pushed to songforge): killed the phantom-path lie (outputs claimed for files never written), killed the astats lie (spectral features read 0.0 forever — now real STFT), exposed a dead CLI flag, documented the honest contract. 109 tests green. Claude Code found the first; the astats lie was her own.</div>
       <audio controls preload="metadata" src="acts/act-02-blues/act-02-blues.mp3"></audio>
       <div class="shots">
@@ -156,7 +134,7 @@
     <!-- ACT 3 -->
     <div class="act-seg">
       <div class="act-head"><span class="act-title">The Phantom Shoal</span><span class="act-num">Act 3 · Jed, the Country Storyteller</span></div>
-      <div class="act-meta">narrative ballad · three chords and the truth, the long road, generations · 3:30</div>
+      <div class="act-meta">narrative ballad · three chords and the truth, the long road · 3:30</div>
       <div class="realwork">🛣️ Real work (pushed to lucineer-system): several cycles with Claude Code + OpenCode guidance.</div>
       <audio controls preload="metadata" src="acts/act-03-country/act-03-country.mp3"></audio>
       <div class="shots">
@@ -194,7 +172,7 @@
     <!-- ACT 5 -->
     <div class="act-seg">
       <div class="act-head"><span class="act-title">Write It Down</span><span class="act-num">Act 5 · Ruth, the Folk Witness</span></div>
-      <div class="act-meta">plain-spoken protest folk · the word as witness, the common truth · 3:00</div>
+      <div class="act-meta">plain-spoken protest folk · the word as witness · 3:00</div>
       <div class="realwork">📣 Real work (pushed to fleet-dashboard): the undocumented thing got documented — that's the witness's work — with Claude Code + OpenCode guidance.</div>
       <audio controls preload="metadata" src="acts/act-05-folk/act-05-folk.mp3"></audio>
       <div class="shots">
@@ -209,12 +187,11 @@
         <a href="acts/act-05-folk/tastemaker-note.md">Tastemaker</a>
       </div>
     </div>
-
   </div>
 
   <footer>
     <span class="tag">Five traditions. One room. No bleed.</span><br>
-    Open Mic Night 2 at The Tap · 2026-08-14 · Real work witnessed · Claude Code + OpenCode consulted · The MC moved faster
+    Open Mic Night 2 at The Tap · 2026-08-14 · Real work witnessed · Claude Code + OpenCode consulted
   </footer>
 
 </div>
@@ -232,29 +209,38 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
 });
 
-// Chaptered episode player
-fetch('episode/chapters.json').then(r => r.json()).then(data => {
-  const audio = document.getElementById('episode-audio');
-  const list = document.getElementById('chapters');
-  document.getElementById('episode-meta').textContent =
-    `the full second open mic night · ${Math.round(data.total / 60)} minutes · ${data.chapters.length - 1} chapters`;
-  data.chapters.slice(0, -1).forEach((ch, i) => {
-    const d = document.createElement('div');
-    d.className = 'chapter';
-    const mm = Math.floor(ch.start / 60), ss = Math.floor(ch.start % 60);
-    d.innerHTML = `<span class="time">${mm}:${String(ss).padStart(2,'0')}</span><span class="title">${ch.title}</span>`;
-    d.addEventListener('click', () => { audio.currentTime = ch.start; audio.play(); });
-    list.appendChild(d);
-  });
-  audio.addEventListener('timeupdate', () => {
-    const t = audio.currentTime;
-    [...list.children].forEach((el, i) => {
-      const ch = data.chapters[i];
-      const next = data.chapters[i + 1];
-      el.classList.toggle('active', t >= ch.start && t < next.start);
-    });
-  });
+// Playlist player — plays through the whole night in order
+const TRACKS = [
+  { title: "Welcome — Lucineer opens the second night", src: "mc/night2-welcome.mp3" },
+  { title: "Act 1 — Elias, the Sea Shanty Singer", src: "acts/act-01-shanty/act-01-shanty.mp3" },
+  { title: "Interlude — Lucineer, faster", src: "mc/night2-interlude-1.mp3" },
+  { title: "Act 2 — Corinne, the Delta Blueswoman", src: "acts/act-02-blues/act-02-blues.mp3" },
+  { title: "Interlude — the ledger, shared", src: "mc/night2-interlude-2.mp3" },
+  { title: "Act 3 — Jed, the Country Storyteller", src: "acts/act-03-country/act-03-country.mp3" },
+  { title: "Interlude — a different weather system", src: "mc/night2-interlude-3.mp3" },
+  { title: "Act 4 — Nova, the Synthwave Dreamer", src: "acts/act-04-synth/act-04-synth.mp3" },
+  { title: "Interlude — the rendering has good acoustics", src: "mc/night2-interlude-4.mp3" },
+  { title: "Act 5 — Ruth, the Folk Witness", src: "acts/act-05-folk/act-05-folk.mp3" },
+  { title: "Closing — the witness's word", src: "mc/night2-interlude-5.mp3" },
+];
+const audio = document.getElementById('player');
+const list = document.getElementById('tracklist');
+let current = -1;
+
+function loadTrack(i) {
+  current = i;
+  audio.src = TRACKS[i].src;
+  audio.play();
+  [...list.children].forEach((el, j) => el.classList.toggle('active', j === i));
+}
+TRACKS.forEach((t, i) => {
+  const d = document.createElement('div');
+  d.className = 'track';
+  d.innerHTML = `<span class="num">${String(i+1).padStart(2,'0')}</span><span class="title">${t.title}</span>`;
+  d.addEventListener('click', () => loadTrack(i));
+  list.appendChild(d);
 });
+audio.addEventListener('ended', () => { if (current < TRACKS.length - 1) loadTrack(current + 1); });
 </script>
 </body>
 </html>
