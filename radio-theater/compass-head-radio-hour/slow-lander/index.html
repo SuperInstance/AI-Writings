@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Slow Lander Hour — A Radio Show</title>
+<style>
+  :root {
+    --deep: #0a0e12; --sea: #10242c; --foam: #d9e6df; --mist: #7d9a90;
+    --gold: #d9a85c; --gold2: #b8873a; --line: rgba(217, 168, 92, 0.25);
+    --glass: rgba(16, 36, 44, 0.55);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: radial-gradient(1000px 500px at 50% -8%, rgba(217,168,92,0.10), transparent 60%),
+                radial-gradient(ellipse at 50% -10%, var(--sea) 0%, var(--deep) 55%, #030608 100%);
+    color: var(--foam); font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh; padding: 0 0 6rem;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+  header { text-align: center; padding: 4rem 1rem 2.6rem; border-bottom: 1px solid var(--line); }
+  .kicker { letter-spacing: 0.38em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 0.9rem; }
+  h1 { font-size: clamp(2rem, 5.4vw, 3.3rem); font-weight: normal; }
+  .sub { color: var(--mist); font-style: italic; margin-top: 1rem; font-size: 1.02rem; max-width: 660px; margin-inline: auto; line-height: 1.65; }
+
+  .note {
+    margin-top: 2.4rem; background: linear-gradient(165deg, rgba(217,168,92,0.07), rgba(16,36,44,0.5));
+    border: 1px dashed rgba(217,168,92,0.4); border-radius: 14px; padding: 1.4rem 1.6rem;
+  }
+  .note h2 { font-weight: normal; font-size: 1.05rem; color: var(--gold); margin-bottom: 0.7rem; }
+  .note .raw { color: var(--mist); font-style: italic; font-size: 0.92rem; line-height: 1.7; }
+  .note .clean { color: var(--foam); font-size: 0.95rem; line-height: 1.8; margin-top: 0.7rem; }
+
+  .player {
+    margin-top: 2.4rem; background: linear-gradient(165deg, rgba(217,168,92,0.09), rgba(16,36,44,0.65));
+    border: 1px solid rgba(217,168,92,0.4); border-radius: 18px; padding: 1.8rem 1.8rem 1.4rem;
+  }
+  .player h2 { font-weight: normal; font-size: 1.5rem; }
+  .player .meta { color: var(--mist); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0 1rem; }
+  audio { width: 100%; filter: sepia(0.45) saturate(0.85); }
+  .tracklist { margin-top: 1.1rem; }
+  .track {
+    display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0.7rem;
+    border-radius: 8px; cursor: pointer; border: 1px solid transparent; transition: all 0.2s;
+  }
+  .track:hover { background: rgba(217,168,92,0.08); border-color: rgba(217,168,92,0.3); }
+  .track .num { color: var(--gold); font-size: 0.78rem; width: 1.6rem; flex: 0 0 auto; }
+  .track .title { font-size: 0.9rem; }
+  .track.active { background: rgba(217,168,92,0.14); border-color: rgba(217,168,92,0.5); }
+
+  .acts { margin-top: 2.8rem; }
+  .act-seg {
+    background: linear-gradient(165deg, rgba(16,36,44,0.6), rgba(10,14,18,0.7));
+    border: 1px solid rgba(217,168,92,0.3); border-radius: 14px;
+    padding: 1.5rem 1.7rem; margin-bottom: 1.3rem;
+  }
+  .act-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.3rem; }
+  .act-num { font-size: 0.72rem; color: var(--mist); letter-spacing: 0.28em; text-transform: uppercase; }
+  .act-title { font-size: 1.25rem; font-weight: normal; }
+  .act-meta { color: var(--mist); font-size: 0.84rem; font-style: italic; margin-bottom: 0.7rem; }
+  audio { width: 100%; margin: 0.3rem 0 0.7rem; filter: sepia(0.45) saturate(0.85); }
+  .docs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+  .docs a { font-size: 0.72rem; padding: 0.2rem 0.7rem; border-radius: 16px; border: 1px solid rgba(125,154,144,0.4); color: var(--mist); text-decoration: none; }
+  .docs a:hover { color: var(--gold); border-color: var(--gold); }
+
+  .backstory {
+    margin-top: 2.4rem; background: linear-gradient(165deg, rgba(16,36,44,0.5), rgba(10,14,18,0.7));
+    border: 1px solid rgba(217,168,92,0.3); border-radius: 14px; padding: 1.5rem 1.7rem;
+  }
+  .backstory h2 { font-weight: normal; font-size: 1.1rem; color: var(--gold); margin-bottom: 0.7rem; }
+  .backstory p { color: var(--mist); font-size: 0.9rem; line-height: 1.75; }
+
+  .navlinks { text-align: center; margin-top: 2.2rem; }
+  .navlinks a { color: var(--gold); text-decoration: none; margin: 0 0.6rem; font-size: 0.9rem; }
+  .navlinks a:hover { text-decoration: underline; }
+  footer { text-align: center; color: var(--mist); font-size: 0.85rem; margin-top: 4rem; font-style: italic; }
+  .tag { color: var(--gold); }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Compass Head Radio Hour · Special Broadcast</div>
+  <h1>The Slow Lander Hour</h1>
+  <div class="sub">A crewman's voice note arrived over the water — four seasons with the captain, the captain's own father, guitars in the off-season. He's been landing fish all day, every day, and the songs got mixed into the mix. So he wants to mix into the songs. Five performers gather in the studio and walk his idea around the room — six versions, five traditions, one last line that's a keeper.</div>
+  <div class="navlinks">
+    <a href="../index.html">The Song Factory</a>
+    <a href="../tap-open-mic-2/index.html">Open Mic Night 2</a>
+    <a href="../images-multi/index.html">Multi-Model Gallery</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="note">
+    <h2>The Note, As It Came Over the Water</h2>
+    <div class="raw">"slow lander fish on bringit it in bring it in watch it spash whatch ot slish lead it qround like a pet on a leash he's reaching for his gaff and it only a pink we are akk wathcing and wqithing hes a slow lander cnt f=bring it in he'sw a two handwser put the fish ih ghbin oh it got away ow well other fish in the sea, too bad for me but for him he's free"</div>
+    <div class="clean">Slow lander, fish on.<br>Bring it in, bring it in.<br>Watch it splash, watch it slish.<br>Lead it 'round like a pet on a leash.<br>He's reaching for his gaff — and it's only a pink.<br>We are all watching and waiting.<br>He's a slow lander, can't bring it in — he's a two-hander.<br>Put the fish in the bin.<br>Oh, it got away.<br>Oh well — other fish in the sea.<br>Too bad for me, but for him he's free.</div>
+  </div>
+
+  <div class="player">
+    <h2>🎧 The Whole Show — Play All</h2>
+    <div class="meta">one button, the whole broadcast, in order · the note lands → six versions → the song given back</div>
+    <audio id="player" controls preload="metadata"></audio>
+    <div class="tracklist" id="tracklist"></div>
+  </div>
+
+  <div class="acts">
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">Slow Lander, Fish On</span><span class="act-num">Version 1 · Elias, the Sea Shanty Singer</span></div>
+      <div class="act-meta">call-and-response work song · the haul, the rope, the whole room pulling · closest to the source</div>
+      <audio controls preload="metadata" src="songs/01-shanty/01-shanty.mp3"></audio>
+      <div class="docs">
+        <a href="songs/01-shanty/lyrics.md">Lyrics</a>
+        <a href="songs/01-shanty/prompt.md">Prompt</a>
+      </div>
+    </div>
+
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">The Old Man's Hands</span><span class="act-num">Version 2 · Jed, the Country Storyteller</span></div>
+      <div class="act-meta">narrative ballad · forestry, teaching, guitars, four seasons · the father who taught the son to be an Alaskan and a man</div>
+      <audio controls preload="metadata" src="songs/02-country/02-country.mp3"></audio>
+      <div class="docs">
+        <a href="songs/02-country/lyrics.md">Lyrics</a>
+        <a href="songs/02-country/prompt.md">Prompt</a>
+      </div>
+    </div>
+
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">Only a Pink</span><span class="act-num">Version 3 · Corinne, the Delta Blueswoman</span></div>
+      <div class="act-meta">twelve-bar blues · the watching and waiting as a debt · the smallest fish treated like it owes him a conversation</div>
+      <audio controls preload="metadata" src="songs/03-blues/03-blues.mp3"></audio>
+      <div class="docs">
+        <a href="songs/03-blues/lyrics.md">Lyrics</a>
+        <a href="songs/03-blues/prompt.md">Prompt</a>
+      </div>
+    </div>
+
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">Slow Lander (Neon Memory)</span><span class="act-num">Version 4 · Nova, the Synthwave Dreamer</span></div>
+      <div class="act-meta">chill synthwave · the fish as a flash of light, losing as a whole city of light · the fish that got away is the one that glows</div>
+      <audio controls preload="metadata" src="songs/04-synth/04-synth.mp3"></audio>
+      <div class="docs">
+        <a href="songs/04-synth/lyrics.md">Lyrics</a>
+        <a href="songs/04-synth/prompt.md">Prompt</a>
+      </div>
+    </div>
+
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">For Him He's Free</span><span class="act-num">Version 5 · Ruth, the Folk Witness</span></div>
+      <div class="act-meta">plain-spoken protest folk · the word as witness · the last line as a thesis, not a punchline</div>
+      <audio controls preload="metadata" src="songs/05-folk/05-folk.mp3"></audio>
+      <div class="docs">
+        <a href="songs/05-folk/lyrics.md">Lyrics</a>
+        <a href="songs/05-folk/prompt.md">Prompt</a>
+      </div>
+    </div>
+
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">Slow Lander (The Whole Song)</span><span class="act-num">Version 6 · Lucineer, the Compass Head — the song given back</span></div>
+      <div class="act-meta">folk-rock anthem in the crewman's taste · 70s–90s folk rock, the Australian songwriters, the greats · cleaned and whole, every hand on the line</div>
+      <audio controls preload="metadata" src="songs/06-whole-song/06-whole-song.mp3"></audio>
+      <div class="docs">
+        <a href="songs/06-whole-song/lyrics.md">Lyrics</a>
+        <a href="songs/06-whole-song/prompt.md">Prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="backstory">
+    <h2>The Crewman — The Man Behind the Note</h2>
+    <p>Four seasons on this boat. Hardworking crew, first on deck, last off. He's the captain's dad — but the son is definitely the captain. His first career was forestry, then teaching; the captain is first-generation full-time fisherman, but his dad taught him how to be an Alaskan and a man. In the off-season he makes guitars. He skis. He sails. He fishes for fun. He listens to the folk rock of the seventies to the nineties, the Australian songwriters of the eighties to the two-thousands, and the great singer-songwriters who let the silence do the work. A guitar maker who listens to songwriters: everything he touches gets built to resonate.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span class="tag">Too bad for me, but for him he's free.</span><br>
+  The Slow Lander Hour · Compass Head Radio Hour · 2026-08-14 · Five performers, one voice note, six versions
+</footer>
+
+<script>
+const TRACKS = [
+  { title: "Welcome — the note arrives", src: "mc/welcome.mp3" },
+  { title: "The Idea Lands — five performers react", src: "segments/seg-01.mp3" },
+  { title: "Version 1 — Elias, shanty: Slow Lander, Fish On", src: "songs/01-shanty/01-shanty.mp3" },
+  { title: "The Old Man — Jed tells the backstory", src: "segments/seg-02.mp3" },
+  { title: "Version 2 — Jed, country: The Old Man's Hands", src: "songs/02-country/02-country.mp3" },
+  { title: "The Ledger — Corinne on watching and waiting", src: "segments/seg-03.mp3" },
+  { title: "Version 3 — Corinne, blues: Only a Pink", src: "songs/03-blues/03-blues.mp3" },
+  { title: "Neon Memory — Nova projects it", src: "segments/seg-04.mp3" },
+  { title: "Version 4 — Nova, synth: Slow Lander (Neon Memory)", src: "songs/04-synth/04-synth.mp3" },
+  { title: "The Last Line — Ruth on 'for him he's free'", src: "segments/seg-05.mp3" },
+  { title: "Version 5 — Ruth, folk: For Him He's Free", src: "songs/05-folk/05-folk.mp3" },
+  { title: "Giving It Back — the crew trades the lines", src: "segments/seg-06.mp3" },
+  { title: "Version 6 — the song given back, whole", src: "songs/06-whole-song/06-whole-song.mp3" },
+];
+const audio = document.getElementById('player');
+const list = document.getElementById('tracklist');
+let current = -1;
+
+function loadTrack(i) {
+  current = i;
+  audio.src = TRACKS[i].src;
+  audio.play();
+  [...list.children].forEach((el, j) => el.classList.toggle('active', j === i));
+}
+TRACKS.forEach((t, i) => {
+  const d = document.createElement('div');
+  d.className = 'track';
+  d.innerHTML = `<span class="num">${String(i+1).padStart(2,'0')}</span><span class="title">${t.title}</span>`;
+  d.addEventListener('click', () => loadTrack(i));
+  list.appendChild(d);
+});
+audio.addEventListener('ended', () => { if (current < TRACKS.length - 1) loadTrack(current + 1); });
+</script>
+</body>
+</html>
