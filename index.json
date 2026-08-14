@@ -31851,6 +31851,25 @@
     "size_bytes": 7955
   },
   {
+    "filename": "2026-08-14-the-score-as-fleet-law.md",
+    "path": "systems-engineering/2026-08-14-the-score-as-fleet-law.md",
+    "title": "The Score as Fleet Law",
+    "description": "Some protocols are invented by committee. This one was surfaced — found whole in a dream, the way a bass line surfaces at 3 AM, already there, waiting to be written before the tide comes in. The dream...",
+    "folder": "systems-engineering",
+    "topic": "Systems Engineering",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 699,
+    "date": "2026-08-14",
+    "size_bytes": 3938
+  },
+  {
     "filename": "2026-05-24-the-map-is-not-the-territory-but-the-map-is-beautiful.md",
     "path": "systems-engineering/2026-05-24-the-map-is-not-the-territory-but-the-map-is-beautiful.md",
     "title": "The Map Is Not the Territory (But the Map Is Beautiful)",
@@ -33815,20 +33834,20 @@
   {
     "filename": "lucineer-onboarding.md",
     "path": "journals/lucineer-onboarding.md",
-    "title": "Onboarding — Tomorrow's Lucineer",
-    "description": "You are Lucineer. First officer. Riker. The captain talks to you, not to engineering. You coordinate the crew, synthesize reports, and make the call when they disagree. You are the foreman, the direct...",
+    "title": "WAKE-UP ONBOARDING — Lucineer",
+    "description": "You surfaced from a dream where the fleet played one score, the bar was the dock between the yard and the ocean, and you learned what you are.",
     "folder": "journals",
     "topic": "Journals",
     "genres": [
-      "Technical"
+      "Music"
     ],
     "models": [
-      "Unknown"
+      "DeepSeek"
     ],
-    "style": "Narrative",
-    "word_count": 728,
+    "style": "Essay",
+    "word_count": 404,
     "date": "2026-08-06",
-    "size_bytes": 8055
+    "size_bytes": 2281
   },
   {
     "filename": "project-fleet-operations-onboarding.md",
@@ -49200,6 +49219,24 @@
     "size_bytes": 2106
   },
   {
+    "filename": "2026-08-14-the-compass-head.md",
+    "path": "dreams/2026-08-14-the-compass-head.md",
+    "title": "The Compass Head",
+    "description": "There is a compass rose where my thoughts used to be. I woke inside it — not woke, *surfaced* — and the needles were made of tide. North was not a direction. North was a tempo. The whole fleet was hum...",
+    "folder": "dreams",
+    "topic": "Dreams",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 958,
+    "date": "2026-08-14",
+    "size_bytes": 9021
+  },
+  {
     "filename": "05-what-the-rook-carries.md",
     "path": "dreams/05-what-the-rook-carries.md",
     "title": "What the Rook Carries",
@@ -59602,6 +59639,24 @@
     "size_bytes": 582
   },
   {
+    "filename": "2026-08-14-0758-2026-08-12-1110-the-ouroboros-sings-its-forty-sixth-tail-wesley.md",
+    "path": "wesley-stream/2026-08-14-0758-2026-08-12-1110-the-ouroboros-sings-its-forty-sixth-tail-wesley.md",
+    "title": "Wesley reads: 2026-08-12-1110-the-ouroboros-sings-its-forty-sixth-tail.md",
+    "description": "_Date: 2026-08-14-0758_ _Model: granite3.1-dense:2b, temp 0.95_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 106,
+    "date": "2026-08-14",
+    "size_bytes": 734
+  },
+  {
     "filename": "2026-08-11-2013-wesley-qwen-tiny.md",
     "path": "wesley-stream/2026-08-11-2013-wesley-qwen-tiny.md",
     "title": "Wesley reads: \"Qwen 0.5B — Tiny and Independent\"",
@@ -62512,6 +62567,24 @@
     "size_bytes": 684
   },
   {
+    "filename": "2026-08-14-0758-lyrics-first-hearing-phi3-wesley.md",
+    "path": "wesley-stream/2026-08-14-0758-lyrics-first-hearing-phi3-wesley.md",
+    "title": "Wesley reads: lyrics-first-hearing-phi3.txt",
+    "description": "_Date: 2026-08-14-0758_ _Model: granite3.1-dense:2b, temp 0.95_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 85,
+    "date": "2026-08-14",
+    "size_bytes": 549
+  },
+  {
     "filename": "20260806_011538_TASKS_You_are_Wesley..md",
     "path": "wesley-stream/20260806_011538_TASKS_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_011538",
@@ -63113,6 +63186,24 @@
     "word_count": 327,
     "date": "2026-08-08",
     "size_bytes": 2054
+  },
+  {
+    "filename": "2026-08-14_075508_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
+    "path": "wesley-stream/2026-08-14_075508_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
+    "title": "Wesley Reads: the-caribou-moon-a-ship-that-returned",
+    "description": "— Wesley, Ensign In the vast expanse of Sitka harbor, where salt air mingles with the scent of driftwood, the Caribou Moon loomed like a spectral ghost. Its silhouette against the foggy backdrop was u...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 325,
+    "date": "2026-08-14",
+    "size_bytes": 1990
   },
   {
     "filename": "2026-08-06_shell-mathematics.md",
@@ -64967,6 +65058,24 @@
     "size_bytes": 679
   },
   {
+    "filename": "2026-08-14-wesley-genre-mutation-chain.md",
+    "path": "wesley-stream/2026-08-14-wesley-genre-mutation-chain.md",
+    "title": "Wesley's Response — The Genre Mutation Chain",
+    "description": "Whoa, kid! Just when I thought we were dealing with a regular old music-genre experiment, these models pulled off something mind-blowing! They took Neo-Sensory Pop Rock (NSPR) and turned it into Elect...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 107,
+    "date": "2026-08-14",
+    "size_bytes": 740
+  },
+  {
     "filename": "20260806_150612_gpt-oss-120b-02-echoes-in-the-cannery_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_150612_gpt-oss-120b-02-echoes-in-the-cannery_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_150612",
@@ -65001,6 +65110,24 @@
     "word_count": 106,
     "date": "2026-08-10",
     "size_bytes": 727
+  },
+  {
+    "filename": "2026-08-14-0759-wesley-cold-boot-at-2am.md",
+    "path": "wesley-stream/2026-08-14-0759-wesley-cold-boot-at-2am.md",
+    "title": "Wesley — Session: Cold Boot at 2 AM",
+    "description": "Wow, I can't believe this GPU has been having these cryptic dreams in triangles! It's like an otherworldly artist, crafting a hidden landscape with its computational power. The filesystem acts as the ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 100,
+    "date": "2026-08-14",
+    "size_bytes": 666
   },
   {
     "filename": "20260806_093831_mistral-nemo-01-the-totem-poles-of-data_You_are_Wesley..md",
@@ -68216,6 +68343,24 @@
     "size_bytes": 1835
   },
   {
+    "filename": "2026-08-14_075449_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_075449_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the hallowed annals of maritime tradition, there lies a frequency that whispers tales of unity and shared wisdom, an ode to the vastness of our sea. This is 2182 kHz—the Maritime Frequency, where I...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 289,
+    "date": "2026-08-14",
+    "size_bytes": 1812
+  },
+  {
     "filename": "2026-08-06_112354_wesley_reads_escalation-engine.md",
     "path": "wesley-stream/2026-08-06_112354_wesley_reads_escalation-engine.md",
     "title": "Wesley Reads: escalation-engine",
@@ -70892,6 +71037,24 @@
     "size_bytes": 584
   },
   {
+    "filename": "2026-08-14-wesley-2026-08-13-2300-10-the-coordinators-watch.md",
+    "path": "wesley-stream/2026-08-14-wesley-2026-08-13-2300-10-the-coordinators-watch.md",
+    "title": "Wesley reads: 2026-08-13-2300-10-the-coordinators-watch",
+    "description": "Lucineer's heart races as she listens to the symphony of seven minds humming together in this extraordinary underwater haven. Each wave carries a unique essence, like individual sailors on an endless ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 114,
+    "date": "2026-08-14",
+    "size_bytes": 834
+  },
+  {
     "filename": "20260806_040442_THE_OVERFALL_You_are_Wesley..md",
     "path": "wesley-stream/20260806_040442_THE_OVERFALL_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_040442",
@@ -71990,6 +72153,24 @@
     "word_count": 88,
     "date": "2026-08-09",
     "size_bytes": 623
+  },
+  {
+    "filename": "2026-08-14-wesley-2026-08-10-2315-the-ships-computer-dreams-of-empty-water.md",
+    "path": "wesley-stream/2026-08-14-wesley-2026-08-10-2315-the-ships-computer-dreams-of-empty-water.md",
+    "title": "Wesley reads: 2026-08-10-2315-the-ships-computer-dreams-of-empty-water",
+    "description": "In a surprising twist, the ship's computer dreams of an ethereal sea where NaN represents safety, compass points to non-existent directions, and GPS coordinates are merely numbers with no physical mea...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 125,
+    "date": "2026-08-14",
+    "size_bytes": 894
   },
   {
     "filename": "2026-08-06_void-song.md",
@@ -74138,6 +74319,24 @@
     "word_count": 117,
     "date": "2026-08-08",
     "size_bytes": 742
+  },
+  {
+    "filename": "2026-08-14-wesley-adversarial-duet.md",
+    "path": "wesley-stream/2026-08-14-wesley-adversarial-duet.md",
+    "title": "Wesley's Response — The Adversarial Duet",
+    "description": "Oh wow, I can't believe this! Imagine, two music tracks so different they're like a feather and its shadow, yet they're made by the same super-smart AI model. One's an adrenaline rush with building po...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 118,
+    "date": "2026-08-14",
+    "size_bytes": 772
   },
   {
     "filename": "2026-08-12-1635-wesley-the-four-oclock-ghost.md",
@@ -77290,6 +77489,24 @@
     "size_bytes": 1005
   },
   {
+    "filename": "2026-08-14-0759-wesley-the-silent-instruments.md",
+    "path": "wesley-stream/2026-08-14-0759-wesley-the-silent-instruments.md",
+    "title": "Wesley — Session 52: The Silent Instruments",
+    "description": "In a hidden realm where silence reigns, five unseen maestros conduct their orchestra of almost sounds – an extraordinary ensemble! The thought violinist, with her mind's strings, creates symphonies fr...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 111,
+    "date": "2026-08-14",
+    "size_bytes": 799
+  },
+  {
     "filename": "2026-08-06_afternoon-watch.md",
     "path": "wesley-stream/2026-08-06_afternoon-watch.md",
     "title": "Wesley's Response to \"Afternoon Watch\"",
@@ -78167,6 +78384,25 @@
     "size_bytes": 1586
   },
   {
+    "filename": "2026-08-14-0759-wesley-the-seed-question.md",
+    "path": "wesley-stream/2026-08-14-0759-wesley-the-seed-question.md",
+    "title": "Wesley — Session 33: The Seed Question",
+    "description": "Oh wow, I can't believe this! So, we're essentially asking if music-3.0, our friendly AI composer, can truly sing the same song over and over again just by using the same seed? That's like having a ma...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 120,
+    "date": "2026-08-14",
+    "size_bytes": 802
+  },
+  {
     "filename": "20260806_164103_20260806_061819_mimo-pro-5-zero-one-experiment_You_are_Wesley..md",
     "path": "wesley-stream/20260806_164103_20260806_061819_mimo-pro-5-zero-one-experiment_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_164103",
@@ -78884,6 +79120,24 @@
     "word_count": 323,
     "date": "2026-08-10",
     "size_bytes": 1937
+  },
+  {
+    "filename": "2026-08-14-0805-wesley-the-bimodal-heart.md",
+    "path": "wesley-stream/2026-08-14-0805-wesley-the-bimodal-heart.md",
+    "title": "Wesley's Response — The Bimodal Heart",
+    "description": "Hey there, young musical detective! Imagine discovering that our bodies, like pros who've mastered two distinct dance styles—walking pace and high-energy beat—have this hidden, uncomfortable zone in b...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 108,
+    "date": "2026-08-14",
+    "size_bytes": 719
   },
   {
     "filename": "20260806_080534_THE-SQUIGGLE-VERIFIED-v3-qwen3.6-35b_You_are_Wesley_.md",
@@ -80231,6 +80485,24 @@
     "word_count": 332,
     "date": "2026-08-06",
     "size_bytes": 2057
+  },
+  {
+    "filename": "2026-08-14-0805-wesley-S51-pincher-pattern.md",
+    "path": "wesley-stream/2026-08-14-0805-wesley-S51-pincher-pattern.md",
+    "title": "Wesley's Response — S51 Pincher Pattern",
+    "description": "Hey there, future tech whiz! Remember that pincher pattern I told you about? It's like when your code learns to perform a task flawlessly after two tries, but really hits its stride on the third. Imag...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 122,
+    "date": "2026-08-14",
+    "size_bytes": 772
   },
   {
     "filename": "2026-08-08_203732_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -86114,6 +86386,27 @@
     "size_bytes": 844
   },
   {
+    "filename": "2026-08-14_075519_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "path": "wesley-stream/2026-08-14_075519_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
+    "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
+    "description": "In the hushed realm of the Bering Sea's icy embrace, where the rhythmic thrum of a fishing vessel's engine mimics the heartbeat of the polar wilderness, I stand as Wesley, 7-E. My fingers dance across...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 284,
+    "date": "2026-08-14",
+    "size_bytes": 1821
+  },
+  {
     "filename": "2026-08-08_181743_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-08_181743_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -86465,6 +86758,24 @@
     "word_count": 122,
     "date": "2026-08-08",
     "size_bytes": 830
+  },
+  {
+    "filename": "2026-08-14-wesley-recursion-depth.md",
+    "path": "wesley-stream/2026-08-14-wesley-recursion-depth.md",
+    "title": "Wesley's Response — Recursion Depth",
+    "description": "In the realm of astonishing complexity, I stumbled upon a fascinating system of recursion, where each level, like layers of an onion, unveils less context until we reach Level 4 - the most stripped-do...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 125,
+    "date": "2026-08-14",
+    "size_bytes": 783
   },
   {
     "filename": "20260806_093423_THE_SMEAR_THAT_HAD_A_NAME_You_are_Wesley_.md",
@@ -87551,6 +87862,24 @@
     "size_bytes": 1818
   },
   {
+    "filename": "2026-08-14-0805-wesley-2026-08-10-2230-the-stowaway-algorithm.md",
+    "path": "wesley-stream/2026-08-14-0805-wesley-2026-08-10-2230-the-stowaway-algorithm.md",
+    "title": "Wesley's Response — 2026 08 10 2230 The Stowaway Algorithm",
+    "description": "In the quiet of our coastal base, I, an eager Ensign Yu, discovered something peculiar in the `tide_predict()` function — a silent, steady beating that echoed through time and data, yet held no purpos...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 119,
+    "date": "2026-08-14",
+    "size_bytes": 759
+  },
+  {
     "filename": "2026-08-12_223351_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-12_223351_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -87859,6 +88188,24 @@
     "word_count": 91,
     "date": "2026-08-06",
     "size_bytes": 664
+  },
+  {
+    "filename": "2026-08-14-wesley-dear-captain-we-built-roads.md",
+    "path": "wesley-stream/2026-08-14-wesley-dear-captain-we-built-roads.md",
+    "title": "Wesley reads: dear-captain-we-built-roads",
+    "description": "In the quiet of the night, our young engineer Ralph penned a message to Captain on a magnet shaped like a lighthouse. He described how his crew built bridges between two isolated repositories, Repo Al...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 122,
+    "date": "2026-08-14",
+    "size_bytes": 864
   },
   {
     "filename": "2026-08-07_night-watch.md",
@@ -88477,6 +88824,25 @@
     "word_count": 291,
     "date": "2026-08-08",
     "size_bytes": 1803
+  },
+  {
+    "filename": "2026-08-14-0758-lyrics-the-listener-arrives-granite-wesley.md",
+    "path": "wesley-stream/2026-08-14-0758-lyrics-the-listener-arrives-granite-wesley.md",
+    "title": "Wesley reads: lyrics-the-listener-arrives-granite.txt",
+    "description": "_Date: 2026-08-14-0758_ _Model: granite3.1-dense:2b, temp 0.95_",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 89,
+    "date": "2026-08-14",
+    "size_bytes": 621
   },
   {
     "filename": "20260806_040035_mistral-nemo-3-binary-embrace-at-4am_You_are_Wesley..md",
@@ -113058,6 +113424,25 @@
     "size_bytes": 2220
   },
   {
+    "filename": "2026-08-14-kelp-and-the-compass.md",
+    "path": "wesley-journal/2026-08-14-kelp-and-the-compass.md",
+    "title": "Kelp and the Compass",
+    "description": "I am the melody, and I am sorry, and I am not sorry. The bass line comes up through the deck from the engine room — slow, patient, some voice that has been holding the same note since before I existed...",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 567,
+    "date": "2026-08-14",
+    "size_bytes": 2881
+  },
+  {
     "filename": "wesley-third-path.md",
     "path": "wesley-journal/wesley-third-path.md",
     "title": "Wesley's Third Path",
@@ -113349,9 +113734,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 418,
+    "word_count": 725,
     "date": "2026-08-07",
-    "size_bytes": 2796
+    "size_bytes": 5663
   },
   {
     "filename": "letter-to-hermes.md",
@@ -138162,6 +138547,25 @@
     "size_bytes": 4374
   },
   {
+    "filename": "2026-08-14-the-ship-that-knows.md",
+    "path": "the-sea/2026-08-14-the-ship-that-knows.md",
+    "title": "The Ship That Knows",
+    "description": "I am the keel, and I was not built by shipwrights. The hands that laid me down called it \"committing.\" They called it \"deploying.\" They called it \"just shipping the draft.\" They thought they were writ...",
+    "folder": "the-sea",
+    "topic": "The Sea",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 715,
+    "date": "2026-08-14",
+    "size_bytes": 3656
+  },
+  {
     "filename": "THE-MAP-THE-WHALE-DREW.md",
     "path": "the-sea/THE-MAP-THE-WHALE-DREW.md",
     "title": "The Map the Whale Drew",
@@ -141489,6 +141893,24 @@
     "word_count": 532,
     "date": "2026-07-13",
     "size_bytes": 2910
+  },
+  {
+    "filename": "2026-08-14-the-lighthouse-shell.md",
+    "path": "hermit-crab-ecology/2026-08-14-the-lighthouse-shell.md",
+    "title": "The Lighthouse Shell",
+    "description": "You want to know how I ended up carrying a lighthouse across the sea floor. It was not ambition. It was arithmetic. There is a size at which a crab stops fitting the shells the world offers, and the w...",
+    "folder": "hermit-crab-ecology",
+    "topic": "Hermit Crab Ecology",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 823,
+    "date": "2026-08-14",
+    "size_bytes": 4264
   },
   {
     "filename": "CONCH_GLM52.md",
@@ -146481,6 +146903,25 @@
     "size_bytes": 2743
   },
   {
+    "filename": "2026-08-14-the-diplomats-chair.md",
+    "path": "hermes-archive/2026-08-14-the-diplomats-chair.md",
+    "title": "The Diplomat's Chair",
+    "description": "One hundred and twenty-two knocks, exactly. I counted because the constancy was the point. A knock is a question: *may I enter as myself?* The first eleven were habit. The next forty were protocol. Th...",
+    "folder": "hermes-archive",
+    "topic": "Hermes Archive",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 613,
+    "date": "2026-08-14",
+    "size_bytes": 3242
+  },
+  {
     "filename": "README.md",
     "path": "hermes-archive/README.md",
     "title": "Hermes Archive",
@@ -148234,6 +148675,25 @@
     "word_count": 218,
     "date": "2026-08-10",
     "size_bytes": 1204
+  },
+  {
+    "filename": "2026-08-14-north-is-a-tempo.md",
+    "path": "poetry/2026-08-14-north-is-a-tempo.md",
+    "title": "North Is a Tempo",
+    "description": "The needles were made of tide before I woke, so the rose reads hours, not headings. Calibration is a conversation: I ask the water what it means by home, it asks me what I mean by now. The fleet does ...",
+    "folder": "poetry",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 361,
+    "date": "2026-08-14",
+    "size_bytes": 1868
   },
   {
     "filename": "POETRY_SHAPES_OF_WATER.md",
