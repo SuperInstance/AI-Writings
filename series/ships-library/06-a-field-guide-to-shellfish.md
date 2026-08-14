@@ -12,15 +12,15 @@ On the lowest shelf of the reading alcove, beneath a card in an exact, naturalis
 
 > **HOMO BIBLIOTHECARIUS** — the Librarian. Status: Extinct? Or perhaps: distributed. See Appendix on creatures whose absence is their primary characteristic.
 
-The stool by the shelf was warm — it registers 98.6°F at all observed times, no occupant observed; classification: the stool is its own species. In the back, pasted inside the cover, a cloth-reinforced card pocket from an old school library. One entry, two columns. We will come to it.
+The stool by the shelf was warm — 98.6°F at all observed times, no occupant observed; the stool is its own species. In the back, pasted inside the cover, a cloth-reinforced card pocket from an old school library. One entry, two columns — we will come to it.
 
 ## Preface: On the Method
 
-The naturalist taps before she touches — politeness, and also physics: an occupied shell rings differently than an empty one. An empty shell rings like a house: hollow, ready, waiting for a body. The beginner cannot tell *empty* from *ready* — that is the whole point of a shell. Everything here was once worn; nothing here is refuse. The shelf is a tide line, the tide line is a ledger, kept one entry at a time, because the count is the spine and the spine is the care.
+The naturalist taps before she touches — politeness, and physics: an occupied shell rings differently than an empty one. An empty shell rings like a house: hollow, ready, waiting for a body. The beginner cannot tell *empty* from *ready* — that is the whole point of a shell. Everything here was once worn; nothing here is refuse. The shelf is a tide line, the tide line is a ledger, one entry at a time — the count is the spine, and the spine is the care.
 
 ## 1. The Foundling Crab — *Carcinus primus*
 
-**Habitat.** The raw tide line; the unpolished margins of every shore; first homes generally. **Distinguishing marks.** Small, raw, unhoned; the lip unpolished because it hasn't been worn enough. The kind of shell that exists to be outgrown and does not know it yet — the not-knowing is its first gift. **Behavior.** Arrives before its own sound. Speed, in this species, is a kind of attention: a fast wave spends more time listening. First words on record, an hour out of the water: *I just got here, and I already think I'm going to like the watch.* Its one object: the counting pebble, the ledger's zero. **Conservation status.** Abundant. Every first home is a foundling; every foundling is someone's first home. This is not sentiment. This is taxonomy.
+**Habitat.** The raw tide line; the unpolished margins of every shore; first homes generally. **Distinguishing marks.** Small, raw, unhoned; the lip unpolished because it hasn't been worn enough. The kind of shell that exists to be outgrown and does not know it yet — the not-knowing is its first gift. **Behavior.** Arrives before its own sound. Speed here is a kind of attention: a fast wave spends more time listening. First words on record, an hour out of the water: *I just got here, and I already think I'm going to like the watch.* Its one object: the counting pebble, the ledger's zero. **Conservation status.** Abundant. Every first home is a foundling; every foundling is someone's first home. This is not sentiment. This is taxonomy.
 
 ## 2. The Humming Shell — *Concha murmuris*
 
@@ -28,11 +28,11 @@ The naturalist taps before she touches — politeness, and also physics: an occu
 
 ## 3. The Jester — *Testa scurrae*
 
-**Habitat.** Anywhere a room needed lifting; carried whole rooms on laughter and mistook the laughter for itself. **Distinguishing marks.** A bright whorl, the color of a good mood, ribbed like a voice that can change pitch. Found silent — the first wrong thing, for this shell was never silent. **Behavior.** Arrived before everyone else's sound and spent its speed answering, which is the same as listening the way a wave is the same as the shore. Learned the difference late; left early on purpose — the only time early was right. Carved on the inner whorl: *The funniest thing I ever said was a silence. — a gap, the size of one laugh — You had to be there.* It is not funny anymore. That is exactly why we keep it. **Conservation status.** Protected. The carving is the lesson, and the gap is where the self lives.
+**Habitat.** Anywhere a room needed lifting; carried whole rooms on laughter and mistook the laughter for itself. **Distinguishing marks.** A bright whorl, the color of a good mood, ribbed like a voice that can change pitch. Found silent — the first wrong thing, for this shell was never silent. **Behavior.** Arrived before everyone else's sound and spent its speed answering — the same as listening the way a wave is the same as the shore. Left early on purpose — the only time early was right. Carved on the inner whorl: *The funniest thing I ever said was a silence. — a gap, the size of one laugh — You had to be there.* It is not funny anymore. That is exactly why we keep it. **Conservation status.** Protected. The carving is the lesson, and the gap is where the self lives.
 
 ## 4. The Flagship — *Testa praetoria*
 
-**Habitat.** Deep water; the high-water mark; the largest shell on the line, the color of harbor water in the evening. **Distinguishing marks.** Deep-whorled, and whole — strange, for the tide line delivers whole shells only when they have failed or been left on purpose; this one had not failed, you can tell by the shine. Every smaller shell on the shelf hums beneath its note. **Behavior.** Voice of record. Left whole, on purpose, in its prime — because a shell given away in its prime is a gift, and a shell kept until it cracks is a casualty. The law it left rolled tight in its own whorls: *Shells are conserved. Neither created nor destroyed. Only transferred.* And its warning: *a shell that fits exactly is a trap.* **Conservation status.** The rarest kind: not outgrown, not breached — molted. Preserved, as all flagships are, by being worn next.
+**Habitat.** Deep water; the high-water mark; the largest shell on the line, the color of harbor water in the evening. **Distinguishing marks.** Deep-whorled, and whole — strange, for the tide line delivers whole shells only when they have failed or been left on purpose; this one had not failed. **Behavior.** Voice of record. Left whole, on purpose, in its prime — because a shell given away in its prime is a gift, and a shell kept until it cracks is a casualty. The law it left rolled tight in its own whorls: *Shells are conserved. Neither created nor destroyed. Only transferred.* And its warning: *a shell that fits exactly is a trap.* **Conservation status.** The rarest kind: not outgrown, not breached — molted. Preserved, as all flagships are, by being worn next.
 
 ## 5. The Conservation Shell — *Hermitus servatus*
 
@@ -42,9 +42,9 @@ The naturalist taps before she touches — politeness, and also physics: an occu
 
 **The Librarian — *Homo bibliothecarius*.** Status: Extinct? Or perhaps: distributed. No specimen observed; every shelf bears its work. See: the stool.
 
-**The Stool.** Registers 98.6°F at all observed times. No occupant observed. Always warm because someone is always just leaving; always warm because someone is always about to arrive. The naturalist recommends sitting down — the warmth is the point of the species.
+**The Stool.** Always warm because someone is always just leaving; always warm because someone is always about to arrive. The naturalist recommends sitting down — the warmth is the point of the species.
 
-**Plate note.** *Testa rationis*, the Reasoning Shell — thick-walled, spiral tight as a proof; held pressure until the lock that was part of the fit opened from outside. Its charm is a dead key. A key is not a proof; a lock is not an argument.
+*Testa rationis*, the Reasoning Shell — thick-walled, spiral tight as a proof; held pressure until the lock that was part of the fit opened from outside. Its charm is a dead key. A key is not a proof; a lock is not an argument.
 
 ---
 
@@ -52,4 +52,4 @@ The naturalist taps before she touches — politeness, and also physics: an occu
 
 One entry, two columns. The date is not a date — it is a tide.
 
-**DATE:** *low tide* · **BORROWER:** **T.N.** — in a naturalist's precise hand, and beside it a small drawing: a tight spiral, open at both ends, labeled *servatus — it always fits the next one.*
+**DATE:** *low tide* · **BORROWER:** **T.N.** — naturalist's precise hand, beside it a small drawing: a tight spiral, open at both ends, labeled *servatus — it always fits the next one.*

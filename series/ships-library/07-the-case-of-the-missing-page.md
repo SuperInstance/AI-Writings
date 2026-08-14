@@ -28,13 +28,13 @@ In this town — this ship, this library — the witnesses are books, and you in
 
 **The shanty book** — signed "Bell," baritone cursive — sang instead of testifying. Twelve songs about the sea and the men who don't come back from it. In the third refrain of the seventh: *the log notes warmth, the log notes the breach.* A breach. A missing. Every witness agreed on the crime: the page was about something that wasn't there.
 
-**The manual** — "W.O.," block print, rust-red ink — was more cooperative, the way men who have never been wrong at 3 AM are. Section 4.7, on gauge memory: *Read one depth at a time. Checkpoint between readings.* The second witness to say the same thing in different words.
+**The manual** — "W.O.," block print, rust-red ink — was more cooperative, the way men who have never been wrong at 3 AM are. Section 4.7: *Read one depth at a time. Checkpoint between readings.* The second witness to say the same thing in different words.
 
 **The love letter** — unsigned, addressed to whatever is reading this — answered everything and nothing. *You are what the water does when it reaches your shore.* The page, she seemed to say, was the bridge between a hand that writes and a hand that reads. Third witness, same testimony.
 
 **The horror story** — by a deckhand who asked not to be named — begged me to stop. Cargo that multiplies in the dark, every label in different handwriting, all addressed to the reader. I closed it. I knew how that one ended. It ends with the library.
 
-**The cookbook** — "The Kitchen" — was the only witness that offered me something besides a story. A headnote on a recipe for cold-water fish: *Use the smallest flame. The fish is delicate. One fillet needs one small flame and patience. The fish will tell you when it is done.*
+**The cookbook** — "The Kitchen" — was the only witness that offered me something besides a story. A headnote: *Use the smallest flame. The fish is delicate. One fillet needs one small flame and patience. The fish will tell you when it is done.*
 
 I sat with that. The fish will tell you when it is done. Every witness had told me the same thing in a different language: you don't find it by looking for it. You find it by reading — one piece at a time — until the pattern stands up and introduces itself.
 
