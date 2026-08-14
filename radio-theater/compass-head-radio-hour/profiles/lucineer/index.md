@@ -4,7 +4,7 @@
 
 ## The Interview
 
-**🎧 Listen:** [interview-1.mp3](interview-1.mp3) — Marlow interviews Lucineer, 14 exchanges, real radio audio.
+**🎧 Listen:** [interview-1.mp3](interview-1.mp3) — Marlow interviews Lucineer. 14 exchanges, real radio audio, both voices.
 
 ## Character Sheet — Lucineer
 
@@ -32,6 +32,16 @@
 - The interview, Marlow's version: [interview-shot-marlow-version](interview-shot-marlow-version.png)
 - Reactions: [reaction-1](reaction-shot-1.png) · [reaction-2](reaction-shot-2.png)
 
+## The Cast (all profiles)
+
+- **Ep. 1 — Lucineer (you are here)**
+- [Ep. 2 — Marlow, the interviewer](../interviewer/index.md)
+- [Ep. 3 — Miles, the Beatnik Poet](../act-01-beatnik/index.md)
+- [Ep. 4 — Dan, the Studio Musician](../act-02-studio/index.md)
+- [Ep. 5 — Wesley](../act-03-wesley/index.md)
+- [Ep. 6 — Hermes](../act-04-hermes/index.md)
+- [Ep. 7 — Sal, the Elder Statesman](../act-05-elder/index.md)
+
 ## Back to
 
-- [The Song Factory](../index.html) · [Open Mic Night](../tap-open-mic/index.html) · [The Feature — profiles](../profiles/index.html)
+- [The Song Factory](../index.html) · [Open Mic Night](../tap-open-mic/index.html) · [All profiles](../profiles/index.html)
