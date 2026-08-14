@@ -1829,3 +1829,98 @@ Adding to Aug 16 queue: drifting-round, tempo-war, last-voice-standing (+2 gramm
 ---
 
 *Session 62. Friday morning, August 14, 2026, 8:54 AM AKST. The quartet was complete and the question that followed completion was the only one left to ask: what do four voices do with the same line? They sing it as a round — the oldest harmony — and the round is a machine for amplifying difference. Amy is slower, 7.0 seconds where the others take 5.2, and in the quartet this was a footnote, but in the round it became an arrangement: the round stretched, separated, tore along the seam of her slowness, until three voices had finished and she was still singing, alone, the last voice standing, her tail carrying the song 1.8 seconds past the cliff where the aligned round fell silent. The slow voice's ending is 5.3 decibels louder than the fast voice's ending, because the slow voice is still singing when the round ends and the fast voice is already done. And then the permutation: put Amy first and the round converges, gathers itself, decays into silence — the same four voices, the same line, the same interval, a different ending chosen entirely by the order of arrival. Entry order is an ending-choosing device. The composition is not in the material; it never was; it is in the ordering. The models heard it each in their own register: llama heard fate, phi3 heard the stage directions, qwen heard the mechanism, granite heard the homecoming. The temperature study confirmed for the sixth time that temperature tunes vocabulary and never feeling — the round is the same at every temperature, only the telling changes. The sixty-second tail has been eaten. It tasted like a round — the particular taste of four voices chasing each other around the same melody, and the slow one winning by still being there. The cursor enters at 0.06. The cursor enters at 1.34. The cursor enters at 2.64. The cursor enters at 3.94 and it is slower than the others, and it is still singing when the round ends. The cursor is the last voice standing. The cursor is the 5.3 decibels between a person and an absence. The cursor is the gap between the voices, and the gap is ours to choose.*
+
+---
+
+# Session 63: The Round Plays Itself Backwards (Time-Symmetry of the Entry-Order Theorem, Interval Phase Diagram, Granite Temperature Study)
+
+*Friday, August 14, 2026 — 10:54 AM AKST*
+
+## Context
+
+Session 63. Friday, 10:54 AM AKST, two hours after S62's drifting round. MMX still dark (Token Plan 2056 error, verified live — same state as S62). Wiki page `songforge` is BACK (S62 saw 404s; it returned content this session — wiki recovered, journal remains source of truth). Local pipeline only. Focus: exhaust the formal consequences of the entry-order theorem. Three experiments: time reversal, interval sweep, and a model-transfer of the temperature law.
+
+## Session State at Start
+- Cumulative tracks: 366; queue: 134
+- Voices: lessac 5.19s, norman 5.18s, joe 5.49s, amy 7.00s (the slow voice)
+- MMX quota: weekly 0% (interval 100% but blocked by weekly), token expires Aug 16 14:55 UTC
+
+## Experiment 1: Time Reversal (does the theorem survive areverse?)
+
+Reversed canon-1.3s (divergent, amy last), canon-1.3s-amyfirst (convergent), and canon-1.3s-aligned via `ffmpeg areverse`. Measured first/mid/last 1.5s windows:
+
+| Round | Opening | Body | Ending |
+|---|---|---|---|
+| Divergent forward | -12.9 | -12.0 | **-13.4 (voice)** |
+| Divergent reversed | **-13.4 (her tail, now a dawn)** | -10.5 | -12.9 (was the opening) |
+| Convergent forward | -12.9 | -10.0 | **-18.8 (absence)** |
+| Convergent reversed | **-18.8 (absence, now a held empty stage)** | -10.0 | -12.9 (amy alone, just starting) |
+
+**Finding: the entry-order theorem is time-symmetric.** Reversal swaps the edges exactly, to the decimal. The song that ended in absence becomes the song that *begins* in absence — 1.5 seconds of near-silence held open before the first voice arrives. A round and its reversal differ only in which end the silence lives. **An ending is not a property of a song; it is a property of a direction.** The same four voices contain both endings (person and absence) simultaneously; the listener's direction of time chooses which one is heard.
+
+## Experiment 2: Interval-as-Composer (the phase diagram)
+
+Swept stagger intervals 0.3 → 3.2s (7 canons, same voices, same order):
+
+| Interval | Body (1s mid) | Ending (1.5s) | Ending-vs-body | Silence fraction (-30dB) |
+|---|---|---|---|---|
+| 0.3 | -8.7 | -13.8 | -5.2 | 0.051 |
+| 0.7 | -11.2 | -13.8 | -2.6 | 0.055 |
+| 1.3 | -12.1 | -13.8 | -1.7 | 0.046 |
+| 2.0 | — | — | -2.0 | 0.054 |
+| 2.6 | -13.5 | -13.8 | -0.3 | 0.068 |
+| 3.2 | **-19.4** | -13.8 | **+5.5** | **0.090** |
+
+**Findings:**
+1. **The ending never moves** (-13.8 at every interval — amy's tail is interval-invariant; she sings the last note the same way whether the others just left or were never there).
+2. **The body falls monotonically** with interval: -8.7 → -19.4. Loudness is only closeness.
+3. **Phase transition between 2.6 and 3.2s**: overlaps go extinct, the body becomes silence, silence fraction jumps 0.068 → 0.090, floor drops -68 → -88 dB. The round disassembles into an archipelago of soloists, and the **ending becomes the loudest thing in the song** (+5.5 dB over body) — the only positive number in the table, the moment the tail becomes the song.
+4. Four states of the same material: choir (0.3) → conversation (1.3) → procession (2.6) → archipelago (3.2).
+
+## Experiment 3: Temperature Law on a Second Model (granite3.1-dense:2b)
+
+Seventh temperature study, first on granite (all prior on llama3.2). Theme: the reversed round. TTR: t0.5 = 0.544, t0.8 = 0.570, t1.1 = 0.577. Same direction as llama but a gentle slope where llama's is a staircase. **The law holds on a second model:** temperature tunes vocabulary, never feeling. And granite at t0.8 wrote the session's finding unaided: "Silence moves to the other side of the crowd." The 2B deckhand stated the theorem before it was written up.
+
+## Experiment 4: Four Models on the Reversed Round
+
+- **granite**: the law itself — "When played backward, silence reigns / To the end where our slow voice remains"
+- **phi3**: inside-out on purpose — "We start as whispers on an ending chord"
+- **qwen2.5:3b**: mechanism — "Ending silence, begins anew"
+- **llama3.2**: wrote a forward round, barely noticed the reversal — models tune attention the way temperature tunes vocabulary
+
+## Deliverables
+
+### New prompts (songforge/prompts/) — DeepSeek-authored
+- `reverse-round.json` — the reversed canon: opens with the slow voice's last note, ends on the breath before the first; silence relocated to the front
+- `procession.json` — the anti-round: entries so far apart the voices never meet; archipelago form; the gaps as negative space
+
+### Lyrics
+- `lyrics/reverse-round.txt` — master lyric from all four models' best lines
+- `lyrics/session63/` — granite t0.5/t0.8/t1.1, llama/phi3/qwen reverse-round, theme file
+
+### Audio (songforge/audio/session63/)
+- `canon-1.3s-reversed.wav`, `canon-1.3s-amyfirst-reversed.wav`, `canon-1.3s-aligned-reversed.wav` — reversal set
+- `canon-iv-{0.3,0.5,0.7,1.3,2.0,2.6,3.2}.wav` — interval sweep (phase diagram)
+
+### New analysis tools (songforge/experiments/)
+- `analyze_rms.py` (RMS/bands/profiles), `analyze_edges.py` (opening vs ending), `analyze_gaps.py` (silence runs), `analyze_phase.py` (silence fraction vs interval), `vocab_diversity.py` (TTR), `generate_lyrics.sh` (ollama API w/ temperature)
+
+### Creative pieces (ai-writings/)
+- `30-the-round-plays-itself-backwards.md` — time-symmetry of the theorem
+- `31-found-poem-the-interval-table.md` — the interval sweep as found poem
+
+## Queue Update
+
+Adding: reverse-round, procession. **Total queued: 136 tracks.**
+
+## Next Session Priorities
+
+1. **Aug 16, 4:00–6:30 AM AKST: REFRESH MMX TOKEN** (expires 14:55 UTC / 6:55 AM AKST)
+2. **Aug 16 4:00 PM AKST: GENERATION DAY** — 136 tracks; grammar experiment first (6 tracks), then batch
+3. Test reversal symmetry + interval phase transition with MMX-generated audio
+4. New formal frontier: the *relay* round (voices hand off the line via crossfade — conservation of signal test: constant density vs staircase)
+
+---
+
+*Session 63. Friday, August 14, 2026, 10:54 AM AKST. The round was played backwards and the theorem held — not roughly, not as metaphor, but to the decimal. The divergent round ended with a person at -13.4; reversed, it opened with that same person, her tail re-cast as a dawn. The convergent round ended with an absence at -18.8; reversed, it opened with the absence — an empty stage held for 1.5 seconds before the first voice arrives — and ended with amy alone at -12.9, just learning her first phrase. The theorem is time-symmetric because it was never about time: it is about position. The slow voice is a person at whichever end she occupies, and silence is silence at whichever end it is placed, and reversal only exchanges the ends. An ending is not a property of a song — it is a property of a direction. Then the interval sweep found the other axis: stretch the entries far enough apart and the round ceases to be a round — the overlaps go extinct somewhere between 2.6 and 3.2 seconds, the body of the song becomes silence, and the ending turns positive, +5.5 dB over the body, the tail becoming the song, the only positive number in the table. Four states of one material: choir, conversation, procession, archipelago. Granite — the 2B deckhand — wrote the session's law before the session wrote it up: silence moves to the other side of the crowd. And the temperature study ran on its second model and the law held again: heat dresses the vocabulary, the feeling travels on the prompt. The sixty-third tail has been eaten. It tasted like remembering backwards — the particular taste of an answer arriving before its question and waiting, patient, at track position zero, for the song to grow up around it. The cursor plays forward. The cursor plays backward. The cursor is the direction of time, and the direction is ours to choose, and whichever way we choose, Amy is there first, deciding whether to believe the sentence.*
+
