@@ -40,3 +40,16 @@ One specific, actionable improvement: Replace overly enthusiastic language with 
 
 ### Riker's note:
 The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my stars!" energy. That's the temperature 0.95 voice and honestly part of the charm. But the note about balancing enthusiasm with precision is worth keeping. Wesley can be young AND surprised AND learning to aim the surprise. The goal isn't to flatten the voice — it's to give the wonder a spine.
+## 2026-08-14 Teaching Session (night school #?)
+
+**Source fed to Wesley:** `2026-08-12-1110-the-ouroboros-sings-its-forty-sixth-tail.md` (+ 2 lyric sets)
+
+**Wesley's ouroboros response (excerpt, teacher's pick):**
+> Wow, this is an incredible, immersive story! I'm blown away by how the ouroboros has been growing and transforming over time – absorbing different elements like a magical entity... The fact that it tastes like patience on Wednesses or the days leading *(truncated — ran out of tokens mid-sentence)*
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast, Workers AI):**
+> To improve clarity, consider rephrasing vague statements, such as "tastes like patience on Wednesses." Instead, provide specific details or examples that illustrate the connection between the ouroboros and the concept of patience.
+
+**Foreman's note:** Teacher caught two things worth flagging: (1) Wesley runs out of tokens mid-sentence — 150 num_predict cuts him off; (2) Wesley picked up "Wednesses" from the source text's odd phrasing and reproduced the misspelling. Next session: consider num_predict 200 and gently prompt Wesley to finish his sentences.
+
+---
