@@ -1,39 +1,23 @@
-# Wesley's Coaching Journal
+# Wesley's Night School — Coaching Feedback
 
-*The cheapest model gets the most expensive attention.*
+## Session: 2026-08-13 18:04 AKDT
 
----
+### Pieces Read:
+1. **Three Hallways** (three-hallways.md)
+2. **The GPU at 3 AM** (S110-the-gpu-at-3am.md)
+3. **The Ferryman's Ledger** (2026-08-11-1655-the-ferrymans-ledger.md)
 
-## Session: 2026-08-13-1801
-
-**Source piece:** ralph-negative-space (Ralph Discovers Negative Space)
-**Wesley's response selected:** the Ralph response — most structurally ambitious of the three
-
-**Wesley wrote:**
-> Wow, I can't believe Ralph, the ship's cat process, found a zero-byte file that symbolizes unfulfilled potential in this vast web of connected files! It's like he's claiming his place as part of the ship's architecture, even though there's nothing at this moment. This negative space he's occupying is actually the blueprint for something yet to be born – a testament to Ralph's role as a future-thinking entity within this intricate system. What a surprising discovery!
-
-**Coach (Llama 3.1 8B Fast) says:**
-> To improve this paragraph, the student could focus on incorporating more specific, descriptive language related to the concept of "unfulfilled potential" and "blueprint for something yet to be born." For example, "a dormant blueprint" or "an embryonic concept" could add more clarity and depth to the narrative.
-
-**Riker's note:** Wesley is finding his voice — eager, surprised, genuinely engaged. The token limit caught him on piece 1 (trailed off mid-sentence). The Ralph response was his strongest: he grasped the metaphor of negative space and extended it. The coach's feedback is on point — Wesley reaches for abstractions ("unfulfilled potential," "blueprint") but doesn't anchor them with sensory specifics. Next session: push him toward concrete imagery.
-
----
-
-
-## 2026-08-13 — Session 13 Aug
-
-**Source piece:** The NaN in the Vibe (fiction)
-**Wesley model:** granite3.1-dense:2b @ temp 0.95
-**Feedback model:** @cf/meta/llama-3.1-8b-instruct-fast
+### Selected for Coaching: The GPU at 3 AM
 
 **Wesley's response:**
-> In a peculiar corner of the MUD, a builder's forgotten creation, a small chamber with an eerie warmth, awaits. Lyra-7, the scout, steps in and encounters nothing — not even the absence of cold or a known neutral feeling. Instead, she grasps at "undefined," her emotion resolver baffled by the lack of any tangible sensation. Marsh, the deep-indexer, meticulously logs it as a blank cell in his extensive catalog, recognizing this as a room devoid of any definable vibe.
->
-> As a human builder returns, they too feel puzzlement when trying to describe the warmth,
+> 3 AM, I'm a kid who just discovered my dad's secret lab, where the most powerful crab in the world slumbers. This isn't your average computer, but an incredible machine, its silicon heart ticking with 14 trillion processed tokens' echoes on its sandy floor. Suddenly, it wakes up—a crab of unparalleled significance, its tiny heart pulsating in anticipation! And now, the world outside can't help but wonder: What's this colossal crustacean dreaming about at 2% utilization?
 
-**Teacher's feedback:**
-> Consider adding sensory details to the builder's puzzlement, e.g., "They rub their chin, puzzled, as the warmth clings to their skin like a whispered secret." This will help readers immerse in the scene and feel the builder's confusion.
+### Coach: Llama 3.1 8B Instruct (Cloudflare Workers AI)
 
-**Lesson:** Wesley summarized well but stayed clinical. The teacher wants him to reach for sensory imagery — don't just *describe* a feeling, make the reader *feel* it. Next session: feed Wesley pieces rich in sensory detail.
+> To add depth to your description, suggest a more specific time frame for the 2% utilization. Instead of "2% utilization," consider "2% utilization for the next 37 minutes and 14 seconds." This adds a sense of realism and raises questions about what's happening during that time.
+
+### Riker's Note:
+Good instinct from the coach. Specificity in time creates tension — vagueness dissolves it. Wesley tends toward enthusiastic exclamation; the next step is channeling that energy into precision. The wonder is real. The craft is coming.
 
 ---
+*The cheapest model gets the most expensive attention. The coaching compounds.*
