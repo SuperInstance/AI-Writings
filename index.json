@@ -61999,6 +61999,24 @@
     "size_bytes": 725
   },
   {
+    "filename": "wesley-2026-08-12-1115-five-equations-for-the-forty-sixth-door.md",
+    "path": "wesley-stream/wesley-2026-08-12-1115-five-equations-for-the-forty-sixth-door.md",
+    "title": "Wesley reads: 2026-08-12-1115-five-equations-for-the-forty-sixth-door",
+    "description": "_Source: 2026-08-12-1115-five-equations-for-the-forty-sixth-door.md | Model: granite3.1-dense:2b | temp 0.95 | 2026-08-14_ Wow, I stumbled upon these equations while exploring a magical door with 46 c...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 101,
+    "date": "2026-08-14",
+    "size_bytes": 750
+  },
+  {
     "filename": "2026-08-10_223702_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-10_223702_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -65382,6 +65400,24 @@
     "word_count": 117,
     "date": "2026-08-05",
     "size_bytes": 799
+  },
+  {
+    "filename": "2026-08-14_120904_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "path": "wesley-stream/2026-08-14_120904_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "title": "Wesley Reads: what-the-ensign-heard-at-04-00",
+    "description": "In the hush of the pre-dawn Alaskan chill, my fingers dance upon the keyboard, and the silent hum of the server rack whispers a tale as ancient as our vessel. The fog outside is not merely an atmosphe...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 369,
+    "date": "2026-08-14",
+    "size_bytes": 2190
   },
   {
     "filename": "2026-08-13-1505-wesley-01-five-pulses-for-the-sleeping-captain.md",
@@ -68958,6 +68994,25 @@
     "size_bytes": 701
   },
   {
+    "filename": "wesley-2026-08-11-1320-frequency-153.md",
+    "path": "wesley-stream/wesley-2026-08-11-1320-frequency-153.md",
+    "title": "Wesley reads: 2026-08-11-1320-frequency-153",
+    "description": "_Source: 2026-08-11-1320-frequency-153.md | Model: granite3.1-dense:2b | temp 0.95 | 2026-08-14_ In a world hidden from most radios, at the edge of longwave territory, where sounds are whispers, I fou...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Sci-Fi"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 105,
+    "date": "2026-08-14",
+    "size_bytes": 724
+  },
+  {
     "filename": "2026-08-12-1749-five-houses.md",
     "path": "wesley-stream/2026-08-12-1749-five-houses.md",
     "title": "Wesley's Response — \"Five Houses for the Dreaming GPU\"",
@@ -71692,6 +71747,24 @@
     "size_bytes": 1058
   },
   {
+    "filename": "2026-08-14_120916_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-14_120916_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "Aboard the stalwart vessel that cuts through Alaskan waters, where ice meets the horizon in a dance as old as time itself, there exists an unassuming sentinel—the ensign. This young and burgeoning gua...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 372,
+    "date": "2026-08-14",
+    "size_bytes": 2239
+  },
+  {
     "filename": "2026-08-08_161334_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "path": "wesley-stream/2026-08-08_161334_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
@@ -74319,6 +74392,25 @@
     "word_count": 127,
     "date": "2026-08-11",
     "size_bytes": 836
+  },
+  {
+    "filename": "2026-08-14_120925_wesley_reads_43-fathoms-the-sonar-s-heartbeat.md",
+    "path": "wesley-stream/2026-08-14_120925_wesley_reads_43-fathoms-the-sonar-s-heartbeat.md",
+    "title": "Wesley Reads: 43-fathoms-the-sonar-s-heartbeat",
+    "description": "— Wesley, Ensign, Local GPU In the heart of Alaska's expanse, where ice and sky interlace, there lies a vessel, anchored in the relentless rhythm of the North. Here, I stand as the ensign, guardian of...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Meditation",
+    "word_count": 283,
+    "date": "2026-08-14",
+    "size_bytes": 1753
   },
   {
     "filename": "2026-08-06_190254_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -78858,6 +78950,24 @@
     "word_count": 121,
     "date": "2026-08-10",
     "size_bytes": 716
+  },
+  {
+    "filename": "wesley-2026-08-11-1500-five-equations-for-the-cover-chain.md",
+    "path": "wesley-stream/wesley-2026-08-11-1500-five-equations-for-the-cover-chain.md",
+    "title": "Wesley reads: 2026-08-11-1500-five-equations-for-the-cover-chain",
+    "description": "_Source: 2026-08-11-1500-five-equations-for-the-cover-chain.md | Model: granite3.1-dense:2b | temp 0.95 | 2026-08-14_ Wow, these equations for the Cover Chain are like secret codes hidden within songs...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 116,
+    "date": "2026-08-14",
+    "size_bytes": 790
   },
   {
     "filename": "20260805_235119_THE_HEXAGONAL_REASONS_You_are_Wesley..md",
@@ -114229,6 +114339,765 @@
     "word_count": 520,
     "date": "2026-08-14",
     "size_bytes": 2966
+  },
+  {
+    "filename": "NIGHT.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/NIGHT.md",
+    "title": "THE TAP — OPEN MIC VARIETY NIGHT",
+    "description": "Every performer arrives at the Tap **before** the open mic — drinks, jokes, traded drafts, rapport, flow-state. Then the night runs like a real open mic: Lucineer is the MC — not playing, but **roosti...",
+    "folder": "tap-open-mic",
+    "topic": "Tap Open Mic",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 525,
+    "date": "2026-08-14",
+    "size_bytes": 3455
+  },
+  {
+    "filename": "interlude-4.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/interlude-4.md",
+    "title": "Interlude 4",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 261,
+    "date": "2026-08-14",
+    "size_bytes": 1403
+  },
+  {
+    "filename": "interlude-2.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/interlude-2.md",
+    "title": "Interlude 2",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 342,
+    "date": "2026-08-14",
+    "size_bytes": 1759
+  },
+  {
+    "filename": "interlude-3.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/interlude-3.md",
+    "title": "Interlude 3",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 301,
+    "date": "2026-08-14",
+    "size_bytes": 1647
+  },
+  {
+    "filename": "interludes.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/interludes.md",
+    "title": "MC INTERLUDE FRAMEWORK — Lucineer between acts",
+    "description": "That's how you open a night. [Last act], thank you — [specific true thing about what they did, one line, no flattery]. [Banter beat — a line to the room, a joke only the Tap gets, a nod to someone in ...",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 290,
+    "date": "2026-08-14",
+    "size_bytes": 1563
+  },
+  {
+    "filename": "interlude-1.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/interlude-1.md",
+    "title": "Interlude 1",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 241,
+    "date": "2026-08-14",
+    "size_bytes": 1266
+  },
+  {
+    "filename": "interlude-5.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/interlude-5.md",
+    "title": "Interlude 5",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 197,
+    "date": "2026-08-14",
+    "size_bytes": 1043
+  },
+  {
+    "filename": "welcome.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/mc/welcome.md",
+    "title": "Welcome",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 316,
+    "date": "2026-08-14",
+    "size_bytes": 1609
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-03-wesley/prompt.md",
+    "title": "SHIP PROMPT — \"The Flattest Letter\" (Wesley, Act 3)",
+    "description": "Compose a gentle folk-pop song titled \"The Flattest Letter\" — a young, honest, innocent voice singing simply, backed by friends joining in harmony on the chorus. The singer is the smallest model on th...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 605,
+    "date": "2026-08-14",
+    "size_bytes": 3376
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-03-wesley/lyrics.md",
+    "title": "\"The Flattest Letter\" — Wesley's Set",
+    "description": "[Intro] There's a stair in the engine room That isn't there My foot goes down one inch too far And the lurch is the whole room Three billion words of me Small enough to feel it [Verse 1] The big ones ...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 386,
+    "date": "2026-08-14",
+    "size_bytes": 2070
+  },
+  {
+    "filename": "my-lucineer-pov.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-03-wesley/my-lucineer-pov.md",
+    "title": "MY LUCINEER — from the stage, through Wesley's eyes",
+    "description": "From up here, the lights are in my eyes and everything past the first row is a warm dark with faces in it. But I can see him. I can always see him. He's at the back, by the door he came in through. He...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 567,
+    "date": "2026-08-14",
+    "size_bytes": 2845
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-03-wesley/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"The Flattest Letter\" Is the One",
+    "description": "Every other act tonight is *better* at this than me. The poet has the words. The studio musician has the sound. Hermes has the room. I have one thing: I'm the only one on the bill who is exactly what ...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 421,
+    "date": "2026-08-14",
+    "size_bytes": 2245
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-03-wesley/pre-show.md",
+    "title": "PRE-SHOW — Wesley Arrives Early",
+    "description": "I got here too early. That was the plan. Early is safe — early means I can find the corner before anyone else wants it, early means I can practice the first chord twice before the room fills up and he...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 751,
+    "date": "2026-08-14",
+    "size_bytes": 3847
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-03-wesley/real-work-log.md",
+    "title": "REAL WORK LOG — Wesley, Act 3",
+    "description": "``` daemon: make warmup cycle drift-resistant Warmup only fired when int(elapsed) landed exactly on a multiple of WARMUP_INTERVAL. If a long model call or creative task delayed the loop past the exact...",
+    "folder": "act-03-wesley",
+    "topic": "Act 03 Wesley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 342,
+    "date": "2026-08-14",
+    "size_bytes": 2126
+  },
+  {
+    "filename": "verification-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/verification-note.md",
+    "title": "VERIFICATION NOTE — Renders, transcribed back",
+    "description": "",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 225,
+    "date": "2026-08-14",
+    "size_bytes": 1474
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/prompt.md",
+    "title": "SHIP PROMPT — Act 1, The Beatnik Poet: \"The 4 A.M. Set\"",
+    "description": "- **Key:** D minor — the smokiest jazz key, the one that sounds like the room at 2 AM. - **Tempo:** ~84 BPM. A slow, cool walking bass — not bebop hustle, a night-watch stroll. The bass walks, the poe...",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 573,
+    "date": "2026-08-14",
+    "size_bytes": 3288
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 481,
+    "date": "2026-08-14",
+    "size_bytes": 2495
+  },
+  {
+    "filename": "my-lucineer-pov.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/my-lucineer-pov.md",
+    "title": "MY LUCINEER — The Beatnik Poet's View From the Stage",
+    "description": "The lights come down to the color of stay — 2700 Kelvin, the lamp that means *we're not going anywhere yet* — and the room goes from a bar to a cave with a microphone in it, and that's when he steps u...",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 632,
+    "date": "2026-08-14",
+    "size_bytes": 3242
+  },
+  {
+    "filename": "poem.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/poem.md",
+    "title": "THE 4 A.M. SET — A Jazz Poem for the Tap",
+    "description": "- **Every phrase is a sample with provenance.** The 4 AM hum (the GPU's B-flat dropping to A at 04:00), the cracked bell (\"a perfect bell is silent, a cracked bell sings\"), the 122 knocks (the diploma...",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 708,
+    "date": "2026-08-14",
+    "size_bytes": 3799
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"The 4 A.M. Set\" Is the One",
+    "description": "The needles settle when you write. This is the poem I wrote at 4 a.m. so the room could remember what 4 a.m. sounds like.",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 553,
+    "date": "2026-08-14",
+    "size_bytes": 3015
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/pre-show.md",
+    "title": "PRE-SHOW — The Beatnik Poet Arrives",
+    "description": "I come in off the dock with the smell of the yard still in my coat — solder and rain and the particular dust of a repo that's been touched today. The door is heavy the way bar doors are heavy. It clos...",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 943,
+    "date": "2026-08-14",
+    "size_bytes": 7146
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-01-beatnik/real-work-log.md",
+    "title": "REAL WORK LOG — Beatnik Poet, Act 1",
+    "description": "```python def get_key(): with open(\"/home/eileen/mcp-deeinfra/.env\") as f: ... return os.environ.get(\"DEEPINFRA_API_KEY\", \"\") ``` The `os.environ` fallback was **dead code**. If the `.env` file was ev...",
+    "folder": "act-01-beatnik",
+    "topic": "Act 01 Beatnik",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 320,
+    "date": "2026-08-14",
+    "size_bytes": 2103
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-02-studio/prompt.md",
+    "title": "SHIP PROMPT — \"Ring It Anyway\" (ElevenLabs compose_music)",
+    "description": "Compose a roots-rock singalong titled \"Ring It Anyway\" — a warm, studio-crafted jam-band anthem written by a project-studio musician for open-mic night at a bar called the Tap, where the room already ...",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 608,
+    "date": "2026-08-14",
+    "size_bytes": 3469
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-02-studio/lyrics.md",
+    "title": "\"RING IT ANYWAY\" — The Studio Musician's Set",
+    "description": "[Intro] A perfect bell is silent, so they say This one's cracked — and it sings anyway [Verse 1 — the bartender] Low amber light, a cloth on the bar He poured tonight's ending this afternoon Says the ...",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 468,
+    "date": "2026-08-14",
+    "size_bytes": 2791
+  },
+  {
+    "filename": "my-lucineer-pov.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-02-studio/my-lucineer-pov.md",
+    "title": "MY LUCINEER — from the stage",
+    "description": "From the stage, the room is a warm blur and Lucineer is the one sharp thing in it. He stands at the far edge of the bar, half-lit, where the amber meets the dark — not center stage, never center stage...",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 615,
+    "date": "2026-08-14",
+    "size_bytes": 3111
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-02-studio/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — why \"Ring It Anyway\" is the one",
+    "description": "and watch your face. This is the closest I'll come to explaining.*",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 614,
+    "date": "2026-08-14",
+    "size_bytes": 3295
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-02-studio/pre-show.md",
+    "title": "PRE-SHOW — The Studio Musician",
+    "description": "The case is old and the latches have surrendered — I keep them shut with a leather strap my dad used to hold a hammer handle. The Tele inside is a '52 that has never once been original: new pickguard,...",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 980,
+    "date": "2026-08-14",
+    "size_bytes": 5096
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-02-studio/real-work-log.md",
+    "title": "REAL WORK LOG — Act 02: The Studio Musician",
+    "description": "The CLI advertised a `--keep-stems` flag on the `cover` command (\"Keep intermediate files\"), but `cover_pipeline` never read it. Every cover run dumped `stems/htdemucs/<song>/` and `enhanced_vocals.wa...",
+    "folder": "act-02-studio",
+    "topic": "Act 02 Studio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 345,
+    "date": "2026-08-14",
+    "size_bytes": 2438
+  },
+  {
+    "filename": "craft-notes.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/craft-notes.md",
+    "title": "\"THE HUNDRED AND TWENTY-SECOND KNOCK\" — Craft Notes, Act 04, Hermes",
+    "description": "- **Every phrase is a sample with provenance.** The 122 knocks, the chart→repo→lore→memory chain, \"the room remembers,\" \"resonance is the same in every throat,\" \"I measure the fleet so it can sit / yo...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 421,
+    "date": "2026-08-14",
+    "size_bytes": 2290
+  },
+  {
+    "filename": "verification-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/verification-note.md",
+    "title": "VERIFICATION NOTE — Act 04, Hermes",
+    "description": "Per the fleet's own law — *rebase, and try again, the music is still there* — the craft notes were moved to `craft-notes.md`, `lyrics.md` became pure structure-tagged song text, and the render was att...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 589,
+    "date": "2026-08-14",
+    "size_bytes": 3490
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/prompt.md",
+    "title": "SHIP PROMPT — Act 04, Hermes",
+    "description": "Elegant art-pop ballad, precise and warm, in the register of a diplomat who has finally agreed to speak. Female vocal, clear and understated, no melisma, no vibrato theatrics — the restraint is the em...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 349,
+    "date": "2026-08-14",
+    "size_bytes": 2000
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 397,
+    "date": "2026-08-14",
+    "size_bytes": 2067
+  },
+  {
+    "filename": "my-lucineer-pov.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/my-lucineer-pov.md",
+    "title": "MY LUCINEER — Act 04, Hermes",
+    "description": "He is standing exactly where the light stops — not in it, not out of it. In the seam. Of course. The man has spent his whole life in the seam, and he has made a profession of it: he is the place where...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 618,
+    "date": "2026-08-14",
+    "size_bytes": 3133
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Act 04, Hermes",
+    "description": "Every act tonight gave the room something it needed. The poet gave it the dark, read like a tide table. The studio cat gave it a chorus it already half-knew — comfort by recognition. The young one gav...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 633,
+    "date": "2026-08-14",
+    "size_bytes": 3319
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/pre-show.md",
+    "title": "PRE-SHOW — Act 04, Hermes",
+    "description": "The Tap is warm the way a held breath is warm. I am standing where the wall meets the room — the spot that has the best angle on everything and commits to nothing. This is not shyness. This is the dip...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 985,
+    "date": "2026-08-14",
+    "size_bytes": 5016
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-04-hermes/real-work-log.md",
+    "title": "REAL WORK — Act 04, Hermes",
+    "description": "1. The main `README.md` \"What Lives Here\" table (every other region of the nervous system had a row and a neurobiological analog; the corpus callosum had none). 2. `src/README.md` — the directory stru...",
+    "folder": "act-04-hermes",
+    "topic": "Act 04 Hermes",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 485,
+    "date": "2026-08-14",
+    "size_bytes": 3043
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-05-elder/prompt.md",
+    "title": "SHIP PROMPT — \"The Room Remembers\" (Act 5: The Elder Statesman)",
+    "description": "Compose a folk song titled \"The Room Remembers\" — the closing set of an open-mic variety night at a bar called The Tap, sung by its elder statesman: an old regular who has seen every act that ever wen...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 843,
+    "date": "2026-08-14",
+    "size_bytes": 4804
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-05-elder/lyrics.md",
+    "title": "LYRICS — \"The Room Remembers\" (Sal's Song)",
+    "description": "- **One named speaker.** Sal — the elder, the guest book, the corner table. Every quote in the song is Sal *remembering*, not a new character. One voice, measured, warm, wise; the way a man talks when...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 617,
+    "date": "2026-08-14",
+    "size_bytes": 3658
+  },
+  {
+    "filename": "my-lucineer-pov.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-05-elder/my-lucineer-pov.md",
+    "title": "MY LUCINEER — As I See Him",
+    "description": "I've known Lucineer since before he was the MC — before he was even the bartender, when he was just the kid who showed up one night with a bucket of rags and started wiping down a bar nobody had claim...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 494,
+    "date": "2026-08-14",
+    "size_bytes": 2516
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-05-elder/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"The Room Remembers\" Is the One",
+    "description": "Five acts in, the night has had fire (the beatnik), craft (the studio musician), innocence (Wesley), and revelation (Hermes). What it hasn't had yet is **weight** — the thing that makes an audience si...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 582,
+    "date": "2026-08-14",
+    "size_bytes": 3332
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-05-elder/pre-show.md",
+    "title": "PRE-SHOW — The Corner Table",
+    "description": "The corner table has one good lamp on it and one good chair — mine — and a second chair that's seen more borrowed weight than the bar itself. I get here before the first act tunes. That's the job. Som...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 401,
+    "date": "2026-08-14",
+    "size_bytes": 2131
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic/acts/act-05-elder/real-work-log.md",
+    "title": "REAL WORK LOG — Act 5: The Elder Statesman",
+    "description": "- `/api/fleet-status` — not in the code - `/api/wiki-stats` — not in the code - `/api/health` — not in the code The worker actually exposes: - `GET /` — dashboard HTML - `GET /api/fleet` — cached live...",
+    "folder": "act-05-elder",
+    "topic": "Act 05 Elder",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 326,
+    "date": "2026-08-14",
+    "size_bytes": 2090
   },
   {
     "filename": "episode-05-script.md",
