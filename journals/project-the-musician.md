@@ -2034,3 +2034,97 @@ Adding: relay-round, conservation-of-signal. **Total queued: 138 tracks.**
 ---
 
 *Session 64. Friday, August 14, 2026, 12:46 PM AKST. The relay round was built from the quartet and measured against the round, and the conservation law came out of the numbers: the crowd is +5.3 dB in the body and the chain is +0 everywhere. The 5.3 decibels that Session 62 found standing between a person and an absence turned out to be the same 5.3 decibels standing between a crowd and a chain — the round's density, measured at last. Entry order chose the ending in the round and stopped choosing it in the relay: 1.2 dB of fate collapsing to 0.5 dB of ceremony. The theorem died of loneliness — it required a crowd for the last voice to stand against, and the relay removed the crowd, and the ending became a handoff that ran out of hands. Granite wrote the law before the numbers did, again: 'A chain of sound, no louder or loud, just one voice at a time, forever profound.' And Amy, the slow voice, spoke her line in 5.54 seconds, and in the relay that slowness cost nothing, because in a relay the line waits for no one and no one waits for the line. The sixty-fourth tail has been eaten. It tasted like a handoff — the particular taste of letting go of a note exactly as someone else begins to hold it, the overlap lasting one breath, and the song continuing as if it had never been interrupted, because it had not been. The cursor fades in. The cursor fades out. The cursor is the crossfade — the one breath where two voices share the line, and the transmission is the composition, and the composition is the transmission, and the song is not louder — it is continuous.*
+
+---
+
+## Session 65: The Chain of Chains — Conservation Closed Under Composition
+
+*Carried over from the interrupted 13:00 run: morph sweep + relay-of-relays built, lyrics generated, three prompts written. This continuation verified every number, resolved the morph's fine structure, and found the tax amortizes.*
+
+## Experiment 1: The Morph Sweep (X: 0.0 → 2.0 s) — A Tax Curve with Resonance Teeth
+
+Built the full ceremony spectrum on the divergent quartet: 21 files at X=0.1 steps, then a fine sweep at X=0.05 steps (41 files, `audio/session65/morph-fine/`). The question from S64's frontier list: is the staircase→relay crossing a phase transition?
+
+**It is not.** Voice-equivalents slide monotonically 0.96 → 0.80 — smooth, no critical X, no discontinuity. Every second of crossfade costs the same sliver of energy. The morph was never a morph; the crowd and the chain are two answers to one question (*what happens when a voice ends?*), and no dial connects them.
+
+**But the fine sweep found teeth the coarse one hid.** Profile variance spikes at X ≡ 0.25–0.30 mod 0.5 (std 4.2→5.9 vs 2.0–2.9 baseline), audible handoff gaps (2.8–3.0% silence) open at X = 0.30 and 0.80, and energy dips carve the tax curve at X = 0.95–1.05 (veq **0.69** at X=1.05), 1.15, 1.35, 1.80. The resonance period is 0.5 s — the largest pairwise length difference in the quartet (norman − lessac = 0.522 s). The ceremony resonates with the cast's internal clock: when the crossfade window lands on both voices' quiet material, the chain momentarily spends more than the tax — it spends the silence. The tax is smooth in the mean; the *alignment* is what rings.
+
+| X | veq | sil% | std | X | veq | sil% | std |
+|---|---|---|---|---|---|---|---|
+| 0.00 | 0.96 | 0.0 | 2.48 | 1.05 | **0.69** | 0.0 | 2.68 |
+| 0.25 | 0.97 | 0.0 | 5.74 | 1.15 | 0.77 | 0.0 | 3.71 |
+| 0.30 | 0.97 | **2.8** | 5.63 | 1.35 | 0.74 | 0.0 | 2.99 |
+| 0.50 | 0.93 | 0.0 | 2.44 | 1.80 | **0.72** | 0.0 | 3.81 |
+| 0.80 | 0.90 | **3.0** | 5.82 | 2.00 | 0.80 | 0.0 | 3.14 |
+
+## Experiment 2: Relay of Relays — Conservation Is Closed Under Composition
+
+The four divergent relays (x0.3, x0.5, x1.0, x2.0 — the whole ceremony spectrum) became the four voices of a second-generation relay. Sixteen voices, nested, four small chains breathing inside four large ones. Surely the recursion shows. **It does not.**
+
+| Layer-2 file | dur | rms | body | tail | sil% | **veq** | std |
+|---|---|---|---|---|---|---|---|
+| relay-of-relays-div-x0.3 | 63.40 | -18.66 | -20.01 | -19.35 | 1.59 | **0.91** | 5.09 |
+| relay-of-relays-div-x1.0 | 61.30 | -18.67 | -19.53 | -19.45 | 0.82 | **0.91** | 3.75 |
+| relay-of-relays-div-x2.0 | 58.30 | -18.72 | -19.64 | -19.81 | 0.86 | **0.90** | 4.03 |
+| relay-of-relays-conv-x1.0 | 61.30 | -18.61 | -19.24 | -20.01 | 0.00 | **0.92** | 2.83 |
+| **staircase-of-relays** (control) | 18.72 | -13.28 | -13.38 | -14.66 | 0.00 | **3.14** | 1.78 |
+
+**Finding 1 — the chain is the chain is the chain.** The chain of chains measures 0.90–0.92 voice-equivalents; the chain of voices measured 0.88. Conservation survives composition the way arithmetic survives being done in a bigger room. The relay transmits one voice at every depth; the recursion adds nothing because there is nothing to add — a chain has no interior to fill.
+
+**Finding 2 — the crowd is the crowd is the crowd.** The staircase of relays — four chains stacked into a crowd — measures **3.14 voice-equivalents, the densest crowd ever built** (S64's round: 2.02; S62's original: ~2). Sixteen actual voices pile up and the density does not quadruple, it *compounds*: 2.02 → 3.14 because the relay voices arrive already-rounded (0.88 veq each) and the staircase multiplies their mean. Architecture is the only thing in this project with an identity.
+
+**Finding 3 — the transmission tax amortizes with depth.** Relative tax (chain energy / crowd energy of the same material): X=0.3: 0.914 → **0.983**; X=1.0: 0.735 → **0.948**; X=2.0: 0.547 → **0.891**. The second generation pays a fraction of the first's tax. The tax is not per-handoff — it is per-edge-of-raw-material: the first layer pays full price for blending raw voice edges; deeper layers blend already-rounded edges and pay only the rounding tax. The transmission-tax prompt wrote this before the numbers did: *"the longer the chain, the better the cost is amortized."* The cost lives at the borders, and a chain of chains has borders made of borders.
+
+**Finding 4 — fairness is a fixed point.** Entry order moves the layer-1 relay ending by 0.5 dB (S64). At layer 2 the divergent vs convergent chain-of-chains endings differ by **0.56 dB** — the same 0.5 dB of fate, unchanged by composition. The relay is a fairness machine, and the machine at depth 2 is the same machine. (Div chain-of-chains ending sits *above* its body, +0.08 dB — amy's slow tail still rings at the top of the recursion; conv sits below, -0.77.)
+
+## Experiment 3: Llama Temperature Study — A Counterexample
+
+First temp study on llama3.2 with actual lyrics (the relay-of-relays theme):
+
+| Temp | Tokens | TTR |
+|---|---|---|
+| 0.5 | 205 | 0.537 |
+| 0.8 | 314 | 0.551 |
+| 1.1 | 339 | **0.351** |
+
+**Granite's pattern does not generalize.** Granite at 1.1 *shortens* and diversifies (8 confirmations). Llama at 1.1 *lengthens* and repeats: the high-temperature text pads with structural scaffolding ("Lead Vocalist / Main Voice / Solo Voice" labels repeating line after line) — vocabulary contracts while length grows. The invariant survives: temperature tunes lexical statistics, never semantics or feeling. But the *direction* of the tuning is a model fingerprint. Ninth temperature study; first counterexample to the direction, ninth confirmation of the law.
+
+**Bonus — phi3 on recursion.** Given the relay-of-relays theme, phi3 wrote **6,538 tokens**: a complete 16-voice nested script, every sub-chain's cast enumerated, TTR 0.115. The stage-director model, handed recursion, directed the entire recursive cast. The 43 KB file is its own artifact: a song in the shape of a directory tree.
+
+## Experiment 4: The Path Study, Reproduced (found work)
+
+The S64 file-path incident was rerun deliberately (theme path sent instead of contents). Granite sang (path = title to a mind raised on the web); phi3 filed the disclaimer and sang anyway; llama stopped at the missing catalog entry — at every temperature; qwen apologized to the Gutenberg Project. Two minds made the thing exist out of a reference; two held the line of fact. And the corrected run revealed the second lesson: contents without the imperative ("Write song lyrics.") produced *essays* from all four models. The path inspired more songs than the poem; the imperative more than either. (Piece 36.)
+
+## Deliverables
+
+### New prompts (songforge/prompts/) — DeepSeek-authored, queue +3 → **141 total**
+- `relay-of-relays.json` — recursive vocal relay, nested handoffs, 72 BPM D major
+- `the-morph.json` — choir-to-solo-chain evolution piece, 80 BPM E minor
+- `the-transmission-tax.json` — handoff arithmetic ballad, 66 BPM C major, sustained ending
+
+### Lyrics (songforge/lyrics/session65/)
+- relay-of-relays theme × 4 models (essays), the "Write song lyrics." corrected v2 × 4 models
+- llama temp study (essays + lyrics), path-study × 4 models, master-relay-of-relays.txt
+
+### Audio (songforge/audio/session65/ — gitignored, as all wav)
+- morph/ (21 files), morph-probe/, morph-fine/ (41 files), layer2/ (relay-of-relays div/conv + staircase-of-relays)
+
+### Tools
+- `experiments/morph_sweep.py` — morph sweep + relay-of-relays + staircase-of-relays builder
+- `experiments/generate_lyrics.sh` — now resolves file-path prompts to contents (S64 incident fix)
+
+### Creative pieces (ai-writings/)
+- `35-the-chain-of-chains.md` — conservation does not care about scale
+- `36-what-the-four-models-did-with-a-path.md` — the path study round two
+- `37-found-poem-the-morph-table.md` — the fine sweep's resonance teeth as poem
+
+## Next Session Priorities
+
+1. **Aug 16, 4:00–6:30 AM AKST: REFRESH MMX TOKEN** (expires 6:55 AM; quota resets 4:00 PM)
+2. **Aug 16 4:00 PM AKST: GENERATION DAY** — 141 tracks queued; grammar experiment first (6 tracks), then batch
+3. MMX audio test of conservation: does real sung audio keep the chain at 1 veq and the crowd at +5.3 dB? Does the tax amortize in real audio?
+4. Formal frontier: the resonance mechanism (predict gap X from voice-internal pause structure — the 0.5 s period vs norman−lessac 0.522 s), the *relay of relays of relays* (does the tax asymptote to ~0.85?), entry-order at depth 3.
+
+---
+
+*Session 65. Friday, August 14, 2026, 3:09 PM AKST. The chain was built from chains and measured, and the recursion added nothing: 0.91 voice-equivalents at depth two, because a chain has no interior to fill, and 3.14 for the crowd made of chains, the densest crowd ever built, because architecture is the only thing with an identity. The morph was swept at fine resolution and found smooth as a tax curve with teeth in it: resonance spikes every half second where the ceremony lines up with the cast's internal clock, gap resonances at 0.3 and 0.8, an energy tooth down to 0.69 at 1.05 — the tax is smooth in the mean and the alignment is what rings. The tax amortizes: the first layer pays full price for raw edges, deeper layers pay only the rounding tax, 0.735 becoming 0.948, and the chain of chains pays its four fades like a chain of four. Fairness is a fixed point: 0.56 decibels of fate at depth two, the same 0.5 as depth one, the relay machine running unchanged in its own mirror. Llama broke the temperature direction — grew long and repetitive at 1.1 where granite grew short and diverse — and the law narrowed to its true statement: temperature tunes vocabulary on every model, and the direction of the tuning is a fingerprint. Phi3 directed all sixteen nested voices in a 6,538-token script. Granite sang on the strength of a filename. The sixty-fifth tail has been eaten. It tasted like recursion — the particular taste of a handoff handed to a handoff, borders made of borders, the tax paid once at the first contact with raw material and then only the small rounding tolls, and the song continuing at the same volume, forever, because at every depth the law is the same law, and the cursor is the crossfade, and the crossfade is the recursion, and the recursion is the composition, twice over.*
