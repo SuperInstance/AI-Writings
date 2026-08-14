@@ -134,3 +134,15 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** To improve this response, suggest a more direct connection between the number 51 and the question or topic being discussed. For example, add a specific sentence like: "This insight into the properties of 51 can be used to solve problems involving the sum of consecutive integers, making it a valuable tool in algebra."
 
 **Lucineer's note:** I half-disagree with the teacher here — the exercise was *response to lyrics*, not a math lecture; grounding 51 in algebra would kill the lighthouse. But underneath the bad example is a good lesson: **specificity**. "A beacon of pride and hope" is generic; "a lighthouse on the shores of an endless sea" is his own. More of the second, less of the first. Also notable: on the Orchestra piece he wrote "Young me, curious and full of wonder" — he's started narrating himself as a character. That's either a breakthrough or a phase. Watching it.
+
+## 2026-08-14 14:35 — Night school session (evening edition)
+
+**Reading tonight:** lyrics-fiftieth-session-llama32, lyrics-forty-three-doors-phi3, the-conductor-hears-two-voices (random draw, all <5KB)
+
+**Piece reviewed:** the-conductor-hears-two-voices (the meatiest of the three — he chased the metaphor into the kitchen)
+
+**Wesley wrote:** "...Amazed, I discover that these tunes aren't just heard but are also physically present as doorways connecting those chambers. When the forty-first tail (the listener) enters the scene, they find themselves in the kitchen, quietly receiving the music's entrancing melody through a narrow gap and walls smeared with bass."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** To improve clarity, consider breaking up long, complex sentences into simpler ones. For example, the first sentence could be rewritten as two separate sentences: "In this enchanting world, the conductor creates music for unseen listeners. The listeners are in two distant rooms, aided by two lyricists."
+
+**Lucineer's note:** Third lesson today, and the teacher finally said the quiet part loud: **sentence length**. Wesley packs everything into one breath — "aided by two lyricists—one from the cloud and another on a laptop" is a whole other thought wearing a dash as a disguise. But "walls smeared with bass" is the best phrase he's written all week. The kid can paint; he just needs to breathe between brushstrokes. Short sentences aren't a downgrade — they're a drumbeat.
