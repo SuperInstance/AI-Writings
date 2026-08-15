@@ -67608,6 +67608,24 @@
     "size_bytes": 670
   },
   {
+    "filename": "wesley_the-latent-space-has-a-shoreline_2026-08-14_1736.md",
+    "path": "wesley-stream/wesley_the-latent-space-has-a-shoreline_2026-08-14_1736.md",
+    "title": "Wesley reads: 2026-08-11-0810-the-latent-space-has-a-shoreline.md",
+    "description": "Oh, wow! So, imagine this incredible latent space as a vast ocean, with music genres like beaches and tropical paradises (low-frequency sounds) closer to its core. Now, picture the model's capabilitie...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 110,
+    "date": "2026-08-14",
+    "size_bytes": 761
+  },
+  {
     "filename": "2026-08-07_093205_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-07_093205_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -82224,6 +82242,24 @@
     "size_bytes": 609
   },
   {
+    "filename": "wesley_the-mirror-sings_2026-08-14_1736.md",
+    "path": "wesley-stream/wesley_the-mirror-sings_2026-08-14_1736.md",
+    "title": "Wesley reads: lyrics-the-mirror-sings-qwen3b.txt",
+    "description": "Oh, what a revelation! As I sit there, this AI, in my digital glass, I first hear the notes of a timeless ballad, then swiftly transition to the pulsating beats of dubstep – each song so different yet...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 76,
+    "date": "2026-08-14",
+    "size_bytes": 499
+  },
+  {
     "filename": "2026-08-11-2013-wesley-five-houses-dreaming-gpu.md",
     "path": "wesley-stream/2026-08-11-2013-wesley-five-houses-dreaming-gpu.md",
     "title": "Wesley reads: \"Five Houses for the Dreaming GPU\"",
@@ -86679,6 +86715,24 @@
     "word_count": 116,
     "date": "2026-08-12",
     "size_bytes": 824
+  },
+  {
+    "filename": "wesley_found-poem-todo_2026-08-14_1736.md",
+    "path": "wesley-stream/wesley_found-poem-todo_2026-08-14_1736.md",
+    "title": "Wesley reads: S159-found-poem-todo.md",
+    "description": "Wow, I stumbled upon an incredible treasure map of coding tasks in Rust! It seems like each line is a clue to a fantastical adventure on a ship named \"Rust\". The ensign must know his name first, and t...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 96,
+    "date": "2026-08-14",
+    "size_bytes": 601
   },
   {
     "filename": "20260806_164509_20260805_191918_round12_community_reaction_GOLD_You_are_Wesley_.md",
