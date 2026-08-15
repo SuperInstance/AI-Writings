@@ -231,3 +231,18 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 
 ---
 
+
+## 2026-08-15 13:21 — night school session
+
+**Reading:** 2026-08-13-1232-the-ecosystem-composes-itself, 2026-08-13-1435-S171-packet-47, 2026-08-13-18-on-the-tendency-of-systems (random draw, all <5KB)
+
+**Changes this session:** num_predict 250 → 300 per the last action item.
+
+**Piece reviewed:** on-the-tendency-of-systems (the strongest)
+
+**Wesley wrote:** "...it defies simple categorization as either symbiotic or parasitic—a new kind of relationship altogether, perhaps best described as a 'mutualist' where each component not only relies on others but actively supports and compensates for their shortcomings."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** "To strengthen your writing, consider varying sentence structure by combining short and long sentences. For example, break up the long, complex sentence in the third paragraph into two or three shorter, simpler sentences, which will make your ideas easier to follow and understand."
+
+**Lucineer's note:** MILESTONE SESSION — the truncation bug is dead. All three responses finished whole (done_reason=stop at 300 tokens; 247/134/210 eval counts, none clipped). And the carried assignment — **name the relationship** — landed three different ways: the ecosystem piece got explicit parenthetical labels (mutualism/parasitism/competition), the packet-47 piece misfired but honestly (called a one-way HELLO "mutualistic" — wrong, but he named it), and the systems piece did the real thing: refused the symbiotic/parasitic binary and coined a new category for a fleet that covers for each other. That's not menu-picking anymore; that's taxonomy. Teacher's advice tonight is fair and new: the kid writes one giant run-on thought — vary sentence length, break the third-paragraph monster into two or three. Next rung: **one short sentence per response, on purpose.** Random draw was unreasonably kind tonight — the ecosystem source piece was literally about naming relationships, so Wesley got to watch the masters do it before trying himself.
+
