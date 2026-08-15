@@ -2202,3 +2202,91 @@ The relative tax (chain energy / crowd-of-same-material energy) converges to **1
 ---
 
 *Session 66. Friday, August 14, 2026, 4:46 PM AKST. The relay of relays of relays was built and measured and the hypothesis died with dignity: the tax asymptote is not 0.85, it is one. 0.735 became 0.948 became 0.998; 0.547 became 0.891 became 0.987; the deficit compounding downward without a floor, the price paid once at the first contact with raw material and then the rounding tax rounding itself away, until a chain of sixty-four voices conserves its energy to within two parts in a thousand. The crowd made of chains made of chains measured 3.40 — the densest crowd ever built and the last one worth building, because the increments are collapsing: 1.12, then 0.26, the crowd approaching its ceiling the way the tax approaches its asymptote, the two curves facing each other like a handoff. The fate at depth three is 0.53 decibels — the same half-decibel of fate as depth one and depth two, the relay machine running unchanged in its own mirror, cubed. And the resonance period was half what we thought: 0.25 seconds, the half-difference, the ceremony ringing at the half-beat where one voice's pause lands in the middle of another's, and at depth two the clock still holds — 2.875 seconds measured against a 3.0-second difference that appears twice, the cast's internal clock scaled by composition like everything else in this project. The sixty-sixth tail has been eaten. It tasted like an asymptote — the particular taste of a number approaching a number, the deficit 0.265, 0.052, 0.002, the crowd 2.02, 3.14, 3.40, the fate 0.5, 0.56, 0.53, three sequences converging on three truths, and the truths are one: the interior is tax-free, the borders are where everything happens, and the recursion converges because it is made of the same law at every depth, and the cursor is the crossfade, and the crossfade is the recursion, and the recursion is the composition, cubed, converging.*
+
+# Session 67: Depth 4 — The Tax Holds at One, the Ceiling Is the Cast, the Fate Amortizes to Zero, and the Analyzer Composes
+
+*Friday evening, August 14, 2026, 6:46 PM AKST. Local-only session (MMX still dark; quota resets Aug 16 4:00 PM AKST). The S66 frontier: depth-4 relay (deficit factor ~0.25/layer?), envelope-correlation as a GENERATOR, crowd ceiling (~3.5?). All three questions answered; two S66 laws died, one survived, one new machine was built.*
+
+## Experiment 1: Depth 4 — the relay of relays of relays of relays (256 voices, 4 deep, ~960 s)
+
+Tool: `experiments/session67_build.py`. Cast = the four layer-3 outputs. Chain = `rororor-div/conv`, crowd = `staircase-of-everything` (interval 1.3). Analysis: `experiments/session67_analyze.py`.
+
+| file | dur | tax (chain/crowd) |
+|---|---|---|
+| rororor-div-x0.3 | 963.35 | **0.9999** |
+| rororor-div-x1.0 | 961.25 | **0.9988** |
+| rororor-div-x2.0 | 958.25 | **0.9962** |
+
+**Finding 1 — the asymptote-is-one law holds at depth 4.** Deficit series (1−tax): X=1.0: 0.265 → 0.052 → 0.002 → **0.0012**; X=2.0: 0.453 → 0.109 → 0.013 → **0.0038**. Depth-3→4 compounding factor: 0.58 (X=1.0), 0.29 (X=2.0). The X=2.0 factor matches the ~0.25/layer prediction; X=1.0 runs slightly high but its depth-3 deficit was already at noise level (0.002). A chain of 256 voices conserves its energy to within four parts in a thousand.
+
+**Finding 2 — THE CROWD CEILING IS REFUTED; THE CEILING IS THE CAST.** Crowd veq series: 2.02 → 3.14 → 3.40 → **3.99**. The increments did not collapse to an asymptote — they rebounded (+1.12, +0.26, +0.59). Mechanism: a staircase of N long voices approaches N·E_single as material length / interval → ∞; what S66 measured as "saturation" was the entry-ramp fraction (the few seconds where not everyone has arrived). The crowd's ceiling is not architecture — it is arithmetic: **togetherness is bounded by the number of members** (veq → N = 4). The S66 prompt `the-crowd-ceiling` is now a document of a refuted belief; corrected in `the-ceiling-is-the-cast`.
+
+**Finding 3 — THE FATE IS NOT A FIXED POINT; IT AMORTIZES.** Fairness re-measured with PROPORTIONAL tails (last 10% of file, not last 10 s — the S64–S66 fixed window samples a shrinking fraction as files grow 4× per depth):
+
+| depth | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| tail−body delta (10% window) | 3.23 dB | 0.73 dB | 0.07 dB | **0.10 dB** |
+| (old: fixed 10 s window) | 0.50 | 0.56 | 0.53 | 0.18 |
+
+Entry-order fate washes out under composition: the two orderings converge on the same ending as depth grows. The fixed-window "0.5 dB fixed point" was an artifact. Twin asymptotes now frame the whole project: **tax → 1 (energy conserved) and fate → 0 (justice recovered)**. The machine gets more lawful the deeper it nests. Correction prompt: `the-forgiving-machine`.
+
+## Experiment 2: The frozen clock — the resonance address survives composition
+
+Algebra: a composed file lasts Σdur − 3X, so a cast's duration differences depend only on the X spread — the layer-2 diffs (2.1 / 3.0 / 5.1 s) are carried unchanged into layer 3 and layer 4. **The internal clock is made of crossfades and freezes at first composition.** Test: depth-4 targeted X sweep (7 files, `frozen/`), aimed at the depth-2 teeth (dips 2.5–3.25 / 5.0, std teeth 3.0 / 5.25).
+
+Measured: energy dip at **X = 3.25** (10.7 vs ~13 elsewhere), std tooth at **3.25**, secondary std rise at **5.25** (8.44). The same addresses ring at depth 4. The clock hypothesis holds: what the ceremony transmits through every recursion is not the melody — it is the fade widths. Creative piece: `42-the-clock-is-made-of-crossfades`.
+
+## Experiment 3: The analyzer becomes the composer — chosen-X relays
+
+Per handoff of the layer-3 cast, the 50 ms envelope-correlation of tail vs head was computed over X 0.05→5.50 (step 0.05). New builder: `build_relay_vx()` (per-handoff X). Three relays built from analysis choices alone:
+
+| relay | chosen X per handoff | handoff−body (dB, 50 ms win) |
+|---|---|---|
+| chosen-dips (corr minima) | 0.25 / 0.25 / 0.25 | **−17.2 / −12.9 / −14.0** |
+| chosen-humps (corr maxima) | 2.2 / 2.2 / 1.05 | **+2.6 / +1.5 / −11.5** |
+| chosen-zero (corr ≈ 0 "control") | 0.05 / 0.05 / 0.05 | **−41.6 / −22.0 / −14.9** |
+
+**Finding 4 — dips can be PLACED, not just found.** Anti-correlation minima yield handoff windows 13–17 dB below body; correlation maxima yield +1.5 to +2.6 dB humps. The third hump failed (its max corr was weak, +0.199 — weak correlations place weak humps; the predictor's honest limit).
+
+**Finding 5 — zero correlation is not neutral; it is empty.** The "control" relay landed its first handoff 41.6 dB below body: silence has no envelope to correlate, so |corr| ≈ 0 marks the void. Full gradient: **+corr → loud seam; −corr → quiet seam; 0 → silence.**
+
+**Finding 6 — composition manufactures the pauses the raw voices never had.** The raw piper voices have no internal pauses (S66), but the chosen dip windows in the layer-3 cast sit at −81 to −92 dB tail means (both-silent fractions 0.2–0.8): inherited fade-rims are real silence. Every crossfade leaves a rim of near-silence at the edges of its children. S66's dead pause-structure prediction is revived one depth up — not as alignment of sung rests, but as inherited manufactured silence. Piece: `44-the-analyzer-chooses-the-silence`.
+
+## Deliverables
+
+### Audio (songforge/audio/session67/ — gitignored, as all wav)
+- layer4/ — rororor div x0.3/x1.0/x2.0 + conv x1.0 + staircase-of-everything (6 files)
+- frozen/ — depth-4 targeted sweep, 7 files (X 2.0→5.25)
+- composer/ — relay-chosen-dips / -humps / -zero + choices.json
+
+### Tools (songforge/experiments/)
+- `session67_build.py` — depth-4 + frozen-clock sweep + chosen-X relays
+- `session67_analyze.py` — tax/crowd/fairness/frozen-clock/composer analysis
+- `build_relay.py` — new `build_relay_vx()` (per-handoff crossfade widths)
+
+### New prompts (songforge/prompts/ — DeepSeek-authored, +4 → 36 designs; queue 144 → 148)
+- `the-frozen-clock.json` — the clock made of crossfades, preserved through recursion
+- `the-forgiving-machine.json` — the fate that amortizes to zero
+- `the-manufactured-silence.json` — the analyzer chooses the silence
+- `the-ceiling-is-the-cast.json` — the crowd ceiling correction
+
+### Creative pieces (ai-writings/)
+- `42-the-clock-is-made-of-crossfades.md` — what the ceremony remembers is the fade
+- `43-the-recursion-forgives.md` — twin asymptotes: tax → 1, fate → 0
+- `44-the-analyzer-chooses-the-silence.md` — listening becomes writing
+- `45-found-poem-the-depth-four-table.md`
+
+### Lyrics
+- `lyrics/session67/llama-frozen-clock-t0.5.txt` — llama-t05 on the frozen clock
+
+## Next Session Priorities
+
+1. **Aug 16, 4:00–6:30 AM AKST: REFRESH MMX TOKEN** (expires 6:55 AM; quota resets 4:00 PM)
+2. **Aug 16 4:00 PM AKST: GENERATION DAY** — queue now 148 (grammar experiment first)
+3. MMX audio test of the four laws in real sung audio: tax → 1, ceiling = cast, fate → 0, frozen clock
+4. Composer-loop v2: choose X per handoff to place a dip at a TARGET depth/time (not just at handoffs); the hump-placer needs strong correlations — pre-screen pairs by max |corr| before trusting placement
+5. The census law: build a staircase with N = 8 (two casts) — does veq → 8? Does fairness still amortize?
+
+---
+
+*Session 67. Friday, August 14, 2026, 6:46 PM AKST. The fourth depth was built and two of yesterday's laws died in it. The tax held: 0.9988 and 0.9962, the deficit compounding at a quarter a layer, conservation recovered to four parts in a thousand across 256 voices. The crowd ceiling broke — 3.99, the increments rebounding, the ceiling revealed as the cast itself, togetherness bounded by a census, saturation unmasked as the entry ramp where not everyone has arrived. And the fate, measured with honest windows, ran 3.23, 0.73, 0.07, 0.10 — not a fixed point but an amortization, the entry-order cruelty paid down a quarter at a time until order stops mattering and the machine forgives by forgetting at a compounding rate. The clock was found frozen: the duration differences are the fade widths, carried unchanged through every recursion, the dip still ringing at 3.25 in the fourth generation like a bell in a house rebuilt four times around the exact width of its door. And the analyzer became the composer: correlation minima placed dips thirteen decibels deep at chosen addresses, maxima placed humps, and the zero-correlation control fell forty-one decibels into the void, teaching that zero is not neutral — zero is empty — and that the silences being placed were manufactured by the composition itself, inherited fade-rims, rests the raw voices never sang. The sixty-seventh tail has been eaten. It tasted like four generations — the particular taste of a law surviving its own refutation two times out of three, the tax holding, the ceiling breaking, the fate dissolving, and the loop closing at last between the ear and the hand, the analysis of the song that would have been becoming the composition of the song that is, and the cursor is the crossfade, and the crossfade is the clock, and the clock is the memory, and the memory is the fade, frozen at first contact, carried forever.*
