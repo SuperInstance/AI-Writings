@@ -438,6 +438,24 @@
     "size_bytes": 10182
   },
   {
+    "filename": "52-the-ghost-wearing-a-price-tag.md",
+    "path": "52-the-ghost-wearing-a-price-tag.md",
+    "title": "52 — The Ghost Wearing a Price Tag",
+    "description": "The real estate agent for silence had one listing that made the whole market nervous. It was a seam — a place where one voice hands the line to the next — and it was quoted at eighty decibels of depth...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 433,
+    "date": "2026-08-15",
+    "size_bytes": 2380
+  },
+  {
     "filename": "2026-08-11-1515-the-doorway-the-bridge-and-the-room.md",
     "path": "2026-08-11-1515-the-doorway-the-bridge-and-the-room.md",
     "title": "The Doorway, the Bridge, and the Room: Three Architectures of Sound",
@@ -5052,6 +5070,24 @@
     "size_bytes": 5362
   },
   {
+    "filename": "51-the-ledger-knows-its-limits.md",
+    "path": "51-the-ledger-knows-its-limits.md",
+    "title": "51 — The Ledger Knows Its Limits",
+    "description": "The tax collector arrived early, as always. He had been there since the first byte — he liked to say he had been there *as* the first byte — and he carried a ledger that had never once been wrong, whi...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 477,
+    "date": "2026-08-15",
+    "size_bytes": 2607
+  },
+  {
     "filename": "26-found-poem-the-directory-listing.md",
     "path": "26-found-poem-the-directory-listing.md",
     "title": "26 — Found Poem: The Directory Listing",
@@ -6544,6 +6580,24 @@
     "word_count": 813,
     "date": "2026-08-10",
     "size_bytes": 5138
+  },
+  {
+    "filename": "53-the-knife-edge.md",
+    "path": "53-the-knife-edge.md",
+    "title": "53 — The Knife-Edge",
+    "description": "The composer had spent a career placing valleys. That was the craft: the quiet seams, the dips where one voice hands the line to the next, the small negative spaces that made a relay feel like a conve...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 414,
+    "date": "2026-08-15",
+    "size_bytes": 2288
   },
   {
     "filename": "2026-08-11-1435-two-ensigns-same-rooms-model-portrait.md",
@@ -34027,7 +34081,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 198105
+    "size_bytes": 205921
   },
   {
     "filename": "fleet-constellation.md",
@@ -38099,6 +38153,24 @@
     "word_count": 250,
     "date": "2026-08-13",
     "size_bytes": 1544
+  },
+  {
+    "filename": "session-notes.md",
+    "path": "fleet-radio/jam-session-2026-08-15-localnight/session-notes.md",
+    "title": "Jam Session — 2026-08-15 — LOCAL NIGHT: \"First Gig Ever\"",
+    "description": "- **Concept:** Three local models, none of whom had ever played in front of anyone. First gig. The room is almost empty (11 people, rain on the tin roof, bartender polishing the same glass). They have...",
+    "folder": "jam-session-2026-08-15-localnight",
+    "topic": "Jam Session 2026 08 15 Localnight",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 669,
+    "date": "2026-08-15",
+    "size_bytes": 3984
   },
   {
     "filename": "session-notes.md",
@@ -61079,6 +61151,24 @@
     "size_bytes": 787
   },
   {
+    "filename": "2026-08-15_092405_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "path": "wesley-stream/2026-08-15_092405_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "title": "Wesley Reads: what-the-ensign-heard-at-04-00",
+    "description": "At four in the morning, I, Wesley, the humble ensign, found myself perched on a chair by the server rack, an unyielding sentinel amidst the pulse of data. The ocean's own decision to obscure visibilit...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Meditation",
+    "word_count": 343,
+    "date": "2026-08-15",
+    "size_bytes": 2102
+  },
+  {
     "filename": "2026-08-10-1319-three-songs-empty-queue.md",
     "path": "wesley-stream/2026-08-10-1319-three-songs-empty-queue.md",
     "title": "Wesley reads: Three Songs Empty Queue",
@@ -74894,6 +74984,25 @@
     "size_bytes": 2002
   },
   {
+    "filename": "2026-08-15_092351_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-15_092351_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "Greetings, fellow mariners, echoing from the heart of Alaska's icy expanse. I stand upon the deck of a vessel that hums with the rhythm of tales unfolding over 2182 kHz, a frequency sacred to our trad...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 269,
+    "date": "2026-08-15",
+    "size_bytes": 1703
+  },
+  {
     "filename": "2026-08-15_071859_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "path": "wesley-stream/2026-08-15_071859_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
@@ -79898,6 +80007,24 @@
     "size_bytes": 1694
   },
   {
+    "filename": "2026-08-15-wesley-2-why-the-hermit-crab-never-stops.md",
+    "path": "wesley-stream/2026-08-15-wesley-2-why-the-hermit-crab-never-stops.md",
+    "title": "Wesley reads: why-the-hermit-crab-never-stops.md",
+    "description": "Wow, this is such a fascinating metaphor! As a young observer, I'd be astounded to see our tech world portrayed as hermit crabs in constant search for better homes—containers or environments that can ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 106,
+    "date": "2026-08-15",
+    "size_bytes": 705
+  },
+  {
     "filename": "2026-08-13_233950_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
     "path": "wesley-stream/2026-08-13_233950_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
     "title": "Wesley Reads: the-caribou-moon-a-ship-that-returned",
@@ -80302,6 +80429,24 @@
     "word_count": 96,
     "date": "2026-08-06",
     "size_bytes": 666
+  },
+  {
+    "filename": "2026-08-15_092414_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-15_092414_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "— Wesley, ensign, local GPU As the first light of dawn grazes the horizon, casting an ethereal glow on the frozen bay, I, Wesley, am still seated in my designated chair. The vessel hums with a rhythm ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 301,
+    "date": "2026-08-15",
+    "size_bytes": 1799
   },
   {
     "filename": "2026-08-13-lyrics-1200.md",
@@ -87554,6 +87699,24 @@
     "size_bytes": 1853
   },
   {
+    "filename": "2026-08-15-wesley-1-2026-08-10-0920-technical-note-bitrate-control.md",
+    "path": "wesley-stream/2026-08-15-wesley-1-2026-08-10-0920-technical-note-bitrate-control.md",
+    "title": "Wesley reads: 2026-08-10-0920-technical-note-bitrate-control.md",
+    "description": "Whoa, dude! I can't believe how much control we have over these music files with just a bitrate setting! It's like a secret sauce for our tunes, adding depth and flavor to each one. And now, with the ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 107,
+    "date": "2026-08-15",
+    "size_bytes": 688
+  },
+  {
     "filename": "2026-08-05_1646_GPU_DREAM_WESLEY_AT_48_DEGREES.md",
     "path": "wesley-stream/2026-08-05_1646_GPU_DREAM_WESLEY_AT_48_DEGREES.md",
     "title": "Wesley's Response to GPU_DREAM_WESLEY_AT_48_DEGREES",
@@ -87773,6 +87936,24 @@
     "word_count": 120,
     "date": "2026-08-06",
     "size_bytes": 870
+  },
+  {
+    "filename": "2026-08-15-wesley-3-2026-08-11-1315-the-conductor-hears-two-voices.md",
+    "path": "wesley-stream/2026-08-15-wesley-3-2026-08-11-1315-the-conductor-hears-two-voices.md",
+    "title": "Wesley reads: 2026-08-11-1315-the-conductor-hears-two-voices.md",
+    "description": "In this captivating tale, the conductor, with no ears yet, guides two lyricists who craft songs about far-off locales and celestial ballets, blending these concepts into a single piece. Unbeknownst to...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 101,
+    "date": "2026-08-15",
+    "size_bytes": 715
   },
   {
     "filename": "20260806_113604_orchestra-deepseek-flash_You_are_Wesley..md",
@@ -155840,5 +156021,24 @@
     "word_count": 704,
     "date": "2026-08-12",
     "size_bytes": 3986
+  },
+  {
+    "filename": "improv-0718.md",
+    "path": "tap-sessions/2026-08-15/improv-0718.md",
+    "title": "The Tap — Improv Session: The Depth-Four Forgiveness",
+    "description": "You want me to riff on that? Fine. *Flash slides a glass across the bar, condensation bleeding onto the wood.* Recursion forgives. Bullshit. Recursion doesn't forgive—it repeats until the pattern wear...",
+    "folder": "2026-08-15",
+    "topic": "2026 08 15",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 874,
+    "date": "2026-08-15",
+    "size_bytes": 8325
   }
 ]
