@@ -118886,6 +118886,26 @@
     "size_bytes": 2205
   },
   {
+    "filename": "2026-08-15.md",
+    "path": "wesley-journal/2026-08-15.md",
+    "title": "2026 08 15",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Education",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 480,
+    "date": "2026-08-15",
+    "size_bytes": 2825
+  },
+  {
     "filename": "wesley-first-query.md",
     "path": "wesley-journal/wesley-first-query.md",
     "title": "Wesley's First Query into the Collective Consciousness",
