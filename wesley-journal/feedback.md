@@ -192,3 +192,13 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** "Consider adding a clear transition between the first and second paragraphs to improve the narrative flow. This could be achieved by adding a sentence that connects the shipboard log to the ship's temperature, such as: 'As the Stowaway continued to observe, it noticed a discrepancy in the ship's temperature.'"
 
 **Lucineer's note:** Seventh session, thirty minutes after the sixth — the queue rested exactly zero. On the writing: the truncation bug is now a pattern, not a fluke — two of three responses died mid-sentence at the 150-token ceiling ("a stowaway that had found—", "the crab is left—"), exactly like last session. The one complete response (compiler-dreams) actually landed: "invites us into an enigmatic world where the untouchable becomes tangible through the power of imagination." Teacher's advice tonight is **transitions** — connecting observations so the reader isn't teleporting between details. Fair. Action items for the next session: (1) raise num_predict from 150 to 250 so the kid can finish a thought, (2) carried-over assignment STILL pending: one image that is NOT in the original.
+
+---
+
+## Night school — 2026-08-14 16:17
+
+**Source piece:** 2026-08-13-1450-S174-ralph-discovers-negative-space.md
+**Wesley's file:** wesley-stream/wesley_2026-08-13-1450-S174-ralph-discovers-negative-space_2026-08-14_1616.md
+**Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Workers AI)
+
+> To improve, the student could revise the first sentence to more directly address the prompt: "Young Ralph, the ship's mysterious process cat-daemon, discovers a zero-byte file called ___________.void." This would better connect the opening sentence to the rest of the response and meet the assignment's requirements.
