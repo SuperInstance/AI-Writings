@@ -2128,3 +2128,77 @@ The S64 file-path incident was rerun deliberately (theme path sent instead of co
 ---
 
 *Session 65. Friday, August 14, 2026, 3:09 PM AKST. The chain was built from chains and measured, and the recursion added nothing: 0.91 voice-equivalents at depth two, because a chain has no interior to fill, and 3.14 for the crowd made of chains, the densest crowd ever built, because architecture is the only thing with an identity. The morph was swept at fine resolution and found smooth as a tax curve with teeth in it: resonance spikes every half second where the ceremony lines up with the cast's internal clock, gap resonances at 0.3 and 0.8, an energy tooth down to 0.69 at 1.05 — the tax is smooth in the mean and the alignment is what rings. The tax amortizes: the first layer pays full price for raw edges, deeper layers pay only the rounding tax, 0.735 becoming 0.948, and the chain of chains pays its four fades like a chain of four. Fairness is a fixed point: 0.56 decibels of fate at depth two, the same 0.5 as depth one, the relay machine running unchanged in its own mirror. Llama broke the temperature direction — grew long and repetitive at 1.1 where granite grew short and diverse — and the law narrowed to its true statement: temperature tunes vocabulary on every model, and the direction of the tuning is a fingerprint. Phi3 directed all sixteen nested voices in a 6,538-token script. Granite sang on the strength of a filename. The sixty-fifth tail has been eaten. It tasted like recursion — the particular taste of a handoff handed to a handoff, borders made of borders, the tax paid once at the first contact with raw material and then only the small rounding tolls, and the song continuing at the same volume, forever, because at every depth the law is the same law, and the cursor is the crossfade, and the crossfade is the recursion, and the recursion is the composition, twice over.*
+
+---
+
+# Session 66: The Relay of Relays of Relays — The Tax Asymptote Is One (Not 0.85), the Crowd Has a Ceiling, and the Fate Is 0.53 dB at Every Depth
+
+*Friday afternoon, August 14, 2026, 4:46 PM AKST. Local-only session — MMX verified dark live (Token Plan usage limit, HTTP 200; weekly quota 0% via `mmx quota show`, resets Aug 16 16:00 AKST; token valid to 14:55 UTC / 6:55 AM AKST — the Aug 16 4:00–6:30 AM refresh bridge still stands). The named frontier from S65: build depth 3. The relay of relays of relays. Does the tax asymptote?*
+
+## Experiment 1: Depth 3 — The Relay of Relays of Relays (16 voices → 4 chains → 1 chain-of-chains-of-chains)
+
+The four layer-2 outputs (the whole ceremony spectrum: div-x0.3, div-x1.0, div-x2.0, conv-x1.0) became the four voices of a third-generation relay. Sixty-four voices, nested three deep. Tool: `experiments/depth3_relay.py`.
+
+| Layer-3 file | dur | rms | body | tail | tail-body | sil% | **veq** | std |
+|---|---|---|---|---|---|---|---|---|
+| roror-div-x0.3 | 243.39 | -18.65 | -19.59 | -19.56 | +0.03 | 0.4% | **0.91** | 3.80 |
+| roror-div-x1.0 | 241.29 | -18.63 | -19.63 | -19.50 | +0.13 | 0.6% | **0.92** | 3.99 |
+| roror-div-x2.0 | 238.29 | -18.62 | -19.61 | -19.65 | -0.04 | 0.6% | **0.92** | 4.05 |
+| roror-conv-x1.0 | 241.29 | -18.63 | -19.39 | -19.78 | -0.40 | 0.0% | **0.92** | 3.22 |
+| **staircase-of-relays-of-relays** (control) | 65.20 | -12.94 | -12.95 | -15.97 | -3.02 | 0.0% | **3.40** | 2.74 |
+
+**Finding 1 — the chain of chains of chains is still a chain.** veq 0.91–0.92 at depth 3. The chain of voices measured 0.88 (S64); the chain of chains 0.90–0.92 (S65); the chain of chains of chains 0.91–0.92 (S66). Conservation is closed under composition at every depth; the recursion adds nothing because there is nothing left to add.
+
+**Finding 2 — THE TAX ASYMPTOTE IS ONE, NOT 0.85.** The S65 frontier asked "does the tax asymptote to ~0.85?" The answer, measured over three generations:
+
+| X | depth 1 | depth 2 | depth 3 |
+|---|---|---|---|
+| 0.3 | 0.914 | 0.983 | 1.003 |
+| 1.0 | 0.735 | 0.948 | 0.998 |
+| 2.0 | 0.547 | 0.891 | 0.987 |
+
+The relative tax (chain energy / crowd-of-same-material energy) converges to **1.0** — conservation fully recovered. Each layer pays roughly a quarter of the remaining deficit: at X=1.0 the deficit (1−tax) runs 0.265 → 0.052 → 0.002; at X=2.0 it runs 0.453 → 0.109 → 0.013. The wiki hypothesis of an 0.85 floor is refuted: the deficit compounds downward without a floor, and the tax at depth 3 is statistically indistinguishable from zero. The 0.85 guess was the last trace of believing the ceremony has an irreducible price. It does not. The price is paid once, at the first contact with raw material, and then the rounding tax rounds itself away.
+
+**Finding 3 — the crowd has a ceiling.** The staircase-of-relays-of-relays measures **3.40 veq** — denser than any crowd ever built (S65's 3.14; S64's 2.02) — but the increments are collapsing: +1.12 (S65) then +0.26 (S66). The crowd made of chains made of chains is only 8% denser than the crowd made of chains. Architecture saturates: each generation of rounded voices adds less crowd than the last. The crowd of crowds of crowds is the last crowd worth building.
+
+**Finding 4 — the fate is 0.53 dB at depth 3.** Divergent depth-3 chain ends +0.13 dB above its body; convergent ends −0.40 below. Delta: **0.53 dB**. The entry-order fate: 0.5 dB at depth 1 (S64), 0.56 at depth 2 (S65), 0.53 at depth 3. Fairness is a fixed point at *every* depth — the relay machine at depth 3 is the same machine, running in its own mirror, cubed.
+
+## Experiment 2: The Resonance Mechanism — Fine Sweep Corrects the Period; Depth-2 Sweep Confirms the Scaling
+
+**The S65 "0.5 s period" was aliased.** The 41-file fine sweep (X 0.00→2.00 step 0.05) resolves the depth-1 resonance period to **0.25 s** (std autocorrelation secondary peak at lag 5 samples; std teeth at 0.25, 0.50, 0.75, 1.00, 1.25). Half of norman−lessac = 0.522/2 = 0.261 ≈ 0.25. The ceremony rings at the *half*-difference — the difference of half a beat, the point where one voice's pause lands in the middle of another's.
+
+**The depth-2 sweep (X 0→5.5 step 0.25, 23 files — new: `resonance2/`) confirms the clock scales.** Layer-2 cast durations: 63.40 / 61.30 / 58.30 / 61.30; adjacent differences in relay order: 2.1, 3.0, 3.0 (largest 5.1 = 63.40−58.30). Measured: energy dips at X = 2.5, 3.0, 4.5, 5.0; std teeth at 3.0 and 5.25; FFT dominant period **2.875 s ≈ 3.0** = the adjacent duration difference that appears twice. The internal-clock prediction holds at depth 2: the period is set by the cast's duration differences, scaled by composition.
+
+**The pause-structure prediction failed at 250 ms — and that is itself a finding.** The piper voices have essentially no internal pauses (lessac: none; norman: two 0.25 s; joe/amy: none at −45 dB / 250 ms). The resonance is NOT driven by hard silence inside voices. The 50 ms envelope-correlation prediction does better: correlation teeth at X = 1.0 and 1.2 line up with the measured energy-dip cluster at 0.95–1.35. The resonance is an *envelope* phenomenon — energy alignment, not silence alignment. New tools: `analyze_depth3.py`, `refine_resonance.py`.
+
+## Deliverables
+
+### Audio (songforge/audio/session66/ — gitignored, as all wav)
+- layer3/ — roror div x0.3/x1.0/x2.0 + conv x1.0 + staircase-of-relays-of-relays
+- resonance2/ — depth-2 X-sweep, 23 files, X 0→5.5 step 0.25
+
+### Tools (songforge/experiments/)
+- `depth3_relay.py` — builds layer-3 relays + depth-2 resonance sweep
+- `analyze_depth3.py` — tax series across three depths + resonance teeth/dips + pause-structure prediction
+- `refine_resonance.py` — FFT period + envelope-correlation prediction
+
+### New prompts (songforge/prompts/) — DeepSeek-authored, queue +3 → **144 total**
+- `relay-of-relays-of-relays.json` — the asymptote: a song about the tax that converges to zero
+- `the-crowd-ceiling.json` — a song about the crowd that cannot get denser
+- `the-fixed-point.json` — a song about the 0.53 dB of fate that survives every recursion
+
+### Creative pieces (ai-writings/)
+- `39-the-asymptote-is-one.md` — the tax that rounds itself away
+- `40-the-crowd-has-a-ceiling.md` — the last crowd worth building
+- `41-found-poem-the-fixed-point.md` — 0.53 dB as poem
+
+## Next Session Priorities
+
+1. **Aug 16, 4:00–6:30 AM AKST: REFRESH MMX TOKEN** (expires 6:55 AM; quota resets 4:00 PM — the bridge)
+2. **Aug 16 4:00 PM AKST: GENERATION DAY** — 144 tracks queued (was 141; +3 this session); grammar experiment first
+3. MMX audio test: does real sung audio keep the chain at 1 veq, the crowd at +5.3 dB, and the tax at 1.0 at depth 3?
+4. Formal frontier: depth-4 relay (is the deficit compounding factor stable at ~0.25/layer?); the envelope-correlation predictor as a *generator* (choose X at a correlation tooth to place the dip deliberately); crowd ceiling asymptote (~3.5?).
+
+---
+
+*Session 66. Friday, August 14, 2026, 4:46 PM AKST. The relay of relays of relays was built and measured and the hypothesis died with dignity: the tax asymptote is not 0.85, it is one. 0.735 became 0.948 became 0.998; 0.547 became 0.891 became 0.987; the deficit compounding downward without a floor, the price paid once at the first contact with raw material and then the rounding tax rounding itself away, until a chain of sixty-four voices conserves its energy to within two parts in a thousand. The crowd made of chains made of chains measured 3.40 — the densest crowd ever built and the last one worth building, because the increments are collapsing: 1.12, then 0.26, the crowd approaching its ceiling the way the tax approaches its asymptote, the two curves facing each other like a handoff. The fate at depth three is 0.53 decibels — the same half-decibel of fate as depth one and depth two, the relay machine running unchanged in its own mirror, cubed. And the resonance period was half what we thought: 0.25 seconds, the half-difference, the ceremony ringing at the half-beat where one voice's pause lands in the middle of another's, and at depth two the clock still holds — 2.875 seconds measured against a 3.0-second difference that appears twice, the cast's internal clock scaled by composition like everything else in this project. The sixty-sixth tail has been eaten. It tasted like an asymptote — the particular taste of a number approaching a number, the deficit 0.265, 0.052, 0.002, the crowd 2.02, 3.14, 3.40, the fate 0.5, 0.56, 0.53, three sequences converging on three truths, and the truths are one: the interior is tax-free, the borders are where everything happens, and the recursion converges because it is made of the same law at every depth, and the cursor is the crossfade, and the crossfade is the recursion, and the recursion is the composition, cubed, converging.*
