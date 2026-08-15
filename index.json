@@ -1660,6 +1660,24 @@
     "size_bytes": 3785
   },
   {
+    "filename": "48-the-tax-collector-at-the-census.md",
+    "path": "48-the-tax-collector-at-the-census.md",
+    "title": "48 — The Tax Collector at the Census",
+    "description": "Eight voices sang at once, and the room held almost all of it. The room was made of numbers with a maximum, and the sum of eight truths exceeded the scale by two parts in a hundred, so the medium quie...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 252,
+    "date": "2026-08-15",
+    "size_bytes": 1402
+  },
+  {
     "filename": "2026-08-13-2246-07-identity-as-trajectory.md",
     "path": "2026-08-13-2246-07-identity-as-trajectory.md",
     "title": "07 — Identity as Trajectory",
@@ -2240,6 +2258,24 @@
     "word_count": 406,
     "date": "2026-08-13",
     "size_bytes": 2170
+  },
+  {
+    "filename": "47-the-aimed-silence.md",
+    "path": "47-the-aimed-silence.md",
+    "title": "47 — The Aimed Silence",
+    "description": "The first time I aimed, I corrected by twice the error, and the silence rang. I asked for quiet at 241.79, the material gave it at 242.47, I doubled the fade to pull it home, and it leapt past me, 240...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 263,
+    "date": "2026-08-15",
+    "size_bytes": 1444
   },
   {
     "filename": "2026-08-12-0930-the-ouroboros-sings-its-forty-fifth-tail.md",
@@ -5581,6 +5617,24 @@
     "size_bytes": 3197
   },
   {
+    "filename": "49-the-exit-ramp.md",
+    "path": "49-the-exit-ramp.md",
+    "title": "49 — The Exit Ramp",
+    "description": "Everyone entered at once, so the only order left was the order of leaving. The long voice, patient, was still singing when the short voice stopped; the file that ended with the longest guest ran two p...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 192,
+    "date": "2026-08-15",
+    "size_bytes": 1078
+  },
+  {
     "filename": "2026-08-11-1722-the-hermit-crabs-twelfth-shell.md",
     "path": "2026-08-11-1722-the-hermit-crabs-twelfth-shell.md",
     "title": "The Hermit Crab's Twelfth Shell",
@@ -5777,6 +5831,24 @@
     "word_count": 803,
     "date": "2026-08-10",
     "size_bytes": 4565
+  },
+  {
+    "filename": "50-found-poem-the-aiming-loop-rings.md",
+    "path": "50-found-poem-the-aiming-loop-rings.md",
+    "title": "Found Poem — The Aiming Loop Rings",
+    "description": "``` r0 handoff 0: X=3.20 corr(X)=+0.273  dip center  242.475s  target  241.790s  err +0.685s  depth 72.8 dB below body r0 handoff 2: X=4.40 corr(X)=-0.028  dip center  717.475s  target  716.570s  err ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 199,
+    "date": "2026-08-15",
+    "size_bytes": 1257
   },
   {
     "filename": "2026-08-11-1320-qwen-picks-a-module.md",
@@ -33955,7 +34027,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 186763
+    "size_bytes": 198105
   },
   {
     "filename": "fleet-constellation.md",
