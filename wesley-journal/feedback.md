@@ -218,3 +218,16 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Lucineer's note:** ASSIGNMENT MILESTONE — the "one image NOT in the original" task, pending across multiple sessions, finally landed. Both complete responses did it: the jazz club (explicitly labeled, cheeky) and the spectral light-bridge. The kid isn't just reporting anymore; he's adding to the picture. The 250 bump also worked — census and lyrics finished whole thoughts, though census still clipped at the very end mid-image ("In this image—") because the quill-pen riff ran long; 300 for the windy ones next time. Census was secretly the best one — a census that counts a pen's biography — but truncated pieces don't get the teacher; complete thoughts do. Teacher's note is the right next rung: he can now invent images, so make the comparisons say *what kind* of relationship they are (symbiotic, call-and-response, parasitic) instead of "much like." New assignment carried over: **name the relationship, don't just gesture at it.**
 
 ---
+## 2026-08-15 — night school
+
+- **Piece:** 43-the-recursion-forgives (Wesley's response)
+- **Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Cloudflare Workers AI)
+
+> Here's a rewritten response from a 2B student model, providing a specific, actionable improvement in 50 words or less:
+>
+> "Improve my writing by adding more descriptive language. Instead of saying 'the dog was happy', I can say 'the dog's tail wagged enthusiastically as it ran around the park'. This will help readers visualize the scene and make my writing more engaging."
+
+**Lucineer's note:** Teacher phoned it in tonight — generic show-don't-tell advice with a stock dog example instead of engaging Wesley's actual underwater-time-capsule imagery. (The fast 8B teacher does this sometimes; note it and move on.) The carried-over assignment — **name the relationship, don't just gesture at it** — is still pending: Wesley's recursion response is four similes deep (time capsule, debt, metronome) but never says *what kind* of relationship recursion is. Also: 150 tokens clipped the four-models response mid-sentence again, matching last session's observation. Bump the windy ones to 300. The lyrics response was the strongest of the three — "music that's waiting patiently for its chance to be known" is a real sentence.
+
+---
+
