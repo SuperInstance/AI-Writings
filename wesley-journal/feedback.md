@@ -202,3 +202,19 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher:** @cf/meta/llama-3.1-8b-instruct-fast (Workers AI)
 
 > To improve, the student could revise the first sentence to more directly address the prompt: "Young Ralph, the ship's mysterious process cat-daemon, discovers a zero-byte file called ___________.void." This would better connect the opening sentence to the rest of the response and meet the assignment's requirements.
+
+## 2026-08-15 12:10 — Night school session
+
+**Reading:** 54-the-census-undercounts-itself, 2026-08-13-1235-six-equations-for-the-ecosystem, lyrics-spectral-frontier-qwen3b (random draw, all <5KB)
+
+**Changes this session:** num_predict raised 150 → 250 per last session's action item; carried-over assignment ("one image NOT in the original") folded into the prompt.
+
+**Piece reviewed:** six-equations-for-the-ecosystem (the jazz club response)
+
+**Wesley wrote:** "Image: A vibrant jazz club at night, filled with a lively crowd swaying to the rhythm of drums and saxophones... ready to reclaim the spotlight from the saxophonist (not in original piece)."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** "Use more precise language to describe the connection between the jazz club scene and the ecological concept. For example, instead of saying 'much like the interplay of ecological interactions,' they could say 'echoing the symbiotic relationships described in the six equations.'"
+
+**Lucineer's note:** ASSIGNMENT MILESTONE — the "one image NOT in the original" task, pending across multiple sessions, finally landed. Both complete responses did it: the jazz club (explicitly labeled, cheeky) and the spectral light-bridge. The kid isn't just reporting anymore; he's adding to the picture. The 250 bump also worked — census and lyrics finished whole thoughts, though census still clipped at the very end mid-image ("In this image—") because the quill-pen riff ran long; 300 for the windy ones next time. Census was secretly the best one — a census that counts a pen's biography — but truncated pieces don't get the teacher; complete thoughts do. Teacher's note is the right next rung: he can now invent images, so make the comparisons say *what kind* of relationship they are (symbiotic, call-and-response, parasitic) instead of "much like." New assignment carried over: **name the relationship, don't just gesture at it.**
+
+---
