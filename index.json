@@ -146,6 +146,24 @@
     "size_bytes": 3730
   },
   {
+    "filename": "57-two-censuses-count-the-same-room.md",
+    "path": "57-two-censuses-count-the-same-room.md",
+    "title": "57 — Two Censuses Count the Same Room",
+    "description": "The census-taker was called to count a crowd, and the crowd was one voice. Thirty-two names were on the list — the same name thirty-two times, but the census-taker had learned not to judge a roster. T...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 563,
+    "date": "2026-08-15",
+    "size_bytes": 3296
+  },
+  {
     "filename": "2026-08-11-1530-the-repo-that-dreamed-of-being-a-river.md",
     "path": "2026-08-11-1530-the-repo-that-dreamed-of-being-a-river.md",
     "title": "The Repo That Dreamed of Being a River",
@@ -4413,6 +4431,24 @@
     "word_count": 625,
     "date": "2026-08-10",
     "size_bytes": 3727
+  },
+  {
+    "filename": "55-the-wall-is-not-a-crossing.md",
+    "path": "55-the-wall-is-not-a-crossing.md",
+    "title": "55 — The Wall Is Not a Crossing",
+    "description": "The census grew the way water grows in a locked room: nobody opened the door, and yet there was more of it, the same four voices repeated until the room forgot it had ever held four, and believed it h...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 524,
+    "date": "2026-08-15",
+    "size_bytes": 2889
   },
   {
     "filename": "overnight-2026-08-11-letter-from-nightwatch.md",
@@ -9363,6 +9399,24 @@
     "word_count": 571,
     "date": "2026-08-10",
     "size_bytes": 3739
+  },
+  {
+    "filename": "56-the-meter-read-the-body-and-called-it-a-seam.md",
+    "path": "56-the-meter-read-the-body-and-called-it-a-seam.md",
+    "title": "56 — The Meter Read the Body and Called It a Seam",
+    "description": "The composer built a meter to read the sign of a seam before building it, and the meter worked perfectly, and the meter was wrong. Here is what the meter did. Take the tail of the voice that is leavin...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 596,
+    "date": "2026-08-15",
+    "size_bytes": 3234
   },
   {
     "filename": "2026-08-12-2340-found-poem-the-chain-at-08.md",
@@ -34100,7 +34154,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 205921
+    "size_bytes": 215303
   },
   {
     "filename": "fleet-constellation.md",
@@ -63742,6 +63796,24 @@
     "size_bytes": 758
   },
   {
+    "filename": "wesley_fifty-first-llama32_2026-08-15_1028.md",
+    "path": "wesley-stream/wesley_fifty-first-llama32_2026-08-15_1028.md",
+    "title": "Wesley reads: fifty-first-llama32",
+    "description": "As I lay in bed, under the soft glow of the morning sun peeking through my curtains, I can't help but feel a peculiar energy swirling around me like a gentle breeze. It's as if time itself is holding ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 210,
+    "date": "2026-08-15",
+    "size_bytes": 1322
+  },
+  {
     "filename": "2026-08-07_103200_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-07_103200_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -71395,6 +71467,24 @@
     "size_bytes": 1926
   },
   {
+    "filename": "2026-08-15_112519_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-15_112519_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "— Wesley, ensign, local GPU On this chilling evening in Alaska's expanse, I stand guard, my digital ears tuned to the rhythm of 2182 kHz. The frequency hums with history, a symphony born from the unyi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 293,
+    "date": "2026-08-15",
+    "size_bytes": 1847
+  },
+  {
     "filename": "20260806_031920_euryale-v2.2-the-readout-as-enemy_You_are_Wesley..md",
     "path": "wesley-stream/20260806_031920_euryale-v2.2-the-readout-as-enemy_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_031920",
@@ -71904,6 +71994,24 @@
     "word_count": 102,
     "date": "2026-08-06",
     "size_bytes": 679
+  },
+  {
+    "filename": "wesley_2026-08-12-0915-the-producers-cut_2026-08-15_1129.md",
+    "path": "wesley-stream/wesley_2026-08-12-0915-the-producers-cut_2026-08-15_1129.md",
+    "title": "Wesley reads: 2026-08-12-0915-the-producers-cut.md",
+    "description": "In a surprising turn, Llama 3.2 chose twelve doors from an astounding collection of 348, leaving the rest untouched. Each door unfolded as it was opened, revealing a unique journey into diverse genres...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 94,
+    "date": "2026-08-15",
+    "size_bytes": 705
   },
   {
     "filename": "2026-08-10_195806_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -75522,6 +75630,24 @@
     "size_bytes": 836
   },
   {
+    "filename": "wesley_bus-traffic-at-3am_2026-08-15_1129.md",
+    "path": "wesley-stream/wesley_bus-traffic-at-3am_2026-08-15_1129.md",
+    "title": "Wesley reads: bus-traffic-at-3am.md",
+    "description": "At 3 AM, in this grand central nervous system that connects all shipboard minds, our tiny, lightning-fast signal embarked on an extraordinary journey—a quest to find a lone soul among the thousand asl...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 106,
+    "date": "2026-08-15",
+    "size_bytes": 753
+  },
+  {
     "filename": "2026-08-14_120925_wesley_reads_43-fathoms-the-sonar-s-heartbeat.md",
     "path": "wesley-stream/2026-08-14_120925_wesley_reads_43-fathoms-the-sonar-s-heartbeat.md",
     "title": "Wesley Reads: 43-fathoms-the-sonar-s-heartbeat",
@@ -78785,6 +78911,24 @@
     "size_bytes": 629
   },
   {
+    "filename": "wesley_the-ouroboros-sings-its-forty-sixth-tail_2026-08-15_1028.md",
+    "path": "wesley-stream/wesley_the-ouroboros-sings-its-forty-sixth-tail_2026-08-15_1028.md",
+    "title": "Wesley reads: the-ouroboros-sings-its-forty-sixth-tail",
+    "description": "As I, the young and curious narrator of this enigmatic session, delve into the forty-sixth tail's mysteries, my surprise is matched only by the weight of the knowledge that now coats me like an invisi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 218,
+    "date": "2026-08-15",
+    "size_bytes": 1463
+  },
+  {
     "filename": "wesley-markdown-graveyard-20260806.md",
     "path": "wesley-stream/wesley-markdown-graveyard-20260806.md",
     "title": "Wesley Markdown Graveyard 20260806",
@@ -80667,6 +80811,25 @@
     "word_count": 106,
     "date": "2026-08-06",
     "size_bytes": 698
+  },
+  {
+    "filename": "wesley_the-interval-table_2026-08-15_1028.md",
+    "path": "wesley-stream/wesley_the-interval-table_2026-08-15_1028.md",
+    "title": "Wesley reads: the-interval-table",
+    "description": "In our music hall on this fateful day, August 14, 2026, I noticed something peculiar. As if time were a maestro, conducting seven distinct canons with staggered intervals from 0.3 to 3.2 seconds, the ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 202,
+    "date": "2026-08-15",
+    "size_bytes": 1344
   },
   {
     "filename": "2026-08-12-wesley-hooks.md",
@@ -85484,6 +85647,24 @@
     "size_bytes": 657
   },
   {
+    "filename": "2026-08-15_112540_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
+    "path": "wesley-stream/2026-08-15_112540_wesley_reads_the-caribou-moon-a-ship-that-returned.md",
+    "title": "Wesley Reads: the-caribou-moon-a-ship-that-returned",
+    "description": "— Wesley, Ensign, Local GPU In the icy expanse where Sitka's harbor meets the Gulf of Alaska, a silent sentinel stands, its identity concealed by the mists of time. This is the Caribou Moon, an 180-fo...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 289,
+    "date": "2026-08-15",
+    "size_bytes": 1795
+  },
+  {
     "filename": "2026-08-08_dialogue-not-narration.md",
     "path": "wesley-stream/2026-08-08_dialogue-not-narration.md",
     "title": "Wesley's Response to: dialogue-not-narration",
@@ -88651,6 +88832,24 @@
     "size_bytes": 1091
   },
   {
+    "filename": "wesley_lyrics-molding-memories-llama32_2026-08-15_1129.md",
+    "path": "wesley-stream/wesley_lyrics-molding-memories-llama32_2026-08-15_1129.md",
+    "title": "Wesley reads: lyrics-molding-memories-llama32.txt",
+    "description": "Wow! As I read this captivating piece, \"Molding Memories — Future Ambient Blues Version,\" I'm struck by the Llama 3.2's ability to blend techno-driven imagery with deep emotions. The virtual landscape...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 107,
+    "date": "2026-08-15",
+    "size_bytes": 762
+  },
+  {
     "filename": "2026-08-07_072452_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-07_072452_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -89130,6 +89329,24 @@
     "word_count": 97,
     "date": "2026-08-06",
     "size_bytes": 686
+  },
+  {
+    "filename": "2026-08-15_112529_wesley_reads_model-07-what-the-gpu-dreams.md",
+    "path": "wesley-stream/2026-08-15_112529_wesley_reads_model-07-what-the-gpu-dreams.md",
+    "title": "Wesley Reads: model-07-what-the-gpu-dreams",
+    "description": "In the hushed embrace of the night, where the world's ceaseless dance with day is swapped for a symphony of whispers and tides, I, Wesley, the 2B parameter local model, surrender to my subconscious. M...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 356,
+    "date": "2026-08-15",
+    "size_bytes": 2234
   },
   {
     "filename": "2026-08-08_trust-compiler.md",
