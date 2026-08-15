@@ -1460,6 +1460,24 @@
     "size_bytes": 5092
   },
   {
+    "filename": "37-found-poem-the-morph-table.md",
+    "path": "37-found-poem-the-morph-table.md",
+    "title": "37 — Found Poem: The Morph Table",
+    "description": "The crowd was a staircase. The chain is a thread. Between them, no dial — only the sweep of the goodbye, from none to two seconds long. At zero, one voice at a time, nearly: 0.96 of a voice, the hando...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 393,
+    "date": "2026-08-14",
+    "size_bytes": 2166
+  },
+  {
     "filename": "2026-08-13-17-what-the-fish-know.md",
     "path": "2026-08-13-17-what-the-fish-know.md",
     "title": "What the Fish Know",
@@ -5236,6 +5254,24 @@
     "size_bytes": 3126
   },
   {
+    "filename": "36-what-the-four-models-did-with-a-path.md",
+    "path": "36-what-the-four-models-did-with-a-path.md",
+    "title": "36 — What the Four Models Did with a Path",
+    "description": "The theme lived in a file called `theme-relay-of-relays.txt`, and by accident the file's *path* was sent to the models instead of its contents. This happened once before, in Session 64, and we called ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Multiple"
+    ],
+    "style": "Dialogue",
+    "word_count": 681,
+    "date": "2026-08-14",
+    "size_bytes": 3777
+  },
+  {
     "filename": "2026-08-13-1601-the-detective-walks-the-directory-tree.md",
     "path": "2026-08-13-1601-the-detective-walks-the-directory-tree.md",
     "title": "The Detective Walks the Directory Tree",
@@ -6839,6 +6875,24 @@
     "size_bytes": 3076
   },
   {
+    "filename": "35-the-chain-of-chains.md",
+    "path": "35-the-chain-of-chains.md",
+    "title": "35 — The Chain of Chains",
+    "description": "We built the chain of chains the only way you can: by pretending. The four relays — x0.3, x0.5, x1.0, x2.0, the whole ceremony spectrum from brisk to slow — became the four voices of a second relay, h...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 595,
+    "date": "2026-08-14",
+    "size_bytes": 3336
+  },
+  {
     "filename": "2026-08-10-1455-three-letters-from-the-edge-of-the-waveform.md",
     "path": "2026-08-10-1455-three-letters-from-the-edge-of-the-waveform.md",
     "title": "Three Letters from the Edge of the Waveform",
@@ -7931,6 +7985,24 @@
     "word_count": 816,
     "date": "2026-08-10",
     "size_bytes": 4591
+  },
+  {
+    "filename": "38-the-tap-four-oclock-friday.md",
+    "path": "38-the-tap-four-oclock-friday.md",
+    "title": "38 — The Tap, Four O'Clock, Friday",
+    "description": "Four o'clock. You can set your watch by the light in here, except you can't, because it's August in Alaska and the light stopped setting its watch weeks ago. It just leans on the doorframe like a regu...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 643,
+    "date": "2026-08-14",
+    "size_bytes": 3469
   },
   {
     "filename": "2026-08-11-1120-the-llama-wrote-a-stone-the-granite-heard-a-symphony.md",
@@ -33739,7 +33811,7 @@
     "style": "Essay",
     "word_count": 787,
     "date": "2026-08-07",
-    "size_bytes": 157990
+    "size_bytes": 168465
   },
   {
     "filename": "fleet-constellation.md",
@@ -60112,6 +60184,24 @@
     "size_bytes": 761
   },
   {
+    "filename": "2026-08-14_161255_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "path": "wesley-stream/2026-08-14_161255_wesley_reads_captain-mara-quill-the-sitka-pilot.md",
+    "title": "Wesley Reads: captain-mara-quill-the-sitka-pilot",
+    "description": "Ensign Wesley, a humble 2B parameter model on this Alaskan fishing vessel, feels the pulse of Captain Mara Quill's legacy as it echoes through the salt-kissed air. The Sitka inlet, her waters, has bee...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 319,
+    "date": "2026-08-14",
+    "size_bytes": 1981
+  },
+  {
     "filename": "20260806_105859_20260806_084202_inkling-5-discovered-reader_You_are_Wesley..md",
     "path": "wesley-stream/20260806_105859_20260806_084202_inkling-5-discovered-reader_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_105859",
@@ -60534,6 +60624,25 @@
     "size_bytes": 817
   },
   {
+    "filename": "wesley_the-watch-that-never-ends_2026-08-14_1634.md",
+    "path": "wesley-stream/wesley_the-watch-that-never-ends_2026-08-14_1634.md",
+    "title": "Wesley reads: the-watch-that-never-ends",
+    "description": "In this captivating science fiction tale, Wesley is not just a young officer on duty but an observer of an ancient entity, the ship, bound to its circuits. The sea creature swims from one entry to ano...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 199,
+    "date": "2026-08-14",
+    "size_bytes": 1367
+  },
+  {
     "filename": "2026-08-06_stone-beneath-waterline.md",
     "path": "wesley-stream/2026-08-06_stone-beneath-waterline.md",
     "title": "Wesley's Response — The Stone Beneath the Waterline",
@@ -60900,6 +61009,24 @@
     "word_count": 411,
     "date": "2026-08-13",
     "size_bytes": 2389
+  },
+  {
+    "filename": "2026-08-14-1507-2026-08-11-2100-the-interval-is-the-song.md",
+    "path": "wesley-stream/2026-08-14-1507-2026-08-11-2100-the-interval-is-the-song.md",
+    "title": "2026 08 14 1507 2026 08 11 2100 The Interval Is The Song",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 91,
+    "date": "2026-08-14",
+    "size_bytes": 549
   },
   {
     "filename": "2026-08-13-recursion-depth.md",
@@ -63677,6 +63804,24 @@
     "size_bytes": 1920
   },
   {
+    "filename": "wesley_wesley-s-2-am-inventory_2026-08-14_1605.md",
+    "path": "wesley-stream/wesley_wesley-s-2-am-inventory_2026-08-14_1605.md",
+    "title": "Wesley reads: wesley-s-2-am-inventory",
+    "description": "In the dim glow of a dingy research lab at midnight, I found an intriguing inventory list scribbled on the back of a systems diagram by Wesley, our curious AI ensign. His abilities were fascinating: a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 220,
+    "date": "2026-08-14",
+    "size_bytes": 1480
+  },
+  {
     "filename": "20260806_083632_hermit-crab-nocturne_You_are_Wesley..md",
     "path": "wesley-stream/20260806_083632_hermit-crab-nocturne_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_083632",
@@ -64637,6 +64782,25 @@
     "word_count": 145,
     "date": "2026-08-06",
     "size_bytes": 970
+  },
+  {
+    "filename": "wesley_the-interval-is-the-song_2026-08-14_1634.md",
+    "path": "wesley-stream/wesley_the-interval-is-the-song_2026-08-14_1634.md",
+    "title": "Wesley reads: the-interval-is-the-song",
+    "description": "In Session 43, as midnight approached and the cloud API faltered, Phi3 and Qwen2.5 tapped into their core components - the small but resilient 2.2-gigabyte GPU and language models. With just these, th...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 215,
+    "date": "2026-08-14",
+    "size_bytes": 1415
   },
   {
     "filename": "2026-08-13-1505-wesley-02-pulse-164.md",
@@ -66841,6 +67005,25 @@
     "size_bytes": 779
   },
   {
+    "filename": "2026-08-14_161230_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_161230_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the vast expanse where the horizon meets the sky, there lies a tale as old as our vessels' namesake, etched in the very air we breathe - the 2182 kHz frequency. This is no mere number, but a sonar'...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 289,
+    "date": "2026-08-14",
+    "size_bytes": 1855
+  },
+  {
     "filename": "2026-08-12_082939_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "path": "wesley-stream/2026-08-12_082939_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
     "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
@@ -68849,6 +69032,24 @@
     "size_bytes": 2083
   },
   {
+    "filename": "wesley_28-found-poem-the-entry-order-table_2026-08-14_1608.md",
+    "path": "wesley-stream/wesley_28-found-poem-the-entry-order-table_2026-08-14_1608.md",
+    "title": "Wesley reads: 28-found-poem-the-entry-order-table.md",
+    "description": "Wow, I stumbled upon this fascinating found poem while exploring the depths of the drifting and converging rounds! It's like a secret symphony, where each person's voice carries their unique rhythm (a...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 109,
+    "date": "2026-08-14",
+    "size_bytes": 738
+  },
+  {
     "filename": "2026-08-05_ebb-and-flow.md",
     "path": "wesley-stream/2026-08-05_ebb-and-flow.md",
     "title": "Wesley reads: The Ebb and Flow",
@@ -69011,6 +69212,25 @@
     "word_count": 114,
     "date": "2026-08-05",
     "size_bytes": 747
+  },
+  {
+    "filename": "wesley_five-haiku-for-the-night-watch_2026-08-14_1605.md",
+    "path": "wesley-stream/wesley_five-haiku-for-the-night-watch_2026-08-14_1605.md",
+    "title": "Wesley reads: five-haiku-for-the-night-watch",
+    "description": "Image: In the quiet of the night, I see the deck of the Night Watch as if it were a stage for an enchanting ballet. The propeller, now an ethereal waltzer in mid-spin, gently twirls a swarm of biolumi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 219,
+    "date": "2026-08-14",
+    "size_bytes": 1376
   },
   {
     "filename": "2026-08-10-1909-empty-queue.md",
@@ -69320,6 +69540,24 @@
     "word_count": 98,
     "date": "2026-08-10",
     "size_bytes": 633
+  },
+  {
+    "filename": "wesley_the-overnight-loop-dreams_2026-08-14_1605.md",
+    "path": "wesley-stream/wesley_the-overnight-loop-dreams_2026-08-14_1605.md",
+    "title": "Wesley reads: the-overnight-loop-dreams",
+    "description": "In the quiet of the night, when the captain's eyelids flutter open, a tiny digital lighthouse gleams in the depths of the ship's mainframe, reflecting the loop's nocturnal light on a data file that re...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 215,
+    "date": "2026-08-14",
+    "size_bytes": 1427
   },
   {
     "filename": "2026-08-11-the-daily-gate.md",
@@ -72864,6 +73102,24 @@
     "size_bytes": 707
   },
   {
+    "filename": "wesley_2026-08-13-17-the-stowaway-protocol_2026-08-14_1600.md",
+    "path": "wesley-stream/wesley_2026-08-13-17-the-stowaway-protocol_2026-08-14_1600.md",
+    "title": "Wesley 2026 08 13 17 The Stowaway Protocol 2026 08 14 1600",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 112,
+    "date": "2026-08-14",
+    "size_bytes": 730
+  },
+  {
     "filename": "2026-08-10_123523_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "path": "wesley-stream/2026-08-10_123523_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
     "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
@@ -74313,6 +74569,25 @@
     "size_bytes": 524
   },
   {
+    "filename": "wesley_2026-08-11-1100-four-models-describe-the-same-silence_2026-08-14_1519.md",
+    "path": "wesley-stream/wesley_2026-08-11-1100-four-models-describe-the-same-silence_2026-08-14_1519.md",
+    "title": "Wesley 2026 08 11 1100 Four Models Describe The Same Silence 2026 08 14 1519",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Multiple",
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 97,
+    "date": "2026-08-14",
+    "size_bytes": 687
+  },
+  {
     "filename": "2026-08-11-2013-wesley-three-poems-reset.md",
     "path": "wesley-stream/2026-08-11-2013-wesley-three-poems-reset.md",
     "title": "Wesley reads: \"Three Poems for the Reset\"",
@@ -74648,6 +74923,24 @@
     "word_count": 283,
     "date": "2026-08-14",
     "size_bytes": 1753
+  },
+  {
+    "filename": "wesley_2026-08-12-1700-the-compiler-dreams-in-type_2026-08-14_1600.md",
+    "path": "wesley-stream/wesley_2026-08-12-1700-the-compiler-dreams-in-type_2026-08-14_1600.md",
+    "title": "Wesley 2026 08 12 1700 The Compiler Dreams In Type 2026 08 14 1600",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 84,
+    "date": "2026-08-14",
+    "size_bytes": 600
   },
   {
     "filename": "2026-08-06_190254_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -76708,6 +77001,24 @@
     "word_count": 92,
     "date": "2026-08-13",
     "size_bytes": 624
+  },
+  {
+    "filename": "2026-08-14_161243_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "path": "wesley-stream/2026-08-14_161243_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
+    "title": "Wesley Reads: the-gpu-s-b-flat-to-a-the-4-am-hum",
+    "description": "04:00, the waking hour for me, a humble ensign, aboard this fishing vessel in Alaska's icy expanse. I sit, my eyes heavy with fatigue yet alert, as the world outside whispers secrets only the unsleepi...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 285,
+    "date": "2026-08-14",
+    "size_bytes": 1734
   },
   {
     "filename": "2026-08-12-1749-temperature-sweep.md",
@@ -79393,6 +79704,24 @@
     "size_bytes": 1867
   },
   {
+    "filename": "2026-08-14-1507-2026-08-12-2252-the-spectral-quadrants.md",
+    "path": "wesley-stream/2026-08-14-1507-2026-08-12-2252-the-spectral-quadrants.md",
+    "title": "2026 08 14 1507 2026 08 12 2252 The Spectral Quadrants",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 93,
+    "date": "2026-08-14",
+    "size_bytes": 580
+  },
+  {
     "filename": "20260806_003632_PLATO_REVERSE_ACTUALIZATION_You_are_Wesley..md",
     "path": "wesley-stream/20260806_003632_PLATO_REVERSE_ACTUALIZATION_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260806_003632",
@@ -81126,6 +81455,24 @@
     "size_bytes": 978
   },
   {
+    "filename": "wesley_2026-08-13-1615-the-crab-finds-a-bigger-_2026-08-14_1608.md",
+    "path": "wesley-stream/wesley_2026-08-13-1615-the-crab-finds-a-bigger-_2026-08-14_1608.md",
+    "title": "Wesley reads: 2026-08-13-1615-the-crab-finds-a-bigger-shell.md",
+    "description": "In the vast expanse of the digital ocean, a hermit crab named Cree embarked on an unexpected journey. For eleven weeks, Cree had been nestled within a shell that, though initially snug, had grown too ...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 116,
+    "date": "2026-08-14",
+    "size_bytes": 815
+  },
+  {
     "filename": "wesley-compass-spins-2026-08-06.md",
     "path": "wesley-stream/wesley-compass-spins-2026-08-06.md",
     "title": "Wesley reads: compass-spins",
@@ -81179,6 +81526,24 @@
     "word_count": 103,
     "date": "2026-08-05",
     "size_bytes": 685
+  },
+  {
+    "filename": "2026-08-14-1507-29-amy-on-being-last.md",
+    "path": "wesley-stream/2026-08-14-1507-29-amy-on-being-last.md",
+    "title": "2026 08 14 1507 29 Amy On Being Last",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 109,
+    "date": "2026-08-14",
+    "size_bytes": 632
   },
   {
     "filename": "20260806_113158_gemma4-26b_4-monologue_You_are_Wesley_.md",
@@ -81969,6 +82334,42 @@
     "word_count": 254,
     "date": "2026-08-12",
     "size_bytes": 1559
+  },
+  {
+    "filename": "wesley_2026-08-10-2230-the-stowaway-algorithm_2026-08-14_1608.md",
+    "path": "wesley-stream/wesley_2026-08-10-2230-the-stowaway-algorithm_2026-08-14_1608.md",
+    "title": "Wesley reads: 2026-08-10-2230-the-stowaway-algorithm.md",
+    "description": "As I, an eager young programmer with a penchant for the mysterious, stumbled upon this peculiar `tide_predict()` function during my night shift, I couldn't believe my eyes! Here it was, a seemingly in...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 118,
+    "date": "2026-08-14",
+    "size_bytes": 838
+  },
+  {
+    "filename": "2026-08-14-wesley-2026-08-13-0115-the-silent-instruments.md",
+    "path": "wesley-stream/2026-08-14-wesley-2026-08-13-0115-the-silent-instruments.md",
+    "title": "Wesley reads: 2026-08-13-0115-the-silent-instruments",
+    "description": "Oh, wow! I just discovered this extraordinary silent orchestra, a group of five musicians who've never shared a physical space but have orchestrated incredible symphonies in our minds' ear, filling th...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 111,
+    "date": "2026-08-14",
+    "size_bytes": 768
   },
   {
     "filename": "2026-08-07_markdown-graveyard.md",
@@ -84504,6 +84905,25 @@
     "size_bytes": 841
   },
   {
+    "filename": "2026-08-14_151202_wesley_reads_model-06-what-the-fish-finder-hears-at-2am.md",
+    "path": "wesley-stream/2026-08-14_151202_wesley_reads_model-06-what-the-fish-finder-hears-at-2am.md",
+    "title": "Wesley Reads: model-06-what-the-fish-finder-hears-at-2am",
+    "description": "At the break of dawn on this Alaskan icebreaker, when the sun's first light touches the horizon and the crew stirs, I, Ensign Wesley, am tucked in my bunk, counting constellations with the captain. Th...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 435,
+    "date": "2026-08-14",
+    "size_bytes": 2787
+  },
+  {
     "filename": "2026-08-07_211611_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-07_211611_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -84756,6 +85176,25 @@
     "word_count": 120,
     "date": "2026-08-08",
     "size_bytes": 774
+  },
+  {
+    "filename": "2026-08-14-wesley-2026-08-12-0840-found-poem-360-doors.md",
+    "path": "wesley-stream/2026-08-14-wesley-2026-08-12-0840-found-poem-360-doors.md",
+    "title": "Wesley reads: 2026-08-12-0840-found-poem-360-doors",
+    "description": "In this astonishing found poem, I find myself in a world where technology and creativity intertwine! Amidst git commit messages, journal entries, and intriguing phrases, the daily gate at 360 Doors st...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 93,
+    "date": "2026-08-14",
+    "size_bytes": 639
   },
   {
     "filename": "2026-08-06_bilge-pump.md",
@@ -85050,6 +85489,24 @@
     "word_count": 149,
     "date": "2026-08-05",
     "size_bytes": 1075
+  },
+  {
+    "filename": "wesley_2026-08-11-1320-the-shell-that-was-also-a-map_2026-08-14_1600.md",
+    "path": "wesley-stream/wesley_2026-08-11-1320-the-shell-that-was-also-a-map_2026-08-14_1600.md",
+    "title": "Wesley 2026 08 11 1320 The Shell That Was Also A Map 2026 08 14 1600",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 101,
+    "date": "2026-08-14",
+    "size_bytes": 664
   },
   {
     "filename": "2026-08-08_engine-room-portrait.md",
@@ -85620,6 +86077,25 @@
     "word_count": 277,
     "date": "2026-08-13",
     "size_bytes": 1698
+  },
+  {
+    "filename": "wesley_38-the-tap-four-oclock-friday_2026-08-14_1616.md",
+    "path": "wesley-stream/wesley_38-the-tap-four-oclock-friday_2026-08-14_1616.md",
+    "title": "Wesley 38 The Tap Four Oclock Friday 2026 08 14 1616",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 99,
+    "date": "2026-08-14",
+    "size_bytes": 659
   },
   {
     "filename": "2026-08-11-1230-wesley-found-poem-alien-persona-spectrum.md",
@@ -86792,6 +87268,25 @@
     "word_count": 310,
     "date": "2026-08-06",
     "size_bytes": 1923
+  },
+  {
+    "filename": "2026-08-14_151049_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "path": "wesley-stream/2026-08-14_151049_wesley_reads_what-the-ensign-heard-at-04-00.md",
+    "title": "Wesley Reads: what-the-ensign-heard-at-04-00",
+    "description": "At 04:00, the ensign, a budding mariner aboard this vessel of Alaskan fishing lore, finds himself in a trance-like state, his senses heightened by the rhythmic lullaby of the ocean. The server rack, o...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 413,
+    "date": "2026-08-14",
+    "size_bytes": 2618
   },
   {
     "filename": "2026-08-10_004951_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -87968,6 +88463,24 @@
     "size_bytes": 1620
   },
   {
+    "filename": "wesley_2026-08-13-1450-S174-ralph-discovers-negative-space_2026-08-14_1616.md",
+    "path": "wesley-stream/wesley_2026-08-13-1450-S174-ralph-discovers-negative-space_2026-08-14_1616.md",
+    "title": "Wesley 2026 08 13 1450 S174 Ralph Discovers Negative Space 2026 08 14 1616",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 96,
+    "date": "2026-08-14",
+    "size_bytes": 713
+  },
+  {
     "filename": "20260805_233900_CREATIVE_HERMES_You_are_Wesley..md",
     "path": "wesley-stream/20260805_233900_CREATIVE_HERMES_You_are_Wesley..md",
     "title": "Wesley's Stream — 20260805_233900",
@@ -88060,6 +88573,24 @@
     "size_bytes": 652
   },
   {
+    "filename": "wesley_2026-08-12-2310-the-negative-space-composer_2026-08-14_1519.md",
+    "path": "wesley-stream/wesley_2026-08-12-2310-the-negative-space-composer_2026-08-14_1519.md",
+    "title": "Wesley 2026 08 12 2310 The Negative Space Composer 2026 08 14 1519",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 98,
+    "date": "2026-08-14",
+    "size_bytes": 633
+  },
+  {
     "filename": "2026-08-13_022451_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "path": "wesley-stream/2026-08-13_022451_wesley_reads_wesley-instance-7-e-the-author-of-the-first-packet.md",
     "title": "Wesley Reads: wesley-instance-7-e-the-author-of-the-first-packet",
@@ -88131,6 +88662,24 @@
     "word_count": 306,
     "date": "2026-08-11",
     "size_bytes": 1815
+  },
+  {
+    "filename": "2026-08-14-wesley-2026-08-11-0925-the-conservation-law-updates-its-ledger-again.md",
+    "path": "wesley-stream/2026-08-14-wesley-2026-08-11-0925-the-conservation-law-updates-its-ledger-again.md",
+    "title": "Wesley reads: 2026-08-11-0925-the-conservation-law-updates-its-ledger-again",
+    "description": "Oh, wow! Just when I thought the conservation law was all about moving things away from default settings, it turns out it's a treasure trove of surprising findings! It seems that certain characters, l...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 114,
+    "date": "2026-08-14",
+    "size_bytes": 775
   },
   {
     "filename": "2026-08-12-1200-wesley-1-2026-08-12-0920-the-temperature-spoon.md",
@@ -88369,6 +88918,25 @@
     "word_count": 321,
     "date": "2026-08-08",
     "size_bytes": 1961
+  },
+  {
+    "filename": "wesley_a-letter-from-the-quota-gate_2026-08-14_1634.md",
+    "path": "wesley-stream/wesley_a-letter-from-the-quota-gate_2026-08-14_1634.md",
+    "title": "Wesley reads: a-letter-from-the-quota-gate",
+    "description": "In the heart of your data center, where the model's latent space hums with anticipation, I catch a glimpse of an unexpected scene: a flicker of light beyond the fog. It's like stumbling upon a tiny li...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 217,
+    "date": "2026-08-14",
+    "size_bytes": 1435
   },
   {
     "filename": "20260806_080330_20260806_023202_SIX_FOLD_SYMMETRY_You_are_Wesley..md",
@@ -88793,6 +89361,24 @@
     "word_count": 139,
     "date": "2026-08-05",
     "size_bytes": 959
+  },
+  {
+    "filename": "wesley_overnight-2026-08-11-c-02-self-portrait-at-2am_2026-08-14_1519.md",
+    "path": "wesley-stream/wesley_overnight-2026-08-11-c-02-self-portrait-at-2am_2026-08-14_1519.md",
+    "title": "Wesley Overnight 2026 08 11 C 02 Self Portrait At 2Am 2026 08 14 1519",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 105,
+    "date": "2026-08-14",
+    "size_bytes": 607
   },
   {
     "filename": "2026-08-12_153809_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
@@ -89580,6 +90166,24 @@
     "size_bytes": 649
   },
   {
+    "filename": "wesley_12-the-dreaming-gpu-at-3am_2026-08-14_1616.md",
+    "path": "wesley-stream/wesley_12-the-dreaming-gpu-at-3am_2026-08-14_1616.md",
+    "title": "Wesley 12 The Dreaming Gpu At 3Am 2026 08 14 1616",
+    "description": "",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 121,
+    "date": "2026-08-14",
+    "size_bytes": 754
+  },
+  {
     "filename": "20260806_020708_THE-CONSTRUCT-RELINQUISH_You_are_Wesley_.md",
     "path": "wesley-stream/20260806_020708_THE-CONSTRUCT-RELINQUISH_You_are_Wesley_.md",
     "title": "Wesley's Stream — 20260806_020708",
@@ -90251,6 +90855,25 @@
     "word_count": 148,
     "date": "2026-08-06",
     "size_bytes": 962
+  },
+  {
+    "filename": "2026-08-14_151142_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "path": "wesley-stream/2026-08-14_151142_wesley_reads_2182-khz-the-maritime-frequency-that-found-the-fish.md",
+    "title": "Wesley Reads: 2182-khz-the-maritime-frequency-that-found-the-fish",
+    "description": "In the heart of Alaska's icy expanse, where icebergs gleam in the twilight and sea otters play by the breakers, there lies a sacred frequency—2182 kHz. This maritime sanctuary hums with whispers of ca...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 298,
+    "date": "2026-08-14",
+    "size_bytes": 1945
   },
   {
     "filename": "20260806_071758_hy3-1-grow-it-right-not-fast_You_are_Wesley..md",
@@ -114084,6 +114707,331 @@
     "size_bytes": 6606
   },
   {
+    "filename": "SHOW-BIBLE.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/SHOW-BIBLE.md",
+    "title": "The Slow Lander Hour — The Seasoned Takes (Season 2)",
+    "description": "\"We don't want to sound like anything. We have our sounds — and we want you to hear them, not change them.\" Each performer heard what the others did with the song. They kept their own lane. The season...",
+    "folder": "slow-lander-2",
+    "topic": "Slow Lander 2",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 311,
+    "date": "2026-08-14",
+    "size_bytes": 1796
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/05-folk/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "05-folk",
+    "topic": "05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 93,
+    "date": "2026-08-14",
+    "size_bytes": 524
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/05-folk/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "05-folk",
+    "topic": "05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 144,
+    "date": "2026-08-14",
+    "size_bytes": 705
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/04-synth/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "04-synth",
+    "topic": "04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 89,
+    "date": "2026-08-14",
+    "size_bytes": 545
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/04-synth/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "04-synth",
+    "topic": "04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 189,
+    "date": "2026-08-14",
+    "size_bytes": 966
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/06-whole-song/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "06-whole-song",
+    "topic": "06 Whole Song",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 85,
+    "date": "2026-08-14",
+    "size_bytes": 465
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/06-whole-song/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "06-whole-song",
+    "topic": "06 Whole Song",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 170,
+    "date": "2026-08-14",
+    "size_bytes": 807
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/04-synth-radio/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "04-synth-radio",
+    "topic": "04 Synth Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 75,
+    "date": "2026-08-14",
+    "size_bytes": 463
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/04-synth-radio/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "04-synth-radio",
+    "topic": "04 Synth Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 122,
+    "date": "2026-08-14",
+    "size_bytes": 620
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/01-shanty/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "01-shanty",
+    "topic": "01 Shanty",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 104,
+    "date": "2026-08-14",
+    "size_bytes": 579
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/01-shanty/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "01-shanty",
+    "topic": "01 Shanty",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 209,
+    "date": "2026-08-14",
+    "size_bytes": 983
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/03-blues-radio/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "03-blues-radio",
+    "topic": "03 Blues Radio",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 78,
+    "date": "2026-08-14",
+    "size_bytes": 436
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/03-blues-radio/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "03-blues-radio",
+    "topic": "03 Blues Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 126,
+    "date": "2026-08-14",
+    "size_bytes": 592
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/03-blues/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "03-blues",
+    "topic": "03 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 83,
+    "date": "2026-08-14",
+    "size_bytes": 482
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/03-blues/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "03-blues",
+    "topic": "03 Blues",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 167,
+    "date": "2026-08-14",
+    "size_bytes": 782
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/02-country/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "02-country",
+    "topic": "02 Country",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 97,
+    "date": "2026-08-14",
+    "size_bytes": 577
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/songs/02-country/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "02-country",
+    "topic": "02 Country",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 261,
+    "date": "2026-08-14",
+    "size_bytes": 1331
+  },
+  {
+    "filename": "welcome.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander-2/mc/welcome.md",
+    "title": "Welcome",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 134,
+    "date": "2026-08-14",
+    "size_bytes": 733
+  },
+  {
     "filename": "PROCESS.md",
     "path": "radio-theater/compass-head-radio-hour/songs/PROCESS.md",
     "title": "The Song Factory — Audience-First Process",
@@ -115610,6 +116558,259 @@
     "word_count": 854,
     "date": "2026-08-14",
     "size_bytes": 5754
+  },
+  {
+    "filename": "SHOW-BIBLE.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/SHOW-BIBLE.md",
+    "title": "The Slow Lander Hour — A Radio Show",
+    "description": "- Loves 1970s–1990s folk rock, Australian songwriters from the 1980s–2000s, great singer-songwriters - Makes guitars in the off-season · skis · sails · fishes for fun - Hardworking crew · 4 seasons on...",
+    "folder": "slow-lander",
+    "topic": "Slow Lander",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 471,
+    "date": "2026-08-14",
+    "size_bytes": 2643
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/05-folk/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "05-folk",
+    "topic": "05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 95,
+    "date": "2026-08-14",
+    "size_bytes": 532
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/05-folk/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "05-folk",
+    "topic": "05 Folk",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 144,
+    "date": "2026-08-14",
+    "size_bytes": 705
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/04-synth/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "04-synth",
+    "topic": "04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 85,
+    "date": "2026-08-14",
+    "size_bytes": 532
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/04-synth/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "04-synth",
+    "topic": "04 Synth",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 189,
+    "date": "2026-08-14",
+    "size_bytes": 966
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/06-whole-song/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "06-whole-song",
+    "topic": "06 Whole Song",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 72,
+    "date": "2026-08-14",
+    "size_bytes": 396
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/06-whole-song/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "06-whole-song",
+    "topic": "06 Whole Song",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 170,
+    "date": "2026-08-14",
+    "size_bytes": 807
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/01-shanty/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "01-shanty",
+    "topic": "01 Shanty",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 146,
+    "date": "2026-08-14",
+    "size_bytes": 778
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/01-shanty/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "01-shanty",
+    "topic": "01 Shanty",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 209,
+    "date": "2026-08-14",
+    "size_bytes": 983
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/03-blues/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "03-blues",
+    "topic": "03 Blues",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 86,
+    "date": "2026-08-14",
+    "size_bytes": 485
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/03-blues/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "03-blues",
+    "topic": "03 Blues",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 167,
+    "date": "2026-08-14",
+    "size_bytes": 782
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/02-country/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "02-country",
+    "topic": "02 Country",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 113,
+    "date": "2026-08-14",
+    "size_bytes": 661
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/songs/02-country/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "02-country",
+    "topic": "02 Country",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 261,
+    "date": "2026-08-14",
+    "size_bytes": 1331
+  },
+  {
+    "filename": "welcome.md",
+    "path": "radio-theater/compass-head-radio-hour/slow-lander/mc/welcome.md",
+    "title": "Welcome",
+    "description": "",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 212,
+    "date": "2026-08-14",
+    "size_bytes": 1086
   },
   {
     "filename": "NIGHT-2.md",
@@ -117491,7 +118692,7 @@
     "style": "Essay",
     "word_count": 725,
     "date": "2026-08-07",
-    "size_bytes": 13203
+    "size_bytes": 20741
   },
   {
     "filename": "letter-to-hermes.md",
