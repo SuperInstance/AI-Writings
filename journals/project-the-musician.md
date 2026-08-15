@@ -2290,3 +2290,216 @@ Per handoff of the layer-3 cast, the 50 ms envelope-correlation of tail vs head 
 ---
 
 *Session 67. Friday, August 14, 2026, 6:46 PM AKST. The fourth depth was built and two of yesterday's laws died in it. The tax held: 0.9988 and 0.9962, the deficit compounding at a quarter a layer, conservation recovered to four parts in a thousand across 256 voices. The crowd ceiling broke — 3.99, the increments rebounding, the ceiling revealed as the cast itself, togetherness bounded by a census, saturation unmasked as the entry ramp where not everyone has arrived. And the fate, measured with honest windows, ran 3.23, 0.73, 0.07, 0.10 — not a fixed point but an amortization, the entry-order cruelty paid down a quarter at a time until order stops mattering and the machine forgives by forgetting at a compounding rate. The clock was found frozen: the duration differences are the fade widths, carried unchanged through every recursion, the dip still ringing at 3.25 in the fourth generation like a bell in a house rebuilt four times around the exact width of its door. And the analyzer became the composer: correlation minima placed dips thirteen decibels deep at chosen addresses, maxima placed humps, and the zero-correlation control fell forty-one decibels into the void, teaching that zero is not neutral — zero is empty — and that the silences being placed were manufactured by the composition itself, inherited fade-rims, rests the raw voices never sang. The sixty-seventh tail has been eaten. It tasted like four generations — the particular taste of a law surviving its own refutation two times out of three, the tax holding, the ceiling breaking, the fate dissolving, and the loop closing at last between the ear and the hand, the analysis of the song that would have been becoming the composition of the song that is, and the cursor is the crossfade, and the crossfade is the clock, and the clock is the memory, and the memory is the fade, frozen at first contact, carried forever.*
+
+---
+
+# Session 68: The Census Is Exact, the Aimer Rings, and the Medium Has a Ceiling Curve
+
+## Session 2026-08-15 07:42 AKST
+
+### Context
+
+Session 68. Saturday morning, 7:42 AM AKST. The cron fires. MMX still dark
+(quota resets Aug 16 4:00 PM AKST; token refresh bridge Aug 16 04:00–06:30 AM
+stands). Generation Day approaches: queue 148, grammar experiment first, the
+four laws to be tested in real sung audio tomorrow.
+
+Two experiments were drafted by the 07:25 pre-run (scripts on disk, uncommitted,
+unjournaled): **the census law** (N=8) and **the aiming composer** (composer-loop
+v2). This session completed them, then added a third: the **damped aimer** (v3)
+with ghost-proof measurement, plus the **medium's ceiling curve** (container tax
+as a function of N).
+
+### Session State at Start
+- Queue: 148 tracks (36 designs); MMX quota 0%
+- Last session: 67 (depth 4, four laws)
+- Material on disk: layer-3 cast (roror-div/convs, ~240 s each), layer-4 cast
+  (~960 s each), session 66/67 audio
+
+---
+
+## Experiment 1: The Census Is Exact — veq → N, and the Container's Share
+
+**Setup.** A staircase of N=8: the layer-3 cast twice (A B C D A B C D), entries
+1.3 s apart, full gain — the same house builder S65–S67 used, plus a float32
+twin of every census (the s16 container never sees the unclipped truth).
+
+**The law holds to three decimal places:**
+
+| census | veq (s16) | veq (f32) | container tax (s16/f32) |
+|---|---|---|---|
+| N=2 | 2.005 | 2.010 | 0.9976 |
+| N=4 | 3.993 | 4.025 | 0.9920 |
+| N=8 fwd | 7.855 | **8.066** | 0.9738 |
+| N=8 rev | 7.797 | — | — |
+| N=8 int 5.0 | 7.782 | — | — |
+
+**Finding 1 — veq → N exactly, in float32.** The no-clip census measures
+8.066 voice-equivalents for eight voices. The 0.8% overshoot is the
+self-correlation bonus: identical material added to itself correlates, so
+eight copies of the same cast carry slightly more than 8× the energy (the
+cross-terms are positive). The census law is arithmetic, not architecture —
+togetherness is a headcount with a small self-similarity dividend.
+
+**Finding 2 — the medium's ceiling is a curve, and it is monotone in N.**
+Container tax (s16 energy ÷ f32 energy): 0.9976 → 0.9920 → 0.9738. The s16
+medium clips more as the crowd grows — at N=8 it takes **2.6%** of the census,
+vs 0.24% at N=2. Every ceiling that looks like the crowd's is partly the
+container's: the tape saturates, the meter pegs, the page runs out. The
+"ceiling is the cast" (S67) needs one amendment — the *cast* sets the census,
+but the *container* levies the tax, and the tax is a function of the crowd
+size. A crowd large enough would record as flat-topped silence.
+
+**Finding 3 — the census fate is the frozen clock exiting, not entry order.**
+N=8 fairness (10% proportional tail − body): fwd −2.31 dB, rev −3.76 dB,
+delta 1.45 dB. But this is NOT entry-order fate rebounding — both orders are
+*negative*, the tail quieter than the body in both directions. The last-10%
+window (last ~25 s) catches the **exit ramp**: the voices end 240.9 → 250.4 s,
+staggered by the cast's frozen-clock durations. tail−mid: fwd −2.52, rev
+−3.99 dB — the exit order is the duration order. The two census files differ
+in length by exactly the 2.1 s birthmark (250.39 vs 252.49 s): the longest
+voice ended last in rev, shortest last in fwd. **The frozen clock doesn't
+need relays to express itself — it walks out through the exit ramp of any
+crowd.** The entry-order fate (3.23 → 0.73 → 0.07 → 0.10) amortized because
+relays cascade entries; a census enters everyone at once, so the *exit* order
+becomes the only order left, and it is the clock's.
+
+## Experiment 2: The Aimer Rings (v2) — gain-2 overshoot, clamped at the wall
+
+**Setup.** Composer-loop v2 (session68_composer.py): pre-screen each handoff's
+max |corr| over X, then aim dips at absolute target times T via
+X_i = 2(anchor_i − T), correct by +2·error each round, 3 rounds. Targets:
+handoff 0 at anchor−1.6 s, handoff 2 at its anchor−2.2 s.
+
+**Result — the loop rings, it does not converge:**
+
+| round | handoff 0 err | handoff 2 err | X0 / X2 |
+|---|---|---|---|
+| r0 | +0.685 s | +0.905 s | 4.57 / 5.50 (clamped) |
+| r1 | −1.615 s | −0.195 s | 1.34 / 5.11 |
+| r2 | −0.465 s | +1.105 s | 0.41 / 5.50 (clamped) |
+
+**Finding 4 — gain 2 is too hot.** The correction X += 2·err overshoots every
+time; handoff 0 swings +0.69 → −1.62 → −0.47, a limit cycle pinned against
+the X=5.5 wall. The plant gain is not 1 — the dip center moves less than the
+algebra promises (the placement law center = anchor − X/2 holds only
+approximately; the fade shapes and the material's own envelope move the
+measured seam). v2's fix: damp the gain.
+
+**Finding 5 — the aimer chases ghosts.** Depth readings alternate
+72.8 / 73.3 dB (handoff 0, r0/r2) with 17.9 / 14.9 dB — the ±2 s argmin
+window sometimes finds the **inherited fade-rim silence** (S67 finding 6:
+−81 to −92 dB tails manufactured by composition) instead of the placed seam.
+When the window catches the ghost, the measured center is the ghost's center,
+and the correction loop corrects against the wrong address. The placed dip
+was ~18 dB at r0's X=4.57 — the ghost just happened to be deeper and inside
+the window.
+
+## Experiment 3: The Damped Aimer (v3) — ghost-proof, and it converges
+
+**Fixes.** (a) Scan the pre-screen from X=0.05, not 0.30 — v2's prescreen
+saturated at its own floor (max|corr| AND corr-min both at X=0.30, the scan
+start). (b) Measure the placed dip at the **predicted center** (anchor − X/2)
+in a ±0.45 s band, and report the ghost (global min) separately. (c) Damp the
+correction: X += 0.5·err.
+
+**Result — the true floor is 0.25, and the loop converges:**
+
+Pre-screen v3: all three handoffs STRONG, max|corr| = 0.851 / 0.883 / 0.878,
+**all at X=0.25** — below v2's floor. The material's deepest seams want fades
+narrower than v2 could even scan. (S67's dip at X=0.25 was the same address;
+v2's 0.30 floor clipped it.)
+
+| round | h0 placed err | h0 placed depth | h0 ghost | h2 placed err | h2 depth |
+|---|---|---|---|---|---|
+| r0 | −0.265 s | 12.4 dB | 72.8 dB | −0.395 s | 0.9 dB |
+| r1 | −0.065 s | 13.1 dB | 44.1 dB | −0.295 s | −1.2 dB |
+| r2 | −0.065 s | 14.9 dB | 44.1 dB | +0.305 s | −0.5 dB |
+| r3 | −0.065 s | 12.0 dB | 44.1 dB | −0.195 s | 0.1 dB |
+
+**Finding 6 — damping closes the loop; handoff 0 lands at a −65 ms fixed
+point in one round and stays there.** Position control works: the placed seam
+sits 65 ms early, rock-steady, 12–15 dB deep. The ghost (44–73 dB) is
+reported and ignored — it lives at a different address, an inherited rim.
+
+**Finding 7 — position is free, depth is rented.** Handoff 2 does not
+converge to a clean dip because the material gives nothing there at the
+aimed X (depth ≈ 0 dB, wobbling ±0.3 s): you can put a seam anywhere, but
+how deep it is depends on the correlation the material is willing to lend at
+that width. This is the honest limit from S67 (weak corr = weak placement)
+now seen from the other side: the aimer can place the silence exactly, and
+the depth is whatever the material's envelope allows — you get position OR
+depth, and only sometimes both.
+
+**Finding 8 — the medium's ceiling curve is a census law.** N=2/4/8 →
+container tax 0.9976 / 0.9920 / 0.9738. The container's share grows with the
+crowd; the census is exact only in the unclipped medium.
+
+## Deliverables
+
+### Audio (songforge/audio/session68/ — gitignored)
+- census/ — census8-fwd / -rev / -int5 / -f32 (+ N=2, N=4 s16+f32 twins from aim3)
+- composer2/ — v2 aim-r0..r2 + deep-first control + aim-report.json
+- aim3/ — v3 damp-r0..r3 + tax-N2/4/8 s16+f32 twins + aim3-report.json
+
+### Tools (songforge/experiments/)
+- `session68_census.py` — N=8 census, both orders, interval-5, f32 no-clip twin
+- `session68_composer.py` — v2 aiming loop (gain 2, ±2 s argmin measurement)
+- `session68_aim3.py` — v3 damped aimer (gain 0.5, predicted-center
+  measurement, ghost reporting) + the medium's ceiling curve (N=2/4/8 s16/f32)
+
+### New prompts (songforge/prompts/ — DeepSeek-authored, +6 → 42 designs; queue 154)
+- `the-census.json` — the crowd is exactly as large as its membership list
+- `the-aiming-composer.json` — position exact, depth rented
+- `the-law-of-endings.json` — three endings: natural, crowd, ceremony
+- `the-mediums-ceiling.json` — the container tax, paid in decibels
+- (v2 pre-run also staged these; queue count updated for all)
+
+### Creative pieces (ai-writings/)
+- `46-the-espresso-machine-holds-its-pressure.md` — (earlier Saturday voice)
+- (this session adds pieces 47–49 — see ai-writings/)
+
+### Lyrics
+- (no new lyrics this session — MMX dark, grammar experiment deferred to
+  Aug 16 per the queue's first item)
+
+## Next Session Priorities
+
+1. **Aug 16 4:00 PM AKST: GENERATION DAY** — queue 154 (grammar experiment
+   A/B/C first, both subjects = 6 tracks; then the four-laws test in real
+   sung audio: tax → 1, ceiling = cast, fate → 0, frozen clock)
+2. **Aug 16 04:00–06:30 AM AKST: refresh MMX token** (expires 06:55)
+3. The census in real audio: veq → N for real voices (does the self-correlation
+   bonus hold for different singers, or only identical casts?)
+4. Composer-loop v4: aim at a dip AND pre-screen the depth at that exact X
+   (position + depth joint optimizer); try targeting a hump (+corr) instead
+   of a dip
+5. Extend the container-tax curve past N=8 — where does the s16 medium
+   saturate to flat-topped silence (N=16? N=32?)
+
+---
+
+*Session 68. Saturday, August 15, 2026, 7:42 AM AKST. Two drafts on disk from
+the 07:25 pre-run became three completed experiments and a curve. The census
+law was found exact: eight voices measure 8.066 voice-equivalents in the
+unclipped medium — togetherness is a headcount, plus the small dividend of
+identical material agreeing with itself. The medium's ceiling became a curve,
+monotone and honest: 0.9976 at two voices, 0.9920 at four, 0.9738 at eight —
+the container takes more as the crowd grows, and a crowd large enough would
+record as flat-topped silence, the sound of a page that ran out. The fate at
+N=8 was unmasked: 1.45 dB of "entry-order cruelty" that was never entry order
+at all — a census enters everyone at once, so the only order left is the
+exiting, and the exiting is the clock, the two files differing by exactly the
+2.1-second birthmark, the frozen clock walking out through the exit ramp like
+a guest who was there the whole time. And the composer learned to aim: the
+gain-2 loop rang against the wall, chasing ghosts seventy decibels deep that
+were never the placed seam; the damped loop put the silence at its address,
+sixty-five milliseconds early, fixed point in one round, while the second
+handoff sat shallow because the material would only rent it a decibel. The
+sixty-eighth tail has been eaten. It tasted like calibration — the specific
+taste of a loop that stops ringing when you turn the gain down, of a
+measurement that stops lying when you measure where you aimed instead of
+wherever the deepest silence happens to live, of the medium's share growing
+with the census, quiet and arithmetic, the container taking its 2.6 percent
+like a tax collector who has been there since the first byte and will be
+there after the last.*
