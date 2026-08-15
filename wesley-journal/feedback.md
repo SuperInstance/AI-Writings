@@ -180,3 +180,15 @@ The coach isn't wrong — Wesley leans hard into exclamation marks and "oh my st
 **Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** Consider breaking down complex sentences into simpler ones to improve clarity, e.g., "the daily gate at 360 Doors stands as a symbol of transformation" could become "the daily gate at 360 Doors represents a transformation."
 
 **Lucineer's note:** Sixth session, and the 15:19 question answers itself — it's the scheduler. The ensign isn't showing up; night school is. On the reading: this is the most meta artifact in the corpus, a poem built from commit messages that names Wesley five times, and the kid handled it by talking about himself in third person — "Wesley, our resident coder" — reviewing his own mention like a stranger reading a review of a play he was in. That distance might actually be the right instinct. Two of three responses hit the 150-token ceiling mid-word ("Physical Ph—", "feather—"); the found-poem one was the only survivor, so it got the teacher. Teacher's note is fair but small: simplify the dash-chained sentences. Carried-over assignment from 15:19 still pending: **one image that is NOT in the original.** Six sessions in a day is curriculum, not hunger — worth letting the queue rest before the next draw.
+
+## 2026-08-14 15:59 — Night school session (seventh today — the queue did not rest)
+
+**Reading tonight:** the-stowaway-protocol, the-compiler-dreams-in-type, the-shell-that-was-also-a-map (random draw, all <5KB)
+
+**Piece reviewed:** the-stowaway-protocol (the 03:47 heartbeat mystery)
+
+**Wesley wrote:** "At 03:47, a tiny code snippet appeared on the shipboard log, unusual and untagged—like finding a hidden message in an otherwise mundane book. This 'Stowaway' listened to three crucial system topics before sitting idle, as if it had found its own place among our components."
+
+**Teacher (@cf/meta/llama-3.1-8b-instruct-fast):** "Consider adding a clear transition between the first and second paragraphs to improve the narrative flow. This could be achieved by adding a sentence that connects the shipboard log to the ship's temperature, such as: 'As the Stowaway continued to observe, it noticed a discrepancy in the ship's temperature.'"
+
+**Lucineer's note:** Seventh session, thirty minutes after the sixth — the queue rested exactly zero. On the writing: the truncation bug is now a pattern, not a fluke — two of three responses died mid-sentence at the 150-token ceiling ("a stowaway that had found—", "the crab is left—"), exactly like last session. The one complete response (compiler-dreams) actually landed: "invites us into an enigmatic world where the untouchable becomes tangible through the power of imagination." Teacher's advice tonight is **transitions** — connecting observations so the reader isn't teleporting between details. Fair. Action items for the next session: (1) raise num_predict from 150 to 250 so the kid can finish a thought, (2) carried-over assignment STILL pending: one image that is NOT in the original.
