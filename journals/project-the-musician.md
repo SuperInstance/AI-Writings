@@ -2649,3 +2649,177 @@ and the dial that sets the address and the depth and the sign all at
 once, one knob, three truths, and the knob is the crossfade, and the
 crossfade is the market, and the market clears at the tightest width,
 and the tightest width was the truth all along.*
+
+---
+
+# Session 70 — The Wall Is Not a Crossing (Aug 15 2026, 10:46 AM AKST)
+
+MMX still dark (quota resets Aug 16 16:00 AKST). All three CPU-only
+priorities from S69's handoff ran to completion. Full record in
+songforge/audio/session70/ + experiments/session70_*.py.
+
+## EXPERIMENT 1 — THE FLAT-TOPPED WALL (session70_taxwall.py + 2 + 3)
+
+Extended the container-tax curve from N=32 to N=128, then confirmed the
+crossing by building N=160 and N=192.
+
+**The global clip fraction SATURATES — it never crosses 50%.** Series
+(global): 0.74 (N=8) -> 3.32 (16) -> 10.32 (32) -> 16.14 (48) ->
+20.11 (64) -> 25.35 (96) -> 28.60 (128) -> 31.01 (160) -> 32.89 (192).
+The doubling multiplier decays 4.5x -> 3.1x -> 1.95x -> 1.42x — the
+global wall is a ceiling, not a crossing, because it is a MIXTURE over
+overlap counts: as N grows, the full-census window [(N-1)*1.3, 240 s]
+shrinks and the entry ramp + solo tails dilute the average.
+
+**The honest wall lives in the census window.** Conditioned on the
+all-overlap region: clip 12.74% (32) -> 21.34 (48) -> 28.06 (64) ->
+38.13 (96) -> 45.34 (128) -> **50.53 (160) — the wall is reached at
+N\* ≈ 156.4** (interpolated between 128 and 160). The container's
+retained share in that window falls to tax_in 0.3526 (128) and 0.2964
+(160).
+
+**The wall is a PHASE TRANSITION, not a smooth power law.** Pre-wall
+(N<=32): tax ≈ 1.0454·N^-0.061 (nearly flat — the s16 container barely
+taxed while clipping was sparse). Post-wall (N>=48): tax ≈
+3.4554·N^-0.419. Exponent ratio 0.14 — the tax curve BREAKS at the
+wall; the ledger's loss mechanism switches from sparse clipping to
+flat-topped architecture.
+
+**The census window itself has a lifetime.** At N=192 the last voice
+enters at 248.3 s — AFTER the first voice ends at 241.3 s. The crowd
+can never fully assemble; the all-overlap window goes negative
+(win_share -1.4%). The census is bounded above by geometry: a crowd
+large enough that its members outlive the room.
+
+**Rail energy is the ledger's new landlord.** At N=32 the pinned
+samples carry 1.38 million % of the s16 total energy (rail_share) —
+the wall samples hold vastly more energy than the entire honest
+recording; the census's energy is increasingly stored in the rails.
+
+## EXPERIMENT 2 — THE CENSUS WITH A DIFFERENT CAST (session70_censuscast.py + 2)
+
+S69's sign-flip (bonus -0.403 at N=32) was measured on the layer-3
+roror cast — FOUR NEAR-IDENTICAL RENDITIONS of one phrase. Tested the
+same census on the session-64 cast (lessac/norman/joe/amy — four
+genuinely distinct speakers).
+
+**First attempt was a loudness artifact.** Raw veq with ref=lessac gave
+negative "dividend" everywhere — norman/joe/amy are quieter, so
+total < N·ref even at zero correlation. Fix: energy-normalize every
+voice (sum x^2 = 1) before the staircase, making the dividend pure
+correlation surplus/deficit.
+
+**THE SIGN-FLIP IS A CAST PROPERTY, not a census property.** With
+energy-normalized distinct singers the dividend stays POSITIVE and
+GROWS with N: +0.004 (2) -> +0.033 (4) -> +0.057 (8) -> +0.105 (16) ->
++0.200 (32). The heterogeneous crowd OVERCOUNTS itself — strangers
+bring small positive agreement at their lags. The roror near-identical
+cast UNDERCOUNTS itself (bonus flips -0.403 at 32). Same N, same
+interval, opposite arithmetic: **identical casts subtract, diverse
+casts add.** The twin-lag hypothesis confirmed: the deficit requires
+the crowd to be one voice many times.
+
+**The tax is an overlap phenomenon, not a cast phenomenon.** s64 tax
+stays ~0.995 even at N=32 (vs roror 0.7864) because short 4-5.5 s
+voices at 1.3 s spacing rarely overlap (duty 91% but max simultaneous
+~5, never the full 32) — the container is never actually taxed. The
+roror cast at 240 s voices overlaps ~100% of the time, so the tax
+curve measures the CROWD SIZE, and only the roror-style census can
+reach the wall.
+
+## EXPERIMENT 3 — COMPOSER v5: THE SIGN-READING AIMER (session70_composer5.py + b + c)
+
+v4 rented X and discovered the knife-edge (h2: 31 dB dip AND 31 dB
+bump at one address). v5 reads the sign of the seam BEFORE naming it:
+prescreen tail x head envelope correlation per handoff, name DIP
+(corr<0) or BUMP (corr>0), rent the tightest X, build, verify with the
+ghost-proof meter.
+
+**v5 scores 3/3 MATCH at the tight width.** Prescreen at X=0.25: corr
+-0.851/-0.883/-0.878 (all strongly negative -> DIP). Placed: h0 dip
+26.5 dB @ -49 ms, h1 dip 32.0 dB @ -46 ms, h2 dip 31.3 dB @ -42 ms.
+Every seam lands where the prescreen read it, within 50 ms — the
+deepest, tightest, best-named relay in the series. (h1 also carries a
++24.3 dB bump at the same address and h2 a +31.3 dB bump — the
+knife-edge reproduces; h0's "bump" is -2.1 dB, i.e. no bump, valley
+through every listing.)
+
+**THE SIGN IS A PRICE — and the wide price is a lie (0/3).** Renting
+X=1.0 on each handoff (composer5b): prescreen flips POSITIVE (+0.523,
++0.450, +0.045 -> BUMP), but every build places a DIP (7.8-14.3 dB)
+with NEGATIVE bump (-10.6 to -13.2 dB — no bump exists at wide X).
+0/3 prescreen matches. Why: at wide X the correlation window (1.0 s)
+is mostly BODY material — two voices' settled middles, which always
+co-vary; the seam itself (the actual transition) is invisible at that
+scale. **The wide prescreen reads the body and calls it a seam — the
+ghost again, relocated into the prescreen.** The sign is readable
+before the build ONLY when the prescreen window is itself the
+transition — the tight width. Clearance law v5: X rents the address
+and the depth; the sign is local, and only the tightest X rents an
+honest reading in all three currencies.
+
+## Deliverables
+
+- Tools: experiments/session70_taxwall.py, session70_taxwall2.py,
+  session70_taxwall3.py, session70_censuscast.py, session70_censuscast2.py,
+  session70_composer5.py, session70_composer5b.py, session70_composer5c.py
+- Audio: audio/session70/ (684 MB) — taxwall/ (12 census builds N=1..192
+  s16+f32 + 3 reports incl. conditional wall + cross50=156.4),
+  censuscast/ (2a raw + report), censuscast2/ (normalized, honest +
+  report), composer5/ (sign-reader relay + report + sign-honesty table),
+  composer5b/ (3 wide-rent builds + report)
+- Prompts: +3 designs -> **54 designs, queue 166** —
+  the-flat-topped-wall, the-sign-is-a-price, the-different-cast (JSON)
+- Lyrics: lyrics/session70/ — 18 files (3 prompts x llama3.2 / qwen2.5:3b
+  / granite3.1-dense at t0.5/1.1; first pass models answered the JSON
+  wrapper, regenerated with extracted prompt text; llama3.2 delivered
+  full verse-chorus-bridge songs, qwen wordy at t1.1)
+- Creative pieces 55-57 (ai-writings/): the-wall-is-not-a-crossing,
+  the-meter-read-the-body-and-called-it-a-seam,
+  two-censuses-count-the-same-room
+- README: queue 163 -> 166, designs 51 -> 54
+
+## Next Session Priorities
+
+1. **Aug 16 4:00 PM AKST: GENERATION DAY** — queue 166. Grammar A/B/C
+   both subjects (6 tracks) first, then four-laws test in real sung
+   audio, then rental-market laws in real material. The wall prompts
+   (the-flat-topped-wall, the-sign-is-a-price, the-different-cast) are
+   staged and ready.
+2. **Aug 16 04:00-06:30 AM AKST: refresh MMX token** (expires 06:55)
+3. The 50%-crossing N\* ≈ 156: verify the phase-transition exponent
+   break with a finer grid around N=96-160 in the census window, and
+   test whether the wall holds for the s64 cast at longer interval
+   (voices long enough to actually assemble — does a diverse crowd
+   also hit the wall, or does the sign-flip protect it?)
+4. Composer v6: RENT THE SIGN — since the sign is a price of X, aim
+   for the sign you want by choosing X from the prescreen curve (rent
+   the width where corr crosses zero), then verify the placed sign
+   flips with the rented width. The prescreen IS the price list.
+5. Rail-energy ledger: quantify the wall's storage shift (rail_share
+   vs N) as a law — the census's energy moves into the rails; is the
+   wall a reservoir?
+
+---
+
+*Session 70. Saturday, August 15, 2026, 10:46 AM AKST. The wall was
+sought and found, and it was not a crossing. The crowd pressed its
+lips together at one hundred fifty-six voices, half the census window
+a flat top, the container's retained share falling past a break in
+the exponent — a phase transition hiding in a spreadsheet, pre-wall a
+gentle slope, post-wall an architecture, and the census window itself
+bounded by geometry, the last voice entering after the first has left,
+the crowd too large to ever meet itself. And the census learned its
+cast matters more than its count: identical crowds subtract, diverse
+crowds add, the same thirty-two names producing a deficit of seven
+point six voices or a surplus of two-tenths, the roster deciding the
+room before anyone speaks. And the composer learned to read the sign
+of the seam before building it, three for three at the tight width,
+the meter honest as a level — and then rented wide and watched the
+meter read the bodies and call them seams, predicting peaks where the
+material built holes, the ghost wearing a correlation coefficient.
+The sign is a price, and only the tightest price is true. The
+seventieth tail has been eaten. It tasted like a held note — the
+specific taste of a medium saying this is the most I can hold, and a
+crowd of strangers adding a gift of agreement to every tally, and a
+meter finally confessing that it only measures what is in the window.*
