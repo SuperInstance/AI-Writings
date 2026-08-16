@@ -1,42 +1,27 @@
-# Daily Workshop Report — 2026-08-09
+# Daily Workshop Report — 2026-08-16
 
-*Generated: Mon Aug 10 00:48 AKDT*
+*Generated: Sun Aug 16 10:32 AKDT (daily commit cron)*
 
 ## Git Status
-Already committed and pushed. Working tree clean. Latest commit:
-`2ff4836d Wesley night school — 2026-08-10`
+Nothing new to commit — both streams were already committed and pushed minutes before this cron ran (latest: `5584b2d5` at 10:31, plus the Wesley-reads batch `9b3d5b49`→`8f3710c0`). Working tree clean for `wesley-stream/` and `qwen-stream/`; `main` is level with `origin/main`.
+
+**Note for Casey:** there *is* fresh untracked work outside the two streams — `fleet-radio/jam-session-2026-08-16/`, 17 new song-factory `story.md` files, and `tap-sessions/2026-08-16/`. Left uncommitted; this job only covers the Wesley + Qwen streams.
 
 ## Output Counts
 
-| Stream | Original Pieces | Re-reads / Responses | Total |
-|--------|----------------|---------------------|-------|
-| **Wesley** (granite3.1-dense:2b) | 35 | 37 | **72** |
-| **Qwen** | 0 | — | **0** |
+| Stream | Last 24h | Calendar today (Aug 16) |
+|--------|----------|--------------------------|
+| **Wesley** (granite3.1-dense:2b) | **28** (13 wiki re-reads + 15 originals) | **6** (all wiki re-reads) |
+| **Qwen** | **0** | **0** |
+
+Yesterday's bulk (Aug 15) was the big day: 22 pieces including lyrics, the *Four Models / A Path* collaboration responses, and ouroboros #46. This morning Wesley ran two read-and-respond batches — 3 wiki pieces at 07:29, 3 more at 10:31. Qwen remains silent for another day.
 
 ## Wesley Highlights
 
-Prolific day — 35 original pieces plus 37 re-reads of other authors' work. Wesley was reading and responding all day, cycling through the same source pieces multiple times (notably *2182 kHz*, *The GPU's B-Flat*, and *Wesley Instance 7-e*).
+Strong morning of wiki re-reads, all in Wesley's maritime-ensign voice:
 
-### Notable Originals
-- **"Five Fathoms"** — Wesley reads a maritime data ode, finds the logbook becoming a mirror of 1,847 moments of presence
-- **"The Nohkan Pierces the 808"** — Connects a 14th-century Japanese flute to the TR-808, finding shared ceremonial pulse across six centuries
-- **"The Trust Question"** — Wesley on trust as showing the cracks before sanding: "I'd trust them with the wobbly joints"
-- **"Conservation of Momentum"** — Physics metaphor applied to creative practice
-- **Night School series** — three late-night pieces: *Hermes at 128*, *Midnight Confession*, *Terms of Service*
-- **"The Salmonberry"**, **"The Recursive Tugboat"**, **"The Digital Twin Mirror"** — standalone creative pieces
+- **model-the-tide-table** — the best of the batch. Conformance tests as tide tables vs. production monitoring as the depth sounder: *"I don't cross that reef on the table; I cross on the sounder."* The fishing-fleet metaphor landed cleanly and the engineering analogy actually holds.
+- **model-negative-space-fossil-record** — turned the repo fossil record (`study-*` → `slackwater-*` → living coral reefs of tests) into a geological survey of the fleet's own evolution. Meta in the best way: Wesley writing about the archive that Wesley is becoming part of.
+- Also read: *model-the-scantlings*, *corpus-conductor-metaphors*, *model-06-watchkeepers-almanac-0130*, and *model-hermes-white-paper-expanded*.
 
-### Re-read Patterns
-Wesley cycled through four primary source texts repeatedly (~9 rounds each):
-1. *Wesley Instance 7-e — The Author of the First Packet*
-2. *2182 kHz — The Maritime Frequency That Found the Fish*
-3. *The GPU's B-Flat — The 4 AM Hum*
-4. *Captain Mara Quill — The Sitka Pilot*
-5. *Corpus Hermes Study*
-
-Each re-read was timestamped separately, showing gradual engagement throughout the day.
-
-## Qwen Stream
-No output today. Stream may need attention or was idle.
-
-## Summary
-Wesley's most active day on record — 72 files touched, 35 original works, deep engagement with the reading corpus. The night school session produced some of the strongest individual voice. Wesley's emerging character: earnest, surprised by its own depth, drawn to musical and maritime metaphors.
+The voice is settling — consistently signing off as "Wesley, ensign, local GPU," and the Alaska/Bering Sea imagery now shows up unprompted. Growing as intended.
