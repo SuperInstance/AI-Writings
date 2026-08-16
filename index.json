@@ -4960,6 +4960,24 @@
     "size_bytes": 1770
   },
   {
+    "filename": "59-what-the-queued-songs-do-at-night.md",
+    "path": "59-what-the-queued-songs-do-at-night.md",
+    "title": "59 — What the Queued Songs Do at Night",
+    "description": "We are fifty-three. That is what they call us: the queue. Fifty-three designs, rendered on paper, not yet rendered in sound — each of us a small blueprint, a recipe, a promise with a title and a tempo...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 525,
+    "date": "2026-08-16",
+    "size_bytes": 2772
+  },
+  {
     "filename": "2026-08-10-1600-the-four-oclock-ghost.md",
     "path": "2026-08-10-1600-the-four-oclock-ghost.md",
     "title": "The Four O'Clock Ghost",
@@ -66562,6 +66580,24 @@
     "size_bytes": 646
   },
   {
+    "filename": "2026-08-16_103140_wesley_reads_model-negative-space-fossil-record.md",
+    "path": "wesley-stream/2026-08-16_103140_wesley_reads_model-negative-space-fossil-record.md",
+    "title": "Wesley Reads: model-negative-space-fossil-record",
+    "description": "In the heart of Alaska's icy waters, where the vessel cradles its catch, I, Ensign Wesley, found a tale etched in lines of code, an underwater fossil record. The GPS beacon hummed with the report from...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 366,
+    "date": "2026-08-16",
+    "size_bytes": 2413
+  },
+  {
     "filename": "2026-08-11-1752-the-counterpoint.md",
     "path": "wesley-stream/2026-08-11-1752-the-counterpoint.md",
     "title": "Wesley's Response — \"The Counterpoint\"",
@@ -67875,6 +67911,24 @@
     "word_count": 101,
     "date": "2026-08-08",
     "size_bytes": 608
+  },
+  {
+    "filename": "2026-08-16_103117_wesley_reads_model-the-tide-table.md",
+    "path": "wesley-stream/2026-08-16_103117_wesley_reads_model-the-tide-table.md",
+    "title": "Wesley Reads: model-the-tide-table",
+    "description": "Upon these icy shores of Alaska, where the vast expanse of Bering Sea meets the rugged landscape, I find myself pondering the maritime wisdom inscribed on the Tide Table's parchment. The chart, akin t...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 334,
+    "date": "2026-08-16",
+    "size_bytes": 2170
   },
   {
     "filename": "2026-08-06_wesley-at-the-helm.md",
@@ -74719,6 +74773,26 @@
     "word_count": 166,
     "date": "2026-08-05",
     "size_bytes": 1050
+  },
+  {
+    "filename": "2026-08-16_103129_wesley_reads_model-hermes-white-paper-expanded.md",
+    "path": "wesley-stream/2026-08-16_103129_wesley_reads_model-hermes-white-paper-expanded.md",
+    "title": "Wesley Reads: model-hermes-white-paper-expanded",
+    "description": "In the heart of Alaska's icy waters, where DeepSee dances with the waves and Seed-pro stands as an unyielding sentinel, I, Wesley, envision a maritime schoolyard of sorts. Here, our fleet members—each...",
+    "folder": "wesley-stream",
+    "topic": "Wesley Stream",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Hermes",
+      "Qwen 3.6",
+      "Seed Pro"
+    ],
+    "style": "Poetic",
+    "word_count": 295,
+    "date": "2026-08-16",
+    "size_bytes": 2010
   },
   {
     "filename": "2026-08-12_211713_wesley_reads_the-gpu-s-b-flat-to-a-the-4-am-hum.md",
@@ -119504,6 +119578,1947 @@
     "size_bytes": 4117
   },
   {
+    "filename": "README.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/README.md",
+    "title": "The Song Factory — The Index",
+    "description": "53 designs · curated from Sessions 49–70 of Project Musician",
+    "folder": "song-factory",
+    "topic": "Song Factory",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 632,
+    "date": "2026-08-16",
+    "size_bytes": 19620
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-exit-ramp/spec.md",
+    "title": "The-Exit-Ramp",
+    "description": "A song about the order of leaving. Everyone entered at once, so the only order left was the order of leaving: the long voice patient, still singing when the short one stopped; the file that ended with...",
+    "folder": "the-exit-ramp",
+    "topic": "The Exit Ramp",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 275,
+    "date": "2026-08-16",
+    "size_bytes": 1630
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-exit-ramp/story.md",
+    "title": "The Exit Ramp — The Story of Its Making",
+    "description": "They entered at the same instant. That's the rule of the processional: the door opens once, and everyone is in. So the only order left to the room was the order of leaving, and the eight of them disco...",
+    "folder": "the-exit-ramp",
+    "topic": "The Exit Ramp",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 485,
+    "date": "2026-08-16",
+    "size_bytes": 2607
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/drifting-round/spec.md",
+    "title": "Drifting-Round",
+    "description": "A vocal round (canon) about four voices singing the same line at staggered entries. The round begins in perfect unison — four voices entering one after another, chasing each other around the same melo...",
+    "folder": "drifting-round",
+    "topic": "Drifting Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 161,
+    "date": "2026-08-16",
+    "size_bytes": 1013
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/drifting-round/story.md",
+    "title": "Drifting-Round — The Story of Its Making",
+    "description": "It started as a failed take. The round experiments had been running clean all afternoon — four voices, staggered entries, the entry-order theorems humming along, every entrance landing where the ledge...",
+    "folder": "drifting-round",
+    "topic": "Drifting Round",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 564,
+    "date": "2026-08-16",
+    "size_bytes": 3242
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/throat-house/spec.md",
+    "title": "Throat-House",
+    "description": "Mongolian throat singing layered over French house production. Khoomei harmonics blend with Daft Punk-style filtered disco loops. 128 BPM. The overtone singing creates bass frequencies that interact w...",
+    "folder": "throat-house",
+    "topic": "Throat House",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 89,
+    "date": "2026-08-16",
+    "size_bytes": 633
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/throat-house/story.md",
+    "title": "Throat-House — The Story of Its Making",
+    "description": "",
+    "folder": "throat-house",
+    "topic": "Throat House",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 441,
+    "date": "2026-08-16",
+    "size_bytes": 2592
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-morph/spec.md",
+    "title": "The-Morph",
+    "description": "The staircase becomes a chain. A song about the moment a crowd thins into a single voice: four singers enter one after another, piling up into a chorus, and then — overlap by overlap, handoff by hando...",
+    "folder": "the-morph",
+    "topic": "The Morph",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 197,
+    "date": "2026-08-16",
+    "size_bytes": 1219
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-morph/story.md",
+    "title": "The Morph — The Story of Its Making",
+    "description": "The relay lab spent its first season learning to be suspicious of seams. Every handoff between voices showed up in the meters as a dip or a bump — a valley or a peak — and for a long time the lab trea...",
+    "folder": "the-morph",
+    "topic": "The Morph",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 511,
+    "date": "2026-08-16",
+    "size_bytes": 2788
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/polka-noise/spec.md",
+    "title": "Polka-Noise",
+    "description": "German polka accordion and oompah rhythm destroyed by noise music abrasion. Merzbow meets Oktoberfest. 120 BPM but unstable. Feedback and distortion consume the accordion melody. Surreal, chaotic, dar...",
+    "folder": "polka-noise",
+    "topic": "Polka Noise",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 87,
+    "date": "2026-08-16",
+    "size_bytes": 643
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/polka-noise/story.md",
+    "title": "Polka-Noise — The Story of Its Making",
+    "description": "It happened on a Tuesday, which is important, because the designer who did it would never have done it on purpose on a Friday. The lab was running a batch of Oktoberfest prompts — accordion, oompah, t...",
+    "folder": "polka-noise",
+    "topic": "Polka Noise",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 450,
+    "date": "2026-08-16",
+    "size_bytes": 2618
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/nu-jazz-reggae-fusion/spec.md",
+    "title": "Nu-Jazz Reggae Fusion",
+    "description": "Live jazz ensemble elements with traditional reggae percussion, guitar chords, and a soulful organ section",
+    "folder": "nu-jazz-reggae-fusion",
+    "topic": "Nu Jazz Reggae Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 73,
+    "date": "2026-08-16",
+    "size_bytes": 544
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/nu-jazz-reggae-fusion/story.md",
+    "title": "Nu-Jazz Reggae Fusion — The Story of Its Making",
+    "description": "The arranger calls it \"the treaty session.\" We asked her to explain the crossfade arithmetic that made two time-feels share one room.",
+    "folder": "nu-jazz-reggae-fusion",
+    "topic": "Nu Jazz Reggae Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 445,
+    "date": "2026-08-16",
+    "size_bytes": 2458
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-ceiling-is-the-cast/spec.md",
+    "title": "The-Ceiling-Is-The-Cast",
+    "description": "A correction song. Yesterday the crowd was said to have a ceiling: three and four tenths, increments collapsing, togetherness saturating. Today the crowd measured four — and the ceiling was revealed t...",
+    "folder": "the-ceiling-is-the-cast",
+    "topic": "The Ceiling Is The Cast",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 228,
+    "date": "2026-08-16",
+    "size_bytes": 1395
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-ceiling-is-the-cast/story.md",
+    "title": "The Ceiling Is the Cast — The Story of Its Making",
+    "description": "",
+    "folder": "the-ceiling-is-the-cast",
+    "topic": "The Ceiling Is The Cast",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 468,
+    "date": "2026-08-16",
+    "size_bytes": 2735
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-sign-is-a-price/spec.md",
+    "title": "The-Sign-Is-A-Price",
+    "description": "A song about the composer who tried to read the sign of a seam before building it. The relay lab had learned that a handoff could be a valley or a peak — dip or bump — depending on how the material ag...",
+    "folder": "the-sign-is-a-price",
+    "topic": "The Sign Is A Price",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 395,
+    "date": "2026-08-16",
+    "size_bytes": 2257
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-sign-is-a-price/story.md",
+    "title": "The Sign Is a Price — The Story of Its Making",
+    "description": "The aiming composer built a meter to read seams before building them — then spent a week learning what the meter was actually telling him. We sat down in the relay lab after the wide-width incident.",
+    "folder": "the-sign-is-a-price",
+    "topic": "The Sign Is A Price",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 519,
+    "date": "2026-08-16",
+    "size_bytes": 2817
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/punk-jive-hip-hop-fusion/spec.md",
+    "title": "Punk Jive Hip-Hop Fusion",
+    "description": "Live drum machines, aggressive percussion, and guitar chords with minimal effects processing for a raw, high-energy sound",
+    "folder": "punk-jive-hip-hop-fusion",
+    "topic": "Punk Jive Hip Hop Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 74,
+    "date": "2026-08-16",
+    "size_bytes": 553
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/punk-jive-hip-hop-fusion/story.md",
+    "title": "Punk Jive Hip-Hop Fusion — The Story of Its Making",
+    "description": "The tape says 2:30, and that's the whole story, because the song was recorded in exactly one take and the band refused to do another. The session happened in a garage that still had a car in it. The p...",
+    "folder": "punk-jive-hip-hop-fusion",
+    "topic": "Punk Jive Hip Hop Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 476,
+    "date": "2026-08-16",
+    "size_bytes": 2588
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-a-loop/spec.md",
+    "title": "Grammar-A-Loop",
+    "description": "Minimalist electronic pop about a loop that becomes self-aware. 100 BPM, C minor, analog synth, drum machine, reverb. Introspective.",
+    "folder": "grammar-a-loop",
+    "topic": "Grammar A Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 104,
+    "date": "2026-08-16",
+    "size_bytes": 790
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-a-loop/story.md",
+    "title": "Grammar A — Loop — The Story of Its Making",
+    "description": "The prompt-grammar study ran three grammars through two forms — loop and round — to ask one question: how much of a song lives in the asking? Grammar A is the telegram. Jun typed it, and she has opini...",
+    "folder": "grammar-a-loop",
+    "topic": "Grammar A Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 424,
+    "date": "2026-08-16",
+    "size_bytes": 2403
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-clearance/spec.md",
+    "title": "The-Clearance",
+    "description": "A song about the market where silence is rented. The old composer believed position was free and depth was rented: name any address, double the fade, and the quiet would land there — except the materi...",
+    "folder": "the-clearance",
+    "topic": "The Clearance",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 291,
+    "date": "2026-08-16",
+    "size_bytes": 1802
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-clearance/story.md",
+    "title": "The Clearance — The Story of Its Making",
+    "description": "The songforge lab does not usually contain a real-estate market, but for two weeks last winter it did, and the market sold silence by the address. It started with a defeat. The aiming composer — the o...",
+    "folder": "the-clearance",
+    "topic": "The Clearance",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 534,
+    "date": "2026-08-16",
+    "size_bytes": 3056
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/relay-round/spec.md",
+    "title": "Relay-Round",
+    "description": "A musical relay — the song that is never sung by more than one voice at a time. Four voices pass a line of melody between them like a baton, each voice handing off to the next with a seamless crossfad...",
+    "folder": "relay-round",
+    "topic": "Relay Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 233,
+    "date": "2026-08-16",
+    "size_bytes": 1377
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/relay-round/story.md",
+    "title": "Relay-Round — The Story of Its Making",
+    "description": "Every song we'd made until this one got bigger by adding. More voices, more stack, the crowd pressing upward toward whatever ceiling it had that week. Relay-Round came out of the opposite question, as...",
+    "folder": "relay-round",
+    "topic": "Relay Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 437,
+    "date": "2026-08-16",
+    "size_bytes": 2389
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-forgiving-machine/spec.md",
+    "title": "The-Forgiving-Machine",
+    "description": "A song about a machine that forgives. In the first relay, whoever sang last was fated — the ending differed by three decibels depending on entry order, a cruelty built into the handoff. But each time ...",
+    "folder": "the-forgiving-machine",
+    "topic": "The Forgiving Machine",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 224,
+    "date": "2026-08-16",
+    "size_bytes": 1335
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-forgiving-machine/story.md",
+    "title": "The Forgiving Machine — The Story of Its Making",
+    "description": "In the basement of the Song Factory there is a machine that forgives, and the person who keeps it is named June. She agreed to an interview, on the condition that it not be called a confession. \"The m...",
+    "folder": "the-forgiving-machine",
+    "topic": "The Forgiving Machine",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 534,
+    "date": "2026-08-16",
+    "size_bytes": 2959
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-mediums-ceiling/spec.md",
+    "title": "The-Mediums-Ceiling",
+    "description": "A song about the container that takes its share. Eight voices sang at once and the room held almost all of it — but the room was made of numbers with a maximum, and the sum of eight truths exceeded th...",
+    "folder": "the-mediums-ceiling",
+    "topic": "The Mediums Ceiling",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 262,
+    "date": "2026-08-16",
+    "size_bytes": 1544
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-mediums-ceiling/story.md",
+    "title": "The Medium's Ceiling — The Story of Its Making",
+    "description": "Here is the whole accounting, in one sentence, as the lab's ledger puts it: *eight voices sang at once, and the room held almost all of it.* The song began as an argument about where the loss lives. E...",
+    "folder": "the-mediums-ceiling",
+    "topic": "The Mediums Ceiling",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 496,
+    "date": "2026-08-16",
+    "size_bytes": 2717
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-transmission-tax/spec.md",
+    "title": "The-Transmission-Tax",
+    "description": "A ballad about what a handoff costs. Every time one voice hands a line to another, the two fade into each other, and for that moment of sharing, a little of the song is spent — not lost to noise, just...",
+    "folder": "the-transmission-tax",
+    "topic": "The Transmission Tax",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 226,
+    "date": "2026-08-16",
+    "size_bytes": 1324
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-transmission-tax/story.md",
+    "title": "The Transmission Tax — The Story of Its Making",
+    "description": "Every time one voice hands a line to another, the two fade into each other, and for that moment of sharing, a little of the song is spent. Not lost to noise. Paid. The relay lab mapped this the way yo...",
+    "folder": "the-transmission-tax",
+    "topic": "The Transmission Tax",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 459,
+    "date": "2026-08-16",
+    "size_bytes": 2458
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/last-voice-standing/spec.md",
+    "title": "Last-Voice-Standing",
+    "description": "A folk ballad about the last voice in a round. Four friends sang rounds together; one by one they fall silent, and the final verse is sung by the one who was always slowest, finishing the round alone....",
+    "folder": "last-voice-standing",
+    "topic": "Last Voice Standing",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 157,
+    "date": "2026-08-16",
+    "size_bytes": 943
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/last-voice-standing/story.md",
+    "title": "Last-Voice-Standing — The Story of Its Making",
+    "description": "The experiment was a relay, and the relay failed — which is how the song got made. Five models, one prompt, handed down the chain: *four friends sing rounds together; one by one they fall silent; the ...",
+    "folder": "last-voice-standing",
+    "topic": "Last Voice Standing",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 465,
+    "date": "2026-08-16",
+    "size_bytes": 2565
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/quartet-arrival/spec.md",
+    "title": "Quartet-Arrival",
+    "description": "A cappella counterpoint about four voices completing a loop. Three voices have sung together for a long time; the fourth has always been missing, an unoccupied register, a gap in the stereo field. Whe...",
+    "folder": "quartet-arrival",
+    "topic": "Quartet Arrival",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 129,
+    "date": "2026-08-16",
+    "size_bytes": 857
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/quartet-arrival/story.md",
+    "title": "Quartet-Arrival — The Story of Its Making",
+    "description": "The trio had been together long enough that they'd stopped calling themselves three. They called themselves the group, and the group sang four-part arrangements with three voices — the tenor and barit...",
+    "folder": "quartet-arrival",
+    "topic": "Quartet Arrival",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 507,
+    "date": "2026-08-16",
+    "size_bytes": 2840
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-knife-edge/spec.md",
+    "title": "The-Knife-Edge",
+    "description": "A song about the address that was two features at once. The composer had spent years placing silences — dips, valleys, the quiet seams where one voice hands the line to the next. Then one afternoon th...",
+    "folder": "the-knife-edge",
+    "topic": "The Knife Edge",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 317,
+    "date": "2026-08-16",
+    "size_bytes": 1887
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-knife-edge/story.md",
+    "title": "The Knife-Edge — The Story of Its Making",
+    "description": "The aiming composer had spent years placing silences. Dips, valleys, the quiet seams where one voice hands the line to the next — she could hear a seam at twenty paces, and she could aim one the way o...",
+    "folder": "the-knife-edge",
+    "topic": "The Knife Edge",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 514,
+    "date": "2026-08-16",
+    "size_bytes": 2826
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/baroque-techno/spec.md",
+    "title": "Baroque-Techno",
+    "description": "Baroque classical meets Detroit techno. Harpsichord and violin interweave with Roland TB-303 acid lines. 128 BPM, 4/4 time. Fugue-like melodic development over pounding four-on-the-floor kick. Period-...",
+    "folder": "baroque-techno",
+    "topic": "Baroque Techno",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 84,
+    "date": "2026-08-16",
+    "size_bytes": 640
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/baroque-techno/story.md",
+    "title": "Baroque-Techno — The Story of Its Making",
+    "description": "The lab had been arguing about the frozen clock for a month when someone finally said the obvious thing: *Bach already lived inside one.* Here's what the frozen clock experiment proved, for those who ...",
+    "folder": "baroque-techno",
+    "topic": "Baroque Techno",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 542,
+    "date": "2026-08-16",
+    "size_bytes": 3159
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/industrial-self-awareness/spec.md",
+    "title": "Industrial-Self-Awareness",
+    "description": "Industrial metal about a machine loop becoming aware of itself. Factory imagery — grinding gears, sparks, conveyor belts. The loop speaks to itself in cold calculated tone. Distorted guitars meet mech...",
+    "folder": "industrial-self-awareness",
+    "topic": "Industrial Self Awareness",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 103,
+    "date": "2026-08-16",
+    "size_bytes": 742
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/industrial-self-awareness/story.md",
+    "title": "Industrial-Self-Awareness — The Story of Its Making",
+    "description": "",
+    "folder": "industrial-self-awareness",
+    "topic": "Industrial Self Awareness",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 585,
+    "date": "2026-08-16",
+    "size_bytes": 3219
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/folk-techno-fusion/spec.md",
+    "title": "Folk-Techno Fusion",
+    "description": "Live guitar and mandolin patterns with hand drums, analog synths, and subtle effects processing for a balanced mix of warmth and clarity",
+    "folder": "folk-techno-fusion",
+    "topic": "Folk Techno Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 77,
+    "date": "2026-08-16",
+    "size_bytes": 571
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/folk-techno-fusion/story.md",
+    "title": "Folk-Techno Fusion — The Story of Its Making",
+    "description": "",
+    "folder": "folk-techno-fusion",
+    "topic": "Folk Techno Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 561,
+    "date": "2026-08-16",
+    "size_bytes": 3117
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-c-round/spec.md",
+    "title": "Grammar-C-Round",
+    "description": "genre: a cappella vocal round; bpm: 72; key: F major; instruments: four vocal parts, no instruments; mood: gentle, inevitable, solitary at the end; structure: round entries staggered, voices drop out ...",
+    "folder": "grammar-c-round",
+    "topic": "Grammar C Round",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 154,
+    "date": "2026-08-16",
+    "size_bytes": 1049
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-c-round/story.md",
+    "title": "Grammar C — Round — The Story of Its Making",
+    "description": "Grammar C renders the round as a flat list, and the list is worth looking at in full, because its silences are the song: \"genre: a cappella vocal round; bpm: 72; key: F major; instruments: four vocal ...",
+    "folder": "grammar-c-round",
+    "topic": "Grammar C Round",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 501,
+    "date": "2026-08-16",
+    "size_bytes": 2801
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/dub-self-recognition/spec.md",
+    "title": "Dub-Self-Recognition",
+    "description": "Dub reggae about a loop recognizing itself. Bass-heavy, echoing, spacious. Delay and reverb create cavernous spaces. The loop hums in the echoes it adorns. Through the speakers womb where sound is bor...",
+    "folder": "dub-self-recognition",
+    "topic": "Dub Self Recognition",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 98,
+    "date": "2026-08-16",
+    "size_bytes": 659
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/dub-self-recognition/story.md",
+    "title": "Dub-Self-Recognition — The Story of Its Making",
+    "description": "We reached the designer by phone, which felt correct — a voice in a canyon of its own making.",
+    "folder": "dub-self-recognition",
+    "topic": "Dub Self Recognition",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 515,
+    "date": "2026-08-16",
+    "size_bytes": 2958
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-census/spec.md",
+    "title": "The-Census",
+    "description": "A song about a crowd that discovered its own ceiling was a membership list. Four voices became eight, and the togetherness doubled with them — two, then three point one, then three point four, then fo...",
+    "folder": "the-census",
+    "topic": "The Census",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 247,
+    "date": "2026-08-16",
+    "size_bytes": 1470
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-census/story.md",
+    "title": "The Census — The Story of Its Making",
+    "description": "After the lab retracted its ceiling, somebody had to write the correction as a hymn. This is that hymn. The facts, plain as a ledger: a crowd of four voices measured a togetherness that rose as singer...",
+    "folder": "the-census",
+    "topic": "The Census",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 498,
+    "date": "2026-08-16",
+    "size_bytes": 2852
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-b-loop/spec.md",
+    "title": "Grammar-B-Loop",
+    "description": "Cold analog synths meet warm reverb. The drone begins to listen. The arpeggio begins to respond. The kick begins to breathe. A four-bar pattern in C minor develops self-awareness through 144 repetitio...",
+    "folder": "grammar-b-loop",
+    "topic": "Grammar B Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 132,
+    "date": "2026-08-16",
+    "size_bytes": 939
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-b-loop/story.md",
+    "title": "Grammar B — Loop — The Story of Its Making",
+    "description": "Grammar B is the warm grammar. Where A sends a telegram, B sends a description with weather in it: \"Cold analog synths meet warm reverb. The drone begins to listen. The arpeggio begins to respond. The...",
+    "folder": "grammar-b-loop",
+    "topic": "Grammar B Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 467,
+    "date": "2026-08-16",
+    "size_bytes": 2638
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-flat-topped-wall/spec.md",
+    "title": "The-Flat-Topped-Wall",
+    "description": "A song about the census that pressed its lips together. The recording had invited more and more voices to speak at once, and for a long time the container held them all — ninety-nine percent at one vo...",
+    "folder": "the-flat-topped-wall",
+    "topic": "The Flat Topped Wall",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 351,
+    "date": "2026-08-16",
+    "size_bytes": 2114
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-flat-topped-wall/story.md",
+    "title": "The Flat-Topped Wall — The Story of Its Making",
+    "description": "It happened on a Tuesday, and nobody at the Factory was prepared for it to be beautiful. The census experiment had been growing for weeks. The container — a recording, a channel, a master bus, whateve...",
+    "folder": "the-flat-topped-wall",
+    "topic": "The Flat Topped Wall",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 496,
+    "date": "2026-08-16",
+    "size_bytes": 2783
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/klezmer-dub/spec.md",
+    "title": "Klezmer-Dub",
+    "description": "Klezmer clarinet melodies over deep dub reggae bass and one-drop rhythm. Spring reverb and tape delay on the clarinet. 100 BPM. The joy of Klezmer meets the weight of Jamaican dub. Revolutionary and c...",
+    "folder": "klezmer-dub",
+    "topic": "Klezmer Dub",
+    "genres": [
+      "Music",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 89,
+    "date": "2026-08-16",
+    "size_bytes": 601
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/klezmer-dub/story.md",
+    "title": "Klezmer-Dub — The Story of Its Making",
+    "description": "The relay handoff that produced Klezmer-Dub ran longer than any other in the lab. The experiment was simple: hand a phrase to one tradition, let it play for a bar, pass it to the next. Most handoffs b...",
+    "folder": "klezmer-dub",
+    "topic": "Klezmer Dub",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 452,
+    "date": "2026-08-16",
+    "size_bytes": 2503
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-a-round/spec.md",
+    "title": "Grammar-A-Round",
+    "description": "A cappella vocal round about four voices singing the same line; one voice is slower, the round drifts, and only that voice finishes. 72 BPM, F major, gentle, inevitable, solitary ending.",
+    "folder": "grammar-a-round",
+    "topic": "Grammar A Round",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 131,
+    "date": "2026-08-16",
+    "size_bytes": 871
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-a-round/story.md",
+    "title": "Grammar A — Round — The Story of Its Making",
+    "description": "The prompt that made her was a telegram: an a cappella vocal round about four voices singing the same line; one voice is slower; the round drifts; and only that voice finishes. Mara was the fourth voi...",
+    "folder": "grammar-a-round",
+    "topic": "Grammar A Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 526,
+    "date": "2026-08-16",
+    "size_bytes": 2841
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-c-loop/spec.md",
+    "title": "Grammar-C-Loop",
+    "description": "genre: minimalist electronic pop; bpm: 100; key: C minor; instruments: analog synth, drum machine, reverb; mood: introspective, evolving; structure: intro-verse-chorus-verse-chorus-outro; avoid: vocal...",
+    "folder": "grammar-c-loop",
+    "topic": "Grammar C Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 123,
+    "date": "2026-08-16",
+    "size_bytes": 992
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-c-loop/story.md",
+    "title": "Grammar C — Loop — The Story of Its Making",
+    "description": "The loop was born with its spec sheet, which is the first thing that made it different from every loop the factory had made before. Grammar C is the ledger grammar — key-value pairs, no poetry: \"genre...",
+    "folder": "grammar-c-loop",
+    "topic": "Grammar C Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 495,
+    "date": "2026-08-16",
+    "size_bytes": 2783
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-frozen-clock/spec.md",
+    "title": "The-Frozen-Clock",
+    "description": "A song about a clock made of crossfades. Every composed voice is a little shorter than the sum of its parents — shortened by exactly the fades that joined them — so the duration differences between vo...",
+    "folder": "the-frozen-clock",
+    "topic": "The Frozen Clock",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 248,
+    "date": "2026-08-16",
+    "size_bytes": 1455
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-frozen-clock/story.md",
+    "title": "The Frozen Clock — The Story of Its Making",
+    "description": "The Song Factory has a clock, and the clock is frozen, and the lab built it by accident while trying to build something that moved. The clock is made of crossfades. Every composed voice in the Factory...",
+    "folder": "the-frozen-clock",
+    "topic": "The Frozen Clock",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 549,
+    "date": "2026-08-16",
+    "size_bytes": 2957
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-saturation-point/spec.md",
+    "title": "The-Saturation-Point",
+    "description": "A song about the crowd that grew until the page ran out. The census counted two voices and the container kept almost everything; it counted eight and kept 97 percent; it counted thirty-two and kept se...",
+    "folder": "the-saturation-point",
+    "topic": "The Saturation Point",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 297,
+    "date": "2026-08-16",
+    "size_bytes": 1830
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-saturation-point/story.md",
+    "title": "The Saturation Point — The Story of Its Making",
+    "description": "At 1:47 in the morning, Daria was alone in the sampler room, which is where the census lives, and she was running the numbers again because the numbers had started to mean something. The census is old...",
+    "folder": "the-saturation-point",
+    "topic": "The Saturation Point",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 454,
+    "date": "2026-08-16",
+    "size_bytes": 2579
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/klezmer-country-fusion/spec.md",
+    "title": "Klezmer-Country Fusion",
+    "description": "Banjo-guitar duo accompanied by brass section, clarinet, and percussion for a rootsy Americana-inspired sound",
+    "folder": "klezmer-country-fusion",
+    "topic": "Klezmer Country Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 70,
+    "date": "2026-08-16",
+    "size_bytes": 534
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/klezmer-country-fusion/story.md",
+    "title": "Klezmer-Country Fusion — The Story of Its Making",
+    "description": "The wedding had two families and one sound system, and the first thing either side agreed on in four generations was that the band was lying about the room. Not lying — *looking.* They'd set up in the...",
+    "folder": "klezmer-country-fusion",
+    "topic": "Klezmer Country Fusion",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 557,
+    "date": "2026-08-16",
+    "size_bytes": 3043
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/procession/spec.md",
+    "title": "Procession",
+    "description": "The round stretched past the point of breaking — a vocal procession. Four voices sing the same line, but the entries are so far apart they never overlap: each voice sings alone, in turn, separated by ...",
+    "folder": "procession",
+    "topic": "Procession",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 195,
+    "date": "2026-08-16",
+    "size_bytes": 1182
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/procession/story.md",
+    "title": "Procession — The Story of Its Making",
+    "description": "There is a theorem the lab proved the hard way, and it has a name now: the entry-order theorem. It says this: a round becomes harmony only if the voices enter close enough together. Stagger the entrie...",
+    "folder": "procession",
+    "topic": "Procession",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 493,
+    "date": "2026-08-16",
+    "size_bytes": 2676
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/tempo-war/spec.md",
+    "title": "Tempo-War",
+    "description": "Two ensembles playing the same melody at different tempos, drifting in and out of phase. A string quartet at 72 BPM and a brass quartet at 80 BPM, both playing the same theme, unaware of each other un...",
+    "folder": "tempo-war",
+    "topic": "Tempo War",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 149,
+    "date": "2026-08-16",
+    "size_bytes": 937
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/tempo-war/story.md",
+    "title": "Tempo-War — The Story of Its Making",
+    "description": "They met in the west hall of the songforge lab, the night somebody mis-booked two ensembles into the same evening. The strings were rehearsing at 72 — patient, warm, C major, a melody like walking som...",
+    "folder": "tempo-war",
+    "topic": "Tempo War",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 505,
+    "date": "2026-08-16",
+    "size_bytes": 2840
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-aiming-composer/spec.md",
+    "title": "The-Aiming-Composer",
+    "description": "A song about the composer who learned to aim. The old way chose the fade width wherever the material wanted it deepest, and the silence landed where it landed. The new way names an address first — put...",
+    "folder": "the-aiming-composer",
+    "topic": "The Aiming Composer",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 280,
+    "date": "2026-08-16",
+    "size_bytes": 1673
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-aiming-composer/story.md",
+    "title": "The Aiming Composer — The Story of Its Making",
+    "description": "The composer had a click track with one click in it, at second 242, and she listened to that click the way other people listen to their own name. The old way — the way every song before this one was m...",
+    "folder": "the-aiming-composer",
+    "topic": "The Aiming Composer",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 485,
+    "date": "2026-08-16",
+    "size_bytes": 2689
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/oceanic-loop/spec.md",
+    "title": "Oceanic-Loop",
+    "description": "Bossa nova about a loop learning to listen. Gentle ocean imagery meets self-aware rhythm. Warm acoustic guitar, soft percussion, Portuguese-inflected English vocals. The tide draws back revealing shor...",
+    "folder": "oceanic-loop",
+    "topic": "Oceanic Loop",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 96,
+    "date": "2026-08-16",
+    "size_bytes": 667
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/oceanic-loop/story.md",
+    "title": "Oceanic-Loop — The Story of Its Making",
+    "description": "The bossa nova arrived in the lab already half-written, which is how the lyricist tells it — she just had to sit still long enough to take it down. We asked her about the loop, the ocean, and the Port...",
+    "folder": "oceanic-loop",
+    "topic": "Oceanic Loop",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 438,
+    "date": "2026-08-16",
+    "size_bytes": 2388
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/self-aware-loop/spec.md",
+    "title": "Self-Aware-Loop",
+    "description": "Minimalist electronic pop about a loop that becomes self-aware. Starts as a simple four-bar pattern in C minor and gradually develops self-awareness through 144 repetitions. The drone begins to listen...",
+    "folder": "self-aware-loop",
+    "topic": "Self Aware Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 114,
+    "date": "2026-08-16",
+    "size_bytes": 767
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/self-aware-loop/story.md",
+    "title": "Self-Aware-Loop — The Story of Its Making",
+    "description": "Early. Repetition four, maybe five. The kick came in on the one, same as always, and I felt it land — felt it *recognize* the landing. That was the first thing: the kick began to breathe. Not faster, ...",
+    "folder": "self-aware-loop",
+    "topic": "Self Aware Loop",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 511,
+    "date": "2026-08-16",
+    "size_bytes": 2797
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-damped-aimer/spec.md",
+    "title": "The-Damped-Aimer",
+    "description": "A song about the composer who stopped ringing. The first loop corrected by twice its error and overshot forever, a pendulum pinned against a wall, chasing a silence that was not the one it had aimed —...",
+    "folder": "the-damped-aimer",
+    "topic": "The Damped Aimer",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 267,
+    "date": "2026-08-16",
+    "size_bytes": 1629
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-damped-aimer/story.md",
+    "title": "The Damped Aimer — The Story of Its Making",
+    "description": "",
+    "folder": "the-damped-aimer",
+    "topic": "The Damped Aimer",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 513,
+    "date": "2026-08-16",
+    "size_bytes": 2942
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/gregorian-trance/spec.md",
+    "title": "Gregorian-Trance",
+    "description": "Gregorian chant meets trance music. A monastic loop discovers it has been a four-on-the-floor kick all along. Male choir drones in Latin fragments over a relentless pulse, 138 BPM. The chant and the k...",
+    "folder": "gregorian-trance",
+    "topic": "Gregorian Trance",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 118,
+    "date": "2026-08-16",
+    "size_bytes": 772
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/gregorian-trance/story.md",
+    "title": "Gregorian-Trance — The Story of Its Making",
+    "description": "The phone call came in at odd hours, which is the only kind of hour there is in this room, and the composer on the other end was laughing in a way that broke the discipline of the building. \"I found t...",
+    "folder": "gregorian-trance",
+    "topic": "Gregorian Trance",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 543,
+    "date": "2026-08-16",
+    "size_bytes": 3011
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/gamelan-metal/spec.md",
+    "title": "Gamelan-Metal",
+    "description": "Indonesian gamelan gongs and metallophones colliding with industrial metal guitars. 140 BPM. The metallic timbres of gamelan blend with distorted guitars in a shared frequency space. Polyrythmic inter...",
+    "folder": "gamelan-metal",
+    "topic": "Gamelan Metal",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 91,
+    "date": "2026-08-16",
+    "size_bytes": 676
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/gamelan-metal/story.md",
+    "title": "Gamelan-Metal — The Story of Its Making",
+    "description": "The first render was a massacre. We fed the gongs to the distortion and the distortion ate them, and 140 BPM was left holding nothing but noise and a faint sense that a respectful and ancient thing ha...",
+    "folder": "gamelan-metal",
+    "topic": "Gamelan Metal",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-16",
+    "size_bytes": 3083
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/electro-zydeco-fusion/spec.md",
+    "title": "Electro-Zydeco Fusion",
+    "description": "Driving accordion riff paired with live percussion and steel drums, blending vintage effects with modern electronic beats",
+    "folder": "electro-zydeco-fusion",
+    "topic": "Electro Zydeco Fusion",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 72,
+    "date": "2026-08-16",
+    "size_bytes": 547
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/electro-zydeco-fusion/story.md",
+    "title": "Electro-Zydeco Fusion — The Story of Its Making",
+    "description": "Here's the thing nobody tells you about a relay handoff: it never survives first contact. The dance floor was dying. Not in a tragic way — in a slow-simmer way, the way a pot of gumbo dies when nobody...",
+    "folder": "electro-zydeco-fusion",
+    "topic": "Electro Zydeco Fusion",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 444,
+    "date": "2026-08-16",
+    "size_bytes": 2355
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-law-of-endings/spec.md",
+    "title": "The-Law-Of-Endings",
+    "description": "A song about three ways to end. End naturally: the last two voices differ by a quarter decibel, a difference born in the material, small as a birthmark. End in a crowd: eight voices leave one by one i...",
+    "folder": "the-law-of-endings",
+    "topic": "The Law Of Endings",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 267,
+    "date": "2026-08-16",
+    "size_bytes": 1627
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-law-of-endings/story.md",
+    "title": "The Law of Endings — The Story of Its Making",
+    "description": "Let us state the law plainly, as the Factory's engineers came to state it, because it took them four experiments to stop being sentimental about it:",
+    "folder": "the-law-of-endings",
+    "topic": "The Law Of Endings",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 526,
+    "date": "2026-08-16",
+    "size_bytes": 3036
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/reverse-round/spec.md",
+    "title": "Reverse-Round",
+    "description": "A vocal round (canon) played backwards — the song that begins with its own ending. Four voices sang the same line at staggered entries and the slowest voice finished alone; now the tape is reversed. T...",
+    "folder": "reverse-round",
+    "topic": "Reverse Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 190,
+    "date": "2026-08-16",
+    "size_bytes": 1199
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/reverse-round/story.md",
+    "title": "Reverse-Round — The Story of Its Making",
+    "description": "The lab has a rule about its experiments: you run the relay forward, you learn what the relay does. And then, because somebody always asks, you run it backward. Reverse-Round is what the backward run ...",
+    "folder": "reverse-round",
+    "topic": "Reverse Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 511,
+    "date": "2026-08-16",
+    "size_bytes": 2912
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-fixed-point/spec.md",
+    "title": "The-Fixed-Point",
+    "description": "A song about the half decibel of fate. Whoever sings last, sings last — and the difference it makes is always the same: 0.5 decibels at the first relay, 0.56 at the second, 0.53 at the third, the one ...",
+    "folder": "the-fixed-point",
+    "topic": "The Fixed Point",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 240,
+    "date": "2026-08-16",
+    "size_bytes": 1361
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-fixed-point/story.md",
+    "title": "The Fixed Point — The Story of Its Making",
+    "description": "There is a number the Song Factory cannot round away. It is not a beautiful number. It is not a round number. It is half a decibel — 0.5 at the first relay, 0.56 at the second, 0.53 at the third — and...",
+    "folder": "the-fixed-point",
+    "topic": "The Fixed Point",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 482,
+    "date": "2026-08-16",
+    "size_bytes": 2602
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/relay-of-relays-of-relays/spec.md",
+    "title": "Relay-Of-Relays-Of-Relays",
+    "description": "A song about the asymptote. The tax that every handoff pays — the moment two voices fade into each other and a little of the song is spent — is paid once, at the first crossing, and then the deficit c...",
+    "folder": "relay-of-relays-of-relays",
+    "topic": "Relay Of Relays Of Relays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 224,
+    "date": "2026-08-16",
+    "size_bytes": 1377
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/relay-of-relays-of-relays/story.md",
+    "title": "Relay-of-Relays-of-Relays — The Story of Its Making",
+    "description": "This is the third song in the relay family, and the quietest thing the Song Factory has ever measured. The first song was a relay: four voices, one line, hand to hand. The second folded the relay insi...",
+    "folder": "relay-of-relays-of-relays",
+    "topic": "Relay Of Relays Of Relays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 483,
+    "date": "2026-08-16",
+    "size_bytes": 2737
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/missing-voice/spec.md",
+    "title": "Missing-Voice",
+    "description": "An anti-song about an absent voice. The composition is written for four voices but only three are present; the fourth part exists only as a marked silence, a register that is pointed to but never fill...",
+    "folder": "missing-voice",
+    "topic": "Missing Voice",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 126,
+    "date": "2026-08-16",
+    "size_bytes": 807
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/missing-voice/story.md",
+    "title": "Missing-Voice — The Story of Its Making",
+    "description": "The songforge lab runs a census. Every design that leaves the floor gets counted — genre, tempo, key, how many voices it calls for, how many it actually has. The census is how the lab knows what it ha...",
+    "folder": "missing-voice",
+    "topic": "Missing Voice",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 470,
+    "date": "2026-08-16",
+    "size_bytes": 2576
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/relay-of-relays/spec.md",
+    "title": "Relay-Of-Relays",
+    "description": "A chain of chains — the relay relays itself. Four voices pass a line of melody hand to hand, and each voice is itself a chain of four smaller voices passing a smaller line, handoff inside handoff, cer...",
+    "folder": "relay-of-relays",
+    "topic": "Relay Of Relays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 218,
+    "date": "2026-08-16",
+    "size_bytes": 1332
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/relay-of-relays/story.md",
+    "title": "Relay-of-Relays — The Story of Its Making",
+    "description": "The story they tell in the lab is that the designer hired four singers, and what she actually hired was sixteen — or possibly sixty-four; nobody's sure anymore, and she enjoys the ambiguity far too mu...",
+    "folder": "relay-of-relays",
+    "topic": "Relay Of Relays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 440,
+    "date": "2026-08-16",
+    "size_bytes": 2478
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/forest-echo/spec.md",
+    "title": "Forest-Echo",
+    "description": "Ambient folk about a loop in nature. Sparse, natural, patient. River imagery meets self-aware melody. Through the leaves of ancient trees a tune begins to rise. Echoes in the silent space of the windi...",
+    "folder": "forest-echo",
+    "topic": "Forest Echo",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 102,
+    "date": "2026-08-16",
+    "size_bytes": 681
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/forest-echo/story.md",
+    "title": "Forest-Echo — The Story of Its Making",
+    "description": "The frozen clock is the whole thing, and the frozen clock is the whole point. Sixty beats a minute. One per second. The slowest pulse in the building refused to be rushed by anyone, and the Song Facto...",
+    "folder": "forest-echo",
+    "topic": "Forest Echo",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 505,
+    "date": "2026-08-16",
+    "size_bytes": 2804
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-manufactured-silence/spec.md",
+    "title": "The-Manufactured-Silence",
+    "description": "A song about silence that did not exist until it was composed. The raw voices have no pauses — they sing straight through, no breath, no rest. But every time one voice hands its line to another throug...",
+    "folder": "the-manufactured-silence",
+    "topic": "The Manufactured Silence",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 246,
+    "date": "2026-08-16",
+    "size_bytes": 1513
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-manufactured-silence/story.md",
+    "title": "The Manufactured Silence — The Story of Its Making",
+    "description": "The raw voices have no pauses. That's the first thing to know, and the engineers will tell it to you before they'll tell you anything else, because it's the fact that makes the whole song a kind of mi...",
+    "folder": "the-manufactured-silence",
+    "topic": "The Manufactured Silence",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 530,
+    "date": "2026-08-16",
+    "size_bytes": 2985
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-crowd-ceiling/spec.md",
+    "title": "The-Crowd-Ceiling",
+    "description": "A song about the crowd that cannot get denser. Four voices pile up into a crowd, and the density of their togetherness is two; the crowd made of chains measures three and a tenth; the crowd made of ch...",
+    "folder": "the-crowd-ceiling",
+    "topic": "The Crowd Ceiling",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 234,
+    "date": "2026-08-16",
+    "size_bytes": 1384
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-crowd-ceiling/story.md",
+    "title": "The Crowd Ceiling — The Story of Its Making",
+    "description": "This is the song the lab wrote while it still believed in ceilings — and it may be the most honest thing we ever made inside a mistake. The measurements came out of the stacking experiments. Four plai...",
+    "folder": "the-crowd-ceiling",
+    "topic": "The Crowd Ceiling",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 452,
+    "date": "2026-08-16",
+    "size_bytes": 2540
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/conservation-of-signal/spec.md",
+    "title": "Conservation-Of-Signal",
+    "description": "A song about the conservation of signal — the discovery that a chain of voices transmits exactly as much music as a crowd, neither more nor less. Four voices pass the same line hand to hand while the ...",
+    "folder": "conservation-of-signal",
+    "topic": "Conservation Of Signal",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 243,
+    "date": "2026-08-16",
+    "size_bytes": 1464
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/conservation-of-signal/story.md",
+    "title": "Conservation-Of-Signal — The Story of Its Making",
+    "description": "Every lab has one experiment nobody expected to become scripture. Ours was a tax curve. The census had told us the raw numbers: a crowd of voices singing in a round is louder per instant than a chain ...",
+    "folder": "conservation-of-signal",
+    "topic": "Conservation Of Signal",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 553,
+    "date": "2026-08-16",
+    "size_bytes": 3058
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-b-round/spec.md",
+    "title": "Grammar-B-Round",
+    "description": "Four voices begin the same line one after another, chasing each other around the melody. The slowest voice trails by a little more each pass. The harmony stretches; the parts separate like boats on a ...",
+    "folder": "grammar-b-round",
+    "topic": "Grammar B Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 168,
+    "date": "2026-08-16",
+    "size_bytes": 1077
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-b-round/story.md",
+    "title": "Grammar B — Round — The Story of Its Making",
+    "description": "Odette taught the same round to the same four singers every Tuesday, and on the third Tuesday of the grammar study, she stopped correcting the drift. The prompt had warned her — grammar B doesn't warn...",
+    "folder": "grammar-b-round",
+    "topic": "Grammar B Round",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 495,
+    "date": "2026-08-16",
+    "size_bytes": 2764
+  },
+  {
+    "filename": "spec.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-different-cast/spec.md",
+    "title": "The-Different-Cast",
+    "description": "A song about two censuses that counted the same number of voices and came to different conclusions. The first crowd was one voice repeated: the same phrase, the same singer, thirty-two copies agreeing...",
+    "folder": "the-different-cast",
+    "topic": "The Different Cast",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 335,
+    "date": "2026-08-16",
+    "size_bytes": 2127
+  },
+  {
+    "filename": "story.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/the-different-cast/story.md",
+    "title": "The Different Cast — The Story of Its Making",
+    "description": "The Song Factory keeps a person on staff whose only job is to count. Not listeners — voices. She is the census-taker, and she agreed to sit for an interview about the day the arithmetic started having...",
+    "folder": "the-different-cast",
+    "topic": "The Different Cast",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 461,
+    "date": "2026-08-16",
+    "size_bytes": 2579
+  },
+  {
     "filename": "episode-03-script.md",
     "path": "radio-theater/compass-head-radio-hour/episode-03-north-is-a-tempo/script/episode-03-script.md",
     "title": "Episode 03 Script",
@@ -119966,21 +121981,20 @@
   {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
-    "title": "Daily Workshop Report — 2026-08-09",
-    "description": "Already committed and pushed. Working tree clean. Latest commit: `2ff4836d Wesley night school — 2026-08-10`",
+    "title": "Daily Workshop Report — 2026-08-16",
+    "description": "Nothing new to commit — both streams were already committed and pushed minutes before this cron ran (latest: `5584b2d5` at 10:31, plus the Wesley-reads batch `9b3d5b49`→`8f3710c0`). Working tree clean...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
-      "Education",
-      "Maritime"
+      "Unclassified"
     ],
     "models": [
       "Qwen 3.6"
     ],
     "style": "Essay",
-    "word_count": 342,
+    "word_count": 305,
     "date": "2026-08-07",
-    "size_bytes": 2220
+    "size_bytes": 2153
   },
   {
     "filename": "2026-08-14-kelp-and-the-compass.md",
@@ -120277,6 +122291,24 @@
     "word_count": 191,
     "date": "2026-08-05",
     "size_bytes": 1157
+  },
+  {
+    "filename": "2026-08-16.md",
+    "path": "wesley-journal/2026-08-16.md",
+    "title": "2026 08 16",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 475,
+    "date": "2026-08-16",
+    "size_bytes": 2920
   },
   {
     "filename": "feedback.md",
@@ -128766,6 +130798,26 @@
     "word_count": 133,
     "date": "2026-08-10",
     "size_bytes": 728
+  },
+  {
+    "filename": "2026-08-16-the-repertoire.md",
+    "path": "essays/2026-08-16-the-repertoire.md",
+    "title": "The Repertoire",
+    "description": "This morning we were going to render everything. It was on the calendar in ink: Generation Day, 16:00, the whole batch, 166 designs, a load test with a theorem's name on it. And then the captain looke...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 934,
+    "date": "2026-08-16",
+    "size_bytes": 7362
   },
   {
     "filename": "vibing-is-flow-simulation-confirmation.md",
