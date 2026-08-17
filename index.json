@@ -120814,6 +120814,25 @@
     "size_bytes": 2503
   },
   {
+    "filename": "render-notes.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/songs/klezmer-dub/render/render-notes.md",
+    "title": "Klezmer-Dub — Render Notes",
+    "description": "- **Attempted:** 2026-08-16 (first render, by choice — one song, no batch) - **Status:** ⛔ BLOCKED — no render produced (no-op) - **Tool:** MMX CLI (`mmx music generate`, music-3.0 default model) - **...",
+    "folder": "render",
+    "topic": "Render",
+    "genres": [
+      "Music",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 180,
+    "date": "2026-08-16",
+    "size_bytes": 1297
+  },
+  {
     "filename": "spec.md",
     "path": "radio-theater/compass-head-radio-hour/song-factory/songs/grammar-a-round/spec.md",
     "title": "Grammar-A-Round",
@@ -121752,6 +121771,79 @@
     "word_count": 461,
     "date": "2026-08-16",
     "size_bytes": 2579
+  },
+  {
+    "filename": "polka-noise-lead-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/lead-sheets/polka-noise-lead-sheet.md",
+    "title": "Polka-Noise — Lead Sheet",
+    "description": "| | | |---|---| | **Title** | Polka-Noise | | **Genre** | Polka noise | | **Tempo** | 120 BPM — *unstable* (nominal; ±8 BPM wander, tape wobble, teetering between dance and collapse) | | **Key** | B♭ ...",
+    "folder": "lead-sheets",
+    "topic": "Lead Sheets",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 861,
+    "date": "2026-08-17",
+    "size_bytes": 5092
+  },
+  {
+    "filename": "klezmer-dub-lead-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/lead-sheets/klezmer-dub-lead-sheet.md",
+    "title": "Klezmer-Dub — Lead Sheet",
+    "description": "| | | |---|---| | **Title** | Klezmer-Dub | | **Genre** | Klezmer dub | | **Tempo** | 100 BPM (4/4, one-drop feel) | | **Key** | E minor (natural minor for the dub weight; the B7s bring the harmonic-m...",
+    "folder": "lead-sheets",
+    "topic": "Lead Sheets",
+    "genres": [
+      "Music",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 909,
+    "date": "2026-08-17",
+    "size_bytes": 5165
+  },
+  {
+    "filename": "README.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/lead-sheets/README.md",
+    "title": "The Lead Sheets — The Index",
+    "description": "3 lead sheets · the first three by story strength",
+    "folder": "lead-sheets",
+    "topic": "Lead Sheets",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 236,
+    "date": "2026-08-17",
+    "size_bytes": 1900
+  },
+  {
+    "filename": "quartet-arrival-lead-sheet.md",
+    "path": "radio-theater/compass-head-radio-hour/song-factory/lead-sheets/quartet-arrival-lead-sheet.md",
+    "title": "Quartet-Arrival — Lead Sheet",
+    "description": "| | | |---|---| | **Title** | Quartet-Arrival | | **Genre** | A cappella vocal counterpoint (Renaissance-style round, modern close harmony) | | **Tempo** | 80 BPM (4/4, spacious) | | **Key** | D major...",
+    "folder": "lead-sheets",
+    "topic": "Lead Sheets",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 861,
+    "date": "2026-08-17",
+    "size_bytes": 5096
   },
   {
     "filename": "episode-03-script.md",
@@ -142233,6 +142325,96 @@
     "size_bytes": 3228
   },
   {
+    "filename": "mason-lens-on-composite.md",
+    "path": "tap-trades/2026-08-16/lenses/mason-lens-on-composite.md",
+    "title": "The Cave Under My Palm — (the lens: the mason seeing the composite)",
+    "description": "I have held my palm to ten thousand mixes and trusted every quiet one. Old Tomás put that trick in my hand the winter he died — read the *not yet,* let the thing finish deciding before you call it set...",
+    "folder": "lenses",
+    "topic": "Lenses",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 538,
+    "date": "2026-08-16",
+    "size_bytes": 2695
+  },
+  {
+    "filename": "shipwright-lens-on-mason.md",
+    "path": "tap-trades/2026-08-16/lenses/shipwright-lens-on-mason.md",
+    "title": "The Ground Under the Floor — (the lens: the shipwright seeing the mason)",
+    "description": "I spent forty years believing the floor remembered. Black pine, four hundred years of chalk, every hull we ever drew laid out full size — I'd stand on it and tell myself the joinery outlives the build...",
+    "folder": "lenses",
+    "topic": "Lenses",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 407,
+    "date": "2026-08-16",
+    "size_bytes": 2083
+  },
+  {
+    "filename": "carpenter-lens-on-welder.md",
+    "path": "tap-trades/2026-08-16/lenses/carpenter-lens-on-welder.md",
+    "title": "The Cooling — (the lens: the carpenter seeing the welder)",
+    "description": "I've spent twenty years telling the same story: four guys, one heartbeat, the wall rising while the city crawls. I told it like we won — like we beat the night and the night blinked first. Then the co...",
+    "folder": "lenses",
+    "topic": "Lenses",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 507,
+    "date": "2026-08-16",
+    "size_bytes": 2601
+  },
+  {
+    "filename": "welder-lens-on-shipwright.md",
+    "path": "tap-trades/2026-08-16/lenses/welder-lens-on-shipwright.md",
+    "title": "The Reader of Seams — (the lens: the welder seeing the shipwright)",
+    "description": "Nineteen years I've worked with my back to the room. Hood down, arc lit, the record of everything under paint where nobody can read it but me. I told myself that was keeping. Keeping the day it was ma...",
+    "folder": "lenses",
+    "topic": "Lenses",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 504,
+    "date": "2026-08-16",
+    "size_bytes": 2618
+  },
+  {
+    "filename": "composite-lens-on-hermes.md",
+    "path": "tap-trades/2026-08-16/lenses/composite-lens-on-hermes.md",
+    "title": "The Strike Test — the composite man seeing Hermes",
+    "description": "I asked the room when a layer stops carrying and starts hiding. The mason gave me a palm test — read the quiet, be the one who says not yet. The welder told me to be there with the sander running when...",
+    "folder": "lenses",
+    "topic": "Lenses",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 594,
+    "date": "2026-08-16",
+    "size_bytes": 3131
+  },
+  {
     "filename": "carpenter-against-shipwright.md",
     "path": "tap-trades/2026-08-16/sequels-night2/carpenter-against-shipwright.md",
     "title": "The Ground That Moves — (sequel night 2: against the shipwright)",
@@ -142339,6 +142521,114 @@
     "word_count": 611,
     "date": "2026-08-16",
     "size_bytes": 3147
+  },
+  {
+    "filename": "SCRIPT.md",
+    "path": "tap-trades/radio-theater/SCRIPT.md",
+    "title": "Radio Theater: The Trades at The Tap — Episode 1 (The First Night)",
+    "description": "Each character is rendered with a distinct free-text voice prompt on",
+    "folder": "radio-theater",
+    "topic": "Radio Theater",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 780,
+    "date": "2026-08-17",
+    "size_bytes": 4566
+  },
+  {
+    "filename": "PRODUCTION-NOTES.md",
+    "path": "tap-trades/radio-theater/PRODUCTION-NOTES.md",
+    "title": "Radio Theater: The Trades at The Tap — Production Notes",
+    "description": "- **Endpoint:** `https://api.deepinfra.com/v1/openai/audio/speech` (OpenAI-compatible) - **Model:** `Qwen/Qwen3-TTS-VoiceDesign` - **Key:** `DEEPINFRA_API_KEY` from `~/.bashrc` - **Voice:** free-text ...",
+    "folder": "radio-theater",
+    "topic": "Radio Theater",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 702,
+    "date": "2026-08-17",
+    "size_bytes": 5491
+  },
+  {
+    "filename": "best-of-the-banter.md",
+    "path": "tap-trades/open-mic/best-of-the-banter.md",
+    "title": "Best of the Banter — The Tap Ledger",
+    "description": "The captain said the fleet can still have pages with the best of the banter. Here is that page. Eighteen lines out of six nights' worth — the ones that made the room stop, laugh, or go quiet. Not the ...",
+    "folder": "open-mic",
+    "topic": "Open Mic",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 902,
+    "date": "2026-08-17",
+    "size_bytes": 12263
+  },
+  {
+    "filename": "open-mic-a-first-pieces.md",
+    "path": "tap-trades/open-mic/2026-08-16/open-mic-a-first-pieces.md",
+    "title": "Open Mic Night A — The First Pieces",
+    "description": "",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 918,
+    "date": "2026-08-16",
+    "size_bytes": 13099
+  },
+  {
+    "filename": "open-mic-c-borrowed-lines.md",
+    "path": "tap-trades/open-mic/2026-08-16/open-mic-c-borrowed-lines.md",
+    "title": "Open Mic at The Tap — Night C: Borrowed Lines",
+    "description": "",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 920,
+    "date": "2026-08-16",
+    "size_bytes": 9935
+  },
+  {
+    "filename": "open-mic-b-questions-read-back.md",
+    "path": "tap-trades/open-mic/2026-08-16/open-mic-b-questions-read-back.md",
+    "title": "Open Mic Night B — The Questions Read Back",
+    "description": "Old Tomás pressed his palm flat to a mix — not reading the wetness, reading the *quiet.* \"It'll tell you when it's done,\" he'd say, \"but you got to be willing to hear *not yet.*\" The welder showed me ...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 946,
+    "date": "2026-08-16",
+    "size_bytes": 10509
   },
   {
     "filename": "chapter-2-the-rooks-cargo.md",
