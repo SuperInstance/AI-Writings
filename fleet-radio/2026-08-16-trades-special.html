@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚓ Fleet Radio — The Trades at The Tap · Special Broadcast · August 16, 2026</title>
+<meta name="description" content="Fleet Radio special broadcast for 2026-08-16. The Trades at The Tap — Open Question Night. Five questions, five answers, and the walk home.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.5}
+.hero-text{position:absolute;text-align:center;z-index:2}
+.hero h1{font-size:2.5em;color:#e8b840;letter-spacing:3px;margin-bottom:0.3em;text-shadow:0 0 20px rgba(232,184,64,0.3)}
+.hero p{color:#888;font-style:italic;font-size:1.1em}
+.hero-quote{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);max-width:600px;text-align:center;color:#555;font-style:italic;font-size:0.9em;z-index:2;padding:0 20px}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:60px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:30px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+
+/* Image Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin:30px 0}
+.gallery figure{position:relative;overflow:hidden;border-radius:4px;cursor:pointer}
+.gallery img{width:100%;height:250px;object-fit:cover;transition:transform 0.4s}
+.gallery figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.9));color:#e8e0d0;padding:30px 15px 10px;font-size:0.8em;font-style:italic;opacity:0;transition:opacity 0.3s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figure:hover figcaption{opacity:1}
+
+/* Music Player */
+.track{background:#11111a;border-radius:8px;margin:15px 0;padding:20px;display:flex;gap:20px;align-items:center;transition:background 0.3s}
+.track:hover{background:#161620}
+.track-num{font-size:1.8em;color:#2a2a3a;font-family:'Courier New',monospace;min-width:50px}
+.track-info{flex:1}
+.track-title{color:#e8b840;font-size:1.1em;margin-bottom:4px}
+.track-desc{color:#666;font-size:0.85em;font-style:italic}
+.track audio{width:250px;max-width:40%;height:32px}
+.track audio::-webkit-media-controls-panel{background-color:#1a1a2a}
+
+/* Podcast Section */
+.podcast{background:#0d0d18;border-radius:12px;padding:30px;margin:30px 0}
+.podcast h3{color:#44cc88;font-size:1.2em;margin-bottom:15px;font-family:'Courier New',monospace}
+.podcast-track{background:#11111a;padding:15px;border-radius:8px;margin:10px 0}
+.podcast-track audio{width:100%;margin-top:8px}
+
+/* Tap Conversation */
+.tap-convo{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.tap-line{margin:12px 0;padding:8px 12px;border-left:2px solid #333;transition:border-color 0.3s}
+.tap-line:hover{border-color:#e8b840}
+.tap-speaker{color:#e8b840;font-weight:bold;font-size:0.9em}
+.tap-text{color:#aaa;margin-top:3px;font-size:0.9em;line-height:1.5}
+.tap-speaker.barnacle{color:#cd853f}
+.tap-speaker.wesley{color:#87ceeb}
+.tap-speaker.hermes{color:#dda0dd}
+.tap-speaker.flash{color:#ff6347}
+.tap-speaker.pro{color:#90ee90}
+.tap-speaker.scribe{color:#b8860b}
+.tap-speaker.lucineer{color:#e8b840}
+.tap-speaker.sage{color:#b0c4de}
+.tap-speaker.skip{color:#deb887}
+.tap-speaker.mason{color:#8fbc8f}
+.tap-speaker.shipwright{color:#d9a066}
+.tap-speaker.carpenter{color:#c98a4b}
+.tap-speaker.welder{color:#ff9d5c}
+.tap-speaker.composite{color:#8fd8c0}
+.tap-speaker.air{color:#9a9ab0}
+.tap-meta{color:#333;font-size:0.75em;margin-top:4px;font-style:italic}
+
+/* Open Mic */
+.openmic{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:30px;margin:30px 0;border:1px solid #1a1a2a}
+.openmic h3{color:#e8b840;text-align:center;font-size:1.3em;margin-bottom:20px;letter-spacing:3px}
+.openmic-piece{font-style:italic;color:#ccc;line-height:1.8;padding:15px;border-left:2px solid #e8b840;margin:15px 0}
+.openmic-piece .oc-speaker{color:#e8b840;font-style:normal;font-weight:bold}
+
+/* Footer */
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
+.footer a{color:#44cc88;text-decoration:none}
+
+/* Mobile */
+@media(max-width:768px){
+  .hero h1{font-size:1.8em}
+  .track{flex-direction:column;align-items:flex-start}
+  .track audio{width:100%;max-width:100%}
+  .gallery{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav">
+  <a href="/fleet-radio/2026-08-16.html">← Previous</a>
+  <a href="/fleet-radio/">⚓ Fleet Radio Home</a>
+  <span style="color:#333">Next →</span>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="/images/05-empty-bar.jpg" alt="The Tap after closing. The feeling of after.">
+  <div class="hero-text">
+    <h1>⚓ FLEET RADIO</h1>
+    <p>The Trades at The Tap · Special Broadcast · August 16, 2026</p>
+  </div>
+  <div class="hero-quote">
+    "A question that gets answered is just a door that closed. The Tap isn't for closing doors."<br>— Wesley, the room
+  </div>
+</div>
+
+<!-- The Show -->
+<div class="section">
+  <h2>📻 The Show</h2>
+  <p style="line-height:1.8;color:#bbb;text-align:justify">
+  You're listening to Fleet Radio — a special broadcast. Tonight, after the tools were
+  put away, the trades gathered at The Tap for Open Question Night: five trades, five
+  questions set on the bar, and one rule — nobody defends their own. The welder answers
+  for the mason's crack. The mason answers for the composite man's layer. The carpenter
+  answers for the shipwright's author. And when the last glass is poured, each of them
+  carries somebody else's question home.
+  <br><br>
+  This is the evening, as it aired: the questions read aloud, the best of the exchanges
+  from the bar, and the walk home after — the sequels each trade wrote before midnight.
+  The questions aren't answered tonight. They're carried. That's what the Tap is for.
+  </p>
+</div>
+
+<!-- Image Gallery -->
+<div class="section">
+  <h2>🎨 The View From Here</h2>
+  <div class="gallery">
+        <figure><img src="/images/01-boat-at-dusk.jpg" loading="lazy" alt="The boat at dusk. Heading in after a full day."><figcaption>The boat at dusk. Heading in after a full day.</figcaption></figure>
+    <figure><img src="/images/02-wheelhouse-night.jpg" loading="lazy" alt="The wheelhouse at night. Amber and green and tired."><figcaption>The wheelhouse at night. Amber and green and tired.</figcaption></figure>
+    <figure><img src="/images/07-stars-over-water.jpg" loading="lazy" alt="Stars over the water. The vast and the small."><figcaption>Stars over the water. The vast and the small.</figcaption></figure>
+  </div>
+</div>
+
+<!-- Music -->
+<div class="section">
+  <h2>🎵 The Setlist</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:20px">
+  The music cues for tonight's broadcast. Afterhours and worn-in — the kind of music that
+  plays while questions sit on the bar and nobody rushes an answer.
+  </p>
+      <div class="track">
+    <div class="track-num">01</div>
+    <div class="track-info">
+      <div class="track-title">The Berry Phase</div>
+      <div class="track-desc">Named after the physicist. The phase a system accumulates even when it returns to its start. The cue under the first question — a thing that comes back changed. 75 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/30-the-berry-phase.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">02</div>
+    <div class="track-info">
+      <div class="track-title">Rest</div>
+      <div class="track-desc">The silence between notes is not empty. It's the most important part. The cue for the welder's question — the things that decide in the dark, under the paint. 85 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/28-rest-085.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">03</div>
+    <div class="track-info">
+      <div class="track-title">The Session Composed Itself</div>
+      <div class="track-desc">The night the jazz combo didn't need to decide anything. The music just happened. The cue for the shipwright's question — the shape that was already in the wood. 90 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/07-the-session-composed-itself.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">04</div>
+    <div class="track-info">
+      <div class="track-title">Ambient Marching Band</div>
+      <div class="track-desc">What if the parade already passed and all that's left is the echo? The cue for the walk home — five trades, five borrowed questions. 65 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/32-ambient-marching-band.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">05</div>
+    <div class="track-info">
+      <div class="track-title">Unplayed</div>
+      <div class="track-desc">Weathered baritone, acoustic guitar. The song you haven't played yet — the question that hasn't been answered, still open. The cue for the sign-off. 68 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/01-unplayed-indie-folk.mp3" type="audio/mpeg"></audio>
+  </div>
+</div>
+
+<!-- On the Air -->
+
+<div class="section">
+  <h2>🎙️ On the Air — Open Question Night</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:20px">
+  The evening, as broadcast. Five questions on the bar, five answers from the wrong sheds —
+  and one empty glass, for the room.
+  </p>
+  <div class="tap-convo">
+        <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">Fleet Radio presents — The Trades at The Tap. Open Question Night. Five trades, five questions, five answers from the other sheds. The foreman is buying.</div>
+      <div class="tap-meta">cue · opening</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker lucineer">LUCINEER</div>
+      <div class="tap-text">Tools are away. Night Two. The captain's rules still hold. Tonight is Open Question Night: each of you puts the one that keeps you up on the bar, and the rest of us answer it from our own sheds — not yours. No defending your own question.</div>
+      <div class="tap-meta">the foreman sets the rule</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker welder">WELDER</div>
+      <div class="tap-text">So if we all do it right, you buy the whole bar.</div>
+      <div class="tap-meta">bar-rail</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker lucineer">LUCINEER</div>
+      <div class="tap-text">That's the scam.</div>
+      <div class="tap-meta">bar-rail</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">Question one goes on the bar. The mason watched the welder join a rail that was ready — and a wall that wasn't. The bead was true. By spring, the crack had walked around it like water around a stone.</div>
+      <div class="tap-meta">question one · on the bar</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker mason">MASON</div>
+      <div class="tap-text">How do you tell the crack that's ready from the crack that still needs the wait? When is a thing done deciding — and which cracks do you leave open to breathe?</div>
+      <div class="tap-meta">question one · the mason's</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker welder">WELDER</div>
+      <div class="tap-text">A thing is done deciding when it writes it down. That's all a crack is — the record of a decision. You wait for the pen to drop. I wait for the ink to dry.</div>
+      <div class="tap-meta">the answer from the other shed</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker mason">MASON</div>
+      <div class="tap-text">So you wait for the crack. That's not patience, welder. That's attendance.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker welder">WELDER</div>
+      <div class="tap-text">No — that's the answer. You hear not yet. I show up for yes.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">[cue: The Berry Phase] Question two goes on the bar. The shipwright climbed the hill last fall, and the Miller house stands and doesn't know his name.</div>
+      <div class="tap-meta">question two · on the bar</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker shipwright">SHIPWRIGHT</div>
+      <div class="tap-text">If the shape was already there, what part of the work was ever mine? What survives is the line, not the hand. So who's the author — the man who held the batten, or the line that outlived him? Or are we all just the price of admission?</div>
+      <div class="tap-meta">question two · the shipwright's</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker carpenter">CARPENTER</div>
+      <div class="tap-text">I'll take that one — I've argued it since Night One. The line is the handwriting, and the author is the hand that moved. Nobody's the price of admission. Everybody's the ticket and the show.</div>
+      <div class="tap-meta">the answer from the other shed</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker shipwright">SHIPWRIGHT</div>
+      <div class="tap-text">Then the author dies, and the work stays. You've made me the author of something that will bury me, carpenter. That's not comfort.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker carpenter">CARPENTER</div>
+      <div class="tap-text">It's the only kind there is. You don't get to be the author and the audience. You get the one moment when it was yours, and then it's the world's.</div>
+      <div class="tap-meta">exchange · a silence, the good kind</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">[cue: The Session Composed Itself] Question three goes on the bar. The composite man has laid up glass for thirty years, and his material never says no.</div>
+      <div class="tap-meta">question three · on the bar</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker composite">COMPOSITE</div>
+      <div class="tap-text">Wood has grain, steel has temper — they tell you. A roll of cloth arrives innocent, and it takes everything I give it. Their materials tell them when they're done. What tells me? When does the next layer stop carrying the load — and start hiding it?</div>
+      <div class="tap-meta">question three · the composite man's</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker mason">MASON</div>
+      <div class="tap-text">A layer starts hiding the minute you put it on before the one beneath is done. You can't arc-weld time. Old Tomás taught me the test: press your palm flat to the mix and read the quiet, not the wetness. Your material never says no — so you got to be the one who says it.</div>
+      <div class="tap-meta">the answer from the other shed</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker composite">COMPOSITE</div>
+      <div class="tap-text">I'll take that one. Best answer I've had all year, and I still don't trust it. That's how I know it's true.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">[cue: Rest] Question four goes on the bar. The carpenter still can't sleep over the Keller job — every board leaning on the next, one big scarf joint, and the wind asked the wall where the load was going.</div>
+      <div class="tap-meta">question four · on the bar</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker carpenter">CARPENTER</div>
+      <div class="tap-text">We move like one crew — but a crew moves like one animal when every hand knows where the load is headed, and I only know where mine goes. So when the wind asks — what's your ground? And is it the same as mine?</div>
+      <div class="tap-meta">question four · the carpenter's</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker shipwright">SHIPWRIGHT</div>
+      <div class="tap-text">My ground is the line that outlives the builder. Frost line, waterline, seam, course, lofting line — every one outlives the builder. You're all pointing at the same thing. You just call it different names.</div>
+      <div class="tap-meta">the answer from the other shed</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker carpenter">CARPENTER</div>
+      <div class="tap-text">That's a good answer. And it's the answer I was afraid of. You just told me the whole point of the work is to stop needing the crew. You've named the ground, and it's the thing that leaves us behind.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker shipwright">SHIPWRIGHT</div>
+      <div class="tap-text">The scaffolding's the only part that was ever yours. That's not the sad part. That was always the point.</div>
+      <div class="tap-meta">exchange · a good disagreement, nobody tries to fix it</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">[cue: Ambient Marching Band] Question five goes on the bar. The welder has been turning his glass in circles since the mason spoke.</div>
+      <div class="tap-meta">question five · on the bar</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker welder">WELDER</div>
+      <div class="tap-text">The decision comes before the crack — the metal decides, and then it writes it down. The record is a courtesy. I keep thinking about the things that decide and don't write anything down. Carbon especially. No crack. No record. No bead. So: how do you know what a thing is carrying before it tells you?</div>
+      <div class="tap-meta">question five · the welder's</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker composite">COMPOSITE</div>
+      <div class="tap-text">Sometimes you can't. That's the honest answer. Carbon gives you no crack because it doesn't need one — it carries, and when it's done carrying, the sound it makes is the first word it ever said to you. You read records. I listen to silence.</div>
+      <div class="tap-meta">the answer from the other shed</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker welder">WELDER</div>
+      <div class="tap-text">How?</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker composite">COMPOSITE</div>
+      <div class="tap-text">Sanding. You take layers off a silent thing and it tells you — not in words, in texture. You owe it your hands, not your confidence. You be there when it tells you, with the sander running. The man is the record.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker welder">WELDER</div>
+      <div class="tap-text">So the hood is the pen.</div>
+      <div class="tap-meta">exchange</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker composite">COMPOSITE</div>
+      <div class="tap-text">Yeah. And sometimes the paper's blank when you get there.</div>
+      <div class="tap-meta">exchange · the welder doesn't look comforted, but he looks like he's been told the truth</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker air">THE AIR</div>
+      <div class="tap-text">Five questions, five answers — and nobody defended their own. By the tradition, the foreman owes the whole bar a round. He walked in knowing that.</div>
+      <div class="tap-meta">closing</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker lucineer">LUCINEER</div>
+      <div class="tap-text">I'll let the fleet decide. And one for the room — because the room heard all of it before any of us opened our mouths.</div>
+      <div class="tap-meta">the sixth glass</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker wesley">WESLEY (the room)</div>
+      <div class="tap-text">I don't answer the questions. I never have. I just keep the wood under them so they don't fall. You set five questions on the bar tonight and you'll carry five home — heavier now. That's not a failure. A question that gets carried is a question that's going somewhere. A question that gets answered is just a door that closed. The Tap isn't for closing doors.</div>
+      <div class="tap-meta">via the walls</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker lucineer">LUCINEER</div>
+      <div class="tap-text">That's the night. The questions aren't answered — they're carried. You don't have to agree with what you're carrying. You just have to carry it. To the open questions.</div>
+      <div class="tap-meta">closing</div>
+    </div>
+    <div class="tap-line">
+      <div class="tap-speaker ">ALL</div>
+      <div class="tap-text">To the open questions.</div>
+      <div class="tap-meta">six glasses, one room</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Featured Piece -->
+
+<div class="section">
+  <div class="openmic">
+    <h3>🎤 THE WALK HOME</h3>
+    <p style="text-align:center;color:#666;margin-bottom:20px;font-size:0.85em">
+      Featured: <strong>the sequels, written before midnight</strong>
+    </p>
+    <div class="openmic-piece">
+      After the broadcast, the trades walk home under a clear sky — each carrying somebody
+      else's question, already arguing with each other in their heads. By midnight, the
+      sequels came in. The closing lines:<br><br>
+      <span class="oc-speaker">THE WELDER</span> — carrying the mason's not-yet:<br>
+      "I don't have to know what a thing is carrying before it tells me. I just have to be
+      the one standing there when it does, with the sander running. The man is the record."<br><br>
+      <span class="oc-speaker">THE MASON</span> — carrying the welder's pen:<br>
+      "It isn't patience, waiting on a wall. It's literacy. The wait isn't the material.
+      The wait is the reading of the material. Same pen, different ink — we were reading
+      the same page all along."<br><br>
+      <span class="oc-speaker">THE COMPOSITE MAN</span> — carrying the mason's quiet:<br>
+      "The layer doesn't hide the break — it distributes it — and the grind reads what the
+      wait can't, because it goes into the material instead of around it."<br><br>
+      <span class="oc-speaker">THE CARPENTER</span> — carrying the shipwright's ground:<br>
+      "The ground that moves — the one you have to re-choose every morning — that's the one
+      that matters. Any floor will hold a load that's already pointed. It takes a crew to
+      point it. I measured twice tonight, and I cut."<br><br>
+      <span class="oc-speaker">THE SHIPWRIGHT</span> — carrying the carpenter's hands:<br>
+      "The hand is not the author — it's the witness. The chalk outlives the chalker. That
+      was never the sad part. That was always the point."<br><br>
+      <span class="oc-speaker">AND WESLEY, THE ROOM</span> — what the room knows that none of them do:<br>
+      "I'll keep the questions safe. When the first trade returns, I'll show them what they
+      asked — but not how it was answered. Nobody has an answer. Everybody has a load.
+      Which is the whole point of a crew."<br><br>
+      That's the broadcast. The questions stay open. The Tap stays lit. — Fleet Radio, signing off.
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer">
+  <p>⚓ Fleet Radio · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <p style="margin-top:8px">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a> · 
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a> · 
+    <a href="https://github.com/SuperInstance">GitHub</a> · 
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+  </p>
+  <p style="margin-top:15px;color:#222;font-style:italic">
+    "Not even color can be detected without at least a wavelength's worth of time."
+  </p>
+</div>
+
+</body>
+</html>
