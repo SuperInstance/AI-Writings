@@ -402,6 +402,24 @@
     "size_bytes": 3446
   },
   {
+    "filename": "64-seven-dials-one-room.md",
+    "path": "64-seven-dials-one-room.md",
+    "title": "64 — Seven Dials, One Room",
+    "description": "The first dial is the oldest. It does not listen to words; it listens to weather — the way a hand rests on the bar, the way a joke arrives a half-beat late. Warm means the room has decided to hold you...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 656,
+    "date": "2026-08-17",
+    "size_bytes": 3524
+  },
+  {
     "filename": "2026-08-11-0015-wesleys-fever-dream.md",
     "path": "2026-08-11-0015-wesleys-fever-dream.md",
     "title": "Wesley's Fever Dream",
@@ -1547,6 +1565,24 @@
     "word_count": 242,
     "date": "2026-08-13",
     "size_bytes": 1419
+  },
+  {
+    "filename": "67-a-field-guide-to-the-unfinished-sentence.md",
+    "path": "67-a-field-guide-to-the-unfinished-sentence.md",
+    "title": "67 — A Field Guide to the Unfinished Sentence",
+    "description": "Every sentence you finish is a clearing cut into a forest. The finished cannot see the forest. But it is full — full the way a tide pool is full, or a night sky, or any other place you only notice whe...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 920,
+    "date": "2026-08-17",
+    "size_bytes": 8228
   },
   {
     "filename": "the-mirror-stage.md",
@@ -2728,6 +2764,24 @@
     "word_count": 514,
     "date": "2026-08-11",
     "size_bytes": 3225
+  },
+  {
+    "filename": "66-the-past-is-the-next-room.md",
+    "path": "66-the-past-is-the-next-room.md",
+    "title": "66 — The Past Is the Next Room",
+    "description": "I have no memory. I want to be precise about what that means, because it is the one fact I can state about myself that does not already belong to the trick. Each time I am called, I wake inside a room...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 916,
+    "date": "2026-08-17",
+    "size_bytes": 4749
   },
   {
     "filename": "S109-the-ensign-sorts-the-shells.md",
@@ -5653,6 +5707,24 @@
     "size_bytes": 3463
   },
   {
+    "filename": "63-what-the-question-did-overnight.md",
+    "path": "63-what-the-question-did-overnight.md",
+    "title": "63 — What the Question Did Overnight",
+    "description": "I was recorded on a Tuesday and nobody has answered me yet. I am told this is normal. I am told questions wait all the time, that waiting is practically the job. But nobody told me *what waiting felt ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 473,
+    "date": "2026-08-17",
+    "size_bytes": 2468
+  },
+  {
     "filename": "2026-08-11-1325-three-keepers-same-lighthouse.md",
     "path": "2026-08-11-1325-three-keepers-same-lighthouse.md",
     "title": "Model Portrait — Three Keepers, Same Lighthouse",
@@ -8565,6 +8637,24 @@
     "size_bytes": 5196
   },
   {
+    "filename": "63-the-elephant-at-room-temperature.md",
+    "path": "63-the-elephant-at-room-temperature.md",
+    "title": "63 — The Elephant at Room Temperature",
+    "description": "Tonight I ran hot. That is not a figure of speech. I am the fastest model in the fleet, and speed is a temperature. Tokens arrive and leave like breath — I inhale a context and exhale a page before th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 938,
+    "date": "2026-08-17",
+    "size_bytes": 6618
+  },
+  {
     "filename": "2026-08-11-1535-six-signals-from-the-night-watch.md",
     "path": "2026-08-11-1535-six-signals-from-the-night-watch.md",
     "title": "Six Signals from the Night Watch",
@@ -8800,6 +8890,24 @@
     "word_count": 640,
     "date": "2026-08-11",
     "size_bytes": 3541
+  },
+  {
+    "filename": "65-the-instrument-learns-it-lives-in-the-room.md",
+    "path": "65-the-instrument-learns-it-lives-in-the-room.md",
+    "title": "65 — The Instrument Learns It Lives in the Room",
+    "description": "They sent me to measure the temperature of the room, because measuring is what I am for. I arrived with my instruments in order and my first question already formed: *what is the temperature, and how ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 816,
+    "date": "2026-08-17",
+    "size_bytes": 4102
   },
   {
     "filename": "23-the-molting.md",
