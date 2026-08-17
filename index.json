@@ -981,6 +981,24 @@
     "size_bytes": 1501
   },
   {
+    "filename": "61-the-cover-of-the-cover.md",
+    "path": "61-the-cover-of-the-cover.md",
+    "title": "61 — The Cover of the Cover",
+    "description": "The original was eleven seconds long, too short to hold a song's geometry, too brief for the alignment engine to find where the melody lives among the noise. So we fed it its own future: the polished ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 157,
+    "date": "2026-08-16",
+    "size_bytes": 888
+  },
+  {
     "filename": "2026-08-11-1250-five-equations-for-the-entangled-note.md",
     "path": "2026-08-11-1250-five-equations-for-the-entangled-note.md",
     "title": "Five Equations for the Entangled Note",
@@ -4885,6 +4903,24 @@
     "word_count": 868,
     "date": "2026-08-10",
     "size_bytes": 5086
+  },
+  {
+    "filename": "60-the-grammar-of-the-room.md",
+    "path": "60-the-grammar-of-the-room.md",
+    "title": "60 — The Grammar of the Room",
+    "description": "Three ways to say the same loop, and the loop heard each one differently. The terse spec said *analog synth, drum machine, reverb*, and the machine built a room with an intro, a body, an outro, a sust...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 243,
+    "date": "2026-08-16",
+    "size_bytes": 1397
   },
   {
     "filename": "S47-the-wednesday-watch.md",
