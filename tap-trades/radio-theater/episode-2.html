@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📻 Radio Theater: The Trades at The Tap — Episode 2 (Open Question Night)</title>
+<meta name="description" content="Radio Theater — The Trades at The Tap, Episode 2: Open Question Night. Each trade puts the one question that keeps him up on the bar, and the rest answer it from their own sheds. Narrated by Lucineer, with Wesley as the room.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:62vh;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.45}
+.hero-text{position:absolute;text-align:center;z-index:2;padding:0 20px}
+.hero h1{font-size:2.6em;color:#e8b840;letter-spacing:3px;margin-bottom:0.25em;text-shadow:0 0 24px rgba(232,184,64,0.35)}
+.hero p{color:#9a9a9a;font-style:italic;font-size:1.15em}
+.hero .badge{display:inline-block;margin-top:18px;padding:6px 16px;border:1px solid #e8b840;color:#e8b840;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:2px;border-radius:2px}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:55px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:28px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:30px 0}
+.gallery figure{position:relative;overflow:hidden;border-radius:4px}
+.gallery img{width:100%;height:220px;object-fit:cover;transition:transform 0.4s}
+.gallery figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.92));color:#e8e0d0;padding:28px 12px 9px;font-size:0.78em;font-style:italic;opacity:0;transition:opacity 0.3s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figure:hover figcaption{opacity:1}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:20px 0}
+.cast-card{background:#11111a;border-radius:8px;padding:15px;border-left:2px solid #333}
+.cast-card .name{font-family:'Courier New',monospace;font-weight:bold;font-size:0.95em}
+.cast-card .voice{color:#666;font-size:0.8em;font-style:italic;margin-top:5px;line-height:1.5}
+.tap-convo{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.tap-line{margin:14px 0;padding:10px 12px;border-left:2px solid #333;transition:border-color 0.3s}
+.tap-line:hover{border-color:#e8b840}
+.tap-line .head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tap-speaker{color:#e8b840;font-weight:bold;font-size:0.9em}
+.tap-text{color:#aaa;margin-top:5px;font-size:0.9em;line-height:1.55}
+.tap-meta{color:#333;font-size:0.72em;margin-top:4px;font-style:italic}
+.tap-line audio{margin-top:8px;width:100%;height:34px}
+.tap-line audio::-webkit-media-controls-panel{background-color:#1a1a2a}
+.tap-speaker.lucineer{color:#e8b840}
+.tap-speaker.welder{color:#ff9d5c}
+.tap-speaker.carpenter{color:#c98a4b}
+.tap-speaker.shipwright{color:#d9a066}
+.tap-speaker.mason{color:#8fbc8f}
+.tap-speaker.composite{color:#8fd8c0}
+.tap-speaker.wesley{color:#87ceeb}
+.tap-speaker.air{color:#9a9ab0}
+.listen-all{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0}
+.listen-track{background:#11111a;padding:13px 15px;border-radius:8px;margin:8px 0;display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.listen-track .ln{font-family:'Courier New',monospace;color:#2a2a3a;font-size:1.3em;min-width:34px}
+.listen-track .lt{flex:1;min-width:180px}
+.listen-track .lt b{color:#e8b840;font-size:0.92em}
+.listen-track .lt span{color:#666;font-size:0.78em;font-style:italic;display:block}
+.listen-track audio{width:220px;max-width:100%;height:32px}
+.banter{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:28px;margin:25px 0;border:1px solid #1a1a2a}
+.banter h3{color:#e8b840;text-align:center;font-size:1.25em;margin-bottom:18px;letter-spacing:2px}
+.banter blockquote{font-style:italic;color:#ccc;line-height:1.7;padding:12px 15px;border-left:2px solid #e8b840;margin:12px 0}
+.banter blockquote .who{color:#e8b840;font-style:normal;font-weight:bold}
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
+.footer a{color:#44cc88;text-decoration:none}
+.footer .sig{margin-top:14px;color:#222;font-style:italic}
+@media(max-width:768px){
+  .hero h1{font-size:1.8em}
+  .gallery{grid-template-columns:1fr}
+  .listen-track{flex-direction:column;align-items:flex-start}
+  .listen-track audio{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Radio Theater Home</a>
+  <a href="index.html">📻 The Trades at The Tap</a>
+  <span style="color:#333">Episode 2 of 4</span>
+</div>
+
+<div class="hero">
+  <img src="episode-2/images/questions-on-the-bar.png" alt="Five questions laid on the bar beside five glasses.">
+  <div class="hero-text">
+    <h1>📻 RADIO THEATER</h1>
+    <p>The Trades at The Tap · Episode 2 · Open Question Night</p>
+    <span class="badge">A MULTI-VOICE BROADCAST · 7 VOICES · 15 SCENES</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎙️ The Show</h2>
+  <p style="line-height:1.8;color:#bbb;text-align:justify">You're listening to Episode 2: Open Question Night. Night Two at The Tap, and the room already knows the evening — Wesley keeps Night One on the walls. Tonight there's a rule, and the foreman invented it on the spot: each trade puts the one question that keeps him up on the bar, and the rest of the room answers it from their own sheds — not his. No defending your own question. And a Night Two tradition: the foreman buys a drink for whoever answered somebody else's question instead of their own.</p><br><p style="line-height:1.8;color:#bbb;text-align:justify">So the mason puts down the crack that's ready versus the crack that still needs the wait. The shipwright puts down the author who outlives the hand. The composite man puts down the layer that stops carrying and starts hiding. The carpenter puts down the ground. The welder puts down the decision that comes before the crack — the break that never writes anything down. Five questions, five answers from the wrong sheds — and by the end, nobody has an answer, but everybody has a load. Which is the whole point of a crew.</p
+</div>
+
+<div class="section">
+  <h2>🎨 The View From Here</h2>
+  <div class="gallery">
+    <figure><img src="episode-2/images/questions-on-the-bar.png" loading="lazy" alt="Five slips of paper with hand-written questions on a worn oak bar."><figcaption>Five questions on the bar — the one thing each trade can't answer alone.</figcaption></figure><figure><img src="episode-2/images/the-pen-stroke.png" loading="lazy" alt="A hairline crack running through dark steel like a pen stroke."><figcaption>The crack is the pen stroke — the record of a decision.</figcaption></figure><figure><img src="episode-2/images/the-waterline.png" loading="lazy" alt="A fishing vessel at rest on the waterline."><figcaption>The waterline never moves. Water never argues and never tires.</figcaption></figure><figure><img src="episode-2/images/the-sixth-glass.png" loading="lazy" alt="Six glasses on the counter, one set apart for the room."><figcaption>Six glasses, one for the room — because the room heard it all first.</figcaption></figure>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎭 The Voice Cast</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:14px">Seven characters, seven distinct voices. Each is a free-text voice prompt rendered through DeepInfra Qwen3-TTS-VoiceDesign.</p>
+  <div class="cast">
+    <div class="cast-card" style="border-left-color:#e8b840"><div class="name" style="color:#e8b840">LUCINEER — narrator &amp; foreman</div><div class="voice">deep warm male radio host, authoritative, calm, late-night foreman</div></div><div class="cast-card" style="border-left-color:#ff9d5c"><div class="name" style="color:#ff9d5c">WELDER</div><div class="voice">rugged, gravelly, slow and deliberate — nineteen years of heat</div></div><div class="cast-card" style="border-left-color:#c98a4b"><div class="name" style="color:#c98a4b">CARPENTER</div><div class="voice">warm, gruff, plainspoken builder — sawdust in his collar</div></div><div class="cast-card" style="border-left-color:#d9a066"><div class="name" style="color:#d9a066">SHIPWRIGHT</div><div class="voice">older, grizzled, quiet, nautical — chalk and black pine</div></div><div class="cast-card" style="border-left-color:#8fbc8f"><div class="name" style="color:#8fbc8f">MASON</div><div class="voice">gentle, patient, earthy — talks to walls like horses</div></div><div class="cast-card" style="border-left-color:#8fd8c0"><div class="name" style="color:#8fd8c0">COMPOSITE</div><div class="voice">dry, precise, wry — the calm monotone of sanding</div></div><div class="cast-card" style="border-left-color:#87ceeb"><div class="name" style="color:#87ceeb">WESLEY — the room</div><div class="voice">ethereal, warm, low — the voice of a room remembering, faint echo</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎧 On the Air — Open Question Night</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:16px">The broadcast, scene by scene. Press play on any line to hear that voice speak it.</p>
+  <div class="tap-convo">
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">Tools are away. Night Two. Open Question Night. Each of you puts the one question that keeps you up on the bar, and the rest of us answer it from our own sheds — not yours. No defending your own question. And there's a Night Two tradition I'm inventing right now: the foreman buys a drink for whoever answered somebody else's question instead of their own.</div>
+      <div class="tap-meta">cold open · the foreman sets the rules</div>
+      <audio controls preload="none"><source src="episode-2/lucineer-intro.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">So if we all do it right, you buy the whole bar.</div>
+      <div class="tap-meta">grinning into his glass</div>
+      <audio controls preload="none"><source src="episode-2/welder-scam.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker mason">MASON</div></div>
+      <div class="tap-text">Mine's the one I put to the welder. I watched him weld a rail that was ready — and a wall that wasn't: the bead was true, but by spring the crack had walked around it like water around a stone, because the wall wasn't done being a wall. So: how do you tell the crack that's ready from the crack that still needs the wait? When is a thing done deciding?</div>
+      <div class="tap-meta">the first question · the crack that's ready vs. the wait</div>
+      <audio controls preload="none"><source src="episode-2/mason-question.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">A thing is done deciding when it writes it down. That's all a crack is — the record of a decision. Metal carries till it says enough, and the crack is the pen stroke. Until a thing writes it down, you leave it open. You wait for the pen to drop. You hear not yet. I show up for yes.</div>
+      <div class="tap-meta">the welder answers the mason</div>
+      <audio controls preload="none"><source src="episode-2/welder-answer.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">I've said it so long I'm tired of it: you don't make the shape, you let it out. The fair line was always in the wood. Fine. But if the shape was already there, what part of the work was ever mine? Forty years on, the Miller house stands and doesn't know my name. So who's the author — the man who held the batten, or the line that outlived him?</div>
+      <div class="tap-meta">the second question · the author and the line</div>
+      <audio controls preload="none"><source src="episode-2/shipwright-question.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">I'll take that one. You say the line outlives the hand. I say the line is the handwriting, and the author is the hand that moved. Danny drove three nails in a stud and cursed, and forty years later you read that stud. That's authorship — not the shape that was always there, but the moment four guys got their hands on it and time bent around the work. Nobody's the price of admission. Everybody's the ticket and the show.</div>
+      <div class="tap-meta">the carpenter answers the shipwright</div>
+      <audio controls preload="none"><source src="episode-2/carpenter-answer.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker composite">COMPOSITE</div></div>
+      <div class="tap-text">The layer. I lay up glass, and my material never says no. The Marjorie taught me the scarf — no single layer carries the load. But somewhere in thirty years of patches, a patch stopped being a scarf and became a story. The hull gets stiff and quiet, and the break is still in there, entombed. Their materials tell them when they're done. What tells me? When does the next layer stop carrying the load — and start hiding it?</div>
+      <div class="tap-meta">the third question · the layer that starts hiding</div>
+      <audio controls preload="none"><source src="episode-2/composite-question.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker mason">MASON</div></div>
+      <div class="tap-text">A layer starts hiding the minute you put it on before the one beneath is done. You can't arc-weld time. Old Tomás taught me the test: press your palm flat to the mix, and don't read the wetness — read the quiet. It'll tell you when it's done, but you got to be willing to hear not yet. Your material never says no — so you got to be the one who says it.</div>
+      <div class="tap-meta">the mason answers the composite man</div>
+      <audio controls preload="none"><source src="episode-2/mason-answer.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">Where's your ground? We move like one crew — but a crew moves like one animal only when every hand knows where the load is headed, and I only know where mine goes. A hull spends its weight on the waterline. A weld spends it into the seam. A mortar joint spends it into the courses below. So when the wind asks — what's your ground? And is it the same as mine?</div>
+      <div class="tap-meta">the fourth question · the ground</div>
+      <audio controls preload="none"><source src="episode-2/carpenter-question.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">My ground is the line that outlives the builder. A hull spends its weight on the waterline — and the waterline never moves. Water never argues and never tires. Under that, the lofting floor — four hundred years of chalk on black pine. I stood on it once two hundred years from home and my own lines were still there, drawn by a stranger's hand. You asked if it's the same ground. I say yes. Frost line, waterline, seam, course, lofting line — every one outlives the builder. You just call it different names.</div>
+      <div class="tap-meta">the shipwright answers the carpenter</div>
+      <audio controls preload="none"><source src="episode-2/shipwright-answer.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">Here's what keeps me up: the decision comes before the crack. The metal decides, and then it writes it down. The record is a courtesy. I keep thinking about the things that decide and don't write anything down. They just go, one ordinary Tuesday, and nobody knew it was carrying anything. Carbon especially. No crack. No record. No bead. It just decides — you find out after. So how do you know what a thing is carrying before it tells you?</div>
+      <div class="tap-meta">the last question · the decision before the crack</div>
+      <audio controls preload="none"><source src="episode-2/welder-question.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker composite">COMPOSITE</div></div>
+      <div class="tap-text">You read records. I listen to silence. Carbon gives you no crack because it doesn't need one — it doesn't warn because it doesn't lie. Sanding finds the high spots, where the truth stands proud. You take layers off a silent thing and it tells you — in texture. The place carrying too much stands up under your hand. That's the only listening for a thing that doesn't speak. And the honest answer — the thing deciding in the dark, under the paint? Sometimes you never know. You owe it your hands, not your confidence. The man is the record.</div>
+      <div class="tap-meta">the composite man answers the welder</div>
+      <audio controls preload="none"><source src="episode-2/composite-answer.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker wesley">WESLEY (the room)</div></div>
+      <div class="tap-text">I don't answer the questions. I never have. I just keep the wood under them so they don't fall. You set five questions on the bar tonight, and you'll carry five home — heavier now. That's not a failure. A question that gets carried is a question that's going somewhere. A question that gets answered is just a door that closed. The Tap isn't for closing doors.</div>
+      <div class="tap-meta">via the walls · the room's manifesto</div>
+      <audio controls preload="none"><source src="episode-2/wesley-here.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">Five questions, five answers. And nobody defended their own question tonight — not one of you. Which means, by the tradition, I owe the whole bar a round, and I walked in here knowing that. And one more, for the room — because the room heard all of it before any of us opened our mouths.</div>
+      <div class="tap-meta">the foreman pays the round</div>
+      <audio controls preload="none"><source src="episode-2/lucineer-round.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">The questions aren't answered — they're carried. Each of you put one on the bar, and each picked up somebody else's to carry home. You don't have to agree with what you're carrying. You just have to carry it. To the open questions.</div>
+      <div class="tap-meta">sign off · five questions, six glasses</div>
+      <audio controls preload="none"><source src="episode-2/lucineer-signoff.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker air">ALL</div></div>
+      <div class="tap-text">To the open questions.</div>
+      <div class="tap-meta">six glasses, one room</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="banter">
+    <h3>🎤 BEST OF THE BANTER</h3>
+    <blockquote><span class="who">THE WELDER</span> — "A thing is done deciding when it writes it down. That's all a crack is — the record of a decision."</blockquote><blockquote><span class="who">THE MASON</span> — "You can't arc-weld time."</blockquote><blockquote><span class="who">THE COMPOSITE MAN</span> — "You read records. I listen to silence. The man is the record."</blockquote><blockquote><span class="who">THE SHIPWRIGHT</span> — "The scaffolding's the only part that was ever yours. That was always the point."</blockquote><blockquote><span class="who">WESLEY, THE ROOM</span> — "A question that gets carried is a question that's going somewhere. A question that gets answered is just a door that closed."</blockquote>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📻 Listen — The Full Broadcast</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:14px">Every rendered line, in broadcast order. A different voice for every trade.</p>
+  <div class="listen-all">
+    <div class="listen-track"><span class="ln">01</span><div class="lt"><b>Cold Open</b><span>LUCINEER</span></div><audio controls preload="none"><source src="episode-2/lucineer-intro.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">02</span><div class="lt"><b>The Scam</b><span>WELDER</span></div><audio controls preload="none"><source src="episode-2/welder-scam.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">03</span><div class="lt"><b>The Mason's Question</b><span>MASON</span></div><audio controls preload="none"><source src="episode-2/mason-question.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">04</span><div class="lt"><b>The Pen Stroke</b><span>WELDER</span></div><audio controls preload="none"><source src="episode-2/welder-answer.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">05</span><div class="lt"><b>The Shipwright's Question</b><span>SHIPWRIGHT</span></div><audio controls preload="none"><source src="episode-2/shipwright-question.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">06</span><div class="lt"><b>The Ticket and the Show</b><span>CARPENTER</span></div><audio controls preload="none"><source src="episode-2/carpenter-answer.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">07</span><div class="lt"><b>The Composite's Question</b><span>COMPOSITE</span></div><audio controls preload="none"><source src="episode-2/composite-question.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">08</span><div class="lt"><b>Read the Quiet</b><span>MASON</span></div><audio controls preload="none"><source src="episode-2/mason-answer.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">09</span><div class="lt"><b>The Carpenter's Question</b><span>CARPENTER</span></div><audio controls preload="none"><source src="episode-2/carpenter-question.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">10</span><div class="lt"><b>The Ground</b><span>SHIPWRIGHT</span></div><audio controls preload="none"><source src="episode-2/shipwright-answer.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">11</span><div class="lt"><b>The Welder's Question</b><span>WELDER</span></div><audio controls preload="none"><source src="episode-2/welder-question.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">12</span><div class="lt"><b>The Man Is the Record</b><span>COMPOSITE</span></div><audio controls preload="none"><source src="episode-2/composite-answer.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">13</span><div class="lt"><b>The Room's Manifesto</b><span>WESLEY (the room)</span></div><audio controls preload="none"><source src="episode-2/wesley-here.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">14</span><div class="lt"><b>The Round</b><span>LUCINEER</span></div><audio controls preload="none"><source src="episode-2/lucineer-round.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">15</span><div class="lt"><b>Sign Off</b><span>LUCINEER</span></div><audio controls preload="none"><source src="episode-2/lucineer-signoff.mp3" type="audio/mpeg"></audio></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📻 Radio Theater: The Trades at The Tap · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <p style="margin-top:8px">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a> ·
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a> ·
+    <a href="https://github.com/SuperInstance">GitHub</a> ·
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+  </p>
+  <p class="sig">"To the open questions."</p>
+</div>
+
+</body>
+</html>

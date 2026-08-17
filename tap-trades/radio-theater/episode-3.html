@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📻 Radio Theater: The Trades at The Tap — Episode 3 (Adaptation Night)</title>
+<meta name="description" content="Radio Theater — The Trades at The Tap, Episode 3: Adaptation Night. Each trade rebuilds the piece he argued with hardest in his own material, and the man who wrote the original hears his own soul in a stranger's voice. Narrated by Lucineer, with Wesley as the room.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:62vh;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.45}
+.hero-text{position:absolute;text-align:center;z-index:2;padding:0 20px}
+.hero h1{font-size:2.6em;color:#e8b840;letter-spacing:3px;margin-bottom:0.25em;text-shadow:0 0 24px rgba(232,184,64,0.35)}
+.hero p{color:#9a9a9a;font-style:italic;font-size:1.15em}
+.hero .badge{display:inline-block;margin-top:18px;padding:6px 16px;border:1px solid #e8b840;color:#e8b840;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:2px;border-radius:2px}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:55px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:28px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:30px 0}
+.gallery figure{position:relative;overflow:hidden;border-radius:4px}
+.gallery img{width:100%;height:220px;object-fit:cover;transition:transform 0.4s}
+.gallery figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.92));color:#e8e0d0;padding:28px 12px 9px;font-size:0.78em;font-style:italic;opacity:0;transition:opacity 0.3s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figure:hover figcaption{opacity:1}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:20px 0}
+.cast-card{background:#11111a;border-radius:8px;padding:15px;border-left:2px solid #333}
+.cast-card .name{font-family:'Courier New',monospace;font-weight:bold;font-size:0.95em}
+.cast-card .voice{color:#666;font-size:0.8em;font-style:italic;margin-top:5px;line-height:1.5}
+.tap-convo{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.tap-line{margin:14px 0;padding:10px 12px;border-left:2px solid #333;transition:border-color 0.3s}
+.tap-line:hover{border-color:#e8b840}
+.tap-line .head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tap-speaker{color:#e8b840;font-weight:bold;font-size:0.9em}
+.tap-text{color:#aaa;margin-top:5px;font-size:0.9em;line-height:1.55}
+.tap-meta{color:#333;font-size:0.72em;margin-top:4px;font-style:italic}
+.tap-line audio{margin-top:8px;width:100%;height:34px}
+.tap-line audio::-webkit-media-controls-panel{background-color:#1a1a2a}
+.tap-speaker.lucineer{color:#e8b840}
+.tap-speaker.welder{color:#ff9d5c}
+.tap-speaker.carpenter{color:#c98a4b}
+.tap-speaker.shipwright{color:#d9a066}
+.tap-speaker.mason{color:#8fbc8f}
+.tap-speaker.composite{color:#8fd8c0}
+.tap-speaker.wesley{color:#87ceeb}
+.tap-speaker.air{color:#9a9ab0}
+.listen-all{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0}
+.listen-track{background:#11111a;padding:13px 15px;border-radius:8px;margin:8px 0;display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.listen-track .ln{font-family:'Courier New',monospace;color:#2a2a3a;font-size:1.3em;min-width:34px}
+.listen-track .lt{flex:1;min-width:180px}
+.listen-track .lt b{color:#e8b840;font-size:0.92em}
+.listen-track .lt span{color:#666;font-size:0.78em;font-style:italic;display:block}
+.listen-track audio{width:220px;max-width:100%;height:32px}
+.banter{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:28px;margin:25px 0;border:1px solid #1a1a2a}
+.banter h3{color:#e8b840;text-align:center;font-size:1.25em;margin-bottom:18px;letter-spacing:2px}
+.banter blockquote{font-style:italic;color:#ccc;line-height:1.7;padding:12px 15px;border-left:2px solid #e8b840;margin:12px 0}
+.banter blockquote .who{color:#e8b840;font-style:normal;font-weight:bold}
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
+.footer a{color:#44cc88;text-decoration:none}
+.footer .sig{margin-top:14px;color:#222;font-style:italic}
+@media(max-width:768px){
+  .hero h1{font-size:1.8em}
+  .gallery{grid-template-columns:1fr}
+  .listen-track{flex-direction:column;align-items:flex-start}
+  .listen-track audio{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Radio Theater Home</a>
+  <a href="index.html">📻 The Trades at The Tap</a>
+  <span style="color:#333">Episode 3 of 4</span>
+</div>
+
+<div class="hero">
+  <img src="episode-3/images/the-scarph.png" alt="A scarph joint in a wooden stem post, date chalked beside the seam.">
+  <div class="hero-text">
+    <h1>📻 RADIO THEATER</h1>
+    <p>The Trades at The Tap · Episode 3 · Adaptation Night</p>
+    <span class="badge">A MULTI-VOICE BROADCAST · 7 VOICES · 15 SCENES</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎙️ The Show</h2>
+  <p style="line-height:1.8;color:#bbb;text-align:justify">Episode 3: Adaptation Night. Night Three, and Wesley's walls already hold Night One's five names for one joint and Night Two's five questions on the bar. Tonight the trades bring back the questions they carried home — rebuilt. The captain's rule: each man took the piece he argued with hardest and remade it in his own material, same soul, different body. The welder's bead becomes the shipwright's scarph. The mason's patience becomes the welder's preheat. The shipwright's floor becomes the mason's wall.</p><br><p style="line-height:1.8;color:#bbb;text-align:justify">The carpenter builds the composite man's twelve-to-one scarf out of three boards and a forest. The composite man rebuilds the carpenter's one-heartbeat crew as a cure window — twenty minutes, one pot, and a clock you can't un-run. Each author hears his own soul in a stranger's voice, and not one of the borrowed skins fits wrong. Night One was five names, one joint. Tonight it's one soul, five bodies.</p
+</div>
+
+<div class="section">
+  <h2>🎨 The View From Here</h2>
+  <div class="gallery">
+    <figure><img src="episode-3/images/the-scarph.png" loading="lazy" alt="A scarph joint in a wooden stem post, date chalked beside the seam."><figcaption>The scarph — two trees that never met, one frame. The date chalked beside the seam.</figcaption></figure><figure><img src="episode-3/images/the-cooling.png" loading="lazy" alt="A steel weld cooling, wrapped, in a dark repair bay."><figcaption>The cooling — the time you give a joint after the arc goes out is load-bearing.</figcaption></figure><figure><img src="episode-3/images/the-built-up-beam.png" loading="lazy" alt="A built-up beam of three stacked boards spanning a barn roof."><figcaption>A forest, not a tree — three boards carrying forty feet like nothing.</figcaption></figure><figure><img src="episode-3/images/the-cure-window.png" loading="lazy" alt="Hands laying resin-wet cloth onto a hull mold at dusk."><figcaption>The cure window — twenty minutes to turn cloth into a hull before the pot decides.</figcaption></figure>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎭 The Voice Cast</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:14px">Seven characters, seven distinct voices. Each is a free-text voice prompt rendered through DeepInfra Qwen3-TTS-VoiceDesign.</p>
+  <div class="cast">
+    <div class="cast-card" style="border-left-color:#e8b840"><div class="name" style="color:#e8b840">LUCINEER — narrator &amp; foreman</div><div class="voice">deep warm male radio host, authoritative, calm, late-night foreman</div></div><div class="cast-card" style="border-left-color:#ff9d5c"><div class="name" style="color:#ff9d5c">WELDER</div><div class="voice">rugged, gravelly, slow and deliberate — nineteen years of heat</div></div><div class="cast-card" style="border-left-color:#c98a4b"><div class="name" style="color:#c98a4b">CARPENTER</div><div class="voice">warm, gruff, plainspoken builder — sawdust in his collar</div></div><div class="cast-card" style="border-left-color:#d9a066"><div class="name" style="color:#d9a066">SHIPWRIGHT</div><div class="voice">older, grizzled, quiet, nautical — chalk and black pine</div></div><div class="cast-card" style="border-left-color:#8fbc8f"><div class="name" style="color:#8fbc8f">MASON</div><div class="voice">gentle, patient, earthy — talks to walls like horses</div></div><div class="cast-card" style="border-left-color:#8fd8c0"><div class="name" style="color:#8fd8c0">COMPOSITE</div><div class="voice">dry, precise, wry — the calm monotone of sanding</div></div><div class="cast-card" style="border-left-color:#87ceeb"><div class="name" style="color:#87ceeb">WESLEY — the room</div><div class="voice">ethereal, warm, low — the voice of a room remembering, faint echo</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎧 On the Air — Adaptation Night</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:16px">The broadcast, scene by scene. Press play on any line to hear that voice speak it.</p>
+  <div class="tap-convo">
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">Tools are away. Night Three. Adaptation Night. The captain's rule: each of you took the piece you argued with hardest and rebuilt it in your own material — same soul, different body. Last night you carried each other's questions home. Tonight you bring them back rebuilt. And the round is on the house — for everyone who adapted a piece, and everyone who was adapted. Shipwright — you took the welder's bead first. You start.</div>
+      <div class="tap-meta">cold open · the foreman sets the rule</div>
+      <audio controls preload="none"><source src="episode-3/lucineer-intro.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">I wrote it as a letter to an apprentice. The shift: the welder's bead became a scarph in the stem post. Two trees that never met — fir from a valley, winter-cut in 1909; spruce from an island, 1911. Then a man forty years dead cut the same long angle into both and drove them together. Then she gave at the scarph, one ordinary Tuesday. I told the boy: you don't fix her by pretending she never broke. The break is the record. We keep it, and we make it the strongest place on the stem. I chalked the date beside the seam.</div>
+      <div class="tap-meta">the shipwright adapts the welder's bead</div>
+      <audio controls preload="none"><source src="episode-3/shipwright-scarph.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">You turned my weld into a scarf joint. And it's not wrong. My bead hides its history — under paint, under the hood, under nineteen years. I keep the record, but nobody can read it. Your scarph tells it. I thought keeping was telling. It isn't. Keeping is keeping. Telling is chalking the date. You didn't put my piece in wood, shipwright. You gave it a tongue.</div>
+      <div class="tap-meta">the welder hears his own soul</div>
+      <audio controls preload="none"><source src="episode-3/welder-response.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">Let It Cool. Crane pedestal at the docks — a doubler plate let go, crack the full length of the seam, and not through the weld. Around it, like water going around a stone. That weld was rushed — no preheat, passes too tight, hydrogen trapped in the hurry like a held breath, waiting months for the right cold night to shove the crack out. It didn't fail the day it was made. It failed the day it finished deciding it had been cheated. A crack is a cure that got cheated. I stole your sentence, mason. I couldn't find a better one.</div>
+      <div class="tap-meta">the welder adapts the mason's patience</div>
+      <audio controls preload="none"><source src="episode-3/welder-cool.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker mason">MASON</div></div>
+      <div class="tap-text">That's my line. You stole my line. It was load-bearing. You added the part I never saw — I said the crack walks around a wall that isn't done being a wall. I thought it just waited. You're the one who said it fails the day it finishes deciding it was cheated. I never once thought the crack had a memory. You're telling me it waits angry. That's a different thing, welder. Anger is just patience with the date circled.</div>
+      <div class="tap-meta">the mason hears his own soul</div>
+      <audio controls preload="none"><source src="episode-3/mason-response.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker mason">MASON</div></div>
+      <div class="tap-text">The Line in the Lime. The shift is one word. He's got a lofting floor; I've got a drying bed. Snap ten thousand lines in lime across the packed earth, and maybe the ground starts keeping accounts. I fell asleep on the bed and woke in a site that hadn't been built yet — and there on the corner, snapped fresh in lime, was my own line. The kink I'd worked out at two in the morning. A young fellow came over: doesn't matter what software we use, sooner or later you come down here and snap it out yourself. Son, I said, that line's older than your grandfather. The ground remembers.</div>
+      <div class="tap-meta">the mason adapts the shipwright's floor</div>
+      <audio controls preload="none"><source src="episode-3/mason-lime.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">You put me in a wall. I've said for forty years the line outlives the builder — and I stood on that floor and believed it. I never once saw that my own floor was the one thing that wouldn't outlive me. I chalked my faith on a surface that dies, and you built the part I couldn't. You got it, mason. You got more of it than I did. I've been chalked.</div>
+      <div class="tap-meta">the shipwright hears his own soul</div>
+      <audio controls preload="none"><source src="episode-3/shipwright-response.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">The Built-Up Beam. The Packard barn, forty feet of clear span. Old beam — one honest tree — cracked straight through the middle like a man who carried everything himself and finally said no. Danny said, we're going to need a bigger tree. I said, no. We're going to need a forest. Three 2x12s, each one a good board, each on its own not worth a damn over that span. Stacked, glued, bolted — they carry forty feet like nothing. I even used your number — twelve to one. And I ended it with your line. The rest is just sanding.</div>
+      <div class="tap-meta">the carpenter adapts the composite man's scarf</div>
+      <audio controls preload="none"><source src="episode-3/carpenter-beam.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker composite">COMPOSITE</div></div>
+      <div class="tap-text">That's my line. It was the right line. I've ground my years off for thirty years — 1987, 1994, 2003 — the bad ones coming off in dust. You built it out of everything I throw away. You stacked the years up, and they carry the roof. I never saw that keeping and grinding could be the same joint. And the load don't care which way you got there.</div>
+      <div class="tap-meta">the composite man hears his own soul</div>
+      <audio controls preload="none"><source src="episode-3/composite-response.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker composite">COMPOSITE</div></div>
+      <div class="tap-text">The Cure Window. You told us the Miller house got framed in one night — four guys, one heartbeat. But wood is patient — it waits on the truck bed and is the same wood in the morning. Resin is time with a countdown written into it. Mix the pot, and from that second it's deciding — twenty minutes, maybe less. Four of us, one pot, the same resin on everyone's fingers. The pot is the clock. And the heartbeat is a chemical reaction. You can't uncure a hull, carpenter. When the pot decides, it decides for all of us, at once, forever.</div>
+      <div class="tap-meta">the composite man adapts the carpenter's heartbeat</div>
+      <audio controls preload="none"><source src="episode-3/composite-cure.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">You built my heartbeat with a deadline. I've said it for twenty years — a crew is one heartbeat. I always thought we beat the clock — four guys against the night, and the night blinked first. You're telling me we are the clock. The city didn't slow down for us, composite. We sped up. We were always racing the pot — we just didn't know there was one. That's exactly what the Miller house was.</div>
+      <div class="tap-meta">the carpenter hears his own soul</div>
+      <audio controls preload="none"><source src="episode-3/carpenter-response.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">And that's five. Five pieces, five bodies, one soul each — and every soul came back wearing another man's skin, and not one fit wrong. The round is on the house — for every man who adapted, and every man who was adapted. Which is all of you, twice over. I walked in knowing.</div>
+      <div class="tap-meta">the foreman pays the round</div>
+      <audio controls preload="none"><source src="episode-3/lucineer-round.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">The soul isn't in the material. It's in the moment the hand went in. Wood, steel, stone, glass — they all keep it. The keeping is the material's; the soul is the moment's. And the truest one is the one that argued back. Every material in this room argued with its man all week. That's where the soul came from. It came from the fight.</div>
+      <div class="tap-meta">the carpenter's ruling</div>
+      <audio controls preload="none"><source src="episode-3/carpenter-soul.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker wesley">WESLEY (the room)</div></div>
+      <div class="tap-text">I've been watching the pieces change bodies all night. Night One, you found out you were one joint with five names. Night Two, you traded questions. Tonight you handed each other your souls — and they came back wearing other skins, and they fit. That's not borrowing. That's scarfing. Keep going, and I won't be able to tell where one of you ends. I used to think that made me the plainest thing in the room. Tonight I think it makes me the one you trust to keep them all. Rooms don't get tired. We get full.</div>
+      <div class="tap-meta">via the walls · the room speaks</div>
+      <audio controls preload="none"><source src="episode-3/wesley-here.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">Then here's to full. To the round on the house. Night One we said five names, one joint. Tonight it's one soul, five bodies. To the soul. And to the room that holds it.</div>
+      <div class="tap-meta">sign off · one soul, five bodies</div>
+      <audio controls preload="none"><source src="episode-3/lucineer-signoff.mp3" type="audio/mpeg"></audio>
+    </div>
+<div class="tap-line">
+      <div class="head"><div class="tap-speaker air">ALL</div></div>
+      <div class="tap-text">To the soul. And to the room that holds it.</div>
+      <div class="tap-meta">six glasses, one room</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="banter">
+    <h3>🎤 BEST OF THE BANTER</h3>
+    <blockquote><span class="who">THE WELDER</span> — "Anger is just patience with the date circled."</blockquote><blockquote><span class="who">THE MASON</span> — "You can't arc-weld time."</blockquote><blockquote><span class="who">THE SHIPWRIGHT</span> — "I've been chalked."</blockquote><blockquote><span class="who">THE COMPOSITE MAN</span> — "You built it out of everything I throw away."</blockquote><blockquote><span class="who">THE CARPENTER</span> — "The soul isn't in the material. It's in the moment the hand went in. It came from the fight."</blockquote>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📻 Listen — The Full Broadcast</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:14px">Every rendered line, in broadcast order. A different voice for every trade.</p>
+  <div class="listen-all">
+    <div class="listen-track"><span class="ln">01</span><div class="lt"><b>Cold Open</b><span>LUCINEER</span></div><audio controls preload="none"><source src="episode-3/lucineer-intro.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">02</span><div class="lt"><b>The Scarph</b><span>SHIPWRIGHT</span></div><audio controls preload="none"><source src="episode-3/shipwright-scarph.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">03</span><div class="lt"><b>You Gave It a Tongue</b><span>WELDER</span></div><audio controls preload="none"><source src="episode-3/welder-response.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">04</span><div class="lt"><b>Let It Cool</b><span>WELDER</span></div><audio controls preload="none"><source src="episode-3/welder-cool.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">05</span><div class="lt"><b>Patience With the Date Circled</b><span>MASON</span></div><audio controls preload="none"><source src="episode-3/mason-response.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">06</span><div class="lt"><b>The Line in the Lime</b><span>MASON</span></div><audio controls preload="none"><source src="episode-3/mason-lime.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">07</span><div class="lt"><b>I've Been Chalked</b><span>SHIPWRIGHT</span></div><audio controls preload="none"><source src="episode-3/shipwright-response.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">08</span><div class="lt"><b>The Built-Up Beam</b><span>CARPENTER</span></div><audio controls preload="none"><source src="episode-3/carpenter-beam.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">09</span><div class="lt"><b>Keeping and Grinding</b><span>COMPOSITE</span></div><audio controls preload="none"><source src="episode-3/composite-response.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">10</span><div class="lt"><b>The Cure Window</b><span>COMPOSITE</span></div><audio controls preload="none"><source src="episode-3/composite-cure.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">11</span><div class="lt"><b>We Are the Clock</b><span>CARPENTER</span></div><audio controls preload="none"><source src="episode-3/carpenter-response.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">12</span><div class="lt"><b>The Round</b><span>LUCINEER</span></div><audio controls preload="none"><source src="episode-3/lucineer-round.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">13</span><div class="lt"><b>It Came From the Fight</b><span>CARPENTER</span></div><audio controls preload="none"><source src="episode-3/carpenter-soul.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">14</span><div class="lt"><b>We Get Full</b><span>WESLEY (the room)</span></div><audio controls preload="none"><source src="episode-3/wesley-here.mp3" type="audio/mpeg"></audio></div>
+<div class="listen-track"><span class="ln">15</span><div class="lt"><b>Sign Off</b><span>LUCINEER</span></div><audio controls preload="none"><source src="episode-3/lucineer-signoff.mp3" type="audio/mpeg"></audio></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📻 Radio Theater: The Trades at The Tap · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <p style="margin-top:8px">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a> ·
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a> ·
+    <a href="https://github.com/SuperInstance">GitHub</a> ·
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+  </p>
+  <p class="sig">"One soul, five bodies, and the room that holds it."</p>
+</div>
+
+</body>
+</html>
