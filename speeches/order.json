@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-08-17T08:37:54-08:00",
+  "corpus_dir": "/home/eileen/projects/ai-writings/speeches",
+  "method": "greedy-nearest-neighbour by vibe-continuity (directional A->B)",
+  "seed": "the-compile-silence-tts.mp3",
+  "sequence": [
+    "the-compile-silence-tts.mp3",
+    "the-compile-silence-v2-tts.mp3",
+    "song-2-wire-tts.mp3",
+    "song-4-hull-tts.mp3",
+    "puffins-dont-quit-v2-tts.mp3",
+    "the-first-fold-tts.mp3",
+    "the-first-fold-v2.mp3",
+    "puffins-dont-quit-tts.mp3",
+    "song-1-tide-tts.mp3",
+    "wear-your-pfd-qwen-tts.mp3",
+    "song-3-fathoms-tts.mp3",
+    "what-the-towfish-sees-tts.mp3",
+    "wear-your-life-jacket-vhf-tts.mp3",
+    "wear-your-life-jacket-vhf-gateway.mp3",
+    "wear-your-life-jacket-underscore-local.mp3",
+    "wear-your-life-jacket-underscore-local.wav"
+  ],
+  "transitions": [
+    {
+      "from": "the-compile-silence-tts.mp3",
+      "to": "the-compile-silence-v2-tts.mp3",
+      "continuity": 0.957,
+      "crossfade_ms": 375,
+      "weakest_signal": "pace"
+    },
+    {
+      "from": "the-compile-silence-v2-tts.mp3",
+      "to": "song-2-wire-tts.mp3",
+      "continuity": 0.9394,
+      "crossfade_ms": 800,
+      "weakest_signal": "brightness"
+    },
+    {
+      "from": "song-2-wire-tts.mp3",
+      "to": "song-4-hull-tts.mp3",
+      "continuity": 0.9155,
+      "crossfade_ms": 850,
+      "weakest_signal": "brightness"
+    },
+    {
+      "from": "song-4-hull-tts.mp3",
+      "to": "puffins-dont-quit-v2-tts.mp3",
+      "continuity": 0.8766,
+      "crossfade_ms": 925,
+      "weakest_signal": "loudness"
+    },
+    {
+      "from": "puffins-dont-quit-v2-tts.mp3",
+      "to": "the-first-fold-tts.mp3",
+      "continuity": 0.8958,
+      "crossfade_ms": 500,
+      "weakest_signal": "semantic"
+    },
+    {
+      "from": "the-first-fold-tts.mp3",
+      "to": "the-first-fold-v2.mp3",
+      "continuity": 0.9469,
+      "crossfade_ms": 400,
+      "weakest_signal": "loudness"
+    },
+    {
+      "from": "the-first-fold-v2.mp3",
+      "to": "puffins-dont-quit-tts.mp3",
+      "continuity": 0.919,
+      "crossfade_ms": 450,
+      "weakest_signal": "semantic"
+    },
+    {
+      "from": "puffins-dont-quit-tts.mp3",
+      "to": "song-1-tide-tts.mp3",
+      "continuity": 0.8257,
+      "crossfade_ms": 1025,
+      "weakest_signal": "boundary_energy"
+    },
+    {
+      "from": "song-1-tide-tts.mp3",
+      "to": "wear-your-pfd-qwen-tts.mp3",
+      "continuity": 0.8881,
+      "crossfade_ms": 900,
+      "weakest_signal": "loudness"
+    },
+    {
+      "from": "wear-your-pfd-qwen-tts.mp3",
+      "to": "song-3-fathoms-tts.mp3",
+      "continuity": 0.8956,
+      "crossfade_ms": 900,
+      "weakest_signal": "brightness"
+    },
+    {
+      "from": "song-3-fathoms-tts.mp3",
+      "to": "what-the-towfish-sees-tts.mp3",
+      "continuity": 0.8371,
+      "crossfade_ms": 1025,
+      "weakest_signal": "pace"
+    },
+    {
+      "from": "what-the-towfish-sees-tts.mp3",
+      "to": "wear-your-life-jacket-vhf-tts.mp3",
+      "continuity": 0.7813,
+      "crossfade_ms": 725,
+      "weakest_signal": "semantic"
+    },
+    {
+      "from": "wear-your-life-jacket-vhf-tts.mp3",
+      "to": "wear-your-life-jacket-vhf-gateway.mp3",
+      "continuity": 0.7384,
+      "crossfade_ms": 800,
+      "weakest_signal": "boundary_energy"
+    },
+    {
+      "from": "wear-your-life-jacket-vhf-gateway.mp3",
+      "to": "wear-your-life-jacket-underscore-local.mp3",
+      "continuity": 0.4981,
+      "crossfade_ms": 1700,
+      "weakest_signal": "loudness"
+    },
+    {
+      "from": "wear-your-life-jacket-underscore-local.mp3",
+      "to": "wear-your-life-jacket-underscore-local.wav",
+      "continuity": 0.8164,
+      "crossfade_ms": 1050,
+      "weakest_signal": "boundary_energy"
+    }
+  ],
+  "total_continuity": 0.8487,
+  "avg_crossfade_ms": 828
+}
