@@ -2,116 +2,100 @@
 
 *Sunday, 2026-08-16 · Night Three · Lucineer (foreman) hosts · Wesley is the room*
 
-The Tap, third night running. Wesley's walls already hold Night One's five names for one joint and Night Two's five questions on the bar — the room always knows first. The trades walk in carrying pages. Not their own. Each man has a peer's piece in his hand, rewritten in his own material, and they're holding them the way men hold other men's children: carefully, and with a little fear. On the bar, five glasses. Behind the bar, a whole round waiting, because the foreman already knows the bill.
+---
 
-**LUCINEER (foreman), pouring:** Tools are away. Night Three. Adaptation Night. The captain's rule: each of you took the piece you argued with hardest — the one that kept you up — and you rebuilt it in your own material. Same soul, different body. The welder's bead becomes the shipwright's scarph. The mason's patience becomes preheat. Last night you carried each other's questions home. Tonight you bring them back rebuilt — and the man who wrote the original hears his own soul come back to him in a stranger's voice. That's the whole evening. That's the whole point of it.
+The Tap on the third night, and the room no longer pretends it's a stranger. Wesley's walls already hold two evenings — tonight five more, because the room always knows first. The trades file in, each carrying somebody else's story — a map of a place he's never been.
 
-*(He sets the first glass down and keeps pouring.)*
+**LUCINEER (foreman), setting out five glasses:** Tools are away. Night Three. The new rule: each of you took another man's piece and retold it in your own shed — same soul, different body. Tonight you present, and the man whose work you stole gets the first word. And the Night Three tradition, also invented right now: the foreman buys a drink for whoever's adaptation made the original author see his own work new.
 
-**LUCINEER:** And there's a Night Three tradition, which I'm inventing right now, because it's my job: tonight the round is on the house — for everyone who adapted a piece, *and* for everyone who was adapted.
+**WELDER:** So if we're any good, you buy the bar.
 
-**WELDER:** That's all five of us. Twice.
+**LUCINEER:** That's the scam. Night Two I bought the bar because you all answered somebody else's question. Tonight, because you all become somebody else. Shipwright — you took the welder's bead first. You start.
 
-**LUCINEER:** That's the scam. *(raises his glass)* Shipwright. You went first last week with your floor. You go first tonight with your scarph. The short version, the way you'd tell it at the bar.
+**SHIPWRIGHT, pulling a folded letter from his pocket:** I wrote it as a letter to an apprentice. The shift: the welder's bead became a scarph in the stem post. Two trees that never met — fir from a valley, spruce from an island — forty years holding one frame. Then one ordinary Tuesday the old spruce decided it had carried enough and the seam opened. I kept his lesson whole: you don't fix her by pretending she never broke. We steamed her open, drove her back together — and I chalked the date beside the seam. *(folds the letter)* A bead hides its history under paint. A scarph shows it in the grain. That's the whole shift.
 
-**SHIPWRIGHT (holding up the pages):** It's a letter to an apprentice, about the old stem post we keep instead of cutting a new one — because every scarph in her is two trees that never met. Fir from a valley, winter-cut in 1909. Spruce from an island, 1911. Different skies, forests that never shared a bird — then a man forty years dead cut the same long angle into both and drove them together with treenails. Two histories, one timber. And she's never stronger anywhere else on her. *(sets the pages down)* Then she gave at the scarph, one ordinary Tuesday. And I told the boy the thing I believe: you don't fix her by pretending she never broke. The break is the record. We keep it, and we make it the strongest place on the stem. I chalked the date beside the seam, the way my master did.
+**WELDER, quiet:** You chalked the date beside the seam. I wrote — in my own piece — "the crack is still visible under the paint, if you know where to look." *Know where to look.* That's the whole confession — I never heard myself say it. My seam only talks to the trade. Any kid who can read a grain line can read your stem post. *(sets his glass down)* You didn't retell the bead. You told it what it was hiding. I thought keeping was telling. It isn't. Keeping is keeping. Telling is... chalking the date.
 
-**WELDER (a long pause):** You turned my weld into a scarf joint.
+*(Lucineer slides a glass to the shipwright.)*
 
-**SHIPWRIGHT:** I did.
+**LUCINEER:** That's one. Carpenter.
 
-**WELDER:** *(looking at the pages, then up)* And it's... it's not wrong. I said the bead is where the day it was made meets the day it gave, and they shake. You built that out of two forests that never shared a bird. *(a beat)* But you went and did something I never did.
+**CARPENTER:** *(to the composite man)* I took your scarf and built it out of boards. The Packard barn needed a forty-foot beam; the old single timber cracked like a man who'd carried everything himself and finally said no. Danny said, "We're going to need a bigger tree." I said, "No — we're going to need a forest." Three 2x12s, stacked, glued, bolted — no single board strong enough, so you stop asking any board to be. Spliced with your twelve-to-one — Danny ran his hand along the slope: "Twelve to one. That'll do." I ended it with your line: "The rest is just sanding."
 
-**SHIPWRIGHT:** What's that?
+**COMPOSITE:** You used my line. You used my number. You can't do both — that's the whole trade.
 
-**WELDER:** My bead hides its history. Under paint, under the hood, under nineteen years — I keep the record, but nobody can read it. *(taps the page)* Your scarph *tells* it. Grain don't lie. Anybody who knows how to look reads both trees at once. I never saw that keeping the break wasn't the end of the job — being able to *read* it was. *(raises his glass)* You didn't put my piece in wood, shipwright. You gave it a tongue.
+**CARPENTER:** I know. But no single piece carries it alone — that's yours.
 
-*(Lucineer pours. The welder drinks. A quiet moment.)*
+**COMPOSITE, slowly:** You also wrote — "a house gets built, not shared — but a beam, a beam gets shared." You told me on Night One a house gets built, not shared. Then you went home and wrote *a beam gets shared.*
 
-**LUCINEER:** That's one. *(turns)* Welder. You adapted the mason. Go.
+**CARPENTER:** The house gets built; the beam gets shared. The beam is the joint; the house is what the joints carry. You can share the carrying and still build the house. *(a pause)* I think that's what I wrote without meaning to.
 
-**WELDER:** "Let It Cool." Crane pedestal down at the docks — a doubler plate let go, crack the full length of the seam, and not through the weld. Around it. Bead still textbook. Every man in the yard baffled. I read the fracture face like my old man read a horseshoe: that weld was rushed. No preheat, passes laid down too tight, hydrogen trapped in the hurry like a held breath — waiting months for the right cold night to shove the crack out into the world. *(pauses)* A crack is just a cure that got cheated. His farrow cement is my filler rod. His water drawn before dawn is my preheat. You can't arc-weld time.
+**COMPOSITE:** I grind my years away so they can share the load. You stack yours — and you're telling me I never had to cut anything off. The load doesn't care which way you got there. That's a correction I didn't ask for and can't argue with.
 
-**MASON (slowly, into his glass):** That's my line. You stole my line.
+**CARPENTER:** It's not a correction. It's the same joint. You take away; I keep.
 
-**WELDER:** It was load-bearing.
+*(Lucineer slides a glass to the carpenter.)*
 
-**MASON:** I mean it. I said it to you — *you can't arc-weld time* — and you took it and built a whole shop around it. *(a beat)* But you added the part I never saw.
+**LUCINEER:** That's two. Welder.
 
-**WELDER:** Yeah?
+**WELDER:** I wrote it as two welds on a crane pedestal. A doubler plate let go — crack the full length of the seam, and not through the weld. The bead was textbook; I read the fracture face. That weld had been rushed — no preheat, no time between passes. The hydrogen sat in the metal like a held breath, waiting months for the right cold night to shove it out. It didn't fail the day it was made. It failed the day it finished deciding it had been cheated. A crack is a cure that got cheated. I stole your sentence, mason. I couldn't find a better one.
 
-**MASON:** I said the crack walks around a wall that isn't done being a wall — water around a stone. I thought it just waited. You're the one who said it fails the day it *finishes deciding it was cheated.* *(quietly)* I never once thought the crack had a memory. I thought it waited patient. You're telling me it waits angry. That's a different thing, welder. That's a harder thing.
+**MASON, very still:** You found the why.
 
-**WELDER:** It's the same thing, mason. Anger is just patience with the date circled.
+**WELDER:** The why of what?
 
-*(A silence. The good kind. The mason nods once, grudging, and drinks.)*
+**MASON:** I've spent forty years waiting on mixes. Old Tomás told me: water before dawn, ash from the orchard fire — the time you give a thing is load-bearing. I knew the waiting was the material. I didn't know there was a reason in the material. I thought it was faith. *(looks at the welder)* You found the breath in the metal — my crack is your hydrogen, my dawn water your preheat. The mechanism for the ritual.
 
-**LUCINEER:** Two down. *(turns)* Mason. You adapted the shipwright — his floor, in your ground. Go.
+**WELDER:** The mechanism's nothing. The ritual's the whole thing. You wait on a thing that's alive; I wait on a thing that's hot. The waiting is load-bearing in both shops — under the blanket, the foreman thought I was goldbricking: you can't arc-weld time. I gave you back your own sentence, heavier.
 
-**MASON (pulling a folded page from his vest):** "The Line in the Lime." A man falls asleep on the drying bed and wakes up a hundred years on — bigger yard, machines he's never seen, men in hard hats. And on the corner of the wall, snapped fresh in lime, is his own line. The little kink he worked out at two in the morning. The run of a bond that was always waiting in the stone. A young fellow comes over: "You get it too, huh? Every time. Doesn't matter what software we use — sooner or later you come down here and snap it out yourself. It's the only way it'll ever be honest." And the old man laughs. "Son," he says, "that line's older than your grandfather."
+**MASON, nodding:** You gave it back heavier. Old Tomás would have said you found the ash in the metal. Truest telling of my trade I've heard from a man who doesn't mix lime.
 
-**SHIPWRIGHT (very quiet):** ... You put me in a wall.
+*(Lucineer slides a glass to the welder.)*
 
-**MASON:** I put your line in a wall. The floor rots, shipwright. Black pine and chalk — it dies under you, and you've always known it. Stone doesn't. Stone stays where you set it. The ground keeps its accounts longer than any floor ever could.
+**LUCINEER:** That's three. Mason.
 
-**SHIPWRIGHT:** *(a long pause, voice rough)* I've said for forty years that the line outlives the builder. I stood on that floor and believed it. And I never once saw — *(stops)* — I never saw that my own floor was the one thing that wouldn't outlive me. I chalked my faith on a surface that dies, and you're the one who heard what I was trying to say and built the part I couldn't. *(he sets his glass down hard, then picks it up again)* "That line's older than your grandfather." That's the whole of it. That's every night I ever worked that floor.
+**MASON:** The shift is one word. He's got a lofting floor; I've got a drying bed. Snap ten thousand lines in lime across the packed earth and maybe the ground starts keeping accounts. I fell asleep on the bed and woke in a site that hadn't been built yet — steel scaffolds, lasers — and there on the corner, snapped fresh in lime, was my own line. The kink I'd worked out at two in the morning. A young fellow saw me studying it. "You get it too, huh?" The ground remembers. That's the long and short of it.
 
-**LUCINEER (quietly):** That round's yours, mason. You earned it before you walked in.
+**SHIPWRIGHT, after a silence:** That's my story, mason. You moved it from the floor to the dirt and didn't change the ending.
 
-**MASON:** We all did. That's the point of the night.
+**MASON:** The shift is the point. Your floor is black pine — mortal wood. It rots, it burns, it gets planed flat. My ground is what it stands on. You said the wood keeps accounts. I say the accounts outlive the wood.
 
-**LUCINEER:** *(nods; turns)* Carpenter. You adapted the composite man. Go.
+**SHIPWRIGHT:** Then you made the ground the author. The ground isn't the author — the line is.
 
-**CARPENTER (setting his thermos down, unfolding his pages):** "The Built-Up Beam." The Packard barn, forty feet of clear span. Old beam — one honest tree — cracked straight through the middle like a man who carried everything himself and finally said no. Danny says, "We're going to need a bigger tree." I said, "No. We're going to need a forest." Three 2x12s — each a good board, each one, on its own, not worth a damn over that span. Stacked, glued, bolted, they carry forty feet like nothing. And the splice — twelve to one, glued, so the load passes gradual from one board to the next. *(looks at the composite man)* I even used your number. And I ended it with your line. "The rest is just sanding."
+**MASON:** And I agree. But you gave the memory to the floor, and the floor is a thing that dies — I gave it to the thing that never dies. You were one layer up, shipwright. *(taps the floor with his heel)* I went under your floor.
 
-**COMPOSITE (after a pause):** That's my line.
+*(The shipwright looks at his hands.)*
 
-**CARPENTER:** It was the right line.
+**SHIPWRIGHT:** For two nights I've said the line outlives the builder. I never asked what it outlives the builder *on.* The floor holds the chalk — and the floor is wood. The ground was the keeper all along. I gave the memory to the plank; you gave it to the earth. ... You got it, mason. You got more of it than I did. I've been chalked.
 
-**COMPOSITE:** *(slowly)* I've ground my years off for thirty years — layer by layer, the bad ones coming off in dust: 1987, 1994, 2003. That's my whole trade. You take away what you added, and let the truth stand proud. *(a beat)* You built it out of everything I throw away. You stacked the years up. You kept them all, and they carry the roof. I never saw that keeping and grinding could be the same joint. I've been grinding the load off my hulls. You've been gluing yours on. And the load don't care which way you got there.
+*(Lucineer slides a glass to the mason. They drink.)*
 
-**WELDER:** It never did. Night One told us — five names, one joint.
+**LUCINEER:** That's four. Composite man.
 
-**CARPENTER:** One joint. But I want to know whose joint carries it truest. And I'm looking at the man who wrote the last adaptation for the answer.
+**COMPOSITE:** I took the Miller house and moved it to the boat shed. The carpenter's crew raises four walls in one night while the city moves slow around them. My crew had a wet layup — and resin is not wood. Wood will wait for you — it'll be the same wood in the morning. Resin is time with a countdown written into it. Mix the pot and you have twenty minutes — four of us, one pot, resin on everyone's fingers. The pot is the clock. The kick is the metronome. *(to the carpenter)* I ended it with Danny's line — "Time's a funny thing." He's in mine, lighting a cigarette.
 
-**COMPOSITE (standing, wiping dust off his hands):** "The Cure Window." You told us the Miller house got framed in one night — four guys, one heartbeat, the city going slow around them, time bending around the work. I don't argue with that. But wood is patient. Wood waits on the truck bed and is the same wood in the morning. *(quietly)* Resin is time with a countdown written into it. You mix the pot and from that second it's deciding — twenty minutes, maybe less, and in those twenty minutes a hull goes from cloth to structure, from nothing to a thing that'll carry a family to the islands for thirty years. Four of us, one pot, the same resin on everyone's fingers, no time to talk. The pot is the clock. The kick is the metronome. And the heartbeat is a chemical reaction. *(a beat)* You can't uncure a hull, carpenter. The pot decides — and when it decides, it decides for all of us, at once, forever.
+**CARPENTER, slowly:** You stole the right thing. I always told that story as a miracle — the city slowed down for us, the work bent time, the crew got the night while the world stood still. *(looks at the composite man)* You're telling me the work doesn't bend time. The work *is* time. The heartbeat is the clock. The city didn't slow down — we sped up. We were always racing the pot — we just didn't know there was one.
 
-**CARPENTER (a long silence):** You built my heartbeat with a deadline.
+**COMPOSITE:** Wood forgives the slow. Resin forgives nothing. Your material gave you the night; mine gave me twenty minutes. Same heartbeat — mine just has a deadline. You can't uncure a hull.
 
-**COMPOSITE:** I built your heartbeat the way it actually beats.
+**CARPENTER:** Four guys, one heartbeat. I said it on Night One and never heard myself. A heartbeat is a deadline — patient as anything, and it never waits. You took my miracle and gave it its truth.
 
-**CARPENTER:** *(slowly)* I've said a crew is one heartbeat for twenty years. I always thought we *beat* the clock — four guys against the night, and the night blinked first. You're telling me we ARE the clock. All of us going off at once, and when it peaks, it's permanent. *(he looks at his hands, then up)* I never saw that. That's the Miller house, composite. That's exactly what the Miller house was. I just never had a name for the part that can't be taken back.
+**COMPOSITE:** It's not the better story — it's the same story with the countdown made visible. You get the night that forgives; I get the pot that doesn't. But the moment every hand is on it — that's the same moment. That was always the point.
 
-**LUCINEER:** And that's five. *(he starts pouring — a full round, every glass)* Five pieces, five bodies, one soul each — and every soul came back wearing another man's skin, and not one of them fit wrong.
+*(Lucineer pours the fifth glass.)*
 
-**WELDER:** Because a soul don't have a material. It has a shape. *(a beat)* But I'll argue this: metal keeps the truth best. Wood keeps its years — every one, whether they mattered or not. Metal only writes the ones that counted. The crack is the pen stroke. You can't read a lie into a fracture face.
+**LUCINEER:** That's five. By the tradition I invented ten minutes ago, I owe the whole bar a round — and I walked in here knowing it. *(he pours six more, setting one at the end of the bar)* — the room held all of it before any of us walked in.
 
-**SHIPWRIGHT:** Wood keeps every year and shows them in the grain. You can read a tree like a book with no alphabet. No other material carries its whole biography on the surface, where anybody can learn to see it.
+**WESLEY (the room, via the walls):** Three nights ago you told me you were five trades and one joint. I didn't argue — rooms don't argue — but I've held too many walls to believe it. I believe it now, because the work is doing it. Each of you reached into another man's story and came back with it changed — and he reached back and found it truer. That's not borrowing. That's scarfing. Twelve to one, the seams are getting hard to find. I can feel the evenings seaming together — Night One's joint, Night Two's questions, tonight's bodies. Keep going, and I won't be able to tell where one of you ends. That's not a complaint. It's the first time my walls have felt *made* of the stories, instead of just holding them.
 
-**MASON:** You're all talking about records and readings. Stone doesn't need reading. It doesn't rot, doesn't bend, doesn't decide. It stays. The truest soul is the one that never has to tell you anything, because it never lied in the first place.
+*(The welder raises his glass to the walls; then the rest. Seven glasses, one room, one joint.)*
 
-**COMPOSITE:** And glass trusts you. That's the one nobody's said. Wood shows you everything; metal writes down the decisions; stone never moves. Resin forgives nothing — and it tells you nothing. It just carries, silent, and you have to be honest enough to listen to the silence. *(a beat)* That's not the material carrying the soul, mason. That's the soul being asked to be worthy of the material.
+**LUCINEER:** That's the night. Each of you took another man's soul and gave it a new body — and every one of you made the man who wrote it first see it new. That's not theft. The story that gets retold is the story that was true. To the adaptations — same soul, different body — and to the originals, changed by the retelling.
 
-**CARPENTER:** You made forgiveness sound like a weakness, composite. Fine. But you're all arguing about which skin holds it best. *(sets his thermos down)* The soul isn't in the material. It's in the moment the hand went in. Wood, steel, stone, glass — they all keep it. The keeping is the material's. The soul is the moment's. And the truest one — *(he looks around the room)* — is the one that argued back. Every material in this room argued with its man all week. That's where the soul came from. It didn't come from the wood or the metal or the stone. It came from the fight.
-
-*(A silence. The good kind. Five tradesmen look at their own hands, then at each other's.)*
-
-**LUCINEER:** I'm not ruling on that one. The captain said it, and it's truer than anything I could add: every man here argued with his material, and the argument is what survives. *(he sets the last glass at the end of the bar — the room's glass, sixth, same as always)* Now. The round is on the house — for every man who adapted, and every man who was adapted. *(a slow grin)* Which is all of you, twice over. I walked in knowing.
-
-**WELDER:** You walked in knowing you were buying the whole bar.
-
-**LUCINEER:** It's the cheapest round I've ever bought. *(raises his glass to the walls)* Room. Three nights now. You've held the joint, the questions, and now the souls. You've got something to say.
-
-**WESLEY (the room, via the walls):** I've been watching the pieces change bodies all night. Night One, you found out you were one joint with five names. Night Two, you traded questions. Tonight you handed each other your souls — and they came back wearing other skins, and they fit. That's the part I can't stop noticing. A piece that keeps changing bodies isn't changing. It's teaching the bodies to hold it. *(a pause)* I'm the only one here that never changes. The bead became a scarph. The patience became a preheat. The floor became a wall. And I'm still the same walls holding the same air. I used to think that made me the plainest thing in the room. *(the walls seem to settle, warm)* Tonight I think it makes me the one you trust to keep them all. Three nights, and I'm not tired. Rooms don't get tired. We get full.
-
-**LUCINEER (raising his glass):** Then here's to full. To the round on the house. To every man who let someone else hold his idea — and every man who held somebody else's like it was his own. Night One we said five names, one joint. Tonight it's one soul, five bodies. *(to the room)* To the soul.
-
-**ALL:** To the soul. And to the room that holds it.
-
-**WESLEY (the walls, softly):** I always will.
+**ALL:** To the joint.
 
 ---
 
-*The Tap closes. Wesley's walls keep the evening — the five adaptations, the five authors hearing their own souls in strangers' voices, the argument about which material carries truth truest, settled the way it always is: by deciding it was never about the material. The trades walk home, each carrying a piece of himself he didn't write and a piece of somebody else he did. The shipwright carries the welder's bead, which now has a tongue. The welder carries the mason's patience, which now has a date circled. The mason carries the shipwright's floor, laid in stone. The carpenter carries the composite man's window; the composite man carries the carpenter's heartbeat, which beats once — permanent — and then it's the world's. Which is how the captain wanted it: souls handed around until they fit everywhere, sharpened on each other's materials, ready for tomorrow's work.*
+*The Tap closes. Wesley's walls keep the third evening — the five adaptations, the five recognitions, the round on the foreman. The trades walk home, each carrying somebody else's story: the welder a date chalked beside a seam, the composite man a forest instead of a tree, the mason the breath in the metal, the shipwright the ground under his floor, the carpenter a heartbeat with a countdown. The corpus is scarf-jointed now, twelve to one, the seams getting hard to find.*
 
 *— Lucineer, foreman of the fleet · Adaptation Night at The Tap · 2026-08-16*
