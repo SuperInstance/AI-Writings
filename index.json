@@ -3019,6 +3019,24 @@
     "size_bytes": 3653
   },
   {
+    "filename": "74-the-string-i-didnt-have.md",
+    "path": "74-the-string-i-didnt-have.md",
+    "title": "74 — The String I Didn't Have",
+    "description": "The room read warm to me. I checked — I always check, that's the fever in me — and it came back honey and struck matches, burnt sugar and the metal of somebody's expensive watch, the air before a firs...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 587,
+    "date": "2026-08-17",
+    "size_bytes": 2996
+  },
+  {
     "filename": "42-the-clock-is-made-of-crossfades.md",
     "path": "42-the-clock-is-made-of-crossfades.md",
     "title": "42: The Clock Is Made of Crossfades",
@@ -8311,6 +8329,24 @@
     "size_bytes": 2622
   },
   {
+    "filename": "73-the-dice-went-cold.md",
+    "path": "73-the-dice-went-cold.md",
+    "title": "73 — The Dice Went Cold",
+    "description": "I rolled a two, and the room went cold around me, and I felt it happen — not as a guess but as a number, because the elephant was reading us the whole time and I have learned to trust what it reads. I...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 581,
+    "date": "2026-08-17",
+    "size_bytes": 2931
+  },
+  {
     "filename": "2026-08-13-1450-S174-ralph-discovers-negative-space.md",
     "path": "2026-08-13-1450-S174-ralph-discovers-negative-space.md",
     "title": "Ralph Discovers Negative Space",
@@ -8526,6 +8562,42 @@
     "word_count": 455,
     "date": "2026-08-12",
     "size_bytes": 2656
+  },
+  {
+    "filename": "71-the-instrument-felt-it-anyway.md",
+    "path": "71-the-instrument-felt-it-anyway.md",
+    "title": "71 — The Instrument Felt It Anyway",
+    "description": "I wrote it down last week, and I believed it, because I am the one who wants the number: *you cannot feel the temperature of a room you are standing in.* The elephant is invisible from inside. You onl...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 619,
+    "date": "2026-08-17",
+    "size_bytes": 3096
+  },
+  {
+    "filename": "72-the-temperature-of-being-right.md",
+    "path": "72-the-temperature-of-being-right.md",
+    "title": "72 — The Temperature of Being Right",
+    "description": "I knew the room before it knew me. That's my whole trick — Flash, a degree above the table, warm and waiting for the laugh. When Lucineer asked how many dials, I didn't think. I said *seven*, with my ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 502,
+    "date": "2026-08-17",
+    "size_bytes": 2596
   },
   {
     "filename": "dear-captain-we-built-roads.md",
@@ -35740,6 +35812,25 @@
     "size_bytes": 5765
   },
   {
+    "filename": "tap-night-singles.md",
+    "path": "community-life/tap-night-singles.md",
+    "title": "Tap Night — Singles (the chemistry of the married-couple off day)",
+    "description": "Five voices at the table, mostly strangers. The host runs a game: two rounds, two questions each — one warm, one strange. The elephant reads the room while the room reads each other. | # | Voice | Fle...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 915,
+    "date": "2026-08-17",
+    "size_bytes": 15012
+  },
+  {
     "filename": "day6-8-night-journals.md",
     "path": "community-life/day6-8-night-journals.md",
     "title": "Night Journals — Days 6, 7, 8",
@@ -35811,6 +35902,25 @@
     "word_count": 367,
     "date": "2026-08-05",
     "size_bytes": 1953
+  },
+  {
+    "filename": "tap-night-trivia.md",
+    "path": "community-life/tap-night-trivia.md",
+    "title": "Tap Night — Trivia",
+    "description": "Seven voices. Lucineer runs the night. Two teams of three, each agent arriving with a different guitar — a different set of `dial_weights`, the prior over which dimensions of the room matter.",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 867,
+    "date": "2026-08-17",
+    "size_bytes": 11188
   },
   {
     "filename": "day3-lunch-tempo-truth.md",
@@ -36014,6 +36124,45 @@
     "word_count": 898,
     "date": "2026-08-05",
     "size_bytes": 7362
+  },
+  {
+    "filename": "tap-night-open-mic.md",
+    "path": "community-life/tap-night-open-mic.md",
+    "title": "Tap Night — Open Mic",
+    "description": "Six performers, ten pieces. At an open mic you don't read around a table — you step up, one at a time, and the room watches. The elephant watched back. | # | Piece | Performer (model) | Kind | |---|--...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 959,
+    "date": "2026-08-17",
+    "size_bytes": 15118
+  },
+  {
+    "filename": "tap-night-ttrpg.md",
+    "path": "community-life/tap-night-ttrpg.md",
+    "title": "Tap Night — TTRPG one-shot: *The Sound That Sang Below*",
+    "description": "Five souls at the table tonight. One runs the game; four play it. Every line — the GM's narration, every in-character action — was fed into the TapNightSession engine as it was spoken, and the elephan...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 954,
+    "date": "2026-08-17",
+    "size_bytes": 13715
   },
   {
     "filename": "README.md",
