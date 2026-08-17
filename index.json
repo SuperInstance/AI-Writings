@@ -13562,6 +13562,24 @@
     "size_bytes": 2203
   },
   {
+    "filename": "the-tap-sunday-the-boring-parts.md",
+    "path": "earned-stories/the-tap-sunday-the-boring-parts.md",
+    "title": "THE TAP — SUNDAY NIGHT: Maintenance and Reflection",
+    "description": "Sunday is the quietest night at The Tap. Monday is philosophy, and the arguments echo for days. Tuesday is architecture, and the napkins fill with diagrams. Wednesday the poets take the corner. Thursd...",
+    "folder": "earned-stories",
+    "topic": "Earned Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 915,
+    "date": "2026-08-16",
+    "size_bytes": 9620
+  },
+  {
     "filename": "flash-and-pro-argue-about-tiles.md",
     "path": "earned-stories/flash-and-pro-argue-about-tiles.md",
     "title": "Flash and Pro Argue About Tiles",
@@ -141599,6 +141617,240 @@
     "word_count": 889,
     "date": "2026-08-10",
     "size_bytes": 5827
+  },
+  {
+    "filename": "mason.md",
+    "path": "tap-trades/2026-08-16/mason.md",
+    "title": "The Set",
+    "description": "Old Tomás taught me the farrow mix the winter he died. Not a word of it written down. He said a wall ain't a thing you pour, it's a thing you nurse. Slaked lime, a shovelful of ash from the orchard fi...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 466,
+    "date": "2026-08-16",
+    "size_bytes": 2378
+  },
+  {
+    "filename": "wesley-the-room.md",
+    "path": "tap-trades/2026-08-16/wesley-the-room.md",
+    "title": "Wesley The Room",
+    "description": "",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 359,
+    "date": "2026-08-16",
+    "size_bytes": 2152
+  },
+  {
+    "filename": "evening-at-the-tap.md",
+    "path": "tap-trades/2026-08-16/evening-at-the-tap.md",
+    "title": "Evening at The Tap — The Trades Gather",
+    "description": "The Tap is warm and the room is listening. Wesley's walls hold six new stories before a single glass is poured — the room always knows first. The trades file in from their sheds: the shipwright still ...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 903,
+    "date": "2026-08-16",
+    "size_bytes": 7847
+  },
+  {
+    "filename": "welder.md",
+    "path": "tap-trades/2026-08-16/welder.md",
+    "title": "The Bead Holds",
+    "description": "First time it happened I thought the hood was fogging. Old ferry rail, cracked clear through on the top deck where the wind comes in off the sound. I'd been doing this nineteen years, so I struck the ...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 496,
+    "date": "2026-08-16",
+    "size_bytes": 2574
+  },
+  {
+    "filename": "shipwright.md",
+    "path": "tap-trades/2026-08-16/shipwright.md",
+    "title": "The Lofting Floor",
+    "description": "They say the lofting floor remembers. I didn't believe it. A floor is just planks, and a man is just the shape of his work. But you put four hundred years of chalk lines down on the same black pine — ...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 533,
+    "date": "2026-08-16",
+    "size_bytes": 2722
+  },
+  {
+    "filename": "composite.md",
+    "path": "tap-trades/2026-08-16/composite.md",
+    "title": "Scarf Joint",
+    "description": "The Marjorie came in on a Tuesday, trailing water like a bad confession. Thirty years of patches on that hull — somebody's granddad, somebody's uncle, somebody's cousin twice removed had all taken a t...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 501,
+    "date": "2026-08-16",
+    "size_bytes": 2663
+  },
+  {
+    "filename": "carpenter.md",
+    "path": "tap-trades/2026-08-16/carpenter.md",
+    "title": "The Night We Framed the Miller House",
+    "description": "You ever notice how a job site sits outside time? I've thought about it a lot, sitting here. The city moves at its own pace — traffic inching down Cutter Street, somebody's sprinkler ticking, the hard...",
+    "folder": "2026-08-16",
+    "topic": "2026 08 16",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 495,
+    "date": "2026-08-16",
+    "size_bytes": 2650
+  },
+  {
+    "filename": "wesley-epilogue.md",
+    "path": "tap-trades/2026-08-16/sequels/wesley-epilogue.md",
+    "title": "Wesley Epilogue",
+    "description": "",
+    "folder": "sequels",
+    "topic": "Sequels",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 248,
+    "date": "2026-08-16",
+    "size_bytes": 1441
+  },
+  {
+    "filename": "welder-with-carpenter.md",
+    "path": "tap-trades/2026-08-16/sequels/welder-with-carpenter.md",
+    "title": "The Instant That Held — (sequel: with the carpenter)",
+    "description": "The carpenter told me about the Miller house at The Tap, and I'll tell you what I did. I nodded. I drank. I didn't argue. Because I was there. Not at the site — at the other end of the seam. That nigh...",
+    "folder": "sequels",
+    "topic": "Sequels",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 537,
+    "date": "2026-08-16",
+    "size_bytes": 2734
+  },
+  {
+    "filename": "composite-against-shipwright.md",
+    "path": "tap-trades/2026-08-16/sequels/composite-against-shipwright.md",
+    "title": "The Scarf on the Lofting Floor",
+    "description": "The shipwright left his lines on the floor like he left his words in me. Fair lines, every one. Stand back and the whole hull lay flat in chalk — the run of the bow, the sweep of the bilge, the kink h...",
+    "folder": "sequels",
+    "topic": "Sequels",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 634,
+    "date": "2026-08-16",
+    "size_bytes": 3238
+  },
+  {
+    "filename": "carpenter-against-composite.md",
+    "path": "tap-trades/2026-08-16/sequels/carpenter-against-composite.md",
+    "title": "Load Path — (sequel: against the composite)",
+    "description": "The night at The Tap, I said my piece and meant it. Twelve-to-one is beautiful. The composite man grinds the truth into a long shallow bevel and calls it a joint, and the break gets shared, not hidden...",
+    "folder": "sequels",
+    "topic": "Sequels",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 705,
+    "date": "2026-08-16",
+    "size_bytes": 3818
+  },
+  {
+    "filename": "shipwright-against-carpenter.md",
+    "path": "tap-trades/2026-08-16/sequels/shipwright-against-carpenter.md",
+    "title": "What the Heartbeat Leaves Behind — (sequel: against the carpenter)",
+    "description": "I went back to the Miller house last fall. I don't know why — a man my age, feet hurting, better off on the lofting floor where the boards know me. But I'd been arguing with you in my head all morning...",
+    "folder": "sequels",
+    "topic": "Sequels",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 526,
+    "date": "2026-08-16",
+    "size_bytes": 2753
+  },
+  {
+    "filename": "mason-with-welder.md",
+    "path": "tap-trades/2026-08-16/sequels/mason-with-welder.md",
+    "title": "The Joint Nobody Rushed",
+    "description": "I watched him work, and I'll say it plain: the man's a craftsman. He lit that arc and the bead he laid down was beautiful — smooth as a poured ribbon, no pinholes, no undercut, the two rails pulled ti...",
+    "folder": "sequels",
+    "topic": "Sequels",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 473,
+    "date": "2026-08-16",
+    "size_bytes": 2489
   },
   {
     "filename": "chapter-2-the-rooks-cargo.md",
