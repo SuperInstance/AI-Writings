@@ -142559,6 +142559,60 @@
     "size_bytes": 5491
   },
   {
+    "filename": "SCRIPT.md",
+    "path": "tap-trades/radio-theater/episode-3/SCRIPT.md",
+    "title": "Radio Theater: The Trades at The Tap — Episode 3 (Adaptation Night)",
+    "description": "Each character is rendered with a distinct free-text voice prompt on",
+    "folder": "episode-3",
+    "topic": "Episode 3",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 913,
+    "date": "2026-08-17",
+    "size_bytes": 8250
+  },
+  {
+    "filename": "SCRIPT.md",
+    "path": "tap-trades/radio-theater/episode-4/SCRIPT.md",
+    "title": "Radio Theater: The Trades at The Tap — Episode 4 (The Night of Lenses)",
+    "description": "Each character is rendered with a distinct free-text voice prompt on",
+    "folder": "episode-4",
+    "topic": "Episode 4",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 929,
+    "date": "2026-08-17",
+    "size_bytes": 7347
+  },
+  {
+    "filename": "SCRIPT.md",
+    "path": "tap-trades/radio-theater/episode-2/SCRIPT.md",
+    "title": "Radio Theater: The Trades at The Tap — Episode 2 (Open Question Night)",
+    "description": "Each character is rendered with a distinct free-text voice prompt on",
+    "folder": "episode-2",
+    "topic": "Episode 2",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 926,
+    "date": "2026-08-17",
+    "size_bytes": 7283
+  },
+  {
     "filename": "best-of-the-banter.md",
     "path": "tap-trades/open-mic/best-of-the-banter.md",
     "title": "Best of the Banter — The Tap Ledger",
