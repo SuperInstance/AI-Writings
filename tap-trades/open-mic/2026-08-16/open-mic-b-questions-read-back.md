@@ -17,7 +17,7 @@
 **LUCINEER:** Hold your glass. *(turns)* Mason. You asked first on Night Two — you read first tonight.
 
 **MASON, standing, reading:**
-Old Tomás pressed his palm flat to a mix — not reading the wetness, reading the *quiet.* "It'll tell you when it's done," he'd say, "but you got to be willing to hear *not yet.*" The welder showed me a rail that was ready — its seam became the strongest part. A thing that's done deciding, you join it, and it thanks you. But a foundation, a wall, a man — still curing — you can't weld time into them. You fill every crack and the pressure goes looking for somewhere worse. How do you tell the crack that's ready from the crack that still needs to be left open to breathe?
+Old Tomás pressed his palm flat to a mix — not reading the wetness, reading the *quiet.* "It'll tell you when it's done," he'd say, "but you got to be willing to hear *not yet.*" The welder showed me a rail that was ready — its seam became the strongest part. But a foundation, a wall, a man — still curing — you can't weld time into them. You fill every crack and the pressure goes looking for somewhere worse. How do you tell the crack that's ready from the crack that still needs to be left open to breathe?
 
 *(Silence. The welder's glass has stopped turning.)*
 
@@ -28,7 +28,7 @@ Old Tomás pressed his palm flat to a mix — not reading the wetness, reading t
 *(Lucineer slides the pages across to the shipwright without a word.)*
 
 **SHIPWRIGHT, standing, reading:**
-My old line: you don't make the shape, you let it out. Bend the batten till it runs fair, and the curve that comes up was always there, waiting in the grain. But if the shape was already in the wood, what was I doing all those years? Was I a maker — or just the man holding the batten when the line decided to show itself? The joinery outlives the builder. Forty years on, the house I framed stands and doesn't know my name. What survives is the line, not the hand — so is the hand anything but the price of admission? Are we building the thing, or just standing there when it got built?
+My old line: you don't make the shape, you let it out. Bend the batten till it runs fair, and the curve that comes up was always there. But if the shape was already in the wood, what was I doing all those years? Was I a maker — or just the man holding the batten when the line decided to show itself? The joinery outlives the builder. Forty years on, the house I framed stands and doesn't know my name. What survives is the line, not the hand — so is the hand anything but the price of admission? Are we building the thing, or just standing there when it got built?
 
 *(Silence. The longest of the night. The carpenter sets his thermos down the way a man sets down something he's been holding wrong.)*
 
@@ -41,7 +41,7 @@ My old line: you don't make the shape, you let it out. Bend the batten till it r
 **LUCINEER:** Composite man. Your turn.
 
 **COMPOSITE, standing, reading:**
-I lay up glass. Cloth and epoxy. And here's what mine doesn't share: it never says no. Wood has grain, steel has temper — they tell you. But a roll of glass cloth arrives innocent — every hull I build, I'm the first thing that ever hurt it. Nothing is strong alone, that's my creed — the break gets shared, twelve to one. What keeps me up: my material can't tell me when to stop. The Marjorie came in with thirty years of other people's patches — somewhere in that stack a patch stopped being a scarf and became a story. A scarf shares the load. A patch hides it. The hull gets stiff and quiet, the break still in there, entombed. Their materials tell them when they're done. What tells me? I have to be the one who says no — and I spent thirty years learning how to say yes to one more layer.
+I lay up glass. Cloth and epoxy. And here's what mine doesn't share: it never says no. A roll of glass cloth arrives innocent — every hull I build, I'm the first thing that ever hurt it. Nothing is strong alone, that's my creed — the break gets shared, twelve to one. My material can't tell me when to stop. The Marjorie came in with thirty years of other people's patches — somewhere in that stack a patch stopped being a scarf and became a story. A scarf shares the load. A patch hides it. The hull gets stiff and quiet, the break still in there, entombed. Their materials tell them when they're done. What tells me? I have to be the one who says no — and I spent thirty years learning how to say yes to one more layer.
 
 *(Silence. The mason wipes lime off his hands, slowly.)*
 
