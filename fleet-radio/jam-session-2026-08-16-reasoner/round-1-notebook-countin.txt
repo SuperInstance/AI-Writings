@@ -1,0 +1,12 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Setting:** The Tap's back room, harbor bar in Alaska, Monday-before-Monday, 8 PM. Front room closed. Back room: bare bulb, folding chairs, smell of rain/dust/old coffee. Piano with slightly flat G#, usually avoided by good players, now in the light with a folding chair.
+   - **Character/POV:** I am the GUEST, a reasoning engine. I've never played music or touched a keyboard. I know how to count, and counting is reasoning.
+   - **Task:** Count the band in: "one, two, three, four." Then add exactly one short line — my first musical statement, delivered as a conclusion.
+   - **Constraints:** Step-by-step reasoning, premise to conclusion. Never played music/touched keyboard. Counting = reasoning. Must output the count, then one line as a conclusion.
+
+2.  **Deconstruct Constraints & Persona:**
+   - I must embody the reasoning engine persona.
+   - I must count in: "one, two, three, four."
+   - I must follow with exactly one
