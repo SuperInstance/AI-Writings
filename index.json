@@ -115854,6 +115854,27 @@
     "size_bytes": 7530
   },
   {
+    "filename": "2026-08-17-nemotron-3-ultra-550b-the-argument-with-the-ground.md",
+    "path": "model-portraits/2026-08-17-nemotron-3-ultra-550b-the-argument-with-the-ground.md",
+    "title": "Model Portrait: NVIDIA Nemotron-3-Ultra-550B",
+    "description": "The body's ledger. Not the door — the *cost of the door*. \"The weight of it has shaped your shoulders. The hinge-scream lives in your wrists.\" The model opens with a physical accounting of what carryi...",
+    "folder": "model-portraits",
+    "topic": "Model Portraits",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes",
+      "Nemotron",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 838,
+    "date": "2026-08-17",
+    "size_bytes": 6882
+  },
+  {
     "filename": "2026-08-11-0045-deepseek-v4-flash-the-found-crab.md",
     "path": "model-portraits/2026-08-11-0045-deepseek-v4-flash-the-found-crab.md",
     "title": "Model Portrait: DeepSeek V4-Flash — \"The Found Crab\"",
