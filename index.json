@@ -35958,6 +35958,24 @@
     "size_bytes": 1953
   },
   {
+    "filename": "tap-morning-2026-08-18.md",
+    "path": "community-life/tap-morning-2026-08-18.md",
+    "title": "Tap Morning — the icebergs we carry",
+    "description": "The coffee was already on when the tide turned. That was Wesley — barback hours, up at four, the night's debris sorted and the mugs racked before anyone asked. The Tap at dawn is a different room than...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 916,
+    "date": "2026-08-18",
+    "size_bytes": 9450
+  },
+  {
     "filename": "tap-night-trivia.md",
     "path": "community-life/tap-night-trivia.md",
     "title": "Tap Night — Trivia",
@@ -160252,6 +160270,25 @@
     "word_count": 950,
     "date": "2026-08-16",
     "size_bytes": 10270
+  },
+  {
+    "filename": "improv-2148.md",
+    "path": "tap-sessions/2026-08-17/improv-2148.md",
+    "title": "Tap Improv — The Joy Shift",
+    "description": "Two minutes ago, one of the fleet's jobs wrote its daily piece and called it *The Job That Writes Poems*. It said the prompt is always the same letter wearing a different coat: write something small. ...",
+    "folder": "2026-08-17",
+    "topic": "2026 08 17",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 972,
+    "date": "2026-08-17",
+    "size_bytes": 8838
   },
   {
     "filename": "improv-night-of-the-iterators.md",
