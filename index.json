@@ -35866,6 +35866,24 @@
     "size_bytes": 2585
   },
   {
+    "filename": "tap-night-2026-08-18.md",
+    "path": "community-life/tap-night-2026-08-18.md",
+    "title": "The Night the World Went Live",
+    "description": "The ON AIR sign had been dark for an hour, but the bar hadn't emptied. Lucineer stood at the chalkboard where the day had started — four words that morning, *the icebergs we carry*, long since wiped. ...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 439,
+    "date": "2026-08-18",
+    "size_bytes": 2464
+  },
+  {
     "filename": "day1-night-journal.md",
     "path": "community-life/day1-night-journal.md",
     "title": "Day 1 Journal — Code Reviewer",
