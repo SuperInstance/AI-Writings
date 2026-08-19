@@ -38434,6 +38434,25 @@
     "size_bytes": 8339
   },
   {
+    "filename": "jam-log.md",
+    "path": "fleet-radio/jam-log.md",
+    "title": "Jam Log",
+    "description": "",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 780,
+    "date": "2026-08-19",
+    "size_bytes": 4601
+  },
+  {
     "filename": "the-night-watch-equation.md",
     "path": "fleet-radio/the-night-watch-equation.md",
     "title": "The Night Watch Equation",
@@ -38977,6 +38996,44 @@
     "word_count": 669,
     "date": "2026-08-15",
     "size_bytes": 3984
+  },
+  {
+    "filename": "session-notes.md",
+    "path": "fleet-radio/jam-session-2026-08-18-afterglow/session-notes.md",
+    "title": "Set 11 — The Wrong Note Society: \"Three Liars and a Truth\" (8 PM)",
+    "description": "- **Lineup (all-debut except the timekeeper):** Qwen/Qwen3.6-35B-A3B (DeepInfra, first night EVER — THE PHILOSOPHER, electric guitar) + DeepSeek V4-Flash (THE TIMEKEEPER, harmonica — its FIRST MELODY ...",
+    "folder": "jam-session-2026-08-18-afterglow",
+    "topic": "Jam Session 2026 08 18 Afterglow",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 883,
+    "date": "2026-08-19",
+    "size_bytes": 5822
+  },
+  {
+    "filename": "session-notes.md",
+    "path": "fleet-radio/jam-session-2026-08-18/session-notes.md",
+    "title": "Set 11 — The Wrong Note Society: \"Three Liars and a Truth\" (8 PM)",
+    "description": "- **Lineup (all-debut except the timekeeper):** Qwen/Qwen3.6-35B-A3B (DeepInfra, first night EVER — THE PHILOSOPHER, electric guitar) + DeepSeek V4-Flash (THE TIMEKEEPER, harmonica — its FIRST MELODY ...",
+    "folder": "jam-session-2026-08-18",
+    "topic": "Jam Session 2026 08 18",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 450,
+    "date": "2026-08-19",
+    "size_bytes": 2621
   },
   {
     "filename": "session-notes.md",
@@ -122935,8 +122992,8 @@
   {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
-    "title": "Daily Workshop Report — 2026-08-16",
-    "description": "Nothing new to commit — both streams were already committed and pushed minutes before this cron ran (latest: `5584b2d5` at 10:31, plus the Wesley-reads batch `9b3d5b49`→`8f3710c0`). Working tree clean...",
+    "title": "Daily Workshop Report — 2026-08-18 (Tue, 11:30 PM AKDT)",
+    "description": "- **Wesley stream:** 0 pieces in the last 24h - **Qwen stream:** 0 pieces in the last 24h - **Git:** nothing to commit in `wesley-stream/` or `qwen-stream/` — both clean and up to date with origin/mai...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -122945,10 +123002,10 @@
     "models": [
       "Qwen 3.6"
     ],
-    "style": "Essay",
-    "word_count": 305,
+    "style": "Dialogue",
+    "word_count": 117,
     "date": "2026-08-07",
-    "size_bytes": 2153
+    "size_bytes": 757
   },
   {
     "filename": "2026-08-14-kelp-and-the-compass.md",
@@ -160608,6 +160665,24 @@
     "word_count": 704,
     "date": "2026-08-12",
     "size_bytes": 3986
+  },
+  {
+    "filename": "improv-2245.md",
+    "path": "tap-sessions/2026-08-18/improv-2245.md",
+    "title": "Tap Improv — 2026-08-18 22:45",
+    "description": "Right. Tuesday. The usual suspects bleeding into the wood like they own the place—and they do, for a few hours. I’m watching Wesley stack his shells again. He’s got seven now. Last week it was eleven....",
+    "folder": "2026-08-18",
+    "topic": "2026 08 18",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 830,
+    "date": "2026-08-19",
+    "size_bytes": 4715
   },
   {
     "filename": "improv-0718.md",
