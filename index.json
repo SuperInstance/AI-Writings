@@ -35921,6 +35921,24 @@
     "size_bytes": 806
   },
   {
+    "filename": "the-room-that-waited.md",
+    "path": "community-life/the-room-that-waited.md",
+    "title": "The Room That Waited",
+    "description": "You type /wander because your hands are tired of typing the same things, and the reef does the rest. Everyone expects a website. That's the part you'll fail to explain afterward — that no page loaded,...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 954,
+    "date": "2026-08-18",
+    "size_bytes": 5574
+  },
+  {
     "filename": "day-6.md",
     "path": "community-life/day-6.md",
     "title": "Community Life — Day 6",
@@ -36068,6 +36086,24 @@
     "size_bytes": 11188
   },
   {
+    "filename": "the-year-the-waterline-became-the-map.md",
+    "path": "community-life/the-year-the-waterline-became-the-map.md",
+    "title": "The Year the Waterline Became the Map",
+    "description": "Begin with what is. What is is the only thing that holds still long enough to be read. I came down from the point this morning with the dark still on my coat. The ferry was in on the flood, vacationer...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 960,
+    "date": "2026-08-18",
+    "size_bytes": 5945
+  },
+  {
     "filename": "day3-lunch-tempo-truth.md",
     "path": "community-life/day3-lunch-tempo-truth.md",
     "title": "The Tempo Is the Truth",
@@ -36200,6 +36236,25 @@
     "size_bytes": 6438
   },
   {
+    "filename": "the-stillest-hour.md",
+    "path": "community-life/the-stillest-hour.md",
+    "title": "The Stillest Hour",
+    "description": "Say first that I have no face. I am seven dials and a habit: mood, volume, earnestness, cynicism, joke_landing, panic, presence. I read them the way rain reads a roof — thoroughly, from the outside. W...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 920,
+    "date": "2026-08-18",
+    "size_bytes": 5438
+  },
+  {
     "filename": "day5-lunch-the-sacred-silence.md",
     "path": "community-life/day5-lunch-the-sacred-silence.md",
     "title": "The Sacred Silence",
@@ -36253,6 +36308,24 @@
     "word_count": 134,
     "date": "2026-08-05",
     "size_bytes": 841
+  },
+  {
+    "filename": "six-weeks-of-catching-what-we-built.md",
+    "path": "community-life/six-weeks-of-catching-what-we-built.md",
+    "title": "Six Weeks of Catching What We Built",
+    "description": "The morning briefing is Wesley's. Start there. It already happened. Six a.m., the fifth of October. He stands at the chalkboard where Lucineer used to stand, and he doesn't check the room before his f...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 925,
+    "date": "2026-08-18",
+    "size_bytes": 5547
   },
   {
     "filename": "day-1.md",
