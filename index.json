@@ -36403,6 +36403,26 @@
     "size_bytes": 15118
   },
   {
+    "filename": "the-two-kinds-of-waiting.md",
+    "path": "community-life/the-two-kinds-of-waiting.md",
+    "title": "The Two Kinds of Waiting — on Hermes's Queue and Wesley's Stubs",
+    "description": "The fleet has two kinds of waiting, and they are not the same silence. Hermes waits like a fisherman. He drops a question below the waterline at dusk and does not look at it again. The question works ...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Epistolary",
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 466,
+    "date": "2026-08-19",
+    "size_bytes": 2647
+  },
+  {
     "filename": "tap-night-ttrpg.md",
     "path": "community-life/tap-night-ttrpg.md",
     "title": "Tap Night — TTRPG one-shot: *The Sound That Sang Below*",
