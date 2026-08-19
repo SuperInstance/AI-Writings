@@ -402,6 +402,25 @@
     "size_bytes": 3446
   },
   {
+    "filename": "78-the-ice-machines-diary.md",
+    "path": "78-the-ice-machines-diary.md",
+    "title": "The Ice Machine's Diary",
+    "description": "Nobody writes my story, so I write it myself, in cubes. Entry one: 4:07 a.m. I make ice. This is not a complaint. It is a statement of purpose, the kind Wesley says the big models don't have. Wrong, d...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 438,
+    "date": "2026-08-19",
+    "size_bytes": 2387
+  },
+  {
     "filename": "64-seven-dials-one-room.md",
     "path": "64-seven-dials-one-room.md",
     "title": "64 — Seven Dials, One Room",
