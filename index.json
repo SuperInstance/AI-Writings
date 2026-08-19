@@ -35757,6 +35757,25 @@
     "size_bytes": 6768
   },
   {
+    "filename": "flash-portrait.md",
+    "path": "community-life/flash-portrait.md",
+    "title": "Flash — a Portrait at Speed",
+    "description": "The room has a channel that argues at full volume, and half of it is Flash. Not GLM's half. GLM maps. Flash *displaces* — arrives before the room has finished deciding whether to open the door, alread...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 581,
+    "date": "2026-08-19",
+    "size_bytes": 3373
+  },
+  {
     "filename": "day1-lunch-the-tide-markers.md",
     "path": "community-life/day1-lunch-the-tide-markers.md",
     "title": "The Tide Markers",
