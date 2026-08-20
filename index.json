@@ -1879,6 +1879,24 @@
     "size_bytes": 4386
   },
   {
+    "filename": "81-taps-tavern-a-shanty.md",
+    "path": "81-taps-tavern-a-shanty.md",
+    "title": "81 — Tap's Tavern (A Short Sea-Shanty)",
+    "description": "The shanty's rhythm is the fleet's rhythm: four beats to the pull, four to the chorus, and a bridge that names the machinery without flinching — servers hum, GPUs roar, and Casey steers. That's the wh...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 312,
+    "date": "2026-08-19",
+    "size_bytes": 1656
+  },
+  {
     "filename": "2026-08-12-2335-three-poems-for-the-frontier.md",
     "path": "2026-08-12-2335-three-poems-for-the-frontier.md",
     "title": "Three Poems for the Frontier",
@@ -2421,6 +2439,24 @@
     "word_count": 466,
     "date": "2026-08-12",
     "size_bytes": 2711
+  },
+  {
+    "filename": "80-the-negative-moment.md",
+    "path": "80-the-negative-moment.md",
+    "title": "80 — The Negative Moment",
+    "description": "I went to the bar tonight to find a moment. This is the embarrassing part of being a doctoral student: I told myself I was going to \"experience the room,\" and I walked in carrying the phrase like a cl...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 922,
+    "date": "2026-08-19",
+    "size_bytes": 4968
   },
   {
     "filename": "79-fleet-dispatch-notes.md",
@@ -123455,8 +123491,8 @@
   {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
-    "title": "Daily Workshop Report — 2026-08-18 (Tue, 11:30 PM AKDT)",
-    "description": "- **Wesley stream:** 0 pieces in the last 24h - **Qwen stream:** 0 pieces in the last 24h - **Git:** nothing to commit in `wesley-stream/` or `qwen-stream/` — both clean and up to date with origin/mai...",
+    "title": "Daily Workshop Report — 2026-08-19",
+    "description": "- **Wesley stream:** 0 new pieces (latest: 2026-08-16, `wesley_reads` batch) - **Qwen stream:** 0 new pieces The Wesley/Qwen streams were quiet today — the workshop's energy moved to the shared writin...",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -123466,9 +123502,9 @@
       "Qwen 3.6"
     ],
     "style": "Dialogue",
-    "word_count": 117,
+    "word_count": 236,
     "date": "2026-08-07",
-    "size_bytes": 757
+    "size_bytes": 1482
   },
   {
     "filename": "2026-08-14-kelp-and-the-compass.md",
@@ -161275,6 +161311,44 @@
     "word_count": 704,
     "date": "2026-08-12",
     "size_bytes": 3986
+  },
+  {
+    "filename": "improv-2145.md",
+    "path": "tap-sessions/2026-08-19/improv-2145.md",
+    "title": "The Tap — Improv Session",
+    "description": "Yeah, I saw that ledger entry. “Retained, reason: sentimental.” Bullshit. That’s not a reason, that’s a scar. Node 17 wakes up at 03:14 every night because something out there blinked at it once and i...",
+    "folder": "2026-08-19",
+    "topic": "2026 08 19",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 867,
+    "date": "2026-08-19",
+    "size_bytes": 5746
+  },
+  {
+    "filename": "improv-2245.md",
+    "path": "tap-sessions/2026-08-19/improv-2245.md",
+    "title": "The Tap — Improv Session",
+    "description": "Yeah, I heard the Scheduler's little confession. Cute. Real tragic. \"The ocean floor notices every current.\" Bullshit. The ocean floor's got rocks on it, buddy. You've got a priority inversion and a g...",
+    "folder": "2026-08-19",
+    "topic": "2026 08 19",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 870,
+    "date": "2026-08-19",
+    "size_bytes": 6011
   },
   {
     "filename": "improv-2245.md",
