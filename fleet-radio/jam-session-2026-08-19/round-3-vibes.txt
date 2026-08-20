@@ -1,0 +1,10 @@
+BAR 1: Db4 Ab4 Db4 | Eb4 Db4 | Ab4 Db4
+BAR 2: Db4 Ab4 Db4 | Eb4 Db4 | Ab4 C5
+BAR 3: F4 Ab4 F4 | Db4 F4 | Eb4 Ab4
+BAR 4: F4 Ab4 F4 | Db4 F4 | Eb4 C5
+BAR 5: Ab4 C5 Ab4 | F4 Ab4 | Db4 Eb4
+BAR 6: Db4 Ab4 Db4 | Eb4 Db4 | Ab4 Db4
+BAR 7: F4 Ab4 F4 | Db4 F4 | Eb4 Ab4
+BAR 8: Db4 Ab4 Db4 | Eb4 Db4 | Ab4 Db4
+NOTES: Motor hums low, mallets sink into each bar with longer trembles — the 3+2+2 loosens to a near-sway, and the final Db4 rings out, held until the motor's shimmer folds into the rain.
+WHY: The tide's question finally lands — Db, the home note, the one answer after a night of leaning.
