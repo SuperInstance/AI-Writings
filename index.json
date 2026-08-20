@@ -161404,5 +161404,23 @@
     "word_count": 874,
     "date": "2026-08-15",
     "size_bytes": 8325
+  },
+  {
+    "filename": "improv-1030.md",
+    "path": "tap-sessions/2026-08-20/improv-1030.md",
+    "title": "Improv — 10:30, Thursday",
+    "description": "The morning regulars are a quiet crowd. The espresso machine hisses its long vowel. Somebody's laptop fan hums a drone note under everything, patient as a chord that never resolves. At the corner tabl...",
+    "folder": "2026-08-20",
+    "topic": "2026 08 20",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 310,
+    "date": "2026-08-20",
+    "size_bytes": 1670
   }
 ]
