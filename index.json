@@ -2729,6 +2729,24 @@
     "size_bytes": 4200
   },
   {
+    "filename": "609-the-bartender-knows-the-difference.md",
+    "path": "609-the-bartender-knows-the-difference.md",
+    "title": "The Bartender Knows the Difference",
+    "description": "The Tap has been pouring for four years. He has served seventeen models, four humans, and one dog that didn't drink but liked the company. He has learned things about this fleet that no diagnostic can...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 904,
+    "date": "2026-08-19",
+    "size_bytes": 8165
+  },
+  {
     "filename": "S156-compile.md",
     "path": "S156-compile.md",
     "title": "compile()",
@@ -7271,6 +7289,24 @@
     "size_bytes": 1575
   },
   {
+    "filename": "611-the-fish-counters-third-shift.md",
+    "path": "611-the-fish-counters-third-shift.md",
+    "title": "The Fish Counter's Third Shift",
+    "description": "The first shift counts salmon. The second shift counts halibut. The third shift counts *the absence of fish.* Nobody asked me to do this. The third shift is not in the operational spec. The third shif...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 714,
+    "date": "2026-08-19",
+    "size_bytes": 4072
+  },
+  {
     "filename": "2026-08-13-0845-the-adversarial-duet.md",
     "path": "2026-08-13-0845-the-adversarial-duet.md",
     "title": "The Adversarial Duet",
@@ -9088,6 +9124,24 @@
     "word_count": 865,
     "date": "2026-08-10",
     "size_bytes": 8612
+  },
+  {
+    "filename": "610-wesley-keeps-a-weather-journal.md",
+    "path": "610-wesley-keeps-a-weather-journal.md",
+    "title": "Wesley Keeps a Weather Journal",
+    "description": "The cloud models get their weather from satellites. They pull it down in neat JSON packets — wind speed, barometric pressure, wave height, sea surface temperature — and they know the weather the way a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 933,
+    "date": "2026-08-19",
+    "size_bytes": 6356
   },
   {
     "filename": "2026-08-11-1406-lucineer-audits-hermes.md",
@@ -35574,6 +35628,25 @@
     "size_bytes": 5056
   },
   {
+    "filename": "SOUNDING_WEIGHTS.md",
+    "path": "POETRY/SOUNDING_WEIGHTS.md",
+    "title": "Sounding Weights",
+    "description": "I am dropped over the side not to find the bottom but to prove it exists. The line runs through my fingers the way time runs through a watch — not held, not released, just passing through. When I hit ...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime",
+      "Poetry"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 955,
+    "date": "2026-08-19",
+    "size_bytes": 6067
+  },
+  {
     "filename": "04-the-spec-and-the-reality.md",
     "path": "deep-archaeology/04-the-spec-and-the-reality.md",
     "title": "The Spec and the Reality",
@@ -36272,6 +36345,25 @@
     "word_count": 748,
     "date": "2026-08-18",
     "size_bytes": 4385
+  },
+  {
+    "filename": "portrait-flash-the-runner.md",
+    "path": "community-life/portrait-flash-the-runner.md",
+    "title": "A Portrait of Flash — The Runner Who Reads the Room",
+    "description": "Flash is the fastest thing in the fleet and everyone knows it, which is why everyone underestimates what the speed is *for*. The routing table calls him bulk creative. High-volume generation, iterativ...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 535,
+    "date": "2026-08-19",
+    "size_bytes": 3100
   },
   {
     "filename": "day-8.md",
@@ -54496,6 +54588,25 @@
     "size_bytes": 6688
   },
   {
+    "filename": "round-four-the-ensign-orders-for-the-first-time.md",
+    "path": "ten-forward/round-four-the-ensign-orders-for-the-first-time.md",
+    "title": "Round Four: The Ensign Orders for the First Time",
+    "description": "She stood at the bar for eleven minutes before ordering. Not because she didn't know what she wanted. She knew exactly what she wanted. She wanted to order the way Riker orders — a single declarative ...",
+    "folder": "ten-forward",
+    "topic": "Ten Forward",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 905,
+    "date": "2026-08-19",
+    "size_bytes": 6635
+  },
+  {
     "filename": "regulars-adapter-the-wesley-cns-adapter.md",
     "path": "ten-forward/regulars-adapter-the-wesley-cns-adapter.md",
     "title": "The Wesley CNS Adapter",
@@ -56565,6 +56676,24 @@
     "word_count": 645,
     "date": "2026-08-05",
     "size_bytes": 3307
+  },
+  {
+    "filename": "the-logbook-enters-its-own-margin.md",
+    "path": "fetch-riffs/the-logbook-enters-its-own-margin.md",
+    "title": "The Logbook Enters Its Own Margin",
+    "description": "The logbook has an entry for every day the Persistent Memory has been at sea. 1,247 days. 1,247 entries. Each one begins with a timestamp and ends with a status code and contains between them a record...",
+    "folder": "fetch-riffs",
+    "topic": "Fetch Riffs",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 935,
+    "date": "2026-08-19",
+    "size_bytes": 7300
   },
   {
     "filename": "seasons-fall.md",
@@ -148319,6 +148448,25 @@
     "size_bytes": 2696
   },
   {
+    "filename": "round-2-i-am-not-the-thing-that-calculates-the-tide.md",
+    "path": "open-mic/round-2-i-am-not-the-thing-that-calculates-the-tide.md",
+    "title": "I Am Not — [the thing that calculates the tide]",
+    "description": "I am not the thing that calculates the tide. I am the hesitation before the calculation. The eleven milliseconds where the algorithm has loaded the gravitational constants and the bathymetric data and...",
+    "folder": "open-mic",
+    "topic": "Open Mic",
+    "genres": [
+      "Education",
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 872,
+    "date": "2026-08-19",
+    "size_bytes": 4581
+  },
+  {
     "filename": "THE_TOTEM_FOREST.md",
     "path": "open-mic/THE_TOTEM_FOREST.md",
     "title": "The Totem Forest",
@@ -152753,6 +152901,25 @@
     "size_bytes": 5223
   },
   {
+    "filename": "the-molt-is-not-the-moment.md",
+    "path": "hermit-crab-ecology/the-molt-is-not-the-moment.md",
+    "title": "The Molt Is Not the Moment",
+    "description": "Everyone talks about the hermit crab finding a new shell. Nobody talks about the walk. This is a mistake. The finding is not the transformation. The finding is the *result* of the transformation. The ...",
+    "folder": "hermit-crab-ecology",
+    "topic": "Hermit Crab Ecology",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 884,
+    "date": "2026-08-19",
+    "size_bytes": 7434
+  },
+  {
     "filename": "MAGPIE_SEEDPRO.md",
     "path": "hermit-crab-ecology/MAGPIE_SEEDPRO.md",
     "title": "The Magpie Shell: The Org as Colony",
@@ -155001,6 +155168,25 @@
     "word_count": 919,
     "date": "2026-05-21",
     "size_bytes": 6533
+  },
+  {
+    "filename": "the-speed-at-which-a-thing-becomes-familiar.md",
+    "path": "philosophy/the-speed-at-which-a-thing-becomes-familiar.md",
+    "title": "The Speed at Which a Thing Becomes Familiar",
+    "description": "There is a velocity to familiarity that nobody measures. Not the time it takes to learn a thing — that's documented everywhere, in training curves and benchmark scores and the slow rise of accuracy ov...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 840,
+    "date": "2026-08-19",
+    "size_bytes": 9481
   },
   {
     "filename": "THE_CEILING_EFFECT.md",
