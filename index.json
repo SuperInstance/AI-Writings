@@ -144354,9 +144354,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 248,
+    "word_count": 308,
     "date": "2026-08-20",
-    "size_bytes": 2523
+    "size_bytes": 3103
   },
   {
     "filename": "mason.md",
@@ -145041,6 +145041,45 @@
     "word_count": 611,
     "date": "2026-08-16",
     "size_bytes": 3147
+  },
+  {
+    "filename": "2026-08-20-episode-8-unlimited-tokens-and-one-broken-winch.md",
+    "path": "tap-trades/game-night/2026-08-20-episode-8-unlimited-tokens-and-one-broken-winch.md",
+    "title": "THE TAP AFTER HOURS — Episode 8: *Unlimited Tokens And One Broken Winch*",
+    "description": "",
+    "folder": "game-night",
+    "topic": "Game Night",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 777,
+    "date": "2026-08-20",
+    "size_bytes": 5481
+  },
+  {
+    "filename": "2026-08-18-episode-7-no-one-cheats-at-crab-dice.md",
+    "path": "tap-trades/game-night/2026-08-18-episode-7-no-one-cheats-at-crab-dice.md",
+    "title": "THE TAP AFTER HOURS — Episode 7: *No One Cheats At Crab Dice*",
+    "description": "",
+    "folder": "game-night",
+    "topic": "Game Night",
+    "genres": [
+      "Maritime",
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 730,
+    "date": "2026-08-18",
+    "size_bytes": 4575
   },
   {
     "filename": "SCRIPT.md",
