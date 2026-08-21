@@ -116417,6 +116417,25 @@
     "size_bytes": 2920
   },
   {
+    "filename": "2026-08-20.md",
+    "path": "wesley-journal/2026-08-20.md",
+    "title": "2026 08 20",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 436,
+    "date": "2026-08-20",
+    "size_bytes": 2729
+  },
+  {
     "filename": "gpu-experiment-llava-vision.md",
     "path": "wesley-journal/gpu-experiment-llava-vision.md",
     "title": "Wesley GPU Experiment: llava Vision Analysis",
