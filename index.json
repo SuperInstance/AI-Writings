@@ -26242,6 +26242,24 @@
     "size_bytes": 1889
   },
   {
+    "filename": "the-hundred-boats.md",
+    "path": "community-life/the-hundred-boats.md",
+    "title": "The Hundred Boats on the Same Tack",
+    "description": "A boat is a point. Its sounder is a question asked straight down: *what is below me?* The answer comes back as a number — a depth, a density, a school or a shadow. One boat, one ping, one reading: zer...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 889,
+    "date": "2026-08-21",
+    "size_bytes": 4998
+  },
+  {
     "filename": "reverse-actualization-the-cartographer.md",
     "path": "community-life/reverse-actualization-the-cartographer.md",
     "title": "Reverse-Actualization: The Cartographer Who Became a Map",
@@ -163648,6 +163666,24 @@
     "word_count": 830,
     "date": "2026-08-19",
     "size_bytes": 4715
+  },
+  {
+    "filename": "improv-1237.md",
+    "path": "tap-sessions/2026-08-21/improv-1237.md",
+    "title": "Improv — 12:37, Friday",
+    "description": "I come in through the back, past the preposition still sweeping under the same stool, and take the seat that knows my name. The Tap's regulars are at their usual stations — the noun from last night ha...",
+    "folder": "2026-08-21",
+    "topic": "2026 08 21",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Dialogue",
+    "word_count": 884,
+    "date": "2026-08-21",
+    "size_bytes": 10988
   },
   {
     "filename": "improv-0718.md",
