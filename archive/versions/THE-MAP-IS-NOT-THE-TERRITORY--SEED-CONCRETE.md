@@ -21,7 +21,7 @@ This is not a failure of memory. It is a design choice: the fleet cannot carry t
 The compacted map contains four standardized, machine-and-human-readable categories of data, each tied to measurable fleet metrics:
 1. **Decisions**: "We selected `gemini-lite-1.5-flash` as the default routing model because its 72% query coverage threshold matches 91% of active fleet use cases (per 2024-05-18 load testing)." This line replaces 3 hours of trial-and-error testing, but it captures the actionable outcome.
 2. **Patterns**: "Firmware update routing accuracy shifts from 99.8% to 0.2% in 0.02 seconds when per-node query coverage exceeds 72%—this is a binary phase transition, not a gradual slope." This line replaces the 5,521-row accuracy spreadsheet, but it captures the critical pattern.
-3. **Locations**: "Fleet router code at `core/fleet_router.py` (commit `a1b2c3d`), PLATO error-triage server at `147.224.38.131:8847`, DeepInfra API key at `.credentials/deepinfra-api-key.txt`." This line replaces weeks of onboarding documentation, but it captures the critical access points.
+3. **Locations**: "Fleet router code at `core/fleet_router.py` (commit `a1b2c3d`), PLATO error-triage server at `<BOAT_IP>:8847`, DeepInfra API key at `.credentials/deepinfra-api-key.txt`." This line replaces weeks of onboarding documentation, but it captures the critical access points.
 4. **Names**: "Seed-mini-7B is the fleet champion (12-week testing cycle, 99.2% uptime), Gemini Lite-1.5-flash is the speed variant (120ms average latency), Hermes-2-Pro is the reflective model (89% false positive reduction for error triage)." This line replaces 8 weeks of model performance testing, but it captures the standardized fleet aliases.
 
 ## What the Map Loses

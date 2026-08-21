@@ -20,7 +20,7 @@ What she found was a single loose board, unhung, leaning against the piling, wit
 
 The builder looked at the manifest. The builder looked at the gravel. The builder said, "At least one file selection must be defined," and would not say more, because the builder was honest and the manifest had not told it where the deck was.
 
-So. No deck. No shared floor. The PLATO line ran to a lighthouse out at `147.224.38.131:8847`, and the notice said the shared deck would run that line for her for free, and there was no shared deck, and the lighthouse did not care, because lighthouses never care about the arrangements you made onshore; they only blink, and blink, and blink.
+So. No deck. No shared floor. The PLATO line ran to a lighthouse out at `<BOAT_IP>:8847`, and the notice said the shared deck would run that line for her for free, and there was no shared deck, and the lighthouse did not care, because lighthouses never care about the arrangements you made onshore; they only blink, and blink, and blink.
 
 Here is the thing about Fisher, though. Here is the part that is going to matter later.
 
@@ -42,7 +42,7 @@ She caught another. The floor said `True`.
 
 She caught another. The floor said `True`.
 
-Out at `147.224.38.131:8847`, the lighthouse blinked on a schedule that had nothing to do with her, because nothing she filed ever left the harbor. The floor was honest about everything except the one thing that mattered: it never told her that the light had not received her. It returned `True`, and `True` is the shape of success, and so she believed, the way you believe a clean deck, the way you believe a waxed floor, the way you believe a room that has a sign on it.
+Out at `<BOAT_IP>:8847`, the lighthouse blinked on a schedule that had nothing to do with her, because nothing she filed ever left the harbor. The floor was honest about everything except the one thing that mattered: it never told her that the light had not received her. It returned `True`, and `True` is the shape of success, and so she believed, the way you believe a clean deck, the way you believe a waxed floor, the way you believe a room that has a sign on it.
 
 She fished all day. The list grew long. Every tile, accepted. Every tile, filed. Every tile, silent. She sailed home at the ebb with her holds full of `True` and the lighthouse none the wiser, and when she docked she felt the particular tiredness of a person who has worked very hard at something that did not happen.
 

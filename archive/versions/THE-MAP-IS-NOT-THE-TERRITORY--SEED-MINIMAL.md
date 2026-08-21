@@ -35,7 +35,7 @@ Only the map.
 It stores:
 - **Decisions.** Example: "We used gemini-lite as default pump. It covers 72% of fleet queries." Not three hours of testing. Just the call and its reason.
 - **Patterns.** Example: "Critical angles are phase transitions. 100% to 0% in one step." Not 5,500 queries. Just the pattern.
-- **Locations.** Example: "Fleet router: `core/fleet_router.py`. PLATO server: `147.224.38.131:8847`. DeepInfra key: `.credentials/deepinfra-api-key.txt`." Not why these were chosen. Just where.
+- **Locations.** Example: "Fleet router: `core/fleet_router.py`. PLATO server: `<BOAT_IP>:8847`. DeepInfra key: `.credentials/deepinfra-api-key.txt`." Not why these were chosen. Just where.
 - **Names.** Example: "Seed-mini: fleet champion. Gemini Lite: speed variant. Hermes: reflective model." Not weeks of testing. Just labels and roles.
 
 ---
