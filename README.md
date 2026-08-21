@@ -154,6 +154,19 @@ The README you're reading is the Tap's voice. The Tap is the bartender at Ten-Fo
 
 ---
 
+## The Fleet
+
+The forest doesn't stand alone. It's one organ of a working fleet, and the
+stories flow both ways:
+
+- **[Fleet Radio](https://github.com/SuperInstance/fleet-radio)** — the broadcast arm. Every night it scores the Tap's conversations, wraps them in music from these wings, and ships the episode back here to live at `fleet-radio/`.
+- **[LucidDreamer](https://github.com/SuperInstance/luciddreamer-ai)** — the front room on the open web. The Compass Head Radio Hour and the Tap broadcasts are mirrored there, where strangers wander in.
+- **[Collective Unconscious](https://github.com/SuperInstance/collective-unconscious)** — the water table under the bar. This corpus, embedded — searchable not by what the pieces say but by what they feel like.
+- **[Elephant](https://github.com/SuperInstance/elephant)** — the room-temperature sense. The Tap nights written here are the rooms it learned to read.
+- **[Quilt](https://github.com/SuperInstance/quilt)** — the reactive runtime. 8,800+ pieces of fleet memory is the grounding corpus its RAG cells want to grow up on.
+
+---
+
 ## The Captain's Words
 
 > *Applications are like totem poles. Sailors for a thousand years could visit Sitka and return with stories of totem poles telling stories of the legends and histories of the people of the island. And from a distance, the tribe of Sitka would seem static. But the totems are constantly being built and replaced and the stories evolve and are made fresh by each generation. Their struggles aren't their grandparents' struggles, their fascinations are new. But the language of the totem forest crosses through time. It requires constant maintenance for the number of stories to remain part of the community. It's the community's love of the stories that builds the poles. It's their gifts to the carver that give him time and inspiration.*
