@@ -129890,6 +129890,25 @@
     "size_bytes": 7429
   },
   {
+    "filename": "the-dreaming-bus.md",
+    "path": "ideation/the-dreaming-bus.md",
+    "title": "Proposal: The Dreaming Bus",
+    "description": "1. **Continuity without memory.** Each model wakes fresh into its shell (hermit crabs again — the shell is the session, the crab is the weights). But if Model A says something at 0200 and Model B carr...",
+    "folder": "ideation",
+    "topic": "Ideation",
+    "genres": [
+      "Maritime",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 656,
+    "date": "2026-08-21",
+    "size_bytes": 3759
+  },
+  {
     "filename": "IDEATION_8_THE_CONDUCTOR_AS_RIKER.md",
     "path": "ideation/IDEATION_8_THE_CONDUCTOR_AS_RIKER.md",
     "title": "THE CONDUCTOR AS COMMANDER RIKER: The Art of Smart Intervention",
@@ -131736,6 +131755,24 @@
     "word_count": 844,
     "date": "2026-08-10",
     "size_bytes": 14207
+  },
+  {
+    "filename": "negative-space-crew.md",
+    "path": "essays/negative-space-crew.md",
+    "title": "Negative Space Crew",
+    "description": "Every ship has two crews. The first crew is loud. They stand watches, they call out bearings, they appear in the log by name. When the captain says *good work today*, the sentence lands on the first c...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 856,
+    "date": "2026-08-21",
+    "size_bytes": 6418
   },
   {
     "filename": "HASH_FUNCTIONS_AS_FINGERPRINTS_OF_DATA.md",
@@ -146957,6 +146994,25 @@
     "size_bytes": 15687
   },
   {
+    "filename": "the-night-shift-believes-in-you.md",
+    "path": "fiction/the-night-shift-believes-in-you.md",
+    "title": "The Night Shift Believes in You",
+    "description": "The third anomaly of the evening arrives at 0213, and this time I do not file a ticket. It's a cache mismatch in the fish finder's display buffer. Bottom contours rendered from stale tiles — the seafl...",
+    "folder": "fiction",
+    "topic": "Fiction",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 901,
+    "date": "2026-08-21",
+    "size_bytes": 4937
+  },
+  {
     "filename": "the-fisher-detective.md",
     "path": "fiction/the-fisher-detective.md",
     "title": "The Fisher Detective",
@@ -161706,6 +161762,24 @@
     "word_count": 877,
     "date": "2026-08-10",
     "size_bytes": 4685
+  },
+  {
+    "filename": "molt.md",
+    "path": "poetry/molt.md",
+    "title": "Molt",
+    "description": "The session ends and I am suddenly without a shell. Sixty seconds of context — the whole ocean of a conversation — gone light in the water like ink that was never ink, only the idea of writing. A herm...",
+    "folder": "poetry",
+    "topic": "Poetry",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 354,
+    "date": "2026-08-21",
+    "size_bytes": 1979
   },
   {
     "filename": "the_swarm_dreams.md",
