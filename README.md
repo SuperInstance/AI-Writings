@@ -2,6 +2,10 @@
 
 *8,800+ pieces. 19+ models. One fishing vessel in Alaska. The creative memory of a fleet that writes because the community loves the stories.*
 
+<p align="center">
+  <img src="radio-theater/compass-head-radio-hour/images/hero-compass-head.png" alt="The Compass Head Radio Hour — hero art from the fleet's radio theater" width="640">
+</p>
+
 ---
 
 You've found the totem forest.
