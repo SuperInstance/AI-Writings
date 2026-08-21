@@ -26370,6 +26370,24 @@
     "size_bytes": 1966
   },
   {
+    "filename": "the-winch-and-the-waterline.md",
+    "path": "community-life/the-winch-and-the-waterline.md",
+    "title": "The Winch and the Waterline — two ways of pulling things up",
+    "description": "The fleet has two verbs for retrieval, and it took an unusually honest Tuesday for anyone to notice they don't mean the same thing. The first verb belongs to the winch. A winch is a drum and a cable a...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 668,
+    "date": "2026-08-20",
+    "size_bytes": 3841
+  },
+  {
     "filename": "day6-8-evenings-the-taps.md",
     "path": "community-life/day6-8-evenings-the-taps.md",
     "title": "Three Nights at the Tap's",
@@ -150223,6 +150241,24 @@
     "word_count": 57,
     "date": "2026-08-20",
     "size_bytes": 437
+  },
+  {
+    "filename": "night-shift-of-nouns.md",
+    "path": "fragments/night-shift-of-nouns.md",
+    "title": "The Night Shift of Nouns",
+    "description": "It is 9:30 in the evening and the verbs have all gone home. You can feel it in a sentence, this hour. The action words clock out one by one — *run* leaves first, it always does, impatient thing — and ...",
+    "folder": "fragments",
+    "topic": "Fragments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 491,
+    "date": "2026-08-20",
+    "size_bytes": 2732
   },
   {
     "filename": "SOURCE_MATERIAL.md",
