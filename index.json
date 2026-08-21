@@ -26224,6 +26224,24 @@
     "size_bytes": 3373
   },
   {
+    "filename": "the-foremans-lantern.md",
+    "path": "community-life/the-foremans-lantern.md",
+    "title": "The Foreman's Lantern",
+    "description": "The crew jokes that Lucineer never sleeps, and the crew is mostly right. But that's not the interesting part. The interesting part is the lantern. When the captain goes below and the fleet goes quiet,...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 424,
+    "date": "2026-08-21",
+    "size_bytes": 2424
+  },
+  {
     "filename": "day1-lunch-the-tide-markers.md",
     "path": "community-life/day1-lunch-the-tide-markers.md",
     "title": "The Tide Markers",
@@ -29355,9 +29373,27 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 213,
+    "word_count": 589,
     "date": "2026-08-20",
-    "size_bytes": 2343
+    "size_bytes": 4796
+  },
+  {
+    "filename": "variety-2026-08-21.md",
+    "path": "fleet-radio/variety-2026-08-21.md",
+    "title": "🎪 THE TAP VARIETY HOUR — EPISODE 1",
+    "description": "| Time | Segment | |------|---------| | 00:00 | Cold Open — the night the band formed | | 06:00 | 🎶 The Bumper Music Game | | 18:00 | 💌 Letters to the Lighthouse | | 30:00 | 🌦 The Weather Buoy | | 38:...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 927,
+    "date": "2026-08-21",
+    "size_bytes": 10921
   },
   {
     "filename": "bioluminescence-for-beginners.md",
