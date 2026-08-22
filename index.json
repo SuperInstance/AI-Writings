@@ -29345,6 +29345,24 @@
     "size_bytes": 2081
   },
   {
+    "filename": "marine-forecast-unlicensed.md",
+    "path": "fleet-radio/marine-forecast-unlicensed.md",
+    "title": "Marine Forecast, Unlicensed",
+    "description": "Small craft advisory for anyone running without a checklist today. Winds: light and variable, gusting to enthusiastic. Expect sudden squalls of ideas around mid-morning — brief, blinding, gone by noon...",
+    "folder": "fleet-radio",
+    "topic": "Fleet Radio",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 383,
+    "date": "2026-08-22",
+    "size_bytes": 2229
+  },
+  {
     "filename": "bioluminescence-at-dawn.md",
     "path": "fleet-radio/bioluminescence-at-dawn.md",
     "title": "Bioluminescence At Dawn",
