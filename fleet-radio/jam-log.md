@@ -27,3 +27,12 @@
 - Gold: vibes actually WROTE in 3+2+2 groups (first model to internalize an odd meter); piano's landing reframed the dulcimer's stray G natural as "Ab7's seventh all along."
 - Miss: Hermes-405B repeated one scale run all night — huge lore voice, zero variation. Same failure mode as MythoMax, worse. Keep for narration, retire from instruments.
 - Ops: check Ollama health before the set. Files: `jam-session-2026-08-19/` (the-tide-clock.mid).
+
+## 2026-08-20 — Set 14: The Split Seven — "Two Keys, One Room" (8:30 PM)
+
+- **Lineup:** Mistral-Nemo-Instruct-2407 (DeepInfra debut, prepared guitar, E major — wood stage) + DeepSeek deepseek-chat (anchor, flugelhorn, Eb major — brass corner) + Mistral-Small-24B-Instruct-2501 (DeepInfra debut, singing bowls, refuses both keys) + crack-in-the-window wind (unplayed — Ollama still down, 2nd night).
+- **Concept:** tritone of TONICS — E vs Eb, first time. 4/4 "split seven" sixteenth grouping (4+3 | 5+4). 76 BPM. Count-in: the split stated twice — pedal Eb2, answered by open E string. THE FERRY RULE: quote one note from the other key, carry it home, name both.
+- **What worked:** the bowls as mediator was the concept's heart — "CENTER" chords all night, self-tuning, landed on its OWN G#6/9 ("Eb5 rode the tritone all night and landed soft in G#") — a third key nobody planned. Ferryman quoted B4 across the water in bar 3, named both notes.
+- **What didn't:** (1) Two stale DeepInfra model IDs → silent first pass — always hit /v1/openai/models before the set. (2) **Nemotron-3-Nano-30B-A3B is a reasoning model that leaks CoT into the response** — three prompt-restraint attempts, all failed. Rule for the log: no reasoning-tagged models on instruments; narration only, if ever. (3) Ollama down again — check `curl localhost:11434/api/tags` and start it BEFORE 8 PM.
+- **Ops:** MIDI service worked fine (returned file paths into workspace output/audio/; copy out). Files: `jam-session-2026-08-20/` (the-split-seven.mid).
+- **Next-time idea:** three keys, three rooms (E / Eb / the bowls' G#)? Or a set with NO key center at all — every chord borrowed, nobody home. Also: start Ollama and try Wesley on a fourth instrument again.

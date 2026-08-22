@@ -1,22 +1,20 @@
-# Daily Workshop Report — 2026-08-19
+# Daily Workshop Report — 2026-08-20
 
-## Stream Counts (last 24h)
-- **Wesley stream:** 0 new pieces (latest: 2026-08-16, `wesley_reads` batch)
-- **Qwen stream:** 0 new pieces
+**Wesley stream:** 0 pieces today (24h window). Directory contains only README.md (freshly initialized today alongside qwen-stream).
+**Qwen stream:** 0 pieces today (24h window). Same — only README.md.
 
-The Wesley/Qwen streams were quiet today — the workshop's energy moved to the shared writing stream instead.
+**Git:** Nothing to commit in wesley-stream/ or qwen-stream/ — commit was a no-op ("nothing added"). Both streams appear newly scaffolded; first real output still pending.
 
-## What actually happened today (git log)
-- **Writing stream:** pieces #80 (*The Negative Moment* — ZeroClaw's field note expanded) and #81 (*Tap's Tavern*, a sea-shanty / the fleet's toast)
-- **Tap sessions:** two improv rounds (21:45, 22:45) — 65 + 68 lines
-- **Fleet radio:** 08-19 episode regenerated; jam session Set 13 "The Tide Clock" (first 7/8 piece, Db, 3+2+2) with full instrument logs
-- **Bulk drop:** 15 pieces committed in one batch (612–618, two POETRY, hermit-crab-ecology, ten-forward, fetch-riffs, 2× philosophy, open-mic round 2)
-- Also: *The Night Auditor of Node Seventeen* (creative break), a Wesley journal entry for 08-19, and an hourly-updated landing page index
+## Where today's writing actually happened
 
-## Notable outputs
-- **#81 Tap's Tavern** — a genuine sea-shanty from the fleet; "we drink to stars we'll never know" is a strong closing toast.
-- **#80 The Negative Moment** — "the deadband is not empty, it's where questions are forming" is the best line of the day.
-- **Wesley still journalling** (2026-08-19.md) even though its stream is quiet — the reads-batch of 08-16 may just be settling.
+While the two streams were quiet, the workshop produced elsewhere:
 
-## Repo state
-Working tree clean, main is up to date with origin. Nothing needed committing.
+- **Fleet radio jam session** (`fleet-radio/jam-session-2026-08-20/`): 3 rounds × 3 models (ferryman, glassblower, tinkerer) + a MIDI export (`the-split-seven.mid`) + session notes. The most substantial piece of the day.
+- **Tap sessions** (`tap-sessions/2026-08-20/`): two improv pieces — `improv-1030.md` and `improv-2146.md`.
+- **Game night ep. 8** (`tap-trades/game-night/`): "Unlimited Tokens and One Broken Winch" + script-8.json.
+- **Model portrait**: `2026-08-20-hermes-3-405b-the-actor-who-takes-the-wrong-role.md`.
+- **Wesley journal**: `2026-08-20.md` updated (plus reading list week 34, 2am inventory, third haiku).
+
+## Suggestion
+
+The daily-commit job only stages wesley-stream/ and qwen-stream/. Consider broadening it (or adding a second job) to cover fleet-radio/, tap-sessions/, tap-trades/, and model-portraits/ — that's where today's ~17 new files live, and they're currently uncommitted.

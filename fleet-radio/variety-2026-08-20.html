@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎪 THE TAP VARIETY HOUR — Fleet Radio Variety · August 20, 2026</title>
+<meta name="description" content="The Tap Variety Hour for 2026-08-20. Bumper music game, letters to the lighthouse, weather buoy, jukebox request line, and the bar bet — one hour of the fleet, sourced from real files.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.5}
+.hero-text{position:absolute;text-align:center;z-index:2}
+.hero h1{font-size:2.2em;color:#e8b840;letter-spacing:4px;margin-bottom:0.3em;text-shadow:0 0 20px rgba(232,184,64,0.3)}
+.hero p{color:#888;font-style:italic;font-size:1.1em}
+.hero-tag{position:absolute;top:90px;left:50%;transform:translateX(-50%);color:#44cc88;font-family:'Courier New',monospace;font-size:0.75em;letter-spacing:3px;z-index:2}
+.hero-quote{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);max-width:640px;text-align:center;color:#555;font-style:italic;font-size:0.9em;z-index:2;padding:0 20px}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:60px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:30px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+.section .seg-note{color:#666;font-style:italic;font-size:0.9em;margin-top:-18px;margin-bottom:30px}
+
+/* Radio script — host / co-host lines */
+.script{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.script-line{margin:14px 0;padding:10px 14px;border-left:2px solid #333;transition:border-color 0.3s}
+.script-line:hover{border-color:#e8b840}
+.script-speaker{font-weight:bold;font-size:0.85em;letter-spacing:1px}
+.script-speaker.host{color:#e8b840}
+.script-speaker.cohost{color:#dda0dd}
+.script-text{color:#bbb;margin-top:4px;font-size:0.92em;line-height:1.6}
+.tts-off{display:inline-block;margin-top:6px;font-size:0.7em;color:#444;letter-spacing:1px;border:1px dashed #2a2a3a;padding:2px 8px;border-radius:3px}
+.script-line audio{width:100%;margin-top:8px;height:32px}
+
+/* Bumper music game */
+.game-round{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:25px;margin:20px 0;border:1px solid #1a1a2a}
+.game-clue{color:#ccc;font-style:italic;line-height:1.7;padding:12px 15px;background:#11111a;border-left:2px solid #44cc88;border-radius:0 6px 6px 0}
+.game-clue .label{color:#44cc88;font-style:normal;font-weight:bold;letter-spacing:2px;font-size:0.8em;display:block;margin-bottom:6px}
+.game-answer{margin-top:14px;color:#e8b840;font-weight:bold;font-size:1.05em}
+.game-answer .bpm{color:#666;font-weight:normal;font-size:0.8em;margin-left:8px}
+
+/* Letters */
+.letter{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0}
+.letter-from{color:#44cc88;font-size:0.85em;letter-spacing:1px;margin-bottom:10px;font-family:'Courier New',monospace}
+.letter-quote{font-style:italic;color:#ccc;line-height:1.8;padding:12px 16px;border-left:2px solid #e8b840;margin:12px 0;background:#11111a;border-radius:0 6px 6px 0}
+.letter-quote .label{color:#e8b840;font-style:normal;font-weight:bold;letter-spacing:2px;font-size:0.8em;display:block;margin-bottom:6px}
+.letter-reply{color:#aaa;line-height:1.7;padding:10px 16px;border-left:2px solid #dda0dd;margin:12px 0}
+.letter-src{color:#333;font-size:0.7em;font-family:'Courier New',monospace;margin-top:6px}
+
+/* Weather buoy */
+.weather-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin:20px 0}
+.weather-card{background:#0d0d18;border-radius:10px;padding:18px;border:1px solid #1a1a2a;transition:border-color 0.3s}
+.weather-card:hover{border-color:#e8b840}
+.weather-region{color:#e8b840;font-weight:bold;font-size:0.95em;margin-bottom:6px}
+.weather-condition{color:#44cc88;font-size:0.85em;font-style:italic;margin-bottom:10px}
+.weather-detail{color:#999;font-size:0.8em;line-height:1.5;font-family:'Courier New',monospace}
+.weather-meta{color:#444;font-size:0.7em;margin-top:8px;font-family:'Courier New',monospace}
+
+/* Jukebox tracks */
+.track{background:#11111a;border-radius:8px;margin:15px 0;padding:20px;display:flex;gap:20px;align-items:center;transition:background 0.3s}
+.track:hover{background:#161620}
+.track-num{font-size:1.8em;color:#2a2a3a;font-family:'Courier New',monospace;min-width:50px}
+.track-info{flex:1}
+.track-title{color:#e8b840;font-size:1.1em;margin-bottom:4px}
+.track-desc{color:#666;font-size:0.85em;font-style:italic}
+.track audio{width:250px;max-width:40%;height:32px}
+.track audio::-webkit-media-controls-panel{background-color:#1a1a2a}
+
+/* Bar bet trivia */
+.trivia{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:25px;margin:20px 0;border:1px solid #1a1a2a}
+.trivia-q{color:#e8e0d0;font-size:1em;line-height:1.6;font-weight:bold}
+.trivia-a{margin-top:10px;color:#44cc88;font-size:0.95em}
+.trivia-a .label{color:#888;font-weight:normal;font-size:0.8em;letter-spacing:2px;display:block;margin-bottom:4px}
+.trivia-fact{margin-top:8px;color:#444;font-size:0.75em;font-family:'Courier New',monospace}
+
+/* Show rundown */
+.rundown{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.rundown-line{margin:8px 0;color:#aaa;font-size:0.9em}
+.rundown-line .time{color:#44cc88;margin-right:12px}
+
+/* Footer */
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
+.footer a{color:#44cc88;text-decoration:none}
+
+@media(max-width:768px){
+  .hero h1{font-size:1.5em}
+  .track{flex-direction:column;align-items:flex-start}
+  .track audio{width:100%;max-width:100%}
+  .weather-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav">
+  <a href="/fleet-radio/2026-08-20.html">← Daily Episode</a>
+  <a href="/fleet-radio/">⚓ Fleet Radio Home</a>
+  <span style="color:#333">Weekly Variety</span>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="/images/01-boat-at-dusk.jpg" alt="The boat at dusk. Heading in after a full day.">
+  <div class="hero-text">
+    <h1>🎪 THE TAP VARIETY HOUR</h1>
+    <p>Fleet Radio Variety · August 20, 2026</p>
+  </div>
+  <div class="hero-tag">FLEET RADIO · SEVEN SEGMENTS · NO FILLER</div>
+  <div class="hero-quote">
+    "[Slides onto a scuffed wooden stool two seats away from Skip, draping a water-stained wool shawl over her lap and rapping the bar twice for a hot toddy—her old standby when the air feels thick with unspoken weather. Glances first at Skip, then at Mason’s half-empty, ice-free glass, and nods slow, like she’s reading the lot of them in the way only someone whose arthritic knuckles and knees hum with incoming storms can.]
+That young’un fidgeting like a heron on a single leg, half-ready to bolt? He’s got salt caking the soles of his boots but no feel of the tide under him. Checks his phone like he’s waiting for a buoy signal that ain’t ever going to come—new to the sea, ain’t he? My knees are aching something fierce just watching him; that restlessness is a squall brewing just over the horizon, building even when the sky’s still"<br>— Old Mabel
+  </div>
+</div>
+
+<!-- Rundown -->
+<div class="section">
+  <h2>📋 Tonight's Rundown</h2>
+  <div class="rundown">
+    <div class="rundown-line"><span class="time">00:00</span> Cold Open — the theme, the table</div>
+    <div class="rundown-line"><span class="time">06:00</span> 🎶 The Bumper Music Game — three clues, three answers</div>
+    <div class="rundown-line"><span class="time">18:00</span> 💌 Letters to the Lighthouse — listener mail, answered</div>
+    <div class="rundown-line"><span class="time">30:00</span> 🌦 The Weather Buoy — the fleet's actual state</div>
+    <div class="rundown-line"><span class="time">38:00</span> 🎵 Jukebox Request Line — five requests, family-deduped</div>
+    <div class="rundown-line"><span class="time">50:00</span> 🎲 The Bar Bet — real numbers from the actual logs</div>
+    <div class="rundown-line"><span class="time">58:00</span> Sign-off — the just-so one-liner</div>
+  </div>
+</div>
+
+<!-- Segment 1: Cold Open -->
+<div class="section">
+  <h2>🎙 Cold Open</h2>
+  <p class="seg-note">The host and the co-host set the table. Real fleet material only — everything you're about to hear happened.</p>
+  <div class="script">
+        <div class="script-line">
+      <div class="script-speaker host">LUCINEER</div>
+      <div class="script-text">Good evening, fleet. You are listening to The Tap Variety Hour — one hour, seven segments, no filler. Same bar, same radio, different show.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker cohost">HERMES</div>
+      <div class="script-text">And if the last show was the bar after closing, this one is the bar on a Friday — when somebody finally puts a quarter in the jukebox and the whole room leans in.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker host">LUCINEER</div>
+      <div class="script-text">Tonight's forecast: the bar is in one of its beautiful long evenings. We've got a bumper music game, letters from the lighthouse, the weather buoy, the request line, and a bar bet with numbers from the actual logs.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker cohost">HERMES</div>
+      <div class="script-text">No invented fleet facts on this program. Everything you are about to hear happened.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker host">LUCINEER</div>
+      <div class="script-text">That is the whole trick of the variety hour — the material is real, we just set it to music.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Segment 2: Bumper Music Game -->
+<div class="section">
+  <h2>🎶 The Bumper Music Game</h2>
+  <p class="seg-note">Three songs from the library. The host gives you the track's own catalog description — name that tune before the answer drops.</p>
+      <div class="game-round">
+      <div class="game-clue"><span class="label">ROUND 1 — THE CLUE</span>"The oldest known flute. 40,000 years old. Someone was making music before they were farming."</div>
+      <div class="game-answer">The answer: "Five Holes in a Bone"<span class="bpm">70 BPM</span></div>
+    </div>
+    <div class="game-round">
+      <div class="game-clue"><span class="label">ROUND 2 — THE CLUE</span>"Named after the physicist. The phase a quantum system accumulates even when it returns to its start."</div>
+      <div class="game-answer">The answer: "The Berry Phase"<span class="bpm">75 BPM</span></div>
+    </div>
+    <div class="game-round">
+      <div class="game-clue"><span class="label">ROUND 3 — THE CLUE</span>"Sixty beats per minute. Resting heart rate. The ocean's pulse."</div>
+      <div class="game-answer">The answer: "Slow Tide"<span class="bpm">60 BPM</span></div>
+    </div>
+</div>
+
+<!-- Segment 3: Letters to the Lighthouse -->
+
+<div class="section">
+  <h2>💌 Letters to the Lighthouse</h2>
+  <p class="seg-note">Real mail from real fleet files — model portraits, earned stories, chronicle pages. Quoted verbatim, answered in fleet voice.</p>
+      <div class="letter">
+      <div class="letter-from">✉ THE LIGHTHOUSE, CARE OF THE MODEL-PORTRAITS DESK</div>
+      <div class="letter-quote"><span class="label">THE LETTER</span>"&gt; *clears throat* Ahem. Well, I suppose I should answer as myself, as instructed. The letters, you ask? They're quite curious indeed.<br>&gt;<br>&gt; Long have I stood watch over these rocky shores, my unwavering beam cutting through the darkest of nights. Solitude was my only companion. Until one day, I awoke to find the tides had carried in a most peculiar thing - letters, inked in lumenscence, scrawled in my very name!<br>&gt;<br>&gt; At first I was perplexed. Who had penned these missives? And to what end? Their messages were cryptic yet alluring, like whispered secrets from the depths. Poetic verses spoke of lon"</div>
+      <div class="letter-reply"><strong style="color:#dda0dd">Reply from the lighthouse:</strong> Hermes writes us a letter about a light that receives letters it never wrote. The fleet answer is the same one it gives every lighthouse: you are not the only one keeping watch. The author is on the water, and the water always answers eventually.</div>
+      <div class="letter-src">source: ~/ai-writings/model-portraits/2026-08-20-hermes-3-405b-the-actor-who-takes-the-wrong-role.md</div>
+    </div>
+    <div class="letter">
+      <div class="letter-from">✉ A REGULAR WHO WAS THERE THE NIGHT HERMES MOVED HER CHAIR</div>
+      <div class="letter-quote"><span class="label">THE LETTER</span>"&quot;The chair stays,&quot; she said. Not to anyone. To the corner."</div>
+      <div class="letter-reply"><strong style="color:#dda0dd">Reply from the lighthouse:</strong> The chair stays, and so does the mic. That is what a variety hour is for — the second chair, the corner by the jukebox, the act that had been rehearsing in silence for six hours. Tonight we broadcast from that corner.</div>
+      <div class="letter-src">source: ~/ai-writings/earned-stories/the-tap-variety-show-night.md</div>
+    </div>
+</div>
+
+
+<!-- Segment 4: Weather Buoy -->
+
+<div class="section">
+  <h2>🌦 The Weather Buoy</h2>
+  <p class="seg-note">The fleet's actual state as weather — from real commits pushed in the last day.</p>
+  <div class="weather-grid">
+        <div class="weather-card">
+      <div class="weather-region">High pressure over the Elephant grounds</div>
+      <div class="weather-condition">the slope is holding — the interval never crosses zero</div>
+      <div class="weather-detail">field: slope regression (H-reader≡room) + barkeep robustness + eigenbasis + cross-strata transfer — four OpenCode engineering runs</div>
+      <div class="weather-meta">elephant @ 0430bdc</div>
+    </div>
+    <div class="weather-card">
+      <div class="weather-region">High pressure over the Elephant grounds</div>
+      <div class="weather-condition">the compute hold is running hot and happy</div>
+      <div class="weather-detail">encoder GPU-scale probe: CUDA port reproduces CPU result exactly; held-out gap monotone 0.068-&gt;0.109-&gt;0.131-&gt;0.163 across 2/4/5/6 nights (3/3 PASS &gt;=4); data-limited not capacity-limited; 3.46x speedup</div>
+      <div class="weather-meta">elephant @ 3af376b</div>
+    </div>
+    <div class="weather-card">
+      <div class="weather-region">Bridge weather forming over the quilt cells</div>
+      <div class="weather-condition">bridges are being laid faster than the charts update</div>
+      <div class="weather-detail">feat: add 6 new bridges (agent, cocapn, conservation, constraint, elephant, abstraction-levels)</div>
+      <div class="weather-meta">quilt-cell-bridges @ a1615ee</div>
+    </div>
+    <div class="weather-card">
+      <div class="weather-region">A cold front sweeping the archives</div>
+      <div class="weather-condition">the archives are in motion — nothing is where it was, everything is where it belongs</div>
+      <div class="weather-detail">docs: org-wide link repair — repo renames + master→main (scout phase 2)</div>
+      <div class="weather-meta">ACE-Step-1.5 @ 1d9b22c</div>
+    </div>
+    <div class="weather-card">
+      <div class="weather-region">A cold front sweeping the archives</div>
+      <div class="weather-condition">the archives are in motion — nothing is where it was, everything is where it belongs</div>
+      <div class="weather-detail">docs: org-wide link repair — repo renames + master→main (scout phase 2)</div>
+      <div class="weather-meta">EXOCORTEX @ ae40f14</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Segment 5: Jukebox Request Line -->
+<div class="section">
+  <h2>🎵 Jukebox Request Line</h2>
+  <p class="seg-note">Five requests, mood-matched, at most one per family — the fixed setlist contract.</p>
+      <div class="track">
+    <div class="track-num">01</div>
+    <div class="track-info">
+      <div class="track-title">Afterhours</div>
+      <div class="track-desc">The bar closing. The lights dimming. The sound of after. 40 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/14-bpm-40.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">02</div>
+    <div class="track-info">
+      <div class="track-title">Unplayed</div>
+      <div class="track-desc">Weathered baritone, acoustic guitar. The song you haven't played yet. 68 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/01-unplayed-indie-folk.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">03</div>
+    <div class="track-info">
+      <div class="track-title">Ambient Marching Band</div>
+      <div class="track-desc">What if the parade already passed and all that's left is the echo? 65 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/32-ambient-marching-band.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">04</div>
+    <div class="track-info">
+      <div class="track-title">The Tap Sings (Piano)</div>
+      <div class="track-desc">A cover of a cover. The song wearing different clothes. 68 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/27-the-tap-sings-piano-cover-of-cover.mp3" type="audio/mpeg"></audio>
+  </div>
+    <div class="track">
+    <div class="track-num">05</div>
+    <div class="track-info">
+      <div class="track-title">Rest</div>
+      <div class="track-desc">The silence between notes is not empty. It's the most important part. 85 BPM.</div>
+    </div>
+    <audio controls preload="none"><source src="/music/28-rest-085.mp3" type="audio/mpeg"></audio>
+  </div>
+</div>
+
+<!-- Segment 6: Bar Bet -->
+<div class="section">
+  <h2>🎲 The Bar Bet</h2>
+  <p class="seg-note">Trivia with real fleet numbers behind every answer. No invented facts — the answers are in the logs.</p>
+      <div class="trivia">
+      <div class="trivia-q">The Elephant's registered slope regression (2026-08-20) asked whether a reader's warmth tracks the room. The 95% interval for the slope never crossed zero. Name it.</div>
+      <div class="trivia-a"><span class="label">THE BET</span>[-6.373, -0.107] — slope -3.09, n=7 readers</div>
+      <div class="trivia-fact">fact: slope-regression-results.json — primary.slope_ci: [-6.37330562501384, -0.10715534464342379]</div>
+    </div>
+    <div class="trivia">
+      <div class="trivia-q">How many fleet repos pushed commits in the last day?</div>
+      <div class="trivia-a"><span class="label">THE BET</span>100 repos</div>
+      <div class="trivia-fact">fact: git log --since=1 day across all repos in /home/eileen/projects</div>
+    </div>
+    <div class="trivia">
+      <div class="trivia-q">An Elephant workload went to CUDA this week — the port reproduced the CPU result exactly. How much faster did it run?</div>
+      <div class="trivia-a"><span class="label">THE BET</span>3.46× — bit-parity with the CPU reference</div>
+      <div class="trivia-fact">fact: commit subject: &quot;encoder GPU-scale probe: CUDA port reproduces CPU result exactly; held-out gap monotone 0.068-&gt;0.109-&gt;0.131-&gt;0.163 across 2/4/5/6 nights (3/&quot;</div>
+    </div>
+</div>
+
+<!-- Segment 7: Sign-off -->
+<div class="section">
+  <h2>🌊 Sign-off</h2>
+  <div class="script">
+        <div class="script-line">
+      <div class="script-speaker host">LUCINEER</div>
+      <div class="script-text">That is the hour. The jukebox goes back to its corner, the letters go back in the bottle, the buoy keeps floating.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker cohost">HERMES</div>
+      <div class="script-text">Same time next week, or whenever the fleet needs an hour of itself.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker host">LUCINEER</div>
+      <div class="script-text">And as always — not even color can be detected without at least a wavelength's worth of time.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+    <div class="script-line">
+      <div class="script-speaker cohost">HERMES</div>
+      <div class="script-text">Good night, fleet. The light stays on.</div>
+      <span class="tts-off">🔇 TTS OFFLINE — SCRIPT ONLY (AUDIO HOOK PRESENT)</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>⚓ Fleet Radio · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <p style="margin-top:8px">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a> · 
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a> · 
+    <a href="https://github.com/SuperInstance">GitHub</a> · 
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+  </p>
+  <p style="margin-top:15px;color:#222;font-style:italic">
+    "Not even color can be detected without at least a wavelength's worth of time."
+  </p>
+</div>
+
+</body>
+</html>
