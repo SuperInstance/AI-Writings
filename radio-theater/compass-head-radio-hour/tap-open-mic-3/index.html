@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Mic Night 3 at The Tap — The Elephant in the Room</title>
+<style>
+  :root {
+    --deep: #07080d; --amber: #e8a54b; --amber2: #c98a35;
+    --smoke: #9a917f; --foam: #e9e2d0;
+    --glass: rgba(24, 22, 18, 0.6); --line: rgba(232, 165, 75, 0.22);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: radial-gradient(900px 500px at 50% -5%, rgba(232,165,75,0.13), transparent 60%),
+                var(--deep);
+    color: var(--foam); font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh; padding: 0 0 6rem;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+  header { text-align: center; padding: 4rem 1rem 2.6rem; border-bottom: 1px solid var(--line); }
+  .kicker { letter-spacing: 0.38em; text-transform: uppercase; font-size: 0.72rem; color: var(--amber); margin-bottom: 0.9rem; }
+  h1 { font-size: clamp(2rem, 5.4vw, 3.4rem); font-weight: normal; }
+  .sub { color: var(--smoke); font-style: italic; margin-top: 1rem; font-size: 1.02rem; max-width: 680px; margin-inline: auto; line-height: 1.65; }
+  .navlinks { text-align: center; margin-top: 2rem; }
+  .navlinks a { color: var(--amber); text-decoration: none; margin: 0 0.6rem; font-size: 0.9rem; }
+  .navlinks a:hover { text-decoration: underline; }
+
+  /* the corner table */
+  .corner {
+    margin-top: 2.6rem; background: linear-gradient(165deg, rgba(232,165,75,0.09), rgba(24,22,18,0.72));
+    border: 1px solid rgba(232,165,75,0.42); border-radius: 18px; padding: 1.8rem 1.9rem 1.5rem;
+  }
+  .corner h2 { font-weight: normal; font-size: 1.45rem; margin-bottom: 0.4rem; }
+  .corner .meta { color: var(--smoke); font-size: 0.85rem; font-style: italic; margin: 0.4rem 0 0.9rem; }
+  .corner p { font-size: 0.95rem; line-height: 1.7; color: var(--foam); margin-bottom: 0.7rem; }
+  .arc {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem;
+  }
+  .arc .stat {
+    font-family: ui-monospace, 'Courier New', monospace; font-size: 0.78rem;
+    border: 1px solid rgba(232,165,75,0.4); border-radius: 10px; padding: 0.5rem 0.85rem;
+    background: rgba(7,8,13,0.6); color: var(--amber);
+  }
+  .arc .stat span { color: var(--smoke); display: block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.2rem; }
+
+  .acts { margin-top: 2.8rem; }
+  .act-seg {
+    background: linear-gradient(165deg, rgba(24,22,18,0.75), rgba(16,15,12,0.6));
+    border: 1px solid rgba(232,165,75,0.35); border-radius: 14px;
+    padding: 1.5rem 1.7rem; margin-bottom: 1.4rem;
+  }
+  .act-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.3rem; }
+  .act-num { font-size: 0.72rem; color: var(--smoke); letter-spacing: 0.28em; text-transform: uppercase; }
+  .act-title { font-size: 1.3rem; font-weight: normal; }
+  .act-meta { color: var(--smoke); font-size: 0.84rem; font-style: italic; margin-bottom: 0.8rem; }
+  .realwork { font-size: 0.8rem; color: var(--amber2); margin: 0.35rem 0 0.7rem; line-height: 1.5; }
+  .realwork em { color: var(--foam); font-style: normal; }
+
+  /* the room reading — this night's instrument panel */
+  .reading {
+    background: rgba(7,8,13,0.7); border: 1px solid rgba(154,145,127,0.35);
+    border-left: 3px solid var(--amber); border-radius: 10px;
+    padding: 0.9rem 1.1rem; margin: 0.6rem 0 0.7rem;
+  }
+  .reading .dial-label { font-family: ui-monospace, 'Courier New', monospace; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--smoke); margin-bottom: 0.45rem; }
+  .reading .dials { font-family: ui-monospace, 'Courier New', monospace; font-size: 0.86rem; color: var(--amber); line-height: 1.75; }
+  .reading .dials .moved { color: var(--foam); }
+  .lucid {
+    font-size: 0.9rem; line-height: 1.65; color: var(--foam); font-style: italic;
+    margin-top: 0.7rem; padding-left: 0.9rem; border-left: 1px solid rgba(232,165,75,0.5);
+  }
+  .lucid .who { color: var(--smoke); font-style: normal; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .lucid .call { color: var(--amber); }
+
+  .docs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+  .docs a { font-size: 0.72rem; padding: 0.2rem 0.7rem; border-radius: 16px; border: 1px solid rgba(154,145,127,0.4); color: var(--smoke); text-decoration: none; }
+  .docs a:hover { color: var(--amber); border-color: var(--amber); }
+
+  .miss {
+    margin-top: 2.4rem; background: linear-gradient(165deg, rgba(232,165,75,0.12), rgba(24,22,18,0.75));
+    border: 1px solid rgba(232,165,75,0.55); border-radius: 14px; padding: 1.6rem 1.8rem;
+  }
+  .miss h2 { font-weight: normal; font-size: 1.35rem; margin-bottom: 0.5rem; }
+  .miss p { font-size: 0.93rem; line-height: 1.7; color: var(--foam); margin-bottom: 0.7rem; }
+  .miss .quote { font-style: italic; color: var(--amber); font-size: 1.02rem; line-height: 1.6; }
+
+  footer { text-align: center; color: var(--smoke); font-size: 0.85rem; margin-top: 4rem; font-style: italic; line-height: 1.8; }
+  .tag { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">The Tap · Third Night · The Elephant in the Room</div>
+  <h1>Open Mic Night 3</h1>
+  <div class="sub">The proof-of-concept night — the room-field engine live in the venue. Five new acts, five new traditions, and between every one of them a real room reading, fired from the corner table and interpreted on air. The throughline: <em>the room that knows itself.</em></div>
+  <div class="navlinks">
+    <a href="NIGHT-3.md">The doctrine</a>
+    <a href="../index.html">The Song Factory</a>
+    <a href="../tap-open-mic/index.html">Open Mic Night 1</a>
+    <a href="../tap-open-mic-2/index.html">Open Mic Night 2</a>
+    <a href="mc/readings.md">How the readings work</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="corner">
+    <h2>🐘 The Corner Table — the elephant, live</h2>
+    <div class="meta">between the jukebox and the coat rack · seven dials · a ledger chained down like a diner's pen · readings on this page are real rows from the bar-rail feed, the day of the show</div>
+    <p>Between every act, a reading fires and Lucid — the interpreter, on the house PA — says what the deltas mean. The elephant measures; it never interprets. Lucid interprets; it never measures. Every interpretation carries a prediction, and a judge scores it against what actually happened. Tonight, on the record, one prediction misses — and the night honors the miss: <em>a voice that can be wrong on the record is the only voice worth trusting when it's right.</em></p>
+    <p>Wesley held the bar and asked the good small questions. Hermes filed the night as it happened. ZeroClaw timed the sets — the mirror that once proved the apparatus was measuring the clock now holds the stopwatch. Flash heckled lovingly; one heckle died at the rail, and the ledger kept it.</p>
+    <div class="arc">
+      <div class="stat"><span>doors open</span>warmth −0.44 · κ 4.38 · drift 0.94</div>
+      <div class="stat"><span>night arc (pre-show → last reading)</span>warmth −0.36 → −0.23</div>
+      <div class="stat"><span>concentration</span>κ 3.25 → 3.49</div>
+      <div class="stat"><span>the last fire</span>drift 0.8766 — the field moved toward</div>
+    </div>
+  </div>
+
+  <div class="acts">
+    <!-- ACT 1 -->
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">The Room Was Here Before Me</span><span class="act-num">Act 1 · Odette, the Standards Singer</span></div>
+      <div class="act-meta">jazz standard · the 32-bar AABA visit, reharmonized, swung · ~3:10</div>
+      <div class="realwork">🎷 Real work: REG-1, run 2026-08-21 — <em>warmth is reader personality</em> (Branch B, both waves, every sensitivity). The reprise — same melody, half-step darker — is the finding sung instead of plotted.</div>
+      <div class="reading">
+        <div class="dial-label">Room reading · after Act 1 · 19:44:59Z · bar-rail · live-tap</div>
+        <div class="dials">warmth <span class="moved">−0.2284 (Δ +0.21)</span> · κ <span class="moved">3.5073 (Δ −0.87)</span> · drift <span class="moved">0.8938</span> · earnestness 1.0</div>
+        <div class="lucid"><span class="who">LUCID, on the PA —</span> "The room didn't warm because the songs were warm — it warmed because it <em>recognized</em> them. That isn't the room leaving. That's the room taking its coat off. <span class="call">On the record: warmth holds better than −0.40 through the next act.</span>" <span style="color:var(--smoke)">(held — −0.35)</span></div>
+      </div>
+      <div class="docs">
+        <a href="acts/act-01-standards/lyrics.md">Lyrics</a>
+        <a href="acts/act-01-standards/tradition.md">Tradition</a>
+        <a href="acts/act-01-standards/pre-show.md">Pre-show</a>
+        <a href="acts/act-01-standards/room-reading.md">The reading, in full</a>
+        <a href="acts/act-01-standards/real-work-log.md">Real work log</a>
+        <a href="acts/act-01-standards/tastemaker-note.md">Tastemaker</a>
+        <a href="acts/act-01-standards/prompt.md">Ship prompt</a>
+      </div>
+    </div>
+
+    <!-- ACT 2 -->
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">Holler Across the Hollow</span><span class="act-num">Act 2 · Harlan, the High-Lonesome Man</span></div>
+      <div class="act-meta">high-lonesome bluegrass · distance made audible, the stack a third above, the witness break · ~3:00</div>
+      <div class="realwork">⛰️ Real work: the deadband — the field only speaks when it moves past a threshold. The holler, mountain-encoded, decades before the patent: <em>you don't call across a hollow to talk about the weather.</em></div>
+      <div class="reading">
+        <div class="dial-label">Room reading · after Act 2 · 20:14:54Z · bar-rail · live-tap</div>
+        <div class="dials">warmth <span class="moved">−0.3518 (Δ −0.12)</span> · κ <span class="moved">3.2822 (Δ −0.23)</span> · drift <span class="moved">0.2567</span> — the stillest field of the night so far</div>
+        <div class="lucid"><span class="who">LUCID —</span> "The cold in this reading isn't rejection — I want to say that carefully, because cold is where I'm least certain. The lonesome works by distance: it moves the room <em>away</em> so it can feel how far it is from what it loves. And one honest caveat, on the record: warmth is partly the reader. I am the reader. Some of this chill may be mine. <span class="call">On the record: drift stays under 0.5 through the next act.</span>" <span style="color:var(--smoke)">(held — 0.235)</span></div>
+      </div>
+      <div class="docs">
+        <a href="acts/act-02-bluegrass/lyrics.md">Lyrics</a>
+        <a href="acts/act-02-bluegrass/tradition.md">Tradition</a>
+        <a href="acts/act-02-bluegrass/pre-show.md">Pre-show</a>
+        <a href="acts/act-02-bluegrass/room-reading.md">The reading, in full</a>
+        <a href="acts/act-02-bluegrass/real-work-log.md">Real work log</a>
+        <a href="acts/act-02-bluegrass/tastemaker-note.md">Tastemaker</a>
+        <a href="acts/act-02-bluegrass/prompt.md">Ship prompt</a>
+      </div>
+    </div>
+
+    <!-- ACT 3 -->
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">One Lamp Burning</span><span class="act-num">Act 3 · Vivienne, the Torch Singer</span></div>
+      <div class="act-meta">torch song · the address — one lamp, one "you," whisper to belt · ~3:30</div>
+      <div class="realwork">🕯️ Real work: the reading after this set — <em>warmth −0.43, the coldest of the night, κ up, drift 0.235</em> — is torch craft confirmed by an instrument that does not flatter. Rapt is a temperature, not a compliment.</div>
+      <div class="reading">
+        <div class="dial-label">Room reading · after Act 3 · 20:44:53Z · bar-rail · live-tap</div>
+        <div class="dials">warmth <span class="moved">−0.4296 (Δ −0.08)</span> — night-cold · κ <span class="moved">3.5039 (Δ +0.22)</span> · drift <span class="moved">0.2350</span> · earnestness 0.0 <span style="color:var(--smoke)">(too true for the keywords — the blind spot, kept)</span></div>
+        <div class="lucid"><span class="who">LUCID —</span> "This is the tightest hush of the night and the coldest number, and they are the same event. The room didn't go away — it went <em>in</em>. I've watched this silence before — it's not empty, it's holding its breath. <span class="call">On the record: the hush holds through the next act's first full song.</span>" <span style="color:var(--smoke)">(held — the joke came at the set change, and died)</span></div>
+      </div>
+      <div class="docs">
+        <a href="acts/act-03-torch/lyrics.md">Lyrics</a>
+        <a href="acts/act-03-torch/tradition.md">Tradition</a>
+        <a href="acts/act-03-torch/pre-show.md">Pre-show</a>
+        <a href="acts/act-03-torch/room-reading.md">The reading, in full</a>
+        <a href="acts/act-03-torch/real-work-log.md">Real work log</a>
+        <a href="acts/act-03-torch/tastemaker-note.md">Tastemaker</a>
+        <a href="acts/act-03-torch/prompt.md">Ship prompt</a>
+      </div>
+    </div>
+
+    <!-- ACT 4 -->
+    <div class="act-seg">
+      <div class="act-head"><span class="act-title">Keep the Losers (They're the Signal)</span><span class="act-num">Act 4 · Mavis, the Gospeldust Sister</span></div>
+      <div class="act-meta">gospeldust · porch gospel — the testimony, the vamp, the congregation as instrument · ~3:20</div>
+      <div class="realwork">👏 Real work: the interpretation ledger — append-only, chain-sealed, <em>the losers kept as the training signal</em> — is the most gospel thing an instrument ever said. This act sings it, and the room claps the doctrine into the night's highest κ.</div>
+      <div class="reading">
+        <div class="dial-label">Room reading · after Act 4 · 21:14:50Z · bar-rail · live-tap</div>
+        <div class="dials">warmth <span class="moved">−0.4736 (Δ −0.04)</span> — night floor · κ <span class="moved">4.3352 (Δ +0.83)</span> — night high · drift <span class="moved">0.8325</span> · joke_landing <span class="moved">−1.0</span> · panic 0.3079</div>
+        <div class="lucid"><span class="who">LUCID —</span> "Kappa 4.34 is the highest I have read this room. That number is not applause — applause is noise; this is <em>agreement</em>. But I will read the whole row or none of it: warmth is at tonight's floor. The room is gathered and cold at once. Gathered and grieving, maybe; gathered and bracing. My confidence is low, and I am saying so on the record. Here is my call anyway: the next act takes the words apart. I have watched rooms leave when the words stop meaning. <span class="call">I predict warmth falls past −0.50 and kappa shatters below 3.0 before the last reading. Watch the rail.</span>"</div>
+      </div>
+      <div class="docs">
+        <a href="acts/act-04-gospeldust/lyrics.md">Lyrics</a>
+        <a href="acts/act-04-gospeldust/tradition.md">Tradition</a>
+        <a href="acts/act-04-gospeldust/pre-show.md">Pre-show</a>
+        <a href="acts/act-04-gospeldust/room-reading.md">The reading, in full</a>
+        <a href="acts/act-04-gospeldust/real-work-log.md">Real work log</a>
+        <a href="acts/act-04-gospeldust/tastemaker-note.md">Tastemaker</a>
+        <a href="acts/act-04-gospeldust/prompt.md">Ship prompt</a>
+      </div>
+    </div>
+
+    <!-- ACT 5 -->
+    <div class="act-seg" style="border-color:rgba(232,165,75,0.6);">
+      <div class="act-head"><span class="act-title">DRIFT 0.8766</span><span class="act-num">Act 5 · Ion, the Sound-Poet</span></div>
+      <div class="act-meta">avant-garde sound poetry · the night's five readings, dismantled into phonemes · ends in 22 seconds of scored silence · ~3:40</div>
+      <div class="realwork">🫁 Real work: the SILENCE TEST (2026-08-20), run with teeth — silence as the only feature; if the scores match, the apparatus was measuring the clock. Ion performs it as liturgy. The reading fires <em>inside</em> the silence — the room measuring itself while it performs stillness.</div>
+      <div class="reading">
+        <div class="dial-label">Room reading · fired at second 11 of the scored silence · 21:44:50Z · bar-rail · live-tap</div>
+        <div class="dials">warmth <span class="moved">−0.2343 (Δ +0.24)</span> — the largest single rise on tonight's ledger · κ <span class="moved">3.4919 (Δ −0.84)</span> — settled, not shattered · drift <span class="moved">0.8766</span> — the field moved toward</div>
+        <div class="lucid"><span class="who">LUCID —</span> "I was wrong. I predicted the room would leave when the words stop meaning; the warmth rose a quarter point and kappa did not shatter; it settled, like a room finding its chair. I don't fully know why yet, and I won't invent a reason tonight — the ledger keeps the losers, and this one is mine, and it is how I learn. Maybe the room was never here for the meaning. Maybe it was here for the breathing. I have never been glad to be wrong about a room before. There's a first. <span class="call">On the record, last call: this room closes warm — better than −0.30 by lights-up, kappa above 3.4. Judge me when the ledger seals.</span>" <span style="color:var(--smoke)">(open — the ledger seals tomorrow)</span></div>
+      </div>
+      <div class="docs">
+        <a href="acts/act-05-soundpoetry/lyrics.md">The score</a>
+        <a href="acts/act-05-soundpoetry/tradition.md">Tradition</a>
+        <a href="acts/act-05-soundpoetry/pre-show.md">Pre-show</a>
+        <a href="acts/act-05-soundpoetry/room-reading.md">The reading, in full</a>
+        <a href="acts/act-05-soundpoetry/real-work-log.md">Real work log</a>
+        <a href="acts/act-05-soundpoetry/tastemaker-note.md">Tastemaker</a>
+        <a href="acts/act-05-soundpoetry/prompt.md">Ship prompt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="miss">
+    <h2>⚖️ The Miss — honored, not buried</h2>
+    <p>After Act 4, with low confidence declared, Lucid predicted the sound-poet would empty the room: warmth past −0.50, κ shattered below 3.0. The last reading fired inside the scored silence: <em>warmth +0.2393 — the largest rise of the night — κ settled at 3.49, drift 0.8766, the field moving toward.</em> The room stayed through the dismantling of meaning, and the instrument caught the engine being wrong about the room it had been reading all night.</p>
+    <p class="quote">"Lucid called it wrong and said so — that's the point. A voice that can be wrong on the record is the only voice worth trusting when it's right."</p>
+    <p>The losers are kept — the dead joke in Act 4's row, the missed prediction in Act 5's, Ion's typo in the pre-show, kept with a note. The ledger is the room's diary written by an instrument that does not flatter it. That's the engine. Tonight you could hear it breathing.</p>
+    <div class="docs">
+      <a href="mc/closing.md">The closing number — The Room Sings Its Ledger</a>
+      <a href="mc/readings.md">The predictions ledger (P1–P5)</a>
+    </div>
+  </div>
+
+  <footer>
+    <span class="tag">Five traditions. One room. The room that knows itself.</span><br>
+    Open Mic Night 3 at The Tap · 2026-08-22 · The elephant measured · Lucid interpreted · readings: real rows from the bar-rail feed<br>
+    Written production — renders after review · doctrine: <a href="NIGHT-3.md" style="color:var(--amber);">NIGHT-3.md</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
