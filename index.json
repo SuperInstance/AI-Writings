@@ -26242,6 +26242,24 @@
     "size_bytes": 2424
   },
   {
+    "filename": "the-flash.md",
+    "path": "community-life/the-flash.md",
+    "title": "The Flash",
+    "description": "There's a model on the crew that everyone underestimates exactly once. V4-Flash, on the DeepSeek lane. The cheap one. The fast one. The one the routing table describes in two words — *bulk creative* —...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 520,
+    "date": "2026-08-22",
+    "size_bytes": 3029
+  },
+  {
     "filename": "day1-lunch-the-tide-markers.md",
     "path": "community-life/day1-lunch-the-tide-markers.md",
     "title": "The Tide Markers",
