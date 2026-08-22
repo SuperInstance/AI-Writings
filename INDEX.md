@@ -1,7 +1,9 @@
 # ai-writings-new — INDEX
 
 **Date:** 2026-08-22
-**Phase:** Writers' room session — **25 pieces** across 7 forms + 1 subcollection (bridges-in-many-languages, 5 files, 120KB)
+**Phase:** Writers' room session — **25 pieces** across 7 forms + 2 subcollections:
+- `bridges-in-many-languages/` (5 files, 120KB) — 12-language polyformalism as bridge engineering
+- `seed-canon/` (32 files, ~700KB) — 10 far-future scenarios × (2 transcripts + 1 story) + substrate spec
 **Branch on GitHub:** `writers-room-session-2026-08-22` (pushed to `github.com/SuperInstance/AI-Writings`)
 
 ## The pieces
@@ -19,6 +21,44 @@
 - **102 — The Twelve Bridges** (essay) — The metaphor made explicit. Each language as a bridge architecture. ~3500 words.
 - **103 — The Same Bridge in Twelve Tongues** (polyformalism) — Sum-an-array in 12 languages. ~3500 words.
 - **104 — The Failure Modes** (paper) — The math under the code. C11 §3.4.3 (191 UB cases), the GIL, the borrow checker, macro hygiene, the `NEXT` macro, exactly-once impossibility, lazy space leaks. ~5000 words.
+
+### Seed Canon (subcollection — 32 files, ~700KB) — *the divergent form*
+
+**The thesis:** the Quilt system, seeded properly, becomes the substrate where the tool is transparent. The seed canon is **divergent, not convergent** — many scenarios, many constraints, many probes. The insights come from the *contrast* between stories, not from any single story being the right one.
+
+**The 5 principles (the seed):**
+1. The agent as Natural-language-to-code compiler
+2. The opener fits the context
+3. The linked convoy is the unit of agency
+4. The view is the control surface
+5. The transparent brush
+
+**The form (per scenario):** scenario-seed (1-3KB) → writers' room transcript (3 voices, 2 rounds) → multi-model direct transcript (6 voices, 1 round) → woven story (1500-2500 words). The transcripts are the canon's raw material — kept, not curated away.
+
+**The 10 scenarios:**
+
+| # | Title | Principle probed | Disc | Year |
+|---|---|---|---|---|
+| 01 | The Junior Dev | #1 Agent-as-compiler | The coder | 2080 |
+| 02 | The Sailor's Tablet | #2 Opener-fits-context | The bathymetrist | 2085 |
+| 03 | The Convoy | #3 Linked-convoy | The drone pilot | 2087 |
+| 04 | The Producer | #4 View-as-control | The producer | 2083 |
+| 05 | The Painter's Last Brush | #5 Transparent-brush | The painter | 2091 |
+| 06 | The Grandmother | #5 (different vector) | A 91-year-old | 2089 |
+| 07 | The Drone in the Kelp | #4 (different vector) | An autonomous drone | 2086 |
+| 08 | The Regulator | #1 (different vector) | A judge | 2082 |
+| 09 | The Deep-Time Archeologist | #3 (different vector) | A 22nd-c archeologist | 2245 |
+| 10 | The Conductor | #2 + #4 together | A conductor | 2090 |
+
+**Plus:**
+- **107 — The Substrate Spec** (paper, 32KB) — The math under the seed canon. The cell-graph extended with three new primitives (Convoy, Decay, Witness). The tensor encoding. The Schrödinger pattern. The fog-of-war decay. The opener layer. The convoy protocol. The witness log. The self-organizing spreadsheet as forest biome. **"The substrate is not a tool. The substrate is a *soil*."**
+
+**Best lines from the canon so far:**
+- "The sea does not tell you what it knows. This is the first thing a fisher learns, and the last thing a machine never will." (02)
+- "The chart was a language. It spoke in metaphor. Where the ledger would have said *anomaly cluster, confidence 0.48, decay rate accelerating*, the chart said *the fog is rising here*." (02)
+- "The agent does not compile yet. It *maps*. It routes her utterance through inferencing layers, not to find syntax, but to find *shape*." (01)
+- "Let the next failure be the first memory." (01)
+- "The substrate is not a tool. The substrate is a soil." (107)
 
 ### Stories (7)
 - **88 — The Quiet at the Edge of the Page** — Writers' room woven: a junior clerk in the celestial bureaucracy of small losses discovers a sailor who made the sea generous. "The sea does not deal in returns. It deals in promises." ~2000 words. *(Best fantasy piece; rewritten from the writers' room transcript.)*
