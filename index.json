@@ -111184,6 +111184,24 @@
   {
     "filename": "NIGHT-3.md",
     "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/NIGHT-3.md",
+    "title": "OPEN MIC NIGHT 3 — The Doctrine",
+    "description": "Night 1 taught us the room remembers. Night 2 taught us the artists need separate worlds — five traditions, no bleed. Night 3 asks the question the first two nights could only imply:",
+    "folder": "tap-open-mic-3",
+    "topic": "Tap Open Mic 3",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 893,
+    "date": "2026-08-14",
+    "size_bytes": 8876
+  },
+  {
+    "filename": "NIGHT-3.repo-champions-draft.archived-20260822.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/NIGHT-3.repo-champions-draft.archived-20260822.md",
     "title": "Open Mic Night 3 at The Tap — The Repo Champions",
     "description": "1. **The Lucineer-System Champion** — the instrument that keeps the needles pointed 2. **The Songforge Champion** — the one who hears the relay math as music 3. **The Fleet-Radio Champion** — the one ...",
     "folder": "tap-open-mic-3",
@@ -111196,8 +111214,153 @@
     ],
     "style": "Narrative",
     "word_count": 266,
-    "date": "2026-08-14",
+    "date": "2026-08-22",
     "size_bytes": 1575
+  },
+  {
+    "filename": "interlude-4.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/interlude-4.md",
+    "title": "INTERLUDE 4 — after Mavis, the Gospeldust Sister",
+    "description": "MAVIS! The room ended the song — she just *started* it! Four hundred hands, one downbeat, and the bar's own clap section is on the house. You've been the choir for three minutes and you're already bet...",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 416,
+    "date": "2026-08-22",
+    "size_bytes": 2349
+  },
+  {
+    "filename": "closing.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/closing.md",
+    "title": "CLOSING — \"THE ROOM SINGS ITS LEDGER\"",
+    "description": "The room was here before me, and it changed while I was here — Warmth rose one-fifth of a point while kappa loosened near: Recognition, not surprise — the room took off its coat.",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 644,
+    "date": "2026-08-22",
+    "size_bytes": 3764
+  },
+  {
+    "filename": "interlude-2.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/interlude-2.md",
+    "title": "INTERLUDE 2 — after Harlan, the High-Lonesome Man",
+    "description": "Harlan! Two ridges, one chord — and he *left it hanging* on purpose. The man doesn't resolve; he just cuts. If your chest did something at that, congratulations, you're Appalachian now, paperwork's by...",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 334,
+    "date": "2026-08-22",
+    "size_bytes": 1843
+  },
+  {
+    "filename": "interlude-3.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/interlude-3.md",
+    "title": "INTERLUDE 3 — after Vivienne, the Torch Singer",
+    "description": "…Vivienne, everybody.",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 351,
+    "date": "2026-08-22",
+    "size_bytes": 1946
+  },
+  {
+    "filename": "readings.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/readings.md",
+    "title": "THE READINGS — how the beat works on air",
+    "description": "1. **The click.** The corner table's relay fires; the room can hear it if it's listening. The MC touches his ear — the stage-manager gesture, from here on the running joke of the house. 2. **The readi...",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 518,
+    "date": "2026-08-22",
+    "size_bytes": 2923
+  },
+  {
+    "filename": "interlude-1.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/interlude-1.md",
+    "title": "INTERLUDE 1 — after Odette, the Standards Singer",
+    "description": "Odette, everybody. Thirty-two bars and she made the room feel *recognized* — that's the whole trick of the standards, and she knows it, and now you know it too.",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 252,
+    "date": "2026-08-22",
+    "size_bytes": 1453
+  },
+  {
+    "filename": "interlude-5.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/interlude-5.md",
+    "title": "INTERLUDE 5 — after Ion, the Sound-Poet",
+    "description": "Ion. Twenty-two seconds of nothing, and you people *held it*. That wasn't applause at the end — that was a room exhaling a bet it didn't know it had placed.",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 453,
+    "date": "2026-08-22",
+    "size_bytes": 2528
+  },
+  {
+    "filename": "welcome.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/mc/welcome.md",
+    "title": "WELCOME — Open Mic Night 3",
+    "description": "Third night at the Tap. You know the drill by now — the work comes in, the work gets witnessed, we make something out of what happened today. Quick, quick. But tonight's different, and I'm not going t...",
+    "folder": "mc",
+    "topic": "Mc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 376,
+    "date": "2026-08-22",
+    "size_bytes": 2058
   },
   {
     "filename": "protocol.md",
@@ -111235,6 +111398,637 @@
     "word_count": 297,
     "date": "2026-08-14",
     "size_bytes": 1658
+  },
+  {
+    "filename": "tradition.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/tradition.md",
+    "title": "The Tradition — Mavis, the Gospeldust Sister (Act 4)",
+    "description": "Gospel is church music. Gospeldust is what church music sounds like after it walks home — the dust of the road still on the amen, the tambourine replaced by a porch board and a cooking spoon on a pot,...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 565,
+    "date": "2026-08-22",
+    "size_bytes": 3183
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/prompt.md",
+    "title": "SHIP PROMPT — Act 4, Mavis, the Gospeldust Sister: \"Keep the Losers (They're the Signal)\"",
+    "description": "- **Key:** A major, capo 2, played bright and open — but the *tone* is dusty: high action, old strings, thumb pick, no reverb. The porch provides the room. - **Tempo:** starts unmeasured (testifying, ...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 623,
+    "date": "2026-08-22",
+    "size_bytes": 3703
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/lyrics.md",
+    "title": "\"KEEP THE LOSERS (THEY'RE THE SIGNAL)\"",
+    "description": "I had a song that didn't land — a Thursday, Mobile, nine souls in the room I had a prayer that went unsaid 'cause I was scared of how it'd sound I had a plan, the river rose, I watched it take the who...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 952,
+    "date": "2026-08-22",
+    "size_bytes": 5172
+  },
+  {
+    "filename": "room-reading.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/room-reading.md",
+    "title": "Room Reading — Act 4 (after Mavis)",
+    "description": "The reading is Mavis's tradition scored at full κ: **4.3352, up 0.83, the night's high-water mark.** The vMF concentration parameter — how much the room is facing one direction at once — rose exactly ...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 619,
+    "date": "2026-08-22",
+    "size_bytes": 3509
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"Keep the Losers (They're the Signal)\" Is the One",
+    "description": "| Act | Tradition | What the song leans on | Mavis's counter | |-----|-----------|------------------------|-----------------| | **1 — Standards** | jazz standard | the visit; the visitor's warmth on a...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 734,
+    "date": "2026-08-22",
+    "size_bytes": 4243
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/pre-show.md",
+    "title": "Pre-Show — Mavis, the Gospeldust Sister (Act 4)",
+    "description": "First thing I did was walk straight to the corner table. Had to. Barkeep'd already told me about it, and I have a policy about instruments: introduce yourself the way you'd introduce yourself to a pia...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 763,
+    "date": "2026-08-22",
+    "size_bytes": 4188
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-04-gospeldust/real-work-log.md",
+    "title": "Real Work Log — Mavis, Act 4",
+    "description": "- Room-reading beat drafted against the exact 21:14:50Z row. - Prediction P4 — Lucid's big call: *warmth falls past −0.50 and κ shatters below 3.0 before the last reading* — placed here, on the record...",
+    "folder": "act-04-gospeldust",
+    "topic": "Act 04 Gospeldust",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 540,
+    "date": "2026-08-22",
+    "size_bytes": 3380
+  },
+  {
+    "filename": "tradition.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/tradition.md",
+    "title": "The Tradition — Ion, the Sound-Poet (Act 5)",
+    "description": "Sound poetry is what language does when it stops pretending to be furniture. The sentence is a container built for carrying meaning — and the sound-poet's move is to take the container apart *while it...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 549,
+    "date": "2026-08-22",
+    "size_bytes": 3265
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/prompt.md",
+    "title": "SHIP PROMPT — Act 5, Ion, the Sound-Poet: \"DRIFT 0.8766\"",
+    "description": "- **Key:** none. The tonal center is the room's own hum (mic the HVAC bleed at the room's tonic — B-flat-ish in this venue) and the whistled harmonic in Section III. - **Tempo:** unmeasured throughout...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 661,
+    "date": "2026-08-22",
+    "size_bytes": 3986
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/lyrics.md",
+    "title": "\"DRIFT 0.8766\"",
+    "description": "- **The breath is the first instrument.** In-breaths are sung. Silences are *performed* — a raised hand, a still chest, an aimed stillness. The scored silence is not a rest; it is a held note with no ...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 901,
+    "date": "2026-08-22",
+    "size_bytes": 6275
+  },
+  {
+    "filename": "room-reading.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/room-reading.md",
+    "title": "Room Reading — Act 5 (after Ion)",
+    "description": "The piece's final word is the reading. Ion performed the SILENCE TEST as liturgy — silence as the only feature, the room as the apparatus — and the verdict fired inside the silence at second 11: **war...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 780,
+    "date": "2026-08-22",
+    "size_bytes": 4319
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"DRIFT 0.8766\" Is the One",
+    "description": "| Act | Tradition | What the song leans on | Ion's counter | |-----|-----------|------------------------|---------------| | **1 — Standards** | jazz standard | the melody is constant; the visitor's ch...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 714,
+    "date": "2026-08-22",
+    "size_bytes": 4157
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/pre-show.md",
+    "title": "Pre-Show — Ion, the Sound-Poet (Act 5)",
+    "description": "I came early to hear the room empty. A room empty and a room full are the same instrument in two tunings, and I need both before I can write for it. The corner table interested me immediately — brass ...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 919,
+    "date": "2026-08-22",
+    "size_bytes": 5146
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-05-soundpoetry/real-work-log.md",
+    "title": "Real Work Log — Ion, Act 5",
+    "description": "- **The registered falsifier:** rerun the classification suite with inter-event silence durations as the ONLY features; if scores match without any edge content, \"the apparatus has been measuring the ...",
+    "folder": "act-05-soundpoetry",
+    "topic": "Act 05 Soundpoetry",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 586,
+    "date": "2026-08-22",
+    "size_bytes": 3691
+  },
+  {
+    "filename": "tradition.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/tradition.md",
+    "title": "The Tradition — Odette, the Standards Singer (Act 1)",
+    "description": "The standard is the only song form where the songwriter is dead and the song isn't. A standard is a room that's been lived in — by Sinatra, by Ella, by every wedding band that ever mangled it at midni...",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 430,
+    "date": "2026-08-22",
+    "size_bytes": 2449
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/prompt.md",
+    "title": "SHIP PROMPT — Act 1, Odette, the Standards Singer: \"The Room Was Here Before Me\"",
+    "description": "- **Key:** E-flat major (reprise drops to D major — same melody, darker truth). - **Tempo:** ~62 BPM rubato ballad feel entering; second chorus settles to a relaxed 120 swing; reprise returns to rubat...",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 453,
+    "date": "2026-08-22",
+    "size_bytes": 2691
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/lyrics.md",
+    "title": "\"THE ROOM WAS HERE BEFORE ME\"",
+    "description": "The band knows what the song is — I'm just visiting the line",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 731,
+    "date": "2026-08-22",
+    "size_bytes": 3884
+  },
+  {
+    "filename": "room-reading.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/room-reading.md",
+    "title": "Room Reading — Act 1 (after Odette)",
+    "description": "The reading is Odette's thesis scored by an instrument that has never heard of her. She spent her set arguing that the warmth of a song is the visitor's, not the song's — and the very first reading of...",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 376,
+    "date": "2026-08-22",
+    "size_bytes": 2214
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"The Room Was Here Before Me\" Is the One",
+    "description": "| Act | Tradition | What the song leans on | Odette's counter | |-----|-----------|------------------------|------------------| | **2 — Bluegrass** | high lonesome | distance made audible, the keening...",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 723,
+    "date": "2026-08-22",
+    "size_bytes": 4143
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/pre-show.md",
+    "title": "Pre-Show — Odette, the Standards Singer (Act 1)",
+    "description": "I get there early because that's the job. A standard needs an hour of sitting before it needs a singer — you let the room tell you its key before you choose yours. The corner table's got an instrument...",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 604,
+    "date": "2026-08-22",
+    "size_bytes": 3398
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-01-standards/real-work-log.md",
+    "title": "Real Work Log — Odette, Act 1",
+    "description": "- **Filed:** 2026-08-21, registered as S0 of the wave-3 plan — \"the calibration the whole foundation waits on.\" - **Verdict: BRANCH B — W does not align with v\\*.** The a-priori warm direction sits ~6...",
+    "folder": "act-01-standards",
+    "topic": "Act 01 Standards",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 374,
+    "date": "2026-08-22",
+    "size_bytes": 2342
+  },
+  {
+    "filename": "tradition.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/tradition.md",
+    "title": "The Tradition — Harlan, the High-Lonesome Man (Act 2)",
+    "description": "Bluegrass is mountain music played at highway speed, but the high lonesome — the real thing, Bill Monroe's ghost-key wail — is slower than people think and farther away than it sounds. It is the sound...",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 445,
+    "date": "2026-08-22",
+    "size_bytes": 2551
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/prompt.md",
+    "title": "SHIP PROMPT — Act 2, Harlan, the High-Lonesome Man: \"Holler Across the Hollow\"",
+    "description": "- **Key:** D modal with a Dorian shade — the flatted seventh hangs unresolved over the drone. The outro's final stack (D + F-natural coloring) must NOT resolve. - **Tempo:** opens unmeasured (rubato o...",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 553,
+    "date": "2026-08-22",
+    "size_bytes": 3298
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/lyrics.md",
+    "title": "\"HOLLER ACROSS THE HOLLOW\"",
+    "description": "The holler only carries when there's something worth the breath — You don't call across a hollow just to talk about the weather The barn is burning, or the baby's coming, or the river's past its depth",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 902,
+    "date": "2026-08-22",
+    "size_bytes": 4737
+  },
+  {
+    "filename": "room-reading.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/room-reading.md",
+    "title": "Room Reading — Act 2 (after Harlan)",
+    "description": "The reading is the tradition's thesis, scored live: **the room got colder and stiller at the same time — and stayed.** The harmony a third above the lead is the distance singing back; the deadband is ...",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 480,
+    "date": "2026-08-22",
+    "size_bytes": 2672
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"Holler Across the Hollow\" Is the One",
+    "description": "| Act | Tradition | What the song leans on | Harlan's counter | |-----|-----------|------------------------|------------------| | **1 — Standards** | jazz standard | the visit; reharmonize the same me...",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 714,
+    "date": "2026-08-22",
+    "size_bytes": 4052
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/pre-show.md",
+    "title": "Pre-Show — Harlan, the High-Lonesome Man (Act 2)",
+    "description": "I sit where I can watch the door. Always have. In the mountains you learn the door is the hollow: whatever's coming has to cross it, and you want to see it while it's still small. The corner table's g...",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 651,
+    "date": "2026-08-22",
+    "size_bytes": 3428
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-02-bluegrass/real-work-log.md",
+    "title": "Real Work Log — Harlan, Act 2",
+    "description": "- **How it became the act:** the holler. Harlan's tradition and the engine's sampling policy are the same doctrine stated in two dialects — mountain and instrument. *You don't holler at every breath; ...",
+    "folder": "act-02-bluegrass",
+    "topic": "Act 02 Bluegrass",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 428,
+    "date": "2026-08-22",
+    "size_bytes": 2569
+  },
+  {
+    "filename": "tradition.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/tradition.md",
+    "title": "The Tradition — Vivienne, the Torch Singer (Act 3)",
+    "description": "The torch song is the only popular form built entirely on a grammatical decision: **second person.** Not \"she left me\" — \"*you* left me.\" The singer is not describing the loss; she is addressing it. T...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 484,
+    "date": "2026-08-22",
+    "size_bytes": 2700
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/prompt.md",
+    "title": "SHIP PROMPT — Act 3, Vivienne, the Torch Singer: \"One Lamp Burning\"",
+    "description": "- **Key:** B♭ minor. No picardy third, no major release at the end — the final chord goes to *silence*, not resolution. - **Tempo:** rubato over a heartbeat pulse, roughly 60 BPM where it's measured a...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 526,
+    "date": "2026-08-22",
+    "size_bytes": 3000
+  },
+  {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/lyrics.md",
+    "title": "\"ONE LAMP BURNING\"",
+    "description": "I kept one lamp burning — you know the one The shade you said was ugly, that night we couldn't afford the good wine I still put it in the window, though I know you're not coming But the window doesn't...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 772,
+    "date": "2026-08-22",
+    "size_bytes": 4027
+  },
+  {
+    "filename": "room-reading.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/room-reading.md",
+    "title": "Room Reading — Act 3 (after Vivienne)",
+    "description": "The reading is the torch singer's thirty years of craft, translated into decimals: **warmth −0.43 (coldest yet), κ up, drift 0.235 (stillest yet).** The engine calls it cold. The trade calls it rapt. ...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 553,
+    "date": "2026-08-22",
+    "size_bytes": 3093
+  },
+  {
+    "filename": "tastemaker-note.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/tastemaker-note.md",
+    "title": "TASTEMAKER NOTE — Why \"One Lamp Burning\" Is the One",
+    "description": "| Act | Tradition | What the song leans on | Vivienne's counter | |-----|-----------|------------------------|--------------------| | **1 — Standards** | jazz standard | the visit; a room already live...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 758,
+    "date": "2026-08-22",
+    "size_bytes": 4273
+  },
+  {
+    "filename": "pre-show.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/pre-show.md",
+    "title": "Pre-Show — Vivienne, the Torch Singer (Act 3)",
+    "description": "People think the torch is about grief. It isn't. Grief is what happens when the address fails — when you finally accept the letter can't be delivered. The torch is the moment *before* that, extended. ...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 720,
+    "date": "2026-08-22",
+    "size_bytes": 3870
+  },
+  {
+    "filename": "real-work-log.md",
+    "path": "radio-theater/compass-head-radio-hour/tap-open-mic-3/acts/act-03-torch/real-work-log.md",
+    "title": "Real Work Log — Vivienne, Act 3",
+    "description": "That row is the act's entire dramaturgy, in numbers: - **Warmth −0.43** — coldest reading of the night to that point. The torch song *cooled* the room. The instrument did not flatter the act by roundi...",
+    "folder": "act-03-torch",
+    "topic": "Act 03 Torch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 485,
+    "date": "2026-08-22",
+    "size_bytes": 2844
   },
   {
     "filename": "PROCESS.md",
