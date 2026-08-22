@@ -37,6 +37,18 @@ body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidde
 .track audio{width:250px;max-width:40%;height:32px}
 .track audio::-webkit-media-controls-panel{background-color:#1a1a2a}
 
+/* NOW PLAYING hero strip */
+.nowplaying{max-width:900px;margin:35px auto 0;padding:28px 30px 24px;background:linear-gradient(135deg,#0d0d18,#161226);border:2px solid #e8b840;border-radius:14px;box-shadow:0 0 35px rgba(232,184,64,0.18);text-align:center}
+.nowplaying-label{color:#44cc88;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:5px;margin-bottom:16px}
+.nowplaying-play{display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;border:none;background:radial-gradient(circle at 35% 35%,#f5d67a,#e8b840 60%,#c99a25);color:#0a0a14;font-size:1.8em;line-height:1;cursor:pointer;box-shadow:0 0 28px rgba(232,184,64,0.5),0 4px 12px rgba(0,0,0,0.5);transition:transform 0.15s,box-shadow 0.3s}
+.nowplaying-play:hover{transform:scale(1.07);box-shadow:0 0 45px rgba(232,184,64,0.75)}
+.nowplaying-play.playing{background:radial-gradient(circle at 35% 35%,#7ceeb5,#44cc88 60%,#2a9d68);box-shadow:0 0 35px rgba(68,204,136,0.6)}
+.nowplaying-title{color:#e8b840;font-size:1.35em;letter-spacing:1px;margin:14px 0 6px;text-shadow:0 0 14px rgba(232,184,64,0.25)}
+.nowplaying-desc{color:#888;font-style:italic;font-size:0.95em;margin-bottom:16px}
+.nowplaying audio{width:min(560px,90%);height:48px;border:1px solid #3a2f14;border-radius:24px;box-shadow:0 0 18px rgba(232,184,64,0.25);background:#11111a}
+.np-note{color:#555;font-size:0.8em;font-style:italic;margin-top:16px}
+.np-note a{color:#44cc88;text-decoration:none}
+
 /* Podcast Section */
 .podcast{background:#0d0d18;border-radius:12px;padding:30px;margin:30px 0}
 .podcast h3{color:#44cc88;font-size:1.2em;margin-bottom:15px;font-family:'Courier New',monospace}
@@ -101,6 +113,16 @@ Sorry, just—can’t help picking the lyrics out of the air here, y’know? Thi
 
 Barnacle over there, face as blank as the ones glued to the dock pilings, just staring out that window like he’s got nothing left to say. Dr."<br>— Wren Pike
   </div>
+</div>
+
+<!-- NOW PLAYING hero strip -->
+<div class="nowplaying">
+  <div class="nowplaying-label">🎙 NOW PLAYING</div>
+  <button class="nowplaying-play" aria-label="Play Unplayed">▶</button>
+  <div class="nowplaying-title">Unplayed</div>
+  <div class="nowplaying-desc">Weathered baritone, acoustic guitar. The song you haven't played yet. 68 BPM.</div>
+  <audio class="np-main" controls preload="none"><source src="/music/01-unplayed-indie-folk.mp3" type="audio/mpeg"></audio>
+  <p class="np-note">🎸 The night after this broadcast, the band formed at The Tap — hear their first tune, <a href="/fleet-radio/songs/the-hundred-boats.wav">The Hundred Boats on the Same Tack</a>, on <a href="/fleet-radio/2026-08-21.html">the August 21 episode →</a></p>
 </div>
 
 <!-- The Show -->
@@ -337,5 +359,16 @@ loop until dawn</pre>
   </p>
 </div>
 
+<script>
+(function(){
+  document.querySelectorAll('.nowplaying').forEach(function(np){
+    var btn=np.querySelector('.nowplaying-play'),audio=np.querySelector('audio.np-main');
+    if(!btn||!audio)return;
+    btn.addEventListener('click',function(){ if(audio.paused){audio.play();}else{audio.pause();} });
+    audio.addEventListener('play',function(){btn.textContent='⏸';btn.classList.add('playing')});
+    audio.addEventListener('pause',function(){btn.textContent='▶';btn.classList.remove('playing')});
+  });
+})();
+</script>
 </body>
 </html>

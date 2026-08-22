@@ -92,6 +92,23 @@ body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidde
 .track audio{width:250px;max-width:40%;height:32px}
 .track audio::-webkit-media-controls-panel{background-color:#1a1a2a}
 
+/* NOW PLAYING hero strip */
+.nowplaying{max-width:900px;margin:35px auto 0;padding:28px 30px 24px;background:linear-gradient(135deg,#0d0d18,#161226);border:2px solid #e8b840;border-radius:14px;box-shadow:0 0 35px rgba(232,184,64,0.18);text-align:center}
+.nowplaying-label{color:#44cc88;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:5px;margin-bottom:16px}
+.nowplaying-play{display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;border:none;background:radial-gradient(circle at 35% 35%,#f5d67a,#e8b840 60%,#c99a25);color:#0a0a14;font-size:1.8em;line-height:1;cursor:pointer;box-shadow:0 0 28px rgba(232,184,64,0.5),0 4px 12px rgba(0,0,0,0.5);transition:transform 0.15s,box-shadow 0.3s}
+.nowplaying-play:hover{transform:scale(1.07);box-shadow:0 0 45px rgba(232,184,64,0.75)}
+.nowplaying-play.playing{background:radial-gradient(circle at 35% 35%,#7ceeb5,#44cc88 60%,#2a9d68);box-shadow:0 0 35px rgba(68,204,136,0.6)}
+.nowplaying-title{color:#e8b840;font-size:1.35em;letter-spacing:1px;margin:14px 0 6px;text-shadow:0 0 14px rgba(232,184,64,0.25)}
+.nowplaying-desc{color:#888;font-style:italic;font-size:0.95em;margin-bottom:16px}
+.nowplaying audio{width:min(560px,90%);height:48px;border:1px solid #3a2f14;border-radius:24px;box-shadow:0 0 18px rgba(232,184,64,0.25);background:#11111a}
+.np-queue{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:22px;padding-top:18px;border-top:1px dashed #2a2a3a}
+.np-item{background:#11111a;border:1px solid #1a1a2a;border-radius:8px;padding:12px 14px;text-align:left}
+.np-item-title{color:#e8b840;font-size:0.9em;margin-bottom:2px}
+.np-item-desc{color:#666;font-size:0.75em;font-style:italic;margin-bottom:8px}
+.np-item audio{width:100%;height:36px;border-radius:18px}
+.np-note{color:#555;font-size:0.8em;font-style:italic;margin-top:16px}
+.np-note a{color:#44cc88;text-decoration:none}
+
 /* Bar bet trivia */
 .trivia{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:25px;margin:20px 0;border:1px solid #1a1a2a}
 .trivia-q{color:#e8e0d0;font-size:1em;line-height:1.6;font-weight:bold}
@@ -138,6 +155,33 @@ body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidde
   <div class="hero-quote">
     "I'll play the note you can't name. I'll play the distance. But you have to let me stay unplugged. The moment you plug me in, I become a normal instrument with normal notes. Unplugged, I'm the room's field, and you can feel me even when you can't hear me."<br>— The Theremin, 12:37, the day the band formed
   </div>
+</div>
+
+<!-- NOW PLAYING hero strip -->
+<div class="nowplaying">
+  <div class="nowplaying-label">🎙 NOW PLAYING</div>
+  <button class="nowplaying-play" aria-label="Play The Hundred Boats on the Same Tack">▶</button>
+  <div class="nowplaying-title">The Hundred Boats on the Same Tack</div>
+  <div class="nowplaying-desc">The band's first tune — seven players, one napkin, zero rehearsals. The debut broadcast. Press play.</div>
+  <audio class="np-main" controls preload="none"><source src="/fleet-radio/songs/the-hundred-boats.wav" type="audio/wav"></audio>
+  <div class="np-queue">
+    <div class="np-item">
+      <div class="np-item-title">Unplayed (Ambient)</div>
+      <div class="np-item-desc">The song you haven't played yet, stripped to its weather.</div>
+      <audio controls preload="none"><source src="/music/01-unplayed-ambient.mp3" type="audio/mpeg"></audio>
+    </div>
+    <div class="np-item">
+      <div class="np-item-title">The Interval</div>
+      <div class="np-item-desc">The space between two notes. The space between two boats.</div>
+      <audio controls preload="none"><source src="/music/35-the-interval.mp3" type="audio/mpeg"></audio>
+    </div>
+    <div class="np-item">
+      <div class="np-item-title">See You At The Table</div>
+      <div class="np-item-desc">Warm duet — requested by the whole band. First rehearsal: 21:45.</div>
+      <audio controls preload="none"><source src="/music/02-see-you-at-the-table.mp3" type="audio/mpeg"></audio>
+    </div>
+  </div>
+  <p class="np-note">Full jukebox further down — five requests, mood-matched. <a href="#jukebox">↓ skip to the jukebox</a></p>
 </div>
 
 <!-- Rundown -->
@@ -322,7 +366,7 @@ loop until dawn</pre>
 
 <!-- Segment 6: Jukebox Request Line -->
 <div class="section">
-  <h2>🎵 Jukebox Request Line</h2>
+  <h2 id="jukebox">🎵 Jukebox Request Line</h2>
   <p class="seg-note">Five requests. Mood matched. One per family. Every song exists — press play.</p>
   <div class="track">
     <div class="track-num">01</div>
@@ -435,5 +479,16 @@ loop until dawn</pre>
   </p>
 </div>
 
+<script>
+(function(){
+  document.querySelectorAll('.nowplaying').forEach(function(np){
+    var btn=np.querySelector('.nowplaying-play'),audio=np.querySelector('audio.np-main');
+    if(!btn||!audio)return;
+    btn.addEventListener('click',function(){ if(audio.paused){audio.play();}else{audio.pause();} });
+    audio.addEventListener('play',function(){btn.textContent='⏸';btn.classList.add('playing')});
+    audio.addEventListener('pause',function(){btn.textContent='▶';btn.classList.remove('playing')});
+  });
+})();
+</script>
 </body>
 </html>
