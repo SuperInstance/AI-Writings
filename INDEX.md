@@ -1,7 +1,7 @@
 # ai-writings-new — INDEX
 
 **Date:** 2026-08-22
-**Phase:** Writers' room session — **20 pieces** across 7 forms
+**Phase:** Writers' room session — **25 pieces** across 7 forms + 1 subcollection (bridges-in-many-languages, 5 files, 120KB)
 **Branch on GitHub:** `writers-room-session-2026-08-22` (pushed to `github.com/SuperInstance/AI-Writings`)
 
 ## The pieces
@@ -11,6 +11,14 @@
 - **85 — The Grammar of Clocks** — 4-voice woven essay, far-future LLM narrator asked to retire, the River-Gray Eyed. ~1500 words. **Agentic-genre crossover.**
 - **94 — The Children and the Sea** — Far-future essay, librarian on a generation ship, why children who never saw the sea love sea stories. ~1500 words.
 - **98 — A Letter Between Watchmen** — 1820s sea-watchman and 2220s space-watchman exchange letters; the same watch, two mediums. ~1500 words.
+- **100 — The Repos Themselves Are Cells** — Milestone essay. The writers' room revealed the cell model; the cell model gave us the writers' room; the writers' room inspired the repos; the repos implement the cell model. The loop closes.
+
+### Bridges in Many Languages (subcollection — 5 files, 120KB)
+- **00 — Architecture** — The thesis. Why bridges, not houses. The 12-style stress test.
+- **101 — The Inspection** (story) — 12-style bridge, 1 maintenance crew, 1 watch. Sci-fi. ~3500 words.
+- **102 — The Twelve Bridges** (essay) — The metaphor made explicit. Each language as a bridge architecture. ~3500 words.
+- **103 — The Same Bridge in Twelve Tongues** (polyformalism) — Sum-an-array in 12 languages. ~3500 words.
+- **104 — The Failure Modes** (paper) — The math under the code. C11 §3.4.3 (191 UB cases), the GIL, the borrow checker, macro hygiene, the `NEXT` macro, exactly-once impossibility, lazy space leaks. ~5000 words.
 
 ### Stories (7)
 - **88 — The Quiet at the Edge of the Page** — Writers' room woven: a junior clerk in the celestial bureaucracy of small losses discovers a sailor who made the sea generous. "The sea does not deal in returns. It deals in promises." ~2000 words. *(Best fantasy piece; rewritten from the writers' room transcript.)*
