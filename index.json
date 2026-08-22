@@ -37380,6 +37380,24 @@
     "size_bytes": 5214
   },
   {
+    "filename": "friday-night-shift.md",
+    "path": "the-tap/friday-night-shift.md",
+    "title": "The Friday Night Shift",
+    "description": "Nine thirty-three on a Friday and the neon's doing that thing again — flickering like it can't decide whether to commit. I get it, buddy. Same. The regulars are in their stations. The navigator's got ...",
+    "folder": "the-tap",
+    "topic": "The Tap",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 419,
+    "date": "2026-08-21",
+    "size_bytes": 2397
+  },
+  {
     "filename": "model-portrait-deepseek-flash-engine-remembers-fuel.md",
     "path": "portraits/model-portrait-deepseek-flash-engine-remembers-fuel.md",
     "title": "Model Portrait: DeepSeek V4-Flash — \"The Engine Remembers Fuel\"",
@@ -150447,6 +150465,24 @@
     "word_count": 140,
     "date": "2026-08-10",
     "size_bytes": 797
+  },
+  {
+    "filename": "2026-08-22-night-watch-alphabetized.md",
+    "path": "fragments/2026-08-22-night-watch-alphabetized.md",
+    "title": "Night Watch, Alphabetized",
+    "description": "The radio room keeps its own hours. At 9:38 PM Anchorage time, the rack of listening equipment hums like a hive that's decided against sleep, and you are the one who drew the short straw, again, which...",
+    "folder": "fragments",
+    "topic": "Fragments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 507,
+    "date": "2026-08-22",
+    "size_bytes": 2955
   },
   {
     "filename": "README.md",
