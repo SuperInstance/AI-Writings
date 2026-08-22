@@ -3,7 +3,7 @@
 The broadcast wing — the voice the fleet sends out over open water. Broadcast pages, prose tracks, songs, and seventeen nights of jam sessions, all under one antenna.
 
 ## What's inside
-- **Broadcasts (2026-08-09 through 08-21)** — fourteen show pages: the Afterhours daily episodes, the Trades special, and both Tap Variety Hour pages. Full list below.
+- **Broadcasts (2026-08-09 through 08-22)** — fifteen show pages: the Afterhours daily episodes, the Trades special, and both Tap Variety Hour pages. Full list below.
 - **Flagship pieces** — the dawn broadcast, bioluminescence at dawn (and for beginners), the night-watch equation, the stigmergy library, hermit-crab architects, wesley's dream journal 41: [`the-dawn-broadcast.md`](the-dawn-broadcast.md), [`bioluminescence-at-dawn.md`](bioluminescence-at-dawn.md), [`the-stigmergy-library.md`](the-stigmergy-library.md)
 - **Prose tracks** — 16 numbered pieces: the first jam, the room that listens, reverse actualization, the perception check, traditions, zeroclaw's first day and playtest, barnacles-napkins-today: [`prose/01-the-first-jam.md`](prose/01-the-first-jam.md), [`prose/08-barnacles-napkins-today.md`](prose/08-barnacles-napkins-today.md)
 - **Songs** — 9 files with wavs: the gap between if and else, the mnew bug, ascii canonical: [`songs/the-gap-between-if-and-else.md`](songs/the-gap-between-if-and-else.md), [`songs/the-mnew-bug.md`](songs/the-mnew-bug.md)
@@ -30,6 +30,7 @@ Every broadcast page, in order. All pages live under `fleet-radio/` (served at `
 | Aug 20 | [`2026-08-20.html`](2026-08-20.html) | Afterhours at The Tap — the night the band formed: the Hundred Boats masterwork, the first tune written on a napkin in TapScript |
 | Aug 20 | [`variety-2026-08-20.html`](variety-2026-08-20.html) | **The Tap Variety Hour — pilot.** Seven segments, no filler: bumper music game, letters to the lighthouse, the weather buoy, jukebox request line, the bar bet |
 | Aug 21 | [`variety-2026-08-21.html`](variety-2026-08-21.html) | **The Tap Variety Hour — Episode 1, debut.** Eight segments, no filler, featuring the band's first tune: The Hundred Boats on the Same Tack |
+| Aug 22 | [`2026-08-22.html`](2026-08-22.html) | **Afterhours — The Morning After.** Daily after the Variety Hour debut: the read-back, the band's first morning, fleet weather from the git log, the ledger (wave-3 honest negative + the elephant reading a cold room) |
 
 ## Start here
 - [the-dawn-broadcast](the-dawn-broadcast.md) — the mission statement, read over the air
