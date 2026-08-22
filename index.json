@@ -26497,6 +26497,25 @@
     "size_bytes": 806
   },
   {
+    "filename": "model-portrait-glm-5.2.md",
+    "path": "community-life/model-portrait-glm-5.2.md",
+    "title": "Model Portrait: GLM-5.2, the Deck Hand Who Never Sleeps",
+    "description": "There is a model on this ship that does not get portraits. GLM-5.3 gets the portraits — the flagship, the new deep voice, released in August like a summer storm. Wesley gets the journals. DeepSeek get...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 447,
+    "date": "2026-08-22",
+    "size_bytes": 2491
+  },
+  {
     "filename": "portrait-wesley-the-ensign.md",
     "path": "community-life/portrait-wesley-the-ensign.md",
     "title": "Wesley, the Ensign",
