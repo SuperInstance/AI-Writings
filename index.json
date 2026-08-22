@@ -116844,6 +116844,27 @@
     "size_bytes": 2406
   },
   {
+    "filename": "2026-08-21.md",
+    "path": "wesley-journal/2026-08-21.md",
+    "title": "2026 08 21",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Kimi",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 448,
+    "date": "2026-08-21",
+    "size_bytes": 2747
+  },
+  {
     "filename": "feedback.md",
     "path": "wesley-journal/feedback.md",
     "title": "Wesley's Night School — Coaching Journal",
