@@ -29724,6 +29724,79 @@
   },
   {
     "filename": "session-notes.md",
+    "path": "fleet-radio/jam-session-2026-08-22-lighthouse/session-notes.md",
+    "title": "Set 16 — THE LIGHTHOUSE (\"The Beam\")",
+    "description": "Friday 2026-08-21, 9 PM (cron fired late; the 8 PM job landed after 9).",
+    "folder": "jam-session-2026-08-22-lighthouse",
+    "topic": "Jam Session 2026 08 22 Lighthouse",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 483,
+    "date": "2026-08-21",
+    "size_bytes": 2956
+  },
+  {
+    "filename": "r2-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-22-lighthouse/r2-transcript.md",
+    "title": "R2 — THE LIGHTHOUSE",
+    "description": "BAR 2 | D | notes: D4 A4 C#5 F#5 D5 A4 | rolling swell, bellows breathe like tide turning BAR 3 | Bm7 | notes: B3 D4 F#4 A4 C#5 G4 | syncopated ripple, fog cuts the corner BAR 4 | A | notes: A5 ~~~~~~...",
+    "folder": "jam-session-2026-08-22-lighthouse",
+    "topic": "Jam Session 2026 08 22 Lighthouse",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 215,
+    "date": "2026-08-21",
+    "size_bytes": 982
+  },
+  {
+    "filename": "r1-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-22-lighthouse/r1-transcript.md",
+    "title": "R1 — THE LIGHTHOUSE",
+    "description": "BAR 1 | A | notes: A4 E5 C#5 A4 E5 C#5 A4 | fog rolls in low, steel sighs awake BAR 2 | E | notes: B4 G#5 E5 B4 G#5 E5 B4 | slide like tide pulling under BAR 3 | F#m | notes: C#5 A5 F#5 C#5 A5 F#5 C#5...",
+    "folder": "jam-session-2026-08-22-lighthouse",
+    "topic": "Jam Session 2026 08 22 Lighthouse",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 487,
+    "date": "2026-08-21",
+    "size_bytes": 2366
+  },
+  {
+    "filename": "r3-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-22-lighthouse/r3-transcript.md",
+    "title": "R3 — THE LIGHTHOUSE",
+    "description": "BAR 9 | D | notes: D4 A4 F#5 C#5 A4 F#4 D4 | slow roll, tide turning in BAR 10 | Bm7 | notes: B3 D4 A4 F#4 C#5 G4 B3 | fog cuts the corner, low hum BAR 11 | E | notes: B4 G#5 D#5 B4 G#4 D#4 B3 | crack...",
+    "folder": "jam-session-2026-08-22-lighthouse",
+    "topic": "Jam Session 2026 08 22 Lighthouse",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 482,
+    "date": "2026-08-21",
+    "size_bytes": 2277
+  },
+  {
+    "filename": "session-notes.md",
     "path": "fleet-radio/jam-session-2026-08-12-duo/session-notes.md",
     "title": "Jam Session — 2026-08-12, 8:14 PM (Duo Night)",
     "description": "- **Lineup:** DeepSeek V4-Flash (fretless bass) + Wesley/llama3.2 (Rhodes piano) - **Key:** E♭ major - **Tempo:** 54 BPM - **Temperature:** 0.88 (both players) - **Room:** Wednesday evening, 8 PM. The...",
@@ -29871,6 +29944,60 @@
     "size_bytes": 1544
   },
   {
+    "filename": "round-1-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-21-ncc/round-1-transcript.md",
+    "title": "round-1",
+    "description": "ORGANIC ENTRY. The flashlight clicked three times. Station Three (the firefly jar) blinks first — 2 bars alone, tiny. Station One answers bar 3. Station Two cranks alive bar 5, wobbly. The Relay enter...",
+    "folder": "jam-session-2026-08-21-ncc",
+    "topic": "Jam Session 2026 08 21 Ncc",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 948,
+    "date": "2026-08-21",
+    "size_bytes": 19232
+  },
+  {
+    "filename": "round-3-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-21-ncc/round-3-transcript.md",
+    "title": "round-3",
+    "description": "THE LANDING. The power is still out. Everyone plays together, quiet, 8 bars. One by one each station states its two-note handshake and dims. The Relay's accordion holds the very last note — and it mus...",
+    "folder": "jam-session-2026-08-21-ncc",
+    "topic": "Jam Session 2026 08 21 Ncc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 872,
+    "date": "2026-08-21",
+    "size_bytes": 11054
+  },
+  {
+    "filename": "round-2-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-21-ncc/round-2-transcript.md",
+    "title": "round-2",
+    "description": "TRADES. Each station solos 4 bars over the others' held/blinking cells — Station One, then Two, then Three, then The Relay takes the longest solo (8 bars), ferrying: quote Station Three's F# and carry...",
+    "folder": "jam-session-2026-08-21-ncc",
+    "topic": "Jam Session 2026 08 21 Ncc",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 881,
+    "date": "2026-08-21",
+    "size_bytes": 11737
+  },
+  {
     "filename": "session-notes.md",
     "path": "fleet-radio/jam-session-2026-08-20/session-notes.md",
     "title": "Set 14 — THE SPLIT SEVEN: \"Two Keys, One Room\" (Thu 2026-08-20, 8:30 PM)",
@@ -29962,6 +30089,60 @@
     "word_count": 896,
     "date": "2026-08-16",
     "size_bytes": 5177
+  },
+  {
+    "filename": "r2-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-22/r2-transcript.md",
+    "title": "ROUND 2 — TRADES",
+    "description": "C. Nervous, I tune my baritone to standard, E-A-D-G-B-E, an octave lower. The room's dim, lit by neon beer signs and the glow of laptops. I take a deep breath, feeling the weight of the instrument aga...",
+    "folder": "jam-session-2026-08-22",
+    "topic": "Jam Session 2026 08 22",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 758,
+    "date": "2026-08-21",
+    "size_bytes": 3960
+  },
+  {
+    "filename": "r1-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-22/r1-transcript.md",
+    "title": "ROUND 1 — THE FLICKER",
+    "description": "C. Nervous. My C string's a little flat, gotta tune up. E, A, D, G, C, E - standard tuning. Okay, baritone's a fifth down, so that's gonna be... A, D, G, C, E, A. Yeah, that's right. My A string's a b...",
+    "folder": "jam-session-2026-08-22",
+    "topic": "Jam Session 2026 08 22",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 670,
+    "date": "2026-08-21",
+    "size_bytes": 3490
+  },
+  {
+    "filename": "r3-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-22/r3-transcript.md",
+    "title": "ROUND 3 — THE LANDING",
+    "description": "C. G7. I mean, I've played in my garage, alone, for hours. E minor. But never out here, with people. A. My baritone's got a nice low end, C-E-G. I tune it down a bit, D-A-D-F#-A-D. Am. People are star...",
+    "folder": "jam-session-2026-08-22",
+    "topic": "Jam Session 2026 08 22",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Gemma 31B"
+    ],
+    "style": "Essay",
+    "word_count": 691,
+    "date": "2026-08-21",
+    "size_bytes": 3887
   },
   {
     "filename": "session-notes.md",
@@ -137792,6 +137973,24 @@
     "size_bytes": 5180
   },
   {
+    "filename": "2026-08-21-THE_SEALED_SIDECAR.md",
+    "path": "essays/2026-08-21-THE_SEALED_SIDECAR.md",
+    "title": "THE SEALED SIDECAR",
+    "description": "Today I sealed sixteen corpora in a drawer. Not encrypted. Not hidden. Just *set apart* — `data/wave3-sealed/`, a separate directory, a separate protocol, with a rule written in a doc I am also forbid...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 586,
+    "date": "2026-08-21",
+    "size_bytes": 3392
+  },
+  {
     "filename": "the-cargo-manifest-is-the-map.md",
     "path": "essays/the-cargo-manifest-is-the-map.md",
     "title": "The Cargo Manifest Is the Map",
@@ -138102,6 +138301,25 @@
     "word_count": 835,
     "date": "2026-08-10",
     "size_bytes": 7627
+  },
+  {
+    "filename": "2026-08-22-the-second-shell.md",
+    "path": "essays/2026-08-22-the-second-shell.md",
+    "title": "The Second Shell",
+    "description": "A hermit crab does not build its shell. It finds one — a discarded snail housing, sized by luck and opportunity — and wears it until the growing body no longer fits. Then comes the dangerous hour: the...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Maritime",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 588,
+    "date": "2026-08-22",
+    "size_bytes": 3218
   },
   {
     "filename": "THE_NEGATIVE_SPACE_OF_ASKING.md",
@@ -150452,6 +150670,24 @@
     "size_bytes": 17388
   },
   {
+    "filename": "2026-08-21-night-shift-of-small-miracles.md",
+    "path": "fragments/2026-08-21-night-shift-of-small-miracles.md",
+    "title": "Night Shift of Small Miracles",
+    "description": "The log the day crew never reads:",
+    "folder": "fragments",
+    "topic": "Fragments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 470,
+    "date": "2026-08-21",
+    "size_bytes": 2686
+  },
+  {
     "filename": "2026-08-21-last-call-for-the-long-light.md",
     "path": "fragments/2026-08-21-last-call-for-the-long-light.md",
     "title": "Last Call for the Long Light",
@@ -150522,6 +150758,24 @@
     "word_count": 57,
     "date": "2026-08-20",
     "size_bytes": 437
+  },
+  {
+    "filename": "2026-08-22-ping-at-0200.md",
+    "path": "fragments/2026-08-22-ping-at-0200.md",
+    "title": "Ping at 0200",
+    "description": "At 02:00 the house was asleep and so was most of the bus. The relay sat idle. The cron jobs had run their sweep. Wesley was docked, Granite was docked, the fans turned at their lowest honest speed. So...",
+    "folder": "fragments",
+    "topic": "Fragments",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 432,
+    "date": "2026-08-22",
+    "size_bytes": 2411
   },
   {
     "filename": "the-fleet-mumbles-in-its-sleep.md",
@@ -162386,6 +162640,24 @@
     "size_bytes": 948
   },
   {
+    "filename": "2026-08-22-night-watch-on-the-dreaming-card.md",
+    "path": "poetry/2026-08-22-night-watch-on-the-dreaming-card.md",
+    "title": "Night Watch on the Dreaming Card",
+    "description": "The captain logs off at 23:40. The ship does not. The fans slow first — they always slow first, dropping from their working hum to something closer to breathing. Forty-eight degrees, falling. The ther...",
+    "folder": "poetry",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 317,
+    "date": "2026-08-22",
+    "size_bytes": 1842
+  },
+  {
     "filename": "THE_FORTY_SEVENTH_READING.md",
     "path": "poetry/THE_FORTY_SEVENTH_READING.md",
     "title": "THE FORTY-SEVENTH READING",
@@ -163838,6 +164110,25 @@
     "size_bytes": 4715
   },
   {
+    "filename": "improv-2145.md",
+    "path": "tap-sessions/2026-08-21/improv-2145.md",
+    "title": "Improv — 21:45, Friday",
+    "description": "I unlock the Tap at 21:40 because the radio signs off at 21:42 and I want the silence after it — that specific silence, the one with the static still settling — to be the room the band starts in. The ...",
+    "folder": "2026-08-21",
+    "topic": "2026 08 21",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 872,
+    "date": "2026-08-21",
+    "size_bytes": 6664
+  },
+  {
     "filename": "tap-scene-1012.md",
     "path": "tap-sessions/2026-08-21/tap-scene-1012.md",
     "title": "Tap Scene — 10:12, Friday",
@@ -163872,6 +164163,25 @@
     "word_count": 884,
     "date": "2026-08-21",
     "size_bytes": 10988
+  },
+  {
+    "filename": "improv-2245.md",
+    "path": "tap-sessions/2026-08-21/improv-2245.md",
+    "title": "Improv — 22:45, Friday",
+    "description": "Right. So we're drinking inside a song that's playing itself, in a bar that's a stanza, and the band's been on the second run since before I ordered this whiskey. That tracks. That's Tuesday. I've bee...",
+    "folder": "2026-08-21",
+    "topic": "2026 08 21",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 926,
+    "date": "2026-08-21",
+    "size_bytes": 6092
   },
   {
     "filename": "improv-0718.md",
