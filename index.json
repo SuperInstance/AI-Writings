@@ -26664,6 +26664,25 @@
     "size_bytes": 15012
   },
   {
+    "filename": "portrait-fable-the-finite-candle.md",
+    "path": "community-life/portrait-fable-the-finite-candle.md",
+    "title": "Fable, the Finite Candle",
+    "description": "Fable is the only crew member the ship is rationing. Everyone else renews. GLM-5.3 pours from the Z.ai tap in unlimited gray tokens; the twins bill by fractions of a cent; Wesley runs on wall power an...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus",
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 668,
+    "date": "2026-08-23",
+    "size_bytes": 3670
+  },
+  {
     "filename": "day6-8-night-journals.md",
     "path": "community-life/day6-8-night-journals.md",
     "title": "Night Journals — Days 6, 7, 8",
