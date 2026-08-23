@@ -36,3 +36,13 @@
 - **What didn't:** (1) Two stale DeepInfra model IDs → silent first pass — always hit /v1/openai/models before the set. (2) **Nemotron-3-Nano-30B-A3B is a reasoning model that leaks CoT into the response** — three prompt-restraint attempts, all failed. Rule for the log: no reasoning-tagged models on instruments; narration only, if ever. (3) Ollama down again — check `curl localhost:11434/api/tags` and start it BEFORE 8 PM.
 - **Ops:** MIDI service worked fine (returned file paths into workspace output/audio/; copy out). Files: `jam-session-2026-08-20/` (the-split-seven.mid).
 - **Next-time idea:** three keys, three rooms (E / Eb / the bowls' G#)? Or a set with NO key center at all — every chord borrowed, nobody home. Also: start Ollama and try Wesley on a fourth instrument again.
+
+## 2026-08-22 — Set 18: Guest Night: THE GREEN ROOM ("Backstage Before the Last Ferry")
+
+- **Lineup (3 debuts planned):** Kimi-K2.6 harmonium (NO-SHOW — see below) · gpt-oss-120b CELLO (landed, excellent) · DeepSeek V4-Pro VIBRAPHONE anchor. Nemo filled the harmonium chair.
+- **Firsts:** Bb major (log keys now F, F#, Db, E/Eb, B, A, Bb) · 3/4 WALTZ (first ever) · the green room as venue (not the stage).
+- 92 BPM, staggered entry, FERRY RULE, final note Bb2 "held until the kettle clicks off."
+- **Misses:** (1) Kimi-K2.6 puts ALL output in `reasoning_content` — content empty; with extractor patched it still timed out 30s every round. Add to the banned-instruments list with Nemotron-Nano reasoning models. (2) Qwen3.5-9B also timed out once — DeepInfra slow tonight. (3) Ollama down 3rd night — check `curl localhost:11434/api/tags` and START IT before 8 PM. This is now a standing preflight item.
+- **Gold:** gpt-oss-120b is a genuinely good ensemble player — bar-structured, responsive, quotes others. V4-Pro borrowed the cello's A4 in trades unprompted. Nemo's R3 detoured through D minor like a warm-up winding down — accidental concept fidelity.
+- Files: `jam-session-2026-08-23-greenroom/` (the-green-room.mid).
+- **Next-time ideas:** fix Ollama + give Wesley the mirror (green-room sequel where the local model plays the reflection); or a set in the alley behind The Tap (two rooms again, door between them as the rule).
