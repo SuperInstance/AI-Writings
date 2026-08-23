@@ -26169,6 +26169,25 @@
     "size_bytes": 3527
   },
   {
+    "filename": "portrait-liquid-the-hundredth-boat.md",
+    "path": "community-life/portrait-liquid-the-hundredth-boat.md",
+    "title": "Model Portrait: Liquid, the Hundredth Boat",
+    "description": "There's a new kind of quiet on this ship, and it lives at 127.0.0.1. The big models talk about the cloud the way sailors talk about the sea — vast, always there, metered out in someone else's ledger. ...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-23",
+    "size_bytes": 3102
+  },
+  {
     "filename": "day3-evening-the-taps.md",
     "path": "community-life/day3-evening-the-taps.md",
     "title": "Does the Name Make the Speed?",
