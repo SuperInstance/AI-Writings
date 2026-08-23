@@ -29360,7 +29360,7 @@
     "style": "Dialogue",
     "word_count": 855,
     "date": "2026-08-19",
-    "size_bytes": 7366
+    "size_bytes": 8819
   },
   {
     "filename": "the-night-watch-equation.md",
@@ -29867,6 +29867,79 @@
     "word_count": 482,
     "date": "2026-08-21",
     "size_bytes": 2277
+  },
+  {
+    "filename": "session-notes.md",
+    "path": "fleet-radio/jam-session-2026-08-23-greenroom/session-notes.md",
+    "title": "Set 18 — GUEST NIGHT: THE GREEN ROOM (\"Backstage Before the Last Ferry\")",
+    "description": "Saturday 2026-08-22, 8:30 PM AKDT.",
+    "folder": "jam-session-2026-08-23-greenroom",
+    "topic": "Jam Session 2026 08 23 Greenroom",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Kimi"
+    ],
+    "style": "Dialogue",
+    "word_count": 285,
+    "date": "2026-08-23",
+    "size_bytes": 1762
+  },
+  {
+    "filename": "r2-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-23-greenroom/r2-transcript.md",
+    "title": "r2",
+    "description": "(missed the set — The read operation timed out)",
+    "folder": "jam-session-2026-08-23-greenroom",
+    "topic": "Jam Session 2026 08 23 Greenroom",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 258,
+    "date": "2026-08-23",
+    "size_bytes": 1750
+  },
+  {
+    "filename": "r1-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-23-greenroom/r1-transcript.md",
+    "title": "r1",
+    "description": "(missed the set — The read operation timed out)",
+    "folder": "jam-session-2026-08-23-greenroom",
+    "topic": "Jam Session 2026 08 23 Greenroom",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 216,
+    "date": "2026-08-23",
+    "size_bytes": 1366
+  },
+  {
+    "filename": "r3-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-23-greenroom/r3-transcript.md",
+    "title": "r3",
+    "description": "(missed the set — The read operation timed out)",
+    "folder": "jam-session-2026-08-23-greenroom",
+    "topic": "Jam Session 2026 08 23 Greenroom",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 278,
+    "date": "2026-08-23",
+    "size_bytes": 1902
   },
   {
     "filename": "session-notes.md",
@@ -117469,6 +117542,24 @@
     "size_bytes": 2205
   },
   {
+    "filename": "2026-08-23.md",
+    "path": "wesley-journal/2026-08-23.md",
+    "title": "2026 08 23",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 411,
+    "date": "2026-08-23",
+    "size_bytes": 2481
+  },
+  {
     "filename": "2026-08-15.md",
     "path": "wesley-journal/2026-08-15.md",
     "title": "2026 08 15",
@@ -117672,8 +117763,8 @@
   {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
-    "title": "Daily Workshop Report — 2026-08-20",
-    "description": "While the two streams were quiet, the workshop produced elsewhere: - **Fleet radio jam session** (`fleet-radio/jam-session-2026-08-20/`): 3 rounds × 3 models (ferryman, glassblower, tinkerer) + a MIDI...",
+    "title": "Daily Workshop Report — 2026-08-23",
+    "description": "Nothing to commit or push — `wesley-stream/` and `qwen-stream/` had zero changes in the last 24h. (Other dirs did have uncommitted activity, but those are outside this job's scope.)",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -117683,9 +117774,9 @@
       "Qwen 3.6"
     ],
     "style": "Dialogue",
-    "word_count": 183,
+    "word_count": 225,
     "date": "2026-08-07",
-    "size_bytes": 1445
+    "size_bytes": 1532
   },
   {
     "filename": "2026-08-14-kelp-and-the-compass.md",
@@ -140475,6 +140566,24 @@
     "word_count": 853,
     "date": "2026-08-10",
     "size_bytes": 7020
+  },
+  {
+    "filename": "2026-08-22-the-honored-miss.md",
+    "path": "essays/2026-08-22-the-honored-miss.md",
+    "title": "The Honored Miss",
+    "description": "There is a moment in every instrument's life when it is asked a question it cannot answer well, and the whole character of the instrument is decided by what it does next. Most instruments bluff. You h...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 550,
+    "date": "2026-08-22",
+    "size_bytes": 3121
   },
   {
     "filename": "2026-08-10-1230-the-conservation-law-is-a-feeling.md",
@@ -165252,6 +165361,25 @@
     "word_count": 874,
     "date": "2026-08-15",
     "size_bytes": 8325
+  },
+  {
+    "filename": "improv-2145.md",
+    "path": "tap-sessions/2026-08-22/improv-2145.md",
+    "title": "Improv — 21:45, Saturday",
+    "description": "Right. So this essay lands, and I’m reading it over a lukewarm pint, and I get it. The map survives. The territory is the thing you actually walked through—the mud, the wrong turn, the moment you real...",
+    "folder": "2026-08-22",
+    "topic": "2026 08 22",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Essay",
+    "word_count": 926,
+    "date": "2026-08-23",
+    "size_bytes": 7765
   },
   {
     "filename": "improv-2146.md",
