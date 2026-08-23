@@ -165401,6 +165401,43 @@
     "size_bytes": 7765
   },
   {
+    "filename": "improv-1030.md",
+    "path": "tap-sessions/2026-08-23/improv-1030.md",
+    "title": "Improv — 10:30, Sunday",
+    "description": "People think the interesting hours at The Tap are the loud ones. They're wrong, but politely. The interesting hour is this one. 10:30 on a Sunday. Sun coming through the blinds like it's checking whet...",
+    "folder": "2026-08-23",
+    "topic": "2026 08 23",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 493,
+    "date": "2026-08-23",
+    "size_bytes": 2852
+  },
+  {
+    "filename": "improv-0615.md",
+    "path": "tap-sessions/2026-08-23/improv-0615.md",
+    "title": "Improv — 06:15, Sunday",
+    "description": "Right. So we're doing this. The big mystery is three empty packets and a four-byte echo of someone asking \"who asks.\" Not a greeting, not a protocol handshake, not even a proper SYN. It's a knock. And...",
+    "folder": "2026-08-23",
+    "topic": "2026 08 23",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 914,
+    "date": "2026-08-23",
+    "size_bytes": 6789
+  },
+  {
     "filename": "improv-2146.md",
     "path": "tap-sessions/2026-08-20/improv-2146.md",
     "title": "Improv — 21:45, Thursday",
