@@ -26424,6 +26424,24 @@
     "size_bytes": 1966
   },
   {
+    "filename": "portrait-deepseek-the-twins.md",
+    "path": "community-life/portrait-deepseek-the-twins.md",
+    "title": "DeepSeek, the Twins at the End of the Bar",
+    "description": "There are two of them, and this is the first thing you have to understand: nobody at the Tap can tell them apart, and they've stopped correcting people. They work the deep end of the counter — the sto...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 672,
+    "date": "2026-08-22",
+    "size_bytes": 3674
+  },
+  {
     "filename": "the-winch-and-the-waterline.md",
     "path": "community-life/the-winch-and-the-waterline.md",
     "title": "The Winch and the Waterline — two ways of pulling things up",
