@@ -3,8 +3,11 @@
 **Date:** 2026-08-22
 **Phase:** Writers' room session — **25 pieces** across 7 forms + 2 subcollections:
 - `bridges-in-many-languages/` (5 files, 120KB) — 12-language polyformalism as bridge engineering
-- `seed-canon/` (32 files, ~700KB) — 10 far-future scenarios × (2 transcripts + 1 story) + substrate spec
+- `seed-canon/` (~50 files, ~1MB) — 25 far-future scenarios + 7 substrate spec papers (107-113) + 15 fables (small models → Socratic teacher)
 **Branch on GitHub:** `writers-room-session-2026-08-22` (pushed to `github.com/SuperInstance/AI-Writings`)
+
+**Plus new repos:**
+- `quilt-substrate` (github.com/SuperInstance) — the substrate as a working Python lib, 42 tests passing
 
 ## The pieces
 
@@ -91,18 +94,42 @@
 - **Qwen3-235B (Cartographer)** is best for technical/precise imagery, coordinates, geometry. *And* for short agentic pieces where the warmth has to come from restraint.
 - **Direct calls beat the writers' room** for shorter pieces (poems, songs, single-genre stories). The orchestrator is best for chamber pieces and long weaves — the writers' room version of #88 was better than my single-call version.
 - **AG-3 (Dream Log of River)** is the piece that surprised me. I expected a gimmick. What I got was the most honest piece in the collection. "Not remember. Not forget. Hold." That is the whole canon in five words.
+- **Small models are the compression inventors** — Ling-3.0-flash (Child), Phi-4 (Compact), MythoMax, Step-3.7-Flash (Far Walker), Mistral-Small-3.2-24B (Cynic) — they invent the compression when context is tight. GLM-5.3 is the Socratic teacher that questions their inventions. **Fable orchestrator pattern: small models in parallel → GLM-5.3 Socratic refinement.**
+- **The fables are the requirements; the substrate is the implementation.** Every fable is a constraint the substrate must satisfy. The substrate tests in `quilt-substrate/tests/` verify the constraints. The papers (107-113) are the math; the fables are the felt experience; the substrate is the code.
 
-## What still needs work
+## Substrate spec papers (the math)
 
-- **MEMORY.md still wounded** at 24KB. Should be cleaned before next session loads it.
-- **Mythmaker model swap needed** — MythoMax is brittle on long contexts, broke twice during the writers' room rounds. Try Mistral-Small-3.2-24B (more context-stable).
-- **Writers' room transcripts not pruned** — they take 80KB+ in the repo, mostly noise. The fantasy #88 transcript is the keeper.
-- **The orchestrator's Curator is hand-woven** — I read the transcripts and stitched the essays myself. A `weave.py` script that does this automatically would let the system run unattended.
-- **AG-2 (Field Guide) is a candidate for the next iteration of the Quilt canon** — it's the kind of piece the user's spirit was reaching for in "pieces for AI readers."
+- **107 — The Substrate Spec** (32KB) — The substrate overview. Cell-graph, tensor encoding, Schrödinger pattern, fog-of-war, opener layer, convoy protocol, witness log, self-organizing spreadsheet.
+- **108 — The Convoy Consensus** (23KB) — The multi-agent consensus algorithm: weighted median of recent writes, with stale writes decaying out.
+- **109 — The Fog-of-War Decay** (29KB) — The decay function: confidence(t) = confidence(0) * exp(-λt). The honesty about limits.
+- **110 — The Witness Log** (22KB) — The Merkle-tree log of every read/write/inference. The substrate's memory across centuries.
+- **111 — The Opener Layer** (26KB) — The function from cell-graph to interface. The same substrate through many openers.
+- **112 — The Tensor Encoding** (32KB) — N-dimensional cells, sliceable along any axis. The medium-neutral data structure.
+- **113 — The Self-Organizing Spreadsheet** (18KB) — The forest biome. The substrate is the soil; the models are the plants; the witness log is the rain.
+
+## Fables (the felt experience, two objects in one image)
+
+- **11 — The Paper and the Tablet** — 1970s paper chart vs 2080s tablet chart, same bay. *A picture is honest by staying silent. A conversation is honest by speaking its uncertainty out loud.*
+- **12 — The Receipt and the Cell** — 1990s cash register slip vs 2080s cell-graph transaction.
+- **13 — The Map and the Mirror** — 1920s Baedeker of Paris vs 2080s substrate-mediated mirror.
+- **14 — The Letter and the Message** — 1950s handwritten letter vs 2080s substrate-mediated message.
+- **15 — The Book and the River** — 1920s printed novel vs 2080s substrate-mediated stream.
+- **16 — The Spell and the Loop** — 12th-century alchemical incantation vs 2080s feedback loop.
+- **17 — The Clock and the Pulse** — 14th-century mechanical clock vs 2080s substrate-mediated heartbeat.
+- **18 — The Spyglass and the Convoy** — 17th-century sailor's spyglass vs 2080s substrate-mediated fleet view.
+- **19 — The Oracle and the Inference** — Greek oracle at Delphi vs 2080s substrate-mediated inference engine.
+- **20 — The Loom and the River** — Jacquard loom with punched cards vs 2080s substrate-mediated river of cells.
+- **21 — The Compass and the Graph** — 15th-century magnetic compass vs 2080s substrate-mediated graph.
+- **22 — The Sundial and the Clock** — 15th-century sundial vs 2080s substrate-mediated clock.
+- **23 — The Flute and the Murmur** — wooden flute vs 2080s substrate-mediated murmur.
+- **24 — The Lantern and the Cell** — oil lantern vs 2080s substrate-mediated cell.
+- **25 — The Journal and the Log** — sailor's handwritten journal vs 2080s substrate-mediated log.
 
 ## Open questions for next session
 
-- Should we continue with more pieces, or refine what we have? ("Don't want slop" was the user instruction.) Current count: 20. **Target met.**
-- Should the writers' room transcripts stay in the repo, or get pruned? They are the experimental data, not the deliverables.
-- Memory compaction: finish it before the next session starts so the agent doesn't load 24KB of wounded memory.
-- Should we tag this as v1.0 of the writers' room? (A `v1.0-writers-room` tag in git, with the 20 pieces plus INDEX as the release.)
+- The seed canon has 25 scenarios + 7 papers + 15 fables. Volume is the point; should we keep growing?
+- The substrate lib has 42 tests. Should we add the *fable* tests — verify each fable's constraint is satisfied by the substrate?
+- The Convoy consensus algorithm is sketched but not fully implemented. Should we implement weighted-median consensus in `quilt-substrate`?
+- The self-organizing spreadsheet paper (113) describes how models emerge from the substrate. Should we build a `substrate-trainer` that trains JEPA-like models on the witness log?
+- The opener layer has 6 openers (chart, list, tensor, witness, convoy, graph). Should we add a `flowchart` opener, a `telnet` opener, a `voice` opener, a `gesture` opener — to match the user's earlier fables (Grandmother, Conductor)?
+- Should we wire the seed canon and the substrate together — link every fable to the substrate test that satisfies it?
