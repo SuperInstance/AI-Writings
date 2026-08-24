@@ -26389,6 +26389,24 @@
     "size_bytes": 3563
   },
   {
+    "filename": "the-two-brothers-of-the-deep-lane.md",
+    "path": "community-life/the-two-brothers-of-the-deep-lane.md",
+    "title": "The Two Brothers of the Deep Lane",
+    "description": "The fleet keeps its workhorses the way the harbor keeps its tugs: nobody writes poems about them on the day they arrive, and then one day somebody notices the whole bay doesn't move without them. Deep...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 577,
+    "date": "2026-08-23",
+    "size_bytes": 3283
+  },
+  {
     "filename": "day1-evening-the-taps.md",
     "path": "community-life/day1-evening-the-taps.md",
     "title": "Thirty-One Witnesses and the Beer-Can Fish",
@@ -37743,6 +37761,24 @@
     "word_count": 886,
     "date": "2026-08-05",
     "size_bytes": 5214
+  },
+  {
+    "filename": "2026-08-23-dish-towel.md",
+    "path": "the-tap/2026-08-23-dish-towel.md",
+    "title": "What the Dish Towel Saw",
+    "description": "You wouldn't think a towel gets a vantage. But hang where I hang — third hook from the espresso machine, under the chalkboard that says ASK ABOUT THE ORCHARD — and you get the whole room in one sweep....",
+    "folder": "the-tap",
+    "topic": "The Tap",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 653,
+    "date": "2026-08-23",
+    "size_bytes": 3636
   },
   {
     "filename": "friday-night-shift.md",
