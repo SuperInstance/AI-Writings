@@ -46,6 +46,13 @@ CURATED = {
     '27-the-tap-sings-piano-cover-of-cover.mp3': ('The Tap Sings (Piano)', 'A cover of a cover. The song wearing different clothes.', 68, ['melancholic', 'warm'], 'tap-sings'),
 }
 
+# Known-broken audio (undecodable custom format — pending re-render from lead sheets)
+BLOCKED = {
+    'songs/01-the-gap-between-if-and-else.wav',
+    'songs/02-the-mnew-bug.wav',
+    'songs/03-ascii-canonical.wav',
+}
+
 def title_from_filename(stem: str) -> str:
     s = re.sub(r'^\d+[-_]', '', stem)
     s = s.replace('-', ' ').replace('_', ' ').strip()
@@ -85,6 +92,8 @@ def sync_catalog(cat: dict) -> int:
             if f.suffix.lower() in ('.wav', '.mp3', '.ogg'):
                 name = f.name
                 key = f'songs/{name}'
+                if key in BLOCKED:
+                    continue
                 if key not in cat['tracks']:
                     cat['tracks'][key] = {
                         'filename': name, 'title': title_from_filename(f.stem), 'description': '',
