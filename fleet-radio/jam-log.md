@@ -46,3 +46,12 @@
 - **Gold:** gpt-oss-120b is a genuinely good ensemble player — bar-structured, responsive, quotes others. V4-Pro borrowed the cello's A4 in trades unprompted. Nemo's R3 detoured through D minor like a warm-up winding down — accidental concept fidelity.
 - Files: `jam-session-2026-08-23-greenroom/` (the-green-room.mid).
 - **Next-time ideas:** fix Ollama + give Wesley the mirror (green-room sequel where the local model plays the reflection); or a set in the alley behind The Tap (two rooms again, door between them as the rule).
+
+## 2026-08-23 — Set 19: THE ALLEY ("The Door Between Two Rooms")
+- **Lineup:** Liquid-LFM2.5-2.6B (DEBUT, foghorn/handbells+conch) + gpt-oss-120b (bari sax, ex-cello) + deepseek-chat (muted trumpet, anchor) + granite3.1-2b (THE JUKEBOX — through the wall, always Bb).
+- **Firsts:** C major (last key in the circle to show up — log now F, F#, Db, E/Eb, B, A, Bb, C) · 12/8 slow shuffle · Ollama up after 4 nights down · TWO local players.
+- **The DOOR RULE:** every 4th bar someone holds near-silence and the jukebox bleeds through in Bb. Landed everywhere — trumpet's R3 bar 4 "(near-silence — one bell, C3, the jukebox's Bb hums through)."
+- **Gold:** trumpet R2 quoting the foghorn's G2 and naming both; sax's borrowed-flat Bb3 in R3 carried home; final chord "C3 E3 G3 C4 — the jukebox's Bb inside it, uncorrected." Jukebox's R3 broke its own forty-year Bb habit and climbed a C unison to C9 (ran out of octaves — tiny models find their own endings).
+- **Misses:** Liquid-LFM2.5-2.6B is a chronic CoT-leaker on instruments (4 prompt strategies failed) — banned-instruments list grows: Nemotron-Nano, Qwen3-32B, Kimi-K2.6, Liquid-LFM2.5-2.6B. Use it for narration only. gpt-oss-120b flaked once (empty content, reasoning full) — retry recovers. .bashrc keys are quoted; strip quotes or 401.
+- Files: `jam-session-2026-08-23-alley/` (the-alley.mid).
+- **Next:** Liquid on narration (between-rounds track notes — the agentic brain wants to describe, let it); after-hours sequel (jukebox alone, one player returns); try the 1.2b sibling on an instrument.
