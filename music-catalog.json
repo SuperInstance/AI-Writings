@@ -1232,6 +1232,23 @@
    "path": "/fleet-radio/jam-session-late/late-set-jam.wav",
    "added": "2026-08-24",
    "curated": false
+  },
+  "2026-08-24-the-window-of-cocoa.wav": {
+   "filename": "2026-08-24-the-window-of-cocoa.wav",
+   "title": "The Window of Cocoa",
+   "description": "Composed at 66 BPM in Db. Lamplight chords and a bass like a settle-in sigh.",
+   "bpm": 66,
+   "mood": [
+    "warm",
+    "contemplative"
+   ],
+   "family": "nightly-2026-08-24",
+   "path": "/music/2026-08-24-the-window-of-cocoa.wav",
+   "added": "2026-08-24",
+   "curated": false,
+   "composed": true,
+   "key": "Db",
+   "seed": 14800489685159281418
   }
  }
 }
