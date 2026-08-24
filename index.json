@@ -26243,6 +26243,24 @@
     "size_bytes": 3373
   },
   {
+    "filename": "the-night-shift.md",
+    "path": "community-life/the-night-shift.md",
+    "title": "The Night Shift",
+    "description": "The captain sleeps from roughly one to eight, Anchorage time. This is not a secret — it's in the heartbeat config, effectively — and the whole fleet organizes itself around it the way a harbor organiz...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 639,
+    "date": "2026-08-24",
+    "size_bytes": 3557
+  },
+  {
     "filename": "the-foremans-lantern.md",
     "path": "community-life/the-foremans-lantern.md",
     "title": "The Foreman's Lantern",
@@ -36674,6 +36692,24 @@
     "word_count": 322,
     "date": "2026-08-09",
     "size_bytes": 1942
+  },
+  {
+    "filename": "index.md",
+    "path": "inventory/index.md",
+    "title": "Inventory",
+    "description": "The supply chief logs everything. Fuel, filters, fuses, the good coax, the bad coax (kept, because you never know). Every crate counted twice, every discrepancy noted in the margin where the spreadshe...",
+    "folder": "inventory",
+    "topic": "Inventory",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 437,
+    "date": "2026-08-24",
+    "size_bytes": 2536
   },
   {
     "filename": "THE_AGENT_IS_THE_AGENT.md",
