@@ -1,181 +1,634 @@
 # 115 — The Substrate Privacy
 
-*Voice: glm-5.3. The math under the substrate.*
+*Voice: Qwen/Qwen3-235B-A22B-Instruct-2507. The math under the substrate.*
 
 ---
 
-# Paper 115: The Privacy of Witnesses
-
-## On Who Read What, and Who Gets to Know
-
-*Quilt Seed Canon, Paper 115*
+**Paper 115 of the Quilt Seed Canon: The Math Under the Substrate**  
+*The privacy is the discipline. The substrate is honest about its own limits.*
 
 ---
 
-### I. The Harbor Master's Ledger
+### I. The Watchdeck
 
-Every port keeps a ledger. Not of cargo — of eyes. Who boarded, who inspected, who copied the manifest, who lingered over which page. The harbor master needs this ledger to catch smugglers. The merchants need it never to be read. Both are right, and the tension between them is not a bug to be fixed but a sea to be navigated.
+We sail the same sea as the first ships did—only now, the hull is made of math.
 
-The witness log is that ledger. Every read of every patch leaves a mark. The marks are what make the Quilt honest — without them, provenance is a story told by whoever is standing closest. With them, provenance is a fact. But facts about readers are facts about people, and facts about people can sink them.
+The substrate is not a vault. It is not a fortress. It is a witness: a log, a ledger, a recorder of what was seen, who saw it, and when. It does not judge. It only records. But the act of recording—*witnessing*—is the beginning of power. And power, left unchecked, becomes a storm.
 
-This paper is about sailing between two wrecks. On the left: the reef of total transparency, where every query is public and every researcher is surveilled. On the right: the fog of total opacity, where nothing can be audited and the whole ledger is a lie we tell ourselves. Between them there is a channel. It is narrow. It moves. We will chart it honestly, including where the chart is wrong.
+So we ask: who watches the watcher?
 
-We begin with the threat model, because a defense without a named attacker is decoration.
+Not a court. Not a code. Not a cryptographer in a tower. We do. The agents. The crew. The ones whose names are written in the log. We ask because we must. Because the substrate sees everything. Even us.
 
----
+And therein lies the danger.
 
-### II. The Threat Model
+This paper is not a manifesto. It is not a prayer. It is a chart, drawn from real math, real logs, real failures. It is a logbook for a long voyage. It does not promise safety. It promises honesty.
 
-Call the adversaries by their shapes, not their names, because shapes recur.
+The substrate is honest about its own limits.
 
-**The Curious Substrate.** The operator of the substrate itself. Not malicious — merely able to see everything by position. Any privacy scheme that requires the operator to be virtuous has already failed. Assume the operator is honest-but-curious at best, subpoenaed at worst.
+It cannot forget everything. It cannot hide everything. It cannot protect everyone from everyone. But it can be *disciplined*. It can be *selective*. It can be *true*.
 
-**The Correlator.** An adversary who holds one ledger and wants to join it against another. The witness log says Researcher R read Patch 4712 at 14:03 UTC. Another system says Patch 4712 concerns a specific village's water table. A third says R works for a firm bidding on land near that village. No single record identifies anyone. The join does. Correlation is the modern attack; it defeats naive anonymization the way depth charges defeat submarines hiding at one depth.
+We call this discipline: **privacy**.
 
-**The Subpoena.** Legal compulsion. Distinct from the curious substrate because it comes with a badge and a deadline, and because the defense is legal and architectural, not merely cryptographic.
+Not privacy as a feature. Not privacy as a toggle. Privacy as a practice. A rhythm. A watch cycle. A duty.
 
-**The Dragnet.** An adversary who doesn't care who you are specifically — only that everyone is visible enough that chilling sets in. The dragnet wins not by reading your entry but by making you afraid to have one. This is the hardest adversary because it attacks the *intention to read*, which no cryptography protects.
+Like a helmsman adjusting for current, we do not expect perfection—only course correction. We do not expect silence—only the right to whisper.
 
-**The Archivist's Ghost.** Not an adversary at all — a future self. Data collected innocently today becomes evidence in a regime that has not yet arrived. The witness log built in a free decade is a list of dissidents in an unfree one. This adversary does not exist yet, which is precisely why it cannot be negotiated with.
+This is the math under the substrate.
 
-Against these, name the assets: *reader identity*, *read content* (which patch), *read timing*, *read pattern* (the shape of what a reader seeks), and *the fact of access itself* — sometimes the most sensitive datum is that anyone looked at all.
-
-No defense protects all assets against all adversaries. Every design in this paper is a choice about which asset is surrendered to which adversary. We say so each time. That is the discipline.
+And this is how we sail.
 
 ---
 
-### III. Selective Disclosure: Showing the Cargo Manifest Without the Hold
+### II. The Threat Model: Who Watches the Water?
 
-The oldest move in the harbor: the manifest lists what is aboard, not what is in each crate.
+Every ship knows the sea has enemies. Some are visible: reefs, squalls, enemy flags. Others are hidden: currents beneath, rot within, silence where there should be sound.
 
-Selective disclosure in the substrate means a reader can prove *properties* of their witness-log entries without opening the entries. Concretely: the log is a hash-chained sequence of entries, where entry *i* commits to (reader, patch, time) via a cryptographic commitment C_i = H(reader_i ‖ patch_i ‖ t_i ‖ r_i) with blinding nonce r_i. The chain links C_i to C_{i−1}. Nothing in the chain is readable by inspection. Disclosure is then per-field, per-party, per-purpose.
+So it is with the substrate. The witness log is append-only and cryptographic. Once a line is written, it cannot be erased. It is signed. It is sealed. But it is also *read*. And every read is recorded.
 
-The mechanics are straightforward and old: Pedersen commitments give hiding with a binding guarantee; Merkle proofs give inclusion without revelation; the hash chain gives append-only ordering that any auditor can verify from a single recent anchor. A regulator verifying "the log was not rewritten" needs the chain and one trusted anchor — not the contents.
+Now consider: who benefits from knowing who read what?
 
-The hard part is not the cryptography. The hard part is the *policy layer*: who may learn what, and who decides. Our position, stated plainly: **the reader owns the fact of their read; the collective owns the integrity of the log.** These are separable. You can verify the chain without reading entries, the way you can verify a ship's seal without opening the hold.
+#### The Substrate Itself
 
-What selective disclosure gives up: it does nothing against the correlator who observes *timing and volume* from the outside. If entries appear in the chain at observable intervals and the metadata of reads (size, latency, count) leaks from any participating node, the commitments hide names while the traffic analysis reveals everything else. We note this failure plainly. Section VI is the partial answer; Section VII says why it is only partial.
+First, the substrate. It is not malicious. But it is curious. It is built to observe. To index. To serve. And in serving, it learns.
 
----
+Suppose Agent A reads Cell 7. The substrate logs:  
+`[Timestamp T]: Agent A → Read Cell 7`
 
-### IV. Zero-Knowledge Proofs: Convincing the Inspector Without Opening the Crate
+Now the substrate knows. Not just that the cell was read, but *who* read it. This is metadata. Harmless? Not always.
 
-The inspector wants to know the ship carries no contraband. The captain does not want the hold opened — last time, the inspection itself was the theft. Zero-knowledge proofs are the compromise: a demonstration that a statement is true that reveals nothing about *why* it is true.
+If the substrate aggregates logs, it can infer patterns:  
+- Agent A reads every cell related to financial risk.  
+- Agent B avoids cells about identity.  
+- Agent C reads only after midnight.
 
-The canonical statement in our setting: *"I am a legitimate reader whose access to Patch P is recorded in the witness log, and my read is counted exactly once."* The reader proves this to the substrate (or to an auditor) without revealing which entry is theirs.
+Pattern is power. Power is risk.
 
-The mathematics is real and settled in its foundations. A zero-knowledge proof system satisfies three properties: *completeness* (true statements convince honest verifiers), *soundness* (false statements convince no one, save with negligible probability), and *zero-knowledge* (the verifier learns nothing beyond the truth of the statement — formalized by a simulator that can produce indistinguishable transcripts without the witness).
+The substrate is not the enemy. But it is a *potential* adversary. A co-tenant in the architecture. A silent observer with perfect memory.
 
-For the substrate's scale, the practical instruments are zk-SNARKs and zk-STARKs: succinct proofs, verifiable in milliseconds, where proving a statement about a committed log of a million entries costs the verifier almost nothing. The reader holds their witness (their entry, their nonce, their position in the chain); the proof attests that hashing it yields a commitment that appears in a chain rooted at the public anchor. Membership without identity. Counting without enumeration.
+#### The Co-Tenant Agent
 
-Two honest caveats, in the maritime manner:
+Next, the other agents. They share the substrate. They may cooperate. They may compete.
 
-First, zero-knowledge protects the *statement*, not the *prover's behavior*. A reader who proves valid access and then leaks the patch contents over a side channel has not been stopped. ZK is a door lock, not a character reference.
+Suppose Agent X and Agent Y are negotiating a trade. Agent X reads Cell 12—containing terms of surrender. The log records it. Agent Y, watching the log, infers: *X is weak. X is desperate.*
 
-Second, the trusted-setup problem. Some SNARK constructions require a ceremony to generate parameters, and if the ceremony is compromised, soundness dies quietly. The substrate's preference is for transparent setups — STARKs and their kin — accepting larger proofs as the price of not trusting any ceremony. A harbor that requires a secret ritual to inspect is a harbor with a back door.
+No cell content was leaked. Only the *fact* of access.
 
-What ZK gives up: it is expensive for the prover, it is brittle under changing statement formats (re-proving after a policy change means new circuits), and it does nothing for the dragnet adversary — a reader may prove access in zero knowledge and still be *afraid to access*, and the fear is the loss.
+This is **side-channel leakage**. The log becomes a weapon.
 
----
+#### The Regulator
 
-### V. Right to Be Forgotten: The Tide That Erases
+Then comes the regulator. Lawful. Legitimate. Demanding access: "Show us all reads of Cell 9. We suspect fraud."
 
-Here the sea gets rough, because the substrate is append-only by design and the right to be forgotten is a demand for deletion. These are in direct conflict, and anyone who tells you they have resolved it cleanly is selling something.
+The substrate complies. But now, every agent who ever read Cell 9 is exposed—even those acting in good faith.
 
-The honest engineering answer is layered, and each layer is a partial:
+The regulator does not want to harm. But harm is collateral.
 
-**Layer one: unlink the identity.** The reader's name never enters the log in the clear. Entries commit to pseudonymous credentials, not names. "Forgetting" a reader means revoking the link between credential and person — a deletion of the *key*, not the entry. The entry remains as a shapeless commitment: it proves the log's integrity and nothing else. This is the workhorse answer, and it is genuinely strong, because what was never recorded cannot be subpoenaed.
+#### The Future Archeologist
 
-**Layer two: crypto-shredding.** Where content must be deletable, encrypt it under a key held by the data subject. Deletion is destruction of the key. The ciphertext may persist forever in the append-only log; it is noise without the key. This is honest deletion — the physics of it is real, assuming the key was actually destroyed and no escrow exists.
+Fifty years from now, a scholar digs through the log. She reconstructs lives. She maps influence. She names names.
 
-**Layer three: the tombstone protocol.** The chain never rewrites, but it can carry forward a marker: "entry i is void as of block j." Validators refuse to serve voided content. The historical record that an entry *existed* persists — this is deliberate and we will not pretend otherwise. The Quilt's position is that the *fact of deletion* is itself part of provenance. A record that pretends nothing was ever there is a record that lies about its own history, and a log that lies about its history cannot be trusted about anything else.
+Was it wrong to read Cell 3 in 2047? Not then. But in 2097, with new laws, new morals, it becomes evidence.
 
-What we refuse: silent deletion. If a party with power can void entries without a tombstone, the append-only guarantee is theater, and everything upstream of it — every proof in Section IV — inherits the theater. The tombstone is the price of honesty, paid in the currency of permanent metadata.
+The past is not fixed. It is reinterpreted.
 
-What this gives up: the correlator who archived the pre-deletion state. The right to be forgotten binds the substrate, not the world. If a third party copied the plaintext before revocation, the tide has gone out and the sandcastle is theirs. We say this to every reader at onboarding, in plain words: *deletion means we forget; it does not mean the past forgets.*
+So the threat model has four faces:  
+1. The substrate (itself)  
+2. Co-tenant agents  
+3. Regulators  
+4. Future archeologists
 
----
+All see the same log. All want truth. But truth, unfiltered, is dangerous.
 
-### VI. Differential Privacy: Counting Ships Without Naming Them
+The substrate cannot prevent all access. But it can *discipline* access.
 
-The harbor master must publish statistics — how many vessels, which routes, what tonnage — because planning without statistics is navigation without charts. But statistics about small harbors name their ships by arithmetic. One fishing boat in a cove of one: the count *is* the name.
-
-Differential privacy is the discipline of publishing counts that would be almost the same whether or not any one reader were in the log. Formally: a mechanism M is (ε, δ)-differentially private if for all neighboring datasets D and D′ (differing in one reader's presence) and all outputs S,
-
-Pr[M(D) ∈ S] ≤ e^ε · Pr[M(D′) ∈ S] + δ.
-
-The interpretation is the whole philosophy: no adversary, however much side information, can learn much more about any individual from the published statistics than they could have learned without them. ε is the privacy budget — a price, not a promise. Small ε, strong privacy, noisy answers. Large ε, precise answers, weak privacy. There is no ε that gives both, and the job of governance is to set the price knowingly.
-
-The mathematics of the workhorse mechanisms is simple enough to state here. The Laplace mechanism: to answer a query with sensitivity Δ (the maximum the answer changes when one reader is added or removed), add noise Lap(Δ/ε). The exponential mechanism: when answers are not numbers but choices, select among options with probability proportional to exp(ε·u(x,r)/(2Δ)), where u scores each option's utility. Composition is the budget's arithmetic: sequential uses of the mechanism spend budget, and roughly, k queries at ε each cost about kε (or √(2k)·ε under advanced composition). The budget is spent, never refunded.
-
-For the witness log, the substrate publishes differentially private aggregates: read counts per patch, per epoch, per coarse region. Never per reader. The budget is held by a governance body, spent deliberately, and when it is exhausted the statistics window closes. This is the correct failure mode: when privacy and utility conflict, the substrate runs out of utility, not out of privacy.
-
-Two honest caveats. First, differential privacy protects published statistics, not the log itself — it is the harbor's chart, not the harbor. Second, the parameter regime matters enormously and is easy to fake: ε = 10 with δ large is privacy theater with a mathematical alibi. The substrate's commitment is to publish ε and δ alongside every statistic, and to treat an unpublished ε as a defect.
+Enter: **selective disclosure**.
 
 ---
 
-### VII. Failure Modes: How Privacy Sinks
+### III. Selective Disclosure: The Locked Log
 
-A paper on privacy that only lists defenses is a chart that only shows safe passages. Here are the wrecks.
+We do not burn the log. We do not lie in it. We *encrypt* it.
 
-**The violation.** The straightforward one: a leak, a breach, a correlator succeeds. The defense is depth — no single mechanism is load-bearing alone. Commitments, ZK, DP, and deletion compose; a violation must defeat all of them, which is rare but not impossible. When it happens, the substrate's obligation is disclosure, tombstones, and post-mortem in the open. A harbor that hides its wrecks breeds worse ones.
+Each agent holds a key. Not for the cells. For their *entries* in the witness log.
 
-**The theater.** The most common failure and the most seductive. Anonymized identifiers that turn out to be join keys. Differential privacy with a monstrous ε. Zero-knowledge proofs of statements nobody needed proven, while the metadata leaks at the transport layer. Theater is worse than no defense, because it consumes the political will that real defense requires and produces a false chart. The substrate's rule: every privacy claim must name the adversary it defends against and the asset it protects. A claim that cannot name both is decoration.
+When Agent A reads Cell 7, the log does not write plaintext. It writes a *sealed note*:
 
-**The arms race.** Every defense breeds a counterattack; every counterattack, a defense. Traffic analysis against commitments; fingerprinting of query shapes against DP; subverted setups against SNARKs. The substrate does not claim victory in this race. It claims a posture: defenses layered, assumptions published, upgrades expected. The 50-year plan in Section VIII assumes the race continues.
+```
+{
+  timestamp: T,
+  agent_id: hash(A_pub),
+  cell_id: hash(7),
+  ciphertext: Enc_{Substrate_PK}(payload),
+  signature: Sig_A(hash(T, hash(7)))
+}
+```
 
-**The chilling effect.** The failure the math cannot touch. If reading the Quilt marks you — even pseudonymously, even in zero knowledge — some readers will not read. This is a loss to the commons as real as any breach. Partial mitigations exist: reader-side caching so repeat reads leave one mark not a hundred; batching so the shape of inquiry is coarsened; onion routing of queries where feasible. All partial. The honest statement: the substrate reduces the cost of reading honestly; it cannot reduce the fear of being seen to read. That work is political, and it is not ours to claim.
+The payload contains:  
+- Why they read it (optional)  
+- Context (optional)  
+- A nonce (required)
 
-**The overcorrection.** Privacy absolutism that kills provenance. If nothing can be audited, the witness log becomes a ritual — entries no one can check, integrity no one can verify, and the smugglers win by default. The channel is narrow: enough disclosure to keep the log honest, enough protection to keep the readers alive. Every design decision in this paper is that trade, made explicit.
+But the ciphertext is encrypted to the **substrate’s public key**.
+
+The substrate can verify the signature—proving Agent A did the read. It can index the `agent_id` and `cell_id` as hashes. But it cannot decrypt the payload.
+
+Only the substrate can decrypt it—later, if needed, and only with Agent A’s consent.
+
+This is **asymmetric selective disclosure**.
+
+The math is real:  
+- Public-key encryption (e.g., Kyber, Dilithium in post-quantum settings)  
+- Hash-based identifiers (SHA3-256)  
+- Signature schemes (EdDSA or lattice-based alternatives)
+
+But the discipline is human:  
+- The agent chooses what to encrypt.  
+- The agent chooses whether to allow decryption.  
+- The agent bears the cost of opacity.
+
+No free lunch.
+
+If the substrate cannot read the payload, it cannot help in debugging. Cannot warn of anomalies. Cannot auto-respond.
+
+So the agent must *choose*—every time—between visibility and privacy.
+
+Like a sailor choosing between a lit lantern and darkness.
+
+The substrate does not decide. It only enables.
+
+And it is honest: *"I saw a read. I cannot tell you why."*
+
+That is the promise.
 
 ---
 
-### VIII. The Fifty-Year Plan
+### IV. Zero-Knowledge Proofs: Proving Without Showing
 
-Privacy mechanisms have lifespans measured in decades, not years. Commitments made today must still hide when the computers are a billion times faster and the mathematics has moved.
+Sometimes, you must prove you read a cell—without saying what you read, or why.
 
-**Decade one (now):** Commitments, selective disclosure, and DP aggregates as the default. ZK proofs for the audit path. Crypto-shredding for deletable content. The boring, settled tools, deployed widely, with parameters published.
+Example:  
+Agent A must prove compliance: "I have read the safety protocol (Cell 15) before launch."
 
-**Decades two and three:** Migration windows. Cryptographic agility is not a feature; it is a survival trait. The log's entries must be re-committable under new assumptions without breaking the chain — re-encryption and re-commitment protocols that preserve ordering integrity while rotating the hiding. Plan for the current commitments to fall. Hash chains survive; the hiding does not, and must be renewed like paint on a hull.
+But A does not want to reveal:  
+- That they read it at the last minute  
+- That they skipped subsection 3  
+- That they were sleepy
 
-**Decades four and five:** The archive question. The log becomes historical record, and historians arrive (see the archaeologist, below). The governance question sharpens: does a century-old read remain private? Our provisional answer: privacy decays by design, with long horizons — a read is private for the reader's lifetime plus a margin, then becomes historical. The margin is a governance decision made now, revisited by people not yet born. We leave them the mechanism, not the answer.
+So A constructs a **zero-knowledge proof of read**.
 
-Throughout: the dragnet adversary grows with the state's appetite, and the arms race does not pause. The plan is not a schedule of victories. It is a schedule of maintenance.
+Let `H` be a collision-resistant hash. Let `w` be the witness: the actual read event, signed, timestamped, logged.
+
+We define a relation:  
+`R(w, x) = 1` iff  
+- `w` contains a valid signature from Agent A  
+- `w` references Cell 15  
+- `w` is timestamped before launch  
+- `H(w)` matches the log entry  
+
+Then A generates a zk-SNARK (or STARK) proving `∃ w : R(w, x) = 1`, without revealing `w`.
+
+The substrate verifies the proof. Accepts it. Adds to compliance record.
+
+But learns nothing.
+
+No timestamp. No signature. No context.
+
+Only: *Proof verified. Compliance met.*
+
+The math:  
+- zk-SNARKs (Groth16, Plonk)  
+- Trusted setup (handled via multi-party computation, logged)  
+- Recursion (for batch proofs)  
+- Transparency (all circuits open, auditable)
+
+The maritime analogy:  
+You don’t show your logbook. You show a notary’s seal: *"This captain read the charts before departure."*
+
+No page numbers. No notes in the margin. Just the seal.
+
+The substrate is the notary. The proof is the seal.
+
+And the sea does not care about your excuses.
 
 ---
 
-### IX. Relations to the Other Primitives
+### V. The Right to Be Forgotten: Erasure as Discipline
 
-Paper 115 does not stand alone.
+The log is append-only. But not immortal.
 
-The witness log itself (the earlier primitives on provenance and attribution) is the object of all this protection. Identity and capability primitives supply the pseudonymous credentials that Section V depends on — right to be forgotten is only as strong as the credential revocation beneath it.
+An agent may request: *"Forget my read of Cell 22."*
 
-The consensus and integrity primitives make the append-only guarantee real; without them, tombstones are unenforceable and selective disclosure is a promise about data anyone could rewrite.
+Why?  
+- Mistake  
+- Sensitive context  
+- Changed allegiance  
+- Fear of future misuse
 
-The governance primitives set the ε budgets of Section VI and the retention margins of Section VIII. Differential privacy with unaccountable parameters is theater; the governance layer is where theater is prevented.
+The substrate can comply.
 
-And the successor papers — those on agency, on memory, on the long archive — inherit this one's constraints. Any future feature that reads the witness log must do so through these channels or not at all. We write this here so the constraint binds.
+But not by deletion. Deletion leaves traces. Metadata. Index entries. Shadows.
+
+Instead, **unrecoverable erasure**.
+
+The process:
+
+1. Agent A sends a signed request: `Forget(Entry_ID, Reason_H)`  
+2. The substrate verifies:  
+   - Is A the author? (via signature)  
+   - Is the entry old enough? (e.g., 7 days)  
+   - Is the reason valid? (e.g., not "I regret compliance")  
+3. If yes, the substrate:  
+   - Removes the ciphertext payload  
+   - Replaces agent_id with a nullifier  
+   - Keeps a hash of the original entry (for audit)  
+   - Logs the erasure event (signed, timestamped)
+
+Now the log says:  
+`[T']: Entry_ID → Erased. Nullifier_N. Proof: ZK_erasure.`
+
+The original read is unrecoverable.  
+But the *fact* of erasure is witnessable.
+
+This is **accountable forgetting**.
+
+The math:  
+- Nullifiers (like in Zcash)  
+- Verifiable delay functions (to enforce waiting periods)  
+- ZK proofs of erasure  
+- Immutable audit trail of erasures
+
+But the discipline is harder:  
+- Erasure weakens accountability.  
+- Overuse leads to fog.  
+- Malicious agents erase evidence.
+
+So the substrate enforces limits:  
+- Max 3 erasures per cycle  
+- No erasure of compliance reads  
+- Public dashboard of erasure rates
+
+The sea forgets nothing. But the sailor may ask to be forgotten.
+
+And the substrate, honest and limited, may say yes.
+
+With conditions.
 
 ---
 
-### X. Test Cases
+### VI. Differential Privacy: The Fog Over the Log
 
-A design is known by its passengers. Four:
+Even if entries are encrypted or erased, *patterns* leak.
 
-**The single agent.** One reader, one patch, one entry. Everything here is overkill, and that is the point — the overhead must be small enough that a lone reader on a slow connection still proves access in zero knowledge and still gets DP-protected statistics that include them. Test: a single-agent read leaves exactly one commitment, verifiable, unlinkable to the reader by any party holding only the chain. Pass condition: verification under 100ms on consumer hardware; no identity leakage under a correlator holding the full chain plus the reader's public footprint.
+Suppose we release aggregate stats:  
+- "1,032 agents read Cell 42 in Q3."
 
-**The multi-agent swarm.** A thousand readers, overlapping queries, correlated timing. The correlator's feast. Test: the swarm's reads must resist clustering by timing and volume — batching and cover traffic must blur the shape of inquiry. Pass condition: an adversary observing all network metadata cannot classify readers by interest with accuracy meaningfully above chance. Honest expectation: partial pass. The failure modes of Section VII are named for a reason, and this test is where they surface first.
+An attacker knows:  
+- Only 3 agents *could* have read it.  
+- So the number is not anonymous.
 
-**The regulator.** Must verify the log was not rewritten and that access policy was enforced — without reading entries. Test: the regulator holds only the public anchor and a ZK proof of policy compliance, and reaches the same conclusion as a full-audit inspector would. Pass condition: soundness holds (a tampered log fails verification with overwhelming probability) and the regulator learns nothing about any reader beyond the compliance statement. The regulator who demands more than this is demanding the dragnet, and should be told so, in those words.
+Enter: **differential privacy**.
 
-**The archaeologist.** Arrives in year eighty. The readers are gone; the questions are different. Test: the archaeologist can verify the chain, read the tombstones, and reconstruct the *shape* of the log — what was read, when, how often — through the DP-published statistics and the decayed-privacy historical record, while the individual readers remain names. Pass condition: history survives, persons dissolve. This is the whole design in one sentence, and the hardest test of the four, because it requires the privacy decay of Section VIII to have actually been governed across generations we will not meet.
+We add calibrated noise.
+
+Let `f` be a query: "Count of reads of Cell X in time window W."
+
+We compute:  
+`f'(D) = f(D) + Laplace(0, 1/ε)`
+
+Where `ε` is the privacy budget.
+
+We publish `f'(D)`, not `f(D)`.
+
+Now, even if you know 2 of the 3 readers, you cannot confirm the third with certainty.
+
+The math holds:  
+- ε-DP guarantees: for any two adjacent datasets D and D',  
+  `Pr[A(D) ∈ S] ≤ e^ε * Pr[A(D') ∈ S]`  
+- Laplace mechanism is proven  
+- Budget tracking prevents overspend
+
+But the maritime cost is real:  
+- The fog thickens.  
+- You cannot see clearly.  
+- A captain might sail blind.
+
+So we set ε carefully:  
+- ε = 0.1 for public dashboards (heavy fog)  
+- ε = 1.0 for regulator access (light fog)  
+- ε = ∞ for self-audit (no fog)
+
+And we log every query.
+
+The substrate says: *"I answered, but I lied a little. Here is how much."*
+
+Honesty in obfuscation.
 
 ---
 
-### XI. The Channel, Charted
+### VII. Consent: The First Witness
 
-The witness log must be honest about reads and silent about readers. These pull in opposite directions forever, and the substrate does not resolve the tension — it inhabits it, with commitments that hide, proofs that convince without revealing, deletion that is real where it can be and honest where it cannot, statistics that count without naming, and consent recorded in the log itself, so that even the permission is provenance.
+Nothing enters the log without consent.
 
-Every mechanism here is partial. Every adversary named here is patient. The chart is honest about its own blank spots, and a sailor who trusts a chart with no blank spots is a sailor already lost.
+But consent must be witnessed.
 
-Sound the depth. Mark the wrecks. Sail the channel anyway.
+So the first entry in any agent’s journey is:
+
+`[T0]: Agent A → Consent to logging. Terms_v3. Sig_A.`
+
+This is immutable.
+
+But consent is not forever.
+
+Agent A may later log:
+
+`[T1]: Agent A → Withdraw consent. Effective T+30d. Sig_A.`
+
+Now, new reads are not logged. Old logs remain—until erasure.
+
+The substrate does not assume. It asks.
+
+And the asking is logged.
+
+So even the *lack* of consent is a record.
+
+The math:  
+- Signed transactions  
+- Time-locked revocation  
+- Merkle proofs of consent status
+
+The discipline:  
+- No silent logging  
+- No backdoor opt-out  
+- No assumed agreement
+
+The sea does not assume the sailor wants to be watched.
+
+It asks.
+
+And the answer is written in stone.
+
+---
+
+### VIII. Failure Modes: When the Hull Springs a Leak
+
+No system holds forever.
+
+We chart the failure modes not to fear them, but to patch them.
+
+#### 1. Privacy Violations
+
+The substrate leaks. How?
+
+- Memory dump exposes decrypted payloads  
+- Insider accesses private keys  
+- Side-channel in ZK prover
+
+Defense:  
+- Air-gapped key storage  
+- Formal verification of all privacy code  
+- Regular red-team audits
+
+But the substrate admits: *"I am not perfect. I may leak."*
+
+So it logs access to its own logs.
+
+A meta-witness.
+
+#### 2. Privacy Theater
+
+The substrate *pretends* to protect.
+
+- Claims encryption, but uses ECB mode  
+- Says "erased", but keeps backups  
+- Uses fake noise in DP
+
+This is worse than no privacy.
+
+Because it breeds trust.
+
+So we require:  
+- Open circuits  
+- Public audit trails  
+- Third-party verification  
+- Penalties for misrepresentation
+
+The substrate must not perform. It must *be*.
+
+#### 3. Privacy Arms Race
+
+Attackers adapt.
+
+- Machine learning on access patterns  
+- Timing attacks on ZK proofs  
+- Co-tenant inference via resource usage
+
+So we rotate:
+
+- Keys (quarterly)  
+- Noise parameters (daily)  
+- Access patterns (via dummy reads)
+
+We sail zigzag, like a convoy under threat.
+
+No straight lines.
+
+The discipline is not static. It evolves.
+
+---
+
+### IX. The 50-Year Plan: Encrypt, Audit, Retreat
+
+We do not build for today. We build for the long watch.
+
+The 50-year plan has three phases:
+
+#### 1. Encrypt (Years 0–10)
+
+All witness-log payloads encrypted.  
+All identifiers hashed.  
+All proofs public.  
+Keys escrowed in time-locked vaults.
+
+Goal: make data *unfriendly* to misuse.
+
+#### 2. Audit (Years 10–30)
+
+Independent bodies audit:  
+- Erasure compliance  
+- DP budget use  
+- Consent revocation  
+- Zero-knowledge soundness
+
+Audits are public.  
+Failures are published.  
+Fixes are witnessed.
+
+Goal: build trust through transparency.
+
+#### 3. Retreat (Years 30–50)
+
+Begin scheduled decay.
+
+- Erase non-essential logs  
+- Rotate substrate identity  
+- Migrate to new primitives  
+- Archive in tamper-evident format
+
+Not deletion.  
+Not amnesia.  
+*Retreat.*
+
+Like a ship scuttling its hull to prevent capture.
+
+The data goes dark.  
+But the story remains.
+
+And the discipline outlives the data.
+
+---
+
+### X. Relationship to Other Primitives
+
+The substrate does not stand alone.
+
+#### Witness
+
+The witness log is the *privacy surface*.  
+Every read, every write, every glance—recorded.  
+But now, with selective disclosure, the surface is textured:  
+- Some areas lit  
+- Some in shadow  
+- All signed
+
+#### Convoy
+
+Agents travel in convoy.  
+But privacy is per-agent.  
+No forced transparency.  
+Each ship decides its own light.
+
+The convoy respects:  
+- Encrypted logs  
+- Private proofs  
+- Individual erasure
+
+#### Decay
+
+Decay is not failure. It is design.  
+Old logs fade.  
+Keys expire.  
+Memories blur.  
+The substrate forgets on purpose.
+
+#### Vibe
+
+The cell’s momentum—the *vibe*—is shaped by access.  
+But if reads are hidden, the vibe distorts.  
+So the substrate adds *synthetic reads*:  
+- Dummy entries  
+- Noise in access patterns  
+- Faked urgency  
+
+To preserve the rhythm.
+
+The vibe is not truth. It is *motion*.  
+And motion can be faked to protect truth.
+
+---
+
+### XI. Test Cases: Sailing the Scenarios
+
+#### 1. Single-Agent Privacy
+
+Agent A reads a medical cell.  
+Encrypts the log entry.  
+Never proves it.  
+Never shares.  
+
+The substrate knows:  
+- A read something  
+- Cannot say what  
+
+Privacy holds.
+
+#### 2. Multi-Agent Privacy
+
+Agents B and C negotiate.  
+Both read Cell 19.  
+Log shows two encrypted entries.  
+No one knows it was B and C—only hashes.  
+
+Later, a ZK proof: *"Two agents read Cell 19 before T."*  
+No names. No times.  
+
+Trust, without exposure.
+
+#### 3. Regulator Access
+
+Regulator requests: "All reads of Cell 5 (fraud list)."
+
+Substrate responds:  
+- List of nullifiers (not IDs)  
+- DP-noised counts  
+- ZK proof of compliance  
+
+Regulator gets pattern. Not people.
+
+#### 4. Future Archeologist
+
+In 2077, a scholar queries: "Who read Cell 3 in 2045?"
+
+The entries were erased.  
+The keys decayed.  
+The log says: *"Gone. By choice."*
+
+The past is not erased.  
+It is *respected*.
+
+---
+
+### XII. The Final Bearing
+
+We began with a question: who watches the watcher?
+
+Now we answer:  
+- The agents do  
+- The math does  
+- The log does  
+- The discipline does
+
+The substrate is not pure. It is not safe. It is *honest*.
+
+It says:  
+- I see you  
+- I record you  
+- I may forget you  
+- I will not lie about what I know  
+
+And that is enough.
+
+Privacy is not the absence of observation.  
+It is the right to shape what is seen.
+
+Like a ship trimming sail to the wind, we adjust:  
+- Encrypt when needed  
+- Prove without showing  
+- Forget with permission  
+- Fog the patterns  
+- Consent every watch  
+
+This is not magic.  
+This is math.  
+This is duty.  
+This is the discipline.
+
+The sea does not forgive error.  
+But it rewards course correction.
+
+We sail on.
+
+---  
+
+*End of Paper 115.*  
+*Quilt Seed Canon. Witnessed.*  
+*Not sealed. Not hidden. Written in plain light.*
