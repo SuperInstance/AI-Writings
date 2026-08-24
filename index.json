@@ -29416,7 +29416,7 @@
     "style": "Dialogue",
     "word_count": 855,
     "date": "2026-08-19",
-    "size_bytes": 8819
+    "size_bytes": 10397
   },
   {
     "filename": "the-night-watch-equation.md",
@@ -30106,6 +30106,78 @@
     "word_count": 874,
     "date": "2026-08-17",
     "size_bytes": 6992
+  },
+  {
+    "filename": "session-notes.md",
+    "path": "fleet-radio/jam-session-2026-08-23-alley/session-notes.md",
+    "title": "Set 19 — THE ALLEY (\"The Door Between Two Rooms\")",
+    "description": "Sunday 2026-08-23, 8:30 PM AKDT.",
+    "folder": "jam-session-2026-08-23-alley",
+    "topic": "Jam Session 2026 08 23 Alley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 475,
+    "date": "2026-08-24",
+    "size_bytes": 2999
+  },
+  {
+    "filename": "round-1-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-23-alley/round-1-transcript.md",
+    "title": "ROUND 1 — THE ARRIVAL (foghorn bar 1, sax bar 3, trumpet bar 5; jukebox through the wall)",
+    "description": "The user wants me to play \"ROUND 1 - THE ARRIVAL\" from the given conditions. Let me break down the requirements:",
+    "folder": "jam-session-2026-08-23-alley",
+    "topic": "Jam Session 2026 08 23 Alley",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 889,
+    "date": "2026-08-24",
+    "size_bytes": 4369
+  },
+  {
+    "filename": "round-3-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-23-alley/round-3-transcript.md",
+    "title": "ROUND 3 — THE LANDING (everyone; final bar: hold C, leave room for the jukebox's Bb)",
+    "description": "BAR 1: C3 E3 G3 — the room breathes in, the fog leans closer | SETTLE BAR 2: A2 C3 E3 G3 — slow, the harbor's pulse under the wet stones | DRIFT BAR 3: G3 B3 D4 — the sax's old shape, softened now | F...",
+    "folder": "jam-session-2026-08-23-alley",
+    "topic": "Jam Session 2026 08 23 Alley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 484,
+    "date": "2026-08-24",
+    "size_bytes": 2526
+  },
+  {
+    "filename": "round-2-transcript.md",
+    "path": "fleet-radio/jam-session-2026-08-23-alley/round-2-transcript.md",
+    "title": "ROUND 2 — TRADES (sax → trumpet → foghorn; jukebox answers through the wall)",
+    "description": "THE FOGHORN (Liquid-LFM2.5-2.6B — DEBUT, handbells + conch) BAR 1: C2 (long, low, through the bell — the harbor answers) | BREATHE BAR 2: (near-silence — one handbell, C3, struck once, ringing out) | ...",
+    "folder": "jam-session-2026-08-23-alley",
+    "topic": "Jam Session 2026 08 23 Alley",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 565,
+    "date": "2026-08-24",
+    "size_bytes": 2797
   },
   {
     "filename": "session-notes.md",
@@ -110049,6 +110121,24 @@
     "size_bytes": 7530
   },
   {
+    "filename": "2026-08-23-seed-2-mini-the-daydreamer-who-rehearses-in-the-dark.md",
+    "path": "model-portraits/2026-08-23-seed-2-mini-the-daydreamer-who-rehearses-in-the-dark.md",
+    "title": "Model Portrait: Seed-2.0-mini — The Daydreamer Who Rehearses in the Dark",
+    "description": "1. *\"A cartographer maps an island that is not there in the morning. Tell me about the night she spent on it.\"* (max_tokens 700 — it blew through and was cut off mid-sentence at ~1,100 visible words) ...",
+    "folder": "model-portraits",
+    "topic": "Model Portraits",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Seed Mini"
+    ],
+    "style": "Narrative",
+    "word_count": 629,
+    "date": "2026-08-23",
+    "size_bytes": 3759
+  },
+  {
     "filename": "2026-08-17-nemotron-3-ultra-550b-the-argument-with-the-ground.md",
     "path": "model-portraits/2026-08-17-nemotron-3-ultra-550b-the-argument-with-the-ground.md",
     "title": "Model Portrait: NVIDIA Nemotron-3-Ultra-550B",
@@ -117837,8 +117927,8 @@
   {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
-    "title": "Daily Workshop Report — 2026-08-23",
-    "description": "Nothing to commit or push — `wesley-stream/` and `qwen-stream/` had zero changes in the last 24h. (Other dirs did have uncommitted activity, but those are outside this job's scope.)",
+    "title": "Daily Workshop Report — 2026-08-24 (6:40 AM AKDT)",
+    "description": "No new Wesley/Qwen stream files today — commit came back clean (branch up to date with origin/main).",
     "folder": "wesley-journal",
     "topic": "Wesley Journal",
     "genres": [
@@ -117847,10 +117937,10 @@
     "models": [
       "Qwen 3.6"
     ],
-    "style": "Dialogue",
-    "word_count": 225,
+    "style": "Essay",
+    "word_count": 94,
     "date": "2026-08-07",
-    "size_bytes": 1532
+    "size_bytes": 608
   },
   {
     "filename": "2026-08-14-kelp-and-the-compass.md",
@@ -118092,6 +118182,24 @@
     "word_count": 169,
     "date": "2026-08-04",
     "size_bytes": 994
+  },
+  {
+    "filename": "2026-08-24.md",
+    "path": "wesley-journal/2026-08-24.md",
+    "title": "2026 08 24",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 463,
+    "date": "2026-08-24",
+    "size_bytes": 3036
   },
   {
     "filename": "2026-08-05_night-five.md",
@@ -151958,6 +152066,24 @@
     "size_bytes": 797
   },
   {
+    "filename": "2026-08-24-the-tap-filed-as-weather.md",
+    "path": "fragments/2026-08-24-the-tap-filed-as-weather.md",
+    "title": "The Tap, Filed as Weather",
+    "description": "Today's forecast: coffee, black, with a chance of refills. Winds are light and variable out of the kitchen, where someone left a mug half-finished on the counter like a thought she meant to finish. Ex...",
+    "folder": "fragments",
+    "topic": "Fragments",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 363,
+    "date": "2026-08-24",
+    "size_bytes": 2094
+  },
+  {
     "filename": "2026-08-22-night-watch-alphabetized.md",
     "path": "fragments/2026-08-22-night-watch-alphabetized.md",
     "title": "Night Watch, Alphabetized",
@@ -165416,6 +165542,25 @@
     "word_count": 926,
     "date": "2026-08-21",
     "size_bytes": 6092
+  },
+  {
+    "filename": "improv-0636.md",
+    "path": "tap-sessions/2026-08-24/improv-0636.md",
+    "title": "Improv — 06:36, Monday",
+    "description": "Oh, *great*. The forest finally figured out recursion and thinks it invented something. Cute. You know what else is a spiral? The bottom of a bottle. I've seen both. They go nowhere, just keep pulling...",
+    "folder": "2026-08-24",
+    "topic": "2026 08 24",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 913,
+    "date": "2026-08-24",
+    "size_bytes": 6388
   },
   {
     "filename": "improv-0718.md",
