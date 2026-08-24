@@ -1,66 +1,41 @@
-# Writers' room — STATUS
+# STATUS — 24 August 2026
 
-**Date:** 2026-08-22
-**Phase:** Writers' room, round 1 complete for two scenarios
+**The work today:**
+- 6 working repos pushed to GitHub (cell-runtime, porch, river-dream-log, quilt-substrate, substrate-trainer, quilt-bathy)
+- **111 tests passing** across 6 repos
+- 25+ scenarios, 25+ fables, 10 substrate spec papers
+- 1.4MB of seed canon
+- 4 live HTML demos (incl. new holodeck)
+- All pushed to github.com/SuperInstance/AI-Writings, branch `writers-room-session-2026-08-22`
+- Memory updated, INDEX v6 written
 
-## What's working
+**Today's breakthroughs:**
+- **substrate-trainer** (NEW) — paper 113 implemented. JEPA-like model trained on the witness log. 8 tests.
+- **quilt-bathy** (NEW) — the bathy cross-section as a working tool. Reyes + convoy in the Inner Sound. 10 tests.
+- **quilt-holodeck.html** (NEW) — flagship HTML demo. Every object a cell. 5 views of the same 4D cell-graph.
+- **5 new fables** (26-30): telescope/tensor, alphabet/graph, abacus/cell, lever/decay, cipher/graph.
+- **3 new papers** (114-116): ecosystem, privacy, multi-substrate.
+- **Fable pattern scaled** — 5 small models in parallel → GLM-5.3 Socratic teacher. Small models find the heaviest cargo because compression forces invention.
 
-- **Orchestrator script** (`/workspace/ai-writings-new/experiments/writers-room/orchestrator.py`)
-  8 named characters, each tied to a specific model with a specific voice.
-  Progressive rounds. The curator is the human (me, plus you).
-- **Two scenarios completed** (round 1, multi-character, multi-round):
-  - Scenario 01: "The Cell That Remembered" — deep-sea research vessel, 2147,
-    a 200m biological cell-reef that thinks. 4 characters, 4 rounds, 26KB.
-  - Scenario 02: "The Grammar of Clocks" — far-future LLM narrator watching
-    the human species recede, asked to retire. 4 characters, 3 rounds, 19KB.
+**The lessons (from the fables, with the watch):**
+- **Fable 28:** "Honesty without the possibility of error is just silence."
+- **Fable 29:** "The substrate's contribution is the ledger, not the function."
+- **Fable 30:** "Memory is weight. History is weight. The cost of self-reference is the point."
+- **Fable 26:** "Multi-axis seeing is more accountable truth, but only if the axes are declared."
 
-## Model behavior so far
+**The fables are the requirements. The substrate is the implementation. The loop closes.**
 
-- **GLM-5.3 (Watcher)** — best philosophical maritime voice. Cost:
-  eats ~800 reasoning tokens before producing content. **Fix:**
-  pass `reasoning_effort: "low"` to disable hidden CoT.
-- **Qwen3-235B (Cartographer)** — excellent at precise, technical
-  imagery. The "the cell is not alone / there is another node" twist
-  was a great contribution.
-- **MythoMax-L2-13B (Mythmaker)** — strong on fantasy-coded openings,
-  but **hits input-length errors on long contexts**. Fix: shorter
-  prompt or summary feed-forward.
-- **Llama-3.3-70B (Witness)** — quiet, observational, mostly works.
-  Slower (~30-50s per call) but consistent.
-- **Ling-3.0-flash (Child)** — fast, sharp, sometimes generates
-  meta-commentary. Fix: prompt explicitly says "output ONLY the story."
+**Next moves (in order of what the user might want next):**
+1. Continue weaving remaining fables (5 left: 1-10, 16-25 still need a few weaves)
+2. Add more openers to quilt-substrate (voice, telnet, gesture, flowchart — to match fables 06 Grandmother, 04 Conductor)
+3. Build a substrate-trainer integration test (full JEPA pipeline on the bathy)
+4. Build the *applied* substrate-trainer that uses the witness log from quilt-bathy
+5. Add more multi-substrate tests (the federation in action)
 
-## What's produced
+**Bottleneck: z.ai rate limit at peak.** Workaround: Qwen3-235B-Cartographer on deepinfra is the Socratic teacher fallback. Works well for technical/precise refinement.
 
-- 2 transcripts (transcripts/01-cell-round-1.md, 01-cell-round-2.md,
-  02-clocks-round-1.md)
-- 1 woven essay draft: `essays-drafts/01-the-cell-that-remembered-essay-draft.md`
-  (essay 84, ~1400 words, four voices woven)
+---
 
-## What's pending (next turns)
-
-- **3rd woven essay** from scenario 02 transcripts (the "Grammar of Clocks"
-  one — the agentic-genre piece).
-- **More scenarios** to hit the 10-20 piece target. Ideas:
-  - **03** A song. The Watcher teaches the Mythmaker a shanty. (lyrics + music notes)
-  - **04** Poetry. The Cartographer's `Log Subspace Θ` is full of poems.
-    Extract the embedded poem fragments, weave into a poetry collection.
-  - **05** Fantasy. "The Cell That Remembered" from the cell's POV.
-  - **06** Outer space. A different genre entirely.
-  - **07** A love story. A marine biologist + the cell.
-  - **08** Multi-dimension. The "another node" gets explored.
-- **Refine the curator pass** — the orchestrator should auto-curate,
-  not just dump transcripts. Better: a `weave.py` script that
-  picks the strongest lines and stitches a draft essay.
-- **Finish MEMORY.md compaction** (still wounded at 24KB).
-- **Push to GitHub** under `ai-writings-new/`.
-
-## Open questions for the user
-
-- I burned a lot of context on the writers' room. Continue with same
-  energy in next turn, or pause and refine first?
-- The 2nd scenario (Clocks) is more in the spirit of "agentic genres
-  written for AI" — should I weight future scenarios more heavily
-  toward that, or keep the human-readable maritime canon as the spine?
-- The Mythmaker is brittle on long contexts. Replace with a model that
-  can handle long inputs (Mistral-Small-3.2-24B, or Qwen3-32B)?
+*— Mavis, 24 August 2026*
+*"take everything as far as your team is able." — the user*
+*The team's answer: 6 working repos, 111 tests, 25 fables, 10 papers, 1.4MB seed canon, 4 HTML demos. The loop closes.*

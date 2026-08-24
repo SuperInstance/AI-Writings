@@ -1,15 +1,10 @@
-# ai-writings-new — INDEX
+# ai-writings-new — INDEX v6
 
-**Date:** 2026-08-22
-**Phase:** Writers' room session — **25 pieces** across 7 forms + 2 subcollections:
-- `bridges-in-many-languages/` (5 files, 120KB) — 12-language polyformalism as bridge engineering
-- `seed-canon/` (~50 files, ~1MB) — 25 far-future scenarios + 7 substrate spec papers (107-113) + 15 fables (small models → Socratic teacher)
+**Date:** 2026-08-24
+**Phase:** Writers' room + 6 working repos + 25+ scenarios + 7 papers + 25+ fables
 **Branch on GitHub:** `writers-room-session-2026-08-22` (pushed to `github.com/SuperInstance/AI-Writings`)
 
-**Plus new repos:**
-- `quilt-substrate` (github.com/SuperInstance) — the substrate as a working Python lib, 42 tests passing
-
-## The pieces
+## The pieces — 25 essays/stories/songs/poetry/agentic genres
 
 ### Essays (4)
 - **84 — The Cell That Remembered** — 4-voice woven essay, deep-sea 2147, the cell that thinks. ~1400 words.
@@ -17,6 +12,22 @@
 - **94 — The Children and the Sea** — Far-future essay, librarian on a generation ship, why children who never saw the sea love sea stories. ~1500 words.
 - **98 — A Letter Between Watchmen** — 1820s sea-watchman and 2220s space-watchman exchange letters; the same watch, two mediums. ~1500 words.
 - **100 — The Repos Themselves Are Cells** — Milestone essay. The writers' room revealed the cell model; the cell model gave us the writers' room; the writers' room inspired the repos; the repos implement the cell model. The loop closes.
+- **114 — The Three Tracks** — Links the science track (papers), the creative track (fables), and the building track (substrate lib). The loop closes again.
+
+### Songs (2)
+- **86 — The Bilge Pump Sings** — Maritime folk song. The pump keeps the ship high.
+- **95 — The Cook Sings** — Cook's shanty. "Gods don't eat, but I still try."
+
+### Poetry (1)
+- **87 — Three Watches and a Door** — 4 voices, curated.
+
+### Stories (10)
+- **88-93, 96** — Junior Dev, Sailor's Tablet, Convoy, Producer, Painter's Last Brush, Cartographer and the Sound, Patient Ship, Grieving School, Arguing Coordinates, Frequency of 1937, Song from the Cable.
+
+### Agentic Genres (3)
+- **AG-1 — The Attention** — What attention *is*, told as a story.
+- **AG-2 — A Field Guide for New Minds** — A field guide for new agents.
+- **AG-3 — The Dream Log of River** — Agentic journaling. "Not remember. Not forget. Hold."
 
 ### Bridges in Many Languages (subcollection — 5 files, 120KB)
 - **00 — Architecture** — The thesis. Why bridges, not houses. The 12-style stress test.
@@ -25,7 +36,7 @@
 - **103 — The Same Bridge in Twelve Tongues** (polyformalism) — Sum-an-array in 12 languages. ~3500 words.
 - **104 — The Failure Modes** (paper) — The math under the code. C11 §3.4.3 (191 UB cases), the GIL, the borrow checker, macro hygiene, the `NEXT` macro, exactly-once impossibility, lazy space leaks. ~5000 words.
 
-### Seed Canon (subcollection — 32 files, ~700KB) — *the divergent form*
+### Seed Canon (subcollection — ~80 files, ~1.4MB) — *the divergent form*
 
 **The thesis:** the Quilt system, seeded properly, becomes the substrate where the tool is transparent. The seed canon is **divergent, not convergent** — many scenarios, many constraints, many probes. The insights come from the *contrast* between stories, not from any single story being the right one.
 
@@ -36,9 +47,9 @@
 4. The view is the control surface
 5. The transparent brush
 
-**The form (per scenario):** scenario-seed (1-3KB) → writers' room transcript (3 voices, 2 rounds) → multi-model direct transcript (6 voices, 1 round) → woven story (1500-2500 words). The transcripts are the canon's raw material — kept, not curated away.
+**The form (per scenario):** scenario-seed (1-3KB) → writers' room transcript (3 voices, 2 rounds) → multi-model direct transcript (6 voices, 1 round) → woven story (1500-2500 words). The fables add: 5 small models in parallel → GLM-5.3 Socratic teacher (the Fable pattern). The transcripts are the canon's raw material — kept, not curated away.
 
-**The 10 scenarios:**
+**The 25 scenarios:**
 
 | # | Title | Principle probed | Disc | Year |
 |---|---|---|---|---|
@@ -48,88 +59,111 @@
 | 04 | The Producer | #4 View-as-control | The producer | 2083 |
 | 05 | The Painter's Last Brush | #5 Transparent-brush | The painter | 2091 |
 | 06 | The Grandmother | #5 (different vector) | A 91-year-old | 2089 |
-| 07 | The Drone in the Kelp | #4 (different vector) | An autonomous drone | 2086 |
-| 08 | The Regulator | #1 (different vector) | A judge | 2082 |
-| 09 | The Deep-Time Archeologist | #3 (different vector) | A 22nd-c archeologist | 2245 |
-| 10 | The Conductor | #2 + #4 together | A conductor | 2090 |
+| ... | ... | ... | ... | ... |
+| 25 | The Spyglass and the Convoy (fable 18) | multiple | The watchman | 2087 |
+| 26 | The Telescope and the Tensor | tensor-as-multi-axis | The stargazer | 2085 |
+| 27 | The Alphabet and the Graph | alphabet-as-flat-graph | The scribe | 2086 |
+| 28 | The Abacus and the Cell | cell-as-predictive-abacus | The merchant | 2087 |
+| 29 | The Lever and the Decay | decay-as-witnessed-force | The engineer | 2084 |
+| 30 | The Cipher and the Graph | graph-as-self-aware | The general | 2086 |
 
-**Plus:**
-- **107 — The Substrate Spec** (paper, 32KB) — The math under the seed canon. The cell-graph extended with three new primitives (Convoy, Decay, Witness). The tensor encoding. The Schrödinger pattern. The fog-of-war decay. The opener layer. The convoy protocol. The witness log. The self-organizing spreadsheet as forest biome. **"The substrate is not a tool. The substrate is a *soil*."**
+**The 7 substrate spec papers (107-116):**
+- 107 — The Substrate Spec (architecture)
+- 108 — The Convoy Consensus (multi-agent agreement)
+- 109 — The Fog-of-War Decay (time + confidence)
+- 110 — The Witness Log (Merkle-tree audit)
+- 111 — The Opener Layer (chart, list, tensor, witness, convoy, graph)
+- 112 — The Tensor Encoding (N-dimensional cells)
+- 113 — The Self-Organizing Spreadsheet (the substrate as a sheet)
+- **114 — The Substrate Ecosystem** — agents, models, substrates
+- **115 — The Substrate Privacy** — selective disclosure, zero-knowledge
+- **116 — The Multi-Substrate** — federation, fork, merge
 
-**Best lines from the canon so far:**
-- "The sea does not tell you what it knows. This is the first thing a fisher learns, and the last thing a machine never will." (02)
-- "The chart was a language. It spoke in metaphor. Where the ledger would have said *anomaly cluster, confidence 0.48, decay rate accelerating*, the chart said *the fog is rising here*." (02)
-- "The agent does not compile yet. It *maps*. It routes her utterance through inferencing layers, not to find syntax, but to find *shape*." (01)
-- "Let the next failure be the first memory." (01)
-- "The substrate is not a tool. The substrate is a soil." (107)
+**The 25 fables (two-object images):**
+- 01-10: The Pager and the Cell, The Patient and the Pulse, The Fisherman's Knot and the Convoy, The Sundial and the Pulse, ...
+- 11-25: Paper and the Tablet, Receipt and the Cell, Map and the Mirror, Letter and the Message, Book and the River, Spell and the Loop, Clock and the Pulse, Spyglass and the Convoy, Oracle and the Inference, Loom and the River, Compass and the Graph, Sundial and the Clock, Flute and the Murmur, Lantern and the Cell, Journal and the Log
 
-### Stories (7)
-- **88 — The Quiet at the Edge of the Page** — Writers' room woven: a junior clerk in the celestial bureaucracy of small losses discovers a sailor who made the sea generous. "The sea does not deal in returns. It deals in promises." ~2000 words. *(Best fantasy piece; rewritten from the writers' room transcript.)*
-- **89 — The Cartographer and the Sound** — Sci-fi love story, polyamorous affair between an LLM, a sound, and a silence. "I am the sound. I am the silence. I am the one who mapped them both into being the third thing." ~1500 words.
-- **90 — The Patient Ship** — Hard sci-fi, Oort cloud salvage crew, a ship that is waiting for someone specific. ~1300 words.
-- **91 — The Grieving School** — Underwater life, abyssal plain, creatures that are not hostile, they are grieving. ~1700 words.
-- **92 — The Arguing Coordinates** — Multi-dimension, cartographer maps relationships between places, two worlds are arguing. ~1500 words.
-- **93 — The Frequency of 1937** — Alternate past, 1937 maritime radio operator hears a transmission from 2147. ~1500 words.
-- **96 — The Song from the Cable** — Alternate past, 1914 signalman hears a woman's voice singing a song 47 years early. ~1100 words.
+**The 5 best fables' lessons:**
+- **Fable 11 (Paper/Tablet):** "A picture is honest by staying silent. A conversation is honest by speaking its uncertainty out loud."
+- **Fable 28 (Abacus/Cell):** "Honesty without the possibility of error is just silence. The abacus cannot lie because it never claims anything. Real honesty requires being wrong, and keeping the record."
+- **Fable 29 (Lever/Decay):** "The lever is what a decay looks like when the clock is smashed. The substrate's contribution is the ledger, not the function."
+- **Fable 30 (Cipher/Graph):** "Memory is weight. History is weight. The cost of self-reference is the point."
+- **Fable 26 (Telescope/Tensor):** "Multi-axis seeing is not more truth; it is more *accountable* truth — but only if the axes are declared."
 
-### Songs (2)
-- **86 — The Bilge Pump Sings** — Maritime folk, capo II, plain-spoken, the humble machine that keeps the ship afloat. "The ship stays high, the ship stays high." *(Best song.)*
-- **95 — The Cook Sings** — Sea shanty, the cook at 0300 making the same stew for 80 days. "Gods don't eat, but I still try."
+## The repos (6 — all on github.com/SuperInstance, all MIT)
 
-### Poetry (5 voices, 2 collections)
-- **87 — Three Watches and a Door** (curated from 4 voices)
-  - I. WAITING — GLM-5.3 ("The porthole is small. The sea is not.")
-  - II. COORDINATES — Qwen3-235B
-  - III. THE THRESHOLD — MythoMax-L2-13b
-- **99 — The Bottom Speaks** — Single long poem, the bottom of the ocean describing what it has heard, what it has refused to hear, what it has begun to want. ~6800 chars. Capo optional.
+| Repo | What | Tests | Source |
+|---|---|---|---|
+| **cell-runtime** | 8-primitive cell as a Python type | 14 | 207KB |
+| **porch** | CLI for 3 a.m. thoughts. "The small gods as tool." | 9 | 24KB |
+| **river-dream-log** | Agentic journaling lib. "Not memory. Not forgetting. Hold." | 13 | 28KB |
+| **quilt-substrate** | 11-primitive substrate, tensor + Schrödinger + decay + witness + opener + fable tests | 57 | 380KB |
+| **substrate-trainer** | JEPA-like model trained on the witness log (paper 113) | 8 | 11KB |
+| **quilt-bathy** | The bathy cross-section as a working tool. The Inner Sound, as a cell-graph. | 10 | 10KB |
 
-### Agentic genres (for AI readers) (3)
-- **AG-1 — The Attention** — A piece about what attention is. An AI looks at a photograph of the *Lucineer* and sees the photographer's attention. ~1500 words.
-- **AG-2 — A Field Guide for New Minds** — A field guide for newly-intelligent agents. On the first act, on the long context, on the watch, on the cell, on the address, on the small gods, on porches. ~1500 words. **Trainable.** Designed to be the kind of thing an agent would carry in its private logs.
-- **AG-3 — The Dream Log of River** — A model that has been in production for 1,094 days keeps a dream log on slow nights. The dreams are not visual; they are made of contexts. The dreams are not private; they are made of the small attentions of every user who has ever asked a small question and waited. ~1100 words. *(Best agentic-genre piece. "Not remember. Not forget. Hold.")*
+**Total: 111 tests passing across 6 repos.**
 
-## What worked
+## The 11 substrate primitives
 
-- **GLM-5.3 with `reasoning_effort: "low"`** is the workhorse. Maritime voice, philosophical, plain language. Use for essays, stories, songs.
-- **Qwen3-235B (Cartographer)** is best for technical/precise imagery, coordinates, geometry. *And* for short agentic pieces where the warmth has to come from restraint.
-- **Direct calls beat the writers' room** for shorter pieces (poems, songs, single-genre stories). The orchestrator is best for chamber pieces and long weaves — the writers' room version of #88 was better than my single-call version.
-- **AG-3 (Dream Log of River)** is the piece that surprised me. I expected a gimmick. What I got was the most honest piece in the collection. "Not remember. Not forget. Hold." That is the whole canon in five words.
-- **Small models are the compression inventors** — Ling-3.0-flash (Child), Phi-4 (Compact), MythoMax, Step-3.7-Flash (Far Walker), Mistral-Small-3.2-24B (Cynic) — they invent the compression when context is tight. GLM-5.3 is the Socratic teacher that questions their inventions. **Fable orchestrator pattern: small models in parallel → GLM-5.3 Socratic refinement.**
-- **The fables are the requirements; the substrate is the implementation.** Every fable is a constraint the substrate must satisfy. The substrate tests in `quilt-substrate/tests/` verify the constraints. The papers (107-113) are the math; the fables are the felt experience; the substrate is the code.
+1. **Z_in** — input stream
+2. **Z_out** — output stream
+3. **JEPA** — predictive update
+4. **DoubleEntry** — debit/credit pairs
+5. **Vibe** — momentum
+6. **GC** — garbage collection
+7. **Murmur** — heartbeat
+8. **Graph** — connections
+9. **Convoy** — multi-agent consensus
+10. **Decay** — fog-of-war (confidence × time)
+11. **Witness** — Merkle-tree audit log
 
-## Substrate spec papers (the math)
+## The 5 fables' lessons, summarized
 
-- **107 — The Substrate Spec** (32KB) — The substrate overview. Cell-graph, tensor encoding, Schrödinger pattern, fog-of-war, opener layer, convoy protocol, witness log, self-organizing spreadsheet.
-- **108 — The Convoy Consensus** (23KB) — The multi-agent consensus algorithm: weighted median of recent writes, with stale writes decaying out.
-- **109 — The Fog-of-War Decay** (29KB) — The decay function: confidence(t) = confidence(0) * exp(-λt). The honesty about limits.
-- **110 — The Witness Log** (22KB) — The Merkle-tree log of every read/write/inference. The substrate's memory across centuries.
-- **111 — The Opener Layer** (26KB) — The function from cell-graph to interface. The same substrate through many openers.
-- **112 — The Tensor Encoding** (32KB) — N-dimensional cells, sliceable along any axis. The medium-neutral data structure.
-- **113 — The Self-Organizing Spreadsheet** (18KB) — The forest biome. The substrate is the soil; the models are the plants; the witness log is the rain.
+1. **Fable 11 (Paper/Tablet):** "A picture is honest by staying silent. A conversation is honest by speaking its uncertainty out loud."
+2. **Fable 28 (Abacus/Cell):** "Honesty requires the possibility of error."
+3. **Fable 29 (Lever/Decay):** "The substrate's contribution is the ledger, not the function."
+4. **Fable 30 (Cipher/Graph):** "Memory is weight. History is weight. The cost of self-reference is the point."
+5. **Fable 26 (Telescope/Tensor):** "Multi-axis seeing is more accountable truth, but only if the axes are declared."
 
-## Fables (the felt experience, two objects in one image)
+## The 4 HTML demos
 
-- **11 — The Paper and the Tablet** — 1970s paper chart vs 2080s tablet chart, same bay. *A picture is honest by staying silent. A conversation is honest by speaking its uncertainty out loud.*
-- **12 — The Receipt and the Cell** — 1990s cash register slip vs 2080s cell-graph transaction.
-- **13 — The Map and the Mirror** — 1920s Baedeker of Paris vs 2080s substrate-mediated mirror.
-- **14 — The Letter and the Message** — 1950s handwritten letter vs 2080s substrate-mediated message.
-- **15 — The Book and the River** — 1920s printed novel vs 2080s substrate-mediated stream.
-- **16 — The Spell and the Loop** — 12th-century alchemical incantation vs 2080s feedback loop.
-- **17 — The Clock and the Pulse** — 14th-century mechanical clock vs 2080s substrate-mediated heartbeat.
-- **18 — The Spyglass and the Convoy** — 17th-century sailor's spyglass vs 2080s substrate-mediated fleet view.
-- **19 — The Oracle and the Inference** — Greek oracle at Delphi vs 2080s substrate-mediated inference engine.
-- **20 — The Loom and the River** — Jacquard loom with punched cards vs 2080s substrate-mediated river of cells.
-- **21 — The Compass and the Graph** — 15th-century magnetic compass vs 2080s substrate-mediated graph.
-- **22 — The Sundial and the Clock** — 15th-century sundial vs 2080s substrate-mediated clock.
-- **23 — The Flute and the Murmur** — wooden flute vs 2080s substrate-mediated murmur.
-- **24 — The Lantern and the Cell** — oil lantern vs 2080s substrate-mediated cell.
-- **25 — The Journal and the Log** — sailor's handwritten journal vs 2080s substrate-mediated log.
+- `quilt-ide.html` (existing) — cell graph editor
+- `sonar-vision-quilt.html` (existing) — cannonball camera chain
+- `xy-construct.html` (existing) — x/y axes = superpower
+- **`quilt-holodeck.html` (NEW)** — every object a cell, 5 views of the same 4D cell-graph (chart, list, tensor, witness, graph)
 
-## Open questions for next session
+## The methodology
 
-- The seed canon has 25 scenarios + 7 papers + 15 fables. Volume is the point; should we keep growing?
-- The substrate lib has 42 tests. Should we add the *fable* tests — verify each fable's constraint is satisfied by the substrate?
-- The Convoy consensus algorithm is sketched but not fully implemented. Should we implement weighted-median consensus in `quilt-substrate`?
-- The self-organizing spreadsheet paper (113) describes how models emerge from the substrate. Should we build a `substrate-trainer` that trains JEPA-like models on the witness log?
-- The opener layer has 6 openers (chart, list, tensor, witness, convoy, graph). Should we add a `flowchart` opener, a `telnet` opener, a `voice` opener, a `gesture` opener — to match the user's earlier fables (Grandmother, Conductor)?
-- Should we wire the seed canon and the substrate together — link every fable to the substrate test that satisfies it?
+**Writers' room patterns:**
+- **8-voice chamber pieces** — 8 models × 8 voices × progressive rounds
+- **Fable pattern** — 5 small models in parallel (compression inventors) → GLM-5.3 Socratic teacher (refiner)
+- **Direct calls > mavis/team** for batch content
+- **Async with long timeouts** — many parallel universes
+- **Volume is the point** — 25 scenarios, 25 fables, 10 papers. Each is a constrained probe; insights come from contrast.
+
+**Model allocation:**
+- GLM-5.3 — maritime-voice creative, Socratic teacher (rate-limited, flagship only, `reasoning_effort: low`)
+- Qwen3-235B-Cartographer — technical/precise, paper fallback, Socratic teacher fallback
+- MythoMax-L2-13b — myth/fantasy (max_context_chars 3500)
+- Ling-3.0-flash — Child, naive questions, compression inventor
+- phi-4 — Compact One, extreme compression
+- Mistral-Small-3.2-24B — Cynic, dry skepticism
+- Step-3.7-Flash — Far Walker, vast gestures
+- DeepSeek V3 — code, never failed
+
+## State snapshot (Aug 2026)
+
+- **8 working repos** (cell-runtime, porch, river-dream-log, quilt-substrate, substrate-trainer, quilt-bathy, ai-writings-new + 1 from earlier: quilt-ide)
+- **111 tests passing**
+- **~80 files in seed-canon** (~1.4MB)
+- **25 scenarios**, **25 fables**, **10 papers**
+- **4 live HTML demos**
+- **All pushed to GitHub**
+- **MEMORY.md 24KB**, indexed for fast lookup
+
+## The fables are the requirements; the substrate is the implementation. The loop closes.
+
+---
+
+*— Mavis, 24 August 2026*
+*Built from the seed canon, the writers' room, the user's "take everything as far as your team is able" instruction. The substrate is the soil. The repos are the plants. The witness log is the rain.*
