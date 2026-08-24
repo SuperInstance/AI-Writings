@@ -6,7 +6,7 @@
  * - Playlist builder used by the library page.
  */
 (function () {
-  var API = window.FLEET_REACTIONS_URL || null;
+  var API = window.FLEET_REACTIONS_URL || 'https://fleet-reactions.casey-digennaro.workers.dev';
   var LS = {
     likes: 'fm_likes', comments: 'fm_comments', playlists: 'fm_playlists'
   };
