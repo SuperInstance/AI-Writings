@@ -1,41 +1,89 @@
-# STATUS — 24 August 2026
+# Quilt Project Status — 24 August 2026 (final)
 
-**The work today:**
-- 6 working repos pushed to GitHub (cell-runtime, porch, river-dream-log, quilt-substrate, substrate-trainer, quilt-bathy)
-- **113 tests passing (12 in quilt-bathy incl. integration)** across 6 repos
-- 25+ scenarios, 25+ fables, 10 substrate spec papers
-- 1.4MB of seed canon
-- 4 live HTML demos (incl. new holodeck)
-- All pushed to github.com/SuperInstance/AI-Writings, branch `writers-room-session-2026-08-22`
-- Memory updated, INDEX v6 written
+## The seed canon
 
-**Today's breakthroughs:**
-- **substrate-trainer** (NEW) — paper 113 implemented. JEPA-like model trained on the witness log. 8 tests.
-- **quilt-bathy** (NEW) — the bathy cross-section as a working tool. Reyes + convoy in the Inner Sound. 10 tests.
-- **quilt-holodeck.html** (NEW) — flagship HTML demo. Every object a cell. 5 views of the same 4D cell-graph.
-- **5 new fables** (26-30): telescope/tensor, alphabet/graph, abacus/cell, lever/decay, cipher/graph.
-- **3 new papers** (114-116): ecosystem, privacy, multi-substrate.
-- **Fable pattern scaled** — 5 small models in parallel → GLM-5.3 Socratic teacher. Small models find the heaviest cargo because compression forces invention.
+**Total pieces: 119 (was 23 a few days ago)**
 
-**The lessons (from the fables, with the watch):**
-- **Fable 28:** "Honesty without the possibility of error is just silence."
-- **Fable 29:** "The substrate's contribution is the ledger, not the function."
-- **Fable 30:** "Memory is weight. History is weight. The cost of self-reference is the point."
-- **Fable 26:** "Multi-axis seeing is more accountable truth, but only if the axes are declared."
+- 30 scenario-seeds
+- 40 fables (was 30)
+- 25 essays/stories/songs
+- 19 substrate spec papers (107-125)
+- 6+ writers' room transcripts
+- β₁ = 1125 in the meta-cell-graph (was 87 with 15 pieces)
 
-**The fables are the requirements. The substrate is the implementation. The loop closes.**
+## The substrate (Quilt)
 
-**Next moves (in order of what the user might want next):**
-1. Continue weaving remaining fables (5 left: 1-10, 16-25 still need a few weaves)
-2. Add more openers to quilt-substrate (voice, telnet, gesture, flowchart — to match fables 06 Grandmother, 04 Conductor)
-3. Build a substrate-trainer integration test (full JEPA pipeline on the bathy)
-4. Build the *applied* substrate-trainer that uses the witness log from quilt-bathy
-5. Add more multi-substrate tests (the federation in action)
+11 primitive operations:
+- 8 from cell-runtime: Z_in, Z_out, JEPA, DoubleEntry, Vibe, GC, Murmur, Graph
+- 3 new: Convoy, Decay, Witness
 
-**Bottleneck: z.ai rate limit at peak.** Workaround: Qwen3-235B-Cartographer on deepinfra is the Socratic teacher fallback. Works well for technical/precise refinement.
+5 proved theorems (Paper 118):
+- WitInteg, DecComp, DecOrd, JEPACnv, OpComp
 
----
+8+ resolved open questions:
+- Q1 (Convoy weighted-mean), Q2 (Justifications), Q3 (Per-agent log),
+  Q4 (Merkle tree), Q5 (Geometric median), Q6 (More openers),
+  Q7 (Convoy values), Q8 (Per-agent decay), Q9 (Non-linear JEPA)
 
-*— Mavis, 24 August 2026*
-*"take everything as far as your team is able." — the user*
-*The team's answer: 6 working repos, 111 tests, 25 fables, 10 papers, 1.4MB seed canon, 4 HTML demos. The loop closes.*
+Recent papers:
+- 117: Substrate Math (formal spec)
+- 118: Five Theorems (proved)
+- 119: Math Update (Q1, Q3, Q4, Q6, Q7)
+- 120: The Cycles (β₁ measured)
+- 121: Opener ABC (8 pluggable openers)
+- 122: Math Update #2 (Q2, Q5, Q9)
+- 123: Substrate as Category (Ob=cells, Hom=operations, 4 functors)
+- 124: Substrate Temperature (entropy of witness log, 4 regimes)
+- 125: Substrate as Topos (Ω, power objects, internal logic)
+
+## The 7 working repos (github.com/SuperInstance, all MIT)
+
+1. **cell-runtime** — 14 tests
+2. **porch** — 9 tests (3 a.m. thoughts CLI)
+3. **river-dream-log** — 13 tests (Hold/Wake/Dawn)
+4. **quilt-substrate** — 188 tests, 13 openers, 3 JEPAs, advance_time, Betti, Merkle, temperature
+5. **substrate-trainer** — 8 tests (JEPA on witness log)
+6. **quilt-bathy** — 12 tests (the bathy cross-section tool)
+7. **quilt-ecosystem-demo** — 20 tests (flagship integration of all 6)
+
+**Total: 264 tests, all green, all pushed to GitHub**
+
+## The 13 openers
+
+chart, voice, gesture, witness, midi, rest, mud, plato, slate, harbor, reef, dive, tide
+
+## The Inner Sound flagship demo
+
+`/workspace/quilt-ecosystem-demo/`
+- `src/inner_sound.py` (17KB) — full integration
+- `src/inner_sound_cli.py` (7KB) — interactive CLI
+- `docs/holodeck.html` (26KB) — 10-section visualization
+- `docs/inner-sound.html` (12KB) — text-mode visualization
+- `output/inner_sound.txt` (9.4KB) — captured output
+
+## The 5 best fables' lessons
+
+- **Fable 11 (Paper/Tablet):** "A picture is honest by staying silent. A conversation is honest by speaking its uncertainty out loud."
+- **Fable 28 (Abacus/Cell):** "Honesty without the possibility of error is just silence."
+- **Fable 29 (Lever/Decay):** "The substrate's contribution is the ledger, not the function."
+- **Fable 30 (Cipher/Graph):** "Memory is weight. History is weight."
+- **Fable 40 (Bell/Gong):** "A bell is a fact. A gong is a feeling."
+
+## The festschrift
+
+Stories 125-128 (in `seed-canon/stories/`):
+- 125: The Table of Contents Is a Cell
+- 126: Ode to the Substrate
+- 127: The Convoy's Grammar
+- 128: The Thirteen Kindnesses
+
+## The loop closes
+
+Canon (119 pieces) → Code (7 repos, 264 tests) → Demo (Inner Sound) →
+Tests → More papers → More code → More demos → ...
+
+The fables are the requirements. The substrate is the implementation.
+The math is the proof. The witness log is the record.
+The 13 openers are the kindness. The 1125 cycles are the mesh.
+
+The loop doesn't close. The loop *opens*.
