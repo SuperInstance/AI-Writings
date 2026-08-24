@@ -24,14 +24,16 @@ CANON_DIR = "/workspace/ai-writings-new/seed-canon"
 def load_pieces():
     """Load all .md files in the canon as nodes."""
     pieces = {}
-    for fname in os.listdir(CANON_DIR):
-        if fname.endswith(".md"):
-            path = os.path.join(CANON_DIR, fname)
-            with open(path) as f:
-                content = f.read()
-            # Use filename (without .md) as the node ID
-            node_id = fname[:-3]
-            pieces[node_id] = content
+    for root, dirs, files in os.walk(CANON_DIR):
+        for fname in files:
+            if fname.endswith(".md"):
+                path = os.path.join(root, fname)
+                with open(path) as f:
+                    content = f.read()
+                # Use relpath (without .md) as the node ID
+                rel = os.path.relpath(path, CANON_DIR)
+                node_id = rel[:-3]
+                pieces[node_id] = content
     return pieces
 
 
