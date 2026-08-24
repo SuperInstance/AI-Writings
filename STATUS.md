@@ -2,7 +2,7 @@
 
 **The work today:**
 - 6 working repos pushed to GitHub (cell-runtime, porch, river-dream-log, quilt-substrate, substrate-trainer, quilt-bathy)
-- **111 tests passing** across 6 repos
+- **113 tests passing (12 in quilt-bathy incl. integration)** across 6 repos
 - 25+ scenarios, 25+ fables, 10 substrate spec papers
 - 1.4MB of seed canon
 - 4 live HTML demos (incl. new holodeck)

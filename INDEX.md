@@ -101,7 +101,7 @@
 | **substrate-trainer** | JEPA-like model trained on the witness log (paper 113) | 8 | 11KB |
 | **quilt-bathy** | The bathy cross-section as a working tool. The Inner Sound, as a cell-graph. | 10 | 10KB |
 
-**Total: 111 tests passing across 6 repos.**
+**Total: 113 tests passing across 6 repos.**
 
 ## The 11 substrate primitives
 
