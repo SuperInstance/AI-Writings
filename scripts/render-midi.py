@@ -95,6 +95,8 @@ def extract_events(mf):
         last_t = t
         if not hasattr(msg, "channel"):
             continue
+        if msg.type not in ("note_on", "note_off"):
+            continue  # control/program/pitchwheel have no .note
         if msg.channel == 9:
             if msg.type == "note_on" and msg.velocity > 0:
                 drums.append((t, msg.note, msg.velocity))
@@ -110,7 +112,7 @@ def extract_events(mf):
                 start, vel = active.pop(key)
                 notes.append((start, t, msg.note, vel))
     # Close any hanging notes at the last event time.
-    for (channel, note), (start, vel) in active.items():
+    for (_channel, note), (start, vel) in active.items():
         notes.append((start, max(start + 0.25, last_t), note, vel))
     return notes, drums, last_t
 
@@ -148,7 +150,8 @@ def render_note(buf, start, end, note, velocity):
         env_end = amp * env[-1]
     if i2 > i1:
         t = np.arange(i1, i2) / sr - start
-        rel = 1.0 - (np.arange(i1, i2) / sr) / RELEASE_S
+        # release ramp relative to note-off (FIXED: was absolute buffer time)
+        rel = 1.0 - (np.arange(i1, i2) - i1) / sr / RELEASE_S
         buf[i1:i2] += env_end * rel * _additive_tone(freq, t)
 
 
@@ -286,7 +289,11 @@ def main():
         if is_valid_wav(wav_path):
             print(f"SKIP {mid_path}")
             continue
-        buf, dbfs = render(mid_path)
+        try:
+            buf, dbfs = render(mid_path)
+        except Exception as exc:  # noqa: BLE001 - keep the batch alive
+            print(f"WARN {mid_path}: {exc}")
+            continue
         write_wav(buf, wav_path)
         duration = len(buf) / SAMPLE_RATE
         dbfs_str = f"{dbfs:.1f}" if np.isfinite(dbfs) else "-inf"

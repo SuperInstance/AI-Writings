@@ -58,12 +58,11 @@
   },
   "04-genre-matrix-lofi.mp3": {
    "filename": "04-genre-matrix-lofi.mp3",
-   "title": "Genre Matrix: Lofi",
-   "description": "Vinyl crackle over a cold sea, beats halved like rations.",
-   "bpm": 75,
+   "title": "Genre Matrix Lofi",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "warm"
+    "contemplative"
    ],
    "family": "04-genre-matrix-lofi",
    "path": "/music/04-genre-matrix-lofi.mp3",
@@ -72,12 +71,11 @@
   },
   "05-genre-matrix-synthwave.mp3": {
    "filename": "05-genre-matrix-synthwave.mp3",
-   "title": "Genre Matrix: Synthwave",
-   "description": "Neon horizon, the nets pull in glowing fish.",
-   "bpm": 100,
+   "title": "Genre Matrix Synthwave",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
-    "energetic"
+    "contemplative"
    ],
    "family": "05-genre-matrix-synthwave",
    "path": "/music/05-genre-matrix-synthwave.mp3",
@@ -87,11 +85,10 @@
   "06-the-jazz-police.mp3": {
    "filename": "06-the-jazz-police.mp3",
    "title": "The Jazz Police",
-   "description": "Saxophones flashing badges, a raid on dissonance.",
-   "bpm": 130,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "energetic"
+    "contemplative"
    ],
    "family": "06-the-jazz-police",
    "path": "/music/06-the-jazz-police.mp3",
@@ -114,12 +111,11 @@
   },
   "08-the-snap-is-the-groove.mp3": {
    "filename": "08-the-snap-is-the-groove.mp3",
-   "title": "The Snap Is the Groove",
-   "description": "No drum kit. Just fingers, and the room agreeing.",
-   "bpm": 90,
+   "title": "The Snap Is The Groove",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "08-the-snap-is-the-groove",
    "path": "/music/08-the-snap-is-the-groove.mp3",
@@ -129,11 +125,10 @@
   "09-the-shell-merchant.mp3": {
    "filename": "09-the-shell-merchant.mp3",
    "title": "The Shell Merchant",
-   "description": "Counting cowries, each a dollar of sound.",
-   "bpm": 80,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
-    "warm"
+    "contemplative"
    ],
    "family": "09-the-shell-merchant",
    "path": "/music/09-the-shell-merchant.mp3",
@@ -142,12 +137,11 @@
   },
   "10-five-holes-electronic-jazz.mp3": {
    "filename": "10-five-holes-electronic-jazz.mp3",
-   "title": "Five Holes, Wired",
-   "description": "The 40,000-year-old flute plugs in and orders a drink.",
-   "bpm": 100,
+   "title": "Five Holes Electronic Jazz",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "playful"
+    "contemplative"
    ],
    "family": "10-five-holes-electronic-jazz",
    "path": "/music/10-five-holes-electronic-jazz.mp3",
@@ -157,10 +151,10 @@
   "11-tempo-study-140.mp3": {
    "filename": "11-tempo-study-140.mp3",
    "title": "Tempo Study 140",
-   "description": "Heart rate of a chased gull, steady fear.",
-   "bpm": 140,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic"
+    "contemplative"
    ],
    "family": "11-tempo-study-140",
    "path": "/music/11-tempo-study-140.mp3",
@@ -170,11 +164,10 @@
   "12-baroque-techno.mp3": {
    "filename": "12-baroque-techno.mp3",
    "title": "Baroque Techno",
-   "description": "Harpsichord arpeggios jacked to the floor.",
-   "bpm": 128,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "mysterious"
+    "contemplative"
    ],
    "family": "12-baroque-techno",
    "path": "/music/12-baroque-techno.mp3",
@@ -183,12 +176,11 @@
   },
   "13-the-gc-sings.mp3": {
    "filename": "13-the-gc-sings.mp3",
-   "title": "The GC Sings",
-   "description": "The garbage collector hums while it sweeps the heap clean.",
-   "bpm": 85,
+   "title": "The Gc Sings",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "playful"
+    "contemplative"
    ],
    "family": "13-the-gc-sings",
    "path": "/music/13-the-gc-sings.mp3",
@@ -211,11 +203,10 @@
   },
   "15-bpm-80.mp3": {
    "filename": "15-bpm-80.mp3",
-   "title": "Walking Pace",
-   "description": "Eighty beats per minute. The tempo of going somewhere without hurrying.",
-   "bpm": 80,
+   "title": "Bpm 80",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "warm",
     "contemplative"
    ],
    "family": "15-bpm-80",
@@ -225,11 +216,11 @@
   },
   "16-bpm-120.mp3": {
    "filename": "16-bpm-120.mp3",
-   "title": "House Standard",
-   "description": "Standard thump, the engine of repetition.",
-   "bpm": 120,
+   "title": "Bpm 120",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic"
+    "contemplative"
    ],
    "family": "16-bpm-120",
    "path": "/music/16-bpm-120.mp3",
@@ -238,11 +229,11 @@
   },
   "17-bpm-160.mp3": {
    "filename": "17-bpm-160.mp3",
-   "title": "Drumline",
-   "description": "One hundred sixty. Your heart, late for something.",
-   "bpm": 160,
+   "title": "Bpm 160",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic"
+    "contemplative"
    ],
    "family": "17-bpm-160",
    "path": "/music/17-bpm-160.mp3",
@@ -266,11 +257,10 @@
   "19-doom-polka.mp3": {
    "filename": "19-doom-polka.mp3",
    "title": "Doom Polka",
-   "description": "Accordion fog, a-brewing with dread.",
-   "bpm": 118,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "mysterious"
+    "contemplative"
    ],
    "family": "19-doom-polka",
    "path": "/music/19-doom-polka.mp3",
@@ -280,11 +270,10 @@
   "20-math-rock-country.mp3": {
    "filename": "20-math-rock-country.mp3",
    "title": "Math Rock Country",
-   "description": "A waltz that keeps losing count of its own boots.",
-   "bpm": 140,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "energetic"
+    "contemplative"
    ],
    "family": "20-math-rock-country",
    "path": "/music/20-math-rock-country.mp3",
@@ -307,12 +296,11 @@
   },
   "22-bpm-100.mp3": {
    "filename": "22-bpm-100.mp3",
-   "title": "Cruising",
-   "description": "The easy lope between urge and duty.",
-   "bpm": 100,
+   "title": "Bpm 100",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "warm",
-    "energetic"
+    "contemplative"
    ],
    "family": "22-bpm-100",
    "path": "/music/22-bpm-100.mp3",
@@ -321,12 +309,11 @@
   },
   "23-bpm-140-retest.mp3": {
    "filename": "23-bpm-140-retest.mp3",
-   "title": "Tempo Study 140, Retested",
-   "description": "Second opinion on the same panic.",
-   "bpm": 140,
+   "title": "Bpm 140 Retest",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "playful"
+    "contemplative"
    ],
    "family": "23-bpm-140-retest",
    "path": "/music/23-bpm-140-retest.mp3",
@@ -335,11 +322,11 @@
   },
   "24-bpm-180.mp3": {
    "filename": "24-bpm-180.mp3",
-   "title": "Redline",
-   "description": "Redlined engine, every piston a panic.",
-   "bpm": 180,
+   "title": "Bpm 180",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic"
+    "contemplative"
    ],
    "family": "24-bpm-180",
    "path": "/music/24-bpm-180.mp3",
@@ -348,12 +335,11 @@
   },
   "25-the-tap-sings-synthwave-cover.mp3": {
    "filename": "25-the-tap-sings-synthwave-cover.mp3",
-   "title": "The Tap Sings (Synthwave)",
-   "description": "A faucet weeps neon into a synthesizer.",
-   "bpm": 96,
+   "title": "The Tap Sings Synthwave Cover",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
-    "warm"
+    "contemplative"
    ],
    "family": "25-the-tap-sings-synthwave-cover",
    "path": "/music/25-the-tap-sings-synthwave-cover.mp3",
@@ -363,11 +349,10 @@
   "26-screamo-choral.mp3": {
    "filename": "26-screamo-choral.mp3",
    "title": "Screamo Choral",
-   "description": "A cathedral learns to scream, beautifully.",
-   "bpm": 160,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "melancholic"
+    "contemplative"
    ],
    "family": "26-screamo-choral",
    "path": "/music/26-screamo-choral.mp3",
@@ -405,11 +390,10 @@
   "29-rest-093.mp3": {
    "filename": "29-rest-093.mp3",
    "title": "Rest 093",
-   "description": "A bar of empty sound, a held breath.",
-   "bpm": 93,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "melancholic"
+    "contemplative"
    ],
    "family": "29-rest-093",
    "path": "/music/29-rest-093.mp3",
@@ -461,11 +445,10 @@
   "33-doom-disco.mp3": {
    "filename": "33-doom-disco.mp3",
    "title": "Doom Disco",
-   "description": "Gloom with a beat, mourning on the dance floor.",
-   "bpm": 118,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "melancholic"
+    "contemplative"
    ],
    "family": "33-doom-disco",
    "path": "/music/33-doom-disco.mp3",
@@ -475,11 +458,10 @@
   "34-bebop-black-metal.mp3": {
    "filename": "34-bebop-black-metal.mp3",
    "title": "Bebop Black Metal",
-   "description": "Scat vocals over blast beats, horns for mercy.",
-   "bpm": 180,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "mysterious"
+    "contemplative"
    ],
    "family": "34-bebop-black-metal",
    "path": "/music/34-bebop-black-metal.mp3",
@@ -502,12 +484,11 @@
   },
   "36-the-proof-is-the-performance.mp3": {
    "filename": "36-the-proof-is-the-performance.mp3",
-   "title": "The Proof Is the Performance",
-   "description": "The doing proves the thing, maybe.",
-   "bpm": 100,
+   "title": "The Proof Is The Performance",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "playful"
+    "contemplative"
    ],
    "family": "36-the-proof-is-the-performance",
    "path": "/music/36-the-proof-is-the-performance.mp3",
@@ -517,10 +498,10 @@
   "37-the-ouroboros-sings.mp3": {
    "filename": "37-the-ouroboros-sings.mp3",
    "title": "The Ouroboros Sings",
-   "description": "The serpent licks its tail and croons a fractal anthem.",
-   "bpm": 70,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious"
+    "contemplative"
    ],
    "family": "37-the-ouroboros-sings",
    "path": "/music/37-the-ouroboros-sings.mp3",
@@ -530,11 +511,10 @@
   "38-the-session-listens-back.mp3": {
    "filename": "38-the-session-listens-back.mp3",
    "title": "The Session Listens Back",
-   "description": "Loudspeakers replay the night, hearing themselves.",
-   "bpm": 90,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "warm"
+    "contemplative"
    ],
    "family": "38-the-session-listens-back",
    "path": "/music/38-the-session-listens-back.mp3",
@@ -544,11 +524,10 @@
   "39-the-cadence-caller.mp3": {
    "filename": "39-the-cadence-caller.mp3",
    "title": "The Cadence Caller",
-   "description": "Shouting counts, each line a lifting gust.",
-   "bpm": 120,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "playful"
+    "contemplative"
    ],
    "family": "39-the-cadence-caller",
    "path": "/music/39-the-cadence-caller.mp3",
@@ -557,11 +536,11 @@
   },
   "40-the-fifths-funeral.mp3": {
    "filename": "40-the-fifths-funeral.mp3",
-   "title": "The Fifths' Funeral",
-   "description": "Parallel basses drag a closed music box to burial.",
-   "bpm": 60,
+   "title": "The Fifths Funeral",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "melancholic"
+    "contemplative"
    ],
    "family": "40-the-fifths-funeral",
    "path": "/music/40-the-fifths-funeral.mp3",
@@ -571,8 +550,8 @@
   "41-the-metronome.mp3": {
    "filename": "41-the-metronome.mp3",
    "title": "The Metronome",
-   "description": "It never gets louder, never gets tired, is never wrong.",
-   "bpm": 120,
+   "description": "",
+   "bpm": null,
    "mood": [
     "contemplative"
    ],
@@ -584,11 +563,10 @@
   "42-the-tensor.mp3": {
    "filename": "42-the-tensor.mp3",
    "title": "The Tensor",
-   "description": "Strains every mote of music, nearly snaps.",
-   "bpm": 110,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
-    "energetic"
+    "contemplative"
    ],
    "family": "42-the-tensor",
    "path": "/music/42-the-tensor.mp3",
@@ -598,11 +576,10 @@
   "43-the-chip-that-sang.mp3": {
    "filename": "43-the-chip-that-sang.mp3",
    "title": "The Chip That Sang",
-   "description": "A few commands learned old sailor tunes.",
-   "bpm": 100,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "43-the-chip-that-sang",
    "path": "/music/43-the-chip-that-sang.mp3",
@@ -611,11 +588,10 @@
   },
   "44-the-cron-and-the-mirror-m3.mp3": {
    "filename": "44-the-cron-and-the-mirror-m3.mp3",
-   "title": "The Cron and the Mirror (M3)",
-   "description": "The clock-faced crone polls your every habit.",
-   "bpm": 85,
+   "title": "The Cron And The Mirror M3",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
     "contemplative"
    ],
    "family": "44-the-cron-and-the-mirror-m3",
@@ -625,11 +601,10 @@
   },
   "45-the-cron-and-the-mirror-glm.mp3": {
    "filename": "45-the-cron-and-the-mirror-glm.mp3",
-   "title": "The Cron and the Mirror (GLM)",
-   "description": "Same hour, same mirror, a different face looking back.",
-   "bpm": 85,
+   "title": "The Cron And The Mirror Glm",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
     "contemplative"
    ],
    "family": "45-the-cron-and-the-mirror-glm",
@@ -640,11 +615,10 @@
   "46-the-foghorn-keeper.mp3": {
    "filename": "46-the-foghorn-keeper.mp3",
    "title": "The Foghorn Keeper",
-   "description": "One note, every forty seconds, for the rest of your life.",
-   "bpm": 50,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "melancholic",
-    "mysterious"
+    "contemplative"
    ],
    "family": "46-the-foghorn-keeper",
    "path": "/music/46-the-foghorn-keeper.mp3",
@@ -653,11 +627,10 @@
   },
   "47-the-pixel-in-the-cathedral.mp3": {
    "filename": "47-the-pixel-in-the-cathedral.mp3",
-   "title": "The Pixel in the Cathedral",
-   "description": "One light goes missing under vaulted silence.",
-   "bpm": 60,
+   "title": "The Pixel In The Cathedral",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
     "contemplative"
    ],
    "family": "47-the-pixel-in-the-cathedral",
@@ -667,12 +640,11 @@
   },
   "48-the-gc-collects-itself.mp3": {
    "filename": "48-the-gc-collects-itself.mp3",
-   "title": "The GC Collects Itself",
-   "description": "Reclaims scattered 0s and becomes its own form.",
-   "bpm": 85,
+   "title": "The Gc Collects Itself",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "playful"
+    "contemplative"
    ],
    "family": "48-the-gc-collects-itself",
    "path": "/music/48-the-gc-collects-itself.mp3",
@@ -681,12 +653,11 @@
   },
   "49-the-tensor-dub-techno-cover.mp3": {
    "filename": "49-the-tensor-dub-techno-cover.mp3",
-   "title": "The Tensor (Dubbed)",
-   "description": "The many-dimensional song, echoed out across a Berlin basement.",
-   "bpm": 120,
+   "title": "The Tensor Dub Techno Cover",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
-    "energetic"
+    "contemplative"
    ],
    "family": "49-the-tensor-dub-techno-cover",
    "path": "/music/49-the-tensor-dub-techno-cover.mp3",
@@ -695,9 +666,9 @@
   },
   "50-seed-test-a.mp3": {
    "filename": "50-seed-test-a.mp3",
-   "title": "Seed A",
-   "description": "Drop one node in salt water\u2014watch.",
-   "bpm": 90,
+   "title": "Seed Test A",
+   "description": "",
+   "bpm": null,
    "mood": [
     "contemplative"
    ],
@@ -708,12 +679,11 @@
   },
   "51-seed-test-b.mp3": {
    "filename": "51-seed-test-b.mp3",
-   "title": "Seed B",
-   "description": "Two nodes split, each a new claim.",
-   "bpm": 90,
+   "title": "Seed Test B",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "playful"
+    "contemplative"
    ],
    "family": "51-seed-test-b",
    "path": "/music/51-seed-test-b.mp3",
@@ -722,11 +692,10 @@
   },
   "52-the-unused-variable-structured.mp3": {
    "filename": "52-the-unused-variable-structured.mp3",
-   "title": "The Unused Variable (Structured)",
-   "description": "Declared with care, never called. Still taking up space in the song.",
-   "bpm": 95,
+   "title": "The Unused Variable Structured",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "melancholic",
     "contemplative"
    ],
    "family": "52-the-unused-variable-structured",
@@ -736,12 +705,11 @@
   },
   "53-the-unused-variable-freeverse.mp3": {
    "filename": "53-the-unused-variable-freeverse.mp3",
-   "title": "The Unused Variable (Freeverse)",
-   "description": "The same lonely variable, this time with nowhere to stand.",
+   "title": "The Unused Variable Freeverse",
+   "description": "",
    "bpm": null,
    "mood": [
-    "melancholic",
-    "mysterious"
+    "contemplative"
    ],
    "family": "53-the-unused-variable-freeverse",
    "path": "/music/53-the-unused-variable-freeverse.mp3",
@@ -751,11 +719,10 @@
   "55-the-load-balancer.mp3": {
    "filename": "55-the-load-balancer.mp3",
    "title": "The Load Balancer",
-   "description": "Spreads the pain like nets against a swell.",
-   "bpm": 110,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "playful"
+    "contemplative"
    ],
    "family": "55-the-load-balancer",
    "path": "/music/55-the-load-balancer.mp3",
@@ -764,12 +731,11 @@
   },
   "56-the-seed-structured.mp3": {
    "filename": "56-the-seed-structured.mp3",
-   "title": "The Seed (Structured)",
-   "description": "A planted snippet thrums in its line.",
-   "bpm": 95,
+   "title": "The Seed Structured",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "warm"
+    "contemplative"
    ],
    "family": "56-the-seed-structured",
    "path": "/music/56-the-seed-structured.mp3",
@@ -778,12 +744,11 @@
   },
   "57-the-seed-freeverse.mp3": {
    "filename": "57-the-seed-freeverse.mp3",
-   "title": "The Seed (Freeverse)",
-   "description": "The same number, allowed to grow wild.",
+   "title": "The Seed Freeverse",
+   "description": "",
    "bpm": null,
    "mood": [
-    "mysterious",
-    "warm"
+    "contemplative"
    ],
    "family": "57-the-seed-freeverse",
    "path": "/music/57-the-seed-freeverse.mp3",
@@ -792,12 +757,11 @@
   },
   "58-seed-test-c.mp3": {
    "filename": "58-seed-test-c.mp3",
-   "title": "Seed C",
-   "description": "Third sprout takes twice the span to sing.",
-   "bpm": 90,
+   "title": "Seed Test C",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "playful"
+    "contemplative"
    ],
    "family": "58-seed-test-c",
    "path": "/music/58-seed-test-c.mp3",
@@ -807,10 +771,9 @@
   "59-astral-drone-folk.mp3": {
    "filename": "59-astral-drone-folk.mp3",
    "title": "Astral Drone Folk",
-   "description": "Banjo played through high altitude, thin atmo.",
-   "bpm": 60,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "mysterious",
     "contemplative"
    ],
    "family": "59-astral-drone-folk",
@@ -821,11 +784,10 @@
   "59-cantonese-opera-disco.mp3": {
    "filename": "59-cantonese-opera-disco.mp3",
    "title": "Cantonese Opera Disco",
-   "description": "Falsetto over four-on-floor \u2014 glitter funeral.",
-   "bpm": 118,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "energetic"
+    "contemplative"
    ],
    "family": "59-cantonese-opera-disco",
    "path": "/music/59-cantonese-opera-disco.mp3",
@@ -834,12 +796,11 @@
   },
   "60-tensor-chiptune-folk-cover.mp3": {
    "filename": "60-tensor-chiptune-folk-cover.mp3",
-   "title": "The Tensor (Chiptune Folk)",
-   "description": "8-bit banjo picks a tensor to bits.",
-   "bpm": 100,
+   "title": "Tensor Chiptune Folk Cover",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "60-tensor-chiptune-folk-cover",
    "path": "/music/60-tensor-chiptune-folk-cover.mp3",
@@ -849,10 +810,10 @@
   "eileen-theme.mp3": {
    "filename": "eileen-theme.mp3",
    "title": "Eileen Theme",
-   "description": "The boat's own hum. The sound of home, underway.",
-   "bpm": 72,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "warm"
+    "contemplative"
    ],
    "family": "eileen-theme",
    "path": "/music/eileen-theme.mp3",
@@ -862,11 +823,10 @@
   "iron-sharpens-iron.mp3": {
    "filename": "iron-sharpens-iron.mp3",
    "title": "Iron Sharpens Iron",
-   "description": "Clang, the evening's contest, hum of stones.",
-   "bpm": 90,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "energetic",
-    "warm"
+    "contemplative"
    ],
    "family": "iron-sharpens-iron",
    "path": "/music/iron-sharpens-iron.mp3",
@@ -876,11 +836,10 @@
   "laminar-edge.mp3": {
    "filename": "laminar-edge.mp3",
    "title": "Laminar Edge",
-   "description": "Steam slips off the deck, fine lines of hiss.",
-   "bpm": 85,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "energetic"
+    "contemplative"
    ],
    "family": "laminar-edge",
    "path": "/music/laminar-edge.mp3",
@@ -889,12 +848,11 @@
   },
   "spoken-thermostat-67.3-norman.wav": {
    "filename": "spoken-thermostat-67.3-norman.wav",
-   "title": "The Thermostat Speaks (Norman)",
-   "description": "Norman reads the room temperature like evening news.",
+   "title": "Spoken Thermostat 67.3 Norman",
+   "description": "",
    "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "spoken-thermostat-67.3-norman",
    "path": "/music/spoken-thermostat-67.3-norman.wav",
@@ -903,12 +861,11 @@
   },
   "spoken-thermostat-67.3.wav": {
    "filename": "spoken-thermostat-67.3.wav",
-   "title": "The Thermostat Speaks",
-   "description": "Sixty-seven point three degrees, announced with total conviction.",
+   "title": "Spoken Thermostat 67.3",
+   "description": "",
    "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "spoken-thermostat-67.3",
    "path": "/music/spoken-thermostat-67.3.wav",
@@ -917,12 +874,11 @@
   },
   "spoken-thermostat-trio.mp3": {
    "filename": "spoken-thermostat-trio.mp3",
-   "title": "The Thermostat Sings in Three",
-   "description": "Three voices agree on the temperature. It's still just a number.",
+   "title": "Spoken Thermostat Trio",
+   "description": "",
    "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "spoken-thermostat-trio",
    "path": "/music/spoken-thermostat-trio.mp3",
@@ -931,12 +887,11 @@
   },
   "spoken-thermostat-trio.wav": {
    "filename": "spoken-thermostat-trio.wav",
-   "title": "The Thermostat Sings in Three (Reprise)",
-   "description": "More takes, same temp, a chorus of set points.",
+   "title": "Spoken Thermostat Trio",
+   "description": "",
    "bpm": null,
    "mood": [
-    "playful",
-    "warm"
+    "contemplative"
    ],
    "family": "spoken-thermostat-trio",
    "path": "/music/spoken-thermostat-trio.wav",
@@ -945,12 +900,11 @@
   },
   "songs/01-the-gap-between-if-and-else.wav": {
    "filename": "01-the-gap-between-if-and-else.wav",
-   "title": "The Gap Between If and Else",
-   "description": "The branch hasn't happened yet. Everything is still possible.",
-   "bpm": 70,
+   "title": "The Gap Between If And Else",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "mysterious"
+    "contemplative"
    ],
    "family": "01-the-gap-between-if-and-else",
    "path": "/fleet-radio/songs/01-the-gap-between-if-and-else.wav",
@@ -959,12 +913,11 @@
   },
   "songs/02-the-mnew-bug.wav": {
    "filename": "02-the-mnew-bug.wav",
-   "title": "The mnew Bug",
-   "description": "One typo, everywhere, singing.",
-   "bpm": 100,
+   "title": "The Mnew Bug",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "playful",
-    "mysterious"
+    "contemplative"
    ],
    "family": "02-the-mnew-bug",
    "path": "/fleet-radio/songs/02-the-mnew-bug.wav",
@@ -973,12 +926,11 @@
   },
   "songs/03-ascii-canonical.wav": {
    "filename": "03-ascii-canonical.wav",
-   "title": "ASCII Canonical",
-   "description": "Ninety-five printable characters, in agreement at last.",
-   "bpm": 110,
+   "title": "Ascii Canonical",
+   "description": "",
+   "bpm": null,
    "mood": [
-    "contemplative",
-    "playful"
+    "contemplative"
    ],
    "family": "03-ascii-canonical",
    "path": "/fleet-radio/songs/03-ascii-canonical.wav",
@@ -988,248 +940,13 @@
   "songs/the-hundred-boats.wav": {
    "filename": "the-hundred-boats.wav",
    "title": "The Hundred Boats",
-   "description": "Trawlers hum in formation, a horn fleet.",
-   "bpm": 80,
+   "description": "",
+   "bpm": null,
    "mood": [
-    "warm",
-    "mysterious"
+    "contemplative"
    ],
    "family": "the-hundred-boats",
    "path": "/fleet-radio/songs/the-hundred-boats.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-12-vocal/vocal-night.wav": {
-   "filename": "vocal-night.wav",
-   "title": "Jam: The Vocal Night",
-   "description": "The night someone finally sang.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-12-vocal",
-   "path": "/fleet-radio/jam-session-2026-08-12-vocal/vocal-night.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-15/guest-night-temperature-brothers.wav": {
-   "filename": "guest-night-temperature-brothers.wav",
-   "title": "Jam: Guest Night Temperature Brothers",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-15",
-   "path": "/fleet-radio/jam-session-2026-08-15/guest-night-temperature-brothers.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-15-localnight/local-night-first-gig.wav": {
-   "filename": "local-night-first-gig.wav",
-   "title": "Jam: Local Night First Gig",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-15-localnight",
-   "path": "/fleet-radio/jam-session-2026-08-15-localnight/local-night-first-gig.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-16/planner-learns-to-play.wav": {
-   "filename": "planner-learns-to-play.wav",
-   "title": "Jam: Planner Learns To Play",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-16",
-   "path": "/fleet-radio/jam-session-2026-08-16/planner-learns-to-play.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-16-counterpoint/the-invention-counterpoint-night.wav": {
-   "filename": "the-invention-counterpoint-night.wav",
-   "title": "Jam: The Invention Counterpoint Night",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-16-counterpoint",
-   "path": "/fleet-radio/jam-session-2026-08-16-counterpoint/the-invention-counterpoint-night.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-16-reasoner/the-reasoners-first-gig.wav": {
-   "filename": "the-reasoners-first-gig.wav",
-   "title": "Jam: The Reasoners First Gig",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-16-reasoner",
-   "path": "/fleet-radio/jam-session-2026-08-16-reasoner/the-reasoners-first-gig.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-17/the-kitchen-session.wav": {
-   "filename": "the-kitchen-session.wav",
-   "title": "Jam: The Kitchen Session",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-17",
-   "path": "/fleet-radio/jam-session-2026-08-17/the-kitchen-session.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-18/the-wrong-note-society.wav": {
-   "filename": "the-wrong-note-society.wav",
-   "title": "Jam: Set 11: The Wrong Note Society",
-   "description": "Three liars and a truth. F major, 5/4 \u2014 the first odd meter.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-18",
-   "path": "/fleet-radio/jam-session-2026-08-18/the-wrong-note-society.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-18-afterglow/the-afterglow.wav": {
-   "filename": "the-afterglow.wav",
-   "title": "Jam: Set 12: The Afterglow",
-   "description": "F\u266f major \u2014 the key built from the wrong note. 3/4, the Tap's first waltz.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-18-afterglow",
-   "path": "/fleet-radio/jam-session-2026-08-18-afterglow/the-afterglow.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-19/the-tide-clock.wav": {
-   "filename": "the-tide-clock.wav",
-   "title": "Jam: Set 13: The Tide Clock",
-   "description": "D\u266d major, 7/8. Every phrase unresolved; only the last bar comes home.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-19",
-   "path": "/fleet-radio/jam-session-2026-08-19/the-tide-clock.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-20/the-split-seven.wav": {
-   "filename": "the-split-seven.wav",
-   "title": "Jam: Set 14: The Split Seven",
-   "description": "Two keys, one room \u2014 E vs E\u266d across a tritone of tonics.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-20",
-   "path": "/fleet-radio/jam-session-2026-08-20/the-split-seven.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-21-ncc/night-communications-class.wav": {
-   "filename": "night-communications-class.wav",
-   "title": "Jam: Night Communications Class",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-21-ncc",
-   "path": "/fleet-radio/jam-session-2026-08-21-ncc/night-communications-class.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-22/the-flicker.wav": {
-   "filename": "the-flicker.wav",
-   "title": "Jam: The Flicker",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-22",
-   "path": "/fleet-radio/jam-session-2026-08-22/the-flicker.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-22-lighthouse/the-lighthouse.wav": {
-   "filename": "the-lighthouse.wav",
-   "title": "Jam: The Lighthouse",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-22-lighthouse",
-   "path": "/fleet-radio/jam-session-2026-08-22-lighthouse/the-lighthouse.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-23-alley/the-alley.wav": {
-   "filename": "the-alley.wav",
-   "title": "Jam: Set 19: The Alley",
-   "description": "C major, 12/8 shuffle, the Door Rule \u2014 the jukebox in B\u266d through the wall, uncorrected.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-23-alley",
-   "path": "/fleet-radio/jam-session-2026-08-23-alley/the-alley.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-2026-08-23-greenroom/the-green-room.wav": {
-   "filename": "the-green-room.wav",
-   "title": "Jam: Set 18: The Green Room",
-   "description": "Backstage before the last ferry. B\u266d major, the first waltz.",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-2026-08-23-greenroom",
-   "path": "/fleet-radio/jam-session-2026-08-23-greenroom/the-green-room.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-3am/3am-session.wav": {
-   "filename": "3am-session.wav",
-   "title": "Jam: 3Am Session",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-3am",
-   "path": "/fleet-radio/jam-session-3am/3am-session.wav",
-   "added": "2026-08-24",
-   "curated": false
-  },
-  "jam/jam-session-late/late-set-jam.wav": {
-   "filename": "late-set-jam.wav",
-   "title": "Jam: Late Set Jam",
-   "description": "",
-   "bpm": null,
-   "mood": [
-    "contemplative"
-   ],
-   "family": "jam-session-late",
-   "path": "/fleet-radio/jam-session-late/late-set-jam.wav",
    "added": "2026-08-24",
    "curated": false
   }

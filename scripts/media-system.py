@@ -93,6 +93,32 @@ def sync_catalog(cat: dict) -> int:
                         'added': datetime.date.today().isoformat(), 'curated': False,
                     }
                     added += 1
+    # jam session renders — every set that has audio
+    jam_titles = {
+        'the-alley': ('Set 19: The Alley', 'C major, 12/8 shuffle, the Door Rule — the jukebox in B♭ through the wall, uncorrected.'),
+        'the-green-room': ('Set 18: The Green Room', 'Backstage before the last ferry. B♭ major, the first waltz.'),
+        'the-afterglow': ('Set 12: The Afterglow', 'F♯ major — the key built from the wrong note. 3/4, the Tap\'s first waltz.'),
+        'the-wrong-note-society': ('Set 11: The Wrong Note Society', 'Three liars and a truth. F major, 5/4 — the first odd meter.'),
+        'the-tide-clock': ('Set 13: The Tide Clock', 'D♭ major, 7/8. Every phrase unresolved; only the last bar comes home.'),
+        'the-split-seven': ('Set 14: The Split Seven', 'Two keys, one room — E vs E♭ across a tritone of tonics.'),
+        'vocal-night': ('The Vocal Night', 'The night someone finally sang.'),
+    }
+    for sess in sorted(ROOT.glob('fleet-radio/jam-session-*')):
+        if not sess.is_dir():
+            continue
+        for f in sorted(sess.glob('*.wav')):
+            key = f'jam/{sess.name}/{f.name}'
+            if key in cat['tracks']:
+                continue
+            stem = f.stem
+            title, desc = jam_titles.get(stem, (title_from_filename(stem), ''))
+            cat['tracks'][key] = {
+                'filename': f.name, 'title': f'Jam: {title}', 'description': desc,
+                'bpm': None, 'mood': ['contemplative'], 'family': sess.name,
+                'path': f'/fleet-radio/{sess.name}/{f.name}',
+                'added': datetime.date.today().isoformat(), 'curated': False,
+            }
+            added += 1
     return added
 
 LIBRARY_TEMPLATE = """<!DOCTYPE html>
