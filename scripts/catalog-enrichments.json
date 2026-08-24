@@ -1,61 +1,5 @@
 {
  "tracks": {
-  "01-unplayed-ambient.mp3": {
-   "filename": "01-unplayed-ambient.mp3",
-   "title": "Ambient Drift",
-   "description": "The sound of the ocean from inside a hull. Continuous. Unresolved.",
-   "bpm": 50,
-   "mood": [
-    "contemplative",
-    "melancholic"
-   ],
-   "family": "unplayed",
-   "path": "/music/01-unplayed-ambient.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
-  "01-unplayed-indie-folk.mp3": {
-   "filename": "01-unplayed-indie-folk.mp3",
-   "title": "Unplayed",
-   "description": "Weathered baritone, acoustic guitar. The song you haven't played yet.",
-   "bpm": 68,
-   "mood": [
-    "contemplative",
-    "melancholic"
-   ],
-   "family": "unplayed",
-   "path": "/music/01-unplayed-indie-folk.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
-  "02-see-you-at-the-table.mp3": {
-   "filename": "02-see-you-at-the-table.mp3",
-   "title": "See You At The Table",
-   "description": "Warm duet, acoustic guitar. The only promise that tomorrow will be different.",
-   "bpm": 82,
-   "mood": [
-    "warm",
-    "contemplative"
-   ],
-   "family": "unplayed",
-   "path": "/music/02-see-you-at-the-table.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
-  "03-five-holes-in-a-bone.mp3": {
-   "filename": "03-five-holes-in-a-bone.mp3",
-   "title": "Five Holes in a Bone",
-   "description": "The oldest known flute. 40,000 years old.",
-   "bpm": 70,
-   "mood": [
-    "contemplative",
-    "mysterious"
-   ],
-   "family": "five-holes",
-   "path": "/music/03-five-holes-in-a-bone.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
   "04-genre-matrix-lofi.mp3": {
    "filename": "04-genre-matrix-lofi.mp3",
    "title": "Genre Matrix: Lofi",
@@ -97,20 +41,6 @@
    "path": "/music/06-the-jazz-police.mp3",
    "added": "2026-08-24",
    "curated": false
-  },
-  "07-the-session-composed-itself.mp3": {
-   "filename": "07-the-session-composed-itself.mp3",
-   "title": "The Session Composed Itself",
-   "description": "The night the jazz combo didn't need to decide anything.",
-   "bpm": 90,
-   "mood": [
-    "playful",
-    "energetic"
-   ],
-   "family": "session",
-   "path": "/music/07-the-session-composed-itself.mp3",
-   "added": "2026-08-24",
-   "curated": true
   },
   "08-the-snap-is-the-groove.mp3": {
    "filename": "08-the-snap-is-the-groove.mp3",
@@ -195,20 +125,6 @@
    "added": "2026-08-24",
    "curated": false
   },
-  "14-bpm-40.mp3": {
-   "filename": "14-bpm-40.mp3",
-   "title": "Afterhours",
-   "description": "The bar closing. The lights dimming. The sound of after.",
-   "bpm": 40,
-   "mood": [
-    "melancholic",
-    "contemplative"
-   ],
-   "family": "afterhours",
-   "path": "/music/14-bpm-40.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
   "15-bpm-80.mp3": {
    "filename": "15-bpm-80.mp3",
    "title": "Walking Pace",
@@ -249,20 +165,6 @@
    "added": "2026-08-24",
    "curated": false
   },
-  "18-the-tap-sings.mp3": {
-   "filename": "18-the-tap-sings.mp3",
-   "title": "The Tap Sings",
-   "description": "The bar itself has a voice.",
-   "bpm": 72,
-   "mood": [
-    "warm",
-    "mysterious"
-   ],
-   "family": "tap-sings",
-   "path": "/music/18-the-tap-sings.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
   "19-doom-polka.mp3": {
    "filename": "19-doom-polka.mp3",
    "title": "Doom Polka",
@@ -290,20 +192,6 @@
    "path": "/music/20-math-rock-country.mp3",
    "added": "2026-08-24",
    "curated": false
-  },
-  "21-bpm-60.mp3": {
-   "filename": "21-bpm-60.mp3",
-   "title": "Slow Tide",
-   "description": "Sixty beats per minute. Resting heart rate. The ocean's pulse.",
-   "bpm": 60,
-   "mood": [
-    "contemplative",
-    "warm"
-   ],
-   "family": "slow-tide",
-   "path": "/music/21-bpm-60.mp3",
-   "added": "2026-08-24",
-   "curated": true
   },
   "22-bpm-100.mp3": {
    "filename": "22-bpm-100.mp3",
@@ -374,34 +262,6 @@
    "added": "2026-08-24",
    "curated": false
   },
-  "27-the-tap-sings-piano-cover-of-cover.mp3": {
-   "filename": "27-the-tap-sings-piano-cover-of-cover.mp3",
-   "title": "The Tap Sings (Piano)",
-   "description": "A cover of a cover. The song wearing different clothes.",
-   "bpm": 68,
-   "mood": [
-    "melancholic",
-    "warm"
-   ],
-   "family": "tap-sings",
-   "path": "/music/27-the-tap-sings-piano-cover-of-cover.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
-  "28-rest-085.mp3": {
-   "filename": "28-rest-085.mp3",
-   "title": "Rest",
-   "description": "The silence between notes is not empty.",
-   "bpm": 85,
-   "mood": [
-    "contemplative",
-    "melancholic"
-   ],
-   "family": "rest",
-   "path": "/music/28-rest-085.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
   "29-rest-093.mp3": {
    "filename": "29-rest-093.mp3",
    "title": "Rest 093",
@@ -415,48 +275,6 @@
    "path": "/music/29-rest-093.mp3",
    "added": "2026-08-24",
    "curated": false
-  },
-  "30-the-berry-phase.mp3": {
-   "filename": "30-the-berry-phase.mp3",
-   "title": "The Berry Phase",
-   "description": "The phase a quantum system accumulates even when it returns to its start.",
-   "bpm": 75,
-   "mood": [
-    "mysterious",
-    "contemplative"
-   ],
-   "family": "berry",
-   "path": "/music/30-the-berry-phase.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
-  "31-the-overtones-dream.mp3": {
-   "filename": "31-the-overtones-dream.mp3",
-   "title": "The Overtones Dream",
-   "description": "What the harmonics dream about when the fundamental stops playing.",
-   "bpm": 80,
-   "mood": [
-    "mysterious",
-    "warm"
-   ],
-   "family": "overtones",
-   "path": "/music/31-the-overtones-dream.mp3",
-   "added": "2026-08-24",
-   "curated": true
-  },
-  "32-ambient-marching-band.mp3": {
-   "filename": "32-ambient-marching-band.mp3",
-   "title": "Ambient Marching Band",
-   "description": "What if the parade already passed and all that's left is the echo?",
-   "bpm": 65,
-   "mood": [
-    "playful",
-    "melancholic"
-   ],
-   "family": "marching-band",
-   "path": "/music/32-ambient-marching-band.mp3",
-   "added": "2026-08-24",
-   "curated": true
   },
   "33-doom-disco.mp3": {
    "filename": "33-doom-disco.mp3",
@@ -485,20 +303,6 @@
    "path": "/music/34-bebop-black-metal.mp3",
    "added": "2026-08-24",
    "curated": false
-  },
-  "35-the-interval.mp3": {
-   "filename": "35-the-interval.mp3",
-   "title": "The Interval",
-   "description": "The space between two notes. The space between two days.",
-   "bpm": 70,
-   "mood": [
-    "contemplative",
-    "warm"
-   ],
-   "family": "interval",
-   "path": "/music/35-the-interval.mp3",
-   "added": "2026-08-24",
-   "curated": true
   },
   "36-the-proof-is-the-performance.mp3": {
    "filename": "36-the-proof-is-the-performance.mp3",
@@ -696,7 +500,7 @@
   "50-seed-test-a.mp3": {
    "filename": "50-seed-test-a.mp3",
    "title": "Seed A",
-   "description": "Drop one node in salt water\u2014watch.",
+   "description": "Drop one node in salt water—watch.",
    "bpm": 90,
    "mood": [
     "contemplative"
@@ -821,7 +625,7 @@
   "59-cantonese-opera-disco.mp3": {
    "filename": "59-cantonese-opera-disco.mp3",
    "title": "Cantonese Opera Disco",
-   "description": "Falsetto over four-on-floor \u2014 glitter funeral.",
+   "description": "Falsetto over four-on-floor — glitter funeral.",
    "bpm": 118,
    "mood": [
     "playful",
