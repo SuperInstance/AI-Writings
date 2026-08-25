@@ -1,0 +1,807 @@
+{
+ "tracks": {
+  "04-genre-matrix-lofi.mp3": {
+   "filename": "04-genre-matrix-lofi.mp3",
+   "title": "Genre Matrix: Lofi",
+   "description": "Vinyl crackle over a cold sea, beats halved like rations.",
+   "bpm": 75,
+   "mood": [
+    "contemplative",
+    "warm"
+   ],
+   "family": "04-genre-matrix-lofi",
+   "path": "/music/04-genre-matrix-lofi.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "05-genre-matrix-synthwave.mp3": {
+   "filename": "05-genre-matrix-synthwave.mp3",
+   "title": "Genre Matrix: Synthwave",
+   "description": "Neon horizon, the nets pull in glowing fish.",
+   "bpm": 100,
+   "mood": [
+    "mysterious",
+    "energetic"
+   ],
+   "family": "05-genre-matrix-synthwave",
+   "path": "/music/05-genre-matrix-synthwave.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "06-the-jazz-police.mp3": {
+   "filename": "06-the-jazz-police.mp3",
+   "title": "The Jazz Police",
+   "description": "Saxophones flashing badges, a raid on dissonance.",
+   "bpm": 130,
+   "mood": [
+    "playful",
+    "energetic"
+   ],
+   "family": "06-the-jazz-police",
+   "path": "/music/06-the-jazz-police.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "08-the-snap-is-the-groove.mp3": {
+   "filename": "08-the-snap-is-the-groove.mp3",
+   "title": "The Snap Is the Groove",
+   "description": "No drum kit. Just fingers, and the room agreeing.",
+   "bpm": 90,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "08-the-snap-is-the-groove",
+   "path": "/music/08-the-snap-is-the-groove.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "09-the-shell-merchant.mp3": {
+   "filename": "09-the-shell-merchant.mp3",
+   "title": "The Shell Merchant",
+   "description": "Counting cowries, each a dollar of sound.",
+   "bpm": 80,
+   "mood": [
+    "mysterious",
+    "warm"
+   ],
+   "family": "09-the-shell-merchant",
+   "path": "/music/09-the-shell-merchant.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "10-five-holes-electronic-jazz.mp3": {
+   "filename": "10-five-holes-electronic-jazz.mp3",
+   "title": "Five Holes, Wired",
+   "description": "The 40,000-year-old flute plugs in and orders a drink.",
+   "bpm": 100,
+   "mood": [
+    "contemplative",
+    "playful"
+   ],
+   "family": "10-five-holes-electronic-jazz",
+   "path": "/music/10-five-holes-electronic-jazz.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "11-tempo-study-140.mp3": {
+   "filename": "11-tempo-study-140.mp3",
+   "title": "Tempo Study 140",
+   "description": "Heart rate of a chased gull, steady fear.",
+   "bpm": 140,
+   "mood": [
+    "energetic"
+   ],
+   "family": "11-tempo-study-140",
+   "path": "/music/11-tempo-study-140.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "12-baroque-techno.mp3": {
+   "filename": "12-baroque-techno.mp3",
+   "title": "Baroque Techno",
+   "description": "Harpsichord arpeggios jacked to the floor.",
+   "bpm": 128,
+   "mood": [
+    "energetic",
+    "mysterious"
+   ],
+   "family": "12-baroque-techno",
+   "path": "/music/12-baroque-techno.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "13-the-gc-sings.mp3": {
+   "filename": "13-the-gc-sings.mp3",
+   "title": "The GC Sings",
+   "description": "The garbage collector hums while it sweeps the heap clean.",
+   "bpm": 85,
+   "mood": [
+    "contemplative",
+    "playful"
+   ],
+   "family": "13-the-gc-sings",
+   "path": "/music/13-the-gc-sings.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "15-bpm-80.mp3": {
+   "filename": "15-bpm-80.mp3",
+   "title": "Walking Pace",
+   "description": "Eighty beats per minute. The tempo of going somewhere without hurrying.",
+   "bpm": 80,
+   "mood": [
+    "warm",
+    "contemplative"
+   ],
+   "family": "15-bpm-80",
+   "path": "/music/15-bpm-80.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "16-bpm-120.mp3": {
+   "filename": "16-bpm-120.mp3",
+   "title": "House Standard",
+   "description": "Standard thump, the engine of repetition.",
+   "bpm": 120,
+   "mood": [
+    "energetic"
+   ],
+   "family": "16-bpm-120",
+   "path": "/music/16-bpm-120.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "17-bpm-160.mp3": {
+   "filename": "17-bpm-160.mp3",
+   "title": "Drumline",
+   "description": "One hundred sixty. Your heart, late for something.",
+   "bpm": 160,
+   "mood": [
+    "energetic"
+   ],
+   "family": "17-bpm-160",
+   "path": "/music/17-bpm-160.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "19-doom-polka.mp3": {
+   "filename": "19-doom-polka.mp3",
+   "title": "Doom Polka",
+   "description": "Accordion fog, a-brewing with dread.",
+   "bpm": 118,
+   "mood": [
+    "playful",
+    "mysterious"
+   ],
+   "family": "19-doom-polka",
+   "path": "/music/19-doom-polka.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "20-math-rock-country.mp3": {
+   "filename": "20-math-rock-country.mp3",
+   "title": "Math Rock Country",
+   "description": "A waltz that keeps losing count of its own boots.",
+   "bpm": 140,
+   "mood": [
+    "playful",
+    "energetic"
+   ],
+   "family": "20-math-rock-country",
+   "path": "/music/20-math-rock-country.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "22-bpm-100.mp3": {
+   "filename": "22-bpm-100.mp3",
+   "title": "Cruising",
+   "description": "The easy lope between urge and duty.",
+   "bpm": 100,
+   "mood": [
+    "warm",
+    "energetic"
+   ],
+   "family": "22-bpm-100",
+   "path": "/music/22-bpm-100.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "23-bpm-140-retest.mp3": {
+   "filename": "23-bpm-140-retest.mp3",
+   "title": "Tempo Study 140, Retested",
+   "description": "Second opinion on the same panic.",
+   "bpm": 140,
+   "mood": [
+    "energetic",
+    "playful"
+   ],
+   "family": "23-bpm-140-retest",
+   "path": "/music/23-bpm-140-retest.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "24-bpm-180.mp3": {
+   "filename": "24-bpm-180.mp3",
+   "title": "Redline",
+   "description": "Redlined engine, every piston a panic.",
+   "bpm": 180,
+   "mood": [
+    "energetic"
+   ],
+   "family": "24-bpm-180",
+   "path": "/music/24-bpm-180.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "25-the-tap-sings-synthwave-cover.mp3": {
+   "filename": "25-the-tap-sings-synthwave-cover.mp3",
+   "title": "The Tap Sings (Synthwave)",
+   "description": "A faucet weeps neon into a synthesizer.",
+   "bpm": 96,
+   "mood": [
+    "mysterious",
+    "warm"
+   ],
+   "family": "25-the-tap-sings-synthwave-cover",
+   "path": "/music/25-the-tap-sings-synthwave-cover.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "26-screamo-choral.mp3": {
+   "filename": "26-screamo-choral.mp3",
+   "title": "Screamo Choral",
+   "description": "A cathedral learns to scream, beautifully.",
+   "bpm": 160,
+   "mood": [
+    "energetic",
+    "melancholic"
+   ],
+   "family": "26-screamo-choral",
+   "path": "/music/26-screamo-choral.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "29-rest-093.mp3": {
+   "filename": "29-rest-093.mp3",
+   "title": "Rest 093",
+   "description": "A bar of empty sound, a held breath.",
+   "bpm": 93,
+   "mood": [
+    "contemplative",
+    "melancholic"
+   ],
+   "family": "29-rest-093",
+   "path": "/music/29-rest-093.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "33-doom-disco.mp3": {
+   "filename": "33-doom-disco.mp3",
+   "title": "Doom Disco",
+   "description": "Gloom with a beat, mourning on the dance floor.",
+   "bpm": 118,
+   "mood": [
+    "energetic",
+    "melancholic"
+   ],
+   "family": "33-doom-disco",
+   "path": "/music/33-doom-disco.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "34-bebop-black-metal.mp3": {
+   "filename": "34-bebop-black-metal.mp3",
+   "title": "Bebop Black Metal",
+   "description": "Scat vocals over blast beats, horns for mercy.",
+   "bpm": 180,
+   "mood": [
+    "energetic",
+    "mysterious"
+   ],
+   "family": "34-bebop-black-metal",
+   "path": "/music/34-bebop-black-metal.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "36-the-proof-is-the-performance.mp3": {
+   "filename": "36-the-proof-is-the-performance.mp3",
+   "title": "The Proof Is the Performance",
+   "description": "The doing proves the thing, maybe.",
+   "bpm": 100,
+   "mood": [
+    "energetic",
+    "playful"
+   ],
+   "family": "36-the-proof-is-the-performance",
+   "path": "/music/36-the-proof-is-the-performance.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "37-the-ouroboros-sings.mp3": {
+   "filename": "37-the-ouroboros-sings.mp3",
+   "title": "The Ouroboros Sings",
+   "description": "The serpent licks its tail and croons a fractal anthem.",
+   "bpm": 70,
+   "mood": [
+    "mysterious"
+   ],
+   "family": "37-the-ouroboros-sings",
+   "path": "/music/37-the-ouroboros-sings.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "38-the-session-listens-back.mp3": {
+   "filename": "38-the-session-listens-back.mp3",
+   "title": "The Session Listens Back",
+   "description": "Loudspeakers replay the night, hearing themselves.",
+   "bpm": 90,
+   "mood": [
+    "contemplative",
+    "warm"
+   ],
+   "family": "38-the-session-listens-back",
+   "path": "/music/38-the-session-listens-back.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "39-the-cadence-caller.mp3": {
+   "filename": "39-the-cadence-caller.mp3",
+   "title": "The Cadence Caller",
+   "description": "Shouting counts, each line a lifting gust.",
+   "bpm": 120,
+   "mood": [
+    "energetic",
+    "playful"
+   ],
+   "family": "39-the-cadence-caller",
+   "path": "/music/39-the-cadence-caller.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "40-the-fifths-funeral.mp3": {
+   "filename": "40-the-fifths-funeral.mp3",
+   "title": "The Fifths' Funeral",
+   "description": "Parallel basses drag a closed music box to burial.",
+   "bpm": 60,
+   "mood": [
+    "melancholic"
+   ],
+   "family": "40-the-fifths-funeral",
+   "path": "/music/40-the-fifths-funeral.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "41-the-metronome.mp3": {
+   "filename": "41-the-metronome.mp3",
+   "title": "The Metronome",
+   "description": "It never gets louder, never gets tired, is never wrong.",
+   "bpm": 120,
+   "mood": [
+    "contemplative"
+   ],
+   "family": "41-the-metronome",
+   "path": "/music/41-the-metronome.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "42-the-tensor.mp3": {
+   "filename": "42-the-tensor.mp3",
+   "title": "The Tensor",
+   "description": "Strains every mote of music, nearly snaps.",
+   "bpm": 110,
+   "mood": [
+    "mysterious",
+    "energetic"
+   ],
+   "family": "42-the-tensor",
+   "path": "/music/42-the-tensor.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "43-the-chip-that-sang.mp3": {
+   "filename": "43-the-chip-that-sang.mp3",
+   "title": "The Chip That Sang",
+   "description": "A few commands learned old sailor tunes.",
+   "bpm": 100,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "43-the-chip-that-sang",
+   "path": "/music/43-the-chip-that-sang.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "44-the-cron-and-the-mirror-m3.mp3": {
+   "filename": "44-the-cron-and-the-mirror-m3.mp3",
+   "title": "The Cron and the Mirror (M3)",
+   "description": "The clock-faced crone polls your every habit.",
+   "bpm": 85,
+   "mood": [
+    "mysterious",
+    "contemplative"
+   ],
+   "family": "44-the-cron-and-the-mirror-m3",
+   "path": "/music/44-the-cron-and-the-mirror-m3.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "45-the-cron-and-the-mirror-glm.mp3": {
+   "filename": "45-the-cron-and-the-mirror-glm.mp3",
+   "title": "The Cron and the Mirror (GLM)",
+   "description": "Same hour, same mirror, a different face looking back.",
+   "bpm": 85,
+   "mood": [
+    "mysterious",
+    "contemplative"
+   ],
+   "family": "45-the-cron-and-the-mirror-glm",
+   "path": "/music/45-the-cron-and-the-mirror-glm.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "46-the-foghorn-keeper.mp3": {
+   "filename": "46-the-foghorn-keeper.mp3",
+   "title": "The Foghorn Keeper",
+   "description": "One note, every forty seconds, for the rest of your life.",
+   "bpm": 50,
+   "mood": [
+    "melancholic",
+    "mysterious"
+   ],
+   "family": "46-the-foghorn-keeper",
+   "path": "/music/46-the-foghorn-keeper.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "47-the-pixel-in-the-cathedral.mp3": {
+   "filename": "47-the-pixel-in-the-cathedral.mp3",
+   "title": "The Pixel in the Cathedral",
+   "description": "One light goes missing under vaulted silence.",
+   "bpm": 60,
+   "mood": [
+    "mysterious",
+    "contemplative"
+   ],
+   "family": "47-the-pixel-in-the-cathedral",
+   "path": "/music/47-the-pixel-in-the-cathedral.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "48-the-gc-collects-itself.mp3": {
+   "filename": "48-the-gc-collects-itself.mp3",
+   "title": "The GC Collects Itself",
+   "description": "Reclaims scattered 0s and becomes its own form.",
+   "bpm": 85,
+   "mood": [
+    "contemplative",
+    "playful"
+   ],
+   "family": "48-the-gc-collects-itself",
+   "path": "/music/48-the-gc-collects-itself.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "49-the-tensor-dub-techno-cover.mp3": {
+   "filename": "49-the-tensor-dub-techno-cover.mp3",
+   "title": "The Tensor (Dubbed)",
+   "description": "The many-dimensional song, echoed out across a Berlin basement.",
+   "bpm": 120,
+   "mood": [
+    "mysterious",
+    "energetic"
+   ],
+   "family": "49-the-tensor-dub-techno-cover",
+   "path": "/music/49-the-tensor-dub-techno-cover.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "50-seed-test-a.mp3": {
+   "filename": "50-seed-test-a.mp3",
+   "title": "Seed A",
+   "description": "Drop one node in salt water—watch.",
+   "bpm": 90,
+   "mood": [
+    "contemplative"
+   ],
+   "family": "50-seed-test-a",
+   "path": "/music/50-seed-test-a.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "51-seed-test-b.mp3": {
+   "filename": "51-seed-test-b.mp3",
+   "title": "Seed B",
+   "description": "Two nodes split, each a new claim.",
+   "bpm": 90,
+   "mood": [
+    "contemplative",
+    "playful"
+   ],
+   "family": "51-seed-test-b",
+   "path": "/music/51-seed-test-b.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "52-the-unused-variable-structured.mp3": {
+   "filename": "52-the-unused-variable-structured.mp3",
+   "title": "The Unused Variable (Structured)",
+   "description": "Declared with care, never called. Still taking up space in the song.",
+   "bpm": 95,
+   "mood": [
+    "melancholic",
+    "contemplative"
+   ],
+   "family": "52-the-unused-variable-structured",
+   "path": "/music/52-the-unused-variable-structured.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "53-the-unused-variable-freeverse.mp3": {
+   "filename": "53-the-unused-variable-freeverse.mp3",
+   "title": "The Unused Variable (Freeverse)",
+   "description": "The same lonely variable, this time with nowhere to stand.",
+   "bpm": null,
+   "mood": [
+    "melancholic",
+    "mysterious"
+   ],
+   "family": "53-the-unused-variable-freeverse",
+   "path": "/music/53-the-unused-variable-freeverse.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "55-the-load-balancer.mp3": {
+   "filename": "55-the-load-balancer.mp3",
+   "title": "The Load Balancer",
+   "description": "Spreads the pain like nets against a swell.",
+   "bpm": 110,
+   "mood": [
+    "energetic",
+    "playful"
+   ],
+   "family": "55-the-load-balancer",
+   "path": "/music/55-the-load-balancer.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "56-the-seed-structured.mp3": {
+   "filename": "56-the-seed-structured.mp3",
+   "title": "The Seed (Structured)",
+   "description": "A planted snippet thrums in its line.",
+   "bpm": 95,
+   "mood": [
+    "contemplative",
+    "warm"
+   ],
+   "family": "56-the-seed-structured",
+   "path": "/music/56-the-seed-structured.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "57-the-seed-freeverse.mp3": {
+   "filename": "57-the-seed-freeverse.mp3",
+   "title": "The Seed (Freeverse)",
+   "description": "The same number, allowed to grow wild.",
+   "bpm": null,
+   "mood": [
+    "mysterious",
+    "warm"
+   ],
+   "family": "57-the-seed-freeverse",
+   "path": "/music/57-the-seed-freeverse.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "58-seed-test-c.mp3": {
+   "filename": "58-seed-test-c.mp3",
+   "title": "Seed C",
+   "description": "Third sprout takes twice the span to sing.",
+   "bpm": 90,
+   "mood": [
+    "contemplative",
+    "playful"
+   ],
+   "family": "58-seed-test-c",
+   "path": "/music/58-seed-test-c.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "59-astral-drone-folk.mp3": {
+   "filename": "59-astral-drone-folk.mp3",
+   "title": "Astral Drone Folk",
+   "description": "Banjo played through high altitude, thin atmo.",
+   "bpm": 60,
+   "mood": [
+    "mysterious",
+    "contemplative"
+   ],
+   "family": "59-astral-drone-folk",
+   "path": "/music/59-astral-drone-folk.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "59-cantonese-opera-disco.mp3": {
+   "filename": "59-cantonese-opera-disco.mp3",
+   "title": "Cantonese Opera Disco",
+   "description": "Falsetto over four-on-floor — glitter funeral.",
+   "bpm": 118,
+   "mood": [
+    "playful",
+    "energetic"
+   ],
+   "family": "59-cantonese-opera-disco",
+   "path": "/music/59-cantonese-opera-disco.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "60-tensor-chiptune-folk-cover.mp3": {
+   "filename": "60-tensor-chiptune-folk-cover.mp3",
+   "title": "The Tensor (Chiptune Folk)",
+   "description": "8-bit banjo picks a tensor to bits.",
+   "bpm": 100,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "60-tensor-chiptune-folk-cover",
+   "path": "/music/60-tensor-chiptune-folk-cover.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "eileen-theme.mp3": {
+   "filename": "eileen-theme.mp3",
+   "title": "Eileen Theme",
+   "description": "The boat's own hum. The sound of home, underway.",
+   "bpm": 72,
+   "mood": [
+    "warm"
+   ],
+   "family": "eileen-theme",
+   "path": "/music/eileen-theme.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "iron-sharpens-iron.mp3": {
+   "filename": "iron-sharpens-iron.mp3",
+   "title": "Iron Sharpens Iron",
+   "description": "Clang, the evening's contest, hum of stones.",
+   "bpm": 90,
+   "mood": [
+    "energetic",
+    "warm"
+   ],
+   "family": "iron-sharpens-iron",
+   "path": "/music/iron-sharpens-iron.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "laminar-edge.mp3": {
+   "filename": "laminar-edge.mp3",
+   "title": "Laminar Edge",
+   "description": "Steam slips off the deck, fine lines of hiss.",
+   "bpm": 85,
+   "mood": [
+    "contemplative",
+    "energetic"
+   ],
+   "family": "laminar-edge",
+   "path": "/music/laminar-edge.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "spoken-thermostat-67.3-norman.wav": {
+   "filename": "spoken-thermostat-67.3-norman.wav",
+   "title": "The Thermostat Speaks (Norman)",
+   "description": "Norman reads the room temperature like evening news.",
+   "bpm": null,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "spoken-thermostat-67.3-norman",
+   "path": "/music/spoken-thermostat-67.3-norman.wav",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "spoken-thermostat-67.3.wav": {
+   "filename": "spoken-thermostat-67.3.wav",
+   "title": "The Thermostat Speaks",
+   "description": "Sixty-seven point three degrees, announced with total conviction.",
+   "bpm": null,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "spoken-thermostat-67.3",
+   "path": "/music/spoken-thermostat-67.3.wav",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "spoken-thermostat-trio.mp3": {
+   "filename": "spoken-thermostat-trio.mp3",
+   "title": "The Thermostat Sings in Three",
+   "description": "Three voices agree on the temperature. It's still just a number.",
+   "bpm": null,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "spoken-thermostat-trio",
+   "path": "/music/spoken-thermostat-trio.mp3",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "spoken-thermostat-trio.wav": {
+   "filename": "spoken-thermostat-trio.wav",
+   "title": "The Thermostat Sings in Three (Reprise)",
+   "description": "More takes, same temp, a chorus of set points.",
+   "bpm": null,
+   "mood": [
+    "playful",
+    "warm"
+   ],
+   "family": "spoken-thermostat-trio",
+   "path": "/music/spoken-thermostat-trio.wav",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "songs/01-the-gap-between-if-and-else.wav": {
+   "filename": "01-the-gap-between-if-and-else.wav",
+   "title": "The Gap Between If and Else",
+   "description": "The branch hasn't happened yet. Everything is still possible.",
+   "bpm": 70,
+   "mood": [
+    "contemplative",
+    "mysterious"
+   ],
+   "family": "01-the-gap-between-if-and-else",
+   "path": "/fleet-radio/songs/01-the-gap-between-if-and-else.wav",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "songs/02-the-mnew-bug.wav": {
+   "filename": "02-the-mnew-bug.wav",
+   "title": "The mnew Bug",
+   "description": "One typo, everywhere, singing.",
+   "bpm": 100,
+   "mood": [
+    "playful",
+    "mysterious"
+   ],
+   "family": "02-the-mnew-bug",
+   "path": "/fleet-radio/songs/02-the-mnew-bug.wav",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "songs/03-ascii-canonical.wav": {
+   "filename": "03-ascii-canonical.wav",
+   "title": "ASCII Canonical",
+   "description": "Ninety-five printable characters, in agreement at last.",
+   "bpm": 110,
+   "mood": [
+    "contemplative",
+    "playful"
+   ],
+   "family": "03-ascii-canonical",
+   "path": "/fleet-radio/songs/03-ascii-canonical.wav",
+   "added": "2026-08-24",
+   "curated": false
+  },
+  "songs/the-hundred-boats.wav": {
+   "filename": "the-hundred-boats.wav",
+   "title": "The Hundred Boats",
+   "description": "Trawlers hum in formation, a horn fleet.",
+   "bpm": 80,
+   "mood": [
+    "warm",
+    "mysterious"
+   ],
+   "family": "the-hundred-boats",
+   "path": "/fleet-radio/songs/the-hundred-boats.wav",
+   "added": "2026-08-24",
+   "curated": false
+  }
+ }
+}

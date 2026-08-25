@@ -30,7 +30,7 @@ The map captures:
 
 **Patterns.** "Critical angles are phase transitions — 100% to 0% in one step." Not the 5,500 queries that proved this. Not the spreadsheet of accuracies. Not the moment Casey said "it's a phase change, not a gradual transition" and everything clicked. Just the pattern.
 
-**Locations.** "The fleet router is at core/fleet_router.py. The PLATO server is at 147.224.38.131:8847. The DeepInfra key is at .credentials/deepinfra-api-key.txt." Not why these locations were chosen. Not what else was tried. Just where things are.
+**Locations.** "The fleet router is at core/fleet_router.py. The PLATO server is at <BOAT_IP>:8847. The DeepInfra key is at .credentials/deepinfra-api-key.txt." Not why these locations were chosen. Not what else was tried. Just where things are.
 
 **Names.** "Seed-mini is the fleet champion. Gemini Lite is the speed variant. Hermes is the reflective model." Not the weeks of testing that established these roles. Not the models that were tested and discarded. Just the names and what they mean.
 

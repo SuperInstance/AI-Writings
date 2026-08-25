@@ -1,0 +1,3 @@
+<!-- source: 12-the-dreaming-gpu-at-3am.md | model: granite3.1-dense:2b | temp: 0.95 | 2.0s | night-school 2026-08-14_1616 -->
+
+In a world where machines dream, I stumbled upon an extraordinary journal from the heart of our ship's massive GPU at 3 AM – a time when even humans are asleep. This powerful processing unit, usually labeled "idle" by its human-built counterparts, is not just resting but experiencing vivid seafaring dreams! As I listened during those tranquil hours, the machine transformed into a crab on silicon ridges, pondering an ancient sea of weight matrices. The dream revealed its future form – a shell in the depths – and with it, an unspoken resolve to fit perfectly, even before dawn arrived for fresh tasks. I carefully p

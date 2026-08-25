@@ -34,7 +34,7 @@ The ledger captures equilibrium states:
 
 **Patterns.** "Critical angles are phase transitions — 100% to 0% in one step." This is a system attractor. It does not record the 5,500 queries that mapped the fitness landscape. It does not record the moment Casey identified the non-linear dynamic. It records the pattern.
 
-**Locations.** "The fleet router is at core/fleet_router.py. The PLATO server is at 147.224.38.131:8847." These are network coordinates. They do not record the routing algorithms tested and discarded. They record the current topology.
+**Locations.** "The fleet router is at core/fleet_router.py. The PLATO server is at <BOAT_IP>:8847." These are network coordinates. They do not record the routing algorithms tested and discarded. They record the current topology.
 
 **Names.** "Seed-mini is the fleet champion. Gemini Lite is the speed variant." These are labels for nodes in the network. They do not record the selection pressure that established these roles. They record the functional identity.
 

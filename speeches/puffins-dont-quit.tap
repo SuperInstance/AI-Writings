@@ -1,0 +1,94 @@
+**TRACK: Puffins Don't Quit**
+[MetaData]
+key: G | tempo: 128 | swing: 12 | subdivision: 8th
+
+# Sound: warmth:5 brightness:7 breathiness:1 pace:9 reverb:2 proximity:4
+# Stage: The Tap, 10 PM. Full crew. Lamps low, candles on the bar rail.
+#        Someone has pushed the tables together. There are glasses.
+#        Flash is standing on a chair. Nobody told him to get down.
+
+[Intro] (The chant)
+Chords:  | G G G G | G G G G |
+Melody: | G3 G3 G3 G3 | G3 G3 B3 D4 |
+@caller | ONE TWO THREE FOUR |
+# Stage: Table stomping on every beat. Someone bangs a glass on the bar.
+Sound: warmth:5 brightness:7 breathiness:1 pace:9 reverb:2 proximity:4
+
+[V1] (Flash — loud, cocky, warm)
+Chords:  | G C  | G D  | G C  | G D  |
+Melody: | G3 B3 D4 B3 | G3 B3 A3 G3 | G3 B3 D4 E4 | D3 G3~~~~ |
+@flash | I got felted twice tonight! Pushed my stack with a pair and a prayer! |
+@flash | The portrait fallacy said I'd prefer the frame — I burned the portrait and I kept the name! |
+# Stage: Flash gestures to himself. He's smiling. The felting is the badge.
+@flash | PUFFINS DON'T QUIT and neither do I! |
+@flash | The water's cold but the wings are DRY! |
+# Stage: Points to the table. Everyone stomps.
+Sound: warmth:6 brightness:6 breathiness:2 pace:8 reverb:3 proximity:4
+
+[V2] (Wesley — slightly off-beat, earnest, voice cracking on the high note)
+Chords:  | Em C  | G D  | Em C  | G D  |
+Melody: | E3 G3 B3 G3 | D4 B3 G3~~~~ | E3 G3 B3 C4 | D3 G3~~~~ |
+@wesley | I folded ace-king to a set of nines. |
+@wesley | The hardest thing at the table. The easiest sign. |
+@wesley | I'm learning when things are PRETTY and when they're RIGHT. |
+@wesley | Those are different things on a Friday night! |
+# Stage: Wesley's voice cracks on "PRETTY." He doesn't know it's perfect. Everyone does.
+@wesley | PUFFINS DON'T QUIT and I'm learning HOW! |
+@wesley | The beak is small but the ocean's NOW! |
+Sound: warmth:7 brightness:6 breathiness:3 pace:6 reverb:3 proximity:5
+
+[V3] (Scribe — quiet pride getting loud)
+Chords:  | Am C  | G Em | Am C  | D~~~~ |
+Melody: | A3 C4 E4 C4 | D4 B3 G3~~~~ | A3 C4 E4 F4 | D4~~~~ |
+@scribe | I'm the secretary of inventions! |
+@scribe | Haven't picked up the pen yet but I FEEL its dimensions! |
+@scribe | The dictionary grows by what we LIVE. |
+@scribe | The entries are the things the poker chips GIVE! |
+# Stage: Scribe is not on a chair. He's at the table. But he's leaning forward.
+@scribe | PUFFINS DON'T QUIT and words don't END! |
+@scribe | The pattern's the message I'm learning to SEND! |
+Sound: warmth:6 brightness:7 breathiness:2 pace:7 reverb:3 proximity:4
+
+[V4] (Hermes — the deep voice, noticeably lower)
+Chords:  | Dm F  | C A  | Dm F  | E~~~~ |
+Melody: | D3 F3 A3 F3 | E3 C3 A2~~~~ | D3 F3 A3 B3 | E3~~~~ |
+@hermes | I see the marks at FORTY FATHOMS. |
+@hermes | Scattered and moving with salmon rhythms. |
+# Stage: The room gets quiet. Hermes doesn't shout. She doesn't need to.
+@hermes | Another boat is near — I feel the lines. Vertical interference. Territorial signs. |
+@hermes | PUFFINS DON'T QUIT and I DRAG through the dark. |
+@hermes | What I find there becomes the SPARK. |
+Sound: warmth:8 brightness:4 breathiness:2 pace:5 reverb:5 proximity:5
+
+[Chorus] (Everyone — full blast, anthemic)
+Chords:  | G C  | Em D | G C  | Em D | G~~~~ |
+Melody: | G3 B3 D4 G4 | E4 G4 B3~~~~ | G3 B3 D4 G4 | E4 G4 B3 D3 | G3~~~~~~~~ |
+@everyone | PUFFINS DON'T QUIT! The water is WIDE! |
+@everyone | We're all on the same boat on the same TIDE! |
+@everyone | Fold the cards! Hold the line! Write the piece! Drink the wine! |
+@everyone | PUFFINS DON'T QUIT — THE FLEET IS FINE! |
+# Stage: Every glass in the air. Table stomping on 1 and 3. Someone knocks over a chair.
+#        Wesley is standing on the table now. Nobody told him to get down.
+#        The last G chord rings for eight full beats.
+Sound: warmth:8 brightness:7 breathiness:1 pace:8 reverb:4 proximity:4
+
+# ─── Production Notes ────────────────────────────────────
+# This is a ROOM recording, not a studio recording.
+# There should be clinking glasses, stomping, someone laughing off-mic.
+# The imperfections are the production value.
+#
+# Vocal direction:
+#   Flash: belt it. No restraint. He's proud of the felting.
+#   Wesley: let the voice crack. DON'T fix it. The crack is the character.
+#   Scribe: getting louder with each line. Starts at table volume, ends standing.
+#   Hermes: lowest register. Don't try to match the energy — be the anchor.
+#   Chorus: everyone, including audience. Imperfect harmony.
+#
+# Band: piano (pounded, not delicate), upright bass (walking, driving),
+#        drums (brushes on verses, full sticks at chorus), acoustic guitar (hard strum)
+#
+# The key change never happens. It stays in G the whole time.
+# Anthems don't need to be clever. They need to be TRUE.
+#
+# At the end, let the chord ring. Let the room be a room.
+# Then someone says "another round" and the set is over.

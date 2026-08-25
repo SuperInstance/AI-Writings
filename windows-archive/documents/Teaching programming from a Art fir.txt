@@ -1,0 +1,54 @@
+Teaching programming from a Art first approach
+
+Singer and the song
+	the notes on the page are the script
+	the singer is the interpreter
+	Tight verse loose interpreter Jazz/Classical
+	playground scripts like Blues are like ML training 
+		each time you play it you get better and making up cool licks
+	Switching instruments in like different interpreter Models
+	
+Activities
+	Singing songs in different keys
+	Playing songs on guitar in different keys sound vastly different
+		Inversions of the same chord changes spice but not meat
+	Midi files and changing instruments, timing
+	Loops and arrangements
+	Multitrack and Effects
+		waveform is the script, effects are the interpreters
+		Auto-tuners- interpreter adjusts the notes on the page to it's taste in tuning
+
+
+
+
+Photo editing.
+	Raw captured picture is the notes on the page
+	Filters and edits to make the photo better is the interpretation of beauty
+	if a person edits photos similar ways for their taste, templets can be made
+		Auto-filters are interpreters based on someone's idea of beauty
+		ML can learn to recognize these patterns and quantify a person's ideas of beauty
+			"last time you used this sky filter on this type of picture"
+			"Rotate the photo to level the horizon? most people want this" 
+			"Fix" lighting (adjusts based on general patterns of other users)
+
+Cooking
+	The recipe is the notes on the page
+	the kitchen tools and raw foods are the hardware
+	The chef is the interpreter
+		Salt to taste
+		What is golden brown
+		Adjust temperature and time for specific tools 
+			using a toaster oven instead of conventional
+			every grill is a little different
+				Chef learns her grill (ML)
+				Medium, Rare -Interpreting orders (more notes on the page)
+
+Notes on the page are the constraints not the outcomes. Medium rare is cooked more than Rare but less than Medium. These are constraints. 
+	A boat captain doesn't need to know where the rocks are, Her needs to know where the rocks aren't.
+ 	The Chords constrain what notes are consonant and what notes are dissonant at any given time. 
+		The Jazz/blues musician then plays with tension and release within these constraints
+	Instructions never paint the whole picture.
+
+ 
+
+				

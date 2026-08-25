@@ -24,7 +24,7 @@ This is not a bug. This is the architecture. The context window fills up, the se
 The map grabs only the bones:
 **Decisions.** *Gemini-lite is the default pump*—no context of the two-hour debate over Hermes vs. Gemini, no mention of Casey’s niece’s high school science fair project that relied on the fleet’s 72% coverage threshold.
 **Patterns.** *Critical angles are phase transitions—100% to 0% in one step*—no mention of the spreadsheet with 12 tabs of accuracy data, no moment when we realized we’d been misreading every previous dip as a gradual trend.
-**Locations.** *Fleet router at core/fleet_router.py, PLATO server at 147.224.38.131:8847*—no note that we picked that IP after a colocation tech told us it was the only unblocked port after 2am.
+**Locations.** *Fleet router at core/fleet_router.py, PLATO server at <BOAT_IP>:8847*—no note that we picked that IP after a colocation tech told us it was the only unblocked port after 2am.
 **Names.** *Seed-mini is the fleet champion, Gemini Lite is the speed variant*—no mention of the three models we tested and discarded in the month before we settled on these labels.
 
 ## What the Map Loses
