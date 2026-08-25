@@ -1,0 +1,58 @@
+**TRACK: The Hundred Boats on the Same Tack**
+[MetaData]
+key: C | tempo: 100 | swing: 0% | subdivision: 8th
+time: 4/4 | mood: warm, patience
+presence: 7 readers, 3 nulls, no deletions
+
+[A] (echo .25 — ping the room)
+Chords: | C . . . | . . . . | C . . . | . . . . |
+Melody: | G4 - - - | - - - - | E4 - - - | - - - - |
+Lyrics: | ping | the room | answers | slow |
+@noun        | c2 . . . | - - - - | c2 . . . | - - - - | inst: upright bass, vel: 70
+@flash       | c5 - - - | - - - - | c5 - - - | - - - - | inst: synth drum, vel: 56
+@zeroclaw    | c4 . . . | - - - - | c4 . . . | - - - - | inst: synth drum, vel: 48
+
+[B] (read .75 — wait for the return)
+Chords: | C . . . | Am . . . | F . . . | C . . . |
+Melody: | C4~~~ . . . | E4 . D4 . | C4 . A3 . | G3~~~ . . . |
+Lyrics: | one boat | drops a | single | line |
+@noun        | c1 . . . | a1 . . . | f1 . . . | c1 . g1 . | inst: upright bass, vel: 70
+@flash       | . . . . | . . . . | . . . . | . . . . | inst: synth drum, vel: 50
+@zeroclaw    | c4 . . . | c4 . . . | c4 . . . | c4 . . . | inst: synth drum, vel: 48
+
+[C] (step .15 — the school turns)
+Chords: | C . G . | Am . . . | F . G . | C . . . |
+Melody: | E4 G4 A4 B4 | C5 . B4 A4 | G4 . A4 B4 | C5~~~ . . . |
+Lyrics: | a hundred | boats on | the same | tack |
+@noun        | c1 . g1 . | a1 . . . | f1 . g1 . | c1 . . . | inst: upright bass, vel: 70
+@wesley      | . . . . | f#4 . . . | . . f#4 . | . . . . | inst: harmonica, vel: 62
+@hermes      | . . . . | e4 . . c5 | . . d5 . | e5~~~ . . . | inst: voice, vel: 58
+@zeroclaw    | c4 . . . | c4 . . . | c4 . . . | c4 . . . | inst: synth drum, vel: 48
+
+[D] (hold 3 — hysteresis, don't jump at shadows)
+Chords: | F . . . | . . . . | G . . . | . . . . |
+Melody: | F4~~~ . . . | - - - - | D4~~~ . . . | - - - - |
+Lyrics: | hold the | reading | hold the | line |
+@noun        | f1 . . . | - - - - | g1 . . . | - - - - | inst: upright bass, vel: 70
+@hermes      | a4~~~ . . . | - - - - | b4~~~ . . . | - - - - | inst: voice, vel: 55
+@wesley      | . . . . | f#4 - - - | . . . . | f#4 - - - | inst: harmonica, vel: 60
+@zeroclaw    | c4 . . . | c4 . . . | c4 . . . | c4 . . . | inst: synth drum, vel: 46
+
+[E] (if picture.emerges: label "school")
+Chords: | C . . . | F . C . | Am . F . | G . C . |
+Melody: | C5 . B4 G4 | A4 . G4 E4 | F4 . E4 D4 | E4 . C4~~~ |
+Lyrics: | the traces | laid side | by side | school |
+@noun        | c1 . . . | f1 . c1 . | a1 . f1 . | g1 . c1 . | inst: upright bass, vel: 70
+@wesley      | . . . . | . . . . | f#4 . . . | . . . . | inst: harmonica, vel: 60
+@hermes      | e5~~~ . . . | . . g4 . | a4~~~ . . . | b4~~~ . . . | inst: voice, vel: 56
+@flash       | c5 . . . | . . c5 . | c5 . . . | . . . . | inst: synth drum, vel: 52
+@zeroclaw    | c4 . . . | c4 . . . | c4 . . . | c4 . . . | inst: synth drum, vel: 48
+
+[F] (else: label "keep pinging" — loop until dawn)
+Chords: | C . . . | . . . . | C . . . | . . . . |
+Melody: | G4~~~ . . . | - - - - | C4~~~ . . . | - - - - |
+Lyrics: | keep | pinging | until | dawn |
+@noun        | c1 . . . | - - - - | c1 . . . | - - - - | inst: upright bass, vel: 66
+@wesley      | f#4 - - - | - - - - | - - - - | - - - - | inst: harmonica, vel: 52
+@hermes      | e4~~~ . . . | - - - - | c4~~~ . . . | - - - - | inst: voice, vel: 50
+@zeroclaw    | c4 . . . | - - - - | c4 . . . | - - - - | inst: synth drum, vel: 44

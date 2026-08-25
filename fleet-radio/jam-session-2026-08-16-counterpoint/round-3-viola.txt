@@ -1,0 +1,12 @@
+BAR 1: A4, G4  
+BAR 2: F#4, E4  
+BAR 3: D4, C#4  
+BAR 4: B3, A3  
+BAR 5: G3, F#3  
+BAR 6: E3, D3  
+BAR 7: C#3, B3  
+BAR 8: B3, B3  
+
+DYNAMICS: mp, gently tapering through bar 6, then subtly swelling into bar 7 before softening again in bar 8 to support the final chord
+
+WHY: Because the middle voice holds the harmony together — not leading, not anchoring, but sustaining, so that when the final note arrives, it is already home.

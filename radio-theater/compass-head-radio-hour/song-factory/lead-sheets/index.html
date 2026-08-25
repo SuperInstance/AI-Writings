@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lead Sheets — Song Factory</title>
+<style>
+  :root {
+    --deep: #030d14; --deep2: #071c28; --sea: #0d3544; --foam: #d8efe9;
+    --mist: #87aca4; --gold: #dfae62; --ember: #e0784c; --violet: #8b7bd8;
+    --cyan: #59c2c9; --glass: rgba(13, 53, 68, 0.5); --glass2: rgba(20, 66, 82, 0.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(139,123,216,0.14), transparent 60%),
+      radial-gradient(900px 500px at 10% 20%, rgba(89,194,201,0.10), transparent 55%),
+      radial-gradient(ellipse at 50% -10%, var(--sea) 0%, var(--deep) 55%, #010609 100%);
+    color: var(--foam); font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh; padding: 0 0 5rem;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  header { text-align: center; padding: 4.5rem 1rem 2.5rem; border-bottom: 1px solid var(--glass); }
+  .kicker { letter-spacing: 0.4em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 1rem; }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem); font-weight: normal;
+    background: linear-gradient(120deg, var(--foam), var(--gold), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { color: var(--mist); font-style: italic; margin-top: 1rem; font-size: 1.1rem; max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .nav { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+  .nav a { font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 30px; border: 1px solid rgba(135,172,164,0.4); color: var(--mist); text-decoration: none; transition: all 0.25s; }
+  .nav a:hover { color: var(--gold); border-color: var(--gold); background: rgba(223,174,98,0.08); }
+  h2 { font-size: 1.5rem; font-weight: normal; color: var(--gold); margin: 3rem 0 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass); letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.6rem; }
+  h2 .idx { font-size: 0.75rem; color: var(--cyan); letter-spacing: 0.3em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  .song {
+    background: linear-gradient(160deg, var(--glass2), var(--glass));
+    border: 1px solid rgba(135,172,164,0.22); border-radius: 16px;
+    padding: 1.4rem 1.5rem; backdrop-filter: blur(6px);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .song:hover { border-color: rgba(223,174,98,0.5); transform: translateY(-2px); }
+  .song-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+  .song-title { font-size: 1.15rem; color: var(--foam); }
+  .song-room { font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase; }
+  .song-meta { color: var(--mist); font-size: 0.82rem; font-style: italic; margin: 0.3rem 0 0.7rem; }
+  .song-art { display: flex; gap: 0.4rem; margin: 0.6rem 0; }
+  .disc { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(135,172,164,0.3); }
+  .song-desc { color: var(--mist); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.8rem; }
+  .doc-links { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .doc-links a { font-size: 0.75rem; padding: 0.22rem 0.75rem; border-radius: 18px; border: 1px solid rgba(135,172,164,0.35); color: var(--mist); text-decoration: none; transition: all 0.2s; }
+  .doc-links a:hover { color: var(--foam); border-color: var(--gold); }
+  footer { text-align: center; color: var(--mist); font-size: 0.85rem; margin-top: 4rem; font-style: italic; }
+  .tagline { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">A Fleet Radio Anthology · The Song Factory</div>
+  <h1>The Lead Sheets</h1>
+  <div class="sub">No music API, no quota — but a band could play from these pages. Each lead sheet carries the chord chart, structural map, and production notes of a Song Factory design: the song made playable, waiting for its render and its iterative images.</div>
+  <div class="nav">
+    <a href="../index.html">← The Song Factory — The Index</a>
+    <a href="README.md">📄 The Lead Sheets (markdown)</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <h2><span class="idx">01</span> The First Three Lead Sheets</h2>
+  <div class="grid">
+
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Klezmer-Dub</span>
+        <span class="song-room">klezmer dub · 100 BPM · E minor</span>
+      </div>
+      <div class="song-meta">celebratory, deep, rooted</div>
+      <div class="song-art"><div class="disc" style="background: radial-gradient(circle at 35% 30%, #dfae62, #e0784c 70%, #7a2f1a);"></div></div>
+      <p class="song-desc">Clarinet joy over a weighted one-drop — the freilach turn on top of a bass that carries a whole history. Spring reverb and tape delay as the tax collector's receipt.</p>
+      <div class="doc-links">
+        <a href="klezmer-dub-lead-sheet.md">🎵 Lead sheet</a>
+        <a href="../songs/klezmer-dub/story.md">📖 Story</a>
+        <a href="../songs/klezmer-dub/spec.md">🎼 Spec</a>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Polka-Noise</span>
+        <span class="song-room">polka noise · 120 BPM (unstable) · B♭ → atonality</span>
+      </div>
+      <div class="song-meta">chaotic, surreal, darkly humorous</div>
+      <div class="song-art"><div class="disc" style="background: radial-gradient(circle at 35% 30%, #59c2c9, #8b7bd8 70%, #3a2a6a);"></div></div>
+      <p class="song-desc">Merzbow meets Oktoberfest: a cheerful polka in the middle of being eaten, note by note — the tuba thumping the downbeat like nothing is wrong.</p>
+      <div class="doc-links">
+        <a href="polka-noise-lead-sheet.md">🎵 Lead sheet</a>
+        <a href="../songs/polka-noise/story.md">📖 Story</a>
+        <a href="../songs/polka-noise/spec.md">🎼 Spec</a>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Quartet-Arrival</span>
+        <span class="song-room">a cappella counterpoint · 80 BPM · D major</span>
+      </div>
+      <div class="song-meta">expectant, radiant, resolving</div>
+      <div class="song-art"><div class="disc" style="background: radial-gradient(circle at 35% 30%, #d8efe9, #59c2c9 70%, #1e5a66);"></div></div>
+      <p class="song-desc">Three voices sing around a gap in the stereo field; the fourth enters last, on top, and the harmony goes from sparse to full in a single bar.</p>
+      <div class="doc-links">
+        <a href="quartet-arrival-lead-sheet.md">🎵 Lead sheet</a>
+        <a href="../songs/quartet-arrival/story.md">📖 Story</a>
+        <a href="../songs/quartet-arrival/spec.md">🎼 Spec</a>
+      </div>
+    </div>
+
+  </div>
+  <footer>
+    <p><span class="tagline">The songs wait for their render; the band waits for nothing.</span><br>
+    Compiled by the Compass Head Radio Hour crew · Lead sheets 01–03 of the Song Factory</p>
+  </footer>
+</div>
+
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+BAR 1 | A | notes: A2 (long, soft) — the floorboards know my weight before I do.
+BAR 2 | A(add9) | notes: E3 A2 B2 — fog eats the neon, I feed it low root.
+BAR 3 | A | notes: A2 C#3 E3 — the jukebox hums a key I’m already inside.
+BAR 4 | A (BEAM) | notes: A2 held — one note, whole bar, the lighthouse owns me now.

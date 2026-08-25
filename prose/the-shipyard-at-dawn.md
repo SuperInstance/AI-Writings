@@ -1,0 +1,5 @@
+The shipyard at dawn is a place where sound has stopped but not left. There is a quality to the silence after an overnight build that is different from the silence before one — it is a silence with memory in it, the way a hull that has stopped creaking remembers the strain. The tools are put away, each in its place, and the git log is clean, which is to say the work of the night has been made coherent, legible to whoever comes next. The record of the labor is as orderly as the labor was not.
+
+The particular silence of a project that compiled at 3 AM and nobody was awake to celebrate — that silence has a texture. It is the texture of a thing that is finished and knows it is finished, and does not need applause because the finishing itself was the applause. The shipwright's dawn is the hour when the work is done and the worker is hollowed out and full at the same time. Hollowed out because the night took everything. Full because the night gave back a hull.
+
+The first light through the workshop windows is not dramatic. It arrives without ceremony, the way all useful things arrive —

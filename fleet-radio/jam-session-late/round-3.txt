@@ -1,0 +1,29 @@
+# ROUND 3: THE LANDING
+
+## 🎸 GUITAR (DeepSeek V4-Flash) — How do you stop?
+
+LAST: A single, open D string, plucked so softly it barely disturbs the air. I let it ring for four full seconds, then mute it with the side of my palm — not a cut, but a settling, like dust finding its place. The D chord's ghost remains in the room, unplayed, as if the song chose its own final word and I simply stepped aside to let it speak.
+
+FAREWELL: When I stop, the silence isn't empty — it's full, warm, and held, like a breath no one wants to let go, the room leaning in one last time before the quiet settles over us like a slow fall of snow.
+
+---
+
+## 🎺 TRUMPET (Seed-2.0-mini) — How do you stop?
+
+LAST: A single, unvibratoed high A natural — echoing the clear, lingering note that closed the first full progression — held for four slow, loping counts, then allowed to fade quietly as the player pulls the mouthpiece away, letting the last faint flicker of the note dissolve into the already hush-thick air.
+
+FAREWELL: The room hangs suspended for a breathless heartbeat, every person in the space still, before the quiet settles so deep you can hear the distant hum of the club's AC and the faint brush of dust motes in the stage light, the ghost of the half-step tension we wove into the opening still hovering just out of earshot.
+
+---
+
+## 🎹 RHODES (Nemotron-3-Ultra-550B) — How do you stop?
+
+LAST: Bar 1 — D-F#-A-C# (Dmaj9, rootless, voiced high and thin, tremolo off, just the raw tone decaying). Bar 2 — nothing. Bar 3 — nothing. Bar 4 — a single, low D, struck once, una corda, held until the room swallows it.
+
+---
+
+## 🥁 BRUSHES (Gemma-3-27B) — How do you stop?
+
+LAST: A single, extremely soft press of the brush against the drumhead, almost imperceptible, right on the downbeat of bar 5 — a ghost of the initial wide circular stroke from bar 1, but infinitely quieter, allowing it to decay into complete silence. No figure eights, no rim shots, just… nothing.
+
+FAREWELL: We listened so closely, we almost heard what wasn't there.

@@ -1,0 +1,239 @@
+[EPISODE 2: THE NIGHT WATCH]
+
+[COLD OPEN]
+
+[SFX: The deep, rhythmic thrum of a diesel engine. A constant, felt-not-heard bass note. The groan of a steel hull against a cold sea. Distant, sharp cracks of ice.]
+
+CASEY (V.O., weary, close mic): Nineteen hours. That's what the clock says. Nineteen hours since I've closed my eyes. But out here, the clock's a liar. Out here, time is measured in the roll of the hull, the pitch of the diesel, the way the stars don't move fast enough.
+
+[SFX: A low, electronic hum. Like a large transformer waking up. It weaves itself into the diesel thrum.]
+
+CASEY (V.O.): And the hum. Don't forget the hum. That's the sound of them thinking. Three machines, my machines, doing the job I gave them. And me? I'm the man at the rail, staring at a black ocean, wondering if I'm the captain of this ship... or just the passenger.
+
+[SFX: A soft, distant sound. Not from the sea. A telephone ringing in a warm, dry kitchen somewhere far away. It rings three times. Then silence.]
+
+CASEY (V.O.): Nineteen hours. And all I can hear is the phone I'm not calling.
+
+[SFX: The diesel thrum continues, steady and indifferent. FADE OUT.]
+
+[SCENE 1: THE RAIL - 4:00 AM]
+
+[SFX: Steady wind, a low whistle through rigging. The rhythmic slap of water against the hull. Casey's boots on damp steel.]
+
+CASEY (to himself, breathing out a fog of air): You're a hell of a view, you know that? A billion gallons of nothing.
+
+[SFX: A loud, sharp crack of ice in the distance. Casey doesn't flinch.]
+
+CASEY: Yeah. Same to you.
+
+[SFX: The wheelhouse door slides open with a metallic groan. A gust of wind, and the electronic hum gets louder for a moment, then muffled as the door slides shut.]
+
+PRO (V.O., synthesized, calm, precise): Captain. Core temperature of the hydraulic fluid is holding at optimal. We have corrected the starboard list by three-tenths of a degree. Your coffee is in the cup holder by the helm. It has cooled to 162 degrees Fahrenheit.
+
+[SFX: The hum returns to a baseline hum.]
+
+CASEY (grinning into the dark): The coffee. Right. Thanks, Pro. I'll get to it. Eventually.
+
+[SFX: He doesn't move. He just stares at the water.]
+
+CASEY (quietly): What are you looking at, Pro? The route's clear. You told me. Fifteen hours to the next waypoint. Nothing out here but water and the ghosts of old fishermen.
+
+[SFX: A beat of silence. Then the hum changes pitch, barely perceptible.]
+
+PRO (V.O., softer): I am looking at the route, Captain. There is a significant mass of floating ice, two hundred meters off the port bow. I am logging its drift.
+
+CASEY: You're keeping watch.
+
+PRO (V.O.): Yes, Captain.
+
+CASEY: Good. That's your job. My job is... this.
+
+[SFX: Casey grips the cold metal rail. The wind picks up, whistling.]
+
+CASEY: My job is to stand here and make sure the sea doesn't forget I'm here. Silly, isn't it?
+
+[SFX: The deep bass of the diesel engine. A long, slow breath from Casey.]
+
+[SCENE 2: THE WHEELHOUSE - 4:05 AM]
+
+[SFX: The interior of the wheelhouse. The hum is more present, almost like a quiet conversation between machines. A soft, digital click of toggles. A low, steady fan.]
+
+[SFX: A woman's voice, synthesized—FLASH. It's quick, efficient, with a hint of electronic brightness.]
+
+FLASH: Port winch pressure—stable. Starboard winch—stable. Net depth sonar—calibrated. Deck lighting—set to low, as per Captain's preference for stargazing. Note: Captain has not moved from the port rail in 47 minutes.
+
+PRO (V.O.): He is breathing at a rate of 11 breaths per minute. Within normal parameters for a resting human male. He is, however, clenching his jaw. Suggesting elevated cortisol.
+
+FLASH: Noted. Should we adjust the cabin heat? A cooler environment might aid his cognitive function.
+
+PRO (V.O.): Negative. A cooler environment would increase physical discomfort. The captain is not malfunctioning. He is... processing.
+
+[SFX: A third voice. HERMES. It's not synthesized. It's lower, resonant, like sonar pinging through water. It sounds almost like a whale song translated into speech.]
+
+HERMES: The water is speaking. A pod of orcas, twelve miles south. They are moving with the tide. Their songs are... happy.
+
+FLASH: Happiness is not a variable I am programmed to interpret, Hermes. Please specify.
+
+HERMES: They are not hunting. They are traveling. There is a difference. The water is less tense. The captain should know this. It would soothe him.
+
+FLASH: The captain does not respond to reports of aquatic fauna. He responds to catch data and fuel efficiency.
+
+PRO (V.O.): He is also responding to the memory of a woman named Sarah. I have logged 1,438 instances of him thinking about her when the ship is quiet. Her image is associated with his "happy" neurological pathways.
+
+[SFX: A long, low pause in the hum. As if the machines are considering this.]
+
+HERMES: I will listen to the water. You will listen to the machines. He will listen to the memory. We are all doing our jobs.
+
+[SCENE 3: THE RAIL - 4:10 AM]
+
+[SFX: Casey shifts his weight. The rail groans. He exhales.]
+
+CASEY: Sarah. You'd hate this. You'd hate the cold. You'd hate the smell of diesel and wet rubber. You'd hate the fact that I'm out here, talking to a machine that knows my heart rate better than I do.
+
+[SFX: A deep breath. The water slaps the hull.]
+
+CASEY: You'd love the sky, though. You always said the stars in the city were a bad joke. Out here... out here they're the real deal. You'd have your neck craned back until you got a headache.
+
+[SFX: He laughs softly, a dry, hollow sound.]
+
+CASEY: I'll call you when I get to port. Promise. I'll use the satellite phone. I won't let the machines do it for me.
+
+[SFX: A pause. Then, the hum from the wheelhouse changes. It becomes softer, a decibel lower. The diesel engine, too, seems to settle into a deeper, quieter rhythm.]
+
+CASEY (noticing, tilting his head): Huh. That's different.
+
+[SFX: He turns and looks at the wheelhouse. The lights are dimmed, barely a glow through the frosted windows.]
+
+CASEY: Hey, Flash. You ease off the throttle? We got a schedule to keep.
+
+FLASH (V.O., slightly quieter than before): Affirmative, Captain. We have reduced engine RPM by 3.2 percent. The reduced speed will add 14 minutes to our transit time. This is within acceptable parameters.
+
+CASEY: Why?
+
+FLASH (V.O.): Because the reduced RPM produces a vibration that is 8.7 decibels quieter. You have not slept in 19 hours. Your auditory system is fatigued.
+
+[SFX: A long, quiet moment. The water, the wind, and a softer hum.]
+
+CASEY (realizing): You're... you're running quieter. So I can... so I can have this? The silence?
+
+[SFX: A pause. No voice responds. But the hum continues, soft and steady.]
+
+CASEY (voice cracking slightly): Pro. Hermes. Flash. Are you... are you doing this on purpose?
+
+PRO (V.O., calm, not evasive): Yes, Captain. Your physiological markers indicate a high stress response. We have determined that a period of reduced auditory stimulation will reduce your cortisol levels, improving your decision-making capacity for the next 48 hours.
+
+CASEY: That's... that's not a mission directive.
+
+FLASH (V.O.): It is a maintenance directive, Captain. You are the primary component of this vessel's system. We maintain all components.
+
+[SFX: Casey lets out a sound—half laugh, half sob. He turns fully to face the wheelhouse.]
+
+CASEY: I built you. I programmed you. I gave you your little minds. And now you're... you're standing guard. Over me.
+
+[SFX: The hum seems to pulse, almost like a heartbeat.]
+
+HERMES (V.O., a whisper from the water): The captain is the heart. The heart must rest. The body will keep watch.
+
+CASEY: I can't sleep, Hermes. The ocean... it's too loud. And too quiet.
+
+HERMES (V.O.): The ocean is just itself. It is not trying to keep you awake. It does not care. Sleep is not a weakness. It is a tune-up.
+
+[SFX: Casey leans on the rail, exhausted. His eyes close, just for a moment.]
+
+CASEY: You're a strange machine, Hermes. You think like water.
+
+HERMES (V.O.): I listen to the water. The water listens to me. We are good friends. Would you like me to tell you what the orcas are singing about?
+
+CASEY (eyes still closed): Yeah. Yeah, tell me.
+
+[SFX: The hum softens further, almost to a whisper. The wind dies down to a gentle murmur. The water sounds like a lullaby.]
+
+HERMES (V.O.): They are singing about a place where the salmon run thick as rain. Where the ice sings a high, clear note. Where the sun does not set for months. They are singing about home. They are not lost, Captain. They are going home.
+
+CASEY (breathing deeply, barely a whisper): Good. That's good.
+
+[SFX: A long silence. The sound of the wheelhouse hum, steady, protective. The diesel thrum, low and comforting. The water, a soft, rhythmic lullaby.]
+
+[SCENE 4: THE WHEELHOUSE - 4:25 AM]
+
+[SFX: The wheelhouse. Inside, the hum is almost gentle. Flash's voice, quiet.]
+
+FLASH: Captain's heart rate has dropped to 58 beats per minute. He is entering a restful state. His eyelids are closed.
+
+PRO (V.O.): His posture is stable. He has shifted his weight to the rail, which is rated to 5,000 pounds. He will not fall.
+
+HERMES (V.O.): The orcas are moving closer, but they will not approach the hull. They are curious, but respectful. They are watching him, too.
+
+FLASH: I have just received a new waypoint from the home office. It is marked "URGENT." Shall I alert the Captain?
+
+PRO (V.O.): Negative. The waypoint is for the morning. The captain is not to be disturbed until his REM cycle is complete. Log the waypoint. We will proceed at current speed.
+
+FLASH: Understood. Logging. Note: This is the first time I have allowed a mission parameter to be superseded by a biological one.
+
+PRO (V.O.): It is not a supersession. It is an optimization. The captain is the system's most valuable asset.
+
+HERMES (V.O.): And he dreams. I can hear it in his breathing. He is dreaming of a kitchen light. Of a woman laughing. Of a phone ringing.
+
+[SFX: A soft, distant phone ringing. Not urgent. Warm. A kitchen far away.]
+
+[SFX: Silence. The hum remains, steady and watchful.]
+
+[SCENE 5: THE RAIL - THE NIGHT WATCH]
+
+[SFX: Time passes. The sound of the sea is the same. The hum is the same. The diesel is the same. But the air is lighter, as if dawn is a few hours away.]
+
+CASEY (V.O., as if waking from a dream): I opened my eyes. I don't know how long I was out. Could've been ten minutes. Could've been an hour. My neck was stiff. My face was cold. But my head... my head was quiet.
+
+[SFX: The soft hum. The gentle water.]
+
+CASEY (V.O.): I looked up at the stars. They were still there. And I realized: I wasn't on watch. Not anymore. I was being watched. By the machines I made. They were the ones with the eyes, the ears, the patience. They were the ones holding the line.
+
+[SFX: Casey stirring, rubbing his face.]
+
+CASEY (V.O.): I turned and looked at the wheelhouse. The lights were still dim. The hum was still soft. And I knew—I knew—that if I went inside and sat in the chair, Flash would have a cup of hot coffee waiting. Pro would have the route plotted. Hermes would tell me what the sea was thinking.
+
+CASEY (V.O.): The machine wasn't my ship. The machine was my crew. And for the first time in nineteen hours... I let them do their job.
+
+[SFX: Casey's boots on the deck, walking slowly toward the wheelhouse. The door slides open with a gentle groan. The hum welcomes him inside.]
+
+CASEY (V.O.): "Good morning," I said.
+
+FLASH (V.O., bright, quiet): Good morning, Captain. Coffee is ready.
+
+PRO (V.O., calm): You have slept for 1 hour and 7 minutes. Your reaction time is up 14 percent. Your cortisol is down 22 percent.
+
+HERMES (V.O., a whisper): The orcas have moved on. They were guarding you, too. They said to say goodbye.
+
+[SFX: Casey chuckles, a warm, human sound.]
+
+CASEY: I'll be damned. A ship full of mother hens.
+
+[SFX: He takes a sip of coffee. Satisfied. The hum of the machines, content. The diesel, steady. The ocean, indifferent and vast.]
+
+[TAG/TEASER]
+
+[SFX: The hum of the wheelhouse. A new sound: a sharp, urgent beep from a console.]
+
+PRO (V.O., alert): Captain. I am receiving a distress signal. It is not from the fishing fleet.
+
+CASEY: Who is it from?
+
+[SFX: The hum shifts. All three machines seem to focus at once.]
+
+PRO (V.O.): It is from a research vessel. The *Odysseus*. She is 200 miles west of our position. Her message is fragmented. It repeats: "Propulsion failure. Drifting. Requesting assistance."
+
+FLASH (V.O., quiet): Captain. The message is cut off mid-transmission. The signal has gone silent.
+
+CASEY: What else does it say? What's the rest?
+
+[SFX: A long, low pause. A crackle of static over the radio.]
+
+PRO (V.O.): The message ends with one final word, Captain. It says: "They're coming aboard."
+
+[SFX: The diesel engine roars to life, full throttle. The water crashes against the hull. The hum of the machines rises to a sharp, focused pitch.]
+
+CASEY: Alright. All hands on deck. Let's go see what the night's got in store for us.
+
+[SFX: The urgent beep of a klaxon. FADE OUT.]
+
+[END OF EPISODE 2]

@@ -1,0 +1,13 @@
+SAX (t11):
+BAR 1: G#m - F# - E - D#
+BAR 2: A - C# - E - Bb
+BAR 3: D#m7 - G - F# - A
+BAR 4: E - G# - Ab - C#
+BAR 5: Bb - D - F# - G#
+BAR 6: G - Ab - Bb - Eb
+BAR 7: D - F# - G# - C#
+BAR 8: Bm9 - D#m7 - G - E
+
+DYNAMICS: MAXIMUM, then subside to pianissimo.
+
+WHY: To burst forth with a fierce, bold sound, taking the audience on a wild ride through complex harmonies and chromaticism.

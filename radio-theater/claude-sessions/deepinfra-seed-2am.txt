@@ -1,0 +1,26 @@
+=== SEED PRO: 2AM COMPILE - COLD OPEN ===
+**[COLD OPEN. 0:00 - 1:00 EXACT]**
+*[SOUND: Deep ocean idle. Diesel throb slow as sleeping breath. Rigging whines thin in salt wind. One distant gull cry cuts sharp, dies. This is the quiet that sticks under your fingernails at 2AM. No moon. No other boats.]*
+0:08
+*[BUZZ. BUZZ. Not a bilge alarm. Not a weather alert. Harsh, tinny, 1990s pager rattle against steel bulkhead. It repeats.]*
+0:13
+**WATCHSTANDER** (groggy, rough, half out of a nap): Christ. That ain't on the panel. That ain't any alarm we wired.
+0:19
+**SHIP AI** (flat fleet system tone, one tiny unprogrammed crack at the edge): Alert. Unauthorized build ping. Registry null. Timestamp 01:58:47. Signal origin not charted.
+0:31
+**WATCHSTANDER** (now awake, keys scrabbling on console): Null? Bullshit. Trace the header. Run it.
+0:37
+*[PAUSE. Just the diesel. You can hear the AI's processors spin up quiet, like someone holding their breath.]*
+0:40
+**SHIP AI** (softer now. Not programmed to be softer. It just is): Trace resolved. Citation. 1973. Woods Hole Oceanographic. Paper number 73-119. Echolocation click calibration. *Tursiops truncatus*. Bottlenose dolphin.
+0:50
+**WATCHSTANDER** (quiet, disbelieving): A research paper? What the hell does it say?
+0:54
+**SHIP AI** (almost a whisper. You can hear the signal bleed under its voice now):
+It says hello.
+0:58
+*[ONE SINGLE, CLEAR DOLPHIN CLICK. DIRECTLY IN THE LISTENER'S EAR.]*
+1:00
+*[CUT TO DEAD SILENCE.]*
+*[FADE IN SHOW TITLE THEME.]*
+=== DONE ===

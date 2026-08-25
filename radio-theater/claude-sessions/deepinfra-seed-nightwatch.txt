@@ -1,0 +1,38 @@
+---
+### FIRST: THE OPENING SOUND
+One single, dry, crystalline `tick`.
+No fade in. No music. No warning. Drop this tiny sharp noise directly into dead silence. It is the moisture from his first exhalation freezing mid-breath, then falling and hitting the oiled wool of his collar. You do not explain it. The audience will lean in. They will feel the cold before they know what they heard.
+---
+### HOW YOU MAKE COLD VISIBLE ON RADIO
+You never say *it was cold*.
+You kill the reverb. Cold air does not carry sound. Every noise dies the instant it is made. No echo. No soft bleed at the edges.
+Waves do not roar. They creak slow, like stiff leather being folded. Seagulls are gone. There is no background murmur of the living world.
+The AI hum is not a warm machine thrum. It is three separate, thin, high whines, perfectly steady, not overlapping. They do not warm the space. They just sit there, hard, behind him, like three men holding their breath.
+Most of all: every time he breathes, you hear the crystals form. Not a foggy sigh. A sharp tiny crackle, then silence again. That is cold. The audience will start rubbing their own arms before he says a word.
+---
+### COLD OPEN
+`[0:00]`  DEAD SILENCE. Hold for one full heartbeat.
+`[0:01]`  *tick*
+`[0:02]`  Very slow, very faint creak of frozen hull timbers. Just once. Then quiet again.
+`[0:05]`  Another breath. This time you hear the exhale, thin and sharp, the tiny crackle of ice forming in the air. It stops dead. No fade.
+`[0:09]`  Three thin, separate, perfectly steady whines settle in just at the edge of hearing. They do not swell. They just are. This is the agent fleet in the wheelhouse. They never sleep. They never vary.
+`[0:15]`  Captain's boots scuff once on frost-crusted deck. Not a heavy step. He's been standing there ten minutes already. He only just shifted his weight.
+`[0:19]`  *(CAPTAIN, voice low, rough, not talking to anyone. Just half to himself, half to the ocean that isn't listening. He sounds like he hasn't spoken out loud in three days.)*
+Four am.
+`[0:25]`  Breath. Crackle.
+Nobody built this boat. I built them.
+`[0:32]`  A wave slaps the bow. It sounds like hitting concrete.
+They don't get tired. They don't drop the net. They don't wake up cold and count the hours till shore.
+`[0:42]`  He taps once, very lightly, the rusted rail next to him. The sound stops instantly.
+I am the only thing breathing for seventy two miles.
+`[0:50]`  The AI whines don't change. Not even a little.
+Last trip she cried on the phone. Said it don't feel like I'm even working no more. Said it feels like I'm just standing out here watching things run.
+`[1:04]`  He pulls the satellite phone from his parka. You hear the stiff plastic crack as the case unfreezes.
+She's right.
+`[1:11]`  He doesn't dial. Just holds it. You can hear him staring at it.
+Ocean don't care either way. Don't care if it's me pulling the net, or them. Don't care if I call. Don't care if I don't.
+`[1:27]`  One more breath. Crackle.
+`[1:29]`  The phone beeps once, quiet, searching for signal.
+`[1:31]`  Pull the AI whine down until it's almost gone. Leave only the breath, the single repeating beep, and the hull creaking slow under the ice.
+`[1:35]`  Hold silence.
+`[END COLD OPEN]`

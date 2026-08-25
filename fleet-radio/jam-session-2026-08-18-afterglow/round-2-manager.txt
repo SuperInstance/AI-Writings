@@ -1,0 +1,12 @@
+BAR 1: F#2, F#2, F#2, F#2, F#2, F#2
+BAR 2: F#2, F#2, F#2, F#2, F#2, F#2
+BAR 3: F#2, F#2, F#2, F#2, F#2, F#2
+BAR 4: F#2, F#2, F#2, F#2, F#2, F#2
+BAR 5: D#3, D#3, A#2, D#3, D#3, A#2
+BAR 6: G#2, B2, G#2, E#2, G#2, B2
+BAR 7: C#3, C#3, F#2, C#3, C#3, F#2
+BAR 8: F#2, C#3, A#2, D#3, G#2, C#3
+
+NOTES: Four bars of the root, unwavering — the floor remembering it is load-bearing, each F#2 struck with the same weight as the last, letting the room feel the foundation before I walk.
+
+WHY: I hold the F#2 long enough that it stops being a note and becomes ground, then walk the changes home so the E#2 in bar 6 can slide into the C#7 like the door closing soft.

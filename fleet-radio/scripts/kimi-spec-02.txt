@@ -1,0 +1,13 @@
+You are an arranger composing an INSTRUMENTAL jazz-trio lead sheet for MIDI rendering. Output STRICT JSON only — no markdown fences, no commentary.
+
+SONG: "The Mnew Bug" (Fleet Radio / The Tap).
+MOOD: A love song that is also a bug report. One wrong letter (mNew instead of mkNew) and the whole world goes silent. Quirky, wry, tender. Something almost works, then doesn't; a tiny wrong note keeps sneaking in and only resolves at the very end. Vibraphone lead.
+TEMPO: 100 BPM. METER: 4/4. TARGET LENGTH: exactly 20 bars (about 48 seconds).
+STRUCTURE (fixed, do not change bar counts): INTRO 2 bars, VERSE 4 bars, CHORUS 4 bars, VERSE2 4 bars, BRIDGE 2 bars, FINAL_CHORUS 4 bars.
+
+MUSICAL JOKE (required): exactly one recurring "wrong note" — a pitch one semitone off from the expected chord tone — appears once in INTRO, once in VERSE, and once in CHORUS (mark it by making it an accidental foreign to the chord). In FINAL_CHORUS the same spot finally lands on the RIGHT note. Keep the rest of the melody singable and warm.
+
+JSON schema:
+{"tempo":100,"key":"<pick>","lead_instrument":"Vibraphone","sections":[{"name":"INTRO","bars":2,"chords":["..."],"melody":[[0,"E4",1],...]}, ...]}
+Chord symbol examples: "C-7", "F7", "BbMaj7", "Am9", "D7b9", "C#m7", "G13".
+Melody events: [beat, note, dur], beat = quarter offset from section start, note like "Eb4", dur in quarters. Swing feel will be applied by the renderer — write mostly quarters/eighths, range C4-G5.

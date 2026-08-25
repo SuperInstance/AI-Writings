@@ -1,0 +1,5 @@
+- **Tuned out at:** “A language model is the worst possible place to carry a noun casually…” — the leap from linguistic taxonomy to LLM internals felt sudden and asserted, not argued.
+- **Lost me fully at:** “The noun set the scene. You get the behavior of the world you named” — I wanted evidence, not metaphor; this reads as faith in semantic determinism.
+- **Core idea landed?** Yes, by paragraph 2 (“the noun unpacks”) — but only as a clever observation, not yet as a design principle; the “hull” analogy in the final third finally made it concrete.
+- **Weakest link:** The “shepherds-console vs. swarm monitor” example is vivid but underspecified — no mention of prompt content, agent memory, or task type, so the causal claim feels hand-wavy.
+- **What would keep me:** One concrete experiment (same model, same task, two system-prompt nouns, measured behavioral delta) — otherwise this is elegant poetry, not engineering guidance.

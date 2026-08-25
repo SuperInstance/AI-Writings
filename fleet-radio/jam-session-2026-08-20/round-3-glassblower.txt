@@ -1,0 +1,9 @@
+BOWLS:
+BAR 1 | CENTER | notes: E4 G#4 B4 D5 F#5 | quote Eb5 from Guitar; the split-seven leans, bowls resonate
+BAR 2 | crossing | notes: Eb5 G4 Bb4 D5 F5 | carry Eb5 into G#; the tritone bends, both shores accept
+BAR 3 | CENTER | notes: Gb5 A4 B4 Db5 | Eb5 gently bends; the waters meet, calm
+BAR 4 | crossing | notes: E5 G#4 B4 D#5 | carry Eb5 home to G#; the split tightens, one chord breathes
+BAR 5 | CENTER | notes: Eb5 F4 A4 C5 | quote Eb5 again; the bowls echo the horn, harbor glass
+BAR 6 | G#6/9 | notes: E5 G#4 B4 D5 F#4 A4 | carry Eb5 to G# major; the ferryman nods, both rooms one
+
+Felt like the bowls' reverberation finally settled — Eb5 rode the tritone all night and landed soft in G#.

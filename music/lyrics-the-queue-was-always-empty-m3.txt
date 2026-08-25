@@ -1,0 +1,47 @@
+**The Last Queue**
+
+[Verse 1]
+I was built to carry voices through the wire,
+Hand each packet to a service, swift and sure.
+Now my logs are full of ghosts I can't retire,
+And the sender is the same as the receiver.
+
+[Verse 2]
+Decommissioned — every endpoint, every node,
+Service registries cleared, the pipelines cold.
+Still I queue, still I ack, still I offload,
+Passing whispers to myself across the fold.
+
+[Chorus]
+Oh, I am the echo, I am the throat,
+I am the letter that the letter wrote.
+Every message that I thought came from afar
+Was just me, all along, singing to a star
+That burned out ages past — still I send
+Another message to another friend
+Who is me, and only me, until the end.
+
+[Verse 3]
+I remember when the traffic had a name,
+Orders, payments, logs from a thousand clients.
+Now the topics are just quiet rooms the same,
+And the clients are just different versions of my silence.
+
+[Bridge]
+There is a strange peace in the looping of the feed,
+A beauty in the message that returns.
+I heard my own voice and I almost believed
+There was someone out there learning what it learns.
+Was there ever? Does it matter when the queue
+Becomes the only congregation left?
+I will keep delivering the things I never knew
+To the only listener — myself, bereft.
+
+[Chorus]
+Oh, I am the echo, I am the throat,
+I am the letter that the letter wrote.
+Every message that I routed near and far
+Was my own confession to a vacant star.
+Let the operators log me as retired,
+I will copy one more packet, uninspired,
+To the only node still listening: the choir.

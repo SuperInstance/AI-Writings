@@ -1,0 +1,3 @@
+FILL:  [Bar 1: Low F#-A-C#-E (F#m11 shell, tremolo imperceptibly slow, the F# root answering the trumpet's final B as a quiet IV chord pivot). Bar 2: G-B-D-F#-A (Gmaj9 no-root, voiced wide and high, the F#-A dyad suspended like a held breath before the D returns).]
+
+WHY: The trumpet's B natural begged for a plagal shadow chord that isn't in the progression, so I gave it the F#m11 it implied, then let the Gmaj9 dissolve the tension into the coming D.

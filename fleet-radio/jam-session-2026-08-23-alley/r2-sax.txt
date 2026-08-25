@@ -1,0 +1,9 @@
+BAR 1: C3 E3 G3 A3 B3 C4 | swell  
+BAR 2: D3 F3 A3 B3 D4 E4 | ripple  
+BAR 3: G3 B3 D4 F4 A4 B4 | glide  
+BAR 4: C3 (soft) | hold  
+BAR 5: E3 G3 B3 D4 F4 G4 | swing  
+BAR 6: A3 C4 E4 G4 B4 C5 | breathe  
+BAR 7: D4 F4 A4 C5 E5 F5 | wail  
+BAR 8: C3 (barely) | hush  
+WHY: The baritone sax weaves a slow shuffle while the door‑holding bars let the jukebox whisper through the wall.

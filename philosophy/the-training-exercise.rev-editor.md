@@ -1,0 +1,6 @@
+- “The chart is not the ocean, but inside the exercise the chart is enough” — repeats “frame must be honest about being a frame” three paragraphs later; cut one.
+- “speed of iteration against depth of vision” / “A generalist drifts; a framed specialist runs” / “the young mind… will beat the wise mind” — three restatements of the same thesis; keep one.
+- “The blinders were the feature” and “The blinders make you fast” and “Only honest blinders” — the metaphor is doing decorative echo work, not compression; pick a single use.
+- “spawn an agent as *essay-lane* or *syntax-checker* and it never burns a cycle wondering about its purpose” — “burns a cycle” adds nothing after “iterates at a speed wisdom cannot touch.”
+- “a move so unsporting it could only occur to someone trying to flunk the test” — “unsporting” and “flunk” are flavor words; the sentence works without either.
+- “The pod hunts by kin-tracked consensus; the fleet runs by frame-tracked intent” — unrelated metaphor (pod/fleet) introduced and abandoned; cut.

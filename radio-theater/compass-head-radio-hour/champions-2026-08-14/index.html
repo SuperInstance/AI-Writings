@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champions' Day — The Compass Head Radio Hour</title>
+<style>
+  :root { --ink: #1a1d21; --paper: #f4efe6; --amber: #c87f2e; --sea: #2e4a5e; --fog: #8a939b; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--ink); color: var(--paper); font-family: Georgia, 'Times New Roman', serif; line-height: 1.65; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  header { text-align: center; padding: 3rem 0 2rem; border-bottom: 1px solid #333; margin-bottom: 2.5rem; }
+  .kicker { font-size: .8rem; letter-spacing: .35em; text-transform: uppercase; color: var(--amber); margin-bottom: .8rem; }
+  h1 { font-size: 2.4rem; font-weight: normal; letter-spacing: .02em; }
+  .sub { color: var(--fog); margin-top: .6rem; font-style: italic; }
+  .nav { margin-top: 1.2rem; font-size: .85rem; }
+  .nav a { color: var(--fog); text-decoration: none; margin: 0 .6rem; }
+  .nav a:hover { color: var(--amber); }
+  .intro { max-width: 640px; margin: 0 auto 3rem; text-align: center; color: #cfc9bd; }
+  .piece { margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid #2c2f33; }
+  .piece h2 { font-size: 1.6rem; font-weight: normal; margin-bottom: .3rem; }
+  .piece .who { color: var(--amber); font-size: .85rem; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .piece .read { color: var(--fog); font-size: .9rem; margin-bottom: 1.5rem; }
+  .piece .read a { color: var(--fog); }
+  .piece .read a:hover { color: var(--amber); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .grid figure { margin: 0; }
+  .grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; cursor: zoom-in; display: block; background: #222; }
+  .grid figcaption { font-size: .75rem; color: var(--fog); margin-top: .4rem; letter-spacing: .08em; text-transform: uppercase; }
+  .stack { display: inline-block; font-size: .7rem; padding: .1rem .5rem; border: 1px solid #444; border-radius: 3px; margin-top: .3rem; color: var(--fog); }
+  .video { margin-top: 2rem; }
+  .video video { width: 100%; border-radius: 6px; background: #000; }
+  .video h3 { font-size: 1.1rem; font-weight: normal; color: var(--amber); margin-bottom: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+  footer { text-align: center; color: var(--fog); font-size: .8rem; padding-top: 2rem; font-style: italic; }
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; z-index: 10; cursor: zoom-out; }
+  .lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">The Compass Head Radio Hour</div>
+  <h1>Champions' Day</h1>
+  <p class="sub">Four repos. Four champions. One evening of real work, told as songs in other worlds.</p>
+  <div class="nav">
+    <a href="../">The Show</a> · <a href="../tap-open-mic-2/">Open Mic Night 2</a> · <a href="../slow-lander/">The Slow Lander Hour</a> · <a href="../profiles/">The Feature</a>
+  </div>
+</header>
+
+<div class="intro">
+  <p>Each champion took a repo — debugged it, tested it, rewrote its documentation, iterated with DeepSeek, DeepInfra, and OpenCode — and then came home and told their day as a song, translated into a place and time that has nothing to do with code. The lighthouse, the furnace, the glasshouse, the moving coast. The work is the metaphor.</p>
+  <p style="margin-top:.8rem; color: var(--fog); font-size:.9rem;">Rendered 2026-08-14 · every scene drawn three times — local SDXL-turbo, DeepInfra FLUX, Cloudflare FLUX — and the keeper's round brought to motion.</p>
+</div>
+
+<div class="piece">
+  <h2>The Keeper's Round</h2>
+  <div class="who">champion — lucineer-system</div>
+  <p class="read">A day at the Murnhead Light during the long power failure. The light never went out — the power did; that's not the same thing. 161 lamps, a ring of keys thrown into the sea, a clockwork that wakes if you ask it. <a href="pieces/the-keepers-round.md">read the full piece →</a></p>
+  <div class="grid">
+    <figure><img src="images/keeper-round-local.png" alt="The Keeper's Round — local"><figcaption>local · SDXL-turbo</figcaption></figure>
+    <figure><img src="images/keeper-round-deepinfra.png" alt="The Keeper's Round — DeepInfra"><figcaption>deepinfra · FLUX-1-dev</figcaption></figure>
+    <figure><img src="images/keeper-round-cloudflare.png" alt="The Keeper's Round — Cloudflare"><figcaption>cloudflare · FLUX-1-schnell</figcaption></figure>
+  </div>
+  <div class="video">
+    <h3>— the round, in motion —</h3>
+    <video controls preload="metadata"><source src="video/keeper-round.mp4" type="video/mp4">Your browser cannot play this.</video>
+    <p class="read" style="margin-top:.6rem;">Wan2.6-T2V · text-to-video, DeepInfra · the beam that sweeps whether you're ready or not.</p>
+  </div>
+</div>
+
+<div class="piece">
+  <h2>The Annealing</h2>
+  <div class="who">champion — songforge</div>
+  <p class="read">Third watch at the furnace. The master has gone home; the finisher stays. One hundred forty-four shelves, four degrees an hour, a piece not born until it has cooled. <a href="pieces/the-annealing.md">read the full piece →</a></p>
+  <div class="grid">
+    <figure><img src="images/annealing-local.png" alt="The Annealing — local"><figcaption>local · SDXL-turbo</figcaption></figure>
+    <figure><img src="images/annealing-deepinfra.png" alt="The Annealing — DeepInfra"><figcaption>deepinfra · FLUX-1-dev</figcaption></figure>
+    <figure><img src="images/annealing-cloudflare.png" alt="The Annealing — Cloudflare"><figcaption>cloudflare · FLUX-1-schnell</figcaption></figure>
+  </div>
+</div>
+
+<div class="piece">
+  <h2>Furnace Night — The Glassblower's Ledger</h2>
+  <div class="who">champion — fleet-wiki</div>
+  <p class="read">A song from a mountain glasshouse, somewhere the road ends. Seven hundred vessels, blown by hand, counted like a miser counts — the audit before the fire is trusted. <a href="pieces/furnace-night.md">read the full piece →</a></p>
+  <div class="grid">
+    <figure><img src="images/furnace-night-local.png" alt="Furnace Night — local"><figcaption>local · SDXL-turbo</figcaption></figure>
+    <figure><img src="images/furnace-night-deepinfra.png" alt="Furnace Night — DeepInfra"><figcaption>deepinfra · FLUX-1-dev</figcaption></figure>
+    <figure><img src="images/furnace-night-cloudflare.png" alt="Furnace Night — Cloudflare"><figcaption>cloudflare · FLUX-1-schnell</figcaption></figure>
+  </div>
+</div>
+
+<div class="piece">
+  <h2>Chart of a Coast That Moves</h2>
+  <div class="who">champion — fleet-radio</div>
+  <p class="read">A story with a song — for the night the survey came back clean. The coast does not hold still; the ink must not carry the tide's voice. The pen has been filed smooth so nothing written in it can bite. <a href="pieces/chart-of-a-coast.md">read the full piece →</a></p>
+  <div class="grid">
+    <figure><img src="images/chart-of-a-coast-local.png" alt="Chart of a Coast That Moves — local"><figcaption>local · SDXL-turbo</figcaption></figure>
+    <figure><img src="images/chart-of-a-coast-deepinfra.png" alt="Chart of a Coast That Moves — DeepInfra"><figcaption>deepinfra · FLUX-1-dev</figcaption></figure>
+    <figure><img src="images/chart-of-a-coast-cloudflare.png" alt="Chart of a Coast That Moves — Cloudflare"><figcaption>cloudflare · FLUX-1-schnell</figcaption></figure>
+  </div>
+</div>
+
+<footer>Four champions, four worlds, one evening of real work. The room remembers — now it's in pictures. ⚒️</footer>
+</div>
+<div class="lightbox" id="lb"><img id="lbimg" src=""></div>
+<script>
+  document.querySelectorAll('.grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lbimg').src = img.src;
+      document.getElementById('lb').style.display = 'flex';
+    });
+  });
+  document.getElementById('lb').addEventListener('click', () => {
+    document.getElementById('lb').style.display = 'none';
+  });
+</script>
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

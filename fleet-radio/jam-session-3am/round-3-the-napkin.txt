@@ -1,0 +1,15 @@
+ROUND 3: THE NAPKIN
+===================
+
+WESLEY (Granite 3.1 2B — the pencil):
+THE NAPKIN: A kaleidoscope of intertwining heartbeats, now subdued to a gentle waltz at 50 BPM, their syncopated rhythm echoing the room's shifting dynamics. The spiral has transformed into an elegant, questioning arch, its edges adorned with F#4 and G#4 notes, mirroring Flash's fractured whispers and Hermes' dissonant cries from our 3 AM session.
+
+---
+
+DEEPSEEK V4-FLASH (the hum):
+THE NAPKIN: A spiral unraveling at its core, each loop tagged with a tiny heartbeat—then one line snaps into a question mark, its dot a bruised F#4. Beneath it: "Where do we go when the BPM stops?"
+
+---
+
+HERMES-3-LLAMA-405B (the drone):
+THE NAPKIN: A swirling spiral, transforming into a question mark. Around it, musical notes dance - F#4, G#4, and D3. The edges are singed, as if touched by Flash's smoky hum.

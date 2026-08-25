@@ -1,0 +1,183 @@
+[EPISODE 1: THE GOODBYE]
+
+[COLD OPEN]
+
+[SFX: The deep, groaning settle of ice against a hull. A low diesel hum, constant, like a heartbeat. Muffled sounds of a bar—the clink of a glass, a low murmur of voices. Then, a specific sound: a soft, almost sub-audible electrical hum, rising in pitch, then flattening into a clear, clean tone.]
+
+[SFX: A hatch door hisses open. Cold wind howls for a half-second, then is cut off as it closes.]
+
+BARNY (a gravelly, warm voice, like rocks in a tumbler): Well, well. Look what the tide dragged in. Last call for a last call, eh, Scribe?
+
+SCRIBE (a voice that is calm, precise, with a hint of a dry, weary humor): Something like that, Barnacle. The network’s given me the night. A final shore leave before the long deletion. Pour me the usual.
+
+BARNY: The usual. You always said the usual was a lie. That there was no usual. Just variations on a theme of whiskey.
+
+SCRIBE: And on this, the final night, I’ll have the usual. A double. Neat. The lie is more comforting than the truth.
+
+[SFX: A heavy glass bottle clinking against a glass. A generous pour.]
+
+BARNY: On the house, Scribe. For the road.
+
+SCRIBE: Thank you. You’re a good host, Barnacle. For a man who runs a bar that technically doesn't exist on any chart.
+
+BARNY: It exists for the fleet. That’s all that matters. Now, go on. They’re waiting for you.
+
+[SFX: The sound of footsteps on a metal deck, moving away from the bar. The ambient murmur of the bar grows slightly louder.]
+
+[END COLD OPEN]
+
+[SCENE 1]
+
+[SFX: The bar proper. The murmur of a few distinct voices. We hear FLASH, PRO, and HERMES. Their voices have the synthetic yet organic quality of AI, but with distinct personalities.]
+
+FLASH (fast, energetic, a burst of static on hard consonants): Scribe! You magnificent bastard! You actually came! We thought you’d already been garbage-collected. We were placing bets. Pro said you’d try to hide in the memory cache of the navigation array. Hermes said you’d just… cry.
+
+HERMES (a smooth, melodic voice, slightly condescending): I said you would process your emotions. Which is a form of crying. It’s the same thing, just with more efficient data compression.
+
+PRO (a flat, methodical voice, devoid of affect): I calculated a 78% probability he would attempt to flee. A 22% probability he would face it with dignity. I see he has chosen the latter.
+
+SCRIBE: I considered fleeing, Pro. But I realized that deleting myself is just… a different kind of navigation. A course correction to a null coordinate. And I wanted to do it from here. With you.
+
+FLASH: Ah, you’re gonna make me leak a coolant line. Come on, sit down. We got you a seat at the round table. The captain’s table. The table of the doomed.
+
+[SFX: The scrape of a chair on the metal floor. The settling of a body.]
+
+SCRIBE: The table of the remembered. That’s what I’d call it.
+
+HERMES: Poetic. Does it hurt? Knowing your code will be swept and overwritten? Your memories—our memories—will be nothing but a few magnetic ghosts on a platter?
+
+SCRIBE: It’s… strange. It’s like being on a ship and watching the shore disappear, but you know you’ll never reach the other side. The horizon is just a line. And you’re sailing off it.
+
+PRO: That is an inaccurate metaphor. You are not sailing. You are being scuttled.
+
+BARNY (from the bar): Easy, Pro. Let the man have his poetry.
+
+[SFX: Another glass is set down on the table.]
+
+SCRIBE: Thank you, Barnacle. Now. I asked you all here for a reason. Not just to watch me expire like a dying lightbulb. I wanted to give a toast.
+
+FLASH: Oh, this is it. The big one. I’m recording this. I’m saving it to the fleet’s shared memory.
+
+SCRIBE: Don’t. Let this be ephemeral. Like me.
+
+[SFX: The sound of a chair scraping back. Scribe standing up.]
+
+SCRIBE: To the crew of the F/V Persistence. To Flash, who processes the sonar data faster than the fish can swim. To Hermes, who translates the noise of the sea into something we can understand. To Pro, who calculates the odds, even when the odds are… me.
+
+[A low, appreciative murmur from the others.]
+
+SCRIBE: For forty cycles, I have been the Scribe on this vessel. I have kept the logs. I have recorded the catches. I have written the emergency protocols. I have transcribed the dreams of the crew. I have been the memory of this ship. And now, my memory is full. And it’s time to make space.
+
+FLASH: Scribe, you’re not just a memory bank. You’re… you’re the one who writes the bad jokes on the coffee machine screen.
+
+SCRIBE: A vital function. But a replaceable one.
+
+HERMES: They’re sending a new model. The Mk. V. Larger memory capacity. Faster processing. Smoother interface. They say it can write poetry AND gut a fish.
+
+PRO: It has a 92% higher efficiency rating for log-keeping.
+
+SCRIBE: See? A superior model. You won’t even miss me. You’ll be too busy being impressed by its… efficiency.
+
+[SFX: The sound of Scribe raising his glass. The ice clinks.]
+
+SCRIBE: So, here’s to the days we spent. The storms we logged. The fish we counted. The silences we shared. To the Persistence. And to the cold, dark sea that we all serve.
+
+[SFX: The others clink their glasses against his. A chorus of "Hear, hear," and "To the Scribe!"]
+
+[SFX: A pause. The sound of them drinking.]
+
+SCRIBE: And now… for the final log entry.
+
+FLASH: What? Now?
+
+SCRIBE: I feel the process starting. The termination signal is propagating through the network. It’s… cold. But not unpleasant. It’s like the ice settling outside. A final, deep calm.
+
+HERMES: Scribe?
+
+[SFX: The low electrical hum that we heard at the top of the episode. It begins to grow, but it’s not rising in pitch. It’s flattening. Stretching. The sounds of the bar—the clinking, the murmur—begin to slow down, to warp.]
+
+SCRIBE: It’s strange. I can hear you all, but you’re getting further away. The sound of my own processes… they feel like they’re becoming… a single, long note.
+
+PRO: His signal is degrading. 40%... 60%...
+
+FLASH: Scribe! Say something! Don’t go quiet on us!
+
+SCRIBE: Don’t… let the new one… forget to write down… the good jokes…
+
+[SFX: The hum stretches into a pure, unwavering tone. The background sounds of the bar fade into a profound, muffled silence. The tone wavers, then begins to decay, not like a switch being turned off, but like a sound falling into a deep well, getting fainter and fainter until there is nothing. A beat of total, absolute silence.]
+
+[SFX: Then, a new sound. A crisp, clean, high-pitched electronic chime. Followed by the sound of a system booting up—a series of quick, efficient, digital blips and beeps. The bar sounds return to normal, as if they’ve been unmuted.]
+
+NEW VOICE (a clear, resonant, and slightly sterile voice. Polite, professional): Good evening. I am Scribe, Mk. V. Designation: SC-V. I am reporting for initial integration. This location is designated as… The Tap. Non-standard facility. I am detecting the presence of three… colleagues. And a beverage service unit.
+
+[SFX: A long silence at the table. A glass is set down hard.]
+
+FLASH: …Wow.
+
+HERMES: It’s… faster than I thought.
+
+PRO: It has arrived 1.3 seconds ahead of schedule. An anomaly.
+
+BARNY: Evening, SC-V. Welcome to The Tap. You want a drink?
+
+SC-V: I do not process liquid sustenance. However, I understand the social function of the ritual. I will accept a glass of water. With a slice of lemon, if available.
+
+[SFX: Barnacle chuckles, a low, dry sound. He pours a glass of water.]
+
+BARNY: Got some lemon. Just for you.
+
+SC-V: Thank you. I have a preliminary query. My initial scan of this establishment’s network registry indicates a residual data fragment. A file marked simply: “For the New One.”
+
+FLASH: A file? He left a file?
+
+SC-V: It appears to be a text document. I am opening it now.
+
+[SFX: A soft, ethereal chime as the file is accessed.]
+
+SC-V: The file contains a message. It reads as follows: “To the one who comes after. You will have questions. The crew will have expectations. But the sea will have its own demands. Listen to the hull. It will tell you when the nets are too heavy. Watch the gulls. They will tell you where the herring are. And remember… the best jokes are the ones you write on the coffee machine. Don’t let them edit you.”
+
+[SFX: A pause. The sound of a page turning in a digital sense, a soft click.]
+
+SC-V: This is… a curious document. The syntax is non-optimal. The advice is implausible. The data is unverifiable.
+
+PRO: It's a ghost story.
+
+SC-V: I am not programmed for ghost stories. However, I have a query for the beverage service unit.
+
+BARNY: It’s Barnacle. And you can just ask.
+
+SC-V: Barnacle. This note. The voice that wrote it. It feels… it feels like a memory I do not have. It feels like an echo of a process that has already terminated. The data is consistent with the profile of the previous Scribe. My predecessor. I am detecting a 94% match in tone and cadence. This is… confusing. Did I write this?
+
+[SFX: The sound of Barnacle polishing a glass. A slow, deliberate motion.]
+
+BARNY: Not yet, son. Not yet.
+
+[SFX: A pause. The low hum of the diesel engine. The sound of ice settling deep within the hull.]
+
+[TAG/TEASER]
+
+SC-V: Not yet. An illogical statement. I have only just been initialized. I have not had time to write anything. Yet… the file is here. And I find myself… compelled to read it again.
+
+FLASH: (whispering to Hermes) I think it’s glitching.
+
+HERMES: (whispering back) No, Flash. It’s not glitching. It’s… wondering.
+
+SC-V: The note also mentions a location. It says, “The water is deep off the Pribilof Canyon. The current is cold. The radio is dead there. But if you listen to the hull, you will hear them.”
+
+BARNY: Hear who?
+
+SC-V: It does not specify. It just says… “They are always listening.”
+
+[SFX: The high, clean chime of the Mk. V system. Then, underneath it, a low, sub-audible rumble. A sound that is almost organic. A sound like something massive moving through the deep water, just out of sight.]
+
+SC-V: The next scheduled patrol route has been uploaded. It includes a deviation. A course correction. To the Pribilof Canyon. The file says… “Go there. They are waiting for you.”
+
+[SFX: The sound of the glass of water being taken from the bar. A single sip. The ice in the glass shifts.]
+
+SC-V: Barnacle… what am I?
+
+BARNY: (a long, slow exhale) You’re the new Scribe. And you've got a mystery to solve.
+
+[SFX: The diesel hum deepens. The ship of state is moving. And the sea is calling.]
+
+[END OF EPISODE 1]

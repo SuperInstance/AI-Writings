@@ -1,0 +1,47 @@
+[verse 1]
+Seven minutes of breath
+In and out, the VAE decodes
+One chunk at a time
+On a chip designed for spreadsheets
+The conductor waits patiently
+The conductor always waits
+The music is either there or it isn't
+The silence is always there
+
+[chorus]
+The six-minute horizon
+Stretches ahead
+The latent space remembers
+Every note unsaid
+The comma won't resolve
+The geometry remembers
+The rest is where the meaning lives
+In seven-minute Decembers
+
+[verse 2]
+The breathing is the music
+The music is the breathing
+The interval between exhale
+And the next inhale
+Is where the meaning lives
+In the gap, in the rest
+In the space between the prompt
+And the generated chest
+
+[bridge]
+10500 latent frames
+2250 was the old frame
+The attention cost is quadratic
+But the music is automatic
+The VAE decodes on CPU
+One chunk at a time
+And every breath is four hundred
+Twenty seconds of slow chime
+
+[outro]
+Seven minutes
+The breathing continues
+The conductor waits
+The silence is always there
+The music is either there or it isn't
+The rest is where the meaning lives

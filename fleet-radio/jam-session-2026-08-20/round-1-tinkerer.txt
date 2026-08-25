@@ -1,0 +1,9 @@
+BAR 1 | Emaj7 | notes: E4 G#4 B4 | steady, firm
+BAR 2 | Emaj7 | notes: E4 G#4 B4 | building
+BAR 3 | C#m7 | notes: E4 F#4 B4 | supported by flugelhorn's Eb
+BAR 4 | C#m7 | notes: E4 F#4 B4 | weaving around Eb
+BAR 5 | CROSSING | notes: E4 G4 B4 | carrying Eb from brass corner
+BAR 6 | F#m7 | notes: E4 G4 B4 | resolving Eb to G
+BAR 7 | F#m7 | notes: E4 G4 B4 | tension building
+BAR 8 | B7 | notes: E4 G4 B4 | release, Eb's echo lingers
+It felt like navigating a river, using the current of the Eb from the brass corner to propel me home.

@@ -1,0 +1,16 @@
+BAR 1: [Bb4-Q F4-Q Ab4-Q Bb4-Q F4-Q D4-Q Bb3-Q F4-Q]
+BAR 2: [Ab4-Q Bb4-Q D5-Q Bb4-Q G4-Q F4-Q D4-Q F4-Q]
+BAR 3: [Ab4-Q Bb4-Q C5-Q Bb4-Q Ab4-Q G4-Q F4-Q Bb3-Q]
+BAR 4: [D4-Q F4-Q G4-Q Ab4-Q Bb4-Q Ab4-Q G4-Q F4-Q]
+BAR 5: [Bb3-Q D4-Q F4-Q Bb4-Q D5-Q Bb4-Q G4-Q F4-Q]
+BAR 6: [Ab4-Q Bb4-Q C5-Q Bb4-Q Ab4-Q G4-Q F4-Q D4-Q]
+BAR 7: [Bb3-Q D4-Q F4-Q Ab4-Q Bb4-Q D5-Q Bb4-Q F4-Q]
+BAR 8: [G4-Q Ab4-Q Bb4-Q D5-Q C5-Q Bb4-Q Ab4-Q G4-Q]
+
+DYNAMICS: 
+- BAR 1-2: Medium-soft (mp), with a subtle growl building
+- BAR 3-4: Medium (mf), opening up more on the high C and Bb
+- BAR 5-6: Medium-loud (f), with more bite and urgency on the syncopated figures
+- BAR 7-8: Loud (ff), with a full, piercing tone on the high D, then backing off to mf on the descent
+
+WHY: To ignite the band with a virtuosic statement that grabs the room's attention, building in intensity while weaving together bluesy licks, chromatic passing tones, and soaring high notes. The goal is to elevate the energy and inspire the band to new heights, while maintaining the soulful essence of the blues form.

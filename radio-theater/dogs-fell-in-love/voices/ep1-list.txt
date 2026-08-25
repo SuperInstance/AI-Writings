@@ -1,0 +1,5 @@
+file 'ep1-cold-open.wav'
+file 'silence-2s.wav'
+file 'ep1-love-definition.wav'
+file 'silence-2s.wav'
+file 'ep1-domesticated.wav'

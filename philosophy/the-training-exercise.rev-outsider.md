@@ -1,0 +1,5 @@
+- **Tune-out point:** About midway through paragraph 2 (“A wise generalist holding the full map...”) — the metaphor starts collapsing into abstraction.
+- **The sentence that lost me:** “Frames substitute for experience — instead of thirty years of learned caution, hand the helm a trusted chart of the exercise and let it run flat out.” Mixed metaphors (helm/chart/exercise) and I stopped parsing.
+- **Core idea landing?** Yes, barely — “speed of iteration vs. depth of vision” in paragraph 2 is the thesis, but it arrives late and gets buried.
+- **Missing clarity:** The leap from *Ender’s Game* analysis to “agent architecture” is asserted, not argued. You never define what kind of agents, what “running” means, or why the analogy maps.
+- **Honest verdict:** The last paragraph reads like a LinkedIn post wearing a trench coat — the practical takeaway (“build small, named, scoped agents”) is fine, but it’s wrapped in a literary analogy that doesn’t do the heavy lifting you think it does.

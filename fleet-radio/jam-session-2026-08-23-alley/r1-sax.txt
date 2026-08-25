@@ -1,0 +1,9 @@
+BAR 1: C2--- | blare  
+BAR 2: D3 E3 G3 — staccato | tap  
+BAR 3: Bb3 C4 D4 — slow | growl  
+BAR 4: rest | hold  
+BAR 5: E4 G4 C5 — bright | call  
+BAR 6: A4 B4 C5 — smooth | respond  
+BAR 7: G4 A4 B4 — rising | rise  
+BAR 8: rest | hold  
+WHY: The door’s silence lets the jukebox’s wrong‑key echo shape the alley’s mood.

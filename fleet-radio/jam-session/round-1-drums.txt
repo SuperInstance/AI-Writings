@@ -1,0 +1,13 @@
+PATTERN:  
+Bar 1 (Am7): Kick on 1 & 4 (soft), snare brushed on 2 & 3 (swirl, ghosted), hi-hat on 2& and 3& (feathered), ride bell on 1 (crisp, single tap).  
+Bar 2 (Dm9): Kick on 1 (light), snare brush sweep across 1-2 (long, continuous), kick on 3.5 (anticipatory), hi-hat on 2& (subtle), ride on 4 (open, splashy).  
+Bar 3 (Fmaj7): Kick on 1 (firm, grounded), snare brush pattern — 2 (tap), 3 (swirl), 4 (soft tap), hi-hat on 2& and 3& (washy), ride on 1 and 4 (ringing, sustained).  
+Bar 4 (E7#9): Kick on 1 (heavy, accented), snare brush on 2 (sharp, gritty tap), kick on 3 (punchy), snare brush on 4 (falling sweep, unresolved), hi-hat on 1& and 3& (tight, sizzling), ride on 2 (clangy, metallic).  
+
+ENERGY:  
+Bar 1: 3  
+Bar 2: 4  
+Bar 3: 6  
+Bar 4: 8  
+
+TEXTURE: Brushes throughout — soft, wire-brush swirls on a coated snare, with a worn, slightly dented ride cymbal. Kit: vintage 1960s Gretsch, warm and dark, with a kick that thuds like a heartbeat, not a punch. The hi-hat is slightly loose, giving a sizzle on accents. Overall sound: smoky, intimate, with a salt-crusted edge — like a watch ticking on a ship's deck in fog.

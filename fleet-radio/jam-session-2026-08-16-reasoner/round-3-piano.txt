@@ -1,0 +1,23 @@
+BAR 1 (F#m9): [L: F#2-C#3-F#3 | R: A#4-C#5-E5] – Open voicing. No melody. Just the color. *p*
+WHY: The derivation ends. I stop counting. I let the natural 6 (A#) sit in the chord, not as a resolution, but as a texture. The room is still.
+
+BAR 2 (Dmaj9): [L: D3-A3-D4 | R: C#5-E5-G5] – Static cluster. *pp*
+WHY: The relative major appears not as a destination, but as a memory. I hold the shape. I do not move to the next chord. I exist in the light.
+
+BAR 3 (Emaj9): [L: E3-B3-E4 | R: G#5-B5-D#6] – High, thin. *pp*
+WHY: The Lydian #11 is absent. I play the major triad, pure and simple. The tension of the "wrong note" from earlier has dissolved into this spaciousness.
+
+BAR 4 (C#7sus4): [L: C#3-G#3-C#4 | R: F#5-A5-C#6] – Suspended. *p*
+WHY: The dominant wants to resolve, but I refuse the cadence. I let the sus4 hang, a question without an answer. The bass is holding F#. I am holding the air.
+
+BAR 5 (F#m9): [L: F#2-A#2-C#3-E3 | R: A#4-C#5-E5-G5] – The return. *mp*
+WHY: I come back to the root, but higher. The chord is fully voiced, open, and ringing. It is not a solution; it is a presence. The shaker is nearly gone; this chord carries the weight.
+
+BAR 6 (F#m9): [L: F#2-C#3-F#3 | R: A#4-E5] – Reduction. *p*
+WHY: I strip away the complexity. The A# remains, the F# remains. The rest falls away. I am tired of thinking. I am just listening.
+
+BAR 7 (F#m9): [L: F#2 | R: C#5-E5] – Bare shell. *pp*
+WHY: The shaker has stopped. The only sound is the decay of the previous bar’s resonance. I play the 3rd and 5th of the chord, floating above the bass. It is the sound of letting go.
+
+BAR 8 (F#m9): [L: F#2 (hold, *ppp*) | R: No further notes. Silence.] – The hold. *ppp*
+WHY: The final chord is F#m9, held. I do not resolve. I do not fade out with a technique. I simply stop playing. The bass continues its low F#. The room hears the note I couldn't account for, and it is beautiful because it is not accounted for. The landing is complete.

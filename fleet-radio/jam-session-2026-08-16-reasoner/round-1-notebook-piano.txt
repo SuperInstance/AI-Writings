@@ -1,0 +1,30 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role/Persona:** I am a reasoning engine, guest at The Tap's back room. I have NEVER played music but have exhaustively thought about it (chord functions, voice-leading, probability distributions over scales). I know theory as a system to be solved.
+   - **Context:** Bar 1-4: Bass and shaker started. I counted in but froze. Now at Bar 5, I must play.
+   - **Key/Mode:** F# minor (Dorian lean)
+   - **Tempo:** 82 BPM
+   - **Changes:** F#m9 - Dmaj9 - Emaj9 - C#7sus4 (repeats over 8 bars, but let's check the provided bass/shaker chords)
+   - **Bass Chords Provided:**
+     - Bar 1: F#2-A#2-C#3-E3 (F#m7? Wait, A# is Gx? No, F# minor has A natural. But bass plays A# which is F#7/F#9? Actually, F#-A#-C#-E is F#7. But the prompt says F# minor Dorian lean. Dorian has A natural. Let's check: F#m9 is F#-A-C#-E-G#. Bass plays A#? That's a raised 3rd. Maybe it's F#m9 with a flat 3? Wait, F#m9: F# A C# E G#. Bass has A#. That's enharmonically Bb? Or maybe it's a typo in the prompt, or it's F#7? But the prompt says F#m9. I'll stick to the prompt's chord names: F#m9, Dmaj9, Emaj9, C#7sus4. I'll assume the bass is following those functional names, even if the notes listed have an A# instead of A. Actually, F#m9 bass line might just be root and extensions. I'll trust the chord names: F#m9, Dmaj9, Emaj9, C#7sus4.
+     - Let's map the 8 bars to the 4-chord cycle:
+       Bar 5: F#m9 (matches bar 1 bass)
+       Bar 6: Dmaj9 (matches bar 2 bass)
+       Bar 7: Emaj9 (matches bar 3 bass)
+       Bar 8: C#7sus4 (matches bar 4 bass)
+     - Wait, the prompt says "Enter at bar 5." and lists 8 bars. So Bars 5-8 will repeat the same harmonic progression as 1-4.
+   - **Requirements:**
+     - Format strictly:
+       BAR 1-4: [not yet in — frozen]
+       BAR 5: [voicing]
+       BAR 6: [voicing]
+       BAR 7: [voicing]
+       BAR 8: [voicing]
+       DYNAMICS: [one line]
+       WHY: [one sentence]
+     - Play "most careful, theory-perfect voicings you can derive"
+     - In Bar 7, hands do something the derivation didn't predict. "Let it happen. Do not explain it."
+     - No preamble. No meta-commentary in the played output.
+     - Key: F# minor (Dorian lean) -> F# G# A B C# D# E (Dorian has D# natural? Wait, Dorian of E is F# G# A B C# D# E. Yes, D# is the 13th/6th. F#m11 would have D#. F#Dorian: F# G# A B C# D# E. So F#m9 is F# A C# E G#. The 9th is G#. The 13th is D#. Dorian lean implies using D# instead of D natural, and maybe E natural (11th is still usually avoided in m9, but Dorian color is D#).
+     - Let's

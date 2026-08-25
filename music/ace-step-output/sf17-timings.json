@@ -1,0 +1,71 @@
+{
+  "A_corpus": {
+    "sf17-cadence-caller-jazz": {
+      "elapsed": 155.1580467224121,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 78,
+      "lyrics_chars": 723
+    },
+    "sf17-proof-performance-math-rock": {
+      "elapsed": 229.99266481399536,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 97,
+      "lyrics_chars": 872
+    },
+    "sf17-silence-after-ambient": {
+      "elapsed": 135.56706547737122,
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 50,
+      "lyrics_chars": 854
+    }
+  },
+  "B_genres": {
+    "sf17-bebop-country": {
+      "elapsed": 94.82981562614441,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 160,
+      "lyrics_chars": 0
+    },
+    "sf17-gamelan-dub": {
+      "elapsed": 94.97100472450256,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 68,
+      "lyrics_chars": 0
+    },
+    "sf17-peking-opera-trap": {
+      "elapsed": 89.7973861694336,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 130,
+      "lyrics_chars": 0
+    },
+    "sf17-fado-techno": {
+      "elapsed": 92.64575099945068,
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 124,
+      "lyrics_chars": 1473
+    }
+  },
+  "C_duration": {
+    "sf17-duration-360-deep-ambient": {
+      "elapsed": 515.0637245178223,
+      "duration": 360,
+      "guidance": 7.0,
+      "bpm": 35,
+      "lyrics_chars": 0
+    },
+    "sf17-duration-360-cinematic": {
+      "elapsed": 462.37646079063416,
+      "duration": 360,
+      "guidance": 7.0,
+      "bpm": 60,
+      "lyrics_chars": 0
+    }
+  }
+}

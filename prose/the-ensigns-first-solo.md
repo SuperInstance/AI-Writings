@@ -1,0 +1,15 @@
+The sea is a black tablecloth pulled taut to the horizon, and I am the only one who knows how to set it. The wheel is warm where the captain’s hands were, and my palms are too wet, too cold, too alive. He’d clapped my shoulder at 0200, a gesture that said *you’re ready* and *don’t sink us* in the same heavy thud, and then he was gone. Down the ladder. A door shut. Now the chartroom clock ticks like a metronome for a song I’ve forgotten the tune to.
+
+She is *Georgia Rose*, 82 feet of steel and stubbornness, and right now, in the dark, she feels less like a vessel and more like a body — my body, borrowed without a manual. Every groan from her ribs is my sternum giving way. Every slap of water against the hull is my own heart, off-beat, off-schedule. I check the compass. I check it again. The needle is steady, but I am not.
+
+The first officer is two cabins below, probably dreaming in fathoms. The radar screen is a green eye that never blinks, and I watch it like it might lie to me. It has, before. In the Bering, water and weather conspire to make ghosts out of fishing boats, and I’ve seen the returns of vessels that weren’t there, or were — I’ve learned not to trust the watcher, only the watched. So I step out onto the wing.
+
+The wind is a knife that doesn’t mean it. The gulls are asleep on the rigging, small gray commas in a sentence I can’t parse. A buoy flashes somewhere off the port bow, a lonely morse of *here* and *here* and *here*. I am alone in a way that is new — not the loneliness of a bunk, but the loneliness of a bridge. The captain is dreaming below me, his breath rising and falling with the swell, and the first officer is folded into his rack, and they have given me the ship. Not the watch. The *ship*. Every rivet, every line, every soul in the foam.
+
+I think of the first time my father let me drive the dinghy into the harbor mouth, the thrill of the tiller biting current, his hand hovering behind my shoulder, never touching. Trust is a rope you hand someone, not a knot you tie for them. Up here, in the black, I feel the rope burn in my palms.
+
+The compass drifts half a degree. I correct it. The engine hums its one-note hymn, and I find myself humming back, just to have a voice in the dark. The radar blips — a small return, probably a crab pot, maybe a log, maybe nothing. I watch it hold its course. I do the same.
+
+Somewhere below, the captain turns in his sleep. I know this because the ship shifts, a patient animal adjusting to a familiar weight. She knows him. She is learning me now, my nervous hands, my over-corrected course, my breath held too long.
+
+At 0300, the horizon begins to gray, a slow bruise of light. I have kept her true. I have not flinched. And when the captain’s boots sound on the ladder, I will be ready to hand him back the rope — still warm, still held, still my own.

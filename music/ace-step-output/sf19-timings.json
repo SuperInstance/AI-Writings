@@ -1,0 +1,110 @@
+{
+  "C_genres": {
+    "sf19-bluegrass-dub": {
+      "elapsed": 102.6347713470459,
+      "status": "ok",
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 88
+    },
+    "sf19-mbalax-techno": {
+      "elapsed": 79.8301990032196,
+      "status": "ok",
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 128
+    },
+    "sf19-pansori-grunge": {
+      "elapsed": 85.57014918327332,
+      "status": "ok",
+      "duration": 60,
+      "guidance": 7.0,
+      "bpm": 95
+    }
+  },
+  "D_tempo": {
+    "sf19-tempo-extreme-30": {
+      "elapsed": 155.30977845191956,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 30
+    },
+    "sf19-tempo-extreme-200": {
+      "elapsed": 143.0766842365265,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 200
+    },
+    "sf19-tempo-extreme-250": {
+      "elapsed": 122.94152426719666,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 250
+    }
+  },
+  "E_prompt": {
+    "sf19-prompt-haiku": {
+      "elapsed": 128.3784544467926,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 65
+    },
+    "sf19-prompt-detailed": {
+      "elapsed": 146.0767834186554,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 65
+    },
+    "sf19-prompt-medium": {
+      "elapsed": 128.67665195465088,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 65
+    }
+  },
+  "B_feedback": {
+    "sf19-klezmer-amen-fiction": {
+      "elapsed": 161.1752963066101,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 170
+    },
+    "sf19-noh-blue-note-fiction": {
+      "elapsed": 123.89165425300598,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 75
+    },
+    "sf19-harpsichord-wobble-fiction": {
+      "elapsed": 142.9997067451477,
+      "status": "ok",
+      "duration": 90,
+      "guidance": 7.0,
+      "bpm": 140
+    }
+  },
+  "A_duration": {
+    "sf19-duration-480-deep-ambient": {
+      "elapsed": 824.2288343906403,
+      "status": "ok",
+      "duration": 480,
+      "guidance": 7.0,
+      "bpm": 30
+    },
+    "sf19-duration-480-cinematic": {
+      "elapsed": 739.5252201557159,
+      "status": "ok",
+      "duration": 480,
+      "guidance": 7.0,
+      "bpm": 55
+    }
+  }
+}

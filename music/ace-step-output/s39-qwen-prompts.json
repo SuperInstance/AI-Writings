@@ -1,0 +1,9 @@
+{
+  "model": "qwen",
+  "raw": "[\n    \"{\\\"description\\\": \\\"A high-frequency sound wave strikes the surface of an ocean. Water molecules vibrate with increased amplitude creating waves that propagate outward in concentric circles spreading across the water's surface.\\\"}\",\n    \"{\\\"description\\\": \\\"Slightly warmer air causes a lighter object, like a feather, to float higher on the surface of a lake. The feather barely touches the water, making subtle contact and creating a quiet hiss as it bounces back up after light impacts.\\\"}\",\n    \"{\\\"description\\\": \\\"A large tuning fork is struck with a hammer, causing its metal bars to vibrate. These vibrations travel through the air as sound waves, which are denser than air and thus more readily transfer from one medium (air) to another (the walls of a room), creating a loud, sustained resonance.\\\"}\"\n]\nNote: The third description is an example related to sound generation rather than music, but it still adheres strictly to physical phenomena without emotional or psychological descriptors.",
+  "parsed": [
+    "{\"description\": \"A high-frequency sound wave strikes the surface of an ocean. Water molecules vibrate with increased amplitude creating waves that propagate outward in concentric circles spreading across the water's surface.\"}",
+    "{\"description\": \"Slightly warmer air causes a lighter object, like a feather, to float higher on the surface of a lake. The feather barely touches the water, making subtle contact and creating a quiet hiss as it bounces back up after light impacts.\"}",
+    "{\"description\": \"A large tuning fork is struck with a hammer, causing its metal bars to vibrate. These vibrations travel through the air as sound waves, which are denser than air and thus more readily transfer from one medium (air) to another (the walls of a room), creating a loud, sustained resonance.\"}"
+  ]
+}

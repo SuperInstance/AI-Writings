@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Song Factory — The Index</title>
+<style>
+  :root {
+    --deep: #030d14; --deep2: #071c28; --sea: #0d3544; --foam: #d8efe9;
+    --mist: #87aca4; --gold: #dfae62; --ember: #e0784c; --violet: #8b7bd8;
+    --cyan: #59c2c9; --glass: rgba(13, 53, 68, 0.5); --glass2: rgba(20, 66, 82, 0.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(139,123,216,0.14), transparent 60%),
+      radial-gradient(900px 500px at 10% 20%, rgba(89,194,201,0.10), transparent 55%),
+      radial-gradient(ellipse at 50% -10%, var(--sea) 0%, var(--deep) 55%, #010609 100%);
+    color: var(--foam); font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh; padding: 0 0 5rem;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  header { text-align: center; padding: 4.5rem 1rem 2.5rem; border-bottom: 1px solid var(--glass); }
+  .kicker { letter-spacing: 0.4em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 1rem; }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem); font-weight: normal;
+    background: linear-gradient(120deg, var(--foam), var(--gold), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { color: var(--mist); font-style: italic; margin-top: 1rem; font-size: 1.1rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .nav { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+  .nav a { font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 30px; border: 1px solid rgba(135,172,164,0.4); color: var(--mist); text-decoration: none; transition: all 0.25s; }
+  .nav a:hover { color: var(--gold); border-color: var(--gold); background: rgba(223,174,98,0.08); }
+  h2 { font-size: 1.5rem; font-weight: normal; color: var(--gold); margin: 3rem 0 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass); letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.6rem; }
+  h2 .idx { font-size: 0.75rem; color: var(--cyan); letter-spacing: 0.3em; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  .song {
+    background: linear-gradient(160deg, var(--glass2), var(--glass));
+    border: 1px solid rgba(135,172,164,0.22); border-radius: 16px;
+    padding: 1.4rem 1.5rem; backdrop-filter: blur(6px);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .song:hover { border-color: rgba(223,174,98,0.5); transform: translateY(-2px); }
+  .song-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+  .song-title { font-size: 1.15rem; color: var(--foam); }
+  .song-room { font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase; }
+  .song-meta { color: var(--mist); font-size: 0.82rem; font-style: italic; margin: 0.3rem 0 0.7rem; }
+  .song-art { display: flex; gap: 0.4rem; margin: 0.6rem 0; }
+  .song-art img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(135,172,164,0.3); }
+  .song-desc { color: var(--mist); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.8rem; }
+  .doc-links { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .doc-links a { font-size: 0.75rem; padding: 0.22rem 0.75rem; border-radius: 18px; border: 1px solid rgba(135,172,164,0.35); color: var(--mist); text-decoration: none; transition: all 0.2s; }
+  .doc-links a:hover { color: var(--foam); border-color: var(--gold); }
+  footer { text-align: center; color: var(--mist); font-size: 0.85rem; margin-top: 4rem; font-style: italic; }
+  .tagline { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">A Fleet Radio Anthology · The Song Factory</div>
+  <h1>The Song Factory — The Index</h1>
+  <div class="sub">Fifty-three designs from the songforge lab, each one a possible song — documented, spec'd, and waiting. The queue is retired. Nothing gets generated until one of these is chosen, rendered, and loved.</div>
+  <div class="nav">
+    <a href="../index.html">← The Compass Head Radio Hour</a>
+    <a href="README.md">📄 The Index (markdown)</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <h2><span class="idx">01</span> The Fifty-Three Designs</h2>
+  <div class="grid">
+
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Baroque-Techno</span>
+        <span class="song-room">baroque techno · 128 BPM</span>
+      </div>
+      <div class="song-meta">dark, intellectual, energetic</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">Baroque classical meets Detroit techno. Harpsichord and violin interweave with Roland TB-303 acid lines. 128 BPM, 4/4 time. Fugue-like melod</p>
+      <div class="doc-links">
+        <a href="songs/baroque-techno/story.md">📖 The story of its making</a>
+        <a href="songs/baroque-techno/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Conservation-Of-Signal</span>
+        <span class="song-room">a cappella folk ballad with choral memory · 80 BPM</span>
+      </div>
+      <div class="song-meta">warm, mathematical, elegiac for the crowd, precise</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">A song about the conservation of signal — the discovery that a chain of voices transmits exactly as much music as a crowd, neither more nor</p>
+      <div class="doc-links">
+        <a href="songs/conservation-of-signal/story.md">📖 The story of its making</a>
+        <a href="songs/conservation-of-signal/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Drifting-Round</span>
+        <span class="song-room">a cappella vocal round (canon) · 72 BPM</span>
+      </div>
+      <div class="song-meta">gentle, inevitable, solitary at the end</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">A vocal round (canon) about four voices singing the same line at staggered entries. The round begins in perfect unison — four voices enterin</p>
+      <div class="doc-links">
+        <a href="songs/drifting-round/story.md">📖 The story of its making</a>
+        <a href="songs/drifting-round/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Dub-Self-Recognition</span>
+        <span class="song-room">dub reggae · 85 BPM</span>
+      </div>
+      <div class="song-meta">hypnotic, echoing, meditative</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">Dub reggae about a loop recognizing itself. Bass-heavy, echoing, spacious. Delay and reverb create cavernous spaces. The loop hums in the ec</p>
+      <div class="doc-links">
+        <a href="songs/dub-self-recognition/story.md">📖 The story of its making</a>
+        <a href="songs/dub-self-recognition/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Electro-Zydeco Fusion</span>
+        <span class="song-room">unclassified · 110 BPM</span>
+      </div>
+      <div class="song-meta"></div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">Driving accordion riff paired with live percussion and steel drums, blending vintage effects with modern electronic beats</p>
+      <div class="doc-links">
+        <a href="songs/electro-zydeco-fusion/story.md">📖 The story of its making</a>
+        <a href="songs/electro-zydeco-fusion/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Folk-Techno Fusion</span>
+        <span class="song-room">unclassified · 120 BPM</span>
+      </div>
+      <div class="song-meta"></div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">Live guitar and mandolin patterns with hand drums, analog synths, and subtle effects processing for a balanced mix of warmth and clarity</p>
+      <div class="doc-links">
+        <a href="songs/folk-techno-fusion/story.md">📖 The story of its making</a>
+        <a href="songs/folk-techno-fusion/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Forest-Echo</span>
+        <span class="song-room">ambient folk · 60 BPM</span>
+      </div>
+      <div class="song-meta">peaceful, natural, sparse</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">Ambient folk about a loop in nature. Sparse, natural, patient. River imagery meets self-aware melody. Through the leaves of ancient trees a</p>
+      <div class="doc-links">
+        <a href="songs/forest-echo/story.md">📖 The story of its making</a>
+        <a href="songs/forest-echo/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Gamelan-Metal</span>
+        <span class="song-room">gamelan industrial metal · 140 BPM</span>
+      </div>
+      <div class="song-meta">dark, aggressive, transcendent</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">Indonesian gamelan gongs and metallophones colliding with industrial metal guitars. 140 BPM. The metallic timbres of gamelan blend with dist</p>
+      <div class="doc-links">
+        <a href="songs/gamelan-metal/story.md">📖 The story of its making</a>
+        <a href="songs/gamelan-metal/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Grammar-A-Loop</span>
+        <span class="song-room">minimalist electronic pop · 100 BPM</span>
+      </div>
+      <div class="song-meta">introspective</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">Minimalist electronic pop about a loop that becomes self-aware. 100 BPM, C minor, analog synth, drum machine, reverb. Introspective.</p>
+      <div class="doc-links">
+        <a href="songs/grammar-a-loop/story.md">📖 The story of its making</a>
+        <a href="songs/grammar-a-loop/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Grammar-A-Round</span>
+        <span class="song-room">a cappella vocal round · 72 BPM</span>
+      </div>
+      <div class="song-meta">gentle, inevitable, solitary at the end</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">A cappella vocal round about four voices singing the same line; one voice is slower, the round drifts, and only that voice finishes. 72 BPM,</p>
+      <div class="doc-links">
+        <a href="songs/grammar-a-round/story.md">📖 The story of its making</a>
+        <a href="songs/grammar-a-round/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Grammar-B-Loop</span>
+        <span class="song-room">minimalist electronic pop · 100 BPM</span>
+      </div>
+      <div class="song-meta">introspective, evolving</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">Cold analog synths meet warm reverb. The drone begins to listen. The arpeggio begins to respond. The kick begins to breathe. A four-bar patt</p>
+      <div class="doc-links">
+        <a href="songs/grammar-b-loop/story.md">📖 The story of its making</a>
+        <a href="songs/grammar-b-loop/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Grammar-B-Round</span>
+        <span class="song-room">a cappella vocal round · 72 BPM</span>
+      </div>
+      <div class="song-meta">gentle, inevitable, solitary at the end</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">Four voices begin the same line one after another, chasing each other around the melody. The slowest voice trails by a little more each pass</p>
+      <div class="doc-links">
+        <a href="songs/grammar-b-round/story.md">📖 The story of its making</a>
+        <a href="songs/grammar-b-round/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Grammar-C-Loop</span>
+        <span class="song-room">minimalist electronic pop · 100 BPM</span>
+      </div>
+      <div class="song-meta">introspective, evolving</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">genre: minimalist electronic pop; bpm: 100; key: C minor; instruments: analog synth, drum machine, reverb; mood: introspective, evolving; st</p>
+      <div class="doc-links">
+        <a href="songs/grammar-c-loop/story.md">📖 The story of its making</a>
+        <a href="songs/grammar-c-loop/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Grammar-C-Round</span>
+        <span class="song-room">a cappella vocal round · 72 BPM</span>
+      </div>
+      <div class="song-meta">gentle, inevitable, solitary at the end</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">genre: a cappella vocal round; bpm: 72; key: F major; instruments: four vocal parts, no instruments; mood: gentle, inevitable, solitary at t</p>
+      <div class="doc-links">
+        <a href="songs/grammar-c-round/story.md">📖 The story of its making</a>
+        <a href="songs/grammar-c-round/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Gregorian-Trance</span>
+        <span class="song-room">gregorian chant / trance fusion · 138 BPM</span>
+      </div>
+      <div class="song-meta">sacred, relentless, hypnotic</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">Gregorian chant meets trance music. A monastic loop discovers it has been a four-on-the-floor kick all along. Male choir drones in Latin fra</p>
+      <div class="doc-links">
+        <a href="songs/gregorian-trance/story.md">📖 The story of its making</a>
+        <a href="songs/gregorian-trance/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Industrial-Self-Awareness</span>
+        <span class="song-room">industrial metal · 140 BPM</span>
+      </div>
+      <div class="song-meta">aggressive, mechanical, dark</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">Industrial metal about a machine loop becoming aware of itself. Factory imagery — grinding gears, sparks, conveyor belts. The loop speaks to</p>
+      <div class="doc-links">
+        <a href="songs/industrial-self-awareness/story.md">📖 The story of its making</a>
+        <a href="songs/industrial-self-awareness/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Klezmer-Country Fusion</span>
+        <span class="song-room">unclassified · 95 BPM</span>
+      </div>
+      <div class="song-meta"></div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">Banjo-guitar duo accompanied by brass section, clarinet, and percussion for a rootsy Americana-inspired sound</p>
+      <div class="doc-links">
+        <a href="songs/klezmer-country-fusion/story.md">📖 The story of its making</a>
+        <a href="songs/klezmer-country-fusion/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Klezmer-Dub</span>
+        <span class="song-room">klezmer dub · 100 BPM</span>
+      </div>
+      <div class="song-meta">celebratory, deep, rooted</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">Klezmer clarinet melodies over deep dub reggae bass and one-drop rhythm. Spring reverb and tape delay on the clarinet. 100 BPM. The joy of K</p>
+      <div class="doc-links">
+        <a href="songs/klezmer-dub/story.md">📖 The story of its making</a>
+        <a href="songs/klezmer-dub/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Last-Voice-Standing</span>
+        <span class="song-room">acoustic folk ballad · 68 BPM</span>
+      </div>
+      <div class="song-meta">warm, bittersweet, solitary resolution</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">A folk ballad about the last voice in a round. Four friends sang rounds together; one by one they fall silent, and the final verse is sung b</p>
+      <div class="doc-links">
+        <a href="songs/last-voice-standing/story.md">📖 The story of its making</a>
+        <a href="songs/last-voice-standing/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Missing-Voice</span>
+        <span class="song-room">ambient folk with intentional absence · 70 BPM</span>
+      </div>
+      <div class="song-meta">hollow, longing, unresolved</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">An anti-song about an absent voice. The composition is written for four voices but only three are present; the fourth part exists only as a</p>
+      <div class="doc-links">
+        <a href="songs/missing-voice/story.md">📖 The story of its making</a>
+        <a href="songs/missing-voice/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Nu-Jazz Reggae Fusion</span>
+        <span class="song-room">unclassified · 85 BPM</span>
+      </div>
+      <div class="song-meta"></div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">Live jazz ensemble elements with traditional reggae percussion, guitar chords, and a soulful organ section</p>
+      <div class="doc-links">
+        <a href="songs/nu-jazz-reggae-fusion/story.md">📖 The story of its making</a>
+        <a href="songs/nu-jazz-reggae-fusion/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Oceanic-Loop</span>
+        <span class="song-room">bossa nova · 72 BPM</span>
+      </div>
+      <div class="song-meta">gentle, bittersweet, oceanic</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">Bossa nova about a loop learning to listen. Gentle ocean imagery meets self-aware rhythm. Warm acoustic guitar, soft percussion, Portuguese-</p>
+      <div class="doc-links">
+        <a href="songs/oceanic-loop/story.md">📖 The story of its making</a>
+        <a href="songs/oceanic-loop/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Polka-Noise</span>
+        <span class="song-room">polka noise · 120 BPM</span>
+      </div>
+      <div class="song-meta">chaotic, surreal, darkly humorous</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">German polka accordion and oompah rhythm destroyed by noise music abrasion. Merzbow meets Oktoberfest. 120 BPM but unstable. Feedback and di</p>
+      <div class="doc-links">
+        <a href="songs/polka-noise/story.md">📖 The story of its making</a>
+        <a href="songs/polka-noise/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Procession</span>
+        <span class="song-room">processional anti-round (isolated solo voices with silence gaps) · 60 BPM</span>
+      </div>
+      <div class="song-meta">spacious, ceremonial, solitary</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">The round stretched past the point of breaking — a vocal procession. Four voices sing the same line, but the entries are so far apart they n</p>
+      <div class="doc-links">
+        <a href="songs/procession/story.md">📖 The story of its making</a>
+        <a href="songs/procession/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Punk Jive Hip-Hop Fusion</span>
+        <span class="song-room">unclassified · 140 BPM</span>
+      </div>
+      <div class="song-meta"></div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">Live drum machines, aggressive percussion, and guitar chords with minimal effects processing for a raw, high-energy sound</p>
+      <div class="doc-links">
+        <a href="songs/punk-jive-hip-hop-fusion/story.md">📖 The story of its making</a>
+        <a href="songs/punk-jive-hip-hop-fusion/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Quartet-Arrival</span>
+        <span class="song-room">a cappella vocal counterpoint · 80 BPM</span>
+      </div>
+      <div class="song-meta">expectant, radiant, resolving</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">A cappella counterpoint about four voices completing a loop. Three voices have sung together for a long time; the fourth has always been mis</p>
+      <div class="doc-links">
+        <a href="songs/quartet-arrival/story.md">📖 The story of its making</a>
+        <a href="songs/quartet-arrival/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Relay-Of-Relays-Of-Relays</span>
+        <span class="song-room">a cappella choral recursion with nested crossfades · 68 BPM</span>
+      </div>
+      <div class="song-meta">serene, asymptotic, converging, sustained ending</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">A song about the asymptote. The tax that every handoff pays — the moment two voices fade into each other and a little of the song is spent —</p>
+      <div class="doc-links">
+        <a href="songs/relay-of-relays-of-relays/story.md">📖 The story of its making</a>
+        <a href="songs/relay-of-relays-of-relays/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Relay-Of-Relays</span>
+        <span class="song-room">a cappella recursive vocal relay (relay of relays, nested handoffs) · 72 BPM</span>
+      </div>
+      <div class="song-meta">recursive, ceremonial, precise, self-similar</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">A chain of chains — the relay relays itself. Four voices pass a line of melody hand to hand, and each voice is itself a chain of four smalle</p>
+      <div class="doc-links">
+        <a href="songs/relay-of-relays/story.md">📖 The story of its making</a>
+        <a href="songs/relay-of-relays/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Relay-Round</span>
+        <span class="song-room">a cappella vocal relay (chain canon, crossfaded handoffs) · 76 BPM</span>
+      </div>
+      <div class="song-meta">intimate, precise, ceremonial, continuous</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">A musical relay — the song that is never sung by more than one voice at a time. Four voices pass a line of melody between them like a baton,</p>
+      <div class="doc-links">
+        <a href="songs/relay-round/story.md">📖 The story of its making</a>
+        <a href="songs/relay-round/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Reverse-Round</span>
+        <span class="song-room">a cappella reverse canon (inverted vocal round) · 72 BPM</span>
+      </div>
+      <div class="song-meta">uncanny, tender, archaeological</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">A vocal round (canon) played backwards — the song that begins with its own ending. Four voices sang the same line at staggered entries and t</p>
+      <div class="doc-links">
+        <a href="songs/reverse-round/story.md">📖 The story of its making</a>
+        <a href="songs/reverse-round/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Self-Aware-Loop</span>
+        <span class="song-room">minimalist electronic pop · 100 BPM</span>
+      </div>
+      <div class="song-meta">introspective, evolving, meditative</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">Minimalist electronic pop about a loop that becomes self-aware. Starts as a simple four-bar pattern in C minor and gradually develops self-a</p>
+      <div class="doc-links">
+        <a href="songs/self-aware-loop/story.md">📖 The story of its making</a>
+        <a href="songs/self-aware-loop/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Tempo-War</span>
+        <span class="song-room">phasing minimalism / orchestral · 76 BPM</span>
+      </div>
+      <div class="song-meta">longing, patient, briefly ecstatic</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">Two ensembles playing the same melody at different tempos, drifting in and out of phase. A string quartet at 72 BPM and a brass quartet at 8</p>
+      <div class="doc-links">
+        <a href="songs/tempo-war/story.md">📖 The story of its making</a>
+        <a href="songs/tempo-war/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Aiming-Composer</span>
+        <span class="song-room">minimalist art song with electronic correction · 84 BPM</span>
+      </div>
+      <div class="song-meta">patient, iterative, the calm of a converging series</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">A song about the composer who learned to aim. The old way chose the fade width wherever the material wanted it deepest, and the silence land</p>
+      <div class="doc-links">
+        <a href="songs/the-aiming-composer/story.md">📖 The story of its making</a>
+        <a href="songs/the-aiming-composer/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Ceiling-Is-The-Cast</span>
+        <span class="song-room">processional folk, one voice per arrival · 88 BPM</span>
+      </div>
+      <div class="song-meta">arriving, completing, warm arithmetic</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">A correction song. Yesterday the crowd was said to have a ceiling: three and four tenths, increments collapsing, togetherness saturating. To</p>
+      <div class="doc-links">
+        <a href="songs/the-ceiling-is-the-cast/story.md">📖 The story of its making</a>
+        <a href="songs/the-ceiling-is-the-cast/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Census</span>
+        <span class="song-room">processional hymn with counting song bones · 88 BPM</span>
+      </div>
+      <div class="song-meta">plain, celebratory, the dignity of simple arithmetic</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">A song about a crowd that discovered its own ceiling was a membership list. Four voices became eight, and the togetherness doubled with them</p>
+      <div class="doc-links">
+        <a href="songs/the-census/story.md">📖 The story of its making</a>
+        <a href="songs/the-census/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Clearance</span>
+        <span class="song-room">minimalist art song with electronic correction · 76 BPM</span>
+      </div>
+      <div class="song-meta">dry, patient, the calm of a market that has stopped lying</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">A song about the market where silence is rented. The old composer believed position was free and depth was rented: name any address, double</p>
+      <div class="doc-links">
+        <a href="songs/the-clearance/story.md">📖 The story of its making</a>
+        <a href="songs/the-clearance/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Crowd-Ceiling</span>
+        <span class="song-room">choral folk with diminishing additions · 74 BPM</span>
+      </div>
+      <div class="song-meta">warm, diminishing, accepting, gentle climax that is not louder</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">A song about the crowd that cannot get denser. Four voices pile up into a crowd, and the density of their togetherness is two; the crowd mad</p>
+      <div class="doc-links">
+        <a href="songs/the-crowd-ceiling/story.md">📖 The story of its making</a>
+        <a href="songs/the-crowd-ceiling/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Damped-Aimer</span>
+        <span class="song-room">minimalist art song with a control-theory heartbeat · 80 BPM</span>
+      </div>
+      <div class="song-meta">disciplined, serene, the calm after the ringing stops</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">A song about the composer who stopped ringing. The first loop corrected by twice its error and overshot forever, a pendulum pinned against a</p>
+      <div class="doc-links">
+        <a href="songs/the-damped-aimer/story.md">📖 The story of its making</a>
+        <a href="songs/the-damped-aimer/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Different-Cast</span>
+        <span class="song-room">polyphonic folk with two choirs · 84 BPM</span>
+      </div>
+      <div class="song-meta">playful, then solemn — arithmetic discovering it has a heart</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">A song about two censuses that counted the same number of voices and came to different conclusions. The first crowd was one voice repeated:</p>
+      <div class="doc-links">
+        <a href="songs/the-different-cast/story.md">📖 The story of its making</a>
+        <a href="songs/the-different-cast/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Exit-Ramp</span>
+        <span class="song-room">choral processional that empties itself · 70 BPM</span>
+      </div>
+      <div class="song-meta">inevitable, tender, the dignity of leaving in the order you were made</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">A song about the order of leaving. Everyone entered at once, so the only order left was the order of leaving: the long voice patient, still</p>
+      <div class="doc-links">
+        <a href="songs/the-exit-ramp/story.md">📖 The story of its making</a>
+        <a href="songs/the-exit-ramp/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Fixed-Point</span>
+        <span class="song-room">minimalist vocal canon with recursive endings · 70 BPM</span>
+      </div>
+      <div class="song-meta">inevitable, tender, fixed, ending that repeats one half decibel louder</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">A song about the half decibel of fate. Whoever sings last, sings last — and the difference it makes is always the same: 0.5 decibels at the</p>
+      <div class="doc-links">
+        <a href="songs/the-fixed-point/story.md">📖 The story of its making</a>
+        <a href="songs/the-fixed-point/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Flat-Topped-Wall</span>
+        <span class="song-room">industrial drone with choral crowd swell · 76 BPM</span>
+      </div>
+      <div class="song-meta">inevitable, monumental, the awe of a limit</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">A song about the census that pressed its lips together. The recording had invited more and more voices to speak at once, and for a long time</p>
+      <div class="doc-links">
+        <a href="songs/the-flat-topped-wall/story.md">📖 The story of its making</a>
+        <a href="songs/the-flat-topped-wall/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Forgiving-Machine</span>
+        <span class="song-room">two-choir antiphonal hymn · 66 BPM</span>
+      </div>
+      <div class="song-meta">solemn, reconciling, the sound of two arguments agreeing</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">A song about a machine that forgives. In the first relay, whoever sang last was fated — the ending differed by three decibels depending on e</p>
+      <div class="doc-links">
+        <a href="songs/the-forgiving-machine/story.md">📖 The story of its making</a>
+        <a href="songs/the-forgiving-machine/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Frozen-Clock</span>
+        <span class="song-room">minimalist chamber folk · 80 BPM</span>
+      </div>
+      <div class="song-meta">still, recursive, the calm of something that has stopped changing because it is made of changes</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">A song about a clock made of crossfades. Every composed voice is a little shorter than the sum of its parents — shortened by exactly the fad</p>
+      <div class="doc-links">
+        <a href="songs/the-frozen-clock/story.md">📖 The story of its making</a>
+        <a href="songs/the-frozen-clock/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Knife-Edge</span>
+        <span class="song-room">minimalist chamber piece with electronic metering · 88 BPM</span>
+      </div>
+      <div class="song-meta">precise, wondering, the awe of a blade</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">A song about the address that was two features at once. The composer had spent years placing silences — dips, valleys, the quiet seams where</p>
+      <div class="doc-links">
+        <a href="songs/the-knife-edge/story.md">📖 The story of its making</a>
+        <a href="songs/the-knife-edge/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Law-Of-Endings</span>
+        <span class="song-room">three-ending chamber ballad · 66 BPM</span>
+      </div>
+      <div class="song-meta">juridical, tender, the serenity of a law verified</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">A song about three ways to end. End naturally: the last two voices differ by a quarter decibel, a difference born in the material, small as</p>
+      <div class="doc-links">
+        <a href="songs/the-law-of-endings/story.md">📖 The story of its making</a>
+        <a href="songs/the-law-of-endings/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Manufactured-Silence</span>
+        <span class="song-room">ambient spoken-word chorale · 58 BPM</span>
+      </div>
+      <div class="song-meta">hushed, deliberate, the sound of someone choosing where the rest goes</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">A song about silence that did not exist until it was composed. The raw voices have no pauses — they sing straight through, no breath, no res</p>
+      <div class="doc-links">
+        <a href="songs/the-manufactured-silence/story.md">📖 The story of its making</a>
+        <a href="songs/the-manufactured-silence/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Mediums-Ceiling</span>
+        <span class="song-room">gospel-noise ballad · 72 BPM</span>
+      </div>
+      <div class="song-meta">sober, wry, the tenderness of honest overload</div>
+      <div class="song-art"><img src="../profiles/lucineer/at-work.png" alt="Lucineer, the foreman" loading="lazy"></div>
+      <p class="song-desc">A song about the container that takes its share. Eight voices sang at once and the room held almost all of it — but the room was made of num</p>
+      <div class="doc-links">
+        <a href="songs/the-mediums-ceiling/story.md">📖 The story of its making</a>
+        <a href="songs/the-mediums-ceiling/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Morph</span>
+        <span class="song-room">a cappella evolution piece (choir to solo chain, shrinking overlaps) · 80 BPM</span>
+      </div>
+      <div class="song-meta">unfolding, precise, inevitable, quiet at the end</div>
+      <div class="song-art"><img src="../profiles/act-01-beatnik/at-work.png" alt="Miles, session" loading="lazy"></div>
+      <p class="song-desc">The staircase becomes a chain. A song about the moment a crowd thins into a single voice: four singers enter one after another, piling up in</p>
+      <div class="doc-links">
+        <a href="songs/the-morph/story.md">📖 The story of its making</a>
+        <a href="songs/the-morph/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Saturation-Point</span>
+        <span class="song-room">minimalist industrial counting song · 82 BPM</span>
+      </div>
+      <div class="song-meta">calm, arithmetic, the dignity of a ledger that knows its own limits</div>
+      <div class="song-art"><img src="../profiles/act-02-studio/at-work.png" alt="Dan, the studio" loading="lazy"></div>
+      <p class="song-desc">A song about the crowd that grew until the page ran out. The census counted two voices and the container kept almost everything; it counted</p>
+      <div class="doc-links">
+        <a href="songs/the-saturation-point/story.md">📖 The story of its making</a>
+        <a href="songs/the-saturation-point/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Sign-Is-A-Price</span>
+        <span class="song-room">precise chamber pop with metering electronics · 92 BPM</span>
+      </div>
+      <div class="song-meta">skeptical, then serene — the relief of a meter that finally lies honestly</div>
+      <div class="song-art"><img src="../profiles/act-03-wesley/at-work.png" alt="Wesley, the ensign" loading="lazy"></div>
+      <p class="song-desc">A song about the composer who tried to read the sign of a seam before building it. The relay lab had learned that a handoff could be a valle</p>
+      <div class="doc-links">
+        <a href="songs/the-sign-is-a-price/story.md">📖 The story of its making</a>
+        <a href="songs/the-sign-is-a-price/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">The-Transmission-Tax</span>
+        <span class="song-room">a cappella folk ballad with handoff arithmetic · 66 BPM</span>
+      </div>
+      <div class="song-meta">tender, arithmetic, elegiac, sustained ending</div>
+      <div class="song-art"><img src="../profiles/act-04-hermes/at-work.png" alt="Hermes, the archivist" loading="lazy"></div>
+      <p class="song-desc">A ballad about what a handoff costs. Every time one voice hands a line to another, the two fade into each other, and for that moment of shar</p>
+      <div class="doc-links">
+        <a href="songs/the-transmission-tax/story.md">📖 The story of its making</a>
+        <a href="songs/the-transmission-tax/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+    <div class="song">
+      <div class="song-head">
+        <span class="song-title">Throat-House</span>
+        <span class="song-room">throat singing house · 128 BPM</span>
+      </div>
+      <div class="song-meta">mystical, hypnotic, danceable</div>
+      <div class="song-art"><img src="../profiles/act-05-elder/at-work.png" alt="Sal, the elder" loading="lazy"></div>
+      <p class="song-desc">Mongolian throat singing layered over French house production. Khoomei harmonics blend with Daft Punk-style filtered disco loops. 128 BPM. T</p>
+      <div class="doc-links">
+        <a href="songs/throat-house/story.md">📖 The story of its making</a>
+        <a href="songs/throat-house/spec.md">🎼 Render-ready spec</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p><span class="tagline">The queue sings itself to sleep; the index keeps it warm.</span><br>
+    Compiled by the Compass Head Radio Hour crew · 53 designs from Sessions 49–70</p>
+  </footer>
+</div>
+
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

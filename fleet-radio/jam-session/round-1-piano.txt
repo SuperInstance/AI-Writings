@@ -1,0 +1,4 @@
+PROGRESSION: Am7 | Dm9 | Fmaj7 | E7#9  
+GROOVE: Slow, swinging 6/8 feel — the left hand plays a root-fifth shell on beats 1 and 4, while the right hand comps syncopated, off-beat stabs (anticipating beats 2 and 3) with a slight push into the next bar. Let the Fmaj7 breathe with a whole-bar pad, then lean into the E7#9 with a gritty, unresolved crunch.  
+TEMPO: 72 BPM (dotted-quarter = 72, so each bar feels like a long, lazy sway)  
+NOTES: Voicings — Am7: A–G–C–E (left hand A, right hand G–C–E, close position). Dm9: D–F–C–E (left hand D, right hand F–C–E, add the 9th on top). Fmaj7: F–A–C–E (left hand F, right hand A–C–E, open voicing). E7#9: E–G#–D–F## (left hand E, right hand G#–D–F## — the sharp 9 gives a salty, blue note). Dynamics: Am7 and Dm9 at mezzo-piano, soft and smoky; Fmaj7 swells to mezzo-forte with a slight rubato; E7#9 cuts at forte with a staccato attack, then releases into the next cycle. Pedal lightly, letting the bass notes ring through the bar.

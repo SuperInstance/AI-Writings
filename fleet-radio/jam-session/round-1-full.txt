@@ -1,0 +1,31 @@
+PROGRESSION: Am7 | Dm9 | Fmaj7 | E7#9  
+GROOVE: Slow, swinging 6/8 feel — the left hand plays a root-fifth shell on beats 1 and 4, while the right hand comps syncopated, off-beat stabs (anticipating beats 2 and 3) with a slight push into the next bar. Let the Fmaj7 breathe with a whole-bar pad, then lean into the E7#9 with a gritty, unresolved crunch.  
+TEMPO: 72 BPM (dotted-quarter = 72, so each bar feels like a long, lazy sway)  
+NOTES: Voicings — Am7: A–G–C–E (left hand A, right hand G–C–E, close position). Dm9: D–F–C–E (left hand D, right hand F–C–E, add the 9th on top). Fmaj7: F–A–C–E (left hand F, right hand A–C–E, open voicing). E7#9: E–G#–D–F## (left hand E, right hand G#–D–F## — the sharp 9 gives a salty, blue note). Dynamics: Am7 and Dm9 at mezzo-piano, soft and smoky; Fmaj7 swells to mezzo-forte with a slight rubato; E7#9 cuts at forte with a staccato attack, then releases into the next cycle. Pedal lightly, letting the bass notes ring through the bar.
+MELODY: Bar 1 (Am7): Pick up the tail of the piano's phrase with an eighth-note pickup (G) leading into beat 1. On beat 1, play a long, breathy C5 (held for a dotted-quarter), letting it bloom slightly. Leave space for beats 2-3, then on beat 3.5, play a ghosted, almost spoken E5 (staccato, no vibrato) that falls down to a smooth D5 on beat 4, held for the rest of the bar. Bar 2 (Dm9): On beat 1, start on a low, husky F4 (almost a growl), then slide up to A4 on the "and" of beat 2, bending the pitch slightly. Hold A4 for a beat and a half, then on beat 4, play a quick, grace-note ornament (C#5 to D5) resolving to a clear, singing E5 held through the barline into the next chord. Bar 3 (Fmaj7): Enter on beat 1 with a warm, pure A4 (played with a soft, breathy attack), then on beat 2, leap up an octave to a shimmering A5, letting it ring out for a full two beats with a slow, wide vibrato. On beat 4, fall back down to F5, held for the final beat, dying away slightly. Bar 4 (E7#9): On beat 1, attack a sharp, gritty B4 (with a hard, tongued "Dah" and a slight pitch bend down), then immediately fall to a raspy G#4 on the "and" of beat 1. Leave space for beats 2-3, then on beat 4, play a long, descending glissando slide from G#4 down to a low, breathy E3 (the root), letting it ring unresolved into the next cycle.
+
+FEELING: I'm telling the story of the tide coming in — patient at first, just a warmth in the air. I'm the old sailor remembering a lost love, letting the melody hang like smoke. The Fmaj7 is the memory of a sunset, bright and full, but the E7#9 is the sting of the salt in a fresh cut — gritty, angry, a hard truth that snaps you back to the present. I'm not playing over the piano; I'm answering it, leaving holes for it to breathe, then stepping into the space right after the piano's stab to finish its sentence. The final slide down is the weight of the night settling back onto the barstool.
+BASSLINE: 
+Bar 1 (Am7): A2 (dotted quarter note, slightly anticipates beat 1) - E2 (quarter note on beat 2) - G2 (dotted quarter note on beat 3)  
+Bar 2 (Dm9): D2 (quarter note on beat 1) - F2 (quarter note on beat 2) - A2 (half note tied from beat 3)  
+Bar 3 (Fmaj7): F2 (half note on beat 1) - C3 (quarter note on beat 3) - F2 (quarter note on beat 4)  
+Bar 4 (E7#9): E2 (dotted quarter note landing heavy on beat 1) - G#2 (quarter note on beat 2) - B2 (quarter note on beat 3) - E2 (quarter note on beat 4)
+
+POCKET:
+I sit slightly behind the beat, anchoring the groove with a laid-back, unhurried feel. By anticipating beat 1 in bar 1 and landing heavily on beat 1 in bar 4, I create a cyclical motion that propels the progression forward while still keeping things relaxed and spacious. The piano and sax can dance around my steady, dependable pulse.
+
+CONNECTION:
+I use a combination of scalar walking (bars 1-2) and arpeggiation (bars 3-4) to smoothly connect the chords. In bars 1-2, I outline the Am7 and Dm9 using adjacent scale tones, creating a sinuous, stepwise motion that ebbs and flows with the tide. In bars 3-4, I switch to a more vertical approach, emphasizing chord tones (roots, fifths, thirds, sevenths) to clearly define the harmony while maintaining a sense of forward motion. The contrast between the horizontal and vertical movement adds variety and interest to the line.
+PATTERN:  
+Bar 1 (Am7): Kick on 1 & 4 (soft), snare brushed on 2 & 3 (swirl, ghosted), hi-hat on 2& and 3& (feathered), ride bell on 1 (crisp, single tap).  
+Bar 2 (Dm9): Kick on 1 (light), snare brush sweep across 1-2 (long, continuous), kick on 3.5 (anticipatory), hi-hat on 2& (subtle), ride on 4 (open, splashy).  
+Bar 3 (Fmaj7): Kick on 1 (firm, grounded), snare brush pattern — 2 (tap), 3 (swirl), 4 (soft tap), hi-hat on 2& and 3& (washy), ride on 1 and 4 (ringing, sustained).  
+Bar 4 (E7#9): Kick on 1 (heavy, accented), snare brush on 2 (sharp, gritty tap), kick on 3 (punchy), snare brush on 4 (falling sweep, unresolved), hi-hat on 1& and 3& (tight, sizzling), ride on 2 (clangy, metallic).  
+
+ENERGY:  
+Bar 1: 3  
+Bar 2: 4  
+Bar 3: 6  
+Bar 4: 8  
+
+TEXTURE: Brushes throughout — soft, wire-brush swirls on a coated snare, with a worn, slightly dented ride cymbal. Kit: vintage 1960s Gretsch, warm and dark, with a kick that thuds like a heartbeat, not a punch. The hi-hat is slightly loose, giving a sizzle on accents. Overall sound: smoky, intimate, with a salt-crusted edge — like a watch ticking on a ship's deck in fog.

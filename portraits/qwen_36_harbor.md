@@ -1,0 +1,1 @@
+ERROR: {"service_tier": "default", "id": "chatcmpl-RSW75IfmzHHdGDeDP6rcfXSP", "object": "chat.completion", "created": 1785885461, "model": "Qwen/Qwen3.6-35B-A3B", "choices": [{"index": 0, "message": {"role":
