@@ -1,0 +1,30 @@
+(fell back to gemma3:4b)
+BAR 1: F#4 E4 C5 | LISTEN
+BAR 2: D4 F#4 A4 D5 | REACH
+BAR 3: Bb3 A3 F#4 C5 | YEARN
+BAR 4: G3 E4 C5 D5 | RISE
+BAR 5: F#4 E4 C5 | HOLD
+BAR 6: D4 F#4 A4 D5 | SEEK
+BAR 7: Bb3 A3 F#4 C5 | FLOAT
+BAR 8: G3 E4 C5 D5 | SOAR
+WHY: The music rises to meet the moon's high D.
+
+BAR 9: F#4 G4 B4 F#5 | WHISTLE
+BAR 10: D5 E5 F5 D6 | GUITAR
+BAR 11: A4 B4 C5 A6 | BELL
+BAR 12: B4 C5 D5 B6 | WIND
+BAR 13: D5 E5 F5 D6 | GUITAR
+BAR 14: F5 G5 A5 F6 | WHISTLE
+BAR 15: G5 A5 B5 G7 | BELL
+BAR 16: A5 B5 C6 A7 | WIND
+WHY: The stairs, the entrance to The Tap, echoing with the first notes from below, a prelude to the night's performance. Each phrase ascends, drawing the listener closer to the moon and The Tap.
+
+BAR 17: D4 F#4 A4 D5 | CLIMB
+BAR 18: F#4 A4 D5 G#4 | CLIMB
+BAR 19: A4 D5 G#4 C5 | CLIMB
+BAR 20: D5 G#4 C5 F#5 | CLIMB
+BAR 21: G#4 C5 F#5 A#5 | CLIMB
+BAR 22: C5 F#5 A#5 D#5 | CLIMB
+BAR 23: F#5 A#5 D#5 G#5 | CLIMB
+BAR 24: A#5 D#5 G#5 C#5 | CLIMB
+WHY: The wind takes a solo in any gap longer than two beats.
