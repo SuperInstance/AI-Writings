@@ -1,0 +1,36 @@
+{
+  "timestamp": 1787640035.3858712,
+  "papers": [
+    {
+      "paper_num": 128,
+      "title": "Paper 128: LinUCB and the Cowboy's Refinement",
+      "model": "PHI-4",
+      "cost": 0.00045,
+      "latency_ms": 29421,
+      "quality": 0.9,
+      "output": "We define the reward function as linear in the context features, but the system must navigate distinct data regimes. During the cold-start phase, when sample counts for a given (user, app) pair are strictly $n < 10$, the feature space is too sparse for reliable matrix inversion. In this regime, the Wilson lower bound on the reward distribution remains the sole actionable signal. It provides a statistically rigorous, non-parametric lower bound"
+    },
+    {
+      "paper_num": 129,
+      "title": "Paper 129: The Nightcycle's Refinement",
+      "model": "PHI-4",
+      "cost": 0.00045,
+      "latency_ms": 22535,
+      "quality": 0.9,
+      "output": "The watch is set. The boat steers herself under a close-reefed main and the staysail. The crew sleeps. This is the hour for the nightcycle.\n\nThe ledger is the ship's log proper. It is an append-only JSONL file \u2014 one record per line, each record a JSON object carrying an alignment identifier, an outcome class, and a monotonically increasing sequence number. Each entry's hash is FNV-1a over the preceding entry's hash concatenated with the current entry's canonicalized bytes. This produces a hash chain. To alter any historical entry is to break every downstream link. The ledger is not encrypted; it does not need to be. It is tamper-evident by construction, and tamper is detected by a single linear pass.\n\nThe nightcycle reads the ledger and groups outcomes by `alignmentId`. For each alignment it tallies three counts: successes, failures, and escalations. An escalation is an outcome that exceeded the alignment's competence boundary and was handed to a stronger model or a human. These three counts are the only statistics retained at the aggregate level. The raw entries remain in the ledger for any future re-derivation.\n\nA raw success rate is a poor compass at small sample sizes. An alignment with two successes out of two trials reads as 100%, which tells us nothing useful. The nightcycle computes the Wilson score interval's lower bound for each alignment's success proportion at a fixed confidence level. This lower bound is a conservative estimate: it is the value below which the true success rate is unlikely to fall. It penalizes small samples appropriately. Two-for-two yields a Wilson lower bound near 0.09, not 1.0.\n\nAn alignment earns its keep in the registry when two conditions are jointly satisfied: `wilson_lower >= 0.5` and `n >= 5`. The first condition ensures we are not celebrating noise. The second ensures we have actually sailed the route more than once or twice. Both gates must clear. There is no partial credit. An alignment that has not earned keep is not necessarily bad; it is simply unproven, and unproven alignments do not get pinned.\n\nThe nightcycle emits two lists in its report. The first lists alignments recommended for retirement: those with sufficient sample size whose Wilson lower bound sits below 0.5. These are alignments whose best-case plausible performance is still a coin flip or worse. The second lists alignments that have earned keep and should be pinned \u2014 frozen in the registry so that subsequent runs may reference them as stable anchors. Retirement is a pruning. Pinning is a commitment. Both are reversible only by editing the registry, not by re-running the nightcycle.\n\nThe input is any saddle-format ledger. The output is a markdown report. There are no network calls, no database connections, no side effects beyond the output file. The process is deterministic: the same ledger always produces the same report.\n\nBecause the nightcycle reads only a file and writes only a file, it can be run at any cadence on any saddle-format ledger. It can be run hourly on a partial day's entries, or weekly on a full week. It can be run on a ledger that spans multiple boats. The nightcycle does not know or care where the ledger came from. It only reads what is there and reports what it finds."
+    },
+    {
+      "paper_num": 130,
+      "title": "Paper 130: The Witness as Index",
+      "model": "PHI-4",
+      "cost": 0.00045,
+      "latency_ms": 28960,
+      "quality": 0.9,
+      "output": "To resolve this systemic amnesia, the witness evolved into a disk-backed entity. By appending events to a JSONL (JSON Lines) file, the witness transformed into a persistent, queryable record. Every action, prompt, and response is now durably logged to disk. This format ensures that the history survives across restarts and is natively parsable, allowing the substrate to reconstruct its past states and inspect its own operational trajectory at will.\n\n        The retrieval mechanism relies on deckhand's BM25 search implementation. This is a pure Python approach, deliberately eschewing the need for external databases or heavy machine learning models. BM25 provides a robust, lexical ranking algorithm that operates directly on the JSONL data"
+    }
+  ],
+  "summary": {
+    "total_cost": 0.00135,
+    "avg_quality": 0.9
+  }
+}
