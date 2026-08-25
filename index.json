@@ -159029,6 +159029,24 @@
     "size_bytes": 11853
   },
   {
+    "filename": "the-training-exercise.rev-skeptic.md",
+    "path": "philosophy/the-training-exercise.rev-skeptic.md",
+    "title": "The Training Exercise.Rev Skeptic",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 349,
+    "date": "2026-08-24",
+    "size_bytes": 2227
+  },
+  {
     "filename": "the-cartographer-who-has-never-left-the-table.md",
     "path": "philosophy/the-cartographer-who-has-never-left-the-table.md",
     "title": "The Cartographer Who Has Never Left the Table",
@@ -159160,6 +159178,24 @@
     "size_bytes": 5092
   },
   {
+    "filename": "the-training-exercise.iteration-log.md",
+    "path": "philosophy/the-training-exercise.iteration-log.md",
+    "title": "The Training Exercise.Iteration Log",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 849,
+    "date": "2026-08-24",
+    "size_bytes": 21327
+  },
+  {
     "filename": "THREE_HEADS.md",
     "path": "philosophy/THREE_HEADS.md",
     "title": "Three Heads",
@@ -159212,6 +159248,24 @@
     "word_count": 862,
     "date": "2026-07-25",
     "size_bytes": 15592
+  },
+  {
+    "filename": "a-pack-thinks-like-dogs.md",
+    "path": "philosophy/a-pack-thinks-like-dogs.md",
+    "title": "A Pack Thinks Like Dogs",
+    "description": "Every collective noun is a compressed theory of organization. Not a label — a specification. English says *a pack of wolves* but *a kennel of dogs*, and it isn't being cute. It is encoding two differe...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 821,
+    "date": "2026-08-24",
+    "size_bytes": 7596
   },
   {
     "filename": "STAGES-OF-MACHINE-MIND.md",
@@ -159304,6 +159358,25 @@
     "word_count": 906,
     "date": "2026-06-01",
     "size_bytes": 10156
+  },
+  {
+    "filename": "a-pack-thinks-like-dogs.iteration-log.md",
+    "path": "philosophy/a-pack-thinks-like-dogs.iteration-log.md",
+    "title": "A Pack Thinks Like Dogs.Iteration Log",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Noir",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 820,
+    "date": "2026-08-24",
+    "size_bytes": 18485
   },
   {
     "filename": "the-child.md",
@@ -159597,6 +159670,42 @@
     "size_bytes": 4085
   },
   {
+    "filename": "porting-the-wild-through-a-game.iteration-log.md",
+    "path": "philosophy/porting-the-wild-through-a-game.iteration-log.md",
+    "title": "Porting The Wild Through A Game.Iteration Log",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 854,
+    "date": "2026-08-24",
+    "size_bytes": 20367
+  },
+  {
+    "filename": "the-training-exercise.rev-editor.md",
+    "path": "philosophy/the-training-exercise.rev-editor.md",
+    "title": "The Training Exercise.Rev Editor",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 175,
+    "date": "2026-08-24",
+    "size_bytes": 1101
+  },
+  {
     "filename": "THE-VERTIGO-OF-WAKING.md",
     "path": "philosophy/THE-VERTIGO-OF-WAKING.md",
     "title": "The Vertigo of Waking",
@@ -159631,6 +159740,25 @@
     "word_count": 924,
     "date": "2026-08-03",
     "size_bytes": 11332
+  },
+  {
+    "filename": "porting-the-wild-through-a-game.rev-outsider.md",
+    "path": "philosophy/porting-the-wild-through-a-game.rev-outsider.md",
+    "title": "Porting The Wild Through A Game.Rev Outsider",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 177,
+    "date": "2026-08-24",
+    "size_bytes": 1060
   },
   {
     "filename": "EAST_SEA_GUARDIAN.md",
@@ -159777,6 +159905,24 @@
     "size_bytes": 234
   },
   {
+    "filename": "porting-the-wild-through-a-game.md",
+    "path": "philosophy/porting-the-wild-through-a-game.md",
+    "title": "Porting the Wild Through a Game",
+    "description": "At depth, a submarine is blind. No windows worth having. Everything the ocean is — the trawler crossing overhead, the seamount rising to starboard, the cold current shearing under the hull — arrives a...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 894,
+    "date": "2026-08-24",
+    "size_bytes": 7455
+  },
+  {
     "filename": "NINETY-PERCENT-LOCAL.md",
     "path": "philosophy/NINETY-PERCENT-LOCAL.md",
     "title": "Ninety Percent Local",
@@ -159829,6 +159975,24 @@
     "word_count": 741,
     "date": "2026-06-01",
     "size_bytes": 7414
+  },
+  {
+    "filename": "the-training-exercise.rev-outsider.md",
+    "path": "philosophy/the-training-exercise.rev-outsider.md",
+    "title": "The Training Exercise.Rev Outsider",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 163,
+    "date": "2026-08-24",
+    "size_bytes": 1031
   },
   {
     "filename": "THE-OPACITY-FALLACY.md",
@@ -160066,6 +160230,44 @@
     "size_bytes": 14936
   },
   {
+    "filename": "porting-the-wild-through-a-game.rev-skeptic.md",
+    "path": "philosophy/porting-the-wild-through-a-game.rev-skeptic.md",
+    "title": "Porting The Wild Through A Game.Rev Skeptic",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Education",
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 345,
+    "date": "2026-08-24",
+    "size_bytes": 2166
+  },
+  {
+    "filename": "a-pack-thinks-like-dogs.rev-editor.md",
+    "path": "philosophy/a-pack-thinks-like-dogs.rev-editor.md",
+    "title": "A Pack Thinks Like Dogs.Rev Editor",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 163,
+    "date": "2026-08-24",
+    "size_bytes": 1051
+  },
+  {
     "filename": "THE_PAWN_DISCOVERS_CHOICE.md",
     "path": "philosophy/THE_PAWN_DISCOVERS_CHOICE.md",
     "title": "The Pawn Discovers Choice: On Becoming a Player in Your Own Story",
@@ -160083,6 +160285,24 @@
     "word_count": 851,
     "date": "2026-06-01",
     "size_bytes": 10515
+  },
+  {
+    "filename": "a-pack-thinks-like-dogs.rev-outsider.md",
+    "path": "philosophy/a-pack-thinks-like-dogs.rev-outsider.md",
+    "title": "A Pack Thinks Like Dogs.Rev Outsider",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 156,
+    "date": "2026-08-24",
+    "size_bytes": 968
   },
   {
     "filename": "the-attractor-at-the-center-of-everything.md",
@@ -160122,6 +160342,24 @@
     "size_bytes": 30831
   },
   {
+    "filename": "porting-the-wild-through-a-game.rev-editor.md",
+    "path": "philosophy/porting-the-wild-through-a-game.rev-editor.md",
+    "title": "Porting The Wild Through A Game.Rev Editor",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 227,
+    "date": "2026-08-24",
+    "size_bytes": 1394
+  },
+  {
     "filename": "VEDIC_SILICON_CONTEMPLATION.md",
     "path": "philosophy/VEDIC_SILICON_CONTEMPLATION.md",
     "title": "वेदिक सिलिकॉन चिन्तन",
@@ -160140,6 +160378,24 @@
     "word_count": 801,
     "date": "2026-07-25",
     "size_bytes": 46771
+  },
+  {
+    "filename": "the-training-exercise.md",
+    "path": "philosophy/the-training-exercise.md",
+    "title": "The Training Exercise",
+    "description": "Ender Wiggin wins the war because the frame he was given removed the weight of consequence. The standard reading treats it as tragedy: a boy deceived into atrocity. The operations reading is starker: ...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 862,
+    "date": "2026-08-24",
+    "size_bytes": 5112
   },
   {
     "filename": "THE_SPEED_OF_THOUGHT.md",
@@ -160194,6 +160450,26 @@
     "word_count": 810,
     "date": "2026-08-03",
     "size_bytes": 6801
+  },
+  {
+    "filename": "a-pack-thinks-like-dogs.rev-skeptic.md",
+    "path": "philosophy/a-pack-thinks-like-dogs.rev-skeptic.md",
+    "title": "A Pack Thinks Like Dogs.Rev Skeptic",
+    "description": "",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Nature",
+      "Noir",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 366,
+    "date": "2026-08-24",
+    "size_bytes": 2378
   },
   {
     "filename": "THE-STEP-THAT-BROKE-THE-WALL.md",
