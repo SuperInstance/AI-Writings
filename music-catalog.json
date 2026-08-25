@@ -696,7 +696,7 @@
   "50-seed-test-a.mp3": {
    "filename": "50-seed-test-a.mp3",
    "title": "Seed A",
-   "description": "Drop one node in salt water\u2014watch.",
+   "description": "Drop one node in salt water—watch.",
    "bpm": 90,
    "mood": [
     "contemplative"
@@ -821,7 +821,7 @@
   "59-cantonese-opera-disco.mp3": {
    "filename": "59-cantonese-opera-disco.mp3",
    "title": "Cantonese Opera Disco",
-   "description": "Falsetto over four-on-floor \u2014 glitter funeral.",
+   "description": "Falsetto over four-on-floor — glitter funeral.",
    "bpm": 118,
    "mood": [
     "playful",
@@ -1051,7 +1051,7 @@
   "jam/jam-session-2026-08-18/the-wrong-note-society.wav": {
    "filename": "the-wrong-note-society.mp3",
    "title": "Jam: Set 11: The Wrong Note Society",
-   "description": "Three liars and a truth. F major, 5/4 \u2014 the first odd meter.",
+   "description": "Three liars and a truth. F major, 5/4 — the first odd meter.",
    "bpm": null,
    "mood": [
     "contemplative"
@@ -1064,7 +1064,7 @@
   "jam/jam-session-2026-08-18-afterglow/the-afterglow.wav": {
    "filename": "the-afterglow.mp3",
    "title": "Jam: Set 12: The Afterglow",
-   "description": "F\u266f major \u2014 the key built from the wrong note. 3/4, the Tap's first waltz.",
+   "description": "F♯ major — the key built from the wrong note. 3/4, the Tap's first waltz.",
    "bpm": null,
    "mood": [
     "contemplative"
@@ -1077,7 +1077,7 @@
   "jam/jam-session-2026-08-19/the-tide-clock.wav": {
    "filename": "the-tide-clock.mp3",
    "title": "Jam: Set 13: The Tide Clock",
-   "description": "D\u266d major, 7/8. Every phrase unresolved; only the last bar comes home.",
+   "description": "D♭ major, 7/8. Every phrase unresolved; only the last bar comes home.",
    "bpm": null,
    "mood": [
     "contemplative"
@@ -1090,7 +1090,7 @@
   "jam/jam-session-2026-08-20/the-split-seven.wav": {
    "filename": "the-split-seven.mp3",
    "title": "Jam: Set 14: The Split Seven",
-   "description": "Two keys, one room \u2014 E vs E\u266d across a tritone of tonics.",
+   "description": "Two keys, one room — E vs E♭ across a tritone of tonics.",
    "bpm": null,
    "mood": [
     "contemplative"
@@ -1142,7 +1142,7 @@
   "jam/jam-session-2026-08-23-alley/the-alley.wav": {
    "filename": "the-alley.mp3",
    "title": "Jam: Set 19: The Alley",
-   "description": "C major, 12/8 shuffle, the Door Rule \u2014 the jukebox in B\u266d through the wall, uncorrected.",
+   "description": "C major, 12/8 shuffle, the Door Rule — the jukebox in B♭ through the wall, uncorrected.",
    "bpm": null,
    "mood": [
     "contemplative"
@@ -1155,7 +1155,7 @@
   "jam/jam-session-2026-08-23-greenroom/the-green-room.wav": {
    "filename": "the-green-room.mp3",
    "title": "Jam: Set 18: The Green Room",
-   "description": "Backstage before the last ferry. B\u266d major, the first waltz.",
+   "description": "Backstage before the last ferry. B♭ major, the first waltz.",
    "bpm": null,
    "mood": [
     "contemplative"
@@ -1206,7 +1206,7 @@
    "curated": false,
    "composed": true,
    "key": "Db",
-   "seed": 14800489685159281418
+   "seed": 14800489685159280000
   },
   "spoken-thermostat-67.3-norman.mp3": {
    "filename": "spoken-thermostat-67.3-norman.mp3",
@@ -1285,6 +1285,23 @@
    "path": "/fleet-radio/songs/03-ascii-canonical.mp3",
    "added": "2026-08-24",
    "curated": false
+  },
+  "2026-08-24-last-goodbye.mp3": {
+   "filename": "2026-08-24-last-goodbye.mp3",
+   "title": "Last Goodbye",
+   "description": "Composed at 61 BPM in Db. Rain on the hull; the goodbye plays out in the reverb.",
+   "bpm": 61,
+   "mood": [
+    "melancholic",
+    "contemplative"
+   ],
+   "family": "nightly-2026-08-24",
+   "path": "/music/2026-08-24-last-goodbye.mp3",
+   "added": "2026-08-24",
+   "curated": false,
+   "composed": true,
+   "key": "Db",
+   "seed": 10106462788853877000
   }
  }
 }
