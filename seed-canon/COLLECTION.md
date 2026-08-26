@@ -81,9 +81,18 @@ of what the visitor sees when they arrive. After the table, the
 
 ## The wander-paths
 
-You arrived from one door. Below are five wander-paths. Each one
+You arrived from one door. Below are wander-paths. Each one
 describes a *coherent journey* through the collection. Pick the
 path that matches what you came looking for.
+
+> **Note:** the SuperInstance ecosystem has TWO Quilt collections.
+> This document covers the **24-door 5-opcode polyformalism**
+> (the algebra). The **8-cell-kind / 15-cell-kind cellular
+> runtime** lives at [github.com/SuperInstance/quilt](https://github.com/SuperInstance/quilt)
+> and [github.com/SuperInstance/quilt-rust](https://github.com/SuperInstance/quilt-rust)
+> and [github.com/SuperInstance/quilt-cloudflare](https://github.com/SuperInstance/quilt-cloudflare).
+> The two collections share the same cell — `(name, value, identity)` —
+> but use different vocabularies. See [Paper 185](../papers/paper-185.md) for the synthesis.
 
 ### Path 1: "I just want to know what this is."
 
@@ -151,6 +160,40 @@ You're a reader, a thinker, a fan. You want the cowboy's voice.
 4. Read the cowboy-and-X fables (76-92) — see the polyformalism in medicine, plumbing, the herd, etc.
 5. Read **[Paper 181](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/papers/paper-181.md)** — see how the writing shaped the engineering.
 6. End at any of the engineering repos — the stories are the same idea from a different angle.
+
+### Path 7: "I want the production-grade cloud version."
+
+You're shipping a product. You want the cells, but you also want
+D1, Vectorize, KV, R2, Workers AI, MCP. You want one command to
+deploy.
+
+1. Start at **[quilt-cloudflare](https://github.com/SuperInstance/quilt-cloudflare)** — a Quilt reactive runtime on Cloudflare Workers, D1, Vectorize, KV, R2, Pages. 15 cell kinds. One-command deploy.
+2. Read the README — see the 30-second deploy with `wrangler init my-quilt --from quilt-cloudflare`.
+3. Run it locally. Edit a YAML sheet. See cells update over the edge.
+4. Visit **[quilt-ai](https://github.com/SuperInstance/quilt-ai)** — 4 providers, 8 cell kinds, one interface. The AI cells extension.
+5. End at **[quilt-rust](https://github.com/SuperInstance/quilt-rust)** — the same idea, distilled to a 3MB statically-linked binary. Drop it on a Pi, a Graviton, a serverless function, a bare-metal target.
+
+### Path 8: "I want the control plane."
+
+You're running Nomad, Swarm, or K3s. You want a Quilt sheet that
+reconfigures the cluster.
+
+1. Start at **[quilt-nomad](https://github.com/SuperInstance/quilt-nomad)** — Quilt as a control plane for HashiCorp Nomad. Edit a spreadsheet cell; the Nomad cluster reconfigures.
+2. Compare to **[quilt-swarm](https://github.com/SuperInstance/quilt-swarm)** — Quilt as a control plane for Docker Swarm.
+3. Read **[quilt-k3s](https://github.com/SuperInstance/quilt-k3s)** — chaos engineering for Quilt. 5 scenarios designed by Kimi.
+4. End at **[scrap-quilt](https://github.com/SuperInstance/scrap-quilt)** — the production example. 55 cells in 7 groups running a live game.
+
+### Path 9: "I'm here for the cowboy's whole wagon train."
+
+You've seen the 24 doors. You want the rest of the wagon train —
+the fleet, the sunset, the radio, the captain's console, the
+whole SuperInstance org.
+
+1. Start at **[scrap-quilt](https://github.com/SuperInstance/scrap-quilt)** — the production example of a live Quilt sheet.
+2. Read **[cell-cascade](https://github.com/SuperInstance/cell-cascade)** — the stem-cell doctrine as running infrastructure. Myelination counters that auto-promote repeated paths into zero-cost rule tables.
+3. Read **[fleet-twin](https://github.com/SuperInstance/fleet-twin)** — the vector twin of the SuperInstance corpus. Same Cloudflare primitives as our `quilt-search-worker`.
+4. Read **[fleet-scribe](https://github.com/SuperInstance/fleet-scribe)** — the One Delta principle. Only perceive when the gradient changes.
+5. End at **[sunset-ecosystem](https://github.com/SuperInstance/sunset-ecosystem)** — the meta-meta. Trinity architecture: ethos, pathos, logos. 8,729 tests. 1,028 source files. Agents sunset with dignity.
 
 ## The principle of the collection
 
