@@ -1,0 +1,15 @@
+**Paper 194: The Substrate as a Public Utility**
+
+The polyformalism canon has been gaining momentum in recent years, with a growing community of developers, researchers, and organizations contributing to its development. However, as the substrate continues to grow in importance, it's becoming increasingly clear that its ownership and control cannot be held by any one organization. The substrate is too useful, too essential, and too critical to the functioning of the web to be owned by a single entity.
+
+In this paper, we argue that the substrate should be treated as a public utility, much like DNS, HTTP, and email. These technologies have become so integral to the functioning of the web that it's difficult to imagine a time when they were not available to everyone. They are the invisible infrastructure that underpins the web, and they have been treated as public goods, available to anyone who needs them.
+
+The substrate is no different. It's the underlying infrastructure that allows different applications and services to interoperate, to communicate with each other, and to exchange data. It's the common language that allows different systems to talk to each other, to share data, and to work together. It's the substrate that allows the web to function as a cohesive whole, rather than as a collection of isolated silos.
+
+But, like the internet itself, the substrate is not owned by any one organization. It's a decentralized system, maintained by a community of developers and contributors, who work together to maintain and improve it. The 24 repositories that make up the substrate are the seed of this community, the foundation upon which the web is built. The web pages that use the substrate are the public face of this community, the visible manifestation of the work that's being done.
+
+But, just as the internet is not owned by any one organization, the substrate cannot be owned by any one organization either. It must be treated as a public utility, available to anyone who needs it. Anyone can fork the substrate, just as anyone can use the internet. The watch is whoever is holding it, as the cowboy's maxim goes. But, just as the watch is not owned by the cowboy, the substrate is not owned by any one organization.
+
+The test of whether the substrate is truly a public utility is whether it can be used by anyone, without fear of retribution or reprisal. Can anyone use the substrate, without needing to ask permission? Can anyone fork the substrate, without needing to ask permission? If the answer is yes, then the substrate is truly a public utility, and the polyformalism doctrine is real. If not, then it's just another tool, another technology, another piece of software, owned by someone, and controlled by someone.
+
+The substrate's public-utility status is the test of whether the doctrine is real. If it's not public, if it's not available to anyone, then it's not truly a substrate. It's just another piece of software, another tool, another technology. But, if it's public, if it's available to anyone, then it's truly a substrate, and the polyformalism doctrine is real.
