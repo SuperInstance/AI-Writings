@@ -197,6 +197,17 @@ whole SuperInstance org.
 4. Read **[fleet-scribe](https://github.com/SuperInstance/fleet-scribe)** — the One Delta principle. Only perceive when the gradient changes.
 5. End at **[sunset-ecosystem](https://github.com/SuperInstance/sunset-ecosystem)** — the meta-meta. Trinity architecture: ethos, pathos, logos. 8,729 tests. 1,028 source files. Agents sunset with dignity.
 
+### Path 10: "I want the latest receipt from the field."
+
+You're a maintainer, a contributor, a curious engineer. You
+want to see the latest proof that the doctrine works.
+
+1. Start at **[the 2026-08-26 ESP32 milestone](https://github.com/SuperInstance/quilt-esp32/blob/main/docs/MILESTONE-2026-08-26.md)** — a `.qm` rule table, vendored `quilt-vm-c`, flashed to an ESP32-S3, blinked the LED at 1Hz. **No cloud, no model, no WiFi.**
+2. Read **[Paper 186](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/papers/paper-186.md)** — "A $3 Sheet of Tissue." The canon paper.
+3. Read **[the fleet-radio broadcast](https://github.com/SuperInstance/AI-Writings/blob/master/prose/radio-2026-08-26-esp32-milestone.md)** — the afterhours broadcast in the cowboy's voice.
+4. Read the [web page](https://quilt-ecosystem-web.pages.dev/esp32/) — with the live 1Hz TICK cell in the browser.
+5. End at **[quilt-ecosystem-web](https://github.com/SuperInstance/quilt-ecosystem-web)** — the public face. 13 web pages. The substrate in the browser.
+
 ## The principle of the collection
 
 > The collection is one idea, expressed in twenty-four doors.
