@@ -1,0 +1,85 @@
+{
+  "directives": [
+    {
+      "action": "anticipate",
+      "intensity": 0.65,
+      "duration_beats": 3,
+      "offset_beats": 0,
+      "target": ["rhythm", "ensemble"],
+      "priority": "blend"
+    },
+    {
+      "action": "deepen_swing",
+      "intensity": 0.55,
+      "duration_beats": 48,
+      "offset_beats": 0,
+      "target": ["rhythm"],
+      "priority": "blend"
+    },
+    {
+      "action": "push_forward",
+      "intensity": 0.6,
+      "duration_beats": 18,
+      "offset_beats": 66,
+      "target": ["rhythm", "texture"],
+      "priority": "blend"
+    },
+    {
+      "action": "lay_back",
+      "intensity": 0.6,
+      "duration_beats": 24,
+      "offset_beats": 96,
+      "target": ["harmony", "rhythm"],
+      "priority": "blend"
+    },
+    {
+      "action": "lock_in",
+      "intensity": 0.9,
+      "duration_beats": 12,
+      "offset_beats": 120,
+      "target": ["ensemble", "dynamics"],
+      "priority": "blend"
+    },
+    {
+      "action": "float",
+      "intensity": 0.4,
+      "duration_beats": 6,
+      "offset_beats": 126,
+      "target": ["melody", "texture"],
+      "priority": "blend"
+    },
+    {
+      "action": "half_time",
+      "intensity": 0.55,
+      "duration_beats": 6,
+      "offset_beats": 132,
+      "target": ["rhythm", "texture"],
+      "priority": "blend"
+    },
+    {
+      "action": "straighten",
+      "intensity": 0.7,
+      "duration_beats": 3,
+      "offset_beats": 141,
+      "target": ["rhythm", "dynamics"],
+      "priority": "blend"
+    },
+    {
+      "action": "float",
+      "intensity": 0.15,
+      "duration_beats": 1,
+      "offset_beats": 143,
+      "target": ["dynamics", "texture"],
+      "priority": "blend"
+    }
+  ],
+  "energy": {
+    "target": 0.35,
+    "mode": "absolute"
+  },
+  "tension": {
+    "delta": 0.45,
+    "mode": "relative"
+  },
+  "narrative_note": "Four voices climb down into a cold room under the bar, entering on a knock nobody hears, trading quotes as dancers thump overhead, and pressing together into one held G as the room above empties and the bulb clicks off."
+}

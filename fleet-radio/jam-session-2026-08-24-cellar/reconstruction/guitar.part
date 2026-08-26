@@ -1,0 +1,69 @@
+[Descent]
+@guitar | (rest) (rest) (rest) |
+@guitar | (rest) (rest) (rest) |
+@guitar: the count-in - four knocks from above, the fourth never lands
+@guitar: silence (three knocks unheard)
+@guitar | D4 . D4 . D4 (rest) | inst: acoustic guitar |
+Vel:   | 68 . 66 . 64 . |
+@guitar: knock, knock, knock, MISS
+@guitar | C4 A3 F#3 |
+Vel:   | 56 48 40 |
+@guitar: wait
+@guitar | B3 G3 E3 |
+Vel:   | 50 42 36 |
+@guitar: settle
+@guitar | A3 F#3 D3 |
+Vel:   | 44 38 32 |
+@guitar: breathe
+@guitar | G3 . (rest) |
+Vel:   | 38 dim . |
+@guitar: groan
+@guitar | F#3 . (rest) |
+Vel:   | 32 dim . |
+@guitar: shudder
+
+[Trades]
+@guitar | (rest) (rest) (rest) |
+@guitar: tacet — cello solos
+@guitar | Bb3 . Ab3 |
+Vel:   | 56 . 48 |
+@guitar: fall (quotes cello, one step lower)
+@guitar | (rest) (rest) (rest) |
+@guitar: tacet — child solos
+@guitar | (rest) (rest) (rest) |
+@guitar: tacet — bass solos
+@guitar | (rest) (rest) (rest) |
+@guitar: tacet — cello solos
+@guitar | F4 Eb4 Db4 |
+Vel:   | 60 52 44 |
+@guitar: fall (minor bend)
+@guitar | (rest) (rest) (rest) |
+@guitar: tacet — child solos
+@guitar | (rest) (rest) (rest) |
+@guitar: tacet — bass solos
+
+[Landing]
+@guitar | G3 D3 B2 |
+Vel:   | 70 62 54 |
+@guitar: sink
+@guitar | F#3 D3 A2 |
+Vel:   | 74 66 58 |
+@guitar: press
+@guitar | E3 C3 G2 |
+Vel:   | 78 70 62 |
+@guitar: slide
+@guitar | D3 A2 F2 |
+Vel:   | 84 76 68 |
+@guitar: drag
+@guitar | C3 G2 Gb1 |
+Vel:   | 92 84 76 |
+@guitar: pull (minor bend)
+@guitar | B2 F2 D1 |
+Vel:   | 100 92 84 |
+@guitar: dip
+@guitar | A2 E2 E1 |
+Vel:   | 108 98 88 |
+@guitar: drop
+@guitar | G1~~~ . . . . (rest) |
+Vel:   | 118 . . . . . |
+@guitar: scrape
