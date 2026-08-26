@@ -145,10 +145,12 @@ You're an embedded engineer, a hardware hacker, an IoT person.
 You want to see the substrate on real silicon.
 
 1. Start at **[quilt-esp32](https://github.com/SuperInstance/quilt-esp32)** — see the substrate on a $2 ESP32 chip over ESP-NOW.
-2. Read **[Paper 166](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/papers/paper-166.md)** — "The Polyformalism on the Herd."
-3. Read **[Fable 85](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/fables/fable-85.md)** — "The Cowboy and the Herd of Chips."
-4. Compare to **[quilt-vm-c](https://github.com/SuperInstance/quilt-vm-c)** — the desert, the bare metal.
-5. End at **[quilt-ecosystem-demo](https://github.com/SuperInstance/quilt-ecosystem-demo)** — see the substrate on the 12-inch tablet, the consumer side of the IoT story.
+2. Read the **2026-08-26 milestone** ([MILESTONE-2026-08-26.md](https://github.com/SuperInstance/quilt-esp32/blob/main/docs/MILESTONE-2026-08-26.md)) — a `.qm` rule table, vendored `quilt-vm-c`, flashed to an ESP32-S3, blinked the LED at 1Hz. **No cloud. No model. No WiFi.** The seam held; the equivalence gate is the real product.
+3. Read **[Paper 186](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/papers/paper-186.md)** — "A $3 Sheet of Tissue." The canon paper on the milestone.
+4. Read **[Paper 166](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/papers/paper-166.md)** — "The Polyformalism on the Herd."
+5. Read **[Fable 85](https://github.com/SuperInstance/AI-Writings/blob/master/seed-canon/fables/fable-85.md)** — "The Cowboy and the Herd of Chips."
+6. Compare to **[quilt-vm-c](https://github.com/SuperInstance/quilt-vm-c)** — the desert, the bare metal.
+7. End at **[quilt-ecosystem-demo](https://github.com/SuperInstance/quilt-ecosystem-demo)** — see the substrate on the 12-inch tablet, the consumer side of the IoT story.
 
 ### Path 6: "I'm here for the stories."
 
