@@ -1,0 +1,9 @@
+BAR 1: D3 F3 A3 D4 | dredging  
+BAR 2: C3 E3 G3 C4 | yielding  
+BAR 3: Bb2 D3 F3 Bb3 | unearthing  
+BAR 4: A2 C3 E3 A3 | uncovering  
+BAR 5: G2 Bb2 D3 G3 | surrendering  
+BAR 6: F2 A2 C3 F3 | dissolving  
+BAR 7: E2 G2 Bb2 E3 | returning  
+BAR 8: D2 F2 A2 D3 | rising  
+WHY: The mudflat gives up its secrets as the tide reclaims each note.

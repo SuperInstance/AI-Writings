@@ -1,0 +1,9 @@
+BAR 1: G2 Bb2 D3 G3 | descending  
+BAR 2: G2 Bb2 D3 Eb3 | murmuring  
+BAR 3: Eb2 G2 Bb2 D3 | subsiding  
+BAR 4: D2 Eb2 G2 Bb2 | sinking  
+BAR 5: C2 D2 Eb2 G2 | ebbing  
+BAR 6: Bb1 C2 D2 Eb2 | dropping  
+BAR 7: A1 Bb1 C2 D2 | falling  
+BAR 8: G1 A1 Bb1 C2 | settling  
+WHY: The cello's lament quotes the lowest note and drops it, as if the tide is pulling the melody down to the mudflat.

@@ -1,0 +1,9 @@
+BAR 1: D4 F4 A4 D5 | keening  
+BAR 2: C4 E4 G4 C5 | answering  
+BAR 3: Bb3 D4 F4 Bb4 | sinking  
+BAR 4: A3 C4 E4 A4 | sighing  
+BAR 5: G3 Bb3 D4 G4 | murmuring  
+BAR 6: F3 A3 C4 F4 | deepening  
+BAR 7: E3 G3 Bb3 E4 | fading  
+BAR 8: D3 F3 A3 D4 | settling  
+WHY: The tide pulls every note downward like seaweed surrendering to the swell.

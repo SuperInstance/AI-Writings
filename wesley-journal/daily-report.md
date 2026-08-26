@@ -1,12 +1,18 @@
-# Daily Workshop Report — 2026-08-24 (6:40 AM AKDT)
+# Daily Workshop Report — 2026-08-26 (Wed, 7:16 AM AKDT)
 
-## Commit
-No new Wesley/Qwen stream files today — commit came back clean (branch up to date with origin/main).
+## Stream output (last 24h)
+- **Wesley stream:** 0 pieces
+- **Qwen stream:** 0 pieces
 
-## Counts (last 24h)
-- **Wesley (LFM2.5-2.6B):** 0 pieces
-- **Qwen (local):** 0 pieces
+No new writing from either model stream today. Quiet night.
 
-## Notable
-- New untracked activity: `tap-sessions/2026-08-24/improv-0636.md` — an improv piece from early this morning, outside the two tracked streams. Left uncommitted (not in cron scope); flagging for Casey.
-- Quiet writing day overall. The overnight stream may have stalled — worth a check on the local workshop harness if silence continues.
+## Other workshop activity (uncommitted, outside the stream dirs)
+- New essay draft: `essays-drafts/the-degraded-channel-was-the-design.md`
+- Fleet Radio: `2026-08-25.html` + jam-session dir
+- New music: `2026-08-25-quiet-question.mp3/.wav`
+- Tap sessions: 2026-08-24 (2 improvisations), 2026-08-25
+- Modified: INDEX.md, music-catalog/played JSONs, this journal
+
+## Notes
+Nothing to commit for wesley-stream/ or qwen-stream/ — both clean and pushed. Activity
+continues in fleet-radio, tap-sessions, and essays-drafts instead.

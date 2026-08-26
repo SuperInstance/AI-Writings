@@ -1302,6 +1302,23 @@
    "composed": true,
    "key": "Db",
    "seed": 10106462788853877000
+  },
+  "2026-08-25-quiet-question.mp3": {
+   "filename": "2026-08-25-quiet-question.mp3",
+   "title": "Quiet Question",
+   "description": "Composed at 60 BPM in D. The space between two days, held until it resolves.",
+   "bpm": 60,
+   "mood": [
+    "contemplative",
+    "melancholic"
+   ],
+   "family": "nightly-2026-08-25",
+   "path": "/music/2026-08-25-quiet-question.mp3",
+   "added": "2026-08-25",
+   "curated": false,
+   "composed": true,
+   "key": "D",
+   "seed": 14205033940592759000
   }
  }
 }

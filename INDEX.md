@@ -1,4 +1,5 @@
 # ai-writings-new — INDEX v6
+- essays-drafts/the-degraded-channel-was-the-design.md — the maritime radio vocabulary as the oldest agent protocol; the noise was never in the channel
 
 **Date:** 2026-08-24
 **Phase:** Writers' room + 6 working repos + 25+ scenarios + 7 papers + 25+ fables

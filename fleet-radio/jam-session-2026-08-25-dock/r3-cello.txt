@@ -1,0 +1,9 @@
+BAR 1: D2 F2 A2 D3 | lifting  
+BAR 2: C2 E2 G2 C3 | swelling  
+BAR 3: Bb1 D2 F2 Bb2 | cresting  
+BAR 4: A1 C2 E2 A2 | soaring  
+BAR 5: G1 Bb1 D2 G2 | flight  
+BAR 6: F1 A1 C2 F2 | hovering  
+BAR 7: E1 G1 Bb1 E2 | drifting  
+BAR 8: D1 D2 (knock) | silence  
+WHY: The cormorant's wings were the downbeats all along, and the tide hums our forgotten melody in the dark.
