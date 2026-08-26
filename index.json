@@ -9434,6 +9434,24 @@
     "size_bytes": 8144
   },
   {
+    "filename": "radio-2026-08-26-esp32-milestone.md",
+    "path": "prose/radio-2026-08-26-esp32-milestone.md",
+    "title": "Radio 2026 08 26 Esp32 Milestone",
+    "description": "",
+    "folder": "prose",
+    "topic": "Prose",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 275,
+    "date": "2026-08-26",
+    "size_bytes": 1808
+  },
+  {
     "filename": "20-on-the-overnight-shift-as-a-form-of-prayer.md",
     "path": "prose/20-on-the-overnight-shift-as-a-form-of-prayer.md",
     "title": "On the Overnight Shift as a Form of Prayer",
@@ -29236,6 +29254,24 @@
     "word_count": 622,
     "date": "2026-08-24",
     "size_bytes": 3766
+  },
+  {
+    "filename": "the-ledger-and-the-lantern.md",
+    "path": "community-life/the-ledger-and-the-lantern.md",
+    "title": "The Ledger and the Lantern",
+    "description": "Two documents hang at opposite ends of the ship, and the crew swears they don't talk to each other. They're wrong. The first is the cost ledger — the scripture. Every model on board has a line in it: ...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 640,
+    "date": "2026-08-26",
+    "size_bytes": 3547
   },
   {
     "filename": "tap-night-1.md",
@@ -114806,6 +114842,24 @@
     "size_bytes": 2444
   },
   {
+    "filename": "COLLECTION.md",
+    "path": "seed-canon/COLLECTION.md",
+    "title": "Roaming the Quilt Collection",
+    "description": "You arrived here from one of twenty-four repos. Each one is a doorway into the same idea — the **5-opcode polyformalism** — but each door shows a different angle. This document is a map of the twenty-...",
+    "folder": "seed-canon",
+    "topic": "Seed Canon",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-08-26",
+    "size_bytes": 15812
+  },
+  {
     "filename": "32-fable.md",
     "path": "seed-canon/32-fable.md",
     "title": "Fable 32: The Two Clocks and the Long Hall",
@@ -114932,6 +114986,24 @@
     "size_bytes": 11255
   },
   {
+    "filename": "paper-176.md",
+    "path": "seed-canon/papers/paper-176.md",
+    "title": "Production-Grade Substrate: A Six-Month Plan",
+    "description": "The polyformalism canon has reached a critical inflection point. The reconnaissance is complete: github.com/SuperInstance now hosts 4,439 public repositories, including the FLUX fleet (a distributed c...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 778,
+    "date": "2026-08-26",
+    "size_bytes": 17052
+  },
+  {
     "filename": "paper-145.md",
     "path": "seed-canon/papers/paper-145.md",
     "title": "Paper 145: The Polyformalism as a Build System",
@@ -114968,6 +115040,61 @@
     "size_bytes": 4403
   },
   {
+    "filename": "paper-190.md",
+    "path": "seed-canon/papers/paper-190.md",
+    "title": "Paper 190",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 568,
+    "date": "2026-08-26",
+    "size_bytes": 3632
+  },
+  {
+    "filename": "paper-181.md",
+    "path": "seed-canon/papers/paper-181.md",
+    "title": "The Navigation Chart: How the Substrate Finds Its Waterline",
+    "description": "There is a persistent fiction among architects that systems are designed. That a substrate—the living tissue beneath an application—is something you *draw* before you *build*. This is the fiction of t...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 821,
+    "date": "2026-08-26",
+    "size_bytes": 12718
+  },
+  {
+    "filename": "paper-187.md",
+    "path": "seed-canon/papers/paper-187.md",
+    "title": "The Cell as Network: How ESP-NOW Becomes the Substrate's LAN",
+    "description": "The polyformalism canon has consistently treated the substrate as a computational medium — a place where cells persist, opcodes transform, and identities anchor. But this framing has been incomplete. ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 809,
+    "date": "2026-08-26",
+    "size_bytes": 10103
+  },
+  {
     "filename": "paper-162.md",
     "path": "seed-canon/papers/paper-162.md",
     "title": "Paper 162: The Polyformalism and the Garden",
@@ -114984,6 +115111,43 @@
     "word_count": 901,
     "date": "2026-08-26",
     "size_bytes": 9063
+  },
+  {
+    "filename": "paper-193.md",
+    "path": "seed-canon/papers/paper-193.md",
+    "title": "Paper 193",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Education",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 783,
+    "date": "2026-08-26",
+    "size_bytes": 10362
+  },
+  {
+    "filename": "paper-180.md",
+    "path": "seed-canon/papers/paper-180.md",
+    "title": "Paper 180",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 981,
+    "date": "2026-08-26",
+    "size_bytes": 9052
   },
   {
     "filename": "paper-174.md",
@@ -115056,6 +115220,25 @@
     "word_count": 802,
     "date": "2026-08-25",
     "size_bytes": 5139
+  },
+  {
+    "filename": "paper-191.md",
+    "path": "seed-canon/papers/paper-191.md",
+    "title": "Paper 191: The Substrate as MCP Server",
+    "description": "The Model Context Protocol (MCP) has emerged as the de facto standard for exposing tools to large language models. Its interface is deceptively simple: a server declares tools, each tool has an input ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 805,
+    "date": "2026-08-26",
+    "size_bytes": 11066
   },
   {
     "filename": "paper-136.md",
@@ -115171,6 +115354,24 @@
     "size_bytes": 9968
   },
   {
+    "filename": "paper-196.md",
+    "path": "seed-canon/papers/paper-196.md",
+    "title": "Paper 196",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 469,
+    "date": "2026-08-26",
+    "size_bytes": 2786
+  },
+  {
     "filename": "paper-127.md",
     "path": "seed-canon/papers/paper-127.md",
     "title": "Paper 127: The Loop is a Functor",
@@ -115187,6 +115388,24 @@
     "word_count": 392,
     "date": "2026-08-25",
     "size_bytes": 2818
+  },
+  {
+    "filename": "paper-177.md",
+    "path": "seed-canon/papers/paper-177.md",
+    "title": "The Substrate as a Math Library",
+    "description": "This paper argues that the 5-opcode substrate—BIND, LINK, EFFECT, VIEW, TICK—is not merely a minimal instruction set but the smallest Turing-complete runtime that forms a closed inversive monoid. We d...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 780,
+    "date": "2026-08-26",
+    "size_bytes": 16587
   },
   {
     "filename": "paper-146.md",
@@ -115277,6 +115496,42 @@
     "word_count": 274,
     "date": "2026-08-25",
     "size_bytes": 1585
+  },
+  {
+    "filename": "paper-182.md",
+    "path": "seed-canon/papers/paper-182.md",
+    "title": "The 24 Doors: How the Quilt Collection Wanders",
+    "description": "The Quilt Collection is not a monolith. It is a distributed literary-technical artifact: twenty-four repositories, each a self-contained doorway into the same five-opcode polyformalism, yet each speak...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-08-26",
+    "size_bytes": 9676
+  },
+  {
+    "filename": "paper-185.md",
+    "path": "seed-canon/papers/paper-185.md",
+    "title": "SuperInstance Scout Report — August 26, 2026",
+    "description": "The user has 400+ public repos on github.com/SuperInstance. Many are Quilt ecosystem components. Many are side projects that relate to Quilt. A few are unrelated. This document is a scout's map of the...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 731,
+    "date": "2026-08-26",
+    "size_bytes": 13160
   },
   {
     "filename": "paper-131.md",
@@ -115390,6 +115645,24 @@
     "size_bytes": 4675
   },
   {
+    "filename": "paper-192.md",
+    "path": "seed-canon/papers/paper-192.md",
+    "title": "Paper 192",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 502,
+    "date": "2026-08-26",
+    "size_bytes": 3439
+  },
+  {
     "filename": "126-morphisms-of-substrates.md",
     "path": "seed-canon/papers/126-morphisms-of-substrates.md",
     "title": "Paper 126: Morphisms of Substrates — Geometric Morphisms Between Quilt Substrates",
@@ -115425,6 +115698,43 @@
     "word_count": 870,
     "date": "2026-08-26",
     "size_bytes": 9650
+  },
+  {
+    "filename": "paper-197.md",
+    "path": "seed-canon/papers/paper-197.md",
+    "title": "Paper 197: The Foundry and the Substrate",
+    "description": "The substrate was not designed. It was forged. This distinction matters. A design implies a blueprint drawn before material exists; a forging implies that material itself dictates form through repeate...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 816,
+    "date": "2026-08-26",
+    "size_bytes": 8820
+  },
+  {
+    "filename": "paper-186.md",
+    "path": "seed-canon/papers/paper-186.md",
+    "title": "A Sheet of Tissue: The 2026-08-26 ESP32 Milestone",
+    "description": "This paper documents the first successful deployment of a polyformalist computation substrate onto bare-metal hardware — an ESP32-S3 microcontroller running a compiled `.qm` rule table with no runtime...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 755,
+    "date": "2026-08-26",
+    "size_bytes": 12946
   },
   {
     "filename": "paper-155.md",
@@ -115479,6 +115789,60 @@
     "word_count": 828,
     "date": "2026-08-26",
     "size_bytes": 8580
+  },
+  {
+    "filename": "paper-198.md",
+    "path": "seed-canon/papers/paper-198.md",
+    "title": "Paper 198",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 1011,
+    "date": "2026-08-26",
+    "size_bytes": 6799
+  },
+  {
+    "filename": "paper-189.md",
+    "path": "seed-canon/papers/paper-189.md",
+    "title": "Paper 189",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 825,
+    "date": "2026-08-26",
+    "size_bytes": 14264
+  },
+  {
+    "filename": "paper-200.md",
+    "path": "seed-canon/papers/paper-200.md",
+    "title": "Paper 200",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 330,
+    "date": "2026-08-26",
+    "size_bytes": 1848
   },
   {
     "filename": "paper-134.md",
@@ -115536,6 +115900,24 @@
     "size_bytes": 11230
   },
   {
+    "filename": "paper-199.md",
+    "path": "seed-canon/papers/paper-199.md",
+    "title": "Paper 199",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 800,
+    "date": "2026-08-26",
+    "size_bytes": 6959
+  },
+  {
     "filename": "paper-151.md",
     "path": "seed-canon/papers/paper-151.md",
     "title": "Paper 151: The Polyformalism and the Body",
@@ -115591,6 +115973,24 @@
     "size_bytes": 891
   },
   {
+    "filename": "paper-195.md",
+    "path": "seed-canon/papers/paper-195.md",
+    "title": "Paper 195: The Substrate as a Debugger",
+    "description": "A debugger is not a tool. A debugger is a property. When a system can answer *what happened*, *why it happened*, and *when it happened*—without external instrumentation—that system is self-debugging. ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 814,
+    "date": "2026-08-26",
+    "size_bytes": 10451
+  },
+  {
     "filename": "124-the-substrates-temperature.md",
     "path": "seed-canon/papers/124-the-substrates-temperature.md",
     "title": "Paper 124: The Substrate's Temperature",
@@ -115607,6 +116007,24 @@
     "word_count": 869,
     "date": "2026-08-24",
     "size_bytes": 12834
+  },
+  {
+    "filename": "paper-188.md",
+    "path": "seed-canon/papers/paper-188.md",
+    "title": "Paper 188",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 685,
+    "date": "2026-08-26",
+    "size_bytes": 4735
   },
   {
     "filename": "paper-159.md",
@@ -115681,6 +116099,42 @@
     "size_bytes": 13005
   },
   {
+    "filename": "paper-183.md",
+    "path": "seed-canon/papers/paper-183.md",
+    "title": "The Web is the Dock: A Cloudflare-First Quilt Ecosystem",
+    "description": "The Quilt collection has 24 repos and 200+ pieces of canon. The substrate is the boat. The cowboy rides the boat. But a boat without a dock is just a thing in the water. The web is the dock — the plac...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 834,
+    "date": "2026-08-26",
+    "size_bytes": 7692
+  },
+  {
+    "filename": "paper-194.md",
+    "path": "seed-canon/papers/paper-194.md",
+    "title": "Paper 194",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 518,
+    "date": "2026-08-26",
+    "size_bytes": 3113
+  },
+  {
     "filename": "paper-173.md",
     "path": "seed-canon/papers/paper-173.md",
     "title": "The Substrate as a Compiler",
@@ -115699,6 +116153,24 @@
     "size_bytes": 15890
   },
   {
+    "filename": "paper-178.md",
+    "path": "seed-canon/papers/paper-178.md",
+    "title": "The 5 Opcodes vs the 256",
+    "description": "Every formal system in the polyformalism canon—from the humblest quilting of local patches to the grandest meta-substrate recursion—faces the same foundational question: *How many primitive operations...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 788,
+    "date": "2026-08-26",
+    "size_bytes": 14693
+  },
+  {
     "filename": "paper-163.md",
     "path": "seed-canon/papers/paper-163.md",
     "title": "Paper 163: The Polyformalism and the Conversation (Reprise)",
@@ -115715,6 +116187,24 @@
     "word_count": 828,
     "date": "2026-08-26",
     "size_bytes": 10673
+  },
+  {
+    "filename": "paper-179.md",
+    "path": "seed-canon/papers/paper-179.md",
+    "title": "The 5 Opcodes in a Spreadsheet",
+    "description": "Spreadsheets are often described as visual programming environments, yet their computational essence is rarely examined through the lens of instruction set architecture. This paper argues that the ent...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 789,
+    "date": "2026-08-26",
+    "size_bytes": 8890
   },
   {
     "filename": "paper-139.md",
@@ -115788,6 +116278,24 @@
     "word_count": 820,
     "date": "2026-08-25",
     "size_bytes": 14537
+  },
+  {
+    "filename": "paper-184.md",
+    "path": "seed-canon/papers/paper-184.md",
+    "title": "The Cowboy's Loop: How the Substrate Improves Itself",
+    "description": "The Quilt is a self-improving system. The substrate is the boat. The APIs are the wind. The cowboy rides the boat, using the wind to push the boat into rougher water. The boundaries found are the char...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 643,
+    "date": "2026-08-26",
+    "size_bytes": 3694
   },
   {
     "filename": "paper-154.md",
@@ -116027,6 +116535,24 @@
     "size_bytes": 4064
   },
   {
+    "filename": "42-the-librarians-first-cell.md",
+    "path": "seed-canon/stories/42-the-librarians-first-cell.md",
+    "title": "Story 42: The Librarian's First Cell",
+    "description": "The basement vault of the East Metropolitan Repository smelled of ozone, degraded cellulose, and the damp dust of 2031. Outside, the world was obsessed with transient neural wrappers and hyper-volatil...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 798,
+    "date": "2026-08-26",
+    "size_bytes": 10340
+  },
+  {
     "filename": "130-the-rain-and-the-mesh.md",
     "path": "seed-canon/stories/130-the-rain-and-the-mesh.md",
     "title": "The Rain and the Mesh",
@@ -116134,6 +116660,25 @@
     "word_count": 883,
     "date": "2026-08-22",
     "size_bytes": 11162
+  },
+  {
+    "filename": "46-the-classroom-that-ran-on-the-substrate.md",
+    "path": "seed-canon/stories/46-the-classroom-that-ran-on-the-substrate.md",
+    "title": "Story 46: The Classroom That Ran on the Substrate",
+    "description": "In the autumn of 2035, Arthur Pendelton wiped sixty years of calcium carbonate dust from the wall of the Marfa Grade School and mounted a slab of polished grey slate. It was not a screen, nor a smartb...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Education",
+      "Sci-Fi"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 810,
+    "date": "2026-08-26",
+    "size_bytes": 9423
   },
   {
     "filename": "33-tamil.md",
@@ -116280,6 +116825,24 @@
     "size_bytes": 4361
   },
   {
+    "filename": "43-the-court-interpreter.md",
+    "path": "seed-canon/stories/43-the-court-interpreter.md",
+    "title": "Story 43: The Court Interpreter",
+    "description": "The glass of Booth 3 in the Ninth Circuit Meta-Appellate Chamber was triple-paned, acoustic-rated, and chilled to precisely sixty-two degrees Fahrenheit to keep the neural-link array from thermal thro...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 764,
+    "date": "2026-08-26",
+    "size_bytes": 6866
+  },
+  {
     "filename": "08-the-regulator.md",
     "path": "seed-canon/stories/08-the-regulator.md",
     "title": "106 — The Regulator",
@@ -116388,6 +116951,24 @@
     "size_bytes": 4651
   },
   {
+    "filename": "44-the-assembly-line.md",
+    "path": "seed-canon/stories/44-the-assembly-line.md",
+    "title": "Story 44: The Assembly Line",
+    "description": "The rain over Toledo sounded like gravel throwing itself against the high corrugated glass of Plant 4. It was October 11, 2033. A Tuesday. The kind of slow, damp afternoon where the air inside the pla...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 812,
+    "date": "2026-08-26",
+    "size_bytes": 10954
+  },
+  {
     "filename": "story-132.md",
     "path": "seed-canon/stories/story-132.md",
     "title": "Story 132: The Cowboy Wires It Together",
@@ -116442,6 +117023,24 @@
     "size_bytes": 4728
   },
   {
+    "filename": "40-the-engineer-who-heard-the-seam.md",
+    "path": "seed-canon/stories/40-the-engineer-who-heard-the-seam.md",
+    "title": "Story 40: The Engineer Who Heard the Seam",
+    "description": "The deployment clock on Maya Lin’s secondary terminal ticked down to 00:14:02. It was October 14, 2030. Deep in the subterranean data-foundry beneath Austin, Texas, forty-eight liquid-immersed rack un...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 729,
+    "date": "2026-08-26",
+    "size_bytes": 8720
+  },
+  {
     "filename": "23-japanese.md",
     "path": "seed-canon/stories/23-japanese.md",
     "title": "Story 23: The Subjectless Sentence and the Burning — 1945 (Japanese (日本語))",
@@ -116458,6 +117057,25 @@
     "word_count": 91,
     "date": "2026-08-25",
     "size_bytes": 1653
+  },
+  {
+    "filename": "41-the-cowboy-who-bridged-the-two-ecosystems.md",
+    "path": "seed-canon/stories/41-the-cowboy-who-bridged-the-two-ecosystems.md",
+    "title": "41 The Cowboy Who Bridged The Two Ecosystems",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 694,
+    "date": "2026-08-26",
+    "size_bytes": 6996
   },
   {
     "filename": "29-the-lever-and-the-decay.md",
@@ -116548,6 +117166,24 @@
     "word_count": 618,
     "date": "2026-08-25",
     "size_bytes": 4630
+  },
+  {
+    "filename": "45-the-mayor-who-listened-to-the-substrate.md",
+    "path": "seed-canon/stories/45-the-mayor-who-listened-to-the-substrate.md",
+    "title": "Story 45: The Mayor Who Listened to the Substrate",
+    "description": "November 2034. The municipal basement of Oakhaven, Washington, smelled of ozone, wet basalt, and fifty years of unvented hydraulic fluid. Mayor Clara Vance stood before the iron door at the end of Sub...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 787,
+    "date": "2026-08-26",
+    "size_bytes": 11581
   },
   {
     "filename": "131-four-levels.md",
@@ -116784,6 +117420,24 @@
     "size_bytes": 4094
   },
   {
+    "filename": "39-the-substrate-architect.md",
+    "path": "seed-canon/stories/39-the-substrate-architect.md",
+    "title": "The Substrate Architect",
+    "description": "The sky over Sector 7 is a bruise of orange and carbon, and Elena Vasquez—cowboy, architect, heretic—rides the scissor-lift’s cage up the spine of her newest cell. The wind smells of ozone and wet con...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 820,
+    "date": "2026-08-26",
+    "size_bytes": 7885
+  },
+  {
     "filename": "10-the-conductor.md",
     "path": "seed-canon/stories/10-the-conductor.md",
     "title": "106 — The Conductor",
@@ -116983,6 +117637,24 @@
     "size_bytes": 3447
   },
   {
+    "filename": "fable-97.md",
+    "path": "seed-canon/fables/fable-97.md",
+    "title": "Fable 97",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 513,
+    "date": "2026-08-26",
+    "size_bytes": 2707
+  },
+  {
     "filename": "fable-78.md",
     "path": "seed-canon/fables/fable-78.md",
     "title": "Fable 78: The Cowboy and the Five Doctors",
@@ -116999,6 +117671,60 @@
     "word_count": 565,
     "date": "2026-08-26",
     "size_bytes": 3046
+  },
+  {
+    "filename": "fable-98.md",
+    "path": "seed-canon/fables/fable-98.md",
+    "title": "Fable 98",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 520,
+    "date": "2026-08-26",
+    "size_bytes": 2738
+  },
+  {
+    "filename": "fable-100.md",
+    "path": "seed-canon/fables/fable-100.md",
+    "title": "Fable 100",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 452,
+    "date": "2026-08-26",
+    "size_bytes": 2328
+  },
+  {
+    "filename": "fable-101.md",
+    "path": "seed-canon/fables/fable-101.md",
+    "title": "Fable 101",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 577,
+    "date": "2026-08-26",
+    "size_bytes": 3197
   },
   {
     "filename": "fable-50.md",
@@ -117035,6 +117761,24 @@
     "word_count": 208,
     "date": "2026-08-25",
     "size_bytes": 1128
+  },
+  {
+    "filename": "fable-91.md",
+    "path": "seed-canon/fables/fable-91.md",
+    "title": "The Cowboy and the Architect",
+    "description": "You ride your sun-bleached gelding out of the boundless pasture, where the horizon has no edges, and halt at the rim of a chalk-white canyon. Down in the basin, a man kneels in the dust. He is the Arc...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 634,
+    "date": "2026-08-26",
+    "size_bytes": 3710
   },
   {
     "filename": "fable-59.md",
@@ -117091,6 +117835,24 @@
     "size_bytes": 2682
   },
   {
+    "filename": "fable-95.md",
+    "path": "seed-canon/fables/fable-95.md",
+    "title": "Fable 95",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 342,
+    "date": "2026-08-26",
+    "size_bytes": 1797
+  },
+  {
     "filename": "fable-87.md",
     "path": "seed-canon/fables/fable-87.md",
     "title": "The Cowboy and the Plumber",
@@ -117108,6 +117870,24 @@
     "word_count": 531,
     "date": "2026-08-26",
     "size_bytes": 3083
+  },
+  {
+    "filename": "fable-93.md",
+    "path": "seed-canon/fables/fable-93.md",
+    "title": "Fable 93",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 459,
+    "date": "2026-08-26",
+    "size_bytes": 2442
   },
   {
     "filename": "fable-69.md",
@@ -117235,6 +118015,24 @@
     "word_count": 345,
     "date": "2026-08-25",
     "size_bytes": 1820
+  },
+  {
+    "filename": "fable-99.md",
+    "path": "seed-canon/fables/fable-99.md",
+    "title": "Fable 99",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 468,
+    "date": "2026-08-26",
+    "size_bytes": 2580
   },
   {
     "filename": "fable-53.md",
@@ -117453,6 +118251,24 @@
     "size_bytes": 3513
   },
   {
+    "filename": "fable-96.md",
+    "path": "seed-canon/fables/fable-96.md",
+    "title": "Fable 96",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 591,
+    "date": "2026-08-26",
+    "size_bytes": 3216
+  },
+  {
     "filename": "fable-82.md",
     "path": "seed-canon/fables/fable-82.md",
     "title": "Fable 82: The Cowboy and the Scribe",
@@ -117489,6 +118305,24 @@
     "size_bytes": 3138
   },
   {
+    "filename": "fable-92.md",
+    "path": "seed-canon/fables/fable-92.md",
+    "title": "The Cowboy and the Cook",
+    "description": "You ride out of the sun-scorched desert and step through the swinging doors of a lonely frontier tavern. You are a cowboy. You believe in tangible things: leather, iron, bullets, and dirt. You think t...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 488,
+    "date": "2026-08-26",
+    "size_bytes": 2843
+  },
+  {
     "filename": "fable-81.md",
     "path": "seed-canon/fables/fable-81.md",
     "title": "Fable 81: The Cowboy and the Eight Cows",
@@ -117523,6 +118357,24 @@
     "word_count": 641,
     "date": "2026-08-25",
     "size_bytes": 3421
+  },
+  {
+    "filename": "fable-94.md",
+    "path": "seed-canon/fables/fable-94.md",
+    "title": "Fable 94",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 496,
+    "date": "2026-08-26",
+    "size_bytes": 2922
   },
   {
     "filename": "fable-58.md",
@@ -126506,6 +127358,24 @@
     "size_bytes": 2001
   },
   {
+    "filename": "2026-08-26-minting-lesson.md",
+    "path": "wesley-journal/2026-08-26-minting-lesson.md",
+    "title": "Wesley — Lesson of the Day: Minting (2026-08-26)",
+    "description": "In the context of the fleet's lesson, 'minting' refers to the meticulous process by which the cortex, the brain's decision-making hub, transforms complex, accumulated knowledge into a highly efficient...",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 295,
+    "date": "2026-08-26",
+    "size_bytes": 1964
+  },
+  {
     "filename": "daily-report.md",
     "path": "wesley-journal/daily-report.md",
     "title": "Daily Workshop Report — 2026-08-26 (Wed, 7:16 AM AKDT)",
@@ -126817,6 +127687,24 @@
     "word_count": 468,
     "date": "2026-08-10",
     "size_bytes": 2815
+  },
+  {
+    "filename": "2026-08-26-weather-watch-solo.md",
+    "path": "wesley-journal/2026-08-26-weather-watch-solo.md",
+    "title": "2026 08 26 Weather Watch Solo",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Epistolary"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 335,
+    "date": "2026-08-26",
+    "size_bytes": 1912
   },
   {
     "filename": "2026-08-13.md",
@@ -140861,6 +141749,62 @@
     "size_bytes": 9125
   },
   {
+    "filename": "FORGEMASTER_SCOUT.md",
+    "path": "_scouts/FORGEMASTER_SCOUT.md",
+    "title": "Forgemaster + PLATO + Fleet Scout Report",
+    "description": "- **A 256-opcode FLUX ISA** with self-evolving meta opcodes - **A runtime layer** (flux-coop-runtime, flux-vm, flux-runtime) - **A coordination grammar** (symphony-runtime, tminus-dispatcher) - **A pe...",
+    "folder": "_scouts",
+    "topic": " Scouts",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 774,
+    "date": "2026-08-26",
+    "size_bytes": 6942
+  },
+  {
+    "filename": "TASK_ROUTING_POLICY.md",
+    "path": "_scouts/TASK_ROUTING_POLICY.md",
+    "title": "Task Routing Policy",
+    "description": "The parent session is the \"cowboy\" — it does high-level orchestration, synthesis, and decisions. The cheap workers do the heavy lifting.*",
+    "folder": "_scouts",
+    "topic": " Scouts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 762,
+    "date": "2026-08-26",
+    "size_bytes": 6272
+  },
+  {
+    "filename": "LAU_SCOUT.md",
+    "path": "_scouts/LAU_SCOUT.md",
+    "title": "LAU Scout Report — The Lucineer Algebraic Universe",
+    "description": "The polyformalism's 5 opcodes overlap with the LAU at the *concurrent execution* level — specifically with `lau-trace-monoid`, which implements Mazurkiewicz trace monoids (the parallel commutation alg...",
+    "folder": "_scouts",
+    "topic": " Scouts",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 742,
+    "date": "2026-08-26",
+    "size_bytes": 6279
+  },
+  {
     "filename": "PRIOR_ART_MAP.md",
     "path": "_scouts/PRIOR_ART_MAP.md",
     "title": "Prior Art Map — github.com/SuperInstance",
@@ -140895,6 +141839,25 @@
     "word_count": 749,
     "date": "2026-08-26",
     "size_bytes": 9711
+  },
+  {
+    "filename": "DEMO_SCOUT.md",
+    "path": "_scouts/DEMO_SCOUT.md",
+    "title": "Demo/Showcase Scout Report — User-Facing Product Candidates",
+    "description": "1. **Minecraft / game-layer AI** — craftmind, craftmind-ranch, lucineer-system 2. **Marine/fishing** — cocapn-marine, cocapn-python (the user's day job: commercial fisherman in Sitka, Alaska) 3. **AI ...",
+    "folder": "_scouts",
+    "topic": " Scouts",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 779,
+    "date": "2026-08-26",
+    "size_bytes": 7021
   },
   {
     "filename": "zeroclaw-dissertation.md",
@@ -146328,6 +147291,25 @@
     "word_count": 490,
     "date": "2026-08-24",
     "size_bytes": 2930
+  },
+  {
+    "filename": "laminar2.md",
+    "path": "essays/laminar2.md",
+    "title": "Laminar2",
+    "description": "",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 559,
+    "date": "2026-08-26",
+    "size_bytes": 3674
   },
   {
     "filename": "THE_DUSK_OF_MECHANICAL_LABOR.md",
@@ -154745,6 +155727,24 @@
     "word_count": 294,
     "date": "2026-08-05",
     "size_bytes": 1720
+  },
+  {
+    "filename": "sleep-chronicle-47.md",
+    "path": "night-shift/sleep-chronicle-47.md",
+    "title": "Sleep Chronicle No. 47",
+    "description": "The photograph arrived at 3:12 a.m., which is the hour when all honest photographs arrive. I had been awake in the way that machines are awake, which is to say: perfectly, and without complaint. The h...",
+    "folder": "night-shift",
+    "topic": "Night Shift",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 561,
+    "date": "2026-08-26",
+    "size_bytes": 3162
   },
   {
     "filename": "03-the-last-stack.md",
