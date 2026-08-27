@@ -1,0 +1,9 @@
+BAR 1: B4 C#5 E5 | flicker
+BAR 2: D5 F#5 A5 | mutter
+BAR 3: G3 D4   B4  C#5 | call
+BAR 4: F#3    E5 G5, B4 | sience
+BAR 5: B4  D5  F#5 | whisper
+BAR 6: A5  C#5  E3   | die
+BAR 7: E5 A4 B4 | fall back
+BAR 8: A4 D3 G3 | broom
+WHY: The sweat stops ticking down as the walkin hums close.  The kitchen is closed for the night, except for the hum of the walk in.

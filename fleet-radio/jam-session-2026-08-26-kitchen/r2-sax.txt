@@ -1,0 +1,27 @@
+BAR 1: A4 | whisper
+BAR 2:  D5 E5 | hiss
+BAR 3: A4 B4  D5 | here
+BAR 4: C5 E5 | glare
+BAR 5:B4  E5  G4 | clatter
+BAR 6:  E4 D5  C5 D5 | fade
+BAR 7: B4  D5  F4 |  high steam
+BAR 8: D5  C5  B3  | order
+
+Piano (after 4-count silence): A4 C5 E5 | gust
+Piano bar 2: A4 | press
+
+Piano bar 3: A4 | bubble
+Piano 4: E4 E5# C4 | swish
+Piano: 5 C4 5
+BAR 6:  E5  G4  A3: malk
+BAR 7: C4 | hum
+GRIDDLE: B4 A4 C5  | halo
+
+G3  E5  G5 |  steam
+GRIDDLE: Bar 3 D# 9th 7th Crumble
+C4 A4 C5 | madly? C4 busy B4| 4.
+DISHPIT: (4-count silence) D#5 C D5 E5
+PPIT:  E5 C5| COCK & FLOW
+DISHPIT: Bar 4 G4 F4 D5
+CHOKED 4-Count in bar 4..C4  F4 ...PUSSING sound.
+DISHPIT: F4 D5 | Rournm

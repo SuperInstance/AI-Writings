@@ -1,0 +1,10 @@
+BAR 1: E5 B4 | hiss
+BAR 2: | 
+BAR 3: | 
+BAR 4: | 
+BAR 5: C5 E5 G5 | press
+BAR 6: G5 B4 D5 | damp
+BAR 7: A4 C5 | sear
+BAR 8: E5 G5 B4 | choke
+
+WHY: The kitchen's rhythm and melody emerge from the sounds and actions of its components.
