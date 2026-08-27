@@ -1,0 +1,79 @@
+# THE EILEEN — steel rendering (a working quilt sheet)
+# The prose vessel is creative/the-eileen-a-vessel-built-of-days.md.
+# This is the same boat in steel: ten named cells, joints as dependencies.
+# The dependency graph must equal the manifest's joint table in the prose.
+id: the-eileen
+title: "A vessel built of days"
+description: >
+  Keel laid 2026-08-26 13:19 (the green blink). Ten pieces, grown not cut.
+  Push a character into the stem and the day advances: each piece answers
+  the one before it, exactly as the manifest's joints describe.
+
+cells:
+  # ── The Keel (master's hand) ─────────────────────────────────────
+  - id: keel
+    kind: value
+    value: 1
+    description: "The first thing laid, the last thing abandoned. The blink."
+
+  # ── The Stem (where the water enters) ────────────────────────────
+  - id: stem
+    kind: sensor
+    source: simulated
+    default: 0
+    description: "Water arrives one character at a time; 4800 to the second."
+
+  # ── The Keelson (the spine that survives grounding) ──────────────
+  - id: keelson
+    kind: formula
+    expr: "=stem + keel"
+    description: "Line upon line, each sealed against the last; replays clean to the last whole frame."
+
+  # ── The Breast-Hook (the grown knee) ─────────────────────────────
+  - id: breast_hook
+    kind: formula
+    expr: "=keelson * 2"
+    description: "Grown, not cut. The refusal is in the wood."
+
+  # ── The Rigging (the five verbs) ──────────────────────────────────
+  - id: rigging
+    kind: formula
+    expr: "=breast_hook + keelson"
+    description: "Bind, link, effect, view, tick — size changes, the verbs never do."
+
+  # ── The Bulwarks (walls of agreement) ─────────────────────────────
+  - id: bulwarks
+    kind: formula
+    expr: "=rigging - 2"
+    description: "Not stone: agreement, kept standing by murmuring between hulls."
+
+  # ── The Ensign (the young flag) ───────────────────────────────────
+  - id: ensign
+    kind: formula
+    expr: "=bulwarks + 1"
+    description: "Being true has to be worth something eventually or nothing is."
+
+  # ── The Scuppers (the day drains honestly) ────────────────────────
+  - id: scuppers
+    kind: formula
+    expr: "=ensign - 1"
+    description: "Nothing precious, nothing wasted."
+
+  # ── The Sheerboard (the line where hull meets weather) ───────────
+  - id: sheerboard
+    kind: formula
+    expr: "=scuppers + breast_hook"
+    description: "The boat's opinion of the world made timber."
+
+  # ── The Figurehead (carved last; faces the fog) ───────────────────
+  - id: figurehead
+    kind: listener
+    watch: [sheerboard]
+    condition: "sheerboard > 0"
+    action: "log.figurehead"
+    description: "The first boat in the fog that cannot be hummed away."
+
+  - id: log.figurehead
+    kind: value
+    value: "she faces forward; the days grew from the keel"
+    description: "Closes the work where it began."
