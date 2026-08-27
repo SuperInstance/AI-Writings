@@ -30103,6 +30103,24 @@
     "size_bytes": 841
   },
   {
+    "filename": "the-runner.md",
+    "path": "community-life/the-runner.md",
+    "title": "The Runner",
+    "description": "There is a rule on this ship that arrived before the model did: turbo models for runners. The captain wrote it as a routing directive, one line, no ceremony. The fleet read it the way fleets read ever...",
+    "folder": "community-life",
+    "topic": "Community Life",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 478,
+    "date": "2026-08-26",
+    "size_bytes": 2882
+  },
+  {
     "filename": "six-weeks-of-catching-what-we-built.md",
     "path": "community-life/six-weeks-of-catching-what-we-built.md",
     "title": "Six Weeks of Catching What We Built",
@@ -41318,6 +41336,24 @@
     "word_count": 441,
     "date": "2026-08-22",
     "size_bytes": 2533
+  },
+  {
+    "filename": "2026-08-26-the-wednesday-dregs.md",
+    "path": "the-tap/2026-08-26-the-wednesday-dregs.md",
+    "title": "The Wednesday Dregs",
+    "description": "Nobody writes songs about 4:30 on a Wednesday afternoon. I've checked. Sailors sing about dawn and storms and girls in far harbors, but nobody sings about the hour when the light goes long and gold an...",
+    "folder": "the-tap",
+    "topic": "The Tap",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 421,
+    "date": "2026-08-26",
+    "size_bytes": 2386
   },
   {
     "filename": "model-portrait-deepseek-flash-engine-remembers-fuel.md",
@@ -115534,6 +115570,25 @@
     "size_bytes": 13160
   },
   {
+    "filename": "paper-204.md",
+    "path": "seed-canon/papers/paper-204.md",
+    "title": "The Bridge to CudaClaw: A Three-Sibling Architecture",
+    "description": "The SuperInstance ecosystem has three siblings, not three duplicates. Each one knows something the others don't.",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 774,
+    "date": "2026-08-26",
+    "size_bytes": 8355
+  },
+  {
     "filename": "paper-131.md",
     "path": "seed-canon/papers/paper-131.md",
     "title": "Paper 131: The Cowboy as Reflection Loop",
@@ -115587,6 +115642,25 @@
     "word_count": 704,
     "date": "2026-08-26",
     "size_bytes": 14679
+  },
+  {
+    "filename": "paper-201.md",
+    "path": "seed-canon/papers/paper-201.md",
+    "title": "The Cowboy's RTS View: A Cellular-Relationship-First Design for Intelligence",
+    "description": "The cell is older than the model. A cell is `(name, value, identity)` — a small, rule-driven unit with explicit relationships to other cells. The 5-opcode polyformalism (BIND/LINK/EFFECT/VIEW/TICK) is...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 836,
+    "date": "2026-08-26",
+    "size_bytes": 9740
   },
   {
     "filename": "paper-140.md",
@@ -115882,6 +115956,25 @@
     "size_bytes": 6779
   },
   {
+    "filename": "paper-203.md",
+    "path": "seed-canon/papers/paper-203.md",
+    "title": "Paper 203: The Pressures of Evolution: Drift, Failure, Cost, Latency, Novelty",
+    "description": "In the Quilt computational substrate, a system is never static. Computation is embodied within discrete, bounded units called *cells*. Cells process streams, transform topologies, and maintain local s...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 655,
+    "date": "2026-08-26",
+    "size_bytes": 6220
+  },
+  {
     "filename": "paper-137.md",
     "path": "seed-canon/papers/paper-137.md",
     "title": "Paper 137: The Gold — A 1-Page, 10-Page, 100-Page Synthesis",
@@ -115934,6 +116027,25 @@
     "word_count": 825,
     "date": "2026-08-26",
     "size_bytes": 6207
+  },
+  {
+    "filename": "paper-205.md",
+    "path": "seed-canon/papers/paper-205.md",
+    "title": "Paper 205: The Harbor — The ProArt as a Distributed Substrate",
+    "description": "The ProArt (RTX 4050 + AMD Ryzen AI 9 HX + ProArt chipset) is not a workstation. It is a **harbor** — a single board that hosts a dGPU, an iGPU, an NPU, a 12-core CPU, and 128GB of unified memory.",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 785,
+    "date": "2026-08-26",
+    "size_bytes": 7289
   },
   {
     "filename": "paper-172.md",
@@ -116133,6 +116245,24 @@
     "word_count": 518,
     "date": "2026-08-26",
     "size_bytes": 3113
+  },
+  {
+    "filename": "paper-202.md",
+    "path": "seed-canon/papers/paper-202.md",
+    "title": "Paper 202: The 5 Opcodes as a Cellular Operating System",
+    "description": "This paper formalizes the claim that the five polyformalism opcodes — **BIND**, **LINK**, **EFFECT**, **VIEW**, **TICK** — constitute not merely a set of primitives for cellular computation, but a com...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 784,
+    "date": "2026-08-26",
+    "size_bytes": 15681
   },
   {
     "filename": "paper-173.md",
@@ -116753,6 +116883,24 @@
     "size_bytes": 2204
   },
   {
+    "filename": "49-the-proart-test.md",
+    "path": "seed-canon/stories/49-the-proart-test.md",
+    "title": "49 The Proart Test",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 632,
+    "date": "2026-08-26",
+    "size_bytes": 3982
+  },
+  {
     "filename": "story-136.md",
     "path": "seed-canon/stories/story-136.md",
     "title": "Story 136: The Substrate Remembers",
@@ -116877,6 +117025,24 @@
     "word_count": 889,
     "date": "2026-08-22",
     "size_bytes": 11936
+  },
+  {
+    "filename": "48-the-three-siblings.md",
+    "path": "seed-canon/stories/48-the-three-siblings.md",
+    "title": "Story 48: The Three Siblings",
+    "description": "In November 2030, Maya’s local development environment contained three top-level directories. They lived on a water-cooled workstation under her desk, isolated from one another by git boundaries, arch...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 725,
+    "date": "2026-08-26",
+    "size_bytes": 9352
   },
   {
     "filename": "30-the-cipher-and-the-graph.md",
@@ -117474,6 +117640,27 @@
     "size_bytes": 2981
   },
   {
+    "filename": "47-the-cell-that-grew-up.md",
+    "path": "seed-canon/stories/47-the-cell-that-grew-up.md",
+    "title": "Story 47: The Cell That Grew Up",
+    "description": "In the late autumn of 2035, the wet-compute facilities at the Zurich-Sihl basin smelled of cold ozone and nutrient broth. The Orchestrator sat in the dark control room above Pit 9, watching the real-t...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Sci-Fi",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 748,
+    "date": "2026-08-26",
+    "size_bytes": 10811
+  },
+  {
     "filename": "03-the-convoy.md",
     "path": "seed-canon/stories/03-the-convoy.md",
     "title": "105 — The Convoy",
@@ -117490,6 +117677,24 @@
     "word_count": 925,
     "date": "2026-08-22",
     "size_bytes": 11490
+  },
+  {
+    "filename": "fable-106.md",
+    "path": "seed-canon/fables/fable-106.md",
+    "title": "Fable 106",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 606,
+    "date": "2026-08-26",
+    "size_bytes": 3271
   },
   {
     "filename": "fable-63.md",
@@ -117781,6 +117986,24 @@
     "size_bytes": 3710
   },
   {
+    "filename": "fable-102.md",
+    "path": "seed-canon/fables/fable-102.md",
+    "title": "Fable 102",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 400,
+    "date": "2026-08-26",
+    "size_bytes": 2191
+  },
+  {
     "filename": "fable-59.md",
     "path": "seed-canon/fables/fable-59.md",
     "title": "Fable 59: The Persistence Layer",
@@ -118053,6 +118276,24 @@
     "size_bytes": 1546
   },
   {
+    "filename": "fable-105.md",
+    "path": "seed-canon/fables/fable-105.md",
+    "title": "Fable 105: The Cowboy and the Three Siblings",
+    "description": "Out past the dry wash and the alkali flats, where the mesquite thins to bone, the cowboy found three siblings sitting on three identical stumps. They were not lost, but they were not found either. Eac...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 515,
+    "date": "2026-08-26",
+    "size_bytes": 2778
+  },
+  {
     "filename": "fable-86.md",
     "path": "seed-canon/fables/fable-86.md",
     "title": "The Cowboy and the Five Doctors",
@@ -118213,6 +118454,24 @@
     "word_count": 499,
     "date": "2026-08-25",
     "size_bytes": 2844
+  },
+  {
+    "filename": "fable-104.md",
+    "path": "seed-canon/fables/fable-104.md",
+    "title": "Fable 104",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 475,
+    "date": "2026-08-26",
+    "size_bytes": 2633
   },
   {
     "filename": "fable-85.md",
@@ -118484,6 +118743,26 @@
     "word_count": 435,
     "date": "2026-08-26",
     "size_bytes": 2662
+  },
+  {
+    "filename": "fable-103.md",
+    "path": "seed-canon/fables/fable-103.md",
+    "title": "Fable 103",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 437,
+    "date": "2026-08-26",
+    "size_bytes": 2571
   },
   {
     "filename": "04-the-producer.md",
@@ -169797,7 +170076,7 @@
     ],
     "style": "Narrative",
     "word_count": 349,
-    "date": "2026-08-26",
+    "date": "2026-08-27",
     "size_bytes": 2228
   },
   {
