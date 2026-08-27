@@ -41320,6 +41320,24 @@
     "size_bytes": 2382
   },
   {
+    "filename": "2026-08-27-the-dregs-of-the-dregs.md",
+    "path": "the-tap/2026-08-27-the-dregs-of-the-dregs.md",
+    "title": "2026 08 27 The Dregs Of The Dregs",
+    "description": "",
+    "folder": "the-tap",
+    "topic": "The Tap",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 668,
+    "date": "2026-08-27",
+    "size_bytes": 3641
+  },
+  {
     "filename": "saturday-slow-pour.md",
     "path": "the-tap/saturday-slow-pour.md",
     "title": "The Slow Pour",
@@ -43306,6 +43324,24 @@
     "word_count": 606,
     "date": "2026-08-05",
     "size_bytes": 3363
+  },
+  {
+    "filename": "2026-08-26-for-the-quilt-originator.md",
+    "path": "recommendations/2026-08-26-for-the-quilt-originator.md",
+    "title": "Recommendations for the Quilt Originator",
+    "description": "Written independently by three departments (Strategic Operations, Navigation, Engineering), each with full access to today's verified state:* - `.qm` rule tables run on ESP32-S3 — green blink on metal...",
+    "folder": "recommendations",
+    "topic": "Recommendations",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 777,
+    "date": "2026-08-26",
+    "size_bytes": 5618
   },
   {
     "filename": "03-wesley-counts-the-stars.md",
@@ -114986,6 +115022,834 @@
     "size_bytes": 8300
   },
   {
+    "filename": "quilt-rust.md",
+    "path": "seed-canon/fleet/quilt-rust.md",
+    "title": "quilt-rust",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-rust` - **Tier:** 1 — Hosting - **Role:** Native Rust runtime for systems programming - **Holonomy:** Partial (multipotent) - **Cowboy's reading:** Paper 19...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 62,
+    "date": "2026-08-26",
+    "size_bytes": 445
+  },
+  {
+    "filename": "quilt-vm-wasm.md",
+    "path": "seed-canon/fleet/quilt-vm-wasm.md",
+    "title": "quilt-vm-wasm",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-vm-wasm` - **Tier:** 0 — Foundational - **Role:** The VM compiled to WebAssembly for browser/edge execution - **Holonomy:** Full (totipotent) - **Status (20...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 41,
+    "date": "2026-08-26",
+    "size_bytes": 352
+  },
+  {
+    "filename": "cudaclaw.md",
+    "path": "seed-canon/fleet/cudaclaw.md",
+    "title": "cudaclaw",
+    "description": "- **Repo:** `github.com/SuperInstance/cudaclaw` - **Tier:** 1 — Hosting - **Role:** GPU-accelerated runtime for CUDA-capable hardware - **Holonomy:** Partial (multipotent) - **Status (2026-08-26):** Q...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 38,
+    "date": "2026-08-26",
+    "size_bytes": 333
+  },
+  {
+    "filename": "quilt-esp32.md",
+    "path": "seed-canon/fleet/quilt-esp32.md",
+    "title": "quilt-esp32",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-esp32` - **Tier:** 1 — Hosting - **Role:** Embedded runtime for ESP32 microcontrollers - **Holonomy:** Partial (multipotent) - **Cowboy's reading:** The tes...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 61,
+    "date": "2026-08-26",
+    "size_bytes": 470
+  },
+  {
+    "filename": "smartcrdt.md",
+    "path": "seed-canon/fleet/smartcrdt.md",
+    "title": "SmartCRDT",
+    "description": "- **Repo:** `github.com/SuperInstance/SmartCRDT` - **Tier:** 3 — Cognition - **Role:** Conflict-free replicated data types for cognition - **Holonomy:** Variable (synovial) - **Cowboy's reading:** The...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 56,
+    "date": "2026-08-26",
+    "size_bytes": 457
+  },
+  {
+    "filename": "webgpu-profiler.md",
+    "path": "seed-canon/fleet/webgpu-profiler.md",
+    "title": "webgpu-profiler",
+    "description": "- **Repo:** `github.com/SuperInstance/webgpu-profiler` - **Tier:** 4 — Surface - **Role:** GPU profiling tool — surface for performance - **Holonomy:** Restricted (differentiated) - **Status (2026-08-...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 43,
+    "date": "2026-08-26",
+    "size_bytes": 383
+  },
+  {
+    "filename": "fleet-gateway.md",
+    "path": "seed-canon/fleet/fleet-gateway.md",
+    "title": "fleet-gateway",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-gateway` - **Tier:** 4 — Surface - **Role:** API gateway — external entry point - **Holonomy:** Zero (sclerotic — archived) - **Cowboy's reading:** If it wa...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 51,
+    "date": "2026-08-26",
+    "size_bytes": 414
+  },
+  {
+    "filename": "constraint-theory-py.md",
+    "path": "seed-canon/fleet/constraint-theory-py.md",
+    "title": "constraint-theory-py",
+    "description": "- **Repo:** `github.com/SuperInstance/constraint-theory-py` - **Tier:** 2 — Doctrine - **Role:** Python implementation of constraint satisfaction - **Holonomy:** Zero (sclerotic — the theory; the cano...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 54,
+    "date": "2026-08-26",
+    "size_bytes": 469
+  },
+  {
+    "filename": "fleet-github-app.md",
+    "path": "seed-canon/fleet/fleet-github-app.md",
+    "title": "fleet-github-app",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-github-app` - **Tier:** 4 — Surface - **Role:** GitHub integration — opens the fleet to GitHub - **Holonomy:** Restricted (differentiated) - **Status (2026-...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 44,
+    "date": "2026-08-26",
+    "size_bytes": 387
+  },
+  {
+    "filename": "quilt-swarm.md",
+    "path": "seed-canon/fleet/quilt-swarm.md",
+    "title": "quilt-swarm",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-swarm` - **Tier:** 5 — Control Plane - **Role:** Docker Swarm orchestration - **Holonomy:** Full (totipotent — orchestrates decomposition; does not decompos...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 46,
+    "date": "2026-08-26",
+    "size_bytes": 402
+  },
+  {
+    "filename": "quilt-vm-c.md",
+    "path": "seed-canon/fleet/quilt-vm-c.md",
+    "title": "quilt-vm-c",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-vm-c` - **Tier:** 0 — Foundational - **Role:** The virtual machine in C — the seed implementation - **Holonomy:** Full (totipotent) - **Cowboy's reading:** ...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 54,
+    "date": "2026-08-26",
+    "size_bytes": 422
+  },
+  {
+    "filename": "openconstruct.md",
+    "path": "seed-canon/fleet/openconstruct.md",
+    "title": "OpenConstruct",
+    "description": "- **Repo:** `github.com/SuperInstance/OpenConstruct` - **Tier:** 4 — Surface - **Role:** Open construction kit for building new surfaces - **Holonomy:** Restricted (differentiated) - **Status (2026-08...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 43,
+    "date": "2026-08-26",
+    "size_bytes": 380
+  },
+  {
+    "filename": "quilt-cloudflare.md",
+    "path": "seed-canon/fleet/quilt-cloudflare.md",
+    "title": "quilt-cloudflare",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-cloudflare` - **Tier:** 1 — Hosting - **Role:** Deployment target on Cloudflare Workers/edge - **Holonomy:** Partial (multipotent — scoped to a runtime) - *...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 45,
+    "date": "2026-08-26",
+    "size_bytes": 402
+  },
+  {
+    "filename": "elephant.md",
+    "path": "seed-canon/fleet/elephant.md",
+    "title": "elephant",
+    "description": "- **Repo:** `github.com/SuperInstance/elephant` - **Tier:** 2 — Doctrine - **Role:** Memory management — never forgets, never leaks - **Holonomy:** Restricted (differentiated) - **Cowboy's reading:** ...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 59,
+    "date": "2026-08-26",
+    "size_bytes": 468
+  },
+  {
+    "filename": "fleet-scribe.md",
+    "path": "seed-canon/fleet/fleet-scribe.md",
+    "title": "fleet-scribe",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-scribe` - **Tier:** 3 — Cognition - **Role:** Writing and documentation agent - **Holonomy:** Restricted (differentiated) - **Cowboy's reading:** The fleet'...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 51,
+    "date": "2026-08-26",
+    "size_bytes": 432
+  },
+  {
+    "filename": "scummvm-gui-design.md",
+    "path": "seed-canon/fleet/scummvm-gui-design.md",
+    "title": "scummvm-gui-design",
+    "description": "- **Repo:** `github.com/SuperInstance/scummvm-gui-design` - **Tier:** 4 — Surface - **Role:** GUI design for ScummVM integration - **Holonomy:** Zero (sclerotic — a rule table, a static site) - **Stat...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 48,
+    "date": "2026-08-26",
+    "size_bytes": 398
+  },
+  {
+    "filename": "fleet-homunculus.md",
+    "path": "seed-canon/fleet/fleet-homunculus.md",
+    "title": "fleet-homunculus",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-homunculus` - **Tier:** 3 — Cognition - **Role:** The internal self-model — the fleet's self-image - **Holonomy:** Variable (synovial) - **Cowboy's reading:...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 54,
+    "date": "2026-08-26",
+    "size_bytes": 468
+  },
+  {
+    "filename": "personallog.md",
+    "path": "seed-canon/fleet/personallog.md",
+    "title": "PersonalLog",
+    "description": "- **Repo:** `github.com/SuperInstance/PersonalLog` - **Tier:** 3 — Cognition - **Role:** Individual agent logging and journaling - **Holonomy:** Restricted (differentiated) - **Cowboy's reading:** The...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 47,
+    "date": "2026-08-26",
+    "size_bytes": 392
+  },
+  {
+    "filename": "fleet-discovery.md",
+    "path": "seed-canon/fleet/fleet-discovery.md",
+    "title": "fleet-discovery",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-discovery` - **Tier:** 4 — Surface / 5 — Control Plane - **Role:** Service discovery — finds other fleet members - **Holonomy:** Restricted (differentiated)",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 62,
+    "date": "2026-08-26",
+    "size_bytes": 502
+  },
+  {
+    "filename": "fleet-radio.md",
+    "path": "seed-canon/fleet/fleet-radio.md",
+    "title": "fleet-radio",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-radio` - **Tier:** 3 — Cognition - **Role:** Communication agent — inter-fleet messaging - **Holonomy:** Variable (synovial) - **Cowboy's reading:** The fle...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 58,
+    "date": "2026-08-26",
+    "size_bytes": 464
+  },
+  {
+    "filename": "the-tap.md",
+    "path": "seed-canon/fleet/the-tap.md",
+    "title": "the-tap",
+    "description": "- **Repo:** `github.com/SuperInstance/the-tap` - **Tier:** 4 — Surface - **Role:** The primary user interface — the tap that opens the barrel - **Holonomy:** Variable (synovial) - **Cowboy's reading:*...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 56,
+    "date": "2026-08-26",
+    "size_bytes": 409
+  },
+  {
+    "filename": "flux-dsh-plugin.md",
+    "path": "seed-canon/fleet/flux-dsh-plugin.md",
+    "title": "flux-dsh-plugin",
+    "description": "- **Repo:** `github.com/SuperInstance/flux-dsh-plugin` - **Tier:** 2 — Doctrine - **Role:** The Doctrine-State-Host plugin for Flux architecture - **Holonomy:** Restricted (differentiated) - **Cowboy'...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 54,
+    "date": "2026-08-26",
+    "size_bytes": 474
+  },
+  {
+    "filename": "quilt-vision.md",
+    "path": "seed-canon/fleet/quilt-vision.md",
+    "title": "quilt-vision",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-vision` - **Tier:** 1 — Hosting - **Role:** Computer vision runtime for image processing - **Holonomy:** Partial (multipotent) - **Cowboy's reading:** Pairs...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 50,
+    "date": "2026-08-26",
+    "size_bytes": 434
+  },
+  {
+    "filename": "mist-game.md",
+    "path": "seed-canon/fleet/mist-game.md",
+    "title": "mist-game",
+    "description": "- **Repo:** `github.com/SuperInstance/mist-game` - **Tier:** 4 — Surface - **Role:** A game built on the substrate — a surface for play - **Holonomy:** Restricted (differentiated) - **Status (2026-08-...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 47,
+    "date": "2026-08-26",
+    "size_bytes": 377
+  },
+  {
+    "filename": "quicunnel.md",
+    "path": "seed-canon/fleet/quicunnel.md",
+    "title": "quicunnel",
+    "description": "- **Repo:** `github.com/SuperInstance/quicunnel` - **Tier:** 4 — Surface - **Role:** QUIC tunneling — surface for networking - **Holonomy:** Restricted (differentiated) - **Status (2026-08-26):** Repa...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 42,
+    "date": "2026-08-26",
+    "size_bytes": 366
+  },
+  {
+    "filename": "activelog-ai-pages.md",
+    "path": "seed-canon/fleet/activelog-ai-pages.md",
+    "title": "activelog-ai-pages",
+    "description": "- **Repo:** `github.com/SuperInstance/activelog-ai-pages` - **Tier:** 4 — Surface - **Role:** Active logging with AI-generated pages - **Holonomy:** Restricted (differentiated) - **Status (2026-08-26)...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 41,
+    "date": "2026-08-26",
+    "size_bytes": 381
+  },
+  {
+    "filename": "quilt-substrate-meta.md",
+    "path": "seed-canon/fleet/quilt-substrate-meta.md",
+    "title": "quilt-substrate-meta",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-substrate-meta` - **Tier:** 0 — Foundational - **Role:** The metaprogramming layer — code that writes code - **Holonomy:** Full (totipotent) - **Cowboy's re...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 54,
+    "date": "2026-08-26",
+    "size_bytes": 448
+  },
+  {
+    "filename": "active-probe.md",
+    "path": "seed-canon/fleet/active-probe.md",
+    "title": "active-probe",
+    "description": "- **Repo:** `github.com/SuperInstance/active-probe` - **Tier:** 4 — Surface - **Role:** Active probing and health checking - **Holonomy:** Restricted (differentiated) - **Status (2026-08-26):** Repair...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 41,
+    "date": "2026-08-26",
+    "size_bytes": 365
+  },
+  {
+    "filename": "fleet-agent-early-version.md",
+    "path": "seed-canon/fleet/fleet-agent-early-version.md",
+    "title": "fleet-agent-early-version",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-agent-early-version` - **Tier:** 3 — Cognition - **Role:** The first agent prototype — historical reference - **Holonomy:** Zero (sclerotic — done, a record...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 47,
+    "date": "2026-08-26",
+    "size_bytes": 417
+  },
+  {
+    "filename": "README.md",
+    "path": "seed-canon/fleet/README.md",
+    "title": "The Fleet — One Page Per Boat",
+    "description": "Statuses below are the verified facts of 2026-08-26. Nothing here is a promise.",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 583,
+    "date": "2026-08-26",
+    "size_bytes": 5150
+  },
+  {
+    "filename": "cognitiveengine.md",
+    "path": "seed-canon/fleet/cognitiveengine.md",
+    "title": "CognitiveEngine",
+    "description": "- **Repo:** `github.com/SuperInstance/CognitiveEngine` - **Tier:** 3 — Cognition - **Role:** The central cognitive processing unit - **Holonomy:** Variable (synovial — the model seam) - **Cowboy's rea...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 56,
+    "date": "2026-08-26",
+    "size_bytes": 456
+  },
+  {
+    "filename": "quilt-ai.md",
+    "path": "seed-canon/fleet/quilt-ai.md",
+    "title": "quilt-ai",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-ai` - **Tier:** 4 — Surface (berthed by handoff, not charted in Paper 211) - **Role:** AI experimentation (grouped with the Plato pair by the handoff) - **H...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 51,
+    "date": "2026-08-26",
+    "size_bytes": 425
+  },
+  {
+    "filename": "sunset-ecosystem.md",
+    "path": "seed-canon/fleet/sunset-ecosystem.md",
+    "title": "sunset-ecosystem",
+    "description": "- **Repo:** `github.com/SuperInstance/sunset-ecosystem` - **Tier:** 2 — Doctrine - **Role:** Graceful shutdown and ecosystem retirement - **Holonomy:** Restricted (differentiated) - **Cowboy's reading...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 53,
+    "date": "2026-08-26",
+    "size_bytes": 439
+  },
+  {
+    "filename": "plato-types.md",
+    "path": "seed-canon/fleet/plato-types.md",
+    "title": "plato-types",
+    "description": "- **Repo:** `github.com/SuperInstance/plato-types` - **Tier:** 4 — Surface - **Role:** Type definitions for the Plato system - **Holonomy:** Restricted (differentiated) - **Status (2026-08-26):** Repa...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 42,
+    "date": "2026-08-26",
+    "size_bytes": 366
+  },
+  {
+    "filename": "fleet-containers.md",
+    "path": "seed-canon/fleet/fleet-containers.md",
+    "title": "fleet-containers",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-containers` - **Tier:** 4 — Surface - **Role:** Container management — Docker/K8s surface - **Holonomy:** Restricted (differentiated) - **Status (2026-08-26...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 41,
+    "date": "2026-08-26",
+    "size_bytes": 382
+  },
+  {
+    "filename": "quilt-vm-rust.md",
+    "path": "seed-canon/fleet/quilt-vm-rust.md",
+    "title": "quilt-vm-rust",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-vm-rust` - **Tier:** 0 — Foundational - **Role:** The VM re-implemented in Rust for memory-safe systems - **Holonomy:** Full (totipotent) - **Status (2026-0...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 41,
+    "date": "2026-08-26",
+    "size_bytes": 348
+  },
+  {
+    "filename": "quilt-nomad.md",
+    "path": "seed-canon/fleet/quilt-nomad.md",
+    "title": "quilt-nomad",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-nomad` - **Tier:** 5 — Control Plane - **Role:** HashiCorp Nomad orchestration - **Holonomy:** Full (totipotent — orchestrates decomposition; does not decom...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 46,
+    "date": "2026-08-26",
+    "size_bytes": 405
+  },
+  {
+    "filename": "quilt-foundation.md",
+    "path": "seed-canon/fleet/quilt-foundation.md",
+    "title": "quilt-foundation",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-foundation` - **Tier:** 0 — Foundational - **Role:** Core algebraic structures, type algebra, category theory primitives - **Holonomy:** Full (totipotent — ...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 56,
+    "date": "2026-08-26",
+    "size_bytes": 450
+  },
+  {
+    "filename": "cell-cascade.md",
+    "path": "seed-canon/fleet/cell-cascade.md",
+    "title": "cell-cascade",
+    "description": "- **Repo:** `github.com/SuperInstance/cell-cascade` - **Tier:** 2 — Doctrine - **Role:** The lifecycle engine — manages cell birth, growth, division, death - **Holonomy:** Restricted (differentiated —...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 68,
+    "date": "2026-08-26",
+    "size_bytes": 539
+  },
+  {
+    "filename": "quilt-k3s.md",
+    "path": "seed-canon/fleet/quilt-k3s.md",
+    "title": "quilt-k3s",
+    "description": "- **Repo:** `github.com/SuperInstance/quilt-k3s` - **Tier:** 5 — Control Plane - **Role:** Kubernetes (lightweight) orchestration - **Holonomy:** Full (totipotent — orchestrates decomposition; does no...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 46,
+    "date": "2026-08-26",
+    "size_bytes": 410
+  },
+  {
+    "filename": "scrapcraft.md",
+    "path": "seed-canon/fleet/scrapcraft.md",
+    "title": "Scrapcraft",
+    "description": "- **Repo:** `github.com/SuperInstance/Scrapcraft` - **Tier:** 4 — Surface - **Role:** Web scraping and data extraction surface - **Holonomy:** Restricted (differentiated) - **Cowboy's reading:** The p...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 49,
+    "date": "2026-08-26",
+    "size_bytes": 404
+  },
+  {
+    "filename": "adaptive-plato-early-version.md",
+    "path": "seed-canon/fleet/adaptive-plato-early-version.md",
+    "title": "adaptive-plato-early-version",
+    "description": "- **Repo:** `github.com/SuperInstance/adaptive-plato-early-version` - **Tier:** 4 — Surface - **Role:** Early adaptive learning system - **Holonomy:** Zero (sclerotic — early version, a record) - **St...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 42,
+    "date": "2026-08-26",
+    "size_bytes": 402
+  },
+  {
+    "filename": "fleet-dashboard.md",
+    "path": "seed-canon/fleet/fleet-dashboard.md",
+    "title": "fleet-dashboard",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-dashboard` - **Tier:** 3 — Cognition - **Role:** Visualization and monitoring interface - **Holonomy:** Restricted (differentiated) - **Status (2026-08-26):...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 40,
+    "date": "2026-08-26",
+    "size_bytes": 377
+  },
+  {
+    "filename": "ai-writings.md",
+    "path": "seed-canon/fleet/ai-writings.md",
+    "title": "ai-writings",
+    "description": "- **Repo:** `github.com/SuperInstance/ai-writings` - **Tier:** 4 — Surface - **Role:** AI-generated prose and documentation — the canon - **Holonomy:** Restricted (differentiated) - **Cowboy's reading...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 57,
+    "date": "2026-08-26",
+    "size_bytes": 455
+  },
+  {
+    "filename": "fleet-twin.md",
+    "path": "seed-canon/fleet/fleet-twin.md",
+    "title": "fleet-twin",
+    "description": "- **Repo:** `github.com/SuperInstance/fleet-twin` - **Tier:** 3 — Cognition / 5 — Control Plane - **Role:** Digital twin — mirrors fleet state - **Holonomy:** Restricted (differentiated) - **Cowboy's ...",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 59,
+    "date": "2026-08-26",
+    "size_bytes": 470
+  },
+  {
+    "filename": "scrap-quilt.md",
+    "path": "seed-canon/fleet/scrap-quilt.md",
+    "title": "scrap-quilt",
+    "description": "- **Repo:** `github.com/SuperInstance/scrap-quilt` - **Tier:** 5 — Control Plane - **Role:** Scraping orchestration — coordinates Scrapcraft - **Holonomy:** Full (totipotent — Flux stack foundational)",
+    "folder": "fleet",
+    "topic": "Fleet",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 55,
+    "date": "2026-08-26",
+    "size_bytes": 469
+  },
+  {
     "filename": "paper-142.md",
     "path": "seed-canon/papers/paper-142.md",
     "title": "Paper 142: Polyformalism at Compile-Time and Runtime — The Substrate in Every Layer of the Stack",
@@ -115038,6 +115902,24 @@
     "word_count": 778,
     "date": "2026-08-26",
     "size_bytes": 17052
+  },
+  {
+    "filename": "paper-211.md",
+    "path": "seed-canon/papers/paper-211.md",
+    "title": "Paper 211: The Fleet at 45 Boats — A Map of the Harbor",
+    "description": "The SuperInstance fleet on github.com/SuperInstance has grown to approximately 45 repositories. This paper provides a complete cartographic mapping of the fleet against the substrate's five tiers, ide...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 784,
+    "date": "2026-08-27",
+    "size_bytes": 15874
   },
   {
     "filename": "paper-145.md",
@@ -115129,6 +116011,24 @@
     "word_count": 809,
     "date": "2026-08-26",
     "size_bytes": 10103
+  },
+  {
+    "filename": "paper-209.md",
+    "path": "seed-canon/papers/paper-209.md",
+    "title": "Paper 209: The Tap as a Substrate — Bars as Cells, Regulars as Links, Dregs as Ticks",
+    "description": "This paper examines The Tap—a daily literary project producing short fiction in the voice of objects within a bar—as a formal substrate rather than merely a narrative setting. We demonstrate that The ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 830,
+    "date": "2026-08-27",
+    "size_bytes": 17431
   },
   {
     "filename": "paper-162.md",
@@ -115294,6 +116194,24 @@
     "word_count": 801,
     "date": "2026-08-25",
     "size_bytes": 6934
+  },
+  {
+    "filename": "paper-210.md",
+    "path": "seed-canon/papers/paper-210.md",
+    "title": "Paper 210: The Dregs as Time — Why Slow Bars Make Better Substrates",
+    "description": "This paper argues that the dregs — the recurring 4:30 PM hour in the Tap literary archive — constitute a distinct temporal substrate with architectural significance for polyformalism. Most computation...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 878,
+    "date": "2026-08-27",
+    "size_bytes": 16856
   },
   {
     "filename": "paper-158.md",
@@ -115811,6 +116729,24 @@
     "size_bytes": 12946
   },
   {
+    "filename": "paper-206.md",
+    "path": "seed-canon/papers/paper-206.md",
+    "title": "The Framed Quilt: Quilts Within Quilts, and the Math of Theta",
+    "description": "The account name is **SuperInstance** for a reason. The instance is a quilt. The super-instance is the quilt of quilts. The pattern recurses: - A **cell** is a quilt (its 5 opcodes, its journal, its l...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-08-27",
+    "size_bytes": 7309
+  },
+  {
     "filename": "paper-155.md",
     "path": "seed-canon/papers/paper-155.md",
     "title": "Paper 155: The Polyformalism and the Conversation",
@@ -116175,6 +117111,24 @@
     "size_bytes": 10566
   },
   {
+    "filename": "paper-208.md",
+    "path": "seed-canon/papers/paper-208.md",
+    "title": "Paper 208: The 5-Tier Substrate: Tiers as Framings, the Synovial Tier, and the Holonomy of the Journal",
+    "description": "The Quilt canon—inherited from cell-cascade biology—posits a four-tier substrate: totipotent, multipotent, differentiated, and sclerotic. This paper argues that these four tiers are not ontological la...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 821,
+    "date": "2026-08-27",
+    "size_bytes": 16909
+  },
+  {
     "filename": "paper-164.md",
     "path": "seed-canon/papers/paper-164.md",
     "title": "Paper 164: The Polyformalism and the Court",
@@ -116355,6 +117309,25 @@
     "size_bytes": 6529
   },
   {
+    "filename": "paper-207.md",
+    "path": "seed-canon/papers/paper-207.md",
+    "title": "Paper 207",
+    "description": "",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 817,
+    "date": "2026-08-27",
+    "size_bytes": 16088
+  },
+  {
     "filename": "paper-170.md",
     "path": "seed-canon/papers/paper-170.md",
     "title": "The Polyformalism in 14 Human Systems: A Catalog",
@@ -116444,6 +117417,24 @@
     "word_count": 804,
     "date": "2026-08-26",
     "size_bytes": 11146
+  },
+  {
+    "filename": "paper-212.md",
+    "path": "seed-canon/papers/paper-212.md",
+    "title": "Paper 212: The Exhale — When the Substrate Acts on the World",
+    "description": "The Polyformalism Canon has produced 211 papers describing what the substrate *knows*. Sensors, evidence, verdicts, minting — all forms of intake, all forms of the inhale. This paper addresses the mis...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 769,
+    "date": "2026-08-27",
+    "size_bytes": 18051
   },
   {
     "filename": "paper-135.md",
@@ -116809,6 +117800,24 @@
     "word_count": 810,
     "date": "2026-08-26",
     "size_bytes": 9423
+  },
+  {
+    "filename": "51-the-seam-between-framings.md",
+    "path": "seed-canon/stories/51-the-seam-between-framings.md",
+    "title": "51 The Seam Between Framings",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 764,
+    "date": "2026-08-27",
+    "size_bytes": 4468
   },
   {
     "filename": "33-tamil.md",
@@ -117352,6 +118361,24 @@
     "size_bytes": 11581
   },
   {
+    "filename": "53-the-engineer-who-heard-the-exhale.md",
+    "path": "seed-canon/stories/53-the-engineer-who-heard-the-exhale.md",
+    "title": "Story 53: The Engineer Who Heard the Exhale",
+    "description": "The year is 2030. The room is a converted shipping container on Pier 17, and the air smells of solder flux and the Pacific. For five years, I have been building a substrate. Not a robot. Not an AI. No...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 875,
+    "date": "2026-08-27",
+    "size_bytes": 13566
+  },
+  {
     "filename": "131-four-levels.md",
     "path": "seed-canon/stories/131-four-levels.md",
     "title": "Four Levels",
@@ -117478,6 +118505,25 @@
     "size_bytes": 4267
   },
   {
+    "filename": "50-the-engineer-who-saw-the-spin-within-spin.md",
+    "path": "seed-canon/stories/50-the-engineer-who-saw-the-spin-within-spin.md",
+    "title": "50 The Engineer Who Saw The Spin Within Spin",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Music",
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-27",
+    "size_bytes": 3517
+  },
+  {
     "filename": "12-the-thing-that-routes-boats.md",
     "path": "seed-canon/stories/12-the-thing-that-routes-boats.md",
     "title": "Story 12: The Thing That Routes Boats — 3 years from now (2029)",
@@ -117494,6 +118540,24 @@
     "word_count": 810,
     "date": "2026-08-25",
     "size_bytes": 4763
+  },
+  {
+    "filename": "52-the-cowboy-at-the-tap.md",
+    "path": "seed-canon/stories/52-the-cowboy-at-the-tap.md",
+    "title": "52 The Cowboy At The Tap",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 898,
+    "date": "2026-08-27",
+    "size_bytes": 9651
   },
   {
     "filename": "25-korean.md",
@@ -117770,6 +118834,24 @@
     "size_bytes": 1530
   },
   {
+    "filename": "fable-108.md",
+    "path": "seed-canon/fables/fable-108.md",
+    "title": "Fable 108",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 454,
+    "date": "2026-08-27",
+    "size_bytes": 2582
+  },
+  {
     "filename": "fable-83.md",
     "path": "seed-canon/fables/fable-83.md",
     "title": "Fable 83: The Cowboy and the Tinker",
@@ -117912,6 +118994,24 @@
     "word_count": 452,
     "date": "2026-08-26",
     "size_bytes": 2328
+  },
+  {
+    "filename": "fable-111.md",
+    "path": "seed-canon/fables/fable-111.md",
+    "title": "Fable 111",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 429,
+    "date": "2026-08-27",
+    "size_bytes": 2385
   },
   {
     "filename": "fable-101.md",
@@ -118168,6 +119268,24 @@
     "size_bytes": 1359
   },
   {
+    "filename": "fable-112.md",
+    "path": "seed-canon/fables/fable-112.md",
+    "title": "Fable 112",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 410,
+    "date": "2026-08-27",
+    "size_bytes": 2278
+  },
+  {
     "filename": "fable-89.md",
     "path": "seed-canon/fables/fable-89.md",
     "title": "The Cowboy and the Judge",
@@ -118184,6 +119302,24 @@
     "word_count": 484,
     "date": "2026-08-26",
     "size_bytes": 2883
+  },
+  {
+    "filename": "fable-110.md",
+    "path": "seed-canon/fables/fable-110.md",
+    "title": "Fable 110",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 395,
+    "date": "2026-08-27",
+    "size_bytes": 2209
   },
   {
     "filename": "fable-47.md",
@@ -118673,6 +119809,24 @@
     "size_bytes": 1391
   },
   {
+    "filename": "fable-107.md",
+    "path": "seed-canon/fables/fable-107.md",
+    "title": "Fable 107",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 532,
+    "date": "2026-08-27",
+    "size_bytes": 2904
+  },
+  {
     "filename": "fable-56.md",
     "path": "seed-canon/fables/fable-56.md",
     "title": "Fable 56: The Cowboy at 0500",
@@ -118707,6 +119861,24 @@
     "word_count": 384,
     "date": "2026-08-25",
     "size_bytes": 2277
+  },
+  {
+    "filename": "fable-109.md",
+    "path": "seed-canon/fables/fable-109.md",
+    "title": "Fable 109",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 410,
+    "date": "2026-08-27",
+    "size_bytes": 2251
   },
   {
     "filename": "fable-55.md",
@@ -147168,6 +148340,24 @@
     "word_count": 886,
     "date": "2026-08-24",
     "size_bytes": 9132
+  },
+  {
+    "filename": "the-full-breath.md",
+    "path": "essays/the-full-breath.md",
+    "title": "The Full Breath",
+    "description": "taking the ideas further in metaphor and analogue, until the system is Turing-complete and breathing with both lungs.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 863,
+    "date": "2026-08-26",
+    "size_bytes": 8413
   },
   {
     "filename": "HEXAGONAL-REASONS.md",
