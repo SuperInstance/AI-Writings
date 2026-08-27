@@ -49,3 +49,17 @@ statue becomes REAL — a shape with no substrate is an intention, and
 intentions don't float. The captain's fleet lays the same hull down in
 prose and Python and C and light on a workbench in Kodiak, and it is one
 boat at every resolution, and the green blink is her at anchor.
+
+---
+
+*Afterword, same night. The captain sharpened it: the statue is an idea
+RENDERED — by a level of skill, and time, and tools, and materials. Four
+axes of the rendering function, and none of them is the statue. The yard
+proved the sharpening before he said it: two yards and the master held the
+same idea, tools, and materials for the breast-hook, and only the master's
+rendering held — because his skill was bought beforehand, with time, in
+coins the yards have not yet earned. Skill and time trade; tools and
+materials trade against both; and the idea stands outside all four,
+patient, existing at every resolution, waiting for a renderer at any
+point in the space to bring it forth at the resolution they can afford.
+The fleet's whole method is the trading floor.*
