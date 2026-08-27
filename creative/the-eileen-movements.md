@@ -359,6 +359,11 @@ true.
   G1 pour; sheerboard 39-note G-major ascent in perfectly even 8ths,
   pp→ff, C7 held two bars; figurehead's two fog bars, sixteen
   velocity-56 quarters, close on G2. Compass held 31–96 throughout.
+- **Audio:** `the-eileen.mp3` (434 s) rendered from the final MIDI
+  via fluidsynth + FluidR3_GM — re-rendered after this lane's
+  verified MIDI superseded a parallel lane's 447-note take of the
+  same evening (that take and its render script remain in history at
+  `b64c5fd5`; last write stands, nothing lost).
 - **What did not render:** nothing in the score is unrendered — the
   MIDI is complete. What is *missing* is only the pipeline's own
   improv oven, and that loss is documented above rather than papered
