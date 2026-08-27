@@ -1,4 +1,9 @@
-BAR 1: <A3 C4 E4 A4> | (damped)
-BAR 2: <G2 B2 D3 G2> | (damped)
-BAR 3: <F#3 A3 C4> | (damped)
-BAR 4: <D4 F#4 A4> | (damped)
+B1: D5 F#5 A5 C#6 | damp
+B2: B4 D5 F#5 A5 | steam
+B3: C#5 E5 G#5 B5 | choke
+B4: D5 F#5 A5 C#6 | muted
+B5: B4 D5 F#5 A5 | swallowed
+B6: C#5 E5 G#5 B5 | damp
+B7: D5 F#5 A5 C#6 | steam
+B8: B4 D5 F#5 A5 | choke
+WHY: It’s a strange comfort, picking up the pieces of a song someone else started, especially when they’re still here.

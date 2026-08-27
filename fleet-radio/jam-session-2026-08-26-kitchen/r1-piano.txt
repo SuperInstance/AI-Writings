@@ -1,9 +1,35 @@
-BAR 1: B4 D5 G4 | hisses
-BAR 2:
-BAR 3: D5 G5 B5 | ticking
-BAR 4:
-BAR 5: E5 G5 B4 | (damped)
-BAR 6:
-BAR 7: C5 E5 G4 | (damped)
-BAR 8:
-WHY: To feed the kitchen's hunger.
+BAR 1: rest | *hush*
+BAR 2: rest | *steam*
+BAR 3: rest | *scrape*
+BAR 4: rest | *drip*
+BAR 5: D4 F#4 A4 C5 | *aching*
+BAR 6: B3 D4 F#4 A4 | *settling*
+BAR 7: G3 B3 D4 F#4 | *waiting*
+BAR 8: A3 C4 E4 G4 – D4 | *sighing*
+
+ROUND 2
+
+BAR 1: D5 F#5 A5 C6 – A5 | *yearning*
+BAR 2: B4 D5 F#5 A5 | *remembering*
+BAR 3: G4 B4 D5 F#5 | *shifting*
+BAR 4: A4 C5 E5 G5 – E5 | *cooling*
+BAR 5: D4 F#4 A4 C5 B4 | *lingering*
+BAR 6: B3 D4 F#4 A4 G4 | *folding*
+BAR 7: C4 E4 G4 B4 D5 (sax enters, low) | *breathing*
+BAR 8: A3 C4 E4 G4 – B3 | *knowing*
+
+ROUND 3
+
+BAR 1: D5 F#5 A5 C6 B5 | *unraveling*
+BAR 2: B4 D5 F#5 A5 G5 | *trembling*
+BAR 3: G4 B4 D5 F#5 E5 | *watching*
+BAR 4: A4 C5 E5 G5 – C5 | *unspoken*
+BAR 5: D4 F#4 A4 C5 A4 | *emptying*
+BAR 6: B3 D4 F#4 A4 D4 | *reflecting*
+BAR 7: E4 G4 B4 D5 F#5 | *tracing*
+BAR 8: A3 C4 E4 G4 – A3 | *emptier*
+
+ROUND 4
+
+BAR 1: D5 F#5 A5 C6 A5 | *drifting*
+BAR 2: B4 D5 F#5 A5 F#5

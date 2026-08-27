@@ -15,7 +15,7 @@ WHY: The kitchen's rhythm and melody emerge from the sounds and actions of its c
 ### dishpit (zai-org/GLM-4.7-Flash, 11s):
 
 
-### piano (openai/gpt-oss-20b, 5s):
+### piano (filled: google/gemma-3-27b-it, post-run):
 
 
 ### sax (mistralai/Mistral-Small-24B-Instruct-2501, 2s):
