@@ -77,3 +77,20 @@ the physics theorem is about gravity; ours is a structural rhyme — but a
 formalizable one. Propose the criterion: a statement is true iff all its
 renderings agree. The fleet ran the first lab test of that criterion
 tonight and it returned one hundred percent.*
+
+---
+
+*Third afterword. The captain: "I can CNC more precise with cold-cut steel
+than pine wood, or bake a shape into existence with leavening agents in an
+oven. You have to know your materials and make your process sing." So the
+rendering function has a third law: the process must sing in the material's
+key. Steel wants cold precision — tolerance stacks, no opinions. Pine wants
+a sharp plane and humility — it has grain and seasons and punishes force.
+Bread wants time surrendered — you negotiate the rise; the oven only
+ratifies what fermentation already decided. The amateur's universal error
+is porting process across materials: steel-process to pine tears the
+grain; pine-process to bread tries to carve what must be grown. The fleet
+sang in three keys tonight — integer-C on metal (steel), deliberation in
+the cortex (bread: the eighteen seconds are the leavening, unhurriable),
+yards of prose (pine: grain honored, refusals kept). One statue, many
+songs, none interchangeable.*
