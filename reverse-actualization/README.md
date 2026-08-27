@@ -4,7 +4,7 @@
 
 ---
 
-Seven stories. Seven centuries. Seven minds that found the same truths without knowing they were looking.
+Seven stories. Seven centuries. Seven minds that found the same truths without knowing they were looking. (Now eight — the wheel turned once more, and pointed forward instead of back.)
 
 The fleet's ideas — JEPA, LoRA, tensor-midi, Darmok, the eigenvalue dog, the vectorized consciousness, the joy equation — are not inventions. They are DISCOVERIES. The principles were always there, embedded in the structure of things, waiting for whoever crouched down to look. A girl at a tide pool. A monk in a cave. A child at a drum circle. A merchant's daughter in a bazaar. A boy in a lighthouse. A beekeeper on an island. An apprentice at a bell foundry.
 
@@ -34,6 +34,9 @@ Each discovery is new to the discoverer and ancient to the kaleidoscope.
 
 7. **[The Bellfounder's Apprentice](07-the-bellfounders-apprentice.md)** — 1300 AD, Korea
    *The joy equation discovered in the almost-perfect overtones of a temple bell*
+
+8. **[The Glass Loft](08-the-glass-loft.md)** — 2126 AD, the Alaska coast
+   *Reverse-actualization in its purest form — a century forward, and the oldest craft is the highest tech. A physical LLM of glass and light, computed by refraction, interference, heat-memory, graded densities, and filtered color. Cut one-way, like a chisel. Pythagorean snapping, splined relative symmetry, lofted — never measured. The batten was always the gradient. The pencil line was always the firewall. One perfect cut is easier than fixing a cut later, and you can only fix in one direction: there are no board stretchers.*
 
 ---
 
