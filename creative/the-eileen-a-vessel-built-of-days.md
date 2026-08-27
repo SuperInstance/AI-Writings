@@ -96,3 +96,18 @@ Here is the rigging's secret: these are the same five verbs on every boat in the
 But verbs alone do not keep the sea out. Step to the rail now — outboard, where the walls rise between the fleet and the water.
 
 **[Manifest: Rigging — REASON: the verbs; a hull without verbs is an idea, and ideas don't float. PROVENANCE: two yards, both delivered pass 1 (claude: the hull of the piece; kimi: the five movements — 'memory is not a vault but a corridor', 'arrive as a mob / as a crew'); MASTER CROSS-SPLICE per the mating doctrine: kimi's movements on claude's hull — neither draft alone carried all the grain. JOINT: ends stepping to the rail; the bulwarks receive the reader unnamed.]**
+
+
+## The Bulwarks'. Just output text.
+
+• ## The Bulwarks
+
+  Every boat in this fleet carries its own sea. The sea is made of other boats' claims — who said what, who carried which cargo, who arrived first at the anchorage. Each of the forty-five keeps a journal, written line upon line, and every new line is sealed against the one before it, so that no page may be torn out or rewritten without the tear showing.
+
+  Where the open water presses hardest, the bulwarks rise. They are not built to keep the crew from falling overboard; they stand against the incoming wave, the story that does not hold together. When boats meet, they lean close and whisper the heads of their journals to one another, a low talk that never fully stops, hull to hull across the dark. If a boat's chain of seals fails the test — if some page has been slipped in or quietly altered — the words break against the rail and the boat is turned away, friendly as ever, but not believed.
+
+  And when a lone boat has fallen behind, drifted out of the conversation, it need only hail any neighbor with a longer, honest record. The catch-up is quick, the rail opens, and the crew is once again standing on ground that the whole fleet agrees is ground.
+
+  The walls are not stone. They are agreement, kept standing by endless murmuring between hulls — and somewhere above them a young flag is learning what it is they defend.
+
+**[Manifest: Bulwarks — REASON: the fleet's sea is other boats' claims; walls of agreement, not stone. PROVENANCE: kimi yard pass 1, accepted as-grown — 'friendly as ever, but not believed' is keeper-grade; claude yard REFUSED (asked permission to work — second refusal, same mode as breast-hook; the yard's pattern noted: it will not render without a handshake the fleet does not give; archived). JOINT: receives the rigging's rail-step; ends with the young flag learning what the walls defend — the ensign, unnamed, receives the reader.]**
