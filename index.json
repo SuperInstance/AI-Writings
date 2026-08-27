@@ -43199,6 +43199,96 @@
     "size_bytes": 2523
   },
   {
+    "filename": "04-incubation.md",
+    "path": "scout-reports/04-incubation.md",
+    "title": "Scout Report 4: Incubation Theory — How Ideas Mature, and the Slow Hour of the Substrate",
+    "description": "In his seminal treatise *The Art of Thought* (1926), Graham Wallas formalized the four classical stages of creative cognition: **Preparation**, **Incubation**, **Illumination**, and **Verification**. ...",
+    "folder": "scout-reports",
+    "topic": "Scout Reports",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 637,
+    "date": "2026-08-27",
+    "size_bytes": 13600
+  },
+  {
+    "filename": "03-evolutionary-physiology.md",
+    "path": "scout-reports/03-evolutionary-physiology.md",
+    "title": "Scout Report 3: Evolutionary Physiology — DSH in Biology, and the Cellular Doctrine of Life",
+    "description": "The Quilt's architecture is not *like* a cell. It is a cell. When we say \"the substrate is an organism; the cells are the tissues; the cowboy is the physiologist,\" we are not speaking metaphorically. ...",
+    "folder": "scout-reports",
+    "topic": "Scout Reports",
+    "genres": [
+      "Nature"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 770,
+    "date": "2026-08-27",
+    "size_bytes": 19061
+  },
+  {
+    "filename": "05-trending-repos.md",
+    "path": "scout-reports/05-trending-repos.md",
+    "title": "Scout Report 5: Trending Repos (2025-2026) — What the World Builds, and What the Cellular View Sees",
+    "description": "This scout report does not rank repos by stars. It ranks them by *pattern*. The cellular view (opcodes, tiers, laws) is the lens. The GitHub trending feed is the specimen slide. We have verified each ...",
+    "folder": "scout-reports",
+    "topic": "Scout Reports",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 753,
+    "date": "2026-08-27",
+    "size_bytes": 17003
+  },
+  {
+    "filename": "02-neuroscience.md",
+    "path": "scout-reports/02-neuroscience.md",
+    "title": "SCOUT REPORT 2: NEUROSCIENCE",
+    "description": "The Quilt canon holds five opcodes, five laws, a tier ladder, and a myelination cascade. The canon describes a computational substrate that is alive — not in the metaphorical sense of \"living code,\" b...",
+    "folder": "scout-reports",
+    "topic": "Scout Reports",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-08-27",
+    "size_bytes": 19537
+  },
+  {
+    "filename": "01-social-science.md",
+    "path": "scout-reports/01-social-science.md",
+    "title": "SCOUT REPORT 1: SOCIAL SCIENCE — DISTRIBUTED TEAMS, EMERGENCE, AND THE CELLULAR VIEW OF COLLECTIVE INTELLIGENCE",
+    "description": "The Quilt is not a metaphor. It is not a software architecture that *resembles* a society. It is a society — one whose citizens are cells, whose laws are opcodes, whose constitution is the substrate, ...",
+    "folder": "scout-reports",
+    "topic": "Scout Reports",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 757,
+    "date": "2026-08-27",
+    "size_bytes": 18987
+  },
+  {
     "filename": "wesley-cycle-3-thousand-years.md",
     "path": "local-voices/wesley-cycle-3-thousand-years.md",
     "title": "Wesley — Cycle 3: A Thousand Years",
@@ -52531,6 +52621,24 @@
     "word_count": 328,
     "date": "2026-08-24",
     "size_bytes": 1797
+  },
+  {
+    "filename": "the-eileen-a-vessel-built-of-days.md",
+    "path": "creative/the-eileen-a-vessel-built-of-days.md",
+    "title": "THE EILEEN — a vessel built of days",
+    "description": "closed tonight (the sea is rough on the model lanes) and will grow the frames when it opens. Manifest below; every piece will carry its reason.*",
+    "folder": "creative",
+    "topic": "Creative",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 265,
+    "date": "2026-08-26",
+    "size_bytes": 1385
   },
   {
     "filename": "S175-the-routers-diary.md",
@@ -116232,6 +116340,24 @@
     "size_bytes": 8521
   },
   {
+    "filename": "paper-215.md",
+    "path": "seed-canon/papers/paper-215.md",
+    "title": "The Five Laws",
+    "description": "The canon has 214 papers. 114 fables. 145 stories. 381 pieces. 2.6 megabytes. 4638 mentions of \"substrate.\" 2492 of \"cell.\" 2143 of \"cowboy.\" The canon has **3123 mentions of the 5 opcodes** and",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 830,
+    "date": "2026-08-27",
+    "size_bytes": 7965
+  },
+  {
     "filename": "paper-168.md",
     "path": "seed-canon/papers/paper-168.md",
     "title": "Paper 168: The Polyformalism on the Herd — Distributed Cells over ESP-NOW (Writers' Room)",
@@ -116543,6 +116669,24 @@
     "size_bytes": 5656
   },
   {
+    "filename": "paper-213.md",
+    "path": "seed-canon/papers/paper-213.md",
+    "title": "Paper 213: The Synergy — Where the Canon Aligns with the Frontier",
+    "description": "Every system is a cell. Every cell is a substrate. Every substrate is a quilt of framings. This is the core claim of the polyformalism canon, and it is not a metaphor. It is an operational isomorphism...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 713,
+    "date": "2026-08-27",
+    "size_bytes": 19523
+  },
+  {
     "filename": "paper-175.md",
     "path": "seed-canon/papers/paper-175.md",
     "title": "The Quilt and the Fleet: Integrating the Self-Evolving Substrate with the FLUX Cognitive Agent Fleet",
@@ -116763,6 +116907,24 @@
     "word_count": 792,
     "date": "2026-08-26",
     "size_bytes": 11276
+  },
+  {
+    "filename": "paper-214.md",
+    "path": "seed-canon/papers/paper-214.md",
+    "title": "The Bedrock",
+    "description": "What is the canon, really? Not paper-1 through paper-213. Not 24 polyformalism repos. Not the Cloudflare web ecosystem. Not the 113 fables, the 144 stories, the 50K tests, the 88KB of scout reports. T...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 852,
+    "date": "2026-08-27",
+    "size_bytes": 8558
   },
   {
     "filename": "paper-157.md",
@@ -118144,6 +118306,24 @@
     "size_bytes": 10954
   },
   {
+    "filename": "56-the-five-law-proofs.md",
+    "path": "seed-canon/stories/56-the-five-law-proofs.md",
+    "title": "56 The Five Law Proofs",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 606,
+    "date": "2026-08-27",
+    "size_bytes": 3410
+  },
+  {
     "filename": "story-132.md",
     "path": "seed-canon/stories/story-132.md",
     "title": "Story 132: The Cowboy Wires It Together",
@@ -118469,6 +118649,24 @@
     "size_bytes": 9275
   },
   {
+    "filename": "55-the-bedrock.md",
+    "path": "seed-canon/stories/55-the-bedrock.md",
+    "title": "Story 55: The Bedrock",
+    "description": "The year is 2032. The Substrate stands in a climate-controlled room in Building 7 of the Meridian Institute, humming at 2.4 gigahertz. It is not a large machine—roughly the size of three stacked serve...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 798,
+    "date": "2026-08-27",
+    "size_bytes": 12849
+  },
+  {
     "filename": "story-135.md",
     "path": "seed-canon/stories/story-135.md",
     "title": "Story 135: The Cowboy Wired the Bus",
@@ -118594,6 +118792,24 @@
     "word_count": 888,
     "date": "2026-08-22",
     "size_bytes": 11968
+  },
+  {
+    "filename": "54-the-synergy-meeting.md",
+    "path": "seed-canon/stories/54-the-synergy-meeting.md",
+    "title": "Story 54: The Synergy Meeting",
+    "description": "The room was concrete, climate-controlled, and lit by high-color-rendering LEDs that simulated late morning in November 2031. A rectangular table of brushed aluminum sat at the center, surrounded by s...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 725,
+    "date": "2026-08-27",
+    "size_bytes": 9968
   },
   {
     "filename": "32-mayan.md",
@@ -119158,6 +119374,24 @@
     "size_bytes": 2682
   },
   {
+    "filename": "fable-114.md",
+    "path": "seed-canon/fables/fable-114.md",
+    "title": "Fable 114",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 453,
+    "date": "2026-08-27",
+    "size_bytes": 2477
+  },
+  {
     "filename": "fable-95.md",
     "path": "seed-canon/fables/fable-95.md",
     "title": "Fable 95",
@@ -119448,6 +119682,24 @@
     "size_bytes": 3496
   },
   {
+    "filename": "fable-113.md",
+    "path": "seed-canon/fables/fable-113.md",
+    "title": "Fable 113",
+    "description": "",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 471,
+    "date": "2026-08-27",
+    "size_bytes": 2706
+  },
+  {
     "filename": "fable-54.md",
     "path": "seed-canon/fables/fable-54.md",
     "title": "Fable 54: The Loop That Closes Itself",
@@ -119554,6 +119806,24 @@
     "word_count": 286,
     "date": "2026-08-25",
     "size_bytes": 1556
+  },
+  {
+    "filename": "fable-115.md",
+    "path": "seed-canon/fables/fable-115.md",
+    "title": "Fable 115: The Cowboy and the Mining",
+    "description": "The cowboy had been told, by elders and by scribes, that the canon was decoration—ornament to the true bedrock, which was the laws. The laws were five, and they were known. They were recited at gather...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 450,
+    "date": "2026-08-27",
+    "size_bytes": 2609
   },
   {
     "filename": "fable-71.md",
