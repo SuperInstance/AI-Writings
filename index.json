@@ -176910,5 +176910,25 @@
   "word_count": 2870,
   "date": "2026-08-27",
   "size_bytes": 16333
+ },
+ {
+  "filename": "08a-the-glass-loft-physics.md",
+  "path": "reverse-actualization/08a-the-glass-loft-physics.md",
+  "title": "The Shipwright's Physics (The Glass Loft companion)",
+  "description": "The real math and physics under The Glass Loft, honestly marked REAL / STRETCH / FICTION: Fermat's principle as analog variational computation; the batten as Euler elastica and cubic spline; Snell's law as momentum conservation (why relative symmetry works); GRIN optics as Hamiltonian weights; Fourier optics and diffractive neural networks; thermo-optic memory and photorefractive training; dispersion as wavelength multiplexing; Landauer, monotone functions, and the chisel's one-way doctrine; diffraction limits and the honest walls.",
+  "folder": "reverse-actualization",
+  "topic": "Reverse Actualization",
+  "genres": [
+   "Science",
+   "Physics",
+   "Essay"
+  ],
+  "models": [
+   "GLM-5.3"
+  ],
+  "style": "Expository",
+  "word_count": 2209,
+  "date": "2026-08-27",
+  "size_bytes": 14520
  }
 ]

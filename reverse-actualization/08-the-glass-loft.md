@@ -125,3 +125,7 @@ Alu grew old and ran the Sitka loft, and he's the one who wrote the doctrine ove
 Analog computation, the kind that lasts a hundred years in salt air, is not the absence of control. It is *irreversible change, spent deliberately* — heat that remembers, fringes that agree, strata that weigh, colors that choose what to attend to. Information through change. The loaf on the EILEEN's shelf is not a machine that was finished once. It is a slow argument between light and glass that has been running since 2098, and the answer it gives at dawn tomorrow will be one shade fairer than today's, because last night's question is still cooling in the hearth.
 
 The digital men built thoughts that could be taken back. The loft builds thoughts that *compound.* That's the whole trade: cut so that every irreversible thing you do makes the next question cheaper to ask — and always, always know which side of the line is the boat.
+
+---
+
+*The physics companion — the real mathematics under this story, honestly marked REAL/STRETCH/FICTION: [The Shipwright's Physics](08a-the-glass-loft-physics.md)*
