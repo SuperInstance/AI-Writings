@@ -1,0 +1,4 @@
+BAR 1: <A3 C4 E4 A4> | (damped)
+BAR 2: <G2 B2 D3 G2> | (damped)
+BAR 3: <F#3 A3 C4> | (damped)
+BAR 4: <D4 F#4 A4> | (damped)

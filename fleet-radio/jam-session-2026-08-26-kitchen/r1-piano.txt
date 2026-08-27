@@ -1,0 +1,9 @@
+BAR 1: B4 D5 G4 | hisses
+BAR 2:
+BAR 3: D5 G5 B5 | ticking
+BAR 4:
+BAR 5: E5 G5 B4 | (damped)
+BAR 6:
+BAR 7: C5 E5 G4 | (damped)
+BAR 8:
+WHY: To feed the kitchen's hunger.

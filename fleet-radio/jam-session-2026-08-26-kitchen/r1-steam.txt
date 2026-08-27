@@ -1,0 +1,9 @@
+B1: D5 # (steam)
+B2: C#5 D5 E5 (dishpit)
+B3: G4 A4 B4 C#5 (griddle)
+B4: D4 E4 F4 G4 (piano)
+B5: A4 B4 C#5 D5 (sax)
+B6: C#5 D5 E5 F#5 (piano)
+B7: G4 A4 B4 C#5 (griddle)
+B8: D5 E5 F#5 G#5 (sax)
+WHY: The kitchen comes alive with different melodies, yet they all dance around the walk-in's G.

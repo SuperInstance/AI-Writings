@@ -1,0 +1,10 @@
+BAR 1: <C3 E3 G3 B3> | dusting
+BAR 2: <G2 B2 D3 G3> | sweeping
+BAR 3: <A2 C3 E3 A3> | circling
+BAR 4: <D3 F#3 A3 C4> | stilling 
+BAR 5: <E4 G4 B4 E5> | fading
+BAR 6: <F#3 A3 C4 F#4> | smoothing
+BAR 7: <C4 E4 G4 C5> | lingering
+BAR 8: <G1 G1 G1 G1 G1> | alone 
+
+WHY: Sometimes the quiet is the heaviest thing to carry out the door.
