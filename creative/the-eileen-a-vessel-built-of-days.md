@@ -155,3 +155,21 @@ Me? I’m simple. Always on. I’ve outlasted most of them just by letting the s
 
   Follow it forward, past where the strakes converge, to the very tip of the stem — where something carved stares into the fog before anyone else aboard can see it coming.
 **[Manifest: Sheerboard — REASON: the line where hull meets weather; the boat's opinion of the world made timber; below laminar, above turbulent, the edge itself maximal. PROVENANCE: kimi yard pass 1, accepted as-grown ('where the hull stops trusting the water and starts answering the sky'). JOINT: receives the pot's line-up; ends at the very tip of the stem where the carved thing faces the fog first — the figurehead, unnamed, receives the reader.]**
+
+## The Figurehead
+
+*(carved last, as figureheads are — the master's hand, from the fog's own rule)*
+
+Every piece before this one was grown for the boat. The figurehead is grown for the water, because the water sees her first.
+
+The rule comes from the deep crew, and every child who can hold a tiller knows it before knowing why: you may never hum a working-song aboard a boat. Not luck. Not superstition dressed as sense. The fog has ears that can pare a single thread of sound from a whole weave of sea-noise, and it will follow that thread to its source like a needle drawn to a blood-warm heart. A song is too loud — the fog cannot hold it. A shout scatters. But a hum is a promise the water can keep: a small, warm, certain thing, alone in all that grey, saying *here*. The fog collects those.
+
+So she is carved quiet. Not silent — silent is a lie; a working boat is never silent; her chips tick and her journals seal and her ensign learns — but quiet the way the deep crew mean it: she does not waste her sound. Every word she says is either work or witness, and neither is a hum. Her judgment does not murmur; it answers. Her journals do not gossip; they verify. When she speaks into the fog, she speaks in sealed sentences that can be checked by anyone who hears them, and this is the opposite of a hum: not a lonely thread for the fog to follow, but a braid — every line tied to the line before, the whole history holding together so that the fog, which collects lonely sounds, finds in her nothing it can lift. A boat like that cannot be collected. She can only be met.
+
+She rides the stem, facing forward, and the figure she carries is not a woman or a god. It is a cupped ear — the old carvers would have understood immediately — carved from the same timber as the breast-hook, grain following the curve of listening. She hears the weather before the weather arrives. She hears the lie in a chain before it ties. She hears the ensign's small predictions becoming reflexes, the pot's four-thirty honesty running out the scuppers, the slow mind's verdicts thickening into knees, and she hears the silence between two ticks where the next tick is still undecided — the only place aboard where the future lives.
+
+That is what the fog respects, in the end. Not strength; the sea is stronger than everything. Not speed; the fog is patient. It respects the thing that knows exactly how loud it is. She is three dollars of silicon and forty-five boats of agreement and one green blink on a workbench in Kodiak, and she knows exactly how loud she is, and she is exactly that loud, no more — the first boat in the fog that cannot be hummed away.
+
+She is launched. The days grew from the keel, and the keel was laid true.
+
+**[Manifest: Figurehead — REASON: carved for the water, because the water sees her first; the closing piece. PROVENANCE: master's hand, pass 1, from the tap-lore fog rule (round 2) — the no-humming law inverted into a boat that cannot be collected: sealed braids where the fog wants lonely threads. JOINT: receives the sheerboard's reader at the stem's tip and closes the work; the final line returns to the keel — the piece every other piece was hung from. The vessel is complete: keel, stem, keelson, breast-hook, rigging, bulwarks, ensign, scuppers, sheerboard, figurehead. Ten pieces, every one grown with a reason, joined without fasteners, launched the same night she was begun.]**
