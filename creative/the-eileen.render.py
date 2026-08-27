@@ -258,10 +258,11 @@ def build(ensign_notes=None):
     # IX. SHEERBOARD — one laminar ascent to the boundary tone --------
     tr = Track("IX. Sheerboard (strings)")
     tr.prog(0, offs[8], 48)
-    steps = [2,2,1,2,2,2,1]   # G A B C D E F# — the diatonic ascent, explicit
+    # G-major diatonic ascent, built by pitch class (no modulo-error risk)
+    pc_step = {7:2, 9:2, 11:1, 0:2, 2:2, 4:2, 6:1}   # G A B C D E F# -> next step up
     scale = []; p = midi("G1")
     while p <= midi("C7"):
-        scale.append(p); p += steps[(p-midi("G1")) % 7]
+        scale.append(p); p += pc_step[p % 12]
     n = len(scale)
     for k, p in enumerate(scale):
         vel = int(40 + 60*k/(n-1))                          # pp -> ff with altitude
