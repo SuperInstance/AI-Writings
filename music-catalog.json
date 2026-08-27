@@ -1319,6 +1319,23 @@
    "composed": true,
    "key": "D",
    "seed": 14205033940592759000
+  },
+  "2026-08-26-the-fog-of-ferry.mp3": {
+   "filename": "2026-08-26-the-fog-of-ferry.mp3",
+   "title": "The Fog of Ferry",
+   "description": "Composed at 64 BPM in Eb. Rain on the hull; the goodbye plays out in the reverb.",
+   "bpm": 64,
+   "mood": [
+    "melancholic",
+    "contemplative"
+   ],
+   "family": "nightly-2026-08-26",
+   "path": "/music/2026-08-26-the-fog-of-ferry.mp3",
+   "added": "2026-08-26",
+   "curated": false,
+   "composed": true,
+   "key": "Eb",
+   "seed": 6466549498253084000
   }
  }
 }
