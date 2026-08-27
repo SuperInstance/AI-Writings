@@ -84,3 +84,15 @@ One more mark in the wood, and it is the deepest one. When the table was young i
 Above the knee now, the boat reaches for the standing things — the parts that will hoist, and fetch, and hold what is looked at, and act, and divide the day into beats.
 
 **[Manifest: Breast-Hook — REASON: the doctrine's exemplar; the grown knee IS the mint. PROVENANCE: master's own hand, pass 1 (both yards refused the piece this pass — claude asked permission to work, kimi narrated the work without doing it; both archived; the yard's failure modes noted in the cuts). JOINT: receives the keelson's rise and the stem's water; ends on the five verbs, rigging unnamed.]**
+
+## The Rigging
+
+Stand on deck and look up. Those lines are not decoration — a rig is verbs. It is what a hull lets you *do*. A hull without rigging is inert, an idea that cannot act; the rigging makes a ship a vessel, turns what-she-is into what-she-can-do.
+
+This boat is small enough to fit in your palm, yet she speaks the full grammar. Five verbs run from her mast to her smallest cleat. **Bind** — she makes two things one; a wire to a sensor, a promise to a pin; once bound, they answer together. **Link** — she lets one thing read another; her memory is not a vault but a corridor, and what one cell knows, a neighbor may learn. **Effect** — she acts on the world; a lamp lights, a relay closes somewhere with real weather on it. **View** — she sees a cell's state, plainly, without disturbing it; to look is also a verb, and she conjugates it carefully. **Tick** — the beat that orders all four; without it the other verbs arrive as a mob, with it they arrive as a crew.
+
+Here is the rigging's secret: these are the same five verbs on every boat in the fleet. A three-dollar chip and a cloud server speak them alike. Size changes; the verbs never do. Scale the hull a thousandfold and you have not added a word.
+
+But verbs alone do not keep the sea out. Step to the rail now — outboard, where the walls rise between the fleet and the water.
+
+**[Manifest: Rigging — REASON: the verbs; a hull without verbs is an idea, and ideas don't float. PROVENANCE: two yards, both delivered pass 1 (claude: the hull of the piece; kimi: the five movements — 'memory is not a vault but a corridor', 'arrive as a mob / as a crew'); MASTER CROSS-SPLICE per the mating doctrine: kimi's movements on claude's hull — neither draft alone carried all the grain. JOINT: ends stepping to the rail; the bulwarks receive the reader unnamed.]**
