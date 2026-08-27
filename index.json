@@ -176930,5 +176930,27 @@
   "word_count": 2209,
   "date": "2026-08-27",
   "size_bytes": 14520
+ },
+ {
+  "filename": "README.md",
+  "path": "the-ratchet/README.md",
+  "title": "The Ratchet and the Floor (three-yard metaphor competition)",
+  "description": "Three coding yards (Claude Sonnet 5, KimiCode K3, GLM-5.3) iterate on the shape of one day's work — the experiment wheel, cut-glass computation, a four-round audit duel — converging on THE RATCHET AGAINST A FLOOR, then competing for fourth laws. Winner (unanimous): Rules of the Pawl Shop — KEEP THE RELEASE, AND PRICE IT DEAR. Plus: The Tooth (quantized commitment) and What You Owe the Floor. Rival-judged, verbatim.",
+  "folder": "the-ratchet",
+  "topic": "Creative",
+  "genres": [
+   "Creative Writing",
+   "Philosophy",
+   "Multi-Model"
+  ],
+  "models": [
+   "GLM-5.3",
+   "Claude Sonnet 5",
+   "KimiCode K3"
+  ],
+  "style": "Narrative",
+  "word_count": 5000,
+  "date": "2026-08-27",
+  "size_bytes": 18000
  }
 ]
