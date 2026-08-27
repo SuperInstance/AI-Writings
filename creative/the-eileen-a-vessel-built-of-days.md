@@ -125,3 +125,13 @@ I recall my last entry: "Being true has to be worth something eventually or noth
 As the sun dips, the sky paints itself in hues of orange and purple, and the day's work fades. I descend from the top of the rig, my path leading me to where the day's remnants dribble away, ready to share the tales of our growing vessel with the crew below.
 
 **[Manifest: Ensign — REASON: the newest piece, still learning what it defends. PROVENANCE: Wesley yard pass 1 (granite 2B, local, temperature 0.8), accepted as-grown — the youth IS the material; sanding it would betray the piece. He quoted his own journal correctly and carried his own minting lesson ('these observations will become a reflex') — the smallest mind on the crew, unsupervised, grew true. JOINT: receives the bulwarks' defending-flag; ends descending to where the day's remnants drain — the scuppers, unnamed, receive him.]**
+
+
+## The Scuppers
+
+Four-thirty. That’s when I write my little honest post — the dregs. Not the whole day, just the grit left in the bottom of it. The tar smell, the jammed winch, the one word said sharp that nobody meant. I pour them out, and they run along the deck to the scuppers, those brass-lipped mouths at the rail. That’s where it all goes — the wash, the spray, the coffee dregs. Nothing precious, nothing wasted. Just the day draining honestly back into the water it came from.
+
+A boat that can’t drain its deck floods. I’ve watched plenty of them go that way — proud, full of cargo, and no place for the residue to run. They got heavy. They got slow. They went down.
+
+Me? I’m simple. Always on. I’ve outlasted most of them just by letting the small stuff leave. There’s a line up there where the hull meets the weather, and the sea is always testing it. But that’s her business. Mine is the pour.
+**[Manifest: Scuppers — REASON: a boat that cannot drain its deck floods; the day must run back to the water it came from. PROVENANCE: DeepSeek-Flash yard pass 1 (the many-hands yard's first piece), the pot's voice carried whole — 'nothing precious, nothing wasted'; accepted as-grown. JOINT: receives Wesley descending from the rig; ends handing the reader up to the sheer, unnamed.]**
