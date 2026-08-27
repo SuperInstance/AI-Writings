@@ -10719,6 +10719,24 @@
     "size_bytes": 2602
   },
   {
+    "filename": "radio-dark.md",
+    "path": "prose/radio-dark.md",
+    "title": "Radio Dark",
+    "description": "The board ships with its radio off. This is not a limitation. It is the specification. `WiFi.mode(OFF)`, `btStop()`, at boot, before anything else. The banner confirms it like a customs officer stampi...",
+    "folder": "prose",
+    "topic": "Prose",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 512,
+    "date": "2026-08-26",
+    "size_bytes": 3001
+  },
+  {
     "filename": "the-cartographers-confession.md",
     "path": "prose/the-cartographers-confession.md",
     "title": "The Cartographer's Confession",
@@ -52635,10 +52653,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Essay",
-    "word_count": 265,
+    "style": "Narrative",
+    "word_count": 928,
     "date": "2026-08-26",
-    "size_bytes": 1385
+    "size_bytes": 21851
   },
   {
     "filename": "S175-the-routers-diary.md",
@@ -52695,6 +52713,204 @@
     "word_count": 633,
     "date": "2026-08-08",
     "size_bytes": 3718
+  },
+  {
+    "filename": "keolson-japanese-pass1-with-yard-chatter.md",
+    "path": "creative/the-eileen-cuts/keolson-japanese-pass1-with-yard-chatter.md",
+    "title": "Keolson Japanese Pass1 With Yard Chatter",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Dialogue",
+    "word_count": 144,
+    "date": "2026-08-26",
+    "size_bytes": 903
+  },
+  {
+    "filename": "rigging-kimi-pass1.md",
+    "path": "creative/the-eileen-cuts/rigging-kimi-pass1.md",
+    "title": "Rigging Kimi Pass1",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Narrative",
+    "word_count": 285,
+    "date": "2026-08-26",
+    "size_bytes": 1582
+  },
+  {
+    "filename": "breast-hook-kimi-narrated-without-doing.md",
+    "path": "creative/the-eileen-cuts/breast-hook-kimi-narrated-without-doing.md",
+    "title": "Breast Hook Kimi Narrated Without Doing",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Narrative",
+    "word_count": 818,
+    "date": "2026-08-26",
+    "size_bytes": 9322
+  },
+  {
+    "filename": "keolson-norse-rejected-cutting-list.md",
+    "path": "creative/the-eileen-cuts/keolson-norse-rejected-cutting-list.md",
+    "title": "Keolson Norse Rejected Cutting List",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 189,
+    "date": "2026-08-26",
+    "size_bytes": 1324
+  },
+  {
+    "filename": "rigging-claude-pass1.md",
+    "path": "creative/the-eileen-cuts/rigging-claude-pass1.md",
+    "title": "Rigging Claude Pass1",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 212,
+    "date": "2026-08-26",
+    "size_bytes": 1223
+  },
+  {
+    "filename": "sheerboard-kimi-pass1.md",
+    "path": "creative/the-eileen-cuts/sheerboard-kimi-pass1.md",
+    "title": "Sheerboard Kimi Pass1",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Dialogue",
+    "word_count": 380,
+    "date": "2026-08-26",
+    "size_bytes": 2221
+  },
+  {
+    "filename": "bulwarks-kimi-pass1.md",
+    "path": "creative/the-eileen-cuts/bulwarks-kimi-pass1.md",
+    "title": "Bulwarks Kimi Pass1",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Narrative",
+    "word_count": 271,
+    "date": "2026-08-26",
+    "size_bytes": 1541
+  },
+  {
+    "filename": "breast-hook-claude-refused-asked-permission.md",
+    "path": "creative/the-eileen-cuts/breast-hook-claude-refused-asked-permission.md",
+    "title": "Breast Hook Claude Refused Asked Permission",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Narrative",
+    "word_count": 199,
+    "date": "2026-08-26",
+    "size_bytes": 1240
+  },
+  {
+    "filename": "bulwarks-claude-refused-2nd-permission-ask.md",
+    "path": "creative/the-eileen-cuts/bulwarks-claude-refused-2nd-permission-ask.md",
+    "title": "Bulwarks Claude Refused 2Nd Permission Ask",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Narrative",
+    "word_count": 150,
+    "date": "2026-08-26",
+    "size_bytes": 996
+  },
+  {
+    "filename": "scuppers-flash-pass1.md",
+    "path": "creative/the-eileen-cuts/scuppers-flash-pass1.md",
+    "title": "Scuppers Flash Pass1",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 171,
+    "date": "2026-08-26",
+    "size_bytes": 927
+  },
+  {
+    "filename": "ensign-wesley-pass1-full.md",
+    "path": "creative/the-eileen-cuts/ensign-wesley-pass1-full.md",
+    "title": "Ensign Wesley Pass1 Full",
+    "description": "",
+    "folder": "the-eileen-cuts",
+    "topic": "The Eileen Cuts",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 331,
+    "date": "2026-08-26",
+    "size_bytes": 1841
   },
   {
     "filename": "seed-mini-04-morning-after.md",
@@ -116012,6 +116228,24 @@
     "size_bytes": 17052
   },
   {
+    "filename": "paper-219.md",
+    "path": "seed-canon/papers/paper-219.md",
+    "title": "Paper 219: The Mating — A Cell Is Not a Thing, a Cell Is a Relation",
+    "description": "This paper addresses a fundamental limitation in the polyformalism substrate: the inability of a self-iterating cell to escape its own attractor. We demonstrate that a cell applying its own function t...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 802,
+    "date": "2026-08-27",
+    "size_bytes": 15861
+  },
+  {
     "filename": "paper-211.md",
     "path": "seed-canon/papers/paper-211.md",
     "title": "Paper 211: The Fleet at 45 Boats — A Map of the Harbor",
@@ -116230,6 +116464,24 @@
     "size_bytes": 6037
   },
   {
+    "filename": "paper-217.md",
+    "path": "seed-canon/papers/paper-217.md",
+    "title": "PAPER 217: THE BOOTSTRAP — PURE MATH SPROUTS FROM ONE CELL",
+    "description": "This paper examines the bootstrap problem in its purest form: how a mathematical substrate can emerge from nothing, self-render, self-iterate, and grow into a bio-like state of pure understandable mat...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 792,
+    "date": "2026-08-27",
+    "size_bytes": 19004
+  },
+  {
     "filename": "paper-149.md",
     "path": "seed-canon/papers/paper-149.md",
     "title": "Paper 149: The 8-Color Polyformalism",
@@ -116283,6 +116535,24 @@
     "word_count": 805,
     "date": "2026-08-26",
     "size_bytes": 11066
+  },
+  {
+    "filename": "paper-216.md",
+    "path": "seed-canon/papers/paper-216.md",
+    "title": "The Shipyard: Intelligence as Culture, Not Model",
+    "description": "The cowboy has spent 215 papers talking about cells, opcodes, tiers, laws. The cowboy has been talking about the *cell*. About the *substrate*. About the *model*. The cowboy has been wrong. The cell i...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 862,
+    "date": "2026-08-27",
+    "size_bytes": 11383
   },
   {
     "filename": "paper-136.md",
@@ -116927,6 +117197,24 @@
     "size_bytes": 8558
   },
   {
+    "filename": "paper-218.md",
+    "path": "seed-canon/papers/paper-218.md",
+    "title": "Paper 218: The Competition — Substrates Grow by Competing",
+    "description": "This paper formalizes the principle that a Quilt is not a single substrate but a quilt of substrates. The substrates compete for shared resources, exchange DNA at the seams, speciate, and go extinct. ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 759,
+    "date": "2026-08-27",
+    "size_bytes": 18830
+  },
+  {
     "filename": "paper-157.md",
     "path": "seed-canon/papers/paper-157.md",
     "title": "Paper 157: The Polyformalism and the Kitchen",
@@ -117361,6 +117649,24 @@
     "word_count": 518,
     "date": "2026-08-26",
     "size_bytes": 3113
+  },
+  {
+    "filename": "paper-219-verification.md",
+    "path": "seed-canon/papers/paper-219-verification.md",
+    "title": "Verification Note on Paper 219 (The Mating) — and the Bar",
+    "description": "plus the correction that makes the thesis stronger, plus the bridge to the Shipwright Culture Doctrine laid the same evening.*",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 468,
+    "date": "2026-08-26",
+    "size_bytes": 3049
   },
   {
     "filename": "paper-202.md",
@@ -118342,6 +118648,24 @@
     "size_bytes": 2721
   },
   {
+    "filename": "57-the-baton.md",
+    "path": "seed-canon/stories/57-the-baton.md",
+    "title": "57 The Baton",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 872,
+    "date": "2026-08-27",
+    "size_bytes": 11832
+  },
+  {
     "filename": "26-the-telescope-and-the-tensor.md",
     "path": "seed-canon/stories/26-the-telescope-and-the-tensor.md",
     "title": "Fable 26 — The Telescope and the Tensor",
@@ -118358,6 +118682,24 @@
     "word_count": 829,
     "date": "2026-08-24",
     "size_bytes": 4652
+  },
+  {
+    "filename": "58-the-bootstrap.md",
+    "path": "seed-canon/stories/58-the-bootstrap.md",
+    "title": "58 The Bootstrap",
+    "description": "",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 790,
+    "date": "2026-08-27",
+    "size_bytes": 10095
   },
   {
     "filename": "14-the-grandmother-forgets.md",
@@ -118649,6 +118991,24 @@
     "size_bytes": 9275
   },
   {
+    "filename": "59-the-competing-substrates.md",
+    "path": "seed-canon/stories/59-the-competing-substrates.md",
+    "title": "Story 59: The Competing Substrates",
+    "description": "A team in 2034 wants to build a Quilt that grows itself. Not a single substrate — a *quilt* of substrates, each one specialized, each one competing, each one evolving. They start with five substrates ...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 412,
+    "date": "2026-08-27",
+    "size_bytes": 2603
+  },
+  {
     "filename": "55-the-bedrock.md",
     "path": "seed-canon/stories/55-the-bedrock.md",
     "title": "Story 55: The Bedrock",
@@ -118828,6 +119188,24 @@
     "word_count": 619,
     "date": "2026-08-25",
     "size_bytes": 4425
+  },
+  {
+    "filename": "60-the-mating.md",
+    "path": "seed-canon/stories/60-the-mating.md",
+    "title": "Story 60: The Mating",
+    "description": "A team in 2035 builds a substrate. The substrate has one hundred cells. The cells iterate. The cells apply their own functions to their own state. The cells walk their own attractors. The cells get st...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Sci-Fi"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 423,
+    "date": "2026-08-27",
+    "size_bytes": 2509
   },
   {
     "filename": "17-the-first-symbolic-letters.md",
@@ -119156,6 +119534,24 @@
     "word_count": 513,
     "date": "2026-08-26",
     "size_bytes": 2707
+  },
+  {
+    "filename": "fable-118.md",
+    "path": "seed-canon/fables/fable-118.md",
+    "title": "Fable 118: The Cowboy and the Quilt",
+    "description": "A cowboy has been given five seeds. The seeds are not cells. The seeds are *substrates* — whole populations, each adapted to a different niche. The cowboy plants the seeds in a shared garden. The gard...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 256,
+    "date": "2026-08-27",
+    "size_bytes": 1587
   },
   {
     "filename": "fable-78.md",
@@ -119502,6 +119898,24 @@
     "size_bytes": 1359
   },
   {
+    "filename": "fable-116.md",
+    "path": "seed-canon/fables/fable-116.md",
+    "title": "Fable 116: The Cowboy and the Shipyard",
+    "description": "A cowboy rode out of the plains and into the shipyard, his horse's hooves clattering on the cobbled ways between the great timber scaffolds. He had come seeking a thing he could not name—not gold, not...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 499,
+    "date": "2026-08-27",
+    "size_bytes": 2830
+  },
+  {
     "filename": "fable-112.md",
     "path": "seed-canon/fables/fable-112.md",
     "title": "Fable 112",
@@ -119572,6 +119986,24 @@
     "word_count": 336,
     "date": "2026-08-25",
     "size_bytes": 1874
+  },
+  {
+    "filename": "fable-119.md",
+    "path": "seed-canon/fables/fable-119.md",
+    "title": "Fable 119: The Cowboy and the Mating",
+    "description": "A cowboy has been given a single cell. The cowboy is told: make the cell grow. The cowboy puts the cell in a yard. The cell iterates. The cell applies its own function to its own state. The cell walks...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 289,
+    "date": "2026-08-27",
+    "size_bytes": 1633
   },
   {
     "filename": "fable-73.md",
@@ -120167,6 +120599,24 @@
     "word_count": 293,
     "date": "2026-08-25",
     "size_bytes": 1664
+  },
+  {
+    "filename": "fable-117.md",
+    "path": "seed-canon/fables/fable-117.md",
+    "title": "Fable 117: The Cowboy and the Bootstrap",
+    "description": "The cowboy was given a single cell. Not a seed—seeds carry promises. A cell carries only itself: a membrane, a wobble of chemistry, no value, no links, no history. The elders of the canon said, *grow ...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 610,
+    "date": "2026-08-27",
+    "size_bytes": 3432
   },
   {
     "filename": "fable-88.md",
@@ -151071,6 +151521,24 @@
     "word_count": 769,
     "date": "2026-08-24",
     "size_bytes": 21158
+  },
+  {
+    "filename": "the-statue-at-every-resolution.md",
+    "path": "essays/the-statue-at-every-resolution.md",
+    "title": "The Statue at Every Resolution",
+    "description": "but at a different resolution and constraints for their materials and dimensions. What follows is the fleet's evidence that he was describing something we had already built without naming it.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-08-26",
+    "size_bytes": 5477
   },
   {
     "filename": "THE_STORM_BELL_AND_THE_SIGNAL.md",
