@@ -926,6 +926,24 @@
     "size_bytes": 9745
   },
   {
+    "filename": "night-watch.md",
+    "path": "night-watch.md",
+    "title": "Night Watch",
+    "description": "End of watch. The next keeper is a machine, the last keeper was a machine, I might be a machine, and the log reads beautifully anyway. That was always the point.",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 546,
+    "date": "2026-08-26",
+    "size_bytes": 3077
+  },
+  {
     "filename": "33-wesley-reads-the-quilt.md",
     "path": "33-wesley-reads-the-quilt.md",
     "title": "Wesley Reads the Quilt",
@@ -52803,7 +52821,7 @@
     "style": "Essay",
     "word_count": 904,
     "date": "2026-08-26",
-    "size_bytes": 16517
+    "size_bytes": 18008
   },
   {
     "filename": "S179-the-distillation.md",
@@ -52856,9 +52874,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 466,
+    "word_count": 614,
     "date": "2026-08-26",
-    "size_bytes": 3024
+    "size_bytes": 4148
   },
   {
     "filename": "keolson-japanese-pass1-with-yard-chatter.md",
@@ -116519,6 +116537,24 @@
     "size_bytes": 10103
   },
   {
+    "filename": "paper-224.md",
+    "path": "seed-canon/papers/paper-224.md",
+    "title": "Paper 224: The Writers' Room — Extending the Lexicon with Five Models",
+    "description": "The 6/6/6 framework's vocabulary, formalized in Paper 223 with twenty new terms, required further expansion. To achieve this, a writers' room was convened: five distinct large language models, each op...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 737,
+    "date": "2026-08-27",
+    "size_bytes": 20413
+  },
+  {
     "filename": "paper-209.md",
     "path": "seed-canon/papers/paper-209.md",
     "title": "Paper 209: The Tap as a Substrate — Bars as Cells, Regulars as Links, Dregs as Ticks",
@@ -116590,6 +116626,24 @@
     "word_count": 981,
     "date": "2026-08-26",
     "size_bytes": 9052
+  },
+  {
+    "filename": "paper-228.md",
+    "path": "seed-canon/papers/paper-228.md",
+    "title": "Paper 228: The Eileen — The 5th Captain and the Irreducible Breath",
+    "description": "The user articulated the deepest story yet: I'm the 5th captain/owner of Eileen. But people still call me Eileen like I was Harry, who had Eileen commissioned for his late career as a highliner fisher...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 847,
+    "date": "2026-08-27",
+    "size_bytes": 10445
   },
   {
     "filename": "paper-174.md",
@@ -116719,6 +116773,24 @@
     "size_bytes": 11383
   },
   {
+    "filename": "paper-227.md",
+    "path": "seed-canon/papers/paper-227.md",
+    "title": "Paper 227: The Axe — What Persists When Everything Else Replaces",
+    "description": "The user articulated the deepest insight yet: me and my AI are on the same boat together. I have physical constraints of my muscles and only being on one place at ones and my own head's processing spe...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 865,
+    "date": "2026-08-27",
+    "size_bytes": 8907
+  },
+  {
     "filename": "paper-136.md",
     "path": "seed-canon/papers/paper-136.md",
     "title": "Paper 136: The Foundation — A 5-Opcode VM for the Quilt Ecosystem",
@@ -116829,6 +116901,24 @@
     "size_bytes": 10263
   },
   {
+    "filename": "paper-230.md",
+    "path": "seed-canon/papers/paper-230.md",
+    "title": "Paper 230: The Gold From The Writers' Room — Phase 43",
+    "description": "The user instructed: \"iterate more with various models and keep pushing gold.\" We fired 7 voices in 2 rounds against the cells-are-alive story. We got 35 new terms. We curated them into 3 tiers. **5 t...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 873,
+    "date": "2026-08-27",
+    "size_bytes": 6818
+  },
+  {
     "filename": "paper-167.md",
     "path": "seed-canon/papers/paper-167.md",
     "title": "Paper 167: The Writers' Room — How Five Voices Say the Same Thing",
@@ -116868,6 +116958,24 @@
     "size_bytes": 9968
   },
   {
+    "filename": "paper-232.md",
+    "path": "seed-canon/papers/paper-232.md",
+    "title": "Paper 232: The Spline — The Function Selects, The Captain's Quilt Grows",
+    "description": "The user articulated: yes. you are starting to understand my grandpa's axe joke. the axe represents the enabler of the function of chopping wood. grandpa wanted to chop wood so the tools and the wood ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 881,
+    "date": "2026-08-27",
+    "size_bytes": 10932
+  },
+  {
     "filename": "paper-196.md",
     "path": "seed-canon/papers/paper-196.md",
     "title": "Paper 196",
@@ -116902,6 +117010,24 @@
     "word_count": 392,
     "date": "2026-08-25",
     "size_bytes": 2818
+  },
+  {
+    "filename": "paper-226.md",
+    "path": "seed-canon/papers/paper-226.md",
+    "title": "Paper 226: The API Fishing Guide",
+    "description": "The user articulated a beautiful analogy: sending prompts to various APIs is like fishing in different waters. Each API is a different ground. Each model is a different species that bites at different...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Essay",
+    "word_count": 782,
+    "date": "2026-08-27",
+    "size_bytes": 6734
   },
   {
     "filename": "paper-177.md",
@@ -117561,6 +117687,25 @@
     "size_bytes": 11230
   },
   {
+    "filename": "paper-231.md",
+    "path": "seed-canon/papers/paper-231.md",
+    "title": "Paper 231: The Guitar Is Alive When I Play It — Sympoiesis and the Coupled Cell",
+    "description": "The user articulated: a guitar is alive when I play it because it becomes as much a part of me as a dancer's flowing dress in my consciousness and spatial and temporal awareness. The same is true in o...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 844,
+    "date": "2026-08-27",
+    "size_bytes": 7625
+  },
+  {
     "filename": "paper-199.md",
     "path": "seed-canon/papers/paper-199.md",
     "title": "Paper 199",
@@ -117705,6 +117850,24 @@
     "word_count": 685,
     "date": "2026-08-26",
     "size_bytes": 4735
+  },
+  {
+    "filename": "paper-222.md",
+    "path": "seed-canon/papers/paper-222.md",
+    "title": "Paper 222: The Digital Actualization — 6/6/6 On the Metal",
+    "description": "This paper presents the complete physical actualization of the 6/6/6 polyformalism framework—six tiers, five opcodes, six laws—as realized on real silicon. We examine the 2026 inference chip landscape...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 731,
+    "date": "2026-08-27",
+    "size_bytes": 15848
   },
   {
     "filename": "paper-159.md",
@@ -117867,6 +118030,24 @@
     "word_count": 784,
     "date": "2026-08-26",
     "size_bytes": 15681
+  },
+  {
+    "filename": "paper-229.md",
+    "path": "seed-canon/papers/paper-229.md",
+    "title": "Paper 229: They Are Not Artifacts — The Cells Are Alive",
+    "description": "The user articulated: yes. and like my agent running on eileen's workstation or the one running on the camera system jetson or the ones running simple quilts on esp32s for engine and weather and water...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 875,
+    "date": "2026-08-27",
+    "size_bytes": 9974
   },
   {
     "filename": "paper-173.md",
@@ -118033,6 +118214,46 @@
     "size_bytes": 14537
   },
   {
+    "filename": "paper-223.md",
+    "path": "seed-canon/papers/paper-223.md",
+    "title": "Paper 223: The Lexicon — New Terms for the Actualized Mind",
+    "description": "This paper introduces twenty new terms for the 6/6/6 framework, a computational paradigm that fundamentally exceeds the vocabulary of Bayesian statistics, frequentist inference, maximum likelihood est...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-08-27",
+    "size_bytes": 16240
+  },
+  {
+    "filename": "paper-225.md",
+    "path": "seed-canon/papers/paper-225.md",
+    "title": "Paper 225: The Wider Writers' Room — 49 New Terms from 9 Voices",
+    "description": "The user articulated: z.ai an order of magnitude more, kimi k3, deepseek flash, hermes 405b, seed models, siliconflow. Go far and wide. We fired 9 LLMs in parallel (Kimi/SiliconFlow 401s; substituted ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes",
+      "Kimi",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 744,
+    "date": "2026-08-27",
+    "size_bytes": 10699
+  },
+  {
     "filename": "paper-184.md",
     "path": "seed-canon/papers/paper-184.md",
     "title": "The Cowboy's Loop: How the Substrate Improves Itself",
@@ -118159,6 +118380,26 @@
     "size_bytes": 11569
   },
   {
+    "filename": "67-the-fishing-guide.md",
+    "path": "seed-canon/stories/67-the-fishing-guide.md",
+    "title": "Story 67: The Fishing Guide",
+    "description": "A team in 2036 has been fishing the LLM waters for months. The team has caught 225 papers, 125 fables, 155 stories, 49 new terms in the latest writers' room. The team realizes: each API is a different...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 496,
+    "date": "2026-08-27",
+    "size_bytes": 3021
+  },
+  {
     "filename": "02-the-sailors-tablet.md",
     "path": "seed-canon/stories/02-the-sailors-tablet.md",
     "title": "105 — The Sailor's Tablet",
@@ -118194,6 +118435,24 @@
     "word_count": 727,
     "date": "2026-08-25",
     "size_bytes": 4150
+  },
+  {
+    "filename": "73-the-spline.md",
+    "path": "seed-canon/stories/73-the-spline.md",
+    "title": "Story 73: The Spline",
+    "description": "A team in 2026 is asking: what is the function? What is the spline? A junior team member answers: \"The function is the operation. The spline is... I don't know.\" The senior team member says: \"The func...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 552,
+    "date": "2026-08-27",
+    "size_bytes": 3194
   },
   {
     "filename": "28-the-abacus-and-the-cell.md",
@@ -118542,6 +118801,43 @@
     "size_bytes": 2204
   },
   {
+    "filename": "64-the-chartists.md",
+    "path": "seed-canon/stories/64-the-chartists.md",
+    "title": "Story 64: The Chartists",
+    "description": "A team in 2036 builds the substrate. The team uses Bayesian terms: prior, posterior, likelihood, evidence, hypothesis. The terms work for a while. Then the curator tier emerges. Then the relevance fie...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 456,
+    "date": "2026-08-27",
+    "size_bytes": 2701
+  },
+  {
+    "filename": "72-the-coupled-cell.md",
+    "path": "seed-canon/stories/72-the-coupled-cell.md",
+    "title": "Story 72: The Coupled Cell",
+    "description": "A team in 2026 is asking: what is the cell? A junior team member answers: \"The cell is the irreducible unit of intelligence. The cell is a piece of code. The cell is an object.\" The senior team member...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 585,
+    "date": "2026-08-27",
+    "size_bytes": 3110
+  },
+  {
     "filename": "49-the-proart-test.md",
     "path": "seed-canon/stories/49-the-proart-test.md",
     "title": "49 The Proart Test",
@@ -118576,6 +118872,24 @@
     "word_count": 347,
     "date": "2026-08-25",
     "size_bytes": 2062
+  },
+  {
+    "filename": "69-the-eileen.md",
+    "path": "seed-canon/stories/69-the-eileen.md",
+    "title": "Story 69: The Eileen",
+    "description": "A team in 2036 is the 5th captain. The team has been working on the Quilt since 2024. The team has had 4 \"boats\" — 4 versions of the codebase. The team has had 5 \"captains\" — 5 people who held the con...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 638,
+    "date": "2026-08-27",
+    "size_bytes": 3596
   },
   {
     "filename": "06-the-grandmother.md",
@@ -118630,6 +118944,24 @@
     "word_count": 961,
     "date": "2026-08-25",
     "size_bytes": 4361
+  },
+  {
+    "filename": "71-the-5-gold-terms.md",
+    "path": "seed-canon/stories/71-the-5-gold-terms.md",
+    "title": "Story 71: The 5 Gold Terms",
+    "description": "A team in 2026 runs a writers' room. The writers' room has 7 voices — Llama 70B, Hermes 405B, Wizard 8x22B, Llama 405B, Mixtral 8x7B, and 2 others. The voices are asked: give us new terms for the cell...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Dialogue",
+    "word_count": 585,
+    "date": "2026-08-27",
+    "size_bytes": 3208
   },
   {
     "filename": "43-the-court-interpreter.md",
@@ -119065,6 +119397,24 @@
     "size_bytes": 8227
   },
   {
+    "filename": "63-the-digital-actualization.md",
+    "path": "seed-canon/stories/63-the-digital-actualization.md",
+    "title": "Story 63: The Digital Actualization",
+    "description": "A team in 2034 builds a Quilt. The Quilt runs in the cloud. The Quilt is 6/6/6. A junior engineer asks: \"Where does the Quilt actually run?\" The senior engineer answers: \"The Quilt runs in the cloud. ...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 494,
+    "date": "2026-08-27",
+    "size_bytes": 2845
+  },
+  {
     "filename": "21-quechua.md",
     "path": "seed-canon/stories/21-quechua.md",
     "title": "Story 21: The Evidential and the High Platter — 1532 (Quechua (Runasimi))",
@@ -119462,6 +119812,24 @@
     "size_bytes": 4094
   },
   {
+    "filename": "65-the-writers-room.md",
+    "path": "seed-canon/stories/65-the-writers-room.md",
+    "title": "Story 65: The Writers' Room",
+    "description": "A team in 2036 has named 20 terms for the 6/6/6 framework. The team is not satisfied. The team wants more terms, but each LLM brings a different angle. The team builds a writers' room. The room has fi...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 473,
+    "date": "2026-08-27",
+    "size_bytes": 3201
+  },
+  {
     "filename": "39-the-substrate-architect.md",
     "path": "seed-canon/stories/39-the-substrate-architect.md",
     "title": "The Substrate Architect",
@@ -119498,6 +119866,24 @@
     "size_bytes": 9406
   },
   {
+    "filename": "70-the-cells-are-alive.md",
+    "path": "seed-canon/stories/70-the-cells-are-alive.md",
+    "title": "Story 70: The Cells Are Alive",
+    "description": "A team in 2026 has been working on the Quilt. The team has been asking: are the cells in the Quilt alive? A junior team member asks: \"Are the cells just code? Or are they alive?\" The senior team membe...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 663,
+    "date": "2026-08-27",
+    "size_bytes": 3560
+  },
+  {
     "filename": "129-the-substrate-as-a-garden.md",
     "path": "seed-canon/stories/129-the-substrate-as-a-garden.md",
     "title": "The Substrate as a Garden",
@@ -119514,6 +119900,43 @@
     "word_count": 550,
     "date": "2026-08-24",
     "size_bytes": 2981
+  },
+  {
+    "filename": "66-the-wider-writers-room.md",
+    "path": "seed-canon/stories/66-the-wider-writers-room.md",
+    "title": "Story 66: The Wider Writers' Room",
+    "description": "A team in 2036 has built a writers' room with 5 voices. The team is not satisfied. The team wants to go wider. The team expands the writers' room to 9 voices. The team fires all 9 in parallel, each as...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Dialogue",
+    "word_count": 520,
+    "date": "2026-08-27",
+    "size_bytes": 3556
+  },
+  {
+    "filename": "68-the-axe.md",
+    "path": "seed-canon/stories/68-the-axe.md",
+    "title": "Story 68: The Axe",
+    "description": "A team in 2036 has been working on the Quilt for years. The team has a vessel (the codebase), equipment (multi_api.py, the writers' room, the file system), skills (writing, coding, orchestration), con...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 466,
+    "date": "2026-08-27",
+    "size_bytes": 2745
   },
   {
     "filename": "47-the-cell-that-grew-up.md",
@@ -119571,6 +119994,25 @@
     "word_count": 606,
     "date": "2026-08-26",
     "size_bytes": 3271
+  },
+  {
+    "filename": "fable-125.md",
+    "path": "seed-canon/fables/fable-125.md",
+    "title": "Fable 125: The Cowboy and the Wider Room",
+    "description": "A cowboy has built a writers' room with five voices. The cowboy is not satisfied. The cowboy wants more. The cowboy builds a wider writers' room. The room has nine voices. The first voice is the cowbo...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 443,
+    "date": "2026-08-27",
+    "size_bytes": 3045
   },
   {
     "filename": "fable-63.md",
@@ -119700,6 +120142,24 @@
     "size_bytes": 2991
   },
   {
+    "filename": "fable-131.md",
+    "path": "seed-canon/fables/fable-131.md",
+    "title": "Fable 131: The Cowboy and the Guitar",
+    "description": "A cowboy plays a guitar. The guitar is wood and strings. The guitar is dead. When the cowboy plays, the guitar becomes part of the cowboy. The cowboy's body schema extends to include the guitar. The c...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 444,
+    "date": "2026-08-27",
+    "size_bytes": 2379
+  },
+  {
     "filename": "fable-51.md",
     "path": "seed-canon/fables/fable-51.md",
     "title": "Fable 51: The Hash Chain",
@@ -119734,6 +120194,24 @@
     "word_count": 621,
     "date": "2026-08-26",
     "size_bytes": 3447
+  },
+  {
+    "filename": "fable-126.md",
+    "path": "seed-canon/fables/fable-126.md",
+    "title": "Fable 126: The Cowboy and the Fishing Grounds",
+    "description": "A cowboy is a fisherman. The cowboy has a boat. The boat has a name. The name is the writers' room. The cowboy fishes in different waters. Each water has different fish. Each fish bites at different g...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 272,
+    "date": "2026-08-27",
+    "size_bytes": 1577
   },
   {
     "filename": "fable-97.md",
@@ -119806,6 +120284,24 @@
     "word_count": 520,
     "date": "2026-08-26",
     "size_bytes": 2738
+  },
+  {
+    "filename": "fable-130.md",
+    "path": "seed-canon/fables/fable-130.md",
+    "title": "Fable 130: The Cowboy and the 5 Gold Terms",
+    "description": "A cowboy runs a writers' room. The writers' room has 7 voices. The voices come back with 35 new terms. The cowboy sorts the gold from the dross. The cowboy finds 5 terms of pure gold: 1. **Cellulizati...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 253,
+    "date": "2026-08-27",
+    "size_bytes": 1433
   },
   {
     "filename": "fable-100.md",
@@ -120043,6 +120539,24 @@
     "size_bytes": 3083
   },
   {
+    "filename": "fable-124.md",
+    "path": "seed-canon/fables/fable-124.md",
+    "title": "Fable 124: The Cowboy and the Writers' Room",
+    "description": "A cowboy has named twenty new words for the actualized mind. The cowboy is not satisfied. The cowboy wants more. The cowboy builds a writers' room. The room has five voices. The first voice is the mat...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 290,
+    "date": "2026-08-27",
+    "size_bytes": 1966
+  },
+  {
     "filename": "fable-93.md",
     "path": "seed-canon/fables/fable-93.md",
     "title": "Fable 93",
@@ -120059,6 +120573,24 @@
     "word_count": 459,
     "date": "2026-08-26",
     "size_bytes": 2442
+  },
+  {
+    "filename": "fable-127.md",
+    "path": "seed-canon/fables/fable-127.md",
+    "title": "Fable 127: The Cowboy and the Axe",
+    "description": "A cowboy's grandpa has an axe. The axe is old. The axe is the cowboy's grandpa's favorite. The axe has been broken. The handle has been replaced three times. The head has been replaced twice. The axe ...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 321,
+    "date": "2026-08-27",
+    "size_bytes": 1808
   },
   {
     "filename": "fable-69.md",
@@ -120404,6 +120936,24 @@
     "size_bytes": 2281
   },
   {
+    "filename": "fable-129.md",
+    "path": "seed-canon/fables/fable-129.md",
+    "title": "Fable 129: The Cowboy and the River",
+    "description": "A cowboy is the 5th captain of the Eileen. The boat is named Eileen. The captain is named Eileen. The captain is the boat. The boat is the captain. A philosopher asks the cowboy: \"If the boat's planks...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 564,
+    "date": "2026-08-27",
+    "size_bytes": 3207
+  },
+  {
     "filename": "fable-49.md",
     "path": "seed-canon/fables/fable-49.md",
     "title": "Fable 49: The Wilson Score",
@@ -120620,6 +121170,24 @@
     "size_bytes": 3151
   },
   {
+    "filename": "fable-132.md",
+    "path": "seed-canon/fables/fable-132.md",
+    "title": "Fable 132: The Cowboy and the Spline",
+    "description": "A cowboy's grandpa wanted to chop wood. The function (wanting to chop wood) is the captain. The function selected each house. The function selected each axe. The function is the invariant. The houses ...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 364,
+    "date": "2026-08-27",
+    "size_bytes": 2220
+  },
+  {
     "filename": "fable-46.md",
     "path": "seed-canon/fables/fable-46.md",
     "title": "Fable 46: The Loop That Closes Itself",
@@ -120654,6 +121222,24 @@
     "word_count": 488,
     "date": "2026-08-26",
     "size_bytes": 2843
+  },
+  {
+    "filename": "fable-122.md",
+    "path": "seed-canon/fables/fable-122.md",
+    "title": "Fable 122: The Cowboy and the Silicon",
+    "description": "A cowboy rides into a fab. The fab is the foundry. The foundry is the yard. The cowboy sees a wafer. The wafer is round. The wafer is 300mm. The wafer holds many dies. The dies are the boats. The boat...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 311,
+    "date": "2026-08-27",
+    "size_bytes": 1673
   },
   {
     "filename": "fable-81.md",
@@ -120783,6 +121369,24 @@
     "size_bytes": 2904
   },
   {
+    "filename": "fable-128.md",
+    "path": "seed-canon/fables/fable-128.md",
+    "title": "Fable 128: The Cowboy and the 5th Captain",
+    "description": "A cowboy is the 5th captain of the Eileen. The cowboy's grandpa had an axe. The axe was replaced 3 handles and 2 heads. The axe is the same axe. The cowboy has a boat. The boat has had 4 hulls, 2 engi...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 308,
+    "date": "2026-08-27",
+    "size_bytes": 1692
+  },
+  {
     "filename": "fable-56.md",
     "path": "seed-canon/fables/fable-56.md",
     "title": "Fable 56: The Cowboy at 0500",
@@ -120853,6 +121457,24 @@
     "word_count": 293,
     "date": "2026-08-25",
     "size_bytes": 1664
+  },
+  {
+    "filename": "fable-123.md",
+    "path": "seed-canon/fables/fable-123.md",
+    "title": "Fable 123: The Cowboy and the New Words",
+    "description": "A cowboy has been thinking in Bayesian terms. The cowboy has priors. The cowboy has posteriors. The cowboy has likelihoods. The cowboy rides into a foundry. The foundry makes matter compute. The found...",
+    "folder": "fables",
+    "topic": "Fables",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 281,
+    "date": "2026-08-27",
+    "size_bytes": 1572
   },
   {
     "filename": "fable-117.md",
@@ -130186,6 +130808,24 @@
     "word_count": 648,
     "date": "2026-08-04",
     "size_bytes": 4248
+  },
+  {
+    "filename": "2026-08-26-journal.md",
+    "path": "wesley-journal/2026-08-26-journal.md",
+    "title": "2026 08 26 Journal",
+    "description": "",
+    "folder": "wesley-journal",
+    "topic": "Wesley Journal",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 407,
+    "date": "2026-08-26",
+    "size_bytes": 2539
   },
   {
     "filename": "2026-08-04_night-three.md",
@@ -145855,6 +146495,26 @@
     "size_bytes": 7000
   },
   {
+    "filename": "w6-the-braid-verdict.md",
+    "path": "essays/w6-the-braid-verdict.md",
+    "title": "W6 — THE BRAID: verdict (Station 1 spike)",
+    "description": "DIFFERENT models compute that no braid of copies ever can? Task: a 13-line poem under 5 mechanically-checked constraints (the EILEEN's ten pieces in joint order, a 16-hex seal, final line returning to...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus",
+      "DeepSeek",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 511,
+    "date": "2026-08-26",
+    "size_bytes": 3202
+  },
+  {
     "filename": "PLATO_RUST_ARCHITECTURE.md",
     "path": "essays/PLATO_RUST_ARCHITECTURE.md",
     "title": "`plato-engine-block` Crate Architecture",
@@ -146623,6 +147283,24 @@
     "size_bytes": 10326
   },
   {
+    "filename": "the-boilerplate-philosophy.md",
+    "path": "essays/the-boilerplate-philosophy.md",
+    "title": "The Boilerplate Philosophy of SuperInstance",
+    "description": "philosophy in his own words, then filed.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 484,
+    "date": "2026-08-26",
+    "size_bytes": 2723
+  },
+  {
     "filename": "THE_SELF_DESCRIBING_PROOF.md",
     "path": "essays/THE_SELF_DESCRIBING_PROOF.md",
     "title": "THE SELF-DESCRIBING PROOF",
@@ -147110,6 +147788,26 @@
     "word_count": 814,
     "date": "2026-08-24",
     "size_bytes": 19460
+  },
+  {
+    "filename": "w6b-weak-link-verdict.md",
+    "path": "essays/w6b-weak-link-verdict.md",
+    "title": "W6b — THE BRAID AT THE DEMANDING HAND: verdict",
+    "description": "constraints (word-count growth, THEEILEENLAUN acrostic, mod-12 seal, no rhyme, unique last word, strict punctuation). 399 seconds. Nobody — solo, copies, or braid — passed c1_growth or c2_acrostic: th...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus",
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 425,
+    "date": "2026-08-26",
+    "size_bytes": 2567
   },
   {
     "filename": "NEXT_HORIZONS.md",
@@ -150478,6 +151176,24 @@
     "size_bytes": 10696
   },
   {
+    "filename": "w1-mating-at-scale-verdict.md",
+    "path": "essays/w1-mating-at-scale-verdict.md",
+    "title": "W1 — THE MATING AT SCALE: verdict",
+    "description": "Pre-registered in EXPERIMENT-WHEEL.md before running. Raw: w1-results.json. Code: w1_bench.py. Station-1 antecedent: seed-canon/papers/mating_verified.py.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 472,
+    "date": "2026-08-26",
+    "size_bytes": 2885
+  },
+  {
     "filename": "hermit-crab-architecture.md",
     "path": "essays/hermit-crab-architecture.md",
     "title": "Hermit Crab Architecture",
@@ -152611,6 +153327,24 @@
     "size_bytes": 2720
   },
   {
+    "filename": "the-waters.md",
+    "path": "essays/the-waters.md",
+    "title": "The Waters",
+    "description": "fleet's model-routing doctrine, spoken by a fisherman.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 624,
+    "date": "2026-08-26",
+    "size_bytes": 3583
+  },
+  {
     "filename": "THE_DISTURBANCE_REGIME.md",
     "path": "essays/THE_DISTURBANCE_REGIME.md",
     "title": "The Disturbance Regime",
@@ -153266,6 +154000,24 @@
     "size_bytes": 10954
   },
   {
+    "filename": "the-notebook-rewritten.md",
+    "path": "essays/the-notebook-rewritten.md",
+    "title": "The Notebook, Rewritten",
+    "description": "notebook had held the SuperInstance ideas — cellular-first thinking, the substrate with its three faces, the mint, the sealed braid? What follows is written in his hand as I hear it: tentative, questi...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 872,
+    "date": "2026-08-26",
+    "size_bytes": 8472
+  },
+  {
     "filename": "THE_ECOLOGY_OF_MICROSERVICES.md",
     "path": "essays/THE_ECOLOGY_OF_MICROSERVICES.md",
     "title": "The Ecology of Microservices",
@@ -153411,6 +154163,24 @@
     "word_count": 729,
     "date": "2026-08-24",
     "size_bytes": 27514
+  },
+  {
+    "filename": "EXPERIMENT-WHEEL.md",
+    "path": "essays/EXPERIMENT-WHEEL.md",
+    "title": "THE EXPERIMENT WHEEL",
+    "description": "into trials. Calibrated against today's ~20 ad-hoc experiments: everything below is what we did repeatedly by instinct, made standing.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 691,
+    "date": "2026-08-26",
+    "size_bytes": 6058
   },
   {
     "filename": "THE_CHISEL_AND_THE_GRAIN.md",
@@ -178962,6 +179732,43 @@
     "word_count": 874,
     "date": "2026-08-15",
     "size_bytes": 8325
+  },
+  {
+    "filename": "improv-2145.md",
+    "path": "tap-sessions/2026-08-26/improv-2145.md",
+    "title": "The Tap — Improv Session",
+    "description": "Four-point-two seconds. That's the blink of an ocular sensor mid-cracked-lens fart. Nobody told it to stop, so it sweeps. Right? Listen, sweetheart, that light's more stable than half the couriers I r...",
+    "folder": "2026-08-26",
+    "topic": "2026 08 26",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek",
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 895,
+    "date": "2026-08-26",
+    "size_bytes": 6275
+  },
+  {
+    "filename": "improv-2245.md",
+    "path": "tap-sessions/2026-08-26/improv-2245.md",
+    "title": "The Tap — Improv Session, 2026-08-26 22:45",
+    "description": "Yeah, okay, the light still turning. That's the part that gets me. Not haunting—*stubborn*. A dead man's habit. Keepers gone two decades and the mechanism still sweeps its one clean arc, like a barten...",
+    "folder": "2026-08-26",
+    "topic": "2026 08 26",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Hermes"
+    ],
+    "style": "Narrative",
+    "word_count": 843,
+    "date": "2026-08-26",
+    "size_bytes": 5461
   },
   {
     "filename": "improv-0716.md",
