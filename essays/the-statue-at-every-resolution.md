@@ -63,3 +63,17 @@ materials trade against both; and the idea stands outside all four,
 patient, existing at every resolution, waiting for a renderer at any
 point in the space to bring it forth at the resolution they can afford.
 The fleet's whole method is the trading floor.*
+
+---
+
+*Second afterword. The captain: "that's holographic-information theory in a
+sense." It is the exact sense. The idea is the bulk; every rendering is a
+boundary projection; the mint is the dictionary — exact on the subspace the
+verdict lives in, which is why five hundred replays agreed. And the deep
+half runs backwards: in holography the boundary reconstructs the bulk, and
+the fleet's dissent logging is exactly that — the three-dollar boundary
+re-teaching the ledger's interior. Editable hologram. Caveat kept honestly:
+the physics theorem is about gravity; ours is a structural rhyme — but a
+formalizable one. Propose the criterion: a statement is true iff all its
+renderings agree. The fleet ran the first lab test of that criterion
+tonight and it returned one hundred percent.*
