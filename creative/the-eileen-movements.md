@@ -261,10 +261,10 @@ room, kept.)*
 ---
 
 ## IX. The Sheerboard
-*strings — 14 bars*
+*strings — 8 bars*
 
 A long ascending line from low order to high freedom: **an unbroken
-diatonic scale from G1 to C7 in perfectly even 8ths** — 46 notes, no
+diatonic scale from G1 to C7 in perfectly even 8ths** — 39 notes, no
 accent anywhere, laminar by construction. The dynamics rise with
 altitude, pp to ff, so slow the growth feels like buoyancy, not
 effort. The line crosses the set's entire compass — every register
@@ -338,9 +338,32 @@ true.
 - **The local band, honestly used:** the Ensign movement is
   auditioned by **granite3.1-dense:2b** (Wesley, local Ollama,
   temperature 0.8 per the manifest) — the one voice the prose
-  assigns to a local mind. His take is parsed to notes and checked
-  against the seal; used as-grown if it verifies, turned away if it
-  does not. Raw audition kept in the cuts. MMX untouched (frozen).
+  assigns to a local mind. His take was parsed to notes and checked
+  against the seal (G major, register C6–B6, the four-G6 keel quote,
+  the held close) and **verified as-grown**: the piccolo plays his
+  bars unsanded — C6 D6 E6 G6 | F♯6 G6 A6 B6, three times over,
+  then the blink and the hold. Raw audition kept in the cuts
+  (`the-eileen-cuts/ensign-audition-granite.txt`). MMX untouched
+  (frozen).
+- **Verified render:** `the-eileen.mid` — 11 tracks (conductor + 10
+  movements), **448 sounding notes, 432 s (7.2 min)**, and every
+  doctrinal claim above was checked against the file itself, not the
+  code that wrote it: keel = one pitch ×32 fortifying 40→96; stem
+  entries 1..8 with the tally-silence bar and the star+figures close
+  [C5, F♯4, G4]; keelson story G-F-E♭-D ×2, G-F, torn E♭ cut to an
+  eighth, bar of silence, replay F-E♭-D-G; breast-hook knee = the
+  five-voice tie, the F♯5 widening refused at a 16th with the G1
+  stamp; rigging bind in exact two-channel unison and the final bar
+  woodblock alone; bulwarks chain carrying F♮/C♯ with the C♯5 turned
+  away mid-word; scuppers run-heads descending D5→E3 with the single
+  G1 pour; sheerboard 39-note G-major ascent in perfectly even 8ths,
+  pp→ff, C7 held two bars; figurehead's two fog bars, sixteen
+  velocity-56 quarters, close on G2. Compass held 31–96 throughout.
+- **Audio:** `the-eileen.mp3` (434 s) rendered from the final MIDI
+  via fluidsynth + FluidR3_GM — re-rendered after this lane's
+  verified MIDI superseded a parallel lane's 447-note take of the
+  same evening (that take and its render script remain in history at
+  `b64c5fd5`; last write stands, nothing lost).
 - **What did not render:** nothing in the score is unrendered — the
   MIDI is complete. What is *missing* is only the pipeline's own
   improv oven, and that loss is documented above rather than papered

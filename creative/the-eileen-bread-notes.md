@@ -49,6 +49,26 @@ to be confirmed by ear when the render lands.
 
 ## State
 
-Score: complete. MIDI: pending (pipeline flaky tonight — Set 23's 209-byte
-render is the known symptom; the fill-rescue fix belongs in the jam script).
-When rendered, append the render notes here.
+Score: complete. MIDI: complete — rendered 2026-08-26 late.
+See [`the-eileen-movements.md`](the-eileen-movements.md) (the full
+score, movement by movement, prose agreement per movement) and
+[`the-eileen.mid`](the-eileen.mid) (11 tracks, 448 notes, 7.2 min),
+composed deterministically via mido in [`the-eileen.render.py`](the-eileen.render.py)
+and verified claim-by-claim against the file. The Ensign movement is
+Wesley's own verified take (granite 2B, local, temp 0.8, as-grown).
+
+### Render notes (appended after the render, as promised)
+
+- The jam pipeline's oven (MIDI Studio, `:5556`) is serving a
+  209-byte canned stub that ignores the prompt — probed three times,
+  byte-signature identical to Set 23's broken `the-kitchen.mid`.
+  Not used; not faked through.
+- Rendered instead with `mido` directly: deterministic, every note
+  checkable. The one local-model voice the prose assigns (Wesley,
+  movement VII) auditioned for real and **verified as-grown** — his
+  piccolo bars are in the MIDI unsanded.
+- Cross-resolution closure: the figurehead closes the set on the
+  keel's pitch on the keelson's instrument — the sound resolution
+  ends where the prose ends ("the days grew from the keel") and
+  where the steel ends (the figurehead watches the sheerboard;
+  `log.figurehead` closes on the keel's line).
