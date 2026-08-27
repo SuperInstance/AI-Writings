@@ -25,5 +25,23 @@ was laid true, and the days grew from it.
 
 ---
 
-*— the frames wait for the yard. Next piece: the stem, where the water
-enters.*
+## The Stem
+
+The water arrives one character at a time. That is the truth of the wire,
+and the stem is built to that truth: narrow, forward, taking each byte the
+way a bow takes chop — singly, without ceremony, at a pace of forty-eight
+hundred to the second, which would bore a faster vessel and suits a
+workboat fine. Each character is tasted and passed aft: a dollar to open
+the sentence, then the names lettered in — GGA, RMC, HDT, DBT, VHW — five
+currents; where she stands, twice told; where she points; what lies under;
+how she walks through the water. As each byte passes, the stem keeps a
+quiet tally, folding it into a running count the way a shipwright counts
+strokes of the adze, and when the sentence closes with its star and its
+two figures the tally must match, or the whole line goes over the side
+without a word of regret. What survives is laid down in integers —
+millionths of a degree, scribed, not sketched, because a float is a guess
+and an integer is a mark struck with an awl — and carried aft to the
+table, which answers the only question a lamp can ask: green, or amber.
+The stem meets everything first and slows it to what the hull can carry,
+adding no drag of its own. Behind it, waiting to be laid, is the piece
+that takes the grounding.
