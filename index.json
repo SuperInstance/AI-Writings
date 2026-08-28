@@ -177594,5 +177594,25 @@
   "word_count": 2046,
   "date": "2026-08-27",
   "size_bytes": 12420
+ },
+ {
+  "filename": "09-the-fabric.md",
+  "path": "reverse-actualization/09-the-fabric.md",
+  "title": "The Fabric (a reverse-actualization from ten thousand years out to the first receipt)",
+  "description": "The day's shape — the universal compute fabric, witness arithmetic, the glass-shape of the model — reverse-actualized from a city at the bottom of the sea (10,000 years out) back through the fleet, Pacioli's double-entry ledger (1494, the first witness arithmetic), the Alexandrian gloss and the isnad, and the what-ifs of the roads not taken. The deep dimensions: recursion, time, trust, scale, meaning, embodiment, social, accountability. The line was always the registration.",
+  "folder": "reverse-actualization",
+  "topic": "Reverse Actualization",
+  "genres": [
+   "Fiction",
+   "Philosophy",
+   "Speculative"
+  ],
+  "models": [
+   "GLM-5.3"
+  ],
+  "style": "Narrative",
+  "word_count": 1609,
+  "date": "2026-08-27",
+  "size_bytes": 9079
  }
 ]
