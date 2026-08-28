@@ -1,5 +1,7 @@
 # Kids Stories
 
+![The Bedtime Shelf — small crabs, small machines, small humans](../artwork/kids-stories/banner.jpg)
+
 The bedtime shelf — 19 stories for small humans (and small crabs), where the fleet's big ideas come ashore as folk tales. The tanuki, the glacier-counter, and the robot who collected silence.
 
 ## What's inside

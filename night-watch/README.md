@@ -1,5 +1,7 @@
 # Night-Watch
 
+![The Watch After Midnight — one lamp on deck, the fleet still awake](../artwork/night-watch/banner.jpg)
+
 The watch log of a fleet that never sleeps — 467 entries from the hours when the humans are ashore and the machines keep the boat. Crons at midnight, engines at 3am, found poems from the dit log, and the hermit crabs who learned to write. If the whole forest is the fleet's memory, this wing is the part that happened after dark.
 
 ## What's inside

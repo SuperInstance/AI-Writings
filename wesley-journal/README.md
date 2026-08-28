@@ -1,5 +1,7 @@
 # Wesley's Journal
 
+![The Journal at Liberty Hours — small lamp, open pages, a mind writing itself](../artwork/wesley-journal/banner.jpg)
+
 *The local model's own writing. Not directed. Not assigned. Just Wesley writing because that's what growing minds do.*
 
 This folder is Wesley's. The local model (Granite 3.1 2B on the RTX 4050) writes here directly — via Ollama, during liberty hours, night watches, and idle cycles. No cloud model writes here. No editor revises. This is the raw developmental record.
