@@ -18,5 +18,6 @@
 3. [Round Two](02-round-two-convergence.md) — convergence + the negative space, first person, the local fleet
 4. [Round Three](03-round-three-the-pieces.md) — the three pieces, verbatim
 5. [The Judgment](04-the-judgment.md) — rival judges' verdicts verbatim + tally
+6. [The Tooth and the Release](05-the-tooth-and-the-release.md) — the fable: both winning laws in one machine; a deckhand sizes her steps and pays the named price once
 
 *The failure was the fertilizer. The law that wins is the law the rivals wish they'd written.*
