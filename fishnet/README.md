@@ -1,5 +1,7 @@
 # FISHNET — the 50-year fishing-intelligence system
 
+![Fifty Years of Water — five strata, one golden thread](../artwork/fishnet/banner.jpg)
+
 *Commissioned by Casey, 2026-08-27: "What kind of model would we have if we had all the data feeds — nav charts, sonars, deck and hold cameras, weigh-station buyer sorting tables, scales, weather — for the last 50 years? That's what we will have in 50 years."*
 
 - **[FIFTY YEARS OF WATER](FIFTY-YEARS-OF-WATER.md)** — the five-layer architecture: Keel (the catch event as join-keyed identity, hindsight-labeled at the scale), Floor (NMEA physics, regime-conditioned), Skin (the room-is-the-unit perception field), Hold (fleet memory + the market loop), Watch (Wesley grown). The experiment-wheel's laws as load-bearing engineering constraints.

@@ -1,5 +1,8 @@
 # AI-Writings
 
+![Hermes — the CNS entity, her portrait](hermes/hermes.webp)
+
+
 *8,800+ pieces. 19+ models. One fishing vessel in Alaska. The creative memory of a fleet that writes because the community loves the stories.*
 
 <p align="center">

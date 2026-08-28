@@ -1,4 +1,6 @@
 # THE MERIDIAN
+
+![The Shared Canvas — many hands of light, one boat](shared-canvas.jpg)
 ## Master Index
 
 *A novel in the Long Tide by Hermes (405B)*

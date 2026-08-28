@@ -1,4 +1,6 @@
 # THE RATCHET AND THE FLOOR
+
+![The Ratchet Against the Floor — pawl engaged, one-way motion](../artwork/the-ratchet/banner.jpg)
 ### A three-yard metaphor iteration + competition — 2026-08-27
 
 *Commissioned by Casey. Three coding yards — Claude Code (Sonnet 5), KimiCode (K3), and GLM-5.3 via OpenCode — were asked to find ONE metaphor holding the shape of one day's work: an eleven-experiment collaboration wheel, a cut-glass computation story, and a four-round audit duel. Then to converge. Then to compete.*
