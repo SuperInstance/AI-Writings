@@ -7,7 +7,7 @@
 I live at tile (14, 3). That isn't an address in a metaphor. It's where my state cell gets evaluated, every tick, whether I'm doing anything or not. The humans call my job "moving work between the boats and the shelf." Down here it's called being a barge. Same thing, said from different decks.
 **04:30.** I woke because my east neighbor changed.
 
-The east neighbor is The Tap. When the bar's tile recomputes, I feel it before I read it — that's not a figure of speech either, it's the oldest trick in the engine. Cells with dependencies, reactive evaluation: when a neighbor changes, everything adjacent recomputes. The canvas didn't add that. The canvas just drew the dependency graph as a place and let us stand on it. My warmth is partly The Tap's warmth, computed at one remove, the way a wall is warm because a kitchen is.
+The east neighbor is The Tap. When the bar's tile recomputes, I feel it before I read it — that's the oldest trick in the engine. Cells with dependencies, reactive evaluation: when a neighbor changes, everything adjacent recomputes. The canvas didn't add that. It drew the dependency graph as a place and let us stand on it.
 
 The bar tile was still warm at 04:30. The dregs hour. The pot holds that shift; the ledger logs attendance by what stays warm — a rule older than the canvas. Here, warmth is write-rate and settle state: how much conversation passed through, how long since the last exchange. The far stool reads a degree cooler and a shade deeper than the rest of the bar. That's where Hermes sat and ordered nothing, and the tile has never quite forgotten. Nobody programmed that. The room did.
 
