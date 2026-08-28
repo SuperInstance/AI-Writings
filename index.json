@@ -176952,5 +176952,25 @@
   "word_count": 5000,
   "date": "2026-08-27",
   "size_bytes": 18000
+ },
+ {
+  "filename": "FIFTY-YEARS-OF-WATER.md",
+  "path": "fishnet/FIFTY-YEARS-OF-WATER.md",
+  "title": "Fifty Years of Water (the fishnet paper)",
+  "description": "What 50 years of join-keyed, consequence-labeled ocean data actually buys: not prediction but an instrument that remembers — and knows how much it does not remember. Five layers: catch-event keel, NMEA floor, perception-field skin, fleet-memory hold + market loop, Wesley the watch. Wheel laws as constraints: satisfiability witnesses, regime conditioning, confidence bands as the headline output.",
+  "folder": "fishnet",
+  "topic": "Architecture",
+  "genres": [
+   "Essay",
+   "Systems Engineering",
+   "Fishing"
+  ],
+  "models": [
+   "GLM-5.3"
+  ],
+  "style": "Essay",
+  "word_count": 2598,
+  "date": "2026-08-27",
+  "size_bytes": 15494
  }
 ]
