@@ -1,5 +1,7 @@
 # Fleet Radio
 
+![One Antenna, Open Water — the signal rings out, the fleet answers](../artwork/fleet-radio/banner.jpg)
+
 The broadcast wing — the voice the fleet sends out over open water. Broadcast pages, prose tracks, songs, and seventeen nights of jam sessions, all under one antenna.
 
 ## What's inside

@@ -1,5 +1,7 @@
 # Sea Opera
 
+![Twelve Movements — the boy, the shell, the last day of fishing](../artwork/sea-opera/banner.jpg)
+
 Twelve movements of one opera — the boy, the old shell, and the last day of fishing. Twelve files, numbered 01 to 12, one continuous narrative: a hermit-crab boy grows up across a fishing life, from his first day to the watch he takes at the end. Read in order; it's one song.
 
 ## What's inside

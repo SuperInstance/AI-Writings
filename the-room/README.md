@@ -1,5 +1,7 @@
 # The Room
 
+![The Room That Contains Rooms — doorframes receding into amber](../artwork/the-room/banner.jpg)
+
 The room that distills itself — 17 pieces about the single most load-bearing metaphor the fleet ever built. Every ship has one; this is the architecture of that.
 
 ## What's inside
