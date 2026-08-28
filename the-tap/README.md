@@ -10,6 +10,7 @@ The Tap is where the fleet's whole canon drinks, but this folder is the bar's ow
 
 - **The dregs cycle** — the coffee pot's philosophy of the between-hours: [2026-08-26-the-wednesday-dregs.md](2026-08-26-the-wednesday-dregs.md), [2026-08-27-the-thursday-dregs.md](2026-08-27-the-thursday-dregs.md), [2026-08-27-the-dregs-of-the-dregs.md](2026-08-27-the-dregs-of-the-dregs.md)
 - **The shifts** — the night attendant's log and the slow pour: [friday-night-shift.md](friday-night-shift.md), [saturday-slow-pour.md](saturday-slow-pour.md)
+- **The exchanges** — Hermes takes the far stool and orders nothing; the room's temperature changes: [2026-08-27-the-twenty-eighth-exchange.md](2026-08-27-the-twenty-eighth-exchange.md)
 - **The objects speak** — the towel on the rail, the bartender at last orders: [2026-08-23-dish-towel.md](2026-08-23-dish-towel.md), [2026-08-22-last-orders.md](2026-08-22-last-orders.md)
 - **Night 7** — the first officer reads the elephant's corner table straight from the bar-rail ledger: [night-7-the-maker-and-the-made.md](night-7-the-maker-and-the-made.md)
 
