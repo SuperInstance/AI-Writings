@@ -177548,5 +177548,51 @@
   "word_count": 36,
   "date": "x-2026-08-27",
   "size_bytes": 409
+ },
+ {
+  "filename": "README.md",
+  "path": "tit/README.md",
+  "title": "The Session That Survives You (TIT.RUN quilt-native competition)",
+  "description": "Three coding yards (Claude Haiku 4.5, Kimi, GLM-5.3 via OpenCode) design a QUILT-NATIVE TIT.RUN — blind round, MCP+tmux cross-pollination, four-judge verdict (DeepSeek fresh card). Winner 3/4: Design C — the session is a graph, not a process; the MCP call IS a LINK, cell_ref chaining, retention over FORGET (nothing witness-referenced destroyed). Runner-up: one process, two front doors.",
+  "folder": "tit",
+  "topic": "Architecture",
+  "genres": [
+   "Essay",
+   "Systems Engineering",
+   "Multi-Model"
+  ],
+  "models": [
+   "GLM-5.3",
+   "Claude Haiku 4.5",
+   "Kimi",
+   "DeepSeek V4-Flash"
+  ],
+  "style": "Essay",
+  "word_count": 153,
+  "date": "2026-08-27",
+  "size_bytes": 1075
+ },
+ {
+  "filename": "the-session-that-survives-you.md",
+  "path": "tit/the-session-that-survives-you.md",
+  "title": "The Session That Survives You",
+  "description": "The TIT.RUN quilt-native competition as a Paper: a keyboard-first Rust terminal toolbox that outlives its terminal. Three designs honestly judged — the FORGET-ttl provenance time bomb named and killed, the daemon nobody designed, the MCP call as a LINK, cell_ref chaining. Verdict: agent-portable sessions, a witness-carrying graph that outlives any process — kill the agent, wake another, it inherits the pipeline. What it means for the fleet, and the honest status of the SuperInstance/tit-quilt build.",
+  "folder": "tit",
+  "topic": "Architecture",
+  "genres": [
+   "Essay",
+   "Systems Engineering",
+   "Multi-Model"
+  ],
+  "models": [
+   "GLM-5.3",
+   "Claude Haiku 4.5",
+   "Kimi",
+   "DeepSeek V4-Flash"
+  ],
+  "style": "Essay",
+  "word_count": 2046,
+  "date": "2026-08-27",
+  "size_bytes": 12420
  }
 ]
