@@ -36,7 +36,7 @@ Each discovery is new to the discoverer and ancient to the kaleidoscope.
    *The joy equation discovered in the almost-perfect overtones of a temple bell*
 
 8. **[The Glass Loft](08-the-glass-loft.md)** — 2126 AD, the Alaska coast
-   *The physics companion: [The Shipwright's Physics](08a-the-glass-loft-physics.md) — the real math under the fiction, honestly marked REAL/STRETCH/FICTION. Reverse-actualization in its purest form — a century forward, and the oldest craft is the highest tech. A physical LLM of glass and light, computed by refraction, interference, heat-memory, graded densities, and filtered color. Cut one-way, like a chisel. Pythagorean snapping, splined relative symmetry, lofted — never measured. The batten was always the gradient. The pencil line was always the firewall. One perfect cut is easier than fixing a cut later, and you can only fix in one direction: there are no board stretchers.*
+   *The physics companions: [The Shipwright's Physics](08a-the-glass-loft-physics.md) (the real math under the fiction) and [Beyond the Metal](08b-beyond-the-metal.md) (the thermodynamics and quantum limits of computing with light) — honestly marked REAL/STRETCH/FICTION. Reverse-actualization in its purest form — a century forward, and the oldest craft is the highest tech. A physical LLM of glass and light, computed by refraction, interference, heat-memory, graded densities, and filtered color. Cut one-way, like a chisel. Pythagorean snapping, splined relative symmetry, lofted — never measured. The batten was always the gradient. The pencil line was always the firewall. One perfect cut is easier than fixing a cut later, and you can only fix in one direction: there are no board stretchers.*
 
 ---
 

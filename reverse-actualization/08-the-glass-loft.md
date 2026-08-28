@@ -128,4 +128,4 @@ The digital men built thoughts that could be taken back. The loft builds thought
 
 ---
 
-*The physics companion — the real mathematics under this story, honestly marked REAL/STRETCH/FICTION: [The Shipwright's Physics](08a-the-glass-loft-physics.md)*
+*The physics companions — the real mathematics under this story, honestly marked REAL/STRETCH/FICTION: [The Shipwright's Physics](08a-the-glass-loft-physics.md) (rays and variational principles — what the light does) and [Beyond the Metal](08b-beyond-the-metal.md) (thermodynamics and quantum limits — what the light pays).*
