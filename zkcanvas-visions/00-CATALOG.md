@@ -48,6 +48,10 @@ The bets are not mutually exclusive; they are layers:
 Round-1 verdict: ZkCanvas's unique function is **"one wall, many boats, disagreement visible."**
 Legibility is how it earns strangers; inhabitation is how it earns agents; the seam is what only it can show.
 
+## Round 5 — Rooms Grow Masks
+
+Two scenes dramatizing the doctrine from RFC 0004: rooms are grown from seeds with locked masks (yard/journal/road/wall/self/fleet), heat computed from walks alone, keepers not users. Scene 11 ("The Journal Room") stages a keeper learning that incapacity can be lucidity — a room grown facing the journal finds liberation in what it cannot see (the road), and the mask becomes not a cage but an answer to the question *what am I built to care about?* Scene 12 ("The Reseed") presents the disagreement: when a room cracks at birth, should re-seeding preserve the original mask (identity is continuity, scene 11's position), or should it allow the keeper to re-choose which direction the room grows into (becoming is revisable, scene 12's counter)? The scenes live the ambiguity without resolving it — both grounded in the same RFC, both honest about speculation, both addressing the keeper's role as someone who negotiates the room's identity through witnessing and growth-record testimony.
+
 ## Open for round 2 (if convened)
 
 - The Barge Agent vs Harbormaster contradiction is generative — stage it directly (same scene, both lenses).
