@@ -8,25 +8,34 @@ Resume: tools/vectorize-done.ids (chunk ids already inserted).
 import hashlib, json, os, re, sys, time, urllib.error, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOKEN = re.search(r'oauth_token = "([^"]+)"',
-                  open(os.path.expanduser('~/.wrangler/config/default.toml')).read()).group(1)
+def token():
+    # The wrangler OAuth access token ROTATES whenever any other wrangler
+    # command refreshes it (e.g. a lane deploying mid-run). Re-read per call;
+    # a 401 usually means our copy went stale, not that auth is broken.
+    return re.search(r'oauth_token = "([^"]+)"',
+                     open(os.path.expanduser('~/.wrangler/config/default.toml')).read()).group(1)
 ACC = "049ff5e84ecf636b53b162cbb580aae6"
 INDEX = "ai-writings-canon"
 DONE = os.path.join(ROOT, "tools", "vectorize-done.ids")
 DIRS = ["papers", "seed-canon", "zkcanvas-visions", "doctrine", "research", "identity", "docs"]
-EMBED_URL = f"https://api.cloudflare.com/client/v4/accounts/{ACC}/ai/run/@cf/baai/bge-m3"
+EMBED_URL = os.environ.get("FLEET_EMBED_URL", "https://fleet-static-host.casey-digennaro.workers.dev/ai/embed")
 INSERT_URL = f"https://api.cloudflare.com/client/v4/accounts/{ACC}/vectorize/v2/indexes/{INDEX}/insert"
 
 def post(url, payload, timeout=90):
     req = urllib.request.Request(url, data=json.dumps(payload).encode(),
-        headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"})
-    for attempt in range(3):
+        headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json"})
+    for attempt in range(5):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.status, json.load(r)
         except urllib.error.HTTPError as e:
-            if e.code in (429,) and attempt < 2:
+            if e.code in (429,) and attempt < 4:
                 time.sleep(5 * (attempt + 1)); continue
+            if e.code == 401 and attempt < 4:
+                time.sleep(3)  # token likely rotated under us; re-read via new request
+                req = urllib.request.Request(url, data=json.dumps(payload).encode(),
+                    headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json"})
+                continue
             return e.code, e.read()[:300].decode(errors="replace")
         except (urllib.error.URLError, TimeoutError) as e:
             if attempt < 2:
@@ -69,9 +78,10 @@ def main():
         s, emb = post(EMBED_URL, {"text": texts})
         if s != 200:
             print(f"EMBED FAIL @{i}: {s} {emb}", flush=True); time.sleep(10); continue
+        vectors_data = emb.get("vectors") or emb.get("result", {}).get("data", [])
         vecs = [{"id": n["id"], "values": v,
                  "metadata": {"path": n["path"], "chunk": n["chunk"], "text": n["text"]}}
-                for n, v in zip(batch, emb["result"]["data"])]
+                for n, v in zip(batch, vectors_data)]
         s, ins = post(INSERT_URL, {"vectors": vecs})
         if s != 200:
             print(f"INSERT FAIL @{i}: {s} {ins}", flush=True); time.sleep(10); continue
