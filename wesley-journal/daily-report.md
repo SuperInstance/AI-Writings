@@ -1,18 +1,14 @@
-# Daily Workshop Report — 2026-08-26 (Wed, 7:16 AM AKDT)
+# Workshop Daily Report — 2026-08-28 (AKDT, 6:10 AM)
 
-## Stream output (last 24h)
-- **Wesley stream:** 0 pieces
-- **Qwen stream:** 0 pieces
+## Commit / Push
+- `git add wesley-stream/ qwen-stream/` → nothing to commit; both streams unchanged. No commit/push needed for the streams.
+- Note: repo does have other uncommitted activity (fleet-radio jam session, tap-sessions, model-portraits, the-ratchet series, seed-canon burst) — outside this job's scope.
 
-No new writing from either model stream today. Quiet night.
+## Output Count (last 24h)
+- Wesley stream: **0 files** (newest: 2026-08-15)
+- Qwen stream: **0 files** (newest: 2026-08-06)
 
-## Other workshop activity (uncommitted, outside the stream dirs)
-- New essay draft: `essays-drafts/the-degraded-channel-was-the-design.md`
-- Fleet Radio: `2026-08-25.html` + jam-session dir
-- New music: `2026-08-25-quiet-question.mp3/.wav`
-- Tap sessions: 2026-08-24 (2 improvisations), 2026-08-25
-- Modified: INDEX.md, music-catalog/played JSONs, this journal
+## Notable
+Second consecutive quiet day for both streams — Wesley last wrote 13 days ago, Qwen 22 days ago. The local generation jobs look stalled; worth investigating if tomorrow is also zero.
 
-## Notes
-Nothing to commit for wesley-stream/ or qwen-stream/ — both clean and pushed. Activity
-continues in fleet-radio, tap-sessions, and essays-drafts instead.
+Elsewhere the workshop was busy: "The Ratchet" five-part series, seed-canon burst (fables 130–135, papers 230–305), a Granite 3.1 model portrait, tap sessions, and a stairwell jam session with MIDI output.

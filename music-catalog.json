@@ -1336,6 +1336,23 @@
    "composed": true,
    "key": "Eb",
    "seed": 6466549498253084000
+  },
+  "2026-08-27-slow-ferry.mp3": {
+   "filename": "2026-08-27-slow-ferry.mp3",
+   "title": "Slow Ferry",
+   "description": "Composed at 64 BPM in E. Rain on the hull; the goodbye plays out in the reverb.",
+   "bpm": 64,
+   "mood": [
+    "melancholic",
+    "contemplative"
+   ],
+   "family": "nightly-2026-08-27",
+   "path": "/music/2026-08-27-slow-ferry.mp3",
+   "added": "2026-08-27",
+   "curated": false,
+   "composed": true,
+   "key": "E",
+   "seed": 3629509317978450000
   }
  }
 }

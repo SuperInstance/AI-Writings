@@ -1,0 +1,9 @@
+BAR 1: D2 A2 | open
+BAR 2: F#2 D3 | swell
+BAR 3: A2 E3 | rise
+BAR 4: D3 A3 | hang
+BAR 5: B2 F#3 | pivot
+BAR 6: G2 E3 | fall
+BAR 7: D2 B2 | settle
+BAR 8: A1 E2 | pause
+WHY: The bassist sets a contemplative tone, exploring the stairwell's echo with sparse, climbing phrases that hang in the air before resolving downward.
