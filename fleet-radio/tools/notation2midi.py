@@ -48,7 +48,10 @@ def parse_bar(text: str):
     if not text or text.lower() in ('rest', 'rests', 'silence', '—', '-'):
         return [('rest',)]
     events = []
-    for tok in re.split(r'[,\s]+', text):
+    # pull bracketed chords out first so whitespace inside [ ] survives tokenization
+    chords = re.findall(r'\[[^\]]+\]', text)
+    remainder = re.sub(r'\[[^\]]+\]', ' ', text)
+    for tok in re.split(r'[,\s]+', remainder):
         if not tok:
             continue
         accent = tok.endswith('#')
@@ -70,6 +73,12 @@ def parse_bar(text: str):
             continue
         for t in range(times):
             events.append(('note', n, beats, accent))
+    for base in chords:
+        accent = base.endswith(']#')
+        notes = [note_to_midi(n) for n in base[1:-1].split()]
+        notes = [n for n in notes if n is not None]
+        if notes:
+            events.append(('chord', notes, 1.0, accent))
     return events or [('rest',)]
 
 
