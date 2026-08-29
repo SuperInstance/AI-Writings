@@ -1,0 +1,9 @@
+BAR 1: [E2 F2] | rattle
+BAR 2: [C2 Db2] | hum
+BAR 3: [Ab3 Bb3] | drip
+BAR 4: rest
+BAR 5: E3 | rumble
+BAR 6: [G2 Ab2] | echo
+BAR 7: [D3 E3] | vibrate
+BAR 8: rest
+WHY: My clamorous response to the room's offerings creates a tension that dances with their industrial essence, inviting a symphony of metal.

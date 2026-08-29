@@ -1,0 +1,9 @@
+BAR 1: rest
+BAR 2: rest
+BAR 3: [C4 D4] | scrape (entering)
+BAR 4: E4 | gurgle
+BAR 5: [Ab5 Bb5] | whir
+BAR 6: F4 | clank (syncing with boiler)
+BAR 7: [G4 Ab4] | pulse
+BAR 8: [C5 D5] | hum
+WHY: Amplifying the rhythm and character of the boiler room environment.

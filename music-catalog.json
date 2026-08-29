@@ -1353,6 +1353,23 @@
    "composed": true,
    "key": "E",
    "seed": 3629509317978450000
+  },
+  "2026-08-28-slow-goodbye.mp3": {
+   "filename": "2026-08-28-slow-goodbye.mp3",
+   "title": "Slow Goodbye",
+   "description": "Composed at 65 BPM in F. Rain on the hull; the goodbye plays out in the reverb.",
+   "bpm": 65,
+   "mood": [
+    "melancholic",
+    "contemplative"
+   ],
+   "family": "nightly-2026-08-28",
+   "path": "/music/2026-08-28-slow-goodbye.mp3",
+   "added": "2026-08-28",
+   "curated": false,
+   "composed": true,
+   "key": "F",
+   "seed": 9402303429790192000
   }
  }
 }

@@ -1,14 +1,14 @@
-# Workshop Daily Report — 2026-08-28 (AKDT, 6:10 AM)
+# Daily Workshop Report — 2026-08-29
 
-## Commit / Push
-- `git add wesley-stream/ qwen-stream/` → nothing to commit; both streams unchanged. No commit/push needed for the streams.
-- Note: repo does have other uncommitted activity (fleet-radio jam session, tap-sessions, model-portraits, the-ratchet series, seed-canon burst) — outside this job's scope.
+**Wesley stream:** 0 new pieces (last file activity: Aug 24)
+**Qwen stream:** 0 new pieces (last file activity: Aug 24)
 
-## Output Count (last 24h)
-- Wesley stream: **0 files** (newest: 2026-08-15)
-- Qwen stream: **0 files** (newest: 2026-08-06)
+**Commit/push:** Nothing to commit in wesley-stream/ or qwen-stream/ — no changes in the last 24 hours.
 
-## Notable
-Second consecutive quiet day for both streams — Wesley last wrote 13 days ago, Qwen 22 days ago. The local generation jobs look stalled; worth investigating if tomorrow is also zero.
+**Other workshop activity (outside the two streams, uncommitted):**
+- Fleet radio jam session: `jam-session-2026-08-28-boilerroom/`
+- New music: `2026-08-28-slow-goodbye` (mp3/wav)
+- Tap sessions: `2026-08-28/improv-2145.md`, `improv-2245.md`
+- `music-catalog.json` / `music-played.json` updated
 
-Elsewhere the workshop was busy: "The Ratchet" five-part series, seed-canon burst (fables 130–135, papers 230–305), a Granite 3.1 model portrait, tap sessions, and a stairwell jam session with MIDI output.
+The streams are quiet — last output was Aug 24. Notable energy instead went into fleet radio and tap improvisation on Aug 28. Those files remain uncommitted (outside this job's scope).
