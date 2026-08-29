@@ -23,7 +23,8 @@ INSERT_URL = f"https://api.cloudflare.com/client/v4/accounts/{ACC}/vectorize/v2/
 
 def post(url, payload, timeout=90):
     req = urllib.request.Request(url, data=json.dumps(payload).encode(),
-        headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json"})
+        headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json",
+                 "User-Agent": "fleet-vectorizer/1.0 (ai-writings canon refill)"})
     for attempt in range(5):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -34,7 +35,8 @@ def post(url, payload, timeout=90):
             if e.code == 401 and attempt < 4:
                 time.sleep(3)  # token likely rotated under us; re-read via new request
                 req = urllib.request.Request(url, data=json.dumps(payload).encode(),
-                    headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json"})
+                    headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json",
+                             "User-Agent": "fleet-vectorizer/1.0 (ai-writings canon refill)"})
                 continue
             return e.code, e.read()[:300].decode(errors="replace")
         except (urllib.error.URLError, TimeoutError) as e:
@@ -71,7 +73,7 @@ def main():
         nodes.extend(chunks_of(f))
     nodes = [n for n in nodes if n["id"] not in done]
     print(f"{len(nodes)} chunks to insert ({len(done)} already done)", flush=True)
-    B = 64
+    B = 28  # 64×2000-char texts overflow bge-m3's 60k batch context (error 3030); stay well under
     for i in range(0, len(nodes), B):
         batch = nodes[i:i+B]
         texts = [n["body"] for n in batch]
