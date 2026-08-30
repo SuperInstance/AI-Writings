@@ -1,0 +1,173 @@
+# Adjoint update rule for a conserved cellular fabric
+
+Notation: vectors are columns, `1 = (1,…,1)ᵀ`, `∇L(s_T)` is the gradient of the loss at the last tick. I treat `θ` as **shared across ticks** (the "accumulated" gradient), and flag the per‑tick variant where it matters. `Jᴬ(s) = ∂A/∂s ∈ Rⁿˣⁿ`.
+
+---
+
+## Part 1 — Adjoint recursion and parameter gradient
+
+### Forward
+$$s_{t+1} = T(s_t,\theta) = A(s_t) + \eta\,H(s_t)\,\theta ,\qquad t=0,\dots,T-1 .$$
+
+Mass bookkeeping: `1ᵀs_{t+1} = 1ᵀA(s_t) + η·1ᵀH(s_t)θ`. The routing part already gives `1ᵀA(s)=1ᵀs` (column‑stochastic). So the tick conserves mass **iff the Hebbian write also injects zero net mass**:
+$$\mathbf 1^{\top}H(s)=0 \quad(\text{every column of }H\text{ sums to }0).$$
+Keep this as a standing structural constraint on `H` — it is what makes the write "move mass between cells" rather than create it.
+
+### Linearization of one tick
+$$\frac{\partial s_{t+1}}{\partial s_t}=J^{A}(s_t)+\eta\,D(s_t),\qquad
+D(s_t)_{ij}:=\sum_{k=1}^{p}\frac{\partial H_{ik}}{\partial s_j}(s_t)\,\theta_k
+\;\in R^{n\times n},$$
+$$\frac{\partial s_{t+1}}{\partial \theta}=\eta\,H(s_t)\ \in R^{n\times p}.$$
+`D` is the feedback of the state‑dependence of the coincidence matrix; `D ≡ 0` when `H` is state‑independent.
+
+### Adjoint (reverse) recursion
+Define `λ_t := (∂L/∂s_t)ᵀ ∈ Rⁿ`. Chain rule backwards:
+
+$$\boxed{\;\lambda_T=\nabla L(s_T)\;}$$
+$$\boxed{\;\lambda_t=\bigl(J^{A}(s_t)+\eta\,D(s_t)\bigr)^{\!\top}\lambda_{t+1},\qquad t=T-1,\dots,0\;}$$
+
+### Parameter gradient (accumulated)
+$$\boxed{\;g=\frac{\partial L}{\partial\theta}
+=\sum_{t=0}^{T-1}\Bigl(\frac{\partial s_{t+1}}{\partial\theta}\Bigr)^{\!\top}\lambda_{t+1}
+=\eta\sum_{t=0}^{T-1}H(s_t)^{\top}\lambda_{t+1}\ \in R^{p}\;}$$
+
+Per‑tick parameters `θ_t`: `g_t = η·H(s_t)ᵀλ_{t+1}` (no sum).
+
+`★ Insight ─────────────────────────────────────`
+- The adjoint is driven by `(Jᴬ)ᵀ`, not `Jᴬ`. Column‑stochastic `A` ⇒ `Aᵀ1 = 1`, i.e. `Aᵀ` is **row‑stochastic**. The conserved forward structure becomes an *averaging* (non‑expansion) structure in reverse — that is the whole engine of Part 2.
+- Because every column of `H` sums to zero, `1ᵀg`‑type quantities are automatically well behaved: the gradient never pushes on the conserved (all‑ones) mode.
+`─────────────────────────────────────────────────`
+
+---
+
+## Part 2 — The gradient‑bound theorem
+
+### 2a. Unconditional (but horizon‑dependent) bound
+From `g_k = η Σ_{t} Σ_i H(s_t)_{ik}\,λ_{t+1}[i]` and `|H_{ik}|≤1`:
+$$|g_k|\le \eta\sum_{t=0}^{T-1}\sum_i |H(s_t)_{ik}|\,|\lambda_{t+1}[i]|
+\le \eta\sum_{t=0}^{T-1}\|\lambda_{t+1}\|_1 .$$
+
+$$\boxed{\;\|g\|_\infty\ \le\ \eta\sum_{t=1}^{T}\|\lambda_t\|_1\ \le\ C(\lambda)\,T\,\eta,
+\qquad C(\lambda):=\max_{1\le t\le T}\|\lambda_t\|_1\;}$$
+
+This always holds. But `C(λ)` here still depends on the whole adjoint trajectory, so as a "clipping theorem" it is vacuous unless we can bound `max_t‖λ_t‖` **independently of `T`**. That is the real obligation.
+
+### 2b. Conditions that make `C(λ)` intrinsic (horizon‑independent)
+
+**(A) Condition on the routing map.** `A` linear, **entrywise non‑negative**, exact column sums `1`. Then `Aᵀ` is non‑negative row‑stochastic, so
+$$\|A^{\top}x\|_\infty\le\|x\|_\infty\quad\forall x .$$
+Non‑negativity is essential — see the disproof in 2c. (Equivalently: assume directly `‖Aᵀ‖_∞ ≤ 1`.)
+
+**(B) Condition on the Hebbian feedback.** Either
+- `H` state‑independent (`D ≡ 0`) — gives a clean `O(T)` bound; or
+- `H` Lipschitz in `s`, `|∂H_{ik}/∂s_j| ≤ G`. Then, with `θ` on the mass simplex (`‖θ‖₁ = m` when `θ ≥ 0`), `‖D(s_t)ᵀ‖_∞ ≤ nGm =: β`, and the recursion only gives
+  $$\|\lambda_t\|_\infty\le(1+\eta\beta)^{\,T-t}\|\lambda_T\|_\infty .$$
+  So the bound acquires an extra factor `(1+ηnGm)^T ≈ e^{ηnGmT}` — still finite, but **not** linear in `T`. Strict `O(T)` requires `D ≡ 0` (or `ηnGm` small enough to absorb over the training horizon).
+
+**(C) Condition on `λ` (the loss).** Mass conservation of `s` bounds `s` (it lives on `{1ᵀs = M}`) but says **nothing** about `λ`. We need the loss to be Lipschitz on that affine set:
+$$\|\lambda_T\|_\infty=\|\nabla L(s_T)\|_\infty\le G_L .$$
+
+### 2c. Theorem (closed form) and its converse
+
+**Theorem.** Under (A), (B‑first case `D≡0`), (C):
+$$\|\lambda_t\|_\infty\le G_L\quad\text{for all }t,\qquad\text{hence}\qquad
+\boxed{\;\|g\|_\infty\ \le\ \eta\,n\,T\,\|\nabla L(s_T)\|_\infty\ \le\ \eta\,n\,T\,G_L\;}$$
+Tighter form: `‖g‖_∞ ≤ η Σ_{t=1}^{T} ‖λ_t‖₁ ≤ η n T G_L`.
+
+*Proof.* `D ≡ 0` ⇒ `λ_t = Aᵀλ_{t+1}`; by (A), `‖λ_t‖_∞ ≤ ‖λ_{t+1}‖_∞ ≤ … ≤ ‖λ_T‖_∞ ≤ G_L`. Then
+`|g_k| ≤ η Σ_{t} Σ_i |H(s_t)_{ik}|·‖λ_{t+1}‖_∞ ≤ η Σ_{t} n·G_L = η n T G_L`. ∎
+
+So: **bounded mass + `|H_{ij}| ≤ 1` + non‑negative column‑stochastic routing + Lipschitz loss ⇒ an intrinsic gradient bound `‖g‖_∞ ≤ η n T G_L`.** Gradient clipping becomes a property of the substrate: `η` and `T` are design constants, `G_L` is fixed by the loss, `n` by the fabric size.
+
+**Converse — mass + `|H|≤1` alone are NOT sufficient (disproof of the naive claim).**
+Take `n = 2`, `H = [[½],[−½]]` (columns sum to 0, `|H_{ij}| ≤ 1`), and the **signed** column‑stochastic matrix
+$$A=\begin{pmatrix}1.5 & -0.5\\ -0.5 & 1.5\end{pmatrix},\qquad \mathbf 1^{\top}A=\mathbf 1^{\top}.$$
+`A` conserves mass exactly. But `A = Aᵀ` has eigenvalue `2` on the mass‑conserving subspace `span{(1,−1)}` (eigenvalue `1` on `span{(1,1)}`, the irrelevant gauge mode). Hence `λ_t = (Aᵀ)^{T−t}λ_T` grows like `2^{T−t}` and
+$$g=\eta\sum_{t=0}^{T-1}H^{\top}\lambda_{t+1}\ \sim\ \eta\,\frac{2^{T}-1}{2-1},$$
+which is **exponential in `T`**, not `O(T)`. Bounded mass does not stop the adjoint from blowing up; you need non‑expansiveness of `Aᵀ` (condition A). ∎
+
+**Extra conditions, precisely:**
+| on | needed for `O(T)` bound |
+|---|---|
+| `A` | linear, entrywise `≥ 0`, column sums `= 1` (⇒ `‖Aᵀ‖_∞ = 1`). Signed column‑stochastic is insufficient. |
+| `H` | `|H_{ij}| ≤ 1` (given) + zero column sums (mass) + **state‑independent** (`D ≡ 0`). If `H` is `G`‑Lipschitz instead, bound degrades to `η n T G_L·(1+ηnGm)^T`. |
+| `λ` | `‖∇L(s_T)‖_∞ ≤ G_L` (Lipschitz loss on `{1ᵀs = M}`). Not implied by mass conservation. |
+
+---
+
+## Part 3 — On‑chip mass‑preserving update
+
+Raw step `y = θ − α g`. Project `y` back onto the constraint set.
+
+### Hyperplane version `S = {θ : 1ᵀθ = m}` (Euclidean projection, exact, `O(p)`)
+$$\boxed{\;\operatorname{Proj}_S(y)_k \;=\; y_k-\frac{1}{p}\Bigl(\sum_{j=1}^{p}y_j-m\Bigr)\;}$$
+Substituting `y = θ − αg` and using `1ᵀθ = m`:
+$$\boxed{\;\theta_k^{+}=\theta_k-\alpha\bigl(g_k-\bar g\bigr),\qquad \bar g=\frac1p\sum_{j=1}^{p}g_j\;}$$
+i.e. **subtract the mean gradient before stepping** — the update lives entirely in the tangent space `{1ᵀδ = 0}`, so `1ᵀθ⁺ = m` exactly, every step, in exact and in float arithmetic (`Σ(g_k − ḡ) = 0` up to rounding; a single compensated subtraction of the residual restores it bit‑exactly).
+
+### Simplex version `S⁺ = {θ : 1ᵀθ = m, θ ≥ 0}` (if non‑negativity is also required)
+Closed form via a single threshold `τ` (Held–Wolfe / Duchi et al.):
+$$\theta_k^{+}=\max(y_k-\tau,\;0),\qquad \tau\ \text{s.t.}\ \sum_k\max(y_k-\tau,0)=m .$$
+Compute `τ` by sorting `y` descending `u_{(1)}≥\dots≥u_{(p)}`, letting
+$$\rho=\max\Bigl\{j:\ u_{(j)}-\tfrac1j\bigl(\textstyle\sum_{r\le j}u_{(r)}-m\bigr)>0\Bigr\},\qquad
+\tau=\tfrac1\rho\Bigl(\sum_{r\le\rho}u_{(r)}-m\Bigr).$$
+
+---
+
+## Part 4 — Bit‑exact test instance
+
+**Config.** `n = 2`, `p = 1`, `T = 3`, `η = 0.1`, `α = 0.05`, IEEE‑754 float64.
+
+$$A=\begin{pmatrix}0.9&0.2\\0.1&0.8\end{pmatrix}\ (\text{non‑neg, column sums }1),\qquad
+H=\begin{pmatrix}0.5\\-0.5\end{pmatrix}\ (\text{state‑independent, column sum }0),$$
+$$s_0=(1.0,\ 3.0),\quad M=4.0,\qquad \theta=2.0,\quad m=2.0,$$
+$$L(s)=\tfrac12\sum_i (s_i-s^\*_i)^2,\qquad s^\*=(2.0,\ 2.0).$$
+
+Hebbian write per tick: `η H θ = 0.1·(0.5,−0.5)·2.0 = (0.1, −0.1)`. Tick: `s_{t+1} = A s_t + (0.1, −0.1)`.
+
+### Forward pass
+| `t` | `s_t` | mass |
+|---|---|---|
+| 0 | `(1.000000, 3.000000)` | 4.000000 |
+| 1 | `(1.600000, 2.400000)` | 4.000000 |
+| 2 | `(2.020000, 1.980000)` | 4.000000 |
+| 3 | `(2.314000, 1.686000)` | 4.000000 |
+
+Check `s_1`: `A s_0 = (0.9·1+0.2·3, 0.1·1+0.8·3) = (1.5, 2.5)`; `+ (0.1,−0.1) → (1.6, 2.4)`.
+`s_2`: `A s_1 = (1.44+0.48, 0.16+1.92) = (1.92, 2.08)` `→ (2.02, 1.98)`.
+`s_3`: `A s_2 = (1.818+0.396, 0.202+1.584) = (2.214, 1.786)` `→ (2.314, 1.686)`.
+
+### Adjoint pass  (`D = 0`, so `λ_t = Aᵀ λ_{t+1}`, `Aᵀ = [[0.9, 0.1],[0.2, 0.8]]`)
+
+$$\boxed{\lambda_3 = \nabla L(s_3) = s_3 - s^\* = (0.314000,\ -0.314000)}$$
+
+$$\lambda_2 = A^{\top}\lambda_3 = (0.9\cdot0.314 + 0.1\cdot(-0.314),\ \ 0.2\cdot0.314 + 0.8\cdot(-0.314))$$
+$$\boxed{\lambda_2 = (0.251200,\ -0.188400)}$$
+
+$$\lambda_1 = A^{\top}\lambda_2 = (0.9\cdot0.2512 + 0.1\cdot(-0.1884),\ \ 0.2\cdot0.2512 + 0.8\cdot(-0.1884))$$
+$$\boxed{\lambda_1 = (0.207240,\ -0.100480)}$$
+
+(for completeness `λ_0 = Aᵀλ_1 = (0.176468, −0.038936)`.)
+
+### Parameter gradient
+$$g=\eta\,H^{\top}(\lambda_1+\lambda_2+\lambda_3),\qquad H^{\top}=(0.5,\ -0.5)$$
+$$\lambda_1+\lambda_2+\lambda_3=(0.772440,\ -0.602880)$$
+$$H^{\top}(\cdot)=0.5\cdot0.772440-(-0.5)\cdot(-0.602880)\ \Rightarrow\ 0.386220+0.301440=0.687660$$
+$$\boxed{g = 0.1\times 0.687660 = 0.068766}$$
+
+Per‑tick check: `t=0: 0.015386`, `t=1: 0.021980`, `t=2: 0.031400`; sum `= 0.068766`. ✔
+
+Bound check (Part 2c): `‖g‖_∞ = 0.068766 ≤ η n T G_L = 0.1·2·3·0.314 = 0.188400` ✔;
+tighter `≤ η Σ‖λ_t‖₁ = 0.1·(0.307720+0.439600+0.628000) = 0.137532` ✔.
+`‖λ_t‖_∞` sequence `0.314000 → 0.251200 → 0.207240` is non‑increasing (condition A working). ✔
+
+### Projected training step
+`y = θ − α g = 2.0 − 0.05·0.068766 = 2.0 − 0.00343830 = 1.99656170`.
+Projection onto `{θ : Σθ = m = 2.0}` with `p = 1`:
+$$\operatorname{Proj}(y) = y - \tfrac{1}{1}(y - 2.0) = 2.0 .$$
+$$\boxed{\theta^{+} = 2.000000}$$
+
+**Degeneracy note (real, worth stating):** with `p = 1` the set `{θ : Σθ = m}` is the single point `{m}`; its tangent space is `{0}`, so the mass‑preserving projected gradient is identically zero and `θ⁺ = m` regardless of `g`. The unconstrained gradient `g = 0.068766` is still the quantity an implementation must reproduce; the conserved update simply has no remaining degree of freedom until `p ≥ 2`. For a non‑trivial step use e.g. `p = 2`, `H = [[0.5,−0.3],[−0.5,0.3]]`, `θ = (1.2, 0.8)`, `m = 2.0`, then `θ⁺_k = θ_k − α(g_k − ḡ)`.
+
+### Float64 exactness
+All reported 6‑decimal values are the exact real‑arithmetic results. Evaluated in IEEE‑754 float64 (constants `0.9, 0.1, 0.2, 0.8, 0.314` are not exactly representable), each intermediate carries relative error `≲ 2⁻⁵² ≈ 2.2·10⁻¹⁶`; the accumulated error after the 3 forward + 3 adjoint linear steps is `< 10⁻¹⁴`. No reported value lies within `10⁻⁷` of a 6‑decimal rounding boundary (`x.xxxxxx5`), so the table above is reproducible bit‑for‑bit after rounding to 6 decimals on any conforming float64 implementation that applies the operations in the order shown (`A s_t` as `sum of products` per row, then add the write vector; adjoint as `Aᵀ λ` per row; `g` as `η·(0.5·Σλ[0] − 0.5·Σλ[1])`).
