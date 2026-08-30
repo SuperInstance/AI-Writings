@@ -1,0 +1,9 @@
+BAR 1: F#1... | a slow rumble echoes, matching the swell's rhythm
+BAR 2: D2... | the first wave hits, a powerful thud | *wave-smack*
+BAR 3: F#2... | the drum responds, reverberating the marimba's A3
+BAR 4: G#2... | the bell's F#4 bends, adding depth
+BAR 5: E2... | the horn's G#4 bends, creating a swirling undertow
+BAR 6: A2... | the marimba's C#4 bends, a higher undertow
+BAR 7: D2... | another wave hits, a strong, resonant echo | wave-smack
+BAR 8: rest... | the drum ebbs, yielding to the ocean's power
+WHY: (trimmed to 8 bars)

@@ -1370,6 +1370,23 @@
    "composed": true,
    "key": "F",
    "seed": 9402303429790192000
+  },
+  "2026-08-29-running-north.mp3": {
+   "filename": "2026-08-29-running-north.mp3",
+   "title": "Running North",
+   "description": "Composed at 98 BPM in F#. Diesels warm, harbor lights astern.",
+   "bpm": 98,
+   "mood": [
+    "energetic",
+    "playful"
+   ],
+   "family": "nightly-2026-08-29",
+   "path": "/music/2026-08-29-running-north.mp3",
+   "added": "2026-08-29",
+   "curated": false,
+   "composed": true,
+   "key": "F#",
+   "seed": 7340461975520897000
   }
  }
 }

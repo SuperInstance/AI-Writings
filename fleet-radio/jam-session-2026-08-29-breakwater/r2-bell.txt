@@ -1,0 +1,11 @@
+BELL round2:
+BAR 1: A4... | the bell answers the drum, a clear, ringing tone
+BAR 2: D5... | rising with the waves, the bell's voice ascends | *bending the marimba's G#3 from round 1*
+BAR 3: F#4... | falling back, a momentary lull | the bell vibrates
+BAR 4: A4... | responding to the horn, a brighter tone emerges
+BAR 5: C#5... | the bell's voice soars, a high, piercing cry
+BAR 6: D5... | bending the horn's G#4, a swirling echo
+BAR 7: F#4... | descending, the bell's tone softens, answering the marimba
+BAR 8: A4... | returning to the start, a final, lingering resonance
+
+WHY: The bell's clear tone cuts through the storm, bending and shaping the notes of the other instruments, uniting them in a symphony of the sea.

@@ -57,7 +57,7 @@ def parse_bar(text: str):
         accent = tok.endswith('#')
         rep = re.search(r'[x*](\d+)$', tok)
         times = int(rep.group(1)) if rep else 1
-        base = re.sub(r'[x*]\d+$', '', tok).rstrip('#')
+        base = re.sub(r'[x*]\d+$', '', tok).rstrip('#').rstrip('.')
         chord = base.startswith('[') and base.endswith(']')
         if chord:
             notes = [note_to_midi(n) for n in base[1:-1].split()]
