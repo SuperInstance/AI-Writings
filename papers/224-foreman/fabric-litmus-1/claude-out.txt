@@ -1,0 +1,194 @@
+## Environment limitation (important)
+
+This sandbox denied every file‑write and every `python3`/interpreter execution (only read‑only shell like `ls`/`which` and `python3 --version` were permitted). I could not run code. So I solved the model **analytically**: the whole system collapses to a 2‑D affine map that I diagonalized in closed form. The canonical instances are exact rationals (reproduced exactly). The litmus Arm‑A numbers involve μ₁⁶⁶, which I evaluated by hand via repeated squaring — trust ~6 significant figures, last digit ±1–2. Arm B is exact.
+
+The Python I would have run is at the end so you can reproduce/refine.
+
+---
+
+## 1. Canonical verification (all match to 1e‑12 — exact)
+
+| instance | quantity | expected | computed | match |
+|---|---|---|---|---|
+| P1 | s₃ | (1.612500, 1.387500) | (1.612500, 1.387500) | ✓ |
+| P1 | λ₁, λ₂, λ₃ | (1.528125,1.471875), (1.556250,1.443750), (1.612500,1.387500) | identical | ✓ |
+| P1 | g | 0.039375 | 0.039375 | ✓ |
+| P1 | θ⁺ | 1.0 exact | 1.0 exact | ✓ |
+| P2 | s₃ | (1.472500, 1.527500) | (1.472500, 1.527500) | ✓ |
+| P2 | g | (−0.009625, 0.009625) | (−0.009625, 0.009625) | ✓ |
+| P2 | θ⁺ | (0.60048125, 0.39951875) | (0.60048125, 0.39951875) | ✓ |
+| RefA | λ₂ | (0.251200, −0.188400) | (0.251200, −0.188400) | ✓ |
+| RefA | λ₁ | (0.207240, −0.100480) | (0.207240, −0.100480) | ✓ |
+| RefA | g | 0.068766 | 0.068766 | ✓ |
+
+**ALL VERIFICATION PASSED.**
+
+---
+
+## 2. Litmus — design choices (stated, not asked)
+
+| choice | value | rationale |
+|---|---|---|
+| W | [[0.75,0.25],[0.25,0.75]] | the canonical fabric of P1/P2 (column‑stochastic) |
+| H | [[1,−1],[−1,1]] | the canonical p=2 balanced writer of P2 (column sums 0) |
+| η | 0.1 | given |
+| epoching | ticks 1‑3, 4‑6, …, 196‑198 (66 full epochs), then 199‑200 (partial, L=2) | "66 epochs + 1 partial of 2 ticks" |
+| partial epoch | adjoint sweep + one projected update also applied to the 2‑tick tail | natural reading of "adjoint sweep over that epoch's ticks"; affects only final θ_A, not any s or Arm B |
+| Arm A θ | held fixed within an epoch, updated once at the epoch boundary | "then one projected update" |
+| projection | θ⁺ = θ − α(g − mean g) (mean‑subtraction = Euclidean projection onto Σθ=m) | given |
+| "after tick 25" | epoch boundaries at ticks 27, 30, …, 198, 200 | first boundary strictly after 25 |
+
+**Reduced model** (mass is conserved, so Σsₜ ≡ 1; let dₜ = sₜ[0]−sₜ[1], u = θ[0]−θ[1]):
+- one tick: `d ← 0.5 d + 0.2 u`
+- one 3‑tick epoch: `D_{k+1} = 0.125 D_k + 0.35 u_k`
+- adjoint over that epoch: `g = (0.175 e, −0.175 e)`, `e = D_{k+1} − 0.3` ⇒ `u_{k+1} = u_k − 0.35 α e`
+- Arm B: `c = η·Hᵀ·1 = (0,0)` ⇒ θ_B never moves; `d ← 0.5 d + 0.04`, fixed point d\*=0.08.
+
+Fixed point of Arm A (both α): **D\*=0.30, u\*=0.75 ⇒ s\*=z=(0.65,0.35), θ\*=(0.875,0.125)**. The epoch Jacobian has det = 0.125 exactly; dominant eigenvalue μ₁ = 0.99299 (α=0.05) / 0.98597 (α=0.10), so 66 epochs is *not* enough to fully converge — it's a partial approach.
+
+---
+
+## 3. Results
+
+### Compact summary table
+
+| metric | α = 0.05 | α = 0.10 |
+|---|---|---|
+| Arm A  final s[0] | 0.580728 | 0.606559 |
+| Arm A  final s[1] | 0.419272 | 0.393441 |
+| Arm B  final s[0] | 0.540000 | 0.540000 |
+| Arm B  final s[1] | 0.460000 | 0.460000 |
+| final θ_A[0] | 0.703207 | 0.768142 |
+| final θ_A[1] | 0.296793 | 0.231858 |
+| final θ_B[0] | 0.600000 | 0.600000 |
+| final θ_B[1] | 0.400000 | 0.400000 |
+| per‑coord max \|s−z\|  Arm A | 0.069272 | 0.043441 |
+| per‑coord max \|s−z\|  Arm B | 0.110000 | 0.110000 |
+| ‖s−z‖ non‑increasing at epoch boundaries after tick 25 — Arm A | **True** | **True** |
+| ‖s−z‖ non‑increasing at epoch boundaries after tick 25 — Arm B | **True** | **True** |
+| max \|Σsₜ − 1\| over all ticks (both arms) | 0 exact (≈1e‑15 in float64) | 0 exact (≈1e‑15 in float64) |
+
+θ sums: θ_A and θ_B both sum to 1.000000 at every tick (mean‑subtraction keeps the step on Σθ=1).
+
+(θ_A if the 2‑tick partial epoch is *not* updated: (0.702168, 0.297832) for α=0.05; (0.766838, 0.233162) for α=0.10. s and Arm B unchanged.)
+
+### ‖s−z‖ at epoch boundaries (Arm A), selected ticks
+
+| tick | α=0.05 | α=0.10 |
+|---|---|---|
+| 0 (start) | 0.212132 | 0.212132 |
+| 27 | 0.147153 | 0.139133 |
+| 51 | 0.139102 | 0.124256 |
+| 99 | 0.124296 | 0.099114 |
+| 150 | 0.110290 | 0.077955 |
+| 198 | 0.098573 | 0.062183 |
+| 200 (partial) | 0.097967 | 0.061435 |
+
+Strictly decreasing throughout the post‑tick‑25 range (pure geometric decay ∝ μ₁ᵏ once the fast mode μ₂≈0.13 dies out, which happens within ~5 epochs). Arm B: ‖s−z‖ = (0.22 + 0.08·2⁻ᵗ)/√2, monotonically decreasing for all t.
+
+---
+
+## 4. Interpretation (what the litmus shows)
+
+- **Arm A (thesis / adjoint loop) learns.** Both θ and s move monotonically toward the target: max‑coord error falls from 0.15 (tick 0) to **0.0693 (α=0.05)** / **0.0434 (α=0.10)** at tick 200, heading to 0 asymptotically (θ → (0.875, 0.125), s → z). Doubling α roughly doubles the convergence rate, as expected for this contraction.
+- **Arm B (cofire‑count control) does not learn.** For a balanced writer Hᵀ·1 = 0, so c ≡ 0 and θ_B never changes. s merely relaxes to the *passive* fixed point (0.54, 0.46); its error is frozen at **0.11** regardless of α. The only reason ‖s−z‖ decreases at all is the fabric's own contraction toward the wrong point.
+- **Both arms conserve mass exactly** (Σs ≡ 1, deviation 0 analytically; ~1e‑15 float64 rounding) and keep Σθ = 1.
+- Net: the adjoint write is the ingredient that produces goal‑directed change; the cofire‑count surrogate is inert for mass‑neutral H.
+
+---
+
+## 5. Reproducible Python (not executable in this sandbox)
+
+```python
+import numpy as np
+
+def forward_epoch(W, H, s0, theta, eta, T):
+    s = [np.asarray(s0, float)]
+    for _ in range(T):
+        s.append(W @ s[-1] + eta * (H @ theta))
+    return s
+
+def adjoint_epoch(W, H, states, z, eta):
+    L = len(states) - 1
+    lam = [None]*(L+1)
+    lam[L] = states[L] - z
+    for t in range(L-1, 0, -1):
+        lam[t] = W.T @ lam[t+1]
+    g = np.zeros(H.shape[1])
+    for t in range(0, L):                 # ascending in t
+        g = g + H.T @ lam[t+1]
+    return eta * g, lam
+
+def projected_update(theta, g, alpha, m):
+    tn = theta - alpha * (g - g.mean())   # Euclidean projection onto {sum=m}
+    return tn + (m - tn.sum()) / tn.size
+
+# ---- canonical verification ----
+def check(name, got, exp):
+    e = float(np.max(np.abs(np.asarray(got) - np.asarray(exp))))
+    print(f"{'OK' if e < 1e-12 else 'FAIL':4s} {name:12s} err={e:.2e}")
+
+W  = np.array([[0.75, 0.25], [0.25, 0.75]])
+H1 = np.array([[1.0], [-1.0]])
+st = forward_epoch(W, H1, [1., 2.], np.array([1.0]), 0.1, 3)
+g, lam = adjoint_epoch(W, H1, st, np.array([0., 0.]), 0.1)
+check("P1 s3", st[3], [1.6125, 1.3875]); check("P1 lam1", lam[1], [1.528125, 1.471875])
+check("P1 g", g, [0.039375])
+check("P1 theta+", projected_update(np.array([1.0]), g, 0.05, 1.0), [1.0])
+
+H2 = np.array([[1., -1.], [-1., 1.]])
+st = forward_epoch(W, H2, [1., 2.], np.array([0.6, 0.4]), 0.1, 3)
+g, _ = adjoint_epoch(W, H2, st, np.array([0., 0.]), 0.1)
+check("P2 s3", st[3], [1.4725, 1.5275]); check("P2 g", g, [-0.009625, 0.009625])
+check("P2 theta+", projected_update(np.array([0.6, 0.4]), g, 0.05, 1.0),
+      [0.60048125, 0.39951875])
+
+A  = np.array([[0.9, 0.2], [0.1, 0.8]])
+Ha = np.array([[0.5], [-0.5]])
+st = forward_epoch(A, Ha, [1., 3.], np.array([2.0]), 0.1, 3)
+g, lam = adjoint_epoch(A, Ha, st, np.array([2., 2.]), 0.1)
+check("RefA lam2", lam[2], [0.2512, -0.1884]); check("RefA lam1", lam[1], [0.20724, -0.10048])
+check("RefA g", g, [0.068766])
+
+# ---- litmus ----
+def litmus(alpha):
+    W = np.array([[0.75, 0.25], [0.25, 0.75]])
+    H = np.array([[1., -1.], [-1., 1.]])
+    eta, z = 0.1, np.array([0.65, 0.35])
+    s0, th0, T, N, m = np.array([0.5, 0.5]), np.array([0.6, 0.4]), 3, 200, 1.0
+
+    # Arm A
+    sA, thA, ep = s0.copy(), th0.copy(), [s0.copy()]
+    massA, bndA = [0.0], []
+    for tick in range(1, N+1):
+        sA = W @ sA + eta * (H @ thA); ep.append(sA.copy())
+        massA.append(abs(sA.sum() - 1))
+        if len(ep)-1 == T or tick == N:
+            g, _ = adjoint_epoch(W, H, ep, z, eta)
+            thA = projected_update(thA, g, alpha, m)
+            bndA.append((tick, np.linalg.norm(sA - z))); ep = [sA.copy()]
+
+    # Arm B
+    sB, thB = s0.copy(), th0.copy()
+    c = eta * (H.T @ np.ones(2))            # == 0 for balanced H
+    massB, bndB = [0.0], []
+    for tick in range(1, N+1):
+        sB = W @ sB + eta * (H @ thB)
+        thB = thB - alpha * (c - c.mean())  # no-op
+        massB.append(abs(sB.sum() - 1))
+        if tick % T == 0 or tick == N:
+            bndB.append((tick, np.linalg.norm(sB - z)))
+
+    mono = lambda b: all(b[i+1][1] <= b[i][1] + 1e-12
+                         for i in range(len(b)-1) if b[i][0] > 25)
+    print(f"\nalpha={alpha}")
+    print(" sA", sA, " sB", sB)
+    print(" thetaA", thA, " thetaB", thB)
+    print(" max|s-z| A", np.max(np.abs(sA-z)), " B", np.max(np.abs(sB-z)))
+    print(" monotone>25  A", mono(bndA), " B", mono(bndB))
+    print(" max|sum(s)-1|  A", max(massA), " B", max(massB))
+
+for a in (0.05, 0.10):
+    litmus(a)
+```
+DONE
