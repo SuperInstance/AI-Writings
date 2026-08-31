@@ -1,0 +1,8 @@
+BAR 1: | p
+BAR 2: | p
+BAR 3: | p
+BAR 4: | p
+BAR 5: | p
+BAR 6: | p
+BAR 7: | p
+BAR 8: | WHY: Introduces a simple, haunting melody.
