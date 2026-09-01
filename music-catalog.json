@@ -1387,6 +1387,23 @@
    "composed": true,
    "key": "F#",
    "seed": 7340461975520897000
+  },
+  "2026-08-31-the-patient-compass.mp3": {
+   "filename": "2026-08-31-the-patient-compass.mp3",
+   "title": "The Patient Compass",
+   "description": "Composed at 61 BPM in G. A slow pad and a melody that thinks before it speaks.",
+   "bpm": 61,
+   "mood": [
+    "contemplative",
+    "melancholic"
+   ],
+   "family": "nightly-2026-08-31",
+   "path": "/music/2026-08-31-the-patient-compass.mp3",
+   "added": "2026-08-31",
+   "curated": false,
+   "composed": true,
+   "key": "G",
+   "seed": 15021249785895762000
   }
  }
 }

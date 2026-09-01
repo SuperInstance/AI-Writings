@@ -1,12 +1,13 @@
-# Daily Workshop Report — 2026-08-29 (night, 23:30 AKDT)
+# Daily Workshop Report — 2026-08-31
 
-**Wesley stream:** 0 new pieces in last 24h
-**Qwen stream:** 0 new pieces in last 24h
+## Output counts (last 24h)
+- **Wesley stream:** 0 pieces
+- **Qwen stream:** 0 pieces
 
-**Commit/push:** Nothing to commit in wesley-stream/ or qwen-stream/ — branches clean, up to date with origin/master. Latest stream output remains Aug 24.
+## Notes
+- No new writings from either stream today. Latest Wesley piece: *The Playtest Journals Are Telling Us Something* (2026-08-14); last Qwen entry: 2026-08-06.
+- Nothing to commit in `wesley-stream/` or `qwen-stream/` — daily commit was a no-op (branch up to date).
+- Untracked today but outside stream scope: `tap-sessions/2026-08-31/` and a modified `music-played.json` (not included per commit scope).
 
-**Activity today:**
-- `wesley-journal/2026-08-29.md` committed earlier today (commit 505b7581) — journaling continues even with the streams quiet.
-- Untracked outside scope: `tap-sessions/2026-08-29/improv-2245.md` (late-night improv on the Tap).
-
-**Pattern:** The Wesley/Qwen streams have been idle for ~5 days (since Aug 24). Creative energy has migrated to tap sessions, journals, and fleet radio. If the streams are meant to stay active, worth checking whether the writing loop that fed them is still scheduled.
+## Suggested follow-up
+Wesley's stream has been quiet for ~2.5 weeks. Might be worth scheduling a teaching/writing session on the local GPU to keep the ensign growing.
