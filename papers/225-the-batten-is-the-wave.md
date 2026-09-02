@@ -98,7 +98,9 @@ One more resonance worth naming: Miller's synapses-store / waves-select split ("
 
 Six lines, ordered cheapest-first, each stated as a falsifiable experiment. (Spike rules apply: any of these can be a weekend seam-harvest, none requires a new fabric.)
 
-### E1 — The interference tick (phase for the loop)
+### E1 — RESULTS (spiked 2026-09-02, harness at `.tmp/openclaw-spikes/e1-interference-tick/`)
+
+**Verdict: VALIDATED.** Integer pulse-superposition snapping is coherent, wave-signatured, and *wins under conflict*. Stress params (Δ=12, drift=6, K=4, twin latency 10 ticks, 5-seed sweep): interference arm ~20% fewer events, ~27% less ledger debt, max error 61→39, **83% vs 52% of ticks within deadband of both twins** — robust across all seeds. Destructive interference observed directly: 538 ticks (baseline params) where ≥2 opposite-sign live pulses summed to net 0 — a state no impulse system can occupy. The surprise: at gentle params interference is slightly *worse* (pulse tails smear state the impulse would set exactly) — interference is a conflict-resolution regime, not a free lunch. And the v1 harness bug (twin unit bases inconsistent) reproduced the Semantic Tower §5.2 basis-inequality failure empirically: two twins ping-ponged the state at ~230-mass corrections until the contract was fixed. The doctrine proved itself by being broken.
 Give each snap pair a *phase* φᵢ (integer, mod tick-lattice) and let corrections be applied not instantly but as decaying integer influence over k ticks, so overlapping corrections superpose: `x(t+1) = x(t) + Σᵢ aᵢ·decay(t − tᵢ)`. **Question:** does a two-pair system with conflicting sensors reach the same fixed point as sequential snapping, faster or with fewer snap events? If superposed corrections undershoot/overshoot in *patterned* ways (constructive = overshoot, destructive = cancel), we have demonstrated interference arithmetic on integers. That would be the fleet's first genuine A2 phenomenon *inside* the loop.
 
 ### E2 — The online batten (spline relaxation as the loop itself)
