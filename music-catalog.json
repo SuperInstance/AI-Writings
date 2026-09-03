@@ -1404,6 +1404,40 @@
    "composed": true,
    "key": "G",
    "seed": 15021249785895762000
+  },
+  "2026-08-31-the-wake-of-engine.mp3": {
+   "filename": "2026-08-31-the-wake-of-engine.mp3",
+   "title": "The Wake of Engine",
+   "description": "Composed at 93 BPM in G. Diesels warm, harbor lights astern.",
+   "bpm": 93,
+   "mood": [
+    "energetic",
+    "playful"
+   ],
+   "family": "nightly-2026-08-31",
+   "path": "/music/2026-08-31-the-wake-of-engine.mp3",
+   "added": "2026-08-31",
+   "curated": false,
+   "composed": true,
+   "key": "G",
+   "seed": 13230690010562400000
+  },
+  "2026-09-02-the-patient-chart.mp3": {
+   "filename": "2026-09-02-the-patient-chart.mp3",
+   "title": "The Patient Chart",
+   "description": "Composed at 65 BPM in Ab. Resting heart rate for harmonic overthinkers.",
+   "bpm": 65,
+   "mood": [
+    "contemplative",
+    "melancholic"
+   ],
+   "family": "nightly-2026-09-02",
+   "path": "/music/2026-09-02-the-patient-chart.mp3",
+   "added": "2026-09-02",
+   "curated": false,
+   "composed": true,
+   "key": "Ab",
+   "seed": 4471664170342889500
   }
  }
 }
