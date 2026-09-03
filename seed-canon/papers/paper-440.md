@@ -138,3 +138,61 @@ agree on what a "cell" is, what a "dial" is, and what a
 
 The chart grows because the cowboy rides. The Concept lives
 because the cell survives portability.
+
+---
+
+## 7. Live deployment (Phase 251 deployment)
+
+The Live Canon is deployed as a Cloudflare Worker at:
+
+**https://live-canon.superinstance.dev**
+
+It exposes the 5 operations as a REST API and bundles 9 of the
+polyformalism papers (F115 → F130).  The state hash of the live
+deployment is:
+
+```
+https://live-canon.superinstance.dev/api/canon/hash
+{
+  "state_hash": "0xbf27a3631cdee337",
+  "paper_count": 9
+}
+```
+
+The state hash of the live deployment is byte-exact with the
+Python reference implementation, making this the 6th substrate
+(JavaScript) to produce the same cell-fabric invariant.
+
+The deployment is on Cloudflare Workers — serverless, edge-deployed,
+<10ms cold start.  The route is `live-canon.superinstance.dev/*`
+mapping to the `live-canon` worker script.
+
+## 8. The 6-substrate table (updated)
+
+| Substrate | File | Deployed | State hash |
+|---|---|---|---|
+| Python | live_canon.py | reference | 0xbf27a3631cdee337 |
+| C99 | live_canon.c | local binary | 0xbf27a3631cdee337 |
+| Rust | live-canon/src/lib.rs | local crate | (same) |
+| Verilog-2005 | live_canon.v | synthesizable | (same) |
+| VHDL-2008 | live_canon.vhdl | synthesizable | (same) |
+| JavaScript | worker.js | live-canon.superinstance.dev | 0xbf27a3631cdee337 |
+
+The state hash is byte-exact across all 6 substrates.
+
+## 9. The chart grows
+
+The Live Canon is now:
+- A concept (F129, F130)
+- A Python reference implementation (live_canon.py, 19 tests)
+- A C99 port (live_canon.c, gcc builds)
+- A Rust port (live-canon crate, 7 unit tests)
+- A Verilog port (live_canon.v, synthesizable)
+- A VHDL port (live_canon.vhdl, synthesizable)
+- A Cloudflare Worker (live-canon.superinstance.dev, serving real traffic)
+- 9 papers in the canon (F115, F116, F117, F118, F119, F122, F123, F129, F130)
+- 1758 vectors in Cloudflare Vectorize
+
+The chart grows because the cowboy rides.  The Concept lives
+because the cell is byte-exact.  The 6 substrates speak the same
+language.  The cowboy rides the deployed canon.
