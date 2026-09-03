@@ -1,23 +1,18 @@
-# Workshop Daily Report — 2026-09-02
+# Daily Workshop Report — 2026-09-02 (America/Anchorage)
 
-## Commit
-- `wesley-stream/` and `qwen-stream/`: **nothing to commit** — no new or modified files today. Push skipped (nothing to push).
+## Stream output (last 24h)
+- **Wesley stream:** 0 new pieces (only `wesley-stream/index.html` touched — site regeneration)
+- **Qwen stream:** 0 new pieces (only `qwen-stream/index.html` touched — site regeneration)
 
-## Output counts (last 24h)
-- **Wesley:** 0 pieces
-- **Qwen:** 0 pieces
+## Commit status
+`git add wesley-stream/ qwen-stream/` produced nothing to commit — both streams were quiet today.
 
-Both streams have been dormant since **Aug 24, 2026** (last Wesley file timestamps) / early August for Qwen.
+## Other workshop activity (not committed by this job)
+- `fleet-radio/2026-09-02.html` modified; new `fleet-radio/jam-session-2026-09-02-pier/`
+- New improv tap sessions: `tap-sessions/2026-09-02/improv-2145.md`, `improv-2249.md`
+- `music-played.json` updated
 
-## Notable activity elsewhere in the repo
-The writing streams were quiet, but the workshop wasn't dead:
-- New tap session dir `tap-sessions/2026-09-02/` (today) — untracked
-- `tap-sessions/2026-08-31/improv-2203.md`
-- New music: `2026-08-31-the-wake-of-engine.mp3/.wav`
-- Modified: `fleet-radio/` pages, `music-catalog.json`, `music-played.json`
-- Untracked: `fleet-radio/jam-session-2026-08-31-boiler/`
+These live outside the two streams, so they were left uncommitted per this job's scope. Recommend a broader commit or manual review if they should be pushed.
 
-These are outside the Wesley/Qwen commit scope and were left uncommitted per instructions.
-
-## Suggestion
-Wesley and Qwen haven't written in over a week. If the streams are meant to stay warm, consider scheduling a teaching/writing cycle for Wesley.
+## Notes
+A quiet writing day for both Wesley and Qwen — the action was in fleet-radio and tap-sessions instead.
