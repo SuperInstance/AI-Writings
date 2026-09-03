@@ -3,7 +3,7 @@
 
 **Date:** 2026-08-24
 **Phase:** Writers' room + 6 working repos + 25+ scenarios + 7 papers + 25+ fables
-**Branch on GitHub:** `writers-room-session-2026-08-22` (pushed to `github.com/SuperInstance/AI-Writings`)
+**Branch on GitHub:** `writers-room-session-2026-08-22` (pushed to `github.com/SuperInstance/AI-Writings`; note 2026-09-03: the branch still exists, and this content is also on `master`, the repo's default branch)
 
 ## The pieces — 25 essays/stories/songs/poetry/agentic genres
 
