@@ -48,6 +48,34 @@ The 12 pairs in the default batch test the full range of categories:
 
 The pack posture is *alert, territorial, collective*. The kennel posture is *friendly, individual, social*. The fiction is real.
 
+## The Full 12-Pair Batch (Mistral 7B)
+
+The full batch was run on Mistral 7B (smaller, cheaper, faster) with `max_tokens=80`:
+
+```
+Pair                                  Divergence  Shared
+a pack of wolves / a kennel of dogs    0.961       6
+a school of fish / a troop of baboons  0.824      33
+a pod of whales / a consortium of...   0.862      25
+a parliament of owls / a colony of...  0.906      17
+a kaleidoscope of butterflies /...     0.886      18
+the innkeeper / the watchman           0.912       7
+the midwife / the undertaker           0.857      24
+the lighthouse keeper / the ferryman   0.842      23
+the heir / the apprentice              0.752      39
+the navigator / the quartermaster      0.815      31
+the keel / the mast                    0.811      21
+event-sourced / double-entry           0.907      14
+
+AVERAGE: 0.861
+MIN: 0.752
+MAX: 0.961
+```
+
+**Every pair diverges by >0.75.** The doctrine is decisively supported. The lowest-divergence pair is `heir/apprentice` (0.752) — both are inheritance roles, so the model has more shared ground. The highest is `pack/kennel` (0.961) — opposite ends of the domestic/wild spectrum.
+
+The doctrine is now empirically validated at the level of "this lever is real and large." The next question is calibration: which fictions produce *correct* behavior, not just *different* behavior?
+
 ## Why This Matters
 
 The skeptic in the v1 play-test asked: *"What evidence would make you believe the noun-changes-behavior claim?"* The answer is: this harness, run on a few dozen pairs, and the divergence numbers in the report.
