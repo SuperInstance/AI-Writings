@@ -94,8 +94,45 @@ STYLE_KEYWORDS = {
 }
 
 
+_GIT_ADD_DATES = None  # path -> earliest add-date (ISO), built once
+
+
+def load_git_add_dates():
+    """Build a path -> earliest add-date map in ONE git pass (fast).
+
+    Replaces the old per-file `git log` subprocess, which made the scan take
+    10+ minutes on this repo. git log streams newest-first, so the LAST time a
+    path appears in the stream is its earliest add — keep overwriting.
+    """
+    global _GIT_ADD_DATES
+    _GIT_ADD_DATES = {}
+    try:
+        result = subprocess.run(
+            ["git", "log", "--diff-filter=A", "--format=%aI", "--name-only", "--"],
+            capture_output=True, text=True, cwd=REPO_ROOT, timeout=300
+        )
+        current_date = None
+        for line in result.stdout.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            if line[0].isdigit():  # ISO date line (commit separator)
+                current_date = line
+            elif current_date:
+                _GIT_ADD_DATES[line] = current_date  # overwritten -> earliest
+    except Exception:
+        pass
+    return _GIT_ADD_DATES
+
+
 def get_git_date(filepath: Path) -> str:
-    """Get the date a file was first committed."""
+    """Get the date a file was first committed (batch map, per-file fallback)."""
+    if _GIT_ADD_DATES is None:
+        load_git_add_dates()
+    rel = filepath.relative_to(REPO_ROOT)
+    hit = _GIT_ADD_DATES.get(str(rel))
+    if hit:
+        return hit
     try:
         result = subprocess.run(
             ["git", "log", "--diff-filter=A", "--format=%aI", "--", str(filepath)],
