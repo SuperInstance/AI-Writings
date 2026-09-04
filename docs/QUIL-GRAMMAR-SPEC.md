@@ -426,6 +426,44 @@ A `quilc` is v0.1-conformant when it:
 - `forget` in fabric silicon: `qm_forget` is docs-only in the RTL opcode map (QUIL-VOCAB §1); the reserved opcode slot 7 (`KHASH` proposal) is the landing zone — until then, `forget` lowers to host-side epoch tooling (`quf_epoch.py`).
 - Citation honesty (D2/D8): SPIN-34 (PW = 41) and the round-19 arrival-mechanism family are booked wheel facts cited from the RFC charter; when the implementation lane lands, re-point those citations at reachable docs before any claim depends on them.
 
+## Appendix A — Keyword → QUIL-VOCAB.md anchor map
+
+Every terminal keyword of §3, mapped to its entry in quilt-verilog `docs/QUIL-VOCAB.md` (section : term, file-of-origin). Per the citation-honesty law (D2/D8), keywords with **no vocab entry** are marked as such rather than given a stretched anchor.
+
+| Spec keyword | Production | QUIL-VOCAB.md anchor | Notes |
+|---|---|---|---|
+| `cell` | `cell_decl` | §5c `cell` (docs/CULTURE-DEEP-DIVE.md:118 — "the atomic unit"); §5b `fabric` | Cell = unit of state + witness (RFC §0 table) |
+| `int` | `field_decl`, `port_decl` | §3c KV value-type ids — "Writer refuses f32/f64 (no floats in fleet state)"; §5c DOCTRINE 2 "quantization IS the algorithm" | The only data type |
+| `PW` (width param) | `width_expr` | §4b `CANARY-RTL-48 byte-identical` (cosim/run_spin34.sh:75–76) — PW-rebuild must reproduce trace bytes | Width-invariance canary; floor PW = 41 booked via SPIN-34 (RFC §2.3) |
+| `view` | `view_decl` | §1 `OP_VIEW` / `qm_view` (rtl/q_cell_core.v:126); §1a VIEW sub-ops (act/wsum/dial); §5c `shadow vs twin (view vs effect)` | Read-only shadow contract |
+| `bind` | `bind_decl` | §1 `OP_BIND` / `qm_bind` (rtl/q_cell_core.v:125) | First bind sets cell_id; QUIL's bind = the edge-declaration verb |
+| `link` | `link_decl` | §1 `OP_LINK` / `qm_link` (rtl/q_cell_core.v:125) — "wiring as data" | Symmetric edge slot |
+| `<=` (effect) | `effect` | §1 `OP_EFF` / `qm_effect` (rtl/q_cell_core.v:125) — `act += sat((w·dat)>>>15)`, fire-fanout egress; §5c twin (commanded write) | The only write form |
+| `tick` | `tick_block` | §1 `OP_TICK` / `qm_tick` (rtl/q_cell_core.v:126); §2d `tick.period_ms` (tools/tower/emith.py) | The only writer; append-only journal (RFC D5) |
+| `propose` | `propose_decl` | **no fabric opcode — deliberate** (black-box input port, RFC §1.5); nearest: §5c `LLM-as-compiler (ai cell)` (docs/CULTURE-DEEP-DIVE.md:459) | Neural side never gates |
+| `forget` | `forget_decl` | §1 `qm_forget` — "The sixth verb" (docs/QUF-FORGETTING-V1.md:230; academic/GENERAL-CALCULUS.md:40–44) | Docs-only in RTL opcode map; slot 7 `KHASH` is the landing zone |
+| `for` / `in` | `for_stmt`, `iter_domain` | **no vocab entry** (elaboration-level; RFC §1.6) | Honest absence |
+| `journal` | `journal_range`, `primary` | §5c `QUF / "state is a file"` ("the GGUF of cell state"); §3j `created_tick` (replay/staleness anchor); §3e section names | Append-only diff history |
+| `bound` | `journal_range` | **no vocab entry** (RFC §2.1 L1 "declared maximum") | v0.1 journal-loop guard |
+| `fanout` | `bind_decl` | nearest: §1 `OP_EFF` "fire-fanout egress op"; the conservation ledger is RFC D4 | Round-19 family term |
+| `arrive` | `bind_decl` | **no vocab entry** — RFC round-19 mechanism family (RFC §1.4) | Re-point citation when implementation lands (RFC §4) |
+| `queue_cell` | `arrive_mech` | **no vocab entry** (RFC §1.4 mechanism 1) | One journal entry deep |
+| `credit_fence` | `arrive_mech` | nearest: §1a `view wsum` "(+RQH credit)" (rtl/q_cell_core.v:451; q_hebb_rqh) | Credit concept's vocab anchor |
+| `staged_grant` | `arrive_mech` | **no vocab entry** (RFC §1.4 mechanism 3) | Grant/ack handshake |
+| `kind` | `link_decl` | **no vocab entry** (grammar marker) | |
+| `gap` | `link_kind` | §3b `tap.gap` (sim/tools/tapfabric.py:594–601, producer extension key) | Gap-junction link kind |
+| `external` / `port` | `port_decl` | nearest: §2d tower `io` directive (`kind: adc`, name, unit — sensory input declaration) | Black-box input ports |
+| `epoch` | `forget_decl` | §3e `epoch.<N>` (docs/QUF-FORGETTING-V1.md §2.2; tools/quf_epoch.py:123); §3j `epoch_no` E4 cross-check | Archive section naming |
+| `seal` | `forget_decl` | §3j `seal` (32 B trailing tag) | Fail-closed on mismatch |
+| `hmac_sha256` | `seal_alg` | §3k `algo_id` = 1 = HMAC-SHA256; `QUF-EPOCH-V1\0` domain-separation prefix | Only value defined |
+| `const` | `const_decl` | nearest: §3g `base` (bind-time base weight, u16) | RFC §1.1 "may reference constants" |
+| `sat` | `builtin_call` | §1a `view wsum` — "saturating" (rtl/q_cell_core.v:451); §3b `quant.dials` Q1.15 | Single saturation from exact wider sums (NQ-C3) |
+| `min` / `max` / `abs` | `builtin_call` | **no vocab entry** (language-internal) | |
+| `head` | `primary` | **no vocab entry** (language-internal; = `journal(C.f)[-1]`) | Old-value read |
+| reserved: `float` | S6 | §3c "Writer refuses f32/f64" | Absence of vocabulary, enforced |
+| reserved: `now` / `clock` / `time` | S6 | **no vocab entry** (nothing to anchor — that is the point) | No clock-reading primitive |
+| reserved: `net` / `socket` / `http` | S6 | **no vocab entry** (nothing to anchor) | No network primitive |
+
 ---
 
 *QUIL: the quilt's shapes, spoken in a language that cannot lie about time.*
