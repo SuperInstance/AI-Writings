@@ -1,0 +1,8 @@
+1. F3~2 A3~2 Bb3~2 | soft landing
+2. D3~2 G3~2 Bb3~2 | steady descent
+3. Eb3~2 G3~2 A3~2 | gentle glide
+4. F3~2 A3~2 Bb3~2 | slow release
+5. r~2 Bb3~2 D4~2 | breathy fade
+6. r~2 Eb3~2 G3~2 | quiet resolve
+7. r~2 F3~2 A3~2 | soft hold
+8. [Bb3 D4 F4]~5 | home chord, held to the last beat

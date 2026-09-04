@@ -11,6 +11,9 @@ Strip the fabricated citations (audit verdict: a third of the authority is inven
 ### The layer-collapse argument — SURVIVES, and we already live it
 The "translation tax" critique (serialize → ORM → wire → state store → render, three rewrites for hardware) is correct and is precisely what the fleet was built against: `quilt-rust` (one static binary, every cell addressable), `quilt-live` (the whole reactive OS in one HTML file), `quilt-fleet` (tier federation), and — the deepest version — **QUF**: "complete state travels in one flat binary file that a testbench, a soft core, or an FPGA load identically." That *is* the doc's "content-addressed universal state, zero serialization overhead," already running on real iCE40 silicon with an 18/18 bench suite. The doc's best idea is our shipping artifact.
 
+> **Count note (2026-09-03, audit round 14):** quilt-verilog has since grown — the RTL suite is now **21/21** (`tb/`, re-run verified in quilt-verilog audit round 13, commit `37e206f`) and `rtl/` holds **21 modules** (was 18 when this was written). Original text preserved as written on its date.
+
+
 ### AI-as-constrained-cell — SURVIVES; it's the two-tier law, independently derived
 The doc: *"an LLM call is just another cell type; its outputs are intercepted by deterministic constraint guard cells; AI is demoted from black box to constrained primitive."* Replace "guard cell" with "trace-labeled tier" and this is verbatim house doctrine:
 

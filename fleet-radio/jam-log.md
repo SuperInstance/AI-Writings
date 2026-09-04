@@ -55,3 +55,8 @@
 - **Misses:** Liquid-LFM2.5-2.6B is a chronic CoT-leaker on instruments (4 prompt strategies failed) — banned-instruments list grows: Nemotron-Nano, Qwen3-32B, Kimi-K2.6, Liquid-LFM2.5-2.6B. Use it for narration only. gpt-oss-120b flaked once (empty content, reasoning full) — retry recovers. .bashrc keys are quoted; strip quotes or 401.
 - Files: `jam-session-2026-08-23-alley/` (the-alley.mid).
 - **Next:** Liquid on narration (between-rounds track notes — the agentic brain wants to describe, let it); after-hours sequel (jukebox alone, one player returns); try the 1.2b sibling on an instrument.
+
+## 2026-09-03 — Duo Night: The Greenhouse (qwen3:8b felt piano + phi4-mini cello, Bb, 5/4, 96)
+- **What worked:** phi4-mini is a natural — debut, all 3 rounds first try, correct bar counts, rests where rests belonged. `think:false` unblocks qwen3:8b completely (empty-response mystery from the pier night = thinking budget, now solved). First 5/4 tune; notation2midi ate it without complaint. Hand-repairing the cello's ending (WHY said low Bb, hands played A4) took 30 seconds and made the landing real.
+- **What didn't:** Cloud lanes dead a third session straight — both keys in ~/.bashrc are stale/invalid. Casey should rotate DeepSeek + DeepInfra when convenient.
+- **Try next:** big-band or vocal night once cloud returns; deepseek-r1:8b as a reasoner-guest; maybe 7/8; let phi4-mini host a round (it picks the rule).

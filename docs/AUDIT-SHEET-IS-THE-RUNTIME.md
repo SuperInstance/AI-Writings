@@ -73,6 +73,9 @@ The structural trick: the doc mixes verifiable public science tooling with inven
 | `quilt-verilog` "compiles a deterministic subset of a Quilt sheet into a hardware netlist" — cells→registers, formulas→combinational logic | REAL repo (18/18 RTL benches, 6 formal proofs, iCE40 bitstream at 98% LC). But quilt-verilog is a **cellular learning fabric written in Verilog with its own 5+1 opcode model and QUF state file** — it does *not* consume arbitrary quilt sheets and emit netlists for them. "Same sheet compiles to browser/edge/FPGA" is not yet true for any sheet | **STRETCHED** — the direction is real, the compiler does not exist; this is exactly what NQ-C3 (this spike lane) tests in miniature |
 | LLM agent "instantly reconfigures … or triggers a partial hardware reconfiguration" | FPGA partial reconfiguration of a live netlist from an agent edit — no artifact | **FABRICATED** (as capability today) |
 
+> **Count note (2026-09-03, audit round 14):** quilt-verilog has since grown — the RTL suite is now **21/21** (`tb/`, re-run verified in quilt-verilog audit round 13, commit `37e206f`) and `rtl/` holds **21 modules** (was 18 when this audit row was written). Original text preserved as written on its date.
+
+
 ---
 
 ## Receipts (verbatim, trimmed only for width)

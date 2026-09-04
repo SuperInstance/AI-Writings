@@ -19,6 +19,8 @@ Between 2024 and 2026, LLM-written RTL went from a curiosity to a measurable eng
 The quilt-verilog project (`~/projects/quilt-verilog`) builds a bottom-layer quilt — a cell fabric with Hebbian edge updates, power-law decay, cosine/vMF estimation, and dial state — in pure Verilog-2005 (IEEE 1364-2005), zero vendor code, verified with iverilog/verilator from oss-cad-suite. A multi-agent competition produced the v1 architecture; `rtl/` now holds nine modules with eight passing testbenches.
 
 > **Count note (2026-09-03):** superseded by growth, not by error — quilt-verilog `rtl/` now holds 20 modules with 25+ testbenches (verified by re-count during audit round 4). The original sentence is preserved as written on its date.
+>
+> **Count note (2026-09-03, audit round 14):** superseded again by growth — quilt-verilog `rtl/` now holds **21 modules** and the RTL suite is **21/21 PASS** (re-run verified in quilt-verilog audit round 13, commit `37e206f`). Chain of dated notes preserved; nothing rewritten.
 
 This research lane asked three questions:
 

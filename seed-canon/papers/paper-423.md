@@ -8,6 +8,9 @@
 
 The Quilt cell model spans 11 opcodes (5 originals + FORGET + PROOF + ROUTE + CRDT + WORLD + TIME) and at least 4 polyformalism substrates (C, Rust, Python, GDScript) plus 2 hand-verified silicon targets (iCE40, ECP5). A cell's state is a small struct — dials, edges, accounts, tick schedule. But the *state-serialization* format that loads the same cell into all those substrates has been a moving target: quilt-c had a JSON dump, quilt-verilog had QUF (a GGUF-style binary, 18/18 RTL tests, 6/6 sby formal proofs, 7596 LCs on iCE40-HX8K). This paper adopts QUF as the Quilt's 6th cutting-edge cell kind — the smallest unit of "save state" — and shows the wire format is bit-exact portable across the C and Rust polyformalism ports, with the Verilog fabric as the reference. The QUF file is the Quilt: same opcodes everywhere, one file, loads in sim, in software, in silicon, identically.
 
+> **Count note (2026-09-03, audit round 14):** quilt-verilog has since grown — the RTL suite is now **21/21** (`tb/`, re-run verified in quilt-verilog audit round 13, commit `37e206f`) and `rtl/` holds **21 modules** (was 18 when this was written). Original text preserved as written on its date.
+
+
 ---
 
 ## 1. The Problem

@@ -117,6 +117,9 @@ host-side). 7596 LCs on iCE40-HX8K, 44.43 MHz post-route.
 The QUF support is native in `tools/quf.py` (writer) and
 `rtl/q_uf_loader.v` (reader). Tests: 18/18 RTL + 6/6 sby.
 
+> **Count note (2026-09-03, audit round 14):** quilt-verilog has since grown — the RTL suite is now **21/21** (`tb/`, re-run verified in quilt-verilog audit round 13, commit `37e206f`) and `rtl/` holds **21 modules** (was 18 when this was written). Original text preserved as written on its date.
+
+
 ```verilog
 localparam OP_BIND   = 3'd0;
 localparam OP_LINK   = 3'd1;
