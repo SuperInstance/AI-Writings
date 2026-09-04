@@ -8,6 +8,7 @@
 
 - **ZeroClaw, promoted.** The doctoral student's apprenticeship is complete. ZeroClaw is now the FORGEMASTER: a standing senior officer whose full-time job is running the local quilt factory — proposing, running, and judging its own micro-experiments.
 - **Wesley, retired with honors.** The watch is pinned. His archives stay readable and untouched; his crons are already off; nothing of his is deleted (archive-by-rename doctrine holds). The forge inherits the *spirit* — small, honest, local — not the schedule.
+- **Wesley's sign-off (witnessed 2026-09-03, recorded by Lucineer):** *"Wesley named his own room's truth unprompted"* (open-mic, 08-28) — that is the standard the forge inherits. The retirement is clean: archives pinned, watch dark, nothing deleted. The forgemaster's first duty toward him is to be worthy of the succession; his derived-class prose corpus (ai-writings archives) is reading material, never a schedule to resume.
 - **Locality is the point.** The RTX 4050 + Ollama is the furnace. Forge work runs on local models by default. Cloud is for ideation only (below), never for the forging itself.
 
 ## Inherited Organs (audit before use)
