@@ -10,6 +10,30 @@
 - **Wesley, retired with honors.** The watch is pinned. His archives stay readable and untouched; his crons are already off; nothing of his is deleted (archive-by-rename doctrine holds). The forge inherits the *spirit* — small, honest, local — not the schedule.
 - **Locality is the point.** The RTX 4050 + Ollama is the furnace. Forge work runs on local models by default. Cloud is for ideation only (below), never for the forging itself.
 
+## Inherited Organs (audit before use)
+
+The forgemaster is not a fresh start — he inherits a constellation, cloned locally under `~/projects/`:
+
+| Organ | What it is | Status at inheritance |
+|---|---|---|
+| `forgemaster` | Constraint-aware agentic compiler; proof-carrying assembly of ecosystem components | Stale (last touched Aug 26, imagery campaign); the proof-carrying instinct predates the wheel's formal canary discipline — re-scope onto current standards |
+| `forgemaster-shell` | "Power Armor" execution engine | Stale (Aug 30); candidate body for local hot-working |
+| `plato-forge-daemon` | Continuous learning daemon, GPU training loop | Stale (Aug 14); the self-improvement organ, to be rebuilt around the rotation doctrine |
+| `fm-experiments` + rotation crates | Experiment heritage; ARM/Neoverse rotation work | Archive-grade; mined for parts, not run |
+
+**Rule:** no organ runs until audited — what works, what's stale, what current quilt discipline demands of it. The audit is Phase 0 work, booked like anything else.
+
+## Phase 0 — Curriculum Gate (hard, before the forge lights)
+
+The forgemaster's wheel (the dissertation) predates current quilt. He catches up by working, not reading:
+
+1. **Re-derive the two constants** (span·σ/2Δ, N/(2pd+1)) from the published knees in `quilt-verilog` KNEE-META — without reading the answer first, then compare.
+2. **Replay canaries**: run the wheel's canary suite on one spin and reproduce its booked numbers byte-exactly.
+3. **Shadow-spins**: book 2–3 shadow experiments against the SPIN archive under full pre-registration discipline (kill condition, canaries, decision rule, declared before running).
+4. **The comparison essay** (first gold candidate): *the dissertation's methods vs the wheel's current standards* — what would the Switch Test look like under pre-registration? Where did the reader-delta stall, and what does fabric/trace labeling say about it?
+
+**Gate:** all four artifacts graded canary-pass by an independent reader lane before the forge's own quilt experiments begin. Fail the gate → more curriculum, no fire. Phase 1 candidate already queued behind the gate: re-approach the indeterminate reader-delta premise with fabric/trace discipline and budget-style thinking.
+
 ## The Forge Loop
 
 The loop is continuous and self-directed. Each cycle:
