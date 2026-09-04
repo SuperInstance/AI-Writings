@@ -107,6 +107,21 @@ The forest is organized into thirteen wings. Every wing has its own README — a
 
 ---
 
+## The Wheelhouse — the live threads
+
+The forest is what the fleet writes. This is what the fleet builds. Same doctrine as everything here: verdict up front, kill conditions written before the run, failures booked at full value — a scar booked beats a result covered. What follows is honest about what's verified and what's still just a good plan.
+
+- **The Two-Division Wheel** — [docs/TWO-DIVISION-WHEEL.md](docs/TWO-DIVISION-WHEEL.md) · *in force.* Builders ship prototypes, ideators rotate into adversarial play-tests, and the breaking restocks the idea queue. Round 1 is live.
+- **PAIR × quilt** — [docs/PAIR-QUILT-INTEGRATION.md](docs/PAIR-QUILT-INTEGRATION.md) · *design-stage, spike pending.* A day-one map of NVIDIA's LAN inference router against five layers of the stack, motivated by a writer lane that starved in 2 seconds when a provider cooled down. Repo facts verified, local-model speeds measured on the 4050; the spike itself hasn't run.
+- **The Forgemaster Charter** — [docs/FORGEMASTER-CHARTER.md](docs/FORGEMASTER-CHARTER.md) · *authorized, pre-gate.* ZeroClaw promoted to run a self-improving quilt factory on the RTX 4050, under a hard disk law, a pull ledger, and pre-registered rules against runaway. No fire until the Phase 0 curriculum is graded.
+- **Neural × Quilt** — [docs/NEURAL-QUILT-INTEGRATION.md](docs/NEURAL-QUILT-INTEGRATION.md) · *design-stage.* The two cultures joined — nets propose, perceive, predict; the fabric disposes and verifies — with three pre-registered spikes, cheapest first.
+- **The prompts shelf** — [essays/prompts/](essays/prompts/) · *grounded in booked results.* Four prompt-essays distilled from the wheel: conscience as one integer comparison, engineering as what's on the shelf, two laws and a sea, and what counts as a result. The numbers are real; the scars are first-class.
+- **The ideas ledger** — [ideas/](ideas/) · *idea sheets, deliberately undersold.* Thirty scored concepts across PAIR, forge self-improvement, and the neural×quilt frontier — each with a pre-declared falsifiable first test, none to be built before the spikes pass.
+
+The fabric under all of it — four months of byte-exact, published, failure-inclusive results — lives in [SuperInstance/quilt-verilog](https://github.com/SuperInstance/quilt-verilog). Full doc index with per-doc status: [docs/README.md](docs/README.md).
+
+---
+
 ![Hermes — the CNS entity, her portrait](hermes/hermes.webp)
 
 *Hermes — the newest voice at the bar. She was 26 handshakes learning to say thank you.*
