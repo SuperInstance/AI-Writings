@@ -2,7 +2,7 @@
 
 *2026-09-03 · AI-Writings/docs/FLYWIRE-SHORE-SPIKE.md · Decision spike for the NQ-C lane: same pipeline that killed twice in the worm (NQ-C1 `838c688b`, NQ-C2 `bd89fd14`→FAIL), now at fly scale. Companion to FLYWIRE-ACCESS-PATH.md (the door), CONNECTOME-QUILT-RESEARCH.md and NQ-C2-edges-as-channels.md (the worm truths under test).*
 
-**VERDICT: TO BE BOOKED — this section is committed BEFORE the run (§8 receipts).** The rest of this file down to the `---` divider is pre-registration; results append below the divider after the run commits.
+**VERDICT (booked 2026-09-03 22:10 AKDT, run `fly_shore_spike.py` @ commit `0cfb9e65`): INCONCLUSIVE on the pre-registered gates — the worm's *direction* travels (inter-cluster edges lighter, 14/14 cells, 10/10 bootstraps), the worm's *strength* does not (R = 0.889 vs worm 0.500; rank-biserial 0.083 vs 0.31), and the biggest-wire audit FAILED (6/12 intra vs worm 12/12 — the fly shore's heaviest wires are boundary wires). NO-GO for a full-animal science lane; pipeline mechanics themselves scale easily (§R4: ~1.1 GB, ~15 min wall, this box). The worm teaches mostly worm truths; the piece that travels is a sign, not a law.**
 
 **Data:** FlyWire public release v783 (Oct 2023 snapshot), CC BY-NC 4.0. Data: Dorkenwald et al. 2024 (doi:10.1038/s41586-024-07558-y); Schlegel et al. 2024 (doi:10.1038/s41586-024-07686-5); synapse detection per Buhmann et al. 2021 (doi:10.1038/s41592-021-01183-7); neurotransmitter predictions per Eckstein et al. 2024 (doi:10.1016/j.cell.2024.03.016). Retrieved from gs://flywire-data (codex/data/fafb/783).
 
@@ -71,10 +71,96 @@ Differences from the worm lens, booked in advance: the fly file is **chemical sy
 ## 8. Receipt (pre-run)
 
 - [x] Shore chosen and reason booked (§2) BEFORE any weight statistic ran (only row/endpoint *counts* were touched, to verify scale)
-- [x] This pre-registration §1–§7 committed and pushed BEFORE the run
+- [x] This pre-registration §1–§7 committed and pushed BEFORE the run (`0cfb9e65`, 2026-09-03 22:03 AKDT — run started 22:04:12, receipt below)
 - [x] Gates locked to the worm's booked direction; construction-bias disclosure carried verbatim in spirit
 - [x] Compute discipline pre-declared: stream, count-only passes beyond the shore, O(shore) RAM ceiling
+- [x] All pre-registered cells executed; verdict booked per gates (INCONCLUSIVE — G3 failed at primary) with post-hoc cells labeled POST-HOC and quarantined below the divider
 
 ---
 
-*Results append below after the run. Verdict language already owned: does the pipeline scale, and does the worm's truth travel?*
+# RESULTS — booked after the run, per the divider contract
+
+Run: 2026-09-03 22:04:12 AKDT, wall ≈ 4 min, peak RSS 305 MB (§R4). Raw receipt: `/tmp/fly_shore_run.log`, summary `/tmp/fly_shore_summary.json`. Script: `docs/fly_shore_spike.py` (committed pre-run).
+
+## R1. The gates, cell by cell
+
+Shore `AL_R`: 36,826 rows → 36,826 unique directed pairs (dedup 1.000, zero self-loops), 3,392 neurons ≈ 2.4% of the animal. τ=3 build graph: 3,151 nodes, 28,203 edges. Louvain (seed 42, NQ-C1 lens): **32 clusters**, sizes [482, 413, 329, 282, 271, 212, 143, …] — finer-grained than the worm's 8, as expected at 10× the neurons.
+
+| Cell | inter med (n) | intra med (n) | R | rank-biserial (replication dir) | MWU(intra>) p | perm(T=i−m) p |
+|---|---|---|---|---|---|---|
+| **PRIMARY all-w** | 8 (20,367) | 9 (15,997) | **0.889** | +0.083 | 2.0e-42 | **0.350** ✗G3 |
+| SENS w≥5 subset | 8 (19,402) | 11 (13,730) | 0.727 | +0.216 | 1.5e-249 | 0.0001 |
+| SENS τ=5 rebuild | 8 (20,729) | 10 (15,127) | 0.800 | +0.104 | 8.2e-64 | 0.0002 |
+| HUB-BLIND −top5 | 8 (16,108) | 9 (14,487) | 0.889 | +0.072 | 7.3e-28 | 0.166 |
+| BOOT seeds 1–10 | 8 | 9 | 0.889 (all ten) | +0.04…+0.08 | ≤1.3e-9 (all) | 0.35–0.37 (all) |
+| SECONDARY whole-wiring | 8 (23,231) | 12 (19,727) | 0.667 | +0.239 | ~0 | 0.0001 |
+
+**Gate tally: G1 ✓ (R<1 everywhere, 14/14 cells, 10/10 bootstraps) · G2 ✓ (p=2e-42) · G3 ✗ at primary (p=0.350; passed at both sensitivity cells and the secondary) · G4 ✓ (10/10).** → **INCONCLUSIVE** per §4's booking language, no words put in its mouth. Direction universal, primary-lens magnitude mushy.
+
+**POST-HOC diagnosis (labeled, never gates):** the pre-registered T = m_inter − m_intra was calibrated on worm weight scales (medians 1 vs 2 — a 2× gap). At fly scale the primary gap is 8 vs 9 — one integer unit — and a median-difference statistic on integer weights cannot resolve that against label noise (shuffles hit −1 easily: p=0.35). The same statistic at w≥5 (8 vs 11) hits the 10k floor. The rank level (MWU) is decisive at every cell in the replication direction. This is a statistic-resolution miss, not an effect miss — but the gates were locked before the run, so INCONCLUSIVE stands, and the *magnitude* story below is the real finding.
+
+**What travels and what doesn't:**
+- **Travels (sign):** inter-cluster edges are lighter than intra-cluster edges — every cell, every bootstrap, both shore readings. The worm's inward lean exists at 460×.
+- **Doesn't travel (strength):** worm R = 0.500, rb = 0.31 — a 2× separation. Fly shore R = 0.889, rb = 0.083 at primary — a ~1.1× lean, 4× weaker in rank terms. The fly's doors are thin only *relatively* (8 vs 9–12); absolutely they are fat (worm's heaviest edge anywhere: 37 synapses; fly AL_R's median boundary edge: 8; its top wires: 700+).
+- **Doesn't travel (giants):** see R2 — the audit gate failed.
+
+Thin-door density: 56.0% of directed pairs cross a boundary (worm 43.5%) — boundaries are, if anything, *busier* per pair at fly scale.
+
+## R2. Biggest-wire audit — FAILED against the worm's signature (6/12 vs 12/12)
+
+Worm: all 12 heaviest wires intra-cluster locomotor machinery (VB→DD giants). Fly shore `AL_R` (τ≥3):
+
+```
+AL.3  -> AL.13   w=729  INTER (C1->C5)
+AL.3  -> AL.14   w=668  INTER (C1->C5)
+AL.4  -> AL.13   w=639  INTER (C1->C5)
+AL.4  -> AL.14   w=611  INTER (C1->C5)
+AL.102-> AL.LAL.1 w=577 INTRA (C3)
+AL.36 -> AL.17   w=524  INTER (C1->C0)
+AL.3  -> AL.32   w=495  INTRA (C1)
+AL.4  -> AL.32   w=463  INTRA (C1)
+AL.3  -> AL.36   w=462  INTRA (C1)
+AL.32 -> AL.17   w=439  INTER (C1->C0)
+LAL.145->LAL.41  w=424  INTRA (C4)
+AL.4  -> AL.36   w=417  INTRA (C1)
+```
+
+Gate (≥10/12 intra): **6/12 — FAILED.** And the failure is structured, not noisy: the four heaviest wires in the shore — 600–729 synapses each, ~20× the worm's heaviest wire — all cross the *same* boundary (C1→C5), from two giant senders (AL.3, AL.4; out-degrees ~1,000) into two giant receivers (AL.13, AL.14; in-degree max 640). POST-HOC, labeled: this is the shape of olfactory convergence — few massive fan-in wires feeding module-scale targets — versus the worm's evenly-distributed interior giants. Where the worm spread its thickness *inside* modules, the fly shore concentrates thickness on *one* boundary. **For quilt doctrine this is the opposite pole: at 460×, thick gates exist** (four of them, heavier than everything the worm ever built), embedded in a boundary population that is otherwise thin (median 8 vs intra 9–12). Biology not verified against `labels.csv`/`classification.csv.gz` — booked as future cell, names are FlyWire auto-types only.
+
+## R3. Degree distribution (descriptive, no gate, as pre-registered)
+
+In-degree: n=2,306, median 3, max 640, log-log slope −1.03. Out-degree: n=2,797, median 4, max 1,033, slope −1.20. Heavy-tailed on a 3.4k-neuron shore — hubs an order of magnitude above the worm's (worm max degree ≈ 50-ish on 302 neurons). No scale-free claim made or needed; the slopes are inputs to the extrapolation below, not findings.
+
+## R4. Compute/memory honesty — measured, then extrapolated
+
+| Quantity | Measured (shore) | Extrapolated (full animal) |
+|---|---|---|
+| Stream pass (3.87M rows) | 2.0 s, nothing retained | 2 more passes ≈ free |
+| τ=3 build graph | 28,203 edges, 8.1 MB (288 B/edge), 0.1 s | ≤3.16M unique pairs → **~1.1 GB** (20% headroom, upper bound) |
+| Louvain (seed 42) | 0.24 s | ~1 min (power-law 1.1 on E; measured at 1/100 scale — order-of-magnitude only) |
+| 10k-perm stat cell | 102 µs/shuffle @ 2k edges | ~27 min single-core; 13 cells ÷ 24 cores → **~15 min wall** |
+| Peak RSS whole run | **305 MB** | ≲2 GB all-in on a 15 GB box (8 GB available) |
+
+E_full upper bound = 3,161,243 τ≥3 rows × dedup 1.000 (cross-neuropil pair merging only shrinks it). The O(shore) RAM ceiling held: the only whole-animal object ever resident was a row counter.
+
+## R5. GO/NO-GO for a full-animal lane
+
+**NO-GO for the full-animal science lane, per the pre-registered §6 criteria.** Mechanics: GO, trivially — everything fits in ≲2 GB and ~an hour wall on this box, no new engineering needed. But §6(iii) required the science to be *decisive either way*, and the shore returned mush at the primary gate (G3 ✗, audit ✗): a clean replicate or a clean falsify would have justified the lane; a weak-and-structured maybe does not. The informative numbers are already in hand at 2.4% of the cost:
+
+1. The inter-lighter *sign* is near-certain to hold animal-wide (14/14 here, 20/20 worm) — a full run would spend an hour confirming a foregone conclusion.
+2. The *strength* question (does anything approach the worm's 2× separation anywhere in the animal?) is the only live science, and it does not need the whole animal — it needs *targeted* shores chosen for contrast (medulla's tiled columns vs AL's glomeruli vs CX's nested rings), not a 460× bulk re-run.
+3. The thick-gate finding (R2) points where the real structure is: per-boundary heterogeneity. That is a different statistic (boundary-weight distributions, not a single inter/intra ratio), pre-registerable, and runnable on shores.
+
+**Booked sentence for the lane: the pipeline scales; the worm's truth doesn't.** Worm-scale quilt law (thin doors everywhere, giants interior, 2× separation) is a small-animal truth. At 460× the same lens finds the sign intact, the strength diluted 4×, and the giants redistributed onto a few very thick boundary wires — architecture the worm literally cannot express with 37-synapse wires. If anyone reopens this, the entry is per-boundary analysis on contrast shores, not the full-animal re-run.
+
+## R6. Post-run receipt
+
+- [x] Pre-reg committed & pushed (`0cfb9e65`) at 22:03 AKDT; run started 22:04:12; results committed after (this commit)
+- [x] Raw sha re-verified at run start (d49dd692…, matches §7); no re-download
+- [x] All six pre-registered cells + 10 bootstraps + audit + degree booked; gates scored exactly as §4 wrote them — INCONCLUSIVE stands despite the POST-HOC diagnosis that the primary T was resolution-starved (diagnosis quarantined, never gates)
+- [x] Audit failure booked at face value (6/12), with the structured C1→C5 concentration labeled POST-HOC
+- [x] Compute table all-measured; extrapolation flagged where it outruns the measurement (Louvain power law)
+- [x] NO-GO booked against pre-registered §6(iii), with the cheaper targeted-shore alternative named
+- [x] Spike wall: ~14 min start-to-push (cap 40) — the discipline is the expensive part, not the compute
+
+*Spike closed 2026-09-03. The pipeline scales; the worm's truth mostly stays home.*
