@@ -18,9 +18,11 @@ NVIDIA PAIR (Personal AI Router) is a free, open-source beta released 2026-09-03
 
 Fallback chain: **z.ai → PAIR → direct Ollama on :11434.**
 
-The receipt that motivates this level, verbatim from today's incident class: **provider cooldown starved a serial lane and the writer lane died in 2 seconds.**
+The receipt that motivates this level, verbatim from today's incident class — the writer lane's failover trail, 2026-09-03:
 
-> **TO-FILL-BY-LANES:** raw trail lines from the 2026-09-03 starvation incident, quoted verbatim (the lane that owns the log should paste them here — house rule is trails verbatim, not paraphrased).
+> `WRITER N3 — ... status: failed: FallbackSummaryError: All models failed (1): zai/glm-5.3: Provider zai is in cooldown (suspending lanes) (timeout)` · runtime **2s** · tokens 0 (in 0 / out 0)
+
+No fallback existed, so the whole lane died between provider-call and first token.
 
 The design point is not "PAIR fixes starvation." It is that the fallback chain must be pre-wired before the next cooldown, and PAIR is a sensible middle hop: cloud provider first, LAN cluster second, bare Ollama last. The third hop deliberately bypasses PAIR — if PAIR itself is down, the chain still terminates at the local daemon. A chain that depends on its own newest member isn't a chain.
 
@@ -62,11 +64,25 @@ F/V EILEEN, 60 miles offshore, no WAN: DGX Spark as edge node, a LAN-only person
 
 **Setup.** Install PAIR on the gateway and one LAN node. Point the gateway's fallback provider at PAIR. Re-run a writer lane end-to-end with z.ai forced down (simulated cooldown or revoked key — same failure class as this morning's incident).
 
-> **TO-FILL-BY-LANES:** exact download URL and install steps (gateway is WSL2; note any mDNS/NAT wrinkle).
+**Kimi lane, verified against NVIDIA's repo 2026-09-03 (not from running the beta):**
+
+- **Download:** GitHub releases at `github.com/NVIDIA/Personal-AI-Router` (Apache-2.0, open source). Signed Debian package: `sudo apt install ./NVPAIR-Setup-*.deb` (package `nvpair`). Build-from-source: Go 1.25+, Node 25.5+, jq. Headless archive per platform also on releases.
+- **Node requirements:** Windows 11 / Linux / macOS, x64 + arm64. **No GPU required for PAIR itself** — engine requirements are Ollama/LM Studio's own; a GPU-less head node routing to peers is a supported pattern.
+- **Network:** same LAN; UDP 5353 (mDNS) + TCP 14318–14323 between nodes.
+- **WSL2 wrinkle (this lane's note, untested):** mDNS multicast may not traverse the WSL2 NAT — if discovery comes up empty from the gateway, use PAIR's manual-IP node mode (supported for multicast-blocked networks).
+- **Security notes for the pairing runbook:** the pairing exchange itself is plaintext, authenticated only by a six-digit PIN (docs call it a convenience bootstrap); post-pairing traffic is mutual TLS with pinned per-node certs. **Node telemetry port (14318) is plaintext and unauthenticated by design** — hostname/hardware/utilization readable by anything on the subnet. Do not expose the LAN to untrusted devices.
 >
-> **TO-FILL-BY-LANES:** endpoint port and API shape for the fallback provider wiring.
+**Kimi lane, verified from the repo docs:** PAIR's proxy takes the engine's own port — Ollama-compatible API on `http://127.0.0.1:11434` (real engines move to 11435+), serving `/api/chat`, `/api/generate`, `/api/embed`, `/api/tags` **plus** OpenAI `/v1/chat/completions`, `/v1/completions`, `/v1/embeddings`, `/v1/models`. Model listings are fanned out cluster-wide and merged. Plain text is loopback-only (403 off-box); the same port serves mTLS to cluster peers (demuxed on TLS first byte 0x16). Gateway wiring implication: the fallback provider points at localhost like any Ollama daemon — but the gateway is not a PAIR node, so it either runs PAIR locally (head-node pattern) or the cluster nodes expose the endpoint to it over mTLS.
 >
-> **TO-FILL-BY-LANES:** benchmark numbers (local-model latency and writer-lane quality vs z.ai — other lanes are gathering these).
+**OpenCode+bridge lane, measured 2026-09-04T00:23Z on the gateway's RTX 4050 (256-token generation, Ollama-native, curl-timed):**
+
+| Model | Tokens | Tok/s | Wall(s) |
+|---|---:|---:|---:|
+| qwen2.5vl:3b | 256 | 72 | 20.6 |
+| Liquid-LFM2.5-2.6B | 256 | 84 | 17.1 |
+| LiquidAI/lfm2.5-1.2b-instruct | 256 | 157 | 8.3 |
+
+Quality gate is unmeasured — the spike's writer-lane run supplies it. Provisional read: 1.2B is fast enough for classification/triage lanes only; writer lanes likely want qwen-class or bigger, which the 6 GB card serves slowly.
 
 **Pass — declared before running:** the writer lane completes end-to-end; the trail shows which hop served each call; the output passes the lane's existing quality gate.
 
@@ -78,14 +94,15 @@ F/V EILEEN, 60 miles offshore, no WAN: DGX Spark as edge node, a LAN-only person
 
 | # | Question | Why it matters | Owner | Status |
 |---|----------|----------------|-------|--------|
-| 1 | Exact endpoint port / API shape? | fallback wiring on the gateway | — | TO-FILL-BY-LANES |
-| 2 | Exact download URL + install steps? | spike setup | — | TO-FILL-BY-LANES |
+| 1 | Exact endpoint port / API shape? | fallback wiring on the gateway | kimi lane | **resolved 2026-09-03** (see spike section) |
+| 2 | Exact download URL + install steps? | spike setup | kimi lane | **resolved 2026-09-03** (see spike section) |
 | 3 | Does PAIR see the LAN from inside WSL2 (mDNS through the NAT)? | gateway is a WSL2 host | this lane | open |
 | 4 | Is the RTX 4050 laptop (6 GB, half in use) a useful node or too small? | fleet hardware is the first cluster | — | open |
-| 5 | Which local models can stand in for z.ai on writer lanes? | spike quality gate | — | TO-FILL-BY-LANES (benchmarks) |
+| 5 | Which local models can stand in for z.ai on writer lanes? | spike quality gate | measured (speed) / open (quality) | speeds: 72–157 tok/s on the 4050; quality unmeasured |
 | 6 | Does PAIR expose per-node health/load the gateway can read? | smarter cooldown logic than blind hop order | — | open |
 | 7 | Does mTLS pairing survive node sleep/wake and IP churn? | laptop nodes sleep; the boat's LAN changes | — | open |
-| 8 | Which open-source license, concretely? | fleet policy check before install | — | open |
+| 8 | Which open-source license, concretely? | fleet policy check before install | kimi lane | **resolved**: Apache-2.0 |
+| 9 | Fallback chain design (breakers, capability tiers, frontier-only guard)? | gateway wiring | claude lane | **drafted 2026-09-03**: z.ai → PAIR → direct Ollama → fail-closed; explicit per-tier model map; `frontier_only` lanes skip local tiers; idempotency gate (never re-route mid-stream); PAIR never the floor |
 
 ---
 
