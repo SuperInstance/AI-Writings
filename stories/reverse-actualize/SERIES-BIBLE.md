@@ -100,4 +100,5 @@ From docs/BOAT-SUPERINSTANCE-QUILT.md and ideas/the-metaforge.md. The stories ar
 
 ## Editorial ledger
 
-- **2026-09-03:** Keel laid. 01 (+1000y) written first; 02 (+100y) written second, steered at every decision by the fixed stars 01 set. Frames 03/04/05 open for later lanes.
+- **2026-09-03 19:00:** Keel laid. Frames 03/04/05 grown for later lanes.
+- **2026-09-03 19:45:** Story 01 (+1000y, "The Millennial Replay") written first; story 02 (+100y, "The Unexplained Contact") written second, steered at every decision by the fixed stars 01 set. Both stories mark status SHIPPED. Remaining three horizons held as frames; the keel is sound.
