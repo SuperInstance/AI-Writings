@@ -47,3 +47,34 @@ The filed band-movers `transitions` carry no timestamps, so the crossing/transit
 - **Clock origin:** each night's auto60 clock starts at session open; cross-night phase coherence presumes comparable origins. If the elephant's night clocks are not commensurable, this test is biased AGAINST Bragg (conservative — a Bragg verdict is stronger for it).
 - **Multiple comparisons:** ≥3-frequency requirement (not ≥1) is the guard; no per-frequency p-hacking.
 - **Exploratory secondary** does not gate the verdict.
+
+---
+
+# REG-8B RESULTS (2026-09-03, run after pre-reg commit 84b3d72b)
+
+## VERDICT UP FRONT: **INCONCLUSIVE** — real cross-night phase coherence exists, but it does not reach the pre-registered Bragg bar.
+
+- Primary series **x = v\*·μ̂**: 8 bins clear the surrogate band detrended, but only **1 distinct persistent peak** (~5.0–5.7 mHz; the broad low-frequency cluster 1.1–2.5 mHz does not survive no-detrend → trend/leakage-consistent, treated as non-persistent per pre-reg).
+- **κ**: 2 distinct persistent peaks (≈2.8–3.5 mHz and ≈5.7–7.4 mHz).
+- Bragg band = ≥3 persistent distinct peaks. **x = 1, κ = 2. INCONCLUSIVE** on both. Continuous (kill) is also NOT earned: exceedances are far above chance (8–10 bins vs ~0.95 expected bins/series/variant at 5% false-positive over 19 valid bins) — the matched-filter/continuous hypothesis does **not** win here either.
+
+## Reading (honest, undersold)
+
+1. Something phase-coherent across nights is genuinely present — nights are not independent noise realizations on these grids. But "1–2 persistent peaks" sits in the pre-registered gray zone, and the mundane generator is not excludable: all nights share the elephant's auto60 clock and session pacing, so cross-night coherence can reflect shared pacing structure rather than model-set diffraction. This confound is disclosed, not resolved.
+2. The low-frequency x-coherence dying under no-detrend is exactly what trend/edge/leakage (Hann floor −31 dB, zero-padding to N=47) predicts — that's why it was pre-registered as non-counting.
+3. The κ coherence (concentration series, stable across both detrend variants at two frequency regions) is the most interesting residue — worth re-testing with longer nights, not worth a claim now.
+
+## Minimum data requirement (booked per pre-reg honesty clause)
+
+To resolve a verdict at this design: nights with **≥60 fit points** (≥ 1 hr at 60 s) × ≥ 9 nights would give ~29 valid bins and ~3× per-night power; the κ peaks at 5.7–7.4 mHz (~134–176 s period) need at least ~10 cycles per night to be resolved as Bragg vs. pacing — i.e., nights ≥ ~30 min of post-warm-up trajectory, and ideally staggered session pacing across nights to break the shared-clock confound (the decisive discriminator: if coherence survives pacing stagger, it is internal-clock phase locking; if it dies, it was session pacing).
+
+## Secondary (EXPLORATORY — did not gate, does not gate)
+
+Zero-crossing transition point process (22 events pooled, 9 nights): 8 bins exceed the band, but with 22 events on 47 bins the null is weak and the count train is sparse; reported as **uninterpretable at this event count**, no inference drawn. Minimum: ≥ 100 pooled events.
+
+## Artifacts & provenance
+
+- Plot: `reg8b-bragg-surrogate-band.png` (this directory) — observed R(f) vs surrogate 95% kill band, both series, both detrend variants.
+- Script: `~/.openclaw/workspace/scratch/reg8b/run_reg8b.py` (seed 20260903, 10k surrogates); raw numbers `scratch/reg8b/reg8b_results.json`.
+- Input data (read-only): `elephant/data/nights/night-{A,D,D-cold,S1,S2,S3,S4a,S4b,S5}.jsonl`, `elephant/data/slope/reg1-rotation-results.json` (v\*, wave-1 full-7).
+- No elephant-repo files modified. No re-simulation.
