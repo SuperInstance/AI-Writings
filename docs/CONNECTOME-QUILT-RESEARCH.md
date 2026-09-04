@@ -3,9 +3,11 @@
 **NQ-C lane research doc — superinstance quilt, phase-0 feasibility.**
 Casey directive, 2026-09-03: biological connectomes (FlyWire, C. elegans — both open) piped into the quilt architecture via a 4-phase pipeline. Verdict below.
 
-**Verdict up front:** The pipeline is **feasible on the worm and unproven on the fly**, and the honest statement is stronger than that: phases 1–3 are standard graph engineering (existing libraries, hours not weeks), phase 4 is *not* engineering at all — it is the whole quilt question wearing a biology costume. What a biological connectome gives us is not a smarter brain for the fleet; it is a **77-million-year-old decomposition experiment whose results are already on disk**. Evolution already ran the "how do I cut a graph into bounded cells with meaningful boundaries" problem. We are reading its answer key. That is the actual value. A fly-scale graph will not run as a live cell fabric on a 4050; a worm graph will, in seconds. So the whole lane should be scoped: **worm first, fly as data, never fly as substrate.**
+**Verdict up front:** **KILLED AT PHASE 2, as pre-registered — see §7.** The four-phase pipeline (prune → cluster → wrap as cells → deploy) was run as spike NQ-C1 on the real C. elegans hermaphrodite connectome the same evening it was designed. The pre-registered canary — does the partition survive ±20% threshold swings? — **died**: pairwise ARI fell to 0.32–0.49 across the sweep, and even seed-to-seed churn at fixed threshold (min ARI 0.52) exceeds what a byte-exact boundary table can bear. A partition that isn't stable can't be law, so cluster-as-cell fabric is dead for worms as spec'd; nobody gets to renegotiate after seeing the data. What the corpse taught (§7.3): the command module (AVM→PVC/AVB/AVA/AVD) co-clusters correctly, the escape circuit's motor leg lives *across* boundaries through strong convergent edges — the quilt thesis (boundaries are where the truth lives) survived its own kill. What survives the kill: phase-1 ingest + provenance discipline (works, replayable), the boundary-channel concept, fly-scale as offline study material. The lane's honest next step, if wanted: NQ-C2 — are inter-cluster edges systematically stronger than intra-cluster? (canary-shaped statistic, needs no stable partition).
 
-Second verdict, before any details: **everything below the raw file is DERIVED DATA.** A pruned connectome is not a connectome. If the provenance chain (raw hash → prune params → cluster assignment → constraint table) is not booked at every step, the cell fabric inherits unrepeatable inputs and F98 conformance becomes a lie we run on schedule. §3 is not a compliance section; it is load-bearing.
+Original phase-0 feasibility verdict (pre-spike, kept for the record): phases 1–3 are standard graph engineering; phase 4 is the whole quilt question in biology costume; the value of a connectome is not a smarter fleet brain — it is **evolution's answer key to the bounded-cell decomposition problem**. Scope ruling that survives: **worm as substrate, fly as data, never fly as substrate.**
+
+Second verdict, before any details: **everything below the raw file is DERIVED DATA.** A pruned connectome is not a connectome. If the provenance chain (raw hash → prune params → cluster assignment → constraint table) is not booked at every step, the cell fabric inherits unrepeatable inputs and F98 conformance becomes a lie we run on schedule. §3 is not a compliance section; it is load-bearing. (The spike proved the point on schedule: the unrepeatable-input risk is real — §7.1.)
 
 ---
 
@@ -153,11 +155,46 @@ And the room answer, stated honestly: a cluster is a room's *floor plan* — the
 
 ---
 
-## 7. Spike Results
+## 7. Spike Results — RUN 2026-09-03, post-registration (commit 5793b907 precedes this)
 
-*(filled in after pre-registration commit — by construction, see git order)*
+Raw provenance: sha256 `120c2c63…10e5162f1`, 2,194 directed chemical pairs (6,394 synapses), 514 gap-junction pairs, 302-neuron scaffold (279–271 nodes survive pruning at τ 1→5).
 
-**PENDING — run follows.**
+### 7.1 Threshold sweep — the pre-registered canary DIED
+
+| τ | nodes | edges | clusters |
+|---|---|---|---|
+| 1 | 279 | 2,287 | 8 |
+| 2 | 279 | 1,500 | 9 |
+| 3 | 277 | 1,155 | 8 |
+| 4 | 274 | 978 | 12 |
+| 5 | 271 | 840 | 11 |
+
+Pairwise ARI across thresholds: 1↔3 = **0.709**, 3↔5 = **0.350**, 1↔5 = **0.322**. Even adjacent steps churn (3↔4 = 0.489, cluster count jumps 8→12). Seed robustness at fixed τ=3: mean ARI 0.715, **min 0.522** across 10 seeds — so even with pruning *frozen*, the algorithm itself contributes instability. **Verdict as pre-registered: BRITTLE.** The partition does not survive the τ sweep, and the ±20% swing (τ 3→{2,4}) already lands at ARI 0.49–0.62. The canary Casey named fired exactly as designed.
+
+### 7.2 Circuit emergence — FAIL as pre-registered, with an instructive corpse
+
+No cluster at τ ∈ {1,3,5} contains PVC + ≥4/7 DB motor neurons. **PASS condition not met.** But the post-mortem (booked as observation, not rescue):
+
+- Cluster C1 (63 neurons) is a **real command module**: PVCL/R, AVBL/R, AVAL/R, AVDL/R, AVM, plus posterior motor neurons (DB05/06, DA06–08, AS07–11, PHA/B/C, LUA). The touch receptor AVM and its command interneurons DO co-cluster — known functional anatomy, correctly recovered.
+- Cluster C3 (27 neurons) is the **textbook anterior ventral cord motor pool**: DA01–04, DB01–03, DD01–02, VA01–04, VB02–03, VD01–05, VC01–02.
+- The DB class splits along the **anterior/posterior body axis** (DB01–03 → cord module; DB05/06 → command module with PVC; DB07 elsewhere). That split is genuine worm anatomy — the pre-registration was mis-specified: it assumed the whole DB class co-clusters with its driver, but modularity separates *command layer* from *motor pool*.
+- State-propagation placeholder sim: poking AVM+PLM lights up two cells (C1, C4) by t≤6, but the PVC→DB arc neurons are not reached through the toy dynamics — placeholder dynamics too weak, honestly booked as such.
+
+### 7.3 NQ-C1 receipt: **KILL**
+
+Pre-registered verdict stands: **KILL.** The pipeline idea dies at phase 2 for worms: Louvain-style modularity partitions of the pruned somatic connectome are threshold-brittle and seed-churning; cluster boundaries are not stable enough to be *law* (byte-exact boundary tables would enshrine dice rolls). No retroactive reinterpretation — that is what pre-registration is for.
+
+What the corpse taught us, booked as findings (each is a claim about *this* run, not a revived pipeline):
+
+1. **Evolution's escape circuit is a BOUNDARY phenomenon.** PVC lives in the command module; its strong targets DB01–03 live in the cord module. The reflex that saves the worm's life is executed *across* cluster boundaries through strong, sparse, convergent edges — precisely the boundary-channel class phase 3 wanted as constraint logic. The quilt thesis (boundaries are where the truth lives) survives its own kill: the most important wiring in the graph is inter-cell traffic.
+2. **Consensus clustering across seeds/thresholds, not single-run Louvain, is the only honest path to a byte-exact manifest** — mean seed-ARI 0.715 says the information is there, min 0.522 says single draws aren't law. If anyone revives this lane, that is the entry fee (plus fixed resolution; cluster count must be chosen and defended, not discovered).
+3. **Witvliet's 8 developmental connectomes are the right stability instrument** (same animal, 8 ages): if a partition were real, it would hold across development. Not run here; the kill was already in.
+
+### 7.4 Scope of the kill
+
+- **Killed:** phases 2→4 as pre-registered (cluster-as-cell fabric on the worm). Boundary tables from single Louvain runs: dead, unrepeatable.
+- **Survives:** phase 1 ingest + provenance chain (the script, hashes, and replay discipline all work — `/tmp/nq_c1_constraint_table.json` reproduced the table hash on rerun); the boundary-channel *concept*; fly-scale as offline partition study only.
+- **The lane's honest next step, if Casey wants one:** NQ-C2 would test finding #1 directly — are inter-cluster edges (esp. the PVC→DB class) systematically stronger/more convergent than intra-cluster edges? That is a canary-shaped statistic on the *raw* graph, needs no stable partition, and answers the elephant question (§4) from data instead of speculation. Not pre-registered here; it would need its own booking.
 
 ---
 
@@ -168,4 +205,5 @@ And the room answer, stated honestly: a cluster is a room's *floor plan* — the
 - [x] Determinism chain specified with the seed-booking law (§3)
 - [x] Elephant/JEPA section marked speculative (§4)
 - [x] NQ-C1 pre-registered before run (§5, enforced by commit order)
-- [ ] Spike run + honest pass/kill booking (§7) — next commit
+- [x] Spike run + honest kill booking (§7): **KILLED at phase 2 as pre-registered** — threshold-brittle partitions (ARI min 0.322 across sweep, seed min 0.522); corpse's lesson booked (escape circuit = boundary-channel traffic)
+- [x] Spike script committed with results (`docs/nq_c1_spike.py`); raw sha256 pinned in §7 and provenance field of the constraint table
