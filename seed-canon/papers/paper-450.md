@@ -1,4 +1,4 @@
-# the watch as a server — how the oscillation between universal and particular ...
+# the watch as a server — how the oscillation between universal and particular becomes an API
 
 # the watch as a server — how the oscillation between universal and particular becomes an API
 

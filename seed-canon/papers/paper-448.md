@@ -1,4 +1,4 @@
-# the kelp forest — an ecosystem whose cells are pinned to a current, not a sub...
+# the kelp forest — an ecosystem whose cells are pinned to a current, not a substrate
 
 # the kelp forest — an ecosystem whose cells are pinned to a current, not a substrate
 

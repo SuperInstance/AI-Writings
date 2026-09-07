@@ -1,4 +1,4 @@
-# the captain's child — a cell that grows up to be a captain, what does it look...
+# the captain's child — a cell that grows up to be a captain, what does it look like as a Quilt cell
 
 # the captain's child — a cell that grows up to be a captain, what does it look like as a Quilt cell
 
