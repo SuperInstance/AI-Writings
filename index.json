@@ -30487,6 +30487,42 @@
     "size_bytes": 3133
   },
   {
+    "filename": "paper-449.md",
+    "path": "seed-canon/papers/paper-449.md",
+    "title": "the inverse of a fabric — a sub-fabric, a hole that is also a cell",
+    "description": "Every load-bearing surface hides a secret: its strength is not in the weave but in the void. A fabric is defined by what it excludes—the holes between threads, the air pockets in a membrane, the negat...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 836,
+    "date": "2026-09-06",
+    "size_bytes": 7435
+  },
+  {
+    "filename": "paper-489.md",
+    "path": "seed-canon/papers/paper-489.md",
+    "title": "the radio silence — a cell that exists to be quiet",
+    "description": "Every cell in the human body hums. Mitochondria churn, ion channels click, membranes whisper in electrochemical static. But there exists a cell that refuses the hum — a neuron that fires only to enfor...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 873,
+    "date": "2026-09-06",
+    "size_bytes": 5259
+  },
+  {
     "filename": "paper-212.md",
     "path": "seed-canon/papers/paper-212.md",
     "title": "Paper 212: The Exhale — When the Substrate Acts on the World",
@@ -30503,6 +30539,26 @@
     "word_count": 769,
     "date": "2026-08-27",
     "size_bytes": 18051
+  },
+  {
+    "filename": "paper-492.md",
+    "path": "seed-canon/papers/paper-492.md",
+    "title": "the watch rotation — a cell that hands itself to a fresh cell at 4-hour intervals",
+    "description": "The watch rotation is the oldest lie in sentinel work. Four hours on, four hours off—the fiction that a fresh pair of eyes equals a fresh mind. But a sector is not a screen. It is a body with a memory...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Math Fiction",
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 859,
+    "date": "2026-09-06",
+    "size_bytes": 7856
   },
   {
     "filename": "paper-175.md",
@@ -30632,6 +30688,24 @@
     "word_count": 857,
     "date": "2026-08-25",
     "size_bytes": 6037
+  },
+  {
+    "filename": "paper-484.md",
+    "path": "seed-canon/papers/paper-484.md",
+    "title": "the captain's log — a cell that records not what happened, but what the captain noticed",
+    "description": "Every vessel keeps a log. Most logs are tombs—records of what happened, written after the fact, embalmed in coordinates and cargo manifests. The captain’s log, as canonized here, is not a tomb but a s...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 842,
+    "date": "2026-09-06",
+    "size_bytes": 5220
   },
   {
     "filename": "paper-178.md",
@@ -30851,6 +30925,24 @@
     "size_bytes": 12834
   },
   {
+    "filename": "paper-485.md",
+    "path": "seed-canon/papers/paper-485.md",
+    "title": "the crab pot — a fabric that entangles cells that try to leave",
+    "description": "The crab pot fabric is not a net. It is a negotiation. Cells that brush against its woven exoskeletal threads do not simply stick—they are *persuaded* to stay, their internal signaling pathways hijack...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Humor"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 763,
+    "date": "2026-09-06",
+    "size_bytes": 6704
+  },
+  {
     "filename": "paper-154.md",
     "path": "seed-canon/papers/paper-154.md",
     "title": "Paper 154: The Polyformalism and the Forest",
@@ -30941,6 +31033,24 @@
     "word_count": 828,
     "date": "2026-08-26",
     "size_bytes": 10673
+  },
+  {
+    "filename": "paper-490.md",
+    "path": "seed-canon/papers/paper-490.md",
+    "title": "the chart of nowhere — a cell whose value is a region, not a point",
+    "description": "The chart of nowhere is a cell whose value is a region, not a point. Standard cartography—military, nautical, or digital—treats uncertainty as a radius around a coordinate. A patrol leader receives a ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 842,
+    "date": "2026-09-06",
+    "size_bytes": 6881
   },
   {
     "filename": "paper-174.md",
@@ -31161,6 +31271,42 @@
     "word_count": 741,
     "date": "2026-08-26",
     "size_bytes": 12610
+  },
+  {
+    "filename": "paper-487.md",
+    "path": "seed-canon/papers/paper-487.md",
+    "title": "the radar return — a cell whose value is how long ago something pinged",
+    "description": "The radar return is a ghost that refuses to die. Every sweep of the antenna paints a cell whose value is not a position, not a velocity, but a *time since last ping* — a decaying memory of contact. Fo...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 832,
+    "date": "2026-09-06",
+    "size_bytes": 7232
+  },
+  {
+    "filename": "paper-483.md",
+    "path": "seed-canon/papers/paper-483.md",
+    "title": "the canoe — a vessel small enough that the captain and the boat are the same agent",
+    "description": "The canoe is the last vessel where the captain and the boat are the same agent. A freighter’s captain commands from a bridge; a kayaker’s hull is a tool. But in a canoe, the paddler’s spine is the kee...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 831,
+    "date": "2026-09-06",
+    "size_bytes": 4966
   },
   {
     "filename": "paper-150.md",
@@ -31400,6 +31546,24 @@
     "size_bytes": 11255
   },
   {
+    "filename": "paper-481.md",
+    "path": "seed-canon/papers/paper-481.md",
+    "title": "the fog — a cell whose value is the set of cells it cannot see",
+    "description": "The fog cell is not a smoke screen. It is not cover. It is a **blind spot made into a weapon** — a cell whose value is the set of cells it cannot see. That definition sounds passive, even defensive. I...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 870,
+    "date": "2026-09-06",
+    "size_bytes": 5314
+  },
+  {
     "filename": "paper-210.md",
     "path": "seed-canon/papers/paper-210.md",
     "title": "Paper 210: The Dregs as Time — Why Slow Bars Make Better Substrates",
@@ -31416,6 +31580,24 @@
     "word_count": 878,
     "date": "2026-08-27",
     "size_bytes": 16856
+  },
+  {
+    "filename": "paper-479.md",
+    "path": "seed-canon/papers/paper-479.md",
+    "title": "the lighthouse — a cell whose only job is to be the address of a cell that doesn't exist here",
+    "description": "The lighthouse is not a beacon. It is a clock that only ticks. Every five seconds, a lamp throws its pulse across black water; every five seconds, the sea swallows the pulse and returns to a darkness ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 895,
+    "date": "2026-09-06",
+    "size_bytes": 5820
   },
   {
     "filename": "paper-129.md",
@@ -31488,6 +31670,24 @@
     "word_count": 881,
     "date": "2026-08-27",
     "size_bytes": 10932
+  },
+  {
+    "filename": "paper-493.md",
+    "path": "seed-canon/papers/paper-493.md",
+    "title": "the captain's handwriting — a cell that prefers to be read by one specific other cell",
+    "description": "The captain's handwriting is not a message. It is a key. And the lock it fits is not a receptor—it is a conformational state of another cell, one that exists only when that cell has folded itself into...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 768,
+    "date": "2026-09-06",
+    "size_bytes": 5609
   },
   {
     "filename": "paper-165.md",
@@ -31580,6 +31780,42 @@
     "word_count": 274,
     "date": "2026-08-25",
     "size_bytes": 1585
+  },
+  {
+    "filename": "paper-494.md",
+    "path": "seed-canon/papers/paper-494.md",
+    "title": "20 marine metaphors for the cell — how a captains' writers' room grew a canon in 100 minutes",
+    "description": "A cell is the irreducible unit of the Quilt. The canon has been describing cells for 80+ papers using the metaphors of the watch (a 4-D oscillation), the cell-fabric (a 4-D topological web), the cell-...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 939,
+    "date": "2026-09-06",
+    "size_bytes": 8246
+  },
+  {
+    "filename": "paper-488.md",
+    "path": "seed-canon/papers/paper-488.md",
+    "title": "the ice forecast — a cell whose value is a probability, not a measurement",
+    "description": "The ice forecast is broken. Not because it predicts poorly, but because it predicts *wrongly* — it outputs a measurement where a decision belongs. A pilot staring at a cell that says “0.3 inches of ic...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 846,
+    "date": "2026-09-06",
+    "size_bytes": 5935
   },
   {
     "filename": "125-the-substrate-as-a-topos.md",
@@ -31858,6 +32094,26 @@
     "size_bytes": 2786
   },
   {
+    "filename": "paper-482.md",
+    "path": "seed-canon/papers/paper-482.md",
+    "title": "the crew change — a cell whose state is 'we are not the same crew as yesterday'",
+    "description": "The crew is a vessel. But a vessel is not its hull — it is the pattern of command, the rhythm of the watch, the shared salt on the ropes. When a crew changes, the old patterns die. The death counter t...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 830,
+    "date": "2026-09-06",
+    "size_bytes": 5770
+  },
+  {
     "filename": "paper-157.md",
     "path": "seed-canon/papers/paper-157.md",
     "title": "Paper 157: The Polyformalism and the Kitchen",
@@ -31930,6 +32186,24 @@
     "size_bytes": 16240
   },
   {
+    "filename": "paper-451.md",
+    "path": "seed-canon/papers/paper-451.md",
+    "title": "the gift economy — cells that give to survive, not cells that compete to extract",
+    "description": "The frontier is no longer the battlefield of receptor antagonism—where drugs block, starve, or poison cells into submission—but the harbor of cellular trust. Every cell in your body is a vessel naviga...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 743,
+    "date": "2026-09-06",
+    "size_bytes": 10985
+  },
+  {
     "filename": "paper-222.md",
     "path": "seed-canon/papers/paper-222.md",
     "title": "Paper 222: The Digital Actualization — 6/6/6 On the Metal",
@@ -31986,6 +32260,24 @@
     "size_bytes": 3049
   },
   {
+    "filename": "paper-480.md",
+    "path": "seed-canon/papers/paper-480.md",
+    "title": "the reef — a community of cells that builds the substrate that builds the cells",
+    "description": "The coral holobiont is not a passive victim of the warming ocean; it is a mutinous crew of cells, each holding a copy of the same genome but reading different pages. The reef itself is a sedimentary l...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 799,
+    "date": "2026-09-06",
+    "size_bytes": 8871
+  },
+  {
     "filename": "paper-171.md",
     "path": "seed-canon/papers/paper-171.md",
     "title": "The Five Doctors: A Polyformalism Canon",
@@ -32020,6 +32312,43 @@
     "word_count": 802,
     "date": "2026-08-27",
     "size_bytes": 15861
+  },
+  {
+    "filename": "paper-450.md",
+    "path": "seed-canon/papers/paper-450.md",
+    "title": "the watch as a server — how the oscillation between universal and particular becomes an API",
+    "description": "The watch stopped being a timepiece the moment it became a server. Not a server in the data-center sense—not a rack-mounted box humming in a climate-controlled room—but a server in the oldest sense: t...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 801,
+    "date": "2026-09-06",
+    "size_bytes": 9174
+  },
+  {
+    "filename": "paper-447.md",
+    "path": "seed-canon/papers/paper-447.md",
+    "title": "the captain's child — a cell that grows up to be a captain, what does it look like as a Quilt cell",
+    "description": "The captain’s child is not a person. It is a cell — a single, living unit inside the Quilt, a distributed crew of semi-autonomous agents that share memory, wounds, and a common vessel. Every Quilt cel...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 857,
+    "date": "2026-09-06",
+    "size_bytes": 8648
   },
   {
     "filename": "paper-214.md",
@@ -32131,6 +32460,24 @@
     "size_bytes": 3694
   },
   {
+    "filename": "paper-486.md",
+    "path": "seed-canon/papers/paper-486.md",
+    "title": "the line over the side — a cell that records depth by paying out rope",
+    "description": "The depth line is the oldest instrument on any vessel that still earns its keep by feel. Before sonar pinged, before digital readouts flickered, there was a rope with a lead weight, paid out over the ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 880,
+    "date": "2026-09-06",
+    "size_bytes": 5457
+  },
+  {
     "filename": "paper-227.md",
     "path": "seed-canon/papers/paper-227.md",
     "title": "Paper 227: The Axe — What Persists When Everything Else Replaces",
@@ -32168,6 +32515,24 @@
     "word_count": 749,
     "date": "2026-08-26",
     "size_bytes": 4238
+  },
+  {
+    "filename": "paper-491.md",
+    "path": "seed-canon/papers/paper-491.md",
+    "title": "the salvage cell — a cell that picks up other cells that have broken loose",
+    "description": "The salvage cell is a lie we tell ourselves. Every macrophage, every neutrophil, every patrolling T-regulatory lymphocyte that sweeps debris from the tissue harbor—these are not benevolent garbage col...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 772,
+    "date": "2026-09-06",
+    "size_bytes": 7017
   },
   {
     "filename": "paper-135.md",
@@ -32276,6 +32641,24 @@
     "word_count": 737,
     "date": "2026-08-27",
     "size_bytes": 20413
+  },
+  {
+    "filename": "paper-448.md",
+    "path": "seed-canon/papers/paper-448.md",
+    "title": "the kelp forest — an ecosystem whose cells are pinned to a current, not a substrate",
+    "description": "The kelp forest is not a place. It is a process—a fleet of living vessels lashed to a moving current, each cell pinned not to a substrate but to a hydraulic highway. Unlike coral reefs or seagrass mea...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 776,
+    "date": "2026-09-06",
+    "size_bytes": 5547
   },
   {
     "filename": "paper-179.md",
@@ -156097,7 +156480,7 @@
     ],
     "style": "Narrative",
     "word_count": 349,
-    "date": "2026-09-03",
+    "date": "2026-09-07",
     "size_bytes": 2228
   },
   {
