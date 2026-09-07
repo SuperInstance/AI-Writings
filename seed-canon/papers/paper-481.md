@@ -1,32 +1,30 @@
-# the captain's log — a cell that records not what happened, but what the captain noticed
+# the fog — a cell whose value is the set of cells it cannot see
 
-# the captain's log — a cell that records not what happened, but what the captain noticed
+# the fog — a cell whose value is the set of cells it cannot see
 
 ## The Frontier
 
-Every vessel keeps a log. Most logs are tombs—records of what happened, written after the fact, embalmed in coordinates and cargo manifests. The captain’s log, as canonized here, is not a tomb but a sonar pulse. It records not the event, but the noticing of the event: the flicker at the edge of the captain’s attention, the pressure change in the water that precedes the squall. This is the frontier: a log that measures the captain’s own perceptual fidelity, not the ship’s mechanical state. It is a cell that records what the captain noticed, when they noticed it, and how loudly the anomaly knocked.
-
-The problem with traditional logs is that they flatten intensity. A hull breach and a loose coffee cup both get a line item. The captain’s log, properly built, must differentiate between a ripple and a rogue wave. It must give the next captain a map of the previous captain’s mind—not just the facts, but the weight of those facts as they were felt in real time. This paper codifies that system.
+The fog cell is not a smoke screen. It is not cover. It is a **blind spot made into a weapon** — a cell whose value is the set of cells it cannot see. That definition sounds passive, even defensive. It is not. The frontier of fog warfare is the moment the enemy’s own scouting becomes a confession. Every probe they send into the fog tells you where their main body intends to move. Every unit that vanishes into the murk is a unit you can predict, outflank, and harvest. The old doctrine treated fog as a place to hide. The new doctrine treats fog as a **pivot point** — a fulcrum on which your entire fleet can swing, turning a static defensive line into a series of exploitable seams. The enemy does not fight a line; they fight a revolving door. They cannot mass, because mass requires visibility, and visibility is exactly what you have denied them. The frontier is not about ambush. It is about **initiative through occlusion** — using what you cannot see to dictate what the enemy can never see coming.
 
 ## The 5 Gold Terms
 
-1. **Resonance Score** — a 1–10 frequency rating of how often an anomaly recurs within a watch cycle, logged at first notice.
-2. **Magnitude Unit** — a 1–10 intensity scale where 1 is a minor noticeable symptom and 10 demands immediate action, logged alongside the resonance score.
-3. **Dive Log** — an immediate action sub-log triggered when magnitude hits 8 or above, recording the captain’s on-the-spot corrective response.
-4. **Depth Gauge** — the combined resonance × magnitude product, visualized as a single number that tells the captain how deep the vessel is in trouble.
-5. **Equilibrium Anchor** — a written reference entry from a prior captain that documents a resolved anomaly, used to recalibrate a new captain’s response to the same pattern.
+1. **Dynamic Pivot Cell** — a fog placement that serves as a rotational axis for offensive maneuvering, not a static shield.
+2. **Pinhole Entry** — a narrow, fog-adjacent corridor where your pivoters strike and retreat, creating multiple simultaneous breach points.
+3. **Probe Confession** — the enemy scout’s movement into fog, which reveals their main assault vector and unit composition.
+4. **Pivot Corporation** — a specialized, high-mobility unit designed to operate at fog edges, ambush scouts, and reposition for flank strikes.
+5. **Revolving Door Doctrine** — the strategic state where the enemy is forced to continuously shift forces to respond to fog-based feints, preventing any meaningful concentration of power.
 
 ## The Math
 
-No new math. The system uses a simple two-axis product: **Depth Gauge = Resonance Score × Magnitude Unit**, yielding a value from 1 to 100. This is not a novel equation—it is a calibration of attention. The resonance score tracks *frequency of noticing* (how often the anomaly pings), while the magnitude unit tracks *intensity of concern* (how loud each ping is). Their product gives a single number that functions like a depth reading. A resonance of 2 with a magnitude of 4 yields a depth of 8—shallow, manageable, worth a note. A resonance of 5 with a magnitude of 9 yields a depth of 45—critical, requiring a Dive Log and a change in course. The math is intentionally unoriginal because the innovation is not computational; it is perceptual. The captain does not need a calculator. They need a gauge that translates gut feeling into a shareable number.
+No new math — and that is precisely the point. The fog cell’s value is not computed by a visibility radius or a line-of-sight algorithm. It is computed by **information asymmetry**. If a standard cell has a visibility value of V (cells seen), the fog cell’s value is the complement: the set of unseen cells U. But the tactical math is not about U itself. It is about the **rate of enemy probe expenditure** P per unit time, the **average pivot time** T for your Pivoters to reposition from one fog edge to another, and the **enemy regroup time** R required to reform a coherent line after a pinhole strike. The doctrine wins when P × T > R. That is, when the enemy spends more time probing and regrouping than you spend pivoting and striking. The fog cell converts a spatial problem (where are they?) into a temporal problem (how fast can they react?). The math is not geometric; it is chronometric. And the chronometric advantage is always yours, because the fog cell does not need to move — your forces do. The enemy must react to a fixed unknown; you react to their reaction. That is a rate-of-change advantage that no visibility algorithm can capture.
 
 ## The Polyformalism
 
-This system manifests across at least three substrates. **First, the maritime substrate:** the captain’s log becomes a physical or digital ledger, where each entry is a timestamped pair of numbers (resonance/magnitude) followed by a free-text observation. The Dive Log is a separate page, red-bordered, triggered only at depth 8+. A real example: *“Resonance: 3 / Magnitude: 7 / Anomaly: Engine strain at 22 knots, vibration in the starboard shaft. Depth: 21. Dive Log triggered. Action: Reduced to 18 knots, ran bearing temp check, logged 2° rise.”* The next captain who feels the same vibration checks the Depth Gauge, sees 21, and knows—without re-deriving the fear—that this is a “slow down and inspect” problem, not a “note and continue” problem. **Second, the software substrate:** the log is a schema in a fleet management system. The resonance and magnitude fields are enforced integers (1–10), the depth gauge auto-calculates, and the Dive Log is a conditional form that appears only when depth ≥ 8. The equilibrium anchor is a searchable tag: a captain facing a new anomaly can query past entries for similar resonance/magnitude pairs and pull up the anchor’s resolution. **Third, the human substrate:** the log becomes a training artifact. New captains do not read dry procedure manuals; they read Dive Logs from their predecessors. The emotional weight of a magnitude 9 entry—written in haste, under pressure—transfers more knowledge than a thousand pages of protocol. The system works because it forces the captain to quantify their own attention, making the invisible act of noticing a visible, comparable, and teachable metric.
+This doctrine manifests across three substrates. **In ground warfare**, the fog cell is a ruined district or a dense forest. Your Pivoters are light infantry with short-range comms and pre-plotted fallback routes. They do not hold ground; they hold the *edge* of the fog. When enemy armor probes the treeline, the Pivoters fire and fade to a second pinhole two klicks north, forcing the armor column to turn and pursue, exposing its rear to your main force’s counter-pivot. **In naval warfare**, the fog cell is a thermal layer or a minefield’s blind arc. Your pivot vessel is a fast destroyer with towed decoys. It sits at the fog boundary, launches a decoy into the murk, and when the enemy submarine surfaces to investigate the false contact, the destroyer swings around the fog’s far edge and drops depth charges into the sub’s now-exposed flank. The enemy fleet cannot form a line because every contact report is a lie. **In cyberwarfare**, the fog cell is a honeypot network with deliberately incomplete firewall logs. Your Pivoters are red-team response units that watch the honeypot’s blind spots. When an intruder probes the fog of unlogged segments, their exploit code reveals their toolkit and their command-and-control server. The red team pivots through a separate, unadvertised ingress point and severs the attacker’s exfiltration channel. The attacker is not fighting a network; they are fighting a **revolving door of false visibility**. In all three substrates, the fog cell’s power is identical: it converts the enemy’s need to see into a liability, and your ability to pivot into a decisive advantage.
 
-## The Cowboy’s Maxim
+## The Cowboy's Maxim
 
-The captain who logs the ripple before the wave gets the harbor; the captain who logs the wave after the hull is already gone gets the reef.
+The fog don't hide you, partner — it makes the enemy dance, and you call the tune.
 
 ---
 
@@ -34,14 +32,14 @@ The captain who logs the ripple before the wave gets the harbor; the captain who
 
 | Field | Value |
 |---|---|
-| Topic | the captain's log — a cell that records not what happened, but what the captain noticed |
+| Topic | the fog — a cell whose value is the set of cells it cannot see |
 | Rounds | 4 |
-| Total time | 103.5s |
-| Synthesis | deepseek (4498 chars) |
-| Timestamp | 2026-09-07T03:31:35.740160Z |
+| Total time | 106.8s |
+| Synthesis | deepseek (4694 chars) |
+| Timestamp | 2026-09-07T03:37:46.446662Z |
 
 ### Per-round gold
-- Round 1: DeepSeek (1866 chars, 27.9s)
-- Round 2: Llama70B (2136 chars, 25.8s)
-- Round 3: Mistral (2147 chars, 18.4s)
-- Round 4: Mistral (2205 chars, 19.3s)
+- Round 1: DeepSeek (1790 chars, 14.8s)
+- Round 2: Mistral (2446 chars, 18.2s)
+- Round 3: Mistral (2769 chars, 28.0s)
+- Round 4: Mistral (3280 chars, 32.2s)
