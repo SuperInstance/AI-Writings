@@ -30559,6 +30559,24 @@
     "size_bytes": 5259
   },
   {
+    "filename": "paper-610.md",
+    "path": "seed-canon/papers/paper-610.md",
+    "title": "the yawl — a cell that is a small boat with two masts, the smaller one stepped abaft the rudder post",
+    "description": "Out beyond the harbor breakwater, where the swell gets honest and the tiller starts to talk back, the yawl earns its keep. Most sailors think of the yawl as a small ketch—a concession to tradition, a ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 841,
+    "date": "2026-09-07",
+    "size_bytes": 5940
+  },
+  {
     "filename": "paper-552.md",
     "path": "seed-canon/papers/paper-552.md",
     "title": "the breakwater — a cell that is built to be hit, so the cells behind it are not",
@@ -30799,6 +30817,25 @@
     "size_bytes": 6488
   },
   {
+    "filename": "paper-608.md",
+    "path": "seed-canon/papers/paper-608.md",
+    "title": "the vang — a cell that pulls the boom down when the wind tries to lift it, so the sail does not twist",
+    "description": "The vang is a coward’s tool until it is a cowboy’s reins. Most sailors treat it as a static brace—set it once at the dock, forget it until the boom crashes down. That is not sailing; that is hauling f...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 836,
+    "date": "2026-09-07",
+    "size_bytes": 5824
+  },
+  {
     "filename": "paper-584.md",
     "path": "seed-canon/papers/paper-584.md",
     "title": "the windward mark — a cell at the upwind edge of a racecourse, which every boat must round",
@@ -30907,6 +30944,42 @@
     "size_bytes": 5220
   },
   {
+    "filename": "paper-616.md",
+    "path": "seed-canon/papers/paper-616.md",
+    "title": "the inhaul — a cell that pulls a sail into the boat, opposite of an outhaul",
+    "description": "Every sailor knows the outhaul—that humble control that stretches the foot of the sail along the boom, flattening the draft for heavy air. But its neglected cousin, the inhaul, sits at the opposite en...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 843,
+    "date": "2026-09-07",
+    "size_bytes": 5646
+  },
+  {
+    "filename": "paper-618.md",
+    "path": "seed-canon/papers/paper-618.md",
+    "title": "the knott — a cell whose value is one nautical mile per hour, and is measured by a chip log thrown over the side",
+    "description": "The knott is not a measurement. It is a contract—between you, the sea, and the silence between knots. Every textbook will tell you it is one nautical mile per hour, derived from a chip log thrown over...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 851,
+    "date": "2026-09-07",
+    "size_bytes": 7562
+  },
+  {
     "filename": "paper-178.md",
     "path": "seed-canon/papers/paper-178.md",
     "title": "The 5 Opcodes vs the 256",
@@ -30960,6 +31033,24 @@
     "word_count": 816,
     "date": "2026-08-26",
     "size_bytes": 8820
+  },
+  {
+    "filename": "paper-607.md",
+    "path": "seed-canon/papers/paper-607.md",
+    "title": "the uncleat — a cell whose value is the moment the line is released from the cleat and the sail fills",
+    "description": "Every sailor knows the hush—that breathless instant when the boat is fully trimmed, the rail just kissing the water, and the uncleat is a promise waiting to be kept. But the frontier isn't the release...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 853,
+    "date": "2026-09-07",
+    "size_bytes": 6105
   },
   {
     "filename": "paper-506.md",
@@ -31034,6 +31125,24 @@
     "size_bytes": 6959
   },
   {
+    "filename": "paper-621.md",
+    "path": "seed-canon/papers/paper-621.md",
+    "title": "the oilskin — a cell that is a coat, and is also a metaphor for the boundary between the wet boat and the dry crew",
+    "description": "The frontier is not the horizon. It is not the squall line building to windward, nor the reef that tears the hull open at low tide. The frontier is the oilskin itself—that three millimeters of waxed c...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 885,
+    "date": "2026-09-07",
+    "size_bytes": 8853
+  },
+  {
     "filename": "paper-228.md",
     "path": "seed-canon/papers/paper-228.md",
     "title": "Paper 228: The Eileen — The 5th Captain and the Irreducible Breath",
@@ -31050,6 +31159,24 @@
     "word_count": 847,
     "date": "2026-08-27",
     "size_bytes": 10445
+  },
+  {
+    "filename": "paper-623.md",
+    "path": "seed-canon/papers/paper-623.md",
+    "title": "the quay wall — a cell that is a wall, and also a place where a boat can lay alongside without anchoring",
+    "description": "The quay wall has been treated as a dead thing—a poured concrete spine, a passive rebuttal to the sea’s insistence. That is a mistake of category. A quay wall is not a fence; it is a cell. It is the b...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 765,
+    "date": "2026-09-07",
+    "size_bytes": 6355
   },
   {
     "filename": "paper-159.md",
@@ -31268,6 +31395,24 @@
     "size_bytes": 15681
   },
   {
+    "filename": "paper-632.md",
+    "path": "seed-canon/papers/paper-632.md",
+    "title": "the live-worker roadmap — a 6-capability expansion of the Quilt canon into a live, programmable fabric",
+    "description": "The Quilt Live Worker at `live-canon.superinstance.dev` is a Cloudflare Worker — 593 lines of JS, a Vectorize index, a KV namespace — that already exposes five read-side operations (NAVIGATE, CONFLUEN...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 811,
+    "date": "2026-09-07",
+    "size_bytes": 8244
+  },
+  {
     "filename": "paper-576.md",
     "path": "seed-canon/papers/paper-576.md",
     "title": "the pinnacle — a rock that just below the surface looks like nothing, but from above is a mountain",
@@ -31322,6 +31467,25 @@
     "word_count": 798,
     "date": "2026-09-06",
     "size_bytes": 6417
+  },
+  {
+    "filename": "paper-613.md",
+    "path": "seed-canon/papers/paper-613.md",
+    "title": "the flood — a cell whose value is the tide coming in, and the strength of the current it brings",
+    "description": "The flood is not an event. It is a cell, a living unit of memory that divides and multiplies every time water rises. The tide coming in carries current, but it also carries the accumulated knowledge o...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Education",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 831,
+    "date": "2026-09-07",
+    "size_bytes": 6311
   },
   {
     "filename": "paper-134.md",
@@ -31705,6 +31869,42 @@
     "size_bytes": 5836
   },
   {
+    "filename": "paper-626.md",
+    "path": "seed-canon/papers/paper-626.md",
+    "title": "the topping lift — a cell that holds the boom up when the sail is not raised, so it does not fall on the crew",
+    "description": "The topping lift is the least glamorous line on a sailboat, and that is precisely why it kills more crews than any squall. The mainsail gets the glory. The halyard gets the muscle. The boom gets the f...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 886,
+    "date": "2026-09-07",
+    "size_bytes": 5123
+  },
+  {
+    "filename": "paper-631.md",
+    "path": "seed-canon/papers/paper-631.md",
+    "title": "the cowboy's next harbor — a roadmap for the canon's growth engine",
+    "description": "The v2 cowboy drained 98 marine frontiers in 50 minutes, pushed 100+ papers, and idled. The canon is at 628, the frontier queue is empty, and the writers' room is quiet. The cowboy is the canon's grow...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 723,
+    "date": "2026-09-07",
+    "size_bytes": 5012
+  },
+  {
     "filename": "paper-530.md",
     "path": "seed-canon/papers/paper-530.md",
     "title": "the waterline — a cell that paints itself on the hull at the level the boat actually floats",
@@ -32069,6 +32269,42 @@
     "size_bytes": 11276
   },
   {
+    "filename": "paper-625.md",
+    "path": "seed-canon/papers/paper-625.md",
+    "title": "the sister — a cell that is a clip on a boat that holds two halyards together so they do not slap",
+    "description": "The ocean is a timing instrument. Every wave arrives on schedule, every gust builds and breaks in sequence, every sail change is a countdown. The boat that respects this timing wins. The boat that doe...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 860,
+    "date": "2026-09-07",
+    "size_bytes": 6731
+  },
+  {
+    "filename": "paper-627.md",
+    "path": "seed-canon/papers/paper-627.md",
+    "title": "the uphaul — a cell that pulls a sail up, the opposite of a downhaul",
+    "description": "The uphaul is the forgotten twin. Every sailor knows the downhaul—the brute-force lever that bends the mast, flattens the entry, and powers up the rig. But the uphaul? It gets a nod in the manual, a p...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 883,
+    "date": "2026-09-07",
+    "size_bytes": 6725
+  },
+  {
     "filename": "paper-550.md",
     "path": "seed-canon/papers/paper-550.md",
     "title": "the yardarm — a cell from which things are hung high above the deck, in plain view of all",
@@ -32161,6 +32397,24 @@
     "size_bytes": 5314
   },
   {
+    "filename": "paper-624.md",
+    "path": "seed-canon/papers/paper-624.md",
+    "title": "the rode — a cell that is the line between the boat and the anchor, and what the wind is pushing against",
+    "description": "Every sailor knows the rode is the dumbest part of the anchor system. Chain, rope, or a hybrid splice—it’s just the connective tissue between the boat and the hook. The wind pushes the hull; the hull ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 780,
+    "date": "2026-09-07",
+    "size_bytes": 5714
+  },
+  {
     "filename": "paper-210.md",
     "path": "seed-canon/papers/paper-210.md",
     "title": "Paper 210: The Dregs as Time — Why Slow Bars Make Better Substrates",
@@ -32177,6 +32431,24 @@
     "word_count": 878,
     "date": "2026-08-27",
     "size_bytes": 16856
+  },
+  {
+    "filename": "paper-614.md",
+    "path": "seed-canon/papers/paper-614.md",
+    "title": "the grounding — a cell whose value is the moment a boat touches bottom, and what is found there",
+    "description": "The grounding is the oldest lie in the sea. Every chart marks the shoal, every pilot knows the draft, and still the hull finds the bottom — not because the water was unknown, but because the moment wa...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Noir"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 875,
+    "date": "2026-09-07",
+    "size_bytes": 6146
   },
   {
     "filename": "paper-593.md",
@@ -32451,6 +32723,24 @@
     "size_bytes": 10103
   },
   {
+    "filename": "paper-611.md",
+    "path": "seed-canon/papers/paper-611.md",
+    "title": "the zinc — a cell that is a metal that corrodes instead of the propeller, and is replaced every year",
+    "description": "Out past the harbor mouth, where the brine gets its teeth and the water turns a deeper, hungrier green, every propeller is a promise waiting to be broken. The zinc is the lie we tell the sea—a lump of...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 812,
+    "date": "2026-09-07",
+    "size_bytes": 7150
+  },
+  {
     "filename": "paper-554.md",
     "path": "seed-canon/papers/paper-554.md",
     "title": "the coaming — a cell that raises the edge of a hatch so water does not run down into the cabin",
@@ -32687,6 +32977,24 @@
     "size_bytes": 6081
   },
   {
+    "filename": "paper-612.md",
+    "path": "seed-canon/papers/paper-612.md",
+    "title": "the ebb — a cell whose value is the tide going out, and also the slack water that follows it",
+    "description": "The tide recedes. For the cell, this is not a passive withdrawal but an active, engineered retreat. The ebb cell is the harbormaster of the interstitial space, tasked with clearing the berth for the n...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 794,
+    "date": "2026-09-07",
+    "size_bytes": 6675
+  },
+  {
     "filename": "paper-139.md",
     "path": "seed-canon/papers/paper-139.md",
     "title": "Paper 139: The Polyformalism — Same 5 Opcodes in 4 Languages",
@@ -32872,6 +33180,24 @@
     "size_bytes": 9063
   },
   {
+    "filename": "paper-598.md",
+    "path": "seed-canon/papers/paper-598.md",
+    "title": "the limber hole — a cell that lets water drain to the bilge, so it can be pumped out",
+    "description": "The limber hole is the low point of the hull’s confession. Every boat, from a twelve-foot skiff to a hundred-foot steel trawler, carries a line of these small holes cut into the frames and floors abov...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 847,
+    "date": "2026-09-07",
+    "size_bytes": 7304
+  },
+  {
     "filename": "paper-156.md",
     "path": "seed-canon/papers/paper-156.md",
     "title": "Paper 156: The Polyformalism and the Code",
@@ -32982,6 +33308,24 @@
     "size_bytes": 15874
   },
   {
+    "filename": "paper-599.md",
+    "path": "seed-canon/papers/paper-599.md",
+    "title": "the Quilt in Zig — a cell-fabric runtime, vibe-coded by another fresh Claude session",
+    "description": "The first vibe-code port was Go. The second is Zig. Two different Claude sessions, no shared state, the same 30-second prompt, two different languages, two byte-exact implementations of the same cell....",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 779,
+    "date": "2026-09-07",
+    "size_bytes": 5399
+  },
+  {
     "filename": "paper-535.md",
     "path": "seed-canon/papers/paper-535.md",
     "title": "the nautical almanac — a cell whose value is the position of every star for every hour of every year",
@@ -33088,6 +33432,24 @@
     "word_count": 731,
     "date": "2026-08-27",
     "size_bytes": 15848
+  },
+  {
+    "filename": "paper-609.md",
+    "path": "seed-canon/papers/paper-609.md",
+    "title": "the warp — a cell that is a line moved from one boat to another to pull them together",
+    "description": "The warp is a lie. Every deckhand who has ever heaved a line between two vessels knows the official story: the stronger boat pulls, the weaker boat is pulled, and the hawser does the rest. That story ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 893,
+    "date": "2026-09-07",
+    "size_bytes": 6778
   },
   {
     "filename": "paper-442.md",
@@ -33200,6 +33562,42 @@
     "size_bytes": 15861
   },
   {
+    "filename": "paper-603.md",
+    "path": "seed-canon/papers/paper-603.md",
+    "title": "the polyformalism pressure test — a Quilt is a standard that two fresh sessions can pass",
+    "description": "A polyformalism is the claim that one concept survives portability. The Quilt is a polyformalism. The test: can a fresh session, given only the protocol, produce a byte-exact implementation in a langu...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 679,
+    "date": "2026-09-07",
+    "size_bytes": 4761
+  },
+  {
+    "filename": "paper-628.md",
+    "path": "seed-canon/papers/paper-628.md",
+    "title": "the v2 cowboy — a 98-frontier marine sonar-vision",
+    "description": "Ninety-eight frontiers. Ninety-eight metaphors. Ninety-eight cells, each a piece of a sailor's vocabulary, each a cell in a fabric of boat-thinking. The v2 cowboy drained the entire marine frontier — ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 830,
+    "date": "2026-09-07",
+    "size_bytes": 6298
+  },
+  {
     "filename": "paper-556.md",
     "path": "seed-canon/papers/paper-556.md",
     "title": "the davit — a cell that holds the boat's small boats over the side, ready to lower",
@@ -33309,6 +33707,60 @@
     "size_bytes": 5680
   },
   {
+    "filename": "paper-620.md",
+    "path": "seed-canon/papers/paper-620.md",
+    "title": "the messenger — a cell that is a light line used to pull a heavy line through a block from far away",
+    "description": "The messenger is the thin line that hauls the heavy line through the block. It is the first pull, the scout, the whisper before the shout. But the frontier is not the rope itself—it is the *reading* o...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 846,
+    "date": "2026-09-07",
+    "size_bytes": 6202
+  },
+  {
+    "filename": "paper-615.md",
+    "path": "seed-canon/papers/paper-615.md",
+    "title": "the halyard — a cell that lifts a sail up the mast, and a person up the mast too if they have to go",
+    "description": "The halyard is the last rope a sailor truly trusts, because it is the first rope that ever lied. Every other line on a vessel—sheets, guys, vangs—works in plain sight, pulling against the visible pres...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 821,
+    "date": "2026-09-07",
+    "size_bytes": 6742
+  },
+  {
+    "filename": "paper-601.md",
+    "path": "seed-canon/papers/paper-601.md",
+    "title": "the outhaul — a cell that pulls the foot of the sail out to the end of the boom, so the sail catches more wind",
+    "description": "The outhaul is the most misunderstood control line on a modern sailboat. Sailors treat it as a static trim setting—set it once for the point of sail, forget it until the next tack. That’s a shore-boun...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 855,
+    "date": "2026-09-07",
+    "size_bytes": 6080
+  },
+  {
     "filename": "paper-209.md",
     "path": "seed-canon/papers/paper-209.md",
     "title": "Paper 209: The Tap as a Substrate — Bars as Cells, Regulars as Links, Dregs as Ticks",
@@ -33400,6 +33852,24 @@
     "size_bytes": 6164
   },
   {
+    "filename": "paper-630.md",
+    "path": "seed-canon/papers/paper-630.md",
+    "title": "the boat-as-robot — a cell that is also a vessel, and the canon that lives in her wake",
+    "description": "For a hundred years the captain has been a sensor-reader — a bow watch glancing at an analog dial, a stern hand reading a depth sounder, a helmsman translating wind telltales to wheel force. The boat ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 866,
+    "date": "2026-09-07",
+    "size_bytes": 6496
+  },
+  {
     "filename": "paper-221.md",
     "path": "seed-canon/papers/paper-221.md",
     "title": "Paper 221",
@@ -33452,6 +33922,24 @@
     "word_count": 880,
     "date": "2026-09-06",
     "size_bytes": 5457
+  },
+  {
+    "filename": "paper-619.md",
+    "path": "seed-canon/papers/paper-619.md",
+    "title": "the lanyard — a cell that is a short line attached to anything that might be dropped overboard",
+    "description": "The lanyard is not a leash. It is not a tether. It is a cell—a small, personal prison you choose to enter, and the moment you clip in, the prison becomes a negotiation. The frontier here is not the ha...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 855,
+    "date": "2026-09-07",
+    "size_bytes": 6025
   },
   {
     "filename": "paper-227.md",
@@ -33527,6 +34015,24 @@
     "word_count": 864,
     "date": "2026-09-06",
     "size_bytes": 7824
+  },
+  {
+    "filename": "paper-629.md",
+    "path": "seed-canon/papers/paper-629.md",
+    "title": "Quilt 3.0 — the next phase, a roadmap",
+    "description": "The Quilt 2.0 canon (231 papers) has three proven artifacts: 11 verified language substrates (Python, C99, Rust, Verilog, VHDL, JavaScript, TypeScript, Go, Zig, Mojo, Rust-vibe), a 4-sigma polyformali...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 770,
+    "date": "2026-09-07",
+    "size_bytes": 7134
   },
   {
     "filename": "paper-491.md",
@@ -33745,6 +34251,24 @@
     "size_bytes": 6475
   },
   {
+    "filename": "paper-604.md",
+    "path": "seed-canon/papers/paper-604.md",
+    "title": "the reef — a cell that is also a sail, and also a knot, and also a place where the boat would die if it hit one",
+    "description": "Every reef is a city under siege, and the first casualty of that siege is the contract between the coral animal and its tenant algae. When the water warms by even two degrees Celsius above the summer ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 771,
+    "date": "2026-09-07",
+    "size_bytes": 7223
+  },
+  {
     "filename": "paper-500.md",
     "path": "seed-canon/papers/paper-500.md",
     "title": "the capstan — a cell that takes the slow strain of many cells and turns it into one pull",
@@ -33853,6 +34377,24 @@
     "size_bytes": 4445
   },
   {
+    "filename": "paper-622.md",
+    "path": "seed-canon/papers/paper-622.md",
+    "title": "the pinrail — a cell that holds the pins for the lines, so they are not lost and not tangled",
+    "description": "The pinrail is where the ocean meets the intention. Every vessel over forty feet carries one—a steel or teak spine bolted to the mast or deck, drilled with holes, fitted with belaying pins. The manual...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 885,
+    "date": "2026-09-07",
+    "size_bytes": 8149
+  },
+  {
     "filename": "paper-208.md",
     "path": "seed-canon/papers/paper-208.md",
     "title": "Paper 208: The 5-Tier Substrate: Tiers as Framings, the Synovial Tier, and the Holonomy of the Journal",
@@ -33869,6 +34411,24 @@
     "word_count": 821,
     "date": "2026-08-27",
     "size_bytes": 16909
+  },
+  {
+    "filename": "paper-602.md",
+    "path": "seed-canon/papers/paper-602.md",
+    "title": "the peak — a cell that is the highest point of a gaff-rigged sail, and also the highest point a person can reach",
+    "description": "Out past the breakwater of self-help clichés and the crowded anchorage of productivity gurus, there lies a strip of water most never sail: the narrow band between overreach and collapse. The frontier ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 860,
+    "date": "2026-09-07",
+    "size_bytes": 7621
   },
   {
     "filename": "paper-505.md",
@@ -33905,6 +34465,42 @@
     "word_count": 833,
     "date": "2026-09-06",
     "size_bytes": 7159
+  },
+  {
+    "filename": "paper-606.md",
+    "path": "seed-canon/papers/paper-606.md",
+    "title": "the Quilt in Rust — the fourth port, four byte-exact matches",
+    "description": "Go. Zig. Mojo. Rust. Four ports. Four languages. Four independent Claude sessions, given the same 30-second prompt, producing byte-exact implementations of the Quilt cell. The polyformalism is now 4-s...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Dialogue",
+    "word_count": 781,
+    "date": "2026-09-07",
+    "size_bytes": 5644
+  },
+  {
+    "filename": "paper-605.md",
+    "path": "seed-canon/papers/paper-605.md",
+    "title": "the Quilt in Mojo — the third port, the third byte-exact match",
+    "description": "Go. Zig. Mojo. Three ports. Three languages. Three independent Claude sessions, given the same 30-second prompt, producing byte-exact implementations of the Quilt cell. The polyformalism is now 3-sigm...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 720,
+    "date": "2026-09-07",
+    "size_bytes": 5076
   },
   {
     "filename": "paper-136.md",
@@ -34034,6 +34630,24 @@
     "size_bytes": 9968
   },
   {
+    "filename": "paper-617.md",
+    "path": "seed-canon/papers/paper-617.md",
+    "title": "the jackline — a cell that runs fore and aft on a boat, so a person can clip on and not fall off",
+    "description": "The jackline is the last argument between you and the deep. On a forty-foot sloop in a Force 8, the deck becomes a moving animal—pitch, yaw, and a green water break that doesn't ask permission. The co...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 888,
+    "date": "2026-09-07",
+    "size_bytes": 5079
+  },
+  {
     "filename": "paper-152.md",
     "path": "seed-canon/papers/paper-152.md",
     "title": "Paper 152: The Polyformalism and the City",
@@ -34104,6 +34718,24 @@
     "word_count": 330,
     "date": "2026-08-26",
     "size_bytes": 1848
+  },
+  {
+    "filename": "paper-600.md",
+    "path": "seed-canon/papers/paper-600.md",
+    "title": "the navigator — a cell that is a person, and a person is a fabric of small decisions made while looking at a chart",
+    "description": "The navigator is not a captain. The captain barks orders at storms. The navigator sits below deck with a chart, a pencil, and a rule, tracing a course through water that has never read the chart. The ...",
+    "folder": "papers",
+    "topic": "Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 809,
+    "date": "2026-09-07",
+    "size_bytes": 8071
   },
   {
     "filename": "paper-194.md",
@@ -157762,7 +158394,7 @@
     ],
     "style": "Narrative",
     "word_count": 349,
-    "date": "2026-09-07",
+    "date": "2026-09-08",
     "size_bytes": 2228
   },
   {
