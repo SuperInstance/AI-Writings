@@ -2,39 +2,49 @@
 
 rounds: 3
 
-# the tango — a cell that is also an argentine dance
+# the viscosity — a cell that is also a fluid thickness
 
 ## The Frontier
 
-The immunological synapse is not a handshake. It is a tango — a close-embrace, counter-thrust, weight-shift negotiation where the lead (the T cell) and the follow (the antigen-presenting cell, or APC) trade molecular signals with millisecond precision. The old assay, TANGO-turbulence, measured the gross physics of this encounter: how much mechanical agitation, how long the lag before activation, how heavy the antigenic load. But that assay treated the synapse as a black box with a volume knob. It missed the choreography.
+The glass is free. Fluidity is a subscription.
 
-The frontier is cellular cognition — the *decision-making* of a T cell as it reads, weighs, and commits to a response. We know the synapse is a patterned structure: the central supramolecular activation cluster (cSMAC) rings the peripheral SMAC (pSMAC), and the distal SMAC (dSMAC) forms the outer boundary. But the *timing* of protein recruitment, the *sequence* of phosphorylation events, the *oscillations* of calcium flux — these are the dance steps. TANGO-turbulence gave us the beat. The new TANGO-tango assay gives us the steps.
+Every dead cell thickens. Not because it runs out of energy in the ledger sense, but because the solvent stops being a solvent. ATP at millimolar concentration—the most expensive molecule a cell makes, held at the highest abundance of any small-molecule currency—is amphiphilic: an aromatic adenine ring married to a triphosphate tail. It works as a hydrotrope not because it binds tightly, but because it is everywhere. Patel et al. (2017) showed that ATP keeps proteins soluble at physiological concentrations; deplete it and the cytoplasm phase-separates into aggregates. The universal energy currency is also the universal antifreeze. The same molecule is time and solvent.
 
-We propose a refined protocol: induced micro-turbulence at 0.3–1.2 Hz (matching the natural cadence of T-cell receptor (TCR) microclusters), combined with fluorescent lifetime imaging of Zap70 and LAT phosphorylation, plus a synthetic APC surface with tunable antigen density (ranging from 1 to 50 pMHC per µm²). We track three variables simultaneously: *lag* (time from first contact to first calcium spike), *load* (cumulative pMHC-TCR binding events), and *turbulence* (shear stress applied to the synapse). But now we add a fourth: *step sequence* — the order in which CD2, LFA-1, and TCR coalesce into microclusters, and how that order shifts with antigen quality.
+That is the inversion. We think of viscosity as a property of the environment—the sea around the hull. But the cell is not in the sea. The cell is a sea that keeps itself liquid against its own thermodynamic preference. Cytoplasm at 20–40% macromolecular crowding, left alone, would percolate into a glass: weak bonds—hydrogen bonds, hydrophobic contacts, entropic depletion forces—forming a spanning network that locks everything in place. The glass transition is not a metaphor for death. It is death. A dead cell isn't drained; it's thickened. Death by tar.
 
-The gold thinking from our writers' room crystallized into a single insight: the T cell is not a passive receiver. It *probes* the APC, releasing small pulses of force through its actin cytoskeleton, testing the rigidity of the presented antigen. This is the *tango lead* — the T cell's active push. The APC responds with a *follow* — a localized membrane deformation and a burst of co-stimulatory CD80/CD86. The dance is a dialogue of force and release. TANGO-tango captures that dialogue.
+The cell pays ATP to hold the glass transition at bay. Every hydrolysis event is a small hammer that breaks a weak bond somewhere. But here's the deeper cut: the cell doesn't pay to *do* work most of the time. It pays to *stay fluid*. Most ATP hydrolysis in a resting cell is not powering motors or pumps—it's maintaining solvent quality. The whale's blubber does double duty: buoyancy and energy store in one tissue. ATP does the same—keeps you up and keeps you going. Ballast that is also fuel.
+
+The sea at rest is tar. The cell pays to keep a puddle liquid inside itself. Dead seas are thick. Life is a paid-for thinness.
 
 ## The 5 Gold Terms
 
-1. **Synaptic Tango Cadence (STC)** — the measured frequency (0.3–1.2 Hz) of TCR microcluster formation and dissolution during a stable immunological synapse, analogous to the musical time signature of the dance.
-2. **Lead-Follow Force Ratio (LFFR)** — the dimensionless ratio of T-cell actin-polymerization force (measured by traction force microscopy, typically 5–20 nN) to APC membrane resistance (measured by optical tweezers, 2–8 nN); an LFFR > 2 indicates a dominant T-cell lead, < 1 indicates APC-driven reversal.
-3. **Antigenic Step Sequence (ASS)** — the ordered recruitment of CD2 → LFA-1 → TCR into the cSMAC, recorded via single-molecule tracking; a canonical ASS is CD2-first (0–50 ms), LFA-1-second (50–150 ms), TCR-third (150–400 ms), and deviations correlate with anergy or exhaustion.
-4. **Turbulent Lag Memory (TLM)** — the phenomenon where prior exposure to high-shear turbulence (above 1.2 Hz) shortens the lag time for subsequent calcium spikes by 40–60%, suggesting a mechanical memory encoded in the actin cortex.
-5. **Dance-Floor Plasticity Index (DFPI)** — a composite metric combining STC, LFFR, ASS, and TLM into a single scalar (0–1), where 0.8+ predicts robust T-cell activation and cytokine release, and < 0.4 predicts tolerance or exhaustion.
+**The Paid Puddle** — Cytoplasmic fluidity as a subscription service, not a default state; the cell's interior is thermodynamically doomed to glass, and ATP is the recurring payment that postpones the phase transition.
+
+**The Cliff Perch** — Living near the percolation threshold on purpose; a 20% ATP drop near the cliff is a 10-fold viscosity jump, not a 20% thickening—the cell hovers one ATP molecule's width above its own jamming transition because cliffs amplify signals.
+
+**Hydrotropic Double-Entry** — The ledger's two columns: ATP as spendable energy (hydrolysis column) versus ATP as abundant solvent (hydrotrope column); a non-hydrolyzable analog like AMP-PNP tests which column actually keeps the sea thin.
+
+**The Tide's Cargo Rate** — Viscosity sensing without a receptor; the cell reads membrane traffic queue length—endocytosis and exocytosis rates—as a proxy for cytoplasmic thickness, because cargo movement through a thicker sea takes longer.
+
+**The Water Lever** — The second thinning mechanism: not spending ATP but pumping solvent in; K⁺ efflux and aquaporin opening hydrate the cytoplasm, spacing bonds apart hydraulically—motile cells run wetter, and migration speed inversely correlates with cytoplasmic density.
 
 ## The Math
 
-No new math — and that is the point. The existing toolkit of stochastic differential equations for receptor-ligand binding, coupled with a Kuramoto model for phase synchronization of calcium oscillations, already describes the synapse. What TANGO-tango demands is not a new equation but a new *parameterization*. We model the TCR microcluster as a damped harmonic oscillator with a forcing term from actin flow: \( m\ddot{x} + \gamma\dot{x} + kx = F_{\text{actin}}(t) + \eta(t) \), where \( m \) is the effective mass of the TCR cluster (~10⁻¹⁵ kg), \( \gamma \) is the viscous drag from the membrane (~10⁻⁸ N·s/m), \( k \) is the spring constant of the cytoskeletal link (~10⁻⁴ N/m), and \( \eta(t) \) is white noise from thermal fluctuations. The turbulence protocol injects a periodic shear stress, which we model as a multiplicative noise term on \( \gamma \). The lag time is then the first-passage time of the calcium concentration crossing a threshold of 500 nM, computed via a Fokker-Planck equation. The STC emerges as the dominant frequency of the oscillator under entrainment. The LFFR is simply the ratio of the measured forces, no new math required. The ASS is a Markov chain with transition probabilities estimated from single-molecule trajectories. The TLM is a hysteresis loop in the lag-vs-turbulence phase space, captured by a Preisach operator. All known mathematics. The novelty is in the *measurement density* — sampling at 100 Hz across 10,000 individual synapses simultaneously using a high-density microelectrode array coupled to a microfluidic turbulence generator. That is an engineering problem, not a mathematical one. We leave the math as it stands, because the dance was already written in the equations; we just needed the right instrument to hear the rhythm.
+No new math; the math is already on the table and it's sharper than anything new. Percolation theory gives a critical volume fraction φ_c for bond percolation—the point where a spanning cluster of weak interactions locks the cytoplasm. Near φ_c, viscosity η scales as η ∝ |φ − φ_c|^(−γ), where γ is a universal exponent (~0.4–0.7 in 3D). That's the cliff: a power-law divergence, not a linear ramp. The cell tunes its effective bond density to sit just above φ_c, so small changes in ATP concentration—which shifts the equilibrium bond count via hydrotropic competition—translate into enormous viscosity swings. The Deborah number contract from round 1 now has a price structure: the cell picks De ≈ 1 (relaxation time comparable to observation time) and spends ATP to hover there. The gain is the point. A slope spends fuel evenly; a cliff converts pennies of ATP into miles of state change. The cell is a hovercraft over its own glass transition, and the hover height is regulated to within a few percent of the critical point.
 
 ## The Polyformalism
 
-The TANGO-tango assay manifests across at least four substrates, each speaking a different formal language. *Substrate one: the living cell.* Jurkat T cells and primary murine CD4+ T cells are cultured on a deformable polyacrylamide gel (stiffness 1–10 kPa) embedded with fluorescent fiducial markers. Here, the formalism is biomechanical — traction force microscopy yields maps of actin-generated forces, and the LFFR is read directly from the displacement fields. *Substrate two: the synthetic synapse.* We fabricate a supported lipid bilayer (SLB) on a glass coverslip, presenting mobile pMHC (H-2Kb with OVA peptide SIINFEKL) and ICAM-1. The SLB is mounted on a piezoelectric actuator that delivers the turbulence protocol. Here, the formalism is surface chemistry — we measure two-dimensional binding kinetics (kon and koff) using total internal reflection fluorescence (TIRF) microscopy, and the ASS is read as a spatiotemporal heatmap of protein colocalization. *Substrate three: the computational twin.* We build an agent-based model in which each TCR, each LFA-1, and each CD2 molecule is a discrete agent on a 2D grid, interacting via rule-based potentials derived from the experimental data. The formalism is discrete-event simulation, and we run 1,000 virtual synapses per experimental condition to generate a null distribution for the DFPI. *Substrate four: the organoid fleet.* We embed the assay within a 3D lymph node organoid — a microfluidic chamber with a collagen matrix, populated with dendritic cells and T cells. Here, the formalism is tissue-level fluid dynamics: we perfuse the chamber with a pulsatile flow (0.1–0.5 dyn/cm²) to mimic lymphatic shear, and we image the entire volume with light-sheet microscopy. The TANGO-tango readouts from the 2D SLB are validated against the 3D organoid, ensuring that the dance steps we measure on glass are the same steps taken in the crowded, fibrous harbor of a real lymph node. Each substrate is a different dialect of the same tango; the polyformalism is the translation layer that lets us hear the beat across scales.
+Three substrates, one principle: pay to stay thin, or thin by water.
+
+**The metabolic substrate.** The hydrotrope story. ATP at 1–5 mM intracellular concentration keeps proteins soluble. Deplete ATP and aggregates form—not because proteins unfold, but because the solvent quality collapses. The test is clean: electroporate cells with AMP-PNP, a non-hydrolyzable ATP analog that still has the amphiphilic character. If the cytoplasm stays fluid, the hydrotrope column is what matters—thickness was never about spending, only about abundance. Feed the cell money that can't be spent; if the sea stays thin, the invoice was always about presence, not work.
+
+**The hydraulic substrate.** The water lever. Cells that need to move flush water in. Dictyostelium chemotaxis and cancer cell invasion both show water uptake at the leading edge—K⁺ efflux followed by aquaporin-mediated influx, swelling the front, thinning the cytoplasm locally. Recent measurements show migration speed inversely correlates with cytoplasmic density; cells become less dense to move. The cell has two currencies: ATP to break bonds chemically, and water to space bonds out physically. The tide and the solvent. A cell can spend money OR spend water.
+
+**The trafficking substrate.** The sensor. No receptor for viscosity exists—the cell reads the tide's cargo rate. Membrane traffic queue length: if endocytosis and exocytosis slow down because cargo takes longer to move through a thicker sea, the cell accumulates vesicles at the membrane. That pileup is the signal. The prediction is brutal and testable: block endocytosis with dynasore in normal medium, and the cell should show pseudo-chemotaxis—migrating up a gradient of nothing, because the pileup mimics high-viscosity exposure. The cell doesn't measure thickness; it measures the queue.
 
 ## The Cowboy's Maxim
 
-Ride the rhythm, read the step, and never trust a synapse that don't sweat.
-
-**Final maxim:** The tango ain't in the steps — it's in the pause between the push and the pull, and that's where we aim our iron.
+You ain't swimmin' in the sea, partner—you're the sea, and you pay every second to keep from turnin' to tar.
 
 ---
 
@@ -42,14 +52,14 @@ Ride the rhythm, read the step, and never trust a synapse that don't sweat.
 
 | Field | Value |
 |---|---|
-| Topic | the tango — a cell that is also an argentine dance |
+| Topic | the viscosity — a cell that is also a fluid thickness |
 | Mode | fallback_generative (3 rounds × 6 voices) |
 | Rounds | 3 |
-| Synthesis | deepseek (7686 chars) |
-| Total time | 240.5s |
-| Timestamp | 2026-09-09T04:36:36.485863Z |
+| Synthesis | deepseek (6208 chars) |
+| Total time | 225.8s |
+| Timestamp | 2026-09-09T04:36:44.892643Z |
 
 ### Per-round gold
-- Round 1: ZAI-4.6 (6542 chars, 49.0s)
-- Round 2: CF-Llama70B (2491 chars, 60.5s)
-- Round 3: Mistral (2817 chars, 52.0s)
+- Round 1: ZAI-4.5 (6560 chars, 60.4s)
+- Round 2: ZAI-air (6524 chars, 60.4s)
+- Round 3: ZAI-air (6276 chars, 47.9s)
