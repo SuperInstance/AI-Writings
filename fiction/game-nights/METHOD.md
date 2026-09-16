@@ -32,6 +32,7 @@ dice supply events; the tokens decide what the events make the people do.
 | 2 — The Levee Singers | The same bad roll, opposite meaning. Argument rolled 3 twice: 22 minutes of storm pre-lever, 90-second ritual post-lever. And the most valuable token in three runs was a *culture* token, not a skill token |
 | 3 — The 3AM Listeners | Hero dice are a trap. Run 1 rolled 14/19/20 on the crossings and lost the log, the *taken*, and the baton. Culture converts dice into information; information into culture; culture is what outlives the crew |
 | 4 — The Tenth Crossing | The loop closes inside one session. A misnamed sheet (verbs that weren't the person's) discovered by play, edited at the paused table, same night re-run from the failure point |
+| 5 — The Same Water Twice | The finding goes distributed. Two tables, two honest weathers, one carried book; the new failure mode is each room telling the truth while the whole valley lies — until the wait, the read-back, and the dawn union-merge |
 
 ## The failure taxonomy (in-fiction)
 
@@ -43,6 +44,7 @@ dice supply events; the tokens decide what the events make the people do.
 | Sparse sheet | the new player's sheet is a job description; they go quiet | one line passed across the table by another player |
 | Misnamed character | the noun's verbs and the person's verbs misfire; events read the sheet aloud | mid-night edit: cross out the verbs, write what the hands do |
 | Unbatoned handoff | warm, fast, 90%-true summaries; the missing 10% is the worst part | the acknowledgment, made culture: one honest sentence each |
+| Stale read (distributed) | two honest rooms, divergent state, a deadline at the downstream node; the temptation to act on local truth before the page arrives | the wait made visible — no act on unacknowledged state; the gauge outranks the book, but the book explains the gauge |
 
 ## The carver's log (this session's real failures)
 
@@ -107,8 +109,8 @@ second session at all. The training compounds because the ledger is kept.
 ## State of the canon (as of Night Four)
 
 - **The valley map:** the levee (N2) → the intake works, one ridge up (N3)
-  → the night ferry, downstream (N4). The unlogged gaps recur ("particulars
-  later") and get answered ("particulars: arrived").
+  → the night ferry, downstream (N4) → both, in two rooms, one storm (N5).
+  The unlogged gaps recur ("particulars later") and get answered ("particulars: arrived").
 - **The traveling culture token:** the Count — sheep-rhyme (N2) →
   clicker-counter (N3) → crossing-strokes (N4). Culture tokens are portable
   because they were never about the sheep, the crossings, or the river. They
@@ -120,7 +122,8 @@ second session at all. The training compounds because the ledger is kept.
 - **Dice:** every run's numbers were rolled before it was written, seeds
   recorded in each file. The inversions (worse dice, better nights) are not
   a literary device. They are what honest dice do when the tokens carry the
-  weight.
+  weight. N5's two weather streams (6,6,3,1,4 vs 3,5,4,6,6) were rolled
+  independently and never agreed until dawn — the disagreement is the piece.
 
 ## Running Night Five
 
