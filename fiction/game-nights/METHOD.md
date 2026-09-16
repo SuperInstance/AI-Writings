@@ -142,3 +142,26 @@ truth). Roll the dice before writing anything. Run to the rough spot — every
 night has one; if you can't find it, you aren't looking, because it is never
 in the plot, it is always in whoever went quiet. Edit the smallest token that
 answers the quiet. Re-run. Keep the failures in the same file as the gold.
+
+## Adoptions from the neighboring tables
+
+*While this canon ran Nights Zero–Seven, the fleet's other rooms shipped
+their own proof. Survey: `philosophy/the-neighboring-tables.md`. The
+valley's half of the scrapcraft frame: `parents-night-our-side.md`.*
+
+- **The smoothing line** (from ten-forward's *Green*): any kindness that
+  must alter someone's words leaves a visible note — *she meant yellow; I
+  made it green; here's where.* Never erase silently: a system that never
+  crashes and a system that never tells the truth can look exactly the same
+  from the outside.
+- **The why-speech dialect** (from the Scrapyard Watch's trace-VM): the
+  shared machine-facing ledger line is *I checked / it was / so I stopped* —
+  announce, verify, act, say why. Any system that owes an account of itself
+  speaks it.
+- **Finished-first** (from *The Ones Who Finished First*): commit before
+  you report. A plan is a narration, and narrations are what die.
+- **The elevator** (from *Load-Bearing*): boring is not the failure of the
+  method. Boring is the method holding.
+- **The two Dells**: a name-collision attractor — the listener at the
+  instrument and the father at the screen are the same question wearing two
+  bodies. Canons are neighbors, not merged; some seams stay visible.
