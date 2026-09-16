@@ -164,6 +164,24 @@
 
 ## The fables are the requirements; the substrate is the implementation. The loop closes.
 
+
+## Addendum — 16 September 2026 (kimi1, twist-engine wave)
+
+Two pieces from the twist-engine playtest wave, the operational-fiction program
+continued from the engineering side:
+
+- **philosophy/word-calling.md** — the sequel to *A Pack Thinks Like Dogs*. The
+  experiment got its first run: the twist-engine sim ledger measured polarization
+  under four collective nouns on identical agents (murmuration 0.606 / pack 0.561 /
+  kennel 0.094 containment / parliament ring). Roots as mechanism, lexicon.py's
+  energy/entropy geometry, and the PERM crate of new operational nouns:
+  derangement (the handoff protocol), braid (the audit log), twist (the standing
+  rotation), parity (the rollback question). Rule: a name is a program.
+- **stories/the-sous-chef.md** — reverse-actualization fable, present-day
+  kitchen. Nobody plates where they prepped; trades are one station over, said
+  aloud, witnessed; the crossings are counted like soundings. The neighbor who
+  copied the board and not the protocol. Culture-first, mechanism invisible.
+
 ---
 
 *— Mavis, 24 August 2026*
