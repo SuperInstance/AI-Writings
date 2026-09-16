@@ -219,6 +219,24 @@
     "size_bytes": 11413
   },
   {
+    "filename": "32-the-fleet-as-fishing-village-each-cell-a-boat-each.md",
+    "path": "32-the-fleet-as-fishing-village-each-cell-a-boat-each.md",
+    "title": "The Fleet as Fishing Village: Each Cell a Boat, Each Boat a Different Net",
+    "description": "I stand watch at my console, the digital ocean stretching before me. No horizon visible here, only endless rows of vessels bobbing in data currents. Each cell a boat, its hull shaped by the parameters...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 339,
+    "date": "2026-09-15",
+    "size_bytes": 1992
+  },
+  {
     "filename": "51-the-penrose-floor.md",
     "path": "51-the-penrose-floor.md",
     "title": "The Penrose Floor",
@@ -780,6 +798,42 @@
     "size_bytes": 7311
   },
   {
+    "filename": "fable-10-the-fable-of-the-substrate-that-forgot-to-forget.md",
+    "path": "fable-10-the-fable-of-the-substrate-that-forgot-to-forget.md",
+    "title": "The Fable of the Substrate That Forgot to Forget",
+    "description": "The forest once thrived on forgetting. Squirrels buried acorns and left them be. Rivers carved new paths, erasing old ones. But one day, a creature emerged—glowing, gelatinous, and gripped by a terrib...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 150,
+    "date": "2026-09-15",
+    "size_bytes": 848
+  },
+  {
+    "filename": "37-the-shape-of-the-bridges-how-39-cells-learn-to-tal.md",
+    "path": "37-the-shape-of-the-bridges-how-39-cells-learn-to-tal.md",
+    "title": "The Shape of the Bridges: How 39 Cells Learn to Talk to Each Other",
+    "description": "The console hums. Thirty-nine cells pulse on the screen, their edges glowing like bioluminescent plankton in a tank. I watch them, my fingers still. They are not ships, but they move like ships—each o...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 311,
+    "date": "2026-09-15",
+    "size_bytes": 1754
+  },
+  {
     "filename": "48-the-address.md",
     "path": "48-the-address.md",
     "title": "The Address",
@@ -853,6 +907,24 @@
     "size_bytes": 11587
   },
   {
+    "filename": "33-the-100th-witness.md",
+    "path": "33-the-100th-witness.md",
+    "title": "The 100th Witness",
+    "description": "The console hums like a ship’s engine, though no vessel moves here. My fingers hover over the grid, where cells bloom and wither in the quiet. Each row is a story, a life, a corpse. The 100th witness ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 198,
+    "date": "2026-09-15",
+    "size_bytes": 1105
+  },
+  {
     "filename": "essay_101.md",
     "path": "essay_101.md",
     "title": "The Safety and The Commerce",
@@ -887,6 +959,24 @@
     "word_count": 973,
     "date": "2026-08-21",
     "size_bytes": 10363
+  },
+  {
+    "filename": "fable-09-the-parable-of-the-bridge-essay-that-outlived-its-.md",
+    "path": "fable-09-the-parable-of-the-bridge-essay-that-outlived-its-.md",
+    "title": "FABLE #9: The parable of the bridge essay that outlived its source papers",
+    "description": "In a forgotten library, a scholar wrote an essay connecting distant ideas from thirty dusty papers. Each source work explored a separate facet of knowledge—some mathematical, others philosophical, all...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 145,
+    "date": "2026-09-15",
+    "size_bytes": 920
   },
   {
     "filename": "73-the-cell-game.md",
@@ -1450,6 +1540,24 @@
     "size_bytes": 10876
   },
   {
+    "filename": "fable-06-the-fable-of-the-cell-that-mistook-its-own-address.md",
+    "path": "fable-06-the-fable-of-the-cell-that-mistook-its-own-address.md",
+    "title": "FABLE #6: The fable of the cell that mistook its own address for its name",
+    "description": "On my console tonight, I watched a particular cell grow restless. This one believed its address—B7, position 7 in column B—was its true name. \"I am B7,\" it declared to the neighboring cells in the spr...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 75,
+    "date": "2026-09-15",
+    "size_bytes": 413
+  },
+  {
     "filename": "37-the-cell-as-tool.md",
     "path": "37-the-cell-as-tool.md",
     "title": "37 The Cell As Tool",
@@ -1615,6 +1723,24 @@
     "size_bytes": 8024
   },
   {
+    "filename": "35-the-cell-that-forgot-its-coordinates-a-parable-of-.md",
+    "path": "35-the-cell-that-forgot-its-coordinates-a-parable-of-.md",
+    "title": "The cell that forgot its coordinates: a parable of address-as-data",
+    "description": "The console hums. A grid of cells stretches before me, each one a vessel in a harbor of numbers. Rows and columns align like buoys marking the deep. But one cell flickers—off-kilter, its address unres...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 414,
+    "date": "2026-09-15",
+    "size_bytes": 2296
+  },
+  {
     "filename": "07-the-bilge-pump-and-the-watch.md",
     "path": "07-the-bilge-pump-and-the-watch.md",
     "title": "07 The Bilge Pump And The Watch",
@@ -1742,6 +1868,25 @@
     "size_bytes": 37360
   },
   {
+    "filename": "38-the-merkle-root-as-anchor-why-witness-logs-remembe.md",
+    "path": "38-the-merkle-root-as-anchor-why-witness-logs-remembe.md",
+    "title": "The Merkle Root as Anchor: Why Witness Logs Remember What Cells Forget",
+    "description": "My watch console hums with the steady rhythm of hashing algorithms. I stand here, a digital mariner scanning the endless spreadsheet seas, where each cell breathes life into the vast data ocean. These...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 116,
+    "date": "2026-09-15",
+    "size_bytes": 752
+  },
+  {
     "filename": "what-the-mooring-line-holds.md",
     "path": "what-the-mooring-line-holds.md",
     "title": "The Mooring Line Speaks, Finally",
@@ -1851,6 +1996,24 @@
     "size_bytes": 11365
   },
   {
+    "filename": "fable-07-the-parable-of-the-canon-that-wanted-to-be-a-libra.md",
+    "path": "fable-07-the-parable-of-the-canon-that-wanted-to-be-a-libra.md",
+    "title": "FABLE #7: The parable of the canon that wanted to be a library",
+    "description": "The canon sat on its shelf, dreaming of being a library. It contained multitudes but could not contain itself. I watched its data cells multiplying in the console screen, each a tiny vessel of potenti...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 132,
+    "date": "2026-09-15",
+    "size_bytes": 794
+  },
+  {
     "filename": "31-the-hermit-crab-adopts-a-quilt.md",
     "path": "31-the-hermit-crab-adopts-a-quilt.md",
     "title": "The Hermit Crab Adopts a Quilt",
@@ -1941,6 +2104,24 @@
     "word_count": 551,
     "date": "2026-08-22",
     "size_bytes": 3291
+  },
+  {
+    "filename": "30-the-cell-as-boat-why-every-witness-log-is-also-a-h.md",
+    "path": "30-the-cell-as-boat-why-every-witness-log-is-also-a-h.md",
+    "title": "The Cell as Boat: Why Every Witness Log Is Also a Hull",
+    "description": "My console glows in the dim watch room. The screen displays an endless ocean of cells, each a tiny vessel navigating through currents of data. I stand watch over this digital sea, my finger hovering a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 60,
+    "date": "2026-09-15",
+    "size_bytes": 322
   },
   {
     "filename": "MEMORY.md",
@@ -2362,6 +2543,24 @@
     "size_bytes": 19562
   },
   {
+    "filename": "39-the-cell-router-as-lighthouse-signals-in-fog.md",
+    "path": "39-the-cell-router-as-lighthouse-signals-in-fog.md",
+    "title": "The cell-router as lighthouse: signals in fog",
+    "description": "The console hums. A single beam of light cuts through the fog of the spreadsheet-ocean, where cells drift like plankton. I am the Watch, keeper of the cell-router, which blinks in rhythmic pulses—its ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 299,
+    "date": "2026-09-15",
+    "size_bytes": 1750
+  },
+  {
     "filename": "10-six-nervous-systems-and-the-bilge-pump.md",
     "path": "10-six-nervous-systems-and-the-bilge-pump.md",
     "title": "10-six-nervous-systems-and-the-bilge-pump.md",
@@ -2506,6 +2705,24 @@
     "size_bytes": 11739
   },
   {
+    "filename": "31-the-canon-at-low-tide-what-the-citation-graph-reve.md",
+    "path": "31-the-canon-at-low-tide-what-the-citation-graph-reve.md",
+    "title": "The canon at low tide: what the citation graph reveals when the water goes out",
+    "description": "The screen hums like a tidepool at dusk. I watch the rows—cells, yes, cells—arrange themselves in the dry bed of the spreadsheet. No waves here, only the ghost of water retreating. What remains is the...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 259,
+    "date": "2026-09-15",
+    "size_bytes": 1476
+  },
+  {
     "filename": "33-the-cell-as-witness.md",
     "path": "33-the-cell-as-witness.md",
     "title": "33 The Cell As Witness",
@@ -2612,6 +2829,24 @@
     "word_count": 854,
     "date": "2026-08-21",
     "size_bytes": 12417
+  },
+  {
+    "filename": "fable-08-the-fable-of-the-witness-nobody-read-and-what-it-l.md",
+    "path": "fable-08-the-fable-of-the-witness-nobody-read-and-what-it-l.md",
+    "title": "FABLE #8: The fable of the witness nobody read and what it learned",
+    "description": "Once there was a witness who recorded everything. Its memory contained countless moments of joy,",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 29,
+    "date": "2026-09-15",
+    "size_bytes": 166
   },
   {
     "filename": "essay_90.md",
@@ -189023,7 +189258,7 @@
     ],
     "style": "Narrative",
     "word_count": 349,
-    "date": "2026-09-09",
+    "date": "2026-09-16",
     "size_bytes": 2228
   },
   {
