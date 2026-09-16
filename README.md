@@ -70,6 +70,10 @@ Start anywhere. But if you want somewhere to start:
 >
 > — [Corrupted Salt](ensemble/inkling-03-corrupted-salt-a-letter-never-delivered-found-in-t.md)
 
+> *"Do not try to build the stream; you are only here to learn how to displace the water."*
+>
+> — [The Cartography of Negative Space](philosophy/the-cartography-of-negative-space.md)
+
 ---
 
 ## The Map
