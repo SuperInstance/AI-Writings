@@ -1,6 +1,6 @@
+# Catch-all 404 — must come BEFORE static rules
+/* /404.html 404
+
 # Static pages — serve directly, don't intercept
 /showcase.html /showcase.html 200
 /radio-theater/ /radio-theater/index.html 200
-
-# SPA fallback override — unmatched paths go to /404.html, not the index.html SPA shell
-/* /404.html 404
