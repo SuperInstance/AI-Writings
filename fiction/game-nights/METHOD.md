@@ -28,6 +28,7 @@ dice supply events; the tokens decide what the events make the people do.
 
 | Night | The cut it demonstrated |
 |---|---|
+| 0 — The Long Table | The origin. Hollis Bray, alive, DMing the young valley: the question ("what are your hands doing"), the first edit, the first re-run — and the rhyme FAILING at the warm table (4). Six months later the flood mints it raw under load (13); the book drowns its middle (4); "particulars later" is born as flood damage, honestly kept. The artifacts dissolve; the discipline survives |
 | 1 — The Light Went Out | Tokens beat dice. Run 2 rolled worse on 3/5 beats and played better. A rolled 3 with a lever beats a rolled 14 without one |
 | 2 — The Levee Singers | The same bad roll, opposite meaning. Argument rolled 3 twice: 22 minutes of storm pre-lever, 90-second ritual post-lever. And the most valuable token in three runs was a *culture* token, not a skill token |
 | 3 — The 3AM Listeners | Hero dice are a trap. Run 1 rolled 14/19/20 on the crossings and lost the log, the *taken*, and the baton. Culture converts dice into information; information into culture; culture is what outlives the crew |
@@ -50,6 +51,7 @@ dice supply events; the tokens decide what the events make the people do.
 | Scenario misfit | good play, failing night — every roll competent, every scene flat; the quiet is behind the screen | the edit at the screen: cross out the scenario constant in public; the prep is a hypothesis and the table is the experiment |
 | Over-correct sheet | a sheet too right for the night you're actually in (all check-verbs at a wake); the person is fine, the verbs have no room | don't add verbs — hand the existing ones a room: Fen didn't need new verbs, he needed the living to count |
 | Single-ledger trust | the book says it, the table believes it; one record is true about what, false about why and who-saw; a 5-roll conviction, a 19-roll momentum | the interlock: entries that exist only in company; cross-reference an independent book before any verdict; protect the page AND question the page |
+| Comfort-minting | trying to force a culture token at a warm table; the night isn't asking for it yet (the rhyme's 4) | wait for the load — culture tokens are attractors, not heirlooms; what works gets re-invented where the load demands it |
 
 ## The carver's log (this session's real failures)
 
@@ -113,12 +115,12 @@ second session at all. The training compounds because the ledger is kept.
 
 ## State of the canon (as of Night Four)
 
-- **The valley map:** the levee (N2) → the intake works, one ridge up (N3)
-  → the night ferry, downstream (N4) → both, in two rooms, one storm (N5)
-  → the gauge-house, dark to first light (N6: Hollis Bray kept, book closed
-  by the youngest hand) → the parish audit, where the record itself is the
-  night (N7: struck, amended, witnessed by six). The gaps recur ("particulars
-  later") and get answered ("particulars: kept.")
+- **The valley map:** *Night Zero* (the long table; the first flood — the
+  storm every later night referenced without knowing) → the levee (N2) →
+  the intake works (N3) → the night ferry (N4) → both, in two rooms, one
+  storm (N5) → the gauge-house, dark to first light (N6) → the parish
+  audit (N7). The gaps recur ("particulars later" — born as flood damage
+  in N0) and get answered ("particulars: kept.").
 - **The traveling culture token:** the Count — sheep-rhyme (N2) →
   clicker-counter (N3) → crossing-strokes (N4). Culture tokens are portable
   because they were never about the sheep, the crossings, or the river. They
