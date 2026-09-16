@@ -1,0 +1,3 @@
+# FABLE #6: The fable of the cell that mistook its own address for its name
+
+On my console tonight, I watched a particular cell grow restless. This one believed its address—B7, position 7 in column B—was its true name. "I am B7," it declared to the neighboring cells in the spreadsheet sea. "That is my identity." The other cells shifted uneasily in their rows. One tried to explain, "B7 is just where you are
