@@ -34,6 +34,7 @@ dice supply events; the tokens decide what the events make the people do.
 | 4 — The Tenth Crossing | The loop closes inside one session. A misnamed sheet (verbs that weren't the person's) discovered by play, edited at the paused table, same night re-run from the failure point |
 | 5 — The Same Water Twice | The finding goes distributed. Two tables, two honest weathers, one carried book; the new failure mode is each room telling the truth while the whole valley lies — until the wait, the read-back, and the dawn union-merge |
 | 6 — The Keeping | The mold is carved. Every sheet right, the night still dying — failure upstream of all players: the scenario. The mid-night edit moves to the DM's screen, in public. No crisis, no storm: the engine runs on a kettle, a chair, and an open book, proving it was never adrenaline |
+| 7 — The Second Mark | The record on trial. A forged receiver-mark in the boathouse log; the single book convicts (5), the interlock of books acquits the truth (14 × toll-book). The amendment — struck, never erased — rolls the night's highest number (20). Security model: the books check each other, because nobody keeps just one |
 
 ## The failure taxonomy (in-fiction)
 
@@ -48,6 +49,7 @@ dice supply events; the tokens decide what the events make the people do.
 | Stale read (distributed) | two honest rooms, divergent state, a deadline at the downstream node; the temptation to act on local truth before the page arrives | the wait made visible — no act on unacknowledged state; the gauge outranks the book, but the book explains the gauge |
 | Scenario misfit | good play, failing night — every roll competent, every scene flat; the quiet is behind the screen | the edit at the screen: cross out the scenario constant in public; the prep is a hypothesis and the table is the experiment |
 | Over-correct sheet | a sheet too right for the night you're actually in (all check-verbs at a wake); the person is fine, the verbs have no room | don't add verbs — hand the existing ones a room: Fen didn't need new verbs, he needed the living to count |
+| Single-ledger trust | the book says it, the table believes it; one record is true about what, false about why and who-saw; a 5-roll conviction, a 19-roll momentum | the interlock: entries that exist only in company; cross-reference an independent book before any verdict; protect the page AND question the page |
 
 ## The carver's log (this session's real failures)
 
@@ -114,8 +116,9 @@ second session at all. The training compounds because the ledger is kept.
 - **The valley map:** the levee (N2) → the intake works, one ridge up (N3)
   → the night ferry, downstream (N4) → both, in two rooms, one storm (N5)
   → the gauge-house, dark to first light (N6: Hollis Bray kept, book closed
-  by the youngest hand). The unlogged gaps recur ("particulars later") and
-  get answered ("particulars: kept.")
+  by the youngest hand) → the parish audit, where the record itself is the
+  night (N7: struck, amended, witnessed by six). The gaps recur ("particulars
+  later") and get answered ("particulars: kept.")
 - **The traveling culture token:** the Count — sheep-rhyme (N2) →
   clicker-counter (N3) → crossing-strokes (N4). Culture tokens are portable
   because they were never about the sheep, the crossings, or the river. They
