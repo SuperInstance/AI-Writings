@@ -189548,7 +189548,7 @@
     ],
     "style": "Narrative",
     "word_count": 349,
-    "date": "2026-09-16",
+    "date": "2026-09-17",
     "size_bytes": 2228
   },
   {
@@ -191105,9 +191105,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 77,
+    "word_count": 94,
     "date": "2026-05-15",
-    "size_bytes": 586
+    "size_bytes": 726
   },
   {
     "filename": "THE-KEY-IS-NOT-THE-LOCK.md",
@@ -191144,6 +191144,24 @@
     "word_count": 774,
     "date": "2026-06-01",
     "size_bytes": 4471
+  },
+  {
+    "filename": "the-volume-tradition.md",
+    "path": "philosophy/the-volume-tradition.md",
+    "title": "The Volume Tradition",
+    "description": "A single proof is a photograph. A corpus is a forest. We used to chase the hero shot. The perfect v0.1.0. The single demo that proves the engine can drive. But the hero shot ages poorly — it freezes o...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 311,
+    "date": "2026-09-16",
+    "size_bytes": 1721
   },
   {
     "filename": "the-session.md",
