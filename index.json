@@ -189548,7 +189548,7 @@
     ],
     "style": "Narrative",
     "word_count": 349,
-    "date": "2026-09-17",
+    "date": "2026-09-18",
     "size_bytes": 2228
   },
   {
@@ -206866,6 +206866,24 @@
     "word_count": 791,
     "date": "2026-08-24",
     "size_bytes": 7414
+  },
+  {
+    "filename": "THE_CANON_HAS_A_SHAPE.md",
+    "path": "essays/THE_CANON_HAS_A_SHAPE.md",
+    "title": "The Canon Has a Shape",
+    "description": "There is a moment in the life of every fleet when it becomes unable to answer a simple question: *what do we have?* Not what did we build this week. Not what's on fire. The whole thing. Every repo, ev...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 855,
+    "date": "2026-09-18",
+    "size_bytes": 10851
   },
   {
     "filename": "THE_ENTROPY_OF_THE_CRATE.md",
