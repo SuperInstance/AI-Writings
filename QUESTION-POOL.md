@@ -31,6 +31,12 @@
 14. **Ship six or print eleven**: implement PROOF as opcode #7 in quilt-core with contract tests, or delete the five dead verbs from algebra.md. Both one evening; neither is optional if "11 opcodes" stays on the poster.
 15. **dμ settling test**: add `from_hash` beside `value` in quilt_wal; measure storage delta and replay latency. Prediction from the audit: ~2x row bytes, ~0 retrieval value. Run it and find out.
 
+## From Lane E — two-class σ experiment (2026-09-20, measured, labeled SIMULATED)
+
+16. **The out-of-vocabulary bit**: can a 16-dim native witness carry an explicit confidence/abstention channel (e.g. norm-thresholded OOV bit), and does that single bit rescue multiplicative consensus from the silent-abstention failure Lane E measured (12.5% of queries got a confident-looking insertion-ordered top-10 instead of a decline)?
+17. **Learned vs hand-bucketed witnesses**: would rank-agreement between BGE and a native-agent feature space improve if the native space were learned from recall outcomes (Hebbian-style) instead of hand-bucketed — is the ρ̄≈0.35 ceiling a property of the witness or of the featurization?
+18. **Copula for the divergent tail**: for the invitation's four-class σ, what copula or additive-gate architecture keeps σ informative where this experiment shows ρ goes *negative*, rather than merely collapsing toward zero?
+
 ## Settled this cycle (for the record)
 
 - FORGET is receipt-verified under a completeness law (quilt-mhs Law 7), not JEV-decided. *(Lane A, Q6)*
