@@ -3,8 +3,8 @@
 **Authors:** Casey + Mavis (root session, 433333803761924)
 **Date:** 2026-09-03
 **Series:** Polyformalism Atlas, Phase 251 (F130 companion)
-**Polyformalism invariant:** FNV-1a 64-bit state hash `0xbf27a3631cdee337`
-**Version 1.1 — updated with live verification**
+**Polyformalism invariant:** one FNV-1a 64-bit state hash across every surface (the number moves when the canon moves; the surfaces move together)
+**Version 1.2 — 2026-09-20 drift audit: the invariant broke, was forensically named, and is now true again**
 
 ---
 
@@ -92,23 +92,38 @@ The implementations exist:
 - PHP: `quilt-live-canon/composer.json`
 - Elixir: (planned)
 
-## 6. The state hash across all deployments
+## 6. The state hash across all deployments — drift audit 2026-09-20
+
+This table was the paper's original falsifiable claim: 9 surfaces,
+one hash. On 2026-09-20 the claim was audited and found **doubly
+false** — the canon had grown (9 → 71 papers) and the hash
+algorithm had been upgraded (dial-vectors-only → canonical cell
+serialization binding id + dials + citation edges), while the
+published number `0xbf27a3631cdee337` stayed pinned. Forensics
+(quilt-floor `classifyTargetProvenance`) named the old number:
+it is **stranded** — the retired v0.2.0 dial-only algorithm over
+the retired 9-paper bundle. No corpus under the current algorithm
+can ever reach it. The bug was in the number, not the corpus.
+
+The honest state, every value recomputed:
 
 ```
-Python reference:  0xbf27a3631cdee337
-npm package:        0xbf27a3631cdee337
-GitHub Packages:    0xbf27a3631cdee337
-PyPI package:       0xbf27a3631cdee337
-Cloudflare Worker:  0xbf27a3631cdee337
-C99 binary:         0xbf27a3631cdee337
-Rust crate:         0xbf27a3631cdee337
-Verilog:            0xbf27a3631cdee337
-VHDL:               0xbf27a3631cdee337
+Surface                 Corpus   Algorithm        State hash            Status
+─────────────────────────────────────────────────────────────────────────────────
+Python (PyPI, ≥0.9.0)     71     canonical   0x445185a3a99fd2e7    converged
+npm (≥0.9.0)              71     canonical   0x445185a3a99fd2e7    converged
+GitHub Packages data.json 71     canonical   0x445185a3a99fd2e7    converged
+quilt-floor instrument    71     canonical   0x445185a3a99fd2e7    converged
+Cloudflare Worker         14→71  canonical   0x7d8d32cd7f8a9f26    converges on
+                                                            →0x445185a3a99fd2e7   branch merge
+C99 / Rust / Verilog /
+VHDL substrate ports       9     dial-only     0xbf27a3631cdee337    STRANDED (legacy)
 ```
 
-The cell-fabric idea is **byte-exact** across 9 surfaces
-(3 of which are package registries, 1 is a worker, 5 are
-substrate ports).
+A stranded target is a lie about the future; an unreached target
+is a debt. The fleet pays debts and deletes lies — the packages
+now speak the truth, and the substrate ports are the remaining debt.
+
 
 ## 7. The polyformalism invariant
 
@@ -130,9 +145,10 @@ The Live Canon is now:
 - 1 Cloudflare Worker (live)
 - 3 live package registries (npm, GitHub Packages, PyPI)
 - 4 sandboxed implementations (crates, RubyGems, Hex.pm, Packagist)
-- 9 papers in the canon
+- 71 papers in the canon (the full committed corpus)
 - 1759 vectors in Cloudflare Vectorize
 - 1 live URL: live-canon.superinstance.dev
+- 1 drift doctrine: the table above is falsifiable, audited, and honest
 
 The cell is the unit. The hash is the address. The package is
 the opener. The cowboy rides the 3-package polyformalism.
