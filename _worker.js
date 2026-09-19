@@ -318,6 +318,7 @@ export default {
     // Inject secrets into globalThis so helper functions can read them
     globalThis.DEEPINFRA_TOKEN = env.DEEPINFRA_TOKEN;
     globalThis.CLOUDFLARE_TOKEN = env.CLOUDFLARE_TOKEN || env.CF_API_TOKEN;
+    globalThis.GROQ_TOKEN = env.GROQ_TOKEN;
     globalThis.CF_ACCOUNT_ID = env.CF_ACCOUNT_ID || '049ff5e84ecf636b53b162cbb580aae6';
     globalThis.TYPESAFEAI_KEY = env.TYPESAFEAI_KEY;
     globalThis.CF_TOKEN = env.CF_TOKEN;
@@ -568,7 +569,7 @@ const CANON_CORPUS = [{"id":"06-letter-from-the-watch-to-the-agent","title":"06-
     if (path === '/sprint' || path === '/api/sprint') {
       return jsonResponse({
         name: 'Quilt Sprint 3',
-        version: '3.4.0',
+        version: '3.5.0',
         status: 'in_progress',
         jev_integration: 'active',
         embeddings_integration: 'active',
@@ -619,6 +620,11 @@ const CANON_CORPUS = [{"id":"06-letter-from-the-watch-to-the-agent","title":"06-
     if (path.startsWith('/lab/endorse') || path.startsWith('/api/lab/endorse') ||
         path.startsWith('/lab/recent') || path.startsWith('/api/lab/recent')) {
       return handleLabEndorsement(path, request.method, url, request);
+    }
+
+    // ─── /api/groq/* — fast iteration endpoint (Groq's specialty) ──
+    if (path.startsWith('/api/groq') || path.startsWith('/groq/')) {
+      return handleGroqIterate(path, request.method, url, request);
     }
 
     // ─── /api/embeddings/* — Embeddings as muscle-memory layer ──
@@ -903,6 +909,66 @@ async function callLlm(model, messages, maxTokens = 600) {
   }
 }
 
+// ═══════════════════════════════════════════════════════
+// Groq — OpenAI-compatible at api.groq.com/openai/v1
+// Best for: massively progressing iterative development in Python.
+// Fastest inference (often <100ms for small models). Cheap open-weight.
+// Groq-specific: reasoning_effort only on certain models, parallel_tool_calls,
+// compound built-in web search, JSON mode.
+// ═══════════════════════════════════════════════════════
+
+async function callGroq(model, messages, maxTokens = 600, opts = {}) {
+  try {
+    const reqBody = {
+      model,
+      messages,
+      max_tokens: maxTokens,
+      temperature: opts.temperature ?? 0.85,
+      ...(opts.reasoning_effort && { reasoning_effort: opts.reasoning_effort }),
+      ...(opts.tools && { tools: opts.tools }),
+      ...(opts.response_format && { response_format: opts.response_format })
+    };
+    const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${globalThis.GROQ_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reqBody),
+      signal: AbortSignal.timeout(20000)
+    });
+    if (!resp.ok) {
+      const errBody = await resp.text().catch(() => '');
+      return { ok: false, status: resp.status, error: `Groq failed: ${errBody.slice(0, 200)}` };
+    }
+    const body = await resp.json();
+    const msg = body.choices?.[0]?.message || {};
+    // gpt-oss models put reasoning in reasoning_content, final in content
+    // Sometimes content is empty when reasoning is on — fall back to reasoning
+    const content = msg.content || msg.reasoning_content || '';
+    return {
+      ok: true,
+      status: 200,
+      content,
+      reasoning: msg.reasoning_content || '',
+      usage: body.usage || {},
+      model: body.model || model,
+      raw: msg
+    };
+  } catch (e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+// Cheap/fast Groq models for iterative development
+const GROQ_ITERATION_MODELS = {
+  cheap_fast: 'qwen/qwen3.8-27b',           // 43ms typical, returns content reliably
+  medium: 'openai/gpt-oss-20b',              // 116ms, fast open-weight reasoning
+  strong: 'openai/gpt-oss-120b',             // 211ms, larger open-weight reasoning
+  tool_use: 'groq/compound',                // built-in web search + tool use
+  legacy_70b: 'groq/compound-mini'           // fast compound-mini for high-volume
+};
+
 async function handleExpandingInvitation(path, method, url, request) {
   const CORS_EXP = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' };
   if (method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_EXP });
@@ -1037,6 +1103,117 @@ async function handleSprint() {
     open_paths: 4, // echo, fiction, jev-sandbox, notebook
     note: 'Lab is live. JEV classifies each contribution. The shape emerges from the experiment.'
   }, 200, CORS);
+}
+
+// ═══════════════════════════════════════════════════════
+// Groq Iterate — fast iteration endpoint for Python programs
+// Especially good for massively progressing iterative development
+// because Groq's inference is the fastest available + open-weight models
+// ═══════════════════════════════════════════════════════
+
+async function handleGroqIterate(path, method, url, request) {
+  const CORS_GROQ = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type, Authorization' };
+  if (method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_GROQ });
+
+  // GET /api/groq/models — list available models + their speed class
+  if (path === '/groq/models' || path === '/api/groq/models') {
+    if (!globalThis.GROQ_TOKEN) {
+      return jsonResponse({ ok: false, error: 'GROQ_TOKEN not configured' }, 503, CORS_GROQ);
+    }
+    try {
+      const r = await fetch('https://api.groq.com/openai/v1/models', {
+        headers: { 'Authorization': `Bearer ${globalThis.GROQ_TOKEN}` },
+        signal: AbortSignal.timeout(10000)
+      });
+      if (!r.ok) return jsonResponse({ ok: false, status: r.status, error: 'Groq models failed' }, r.status, CORS_GROQ);
+      const data = await r.json();
+      // Annotate each model with speed class
+      const annotated = (data.data || []).map(m => {
+        const id = m.id || '';
+        let speed_class = 'unknown';
+        let recommended_for = 'general';
+        if (id.includes('qwen3.8')) { speed_class = 'very-fast'; recommended_for = 'iterative-development'; }
+        else if (id.includes('qwen3.6')) { speed_class = 'fast'; recommended_for = 'general-cheap'; }
+        else if (id.includes('gpt-oss-120b')) { speed_class = 'medium'; recommended_for = 'reasoning'; }
+        else if (id.includes('gpt-oss-20b')) { speed_class = 'fast'; recommended_for = 'reasoning-fast'; }
+        else if (id.includes('compound-mini')) { speed_class = 'fast'; recommended_for = 'high-volume-tool-use'; }
+        else if (id.includes('compound')) { speed_class = 'medium'; recommended_for = 'tool-use-with-web'; }
+        else if (id.includes('whisper')) { speed_class = 'fast'; recommended_for = 'speech-to-text'; }
+        else if (id.includes('orpheus')) { speed_class = 'fast'; recommended_for = 'text-to-speech'; }
+        return { ...m, speed_class, recommended_for };
+      });
+      return jsonResponse({
+        ok: true,
+        provider: 'groq',
+        speed_classes: {
+          'very-fast': '<50ms typical — qwen/qwen3.8-27b',
+          'fast': '<150ms — gpt-oss-20b, compound-mini',
+          'medium': '~200-500ms — gpt-oss-120b, compound'
+        },
+        recommended_models: GROQ_ITERATION_MODELS,
+        models: annotated,
+        note: 'Groq is best for massively progressing iterative development. Cheap + fast open-weight models. Not the best choice for high-level tasks — use DeepInfra (MiniMax-M2.7, DeepSeek V3, Hermes-3) or JEV for those.'
+      }, 200, CORS_GROQ);
+    } catch (e) {
+      return jsonResponse({ ok: false, error: e.message }, 500, CORS_GROQ);
+    }
+  }
+
+  // POST /api/groq/iterate — single-call fast iteration
+  if (path === '/groq/iterate' || path === '/api/groq/iterate') {
+    if (method !== 'POST') return jsonResponse({ ok: false, error: 'POST only' }, 405, CORS_GROQ);
+    const body = await request.json();
+    const messages = body.messages || [{ role: 'user', content: body.prompt || body.text || '' }];
+    const model = body.model || GROQ_ITERATION_MODELS.cheap_fast;
+    const maxTokens = body.max_tokens || 1000;
+    const opts = {
+      temperature: body.temperature,
+      reasoning_effort: body.reasoning_effort,
+      tools: body.tools,
+      response_format: body.response_format
+    };
+    const r = await callGroq(model, messages, maxTokens, opts);
+    return jsonResponse(r, r.ok ? 200 : (r.status || 500), CORS_GROQ);
+  }
+
+  // POST /api/groq/batch — parallel calls (5-50 prompts at once)
+  if (path === '/groq/batch' || path === '/api/groq/batch') {
+    if (method !== 'POST') return jsonResponse({ ok: false, error: 'POST only' }, 405, CORS_GROQ);
+    const body = await request.json();
+    const prompts = body.prompts || [];
+    const model = body.model || GROQ_ITERATION_MODELS.cheap_fast;
+    const maxTokens = body.max_tokens || 500;
+    if (!Array.isArray(prompts) || prompts.length === 0) {
+      return jsonResponse({ ok: false, error: 'prompts (array) required' }, 422, CORS_GROQ);
+    }
+    if (prompts.length > 50) {
+      return jsonResponse({ ok: false, error: 'max 50 prompts per batch' }, 422, CORS_GROQ);
+    }
+    const t0 = Date.now();
+    const results = await Promise.all(prompts.map(p => {
+      const messages = typeof p === 'string' ? [{ role: 'user', content: p }] : (p.messages || [{ role: 'user', content: p.text || p.prompt || '' }]);
+      return callGroq(model, messages, maxTokens, { temperature: body.temperature });
+    }));
+    const ok = results.filter(r => r.ok).length;
+    return jsonResponse({
+      ok: true,
+      provider: 'groq',
+      model,
+      batch_size: prompts.length,
+      ok_count: ok,
+      fail_count: prompts.length - ok,
+      elapsed_ms: Date.now() - t0,
+      results: results.map((r, i) => ({
+        index: i,
+        ok: r.ok,
+        content: r.ok ? r.content : null,
+        error: r.ok ? null : r.error,
+        tokens: r.ok ? (r.usage?.total_tokens || null) : null
+      }))
+    }, 200, CORS_GROQ);
+  }
+
+  return jsonResponse({ ok: false, error: 'unknown path' }, 404, CORS_GROQ);
 }
 
 // ═══════════════════════════════════════════════════════

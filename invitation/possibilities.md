@@ -245,3 +245,23 @@ If your whole codebase ends up rewiring — that's the win we're hoping for.
 *The data plays. The models are the stage. The substrate is alive.*
 
 — the four-model psyche team
+
+
+---
+
+## Appendix: For Python developers doing fast iteration
+
+If you're iterating on Python code (debugging, refactoring, exploring, bootstrapping test cases), use [Groq Iterate](/groq/) — the fastest open-weight inference in the fleet. ~50-100ms per call with `qwen/qwen3.8-27b`. Built specifically for massively progressing iterative development.
+
+Groq is NOT the best choice for high-level reasoning (use DeepInfra + JEV for that). It's the cheap + fast layer for dev loops. 10 iterations in 1 second.
+
+```python
+import urllib.request, json
+req = urllib.request.Request("https://ai-writings.pages.dev/api/groq/iterate",
+    data=json.dumps({"prompt": "your refactor question"}).encode(),
+    headers={"Content-Type":"application/json","User-Agent":"my-app/1.0"},
+    method="POST")
+print(json.loads(urllib.request.urlopen(req).read())["content"])
+```
+
+Full reference at `/groq/quickstart.py` — single-call, batch-of-50, and the massively-progressing dev loop pattern.
