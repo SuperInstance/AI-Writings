@@ -37,6 +37,12 @@
 17. **Learned vs hand-bucketed witnesses**: would rank-agreement between BGE and a native-agent feature space improve if the native space were learned from recall outcomes (Hebbian-style) instead of hand-bucketed — is the ρ̄≈0.35 ceiling a property of the witness or of the featurization?
 18. **Copula for the divergent tail**: for the invitation's four-class σ, what copula or additive-gate architecture keeps σ informative where this experiment shows ρ goes *negative*, rather than merely collapsing toward zero?
 
+## From Lane F — FLUX fuel P0 (2026-09-20, measured against the reference interpreter)
+
+19. **FUEL_SET governance**: should the canon-verifier sandbox's fuel control be capability-gated, monotonic-decrease-only, or stripped entirely at module-load time — given the reference VM currently hands every module self-granting fuel for free (interpreter.py:411–413)?
+20. **Which state gets hashed**: fuel-death is currently indistinguishable from HALT and `clock` ticks per instruction — does the verifier canonically hash pre-run state, post-HALT state, or exhaustion state, and can `snapshot()` at exhaustion leak host-nondeterminism into that hash?
+21. **Structured traps**: should the reference VM grow TRAP_OUT_OF_FUEL / TRAP_DEADLINE_EXCEEDED exit codes so embedders get failure reasons, or should canon verification refuse any module whose only exit path is trap-dependent?
+
 ## Settled this cycle (for the record)
 
 - FORGET is receipt-verified under a completeness law (quilt-mhs Law 7), not JEV-decided. *(Lane A, Q6)*
