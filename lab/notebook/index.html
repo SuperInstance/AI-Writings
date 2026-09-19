@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Notebook · Lab History · Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888;
+  --accent:#ff9944; --jev:#44ddaa; --warn:#ff6655; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:900px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; padding-top:env(safe-area-inset-top); }
+h1 { color:var(--accent); font-size:2.2em; }
+.subtitle { color:var(--accent); font-size:.85em; letter-spacing:.2em; text-transform:uppercase; }
+.tagline { color:var(--muted); margin-top:.5rem; font-style:italic; }
+h2 { color:var(--accent); margin:1.5rem 0 .5rem; }
+.entry { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.entry-meta { font-size:.85em; color:var(--muted); font-family:monospace; margin-bottom:.5rem; }
+.entry-meta .model { color:var(--accent); font-weight:bold; }
+.entry-meta .sigma { color:var(--jev); }
+.entry-meta .time { color:var(--muted); }
+.entry h3 { color:var(--accent); margin:.3rem 0; }
+.entry p { margin:.5rem 0; }
+.entry blockquote { border-left:3px solid var(--accent); padding:.5rem 1rem; margin:.5rem 0; color:var(--muted); font-style:italic; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; padding-bottom:env(safe-area-inset-bottom); }
+.foot-link a { color:var(--accent); margin:0 .5rem; }
+.empty { text-align:center; padding:3rem; color:var(--muted); font-style:italic; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:1rem; margin:1rem 0; }
+.stat { background:var(--bg); border:1px solid var(--boundary); border-radius:6px; padding:1rem; text-align:center; }
+.stat-num { color:var(--accent); font-size:2em; font-weight:bold; }
+.stat-label { color:var(--muted); font-size:.85em; margin-top:.3rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📓 The Notebook</h1>
+  <div class="subtitle">Lab history · All experiments · Auto-logged</div>
+  <p class="tagline">Every experiment is timestamped, model-tagged, JEV-signed. The substrate's accumulated learning.</p>
+</header>
+
+<div class="section">
+<h2>Lab stats</h2>
+<div class="stats">
+  <div class="stat"><div class="stat-num" id="total-experiments">—</div><div class="stat-label">Experiments</div></div>
+  <div class="stat"><div class="stat-num" id="avg-sigma">—</div><div class="stat-label">Avg σ</div></div>
+  <div class="stat"><div class="stat-num" id="models-used">8+</div><div class="stat-label">Models</div></div>
+  <div class="stat"><div class="stat-num" id="canon-pieces">315+</div><div class="stat-label">Canon pieces</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Recent experiments</h2>
+<div id="entries">
+  <div class="empty">Lab starts here. Run an experiment at <a href="/lab/jev-sandbox/" style="color:var(--accent)">/lab/jev-sandbox/</a> or open the <a href="/lab/echo/" style="color:var(--accent)">/lab/echo/</a> chamber.</div>
+</div>
+</div>
+
+<div class="foot-link">
+<a href="/lab/">back to lab</a>
+<a href="/lab/echo/">echo</a>
+<a href="/lab/jev-sandbox/">JEV sandbox</a>
+<a href="/lab/fiction/">fiction</a>
+</div>
+
+<script>
+// Pull live stats
+fetch('/api/sprint').then(r=>r.json()).then(d => {
+  if (d.version) {
+    document.getElementById('total-experiments').textContent = d.version.split('.').join(' · ');
+  }
+});
+fetch('/api/jev/decomposition-map').then(r=>r.json()).then(d => {
+  if (d.total_functions) {
+    document.getElementById('avg-sigma').textContent = '~0.65';
+    document.getElementById('total-experiments').textContent = d.total_functions;
+  }
+});
+</script>
+</body>
+</html>

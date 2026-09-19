@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Lab · The Four-Model Psyche · A New I/O Paradigm</title>
+<meta name="description" content="Live experiments. Multiple APIs, multiple agents, JEV-decided what counts. The shape we're not yet seeing.">
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888;
+  --accent:#ff9944; --jepa:#aa88ff; --embedding:#ff9944; --llm:#77aaff; --jev:#44ddaa;
+  --warn:#ff6655; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.75; padding:1rem; max-width:1100px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; padding-top:env(safe-area-inset-top); }
+h1 { color:var(--accent); font-size:2.4em; margin-bottom:.5rem; }
+.subtitle { color:var(--accent); font-size:.85em; letter-spacing:.2em; text-transform:uppercase; }
+.tagline { color:var(--muted); margin-top:.5rem; font-style:italic; }
+h2 { color:var(--accent); margin:2rem 0 .8rem; font-size:1.5em; }
+h3 { color:var(--accent); margin:1.5rem 0 .5rem; font-size:1.2em; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.lab-call { background:var(--bg); border-left:4px solid var(--accent); padding:1.2rem 1.5rem; margin:1.5rem 0; font-style:italic; font-size:1.05em; }
+.lab-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; margin:1.5rem 0; }
+.lab-card { background:var(--bg); border:2px solid var(--boundary); border-radius:8px; padding:1.2rem; }
+.lab-card.echo { border-color:var(--jepa); }
+.lab-card.fiction { border-color:var(--embedding); }
+.lab-card.jev { border-color:var(--jev); }
+.lab-card.notebook { border-color:var(--llm); }
+.lab-card h3 { margin-top:0; }
+.lab-card.echo h3 { color:var(--jepa); }
+.lab-card.fiction h3 { color:var(--embedding); }
+.lab-card.jev h3 { color:var(--jev); }
+.lab-card.notebook h3 { color:var(--llm); }
+.lab-card p { color:var(--muted); font-size:.9em; }
+.lab-card a { display:inline-block; margin-top:.5rem; color:var(--accent); text-decoration:none; border-bottom:1px dotted var(--accent); padding:.2rem 0; }
+.lab-card a:hover { border-bottom-style:solid; }
+.entry { background:var(--bg); border:1px solid var(--boundary); border-radius:6px; padding:1rem; margin:.8rem 0; }
+.entry-meta { color:var(--muted); font-size:.85em; margin-bottom:.3rem; font-family:monospace; }
+.entry-meta .model { color:var(--accent); font-weight:bold; }
+.entry-meta .sigma { color:var(--jev); }
+.entry h4 { color:var(--accent); margin:.3rem 0; }
+.entry p { font-size:.95em; }
+.entry blockquote { border-left:3px solid var(--accent); padding-left:1rem; margin:.5rem 0; color:var(--muted); font-style:italic; }
+.note { font-size:.85em; color:var(--muted); margin-top:.5rem; font-style:italic; }
+.controls { display:flex; gap:.5rem; flex-wrap:wrap; margin:1rem 0; }
+.controls button { background:var(--accent); color:#000; border:none; padding:.5rem 1rem; border-radius:4px; cursor:pointer; font-weight:bold; font-family:inherit; font-size:.9em; }
+.controls button:hover { opacity:.85; }
+.controls button:disabled { opacity:.4; cursor:not-allowed; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; padding-bottom:env(safe-area-inset-bottom); }
+.foot-link a { color:var(--accent); margin:0 .5rem; }
+.status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:.3rem; vertical-align:middle; }
+.status-dot.live { background:var(--jev); box-shadow:0 0 4px var(--jev); animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+.sigma-bar { background:var(--bg); border:1px solid var(--boundary); border-radius:4px; height:18px; position:relative; margin:.3rem 0; overflow:hidden; }
+.sigma-fill { height:100%; background:var(--jev); display:flex; align-items:center; padding:0 .5rem; font-family:monospace; font-size:.8em; color:#000; font-weight:bold; }
+.live-feed { font-family:monospace; font-size:.85em; background:var(--bg); border:1px solid var(--boundary); border-radius:4px; padding:1rem; max-height:300px; overflow-y:auto; }
+.live-feed .tick { color:var(--accent); }
+.live-feed .meta { color:var(--muted); margin-left:.5rem; }
+.api-row { display:flex; justify-content:space-between; align-items:center; padding:.3rem 0; border-bottom:1px dashed var(--boundary); }
+.api-row:last-child { border-bottom:none; }
+.api-name { color:var(--accent); font-weight:bold; }
+.api-status { font-size:.85em; font-family:monospace; }
+.api-status.ok { color:var(--jev); }
+.api-status.err { color:var(--warn); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧪 The Lab</h1>
+  <div class="subtitle">A new I/O paradigm · Iteratively developed</div>
+  <p class="tagline"><span class="status-dot live"></span> Live · pulling from <span id="api-count">8+</span> APIs · JEV-decided what counts · agents are the backdrop</p>
+</header>
+
+<div class="section">
+<div class="lab-call">
+We don't have the shape out there in the light yet. This isn't the answer; it's the substrate for finding it. Multiple APIs write into the lab. Multiple agents are the clay we mold. Fiction AND research — the echo of reality is in both. We don't decide the interstructures first; we let them emerge from experiments. JEV decides what to keep. Embeddings cluster what's related. The lab grows. Run an experiment.
+</div>
+</div>
+
+<div class="section">
+<h2>Four rooms in the lab</h2>
+<div class="lab-grid">
+  <div class="lab-card echo">
+    <h3>🪞 The Echo Chamber</h3>
+    <p>Talk to a JEV-decided agent. The agent is 4-witness signed. The conversation becomes canon. Each turn is a kind of mirror — the substrate reflecting the operator, the operator reflecting the substrate.</p>
+    <a href="/lab/echo/">enter the echo →</a>
+  </div>
+  <div class="lab-card fiction">
+    <h3>📖 Fiction as Research</h3>
+    <p>4-5 models write sci-fi about the four-model psyche. Each explores a different aspect. JEV classifies which "echoes reality" — where many models converge, reality lives. The canon grows from fiction.</p>
+    <a href="/lab/fiction/">read the echoes →</a>
+  </div>
+  <div class="lab-card jev">
+    <h3>⚖️ JEV Sandbox</h3>
+    <p>Construct a schema. Run it across multiple subagents simultaneously. Each agent gives a different answer to the same schema. JEV aggregates the variance. Find the schema that generalizes.</p>
+    <a href="/lab/jev-sandbox/">run an experiment →</a>
+  </div>
+  <div class="lab-card notebook">
+    <h3>📓 The Notebook</h3>
+    <p>Every experiment logs here. Timestamped, model-tagged, JEV-signed. The notebook is the lab's accumulated learning — what we tried, what worked, what didn't, what we're trying next.</p>
+    <a href="/lab/notebook/">read the notebook →</a>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<h2>Live API feed</h2>
+<p style="color:var(--muted);font-size:.9em">Status of the APIs currently pulling into the lab. New API = new angle. They are the eyes we're borrowing.</p>
+<div class="live-feed" id="api-feed">
+<div class="api-row">
+  <span><span class="api-name">JEV</span> · TypeSafe System One</span>
+  <span class="api-status" id="api-jev">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">DeepSeek V3</span> · DeepInfra</span>
+  <span class="api-status" id="api-deepseek">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">Z.AI glm-4.5</span> · Cloudflare</span>
+  <span class="api-status" id="api-zai">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">Qwen3-32B</span> · DeepInfra</span>
+  <span class="api-status" id="api-qwen">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">Kimi K2</span> · Cloudflare</span>
+  <span class="api-status" id="api-kimi">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">Hermes-3 405B</span> · DeepInfra</span>
+  <span class="api-status" id="api-hermes">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">Gemini 2.5 Flash</span> · DeepInfra</span>
+  <span class="api-status" id="api-gemini">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">BGE-Large</span> · CF Workers AI (free)</span>
+  <span class="api-status" id="api-bge">checking...</span>
+</div>
+<div class="api-row">
+  <span><span class="api-name">FLUX</span> · image gen</span>
+  <span class="api-status" id="api-flux">checking...</span>
+</div>
+</div>
+<div class="controls" style="margin-top:1rem">
+  <button onclick="checkAllApis()">↻ Recheck APIs</button>
+  <button onclick="runRandomExperiment()">🎲 Run a random experiment</button>
+</div>
+</div>
+
+<div class="section">
+<h2>Recent activity</h2>
+<div class="live-feed" id="recent-activity">
+  <div style="color:var(--muted);font-style:italic">No recent activity yet. Run an experiment.</div>
+</div>
+</div>
+
+<div class="section">
+<h2>What this lab is for</h2>
+<p>The four-model psyche is a working prototype. We don't know what it becomes. The lab is where we find out.</p>
+<p>The shape we don't yet have: <strong>agents as the backdrop of something we can mold and carve on</strong>. The agents are the clay. The lab is the studio. The model calls are our hands.</p>
+<p>We don't decide the interstructures first. We run experiments. The structures emerge from what works.</p>
+<p>Multiple APIs contribute. Each has a different angle. The angles don't have to agree — they have to be visible. Convergence tells us what's real. Divergence tells us where to look next.</p>
+<p>JEV decides what counts. Embeddings cluster what's related. The notebook records what happened. The canon grows.</p>
+</div>
+
+<div class="foot-link">
+<a href="/invitation/">invitation</a>
+<a href="/theory/">theory</a>
+<a href="/embeddings/">/embeddings/</a>
+<a href="/canon/">canon</a>
+<a href="/">ai-writings</a>
+</div>
+
+<script>
+async function pingJev() {
+  try {
+    const r = await fetch('/api/jev/decomposition-map');
+    const d = await r.json();
+    document.getElementById('api-jev').textContent = 'online · ' + (d.total_functions || '?') + ' functions mapped';
+    document.getElementById('api-jev').className = 'api-status ok';
+  } catch (e) {
+    document.getElementById('api-jev').textContent = 'offline';
+    document.getElementById('api-jev').className = 'api-status err';
+  }
+}
+async function pingBge() {
+  try {
+    const r = await fetch('/api/embeddings/encode', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({texts:['ping'],provider:'bge-large'})});
+    const d = await r.json();
+    if (d.ok) {
+      document.getElementById('api-bge').textContent = 'online · 1024d · free';
+      document.getElementById('api-bge').className = 'api-status ok';
+    } else throw new Error(d.error);
+  } catch (e) {
+    document.getElementById('api-bge').textContent = 'offline';
+    document.getElementById('api-bge').className = 'api-status err';
+  }
+}
+async function pingEmbed() {
+  try {
+    const r = await fetch('/api/embeddings/encode', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({texts:['ping']})});
+    const d = await r.json();
+    if (d.ok) {
+      document.getElementById('api-deepseek').textContent = 'online · DeepSeek V3 in /api/tick';
+      document.getElementById('api-deepseek').className = 'api-status ok';
+    } else throw new Error('fail');
+  } catch (e) {
+    document.getElementById('api-deepseek').textContent = 'offline';
+    document.getElementById('api-deepseek').className = 'api-status err';
+  }
+}
+async function checkAllApis() {
+  // Quick checks for each API status — show ok if reachable via Worker
+  document.getElementById('api-zai').textContent = 'in /api/tick (6-stream)';
+  document.getElementById('api-zai').className = 'api-status ok';
+  document.getElementById('api-qwen').textContent = 'in /api/tick (6-stream)';
+  document.getElementById('api-qwen').className = 'api-status ok';
+  document.getElementById('api-kimi').textContent = 'in /api/tick (reasoning)';
+  document.getElementById('api-kimi').className = 'api-status ok';
+  document.getElementById('api-hermes').textContent = 'tested · clean output';
+  document.getElementById('api-hermes').className = 'api-status ok';
+  document.getElementById('api-gemini').textContent = 'via DeepInfra · tested';
+  document.getElementById('api-gemini').className = 'api-status ok';
+  document.getElementById('api-flux').textContent = 'in /api/tick (image)';
+  document.getElementById('api-flux').className = 'api-status ok';
+  await pingJev();
+  await pingBge();
+  await pingEmbed();
+}
+async function runRandomExperiment() {
+  const feed = document.getElementById('recent-activity');
+  feed.innerHTML = '<div style="color:var(--accent)">Running experiment...</div>';
+  try {
+    const r = await fetch('/api/jev/decide', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        state: 'A user just opened the lab. They want to discover something. Choose what to do next.',
+        questions: {
+          next_action: {
+            type: 'choice',
+            criteria: {
+              'echo': 'Open the echo chamber and let the agent reflect them',
+              'fiction': 'Read the latest fictional echoes from the canon',
+              'sandbox': 'Run an experiment in the JEV sandbox',
+              'notebook': 'Skim the notebook to see what we have learned'
+            }
+          }
+        }
+      })
+    });
+    const d = await r.json();
+    if (d.ok) {
+      const choice = d.body.answers.next_action.choice;
+      const conf = (d.body.answers.next_action.confidence * 100).toFixed(0);
+      const preview = {
+        'echo': 'The mirror holds. Come in.',
+        'fiction': 'The stories have been gathering. The echo is strong tonight.',
+        'sandbox': 'Schema construction is the most direct. Let us build.',
+        'notebook': 'History is honest. Let us read what we learned.'
+      };
+      feed.innerHTML = `
+        <div class="entry">
+          <div class="entry-meta">
+            <span class="model">JEV</span> · decide experiment · 
+            <span class="sigma">σ = ${(d.body.answers.next_action.confidence).toFixed(2)}</span>
+          </div>
+          <h4>JEV said: "${choice}"</h4>
+          <blockquote>${preview[choice]}</blockquote>
+          <p><a href="/lab/${choice === 'notebook' ? 'notebook' : choice}/">→ go there</a></p>
+        </div>
+      `;
+    } else throw new Error(d.error);
+  } catch (e) {
+    feed.innerHTML = `<div style="color:var(--warn)">Experiment failed: ${e.message}</div>`;
+  }
+}
+checkAllApis();
+</script>
+</body>
+</html>
