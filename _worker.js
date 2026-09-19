@@ -623,7 +623,8 @@ const CANON_CORPUS = [{"id":"06-letter-from-the-watch-to-the-agent","title":"06-
     }
 
     // ─── /api/groq/* — fast iteration endpoint (Groq's specialty) ──
-    if (path.startsWith('/api/groq') || path.startsWith('/groq/')) {
+    // Only catch /api/groq/{action}, NOT /groq/ (which is the static UI folder)
+    if (path.startsWith('/api/groq/') || path === '/api/groq' || path === '/api/groq/') {
       return handleGroqIterate(path, request.method, url, request);
     }
 
