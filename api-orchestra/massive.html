@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>API Orchestra Massive — 103 parallel calls in 96 seconds</title>
+<style>
+:root{--bg:#0a0a14;--panel:#1a1a2a;--panel-2:#2a2a3a;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;padding:0;min-height:100vh}
+header{background:var(--panel);padding:2rem;text-align:center;border-bottom:2px solid var(--accent)}
+h1{color:var(--accent);margin:0;font-size:2.4em}
+h2{color:var(--accent);margin:0 0 0.7rem 0}
+.container{max-width:1500px;margin:0 auto;padding:2rem}
+.section{background:var(--panel);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;border-left:3px solid var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:0.7rem;margin-top:1rem}
+.card{background:var(--panel-2);border-radius:6px;padding:0.8rem;border-left:3px solid var(--link)}
+.card .model{color:var(--accent);font-family:monospace;font-size:0.85em;font-weight:bold}
+.card .text{color:#ddd;font-size:0.9em;margin-top:0.4rem;line-height:1.4}
+.card .meta{color:#888;font-size:0.75em;margin-top:0.3rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.5rem;margin-top:1rem}
+.gallery img{width:100%;height:auto;border-radius:4px;border:1px solid var(--panel-2)}
+.audio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.7rem;margin-top:1rem}
+.audio-card{background:var(--panel-2);padding:0.7rem;border-radius:6px;font-size:0.85em}
+audio{width:100%;height:30px}
+pre{background:var(--bg);padding:1rem;border-radius:4px;overflow-x:auto;font-size:0.75em;max-height:300px}
+.haiku{color:var(--pink);font-style:italic;font-size:1.05em;padding:0.4rem 0;border-bottom:1px dashed var(--panel-2)}
+.haiku .by{color:#888;font-size:0.75em;font-style:normal;margin-top:0.2rem}
+.big{font-size:3.5em;color:var(--accent);font-weight:bold;text-align:center;margin:1rem 0;font-family:monospace}
+.vote{background:var(--panel-2);padding:0.7rem;border-radius:6px;margin-bottom:0.5rem;font-size:0.85em}
+.vote .model{color:var(--accent);font-family:monospace;font-weight:bold;font-size:0.9em}
+.vote .text{color:#ddd;margin-top:0.3rem;line-height:1.4}
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>🎼 API Orchestra Massive</h1>
+  <p>103 API calls in 96 seconds · 30+ models · 5 modalities</p>
+</header>
+
+<div class="container">
+
+<section class="section">
+  <div class="big">103 / 96</div>
+  <p style="text-align:center;color:#aaa">API calls · seconds elapsed</p>
+</section>
+
+<section class="section">
+  <h2>Round 1: 36 Models Define a Quilt Cell</h2>
+  <p>Every chat model in the catalog was asked the same question in parallel. Some hallucinate (the 5-char responses are refusals from models without context), some are deeply on-point (Kimi's 821-char answer, Ling's 617, Nemotron-Super's 645).</p>
+  <div id="answers" class="cards">Loading...</div>
+</section>
+
+<section class="section">
+  <h2>Round 2: 10 Voters Pick the Top 3</h2>
+  <p>Each voter reviews all 36 answers and picks the most insightful three.</p>
+  <div id="votes">Loading...</div>
+</section>
+
+<section class="section">
+  <h2>Round 3: 20 Haikus</h2>
+  <p>Each model writes a haiku about the Quilt cell. Each haiku is a different lens.</p>
+  <div id="haikus">Loading...</div>
+</section>
+
+<section class="section">
+  <h2>Cloudflare Massive</h2>
+  <h3>10 Images (FLUX-1-schnell)</h3>
+  <div class="gallery" id="gallery"></div>
+  <h3>10 Voices (Aura-2-en)</h3>
+  <div class="audio-grid" id="voices"></div>
+  <h3>30 Embeddings (bge-m3 1024d)</h3>
+  <pre id="embeds">Loading...</pre>
+</section>
+
+</div>
+
+<script>
+async function load() {
+  const r1 = await fetch('massive/r1_all_35_answers.json').then(r => r.json());
+  const el = document.getElementById('answers');
+  el.innerHTML = '';
+  for (const [model, text] of Object.entries(r1)) {
+    if (!text || text === '[ERR]') continue;
+    const len = text.length;
+    if (len < 50) continue;
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<div class="model">${model}</div><div class="text">${text}</div><div class="meta">${len} chars</div>`;
+    el.appendChild(card);
+  }
+  
+  const r2 = await fetch('massive/r2_votes.json').then(r => r.json());
+  const v = document.getElementById('votes');
+  v.innerHTML = '';
+  for (const [model, text] of Object.entries(r2)) {
+    if (!text || text === '[ERR]') continue;
+    if (text.length < 50) continue;
+    const vote = document.createElement('div');
+    vote.className = 'vote';
+    vote.innerHTML = `<div class="model">${model}</div><div class="text">${text}</div>`;
+    v.appendChild(vote);
+  }
+  
+  const r3 = await fetch('massive/r3_haikus.json').then(r => r.json());
+  const h = document.getElementById('haikus');
+  h.innerHTML = '';
+  for (const [model, text] of Object.entries(r3)) {
+    if (!text || text === '[ERR]') continue;
+    if (text.length < 30) continue;
+    const haiku = document.createElement('div');
+    haiku.className = 'haiku';
+    haiku.innerHTML = `${text.replace(/\n/g, '<br>')}<div class="by">— ${model}</div>`;
+    h.appendChild(haiku);
+  }
+  
+  const gal = document.getElementById('gallery');
+  for (let i = 1; i <= 10; i++) {
+    const img = document.createElement('img');
+    img.src = `massive/img_massive_${i}.png`;
+    img.alt = `Massive image ${i}`;
+    gal.appendChild(img);
+  }
+  
+  const voices = document.getElementById('voices');
+  for (let i = 1; i <= 10; i++) {
+    const card = document.createElement('div');
+    card.className = 'audio-card';
+    card.innerHTML = `<strong>Voice ${i}</strong><audio controls src="massive/tts_massive_${i}.mp3"></audio>`;
+    voices.appendChild(card);
+  }
+  
+  const emb = await fetch('massive/cf_emb_massive.json').then(r => r.json());
+  let html = '';
+  for (const [k, v] of Object.entries(emb)) {
+    html += `${k}: ${v.dim}d, [${(v.first3 || []).map(x => x.toFixed(3)).join(', ')}]\n`;
+  }
+  document.getElementById('embeds').textContent = html;
+}
+load();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+</body>
+</html>

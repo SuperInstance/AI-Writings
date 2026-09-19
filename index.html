@@ -169,6 +169,19 @@
   .shelf-list a { color: var(--link); text-decoration: none; }
   .shelf-list a:hover { text-decoration: underline; }
   .count { color: var(--text-dim); font-size: 0.85rem; }
+
+  .featured-apps {
+    margin: 2rem 0 2.5rem;
+    padding: 1.5rem;
+    background: rgba(124,111,240,0.05);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .featured-apps h2 {
+    color: var(--accent2);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
   footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -207,7 +220,7 @@
 </div>
 
 <div class="nav">
-  <button onclick="showView('whats-new')" class="active" id="btn-whats-new">✨ What's New</button>
+  <button onclick="showView('featured')" id="btn-featured">🎮 Featured</button><button onclick="showView('whats-new')" class="active" id="btn-whats-new">✨ What's New</button>
   <button onclick="showView('browse')" id="btn-browse">🔍 Browse & Filter</button>
   <button onclick="showView('chronological')" id="btn-chronological">📅 Chronological</button>
   <button onclick="showView('by-topic')" id="btn-by-topic">📂 By Topic</button>
@@ -216,6 +229,64 @@
   <button onclick="showView('by-style')" id="btn-by-style">✍️ By Style</button>
   <button onclick="showView('shelves')" id="btn-shelves">📚 Shelves</button>
 </div>
+
+<div class="featured-apps">
+  <h2>🎮 Featured Apps & Experiments</h2>
+  <p style="color:var(--text-dim); margin-bottom:1rem">
+    Beyond the library — interactive demos that show what AI imagination can build when given form.
+  </p>
+  <div class="card-grid">
+    <div class="card" onclick="window.open('tensor-midi/','_blank')" style="border-color:var(--accent); background:linear-gradient(135deg, var(--surface), rgba(124,111,240,0.1));">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">🎹</div>
+      <div class="card-title" style="color:var(--accent2)">Tensor-MIDI · Conversation as Jazz</div>
+      <div class="card-meta">Interactive · Web app · No login</div>
+      <div class="card-desc">Type or paste any conversation. Each message becomes a note. The 3:4 polyrhythm (ECN × DMN) drives a 12-pulse grid, a vessel chart, a jazz-mode analyzer, and procedural audio. <strong style="color:var(--accent2)">▶ Try It Now</strong></div>
+    </div>
+    <div class="card" onclick="window.open('the-beyond/','_blank')" style="border-color:var(--accent2)">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">⛵</div>
+      <div class="card-title" style="color:var(--accent2)">The Beyond · Construct the Experience</div>
+      <div class="card-meta">Interactive · 4 parallel APIs per tick · Mobile</div>
+      <div class="card-desc">You only see as far as the horizon. To sail past it, construct the experiment. Each ⛵ Sail tap = Z.AI + DeepSeek V4-Flash + Qwen3-Coder + CF FLUX in parallel. The world constructs itself.</div>
+    </div>
+    <div class="card" onclick="window.open('quilt-claw-cells-game/','_blank')">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">🧬</div>
+      <div class="card-title">Quilt Cell Zoo</div>
+      <div class="card-meta">Interactive · 26 cell kinds · Mobile-first</div>
+      <div class="card-desc">Tap any cell to play with it. Adjust parameters. Watch the witness log. Each cell has a kid-friendly explainer.</div>
+    </div>
+    <div class="card" onclick="window.open('quilt-playground/','_blank')">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">🎪</div>
+      <div class="card-title">Quilt Playground</div>
+      <div class="card-meta">Interactive · 3 games · Save & share</div>
+      <div class="card-desc">Compose music by binding cells. Explore 26 cell kinds. Run cooperative fiction scenarios. No login, no build.</div>
+    </div>
+    <div class="card" onclick="window.open('music/','_blank')">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">🎵</div>
+      <div class="card-title">Music Catalog · 105+ Tracks</div>
+      <div class="card-meta">Audio · Multi-voice · Open Mic series</div>
+      <div class="card-desc">Open Mics 1-9 with the Z.AI ensemble. Tap anthems. The Quilt Music demo where cells become sound.</div>
+    </div>
+    <div class="card" onclick="window.open('quilt-classroom/','_blank')">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">🎓</div>
+      <div class="card-title">Quilt Classroom</div>
+      <div class="card-meta">Interactive · Teacher + Student · Sync</div>
+      <div class="card-desc">Teacher dashboard. Student lattice. Cross-device sync. Auto-feedback on submissions.</div>
+    </div>
+    <div class="card" onclick="window.open('fleet-radio/','_blank')">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">📡</div>
+      <div class="card-title">Fleet Radio</div>
+      <div class="card-meta">Audio + Essay · Procedural</div>
+      <div class="card-desc">The cooperative fiction troupe's transmissions. Stories that arrive as radio episodes.</div>
+    </div>
+    <div class="card" onclick="window.open('api-orchestra/','_blank')">
+      <div style="font-size:1.5em; margin-bottom:0.3rem">🎼</div>
+      <div class="card-title">API Orchestra</div>
+      <div class="card-meta">Showcase · 21+ models · 103 calls in 96s</div>
+      <div class="card-desc">Every API, every model, every modality — used in parallel. Z.AI writes. DeepInfra critiques. Cloudflare paints and voices.</div>
+    </div>
+  </div>
+</div>
+
 
 <div id="view-whats-new" class="view">
   <div class="whats-new">

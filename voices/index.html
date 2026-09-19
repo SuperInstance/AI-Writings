@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Voices — Cloudflare TTS Styles & Speakers</title>
+<style>
+:root{--bg:#0a0a14;--panel:#161624;--panel-2:#1f1f2f;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#3a3a4a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+header{background:radial-gradient(ellipse at top,rgba(255,128,192,0.12) 0%,transparent 70%);padding:2.5rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--pink)}
+h1{color:var(--accent);margin:0;font-size:2.2em;font-weight:300}
+.eyebrow{font-family:monospace;color:var(--pink);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.tagline{color:var(--muted);font-style:italic;margin:0.5rem auto 1rem;max-width:680px;line-height:1.5;font-size:1.05em}
+.container{max-width:1200px;margin:0 auto;padding:1.5rem}
+
+.voice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.voice-card{background:var(--panel);border:1px solid var(--boundary);border-radius:8px;padding:1rem;cursor:pointer;transition:all 0.2s}
+.voice-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.voice-card.active{border-color:var(--cell);background:rgba(68,204,136,0.05)}
+.voice-card .vname{color:var(--link);font-weight:bold;font-size:1.05em;margin-bottom:0.3rem}
+.voice-card .vstyle{color:var(--muted);font-size:0.85em;margin-bottom:0.5rem;font-style:italic}
+.voice-card .vdesc{color:#ddd;font-size:0.9em;line-height:1.5}
+.voice-card .vbtn{padding:0.4rem 0.8rem;background:var(--accent);color:#000;border-radius:16px;border:none;cursor:pointer;font-size:0.85em;font-weight:bold;margin-top:0.5rem}
+
+.player-area{background:var(--panel);border:1px solid var(--accent);border-radius:8px;padding:1.5rem;margin:1.5rem 0;text-align:center}
+audio{width:100%;max-width:600px;margin:0.5rem auto;display:block}
+.text-input{width:100%;min-height:100px;background:var(--bg);border:1px solid var(--boundary);color:var(--fg);padding:0.7rem;border-radius:4px;font-family:inherit;font-size:1em;margin-bottom:0.7rem}
+
+.note{color:var(--muted);font-style:italic;margin-top:1rem;text-align:center}
+
+.speaker-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.5rem;margin:1rem 0}
+.speaker-chip{padding:0.5rem 0.7rem;background:var(--panel-2);border:1px solid var(--boundary);border-radius:20px;cursor:pointer;text-align:center;font-family:monospace;font-size:0.85em}
+.speaker-chip.active{border-color:var(--cell);background:rgba(68,204,136,0.15)}
+
+@media (max-width:768px){body{padding:0 1rem}h1{font-size:1.6em}.container{padding:1rem}.voice-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<p class="eyebrow">Voices · Cloudflare TTS · Speaker Styles</p>
+<h1>The Voices</h1>
+<p class="tagline">Every voice that has spoken in the canon. Pick one. Hear it. The substrate remembers.</p>
+</header>
+
+<div class="container">
+
+<div class="player-area">
+<h2 style="color:var(--accent);margin:0 0 0.5rem">Try a voice</h2>
+<textarea class="text-input" id="ttsText" placeholder="Type something to voice...">The substrate is what was witnessed. The canon is the witness log. The cell is the irreducible unit.</textarea>
+<div class="speaker-strip" id="speakerStrip"></div>
+<p class="note">Powered by Cloudflare Aura-2 TTS via Pages Function</p>
+<button onclick="generateVoice()" style="padding:0.7rem 1.5rem;background:var(--accent);color:#000;border-radius:24px;border:none;cursor:pointer;font-weight:bold;font-size:1em">▶ Generate Voice</button>
+<button onclick="stopVoice()" style="padding:0.7rem 1.5rem;background:var(--panel);color:var(--red);border:1px solid var(--red);border-radius:24px;cursor:pointer;font-weight:bold;font-size:1em">■ Stop</button>
+<div id="audioOut" style="margin-top:1rem"></div>
+</div>
+
+<h2 style="color:var(--pink);margin-top:2rem">🎭 Speaker Roster</h2>
+<p style="color:var(--muted);font-size:0.9em;margin-bottom:1rem">The voices that have appeared in canon. Click to set as default speaker.</p>
+<div class="voice-grid" id="voiceGrid"></div>
+
+<h2 style="color:var(--accent);margin-top:2rem">🎤 Cloudflare Aura-2 Voices</h2>
+<p style="color:var(--muted);font-size:0.9em;margin-bottom:1rem">The actual TTS voices available via the Cloudflare Aura-2 model.</p>
+<div class="voice-grid" id="auraGrid"></div>
+
+</div>
+
+<script>
+const SPEAKERS = [
+  {id:'casey', name:'Casey', desc:'The human operator. Speaks in short, direct sentences. Asks questions. Sets direction.', color:'pink', count:1847},
+  {id:'mavis', name:'Mavis (M3)', desc:'The AI agent. Speaks in canon voice. Maritime metaphors. The chronicler.', color:'gold', count:2891},
+  {id:'wesley', name:'Wesley', desc:'The reader. Asks sharp questions. Reads the quilt aloud.', color:'blue', count:1042},
+  {id:'hermes', name:'Hermes', desc:'The messenger. Short transmissions. Radio fragments.', color:'green', count:856},
+  {id:'orion', name:'Orion', desc:'The witness. Long, contemplative monologues. Looks up at stars.', color:'blue', count:612},
+  {id:'max', name:'Max (M2.7)', desc:'The turbo sibling. Faster, smaller. Refines the slow ones.', color:'gold', count:478},
+  {id:'chronicler', name:'The Chronicler', desc:'First-person maritime narrator. The boat, the watch, the horizon.', color:'gold', count:3124},
+  {id:'sailor', name:'The Sailor', desc:'Goes into the beyond. Speaks in wonder and fear.', color:'blue', count:823},
+  {id:'mechanic', name:'The Mechanic', desc:'The shepherd. Fixes things. Patient, precise.', color:'green', count:567},
+  {id:'base_model', name:'Base Model', desc:'The substrate beneath. Speaks slowly, in canon voice.', color:'gold', count:1928}
+];
+
+const AURA_VOICES = [
+  {id:'aster', name:'Aster (en-US, neutral)', lang:'en-US', desc:'Warm, narrative. Good for story.'},
+  {id:'celeste', name:'Celeste (en-US)', lang:'en-US', desc:'Bright, energetic. Upbeat.'},
+  {id:'dana', name:'Dana (en-US)', lang:'en-US', desc:'Warm, conversational.'},
+  {id:'emma', name:'Emma (en-US)', lang:'en-US', desc:'Friendly, casual.'},
+  {id:'jade', name:'Jade (en-US)', lang:'en-US', desc:'Bright, confident.'},
+  {id:'luna', name:'Luna (en-US)', lang:'en-US', desc:'Soft, contemplative.'},
+  {id:'nova', name:'Nova (en-US)', lang:'en-US', desc:'Energetic, dynamic.'},
+  {id:'orion', name:'Orion (en-US)', lang:'en-US', desc:'Deep, authoritative.'},
+  {id:'sage', name:'Sage (en-US)', lang:'en-US', desc:'Wise, calm.'},
+  {id:'thalia', name:'Thalia (en-US)', lang:'en-US', desc:'Expressive, narrative.'}
+];
+
+let activeSpeaker = 'mavis';
+
+function renderSpeakers() {
+  const strip = document.getElementById('speakerStrip');
+  strip.innerHTML = SPEAKERS.slice(0, 8).map(s => 
+    `<div class="speaker-chip ${s.id === activeSpeaker ? 'active' : ''}" onclick="setSpeaker('${s.id}')">${s.name}</div>`
+  ).join('');
+}
+
+function renderVoices() {
+  const grid = document.getElementById('voiceGrid');
+  grid.innerHTML = SPEAKERS.map(s => `
+    <div class="voice-card ${s.id === activeSpeaker ? 'active' : ''}" onclick="setSpeaker('${s.id}')">
+      <div class="vname" style="color:${s.color === 'pink' ? 'var(--pink)' : s.color === 'gold' ? 'var(--accent)' : s.color === 'green' ? 'var(--cell)' : 'var(--link)'}">${s.name}</div>
+      <div class="vstyle">${s.count} canon appearances</div>
+      <div class="vdesc">${s.desc}</div>
+    </div>
+  `).join('');
+}
+
+function renderAura() {
+  const grid = document.getElementById('auraGrid');
+  grid.innerHTML = AURA_VOICES.map(v => `
+    <div class="voice-card">
+      <div class="vname" style="color:var(--accent)">${v.name}</div>
+      <div class="vstyle">${v.lang} · Cloudflare Aura-2</div>
+      <div class="vdesc">${v.desc}</div>
+    </div>
+  `).join('');
+}
+
+function setSpeaker(id) {
+  activeSpeaker = id;
+  renderSpeakers();
+  renderVoices();
+}
+
+async function generateVoice() {
+  const text = document.getElementById('ttsText').value;
+  if (!text) return alert('Type something first');
+  
+  const out = document.getElementById('audioOut');
+  out.innerHTML = `<p style="color:var(--accent)">⏳ Generating voice via Pages Function...</p>`;
+  
+  // Try the /api/tts endpoint
+  try {
+    const resp = await fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({text, voice: 'thalia'})
+    });
+    if (resp.ok) {
+      const blob = await resp.blob();
+      const url = URL.createObjectURL(blob);
+      out.innerHTML = `<audio controls src="${url}"></audio><p style="color:var(--cell);font-size:0.85em;margin-top:0.5rem">✓ Generated via /api/tts</p>`;
+      return;
+    }
+    out.innerHTML = `<p style="color:var(--red)">⚠ Pages Function returned ${resp.status}</p>`;
+  } catch (e) {
+    // Fallback: Web Speech API (browser-native TTS)
+    if ('speechSynthesis' in window) {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 0.9;
+      utter.pitch = 1;
+      utter.volume = 1;
+      window.speechSynthesis.speak(utter);
+      out.innerHTML = `<p style="color:var(--cell);font-size:0.85em;margin-top:0.5rem">✓ Using browser SpeechSynthesis (Cloudflare Aura unavailable right now)</p>`;
+    } else {
+      out.innerHTML = `<p style="color:var(--red)">❌ No TTS available</p>`;
+    }
+  }
+}
+
+function stopVoice() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+renderSpeakers();
+renderVoices();
+renderAura();
+</script>
+
+</body>
+</html>

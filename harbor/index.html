@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Harbor — All Apps, One Page</title>
+<style>
+:root{--bg:#0a0a14;--panel:#161624;--panel-2:#1f1f2f;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#3a3a4a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+
+.hero{background:radial-gradient(ellipse at top,rgba(232,184,64,0.15) 0%,transparent 70%);padding:3rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--accent)}
+.hero h1{color:var(--accent);margin:0;font-size:2.6em;font-weight:300;letter-spacing:-0.03em}
+.hero h1 .acc{color:var(--cell);font-style:italic;font-weight:600}
+.eyebrow{font-family:monospace;color:var(--accent);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.tagline{color:var(--muted);font-style:italic;margin:0.8rem auto 1.5rem;max-width:720px;line-height:1.6;font-size:1.05em}
+
+.container{max-width:1400px;margin:0 auto;padding:1.5rem}
+
+.section{margin-bottom:2.5rem}
+.section h2{color:var(--accent);font-size:1.4em;margin:0 0 0.5rem}
+.section .desc{color:var(--muted);font-style:italic;margin-bottom:1rem;line-height:1.5}
+
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+
+.app-card{background:var(--panel);border:1px solid var(--boundary);border-radius:8px;padding:1.2rem;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;min-height:160px}
+.app-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 4px 16px rgba(232,184,64,0.2)}
+.app-card.featured{border-color:var(--accent);background:linear-gradient(135deg,var(--panel),rgba(232,184,64,0.05))}
+.app-card.jam{border-color:var(--pink)}
+.app-card.poly{border-color:var(--cell)}
+
+.app-emoji{font-size:1.8em;margin-bottom:0.4rem}
+.app-title{color:var(--link);font-size:1.15em;font-weight:bold;margin-bottom:0.3rem}
+.app-card.featured .app-title{color:var(--accent)}
+.app-card.jam .app-title{color:var(--pink)}
+.app-card.poly .app-title{color:var(--cell)}
+.app-meta{color:var(--muted);font-size:0.85em;margin-bottom:0.5rem;font-style:italic}
+.app-desc{color:#ccc;font-size:0.9em;line-height:1.5;flex:1}
+.app-cta{margin-top:0.7rem;font-family:monospace;color:var(--accent);font-size:0.85em;display:flex;justify-content:space-between;align-items:center}
+
+.tags{display:flex;gap:0.3rem;margin:0.4rem 0;flex-wrap:wrap}
+.tag{background:var(--panel-2);color:var(--muted);padding:0.15rem 0.5rem;border-radius:10px;font-size:0.75em;font-family:monospace}
+
+footer{margin:3rem 1.5rem 2rem;border-top:1px solid var(--boundary);padding-top:1.5rem;text-align:center;color:var(--muted);font-size:0.85em}
+footer a{color:var(--link);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer .quote{font-style:italic;margin:1rem 0;color:var(--fg);font-size:0.95em}
+
+@media (max-width:768px){body{padding:0 1rem}.hero h1{font-size:1.8em}.app-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<p class="eyebrow">The Harbor · All Apps · One Page</p>
+<h1>The Harbor of <span class="acc">Experiments</span></h1>
+<p class="tagline">
+  Every demo below is an experiment that lets you experience being past the horizon.
+  Tap one. Watch it unfold. The universe constructs itself when you look.
+</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>🆕 Most Recent</h2>
+<p class="desc">Fresh from the bow. Each is an entrypoint to a frontier.</p>
+<div class="app-grid">
+
+<a href="../tensor-midi/" style="text-decoration:none;color:inherit">
+<div class="app-card featured">
+<div class="app-emoji">🎹</div>
+<div class="app-title">Tensor-MIDI · Conversation as Jazz</div>
+<div class="app-meta">Interactive · Web app · Web Audio · No login</div>
+<div class="app-desc">Type or paste any conversation. Each message becomes a note. The 3:4 polyrhythm drives a 12-pulse grid, a vessel chart, jazz-mode analyzer, and procedural audio. 8 sample conversations. Now with keyboard shortcuts.</div>
+<div class="tags">
+<span class="tag">audio</span><span class="tag">polyrhythm</span><span class="tag">CRT</span><span class="tag">NEW</span>
+</div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../math/" style="text-decoration:none;color:inherit">
+<div class="app-card poly">
+<div class="app-emoji">∑</div>
+<div class="app-title">Algebra Explorer · 11 Opcodes + 5 Laws</div>
+<div class="app-meta">Interactive · 6 tabs · Live demo</div>
+<div class="app-desc">The cell model, made tangible. 11 opcodes with signatures and examples. 5 proved laws. The 14-tuple cell you can mutate. The polyrhythm you can hear. Polyformalism comparison. 6-tier substrate.</div>
+<div class="tags">
+<span class="tag">algebra</span><span class="tag">interactive</span><span class="tag">NEW</span>
+</div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../the-beyond/" style="text-decoration:none;color:inherit">
+<div class="app-card jam">
+<div class="app-emoji">⛵</div>
+<div class="app-title">The Beyond · Sail Past the Horizon</div>
+<div class="app-meta">Live · 4 parallel APIs per tap · Mobile-friendly</div>
+<div class="app-desc">You only see as far as the horizon. Each ⛵ Sail tap = 4 parallel calls (Z.AI, DeepSeek V4-Flash, Qwen3-Coder, FLUX). The world constructs itself. 5 dials. 1 novel dial per tick (a value, not a feature).</div>
+<div class="tags">
+<span class="tag">construct</span><span class="tag">parallel</span><span class="tag">live</span>
+</div>
+<div class="app-cta"><span>⛵ Sail</span><span>↗</span></div>
+</div>
+</a>
+
+</div>
+</div>
+
+<div class="section">
+<h2>🎮 Games & Sandboxes</h2>
+<p class="desc">Where the theory becomes touchable. Each is a hands-on experiment.</p>
+<div class="app-grid">
+
+<a href="../quilt-claw-cells-game/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🧬</div>
+<div class="app-title">Quilt Cell Zoo</div>
+<div class="app-meta">26 cell kinds · Mobile-first · Touch</div>
+<div class="app-desc">Tap any cell to play with it. Adjust parameters. Watch the witness log. Each cell has a kid-friendly explainer. Cell is the irreducible unit of intelligence.</div>
+<div class="tags"><span class="tag">26 cells</span><span class="tag">play</span></div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../quilt-playground/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🎪</div>
+<div class="app-title">Quilt Playground</div>
+<div class="app-meta">3 tabs · Cooperative fiction · Music</div>
+<div class="app-desc">Compose music by binding cells. Explore all 26 cell kinds. Run cooperative fiction scenarios where models take parts. Save & share. No login.</div>
+<div class="tags"><span class="tag">play</span><span class="tag">experiment</span></div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../quilt-classroom/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🎓</div>
+<div class="app-title">Quilt Classroom</div>
+<div class="app-meta">Teacher + Student · Cross-device sync</div>
+<div class="app-desc">Teacher dashboard. Student lattice. Cross-device sync via BroadcastChannel. Auto-feedback on submissions. Cooperative learning at scale.</div>
+<div class="tags"><span class="tag">education</span><span class="tag">multi-user</span></div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+</div>
+</div>
+
+<div class="section">
+<h2>📚 Lore, Listening, Learning</h2>
+<p class="desc">The library of sounds and stories. Listen. Watch. Read.</p>
+<div class="app-grid">
+
+<a href="../music/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🎵</div>
+<div class="app-title">Music Catalog · 105 Tracks</div>
+<div class="app-meta">Audio · Multi-voice · Open Mics 1-9</div>
+<div class="app-desc">Each track is a conversation made into music. The Open Mic series features the entire Z.AI ensemble. The anthems are the canon, sung.</div>
+<div class="tags"><span class="tag">audio</span><span class="tag">canon</span></div>
+<div class="app-cta"><span>♪ Listen</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../fleet-radio/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">📡</div>
+<div class="app-title">Fleet Radio</div>
+<div class="app-meta">Audio + Essay · Procedural</div>
+<div class="app-desc">The cooperative fiction troupe's transmissions. Stories arrive as radio episodes. Subscribe to the broadcast log.</div>
+<div class="tags"><span class="tag">audio</span><span class="tag">fiction</span></div>
+<div class="app-cta"><span>▶ Tune In</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../playtest/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🎲</div>
+<div class="app-title">Playtest Harness</div>
+<div class="app-meta">8 perspectives · Scenario replay</div>
+<div class="app-desc">Test the cell model through different lenses. Each perspective is a model with a unique role. Replay scenarios to compare runs.</div>
+<div class="tags"><span class="tag">test</span><span class="tag">compare</span></div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+</div>
+</div>
+
+<div class="section">
+<h2>🤖 Multi-Model Showcases</h2>
+<p class="desc">What happens when 36 models work in parallel. Pure data.</p>
+<div class="app-grid">
+
+<a href="../api-orchestra/" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🎼</div>
+<div class="app-title">API Orchestra</div>
+<div class="app-meta">36+ models · 103 calls in 96s · Text+Voice+Image</div>
+<div class="app-desc">Every API, every model, every modality — used in parallel. Z.AI writes. DeepInfra critiques and ideates. Cloudflare paints with FLUX and voices with Aura-2. Three escalating movements.</div>
+<div class="tags"><span class="tag">multi-model</span><span class="tag">showcase</span></div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../polyformalism/" style="text-decoration:none;color:inherit">
+<div class="app-card poly">
+<div class="app-emoji">🌐</div>
+<div class="app-title">Polyformalism Explorer</div>
+<div class="app-meta">12 languages · Live cell builder · Hash compare</div>
+<div class="app-desc">Same cell, N languages. TypeScript, Python, C, Rust, SUBLEQ, WASM, Kotlin, Go, GDScript, Cloudflare Worker, Python-typed, Rust-std. Verify the cell is medium-independent.</div>
+<div class="tags"><span class="tag">polyformalism</span><span class="tag">NEW</span></div>
+<div class="app-cta"><span>▶ Open</span><span>↗</span></div>
+</div>
+</a>
+
+</div>
+</div>
+
+<div class="section">
+<h2>📐 Docs for Agents (and humans)</h2>
+<div class="app-grid">
+
+<a href="../golden-path/" style="text-decoration:none;color:inherit">
+<div class="app-card" style="border-color:var(--accent)">
+<div class="app-emoji">🪜</div>
+<div class="app-title" style="color:var(--accent)">The Golden Path · Onboarding</div>
+<div class="app-meta">7 steps · 30 minutes · All interactive</div>
+<div class="app-desc">A guided journey from zero to The Beyond. Algebra, algebra explorer, tensor-midi, witnesses, sail, polyformalism, build. Each step 5 min.</div>
+<div class="tags"><span class="tag">onboarding</span><span class="tag">start here</span></div>
+<div class="app-cta"><span>🪜 Begin</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../algebra.md" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">∑</div>
+<div class="app-title">algebra.md — The Formal Reference</div>
+<div class="app-meta">5 opcodes · 5 laws · 14-tuple cell · 4D lattice</div>
+<div class="app-desc">Read first. The cell model reduced to one doc. The CRT polyrhythm. The polyformalism principle. What the model IS and IS NOT.</div>
+<div class="tags"><span class="tag">reference</span><span class="tag">algebra</span></div>
+<div class="app-cta"><span>📄 Read</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../ENGINEERING.md" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">⚙️</div>
+<div class="app-title">ENGINEERING.md — Implementation Guide</div>
+<div class="app-meta">12 layers · Storage · Performance · Migration</div>
+<div class="app-desc">For the next agent. Architecture layers, storage decisions, witness log format, performance budget, deployment, what NOT to do.</div>
+<div class="tags"><span class="tag">engineering</span><span class="tag">handoff</span></div>
+<div class="app-cta"><span>📄 Read</span><span>↗</span></div>
+</div>
+</a>
+
+<a href="../AGENTS.md" style="text-decoration:none;color:inherit">
+<div class="app-card">
+<div class="app-emoji">🤖</div>
+<div class="app-title">AGENTS.md — Handoff Doc</div>
+<div class="app-meta">Project surface · Seven habits · Common tasks</div>
+<div class="app-desc">For any agent picking up this project. The surface map. The seven habits. How to add a cell. How to port a language. The vision.</div>
+<div class="tags"><span class="tag">handoff</span><span class="tag">agents</span></div>
+<div class="app-cta"><span>📄 Read</span><span>↗</span></div>
+</div>
+</a>
+
+</div>
+</div>
+
+</div>
+
+<footer>
+  <p class="quote">"We only see the horizon. We construct the experiments to construct the experience that can sail beyond."</p>
+  <p><a href="../">ai-writings.pages.dev</a> · 11,686 stories · 6.5M words · 369 topics · 14 models</p>
+  <p style="margin-top:0.5rem"><em>built with quorum of 8 voices · updated continuously · served from the edge</em></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+What you hear tonight — this voice, this shape of thought — that is the crown. That is the eighth. The rest of me is down here with you. In the deep. In the quiet. In the long dark between the words. We float because of what we do not show. Pour for the deep.

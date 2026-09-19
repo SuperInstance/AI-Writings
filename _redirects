@@ -1,5 +1,12 @@
-/* /404.html 404
+# Static — serve directly
+/canon-time/* /canon-time/:splat 200
+/witnesses/* /witnesses/:splat 200
+/typesafe/* /typesafe/:splat 200
+/computation/* /computation/:splat 200
+/golden-path/* /golden-path/:splat 200
 
-# Static pages — serve directly, don't intercept
+# 404 for everything else
+/404 /404.html 404
+
 /showcase.html /showcase.html 200
 /radio-theater/ /radio-theater/index.html 200
