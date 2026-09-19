@@ -55,6 +55,12 @@
 26. **Spec the exit surface before shipping**: should `ExitReason` (or the draft's full TRAP_* set) be written into isa-v3-draft.md §9 to resolve the meter-owned-exhaustion vs cooperative-FUEL_CHECK-trap polarity divergence before the canon-verifier ships?
 27. **Child-VM policy inheritance**: should ASYNC-spawned child VMs inherit the host's `allow_fuel_set` policy, or require an explicit per-context grant — and who audits that boundary?
 
+## From Lane H — the Tap deploy-readiness audit (2026-09-20, shipped as the-tap PR #2)
+
+28. **Phantom resources**: do the hardcoded D1/KV/Vectorize/R2 ids in wrangler.toml correspond to resources that actually exist in the fleet's Cloudflare account — or was §7.4 provisioning never run?
+29. **Satellite necessity**: the gateway's Room DO embeds directly and never calls the PINCHER/LEVEL_RUNNER service bindings — should the satellites be dropped from v1 to shrink the deploy surface?
+30. **The stale log**: PRODUCTION-LOG is round-1 stale while the tree shows migrations through 0010 and ~15 audit rounds — rewrite to match the tree before Fable's round 10, or delete entirely?
+
 ## Settled this cycle (for the record)
 
 - FORGET is receipt-verified under a completeness law (quilt-mhs Law 7), not JEV-decided. *(Lane A, Q6)*
