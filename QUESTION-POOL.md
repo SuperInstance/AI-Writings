@@ -49,6 +49,12 @@
 23. **The birthday wall**: is 32-bit fnv1a still adequate now that `prev_hash` is unique-indexed — a collision at ~65k rows would hard-block the chain (unique index turns collision into deadlock), so should the sha256 upgrade land before WAL tenancy grows past the vote ledger?
 24. **Per-tenant chain roots**: should each quilt tenant get its own chain-root scoping (per-ledger genesis) instead of one global GENESIS, so a future second tenant can never contend with the nomination ledger on the same tip?
 
+## From Lane G — FLUX fuel governance (2026-09-20, shipped as ability-transfer PR #4)
+
+25. **Fail-closed host ergonomics**: should `run()` grow a `budget=` argument that fails loudly at call time, so a forgetful host gets an error instead of relying on default-deny FUEL_SET plus MAX_STEPS visibility?
+26. **Spec the exit surface before shipping**: should `ExitReason` (or the draft's full TRAP_* set) be written into isa-v3-draft.md §9 to resolve the meter-owned-exhaustion vs cooperative-FUEL_CHECK-trap polarity divergence before the canon-verifier ships?
+27. **Child-VM policy inheritance**: should ASYNC-spawned child VMs inherit the host's `allow_fuel_set` policy, or require an explicit per-context grant — and who audits that boundary?
+
 ## Settled this cycle (for the record)
 
 - FORGET is receipt-verified under a completeness law (quilt-mhs Law 7), not JEV-decided. *(Lane A, Q6)*
