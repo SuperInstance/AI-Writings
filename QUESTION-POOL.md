@@ -43,6 +43,12 @@
 20. **Which state gets hashed**: fuel-death is currently indistinguishable from HALT and `clock` ticks per instruction — does the verifier canonically hash pre-run state, post-HALT state, or exhaustion state, and can `snapshot()` at exhaustion leak host-nondeterminism into that hash?
 21. **Structured traps**: should the reference VM grow TRAP_OUT_OF_FUEL / TRAP_DEADLINE_EXCEEDED exit codes so embedders get failure reasons, or should canon verification refuse any module whose only exit path is trap-dependent?
 
+## From Lane D — hermit tip-race fix (2026-09-20, shipped as hermit PR #10)
+
+22. **Retry telemetry**: should the WAL commit surface its retry/conflict counts through the existing `nominationObservability` channel, so rising contention becomes visible *before* the projection gap widens?
+23. **The birthday wall**: is 32-bit fnv1a still adequate now that `prev_hash` is unique-indexed — a collision at ~65k rows would hard-block the chain (unique index turns collision into deadlock), so should the sha256 upgrade land before WAL tenancy grows past the vote ledger?
+24. **Per-tenant chain roots**: should each quilt tenant get its own chain-root scoping (per-ledger genesis) instead of one global GENESIS, so a future second tenant can never contend with the nomination ledger on the same tip?
+
 ## Settled this cycle (for the record)
 
 - FORGET is receipt-verified under a completeness law (quilt-mhs Law 7), not JEV-decided. *(Lane A, Q6)*
