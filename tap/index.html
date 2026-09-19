@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tap — Live Tick Stream · Quilt</title>
+<meta name="description" content="Live stream of Quilt ticks. Each tick = 4 parallel AI calls: Z.AI prose, V4-Flash dials, Qwen3 cell, FLUX image.">
+<style>
+:root {
+  --bg: #0a0a14; --panel: #14141f; --boundary: #2a2a3a;
+  --accent: #e8b840; --pink: #ff7799; --cell: #77aaff;
+  --link: #77dd99; --view: #ffd966; --tick: #ff6655;
+  --text: #e0e0e8; --muted: #888;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.6; padding: 1rem; max-width: 1100px; margin: 0 auto; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
+h1 { color: var(--accent); font-size: 2.5em; margin-bottom: 0.3rem; }
+.subtitle { color: var(--pink); font-size: 0.9em; letter-spacing: 0.15em; text-transform: uppercase; }
+.tagline { color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+.controls { display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap; }
+.controls input, .controls select, .controls button {
+  background: var(--panel); color: var(--text); border: 1px solid var(--boundary);
+  padding: 0.6rem 0.9rem; border-radius: 4px; font-family: inherit;
+  min-height: 44px;
+}
+.controls input { flex: 1 1 300px; min-width: 200px; }
+.controls button { background: var(--accent); color: #000; cursor: pointer; font-weight: bold; }
+.controls button:hover { background: var(--pink); }
+.controls button:disabled { opacity: 0.5; cursor: not-allowed; }
+.stream { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 700px) { .stream { grid-template-columns: 1fr 1fr; } }
+.tick-card {
+  background: var(--panel); border: 1px solid var(--boundary); border-radius: 8px;
+  padding: 1rem; transition: all 0.2s;
+}
+.tick-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.tick-card.fresh { border-color: var(--tick); box-shadow: 0 0 20px rgba(255,102,85,0.3); }
+.tick-card .ts { color: var(--muted); font-size: 0.8em; font-family: monospace; }
+.tick-card .ts .num { color: var(--accent); font-weight: bold; }
+.tick-card .sailor-quote { color: var(--cell); font-style: italic; margin: 0.5rem 0; padding-left: 0.8rem; border-left: 2px solid var(--cell); }
+.tick-card .dials { color: var(--view); font-family: monospace; font-size: 0.85em; }
+.tick-card .cell { color: var(--link); font-family: monospace; font-size: 0.85em; }
+.tick-card img { width: 100%; border-radius: 4px; margin-top: 0.5rem; }
+.status-bar { padding: 0.5rem 1rem; background: var(--panel); border: 1px solid var(--boundary); border-radius: 4px; margin: 1rem 0; font-family: monospace; font-size: 0.85em; display: flex; gap: 1rem; flex-wrap: wrap; }
+.status-bar .item { color: var(--muted); }
+.status-bar .item strong { color: var(--accent); }
+.empty { text-align: center; padding: 4rem 2rem; color: var(--muted); font-style: italic; }
+.endpoints { background: var(--panel); border: 1px solid var(--boundary); border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+.endpoints h2 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2em; }
+.endpoints ul { list-style: none; }
+.endpoints li { padding: 0.4rem 0; border-bottom: 1px dashed var(--boundary); font-family: monospace; font-size: 0.9em; }
+.endpoints li:last-child { border-bottom: none; }
+.endpoints code { color: var(--pink); }
+.foot-link { text-align: center; margin: 2rem 0 1rem; color: var(--muted); font-size: 0.85em; }
+.foot-link a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🌊 Tap</h1>
+  <div class="subtitle">Live Tick Stream</div>
+  <p class="tagline">Each tick = 4 parallel AI calls. The substrate speaks. The substrate paints. The substrate grows.</p>
+</header>
+
+<div class="controls">
+  <input type="text" id="prompt" placeholder="Enter a prompt (default: 'What does the sailor see?')" value="the cell learns to walk">
+  <select id="interval">
+    <option value="0">Manual only</option>
+    <option value="5000">Every 5s</option>
+    <option value="10000" selected>Every 10s</option>
+    <option value="20000">Every 20s</option>
+  </select>
+  <button id="tickBtn" onclick="manualTick()">🌊 Tick</button>
+  <button id="autoBtn" onclick="toggleAuto()">⏱️ Auto</button>
+</div>
+
+<div class="status-bar">
+  <span class="item">Ticks: <strong id="tickCount">0</strong></span>
+  <span class="item">Streaming: <strong id="streamStatus">off</strong></span>
+  <span class="item">Last: <strong id="lastTick">never</strong></span>
+  <span class="item">Endpoint: <strong>/api/tick</strong></span>
+</div>
+
+<div class="stream" id="stream">
+  <div class="empty">No ticks yet. Hit 🌊 Tick or ⏱️ Auto.</div>
+</div>
+
+<section class="endpoints">
+  <h2>🛰️ Available API Endpoints</h2>
+  <ul>
+    <li><code>POST /api/tick</code> — 4 parallel AI streams (Z.AI prose + V4-Flash dials + Qwen3 cell + FLUX image)</li>
+    <li><code>POST /api/validate</code> — Zod-style cell validator (24 cell kinds)</li>
+    <li><code>POST /api/tts</code> — CF Aura-2 voice synthesis</li>
+    <li><code>GET  /api/canon?q=...</code> — Canon search</li>
+    <li><code>GET  /api/echo</code> — Debug (echoes request)</li>
+    <li><code>GET  /api/status</code> — Worker health + secrets</li>
+  </ul>
+</section>
+
+<div class="foot-link">
+  Tap · <a href="/">ai-writings</a> · <a href="/future/">future</a> · <a href="/harbor/">harbor</a>
+</div>
+
+<script>
+let tickCount = 0;
+let autoInterval = null;
+let streamBox;
+let statusEls = {};
+
+window.addEventListener('DOMContentLoaded', () => {
+  streamBox = document.getElementById('stream');
+  statusEls = {
+    count: document.getElementById('tickCount'),
+    streamStatus: document.getElementById('streamStatus'),
+    lastTick: document.getElementById('lastTick')
+  };
+  fetch('/api/status').then(r => r.json()).then(s => {
+    document.getElementById('lastTick').textContent = `Worker v${s.version}`;
+  }).catch(() => {});
+});
+
+async function doTick() {
+  const prompt = document.getElementById('prompt').value.trim() || 'What does the sailor see?';
+  const btn = document.getElementById('tickBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳';
+  try {
+    const r = await fetch('/api/tick', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+    if (!r.ok) {
+      addErrorCard(r.status, await r.text());
+      return;
+    }
+    const data = await r.json();
+    addTickCard(data);
+    tickCount++;
+    statusEls.count.textContent = tickCount;
+    statusEls.lastTick.textContent = new Date(data.tick).toLocaleTimeString();
+  } catch (e) {
+    addErrorCard(0, e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🌊 Tick';
+  }
+}
+
+function manualTick() { doTick(); }
+
+function toggleAuto() {
+  const btn = document.getElementById('autoBtn');
+  const sel = document.getElementById('interval');
+  if (autoInterval) {
+    clearInterval(autoInterval);
+    autoInterval = null;
+    btn.textContent = '⏱️ Auto';
+    statusEls.streamStatus.textContent = 'off';
+  } else {
+    const ms = parseInt(sel.value);
+    if (ms === 0) {
+      alert('Select an interval > 0 to enable auto-streaming');
+      return;
+    }
+    doTick();
+    autoInterval = setInterval(doTick, ms);
+    btn.textContent = '⏸ Pause';
+    statusEls.streamStatus.textContent = `${ms/1000}s`;
+  }
+}
+
+function addTickCard(data) {
+  const empty = streamBox.querySelector('.empty');
+  if (empty) empty.remove();
+  
+  const card = document.createElement('div');
+  card.className = 'tick-card fresh';
+  setTimeout(() => card.classList.remove('fresh'), 3000);
+  
+  const ts = new Date(data.tick).toISOString().slice(11, 19);
+  const sailorSnippet = (data.sailor || '').slice(0, 200) + ((data.sailor || '').length > 200 ? '…' : '');
+  
+  let html = `
+    <div class="ts">⏰ <span class="num">${ts}</span> · prompt_chars=${data.meta?.prompt_chars || 0} · canon_aware=${data.canon_aware}</div>
+    <div class="sailor-quote">${escapeHtml(sailorSnippet)}</div>
+    <div class="dials"><strong>📊 dials:</strong> ${escapeHtml(data.dials || 'none')}</div>
+    <div class="cell"><strong>🧬 cell:</strong> ${escapeHtml(data.cell || 'none')}</div>
+  `;
+  
+  if (data.image) {
+    html += `<img src="${data.image}" alt="FLUX rendering" loading="lazy">`;
+  }
+  
+  card.innerHTML = html;
+  streamBox.insertBefore(card, streamBox.firstChild);
+  
+  while (streamBox.children.length > 20) {
+    streamBox.removeChild(streamBox.lastChild);
+  }
+}
+
+function addErrorCard(status, body) {
+  const card = document.createElement('div');
+  card.className = 'tick-card fresh';
+  card.style.borderColor = 'var(--tick)';
+  card.innerHTML = `
+    <div class="ts">❌ Error (HTTP ${status})</div>
+    <pre style="color:var(--tick);font-size:0.8em;overflow:auto">${escapeHtml(body)}</pre>
+  `;
+  streamBox.insertBefore(card, streamBox.firstChild);
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+</script>
+</body>
+</html>

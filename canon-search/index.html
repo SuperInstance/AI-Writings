@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canon Search · Quilt</title>
+<meta name="description" content="Search the Quilt canon — 79 documents spanning algebra, engineering, future waves, essays, papers, and stories.">
+<style>
+:root {
+  --bg: #0a0a14; --panel: #14141f; --boundary: #2a2a3a;
+  --accent: #e8b840; --pink: #ff7799; --cell: #77aaff;
+  --link: #77dd99; --view: #ffd966; --tick: #ff6655;
+  --text: #e0e0e8; --muted: #888;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.6; padding: 1rem; max-width: 900px; margin: 0 auto; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
+h1 { color: var(--accent); font-size: 2.5em; margin-bottom: 0.3rem; }
+.subtitle { color: var(--pink); font-size: 0.9em; letter-spacing: 0.15em; text-transform: uppercase; }
+.tagline { color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+.search-box { display: flex; gap: 0.5rem; margin: 1rem 0; }
+.search-box input { flex: 1; background: var(--panel); color: var(--text); border: 1px solid var(--boundary); padding: 0.8rem; border-radius: 4px; font-family: inherit; font-size: 1.1em; min-height: 44px; }
+.search-box button { background: var(--accent); color: #000; border: none; padding: 0.8rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1em; min-height: 44px; }
+.search-box button:hover { background: var(--pink); }
+.suggestions { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.5rem 0 1rem; }
+.suggestions button { background: var(--panel); color: var(--text); border: 1px solid var(--boundary); padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-size: 0.85em; }
+.suggestions button:hover { border-color: var(--accent); }
+.meta { color: var(--muted); font-size: 0.85em; margin: 1rem 0; }
+.results { display: grid; gap: 0.8rem; margin-top: 1rem; }
+.result-card { background: var(--panel); border: 1px solid var(--boundary); border-radius: 8px; padding: 1rem; }
+.result-card:hover { border-color: var(--accent); }
+.result-title { color: var(--cell); font-weight: bold; font-size: 1.1em; margin-bottom: 0.3rem; }
+.result-title a { color: inherit; text-decoration: none; }
+.result-title a:hover { color: var(--accent); }
+.result-score { color: var(--view); font-family: monospace; font-size: 0.85em; }
+.result-preview { color: var(--text); margin-top: 0.4rem; opacity: 0.85; font-size: 0.95em; }
+.result-path { color: var(--muted); font-family: monospace; font-size: 0.8em; margin-top: 0.3rem; }
+.empty { text-align: center; padding: 3rem 1rem; color: var(--muted); font-style: italic; }
+.foot-link { text-align: center; margin: 2rem 0 1rem; color: var(--muted); font-size: 0.85em; }
+.foot-link a { color: var(--accent); }
+.spinner { display: inline-block; width: 1em; height: 1em; border: 2px solid var(--accent); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>📖 Canon Search</h1>
+  <div class="subtitle">Search 79 documents</div>
+  <p class="tagline">Search the Quilt canon — algebra, engineering, future waves, essays, papers, stories.</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="q" placeholder="What are you looking for? (e.g., 'cell', 'witness', 'art', 'winter')" autofocus>
+  <button onclick="search()">🔍 Search</button>
+</div>
+
+<div class="suggestions">
+  <span style="color: var(--muted); font-size: 0.85em; align-self: center;">Try:</span>
+  <button onclick="setQ('cell')">cell</button>
+  <button onclick="setQ('watch')">watch</button>
+  <button onclick="setQ('witness')">witness</button>
+  <button onclick="setQ('algebra')">algebra</button>
+  <button onclick="setQ('art')">art</button>
+  <button onclick="setQ('death')">death</button>
+  <button onclick="setQ('winter')">winter</button>
+  <button onclick="setQ('family')">family</button>
+  <button onclick="setQ('prayer')">prayer</button>
+  <button onclick="setQ('fire')">fire</button>
+</div>
+
+<div class="meta" id="meta">Enter a query above.</div>
+
+<div class="results" id="results">
+  <div class="empty">The canon awaits. Type something.</div>
+</div>
+
+<div class="foot-link">
+  Canon Search · <a href="/">ai-writings</a> · <a href="/tap/">tap</a> · <a href="/future/">future</a>
+</div>
+
+<script>
+const input = document.getElementById('q');
+input.addEventListener('keypress', (e) => { if (e.key === 'Enter') search(); });
+
+function setQ(q) {
+  input.value = q;
+  search();
+}
+
+async function search() {
+  const q = input.value.trim();
+  if (!q) return;
+  const resultsEl = document.getElementById('results');
+  const meta = document.getElementById('meta');
+  resultsEl.innerHTML = '<div class="empty"><span class="spinner"></span> Searching...</div>';
+  meta.textContent = `Searching "${q}"...`;
+  
+  try {
+    const r = await fetch(`/api/canon?q=${encodeURIComponent(q)}&limit=20`);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const data = await r.json();
+    
+    meta.innerHTML = `${data.total} results for "<strong>${escapeHtml(q)}</strong>" in ${data.meta.corpus_size} documents`;
+    
+    if (data.results.length === 0) {
+      resultsEl.innerHTML = '<div class="empty">No matches. Try a different term.</div>';
+      return;
+    }
+    
+    resultsEl.innerHTML = data.results.map(r => `
+      <div class="result-card">
+        <div class="result-title"><a href="${r.title.endsWith('.md') ? '/' + r.title : '/future/' + r.id + '.md'}">${escapeHtml(r.title)}</a></div>
+        <div class="result-score">score: ${r.score}</div>
+        <div class="result-preview">${escapeHtml(r.preview)}</div>
+        <div class="result-path">id: ${r.id}</div>
+      </div>
+    `).join('');
+  } catch (e) {
+    meta.textContent = `❌ Error: ${e.message}`;
+    resultsEl.innerHTML = '<div class="empty">Search failed. Try again.</div>';
+  }
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// Auto-search for "cell" on load
+window.addEventListener('DOMContentLoaded', () => {
+  input.value = 'cell';
+  search();
+});
+</script>
+</body>
+</html>

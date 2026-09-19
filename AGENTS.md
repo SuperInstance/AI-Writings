@@ -123,6 +123,33 @@ Look at `TENSOR_MIDI_THE_SOUND_OF_MEANING.md` for the canon voice.
 ### "I want to talk to multiple models"
 Use `multi_api_v2.py` (in `~/.home/scripts/`) to run models in parallel.
 
+## Active Wave Ideas (Sept 19, 2026)
+
+### Wave 5 — 5 New Repos
+- `canvas-search` — search cells by witness trails
+- `quilt-fleet-graph` — 4D WebGL over 39 repos
+- `quilt-standup-cell` — daily standup IS a cell
+- `cell-replay` — time-travel debugging via witness log
+- `quilt-voice-mail` — TTS voice memo on cell creation
+
+### Wave 6 — Refinements + 3 New
+- `canvas-search` (200-line mini-design with GraphQL schema)
+- `quilt-fleet-graph` (5 essential shaders)
+- `quilt-cell-cron` — cells schedule themselves (`ticks_when`)
+- `quilt-cell-receipt` — printable PDF per cell
+- `quilt-cell-translate` — auto-translate to 12 languages
+
+See `/future/wave-5.md` and `/future/wave-6.md` for full proposals.
+
+## Live API Endpoints
+
+The `/api/tick`, `/api/validate`, `/api/tts` endpoints are live at `ai-writings.pages.dev`.
+- `/api/tick` → 4 parallel calls: Z.AI prose + V4-Flash dials + Qwen3 cell + FLUX image
+- `/api/validate` → Zod-style cell validator (24 cell kinds accepted)
+- `/api/tts` → CF Aura-2-en voice synthesis
+
+Worker source: `/workspace/repos/ai-writings/_worker.js` (single file, all routes).
+
 ## What To Do If You're Stuck
 
 1. Re-read `algebra.md` — most confusion is from not knowing the basics
