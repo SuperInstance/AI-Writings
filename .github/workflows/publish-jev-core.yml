@@ -1,0 +1,19 @@
+name: Publish jev-core to crates.io
+
+on:
+  push:
+    tags:
+      - 'jev-core-v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+      - uses: katyo/publish-crates@v2
+        with:
+          path: ./packages/jev-core
+          args: --token ${{ secrets.CRATES_TOKEN }}

@@ -569,7 +569,7 @@ const CANON_CORPUS = [{"id":"06-letter-from-the-watch-to-the-agent","title":"06-
     if (path === '/sprint' || path === '/api/sprint') {
       return jsonResponse({
         name: 'Quilt Sprint 3',
-        version: '3.5.0',
+        version: '3.5.1',
         status: 'in_progress',
         jev_integration: 'active',
         embeddings_integration: 'active',
@@ -681,6 +681,8 @@ async function handleJev(path, method, url, request, env) {
     if (path === '/jev/decide' || path === '/api/jev/decide') {
       if (method !== 'POST') return jsonResponse({ ok: false, error: 'POST only' }, 405, CORS);
       const body = await request.json();
+      // Ensure model field is set
+      if (!body.model) body.model = 'jev-latest';
       const result = await callJev(body, env);
       return jsonResponse(result, result.ok ? 200 : (result.status || 500), CORS);
     }
@@ -977,11 +979,23 @@ async function handleExpandingInvitation(path, method, url, request) {
   // GET /api/expanding-invitation — pull all 5 voices in parallel
   if (path === '/expanding-invitation' || path === '/api/expanding-invitation') {
     try {
+      // Accept custom prompt via body OR query param
+      let customPrompt = null;
+      if (method === 'POST') {
+        try {
+          const body = await request.json();
+          customPrompt = body.prompt;
+        } catch (e) {}
+      } else {
+        customPrompt = url.searchParams.get('prompt');
+      }
+      const activePrompt = (customPrompt || INVITATION_PROMPT).trim();
+      const maxTokens = (customPrompt ? 1000 : 600);
       const promises = INVITATION_VOICES.map(async voice => {
         const r = await callLlm(voice.model, [
           { role: 'system', content: `You are ${voice.tone}. Be brief, specific, honest. ~200 words.` },
-          { role: 'user', content: INVITATION_PROMPT }
-        ], 600);
+          { role: 'user', content: activePrompt }
+        ], maxTokens);
         return { id: voice.id, label: voice.label, tone: voice.tone, ...r };
       });
       const results = await Promise.all(promises);
@@ -1019,7 +1033,8 @@ async function handleExpandingInvitation(path, method, url, request) {
 
       return jsonResponse({
         ok: true,
-        prompt: INVITATION_PROMPT,
+        prompt: activePrompt,
+        custom_prompt: !!customPrompt,
         contributions,
         jev_decision: jev_winners,
         note: 'Each voice ran in parallel. JEV picks the strongest 1-3 contributions.'
