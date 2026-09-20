@@ -70,3 +70,6 @@
 31. **Reflex vs. compile**: should the MODEL tier's pincher EXECUTE/CONFIRM short-circuit keep bypassing `compileViaAI`, or should a high-scoring reflex become a compile-prompt style hint instead of a hard override? (Lane J, the-tap PR #4)
 32. **Compile model binding**: should the compile model ride an env var (e.g. `COMPILE_MODEL`) so a credentialed deploy can swap it without a code change? (Lane J, the-tap PR #4)
 33. **CI promotion**: should the green node and pytest suites be promoted into CI alongside the new tsc gate, since they currently only run locally? (Lane J, the-tap PR #4)
+34. **Niche descriptor for prose**: should negative-space GAN cells be keyed on value-term vectors (Red Queen vocabulary space) or on something structural (argument shape, evidence type)? (Lane AE, docs/NEGATIVE-SPACE-GAN.md)
+35. **Critic embodiment**: should the cross-model value-disjoint critic be an actual external model call, or a persona-with-corpus (Forge-proxy pattern: executable, drift-tripped)? (Lane AE, docs/NEGATIVE-SPACE-GAN.md)
+36. **Mode location**: does the negative-space GAN mode live in ai-writings directly, or is it a room TYPE in the-tap commune (D1 metabolism + negative-space objective = a room that must keep finding unexplored corners until it dies)? (Lane AE, docs/NEGATIVE-SPACE-GAN.md)
