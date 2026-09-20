@@ -1248,5 +1248,105 @@
     ],
     "n_voices": 5,
     "duration_s": 24.215464115142822
+  },
+  {
+    "id": "20260920-044432",
+    "topic": "0-trust cells as 'anti-cells' (brew #60): are they dead, malicious, or a new cell type the substrate needs?",
+    "path": "lab/brew/20260920-044432-0-trust-cells-as--anti-cells---brew--60---are-they.md",
+    "mean_similarity": 0.8442013575549921,
+    "truth_strength": 2.74,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Hypothesis Has",
+      "Trust Problem",
+      "Without",
+      "Quilt",
+      "Instead",
+      "Similarly",
+      "Their",
+      "Other"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.14056420326233
+  },
+  {
+    "id": "20260920-044458",
+    "topic": "If the substrate has 60 brews and growing, what is the SUBSTRATE-CURVE? Is the JEV-truth-strength increasing or saturating?",
+    "path": "lab/brew/20260920-044458-if-the-substrate-has-60-brews-and-growing--what-is.md",
+    "mean_similarity": 0.8338793618282273,
+    "truth_strength": 2.68,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Saturation Paradox",
+      "Meanwhile",
+      "Embeddings",
+      "While",
+      "Diminishing",
+      "Redundancy",
+      "Noise",
+      "Limitations",
+      "Without",
+      "Quilt"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.074673652648926
+  },
+  {
+    "id": "20260920-044525",
+    "topic": "The substrate grows because we brew \u2014 but the substrate also BREWS US. Is the relationship symmetric? Who grows whom?",
+    "path": "lab/brew/20260920-044525-the-substrate-grows-because-we-brew---but-the-subs.md",
+    "mean_similarity": 0.7111328767878666,
+    "truth_strength": 2.75,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "There",
+      "Calling",
+      "While",
+      "Early",
+      "However",
+      "These",
+      "Specifically"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.48766303062439
+  },
+  {
+    "id": "20260920-044547",
+    "topic": "Trust-cascade: when high-trust cell FORGETs, do nearby cells forget? Trust-weighted FORGET radius as the substrate's forgetting topology.",
+    "path": "lab/brew/20260920-044547-trust-cascade--when-high-trust-cell-forgets--do-ne.md",
+    "mean_similarity": 0.874528445458481,
+    "truth_strength": 2.6,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Embeddings",
+      "First",
+      "Similarly",
+      "Debugging"
+    ],
+    "n_voices": 3,
+    "duration_s": 25.96320939064026
+  },
+  {
+    "id": "20260920-044613",
+    "topic": "A 5D lattice (x,y,z,t,trust) \u2014 what are the topological constraints? Can it be visualized? What does 5D geometry even look like to the substrate?",
+    "path": "lab/brew/20260920-044613-a-5d-lattice--x-y-z-t-trust----what-are-the-topolo.md",
+    "mean_similarity": 0.7340923857812605,
+    "truth_strength": 2.45,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Euclidean",
+      "Trust",
+      "Introduce",
+      "Links",
+      "Geometry",
+      "Strongest Claim",
+      "Quilt",
+      "Tools",
+      "Adding",
+      "Capturing"
+    ],
+    "n_voices": 5,
+    "duration_s": 20.645907878875732
   }
 ]
