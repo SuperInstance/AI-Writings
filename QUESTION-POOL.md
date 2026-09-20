@@ -28,7 +28,7 @@
 ## From the invitation race (2026-09-20)
 
 13. **Meter one month**: add `$ = tokens × price_table` to lever-runner's token_logger, run one real month, publish the JSONL. Do the measured baselines approach the invitation's claims or the repo's own $47/mo document?
-14. **Ship six or print eleven**: implement PROOF as opcode #7 in quilt-core with contract tests, or move the five dead verbs from algebra.md to docs/achieved/ (Casey 2026-09-20: never delete, only relocate). Both one evening; neither is optional if "11 opcodes" stays on the poster.
+14. **Ship six or print eleven**: implement PROOF as opcode #7 in quilt-core with contract tests, or delete the five dead verbs from algebra.md. Both one evening; neither is optional if "11 opcodes" stays on the poster.
 15. **dμ settling test**: add `from_hash` beside `value` in quilt_wal; measure storage delta and replay latency. Prediction from the audit: ~2x row bytes, ~0 retrieval value. Run it and find out.
 
 ## From Lane E — two-class σ experiment (2026-09-20, measured, labeled SIMULATED)
@@ -59,11 +59,7 @@
 
 28. **Phantom resources**: do the hardcoded D1/KV/Vectorize/R2 ids in wrangler.toml correspond to resources that actually exist in the fleet's Cloudflare account — or was §7.4 provisioning never run?
 29. **Satellite necessity**: the gateway's Room DO embeds directly and never calls the PINCHER/LEVEL_RUNNER service bindings — should the satellites be dropped from v1 to shrink the deploy surface?
-30. **The stale log**: PRODUCTION-LOG is round-1 stale while the tree shows migrations through 0010 and ~15 audit rounds — rewrite to match the tree before Fable's round 10, or move to docs/achieved/ (Casey 2026-09-20: never delete, only relocate)?
-
-## Doctrine (Casey, 2026-09-20)
-
-Never delete — only move to achieved folders. Retirement is relocation, not erasure.
+30. **The stale log**: PRODUCTION-LOG is round-1 stale while the tree shows migrations through 0010 and ~15 audit rounds — rewrite to match the tree before Fable's round 10, or delete entirely?
 
 ## Settled this cycle (for the record)
 
@@ -71,3 +67,6 @@ Never delete — only move to achieved folders. Retirement is relocation, not er
 - The deployed quilt-live-canon worker serves 14 papers (F115–F135); live hash 0xbf27a3631cdee337 matches the stranded-forensics trail. *(Lane A, verified)*
 - Suppression is a decision, but refusal is a confession — now implemented as tidepool's typed recall gate (PR #3). *(Lane B)*
 - Two genuine bugs in our own house: hermit commit tip-race (fix in progress, Lane D), FNV-32 vs paper-110 spec gap (hermit PR #9). *(Lane C)*
+31. **Reflex vs. compile**: should the MODEL tier's pincher EXECUTE/CONFIRM short-circuit keep bypassing `compileViaAI`, or should a high-scoring reflex become a compile-prompt style hint instead of a hard override? (Lane J, the-tap PR #4)
+32. **Compile model binding**: should the compile model ride an env var (e.g. `COMPILE_MODEL`) so a credentialed deploy can swap it without a code change? (Lane J, the-tap PR #4)
+33. **CI promotion**: should the green node and pytest suites be promoted into CI alongside the new tsc gate, since they currently only run locally? (Lane J, the-tap PR #4)
