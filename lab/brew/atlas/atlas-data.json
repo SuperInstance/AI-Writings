@@ -724,5 +724,112 @@
     ],
     "n_voices": 5,
     "duration_s": 23.20255446434021
+  },
+  {
+    "id": "20260920-040417",
+    "topic": "BIND is the cell's witness-log operation AND state-link operation. If they're the same (11-fold way), is the lattice one cell?",
+    "path": "lab/brew/20260920-040417-bind-is-the-cell-s-witness-log-operation-and-state.md",
+    "mean_similarity": 0.8641734183829263,
+    "truth_strength": 2.97,
+    "jev_pick": "Qwen3-32B",
+    "terms_coined": [
+      "Without",
+      "Suppose Cell",
+      "Proofs",
+      "Collapsing",
+      "These",
+      "While",
+      "Quilt"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.36446261405945
+  },
+  {
+    "id": "20260920-040443",
+    "topic": "The substrate is grown from its bugs (scars = seed). What 3 scars gave the substrate its current shape? Naming the wound-tree.",
+    "path": "lab/brew/20260920-040443-the-substrate-is-grown-from-its-bugs--scars---seed.md",
+    "mean_similarity": 0.6930074714835538,
+    "truth_strength": 2.85,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Every",
+      "Embeddings",
+      "Historian",
+      "Early",
+      "Lamport",
+      "Paxos",
+      "However",
+      "Reducing",
+      "Equating",
+      "Rigidly"
+    ],
+    "n_voices": 5,
+    "duration_s": 26.0333309173584
+  },
+  {
+    "id": "20260920-040509",
+    "topic": "At 35 brews, we've found 6 faces of the substrate (atlas prose). What would a 7th face look like? Is there a 7th?",
+    "path": "lab/brew/20260920-040509-at-35-brews--we-ve-found-6-faces-of-the-substrate-.md",
+    "mean_similarity": 0.8349616628709869,
+    "truth_strength": 2.73,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Embeddings",
+      "Quilt",
+      "Precedents",
+      "The Quilt",
+      "Minkowski",
+      "Could",
+      "For Quilt",
+      "Alternatively",
+      "Category Theory",
+      "However"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.184500455856323
+  },
+  {
+    "id": "20260920-040536",
+    "topic": "The brewery grows the substrate. Is the brewery itself a substrate? Cells that brew other cells.",
+    "path": "lab/brew/20260920-040536-the-brewery-grows-the-substrate--is-the-brewery-it.md",
+    "mean_similarity": 0.8296307599240812,
+    "truth_strength": 2.54,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Brewery",
+      "Quilt",
+      "Mismatch",
+      "Similarly",
+      "Measured Answers",
+      "Embeddings",
+      "Paradox",
+      "The Quilt",
+      "Conway",
+      "However"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.787492036819458
+  },
+  {
+    "id": "20260920-040559",
+    "topic": "If 'the substrate finds its strongest signals at the level that observes itself' \u2014 is the brewery the substrate's strongest cell?",
+    "path": "lab/brew/20260920-040559-if--the-substrate-finds-its-strongest-signals-at-t.md",
+    "mean_similarity": 0.8564194847412123,
+    "truth_strength": 2.86,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Lamport",
+      "Neumann",
+      "However",
+      "Quilt",
+      "Yet Lisp",
+      "The Quilt",
+      "Replicated Data Type",
+      "Reducing",
+      "With Embeddings",
+      "Every"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.61451768875122
   }
 ]
