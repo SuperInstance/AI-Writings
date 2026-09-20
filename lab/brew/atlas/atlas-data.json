@@ -1559,5 +1559,106 @@
     ],
     "n_voices": 5,
     "duration_s": 22.155378818511963
+  },
+  {
+    "id": "20260920-050151",
+    "topic": "The substrate-curve is saturating upward. What's the natural ceiling? Is there a JEV-truth-strength asymptote?",
+    "path": "lab/brew/20260920-050151-the-substrate-curve-is-saturating-upward--what-s-t.md",
+    "mean_similarity": 0.8082849975051013,
+    "truth_strength": 2.3,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Early",
+      "These",
+      "Similarly",
+      "However",
+      "While",
+      "Without",
+      "In Quilt",
+      "Consider",
+      "Initially"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.385307788848877
+  },
+  {
+    "id": "20260920-050218",
+    "topic": "Strange loops in the substrate (Hofstadter): brewery brews substrate, substrate brews brewery. Is this G\u00f6del applied to substrate architecture?",
+    "path": "lab/brew/20260920-050218-strange-loops-in-the-substrate--hofstadter---brewe.md",
+    "mean_similarity": 0.8100134039305011,
+    "truth_strength": 2.44,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Loop Substrate",
+      "Strongest Claim",
+      "Its Implications",
+      "Hofstadter",
+      "Quilt",
+      "Certain",
+      "In Quilt",
+      "Embeddings",
+      "Strange",
+      "Neumann"
+    ],
+    "n_voices": 5,
+    "duration_s": 25.627137660980225
+  },
+  {
+    "id": "20260920-050243",
+    "topic": "Anti-cells as substrate cancer: how does the substrate distinguish adversarial patterns from autoimmune responses?",
+    "path": "lab/brew/20260920-050243-anti-cells-as-substrate-cancer--how-does-the-subst.md",
+    "mean_similarity": 0.8209346754050815,
+    "truth_strength": 2.47,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Higher Structure",
+      "Exceptions\n\nThe",
+      "Legitimate",
+      "Biological",
+      "These",
+      "Where"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.005985498428345
+  },
+  {
+    "id": "20260920-050310",
+    "topic": "The wound-tree grows. The substrate has 50+ scars now. Which scars are still load-bearing and which are vestigial?",
+    "path": "lab/brew/20260920-050310-the-wound-tree-grows--the-substrate-has-50--scars-.md",
+    "mean_similarity": 0.8550382751835892,
+    "truth_strength": 2.62,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Wound",
+      "Production",
+      "Bugs We",
+      "Scars",
+      "Wound Evaluation",
+      "Three",
+      "Resolution",
+      "Shared Scars",
+      "First Fix",
+      "Traverse"
+    ],
+    "n_voices": 3,
+    "duration_s": 25.979960680007935
+  },
+  {
+    "id": "20260920-050336",
+    "topic": "The 5D lattice (x,y,z,t,trust) \u2014 does adding the trust dimension make the substrate MORE load-bearing or LESS?",
+    "path": "lab/brew/20260920-050336-the-5d-lattice--x-y-z-t-trust----does-adding-the-t.md",
+    "mean_similarity": 0.8880961474802093,
+    "truth_strength": 2.76,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Adding",
+      "Ostrom",
+      "Introducing",
+      "Quilt",
+      "The Quilt"
+    ],
+    "n_voices": 3,
+    "duration_s": 25.913333415985107
   }
 ]
