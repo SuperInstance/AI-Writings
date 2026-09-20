@@ -1142,5 +1142,111 @@
     ],
     "n_voices": 4,
     "duration_s": 26.134490966796875
+  },
+  {
+    "id": "20260920-044047",
+    "topic": "Trust as the 5th axis (strength 3.01): does this change the cell algebra? Do we need a TRUST opcode, or is JEV enough?",
+    "path": "lab/brew/20260920-044047-trust-as-the-5th-axis--strength-3-01---does-this-c.md",
+    "mean_similarity": 0.7672754099703818,
+    "truth_strength": 0.59,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Roam Research",
+      "However",
+      "Since",
+      "Quilt",
+      "Trust",
+      "Proof",
+      "Stake",
+      "Similarly",
+      "Replicated Data Types",
+      "Historically"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.599027633666992
+  },
+  {
+    "id": "20260920-044111",
+    "topic": "Trust-asymmetry (wound-tree's 4th scar): building trust is hard, losing it easy. Is this FORGET for relationships? Is trust-asymmetry worse than FORGET-asymmetry?",
+    "path": "lab/brew/20260920-044111-trust-asymmetry--wound-tree-s-4th-scar---building-.md",
+    "mean_similarity": 0.8517569249223754,
+    "truth_strength": 2.85,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Building",
+      "Instead",
+      "Nodes",
+      "Trust",
+      "Embodied Predictive Agency",
+      "Replicated Data Type",
+      "Unlike",
+      "These",
+      "Byzantine",
+      "Early"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.164406776428223
+  },
+  {
+    "id": "20260920-044136",
+    "topic": "If every cell has a trust score, what does a cell-trust-of-0 look like? Is a 0-trust cell still a cell, or is it dead?",
+    "path": "lab/brew/20260920-044136-if-every-cell-has-a-trust-score--what-does-a-cell-.md",
+    "mean_similarity": 0.8528183807936045,
+    "truth_strength": 2.81,
+    "jev_pick": "DeepSeek V3",
+    "terms_coined": [
+      "Quilt",
+      "Trust",
+      "While",
+      "Embeddings",
+      "Similarly",
+      "However",
+      "Embedding",
+      "Consequently"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.5852370262146
+  },
+  {
+    "id": "20260920-044159",
+    "topic": "Trust-propagation: when a high-trust cell FORGETs, do nearby cells also forget? Trust-cascade as the FORGET operator's trust-weighted radius.",
+    "path": "lab/brew/20260920-044159-trust-propagation--when-a-high-trust-cell-forgets-.md",
+    "mean_similarity": 0.8705358216552953,
+    "truth_strength": 2.7,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Higher Structure",
+      "Exceptions\n\nThe",
+      "Embeddings",
+      "Quilt",
+      "Trust",
+      "First",
+      "However",
+      "Euclidean",
+      "Unless",
+      "Maybe"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.287054538726807
+  },
+  {
+    "id": "20260920-044226",
+    "topic": "Substrate grows because we brew. Now the substrate is 5D. What is the shape of the 5D topology? Is it a hypersphere or something stranger?",
+    "path": "lab/brew/20260920-044226-substrate-grows-because-we-brew--now-the-substrate.md",
+    "mean_similarity": 0.8736042752898012,
+    "truth_strength": 2.24,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Adding",
+      "Furthermore",
+      "Euclidean",
+      "Every",
+      "Hyperspheres",
+      "Robust",
+      "Further"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.215464115142822
   }
 ]
