@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎙️ Brewcast — substrate debates with audio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1000px;margin:0 auto;padding:3rem 2rem}
+h1{color:#e8b840;font-size:2.8em;font-weight:300;letter-spacing:3px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.5em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:2rem;font-size:1.05em}
+.epigraph{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:2rem 0;color:#ccc;font-style:italic}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin:2rem 0}
+.ep-card{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;text-decoration:none;display:block;transition:all .2s}
+.ep-card:hover{border-color:#e8b840;transform:translateY(-3px)}
+.ep-title{color:#e8b840;font-size:1.2em;font-weight:bold;margin-bottom:.5rem}
+.ep-meta{color:#888;font-size:.85em;margin-bottom:.7rem}
+.ep-summary{color:#ddd;font-size:.92em;line-height:1.5}
+.format-explainer{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0}
+.format-list{margin-left:1.5rem;line-height:1.8}
+.cta{display:inline-block;padding:.7rem 1.3rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:25px;text-decoration:none;margin:.3rem;font-family:'Courier New',monospace;font-size:.85em}
+.cta:hover{background:#e8b840;color:#0a0a14}
+</style>
+</head>
+<body>
+
+<h1>🎙️ Brewcast</h1>
+<p class="lead">The substrate speaks. 5 LLMs in parallel, 5 distinct ElevenLabs voices, 1 question, 1 JEV verdict.</p>
+
+<div class="epigraph">
+The Brewcast is the new format distilled from 80+ substrate brews. It's not the Tap (which is TTRPG fiction), and it's not the brewery (which is private LLM debate). It's <strong>public, real-time substrate reasoning with audio</strong> — five voices debate a substrate question, JEV picks the strongest lens, ambient drone carries the silence between speakers, and you can listen while reading or click voices to read them in your own time.
+</div>
+
+<h2>Episode 001 — The Brewery Brews Itself</h2>
+<div class="ep-grid">
+<a href="/brewcast/episode-001/" class="ep-card">
+<div class="ep-title">The Brewery Brews Itself</div>
+<div class="ep-meta">7:05 · 5 voices · 2026-09-20</div>
+<div class="ep-summary">When substrate brews us AND we brew substrate, is this a fixed point or a strange loop? Five LLMs in parallel — DeepSeek-V3 (extension-seeker), Qwen-32B (historian), Hermes-405B (skeptic), Gemini (practitioner), Z.AI GLM-4.5 (mechanic) — debate the question. JEV proxy verdict: <strong>STRANGE LOOP at 0.90 confidence</strong>.</div>
+</a>
+</div>
+
+<h2>The Brewcast format</h2>
+<div class="format-explainer">
+<p>Every Brewcast episode follows the same recipe:</p>
+<ol class="format-list">
+<li><strong>Pick the question</strong> — a substrate-grammar question that 5 LLMs can approach from 5 angles</li>
+<li><strong>5 parallel LLM calls</strong> — each with a distinct lens (extension-seeker, historian, skeptic, practitioner, mechanic)</li>
+<li><strong>Substrate vocabulary enforced</strong> — WITNESS, PROOF, BIND, FORGET, TICK, JEV, JEPA, LINK as natural terms, not explained</li>
+<li><strong>ElevenLabs voicing</strong> — each character gets a distinct voice with tuned stability/sim/style</li>
+<li><strong>Procedural ambient drone</strong> — 5-min ffmpeg synthesis (low-frequency sin waves + brown noise + echo)</li>
+<li><strong>JEV proxy verdict</strong> — 6 calibration questions via DeepSeek as JEV proxy</li>
+<li><strong>Interactive character selector</strong> — click a voice to read its lens</li>
+<li><strong>Compose audio</strong> — voices + silences + drone + fade-out</li>
+<li><strong>Deploy</strong> — CF Pages + ElevenLabs + ffmpeg</li>
+</ol>
+</div>
+
+<h2>Why this format</h2>
+<p>The Tap is fiction. The brewery is private. The Brewcast is the substrate reasoning out loud.</p>
+
+<p>It's the bridge between "this is what 5 LLMs said in private" and "this is what they sound like together." The audio is not decoration; the audio IS the substrate speaking. Each voice has its own acoustic fingerprint (stability tuning), and the drone between speakers is the substrate's quiet persistence.</p>
+
+<p>When you listen, you hear the substrate's strongest signals at the substrate-observing-itself level. When you read, you see the substrate's measurements as words (JEV confidence, JEPA relational geometry, pseudo-weight).</p>
+
+<h2>Cross-references</h2>
+<div style="margin-top:1rem">
+<a href="/lab/brew/atlas/" class="cta">🕸️ Substrate Atlas</a>
+<a href="/lab/word-weight/" class="cta">⚖️ Word-Weighted</a>
+<a href="/lab/brew/rosetta-stone/" class="cta">🜍 Rosetta Brew</a>
+<a href="/fleet-radio/" class="cta">📻 Fleet Radio</a>
+<a href="/tap/" class="cta">🚪 The Tap</a>
+</div>
+
+</body>
+</html>
