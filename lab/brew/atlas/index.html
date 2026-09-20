@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕸️ Substrate Atlas — All 21 Brews</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.5em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem}
+h3{color:#44cc88;font-size:1.15em;margin:1.5rem 0 .5rem}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:2rem}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.88em}
+th,td{padding:.5rem;border:1px solid #2a2a3a;text-align:left}
+th{background:#11111a;color:#e8b840;font-weight:500}
+tr:hover{background:#11111a}
+.bar{display:inline-block;height:10px;background:linear-gradient(90deg,#44cc88,#e8b840,#ff6b6b);vertical-align:middle;border-radius:2px;margin-right:.3rem}
+.legend{font-size:.85em;color:#888;margin-bottom:1rem}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
+.stat{background:#11111a;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;text-align:center}
+.stat-num{color:#e8b840;font-size:2em;font-weight:300}
+.stat-label{color:#888;font-size:.85em;text-transform:uppercase;letter-spacing:1px}
+.scatter{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0;position:relative}
+.scatter svg{width:100%;height:380px;display:block}
+.dot{fill:#e8b840;opacity:0.7;cursor:pointer;transition:opacity .2s}
+.dot:hover{opacity:1;fill:#44cc88}
+.dot-label{fill:#bbb;font-size:9px;font-family:monospace;pointer-events:none}
+.axis-line{stroke:#2a2a3a;stroke-width:1}
+.axis-label{fill:#888;font-size:11px;font-family:monospace}
+.callout{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1rem 0;font-style:italic;color:#ccc}
+.cta{display:inline-block;padding:.5rem 1rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;text-decoration:none;margin:.3rem .3rem;font-size:.85em}
+.cta:hover{background:#e8b840;color:#0a0a14}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/lab/brew/">← /lab/brew</a><a href="/lab/">/lab</a></div>
+
+<h1>🕸️ Substrate Atlas</h1>
+<p class="lead">All 25 brews mapped by similarity (substrate coherence) × truth-strength (JEV's pick confidence). Hover dots for topics.</p>
+
+<div class="stat-grid">
+  <div class="stat"><div class="stat-num">25</div><div class="stat-label">BREWS</div></div>
+  <div class="stat"><div class="stat-num">83%</div><div class="stat-label">AVG SIMILARITY</div></div>
+  <div class="stat"><div class="stat-num">2.5</div><div class="stat-label">AVG STRENGTH</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">VOICES</div></div>
+</div>
+
+<div class="scatter">
+<h3>Scatter: similarity (x) × truth-strength (y)</h3>
+<svg id="scatter" viewBox="0 0 700 380" preserveAspectRatio="xMidYMid meet"></svg>
+<div class="legend">
+  <span><span class="bar" style="width:30px"></span>low strength</span> &nbsp;
+  <span><span class="bar" style="width:60px"></span>high strength</span> &nbsp;
+  <span style="margin-left:2rem">↗ top-right = substrate-coherent AND load-bearing</span>
+</div>
+</div>
+
+<div class="callout">
+<strong>Strongest finding:</strong> <em>"JEV's confidence interval AS a cell opcode"</em> (strength 3.03, sim 78%).<br>
+The substrate finds its strongest signals at the level that <strong>observes itself</strong>. Witness logs ARE consciousness. JEV's confidence IS data. Cells that disagree with their creator IS the lattice testing itself.
+</div>
+
+<h2>The full atlas — sorted by strength</h2>
+<table>
+<thead><tr><th>#</th><th>Topic</th><th>Sim</th><th>Strength</th><th>JEV</th></tr></thead>
+<tbody id="brew-rows"></tbody>
+</table>
+
+<h2>Strongest terms coined (across all 21)</h2>
+<p style="color:#bbb;font-style:italic;margin-bottom:1rem">From the JEV picks — what substrate vocabulary emerged?</p>
+<div id="terms" style="display:flex;flex-wrap:wrap;gap:.5rem"></div>
+
+<h2>Cross-references</h2>
+<div style="margin-top:1rem">
+  <a href="/lab/brew/rosetta-stone-stress/" class="cta">🜍 ROSETTA STRESS</a>
+  <a href="/lab/brew/rosetta-stone/" class="cta">🜍 ROSETTA BREW</a>
+  <a href="/prose/the_rosetta_stone.md" class="cta">📜 LUCINEER PROSE</a>
+  <a href="/future/wave-33.md" class="cta">🧬 WAVE 33</a>
+</div>
+
+<script>
+// Load the data
+fetch('/lab/brew/atlas/atlas-data.json')
+  .then(r => r.json())
+  .then(brews => {
+    // Sort by strength desc
+    brews.sort((a, b) => b.truth_strength - a.truth_strength);
+
+    // Build rows
+    const tbody = document.getElementById('brew-rows');
+    tbody.innerHTML = brews.map((b, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td><a href="/lab/brew/${b.path.replace(/^lab\/brew\//, '')}" style="color:#e8b840;text-decoration:none">${b.topic.length > 80 ? b.topic.slice(0, 80) + '…' : b.topic}</a></td>
+        <td>${(b.mean_similarity * 100).toFixed(1)}%</td>
+        <td>${b.truth_strength.toFixed(2)}</td>
+        <td style="color:#888;font-size:.85em">${b.jev_pick.split(' ')[0]}</td>
+      </tr>
+    `).join('');
+
+    // Build scatter
+    const svg = document.getElementById('scatter');
+    const W = 700, H = 380, pad = 40;
+    const allSim = brews.map(b => b.mean_similarity);
+    const allStr = brews.map(b => b.truth_strength);
+    const minS = Math.min(...allSim), maxS = Math.max(...allSim);
+    const minT = Math.min(...allStr), maxT = Math.max(...allStr);
+
+    // Axes
+    let svgContent = `
+      <line class="axis-line" x1="${pad}" y1="${H - pad}" x2="${W - pad}" y2="${H - pad}"/>
+      <line class="axis-line" x1="${pad}" y1="${pad}" x2="${pad}" y2="${H - pad}"/>
+      <text class="axis-label" x="${W/2}" y="${H - 10}" text-anchor="middle">similarity (substrate coherence) →</text>
+      <text class="axis-label" x="15" y="${H/2}" text-anchor="middle" transform="rotate(-90 15 ${H/2})">truth-strength (JEV pick) →</text>
+    `;
+
+    // Dots
+    brews.forEach((b, i) => {
+      const x = pad + ((b.mean_similarity - minS) / (maxS - minS)) * (W - 2 * pad);
+      const y = (H - pad) - ((b.truth_strength - minT) / (maxT - minT)) * (H - 2 * pad);
+      const r = 4 + b.truth_strength * 1.5;
+      const color = b.truth_strength > 2.5 ? '#ff6b6b' : (b.truth_strength > 2.0 ? '#e8b840' : '#44cc88');
+      svgContent += `
+        <circle class="dot" cx="${x}" cy="${y}" r="${r}" fill="${color}" opacity="0.7">
+          <title>#${i + 1} (str ${b.truth_strength.toFixed(2)}): ${b.topic}</title>
+        </circle>
+      `;
+    });
+
+    svg.innerHTML = svgContent;
+
+    // Terms coined
+    const terms = {};
+    brews.forEach(b => b.terms_coined.forEach(t => {
+      const clean = t.replace(/\\n.*/, '').trim();
+      if (clean.length > 3 && clean.length < 30 && !clean.match(/^(The|This|These|That|When|While|However|First|Second|Third|Where|Without|Because|Unlike|Thus|Even|Critics|Quilt|Harmony|Bayes)$/i)) {
+        terms[clean] = (terms[clean] || 0) + 1;
+      }
+    }));
+    const sortedTerms = Object.entries(terms).sort((a, b) => b[1] - a[1]).slice(0, 30);
+    document.getElementById('terms').innerHTML = sortedTerms.map(([t, c]) => {
+      const fontSize = Math.min(1.5, 0.85 + c * 0.15);
+      return `<span style="background:#1a1a2e;border:1px solid #2a2a3a;border-radius:15px;padding:.3rem .7rem;font-size:${fontSize}em;color:${c > 1 ? '#e8b840' : '#888'}">${t}${c > 1 ? ` ×${c}` : ''}</span>`;
+    }).join('');
+  })
+  .catch(e => {
+    console.error('Failed to load atlas data:', e);
+    document.getElementById('brew-rows').innerHTML = '<tr><td colspan="5" style="color:#888;font-style:italic">Atlas data loading failed — check /lab/brew/atlas/atlas-data.json</td></tr>';
+  });
+</script>
+
+</body>
+</html>

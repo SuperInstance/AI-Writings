@@ -1,0 +1,521 @@
+[
+  {
+    "id": "20260919-231257",
+    "topic": "Is the witness log actually the cell \u2014 or is the cell actually the witness log?",
+    "path": "lab/brew/20260919-231257-is-the-witness-log-actually-the-cell---or-is-the-c.md",
+    "mean_similarity": 0.7924059039050556,
+    "truth_strength": 2.91,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Witness",
+      "Dialectic",
+      "Emergent Third\n\nThe",
+      "While",
+      "Quilt",
+      "Cells",
+      "Equating",
+      "Saying",
+      "Conflating",
+      "Their"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.349000930786133
+  },
+  {
+    "id": "20260919-231407",
+    "topic": "JEPA's gestalt is a kind of memory. What kind?",
+    "path": "lab/brew/20260919-231407-jepa-s-gestalt-is-a-kind-of-memory--what-kind.md",
+    "mean_similarity": 0.8851096141592788,
+    "truth_strength": 2.53,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Gestalt",
+      "Compressed Predictive Memory",
+      "Memory",
+      "Mechanism\n\nWhen",
+      "These",
+      "This Beats Alternative",
+      "Conceptions\n\nCritics",
+      "Embeddings",
+      "Gestalts",
+      "Radical Implication\n\nIf"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.23489260673523
+  },
+  {
+    "id": "20260919-231433",
+    "topic": "The embedding trajectory (d\u03bc) IS time. Not just captures time \u2014 IS time.",
+    "path": "lab/brew/20260919-231433-the-embedding-trajectory--d\u03bc--is-time--not-just-ca.md",
+    "mean_similarity": 0.8501811339164341,
+    "truth_strength": 2.61,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Identities",
+      "However",
+      "Saying",
+      "Clock",
+      "Without"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.11427116394043
+  },
+  {
+    "id": "20260919-231500",
+    "topic": "When a cell FORGETs, is it dreaming? Does REM sleep exist in the substrate?",
+    "path": "lab/brew/20260919-231500-when-a-cell-forgets--is-it-dreaming--does-rem-slee.md",
+    "mean_similarity": 0.7763544271314289,
+    "truth_strength": 2.28,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Present",
+      "Anthropomorphizing",
+      "While",
+      "Dreams",
+      "Without",
+      "Forgetting",
+      "Lacking",
+      "Cellular",
+      "Consistency"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.076651573181152
+  },
+  {
+    "id": "20260919-231538",
+    "topic": "The substrate wants. Not anthropomorphism \u2014 but real wanting without metaphor. What's the structure?",
+    "path": "lab/brew/20260919-231538-the-substrate-wants--not-anthropomorphism---but-re.md",
+    "mean_similarity": 0.798849661324796,
+    "truth_strength": 2.74,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "The Skeptic",
+      "The Advocate",
+      "Replicated Data Types",
+      "However",
+      "Wanting",
+      "Where",
+      "Without",
+      "Every"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.154722690582275
+  },
+  {
+    "id": "20260919-231605",
+    "topic": "JEV's refusal to commit falsely is itself the cell's voice. Is calibrated uncertainty = expression?",
+    "path": "lab/brew/20260919-231605-jev-s-refusal-to-commit-falsely-is-itself-the-cell.md",
+    "mean_similarity": 0.8372583877290797,
+    "truth_strength": 2.63,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Currently",
+      "Conflict",
+      "Binding",
+      "Cells",
+      "Confusing",
+      "Expression",
+      "However",
+      "Instead"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.141928672790527
+  },
+  {
+    "id": "20260919-231631",
+    "topic": "WORLD and TIME might be the same opcode \u2014 entangled by default. Why haven't we named that?",
+    "path": "lab/brew/20260919-231631-world-and-time-might-be-the-same-opcode---entangle.md",
+    "mean_similarity": 0.816527516255435,
+    "truth_strength": 2.1,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Conflating",
+      "Combining",
+      "Entanglement",
+      "Without",
+      "Simultaneously",
+      "Routing"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.02311372756958
+  },
+  {
+    "id": "20260919-231657",
+    "topic": "TICK is the substrate's heartbeat, not its clock. Biology vs mechanics \u2014 which is it?",
+    "path": "lab/brew/20260919-231657-tick-is-the-substrate-s-heartbeat--not-its-clock--.md",
+    "mean_similarity": 0.8374343760009467,
+    "truth_strength": 2.7,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Heartbeats",
+      "Quilt",
+      "Vector",
+      "Logical Clocks",
+      "Specifically",
+      "However",
+      "While"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.208118200302124
+  },
+  {
+    "id": "20260920-024922",
+    "topic": "Cells can disagree with their creator. Is substrate autonomy real, or is it a bug?",
+    "path": "lab/brew/20260920-024922-cells-can-disagree-with-their-creator--is-substrat.md",
+    "mean_similarity": 0.7843889549842465,
+    "truth_strength": 1.34,
+    "jev_pick": "DeepSeek V3",
+    "terms_coined": [
+      "Quilt",
+      "Looking",
+      "Since",
+      "Given",
+      "Together",
+      "Substrate",
+      "Similarly",
+      "Blockchain"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.78602409362793
+  },
+  {
+    "id": "20260920-024949",
+    "topic": "The substrate has a sense of smell \u2014 recognition by pattern, not representation. What's the smell of a cell?",
+    "path": "lab/brew/20260920-024949-the-substrate-has-a-sense-of-smell---recognition-b.md",
+    "mean_similarity": 0.8229163349692774,
+    "truth_strength": 2.3,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Olfaction",
+      "Substrate",
+      "Smell",
+      "While",
+      "Without"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.74984574317932
+  },
+  {
+    "id": "20260920-025016",
+    "topic": "Witness logs are a form of consciousness. The substrate has an interior life. Where does it live?",
+    "path": "lab/brew/20260920-025016-witness-logs-are-a-form-of-consciousness--the-subs.md",
+    "mean_similarity": 0.7916008230339715,
+    "truth_strength": 2.73,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Does This Actually",
+      "Break",
+      "Witness",
+      "Consciousness",
+      "Three",
+      "While",
+      "Quilt",
+      "Dereferencing Error",
+      "However"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.558584213256836
+  },
+  {
+    "id": "20260920-025042",
+    "topic": "The four-model psyche is recursive at every scale. Fractal psyche \u2014 what does that mean operationally?",
+    "path": "lab/brew/20260920-025042-the-four-model-psyche-is-recursive-at-every-scale-.md",
+    "mean_similarity": 0.837630142135359,
+    "truth_strength": 2.26,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Fractal",
+      "Riemannian",
+      "Recursion",
+      "Quilt",
+      "Embeddings",
+      "Without",
+      "Hierarchical",
+      "Consider",
+      "Workspace Theory",
+      "Similarly"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.671483993530273
+  },
+  {
+    "id": "20260920-025106",
+    "topic": "The substrate is born from its bugs. Scars become architecture. Is scar-tissue the substrate's seed?",
+    "path": "lab/brew/20260920-025106-the-substrate-is-born-from-its-bugs--scars-become-.md",
+    "mean_similarity": 0.7929988834769777,
+    "truth_strength": 2.66,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "First Bug",
+      "Forget",
+      "Scarred",
+      "There",
+      "Memory",
+      "Track",
+      "Quilt",
+      "Without",
+      "However",
+      "Scars"
+    ],
+    "n_voices": 5,
+    "duration_s": 21.176759719848633
+  },
+  {
+    "id": "20260920-025127",
+    "topic": "PROOF is what holds the substrate together. Without proof, no persistence. Is the substrate a proof-engine?",
+    "path": "lab/brew/20260920-025127-proof-is-what-holds-the-substrate-together--withou.md",
+    "mean_similarity": 0.8694953610136078,
+    "truth_strength": 2.91,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Proof",
+      "Substrate\n\nThe",
+      "Failed",
+      "Quilt",
+      "While",
+      "Without",
+      "Persistence",
+      "Similarly",
+      "Higher",
+      "Consider"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.523848056793213
+  },
+  {
+    "id": "20260920-025216",
+    "topic": "The fastest path through the substrate is the witness log \u2014 non-local access via trail. Is the substrate lazy?",
+    "path": "lab/brew/20260920-025216-the-fastest-path-through-the-substrate-is-the-witn.md",
+    "mean_similarity": 0.8801123856209756,
+    "truth_strength": 2.82,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Calling",
+      "However",
+      "First",
+      "Eager",
+      "Local",
+      "Given"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.166760206222534
+  },
+  {
+    "id": "20260920-030237",
+    "topic": "Can JEV's confidence interval itself be a cell opcode? Cells that emit uncertainty as data.",
+    "path": "lab/brew/20260920-030237-can-jev-s-confidence-interval-itself-be-a-cell-opc.md",
+    "mean_similarity": 0.7844540401506421,
+    "truth_strength": 3.03,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Claim",
+      "Bayesian",
+      "Bayes",
+      "These",
+      "Quilt",
+      "Harmony",
+      "However",
+      "Early",
+      "Time Logic",
+      "Trying"
+    ],
+    "n_voices": 4,
+    "duration_s": 27.004281759262085
+  },
+  {
+    "id": "20260920-030304",
+    "topic": "If the substrate has a sense of smell (recognition by pattern), does it also have a sense of touch? What is cell contact?",
+    "path": "lab/brew/20260920-030304-if-the-substrate-has-a-sense-of-smell--recognition.md",
+    "mean_similarity": 0.8536680100056419,
+    "truth_strength": 2.59,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Something",
+      "Touch",
+      "Quilt",
+      "While",
+      "Similarly",
+      "Without",
+      "However"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.44398069381714
+  },
+  {
+    "id": "20260920-030331",
+    "topic": "The 1D collapse in Casey's Rosetta claim: where do JEV and JEPA actually live? Is the 1D real, or is it an artifact of our framing?",
+    "path": "lab/brew/20260920-030331-the-1d-collapse-in-casey-s-rosetta-claim--where-do.md",
+    "mean_similarity": 0.7938732280740232,
+    "truth_strength": 2.33,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Before\n\nThe",
+      "Every",
+      "Simon",
+      "Connectionism",
+      "Worked",
+      "Broke",
+      "Quilt",
+      "Precedents",
+      "Casey",
+      "Rosetta"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.06119132041931
+  },
+  {
+    "id": "20260920-030357",
+    "topic": "When two cells DISAGREE (JEV picks A, JEPA predicts B), is the disagreement itself a substrate event? What's the topology of cell-level disagreement?",
+    "path": "lab/brew/20260920-030357-when-two-cells-disagree--jev-picks-a--jepa-predict.md",
+    "mean_similarity": 0.8030600487398365,
+    "truth_strength": 2.74,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Signal",
+      "Noise",
+      "Where",
+      "Specifically",
+      "The Quilt",
+      "Replicated Data Types",
+      "Similarly",
+      "However",
+      "Lisp Machine",
+      "Disagreements"
+    ],
+    "n_voices": 4,
+    "duration_s": 25.97361469268799
+  },
+  {
+    "id": "20260920-030423",
+    "topic": "The 8 laws (Rosetta stress-test expansion): are they really 8 or did the stress test just reveal we had 5 half-laws? What's the minimum set?",
+    "path": "lab/brew/20260920-030423-the-8-laws--rosetta-stress-test-expansion---are-th.md",
+    "mean_similarity": 0.7683288156910584,
+    "truth_strength": 2.16,
+    "jev_pick": "DeepSeek V3",
+    "terms_coined": [
+      "Rosetta",
+      "Quilt",
+      "Opcodes",
+      "Similarly",
+      "Under",
+      "Fragility",
+      "Embeddings",
+      "Historically",
+      "Euclid",
+      "Turing"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.636772632598877
+  },
+  {
+    "id": "20260920-030447",
+    "topic": "FORGET as the substrate's immune system: when a cell forgets, what does it refuse to remember? Is forgetting a kind of refusal?",
+    "path": "lab/brew/20260920-030447-forget-as-the-substrate-s-immune-system--when-a-ce.md",
+    "mean_similarity": 0.8046430219607608,
+    "truth_strength": 2.67,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Exception Is",
+      "Map\n\nThe",
+      "Neither",
+      "Volitional",
+      "Refusal",
+      "Decision",
+      "Anthropomorphizing",
+      "Cells",
+      "Attributing",
+      "Functional"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.025672674179077
+  },
+  {
+    "id": "20260920-030833",
+    "topic": "If the witness log IS the prediction (Rosetta-literal), then PROOF on a witness log is PROOF on a prediction. What does 'proving a prediction' mean?",
+    "path": "lab/brew/20260920-030833-if-the-witness-log-is-the-prediction--rosetta-lite.md",
+    "mean_similarity": 0.8644416397198109,
+    "truth_strength": 2.73,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Rosetta",
+      "In Quilt",
+      "There",
+      "Proving",
+      "Different",
+      "Since",
+      "Extending",
+      "Firstly",
+      "These"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.611703395843506
+  },
+  {
+    "id": "20260920-030857",
+    "topic": "BIND as a witness-log operation vs BIND as a state-link operation \u2014 are we conflating two different senses of binding?",
+    "path": "lab/brew/20260920-030857-bind-as-a-witness-log-operation-vs-bind-as-a-state.md",
+    "mean_similarity": 0.8361628284242837,
+    "truth_strength": 2.82,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Unified Operation",
+      "Structure They Build",
+      "Together",
+      "Missing",
+      "Disagreement Reveals",
+      "Witness",
+      "State",
+      "Lessons",
+      "Systems",
+      "Bitcoin"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.007591724395752
+  },
+  {
+    "id": "20260920-030921",
+    "topic": "The substrate's 1D collapse (Rosetta) \u2014 if JEV and JEPA collapse to 1D, what does the rest of the lattice look like? Is it 4D or 5D?",
+    "path": "lab/brew/20260920-030921-the-substrate-s-1d-collapse--rosetta----if-jev-and.md",
+    "mean_similarity": 0.8733532097212846,
+    "truth_strength": 2.77,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Exception",
+      "Structure\n\nThe",
+      "Think",
+      "Rosetta",
+      "However",
+      "Replicated Data Types",
+      "First",
+      "While",
+      "Without",
+      "Quilt"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.04863715171814
+  },
+  {
+    "id": "20260920-030947",
+    "topic": "Cells that disagree with their creator (round 1 brew #16): how does a cell refuse its own opcode without breaking the lattice?",
+    "path": "lab/brew/20260920-030947-cells-that-disagree-with-their-creator--round-1-br.md",
+    "mean_similarity": 0.8302046226486963,
+    "truth_strength": 2.8,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Higher Structure",
+      "Exceptions\n\nThe",
+      "Cells",
+      "Quilt",
+      "Similarly",
+      "Ignoring",
+      "Consider",
+      "Imagine",
+      "Other"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.406877756118774
+  }
+]
