@@ -12,3 +12,5 @@ radio-theater/the-relay-night/the-relay-night-production.mp3
 videos/
 /videos/
 /tap/*.mp3
+/fleet-radio/*/audio/*.mp3
+/fleet-radio/*/audio/voices/
