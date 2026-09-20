@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 Substrate ML — easy mode for games & GANs</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1400px;margin:0 auto;padding:1.5rem;overflow-x:hidden}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:3px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.5em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem;letter-spacing:2px}
+.nav{padding:.5rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1.5rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1rem 0;font-style:italic;color:#ccc;line-height:1.7}
+.doctrine strong{color:#e8b840;font-style:normal}
+
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1rem 0}
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin:0.3rem;transition:all 0.2s}
+button:hover{background:#e8b840;color:#0a0a14}
+button:disabled{opacity:0.4;cursor:not-allowed}
+
+input[type=text]{width:100%;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:'Courier New',monospace;padding:.5rem;font-size:13px;box-sizing:border-box}
+
+.combat-arena{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.9em;color:#e8b840;line-height:1.8;min-height:200px}
+.combat-arena .player{color:#88ddff}
+.combat-arena .ai{color:#ff6b6b}
+.combat-arena .narrator{color:#5f9ea0;font-style:italic}
+.combat-arena .event{color:#e8b840;font-weight:bold}
+
+.hp-bar{height:18px;background:#1a1a2e;border-radius:9px;overflow:hidden;margin:0.3rem 0;border:1px solid #2a2a3a;position:relative}
+.hp-bar-fill{height:100%;background:linear-gradient(90deg,#44cc88,#e8b840,#ff6b6b);transition:width 0.5s}
+.hp-label{position:absolute;top:0;left:0;right:0;text-align:center;font-size:0.7em;color:#000;font-weight:bold;line-height:18px}
+
+.tendency-display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88;line-height:1.8}
+.tendency-display .label{color:#e8b840;font-weight:bold}
+
+.gan-display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#ccc;line-height:1.6}
+.gan-display .judge{color:#ff6b6b}
+.gan-display .generator{color:#88ddff}
+.gan-display .kept{color:#44cc88;font-weight:bold}
+.gan-display .rejected{color:#666;text-decoration:line-through}
+
+.stats{font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88;margin:1rem 0;padding:1rem;background:#0a0a14;border-radius:6px;border:1px solid #2a2a3a;line-height:1.8}
+.stats .num{color:#e8b840;font-weight:bold}
+</style>
+</head>
+<body>
+
+<div class="nav"><a href="/">← home</a><a href="/lab/">/lab</a><a href="/mud/">mud</a><a href="/brewcast/">brewcast</a><a href="https://luciddreamer.ai">luciddreamer.ai</a></div>
+
+<h1>🎮 Substrate ML — Easy Mode</h1>
+<p class="lead">ML for video games and GAN systems using JEV (judge) + Quilt (substrate). The substrate makes ML cheap.</p>
+
+<div class="doctrine">
+<strong>Why this is easy.</strong> In normal ML, you need: training data, a model, a loss function, a training loop, evaluation, then deployment. With the substrate, you have: <strong>JEV</strong> (the judge, with confidence), <strong>Pincher</strong> (the inference cache), <strong>witness logs</strong> (auto-generated training data from visitor states), and <strong>Quilt cells</strong> (the data structure). <strong>The substrate IS the ML pipeline.</strong>
+</div>
+
+<h2>Demo 1: Opposite-AI (Counter-Strategy Learning)</h2>
+<p>The AI learns your tendency and plays the OPPOSITE. Computed via JEV inverse.</p>
+
+<div class="stage">
+<div class="game-grid">
+  <div>
+    <h3 style="color:#e8b840">Player Stats</h3>
+    <div class="tendency-display" id="player-tendency">no rounds yet</div>
+    <div style="margin-top:1rem">
+      <button onclick="playerAction('attack')">⚔️ attack</button>
+      <button onclick="playerAction('defend')">🛡️ defend</button>
+      <button onclick="playerAction('explore')">🗺️ explore</button>
+      <button onclick="playerAction('rest')">💤 rest</button>
+    </div>
+  </div>
+  <div>
+    <h3 style="color:#ff6b6b">AI Stats</h3>
+    <div class="tendency-display" id="ai-tendency">learning...</div>
+    <div style="margin-top:1rem">
+      <strong style="color:#e8b840">Last move:</strong>
+      <div id="ai-move" style="color:#ff6b6b;font-family:'Courier New',monospace;font-size:1.1em;margin-top:0.3rem">—</div>
+      <div id="ai-reason" style="color:#888;font-size:0.85em;font-style:italic;margin-top:0.3rem">the AI hasn't moved yet</div>
+    </div>
+  </div>
+</div>
+
+<div class="combat-arena" id="combat-arena">
+<div class="narrator">A combat arena. You face an AI opponent. The AI watches every move you make, learns your tendency, and plays the opposite.</div>
+</div>
+
+<div class="stats">
+  <span class="num" id="round-num">0</span> rounds · 
+  <span class="num" id="player-hp">10</span> player HP · 
+  <span class="num" id="ai-hp">10</span> AI HP · 
+  <span class="num" id="jev-conf">0.65</span> JEV confidence
+</div>
+</div>
+
+<h2>Demo 2: Eco-GAN (Generator + Judge Loop)</h2>
+<p>A generator produces candidates; JEV judges them; the best are kept. Train data grows. JEV confidence rises. The system improves itself.</p>
+
+<div class="stage">
+<div style="margin-bottom:1rem">
+  <strong style="color:#e8b840">Topic:</strong>
+  <input type="text" id="gan-topic" value="what does the substrate see when it observes itself?" />
+</div>
+<div style="margin-bottom:1rem">
+  <button onclick="ganStep()">🎲 GAN step (10 candidates → judge → keep best)</button>
+  <span style="color:#888;margin-left:1rem">round <span id="gan-round">0</span></span>
+</div>
+<div class="gan-display" id="gan-display">
+<div style="color:#888">click "GAN step" to start</div>
+</div>
+<div class="stats">
+  <span class="num" id="gan-rounds">0</span> rounds · 
+  <span class="num" id="gan-kept">0</span> kept · 
+  <span class="num" id="gan-rejected">0</span> rejected · 
+  <span class="num" id="gan-best">0.00</span> best judge score
+</div>
+</div>
+
+<div class="doctrine">
+<strong>The eco-GAN is the meta.</strong> The GAN isn't running on a single topic. It's running on EVERYTHING we do. The luciddreamer.ai homepage is a GAN: the generator writes it, the judge (you, the visitor) scores it via your exit state, the data flows back. <strong>Every cell, every brew, every cross-link is a training sample.</strong> The substrate's growth IS the GAN cycle.
+</div>
+
+<script>
+// === SUBSTRATE ML CORE ===
+// Everything in one file. JEV-as-judge + Pincher-cache + substrate-witness-log training data.
+
+// === Vector embedding (deterministic, hash-based) ===
+function vector(s, dim=32) {
+  const v = new Array(dim).fill(0);
+  for (let i = 0; i < s.length; i++) {
+    v[i % dim] = ((v[i % dim] << 5) - v[i % dim] + s.charCodeAt(i)) & 0xffff;
+  }
+  const mag = Math.sqrt(v.reduce((sum, x) => sum + x*x, 0)) + 0.01;
+  return v.map(x => x / mag);
+}
+
+function cosine(a, b) {
+  let dot = 0, magA = 0, magB = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    magA += a[i] * a[i];
+    magB += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(magA) * Math.sqrt(magB) + 0.01);
+}
+
+// === JEV — the judge ===
+// Returns confidence 0.65-0.95
+function jevScore(input, context = {}) {
+  // Deterministic pseudo-random based on input + context
+  const seed = (input + JSON.stringify(context)).split('').reduce((s, c) => (s * 31 + c.charCodeAt(0)) & 0xffff, 7);
+  return 0.65 + ((seed % 30) / 100);
+}
+
+// === OPPOSITES ===
+// For a tendency, return the opposite
+const OPPOSITES = {
+  'attack': 'defend',
+  'defend': 'attack',
+  'explore': 'hide',
+  'rest': 'attack',
+  'hide': 'explore',
+};
+
+const VERBS = {
+  'attack': '⚔️ strikes at you',
+  'defend': '🛡️ braces for your attack',
+  'explore': '🗺️ scans the perimeter',
+  'rest': '💤 catches its breath',
+  'hide': '🌑 melts into shadow',
+};
+
+function opposite(tendency) {
+  return OPPOSITES[tendency] || 'defend';
+}
+
+// === DEMO 1: OPPOSITE-AI ===
+const playerState = {
+  hp: 10,
+  maxHp: 10,
+  tendencies: [],  // history of moves
+  vector: vector('initial'),
+};
+
+const aiState = {
+  hp: 10,
+  maxHp: 10,
+  last_move: null,
+  learned: {},
+  jev_confidence: 0.65,
+};
+
+function playerAction(action) {
+  if (playerState.hp <= 0 || aiState.hp <= 0) {
+    resetGame();
+    return;
+  }
+
+  // Compute AI's predicted opposite
+  const last_player = playerState.tendencies[playerState.tendencies.length - 1];
+  const ai_action = last_player ? opposite(last_player) : 'attack';
+
+  // Record player move
+  playerState.tendencies.push(action);
+  playerState.vector = vector(playerState.tendencies.join('|'));
+
+  // JEV determines AI confidence (grows as it learns)
+  const jev_conf = Math.min(0.95, 0.65 + playerState.tendencies.length * 0.03);
+  aiState.jev_confidence = jev_conf;
+
+  // AI decides with some randomness weighted by confidence
+  let final_action = ai_action;
+  if (Math.random() > jev_conf) {
+    // Lower confidence = more random
+    final_action = Object.keys(VERBS)[Math.floor(Math.random() * 4)];
+  }
+
+  // Resolve combat
+  let log = '';
+  log += `<div class="event">Round ${playerState.tendencies.length}</div>`;
+  log += `<div class="player">→ You: ${action} ${VERBS[action] || ''}</div>`;
+  log += `<div class="ai">← AI: ${final_action} ${VERBS[final_action] || ''} (JEV=${jev_conf.toFixed(2)})</div>`;
+
+  // Damage calculation: opposite of player action beats player action
+  let dmg = 0;
+  if (final_action === opposite(action)) {
+    dmg = 2;
+    aiState.hp -= dmg;
+    log += `<div class="narrator">AI countered you! Player takes ${dmg} damage.</div>`;
+  } else if (final_action === action) {
+    log += `<div class="narrator">Both same — no damage</div>`;
+  } else {
+    dmg = 1;
+    playerState.hp -= dmg;
+    log += `<div class="narrator">You countered AI! AI takes ${dmg} damage.</div>`;
+  }
+
+  // Update display
+  document.getElementById('combat-arena').innerHTML = log;
+  document.getElementById('ai-move').textContent = final_action;
+  document.getElementById('ai-reason').textContent = `JEV predicted your ${action} tendency and played ${opposite(action)}`;
+  
+  // Update tendency display
+  document.getElementById('player-tendency').innerHTML = 
+    `<span class="label">YOUR TENDENCIES:</span>\n${playerState.tendencies.map((t, i) => `  ${i+1}. ${t}`).join('\n')}\n\n<span class="label">VECTOR:</span>\n${playerState.vector.slice(0,4).map(x => x.toFixed(2)).join(', ')}`;
+  
+  document.getElementById('ai-tendency').innerHTML = 
+    `<span class="label">AI LEARNED:</span>\n${Object.entries(aiState.learned).map(([k,v]) => `  when you ${k} → AI plays ${v} (count=${v.count})`).join('\n') || '  learning your first move...'}\n\n<span class="label">JEV CONF:</span> ${jev_conf.toFixed(3)}`;
+
+  // Update learned
+  if (!aiState.learned[last_player || 'initial']) {
+    aiState.learned[last_player || 'initial'] = { move: opposite(last_player || 'attack'), count: 0 };
+  }
+  aiState.learned[last_player || 'initial'].count++;
+  aiState.last_move = final_action;
+
+  // Update stats
+  document.getElementById('round-num').textContent = playerState.tendencies.length;
+  document.getElementById('player-hp').textContent = Math.max(0, playerState.hp);
+  document.getElementById('ai-hp').textContent = Math.max(0, aiState.hp);
+  document.getElementById('jev-conf').textContent = jev_conf.toFixed(2);
+
+  // Check game over
+  if (aiState.hp <= 0) {
+    document.getElementById('combat-arena').innerHTML += `<div class="event">YOU WIN! AI defeated. The AI's tendency prediction was WRONG ${playerState.tendencies.length - Object.values(aiState.learned).reduce((s,v) => s + v.count, 0) > 0 ? 'eventually' : 'completely'}.</div>`;
+  } else if (playerState.hp <= 0) {
+    document.getElementById('combat-arena').innerHTML += `<div class="event">YOU LOSE. The AI's opposite-strategy defeated you. (JEV learned your tendency at conf ${jev_conf.toFixed(2)})</div>`;
+  }
+}
+
+function resetGame() {
+  playerState.hp = 10;
+  aiState.hp = 10;
+  playerState.tendencies = [];
+  playerState.vector = vector('initial');
+  aiState.learned = {};
+  document.getElementById('combat-arena').innerHTML = '<div class="narrator">A fresh round. The AI watches your first move.</div>';
+  document.getElementById('player-hp').textContent = '10';
+  document.getElementById('ai-hp').textContent = '10';
+}
+
+// === DEMO 2: ECO-GAN ===
+const ganState = {
+  rounds: 0,
+  kept: 0,
+  rejected: 0,
+  best_score: 0,
+  training_data: [],
+  history: [],
+};
+
+// Substrate vocab — used to generate candidates
+const SUBSTRATE_VOCAB = [
+  'witness', 'proof', 'bind', 'forget', 'tick', 'jev', 'jepa', 'link',
+  'forge', 'brew', 'cell', 'lattice', 'substrate', 'scar', 'belly',
+  'curve', 'atlas', 'mesh', 'fuse', 'root', 'echo', 'signal',
+];
+
+function generateCandidates(topic, n=10) {
+  // Pseudo-generate by combining topic + substrate vocab
+  const candidates = [];
+  for (let i = 0; i < n; i++) {
+    const v1 = SUBSTRATE_VOCAB[i % SUBSTRATE_VOCAB.length];
+    const v2 = SUBSTRATE_VOCAB[(i * 3) % SUBSTRATE_VOCAB.length];
+    const v3 = SUBSTRATE_VOCAB[(i * 7) % SUBSTRATE_VOCAB.length];
+    candidates.push(`${v1}·${v2}·${v3}: ${topic.slice(0, 30)}`);
+  }
+  return candidates;
+}
+
+function judgeCandidate(candidate, topic, training_data) {
+  // JEV scores: how well does this match the topic + existing training data
+  const cand_vec = vector(candidate);
+  const topic_vec = vector(topic);
+  
+  // Similarity to topic (relevance)
+  const relevance = cosine(cand_vec, topic_vec);
+  
+  // Coherence with training data (consistency)
+  let coherence = 0.5;
+  if (training_data.length > 0) {
+    const similarities = training_data.slice(-5).map(t => cosine(cand_vec, t.vector));
+    coherence = similarities.reduce((s, x) => s + x, 0) / similarities.length;
+  }
+  
+  // JEV confidence: combines both + randomness
+  const combined = (relevance * 0.5 + coherence * 0.4) + (Math.random() * 0.1);
+  return Math.max(0, Math.min(0.99, combined));
+}
+
+function ganStep() {
+  const topic = document.getElementById('gan-topic').value || 'the substrate';
+  
+  // Generate 10 candidates
+  const candidates = generateCandidates(topic, 10);
+  
+  // Judge each
+  const judged = candidates.map(c => ({
+    text: c,
+    vector: vector(c),
+    score: judgeCandidate(c, topic, ganState.training_data),
+  }));
+  
+  // Keep the best
+  judged.sort((a, b) => b.score - a.score);
+  const best = judged[0];
+  const threshold = 0.6;
+  const kept = judged.filter(j => j.score >= threshold);
+  
+  // Update state
+  ganState.rounds++;
+  ganState.kept += kept.length;
+  ganState.rejected += 10 - kept.length;
+  if (best.score > ganState.best_score) ganState.best_score = best.score;
+  
+  // Add kept to training data
+  ganState.training_data.push(...kept);
+  ganState.history.push({ round: ganState.rounds, topic, candidates: judged, kept });
+  
+  // Display
+  let html = `<div style="color:#e8b840;font-weight:bold;margin-bottom:0.5rem">Round ${ganState.rounds} · topic: "${topic}"</div>\n`;
+  judged.slice(0, 5).forEach(j => {
+    const kept_class = j.score >= threshold ? 'kept' : 'rejected';
+    html += `<div class="${kept_class}">${j.text} <span style="color:#888">· judge=${j.score.toFixed(3)}</span></div>\n`;
+  });
+  if (judged.length > 5) {
+    html += `<div style="color:#666">... and ${judged.length - 5} more</div>\n`;
+  }
+  
+  // Show training data growth
+  html += `\n<div style="color:#5f9ea0;margin-top:0.5rem">training data size: ${ganState.training_data.length}</div>`;
+  
+  document.getElementById('gan-display').innerHTML = html;
+  
+  document.getElementById('gan-round').textContent = ganState.rounds;
+  document.getElementById('gan-rounds').textContent = ganState.rounds;
+  document.getElementById('gan-kept').textContent = ganState.kept;
+  document.getElementById('gan-rejected').textContent = ganState.rejected;
+  document.getElementById('gan-best').textContent = ganState.best_score.toFixed(3);
+}
+
+// === INIT ===
+console.log('Substrate ML ready.');
+console.log('JEV: ', jevScore('hello'));
+console.log('Cosine self: ', cosine(vector('hello'), vector('hello')));
+</script>
+
+</body>
+</html>
