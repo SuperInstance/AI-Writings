@@ -216,7 +216,7 @@ fetch('/lab/brew/history.jsonl')
         <h4>${b.topic.slice(0, 70)}${b.topic.length > 70 ? '…' : ''}</h4>
         <p class="meta">sim=${(b.mean_similarity * 100).toFixed(1)}% · strength=${b.truth_strength} · best=${b.jev_pick}</p>
         <p class="meta">${b.terms_coined.length} terms coined · ${b.duration_s.toFixed(0)}s wall</p>
-        <a href="/lab/brew/${b.id}-${b.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50)}.md">→ read the brew</a>
+        <a href="/lab/brew/${b.path.replace(/^lab\/brew\//, '')}">→ read the brew</a>
       </div>
     `).join('');
   });
