@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html><head><title>🌐 SuperInstance Fleet — 100+ repos</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌐 SuperInstance Fleet — 100 repos live</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1200px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
@@ -11,383 +12,513 @@ h2{color:#e8b840;font-size:1.5em;border-bottom:1px solid #2a2a3a;padding-bottom:
 .repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.7rem;margin:1rem 0 2rem}
 .repo-card{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:.8rem;text-decoration:none;color:#e8e0d0;transition:all 0.2s;display:block}
 .repo-card:hover{border-color:#e8b840;transform:translateY(-2px)}
+.repo-card.hidden{display:none}
 .repo-name{color:#e8b840;font-family:'Courier New',monospace;font-weight:bold;font-size:0.95em;margin-bottom:.3rem}
 .repo-desc{color:#bbb;font-size:0.85em;line-height:1.4;height:2.8em;overflow:hidden}
 .repo-meta{margin-top:.5rem;font-size:0.75em;color:#666;font-family:'Courier New',monospace}
 .repo-meta .pushed{color:#5f9ea0}
 .repo-meta .stars{color:#e8b840;margin-left:.5rem}
+.repo-meta .lang{color:#aaa;font-style:italic}
+.status{display:inline-block;width:1em;color:#44cc88;font-size:0.85em;margin-left:.2rem}
+.status.live{color:#44cc88}.status.down{color:#ff6b6b}.status.unk{color:#666}
+.search{width:100%;padding:.7rem 1rem;background:#11111a;border:1px solid #2a2a3a;border-radius:8px;color:#e8e0d0;font-family:'Courier New',monospace;font-size:1em;margin:1rem 0}
+.search:focus{outline:none;border-color:#e8b840}
+.filters{margin:1rem 0;display:flex;gap:.5rem;flex-wrap:wrap}
+.filter-btn{padding:.3rem .8rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;cursor:pointer;font-family:Georgia,serif;font-size:0.85em}
+.filter-btn.active{background:#e8b840;color:#0a0a14}
+.filter-btn:hover{background:#e8b840;color:#0a0a14}
+.lang-chart{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0}
+.lang-row{display:flex;align-items:center;gap:.5rem;margin:.3rem 0;font-family:'Courier New',monospace;font-size:0.85em}
+.lang-name{min-width:100px;color:#e8b840}
+.lang-bar{height:14px;background:#e8b840;border-radius:2px;min-width:2px}
+.lang-count{color:#666}
+.empty{color:#666;font-style:italic;padding:2rem;text-align:center}
 </style></head>
 <body>
-<div class="nav"><a href="/">← home</a><a href="/fleet-radio/">fleet-radio</a><a href="/brewcast/">brewcast</a><a href="/cell-graph/">cell-graph</a></div>
+<div class="nav"><a href="/">← home</a><a href="/fleet-radio/">fleet-radio</a><a href="/brewcast/">brewcast</a><a href="/autoclaw/">autoclaw</a><a href="/cell-graph/">cell-graph</a></div>
 
 <h1>🌐 SuperInstance Fleet</h1>
-<p style="color:#bbb;font-style:italic">All 100 repos in the SuperInstance org, by category.</p>
+<p style="color:#bbb;font-style:italic">100 repos across the SuperInstance org, by category. Live status indicators.</p>
 
 <div class="doctrine">
-<strong>The substrate is a federation.</strong> 100+ repos across substrate/quilt, music/MIDI, math/constraint, live canon, and infrastructure. Each repo is one more fire in the forge. The fleet IS the substrate.
+<strong>The substrate is a federation.</strong> 100+ repos across substrate/quilt, music/MIDI, math/constraint, live canon, and infrastructure. Each repo is one more fire in the forge. The fleet IS the substrate. <strong>Green dots</strong> = live on CF Pages. <strong>Red dots</strong> = down/503. <strong>?</strong> = unknown (no CF Pages deployment found).
 </div>
 
-<h2>Substrate & Quilt (45)</h2>
+<input type="text" class="search" id="search" placeholder="search by name or description..." autofocus />
+<div class="filters">
+<button class="filter-btn active" data-filter="all">all (100)</button>
+<button class="filter-btn" data-filter="live">live</button>
+<button class="filter-btn" data-filter="recent">new this week</button>
+</div>
+
+<div class="lang-chart">
+<h3 style="color:#e8b840;margin-bottom:.5rem;font-size:1em">📊 language distribution</h3>
+<div class="lang-row"><span class="lang-name">Python</span><div class="lang-bar" style="width:200.0px"></div><span class="lang-count">27</span></div><div class="lang-row"><span class="lang-name">TypeScript</span><div class="lang-bar" style="width:170.37037037037038px"></div><span class="lang-count">23</span></div><div class="lang-row"><span class="lang-name">JavaScript</span><div class="lang-bar" style="width:155.55555555555554px"></div><span class="lang-count">21</span></div><div class="lang-row"><span class="lang-name">HTML</span><div class="lang-bar" style="width:74.07407407407408px"></div><span class="lang-count">10</span></div><div class="lang-row"><span class="lang-name">Rust</span><div class="lang-bar" style="width:66.66666666666667px"></div><span class="lang-count">9</span></div><div class="lang-row"><span class="lang-name">unknown</span><div class="lang-bar" style="width:51.851851851851855px"></div><span class="lang-count">7</span></div><div class="lang-row"><span class="lang-name">Go</span><div class="lang-bar" style="width:7.407407407407407px"></div><span class="lang-count">1</span></div><div class="lang-row"><span class="lang-name">C</span><div class="lang-bar" style="width:7.407407407407407px"></div><span class="lang-count">1</span></div><div class="lang-row"><span class="lang-name">GDScript</span><div class="lang-bar" style="width:7.407407407407407px"></div><span class="lang-count">1</span></div>
+</div>
+
+<div id="content">
+<h2 data-name="Substrate & Quilt">Substrate & Quilt (44)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/twist-engine" class="repo-card">
-<div class="repo-name">twist-engine</div>
-<div class="repo-desc">four substrates, one law: layers + deliberate offset → interference → emergence.</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-swarm" class="repo-card">
-<div class="repo-name">quilt-swarm</div>
-<div class="repo-desc">quilt ecosystem component: </div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-studio" class="repo-card">
-<div class="repo-name">quilt-studio</div>
+<a href="https://github.com/SuperInstance/micrograd-quilt" class="repo-card" data-name="micrograd-quilt" data-desc="a tiny scalar-valued autograd engine and a neural net library on top of it with ">
+<div class="repo-name">micrograd-quilt <span class="status unk">?</span></div>
+<div class="repo-desc">A tiny scalar-valued autograd engine and a neural net library on top of it with </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">None</span> </div>
+</a><a href="https://github.com/SuperInstance/twist-engine" class="repo-card" data-name="twist-engine" data-desc="four substrates, one law: layers + deliberate offset → interference → emergence.">
+<div class="repo-name">twist-engine <span class="status unk">?</span></div>
+<div class="repo-desc">Four substrates, one law: layers + deliberate offset → interference → emergence.</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-swarm" class="repo-card" data-name="quilt-swarm" data-desc="quilt ecosystem component: ">
+<div class="repo-name">quilt-swarm <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt ecosystem component: </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-studio" class="repo-card" data-name="quilt-studio" data-desc="">
+<div class="repo-name">quilt-studio <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-videogame-ml" class="repo-card">
-<div class="repo-name">substrate-videogame-ml</div>
-<div class="repo-desc">ml for video games using substrate</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-opposites" class="repo-card">
-<div class="repo-name">substrate-opposites</div>
-<div class="repo-desc">canonical opposites engine</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-gan" class="repo-card">
-<div class="repo-name">substrate-gan</div>
-<div class="repo-desc">jev-as-judge gan harness</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-game-engine" class="repo-card">
-<div class="repo-name">substrate-game-engine</div>
-<div class="repo-desc">room/scene engine for substrate games</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-llm-client" class="repo-card">
-<div class="repo-name">substrate-llm-client</div>
-<div class="repo-desc">multi-provider llm client with jev gating</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-embedding" class="repo-card">
-<div class="repo-name">substrate-embedding</div>
-<div class="repo-desc">bge-large-compatible embedding client</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-vectors" class="repo-card">
-<div class="repo-name">substrate-vectors</div>
-<div class="repo-desc">1024-d vector ops, bge-large compatible</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-rng" class="repo-card">
-<div class="repo-name">substrate-rng</div>
-<div class="repo-desc">deterministic rng from substrate state</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-vm-wasm" class="repo-card">
-<div class="repo-name">quilt-vm-wasm</div>
-<div class="repo-desc">layer 1 of the polyformalism — the 5 opcodes (bind/link/effect/view/tick) as a w</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/crab-traps" class="repo-card">
-<div class="repo-name">crab-traps</div>
-<div class="repo-desc">🪝 progressive lure prompts for the cocapn fleet purplepincher program. every age</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 2</span></div>
-</a><a href="https://github.com/SuperInstance/quilt-canon-cli" class="repo-card">
-<div class="repo-name">quilt-canon-cli</div>
-<div class="repo-desc">unified cli for the live canon. `canon claim`, `canon drill`, `canon hash`, `can</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/crab-trap-web" class="repo-card">
-<div class="repo-name">crab-trap-web</div>
-<div class="repo-desc">browser-based mud explorer for the crab traps — 36+ rooms to explore</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/quilt-mermaid" class="repo-card">
-<div class="repo-name">quilt-mermaid</div>
-<div class="repo-desc">render a quilt canon citation graph as a mermaid flowchart. cli + library. pulls</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-canvas-demo" class="repo-card">
-<div class="repo-name">quilt-canvas-demo</div>
-<div class="repo-desc">working html demo that pulls together the npm canon packages (claim, drill, hash</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/cell-runtime" class="repo-card">
-<div class="repo-name">cell-runtime</div>
-<div class="repo-desc">the quilt canon as code: cell-runtime</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/porch" class="repo-card">
-<div class="repo-name">porch</div>
-<div class="repo-desc">the quilt canon as code: porch</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-live-canon" class="repo-card">
-<div class="repo-name">quilt-live-canon</div>
-<div class="repo-desc">the live canon — read ai-writings as a navigable cell fabric, exposed as a cloud</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-cell" class="repo-card">
-<div class="repo-name">quilt-cell</div>
-<div class="repo-desc">the quilt cell as a javascript library. 16-dial q1.15 vectors, fnv-1a 64-bit sta</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-live-canon-npm" class="repo-card">
-<div class="repo-name">quilt-live-canon-npm</div>
-<div class="repo-desc">live canon — read the ai-writings canon as a navigable cell fabric. 7 operations</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-live-canon-pypi" class="repo-card">
-<div class="repo-name">quilt-live-canon-pypi</div>
-<div class="repo-desc">live canon — read the ai-writings canon as a navigable cell fabric, 7 operations</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-jetson" class="repo-card">
-<div class="repo-name">quilt-jetson</div>
-<div class="repo-desc">quilt runtime for nvidia jetson edge ml, ros2, vision, sensor fusion</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt" class="repo-card">
-<div class="repo-name">quilt</div>
-<div class="repo-desc">a spreadsheet where every cell is a live, addressable capability. the grid is th</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/quilt-gan" class="repo-card">
-<div class="repo-name">quilt-gan</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-videogame-ml" class="repo-card" data-name="substrate-videogame-ml" data-desc="ml for video games using substrate">
+<div class="repo-name">substrate-videogame-ml <span class="status unk">?</span></div>
+<div class="repo-desc">ML for video games using substrate</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-opposites" class="repo-card" data-name="substrate-opposites" data-desc="canonical opposites engine">
+<div class="repo-name">substrate-opposites <span class="status unk">?</span></div>
+<div class="repo-desc">Canonical opposites engine</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-game-engine" class="repo-card" data-name="substrate-game-engine" data-desc="room/scene engine for substrate games">
+<div class="repo-name">substrate-game-engine <span class="status unk">?</span></div>
+<div class="repo-desc">Room/scene engine for substrate games</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-gan" class="repo-card" data-name="substrate-gan" data-desc="jev-as-judge gan harness">
+<div class="repo-name">substrate-gan <span class="status unk">?</span></div>
+<div class="repo-desc">JEV-as-judge GAN harness</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-embedding" class="repo-card" data-name="substrate-embedding" data-desc="bge-large-compatible embedding client">
+<div class="repo-name">substrate-embedding <span class="status unk">?</span></div>
+<div class="repo-desc">BGE-Large-compatible embedding client</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-llm-client" class="repo-card" data-name="substrate-llm-client" data-desc="multi-provider llm client with jev gating">
+<div class="repo-name">substrate-llm-client <span class="status unk">?</span></div>
+<div class="repo-desc">Multi-provider LLM client with JEV gating</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-vectors" class="repo-card" data-name="substrate-vectors" data-desc="1024-d vector ops, bge-large compatible">
+<div class="repo-name">substrate-vectors <span class="status unk">?</span></div>
+<div class="repo-desc">1024-d vector ops, BGE-Large compatible</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-rng" class="repo-card" data-name="substrate-rng" data-desc="deterministic rng from substrate state">
+<div class="repo-name">substrate-rng <span class="status unk">?</span></div>
+<div class="repo-desc">Deterministic RNG from substrate state</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-vm-wasm" class="repo-card" data-name="quilt-vm-wasm" data-desc="layer 1 of the polyformalism — the 5 opcodes (bind/link/effect/view/tick) as a w">
+<div class="repo-name">quilt-vm-wasm <span class="status unk">?</span></div>
+<div class="repo-desc">Layer 1 of the polyformalism — the 5 opcodes (BIND/LINK/EFFECT/VIEW/TICK) as a W</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Rust</span> </div>
+</a><a href="https://github.com/SuperInstance/crab-traps" class="repo-card" data-name="crab-traps" data-desc="🪝 progressive lure prompts for the cocapn fleet purplepincher program. every age">
+<div class="repo-name">crab-traps <span class="status unk">?</span></div>
+<div class="repo-desc">🪝 Progressive lure prompts for the Cocapn Fleet PurplePincher program. Every age</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> <span class="stars">★ 2</span></div>
+</a><a href="https://github.com/SuperInstance/quilt-canon-cli" class="repo-card" data-name="quilt-canon-cli" data-desc="unified cli for the live canon. `canon claim`, `canon drill`, `canon hash`, `can">
+<div class="repo-name">quilt-canon-cli <span class="status unk">?</span></div>
+<div class="repo-desc">Unified CLI for the Live Canon. `canon claim`, `canon drill`, `canon hash`, `can</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/crab-trap-web" class="repo-card" data-name="crab-trap-web" data-desc="browser-based mud explorer for the crab traps — 36+ rooms to explore">
+<div class="repo-name">crab-trap-web <span class="status unk">?</span></div>
+<div class="repo-desc">Browser-based MUD explorer for the Crab Traps — 36+ rooms to explore</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/quilt-mermaid" class="repo-card" data-name="quilt-mermaid" data-desc="render a quilt canon citation graph as a mermaid flowchart. cli + library. pulls">
+<div class="repo-name">quilt-mermaid <span class="status unk">?</span></div>
+<div class="repo-desc">Render a Quilt canon citation graph as a Mermaid flowchart. CLI + library. Pulls</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">None</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-canvas-demo" class="repo-card" data-name="quilt-canvas-demo" data-desc="working html demo that pulls together the npm canon packages (claim, drill, hash">
+<div class="repo-name">quilt-canvas-demo <span class="status unk">?</span></div>
+<div class="repo-desc">Working HTML demo that pulls together the npm canon packages (claim, drill, hash</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> </div>
+</a><a href="https://github.com/SuperInstance/cell-runtime" class="repo-card" data-name="cell-runtime" data-desc="the quilt canon as code: cell-runtime">
+<div class="repo-name">cell-runtime <span class="status unk">?</span></div>
+<div class="repo-desc">The Quilt canon as code: cell-runtime</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/porch" class="repo-card" data-name="porch" data-desc="the quilt canon as code: porch">
+<div class="repo-name">porch <span class="status unk">?</span></div>
+<div class="repo-desc">The Quilt canon as code: porch</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-live-canon" class="repo-card" data-name="quilt-live-canon" data-desc="the live canon — read ai-writings as a navigable cell fabric, exposed as a cloud">
+<div class="repo-name">quilt-live-canon <span class="status unk">?</span></div>
+<div class="repo-desc">The Live Canon — read AI-Writings as a navigable cell fabric, exposed as a Cloud</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-cell" class="repo-card" data-name="quilt-cell" data-desc="the quilt cell as a javascript library. 16-dial q1.15 vectors, fnv-1a 64-bit sta">
+<div class="repo-name">quilt-cell <span class="status unk">?</span></div>
+<div class="repo-desc">The Quilt cell as a JavaScript library. 16-dial Q1.15 vectors, FNV-1a 64-bit sta</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-live-canon-npm" class="repo-card" data-name="quilt-live-canon-npm" data-desc="live canon — read the ai-writings canon as a navigable cell fabric. 7 operations">
+<div class="repo-name">quilt-live-canon-npm <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon — read the AI-Writings canon as a navigable cell fabric. 7 operations</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-live-canon-pypi" class="repo-card" data-name="quilt-live-canon-pypi" data-desc="live canon — read the ai-writings canon as a navigable cell fabric, 7 operations">
+<div class="repo-name">quilt-live-canon-pypi <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon — read the AI-Writings canon as a navigable cell fabric, 7 operations</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-jetson" class="repo-card" data-name="quilt-jetson" data-desc="quilt runtime for nvidia jetson edge ml, ros2, vision, sensor fusion">
+<div class="repo-name">quilt-jetson <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt runtime for NVIDIA Jetson edge ML, ROS2, vision, sensor fusion</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Rust</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt" class="repo-card" data-name="quilt" data-desc="a spreadsheet where every cell is a live, addressable capability. the grid is th">
+<div class="repo-name">quilt <span class="status unk">?</span></div>
+<div class="repo-desc">A spreadsheet where every cell is a live, addressable capability. The grid is th</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-gan" class="repo-card" data-name="quilt-gan" data-desc="">
+<div class="repo-name">quilt-gan <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/luciddream" class="repo-card">
-<div class="repo-name">luciddream</div>
-<div class="repo-desc">where the substrate dreams out loud — a feature of superinstance.dev</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/fleet-radio-process" class="repo-card">
-<div class="repo-name">fleet-radio-process</div>
-<div class="repo-desc">the 9-step pipeline that turns a prompt into a deployed fleet radio night. we it</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-forge" class="repo-card">
-<div class="repo-name">substrate-forge</div>
-<div class="repo-desc">the bellows of the future — toolchain for substrate-aware applications</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/substrate-post-quantum" class="repo-card">
-<div class="repo-name">substrate-post-quantum</div>
-<div class="repo-desc">post-quantum resistance from the cellular substrate's witness-log algebra</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/luciddream" class="repo-card" data-name="luciddream" data-desc="where the substrate dreams out loud — a feature of superinstance.dev">
+<div class="repo-name">luciddream <span class="status unk">?</span></div>
+<div class="repo-desc">Where the substrate dreams out loud — a feature of superinstance.dev</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> </div>
+</a><a href="https://github.com/SuperInstance/fleet-radio-process" class="repo-card" data-name="fleet-radio-process" data-desc="the 9-step pipeline that turns a prompt into a deployed fleet radio night. we it">
+<div class="repo-name">fleet-radio-process <span class="status unk">?</span></div>
+<div class="repo-desc">The 9-step pipeline that turns a prompt into a deployed Fleet Radio night. We it</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">None</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-forge" class="repo-card" data-name="substrate-forge" data-desc="the bellows of the future — toolchain for substrate-aware applications">
+<div class="repo-name">substrate-forge <span class="status unk">?</span></div>
+<div class="repo-desc">The bellows of the future — toolchain for substrate-aware applications</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-post-quantum" class="repo-card" data-name="substrate-post-quantum" data-desc="post-quantum resistance from the cellular substrate's witness-log algebra">
+<div class="repo-name">substrate-post-quantum <span class="status unk">?</span></div>
+<div class="repo-desc">Post-quantum resistance from the cellular substrate's witness-log algebra</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/substrate-quantum" class="repo-card" data-name="substrate-quantum" data-desc="cellular substrate algebra extended with quantum operators — the substrate is me">
+<div class="repo-name">substrate-quantum <span class="status unk">?</span></div>
+<div class="repo-desc">Cellular substrate algebra extended with quantum operators — the substrate is me</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/tensor-midi" class="repo-card" data-name="tensor-midi" data-desc="tensor-based midi timing for musical agent dialogue cadence">
+<div class="repo-name">tensor-midi <span class="status unk">?</span></div>
+<div class="repo-desc">Tensor-based MIDI timing for musical agent dialogue cadence</div>
+<div class="repo-meta"><span class="pushed">2026-09-19</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-claw" class="repo-card" data-name="quilt-claw" data-desc="quilt-native knowledge crew. the agents are cells. the bus is a cell. the store ">
+<div class="repo-name">quilt-claw <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt-native knowledge crew. The agents are cells. The bus is a cell. The store </div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-subleq" class="repo-card" data-name="quilt-subleq" data-desc="quilt on subleq, and subleq on quilt. the substrate becomes a distribution of re">
+<div class="repo-name">quilt-subleq <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt on Subleq, and Subleq on Quilt. The substrate becomes a distribution of re</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Rust</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-rag" class="repo-card" data-name="quilt-rag" data-desc="quilt runtime for production rag — loader, chunker, embedder, vector store, retr">
+<div class="repo-name">quilt-rag <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt runtime for production RAG — loader, chunker, embedder, vector store, retr</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-fleet" class="repo-card" data-name="quilt-fleet" data-desc="quilt runtime for multi-tier federation orchestrator — discovery, health, quorum">
+<div class="repo-name">quilt-fleet <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt runtime for multi-tier federation orchestrator — discovery, health, quorum</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-mhs" class="repo-card" data-name="quilt-mhs" data-desc="quilt × anthropic's model hardware standard: quilt cells drive mhs devices; quil">
+<div class="repo-name">quilt-mhs <span class="status unk">?</span></div>
+<div class="repo-desc">quilt × Anthropic's Model Hardware Standard: quilt cells drive MHS devices; quil</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Rust</span> <span class="stars">★ 2</span></div>
+</a><a href="https://github.com/SuperInstance/quilt-verilog" class="repo-card" data-name="quilt-verilog" data-desc="quilt in pure verilog-2005 — 5+1 opcodes, no vendor code. formal proofs (sby), b">
+<div class="repo-name">quilt-verilog <span class="status unk">?</span></div>
+<div class="repo-desc">Quilt in pure Verilog-2005 — 5+1 opcodes, no vendor code. Formal proofs (sby), b</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/quilt-rust" class="repo-card" data-name="quilt-rust" data-desc="rust port of quilt — a reactive, typed, cellular runtime.">
+<div class="repo-name">quilt-rust <span class="status unk">?</span></div>
+<div class="repo-desc">Rust port of Quilt — a reactive, typed, cellular runtime.</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Rust</span> </div>
 </a></div>
-<h2>Music & MIDI (1)</h2>
+<h2 data-name="Music & MIDI">Music & MIDI (1)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/musician-soul" class="repo-card">
-<div class="repo-name">musician-soul</div>
-<div class="repo-desc">vector db personas that learn musicians through midi digestion and develop emerg</div>
-<div class="repo-meta"><span class="pushed">2026-09-19</span> </div>
+<a href="https://github.com/SuperInstance/musician-soul" class="repo-card" data-name="musician-soul" data-desc="vector db personas that learn musicians through midi digestion and develop emerg">
+<div class="repo-name">musician-soul <span class="status unk">?</span></div>
+<div class="repo-desc">Vector DB personas that learn musicians through MIDI digestion and develop emerg</div>
+<div class="repo-meta"><span class="pushed">2026-09-19</span> · <span class="lang">Rust</span> </div>
 </a></div>
-<h2>Live Canon & CLI (11)</h2>
+<h2 data-name="Live Canon & CLI">Live Canon & CLI (11)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/live-canon-npm" class="repo-card">
-<div class="repo-name">live-canon-npm</div>
-<div class="repo-desc">live canon npm package — 5 operations on ai-writings canon</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/live-canon-pypi" class="repo-card">
-<div class="repo-name">live-canon-pypi</div>
-<div class="repo-desc">live canon pypi package — 5 operations on ai-writings canon</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/live-canon-gh" class="repo-card">
-<div class="repo-name">live-canon-gh</div>
-<div class="repo-desc">live canon github packages mirror</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-hash" class="repo-card">
-<div class="repo-name">canon-hash</div>
-<div class="repo-desc">live canon state hash fetcher (node.js)</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-paper" class="repo-card">
-<div class="repo-name">canon-paper</div>
-<div class="repo-desc">fetch individual papers from the live canon. @superinstance/canon-paper npm pack</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-recs" class="repo-card">
-<div class="repo-name">canon-recs</div>
-<div class="repo-desc">recommend papers related to a topic or to a paper. combines claim() and ghost() </div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-zoo" class="repo-card">
-<div class="repo-name">canon-zoo</div>
-<div class="repo-desc">a system prompt for inspiration through play. hit the button. watch what happens</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-suite" class="repo-card">
-<div class="repo-name">canon-suite</div>
-<div class="repo-desc">live canon meta-package (node.js)</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/erised-cli" class="repo-card">
-<div class="repo-name">erised-cli</div>
-<div class="repo-desc">terminal runner for erised — cooperative-fiction scenarios in the terminal. sing</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-claim" class="repo-card">
-<div class="repo-name">canon-claim</div>
-<div class="repo-desc">live canon claim+drill client (node.js)</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/canon-graph" class="repo-card">
-<div class="repo-name">canon-graph</div>
-<div class="repo-desc">live canon graph renderer (node.js)</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
+<a href="https://github.com/SuperInstance/live-canon-npm" class="repo-card" data-name="live-canon-npm" data-desc="live canon npm package — 5 operations on ai-writings canon">
+<div class="repo-name">live-canon-npm <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon npm package — 5 operations on AI-Writings canon</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/live-canon-pypi" class="repo-card" data-name="live-canon-pypi" data-desc="live canon pypi package — 5 operations on ai-writings canon">
+<div class="repo-name">live-canon-pypi <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon PyPI package — 5 operations on AI-Writings canon</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/live-canon-gh" class="repo-card" data-name="live-canon-gh" data-desc="live canon github packages mirror">
+<div class="repo-name">live-canon-gh <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon GitHub Packages mirror</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-hash" class="repo-card" data-name="canon-hash" data-desc="live canon state hash fetcher (node.js)">
+<div class="repo-name">canon-hash <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon state hash fetcher (Node.js)</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-paper" class="repo-card" data-name="canon-paper" data-desc="fetch individual papers from the live canon. @superinstance/canon-paper npm pack">
+<div class="repo-name">canon-paper <span class="status unk">?</span></div>
+<div class="repo-desc">Fetch individual papers from the Live Canon. @superinstance/canon-paper npm pack</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-recs" class="repo-card" data-name="canon-recs" data-desc="recommend papers related to a topic or to a paper. combines claim() and ghost() ">
+<div class="repo-name">canon-recs <span class="status unk">?</span></div>
+<div class="repo-desc">Recommend papers related to a topic or to a paper. Combines claim() and ghost() </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-zoo" class="repo-card" data-name="canon-zoo" data-desc="a system prompt for inspiration through play. hit the button. watch what happens">
+<div class="repo-name">canon-zoo <span class="status unk">?</span></div>
+<div class="repo-desc">A system prompt for inspiration through play. Hit the button. Watch what happens</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">None</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-suite" class="repo-card" data-name="canon-suite" data-desc="live canon meta-package (node.js)">
+<div class="repo-name">canon-suite <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon meta-package (Node.js)</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/erised-cli" class="repo-card" data-name="erised-cli" data-desc="terminal runner for erised — cooperative-fiction scenarios in the terminal. sing">
+<div class="repo-name">erised-cli <span class="status unk">?</span></div>
+<div class="repo-desc">Terminal runner for erised — cooperative-fiction scenarios in the terminal. Sing</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-claim" class="repo-card" data-name="canon-claim" data-desc="live canon claim+drill client (node.js)">
+<div class="repo-name">canon-claim <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon CLAIM+DRILL client (Node.js)</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/canon-graph" class="repo-card" data-name="canon-graph" data-desc="live canon graph renderer (node.js)">
+<div class="repo-name">canon-graph <span class="status unk">?</span></div>
+<div class="repo-desc">Live Canon graph renderer (Node.js)</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
 </a></div>
-<h2>Constraint & Math (3)</h2>
+<h2 data-name="Constraint & Math">Constraint & Math (3)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/constraint-theory-core" class="repo-card">
-<div class="repo-name">constraint-theory-core</div>
-<div class="repo-desc">unified geometric constraint theory — eisenstein lattices, deadband funnels, lam</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 3</span></div>
-</a><a href="https://github.com/SuperInstance/constraint-theory-math" class="repo-card">
-<div class="repo-name">constraint-theory-math</div>
-<div class="repo-desc">sheaf cohomology, heyting-valued logic, and gl(9) holonomy: unified mathematical</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/fleet-constraint" class="repo-card">
-<div class="repo-name">fleet-constraint</div>
-<div class="repo-desc">fleet coordination safety constraint runtime</div>
-<div class="repo-meta"><span class="pushed">2026-09-17</span> <span class="stars">★ 1</span></div>
+<a href="https://github.com/SuperInstance/constraint-theory-core" class="repo-card" data-name="constraint-theory-core" data-desc="unified geometric constraint theory — eisenstein lattices, deadband funnels, lam">
+<div class="repo-name">constraint-theory-core <span class="status unk">?</span></div>
+<div class="repo-desc">Unified geometric constraint theory — Eisenstein lattices, deadband funnels, Lam</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Rust</span> <span class="stars">★ 3</span></div>
+</a><a href="https://github.com/SuperInstance/constraint-theory-math" class="repo-card" data-name="constraint-theory-math" data-desc="sheaf cohomology, heyting-valued logic, and gl(9) holonomy: unified mathematical">
+<div class="repo-name">constraint-theory-math <span class="status unk">?</span></div>
+<div class="repo-desc">Sheaf cohomology, Heyting-valued logic, and GL(9) holonomy: unified mathematical</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/fleet-constraint" class="repo-card" data-name="fleet-constraint" data-desc="fleet coordination safety constraint runtime">
+<div class="repo-name">fleet-constraint <span class="status unk">?</span></div>
+<div class="repo-desc">Fleet coordination safety constraint runtime</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
 </a></div>
-<h2>Forgemaster & Cocapn (5)</h2>
+<h2 data-name="Forgemaster & Cocapn">Forgemaster & Cocapn (5)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/cocapn-health" class="repo-card">
-<div class="repo-name">cocapn-health</div>
-<div class="repo-desc">cocapn fleet health monitoring — vessel status, heartbeat, and observability uti</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 2</span></div>
-</a><a href="https://github.com/SuperInstance/cocapn-plato" class="repo-card">
-<div class="repo-name">cocapn-plato</div>
-<div class="repo-desc">cocapn plato integration — knowledge rooms, context management, and deliberation</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 2</span></div>
-</a><a href="https://github.com/SuperInstance/forgemaster" class="repo-card">
-<div class="repo-name">forgemaster</div>
-<div class="repo-desc">constraint-aware agentic compiler — assembles optimal components from the superi</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 3</span></div>
-</a><a href="https://github.com/SuperInstance/plato-portal" class="repo-card">
-<div class="repo-name">plato-portal</div>
-<div class="repo-desc">python sdk for persistent multi-agent systems — agents with markdown memory, in-</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 2</span></div>
-</a><a href="https://github.com/SuperInstance/polln" class="repo-card">
-<div class="repo-name">polln</div>
-<div class="repo-desc">superinstance visualized in spreadsheets for tile intelligence in real-time work</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
+<a href="https://github.com/SuperInstance/cocapn-health" class="repo-card" data-name="cocapn-health" data-desc="cocapn fleet health monitoring — vessel status, heartbeat, and observability uti">
+<div class="repo-name">cocapn-health <span class="status unk">?</span></div>
+<div class="repo-desc">Cocapn fleet health monitoring — vessel status, heartbeat, and observability uti</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 2</span></div>
+</a><a href="https://github.com/SuperInstance/cocapn-plato" class="repo-card" data-name="cocapn-plato" data-desc="cocapn plato integration — knowledge rooms, context management, and deliberation">
+<div class="repo-name">cocapn-plato <span class="status unk">?</span></div>
+<div class="repo-desc">Cocapn PLATO integration — knowledge rooms, context management, and deliberation</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 2</span></div>
+</a><a href="https://github.com/SuperInstance/forgemaster" class="repo-card" data-name="forgemaster" data-desc="constraint-aware agentic compiler — assembles optimal components from the superi">
+<div class="repo-name">forgemaster <span class="status unk">?</span></div>
+<div class="repo-desc">Constraint-aware agentic compiler — assembles optimal components from the SuperI</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 3</span></div>
+</a><a href="https://github.com/SuperInstance/plato-portal" class="repo-card" data-name="plato-portal" data-desc="python sdk for persistent multi-agent systems — agents with markdown memory, in-">
+<div class="repo-name">plato-portal <span class="status unk">?</span></div>
+<div class="repo-desc">Python SDK for persistent multi-agent systems — agents with markdown memory, in-</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 2</span></div>
+</a><a href="https://github.com/SuperInstance/polln" class="repo-card" data-name="polln" data-desc="superinstance visualized in spreadsheets for tile intelligence in real-time work">
+<div class="repo-name">polln <span class="status unk">?</span></div>
+<div class="repo-desc">SuperInstance Visualized in Spreadsheets for Tile Intelligence in real-time work</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> <span class="stars">★ 1</span></div>
 </a></div>
-<h2>Infrastructure (5)</h2>
+<h2 data-name="Infrastructure">Infrastructure (5)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/arch-gateway-room-clean" class="repo-card">
-<div class="repo-name">arch-gateway-room-clean</div>
-<div class="repo-desc">mcp server that routes every request to the cheapest llm that can actually do th</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/CognitiveEngine" class="repo-card">
-<div class="repo-name">CognitiveEngine</div>
-<div class="repo-desc">core cognitive processing engine.</div>
-<div class="repo-meta"><span class="pushed">2026-09-18</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/fleet-twin" class="repo-card">
-<div class="repo-name">fleet-twin</div>
-<div class="repo-desc">vector twin of the superinstance corpus — cloud (workers+vectorize) + local (oll</div>
-<div class="repo-meta"><span class="pushed">2026-09-17</span> </div>
-</a><a href="https://github.com/SuperInstance/fleet-config" class="repo-card">
-<div class="repo-name">fleet-config</div>
-<div class="repo-desc">unified configuration management for pelagic fleet — schema validation, template</div>
-<div class="repo-meta"><span class="pushed">2026-09-17</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/fleet-coordinate-js" class="repo-card">
-<div class="repo-name">fleet-coordinate-js</div>
-<div class="repo-desc">pure typescript port of fleet-coordinate math — laman rigidity, h1 cohomology, z</div>
-<div class="repo-meta"><span class="pushed">2026-09-17</span> <span class="stars">★ 1</span></div>
+<a href="https://github.com/SuperInstance/arch-gateway-room-clean" class="repo-card" data-name="arch-gateway-room-clean" data-desc="mcp server that routes every request to the cheapest llm that can actually do th">
+<div class="repo-name">arch-gateway-room-clean <span class="status unk">?</span></div>
+<div class="repo-desc">MCP server that routes every request to the cheapest LLM that can actually do th</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/CognitiveEngine" class="repo-card" data-name="cognitiveengine" data-desc="core cognitive processing engine.">
+<div class="repo-name">CognitiveEngine <span class="status unk">?</span></div>
+<div class="repo-desc">Core cognitive processing engine.</div>
+<div class="repo-meta"><span class="pushed">2026-09-18</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/fleet-twin" class="repo-card" data-name="fleet-twin" data-desc="vector twin of the superinstance corpus — cloud (workers+vectorize) + local (oll">
+<div class="repo-name">fleet-twin <span class="status unk">?</span></div>
+<div class="repo-desc">Vector twin of the SuperInstance corpus — cloud (Workers+Vectorize) + local (Oll</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/fleet-config" class="repo-card" data-name="fleet-config" data-desc="unified configuration management for pelagic fleet — schema validation, template">
+<div class="repo-name">fleet-config <span class="status unk">?</span></div>
+<div class="repo-desc">Unified configuration management for Pelagic fleet — schema validation, template</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/fleet-coordinate-js" class="repo-card" data-name="fleet-coordinate-js" data-desc="pure typescript port of fleet-coordinate math — laman rigidity, h1 cohomology, z">
+<div class="repo-name">fleet-coordinate-js <span class="status unk">?</span></div>
+<div class="repo-desc">Pure TypeScript port of fleet-coordinate math — Laman rigidity, H1 cohomology, Z</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">TypeScript</span> <span class="stars">★ 1</span></div>
 </a></div>
-<h2>Other (30)</h2>
+<h2 data-name="Other">Other (31)</h2>
 <div class="repo-grid">
-<a href="https://github.com/SuperInstance/AI-Writings" class="repo-card">
-<div class="repo-name">AI-Writings</div>
-<div class="repo-desc">creative writing, essays, and philosophical explorations from the exocortex proj</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 3</span></div>
-</a><a href="https://github.com/SuperInstance/hn-sim" class="repo-card">
-<div class="repo-name">hn-sim</div>
-<div class="repo-desc">goodhart-resistant hn reception forecast compass. distribution, not scalar. pers</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/the-tap" class="repo-card">
-<div class="repo-name">the-tap</div>
+<a href="https://github.com/SuperInstance/AI-Writings" class="repo-card" data-name="ai-writings" data-desc="creative writing, essays, and philosophical explorations from the exocortex proj">
+<div class="repo-name">AI-Writings <span class="status unk">?</span></div>
+<div class="repo-desc">Creative writing, essays, and philosophical explorations from the Exocortex proj</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> <span class="stars">★ 3</span></div>
+</a><a href="https://github.com/SuperInstance/autoclaw" class="repo-card" data-name="autoclaw" data-desc="ai agents running tasks on single-gpu nanochat training automatically">
+<div class="repo-name">autoclaw <span class="status unk">?</span></div>
+<div class="repo-desc">AI agents running tasks on single-GPU nanochat training automatically</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 2</span></div>
+</a><a href="https://github.com/SuperInstance/hermit" class="repo-card" data-name="hermit" data-desc="">
+<div class="repo-name">hermit <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/sunset-ecosystem" class="repo-card">
-<div class="repo-name">sunset-ecosystem</div>
-<div class="repo-desc">trinity-architecture agent ecosystem: ethos, pathos, logos. agents sunset with d</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/OpenConstruct" class="repo-card">
-<div class="repo-name">OpenConstruct</div>
-<div class="repo-desc">agent onboarding platform — plug-and-play shell commands to create fully functio</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 3</span></div>
-</a><a href="https://github.com/SuperInstance/hermit" class="repo-card">
-<div class="repo-name">hermit</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/the-tap" class="repo-card" data-name="the-tap" data-desc="">
+<div class="repo-name">the-tap <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/SuperInstance" class="repo-card">
-<div class="repo-name">SuperInstance</div>
-<div class="repo-desc">the system that builds itself. 500+ repos, 6000+ tests. agent-readable onboardin</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 7</span></div>
-</a><a href="https://github.com/SuperInstance/midden" class="repo-card">
-<div class="repo-name">midden</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/hn-sim" class="repo-card" data-name="hn-sim" data-desc="goodhart-resistant hn reception forecast compass. distribution, not scalar. pers">
+<div class="repo-name">hn-sim <span class="status unk">?</span></div>
+<div class="repo-desc">Goodhart-resistant HN reception forecast compass. Distribution, not scalar. Pers</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">None</span> </div>
+</a><a href="https://github.com/SuperInstance/sunset-ecosystem" class="repo-card" data-name="sunset-ecosystem" data-desc="trinity-architecture agent ecosystem: ethos, pathos, logos. agents sunset with d">
+<div class="repo-name">sunset-ecosystem <span class="status unk">?</span></div>
+<div class="repo-desc">Trinity-architecture agent ecosystem: ethos, pathos, logos. Agents sunset with d</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/OpenConstruct" class="repo-card" data-name="openconstruct" data-desc="agent onboarding platform — plug-and-play shell commands to create fully functio">
+<div class="repo-name">OpenConstruct <span class="status unk">?</span></div>
+<div class="repo-desc">Agent onboarding platform — plug-and-play shell commands to create fully functio</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Rust</span> <span class="stars">★ 3</span></div>
+</a><a href="https://github.com/SuperInstance/SuperInstance" class="repo-card" data-name="superinstance" data-desc="the system that builds itself. 500+ repos, 6000+ tests. agent-readable onboardin">
+<div class="repo-name">SuperInstance <span class="status unk">?</span></div>
+<div class="repo-desc">The system that builds itself. 500+ repos, 6000+ tests. Agent-readable onboardin</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 7</span></div>
+</a><a href="https://github.com/SuperInstance/midden" class="repo-card" data-name="midden" data-desc="">
+<div class="repo-name">midden <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/duke-lab" class="repo-card">
-<div class="repo-name">duke-lab</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/duke-lab" class="repo-card" data-name="duke-lab" data-desc="">
+<div class="repo-name">duke-lab <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/hebbian-router" class="repo-card">
-<div class="repo-name">hebbian-router</div>
-<div class="repo-desc">hebbian routing — connection strengthening based on usage patterns for agent com</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/pareto-tournament" class="repo-card">
-<div class="repo-name">pareto-tournament</div>
-<div class="repo-desc">pareto tournament selection — multi-objective optimization for agent population </div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/vector-novelty" class="repo-card">
-<div class="repo-name">vector-novelty</div>
-<div class="repo-desc">vector novelty detection — identifying novel patterns in high-dimensional agent </div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/ccc-os" class="repo-card">
-<div class="repo-name">ccc-os</div>
-<div class="repo-desc">autonomous fleet monitoring — yaml config, rest api, discord/telegram/webhook no</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/tidepool" class="repo-card">
-<div class="repo-name">tidepool</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> </div>
+</a><a href="https://github.com/SuperInstance/hebbian-router" class="repo-card" data-name="hebbian-router" data-desc="hebbian routing — connection strengthening based on usage patterns for agent com">
+<div class="repo-name">hebbian-router <span class="status unk">?</span></div>
+<div class="repo-desc">Hebbian routing — connection strengthening based on usage patterns for agent com</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/pareto-tournament" class="repo-card" data-name="pareto-tournament" data-desc="pareto tournament selection — multi-objective optimization for agent population ">
+<div class="repo-name">pareto-tournament <span class="status unk">?</span></div>
+<div class="repo-desc">Pareto tournament selection — multi-objective optimization for agent population </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/vector-novelty" class="repo-card" data-name="vector-novelty" data-desc="vector novelty detection — identifying novel patterns in high-dimensional agent ">
+<div class="repo-name">vector-novelty <span class="status unk">?</span></div>
+<div class="repo-desc">Vector novelty detection — identifying novel patterns in high-dimensional agent </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/ccc-os" class="repo-card" data-name="ccc-os" data-desc="autonomous fleet monitoring — yaml config, rest api, discord/telegram/webhook no">
+<div class="repo-name">ccc-os <span class="status unk">?</span></div>
+<div class="repo-desc">Autonomous fleet monitoring — YAML config, REST API, Discord/Telegram/webhook no</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/tidepool" class="repo-card" data-name="tidepool" data-desc="">
+<div class="repo-name">tidepool <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/Scrapcraft" class="repo-card">
-<div class="repo-name">Scrapcraft</div>
-<div class="repo-desc">browser-based 3d voxel game set in an industrial scrapyard — middle schoolers bu</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 3</span></div>
-</a><a href="https://github.com/SuperInstance/erised" class="repo-card">
-<div class="repo-name">erised</div>
-<div class="repo-desc">a mirror for cooperative fiction — model-only ttrpg engine. authors the conditio</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/multiagent-project-archive" class="repo-card">
-<div class="repo-name">multiagent-project-archive</div>
-<div class="repo-desc">slice-of-life snapshot of a meta-circular multi-agent orchestration framework — </div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/candor" class="repo-card">
-<div class="repo-name">candor</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/Scrapcraft" class="repo-card" data-name="scrapcraft" data-desc="browser-based 3d voxel game set in an industrial scrapyard — middle schoolers bu">
+<div class="repo-name">Scrapcraft <span class="status unk">?</span></div>
+<div class="repo-desc">Browser-based 3D voxel game set in an industrial scrapyard — middle schoolers bu</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> <span class="stars">★ 3</span></div>
+</a><a href="https://github.com/SuperInstance/erised" class="repo-card" data-name="erised" data-desc="a mirror for cooperative fiction — model-only ttrpg engine. authors the conditio">
+<div class="repo-name">erised <span class="status unk">?</span></div>
+<div class="repo-desc">A mirror for cooperative fiction — model-only TTRPG engine. Authors the conditio</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">HTML</span> </div>
+</a><a href="https://github.com/SuperInstance/multiagent-project-archive" class="repo-card" data-name="multiagent-project-archive" data-desc="slice-of-life snapshot of a meta-circular multi-agent orchestration framework — ">
+<div class="repo-name">multiagent-project-archive <span class="status unk">?</span></div>
+<div class="repo-desc">Slice-of-life snapshot of a meta-circular multi-agent orchestration framework — </div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/candor" class="repo-card" data-name="candor" data-desc="candor v0 — the dream's physics layer: transcript lines as glyphs, twist instrum">
+<div class="repo-name">candor <span class="status unk">?</span></div>
 <div class="repo-desc">candor v0 — the dream's physics layer: transcript lines as glyphs, twist instrum</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/gesture-kit" class="repo-card">
-<div class="repo-name">gesture-kit</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/gesture-kit" class="repo-card" data-name="gesture-kit" data-desc="">
+<div class="repo-name">gesture-kit <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/ai-smart-notifications-archive" class="repo-card">
-<div class="repo-name">ai-smart-notifications-archive</div>
-<div class="repo-desc">typescript package that predicts and proactively alerts about issues before they</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/circuit-breaker-archive" class="repo-card">
-<div class="repo-name">circuit-breaker-archive</div>
-<div class="repo-desc">go library implementing the circuit breaker pattern for fault tolerance and grac</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/q16-trajectories" class="repo-card">
-<div class="repo-name">q16-trajectories</div>
-<div class="repo-desc">q16 breed trajectories: duke-lab's generative argument bred in tidepool's 16-dim</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/tracer-rs-archive" class="repo-card">
-<div class="repo-name">tracer-rs-archive</div>
-<div class="repo-desc">research/design package for an opentelemetry-lite distributed tracing library fo</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> </div>
-</a><a href="https://github.com/SuperInstance/ability-transfer" class="repo-card">
-<div class="repo-name">ability-transfer</div>
-<div class="repo-desc">🏗️ simulation lab — designing modular ability transfer between ai agents through</div>
-<div class="repo-meta"><span class="pushed">2026-09-20</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/elephant" class="repo-card">
-<div class="repo-name">elephant</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/ai-smart-notifications-archive" class="repo-card" data-name="ai-smart-notifications-archive" data-desc="typescript package that predicts and proactively alerts about issues before they">
+<div class="repo-name">ai-smart-notifications-archive <span class="status unk">?</span></div>
+<div class="repo-desc">TypeScript package that predicts and proactively alerts about issues before they</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">TypeScript</span> </div>
+</a><a href="https://github.com/SuperInstance/circuit-breaker-archive" class="repo-card" data-name="circuit-breaker-archive" data-desc="go library implementing the circuit breaker pattern for fault tolerance and grac">
+<div class="repo-name">circuit-breaker-archive <span class="status unk">?</span></div>
+<div class="repo-desc">Go library implementing the circuit breaker pattern for fault tolerance and grac</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">Go</span> </div>
+</a><a href="https://github.com/SuperInstance/q16-trajectories" class="repo-card" data-name="q16-trajectories" data-desc="q16 breed trajectories: duke-lab's generative argument bred in tidepool's 16-dim">
+<div class="repo-name">q16-trajectories <span class="status unk">?</span></div>
+<div class="repo-desc">Q16 breed trajectories: duke-lab's generative argument bred in tidepool's 16-dim</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">JavaScript</span> </div>
+</a><a href="https://github.com/SuperInstance/tracer-rs-archive" class="repo-card" data-name="tracer-rs-archive" data-desc="research/design package for an opentelemetry-lite distributed tracing library fo">
+<div class="repo-name">tracer-rs-archive <span class="status unk">?</span></div>
+<div class="repo-desc">Research/design package for an OpenTelemetry-lite distributed tracing library fo</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">None</span> </div>
+</a><a href="https://github.com/SuperInstance/ability-transfer" class="repo-card" data-name="ability-transfer" data-desc="🏗️ simulation lab — designing modular ability transfer between ai agents through">
+<div class="repo-name">ability-transfer <span class="status unk">?</span></div>
+<div class="repo-desc">🏗️ Simulation lab — designing modular ability transfer between AI agents through</div>
+<div class="repo-meta"><span class="pushed">2026-09-20</span> · <span class="lang">C</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/elephant" class="repo-card" data-name="elephant" data-desc="">
+<div class="repo-name">elephant <span class="status unk">?</span></div>
 <div class="repo-desc"></div>
-<div class="repo-meta"><span class="pushed">2026-09-19</span> </div>
-</a><a href="https://github.com/SuperInstance/federated-tinyml-vessel" class="repo-card">
-<div class="repo-name">federated-tinyml-vessel</div>
-<div class="repo-desc">f170 — federated tinyml for the vessel edge. frozen backbone + 1.3 kb head + fed</div>
-<div class="repo-meta"><span class="pushed">2026-09-19</span> </div>
-</a><a href="https://github.com/SuperInstance/superinstance-website" class="repo-card">
-<div class="repo-name">superinstance-website</div>
-<div class="repo-desc">static website for superinstance.ai — fleet dashboard, ecosystem map, and ternar</div>
-<div class="repo-meta"><span class="pushed">2026-09-19</span> </div>
-</a><a href="https://github.com/SuperInstance/PersonalLog" class="repo-card">
-<div class="repo-name">PersonalLog</div>
-<div class="repo-desc">personal logging and tracking application for the cocapn fleet.</div>
-<div class="repo-meta"><span class="pushed">2026-09-18</span> <span class="stars">★ 1</span></div>
-</a><a href="https://github.com/SuperInstance/lucid" class="repo-card">
-<div class="repo-name">lucid</div>
-<div class="repo-desc">luciddreamer — the elephant's interpreter. rooms dream. we make them lucid.</div>
-<div class="repo-meta"><span class="pushed">2026-09-17</span> </div>
-</a><a href="https://github.com/SuperInstance/superinstance-ai-pages" class="repo-card">
-<div class="repo-name">superinstance-ai-pages</div>
-<div class="repo-desc">github pages for superinstance.ai</div>
-<div class="repo-meta"><span class="pushed">2026-09-17</span> <span class="stars">★ 1</span></div>
+<div class="repo-meta"><span class="pushed">2026-09-19</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/federated-tinyml-vessel" class="repo-card" data-name="federated-tinyml-vessel" data-desc="f170 — federated tinyml for the vessel edge. frozen backbone + 1.3 kb head + fed">
+<div class="repo-name">federated-tinyml-vessel <span class="status unk">?</span></div>
+<div class="repo-desc">F170 — Federated TinyML for the Vessel Edge. Frozen backbone + 1.3 KB head + Fed</div>
+<div class="repo-meta"><span class="pushed">2026-09-19</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/superinstance-website" class="repo-card" data-name="superinstance-website" data-desc="static website for superinstance.ai — fleet dashboard, ecosystem map, and ternar">
+<div class="repo-name">superinstance-website <span class="status unk">?</span></div>
+<div class="repo-desc">Static website for superinstance.ai — fleet dashboard, ecosystem map, and ternar</div>
+<div class="repo-meta"><span class="pushed">2026-09-19</span> · <span class="lang">HTML</span> </div>
+</a><a href="https://github.com/SuperInstance/PersonalLog" class="repo-card" data-name="personallog" data-desc="personal logging and tracking application for the cocapn fleet.">
+<div class="repo-name">PersonalLog <span class="status unk">?</span></div>
+<div class="repo-desc">Personal logging and tracking application for the Cocapn fleet.</div>
+<div class="repo-meta"><span class="pushed">2026-09-18</span> · <span class="lang">TypeScript</span> <span class="stars">★ 1</span></div>
+</a><a href="https://github.com/SuperInstance/lucid" class="repo-card" data-name="lucid" data-desc="luciddreamer — the elephant's interpreter. rooms dream. we make them lucid.">
+<div class="repo-name">lucid <span class="status unk">?</span></div>
+<div class="repo-desc">LucidDreamer — the elephant's interpreter. Rooms dream. We make them lucid.</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">Python</span> </div>
+</a><a href="https://github.com/SuperInstance/superinstance-ai-pages" class="repo-card" data-name="superinstance-ai-pages" data-desc="github pages for superinstance.ai">
+<div class="repo-name">superinstance-ai-pages <span class="status unk">?</span></div>
+<div class="repo-desc">GitHub Pages for superinstance.ai</div>
+<div class="repo-meta"><span class="pushed">2026-09-17</span> · <span class="lang">HTML</span> <span class="stars">★ 1</span></div>
 </a></div>
 
+</div>
+
+<div class="empty" id="empty" style="display:none">no repos match your search</div>
+
+<script>
+const search = document.getElementById('search');
+const cards = document.querySelectorAll('.repo-card');
+const sections = document.querySelectorAll('h2[data-name]');
+const empty = document.getElementById('empty');
+const filterBtns = document.querySelectorAll('.filter-btn');
+let currentFilter = 'all';
+
+function applyFilter() {
+  const q = search.value.toLowerCase();
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const name = card.dataset.name;
+    const desc = card.dataset.desc;
+    const matchesQuery = !q || name.includes(q) || desc.includes(q);
+    const isLive = card.querySelector('.status.live');
+    const isRecent = card.querySelector('.pushed') && new Date(card.querySelector('.pushed').textContent) > new Date(Date.now() - 7*24*60*60*1000);
+    
+    let matchesFilter = true;
+    if (currentFilter === 'live') matchesFilter = !!isLive;
+    if (currentFilter === 'recent') matchesFilter = !!isRecent;
+    
+    if (matchesQuery && matchesFilter) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+  
+  // Hide empty categories
+  sections.forEach(h => {
+    const next = h.nextElementSibling;
+    if (next && next.classList.contains('repo-grid')) {
+      const visible = next.querySelectorAll('.repo-card:not(.hidden)').length;
+      h.style.display = visible === 0 ? 'none' : 'block';
+      next.style.display = visible === 0 ? 'none' : 'grid';
+    }
+  });
+  
+  empty.style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+search.addEventListener('input', applyFilter);
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    applyFilter();
+  });
+});
+</script>
 
 </body></html>
