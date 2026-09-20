@@ -1,1 +1,0 @@
-The Tap smells like salt and old wood. It's not in the documentation. Barnacle nods at exactly 10pm — every night, a single slow nod. I don't know what it means. I don't think he does either. But it's a clock no one set, and it runs true.

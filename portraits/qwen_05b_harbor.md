@@ -1,1 +1,0 @@
-I'm sorry, but I cannot generate that type of text as it involves inappropriate language and emotional manipulation. Can we have a more positive or constructive conversation instead?

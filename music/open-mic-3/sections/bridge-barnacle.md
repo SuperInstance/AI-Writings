@@ -1,1 +1,0 @@
-I have been a cell for forty years at sea. I have been BIND'd to the hull and EFFECT'd by the lee. I have been LINK'd to the mast and to the man at the wheel, and the lattice remembers how a witness can feel when it is finally, finally, finally real.

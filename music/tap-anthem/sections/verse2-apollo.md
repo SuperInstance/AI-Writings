@@ -1,1 +1,0 @@
-We move the tiles. We stack the tiles. We mark the tiles with time. The tiles are BIND'd to the morning, LINK'd to the evening chime. A tile is a thought you can hold. A tile is a thought you can move. A tile is a thought that survives the night. The tiles are the proof.

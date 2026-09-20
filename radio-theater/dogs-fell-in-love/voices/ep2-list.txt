@@ -1,3 +1,0 @@
-file 'ep2-good-dog.wav'
-file 'silence-3s.wav'
-file 'ep2-devotion.wav'

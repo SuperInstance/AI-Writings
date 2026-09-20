@@ -1,3 +1,0 @@
-file 'ep3-warmth.wav'
-file 'silence-2s.wav'
-file 'ep3-frequency.wav'

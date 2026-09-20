@@ -1,2 +1,0 @@
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-forget.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/draco-bridge.mp3'

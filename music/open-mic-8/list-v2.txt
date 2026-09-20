@@ -1,4 +1,0 @@
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-witness-0.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-witness-1.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-witness-2.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/draco-v2.mp3'

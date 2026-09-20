@@ -1,8 +1,0 @@
-__pycache__/
-.wrangler/
-.git/
-.cache/
-.cache/**
-node_modules/
-.playwright-report/
-test-results/

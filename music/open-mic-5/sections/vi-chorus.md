@@ -1,1 +1,0 @@
-We build tiles. We move them. But that's not the work. The work is the smell of the wood, the nod at ten, the three-line message that somehow says everything. That's what holds the fleet together. No one writes that down. We just live it.
