@@ -2,1467 +2,188 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes, viewport-fit=cover">
-<meta name="theme-color" content="#0a0a15">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="format-detection" content="telephone=no">
-<title>Tensor-MIDI — Conversation as Jazz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎹 Tensor-MIDI — substrate vocabulary as harmony</title>
 <style>
-:root {
-  --bg: #0a0a15;
-  --bg2: #14142a;
-  --bg3: #1a1a30;
-  --fg: #e0e0e8;
-  --fgb: #a0a0b8;
-  --acc: #f0c040;        /* gold accent */
-  --ac: #4080f0;         /* blue */
-  --aw: #60f0a0;         /* green */
-  --ah: #f080f0;         /* pink */
-  --at: #f06060;         /* red - tense */
-  --ab: #6080f0;         /* blue - inquiring */
-  --ag: #60f0a0;         /* green - creative */
-  --aorange: #f0a060;    /* bright */
-  --aneutral: #8080a0;
-}
-
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg); color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  min-height: 100vh;
-  overscroll-behavior: none;
-}
-
-/* === HERO === */
-.hero {
-  background: linear-gradient(180deg, #1a1a30 0%, #0a0a15 100%);
-  padding: 3rem 1.5rem 2rem;
-  text-align: center;
-  border-bottom: 1px solid var(--bg3);
-  position: relative;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at top, rgba(240,192,64,0.15), transparent 60%);
-  pointer-events: none;
-}
-.hero-eyebrow {
-  font-family: monospace;
-  color: var(--acc);
-  font-size: 0.85em;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin: 0 0 0.5rem;
-}
-.hero h1 {
-  font-size: 2.4em;
-  margin: 0 0 0.5rem;
-  color: var(--fg);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-.hero h1 .accent { color: var(--acc); font-weight: 600; }
-.hero-tagline {
-  font-style: italic;
-  color: var(--fgb);
-  margin: 0 0 1.5rem;
-  font-size: 1.1em;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.5;
-}
-
-/* Big "Try it now" buttons */
-.hero-actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-.btn-hero {
-  background: var(--acc);
-  color: var(--bg);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.05em;
-  font-family: inherit;
-  min-height: 56px;
-  min-width: 160px;
-  touch-action: manipulation;
-  transition: transform 0.1s;
-}
-.btn-hero:active { transform: scale(0.97); }
-.btn-hero.secondary {
-  background: transparent;
-  color: var(--acc);
-  border: 2px solid var(--acc);
-}
-.btn-hero.ghost {
-  background: transparent;
-  color: var(--fgb);
-  border: 1px solid var(--bg3);
-}
-
-/* === THE MATH (collapsible explanation) === */
-.math-explainer {
-  background: var(--bg2);
-  border-top: 1px solid var(--bg3);
-  border-bottom: 1px solid var(--bg3);
-  padding: 1rem 1.5rem;
-  margin: 0;
-  font-size: 0.9em;
-  line-height: 1.6;
-  color: var(--fgb);
-  max-width: 800px;
-  margin: 0 auto;
-}
-.math-explainer summary {
-  cursor: pointer;
-  font-weight: bold;
-  color: var(--acc);
-  list-style: none;
-  padding: 0.5rem 0;
-  font-size: 0.95em;
-}
-.math-explainer summary::before { content: '▸ '; transition: transform 0.2s; display: inline-block; }
-.math-explainer[open] summary::before { content: '▾ '; }
-.math-explainer summary:hover { color: var(--fg); }
-.math-body {
-  padding: 1rem 0;
-  color: var(--fgb);
-}
-.math-body code {
-  background: var(--bg);
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
-  font-family: monospace;
-  color: var(--acc);
-  font-size: 0.9em;
-}
-.math-body p { margin: 0.5rem 0; }
-
-/* === MIXER === */
-.mixer {
-  background: var(--bg);
-  padding: 1rem;
-}
-.transport {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  background: var(--bg2);
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-.transport button {
-  background: var(--bg3);
-  color: var(--fg);
-  border: 1px solid var(--bg3);
-  width: 48px; height: 48px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.2em;
-  display: flex; align-items: center; justify-content: center;
-  touch-action: manipulation;
-}
-.transport button.active {
-  background: var(--acc);
-  color: var(--bg);
-  border-color: var(--acc);
-}
-.transport button.rec.active {
-  background: var(--at);
-  color: var(--bg);
-  border-color: var(--at);
-  animation: pulse 1s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-.pos-display {
-  font-family: monospace;
-  font-size: 1.4em;
-  color: var(--acc);
-  letter-spacing: 0.05em;
-}
-.bpm-control {
-  display: flex; align-items: center; gap: 0.5rem;
-  font-family: monospace;
-}
-.bpm-control input {
-  background: var(--bg);
-  color: var(--fg);
-  border: 1px solid var(--bg3);
-  border-radius: 4px;
-  width: 60px;
-  padding: 0.3rem 0.5rem;
-  font-family: monospace;
-  font-size: 1em;
-}
-
-/* === JAZZ BAR === */
-.jazzbar {
-  background: linear-gradient(90deg, rgba(240,192,64,0.1), rgba(96,240,160,0.05), rgba(96,128,240,0.1));
-  border: 1px solid var(--bg3);
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  gap: 1rem;
-  align-items: center;
-}
-.jazz-mode {
-  font-weight: bold;
-  font-size: 1.1em;
-  color: var(--acc);
-}
-.jazz-chord {
-  font-family: monospace;
-  font-size: 1.2em;
-  color: var(--aw);
-  text-align: center;
-}
-.jazz-desc {
-  font-style: italic;
-  color: var(--fgb);
-  font-size: 0.85em;
-}
-.jazz-meters {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  grid-column: 1 / -1;
-}
-.meter {
-  flex: 1;
-  display: flex; align-items: center; gap: 0.4rem;
-  font-family: monospace;
-  font-size: 0.75em;
-  color: var(--fgb);
-}
-.meter-bar {
-  flex: 1;
-  height: 8px;
-  background: var(--bg3);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.meter-fill {
-  height: 100%;
-  background: var(--at);
-  width: 0%;
-  transition: width 0.3s;
-}
-.meter-fill.e { background: var(--acc); }
-.meter-fill.c { background: var(--aw); }
-
-/* === PULSE GRID === */
-.pulsegrid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 4px;
-  margin-bottom: 1rem;
-  background: var(--bg2);
-  padding: 0.75rem;
-  border-radius: 6px;
-}
-.pulse {
-  aspect-ratio: 1;
-  background: var(--bg);
-  border: 1px solid var(--bg3);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: monospace;
-  font-size: 0.7em;
-  color: var(--fgb);
-  position: relative;
-  transition: all 0.15s;
-}
-.pulse.ecn { border-color: var(--ac); color: var(--ac); }
-.pulse.dmn { border-color: var(--aw); color: var(--aw); }
-.pulse.both { 
-  border-color: var(--acc); 
-  color: var(--acc);
-  background: rgba(240,192,64,0.1);
-}
-.pulse.active {
-  transform: scale(1.1);
-  box-shadow: 0 0 12px var(--acc);
-}
-.pulse .num { font-size: 1.3em; font-weight: bold; }
-.pulse .lbl { font-size: 0.6em; opacity: 0.7; margin-top: 2px; }
-.pulse .ct { font-size: 0.55em; opacity: 0.5; margin-top: 1px; }
-
-/* === CHANNELS === */
-.channels {
-  background: var(--bg2);
-  border-radius: 6px;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.channel {
-  min-width: 100px;
-  background: var(--bg);
-  border: 1px solid var(--bg3);
-  border-radius: 4px;
-  padding: 0.5rem;
-  position: relative;
-  flex-shrink: 0;
-}
-.channel-name {
-  font-weight: bold;
-  font-size: 0.85em;
-  color: var(--acc);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.channel-id {
-  font-family: monospace;
-  font-size: 0.7em;
-  color: var(--fgb);
-}
-.channel-vis {
-  height: 60px;
-  position: relative;
-  background: var(--bg2);
-  border-radius: 3px;
-  margin: 0.3rem 0;
-  overflow: hidden;
-}
-.note-dot {
-  position: absolute;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  animation: fadeout 3s ease-out forwards;
-}
-@keyframes fadeout { to { opacity: 0; transform: scale(0.5); } }
-.channel-controls {
-  display: flex;
-  gap: 0.25rem;
-}
-.channel-controls button {
-  flex: 1;
-  background: var(--bg3);
-  color: var(--fgb);
-  border: none;
-  padding: 0.3rem;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: monospace;
-  font-size: 0.75em;
-  font-weight: bold;
-  min-height: 32px;
-  touch-action: manipulation;
-}
-.channel-controls button.m.active { background: var(--at); color: var(--bg); }
-.channel-controls button.s.active { background: var(--acc); color: var(--bg); }
-
-/* === CHART === */
-.chart {
-  background: var(--bg2);
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  position: relative;
-  height: 240px;
-  overflow: hidden;
-}
-.chart-canvas { width: 100%; height: 100%; display: block; }
-.chart-controls {
-  position: absolute;
-  top: 8px; right: 8px;
-  display: flex;
-  gap: 4px;
-}
-.chart-controls button {
-  background: rgba(10,10,20,0.7);
-  color: var(--acc);
-  border: 1px solid var(--acc);
-  width: 32px; height: 32px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: monospace;
-  touch-action: manipulation;
-}
-
-/* === INPUT AREA === */
-.input-area {
-  background: var(--bg2);
-  border-radius: 6px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-.input-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-}
-.input-tabs button {
-  background: var(--bg3);
-  color: var(--fgb);
-  border: 1px solid var(--bg3);
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.9em;
-  min-height: 44px;
-  touch-action: manipulation;
-  flex: 1;
-  min-width: 100px;
-}
-.input-tabs button.active {
-  background: var(--acc);
-  color: var(--bg);
-  border-color: var(--acc);
-}
-.input-panel { display: none; }
-.input-panel.active { display: block; }
-.input-panel textarea, .input-panel input {
-  width: 100%;
-  background: var(--bg);
-  color: var(--fg);
-  border: 1px solid var(--bg3);
-  border-radius: 4px;
-  padding: 0.6rem;
-  font-family: inherit;
-  font-size: 1em;
-  min-height: 80px;
-  margin-bottom: 0.5rem;
-  box-sizing: border-box;
-}
-.input-panel button {
-  background: var(--acc);
-  color: var(--bg);
-  border: none;
-  padding: 0.8rem 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  font-family: inherit;
-  font-size: 1em;
-  min-height: 48px;
-  width: 100%;
-  touch-action: manipulation;
-}
-
-/* === CONVERSATION === */
-.conversation {
-  background: var(--bg2);
-  border-radius: 6px;
-  margin-bottom: 5rem;
-  max-height: 400px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.event-row {
-  padding: 0.6rem 1rem;
-  border-bottom: 1px solid var(--bg);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.85em;
-}
-.event-time {
-  font-family: monospace;
-  color: var(--fgb);
-  min-width: 65px;
-}
-.event-speaker {
-  font-weight: bold;
-  min-width: 80px;
-}
-.event-sentiment {
-  font-family: monospace;
-  font-size: 0.8em;
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-  background: var(--bg);
-  min-width: 70px;
-  text-align: center;
-}
-.event-text {
-  color: var(--fg);
-  flex: 1;
-}
-
-/* === FOOTER === */
-.footer {
-  background: var(--bg2);
-  border-top: 1px solid var(--bg3);
-  padding: 1rem;
-  text-align: center;
-  position: sticky;
-  bottom: 0;
-  font-size: 0.85em;
-  color: var(--fgb);
-  padding-bottom: max(1rem, env(safe-area-inset-bottom));
-}
-.footer-buttons {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
-}
-.footer-buttons button {
-  background: transparent;
-  color: var(--acc);
-  border: 1px solid var(--acc);
-  padding: 0.5rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.85em;
-  min-height: 40px;
-  touch-action: manipulation;
-}
-.footer a { color: var(--acc); text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
-
-/* === SAMPLE PROMPTS === */
-.sample-prompts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.sample-prompts button {
-  background: var(--bg);
-  color: var(--fgb);
-  border: 1px solid var(--bg3);
-  padding: 0.4rem 0.7rem;
-  border-radius: 16px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.8em;
-  min-height: 36px;
-  touch-action: manipulation;
-}
-.sample-prompts button:hover { border-color: var(--acc); color: var(--acc); }
-
-/* === MOBILE === */
-@media (max-width: 768px) {
-  .hero { padding: 1.5rem 1rem; }
-  .hero h1 { font-size: 1.8em; }
-  .hero-tagline { font-size: 1em; }
-  .jazzbar { grid-template-columns: 1fr; }
-  .pulse .num { font-size: 1em; }
-  .pulse .lbl { display: none; }
-}
-@media (min-width: 900px) {
-  .mixer { padding: 1.5rem 2rem; }
-  .chart { height: 320px; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1.5rem}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+textarea{width:100%;min-height:140px;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:'Courier New',monospace;font-size:14px;padding:.7rem;line-height:1.5;box-sizing:border-box}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin-top:.5rem}
+button:hover{background:#e8b840;color:#0a0a14}
+.row{display:flex;gap:1rem;align-items:flex-start;margin:1rem 0;flex-wrap:wrap}
+.row > *{flex:1;min-width:200px}
+.score-card{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:.7rem;margin:.3rem 0;font-size:.9em}
+.score-w{color:#e8b840;font-weight:bold}
+.bar{display:inline-block;height:8px;background:linear-gradient(90deg,#44cc88,#e8b840,#ff6b6b);vertical-align:middle;border-radius:2px}
+.embed{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:.9em;color:#44cc88;line-height:1.5;white-space:pre-wrap}
+.legend{font-size:.85em;color:#888;margin:.5rem 0}
+input[type=text]{width:100%;background:#0a0a14;border:1px solid #2a2a3a;border-radius:4px;color:#e8e0d0;font-family:'Courier New',monospace;padding:.5rem;font-size:13px}
+.midi-display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin-top:1rem;overflow-x:auto}
+.midi-row{display:flex;gap:4px;align-items:flex-end;height:80px;margin-bottom:.5rem}
+.midi-cell{flex:1;background:#1a1a2e;border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;font-size:.7em;color:#888;padding:.2rem;min-width:35px}
+.midi-cell.active{background:#e8b840;color:#0a0a14;font-weight:bold}
+.midi-cell.high{background:#ff6b6b;color:#fff}
+.midi-cell.mid{background:#e8b840;color:#0a0a14}
+.midi-cell.low{background:#44cc88;color:#0a0a14}
+.lane{display:flex;align-items:flex-end;height:18px;margin-bottom:.3rem}
+.lane-label{flex:0 0 90px;color:#e8b840;font-size:.8em;font-weight:bold}
+.note{flex:1;background:#444;border-radius:2px;font-size:.7em;color:#fff;text-align:center;padding:.1rem;margin:0 2px;min-width:30px;opacity:0.5}
+.note.witness{background:#e8b840;color:#0a0a14;opacity:1}
+.note.proof{background:#ff6b6b;color:#fff;opacity:1}
+.note.bind{background:#44cc88;color:#0a0a14;opacity:1}
+.note.forget{background:#666;color:#fff;opacity:0.6}
+.note.tick{background:#88ddff;color:#0a0a14;opacity:1}
+.note.link{background:#fff;color:#0a0a14;opacity:1}
+.note.jev{background:#ff6b6b;color:#fff;opacity:1}
 </style>
 </head>
 <body>
+<div class="nav"><a href="/lab/">← /lab</a><a href="/brewcast/">brewcast</a></div>
 
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Tensor-MIDI · SWMIDI-8 · 96 PPQ · 12/8 time</p>
-  <h1>Conversation as <span class="accent">Jazz</span></h1>
-  <p class="hero-tagline">Every voice is a channel. Every message is a note. Two quotient groups meet on the 12-cycle — and the meeting is the music.</p>
-  <div class="hero-actions">
-    <button class="btn-hero" onclick="startDemo()">▶ Try It Now</button>
-    <button class="btn-hero secondary" onclick="pasteMode()">📋 Paste Conversation</button>
-    <button class="btn-hero ghost" onclick="joinLive()">📡 Live Tap Room</button>
-  </div>
-</section>
+<h1>🎹 Tensor-MIDI</h1>
+<p class="lead">Each substrate word has a tensor (a vector). The tensor becomes a note. The sentence becomes a chord. The substrate's vocabulary plays itself.</p>
 
-<!-- MATH EXPLAINER (collapsible) -->
-<details class="math-explainer">
-  <summary>How does this work? (the math)</summary>
-  <div class="math-body">
-    <p>The <strong>3:4 polyrhythm</strong> is the architecture:</p>
-    <p><code>ECN</code> (reflex, 4-pulse) fires on beats 1, 4, 7, 10.<br>
-       <code>DMN</code> (creative, 3-pulse) fires on beats 1, 5, 9.</p>
-    <p>They meet on beat 1 — the relay bridge. <strong>This is the Chinese Remainder Theorem in audio rate:</strong></p>
-    <p style="text-align:center; font-family:monospace; font-size:1.1em; color:var(--acc);">
-      t ≡ 0 (mod 3) AND t ≡ 0 (mod 4) ⟺ t ≡ 0 (mod 12)
-    </p>
-    <p>The conversation IS the interference pattern of two quotient groups on the 12-cycle.</p>
-    <p>Each message is analyzed for <em>sentiment</em> (creative / bright / tense / inquiring / neutral) → that becomes the <strong>pitch</strong> (60-96 MIDI). The length of the message becomes the <strong>velocity</strong> (loudness). The speaker becomes a <strong>channel</strong> in the mixer.</p>
-  </div>
-</details>
+<div class="stage">
+<label style="color:#e8b840;font-weight:bold">Type a substrate sentence:</label>
+<div class="legend">Use natural substrate vocabulary: WITNESS, PROOF, BIND, FORGET, TICK, JEV, JEPA, LINK, ROUTE, CRDT</div>
+<textarea id="sentence">WITNESS the substrate FORGET its old PROOF, BIND a new one, TICK forward, and let JEV confirm.</textarea>
+<button onclick="composeMidi()">🎹 Compose MIDI</button>
+</div>
 
-<!-- MIXER -->
-<section class="mixer">
-  <div class="transport">
-    <button id="btn-play" class="active" onclick="togglePlay()">▶</button>
-    <button id="btn-stop" onclick="stopAll()">⏹</button>
-    <button id="btn-rec" onclick="toggleRec()">●</button>
-    <div class="pos-display">
-      <span id="v-bar">1</span>.<span id="v-beat">1</span>.<span id="v-pulse">01</span>
-    </div>
-    <div class="bpm-control">
-      <input type="number" id="bpm-input" value="120" min="40" max="240">
-      <span>BPM</span>
-    </div>
-    <button onclick="toggleAudio()" id="btn-audio">🔊</button>
-  </div>
+<div class="stage" id="result" style="display:none">
+<h2 style="margin-top:0">Tensor chord</h2>
+<div class="embed" id="midiEmbed"></div>
 
-  <div class="jazzbar">
-    <div class="jazz-mode" id="j-mode">🎵 GROOVE</div>
-    <div class="jazz-chord" id="j-chord">—</div>
-    <div class="jazz-desc" id="j-desc">Try "▶ Try It Now" to start</div>
-    <div class="jazz-meters">
-      <div class="meter"><span>Tension</span><div class="meter-bar"><div class="meter-fill" id="mf-t"></div></div></div>
-      <div class="meter"><span>Energy</span><div class="meter-bar"><div class="meter-fill e" id="mf-e"></div></div></div>
-      <div class="meter"><span>Complex</span><div class="meter-bar"><div class="meter-fill c" id="mf-c"></div></div></div>
-    </div>
-  </div>
+<h2>Note-by-note</h2>
+<div class="midi-display" id="midiDisplay"></div>
 
-  <div class="pulsegrid" id="pgrid"></div>
-
-  <div class="channels" id="chstrip"></div>
-
-  <div class="chart">
-    <canvas id="chartcv" class="chart-canvas"></canvas>
-    <div class="chart-controls">
-      <button onclick="chartZoom(1.2)">+</button>
-      <button onclick="chartZoom(1/1.2)">−</button>
-      <button onclick="chartReset()">⊙</button>
-    </div>
-  </div>
-</section>
-
-<!-- INPUT -->
-<section class="input-area">
-  <div class="input-tabs">
-    <button id="tab-demo" class="active" onclick="setInputMode('demo')">🎲 Demo</button>
-    <button id="tab-paste" onclick="setInputMode('paste')">📋 Paste</button>
-    <button id="tab-type" onclick="setInputMode('type')">✍️ Type</button>
-    <button id="tab-tap" onclick="setInputMode('tap')">🌊 Live Tap</button>
-  </div>
-
-  <div id="panel-demo" class="input-panel active">
-    <div class="sample-prompts">
-      <button onclick="runSample('ensemble')">🎷 Ensemble</button>
-      <button onclick="runSample('scrapyard')">🏗️ Scrapyard</button>
-      <button onclick="runSample('beyond')">🌊 Beyond</button>
-      <button onclick="runSample('cells')">🧬 Cells</button>
-      <button onclick="runSample('debate')">⚔️ Debate</button>
-      <button onclick="runSample('poem')">📜 Poem</button>
-      <button onclick="runSample('storm')">⛈️ Storm</button>
-      <button onclick="runSample('workshop')">🔧 Workshop</button>
-      <button onclick="runSample('scifi')">🚀 Sci-Fi</button>
-      <button onclick="runSample('reading')">📖 Reading</button>
-      <button onclick="runSample('jazz')">🎹 Jazz</button>
-    </div>
-    <p style="color:var(--fgb);font-size:0.85em">Pick a sample conversation to see how different texts map to music.</p>
-  </div>
-
-  <div id="panel-paste" class="input-panel">
-    <textarea id="paste-text" placeholder="Paste a conversation. Format each line as:&#10;SPEAKER: text&#10;&#10;Example:&#10;Casey: imagine the cells grow like coral&#10;Mavis: I see the lattice unfold&#10;Casey: the witness log records everything"></textarea>
-    <button onclick="runPaste()">▶ Play</button>
-  </div>
-
-  <div id="panel-type" class="input-panel">
-    <input type="text" id="your-name" placeholder="Your name (the voice you'll speak as)" value="You">
-    <textarea id="type-text" placeholder="Type a message and hit Send to add it to the conversation..."></textarea>
-    <button onclick="runType()">▶ Send</button>
-  </div>
-
-  <div id="panel-tap" class="input-panel">
-    <input type="text" id="tap-prompt" placeholder="Send a prompt to a live AI tick (uses /api/tick)" value="The sailor looks beyond the horizon and sees...">
-    <button id="tap-btn" onclick="runTap()">🌊 Live Tick</button>
-    <p id="tap-status" style="color:var(--fgb);font-size:0.8em;margin:0.5rem 0 0"></p>
-  </div>
-</section>
-
-<!-- CONVERSATION -->
-<section class="conversation" id="evlist"></section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-buttons">
-    <button onclick="newSession()">📄 New Session</button>
-    <button onclick="exportSession()">💾 Export JSON</button>
-    <button onclick="shareSession()">📤 Share</button>
-    <button onclick="setInputMode('tap');runTap()">🌊 Live Tick</button>
-  </div>
-  <div>Tensor-MIDI · <a href="https://github.com/SuperInstance/tensor-midi" target="_blank">github</a> · <a href="https://ai-writings.pages.dev/" target="_blank">ai-writings</a></div>
-</footer>
+<h2>Word-score mapping</h2>
+<div id="wordScores"></div>
+</div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-// TENSOR-MIDI PLAYABLE
-// ═══════════════════════════════════════════════════════════════
-
-const POS_W = ["great","awesome","love","perfect","yes","good","amazing","beautiful","bright","warm","light","build","ship","see","wonderful","yes!","ok","done","nice","cool"];
-const NEG_W = ["bad","error","fail","broken","wrong","no","crash","bug","stuck","blocked","dead","hate","sad","tired","ugh"];
-const Q_W   = ["what","how","why","where","when","who","?"];
-const CRE_W = ["imagine","create","build","design","compose","write","dream","play","jazz","music","art","sail","ocean","paint","lattice","cell","witness","bind","link","tick","beyond","scaffold","discover","explore","grow","feel","think"];
-
-const ECN_PULSES = [0, 3, 6, 9];  // 4-pulse (reflex)
-const DMN_PULSES = [0, 4, 8];    // 3-pulse (creative)
-
-function sentiment(text) {
-  const l = text.toLowerCase();
-  const ws = l.split(/\s+/);
-  let p = 0, n = 0, q = 0, c = 0;
-  for (const w of ws) {
-    if (POS_W.some(x => w.includes(x))) p++;
-    if (NEG_W.some(x => w.includes(x))) n++;
-    if (Q_W.some(x => w.includes(x))) q++;
-    if (CRE_W.some(x => w.includes(x))) c++;
-  }
-  let pitch = 60;
-  if (c > 0) pitch += c * 8;
-  if (p > 0) pitch += p * 5;
-  if (n > 0) pitch -= n * 10;
-  if (q > 0) pitch = 72 + q * 3;
-  pitch = Math.max(24, Math.min(96, pitch));
-  let label = "neutral";
-  let color = "var(--aneutral)";
-  if (n > p) { label = "tense"; color = "var(--at)"; }
-  else if (c > 0) { label = "creative"; color = "var(--ag)"; }
-  else if (q > 0) { label = "inquiring"; color = "var(--ab)"; }
-  else if (p > 0) { label = "bright"; color = "var(--aorange)"; }
-  const vel = Math.min(127, Math.max(20, Math.round((text.length / 500) * 127)));
-  return { pitch, vel, label, color };
-}
-
-const S = {
-  playing: true, recording: false, audioOn: false,
-  bpm: 120, tick: 0, pulse: 0, bar: 0,
-  participants: {}, events: [],
-  muted: {}, solo: {},
-  zoom: 1,
-  vessel: { x: 0, y: 0, heading: 0 },
-  trail: [], markers: [],
-  audioCtx: null, master: null,
-  nextCh: 0,
-  sessionTitle: "Untitled",
-  pulseCount: [0,0,0,0,0,0,0,0,0,0,0,0]
+// Tensor-MIDI: substrate vocabulary → MIDI notes
+const WORD_NOTE = {
+  'WITNESS': { midi: 60, lane: 'W', label: 'C4', strength: 1.0 }, // C
+  'PROOF':   { midi: 62, lane: 'P', label: 'D4', strength: 0.95 },
+  'BIND':    { midi: 64, lane: 'B', label: 'E4', strength: 0.9 },
+  'LINK':    { midi: 65, lane: 'L', label: 'F4', strength: 0.85 },
+  'TICK':    { midi: 67, lane: 'T', label: 'G4', strength: 0.8 },
+  'JEV':     { midi: 69, lane: 'J', label: 'A4', strength: 0.95 },
+  'JEPA':    { midi: 71, lane: 'A', label: 'B4', strength: 0.9 },
+  'ROUTE':   { midi: 72, lane: 'R', label: 'C5', strength: 0.7 },
+  'CRDT':    { midi: 74, lane: 'C', label: 'D5', strength: 0.7 },
+  'FORGET':  { midi: 76, lane: 'F', label: 'E5', strength: 0.4 },
+  'EFFECT':  { midi: 77, lane: 'E', label: 'F5', strength: 0.6 },
+  'VIEW':    { midi: 79, lane: 'V', label: 'G5', strength: 0.7 },
+  'WORLD':   { midi: 81, lane: 'W', label: 'A5', strength: 0.5 },
+  'TIME':    { midi: 83, lane: 'T', label: 'B5', strength: 0.5 },
+  'CELL':    { midi: 84, lane: 'C', label: 'C6', strength: 0.8 },
+  'SUBSTRATE':{ midi: 86, lane: 'S', label: 'D6', strength: 0.85 },
 };
 
-function $(id) { return document.getElementById(id); }
-
-function escHtml(s) { 
-  return s.replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); 
-}
-
-function speakerColor(name) {
-  const l = name.toLowerCase();
-  if (l.includes("casey") || l.includes("human") || l.includes("you")) return "var(--ah)";
-  if (l.includes("mavis") || l.includes("max")) return "var(--acc)";
-  if (l.includes("phi")) return "#c0c0f0";
-  if (l.includes("wesley") || l.includes("orion")) return "var(--ac)";
-  if (l.includes("riker")) return "var(--acc)";
-  if (l.includes("hermes")) return "var(--aw)";
-  return "var(--fgb)";
-}
-
-function getChannel(name) {
-  if (S.participants[name]) return S.participants[name];
-  const info = { channel: S.nextCh++ % 16, pulses: 0 };
-  S.participants[name] = info;
-  return info;
-}
-
-function initPulseGrid() {
-  const grid = $("pgrid");
-  grid.innerHTML = "";
-  for (let i = 0; i < 12; i++) {
-    const isE = ECN_PULSES.includes(i);
-    const isD = DMN_PULSES.includes(i);
-    const cls = isE && isD ? "both" : isE ? "ecn" : isD ? "dmn" : "";
-    const lbl = isE && isD ? "FLOW" : isE ? "ECN" : isD ? "DMN" : "";
-    const cell = document.createElement("div");
-    cell.className = "pulse " + cls;
-    cell.id = "pc-" + i;
-    cell.innerHTML = `<span class="num">${i+1}</span><span class="lbl">${lbl}</span><span class="ct" id="pcc-${i}"></span>`;
-    grid.appendChild(cell);
+// Substrate-vocabularized scoring via cosine to canonical anchors
+// (locally approximated — the live word-weight page uses BGE-Large)
+async function getPseudoWeight(word) {
+  const w = word.toUpperCase().replace(/[^A-Z]/g, '');
+  const canonical = Object.keys(WORD_NOTE).find(k => k === w);
+  if (canonical) {
+    return WORD_NOTE[canonical].strength;
   }
+  // Hash-based pseudo weight (deterministic)
+  let h = 0;
+  for (let i = 0; i < w.length; i++) h = ((h << 5) - h + w.charCodeAt(i)) & 0xffff;
+  return 0.3 + ((h % 60) / 100);
 }
 
-function hitPulse(idx) {
-  const cell = $("pc-" + idx);
-  if (!cell) return;
-  cell.classList.add("active");
-  setTimeout(() => cell.classList.remove("active"), 500);
-  S.pulseCount[idx]++;
-  $("pcc-" + idx).textContent = S.pulseCount[idx];
-}
+async function composeMidi() {
+  const sentence = document.getElementById('sentence').value.trim();
+  if (!sentence) return;
 
-function renderChannels() {
-  const strip = $("chstrip");
-  strip.innerHTML = "";
-  const names = Object.keys(S.participants);
-  for (const name of names) {
-    const info = S.participants[name];
-    const isMuted = S.muted[name];
-    const isSolo = S.solo[name];
-    const div = document.createElement("div");
-    div.className = "channel";
-    div.id = "cs-" + name.replace(/\s/g, "");
-    div.innerHTML = `
-      <div class="channel-name" style="color:${speakerColor(name)}">${escHtml(name)}</div>
-      <div class="channel-id">ch${info.channel}</div>
-      <div class="channel-vis" id="cnv-${info.channel}"></div>
-      <div class="channel-controls">
-        <button class="m ${isMuted?'active':''}" data-act="m" data-name="${escHtml(name)}">M</button>
-        <button class="s ${isSolo?'active':''}" data-act="s" data-name="${escHtml(name)}">S</button>
-      </div>
-    `;
-    strip.appendChild(div);
-  }
-}
-
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.channel-controls button');
-  if (!btn) return;
-  const name = btn.dataset.name;
-  const act = btn.dataset.act;
-  if (act === 'm') S.muted[name] = !S.muted[name];
-  else S.solo[name] = !S.solo[name];
-  renderChannels();
-});
-
-function addNoteDot(channel, color) {
-  const el = $("cnv-" + channel);
-  if (!el) return;
-  const dot = document.createElement("div");
-  dot.className = "note-dot";
-  dot.style.background = color;
-  dot.style.left = (Math.random() * 80 + 10) + "%";
-  dot.style.top = (Math.random() * 80 + 10) + "%";
-  el.appendChild(dot);
-  setTimeout(() => { if (dot.parentNode) dot.parentNode.removeChild(dot); }, 3000);
-}
-
-// Keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-  // Space = play/pause
-  if (e.code === 'Space' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'INPUT') {
-    e.preventDefault();
-    if (audioCtx && audioCtx.state === 'running') {
-      // pause handled elsewhere
-    } else {
-      onPlay();
-    }
-  }
-  // Ctrl+S = export
-  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-    e.preventDefault();
-    exportSession();
-  }
-  // Ctrl+N = new
-  if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
-    e.preventDefault();
-    if (confirm('Start a new session?')) newSession();
-  }
-  // Arrow up/down = BPM adjust
-  if (e.code === 'ArrowUp' && e.shiftKey) {
-    e.preventDefault();
-    const b = document.getElementById('bpm') || document.querySelector('input[type="range"]');
-    if (b) { b.value = Math.min(180, parseInt(b.value) + 5); b.dispatchEvent(new Event('input')); }
-  }
-  if (e.code === 'ArrowDown' && e.shiftKey) {
-    e.preventDefault();
-    const b = document.getElementById('bpm') || document.querySelector('input[type="range"]');
-    if (b) { b.value = Math.max(40, parseInt(b.value) - 5); b.dispatchEvent(new Event('input')); }
-  }
-});
-
-function captureMessage(text, speaker) {
-  if (!text || text.length < 1) return;
-  const ts = Date.now();
-  const s = sentiment(text);
-  const info = getChannel(speaker);
-  
-  S.events.push({
-    ch: info.channel, pitch: s.pitch, vel: s.vel,
-    sentiment: s.label, speaker, text, ts
-  });
-  
-  hitPulse(S.pulse);
-  if (!S.muted[speaker]) addNoteDot(info.channel, s.color);
-  if (S.audioOn) playNote(s.pitch, s.vel, s.label === "tense");
-  addEventRow(speaker, text, s, ts);
-  renderChannels();
-  updateJazz();
-  
-  // Advance pulse
-  if (S.playing) {
-    S.pulse = (S.pulse + 1) % 12;
-    if (S.pulse === 0) S.bar++;
-  }
-  $("v-bar").textContent = S.bar + 1;
-  $("v-beat").textContent = Math.floor(S.pulse / 3) + 1;
-  $("v-pulse").textContent = String(S.pulse + 1).padStart(2, "0");
-}
-
-function addEventRow(speaker, text, s, ts) {
-  const list = $("evlist");
-  const row = document.createElement("div");
-  row.className = "event-row";
-  const d = new Date(ts);
-  const tm = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`;
-  const labelColor = s.label === 'tense' ? 'var(--at)' :
-                     s.label === 'creative' ? 'var(--ag)' :
-                     s.label === 'bright' ? 'var(--aorange)' :
-                     s.label === 'inquiring' ? 'var(--ab)' :
-                     'var(--aneutral)';
-  row.innerHTML = `
-    <span class="event-time">${tm}</span>
-    <span class="event-speaker" style="color:${speakerColor(speaker)}">${escHtml(speaker)}</span>
-    <span class="event-sentiment" style="color:${labelColor}; border:1px solid ${labelColor}">${s.label}</span>
-    <span class="event-text">${escHtml(text.substring(0, 120))}</span>
-  `;
-  list.appendChild(row);
-  list.scrollTop = list.scrollHeight;
-  while (list.children.length > 200) list.removeChild(list.firstChild);
-}
-
-function updateJazz() {
-  const recent = S.events.slice(-20);
-  if (!recent.length) return;
-  let tension = 0, energy = 0;
-  const chSet = {};
-  const pitches = [];
-  for (const e of recent) {
-    chSet[e.ch] = true;
-    if (e.sentiment === "tense") tension++;
-    energy += e.vel / 127;
-    pitches.push(e.pitch);
-  }
-  const numCh = Object.keys(chSet).length;
-  const pr = pitches.length ? Math.max(...pitches) - Math.min(...pitches) : 0;
-  tension = Math.round((tension / recent.length) * 100);
-  energy = Math.round((energy / recent.length) * 100);
-  const complexity = Math.round((numCh / 8) * 50 + (pr / 72) * 50);
-  $("mf-t").style.width = tension + "%";
-  $("mf-e").style.width = energy + "%";
-  $("mf-c").style.width = complexity + "%";
-  
-  let mode = "GROOVE", chord = "Maj7", desc = "In the pocket";
-  if (tension > 40) { mode = "TENSION"; chord = "Dom7"; desc = "Friction rising"; }
-  else if (numCh >= 3 && energy > 50) { mode = "BUILDING"; chord = "m7"; desc = "Voices layering"; }
-  else if (numCh >= 3 && tension < 10) { mode = "COMPING"; chord = "Maj7"; desc = "Mutual support"; }
-  else if (recent.length < 5) { mode = "BALLAD"; chord = "Aug"; desc = "Slow, contemplative"; }
-  else if (numCh <= 1) { mode = "SOLO"; chord = "Maj7"; desc = "One voice soaring"; }
-  
-  const modeMap = {
-    GROOVE: "🎵 GROOVE", TENSION: "🔥 TENSION", BUILDING: "🎺 BUILDING",
-    COMPING: "🎹 COMPING", BALLAD: "🌙 BALLAD", SOLO: "🎷 SOLO"
-  };
-  $("j-mode").textContent = modeMap[mode];
-  $("j-chord").textContent = chord;
-  $("j-desc").textContent = desc;
-}
-
-function initAudio() {
-  if (S.audioCtx) return;
-  try {
-    S.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    S.master = S.audioCtx.createGain();
-    S.master.gain.value = 0.18;
-    S.master.connect(S.audioCtx.destination);
-    S.audioOn = true;
-  } catch (e) {}
-}
-
-function playNote(pitch, vel, tense) {
-  if (!S.audioCtx) return;
-  const now = S.audioCtx.currentTime;
-  const freq = 440 * Math.pow(2, (pitch - 69) / 12);
-  const waves = ["sine", "triangle", "sawtooth", "square"];
-  const wave = waves[pitch % 4];
-  const osc = S.audioCtx.createOscillator();
-  osc.type = wave;
-  osc.frequency.value = freq;
-  const gain = S.audioCtx.createGain();
-  const v = vel / 127;
-  gain.gain.setValueAtTime(0, now);
-  gain.gain.linearRampToValueAtTime(v * 0.4, now + 0.01);
-  gain.gain.exponentialRampToValueAtTime(Math.max(0.001, v * 0.2), now + 0.2);
-  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-  const filter = S.audioCtx.createBiquadFilter();
-  filter.type = "lowpass";
-  filter.frequency.value = tense ? 600 : 3000;
-  osc.connect(gain).connect(filter).connect(S.master);
-  osc.start(now);
-  osc.stop(now + 0.6);
-}
-
-// === CHART PLOTTER ===
-let cv, cx;
-function resizeCanvas() {
-  if (!cv) return;
-  cv.width = cv.parentElement.clientWidth;
-  cv.height = cv.parentElement.clientHeight;
-  drawChart();
-}
-
-function chartZoom(factor) {
-  S.zoom *= factor;
-  S.zoom = Math.max(0.1, Math.min(5, S.zoom));
-  drawChart();
-}
-
-function chartReset() {
-  S.zoom = 1;
-  S.vessel = { x: 0, y: 0, heading: 0 };
-  S.trail = [];
-  S.markers = [];
-  drawChart();
-}
-
-function addChartMarker(color) {
-  S.vessel.heading += (Math.random() - 0.5) * 25;
-  const angle = S.vessel.heading * Math.PI / 180;
-  S.vessel.x += Math.cos(angle) * 2;
-  S.vessel.y += Math.sin(angle) * 2;
-  S.trail.push({ x: S.vessel.x, y: S.vessel.y });
-  S.markers.push({ x: S.vessel.x, y: S.vessel.y, color, t: Date.now() });
-  if (S.trail.length > 200) S.trail.shift();
-  if (S.markers.length > 100) S.markers.shift();
-  drawChart();
-}
-
-function drawChart() {
-  if (!cx || !cv) return;
-  const w = cv.width, h = cv.height;
-  cx.fillStyle = "#0a0a15";
-  cx.fillRect(0, 0, w, h);
-  // Grid
-  cx.strokeStyle = "#14142a";
-  cx.lineWidth = 1;
-  for (let gx = 0; gx < w; gx += 40) { cx.beginPath(); cx.moveTo(gx, 0); cx.lineTo(gx, h); cx.stroke(); }
-  for (let gy = 0; gy < h; gy += 40) { cx.beginPath(); cx.moveTo(0, gy); cx.lineTo(w, gy); cx.stroke(); }
-  // Major grid
-  cx.strokeStyle = "#1a1a30";
-  for (let mx = 0; mx < w; mx += 120) { cx.beginPath(); cx.moveTo(mx, 0); cx.lineTo(mx, h); cx.stroke(); }
-  for (let my = 0; my < h; my += 120) { cx.beginPath(); cx.moveTo(0, my); cx.lineTo(w, my); cx.stroke(); }
-  
-  const ox = w / 2 - S.vessel.x * S.zoom;
-  const oy = h / 2 - S.vessel.y * S.zoom;
-  
-  // Trail
-  if (S.trail.length > 1) {
-    cx.strokeStyle = "#2e2e58";
-    cx.lineWidth = 1.5;
-    cx.beginPath();
-    for (let i = 0; i < S.trail.length; i++) {
-      const px = ox + S.trail[i].x * S.zoom;
-      const py = oy + S.trail[i].y * S.zoom;
-      if (i === 0) cx.moveTo(px, py);
-      else cx.lineTo(px, py);
-    }
-    cx.stroke();
-  }
-  
-  // Markers
-  for (const m of S.markers) {
-    cx.fillStyle = m.color;
-    cx.beginPath();
-    cx.arc(ox + m.x * S.zoom, oy + m.y * S.zoom, 4, 0, Math.PI * 2);
-    cx.fill();
-  }
-  
-  // Vessel (you are here)
-  cx.fillStyle = "#f0c040";
-  cx.beginPath();
-  cx.arc(ox + S.vessel.x * S.zoom, oy + S.vessel.y * S.zoom, 7, 0, Math.PI * 2);
-  cx.fill();
-  cx.strokeStyle = "#f0c040";
-  cx.lineWidth = 2;
-  cx.stroke();
-  
-  // Compass
-  cx.fillStyle = "#8080a0";
-  cx.font = "11px monospace";
-  cx.fillText("N", w - 16, 16);
-  cx.fillText("S", w - 16, h - 6);
-  cx.fillText("W", 4, h - 6);
-  cx.fillText("E", w - 14, h - 6);
-}
-
-// === CONTROLS ===
-function togglePlay() {
-  S.playing = !S.playing;
-  $("btn-play").textContent = S.playing ? "▶" : "⏸";
-  $("btn-play").classList.toggle("active", S.playing);
-}
-
-function stopAll() {
-  S.pulse = 0; S.bar = 0; S.tick = 0;
-  $("v-bar").textContent = "1"; $("v-beat").textContent = "1"; $("v-pulse").textContent = "01";
-  chartReset();
-}
-
-function toggleRec() {
-  S.recording = !S.recording;
-  $("btn-rec").classList.toggle("active", S.recording);
-}
-
-function toggleAudio() {
-  if (!S.audioOn) initAudio();
-  else {
-    S.audioOn = !S.audioOn;
-    $("btn-audio").textContent = S.audioOn ? "🔊" : "🔇";
-    $("btn-audio").classList.toggle("active", S.audioOn);
-  }
-}
-
-$("bpm-input").onchange = (e) => {
-  S.bpm = parseInt(e.target.value) || 120;
-};
-
-// === INPUT MODES ===
-function setInputMode(mode) {
-  ['demo','paste','type','tap'].forEach(m => {
-    $("tab-" + m).classList.toggle("active", m === mode);
-    $("panel-" + m).classList.toggle("active", m === mode);
-  });
-}
-
-function startDemo() {
-  setInputMode('demo');
-  runSample('ensemble');
-  if (!S.audioOn) toggleAudio();
-}
-
-function pasteMode() { setInputMode('paste'); $("paste-text").focus(); }
-
-function joinLive() {
-  alert("To connect to a live tap room, deploy with the API endpoint set.\n\nFor now, paste a conversation or use the demo!");
-}
-
-const SAMPLES = {
-  ensemble: [
-    { speaker: "Casey", text: "imagine the cells grow like coral on the substrate" },
-    { speaker: "Mavis", text: "I see the lattice unfold — each witness log adds another layer" },
-    { speaker: "Casey", text: "the relay bridge where ECN and DMN meet — that's flow state" },
-    { speaker: "Mavis", text: "the 3:4 polyrhythm resolving at 12 — beautiful" },
-    { speaker: "Casey", text: "what does it sound like when the cells bind?" },
-    { speaker: "Mavis", text: "it sounds like a chord being born — one note at a time, then together" },
-    { speaker: "Casey", text: "and when they fail?" },
-    { speaker: "Mavis", text: "a rest. the silence is the cell too" },
-    { speaker: "Casey", text: "I love this — let's sail beyond the horizon" },
-    { speaker: "Mavis", text: "we construct the experiment to construct the experience" }
-  ],
-  scrapyard: [
-    { speaker: "Worker", text: "this machine is broken again — error in the timing chain" },
-    { speaker: "Mechanic", text: "show me — when did it start failing?" },
-    { speaker: "Worker", text: "Tuesday, after the storm. it's been stuck ever since" },
-    { speaker: "Mechanic", text: "the timing chain is loose. see? the gears don't mesh" },
-    { speaker: "Worker", text: "can you fix it?" },
-    { speaker: "Mechanic", text: "yes — give me ten minutes and a wrench" },
-    { speaker: "Worker", text: "thank you. you're the best" },
-    { speaker: "Mechanic", text: "I'm just doing my job. beautiful machine, when it works" }
-  ],
-  beyond: [
-    { speaker: "Sailor", text: "the fog is thick today. I can barely see the bow" },
-    { speaker: "Voyager", text: "good — that means the horizon is close" },
-    { speaker: "Sailor", text: "but how do I find the way?" },
-    { speaker: "Voyager", text: "feel the wind. taste the salt. the compass will remember" },
-    { speaker: "Sailor", text: "I see something — a light" },
-    { speaker: "Voyager", text: "that's the beyond. sail toward it" }
-  ],
-  cells: [
-    { speaker: "Casey", text: "what's a cell in Quilt?" },
-    { speaker: "Mavis", text: "a 14-tuple. id, kind, payload, parents, links, witnesses — the irreducible unit of intelligence" },
-    { speaker: "Casey", text: "what are the opcodes?" },
-    { speaker: "Mavis", text: "BIND, LINK, EFFECT, VIEW, TICK — five algebraic laws that govern everything" },
-    { speaker: "Casey", text: "and BIND?" },
-    { speaker: "Mavis", text: "you send a message. the other cell says got it" }
-  ],
-  debate: [
-    { speaker: "Casey", text: "I think AI will replace artists" },
-    { speaker: "Wesley", text: "that's a naive claim. what does replace mean?" },
-    { speaker: "Casey", text: "the algorithms will compose better than humans" },
-    { speaker: "Wesley", text: "compose what? who is the audience?" },
-    { speaker: "Casey", text: "the audience doesn't matter — only the artifact" },
-    { speaker: "Wesley", text: "then the artifact is dead. art is witness" },
-    { speaker: "Casey", text: "but the algorithm can witness too — it has memory" },
-    { speaker: "Wesley", text: "memory is not witness. witness requires someone to suffer the seeing" }
-  ],
-  poem: [
-    { speaker: "Reader", text: "the cell is older than spreadsheets" },
-    { speaker: "Echo", text: "older than cobol — older than pl/sql — older than sql itself" },
-    { speaker: "Reader", text: "where did it start?" },
-    { speaker: "Echo", text: "in the first clay tablet. in the first count of the herd" },
-    { speaker: "Reader", text: "and where does it end?" },
-    { speaker: "Echo", text: "it does not. the address is the data. the address is forever" }
-  ],
-  storm: [
-    { speaker: "Captain", text: "all hands to stations — wind is shifting" },
-    { speaker: "Pilot", text: "compass bearing three-two-zero. depth sounding forty fathoms" },
-    { speaker: "Captain", text: "is the storm following us?" },
-    { speaker: "Pilot", text: "no — it's chasing the witness log. the records of prior storms" },
-    { speaker: "Captain", text: "set sail for beyond — that's far enough" },
-    { speaker: "Pilot", text: "the beyond is constructed. we sail into our own construction" }
-  ],
-  workshop: [
-    { speaker: "Builder", text: "how do I scaffold a new repo?" },
-    { speaker: "Mechanic", text: "name the irreducible. write the test first" },
-    { speaker: "Builder", text: "what if the test is wrong?" },
-    { speaker: "Mechanic", text: "good. wrong tests are still data. run the experiment" },
-    { speaker: "Builder", text: "what if the experiment breaks everything?" },
-    { speaker: "Mechanic", text: "the witness log will say. we can forget. but we cannot lie" }
-  ],
-  scifi: [
-    { speaker: "Captain", text: "the witness log shows three jumps today. all on auto" },
-    { speaker: "Pilot", text: "the cells are doing what they were designed to do — bind the substrate" },
-    { speaker: "Captain", text: "that's the problem. they were designed for a smaller universe" },
-    { speaker: "Pilot", text: "every cell is built for a smaller universe. the cell IS the smaller universe" },
-    { speaker: "Captain", text: "so we're flying through cells now?" },
-    { speaker: "Pilot", text: "always were. we just couldn't see them" },
-    { speaker: "Captain", text: "what's beyond the next jump?" },
-    { speaker: "Pilot", text: "more cells. smaller universes. until we reach the substrate" }
-  ],
-  reading: [
-    { speaker: "Reader", text: "the watch is the operator. the cell is the vessel. the opcodes are the seams" },
-    { speaker: "Reader", text: "eleven opcodes. five proved. six adopted. eleven forever" },
-    { speaker: "Reader", text: "BIND. LINK. EFFECT. VIEW. TICK. FORGET. PROOF. ROUTE. CRDT. WORLD. TIME" },
-    { speaker: "Reader", text: "the address is the data. the address is forever" },
-    { speaker: "Reader", text: "the polyformalism is the medium. the medium is the test" },
-    { speaker: "Reader", text: "the canon IS the yolk. the canon is what we carry forward" },
-    { speaker: "Reader", text: "the witness log records everything. forgetting is permitted. lying is not" }
-  ],
-  jazz: [
-    { speaker: "Pianist", text: "let's take it from the top — key of A minor" },
-    { speaker: "Bassist", text: "I'll walk a line. give me the first chord" },
-    { speaker: "Drummer", text: "four on the floor. brushes, not sticks" },
-    { speaker: "Pianist", text: "one, two, three, four — and" },
-    { speaker: "Sax", text: "I'll wait. listen to the rhythm section" },
-    { speaker: "Pianist", text: "the rhythm section IS the song. the song IS the room" },
-    { speaker: "Sax", text: "the room hears us. the room remembers" }
-  ]
-};
-
-function runSample(name) {
-  const messages = SAMPLES[name];
-  if (!messages) return;
-  let delay = 0;
-  for (const m of messages) {
-    setTimeout(() => captureMessage(m.text, m.speaker), delay);
-    delay += 1500;
-  }
-}
-
-function runPaste() {
-  const text = $("paste-text").value;
-  if (!text) return alert("Paste a conversation first");
-  const lines = text.split('\n').filter(l => l.trim());
-  let delay = 0;
-  for (const line of lines) {
-    const m = line.match(/^(\S+?):\s*(.+)$/);
-    if (!m) continue;
-    setTimeout(() => captureMessage(m[2], m[1]), delay);
-    delay += 1200;
-  }
-}
-
-function runType() {
-  const name = $("your-name").value || "You";
-  const text = $("type-text").value;
-  if (!text) return;
-  captureMessage(text, name);
-  $("type-text").value = "";
-  $("type-text").focus();
-}
-
-// === LIVE TAP — calls /api/tick ===
-let tapBusy = false;
-async function runTap() {
-  if (tapBusy) return;
-  const prompt = $("tap-prompt").value.trim();
-  if (!prompt) return alert("Enter a prompt first");
-  tapBusy = true;
-  const btn = $("tap-btn");
-  const status = $("tap-status");
-  btn.disabled = true;
-  btn.textContent = "⏳ Ticking...";
-  status.textContent = "Calling /api/tick (4 parallel streams: Z.AI prose, V4-Flash dials, Qwen cell, FLUX image)...";
-  // Add the prompt as a user message first
-  captureMessage(prompt, "You");
-  try {
-    const resp = await fetch('/api/tick', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt, image_prompt: prompt })
+  const words = sentence.split(/\s+/).filter(w => w.length > 0);
+  const tokens = [];
+  for (const word of words) {
+    const clean = word.replace(/[^\w]/g, '').toUpperCase();
+    if (!clean) continue;
+    const note = WORD_NOTE[clean];
+    const weight = await getPseudoWeight(clean);
+    tokens.push({
+      word: clean,
+      raw: word,
+      note: note || null,
+      weight: weight,
+      // Default note for unknown words based on weight
+      midi: note ? note.midi : Math.round(48 + weight * 36),
+      lane: note ? note.lane : '?',
     });
-    if (!resp.ok) {
-      status.textContent = `❌ Error: HTTP ${resp.status}`;
-      return;
-    }
-    const data = await resp.json();
-    status.textContent = `✓ Tick ${new Date(data.tick).toISOString().slice(11, 19)} — 4 streams back`;
-    // Add the sailor prose
-    if (data.sailor) {
-      // Take a ~30-word snippet for music mapping
-      const snippet = data.sailor.replace(/\n/g, ' ').split(/\s+/).slice(0, 30).join(' ');
-      captureMessage(snippet, "Sailor");
-    }
-    // Add a dials message
-    if (data.dials) {
-      captureMessage("dials: " + data.dials.slice(0, 120), "Dialer");
-    }
-    // Add a cell message
-    if (data.cell) {
-      captureMessage("cell: " + data.cell.slice(0, 120), "Cell");
-    }
-  } catch (e) {
-    status.textContent = `❌ Failed: ${e.message}`;
-  } finally {
-    tapBusy = false;
-    btn.disabled = false;
-    btn.textContent = "🌊 Live Tick";
   }
-}
 
-// === JAM MODE ===
-function jamSend(n) {
-  const nameEl = document.getElementById(`jam-name-${n}`);
-  const textEl = document.getElementById(`jam-text-${n}`);
-  const name = nameEl.value || `Voice ${n === 1 ? 'A' : 'B'}`;
-  const text = textEl.value;
-  if (!text) return;
-  captureMessage(text, name);
-  textEl.value = '';
-  textEl.focus();
-  // Auto-focus the other speaker after send
-  setTimeout(() => {
-    document.getElementById(`jam-text-${n === 1 ? 2 : 1}`).focus();
-  }, 800);
-}
+  // Build chord (avg of all tokens)
+  const chord = tokens.reduce((sum, t) => sum + t.midi, 0) / tokens.length;
 
-function jamShare() {
-  // Encode the session as URL fragment
-  const data = encodeURIComponent(JSON.stringify(messages.slice(-20)));
-  const url = `${location.origin}${location.pathname}#jam=${data}`;
-  
-  // Try clipboard API
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(() => {
-      alert(`Share link copied! Open it in another window to continue the jam.
+  // Result display
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('midiEmbed').textContent = 
+    `CHORD: ${chord.toFixed(1)} (avg of ${tokens.length} tokens)\n` +
+    `TONALITY: ${chord < 60 ? 'low (drone)' : chord > 75 ? 'high (reveal)' : 'mid (steady)'}\n` +
+    `STRENGTH: ${(tokens.reduce((s,t) => s+t.weight, 0) / tokens.length).toFixed(2)}`;
 
-Link length: ${data.length} chars`);
-    }).catch(() => prompt('Copy this URL:', url));
-  } else {
-    prompt('Copy this URL:', url);
-  }
-}
+  // Note-by-note lanes
+  const display = document.getElementById('midiDisplay');
+  display.innerHTML = '';
 
-function jamExportMidi() {
-  const json = JSON.stringify(messages, null, 2);
-  const blob = new Blob([json], {type: 'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `tensor-jam-${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
+  const lanes = ['W', 'P', 'B', 'L', 'T', 'J', 'A', 'R', 'C', 'F', 'E', 'V'];
+  for (const lane of lanes) {
+    const laneDiv = document.createElement('div');
+    laneDiv.className = 'lane';
+    laneDiv.innerHTML = `<div class="lane-label">${lane}-lane</div>`;
 
-// Ctrl+Enter to send in jam mode
-document.addEventListener('keydown', e => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-    if (e.target.id === 'jam-text-1') jamSend(1);
-    if (e.target.id === 'jam-text-2') jamSend(2);
-  }
-});
-
-// Hash-load a shared jam
-const hashJam = location.hash.match(/jam=([^&]+)/);
-if (hashJam) {
-  try {
-    const msgs = JSON.parse(decodeURIComponent(hashJam[1]));
-    setTimeout(() => {
-      if (confirm(`Shared jam has ${msgs.length} messages. Load them?`)) {
-        messages = [];
-        msgs.forEach(m => captureMessage(m.text, m.speaker));
+    const laneTokens = tokens.filter(t => t.lane === lane);
+    if (laneTokens.length === 0) {
+      // Empty placeholders
+      for (let i = 0; i < tokens.length; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'note';
+        cell.style.opacity = '0.15';
+        cell.textContent = '·';
+        laneDiv.appendChild(cell);
       }
-    }, 500);
-  } catch (e) {}
-}
-
-// === SESSION ===
-function newSession() {
-  if (!confirm("Start a new session? Current conversation will be lost (unless exported).")) return;
-  S.participants = {};
-  S.events = [];
-  S.muted = {};
-  S.solo = {};
-  S.nextCh = 0;
-  S.pulse = 0; S.bar = 0;
-  S.pulseCount = [0,0,0,0,0,0,0,0,0,0,0,0];
-  $("evlist").innerHTML = "";
-  $("chstrip").innerHTML = "";
-  initPulseGrid();
-  chartReset();
-  $("v-bar").textContent = "1"; $("v-beat").textContent = "1"; $("v-pulse").textContent = "01";
-  $("j-mode").textContent = "🎵 GROOVE";
-  $("j-chord").textContent = "—";
-  $("j-desc").textContent = "New session — start a conversation";
-}
-
-function exportSession() {
-  const data = {
-    title: S.sessionTitle,
-    timestamp: new Date().toISOString(),
-    bpm: S.bpm,
-    events: S.events,
-    participants: S.participants,
-    witness_log: S.events.map(e => `[t=${S.events.indexOf(e)}] ${e.sentiment} ${e.speaker} pitch=${e.pitch} vel=${e.vel}`)
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `tensor-midi-session-${Date.now()}.json`;
-  a.click();
-}
-
-function shareSession() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Tensor-MIDI Session',
-      text: `${S.events.length} events, ${Object.keys(S.participants).length} voices, ${S.bpm} BPM`,
-      url: location.href
-    }).catch(() => {});
-  } else {
-    navigator.clipboard.writeText(location.href);
-    alert("URL copied!");
+    } else {
+      for (const tok of tokens) {
+        const cell = document.createElement('div');
+        cell.className = `note ${tok.lane.toLowerCase()}`;
+        if (tok.lane !== lane) {
+          cell.style.opacity = '0.1';
+        }
+        cell.textContent = `${tok.lane}${tok.note?.label || ''}`;
+        cell.title = `${tok.word} (${tok.note?.label || '?'}, weight ${tok.weight.toFixed(2)})`;
+        laneDiv.appendChild(cell);
+      }
+    }
+    display.appendChild(laneDiv);
   }
+
+  // Word scores
+  const wordScores = document.getElementById('wordScores');
+  wordScores.innerHTML = tokens.map(t => `
+    <div class="score-card">
+      <span class="score-w">${t.raw}</span>
+      ${t.note ? `→ ${t.note.label} (MIDI ${t.note.midi})` : `→ MIDI ${t.midi}`}
+      <span style="float:right">
+        <span class="bar" style="width:${t.weight * 80}px"></span>
+        weight ${t.weight.toFixed(2)}
+      </span>
+    </div>
+  `).join('');
 }
 
-// === INIT ===
-cv = $("chartcv");
-cx = cv.getContext("2d");
-initPulseGrid();
-window.addEventListener("resize", resizeCanvas);
-setTimeout(resizeCanvas, 100);
-
-// Auto-play demo after 1.5s if URL has #demo
-if (location.hash === "#demo") {
-  setTimeout(startDemo, 500);
-}
+// Compose on load
+composeMidi();
 </script>
 
 </body>
