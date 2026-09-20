@@ -14,3 +14,6 @@ videos/
 /tap/*.mp3
 /fleet-radio/*/audio/*.mp3
 /fleet-radio/*/audio/voices/
+
+# Per-night music (large; deployed via CF Pages)
+/fleet-radio/*/music/
