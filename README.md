@@ -369,6 +369,10 @@ The forest doesn't stand alone. It's one organ of a working fleet, and the stori
 - **[Erised](https://github.com/SuperInstance/erised)** — the cooperative-fiction engine. The TTRPG at the Tap runs in it. The wins live at [superinstance.ai/winners](https://superinstance.ai/winners).
 - **[The Tap Method](/tap/method/)** — the doctrine. Why the tavern IS the substrate. The lattice / GAN / minesweeper loop. The 4D DAW.
 - **[/lab/](/lab/)** — the brewery. Every question gets brewed through debate + JEV + cross-encoding. The cells grow.
+- **[/lab/brew/atlas/](/lab/brew/atlas/)** — the substrate atlas. All 30+ brews mapped by similarity × truth-strength. The scatter plot of what the substrate has learned about itself.
+- **[/lab/brew/rosetta-stone/](/lab/brew/rosetta-stone/)** — Casey's "JEV × JEPA in 1D" brew. The Rosetta stone between time-sensing and space-sensing.
+- **[/lab/brew/rosetta-stone-stress/](/lab/brew/rosetta-stone-stress/)** — where does the Rosetta framing break? 10 adversarial probes. The framing is Gödel-fragile, scale-bound, and approximate.
+- **[/prose/the_atlas_of_twenty_one_brews.md](/prose/the_atlas_of_twenty_one_brews.md)** — Lucineer's prose synthesis of the 21-brew round. The 6 faces of the substrate.
 
 ---
 
