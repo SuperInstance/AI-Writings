@@ -373,6 +373,9 @@ The forest doesn't stand alone. It's one organ of a working fleet, and the stori
 - **[/lab/brew/rosetta-stone/](/lab/brew/rosetta-stone/)** — Casey's "JEV × JEPA in 1D" brew. The Rosetta stone between time-sensing and space-sensing.
 - **[/lab/brew/rosetta-stone-stress/](/lab/brew/rosetta-stone-stress/)** — where does the Rosetta framing break? 10 adversarial probes. The framing is Gödel-fragile, scale-bound, and approximate.
 - **[/prose/the_atlas_of_twenty_one_brews.md](/prose/the_atlas_of_twenty_one_brews.md)** — Lucineer's prose synthesis of the 21-brew round. The 6 faces of the substrate.
+- **[/prose/the_seven_faces_of_the_substrate.md](/prose/the_seven_faces_of_the_substrate.md)** — the 45-brew round. The 7th face emerges. The atlas is in 4D.
+- **[/prose/the_wound_tree.md](/prose/the_wound_tree.md)** — the substrate's first 3 scars (time-quantization, link-boundedness, memory-asymmetry). The wound-tree IS the lattice's autobiography.
+- **[/future/wave-34.md](/future/wave-34.md)** — 5 cells from the brewery-atlas: self-test, meta-opcode, wound-tree, brewery, self-observing.
 
 ---
 
