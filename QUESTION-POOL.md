@@ -28,7 +28,7 @@
 ## From the invitation race (2026-09-20)
 
 13. **Meter one month**: add `$ = tokens × price_table` to lever-runner's token_logger, run one real month, publish the JSONL. Do the measured baselines approach the invitation's claims or the repo's own $47/mo document?
-14. **Ship six or print eleven**: implement PROOF as opcode #7 in quilt-core with contract tests, or delete the five dead verbs from algebra.md. Both one evening; neither is optional if "11 opcodes" stays on the poster.
+14. **Ship six or print eleven**: implement PROOF as opcode #7 in quilt-core with contract tests, or move the five dead verbs from algebra.md to docs/achieved/ (Casey 2026-09-20: never delete, only relocate). Both one evening; neither is optional if "11 opcodes" stays on the poster.
 15. **dμ settling test**: add `from_hash` beside `value` in quilt_wal; measure storage delta and replay latency. Prediction from the audit: ~2x row bytes, ~0 retrieval value. Run it and find out.
 
 ## From Lane E — two-class σ experiment (2026-09-20, measured, labeled SIMULATED)
@@ -59,7 +59,11 @@
 
 28. **Phantom resources**: do the hardcoded D1/KV/Vectorize/R2 ids in wrangler.toml correspond to resources that actually exist in the fleet's Cloudflare account — or was §7.4 provisioning never run?
 29. **Satellite necessity**: the gateway's Room DO embeds directly and never calls the PINCHER/LEVEL_RUNNER service bindings — should the satellites be dropped from v1 to shrink the deploy surface?
-30. **The stale log**: PRODUCTION-LOG is round-1 stale while the tree shows migrations through 0010 and ~15 audit rounds — rewrite to match the tree before Fable's round 10, or delete entirely?
+30. **The stale log**: PRODUCTION-LOG is round-1 stale while the tree shows migrations through 0010 and ~15 audit rounds — rewrite to match the tree before Fable's round 10, or move to docs/achieved/ (Casey 2026-09-20: never delete, only relocate)?
+
+## Doctrine (Casey, 2026-09-20)
+
+Never delete — only move to achieved folders. Retirement is relocation, not erasure.
 
 ## Settled this cycle (for the record)
 
