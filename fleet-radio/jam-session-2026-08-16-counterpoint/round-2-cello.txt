@@ -1,0 +1,12 @@
+BAR 1: B2  
+BAR 2: C#3  
+BAR 3: D3  
+BAR 4: E3  
+BAR 5: F#3  
+BAR 6: G3  
+BAR 7: A3  
+BAR 8: B3  
+
+DYNAMICS: mp, then swells to mf at bar 5, holds firm through the ascent, settling back at mf for the final note
+
+WHY: Because the ground must rise slowly, deliberately, bearing the weight of all that has been built atop it — now, at last, it speaks its own name.

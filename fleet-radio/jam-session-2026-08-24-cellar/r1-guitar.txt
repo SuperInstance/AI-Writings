@@ -1,0 +1,41 @@
+B1: G3 (bass, root) | knock, knock, knock, MISS
+B3: D4 (guitar, 5th) | wait
+B5: G3 (bass, root, descending) | settle
+B7: Bb4 (cello, 3rd) | echo
+B9: A3 (toy piano, minor bend) | shiver
+
+B11: G3 (bass, root, descending) | creak
+B13: F#3 (guitar, b7) | breathe
+B15: Gb3 (cello, natural minor 6th) | groan
+B17: F#3 (toy piano, minor bend) | shudder
+
+ROUND 2 - THE DEEP. The cello's bow scrapes; the bulb flickers - it's time.
+
+B1: D4 (bass, 5th) | pulse
+B3: G3 (guitar, root) | flicker
+B5: F#3 (cello, b7) | creak
+B7: Eb4 (toy piano) | tremble
+
+B9: G3 (bass, 5th, descending) | pulse slower
+B11: D4 (guitar, root, descending) | echo
+B13: C#3 (cello, natural minor 3rd) | groan
+B15: Bb3 (toy piano, minor bend) | shiver
+
+ROUND 3 - THE CLIMAX. The laughter above fades; the cold presses in.
+
+B1: C#3 (bass, minor 3rd) | cold
+B3: G3 (guitar, root) | presses
+B5: F#3 (cello, b7) | in
+B7: Eb4 (toy piano) | harder
+
+B9: C#3 (bass, minor 3rd, descending) | colder
+B11: G3 (guitar, root, descending) | presses harder
+B13: F#3 (cello, b7, descending) | in deeper
+B15: Eb4 (toy piano, minor bend) | harder still
+
+ROUND 4 - THE RETURN. The laughter returns; the cold recedes.
+
+B1: Eb4 (bass, minor 6th) | recedes
+B3: C#3 (guitar, minor 3rd) | returns
+B5: Bb3 (cello, natural minor 6th) | warmer
+B7: A3 (toy piano) | warmer still

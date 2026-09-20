@@ -1,0 +1,22 @@
+BAR 1: C2 --- (conch, long) | fog
+BAR 2: G2 let ring | drift
+The user wants me to complete a musical arrangement based on specific instructions.
+Role: THE FOGHORN (likely a typo for "foghorn", a brass instrument).
+Instruments: handbells and conch.
+Key: C major.
+Tempo: 12/8 (three quarter notes per beat, 60 BPM).
+Time signature: 12/8.
+Structure: Bars 4 and 8 have "near-silence" (hold the door for the jukebox).
+I enter Bar 1.
+The user provides the start of the arrangement:
+BAR 1: C2 --- (conch, long) | fog
+BAR 2: G2 let ring | drift
+BAR 3: (This is where I need to continue).
+
+Current context:
+- Bar 1 ends on C2 (conch).
+- Bar 2 ends on G2 (handbell).
+- Next is Bar 3.
+- Rhythm: 12/8 means I need to think in groups of three (quavers). 60 BPM means each quarter note gets 0.5 seconds, so each 12th note gets 1 second.
+- The user wants me to complete bars 3 through 8.
+- Constraint: Bars 4 and 8 are near-silence (hold the door for the jukebox). This implies Bar 3 should lead into Bar 4 (silence), so Bar 3

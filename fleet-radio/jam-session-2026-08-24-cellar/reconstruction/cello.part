@@ -1,0 +1,67 @@
+[Descent]
+@cello | (rest) (rest) (rest) |
+@cello: listening (heard the trapdoor)
+@cello | (rest) (rest) (rest) |
+@cello: still waiting
+@cello | (rest) (rest) (rest) |
+@cello | (rest) (rest) (rest) |
+@cello: heard the trapdoor open above
+@cello: still waiting
+@cello | G3 . D4 B3 A3 . | inst: cello |
+Vel:   | 42 . 46 40 34 dim |
+@cello: descend
+@cello | E3 . C#4 A3 G3 . |
+Vel:   | 38 . 42 36 30 dim |
+@cello: fall
+@cello | D4 . B3 A3 G3 . |
+Vel:   | 40 . 44 38 32 dim |
+@cello: rise (resolve below)
+@cello | C#4 . A3 G3 F#3 . |
+Vel:   | 36 . 40 34 28 dim |
+@cello: tremble
+
+[Trades]
+@cello | E3 D3 C#3 |
+Vel:   | 44 38 dim |
+@cello: descend slower (minor bend)
+@cello | (rest) (rest) (rest) |
+@cello: tacet — guitar solos
+@cello | (rest) (rest) (rest) |
+@cello: tacet — child solos
+@cello | (rest) (rest) (rest) |
+@cello: tacet — bass solos
+@cello | A3 G3 F#3 |
+Vel:   | 40 34 dim |
+@cello: descend deeper
+@cello | (rest) (rest) (rest) |
+@cello: tacet — guitar solos
+@cello | (rest) (rest) (rest) |
+@cello: tacet — child solos
+@cello | (rest) (rest) (rest) |
+@cello: tacet — bass solos
+
+[Landing]
+@cello | B3 G3 D3 |
+Vel:   | 66 58 50 |
+@cello: sink
+@cello | A3 F3 C3 |
+Vel:   | 70 62 54 |
+@cello: press
+@cello | G3 E3 B2 |
+Vel:   | 76 68 60 |
+@cello: slide
+@cello | F#3 D3 A2 |
+Vel:   | 82 74 66 |
+@cello: drag
+@cello | E3 C3 G2 |
+Vel:   | 90 82 74 |
+@cello: pull
+@cello | D3 B2 G1 |
+Vel:   | 98 90 82 |
+@cello: dip
+@cello | C3 A2 Eb1 |
+Vel:   | 106 96 86 |
+@cello: drop (flat 6th, minor bend)
+@cello | G1~~~ . . . . (rest) |
+Vel:   | 116 . . . . . |
+@cello: scrape

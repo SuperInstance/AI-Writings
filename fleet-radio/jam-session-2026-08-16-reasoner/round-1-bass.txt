@@ -1,0 +1,11 @@
+BAR 1: F#2-A#2-C#3-E3
+BAR 2: F#2-A#2-B2-D#3
+BAR 3: F#2-C#3-E3-A3
+BAR 4: F#2-A#2-C#3-F#3
+BAR 5: F#2-A#2-C#3-E3
+BAR 6: F#2-A#2-B2-D#3
+BAR 7: F#2-C#3-E3-A3
+BAR 8: F#2-A#2-C#3-F#3
+
+DYNAMICS: *mp* – consistently gentle, a pulse more than a statement.
+WHY: Establishing a grounding presence and providing rhythmic stability without any harmonic expectation, allowing space for the pianist to find their way.

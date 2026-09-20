@@ -1,0 +1,9 @@
+BAR 1: D4 B3 G3 | thump  
+BAR 2: C4 A3 F#3 | pulse  
+BAR 3: B3 G3 E3 | groove  
+BAR 4: A3 F#3 D3 | sink  
+BAR 5: G3 E3 C3 | bend  
+BAR 6: F#3 D3 B2 | slide  
+BAR 7: E3 C3 A2 | echo  
+BAR 8: D3 B2 G2 | resolve  
+WHY: The bass walks down the cellar, letting each step echo the missing knock and the room’s gravity.

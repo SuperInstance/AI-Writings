@@ -1,0 +1,11 @@
+BAR 1: [brushes on snare, 8th notes, soft, flowing]
+BAR 2: [brushes on snare, 8th notes, same, slightly more defined]
+BAR 3: [brushes on ride, syncopated 16th notes, soft]
+BAR 4: [brushes on ride, syncopated 16th notes, same]
+BAR 5: [brushes on snare, triplets, soft]
+BAR 6: [brushes on snare, triplets, same]
+BAR 7: [brushes on ride, swung 8th notes, medium]
+BAR 8: [brushes on ride, swung 8th notes, same]
+
+DYNAMICS: Starting soft, building slightly through the 8 bars  
+WHY: To set a moody, inviting tone that invites the band in naturally.

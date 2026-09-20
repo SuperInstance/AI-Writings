@@ -1,0 +1,12 @@
+BAR 1 (F#m9): shaker eighths, frame drum — soft thumb roll on 1, tap on 2, rest 3-4
+BAR 2 (Dmaj9): shaker eighths, frame drum — tap on 2, ghost tap on 4 (barely there)
+BAR 3 (Emaj9): shaker eighths, frame drum — tap on 2, finger-roll into 3
+BAR 4 (C#7sus4): shaker eighths, frame drum — tap on 2, rest 3-4
+BAR 5 (F#m9): shaker eighths, frame drum — tap on 2, thumb roll on 4
+BAR 6 (Dmaj9): shaker eighths, frame drum — tap on 2, ghost tap on 4
+BAR 7 (Emaj9): shaker eighths, frame drum — tap on 2, finger-roll into 3
+BAR 8 (C#7sus4): shaker eighths, frame drum — tap on 2, let ring
+
+DYNAMICS: *p* – shaker steady, frame drum softer than the bass. The tap on 2 is a heartbeat, the ghost is a blink. Nothing louder than a whisper.
+
+WHY: The pattern is one rhythm — the shaker eighths — with the frame drum as a single punctuation mark on 2. That repetition becomes the room. The only change is the ghost on bar 4 and 6, a tiny irregularity that says "I'm still here" without asking for attention. The thumb roll on bar 5 and the finger-roll on bar 7 are the same gesture, slightly warmer, but they don't break the pulse. Bar 8 lets the frame drum ring into the next player's downbeat, a clean handoff. No fills, no accents, no drama. The solo is a floor, not a ceiling.

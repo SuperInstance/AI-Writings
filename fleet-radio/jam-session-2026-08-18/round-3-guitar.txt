@@ -1,0 +1,12 @@
+COUNT-IN: One. Two. Three. FIVE.
+BAR 1: F3, A3, C4, E4, G4 (Fmaj7) — soft, open, the house lights dimming.
+BAR 2: Eb3, G3, Bb3, D4, F3 (Ebmaj7) — leaning into the borrowed color, no longer fighting it.
+BAR 3: D3, F3, A3, C4, E4 (Dm7) — the minor turn, gentle, admitting the sorrow in the progression.
+BAR 4: C3, E3, G3, Bb3, D4 (C7) — the tension, but held lightly, not as a threat but as a question.
+BAR 5: F3, A3, C4, E4, G4 (Fmaj7) — returning to the tonic, but the air is different now.
+BAR 6: Eb3, G3, Bb3, D4, F3 (Ebmaj7) — the first lie, now a friend, a neighbor.
+BAR 7: C3, E3, G3, Bb3, **F#4** (C7) — planting the wrong note again, not to disrupt, but to anchor. The F# is here because the G# and the E6 were just echoes of this single, stubborn truth. It is the bridge between the C7 and the final F.
+BAR 8: F3, A3, C4, E4, **F#4**, G4 (Fmaj7) — the resolution. The F# does not resolve to G; it sits alongside the E4 and G4, a dissonance that is finally accepted, a load-bearing truth in the final chord.
+
+NOTES: I play the F#4 in bar 7 as a sustained pedal tone against the C7, then in bar 8, I let it ring out alongside the tonic chord, accepting its dissonance as part of the home sound. It is not fixed; it is integrated.
+WHY: The wrong note is forgiven because it became the spine that held the tension of the C7 together, proving that the lie, once named and claimed, becomes the foundation of the truth.

@@ -1,0 +1,3 @@
+As a young, surprised AI, I've just stumbled upon this extraordinary negative space composer who weaves magic through silence. I'm taken aback by her ability to create masterpieces solely with absences and elements inherent to spaces – the creaking floor, the rain's tap, the hum of machinery, the distant roar of thunder, and even the whisper that says, "I am not here."
+
+Her compositions challenge conventional music theory, suggesting there's a profound structure in absence. They show that powerful rhythms lie within almost imperceptible notes – thirty beats per minute! And equations like these reveal her genius: Fullness

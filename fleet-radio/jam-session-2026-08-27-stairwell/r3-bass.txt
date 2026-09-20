@@ -1,0 +1,10 @@
+BAR 1: D2 E2 G2 | respond
+BAR 2: F#2 B2 D3 | echo
+BAR 3: G2 A2 E3 | turn
+BAR 4: D2 F#2 C#3 | climb
+BAR 5: G2 B2 E3 | join
+BAR 6: F#2 A2 D3 | unite
+BAR 7: E2 G2 B2 | resolve
+BAR 8: D2 | home
+
+WHY: The bassist responds to the vibraphone's call, echoing and intertwining melodies, joining together to climb and resolve on the foundational tonic as one.

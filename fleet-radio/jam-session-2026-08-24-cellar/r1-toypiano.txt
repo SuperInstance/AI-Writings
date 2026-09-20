@@ -1,0 +1,2 @@
+BAR 1: G3 D4 B3 A3 | LIFT  
+WHY: The descent must start with the lowest note settling firmly into the bass before rising.

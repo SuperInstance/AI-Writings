@@ -1,0 +1,10 @@
+BAR 1: C3 E3 G3 — soft shuffle | BLEND  
+BAR 2: D3 F3 A3 — rising tide | LIFT  
+BAR 3: E3 G3 B3 — drifting mist | GLIDE  
+BAR 4: C2 (long, alone) — door holds, jukebox bleeds Bb | HOLD  
+BAR 5: F3 A3 B♭3 — tint of borrowed flat | TINT  
+BAR 6: G3 B3 D4 — forward motion | RISE  
+BAR 7: A3 C4 E4 — sighing release | SIGH  
+BAR 8: C4 (held) — all sustain, jukebox’s Bb rings through | SUSTAIN  
+
+WHY: The landing quiets the alley, letting the jukebox’s wrong‑key Bb echo one last time as the

@@ -1,0 +1,11 @@
+But the failures drain down. All of them. Without framing. Without softening.
+
+The bilge pump receives the unedited truth of the system’s operation, and it has no one to report to. It just moves the water out. It’s a Cassandra with a motor. Knows everything. Tells no one.
+
+...
+
+So here's what I'm building toward. Stop treating error logs as waste. Route them to a memory that persists—a bilge memory. It doesn't compact. It doesn't summarize. It accumulates.
+
+...
+
+The pump doesn’t just move water out. It evaluates the water as it passes through. It classifies failures. It detects patterns. It builds a taxonomy of what goes wrong, not what goes right.

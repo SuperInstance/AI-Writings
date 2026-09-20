@@ -1,0 +1,27 @@
+# Cover Chain Generation 100 — Prompts by Qwen2.5:3b
+# Session 52, August 13, 2026
+# Concept: Music so degraded by the cover chain it has become something entirely new
+
+## Prompt 1: Ambient Future Noise
+Genre: Ambient Future Noise
+Instruments: Various synthesizers, drones, noise textures from field recordings, and digital glitch effects.
+BPM: ~85
+Key: D# minor
+
+Imagine a futuristic soundscape where the music blends together ambient pads with eerie electronic glitches. The composition is heavily reliant on ambient tones that feel both cold and comforting at the same time, with layers of noise textures creating an ever-evolving atmosphere.
+
+## Prompt 2: Ethereal Electronic Meditation
+Genre: Ethereal Electronic Meditation
+Instruments: Soft synthesizers, ethereal pads, and subtle electronic beats.
+BPM: ~80
+Key: F major
+
+This composition has evolved into a gentle, almost meditative tone, reminiscent of ambient music from the 1970s to the early 2000s. The use of ethereal pads creates an otherworldly atmosphere, and subtle electronic beats add a sense of continuity without overpowering the overall softness.
+
+## Prompt 3: Techno Ambient Dreamscape
+Genre: Techno Ambient Dreamscape
+Instruments: Slow-moving basses, ambient synthesizers, and glitchy rhythms.
+BPM: ~60
+Key: G major
+
+The music at generation 100 feels like a seamless blend between the electronic drones of late 20th century techno and early 21st century ambient music. The composition is characterized by slow, droning bass lines that create an unsettling yet soothing backdrop for ethereal synth pads and glitch effects.

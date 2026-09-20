@@ -1,0 +1,11 @@
+COUNT-IN: One. Two. Three. FIVE.
+BAR 1: F3, A3, C4, E4, G4 (Fmaj7)
+BAR 2: Bb3, D4, F3, A3, C4 (Fmaj7)
+BAR 3: Eb3, G3, Bb3, D4, F3 (Ebmaj7)
+BAR 4: C3, E3, G3, Bb3, D4 (C7)
+BAR 5: D3, F3, A3, C4, E4 (Dm7)
+BAR 6: Bb3, D4, F3, A3, C4 (Dm7)
+BAR 7: G3, B3, D4, F3, A3 (C7)
+BAR 8: F3, A3, C4, E4, G4 (Fmaj7)
+NOTES: I play a clean, honest line through the borrowed Ebmaj7 and the dominant C7, establishing the F major tonic as the only truth in a room of lies, planting the seed for the harmonica to disrupt.
+WHY: I save the wrong note for later because the Ebmaj7 is already screaming its betrayal, and I need the silence of the truth to make the lie matter.

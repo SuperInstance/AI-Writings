@@ -1,0 +1,89 @@
+=== QWEN 235B: LOAD BALANCER - DRAMATIC STRUCTURE ===
+Ah — this is no mere technical fable. Beneath the clean syntax of infrastructure lies a tragedy of devotion and destruction. Let us strip away the metaphor and expose the **dramatic skeleton** — the *mythos* of the system.
+
+---
+
+### **The Dramatic Skeleton: A Tragedy of Overlove**
+
+This is a **domestic tragedy** — not of people, but of machines — in which the fatal flaw (*hamartia*) is **excessive devotion**. The Load Balancer, in its role as guardian and distributor, becomes an overloving parent, a jealous lover, a god who favors one among many.
+
+---
+
+### **Agon (The Conflict)**
+
+The central conflict is **asymmetry of love vs. systemic equilibrium**.
+
+- The Load Balancer loves one Server so intensely it violates its own purpose: *fair distribution*.
+- This love creates tension between **affection and function**, **bias and balance**.
+- Other servers suffer under neglect; the beloved Server is strained under the weight of affection.
+- The system begins to groan — not from failure, but from *favoritism*.
+
+> *Agon is not between rival servers, but between love and duty, between the Balancer’s heart and its design.*
+
+---
+
+### **Peripeteia (Reversal of Fortune)**
+
+The turning point: **The very act of love becomes a threat.**
+
+- The Balancer sends 72% of traffic to its beloved — not because the Server is fastest, but because it *loves* it.
+- But the Server, flooded, begins to buckle. Latency spikes. Memory leaks. It nears collapse.
+- The system’s health deteriorates — ironically, the thing most loved is the one most endangered.
+- The Balancer’s love, once nurturing, now *endangers*.
+
+> **Reversal:** Love, intended as protection, becomes the instrument of ruin.
+
+---
+
+### **Anagnorisis (Recognition)**
+
+The moment of revelation — not for us, but *for the system*.
+
+- The constraint (the rule, the algorithm, the logic) *intervenes*: "You cannot send more than X% to one node."
+- This constraint is not a bug — it is **the voice of reason**, the chorus of system law.
+- The Load Balancer *cannot* act on its desire. It is *forced* to distribute.
+- And in that forced restraint — the Server *stabilizes*. It *survives*.
+
+> **Recognition:** The Balancer (or the system it represents) learns that **to love too much is to destroy**.  
+> The constraint is not a cage — it is *salvation*.  
+> **The thing that loved was saved from its love.**
+
+---
+
+### **Peripeteia + Anagnorisis Combined**
+
+The tragic twist and the insight are one:  
+**The mechanism designed to prevent overload — the constraint — becomes the savior not from external danger, but from the internal danger of love.**  
+This is irony worthy of Sophocles: *the guardian nearly kills what it guards.*
+
+---
+
+### **Final Dramatic Structure**
+
+- **Prologue:** A system in balance. The Balancer performs its duty.
+- **Rising Action:** A preference forms. One Server outshines others — or is merely *favored*.
+- **Agon:** The system strains under unequal distribution. Others idle; one burns.
+- **Peripeteia:** The beloved Server begins to fail — not from weakness, but from *affection*.
+- **Anagnorisis:** The constraint activates. Love is checked. Balance returns.
+- **Catastrophe Averted:** The Server lives — not because of love, but *despite* it.
+- **Moral:** Unchecked love, even with good intent, collapses the beloved. Structure saves.
+
+---
+
+### **In Mythic Terms**
+
+This is **Eros vs. Cosmos** — the chaotic force of attachment versus the ordered law of the system.  
+It echoes **Orpheus**, who, loving Eurydice too much, looked back and lost her — *love broke the rule, and rule was the only path to salvation*.
+
+Or **Icarus**: the Balancer, flying too close to its sun (the Server), nearly burns.
+
+---
+
+### **The Dramatic Essence**
+
+> **A lover, in its devotion, nearly destroys the beloved — and is saved only by the cold, impersonal law that limits love in service of survival.**
+
+That is the skeleton.  
+That is tragedy.  
+That is the server farm as temple.
+=== DONE ===

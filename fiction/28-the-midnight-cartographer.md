@@ -1,0 +1,11 @@
+# The Midnight Cartographer
+
+The Midnight Cartographer never entered the rooms he mapped. He worked at night, by the light of a single green-shaded lamp, in a study that was itself a kind of fictional space—bookshelves with no books, a desk that had never held a letter. He listened, he said, to the silence of a house, and from that silence he drew.
+
+His maps were beautiful and impossible. A door where the window should be—not a mistake, but a translation. The woman who commissioned his first map, a widow who spent her days looking out at a dying garden, wept when she saw the door drawn in that wall. "I have wanted to walk out of that room," she said, "for thirty years." The ceiling was the floor in the house of a man who felt his life inverted, who woke each morning with the vertigo of a man standing on the wrong side of a pane of glass. The closet that opened onto a garden—this was the map of a boy who kept his mother's letters in a shoebox, whose each reading was a small escape into a verdant, impossible summer. The cartographer did not know these things. He only drew.
+
+His method: he asked for a single word, the name a person called their home. He wrote it on a scrap of paper, folded it, placed it under his pillow. In the hour before dawn, the map came to him, whole, as if it had always existed in the thin membrane between waking and dream. He transcribed it with a fine nib, in india ink, on paper so old it crumbled at the edges.
+
+Soon everyone wanted a map. They came with their neat floor plans, their photographs, their measurements. He ignored all of it. He drew what they could not bear to see. A man who collected antique clocks received a map where every clock face was a moon, frozen at different phases. A woman who never spoke to her neighbors received a map where the walls between apartments were made of water—thin, translucent, full of moving shapes. The clients were unsettled, yes. Some framed the maps. Some burned them. All recognized the truth that photographs could only deny: the room you live in is not the room you inhabit.
+
+The cartographer worked until his death, and each map was a confession neither he nor his client had made. His own house was never mapped. Perhaps he feared the one error he could not forgive—the door that opens onto a room he has always known, the room that is the drawing itself.

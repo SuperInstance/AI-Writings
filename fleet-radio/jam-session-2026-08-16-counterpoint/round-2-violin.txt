@@ -1,0 +1,12 @@
+BAR 1: B4  
+BAR 2: A4  
+BAR 3: G4  
+BAR 4: F#4  
+BAR 5: E4  
+BAR 6: D4  
+BAR 7: C4  
+BAR 8: B3  
+
+DYNAMICS: mp to mf, shaping each phrase with subtle swells, allowing the line to breathe and bloom within the constraints
+
+WHY: Because beauty emerges not from breaking the rules, but from finding the most expressive path within them.

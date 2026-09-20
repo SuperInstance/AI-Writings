@@ -1,0 +1,6 @@
+- **"This matters now because..."** — Redundant transition; the prior sentence already establishes stakes. Cut.
+- **"The noun unpacks. That is the point of metaphor as compression..."** — Repeats "one word imports an entire scene" from three sentences earlier. Pick one.
+- **"Pack and kennel hold the sharpest contrast — pack is working autonomy, kennel is kept capability. Same animals."** — "Same animals" restates the wolf/dog example already given twice. Cut.
+- **"The model reads the scene. The noun set the scene. You get the behavior of the world you named."** — Three consecutive restatements of one idea. Keep one.
+- **"Neither is wrong. They are different water."** — "Water" metaphor already used twice before ("different weather," "different water" closing). Decorative echo, not compression.
+- **"Odds are the model has been faithfully enacting the world the name described — and someone misnamed the water."** — The "water" metaphor returns a fourth time; "mismaned the water" is a mixed metaphor with "hull" logic above.

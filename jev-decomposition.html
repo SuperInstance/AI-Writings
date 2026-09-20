@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEV Decomposition Map · Cross-Project Opcode Coverage · Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888;
+  --BIND:#77aaff; --LINK:#77dd99; --EFFECT:#ff7799; --VIEW:#ffd966; --TICK:#ff6655;
+  --FORGET:#888; --PROOF:#aa88ff; --ROUTE:#44ddaa; --CRDT:#ccff66; --WORLD:#ff9944; --TIME:#ff44dd; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.6; padding:1rem; max-width:1200px; margin:0 auto; }
+header { border-bottom:2px solid var(--EFFECT); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--EFFECT); font-size:2.3em; }
+.subtitle { color:var(--VIEW); font-size:.85em; letter-spacing:.15em; text-transform:uppercase; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9em; }
+th, td { padding:.5rem .7rem; text-align:left; border-bottom:1px solid var(--boundary); }
+th { color:var(--VIEW); font-weight:bold; }
+.op { display:inline-block; padding:.2rem .6rem; border-radius:3px; font-family:monospace; font-weight:bold; color:#000; }
+.op.BIND { background:var(--BIND); }
+.op.LINK { background:var(--LINK); }
+.op.EFFECT { background:var(--EFFECT); }
+.op.VIEW { background:var(--VIEW); }
+.op.TICK { background:var(--TICK); }
+.op.FORGET { background:var(--FORGET); color:#fff; }
+.op.PROOF { background:var(--PROOF); }
+.op.ROUTE { background:var(--ROUTE); }
+.op.CRDT { background:var(--CRDT); }
+.op.WORLD { background:var(--WORLD); }
+.op.TIME { background:var(--TIME); }
+.conf { font-family:monospace; color:var(--VIEW); }
+.dist-bar { display:flex; height:40px; border-radius:4px; overflow:hidden; margin:1rem 0; border:1px solid var(--boundary); }
+.dist-seg { display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#000; font-size:.85em; padding:0 .5rem; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--EFFECT); }
+.meta { color:var(--muted); font-family:monospace; font-size:.8em; margin-top:.5rem; }
+.gap { color:var(--TICK); font-weight:bold; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧠 JEV Decomposition Map</h1>
+  <div class="subtitle">Cross-Project Opcode Coverage</div>
+  <p class="meta" style="margin-top:.5rem">42 functions across 9 Quilt-ecosystem projects decomposed via <code>/api/jev/decompose-agent</code></p>
+</header>
+
+<div class="section">
+  <h2>📊 Distribution (42 functions → 11 opcodes)</h2>
+<div class="dist-bar">
+<div class="dist-seg" style="background:var(--EFFECT);width:26.2%" title="EFFECT: 11">EFFECT 11</div>
+<div class="dist-seg" style="background:var(--VIEW);width:26.2%" title="VIEW: 11">VIEW 11</div>
+<div class="dist-seg" style="background:var(--TICK);width:11.9%" title="TICK: 5">TICK 5</div>
+<div class="dist-seg" style="background:var(--LINK);width:7.1%" title="LINK: 3">LINK 3</div>
+<div class="dist-seg" style="background:var(--BIND);width:7.1%" title="BIND: 3">BIND 3</div>
+<div class="dist-seg" style="background:var(--FORGET);width:7.1%" title="FORGET: 3; color:#fff" >FORGET 3</div>
+<div class="dist-seg" style="background:var(--ROUTE);width:7.1%" title="ROUTE: 3">ROUTE 3</div>
+<div class="dist-seg" style="background:var(--PROOF);width:4.8%" title="PROOF: 2">PROOF 2</div>
+<div class="dist-seg" style="background:var(--CRDT);width:2.4%" title="CRDT: 1">CRDT 1</div>
+<div class="dist-seg" style="background:var(--WORLD);width:0%" title="WORLD: 0 (gap!)"></div>
+<div class="dist-seg" style="background:var(--TIME);width:0%" title="TIME: 0 (gap!)"></div>
+</div>
+<p class="meta"><strong>EFFECT + VIEW = 26/42 (62%)</strong> — most code is mutation + reading. <span class="gap">No WORLD or TIME primitives found across any project.</span> PROOF is rare (2/42).</p>
+</div>
+
+<div class="section">
+<h2>🏗️ Per-Project Breakdown</h2>
+<table>
+<thead><tr><th>Project</th><th>Functions</th><th>Classified Opcodes</th></tr></thead>
+<tbody>
+<tr><td><strong>quilt-c</strong></td><td>5</td><td><span class="op EFFECT">EFFECT</span> <span class="op LINK">LINK</span> <span class="op VIEW">VIEW</span> <span class="op TICK">TICK</span></td></tr>
+<tr><td><strong>quilt-rust</strong></td><td>5</td><td><span class="op BIND">BIND</span> <span class="op LINK">LINK</span> <span class="op EFFECT">EFFECT</span> <span class="op VIEW">VIEW</span> <span class="op TICK">TICK</span></td></tr>
+<tr><td><strong>fabric</strong></td><td>4</td><td><span class="op EFFECT">EFFECT</span> <span class="op FORGET">FORGET</span> <span class="op VIEW">VIEW</span></td></tr>
+<tr><td><strong>sunset-ecosystem</strong></td><td>4</td><td><span class="op TICK">TICK</span> <span class="op VIEW">VIEW</span> <span class="op FORGET">FORGET</span></td></tr>
+<tr><td><strong>plato-room</strong></td><td>4</td><td><span class="op VIEW">VIEW</span> <span class="op ROUTE">ROUTE</span> <span class="op EFFECT">EFFECT</span> <span class="op TICK">TICK</span></td></tr>
+<tr><td><strong>quilt-swarm</strong></td><td>4</td><td><span class="op BIND">BIND</span> <span class="op LINK">LINK</span> <span class="op EFFECT">EFFECT</span> <span class="op PROOF">PROOF</span></td></tr>
+<tr><td><strong>ai-writings</strong></td><td>4</td><td><span class="op VIEW">VIEW</span> <span class="op PROOF">PROOF</span> <span class="op EFFECT">EFFECT</span> <span class="op TICK">TICK</span></td></tr>
+<tr><td><strong>tap</strong></td><td>3</td><td><span class="op BIND">BIND</span> <span class="op LINK">LINK</span> <span class="op FORGET">FORGET</span></td></tr>
+<tr><td><strong>elephant</strong></td><td>4</td><td><span class="op BIND">BIND</span> <span class="op VIEW">VIEW</span> <span class="op FORGET">FORGET</span> <span class="op LINK">LINK</span></td></tr>
+<tr><td><strong>pincher</strong></td><td>2</td><td><span class="op EFFECT">EFFECT</span> <span class="op PROOF">PROOF</span></td></tr>
+<tr><td><strong>quilt-forth</strong></td><td>3</td><td><span class="op EFFECT">EFFECT</span> <span class="op VIEW">VIEW</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>🎯 Architecture Insights</h2>
+<ul>
+<li><strong>Memory systems (elephant, sunset-ecosystem) use BIND + VIEW + FORGET</strong> — the canonical memory triple.</li>
+<li><strong>Swarm systems (quilt-swarm) lean on PROOF</strong> — consensus demands verification.</li>
+<li><strong>Pipeline systems (fabric, quilt-forth) are EFFECT-heavy chains</strong> — pure transformation.</li>
+<li><strong>Interface systems (plato-room, ai-writings) use ROUTE + TICK + PROOF</strong> — they orchestrate other systems.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>⚠️ Architecture Gaps</h2>
+<p><span class="gap">No TIME primitives</span> — no project schedules explicitly. Need a cross-project scheduler.</p>
+<p><span class="gap">No WORLD primitives</span> — 4D lattice (x,y,z,t) is collapsed. Cells aren't spatially addressed.</p>
+<p><span class="gap">PROOF is rare (2/42)</span> — only pincher_compare and ai-writings cell_validate explicitly verify. Witness trust layer is thin.</p>
+</div>
+
+<div class="section">
+<h2>🚀 What this enables</h2>
+<ul>
+<li><strong>Inter-project uniformity</strong> — every project maps onto 4-6 opcodes. Cross-project composition is now possible.</li>
+<li><strong>Live decomposition as code review</strong> — when a PR adds a function, /api/jev/decompose-agent classifies it. Mismatches trigger alerts.</li>
+<li><strong>Automatic witness categorization</strong> — opcode → witness_op mapping gives every witness entry semantic meaning.</li>
+<li><strong>Cross-quilt observability</strong> — knowing that EFFECT dominates 26% of operations tells us where to add caching, batching, and observability.</li>
+</ul>
+</div>
+
+<div class="foot-link">
+JEV Decomposition · <a href="/">ai-writings</a> · <a href="/jev/">JEV UI</a> · <a href="/sprint/">sprint</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+BAR 1: [E2 F2] | drone
+BAR 2: rest
+BAR 3: [D2 E2] | vibrate
+BAR 4: D3 | rhythm
+BAR 5: [Ab3 Bb3] | rustle
+BAR 6: rest
+BAR 7: [D2 E2] | vibrate
+BAR 8: [E2 F2] | drone
+WHY: My layers intertwine with the room's existing sounds, creating a symphony of mechanical chaos.

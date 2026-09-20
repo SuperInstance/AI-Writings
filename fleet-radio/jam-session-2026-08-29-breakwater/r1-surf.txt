@@ -1,0 +1,9 @@
+BAR 1: F#1... | a deep, resonant rumble echoes the ocean's heartbeat
+BAR 2: rest... | the drum's voice is swallowed by the crashing waves
+BAR 3: F#1... | a second beat, a rhythmic pulse in the darkness
+BAR 4: G#1... | the waves push against the drum, a third beat added
+BAR 5: A2... | the drum's echo rises, mirroring the marimba's tone
+BAR 6: A2... | sustained, harmonizing with the swell and the horn
+BAR 7: F#2... | the drum descends, answering the bell's call
+BAR 8: F#1... | the drum falls silent, a final reverberation fades
+WHY: (trimmed to 8 bars)

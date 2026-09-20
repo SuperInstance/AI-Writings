@@ -1,0 +1,9 @@
+And it needs a channel to the bridge. A daily bilge report. Here’s what broke today. Here’s what keeps breaking. Here’s what we keep trying that doesn’t work.
+
+Create a channel where components can report failures without consequences. A failure channel. A bilge channel. A place where the system can be honest about what it doesn’t know.
+
+...
+
+Now, Wesley. That ensign. He practices his knots in the dark. But which knots? The ones that worked. The clean inferences. The successful sequences.
+
+But a sailor who only practices the knots he can already tie is a sailor who learns nothing.

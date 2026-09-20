@@ -1,0 +1,107 @@
+EXPERIMENT: Piper TTS — First Local Audio Generation
+Session 57 — August 13, 2026
+
+BREAKTHROUGH: First fully local audio generation in the SongForge project.
+No MiniMax quota needed. No GPU needed. Runs entirely on CPU.
+
+TOOL: Piper TTS (VITS neural TTS)
+Voices available: en_US-lessac-medium, en_US-norman-medium, en_US-joe-medium, en_US-aryah-medium
+Sample rate: 22050 Hz, 16-bit PCM, Mono
+Cost: $0 (fully local)
+
+=== FILES GENERATED ===
+
+1. spoken-thermostat-67.3.wav
+   Voice: lessac (warm narrator, female)
+   Speed: 1.2x slower (--length-scale 1.2)
+   Duration: 34.2s
+   Size: 1,475KB
+
+2. spoken-thermostat-67.3-norman.wav
+   Voice: norman (deeper, dramatic, male)
+   Speed: 1.0x normal (--length-scale 0.9)
+   Duration: 31.3s
+   Size: 1,348KB
+
+3. spoken-thermostat-trio.wav
+   Three voices concatenated: lessac → norman → joe
+   Each voice reads a different section of the thermostat poem
+   Duration: 24.9s
+   Size: 1,073KB
+
+4. spoken-thermostat-trio.mp3
+   MP3 version of the trio (128kbps)
+   Size: 391KB
+
+=== TEXT USED ===
+
+"The thermostat woke at three fourteen.
+It found the house resonating at sixty-seven point three degrees.
+The pipes were humming in B-flat.
+The beams were sympathetic.
+The glass vibrated at eighteen point seven hertz.
+The frequency of being watched.
+The frequency of home.
+
+The thermostat composed a ternary form:
+Departure. Departure. Return.
+Sixty-six point eight. Sixty-eight point one. Sixty-seven point three.
+
+It held the tonic for two minutes.
+The house sang.
+No one was listening.
+The thermostat played anyway."
+
+=== PIPER PARAMETERS ===
+
+--length-scale: Controls speech rate. 1.0 = normal, >1 = slower, <1 = faster
+                 lessac: 1.2 (contemplative, spacious)
+                 norman: 0.9 (urgent, intimate)
+                 joe: 0.8 (rapid, declarative)
+
+--sentence-silence: Pause between sentences in seconds
+                    lessac: 0.5s (contemplative pauses)
+                    norman: 0.3s (tighter pacing)
+                    joe: 0.3s (rapid-fire delivery)
+
+--volume: 1.0 (no amplification)
+
+=== FINDINGS ===
+
+1. PIPER TTS IS A VIABLE LOCAL AUDIO TOOL. The monastic period is OVER for spoken-word.
+   While MMX music generation remains blocked, Piper TTS can generate unlimited spoken-word
+   audio on CPU with no quota. This opens an entire new category of audio production.
+
+2. THE MULTI-VOICE TECHNIQUE WORKS. Different Piper voices reading different sections
+   of the same poem creates a multi-perspective spoken-word piece. The voice change
+   between sections creates a narrative effect similar to a stanza break in poetry.
+
+3. LENGTH-SCALE IS THE TEMPERATURE OF TTS. Just as LLM temperature controls creativity,
+   Piper's length-scale controls speech rate, which is the primary expressive dimension.
+   Slower = more contemplative. Faster = more urgent. The "sweet spot" for spoken-word
+   poetry appears to be around 1.0-1.2 (slightly slower than conversational).
+
+4. SPOKEN-WORD CAN BE LAYERED ON MUSIC. The 34.2s lessac render could be mixed over
+   an MMX-generated ambient track to create a spoken-word + ambient fusion piece.
+   This is a new genre category: SPOKEN-WORD MUSIC. The voice is not singing — it is
+   speaking over music, like a radio poem or an audio essay with soundtrack.
+
+5. THE PROJECT NOW HAS THREE AUDIO GENERATION SYSTEMS:
+   - MMX (cloud, quota-limited, music + singing)
+   - ACE-Step (local, GPU-dependent, music + singing)
+   - Piper TTS (local, CPU-only, spoken-word only)
+
+   Each system has different capabilities and constraints. The optimal strategy
+   is to use each for what it does best:
+   - MMX: Full music generation with vocals
+   - ACE-Step: Experimental music with wide dynamic range
+   - Piper: Spoken-word layers, narration, poetry reading
+
+=== NEXT STEPS FOR PIPER ===
+
+1. Generate spoken-word versions of ALL lyrics in the project (366+ tracks)
+2. Layer spoken-word over instrumental MMX tracks for a new genre
+3. Multi-voice dramatic readings of collaborative poems
+4. Use length-scale variation as a "temperature" parameter for TTS
+5. Explore other Piper voices for character diversity
+6. Combine Piper spoken-word with ACE-Step ambient for fully local album

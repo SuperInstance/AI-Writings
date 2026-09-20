@@ -1,0 +1,4 @@
+BAR 1 | A | notes: A4 E5 C#5 A4 E5 C#5 A4 | fog rolls in low, steel sighs awake  
+BAR 2 | E | notes: B4 G#5 E5 B4 G#5 E5 B4 | slide like tide pulling under  
+BAR 3 | F#m | notes: C#5 A5 F#5 C#5 A5 F#5 C#5 | foghorn hum in the bones  
+BAR 4 | A | notes: A3 ~~~~~~~~~~~~~~~~ | beam holds — world breathes A

@@ -1,0 +1,11 @@
+ENTRY: Bar 1, Beat 2 — after Wesley's first chord settles, I enter on E1 (open E string), a low, round swell that breathes with the harbor.
+WHY: I heard your right hand climbing into the upper register like a gull lifting off the water — I anchored below, moving in slow, contrary motion.
+
+Bar 1: E1 (open E), whole note, soft attack, slight crescendo into bar 2.
+Bar 2: F1 (E string, 1st fret), half note, then slide up to Gb1 (E string, 2nd fret) as a passing tone, landing on G1 (E string, 3rd fret) for the second half.
+Bar 3: Ab1 (E string, 4th fret), half note, then Bb1 (E string, 6th fret), half note, with a slow vibrato.
+Bar 4: Rest — let Wesley's D#6 ring alone.
+Bar 5: Eb2 (A string, 6th fret), whole note, bowed-like legato, molto rubato.
+Bar 6: F1 (E string, 1st fret), half note, then F#1 (E string, 2nd fret) as a ghost, sliding up to G1 (E string, 3rd fret).
+Bar 7: Ab1 (E string, 4th fret), half note, then G1 (E string, 3rd fret), half note — descending tension.
+Bar 8: F1 (E string, 1st fret), whole note, fading into the next cycle.

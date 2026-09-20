@@ -1,0 +1,12 @@
+BAR 1: A4, G4  
+BAR 2: F#4, E4  
+BAR 3: D4, C#4  
+BAR 4: B3, A3  
+BAR 5: G3, F#3  
+BAR 6: E3, D3  
+BAR 7: C#3, B2  
+BAR 8: A2, G2  
+
+DYNAMICS: mf, with gentle forward momentum, each pair of notes leaning into the next, creating subtle waves of tension and release
+
+WHY: Because the middle voice must carry the harmony forward while honoring the structure — now is the moment to let the inner melody sing.

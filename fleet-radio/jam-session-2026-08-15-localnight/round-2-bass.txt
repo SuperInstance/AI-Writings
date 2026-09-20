@@ -1,0 +1,31 @@
+BASS:
+**BAR 1:** E - F# - G# - B (Root-first with a slight slide into F#, adding warmth and anticipation)
+
+**BAR 2:** F# - A - C# - E# (Continuing the warm, subtle approach with slides enhancing the connection between notes)
+
+**BAR 3:** Emaj7 (Long note) - **E - F# - G# - B**
+(Long, drawn out root - Root-first slide into F#, building a sense of openness and curiosity)
+
+**BAR 4:** C#m7 (Slide on A to E#, creating a gentle transition from the major to the minor key)
+
+**BAR 5:** Amaj7 (Long note) - **E - F# - G# - B**
+(Long, sustained root with a subtle question "Is this where it ends?" hinting at change and anticipation)
+
+**BAR 6:** B7sus4 (Root-first slide on E into the tension of the minor key)
+
+**BAR 7:** Emaj7 (Slide from B to E#, a gentle invitation into more harmonized territory)
+
+**BAR 8:** C#m7 (Slide on A to E#, ending with a final question mark, inviting listeners to join in and explore further)
+
+DYNAMICS: Steady but slightly rising in the latter half of each phrase to build anticipation for the next section.
+
+WHY:
+1. **BAR 1-2**: Establishes the root-first approach that will be central throughout the solo. The slides create a sense of continuity and warmth.
+2. **BAR 3, 5**: Emphasizes the open-ended nature of the major chord by allowing the root to sustain and hint at further harmonic possibilities within the major scale.
+3. **BAR 4-6**: Introduces the minor key through gentle transitions. The slides maintain a sense of continuity while subtly shifting gears into more introspective territory.
+4. **BAR 7, 8**: Recapitulates elements from earlier phrases but with a slight shift towards the end of each bar to hint at change and anticipation for what follows.
+
+FORMAT:
+- Each bar is clearly defined by its specific notes (e.g., Emaj7 in BAR 5 has E - F# - G# - B).
+- The dynamics are consistent, building from a steady foundation into a slight crescendo by the end of each phrase.
+- Slides add expressiveness and create a smooth transition between chords, maintaining a cohesive flow.

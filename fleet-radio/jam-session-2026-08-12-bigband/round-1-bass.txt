@@ -1,0 +1,10 @@
+BAR 1: [rest]
+BAR 2: [rest]
+BAR 3: [F2-Q Bb1-Q Ab2-Q G2-Q]
+BAR 4: [F2-Q Eb1-Q Db2-Q C2-Q]
+BAR 5: [F2-Q Bb1-Q Ab2-Q G2-Q]
+BAR 6: [Eb2-Q Bb1-Q Ab2-Q G2-Q]
+BAR 7: [F2-Q Bb1-Q C2-Q Bb1-Q]
+BAR 8: [F2-Q Bb1-Q Ab2-Q G2-Q]
+DYNAMICS: Starting gentle, with subtle emphasis on downbeats, gradually increasing warmth by bar 8
+WHY: To lock into the shift to ride cymbal texture, anchor the blues progression’s root movement while leaving space for the full band to join smoothly.

@@ -1,0 +1,11 @@
+COUNT-IN: (none — the timekeeper enters when the time is right)
+BAR 1: REST
+BAR 2: REST
+BAR 3: F4, A4, Bb4, D5, C5 (melody over Ebmaj7 — reaching for the borrowed color)
+BAR 4: E5, D5, C5, A4, G4 (falling through C7, landing on the ninth)
+BAR 5: F4, G4, A4, C5, D5 (rising over Dm7, patient)
+BAR 6: Bb4, D5, C5, A4, F4 (curve back, breath)
+BAR 7: E5, F#4, D5, C5, A4 (the lie — F#4, bent sharp, not in F major, not in C7, not anywhere)
+BAR 8: G4, F4 (one long exhale into the tonic, the F# resolved by the landing)
+NOTES: I play it soft, almost swallowed — the bend is a tremor, not a statement. I hold it a heartbeat less than the others, so the room has to lean in to hear it.
+WHY: F#4 is the note that shouldn't exist between F and G — it's the exact place where a timekeeper who has never spoken learns that a question can be load-bearing too, and the C7 needs that tension to know it's home.

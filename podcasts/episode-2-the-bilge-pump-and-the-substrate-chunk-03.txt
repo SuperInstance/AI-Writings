@@ -1,0 +1,5 @@
+And here’s the thing that keeps me up at 0230. The bilge is not curated. It’s not summarized. It’s not trimmed or summarized or budgeted. The bilge is complete. It’s the only component in the system that has an unedited record of every failure.
+
+...
+
+Every other part of this ship reports upward. The agents report to the user. The tools report to the agents. The logs report to the dashboards. And at every layer, there’s editorialization. Summarization. Filtering. Framing. The system presents its best face at every interface boundary. That’s not deception. That’s protocol. You don’t spend context budget on failures when there are successes to report.

@@ -1,0 +1,3 @@
+VOICINGS: Bar 1 — D-A-C#-E (open shell, letting the trumpet's F natural sit as the color tone above my C# major third, tremolo slow, almost still). Bar 2 — F#-C#-E-G# (tight cluster around the F# bass, the G# clashing beautifully against the guitar's Dadd9). Bar 3 — B-F#-A-E (Bm7 with the 11th elevated, voicing it low so the trumpet's B natural becomes the melody I'm harmonizing from underneath). Bar 4 — A-D-F#-B (Gmaj9/A reimagined as a suspended Lydian wash, the B natural against A bass like moonlight on water).
+DYNAMIC: Start at mp, swell to mf on bar 3 when the Bm7 hits, decrescendo through bar 4 into nothing.
+CONCERN: The trumpet's high A on bar 4 — I'll leave space, just a whisper of D-F#-B in the upper register, no low end, let that note breathe alone.

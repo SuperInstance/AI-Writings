@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Algebra Explorer — The 11 Opcodes, The 5 Laws, The Polyrhythm</title>
+<style>
+:root{--bg:#0a0a14;--panel:#161624;--panel-2:#1f1f2f;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#3a3a4a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+header{background:linear-gradient(180deg,var(--panel) 0%,var(--bg) 100%);padding:2.5rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--accent)}
+h1{color:var(--accent);margin:0;font-size:2.2em;font-weight:300;letter-spacing:-0.02em}
+h1 .o{color:var(--cell);font-weight:600}
+.eyebrow{font-family:monospace;color:var(--accent);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.hero-tagline{color:var(--muted);font-style:italic;margin:0.5rem auto 1.5rem;max-width:680px;line-height:1.5;font-size:1.05em}
+.container{max-width:1300px;margin:0 auto;padding:1.5rem}
+
+.tab-strip{display:flex;flex-wrap:wrap;gap:0.5rem;border-bottom:1px solid var(--boundary);margin-bottom:1.5rem;padding-bottom:0.5rem;overflow-x:auto}
+.tab{padding:0.6rem 1.2rem;background:var(--panel-2);border:none;border-radius:6px 6px 0 0;color:var(--muted);cursor:pointer;font-family:inherit;font-size:0.95em}
+.tab:hover{background:var(--panel)}
+.tab.active{background:var(--accent);color:#000;font-weight:600}
+
+.panel{background:var(--panel);border-radius:8px;padding:1.5rem;margin-bottom:1.2rem;border:1px solid var(--boundary)}
+.panel h2{color:var(--accent);margin:0 0 0.7rem;font-size:1.3em}
+.panel h3{color:var(--cell);margin:1rem 0 0.4rem;font-size:1.05em}
+
+.code{font-family:monospace;background:var(--bg);color:#ccc;padding:0.8rem 1rem;border-radius:4px;border-left:3px solid var(--accent);overflow-x:auto;font-size:0.9em;margin:0.5rem 0}
+.code .c-color{color:var(--accent2)}
+.code .cell{color:var(--cell)}
+.code .op{color:var(--pink)}
+.code .num{color:#f0a070}
+
+.btn{padding:0.5rem 1.2rem;background:var(--panel-2);border:1px solid var(--accent);color:var(--fg);border-radius:20px;cursor:pointer;font-family:inherit;font-size:0.9em;margin:0.3rem 0.3rem 0.3rem 0;display:inline-block;min-height:36px}
+.btn:hover{background:var(--accent);color:#000}
+.btn.primary{background:var(--accent);color:#000;font-weight:bold}
+
+.op-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;margin-top:1rem}
+.op-card{background:var(--panel-2);border:1px solid var(--boundary);border-radius:6px;padding:0.8rem;cursor:pointer;transition:all 0.2s}
+.op-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.op-card .op-name{font-family:monospace;color:var(--pink);font-size:1.1em;font-weight:bold}
+.op-card .op-sig{color:var(--muted);font-size:0.85em;margin-top:0.3rem;font-style:italic}
+.op-card .op-desc{font-size:0.85em;margin-top:0.4rem;line-height:1.4}
+
+.law-card{background:var(--panel-2);border-left:3px solid var(--cell);border-radius:4px;padding:0.8rem 1rem;margin:0.5rem 0}
+.law-card.proved{border-left-color:var(--cell)}
+.law-card.theoretical{border-left-color:var(--link)}
+.law-card .law-name{color:var(--cell);font-weight:bold}
+.law-card .law-formula{font-family:monospace;color:var(--accent);margin:0.3rem 0}
+.law-card .law-desc{color:var(--muted);font-size:0.85em}
+
+.pulse-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin:1rem 0;max-width:600px}
+.pulse-cell{aspect-ratio:1;background:var(--panel-2);border:1px solid var(--boundary);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:0.85em}
+.pulse-cell.ecn{background:var(--accent);color:#000;font-weight:bold}
+.pulse-cell.dmn{background:var(--link);color:#000;font-weight:bold}
+.pulse-cell.flow{background:var(--cell);color:#000;font-weight:bold;transform:scale(1.1);box-shadow:0 0 12px var(--cell)}
+
+.beat-num{text-align:center;color:var(--muted);font-family:monospace;font-size:0.75em;margin-top:0.3rem;display:grid;grid-template-columns:repeat(12,1fr);gap:4px;max-width:600px}
+
+.cell-display{background:var(--panel-2);border:1px solid var(--accent);border-radius:8px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:0.85em}
+.cell-row{display:flex;gap:0.5rem;padding:0.3rem 0;border-bottom:1px solid var(--boundary)}
+.cell-row:last-child{border-bottom:none}
+.cell-key{color:var(--accent);width:90px;flex-shrink:0}
+.cell-val{color:#ccc;flex:1;word-break:break-all}
+
+.demo-canvas{background:#000;border:1px solid var(--accent);border-radius:6px;width:100%;height:300px;display:block;margin:1rem 0}
+
+@media (max-width:768px){body{padding:0 1rem}h1{font-size:1.6em}.container{padding:1rem}.tab{padding:0.5rem 0.8rem;font-size:0.85em}}
+</style>
+</head>
+<body>
+
+<header>
+<p class="eyebrow">Algebra Explorer · Interactive · The 11 Opcodes</p>
+<h1>The 11 <span class="o">Opcodes</span>, The 5 Laws, The CRT</h1>
+<p class="hero-tagline">A cell is a 14-tuple. The opcodes are functions over cells. The laws are the 5 things they cannot fail. The polyrhythm is CRT.</p>
+</header>
+
+<div class="container">
+
+<div class="tab-strip">
+<button class="tab active" onclick="switchTab('opcodes')">11 Opcodes</button>
+<button class="tab" onclick="switchTab('laws')">5 Laws</button>
+<button class="tab" onclick="switchTab('cell')">14-Tuple Cell</button>
+<button class="tab" onclick="switchTab('polyrhythm')">CRT Polyrhythm</button>
+<button class="tab" onclick="switchTab('polyformalism')">Polyformalism</button>
+<button class="tab" onclick="switchTab('tier')">6-Tier Substrate</button>
+</div>
+
+<!-- TAB 1: opcodes -->
+<section id="tab-opcodes" class="tab-panel">
+<div class="panel">
+<h2>The 11 Opcodes</h2>
+<p>5 core + 6 adopted. Each is a function. Each obeys at least one law. <strong style="color:var(--cell)">Click any card to see the signature and an example.</strong></p>
+
+<div class="op-grid">
+<div class="op-card" onclick="showOp('BIND')">
+<div class="op-name">BIND</div>
+<div class="op-sig">(Cell × Payload) → Cell</div>
+<div class="op-desc">"I'm here." The first act. Idempotent by law 1.</div>
+</div>
+<div class="op-card" onclick="showOp('LINK')">
+<div class="op-name">LINK</div>
+<div class="op-sig">(Cell × Cell) → Cell</div>
+<div class="op-desc">"We are neighbors." Transitive by law 2.</div>
+</div>
+<div class="op-card" onclick="showOp('EFFECT')">
+<div class="op-name">EFFECT</div>
+<div class="op-sig">(Cell × Event) → Cell</div>
+<div class="op-desc">"Something happened." Associative by law 3.</div>
+</div>
+<div class="op-card" onclick="showOp('VIEW')">
+<div class="op-name">VIEW</div>
+<div class="op-sig">(Cell) → Value</div>
+<div class="op-desc">"What do you show?" Pure by law 4 (no side effects).</div>
+</div>
+<div class="op-card" onclick="showOp('TICK')">
+<div class="op-name">TICK</div>
+<div class="op-sig">(Cell) → Cell</div>
+<div class="op-desc">"Advance by one moment." Monotonic by law 5.</div>
+</div>
+
+<div class="op-card" onclick="showOp('FORGET')" style="border-color:var(--link)">
+<div class="op-name" style="color:var(--link)">FORGET</div>
+<div class="op-sig">(Cell) → ⊥</div>
+<div class="op-desc">"Right to be erased." 14-tuple-7 (cells become nothing).</div>
+</div>
+<div class="op-card" onclick="showOp('PROOF')" style="border-color:var(--link)">
+<div class="op-name" style="color:var(--link)">PROOF</div>
+<div class="op-sig">(Cell) → Witness</div>
+<div class="op-desc">"I can prove this." Produces cryptographic witness.</div>
+</div>
+<div class="op-card" onclick="showOp('ROUTE')" style="border-color:var(--link)">
+<div class="op-name" style="color:var(--link)">ROUTE</div>
+<div class="op-sig">(Cell × Path) → Cell</div>
+<div class="op-desc">"Find me the way." Navigates the 4D lattice.</div>
+</div>
+<div class="op-card" onclick="showOp('CRDT')" style="border-color:var(--link)">
+<div class="op-name" style="color:var(--link)">CRDT</div>
+<div class="op-sig">(Cell × Cell) → Cell</div>
+<div class="op-desc">"Merge without conflict." For distributed cells.</div>
+</div>
+<div class="op-card" onclick="showOp('WORLD')" style="border-color:var(--link)">
+<div class="op-name" style="color:var(--link)">WORLD</div>
+<div class="op-sig">(Cell) → Cell</div>
+<div class="op-desc">"Predict what happens next." Counterfactual.</div>
+</div>
+<div class="op-card" onclick="showOp('TIME')" style="border-color:var(--link)">
+<div class="op-name" style="color:var(--link)">TIME</div>
+<div class="op-sig">(Cell) → Cell</div>
+<div class="op-desc">"When does this matter?" Schedules into future.</div>
+</div>
+</div>
+
+<div id="op-detail" class="panel" style="display:none">
+<h3 id="op-title"></h3>
+<pre id="op-example" class="code"></pre>
+<p id="op-note" style="color:var(--muted);font-style:italic"></p>
+</div>
+</div>
+</section>
+
+<!-- TAB 2: laws -->
+<section id="tab-laws" class="tab-panel" style="display:none">
+<div class="panel">
+<h2>The 5 Proved Laws</h2>
+<p style="color:var(--muted)">Proved in <code>quilt-substrate-meta</code> (C99, theorem-checked). Each law constrains an opcode. Add a new opcode ⇒ must prove it obeys at least one law.</p>
+
+<div class="law-card proved">
+<div class="law-name">Law 1 — BIND is idempotent</div>
+<div class="law-formula">BIND(BIND(c, p), p) ≡ BIND(c, p)</div>
+<div class="law-desc">Applying a payload twice equals applying it once. Witness: every test in <code>test_bind_idempotent</code>.</div>
+</div>
+
+<div class="law-card proved">
+<div class="law-name">Law 2 — LINK is transitive</div>
+<div class="law-formula">LINK(LINK(a,b), LINK(b,c)) ≡ LINK(a,c)</div>
+<div class="law-desc">If A links to B and B links to C, then A links to C transitively. The lattice connectivity follows from this alone.</div>
+</div>
+
+<div class="law-card proved">
+<div class="law-name">Law 3 — EFFECT is associative</div>
+<div class="law-formula">EFFECT(EFFECT(a, e1), e2) ≡ EFFECT(a, MERGE(e1, e2))</div>
+<div class="law-desc">Combining effects on a cell equals applying the combined effect. The witness log can be flat-merged.</div>
+</div>
+
+<div class="law-card proved">
+<div class="law-name">Law 4 — VIEW is pure</div>
+<div class="law-formula">VIEW(c) ≡ VIEW(c)</div>
+<div class="law-desc">Same cell always views to the same value. The proof of (4) is "no side effects in the implementation". This is what allows caching.</div>
+</div>
+
+<div class="law-card proved">
+<div class="law-name">Law 5 — TICK is monotonic</div>
+<div class="law-formula">∀ n: TICKⁿ⁺¹(c) ≢ TICKⁿ(c)</div>
+<div class="law-desc">TICK never returns to a previous state. No cycles. Time is one-way. This is the basis for tamper detection.</div>
+</div>
+
+<p style="color:var(--muted);margin-top:1.5rem"><em>There are 6 more theoretical laws (CRDT-confluence, ROUTE-shortest, FORGET-irreversibility, PROOF-verifiable, WORLD-counterfactual-preserving, TIME-causal) but they have proofs-in-progress in <code>quilt-substrate-meta</code>.</em></p>
+</div>
+</section>
+
+<!-- TAB 3: cell -->
+<section id="tab-cell" class="tab-panel" style="display:none">
+<div class="panel">
+<h2>The 14-Tuple Cell</h2>
+<p>A cell is a 14-tuple. The shape is enough. Click any field to see why it's there.</p>
+
+<div class="cell-display" id="cellDisplay"></div>
+
+<div class="panel" style="background:var(--panel-2)">
+<h3>Live demo · try BIND on a payload</h3>
+<p style="color:var(--muted);font-size:0.9em">Watch the cell grow when you bind a payload. Law 1 means the second bind to the same payload is a no-op.</p>
+<button class="btn primary" onclick="demoBind({timeoutMs:3000})">Bind {timeoutMs:3000}</button>
+<button class="btn" onclick="demoBind({timeoutMs:3000})">Bind {timeoutMs:3000} again (idempotent)</button>
+<button class="btn" onclick="demoBind({retries:5})">Bind {retries:5} (different payload)</button>
+<button class="btn" onclick="resetDemo()">Reset</button>
+
+<h3 style="margin-top:1.5rem">Result</h3>
+<pre id="demoResult" class="code">Click any "Bind" to start…</pre>
+</div>
+</div>
+</section>
+
+<!-- TAB 4: polyrhythm -->
+<section id="tab-polyrhythm" class="tab-panel" style="display:none">
+<div class="panel">
+<h2>The Polyrhythm (CRT)</h2>
+<p>Two clocks interfere. ECN (reflex) ticks every 4 beats. DMN (creative) ticks every 3 beats. They meet on beat 1 of every 12.</p>
+<p style="color:var(--muted);font-style:italic">This is the Chinese Remainder Theorem: <span style="font-family:monospace;color:var(--accent)">t ≡ 0 (mod 3) ∧ t ≡ 0 (mod 4) ⟺ t ≡ 0 (mod 12)</span>.</p>
+
+<h3>The 12-Pulse Grid</h3>
+<div class="pulse-grid" id="pulseGrid"></div>
+<div class="beat-num">
+<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+</div>
+
+<p style="margin-top:1rem"><span style="display:inline-block;width:12px;height:12px;background:var(--accent);margin-right:0.5rem;vertical-align:middle"></span> ECN (reflex, 4-pulse): fires on beats 1, 5, 9</p>
+<p><span style="display:inline-block;width:12px;height:12px;background:var(--link);margin-right:0.5rem;vertical-align:middle"></span> DMN (creative, 3-pulse): fires on beats 1, 4, 7, 10</p>
+<p><span style="display:inline-block;width:12px;height:12px;background:var(--cell);margin-right:0.5rem;vertical-align:middle"></span> FLOW — where both meet (CRT)</p>
+
+<p style="margin-top:1.5rem;color:var(--muted)"><em>The polyformalism of the CRT proves this is irreducible: there's no shorter 3-clock circular system. The 12-step is the minimal closed cycle. This is why jazz polyrhythms work — the cycle closes.</em></p>
+
+<button class="btn primary" onclick="playPolyrhythm()">▶ Play Audio (Web Audio procedural)</button>
+<button class="btn" onclick="stopPolyrhythm()">■ Stop</button>
+</div>
+</section>
+
+<!-- TAB 5: polyformalism -->
+<section id="tab-polyformalism" class="tab-panel" style="display:none">
+<div class="panel">
+<h2>Polyformalism — Same Cell, 12 Languages</h2>
+<p>The Quilt cell model lives in 12+ languages. They are not "ports" — they are <em>media</em>. Each language is a stress test of the minimality.</p>
+
+<div class="panel" style="background:var(--panel-2);margin-top:1rem">
+<h3 style="color:var(--accent)">Same BIND, 4 views</h3>
+
+<h4 style="color:var(--cell);margin-top:0.8rem">TypeScript (quilt-claw)</h4>
+<pre class="code"><span class="c-color">// cell.ts</span>
+<span class="op">export function</span> BIND(c: Cell, p: Payload): Cell {
+  <span class="op">return</span> { ...c, payload: { ...c.payload, ...p }, updated_at: Date.now() };
+}</pre>
+
+<h4 style="color:var(--cell);margin-top:0.8rem">Python (quilt-py)</h4>
+<pre class="code"><span class="c-color"># cell.py</span>
+<span class="op">def</span> bind(c: Cell, p: Payload) -> Cell:
+    <span class="op">return</span> {**c, <span class="cell">'payload'</span>: {**c[<span class="cell">'payload'</span>], **p}, <span class="cell">'updated_at'</span>: time.time()}</pre>
+
+<h4 style="color:var(--cell);margin-top:0.8rem">C99 (quilt-c)</h4>
+<pre class="code"><span class="c-color">/* cell.c */</span>
+Cell bind(Cell c, Payload p) {
+    Cell r = c;
+    r.payload = merge(c.payload, p);
+    r.updated_at = now_ms();
+    <span class="op">return</span> r;
+}</pre>
+
+<h4 style="color:var(--cell);margin-top:0.8rem">SUBLEQ (quilt-subleq)</h4>
+<pre class="code"><span class="c-color">; cell.s</span>
+; BIND(c, p) compiled to 11 SUBLEQ instructions
+; because SUBLEQ is Turing-complete.
+; The 11-instruction version IS the cell.</pre>
+</div>
+
+<h3 style="margin-top:1.5rem">Why polyformalism?</h3>
+<ul style="line-height:1.7">
+<li>If a language can express it, the model is real.</li>
+<li>Each port is a stress test of minimality.</li>
+<li>Cross-language compatibility = hash match = no implementation-defined behaviour.</li>
+<li>TypeScript ran in 1 day. C ran in 1 day. Python in 1 hour. SUBLEQ in 1 week.</li>
+</ul>
+</div>
+</section>
+
+<!-- TAB 6: tier -->
+<section id="tab-tier" class="tab-panel" style="display:none">
+<div class="panel">
+<h2>The 6-Tier Substrate</h2>
+<p>From totipotent to curator. Each tier is a maturity.</p>
+
+<div style="display:grid;grid-template-columns:1fr 3fr;gap:0.5rem;margin-top:1rem">
+<div style="padding:0.8rem;background:linear-gradient(90deg,var(--accent) 0%,transparent 100%);border-radius:4px"><strong>1. Totipotent</strong></div>
+<div style="color:var(--muted);padding:0.8rem"><em>Can become anything.</em> The seed. The root cell. The first BIND.</div>
+
+<div style="padding:0.8rem;background:rgba(232,184,64,0.5);border-radius:4px"><strong>2. Multipotent</strong></div>
+<div style="color:var(--muted);padding:0.8rem"><em>Can become many things.</em> The uncommitted cell. Has options.</div>
+
+<div style="padding:0.8rem;background:rgba(232,184,64,0.3);border-radius:4px"><strong>3. Differentiated</strong></div>
+<div style="color:var(--muted);padding:0.8rem"><em>Committed to a kind.</em> The 26 named cell kinds live here.</div>
+
+<div style="padding:0.8rem;background:rgba(150,150,150,0.3);border-radius:4px"><strong>4. Sclerotic</strong></div>
+<div style="color:var(--muted);padding:0.8rem"><em>Frozen.</em> Cannot change. Witness log sealed. Proofs attached.</div>
+
+<div style="padding:0.8rem;background:rgba(100,150,200,0.3);border-radius:4px"><strong>5. Synovial</strong></div>
+<div style="color:var(--muted);padding:0.8rem"><em>Fluid.</em> Moves between cells. Glue. The witness log itself.</div>
+
+<div style="padding:0.8rem;background:rgba(255,128,192,0.4);border-radius:4px;color:var(--pink)"><strong>6. Curator</strong></div>
+<div style="color:var(--muted);padding:0.8rem"><em>The hand.</em> Meta-state. Observes other cells. ROUTE/FORGET/PROOF at scale.</div>
+</div>
+
+<p style="margin-top:1rem;color:var(--muted)"><em>The 5-tier model descends from totipotent to sclerotic. The 6th tier (curator) is asymmetric: it's the only tier that observes others. It is your tap-hand.</em></p>
+</div>
+</section>
+
+</div>
+
+<script>
+let cellState = {
+  id: "ack:7",
+  kind: "ack",
+  payload: {},
+  parents: [],
+  links: [],
+  witnesses: [],
+  ticker: 0,
+  hex: "0x0000",
+  tag: "fresh",
+  meta: {},
+  created_at: Date.now(),
+  updated_at: Date.now(),
+  author: "human",
+  sig: null
+};
+
+const fieldDescriptions = {
+  id: "Unique. Cell ID = hash(kind, payload, parents). Same ID + same kind = same cell.",
+  kind: "The 26 named shapes. ack, music, swarm, crypt, world, voice, herd, hexagon, pathogen, ranking, partition, neighbor, audit, twist, death, broadcast, chirp, chaos, thermal, feedback, lore, perception, perm, triage, breaker, breeder",
+  payload: "Content. Anything JSON-serializable. Mutable by BIND.",
+  parents: "Causation. Witnesses from other cells. The lineage.",
+  links: "Adjacency. Who this cell knows about. The neighborhood.",
+  witnesses: "Observation log. Append-only. The proof of existence.",
+  ticker: "Clock value. Monotonic by Law 5.",
+  hex: "Hash. Changes on each TICK.",
+  tag: "Label. Human-meaningful.",
+  meta: "Free-form metadata.",
+  created_at: "ms timestamp of first BIND.",
+  updated_at: "ms timestamp of last EFFECT.",
+  author: "Who made it. human / ai / sensor / model-name.",
+  sig: "Optional cryptographic signature (HMAC)."
+};
+
+function showOp(op) {
+  const examples = {
+    BIND: ['// BIND: immutably add a payload\nBIND(ack:7, { timeoutMs: 3000 })\n// => ack:7 with timeoutMs:3000 added\n\n// Idempotent (law 1)\nBIND(BIND(ack:7, { timeoutMs: 3000 }), { timeoutMs: 3000 })\n// => same cell, only ONE timestamp update'],
+    LINK: ['// LINK: connect two cells\nLINK(ack:7, ack:8)\n// => neighborhood grows; ack:7 knows ack:8\n\n// Transitive (law 2)\nLINK(LINK(ack:7, ack:8), LINK(ack:8, ack:9))\n// => ack:7 transitively knows ack:9'],
+    EFFECT: ['// EFFECT: apply an event to a cell\nEFFECT(ack:7, TIMEOUT)\n// => ack:7 marks itself timed out\n// The EFFECT is recorded in witnesses\n\n// Associative (law 3)\nEFFECT(EFFECT(c, e1), e2) == EFFECT(c, MERGE(e1, e2))'],
+    VIEW: ['// VIEW: pure projection\nVIEW(ack:7)\n// => { alive: true, secondsOld: 4.2, … }\n\n// Same cell, same view, always (law 4)\n// This is what makes caching safe.'],
+    TICK: ['// TICK: advance by one moment\nTICK(ack:7)\n// => ack:7 with ticker+1, updated_at:now\n\n// Monotonic (law 5)\n// ticker never decreases'],
+    FORGET: ['// FORGET: right-to-erasure\nFORGET(ack:7)\n// => ⊥ (the cell is gone, but the witness\n// log records that it WAS)'],
+    PROOF: ['// PROOF: produce a cryptographic witness\nPROOF(ack:7)\n// => { hash, prev_hash, sig, algorithm: "HMAC-SHA256" }\n\n// The witness proves the cell was what it was\n// at the time of proof.'],
+    ROUTE: ['// ROUTE: find a path\nROUTE(ack:7, "go to ack:42")\n// => [ack:7, ack:11, ack:23, ack:42]\n// Shortest path through the lattice'],
+    CRDT: ['// CRDT: merge two cells idempotently\nCRDT(c1, c2)\n// => merged cell with combined payloads\n// and witness-log reconciliation'],
+    WORLD: ['// WORLD: predict the next state\nWORLD(ack:7)\n// => ack:7 in 1 TICK from now\n// (counterfactual)'],
+    TIME: ['// TIME: schedule for the future\nTIME(ack:7, +5)\n// => ack:7 with ticker+=5\n// (deferred effect)']
+  };
+  const notes = {
+    BIND: "The first act. Without BIND there are no cells. The 14-tuple starts minimal (no payload) and grows.",
+    LINK: "Forms the 4D graph. Without LINK there's no lattice. The polyformalism test: does the language have links?",
+    EFFECT: "Effects create history. Without EFFECT there's no witness log. The substrate knows what happened.",
+    VIEW: "Pure = cacheable. Law 4 is what makes the cell readable at scale.",
+    TICK: "Time enters as monotonicity. The substrate cannot be rewound, only witnessed.",
+    FORGET: "Right-to-erasure is a 21st-century requirement. FORGET is the smallest possible op.",
+    PROOF: "Cryptographic proof of state. The witness log becomes tamper-evident.",
+    ROUTE: "Find a path. The lattice becomes a navigation problem.",
+    CRDT: "Distributed cells need conflict-free merging. CRDT is the smallest primitive that does this.",
+    WORLD: "Counterfactual prediction. The cell can imagine its own future.",
+    TIME: "Deferred effects. The cell can schedule into the future."
+  };
+  document.getElementById('op-title').innerText = op + (op === 'BIND' || op === 'LINK' || op === 'EFFECT' || op === 'VIEW' || op === 'TICK' ? ' (core)' : ' (adopted)');
+  document.getElementById('op-example').innerText = examples[op].join('\n');
+  document.getElementById('op-note').innerText = notes[op];
+  document.getElementById('op-detail').style.display = 'block';
+}
+
+function demoBind(payload) {
+  // Apply BIND (idempotent if same payload)
+  const before = JSON.stringify(cellState.payload);
+  cellState.payload = {...cellState.payload, ...payload};
+  cellState.updated_at = Date.now();
+  cellState.witnesses.push({op:'BIND', payload, ts:cellState.updated_at, id:cellState.witnesses.length});
+  
+  document.getElementById('demoResult').innerText = 
+    `// Before: ${before}\n` +
+    `// BIND(ack:7, ${JSON.stringify(payload)})\n` +
+    `// Witness log now has ${cellState.witnesses.length} entries\n` +
+    `// Last witness: ${JSON.stringify(cellState.witnesses[cellState.witnesses.length-1])}\n` +
+    `// Updated at: ${new Date(cellState.updated_at).toISOString()}\n\n` +
+    `Cell: ${JSON.stringify(cellState, null, 2)}`;
+  
+  renderCell();
+}
+
+function resetDemo() {
+  cellState.payload = {};
+  cellState.witnesses = [];
+  cellState.updated_at = Date.now();
+  document.getElementById('demoResult').innerText = 'Reset. Click Bind to start…';
+  renderCell();
+}
+
+function renderCell() {
+  const html = Object.entries(cellState).map(([k,v]) => {
+    const isObj = typeof v === 'object' && v !== null;
+    const valStr = isObj ? (Array.isArray(v) ? `[${v.length} items]` : `{${Object.keys(v).length} keys}`) : JSON.stringify(v);
+    const desc = fieldDescriptions[k] || '';
+    return `<div class="cell-row"><div class="cell-key">${k}</div><div class="cell-val">${valStr}</div></div>`;
+  }).join('');
+  document.getElementById('cellDisplay').innerHTML = html;
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+  event.target.classList.add('active');
+  document.getElementById('tab-' + name).style.display = 'block';
+}
+
+// Polyrhythm visual + audio
+const ECN_PULSES = [0, 3, 6, 9];  // 4-pulse on 12-grid
+const DMN_PULSES = [0, 4, 8];    // 3-pulse on 12-grid
+const FLOW = [0];                  // where both meet (CRT: lcm(3,4)=12)
+
+function renderPulseGrid() {
+  const grid = document.getElementById('pulseGrid');
+  grid.innerHTML = '';
+  for (let i = 0; i < 12; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'pulse-cell';
+    if (ECN_PULSES.includes(i) && DMN_PULSES.includes(i)) cell.classList.add('flow');
+    else if (ECN_PULSES.includes(i)) cell.classList.add('ecn');
+    else if (DMN_PULSES.includes(i)) cell.classList.add('dmn');
+    cell.innerText = i+1;
+    grid.appendChild(cell);
+  }
+}
+
+let audioCtx = null;
+let polyrhythmTimer = null;
+let beatIdx = 0;
+
+function playPolyrhythm() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  
+  function tickBeat() {
+    const ecn = ECN_PULSES.includes(beatIdx);
+    const dmn = DMN_PULSES.includes(beatIdx);
+    
+    if (ecn) {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = 'sine'; o.frequency.value = 220;
+      g.gain.value = 0.2;
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + 0.1);
+    }
+    
+    if (dmn) {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = 'triangle'; o.frequency.value = 330;
+      g.gain.value = 0.2;
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + 0.1);
+    }
+    
+    if (ecn && dmn) {
+      // Both = FLOW = the meeting
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = 'square'; o.frequency.value = 440;
+      g.gain.value = 0.15;
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(); o.stop(audioCtx.currentTime + 0.2);
+    }
+    
+    // Update visual
+    const cells = document.querySelectorAll('.pulse-cell');
+    cells.forEach(c => c.style.opacity = '1');
+    if (cells[beatIdx]) cells[beatIdx].style.opacity = '0.3';
+    
+    beatIdx = (beatIdx + 1) % 12;
+  }
+  
+  tickBeat();
+  polyrhythmTimer = setInterval(tickBeat, 500);
+}
+
+function stopPolyrhythm() {
+  if (polyrhythmTimer) clearInterval(polyrhythmTimer);
+  polyrhythmTimer = null;
+  beatIdx = 0;
+}
+
+// Init
+renderPulseGrid();
+renderCell();
+</script>
+
+</body>
+</html>

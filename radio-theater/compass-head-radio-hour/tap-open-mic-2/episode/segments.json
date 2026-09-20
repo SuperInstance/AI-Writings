@@ -1,0 +1,57 @@
+[
+ {
+  "file": "mc/night2-welcome.mp3",
+  "title": "Welcome \u2014 Lucineer opens the second night",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-01-shanty/act-01-shanty.mp3",
+  "title": "Act 1 \u2014 Elias, the Sea Shanty Singer",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night2-interlude-1.mp3",
+  "title": "Interlude \u2014 Lucineer, faster",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-02-blues/act-02-blues.mp3",
+  "title": "Act 2 \u2014 Corinne, the Delta Blueswoman",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night2-interlude-2.mp3",
+  "title": "Interlude \u2014 the ledger, shared",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-03-country/act-03-country.mp3",
+  "title": "Act 3 \u2014 Jed, the Country Storyteller",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night2-interlude-3.mp3",
+  "title": "Interlude \u2014 a different weather system",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-04-synth/act-04-synth.mp3",
+  "title": "Act 4 \u2014 Nova, the Synthwave Dreamer",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night2-interlude-4.mp3",
+  "title": "Interlude \u2014 the rendering has good acoustics",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-05-folk/act-05-folk.mp3",
+  "title": "Act 5 \u2014 Ruth, the Folk Witness",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night2-interlude-5.mp3",
+  "title": "Closing \u2014 the witness's word",
+  "pad_before": 0.5
+ }
+]

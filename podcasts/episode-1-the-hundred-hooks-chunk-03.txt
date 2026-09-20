@@ -1,0 +1,5 @@
+Here's the thing about abstraction. An abstraction is good when the layer below can see through it. An abstraction is harmful when it creates an opaque boundary that the optimizer can't penetrate.
+
+The optimizer is you. Standing on the deck at dawn, looking at the water, remembering yesterday's pattern, hearing the radio chatter, feeling the tide change. You see through the individual hook outcomes to the distribution. You see through the distribution to the depth profile. You see through the depth profile to the seasonal shift. You see through the seasonal shift to the decades of accumulated knowledge that tell you this spot produces in May, but not in August.
+
+...

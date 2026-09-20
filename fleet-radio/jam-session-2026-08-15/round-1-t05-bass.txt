@@ -1,0 +1,12 @@
+BAR 1: F# - G#m - A - Bb
+BAR 2: C# - D - E - F#
+BAR 3: G#m - A - Bb - C#
+BAR 4: D - E - F# - G#
+BAR 5: A - Bb - C# - D
+BAR 6: E - F# - G# - A
+BAR 7: Bb - C# - D - E
+BAR 8: G#m - F# - E - D
+
+DYNAMICS: Piano
+
+WHY: To set the melancholic tone for the evening, mirroring the cold and distant feeling of the first brother.

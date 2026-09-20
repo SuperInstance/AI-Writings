@@ -1,0 +1,74 @@
+EXPERIMENT: Memory Architecture — Cognitive Memory Types as Musical Composition
+Model: granite3.1-dense:2b
+Session 57 — August 13, 2026
+
+KEY INSIGHT: Each memory type has cognitive properties (duration, capacity, emotional
+weight, accessibility) that map to musical parameters (length, density, dynamics, structure).
+
+=== 1. ECHOIC MEMORY — "Fleeting Imprints" ===
+Duration: 3-4 seconds | Capacity: Unlimited | Emotion: Neutral | Access: Automatic
+Genre: Ambient/IDM (Intelligent Dance Music)
+Instruments: Synthesizers, drum machines, field recordings of ambient sounds
+BPM: 80-120
+Dynamics: Subtle, evolving textures with gentle crescendos marking transitions
+Structure: Fractured loops of short melodies (3-4 seconds each)
+Key: D minor or E-flat major — calm and nostalgia
+Description: The shortest memory. Sound that exists for only moments.
+The structure literally mirrors the 3-second duration in its melodic fragments.
+
+=== 2. WORKING MEMORY — "Cerebral Symphony" ===
+Duration: 15-30 seconds | Capacity: 5-7 items | Emotion: Moderate | Access: Effortful
+Genre: Progressive House/Techno
+Instruments: Detailed drum patterns, intricate synth leads, subtle vocal samples
+BPM: 120-135
+Dynamics: Rich layered soundscapes with pronounced contrast (quiet introspective ↔ full dancefloor)
+Structure: Complex arrangements with multiple rhythm and melody layers
+Key: C minor or A minor — tension and anticipation
+Description: Active manipulation, limited capacity. The music should engage attention
+without overwhelming — exactly the cognitive constraint of working memory's 5-7 items.
+
+=== 3. EPISODIC MEMORY — "Nostalgic Harmonies" ===
+Duration: Lifetime | Capacity: Large | Emotion: Rich | Access: Voluntary
+Genre: Neoclassical/Baroque-inspired Pop
+Instruments: String sections, harpsichords, vibraphones
+BPM: 60-85
+Dynamics: Expressive range — lush pads for intimacy, staccato for energy
+Structure: Melodic hooks with extended passages recalling specific past moments
+Key: G major or D minor — homecoming
+Description: Personal experience, time-stamped. The music feels like remembering.
+Harpsichords give baroque weight; vibraphones add nostalgia.
+
+=== 4. SEMANTIC MEMORY — "Fact-based Fragments" ===
+Duration: Lifetime | Capacity: Very large | Emotion: Stripped | Access: Automatic
+Genre: Minimal/Electronic Pop
+Instruments: Clean electronic beats, simple piano chords, occasional sound effects
+(e.g., "speed of light" as a pulsing rhythm)
+BPM: 90-120
+Dynamics: Consistent, unchanging textures with moments of variation
+Structure: Uninterrupted loops or seamless transitions between information fragments
+Key: C major or A major — grounded, objective foundation
+Description: Facts stripped of context. The music is deliberately affectless —
+information without experience. The "speed of light as rhythm" is a unique concept:
+scientific constants as musical pulse.
+
+=== 5. PROCEDURAL MEMORY — "Unconscious Grooves" ===
+Duration: Lifetime | Capacity: Large | Emotion: None (unconscious) | Access: Automatic
+Genre: Bass Music (Dubstep/UK Funky)
+Instruments: Punchy basslines, heavy sub-bass, intricate drum patterns
+BPM: 120-140
+Dynamics: Powerful, resonant grooves that move the body without conscious thought
+Structure: Repetitive, syncopated rhythms designed for dancing
+Key: F minor or E-flat minor — fluid motion and familiarity
+Description: Body knowledge. The music bypasses the conscious mind and goes straight
+to the muscles. Deeply ingrained patterns. The groove IS the memory.
+
+FINDING: The memory-type → music mapping reveals that MUSIC ITSELF IS A MEMORY SYSTEM:
+- Echoic memory ≈ a 3-second melody fragment (the hook)
+- Working memory ≈ a verse with 5-7 distinct elements (the arrangement)
+- Episodic memory ≈ a song associated with a personal event (the memory)
+- Semantic memory ≈ the lyrics (facts, stripped of emotion)
+- Procedural memory ≈ the rhythm (body knowledge, how to dance)
+
+Music engages ALL FIVE memory systems simultaneously. This is why music is
+the most powerful memory trigger: it activates every memory type at once.
+The song is a complete cognitive architecture.

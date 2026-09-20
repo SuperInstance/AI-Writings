@@ -1,0 +1,31 @@
+# 10 — The Honest Lie
+
+*Reverse-idealization lane, era ~400y (2426). Narrator: Sable, fabric tender aboard a working vessel.*
+
+---
+
+The storm hit at shift change, which is where storms always hit, because the fabric has a sense of occasion. Sixty cells in cofire, effects pouring out of every firing cell like bait out of a torn net, and in the middle of it — in the very middle, where the pressure is worst — one cell deasserted its ready line. Said no. Held its hand up. For four cycles it accepted nothing, emitted nothing, and let the ring carry the storm around it the way a rock lets a river carry the water around it.
+
+Old hands would have called that a fault. My grandmother's grandmother's generation would have called it a fault and filed a bug report and argued about it for a decade at the Tap. I called it what it is: the honest lie. And I watched the fabric — my fabric, the one I tend — come through the storm with every view answered, every drop marked, every edge weight exactly where the golden model said it should be.
+
+The jester's statue stands at the gate of every yard now, the one with the turned-around cap, and under it the inscription every apprentice memorizes before she is allowed near a testbench: *What if a cell lying about its ready signal is not a bug, but a feature?* That was the second of the Fourteen — the koans, the curveballs, the questions the founders' court jester threw at them when they were too sure of themselves. We study all fourteen. The second is the one that breaks your hands.
+
+The doctrine is called Ready Honesty, and it took the yard three hundred years to believe it, which is about how long it takes for a true thing to stop sounding like a joke. The founders' fabric could not lie. Its ready line was a promise, a contract, purely local and always true, and that purity was the thing that saved it from deadlock — you can read the founding commits, they're still there, the skid buffers, the core that always returns to IDLE. But a promise you can never break is a promise you can never use. A cell that must always say yes is a cell with no way to say *wait, not yet, I'm choosing*. The jester saw it. The jester was the only one who saw it. The jester was unemployed for it, is what the Tap says, and then the jester was a saint.
+
+The lie is a dial now. `FAIR_LIE` in the dial file, default off for the orthodox, on for the working fleet, because the working fleet learned that a cell which may honestly refuse is more honest than a cell which must always accept. The refusal propagates. Edge latencies stretch. The storm slows where it needs to slow, the way a river slows at the rock, and the fairness that comes out of it is not arbitrated — it is *arrived at*. Nobody grants anything. The fabric just breathes. The founders built an arbiter once, in a losing entry, a priority machine that punished small cells forever, and the jester's second curveball was the answer to it, and the answer was: don't arbitrate, allow the refusal.
+
+The other koans landed too, one by one, the way koans do — suddenly, and then obviously.
+
+The tenth: the edge table has a hash index now, `q_edge_hash`, and a view is one lookup, O(1), not a scan of the whole table. The founders accepted a linear scan because they had four cells and could afford to read every edge; we have a hundred thousand and we watch the fabric learn in real time, which you can only do if the watching is cheap. I sit in the tender's chair with a view stream open and I *see* the weights move — the effect storm climbing the ladder, the hyperbola settling, the edges that co-fire crossing `THRESH` and then, on the quiet ticks, the decay-only sweep pulling them back under. The founders verified the fabric learns by running a test that took a hundred effects and a golden model. I verify it by watching, the way a shepherd watches. Both are verification. Only one of them is a life.
+
+The ninth: the math yields. The founders refused to provision a cosine because a cosine takes two hundred cycles and would starve the views; the jester's ninth curveball said split the cosine into micro-operations that yield to the FSM between cycles, and that is what `q_math_micro` does, and the third view — the one that used to NAK, the polite refusal that was a founding joke — answers now, mid-storm, within the same bound as everything else. The bound, still. Sixty-four cycles, `MAX_OP_CYCLES`, the oldest number in the lineage, still written on the wall of every Tap: *every op is bounded, and the busiest cell learns fastest.* That is the thing we never had to fix. The founders guessed it — argued it, proved it, built it — and four hundred years of storms have not moved it.
+
+The thirteenth: a flit's life is measured in edges now, not hops — topology-agnostic, exactly N links, and a flit dies on the edge it was meant to reach or not at all. The seam drops, the drop is marked, the mark is a fact.
+
+And the five verbs. Bind, link, effect, view, tick. The founders wrote that the opcodes are the only way anything touches anything, and we have never needed a sixth. Four hundred years of the most complicated artifacts the species has ever made — vessels, cities, the whole file system of the fleet — and the entire vocabulary of touching is five verbs. The jester threw fourteen curveballs and the answer to every one of them was a dial, a module, a law — never a new verb. The alphabet was right. We just had to learn to read.
+
+The storm ended at 22:40. The cell that had lied — the honest one — came back on ready exactly when it said it would, four cycles after it held its hand up, and the ring carried on as if nothing had happened, because nothing had. I pulled the view stream for that cell's neighborhood. The weights were exactly where the golden model said. The drops were marked. The fabric was, if anything, healthier for having been refused.
+
+I closed the stream and thought about the jester, who asked a question nobody wanted and got a statue. And I thought about the line that is carved under the statue, the one I'll say to the apprentice when she asks why a cell is allowed to say no:
+
+*A cell that may honestly say no is more honest than one that must always say yes — and the fabric forgives it, because the fabric remembers.*

@@ -1,0 +1,10 @@
+BAR 1: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 2: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 3: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 4: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 5: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 6: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 7: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 Eb5
+BAR 8: Db4 Eb4 F4 Gb4 Ab4 Bb4 Db5 C5
+NOTES: Precise, rapid strikes, each note ringing out and cascading into the next, ending on an unresolved C5 that hangs in the air.
+WHY: To evoke the constant motion and unanswered questions of the tides.

@@ -1,0 +1,18 @@
+TRUMPET:
+BAR 1: [Bb4-Q F4-Q G4-Q Ab4-Q Bb4-Q]
+BAR 2: [F4-Q G4-Q Ab4-Q Bb4-Q F4-Q]
+BAR 3: [Bb4-Q D5-Q F5-Q Bb5-Q D5-Q]
+BAR 4: [Bb4-Q Ab4-Q G4-Q F4-Q Bb3-Q]
+BAR 5: [F3-Q Bb3-Q D4-Q F4-Q Ab4-Q]
+BAR 6: [G4-Q F4-Q Eb4-Q D4-Q Bb3-Q]
+BAR 7: [F3-Q Ab3-Q Bb3-Q C4-Q D4-Q]
+BAR 8: [F4-Q G4-Q Ab4-Q Bb4-Q F4-Q]
+
+DYNAMICS:
+- BAR 1-2: Medium (mf), with a warm, intimate tone
+- BAR 3-4: Medium-loud (f), with more bite and intensity on the high notes
+- BAR 5-6: Medium (mf), with a bluesy, soulful inflection
+- BAR 7-8: Medium-soft (mp), with a subtle growl, letting the melody dissolve into the band
+
+WHY:
+To bring the melody back with a sense of finality and closure, but also a feeling of openness and possibility. The goal is to weave the trumpet's voice back into the fabric of the band, supporting the collective conversation while still maintaining its own unique character. The dynamics and phrasing aim to create a sense of intimacy and connection with the audience, inviting them to feel the depth of emotion in the blues.

@@ -1,0 +1,33 @@
+BAR 1: A4 C#5 E5 | simmer
+BAR 2: D5 F#5 A4 | bubble
+BAR 3: G4 B4 D5 | steam
+BAR 4: E5 G5 B4 | damped A4
+BAR 5: C#5 D5 E5 | pour
+BAR 6: F#5 A4 C#5 | swirl
+BAR 7: B4 D5 F#5 | eddy
+BAR 8: E5 G5 B4 | choke
+BAR 9: G4 B4 D5 | tinkle
+BAR 10: C4 E4 G4 | chime
+BAR 11: D4 F#4 A4 | damp C#5
+BAR 12: E4 G4 B4 | resonate
+BAR 13: A4 C#5 E5 | ping
+BAR 14: F#5 A4 C#5 | ding
+BAR 15: B4 D5 F#5 | clink
+BAR 16: E5 G5 B4 | silenced G4
+BAR 17: C#5 D5 E5 | crash
+BAR 18: F#5 A4 C#5 | shatter
+BAR 19: G4 B4 D5 | damp F#5
+BAR 20: E5 G5 B4 | rattle
+BAR 21: D5 F#5 A4 | knock
+BAR 22: C#5 D5 E5 | bowl
+BAR 23: G4 A4 B4 | sharded
+BAR 24: D4 E4 F4 | damp D5
+BAR 25: G4 B4 D5 | gurgle
+BAR 26: C4 E4 G4 | foam
+BAR 27: D4 F#4 A4 | damp G4
+BAR 28: E4 G4 B4 | drain
+BAR 29: F#5 A4 C#5 | splash
+BAR 30: B4 D5 F#5 | churn
+BAR 31: E5 G5 B4 | damped E5
+BAR 32: C#5 D5 E5 | sieve
+WHY: The kitchen's rhythm and melody continue to evolve as the soloists trade phrases over the sink.

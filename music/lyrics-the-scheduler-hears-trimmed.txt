@@ -1,0 +1,24 @@
+The cron job fires at 3AM
+nobody wakes to hear it
+the ship keeps sailing by schedule
+the schedule keeps sailing the ship
+
+Every minute a bell
+every hour a log entry
+every day a checkpoint
+nobody reads the logs but the log reads itself
+
+The scheduler is the heartbeat
+the heartbeat is the constraint
+the constraint is the rhythm
+the rhythm is the song
+
+When the job fails at 3AM
+the ship does not stop
+the ocean does not notice
+but the scheduler remembers everything
+
+It fires again at 4AM
+and the ship sails on
+into the dark water
+that does not know it is dark

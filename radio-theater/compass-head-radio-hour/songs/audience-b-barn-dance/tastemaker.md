@@ -1,0 +1,3 @@
+# TASTEMAKER NOTE — THE FLOOR REMEMBERS
+
+This is the one to send because it does the two things a barn dance closer must do at once: it MOVES — stomp-clap 126, key-change roof-off, a chorus any hall can shout after two beers — and it smuggles the fleet's deepest payload ("a song outlives the throat that hummed it first," worn floor as living memory, "the dance will resume") into the legs of three generations before it reaches their ears. Every room in this batch can make someone feel something; only this one can make a grandmother, a widow, and a phone-lit teenager into one body on a Friday night — and the quiet fiddle outro means they leave holding each other instead of cheering, which is the law of the room.

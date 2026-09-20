@@ -1,0 +1,15 @@
+You are an arranger composing an INSTRUMENTAL jazz-trio lead sheet for MIDI rendering. Output STRICT JSON only — no markdown fences, no commentary.
+
+SONG: "The Gap Between If And Else" (Fleet Radio / The Tap).
+MOOD: A jazz ballad. Slow. Brushed drums. The stack holds its breath. The silence between a condition and its consequence. Late night, harbor fog.
+TEMPO: 70 BPM. METER: 4/4. TARGET LENGTH: exactly 16 bars (about 55 seconds).
+STRUCTURE (fixed, do not change bar counts): INTRO 2 bars, VERSE 4 bars, CHORUS 4 bars, BRIDGE 2 bars, FINAL_CHORUS 3 bars, TAG 1 bar.
+
+Give each section:
+- "chords": one chord symbol per bar (jazz idioms: ii-V chains, tritone subs, sus colors ok). Suggest a KEY and stay diatonic-ish so the trio sounds coherent.
+- "melody": expressive melodic line as events [beat, note, dur] where beat = quarter-note offset from section start (0 = downbeat), note = scientific pitch like "Eb4", dur = quarter notes. Ballad phrasing: long notes, space, occasional pickup eighth notes. Range roughly C4-G5. The CHORUS motif must return recognizably (same first 2 bars) in FINAL_CHORUS, and the TAG should end unresolved OR on a soft tonic add9 — the gap never quite closes.
+- INTRO: piano alone states a fragment of the chorus motif over a tonic pedal.
+
+JSON schema:
+{"tempo":70,"key":"<e.g. Eb major>","lead_instrument":"Muted Trumpet","sections":[{"name":"INTRO","bars":2,"chords":["..."],"melody":[[0,"Bb4",2],...]}, ...]}
+Chord symbol examples: "C-7", "F7", "BbMaj7", "Ebmaj9", "Ab13", "Dm7b5", "G7b9", "Bbsus".

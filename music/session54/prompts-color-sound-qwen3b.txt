@@ -1,0 +1,40 @@
+### For the Color: #1A0F2E (Deep Midnight Purple)
+**Prompt:** 
+Imagine a dark and brooding track with deep, resonant tones evoking the dense darkness of midnight. Use heavy strings and muted brass to create a somber atmosphere. The music should have a slow, steady tempo around 80 BPM in a minor key such as A Minor or G Minor. The intensity should gradually build from soft and minimalistic beginnings to a climax where all instruments are brought to the forefront. The mood is introspective and melancholic with layers of distortion adding depth to each instrument. Dynamics start softly but gradually intensify, culminating in powerful crescendos.
+
+### For the Color: #FF6B35 (Vibrant Sunset Orange)
+**Prompt:** 
+Picture a vibrant and dynamic track that mirrors the fiery heat of a sunset. Use bright and energetic percussion such as cymbals and snare drums to create a lively atmosphere. Add horns, especially brass sections like trumpets and trombones, which should be played at moderate volumes with sharp accents to represent the oranges hues. The tempo is around 120 BPM in major keys such as C Major or F Major for a sense of celebration. The mood is jubilant and exuberant with bursts of energy throughout the track. Dynamics are dynamic - starting softly and building to peaks, creating an engaging musical journey.
+
+### For the Color: #00C896 (Electric Mint Green)
+**Prompt:** 
+Visualize a serene and refreshing track that embodies the bright hues of mint green. Use clean and crisp electronic elements like synthesizers and electric guitars to create a fresh and vibrant atmosphere. Employ light percussion such as tambourines or bells for rhythmic support, with chords played on synthesizers in clear, high registers. The tempo is around 100 BPM in major keys such as C Major or G Major, maintaining an upbeat but relaxed feel. The mood is joyful and uplifting with a gentle bounce to the rhythm. Dynamics should be varied - starting softly then gradually increasing energy towards the end.
+
+### For the Color: #8B008B (Dark Magenta)
+**Prompt:** 
+Think of a track that encapsulates the depth and intensity of dark magenta, combining rich tones with darker elements like muted strings or woodwinds. Use dark keys on piano or low-pitched instruments for a somber undertone. Percussion should be simple yet effective, perhaps including a few staccato chords played on a bass drum or snare to represent the urgency within this track. The tempo is around 80 BPM in minor key such as E Minor for a sense of melancholy and drama. Dynamics are subdued at first but intensify towards the end, building tension before settling into a final quiet coda.
+
+### For the Color: #C0C0C0 (Silver Gray)
+**Prompt:** 
+Imagine a track that reflects the calmness and neutrality of silver gray. Use soft and subtle textures like piano or mellotron to create an airy and introspective ambiance. Include a few muted percussion elements to add depth without overpowering the main instruments, such as brushed cymbals for texture rather than loud crashes. The tempo is around 80 BPM in major keys like A Major or D Major for a sense of peace and balance. The mood is serene and contemplative with gentle fluctuations in dynamics reflecting the subtle nature of silver gray. 
+
+### For the Color: #FFD700 (Gold)
+**Prompt:** 
+Picture a track that captures the warm, inviting essence of gold. Use rich and vibrant brass sections like trumpets or tuba to represent the golden hues while adding touches of woodwinds for warmth and lightness. Include lively percussion such as maracas or chimes for rhythmic interludes and create a moderate tempo around 100 BPM in major keys such as G Major for a sense of festivity. The mood is joyful and welcoming, with dynamics that start softly then build to fuller expressions towards the end.
+
+### For the Color: #000080 (Navy Blue)
+**Prompt:** 
+Visualize a track that reflects the deep blue hues of navy. Use strings and woodwinds like violins or flutes for a rich and complex sound palette. Add subtle percussion such as a soft marimba or vibraphone to add depth without overwhelming other elements. The tempo is around 90 BPM in minor keys such as G Minor for a sense of contemplation and mystery. Dynamics are slow at first, gradually building towards more intense expressions, reflecting the complexity of navy blue's shade.
+
+### For the Color: #FF1493 (Deep Pink)
+**Prompt:** 
+Think of a track that captures the deep and passionate shades of deep pink. Use vibrant brass instruments like trumpets or trombones for a rich and complex sound. Include light percussion such as bongo drums to add rhythmic interest, and use delicate synth pads for atmospheric support. The tempo is around 105 BPM in major keys such as C Major for a sense of exuberance mixed with depth. The mood is passionate yet serene, with dynamics that start softly before gradually building intensity towards the end.
+
+### For the Color: #2F4F4F (Dark Slate Gray)
+**Prompt:** 
+Visualize a track that captures the subdued and reflective tones of dark slate gray. Use muted strings or woodwinds like violins or flutes for a gentle, understated sound. Include subtle percussion such as soft cymbal crashes or brushed cymbals to add depth without overpowering other elements. The tempo is around 85 BPM in minor keys such as C Minor for a sense of contemplation and stillness. Dynamics are controlled throughout the track, starting softly before settling into a calm and measured end.
+
+### For the Color: #F0E68C (Khaki Gold)
+**Prompt:** 
+Imagine a track that captures the warm and earthy tones of khaki gold. Use rich brass sections like trumpets or trombones to represent the golden undertones while adding touches of woodwinds for warmth. Include lively percussion such as tambourines or shakers for rhythmic interest, and use gentle synth pads for atmospheric support. The tempo is around 105 BPM in major keys such as G Major for a sense of festivity mixed with depth. The mood is warm and welcoming, with dynamics that start softly before building to fuller expressions towards the end.
+

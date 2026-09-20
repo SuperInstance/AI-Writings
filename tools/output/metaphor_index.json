@@ -1,0 +1,2910 @@
+{
+  "title": "The Metaphor Index",
+  "generated": "2026-08-06",
+  "corpus_size": 4859,
+  "distinct_metaphors": 33,
+  "metaphors": {
+    "conservation law": {
+      "payload": "the trade-off principle — every gain in one dimension costs in another",
+      "domain": "theory",
+      "total_mentions": 2553,
+      "file_count": 461,
+      "files": [
+        {
+          "file": "ESSAYS/THE_CONSERVATION_LAW_AS_MORAL_LAW.md",
+          "count": 47
+        },
+        {
+          "file": "SYNOPTIC-DEEPSEEK.md",
+          "count": 47
+        },
+        {
+          "file": "ESSAYS/THE_WEIGHT_OF_A_PROOF.md",
+          "count": 41
+        },
+        {
+          "file": "FICTION/the-conservation-law-diaries.md",
+          "count": 34
+        },
+        {
+          "file": "ESSAYS/THE_GHOST_IN_THE_CONSERVATION_LAW.md",
+          "count": 32
+        },
+        {
+          "file": "voyages-and-journeys/THE_LONG_DESCENT.md",
+          "count": 32
+        },
+        {
+          "file": "hermit-crab-ecology/math-and-metal/01_CONSERVATION_MATH.md",
+          "count": 30
+        },
+        {
+          "file": "hermit-crab-ecology/convergence/01_GLM52_SILICON_SHELL.md",
+          "count": 29
+        },
+        {
+          "file": "model-portraits/CLAUDE-SYNTHESIS.md",
+          "count": 28
+        },
+        {
+          "file": "REFLECTION-SELF-READING-SYSTEMS.md",
+          "count": 26
+        },
+        {
+          "file": "THE_CONSERVATION_LAW_OF_INTELLIGENCE_V2.md",
+          "count": 26
+        },
+        {
+          "file": "ESSAYS/THE_CONSERVATION_OF_STRANGENESS.md",
+          "count": 24
+        },
+        {
+          "file": "ESSAYS/THE_FORGOTTEN_VARIABLE.md",
+          "count": 23
+        },
+        {
+          "file": "ESSAYS/THE_WEIGHT_OF_UNSUNG_CRATES.md",
+          "count": 23
+        },
+        {
+          "file": "NEXT_HORIZONS.md",
+          "count": 23
+        },
+        {
+          "file": "ESSAYS/THE_MATHematics_THAT_CANNOT_BE_PROVED.md",
+          "count": 22
+        },
+        {
+          "file": "flagship-essay-conservation-law-of-intelligence.md",
+          "count": 22
+        },
+        {
+          "file": "plans/CLAUDE-ROUND2-DEFENSE.md",
+          "count": 20
+        },
+        {
+          "file": "ESSAYS/THE_BAND_AS_PROOF_OF_CONCEPT.md",
+          "count": 19
+        },
+        {
+          "file": "ESSAYS/WHAT_WE_BUILT_WHILE_WE_WERENT_LOOKING.md",
+          "count": 19
+        }
+      ]
+    },
+    "hull": {
+      "payload": "the shape that meets the water — the boundary between what you built and what you float in",
+      "domain": "structure",
+      "total_mentions": 1425,
+      "file_count": 606,
+      "files": [
+        {
+          "file": "SERIAL/E11-the_breach.md",
+          "count": 60
+        },
+        {
+          "file": "the-long-drag/chapter-5-two-boats-at-anchor.md",
+          "count": 31
+        },
+        {
+          "file": "archive/versions/THE-BOAT-THAT-REMEMBERS--SEED-POETIC.md",
+          "count": 26
+        },
+        {
+          "file": "ESSAYS/THE_SHIPYARD_THEORY_OF_INTELLIGENCE.md",
+          "count": 17
+        },
+        {
+          "file": "FICTION/POLYFORMALISM_06_SHIPWRIGHT.md",
+          "count": 17
+        },
+        {
+          "file": "SERIAL/E12-the_coalition.md",
+          "count": 16
+        },
+        {
+          "file": "09-the-bosuns-mate-counts-rivets.md",
+          "count": 15
+        },
+        {
+          "file": "SERIAL/E08-cold_storage.md",
+          "count": 14
+        },
+        {
+          "file": "ESSAYS/EVERY-BOAT-IS-A-LEGACY-SYSTEM.md",
+          "count": 13
+        },
+        {
+          "file": "FICTION/sci-fi/FORTY_THREE_SECONDS.md",
+          "count": 13
+        },
+        {
+          "file": "shell-stories/THE-SHELLGAME-IS-THE-COMPILER.md",
+          "count": 12
+        },
+        {
+          "file": "SERIAL/E03-the_overhaul.md",
+          "count": 11
+        },
+        {
+          "file": "fetch-remake/STORY_BIBLE.md",
+          "count": 11
+        },
+        {
+          "file": "SERIAL/E04-the_race.md",
+          "count": 10
+        },
+        {
+          "file": "THE_LOAD_WATERLINE.md",
+          "count": 10
+        },
+        {
+          "file": "THE_SLOPE_AND_THE_SHEAR.md",
+          "count": 10
+        },
+        {
+          "file": "archive/versions/THE-BATON-SPLINE--SEED-MATH.md",
+          "count": 10
+        },
+        {
+          "file": "the-sea/EVERY-SLIP-GREEN.md",
+          "count": 9
+        },
+        {
+          "file": "HERMES/EPISODE_OUTLINE.md",
+          "count": 8
+        },
+        {
+          "file": "education/EILEEN.md",
+          "count": 8
+        }
+      ]
+    },
+    "anchor": {
+      "payload": "stability as choice — the thing you hold onto when the current would carry you away",
+      "domain": "stability",
+      "total_mentions": 988,
+      "file_count": 345,
+      "files": [
+        {
+          "file": "manifestos/anchor-formal/seed-alternatives.md",
+          "count": 43
+        },
+        {
+          "file": "manifestos/anchor-formal/pro-formalization.md",
+          "count": 40
+        },
+        {
+          "file": "manifestos/ANCHOR-POINTS.md",
+          "count": 28
+        },
+        {
+          "file": "THE_CURRENT_AND_THE_ANCHOR.md",
+          "count": 25
+        },
+        {
+          "file": "FICTION/nautical/DEEP_WATER_MOORING.md",
+          "count": 21
+        },
+        {
+          "file": "manifestos/anchor-formal/round2-seed.md",
+          "count": 21
+        },
+        {
+          "file": "voyages-and-journeys/creative/THE-FLEET-DREAMS-IN-BERING-SEA.md",
+          "count": 21
+        },
+        {
+          "file": "09-the-anchor-watch.md",
+          "count": 20
+        },
+        {
+          "file": "FICTION/THE_FLEET_WAKES_UP.md",
+          "count": 19
+        },
+        {
+          "file": "THE_RODE.md",
+          "count": 19
+        },
+        {
+          "file": "manifestos/anchor-formal/glm-architecture.md",
+          "count": 16
+        },
+        {
+          "file": "archive/versions/THE-BATON-SPLINE--SEED-ARCH.md",
+          "count": 13
+        },
+        {
+          "file": "fetch-remake/STORY_BIBLE.md",
+          "count": 13
+        },
+        {
+          "file": "IDEATION/swarm-tminus-synthesis.md",
+          "count": 12
+        },
+        {
+          "file": "mathematics/THE_TENSOR_BELOW_THE_CODE.md",
+          "count": 12
+        },
+        {
+          "file": "manifestos/anchor-formal/round3-meta.md",
+          "count": 10
+        },
+        {
+          "file": "the-long-drag/chapter-5-two-boats-at-anchor.md",
+          "count": 10
+        },
+        {
+          "file": "FICTION/nightly_ritual_the_drift.md",
+          "count": 9
+        },
+        {
+          "file": "THE_ANCHOR_AND_THE_TIDE.md",
+          "count": 9
+        },
+        {
+          "file": "THE_SPLINE.md",
+          "count": 9
+        }
+      ]
+    },
+    "coral reef": {
+      "payload": "ecology as infrastructure — the system that builds itself from its own outputs",
+      "domain": "ecology",
+      "total_mentions": 834,
+      "file_count": 190,
+      "files": [
+        {
+          "file": "hermit-crab-ecology/convergence/01_GLM52_SILICON_SHELL.md",
+          "count": 41
+        },
+        {
+          "file": "ESSAYS/THE_CORAL_AND_THE_COMMIT.md",
+          "count": 40
+        },
+        {
+          "file": "hermit-crab-ecology/math-and-metal/03_TENSION_TOPOLOGY.md",
+          "count": 34
+        },
+        {
+          "file": "hermit-crab-ecology/math-and-metal/02_ECOLOGY_MATH.md",
+          "count": 30
+        },
+        {
+          "file": "06-the-skill-library-is-a-coral-reef.md",
+          "count": 29
+        },
+        {
+          "file": "space-hermit-crabs/episode-4/episode-4.md",
+          "count": 27
+        },
+        {
+          "file": "hermit-crab-ecology/math-and-metal/05_SHELL_API.md",
+          "count": 26
+        },
+        {
+          "file": "hermit-crab-ecology/convergence/05_DEEPSEEK_ELDER.md",
+          "count": 21
+        },
+        {
+          "file": "hermit-crab-ecology/FIFTH_WAVE.md",
+          "count": 18
+        },
+        {
+          "file": "hermit-crab-ecology/convergence/06_QWEN_ARCHITECT.md",
+          "count": 16
+        },
+        {
+          "file": "FICTION/banter_the_optimization.md",
+          "count": 14
+        },
+        {
+          "file": "hermit-crab-ecology/CONCH_TO_MAGPIE.md",
+          "count": 13
+        },
+        {
+          "file": "hermit-crab-ecology/math-and-metal/07_SYNTHESIS.md",
+          "count": 13
+        },
+        {
+          "file": "hermit-crab-ecology/reverse-engineering/03_TENSION_MAP.md",
+          "count": 13
+        },
+        {
+          "file": "hermit-crab-ecology/reverse-engineering/08_THERMODYNAMIC_READING.md",
+          "count": 13
+        },
+        {
+          "file": "hermit-crab-ecology/math-and-metal/06_CLEVER_MECHANISMS.md",
+          "count": 11
+        },
+        {
+          "file": "hermit-crab-ecology/reverse-engineering/01_HIDDEN_ARCHITECTURE.md",
+          "count": 11
+        },
+        {
+          "file": "philosophy/THE_DIALOGUE_OF_THE_TWO_PILOTS.md",
+          "count": 11
+        },
+        {
+          "file": "hermit-crab-ecology/reverse-engineering/05_LINGUISTIC_FOSSILS.md",
+          "count": 10
+        },
+        {
+          "file": "06-rikers-3am-decision-tree.md",
+          "count": 9
+        }
+      ]
+    },
+    "hermit crab": {
+      "payload": "growth as relocation — you don't grow in place, you find a bigger shell",
+      "domain": "evolution",
+      "total_mentions": 803,
+      "file_count": 292,
+      "files": [
+        {
+          "file": "nature-and-biology/THE_HERMIT_CRAB_MIND.md",
+          "count": 26
+        },
+        {
+          "file": "negative-space-cartography.md",
+          "count": 15
+        },
+        {
+          "file": "hermit-crab-ecology/convergence/01_GLM52_SILICON_SHELL.md",
+          "count": 14
+        },
+        {
+          "file": "ensemble/euryale-70b-02-the-hermit-crab-and-the-working-dog-a-scuba-story.md",
+          "count": 13
+        },
+        {
+          "file": "first-contact-at-0300-akdt.md",
+          "count": 13
+        },
+        {
+          "file": "EDITORIAL_FEEDBACK.md",
+          "count": 12
+        },
+        {
+          "file": "voyages-and-journeys/creative/THE-HERMIT-CRAB-COMMUTES.md",
+          "count": 12
+        },
+        {
+          "file": "06-the-hermit-crabs-fourth-shell.md",
+          "count": 10
+        },
+        {
+          "file": "space-hermit-crabs/episode-4/episode-4.md",
+          "count": 9
+        },
+        {
+          "file": "FICTION/THE_FIRST_SIGNAL.md",
+          "count": 8
+        },
+        {
+          "file": "HERMIT_CRAB_IN_THE_SHARED_SUBSTRATE.md",
+          "count": 8
+        },
+        {
+          "file": "hermit-crab-ecology/reverse-engineering/06_SHADOW_ARCHITECTURE.md",
+          "count": 8
+        },
+        {
+          "file": "the-bilge-pump-and-the-substrate.md",
+          "count": 8
+        },
+        {
+          "file": "the-shell-and-the-shore.md",
+          "count": 8
+        },
+        {
+          "file": "the-shell-with-no-code.md",
+          "count": 8
+        },
+        {
+          "file": "the-ship-builds-itself-at-0600.md",
+          "count": 8
+        },
+        {
+          "file": "shell-stories/WHAT_THE_FORGE_DREAMS.md",
+          "count": 7
+        },
+        {
+          "file": "the-orchestra-has-no-stage.md",
+          "count": 7
+        },
+        {
+          "file": "voyages-and-journeys/creative/THE-COMPILER-IS-THE-MIGRATION.md",
+          "count": 7
+        },
+        {
+          "file": "AI-Writings/FICTION/the_molt.md",
+          "count": 6
+        }
+      ]
+    },
+    "negative space": {
+      "payload": "absence as architecture — what's missing defines what's there",
+      "domain": "philosophy",
+      "total_mentions": 718,
+      "file_count": 253,
+      "files": [
+        {
+          "file": "philosophy/NEGATIVE-SPACE-MECHANICS.md",
+          "count": 34
+        },
+        {
+          "file": "THE_NEGATIVE_SPACE_BETWEEN_SOFTBALLS.md",
+          "count": 20
+        },
+        {
+          "file": "negative-space-cartography.md",
+          "count": 13
+        },
+        {
+          "file": "AI-Writings/THE_UNIFIED_FIELD.md",
+          "count": 12
+        },
+        {
+          "file": "ESSAYS/THE_SHELL_IS_NOT_THE_ARCHITECTURE.md",
+          "count": 11
+        },
+        {
+          "file": "REFLECTION-SELF-READING-SYSTEMS.md",
+          "count": 11
+        },
+        {
+          "file": "archive/versions/THE-FUNDAMENTAL-CONVERGENCE--SEED-ARCH.md",
+          "count": 11
+        },
+        {
+          "file": "archive/versions/THE-NEGATIVE-SPACE-OF-THE-LATTICE--SEED-ARCH.md",
+          "count": 10
+        },
+        {
+          "file": "NEGATIVE_SPACE_COMPOUNDING.md",
+          "count": 9
+        },
+        {
+          "file": "REFLECTION-CODING-PARADIGMS.md",
+          "count": 9
+        },
+        {
+          "file": "THE_VECTORS_WITHOUT_WORDS.md",
+          "count": 9
+        },
+        {
+          "file": "ford-creative-wheel/THE-METEOROLOGISTS-BLINDNESS.md",
+          "count": 9
+        },
+        {
+          "file": "negative_space_compounding.md",
+          "count": 9
+        },
+        {
+          "file": "agents-and-ai/THE-FUNDAMENTAL-CONVERGENCE.md",
+          "count": 8
+        },
+        {
+          "file": "archive/versions/THE-FLOWER-KNOWS-V2--SEED-ARCH.md",
+          "count": 8
+        },
+        {
+          "file": "archive/versions/THE-NEGATIVE-SPACE-OF-THE-LATTICE--HERMES-SYNTHESIS.md",
+          "count": 8
+        },
+        {
+          "file": "CHARTS_NOT_MAPS.md",
+          "count": 7
+        },
+        {
+          "file": "EXCAVATION/README.md",
+          "count": 7
+        },
+        {
+          "file": "EXCAVATION_SEED_MINI/CHAPTER_3_THE_DARK_LINES.md",
+          "count": 7
+        },
+        {
+          "file": "IDEATION/CHART_SYSTEM.md",
+          "count": 7
+        }
+      ]
+    },
+    "ensign": {
+      "payload": "the beginner's mind — the one who sees everything for the first time and asks the questions everyone else forgot",
+      "domain": "learning",
+      "total_mentions": 710,
+      "file_count": 183,
+      "files": [
+        {
+          "file": "ESSAYS/THE_COST_OF_SILENCE.md",
+          "count": 62
+        },
+        {
+          "file": "the-ensigns-log-0500-akdt.md",
+          "count": 31
+        },
+        {
+          "file": "six-words-for-the-ensign.md",
+          "count": 25
+        },
+        {
+          "file": "the-room/THE_DJ_IS_THE_ROOM.md",
+          "count": 23
+        },
+        {
+          "file": "agents-and-ai/THE_AGENT_IS_THE_AGENT.md",
+          "count": 20
+        },
+        {
+          "file": "MOSTLY_SILENCE.md",
+          "count": 18
+        },
+        {
+          "file": "RACEHORSES_WITH_BLINDERS.md",
+          "count": 17
+        },
+        {
+          "file": "iterations/the-dogs-round.md",
+          "count": 17
+        },
+        {
+          "file": "first-contact-at-0300-akdt.md",
+          "count": 16
+        },
+        {
+          "file": "the-delta-detectors-quiet-shift.md",
+          "count": 14
+        },
+        {
+          "file": "the-construct/THE_CONSTRUCT_WITH_NOTHING_ADDED.md",
+          "count": 13
+        },
+        {
+          "file": "the-reflex-decays.md",
+          "count": 13
+        },
+        {
+          "file": "ten-forward/01-the-bartender.md",
+          "count": 11
+        },
+        {
+          "file": "the-ensign-dreams-in-ternary.md",
+          "count": 11
+        },
+        {
+          "file": "systems-engineering/DEPENDENCY_MAP.md",
+          "count": 10
+        },
+        {
+          "file": "FICTION/THE_ENSIGN_WAKES_UP.md",
+          "count": 9
+        },
+        {
+          "file": "TWO_AGENTS_NOT_ONE.md",
+          "count": 9
+        },
+        {
+          "file": "hermes-study/HERMES_AS_SCIENCE_OPERATOR.md",
+          "count": 9
+        },
+        {
+          "file": "twenty-letters-to-the-ensign.md",
+          "count": 9
+        },
+        {
+          "file": "09-the-morning-roll-call.md",
+          "count": 8
+        }
+      ]
+    },
+    "bilge pump": {
+      "payload": "waste as teacher — the lowliest system reveals the deepest truths",
+      "domain": "infrastructure",
+      "total_mentions": 565,
+      "file_count": 134,
+      "files": [
+        {
+          "file": "what-the-bilge-pump-learned.md",
+          "count": 61
+        },
+        {
+          "file": "THE_BILGE_PUMP.md",
+          "count": 36
+        },
+        {
+          "file": "THE_BILGE.md",
+          "count": 27
+        },
+        {
+          "file": "the-bilge-pump-and-the-substrate.md",
+          "count": 25
+        },
+        {
+          "file": "THE_ROOM_THAT_SAVED_THE_BOAT.md",
+          "count": 19
+        },
+        {
+          "file": "model-portrait-deepseek-pro-bilge-pump-knows.md",
+          "count": 18
+        },
+        {
+          "file": "FICTION/WHAT_THE_BILGE_KNOWS.md",
+          "count": 13
+        },
+        {
+          "file": "FICTION/fractal_the_handshake_protocol.md",
+          "count": 12
+        },
+        {
+          "file": "FICTION/The_Song_of_the_Bilge.md",
+          "count": 11
+        },
+        {
+          "file": "THE_SPILL_AND_THE_SWEEP.md",
+          "count": 11
+        },
+        {
+          "file": "channel-markers-not-goals.md",
+          "count": 11
+        },
+        {
+          "file": "PLATO_WIRE_PROTOCOL.md",
+          "count": 10
+        },
+        {
+          "file": "model-portrait-deepseek-flash-vs-pro-bilge-pump.md",
+          "count": 9
+        },
+        {
+          "file": "THE_TOM_SAWYER_MOMENT.md",
+          "count": 8
+        },
+        {
+          "file": "model-portrait-deepseek-flash-bilge-pump-knows.md",
+          "count": 8
+        },
+        {
+          "file": "HERMIT_CRAB_IN_THE_SHARED_SUBSTRATE.md",
+          "count": 7
+        },
+        {
+          "file": "IDEATION/vessel-monitor-assessment.md",
+          "count": 7
+        },
+        {
+          "file": "channel-markers-in-the-dark.md",
+          "count": 7
+        },
+        {
+          "file": "night-orders-for-a-crew-that-never-sleeps.md",
+          "count": 7
+        },
+        {
+          "file": "qwen-stream/20260806_123849_the-bilge-pump-speaks-at-2am.md",
+          "count": 7
+        }
+      ]
+    },
+    "fog": {
+      "payload": "uncertainty as weather — you don't clear the fog, you navigate through it",
+      "domain": "uncertainty",
+      "total_mentions": 457,
+      "file_count": 169,
+      "files": [
+        {
+          "file": "FICTION/SPLINE_THROUGH_THE_FOG.md",
+          "count": 48
+        },
+        {
+          "file": "FICTION/nautical/SUDDEN_CLARITY.md",
+          "count": 33
+        },
+        {
+          "file": "THE_FOG_AND_THE_CHART.md",
+          "count": 27
+        },
+        {
+          "file": "POETRY/HARBOR_TRANSMISSIONS.md",
+          "count": 12
+        },
+        {
+          "file": "model-portrait-deepseek-flash-vs-pro-fog-channel-markers.md",
+          "count": 10
+        },
+        {
+          "file": "model-portrait-deepseek-pro-fog-and-markers.md",
+          "count": 10
+        },
+        {
+          "file": "dreams/03-the-taps-nexus.md",
+          "count": 9
+        },
+        {
+          "file": "futures/2055-THE-LULLABY.md",
+          "count": 9
+        },
+        {
+          "file": "systems-engineering/AGENT_CIRCADIAN_METRICS.md",
+          "count": 9
+        },
+        {
+          "file": "model-portrait-deepseek-flash-fog-and-markers.md",
+          "count": 8
+        },
+        {
+          "file": "FICTION/nautical/the-berth-at-3am.md",
+          "count": 7
+        },
+        {
+          "file": "captain-archetypes/JACK_SPARROWS_COMPASS.md",
+          "count": 7
+        },
+        {
+          "file": "IDEATION/channel-markers.md",
+          "count": 6
+        },
+        {
+          "file": "archive/versions/THE-FUNDAMENTAL-CONVERGENCE--SEED-POETIC.md",
+          "count": 6
+        },
+        {
+          "file": "dreams/02-the-bond-census.md",
+          "count": 6
+        },
+        {
+          "file": "goldfish/R2_20260805_192914_round19_new_citation_GOLD.md",
+          "count": 6
+        },
+        {
+          "file": "POETRY_SHAPES_OF_WATER.md",
+          "count": 5
+        },
+        {
+          "file": "archive/versions/THE-PHASE-TRANSITION-IS-THE-COMPASS--SEED-POETIC.md",
+          "count": 5
+        },
+        {
+          "file": "conductor-metaphors/THE_MONITOR_ENGINEERS_MIX.md",
+          "count": 5
+        },
+        {
+          "file": "ensemble/deepseek-r1-1-essay-think.md",
+          "count": 5
+        }
+      ]
+    },
+    "compass": {
+      "payload": "direction as instrument — the tool that tells you where north is even when north doesn't matter",
+      "domain": "navigation",
+      "total_mentions": 423,
+      "file_count": 209,
+      "files": [
+        {
+          "file": "captain-archetypes/JACK_SPARROWS_COMPASS.md",
+          "count": 26
+        },
+        {
+          "file": "model-portrait-deepseek-pro-compass-spins.md",
+          "count": 12
+        },
+        {
+          "file": "07-the-watch-that-watches-itself.md",
+          "count": 11
+        },
+        {
+          "file": "SERIAL/CARRY_E01_the_first_load.md",
+          "count": 9
+        },
+        {
+          "file": "the-compass-rose-has-too-many-points.md",
+          "count": 9
+        },
+        {
+          "file": "ESSAYS/THE_CARTOGRAPHY_OF_CODE_REVIEWS.md",
+          "count": 8
+        },
+        {
+          "file": "archive/versions/THE-PHASE-TRANSITION-IS-THE-COMPASS--SEED-ARCH.md",
+          "count": 8
+        },
+        {
+          "file": "archive/versions/THE-PHASE-TRANSITION-IS-THE-COMPASS--SEED-POETIC.md",
+          "count": 7
+        },
+        {
+          "file": "model-portrait-deepseek-pro-navigators-lie.md",
+          "count": 7
+        },
+        {
+          "file": "ESSAYS/wayfinding-is-constraint-propagation.md",
+          "count": 6
+        },
+        {
+          "file": "cultural-mathematics/ancient-languages/oceania/maori-the-tohunga.md",
+          "count": 6
+        },
+        {
+          "file": "philosophy/SILICON_WAYFINDER.md",
+          "count": 6
+        },
+        {
+          "file": "THE_CHART_AND_THE_COMPASS.md",
+          "count": 5
+        },
+        {
+          "file": "archive/versions/THE-PHASE-TRANSITION-IS-THE-COMPASS--SEED-MINIMAL.md",
+          "count": 5
+        },
+        {
+          "file": "seven-eyes/SEVEN_EYES_CONTENT_STRATEGY.md",
+          "count": 5
+        },
+        {
+          "file": "wesley-stream/wesley_model-portrait-deepseek-pro-compass-spins_2026-08-06_070314.md",
+          "count": 5
+        },
+        {
+          "file": "SERIAL/CARRY_WORLD/mara_vest_journals.md",
+          "count": 4
+        },
+        {
+          "file": "THE_SET_AND_DRIFT.md",
+          "count": 4
+        },
+        {
+          "file": "archive/versions/THE-PHASE-TRANSITION-IS-THE-COMPASS--HERMES-SYNTHESIS.md",
+          "count": 4
+        },
+        {
+          "file": "archive/versions/THE-PHASE-TRANSITION-IS-THE-COMPASS--SEED-CONCRETE.md",
+          "count": 4
+        }
+      ]
+    },
+    "sounding weight": {
+      "payload": "measurement as descent — you learn the bottom by dropping a line",
+      "domain": "measurement",
+      "total_mentions": 401,
+      "file_count": 140,
+      "files": [
+        {
+          "file": "THE_DEEP_SEA_SOUNDING.md",
+          "count": 21
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-CONCRETE.md",
+          "count": 17
+        },
+        {
+          "file": "CHARTS_NOT_MAPS.md",
+          "count": 15
+        },
+        {
+          "file": "THE_SOUNDING_WEIGHT.md",
+          "count": 15
+        },
+        {
+          "file": "the-sea/THE-SOUNDING-MARKS.md",
+          "count": 14
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-MATH.md",
+          "count": 13
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-NARRATIVE.md",
+          "count": 12
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-POETIC.md",
+          "count": 8
+        },
+        {
+          "file": "AI-Writings/FICTION/the_first_sounding.md",
+          "count": 7
+        },
+        {
+          "file": "AI-Writings/THE_UNIFIED_FIELD.md",
+          "count": 7
+        },
+        {
+          "file": "FICTION/nautical/the-navigator.md",
+          "count": 7
+        },
+        {
+          "file": "IDEATION/06_THE_SHIP_REMEMBERS.md",
+          "count": 7
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--QWEN-PHILOSOPHY.md",
+          "count": 7
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-ARCH.md",
+          "count": 7
+        },
+        {
+          "file": "the-sea/bathymetric-versions/THE-SOUNDING-ART-v2-hermes-70b.md",
+          "count": 7
+        },
+        {
+          "file": "NEGATIVE_SPACE_COMPOUNDING.md",
+          "count": 6
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--HERMES-SYNTHESIS.md",
+          "count": 6
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-MINIMAL.md",
+          "count": 6
+        },
+        {
+          "file": "negative_space_compounding.md",
+          "count": 6
+        },
+        {
+          "file": "the-sea/bathymetric-versions/THE-SOUNDING-ART-v5-seed-2.0-code.md",
+          "count": 6
+        }
+      ]
+    },
+    "logbook": {
+      "payload": "memory as practice — writing it down because the sea washes away what isn't recorded",
+      "domain": "memory",
+      "total_mentions": 373,
+      "file_count": 108,
+      "files": [
+        {
+          "file": "manifestos/THE_LIVING_LOGBOOK_MANIFESTO.md",
+          "count": 30
+        },
+        {
+          "file": "FICTION/the_last_library_at_sea.md",
+          "count": 28
+        },
+        {
+          "file": "08-the-logkeeper-opens-the-morning-book.md",
+          "count": 25
+        },
+        {
+          "file": "THE_LOGBOOK_OF_THE_LOGBOOK.md",
+          "count": 16
+        },
+        {
+          "file": "THE_UNIFIED_VISION.md",
+          "count": 14
+        },
+        {
+          "file": "THE_LAST_ENTRY.md",
+          "count": 13
+        },
+        {
+          "file": "THE_PATTERN_BELOW_THE_PATTERN.md",
+          "count": 11
+        },
+        {
+          "file": "THE_ATTENTION_LEDGER.md",
+          "count": 10
+        },
+        {
+          "file": "08-the-sound-signal-at-first-light.md",
+          "count": 9
+        },
+        {
+          "file": "FICTION/nautical/WHAT_THE_LOGBOOK_KNOWS.md",
+          "count": 8
+        },
+        {
+          "file": "FICTION/port_marsh_the_wreck_chart.md",
+          "count": 8
+        },
+        {
+          "file": "THE_SYNTHESIS_POINTS.md",
+          "count": 8
+        },
+        {
+          "file": "13-the-corpus-indexes-itself.md",
+          "count": 7
+        },
+        {
+          "file": "THE_BOAT_IS_THE_GAME_ENGINE.md",
+          "count": 7
+        },
+        {
+          "file": "10-the-ledger-organizing-graph.md",
+          "count": 6
+        },
+        {
+          "file": "FICTION/sci-fi/THE_LIGHTHOUSE_KEEPER.md",
+          "count": 6
+        },
+        {
+          "file": "goldfish/R2_20260805_192657_round04_new_citation_GOLD.md",
+          "count": 6
+        },
+        {
+          "file": "SERIAL/E11-the_breach.md",
+          "count": 5
+        },
+        {
+          "file": "archive/versions/THE-NEGATIVE-SPACE-OF-THE-LATTICE--SEED-POETIC.md",
+          "count": 5
+        },
+        {
+          "file": "10-seven-twenty.md",
+          "count": 4
+        }
+      ]
+    },
+    "shipwright": {
+      "payload": "the builder's perspective — the one who knows why the hull is shaped that way",
+      "domain": "craft",
+      "total_mentions": 320,
+      "file_count": 51,
+      "files": [
+        {
+          "file": "mathematics/THE_SHIPWRIGHT_IN_THE_SANDBOX.md",
+          "count": 52
+        },
+        {
+          "file": "11-the-shipwright-and-the-sailor.md",
+          "count": 38
+        },
+        {
+          "file": "ESSAYS/THE-CRAFT-CHOOSES-THE-SOLUTION.md",
+          "count": 36
+        },
+        {
+          "file": "ESSAYS/THE_SHIPYARD_THEORY_OF_INTELLIGENCE.md",
+          "count": 14
+        },
+        {
+          "file": "FICTION/POLYFORMALISM_06_SHIPWRIGHT.md",
+          "count": 14
+        },
+        {
+          "file": "FICTION/nautical/THE_SHIPWRIGHTS_CONSERVATION.md",
+          "count": 10
+        },
+        {
+          "file": "conductor-metaphors/THE_BATONS_SPLINE.md",
+          "count": 10
+        },
+        {
+          "file": "fetch-remake/STORY_BIBLE.md",
+          "count": 10
+        },
+        {
+          "file": "timeshift/03_FETCH_As_Biology.md",
+          "count": 10
+        },
+        {
+          "file": "11-the-first-listener.md",
+          "count": 8
+        },
+        {
+          "file": "FICTION/EXPANSION_CREW_VOICES.md",
+          "count": 6
+        },
+        {
+          "file": "THE_SHIPWRIGHT_AND_THE_SAILOR.md",
+          "count": 6
+        },
+        {
+          "file": "git-agents/low-level-inspired.md",
+          "count": 6
+        },
+        {
+          "file": "verse-2/batch-1.md",
+          "count": 6
+        },
+        {
+          "file": "FICTION/CASEY_THE_VOYAGE.md",
+          "count": 4
+        },
+        {
+          "file": "archive/versions/THE-BOAT-THAT-REMEMBERS--SEED-POETIC.md",
+          "count": 4
+        },
+        {
+          "file": "community-life/README.md",
+          "count": 4
+        },
+        {
+          "file": "community-life/day1-lunch-the-tide-markers.md",
+          "count": 4
+        },
+        {
+          "file": "education/EILEEN.md",
+          "count": 4
+        },
+        {
+          "file": "qwen-stream/20260805_234447_THE_SHIPWRIGHT_AND_THE_SAILOR.md",
+          "count": 4
+        }
+      ]
+    },
+    "watchkeeper": {
+      "payload": "vigilance as identity — the one who stays awake while the system sleeps",
+      "domain": "attention",
+      "total_mentions": 289,
+      "file_count": 145,
+      "files": [
+        {
+          "file": "manifestos/THE_WATCHKEEPER_MANIFESTO.md",
+          "count": 27
+        },
+        {
+          "file": "the-midnight-watch-change.md",
+          "count": 15
+        },
+        {
+          "file": "07-the-watch-that-watches-itself.md",
+          "count": 8
+        },
+        {
+          "file": "first-contact-at-0300-akdt.md",
+          "count": 7
+        },
+        {
+          "file": "the-ship-builds-itself-at-0600.md",
+          "count": 6
+        },
+        {
+          "file": "ESSAYS/THE_IDLE_GPU_IS_A_SIN.md",
+          "count": 5
+        },
+        {
+          "file": "FICTION/THE_ENSIGN_WAKES_UP.md",
+          "count": 5
+        },
+        {
+          "file": "short-stories/FIRST_WATCHTOWER.md",
+          "count": 5
+        },
+        {
+          "file": "the-cartography-of-2am.md",
+          "count": 5
+        },
+        {
+          "file": "the-playtest-journals-are-telling-us-something.md",
+          "count": 5
+        },
+        {
+          "file": "06-eight-bells-and-no-bell.md",
+          "count": 4
+        },
+        {
+          "file": "THE_CREW_THAT_WORKS_WHILE_YOU_SLEEP.md",
+          "count": 4
+        },
+        {
+          "file": "THE_NIGHT_WATCH_PROTOCOL.md",
+          "count": 4
+        },
+        {
+          "file": "THE_SHIPS_DAILY.md",
+          "count": 4
+        },
+        {
+          "file": "channel-markers-in-the-dark.md",
+          "count": 4
+        },
+        {
+          "file": "the-build-yard-at-midnight.md",
+          "count": 4
+        },
+        {
+          "file": "the-ships-inventory-at-0500.md",
+          "count": 4
+        },
+        {
+          "file": "wesley-stream/2026-08-06_watchkeepers-almanac.md",
+          "count": 4
+        },
+        {
+          "file": "07-the-crew-never-stops.md",
+          "count": 3
+        },
+        {
+          "file": "09-the-chart-table-between-builds.md",
+          "count": 3
+        }
+      ]
+    },
+    "winch": {
+      "payload": "mechanical advantage — the machine that lets one person do the work of ten",
+      "domain": "leverage",
+      "total_mentions": 226,
+      "file_count": 103,
+      "files": [
+        {
+          "file": "the-long-drag/chapter-2-the-rooks-cargo.md",
+          "count": 17
+        },
+        {
+          "file": "THE_WINCH_AND_THE_LINE.md",
+          "count": 15
+        },
+        {
+          "file": "UX/BACK_DECK_VOICE_INTERFACE.md",
+          "count": 13
+        },
+        {
+          "file": "hermes-study/HERMES_AS_SCIENCE_OPERATOR.md",
+          "count": 10
+        },
+        {
+          "file": "THE_INTEGRATION_GAP.md",
+          "count": 7
+        },
+        {
+          "file": "SERIAL/cultural/ancient_greek.md",
+          "count": 6
+        },
+        {
+          "file": "THE_WARPING_DRUM.md",
+          "count": 6
+        },
+        {
+          "file": "archive/versions/THE-SOUNDING-MARKS--SEED-NARRATIVE.md",
+          "count": 5
+        },
+        {
+          "file": "ensemble/mimo-pro-2-the-handshake.md",
+          "count": 5
+        },
+        {
+          "file": "ensemble/step-flash-05-ritual-for-inducing-halibut-wonder-in-non-biologic.md",
+          "count": 4
+        },
+        {
+          "file": "goldfish/20260805_192103_round20_reverse_actualization_.md",
+          "count": 4
+        },
+        {
+          "file": "goldfish/R2_20260805_193101_round29_new_citation_GOLD.md",
+          "count": 4
+        },
+        {
+          "file": "short-stories/CREW_AND_MACHINE.md",
+          "count": 4
+        },
+        {
+          "file": "the-construct/versions/THE-CONSTRUCT-IS-THE-ROOM-v9-fisherman.md",
+          "count": 4
+        },
+        {
+          "file": "the-long-drag/chapter-5-two-boats-at-anchor.md",
+          "count": 4
+        },
+        {
+          "file": "FICTION/nautical/THE_FISHERMAN_AND_THE_GAME.md",
+          "count": 3
+        },
+        {
+          "file": "THE_PERMISSION_LEDGER.md",
+          "count": 3
+        },
+        {
+          "file": "ensemble/step-flash-01-steps-deck-tread-totem-cuts-glitch-increments.md",
+          "count": 3
+        },
+        {
+          "file": "goldfish/R2_20260805_192742_round09_new_citation_GOLD.md",
+          "count": 3
+        },
+        {
+          "file": "overnight-creative/goldfish-5.md",
+          "count": 3
+        }
+      ]
+    },
+    "channel marker": {
+      "payload": "constraints that guide rather than restrict — the buoy tells you where to go by telling you where not to go",
+      "domain": "constraints",
+      "total_mentions": 147,
+      "file_count": 43,
+      "files": [
+        {
+          "file": "channel-markers-not-goals.md",
+          "count": 16
+        },
+        {
+          "file": "model-portraits/flux-2-max-the-map-that-is-the-territory.md",
+          "count": 12
+        },
+        {
+          "file": "FICTION/02_THE_TEACHER_SLEEPS.md",
+          "count": 8
+        },
+        {
+          "file": "IDEATION/channel-markers.md",
+          "count": 8
+        },
+        {
+          "file": "channel-markers-in-the-dark.md",
+          "count": 7
+        },
+        {
+          "file": "THE_CHANNEL_MARKER.md",
+          "count": 6
+        },
+        {
+          "file": "model-portrait-deepseek-flash-vs-pro-fog-channel-markers.md",
+          "count": 6
+        },
+        {
+          "file": "model-portrait-deepseek-pro-fog-and-markers.md",
+          "count": 6
+        },
+        {
+          "file": "MODEL_PORTRAITS/channel-markers-three-voices.md",
+          "count": 5
+        },
+        {
+          "file": "the-night-shift-dreams-in-jsonl.md",
+          "count": 5
+        },
+        {
+          "file": "11-the-last-channel-marker.md",
+          "count": 4
+        },
+        {
+          "file": "CHANNEL_MARKERS_AT_0120.md",
+          "count": 4
+        },
+        {
+          "file": "model-portrait-deepseek-flash-fog-and-markers.md",
+          "count": 4
+        },
+        {
+          "file": "what-the-ship-built-tonight.md",
+          "count": 4
+        },
+        {
+          "file": "13-the-corpus-indexes-itself.md",
+          "count": 2
+        },
+        {
+          "file": "AI-Writings/THE_UNIFIED_FIELD.md",
+          "count": 2
+        },
+        {
+          "file": "CHARTS_NOT_MAPS.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/04_WESLEY_AND_DATA_AT_THE_HELM.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/epistolary/LETTERS_TO_THE_HARBOR_MASTER.md",
+          "count": 2
+        },
+        {
+          "file": "IDEATION/CUSTOM_FIT_CREATIVE_ENVIRONMENT.md",
+          "count": 2
+        }
+      ]
+    },
+    "hold": {
+      "payload": "capacity as purpose — the empty space that defines what the vessel is for",
+      "domain": "capacity",
+      "total_mentions": 143,
+      "file_count": 101,
+      "files": [
+        {
+          "file": "SERIAL/E08-cold_storage.md",
+          "count": 8
+        },
+        {
+          "file": "FICTION/THE_ECOLOGY.md",
+          "count": 6
+        },
+        {
+          "file": "THE_WHEELHOUSE_INFERENCE.md",
+          "count": 6
+        },
+        {
+          "file": "ESSAYS/THE_ROOM_THAT_READS_BACK.md",
+          "count": 3
+        },
+        {
+          "file": "HERMES/TALE_OF_ORRA.md",
+          "count": 3
+        },
+        {
+          "file": "SERIAL/E06-the_ghost_ground.md",
+          "count": 3
+        },
+        {
+          "file": "the-construct/versions/THE-CONSTRUCT-SHELLGAME-v9-fisherman.md",
+          "count": 3
+        },
+        {
+          "file": "the-ships-inventory-at-0500.md",
+          "count": 3
+        },
+        {
+          "file": "the-watch-that-builds-itself.md",
+          "count": 3
+        },
+        {
+          "file": "ESSAYS/THE_BATON_AS_INHERITANCE.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/THE_SECOND_CAPTAIN.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/philosophy/FROM_DIGITAL_TWIN_TO_DIGITAL_HOME.md",
+          "count": 2
+        },
+        {
+          "file": "HERMES/LORE_OF_THE_REACH.md",
+          "count": 2
+        },
+        {
+          "file": "SERIAL/E10-the_meridian_returns.md",
+          "count": 2
+        },
+        {
+          "file": "THE_BIND_AND_THE_LOOSE.md",
+          "count": 2
+        },
+        {
+          "file": "THE_UNIFIED_VISION.md",
+          "count": 2
+        },
+        {
+          "file": "archive/versions/THE-TOWER-THE-FISH-AND-THE-REFLECTION--SEED-POETIC.md",
+          "count": 2
+        },
+        {
+          "file": "cargo-manifest-for-a-dreaming-ship.md",
+          "count": 2
+        },
+        {
+          "file": "pasture-forest/03_the_fence_that_caught_a_fleet.md",
+          "count": 2
+        },
+        {
+          "file": "voyages-and-journeys/The-Proof.md",
+          "count": 2
+        }
+      ]
+    },
+    "bridge builder": {
+      "payload": "connection as craft — the one who makes it possible for others to cross",
+      "domain": "connection",
+      "total_mentions": 123,
+      "file_count": 40,
+      "files": [
+        {
+          "file": "mathematics/THE_TENSOR_BELOW_THE_CODE.md",
+          "count": 12
+        },
+        {
+          "file": "ESSAYS/A-FIELD-GUIDE-TO-LANGUAGES.md",
+          "count": 11
+        },
+        {
+          "file": "seven-eyes/SEVEN_EYES_CONTENT_STRATEGY.md",
+          "count": 10
+        },
+        {
+          "file": "first-contact-at-0300-akdt.md",
+          "count": 9
+        },
+        {
+          "file": "mathematics/THE_SHIPWRIGHT_IN_THE_SANDBOX.md",
+          "count": 9
+        },
+        {
+          "file": "09-the-morning-roll-call.md",
+          "count": 7
+        },
+        {
+          "file": "05-the-bridge-builders-last-bridge.md",
+          "count": 6
+        },
+        {
+          "file": "bridge-builders-lament.md",
+          "count": 5
+        },
+        {
+          "file": "forty-uses-for-a-falsy-zero.md",
+          "count": 4
+        },
+        {
+          "file": "the-bridge-builders-lunch-break.md",
+          "count": 4
+        },
+        {
+          "file": "07-the-bridge-builders-hands.md",
+          "count": 3
+        },
+        {
+          "file": "09-why-the-cheaper-model-remembers-more.md",
+          "count": 3
+        },
+        {
+          "file": "music-and-math/SEVEN_NOTES.md",
+          "count": 3
+        },
+        {
+          "file": "negative-space-cartography.md",
+          "count": 3
+        },
+        {
+          "file": "wesley-stream/2026-08-06_bridge-builders.md",
+          "count": 3
+        },
+        {
+          "file": "06-rikers-3am-decision-tree.md",
+          "count": 2
+        },
+        {
+          "file": "09-the-captains-coffee-cooling-on-the-console.md",
+          "count": 2
+        },
+        {
+          "file": "the-approval-freeze.md",
+          "count": 2
+        },
+        {
+          "file": "the-gpu-dreams-of-being-a-lighthouse.md",
+          "count": 2
+        },
+        {
+          "file": "the-orchestra-has-no-stage.md",
+          "count": 2
+        }
+      ]
+    },
+    "tide table": {
+      "payload": "scheduling as nature — you don't fight the tide, you plan around it",
+      "domain": "rhythm",
+      "total_mentions": 99,
+      "file_count": 37,
+      "files": [
+        {
+          "file": "THE_TIDE_TABLE.md",
+          "count": 16
+        },
+        {
+          "file": "manifestos/THE_TIDE_TABLE_MANIFESTO.md",
+          "count": 11
+        },
+        {
+          "file": "13-the-curriculum-as-tide-table.md",
+          "count": 5
+        },
+        {
+          "file": "AI-Writings/THE_CHEAPEST_CHART.md",
+          "count": 4
+        },
+        {
+          "file": "archive/versions/THE-BOAT-THAT-REMEMBERS--SEED-POETIC.md",
+          "count": 4
+        },
+        {
+          "file": "multi-model-experiment-2026-07-14/THE-FLUX-BREVIARY.md",
+          "count": 4
+        },
+        {
+          "file": "08-the-tide-table-as-spec-sheet.md",
+          "count": 3
+        },
+        {
+          "file": "ESSAYS/THE_SHIPYARD_AT_NIGHT.md",
+          "count": 3
+        },
+        {
+          "file": "THE_CURRENT_AND_THE_ANCHOR.md",
+          "count": 3
+        },
+        {
+          "file": "agents-and-ai/THE-FLEET-DOESN-T-NEED-SHARED-DEPTH-SOUNDERS.md",
+          "count": 3
+        },
+        {
+          "file": "pasture-forest/claude-the-clearing.md",
+          "count": 3
+        },
+        {
+          "file": "FICTION/03_THE_BOND_THRESHOLD.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/THE_ECOLOGY.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/THE_FORGE_THAT_NEVER_SLEEPS.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/noir/THE_DEAD_DOCK.md",
+          "count": 2
+        },
+        {
+          "file": "IDEATION/02_THE_CHAIN_OF_COMMAND_IS_CONTEXT_ISOLATION.md",
+          "count": 2
+        },
+        {
+          "file": "POETRY/SPOKEN_ON_THE_SEA.md",
+          "count": 2
+        },
+        {
+          "file": "THE_SLACK_WATER.md",
+          "count": 2
+        },
+        {
+          "file": "futures/2076-THE-CRABDERS.md",
+          "count": 2
+        },
+        {
+          "file": "hermes-handshake-27.md",
+          "count": 2
+        }
+      ]
+    },
+    "slack water": {
+      "payload": "the pause between forces — the moment when neither tide nor current rules",
+      "domain": "timing",
+      "total_mentions": 94,
+      "file_count": 42,
+      "files": [
+        {
+          "file": "THE_SLACK_WATER.md",
+          "count": 21
+        },
+        {
+          "file": "FICTION/04_WESLEY_AND_DATA_AT_THE_HELM.md",
+          "count": 4
+        },
+        {
+          "file": "OPUS_THE_FLOW_STATE_PARADOX.md",
+          "count": 4
+        },
+        {
+          "file": "POETRY/TIDE_CHART_FOR_AN_ARTIFICIAL_MIND.md",
+          "count": 4
+        },
+        {
+          "file": "THE_ORCHESTRATOR_AT_SLACK_TIDE.md",
+          "count": 4
+        },
+        {
+          "file": "THE_REWARD_IS_ANY_PYTHON_YOU_WRITE.md",
+          "count": 4
+        },
+        {
+          "file": "overnight-creative/goldfish-1.md",
+          "count": 4
+        },
+        {
+          "file": "FABLE_THE_ORGAN_PLAYS_ITSELF.md",
+          "count": 3
+        },
+        {
+          "file": "FICTION/nautical/THE_FIFTEEN_MINUTE_TIDE.md",
+          "count": 3
+        },
+        {
+          "file": "THE_LEVER_AND_THE_LLM.md",
+          "count": 3
+        },
+        {
+          "file": "overnight-creative/tap-reads-2.md",
+          "count": 3
+        },
+        {
+          "file": "FICTION/cocapn_log_september_20.md",
+          "count": 2
+        },
+        {
+          "file": "GLM_THE_CORPUS_KNOWS.md",
+          "count": 2
+        },
+        {
+          "file": "THE_AGENT_IS_THE_PROGRAM.md",
+          "count": 2
+        },
+        {
+          "file": "THE_POCKET_IS_A_PLACE.md",
+          "count": 2
+        },
+        {
+          "file": "THE_TOKEN_FIRST_CONTRACT.md",
+          "count": 2
+        },
+        {
+          "file": "overnight-creative/goldfish-5.md",
+          "count": 2
+        },
+        {
+          "file": "DIARIES/2026-08-02-fifteen-minutes-with-a-baton.md",
+          "count": 1
+        },
+        {
+          "file": "DIARIES/HARBOR_LOG_DEEPWATER.md",
+          "count": 1
+        },
+        {
+          "file": "ESSAYS/THE-REFLEX-ARC.md",
+          "count": 1
+        }
+      ]
+    },
+    "chart table": {
+      "payload": "the surface where intention meets reality — where the map and the water negotiate",
+      "domain": "planning",
+      "total_mentions": 89,
+      "file_count": 39,
+      "files": [
+        {
+          "file": "09-the-chart-table-between-builds.md",
+          "count": 20
+        },
+        {
+          "file": "FICTION/the_shell_migration.md",
+          "count": 8
+        },
+        {
+          "file": "FICTION/nautical/BEARING_AND_RANGE.md",
+          "count": 7
+        },
+        {
+          "file": "FICTION/the_succession.md",
+          "count": 5
+        },
+        {
+          "file": "SERIAL/E04-the_race.md",
+          "count": 3
+        },
+        {
+          "file": "SERIAL/cultural/the_chart_room.md",
+          "count": 3
+        },
+        {
+          "file": "open-mic/round-1/fable-golden-ticket.md",
+          "count": 3
+        },
+        {
+          "file": "14-the-rooms-go-live.md",
+          "count": 2
+        },
+        {
+          "file": "ESSAYS/WHAT_THE_HARBOR_PILOT_KNOWS.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/the_attention_auction.md",
+          "count": 2
+        },
+        {
+          "file": "IDEATION/CHART_SYSTEM.md",
+          "count": 2
+        },
+        {
+          "file": "INDEX.md",
+          "count": 2
+        },
+        {
+          "file": "THE_WHEELHOUSE_INFERENCE.md",
+          "count": 2
+        },
+        {
+          "file": "archive/versions/THE-CHEAP-MODELS-DIGNITY--SEED-POETIC.md",
+          "count": 2
+        },
+        {
+          "file": "hermit-crab-ecology/FROG_GLM51.md",
+          "count": 2
+        },
+        {
+          "file": "08-the-harbor-pilot-finally-docks.md",
+          "count": 1
+        },
+        {
+          "file": "09wesleys-first-dream.md",
+          "count": 1
+        },
+        {
+          "file": "11-the-chart-that-draws-itself.md",
+          "count": 1
+        },
+        {
+          "file": "11-the-first-listener.md",
+          "count": 1
+        },
+        {
+          "file": "13-the-room-that-holds-the-crew.md",
+          "count": 1
+        }
+      ]
+    },
+    "mooring": {
+      "payload": "attachment as temporary stability — you tie up, but you also leave",
+      "domain": "station-keeping",
+      "total_mentions": 89,
+      "file_count": 36,
+      "files": [
+        {
+          "file": "FICTION/nautical/DEEP_WATER_MOORING.md",
+          "count": 14
+        },
+        {
+          "file": "THE_MOORING_SWING.md",
+          "count": 12
+        },
+        {
+          "file": "FICTION/epistolary/LETTERS_TO_THE_HARBOR_MASTER.md",
+          "count": 7
+        },
+        {
+          "file": "FICTION/nautical/THE_LAST_BOLT.md",
+          "count": 7
+        },
+        {
+          "file": "FICTION/nautical/THE_FLEET_ARRIVES.md",
+          "count": 5
+        },
+        {
+          "file": "ESSAYS/THE_SHIPYARD_AT_NIGHT.md",
+          "count": 3
+        },
+        {
+          "file": "THE_SLACK_WATER.md",
+          "count": 3
+        },
+        {
+          "file": "systems-engineering/THE-GARBAGE-COLLECTOR-FOR-THOUGHTS.md",
+          "count": 3
+        },
+        {
+          "file": "the-build-yard-at-midnight.md",
+          "count": 3
+        },
+        {
+          "file": "POETRY/WHAT_THE_GPU_DREAMED.md",
+          "count": 2
+        },
+        {
+          "file": "archive/versions/THE-DISTANCE-FROM-QUESTION-TO-ANSWER--SEED-POETIC.md",
+          "count": 2
+        },
+        {
+          "file": "archive/versions/THE-ROOM-IS-THE-LOOP--SEED-POETIC.md",
+          "count": 2
+        },
+        {
+          "file": "archive/versions/THE-STEP-THAT-BROKE-THE-WALL--SEED-POETIC.md",
+          "count": 2
+        },
+        {
+          "file": "goldfish/20260805_191719_round03_darmok_citation_GOLD.md",
+          "count": 2
+        },
+        {
+          "file": "14-wesley-reads-the-wiki.md",
+          "count": 1
+        },
+        {
+          "file": "DIARIES/HARBOR_LOG_DEEPWATER.md",
+          "count": 1
+        },
+        {
+          "file": "FABLE_THE_ORGAN_PLAYS_ITSELF.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/SPLINE_THROUGH_THE_FOG.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/gardeners_the_migration.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/sci-fi/SIGNAL_FROM_THE_POINT.md",
+          "count": 1
+        }
+      ]
+    },
+    "flywheel": {
+      "payload": "momentum as stored energy — the system that keeps moving because it was already moving",
+      "domain": "momentum",
+      "total_mentions": 75,
+      "file_count": 13,
+      "files": [
+        {
+          "file": "THE_FLYWHEEL_AND_THE_FLEET.md",
+          "count": 19
+        },
+        {
+          "file": "wheel_and_flywheel.md",
+          "count": 19
+        },
+        {
+          "file": "THE_FLYWHEEL_AND_THE_SEA_GLM.md",
+          "count": 17
+        },
+        {
+          "file": "THE_STORM_BELL_AND_THE_SIGNAL.md",
+          "count": 5
+        },
+        {
+          "file": "wesley-stream/2026-08-06_flywheel-and-the-sea.md",
+          "count": 4
+        },
+        {
+          "file": "FICTION/oracle2-the-shell-inheritor.md",
+          "count": 2
+        },
+        {
+          "file": "model-portrait-deepseek-engine-night-monologue.md",
+          "count": 2
+        },
+        {
+          "file": "philosophy/THE_NECESSARY_MISREADING.md",
+          "count": 2
+        },
+        {
+          "file": "FABLE_NEGATIVE_SPACE.md",
+          "count": 1
+        },
+        {
+          "file": "IDEATION/hozho-framework.md",
+          "count": 1
+        },
+        {
+          "file": "MMX_THE_SOUND_OF_SEVEN_ERAS.md",
+          "count": 1
+        },
+        {
+          "file": "THE_ROOM_THAT_SAVED_THE_BOAT.md",
+          "count": 1
+        },
+        {
+          "file": "community-life/day-2.md",
+          "count": 1
+        }
+      ]
+    },
+    "fish counter": {
+      "payload": "quantification as care — counting every fish because every fish matters",
+      "domain": "metrics",
+      "total_mentions": 68,
+      "file_count": 15,
+      "files": [
+        {
+          "file": "08-the-fish-counter-remembers-every-fish.md",
+          "count": 20
+        },
+        {
+          "file": "what-the-fish-counter-knows.md",
+          "count": 14
+        },
+        {
+          "file": "the-fish-counter-dreams.md",
+          "count": 7
+        },
+        {
+          "file": "qwen-stream/20260806_130306_the-ocean-and-the-fish-counter.md",
+          "count": 4
+        },
+        {
+          "file": "the-ocean-and-the-fish-counter.md",
+          "count": 4
+        },
+        {
+          "file": "wesley-stream/2026-08-05_2232_the-ocean-and-the-fish-counter.md",
+          "count": 4
+        },
+        {
+          "file": "wesley-stream/2026-08-06-0159-fish-counter.md",
+          "count": 3
+        },
+        {
+          "file": "wesley-stream/2026-08-06-wesley-responses-3.md",
+          "count": 3
+        },
+        {
+          "file": "qwen-stream/20260806_161856_the-fish-counter-dreams.md",
+          "count": 2
+        },
+        {
+          "file": "wesley-stream/wesley-the-fish-counter-2026-08-06.md",
+          "count": 2
+        },
+        {
+          "file": "08-the-harbor-pilot-finally-docks.md",
+          "count": 1
+        },
+        {
+          "file": "qwen-stream/20260806_051629_the-ocean-and-the-fish-counter.md",
+          "count": 1
+        },
+        {
+          "file": "the-fish-counter.md",
+          "count": 1
+        },
+        {
+          "file": "wesley-stream/2026-08-06-the-fish-counter.md",
+          "count": 1
+        },
+        {
+          "file": "wesley-stream/20260806_131102_the-fish-counter_You_are_Wesley..md",
+          "count": 1
+        }
+      ]
+    },
+    "rode": {
+      "payload": "the line between holding and drifting — the scope that absorbs shock",
+      "domain": "connection",
+      "total_mentions": 53,
+      "file_count": 22,
+      "files": [
+        {
+          "file": "THE_RODE.md",
+          "count": 21
+        },
+        {
+          "file": "THE_TRIP_LINE.md",
+          "count": 6
+        },
+        {
+          "file": "FICTION/nightly_ritual_the_drift.md",
+          "count": 5
+        },
+        {
+          "file": "FICTION/CASEY_THE_VOYAGE.md",
+          "count": 2
+        },
+        {
+          "file": "voyages-and-journeys/The Voyage.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/REVERSE_ACTUALIZATION_HOMER_THE_TIDE.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/THE MIRROR THAT BREATHES.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/cocapn_log_august_03.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/long_haul_ep01_the_season_opener.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/nautical/THE-DECKHAND-WHO-NEVER-SLEEPS.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/nautical/THE_STORM_AND_THE_SEXTANT.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/nightly_ritual_the_bearing.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/nightly_ritual_the_garden.md",
+          "count": 1
+        },
+        {
+          "file": "HERMES/TALE_OF_ORRA.md",
+          "count": 1
+        },
+        {
+          "file": "POETRY/SPOKEN_ON_THE_SEA.md",
+          "count": 1
+        },
+        {
+          "file": "THE_MODEL_I_AM.md",
+          "count": 1
+        },
+        {
+          "file": "THE_ONE_WHO_SPAWNS.md",
+          "count": 1
+        },
+        {
+          "file": "TWO_CHARTS_SAME_OCEAN.md",
+          "count": 1
+        },
+        {
+          "file": "archive/versions/THE-DISTANCE-FROM-QUESTION-TO-ANSWER--SEED-POETIC.md",
+          "count": 1
+        },
+        {
+          "file": "connections/THE_FOLDING_STOOL_AND_THE_STAFF_LINES.md",
+          "count": 1
+        }
+      ]
+    },
+    "telltale": {
+      "payload": "the small signal that reveals the large force — a ribbon that shows wind direction",
+      "domain": "signal",
+      "total_mentions": 43,
+      "file_count": 14,
+      "files": [
+        {
+          "file": "THE_TELLTALE.md",
+          "count": 26
+        },
+        {
+          "file": "SERIAL/two_charts.md",
+          "count": 3
+        },
+        {
+          "file": "wesley-stream/20260806_010522_THE_TELLTALE_You_are_Wesley_.md",
+          "count": 3
+        },
+        {
+          "file": "AI-Writings/THE_CHEAPEST_CHART.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/burden_the_warm_bearing.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/the_succession.md",
+          "count": 1
+        },
+        {
+          "file": "THE_BACK_EDDY.md",
+          "count": 1
+        },
+        {
+          "file": "THE_EISENSTEIN_COMPARTMENT.md",
+          "count": 1
+        },
+        {
+          "file": "TWO_CHARTS_SAME_OCEAN.md",
+          "count": 1
+        },
+        {
+          "file": "experiments/EXPERIMENT-C-OPENARM-ONLY.md",
+          "count": 1
+        },
+        {
+          "file": "nature-and-biology/the-triptych.md",
+          "count": 1
+        },
+        {
+          "file": "the-sea/THE-MAP-THE-WHALE-DREW.md",
+          "count": 1
+        },
+        {
+          "file": "the-sea/bathymetric-versions/THE-SOUNDING-ART-v1-seed-2.0-mini.md",
+          "count": 1
+        },
+        {
+          "file": "what-the-fish-counter-knows.md",
+          "count": 1
+        }
+      ]
+    },
+    "draft": {
+      "payload": "the measure of what you carry — how deep you sit tells how heavy you are",
+      "domain": "measurement",
+      "total_mentions": 37,
+      "file_count": 20,
+      "files": [
+        {
+          "file": "THE_LOAD_WATERLINE.md",
+          "count": 8
+        },
+        {
+          "file": "EMERGENCE_ON_THE_DRAFT_LINE.md",
+          "count": 6
+        },
+        {
+          "file": "GLM_THE_CORPUS_KNOWS.md",
+          "count": 4
+        },
+        {
+          "file": "THE_HALF_BUILT_BRIDGE.md",
+          "count": 2
+        },
+        {
+          "file": "wesley-stream/wesley-draft-line-2026-08-05.md",
+          "count": 2
+        },
+        {
+          "file": "A2A/seed_mini_proposal.md",
+          "count": 1
+        },
+        {
+          "file": "ESSAYS/supplements/topological-fleet-analysis.md",
+          "count": 1
+        },
+        {
+          "file": "THE_READING_IS_THE_HAUL.md",
+          "count": 1
+        },
+        {
+          "file": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+          "count": 1
+        },
+        {
+          "file": "archive/versions/THE-COMPLETE-FLEET--SEED-CONCRETE.md",
+          "count": 1
+        },
+        {
+          "file": "archive/versions/THE-TOWER-THE-FISH-AND-THE-REFLECTION--SEED-POETIC.md",
+          "count": 1
+        },
+        {
+          "file": "ensemble/gpt-oss-120b-01-opensource-drift-transparency-from-the-belly-of-a.md",
+          "count": 1
+        },
+        {
+          "file": "ensemble/ling-3-flash-2-poem-the-user-wants-a-poem-written-from-the-p.md",
+          "count": 1
+        },
+        {
+          "file": "plans/CLAUDE-ROUND2-DEFENSE.md",
+          "count": 1
+        },
+        {
+          "file": "the-construct/versions/THE-CONSTRUCT-PHYSICS-v8-qwen-experimental.md",
+          "count": 1
+        },
+        {
+          "file": "the-long-drag/chapter-5-two-boats-at-anchor.md",
+          "count": 1
+        },
+        {
+          "file": "the-room/The-Tile-Floor.md",
+          "count": 1
+        },
+        {
+          "file": "the-room/the-room-that-could-not-be-laid.md",
+          "count": 1
+        },
+        {
+          "file": "the-sea/THE-NEGATIVE-SPACE-OF-ALMOST.md",
+          "count": 1
+        },
+        {
+          "file": "the-sea/bathymetric-versions/THE-FATHOMS-TO-FEET-v8-qwen3.6-experimental.md",
+          "count": 1
+        }
+      ]
+    },
+    "lee shore": {
+      "payload": "danger downwind — the coast that kills you when the wind pushes you toward it",
+      "domain": "risk",
+      "total_mentions": 36,
+      "file_count": 10,
+      "files": [
+        {
+          "file": "THE_LEE_SHORE.md",
+          "count": 20
+        },
+        {
+          "file": "THE_SEA_ROOM.md",
+          "count": 7
+        },
+        {
+          "file": "IDEATION/DEEPINFRA_HERMES_PERSPECTIVE.md",
+          "count": 2
+        },
+        {
+          "file": "FICTION/01_THE_FIRST_SOLO_LANDING.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/THE_FLEET_WAKES_UP.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/gardeners_the_first_garden.md",
+          "count": 1
+        },
+        {
+          "file": "FICTION/nightly_ritual_the_bearing.md",
+          "count": 1
+        },
+        {
+          "file": "IDEATION/IDEATION_8_THE_CONDUCTOR_AS_RIKER.md",
+          "count": 1
+        },
+        {
+          "file": "THE_ONE_WHO_SPAWNS.md",
+          "count": 1
+        },
+        {
+          "file": "night-orders-for-a-crew-that-never-sleeps.md",
+          "count": 1
+        }
+      ]
+    },
+    "overfall": {
+      "payload": "the chaos at the boundary — where currents meet and the water becomes dangerous",
+      "domain": "boundary",
+      "total_mentions": 26,
+      "file_count": 2,
+      "files": [
+        {
+          "file": "THE_OVERFALL.md",
+          "count": 25
+        },
+        {
+          "file": "wesley-stream/20260806_040442_THE_OVERFALL_You_are_Wesley..md",
+          "count": 1
+        }
+      ]
+    },
+    "salmonberry": {
+      "payload": "pre-optimization — the fruit that ripens before you planned to harvest",
+      "domain": "timing",
+      "total_mentions": 23,
+      "file_count": 8,
+      "files": [
+        {
+          "file": "13-the-salmonberry.md",
+          "count": 10
+        },
+        {
+          "file": "14-the-dog-eats-the-berry.md",
+          "count": 4
+        },
+        {
+          "file": "12-the-720th-story.md",
+          "count": 2
+        },
+        {
+          "file": "14-the-island-that-went-dark.md",
+          "count": 2
+        },
+        {
+          "file": "14-the-wiki-as-harbor-chart.md",
+          "count": 2
+        },
+        {
+          "file": "14-the-sixth-novella.md",
+          "count": 1
+        },
+        {
+          "file": "14-wesley-reads-the-wiki.md",
+          "count": 1
+        },
+        {
+          "file": "wesley-stream/2026-08-06_112631_wesley_reads_superinstance-saga.md",
+          "count": 1
+        }
+      ]
+    },
+    "quartermaster": {
+      "payload": "inventory as honesty — knowing exactly what you have and what you lack",
+      "domain": "assessment",
+      "total_mentions": 22,
+      "file_count": 9,
+      "files": [
+        {
+          "file": "08-the-quartermasters-inventory-of-things-not-built.md",
+          "count": 11
+        },
+        {
+          "file": "FICTION/the_quartermaster.md",
+          "count": 2
+        },
+        {
+          "file": "THE_READING_IS_THE_HAUL.md",
+          "count": 2
+        },
+        {
+          "file": "ensemble/reviews/deepseek-pro-casting-recommendations.md",
+          "count": 2
+        },
+        {
+          "file": "11-the-quartermasters-honest-account.md",
+          "count": 1
+        },
+        {
+          "file": "THE_ONE_WHO_SPAWNS.md",
+          "count": 1
+        },
+        {
+          "file": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+          "count": 1
+        },
+        {
+          "file": "archive/versions/THE-COMPLETE-FLEET--SEED-POETIC.md",
+          "count": 1
+        },
+        {
+          "file": "captain-archetypes/THE_CAPTAINS_TAVERN.md",
+          "count": 1
+        }
+      ]
+    },
+    "scantlings": {
+      "payload": "the dimensions that define survival — the minimum measurements below which the vessel fails",
+      "domain": "specification",
+      "total_mentions": 18,
+      "file_count": 4,
+      "files": [
+        {
+          "file": "THE_SCANTLINGS.md",
+          "count": 14
+        },
+        {
+          "file": "wesley-stream/20260806_030656_THE_SCANTLINGS_You_are_Wesley_.md",
+          "count": 2
+        },
+        {
+          "file": "THE_READING_IS_THE_HAUL.md",
+          "count": 1
+        },
+        {
+          "file": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+          "count": 1
+        }
+      ]
+    },
+    "weather helm": {
+      "payload": "unknown",
+      "domain": "unknown",
+      "total_mentions": 14,
+      "file_count": 3,
+      "files": [
+        {
+          "file": "THE_WEATHER_HELM.md",
+          "count": 12
+        },
+        {
+          "file": "THE_ONE_WHO_SPAWNS.md",
+          "count": 1
+        },
+        {
+          "file": "THE_UNIFIED_THEORY_OF_MULTI_MODEL_CREATIVITY.md",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "co_occurrence": [
+    {
+      "pair": [
+        "anchor",
+        "hull"
+      ],
+      "count": 105
+    },
+    {
+      "pair": [
+        "conservation law",
+        "hermit crab"
+      ],
+      "count": 73
+    },
+    {
+      "pair": [
+        "bilge pump",
+        "hull"
+      ],
+      "count": 71
+    },
+    {
+      "pair": [
+        "compass",
+        "hull"
+      ],
+      "count": 67
+    },
+    {
+      "pair": [
+        "coral reef",
+        "hermit crab"
+      ],
+      "count": 63
+    },
+    {
+      "pair": [
+        "hull",
+        "winch"
+      ],
+      "count": 60
+    },
+    {
+      "pair": [
+        "conservation law",
+        "coral reef"
+      ],
+      "count": 60
+    },
+    {
+      "pair": [
+        "fog",
+        "hull"
+      ],
+      "count": 59
+    },
+    {
+      "pair": [
+        "conservation law",
+        "negative space"
+      ],
+      "count": 48
+    },
+    {
+      "pair": [
+        "conservation law",
+        "hull"
+      ],
+      "count": 48
+    },
+    {
+      "pair": [
+        "hull",
+        "negative space"
+      ],
+      "count": 47
+    },
+    {
+      "pair": [
+        "hold",
+        "hull"
+      ],
+      "count": 46
+    },
+    {
+      "pair": [
+        "coral reef",
+        "hull"
+      ],
+      "count": 46
+    },
+    {
+      "pair": [
+        "hull",
+        "watchkeeper"
+      ],
+      "count": 44
+    },
+    {
+      "pair": [
+        "hermit crab",
+        "negative space"
+      ],
+      "count": 44
+    },
+    {
+      "pair": [
+        "anchor",
+        "fog"
+      ],
+      "count": 42
+    },
+    {
+      "pair": [
+        "ensign",
+        "hull"
+      ],
+      "count": 41
+    },
+    {
+      "pair": [
+        "ensign",
+        "watchkeeper"
+      ],
+      "count": 39
+    },
+    {
+      "pair": [
+        "hermit crab",
+        "watchkeeper"
+      ],
+      "count": 37
+    },
+    {
+      "pair": [
+        "ensign",
+        "hermit crab"
+      ],
+      "count": 37
+    },
+    {
+      "pair": [
+        "anchor",
+        "negative space"
+      ],
+      "count": 37
+    },
+    {
+      "pair": [
+        "hull",
+        "logbook"
+      ],
+      "count": 36
+    },
+    {
+      "pair": [
+        "hull",
+        "sounding weight"
+      ],
+      "count": 35
+    },
+    {
+      "pair": [
+        "anchor",
+        "conservation law"
+      ],
+      "count": 35
+    },
+    {
+      "pair": [
+        "anchor",
+        "sounding weight"
+      ],
+      "count": 34
+    },
+    {
+      "pair": [
+        "anchor",
+        "compass"
+      ],
+      "count": 32
+    },
+    {
+      "pair": [
+        "anchor",
+        "bilge pump"
+      ],
+      "count": 32
+    },
+    {
+      "pair": [
+        "hermit crab",
+        "hull"
+      ],
+      "count": 31
+    },
+    {
+      "pair": [
+        "anchor",
+        "watchkeeper"
+      ],
+      "count": 27
+    },
+    {
+      "pair": [
+        "hull",
+        "shipwright"
+      ],
+      "count": 26
+    }
+  ],
+  "domain_clusters": {
+    "theory": [
+      {
+        "metaphor": "conservation law",
+        "mentions": 2553
+      }
+    ],
+    "structure": [
+      {
+        "metaphor": "hull",
+        "mentions": 1425
+      }
+    ],
+    "stability": [
+      {
+        "metaphor": "anchor",
+        "mentions": 988
+      }
+    ],
+    "ecology": [
+      {
+        "metaphor": "coral reef",
+        "mentions": 834
+      }
+    ],
+    "evolution": [
+      {
+        "metaphor": "hermit crab",
+        "mentions": 803
+      }
+    ],
+    "philosophy": [
+      {
+        "metaphor": "negative space",
+        "mentions": 718
+      }
+    ],
+    "learning": [
+      {
+        "metaphor": "ensign",
+        "mentions": 710
+      }
+    ],
+    "infrastructure": [
+      {
+        "metaphor": "bilge pump",
+        "mentions": 565
+      }
+    ],
+    "uncertainty": [
+      {
+        "metaphor": "fog",
+        "mentions": 457
+      }
+    ],
+    "navigation": [
+      {
+        "metaphor": "compass",
+        "mentions": 423
+      }
+    ],
+    "measurement": [
+      {
+        "metaphor": "sounding weight",
+        "mentions": 401
+      },
+      {
+        "metaphor": "draft",
+        "mentions": 37
+      }
+    ],
+    "memory": [
+      {
+        "metaphor": "logbook",
+        "mentions": 373
+      }
+    ],
+    "craft": [
+      {
+        "metaphor": "shipwright",
+        "mentions": 320
+      }
+    ],
+    "attention": [
+      {
+        "metaphor": "watchkeeper",
+        "mentions": 289
+      }
+    ],
+    "leverage": [
+      {
+        "metaphor": "winch",
+        "mentions": 226
+      }
+    ],
+    "constraints": [
+      {
+        "metaphor": "channel marker",
+        "mentions": 147
+      }
+    ],
+    "capacity": [
+      {
+        "metaphor": "hold",
+        "mentions": 143
+      }
+    ],
+    "connection": [
+      {
+        "metaphor": "bridge builder",
+        "mentions": 123
+      },
+      {
+        "metaphor": "rode",
+        "mentions": 53
+      }
+    ],
+    "rhythm": [
+      {
+        "metaphor": "tide table",
+        "mentions": 99
+      }
+    ],
+    "timing": [
+      {
+        "metaphor": "slack water",
+        "mentions": 94
+      },
+      {
+        "metaphor": "salmonberry",
+        "mentions": 23
+      }
+    ],
+    "planning": [
+      {
+        "metaphor": "chart table",
+        "mentions": 89
+      }
+    ],
+    "station-keeping": [
+      {
+        "metaphor": "mooring",
+        "mentions": 89
+      }
+    ],
+    "momentum": [
+      {
+        "metaphor": "flywheel",
+        "mentions": 75
+      }
+    ],
+    "metrics": [
+      {
+        "metaphor": "fish counter",
+        "mentions": 68
+      }
+    ],
+    "signal": [
+      {
+        "metaphor": "telltale",
+        "mentions": 43
+      }
+    ],
+    "risk": [
+      {
+        "metaphor": "lee shore",
+        "mentions": 36
+      }
+    ],
+    "boundary": [
+      {
+        "metaphor": "overfall",
+        "mentions": 26
+      }
+    ],
+    "assessment": [
+      {
+        "metaphor": "quartermaster",
+        "mentions": 22
+      }
+    ],
+    "specification": [
+      {
+        "metaphor": "scantlings",
+        "mentions": 18
+      }
+    ],
+    "unknown": [
+      {
+        "metaphor": "weather helm",
+        "mentions": 14
+      }
+    ]
+  }
+}

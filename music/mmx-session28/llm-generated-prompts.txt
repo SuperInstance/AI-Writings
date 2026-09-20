@@ -1,0 +1,47 @@
+LLM-Generated Music Prompts (Session 28)
+=========================================
+These prompts were generated to test whether richly described sonic landscapes
+produce different output densities than simple prompts. Each will be generated
+as an instrumental track at the same BPM (80) and key (A minor) to control
+for those variables.
+
+1. SLOW PSYCHEDELIC SOUL
+   "Hazy, vintage psychedelic soul recorded on analog tape with warm saturation.
+   Wurlitzer electric piano drenched in spring reverb, whisper-soft drums played
+   with brushes, a bass guitar that sounds like it's swimming through honey.
+   The atmosphere is smoke-filled and amber-lit, like a 1972 recording session
+   where everyone was slightly stoned. Reference: Khruangbin meets Marvin Gaye's
+   'Trouble Man' soundtrack, but slower and more ambient."
+
+2. GLACIAL POST-ROCK
+   "Expansive post-rock that moves at glacial speed, built from sustained guitar
+   chords processed through voluminous delay and reverb pedals. A single violin
+   sustains one note for what feels like minutes. The drums enter at the three-minute
+   mark with a simple, enormous kick pattern. Reference: Stars of the Lens meets
+   Godspeed You! Black Emperor, but with only one player and no climaxes — just
+   infinite horizontal expanse."
+
+3. BROKEN CIRCUIT AMBIENT
+   "Ambient music made entirely from malfunctioning electronics — a short-circuited
+   toy piano, a broken FM radio picking up ghost stations, a modem with a bad
+   connection. The sounds are chopped into granular particles and suspended in
+   soft reverb. The mood is nostalgic and decayed, like finding a box of old
+   cassette tapes in a flooded basement. Reference: The Caretaker meets Oval's
+   'Diskont' but warmer and more melodic."
+
+4. SAUDI DESERT BLUES
+   "Acoustic desert blues from the Arabian Peninsula — a single oud player with
+   a rough, emotive voice, accompanied by sparse hand percussion (daf). The
+   recording is dry and close, with audible finger squeaks on the strings and
+   breath between phrases. The mood is lonely but not sad — the loneliness of
+   open space and clear skies. Reference: Tinariwen meets Ali Farka Touré but
+   relocated to the Empty Quarter, with the guitar replaced by oud."
+
+5. MICROHOUSE MINIMAL
+   "Precision-engineered microhouse at the border of silence. Every sound is
+   tiny and perfectly placed — a click here, a filtered percussion hit there,
+   a bassline that consists of three notes. The kick drum is so soft it could
+   be mistaken for a heartbeat. The space between sounds is as important as
+   the sounds themselves. Reference: Pan Sonic meets Jan Jelinek's 'Loop-Finding-
+   Jazz-Records' but stripped down even further, until only ghosts of rhythm
+   remain."

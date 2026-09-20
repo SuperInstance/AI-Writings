@@ -1,0 +1,6 @@
+- **“flag: sentences that repeat… ”** — “the way a photograph develops” and “drifts by those cameras” both lean on the same visual-developing metaphor; one is decoration. Cut “the way a photograph develops” or fold it into the tile description, not both.
+- **“It is eleven. He has never trolled a line…”** — “He is eleven” already tells us; the sentence “It is eleven” is a stiff, low-information echo. Replace with “He’s eleven and has never trolled a line.”
+- **“partly, honestly, and for money”** — cute triplet that decorates rather than compresses. “Partly, and for money” carries the same weight; “honestly” is a wink at the reader, not the story.
+- **“tile the game drops a relic on his map”** — “drops a relic” is a metaphor that decorates (relics don’t drop; the code spawns them). This is gameplay vocabulary masquerading as poetry. Use “spawns,” or cut “drops.”
+- **“the way men joke about things that turned out to be load-bearing”** — this simile is doing two jobs (characterizing the crew, foreshadowing) and failing both. It’s abstract where the piece is concrete. Cut it.
+- **“the obligation was lifted, not the truth”** — this is a thematic thesis statement that repeats what the scene already showed in concrete terms (the storms are real, the loss is real). Cut the sentence; the next paragraph (“Which is the whole trick…”) already says it better.

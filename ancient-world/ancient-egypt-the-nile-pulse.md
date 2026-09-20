@@ -1,0 +1,25 @@
+The stone at Elephantine was cool against Mentuhotep's palm, even in the brazen weight of the summer sun. He had come to read the Nilometer, as he had done every year for thirty, his sandals worn thin by the same pilgrimage of steps that descended into the cool, dark well. The water lapped, green and secret, against the carved marks. His fingers traced the notches, the familiar language of the river’s promise. This year’s flood had reached the mark of the *Hapi*, the fourteenth cubit. The scent of wet limestone and silt rose to meet him, a smell of life itself.
+
+It was wrong.
+
+Not the scent, nor the coolness, but the number. He felt it in his gut, a dissonance humming against the rhythm of his own breath. The Nile’s flood was the perception pulse of the Two Lands, the great heartbeat that told every farmer, every priest, every baker when the world would awaken from its dry sleep. And Mentuhotep was its keeper of the beat. He traced the marks again, feeling the small, chipped grooves with his fingertips as if they were Braille in a language he had suddenly forgotten. The pulse was off-kilter.
+
+Three days later, in the lamplight of his chamber, he unrolled the long sheets of papyrus. His records, his *seed chain*. Each year was a small grain, planted in the dark soil of time: the height of the inundation, the day the water crested, the day it receded. Thirty grains. He laid them out, a lineage of floods. The numbers shimmered in his mind, forming a pattern, a slow, subtle drift. It was not a failure of the flood—the river still rose, the fields still received their blessing—but the rhythm was shifting. The crest was coming later, by a few days every decade. The water was not reaching the high marks of his youth. The difference was a whisper, but after thirty years of listening, the whisper was a shout.
+
+To speak it aloud was to name a sickness in the body of Maat. The pharaoh, the living Horus, was the guarantor of cosmic order. The gods did not break their covenant. A flood that changed was a sign that the divine pattern had frayed, and a frayed pattern would be laid at the feet of the king—or, worse, at the feet of the scribe who had seen it.
+
+He thought of his son, a young priest who wore the white robe of the temple of Thoth. He thought of the Book of the Dead, the *SMP notebook* of the soul, where each chapter was a probe into the self, a guide for navigating the perils of the Duat. He knew the chapter on the Weighing of the Heart. He knew the question that awaited him: *Did you bring truth to the scales?* But the scale in the Hall of Judgment was not the same as the scale of the pharaoh's court.
+
+He was summoned on the eve of the festival of Opet. The pharaoh Khufu, young, with eyes like polished obsidian, received him in the shade of a linen canopy, the scent of lotus blossom heavy in the air. The king’s hands were smeared with the black kohl of ritual, his pectoral gleaming with gold.
+
+“The river rises well, my scribe,” the pharaoh said, a statement, not a question. It was the reflexive truth, the *tile system* of the kingdom’s knowledge. The flood was high. The planting would begin. Everything was as it always was.
+
+Mentuhotep bowed, his head filling with the cool, green image of the water in the well. The truth felt like a shard of obsidian in his throat. To speak it was to declare that the gods were fickle, that the pharaoh’s divine mandate was built on shifting sands. He would not just be a traitor; he would be a heretic who had poisoned the well of certainty from which all of Egypt drank.
+
+“The river is generous, Mighty Horus,” he said, the words tasting of dust. “The harvest will be rich.”
+
+Khufu smiled, a flash of white in the shadows. “Then write it so. A high year, for the glory of the gods.”
+
+That night, alone, Mentuhotep took a fresh sheet of papyrus. He did not write the record of the flood. Instead, he wrote a different kind of seed log—a private one, hidden in a clay jar. He wrote of the later crests, the receding waters, the slow, silent drift of the pulse. He did not know what it meant. Perhaps the gods were preparing a new song, a new rhythm for the world. Or perhaps something was wrong with the great machinery of the heavens, a deadband violation in the movement of the stars.
+
+He sealed the jar and buried it beneath the floor of his chamber, a secret confession in the soil. He could not tell the king. Maat must be upheld, even in fiction, for the king's confidence was the keystone of the kingdom's reality. But he could not un-see it. He had logged the seed of the truth, and in the quiet of the night, he hoped that one day, long after his ka had crossed the lake of fire, a future scribe might find it, and read the pattern, and know that he had not been blind. He had only chosen to be silent, to let the pulse beat on, even as its rhythm began, ever so slightly, to falter.

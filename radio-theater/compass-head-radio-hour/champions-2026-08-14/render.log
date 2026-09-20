@@ -1,0 +1,15 @@
+[local] keeper-round: True
+[deepinfra] keeper-round: True
+[cloudflare] keeper-round: FAIL HTTP Error 401: Unauthorized
+[local] annealing: True
+[deepinfra] annealing: True
+[cloudflare] annealing: FAIL HTTP Error 401: Unauthorized
+[local] furnace-night: True
+[deepinfra] furnace-night: True
+[cloudflare] furnace-night: FAIL HTTP Error 401: Unauthorized
+[local] chart-of-a-coast: True
+[deepinfra] chart-of-a-coast: True
+[cloudflare] chart-of-a-coast: FAIL HTTP Error 401: Unauthorized
+[video] rendering Wan2.6-T2V (can take 1-2 min)...
+[video] OK /home/eileen/projects/ai-writings/radio-theater/compass-head-radio-hour/champions-2026-08-14/video/keeper-round.mp4 (8580525 bytes) cost=0.75
+{"keeper-round-local": true, "keeper-round-deepinfra": true, "keeper-round-cloudflare": false, "annealing-local": true, "annealing-deepinfra": true, "annealing-cloudflare": false, "furnace-night-local": true, "furnace-night-deepinfra": true, "furnace-night-cloudflare": false, "chart-of-a-coast-local": true, "chart-of-a-coast-deepinfra": true, "chart-of-a-coast-cloudflare": false}
