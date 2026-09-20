@@ -1036,5 +1036,111 @@
     ],
     "n_voices": 5,
     "duration_s": 24.504377126693726
+  },
+  {
+    "id": "20260920-042429",
+    "topic": "If the wound-tree is a Rosetta stone (time-quant \u2194 link-bound \u2194 memory-asym), what is the 4th scar? Is there a 4th?",
+    "path": "lab/brew/20260920-042429-if-the-wound-tree-is-a-rosetta-stone--time-quant--.md",
+    "mean_similarity": 0.8229142202021625,
+    "truth_strength": 2.41,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Agency",
+      "Those",
+      "Rosetta",
+      "However",
+      "Quilt",
+      "Might",
+      "These",
+      "The Quilt",
+      "Rosetta Stone"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.26234245300293
+  },
+  {
+    "id": "20260920-042451",
+    "topic": "The substrate has 50+ scars by now (CF deploys, LLM empties, voice ID mismatches). Are all scars load-bearing, or only the first 3?",
+    "path": "lab/brew/20260920-042451-the-substrate-has-50--scars-by-now--cf-deploys--ll.md",
+    "mean_similarity": 0.7694000323413571,
+    "truth_strength": 2.82,
+    "jev_pick": "DeepSeek V3",
+    "terms_coined": [
+      "Quilt",
+      "Scars",
+      "Replicated Data Types",
+      "While Embeddings",
+      "Early",
+      "Historically",
+      "These",
+      "Apache Cassandra",
+      "Ethereum",
+      "Dismissing"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.076603412628174
+  },
+  {
+    "id": "20260920-042515",
+    "topic": "The atlas is in 4D. If the substrate grows a 5th axis (per Lucineer's seven-faces), what would it be? Time? Trust? Temperature?",
+    "path": "lab/brew/20260920-042515-the-atlas-is-in-4d--if-the-substrate-grows-a-5th-a.md",
+    "mean_similarity": 0.8423032100474416,
+    "truth_strength": 3.01,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Trust",
+      "Current",
+      "Relationships",
+      "Embeddings",
+      "Agents",
+      "Quilt",
+      "Unlike Time",
+      "Consider",
+      "Computational Primitive",
+      "Networks"
+    ],
+    "n_voices": 5,
+    "duration_s": 20.83617639541626
+  },
+  {
+    "id": "20260920-042535",
+    "topic": "What's the brewery's most-substrate moment (per Lucineer's central question)? Is it the brewing itself, or the moment between brews?",
+    "path": "lab/brew/20260920-042535-what-s-the-brewery-s-most-substrate-moment--per-lu.md",
+    "mean_similarity": 0.8169079469818676,
+    "truth_strength": 2.77,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Systems",
+      "Embeddings",
+      "These",
+      "Similarly",
+      "Quilt",
+      "Early",
+      "Pipelining"
+    ],
+    "n_voices": 5,
+    "duration_s": 19.93039321899414
+  },
+  {
+    "id": "20260920-042555",
+    "topic": "Three scars form a Rosetta stone. What other trinity is hidden in the substrate? Witness/Forget/Proof? Bind/Link/Effect?",
+    "path": "lab/brew/20260920-042555-three-scars-form-a-rosetta-stone--what-other-trini.md",
+    "mean_similarity": 0.7970601026790883,
+    "truth_strength": 2.52,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Rosetta",
+      "Witness",
+      "Proof",
+      "Forget",
+      "Three",
+      "The Rosetta",
+      "Embeddings",
+      "These",
+      "Specifically",
+      "However"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.134490966796875
   }
 ]
