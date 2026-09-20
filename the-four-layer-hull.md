@@ -14,10 +14,12 @@ They think they are building four things. Sound the hull and it rings as one. Th
 
 | Layer | What it holds | Yards already building it |
 |---|---|---|
-| **1 · Substrate** | the state space itself — cells, sheets, ℚ (rational) state | `quilt`, `quilt-cell`, `cell-runtime`, `q16-trajectories` |
-| **2 · Trajectory** | a *path* through the substrate over time | `q16-trajectories`; `quilt-gan`'s ℚ¹⁶ breed record; a robot's drive in `Scrapcraft` |
+| **1 · Substrate** | the state space itself — cells, sheets, ℚ (rational) state | `quilt`, `quilt-cell`, `cell-runtime`; `tidepool` (768d + 16-dim rational fingerprints); `constraint-theory` (continuous→rational-lattice snapping) |
+| **2 · Trajectory** | a *path* through the substrate over time | `q16-trajectories`; `quilt-gan`'s ℚ¹⁶ breed record; a robot's drive in `Scrapcraft`; `polln`'s VAE latent-space trajectories |
 | **3 · Shape** | the geometry of a trajectory — arc, bending, twist | `gesture-kit`, `twist-engine` |
 | **4 · Relaxation** | keeping a trajectory legal under a barrier | `relax-kit`, `elephant` |
+
+Three of those cells were confirmed by sounding the newest yards directly, and they are not loose analogies. `polln` runs a VAE world-model whose states are *trajectories in a latent space*, tracked by rate-based change — `xₙ₊₁ = xₙ + rₙ·Δt` is first order, and it computes acceleration, jerk, and snap for anomaly detection: the same derivative ladder the shape layer reads as arc → bending → twist. `tidepool` indexes recall in a 768-dim semantic space *and* a 16-dim native rational fingerprint — the substrate the trajectory layer moves through. `constraint-theory` snaps continuous coordinates onto an exact rational lattice (`a²+b²=c²` via KD-tree), the mechanism by which a float wake becomes an exact ℚ record. The fleet is not building toward this stack on purpose; it keeps *arriving* at it from four directions, which is the surest sign the keel is real.
 
 The substrate is the sea. The trajectory is the wake. The shape is what the watch reads in the wake. The relaxation is the hull that keeps the vessel off the rocks. Four layers, one voyage.
 
@@ -55,8 +57,8 @@ The fleet's reflex, visible in the yard list, is to answer every new need with a
 
 Two forces already on the water tell you how to do this:
 
-1. **The live-canon pattern is the delivery mechanism.** The freshest surge in the yards — `quilt-canon-cli`, `quilt-live-canon`, and its `npm` / `pypi` / `gh` packagings — is the fleet learning to *ship* an artifact as an installable tool rather than a repo you must clone and copy from. Apply that same pattern to layer 3: package the shape-reading so any yard *installs* `readTrajectory` instead of re-carving it. Packaging is how a shared keel actually reaches every hull.
-2. **`q16-trajectories` is the convergence point for layer 2.** ℚ¹⁶ rational trajectories are precisely the space `quilt-gan` already records into (`state.traj`) and the space the shape-reading already measures. If the fleet agrees on *one* trajectory representation there, layers 1 → 2 → 3 → 4 finally speak one language end to end. **[open water]** — this alignment is not yet made, and it should be made deliberately, not by minting a competing format in haste. The canonical `readTrajectory` was deliberately scoped as `gesture-kit`'s own API for exactly this reason: to consolidate the *reading* without pre-committing the fleet's *format* before `q16-trajectories`' own shape is read.
+1. **The live-canon pattern is the delivery mechanism.** The freshest surge in the yards — `quilt-canon-cli`, `quilt-live-canon`, and its `npm` / `pypi` / `gh` packagings — is the fleet learning to *ship* an artifact as an installable tool rather than a repo you must clone and copy from. Sounded up close, the pattern is precise: a canonical truth (a paper graph whose state hash, `0xbf27a3631cdee337`, is byte-identical across six language implementations), a small verb set (`NAVIGATE / CONFLUENCE / LINEAGE / GHOST / TICK / CLAIM / DRILL`), shipped as versioned `npm`/`pypi` data bundles with thin `canon-*` clients and one CLI over the top. Apply exactly that shape to layer 3: package the shape-reading so any yard *installs* `readTrajectory` instead of re-carving it. Packaging is how a shared keel actually reaches every hull.
+2. **`q16-trajectories` is the convergence point for layer 2 — and it has just been laid.** ℚ¹⁶ rational trajectories are precisely the space `quilt-gan` already records into (`state.traj`), that `tidepool` fingerprints, and that the shape-reading already measures. When this sounding began, `q16-trajectories` was an empty scaffold — a manifest naming the intent (*"Q16 breed trajectories … in a 16-dim rational vector space"*) with no hull under it. It now carries a **v0** that owns the *format* (exact ℚ¹⁶ over `BigInt`, reproducible bit-for-bit) and the *breeding*, and — the whole point — **defers the shape layer to `gesture-kit` through one seam** (`Trajectory.toRows()` → `readTrajectory`), so it does not become a fourth carving of the arc/bending/twist math. The composition was sailed end to end: `breed(seed) → toRows() → readTrajectory → arc / bending / twist`. **[open water]** remains — this v0 is a *proposal* on the seam, a deliberate stand-in for duke-lab's generative argument, not the argument itself; the format is now concrete enough to argue over, which is exactly what a seam is for.
 
 ---
 
@@ -76,7 +78,7 @@ The distance between those two tides *is* the iterative program. It is not more 
 
 The watch does not log a voyage it has not sailed. As of this sounding:
 
-- **The reading is consolidated; the format is not.** `gesture-kit` now has the one shape-reader, but the fleet has not yet agreed on one trajectory representation. That is deliberate, and it is the next deliberate step, gated on reading `q16-trajectories`' own design first.
+- **The reading is consolidated; the format is proposed but not yet ratified.** `gesture-kit` now has the one shape-reader, and `q16-trajectories` now carries a v0 format that composes with it through `toRows()`. But a v0 on a seam is a proposal, not a fleet agreement — `quilt-gan` and `Scrapcraft` still carry their own trajectory representations, and converging them onto the shared format (and onto the installed reader, once layer 3 is packaged) is the work that turns "it composes in principle" into "it composes everywhere."
 - **Layer 4 is still in harbor.** `relax-kit` — the barrier that deflects a bad state instead of crashing — is built and tested but not yet published where other yards can install it. Until it is, the fourth layer composes only in principle.
 - **Twist stays honest or it stays out.** Any unified reader must keep reporting zero torsion for genuinely planar motion. The moment it manufactures a twist to look deep, the instrument is worthless and the canon is compromised.
 
