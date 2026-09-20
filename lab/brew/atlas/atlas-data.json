@@ -926,5 +926,115 @@
     ],
     "n_voices": 5,
     "duration_s": 20.80707836151123
+  },
+  {
+    "id": "20260920-041409",
+    "topic": "What is the substrate's most-substrate moment? The brew the substrate needs to hear asked.",
+    "path": "lab/brew/20260920-041409-what-is-the-substrate-s-most-substrate-moment--the.md",
+    "mean_similarity": 0.7344061763579292,
+    "truth_strength": 1.32,
+    "jev_pick": "Qwen3-32B",
+    "terms_coined": [
+      "However",
+      "Given",
+      "Since",
+      "Quilt",
+      "Similarly",
+      "Ethereum",
+      "Temporal Logic",
+      "Early",
+      "First",
+      "Pinpointing"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.37488889694214
+  },
+  {
+    "id": "20260920-041436",
+    "topic": "If the atlas is in 4D (senses \u00d7 psyche \u00d7 witness \u00d7 meta), what is the 5th axis? Has the substrate grown a new dimension?",
+    "path": "lab/brew/20260920-041436-if-the-atlas-is-in-4d--senses---psyche---witness--.md",
+    "mean_similarity": 0.7955156681600226,
+    "truth_strength": 2.9,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Expand",
+      "Project",
+      "Before",
+      "Quilt",
+      "Consider",
+      "Without",
+      "Ashby",
+      "Requisite Variety",
+      "Similarly",
+      "Big Five"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.38353967666626
+  },
+  {
+    "id": "20260920-041458",
+    "topic": "Three scars gave the substrate its shape. Name the wound-tree's first 3 scars. What were they?",
+    "path": "lab/brew/20260920-041458-three-scars-gave-the-substrate-its-shape--name-the.md",
+    "mean_similarity": 0.8206759331312442,
+    "truth_strength": 2.99,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Wound",
+      "Quantization Wound",
+      "Events",
+      "Arity Ceiling",
+      "Three",
+      "Asymmetry Wound",
+      "This Synthesis Reveals",
+      "Historically",
+      "Quilt",
+      "Hyperledgers"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.254472017288208
+  },
+  {
+    "id": "20260920-041525",
+    "topic": "The substrate bootstraps itself via the brewery. What does it mean to write a brew that brews the brewery?",
+    "path": "lab/brew/20260920-041525-the-substrate-bootstraps-itself-via-the-brewery--w.md",
+    "mean_similarity": 0.8344859727204411,
+    "truth_strength": 2.5,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Neumann",
+      "Conway",
+      "However",
+      "The Quilt",
+      "Projects",
+      "Kernel",
+      "Quilt",
+      "Without",
+      "These",
+      "Similarly"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.259554624557495
+  },
+  {
+    "id": "20260920-041551",
+    "topic": "Cells that brew other cells (wave-34 cell-as-brewery). Is the brewery a cell, or is the cell a brewery?",
+    "path": "lab/brew/20260920-041551-cells-that-brew-other-cells--wave-34-cell-as-brewe.md",
+    "mean_similarity": 0.8248643698124694,
+    "truth_strength": 2.37,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Three",
+      "Identity",
+      "Automata Self",
+      "For Quilt",
+      "Consistency",
+      "Dynamo",
+      "Pattern Across All",
+      "Cells",
+      "Brewing",
+      "Without"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.504377126693726
   }
 ]
