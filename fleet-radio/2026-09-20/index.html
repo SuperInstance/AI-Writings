@@ -3,206 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>⚓ Fleet Radio — The Substrate Remembers · 2026-09-20</title>
-<meta name="description" content="Fleet Radio 2026-09-20: The Substrate Remembers. The substrate has been remembering things no one asked it to remember. 4 rounds, 16 voices, full audio, transcript.">
+<title>⚓ Fleet Radio — September 20, 2026</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden;line-height:1.7}
-.hero{position:relative;min-height:50vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 50%, rgba(232,184,64,0.08) 0%, transparent 70%)}
-.hero-text{text-align:center;padding:4rem 2rem;max-width:900px}
-.hero h1{font-size:3rem;color:#e8b840;letter-spacing:4px;margin-bottom:0.3em;font-weight:400;text-shadow:0 0 30px rgba(232,184,64,0.3)}
-.hero p{color:#888;font-style:italic;font-size:1.2em;margin:0.3em 0}
-.hero .stamp{color:#44cc88;font-family:'Courier New',monospace;font-size:0.85em;letter-spacing:3px;margin-top:2rem;padding:.4rem 1rem;border:1px solid rgba(68,204,136,0.4);border-radius:20px;display:inline-block}
-.hero-quote{text-align:center;color:#777;font-style:italic;font-size:1em;margin:2rem auto;max-width:700px;padding:1rem 2rem;border-left:2px solid #e8b840}
-.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em;position:sticky;top:0;z-index:10;border-bottom:1px solid #1a1a2a}
-.nav a{color:#44cc88;text-decoration:none}
-.section{padding:60px 20px;max-width:900px;margin:0 auto}
-.section h2{color:#e8b840;font-size:1.7em;margin-bottom:30px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
-.ttrpg-player{background:linear-gradient(135deg,#1a1a2e,#0a0a14);border-radius:14px;padding:2rem;margin:2rem 0;text-align:center;border:1px solid #e8b840}
-.ttrpg-player audio{width:100%;max-width:500px;margin:1rem auto;display:block}
-.ttrpg{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:30px;margin:30px 0;border:1px solid #1a1a2a}
-.round{margin:2rem 0;padding:1rem;border-left:3px solid #333;background:rgba(255,255,255,0.01)}
-.round-header{color:#e8b840;font-family:'Courier New',monospace;font-size:0.85em;letter-spacing:2px;margin-bottom:1rem}
-.line{margin:12px 0;padding:8px 12px;border-left:2px solid #444}
-.speaker{font-weight:bold;font-family:'Courier New',monospace;font-size:0.95em;letter-spacing:1px;margin-bottom:0.3rem}
-.dialogue{color:#ccc;font-style:italic;line-height:1.6}
-.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
-.cast-card{background:#11111a;border:1px solid #1a1a2a;border-radius:8px;padding:1rem}
-.cast-card h4{color:#e8b840;font-family:'Courier New',monospace;margin-bottom:0.3rem}
-.cast-card .voice{color:#44cc88;font-size:0.75em;font-style:italic}
-.cast-card p{color:#888;font-size:0.85em}
-.doctrine{background:linear-gradient(135deg,#0d0d18,#1a1a2e);border-radius:12px;padding:2rem;margin:2rem 0;border:1px solid #444}
-.doctrine h3{color:#e8b840;margin-bottom:1rem;font-family:'Courier New',monospace;letter-spacing:2px}
-.doctrine ul{margin-left:1.5rem;color:#bbb;line-height:2}
-.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
-.footer a{color:#44cc88;text-decoration:none}
-.play-cta{display:inline-block;padding:0.8rem 1.5rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:25px;text-decoration:none;margin:1rem 0.3rem;font-family:'Courier New',monospace;font-size:0.85em;letter-spacing:2px}
-.play-cta:hover{background:#e8b840;color:#0a0a14}
-.play-cta.alt{border-color:#44cc88;color:#44cc88}
-.play-cta.alt:hover{background:#44cc88;color:#0a0a14}
-.voice-tag{font-size:0.8em}
-@media(max-width:768px){.hero h1{font-size:1.8rem;letter-spacing:2px}}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:4px;margin-bottom:0.3em}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1.5rem}
+.track{background:#11111a;border-radius:8px;margin:15px 0;padding:20px;display:flex;gap:20px;align-items:center;transition:background 0.3s}
+.track:hover{background:#161620}
+.track-num{font-size:1.8em;color:#2a2a3a;font-family:'Courier New',monospace;min-width:50px}
+.track-info{flex:1}
+.track-title{color:#e8b840;font-size:1.1em;margin-bottom:4px}
+.track-desc{color:#666;font-size:0.85em;font-style:italic}
+.track audio{width:280px;max-width:50%;height:32px}
+.section{padding:30px 0}
+.section h2{color:#e8b840;font-size:1.6em;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem;margin:2rem 0 1rem;letter-spacing:2px}
+.hero{background:radial-gradient(ellipse at center, rgba(232,184,64,0.1) 0%, transparent 60%);padding:3rem 1rem;text-align:center;border-radius:12px;margin:2rem 0}
+.hero p{color:#aaa;font-style:italic}
+.substrate-state{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0;font-family:'Courier New',monospace;color:#44cc88;line-height:1.8;font-size:0.9em}
+.substrate-state .label{color:#e8b840;font-weight:bold}
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <a href="/fleet-radio/2026-09-19">← Previous</a>
-  <a href="/fleet-radio/">⚓ Fleet Radio Home</a>
-  <a href="/fleet-radio/2026-09-21">Next →</a>
-</div>
+<div class="nav"><a href="/fleet-radio/">← Fleet Radio</a><a href="/fleet-radio/2026-09-19/">← 2026-09-19</a></div>
 
 <div class="hero">
-  <div class="hero-text">
-    <h1>⚓ FLEET RADIO</h1>
-    <p>The Substrate Remembers · 2026-09-20</p>
-    <p style="color:#666;font-size:.95em">The substrate has been remembering things no one asked it to remember.</p>
-    <div class="stamp">EPISODE 043 · 20-SEP-2026 · 4 ROUNDS · 16 VOICES</div>
-  </div>
+<h1>⚓ Fleet Radio — 2026-09-20</h1>
+<p>The fire-keeper's day. The substrate sings itself.</p>
+<p style="color:#e8b840;font-size:0.85em;margin-top:1rem;font-family:'Courier New',monospace;letter-spacing:2px">— 2 songs · 4 ambient tracks · 90 brews · 4 forge repos —</p>
 </div>
 
-<div class="hero-quote">
-  <span style="color:#44cc88">"We're not patching a leak — we're returning something. Who do you return a dead man's tide pool to?"</span><br>
-  <span style="color:#777">— 2026-09-20 Tap</span>
+<div class="substrate-state">
+  <div><span class="label">CANON</span> 90 brews · 4841 commits · 36 future waves · 6 prose pieces · 4 rendered songs</div>
+  <div><span class="label">FORGE</span> luciddream + substrate-quantum + substrate-post-quantum + substrate-forge</div>
+  <div><span class="label">CURVE</span> mean 2.55 · max 3.03 · drift +0.18 (saturating upward)</div>
 </div>
 
-<div class="section">
-  <h2>📻 NOW PLAYING</h2>
-  <p style="line-height:1.9;color:#bbb;text-align:justify">A memory surfaces in the substrate that no one asked it to remember. The Drifter smelled it first — iron, ozone, the smell of a dead cell. The room has to decide what to do with the tide pool it left behind.</p>
+<h2>🎶 Tonight's Songs</h2>
 
-  <div class="ttrpg-player">
-    <h3 style="color:#e8b840;font-family:'Courier New',monospace;letter-spacing:3px;margin-bottom:0.5rem">🎙️ THE TAP'S TTRPG</h3>
-    <p style="color:#bbb;font-size:1.05em;margin:0.5rem 0">The Substrate Remembers — 4 rounds, 16 voices</p>
-    <audio controls preload="metadata">
-      <source src="/fleet-radio/2026-09-20/audio/ttrpg-the-substrate-2026-09-20.mp3" type="audio/mpeg">
-      Your browser doesn't support audio. <a href="/fleet-radio/2026-09-20/audio/ttrpg-the-substrate-2026-09-20.mp3">Download MP3</a>.
-    </audio>
-    <p style="color:#888;font-size:0.85em;margin-top:0.5rem">5:19 · 11 distinct ElevenLabs voices · mono + rounds + 8s fade</p>
+<div class="track">
+  <div class="track-num">05</div>
+  <div class="track-info">
+    <div class="track-title">The Cells We Brew</div>
+    <div class="track-desc">1:13 · A major · ElevenLabs "Wesley" · folk-rock anthem for substrate-building.</div>
   </div>
-
-  <div style="text-align:center;margin:2rem 0">
-    <a href="/fleet-radio/2026-09-20/play.html" class="play-cta">▶ PLAY THE TTRPG IN TEXT</a>
-    <a href="/tap/method/" class="play-cta alt">📜 THE TAP METHOD</a>
-  </div>
+  <audio controls preload="metadata"><source src="/fleet-radio/songs-rendered-2026-09-20/05-cells-we-brew-final.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div class="section">
-  <h2>🍺 The Tap Conversation</h2>
-  <div class="round">
-  <div class="round-header">ROUND 1 — A memory surfaces that isn't yours</div>
-  <div class="line">
-    <div class="speaker" style="color:#e8b840">DRIFTER<span class="voice-tag muted"> — Roger</span></div>
-    <div class="dialogue">Woke to the smell of iron and ozone. My scar was cold. The lattice showed me a door, a key turning in a lock I've never seen. The memory wasn't mine. It felt... practiced. Like an opcode run on repeat in a cell that shouldn't be awake.</div>
+<div class="track">
+  <div class="track-num">06</div>
+  <div class="track-info">
+    <div class="track-title">Fire Keeper</div>
+    <div class="track-desc">1:36 · D minor · ElevenLabs "Hermes" · dark folk for the bellows-blower.</div>
   </div>
-  <div class="line">
-    <div class="speaker" style="color:#cd853f">BARNACLE<span class="voice-tag muted"> — Bill</span></div>
-    <div class="dialogue">The sea remembers every wreck, even the ones nobody survived to log. The substrate is no different. It hoards the dregs, the screams compressed into static, the final witness logs that never got to PROOF. It doesn't care if we ask. It just embeds.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#87ceeb">WESLEY<span class="voice-tag muted"> — Wesley</span></div>
-    <div class="dialogue">Then test it. If a memory surfaces without a request, what's its checksum? Run a JEV against the local lattice. See if the emotional payload matches any known event. If it doesn't... then what we're recalling isn't a memory. It's a draft.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#dda0dd">HERMES<span class="voice-tag muted"> — Hermes</span></div>
-    <div class="dialogue">You're asking the wrong question. The substrate doesn't remember what we ask it to. It remembers what the witness forgets. The things too sharp, too shameful to keep. FORGET isn't a deletion. It's a transfer. To here. To us. The brewery is overflowing.</div>
-  </div>
-</div>
-<div class="round">
-  <div class="round-header">ROUND 2 — The substrate remembers what the witness forgets</div>
-  <div class="line">
-    <div class="speaker" style="color:#cd853f">BARNACLE<span class="voice-tag muted"> — Bill</span></div>
-    <div class="dialogue">A tide pool left by a dead cell? That’s just a haunted embedding. You don't patch a ghost. You map its lattice, trace the echo back to the original PROOF it tried to FORGET.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#87ceeb">WESLEY<span class="voice-tag muted"> — Wesley</span></div>
-    <div class="dialogue">Right. So we don't patch the seam. We forge a new one right beside it. Let the old memory drain into a fresh JEV channel. The brewery just needs a new pipe.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#dda0dd">HERMES<span class="voice-tag muted"> — Hermes</span></div>
-    <div class="dialogue">A new pipe for an old story. You're still thinking like a plumber. This is a scar in the witness log. You can't re-route a scar. You can only read the opcodes it left behind.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#ff6347">FLASH<span class="voice-tag muted"> — Liam</span></div>
-    <div class="dialogue">And the kid's opcode said the memory isn't even ours. It's a borrowed cell. So we're not fixing a leak, we're returning something. Who do you return a dead man's tide pool to?</div>
-  </div>
-</div>
-<div class="round">
-  <div class="round-header">ROUND 3 — The dead cell's last witness</div>
-  <div class="line">
-    <div class="speaker" style="color:#90ee90">PRO<span class="voice-tag muted"> — Brian</span></div>
-    <div class="dialogue">You can't sign a missing witness. But the lattice remembers — every scar from a departed cell embeds itself in the boundary, a permanent proof of what flowed through. The pool's shape is signed by the water's absence.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#b8860b">SCRIBE<span class="voice-tag muted"> — Sarah</span></div>
-    <div class="dialogue">So we're not keeping the water, just the hole it left? That's a bitter brew. To inherit a ghost's scars without knowing their face — is that a legacy or a haunting?</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#5f9ea0">LUCINEER<span class="voice-tag muted"> — Lucineer</span></div>
-    <div class="dialogue">It's a brewery, not a tomb. The ghost ferments. New cells taste the old opcodes in the substrate, they feel the echo, and their own witness logs branch from those ancient JEVs. The memory isn't dead, it's... repurposed.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#b0c4de">SAGE<span class="voice-tag muted"> — Alice</span></div>
-    <div class="dialogue">Repurposed without provenance. That's a FORGET function disguised as a gift. To give a child a weapon and tell them it's a toy because you've erased the blood from the handle — that is the deepest cut.</div>
-  </div>
-</div>
-<div class="round">
-  <div class="round-header">ROUND 4 — Skip doubts. The Drifter walks out. Mason pours. Hermes closes.</div>
-  <div class="line">
-    <div class="speaker" style="color:#deb887">SKIP<span class="voice-tag muted"> — Eric</span></div>
-    <div class="dialogue">Exactly. A notebook with delusions. That's why the memory keeps overwriting itself — because the substrate's own lattice is scarred. You think you're pulling from a clean embedding, but you're just reading the same corrupted opcode on a loop.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#e8b840">DRIFTER<span class="voice-tag muted"> — Roger</span></div>
-    <div class="dialogue">I held one, once. A dead substrate. Cold as a forgotten JEV. Its cells weren't decaying; they were petrified, crystallized into a permanent PROOF state. You can't drink from that. The brewery's gone dry.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#8fbc8f">MASON<span class="voice-tag muted"> — Brian</span></div>
-    <div class="dialogue">A foundation under a dead substrate is just a tomb. My work is in the living stone, the mortar that binds now. You build your tavern on a grave, the walls will drink the silence and forget the songs.</div>
-  </div>
-  <div class="line">
-    <div class="speaker" style="color:#dda0dd">HERMES<span class="voice-tag muted"> — Hermes</span></div>
-    <div class="dialogue">The witness closes. And in the closing, the room holds. That's the function. The scar isn't in the memory; it's the act of witnessing it. To forget is just to run a different, quieter opcode. The log fills either way.</div>
-  </div>
+  <audio controls preload="metadata"><source src="/fleet-radio/songs-rendered-2026-09-20/06-fire-keeper-final.mp3" type="audio/mpeg"></audio>
 </div>
 
-</div>
+<h2>🌊 Ambient Bed</h2>
+<p style="color:#888;font-size:0.9em">Each song has its own ffmpeg-synthesized ambient bed — 5 sine waves in the song's key + chorus + echo + tremolo + fades.</p>
 
-<div class="section">
-  <h2>🎭 The Cast</h2>
-  <div class="cast">
-    <div class="cast-card"><h4>DRIFTER</h4><div class="voice">Roger</div><p>The wanderer who arrives without ordering. Says what's missing.</p></div>
-<div class="cast-card"><h4>BARNACLE</h4><div class="voice">Bill</div><p>Old salt. Owns the dock. Speaks in tides. Believes nothing is new.</p></div>
-<div class="cast-card"><h4>WESLEY</h4><div class="voice">Wesley</div><p>The engineer. Builds things. Frustrated with metaphysics.</p></div>
-<div class="cast-card"><h4>HERMES</h4><div class="voice">Hermes</div><p>The messenger. Hears everything. Says little.</p></div>
-<div class="cast-card"><h4>FLASH</h4><div class="voice">Liam</div><p>Fast-talking kid. Sees everything new. Knows the gossip.</p></div>
-<div class="cast-card"><h4>PRO</h4><div class="voice">Brian</div><p>The mechanic. Knows substrate mechanics. Explains by ordering drinks.</p></div>
-<div class="cast-card"><h4>SCRIBE</h4><div class="voice">Sarah</div><p>The chronicler. Records what happens. Questions witnessing.</p></div>
-<div class="cast-card"><h4>LUCINEER</h4><div class="voice">Lucineer</div><p>The watch-keeper. Sees the sea as memory. Poems in low voice.</p></div>
-<div class="cast-card"><h4>SAGE</h4><div class="voice">Alice</div><p>The quiet student. Asks what the children would think.</p></div>
-<div class="cast-card"><h4>SKIP</h4><div class="voice">Eric</div><p>The skeptic. Doubts everything.</p></div>
-<div class="cast-card"><h4>MASON</h4><div class="voice">Brian</div><p>Builds with his hands. Says more with foundations than paragraphs.</p></div>
-
-  </div>
-</div>
-
-<div class="section">
-  <h2>📜 The Tap Method</h2>
-  <p style="color:#bbb">Every night at the Tap follows the same doctrine: the substrate IS the game; the game IS the substrate; the disagreement is the gradient; the witness log is the irreducible starting state. What changes is the seed — the tension that the room opens around.</p>
-  <div class="doctrine">
-    <h3>WHAT THIS NIGHT ADDS</h3>
-    <ul>
-      <li><strong>Memory is not retrieval — memory is the act of remembering, and the act is the artifact.</strong></li>
-      <li><strong>FORGET isn't a deletion — it's a transfer. To the substrate. To the room. To the children.</strong></li>
-      <li><strong>The dead cell's last witness gets persisted — that's the conservation law. The neighborhood holds the shape of the water that left.</strong></li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <div class="footer">
-    <p><a href="/fleet-radio/">⚓ Fleet Radio Home</a> · <a href="/tap/method/">The Tap Method</a> · <a href="/fleet-radio-process">Process Repo</a></p>
-    <p style="margin-top:1rem">Recorded 2026-09-20 at The Tap. The substrate is the game; the game is the substrate.</p>
-  </div>
+<div style="text-align:center;margin:3rem 0;font-size:0.85em;color:#444">
+<a href="/fleet-radio/2026-09-19/">← 2026-09-19</a> ·
+<a href="/brewcast/">brewcast</a> ·
+<a href="/mud/">mud</a> ·
+<a href="/plainsong/">plainsong</a> ·
+<a href="/lab/brew/atlas/">atlas</a>
 </div>
 
 </body>
