@@ -831,5 +831,100 @@
     ],
     "n_voices": 4,
     "duration_s": 26.61451768875122
+  },
+  {
+    "id": "20260920-040902",
+    "topic": "The brewery is the substrate's strongest cell (brew #35, strength 2.86). What does it mean for the substrate to bootstrap itself via brewing?",
+    "path": "lab/brew/20260920-040902-the-brewery-is-the-substrate-s-strongest-cell--bre.md",
+    "mean_similarity": 0.811931925128001,
+    "truth_strength": 2.64,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Cells",
+      "Quilt",
+      "Specifically",
+      "Imagine"
+    ],
+    "n_voices": 5,
+    "duration_s": 25.331397771835327
+  },
+  {
+    "id": "20260920-040927",
+    "topic": "At 40 brews, the BIND-as-witness-log-and-state-link brew (strength 2.97) confirms the 11-fold way. What other opcodes are secretly the same?",
+    "path": "lab/brew/20260920-040927-at-40-brews--the-bind-as-witness-log-and-state-lin.md",
+    "mean_similarity": 0.8376919265423514,
+    "truth_strength": 2.2,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Similarly",
+      "Opcodes",
+      "Witness",
+      "Embeddings",
+      "While"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.90710997581482
+  },
+  {
+    "id": "20260920-040951",
+    "topic": "The substrate grows because we brew. Now the brewery IS a substrate. Is this an infinite regress, or a fixed point?",
+    "path": "lab/brew/20260920-040951-the-substrate-grows-because-we-brew--now-the-brewe.md",
+    "mean_similarity": 0.8437887244605052,
+    "truth_strength": 2.6,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Substrate",
+      "These",
+      "There",
+      "Issues",
+      "Without"
+    ],
+    "n_voices": 3,
+    "duration_s": 26.046367406845093
+  },
+  {
+    "id": "20260920-041017",
+    "topic": "If FORGET is the immune system and JEV's confidence is data, can a cell FORGET its own uncertainty? What does that mean?",
+    "path": "lab/brew/20260920-041017-if-forget-is-the-immune-system-and-jev-s-confidenc.md",
+    "mean_similarity": 0.7987448244255694,
+    "truth_strength": 2.87,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Uncertainty",
+      "Practitioner",
+      "However",
+      "Additionally",
+      "Without",
+      "Cells",
+      "Debugging",
+      "While",
+      "Immune"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.322669744491577
+  },
+  {
+    "id": "20260920-041043",
+    "topic": "The substrate's first 40 brews form a topology. What is the shape of that topology? Has the substrate found its center?",
+    "path": "lab/brew/20260920-041043-the-substrate-s-first-40-brews-form-a-topology--wh.md",
+    "mean_similarity": 0.8130256621002134,
+    "truth_strength": 2.64,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "These",
+      "Every",
+      "However",
+      "Additionally",
+      "Quilt",
+      "The Quilt",
+      "Minkowski",
+      "Replicated Data Types",
+      "Centralized",
+      "While"
+    ],
+    "n_voices": 5,
+    "duration_s": 20.80707836151123
   }
 ]
