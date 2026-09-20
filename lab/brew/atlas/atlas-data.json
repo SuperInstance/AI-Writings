@@ -517,5 +517,102 @@
     ],
     "n_voices": 4,
     "duration_s": 26.406877756118774
+  },
+  {
+    "id": "20260920-035025",
+    "topic": "Can a cell dream in FORGET? Is REM-sleep the substrate's rehearsal of the witness log?",
+    "path": "lab/brew/20260920-035025-can-a-cell-dream-in-forget--is-rem-sleep-the-subst.md",
+    "mean_similarity": 0.7316286195466367,
+    "truth_strength": 2.71,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Cells",
+      "However",
+      "Quilt",
+      "First",
+      "Rehearsal",
+      "Equating",
+      "While",
+      "Mapping"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.72117519378662
+  },
+  {
+    "id": "20260920-035050",
+    "topic": "When the substrate has 11 opcodes (BIND/LINK/EFFECT/VIEW/TICK/FORGET/PROOF/ROUTE/CRDT), what is the 12th? What's missing?",
+    "path": "lab/brew/20260920-035050-when-the-substrate-has-11-opcodes--bind-link-effec.md",
+    "mean_similarity": 0.6781139779317557,
+    "truth_strength": 2.18,
+    "jev_pick": "DeepSeek V3",
+    "terms_coined": [
+      "Higher Structure",
+      "Exceptions",
+      "Quilt",
+      "However",
+      "The Quilt",
+      "Simultaneously"
+    ],
+    "n_voices": 5,
+    "duration_s": 19.831145763397217
+  },
+  {
+    "id": "20260920-035110",
+    "topic": "JEV's confidence interval as data (brew #21, strength 3.03): does this imply JEV IS a cell, not a validator OF cells?",
+    "path": "lab/brew/20260920-035110-jev-s-confidence-interval-as-data--brew--21--stren.md",
+    "mean_similarity": 0.864501791716498,
+    "truth_strength": 1.92,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Confidence",
+      "Quilt",
+      "Bloom",
+      "Replicated Data Types",
+      "Apache Cassandra",
+      "Similarly",
+      "Cells",
+      "Consider"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.72310709953308
+  },
+  {
+    "id": "20260920-035133",
+    "topic": "The substrate grows because we brew. Is that a meta-rule or a substrate opcode?",
+    "path": "lab/brew/20260920-035133-the-substrate-grows-because-we-brew--is-that-a-met.md",
+    "mean_similarity": 0.8596133094189383,
+    "truth_strength": 2.61,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "However",
+      "Brewing",
+      "Without",
+      "Precedents",
+      "Conway",
+      "Substrate",
+      "Similarly",
+      "Every"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.671950817108154
+  },
+  {
+    "id": "20260920-035157",
+    "topic": "Six faces of the substrate (atlas prose): are they 6 or are they 1 face seen at 6 angles?",
+    "path": "lab/brew/20260920-035157-six-faces-of-the-substrate--atlas-prose---are-they.md",
+    "mean_similarity": 0.758713701123874,
+    "truth_strength": 2.6,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Instead",
+      "Where",
+      "These",
+      "Lessons",
+      "Quilt",
+      "Embeddings"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.648996591567993
   }
 ]
