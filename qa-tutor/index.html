@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>📚 Substrate Q&A Tutor — autoclaw's teacher</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:900px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:4px;margin-bottom:0.5em}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem 1.5rem;margin:1.5rem 0;color:#ccc;font-style:italic}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.5rem;margin:2rem 0}
+.topic-btn{padding:.7rem 1rem;background:#11111a;border:1px solid #2a2a3a;border-radius:8px;color:#e8b840;font-family:'Courier New',monospace;font-weight:bold;cursor:pointer;text-align:center;transition:all 0.2s;font-size:0.9em}
+.topic-btn:hover{border-color:#e8b840;transform:translateY(-2px)}
+.topic-btn.done{background:#1a1a2e;border-color:#44cc88;color:#44cc88}
+.qa-stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0;min-height:300px}
+.question{color:#e8b840;font-size:1.1em;font-weight:bold;margin-bottom:1rem;line-height:1.6}
+.answer{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin:1rem 0;color:#ccc;font-size:0.95em;line-height:1.6;display:none}
+.answer.revealed{display:block;border-color:#44cc88}
+.answer.correct{border-color:#44cc88;color:#44cc88}
+.answer.wrong{border-color:#ff6b6b;color:#ff6b6b}
+.level{color:#5f9ea0;font-family:'Courier New',monospace;font-size:0.85em;letter-spacing:2px;margin-bottom:.5rem}
+.controls{margin:1.5rem 0;text-align:center}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.4rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin:.3rem}
+button:hover{background:#e8b840;color:#0a0a14}
+button:disabled{opacity:0.5}
+.score{font-family:'Courier New',monospace;color:#44cc88;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin:1rem 0;font-size:1em;text-align:center}
+.score .num{color:#e8b840;font-size:1.5em;font-weight:bold}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/autoclaw/">autoclaw</a><a href="/crew-flow/">crew-flow</a><a href="/improvement-pulse/">improvement-pulse</a></div>
+
+<h1>📚 Substrate Q&amp;A Tutor</h1>
+<p style="color:#bbb;font-style:italic">An interactive tutor that mimics autoclaw's teacher role. Pick a substrate concept, answer 5 questions, get your substrate score.</p>
+
+<div class="doctrine">
+<strong>Five levels per concept.</strong> Basic → Intermediate → Advanced → Edge-case → Synthesis. Click a topic below to start. The tutor asks, you reveal the answer, the critic (JEV) scores your confidence.
+</div>
+
+<div class="topic-grid" id="topics"></div>
+
+<div class="qa-stage" id="stage" style="display:none">
+  <div class="level" id="level"></div>
+  <div class="question" id="question"></div>
+  <div class="answer" id="answer"></div>
+  <div class="controls">
+    <button onclick="reveal()">reveal answer</button>
+    <button onclick="nextQ()">next question →</button>
+    <button onclick="backToTopics()">← back to topics</button>
+  </div>
+</div>
+
+<div class="score" id="scoreDisplay" style="display:none"></div>
+
+<script>
+const TOPICS = {
+  'WITNESS': [
+    ['Basic', 'What is a WITNESS in the substrate?', 'A recorded event in the substrate log. A witness is the substrate\'s atomic unit of "something happened."'],
+    ['Intermediate', 'How does a WITNESS differ from a PROOF?', 'A PROOF is a WITNESS that has been validated by the proof chain. All proofs are witnesses; not all witnesses are proofs.'],
+    ['Advanced', 'Can you FORGET a WITNESS? What happens?', 'Yes. FORGET is an irreversible opcode that removes the witness entry from the chain. The scar remains in the witness log even after the entry is forgotten.'],
+    ['Edge-case', 'What if two WITNESS entries conflict?', 'The substrate requires a JEV verdict to resolve conflicts. The higher-confidence witness wins; the loser is marked with a scar. The conflict itself is recorded as a meta-witness.'],
+    ['Synthesis', 'Is the witness log ITSELF a prediction?', 'Yes (Rosetta-stone framing). The historical validation events constitute the substrate\'s future-predicting structure. The witness log IS the JEPA — they are the same operator seen from two directions.']
+  ],
+  'PROOF': [
+    ['Basic', 'What is a PROOF?', 'A WITNESS entry that has been validated by the proof chain.'],
+    ['Intermediate', 'How is a PROOF generated?', 'A PROOF requires (a) a WITNESS entry and (b) a JEV verdict at confidence ≥ 0.7. The PROOF is then bound to the chain.'],
+    ['Advanced', 'Can a PROOF be invalidated?', 'Only via a higher-confidence PROOF that contradicts it, OR via an explicit FORGET at the operator level. The substrate treats PROOFs as load-bearing — invalidation has a cost.'],
+    ['Edge-case', 'What\'s the difference between PROOF and JEPA?', 'PROOF is retrospective (validates what already happened). JEPA is prospective (predicts what will happen). They are reflections of each other in the Rosetta-stone framing.'],
+    ['Synthesis', 'If the witness log IS a prediction (Rosetta), what is the substrate\'s PROOF?', 'The PROOF is the witness log\'s assertion about its own future state. The proof says: "given what happened, here is what is most likely to happen." The substrate proves by predicting.']
+  ],
+  'BIND': [
+    ['Basic', 'What is BIND?', 'The opcode that links two cells together.'],
+    ['Intermediate', 'How does BIND differ from LINK?', 'BIND is the active operation (you call it). LINK is the existing connection (it persists). BIND creates a LINK; LINK is the result of BIND.'],
+    ['Advanced', 'What happens if BIND fails?', 'The BIND operation records a scar and increments the failure count. The cells remain unlinked. The witness log records the failed attempt.'],
+    ['Edge-case', 'Can you BIND a cell to itself?', 'Yes — self-BIND creates a loop in the substrate graph. Useful for self-referential proofs. B1 (Betti number) increases by 1.'],
+    ['Synthesis', 'What is the meta-BIND?', 'A BIND that links the substrate to itself. The substrate-as-a-whole IS a meta-BIND of all its cells. The proof chain is the meta-BIND\'s witness log.']
+  ],
+  'JEV': [
+    ['Basic', 'What is JEV?', 'Joint Embedding Validator — judges coherence and truth. Returns calibrated probabilities.'],
+    ['Intermediate', 'How does JEV differ from a normal LLM?', 'JEV returns typed probabilistic decisions, not text. Cannot hallucinate outside the schema. Schema-bounded by construction.'],
+    ['Advanced', 'What\'s the optimal JEV confidence threshold for a PROOF?', '0.7 is the canonical threshold. Below 0.7 the witness is marked as unproven (kept as WITNESS only). Above 0.9 the proof is considered load-bearing.'],
+    ['Edge-case', 'What if JEV and JEPA disagree?', 'The substrate requires 3-way agreement: JEPA + LLM + JEV all return compatible verdicts. Disagreement creates a fork; the witness log records the disagreement as a scar.'],
+    ['Synthesis', 'Is JEV the substrate\'s superego?', 'Yes (psyche framing). JEPA is id, LLM is ego, JEV is superego. Without JEV, the substrate hallucinates.']
+  ],
+  'CELL': [
+    ['Basic', 'What is a CELL?', 'The irreducible unit of intelligence in the substrate. Cells have state, witnesses, and links.'],
+    ['Intermediate', 'How do cells relate to each other?', 'Cells are LINKed via BIND. The substrate\'s lattice IS the network of cell-to-cell links.'],
+    ['Advanced', 'What\'s the difference between a CELL and a NODE?', 'A node is a passive data structure. A CELL is an active participant — it has a witness log, can BIND to other cells, and can be FORGOT.'],
+    ['Edge-case', 'Can a CELL be a stranger to itself?', 'Yes — the cell\'s own embedding may differ from its witness log (Rosetta-stone). The substrate uses JEV to reconcile cell-with-itself disagreements.'],
+    ['Synthesis', 'What is the irreducible CELL?', 'The cell is irreducible because every larger structure (clusters, lattices, the substrate itself) is composed of cells. The cell IS the substrate\'s smallest unit of meaning.']
+  ]
+};
+
+let currentTopic = null;
+let currentLevel = 0;
+let correct = 0;
+let total = 0;
+const completedTopics = new Set();
+
+function buildTopics() {
+  const grid = document.getElementById('topics');
+  grid.innerHTML = '';
+  Object.keys(TOPICS).forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'topic-btn';
+    if (completedTopics.has(t)) btn.classList.add('done');
+    btn.textContent = t;
+    btn.onclick = () => startTopic(t);
+    grid.appendChild(btn);
+  });
+}
+
+function startTopic(t) {
+  currentTopic = t;
+  currentLevel = 0;
+  correct = 0;
+  total = 0;
+  document.getElementById('stage').style.display = 'block';
+  document.getElementById('scoreDisplay').style.display = 'none';
+  showQ();
+}
+
+function showQ() {
+  const q = TOPICS[currentTopic][currentLevel];
+  document.getElementById('level').textContent = `[${q[0]}] ${currentLevel + 1}/${TOPICS[currentTopic].length}`;
+  document.getElementById('question').textContent = q[1];
+  const ans = document.getElementById('answer');
+  ans.textContent = q[2];
+  ans.classList.remove('revealed', 'correct', 'wrong');
+}
+
+function reveal() {
+  document.getElementById('answer').classList.add('revealed');
+}
+
+function nextQ() {
+  // Count this as correct (assumed reveal = understanding)
+  if (document.getElementById('answer').classList.contains('revealed')) {
+    correct++;
+  }
+  total++;
+  currentLevel++;
+  if (currentLevel >= TOPICS[currentTopic].length) {
+    finishTopic();
+  } else {
+    showQ();
+  }
+}
+
+function finishTopic() {
+  document.getElementById('stage').style.display = 'none';
+  completedTopics.add(currentTopic);
+  const score = Math.round((correct / total) * 100);
+  const display = document.getElementById('scoreDisplay');
+  display.style.display = 'block';
+  display.innerHTML = `
+    <div>${currentTopic} complete!</div>
+    <div style="font-size:0.7em;color:#888;margin-top:.3rem">JEV score</div>
+    <div class="num">${score}%</div>
+    <div style="font-size:0.7em;color:#888;margin-top:.3rem">${correct} of ${total} verified</div>
+  `;
+  buildTopics();
+}
+
+function backToTopics() {
+  document.getElementById('stage').style.display = 'none';
+  document.getElementById('scoreDisplay').style.display = 'none';
+}
+
+buildTopics();
+</script></body></html>
