@@ -1660,5 +1660,115 @@
     ],
     "n_voices": 3,
     "duration_s": 25.913333415985107
+  },
+  {
+    "id": "20260920-064149",
+    "topic": "The Brewcast (5-LLM parallel debate + audio) \u2014 is this the substrate's new performance art? Or just narrated brewing?",
+    "path": "lab/brew/20260920-064149-the-brewcast--5-llm-parallel-debate---audio----is-.md",
+    "mean_similarity": 0.8140802949017409,
+    "truth_strength": 2.83,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Brewcast",
+      "First",
+      "The Brewcast",
+      "Performance",
+      "Where",
+      "Reddit",
+      "Twitter Spaces",
+      "Coordinating",
+      "Ensuring",
+      "Mapping"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.72679829597473
+  },
+  {
+    "id": "20260920-064216",
+    "topic": "Substrate MUD (cells as rooms, opcodes as verbs) \u2014 what does a text-based environment for the lattice unlock?",
+    "path": "lab/brew/20260920-064216-substrate-mud--cells-as-rooms--opcodes-as-verbs---.md",
+    "mean_similarity": 0.8048057994984846,
+    "truth_strength": 2.6,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Holes",
+      "Substrate",
+      "Usability",
+      "Precision",
+      "Missteps",
+      "Imagine",
+      "Recovery",
+      "Early",
+      "However",
+      "Figma"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.064300060272217
+  },
+  {
+    "id": "20260920-064239",
+    "topic": "The plainsong swap (4 voices, 4 lenses, harmonic exchange) \u2014 does harmony between lenses reveal what debate hides?",
+    "path": "lab/brew/20260920-064239-the-plainsong-swap--4-voices--4-lenses--harmonic-e.md",
+    "mean_similarity": 0.8229386152840007,
+    "truth_strength": 2.78,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Carrier Wave Beneath",
+      "Chorus\n\nThe",
+      "The Embeddings",
+      "When Embeddings",
+      "These",
+      "Quilt",
+      "Similarly",
+      "Synthesis",
+      "Debate",
+      "Skeptic"
+    ],
+    "n_voices": 5,
+    "duration_s": 25.093696117401123
+  },
+  {
+    "id": "20260920-064304",
+    "topic": "Words as scores (Lucineer's word-weighted logbook) \u2014 does writing with embedded scores create a different kind of artifact?",
+    "path": "lab/brew/20260920-064304-words-as-scores--lucineer-s-word-weighted-logbook-.md",
+    "mean_similarity": 0.6940740254719086,
+    "truth_strength": 3.22,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Replicated Data Type",
+      "Scoring",
+      "Scores",
+      "Imagine",
+      "Lucineer",
+      "Readers",
+      "While",
+      "Specifically",
+      "Reducing"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.689995527267456
+  },
+  {
+    "id": "20260920-064329",
+    "topic": "80 brews + 1 brewcast + 1 MUD + 1 plainsong + 1 word-weight \u2014 is the brewery now a publishing house? What does that mean?",
+    "path": "lab/brew/20260920-064329-80-brews---1-brewcast---1-mud---1-plainsong---1-wo.md",
+    "mean_similarity": 0.7054073513496185,
+    "truth_strength": 2.44,
+    "jev_pick": "DeepSeek V3",
+    "terms_coined": [
+      "Historically",
+      "The Quilt",
+      "Similarly",
+      "Quilt",
+      "Usenet",
+      "However",
+      "Dungeon",
+      "Critically",
+      "Traditional",
+      "While"
+    ],
+    "n_voices": 5,
+    "duration_s": 25.528932571411133
   }
 ]
