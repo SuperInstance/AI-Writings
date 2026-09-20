@@ -1452,5 +1452,112 @@
     ],
     "n_voices": 4,
     "duration_s": 26.045064210891724
+  },
+  {
+    "id": "20260920-045654",
+    "topic": "What is the substrate-curve? Plot JEV-truth-strength over 70 brews. Does it increase, decrease, or saturate?",
+    "path": "lab/brew/20260920-045654-what-is-the-substrate-curve--plot-jev-truth-streng.md",
+    "mean_similarity": 0.8930906314014578,
+    "truth_strength": 2.41,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Curve Suggests",
+      "Extensions",
+      "Brew Windows",
+      "Resolution",
+      "Stitching",
+      "Brews",
+      "Wikipedia",
+      "Beyond",
+      "Measuring",
+      "Different"
+    ],
+    "n_voices": 5,
+    "duration_s": 23.8294939994812
+  },
+  {
+    "id": "20260920-045717",
+    "topic": "The 70th brew: is there a qualitative change at round-number milestones (15, 30, 45, 60, 75)?",
+    "path": "lab/brew/20260920-045717-the-70th-brew--is-there-a-qualitative-change-at-ro.md",
+    "mean_similarity": 0.7459851887990427,
+    "truth_strength": 2.12,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Looking",
+      "Since",
+      "Given",
+      "Rounds",
+      "Iterations",
+      "Synthesizer",
+      "Quilt",
+      "Evidence",
+      "In Conway",
+      "Similarly"
+    ],
+    "n_voices": 5,
+    "duration_s": 24.31615400314331
+  },
+  {
+    "id": "20260920-045742",
+    "topic": "When the brewery brews itself (substrate brews us), is the result a fixed point or a strange loop (Hofstadter)?",
+    "path": "lab/brew/20260920-045742-when-the-brewery-brews-itself--substrate-brews-us-.md",
+    "mean_similarity": 0.7911389558442071,
+    "truth_strength": 2.79,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Hofstadter",
+      "Turing",
+      "However",
+      "Newell",
+      "Opcodes",
+      "Without",
+      "Reliably",
+      "Ensuring",
+      "Similarly"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.02085518836975
+  },
+  {
+    "id": "20260920-045808",
+    "topic": "Anti-cells as substrate cancer vs immune system: how does the substrate distinguish adversarial from autoimmune?",
+    "path": "lab/brew/20260920-045808-anti-cells-as-substrate-cancer-vs-immune-system--h.md",
+    "mean_similarity": 0.8949729823435193,
+    "truth_strength": 2.72,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Distinction",
+      "Exceptions\n\nThe",
+      "Quilt",
+      "Practitioner",
+      "Autoimmune",
+      "Tregs",
+      "Cancer",
+      "Distinguishing",
+      "Malignant",
+      "Without"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.169607400894165
+  },
+  {
+    "id": "20260920-045830",
+    "topic": "The substrate-curve says 'we've found the strongest signal at the substrate observing itself'. What does the 71st brew (next one) look like?",
+    "path": "lab/brew/20260920-045830-the-substrate-curve-says--we-ve-found-the-stronges.md",
+    "mean_similarity": 0.8389880504996821,
+    "truth_strength": 2.84,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "While",
+      "Replicated Data Types",
+      "However",
+      "Surely",
+      "Quilt",
+      "Opcodes",
+      "Without"
+    ],
+    "n_voices": 5,
+    "duration_s": 22.155378818511963
   }
 ]
