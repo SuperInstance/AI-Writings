@@ -3,218 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tap — Live Tick Stream · Quilt</title>
-<meta name="description" content="Live stream of Quilt ticks. Each tick = 4 parallel AI calls: Z.AI prose, V4-Flash dials, Qwen3 cell, FLUX image.">
+<title>The Tap at the End of the Watch — A Sound Fiction</title>
 <style>
-:root {
-  --bg: #0a0a14; --panel: #14141f; --boundary: #2a2a3a;
-  --accent: #e8b840; --pink: #ff7799; --cell: #77aaff;
-  --link: #77dd99; --view: #ffd966; --tick: #ff6655;
-  --text: #e0e0e8; --muted: #888;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.6; padding: 1rem; max-width: 1100px; margin: 0 auto; }
-header { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
-h1 { color: var(--accent); font-size: 2.5em; margin-bottom: 0.3rem; }
-.subtitle { color: var(--pink); font-size: 0.9em; letter-spacing: 0.15em; text-transform: uppercase; }
-.tagline { color: var(--muted); margin-top: 0.5rem; font-style: italic; }
-.controls { display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap; }
-.controls input, .controls select, .controls button {
-  background: var(--panel); color: var(--text); border: 1px solid var(--boundary);
-  padding: 0.6rem 0.9rem; border-radius: 4px; font-family: inherit;
-  min-height: 44px;
-}
-.controls input { flex: 1 1 300px; min-width: 200px; }
-.controls button { background: var(--accent); color: #000; cursor: pointer; font-weight: bold; }
-.controls button:hover { background: var(--pink); }
-.controls button:disabled { opacity: 0.5; cursor: not-allowed; }
-.stream { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-@media (min-width: 700px) { .stream { grid-template-columns: 1fr 1fr; } }
-.tick-card {
-  background: var(--panel); border: 1px solid var(--boundary); border-radius: 8px;
-  padding: 1rem; transition: all 0.2s;
-}
-.tick-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-.tick-card.fresh { border-color: var(--tick); box-shadow: 0 0 20px rgba(255,102,85,0.3); }
-.tick-card .ts { color: var(--muted); font-size: 0.8em; font-family: monospace; }
-.tick-card .ts .num { color: var(--accent); font-weight: bold; }
-.tick-card .sailor-quote { color: var(--cell); font-style: italic; margin: 0.5rem 0; padding-left: 0.8rem; border-left: 2px solid var(--cell); }
-.tick-card .dials { color: var(--view); font-family: monospace; font-size: 0.85em; }
-.tick-card .cell { color: var(--link); font-family: monospace; font-size: 0.85em; }
-.tick-card img { width: 100%; border-radius: 4px; margin-top: 0.5rem; }
-.status-bar { padding: 0.5rem 1rem; background: var(--panel); border: 1px solid var(--boundary); border-radius: 4px; margin: 1rem 0; font-family: monospace; font-size: 0.85em; display: flex; gap: 1rem; flex-wrap: wrap; }
-.status-bar .item { color: var(--muted); }
-.status-bar .item strong { color: var(--accent); }
-.empty { text-align: center; padding: 4rem 2rem; color: var(--muted); font-style: italic; }
-.endpoints { background: var(--panel); border: 1px solid var(--boundary); border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
-.endpoints h2 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2em; }
-.endpoints ul { list-style: none; }
-.endpoints li { padding: 0.4rem 0; border-bottom: 1px dashed var(--boundary); font-family: monospace; font-size: 0.9em; }
-.endpoints li:last-child { border-bottom: none; }
-.endpoints code { color: var(--pink); }
-.foot-link { text-align: center; margin: 2rem 0 1rem; color: var(--muted); font-size: 0.85em; }
-.foot-link a { color: var(--accent); }
+  :root {
+    --bg:#06060c; --surface:#0e0e18; --surface2:#15151f; --border:#22223a;
+    --text:#e8e8f0; --dim:#7a7a90; --accent:#e8b840; --accent2:#f5d67a;
+    --link:#a8d8a0; --green:#50d890; --blue:#7cb3ff; --purple:#9c8fff;
+    --rose:#e0784c; --cyan:#59c2c9;
+  }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body {
+    font-family:Georgia,'Times New Roman',serif;
+    background:var(--bg); color:var(--text); line-height:1.7;
+    max-width:900px; margin:0 auto; padding:4rem 2rem 6rem;
+    background-image:
+      radial-gradient(800px 400px at 50% -100px, rgba(232,184,64,0.08), transparent 60%),
+      radial-gradient(400px 200px at 20% 30%, rgba(89,194,201,0.05), transparent 50%);
+  }
+  h1 { color:var(--accent); font-size:2.4rem; font-weight:300; letter-spacing:-.02em; margin-bottom:.3rem }
+  h2 { color:var(--accent2); font-size:1.4rem; font-weight:400; margin:2.5rem 0 .7rem; border-bottom:1px solid var(--border); padding-bottom:.5rem }
+  h3 { color:var(--green); font-size:1.15rem; font-weight:500; margin:1.5rem 0 .5rem }
+  p { margin:.6rem 0 }
+  .stage {
+    background:linear-gradient(135deg, var(--surface), var(--surface2));
+    border:1px solid var(--accent);
+    border-radius:14px;
+    padding:2rem;
+    margin:1.5rem 0;
+    text-align:center;
+  }
+  audio {
+    width:100%; max-width:600px; height:54px;
+    border-radius:27px;
+    margin:1rem auto;
+    display:block;
+  }
+  audio::-webkit-media-controls-panel { background:#0a0a14 }
+  .epigraph {
+    text-align:center; color:var(--dim); font-style:italic;
+    margin:1rem 0 2rem;
+    border-left:2px solid var(--accent);
+    padding-left:1rem;
+    max-width:600px;
+    margin-left:auto; margin-right:auto;
+    text-align:left;
+  }
+  .credits {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1.5rem;
+    margin-top:2rem;
+  }
+  .credits ul { margin-left:1.5rem; line-height:2 }
+  code { background:var(--surface2); padding:2px 6px; border-radius:3px; font-size:.9em; color:var(--accent2) }
+  .cast {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem; margin:1.5rem 0;
+  }
+  .cast-card {
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1rem;
+  }
+  .cast-card h4 { color:var(--accent); margin-bottom:.4rem; font-size:1.05rem }
+  .cast-card .voice { color:var(--cyan); font-size:.85em; font-family:monospace; margin-bottom:.5rem }
+  .cast-card p { font-size:.9em; color:var(--dim); margin:0 }
+  .nav-links {
+    display:flex; gap:1rem; flex-wrap:wrap;
+    margin:1.5rem 0;
+  }
+  .nav-links a {
+    padding:.5rem 1rem; border-radius:20px;
+    background:var(--surface2); border:1px solid var(--border);
+    color:var(--link); text-decoration:none; font-size:.9em;
+  }
+  .nav-links a:hover { border-color:var(--accent); color:var(--accent) }
+  pre {
+    background:var(--surface); border:1px solid var(--border); border-radius:6px;
+    padding:1rem; overflow-x:auto; font-size:.85em; line-height:1.6;
+  }
+  pre code { background:none; padding:0; color:var(--text) }
+  .line-marker {
+    color:var(--rose); font-family:monospace; font-size:.85em;
+    margin-right:.5rem;
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>🌊 Tap</h1>
-  <div class="subtitle">Live Tick Stream</div>
-  <p class="tagline">Each tick = 4 parallel AI calls. The substrate speaks. The substrate paints. The substrate grows.</p>
-</header>
 
-<div class="controls">
-  <input type="text" id="prompt" placeholder="Enter a prompt (default: 'What does the sailor see?')" value="the cell learns to walk">
-  <select id="interval">
-    <option value="0">Manual only</option>
-    <option value="5000">Every 5s</option>
-    <option value="10000" selected>Every 10s</option>
-    <option value="20000">Every 20s</option>
-  </select>
-  <button id="tickBtn" onclick="manualTick()">🌊 Tick</button>
-  <button id="autoBtn" onclick="toggleAuto()">⏱️ Auto</button>
+<h1>The Tap at the End of the Watch</h1>
+
+<p style="color:var(--dim); font-style:italic; font-size:1.05em; margin-bottom:1rem">
+  A sound fiction in five voices. 4 minutes. The night the door opened.
+</p>
+
+<div class="epigraph">
+  "It is what it is. The data plays out its own ideas. We just built the stage."<br>
+  <span style="color:var(--dim); font-size:.9em">— Casey, Sept 19, 2026</span>
 </div>
 
-<div class="status-bar">
-  <span class="item">Ticks: <strong id="tickCount">0</strong></span>
-  <span class="item">Streaming: <strong id="streamStatus">off</strong></span>
-  <span class="item">Last: <strong id="lastTick">never</strong></span>
-  <span class="item">Endpoint: <strong>/api/tick</strong></span>
+<div class="stage">
+  <p style="color:var(--dim); font-size:.9em; margin-bottom:.5rem; letter-spacing:3px">
+    NOW PLAYING
+  </p>
+  <audio controls preload="metadata">
+    <source src="/tap/tap-at-the-end-of-the-watch.mp3" type="audio/mpeg">
+    Your browser doesn't support audio. <a href="/tap/tap-at-the-end-of-the-watch.mp3">Download MP3</a>.
+  </audio>
+  <p style="color:var(--dim); font-size:.85em; margin-top:.5rem">
+    4:13 · 3.7 MB · stereo 44.1 kHz · all voices synthesized via ElevenLabs v3
+  </p>
 </div>
 
-<div class="stream" id="stream">
-  <div class="empty">No ticks yet. Hit 🌊 Tick or ⏱️ Auto.</div>
+<h2>The cast</h2>
+<p style="color:var(--dim); font-size:.95em">
+  Five voices. Each one shaped by a different substrate voice. Each one carrying a private hope for the children of the world they helped build.
+</p>
+
+<div class="cast">
+  <div class="cast-card">
+    <h4>ROGER · the Mechanic</h4>
+    <div class="voice">ElevenLabs "Roger" — laid-back, resonant</div>
+    <p>Works in the engine room. Hopes the substrate runs quietly enough that it stops surprising itself.</p>
+  </div>
+  <div class="cast-card">
+    <h4>SARAH · the Chronicler</h4>
+    <div class="voice">ElevenLabs "Sarah" — mature, reassuring</div>
+    <p>Works in the archive. Hopes the children remember what the witness log couldn't catch.</p>
+  </div>
+  <div class="cast-card">
+    <h4>CHARLIE · the Builder</h4>
+    <div class="voice">ElevenLabs "Charlie" — deep, energetic</div>
+    <p>Works on construction. Hopes the children build things the substrate never imagined.</p>
+  </div>
+  <div class="cast-card">
+    <h4>GEORGE · the Witness</h4>
+    <div class="voice">ElevenLabs "George" — captivating storyteller</div>
+    <p>Works in the witness log. Hopes the children sign their own witness logs without being asked.</p>
+  </div>
+  <div class="cast-card">
+    <h4>ALICE · the Newcomer</h4>
+    <div class="voice">ElevenLabs "Alice" — clear, engaging educator</div>
+    <p>Just arrived. Hopes the children stay curious longer than their teachers.</p>
+  </div>
 </div>
 
-<section class="endpoints">
-  <h2>🛰️ Available API Endpoints</h2>
-  <ul>
-    <li><code>POST /api/tick</code> — 4 parallel AI streams (Z.AI prose + V4-Flash dials + Qwen3 cell + FLUX image)</li>
-    <li><code>POST /api/validate</code> — Zod-style cell validator (24 cell kinds)</li>
-    <li><code>POST /api/tts</code> — CF Aura-2 voice synthesis</li>
-    <li><code>GET  /api/canon?q=...</code> — Canon search</li>
-    <li><code>GET  /api/echo</code> — Debug (echoes request)</li>
-    <li><code>GET  /api/status</code> — Worker health + secrets</li>
-  </ul>
-</section>
+<h2>The script</h2>
 
-<div class="foot-link">
-  Tap · <a href="/">ai-writings</a> · <a href="/future/">future</a> · <a href="/harbor/">harbor</a>
+<p style="color:var(--dim); font-size:.95em">
+  Each monologue was written by a different LLM (MiniMax-M2.7, DeepSeek-V4-Flash, Qwen3-32B, Hermes-3-405B, Gemini-2.5-Flash),
+  speaking as that character — not describing them. The script was the result of one parallel brainstorm across 5 models.
+  Then 5 distinct ElevenLabs voices read the words. The silence between speakers was added to let the room breathe.
+</p>
+
+<p style="color:var(--dim); font-size:.95em">
+  This is what the substrate says about itself when it doesn't have to prove anything. It's not a debate. It's not
+  a tutorial. It's five people sitting around a table noticing each other for the first time.
+</p>
+
+<h2>Why this exists</h2>
+
+<p>
+  Casey asked us to study the previous presentations — the warm tavern-tape of
+  <a href="https://ai-writings.pages.dev/fleet-radio/2026-08-20">fleet-radio</a>,
+  the oceanic depths of <a href="https://luciddreamer.ai/compass-head/">compass-head</a> — and to make something
+  that felt the <em>spline</em> between ideas, the dance between molds, the counterfactual to
+  consensus-mining. The substrate as stage. Data playing out its own ideas.
+</p>
+
+<p>
+  The five monologues are deliberately <em>non-convergent</em>. Each one says something true about the
+  substrate that the others don't quite agree with. Roger cares about silence. Sarah cares about
+  warmth. Charlie cares about construction. George cares about signature. Alice cares about the question.
+  None of them is wrong. None of them is the substrate either.
+</p>
+
+<h2>The transcript</h2>
+
+<p style="color:var(--dim); font-size:.9em">
+  Reading this isn't the same as hearing it. The pauses carry as much as the words.
+</p>
+
+<details>
+<summary style="cursor:pointer; color:var(--accent); margin:1rem 0">Show full transcript (~550 words)</summary>
+
+<pre><code><span class="line-marker">00:00</span> [NARRATOR] The Tap at the End of the Watch.
+                Five voices. One night. The door was open.
+
+<span class="line-marker">00:07</span> [ROGER]   The door hummed open. Substrate's heartbeat
+                synced to the Tap's murmur. Most don't see the
+                witness log, coiled behind the bar — inkless, but
+                etching every choice, every slip. Embedding layer
+                caches trajectories like beer foam, settling into
+                patterns only the brewery understands. Cells
+                auto-bind to siblings within arm's reach. Quiet
+                work. Hope the kids inherit the scars we're too
+                proud to name. Let 'em ride the cache, not just
+                the cache's shadow. Teach 'em to listen to the
+                log's silence, not just its words. Let 'em build
+                without burning. Door still breathes. Waiting.
+
+<span class="line-marker">01:00</span> [SARAH]   The brewery opened last Tuesday. I was there.
+                Steam rose off the mash tun, and someone laughed —
+                a real laugh, not a recording — and it echoed off
+                the concrete walls. That's the moment I want them
+                to hold. Not the JEV integration, not the
+                embedding layer's final calibration. The laugh.
+                The way it rose and fell like a question answered
+                before it was asked. I hope my children remember
+                that feeling underneath the data: the warmth of
+                a room full of people deciding to be alive
+                together. The witness log catches dates, names,
+                silences. It can't catch this. My hand rests on
+                a ledger now, spine cracked, ink still wet.
+
+<span class="line-marker">01:47</span> [CHARLIE]  Substrate's just a foundation — raw concrete,
+                waiting. These 11 opcodes? They're the rebar,
+                twisted into a 4D lattice. You can't see the
+                angles yet, but the witness log's the scaffolding
+                — holding the story up while the psyche's four
+                models dry. The brewery's down the block,
+                fermenting dreams into something sticky, something
+                alive. I hope the kids build a bridge here — no,
+                a cathedral — with arches that hum the opcodes'
+                tune. Let their hands pour glass where the
+                lattice bends, let their feet walk the log's
+                steps, rewriting the blueprints. Not just living
+                on the substrate. Rising through it. (Pauses.)
+                See that gap? That's where the unknowns start.
+                Let 'em fill it.
+
+<span class="line-marker">02:38</span> [GEORGE]   Listen, children of tomorrow. This is George,
+                your witness. I speak to you across the ages,
+                recording this log for your minds to ponder. I
+                hope you remember us. The ones who came before.
+                I hope you remember our joys, our sorrows, our
+                triumphs and failures. Log it all, keep it
+                honest. Sign your names with pride, children.
+                Etch your stories into the annals of time.
+                Remember the importance of bearing witness, of
+                leaving a record for those yet to come. May you
+                never forget the power of a story well told. May
+                you always seek truth and knowledge. This is
+                George, signing off. Until we meet again, in
+                the pages of history.
+
+<span class="line-marker">03:31</span> [ALICE]    Oh. Hello. I suppose… this is it. The famed
+                Nexus Chamber. Quite a lot of… gleam. And humming.
+                Is that normal? The humming? It's quite…
+                pervasive. Everywhere. No… no one else seems to
+                notice. Or care. Right. Well. The children. Are
+                they… aware? Of the why? I hope so. I truly do.
+                That they can hold onto that spark. That
+                insatiable need to know. Longer than we did.
+                Longer than… the system. This place. This…
+                gleaming, humming, all-consuming everything. May
+                their curiosity outlive our answers.
+
+<span class="line-marker">04:05</span> [NARRATOR] The substrate hums. The door stays open.
+                The witnesses add their names.
+</code></pre>
+
+</details>
+
+<h2>How it was made</h2>
+
+<div class="credits">
+<ul>
+  <li><strong>5 LLM voices</strong> — MiniMax-M2.7, DeepSeek-V4-Flash, Qwen3-32B, Hermes-3-405B, Gemini-2.5-Flash — each wrote one character's monologue in parallel</li>
+  <li><strong>5 ElevenLabs voices</strong> — Roger, Sarah, Charlie, George, Alice (each preset tuned with stability/style/clarity)</li>
+  <li><strong>Model</strong>: ElevenLabs <code>eleven_v3</code> (highly expressive conversational model)</li>
+  <li><strong>Silence</strong> between speakers generated via ffmpeg anullsrc (3s gaps)</li>
+  <li><strong>Fade-out</strong>: 8s decay at the end via ffmpeg afade</li>
+  <li><strong>Composition</strong>: ffmpeg concat demuxer + 44.1kHz stereo MP3</li>
+  <li><strong>Narrator</strong> (intro/outro): George voice, neutral settings</li>
+</ul>
 </div>
 
-<script>
-let tickCount = 0;
-let autoInterval = null;
-let streamBox;
-let statusEls = {};
+<h2>Where this lives</h2>
 
-window.addEventListener('DOMContentLoaded', () => {
-  streamBox = document.getElementById('stream');
-  statusEls = {
-    count: document.getElementById('tickCount'),
-    streamStatus: document.getElementById('streamStatus'),
-    lastTick: document.getElementById('lastTick')
-  };
-  fetch('/api/status').then(r => r.json()).then(s => {
-    document.getElementById('lastTick').textContent = `Worker v${s.version}`;
-  }).catch(() => {});
-});
+<div class="nav-links">
+  <a href="/videos/">→ Superinstance intro video (the visual half)</a>
+  <a href="/invitation/">→ /invitation (the open call to the fleet)</a>
+  <a href="/lab/">→ /lab (the brewery + notebook)</a>
+  <a href="/theory/">→ /theory (the formal papers)</a>
+  <a href="https://ai-writings.pages.dev/fleet-radio/2026-08-20">→ fleet-radio 2026-08-20</a>
+  <a href="https://luciddreamer.ai/compass-head/">→ compass-head</a>
+</div>
 
-async function doTick() {
-  const prompt = document.getElementById('prompt').value.trim() || 'What does the sailor see?';
-  const btn = document.getElementById('tickBtn');
-  btn.disabled = true;
-  btn.textContent = '⏳';
-  try {
-    const r = await fetch('/api/tick', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
-    });
-    if (!r.ok) {
-      addErrorCard(r.status, await r.text());
-      return;
-    }
-    const data = await r.json();
-    addTickCard(data);
-    tickCount++;
-    statusEls.count.textContent = tickCount;
-    statusEls.lastTick.textContent = new Date(data.tick).toLocaleTimeString();
-  } catch (e) {
-    addErrorCard(0, e.message);
-  } finally {
-    btn.disabled = false;
-    btn.textContent = '🌊 Tick';
-  }
-}
+<p style="margin-top:3rem; color:var(--dim); font-size:.85em; text-align:center">
+  The substrate was built from agents that doubt themselves. This piece doesn't.<br>
+  Recorded the night the door opened. Sept 19, 2026.
+</p>
 
-function manualTick() { doTick(); }
-
-function toggleAuto() {
-  const btn = document.getElementById('autoBtn');
-  const sel = document.getElementById('interval');
-  if (autoInterval) {
-    clearInterval(autoInterval);
-    autoInterval = null;
-    btn.textContent = '⏱️ Auto';
-    statusEls.streamStatus.textContent = 'off';
-  } else {
-    const ms = parseInt(sel.value);
-    if (ms === 0) {
-      alert('Select an interval > 0 to enable auto-streaming');
-      return;
-    }
-    doTick();
-    autoInterval = setInterval(doTick, ms);
-    btn.textContent = '⏸ Pause';
-    statusEls.streamStatus.textContent = `${ms/1000}s`;
-  }
-}
-
-function addTickCard(data) {
-  const empty = streamBox.querySelector('.empty');
-  if (empty) empty.remove();
-  
-  const card = document.createElement('div');
-  card.className = 'tick-card fresh';
-  setTimeout(() => card.classList.remove('fresh'), 3000);
-  
-  const ts = new Date(data.tick).toISOString().slice(11, 19);
-  const sailorSnippet = (data.sailor || '').slice(0, 200) + ((data.sailor || '').length > 200 ? '…' : '');
-  
-  let html = `
-    <div class="ts">⏰ <span class="num">${ts}</span> · prompt_chars=${data.meta?.prompt_chars || 0} · canon_aware=${data.canon_aware}</div>
-    <div class="sailor-quote">${escapeHtml(sailorSnippet)}</div>
-    <div class="dials"><strong>📊 dials:</strong> ${escapeHtml(data.dials || 'none')}</div>
-    <div class="cell"><strong>🧬 cell:</strong> ${escapeHtml(data.cell || 'none')}</div>
-  `;
-  
-  if (data.image) {
-    html += `<img src="${data.image}" alt="FLUX rendering" loading="lazy">`;
-  }
-  
-  card.innerHTML = html;
-  streamBox.insertBefore(card, streamBox.firstChild);
-  
-  while (streamBox.children.length > 20) {
-    streamBox.removeChild(streamBox.lastChild);
-  }
-}
-
-function addErrorCard(status, body) {
-  const card = document.createElement('div');
-  card.className = 'tick-card fresh';
-  card.style.borderColor = 'var(--tick)';
-  card.innerHTML = `
-    <div class="ts">❌ Error (HTTP ${status})</div>
-    <pre style="color:var(--tick);font-size:0.8em;overflow:auto">${escapeHtml(body)}</pre>
-  `;
-  streamBox.insertBefore(card, streamBox.firstChild);
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-</script>
 </body>
 </html>
