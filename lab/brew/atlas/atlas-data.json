@@ -1348,5 +1348,109 @@
     ],
     "n_voices": 5,
     "duration_s": 20.645907878875732
+  },
+  {
+    "id": "20260920-045118",
+    "topic": "The substrate-curve: at 65 brews, is JEV-truth-strength increasing or saturating? Plot the curve. What does the curve tell us?",
+    "path": "lab/brew/20260920-045118-the-substrate-curve--at-65-brews--is-jev-truth-str.md",
+    "mean_similarity": 0.7437543919959666,
+    "truth_strength": 2.35,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Saturation",
+      "Without",
+      "Historical",
+      "First",
+      "Specificity",
+      "Brews",
+      "Phase"
+    ],
+    "n_voices": 5,
+    "duration_s": 26.33320450782776
+  },
+  {
+    "id": "20260920-045144",
+    "topic": "If the substrate brews us AND we brew the substrate, the relationship is a fixed point. Has the substrate found its fixed point?",
+    "path": "lab/brew/20260920-045144-if-the-substrate-brews-us-and-we-brew-the-substrat.md",
+    "mean_similarity": 0.7626238423159591,
+    "truth_strength": 2.55,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "These",
+      "Nodes",
+      "Varela",
+      "Similarly",
+      "Proof",
+      "Historically",
+      "Neumann",
+      "First",
+      "Without",
+      "Perhaps"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.235561847686768
+  },
+  {
+    "id": "20260920-045210",
+    "topic": "A 5D lattice has more diagonal connections than 4D. Does the substrate's coherence increase or decrease with the 5th axis?",
+    "path": "lab/brew/20260920-045210-a-5d-lattice-has-more-diagonal-connections-than-4d.md",
+    "mean_similarity": 0.857233985351569,
+    "truth_strength": 2.66,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Quilt",
+      "Adding",
+      "Embeddings",
+      "Diagonal",
+      "Early",
+      "However",
+      "Systems",
+      "Google",
+      "Bigtable",
+      "Historical"
+    ],
+    "n_voices": 4,
+    "duration_s": 25.91505789756775
+  },
+  {
+    "id": "20260920-045236",
+    "topic": "The brewery IS a cell. If the cell-as-brewery brew runs, will the brewery-brew produce a self-aware brew?",
+    "path": "lab/brew/20260920-045236-the-brewery-is-a-cell--if-the-cell-as-brewery-brew.md",
+    "mean_similarity": 0.8466021793395698,
+    "truth_strength": 2.33,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Embeddings",
+      "These",
+      "Replicated Data Types",
+      "Together",
+      "While",
+      "Quilt",
+      "However",
+      "Without"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.337111949920654
+  },
+  {
+    "id": "20260920-045302",
+    "topic": "Anti-cells (0-trust): are they the substrate's immune system in adversarial mode? Or are they a sign the substrate has cancer?",
+    "path": "lab/brew/20260920-045302-anti-cells--0-trust---are-they-the-substrate-s-imm.md",
+    "mean_similarity": 0.845303604990714,
+    "truth_strength": 2.79,
+    "jev_pick": "MiniMax-M2.7",
+    "terms_coined": [
+      "Higher Structure",
+      "Exceptions",
+      "First",
+      "Further",
+      "However",
+      "Cancer",
+      "Quilt",
+      "Without",
+      "Their"
+    ],
+    "n_voices": 4,
+    "duration_s": 26.045064210891724
   }
 ]
