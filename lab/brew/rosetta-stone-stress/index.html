@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🜍 Brewery — Rosetta Stone STRESS TESTS</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.7;max-width:920px;margin:0 auto;padding:3rem 2rem}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.5em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem}
+h3{color:#44cc88;font-size:1.15em;margin:1.5rem 0 .5rem}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9em}
+th,td{padding:.6rem;border:1px solid #2a2a3a;text-align:left}
+th{background:#11111a;color:#e8b840}
+.holds-yes{color:#44cc88;font-weight:bold}
+.holds-no{color:#ff6b6b;font-weight:bold}
+.holds-mid{color:#e8b840;font-weight:bold}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.cta{display:inline-block;padding:.7rem 1.3rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:25px;text-decoration:none;margin:1rem .3rem;font-family:'Courier New',monospace;font-size:.85em}
+.cta:hover{background:#e8b840;color:#0a0a14}
+.cta.alt{border-color:#44cc88;color:#44cc88}
+.cta.alt:hover{background:#44cc88;color:#0a0a14}
+.epigraph{text-align:center;color:#bbb;font-style:italic;margin:2rem 0;padding:0 1rem;border-left:2px solid #e8b840}
+.finding{background:#11111a;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin:1rem 0}
+.finding-title{color:#e8b840;font-weight:bold;margin-bottom:.5rem}
+.finding-meta{color:#888;font-size:.85em;margin-bottom:.5rem}
+blockquote{border-left:3px solid #e8b840;padding:.5rem 1rem;margin:.5rem 0;color:#ccc;font-style:italic;background:rgba(232,184,64,0.03)}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/lab/brew/rosetta-stone/">← Original brew</a><a href="/lab/brew/">Brewery home</a></div>
+
+<h1>🜍 Rosetta Stone STRESS TESTS</h1>
+<p style="color:#888;font-style:italic">Round 3 — where does the framing break?</p>
+
+<div class="epigraph">
+  The original brew asked "is this coherent?"<br>
+  This brew asks "what makes it coherent, and when does it fail?"
+</div>
+
+<p>This is the adversarial follow-up to the <a href="/lab/brew/rosetta-stone/">original Rosetta-stone brew</a>. 10 probes attack the framing from different angles; JEV meta-probes test the strongest findings.</p>
+
+<h2>10 probes — verdicts at a glance</h2>
+
+<table>
+<thead><tr><th>#</th><th>Probe</th><th>Verdict</th><th>Conf</th><th>Holds?</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Inverse claim</strong></td><td>Original framing wins</td><td>0.80</td><td class="holds-yes">YES</td></tr>
+<tr><td>2</td><td><strong>Tampered witness</strong></td><td>Equivalence preserved (both corrupt together)</td><td>0.80</td><td class="holds-yes">YES</td></tr>
+<tr><td>3</td><td><strong>Empty witness</strong></td><td>Degenerate but not broken (vacuous coherence)</td><td>0.90</td><td class="holds-mid">TRIVIAL</td></tr>
+<tr><td>4</td><td><strong>Blind JEPA</strong></td><td>Resampling, not prediction</td><td>—</td><td class="holds-no">NO</td></tr>
+<tr><td>5</td><td><strong>Meta-Rosetta</strong> (self-reference)</td><td><strong>Gödel-style breakdown</strong></td><td>0.80</td><td class="holds-no">NO</td></tr>
+<tr><td>6</td><td><strong>2D / 3D</strong> (not 1D)</td><td>Could survive if generalized</td><td>—</td><td class="holds-mid">CONDITIONAL</td></tr>
+<tr><td>7</td><td><strong>JEV-only</strong> (no JEPA)</td><td>"Prediction by definition" — tautological</td><td>—</td><td class="holds-mid">TAUTOLOGICAL</td></tr>
+<tr><td>8</td><td><strong>Substrate test</strong></td><td>Holds for actual Quilt cells</td><td>—</td><td class="holds-yes">YES</td></tr>
+<tr><td>9</td><td><strong>Strong inverse</strong> (PROOF↔JEPA)</td><td>Not identity; composition drift</td><td>—</td><td class="holds-no">NO</td></tr>
+<tr><td>10</td><td><strong>Long witness</strong> (1M entries)</td><td>Partial — practical limits, becomes pure history</td><td>0.70</td><td class="holds-mid">SCALE-BOUND</td></tr>
+</tbody>
+</table>
+
+<h2>The 4 load-bearing findings</h2>
+
+<div class="finding">
+<div class="finding-title">1. The framing breaks under self-reference (0.80)</div>
+<div class="finding-meta">Probe 5 — meta-Rosetta (Gödel-style self-reference)</div>
+<blockquote>
+The Rosetta-stone framing likely <strong>breaks under self-reference</strong>, as it attempts to validate itself in a manner analogous to Gödel's incompleteness. Its recursive nature introduces a paradox or inconsistency, undermining its claim of coherence.
+</blockquote>
+<p><strong>Implication</strong>: The Rosetta-stone claim cannot fully validate itself. Operationalize as an inspiring metaphor but NOT as a self-validating theorem.</p>
+</div>
+
+<div class="finding">
+<div class="finding-title">2. The framing is scale-bound (0.70)</div>
+<div class="finding-meta">Probe 10 — long witness (1M entries)</div>
+<blockquote>
+At the scale of a cell with 1,000,000 witness log entries... the sheer volume of data introduces practical challenges. Processing 1,000,000 entries requires significant computational resources, and the log may contain noise or irrelevant information that complicates predictive modeling.
+</blockquote>
+<p><strong>Implication</strong>: Rosetta is NOT scale-invariant. <strong>FORGET is load-bearing</strong> — it's the substrate's response to witness-log-becoming-history.</p>
+</div>
+
+<div class="finding">
+<div class="finding-title">3. The framing is approximate, not exact</div>
+<div class="finding-meta">Probe 9 — PROOF × JEPA composition</div>
+<blockquote>
+PROOF and JEPA are NOT exact inverses in practice. Compositions drift. The "Rosetta implies inverse" claim was the strongest version of the framing — it fails.
+</blockquote>
+<p><strong>Implication</strong>: The Rosetta stone gives us a local symmetry, not a global invertibility. Reflection has composition drift.</p>
+</div>
+
+<div class="finding">
+<div class="finding-title">4. The framing holds against noise but is fragile to structure</div>
+<div class="finding-meta">Probes 1, 2, 8 — inverse claims, tampering, substrate</div>
+<blockquote>
+The original framing (hearing=time, seeing=space) wins over the inverse at 0.80. Tampered witness logs preserve the equivalence. The Quilt cell model (BIND/LINK/EFFECT/VIEW/TICK) does support witness-log-IS-prediction.
+</blockquote>
+<p><strong>Implication</strong>: Robust to noise (random perturbations don't break it). Fragile to structure (assumptions about 1D, non-empty, self-consistent do break it).</p>
+</div>
+
+<h2>The substrate update — 8 laws instead of 5</h2>
+<ol>
+<li>Hearing = 1D-time operator (cell-as-cochlea)</li>
+<li>Seeing = 3D-space operator (cell-as-retina)</li>
+<li>JEV validates temporal invariant (in semantic space, NOT pure time)</li>
+<li>JEPA predicts spatial occlusion (in embedding space, NOT pure space)</li>
+<li>Rosetta cell translates between them — but only at modest scale and only without full self-reference</li>
+<li><strong>NEW</strong>: The framing breaks under self-reference (Gödel-style)</li>
+<li><strong>NEW</strong>: The framing is scale-bound (Rosetta-coherence degrades at large witness log sizes)</li>
+<li><strong>NEW</strong>: The framing is approximate, not exact — PROOF×JEPA ≠ identity</li>
+</ol>
+
+<h2>What we did NOT prove (canonized limits)</h2>
+<ul style="color:#ff6b6b">
+<li>The Rosetta-stone framing self-validates (Gödel: NO)</li>
+<li>The Rosetta-stone framing is scale-invariant (1M entries: NO)</li>
+<li>PROOF and JEPA are exact inverses (composition: NO)</li>
+<li>The framing is more than surface metaphor at the literal layer (Q4: NO @ 0.85)</li>
+</ul>
+
+<p style="color:#e8b840"><strong>Keep the metaphor for substrate poetry. Don't bind the operators. The framing is inspiring but not self-bootstrapping.</strong></p>
+
+<h2>Cross-references</h2>
+<div style="margin-top:2rem">
+  <a href="/lab/brew/rosetta-stone/" class="cta">🜍 ORIGINAL BREW</a>
+  <a href="/prose/the_rosetta_stone.md" class="cta alt">📜 LUCINEER'S PROSE</a>
+  <a href="/future/wave-32.md" class="cta">🧬 WAVE 32</a>
+  <a href="/future/wave-33.md" class="cta alt">🧬 WAVE 33 (stress cells)</a>
+  <a href="https://github.com/SuperInstance/fleet-radio-process/blob/master/docs/the-rosetta-stone.md" class="cta">PROCESS REPO</a>
+</div>
+
+</body>
+</html>

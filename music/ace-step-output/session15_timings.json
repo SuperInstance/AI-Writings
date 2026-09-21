@@ -1,0 +1,22 @@
+{
+  "A": {
+    "sf15-duration-240-ambient": 626.9939045906067,
+    "sf15-duration-240-folk": 324.1171522140503
+  },
+  "B": {
+    "sf15-seed-variance-seed42": 85.06955862045288,
+    "sf15-seed-variance-seed137": 115.66644644737244,
+    "sf15-seed-variance-seed256": 107.35004901885986,
+    "sf15-seed-variance-seed777": 140.46162009239197
+  },
+  "C": {
+    "sf15-mashup-baroque-dnb": 100.00548672676086,
+    "sf15-mashup-throat-singing-synthwave": 92.62552976608276,
+    "sf15-mashup-blues-kpop": 99.0694944858551,
+    "sf15-mashup-gregorian-techno": 105.14299631118774
+  },
+  "D": {
+    "sf15-cover-ref-clean-folk": 139.95467567443848,
+    "sf15-cover-ref-clean-ambient": 95.62554383277893
+  }
+}

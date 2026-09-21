@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>📈 Improvement Pulse — substrate grows while you sleep</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:4px;margin-bottom:0.5em}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem 1.5rem;margin:1.5rem 0;color:#ccc;font-style:italic}
+.doctrine strong{color:#e8b840;font-style:normal}
+.pulse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.pulse{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.2rem;transition:all 0.3s}
+.pulse.tick{border-color:#e8b840;transform:scale(1.02);box-shadow:0 0 20px rgba(232,184,64,0.3)}
+.pulse-icon{font-size:2em;margin-bottom:.3rem}
+.pulse-name{color:#e8b840;font-family:'Courier New',monospace;font-weight:bold;font-size:1em;margin-bottom:.5rem}
+.pulse-count{color:#44cc88;font-family:'Courier New',monospace;font-size:1.8em;font-weight:bold;margin-bottom:.3rem}
+.pulse-rate{color:#888;font-size:0.75em;font-style:italic}
+.controls{margin:1.5rem 0;text-align:center}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.4rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin:.3rem}
+button:hover{background:#e8b840;color:#0a0a14}
+.event-log{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin:2rem 0;font-family:'Courier New',monospace;font-size:0.85em;max-height:300px;overflow-y:auto;color:#ccc;line-height:1.6}
+.event-log .entry{padding:.2rem 0}
+.event-log .time{color:#5f9ea0}
+.event-log .evt{color:#e8b840}
+.event-log .kind{color:#44cc88;font-weight:bold}
+.doctrine-section{margin:2rem 0;padding:1.5rem;background:rgba(232,184,64,0.05);border-radius:8px;border:1px solid #2a2a3a}
+.doctrine-section h3{color:#e8b840;margin-bottom:1rem}
+.doctrine-section p{color:#ccc;margin-bottom:1rem}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/autoclaw/">autoclaw</a><a href="/crew-flow/">crew-flow</a><a href="/qa-tutor/">qa-tutor</a></div>
+
+<h1>📈 Improvement Pulse</h1>
+<p style="color:#bbb;font-style:italic">A live monitor of every way the substrate improves. Click <em>tick</em> to simulate one minute of crew activity. Watch the counters rise.</p>
+
+<div class="doctrine">
+<strong>Every webpage is a continuously improving artifact.</strong> While you sleep, the crew runs: the researcher watches the canon, the teacher writes Q&A, the critic validates, the distiller publishes. By morning, every page is slightly better than the night before.
+</div>
+
+<div class="controls">
+  <button onclick="tick()">▶ tick (1 min)</button>
+  <button onclick="hour()">▶ tick (1 hour)</button>
+  <button onclick="day()">▶ tick (1 day)</button>
+  <button onclick="reset()">↺ reset</button>
+</div>
+
+<div class="pulse-grid" id="grid"></div>
+
+<div class="event-log" id="log">
+  <div class="entry"><span class="time">[--:--:--]</span> <span class="evt">pulse initialized</span></div>
+</div>
+
+<div class="doctrine-section">
+  <h3>📖 The math behind the pulse</h3>
+  <p>Each pulse category improves at a different rate:</p>
+  <p><strong>brews:</strong> ~0.5/min · 30/hour · 720/day. Single LLM calls per brew. The brewery runs every 26 seconds on average.</p>
+  <p><strong>q&amp;a pairs:</strong> ~0.2/min · 12/hour · 288/day. Teacher generates 5 pairs per topic. Each topic is a substrate concept.</p>
+  <p><strong>prose pieces:</strong> ~0.05/min · 3/hour · 72/day. Distiller batches Q&amp;A + critic notes into canon pieces.</p>
+  <p><strong>scars recorded:</strong> ~0.1/min · 6/hour · 144/day. Every failed BIND, every contradicted PROOF leaves a scar.</p>
+  <p><strong>critic verdicts:</strong> ~0.3/min · 18/hour · 432/day. JEV scores every proof attempt.</p>
+  <p><strong>witness entries:</strong> ~0.7/min · 42/hour · 1008/day. The substrate's atomic event log.</p>
+  <p><strong>cells bound:</strong> ~0.2/min · 12/hour · 288/day. New cell-to-cell links added.</p>
+  <p><strong>canon pages improved:</strong> ~0.02/min · 1.2/hour · 28.8/day. Each improvement takes ~50 minutes of crew work.</p>
+</div>
+
+<script>
+const PULSES = [
+  { id: 'brews', icon: '🧪', name: 'brews run', perMin: 0.5, count: 105 },
+  { id: 'qa', icon: '📚', name: 'Q&A pairs', perMin: 0.2, count: 0 },
+  { id: 'prose', icon: '📝', name: 'prose pieces', perMin: 0.05, count: 11 },
+  { id: 'scars', icon: '🌳', name: 'scars recorded', perMin: 0.1, count: 4 },
+  { id: 'verdicts', icon: '⚖️', name: 'critic verdicts', perMin: 0.3, count: 0 },
+  { id: 'witnesses', icon: '👁️', name: 'witness entries', perMin: 0.7, count: 0 },
+  { id: 'binds', icon: '🔗', name: 'cells bound', perMin: 0.2, count: 0 },
+  { id: 'pages', icon: '📈', name: 'pages improved', perMin: 0.02, count: 0 },
+];
+
+const counts = {};
+PULSES.forEach(p => counts[p.id] = p.count);
+
+function build() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  PULSES.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'pulse';
+    card.id = `pulse-${p.id}`;
+    card.innerHTML = `
+      <div class="pulse-icon">${p.icon}</div>
+      <div class="pulse-name">${p.name}</div>
+      <div class="pulse-count" id="count-${p.id}">${counts[p.id]}</div>
+      <div class="pulse-rate">~${(p.perMin*60).toFixed(1)}/hour</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function logEvent(evt, kind) {
+  const time = new Date().toLocaleTimeString();
+  const entry = document.createElement('div');
+  entry.className = 'entry';
+  entry.innerHTML = `<span class="time">[${time}]</span> <span class="kind">${kind}</span> ${evt}`;
+  const log = document.getElementById('log');
+  log.insertBefore(entry, log.firstChild);
+  if (log.children.length > 100) log.removeChild(log.lastChild);
+}
+
+function tick(minutes = 1) {
+  PULSES.forEach(p => {
+    const add = Math.round(p.perMin * minutes * (0.7 + Math.random() * 0.6));
+    if (add > 0) {
+      counts[p.id] += add;
+      document.getElementById(`count-${p.id}`).textContent = counts[p.id];
+      const card = document.getElementById(`pulse-${p.id}`);
+      card.classList.add('tick');
+      setTimeout(() => card.classList.remove('tick'), 600);
+      const actions = {
+        brews: 'ran a brew round',
+        qa: 'generated Q&A pairs',
+        prose: 'published a canon piece',
+        scars: 'marked a scar',
+        verdicts: 'issued a JEV verdict',
+        witnesses: 'wrote witness entries',
+        binds: 'bound cells together',
+        pages: 'improved a page',
+      };
+      for (let i = 0; i < Math.min(add, 3); i++) {
+        logEvent(actions[p.id], p.icon);
+      }
+    }
+  });
+}
+
+function hour() { tick(60); logEvent('one hour simulated', '⏰'); }
+function day() { tick(60 * 24); logEvent('one day simulated', '☀️'); }
+
+function reset() {
+  PULSES.forEach(p => counts[p.id] = p.count);
+  build();
+  document.getElementById('log').innerHTML = '<div class="entry"><span class="time">[--:--:--]</span> <span class="evt">reset complete</span></div>';
+}
+
+build();
+
+// Auto-tick once on load to show the pulse in motion
+setTimeout(() => tick(1), 500);
+</script></body></html>

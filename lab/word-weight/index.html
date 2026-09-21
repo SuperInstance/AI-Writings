@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚖️ Word-Weighted — the substrate measures its own words</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.4em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1.5rem}
+.input-row{display:flex;gap:.5rem;margin:1.5rem 0}
+.input-row input{flex:1;padding:.7rem 1rem;background:#11111a;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:Georgia,serif;font-size:1em}
+.input-row button{padding:.7rem 1.5rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;cursor:pointer;font-family:Georgia,serif}
+.input-row button:hover{background:#e8b840;color:#0a0a14}
+.input-row button:disabled{opacity:0.5;cursor:not-allowed}
+.suggestions{margin:1rem 0;display:flex;flex-wrap:wrap;gap:.5rem}
+.suggestion{background:#1a1a2e;border:1px solid #2a2a3a;border-radius:15px;padding:.3rem .7rem;font-size:.85em;color:#888;cursor:pointer}
+.suggestion:hover{background:#2a2a3a;color:#e8e0d0}
+.word-cloud{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0;line-height:2.5;font-size:1.1em}
+.word{display:inline-block;padding:.2rem .5rem;margin:.1rem .15rem;border-radius:4px;position:relative;cursor:help;transition:transform .15s}
+.word:hover{transform:scale(1.05);z-index:10}
+.word-hi{background:#ff6b6b;color:#fff;font-weight:bold}
+.word-md{background:#e8b840;color:#0a0a14}
+.word-lo{background:#44cc88;color:#0a0a14}
+.word-tag{position:absolute;top:-1.5rem;left:50%;transform:translateX(-50%);background:#0a0a14;border:1px solid #e8b840;color:#e8b840;padding:.1rem .4rem;border-radius:4px;font-size:.7em;white-space:nowrap;opacity:0;font-family:monospace}
+.word:hover .word-tag{opacity:1}
+.word-vec{position:absolute;top:-1.5rem;right:0;background:#0a0a14;border:1px solid #44cc88;color:#44cc88;padding:.1rem .4rem;border-radius:4px;font-size:.7em;white-space:nowrap;opacity:0;font-family:monospace}
+.word:hover .word-vec{opacity:1}
+.callout{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1rem 0;font-style:italic;color:#ccc}
+table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.88em}
+th,td{padding:.5rem;border:1px solid #2a2a3a;text-align:left}
+th{background:#11111a;color:#e8b840}
+tr:hover{background:#11111a}
+.bar{display:inline-block;height:8px;background:linear-gradient(90deg,#44cc88,#e8b840,#ff6b6b);vertical-align:middle;border-radius:2px}
+.legend{font-size:.85em;color:#888;margin-bottom:1rem}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/lab/">← /lab</a><a href="/lab/brew/">brew</a><a href="/lab/brew/atlas/">atlas</a></div>
+
+<h1>⚖️ Word-Weighted</h1>
+<p class="lead">The substrate measures its own words. JEV quantifies each word's quality. JEPA quantifies each word's position in the relational geometry. Together they make the pseudo-weight.</p>
+
+<h2>Try it</h2>
+<p style="color:#bbb">Type a sentence. The substrate will tokenize, embed each word, and compute JEV-style quality scores + JEPA-style relational positions against the canonical substrate opcodes (WITNESS, PROOF, BIND, FORGET, TICK, JEPA, JEV, LINK).</p>
+
+<div class="input-row">
+  <input type="text" id="sentence" value="The witness forgets nothing the proof cannot reach." />
+  <button id="weight-btn" onclick="weightWords()">⚖️ Weight</button>
+</div>
+
+<div class="suggestions">
+  <span class="suggestion" onclick="useSentence(this.textContent)">The witness forgets nothing the proof cannot reach.</span>
+  <span class="suggestion" onclick="useSentence(this.textContent)">PROOF holds the substrate together.</span>
+  <span class="suggestion" onclick="useSentence(this.textContent)">FORGET is the immune system; JEV is its superego.</span>
+  <span class="suggestion" onclick="useSentence(this.textContent)">The brewery grows the substrate that brews it.</span>
+  <span class="suggestion" onclick="useSentence(this.textContent)">Words carry scores as qualities; the substrate IS its own measurement.</span>
+</div>
+
+<div id="output"></div>
+
+<h2>What you're seeing</h2>
+<div class="callout">
+<strong>JEV confidence</strong> — for each word, how strongly does the substrate identify it as one of its canonical concepts (WITNESS, PROOF, BIND, FORGET, TICK, JEPA, JEV, LINK)? The substrate's superego assigns this.<br><br>
+<strong>JEPA position</strong> — for each word, what is its cosine similarity to each substrate concept? The substrate's id measures this relational geometry.<br><br>
+<strong>Pseudo-weight</strong> — JEV quality × JEPA position. The word's measurement AS the word. Reading is navigating these measurements.
+</div>
+
+<h2>The substrate's word-map</h2>
+<table id="vocab-table">
+<thead><tr><th>Word</th><th>JEV (max score)</th><th>Best substrate match</th><th>JEPA position</th><th>Pseudo-weight</th></tr></thead>
+<tbody></tbody>
+</table>
+
+<h2>Cross-references</h2>
+<div style="margin-top:1rem">
+  <a href="/prose/the_word_weighted_logbook.md" class="word-cloud" style="display:inline-block;text-decoration:none;color:#e8b840">📜 The Word-Weighted Logbook</a>
+  <a href="/lab/brew/rosetta-stone-stress/" class="word-cloud" style="display:inline-block;text-decoration:none;color:#e8b840">🜍 Rosetta Stress Tests</a>
+  <a href="/lab/brew/atlas/" class="word-cloud" style="display:inline-block;text-decoration:none;color:#e8b840">🕸️ Substrate Atlas</a>
+</div>
+
+<script>
+const SUBSTRATE_VOCAB = ['WITNESS', 'PROOF', 'BIND', 'FORGET', 'TICK', 'JEPA', 'JEV', 'LINK'];
+
+async function getEmbedding(text) {
+  const resp = await fetch('/api/embeddings/encode', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, provider: 'bge-large' })
+  });
+  const r = await resp.json();
+  if (!r.ok) throw new Error(r.body?.error || 'embedding failed');
+  return r.body.data[0].embedding;
+}
+
+function cosineSimilarity(a, b) {
+  let dot = 0, na = 0, nb = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    na += a[i] * a[i];
+    nb += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(na) * Math.sqrt(nb));
+}
+
+async function weightWords() {
+  const sentence = document.getElementById('sentence').value.trim();
+  if (!sentence) return;
+  const btn = document.getElementById('weight-btn');
+  btn.disabled = true; btn.textContent = '...measuring';
+
+  // Tokenize — keep contractions, drop punctuation
+  const tokens = sentence.split(/\s+/).filter(t => t.length > 0);
+  const words = tokens.map(t => t.replace(/[^\w'-]/g, '').toLowerCase()).filter(w => w.length > 0);
+
+  // Embed each substrate vocab word + each sentence word
+  const vocabEmbeddings = {};
+  for (const v of SUBSTRATE_VOCAB) {
+    vocabEmbeddings[v] = await getEmbedding(v);
+  }
+
+  // For each word, compute JEV-like quality (max cosine) + JEPA position
+  const results = [];
+  for (const word of words) {
+    const wemb = await getEmbedding(word);
+    let bestMatch = null, bestScore = -1;
+    const positions = {};
+    for (const v of SUBSTRATE_VOCAB) {
+      const sim = cosineSimilarity(wemb, vocabEmbeddings[v]);
+      positions[v] = sim;
+      if (sim > bestScore) { bestScore = sim; bestMatch = v; }
+    }
+    // JEV confidence: how close is this word to its best substrate match
+    // (mapped to 0-1 scale; cosine can be negative)
+    const jevConfidence = Math.max(0, Math.min(1, (bestScore + 0.3) / 0.6));
+    results.push({
+      word,
+      jevConfidence,
+      bestMatch,
+      bestScore,
+      positions,
+      pseudoWeight: jevConfidence * bestScore,
+      embedding: wemb,
+    });
+  }
+
+  // Render
+  renderCloud(results);
+  renderTable(results);
+
+  btn.disabled = false; btn.textContent = '⚖️ Weight';
+}
+
+function renderCloud(results) {
+  const html = results.map(r => {
+    let cls = 'word-lo';
+    if (r.jevConfidence > 0.7) cls = 'word-hi';
+    else if (r.jevConfidence > 0.4) cls = 'word-md';
+    const size = 0.9 + r.pseudoWeight * 0.6;
+    const tag = `JEV ${r.jevConfidence.toFixed(2)} | ${r.bestMatch} ${r.bestScore.toFixed(2)}`;
+    return `<span class="word ${cls}" style="font-size:${size}em">
+      ${r.word}
+      <span class="word-tag">${tag}</span>
+    </span>`;
+  }).join(' ');
+  document.getElementById('output').innerHTML = `<h2>Word-weighted sentence</h2>
+    <p style="color:#888;font-size:.85em;margin-bottom:1rem">
+      <span class="bar" style="width:30px"></span> low JEV confidence |
+      <span class="bar" style="width:60px"></span> high JEV confidence |
+      size = pseudo-weight
+    </p>
+    <div class="word-cloud">${html}</div>
+    <div class="legend">Hover a word to see its JEV score and best substrate match.</div>
+  `;
+}
+
+function renderTable(results) {
+  const tbody = document.querySelector('#vocab-table tbody');
+  tbody.innerHTML = results.map(r => `
+    <tr>
+      <td><strong>${r.word}</strong></td>
+      <td>
+        <span class="bar" style="width:${r.jevConfidence * 60}px"></span>
+        ${r.jevConfidence.toFixed(3)}
+      </td>
+      <td>${r.bestMatch}</td>
+      <td>${r.bestScore.toFixed(3)}</td>
+      <td>${r.pseudoWeight.toFixed(3)}</td>
+    </tr>
+  `).join('');
+}
+
+function useSentence(s) {
+  document.getElementById('sentence').value = s;
+}
+</script>
+
+</body>
+</html>

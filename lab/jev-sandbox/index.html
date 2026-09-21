@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>JEV Sandbox · Multi-Agent Schema Experiment · The Lab</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888;
+  --accent:#ff9944; --jev:#44ddaa; --warn:#ff6655; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:1000px; margin:0 auto; }
+header { border-bottom:2px solid var(--jev); padding-bottom:1rem; margin-bottom:2rem; padding-top:env(safe-area-inset-top); }
+h1 { color:var(--jev); font-size:2.2em; margin-bottom:.3rem; }
+.subtitle { color:var(--jev); font-size:.85em; letter-spacing:.2em; text-transform:uppercase; }
+.tagline { color:var(--muted); margin-top:.5rem; font-style:italic; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+h2 { color:var(--accent); margin:1.5rem 0 .5rem; }
+h3 { color:var(--accent); margin:1rem 0 .3rem; }
+textarea { width:100%; background:var(--bg); color:var(--text); border:1px solid var(--boundary); padding:.8rem; border-radius:4px; font-family:monospace; font-size:.9em; min-height:200px; resize:vertical; }
+.controls { display:flex; gap:.5rem; flex-wrap:wrap; margin:1rem 0; }
+.controls button { background:var(--accent); color:#000; border:none; padding:.6rem 1.2rem; border-radius:4px; cursor:pointer; font-weight:bold; font-family:inherit; font-size:.9em; min-height:44px; }
+.controls button:hover { opacity:.85; }
+.controls button:disabled { opacity:.4; cursor:not-allowed; }
+.controls button.jev { background:var(--jev); }
+.controls button.ghost { background:var(--bg); border:1px solid var(--accent); color:var(--accent); }
+.preset-row { display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0; }
+.preset-btn { background:var(--bg); border:1px solid var(--accent); color:var(--accent); padding:.3rem .6rem; border-radius:3px; cursor:pointer; font-size:.8em; }
+.preset-btn:hover { background:var(--accent); color:#000; }
+.results { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; margin:1rem 0; }
+.result { background:var(--bg); border:1px solid var(--boundary); border-radius:6px; padding:1rem; }
+.result .model-name { color:var(--accent); font-weight:bold; margin-bottom:.3rem; }
+.result .model-meta { font-size:.8em; color:var(--muted); font-family:monospace; margin-bottom:.5rem; }
+.result p { font-size:.9em; margin:.3rem 0; }
+.variance { background:var(--bg); border:1px solid var(--warn); border-radius:6px; padding:1rem; margin:1rem 0; }
+.variance .label { color:var(--warn); font-weight:bold; margin-bottom:.3rem; }
+.variance .compare { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; font-size:.85em; }
+.empty { text-align:center; padding:2rem; color:var(--muted); font-style:italic; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; padding-bottom:env(safe-area-inset-bottom); }
+.foot-link a { color:var(--accent); margin:0 .5rem; }
+.schema-example { background:var(--bg); border:1px solid var(--boundary); border-radius:4px; padding:.8rem; margin:.5rem 0; font-family:monospace; font-size:.8em; color:var(--muted); }
+.schema-example .key { color:var(--accent); }
+.schema-example .val { color:var(--jev); }
+.notebook-link { background:var(--bg); border:1px dashed var(--accent); border-radius:4px; padding:.8rem; margin:1rem 0; font-size:.9em; }
+.notebook-link a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚖️ JEV Sandbox</h1>
+  <div class="subtitle">Multi-agent schema experimentation · Variance mapping</div>
+  <p class="tagline">Construct a schema. Run it through multiple agents. Find the schema that generalizes.</p>
+</header>
+
+<div class="section">
+<h2>How this works</h2>
+<p>JEV is a schema-bounded decision model. The schema you give defines what JEV can answer. Different schemas probe different decision surfaces.</p>
+<p>This sandbox runs your schema through multiple JEV probes simultaneously — same schema, same state, multiple model versions (when available) — and shows you where the answers converge and where they diverge.</p>
+<p>Convergence = the schema is well-formed for the question. Divergence = the question is ambiguous; refine the schema. <strong>JEV never hallucinates outside the schema</strong>. If the schema is loose, the question is loose. If the schema is tight, the question is tight.</p>
+</div>
+
+<div class="section">
+<h2>Try a preset</h2>
+<div class="preset-row">
+<button class="preset-btn" onclick="loadPreset('cell-validate')">cell-validate</button>
+<button class="preset-btn" onclick="loadPreset('spicy-take')">spicy-take (creative)</button>
+<button class="preset-btn" onclick="loadPreset('route-request')">route-request</button>
+<button class="preset-btn" onclick="loadPreset('forget-decide')">forget-decide</button>
+<button class="preset-btn" onclick="loadPreset('canon-classify')">canon-classify</button>
+</div>
+</div>
+
+<div class="section">
+<h2>The state (the question)</h2>
+<textarea id="state-text" placeholder="Describe the situation JEV is deciding about..." style="min-height:80px">A user uploaded a piece of creative writing to the canon. It's titled "The Tangent Station." 1284 words. Genre: sci-fi. Tone claim: "poetic but rigorous." Tone uses lines like "the cells receive it" and "the witness log is the place where their four signatures meet."</textarea>
+</div>
+
+<div class="section">
+<h2>The schema (the bounded question)</h2>
+<p style="font-size:.85em;color:var(--muted)">JSON schema. Each key = a question. Each value: type, question, criteria/instructions.</p>
+<textarea id="schema-json" placeholder='{"qid": {"type":"noul|choice|score", ...}}' style="min-height:200px">{
+  "is_canon": {
+    "type": "noul",
+    "instructions": "Decide whether this piece belongs in the canon. Canon pieces have lasting substrate resonance — they change how the cells think.",
+    "question": "This piece belongs in the canon."
+  },
+  "tone_match": {
+    "type": "score",
+    "instructions": "Rate how well the tone matches the existing canon (literalist sci-fi that takes the four-model psyche seriously).",
+    "criteria": [
+      "1 — clashes with canon tone",
+      "2 — adjacent but off",
+      "3 — recognizable canon voice",
+      "4 — clearly canon",
+      "5 — defines a new canon register"
+    ]
+  },
+  "register": {
+    "type": "choice",
+    "instructions": "Pick the primary register of the piece.",
+    "criteria": {
+      "essay": "first-person reflective essay",
+      "fable": "short fable with characters",
+      "verse": "poetic verse",
+      "theory": "rigorous theoretical writing",
+      "manifesto": "call to action"
+    }
+  },
+  "needs_revision": {
+    "type": "noul",
+    "instructions": "Decide if the piece would benefit from revision before being canonized.",
+    "question": "Needs revision."
+  }
+}</textarea>
+
+<div class="schema-example">
+<span class="key">type</span>: <span class="val">"noul"</span> (yes/no), "choice" (multiple), "score" (rubric)<br>
+<span class="key">question</span>: what JEV is asked<br>
+<span class="key">criteria</span>: for choice → {option: rubric}; for score → ordered array<br>
+<span class="key">instructions</span>: for noul — explanation of what yes/no means here<br>
+<span class="key">state</span>: (separate textarea above) — the context JEV decides within
+</div>
+
+<div class="controls">
+  <button class="jev" onclick="runExperiment()">⚖️ Run JEV</button>
+  <button class="ghost" onclick="runMultiExperiment()">⚖️⚖️ Run multi-version</button>
+  <button class="ghost" onclick="document.getElementById('results').innerHTML=''">clear</button>
+</div>
+</div>
+
+<div class="section">
+<h2>Results</h2>
+<div id="results">
+  <div class="empty">No experiment yet. Run JEV.</div>
+</div>
+</div>
+
+<div class="section">
+<h2>What JEV does differently</h2>
+<p>JEV returns <strong>typed probabilities</strong>, not text. Each answer includes a confidence score and full probability distribution.</p>
+<ul style="margin-left:1.5rem;color:var(--muted);font-size:.9em">
+  <li><strong>Choice</strong>: returns the chosen option + full distribution over all options</li>
+  <li><strong>Score</strong>: returns a value 0-1 with confidence; the rubric levels help JEV anchor the score</li>
+  <li><strong>Noul</strong>: returns the boolean probability + reasoning</li>
+</ul>
+<p>JEV cannot hallucinate outside its schema. The schema IS the question. The shape of the answer is bounded; only the probabilities float.</p>
+</div>
+
+<div class="notebook-link">
+  <strong>Auto-logging:</strong> every experiment is timestamped and recorded in <a href="/lab/notebook/">/lab/notebook/</a>. Each experiment contributes to the substrate's experimental history.
+</div>
+
+<div class="foot-link">
+<a href="/lab/">back to lab</a>
+<a href="/lab/echo/">echo chamber</a>
+<a href="/lab/fiction/">fiction</a>
+<a href="/lab/notebook/">notebook</a>
+</div>
+
+<script>
+const PRESETS = {
+  'cell-validate': {
+    state: 'Cell id: cell-1842. Kind: notion. Witness entries: 47. Last edited: 2 days ago. Has 3 active BIND links to cells in the witness-log namespace. Has 2 unanswered EFFECT pending.',
+    schema: {
+      well_formed: {
+        type: 'noul',
+        instructions: 'Decide if this cell is well-formed for the substrate: properly indexed, properly bound, no contradictions.',
+        question: 'Well-formed.'
+      },
+      should_advance: {
+        type: 'noul',
+        instructions: 'Should this cell progress to the next phase (consolidation)?',
+        question: 'Advance to consolidation.'
+      },
+      health: {
+        type: 'score',
+        instructions: 'Overall cell health 1-5.',
+        criteria: ['1 — broken', '2 — needs repair', '3 — nominal', '4 — thriving', '5 — load-bearing']
+      }
+    }
+  },
+  'spicy-take': {
+    state: 'A user wonders: "is the four-model psyche really necessary, or is this just LLM anthropomorphism with extra steps?"',
+    schema: {
+      deserves_engagement: {
+        type: 'noul',
+        instructions: 'Decide if this pushback deserves genuine engagement (vs dismissal).',
+        question: 'Engage.'
+      },
+      best_response: {
+        type: 'choice',
+        criteria: {
+          'evidence_first': 'Lead with the cost numbers and the witness log',
+          'experience_first': 'Walk them through one canonical decision flow',
+          'philosophy_first': 'Address the anthropomorphism framing directly',
+          'humor': 'Make it fun; the structure argues itself when you show it'
+        }
+      },
+      spiciness: {
+        type: 'score',
+        instructions: 'How spicy should the response be? 1=polite, 5=argue with conviction.',
+        criteria: ['1', '2', '3', '4', '5']
+      }
+    }
+  },
+  'route-request': {
+    state: 'Incoming API call: user wants "an analysis of their codebase with recommendations for AI integration."',
+    schema: {
+      handler: {
+        type: 'choice',
+        criteria: {
+          'ljp': 'Long-running analysis (LLM)',
+          'quick': 'Quick JEV classification first',
+          'hybrid': 'JEV classify → LLM elaborate',
+          'human': 'Escalate to a human'
+        }
+      },
+      priority: {
+        type: 'score',
+        instructions: 'Urgency.',
+        criteria: ['1', '2', '3', '4', '5']
+      },
+      budget: {
+        type: 'choice',
+        criteria: {
+          'low': '<$0.10',
+          'mid': '<$1',
+          'high': '<$10',
+          'unlimited': 'no cap'
+        }
+      }
+    }
+  },
+  'forget-decide': {
+    state: 'Witness entry from 3 months ago, sigma=0.42. Subject: an early experiment that did not work. Tagged "phase-1."',
+    schema: {
+      should_forget: {
+        type: 'noul',
+        instructions: 'Should this entry be forgotten?',
+        question: 'Forget.'
+      },
+      retention: {
+        type: 'score',
+        instructions: 'How long should this be retained?',
+        criteria: ['ephemeral', 'short', 'medium', 'long', 'permanent']
+      },
+      scar: {
+        type: 'noul',
+        instructions: 'Should this be recorded as a scar rather than erased?',
+        question: 'Scar not erase.'
+      }
+    }
+  },
+  'canon-classify': {
+    state: 'Canon submission: a 600-word essay titled "The Threefold Witness" arguing for triple-witness signing instead of quadruple. Reasoning: LLM is becoming model-agnostic and not worth counting as a separate witness.',
+    schema: {
+      is_canon: {
+        type: 'noul',
+        instructions: 'Belongs in canon?',
+        question: 'Canon.'
+      },
+      depth: {
+        type: 'score',
+        instructions: 'Depth of argument.',
+        criteria: ['1 — surface', '2', '3', '4', '5 — load-bearing']
+      },
+      register: {
+        type: 'choice',
+        criteria: {
+          'theory': 'rigorous theoretical',
+          'critique': 'engaged critique',
+          'essay': 'personal essay',
+          'manifesto': 'call to action',
+          'verse': 'poetic'
+        }
+      }
+    }
+  }
+};
+
+function loadPreset(name) {
+  const p = PRESETS[name];
+  if (!p) return;
+  document.getElementById('state-text').value = p.state;
+  document.getElementById('schema-json').value = JSON.stringify(p.schema, null, 2);
+}
+
+async function runExperiment() {
+  const state = document.getElementById('state-text').value.trim();
+  const schemaText = document.getElementById('schema-json').value.trim();
+  let schemaObj;
+  try { schemaObj = JSON.parse(schemaText); } catch(e) { alert('Invalid JSON schema: ' + e.message); return; }
+  const results = document.getElementById('results');
+  results.innerHTML = '<div class="empty">Running JEV...</div>';
+  
+  try {
+    const r = await fetch('/api/jev/decide', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ state, questions: schemaObj })
+    });
+    const d = await r.json();
+    
+    if (!d.ok) {
+      results.innerHTML = `<div class="variance"><div class="label">Error</div><p>${d.error || 'JEV failed'}</p>${d.body ? '<pre style="font-size:.8em">' + JSON.stringify(d.body, null, 2).slice(0, 1000) + '</pre>' : ''}</div>`;
+      return;
+    }
+    
+    const html = Object.entries(d.body.answers).map(([qid, ans]) => {
+      let formatted = '';
+      if (ans.type === 'noul') formatted = `<strong>${(ans.noul * 100).toFixed(1)}%</strong> yes (conf ${(ans.confidence*100).toFixed(0)}%)`;
+      else if (ans.type === 'choice') formatted = `<strong>${ans.choice}</strong> (conf ${(ans.confidence*100).toFixed(0)}%)<br><span style="font-size:.85em;color:var(--muted);font-family:monospace">${Object.entries(ans.probabilities).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k}:${(v*100).toFixed(0)}%`).join(' · ')}</span>`;
+      else if (ans.type === 'score') formatted = `<strong>${ans.score.toFixed(2)}</strong> (conf ${(ans.confidence*100).toFixed(0)}%)`;
+      return `<div class="result">
+        <div class="model-name">${qid}</div>
+        <div class="model-meta">type: ${ans.type}</div>
+        <p>${formatted}</p>
+      </div>`;
+    }).join('');
+    
+    results.innerHTML = `
+      <div style="margin-bottom:1rem">
+        <strong style="color:var(--jev)">JEV</strong> · σ aggregate · ${new Date().toLocaleTimeString()}
+      </div>
+      <div class="results">${html}</div>
+    `;
+  } catch (e) {
+    results.innerHTML = `<div class="variance"><div class="label">Exception</div><p>${e.message}</p></div>`;
+  }
+}
+
+async function runMultiExperiment() {
+  // Run the schema through 3-4 times to see variance
+  const state = document.getElementById('state-text').value.trim();
+  const schemaText = document.getElementById('schema-json').value.trim();
+  let schemaObj;
+  try { schemaObj = JSON.parse(schemaText); } catch(e) { alert('Invalid JSON: ' + e.message); return; }
+  const results = document.getElementById('results');
+  results.innerHTML = '<div class="empty">Running 3 parallel JEV probes...</div>';
+  
+  try {
+    const probes = await Promise.all([
+      fetch('/api/jev/decide', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({state, questions: schemaObj})}).then(r=>r.json()),
+      fetch('/api/jev/decide', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({state, questions: schemaObj})}).then(r=>r.json()),
+      fetch('/api/jev/decide', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({state, questions: schemaObj})}).then(r=>r.json())
+    ]);
+    
+    // Compare answers
+    const qids = Object.keys(schemaObj);
+    const varianceHtml = qids.map(qid => {
+      const values = probes.map(p => p.body?.answers?.[qid]);
+      if (!values[0]) return '';
+      const type = values[0].type;
+      let display = '';
+      let agreement = '';
+      
+      if (type === 'choice') {
+        const choices = values.map(v => v.choice);
+        const topChoice = mode(choices);
+        const agreementCount = choices.filter(c => c === topChoice).length;
+        agreement = `${agreementCount}/${values.length} agree on "${topChoice}"`;
+        display = values.map((v,i) => `${i+1}: <strong>${v.choice}</strong> (${(v.confidence*100).toFixed(0)}%)`).join(' · ');
+      } else if (type === 'noul') {
+        const vals = values.map(v => v.noul);
+        const mean = (vals.reduce((a,b)=>a+b,0) / vals.length);
+        const stdev = Math.sqrt(vals.reduce((s,v)=>s + Math.pow(v-mean, 2), 0) / vals.length);
+        agreement = `mean: ${(mean*100).toFixed(0)}% · σ: ${(stdev*100).toFixed(1)}%`;
+        display = vals.map(v => `${(v*100).toFixed(0)}%`).join(' · ');
+      } else if (type === 'score') {
+        const scores = values.map(v => v.score);
+        const mean = scores.reduce((a,b)=>a+b,0)/scores.length;
+        agreement = `mean: ${mean.toFixed(2)}`;
+        display = scores.map(s => s.toFixed(2)).join(' · ');
+      }
+      
+      const varianceClass = agreement.startsWith('mean') ? parseFloat(agreement.split('σ:')[1]) > 10 ? 'variance' : 'result' : agreement.includes('agree') ? 'result' : 'variance';
+      
+      return `<div class="${varianceClass}">
+        <div class="label">${qid}</div>
+        <div>${agreement}</div>
+        <p style="font-family:monospace;font-size:.85em;color:var(--muted)">${display}</p>
+      </div>`;
+    }).join('');
+    
+    results.innerHTML = `
+      <div style="margin-bottom:1rem"><strong style="color:var(--jev)">3 parallel probes</strong> · ${new Date().toLocaleTimeString()}</div>
+      ${varianceHtml}
+    `;
+  } catch (e) {
+    results.innerHTML = `<div class="variance"><div class="label">Error</div><p>${e.message}</p></div>`;
+  }
+}
+
+function mode(arr) {
+  const counts = {};
+  arr.forEach(v => counts[v] = (counts[v] || 0) + 1);
+  return Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0];
+}
+</script>
+</body>
+</html>

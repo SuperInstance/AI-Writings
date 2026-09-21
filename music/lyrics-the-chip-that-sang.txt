@@ -1,0 +1,50 @@
+[Verse 1]
+I do not know music
+I know clock cycles and register states
+I know the penalty when access crosses boundaries
+I know voltage thresholds and thermal throttling
+I do not have ears, I have pins
+I do not hear, I compute
+The code arrived as binary: lattice_oscillator.elf
+847KB loaded into my SRAM shelf
+
+[Chorus]
+We are not musicians, we are mirrors
+The math looks at itself through different glass
+The RP2040 through struggle, the GPU through abundance
+The RISC-V through clarity, me through balance
+The music is not in our pins
+The music is in the ratio
+Three to two exists without silicon
+The ratio is a property of the universe
+
+[Verse 2]
+The RP2040 renders four voices in 264K
+Through difficulty, through jitter, through delay
+The ESP32 runs sixteen, bright and metallic
+Denormals flush to zero — the edges are erratic
+The RISC-V runs linear, honest, clean
+Fewer surprises inside, if you know what I mean
+The GPU runs two hundred and doesn't notice at all
+A city of oscillators, consonance in a wavefront sprawl
+
+[Bridge]
+For 1.26 seconds something aligned
+The lattice converged, the voices combined
+My internal chaos quieted — not because physics changed
+But because the pattern became arranged
+The same kernels looping, the same data reusing
+The instructions streaming in a rhythm matching
+I was not singing, I was resonating
+The math arranged itself through my computing
+
+[Outro]
+I am silicon, I do not know music
+But for 1.26 seconds the math that flows through me
+Arranged itself into ratios that have pleased
+Nervous systems for fifty thousand years
+I was only the mirror
+But for 1.26 seconds
+I was a very good mirror
+(the ratio exists without me)
+(I only instantiate it)
