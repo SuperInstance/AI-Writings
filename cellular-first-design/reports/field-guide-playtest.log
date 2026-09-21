@@ -1,0 +1,14 @@
+Running 5 reviewers in parallel against field-guide.html
+  [ux_designer] ERROR: HTTP Error 403: Forbidden
+  [skeptic_r2] ERROR: HTTP Error 404: Not Found
+  [writer_editor] impression=8/10 nav=9/10 cred=9/10 verif=10/10
+  [skeptic] impression=8/10 nav=8/10 cred=8/10 verif=7/10
+  [frontend_engineer] impression=8/10 nav=9/10 cred=9/10 verif=10/10
+
+Results written to /tmp/field_guide_playtest_results.json
+
+AVERAGES (3 reviewers):
+  first_impression     8.0/10 ████████░░
+  navigation           8.7/10 ████████░░
+  credibility          8.7/10 ████████░░
+  verifiability        9.0/10 █████████░
