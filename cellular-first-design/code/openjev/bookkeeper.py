@@ -123,9 +123,9 @@ class Bookkeeper:
     def _handle_drop(self, payload: Dict) -> Dict:
         # Validate the drop via JEV
         verdict = self.jev.noul(f"Should {self.cell.id} fire this drop to {payload.get('target')}?")
-        if verdict.get("decision"):
-            return {"action": "fired", "target": payload.get("target"), "confidence": verdict.get("confidence", 0.5)}
-        return {"action": "suppressed", "target": payload.get("target"), "confidence": verdict.get("confidence", 0.5)}
+        if getattr(verdict, "value", None):
+            return {"action": "fired", "target": payload.get("target"), "confidence": getattr(verdict, "confidence", 0.5)}
+        return {"action": "suppressed", "target": payload.get("target"), "confidence": getattr(verdict, "confidence", 0.5)}
     
     def _handle_witness(self, payload: Dict) -> Dict:
         # Just record

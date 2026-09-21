@@ -77,16 +77,21 @@ class ChessBoat:
         # Step 2: Position cell updates (standard tier)
         self.position.tick()
         
-        # Step 3: Evaluator JEV scores each move
+        # Step 3: Evaluator JEV scores the candidate moves in ONE pass (efficient)
         connector = get_connector()
+        # For chess: use noul to estimate move quality per move (one call per move is wasteful)
+        # Better: ask JEV which option is best, get probabilities, use those
+        verdict = connector.decide(
+            options=legal_moves[:8],  # cap to keep API calls reasonable
+            context="Chess position: " + str(self.position.state.get("board", ""))[:100] + " Pick the best next move.",
+        )
+        probs = getattr(verdict, "probabilities", {}) or {}
         scored = []
         for move in legal_moves:
-            context = "Position: " + self.position.state["board"] + " Move: " + move
-            verdict = connector.decide(legal_moves, context)
             scored.append({
                 "move": move,
-                "confidence": verdict.get("confidence", 0.5),
-                "probabilities": verdict.get("probabilities", {}),
+                "confidence": probs.get(str(move), probs.get(move, 1.0 / max(len(legal_moves), 1))),
+                "probabilities": probs,
             })
         
         # Step 4: Pick the highest-confidence move

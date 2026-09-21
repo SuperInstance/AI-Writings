@@ -84,7 +84,7 @@ class Cell:
             # Use JEV to decide if bind
             connector = get_connector()
             verdict = connector.noul(f"Should {self.id} bind to {other_id}?")
-            jev_confidence = verdict.get("confidence", 0.5)
+            jev_confidence = getattr(verdict, "confidence", 0.5)
         
         entry = {
             "ts": datetime.now(timezone.utc).isoformat(),

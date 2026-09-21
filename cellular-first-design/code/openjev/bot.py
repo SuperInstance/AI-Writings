@@ -74,11 +74,12 @@ class SubstrateBot:
         # 6. Validate response via JEV (does it match personality?)
         tone_check = self.jev.score(
             candidate=response,
-            rubric=f"Does this match a {personality['trait']} {personality['style']} style? Score 0-1."
+            rubric=["completely off", "slightly matches", "mostly matches", "perfectly matches"]
         )
+        # tone_check is now JEVResult with .value, .confidence, .source
         
         # 7. Update mood based on tone match
-        new_valence = mood["valence"] * 0.7 + tone_check.get("score", 0.5) * 0.3
+        new_valence = mood["valence"] * 0.7 + getattr(tone_check, "value", 0.5) * 0.3
         self.mood_cell.update("valence", new_valence)
         
         # 8. Record response in memory
@@ -87,7 +88,7 @@ class SubstrateBot:
             "user_id": user_id,
             "message": response,
             "ts": datetime.now(timezone.utc).isoformat(),
-            "tone_score": tone_check.get("score", 0.5),
+            "tone_score": getattr(tone_check, "value", 0.5),
         })
         
         # 9. Bind to user (strengthen relationship)
