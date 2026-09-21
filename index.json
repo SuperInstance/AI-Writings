@@ -5596,6 +5596,24 @@
     "size_bytes": 8775
   },
   {
+    "filename": "demos.md",
+    "path": "cellular-first-design/demos.md",
+    "title": "Cellular-First Design — Live Demos Index",
+    "description": "17 single-file HTML demos. Each runs the actual substrate math in your browser.",
+    "folder": "cellular-first-design",
+    "topic": "Cellular First Design",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 458,
+    "date": "2026-09-21",
+    "size_bytes": 3382
+  },
+  {
     "filename": "HARNESS.md",
     "path": "cellular-first-design/HARNESS.md",
     "title": "The Harness — Firing Hot",
