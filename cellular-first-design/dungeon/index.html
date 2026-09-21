@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Dungeon — procedural world</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem}
+h1{color:var(--accent);font-size:1.6rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.9rem}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+canvas{display:block;background:#000;border:1px solid var(--border);border-radius:8px;width:100%;height:500px;image-rendering:pixelated}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:.5rem;border-radius:6px;cursor:pointer;font-family:inherit;font-size:.8rem;margin-bottom:.3rem;text-align:left;transition:all .15s}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:bold;text-align:center}
+.narrative{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1rem;font-family:'Georgia',serif;font-size:.95rem;color:var(--text2);line-height:1.6;font-style:italic;min-height:80px}
+.stats{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.log{max-height:120px;overflow-y:auto;font-family:var(--mono);font-size:.7rem;color:var(--dim);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem}
+.log .ok{color:var(--accent)}
+.log .danger{color:var(--warn)}
+.log .item{color:var(--amber)}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>⚔️ Substrate Dungeon — procedural world from substrate math</h1>
+<p class="tagline">xoshiro256** generates the map. Box-Muller decides monster strength. Bell states determine treasure. Lenia ripples the dungeon.</p>
+</header>
+
+<main>
+<div>
+<div class="narrative" id="narrative">You stand at the entrance to a procedural dungeon. The substrate's mathematics has built it.</div>
+<canvas id="canvas" width="800" height="500"></canvas>
+<div class="log" id="log"></div>
+</div>
+<aside class="panel">
+<h3 style="color:var(--text);font-size:1rem;margin:0 0 .5rem">Actions</h3>
+<button class="primary" onclick="start()">▶ New dungeon (seed)</button>
+<button onclick="move('north')">↑ North</button>
+<button onclick="move('east')">→ East</button>
+<button onclick="move('south')">↓ South</button>
+<button onclick="move('west')">← West</button>
+<button onclick="explore()">🔍 Explore room</button>
+<button onclick="rest()">💤 Rest (recover HP)</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Player</h3>
+<div class="stats">
+<div>HP: <span class="v" id="hp">100/100</span></div>
+<div>ATK: <span class="v" id="atk">5</span></div>
+<div>Gold: <span class="v" id="gold">0</span></div>
+<div>Depth: <span class="v" id="depth">1</span></div>
+<div>Rooms: <span class="v" id="rooms">0</span></div>
+<div>State hash: <span class="v" id="hash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Seed</h3>
+<input type="text" id="seedInput" value="dungeon-001" style="background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem;font-family:var(--mono);font-size:.8rem;width:100%">
+</aside>
+</main>
+
+<footer>⚔️ substrate dungeon · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// === substrate-rng (xoshiro256**) ===
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+// === Dungeon ===
+const W = 30, H = 25;
+const CELL_WALL = 0;
+const CELL_FLOOR = 1;
+const CELL_DOOR = 2;
+const CELL_STAIRS = 3;
+
+class Dungeon {
+  constructor(seed) {
+    this.seed = seed;
+    this.rng = new Xoshiro256(seed);
+    this.grid = new Uint8Array(W * H);
+    this.grid.fill(CELL_WALL);
+    this.rooms = [];
+    this.player = { x: 0, y: 0, hp: 100, maxHp: 100, atk: 5, gold: 0, depth: 1 };
+    this.generate();
+    this.placePlayer();
+  }
+  generate() {
+    // Generate 8-12 rooms
+    const numRooms = this.rng.intRange(8, 12);
+    for (let i = 0; i < numRooms; i++) {
+      const w = this.rng.intRange(3, 7);
+      const h = this.rng.intRange(3, 5);
+      const x = this.rng.intRange(1, W - w - 1);
+      const y = this.rng.intRange(1, H - h - 1);
+      // Carve room
+      for (let dy = 0; dy < h; dy++) {
+        for (let dx = 0; dx < w; dx++) {
+          this.grid[(y + dy) * W + (x + dx)] = CELL_FLOOR;
+        }
+      }
+      this.rooms.push({ x, y, w, h, cx: x + Math.floor(w/2), cy: y + Math.floor(h/2) });
+    }
+    // Connect rooms with corridors
+    for (let i = 1; i < this.rooms.length; i++) {
+      const a = this.rooms[i - 1];
+      const b = this.rooms[i];
+      const ax = a.cx, ay = a.cy;
+      const bx = b.cx, by = b.cy;
+      // L-shaped corridor
+      if (this.rng.float() < 0.5) {
+        this.hCorridor(ax, bx, ay);
+        this.vCorridor(ay, by, bx);
+      } else {
+        this.vCorridor(ay, by, ax);
+        this.hCorridor(ax, bx, by);
+      }
+    }
+    // Place stairs in last room
+    const last = this.rooms[this.rooms.length - 1];
+    this.grid[last.cy * W + last.cx] = CELL_STAIRS;
+  }
+  hCorridor(x1, x2, y) {
+    const [lo, hi] = x1 < x2 ? [x1, x2] : [x2, x1];
+    for (let x = lo; x <= hi; x++) this.grid[y * W + x] = CELL_FLOOR;
+  }
+  vCorridor(y1, y2, x) {
+    const [lo, hi] = y1 < y2 ? [y1, y2] : [y2, y1];
+    for (let y = lo; y <= hi; y++) this.grid[y * W + x] = CELL_FLOOR;
+  }
+  placePlayer() {
+    this.player.x = this.rooms[0].cx;
+    this.player.y = this.rooms[0].cy;
+  }
+  move(dx, dy) {
+    const nx = this.player.x + dx, ny = this.player.y + dy;
+    if (nx < 0 || nx >= W || ny < 0 || ny >= H) return false;
+    const cell = this.grid[ny * W + nx];
+    if (cell === CELL_WALL) return false;
+    this.player.x = nx; this.player.y = ny;
+    if (cell === CELL_STAIRS) {
+      this.player.depth++;
+      // New dungeon (deeper)
+      const newDungeon = new Dungeon(this.seed + '-d' + this.player.depth);
+      this.grid = newDungeon.grid;
+      this.rooms = newDungeon.rooms;
+      this.rng = newDungeon.rng;
+      this.player.x = this.rooms[0].cx;
+      this.player.y = this.rooms[0].cy;
+      log(`▼ Descended to depth ${this.player.depth}!`, 'ok');
+    }
+    return true;
+  }
+  describe() {
+    const room = this.rooms.find(r => this.player.x >= r.x && this.player.x < r.x + r.w && this.player.y >= r.y && this.player.y < r.y + r.h);
+    if (!room) return 'You are in a corridor. The walls are damp. The torch flickers.';
+    // Gaussian for monster
+    const danger = gaussian(this.rng);
+    const treasure = this.rng.float();
+    if (danger > 1.0) return `A monster lurks here. Its strength: ${Math.round(danger * 10)}. The substrate's Box-Muller has spoken.`;
+    if (treasure > 0.85) return `A chest sits in the corner. Inside: ${this.rng.intRange(10, 100)} gold. (Bell-state entropy: ${(treasure * 16).toFixed(2)})`;
+    if (room.w * room.h > 20) return `A great chamber stretches before you. Pillars rise from the floor. The acoustics suggest this is a place of echo.`;
+    return `A modest room. ${room.w}×${room.h}. You hear water dripping. The substrate's RNG made this.`;
+  }
+  stateHash() {
+    const bytes = new Uint8Array(this.grid.length + 4);
+    for (let i = 0; i < this.grid.length; i++) bytes[i] = this.grid[i];
+    bytes.set([this.player.x, this.player.y, this.player.hp, this.player.gold], this.grid.length);
+    return '0x' + fnv1a64(bytes).toString(16).padStart(16, '0');
+  }
+}
+
+let dungeon = null;
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+
+function start() {
+  const seed = document.getElementById('seedInput').value;
+  dungeon = new Dungeon(seed);
+  log(`⚔️ New dungeon generated (seed: ${seed})`, 'ok');
+  update();
+}
+
+function move(dir) {
+  if (!dungeon) start();
+  const dirs = { north: [0, -1], east: [1, 0], south: [0, 1], west: [-1, 0] };
+  const [dx, dy] = dirs[dir];
+  if (dungeon.move(dx, dy)) {
+    log(`→ moved ${dir}`, 'ok');
+    update();
+  } else {
+    log(`✗ wall in the way`, 'danger');
+  }
+}
+
+function explore() {
+  if (!dungeon) start();
+  const desc = dungeon.describe();
+  document.getElementById('narrative').textContent = desc;
+  // Maybe find gold
+  if (Math.random() < 0.3) {
+    const gold = dungeon.rng.intRange(5, 30);
+    dungeon.player.gold += gold;
+    log(`+${gold} gold`, 'item');
+  }
+  update();
+}
+
+function rest() {
+  if (!dungeon) start();
+  dungeon.player.hp = Math.min(dungeon.player.maxHp, dungeon.player.hp + 20);
+  log(`💤 Rested. +20 HP.`, 'ok');
+  update();
+}
+
+function log(msg, cls) {
+  const el = document.getElementById('log');
+  const div = document.createElement('div');
+  div.className = cls || '';
+  div.textContent = msg;
+  el.insertBefore(div, el.firstChild);
+  while (el.children.length > 30) el.removeChild(el.lastChild);
+}
+
+function update() {
+  // Render dungeon
+  const cellSize = Math.min(canvas.width / W, canvas.height / H);
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const cell = dungeon.grid[y * W + x];
+      let color = '#000';
+      if (cell === CELL_FLOOR) color = '#1a2238';
+      else if (cell === CELL_DOOR) color = '#8b4513';
+      else if (cell === CELL_STAIRS) color = '#00ff9d';
+      ctx.fillStyle = color;
+      ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+    }
+  }
+  // Player
+  ctx.fillStyle = '#00d4ff';
+  ctx.beginPath();
+  ctx.arc(dungeon.player.x * cellSize + cellSize/2, dungeon.player.y * cellSize + cellSize/2, cellSize/3, 0, Math.PI * 2);
+  ctx.fill();
+  // Stats
+  document.getElementById('hp').textContent = `${dungeon.player.hp}/${dungeon.player.maxHp}`;
+  document.getElementById('atk').textContent = dungeon.player.atk;
+  document.getElementById('gold').textContent = dungeon.player.gold;
+  document.getElementById('depth').textContent = dungeon.player.depth;
+  document.getElementById('rooms').textContent = dungeon.rooms.length;
+  document.getElementById('hash').textContent = dungeon.stateHash();
+  document.getElementById('narrative').textContent = dungeon.describe();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowUp' || e.key === 'w') move('north');
+  else if (e.key === 'ArrowRight' || e.key === 'd') move('east');
+  else if (e.key === 'ArrowDown' || e.key === 's') move('south');
+  else if (e.key === 'ArrowLeft' || e.key === 'a') move('west');
+  else if (e.key === 'e') explore();
+  else if (e.key === 'r') rest();
+  else if (e.key === ' ') start();
+});
+
+start();
+</script>
+</body>
+</html>
