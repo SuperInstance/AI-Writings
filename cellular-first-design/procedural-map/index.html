@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Procedural Map — kingdom cartographer</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.canvas-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem}
+canvas{display:block;background:#000;border-radius:6px;width:100%;image-rendering:pixelated;cursor:crosshair}
+.map-legend{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2);display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem}
+.legend-item{padding:.3rem;display:flex;align-items:center;gap:.3rem}
+.legend-item .swatch{width:16px;height:16px;border-radius:3px}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.hover-info{color:var(--accent);font-family:var(--mono);font-size:.8rem;margin-top:.5rem;text-align:center}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🗺 Substrate Procedural Map</h1>
+<p class="tagline">A kingdom cartographer. Hash (x, y) → biome + city + landmark. Click to inspect.</p>
+</header>
+
+<main>
+<section class="canvas-area">
+<canvas id="canvas" width="600" height="600"></canvas>
+<div class="hover-info" id="hoverInfo">Hover over the map to inspect.</div>
+<div class="map-legend">
+<div class="legend-item"><span class="swatch" style="background:#003366"></span> Ocean</div>
+<div class="legend-item"><span class="swatch" style="background:#cce5ff"></span> Coast</div>
+<div class="legend-item"><span class="swatch" style="background:#d4b678"></span> Desert</div>
+<div class="legend-item"><span class="swatch" style="background:#7cb342"></span> Grass</div>
+<div class="legend-item"><span class="swatch" style="background:#33691e"></span> Forest</div>
+<div class="legend-item"><span class="swatch" style="background:#8d6e63"></span> Mountain</div>
+<div class="legend-item"><span class="swatch" style="background:#fafafa"></span> Snow</div>
+<div class="legend-item"><span class="swatch" style="background:#ffeb3b"></span> City</div>
+<div class="legend-item"><span class="swatch" style="background:#ff80c0"></span> Magic</div>
+</div>
+</section>
+<aside class="panel">
+<label>Kingdom name: <input type="text" id="seed" value="Xochitl" style="flex:1"></label>
+<button onclick="generate()">🗺 Generate</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random kingdom</button>
+<button class="secondary" onclick="exportMap()">⬇ Export PNG</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Tile size: <span class="v" id="sSize">100×100</span></div>
+<div>Cities: <span class="v" id="sCities">0</span></div>
+<div>Magic sites: <span class="v" id="sMagic">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🗺 substrate procedural map · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function hash2(x, y, seedStr) {
+  return Number(fnv1a64(new TextEncoder().encode(`${seedStr}|${x}|${y}`)) & 0xffffffffn) / (1 << 32);
+}
+function hash2d(x, y, z, seedStr) {
+  return Number(fnv1a64(new TextEncoder().encode(`${seedStr}|${x}|${y}|${z}`)) & 0xffffffffn) / (1 << 32);
+}
+function smoothNoise(x, y, seedStr) {
+  const ix = Math.floor(x), iy = Math.floor(y);
+  const fx = x - ix, fy = y - iy;
+  const sx = fx * fx * (3 - 2 * fx);
+  const sy = fy * fy * (3 - 2 * fy);
+  const a = hash2(ix, iy, seedStr);
+  const b = hash2(ix + 1, iy, seedStr);
+  const c = hash2(ix, iy + 1, seedStr);
+  const d = hash2(ix + 1, iy + 1, seedStr);
+  return a + sx * (b - a) + sy * (c - a) + sx * sy * (a - b - c + d);
+}
+function fbm(x, y, scale, seedStr) {
+  let v = 0, amp = 1, freq = 1 / scale, max = 0;
+  for (let i = 0; i < 4; i++) {
+    v += smoothNoise(x * freq, y * freq, seedStr) * amp;
+    max += amp;
+    amp *= 0.5;
+    freq *= 2;
+  }
+  return v / max;
+}
+
+const CITY_NAMES = ['Riverhold', 'Stonekeep', 'Silverton', 'Mistford', 'Ironwood', 'Sunweave', 'Stormgate', 'Brightwater', 'Mistwood', 'Frosthold', 'the Capital'];
+const MAGIC_NAMES = ['the Singing Tower', 'the Ember Gate', "the Witch's Pool", 'the Star Mirror', 'the Echoing Halls', 'the Crystal Caves'];
+
+let canvas, ctx;
+let map = null;
+let cityList = [];
+let magicList = [];
+
+function biomeFor(h, m) {
+  // h = elevation, m = moisture
+  if (h < 0.35) return 'ocean';
+  if (h < 0.45) return 'coast';
+  if (h > 0.75) return m < 0.3 ? 'mountain' : 'snow';
+  if (h > 0.65) return m < 0.4 ? 'rock' : 'mountain';
+  if (m < 0.3) return 'desert';
+  if (m < 0.5) return 'grass';
+  return 'forest';
+}
+
+function color(b) {
+  return {
+    ocean: [0, 51, 102],
+    coast: [204, 229, 255],
+    desert: [212, 182, 120],
+    grass: [124, 179, 66],
+    forest: [51, 105, 30],
+    rock: [141, 110, 99],
+    mountain: [180, 170, 165],
+    snow: [250, 250, 250],
+    city: [255, 235, 59],
+    magic: [255, 128, 192],
+  }[b];
+}
+
+function generate() {
+  const seed = document.getElementById('seed').value;
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const size = Math.min(canvas.width, canvas.height);
+  const cellSize = size / 100;
+  canvas.height = size;
+  ctx = canvas.getContext('2d');
+  cityList = [];
+  magicList = [];
+  for (let y = 0; y < 100; y++) {
+    for (let x = 0; x < 100; x++) {
+      const elev = fbm(x / 15, y / 15, 1, seed + '-e');
+      const moist = fbm(x / 25 + 100, y / 25 + 100, 1, seed + '-m');
+      const biome = biomeFor(elev, moist);
+      ctx.fillStyle = `rgb(${color(biome).join(',')})`;
+      ctx.fillRect(x * cellSize, y * cellSize, cellSize + 1, cellSize + 1);
+      // Cities: 1% chance on land
+      if (biome !== 'ocean' && biome !== 'coast') {
+        const c = hash2(x, y, seed + '-city');
+        if (c < 0.005) {
+          const cityName = CITY_NAMES[Math.floor(c * 1000 * CITY_NAMES.length) % CITY_NAMES.length];
+          cityList.push({ x, y, name: cityName });
+          ctx.fillStyle = '#ffeb3b';
+          ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+          // Draw a small marker (filled circle)
+          ctx.fillStyle = '#000';
+          ctx.beginPath();
+          ctx.arc(x * cellSize + cellSize/2, y * cellSize + cellSize/2, cellSize/3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        // Magic sites: 0.3% chance
+        const m = hash2(x, y, seed + '-magic');
+        if (m < 0.001) {
+          const magicName = MAGIC_NAMES[Math.floor(m * 1000 * MAGIC_NAMES.length) % MAGIC_NAMES.length];
+          magicList.push({ x, y, name: magicName });
+          ctx.fillStyle = '#ff80c0';
+          ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+          ctx.fillStyle = '#fff';
+          ctx.font = `${cellSize * 0.7}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('✦', x * cellSize + cellSize/2, y * cellSize + cellSize/2);
+        }
+      }
+    }
+  }
+  document.getElementById('sCities').textContent = cityList.length;
+  document.getElementById('sMagic').textContent = magicList.length;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${seed}|${cityList.length}|${magicList.length}`)).toString(16).padStart(16, '0');
+  map = { seed, cities: cityList, magic: magicList };
+}
+
+function randomSeed() {
+  const samples = ['Xochitl', 'Matilda', 'Wenjian', 'Theo', 'Sigrid', 'Kasper', 'Octavia', 'Lazar'];
+  document.getElementById('seed').value = samples[Math.floor(Math.random() * samples.length)];
+  generate();
+}
+
+function exportMap() {
+  const link = document.createElement('a');
+  link.download = `kingdom-${document.getElementById('seed').value}.png`;
+  link.href = canvas.toDataURL();
+  link.click();
+}
+
+canvas = document.getElementById('canvas');
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor(((e.clientX - rect.left) / rect.width) * 100);
+  const y = Math.floor(((e.clientY - rect.top) / rect.height) * 100);
+  let info = `(${x}, ${y})`;
+  for (const c of cityList) if (c.x === x && c.y === y) info = `📍 ${c.name}`;
+  for (const m of magicList) if (m.x === x && m.y === y) info = `✦ ${m.name}`;
+  document.getElementById('hoverInfo').textContent = info;
+});
+generate();
+</script>
+</body>
+</html>
