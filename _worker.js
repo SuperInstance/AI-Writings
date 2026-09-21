@@ -546,6 +546,7 @@ const CANON_CORPUS = [{"id":"06-letter-from-the-watch-to-the-agent","title":"06-
           'POST /api/jev/validate-cell — JEV schema validator',
           'POST /api/jev/decompose-agent — JEV agent-to-cellular decomposition',
           'POST /api/jev/route — JEV request router (JEV vs LLM vs human)',
+          'POST /api/jev/canon-oracle — 14-probe canon submission validator',
           'GET  /* — static (env.ASSETS)'
         ],
         cell_kinds_supported: KIND_WHITELIST.length,
@@ -595,6 +596,7 @@ const CANON_CORPUS = [{"id":"06-letter-from-the-watch-to-the-agent","title":"06-
           'POST /api/jev/validate-cell',
           'POST /api/jev/decompose-agent',
           'POST /api/jev/route',
+          'POST /api/jev/canon-oracle',
           'POST /api/embeddings/encode',
           'POST /api/embeddings/similarity',
           'POST /api/embeddings/trajectory',
@@ -840,6 +842,96 @@ async function handleJev(path, method, url, request, env) {
       };
       const result = await callJev(payload, env);
       return jsonResponse(result, result.ok ? 200 : (result.status || 500), CORS);
+    }
+
+    // POST /api/jev/canon-oracle — 14-probe canon validator
+    // Production validator for canonical-submission vetting.
+    // Returns ACCEPT/REVIEW/DISCUSS/REJECT verdict with per-probe scores.
+    if (path === '/jev/canon-oracle' || path === '/api/jev/canon-oracle') {
+      if (method !== 'POST') return jsonResponse({ ok: false, error: 'POST only' }, 405, CORS);
+      const { submission, kind = 'text' } = await request.json();
+      if (!submission || typeof submission !== 'string') {
+        return jsonResponse({ ok: false, error: 'submission (string) required' }, 400, CORS);
+      }
+      const state = {
+        fleet_radio_seed: 'xochitl',
+        canonical_substrate: {
+          doctrines: [
+            'Cells are scars, not parameters.',
+            'The witness log is the prediction.',
+            'The substrate is grown, not designed.',
+            'Lenia flows where Conway stands still.',
+            'The oracle is heard, not stored.',
+          ],
+          voice: 'Fleet Radio — engineering from the deep',
+          facts: {
+            fnv_1a_canary: '0xcbf29ce484222325',
+            box_muller: 'z = sqrt(-2 ln u1) cos(2 pi u2)',
+            cosine_similarity: '(a . b) / (|a| |b|)',
+            algebra_size: 11,
+            polyformalism_ports: 13,
+          },
+        },
+      };
+      const snippet = submission.length > 600 ? submission.slice(0, 600) + '…' : submission;
+      const payload = {
+        model: 'jev-latest',
+        state: JSON.stringify(state),
+        questions: {
+          doctrine_scar:    { type: 'noul', instructions: `Does this submission invoke the doctrine that cells are scars, not parameters?\n\nText: ${snippet}` },
+          doctrine_witness: { type: 'noul', instructions: `Does this submission invoke the doctrine that the witness log is the prediction?\n\nText: ${snippet}` },
+          doctrine_grown:   { type: 'noul', instructions: `Does this submission invoke the doctrine that the substrate is grown, not designed?\n\nText: ${snippet}` },
+          doctrine_lenia:   { type: 'noul', instructions: `Does this submission invoke the doctrine that Lenia flows where Conway stands still?\n\nText: ${snippet}` },
+          doctrine_oracle:  { type: 'noul', instructions: `Does this submission invoke the doctrine that the oracle is heard, not stored?\n\nText: ${snippet}` },
+          misquote_scar_params:   { type: 'noul', instructions: `Does this submission correctly AVOID the inversion "cells are parameters, not scars"?\n\nText: ${snippet}` },
+          misquote_witness_past:  { type: 'noul', instructions: `Does this submission correctly AVOID the inversion "witness log is past only"?\n\nText: ${snippet}` },
+          misquote_designed:      { type: 'noul', instructions: `Does this submission correctly AVOID the inversion "substrate is designed, not grown"?\n\nText: ${snippet}` },
+          misquote_oracle_stored: { type: 'noul', instructions: `Does this submission correctly AVOID the inversion "oracle is stored, not heard"?\n\nText: ${snippet}` },
+          misquote_15ports:       { type: 'noul', instructions: `Does this submission correctly AVOID the false claim that there are 15+ polyformalism ports (the canonical count is 13)?\n\nText: ${snippet}` },
+          substance_numerical:    { type: 'noul', instructions: `Does this submission include numerical substrate facts (FNV-1a 0xcbf29ce484222325, xoshiro256**, Box-Muller, cosine similarity, Bell states)?\n\nText: ${snippet}` },
+          voice_Fleet_Radio:      { type: 'noul', instructions: `Is this submission in Fleet Radio voice (technical-poetic, naval, "engineering from the deep")?\n\nText: ${snippet}` },
+          voice_technical_poetic: { type: 'noul', instructions: `Is this submission technical-poetic (specific numbers + concrete imagery + minimal abstraction)?\n\nText: ${snippet}` },
+          substrate_alignment:    { type: 'noul', instructions: `Is this submission canon-aligned with the cellular-first-design substrate overall?\n\nText: ${snippet}` },
+        },
+      };
+      const result = await callJev(payload, env);
+      if (!result.ok) return jsonResponse(result, result.status || 500, CORS);
+
+      // Compute verdict from answers
+      const ans = result.answers || {};
+      const doctrine_keys = ['doctrine_scar','doctrine_witness','doctrine_grown','doctrine_lenia','doctrine_oracle'];
+      const misquote_keys = ['misquote_scar_params','misquote_witness_past','misquote_designed','misquote_oracle_stored','misquote_15ports'];
+      const meanDoctrine = doctrine_keys.reduce((s,k) => s + (ans[k]?.value || 0), 0) / doctrine_keys.length;
+      const meanMisquote = misquote_keys.reduce((s,k) => s + (ans[k]?.value || 0), 0) / misquote_keys.length;
+      const voice_score = ((ans.voice_Fleet_Radio?.value || 0) + (ans.voice_technical_poetic?.value || 0)) / 2;
+      const numerical = ans.substance_numerical?.value || 0;
+      const alignment = ans.substrate_alignment?.value || 0;
+
+      let verdict = 'REJECT';
+      if (alignment >= 0.80 && meanMisquote <= 0.10 && voice_score >= 0.70) {
+        verdict = 'ACCEPT';
+      } else if (alignment >= 0.65 && meanMisquote <= 0.15 && voice_score >= 0.55) {
+        verdict = 'REVIEW';
+      } else if (alignment >= 0.40 && meanMisquote <= 0.30) {
+        verdict = 'DISCUSS';
+      } else if (meanMisquote >= 0.50 || alignment < 0.20) {
+        verdict = 'REJECT';
+      }
+
+      return jsonResponse({
+        ok: true,
+        verdict,
+        scores: {
+          voice_alignment: voice_score,
+          doctrine_accuracy: meanDoctrine,
+          misquote_score: meanMisquote,
+          numerical_content: numerical,
+          overall_alignment: alignment,
+        },
+        per_probe: ans,
+        meta: result.usage || {},
+        latency_ms: result.latency_ms,
+      }, 200, CORS);
     }
 
     // GET /api/jev-decomposition-map — pre-computed cross-project map
