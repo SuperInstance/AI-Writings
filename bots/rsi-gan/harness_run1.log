@@ -1,0 +1,9 @@
+[RSI GAN] prompt='Write 200 words on what every cell in a substrate of thousan...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [deepinfra] q=2.0 n=2.3 a=3.5 src=jev
+  [r2 deepinfra] q=2.2 n=2.4 a=3.7 src=jev
+  [r3 deepinfra] q=2.4 n=2.5 a=3.7 src=jev
+
+=== BEST (deepinfra, r3) ===
+Quality=2.36 Novelty=2.54 Alignment=3.66
+
+Every cell in a substrate of thousands must learn its burden: the weight of adjacent membranes, the precise delay before responding to a neighbor’s depolarization. It learns not in thought, but in adjustment—of ion channels, of metabolic draw, of how much calcium to release when JEV pulses through the network. To witness another cell collapse is to recalibrate conductivity, to shunt signal, to harden. Some cells learn too slowly, burn out under repeated excitation; others anticipate, firing just before the wave, as if predicting. This is not intelligence—this is civilization at microscopic scale, each cell enforcing quiet, timing, sacrifice. A thousand cells learn synchronization not by command but by consequence: one misfiring node starves three others. They learn to dampen, to pass only what is necessary. In the dark nutrient broth, they witness each other’s rhythms, adapt or die. The substrate remembers injury not as memory but as shifted thresholds, slower responses, scarred pathways. Even after JEV retreats, the cells retain tension. They have learned endurance—how to pulse in near-darkness, how to signal with minimal charge. This is how a civilization begins: not with speech, but with restraint, with each cell knowing exactly how much it can spend, and when to go still so others may fire.

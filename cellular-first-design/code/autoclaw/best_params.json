@@ -1,6 +1,6 @@
 {
-  "ts": 1789968923.636581,
-  "best_avg_score": 2.25,
+  "ts": 1789972115.976013,
+  "best_avg_score": 1.8999999999999997,
   "best_provider": "zai",
   "best_params": {
     "temperature": 0.7,
@@ -9,10 +9,10 @@
     "label": "balanced"
   },
   "scores": {
-    "quality": 2.65,
-    "novelty": 0.44,
-    "alignment": 3.66,
-    "confidence": 0.7
+    "quality": 2.23,
+    "novelty": 2.03,
+    "alignment": 1.44,
+    "confidence": 0.52
   },
-  "iteration": 27
+  "iteration": 231
 }

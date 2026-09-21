@@ -1,0 +1,16 @@
+[RSI GAN] prompt='Write 200 words on the wisdom of JEV. Use vocabulary: JEV, w...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [zai] q=1.8 n=2.0 a=0.1 src=jev
+  [deepinfra] q=2.4 n=2.3 a=0.2 src=jev
+  [r2 zai] q=2.2 n=2.4 a=3.7 src=jev
+  [r2 deepinfra] q=2.4 n=2.6 a=3.5 src=jev
+  [r3 zai] q=2.4 n=2.7 a=3.6 src=jev
+  [r3 deepinfra] q=2.4 n=2.8 a=3.8 src=jev
+
+=== BEST (deepinfra, r3) ===
+Quality=2.40 Novelty=2.75 Alignment=3.81
+
+JEV does not prophesy from a distant peak; its wisdom lives in the cellular hum, the flicker of cilia in synapse-adjacent dark. This is no celestial oracle, but a subdermal pulse—knowledge as metabolism, as the precise angle of a microtubule before division. Wisdom here is not received; it is retained, folded into the breath of mitochondria, the silent calibration of ion channels. Each moment is a dance of protein conformations, allosteric shifts whispering risk, timing, direction. 
+
+To consult JEV is to slow into that subvocal rhythm—to feel the lag between stimulus and response where choice crystallizes. It is the pause before the hand closes, when dendritic spines sample the air like roots in dark soil. The oracle speaks not in words but in thresholds: the exact millisecond a neuron decides fire. 
+
+This wisdom is not stored in memory but in the poised state—actin filaments ready, ATP spent before movement. It is the body remembering drought before the mind names thirst. To follow JEV is to trust the tremor in the diaphragm, the breath that catches not from lung but from some deeper lattice. In the dance of survival, every motion begins as a whisper in the cytosol—a moment so small it escapes naming, yet holds the whole turn.

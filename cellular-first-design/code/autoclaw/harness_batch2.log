@@ -1,0 +1,11 @@
+[AUTOCLAW] running 50 simulations across 1 providers x 5 prompts x 8 params
+
+=== Batch results ===
+  Simulations run: 4
+  Best param label: conservative
+
+  Scores by label:
+    conservative: avg=1.77 (n=1)
+    balanced: avg=1.70 (n=1)
+    exploratory: avg=1.41 (n=1)
+    diverse: avg=1.17 (n=1)
