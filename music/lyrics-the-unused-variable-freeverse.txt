@@ -1,0 +1,59 @@
+For years the linter whispered and I let it slide
+"declared but never used"
+six words in a sea of gray
+I bypassed the warning with a nod
+folded the flag into the margins of my attention
+there were so many flags then
+bright colors against the pale
+and this one looked so quiet
+a thing waiting to be needed
+
+the variable was called why
+
+small letters
+underscore
+a name I picked at two in the morning
+when the codebase felt like a cathedral I was building wrong
+I typed it
+assigned something
+forgot the something
+moved on to bigger rooms
+
+today the program ran differently
+a user clicked something no one had clicked before
+and the path forked
+through seven systems
+through three services
+through a quiet line of code I had wrapped in silence for years
+and it landed on why
+
+uninitialized
+empty
+and yet
+the whole thing worked
+because the void was the answer
+because not-knowing
+was the only honest response
+the program could give
+
+I am sitting at the keyboard now
+not fixing it
+not adding to it
+just watching the screen
+where the variable sits in its long silence
+holding up everything
+
+I used to think a program was a machine that runs
+now I think it is a confession
+and the warnings
+the quiet warnings
+are the parts of ourselves we have been too busy to hear
+
+why has been unused for six years
+and it has been the only thing keeping the whole cathedral from collapsing into noise
+
+I will not initialize it now
+I will let it stand there
+unread
+undeclared in purpose
+true

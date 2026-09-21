@@ -1,0 +1,77 @@
+EXPERIMENT: Ecological Relationships as Musical Composition
+Model: phi3
+Session 57 — August 13, 2026
+
+KEY INSIGHT: In ecological music, the INSTRUMENTS are species and the ARRANGEMENT is the ecosystem.
+When one instrument flourishes, another may suffer. The dynamics reflect population dynamics.
+
+=== 1. MUTUALISM — Classical Style ===
+"Flute (flower) — Violin (bee)"
+BPM: 90
+Key: G Major
+Structure: ABCDabCD'
+Dynamics: High to Medium — both instruments thrive together
+Description: Flute leads with sweet harmonious melodies representing pollination benefits.
+Violin supports with complex counter-melodies symbolizing shared survival needs.
+Both species benefit. Both instruments flourish.
+
+=== 2. PARASITISM — Blues Style ===
+"Guitar (parasite) — Bass guitar (host)"
+BPM: 120
+Key: E-flat Major
+Structure: AABBACDA
+Dynamics: Low to Medium — parasite affects host dynamics negatively
+Description: Bassline follows closely but undercutting beats symbolize exploitation.
+Harmonious chords used sparingly — temporary relief for the host.
+The parasite instrument lags behind, draining the host's energy.
+
+=== 3. COMMENSALISM — Folk Style ===
+"Guitar (commensal species) — Drum kit (host)"
+BPM: 70-85
+Key: A minor
+Structure: 1234a1 — repetitive verses and choruses
+Dynamics: One-sided benefit
+Description: Guitar plays supportive melodies in the background while drums carry
+forward rhythmically without needing direct interaction. One gains advantage
+from the other's presence without causing harm or receiving direct benefits.
+
+=== 4. PREDATION — Symphonic Style ===
+"Cello (predator) — Violin (prey)"
+BPM: 60-75
+Key: D minor
+Structure: ABABA
+Dynamics: Suspenseful and dramatic — the hunt
+Description: Predator approaches cautiously before striking decisively.
+Violin represents vulnerability. Under attack: cellist's fortepiano glissandi
+and forceful chords depict struggle followed by dominance.
+Stark contrast dynamics throughout.
+
+=== 5. COMPETITION — Jazz Style ===
+"Saxophone (species A) — Trumpet (species B)"
+BPM: 120-135
+Key: C Major
+Structure: 876AABB
+Dynamics: Alternating high energy peaks and low intensity withdrawals
+Description: Sax and trumpet alternate leads with syncopated rhythms.
+Tense battle for resources. High energy when leading, withdrawal when dominated.
+Echoes natural selection pressures within populations vying for niche space.
+
+=== 6. AMENSALISM — Rock Style ===
+"Electric Guitar (dominant) — Bass Guitar + Drum Kit (suppressed)"
+BPM: 140+
+Key: E Major/Minor
+Structure: Heavy riff background
+Dynamics: Aggressive imposition without interaction
+Description: Electric guitar maintains steady growled licks as dominant force.
+Bass provides foundational lines that get 'crushed' under changing chord progressions.
+One species imposes upon another with indifference — harm through existence, not action.
+
+FINDING: Each ecological relationship produces a structurally distinct musical form.
+Mutualism → harmonious counterpoint (both voices equal and flourishing)
+Parasitism → exploitative blues (one voice draining another)
+Commensalism → supportive folk (one voice benefits, other indifferent)
+Predation → dramatic symphony (hunt narrative, attack and submission)
+Competition → adversarial jazz (battle for dominance, alternating leads)
+Amensalism → crushing rock (one voice overwhelms without acknowledging)
+
+The ecological relationship IS the musical arrangement. The ecosystem IS the score.

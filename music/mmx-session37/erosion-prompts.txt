@@ -1,0 +1,14 @@
+=== Session 37: The Prompt Chain — Four LLMs Describe Erosion ===
+=== Concept: Same instruction, different LLMs, different prompts, different music? ===
+
+PHI3 (3.8B):
+$PHI3_PROMPT
+
+QWEN2.5 (3B):
+$QWEN_PROMPT
+
+LLAMA3.2 (3B):
+$LLAMA_PROMPT
+
+GRANITE3.1 (2B):
+$GRANITE_PROMPT

@@ -1,0 +1,167 @@
+[
+  {
+    "name": "sf20-bluegrass-spring-reverb",
+    "elapsed": 160.7,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 88,
+    "keyscale": "G major",
+    "lyrics": "yes",
+    "status": "success"
+  },
+  {
+    "name": "sf20-pansori-feedback",
+    "elapsed": 138.1,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 95,
+    "keyscale": "B minor",
+    "lyrics": "yes",
+    "status": "success"
+  },
+  {
+    "name": "sf20-dakar-berlin-techno",
+    "elapsed": 478.1,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 128,
+    "keyscale": "E minor",
+    "lyrics": "yes",
+    "status": "success"
+  },
+  {
+    "name": "sf20-tempo-40",
+    "elapsed": 487.7,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 40,
+    "keyscale": "A minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-tempo-50",
+    "elapsed": 475.6,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 50,
+    "keyscale": "A minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-tempo-60",
+    "elapsed": 353.3,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 60,
+    "keyscale": "A minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-tempo-70",
+    "elapsed": 271.2,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 70,
+    "keyscale": "A minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-polka-black-metal",
+    "elapsed": 355.6,
+    "size_mb": 0,
+    "path": null,
+    "duration": 60,
+    "bpm": 140,
+    "keyscale": "D minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-zydeco-shoegaze",
+    "elapsed": 600.7,
+    "size_mb": 0,
+    "path": null,
+    "duration": 60,
+    "bpm": 120,
+    "keyscale": "A major",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-flamenco-dnb",
+    "elapsed": 600.1,
+    "size_mb": 0,
+    "path": null,
+    "duration": 60,
+    "bpm": 170,
+    "keyscale": "E minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-mariachi-synthwave",
+    "elapsed": 335.8,
+    "size_mb": 0,
+    "path": null,
+    "duration": 60,
+    "bpm": 110,
+    "keyscale": "C minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  },
+  {
+    "name": "sf20-prompt-medium-folk",
+    "elapsed": 191.1,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 72,
+    "keyscale": "C major",
+    "lyrics": "yes",
+    "status": "success"
+  },
+  {
+    "name": "sf20-prompt-medium-jazz",
+    "elapsed": 196.8,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 78,
+    "keyscale": "F major",
+    "lyrics": "yes",
+    "status": "success"
+  },
+  {
+    "name": "sf20-prompt-medium-electronic",
+    "elapsed": 119.0,
+    "size_mb": 0,
+    "path": null,
+    "duration": 90,
+    "bpm": 65,
+    "keyscale": "D minor",
+    "lyrics": "yes",
+    "status": "success"
+  },
+  {
+    "name": "sf20-duration-480-warm-cinematic",
+    "elapsed": 612.6,
+    "size_mb": 0,
+    "path": null,
+    "duration": 480,
+    "bpm": 55,
+    "keyscale": "A minor",
+    "lyrics": "instrumental",
+    "status": "success"
+  }
+]

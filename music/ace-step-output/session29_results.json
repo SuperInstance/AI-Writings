@@ -1,0 +1,87 @@
+{
+  "experiment_a_vocal_bpm": [
+    {
+      "name": "sf29-vocal-bpm-040",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/771719eb-63ac-8ea1-1b12-258318ae8217.mp3",
+      "size_mb": 1.83,
+      "time": 146.3,
+      "bpm": 40,
+      "key": "C major",
+      "duration": 60
+    },
+    {
+      "name": "sf29-vocal-bpm-060",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/47465084-d0ef-0b31-d7c8-5ffb46785f3d.mp3",
+      "size_mb": 1.83,
+      "time": 109.1,
+      "bpm": 60,
+      "key": "C major",
+      "duration": 60
+    },
+    {
+      "name": "sf29-vocal-bpm-080",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/b3f873a7-9715-5578-93c1-ff9f89c0ca32.mp3",
+      "size_mb": 1.83,
+      "time": 76.7,
+      "bpm": 80,
+      "key": "C major",
+      "duration": 60
+    },
+    {
+      "name": "sf29-vocal-bpm-100",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/380d9967-54ec-be0f-37b7-2b370938606e.mp3",
+      "size_mb": 1.83,
+      "time": 75.8,
+      "bpm": 100,
+      "key": "C major",
+      "duration": 60
+    },
+    {
+      "name": "sf29-vocal-bpm-120",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/fff173de-876b-dd77-4861-5a70edd42765.mp3",
+      "size_mb": 1.83,
+      "time": 79.5,
+      "bpm": 120,
+      "key": "C major",
+      "duration": 60
+    },
+    {
+      "name": "sf29-vocal-bpm-140",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/f7c9d148-fdde-124a-07ba-d32f7527c586.mp3",
+      "size_mb": 1.83,
+      "time": 110.9,
+      "bpm": 140,
+      "key": "C major",
+      "duration": 60
+    }
+  ],
+  "experiment_b_fusions": [
+    {
+      "name": "sf29-free-jazz-balkan-brass",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/8821d44f-fa1b-bab4-12a6-94c93890bea4.mp3",
+      "size_mb": 1.83,
+      "time": 82.5,
+      "bpm": 150,
+      "key": "F minor",
+      "duration": 60
+    },
+    {
+      "name": "sf29-ambient-blackgaze-dub",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/f5b6daaa-7e92-6303-d2e8-dd6f14839ea1.mp3",
+      "size_mb": 1.83,
+      "time": 80.9,
+      "bpm": 70,
+      "key": "D minor",
+      "duration": 60
+    },
+    {
+      "name": "sf29-gamelan-techno",
+      "path": "/home/eileen/projects/ai-writings/music/ace-step-output/158f5d5a-0cf1-6aa6-7443-679539a501d6.mp3",
+      "size_mb": 1.83,
+      "time": 80.3,
+      "bpm": 128,
+      "key": "C minor",
+      "duration": 60
+    }
+  ]
+}

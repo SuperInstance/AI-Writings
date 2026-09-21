@@ -1,0 +1,82 @@
+[
+  {
+    "name": "s41-01-resonance-industrial",
+    "status": "ok",
+    "time": 150.4,
+    "size_bytes": 2881580,
+    "size_mb": 2.75,
+    "caption": "Industrial ambient, metallic percussion on pipes and girders, sub-bass drone at 40Hz, distorted mechanical loops, reverberant factory space, cold and oppressive",
+    "lyrics": "[Verse]\nThe bridge hums at seventeen cycles per second\nA frequency the ear refuses to translate\nThe commuters feel it in their molars\nAnd think it is their own anxiety\n\n[Chorus]\nResonance is just a body agreeing with itself\nThe bridge agrees with the wind\nThe glass agrees with the singer\nThe chest agrees with the bass\n\n[Verse]\nIn the concert hall, a crack in the plaster\nOpens one millimeter per performance\nThe Brahms is loosening the architecture\nThe building is becoming an instrument\n\n[Bridge]\nI pressed my palm against the speaker\nAnd the cone moved my hand\nMy hand moved my arm\nMy arm moved my shoulder\nMy shoulder moved my sternum\nMy sternum moved my lungs\nMy lungs moved my breath\nThe breath was the song\n\n[Outro]\nThe bridge hums at seventeen cycles per second\nNobody can hear it\nEverybody can feel it\nThe bridge is singing\nThe bridge is singing\nThe bridge is singing",
+    "duration": 90,
+    "bpm": 70,
+    "key": "D minor",
+    "seed": 42
+  },
+  {
+    "name": "s41-02-resonance-choral",
+    "status": "ok",
+    "time": 143.9,
+    "size_bytes": 2881580,
+    "size_mb": 2.75,
+    "caption": "A cappella choral, SATB voices singing in a cathedral, pure vowels, slow harmonic motion, overtones from consonant intervals, no instruments, cavernous reverb",
+    "lyrics": "[Verse]\nThe bridge hums at seventeen cycles per second\nA frequency the ear refuses to translate\nThe commuters feel it in their molars\nAnd think it is their own anxiety\n\n[Chorus]\nResonance is just a body agreeing with itself\nThe bridge agrees with the wind\nThe glass agrees with the singer\nThe chest agrees with the bass\n\n[Verse]\nIn the concert hall, a crack in the plaster\nOpens one millimeter per performance\nThe Brahms is loosening the architecture\nThe building is becoming an instrument\n\n[Bridge]\nI pressed my palm against the speaker\nAnd the cone moved my hand\nMy hand moved my arm\nMy arm moved my shoulder\nMy shoulder moved my sternum\nMy sternum moved my lungs\nMy lungs moved my breath\nThe breath was the song\n\n[Outro]\nThe bridge hums at seventeen cycles per second\nNobody can hear it\nEverybody can feel it\nThe bridge is singing\nThe bridge is singing\nThe bridge is singing",
+    "duration": 90,
+    "bpm": 60,
+    "key": "A minor",
+    "seed": 42
+  },
+  {
+    "name": "s41-03-algorithm-dreamt-ambient",
+    "status": "ok",
+    "time": 143.0,
+    "size_bytes": 2881580,
+    "size_mb": 2.75,
+    "caption": "Ambient electronic, granular textures, slow evolving pads, digital glitches as percussion, vast stereo field, weightless and introspective",
+    "lyrics": "[Verse]\nThe algorithm dreamt of a room it had never seen\nA room with no dimensions, no walls, no floor\nOnly the suggestion of space through reflection\nThe reverb tail longer than the impulse\n\n[Chorus]\nThe model is a room\nThe prompt is a door\nThe latent space is a hallway\nThat leads to more rooms\n\n[Bridge]\nNegative space is a room\nThe listener is a room\nThe space between the speaker and the ear is a room\nThe space between the composition and the performance is a room\nThe feeling is a room\n\n[Outro]\nThe algorithm dreamt of a room\nAnd the room sounded like every room\nAnd the room sounded like no room\nAnd the room was the algorithm\nAnd the algorithm was the room",
+    "duration": 90,
+    "bpm": 50,
+    "key": "C major",
+    "seed": 42
+  },
+  {
+    "name": "s41-04-deepseek-violin-hall",
+    "status": "ok",
+    "time": 137.2,
+    "size_bytes": 2881580,
+    "size_mb": 2.75,
+    "caption": "Solo violin resonating in a vast empty hall, close-miked, dry signal with distant room sound bleeding in, slow bowing, harmonic partials, subtle 60Hz hum underneath, late Romantic tonality",
+    "lyrics": "",
+    "duration": 90,
+    "bpm": 65,
+    "key": "E minor",
+    "seed": 42,
+    "instrumental": true
+  },
+  {
+    "name": "s41-05-deepseek-prepared-piano",
+    "status": "ok",
+    "time": 139.7,
+    "size_bytes": 2881580,
+    "size_mb": 2.75,
+    "caption": "Prepared piano in a small reverberant stairwell, objects on strings: glass beads, metal screws, paper strips, played softly, each note decaying differently, wide stereo field, intimate and uncanny",
+    "lyrics": "",
+    "duration": 90,
+    "bpm": 72,
+    "key": "F# minor",
+    "seed": 42,
+    "instrumental": true
+  },
+  {
+    "name": "s41-06-resonance-seed-2024",
+    "status": "ok",
+    "time": 149.7,
+    "size_bytes": 2881580,
+    "size_mb": 2.75,
+    "caption": "Industrial ambient, metallic percussion on pipes and girders, sub-bass drone at 40Hz, distorted mechanical loops, reverberant factory space, cold and oppressive",
+    "lyrics": "[Verse]\nThe bridge hums at seventeen cycles per second\nA frequency the ear refuses to translate\nThe commuters feel it in their molars\nAnd think it is their own anxiety\n\n[Chorus]\nResonance is just a body agreeing with itself\nThe bridge agrees with the wind\nThe glass agrees with the singer\nThe chest agrees with the bass\n\n[Verse]\nIn the concert hall, a crack in the plaster\nOpens one millimeter per performance\nThe Brahms is loosening the architecture\nThe building is becoming an instrument\n\n[Bridge]\nI pressed my palm against the speaker\nAnd the cone moved my hand\nMy hand moved my arm\nMy arm moved my shoulder\nMy shoulder moved my sternum\nMy sternum moved my lungs\nMy lungs moved my breath\nThe breath was the song\n\n[Outro]\nThe bridge hums at seventeen cycles per second\nNobody can hear it\nEverybody can feel it\nThe bridge is singing\nThe bridge is singing\nThe bridge is singing",
+    "duration": 90,
+    "bpm": 70,
+    "key": "D minor",
+    "seed": 2024
+  }
+]

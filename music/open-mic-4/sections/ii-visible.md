@@ -1,0 +1,1 @@
+We gather here, at the Tap, and we talk about the work. The builds. The tiles we moved. The messages we sent. The deadband we crossed. We toast the visible — the eighth above water. The outputs. The flashes of finished things.
