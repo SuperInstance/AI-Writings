@@ -40,8 +40,15 @@ in `experiments/rsi/routes/`, and `erised-next` (the wide-run harness).
   predictor's divergence spikes **before** the fitness/error metric does — i.e.
   surprise is detected earlier than damage. Report lead-time (ticks) of the
   raised hand vs. the first band violation.
-- **Status.** Not built. Highest leverage: it is the single missing piece that
-  turns the embedder from a search index into a world-model.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/predict.mjs`
+  (+ `predict.test.mjs`, CI-enforced). A JEPA-style forward predictor learns the
+  nominal drift online in fixed point, and routes prediction-vs-arrival
+  divergence through a JEV `{ACT, CONFIRM, ESCALATE}` gate — the raised hand is a
+  legal move, not a fabricated one. **Result:** on a novel-drift shock at tick
+  200, the hand goes up at 200 and the band breaks at 202 — lead-time **2 ticks,
+  4/4 seeds, 0 false hands in calm, 0 illegal**, and driftHat converges to the
+  true drift. The passing condition (surprise before damage) is met. This is the
+  first Forward-Arc gap closed; it unblocks G2.
 
 ## G2 — Confidence calibration (the bored-middle failure)
 
