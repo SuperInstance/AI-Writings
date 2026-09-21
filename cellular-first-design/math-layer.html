@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Math Layer — substrate repos</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--text2:#a8b2c8;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5;padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 2rem}
+h1{color:var(--accent);font-size:1.8rem;font-weight:600;margin:0 0 .3rem;letter-spacing:-.01em}
+.tagline{color:var(--text2);margin:0 0 .8rem;font-size:1rem}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.badge{display:inline-block;background:var(--surface);border:1px solid var(--border);padding:.3rem .7rem;border-radius:20px;font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+.badge.green{color:var(--accent);border-color:rgba(0,255,157,.3)}
+.badge.cyan{color:var(--accent2);border-color:rgba(0,212,255,.3)}
+.badge.purple{color:var(--accent3);border-color:rgba(124,92,255,.3)}
+.badge.amber{color:var(--amber);border-color:rgba(255,184,77,.3)}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:2rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+nav{position:sticky;top:1rem;height:fit-content}
+nav h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:1rem 0 .5rem}
+nav h3:first-child{margin-top:0}
+nav a{display:block;color:var(--text2);font-size:.85rem;padding:.3rem .5rem;border-radius:4px;text-decoration:none;font-family:var(--mono);transition:all .15s}
+nav a:hover{background:var(--surface);color:var(--accent)}
+section{margin-bottom:3rem}
+section h2{color:var(--accent);font-size:1.4rem;margin:0 0 .5rem;font-weight:600;letter-spacing:-.01em}
+section h3{color:var(--text);font-size:1.1rem;margin:1.5rem 0 .5rem;font-weight:600}
+section p{color:var(--text2);font-size:.95rem;margin-bottom:.7rem}
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+.repo-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.2rem;transition:all .15s}
+.repo-card:hover{border-color:var(--accent);background:var(--surface2)}
+.repo-card h4{color:var(--accent);font-size:1rem;margin:0 0 .3rem;font-family:var(--mono)}
+.repo-card .what{color:var(--text);font-size:.9rem;margin-bottom:.5rem}
+.repo-card .math{color:var(--dim);font-size:.78rem;font-family:var(--mono);margin-bottom:.5rem}
+.repo-card .tests{color:var(--accent);font-size:.78rem;font-family:var(--mono);font-weight:bold}
+.repo-card a{color:var(--text2);text-decoration:none;font-family:var(--mono);font-size:.75rem}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.2rem;transition:all .15s;cursor:pointer}
+.demo-card:hover{border-color:var(--accent);background:var(--surface2)}
+.demo-card h4{color:var(--accent);font-size:1rem;margin:0 0 .3rem;font-family:var(--mono)}
+.demo-card .what{color:var(--text);font-size:.9rem;margin-bottom:.5rem}
+.demo-card .src{color:var(--dim);font-size:.75rem;font-family:var(--mono)}
+.layer-diagram{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin:1rem 0}
+.layer{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.8rem;margin-bottom:.5rem;font-family:var(--mono);font-size:.85rem}
+.layer .l-name{color:var(--accent);font-weight:bold;font-size:.95rem;display:block;margin-bottom:.3rem}
+.layer .l-desc{color:var(--text2);font-size:.85rem}
+.layer .l-math{color:var(--dim);font-size:.75rem}
+code.inline{background:var(--surface);color:var(--accent);padding:.1rem .4rem;border-radius:3px;font-family:var(--mono);font-size:.85rem}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-family:var(--mono);font-size:.85rem}
+th{text-align:left;color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;padding:.5rem;border-bottom:1px solid var(--border)}
+td{padding:.5rem;border-bottom:1px solid var(--border);color:var(--text)}
+tr:last-child td{border-bottom:none}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.78rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🧮 Math Layer — substrate repos</h1>
+<p class="tagline">Eight substrate repos. Real math. Real tests. 182 tests passing. All open source, all in-browser-runnable.</p>
+<div class="badges">
+<span class="badge green">⬢ 8 repos</span>
+<span class="badge cyan">⬢ 182 tests</span>
+<span class="badge purple">⬢ 8 live demos</span>
+<span class="badge amber">⬢ 13 polyformalism ports</span>
+</div>
+</header>
+
+<main>
+<nav>
+<h3>Repos</h3>
+<a href="#vectors">substrate-vectors</a>
+<a href="#rng">substrate-rng</a>
+<a href="#quantum">substrate-quantum</a>
+<a href="#post-quantum">substrate-post-quantum</a>
+<a href="#embedding">substrate-embedding</a>
+<a href="#opposites">substrate-opposites</a>
+<a href="#forge">substrate-forge</a>
+<a href="#game-engine">substrate-game-engine</a>
+
+<h3>Live demos</h3>
+<a href="#demos">All 8 demos</a>
+
+<h3>Layer view</h3>
+<a href="#layers">L1-L8 architecture</a>
+<a href="#polyformalism">Polyformalism</a>
+</nav>
+
+<div>
+<section id="intro">
+<h2>The math layer</h2>
+<p>Below the Quilt cell fabric sits a stack of substrate repos — pure math, no business logic, no cell semantics. Each repo is small enough to read in one sitting, documented enough to teach the math, tested enough to verify the byte-exact behavior, and shipped in TypeScript so it runs in browser, Node, and Deno without translation.</p>
+<p>The substrate is byte-exact across <strong>13 polyformalism ports</strong>: JavaScript, Python, C, Rust, Go, Haskell, J, Lua, Zig, Forth, SubLEQ, Verilog, VHDL. The same cell at the same dial vector produces the same FNV-1a 64-bit hash in every language.</p>
+</section>
+
+<section id="layers">
+<h2>L1-L8 architecture</h2>
+<div class="layer-diagram">
+<div class="layer">
+<span class="l-name">L8 — Applications</span>
+<span class="l-desc">Live demos, agent harnesses, the Quilt cell fabric itself.</span>
+<span class="l-math">Quilt, superinstance-website, the-beyond, tensor-midi</span>
+</div>
+<div class="layer">
+<span class="l-name">L7 — Builders</span>
+<span class="l-desc">Compile cells, build fabrics, verify polyformalism, simulate 5 opcodes.</span>
+<span class="l-math">substrate-forge</span>
+</div>
+<div class="layer">
+<span class="l-name">L6 — Embedding</span>
+<span class="l-desc">Text → 1024-d vectors. Hash / Mock-semantic / Remote-BGE.</span>
+<span class="l-math">substrate-embedding</span>
+</div>
+<div class="layer">
+<span class="l-name">L5 — Crypto</span>
+<span class="l-desc">Merkle trees, WOTS one-time signatures, Ring-LWE, hash-chain PRNG.</span>
+<span class="l-math">substrate-post-quantum</span>
+</div>
+<div class="layer">
+<span class="l-name">L4 — Quantum</span>
+<span class="l-desc">State-vector simulator up to ~14 qubits. Bell, GHZ, W, QFT, Grover.</span>
+<span class="l-math">substrate-quantum</span>
+</div>
+<div class="layer">
+<span class="l-name">L3 — Duality</span>
+<span class="l-desc">29 canonical opposite pairs, 14 families, tension score, involution.</span>
+<span class="l-math">substrate-opposites</span>
+</div>
+<div class="layer">
+<span class="l-name">L2 — RNG</span>
+<span class="l-desc">Xoshiro256** (default, period 2²⁵⁶-1), PCG64, SplitMix64, Box-Muller, Poisson.</span>
+<span class="l-math">substrate-rng</span>
+</div>
+<div class="layer">
+<span class="l-name">L1 — Vectors</span>
+<span class="l-desc">Cosine, euclidean, manhattan, chebyshev. k-means++, silhouette, product quantization.</span>
+<span class="l-math">substrate-vectors</span>
+</div>
+</div>
+</section>
+
+<section id="vectors">
+<h2>substrate-vectors</h2>
+<p>1024-dimensional vector operations. The math underneath Quilt's semantic search, similarity, clustering, and JEV scoring.</p>
+<div class="repo-card" style="margin-bottom:1rem">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">cosine(a,b) = (a·b) / (‖a‖·‖b‖)</code> — angle-based similarity, range [-1, 1]<br>
+• <code class="inline">euclidean(a,b) = √(Σ(aᵢ-bᵢ)²)</code> — distance, same units as space<br>
+• <code class="inline">kMeans(points, k)</code> — Lloyd's algorithm with k-means++ init (O(d·n·k·iter) competitive)<br>
+• <code class="inline">silhouette</code> = (b−a)/max(a,b) — cluster quality, range [-1, 1]<br>
+• <code class="inline">productQuantizer(vs, m, k)</code> — k-means per sub-vector, ~32× compression with ~5-10% recall loss<br>
+• <code class="inline">geometricMedian</code> — Weiszfeld iteration, cosine-friendly centroid
+</div>
+<p><strong>26/26 tests pass.</strong> Includes <code class="inline">Vector.fromText</code> deterministic FNV-1a-based embedder (zero deps) and <code class="inline">Vector.normalize</code> with epsilon-safe denominator.</p>
+</div>
+</section>
+
+<section id="rng">
+<h2>substrate-rng</h2>
+<p>Seedable RNGs. Xoshiro256** is the default — passes TestU01's BigCrush suite, 256-bit state, period 2²⁵⁶-1.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">Xoshiro256**</code> — default, period 2²⁵⁶-1, byte-exact across platforms, state serialize/deserialize for replay<br>
+• <code class="inline">PCG64</code> — period 2¹²⁸, alternative for cross-language parity (matches Haskell's PCG)<br>
+• <code class="inline">SplitMix64</code> — fast seed derivation, used to bootstrap Xoshiro state<br>
+• <code class="inline">stringToSeed</code> — FNV-1a 64-bit of the seed string<br>
+• <code class="inline">gaussian()</code> — Box-Muller transform, two uniforms → one Gaussian sample<br>
+• <code class="inline">poisson(λ)</code> — Knuth's algorithm, λ events per unit time<br>
+• <code class="inline">latinHypercube(n, k)</code> — space-filling sampling for Monte Carlo
+</div>
+<p><strong>22/22 tests pass.</strong> Same seed → same sequence, byte-exact. Includes <code class="inline">rng</code> factory with default + custom state.</p>
+</div>
+</section>
+
+<section id="quantum">
+<h2>substrate-quantum</h2>
+<p>Classical state-vector simulation up to ~14 qubits. Bell states, GHZ, W, QFT, Grover, Deutsch-Jozsa — all verified.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">|Φ+⟩ = (|00⟩+|11⟩)/√2</code> — Bell state, max entanglement (1 bit)<br>
+• <code class="inline">|GHZₙ⟩ = (|0ⁿ⟩+|1ⁿ⟩)/√2</code> — n-qubit GHZ, verified for n=3,4<br>
+• <code class="inline">QFT|1⟩ = |−⟩</code>, QFT² = I — Quantum Fourier Transform verified<br>
+• <code class="inline">Grover</code> with optimal iteration count ⌊π/4·√N⌋ — verified finds marked item with >90% probability for n=4, n=6<br>
+• <code class="inline">von Neumann entropy</code> = -tr(ρ log ρ) — pure states have entropy 0, mixed states positive<br>
+• <code class="inline">Entanglement entropy</code> — bipartite cut, 1 bit for Bell, log(d) for maximally mixed
+</div>
+<p><strong>26/26 tests pass.</strong> Includes <code class="inline">measure</code> (Born rule, collapses), <code class="inline">sampleHistogram</code> (non-collapsing), and full controlled-gate support.</p>
+</div>
+</section>
+
+<section id="post-quantum">
+<h2>substrate-post-quantum</h2>
+<p>Quantum-safe crypto primitives. Merkle trees, WOTS one-time signatures, Ring-LWE, hash-chain PRNG. Toy implementations — use ML-KEM for production.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">buildMerkleTree(leaves)</code> + <code class="inline">merkleProof</code> + <code class="inline">verifyMerkleProof</code> — leaf-up proof with correct sibling order<br>
+• <code class="inline">WOTS-OTS</code> — pk[i] = sk hashed (max+i) times, sig[i] = sk hashed (max-count[i]) times. ONE-TIME — reuse leaks secret.<br>
+• <code class="inline">Ring-LWE</code> in ℤ_q[x]/(xⁿ+1) — polynomial add/sub/mul, Gaussian noise via Box-Muller, encrypt/decrypt roundtrip<br>
+• <code class="inline">HashChainPRNG</code> — HMAC-SHA-256 based, quantum-safe<br>
+• <code class="inline">commit(x)</code> + <code class="inline">verifyCommitment(c, x)</code> — SHA-256 commitments
+</div>
+<p><strong>19/19 tests pass.</strong> Includes full <code class="inline">pqGenerate</code>, <code class="inline">pqSign</code>, <code class="inline">pqVerify</code> combining WOTS + Merkle tree (XMSS-style).</p>
+</div>
+</section>
+
+<section id="embedding">
+<h2>substrate-embedding</h2>
+<p>Text → 1024-d vector embeddings. BGE-Large compatible dimension. Three embedders.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">HashEmbedder</code> — deterministic, no model. FNV-1a sub-seeds × LCG stream. Same input → same vector, always.<br>
+• <code class="inline">MockSemanticEmbedder</code> — tokenize → co-occurrence matrix → PMI → truncated SVD via power iteration + deflation. Demo quality, no model download.<br>
+• <code class="inline">RemoteEmbedder</code> — HTTP client for TEI, Infinity, FastEmbed, BGE servers. Production quality.<br>
+• <code class="inline">tokenize</code>, <code class="inline">bagOfWords</code>, <code class="inline">cosine</code>, <code class="inline">topK</code> — composable primitives.
+</div>
+<p><strong>15/15 tests pass.</strong> <code class="inline">EMBEDDING_DIM = 1024</code> matches BGE-Large, so vectors are drop-in compatible.</p>
+</div>
+</section>
+
+<section id="opposites">
+<h2>substrate-opposites</h2>
+<p>Duality algebra. 29 canonical opposite pairs, 14 families, tension metric, dual-closure BFS.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">opposite(x) = canonicalOpposite(x)</code> — involution: opposite(opposite(x)) = x<br>
+• <code class="inline">tension(a, b)</code> ∈ {0, 0.5, 1.0} — 0 = unrelated, 0.5 = same family, 1.0 = exact opposite<br>
+• <code class="inline">dualClosure(start, depth)</code> — BFS through opposite graph, returns all dual pairs within depth<br>
+• <code class="inline">vectorInverse(v)</code>, <code class="inline">complement(s, U)</code>, <code class="inline">juxtapose(a, b)</code> — vector/set/string dualities
+</div>
+<p><strong>26/26 tests pass.</strong> 14 families: memory, truth, composition, time, connection, transformation, form, order, signal, wound, growth, agency, boundary, movement.</p>
+</div>
+</section>
+
+<section id="forge">
+<h2>substrate-forge</h2>
+<p>The build pipeline. Cell compiler, fabric builder, polyformalism verifier, 5-opcode simulator.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">compileCell(json)</code> — validates 12 canonical cell kinds, fills 16-dial vector<br>
+• <code class="inline">FabricBuilder</code> — cells + LINK edges, state hash (FNV-1a 64-bit), connectivity check<br>
+• <code class="inline">BIND</code> — clamp dial to Q1.15 range. <code class="inline">LINK</code> — average dials. <code class="inline">EFFECT</code> — apply transform. <code class="inline">VIEW</code> — read. <code class="inline">TICK</code> — alternate dial direction.<br>
+• <code class="inline">verifyCellForPort(cell, port)</code> — 13 ports (JS/Python/C/Rust/Go/Haskell/J/Lua/Zig/Forth/SubLEQ/Verilog/VHDL), validates dial range + endianness<br>
+• <code class="inline">crossPortHashConsistency(cell)</code> — proves same cell produces same hash across LE ports
+</div>
+<p><strong>24/24 tests pass.</strong> Includes FNV-1a 64-bit with 3 reference test vectors (empty, "a", "foobar") that match the documented constants byte-exactly.</p>
+</div>
+</section>
+
+<section id="game-engine">
+<h2>substrate-game-engine</h2>
+<p>Cellular automata + game primitives. Conway, HighLife, Day&Night, Wireworld, Lenia, Rule 110, Forest Fire, custom B/S.</p>
+<div class="repo-card">
+<h4>Math</h4>
+<div class="math">
+• <code class="inline">Conway (B3/S23)</code> — block (still life), blinker (oscillator), glider (spaceship), Gosper gun verified<br>
+• <code class="inline">HighLife (B36/S23)</code> — Conway variant, also produces gliders<br>
+• <code class="inline">Day&Night (B3678/S34678)</code> — two-state with symmetry<br>
+• <code class="inline">Wireworld</code> — 4 states (empty/wire/head/tail), electron propagation<br>
+• <code class="inline">Lenia</code> — continuous CA with bell-shaped kernel, μ/σ/R/Δt params, deterministic given same input<br>
+• <code class="inline">Rule 110</code> — 1D CA, Turing complete<br>
+• <code class="inline">Forest Fire</code> — 3 states, tree growth + fire spread, configurable p/f
+</div>
+<p><strong>24/24 tests pass.</strong> Custom B/S rule runner with periodic history bounding (200 generations).</p>
+</div>
+</section>
+
+<section id="demos">
+<h2>Live browser demos</h2>
+<p>Each demo runs the actual substrate math in your browser. Open the link, click, watch.</p>
+
+<div class="demo-grid">
+<a href="ann-search/" class="demo-card" style="text-decoration:none">
+<h4>ann-search/</h4>
+<div class="what">1024-d vector search + k-means++ clustering. Semantic embedder. Live top-K + cluster visualization.</div>
+<div class="src">substrate-vectors</div>
+</a>
+<a href="kmeans-viz/" class="demo-card" style="text-decoration:none">
+<h4>kmeans-viz/</h4>
+<div class="what">Watch Lloyd's algorithm converge. Click canvas to add points. 4 distributions: blobs/moons/rings/uniform.</div>
+<div class="src">substrate-vectors</div>
+</a>
+<a href="quantum-dance/" class="demo-card" style="text-decoration:none">
+<h4>quantum-dance/</h4>
+<div class="what">4 Bell states, GHZ, W. Apply H/X/Y/Z/S/T/CNOT/QFT/Grover/Deutsch-Jozsa. Raw state vector + matrices debug panel.</div>
+<div class="src">substrate-quantum</div>
+</a>
+<a href="lenia-viz/" class="demo-card" style="text-decoration:none">
+<h4>lenia-viz/</h4>
+<div class="what">Continuous CA. μ/σ/R/Δt all adjustable. Watch the glider slide.</div>
+<div class="src">substrate-game-engine</div>
+</a>
+<a href="rule-110/" class="demo-card" style="text-decoration:none">
+<h4>rule-110/</h4>
+<div class="what">Turing-complete 1D automaton. Any 8-bit rule. Step/run/custom seed.</div>
+<div class="src">substrate-game-engine</div>
+</a>
+<a href="polyformalism/" class="demo-card" style="text-decoration:none">
+<h4>polyformalism/</h4>
+<div class="what">Verify any cell across 13 language ports. Same input → same FNV-1a hash, byte-exact.</div>
+<div class="src">substrate-forge</div>
+</a>
+<a href="tidepool/" class="demo-card" style="text-decoration:none">
+<h4>tidepool/</h4>
+<div class="what">5 agents, 12 cell types, FNV-1a witness, k-means++ clusters. 3 scenarios: trade/explore/disaster.</div>
+<div class="src">substrate-vectors + substrate-rng + substrate-forge</div>
+</a>
+<a href="radio/" class="demo-card" style="text-decoration:none">
+<h4>radio/</h4>
+<div class="what">Generative music from math. Box-Muller drift, Poisson kicks, Bell-state noise, Lenia pad.</div>
+<div class="src">substrate-rng + substrate-quantum + substrate-game-engine</div>
+</a>
+<a href="canon/" class="demo-card" style="text-decoration:none">
+<h4>canon/</h4>
+<div class="what">Semantic search across 73 canon pieces. 1024-d token-freq embedder.</div>
+<div class="src">substrate-embedding</div>
+</a>
+</div>
+</section>
+
+<section id="polyformalism">
+<h2>Polyformalism</h2>
+<p>The same cell in 13 languages produces the same hash. That's not just porting — that's verification.</p>
+<table>
+<tr><th>Port</th><th>Dial range</th><th>Endianness</th></tr>
+<tr><td>js, python, j, lua</td><td>[-1, 1]</td><td>LE</td></tr>
+<tr><td>c, rust, go, haskell, zig, subleq, verilog, vhdl</td><td>int16 [-32768, 32767]</td><td>LE</td></tr>
+<tr><td>forth</td><td>int16 [-32768, 32767]</td><td>BE</td></tr>
+</table>
+<p>The FNV-1a 64-bit hash for any cell is byte-exact across all 12 LE ports. Forth's hash differs only because of the endianness of the dial-vector serialization — the underlying FNV-1a algorithm is identical.</p>
+<p>To verify: open the <a href="polyformalism/">polyformalism demo</a>, paste any cell, see all 12 LE ports produce the same hash.</p>
+</section>
+</div>
+</main>
+
+<footer>
+<p>🧮 substrate math layer · 8 repos · 182 tests · <a href="https://github.com/SuperInstance">github.com/SuperInstance</a></p>
+</footer>
+</body>
+</html>
