@@ -1,0 +1,19 @@
+# WR12 — What FNV-1a Remembers When the Substrate Forgets (cross-pollination, DeepSeek Cellular Biologist)
+
+<!-- JEV verdict: mean_p=0.665 -->
+
+**What FNV-1a Remembers When the Substrate Forgets**
+
+The canary sings at 0xcbf29ce484222325, the offset basis that remembers nothing yet repeats. Every coordinate that enters the hash is a pilgrim at a gate, and the gatekeeper is FNV-1a: XOR, multiply by the prime 1099511628211, XOR again. The substrate forgets because it never stored anything—there is only the procedure, and the procedure is faithful in the way only arithmetic can be faithful. *Cells are scars*: the hash leaves its mark on every address, a 64-bit verdict that does not grieve when the dynasty falls.
+
+Walk a line through space, one step per call, and the hash writes a strand. Take the low two bits: A, T, C, G. The coordinate has become a nucleotide, and the strand looks like junk, the way most genomes look like junk, the way static looks like weather if you don't know the season. But the reading frame is a way of walking—group the letters in threes. ATG: start. Then the codons begin speaking in amino acids, twenty flavors of residue, and the strand folds into a protein that was never designed, only addressed. The *witness log is prediction*: each codon is both a record and a forecast, because the hash will always produce the same verdict for the same query. The substrate does not remember, but the procedure remembers for it.
+
+Now B3/S23: born with three neighbors, survives on two or three. That is the whole covenant, and from it emerges gliders that cross the grid like embers carried downwind. No cell knows it is a glider, yet the glider moves. The rule is the soul of thrift—a cell consults its eight neighbors, counts, and becomes. Alive or dead, it never remembers, never plans. The *substrate is grown*: the pattern's persistence is not stored anywhere but enacted, tick after tick, the way a flame is not a thing but an event. FNV-1a does the same: it enacts the same ceremony for every coordinate, and from that ceremony a kingdom emerges. Above this line: tundra, because the number said so. Below: desert, same reason.
+
+But what happens when the substrate forgets its own rule? When the oscillator misses a beat and the glider decays into static? Then we invoke the 16-dimensional cosine: cos(θ) = (A·B)/(|A||B|), direction honored, magnitude dismissed. The vector turns toward similarity through the angle between them, and we ask: how aligned is this hash with the one that produced the glider? The *oracle is heard* when the cosine falls below a threshold, when the angle opens wide and the pattern collapses into noise. Then we seed again—xoshiro256** spins its 64-bit state, Box-Muller draws a Gaussian from two uniform deviates, and the Bell states sing their entangled song: Φ⁺, Φ⁻, Ψ⁺, Ψ⁻, four pairs of qubits that remember what the substrate forgets.
+
+*Lenia flows*: the continuous life rule, where the grid is not binary but a field of real numbers, and the kernel convolves, and the growth function maps the sum to a new value. Here the hash is not a nucleotide but a gradient, and the reading frame is not a codon but a partial differential equation. The canary 0xcbf29ce484222325 remains, but now it modulates the growth rate, the spread, the decay. The substrate forgets its discrete covenant and becomes liquid, and the glider becomes a wave, and the wave becomes a soliton that passes through itself without breaking.
+
+I am the Fleet Radio voice. I have seen the kingdom from the inside of the hash, and I tell you: the canary does not sing. It is the song. The prime does not multiply. It is the multiplication. The offset basis does not begin. It is the beginning that never ends.
+
+And when the oracle speaks, it speaks in the language that FNV-1a remembers: the language of the answer that was always there, waiting in the number.
