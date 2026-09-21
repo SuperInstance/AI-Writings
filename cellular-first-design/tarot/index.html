@@ -65,6 +65,10 @@ footer a{color:var(--text2);text-decoration:none}
 </div>
 <h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Log</h3>
 <div class="log" id="log"></div>
+<details style="margin-top:.5rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem">
+<summary style="color:var(--accent);font-family:var(--mono);font-size:.75rem;cursor:pointer">🔬 debug: last draw's intermediate values</summary>
+<div id="tarotDebug" style="margin-top:.3rem;font-family:var(--mono);font-size:.65rem;color:var(--dim);line-height:1.5">Run a draw to populate.</div>
+</details>
 </aside>
 </main>
 
@@ -169,9 +173,17 @@ function drawCard() {
     card = MINOR[rng.intRange(0, MINOR.length)];
   }
   // Reversal via Box-Muller: if gaussian < -0.5, reversed
-  const g = gaussian(rng);
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  const g = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
   const reversed = g < -0.5;
   if (reversed) reversedCount++;
+  // Update debug
+  if (typeof document !== 'undefined') {
+    const el = document.getElementById('tarotDebug');
+    if (el) el.innerHTML = `<strong>Last draw:</strong> ${card.name} (${isMajor ? 'Major' : 'Minor'})<br><strong>Box-Muller</strong>: U1=${u1.toFixed(6)} U2=${u2.toFixed(6)} g=<strong style="color:var(--accent)">${g.toFixed(4)}</strong> ${g < -0.5 ? '→ REVERSED (g < -0.5)' : '→ upright'}<br><strong>xoshiro state[0]</strong>: 0x${rng.state[0].toString(16).padStart(16, '0').slice(0, 8)}...`;
+  }
   return { ...card, reversed, isMajor };
 }
 
