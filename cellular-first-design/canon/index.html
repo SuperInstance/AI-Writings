@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Canon Search — substrate-embedding demo</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 1.5rem}
+h1{color:var(--accent);font-size:1.6rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.9rem}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.badge{display:inline-block;background:var(--surface);border:1px solid var(--border);padding:.3rem .7rem;border-radius:20px;font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+.badge.green{color:var(--accent);border-color:rgba(0,255,157,.3)}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.search-input{width:100%;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.8rem;font-family:var(--sans);font-size:1rem;margin-bottom:1rem}
+.search-input:focus{outline:none;border-color:var(--accent)}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1rem;font-family:var(--mono);font-size:.8rem;color:var(--dim)}
+.controls label{display:flex;gap:.3rem;align-items:center}
+input[type=number],select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem;font-family:var(--mono);font-size:.8rem;width:60px}
+.result{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:.5rem;transition:all .15s;cursor:pointer}
+.result:hover{border-color:var(--accent);background:var(--surface2)}
+.result-title{color:var(--accent);font-size:1rem;font-weight:600;margin-bottom:.3rem;font-family:var(--sans)}
+.result-path{color:var(--dim);font-family:var(--mono);font-size:.7rem;margin-bottom:.5rem;word-break:break-all}
+.result-excerpt{color:var(--text2);font-size:.85rem;line-height:1.5}
+.result-score{color:var(--accent);font-family:var(--mono);font-size:.9rem;font-weight:bold;float:right;background:var(--bg);padding:.2rem .5rem;border-radius:4px}
+.stats{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+.stats h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem}
+.stats h3:not(:first-child){margin-top:1rem}
+.stats div{margin-bottom:.3rem;font-family:var(--mono);font-size:.8rem;color:var(--text2)}
+.stats .v{color:var(--accent);font-weight:bold}
+.feature{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-bottom:.3rem;font-family:var(--mono);font-size:.75rem;color:var(--dim);cursor:pointer;transition:all .15s}
+.feature:hover{border-color:var(--accent);color:var(--text)}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📖 Canon Search — substrate-embedding</h1>
+<p class="tagline">Search 73 canon pieces by meaning, not just keywords. Substrate-vectors semantic search runs in your browser.</p>
+<div class="badges">
+<span class="badge green">⬢ semantic vector search</span>
+<span class="badge green">⬢ 73 canon pieces</span>
+<span class="badge">⬢ cosine similarity</span>
+<span class="badge">⬢ 100% in-browser</span>
+</div>
+</header>
+<main>
+<div>
+<input type="text" class="search-input" id="q" placeholder="Try: witness, fleet radio, cellular, substrate, dream..." value="the substrate remembers">
+<div class="controls">
+<label>k = <input type="number" id="k" value="8"></label>
+<label>mode =
+<select id="mode">
+<option value="cosine">cosine</option>
+<option value="keyword">keyword</option>
+<option value="hybrid">hybrid</option>
+</select>
+</label>
+<span style="margin-left:auto">⏱ <span id="latency">—</span></span>
+</div>
+<div id="results"></div>
+</div>
+<aside class="stats">
+<h3>Try queries</h3>
+<div class="feature" onclick="document.getElementById('q').value='the substrate remembers';search()">the substrate remembers</div>
+<div class="feature" onclick="document.getElementById('q').value='why cells witness';search()">why cells witness</div>
+<div class="feature" onclick="document.getElementById('q').value='fleet radio song';search()">fleet radio song</div>
+<div class="feature" onclick="document.getElementById('q').value='cellular first design';search()">cellular first design</div>
+<div class="feature" onclick="document.getElementById('q').value='the empty room';search()">the empty room</div>
+<div class="feature" onclick="document.getElementById('q').value='quantum entanglement';search()">quantum entanglement</div>
+<div class="feature" onclick="document.getElementById('q').value='math and poetry';search()">math and poetry</div>
+<h3>Stats</h3>
+<div>canon pieces: <span class="v" id="sCount">—</span></div>
+<div>vocab: <span class="v" id="sVocab">—</span></div>
+<div>last search: <span class="v" id="sLast">—</span></div>
+<div>embedder: <span class="v">token-freq</span></div>
+</aside>
+</main>
+<footer>📖 substrate-embedding canon search · <a href="https://github.com/SuperInstance/substrate-embedding">github.com/SuperInstance/substrate-embedding</a> · data: <a href="https://github.com/SuperInstance/AI-Writings/blob/master/canon-index.json">canon-index.json</a></footer>
+<script>
+// === substrate math ===
+const FNV1A_OFFSET = 0xcbf29ce484222325n;
+const FNV1A_PRIME = 0x100000001b3n;
+function fnv1a64(bytes) {
+  let h = FNV1A_OFFSET;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * FNV1A_PRIME);
+  return h;
+}
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+
+let canon = [];
+let canonVecs = [];
+let vocab = new Map();
+
+function tokenize(text) {
+  return text.toLowerCase().split(/\W+/).filter(t => t.length > 0 && t.length < 30);
+}
+
+function buildVocab() {
+  const freq = new Map();
+  for (const c of canon) {
+    for (const tok of tokenize(c.title + ' ' + c.excerpt)) {
+      freq.set(tok, (freq.get(tok) || 0) + 1);
+    }
+  }
+  // Keep top 1024 tokens
+  const sorted = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 1024);
+  vocab = new Map();
+  for (let i = 0; i < sorted.length; i++) vocab.set(sorted[i][0], i);
+}
+
+function embed(text) {
+  const v = new Float32Array(1024);
+  const tokens = tokenize(text);
+  for (const tok of tokens) {
+    const idx = vocab.get(tok);
+    if (idx !== undefined) v[idx] += 1;
+  }
+  // Normalize
+  let norm2 = 0;
+  for (let i = 0; i < 1024; i++) norm2 += v[i] * v[i];
+  const norm = Math.sqrt(norm2);
+  if (norm > 0) for (let i = 0; i < 1024; i++) v[i] /= norm;
+  return v;
+}
+
+function keywordScore(query, text) {
+  const qTokens = new Set(tokenize(query));
+  const tTokens = tokenize(text);
+  let hits = 0;
+  for (const t of tTokens) if (qTokens.has(t)) hits++;
+  return hits / Math.max(qTokens.size, 1);
+}
+
+function search() {
+  const query = document.getElementById('q').value;
+  const k = parseInt(document.getElementById('k').value);
+  const mode = document.getElementById('mode').value;
+  if (!query.trim()) return;
+  const startTime = performance.now();
+  const qVec = embed(query);
+  const scores = canonVecs.map((cv, i) => {
+    const cScore = cosine(qVec, cv);
+    const kScore = keywordScore(query, canon[i].title + ' ' + canon[i].excerpt);
+    let final;
+    if (mode === 'cosine') final = cScore;
+    else if (mode === 'keyword') final = kScore;
+    else final = cScore * 0.7 + kScore * 0.3;
+    return { i, score: final, cScore, kScore };
+  });
+  scores.sort((a, b) => b.score - a.score);
+  const latency = (performance.now() - startTime).toFixed(1);
+  document.getElementById('latency').textContent = latency + 'ms';
+  document.getElementById('sLast').textContent = latency + 'ms (' + mode + ')';
+  const out = document.getElementById('results');
+  out.innerHTML = '';
+  for (let j = 0; j < Math.min(k, scores.length); j++) {
+    const r = scores[j];
+    const c = canon[r.i];
+    const div = document.createElement('div');
+    div.className = 'result';
+    div.innerHTML = `<span class="result-score">${r.score.toFixed(3)}</span>
+      <div class="result-title">${c.title}</div>
+      <div class="result-path">${c.path}</div>
+      <div class="result-excerpt">${c.excerpt.slice(0, 280)}...</div>`;
+    out.appendChild(div);
+  }
+}
+
+fetch('canon.json').then(r => r.json()).then(data => {
+  canon = data;
+  buildVocab();
+  canonVecs = canon.map(c => embed(c.title + ' ' + c.excerpt));
+  document.getElementById('sCount').textContent = canon.length;
+  document.getElementById('sVocab').textContent = vocab.size;
+  search();
+});
+
+document.getElementById('q').addEventListener('input', () => search());
+document.getElementById('k').addEventListener('change', () => search());
+document.getElementById('mode').addEventListener('change', () => search());
+</script>
+</body>
+</html>
