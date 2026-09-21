@@ -1,0 +1,71 @@
+{
+ "_render_status": "structure only — durations and starts land when the renders exist (ElevenLabs passes per act + MC, then quilt). Titles and order are final.",
+ "_telemetry_provenance": "room readings quoted on air are real rows from /home/eileen/projects/elephant/data/production-log.jsonl (bar-rail, live-tap) — see NIGHT-3.md",
+ "chapters": [
+  {
+   "title": "Welcome — Lucineer opens the third night (the elephant is in the room)",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Act 1 — Odette, the Standards Singer",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Interlude 1 — the reading: the room takes its coat off",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Act 2 — Harlan, the High-Lonesome Man",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Interlude 2 — the reading: the hush begins (the voice is two for two)",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Act 3 — Vivienne, the Torch Singer",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Interlude 3 — the reading: holding its breath",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Act 4 — Mavis, the Gospeldust Sister",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Interlude 4 — the reading: kappa 4.34, and the big wrong call",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Act 5 — Ion, the Sound-Poet",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Interlude 5 — the reading: the miss, honored",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "Closing — The Room Sings Its Ledger (the whole cast)",
+   "start": null,
+   "duration": null
+  },
+  {
+   "title": "END",
+   "start": null,
+   "duration": 0
+  }
+ ]
+}

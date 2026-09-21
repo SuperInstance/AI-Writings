@@ -1,0 +1,88 @@
+{
+  "generated": "2026-08-10T22:30:38.388331",
+  "models_used": {
+    "@cf/flux-1-schnell": 10
+  },
+  "assets": [
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A vintage marine VHF radio dial glowing amber in a dark wheelhouse at night, tuned to channel 42",
+      "file": "images/ch42-radio-dial.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:40.421560"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A wolf pup and a human child in an ancient grassland at dawn, the child holds a stick, cave painting style",
+      "file": "images/ch42-wolf-and-child.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:42.909982"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "Two fishing vessels at anchor in an Alaskan cove at night, 200 meters apart, stars reflected in dark water",
+      "file": "images/ch42-two-boats-night.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:45.220126"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A dog swimming in dark ocean water at night, small wake behind, two boat lights in distance",
+      "file": "images/ch42-dog-swimming.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:47.158313"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "The interior of a dark bar called The Tap, warm amber light, bottles on shelves, a worn oak bar",
+      "file": "images/ch42-the-tap-interior.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:49.063089"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A female figure with flowing hair suggesting water and wind, warm amber tones, storybook puppet style portrait",
+      "file": "images/ch42-hermes-portrait.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:51.390787"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A steady bearded male figure with warm expression, storybook puppet portrait",
+      "file": "images/ch42-lucineer-portrait.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:53.409787"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A happy dog in side profile, folk art storybook puppet style, warm colors",
+      "file": "images/ch42-skipper-portrait.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:55.396323"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "Abstract visualization of semantic distance vectors in 4D space, creative zone highlighted in amber between 0.4 and 0.6",
+      "file": "images/ch42-delta-zones.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:57.383367"
+    },
+    {
+      "model": "@cf/flux-1-schnell",
+      "prompt": "A hermit crab emerging from its shell, vulnerable, new, watercolor style",
+      "file": "images/ch42-molting-crab.jpg",
+      "type": "image",
+      "cost": 0.0,
+      "timestamp": "2026-08-10T22:30:59.465099"
+    }
+  ]
+}

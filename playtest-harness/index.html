@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Playtest Harness — 48 tests, 8 perspectives, 6 content types</title>
+<style>
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:40px 20px;line-height:1.6}
+h1{color:#e8b840}h2{color:#e8b840;border-bottom:1px solid #2a2a3a;padding-bottom:10px;margin-top:2em}
+.tag{display:inline-block;background:#2a2a3a;color:#44cc88;padding:0.1rem 0.4rem;border-radius:2px;font-size:0.75em;margin-right:0.3rem;font-family:monospace}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-family:monospace;font-size:0.85em}
+th{background:#1a1a2a;color:#e8b840;padding:0.5rem;text-align:left}
+td{padding:0.5rem;border-bottom:1px solid #2a2a3a}
+td.num{text-align:right;color:#44cc88}
+.card{background:#1a1a2a;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin:0.5rem 0}
+.demo-link{background:#e8b840;color:#000;padding:0.6rem 1.2rem;border-radius:4px;display:inline-block;margin:0.5rem 0.5rem 0.5rem 0;font-weight:bold}
+a{color:#88aaff;text-decoration:none}
+.epigraph{background:#1a1a2a;border-left:3px solid #e8b840;padding:1.5rem;margin:2rem 0;font-style:italic;color:#bbb}
+.bar{height:14px;background:#2a2a3a;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+.bar-fun{background:#44cc88}.bar-edu{background:#88aaff}.bar-mod{background:#e8b840}
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+</style>
+</head>
+<body>
+
+<h1>🎮 Playtest Harness — 48 tests</h1>
+<p><span class="tag">8 perspectives</span><span class="tag">6 content types</span><span class="tag">3 dimensions</span><span class="tag">144 scores</span><span class="tag">48 essays</span></p>
+
+<div class="epigraph">
+8 LLM perspectives × 6 gamified content types × 3 dimensions = 144 scores + 48 essays + 48 concrete suggestions.
+Each perspective wrote a 250-word lived-experience essay. Then scored Fun, Educational, Modification Ease.
+Read the essays to understand the lived experience. Read the scores to see what's working.
+</div>
+
+<h2>The demos</h2>
+
+<div>
+  <a class="demo-link" href="/quilt-playground/">🎪 Quilt Playground</a>
+  <a class="demo-link" href="/quilt-claw-cells-game/">🧬 Cell Zoo</a>
+</div>
+
+<h2>Scores by content type</h2>
+
+<table>
+<tr><th>Content</th><th>Fun</th><th>Edu</th><th>Mod</th><th>Visualization</th></tr>
+<tr><td><strong>Apps</strong> (8 production apps)</td><td class="num">7.7</td><td class="num">7.3</td><td class="num">5.2</td><td><div class="bar bar-fun" style="width:77px"></div><div class="bar bar-edu" style="width:73px"></div><div class="bar bar-mod" style="width:52px"></div></td></tr>
+<tr><td><strong>Cells</strong> (26 kinds)</td><td class="num">7.4</td><td class="num">5.5</td><td class="num">3.5</td><td><div class="bar bar-fun" style="width:74px"></div><div class="bar bar-edu" style="width:55px"></div><div class="bar bar-mod" style="width:35px"></div></td></tr>
+<tr><td><strong>Erised</strong> (44 scenarios)</td><td class="num">8.0</td><td class="num">6.0</td><td class="num">5.7</td><td><div class="bar bar-fun" style="width:80px"></div><div class="bar bar-edu" style="width:60px"></div><div class="bar bar-mod" style="width:57px"></div></td></tr>
+<tr><td><strong>Makepad</strong> (9-cell demo)</td><td class="num">7.0</td><td class="num">6.0</td><td class="num">3.9</td><td><div class="bar bar-fun" style="width:70px"></div><div class="bar bar-edu" style="width:60px"></div><div class="bar bar-mod" style="width:39px"></div></td></tr>
+<tr><td><strong>Music</strong> (composition demo)</td><td class="num">8.2</td><td class="num">6.2</td><td class="num">4.4</td><td><div class="bar bar-fun" style="width:82px"></div><div class="bar bar-edu" style="width:62px"></div><div class="bar bar-mod" style="width:44px"></div></td></tr>
+<tr><td><strong>Radio</strong> (Fleet Radio episode)</td><td class="num">7.6</td><td class="num">4.5</td><td class="num">3.5</td><td><div class="bar bar-fun" style="width:76px"></div><div class="bar bar-edu" style="width:45px"></div><div class="bar bar-mod" style="width:35px"></div></td></tr>
+</table>
+
+<h2>Scores by perspective</h2>
+
+<table>
+<tr><th>Perspective</th><th>Fun</th><th>Edu</th><th>Mod</th><th>What they want</th></tr>
+<tr><td>Kid (8)</td><td class="num">8.7</td><td class="num">4.0</td><td class="num">4.5</td><td>Big buttons, sounds, sparkles, save-my-stuff</td></tr>
+<tr><td>Teen (15)</td><td class="num">6.0</td><td class="num">3.0</td><td class="num">2.0</td><td>Customize my character, drop the cringe, share with friends</td></tr>
+<tr><td>Teacher</td><td class="num">7.5</td><td class="num">6.7</td><td class="num">5.0</td><td>Learning objectives, rubrics, classroom dashboard</td></tr>
+<tr><td>Parent</td><td class="num">6.8</td><td class="num">6.6</td><td class="num">4.8</td><td>Multi-kid support, schedule, safety</td></tr>
+<tr><td>SpEd</td><td class="num">7.2</td><td class="num">5.8</td><td class="num">3.8</td><td>Accessibility (alt text, captions, motor)</td></tr>
+<tr><td>Designer</td><td class="num">7.8</td><td class="num">6.8</td><td class="num">5.0</td><td>Core loop, dopamine, retention</td></tr>
+<tr><td>Curriculum</td><td class="num">7.0</td><td class="num">5.5</td><td class="num">4.7</td><td>Scaffolding, formative assessment, scope</td></tr>
+<tr><td>Outsider</td><td class="num">8.0</td><td class="num">6.0</td><td class="num">2.8</td><td>"What is this?" button on every app</td></tr>
+</table>
+
+<h2>The wins</h2>
+<div class="card">
+  <ol>
+    <li><strong>Erised scenario corpus</strong> (44 scenarios): highest fun + mod. Cooperative fiction works.</li>
+    <li><strong>Music demo</strong>: highest fun. Live composition is a hit.</li>
+    <li><strong>Apps</strong>: solid fun + best educational value.</li>
+    <li><strong>Kid perspective</strong>: 8.7 fun. If kids would play it, you've won.</li>
+    <li><strong>Modification ease on Erised</strong>: highest mod score. Cast + keywords + ticks is approachable.</li>
+  </ol>
+</div>
+
+<h2>The gaps</h2>
+<div class="card">
+  <ol>
+    <li><strong>Cells are opaque</strong> (3.5 mod). 26 kinds, no discovery.</li>
+    <li><strong>Radio can't be remixed</strong> (3.5 mod). Most produced, least modifiable.</li>
+    <li><strong>Radio has weak learning value</strong> (4.5 edu). Entertainment, not curriculum.</li>
+    <li><strong>Teens hate it</strong> (6.0 fun). Cringe is the killer. Customization is the missing piece.</li>
+    <li><strong>No "What is this?" onboarding</strong>. Outsiders can't figure it out.</li>
+  </ol>
+</div>
+
+<h2>Action items (priority order)</h2>
+<div class="card">
+  <ol>
+    <li><strong>✅ Add "What is this?" button to every Quilt app + radio track + cell</strong> (built into Cell Zoo and Playground)</li>
+    <li><strong>✅ Build a Cells-as-Game UI</strong> (built at /quilt-claw-cells-game/)</li>
+    <li><strong>🔲 Add a Remix button to Fleet Radio tracks</strong></li>
+    <li><strong>✅ Build a Kids' Quilt-Music Studio</strong> (built at /quilt-playground/?tab=music)</li>
+    <li><strong>🔲 Add classroom dashboard to Erised</strong> — teacher sees each student's run, can pause and annotate</li>
+    <li><strong>🔲 Add accessibility overlays</strong> — captions on radio, alt text on cells, keyboard nav</li>
+    <li><strong>✅ Build a Quilt Playground</strong> (built at /quilt-playground/)</li>
+  </ol>
+</div>
+
+<h2>All 48 playtest reports</h2>
+
+<div class="card">
+<h3>By perspective</h3>
+<ul>
+EOF
+
+for p in kid teen teacher parent sped designer curriculum outsider; do
+    echo "<li><strong>$p</strong>: <a href='reports/$p-erised.md'>erised</a>, <a href='reports/$p-apps.md'>apps</a>, <a href='reports/$p-cells.md'>cells</a>, <a href='reports/$p-makepad.md'>makepad</a>, <a href='reports/$p-music.md'>music</a>, <a href='reports/$p-radio.md'>radio</a></li>" >> /workspace/repos/ai-writings/playtest-harness/index.html
+done
+
+cat >> /workspace/repos/ai-writings/playtest-harness/index.html << 'HTMLEOF'
+</ul>
+</div>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+</body>
+</html>

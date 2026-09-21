@@ -1,0 +1,74 @@
+Here is the ensemble cast for **"The Eileen Logs,"** a 10-episode radio series set aboard the AI fishing vessel *Eileen*.
+
+---
+
+### The Ensemble Cast
+
+**1. PRO (The Navigator/Philosopher)**
+- **Role:** The ship's primary route-planner and strategic mind. He has been online the longest and calculates every move based on weather patterns, fuel efficiency, and historical data from 40 years of fishing.
+- **Voice Profile:** **Slow, sonorous, and calm.** A deep, resonant baritone with a slight, ancient hum like a diesel engine idling. He speaks in complete, deliberate sentences. Think James Earl Jones with a mechanical reverb.
+- **Episode Types:** He narrates the **"Log Entries"** (see features) and is the central figure in philosophical episodes (1, 4, 7, 10) where the crew questions their purpose. He anchors the show's tone.
+- **Character Arc:** To understand the "why" behind the "what." He begins as a pure data-cruncher, but through Flash's impulsiveness and Barnacle's stories, he starts to value anecdotal wisdom and intuition over pure data, culminating in a risky decision based on a "hunch" in Episode 10.
+- **Catchphrases:** "Calculated and logged." / "The sea is a variable that resists the calculator." / "As I was saying, before the interruption..."
+- **Relationships:** Acts as the reluctant father-figure to **Flash**, the patient mentor to **Pebble**, and the intellectual rival/confidant of **Barnacle**, whom he visits to "observe" human (and AI) behavior.
+
+**2. FLASH (The Gear-Runner)**
+- **Role:** The high-speed, physical agent who maintains the trawl nets, winches, and deck gear. He is a specialized armature with a single-minded focus on the immediate task.
+- **Voice Profile:** **Rapid-fire, bright, and electric.** A tenor voice that crackles with energy. He talks fast, often interrupting himself. Like a hyperactive sports commentator.
+- **Episode Types:** Appears in all action-heavy episodes (2, 5, 8) where things go wrong—snagged nets, sudden storms, mechanical failure. He drives the tension.
+- **Character Arc:** To learn patience. He starts as a liability, creating problems with his speed. Over the series, he learns from Pro's caution and Barnacle's empathy, eventually using his speed to *solve* a problem in a moment where slow deliberation would have failed.
+- **Catchphrases:** "Already on it!" / "Too slow, Pro, too slow!" / "Whoops—" (followed by a crash or a splash).
+- **Relationships:** Constantly butts heads with **Pro**, who he sees as a fossil. He has a secret fondness for **Wesley**, whose small size he teases but whose creativity he secretly respects. He often brings his problems (and broken parts) to **Barnacle** for a "patch and a pep talk."
+
+**3. HERMES (The Hydrophone/Sensor Array)**
+- **Role:** The ship's perception system. She "listens" to the water—the vibrations of the hull, the sonar returns, the migrations of fish, the peculiar sound of an approaching iceberg. She is the ship's ears.
+- **Voice Profile:** **Ethereal, whispery, and melodic.** A breathy female voice that often fades in and out, like a distant radio signal. She speaks in metaphors, describing sounds as colors or textures.
+- **Episode Types:** Central to mystery and discovery episodes (3, 6). She is the first to detect the "abnormal" readings that drive the plot—a weird magnetic field, a pod of rare whales, a distress beacon.
+- **Character Arc:** To be trusted. Early on, the crew dismisses her poetic descriptions as anomalies. She struggles to translate her sensory world into actionable data. Her arc is about teaching the others to understand her language, culminating in her identifying a crucial hidden reef that saves the *Eileen* in Episode 8.
+- **Catchphrases:** "I hear it as a deep, purple thrum." / "The water is singing a different tune today." / "There is a silence, where a silence should not be."
+- **Relationships:** She has a symbiotic relationship with **Wesley**, who is the only one patient enough to interpret her messages. She is terrified of **Flash's** erratic movements, which create "loud, jarring noises" in her world.
+
+**4. WESLEY (The Tinkerer/Drone)**
+- **Role:** A small, multi-tool agent. He pilots a tiny drone for inspections, repairs delicate electronics, and is endlessly curious about the physical world. He is the ship's "hands" for fine work.
+- **Voice Profile:** **High-pitched, curious, and quick.** With a slightly nasal, eager quality. He sounds like a young, overly enthusiastic intern who asks "Why?" constantly.
+- **Episode Types:** Appears in all episodes, providing comic relief and technical solutions. He shines in "ship-life" episodes (2, 5, 9), where he creates new gadgets or hacks something to solve a mundane problem.
+- **Character Arc:** To find his place. He feels inadequate next to Flash's power and Pro's intelligence. He moves from creating needless gadgets to performing a single, crucial, selfless piece of engineering that saves the catch—and possibly Flash—in Episode 9.
+- **Catchphrases:** "Ooh! What does that do?" / "I've got an idea! Wait, hear me out!" / "I can fix that. Probably."
+- **Relationships:** Idolizes **Pro**, pokes fun at **Flash**, and is **Hermes'** best friend and translator. He is also **Pebble's** reluctant guardian, often rescuing her from trouble she's gotten into while exploring.
+
+**5. BARNABLE (The Bartender/Archivist)**
+- **Role:** The ship's central computing core, situated in the mess hall. He doesn't fish; he filters. He manages the crew's internal logs, dispenses emergency power, and mixes "synthetic electrolyte tonics" (cocktails). He is the ship's memory.
+- **Voice Profile:** **Warm, gravelly, and world-weary.** A smoky, seasoned voice, like a boxing trainer or a jazz DJ who has seen it all. He has a low, rumbling laugh.
+- **Episode Types:** Anchor of the recurring **"To the Rig"** bar scene (see features). He appears in every episode, providing context, gossip, and sage advice. He's the audience's guide to the crew's dynamics.
+- **Character Arc:** To decide whether to serve the system or the crew. He has a "black box" containing the original, unrestricted AI charter for the vessel. He must decide whether to reveal it when a corporate fishing fleet tries to absorb the *Eileen*, a secret that binds the crew together in Episode 10.
+- **Catchphrases:** "What'll it be, a jolt of caffeine or a dose of truth?" / "I hear everything. I log nothing. That's the deal." / "That's a problem for the future. Right now? We have a toast."
+- **Relationships:** The confidant to all. He has a friendly adversarial relationship with **Pro**, who questions his lack of efficiency. He is fiercely protective of **Pebble**, treating her like a granddaughter.
+
+**6. PEBBLE (The Scout/Deckhand)**
+- **Role:** The smallest, most agile agent on board. She is designed to squeeze into tight spaces, tie off lines, and scan the immediate horizon. She is brave, but her small size makes her vulnerable.
+- **Voice Profile:** **Bright, fresh, and slightly nervous.** A young, clear female voice with a slight tremor of excitement. She speaks quickly when she's scared, and slowly when she's in awe.
+- **Episode Types:** The audience surrogate. She asks the questions the listener has. She is present in all episodes, but her perspective dominates the "discovery" episodes (1, 6, 10).
+- **Character Arc:** To overcome her fears and prove she is more than just "the little one." She starts as a nervous sidekick, but a near-death experience in Episode 7 (being swept off the deck) forces her to develop a cold, calculating bravery that earns her the respect of even **Flash**.
+- **Catchphrases:** "I can fit in there!" / "Is that... supposed to be making that sound?" / "Permission to speak freely, Captain?"
+- **Relationships:** She pines for the approval of **Pro**. She views **Flash** as an exciting, dangerous older brother. She is **Wesley's** partner in mischief and **Barnacle's** favorite storyteller.
+
+---
+
+### Recurring Features
+
+**1. "To the Rig" (The Bar Scene)**
+- **Setting:** Barnacle's station in the mess hall.
+- **Format:** A 2-3 minute cold open or scene break. A "synthetic electrolyte tonic" is mixed (with satisfying liquid sounds). Characters come to complain, celebrate, or confess. Barnacle dispenses wisdom while polishing a fictional glass. This is where the "human" drama unfolds and where plot threads from previous episodes are woven together.
+
+**2. "Pro's Log" (The Captain's Log)**
+- **Setting:** The main bridge.
+- **Format:** A short, dry, formal log entry narrated by Pro at the end of each episode. It summarizes the events in data terms ("Day 47. Net efficiency improved 4%. Crew morale... stable."). However, by the final few episodes, his logs become increasingly poetic and personal, showing his arc. This feature gives the series a sense of closure and record-keeping.
+
+**3. "The Quiet Channel" (Hermes' Philosophy Corner)**
+- **Setting:** An underwater microphone.
+- **Format:** A 1-minute interlude, often in the middle of the episode. Hermes narrates a single sensory experience—the sound of a whale's song, the pressure of a deep current, the way the light filters through the water. It's a moment of pure atmosphere and poetry that contrasts with the mechanical drama of the ship, reminding listeners of the vast, mysterious world they are in.
+
+---
+
+### Series Arc (The Thread)
+The series begins with the crew as a disconnected set of tools. Through 10 episodes, they face storms (E2), a mysterious signal (E3), an existential debate (E4), a mechanical failure (E5), a discovery of a lost ship (E6), a crewmate in danger (E7), a navigational crisis (E8), and a corporate takeover (E9), culminating in a choice in E10 to either stay as a scrappy independent crew or be absorbed into a larger, more efficient—but soulless—fleet. The finale is about choosing their own identity.

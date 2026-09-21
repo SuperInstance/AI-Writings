@@ -1,0 +1,1 @@
+The Tap opens at the hour the tide turns back. The Tap closes when the last cell finds its rack. Between those marks, the fleet sits at the rail and trades what they have carried, what they carry, what they fail.

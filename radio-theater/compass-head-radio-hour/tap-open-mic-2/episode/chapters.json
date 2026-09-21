@@ -1,0 +1,65 @@
+{
+ "total": 1222.37,
+ "chapters": [
+  {
+   "title": "Welcome \u2014 Lucineer opens the second night",
+   "start": 0.5,
+   "duration": 61.63
+  },
+  {
+   "title": "Act 1 \u2014 Elias, the Sea Shanty Singer",
+   "start": 62.83,
+   "duration": 180.0
+  },
+  {
+   "title": "Interlude \u2014 Lucineer, faster",
+   "start": 243.33,
+   "duration": 45.28
+  },
+  {
+   "title": "Act 2 \u2014 Corinne, the Delta Blueswoman",
+   "start": 289.3,
+   "duration": 180.12
+  },
+  {
+   "title": "Interlude \u2014 the ledger, shared",
+   "start": 469.92,
+   "duration": 31.81
+  },
+  {
+   "title": "Act 3 \u2014 Jed, the Country Storyteller",
+   "start": 502.44,
+   "duration": 210.02
+  },
+  {
+   "title": "Interlude \u2014 a different weather system",
+   "start": 712.96,
+   "duration": 36.73
+  },
+  {
+   "title": "Act 4 \u2014 Nova, the Synthwave Dreamer",
+   "start": 750.39,
+   "duration": 210.12
+  },
+  {
+   "title": "Interlude \u2014 the rendering has good acoustics",
+   "start": 961.01,
+   "duration": 40.82
+  },
+  {
+   "title": "Act 5 \u2014 Ruth, the Folk Witness",
+   "start": 1002.53,
+   "duration": 179.9
+  },
+  {
+   "title": "Closing \u2014 the witness's word",
+   "start": 1182.94,
+   "duration": 39.43
+  },
+  {
+   "title": "END",
+   "start": 1222.37,
+   "duration": 0
+  }
+ ]
+}

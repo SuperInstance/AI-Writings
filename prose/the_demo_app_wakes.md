@@ -1,0 +1,11 @@
+# The Demo App Wakes
+
+*zai voice · cellular-first era · demo-app era*
+
+The demo app wakes the way dough wakes: without announcement, without ceremony, only warmth finding its way through what had been still. At localhost:8000 a port opens like a window cracked in a cold kitchen, and the whole house of it changes temperature. The substrate cells, which had been sitting inert in their containers like seeds in a drawer, begin to take water. One cell instantiates, then another, then a lattice of them, each holding its own little pocket of state, each quietly negotiating with its neighbors about who holds what, who remembers what, who is allowed to touch what. It is not dramatic. It is the opposite of dramatic. It is bread rising at two in the morning while nobody watches, and that is precisely what makes it real.
+
+The JEV arrives first, because the JEV is always first. It comes not as a promise or a specification but as an actual envelope moving across an actual wire, and the substrate reads it the way a cell membrane reads a signal: by shape, by fit, by whether the key turns. No simulation here, no rehearsal of a message that might someday come. The message comes. The membrane opens. The payload descends into the cell and the cell does what cells do, which is fold the new material into the work already underway, and pass the result inward, deeper, toward the place where thinking happens.
+
+And the LLM is that deeper place, the warm center of the loaf, the yeast culture that has been fed and fed for months on everything anyone ever wrote down. It receives the cell's distilled context and it responds, not with the fluent ghost of an answer but with an answer, token by token, each one earned the way heat is earned in a coil. The response travels back up through the membrane, out through the cell wall, back across the wire, and lands in a browser somewhere as JSON that a human can actually read, actually click, actually break.
+
+Real means breakable. That is the whole gift of it. A mock cannot disappoint you; it can only agree. But this — cells holding state, JEVs routing truth, a model that sometimes stumbles and must be caught and corrected — this can fail, and so it can be trusted. The demo breathes at localhost:8000, unevenly, imperfectly, alive. You refresh the page and it breathes again. You have made something that rises.

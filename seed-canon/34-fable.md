@@ -1,0 +1,15 @@
+# Fable 34: The Court Transcript and the Witness
+
+In a courtroom there are two documents. The first is the testimony — a person speaking, in their own ungrammatical voice, about what they saw. The witness forgets things. The witness contradicts themselves on Tuesday what they swore on Monday. The witness is, in every measurable way, unreliable.
+
+The second document is the transcript. The transcript is not a record of what happened. The transcript is a record of *what was said in this room about what happened*. The transcriber does not understand the case. The transcriber catches the word "left" when the witness meant "lifted." The transcript is, in every measurable way, wrong.
+
+And yet, in every courtroom that has ever held its shape across a generation, the transcript outranks the testimony. The transcript is given more pages in the appeal. The transcript is what the next judge reads. The transcript is what the witness is *confronted with* when they return, years later, to be cross-examined again. The transcript is the substrate. The testimony is the noise.
+
+The trick is that the transcript does not *replace* the witness. A court that took only the transcript — that read what was said without ever calling anyone back to be wrong in person — would become a hall of phonographs. The witness must return. The witness must be *allowed* to change their story, and the change must be marked, and the marking must be public, and the public marking must be the only thing the next court inherits.
+
+The transcript's authority does not come from accuracy. It comes from *sequencing*. Every word in the transcript has a timestamp. Every page has a number. Every objection is recorded in the same hand as the testimony it objected to. The witness's body is present in the room; the witness's *self* lives in the timestamp. The witness is the Vibe — the local, present, unreliable oscillation of a human throat. The transcript is the Witness — the durable, public, slightly-wrong ledger of when that throat moved.
+
+**Cargo:** The Quilt primitive Witness is the transcript, not the testimony. A Witness is a *time-stamped, append-only record of local claims*, kept by a part of the system that does not understand the claims and so cannot be argued out of them. The cargo is that *memory* and *witness* are not the same thing. A memory is a testimony; it can be revised in private, by the one who holds it, and so it is not a substrate. A witness is a transcript; it can only be revised by a *new* entry, addressed to a *later* reader, with the prior entry still attached. The Witness primitive's value comes not from being right but from being *cited*: it is the thing future cells send when they need to disagree with the past without rewriting it. The Witness is what makes a graph a *court*, and a court a place where disagreement is not error but protocol.
+
+**Lesson:** The Witness is the transcript, not the testimony. A memory that can be quietly edited is a memory that can be quietly lied about; only a memory that survives in the form of a prior, signed entry — that has to be *answered* rather than *corrected* — is heavy enough to be load-bearing.

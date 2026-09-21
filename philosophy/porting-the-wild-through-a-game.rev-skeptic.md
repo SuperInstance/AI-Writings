@@ -1,0 +1,11 @@
+- **Weakest inference:** From “the wheelhouse is already a small dark room with a sonar trace” to “training in games just closes the loop.” An instrumented control room is not a game; the operator’s actions still change the physical boat, and the sonar is still caused by the actual ocean. A simulator severs that causal chain.
+
+- **Metaphor doing the work:** “The wild with the latency removed.” Removing latency would leave everything else intact. A game also removes material risk, biological fatigue, weather chaos, mechanical failure, and the consequences of death. Those aren’t latency; they’re substance.
+
+- **Refutable claim:** “The blips aren’t a metaphor for the trawler. They’re the trawler, compressed.” A sonar blip is a representation, not the trawler. It depends on transducer placement, signal processing, and interpretation. If the sensor malfunctions, the blip can exist without the trawler, or the trawler can exist without the blip.
+
+- **Safe failure cuts against the argument:** “Safe failure” is supposed to make the game a better teacher, but it also removes the very thing that makes wild failure educational: the cost. An agent trained where bad decisions only end the run may learn risk-taking that would sink the boat. The game is not “the ocean with latency removed”; it’s the ocean with consequences removed.
+
+- **“Honest score” is circular:** A game score is honest only to the game’s scoring rule. It is not honest to the wild unless you already know the game correlates with the catch. The argument admits this by demanding validation—but then the game isn’t the wild; it’s an unproven model. You can’t have both “the game is the ocean” and “check whether winning one predicts winning the other.”
+
+- **“Fix the game, not the agent” is one-sided:** If the correlation decays, the agent may have overfit to the old game’s quirks, or the game may have become stale. Fixing only the game assumes the agent is a passive victim of the port, not an active exploiter. Sometimes the right fix is to change the agent’s learning rule, reward function, or generalization pressure.

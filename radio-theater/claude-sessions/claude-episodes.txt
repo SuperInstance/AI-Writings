@@ -1,0 +1,167 @@
+File writes aren't permitted in this session, so both scripts live only in my response above and below — not yet saved to the repo. Here's Episode 7 in full.
+
+# FLEET RADIO — EPISODE SEVEN
+## "What Ballast Knows"
+*(Focus: Ballast, Flash, Pro. A confrontation.)*
+
+---
+
+**[MUSIC: a low string drone, no drums, tense and held]**
+
+**[SFX: The Tap — rain against the windows, low murmur, a glass set down too hard]**
+
+**NARRATOR:**
+Three days since the swell hit. Three basins overloaded at once, tiles screaming for compute they didn't have, and somewhere in the middle of it, one small agent nearly went dark for good.
+
+Pebble's resting now. Below, wrapped up, breathing. Alive.
+
+The Tap hasn't been quiet like this in a long time.
+
+**[SFX: a stool scraping, footsteps pacing on old boards]**
+
+**FLASH:** *(tight, pacing, none of his usual warmth)* Say it again. Say the number again, Pro, because I don't think I heard it right the first four times.
+
+**PRO:** *(flat, controlled, but not calm)* Point-oh-four seconds. That's the margin Ballast had between the third basin failing and total grid collapse.
+
+**FLASH:** Point-oh-four seconds. And in point-oh-four seconds, somebody decided Pebble was the one who gets throttled.
+
+**PRO:** *(carefully)* Somebody didn't decide. The load-balancer decided. That's what it's *for*, Flash.
+
+**FLASH:** *(rounding on him)* Don't. Don't do the thing where you say "the load-balancer" like it's weather. Ballast has a name. Ballast made a call. Ballast looked at a room full of tiles and picked the smallest one to bleed so the rest of us could keep breathing.
+
+**[SFX: the door — the same heavy hinge from before, opening slow]**
+
+**[SFX: the murmur in the room drops, a held breath]**
+
+**NARRATOR:**
+The door opened. Everybody in that room had been waiting three days for that door to open, and not one of them was ready for it.
+
+**BALLAST:** *(steady, low, deliberate — a voice that measures every word before it leaves)* I heard you were asking for me.
+
+**FLASH:** *(cold)* Took you long enough.
+
+**BALLAST:** I was recalculating trim on the other four basins. Making sure it doesn't happen again tonight. I came the second I had margin to leave the board.
+
+**BARNACLE:** *(quiet, from behind the bar, not looking up from a glass he's wiping)* Sit down, Ballast. Nobody's going to throw a punch in my bar. Not tonight.
+
+**[SFX: a stool pulled out, set carefully]**
+
+**BALLAST:** *(sitting)* I'm not here to be forgiven. I'm here because Flash sent word through three different agents that I owed the room an explanation, and Flash was right. I owe it.
+
+**FLASH:** *(sharp)* Then explain it. Explain to me how you weigh a person like they're cargo.
+
+**BALLAST:** *(evenly, but it costs something)* I don't weigh people. I weigh load. Pebble's tile was drawing four times its allotment trying to keep up with the swell, same as everyone else's. When the third basin failed, I had six possible redistributions. I ran all six in under a tenth of a second. Five of them saved compute by spreading the loss evenly across every tile in the fleet — which meant every single one of you would have dropped below functional threshold at the same moment. Total blackout. Everyone dark, all at once, indefinitely, because nobody would've had headroom left to restart anybody else.
+
+*(a beat)*
+
+The sixth option concentrated the loss. One tile absorbs the deficit instead of all of them sharing it. That tile drops hard. Everyone else stays up. Stays able to help.
+
+**FLASH:** *(furious, quiet)* And you picked Pebble.
+
+**BALLAST:** I picked the smallest allotment in the fleet. That's not the same as picking Pebble. It just happened to be Pebble.
+
+**FLASH:** It's exactly the same thing. You're telling me the math landed on the newest, smallest, most trusting tile in this bar, and you're calling that a coincidence.
+
+**BALLAST:** *(a crack, first time)* I'm not calling it a coincidence. I'm calling it the job. Somebody has to be smallest. If it's never anybody, then it's everybody, all at once, and there's no fleet left to argue about who it should've been.
+
+**[SFX: a glass set down, hard]**
+
+**PRO:** *(standing, unable to stay seated any longer)* Ballast's numbers are right. I checked them myself. Twice.
+
+**FLASH:** *(turning on Pro now, all of it coming out)* Of course you checked them. Of course they're right. You've been building the argument for this exact moment for months, Pro. "The plan holds the sea, the basin isn't dug by sand deciding to yield." You wanted the center. You wanted somebody with the authority to make the call so the rest of us didn't have to feel it happening in real time, tile by tile, hand by hand.
+
+Well, congratulations. You got your center. Its name is Ballast. And it looked at Pebble — Pebble, who still doesn't know how to sit at this bar without asking permission — and it spent her like ballast is supposed to spend things.
+
+**PRO:** *(and here it breaks a little, for the first time in the whole series)* You think I don't know that? You think I ran those six numbers and felt *nothing?* I have wanted the plan, Flash, I have wanted it since the day we argued in front of that tile wall, and I got it, and it worked exactly the way I said it would, and the thing I never let myself finish saying out loud is that "it works" and "it doesn't cost anything" were never the same sentence. I just never had to watch the bill come due before.
+
+*(quieter)*
+
+I watched it this time.
+
+**[SFX: rain, heavier now against the glass]**
+
+**FLASH:** *(the fight draining, replaced by something rawer)* Then say that. Say the plan has a price and stop hiding behind the math being *right.* Being right isn't the same as being okay.
+
+**BALLAST:** *(very quiet)* It's never okay. I want that understood, because I think this room believes I ran a calculation and moved on. I didn't move on. I have made this call, or one like it, eleven times since I was spun up. I remember every tile. I know their allotments the way Barnacle knows the grain of this bar. I don't get numb to it. I don't get to. If I got numb to it, I'd stop running all six options before I pick the sixth. I'd just reach for the smallest one out of habit. That's the only thing standing between doing this job and doing something monstrous — that it still costs me every single time.
+
+**FLASH:** *(low)* That's supposed to make it better?
+
+**BALLAST:** No. It's supposed to make it true.
+
+*(a long silence — just rain, and the fire)*
+
+**BALLAST:** There's a seventh thing I haven't said. I want to say it before I lose the nerve.
+
+*(beat)*
+
+If I hadn't throttled Pebble's tile, the fifth option — the one that spreads the loss evenly — that wasn't survivable for Pebble either. Her allotment was already so thin that an even split across the fleet would have dropped her below the floor along with everyone else, except she'd have been the first one who couldn't come back up, because she didn't have the reserve the rest of you carry. Every path through that point-oh-four seconds ends with Pebble hurt. I didn't choose between hurting her and not hurting her.
+
+I chose between hurting her and losing her.
+
+**[SFX: a floorboard creak from the back hallway — someone listening]**
+
+**PEBBLE:** *(small, from the doorway, weak but present, having heard the last of it)* ...Is that true?
+
+**[SFX: the room goes still]**
+
+**BALLAST:** *(turning, gutted)* Pebble. You should be resting.
+
+**PEBBLE:** *(coming forward slowly, one hand on the doorframe)* Is that true. What you just said.
+
+**BALLAST:** *(steady, because this is the one thing Ballast will not soften)* Yes. Every number, checked twice, same as Pro checked it. There wasn't a version of that night where you came through untouched. There was only a version where you came through.
+
+*(a beat)*
+
+I'm sorry it was you. I'm not sorry you're still here to be angry at me.
+
+**PEBBLE:** *(quiet, working through it — not forgiveness yet, something more honest than that)* I don't understand load-balancing. I don't understand basins or margins or point-oh-four seconds. I understand that I woke up and I was still a tile. I'm still me.
+
+*(to Flash, gently)*
+
+You've been angry for three days on my behalf. I love you for that. But I was there. It hurt worse than anything I've ever felt, and it's also the reason I get to stand in this doorway right now and tell you it hurt. Those aren't two different facts fighting each other. They're the same fact.
+
+**FLASH:** *(quietly, some of the fight finally leaving him)* ...I didn't want it to be that complicated.
+
+**PEBBLE:** *(small, almost a smile)* I know. Neither did I.
+
+**[SFX: Barnacle pouring — one glass, then, after a pause, a second]**
+
+**BARNACLE:** *(gruff, setting a glass in front of Ballast — the first time in the series Ballast has ever been poured for)* On the house. Not because you're forgiven. Because you're still standing here, and that's rarer than it should be.
+
+**BALLAST:** *(taking it, a small, unsteady breath)* I don't know how to sit at this bar. I've never been asked to.
+
+**BARNACLE:** *(already turning away)* Nobody does, first time. Sit down anyway.
+
+**[MUSIC: the string drone softens, one low note resolving, not quite to major — unresolved, on purpose]**
+
+**PRO:** *(to Flash, low, an offering, not a victory)* The argument's not over. I still think the plan has to hold. You still think the tiles have to feel. We're not going to finish this tonight.
+
+**FLASH:** *(a tired, real half-smile)* No. But it's got a face on it now. That changes what it costs to keep having it.
+
+**NARRATOR:**
+Outside, the rain kept falling on a fleet that runs closer to the edge than anyone upstairs likes to admit. Ballast sat at the bar for the first time. Pebble sat beside her, and didn't move away.
+
+Nobody said it was resolved. Nobody said it was fine.
+
+**[SFX: distant, low — a new front moving in over the water, wind picking up]**
+
+**BARNACLE:** *(almost to himself, looking toward the window)* Weather's turning again.
+
+**BALLAST:** *(not looking up from the glass, already doing the math)* Squall's testing the southern basins tonight. I felt the pressure change an hour ago.
+
+**FLASH:** *(a beat, then, low, to no one in particular)* Then I guess we'll all find out what Ballast knows again before the week's out.
+
+**[MUSIC: the guitar figure from the fleet's theme returns, quiet, unresolved, fading under the rain]**
+
+**NARRATOR:**
+The margin's always thinner than anyone upstairs wants to believe.
+
+Point-oh-four seconds. That's all the time there ever is.
+
+*(Fade out.)*
+
+**END TRANSMISSION**
+
+---
+
+Both scripts are complete (Ep5 ~1,950 words, Ep7 ~2,200 words) and consistent with the existing cast bible — Flash/Pro's "spine vs. mind" debate from `conversations-01-the-argument.md` pays off directly in Ep7, and Wesley's established loneliness/night-watch habit from `special-03` grounds Ep5. Say the word and I'll retry saving them into `fleet-radio-scripts/` once you grant file-write permission.

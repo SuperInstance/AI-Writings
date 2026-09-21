@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+  <radialGradient id="bg" cx="60%" cy="51%" r="80%">
+    <stop offset="0%" stop-color="hsl(54, 89%, 12%)" />
+    <stop offset="50%" stop-color="hsl(54, 69%, 6%)" />
+    <stop offset="100%" stop-color="#0a0a0a" />
+  </radialGradient>
+  <linearGradient id="overlay" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="rgba(255,176,0,0.03)" />
+    <stop offset="100%" stop-color="rgba(0,0,0,0.4)" />
+  </linearGradient>
+</defs>
+<rect width="1920" height="1080" fill="url(#bg)" />
+<rect width="1920" height="1080" fill="url(#overlay)" /><g fill="none" stroke="#ffb000" stroke-width="1" opacity="0.05">
+<circle cx="960" cy="540" r="50" />
+<circle cx="960" cy="540" r="130" />
+<circle cx="960" cy="540" r="210" />
+<circle cx="960" cy="540" r="290" />
+<circle cx="960" cy="540" r="370" />
+<circle cx="960" cy="540" r="450" />
+<circle cx="960" cy="540" r="530" />
+<circle cx="960" cy="540" r="610" />
+<circle cx="960" cy="540" r="690" />
+<circle cx="960" cy="540" r="770" />
+</g>
+
+  <text x="960" y="540" text-anchor="middle" dominant-baseline="middle" font-size="280" fill="rgba(255,176,0,0.04)" font-family="sans-serif">→</text>
+</svg>

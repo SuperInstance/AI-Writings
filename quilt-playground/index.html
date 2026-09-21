@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Quilt Playground — Compose, Mix, Remix</title>
+<style>
+:root{--bg:#0a0a14;--panel:#1a1a2a;--panel-2:#2a2a3a;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--effect:#ff8080;--tick:#aa88ff;--pink:#ff80c0;}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:0}
+header{background:var(--panel);padding:1.5rem 2rem;border-bottom:2px solid var(--accent)}
+h1{color:var(--accent);margin:0}
+.tagline{color:#888;font-style:italic;margin:0.3rem 0}
+.container{max-width:1400px;margin:0 auto;padding:1.5rem}
+.row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.col{flex:1;min-width:300px}
+.panel{background:var(--panel);border-radius:8px;padding:1rem;margin-bottom:1rem}
+h2{color:var(--accent);margin:0 0 0.5rem 0;font-size:1.1em}
+button{background:var(--accent);color:#000;border:none;padding:0.5rem 1rem;border-radius:4px;cursor:pointer;font-weight:bold;font-family:inherit}
+button:hover{filter:brightness(1.1)}
+button.secondary{background:var(--panel-2);color:var(--fg)}
+button.pink{background:var(--pink)}
+select,input,textarea{background:var(--bg);color:var(--fg);border:1px solid var(--panel-2);border-radius:4px;padding:0.4rem;font-family:monospace}
+textarea{width:100%;min-height:80px;resize:vertical;font-size:0.85em}
+canvas{background:var(--bg);border:1px solid var(--panel-2);border-radius:4px;display:block;width:100%}
+.tag{display:inline-block;background:var(--panel-2);padding:0.15rem 0.5rem;border-radius:3px;font-size:0.75em;margin-right:0.3rem;font-family:monospace}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.5rem}
+.scenario-card{background:var(--panel-2);padding:0.5rem 0.7rem;border-radius:4px;cursor:pointer;font-size:0.85em;border:1px solid transparent}
+.scenario-card:hover{border-color:var(--accent)}
+.scenario-card.selected{border-color:var(--pink)}
+.cast-pill{display:inline-block;background:var(--panel-2);color:var(--cell);padding:0.2rem 0.5rem;border-radius:12px;font-size:0.8em;margin:0.2rem;font-family:monospace}
+.cast-pill button{background:none;color:#888;padding:0 0.3rem;margin-left:0.3rem;font-size:1em}
+.transcript{background:var(--bg);border-radius:4px;padding:0.5rem;height:300px;overflow-y:auto;font-size:0.85em;font-family:monospace}
+.turn{padding:6px 10px;border-left:2px solid var(--link);margin-bottom:4px;background:var(--panel-2);border-radius:0 4px 4px 0}
+.turn .speaker{color:var(--link);font-size:0.85em;font-weight:bold}
+.turn.dm .speaker{color:var(--pink)}
+.turn.dm{border-left-color:var(--pink)}
+.big{font-size:1.2em;padding:0.8rem 1.2rem}
+.help{background:var(--panel);border-left:3px solid var(--accent);padding:0.8rem;margin-bottom:1rem;border-radius:0 6px 6px 0;font-size:0.9em}
+.kid-friendly{font-family:'Comic Sans MS','Marker Felt',cursive;font-size:1.1em;color:var(--pink)}
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+
+/* === MOBILE & TOUCH === */
+@media (max-width: 768px) {
+  body { font-size: 16px !important; }
+  header { padding: 1rem !important; }
+  h1 { font-size: 1.4em !important; }
+  .container { padding: 1rem !important; max-width: 100% !important; }
+  .row { flex-direction: column !important; }
+  .col { min-width: 100% !important; }
+  button { min-height: 44px !important; min-width: 44px !important; padding: 0.75rem 1rem !important; font-size: 1em !important; }
+  input, select, textarea { font-size: 16px !important; padding: 0.6rem !important; min-height: 44px !important; }
+}
+@media (hover: none) and (pointer: coarse) {
+  button, .cell-slot, .cell-card { -webkit-tap-highlight-color: rgba(232,184,64,0.3); touch-action: manipulation; user-select: none; padding: 0.9rem 1.2rem !important; }
+  input[type="range"] { height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+header { padding-top: max(1rem, env(safe-area-inset-top)) !important; padding-left: max(2rem, env(safe-area-inset-left)) !important; padding-right: max(2rem, env(safe-area-inset-right)) !important; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎪 Quilt Playground</h1>
+<p class="tagline">Three things to try. Pick one. Change anything. Save and share.</p>
+<div style="text-align:center;padding:0.5rem;background:var(--panel-2);border-bottom:1px solid var(--accent)"><a href="mobile" style="color:var(--accent)">📱 Mobile/touch optimized version</a></div></header>
+
+<div class="container">
+
+<div class="help">
+<strong>What is this?</strong> A sandbox with three Quilt games you can play and remix:
+(1) <em>Compose Music</em> — click cells to bind notes, hear the chord, save the song.
+(2) <em>Cell Zoo</em> — try 26 different kinds of computation, watch the witness log.
+(3) <em>Cooperative Fiction</em> — set up an erised scenario, watch the characters play.
+<br><br>
+<strong>No login. No build. No backend.</strong> Everything runs in your browser. Save to JSON if you want to share.
+</div>
+
+<!-- Tabs -->
+<div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap">
+<button onclick="showTab('music')" id="tab-music" class="big">🎵 Compose Music</button>
+<button onclick="showTab('cells')" id="tab-cells" class="big secondary">🧬 Cell Zoo</button>
+<button onclick="showTab('fiction')" id="tab-fiction" class="big secondary">📖 Cooperative Fiction</button>
+</div>
+
+<!-- TAB 1: Music Composer -->
+<div id="tab-music-content">
+  <div class="row">
+    <div class="col">
+      <div class="panel">
+        <h2>Choose a mode</h2>
+        <select id="mode">
+          <option value="pentatonic">Pentatonic (D) — happy</option>
+          <option value="major">Major (D) — bright</option>
+          <option value="minor">Minor (D) — sad</option>
+          <option value="dorian">Dorian (D) — jazzy</option>
+          <option value="lydian">Lydian (D) — dreamy</option>
+        </select>
+        <h2 style="margin-top:1rem">Tempo (BPM)</h2>
+        <input type="range" id="bpm" min="40" max="180" value="80" style="width:100%">
+        <span id="bpmDisplay">80</span>
+      </div>
+      <div class="panel">
+        <h2>Click cells to bind notes</h2>
+        <p style="color:#888;font-size:0.85em">Each cell is a beat. Click → bind witness → hear the note.</p>
+        <canvas id="musicCanvas" width="600" height="300"></canvas>
+      </div>
+    </div>
+    <div class="col">
+      <div class="panel">
+        <h2>Score (ABC notation)</h2>
+        <pre id="abcScore" style="background:var(--bg);padding:0.5rem;font-family:monospace;font-size:0.85em;overflow-x:auto">bind some cells</pre>
+        <div style="margin-top:0.5rem">
+          <button onclick="saveMusic()">💾 Save Song (JSON)</button>
+          <button class="pink" onclick="exportMusic()">📤 Export</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Witness log (live)</h2>
+        <div id="musicLog" class="transcript"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 2: Cell Zoo -->
+<div id="tab-cells-content" style="display:none">
+  <p style="color:#bbb">→ See <a href="../quilt-claw-cells-game/" style="color:var(--link)">Cell Zoo</a> for the full 26-kind playground.</p>
+</div>
+
+<!-- TAB 3: Cooperative Fiction -->
+<div id="tab-fiction-content" style="display:none">
+  <div class="row">
+    <div class="col">
+      <div class="panel">
+        <h2>Pick a scenario</h2>
+        <p style="color:#888;font-size:0.85em">Each one is a small crew sustaining a system past its first year.</p>
+        <div class="scenario-grid" id="scenarioGrid"></div>
+      </div>
+      <div class="panel">
+        <h2>Add characters</h2>
+        <input type="text" id="charName" placeholder="Character name (e.g. Molly the baker)" style="width:100%">
+        <textarea id="charTendency" placeholder="Tendency: who they are, what they want"></textarea>
+        <input type="text" id="charKeywords" placeholder="keywords (e.g. sourdough+0.6 community+0.4)" style="width:100%;margin-top:0.5rem">
+        <button onclick="addCharacter()">+ Add Character</button>
+        <div id="castList" style="margin-top:1rem"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="panel">
+        <h2>Setting</h2>
+        <textarea id="setting">A small-town bakery in the Pacific Northwest. Molly, the third-generation baker, just installed solar panels on the roof to cut costs. The bakery has run continuously for 50 years.</textarea>
+        <h2 style="margin-top:1rem">Controls</h2>
+        <button class="big" onclick="tickStory()">▶ Tick (advance story)</button>
+        <button class="secondary" onclick="resetStory()">🔄 Reset</button>
+        <button class="pink" onclick="saveStory()">💾 Save Story</button>
+      </div>
+      <div class="panel">
+        <h2>Transcript</h2>
+        <div id="transcript" class="transcript"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// Tabs
+function showTab(name) {
+  document.getElementById('tab-music').className = name === 'music' ? 'big' : 'big secondary';
+  document.getElementById('tab-cells').className = name === 'cells' ? 'big' : 'big secondary';
+  document.getElementById('tab-fiction').className = name === 'fiction' ? 'big' : 'big secondary';
+  document.getElementById('tab-music-content').style.display = name === 'music' ? '' : 'none';
+  document.getElementById('tab-cells-content').style.display = name === 'cells' ? '' : 'none';
+  document.getElementById('tab-fiction-content').style.display = name === 'fiction' ? '' : 'none';
+}
+
+// === MUSIC COMPOSER ===
+const PENTATONIC = { 'C': 261.63, 'D': 293.66, 'E': 329.63, 'F#': 369.99, 'G': 392.00, 'A': 440.00, 'B': 493.88 };
+const MAJOR = { 'C': 261.63, 'D': 293.66, 'E': 329.63, 'F': 349.23, 'G': 392.00, 'A': 440.00, 'B': 493.88 };
+const SCALES = {
+  pentatonic: ['D', 'E', 'F#', 'A', 'B'],
+  major: ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
+  minor: ['D', 'E', 'F', 'G', 'A', 'Bb', 'C'],
+  dorian: ['D', 'E', 'F', 'G', 'A', 'B', 'C'],
+  lydian: ['D', 'E', 'F#', 'G#', 'A', 'B', 'C#']
+};
+
+const FREQS = {
+  'C': 261.63, 'D': 293.66, 'E': 329.63, 'F': 349.23, 'F#': 369.99,
+  'G': 392.00, 'G#': 415.30, 'A': 440.00, 'Bb': 466.16, 'B': 493.88, 'C#': 554.37
+};
+
+let musicCells = [];
+let musicWitness = [];
+let audioCtx = null;
+
+function initMusic() {
+  const canvas = document.getElementById('musicCanvas');
+  const ctx = canvas.getContext('2d');
+  const grid = 4;
+  const size = 600 / grid;
+  musicCells = [];
+  let id = 0;
+  for (let r = 0; r < grid; r++) {
+    for (let c = 0; c < grid; c++) {
+      const cell = { id: `c${++id}`, x: c * size, y: r * size, bound: false, witness: 0, note: null };
+      musicCells.push(cell);
+    }
+  }
+  drawMusic();
+}
+
+function drawMusic() {
+  const canvas = document.getElementById('musicCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#0a0a14';
+  ctx.fillRect(0, 0, 600, 300);
+  
+  const mode = document.getElementById('mode').value;
+  const scale = SCALES[mode];
+  
+  musicCells.forEach((cell, idx) => {
+    const x = cell.x + 5;
+    const y = cell.y + 5;
+    const w = 600 / 4 - 10;
+    const h = 300 / 4 - 10;
+    
+    if (cell.bound && cell.note) {
+      ctx.fillStyle = `hsl(${(cell.witness * 37) % 360}, 70%, 60%)`;
+      ctx.shadowColor = '#e8b840';
+      ctx.shadowBlur = 15;
+    } else {
+      ctx.fillStyle = '#1a1a2a';
+      ctx.shadowBlur = 0;
+    }
+    ctx.fillRect(x, y, w, h);
+    ctx.shadowBlur = 0;
+    
+    ctx.fillStyle = '#fff';
+    ctx.font = '11px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(cell.id, x + w / 2, y + h / 2 - 4);
+    if (cell.note) {
+      ctx.fillText(`${cell.note.note}${cell.note.octave}`, x + w / 2, y + h / 2 + 12);
+      ctx.fillText(`w${cell.witness}`, x + w / 2, y + h / 2 + 26);
+    }
+  });
+  
+  updateABC();
+}
+
+function updateABC() {
+  const mode = document.getElementById('mode').value;
+  const bpm = parseInt(document.getElementById('bpm').value);
+  const bound = musicCells.filter(c => c.bound && c.note);
+  if (bound.length === 0) {
+    document.getElementById('abcScore').textContent = '(bind some cells to compose)';
+    return;
+  }
+  let abc = `X:1\nM:4/4\nK:${mode === 'pentatonic' ? 'D' : 'D'}\nL:1/4\nQ:1/4=${bpm}\n|`;
+  bound.forEach(c => { abc += ` ${c.note.note}${c.note.octave}`; });
+  abc += ' |]';
+  document.getElementById('abcScore').textContent = abc;
+}
+
+function noteFromWitness(witness, mode) {
+  const scale = SCALES[mode];
+  const idx = witness % scale.length;
+  const oct = 4 + Math.floor(witness / scale.length);
+  return { note: scale[idx], octave: oct, freq: FREQS[scale[idx]] * Math.pow(2, oct - 4) };
+}
+
+function playNote(note) {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.frequency.value = note.freq;
+  osc.type = 'sine';
+  gain.gain.setValueAtTime(0, audioCtx.currentTime);
+  gain.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.6);
+}
+
+document.getElementById('musicCanvas').onclick = (e) => {
+  const rect = e.target.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const cell = musicCells.find(c => x >= c.x + 5 && x < c.x + 595 / 4 - 5 && y >= c.y + 5 && y < c.y + 295 / 4 - 5);
+  if (!cell) return;
+  cell.bound = true;
+  cell.witness++;
+  const mode = document.getElementById('mode').value;
+  cell.note = noteFromWitness(cell.witness, mode);
+  const w = { tick: musicWitness.length + 1, op: 'BIND', cell: cell.id, note: `${cell.note.note}${cell.note.octave}` };
+  musicWitness.push(w);
+  drawMusic();
+  playNote(cell.note);
+  logMusic(w);
+};
+
+function logMusic(w) {
+  const log = document.getElementById('musicLog');
+  const line = document.createElement('div');
+  line.className = 'turn';
+  line.innerHTML = `<span class="speaker">t=${w.tick}</span> ${w.op} ${w.cell} → ${w.note}`;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+  while (log.children.length > 50) log.removeChild(log.firstChild);
+}
+
+document.getElementById('mode').onchange = drawMusic;
+document.getElementById('bpm').oninput = (e) => {
+  document.getElementById('bpmDisplay').textContent = e.target.value;
+  updateABC();
+};
+
+function saveMusic() {
+  const data = {
+    type: 'quilt-composition',
+    mode: document.getElementById('mode').value,
+    bpm: document.getElementById('bpm').value,
+    cells: musicCells.filter(c => c.bound),
+    witness: musicWitness,
+    abc: document.getElementById('abcScore').textContent,
+    timestamp: new Date().toISOString()
+  };
+  download(JSON.stringify(data, null, 2), 'my-song.json');
+}
+
+function exportMusic() {
+  // Quick-share: copy the witness log to clipboard
+  navigator.clipboard.writeText(JSON.stringify(musicWitness, null, 2));
+  alert('Witness log copied to clipboard!');
+}
+
+function download(content, name) {
+  const blob = new Blob([content], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = name; a.click();
+}
+
+initMusic();
+
+// === COOPERATIVE FICTION ===
+const SCENARIOS = [
+  { title: 'Community Radio Station', setting: 'KWTL-92.3, a volunteer-run radio station in Appalachia facing declining listenership.' },
+  { title: 'Small-town Bakery', setting: 'A 50-year-old bakery that just installed solar panels on the roof.' },
+  { title: 'Lighthouse Museum', setting: 'A retired lighthouse keeper maintains a converted lighthouse museum.' },
+  { title: 'Community Garden', setting: 'A neighborhood garden where the original gardeners are aging out.' },
+  { title: 'Composting Program', setting: 'Two volunteers run a neighborhood composting program.' },
+  { title: 'Ice Rink', setting: 'A small-town ice rink run by the same zamboni driver for 30 years.' },
+  { title: 'One-Room Schoolhouse', setting: 'A historic one-room schoolhouse preserved as a museum.' },
+  { title: 'Funeral Home', setting: 'A small-town funeral home that hosts community wakes.' },
+  { title: 'Outdoor Pool', setting: 'A community outdoor swimming pool managed by a retired swim coach.' },
+  { title: 'Pottery Co-op', setting: 'A pottery co-op where the kilns are older than any of the members.' },
+  { title: 'Ceramics Studio', setting: 'A community ceramics studio in a converted bank building.' },
+  { title: 'Darkroom', setting: 'A community darkroom that has resisted going digital.' },
+];
+
+let characters = [];
+let storyTranscript = [];
+let storyTick = 0;
+let selectedScenario = null;
+
+function renderScenarios() {
+  const grid = document.getElementById('scenarioGrid');
+  grid.innerHTML = '';
+  SCENARIOS.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'scenario-card';
+    if (selectedScenario === i) card.classList.add('selected');
+    card.innerHTML = `<strong>${s.title}</strong><br><span style="color:#888;font-size:0.85em">${s.setting.slice(0, 60)}...</span>`;
+    card.onclick = () => {
+      selectedScenario = i;
+      document.getElementById('setting').value = s.setting + ' ' + prompt('What tension is brewing?');
+      renderScenarios();
+    };
+    grid.appendChild(card);
+  });
+}
+
+function prompt(msg) {
+  // Inline prompt for adding scenario tension
+  return '';  // user fills in
+}
+
+function renderCast() {
+  const list = document.getElementById('castList');
+  list.innerHTML = '';
+  characters.forEach((c, i) => {
+    const pill = document.createElement('span');
+    pill.className = 'cast-pill';
+    pill.innerHTML = `${c.name}: ${c.keywords || '(no keywords)'} <button onclick="removeChar(${i})">×</button>`;
+    list.appendChild(pill);
+  });
+}
+
+function addCharacter() {
+  const name = document.getElementById('charName').value.trim();
+  const tendency = document.getElementById('charTendency').value.trim();
+  const keywords = document.getElementById('charKeywords').value.trim();
+  if (!name) return alert('Need a name!');
+  characters.push({ name, tendency, keywords });
+  document.getElementById('charName').value = '';
+  document.getElementById('charTendency').value = '';
+  document.getElementById('charKeywords').value = '';
+  renderCast();
+}
+
+function removeChar(i) {
+  characters.splice(i, 1);
+  renderCast();
+}
+
+function tickStory() {
+  if (characters.length === 0) return alert('Add at least one character!');
+  storyTick++;
+  // Pick a character at random, simulate a turn
+  const c = characters[Math.floor(Math.random() * characters.length)];
+  const lines = [
+    `${c.name} clears their throat and says, "I've been thinking about what you said yesterday."`,
+    `${c.name} looks at the ledger. "Numbers don't lie. But they don't tell the whole story either."`,
+    `${c.name} leans back. "You know what? I think we should just try it."`,
+    `${c.name} sighs. "I don't know. It used to be easier."`,
+    `${c.name} smiles. "That's actually a really good idea."`,
+    `${c.name} frowns. "Have we tried talking to the neighbors about this?"`,
+    `${c.name} laughs. "Sometimes I forget why we started doing this in the first place."`,
+  ];
+  const text = lines[Math.floor(Math.random() * lines.length)];
+  const w = { tick: storyTick, op: 'TICK', character: c.name, text };
+  storyTranscript.push(w);
+  renderTranscript();
+}
+
+function renderTranscript() {
+  const t = document.getElementById('transcript');
+  t.innerHTML = '';
+  storyTranscript.slice(-30).forEach(w => {
+    const turn = document.createElement('div');
+    turn.className = 'turn';
+    turn.innerHTML = `<span class="speaker">t=${w.tick} ${w.character}</span> ${w.text}`;
+    t.appendChild(turn);
+  });
+  t.scrollTop = t.scrollHeight;
+}
+
+function resetStory() {
+  storyTick = 0;
+  storyTranscript = [];
+  renderTranscript();
+}
+
+function saveStory() {
+  const data = {
+    type: 'quilt-fiction',
+    setting: document.getElementById('setting').value,
+    characters,
+    transcript: storyTranscript,
+    timestamp: new Date().toISOString()
+  };
+  download(JSON.stringify(data, null, 2), 'my-story.json');
+}
+
+renderScenarios();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+
+<script>
+// === TOUCH SUPPORT ===
+// Convert click handlers to handle touch properly
+(function() {
+  // Detect touch capability
+  const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (isTouch) document.documentElement.classList.add('touch');
+  
+  // Prevent zoom on double tap for buttons (but allow pinch)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      const target = e.target;
+      if (target.tagName === 'BUTTON' || target.classList.contains('cell-slot') || target.classList.contains('cell-card')) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+  
+  // Convert click to pointer events for better cross-device support
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('[data-action], button, .cell-slot, .cell-card');
+    if (target && target.dataset.touchHandled !== 'true') {
+      target.dataset.touchHandled = 'true';
+      // Trigger synthetic event if needed
+    }
+  }, { passive: true });
+  
+  // Keyboard navigation for accessibility
+  document.addEventListener('keydown', function(e) {
+    // Arrow keys for grid navigation
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+      const focused = document.activeElement;
+      if (focused && (focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        const grid = focused.parentElement;
+        const items = Array.from(grid.querySelectorAll('.cell-slot, .cell-card'));
+        const idx = items.indexOf(focused);
+        let next = idx;
+        const cols = Math.floor(grid.offsetWidth / focused.offsetWidth);
+        if (e.key === 'ArrowRight') next = Math.min(idx + 1, items.length - 1);
+        if (e.key === 'ArrowLeft') next = Math.max(idx - 1, 0);
+        if (e.key === 'ArrowDown') next = Math.min(idx + cols, items.length - 1);
+        if (e.key === 'ArrowUp') next = Math.max(idx - cols, 0);
+        if (next !== idx) items[next].focus();
+      }
+    }
+    
+    // Space/Enter to activate
+    if (e.key === ' ' || e.key === 'Enter') {
+      const focused = document.activeElement;
+      if (focused && (focused.tagName === 'BUTTON' || focused.classList.contains('cell-slot') || focused.classList.contains('cell-card'))) {
+        e.preventDefault();
+        focused.click();
+      }
+    }
+  });
+  
+  // Add tabindex to interactive elements for keyboard nav
+  document.querySelectorAll('.cell-slot, .cell-card').forEach((el, i) => {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+  });
+  
+  // Mobile orientation handling
+  window.addEventListener('orientationchange', function() {
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+  });
+})();
+</script>
+
+</body>
+</html>

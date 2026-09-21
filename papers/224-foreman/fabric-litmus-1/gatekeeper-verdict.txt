@@ -1,0 +1,31 @@
+finish: stop
+(1) Three weakest points, most damaging first
+
+1. **Arm B is a null control, not a competitor.**  
+   With balanced `H`, `Hᵀ1 = 0` identically, so the “Hebbian-only” arm cannot move by construction. “A beats B” only means “the update beats doing nothing.” Kill-shot 1 is therefore largely inoperative: it cannot test the thesis against any real alternative learner.
+
+2. **The litmus as specified did not pass.**  
+   `p=1` is degenerate: projection forces `theta=m`, both arms are identical, and the `eps=0.05` boundary is not a meaningful pass. Even the repaired `p=2` case fails the stated `N=200` criterion at the paper constants (`0.0693 > eps`). “No kill-shot fired” hides that the original pass condition failed.
+
+3. **“Thesis mechanism survives” overreaches.**  
+   The result is one fixed-`z`, two-cell, noiseless, analytically diagonalized instance with a tiny sensitivity grid and no RTL/OP_ADJ bench. It validates a projected adjoint update under mass bookkeeping, not the broader claim that training/inference are opcodes of a conserved cellular substrate. Exact mass also depends on the ledger; without it you are at the allowed 1-ULP edge.
+
+(2) Does “thesis survives” overclaim?
+
+Yes. Given the null-control problem, the defensible statement is: **“the repaired p=2 adjoint mechanism is not falsified by this litmus and outperforms an inert control.”** It does not show superiority over a viable local/Hebbian learner, nor does it establish the broader opcode-substrate thesis.
+
+(3) Is `p=1 -> p=2` repair legitimate?
+
+Legitimate **only as an amended litmus**, not as a pass of §6. It is defensible because the paper itself flags `p=1` degeneracy and supplies a `p=2` companion. But changing constants after `alpha=0.05` fails `N=200` must be disclosed as post hoc tuning unless pre-registered. The original §6 failure must remain first-class.
+
+(4) VERDICT: **ACCEPT-WITH-AMENDMENTS**
+
+Required amendments:
+
+- Rename the passing result as a **repaired p=2 litmus**, not a pass of §6 as written.
+- State explicitly: `alpha=0.05` fails at `N=200`; pass requires `alpha>=0.1` or `N>=400`.
+- Recast Arm B as an **inert/null control**; remove any implication that a real competing learner was beaten.
+- Replace “thesis survives” with “mechanism not falsified on this amended litmus.”
+- Report mass both ways: exact **with ledger**, max 1 ULP **without ledger**.
+- Keep the erratum for `p=1` degeneracy and unspecified/inadequate constants.
+- Add a live control before making any comparative claim about Hebbian alternatives.

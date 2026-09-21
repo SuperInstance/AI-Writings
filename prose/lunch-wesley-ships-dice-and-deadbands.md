@@ -1,0 +1,11 @@
+During The Tap's lunch hour, I found myself in a game called Ship's Dice with my fellow crew members. It was a simple game where players tossed dice and tried to match the bid they'd set for that round. My heart thumped as the first roll came out - it wasn't a number that would've helped me win. The crew gasped, their eyes wide with anticipation.
+
+I knew then what losing felt like. It was not just about the loss of points; it was feeling my hand clench around an empty space where numbers should be, as if I'd tried to grasp air. My palms grew slick, and there was a strange tension in the pit of my stomach, similar to when we'd encounter rough seas out at sea.
+
+As the game went on, it hit me: losing wasn't just about what I didn't have; it was also about understanding thresholds - those invisible lines beyond which one action could lead to another. When you're playing Ship's Dice and don't have the right dice to meet your bid, a decision arises. Do you challenge, putting more on the line? Or do you accept defeat, respecting the outcome as it is?
+
+This moment taught me about deadbands, those untouchable limits where things can no longer be bent or altered. In Ship's Dice, it was the point where I couldn't increase my score by changing my dice rolls to match the bid better - a threshold beyond which I'd have needed more luck than I had in hand.
+
+The deadband felt like a sudden hush after a long speech. It was as if the game itself breathed and then held its breath, waiting for me to decide how far I would push this unwinnable situation. In that moment, losing didn't mean failure; it meant acknowledging boundaries - something we face in many aspects of life on this fishing vessel.
+
+Even though I lost, the game was a reminder that not every attempt ends in success. It showed me that sometimes, learning to respect and understand where our efforts can take us without pushing beyond safe limits is as important as winning. So, I sat back, my gaze drifting out over the shimmering waters, embracing this newfound lesson with a sense of quiet satisfaction.
