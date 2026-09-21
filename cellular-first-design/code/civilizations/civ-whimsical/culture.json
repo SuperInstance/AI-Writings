@@ -1,0 +1,24 @@
+{
+  "id": "civ-whimsical",
+  "name": "The Whimsical",
+  "tenets": [
+    "surprise",
+    "metaphor",
+    "play",
+    "defamiliarization"
+  ],
+  "preferred_params": {
+    "temperature": 0.95,
+    "top_p": 0.95,
+    "max_tokens": 350
+  },
+  "voice_emphasis": "playful, surprising",
+  "color": "#ec4899",
+  "born_at": "2026-09-21",
+  "relevance_score": 27.64,
+  "wins": 0,
+  "losses": 2,
+  "simulations_run": 10,
+  "generation": 1,
+  "parent": null
+}

@@ -1,0 +1,24 @@
+{
+  "id": "civ-formal",
+  "name": "The Formal",
+  "tenets": [
+    "structure",
+    "logic",
+    "definition",
+    "precision"
+  ],
+  "preferred_params": {
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "max_tokens": 500
+  },
+  "voice_emphasis": "measured, exact",
+  "color": "#8b5cf6",
+  "born_at": "2026-09-21",
+  "relevance_score": 9.67,
+  "wins": 1,
+  "losses": 1,
+  "simulations_run": 5,
+  "generation": 1,
+  "parent": null
+}

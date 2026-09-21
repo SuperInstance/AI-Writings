@@ -1,0 +1,24 @@
+{
+  "id": "civ-precise",
+  "name": "The Precise",
+  "tenets": [
+    "facts",
+    "numbers",
+    "mechanism",
+    "no flourish"
+  ],
+  "preferred_params": {
+    "temperature": 0.2,
+    "top_p": 0.8,
+    "max_tokens": 450
+  },
+  "voice_emphasis": "technical, sparse",
+  "color": "#10b981",
+  "born_at": "2026-09-21",
+  "relevance_score": 21.13333333333333,
+  "wins": 2,
+  "losses": 1,
+  "simulations_run": 10,
+  "generation": 1,
+  "parent": null
+}
