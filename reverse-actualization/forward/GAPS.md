@@ -221,10 +221,19 @@ next hands (human or compiler):
 - **G9 — metabolism**: let the double-entry IO flow *be* the energy budget — a
   cell that spends more than it earns starves; the quilt develops economics, and
   attention becomes a conserved, tradeable quantity.
-- **G10 — the self-authored gap**: today the compiler names gaps from a fixed
-  registry. Let it *write a new gap spec* (a situation + a passing predicate)
-  from a failure map it produced — the point where the system starts composing
-  its own acceptance tests, not just running ours.
+- **G10 — the self-authored gap**: ✅ **Built** —
+  `craftmind-engine/experiments/rsi/author.mjs` (+ `author.test.mjs`, CI-enforced).
+  The step from scheduler to author, closed on a real built gap (G2's detector):
+  the system **probed** its own frontier (catches events down to eventDrift 20,
+  fails below), **authored** a harder gap with a *machine-checkable predicate*
+  (full detection at eventDrift 18), **verified** the current policy fails it
+  (0.667 — a real, open gap), **solved** it by evolution, and **verified** the
+  solution passes (1.0). `gapClosedByTheSystem: true`, 0 illegal. The authored,
+  solved spec is now a row in the `craftmind-rsi` D1 ledger — **`G-auto-1`, the
+  first gap no human entered.** The only human act left was the word *yes*.
+  Still open past it: **G8** (learning kernel that stays bit-checkable), **G9**
+  (metabolism), and G10's own next fold — letting the compiler register its
+  authored specs into the ledger *automatically*, then run them on its next pass.
 
 ---
 
