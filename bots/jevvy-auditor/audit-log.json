@@ -1,0 +1,94 @@
+{
+  "audits": [
+    {
+      "ts": 1789964657.1552672,
+      "iso": "2026-09-21T04:24:17",
+      "verdict": "FAIL",
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "the_three_layer_doctrine",
+        "the_constraint_theory_web",
+        "the_plato_rooms"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.05,
+          "confidence": 0.96,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.96,
+            "1": 0.04,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.64
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.38
+        },
+        "q3": {
+          "type": "score",
+          "score": 1.88,
+          "confidence": 0.38,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.17,
+            "1": 0.1,
+            "2": 0.42,
+            "3": 0.3,
+            "4": 0.01
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 1.06,
+          "confidence": 0.43,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.31,
+            "1": 0.46,
+            "2": 0.12,
+            "3": 0.08,
+            "4": 0.03
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "too-abstract",
+          "confidence": 0.41,
+          "probabilities": {
+            "too-abstract": 0.52,
+            "none": 0.02,
+            "redundant": 0.15,
+            "low-quality": 0.3,
+            "off-topic": 0.01
+          }
+        }
+      }
+    }
+  ]
+}

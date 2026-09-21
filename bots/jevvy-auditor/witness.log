@@ -1,0 +1,2 @@
+{"ts": 1789964656.2701447, "iso": "2026-09-21T04:24:16", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 2821}, "hash": "32bcd1362e9c7f25"}
+{"ts": 1789964657.1744602, "iso": "2026-09-21T04:24:17", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}

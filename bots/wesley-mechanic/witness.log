@@ -1,0 +1,4 @@
+{"ts": 1789964557.3606603, "iso": "2026-09-21T04:22:37", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2779}, "hash": "2ab3f2143b163c21"}
+{"ts": 1789964557.4485974, "iso": "2026-09-21T04:22:37", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
+{"ts": 1789964559.3671875, "iso": "2026-09-21T04:22:39", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2783}, "hash": "5a020889adbe7c53"}
+{"ts": 1789964559.4487293, "iso": "2026-09-21T04:22:39", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}

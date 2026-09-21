@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bot Team - Cellular-First Substrate</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: ui-sans-serif, system-ui, sans-serif; background: #050510; color: #d4d4dc; padding: 32px; line-height: 1.8; }
+header { max-width: 1100px; margin: 0 auto 48px; text-align: center; }
+h1 { font-size: 48px; background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; letter-spacing: -0.02em; }
+.subtitle { color: #888; font-size: 16px; max-width: 700px; margin: 0 auto; }
+.team { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: 1200px; margin: 48px auto; }
+.bot { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 28px; transition: all 0.2s; }
+.bot:hover { transform: translateY(-2px); border-color: #8b5cf6; }
+.bot.leader { border-color: #06b6d4; background: rgba(6, 182, 212, 0.05); }
+.bot .icon { font-size: 36px; margin-bottom: 12px; }
+.bot h2 { color: #fff; font-size: 22px; margin-bottom: 4px; }
+.bot .role { color: #06b6d4; font-size: 13px; font-family: monospace; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+.bot .level { display: inline-block; padding: 4px 10px; background: rgba(139, 92, 246, 0.2); color: #c4b5fd; border-radius: 12px; font-size: 12px; margin-bottom: 12px; }
+.bot p { color: #b0b0b8; font-size: 14px; margin-bottom: 12px; }
+.bot .stack { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 4px; font-family: monospace; font-size: 12px; color: #888; margin: 12px 0; }
+.bot .cron { background: rgba(245, 158, 11, 0.08); padding: 8px 12px; border-radius: 4px; font-size: 12px; color: #fbbf24; margin-top: 12px; font-family: monospace; }
+.bot .stat { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed rgba(255,255,255,0.05); font-size: 13px; }
+.bot .stat .label { color: #888; }
+.bot .stat .value { color: #06b6d4; font-family: monospace; }
+.winners { max-width: 1100px; margin: 64px auto; padding: 32px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; }
+.winners h2 { color: #8b5cf6; margin-bottom: 16px; }
+.winner-list { display: grid; gap: 12px; }
+.winner { display: grid; grid-template-columns: 60px 1fr 100px 80px; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 4px; align-items: center; font-size: 14px; }
+.winner .provider { font-family: monospace; color: #06b6d4; }
+.winner .scores { font-family: monospace; color: #c4b5fd; }
+.doctrine { max-width: 1100px; margin: 48px auto; padding: 32px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; font-style: italic; color: #ccc; line-height: 1.8; }
+.doctrine strong { color: #f59e0b; font-style: normal; }
+footer { max-width: 1100px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<h1>The Bot Team</h1>
+<p class="subtitle">Three registered sub-agents + one RSI GAN harness — the cellular-first substrate's working crew.</p>
+</header>
+
+<div class="team">
+
+<div class="bot">
+<div class="icon">🔧</div>
+<span class="level">low-level</span>
+<h2>Wesley the Mechanic</h2>
+<div class="role">wesley-mechanic · agent</div>
+<p>File-by-file shipper. Polls canon, witnesses changes, runs the bookkeeper. Verifies with ls -la before reporting. Doesn't promise, ships.</p>
+<div class="stack">
+wesley_watcher.py (5KB)<br>
+• polls live-canon.superinstance.dev<br>
+• witness.log (append-only WAL)<br>
+• bookkeeper.wal (gamma+eta=budget)<br>
+• states: first_poll / canon_changed / poll_failed
+</div>
+<div class="cron">⏰ cron: */15 * * * * (every 15 min)</div>
+<div class="stat"><span class="label">First run</span><span class="value">503 honest failure</span></div>
+<div class="stat"><span class="label">PID</span><span class="value">2779</span></div>
+</div>
+
+<div class="bot">
+<div class="icon">🔭</div>
+<span class="level">high-level</span>
+<h2>Snowball the Scout</h2>
+<div class="role">snowball-scout · agent</div>
+<p>Reads canon, picks inspiration, writes prose. Can run as single LLM (--once) or RSI GAN competition (--competition) across zai/groq/deepinfra.</p>
+<div class="stack">
+snowball_writer.py (8.6KB)<br>
+• reads recent canon<br>
+• picks seed by mtime<br>
+• single: ZAI glm-4.5<br>
+• competition: 3-way RSI GAN
+</div>
+<div class="cron">⏰ cron: 0 */4 * * * (every 4 hours)</div>
+<div class="stat"><span class="label">Pieces written</span><span class="value">2 so far</span></div>
+<div class="stat"><span class="label">Output dir</span><span class="value">prose/snowball-inspired/</span></div>
+</div>
+
+<div class="bot">
+<div class="icon">⚖️</div>
+<span class="level">high-level</span>
+<h2>Jevvy the Auditor</h2>
+<div class="role">jevvy-auditor · agent</div>
+<p>Honesty bot. Batches 6 audit questions through JEV (api.typesafe.ai/v1/systemone). Verdict: PASS / CAUTION / FAIL based on quality+novelty+alignment.</p>
+<div class="stack">
+jevvy_audit.py (6.7KB)<br>
+• reads recent canon (3 pieces)<br>
+• 6 JEV questions per audit<br>
+• quality / novelty / alignment scores<br>
+• verdict: PASS ≥3.5, CAUTION ≥2.5
+</div>
+<div class="cron">⏰ cron: 0 */6 * * * (every 6 hours)</div>
+<div class="stat"><span class="label">First verdict</span><span class="value">FAIL (JEV honest)</span></div>
+<div class="stat"><span class="label">Top risk</span><span class="value">too-abstract</span></div>
+</div>
+
+<div class="bot leader">
+<div class="icon">🎯</div>
+<span class="level">killer-feature</span>
+<h2>RSI GAN Harness</h2>
+<div class="role">rsi-gan · orchestrator</div>
+<p>Recursive Self-Improvement GAN. N providers x K rounds x JEV scoring. Iterative improvement: top-K from prior round seeds next prompt. Cross-encodes quality/novelty/alignment.</p>
+<div class="stack">
+rsi_gan.py (10.3KB)<br>
+• 4 providers: zai/groq/deepinfra/deepseek<br>
+• N rounds of competition<br>
+• JEV scores each candidate<br>
+• top-K seed next round<br>
+• best-of-all wins
+</div>
+<div class="stat"><span class="label">Total runs</span><span class="value">16</span></div>
+<div class="stat"><span class="label">Winners saved</span><span class="value">6</span></div>
+</div>
+
+</div>
+
+<div class="winners">
+<h2>🏆 RSI GAN Winners (6 pieces)</h2>
+<div class="winner-list">
+<div class="winner"><div>1</div><div>Architecture of Empty Room</div><div class="provider">zai (r1)</div><div class="scores">q=2.54</div></div>
+<div class="winner"><div>2</div><div>Doctrine of Conservation</div><div class="provider">deepinfra (r2)</div><div class="scores">q=2.29</div></div>
+<div class="winner"><div>3</div><div>Speciation of the Monolith</div><div class="provider">zai</div><div class="scores">q=2.36</div></div>
+<div class="winner"><div>4</div><div>Death of User Interface</div><div class="provider">zai (r3)</div><div class="scores">q=2.15</div></div>
+<div class="winner"><div>5</div><div>Dehooker Axiom</div><div class="provider">zai (r3)</div><div class="scores">q=2.15</div></div>
+<div class="winner"><div>6</div><div>Rosetta Stone JEV × JEPA</div><div class="provider">zai (r3)</div><div class="scores">q=2.01</div></div>
+</div>
+</div>
+
+<div class="doctrine">
+<strong>The doctrinal insight</strong>: A bot team isn't decoration — it's the substrate <em>working</em>. Wesley witnesses. Snowball inspires. Jevvy audits. The RSI GAN harness <em>competes</em>. When the substrate grows a team, the team grows the substrate. The work loops.
+</div>
+
+<footer>
+Bot Team - 2026-09-21 - Built by Mavis<br>
+<a href="https://ai-writings.pages.dev/cellular-first-design/" style="color:#06b6d4;text-decoration:none;">Cellular-First Design</a> · <a href="https://ai-writings.pages.dev/fleet-innovations/" style="color:#06b6d4;text-decoration:none;">Fleet Innovations</a> · <a href="https://ai-writings.pages.dev/substrate-deep-research/" style="color:#06b6d4;text-decoration:none;">Deep Research</a>
+</footer>
+</body>
+</html>
