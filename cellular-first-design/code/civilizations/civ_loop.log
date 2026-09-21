@@ -1,0 +1,29 @@
+=== Civilization batch: 8 civs x 5 sims each ===
+
+[The Grounded] running 5 sims...
+[The Whimsical] running 5 sims...
+[The Formal] running 5 sims...
+[The Poetic] running 5 sims...
+[The Precise] running 5 sims...
+[The Mythic] running 5 sims...
+[The Therapist] running 5 sims...
+[The Engineer] running 5 sims...
+
+=== Civilization competitions: 5 prompts ===
+
+[Write 100 words on the bookkeeper's role....]
+  Winner: The Poetic (civ-poetic)
+  Scores: civ-whimsical=2.78, civ-poetic=2.68
+
+[Write 100 words on the witness log....]
+  Winner: The Grounded (civ-grounded)
+  Scores: civ-formal=2.27, civ-grounded=1.84, civ-therapist=2.57, civ-engineer=2.23, civ-mythic=2.50, civ-whimsical=2.93, civ-poetic=2.78
+
+[Write 100 words on ternary values....]
+  Winner: The Formal (civ-formal)
+  Scores: civ-formal=2.13, civ-whimsical=2.65, civ-poetic=2.53
+
+[Write 100 words on JEV as a decision oracle....]
+  Winner: The Whimsical (civ-whimsical)
+  Scores: civ-whimsical=2.63
+
