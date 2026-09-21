@@ -70,18 +70,27 @@ const ATLAS = [
   { cat: 'games', name: 'zodiac', title: 'Zodiac', desc: 'Mathematical horoscope. Birth hash → natal chart with 10 planets.', tags: ['astrology'] },
   // Polyformalism
   { cat: 'polyformalism', name: 'polyformalism', title: 'Polyformalism', desc: 'Verify cell across 13 ports. 12 LE byte-exact, Forth differs by BE.', tags: ['verify', 'ports'] },
+  { cat: 'polyformalism', name: 'cipher', title: 'Cipher', desc: 'Stream cipher. xoshiro256** XOR with FNV-1a(passphrase) seed.', tags: ['crypto', 'xor'] },
   // Canon
   { cat: 'canon', name: 'canon', title: 'Canon Search', desc: 'Semantic search across 73 canon pieces. Token-frequency embedder.', tags: ['search', 'embed'] },
+    { cat: 'generative', name: 'terrain', title: 'Terrain', desc: 'Procedural landscape via FNV-1a hash noise. 4 biomes.', tags: ['noise', 'fbm'] },
+  { cat: 'generative', name: 'rhythm', title: 'Rhythm', desc: '16-step beat box. 6 tracks. Poisson kick + Box-Muller snare + Bell hat.', tags: ['sequencer', 'beats'] },
   { cat: 'canon', name: 'rosetta', title: 'Rosetta Stone', desc: 'JEV × JEPA correlation visualization. FNV-1a witness + 5-step prediction.', tags: ['jev', 'jepa'] },
   { cat: 'canon', name: 'oracle', title: 'Oracle', desc: 'Ask a question. Combines FNV-1a + xoshiro256** + Box-Muller + Bell + cosine.', tags: ['ask', 'witness'] },
   { cat: 'canon', name: 'poetry', title: 'Poetry', desc: 'Markov chain over Fleet Radio corpus. 1-6 stanzas. Witness hash.', tags: ['markov', 'verse'] },
   { cat: 'canon', name: 'glossary', title: 'Glossary', desc: '36 substrate terms cross-linked via cosine similarity.', tags: ['terms', 'links'] },
   { cat: 'canon', name: 'codex', title: 'Codex', desc: 'A-Z glossary of 50+ substrate terms with definitions, math, examples.', tags: ['codex'] },
+  { cat: 'canon', name: 'canon-map', title: 'Canon Map', desc: '73 canon pieces as a galaxy. Each piece = its FNV-1a hash → position.', tags: ['map', 'galaxy'] },
+  { cat: 'canon', name: 'witness-log', title: 'Witness Log', desc: 'Auditable ledger with chained FNV-1a hashes + tamper detection.', tags: ['ledger', 'audit'] },
   // Generative
   { cat: 'generative', name: 'radio', title: 'Substrate Radio', desc: 'Generative music. Xoshiro + Box-Muller. 6 presets.', tags: ['music', '6-presets'] },
   { cat: 'generative', name: 'radio-fm', title: 'Radio FM', desc: 'Pirate radio. Box-Muller chords. Live spectrum analyzer.', tags: ['broadcast', 'spectrum'] },
   { cat: 'generative', name: 'maritime-math', title: 'Maritime Math', desc: 'Fleet radio transmission. Live canvas: stars, waves, ship, sail.', tags: ['sea', 'transmission'] },
   { cat: 'generative', name: 'algebra', title: 'Algebra', desc: '11-opcode cellular algebra. Compose cells. Watch them bind.', tags: ['opcodes', 'algebra'] },
+  { cat: 'generative', name: 'melody', title: 'Melody', desc: 'Chord progression. Box-Muller for voicing inversion. WebAudio play.', tags: ['chords', 'audio'] },
+  { cat: 'generative', name: 'palette', title: 'Palette', desc: 'Color palette. Hash seed → HSL colors. CSS export.', tags: ['color', 'css'] },
+  { cat: 'generative', name: 'constellation', title: 'Constellation', desc: 'FNV-1a starfield. Hash any text → 250 stars.', tags: ['stars', 'sky'] },
+  { cat: 'generative', name: 'clock', title: 'Substrate Clock', desc: 'Sundial. 3 modes: wallclock / witness log / orbit.', tags: ['time', 'sundial'] },
   { cat: 'generative', name: 'live-dance', title: 'Live Dance', desc: 'Real-time cell animation. Live API tick.', tags: ['live', 'api'] },
   { cat: 'generative', name: 'animated-dance', title: 'Animated Dance', desc: 'Procedural cell animation. Multiple sequences.', tags: ['animated'] },
   { cat: 'generative', name: 'civilizations', title: 'Civilizations', desc: 'Civilization simulation with cellular substrate.', tags: ['sim', 'civ'] },
@@ -111,17 +120,4 @@ function render() {
         <div>
           ${d.tags.map(t => `<span class="tag">${t}</span>`).join('')}
         </div>
-        <a href="../${d.name}/index.html">→ open</a>
-      `;
-      grid.appendChild(div);
-    }
-    section.appendChild(grid);
-    el.appendChild(section);
-  }
-  document.getElementById('meta').textContent = `${ATLAS.length} demos · ${cats.length} categories · updated ${new Date().toISOString().slice(0, 10)}`;
-}
-
-render();
-</script>
-</body>
-</html>
+        <a href="../${d.name}/index.ht
