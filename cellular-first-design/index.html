@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cellular-First Design — 7 Layers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: ui-sans-serif, system-ui, sans-serif; background: #0a0a14; color: #d4d4dc; padding: 32px; line-height: 1.7; }
+  header { max-width: 1000px; margin: 0 auto 48px; text-align: center; }
+  h1 { font-size: 42px; color: #06b6d4; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .subtitle { color: #888; font-size: 16px; max-width: 700px; margin: 0 auto; }
+  .quote { background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06b6d4; padding: 16px 24px; margin: 32px auto; max-width: 700px; font-style: italic; color: #a8a8b0; border-radius: 4px; }
+  .layers { max-width: 800px; margin: 0 auto; }
+  .layer { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 8px; padding: 24px; margin-bottom: 16px; transition: all 0.2s; }
+  .layer:hover { border-color: #06b6d4; }
+  .layer .num { display: inline-block; width: 36px; height: 36px; line-height: 36px; text-align: center; background: rgba(6, 182, 212, 0.2); color: #06b6d4; border-radius: 50%; font-family: monospace; font-weight: bold; }
+  .layer h2 { display: inline-block; margin-left: 12px; color: #06b6d4; font-size: 22px; vertical-align: middle; }
+  .layer p { margin-top: 12px; color: #b0b0b8; }
+  .layer code { background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 3px; font-family: monospace; color: #fbbf24; }
+  .layer .extras { margin-top: 12px; font-size: 13px; color: #888; }
+  .layer .extras span { display: inline-block; margin-right: 12px; }
+  .live { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 24px; border-radius: 8px; margin: 32px auto; max-width: 800px; }
+  .live h3 { color: #22c55e; margin-bottom: 12px; }
+  .live ul { margin-left: 24px; color: #b0b0b8; font-size: 14px; }
+  .live li { margin-bottom: 8px; }
+  .live code { background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 3px; color: #fbbf24; }
+  footer { max-width: 800px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Cellular-First Design</h1>
+  <p class="subtitle">7 layers of a substrate where every cell is addressable, every decision is validated, every witness is recorded.</p>
+  <div class="quote">"Every cell is addressable as a spreadsheet cell. Percentages could be the percentage chance of pulling one versus another response. But also a vector db. Cells have cloud api calls or local ollama or a tool or exe or python loop or process. Once the JEV sends to cells, other cells of whatever instance could have an entangled relationship and awake their own bookkeeper to begin a process."<br><br>— Casey</div>
+</header>
+
+<div class="layers">
+  <div class="layer">
+    <span class="num">1</span><h2>The Cell Itself</h2>
+    <p>The irreducible unit. State vector + witness log + proof chain + scars + hooks + drops + bound cells + JEV confidence (0-1).</p>
+    <div class="extras"><span>Cell class</span><span>witness / proof / bind / forget / tick</span><span>6.6KB Python</span></div>
+  </div>
+
+  <div class="layer">
+    <span class="num">2</span><h2>Spreadsheet Plugin</h2>
+    <p>Every cell is addressable as <code>A1</code>, <code>B2</code>, <code>Sheet1!C3</code>. Editing the spreadsheet updates the cell. Editing the cell updates the spreadsheet.</p>
+    <div class="extras"><span>SpreadsheetPlugin</span><span>on_cell_state_change + on_spreadsheet_edit</span><span>7.4KB Python</span></div>
+  </div>
+
+  <div class="layer">
+    <span class="num">3</span><h2>Model-Sense Backend</h2>
+    <p>Percentages are probability routes. Vectors are the embeddings. Routing is the topology. Tone shaping is the multi-dimensional surface.</p>
+    <div class="extras"><span>JEV as router</span><span>JEPA as predictor</span><span>LLM as generator</span></div>
+  </div>
+
+  <div class="layer">
+    <span class="num">4</span><h2>OpenJEV</h2>
+    <p>The universal cell connector. 3 primitives (<code>Choice</code> / <code>Score</code> / <code>Noul</code>) × 3 backends (typesafe.ai / local / random). 1000x cheaper than LLMs. ~100M params.</p>
+    <div class="extras"><span>JEVConnector</span><span>3 modes: macro / meso / micro</span><span>7.7KB Python</span></div>
+  </div>
+
+  <div class="layer">
+    <span class="num">5</span><h2>Thinking Models</h2>
+    <p>JEPA + JEV + LLM, working in concert. User hedges ("maybe?"). User nudges ("how about..."). The substrate absorbs them as new cells or new BINDs.</p>
+    <div class="extras"><span>JEPA for prediction</span><span>JEV for validation</span><span>LLM for generation</span></div>
+  </div>
+
+  <div class="layer">
+    <span class="num">6</span><h2>Reflexes</h2>
+    <p>Reflex (&lt;5ms) / Thinking (100-500ms) / Pincher cells (cache hits). Some cells become reflexes through repeated BIND + JEV validation.</p>
+    <div class="extras"><span>4 latency tiers</span><span>Pincher cache</span><span>Reflex learning</span></div>
+  </div>
+
+  <div class="layer">
+    <span class="num">7</span><h2>Cross-Instance Fabric</h2>
+    <p>Cells in different instances entangle. A cell's witness log on instance A becomes a drop on instance B. The substrate federates.</p>
+    <div class="extras"><span>Fabric</span><span>Entanglement</span><span>3-instance demo</span><span>7.2KB Python</span></div>
+  </div>
+</div>
+
+<div class="live">
+  <h3>What's Running Now</h3>
+  <ul>
+    <li><code>openjev/jev_connector.py</code> — 3 primitives × 3 backends, 8 tests pass</li>
+    <li><code>openjev/cell.py</code> — witness / proof / bind / forget / tick / update / hooks / drops</li>
+    <li><code>openjev/chess_boat.py</code> — 5 cells composing a chess player</li>
+    <li><code>openjev/bookkeeper.py</code> — wake-and-process layer with priority queue</li>
+    <li><code>openjev/cross_instance.py</code> — 3-instance fabric with entanglements</li>
+    <li><code>openjev/bot.py</code> — 3 bots (Wesley/Mechanic/Shepherd) with 4 cells each</li>
+    <li><code>spreadsheet/spreadsheet_plugin.py</code> — bridge cells ↔ spreadsheet addresses</li>
+    <li><code>games/five_games.py</code> — 5 games (TTT/2048/Minesweeper/Go/Hold'em) using 5-cell substrate each</li>
+  </ul>
+</div>
+
+<footer>
+The cell is the irreducible unit of intelligence. The substrate is grown, not designed.
+</footer>
+</body>
+</html>
