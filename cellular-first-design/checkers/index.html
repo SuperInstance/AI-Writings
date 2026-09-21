@@ -52,6 +52,10 @@ footer a{color:var(--text2);text-decoration:none}
 <button onclick="newGame()">↻ New game</button>
 <button class="secondary" onclick="aiMove()">🤖 AI move</button>
 <button class="secondary" onclick="undo()">↶ Undo</button>
+<details style="margin-top:.5rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem">
+<summary style="color:var(--accent);font-family:var(--mono);font-size:.75rem;cursor:pointer">🔬 debug: last AI move</summary>
+<div id="aiDebug" style="margin-top:.3rem;font-family:var(--mono);font-size:.65rem;color:var(--dim);line-height:1.5">No AI move yet.</div>
+</details>
 <h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Eval</h3>
 <div class="stats">
 <div>Turn: <span class="v" id="turn">red</span></div>
@@ -242,6 +246,7 @@ function aiMove() {
   // Find best move via cosine eval
   let bestScore = -Infinity;
   let bestMove = null;
+  let topScores = [];
   for (let i = 0; i < 64; i++) {
     const p = board[i];
     if (!p || p.color !== turn) continue;
@@ -268,12 +273,21 @@ function aiMove() {
         ev += (pp.color === 'r' ? 1 : -1) * (c + posBonus);
       }
       if (turn === 'b') ev = -ev;
+      topScores.push({ from: i, to: toIdx, jump: isJump, ev });
       if (ev > bestScore) { bestScore = ev; bestMove = { from: i, m }; }
       // Restore
       board[i] = p;
       board[toIdx] = oldTo;
       if (isJump) board[m.over] = oldOver;
     }
+  }
+  // Sort top scores
+  topScores.sort((a, b) => b.ev - a.ev);
+  if (topScores.length > 0) {
+    const top = topScores.slice(0, 3);
+    document.getElementById('aiDebug').innerHTML = `<strong>Top 3 candidate moves:</strong><br>` +
+      top.map(t => `${t.from} → ${t.to} ${t.jump ? '(capture)' : ''} = <strong style="color:var(--accent)">${t.ev.toFixed(3)}</strong>`).join('<br>') +
+      `<br><br><strong>Eval formula</strong>: cos(piece_vec, square_vec) + position_bonus<br>Total candidates evaluated: ${topScores.length}`;
   }
   if (bestMove) {
     const p = board[bestMove.from];

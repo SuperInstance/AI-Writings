@@ -132,8 +132,15 @@ function log(msg, cls) {
 function rollDie(sides) {
   // Use xoshiro256** for the actual roll, Box-Muller for "luck factor"
   const base = rng.intRange(1, sides);
-  const luck = Math.max(-3, Math.min(3, Math.round(gaussian(rng))));
-  return Math.max(1, Math.min(sides, base + luck));
+  // Capture raw Box-Muller values for debug
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  const g = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+  const luck = Math.max(-3, Math.min(3, Math.round(g)));
+  const final = Math.max(1, Math.min(sides, base + luck));
+  if (typeof updateDebug === 'function') updateDebug(u1, u2, g, base, luck, final);
+  return final;
 }
 
 function renderRoll(rolls, sides, total) {
@@ -240,6 +247,30 @@ function rollCustom() {
   total += mod;
   renderRoll(rolls, sides, total);
   log(`${spec} = ${rolls.join('+')}${mod !== 0 ? (mod > 0 ? '+' + mod : mod) : ''} = ${total}`, 'total');
+}
+
+// === DEBUG PANEL: last roll's intermediate values ===
+const debugPanel = document.createElement('details');
+debugPanel.style.cssText = 'margin-top:1rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;width:100%';
+debugPanel.innerHTML = `
+  <summary style="color:var(--accent);font-family:var(--mono);font-size:.8rem;cursor:pointer">🔬 debug: last roll's intermediate values</summary>
+  <div id="debugContent" style="margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--dim);line-height:1.5">Run a roll to populate.</div>
+`;
+document.getElementById('dice').appendChild(debugPanel);
+
+function updateDebug(u1, u2, g, base, luck, final) {
+  document.getElementById('debugContent').innerHTML = `
+    <strong>Box-Muller transform (luck factor)</strong><br>
+    U1 = ${u1.toFixed(6)}<br>
+    U2 = ${u2.toFixed(6)}<br>
+    g = √(−2·ln U1) · cos(2π·U2) = <strong style="color:var(--accent)">${g.toFixed(4)}</strong><br>
+    Base roll = ${base}, luck = ${luck}, final = <strong style="color:var(--amber)">${final}</strong><br>
+    <br>
+    <strong>xoshiro256** state[0]</strong> = 0x${rng.state[0].toString(16).padStart(16, '0').slice(0, 8)}...<br>
+    <strong>xoshiro256** state[1]</strong> = 0x${rng.state[1].toString(16).padStart(16, '0').slice(0, 8)}...<br>
+    <br>
+    <strong>Determinism note:</strong> same seed → same sequence → same rolls.
+  `;
 }
 
 roll('1d20');
