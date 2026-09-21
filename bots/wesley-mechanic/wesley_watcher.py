@@ -36,6 +36,11 @@ def load_state():
 def save_state(state):
     STATE_PATH.write_text(json.dumps(state, indent=2))
 
+
+import sys
+sys.path.insert(0, '/workspace/repos/ai-writings/bots/substrate-bus')
+from substrate_bus import witness as substrate_witness, publish as substrate_publish
+
 def witness(event_type, payload):
     """WAL-style append-only witness log"""
     with WITNESS_PATH.open("a") as f:
@@ -85,8 +90,48 @@ def run_once(verbose=True):
     state = load_state()
     canon_hash, paper_count, raw = poll_canon()
     
+
     if canon_hash is None:
         witness("poll_failed", {"error": raw.get("error", "unknown")})
+        try:
+            substrate_witness("poll_failed", "wesley-mechanic", {"error": raw.get("error", "unknown")})
+        except: pass
+        if verbose: print(f"[WESLEY] poll failed: {raw.get('error')}")
+        return False
+    
+    if state["last_hash"] is None:
+        state["last_hash"] = canon_hash
+        state["last_count"] = paper_count
+        state["first_seen"] = time.time()
+        save_state(state)
+        witness("first_poll", {"hash": canon_hash, "count": paper_count})
+        try:
+            substrate_witness("first_poll", "wesley-mechanic", {"hash": canon_hash, "count": paper_count})
+            substrate_publish("canon_changed", "wesley-mechanic", {"hash": canon_hash, "count": paper_count}, recipients=["snowball-scout"])
+        except: pass
+        bookkeeper_tick(1.0, 0.0)
+        if verbose: print(f"[WESLEY] first poll: {canon_hash} ({paper_count} papers)")
+        return True
+    
+    if canon_hash != state["last_hash"]:
+        delta = paper_count - state["last_count"]
+        witness("canon_changed", {
+            "old_hash": state["last_hash"],
+            "new_hash": canon_hash,
+            "old_count": state["last_count"],
+            "new_count": paper_count,
+            "delta": delta,
+        })
+        try:
+            substrate_witness("canon_changed", "wesley-mechanic", {
+                "old_hash": state["last_hash"],
+                "new_hash": canon_hash,
+                "delta": delta,
+            })
+            substrate_publish("canon_changed", "wesley-mechanic", {
+                "hash": canon_hash, "count": paper_count, "delta": delta
+            }, recipients=["snowball-scout", "jevvy-auditor"])
+        except: pass
         if verbose: print(f"[WESLEY] poll failed: {raw.get('error')}")
         return False
     

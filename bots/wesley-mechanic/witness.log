@@ -2,3 +2,5 @@
 {"ts": 1789964557.4485974, "iso": "2026-09-21T04:22:37", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
 {"ts": 1789964559.3671875, "iso": "2026-09-21T04:22:39", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2783}, "hash": "5a020889adbe7c53"}
 {"ts": 1789964559.4487293, "iso": "2026-09-21T04:22:39", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
+{"ts": 1789967289.2614002, "iso": "2026-09-21T05:08:09", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 4570}, "hash": "35cd5a8f9847fc30"}
+{"ts": 1789967289.350599, "iso": "2026-09-21T05:08:09", "event": "poll_failed", "payload": {"error": "HTTP Error 403: Forbidden"}, "hash": "f7ca317a0aef36fa"}

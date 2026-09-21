@@ -32,6 +32,11 @@ BOOKKEEPER_PATH = Path("/workspace/repos/ai-writings/bots/snowball-scout/bookkee
 INSPIRED_DIR = Path("/workspace/repos/ai-writings/prose/snowball-inspired")
 
 # Substrate vocabulary — bot uses these words naturally
+
+import sys
+sys.path.insert(0, '/workspace/repos/ai-writings/bots/substrate-bus')
+from substrate_bus import witness as substrate_witness, publish as substrate_publish, read_topic as substrate_read_topic
+
 SUBSTRATE_VOCAB = [
     "cell", "witness", "bookkeeper", "proof", "scar", "hook", "drop",
     "BIND", "LINK", "EFFECT", "VIEW", "TICK", "FORGET",
@@ -193,6 +198,9 @@ def run_competition(seed):
 def run_once(competition=False):
     seed = pick_seed()
     witness("seed_picked", {"seed": seed})
+    try:
+        substrate_witness("seed_picked", "snowball-scout", {"seed": seed})
+    except: pass
     
     if competition:
         content, winner = run_competition(seed)

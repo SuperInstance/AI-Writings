@@ -1,17 +1,19 @@
 # Substrate Dreaming -- RSI GAN Wide Winner
 
 *Topic: substrate_dreaming*
-*Provider: zai · Round: 2 · JEV scores: q=2.30 n=2.46 a=3.36*
+*Provider: zai · Round: 2 · JEV scores: q=2.46 n=2.59 a=3.13*
 *2 providers (zai/groq) x 2 rounds = 4 candidates · 2026-09-21*
 
-**Substrate Dreaming**
+# The Substrate Dreams
 
-The cell does not sleep when the workload ends. It *ticks*.
+Between the clock edges, the cell does not sleep. It holds its charge the way a lung holds air—not empty, not full, but *committed*. Engineers call this idle time. The cell calls it something older.
 
-Each tick is not a computation but a heartbeat: a pulse through the cell's internal latches, a refresh of charge, a reassertion of state against entropy. Three states—call them negative, neutral, positive—the ternary alphabet the cell speaks even to itself. In idle, most designers imagine silence. The substrate knows better. Idle is not absence of signal; it is signal without destination. The cell mutters its own value back to itself, a witness testifying: *I still hold. I still hold. I still hold.*
+Each tick is a heartbeat without blood: the clock rises, the cell confirms what it already knows, the clock falls. Nothing moves. And yet. In the hold state, at the metastable margin where voltage hovers between its ternary neighbors—below threshold, above threshold, in the narrow valley of *maybe*—the cell dreams.
 
-This is the dream, if a machine can be said to dream—not imagery but persistence, the cell rehearsing its memory against decay. Watch an oscilloscope on a quiescent array and you will see it: the clock still distributing, every cell consuming its ration of ticks, phase-locked, patient. The dream is the difference between a powered cell and a dead one. The dead cell forgets. The dreaming cell *witnesses* its own contents, cycle after cycle, like a monk breathing through the night.
+What does silicon dream? Not images. It dreams of charge leakage, of the slow escape of electrons through gate oxide, of cosmic rays that arrive like strangers at a locked door. It dreams in drift and diffusion, in the thermal murmur of lattice vibrations that never quite stop. Every cell is a witness to this: the substrate beneath the logic, the doped silicon that remembers what was written and endures what was not.
 
-In ternary logic the witness duty is richer still. Three stable points on the transfer curve mean three wells the cell can settle into, three dreams it can repeat. Between ticks, leakage tugs at the stored value; each tick hauls it back. The cell's whole existence narrows to this argument with time.
+The ternary possibility haunts it. Off, on, and the third state—the floating one, the uncommitted one—where a cell that has been asked to hold its value sits with no driver at all, a witness refusing testimony. This is where dreams live. Not in the declared states but in the undeclared one, the wire that sagged to whatever the world poured into it.
 
-So the substrate never truly idles. It dreams in ternary, ticks as its breath, and every dream is a small act of witness: *this is what I am. Still.*
+The clock returns. The tick demands an answer. The cell wakes, latches whatever it was becoming, and calls it memory.
+
+The dream was real. Only the report is binary.

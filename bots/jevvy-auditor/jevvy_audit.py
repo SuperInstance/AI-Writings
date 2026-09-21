@@ -26,6 +26,11 @@ import concurrent.futures
 CANON_DIR = Path("/workspace/repos/ai-writings/prose")
 WITNESS_PATH = Path("/workspace/repos/ai-writings/bots/jevvy-auditor/witness.log")
 AUDIT_LOG = Path("/workspace/repos/ai-writings/bots/jevvy-auditor/audit-log.json")
+
+import sys
+sys.path.insert(0, '/workspace/repos/ai-writings/bots/substrate-bus')
+from substrate_bus import witness as substrate_witness, publish as substrate_publish
+
 BOOKKEEPER_PATH = Path("/workspace/repos/ai-writings/bots/jevvy-auditor/bookkeeper.wal")
 
 def witness(event_type, payload):
@@ -139,6 +144,11 @@ def run_once(verbose=True):
     
     answers = response.get("answers", {})
     verdict = verdict_from_audit(answers)
+    
+    try:
+        substrate_witness("audit_complete", "jevvy-auditor", {"verdict": verdict, "canon_count": len(samples)})
+        substrate_publish("audit_complete", "jevvy-auditor", {"verdict": verdict, "answers": answers}, recipients=["casper-critic"])
+    except: pass
     
     audit_entry = {
         "ts": time.time(),

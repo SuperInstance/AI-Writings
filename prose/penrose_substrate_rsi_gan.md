@@ -1,17 +1,15 @@
 # Penrose Substrate -- RSI GAN Wide Winner
 
 *Topic: penrose_substrate*
-*Provider: zai · Round: 2 · JEV scores: q=2.26 n=2.66 a=3.45*
+*Provider: zai · Round: 2 · JEV scores: q=1.92 n=2.32 a=3.08*
 *2 providers (zai/groq) x 2 rounds = 4 candidates · 2026-09-21*
 
-# The Kite and Dart Apoptosis
+**The Aperiodic Cell**
 
-Every cell in this substrate inherits a fate it cannot see. In the Penrose tiling—kite and dart, fat rhombus and thin—no local arrangement determines position, yet every cell belongs to a global pattern that never repeats. This is aperiodicity lived from inside: the membrane-bound unit knows only its edges, its angles of 72 and 108 degrees, its immediate neighbors. It cannot deduce the infinite.
+Consider the cell not as a square but as a fat rhombus and its thin sibling, angle 72 degrees and 36, edge lengths equal, orientations locked. From these two prototiles the Penrose tiling assembles a plane that never repeats: every finite patch, however large, recurs somewhere—but no patch recurs *periodically*, with fixed offset. The substrate has memory without rhythm.
 
-The substrate enforces matching rules the way tissue enforces fate. An arrow or stripe along each edge admits only certain adjacencies; a cell docking wrong-handed is rejected, pushed into apoptosis, dissolved by its own lysosomes before it corrupts the lattice. What looks like chemical tolerance is geometric law.
+Cellular automata on such a substrate inherit this restlessness. A conventional CA defines neighborhood by lattice coordinates; here, adjacency must be discovered. Each cell's neighbors are determined by matching rules—the Ammann bars that run invisibly through every rhombus, aligning edge-to-edge so that local joins constrain the global pattern. Defect a single match and the tiling cannot complete. The rules are ternary in spirit: each vertex admits only certain configurations of surrounding cells, a finite grammar of kings, jacks, suns, stars, and wheels deciding what may meet what.
 
-Scale through the deflation operation. Subdivide each cell—fat into fat and thin, thin into half-fats—and the tissue reproduces itself at finer resolution without translation symmetry. Mitosis without periodicity. Daughter cells inherit position in a hierarchy of golden-ratio lengths, τ and τ², so that lineage is literally proportion.
+What makes this substrate interesting for computation is the heterogeneity of neighborhood. Some cells have four neighbors, some five, some more; degrees vary, but deterministically across the infinite pattern. Signals propagating through a Penrose CA do not march in ranks. They disperse unevenly, encountering junctions of varying arity, like current finding paths through a crystal lattice with no translational symmetry.
 
-Signal propagation becomes ternary here. A morphogen gradient crossing the field cannot march in a straight stripe, because no stripe exists; it must branch along three weighted paths—through fat, through thin, along the shared edges—each transition a three-valued decision. Diffusion through such a substrate yields patterns with fivefold diffraction ghosts, order visible only in reciprocal space.
-
-Injury reveals the deepest constraint: no patch of cells can be excised and reinserted elsewhere. The tiling forgives no transplantation. Each cell is irreplaceable not because it is unique locally, but because its context—its infinite, unrepeating neighborhood—cannot be reconstructed from any finite fragment. The whole, strictly, exceeds every part.
+And yet the structure is rigid—quasi-regular, globally constrained by a fivefold axis that no local cell can see. Computation on Penrose ground is computation without periodicity's comfort: every cell knows only its edges, every patch knows only itself, and the whole remains aperiodic forever.

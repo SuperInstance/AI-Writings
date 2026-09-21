@@ -1,0 +1,2 @@
+{"ts": 1789967289.3536747, "iso": "2026-09-21T05:08:09.353680+00:00", "event": "poll_failed", "source": "wesley-mechanic", "payload": {"error": "HTTP Error 403: Forbidden"}, "recipients": [], "hash": "f7ca317a0aef36fa"}
+{"ts": 1789967299.2900116, "iso": "2026-09-21T05:08:19.290019+00:00", "event": "audit_complete", "source": "jevvy-auditor", "payload": {"verdict": "FAIL", "canon_count": 3}, "recipients": [], "hash": "b0b9813e0f2dbb5d"}

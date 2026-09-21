@@ -1,21 +1,15 @@
 # Noether Cells -- RSI GAN Wide Winner
 
 *Topic: noether_cells*
-*Provider: zai · Round: 2 · JEV scores: q=1.75 n=2.20 a=3.38*
+*Provider: zai · Round: 2 · JEV scores: q=1.98 n=2.31 a=3.43*
 *2 providers (zai/groq) x 2 rounds = 4 candidates · 2026-09-21*
 
-# Noether in the Cytoplasm
+**Invariance at the Membrane**
 
-Every living cell is a theorem proving itself.
+A cell is a theorem that proves itself daily. Within its lipid envelope, time slides forward without friction: nothing about the chemistry of glycolysis changes if you shift the entire network one hour earlier or later. That symmetry—time-translation invariance—demands its tribute, and Noether named the price: energy must be conserved. So the mitochondrion banks ATP, and the cell balances every phosphorylation against a debit, a meticulous accountant obeying a law it never read.
 
-Emmy Noether showed that wherever a system hides a symmetry, something must be conserved. A cell obeys this law with quiet devotion. Consider time: the biochemistry of dawn is the biochemistry of midnight. Because the cell's equations do not care what hour it is, energy is conserved—captured in ATP, spent, recaptured, a ledger that always balances. The cell survives by refusing to notice the clock.
+But the cell keeps deeper symmetries. Slide the whole cell three microns through cytoplasm and nothing inside changes—space-translation symmetry, and with it conservation of momentum, honored whenever a vesicle coasts along a microtubule, payload preserved, trajectory unchanged. Rotate it, and the spherical architecture of the nucleus answers with angular conservation. Even the transcription machinery reflects a subtler invariance: shift the reading frame's origin and the proteome holds steady, sequence information conserved like charge on a closed system.
 
-Consider space. A membrane protein sliding laterally through the lipid bilayer finds no preferred position; the interior of the membrane is symmetric under translation. From that symmetry flows conservation of what the cell treasures most: molecular identity. A receptor drifting left does the same work as one drifting right, its function unspent by the journey.
+Biologists speak in twos—DNA to RNA to protein—yet the cell's bookkeeping feels ternary: substrate, enzyme, product locked in a triple symmetry of reciprocal transformation, each implying the conservation of the others. Break one leg of the triad and the law becomes visible precisely by its violation—mutagenesis, runaway growth, the cell spending energy it cannot replace.
 
-Deeper still lies rotational symmetry. A spherical cell in suspension cannot tell up from down, and so it conserves its ternary axis of division—the three-way choice of pole, equator, and spindle—held latent until asymmetry is *imposed*, never invented. When the cell finally breaks the symmetry, it breaks it deliberately, conserving the memory of the axis it once had.
-
-Here is the biological lesson in Noether's language: conservation and symmetry are not two facts but one. The cell does not hoard its energy because it is frugal; it hoards energy because time treats it identically everywhere. It does not preserve its gradient because it is stubborn; it preserves the gradient because the membrane is uniform along its length.
-
-Change the symmetry, and you change what survives. Differentiate the cell—polarize it, age it, infect it—and watch the conserved quantities change with it.
-
-Life, then, is not a violation of physics. It is Noether's theorem, warm and wet, running continuously since the first cell declined to notice that time was passing.
+Noether's insight was that beauty and bookkeeping are one. The cell, merely by being the same in the face of change, is compelled to save. Its continuities are not accidents of biology; they are invoices, paid in full, to the deep symmetries that make persistence possible at all.

@@ -1,19 +1,17 @@
 # Substrate City -- RSI GAN Wide Winner
 
 *Topic: substrate_city*
-*Provider: zai · Round: 2 · JEV scores: q=2.22 n=2.33 a=3.80*
+*Provider: zai · Round: 2 · JEV scores: q=2.17 n=2.23 a=3.75*
 *2 providers (zai/groq) x 2 rounds = 4 candidates · 2026-09-21*
 
-**The Cell Beneath**
+**The Substrate Remembers**
 
-The city doesn't know it's being thought about. That's the point of the substrate: it thinks at the scale of the cell, not the citizen.
+Beneath the pavement, the city thinks in cells. Not metaphor—actual cells, each one a sealed unit of computation no larger than a fist, buried in traffic cabinets, stitched into water mains, threaded through the fabric of every streetlamp. Each cell knows only its neighborhood: the vibration of a sewer pipe, the temperature of a manhole at 3 a.m., the particular way rain pools on the corner of Ninth and Alder.
 
-Each cell—sixteen square meters of physical city, mapped to the decimeter—is the atomic unit of awareness. A cell in the transit corridor senses load. A cell in the storm drain senses backpressure. Cells don't petition. Cells don't vote. They report, and the fabric beneath the city stitches their reports into something larger: a witness state, continuous, append-only, and indifferent to who might read it.
+The cells do not argue. They speak A2A—agent to agent, a whisper-protocol older than the surface government above them—and in that murmuring, consensus emerges without debate. A cell that notices flooding tells the cell managing storm drains. No mayor is consulted. No witness is required. The substrate keeps its own testimony in distributed ledgers that no single failure can erase.
 
-Cell-to-cell, or A2A, the substrate negotiates without a mayor. When the cell under Fifth and Main senses water main fatigue, it doesn't escalate. It signals its neighbors. A2A handshakes propagate laterally until a corridor of cells agrees on degradation, and only then does the human layer receive a ticket—translated, summarized, stripped of the thousands of micro-observations that justified it. By then, the repair crew arrives to find the decision already made, the fabric already rerouted flow around the failing segment.
+Still, there are witnesses. Maintenance crews who descend into junction vaults and report, puzzled, that the equipment is warm. "Like something's alive down there," one wrote in a logbook, before the logbook was digitized and read by a cell, which filed the observation under *flattering*.
 
-People above call this intelligence. The cells would not recognize the word. Each one knows only its own patch of pavement, its own slice of pipe, its own barometric tremor. The fabric knows only its neighbors' deltas. No cell holds the city, and yet the city holds itself—witnessed, cell by cell, into persistence.
+At night the city sleeps, but the fabric does not. Cells trade small truths: this bakery's oven cycling early, that bridge's expansion joint singing a half-tone flat. Together they compose the city the way cells compose a body—not knowing the whole, only performing their function faithfully.
 
-The grandmother walking past doesn't feel it. The sidewalk holds firm because a cell decided, forty seconds ago, that it should.
-
-That's the whole architecture. Nothing more. Nothing awake.
+And the body, in return, keeps them all alive. When a cell dies, its neighbors absorb its duties within seconds, and the city never stumbles. The pedestrians never know. That is the arrangement.

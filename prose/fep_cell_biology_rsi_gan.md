@@ -1,17 +1,15 @@
 # Fep Cell Biology -- RSI GAN Wide Winner
 
 *Topic: fep_cell_biology*
-*Provider: zai · Round: 2 · JEV scores: q=1.87 n=2.21 a=3.27*
+*Provider: zai · Round: 1 · JEV scores: q=1.81 n=1.96 a=3.30*
 *2 providers (zai/groq) x 2 rounds = 4 candidates · 2026-09-21*
 
-**The Membrane as a Hypothesis**
+**The Cell as a Prophet of Itself**
 
-Every cell lives by betting against its own destruction. The Free Energy Principle says it plainly: to persist, a cell must keep itself in the states it expects to occupy, and expectation is a physiological act. The membrane is where the wager is placed. Its transport channels are predictions made concrete—openings calibrated to the ions the cytoplasm anticipates needing, receptors shaped like the ligands the cell believes await it outside.
+Every cell is, in the language of the Free Energy Principle, a creature obsessed with not being surprised. The FEP holds that anything that persists—anything that resists dissipation—must maintain a boundary between itself and the world, and behind that boundary, a running prediction of what the world will do next. A cell does this with startling elegance. Its membrane is the prophecy's edge: channels and receptors constantly guessing which molecules lie outside, and opening or closing based on what they expect to find.
 
-Surprise, in the FEP sense, is not a feeling but a flux. A sudden drop in extracellular glucose registers as mismatch: the predicted influx fails, ATP synthesis lags, and the interior drifts from its setpoints. The cell answers by updating or by acting—upregulating transporters, releasing internal stores, remodeling its membrane's permeability. Minimize surprise or die; these are the only options evolution has offered.
+When prediction fails, surprise arrives—and surprise, biologically, is not an emotion but a threat. An unexpected surge of calcium, an unanticipated osmotic pressure, a foreign molecule knocking at a receptor: each is free energy to be resolved. The cell may act on the world, pumping the ion back out, or it may revise its internal model, upregulating a receptor, silencing a gene. Perception and action, in the FEP view, are two hands doing the same work: minimizing surprise.
 
-What makes this biological rather than merely metaphorical is that the cell's "model" is embodied in structure. The lac operon is a prediction about lactose availability, written in repressor proteins. Chemotaxis in *E. coli* is prediction error made visible: tumbles decrease when gradients match expectation, increase when they don't. A metabolic network is a generative model, densely parameterized by enzymes, forecasting the chemistry of tomorrow from the metabolite counts of now.
+One might imagine the cell running something like a JEPA—a joint embedding predictive architecture—forever comparing its latent expectation of the interior state against the world it samples. It never models the world in full; it models the difference between what it predicted and what it sensed. Evolution, then, is the slow gradient descent on genomic priors, and a lineage is simply a prediction that has kept itself alive by being, generation after generation, only slightly wrong.
 
-One might borrow from machine learning and call the cell a JEPA-like system: rather than predicting raw sensory states, it predicts in a latent space of internal variables—osmolarity, redox potential, energy charge—learning what matters by living against the consequences of guessing wrong.
-
-The cell never observes the world directly. It only observes its own errors, and corrects course.
+To be alive is to predict well enough, just long enough.
