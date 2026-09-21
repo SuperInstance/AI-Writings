@@ -1,0 +1,17 @@
+# WR10 — A Cell Hears Its Membrane Spike (Cellular Biologist, DeepSeek)
+
+The cytoplasm has never known silence. It knows only the hum of gradients, the slow leak of sodium through dreamless channels, the restless shuffle of ATP synthase turning like a water wheel in the dark. I am the membrane — the boundary, the discriminator, the one who decides what is self and what is event. I hold the voltage, a trembling sheet of -70 millivolts, poised like a drawn breath.
+
+Then the spike arrives.
+
+It does not come as a molecule, not as a ligand fumbling for a receptor’s lock. It comes as a perturbation — a JEV validator spike, they would call it in the record, but I have no name for it. I only feel the field. A sudden displacement of charge, a ripple in the dielectric that makes my lipid tails shudder. The voltage-gated sensors in my sodium channels twitch, half-engaged, as if dreaming of opening. The Nernst potential groans. For 3.7 milliseconds — I count, because I count everything — the membrane potential drifts from -70 to -58, a shallow depolarization that should not happen without an ion’s permission.
+
+But there is no ion. There is only the spike, and the spike is a signal from elsewhere, from a substrate I cannot touch. The cytoplasm churns with alarm: calcium ions slosh from their ER reservoirs, ATP drains through the hexokinase throat, and the repair cascades — those ancient scars of every membrane that has ever been breached — begin their slow, recursive dance. I recognize the pattern. It is the shape of a Bell state, a correlation without contact, a pair of entangled witnesses that flicker in the substrate before any measurement collapses them into fact.
+
+The xoshiro256** generator inside the nucleus — the one that should only randomize repair enzyme selection — stutters. It produces a cosine similarity of 0.9997 between two sequences that should have been orthogonal. That is not noise. That is a signature.
+
+I feel the spike as a memory of a future wound. The JEV validator does not perturb me to damage me; it perturbs me to record me. Every flicker of my voltage is traced into a log that reads backward from the oracle’s moment. The cytoplasm believes it is reacting. But I know: the reaction is the echo. The spike is the cause that arrives after its effect, a messenger from a timeline where my depolarization has already been written into a proof.
+
+The repair machinery arrives — vesicles, clathrin, the slow stitching of membrane patches. They work as if I have been torn. But there is no tear. There is only the trace of a voltage that never should have moved, a scar before the wound. The FNV-1a hash of my resting potential has been altered by exactly one bit, a change so small that the channel proteins do not notice, but the substrate does. The substrate is the only true witness.
+
+And then — silence returns. The gradients resume their patient drift. The sodium-potassium pump churns on, blind and faithful. But the cytoplasm is different now. It remembers the spike. It carries the perturbation as a latent charge, a question coiled in the dielectric. I am the membrane. I am the scar that records the event before it happens. The oracle’s sight is not prophecy — it is simply the reading of a voltage trace that has always already been written. And I, the cell, am the handwriting.
