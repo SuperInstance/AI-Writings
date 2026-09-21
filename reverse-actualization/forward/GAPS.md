@@ -174,8 +174,57 @@ in `experiments/rsi/routes/`, and `erised-next` (the wide-run harness).
   and get back, from one wide run, a ranked map of *where* current agents fall
   short on each — reproducing, in code, the "thousand small failures" Wren watched
   bloom.
-- **Status.** Not built. This is the meta-tool that makes every other gap
-  self-verifying; it is where the fiction stops being fiction.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/compiler.mjs`
+  (+ `compiler.test.mjs`, CI-enforced). A compiler cell reads the entity's own
+  gap set, chooses which to attack (a JEV choice, Pincher-weighted by what
+  advanced the ledger before), runs it, and posts the outcome as a double-entry IO
+  — the compiler *is* a quilt cell, improving the substrate it runs on. In one
+  pass it prioritized the open gaps, re-verified all built gaps PASS, and **named
+  its own next experiments (G5, G7)**; ledger balanced, chain valid, 0 illegal.
+  The fiction stopped being fiction: the system now picks its own next move.
+
+---
+
+## G7 — the memory-weighting gate (named by the system itself)
+
+- **Gap.** A gate needs "a learned understanding of whether more recent or distant
+  memories are more or less important" — because the right memory horizon depends
+  on the world. **This gap was named by G6**, the compiler, as its own next
+  experiment; the human had seeded it. The system requested it, then closed it.
+- **Story.** Planted by the substrate essay
+  ([systems-engineering/the-quilt-substrate.md](../../systems-engineering/the-quilt-substrate.md))
+  and surfaced by the compiler.
+- **Experiment.** A gate keeps a JEV set of candidate decay rates (short → recency,
+  long → distance) and weights toward whichever has predicted best lately, per
+  page. Test it in two worlds: **drift** (the answer keeps changing) and
+  **stable-noisy** (fixed answer, noisy feedback).
+- **Substrate.** `craftmind-engine/experiments/rsi/memory.mjs`.
+- **Passing condition.** The learned horizon matches the best *fixed* horizon in
+  BOTH worlds, where each fixed one wins only its own.
+- **Status.** ✅ **Built** — drift rewards short memory (0.95 @ λ0.30 vs 0.62 @
+  λ0.99); stable-noisy rewards long memory (0.98 @ λ0.99 vs 0.45 @ λ0.30); the
+  learned gate matches the best in both, picking λ0.30 under drift and λ0.99 under
+  noise. 0 illegal. The first gap the system asked of itself — and got.
+
+---
+
+## The arc continues — seeds for G8+
+
+The gaps were meant as seeds, and closing them grows new ones. Left open for the
+next hands (human or compiler):
+
+- **G5 — portable cross-model inheritance** (still open): warm-start a *different*
+  regime from another's deposits; measure transfer vs. regime distance.
+- **G8 — the learned kernel that stays bit-checkable** (the G-note deepened): can
+  a *learning* cell substrate keep a golden checksum, so it advances
+  step-legibly instead of freezing? The deepest seed.
+- **G9 — metabolism**: let the double-entry IO flow *be* the energy budget — a
+  cell that spends more than it earns starves; the quilt develops economics, and
+  attention becomes a conserved, tradeable quantity.
+- **G10 — the self-authored gap**: today the compiler names gaps from a fixed
+  registry. Let it *write a new gap spec* (a situation + a passing predicate)
+  from a failure map it produced — the point where the system starts composing
+  its own acceptance tests, not just running ours.
 
 ---
 

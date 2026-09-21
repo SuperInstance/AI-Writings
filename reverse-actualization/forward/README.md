@@ -57,6 +57,10 @@ without inventing a capability we lack — we have found the next experiment.
   and **Devi Okafor**, who is old enough to have shipped the 2026 version and
   remembers when a model could confidently tell you something that wasn't true.
   ([2036-03](2036-03-the-child-who-never-knew-otherwise.md))
+- **Devi again**, on the night the compiler asked for something — a gap no human
+  had entered, with the acceptance test already sketched. The self-building quilt,
+  and the one human act still left: the word *yes*.
+  ([2036-04](2036-04-the-gap-the-machine-asked-for.md))
 
 ## The rule of the arc
 
