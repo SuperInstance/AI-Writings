@@ -142,6 +142,18 @@ footer a:hover{color:var(--accent)}
 
 <h3 style="margin-top:1rem;color:var(--text);font-size:.95rem">Measurement histogram (last batch)</h3>
 <div id="hist"></div>
+
+<details style="margin-top:1rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem">
+<summary style="cursor:pointer;color:var(--accent);font-family:var(--mono);font-size:.85rem">▸ Show raw state vector & gate matrices (for verification)</summary>
+<div style="margin-top:.5rem">
+<h4 style="color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin:.5rem 0">State vector (real, imag, |amplitude|²)</h4>
+<pre id="stateRaw" style="font-family:var(--mono);font-size:.7rem;color:var(--text);white-space:pre-wrap;background:var(--surface);padding:.5rem;border-radius:4px;max-height:200px;overflow-y:auto"></pre>
+<h4 style="color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin:.5rem 0">Last gate applied</h4>
+<pre id="gateRaw" style="font-family:var(--mono);font-size:.7rem;color:var(--text);white-space:pre-wrap;background:var(--surface);padding:.5rem;border-radius:4px"></pre>
+<h4 style="color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin:.5rem 0">Trace check (Σ |α|² must equal 1.000)</h4>
+<pre id="traceCheck" style="font-family:var(--mono);font-size:.7rem;color:var(--text);white-space:pre-wrap;background:var(--surface);padding:.5rem;border-radius:4px"></pre>
+</div>
+</details>
 </article>
 </main>
 
@@ -313,6 +325,8 @@ function grover(s, marked) {
 // === UI ===
 let state = bellPhiPlus();
 let lastHist = {};
+let lastGateApplied = 'bellPhiPlus (initial state)';
+let lastGateMatrix = null;
 const titles = {
   bellPhiPlus: '|Φ+⟩ = (|00⟩ + |11⟩) / √2',
   bellPhiMinus: '|Φ-⟩ = (|00⟩ - |11⟩) / √2',
@@ -341,11 +355,15 @@ function loadState(name) {
 }
 
 function applyGate(name, q, arg) {
-  if (name === 'QFT') qft(state);
-  else if (name === 'CNOT') state.applyCNOT(q, arg);
-  else if (name === 'Rx') state.apply1(Gates.Rx(arg), q);
-  else state.apply1(Gates[name], q);
+  if (name === 'QFT') { qft(state); lastGateApplied = `QFT on all ${state.n} qubits`; lastGateMatrix = null; }
+  else if (name === 'CNOT') { state.applyCNOT(q, arg); lastGateApplied = `CNOT(${q}→${arg})`; lastGateMatrix = '[[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]'; }
+  else if (name === 'Rx') { state.apply1(Gates.Rx(arg), q); lastGateApplied = `Rx(${arg.toFixed(4)}) on qubit ${q}`; lastGateMatrix = formatMatrix(Gates.Rx(arg)); }
+  else { state.apply1(Gates[name], q); lastGateApplied = `${name} on qubit ${q}`; lastGateMatrix = formatMatrix(Gates[name]); }
   render();
+}
+
+function formatMatrix(m) {
+  return m.map(row => '[' + row.map(c => `${c[0].toFixed(3)}${c[1] === 0 ? '' : (c[1] >= 0 ? '+' : '') + c[1].toFixed(3) + 'i'}`).join(', ') + ']').join('\n');
 }
 
 function measure() {
@@ -406,6 +424,27 @@ function render() {
   renderStateViz();
   renderStats();
   renderHist();
+  renderDebug();
+}
+
+function renderDebug() {
+  // State vector
+  const lines = [];
+  for (let i = 0; i < state.dim; i++) {
+    const a = state.amplitudes[i];
+    const m2 = a[0]*a[0] + a[1]*a[1];
+    lines.push(`|${i.toString(2).padStart(state.n, '0')}⟩  re=${a[0].toFixed(4)}  im=${a[1].toFixed(4)}  |α|²=${m2.toFixed(4)}`);
+  }
+  document.getElementById('stateRaw').textContent = lines.join('\n');
+
+  // Last gate
+  document.getElementById('gateRaw').textContent = lastGateApplied + (lastGateMatrix ? '\n' + lastGateMatrix : '');
+
+  // Trace check
+  let trace = 0;
+  for (const a of state.amplitudes) trace += a[0]*a[0] + a[1]*a[1];
+  const ok = Math.abs(trace - 1) < 1e-9;
+  document.getElementById('traceCheck').textContent = `Σᵢ |αᵢ|² = ${trace.toFixed(10)}  →  ${ok ? '✓ NORMALIZED' : '✗ NOT NORMALIZED (diff: ' + (trace - 1).toExponential(2) + ')'}`;
 }
 
 function drawCanvas() {

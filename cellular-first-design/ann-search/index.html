@@ -138,6 +138,8 @@ rock climbing vertical cliffs</textarea>
 <div class="stats" id="stats">
 <div>vectors: <span class="v" id="vcount">—</span></div>
 <div>dimensions: <span class="v">1024</span></div>
+<div>vocab: <span class="v" id="vvocab">—</span></div>
+<div>embedder: <span class="v">semantic (token-frequency)</span></div>
 <div>norm: <span class="v" id="vnorm">—</span></div>
 <div>memory: <span class="v" id="vmem">—</span></div>
 </div>
@@ -168,6 +170,10 @@ function stringToSeed(s) {
 
 class Vector {
   constructor(data) { this.data = data; this.dim = data.length; }
+
+  /** Deterministic hash-based embedder (zero-dependency, fast).
+   *  Same input → same vector. Different inputs are mostly orthogonal — useful for
+   *  testing index structure but NOT for semantic similarity. */
   static fromText(text, dim = DIM) {
     const data = new Float32Array(dim);
     for (let seed = 0; seed < 4; seed++) {
@@ -195,6 +201,31 @@ class Vector {
     if (norm > 0) for (let i = 0; i < dim; i++) data[i] /= norm;
     return new Vector(data);
   }
+
+  /** Semantic embedder using shared token dimensions.
+   *  Each unique word → its own dimension. Documents are projected into the
+   *  word-frequency space, so two documents about similar topics land in
+   *  similar regions. Use this for ANN search — not fromText. */
+  static fromTextSemantic(text, vocab, dim = DIM) {
+    const data = new Float32Array(dim);
+    const tokens = text.toLowerCase().split(/\W+/).filter(t => t.length > 0);
+    // IDF-style weighting: rare words matter more
+    const counts = new Map();
+    for (const t of tokens) counts.set(t, (counts.get(t) || 0) + 1);
+    for (const [tok, count] of counts) {
+      const idx = vocab.get(tok);
+      if (idx !== undefined && idx < dim) {
+        data[idx] = count;
+      }
+    }
+    // L2 normalize
+    let norm2 = 0;
+    for (let i = 0; i < dim; i++) norm2 += data[i] * data[i];
+    const norm = Math.sqrt(norm2);
+    if (norm > 0) for (let i = 0; i < dim; i++) data[i] /= norm;
+    return new Vector(data);
+  }
+
   cosine(other) {
     let dot = 0, mA = 0, mB = 0;
     const n = Math.min(this.dim, other.dim);
@@ -216,6 +247,21 @@ class Vector {
     for (let i = 0; i < n; i++) { const d = this.data[i] - other.data[i]; sum += d*d; }
     return sum;
   }
+}
+
+/** Build a vocab by tokenizing the corpus. Returns Map<token, index> + dim. */
+function buildVocab(corpusLines, maxDim = DIM) {
+  const freq = new Map();
+  for (const line of corpusLines) {
+    for (const tok of line.toLowerCase().split(/\W+/).filter(t => t.length > 0)) {
+      freq.set(tok, (freq.get(tok) || 0) + 1);
+    }
+  }
+  // Keep top maxDim tokens by frequency
+  const sorted = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, maxDim);
+  const vocab = new Map();
+  for (let i = 0; i < sorted.length; i++) vocab.set(sorted[i][0], i);
+  return vocab;
 }
 
 function topK(query, candidates, k, metric) {
@@ -273,14 +319,19 @@ function kMeans(points, k, maxIter = 50) {
 
 // === UI ===
 let corpusVecs = [];
+let corpusVocab = new Map();
 const corpusTextEl = document.getElementById('corpus');
 
 function updateCorpus() {
   const lines = corpusTextEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-  corpusVecs = lines.map(line => Vector.fromText(line));
+  // Build vocab from corpus for semantic embedder
+  corpusVocab = buildVocab(lines);
+  // Use semantic embedder by default — actually tracks topic similarity
+  corpusVecs = lines.map(line => Vector.fromTextSemantic(line, corpusVocab));
   document.getElementById('vcount').textContent = corpusVecs.length;
   document.getElementById('vnorm').textContent = '1.0 (normalized)';
   document.getElementById('vmem').textContent = (corpusVecs.length * DIM * 4 / 1024).toFixed(1) + ' KB';
+  document.getElementById('vvocab').textContent = corpusVocab.size;
 }
 
 function search() {
@@ -289,7 +340,8 @@ function search() {
   const metric = document.getElementById('metric').value;
   if (!query.trim()) return;
   updateCorpus();
-  const qVec = Vector.fromText(query);
+  // Use semantic embedder for the query — matches corpus embedder
+  const qVec = Vector.fromTextSemantic(query, corpusVocab);
   const top = topK(qVec, corpusVecs, k, metric);
   const corpusLines = corpusTextEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
   const out = document.getElementById('results');
