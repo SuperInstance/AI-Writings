@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>k-means Visualization — substrate-vectors demo</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--mono:'SF Mono','JetBrains Mono',monospace;--sans:'Inter',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 1.5rem}
+h1{color:var(--accent);font-size:1.5rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.9rem;margin:0 0 .5rem}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+canvas{background:#000;border:1px solid var(--border);border-radius:8px;width:100%;height:520px;display:block}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;height:fit-content}
+.panel h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem}
+.panel h3:not(:first-child){margin-top:1rem}
+button{display:block;width:100%;background:var(--surface);color:var(--text);border:1px solid var(--border);padding:.6rem;border-radius:6px;cursor:pointer;font-family:inherit;font-size:.85rem;margin-bottom:.4rem;text-align:left;transition:all .15s}
+button:hover{border-color:var(--accent);background:var(--bg)}
+button.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:bold;text-align:center}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.5rem;margin-bottom:.5rem}
+.controls label{color:var(--dim);font-size:.8rem;font-family:var(--mono)}
+input[type=number],input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem;font-family:var(--mono);font-size:.8rem;width:60px}
+.stats{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:1rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🎯 k-means Visualization — substrate-vectors</h1>
+<p class="tagline">Watch Lloyd's algorithm with k-means++ init converge in real time. Click to add points. Try 4+ blobs.</p>
+</header>
+<main>
+<canvas id="c" width="800" height="520"></canvas>
+<aside class="panel">
+<h3>Clusters</h3>
+<div class="controls">
+<label>k=<input type="number" id="k" value="3" min="1" max="8"></label>
+</div>
+<button class="primary" onclick="step()">▶ Step</button>
+<button onclick="runAll()">⏵ Run to convergence</button>
+<button onclick="reset()">↻ Reset</button>
+<h3>Distributions</h3>
+<button onclick="seed('blobs')">4 Gaussian blobs</button>
+<button onclick="seed('moons')">2 interleaved moons</button>
+<button onclick="seed('random')">Uniform random</button>
+<button onclick="seed('rings')">2 concentric rings</button>
+<h3>Stats</h3>
+<div class="stats" id="stats">
+<div>points: <span class="v" id="sPts">—</span></div>
+<div>clusters: <span class="v" id="sK">—</span></div>
+<div>iteration: <span class="v" id="sIter">0</span></div>
+<div>inertia: <span class="v" id="sIn">—</span></div>
+<div>silhouette: <span class="v" id="sSil">—</span></div>
+</div>
+</aside>
+</main>
+<footer>🎯 substrate-vectors k-means visualization · <a href="https://github.com/SuperInstance/substrate-vectors">github.com/SuperInstance/substrate-vectors</a></footer>
+<script>
+// Math: k-means++ with k-means++ init, Lloyd's iteration, silhouette score
+const COLORS = ['#00ff9d', '#00d4ff', '#ff80c0', '#ffb84d', '#7c5cff', '#ff4d6d', '#50d890', '#f09060'];
+
+let points = [];
+let centroids = [];
+let assignments = [];
+let inertia = 0;
+let iteration = 0;
+let canvas = document.getElementById('c');
+let ctx = canvas.getContext('2d');
+const W = 800, H = 520;
+
+function rand(min, max) { return min + Math.random() * (max - min); }
+
+function seed(kind) {
+  points = [];
+  if (kind === 'blobs') {
+    const centers = [[200, 150], [600, 150], [200, 380], [600, 380]];
+    for (const [cx, cy] of centers) for (let i = 0; i < 30; i++) points.push({ x: cx + (Math.random()-.5)*80, y: cy + (Math.random()-.5)*80 });
+  } else if (kind === 'moons') {
+    for (let i = 0; i < 50; i++) {
+      const t = (i / 50) * Math.PI;
+      points.push({ x: 250 + Math.cos(t) * 130 + (Math.random()-.5)*20, y: 260 + Math.sin(t) * 100 + (Math.random()-.5)*20 });
+      points.push({ x: 550 + Math.cos(t + Math.PI) * 130 + (Math.random()-.5)*20, y: 260 + Math.sin(t + Math.PI) * 100 + (Math.random()-.5)*20 });
+    }
+  } else if (kind === 'rings') {
+    for (let i = 0; i < 60; i++) {
+      const t = (i / 60) * Math.PI * 2;
+      points.push({ x: 400 + Math.cos(t) * 100 + (Math.random()-.5)*15, y: 260 + Math.sin(t) * 100 + (Math.random()-.5)*15 });
+    }
+    for (let i = 0; i < 60; i++) {
+      const t = (i / 60) * Math.PI * 2;
+      points.push({ x: 400 + Math.cos(t) * 200 + (Math.random()-.5)*25, y: 260 + Math.sin(t) * 200 + (Math.random()-.5)*25 });
+    }
+  } else {
+    for (let i = 0; i < 150; i++) points.push({ x: Math.random()*W, y: Math.random()*H });
+  }
+  iteration = 0;
+  centroids = [];
+  assignments = [];
+  updateStats();
+  draw();
+}
+
+function kmeansPlusPlus(k) {
+  if (points.length === 0) return;
+  const result = [];
+  // First random
+  result.push({ ...points[Math.floor(Math.random() * points.length)] });
+  while (result.length < k) {
+    const dists = points.map(p => {
+      let m = Infinity;
+      for (const c of result) { const d = (p.x-c.x)**2 + (p.y-c.y)**2; if (d < m) m = d; }
+      return m;
+    });
+    const total = dists.reduce((s, d) => s + d, 0);
+    if (total === 0) { result.push({ ...points[Math.floor(Math.random() * points.length)] }); continue; }
+    let r = Math.random() * total, chosen = 0;
+    for (let i = 0; i < dists.length; i++) { r -= dists[i]; if (r <= 0) { chosen = i; break; } }
+    result.push({ ...points[chosen] });
+  }
+  return result;
+}
+
+function step() {
+  const k = parseInt(document.getElementById('k').value);
+  if (points.length === 0) seed('blobs');
+  if (centroids.length === 0) centroids = kmeansPlusPlus(k);
+  // Assign
+  let changed = false;
+  inertia = 0;
+  for (let i = 0; i < points.length; i++) {
+    let best = 0, bestDist = Infinity;
+    for (let j = 0; j < centroids.length; j++) {
+      const d = (points[i].x-centroids[j].x)**2 + (points[i].y-centroids[j].y)**2;
+      if (d < bestDist) { bestDist = d; best = j; }
+    }
+    if (assignments[i] !== best) { assignments[i] = best; changed = true; }
+    inertia += bestDist;
+  }
+  // Update
+  const sums = Array.from({length: centroids.length}, () => ({ x: 0, y: 0, n: 0 }));
+  for (let i = 0; i < points.length; i++) {
+    const c = assignments[i];
+    sums[c].x += points[i].x; sums[c].y += points[i].y; sums[c].n++;
+  }
+  for (let j = 0; j < centroids.length; j++) if (sums[j].n > 0) centroids[j] = { x: sums[j].x / sums[j].n, y: sums[j].y / sums[j].n };
+  iteration++;
+  updateStats();
+  draw();
+  return changed;
+}
+
+function runAll() {
+  let changed = true;
+  let n = 0;
+  while (changed && n < 100) { changed = step(); n++; }
+}
+
+function silhouette() {
+  if (centroids.length === 0) return 0;
+  let total = 0;
+  for (let i = 0; i < points.length; i++) {
+    const ci = assignments[i];
+    // a = mean dist to same cluster
+    let a = 0, aN = 0;
+    for (let j = 0; j < points.length; j++) {
+      if (i === j) continue;
+      if (assignments[j] === ci) { a += Math.sqrt((points[i].x-points[j].x)**2 + (points[i].y-points[j].y)**2); aN++; }
+    }
+    if (aN === 0) continue;
+    a /= aN;
+    // b = min mean dist to other clusters
+    let b = Infinity;
+    for (let c = 0; c < centroids.length; c++) {
+      if (c === ci) continue;
+      let d = 0, n = 0;
+      for (let j = 0; j < points.length; j++) {
+        if (assignments[j] === c) { d += Math.sqrt((points[i].x-points[j].x)**2 + (points[i].y-points[j].y)**2); n++; }
+      }
+      if (n > 0 && d / n < b) b = d / n;
+    }
+    if (b === Infinity) continue;
+    total += (b - a) / Math.max(a, b);
+  }
+  return total / points.length;
+}
+
+function draw() {
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  for (let i = 0; i < W; i += 50) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, H); ctx.stroke(); }
+  for (let j = 0; j < H; j += 50) { ctx.beginPath(); ctx.moveTo(0, j); ctx.lineTo(W, j); ctx.stroke(); }
+  // Points
+  for (let i = 0; i < points.length; i++) {
+    const c = assignments[i] !== undefined ? COLORS[assignments[i] % COLORS.length] : '#888';
+    ctx.fillStyle = c;
+    ctx.beginPath();
+    ctx.arc(points[i].x, points[i].y, 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // Centroids
+  for (let j = 0; j < centroids.length; j++) {
+    const c = COLORS[j % COLORS.length];
+    ctx.strokeStyle = c; ctx.fillStyle = c;
+    ctx.beginPath();
+    ctx.arc(centroids[j].x, centroids[j].y, 12, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(centroids[j].x, centroids[j].y, 12, 0, Math.PI * 2);
+    ctx.lineWidth = 3; ctx.stroke();
+    // Inner cross
+    ctx.beginPath();
+    ctx.moveTo(centroids[j].x - 6, centroids[j].y); ctx.lineTo(centroids[j].x + 6, centroids[j].y);
+    ctx.moveTo(centroids[j].x, centroids[j].y - 6); ctx.lineTo(centroids[j].x, centroids[j].y + 6);
+    ctx.lineWidth = 2; ctx.stroke();
+  }
+}
+
+function updateStats() {
+  document.getElementById('sPts').textContent = points.length;
+  document.getElementById('sK').textContent = centroids.length;
+  document.getElementById('sIter').textContent = iteration;
+  document.getElementById('sIn').textContent = inertia > 0 ? inertia.toFixed(0) : '—';
+  if (centroids.length > 1 && assignments.length === points.length) {
+    document.getElementById('sSil').textContent = silhouette().toFixed(3);
+  }
+}
+
+canvas.addEventListener('click', e => {
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (W / rect.width);
+  const y = (e.clientY - rect.top) * (H / rect.height);
+  points.push({ x, y });
+  iteration = 0; centroids = []; assignments = [];
+  updateStats(); draw();
+});
+
+function reset() { points = []; centroids = []; assignments = []; iteration = 0; updateStats(); draw(); }
+
+seed('blobs');
+</script>
+</body>
+</html>
