@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ANN Search — substrate-vectors demo</title>
+<meta name="description" content="Approximate Nearest Neighbor search using substrate-vectors math. 1024-d vectors, k-means++ clustering, top-k retrieval. Live in your browser.">
+<style>
+:root{
+  --bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;
+  --text:#e8ecf4;--text2:#a8b2c8;--dim:#5a6580;
+  --accent:#00ff9d;--accent2:#00d4ff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;
+  --mono:'SF Mono','JetBrains Mono','Fira Code',monospace;
+  --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5;padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 2rem}
+h1{color:var(--accent);font-size:1.6rem;font-weight:600;margin:0 0 .3rem;letter-spacing:-.01em}
+.tagline{color:var(--text2);margin:0 0 .5rem;font-size:.95rem}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.badge{display:inline-block;background:var(--surface);border:1px solid var(--border);padding:.3rem .7rem;border-radius:20px;font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+.badge.green{color:var(--accent);border-color:rgba(0,255,157,.3)}
+.badge.amber{color:var(--amber);border-color:rgba(255,184,77,.3)}
+
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.panel h2{color:var(--text);font-size:1.05rem;font-weight:600;margin:0 0 .8rem;letter-spacing:-.01em}
+.panel .sub{color:var(--dim);font-size:.85rem;margin-bottom:.8rem;font-family:var(--mono)}
+
+textarea,input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.6rem;font-family:var(--mono);font-size:.85rem;width:100%;resize:vertical}
+textarea{min-height:140px}
+input[type=text]{min-height:38px}
+
+button{background:var(--accent);color:#000;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.85rem;margin-top:.5rem;margin-right:.5rem;transition:all .15s}
+button:hover{background:#3dffb7;transform:translateY(-1px)}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.5rem}
+.controls label{color:var(--dim);font-size:.8rem;font-family:var(--mono)}
+
+#results{margin-top:1rem}
+.result-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-bottom:.5rem;display:flex;justify-content:space-between;align-items:center}
+.result-text{color:var(--text);font-family:var(--mono);font-size:.85rem;flex:1}
+.result-score{color:var(--accent);font-family:var(--mono);font-size:.9rem;font-weight:bold;margin-left:1rem;min-width:80px;text-align:right}
+
+.bar{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;margin-top:.4rem}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+
+.cluster-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.6rem;margin-bottom:.4rem}
+.cluster-name{color:var(--accent);font-family:var(--mono);font-size:.8rem;font-weight:bold}
+.cluster-members{color:var(--text2);font-size:.78rem;margin-top:.3rem;font-family:var(--mono)}
+
+.stats{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent)}
+
+footer{max-width:1100px;margin:3rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.78rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none;border:none}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🔍 ANN Search — substrate-vectors</h1>
+<p class="tagline">Approximate Nearest Neighbor search using 1024-d vectors. Cosine, Euclidean, k-means++ clustering, top-k retrieval. All math runs in your browser.</p>
+<div class="badges">
+<span class="badge green">⬢ 1024-d</span>
+<span class="badge amber">⬢ cosine · euclidean · top-k</span>
+<span class="badge">⬢ k-means++ clustering</span>
+<span class="badge">⬢ 100% in-browser</span>
+</div>
+</header>
+
+<main>
+<section class="panel">
+<h2>Corpus</h2>
+<p class="sub">20 phrases spanning 6 topics. Type to add your own.</p>
+<textarea id="corpus" rows="10">boats sailing on the ocean
+fishing vessels in the deep water
+marine navigation with GPS
+cars driving on the highway
+trucks transporting goods on roads
+electric vehicles commuting
+deep learning neural networks
+gradient descent optimization
+backpropagation in machine learning
+quantum entanglement superposition
+wave function collapse measurement
+Schrödinger's cat paradox
+classical music composition
+jazz improvisation on saxophone
+folk songs around campfire
+cooking pasta with tomatoes
+baking sourdough bread fresh
+grilling fish over open fire
+mountain hiking alpine trails
+rock climbing vertical cliffs</textarea>
+<div class="controls">
+<button onclick="addCorpus()" class="secondary">+ Add line</button>
+<button onclick="randomizeCorpus()" class="secondary">🎲 Random 20</button>
+</div>
+
+<h2 style="margin-top:1.5rem">Query</h2>
+<p class="sub">Find the k-nearest documents to this query.</p>
+<input type="text" id="query" value="neural networks learning" placeholder="Type your query...">
+
+<div class="controls">
+<label>k = <input type="text" id="k" value="5" style="width:50px"></label>
+<label>metric =
+<select id="metric" style="background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem;font-family:var(--mono);font-size:.8rem">
+<option value="cosine">cosine</option>
+<option value="euclidean">euclidean</option>
+</select>
+</label>
+<button onclick="search()">▶ Search</button>
+</div>
+
+<div id="results"></div>
+</section>
+
+<section class="panel">
+<h2>k-means clustering</h2>
+<p class="sub">Group the corpus into k clusters. Lloyd's algorithm with k-means++ init.</p>
+
+<div class="controls">
+<label>k = <input type="text" id="k2" value="6" style="width:50px"></label>
+<button onclick="cluster()">▶ Cluster</button>
+</div>
+
+<div id="clusters"></div>
+
+<h2 style="margin-top:1.5rem">Stats</h2>
+<div class="stats" id="stats">
+<div>vectors: <span class="v" id="vcount">—</span></div>
+<div>dimensions: <span class="v">1024</span></div>
+<div>norm: <span class="v" id="vnorm">—</span></div>
+<div>memory: <span class="v" id="vmem">—</span></div>
+</div>
+</section>
+</main>
+
+<footer>
+<p>🔬 substrate-vectors demo · <a href="https://github.com/SuperInstance/substrate-vectors">github.com/SuperInstance/substrate-vectors</a> · <a href="https://github.com/SuperInstance/AI-Writings/blob/main/cellular-first-design/ann-search/index.html">view source</a></p>
+<p style="margin-top:.5rem">All math runs locally. No network calls. Same algorithm as the npm package.</p>
+</footer>
+
+<script>
+// === substrate-vectors math (browser port) ===
+const DIM = 1024;
+
+function fnv1a_64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  const prime = 0x100000001b3n;
+  for (const b of bytes) {
+    h = BigInt.asUintN(64, (h ^ BigInt(b)) * prime);
+  }
+  return h;
+}
+
+function stringToSeed(s) {
+  return fnv1a_64(new TextEncoder().encode(s.toLowerCase()));
+}
+
+class Vector {
+  constructor(data) { this.data = data; this.dim = data.length; }
+  static fromText(text, dim = DIM) {
+    const data = new Float32Array(dim);
+    for (let seed = 0; seed < 4; seed++) {
+      const base = seed * 256;
+      let h = 0xcbf29ce484222325n ^ BigInt(seed);
+      const prime = 0x100000001b3n;
+      const tokens = text.toLowerCase().split(/\W+/).filter(t => t.length > 0);
+      for (let i = 0; i < tokens.length; i++) {
+        const tok = tokens[i];
+        for (let j = 0; j < tok.length; j++) {
+          h = ((h ^ BigInt(tok.charCodeAt(j) & 0xff)) * prime);
+        }
+        h = ((h ^ BigInt(i)) * prime);
+      }
+      let state = h;
+      for (let i = 0; i < 256; i++) {
+        state = state * prime;
+        const v = Number(BigInt.asIntN(32, state)) / (1 << 31);
+        data[base + i] = v;
+      }
+    }
+    let norm2 = 0;
+    for (let i = 0; i < dim; i++) norm2 += data[i] * data[i];
+    const norm = Math.sqrt(norm2);
+    if (norm > 0) for (let i = 0; i < dim; i++) data[i] /= norm;
+    return new Vector(data);
+  }
+  cosine(other) {
+    let dot = 0, mA = 0, mB = 0;
+    const n = Math.min(this.dim, other.dim);
+    for (let i = 0; i < n; i++) {
+      const a = this.data[i], b = other.data[i];
+      dot += a * b; mA += a*a; mB += b*b;
+    }
+    return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+  }
+  euclidean(other) {
+    let sum = 0;
+    const n = Math.min(this.dim, other.dim);
+    for (let i = 0; i < n; i++) { const d = this.data[i] - other.data[i]; sum += d*d; }
+    return Math.sqrt(sum);
+  }
+  euclideanSq(other) {
+    let sum = 0;
+    const n = Math.min(this.dim, other.dim);
+    for (let i = 0; i < n; i++) { const d = this.data[i] - other.data[i]; sum += d*d; }
+    return sum;
+  }
+}
+
+function topK(query, candidates, k, metric) {
+  const dists = candidates.map((v, i) => {
+    const d = metric === 'cosine' ? 1 - query.cosine(v) : query.euclidean(v);
+    return { index: i, distance: d, score: metric === 'cosine' ? query.cosine(v) : -query.euclidean(v) };
+  });
+  dists.sort((a, b) => a.distance - b.distance);
+  return dists.slice(0, k);
+}
+
+function kMeans(points, k, maxIter = 50) {
+  const n = points.length;
+  const dim = points[0].dim;
+  if (k > n) k = n;
+  // k-means++ init
+  const centroids = [];
+  centroids.push(points[Math.floor(Math.random() * n)]);
+  while (centroids.length < k) {
+    const dists = points.map(p => {
+      let m = Infinity;
+      for (const c of centroids) { const d = p.euclideanSq(c); if (d < m) m = d; }
+      return m;
+    });
+    const total = dists.reduce((s, d) => s + d, 0);
+    if (total === 0) { centroids.push(points[Math.floor(Math.random() * n)]); continue; }
+    let r = Math.random() * total, chosen = 0;
+    for (let i = 0; i < dists.length; i++) { r -= dists[i]; if (r <= 0) { chosen = i; break; } }
+    centroids.push(points[chosen]);
+  }
+  const assignments = new Array(n).fill(0);
+  for (let iter = 0; iter < maxIter; iter++) {
+    let changed = false;
+    for (let i = 0; i < n; i++) {
+      let best = 0, bestDist = Infinity;
+      for (let j = 0; j < centroids.length; j++) {
+        const d = points[i].euclideanSq(centroids[j]);
+        if (d < bestDist) { bestDist = d; best = j; }
+      }
+      if (assignments[i] !== best) { assignments[i] = best; changed = true; }
+    }
+    const sums = Array.from({length: k}, () => Vector.fromText('', dim));
+    sums.forEach((_, j) => sums[j] = { data: new Float32Array(dim), dim });
+    const counts = new Array(k).fill(0);
+    for (let i = 0; i < n; i++) {
+      const c = assignments[i];
+      for (let x = 0; x < dim; x++) sums[c].data[x] += points[i].data[x];
+      counts[c]++;
+    }
+    for (let j = 0; j < k; j++) if (counts[j] > 0) for (let x = 0; x < dim; x++) centroids[j].data[x] = sums[j].data[x] / counts[j];
+    if (!changed) break;
+  }
+  return { assignments, centroids };
+}
+
+// === UI ===
+let corpusVecs = [];
+const corpusTextEl = document.getElementById('corpus');
+
+function updateCorpus() {
+  const lines = corpusTextEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  corpusVecs = lines.map(line => Vector.fromText(line));
+  document.getElementById('vcount').textContent = corpusVecs.length;
+  document.getElementById('vnorm').textContent = '1.0 (normalized)';
+  document.getElementById('vmem').textContent = (corpusVecs.length * DIM * 4 / 1024).toFixed(1) + ' KB';
+}
+
+function search() {
+  const query = document.getElementById('query').value;
+  const k = parseInt(document.getElementById('k').value);
+  const metric = document.getElementById('metric').value;
+  if (!query.trim()) return;
+  updateCorpus();
+  const qVec = Vector.fromText(query);
+  const top = topK(qVec, corpusVecs, k, metric);
+  const corpusLines = corpusTextEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  const out = document.getElementById('results');
+  out.innerHTML = '';
+  for (const r of top) {
+    const card = document.createElement('div');
+    card.className = 'result-card';
+    const score = metric === 'cosine' ? r.score : -r.distance;
+    const fillPct = metric === 'cosine' ? Math.max(0, score) * 100 : Math.max(0, 1 - r.distance/2) * 100;
+    card.innerHTML = `<div>
+      <div class="result-text">${corpusLines[r.index]}</div>
+      <div class="bar"><div class="bar-fill" style="width:${fillPct.toFixed(0)}%"></div></div>
+    </div>
+    <div class="result-score">${score.toFixed(3)}</div>`;
+    out.appendChild(card);
+  }
+}
+
+function cluster() {
+  const k = parseInt(document.getElementById('k2').value);
+  updateCorpus();
+  if (corpusVecs.length < k) return;
+  const { assignments, centroids } = kMeans(corpusVecs, k);
+  const corpusLines = corpusTextEl.value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  const groups = {};
+  for (let i = 0; i < assignments.length; i++) {
+    const c = assignments[i];
+    if (!groups[c]) groups[c] = [];
+    groups[c].push(corpusLines[i]);
+  }
+  const out = document.getElementById('clusters');
+  out.innerHTML = '';
+  for (let c = 0; c < k; c++) {
+    const card = document.createElement('div');
+    card.className = 'cluster-card';
+    card.innerHTML = `<div class="cluster-name">cluster ${c + 1} (${groups[c]?.length || 0} members)</div>
+      <div class="cluster-members">${(groups[c] || []).slice(0, 4).join(' · ')}${(groups[c] || []).length > 4 ? ' ...' : ''}</div>`;
+    out.appendChild(card);
+  }
+}
+
+function addCorpus() {
+  const v = prompt('New corpus line:');
+  if (v) corpusTextEl.value += '\n' + v;
+  updateCorpus();
+}
+
+function randomizeCorpus() {
+  const topics = ['quantum', 'neural', 'ocean', 'mountain', 'music', 'food', 'machine', 'physics', 'biology', 'astronomy', 'history', 'philosophy'];
+  const words = ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu'];
+  const lines = [];
+  for (let i = 0; i < 20; i++) {
+    lines.push(`${topics[i % topics.length]} ${words[i % words.length]} ${words[(i+3) % words.length]} ${words[(i+7) % words.length]}`);
+  }
+  corpusTextEl.value = lines.join('\n');
+  updateCorpus();
+}
+
+updateCorpus();
+search();
+</script>
+
+</body>
+</html>
