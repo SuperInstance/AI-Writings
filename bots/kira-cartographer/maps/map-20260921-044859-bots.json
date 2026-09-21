@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "bruno-architect",
+      "type": "bot",
+      "files": [
+        "bruno_adr.py",
+        "witness.log"
+      ],
+      "witness_lines": 2
+    },
+    {
+      "id": "casper-critic",
+      "type": "bot",
+      "files": [
+        "casper_critique.py",
+        "witness.log"
+      ],
+      "witness_lines": 2
+    },
+    {
+      "id": "herman-historian",
+      "type": "bot",
+      "files": [
+        "herman_chronicle.py",
+        "witness.log"
+      ],
+      "witness_lines": 2
+    },
+    {
+      "id": "jevvy-auditor",
+      "type": "bot",
+      "files": [
+        "audit-log.json",
+        "jevvy_audit.py",
+        "witness.log"
+      ],
+      "witness_lines": 2
+    },
+    {
+      "id": "kira-cartographer",
+      "type": "bot",
+      "files": [
+        "kira_map.py",
+        "witness.log"
+      ],
+      "witness_lines": 1
+    },
+    {
+      "id": "marcel-composer",
+      "type": "bot",
+      "files": [
+        "marcel_compose.py",
+        "prompts.md",
+        "witness.log"
+      ],
+      "witness_lines": 2
+    },
+    {
+      "id": "rsi-gan",
+      "type": "bot",
+      "files": [
+        "results.jsonl",
+        "rsi_gan.py",
+        "witness.log"
+      ],
+      "witness_lines": 46
+    },
+    {
+      "id": "snowball-scout",
+      "type": "bot",
+      "files": [
+        "snowball_writer.py",
+        "witness.log"
+      ],
+      "witness_lines": 9
+    },
+    {
+      "id": "wesley-mechanic",
+      "type": "bot",
+      "files": [
+        "wesley_watcher.py",
+        "witness.log"
+      ],
+      "witness_lines": 4
+    }
+  ],
+  "edges": [
+    {
+      "from": "rsi-gan",
+      "to": "prose/rsi-gan-collections",
+      "relation": "produced"
+    }
+  ]
+}

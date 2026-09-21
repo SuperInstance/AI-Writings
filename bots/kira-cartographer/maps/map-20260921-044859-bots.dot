@@ -1,0 +1,13 @@
+graph substrate {
+  node [shape=box, style=filled, fillcolor=lightblue];
+  "bruno-architect";
+  "casper-critic";
+  "herman-historian";
+  "jevvy-auditor";
+  "kira-cartographer";
+  "marcel-composer";
+  "rsi-gan";
+  "snowball-scout";
+  "wesley-mechanic";
+  "rsi-gan" -- "prose/rsi-gan-collections";
+}

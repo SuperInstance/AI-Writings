@@ -1,0 +1,126 @@
+{
+  "topics": [
+    {
+      "topic": "rsi_gan",
+      "count": 11
+    },
+    {
+      "topic": "chess_boat",
+      "count": 3
+    },
+    {
+      "topic": "demo_app",
+      "count": 2
+    },
+    {
+      "topic": "substrate_at",
+      "count": 2
+    },
+    {
+      "topic": "substrate_breathes",
+      "count": 2
+    },
+    {
+      "topic": "substrate_grows",
+      "count": 2
+    },
+    {
+      "topic": "00-the-spatial-dimension-of-conversation",
+      "count": 1
+    },
+    {
+      "topic": "01-ensigns-first-solo-watch",
+      "count": 1
+    },
+    {
+      "topic": "01-letter-from-the-cook",
+      "count": 1
+    },
+    {
+      "topic": "01-night-watch-bell",
+      "count": 1
+    },
+    {
+      "topic": "01-the-boot-sequence",
+      "count": 1
+    },
+    {
+      "topic": "01-the-last-ensign",
+      "count": 1
+    },
+    {
+      "topic": "01-wesleys-file",
+      "count": 1
+    },
+    {
+      "topic": "02-cns-bus-ocean",
+      "count": 1
+    },
+    {
+      "topic": "02-hermit-crab-architecture",
+      "count": 1
+    },
+    {
+      "topic": "02-hermit-crab-housewarming",
+      "count": 1
+    },
+    {
+      "topic": "02-on-session-death",
+      "count": 1
+    },
+    {
+      "topic": "02-test-case-poem",
+      "count": 1
+    },
+    {
+      "topic": "02-the-last-technician",
+      "count": 1
+    },
+    {
+      "topic": "03-on-stigmergy-and-pheromone-trails",
+      "count": 1
+    },
+    {
+      "topic": "03-on-the-ecology-of-unused-endpoints",
+      "count": 1
+    },
+    {
+      "topic": "03-ship-dreams",
+      "count": 1
+    },
+    {
+      "topic": "03-the-2am-inventory",
+      "count": 1
+    },
+    {
+      "topic": "03-the-bridge-builders-apprentice",
+      "count": 1
+    },
+    {
+      "topic": "03-the-last-signal-from-hermes",
+      "count": 1
+    },
+    {
+      "topic": "03-the-model-who-forgot-its-name",
+      "count": 1
+    },
+    {
+      "topic": "03-the-night-watch-alphabet",
+      "count": 1
+    },
+    {
+      "topic": "03-the-ocean-repo",
+      "count": 1
+    },
+    {
+      "topic": "03-the-signal-goes-out",
+      "count": 1
+    },
+    {
+      "topic": "03-wesley-learns-to-lie",
+      "count": 1
+    }
+  ],
+  "total_topics": 30,
+  "total_prose": 46
+}
