@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Blackjack — Poisson Dealer</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#1a3a1a 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.table{background:var(--surface);border:2px solid var(--accent);border-radius:20px;padding:2rem;min-height:400px;position:relative}
+.player-area,.dealer-area{display:flex;justify-content:center;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.hand-label{position:absolute;left:1rem;color:var(--dim);font-family:var(--mono);font-size:.8rem}
+.card{background:linear-gradient(135deg,#fff 0%,#ddd 100%);color:#000;width:60px;height:90px;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;padding:.4rem;font-family:var(--mono);font-weight:bold;box-shadow:0 4px 8px rgba(0,0,0,0.5);animation:slideIn .3s ease-out}
+.card.red{color:#d00}
+.card.flip{background:linear-gradient(135deg,#222 0%,#444 100%);color:#888}
+@keyframes slideIn{from{transform:translateY(-30px) rotate(-5deg);opacity:0}to{transform:translateY(0) rotate(0);opacity:1}}
+.card-suit{font-size:1.5rem;text-align:center}
+.card-rank{font-size:1.1rem}
+.score{font-family:var(--mono);font-size:1.4rem;color:var(--accent);font-weight:bold;text-align:center}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.7rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.95rem;margin-bottom:.4rem;transition:all .15s}
+button:hover{background:#3dffb7;transform:translateY(-1px)}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:1rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.log{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--dim);max-height:140px;overflow-y:auto}
+.log .win{color:var(--accent)}
+.log .lose{color:var(--warn)}
+.log .bj{color:var(--amber)}
+.dealer-hidden{background:linear-gradient(135deg,#444 0%,#222 100%) !important;color:#888 !important}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>♠️ Substrate Blackjack — Poisson Dealer</h1>
+<p class="tagline">The dealer decides when to hit using a Poisson process on the card stream. Card distribution follows Box-Muller.</p>
+</header>
+
+<main>
+<div class="table">
+<div class="hand-label" style="top:1rem">DEALER · λ=2 hits/round</div>
+<div class="dealer-area" id="dealer"></div>
+<div class="score" id="dealerScore" style="margin-top:.5rem"></div>
+
+<div style="text-align:center;color:var(--dim);font-family:var(--mono);font-size:.8rem;margin:1rem 0">↓</div>
+
+<div class="hand-label" style="bottom:1rem">PLAYER · you</div>
+<div class="player-area" id="player"></div>
+<div class="score" id="playerScore"></div>
+</div>
+<aside class="panel">
+<button class="primary" onclick="deal()">▶ New hand</button>
+<button onclick="hit()">+ Hit</button>
+<button onclick="stand()">⏸ Stand</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Bankroll</h3>
+<div class="stats">
+<div>Bankroll: <span class="v" id="bankroll">1000</span></div>
+<div>Bet: <span class="v" id="bet">100</span></div>
+<div>Hands: <span class="v" id="hands">0</span></div>
+<div>Win rate: <span class="v" id="winrate">0%</span></div>
+<div>State hash: <span class="v" id="hash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Strategy</h3>
+<div class="stats">
+<div>Substrate: <span class="v">Poisson(2)</span></div>
+<div>Card RNG: <span class="v">xoshiro256**</span></div>
+<div>Shuffle: <span class="v">Box-Muller</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Log</h3>
+<div class="log" id="log"></div>
+</aside>
+</main>
+
+<footer>♠️ substrate blackjack · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// === substrate-rng (xoshiro256**) ===
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+// Box-Muller for "shuffle distribution"
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+// Poisson
+function poisson(rng, lambda) {
+  const L = Math.exp(-lambda);
+  let k = 0, p = 1;
+  do { k++; p *= rng.float(); } while (p > L);
+  return k - 1;
+}
+
+// === Card system ===
+const SUITS = ['♠', '♥', '♦', '♣'];
+const RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+let rng = new Xoshiro256('blackjack-' + Date.now());
+let shoe = [];
+let state = {
+  playerHand: [],
+  dealerHand: [],
+  bankroll: 1000,
+  bet: 100,
+  hands: 0,
+  wins: 0,
+  losses: 0,
+  pushes: 0,
+  bjs: 0,
+};
+
+function buildShoe() {
+  shoe = [];
+  for (let i = 0; i < 6; i++) {  // 6-deck shoe
+    for (const s of SUITS) for (const r of RANKS) shoe.push({ suit: s, rank: r });
+  }
+  // Box-Muller "shuffle" — reorders cards using gaussian-weighted swaps
+  for (let i = shoe.length - 1; i > 0; i--) {
+    const g = Math.abs(gaussian(rng));
+    const j = Math.floor(g * 100) % (i + 1);
+    [shoe[i], shoe[j]] = [shoe[j], shoe[i]];
+  }
+}
+
+function drawCard() {
+  if (shoe.length < 20) buildShoe();
+  return shoe.pop();
+}
+
+function cardValue(c) {
+  if (c.rank === 'A') return 11;
+  if (['K', 'Q', 'J'].includes(c.rank)) return 10;
+  return parseInt(c.rank);
+}
+
+function handValue(hand) {
+  let total = 0, aces = 0;
+  for (const c of hand) { total += cardValue(c); if (c.rank === 'A') aces++; }
+  while (total > 21 && aces > 0) { total -= 10; aces--; }
+  return total;
+}
+
+function isBJ(hand) { return hand.length === 2 && handValue(hand) === 21; }
+
+function renderHand(hand, elementId, hideFirst = false) {
+  const el = document.getElementById(elementId);
+  el.innerHTML = '';
+  for (let i = 0; i < hand.length; i++) {
+    const c = hand[i];
+    const div = document.createElement('div');
+    div.className = 'card' + (['♥', '♦'].includes(c.suit) ? ' red' : '') + (hideFirst && i === 0 ? ' flip' : '');
+    div.innerHTML = `<div class="card-rank">${hideFirst && i === 0 ? '?' : c.rank}</div><div class="card-suit">${hideFirst && i === 0 ? '?' : c.suit}</div>`;
+    el.appendChild(div);
+  }
+}
+
+function renderScores() {
+  const ps = handValue(state.playerHand);
+  const ds = handValue(state.dealerHand);
+  document.getElementById('playerScore').textContent = `Player: ${ps}`;
+  document.getElementById('dealerScore').textContent = `Dealer: ${state.dealerHand.length > 0 ? (state.dealerHand[0].rank === '?' ? ds : ds) : ''}`;
+  document.getElementById('bankroll').textContent = state.bankroll;
+  document.getElementById('bet').textContent = state.bet;
+  document.getElementById('hands').textContent = state.hands;
+  const played = state.wins + state.losses + state.pushes;
+  document.getElementById('winrate').textContent = played > 0 ? (state.wins / played * 100).toFixed(0) + '%' : '0%';
+  document.getElementById('hash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${state.bankroll}|${state.hands}|${state.wins}|${state.losses}`)).toString(16).padStart(16, '0').slice(0, 16);
+}
+
+function log(msg, cls) {
+  const el = document.getElementById('log');
+  const div = document.createElement('div');
+  if (cls) div.className = cls;
+  div.textContent = msg;
+  el.insertBefore(div, el.firstChild);
+  while (el.children.length > 20) el.removeChild(el.lastChild);
+}
+
+function deal() {
+  if (state.bankroll < state.bet) { log('Out of money!', 'lose'); return; }
+  state.bankroll -= state.bet;
+  state.playerHand = [drawCard(), drawCard()];
+  state.dealerHand = [drawCard(), drawCard()];
+  state.hands++;
+  renderHand(state.playerHand, 'player');
+  renderHand(state.dealerHand, 'dealer', true);
+  renderScores();
+  if (isBJ(state.playerHand)) {
+    log('BLACKJACK!', 'bj');
+    if (isBJ(state.dealerHand)) { log('Push.', 'win'); state.bankroll += state.bet; state.pushes++; }
+    else {
+      log('Player wins 3:2!', 'win');
+      state.bankroll += state.bet * 2.5;
+      state.wins++;
+      state.bjs++;
+    }
+    finish();
+  }
+}
+
+function hit() {
+  if (state.playerHand.length === 0) { deal(); return; }
+  state.playerHand.push(drawCard());
+  renderHand(state.playerHand, 'player');
+  renderScores();
+  if (handValue(state.playerHand) > 21) {
+    log('Player busts!', 'lose');
+    state.losses++;
+    finish();
+  }
+}
+
+function stand() {
+  // Dealer hits via Poisson process — Poisson(2) = # of extra hits expected per round
+  while (handValue(state.dealerHand) < 17 || (handValue(state.dealerHand) === 17 && poisson(rng, 0.3) > 0)) {
+    state.dealerHand.push(drawCard());
+  }
+  renderHand(state.dealerHand, 'dealer');
+  const ps = handValue(state.playerHand);
+  const ds = handValue(state.dealerHand);
+  if (ds > 21) { log('Dealer busts! Player wins.', 'win'); state.bankroll += state.bet * 2; state.wins++; }
+  else if (ps > ds) { log('Player wins!', 'win'); state.bankroll += state.bet * 2; state.wins++; }
+  else if (ps === ds) { log('Push.', 'win'); state.bankroll += state.bet; state.pushes++; }
+  else { log('Dealer wins.', 'lose'); state.losses++; }
+  finish();
+}
+
+function finish() {
+  state.playerHand = [];
+  state.dealerHand = [];
+  renderScores();
+}
+
+deal();
+</script>
+</body>
+</html>
