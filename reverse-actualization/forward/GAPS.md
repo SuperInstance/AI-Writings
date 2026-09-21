@@ -67,7 +67,17 @@ in `experiments/rsi/routes/`, and `erised-next` (the wide-run harness).
   event at least as early as a naive slow/dumb baseline, **without** flooding
   false alarms in the calm (measure ROC: lead-time vs. false-hand rate across the
   radius-policy sweep).
-- **Status.** Not built. Depends on G1.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/calibrate.mjs`
+  (+ `calibrate.test.mjs`, CI-enforced). Done in the recursive spirit: the
+  detector's calibration policy is a genome, its per-tick radius adjustment is a
+  JEV `{tighten, hold, loosen}` Choice (legal by construction), and that policy is
+  **evolved by the same (1+λ) engine** — RSI applied to the surprise-detector
+  itself. **Result** on the bored-middle scenario (long calm, then a small brief
+  event in the calmest stretch): the *confident* policy inflates its radius to
+  ~80 and catches **0/6** (Noor's failure, reproduced); the *calibrated* policy
+  shrinks to ~9 and catches **6/6** with 0 false alarms; the *evolved* policy
+  matches/beats it (**6/6, radius 8**), all with **0 illegal**. The system that
+  improves minds now improves its own capacity to know when it is surprised.
 
 ## G3 — A deposit-and-learn commons across many agents
 
