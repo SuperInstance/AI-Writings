@@ -1,0 +1,18 @@
+{
+  "ts": 1789968536.0785522,
+  "best_avg_score": 2.0566666666666666,
+  "best_provider": "zai",
+  "best_params": {
+    "temperature": 0.4,
+    "top_p": 0.9,
+    "max_tokens": 500,
+    "label": "long_focused"
+  },
+  "scores": {
+    "quality": 2.28,
+    "novelty": 0.44,
+    "alignment": 3.45,
+    "confidence": 0.55
+  },
+  "iteration": 5
+}
