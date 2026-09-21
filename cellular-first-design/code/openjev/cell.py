@@ -139,6 +139,13 @@ class Cell:
             "confidence_threshold": confidence_threshold,
         })
 
+    def update(self, key: str, value: Any) -> None:
+        """Update a single key in state."""
+        if isinstance(self.state, dict):
+            self.state[key] = value
+        else:
+            self.state = {key: value}
+    
     def fire_drops(self) -> List[Dict]:
         """Fire all drops that meet their threshold."""
         fired = []
