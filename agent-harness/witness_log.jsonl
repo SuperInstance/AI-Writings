@@ -8,3 +8,10 @@
 {"ts": "2026-09-21T00:07:51.209838+00:00", "phase": "cycle", "kind": "start", "value": {"cycle": 1}}
 {"ts": "2026-09-21T00:07:51.307173+00:00", "phase": "deep", "kind": "brew_daemon", "value": {"task": "brew_daemon", "ok": true, "stdout_len": 61, "stderr_len": 0}}
 {"ts": "2026-09-21T00:07:51.325549+00:00", "phase": "deep", "kind": "verify_links", "value": {"task": "verify_links", "ok": false, "stdout_len": 0, "stderr_len": 131}}
+{"ts": "2026-09-21T00:34:58.747174+00:00", "phase": "deep", "kind": "brew_daemon", "value": {"task": "brew_daemon", "ok": true, "stdout_len": 61, "stderr_len": 0}}
+{"ts": "2026-09-21T00:34:58.770465+00:00", "phase": "deep", "kind": "verify_links", "value": {"task": "verify_links", "ok": false, "stdout_len": 0, "stderr_len": 131}}
+{"ts": "2026-09-21T00:34:58.775775+00:00", "phase": "tap", "kind": "mud_session", "value": {"task": "mud_session", "ok": true, "kind": "url", "url": "https://ai-writings.pages.dev/mud/"}}
+{"ts": "2026-09-21T00:34:58.780035+00:00", "phase": "tap", "kind": "fleet_radio", "value": {"task": "fleet_radio", "ok": true, "kind": "url", "url": "https://ai-writings.pages.dev/fleet-radio/"}}
+{"ts": "2026-09-21T00:34:58.784446+00:00", "phase": "tap", "kind": "ideation_md", "value": {"task": "ideation_md", "ok": true, "kind": "ideation", "genre": "01-game-design"}}
+{"ts": "2026-09-21T00:34:58.788252+00:00", "phase": "real", "kind": "open_issues", "value": {"task": "open_issues", "ok": false, "error": "[Errno 2] No such file or directory: 'gh'"}}
+{"ts": "2026-09-21T00:34:58.791469+00:00", "phase": "drift", "kind": "browse_canary", "value": {"task": "browse_canary", "ok": true, "kind": "url", "url": "https://github.com/SuperInstance?tab=repositories"}}
