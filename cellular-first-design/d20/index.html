@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate D20 — Poisson dice</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at center,#1a2a1a 0%,#06080f 70%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.dice-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;min-height:500px;display:flex;flex-wrap:wrap;gap:1rem;align-content:flex-start}
+.die{background:linear-gradient(135deg,#fff 0%,#ddd 100%);color:#000;width:80px;height:80px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,0.5);position:relative;animation:bounce .5s ease-out}
+@keyframes bounce{0%{transform:translateY(-50px) rotate(20deg);opacity:0}50%{transform:translateY(10px) rotate(-10deg)}100%{transform:translateY(0) rotate(0);opacity:1}}
+.die.d20{border:2px solid var(--accent)}
+.die.d12{border:2px solid var(--accent2)}
+.die.d10{border:2px solid var(--accent3)}
+.die.d8{border:2px solid var(--amber)}
+.die.d6{border:2px solid var(--pink)}
+.die.d4{border:2px solid var(--warn);font-size:1.2rem}
+.die.crit{background:linear-gradient(135deg,#ff6b6b 0%,#ff80c0 100%);color:#fff;animation:critFlash .3s ease-in}
+@keyframes critFlash{0%{transform:scale(1.5);box-shadow:0 0 40px var(--accent)}100%{transform:scale(1);box-shadow:0 4px 12px rgba(0,0,0,0.5)}}
+.die-label{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.65rem;color:var(--dim)}
+.roll-section{width:100%;border-bottom:1px solid var(--border);padding-bottom:1rem;margin-bottom:1rem}
+.roll-section h3{color:var(--text);font-size:1rem;margin:0 0 .5rem;font-family:var(--mono)}
+.roll-total{color:var(--accent);font-family:var(--mono);font-size:1.3rem;font-weight:bold;margin-top:.5rem}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem;transition:all .15s}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.log{max-height:160px;overflow-y:auto;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
+.log .crit{color:var(--warn)}
+.log .nat{color:var(--amber)}
+.log .total{color:var(--accent)}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🎲 Substrate D20 — Poisson dice</h1>
+<p class="tagline">Roll any combo. Each die uses xoshiro256** + Box-Muller for sampling. Nat 20s crit.</p>
+</header>
+
+<main>
+<div class="dice-area" id="dice"></div>
+<aside class="panel">
+<button onclick="rollAdvantage()">⚔️ Roll with advantage (2×d20, take high)</button>
+<button onclick="rollDisadvantage()">💀 Roll with disadvantage (2×d20, take low)</button>
+<button onclick="rollD20()">🎲 Roll 1d20</button>
+<button class="secondary" onclick="rollCustom()">⚙️ Custom roll</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Quick rolls</h3>
+<button class="secondary" onclick="roll('d20')">1d20</button>
+<button class="secondary" onclick="roll('2d6')">2d6</button>
+<button class="secondary" onclick="roll('3d6')">3d6</button>
+<button class="secondary" onclick="roll('4d6')">4d6</button>
+<button class="secondary" onclick="roll('8d6')">8d6 (stat roll)</button>
+<button class="secondary" onclick="roll('1d100')">d100 (percentile)</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Stats</h3>
+<div class="stats">
+<div>Total rolls: <span class="v" id="sTotal">0</span></div>
+<div>Nat 20s: <span class="v" id="sNat20">0</span></div>
+<div>Nat 1s: <span class="v" id="sNat1">0</span></div>
+<div>Crit rate: <span class="v" id="sCrit">0%</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Log</h3>
+<div class="log" id="log"></div>
+</aside>
+</main>
+
+<footer>🎲 substrate d20 · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// === substrate-rng (xoshiro256**) ===
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min + 1)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+let rng = new Xoshiro256('d20-' + Date.now());
+let totalRolls = 0, nat20s = 0, nat1s = 0, totalSum = 0;
+let history = [];
+
+function log(msg, cls) {
+  const el = document.getElementById('log');
+  const div = document.createElement('div');
+  if (cls) div.className = cls;
+  div.textContent = msg;
+  el.insertBefore(div, el.firstChild);
+  while (el.children.length > 30) el.removeChild(el.lastChild);
+}
+
+function rollDie(sides) {
+  // Use xoshiro256** for the actual roll, Box-Muller for "luck factor"
+  const base = rng.intRange(1, sides);
+  const luck = Math.max(-3, Math.min(3, Math.round(gaussian(rng))));
+  return Math.max(1, Math.min(sides, base + luck));
+}
+
+function renderRoll(rolls, sides, total) {
+  const area = document.getElementById('dice');
+  area.innerHTML = '';
+  const section = document.createElement('div');
+  section.className = 'roll-section';
+  const h3 = document.createElement('h3');
+  h3.textContent = rolls.length === 1 ? `1d${sides}` : `${rolls.length}d${sides}`;
+  section.appendChild(h3);
+  // Dice
+  for (let i = 0; i < rolls.length; i++) {
+    const die = document.createElement('div');
+    let cls = 'die';
+    if (sides === 20) cls += ' d20';
+    else if (sides === 12) cls += ' d12';
+    else if (sides === 10) cls += ' d10';
+    else if (sides === 8) cls += ' d8';
+    else if (sides === 6) cls += ' d6';
+    else if (sides === 4) cls += ' d4';
+    const r = rolls[i];
+    if (sides === 20 && r === 20) cls += ' crit';
+    if (sides === 20 && r === 1) cls += ' crit';
+    die.className = cls;
+    die.textContent = r;
+    die.appendChild(makeLabel('d' + sides));
+    section.appendChild(die);
+  }
+  const totalEl = document.createElement('div');
+  totalEl.className = 'roll-total';
+  totalEl.textContent = `Total: ${total}`;
+  section.appendChild(totalEl);
+  area.appendChild(section);
+  // Update stats
+  totalRolls++;
+  totalSum += total;
+  if (sides === 20) {
+    if (rolls.some(r => r === 20)) nat20s++;
+    if (rolls.some(r => r === 1)) nat1s++;
+  }
+  document.getElementById('sTotal').textContent = totalRolls;
+  document.getElementById('sNat20').textContent = nat20s;
+  document.getElementById('sNat1').textContent = nat1s;
+  const critRate = sides === 20 && totalRolls > 0 ? (nat20s / totalRolls * 100).toFixed(1) : '0.0';
+  document.getElementById('sCrit').textContent = critRate + '%';
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${totalRolls}|${totalSum}|${nat20s}`)).toString(16).padStart(16, '0');
+}
+
+function makeLabel(s) {
+  const span = document.createElement('span');
+  span.className = 'die-label';
+  span.textContent = s;
+  return span;
+}
+
+function roll(spec) {
+  let count, sides;
+  if (spec === '1d100') { count = 1; sides = 100; }
+  else {
+    const m = spec.match(/^(\d+)d(\d+)$/);
+    if (!m) return;
+    count = parseInt(m[1]); sides = parseInt(m[2]);
+  }
+  const rolls = [];
+  let total = 0;
+  for (let i = 0; i < count; i++) {
+    const r = rollDie(sides);
+    rolls.push(r); total += r;
+  }
+  renderRoll(rolls, sides, total);
+  const crits = rolls.filter(r => r === 20 && sides === 20);
+  const nats = rolls.filter(r => r === 1 && sides === 20);
+  if (crits.length) log(`NAT 20! ${crits.length} crit(s)`, 'nat');
+  if (nats.length) log(`NAT 1!`, 'crit');
+  log(`${spec} = ${rolls.join('+')} = ${total}`, 'total');
+}
+
+function rollD20() { roll('1d20'); }
+function rollAdvantage() {
+  const r1 = rollDie(20), r2 = rollDie(20);
+  const high = Math.max(r1, r2);
+  renderRoll([r1, r2], 20, high);
+  log(`Advantage: ${r1}, ${r2} → ${high}`, high === 20 ? 'nat' : 'total');
+  totalRolls++; if (high === 20) nat20s++;
+}
+function rollDisadvantage() {
+  const r1 = rollDie(20), r2 = rollDie(20);
+  const low = Math.min(r1, r2);
+  renderRoll([r1, r2], 20, low);
+  log(`Disadvantage: ${r1}, ${r2} → ${low}`, low === 1 ? 'crit' : 'total');
+  totalRolls++; if (low === 1) nat1s++;
+}
+function rollCustom() {
+  const spec = prompt('Enter roll (e.g., 3d6+5, 1d20+10):', '3d6+2');
+  if (!spec) return;
+  const m = spec.match(/^(\d+)d(\d+)([+\-]\d+)?$/);
+  if (!m) { alert('Invalid format'); return; }
+  const count = parseInt(m[1]);
+  const sides = parseInt(m[2]);
+  const mod = m[3] ? parseInt(m[3]) : 0;
+  const rolls = [];
+  let total = 0;
+  for (let i = 0; i < count; i++) { const r = rollDie(sides); rolls.push(r); total += r; }
+  total += mod;
+  renderRoll(rolls, sides, total);
+  log(`${spec} = ${rolls.join('+')}${mod !== 0 ? (mod > 0 ? '+' + mod : mod) : ''} = ${total}`, 'total');
+}
+
+roll('1d20');
+</script>
+</body>
+</html>
