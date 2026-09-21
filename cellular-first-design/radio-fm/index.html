@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate FM — pirate radio broadcast</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#0a1a0a 0%,#06080f 60%)}
+header{max-width:1200px;margin:0 auto 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+h1{color:var(--accent);font-size:1.6rem;margin:0}
+.tagline{color:var(--dim);font-size:.85rem;font-family:var(--mono)}
+.now-playing{background:var(--surface);border:1px solid var(--accent);border-radius:8px;padding:.8rem;display:flex;align-items:center;gap:1rem;flex:1;max-width:500px}
+.on-air{color:var(--warn);font-family:var(--mono);font-size:.7rem;font-weight:bold;letter-spacing:3px;animation:blink 1s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.eq{display:flex;gap:2px;align-items:flex-end;height:20px}
+.eq .bar{width:3px;background:var(--accent);animation:eq 1s ease-in-out infinite}
+.eq .bar:nth-child(odd){animation-delay:.1s}
+.eq .bar:nth-child(3n){animation-delay:.2s}
+@keyframes eq{0%,100%{height:5px}50%{height:18px}}
+.track-info{flex:1;min-width:0}
+.track-name{color:var(--text);font-weight:bold;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track-artist{color:var(--dim);font-size:.78rem;font-family:var(--mono)}
+.freq{color:var(--accent);font-family:var(--mono);font-size:1.4rem;font-weight:bold;letter-spacing:2px}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.spectrum{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem}
+.spectrum h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem;font-family:var(--mono)}
+canvas{display:block;background:#000;border-radius:6px;width:100%;height:180px}
+.transcript{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:.85rem;color:var(--text2);line-height:1.6}
+.transcript h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem}
+.line{margin-bottom:.3rem;padding:.3rem;border-left:2px solid transparent}
+.line.now{border-left-color:var(--accent);background:rgba(0,255,157,0.05)}
+.line.dj{color:var(--pink);border-left-color:var(--pink);background:rgba(255,128,192,0.05)}
+.line.ad{color:var(--amber);border-left-color:var(--amber);background:rgba(255,184,77,0.05)}
+.line.song{color:var(--text)}
+.controls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.5rem}
+.controls button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem}
+.controls button:hover{background:#3dffb7}
+.controls button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+<div>
+<h1>📻 Substrate FM</h1>
+<p class="tagline">A pirate radio station generated entirely from substrate math.</p>
+</div>
+<div class="now-playing">
+<span class="on-air">● ON AIR</span>
+<div class="eq"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+<div class="track-info">
+<div class="track-name" id="trackName">—</div>
+<div class="track-artist" id="trackArtist">—</div>
+</div>
+<div class="freq" id="freq">—</div>
+</div>
+</header>
+
+<main>
+<section class="spectrum">
+<h3>Spectrum analyzer</h3>
+<canvas id="spectrum"></canvas>
+<div class="controls">
+<button onclick="startBroadcast()">▶ Start broadcast</button>
+<button class="secondary" onclick="skipSong()">⏭ Skip</button>
+<button class="secondary" onclick="news()">📰 News break</button>
+<button class="secondary" onclick="ad()">📢 Sponsor</button>
+</div>
+<div class="stats">
+<div>Time on air: <span class="v" id="sTime">0s</span></div>
+<div>Songs played: <span class="v" id="sSongs">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</section>
+
+<section class="transcript">
+<h3>Live transcript</h3>
+<div id="transcript"></div>
+</section>
+</main>
+
+<footer>📻 substrate FM · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+const rng = new Xoshiro256('radio-fm-' + Date.now());
+
+const DJS = ['the Watchkeeper', 'Captain Substrate', 'Dr. FNV-1a', 'the Wave Function', 'the Cantor'];
+const SONGS = [
+  ['FNV-1a (Empty String)', 'The Witnesses'],
+  ['The Canary at 0xcbf29ce', 'Box-Muller'],
+  ['Bell State |Φ+⟩', 'Quantum Dance'],
+  ['32× Compression Blues', 'Cosine Similarity'],
+  ['R = √(−2 ln U₁)', 'Xoshiro256**'],
+  ['The Witness Log', 'The Polyformalists'],
+  ['Lenia at Sea', 'Continuous C.A.'],
+  ['Euler\'s Bell', 'The Drift'],
+  ['Substrate 1', 'Z.A.I.'],
+  ['The 16-Dial March', 'the substrate-forge orchestra'],
+  ['Hash 0x85944171f73967e8', 'foobar'],
+  ['13 Languages', 'the Porters'],
+];
+const ADS = [
+  'Substrate Coffee — brewed fresh from xoshiro256** seed.',
+  'Tidepool Tides — Box-Muller guaranteed, Poisson timed.',
+  'Celtic Cross Tarot — readings via Bell-state collapse.',
+  'FNV-1a Insurance — same hash, every machine.',
+  'substrate-forge — cell compiler for the working poet.',
+];
+const NEWS = [
+  'Substrate-radio reports a Bell state collapse at the corner of 4th and FNV.',
+  'A witness log was filed this morning. The hash is 0x8a2f...4e7c.',
+  'A Box-Muller ghost was sighted drifting through the kelp forest.',
+  'Today\'s xoshiro256** seed produced 847 procedurally generated melodies.',
+  'The Lenia ocean reports a new glider formation near the kelp.',
+  'A cell named "witness-001" was verified across 12 polyformalism ports. Same hash.',
+  'A cosine-similarity check found the fleet and the fleet found the cosine.',
+  'The substrate-forge compiler reports 0.91 recall in the new bell-state pair.',
+];
+
+let audioCtx = null;
+let onAir = false;
+let startTime = 0;
+let songsPlayed = 0;
+
+function log(text, cls) {
+  const el = document.getElementById('transcript');
+  const div = document.createElement('div');
+  div.className = 'line ' + (cls || '');
+  div.textContent = text;
+  el.insertBefore(div, el.firstChild);
+  while (el.children.length > 50) el.removeChild(el.lastChild);
+}
+
+function setTrack() {
+  const [name, artist] = SONGS[rng.intRange(0, SONGS.length)];
+  document.getElementById('trackName').textContent = name;
+  document.getElementById('trackArtist').textContent = artist;
+  const freq = (88 + rng.float() * 20).toFixed(1);
+  document.getElementById('freq').textContent = freq + ' MHz';
+  songsPlayed++;
+  document.getElementById('sSongs').textContent = songsPlayed;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${name}|${songsPlayed}|${Math.floor((Date.now() - startTime) / 1000)}`)).toString(16).padStart(16, '0');
+}
+
+function djSpeak() {
+  const dj = DJS[rng.intRange(0, DJS.length)];
+  log(`[${dj}]`, 'dj');
+  const lines = [
+    'Coming up next, ${SONGS[rng.intRange(0, SONGS.length)][0]} — that\'s after the news.',
+    'You\'re listening to substrate FM, broadcasting on a frequency of substrate math.',
+    'It\'s ${new Date().getUTCHours()}:${new Date().getUTCMinutes().toString().padStart(2, "0")} UTC, and the witness is fresh.',
+    'The Box-Muller has spoken — and the bell-state collapse is confirmed.',
+    'Stay tuned, friends. The substrate is substrate-ing.',
+    'This next one goes out to all the cells in the field.',
+  ];
+  log(lines[rng.intRange(0, lines.length)], 'dj');
+}
+
+function playMusic() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  // Box-Muller-driven chord
+  const root = 110 + rng.float() * 220;
+  const chord = [root, root * 1.25, root * 1.5];
+  for (const f of chord) {
+    const osc = audioCtx.createOscillator();
+    const env = audioCtx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.value = f;
+    env.gain.setValueAtTime(0.05, audioCtx.currentTime);
+    env.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 4);
+    osc.connect(env); env.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 4.01);
+  }
+  setTrack();
+  drawSpectrum();
+}
+
+function drawSpectrum() {
+  const canvas = document.getElementById('spectrum');
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const bins = 64;
+  for (let i = 0; i < bins; i++) {
+    const g = Math.abs(gaussian(rng));
+    const h = Math.min(canvas.height, g * 30);
+    const hue = 160 + (i / bins) * 60;
+    ctx.fillStyle = `hsl(${hue}, 70%, 55%)`;
+    ctx.fillRect(i * canvas.width / bins, canvas.height - h, canvas.width / bins - 1, h);
+  }
+}
+
+function startBroadcast() {
+  if (!onAir) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    onAir = true;
+    startTime = Date.now();
+    log('● BROADCAST START', 'now');
+    djSpeak();
+    playMusic();
+    setInterval(() => {
+      if (onAir) {
+        document.getElementById('sTime').textContent = Math.floor((Date.now() - startTime) / 1000) + 's';
+        drawSpectrum();
+      }
+    }, 200);
+  }
+}
+
+function skipSong() {
+  if (!onAir) startBroadcast();
+  djSpeak();
+  playMusic();
+}
+
+function news() {
+  if (!onAir) startBroadcast();
+  log('[NEWS]', 'ad');
+  log(NEWS[rng.intRange(0, NEWS.length)], 'ad');
+}
+
+function ad() {
+  if (!onAir) startBroadcast();
+  log('[SPONSOR]', 'ad');
+  log(ADS[rng.intRange(0, ADS.length)], 'ad');
+}
+
+log('📻 Substrate FM — pirate radio of the substrate', '');
+log('Click "Start broadcast" to begin.', '');
+</script>
+</body>
+</html>
