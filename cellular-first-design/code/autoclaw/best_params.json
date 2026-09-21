@@ -1,18 +1,18 @@
 {
-  "ts": 1789968784.7788663,
-  "best_avg_score": 2.066666666666667,
+  "ts": 1789968923.636581,
+  "best_avg_score": 2.25,
   "best_provider": "zai",
   "best_params": {
-    "temperature": 0.4,
+    "temperature": 0.7,
     "top_p": 0.9,
-    "max_tokens": 500,
-    "label": "long_focused"
+    "max_tokens": 300,
+    "label": "balanced"
   },
   "scores": {
-    "quality": 2.38,
-    "novelty": 0.39,
-    "alignment": 3.43,
-    "confidence": 0.57
+    "quality": 2.65,
+    "novelty": 0.44,
+    "alignment": 3.66,
+    "confidence": 0.7
   },
-  "iteration": 17
+  "iteration": 27
 }
