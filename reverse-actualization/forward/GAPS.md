@@ -95,8 +95,15 @@ in `experiments/rsi/routes/`, and `erised-next` (the wide-run harness).
 - **Passing condition.** A thin agent standing on the commons reaches a target
   fitness in **fewer local decisions** than one that must (re)discover routes
   alone — quantify the decisions-saved multiple as the commons grows.
-- **Status.** Seeded (single-run libraries + content-hash dedup exist);
-  many-writers commons + read-path not built.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/commons.mjs`
+  (+ `commons.test.mjs`, CI-enforced). Many independent runs deposit champion
+  routes into one content-addressed commons (dedup free), and a thin agent solves
+  its task by *reading* it. **Result:** warm read reaches fitness 0.386 in **4,800
+  decisions**; cold search reaches 0.371 in **465,600** — **~97× fewer decisions
+  and a better result**, 0 illegal, and the empty commons is honest (read → null,
+  never a fabricated route). The intelligence moved into the commons; the edge
+  stayed thin. (The standalone **Pincher4Jev** tool productizes this: JEV as the
+  mitochondria of every cell, thumbing the legal dice toward proven routes.)
 
 ## G4 — Earned standing: the conferred, revocable fourth verdict
 
