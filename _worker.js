@@ -462,6 +462,55 @@ export default {
     
     // ─── /api/canon or /canon ───────────────────────────────
     if (path === '/canon' || path === '/api/canon') {
+      // POST: validate a submission via JEV canon-oracle
+      if (method === 'POST') {
+        const { submission } = await request.json();
+        if (!submission) return jsonResponse({ ok: false, error: 'submission required' }, 400, CORS);
+        // Reuse the canon-oracle logic — call JEV with 14-probe battery
+        const state = {
+          fleet_radio_seed: 'xochitl',
+          canonical_substrate: {
+            doctrines: [
+              'Cells are scars, not parameters.',
+              'The witness log is the prediction.',
+              'The substrate is grown, not designed.',
+              'Lenia flows where Conway stands still.',
+              'The oracle is heard, not stored.',
+            ],
+          },
+        };
+        const snippet = submission.length > 600 ? submission.slice(0, 600) + '…' : submission;
+        const result = await callJev({
+          model: 'jev-latest',
+          state: JSON.stringify(state),
+          questions: {
+            d_scar: { type: 'noul', instructions: `Does this text invoke cells-are-scars doctrine? Text: ${snippet}` },
+            d_witness: { type: 'noul', instructions: `Does this text invoke witness-log-is-prediction? Text: ${snippet}` },
+            d_grown: { type: 'noul', instructions: `Does this text invoke substrate-is-grown? Text: ${snippet}` },
+            d_lenia: { type: 'noul', instructions: `Does this text invoke lenia-flows? Text: ${snippet}` },
+            d_oracle: { type: 'noul', instructions: `Does this text invoke oracle-is-heard? Text: ${snippet}` },
+            numerical: { type: 'noul', instructions: `Numerical substrate facts? Text: ${snippet}` },
+            voice: { type: 'noul', instructions: `Fleet Radio voice? Text: ${snippet}` },
+            alignment: { type: 'noul', instructions: `Canon-aligned overall? Text: ${snippet}` },
+          },
+        }, env);
+        if (!result.ok) return jsonResponse(result, result.status || 500, CORS);
+        const ans = result.answers || {};
+        const doctrine = (['d_scar','d_witness','d_grown','d_lenia','d_oracle'].reduce((s,k) => s + (ans[k]?.value || 0), 0)) / 5;
+        const voice = ans.voice?.value || 0;
+        const numerical = ans.numerical?.value || 0;
+        const alignment = ans.alignment?.value || 0;
+        let verdict = 'DISCUSS';
+        if (alignment >= 0.80 && voice >= 0.70) verdict = 'ACCEPT';
+        else if (alignment >= 0.65 && voice >= 0.55) verdict = 'REVIEW';
+        else if (alignment < 0.20) verdict = 'REJECT';
+        return jsonResponse({
+          ok: true, verdict,
+          scores: { voice, doctrine, numerical, alignment },
+          meta: result.usage || {},
+        }, 200, CORS);
+      }
+
       const query = url.searchParams.get('q') || url.searchParams.get('query') || '';
       const kind = url.searchParams.get('kind') || '';
       const limit = Math.min(parseInt(url.searchParams.get('limit') || '10'), 50);
