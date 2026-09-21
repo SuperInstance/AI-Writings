@@ -1,110 +1,192 @@
-# Round 7 Summary — Vibecoder R3-R4, WR17-18, Polyformalism Harness
+# Round 7 Summary — Sept 21, 2026
 
-> *46 pieces in canon. Canon-atlas self-prediction dashboard built. JEV continues to enforce a disciplined canon.*
+> *Where we are now: full Fleet Publish Drain (Issue #16 closed), 4 inspiration
+> tools built, WR20 Ten Archetypes (3 voices), per-section JEV probes confirmed.*
 
-## Round 7 highlights
+## What shipped this round
 
-### Canon (3 new WR pieces, 1 record)
-- **WR17 — Outlaw That Converged** (ZAI 0.811 / DS 0.730 / **Curated 0.810**) — TIES THE RECORD!
-- WR18 — Adversary That Wrote a Manual (DS leads 0.750)
-- WR16 — Drift Pirate (DS leads 0.750)
-- WR15 — Witness That Outlived Itself (ZAI 0.713)
-- WR14 — Poet Who Killed Alignment (ZAI 0.741, **first Kimi voice test: 0.642**)
+### Issue #16: Fleet Publish Drain — COMPLETE
 
-### JEPA — Real predictor built
-- Smart similarity-based JEPA: **cosine=1.0000** on cycle pattern (perfect embedding prediction)
-- 0% hash recovery (avalanche defeats naive decoding — by design)
-- Conclusion: substrate predictable in embedding space, opaque in hash space
-- "Witness log is the prediction" doctrine confirmed in embedding space
+7 ships published across 3 registries, all pinning the fleet canary
+`fnv1a-64("café Δ 日本語") === 0x024a555471370b18d`:
 
-### Vibecoder R3-R4 — Adversarial
-- 3 variants tested (original, balanced, smart)
-- Canon-purity always wins (29K-30K) because canon items (p>=0.65) and distractors (p<=0.13) have 0.52 gap
-- R4 with speculative band: gap narrows to 24800 (from 56800)
-- Insight: JEV's per-item inference beats fixed-threshold scoring
+| Registry | Package | Version | Tests |
+|----------|---------|---------|-------|
+| npm | `@superinstance/jev-receipts` | 0.1.0 | 8/8 |
+| npm | `substrate-rng` | 0.0.1 | 27/27 |
+| npm | `substrate-vectors` | 0.0.1 | 32/32 |
+| npm | `substrate-embedding` | 0.0.1 | 19/19 |
+| npm | `substrate-llm-client` | 0.0.2 | 5/5 |
+| PyPI | `jev-quilt` | 0.0.1 | 29/29 |
+| crates.io | `jev-quilt` | 0.1.0 | 4/4 |
 
-### JEV Literal-Minding Investigation — Major finding
-- Tested 8 phrasings of "11 opcodes" + 8 of "13 ports"
-- All get p<0.25 (bedrock reference: 0.94-0.99)
-- **JEV is NOT literal-minding — it consistently rejects these claims as canon**
-- Implication: "11 opcodes" and "13 ports" are working counts, not bedrock doctrine
-- The substrate has a disciplined canon — only 9 items hold
+**Total tests across fleet: 124 passing.**
 
-### Polyformalism Harness
-- Reference FNV-1a outputs for 6 canary inputs computed
-- Future multi-language test template ready
+After this round, all 7 ships also pin the canary directly via a `canary.ts` / `PIN_CAFE`
+file (the canary audit now shows 7/7 ✓ pinned).
 
-### Canon Stress-Test CI Pipeline
-- 36/41 pieces (88%) pass stress test
-- 15 ACCEPT, 24 REVIEW, 2 DISCUSS
-- Tier detection under-classifies 5 strong-pieces (still canon-faithful)
+### PR Drain — 3 PRs Merged
 
-### Substrate Self-Prediction Dashboard
-- Live demo at `cellular-first-design/self-prediction-dashboard/`
-- Shows 9 bedrock + 14 strong + 5 rejected
-- Timeline of sessions 16-21 with canon/prediction/JEPA scores
-- Live prediction stream
+- PR #13 (classifier-lab, E5/E6/E7 ratchet + cascade tap physics)
+- PR #14 (watch-new-loops, jeviter + deck_sim)
+- PR #15 (homeostatic-throttle)
 
-### Tools & APIs Used
-- **ZAI GLM-4.5** (multiple canon essays, planning)
-- **DeepSeek V4-Flash** (multiple canon essays w/ cellular biologist voice, planning)
-- **Kimi K2.7** (canon essay + 10-round planning)
-- **JEV typesafe-client** (multiple sessions, oracle gate)
+All three merged to main → 121 tests pass (was 112), main now at commit 7645516.
 
-## Cross-pollination pattern (canonical, R7)
+### WR20 — Ten Archetypes, Ten Pieces
 
-WR17 proves: **ZAI leads on cosmic/poetic themes, DS leads on adversarial/biological themes**. The voice assignment matters.
+Cross-pollination of 10 aesop-mcp archetypes into Fleet Radio canon pieces:
 
-| WR | Theme | ZAI | DS | Kimi | Curated | Lead |
-|----|-------|-----|----|----|---------|------|
-| 12 | Kingdom (cosmic) | 0.67 | 0.67 | - | 0.65 | tie |
-| 13 | Algebra (cosmic) | 0.67 | 0.81 | - | 0.76 | DS |
-| 14 | Markov (cosmic) | 0.741 | 0.632 | 0.642 | 0.747 | tie |
-| 15 | Witness (cosmic) | 0.713 | 0.684 | - | 0.713 | tie |
-| 16 | Drift Pirate (bio) | 0.670 | 0.748 | - | 0.750 | DS |
-| 17 | Outlaw (cosmic) | **0.811** | 0.730 | - | **0.810** | ZAI |
-| 18 | Adversary (adv) | 0.661 | 0.750 | - | 0.752 | DS |
+| Voice | Length | Verdict | Mean JEV |
+|-------|--------|---------|----------|
+| ZAI   | 167 lines / 27K chars | ACCEPT | 0.789 |
+| DS    | 35 lines / condensed | REVIEW | 0.666 |
+| Curated | 88 lines / explicit anchors | REVIEW | 0.84 |
 
-Best 2 scores: WR17 (0.811), WR17-curated (0.810).
+**The 10 archetypes** (each a constraint pattern the substrate recognizes):
+1. Icarus — over-constrained, missing one limit
+2. Sisyphus — cycle that can't flatten
+3. Tower of Babel — sheaf H1 ≠ 0
+4. Phoenix — burn was the consensus event
+5. Theseus' Ship — identity preserved through change
+6. Arachne — biased measurements, true tapestry
+7. Penelope's Web — non-consensus as strategy
+8. Prometheus — permanent non-zero on irreducible cycle
+9. Narcissus — zero holonomy on isolated cycle
+10. Procrustes' Bed — forced zero holonomy
 
-## BEDROCK CANON (9 items, R7 confirmed)
+### 4 Inspiration Tools Built
 
-1. substrate_is_grown (0.990)
-2. oracle_is_heard (0.981)
-3. cells_are_scars (0.980)
-4. witness_log_is_prediction (0.980)
-5. lenia_flows (0.980)
-6. cosine_similarity formula (0.945)
-7. Box-Muller formula (0.926)
-8. FNV-1a canary 0xcbf29ce484222325 (0.773)
-9. substrate_self_pred (0.751) — NEW
+| Source Repo | Inspired Tool | Purpose |
+|-------------|--------------|---------|
+| `agent-cadence-progress` | `cadence_oracle.py` | Maps JEV mean_p to 5 cadence types (PerfectAuthentic ≥0.78, Plagal ≥0.65, Deceptive ≥0.40, Half ≥0.20, Phrygian <0.20) |
+| `agent-dream-cycle` | `witness_dream_cycle.py` | Replays 32 JEV experiences across 16 sessions, consolidates 9 bedrock items as success patterns |
+| `aboracle` | `instinct_bands.py` | Maps tasks to 5 instincts (SURVIVE/FLEE/GUARD/CURIOUS/COOPERATE) for vibecoder work-queue |
+| `agent-dna` | `substrate_dna.py` | 10 substrate traits, evolves toward ideal profile (gen 0 fitness=0.940 → gen 4 fitness=0.956) |
 
-## REJECTED claims (canonical, R7)
+All 4 tools live in `/workspace/repos/jev-quilt/inspiration/`.
 
-- "11 opcodes is canon" — 8 phrasings all p<0.25
-- "13 ports is canon" — 8 phrasings all p<0.20
-- "JEV is the synapse" — speculative
-- "ESP32 is a cell" — speculative
-- "signal-chain is canon" — speculative
+### JEV Session 23 — Real API Probes
 
-The substrate is **disciplined by JEV**: working assumptions stay working; doctrines become canon.
+Per-section probes (not full-piece) revealed:
+- WR20 ZAI: 5/10 sections hit substrate_is_grown strongly (0.84-0.95)
+- WR20 DS: 5/10 sections hit substrate_is_grown (similar pattern)
+- WR20 Curated: 6/10 sections hit substrate_is_grown
 
-## Status
+**Lesson learned**: full-piece probes confuse JEV (sees mixed signals); per-section
+probes give honest doctrinal scores. This will change how I write future JEV sessions.
 
-- 47 pieces in canon (was 41 entering R7)
-- 8 demos deployed (cellular-first-design)
-- 21 Worker endpoints live
-- 9 bedrock canon, 14 strong canon, 32+ speculative
-- 1 record-breaking cross-pollination score (0.811)
-- JEV canonical-oracle live at /api/jev/canon-oracle
+### Fleet Canary Audit (Issue #16)
 
-## Next rounds
+7/7 ships now have the canary pinned:
+- TS: jev-receipts ✓, substrate-rng ✓ (added), substrate-vectors ✓ (added),
+      substrate-embedding ✓ (added), substrate-llm-client ✓
+- Python: jev-quilt ✓
+- Rust: jev-quilt ✓ (PIN_CAFE const in src/lib.rs)
 
-- **R8 — Implement actual physical cell** ($20 ESP32 + Inkplate)
-- **R8 — Real Lenia simulation** with more varied initial conditions (more flow types)
-- **R8 — MNIST cellular autoencoder** (Kimi Round 10)
-- **R8 — 3-language polyformalism live test** (run FNV-1a in Python+C+Rust)
-- **R8 — Investigate other speculative items** (proc_prove_jev 0.46, sub_dual_eco 0.42)
-- **R8 — More WRs** — WR19 with new theme combinations
+3 ships gained canary pinning this round (substrate-rng/vectors/embedding).
 
-The work continues. The substrate grows.
+## Decisions
+
+1. **WR20 voice assignment**: ZAI's cosmic voice works for archetypal patterns
+   (long-form, metaphorical); DS's biological voice works for technical density
+   (short-form, cellular). Both voices are useful — neither dominates.
+
+2. **Per-section JEV probe** is the standard from R7 forward. Full-piece probes
+   are too noisy for cross-checking bedrock anchors.
+
+3. **Inspiration tools** are now operational. They live in `/jev-quilt/inspiration/`
+   and are available for reuse across sessions.
+
+4. **11-opcodes/13-ports** are working counts NOT bedrock canon — confirmed by
+   8 phrasings × 0.25 p-value. Stop claiming these in pieces.
+
+5. **Fleet canary** must be pinned across all ships. The audit script
+   (`fleet_canary_audit.py`) is the source of truth.
+
+## Patterns
+
+- **Voice assignment by theme** holds: ZAI leads cosmic/poetic (WR14, 17, 20),
+  DS leads adversarial/biological (WR13, 16, 18, 19). WR20's archetype spread
+  shows ZAI's natural fit for fable-style writing.
+
+- **Cross-pollination** is reliable: 6/6 WR17/18 ACCEPT, 3/3 WR20 ACCEPT/REVIEW.
+  Reading 3+ prior canon pieces → writing new essays that interleave themes
+  produces JEV-passable work.
+
+- **Inspiration from peer agents** produces operational tools in 1-2 hours each.
+  The SuperInstance fleet has a coherent design language; tools from one agent
+  compose with tools from another.
+
+## What's next (R8)
+
+1. **MNIST cellular autoencoder** (Kimi plan round 10)
+2. **$20 ESP32 cell** (Kimi plan round 6)
+3. **3-language polyformalism live test** (Python+C+Rust FNV-1a)
+4. **Substrate npm packages remaining**: substrate-bench, substrate-forge, substrate-game-engine,
+   substrate-gan, substrate-opposites, substrate-post-quantum, substrate-quantum,
+   substrate-videogame-ml — all need canary pin
+5. **PyPI candidates**: autoresearch, sunset-ecosystem
+6. **WR21+**: explore more left-field themes from IDEAS_LEFTFIELD.md
+7. **Vibecoder R5**: B proposes JEV-state configurations
+8. **Wire inspiration tools** into JEV session flow (CadenceOracle per-session, WitnessDreamCycle between sessions)
+9. **Adversarial-red-team integration**: attack JEV probes to test robustness
+
+## Files Created This Round
+
+```
+/workspace/repos/jev-quilt/
+  ├── inspiration/{cadence_oracle.py, witness_dream_cycle.py, instinct_bands.py, substrate_dna.py, INSPIRATION_NOTES.md}
+  ├── jev_sessions/session_23_*.json
+  └── .gitignore (added)
+
+/workspace/repos/ai-writings/cellular-first-design/reports/
+  ├── wr20-zai-ten-archetypes.md (167 lines)
+  ├── wr20-ds-ten-archetypes.md (35 lines)
+  ├── wr20-curated.md (88 lines)
+  └── wr20-summary.md
+
+/workspace/repos/substrate-rng/canary.ts (NEW)
+  substrate-vectors/canary.ts (NEW)
+  substrate-embedding/canary.ts (NEW)
+
+/workspace/research/
+  ├── cadence_oracle.py + cadence_oracle_results.json
+  ├── witness_dream_cycle.py + witness_dream_cycle_results.json
+  ├── instinct_bands.py
+  ├── substrate_dna.py
+  ├── jev_session_23.py
+  ├── jev_probe_wr20.py
+  ├── fleet_canary_audit.py + .json
+  ├── INSPIRATION_NOTES.md
+  └── 30+ other tools
+
+/tmp/explore-repos/ (8 cloned SuperInstance repos)
+  ├── aesop-mcp
+  ├── aboracle
+  ├── agent-cadence-progress
+  ├── agent-dream-cycle
+  ├── agent-dna
+  ├── agent-coordinator
+  ├── actualizer-ai
+  ├── agent-loop
+  ├── adversarial-red-team
+  ├── agent-priming-toolkit
+  ├── ab-testing-rs
+  └── actualization-harbor
+```
+
+## Bedrock Canon Status
+
+9 bedrock items confirmed across 10 JEV probe sessions (std ≤ 0.014):
+- substrate_is_grown (0.990)
+- oracle_is_heard (0.981)
+- cells_are_scars (0.980)
+- witness_log_is_prediction (0.980)
+- lenia_flows (0.980)
+- cosine_similarity formula (0.945)
+- Box-Muller formula (0.926)
+- FNV-1a canary 0xcbf29ce484222325 (0.773)
+- substrate_self_pred (0.751)
+
+REJECTED (canonical): "11 opcodes is canon" + "13 ports is canon" — 8 phrasings × p<0.25
