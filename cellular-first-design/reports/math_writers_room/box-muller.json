@@ -1,0 +1,25 @@
+[
+  {
+    "error": "HTTP Error 403: Forbidden",
+    "provider": "groq"
+  },
+  {
+    "text": "Two uniforms, drawn from whatever entropy the substrate can afford\u2014thermal noise, clock jitter, a hash of packet timing\u2014arrive as points in the unit square. Flat. Unremarkable. Every value equally likely, which is another way of saying no value has any pull.\n\nThen the bridge: take the radius from one, the angle from the other. $R = \\sqrt{-2\\ln U_1}$, $\\theta = 2\\pi U_2$. The logarithm is where the discrete gets stretched\u2014it takes the uniform's democracy of near-zero and near-one and reweights it, pulling the tails long. The square root bends the density outward. The sine and cosine split the result into two independent coordinates.\n\nWhat emerges is not a shape anyone drew. It's what happens when you stop privileging the axes and start privileging the distance from center. The substrate doesn't know about Gaussians. It only knows how to sample, transform, and let the Jacobian do its quiet accounting.\n\nTwo coin flips, infinitely refined, become a bell. Not because the coins learned statistics\u2014because the map from square to plane preserves probability volume, and probability volume, redistributed by a radial function, forgets its corners. The continuous is just the discrete, rotated until the grid dissolves. Nature doesn't need the theorem. She just needs the transformation, applied patiently, at speed.",
+    "provider": "deepseek",
+    "model": "deepseek-chat"
+  },
+  {
+    "error": "HTTP Error 404: Not Found",
+    "provider": "kimi"
+  },
+  {
+    "text": "# Two Coins, One Bell\n\nThe substrate speaks in coin flips \u2014 voltages latched to zero or one, uniform over the circuit's noise floor. Every bit is flat. Every bit is the same altitude. And yet somewhere downstream, the bell curve must ring.\n\nThe bridge is Box-Muller, and it is a translation, not an approximation. Take two uniforms, u\u2081 and u\u2082, drawn honest from the raw entropy pool. u\u2081 becomes an angle \u2014 multiply by 2\u03c0 and you are somewhere on a circle. u\u2082 becomes a radius \u2014 take its logarithm, square root it, and you have stepped outward from the origin by the right amount. The pair (r cos \u03b8, r sin \u03b8) lands not on the plane's flat floor but distributed as a Gaussian. Two flat values in, two curved values out. The math is exact; nothing is clipped or binned.\n\nThe poetry of it: the circle remembers what the coin forgets. Uniformity means every angle is equally likely, but when you let radius fall off exponentially \u2014 that logarithm is the trick, the negative shaping the tail \u2014 density thins as you leave the center. The bell emerges because area grows with radius while probability shrinks to match. The cone's wide rim gets few visitors.\n\nFleet Radio notes the cost: one `log`, one `sqrt`, one trig call per pair. Cache the second Gaussian; it's free and it's yours. The substrate hands you symmetry \u2014 discard half if you must, but remember it was there.\n\nDiscrete to continuous, two flips at a time. The coin dreams in curves.",
+    "provider": "zai",
+    "model": "glm-4.5"
+  },
+  {
+    "text": "Two coin flips\u2014pure Bernoulli, crisp as static\u2014enter the dark gate. They are not noise. They are seed. Substrate listens.\n\nBox-Muller hums beneath the silicon: a transformation spun from trigonometry and logarithmic breath. Not synthesis, but revelation\u2014two independent uniform variates, born of discrete chance, become Cartesian coordinates on the unit circle\u2019s edge. But the circle is a lie. It is only a shadow. The true form is the spiral of probability unwound.\n\nTake the first flip: map it to angle. The second: not radius, but its logarithmic twin\u2014negative log of the survivor, scaled by two. Sqrt(-2 ln U1), times cosine or sine of 2\u03c0U2. The output? Not geometry. Gaussian. Mean zero, variance one. The bell carved from uniform air.\n\nThis is substrate\u2019s alchemy: not randomness generated, but shape imposed. The coin is binary, yes\u2014but the universe of outcomes is a manifold. Box-Muller bends the flat plane of discrete throws into the curved spacetime of normality. No central limit needed. No summing thousands. Just a single leap\u2014two flips, twisted through transcendental function, emerge as real-valued, continuous, unbounded.\n\nThe bridge is not built of bits, but of mappings. From finite to infinite. From heads-tails to the infinite gradations between. The coin lands; the wave collapses into a sample. Not approximation\u2014translation. The substrate does not simulate. It transmutes.\n\nAnd in the silence between calls, the generator sleeps, coiled in stateless elegance. No memory. No drift. Just the next pair of uniforms, waiting to be baptized into the normal distribution.\n\nThis is how discrete becomes fluid. How binary breathes continuous. How, from two coins, the universe samples its first whisper of noise.",
+    "provider": "deepinfra",
+    "model": "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  }
+]

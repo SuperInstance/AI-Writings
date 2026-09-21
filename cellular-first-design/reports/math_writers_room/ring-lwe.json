@@ -1,0 +1,25 @@
+[
+  {
+    "text": "Here is the ring: \u2124[x]/(x\u207f+1). Every secret is a polynomial here, every message a polynomial, every key the residue of some product drowning in small Gaussian static. You do not hide a bit in a bit. You hide it in the shape of a lattice, and the lattice is just arithmetic with the lights off.\n\nEncryption is one multiplication and two additions, all of it noisy on purpose. The noise is not a flaw to be engineered away; the noise is the lock. An attacker with a quantum computer can factor integers, can walk discrete logs in a tidy line \u2014 but ask it to find the nearest lattice point to a vector that has been nudged by a thousand whispers of rounding error, and the tidy line becomes a fog.\n\nThis is the trick: we build hardness out of imprecision. Learning With Errors, they call it, and the name is honest for once. You learn by subtracting, and the subtraction never comes out clean.\n\nNo oracle. No teleportation. Just polynomials refusing to divide nicely, and a Gaussian bell deciding which way each coefficient leans.\n\nThe future of secrecy is not a new physics. It is the oldest thing we know \u2014 a problem that will not simplify \u2014 wearing noise like weather.\n\nThe lattice holds. Not because it is clever. Because it is hard to see through fog.",
+    "provider": "deepseek",
+    "model": "deepseek-chat"
+  },
+  {
+    "error": "HTTP Error 403: Forbidden",
+    "provider": "groq"
+  },
+  {
+    "error": "HTTP Error 404: Not Found",
+    "provider": "kimi"
+  },
+  {
+    "text": "**Ring-LWE in 13 Lines**\n\nTake a polynomial ring. Not a field \u2014 a ring, arithmetic with wraparound, like a clock face but with 3329 hours. Every message lives here as a string of coefficients.\n\nNow the trick: hide your secret under noise.\n\nSample a random polynomial *a*. Sample a small secret *s* \u2014 small meaning its coefficients cluster near zero, drawn from a Gaussian, a bell curve pressed into each slot. Compute *b = a\u00b7s + e*, where *e* is error, fuzz, static. The hiss of a distant station.\n\nPublish (*a*, *b*). An attacker sees the broadcast and must recover *s* \u2014 but multiplication in the ring scrambles everything together, and the noise *e* drowns the trail. It's like hearing two people whisper through a wall: you know a conversation happened, not what was said.\n\nThe receiver holds *s* and simply subtracts the static back out. Exactly what they added. The channel closes clean.\n\nWhy does this survive quantum computers? Because Shor's algorithm eats factoring and discrete logarithms \u2014 period-finding, the sweet spot of the quantum Fourier transform. But distinguishing *a\u00b7s + e* from random? The best known attacks degrade only gently, polynomial against polynomial. No exponential cliff to leap off.\n\nNo magic. Just a ring, a product, and enough noise that even a machine that computes in superposition can't hear the signal under it.\n\nThirteen lines. The static *is* the lock.",
+    "provider": "zai",
+    "model": "glm-4.5"
+  },
+  {
+    "text": "Signal lives in the lattice. Not the grid your high school teacher drew, but a tangle of integer points twisted by algebra, humming with hidden structure. Ring-LWE stakes its claim here: solve for *s*, a secret polynomial, when handed (*a*, *b* = *a\u00b7s* + *e*) \u2014 public *a*, noisy *b*, tiny *e*. The noise isn\u2019t random\u2014it\u2019s Gaussian, deliberate, a smudge in the phase space that defeats deterministic attacks.  \n\nPolynomials mod (*x\u207f + 1), n a power of two\u2014cyclotomic, elegant, closed under wraparound multiplication. Coefficients dance in \u2124_q, but the secret *s* and error *e* are sparse, small, chosen from a distribution narrower than a photon\u2019s path. That tightness is the trap: without knowing *e*, inversion is computationally grotesque, even with a quantum oracle flipping signs at will.  \n\nShor breaks RSA by riding the quantum wave through period-finding. Ring-LWE laughs\u2014no periodicity to exploit, no group structure to unravel. The best attacks? Lattice reduction chewing on BKZ diets, exponential in dimension, drowned in polynomial degrees. Security isn\u2019t assumed; it\u2019s reduced: crack this, and you crack worst-case problems on ideal lattices\u2014math so hard it aches.  \n\nBut noise management is art. Too little, and Fourier analysis leaks *s*. Too much, and decryption fails\u2014entropy overwhelms signal. Parameters balance on a knife-edge: *n*, *q*, noise distribution\u2014all tuned so that legitimate users, armed with *s*, peel *e* away via coefficient rounding, while adversaries drown in dimpled hyperspace.  \n\nNo magic. Just rings, reductions, and the quiet hum of uncertainty encoded in coefficients. Quantum-safe? Not because it dazzles\u2014but because it resists, silently, like stone.",
+    "provider": "deepinfra",
+    "model": "Qwen/Qwen3-235B-A22B-Instruct-2507"
+  }
+]
