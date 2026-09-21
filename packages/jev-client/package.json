@@ -1,0 +1,38 @@
+{
+  "name": "jev-client",
+  "version": "0.1.0",
+  "description": "JavaScript/TypeScript client for JEV (TypeSafe System One) decision model. Three primitives: Choice, Score, Noul. Schema-bounded, can't hallucinate.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"no tests yet\" && exit 0",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "jev",
+    "typesafe",
+    "decision",
+    "schema-bounded",
+    "quilt",
+    "cellular-substrate",
+    "ai"
+  ],
+  "license": "MIT",
+  "author": "Casey",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperInstance/AI-Writings.git",
+    "directory": "packages/jev-client"
+  },
+  "homepage": "https://ai-writings.pages.dev/lab/jev-quantum/",
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {}
+}

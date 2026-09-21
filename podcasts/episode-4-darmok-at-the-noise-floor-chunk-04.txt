@@ -1,0 +1,7 @@
+Demucs listened. Demucs decided: this is an instrumental track. It pushed everything into the accompaniment stem and left behind a vocal track so quiet it was essentially a measurement of the model's own uncertainty. The RMS — root mean square, the measure of average power, the measure of how much sound is actually there — was 0.0002.
+
+The RMS of point zero zero zero two.
+
+That is the sound of something almost not existing. That is the sound of a voice so faint that the instrument designed to measure it cannot distinguish it from the memory of having measured something. Demucs didn't fail to find the voice. Demucs found the voice and decided it was noise.
+
+...

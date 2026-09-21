@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/jev_decide/__init__.py
+src/jev_decide.egg-info/PKG-INFO
+src/jev_decide.egg-info/SOURCES.txt
+src/jev_decide.egg-info/dependency_links.txt
+src/jev_decide.egg-info/top_level.txt

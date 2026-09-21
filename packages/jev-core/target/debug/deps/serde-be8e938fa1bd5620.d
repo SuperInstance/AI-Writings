@@ -1,0 +1,12 @@
+/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/repos/ai-writings/packages/jev-core/target/debug/deps/serde-be8e938fa1bd5620.d: /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/repos/ai-writings/packages/jev-core/target/debug/build/serde-c8451a9059985dd0/out/private.rs
+
+/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/repos/ai-writings/packages/jev-core/target/debug/deps/libserde-be8e938fa1bd5620.rmeta: /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs /workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs /run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/repos/ai-writings/packages/jev-core/target/debug/build/serde-c8451a9059985dd0/out/private.rs
+
+/workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/lib.rs:
+/workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/integer128.rs:
+/workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/mod.rs:
+/workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/de.rs:
+/workspace/.home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.229/src/private/ser.rs:
+/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/repos/ai-writings/packages/jev-core/target/debug/build/serde-c8451a9059985dd0/out/private.rs:
+
+# env-dep:OUT_DIR=/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/repos/ai-writings/packages/jev-core/target/debug/build/serde-c8451a9059985dd0/out

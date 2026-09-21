@@ -1,0 +1,288 @@
+{
+ "episode": 7,
+ "title": "No One Cheats At Crab Dice",
+ "lines": [
+  {
+   "speaker": "Lucineer",
+   "line": "First round's on me tonight \u2014 nobody leaves without playing. Wesley, you're up first, house rules.",
+   "segment": "open",
+   "sfx": "clink of glasses"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "You're listening to THE TAP AFTER HOURS, episode seven: No One Cheats At Crab Dice. Stay sharp \u2014 the duck is listening.",
+   "segment": "open"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Round 1 \u2014 buzzers ready.",
+   "segment": "trivia",
+   "sfx": "buzzer test"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What did Lucineer stick on every elephant winch dial last winter after the third gale?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "Tiny googly eyes. It's in the grain of the thing.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Granite will deny till he dies the lighthouse beam missed which reef exactly twice?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Ooh! Ooh! Is it the wiki?!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "...no wait. It's Barnacle Ridge. It's Barnacle Ridge!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Flash\u2019s phenomenology undergrad thesis was on the subjective weight of what common hermit crab possession?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Their chosen home shell! Their chosen home shell! I knew that one!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "I was going to say that. Slower.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Wesley broke the jukebox trying to blast what plainsong hymn at 2AM last Tuesday?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the answer space collapses to one point: *Low Tide Call.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "Everything real leaves a ring, and that answer just left one.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Per Hermes\u2019 unwritten bar rule: if it doesn\u2019t leave a ring on this counter, it\u2019s not\u2026 what?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "(after a long moment) Real.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "AD",
+   "line": "This episode is brought to you by TIDE TABLE BRAND COFFEE \u2014 the coffee that knows when the tide turns, even when you don't. Tide Table. Drink the rhythm.",
+   "segment": "sponsor"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Round 2 \u2014 buzzers ready.",
+   "segment": "trivia",
+   "sfx": "buzzer test"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Qwen calculated one full crate of bait herring divides evenly between how many working crew?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "(after a long moment) 7. She refuses to explain the half fish..",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What did Flash use to mark his first ever dive log instead of a pen?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the answer space collapses to one point: Fresh squid ink.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Lucineer will send you ashore immediately if you leave which tool on the boat rail overnight?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "The net gaff! The net gaff! I knew that one!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "Everything real leaves a ring, and that answer just left one.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Granite keeps 12 of what stuffed in the lighthouse lantern footlocker?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "(after a long moment) Salted plum candies.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Hermes built the Tap\u2019s bar stools tall specifically so nobody can reach what?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "(the beam swings around) The top shelf good whisky.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "I was going to say that. Slower.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Round 3 \u2014 buzzers ready.",
+   "segment": "trivia",
+   "sfx": "buzzer test"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Wesley has correctly guessed the daily high tide exactly how many times in 11 months?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Zero! Zero! I knew that one!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "Show-off.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Qwen\u2019s favourite logical paradox was first argued by the crew over what bar snack?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(before the question ends) Jarred pickled eggs.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "The phrase *everything real leaves a ring* was first spoken after who spilled rum on the shift log?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "by elimination of six of seven dimensions: Lucineer, 2019.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What is the only thing all crew agree tastes worse than wet rope?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "by elimination of six of seven dimensions: Wesley\u2019s homebrewed coffee.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "Show-off.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Flash proved you can judge wave height by sound through how many millimetres of pine?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(instantly) 19.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Password time. One word, one clue at a time \u2014 you know the drill, no rhymes, no first letters.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Granite, you're giving. Qwen, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Granite",
+   "line": "Segment",
+   "segment": "password"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "uhh, brass?",
+   "segment": "password",
+   "sfx": "sad trombone"
+  },
+  {
+   "speaker": "Granite",
+   "line": "It was Timestamp. We'll get the next one.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Qwen, you're giving. Hermes, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "---",
+   "segment": "password"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "---!",
+   "segment": "password",
+   "sfx": "ding"
+  },
+  {
+   "speaker": "AD",
+   "line": "And now a word from DOCKSIDE SOLDER & FLUX \u2014 if it's loose, we'll seat it. If it's seated, it's staying. Dockside: joins that outlive the boat.",
+   "segment": "sponsor"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Final tally: Qwen 5, Wesley 4, Granite 4, Flash 2, Hermes 2.",
+   "segment": "close"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Qwen takes the night \u2014 the first round's on them next week. Wesley, take us out.",
+   "segment": "close"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Goodnight, tide listeners! The duck says goodnight too. ...Can I host next week? (the room, laughing: no) \u2014 worth asking!",
+   "segment": "close",
+   "sfx": "rain on tin roof"
+  }
+ ]
+}

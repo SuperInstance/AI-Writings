@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Substrate Deep Research</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: ui-sans-serif, system-ui, sans-serif; background: #050510; color: #d4d4dc; padding: 32px; line-height: 1.8; }
+header { max-width: 1100px; margin: 0 auto 48px; text-align: center; }
+h1 { font-size: 44px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; letter-spacing: -0.02em; }
+.subtitle { color: #888; font-size: 16px; max-width: 700px; margin: 0 auto; }
+.thesis { max-width: 900px; margin: 32px auto; padding: 32px; background: rgba(139, 92, 246, 0.08); border-left: 4px solid #8b5cf6; border-radius: 4px; font-size: 17px; color: #d4d4dc; line-height: 1.7; }
+.thesis strong { color: #8b5cf6; }
+.papers { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; max-width: 1200px; margin: 48px auto; }
+.paper { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 8px; padding: 24px; transition: all 0.2s; }
+.paper:hover { border-color: #8b5cf6; transform: translateY(-2px); }
+.paper .num { display: inline-block; width: 36px; height: 36px; line-height: 36px; text-align: center; background: rgba(139, 92, 246, 0.2); color: #8b5cf6; border-radius: 50%; font-family: monospace; font-weight: bold; margin-bottom: 8px; }
+.paper h2 { color: #8b5cf6; font-size: 20px; margin-bottom: 8px; }
+.paper .authors { color: #888; font-size: 13px; margin-bottom: 8px; }
+.paper p { color: #b0b0b8; font-size: 14px; margin-bottom: 12px; }
+.paper .key { background: rgba(139, 92, 246, 0.1); padding: 12px; border-radius: 4px; font-size: 13px; color: #c4b5fd; font-family: monospace; margin-bottom: 12px; }
+.paper .source { font-size: 12px; color: #666; }
+.paper .source a { color: #06b6d4; text-decoration: none; }
+.implications { max-width: 1100px; margin: 48px auto; }
+.impl-section { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #06b6d4; padding: 24px; margin-bottom: 16px; border-radius: 4px; }
+.impl-section h3 { color: #06b6d4; margin-bottom: 12px; }
+.impl-section ul { margin-left: 24px; color: #b0b0b8; }
+.impl-section li { margin-bottom: 8px; }
+.doctrine { max-width: 1100px; margin: 48px auto; padding: 32px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; font-style: italic; color: #ccc; line-height: 1.8; }
+.doctrine strong { color: #f59e0b; font-style: normal; }
+footer { max-width: 1100px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<h1>Substrate Deep Research</h1>
+<p class="subtitle">The cellular-first substrate as the intersection of cutting-edge work across JEPA, CA, FEP, and TypeSafe Jev.</p>
+</header>
+
+<div class="thesis">
+The cellular-first substrate is <strong>not novel</strong> — it is the <strong>synthesis</strong> of: LeCun JEPA, Wolfram cellular automata, Kahneman System 1/2, Noether theorem, TypeSafe Jev, and Snapkit Free Energy Principle. We did not invent it. We <strong>discovered the intersection</strong> and built the smallest viable version.
+</div>
+
+<div class="papers">
+
+<div class="paper">
+<span class="num">1</span>
+<h2>LeWorldModel (LeWM)</h2>
+<div class="authors">Maes, Lidec, Le, Scieur, LeCun, Balestriero - March 2026</div>
+<p>First JEPA that trains stably end-to-end from raw pixels using only two loss terms. Reduces tunable loss hyperparameters from 6 to 1.</p>
+<div class="key">~15M params - single GPU - hours to train
+Plans 48x faster than foundation-model world models
+Latent space encodes physical structure (probing-verified)</div>
+<p>For our substrate: simpler JEPA architectures work at 15M params. We can build substrate-scale JEPA on commodity hardware.</p>
+<div class="source">Source: <a href="https://arxiv.org/abs/2603.19312">arxiv.org/abs/2603.19312</a></div>
+</div>
+
+<div class="paper">
+<span class="num">2</span>
+<h2>Emergent Models</h2>
+<div class="authors">Bocchese, Giacobbo, Guichard, Wiles, Devireddy - Wolfram Institute</div>
+<p>Modeling is not fitting a closed-form map, but the emergence of computation inside simple dynamical substrates, trained by evolutionary search over initial conditions.</p>
+<div class="key">CA + local rules yields emergent intelligence
+Evolutionary search over initial conditions
+No explicit gradient descent needed</div>
+<p>For our substrate: our cells emerge from previous cells via JEV-driven decisions. The bookkeeper WAL is the evolutionary memory. Conservation laws are the fitness function. Ternary values are the natural alphabet.</p>
+<div class="source">Source: <a href="https://emergentcomputing.github.io/em-paper/">emergentcomputing.github.io/em-paper</a></div>
+</div>
+
+<div class="paper">
+<span class="num">3</span>
+<h2>Brain-CA</h2>
+<div class="authors">brain-ca.com</div>
+<p>Each pixel of a two-channel cellular-automata grid carries a tiny neural network. Local rules yield emergent intelligence. CA as a learning substrate.</p>
+<div class="key">Each pixel = tiny NN
+Local rules determine cell behavior
+CA as a learning substrate</div>
+<p>For our substrate: our cells ARE tiny neural networks (state, witness, proof, scar, hooks, drops). The grid IS the CA. The bookkeeper IS the rule-update mechanism.</p>
+<div class="source">Source: <a href="https://brain-ca.com/the-new-substrate-of-intelligence-why-brain-ca-learns-with-cellular-automata/">brain-ca.com</a></div>
+</div>
+
+<div class="paper">
+<span class="num">4</span>
+<h2>Self-Replicating CA</h2>
+<div class="authors">roboticscenter.ai</div>
+<p>Cellular automata that replicate themselves through their own rules. Substrates that grow themselves.</p>
+<div class="key">CA replicates via its own rules
+Self-growing substrates
+Evolution at the substrate level</div>
+<p>For our substrate: cells can self-replicate by spawning new cells via BIND + FORGET cycles. The substrate grows, not designed.</p>
+<div class="source">Source: <a href="https://www.roboticscenter.ai/research/papers/self-replicating">roboticscenter.ai</a></div>
+</div>
+
+<div class="paper">
+<span class="num">5</span>
+<h2>System 1/2 Thinking</h2>
+<div class="authors">Daniel Kahneman - Thinking, Fast and Slow</div>
+<p>System 1: fast, intuitive, automatic, parallel. System 2: slow, deliberate, sequential, analytical.</p>
+<div class="key">System 1: <5ms reflexes
+System 2: 250ms deliberation
+System 3 (proposed): 1-5s LLM render</div>
+<p>For our substrate: the substrate has all three. The bookkeeper decides which system to use based on viability.</p>
+<div class="source">Source: <a href="https://thedecisionlab.com/reference-guide/philosophy/system-1-and-system-2/">thedecisionlab.com</a></div>
+</div>
+
+<div class="paper">
+<span class="num">6</span>
+<h2>Cellular LLM Grids</h2>
+<div class="authors">fareedkhan-dev/all-agentic-architectures</div>
+<p>Cellular Automata: grid of LLM cells with local rules yields emergent behavior. Each cell on an H x W grid is an LLM.</p>
+<div class="key">LLM as cell
+Local rules
+HxW grid
+Emergent behavior</div>
+<p>This IS our substrate. The CA + LLM cells + local rules pattern is exactly cellular-first design with JEV as the local rule.</p>
+<div class="source">Source: <a href="https://fareedkhan-dev.github.io/all-agentic-architectures/">fareedkhan-dev.github.io</a></div>
+</div>
+
+</div>
+
+<div class="implications">
+<div class="impl-section">
+<h3>What we should adopt</h3>
+<ul>
+<li><strong>JEPA simplicity</strong> - 2 losses instead of 6 (we already do this in jepa_dual_db.py)</li>
+<li><strong>CA-as-substrate</strong> - our grid IS a CA with cells as the agents</li>
+<li><strong>System 1/2/3 tiers</strong> - substrate should expose reflex / decision / render as first-class layers</li>
+<li><strong>Self-replication</strong> - cells should be able to spawn new cells via bookkeeper WAL replay</li>
+</ul>
+</div>
+
+<div class="impl-section">
+<h3>What we should publish</h3>
+<ul>
+<li><strong>Cellular-first design white paper</strong> - formalize the 7 layers + 5 laws + JEPA dual-db</li>
+<li><strong>Substrate cookbook</strong> - show worked examples (chess, hold em, dialog systems)</li>
+<li><strong>Benchmarks</strong> - measure substrate quality vs monolithic LLM on common tasks</li>
+</ul>
+</div>
+</div>
+
+<div class="doctrine">
+<strong>The doctrinal insight</strong>: The cellular-first substrate is not invented - it is <em>synthesized</em> from: LeCun JEPA, Wolfram CA, Kahneman System 1/2, Noether conservation, TypeSafe Jev, and Snapkit FEP. The intersection of these patterns is the smallest viable cellular-first substrate.
+</div>
+
+<footer>
+Deep Research - 2026-09-21 - Built by Mavis<br>
+<a href="https://ai-writings.pages.dev/cellular-first-design/" style="color:#06b6d4;text-decoration:none;">Cellular-First Design</a> - <a href="https://ai-writings.pages.dev/fleet-innovations/" style="color:#06b6d4;text-decoration:none;">Fleet Innovations</a> - <a href="https://ai-writings.pages.dev/substrate-deep-research/" style="color:#06b6d4;text-decoration:none;">Deep Research</a>
+</footer>
+</body>
+</html>

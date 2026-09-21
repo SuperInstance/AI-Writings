@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEV Client Packages</title>
+<style>
+  :root {
+    --bg:#0a0a0f; --surface:#14141f; --border:#262638;
+    --text:#e0e0e8; --dim:#8888a0; --accent:#ff44dd; --link:#ff9988;
+  }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body { font-family:Georgia,serif; background:var(--bg); color:var(--text); line-height:1.7; max-width:900px; margin:0 auto; padding:4rem 2rem }
+  h1 { color:var(--accent); font-size:2.5rem; font-weight:300; letter-spacing:-.02em; margin-bottom:.5rem }
+  h2 { color:var(--accent); font-size:1.5rem; font-weight:400; margin:2rem 0 .5rem; border-bottom:1px solid var(--border); padding-bottom:.5rem }
+  pre { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:1rem; overflow-x:auto; margin:1rem 0; font-size:.85em }
+  code { background:var(--surface); padding:2px 6px; border-radius:3px; color:var(--accent); font-size:.9em }
+  pre code { background:none; padding:0; color:var(--text) }
+  .badge { display:inline-block; padding:4px 10px; border-radius:20px; font-size:.8em; margin-right:.5rem; background:var(--surface); border:1px solid var(--border); color:var(--accent) }
+  .pkg-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1.5rem; margin:1rem 0 }
+  .pkg-card h3 { color:var(--accent); margin-bottom:.5rem }
+  a { color:var(--link); text-decoration:none }
+  a:hover { text-decoration:underline }
+</style>
+</head>
+<body>
+
+<h1>JEV Client Packages</h1>
+
+<p>
+  <span class="badge">Python</span>
+  <span class="badge">Rust</span>
+  <span class="badge">TypeScript</span>
+  <span class="badge">schema-bounded</span>
+  <span class="badge">MIT</span>
+</p>
+
+<p style="font-size:1.05em; color:var(--dim)">
+  Three thin clients for the <a href="/theory/paper-jev.md">JEV (TypeSafe System One)</a> decision model.
+  All wrap the same endpoint at <code>https://ai-writings.pages.dev/api/jev/decide</code>.
+  Each is 50-200 lines, uses only standard library, ships to public registries.
+</p>
+
+<h2>Python — jev-decide</h2>
+<div class="pkg-card">
+  <h3><code>pip install jev-decide</code></h3>
+  <pre><code>from jev_decide import Jev
+jev = Jev()
+r = jev.noul("is this valid?", "yes if non-empty")
+print(r["answers"]["q"]["choice"])  # 'yes'</code></pre>
+  <p>Source: <a href="/packages/jev-decide/">/packages/jev-decide/</a> · <a href="https://pypi.org/project/jev-decide/">PyPI</a></p>
+</div>
+
+<h2>Rust — jev-core</h2>
+<div class="pkg-card">
+  <h3><code>cargo add jev-core</code></h3>
+  <pre><code>use jev_core::{JevRequest, Question};
+
+let req = JevRequest::new("test state")
+    .add("q1", Question::noul("is valid?", "yes if non-empty"));</code></pre>
+  <p>Source: <a href="/packages/jev-core/">/packages/jev-core/</a> · <a href="https://crates.io/crates/jev-core">crates.io</a></p>
+</div>
+
+<h2>JavaScript — jev-client</h2>
+<div class="pkg-card">
+  <h3><code>npm install jev-client</code></h3>
+  <pre><code>import { JevClient } from 'jev-client';
+const jev = new JevClient();
+const r = await jev.decide({
+  state: 'test',
+  questions: { q: { type: 'noul', question: 'is valid?', instructions: 'yes' } }
+});</code></pre>
+  <p>Source: <a href="/packages/jev-client/">/packages/jev-client/</a> · <a href="https://www.npmjs.com/package/jev-client">NPM</a></p>
+</div>
+
+<h2>Install from GitHub</h2>
+
+<pre><code># Python
+pip install git+https://github.com/SuperInstance/AI-Writings.git#subdirectory=packages/jev-decide
+
+# Rust (in Cargo.toml)
+[dependencies]
+jev-core = { git = "https://github.com/SuperInstance/AI-Writings", subdirectory = "packages/jev-core" }
+
+# JavaScript
+npm install git+https://github.com/SuperInstance/AI-Writings.git#subdirectory=packages/jev-client
+</code></pre>
+
+<h2>What JEV is</h2>
+
+<p>JEV is a <strong>decision-only</strong> model, not a chatbot. It returns typed probabilistic decisions inside your schema:</p>
+
+<ul style="margin-left:1.5rem">
+  <li><strong>Choice</strong> — pick 1 of ≤255 options, with rubric-based criteria</li>
+  <li><strong>Score</strong> — rate against an ordered rubric</li>
+  <li><strong>Noul</strong> — yes/no with calibrated probability</li>
+</ul>
+
+<p>Schema-bounded by construction — cannot hallucinate outside your schema. Trained with RLCD (Reinforcement Learning for Calibrated Decisions), not RLHF/RLVR. <strong>$0.042/MTok input, output free, 70-500ms latency.</strong></p>
+
+<h2>Publishing workflow</h2>
+
+<p>Each package has a GitHub Actions workflow that publishes on tag push:</p>
+
+<ul style="margin-left:1.5rem">
+  <li><code>.github/workflows/publish-jev-decide.yml</code> → PyPI on tag <code>jev-decide-v*</code></li>
+  <li><code>.github/workflows/publish-jev-core.yml</code> → crates.io on tag <code>jev-core-v*</code></li>
+  <li><code>.github/workflows/publish-jev-client.yml</code> → NPM on tag <code>jev-client-v*</code></li>
+</ul>
+
+<p>The PyPI workflow uses GitHub Trusted Publishing (OIDC). The crates.io + NPM workflows use direct API tokens.</p>
+
+<p style="margin-top:2rem; color:var(--dim); font-size:.85em">
+  Substrate is now addressable from Python, Rust, and JavaScript. Three clients, one schema, one substrate.
+</p>
+
+</body>
+</html>

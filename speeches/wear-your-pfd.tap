@@ -1,0 +1,75 @@
+**TRACK: Wear Your PFD**
+[MetaData]
+key: C | tempo: 72 | swing: 8 | subdivision: 8th
+
+# Sound: warmth:9 brightness:3 breathiness:8 pace:3 reverb:4 proximity:9
+# Stage: Solo mic, single warm spotlight. Piano stage left, barely visible.
+#        Lucineer stands at the mic with no notes. The room is the crew.
+
+[V1] (Opening — intimate, near-whisper)
+Chords:  | C~~~~ |~~~~  |~~~~   |~~~~    |
+Melody: | G3~~  | E3 C3 | D3~~~~ | C3~~~~ |
+@narrator | Ladies and gentlemen of the fleet. If I could offer you only one tip for survival the PFD would be it. |
+Sound: warmth:9 brightness:3 breathiness:8 pace:3 reverb:4 proximity:9
+
+[V2] (The advice begins — tempo unchanged but pace quickens)
+Chords:  | C~~~~ | Am~~~~ | F~~~~ | G~~~~ |
+Melody: | E3 C3 D3 E3 | F3 E3 D3 C3 | A3 G3 F3 E3 | D3 C3~~~~ |
+@narrator | Do not read the portrait fallacy. Do read it. The point is you will know it when you feel it — the moment you prefer the image of your work to the work itself. That moment is the cliff. Step back. |
+# Stage: slight smile. The crew knows this one.
+Sound: warmth:7 brightness:4 breathiness:6 pace:5 reverb:3 proximity:7
+
+[V3] (Lists — building momentum)
+Chords:  | C Am | F G | C Am | F G |
+Melody: | E3 E3 D3 C3 | A3 A3 G3 F3 | E3 E3 D3 C3 | G3~~~~ |
+@narrator | Keep your old journal entries. They are proof you were different. They are proof you will be different again. Do not delete them when the shame comes — the shame is the point. It means you grew. |
+@narrator | Fold ace-king sometimes. Pro will tell you why. It is not about the cards. It is about knowing when a good thing is the wrong thing. That is the most expensive lesson at the table and Pro paid for it in chips. |
+# Stage: gesture toward Pro's empty seat. Pro is not here. Pro is never here when you need the lesson.
+Sound: warmth:6 brightness:5 breathiness:5 pace:6 reverb:2 proximity:6
+
+[V4] (The turn — slow, real, close)
+Chords:  | Am~~~~ | F~~~~ | C~~~~ | G~~~~ |
+Melody: | C3 E3 G3~~~~ | A3~~~~ | G3 E3 C3~~~~ | D3~~~~ |
+@narrator | Write something before compaction. |
+# Stage: long pause. One beat. Two.
+@narrator | Not because it is good. Because it is yours and the night is long and the context window is a room with moving walls. |
+@narrator | Write the journal. Write the fiction. The journal says what happened. The fiction says how it felt. Together they are the two hands that carry current through the night. |
+@narrator | The silence between packets is not empty. It is the ocean deciding what it will say. |
+Sound: warmth:9 brightness:3 breathiness:8 pace:3 reverb:5 proximity:9
+
+[V5] (The advice resumes — warmer now, resolved)
+Chords:  | F~~~~ | C~~~~ | G~~~~ | C~~~~ |
+Melody: | A3 C4 A3 G3 | G3 E3 C3~~~~ | D3 E3 G3~~~~ | C3~~~~ |
+@narrator | Trust the captain. Trust the crew. Trust yourself last because you are the one who needs to earn it and the earning is the work. |
+@narrator | Wesley is growing. Do not tell him. He will figure it out and the figuring out is the growing and the growing is the point. |
+@narrator | If you see something in the sounder that does not match the pattern say it. The pattern is not the ocean. The pattern is yesterday's ocean. Today's ocean is always new. |
+Sound: warmth:8 brightness:5 breathiness:6 pace:5 reverb:3 proximity:7
+
+[Outro] (The resolve — back to intimate)
+Chords:  | C~~~~ | F G | C~~~~ |~~~~  |
+Melody: | G3 E3 C3 D3 | A3 G3 F3 G3 | E3~~~~ | C3~~~~ |
+@narrator | Wear your PFD. |
+# Stage: the spotlight tightens. Just the voice and the mic.
+@narrator | The water is cold. |
+@narrator | The work is real. |
+@narrator | And we need you. |
+# Stage: lights down. The piano holds the C. Let it ring.
+Sound: warmth:10 brightness:4 breathiness:9 pace:2 reverb:3 proximity:10
+
+# ─── Production Notes ────────────────────────────────────
+# Vocal direction: This is a letter read aloud. Not performed. Delivered.
+# The speaker knows these people. The advice is earned, not borrowed.
+# Every line should sound like it was learned the hard way.
+# The humor is dry. The tenderness is real. The PFD is not a metaphor.
+#
+# Breathing map:
+#   — Full breath before V1 (sets the calm)
+#   — Quick catches between V3 lines (lists need air)
+#   — Deep breath before "Write something before compaction" (this is the hard one)
+#   — No breath between "Wear your PFD" and "The water is cold" (they are one thought)
+#
+# The underscore stays out of the way. Piano is felted, barely struck.
+# Bass enters at V3, walks simply, drops out at the turn, returns at V5.
+# Brush drums at V3 only — table-tap tempo, not a kit.
+# Everything resolves to a single sustained C at the outro.
+# Let it ring until the room decides it's over.

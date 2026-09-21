@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html><head><title>🧠 Substrate Mind Map</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;margin:0;overflow:hidden;height:100vh}
+h1{color:#e8b840;font-weight:300;letter-spacing:3px;padding:1rem 2rem;position:fixed;top:0;left:0;font-size:1.4em;z-index:10;background:rgba(10,10,20,0.85)}
+.doctrine{position:fixed;bottom:1rem;left:2rem;background:rgba(10,10,20,0.85);padding:1rem;max-width:320px;font-size:0.85em;font-style:italic;color:#ccc;z-index:10;border:1px solid #2a2a3a;border-radius:6px}
+.doctrine strong{color:#e8b840;font-style:normal}
+canvas{display:block}
+.detail{position:fixed;top:50%;right:2rem;transform:translateY(-50%);background:rgba(10,10,20,0.95);border:1px solid #2a2a3a;border-radius:8px;padding:1.2rem;width:300px;z-index:10;font-size:0.9em}
+.detail-name{color:#e8b840;font-size:1.2em;font-weight:bold;margin-bottom:.5rem}
+.detail-def{color:#ccc;line-height:1.5}
+.detail-rel{color:#888;font-size:0.85em;margin-top:.7rem;font-style:italic}
+.detail-rel strong{color:#44cc88;font-style:normal}
+</style></head><body>
+<h1>🧠 Substrate Mind Map</h1>
+<div class="detail" id="detail"><div style="color:#666">click a node</div></div>
+<div class="doctrine"><strong>Click</strong> any node to see its definition + related ops. <strong>Drag</strong> to rearrange.</div>
+<canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.onresize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+
+const NODES = [
+  { id: "WITNESS", def: "a recorded event in the substrate log", rel: ["PROOF", "FORGET"] },
+  { id: "PROOF", def: "a witness entry that has been validated by the proof chain", rel: ["WITNESS", "BIND"] },
+  { id: "BIND", def: "the opcode that links two cells", rel: ["LINK", "FORGE"] },
+  { id: "LINK", def: "an existing connection between cells", rel: ["BIND", "BREW"] },
+  { id: "FORGET", def: "the irreversible opcode that removes a witness entry", rel: ["WITNESS", "BREAK"] },
+  { id: "TICK", def: "the clock opcode that advances time and updates state", rel: ["PROOF", "WITNESS"] },
+  { id: "JEV", def: "Joint Embedding Validator — judges coherence and truth", rel: ["JEPA", "PROOF"] },
+  { id: "JEPA", def: "Joint Embedding Predictive Architecture — predicts masked state", rel: ["JEV", "TICK"] },
+  { id: "FORGE", def: "to build substrate tools, repos, sites", rel: ["BIND", "BREW"] },
+  { id: "BREW", def: "to compose multiple LLM outputs into a coherent artifact", rel: ["FORGE", "LINK"] },
+  { id: "CELL", def: "the irreducible unit of intelligence in the substrate", rel: ["LATTICE", "BIND"] },
+  { id: "LATTICE", def: "the substrate's 4D geometry — space-time + witness", rel: ["CELL", "SCAR"] },
+  { id: "SCAR", def: "a witness entry that marks a substrate failure", rel: ["WITNESS", "CELL"] },
+  { id: "ATLAS", def: "a map of the substrate's brews at a moment in time", rel: ["CURVE", "CELL"] },
+  { id: "CURVE", def: "the trajectory the substrate follows across many brews", rel: ["ATLAS", "TICK"] },
+  { id: "ROOT", def: "the substrate's origin cell", rel: ["CELL", "WITNESS"] },
+];
+
+let nodes = NODES.map((n, i) => ({
+  ...n,
+  x: window.innerWidth/2 + (Math.cos(i*2*Math.PI/NODES.length) * 280),
+  y: window.innerHeight/2 + (Math.sin(i*2*Math.PI/NODES.length) * 220),
+  vx: 0, vy: 0, radius: 28,
+}));
+
+let dragging = null, dragOffsetX = 0, dragOffsetY = 0;
+canvas.onmousedown = (e) => {
+  const r = canvas.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+  for (const n of nodes) {
+    if ((n.x-x)**2 + (n.y-y)**2 < n.radius**2) {
+      dragging = n; dragOffsetX = x - n.x; dragOffsetY = y - n.y;
+      return;
+    }
+  }
+};
+canvas.onmousemove = (e) => {
+  if (!dragging) return;
+  const r = canvas.getBoundingClientRect();
+  dragging.x = e.clientX - r.left - dragOffsetX;
+  dragging.y = e.clientY - r.top - dragOffsetY;
+  dragging.vx = 0; dragging.vy = 0;
+};
+canvas.onmouseup = () => { dragging = null; };
+canvas.onclick = (e) => {
+  if (dragging) return;
+  const r = canvas.getBoundingClientRect();
+  const x = e.clientX - r.left, y = e.clientY - r.top;
+  for (const n of nodes) {
+    if ((n.x-x)**2 + (n.y-y)**2 < n.radius**2) {
+      document.getElementById("detail").innerHTML = `
+        <div class="detail-name">${n.id}</div>
+        <div class="detail-def">${n.def}</div>
+        <div class="detail-rel"><strong>related:</strong> ${n.rel.join(", ")}</div>
+      `;
+      return;
+    }
+  }
+};
+
+function simulate() {
+  for (const n of nodes) {
+    if (n === dragging) continue;
+    n.vx += (Math.random()-0.5) * 0.05;
+    n.vy += (Math.random()-0.5) * 0.05;
+    for (const m of nodes) {
+      if (n === m) continue;
+      const dx = n.x - m.x, dy = n.y - m.y;
+      const d2 = dx*dx + dy*dy + 100;
+      const f = 800 / d2;
+      n.vx += dx * f / Math.sqrt(d2) * 0.01;
+      n.vy += dy * f / Math.sqrt(d2) * 0.01;
+    }
+    for (const m of nodes) {
+      if (n === m) continue;
+      if (!m.rel.includes(n.id)) continue;
+      const dx = n.x - m.x, dy = n.y - m.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      const target = 180;
+      const f = (d - target) * 0.001;
+      n.vx -= dx * f;
+      n.vy -= dy * f;
+    }
+    n.vx *= 0.92; n.vy *= 0.92;
+    n.x += n.vx; n.y += n.vy;
+    if (n.x < 50) { n.x = 50; n.vx = 0; }
+    if (n.x > canvas.width-50) { n.x = canvas.width-50; n.vx = 0; }
+    if (n.y < 80) { n.y = 80; n.vy = 0; }
+    if (n.y > canvas.height-50) { n.y = canvas.height-50; n.vy = 0; }
+  }
+}
+
+function draw() {
+  ctx.fillStyle = "#0a0a14";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Edges
+  for (const n of nodes) {
+    for (const r of n.rel) {
+      const m = nodes.find(x => x.id === r);
+      if (!m) continue;
+      ctx.beginPath();
+      ctx.moveTo(n.x, n.y);
+      ctx.lineTo(m.x, m.y);
+      ctx.strokeStyle = "rgba(232,184,64,0.18)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+  }
+  
+  // Nodes
+  for (const n of nodes) {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.radius, 0, Math.PI*2);
+    ctx.fillStyle = "#1a1a2e";
+    ctx.fill();
+    ctx.strokeStyle = "#e8b840";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    ctx.fillStyle = "#e8b840";
+    ctx.font = "14px 'Courier New', monospace";
+    ctx.textAlign = "center";
+    ctx.fillText(n.id, n.x, n.y+5);
+  }
+}
+
+function loop() {
+  simulate();
+  draw();
+  requestAnimationFrame(loop);
+}
+loop();
+</script></body></html>
