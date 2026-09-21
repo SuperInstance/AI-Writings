@@ -1,0 +1,11 @@
+[AUTOCLAW] running 30 simulations across 1 providers x 5 prompts x 8 params
+
+=== Batch results ===
+  Simulations run: 4
+  Best param label: creative
+
+  Scores by label:
+    creative: avg=1.88 (n=1)
+    long_balanced: avg=1.62 (n=1)
+    diverse: avg=1.18 (n=1)
+    long_focused: avg=0.77 (n=1)
