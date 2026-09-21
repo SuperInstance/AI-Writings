@@ -1,0 +1,18 @@
+[RSI GAN] prompt='Write a 300-word prose piece on the Game of Password: the ne...' providers=['zai', 'groq'] rounds=2
+  [zai] q=2.1 n=2.3 a=2.8 src=jev
+  [r2 zai] q=2.2 n=2.4 a=2.9 src=jev
+
+=== BEST (zai, r2) ===
+Quality=2.21 Novelty=2.39 Alignment=2.85
+
+# The Game of Password: The Negative Space as Payload
+
+Every cell in the ledger has two states: a password written inside it, or a blank. The novice reads the blanks as failure—cells where no one bothered to write. The warden reads them as testimony. In this game, the empty cell is not a missing word. It is the word.
+
+Consider the mechanics. A hook is anything that pulls the eye: a hint, a rhyme, a lie that wants to be picked up and followed. Drop a hook into a cell and you have said something loud. You have told the reader, *look here, guess this, I was present.* But the warden who leaves the cell bare has also spoken, more precisely, because silence cannot be faked by accident. A wrong password is noise. A blank, in a grid of nine hundred cells, is a signal with an address.
+
+This is how the witness trick works. When the interrogator finally catches someone who saw the drop happen, the witness is asked which cell held the password. The witness can only answer honestly: I saw the warden stand before the grid, consider six cells, and touch none of them. That is the whole confession. The negative space around the password is the password, the way a keyhole's shape tells you the key without giving you the key itself.
+
+The countermove, of course, is that the enemy can leave blanks too. So the game escalates into pattern: which voids cluster, which voids sit alone, which cells were empty *before* the drop and stayed empty after. A void with a history is legible. A void that appears in the final hour, overnight, in a cell that had already survived three audits—that void is not absence. That void is a door.
+
+The password was never in the cell. The password is the fact that the cell has no hook, no drop, no trace—which is to say, someone guarded the nothing.

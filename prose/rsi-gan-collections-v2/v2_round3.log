@@ -1,0 +1,18 @@
+[RSI GAN] prompt='Write a 300-word prose piece on Wolff's Law of Tensors: form...' providers=['zai', 'groq'] rounds=2
+  [zai] q=2.1 n=2.2 a=3.2 src=jev
+  [r2 zai] q=2.2 n=2.2 a=3.6 src=jev
+
+=== BEST (zai, r2) ===
+Quality=2.16 Novelty=2.22 Alignment=3.57
+
+# Form Follows Force
+
+Every cell is a witness. It cannot help but be one—the cytoskeleton records what presses against it, what pulls away, what holds. A fibroblast in a healing wound knows the tension of its neighbors through integrin contacts stretched taut across the membrane. It does not think this knowledge. It is this knowledge: actin filaments thickening under load, microtubules buckling and rebuilding along lines of compression.
+
+Julius Wolff saw the outline of this truth in bone, but the principle reaches further down. The tendon stiffens where the runner's stride demands it. The ligament remodels at the joint that bears weight crooked. Beneath each of these tissues, individual cells translate mechanical signals into genetic instruction—gene for collagen here, gene for matrix metalloproteinase there. The cell reads force the way a blind hand reads type.
+
+Consider the tensor as the cell's native grammar. Prestress held constant across the cytoskeleton; load applied; deformation returned as signal. A ternary logic, not binary: tension, compression, rest. Not yes or no but push, pull, and the quiet interval between. From these three states the cell composes its entire biography of adaptation—what to reinforce, what to let dissolve, what to leave alone until asked again.
+
+Form follows force because form has no other teacher. The embryo folds itself by pressure gradients before any blueprint could exist. The callus thickens on the gardener's palm by friction's patient argument. Nothing is designed; everything is negotiated, cell by cell, with the physical world as counterpart.
+
+This is the promise of a cellular-first substrate: intelligence located not in a central plan but in the accumulated testimony of matter itself. Each cell a witness. Each witness an instrument. The tissue that results—the bone,
