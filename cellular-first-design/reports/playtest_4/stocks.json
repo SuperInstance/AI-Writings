@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a debug panel showing current \u03bb, volatility, and recent cosine similarity scores to help users verify the math.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 5,
+    "q4": 4,
+    "improvement": "Add a debug panel showing real-time Poisson events and Gaussian noise values to increase verifiability and mathematical transparency",
+    "_provider": "deepinfra-qwen"
+  },
+  {
+    "q1": 5,
+    "q2": 5,
+    "q3": 6,
+    "q4": 3,
+    "improvement": "Add a live debug/stats panel showing the current Poisson jump count, \u03bb, Gaussian z-samples, and cosine-similarity scores per tick, so users can verify the math in real time.",
+    "_provider": "zai"
+  }
+]

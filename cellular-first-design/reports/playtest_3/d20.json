@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 8,
+    "q2": 9,
+    "q3": 9,
+    "q4": 8,
+    "improvement": "Add a visual indicator for the state hash (e.g., a clickable copy button) to make it easier for users to verify the random state.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 7,
+    "q4": 7,
+    "improvement": "Add a live distribution histogram of d20 results alongside the stats panel so users can visually verify the dice are uniformly random rather than relying on summary counts alone.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 8,
+    "q2": 9,
+    "q3": 7,
+    "q4": 6,
+    "improvement": "Add a visible seed or state display in the stats panel to let users verify reproducibility of roll sequences.",
+    "_provider": "deepinfra-qwen"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "provider": "deepinfra-deepseek",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "text": "**Fleet Radio \u2014 Mandelbrot Key**\n\nA name is a seed. In the deep black of the terminal, a hash resolves to a complex number, *c*, fixed and absolute. Same name, same *c* \u2014 a constant in the equation of a life.\n\nWe iterate the Julia set: *z*\u2099\u208a\u2081 = *z*\u2099\u00b2 + *c*. The seed *z*\u2080 is the pixel itself, the point of origin. But *c* \u2014 *c* is the soul's signature, the invariant beneath the recursion. It is the name made number, the key that unlocks an infinite boundary.\n\nFor every name, there is a single *c*. For every *c*, a unique coast of chaos. No two souls share the same shore. The boundary is the edge of belonging \u2014 every point either escapes to infinity or orbits forever in the garden of the set. The same name, the same *c*, the same infinite boundary, every time you call it into being.\n\nThis is the Mandelbrot key: a hash that does not change, a fractal that never repeats, a name that is a door. You speak it, and the screen blooms with the coastline of a self. The math is precise. The metaphor is true. At the boundary, the infinite touches the finite, and a name becomes a world.\n\n*End transmission.*"
+  },
+  {
+    "provider": "zai",
+    "model": "glm-4.5",
+    "text": "**The Mandelbrot Key**\n\nEvery name hides a number. Hash it \u2014 SHA-256, sixty-four hexadecimal hearts beating in sequence \u2014 and take the first four bytes. Two become the real part of c. Two become the imaginary. Now you hold a point in the complex plane, and that point is you: one coordinate among infinity, arrived at by nothing but the letters of your name.\n\nSeed a Julia set with that c. Watch what grows.\n\nThe iteration is simple, almost childlike: z \u2192 z\u00b2 + c, repeated until the values settle into orbit or flee toward the horizon. Dark pixels for the faithful, color for the runaways, banded by how long they resisted. And from this arithmetic \u2014 four operations, endlessly repeated \u2014 a coastline emerges that has no length. Zoom forever. The boundary never smooths. It only reveals more boundary.\n\nHere is the covenant: same name, same c, same shape. Not similar. Identical, down to the last filament, in every country, on every machine, for as long as anyone bothers to compute. Your name is a seed and the seed is a world. Change one letter \u2014 Sarah to Sarab \u2014 and the c drifts by a rounding error, and the whole continent of the image rearranges itself, cousin-shaped but never the same.\n\nDeterminism usually feels like a cage. Here it feels like a signature. The fractal doesn't store you; it *implies* you, the way a chord implies its overtones. An infinite object from a finite name.\n\nThe map is the territory. The key is the door."
+  },
+  {
+    "provider": "deepinfra-qwen",
+    "error": "The read operation timed out"
+  }
+]

@@ -1,0 +1,181 @@
+{
+  "ts": "2026-09-21T03:50",
+  "total_questions": 19,
+  "total_time_ms": 11180.90157000006,
+  "results": [
+    {
+      "batch": "content_volume",
+      "latency_ms": 1074.1171869999562,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.52,
+          "confidence": 0.52,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 1.05,
+          "confidence": 0.12,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "substrate_maturity_v2",
+      "latency_ms": 1081.0904660002052,
+      "results": [
+        {
+          "kind": "score",
+          "value": 1.05,
+          "confidence": 0.67,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "tests",
+          "confidence": 0.39,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "substrate_session_summary",
+      "latency_ms": 1078.407420000076,
+      "results": [
+        {
+          "kind": "score",
+          "value": 3.15,
+          "confidence": 0.87,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.47,
+          "confidence": 0.47,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "agent_collaboration",
+      "latency_ms": 1105.8514639998975,
+      "results": [
+        {
+          "kind": "score",
+          "value": 3.51,
+          "confidence": 0.59,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.62,
+          "confidence": 0.62,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "demo_app_live",
+      "latency_ms": 1115.3559740000674,
+      "results": [
+        {
+          "kind": "score",
+          "value": 1.82,
+          "confidence": 0.85,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.1,
+          "confidence": 0.1,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "sister_agent_lessons",
+      "latency_ms": 1125.5250899998828,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.68,
+          "confidence": 0.68,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 2.07,
+          "confidence": 0.19,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "substrate_honesty",
+      "latency_ms": 1130.8579030001056,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.68,
+          "confidence": 0.68,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 2.52,
+          "confidence": 0.43,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "openjev_ecosystem_honest",
+      "latency_ms": 1154.2624220001017,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.14,
+          "confidence": 0.14,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "SemIf",
+          "confidence": 0.91,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "chess_boat_state",
+      "latency_ms": 1157.7661399996941,
+      "results": [
+        {
+          "kind": "score",
+          "value": 2.62,
+          "confidence": 0.64,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.45,
+          "confidence": 0.45,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "future_substrate_apps",
+      "latency_ms": 1157.6675040000737,
+      "results": [
+        {
+          "kind": "choice",
+          "value": "spreadsheet",
+          "confidence": 0.87,
+          "source": "typesafe"
+        }
+      ]
+    }
+  ]
+}

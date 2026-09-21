@@ -1,0 +1,11 @@
+[AUTOCLAW] running 50 simulations across 1 providers x 5 prompts x 8 params
+
+=== Batch results ===
+  Simulations run: 5
+  Best param label: long_balanced
+
+  Scores by label:
+    long_balanced: avg=1.17 (n=2)
+    exploratory: avg=1.17 (n=1)
+    long_focused: avg=0.66 (n=1)
+    balanced: avg=0.66 (n=1)

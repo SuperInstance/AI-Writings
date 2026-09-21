@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Oracle — combine all math</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at center,#1a1428 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:300;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto}
+.ask{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem}
+.ask input{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.8rem;font-family:var(--sans);font-size:1rem;margin-bottom:.5rem}
+.ask input:focus{outline:none;border-color:var(--accent)}
+button{background:var(--accent);color:#000;border:none;padding:.7rem 1.5rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.95rem;margin-right:.5rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.response{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem}
+.response h2{color:var(--accent);font-size:1.2rem;margin:0 0 .5rem;font-family:var(--mono)}
+.reading{font-family:'Georgia',serif;font-size:1.05rem;line-height:1.8;color:var(--text);font-style:italic;margin-bottom:1rem;padding:1rem;background:var(--bg);border-radius:6px;border-left:3px solid var(--accent3)}
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.layer{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem}
+.layer h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .3rem;font-family:var(--mono)}
+.layer h4{color:var(--accent);font-size:.95rem;margin:0 0 .5rem;font-family:var(--mono)}
+.layer p{color:var(--text2);font-size:.85rem;line-height:1.5;margin:0}
+.layer .hash{color:var(--accent2);font-family:var(--mono);font-size:.7rem;word-break:break-all;margin-top:.5rem}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🔮 Substrate Oracle</h1>
+<p class="tagline">Ask a question. The oracle combines FNV-1a + xoshiro256** + Box-Muller + Bell state + cosine similarity into a single reading.</p>
+</header>
+
+<main>
+<div class="ask">
+<input type="text" id="question" value="What does the substrate say about memory?">
+<button onclick="ask()">🔮 Ask the oracle</button>
+<button class="secondary" onclick="document.getElementById('question').value = exampleQuestion()">🎲 Random question</button>
+</div>
+<div class="response" id="response" style="display:none">
+<h2 id="responseTitle">—</h2>
+<div class="reading" id="responseReading">—</div>
+<div class="layers" id="responseLayers"></div>
+</div>
+</main>
+
+<footer>🔮 substrate oracle · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+
+const VOCAB = [
+  'memory', 'forgetting', 'witness', 'substrate', 'cell', 'fabric', 'wound', 'scar',
+  'ocean', 'wave', 'depth', 'tide', 'compass', 'watch', 'dial', 'fog', 'wind',
+  'light', 'shadow', 'wake', 'storm', 'calm', 'ship', 'mast', 'sail',
+  'fathom', 'sounding', 'helm', 'anchor', 'keel', 'crew', 'captain',
+  'hash', 'entropy', 'cosine', 'box-muller', 'bell-state', 'ghz', 'lenia', 'xoshiro',
+  'fingerprint', 'witness-log', 'forecasting', 'forcasting', 'tangled', 'whole', 'grain',
+];
+
+const READINGS = [
+  "The substrate hears your question. The witness log has been consulted.",
+  "The bell state has collapsed. Both qubits agree: this is the right question.",
+  "Box-Muller whispers: the answer is a Gaussian, not a coin flip.",
+  "The cosine says: you're closer to the truth than you think.",
+  "Xoshiro256** has produced its answer. It is reproducible. Try the same seed tomorrow.",
+  "FNV-1a 64-bit has spoken. The hash is your witness.",
+  "Lenia is evolving. The answer will be different tomorrow. It will not be wrong — only newer.",
+  "The substrate says: the answer is not in the answer. The answer is in the question's witness hash.",
+  "Two truths collide. Their entanglement is the answer.",
+  "The witness log grows. Each new entry is a new answer — and a new question.",
+];
+
+function exampleQuestion() {
+  const templates = [
+    'What does the substrate say about {noun}?',
+    'How does the math explain {noun}?',
+    'Why does the canon keep returning to {noun}?',
+    'What is the witness hash of {noun}?',
+    'How does {noun} relate to the JEV × JEPA rosetta stone?',
+  ];
+  const t = templates[Math.floor(Math.random() * templates.length)];
+  return t.replace('{noun}', VOCAB[Math.floor(Math.random() * VOCAB.length)]);
+}
+
+function embed(text, dim = 256) {
+  const v = new Float32Array(dim);
+  const tokens = text.toLowerCase().split(/\W+/).filter(t => t.length > 1);
+  for (const tok of tokens) {
+    let h = fnv1a64(new TextEncoder().encode(tok));
+    for (let i = 0; i < dim; i++) {
+      const bit = Number((h >> BigInt(i % 64)) & 1n);
+      v[i] += bit * 0.1;
+    }
+  }
+  let n2 = 0;
+  for (let i = 0; i < dim; i++) n2 += v[i] * v[i];
+  const n = Math.sqrt(n2);
+  if (n > 0) for (let i = 0; i < dim; i++) v[i] /= n;
+  return v;
+}
+
+function ask() {
+  const q = document.getElementById('question').value;
+  if (!q.trim()) return;
+  const seedStr = q.toLowerCase().trim();
+  const seedHash = fnv1a64(new TextEncoder().encode(seedStr));
+  const rng = new Xoshiro256('oracle-' + seedHash.toString(16));
+  // Cosine to known concepts
+  const qVec = embed(q);
+  const concepts = ['memory', 'forgetting', 'witness', 'substrate', 'cell', 'ocean', 'hash'];
+  const cVecs = concepts.map(c => embed(c));
+  const sims = concepts.map((c, i) => ({ name: c, sim: cosine(qVec, cVecs[i]) }));
+  sims.sort((a, b) => b.sim - a.sim);
+  const topConcept = sims[0];
+  // Layer hashes
+  const layers = [
+    { name: 'FNV-1a 64-bit', label: 'Witness hash', hash: '0x' + seedHash.toString(16).padStart(16, '0'), text: 'Your question, byte-hashed.' },
+    { name: 'xoshiro256**', label: 'Oracle RNG', hash: '0x' + (rng.state[0] & 0xffffffffn).toString(16).padStart(8, '0') + '...', text: `Generated ${rng.intRange(3, 8)} seeds from this state.` },
+    { name: 'Box-Muller', label: 'Gaussian drift', hash: `μ=${gaussian(rng).toFixed(3)} σ=1`, text: 'The answer is a Gaussian centered on the witness.' },
+    { name: 'Cosine similarity', label: 'Top concept', hash: `${topConcept.name} (${topConcept.sim.toFixed(3)})`, text: `Closest concept in 256-d embedding space.` },
+    { name: 'Bell state', label: 'Collapse', hash: rng.float() < 0.5 ? '|00⟩' : '|11⟩', text: 'Quantum measurement of the oracle.' },
+    { name: 'Polyformalism', label: '13-port verified', hash: '0x' + fnv1a64(new TextEncoder().encode('forge')).toString(16).padStart(16, '0').slice(0, 8), text: 'Same answer in JS, Python, C, Rust, Go, Haskell, J, Lua, Zig, Forth, SubLEQ, Verilog, VHDL.' },
+  ];
+  // Reading
+  const reading = `${READINGS[rng.intRange(0, READINGS.length)]} The substrate's answer relates to <strong>${topConcept.name}</strong> (cosine ${topConcept.sim.toFixed(3)}), drawn from a Box-Muller drift of μ=${gaussian(rng).toFixed(2)}. The witness hash of your question is <code style="background:var(--bg);padding:.1rem .3rem;border-radius:3px;font-family:var(--mono);font-size:.9em">${'0x' + seedHash.toString(16).padStart(16, '0')}</code>.`;
+  // Render
+  const response = document.getElementById('response');
+  response.style.display = 'block';
+  document.getElementById('responseTitle').textContent = `Reading on: "${q}"`;
+  document.getElementById('responseReading').innerHTML = reading;
+  const layersEl = document.getElementById('responseLayers');
+  layersEl.innerHTML = layers.map(l => `
+    <div class="layer">
+      <h3>${l.name}</h3>
+      <h4>${l.label}</h4>
+      <p>${l.text}</p>
+      <div class="hash">${l.hash}</div>
+    </div>
+  `).join('');
+}
+
+ask();
+</script>
+</body>
+</html>

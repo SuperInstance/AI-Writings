@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a visual indicator or tooltip showing the FNV-1a hash for each node on hover, to help users verify the math and understand the hashing.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a live debug panel showing the CRDT state and operation logs in real-time to improve verifiability and user trust in the underlying math.",
+    "_provider": "deepinfra-qwen"
+  },
+  {
+    "q1": 6,
+    "q2": 5,
+    "q3": 7,
+    "q4": 6,
+    "improvement": "Add an inspector panel for each node showing its FNV-1a hash value and computed position, so users can visually confirm the deterministic placement logic when two peers merge the same graph state.",
+    "_provider": "zai"
+  }
+]

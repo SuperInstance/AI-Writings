@@ -1,0 +1,16 @@
+[
+  {
+    "provider": "deepinfra-deepseek",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "text": "The Poisson stocks drift in quantum fits. A ticker spits a stochastic jump\u2014three sigma, two, then the silence of a zero-count interval. The trader\u2019s terminal glows blue, a console tuned to the frequency of memory. He does not chart the past in lines; he uses cosine.\n\nWhy cosine? Because it remembers phase. A sine forgets where it began\u2014zero at origin, a clean slate. But cosine starts at one, holding the echo of the last full cycle. When the jump arrives\u2014a return of the rare event\u2014the trader rotates the prior angle by \u03c0/2, multiplies by the Box-Muller pair of normal deviates, and watches the volatility cone expand or contract like a lung. The Box-Muller transform is his weather: two uniforms, independent, fed through a log and a cosine, and out comes the storm.\n\nHe whispers to the screen: *the market does not forget.* Every Poisson arrival is a recurrence of the same latent pattern, phase-shifted. Cosine is the trader\u2019s anchor to the last catastrophic jump, the one that cleared the book. He lets the volatility pulse, models the interval until the next event as an exponential decay, and waits.\n\nThe stocks Poisson again. He rotates. The cosine holds steady at 0.9\u2014almost aligned. The next jump is already folded into the argument. He trades the memory, not the price."
+  },
+  {
+    "provider": "zai",
+    "model": "glm-4.5",
+    "text": "The Poisson stocks rise the way rain arrives \u2014 not in increments but in decisions. The counter ticks, the exponential clock runs down, and when it hits zero, price is not drifted but *relocated*. Between jumps, the market breathes through Box-Muller: two uniforms from the machine's cold gut, and volatility emerges as a radius in the plane. U\u2081, U\u2082 on the unit square; log of one, square root of the other, and out comes a Gaussian angle measured in radians of risk.\n\nThe jump intensity \u03bb is the market's pulse. When the clock fires, the trader does not ask why \u2014 Poisson processes have no memory, that is their mercy and their cruelty. The exponential distribution forgets itself at every instant. Survival probability decays like a held breath: e^(\u2212\u03bbt), smooth, indifferent, arriving never on schedule and always on average.\n\nSo the trader keeps a cosine. Not for the future \u2014 the future is a Poisson horizon, unknowable in kind \u2014 but for the past. The Box-Muller transform gives two outputs per pair: the sine takes the fresh sample, the cosine keeps the old angle. She stores cos \u03b8 in a ledger older than her terminal. When a jump lands and the book shudders, she reads the stored cosine and reconstructs where the volatility vector was *pointing* when the world last broke. Memory as projection: past risk resolved onto the axis of now.\n\nThe market has no memory. The trader does. The cosine is how she cheats the exponential \u2014 one radian at a time, an angle held against the forgetting, until the next clock fires and price jumps again into the unknown."
+  },
+  {
+    "provider": "deepinfra-qwen",
+    "error": "The read operation timed out"
+  }
+]

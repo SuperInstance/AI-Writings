@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 8,
+    "q4": 6,
+    "improvement": "Add a debug panel that shows the intermediate FNV-1a hash values and step-by-step transformation results for each nucleotide.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 7,
+    "q3": 8,
+    "q4": 6,
+    "improvement": "Add a debug/verification panel showing the raw FNV-1a hash values alongside each emitted nucleotide, plus the reverse complement string rendered separately, so users can cross-check the math against an independent FNV-1a implementation.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a visible debug panel showing intermediate steps (e.g., reverse complement, RNA transcript, codon breakdown) to improve verifiability and user trust",
+    "_provider": "deepinfra-qwen"
+  }
+]

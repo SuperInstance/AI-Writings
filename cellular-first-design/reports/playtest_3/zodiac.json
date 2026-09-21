@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a small debug panel showing the FNV-1a hash and intermediate values to allow users to verify the deterministic calculations.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 7,
+    "q3": 5,
+    "q4": 4,
+    "improvement": "Add an expandable 'How this was calculated' debug panel showing the hex FNV-1a hash, the exact modulo/math used per planet placement, and a re-verification input so users can confirm determinism by re-entering the same birthdate.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 6,
+    "q2": 7,
+    "q3": 5,
+    "q4": 4,
+    "improvement": "Add a debug panel showing the FNV-1a hash output and intermediate values to improve verifiability and credibility",
+    "_provider": "deepinfra-qwen"
+  }
+]

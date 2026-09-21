@@ -1,0 +1,76 @@
+[
+  {
+    "name": "ux_designer",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "focus": "cognitive load, mobile responsiveness, polish",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "skeptic_r2",
+    "provider": "deepinfra",
+    "model": "Qwen/Qwen3-235B-Instruct-2507",
+    "focus": "second skeptic run (test non-determinism)",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "writer_editor",
+    "provider": "deepinfra",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "focus": "voice consistency, readability, design-writing fit",
+    "result": {
+      "scores": {
+        "first_impression": 8,
+        "navigation": 9,
+        "credibility": 9,
+        "verifiability": 10
+      },
+      "improvements": [
+        "Add a brief inline explanation of 'polyformalism' in the lede or glossary, since it appears early and may confuse newcomers.",
+        "Ensure the L1-L8 stack section is complete (currently cuts off mid-sentence) and add a visual diagram or table for clarity.",
+        "Include a visible link to the Quilt Crew Handbook (F149) in the 'Captain/crew' path, as it's mentioned but not directly linked in the page content."
+      ],
+      "summary": "The page now clearly addresses all prior feedback with a strong lede, robust navigation, and verifiable technical anchors. The hash verification demo and per-audience paths build credibility effectively. Minor polish on the truncated L1-L8 section and glossary integration would elevate it further."
+    }
+  },
+  {
+    "name": "skeptic",
+    "provider": "zai",
+    "model": "glm-4.5",
+    "focus": "outsider, first 60 seconds, technical credibility",
+    "result": {
+      "scores": {
+        "first_impression": 8,
+        "navigation": 8,
+        "credibility": 8,
+        "verifiability": 7
+      },
+      "improvements": [
+        "The verifiable hash demo is the credibility centerpiece but currently conflates two things: FNV-1a of arbitrary bytes (trivially verifiable) vs. the canonical 0xbf27a3631cdee337 which requires the full cellToDials() pipeline. Ship a 'reproduce the canonical hash' REPL/paste-a-dials demo, or link to a CI log/test output showing all 13 languages emitting identical hashes \u2014 otherwise the 13-language claim rests on prose.",
+        "Project cards say 'click through to the code' but repo names appear as bare text (quilt, quilt-cell, federated-tinyml-vessel) with no visible full URLs in the content \u2014 render absolute github.com/SuperInstance/<repo> links so trust survives copy-paste, archives, and screen readers, and add last-commit dates or star counts per repo as freshness signals.",
+        "The lede still makes sweeping claims a skeptic will bounce off ('all byte-exact across 13 languages', 'the whole stack runs on a $5 chip') without inline citations. Anchor each hero claim to a section anchor (e.g. '$5 chip \u2192 See F170 hardware spec') and move unverifiable marketing adjectives ('a spreadsheet that thinks', 'vector-memory ocean') below the fold so the first 60 seconds are pure verifiable fact."
+      ],
+      "summary": "This round is a dramatic improvement: the lede, TOC, audience paths, and hash anchor directly answer prior feedback and the page now reads like a real field guide rather than a mystic manifesto. Credibility is earned through concrete numbers, opcodes, and a runnable FNV-1a check, though the canonical-hash claim and repo links still require the reader to take some things on faith. With executable reproduction of the canonical hash and visible repo URLs/commit dates, this would be close to airtight."
+    }
+  },
+  {
+    "name": "frontend_engineer",
+    "provider": "deepinfra",
+    "model": "Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo",
+    "focus": "UX, navigation, visual design, accessibility",
+    "result": {
+      "scores": {
+        "first_impression": 8,
+        "navigation": 9,
+        "credibility": 9,
+        "verifiability": 10
+      },
+      "improvements": [
+        "Add inline definitions or tooltips for technical terms like 'polyformalism', 'Q1.15', and 'FedAvg' within the main content, complementing the glossary.",
+        "Include a brief visual legend or key explaining the L1-L8 architecture layers directly beneath the heading for faster comprehension.",
+        "Provide a direct link to the GitHub organization page (e.g., github.com/superinstance) in the header or hero section for quicker access to the full repo set."
+      ],
+      "summary": "The page strongly delivers on clarity, navigation, and technical proof, making the project tangible and accessible. Minor refinements in terminology support and architectural guidance will enhance usability further."
+    }
+  }
+]

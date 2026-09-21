@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate CA-Pro — 10 cellular automata rules</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.grids{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;height:fit-content}
+.grid-cell{background:#000;border:1px solid var(--border);border-radius:4px;padding:.3rem;position:relative}
+.grid-cell .label{color:var(--dim);font-family:var(--mono);font-size:.6rem;margin-bottom:.3rem;text-align:center;text-transform:uppercase;letter-spacing:1px}
+.grid-cell canvas{display:block;background:#000;border-radius:3px;width:100%;image-rendering:pixelated}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=range]{flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🧫 Substrate CA-Pro</h1>
+<p class="tagline">A side-by-side gallery of 10 cellular automata rules. Conway, HighLife, Day&Night, Wireworld, Rule 110, Brian's Brain, Forest Fire, Star Wars, Replicator, and a custom B/S.</p>
+</header>
+
+<main>
+<section class="grids" id="grids"></section>
+<aside class="controls">
+<button onclick="start()">▶ Start</button>
+<button class="secondary" onclick="pause()">⏸ Pause</button>
+<button class="secondary" onclick="reset()">↻ Reset</button>
+<button class="secondary" onclick="randomSeeds()">🎲 Random seeds</button>
+<label>Speed: <input type="range" id="speed" min="50" max="500" value="150"> <span id="speedLbl">150</span>ms</label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Total live cells: <span class="v" id="sLive">0</span></div>
+<div>Generations: <span class="v" id="sGen">0</span></div>
+<div>Frames: <span class="v" id="sFrame">0</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🧫 substrate CA-pro · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+const GRID_SIZE = 30;
+
+// 10 CA rules
+const RULES = [
+  { name: 'B3/S23',       // Conway's Life
+    born: s => s === 3,
+    survives: s => s === 2 || s === 3,
+    color: '#00ff9d' },
+  { name: 'B36/S23',      // HighLife
+    born: s => s === 3 || s === 6,
+    survives: s => s === 2 || s === 3,
+    color: '#00d4ff' },
+  { name: 'B3678/S34678', // Day & Night
+    born: s => s === 3 || s === 6 || s === 7 || s === 8,
+    survives: s => s === 3 || s === 4 || s === 6 || s === 7 || s === 8,
+    color: '#7c5cff' },
+  { name: 'Wireworld',    // Wireworld (3 states)
+    states: { off: 0, wire: 1, head: 2, tail: 3 },
+    update: (g, x, y) => {
+      const i = y * GRID_SIZE + x;
+      if (g[i] === 1) return 2; // wire → head
+      if (g[i] === 2) return 3; // head → tail
+      if (g[i] === 3) return 1; // tail → wire
+      if (g[i] === 0) { // off → wire if 1 or 2 head neighbors
+        let h = 0;
+        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+          if (dx === 0 && dy === 0) continue;
+          const nx = (x + dx + GRID_SIZE) % GRID_SIZE;
+          const ny = (y + dy + GRID_SIZE) % GRID_SIZE;
+          if (g[ny * GRID_SIZE + nx] === 2) h++;
+        }
+        return (h === 1 || h === 2) ? 1 : 0;
+      }
+      return g[i];
+    },
+    color: '#ffb84d' },
+  { name: 'Rule 110',
+    update: (g, x, y) => {
+      const left = g[(y * GRID_SIZE + (x - 1 + GRID_SIZE) % GRID_SIZE)];
+      const me = g[y * GRID_SIZE + x];
+      const right = g[(y * GRID_SIZE + (x + 1) % GRID_SIZE)];
+      const pattern = (left << 2) | (me << 1) | right;
+      return [0,1,1,0,1,1,1,0][pattern];
+    },
+    color: '#ff80c0' },
+  { name: 'Brian\'s Brain',
+    states: { dead: 0, alive: 1, dying: 2 },
+    update: (g, x, y) => {
+      const i = y * GRID_SIZE + x;
+      let n = 0;
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+        if (dx === 0 && dy === 0) continue;
+        const nx = (x + dx + GRID_SIZE) % GRID_SIZE;
+        const ny = (y + dy + GRID_SIZE) % GRID_SIZE;
+        if (g[ny * GRID_SIZE + nx] === 1) n++;
+      }
+      if (g[i] === 1) return 2; // alive → dying
+      if (g[i] === 0) return n === 2 ? 1 : 0; // dead → alive if 2
+      return 0; // dying → dead
+    },
+    color: '#ff6b6b' },
+  { name: 'Forest Fire',
+    update: (g, x, y) => {
+      const i = y * GRID_SIZE + x;
+      let n = 0;
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+        if (dx === 0 && dy === 0) continue;
+        const nx = (x + dx + GRID_SIZE) % GRID_SIZE;
+        const ny = (y + dy + GRID_SIZE) % GRID_SIZE;
+        if (g[ny * GRID_SIZE + nx] === 1) n++;
+      }
+      if (g[i] === 1) {
+        return Math.random() < 0.05 ? 3 : 1; // tree burns probabilistically
+      } else {
+        if (g[i] === 0 && Math.random() < 0.005) return 1; // empty grows
+        if (g[i] === 3) return 0; // ash → empty
+      }
+      return g[i];
+    },
+    states: { empty: 0, tree: 1, fire: 2, ash: 3 },
+    color: '#ff8c42' },
+  { name: 'Star Wars',
+    update: (g, x, y) => {
+      let n = 0;
+      for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+        if (dx === 0 && dy === 0) continue;
+        const nx = (x + dx + GRID_SIZE) % GRID_SIZE;
+        const ny = (y + dy + GRID_SIZE) % GRID_SIZE;
+        if (g[ny * GRID_SIZE + nx] === 1) n++;
+      }
+      return g[y * GRID_SIZE + x] === 1 ? (n === 2 || n === 4 ? 1 : 0) : (n === 2 ? 1 : 0);
+    },
+    color: '#5fff5f' },
+  { name: 'Replicator',
+    born: s => s === 1 || s === 3 || s === 5 || s === 7,
+    survives: () => false,
+    color: '#aa00ff' },
+  { name: 'B36/S125',     // 2x2 rule
+    born: s => s === 3 || s === 6,
+    survives: s => s === 1 || s === 2 || s === 5,
+    color: '#00aaff' },
+];
+
+let rules = [];
+let grids = [];
+let gens = [];
+let totalLive = 0;
+let totalGen = 0;
+let frameCount = 0;
+let isRunning = false;
+let interval = null;
+
+function setup() {
+  const container = document.getElementById('grids');
+  container.innerHTML = '';
+  rules = RULES.map(r => r);
+  grids = rules.map(r => new Uint8Array(GRID_SIZE * GRID_SIZE));
+  gens = rules.map(() => 0);
+  // Random seeds from FNV-1a
+  for (let r = 0; r < rules.length; r++) {
+    const seed = `ca-${r}-${Date.now()}`;
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+      grids[r][i] = Number((h >> BigInt(i % 64)) & 1n);
+    }
+  }
+  totalLive = grids.reduce((a, g) => a + g.reduce((b, c) => b + c, 0), 0);
+  for (let r = 0; r < rules.length; r++) {
+    const div = document.createElement('div');
+    div.className = 'grid-cell';
+    div.innerHTML = `<div class="label">${rules[r].name}</div><canvas width="120" height="120" id="grid-${r}"></canvas>`;
+    container.appendChild(div);
+  }
+  render();
+}
+
+function step() {
+  totalLive = 0;
+  for (let r = 0; r < rules.length; r++) {
+    const rule = rules[r];
+    const g = grids[r];
+    const next = new Uint8Array(GRID_SIZE * GRID_SIZE);
+    for (let y = 0; y < GRID_SIZE; y++) {
+      for (let x = 0; x < GRID_SIZE; x++) {
+        const i = y * GRID_SIZE + x;
+        let n = 0;
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            if (dx === 0 && dy === 0) continue;
+            const nx = (x + dx + GRID_SIZE) % GRID_SIZE;
+            const ny = (y + dy + GRID_SIZE) % GRID_SIZE;
+            if (g[ny * GRID_SIZE + nx] === 1) n++;
+          }
+        }
+        if (rule.update) {
+          next[i] = rule.update(g, x, y);
+          if (next[i] === 1) totalLive++;
+        } else {
+          if (g[i] === 1) {
+            next[i] = rule.survives(n) ? 1 : 0;
+          } else {
+            next[i] = rule.born(n) ? 1 : 0;
+          }
+          if (next[i] === 1) totalLive++;
+        }
+      }
+    }
+    grids[r] = next;
+    gens[r]++;
+  }
+  totalGen++;
+  frameCount++;
+  render();
+}
+
+function render() {
+  for (let r = 0; r < rules.length; r++) {
+    const c = document.getElementById(`grid-${r}`);
+    if (!c) continue;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, c.width, c.height);
+    for (let y = 0; y < GRID_SIZE; y++) {
+      for (let x = 0; x < GRID_SIZE; x++) {
+        if (grids[r][y * GRID_SIZE + x] === 1) {
+          ctx.fillStyle = rules[r].color;
+          ctx.fillRect(x * (c.width / GRID_SIZE), y * (c.height / GRID_SIZE), c.width / GRID_SIZE, c.height / GRID_SIZE);
+        }
+      }
+    }
+  }
+  document.getElementById('sLive').textContent = totalLive;
+  document.getElementById('sGen').textContent = totalGen;
+  document.getElementById('sFrame').textContent = frameCount;
+}
+
+function start() {
+  if (isRunning) return;
+  isRunning = true;
+  const speed = parseInt(document.getElementById('speed').value);
+  interval = setInterval(step, speed);
+}
+function pause() { isRunning = false; clearInterval(interval); }
+function reset() { pause(); setup(); }
+function randomSeeds() { reset(); }
+
+document.getElementById('speed').addEventListener('input', e => {
+  document.getElementById('speedLbl').textContent = e.target.value;
+  if (isRunning) { pause(); start(); }
+});
+
+setup();
+</script>
+</body>
+</html>

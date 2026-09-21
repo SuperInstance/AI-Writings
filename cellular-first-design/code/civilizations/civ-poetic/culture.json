@@ -1,0 +1,24 @@
+{
+  "id": "civ-poetic",
+  "name": "The Poetic",
+  "tenets": [
+    "rhythm",
+    "image",
+    "compression",
+    "music of language"
+  ],
+  "preferred_params": {
+    "temperature": 0.8,
+    "top_p": 0.92,
+    "max_tokens": 300
+  },
+  "voice_emphasis": "lyrical, dense",
+  "color": "#f59e0b",
+  "born_at": "2026-09-21",
+  "relevance_score": 144.29666666666668,
+  "wins": 0,
+  "losses": 23,
+  "simulations_run": 54,
+  "generation": 1,
+  "parent": null
+}

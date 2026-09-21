@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 8,
+    "q4": 6,
+    "improvement": "Add a debug panel showing the top-8 similarity scores and the hash value for each query to allow users to verify the math.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 5,
+    "q2": 6,
+    "q3": 5,
+    "q4": 3,
+    "improvement": "Add a visible debug panel showing the raw 512-d hash vector and per-dimension overlap breakdown for the query vs each of the top matches, so users can verify the cosine similarity computation.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a debug panel showing the raw cosine similarity scores for the top-8 sentences to improve verifiability.",
+    "_provider": "deepinfra-qwen"
+  }
+]

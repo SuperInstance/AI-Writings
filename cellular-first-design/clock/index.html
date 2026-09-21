@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Clock — sundial</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#1a1a2e 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:200;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.dial{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;flex-direction:column;align-items:center}
+canvas{display:block;background:radial-gradient(circle at center,#1a1a2e 0%,#000 100%);border-radius:6px;border:1px solid var(--accent);max-width:100%}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=number], input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.8rem;flex:1}
+label.tick{padding:.3rem;border-radius:4px;margin:.1rem 0;font-size:.65rem;color:var(--dim)}
+label.tick.active{background:rgba(0,255,157,0.1);border-left:2px solid var(--accent);padding-left:.5rem;color:var(--text)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🕐 Substrate Clock</h1>
+<p class="tagline">A sundial that ticks by FNV-1a. Each second is a witness hash. Each minute is a small orbit.</p>
+</header>
+
+<main>
+<div class="dial">
+<canvas id="clock" width="500" height="500"></canvas>
+</div>
+<aside class="panel controls">
+<h3 style="color:var(--text);font-size:1rem;margin:0 0 .3rem">Mode</h3>
+<button onclick="setMode('wallclock')">🕐 Wall clock</button>
+<button class="secondary" onclick="setMode('witness')">⊕ Witness log clock</button>
+<button class="secondary" onclick="setMode('orbit')">🪐 Orbit clock</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Tick speed</h3>
+<label>Tempo: <input type="range" id="tempo" min="50" max="2000" value="500"> <span id="tempoLbl">500</span>ms</label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Mode: <span class="v" id="sMode">wallclock</span></div>
+<div>Ticks: <span class="v" id="sTicks">0</span></div>
+<div>Latest hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+<div>Witness log size: <span class="v" id="sLogSize">0</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Recent ticks</h3>
+<div id="tickList"></div>
+</aside>
+</main>
+
+<footer>🕐 substrate clock · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let mode = 'wallclock';
+let ticks = 0;
+let witnessLog = [];
+let rng = new Xoshiro256('clock-' + Date.now());
+let canvas, ctx;
+let interval = null;
+let center;
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('sMode').textContent = m;
+  ticks = 0;
+  witnessLog = [];
+  rng = new Xoshiro256(m + '-' + Date.now());
+  if (m === 'witness') {
+    // Witness log mode: each tick = new hash
+    document.getElementById('sLogSize').textContent = '∞';
+  } else if (m === 'orbit') {
+    // Orbit mode: 60 ticks = one full orbit
+    document.getElementById('sLogSize').textContent = '60';
+  } else {
+    document.getElementById('sLogSize').textContent = '0';
+  }
+  renderTickList();
+}
+
+function renderTickList() {
+  const el = document.getElementById('tickList');
+  el.innerHTML = '';
+  const recent = witnessLog.slice(-12);
+  for (const t of recent) {
+    const lbl = document.createElement('label');
+    lbl.className = 'tick';
+    lbl.textContent = `#${t.tick}: 0x${t.hash.toString(16).padStart(16, '0')}`;
+    el.appendChild(lbl);
+  }
+}
+
+function drawWallClock() {
+  const now = new Date();
+  const sec = now.getSeconds() + now.getMilliseconds() / 1000;
+  const min = now.getMinutes() + sec / 60;
+  const hr = (now.getHours() % 12) + min / 60;
+  drawFace();
+  // Hour
+  drawHand(hr * 30 - 90, 80, 6, '#00d4ff');
+  // Minute
+  drawHand(min * 6 - 90, 110, 4, '#00ff9d');
+  // Second
+  drawHand(sec * 6 - 90, 130, 2, '#ffb84d');
+}
+
+function drawWitness() {
+  // FNV-1a orbit at the rate of ticks
+  drawFace();
+  const a = ticks * 0.1;
+  const x = center.x + Math.cos(a) * 100;
+  const y = center.y + Math.sin(a) * 100;
+  ctx.fillStyle = '#00ff9d';
+  ctx.beginPath();
+  ctx.arc(x, y, 8, 0, Math.PI * 2);
+  ctx.fill();
+  // Trail
+  ctx.strokeStyle = 'rgba(0, 255, 157, 0.2)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let i = 0; i < witnessLog.length; i++) {
+    const t = witnessLog[i];
+    const wa = t.tick * 0.1;
+    const wx = center.x + Math.cos(wa) * 100;
+    const wy = center.y + Math.sin(wa) * 100;
+    if (i === 0) ctx.moveTo(wx, wy);
+    else ctx.lineTo(wx, wy);
+  }
+  ctx.stroke();
+}
+
+function drawOrbit() {
+  drawFace();
+  // 3 nested orbits at different speeds
+  for (let level = 0; level < 3; level++) {
+    const radius = 60 + level * 30;
+    const speed = 0.05 + level * 0.07;
+    const a = ticks * speed;
+    const x = center.x + Math.cos(a) * radius;
+    const y = center.y + Math.sin(a) * radius;
+    const colors = ['#00ff9d', '#00d4ff', '#7c5cff'];
+    ctx.fillStyle = colors[level];
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function drawFace() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Outer ring
+  ctx.strokeStyle = '#1a2238';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(center.x, center.y, 220, 0, Math.PI * 2);
+  ctx.stroke();
+  // Tick marks
+  ctx.strokeStyle = '#5a6580';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 60; i++) {
+    const a = (i / 60) * Math.PI * 2 - Math.PI / 2;
+    const r1 = 215, r2 = i % 5 === 0 ? 200 : 208;
+    ctx.beginPath();
+    ctx.moveTo(center.x + Math.cos(a) * r1, center.y + Math.sin(a) * r1);
+    ctx.lineTo(center.x + Math.cos(a) * r2, center.y + Math.sin(a) * r2);
+    ctx.stroke();
+  }
+  // Center
+  ctx.fillStyle = '#00ff9d';
+  ctx.beginPath();
+  ctx.arc(center.x, center.y, 4, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function drawHand(angleDeg, length, width, color) {
+  const a = angleDeg * Math.PI / 180;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = width;
+  ctx.beginPath();
+  ctx.moveTo(center.x, center.y);
+  ctx.lineTo(center.x + Math.cos(a) * length, center.y + Math.sin(a) * length);
+  ctx.stroke();
+}
+
+function tick() {
+  ticks++;
+  if (mode === 'witness') {
+    const h = fnv1a64(new TextEncoder().encode(`tick-${ticks}-${Math.floor(performance.now())}`));
+    witnessLog.push({ tick: ticks, hash: h });
+    if (witnessLog.length > 12) witnessLog.shift();
+    renderTickList();
+    document.getElementById('sHash').textContent = '0x' + h.toString(16).padStart(16, '0');
+  } else if (mode === 'orbit') {
+    const h = fnv1a64(new TextEncoder().encode(`orbit-${ticks}`));
+    document.getElementById('sHash').textContent = '0x' + h.toString(16).padStart(16, '0').slice(0, 8) + '...';
+    witnessLog.push({ tick: ticks, hash: h });
+    if (witnessLog.length > 12) witnessLog.shift();
+    renderTickList();
+  } else {
+    document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(new Date().toISOString())).toString(16).padStart(16, '0');
+  }
+  document.getElementById('sTicks').textContent = ticks;
+  // Render
+  if (mode === 'wallclock') drawWallClock();
+  else if (mode === 'witness') drawWitness();
+  else if (mode === 'orbit') drawOrbit();
+}
+
+document.getElementById('tempo').addEventListener('input', e => {
+  document.getElementById('tempoLbl').textContent = e.target.value;
+  if (interval) {
+    clearInterval(interval);
+    interval = setInterval(tick, parseInt(e.target.value));
+  }
+});
+
+canvas = document.getElementById('clock');
+ctx = canvas.getContext('2d');
+center = { x: canvas.width / 2, y: canvas.height / 2 };
+setMode('wallclock');
+interval = setInterval(tick, parseInt(document.getElementById('tempo').value));
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Turing — interactive machine</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.section h3{color:var(--accent);font-size:.95rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.7rem}
+.tape-wrap{background:#000;border:1px solid var(--border);border-radius:6px;padding:.5rem;overflow-x:auto}
+.tape{display:flex;gap:1px;font-family:var(--mono);font-size:.7rem}
+.cell{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:3px;color:var(--text2)}
+.cell.head{background:var(--accent);color:#000;font-weight:bold;box-shadow:0 0 10px var(--accent)}
+.cell.empty{color:var(--dim);background:#0a0a0a}
+.state-panel{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2)}
+.state-panel .field{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem}
+.state-panel .label{color:var(--dim);font-size:.7rem;text-transform:uppercase;letter-spacing:1px}
+.state-panel .v{color:var(--accent);font-weight:bold;font-size:1rem}
+button{display:inline-block;background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-right:.3rem;margin-top:.3rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.program-list{margin-top:.5rem;font-family:var(--mono);font-size:.7rem;max-height:120px;overflow-y:auto}
+.program-list .rule{padding:.2rem .4rem;border-bottom:1px solid var(--border);color:var(--text2)}
+.program-list .rule.active{background:rgba(0,255,157,0.1);color:var(--accent)}
+input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.4rem;font-family:var(--mono);font-size:.85rem;width:100%;margin-bottom:.5rem}
+select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem;font-family:var(--mono);font-size:.85rem}
+.stats{margin-top:1rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📜 Substrate Turing</h1>
+<p class="tagline">A Turing machine with substrate-hashed transitions. 5 preset programs.</p>
+</header>
+
+<main>
+<section class="section">
+<h3>Tape (head is glowing cell)</h3>
+<div class="tape-wrap"><div class="tape" id="tape"></div></div>
+<div class="state-panel">
+<div class="field"><div class="label">State</div><div class="v" id="sState">q0</div></div>
+<div class="field"><div class="label">Step</div><div class="v" id="sStep">0</div></div>
+<div class="field"><div class="label">Position</div><div class="v" id="sPos">0</div></div>
+<div class="field"><div class="label">Cells visited</div><div class="v" id="sCells">1</div></div>
+</div>
+<button onclick="step()">⏭ Step</button>
+<button onclick="run()">▶ Run</button>
+<button class="secondary" onclick="pause()">⏸ Pause</button>
+<button class="secondary" onclick="reset()">↻ Reset</button>
+</section>
+
+<section class="section">
+<h3>Program</h3>
+<input type="text" id="programSelect" value="binary-increment">
+<select id="preset">
+<option value="binary-increment">Binary increment (1s)</option>
+<option value="unary-to-binary">Unary → binary</option>
+<option value="palindrome">3-state palindrome checker</option>
+<option value="busy-beaver">2-state 2-symbol busy beaver</option>
+<option value="fibonacci">Fibonacci (3 states)</option>
+</select>
+<button class="secondary" onclick="loadPreset()">Load preset</button>
+<h3 style="margin-top:1rem">Rules</h3>
+<div class="program-list" id="rules"></div>
+</section>
+</main>
+
+<div class="stats" style="max-width:1100px;margin:1rem auto;padding:.5rem;text-align:center">
+<span style="color:var(--dim)">State hash:</span> <span style="color:var(--accent2);font-family:var(--mono)" id="sHash">—</span>
+</div>
+
+<footer>📜 substrate Turing · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+const PRESETS = {
+  'binary-increment': {
+    initial: '00000',
+    rules: [
+      // state, read, write, move, new_state
+      ['q0', '0', '1', 'R', 'qHALT'],
+      ['q0', '1', '0', 'L', 'q1'],
+      ['q1', '0', '1', 'R', 'qHALT'],
+      ['q1', '1', '0', 'L', 'q1'],
+    ]
+  },
+  'unary-to-binary': {
+    initial: '11111',
+    rules: [
+      ['q0', '1', 'x', 'R', 'q0'],
+      ['q0', '0', '0', 'R', 'q1'],
+      ['q1', '1', '1', 'R', 'q1'],
+      ['q1', '0', '0', 'L', 'q2'],
+      ['q2', '1', '0', 'L', 'q2'],
+      ['q2', 'x', '1', 'R', 'qHALT'],
+    ]
+  },
+  'palindrome': {
+    initial: 'aba',
+    rules: [
+      ['q0', 'a', 'X', 'R', 'q1'],
+      ['q0', 'b', 'X', 'R', 'q2'],
+      ['q0', 'X', 'X', 'R', 'q0'],
+      ['q1', 'a', 'a', 'R', 'q1'],
+      ['q1', 'b', 'b', 'R', 'q1'],
+      ['q1', 'X', 'X', 'L', 'q3'],
+      ['q2', 'a', 'a', 'R', 'q2'],
+      ['q2', 'b', 'b', 'R', 'q2'],
+      ['q2', 'X', 'X', 'L', 'q4'],
+      ['q3', 'a', 'X', 'R', 'qOK'],
+      ['q4', 'b', 'X', 'R', 'qOK'],
+    ]
+  },
+  'busy-beaver': {
+    initial: '000',
+    rules: [
+      ['q0', '0', '1', 'R', 'q1'],
+      ['q0', '1', '1', 'L', 'q2'],
+      ['q1', '0', '0', 'L', 'q0'],
+      ['q1', '1', '1', 'L', 'qHALT'],
+      ['q2', '0', '1', 'L', 'qHALT'],
+      ['q2', '1', '1', 'R', 'q0'],
+    ]
+  },
+  'fibonacci': {
+    initial: '1',
+    rules: [
+      // Simplified: just computes 3-iter then halts
+      ['q0', '1', '1', 'R', 'q1'],
+      ['q0', '_', '1', 'R', 'qHALT'],
+      ['q1', '1', '1', 'R', 'q2'],
+      ['q1', '_', '1', 'R', 'qHALT'],
+      ['q2', '1', '1', 'L', 'q3'],
+      ['q2', '_', '1', 'L', 'qHALT'],
+      ['q3', '1', '0', 'L', 'q0'],
+      ['q3', '_', '1', 'R', 'qHALT'],
+    ]
+  }
+};
+
+let tape = [];
+let head = 0;
+let state = 'q0';
+let stepCount = 0;
+let rules = [];
+let visited = new Set();
+let isRunning = false;
+let interval = null;
+
+function loadPreset() {
+  const presetKey = document.getElementById('preset').value;
+  const preset = PRESETS[presetKey];
+  if (!preset) return;
+  tape = preset.initial.split('');
+  head = 0;
+  state = 'q0';
+  stepCount = 0;
+  rules = preset.rules.map(r => [...r]);
+  visited.clear();
+  visited.add(head);
+  isRunning = false;
+  clearInterval(interval);
+  render();
+}
+
+function step() {
+  const cellValue = tape[head] || '_';
+  const rule = rules.find(r => r[0] === state && r[1] === cellValue);
+  if (!rule) {
+    // No rule — try HALT
+    if (state === 'qHALT' || state === 'qOK') { isRunning = false; clearInterval(interval); return; }
+    // No applicable rule — halt
+    state = 'qHALT';
+    isRunning = false;
+    clearInterval(interval);
+    render();
+    return;
+  }
+  tape[head] = rule[2];
+  head += rule[3] === 'R' ? 1 : -1;
+  state = rule[4];
+  stepCount++;
+  visited.add(head);
+  render();
+}
+
+function run() {
+  if (isRunning) return;
+  isRunning = true;
+  interval = setInterval(step, 100);
+}
+function pause() { isRunning = false; clearInterval(interval); }
+function reset() { loadPreset(); }
+
+function render() {
+  // Tape
+  const tapeEl = document.getElementById('tape');
+  tapeEl.innerHTML = '';
+  const viewStart = Math.min(head - 15, 0);
+  const viewEnd = Math.max(head + 15, tape.length);
+  for (let i = viewStart; i <= viewEnd; i++) {
+    const v = tape[i] || '_';
+    const cell = document.createElement('div');
+    cell.className = 'cell' + (i === head ? ' head' : '') + (v === '_' ? ' empty' : '');
+    cell.textContent = v;
+    tapeEl.appendChild(cell);
+  }
+  // State
+  document.getElementById('sState').textContent = state;
+  document.getElementById('sStep').textContent = stepCount;
+  document.getElementById('sPos').textContent = head;
+  document.getElementById('sCells').textContent = visited.size;
+  // Rules
+  const rulesEl = document.getElementById('rules');
+  rulesEl.innerHTML = '';
+  for (const r of rules) {
+    const div = document.createElement('div');
+    div.className = 'rule' + (r[0] === state ? ' active' : '');
+    div.textContent = `${r[0]}, ${r[1]} → write ${r[2]}, ${r[3]}, ${r[4]}`;
+    rulesEl.appendChild(div);
+  }
+  // Hash
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${state}|${head}|${stepCount}|${tape.join('')}`)).toString(16).padStart(16, '0');
+}
+
+document.getElementById('preset').addEventListener('change', loadPreset);
+
+loadPreset();
+render();
+</script>
+</body>
+</html>

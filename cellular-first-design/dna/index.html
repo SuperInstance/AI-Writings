@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate DNA — genome sequence generator</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:linear-gradient(180deg,#0a0a1a 0%,#1a0a2a 30%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.sequence{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;font-family:var(--mono);font-size:1rem;line-height:2.2;color:var(--text);min-height:300px;letter-spacing:.15em}
+.sequence .A{color:var(--accent);font-weight:bold}
+.sequence .T{color:var(--accent2);font-weight:bold}
+.sequence .C{color:var(--accent3);font-weight:bold}
+.sequence .G{color:var(--amber);font-weight:bold}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text], input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem}
+input[type=range]{flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.protein{margin-top:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2)}
+.protein h3{color:var(--accent);font-size:1rem;margin:0 0 .3rem;font-family:var(--mono)}
+.codon{padding:.2rem .5rem;background:var(--bg);border-radius:3px;display:inline-block;margin:.1rem}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🧬 Substrate DNA</h1>
+<p class="tagline">Generate DNA sequences deterministically. FNV-1a + xoshiro256** = reproducible genomes.</p>
+</header>
+
+<main>
+<section class="sequence" id="seq">Click "Generate DNA" to begin.</section>
+<aside class="panel">
+<label>Length: <input type="number" id="length" value="60" min="6" max="600"></label>
+<label>Seed: <input type="text" id="seed" value="xochitl" style="flex:1"></label>
+<button onclick="generate()">🧬 Generate DNA</button>
+<button class="secondary" onclick="reverse()">↕ Reverse complement</button>
+<button class="secondary" onclick="transcribe()">✉ Transcribe (DNA→RNA)</button>
+<button class="secondary" onclick="translate()">✉→🧬 Translate (RNA→protein)</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Length: <span class="v" id="sLen">0</span></div>
+<div>A: <span class="v" id="sA">0</span> T: <span class="v" id="sT">0</span> C: <span class="v" id="sC">0</span> G: <span class="v" id="sG">0</span></div>
+<div>GC content: <span class="v" id="sGC">0%</span></div>
+<div>Hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<div class="protein" id="protein" style="max-width:1100px;margin:1rem auto;display:none">
+<h3>Protein</h3>
+<div id="proteinList"></div>
+</div>
+
+<footer>🧬 substrate DNA · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+const NUCLEOTIDES = ['A', 'T', 'C', 'G'];
+const COMPLEMENT = { A: 'T', T: 'A', C: 'G', G: 'C' };
+// Codon table (RNA → amino acid)
+const CODON = {
+  'UUU': 'Phe', 'UUC': 'Phe', 'UUA': 'Leu', 'UUG': 'Leu',
+  'UCU': 'Ser', 'UCC': 'Ser', 'UCA': 'Ser', 'UCG': 'Ser',
+  'UAU': 'Tyr', 'UAC': 'Tyr', 'UAA': 'Stop', 'UAG': 'Stop',
+  'UGU': 'Cys', 'UGC': 'Cys', 'UGA': 'Stop', 'UGG': 'Trp',
+  'CUU': 'Leu', 'CUC': 'Leu', 'CUA': 'Leu', 'CUG': 'Leu',
+  'CCU': 'Pro', 'CCC': 'Pro', 'CCA': 'Pro', 'CCG': 'Pro',
+  'CAU': 'His', 'CAC': 'His', 'CAA': 'Gln', 'CAG': 'Gln',
+  'CGU': 'Arg', 'CGC': 'Arg', 'CGA': 'Arg', 'CGG': 'Arg',
+  'AUU': 'Ile', 'AUC': 'Ile', 'AUA': 'Ile', 'AUG': 'Met',
+  'ACU': 'Thr', 'ACC': 'Thr', 'ACA': 'Thr', 'ACG': 'Thr',
+  'AAU': 'Asn', 'AAC': 'Asn', 'AAA': 'Lys', 'AAG': 'Lys',
+  'AGU': 'Ser', 'AGC': 'Ser', 'AGA': 'Arg', 'AGG': 'Arg',
+  'GUU': 'Val', 'GUC': 'Val', 'GUA': 'Val', 'GUG': 'Val',
+  'GCU': 'Ala', 'GCC': 'Ala', 'GCA': 'Ala', 'GCG': 'Ala',
+  'GAU': 'Asp', 'GAC': 'Asp', 'GAA': 'Glu', 'GAG': 'Glu',
+  'GGU': 'Gly', 'GGC': 'Gly', 'GGA': 'Gly', 'GGG': 'Gly',
+};
+
+let dna = '';
+
+function generate() {
+  const seed = document.getElementById('seed').value;
+  const length = parseInt(document.getElementById('length').value);
+  const rng = new Xoshiro256(seed + '-' + Date.now());
+  let s = '';
+  for (let i = 0; i < length; i++) {
+    s += NUCLEOTIDES[Math.floor(rng.float() * 4)];
+  }
+  dna = s;
+  document.getElementById('protein').style.display = 'none';
+  render();
+}
+
+function render() {
+  const el = document.getElementById('seq');
+  el.innerHTML = dna.split('').map(c => `<span class="${c}">${c}</span>`).join('');
+  const a = (dna.match(/A/g) || []).length;
+  const t = (dna.match(/T/g) || []).length;
+  const c = (dna.match(/C/g) || []).length;
+  const g = (dna.match(/G/g) || []).length;
+  document.getElementById('sLen').textContent = dna.length;
+  document.getElementById('sA').textContent = a;
+  document.getElementById('sT').textContent = t;
+  document.getElementById('sC').textContent = c;
+  document.getElementById('sG').textContent = g;
+  document.getElementById('sGC').textContent = ((c + g) / dna.length * 100).toFixed(1) + '%';
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(dna)).toString(16).padStart(16, '0');
+}
+
+function reverse() {
+  dna = dna.split('').reverse().map(c => COMPLEMENT[c]).join('');
+  render();
+}
+
+function transcribe() {
+  const rna = dna.replace(/T/g, 'U');
+  document.getElementById('seq').innerHTML = rna.split('').map(c => `<span class="${c === 'U' ? 'T' : c}">${c}</span>`).join('');
+  document.getElementById('protein').style.display = 'block';
+  // Translate
+  const codons = [];
+  for (let i = 0; i < rna.length - 2; i += 3) {
+    const codon = rna.slice(i, i + 3);
+    const aa = CODON[codon] || '?';
+    codons.push({ codon, aa });
+  }
+  const el = document.getElementById('proteinList');
+  el.innerHTML = codons.map(c => `<span class="codon">${c.codon} → ${c.aa}</span>`).join(' ');
+}
+
+function translate() {
+  if (!document.getElementById('seq').textContent.includes('U')) transcribe();
+}
+
+generate();
+</script>
+</body>
+</html>

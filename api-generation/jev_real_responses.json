@@ -1,0 +1,84 @@
+{
+  "ts": "2026-09-21T00:50",
+  "total_questions": 9,
+  "batches": [
+    {
+      "batch": "creative",
+      "results": [
+        {
+          "kind": "choice",
+          "value": "a",
+          "confidence": 0.33,
+          "source": "fallback",
+          "latency_ms": 0.0
+        },
+        {
+          "kind": "score",
+          "value": 1.0,
+          "confidence": 0.33,
+          "source": "fallback",
+          "latency_ms": 0.0
+        }
+      ]
+    },
+    {
+      "batch": "jev_economics",
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.6052586501568517,
+          "confidence": 0.6052586501568517,
+          "source": "fallback",
+          "latency_ms": 0.0
+        },
+        {
+          "kind": "noul",
+          "value": 0.4429200227258794,
+          "confidence": 0.4429200227258794,
+          "source": "fallback",
+          "latency_ms": 0.0
+        },
+        {
+          "kind": "choice",
+          "value": "b",
+          "confidence": 0.33,
+          "source": "fallback",
+          "latency_ms": 0.0
+        }
+      ]
+    },
+    {
+      "batch": "substrate_quality_check",
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.54,
+          "confidence": 0.54,
+          "source": "typesafe",
+          "latency_ms": 436.76533999996536
+        },
+        {
+          "kind": "noul",
+          "value": 0.7,
+          "confidence": 0.7,
+          "source": "typesafe",
+          "latency_ms": 436.76533999996536
+        },
+        {
+          "kind": "noul",
+          "value": 0.6,
+          "confidence": 0.6,
+          "source": "typesafe",
+          "latency_ms": 436.76533999996536
+        },
+        {
+          "kind": "score",
+          "value": 2.21,
+          "confidence": 0.37,
+          "source": "typesafe",
+          "latency_ms": 436.76533999996536
+        }
+      ]
+    }
+  ]
+}

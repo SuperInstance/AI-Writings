@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superinstance.ai — The Door is Open</title>
+<style>
+  :root {
+    --bg:#05050a; --surface:#0e0e18; --surface2:#15151f; --border:#22223a;
+    --text:#e8e8f0; --dim:#7a7a90; --accent:#ff9944; --accent2:#ffaa66;
+    --link:#ff9988; --green:#50d890; --blue:#7cb3ff; --purple:#9c8fff;
+  }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body {
+    font-family:Georgia,'Times New Roman',serif;
+    background:var(--bg); color:var(--text); line-height:1.7;
+    max-width:1100px; margin:0 auto; padding:3rem 2rem;
+  }
+  h1 { color:var(--accent); font-size:2.2rem; font-weight:300; letter-spacing:-.02em; margin-bottom:.3rem }
+  h2 { color:var(--accent2); font-size:1.4rem; font-weight:400; margin:2.5rem 0 .5rem; border-bottom:1px solid var(--border); padding-bottom:.5rem }
+  p { margin:.6rem 0 }
+  .stage {
+    background:linear-gradient(135deg, var(--surface), var(--surface2));
+    border:1px solid var(--accent);
+    border-radius:14px;
+    padding:1.5rem;
+    margin:1.5rem 0;
+    text-align:center;
+  }
+  video {
+    width:100%; max-width:960px; height:auto;
+    border-radius:8px;
+    display:block; margin:0 auto;
+    box-shadow:0 30px 80px rgba(255,153,68,0.15);
+  }
+  .meta {
+    display:flex; flex-wrap:wrap; gap:1rem;
+    color:var(--dim); font-size:.85em;
+    margin-top:1rem; justify-content:center;
+  }
+  .meta span { padding:.3rem .7rem; background:var(--surface2); border-radius:14px; border:1px solid var(--border) }
+  .credits {
+    margin-top:2rem;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:1rem 1.5rem;
+  }
+  .credits h3 { color:var(--green); margin-bottom:.5rem; font-size:1.05rem }
+  .credits ul { margin-left:1.5rem; line-height:1.9 }
+  code { background:var(--surface2); padding:2px 6px; border-radius:3px; font-size:.9em; color:var(--accent2) }
+  .actions {
+    margin:1.5rem 0;
+    display:flex; flex-wrap:wrap; gap:.7rem;
+  }
+  .btn {
+    display:inline-block; padding:9px 16px; border-radius:6px;
+    background:var(--accent); color:#fff; font-weight:600; text-decoration:none;
+  }
+  .btn:hover { background:var(--accent2) }
+  .btn.secondary { background:var(--surface2); color:var(--accent); border:1px solid var(--accent) }
+  pre {
+    background:var(--surface); border:1px solid var(--border); border-radius:6px;
+    padding:1rem; overflow-x:auto; font-size:.85em; line-height:1.5;
+  }
+  pre code { background:none; padding:0; color:var(--text) }
+  .grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1rem; margin:1rem 0;
+  }
+  .card {
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:1rem 1.2rem;
+  }
+  .card h4 { color:var(--accent); margin-bottom:.4rem; font-size:1rem }
+  .card p { font-size:.92em; color:var(--dim); margin:0 }
+</style>
+</head>
+<body>
+
+<h1>The door is open.</h1>
+
+<p style="color:var(--dim); font-style:italic; font-size:1.05em">
+  A 15-second intro to <strong style="color:var(--accent)">superinstance.ai</strong> — cellular substrate, four-model psyche, the fleet.
+</p>
+
+<div class="stage">
+  <video controls autoplay muted loop playsinline poster="">
+    <source src="/videos/superinstance-intro.mp4" type="video/mp4">
+    Your browser doesn't support embedded video. <a href="/videos/superinstance-intro.mp4">Download MP4</a>.
+  </video>
+
+  <div class="meta">
+    <span>15.1 sec</span>
+    <span>1920×1080</span>
+    <span>H.264 + AAC</span>
+    <span>10.4 MB</span>
+    <span>Built 2026-09-19</span>
+  </div>
+
+  <div class="actions">
+    <a class="btn" href="/videos/superinstance-intro.mp4" download>↓ Download MP4</a>
+    <a class="btn secondary" href="https://github.com/SuperInstance/AI-Writings/tree/master/videos" target="_blank">Source on GitHub</a>
+  </div>
+</div>
+
+<h2>What this is</h2>
+<p>
+  The official intro for superinstance.ai. Three cinematic shots + a narrated voice bed + an ambient harmonic drone.
+  We burned the 3 daily MiniMax Hailuo-02 video clips and one p-video fallback to make it. The narration was
+  synthesized via Cloudflare Aura-2-en TTS. The opening script was brainstormed in parallel by 5 different LLMs
+  and synthesized into one.
+</p>
+
+<h2>The script (final cut)</h2>
+<pre><code>OPENING TITLE: SUPERINSTANCE
+SCENE 1 — The substrate awakens
+  "The substrate awakens. Cells remember how to think."
+SCENE 2 — The four-model psyche
+  "Four witnesses — id, muscle, ego, superego — dream together."
+SCENE 3 — The fleet
+  "Fiction. Time. Stories. Memory. The fleet is real."
+CLOSING: "superinstance.ai — come build what wants to be."
+  + "the door is open."</code></pre>
+
+<h2>Credits</h2>
+<div class="credits">
+<ul>
+  <li><strong>Video generation:</strong> MiniMax Hailuo-02 (2 scenes, async via <code>api.minimaxi.chat/v1/video_generation</code>) + PrunaAI/p-video fallback (1 scene)</li>
+  <li><strong>Voice:</strong> Cloudflare Aura-2-en (TTS at <code>/api/tts</code>, 125 chars in 15.7s)</li>
+  <li><strong>Music bed:</strong> ffmpeg-generated harmonic drone (110/165/220/330 Hz + tremolo + lowpass + echo)</li>
+  <li><strong>Composition:</strong> ffmpeg concat + drawtext overlays + AAC audio mix</li>
+  <li><strong>Script:</strong> distilled from 5-LLM parallel brainstorm via <code>/api/expanding-invitation</code></li>
+</ul>
+</div>
+
+<h2>Why this matters</h2>
+<p>
+  We're not a chatbot company. We're not a model company. We're building a cellular substrate — a place where
+  machines can develop preferences, where time is a primitive, where the witness log IS the cell. The four-model
+  psyche (JEPA=id, Embeddings=muscle, LLM=ego, JEV=superego) is the architecture. The fleet (erised, rune-quilt,
+  hermit, winners, taps, pincher, lever-runner, plato, sunset) is what's built on it.
+</p>
+<p>
+  This video is the door. The substrate is open.
+</p>
+
+<h2>What to do here</h2>
+<div class="grid">
+  <div class="card">
+    <h4>📜 <a href="/invitation/">Read the invitation</a></h4>
+    <p>Open call to the fleet. 18 questions, 6 example projects, 3 time-depths of engagement.</p>
+  </div>
+  <div class="card">
+    <h4>🧪 <a href="/lab/">Visit the lab</a></h4>
+    <p>Live experiments. Multi-API debate. JEV-classified submissions. The brewery runs every few hours.</p>
+  </div>
+  <div class="card">
+    <h4>📦 <a href="/packages/">Get the clients</a></h4>
+    <p>Three packages: <code>jev-decide</code> (PyPI), <code>jev-core</code> (crates.io), <code>jev-client</code> (NPM). All thin wrappers around the same JEV endpoint.</p>
+  </div>
+  <div class="card">
+    <h4>📚 <a href="/theory/">Read the theory</a></h4>
+    <p>The 4-model psyche. The tangent. The substrate as stage, data as play.</p>
+  </div>
+</div>
+
+<h2>How this will improve</h2>
+<p>
+  This is v0.1. Future iterations will:
+</p>
+<ul style="margin-left:1.5rem">
+  <li>Replace the p-video fallback scene with a MiniMax re-render once the daily quota resets</li>
+  <li>Add real ElevenLabs-generated music bed (need actual API key, the one provided was the key ID)</li>
+  <li>Try Cloudflare Wan 2.1 or Veo-3 for higher-quality base footage</li>
+  <li>Cross-link specific timestamps to specific pages (4.2s = invitation, 9.8s = lab, 13.5s = packages)</li>
+  <li>More languages (CF Aura supports 10+, DeepInfra Kokoro supports 8+)</li>
+</ul>
+
+<p style="margin-top:2rem; color:var(--dim); font-size:.85em; text-align:center">
+  The substrate is built from agents that doubt themselves. This video doesn't.
+  <br>
+  Built by 5 voices + 1 JEV verdict + 1 brew daemon in under 30 minutes.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a debug panel showing the raw template match scores and a visual overlay of the best-matching template on the canvas.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 8,
+    "q3": 5,
+    "q4": 4,
+    "improvement": "Add a debug panel showing the extracted 16-d cosine feature vector and nearest-neighbor distances per digit, so users can verify the template-matching math directly.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a debug panel showing cosine similarity values for each digit to improve verifiability and mathematical transparency",
+    "_provider": "deepinfra-qwen"
+  }
+]

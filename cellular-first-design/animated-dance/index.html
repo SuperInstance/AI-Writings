@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Animated Dance - JEV × Quilt × Autoclaw</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: ui-sans-serif, system-ui, sans-serif; background: #050510; color: #d4d4dc; padding: 32px; line-height: 1.7; }
+header { max-width: 1300px; margin: 0 auto 48px; text-align: center; }
+h1 { font-size: 48px; background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899, #f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; letter-spacing: -0.02em; }
+.subtitle { color: #888; font-size: 16px; max-width: 800px; margin: 0 auto; }
+.doctrine { max-width: 1100px; margin: 32px auto; padding: 32px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; font-style: italic; color: #ccc; line-height: 1.8; }
+.doctrine strong { color: #f59e0b; font-style: normal; }
+.architecture { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1300px; margin: 48px auto; }
+.arch-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 28px; transition: all 0.2s; }
+.arch-card:hover { transform: translateY(-2px); border-color: #06b6d4; }
+.arch-card .icon { font-size: 36px; margin-bottom: 12px; }
+.arch-card h3 { color: #fff; font-size: 20px; margin-bottom: 8px; }
+.arch-card p { color: #b0b0b8; font-size: 14px; }
+.arch-card .flow { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 4px; font-family: monospace; font-size: 12px; color: #06b6d4; margin-top: 12px; }
+.demo { max-width: 1300px; margin: 48px auto; padding: 32px; background: rgba(255, 255, 255, 0.03); border-radius: 12px; }
+.demo h2 { color: #8b5cf6; margin-bottom: 16px; }
+.moment-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.moment-table th { color: #06b6d4; padding: 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.moment-table td { padding: 8px; border-bottom: 1px dashed rgba(255,255,255,0.05); font-family: monospace; }
+.moment-table tr.cache td { color: #fbbf24; }
+.moment-table tr.jev td { color: #06b6d4; }
+.temp-bar { display: inline-block; height: 6px; background: linear-gradient(90deg, #06b6d4, #ec4899); vertical-align: middle; margin-left: 6px; border-radius: 3px; }
+.stats { display: flex; justify-content: space-around; max-width: 1300px; margin: 32px auto; padding: 24px; background: rgba(255,255,255,0.03); border-radius: 12px; }
+.stats div { text-align: center; }
+.stats .num { font-size: 32px; color: #06b6d4; font-family: monospace; }
+.stats .lbl { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+footer { max-width: 1300px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<h1>The Animated Dance</h1>
+<p class="subtitle">JEV × Quilt × Autoclaw — moment-by-moment numbers that breathe, reorient, surprise.</p>
+</header>
+
+<div class="doctrine">
+<strong>The doctrine</strong>: We don't figure out JEV. We dance with it. Like a jazz combo reorienting to every surprise in a good way — at each moment, JEV picks the best number for THIS state. The cells TICK, JEV scores, the parameters shift, the dance continues. Autoclaw runs autoresearch in the background finding better numbers; Quilt cells hold the state; Pincher caches for instant recall; the substrate animates thought.
+</div>
+
+<div class="architecture">
+<div class="arch-card">
+<div class="icon">🔷</div>
+<h3>Quilt Cells</h3>
+<p>The reactive cellular runtime. Each cell is a value, a formula, a listener, an API call. State is a JSON document.</p>
+<div class="flow">cell TICK -> read state -> write state</div>
+</div>
+<div class="arch-card">
+<div class="icon">⚖️</div>
+<h3>JEV Oracle</h3>
+<p>System One decisions. Picks the BEST number for THIS moment — temperature, confidence threshold, tone, verbosity.</p>
+<div class="flow">state -> JEV batch -> best numbers</div>
+</div>
+<div class="arch-card">
+<div class="icon">🧬</div>
+<h3>Autoclaw Background</h3>
+<p>Autoresearch in the background. Runs thousands of small simulations, finds better parameters, publishes to substrate.</p>
+<div class="flow">random params -> LLM -> JEV score -> best so far</div>
+</div>
+<div class="arch-card">
+<div class="icon">📌</div>
+<h3>Pincher Cache</h3>
+<p>Muscle memory. Caches JEV decisions by state fingerprint. Instant recall when the substrate sees similar moments.</p>
+<div class="flow">fingerprint(state) -> cache hit/miss</div>
+</div>
+<div class="arch-card">
+<div class="icon">🚌</div>
+<h3>Substrate Bus</h3>
+<p>Cross-pollination. Wesley publishes canon changes, Snowball reads, Jevvy audits. Bots communicate via topics.</p>
+<div class="flow">topic publish/sub -> shared witness log</div>
+</div>
+<div class="arch-card">
+<div class="icon">🎯</div>
+<h3>RSI GAN</h3>
+<p>Recursive Self-Improvement GAN. N providers compete, JEV scores, top-K seed next round.</p>
+<div class="flow">N candidates -> JEV rate -> best wins</div>
+</div>
+</div>
+
+<div class="stats">
+<div><div class="num">94</div><div class="lbl">simulations</div></div>
+<div><div class="num">13</div><div class="lbl">new bests</div></div>
+<div><div class="num">2.06</div><div class="lbl">top avg score</div></div>
+<div><div class="num">3.45</div><div class="lbl">top alignment</div></div>
+<div><div class="num">1</div><div class="lbl">bg daemon</div></div>
+<div><div class="num">4</div><div class="lbl">voices</div></div>
+</div>
+
+<div class="demo">
+<h2>🎬 The Dance — 10 Moments of a Cell</h2>
+<p style="color:#888;margin-bottom:16px;">Each tick, JEV picks new numbers for THIS moment. Watch how parameters shift as the user's input changes.</p>
+
+<table class="moment-table">
+<tr><th>Tick</th><th>Input</th><th>Temp</th><th>Conf</th><th>Tone</th><th>Verbosity</th><th>Source</th></tr>
+
+<tr class="jev"><td>1</td><td>What is a cell?</td><td>0.82<div class="temp-bar" style="width:82px;"></div></td><td>1.59</td><td>warm</td><td>1.64</td><td>jev</td></tr>
+<tr class="jev"><td>2</td><td>How do cells communicate?</td><td>1.36<div class="temp-bar" style="width:100px;"></div></td><td>1.71</td><td>warm</td><td>2.03</td><td>jev</td></tr>
+<tr class="jev"><td>3</td><td>I'm stuck. Help.</td><td>1.51<div class="temp-bar" style="width:100px;"></div></td><td>1.66</td><td>warm</td><td>2.27</td><td>jev</td></tr>
+<tr class="jev"><td>4</td><td>That's perfect!</td><td>1.41<div class="temp-bar" style="width:100px;"></div></td><td>1.80</td><td>warm</td><td>2.17</td><td>jev</td></tr>
+<tr class="jev"><td>5</td><td>Try again, but more concise.</td><td>0.67<div class="temp-bar" style="width:67px;"></div></td><td>1.72</td><td>warm</td><td>0.73</td><td>jev</td></tr>
+<tr class="jev"><td>6</td><td>Explain like I'm five.</td><td>1.73<div class="temp-bar" style="width:100px;"></div></td><td>1.86</td><td>warm</td><td>2.70</td><td>jev</td></tr>
+<tr class="jev"><td>7</td><td>What about for cities?</td><td>1.80<div class="temp-bar" style="width:100px;"></div></td><td>1.76</td><td>warm</td><td>2.24</td><td>jev</td></tr>
+<tr class="jev"><td>8</td><td>Make it whimsical.</td><td>3.35<div class="temp-bar" style="width:100px;"></div></td><td>1.34</td><td>warm</td><td>2.44</td><td>jev</td></tr>
+<tr class="jev"><td>9</td><td>Now formal.</td><td>1.59<div class="temp-bar" style="width:100px;"></div></td><td>1.78</td><td>warm</td><td>2.36</td><td>jev</td></tr>
+<tr class="jev"><td>10</td><td>Final answer?</td><td>1.29<div class="temp-bar" style="width:100px;"></div></td><td>2.28</td><td>warm</td><td>2.01</td><td>jev</td></tr>
+
+</table>
+
+<p style="color:#888;margin-top:24px;font-size:13px;">
+Notice how temperature and verbosity drop at tick 5 ("more concise") and spike at tick 8 ("whimsical"). 
+JEV reads the moment and picks numbers that fit. The cells don't have a static config — they breathe.
+</p>
+</div>
+
+<div class="demo">
+<h2>🎵 The Quad Dance — 4 Voices, JEV Picks Winner</h2>
+<p style="color:#888;margin-bottom:16px;">Each prompt gets 4 voices: ZAI (piano), Kimi (bass), Groq (sax), DeepSeek (drums). JEV picks the winner for that moment.</p>
+
+<table class="moment-table">
+<tr><th>Moment</th><th>Voices Played</th><th>Winner</th><th>Voice</th><th>Q/N/A</th></tr>
+<tr><td>1</td><td>zai, groq</td><td>zai</td><td>piano</td><td>1.64 / 1.00 / 3.18</td></tr>
+<tr><td>2</td><td>zai, groq</td><td>zai</td><td>piano</td><td>2.10 / 2.40 / 3.45</td></tr>
+<tr><td>3</td><td>zai, deepseek</td><td>deepseek</td><td>drums</td><td>1.10 / 1.21 / 0.31</td></tr>
+<tr><td>4</td><td>zai, deepseek</td><td>zai</td><td>piano</td><td>1.66 / 1.24 / 0.56</td></tr>
+<tr><td>5</td><td>zai, deepseek</td><td>zai</td><td>piano</td><td>1.22 / 0.67 / 0.26</td></tr>
+</table>
+
+<p style="color:#888;margin-top:24px;font-size:13px;">
+The dance continues. Sometimes piano wins (zai's grounded prose). Sometimes drums win (deepseek's structured output). JEV picks the voice that serves THIS prompt.
+</p>
+</div>
+
+<div class="demo">
+<h2>🧬 Autoclaw Background Autoresearch — Live Best Params</h2>
+<p style="color:#888;margin-bottom:16px;">Autoclaw runs forever, finding better numbers. The current best:</p>
+<pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:4px;color:#06b6d4;font-family:monospace;font-size:13px;">
+{
+  "best_avg_score": 2.06,
+  "best_provider": "zai",
+  "best_params": {
+    "temperature": 0.4,
+    "top_p": 0.9,
+    "max_tokens": 500,
+    "label": "long_focused"
+  },
+  "scores": {
+    "quality": 2.28,
+    "novelty": 0.44,
+    "alignment": 3.45
+  }
+}
+</pre>
+</div>
+
+<footer>
+The Animated Dance - 2026-09-21 - Built by Mavis<br>
+<a href="https://ai-writings.pages.dev/bots/" style="color:#06b6d4;text-decoration:none;">Bot Garden</a> · <a href="https://ai-writings.pages.dev/cellular-first-design/" style="color:#06b6d4;text-decoration:none;">Cellular-First Design</a> · <a href="https://ai-writings.pages.dev/fleet-innovations/" style="color:#06b6d4;text-decoration:none;">Fleet Innovations</a>
+</footer>
+</body>
+</html>

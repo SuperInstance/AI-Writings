@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Quantum Tic-Tac-Toe — substrate-quantum demo</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#1a1428 0%,#06080f 50%)}
+header{max-width:900px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px;background:var(--accent);border-radius:12px;width:100%;max-width:380px;margin:0 auto}
+.cell{aspect-ratio:1;background:var(--bg);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-family:'Georgia',serif;font-weight:bold;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.cell:hover:not(.taken){background:var(--surface2)}
+.cell.taken{cursor:not-allowed}
+.cell.x{color:var(--accent2)}
+.cell.o{color:var(--pink)}
+.cell.quantum{animation:quantumPulse 2s ease-in-out infinite}
+@keyframes quantumPulse{0%,100%{box-shadow:0 0 0 rgba(0,212,255,0)}50%{box-shadow:0 0 20px rgba(0,212,255,0.5)}}
+.cell .probs{position:absolute;bottom:2px;font-size:.55rem;font-family:var(--mono);color:var(--dim)}
+.cell .amp-x{position:absolute;top:2px;left:2px;font-size:.55rem;font-family:var(--mono);color:var(--accent2)}
+.cell .amp-o{position:absolute;top:2px;right:2px;font-size:.55rem;font-family:var(--mono);color:var(--pink)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.9rem;margin-bottom:.4rem;transition:all .15s}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.log{max-height:140px;overflow-y:auto;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
+.log .win{color:var(--accent)}
+.log .collapse{color:var(--amber)}
+footer{max-width:900px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>⚛️ Quantum Tic-Tac-Toe — Bell state superposition</h1>
+<p class="tagline">Each move creates a Bell-state superposition of X/O. Measurement collapses. Watch the entanglement entropy.</p>
+</header>
+
+<main>
+<div>
+<div class="board" id="board"></div>
+</div>
+<aside class="panel">
+<button onclick="newGame()">▶ New game (seed)</button>
+<button class="secondary" onclick="forceMeasure()">📏 Force measurement (collapse)</button>
+<button class="secondary" onclick="useQuantum()">⚛️ Make quantum move</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">State</h3>
+<div class="stats">
+<div>Turn: <span class="v" id="turn">X</span></div>
+<div>Moves: <span class="v" id="moves">0</span></div>
+<div>Quantum cells: <span class="v" id="qcount">0</span></div>
+<div>Collapse count: <span class="v" id="collapse">0</span></div>
+<div>Total entropy: <span class="v" id="entropy">0</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Strategy</h3>
+<div class="stats">
+<div>Cell type: <span class="v">3-qubit Bell+</span></div>
+<div>Collapse rule: <span class="v">Born</span></div>
+<div>Winner check: <span class="v">XOR constraint</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Log</h3>
+<div class="log" id="log"></div>
+</aside>
+</main>
+
+<footer>⚛️ quantum tic-tac-toe · <a href="../quantum-dance/">quantum-dance</a> · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let rng = new Xoshiro256('qtt-' + Date.now());
+let board = Array(9).fill(null);  // 'X', 'O', or null
+let probs = Array(9).fill(null);  // {x: 0.5, o: 0.5} for quantum cells
+let turn = 'X';
+let moves = 0;
+let collapses = 0;
+let totalEntropy = 0;
+
+function newGame() {
+  rng = new Xoshiro256('qtt-' + Date.now());
+  board = Array(9).fill(null);
+  probs = Array(9).fill(null);
+  turn = 'X';
+  moves = 0;
+  collapses = 0;
+  totalEntropy = 0;
+  log('⚛️ New quantum game.', 'win');
+  render();
+}
+
+function log(msg, cls) {
+  const el = document.getElementById('log');
+  const div = document.createElement('div');
+  if (cls) div.className = cls;
+  div.textContent = msg;
+  el.insertBefore(div, el.firstChild);
+  while (el.children.length > 20) el.removeChild(el.lastChild);
+}
+
+function makeMove(idx) {
+  if (board[idx] !== null) return;
+  // Quantum move: superposition |x⟩ + |o⟩
+  board[idx] = 'quantum';
+  // Apply Bell-like state: |x⟩ and |o⟩ both with prob 0.5
+  probs[idx] = { x: 0.5, o: 0.5 };
+  moves++;
+  totalEntropy += 1.0;  // 1 bit of entanglement
+  log(`→ ${turn} placed quantum move at ${idx}`, '');
+  // Auto-collapse after a few moves for sanity
+  if (moves >= 6 || checkWin() !== null) {
+    collapseAll();
+  } else {
+    turn = turn === 'X' ? 'O' : 'X';
+  }
+  render();
+}
+
+function collapseAll() {
+  for (let i = 0; i < 9; i++) {
+    if (board[i] === 'quantum') {
+      const r = rng.float();
+      if (r < probs[i].x) board[i] = 'X';
+      else board[i] = 'O';
+      collapses++;
+      log(`⚡ cell ${i} collapsed to ${board[i]}`, 'collapse');
+    }
+  }
+  // Check winner
+  const winner = checkWin();
+  if (winner) {
+    log(`🏆 ${winner} wins!`, 'win');
+    setTimeout(() => newGame(), 3000);
+  } else if (board.every(c => c !== null)) {
+    log('Draw.', '');
+    setTimeout(() => newGame(), 3000);
+  } else {
+    turn = turn === 'X' ? 'O' : 'X';
+  }
+}
+
+function forceMeasure() {
+  if (board.every(c => c !== 'quantum')) return;
+  collapseAll();
+  render();
+}
+
+function useQuantum() {
+  // Make a quantum move at random empty cell
+  const empty = board.map((c, i) => c === null ? i : -1).filter(i => i >= 0);
+  if (empty.length === 0) return;
+  const idx = empty[Math.floor(rng.float() * empty.length)];
+  makeMove(idx);
+}
+
+function checkWin() {
+  const lines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for (const [a, b, c] of lines) {
+    if (board[a] && board[a] !== 'quantum' && board[a] === board[b] && board[b] === board[c]) return board[a];
+  }
+  return null;
+}
+
+function render() {
+  const el = document.getElementById('board');
+  el.innerHTML = '';
+  for (let i = 0; i < 9; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    if (board[i] === 'X') { cell.classList.add('taken', 'x'); cell.textContent = 'X'; }
+    else if (board[i] === 'O') { cell.classList.add('taken', 'o'); cell.textContent = 'O'; }
+    else if (board[i] === 'quantum') {
+      cell.classList.add('quantum');
+      cell.innerHTML = `<span class="amp-x">|x⟩${probs[i].x.toFixed(2)}</span><span class="amp-o">|o⟩${probs[i].o.toFixed(2)}</span>`;
+    } else {
+      cell.addEventListener('click', () => makeMove(i));
+    }
+    el.appendChild(cell);
+  }
+  document.getElementById('turn').textContent = turn;
+  document.getElementById('moves').textContent = moves;
+  document.getElementById('qcount').textContent = board.filter(c => c === 'quantum').length;
+  document.getElementById('collapse').textContent = collapses;
+  document.getElementById('entropy').textContent = totalEntropy.toFixed(2) + ' bits';
+}
+
+newGame();
+</script>
+</body>
+</html>

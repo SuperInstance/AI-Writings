@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Constellation — FNV-1a stars</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:200;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.sky{background:#000;border:1px solid var(--accent);border-radius:10px;overflow:hidden;position:relative;height:600px}
+canvas{display:block;width:100%;height:100%}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem;flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>✦ Substrate Constellation</h1>
+<p class="tagline">Hash any text. The FNV-1a 64-bit chain generates a star field, every single time.</p>
+</header>
+
+<main>
+<div class="sky"><canvas id="sky"></canvas></div>
+<aside class="panel">
+<label>Text: <input type="text" id="seed" value="the fleet radio"></label>
+<button onclick="redraw()">✦ Generate stars</button>
+<button class="secondary" onclick="animate()">⏵ Animate</button>
+<button class="secondary" onclick="stopAnimate()">⏸ Stop</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Stars: <span class="v" id="sStars">0</span></div>
+<div>Seed: <span class="v" id="sSeed" style="font-size:.6rem;word-break:break-all">—</span></div>
+<div>Canvas: <span class="v" id="sCanvas">600×600</span></div>
+<div>Frame: <span class="v" id="sFrame">0</span></div>
+</div>
+</aside>
+</main>
+
+<footer>✦ substrate constellation · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let canvas, ctx;
+let stars = [];
+let frame = 0;
+let animateInterval = null;
+const N = 250;
+const seedInput = document.getElementById('seed');
+
+function makeStars(seed) {
+  stars = [];
+  const rng = new Xoshiro256(seed);
+  for (let i = 0; i < N; i++) {
+    stars.push({
+      x: rng.float(),
+      y: rng.float(),
+      size: 0.5 + rng.float() * 1.5,
+      brightness: 0.3 + rng.float() * 0.7,
+      hue: 180 + rng.intRange(0, 80),
+      phase: rng.float() * Math.PI * 2,
+      speed: 0.5 + rng.float() * 1.5,
+    });
+  }
+}
+
+function render(time = 0) {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (const s of stars) {
+    const brightness = s.brightness * (0.6 + 0.4 * Math.sin(time * 0.001 * s.speed + s.phase));
+    ctx.fillStyle = `hsla(${s.hue}, 70%, ${70 * brightness + 30}%, ${brightness})`;
+    ctx.beginPath();
+    ctx.arc(s.x * canvas.width, s.y * canvas.height, s.size, 0, Math.PI * 2);
+    ctx.fill();
+    // Halo for brighter stars
+    if (s.size > 1.2) {
+      ctx.fillStyle = `hsla(${s.hue}, 70%, 80%, ${brightness * 0.2})`;
+      ctx.beginPath();
+      ctx.arc(s.x * canvas.width, s.y * canvas.height, s.size * 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+  // Subtle constellation lines (every 20th frame)
+  if (frame % 30 === 0) {
+    ctx.strokeStyle = 'rgba(0, 255, 157, 0.05)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < stars.length - 1; i += 5) {
+      const a = stars[i], b = stars[i + 1];
+      if (Math.abs(a.x - b.x) < 0.1 && Math.abs(a.y - b.y) < 0.1) {
+        ctx.beginPath();
+        ctx.moveTo(a.x * canvas.width, a.y * canvas.height);
+        ctx.lineTo(b.x * canvas.width, b.y * canvas.height);
+        ctx.stroke();
+      }
+    }
+  }
+  frame++;
+  document.getElementById('sStars').textContent = stars.length;
+  document.getElementById('sSeed').textContent = seedInput.value;
+  document.getElementById('sFrame').textContent = frame;
+}
+
+function redraw() {
+  const seed = seedInput.value;
+  makeStars(seed);
+  render();
+  document.getElementById('sCanvas').textContent = `${canvas.clientWidth}×${canvas.clientHeight}`;
+}
+
+function animate() {
+  if (animateInterval) clearInterval(animateInterval);
+  animateInterval = setInterval(() => render(performance.now()), 50);
+}
+
+function stopAnimate() {
+  clearInterval(animateInterval);
+  animateInterval = null;
+}
+
+function randomSeed() {
+  const samples = ['the fleet radio', 'wenjian', 'xochitl', 'matilda', 'the substrate', 'witness', 'fingerprint', 'memory', 'the wind', 'cosine', 'box-muller', 'bell-state', 'xoshiro', 'FNV-1a 64-bit', 'the wave function', 'd20 crit'];
+  seedInput.value = samples[Math.floor(Math.random() * samples.length)];
+  redraw();
+}
+
+canvas = document.getElementById('sky');
+ctx = canvas.getContext('2d');
+window.addEventListener('resize', () => render());
+redraw();
+animate();
+</script>
+</body>
+</html>

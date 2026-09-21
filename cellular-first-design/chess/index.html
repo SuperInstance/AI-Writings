@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Chess — piece-square embedding eval</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.6rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.9rem}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.board{display:grid;grid-template-columns:repeat(8,1fr);width:100%;max-width:480px;margin:0 auto;border:2px solid var(--accent);border-radius:4px;overflow:hidden}
+.square{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2rem;cursor:pointer;user-select:none;position:relative}
+.square.light{background:#e8d4a8}
+.square.dark{background:#8b6e4e}
+.square.selected{background:var(--accent) !important;color:#000}
+.square .heat{position:absolute;inset:0;opacity:0;pointer-events:none}
+.square .label{position:absolute;bottom:1px;right:2px;font-size:.5rem;color:#000;font-family:var(--mono);opacity:.6}
+.piece{text-shadow:0 1px 2px rgba(0,0,0,0.5);font-weight:bold}
+.piece.white{color:#fff;filter:drop-shadow(0 0 1px rgba(0,0,0,0.5))}
+.piece.black{color:#000}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:1rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.stats .w{color:#fff}
+.stats .b{color:#000}
+.heatmap{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--text2);line-height:1.3;display:grid;grid-template-columns:repeat(8,1fr);gap:1px;text-align:center}
+.heatmap .cell{background:var(--surface2);padding:.3rem .2rem;border-radius:2px}
+.heatmap .cell .lbl{font-size:.55rem;color:var(--dim);display:block}
+.heatmap .cell .val{color:var(--accent)}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>♟️ Substrate Chess — piece-square embedding eval</h1>
+<p class="tagline">Each piece has a 32-d vector. Each square has a 32-d vector. Substrate-vectors cosine similarity scores positions.</p>
+</header>
+
+<main>
+<div>
+<div class="board" id="board"></div>
+<h3 style="color:var(--text);font-size:1rem;margin-top:1rem;text-align:center">Position heatmap (eval score by square)</h3>
+<div class="heatmap" id="heatmap"></div>
+</div>
+<aside class="panel">
+<button onclick="reset()">↻ New game</button>
+<button class="secondary" onclick="aiMove()">🤖 AI move (cosine-driven)</button>
+<button class="secondary" onclick="flipBoard()">⇅ Flip perspective</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Eval</h3>
+<div class="stats">
+<div>Eval: <span class="v" id="eval">0.0</span></div>
+<div>Side to move: <span class="v" id="stm">white</span></div>
+<div>Pieces: <span class="v" id="pieces">32</span></div>
+<div>State hash: <span class="v" id="hash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Substrate</h3>
+<div class="stats">
+<div>Piece vector dim: <span class="v">32</span></div>
+<div>Eval method: <span class="v">cosine</span></div>
+<div>RNG: <span class="v">xoshiro256**</span></div>
+</div>
+</aside>
+</main>
+
+<footer>♟️ substrate chess · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// === substrate math ===
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+
+// === Piece-square embeddings (32-d) ===
+// Each piece has a base embedding. Each square has a base embedding. Eval = sum of cosine(piece_vec, square_vec) weighted by piece value.
+const PIECE_VALUES = { p: 1, n: 3, b: 3, r: 5, q: 9, k: 100 };
+const PIECES = { K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙', k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' };
+const PIECE_NAMES = { K: 'king', Q: 'queen', R: 'rook', B: 'bishop', N: 'knight', P: 'pawn', k: 'king', q: 'queen', r: 'rook', b: 'bishop', n: 'knight', p: 'pawn' };
+
+// Build piece vectors deterministically
+function pieceVec(piece) {
+  const v = new Float32Array(32);
+  const seedStr = 'piece-' + PIECE_NAMES[piece] + '-' + (piece === piece.toUpperCase() ? 'white' : 'black');
+  const h = fnv1a64(new TextEncoder().encode(seedStr));
+  for (let i = 0; i < 32; i++) {
+    const bits = (h >> BigInt(i * 2)) & 0x3n;
+    v[i] = (Number(bits) - 1.5) / 2;
+  }
+  return v;
+}
+
+// Square embeddings — encode position (center is higher)
+function squareVec(file, rank) {
+  const v = new Float32Array(32);
+  for (let i = 0; i < 32; i++) {
+    if (i % 8 < 4) {
+      v[i] = ((file - 3.5) / 3.5) * Math.cos(i * 0.3);
+    } else {
+      v[i] = ((rank - 3.5) / 3.5) * Math.sin(i * 0.3);
+    }
+  }
+  return v;
+}
+
+// === Board state ===
+let board = [
+  ['r','n','b','q','k','b','n','r'],
+  ['p','p','p','p','p','p','p','p'],
+  ['','','','','','','',''],
+  ['','','','','','','',''],
+  ['','','','','','','',''],
+  ['','','','','','','',''],
+  ['P','P','P','P','P','P','P','P'],
+  ['R','N','B','Q','K','B','N','R'],
+];
+let turn = 'white';
+let selected = null;
+let rng = new Xoshiro256('chess-' + Date.now());
+
+function reset() {
+  board = [
+    ['r','n','b','q','k','b','n','r'],
+    ['p','p','p','p','p','p','p','p'],
+    ['','','','','','','',''],
+    ['','','','','','','',''],
+    ['','','','','','','',''],
+    ['','','','','','','',''],
+    ['P','P','P','P','P','P','P','P'],
+    ['R','N','B','Q','K','B','N','R'],
+  ];
+  turn = 'white';
+  selected = null;
+  rng = new Xoshiro256('chess-' + Date.now());
+  render();
+}
+
+function isWhite(p) { return p === p.toUpperCase() && p !== ''; }
+function isBlack(p) { return p === p.toLowerCase() && p !== ''; }
+
+function evaluate() {
+  // Sum of cosine(piece_vec, square_vec) weighted by piece value
+  let score = 0;
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 8; c++) {
+      const p = board[r][c];
+      if (!p) continue;
+      const pVec = pieceVec(p);
+      const sVec = squareVec(c, r);
+      const cos = cosine(pVec, sVec);
+      const val = PIECE_VALUES[p.toLowerCase()] || 1;
+      score += isWhite(p) ? val * cos : -val * cos;
+    }
+  }
+  return score;
+}
+
+function render() {
+  const el = document.getElementById('board');
+  el.innerHTML = '';
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 8; c++) {
+      const sq = document.createElement('div');
+      const isLight = (r + c) % 2 === 0;
+      sq.className = 'square ' + (isLight ? 'light' : 'dark');
+      if (selected && selected[0] === r && selected[1] === c) sq.classList.add('selected');
+      const piece = board[r][c];
+      if (piece) {
+        const div = document.createElement('div');
+        div.className = 'piece ' + (isWhite(piece) ? 'white' : 'black');
+        div.textContent = PIECES[piece];
+        sq.appendChild(div);
+      }
+      // Label
+      if (c === 0) sq.appendChild(makeLabel(String.fromCharCode(56 - r)));
+      if (r === 7) sq.appendChild(makeLabel(String.fromCharCode(97 + c)));
+      sq.addEventListener('click', () => handleClick(r, c));
+      el.appendChild(sq);
+    }
+  }
+  // Eval
+  document.getElementById('eval').textContent = evaluate().toFixed(2);
+  document.getElementById('stm').textContent = turn;
+  const pieces = board.flat().filter(p => p).length;
+  document.getElementById('pieces').textContent = pieces;
+  document.getElementById('hash').textContent = '0x' + fnv1a64(new TextEncoder().encode(board.flat().join(','))).toString(16).padStart(16, '0');
+  renderHeatmap();
+}
+
+function makeLabel(s) {
+  const span = document.createElement('span');
+  span.className = 'label';
+  span.textContent = s;
+  return span;
+}
+
+function handleClick(r, c) {
+  const piece = board[r][c];
+  if (!selected) {
+    // Select
+    if (piece && ((turn === 'white' && isWhite(piece)) || (turn === 'black' && isBlack(piece)))) {
+      selected = [r, c];
+      render();
+    }
+  } else {
+    // Move
+    if (selected[0] === r && selected[1] === c) { selected = null; render(); return; }
+    board[r][c] = board[selected[0]][selected[1]];
+    board[selected[0]][selected[1]] = '';
+    selected = null;
+    turn = turn === 'white' ? 'black' : 'white';
+    render();
+  }
+}
+
+function aiMove() {
+  // Find a "good" move via cosine
+  let bestScore = -Infinity;
+  let bestMove = null;
+  for (let r1 = 0; r1 < 8; r1++) {
+    for (let c1 = 0; c1 < 8; c1++) {
+      const p = board[r1][c1];
+      if (!p) continue;
+      if ((turn === 'white' && !isWhite(p)) || (turn === 'black' && !isBlack(p))) continue;
+      for (let r2 = 0; r2 < 8; r2++) {
+        for (let c2 = 0; c2 < 8; c2++) {
+          const target = board[r2][c2];
+          if (target && ((turn === 'white' && isWhite(target)) || (turn === 'black' && isBlack(target)))) continue;
+          // Simulate move
+          const old = board[r2][c2];
+          board[r2][c2] = board[r1][c1];
+          board[r1][c1] = '';
+          const s = evaluate() * (turn === 'white' ? 1 : -1);
+          if (s > bestScore) { bestScore = s; bestMove = [r1, c1, r2, c2]; }
+          board[r1][c1] = board[r2][c2];
+          board[r2][c2] = old;
+        }
+      }
+    }
+  }
+  if (bestMove) {
+    const [r1, c1, r2, c2] = bestMove;
+    board[r2][c2] = board[r1][c1];
+    board[r1][c1] = '';
+    turn = turn === 'white' ? 'black' : 'white';
+    render();
+  }
+}
+
+function renderHeatmap() {
+  const el = document.getElementById('heatmap');
+  el.innerHTML = '';
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 8; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      const piece = board[r][c];
+      const sqVal = squareVec(c, r);
+      let val;
+      if (piece) {
+        val = (isWhite(piece) ? 1 : -1) * (PIECE_VALUES[piece.toLowerCase()] || 1) * cosine(pieceVec(piece), sqVal);
+      } else {
+        val = 0;
+      }
+      cell.innerHTML = `<span class="lbl">${PIECES[piece] || '·'}</span><span class="val">${val.toFixed(1)}</span>`;
+      el.appendChild(cell);
+    }
+  }
+}
+
+render();
+</script>
+</body>
+</html>

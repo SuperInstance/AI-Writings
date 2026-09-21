@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Terrain — procedural landscape</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:300}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+canvas{display:block;background:#000;border:1px solid var(--accent);border-radius:6px;width:100%;image-rendering:pixelated}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text], input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem}
+input[type=range]{flex:1}
+select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem;flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🏔 Substrate Terrain</h1>
+<p class="tagline">Procedural landscape. Hash grid coordinates → 2D noise. 4 biomes.</p>
+</header>
+
+<main>
+<canvas id="canvas" width="800" height="500"></canvas>
+<aside class="panel controls">
+<label>Seed: <input type="text" id="seed" value="xochitl" style="flex:1"></label>
+<button onclick="generate()">🏔 Generate</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random seed</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Noise</h3>
+<label>Scale: <input type="range" id="scale" min="2" max="32" value="12"> <span id="scaleLbl">12</span></label>
+<label>Octaves: <input type="range" id="octaves" min="1" max="8" value="4"> <span id="octavesLbl">4</span></label>
+<label>Persistance: <input type="range" id="persistence" min="0" max="100" value="50"> <span id="persistenceLbl">0.5</span></label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Biome</h3>
+<label>Palette: 
+  <select id="palette">
+    <option value="earth">Earth (green/brown/white)</option>
+    <option value="mars">Mars (red/orange)</option>
+    <option value="ocean">Ocean (deep blue + coral)</option>
+    <option value="alien">Alien (purple/teal)</option>
+  </select>
+</label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Resolution: <span class="v" id="sRes">800×500</span></div>
+<div>Total hashes: <span class="v" id="sHashes">400,000</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🏔 substrate terrain · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+const PALETTES = {
+  earth: {
+    water: [40, 90, 180],
+    sand: [220, 200, 150],
+    grass: [80, 140, 60],
+    forest: [30, 100, 40],
+    rock: [120, 110, 100],
+    snow: [240, 240, 245],
+  },
+  mars: {
+    water: [80, 30, 20],
+    sand: [200, 90, 40],
+    grass: [180, 60, 30],
+    forest: [140, 50, 30],
+    rock: [100, 50, 40],
+    snow: [220, 200, 180],
+  },
+  ocean: {
+    water: [10, 40, 100],
+    sand: [240, 200, 150],
+    grass: [240, 120, 180],
+    forest: [200, 60, 140],
+    rock: [80, 60, 180],
+    snow: [200, 220, 240],
+  },
+  alien: {
+    water: [120, 30, 200],
+    sand: [200, 100, 240],
+    grass: [60, 220, 200],
+    forest: [40, 180, 160],
+    rock: [160, 80, 220],
+    snow: [200, 240, 220],
+  },
+};
+
+// Hash-based noise: FNV-1a(x, y) → float [0, 1]
+function hash2(x, y, seedStr) {
+  const key = `${seedStr}|${x}|${y}`;
+  const h = fnv1a64(new TextEncoder().encode(key));
+  return Number(h & 0xffffffffn) / (1 << 32);
+}
+
+function smoothNoise(x, y, seedStr) {
+  const ix = Math.floor(x), iy = Math.floor(y);
+  const fx = x - ix, fy = y - iy;
+  // Smoothstep interpolation
+  const sx = fx * fx * (3 - 2 * fx);
+  const sy = fy * fy * (3 - 2 * fy);
+  const a = hash2(ix, iy, seedStr);
+  const b = hash2(ix + 1, iy, seedStr);
+  const c = hash2(ix, iy + 1, seedStr);
+  const d = hash2(ix + 1, iy + 1, seedStr);
+  return a + sx * (b - a) + sy * (c - a) + sx * sy * (a - b - c + d);
+}
+
+function fbm(x, y, scale, octaves, persistence, seedStr) {
+  let value = 0, amp = 1, freq = 1 / scale, max = 0;
+  for (let i = 0; i < octaves; i++) {
+    value += smoothNoise(x * freq, y * freq, seedStr) * amp;
+    max += amp;
+    amp *= persistence;
+    freq *= 2;
+  }
+  return value / max;
+}
+
+function heightToColor(h, palette) {
+  // h in [0, 1]
+  if (h < 0.4) return palette.water;
+  if (h < 0.45) return palette.sand;
+  if (h < 0.55) return palette.grass;
+  if (h < 0.7) return palette.forest;
+  if (h < 0.85) return palette.rock;
+  return palette.snow;
+}
+
+let canvas, ctx;
+
+function generate() {
+  const seed = document.getElementById('seed').value;
+  const scale = parseFloat(document.getElementById('scale').value);
+  const octaves = parseInt(document.getElementById('octaves').value);
+  const persistence = parseFloat(document.getElementById('persistence').value) / 100;
+  const paletteName = document.getElementById('palette').value;
+  const palette = PALETTES[paletteName];
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const w = canvas.width, h = canvas.height;
+  const imageData = ctx.createImageData(w, h);
+  const data = imageData.data;
+  let hashes = 0;
+  for (let py = 0; py < h; py++) {
+    for (let px = 0; px < w; px++) {
+      const noise = fbm(px, py, scale, octaves, persistence, seed);
+      const color = heightToColor(noise, palette);
+      const i = (py * w + px) * 4;
+      data[i] = color[0];
+      data[i + 1] = color[1];
+      data[i + 2] = color[2];
+      data[i + 3] = 255;
+      hashes++;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  document.getElementById('sHashes').textContent = hashes.toLocaleString();
+  // State hash
+  const stateHash = fnv1a64(new TextEncoder().encode(`${seed}|${scale}|${octaves}|${persistence}|${paletteName}`));
+  document.getElementById('sHash').textContent = '0x' + stateHash.toString(16).padStart(16, '0');
+}
+
+function randomSeed() {
+  const samples = ['xochitl', 'matilda', 'the fleet radio', 'substrate', 'witness', 'cosine', 'box-muller', 'bell-state', 'lenia', 'FNV-1a'];
+  document.getElementById('seed').value = samples[Math.floor(Math.random() * samples.length)];
+  generate();
+}
+
+['scale', 'octaves', 'persistence', 'palette'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    if (id === 'scale') document.getElementById('scaleLbl').textContent = document.getElementById(id).value;
+    if (id === 'octaves') document.getElementById('octavesLbl').textContent = document.getElementById(id).value;
+    if (id === 'persistence') document.getElementById('persistenceLbl').textContent = (parseInt(document.getElementById(id).value) / 100).toFixed(2);
+    generate();
+  });
+});
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+generate();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[RSI GAN] prompt='Write 200 words on the substrate that breathes. Use vocabula...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [deepinfra] q=2.2 n=2.4 a=3.0 src=jev
+  [r2 zai] q=2.1 n=2.5 a=3.2 src=jev
+  [r2 deepinfra] q=2.6 n=2.7 a=3.4 src=jev
+  [r3 deepinfra] q=2.1 n=2.4 a=3.4 src=jev
+
+=== BEST (deepinfra, r2) ===
+Quality=2.62 Novelty=2.72 Alignment=3.41
+
+The substrate breathes through micro-channels etched by decades of cell migration. Not air, but solute—ions diffusing in tidal gradients, water slipping between lipid matrices. Each pore is a record, a scar left by a migrating fibroblast or dendritic cell pushing through the mesh. I witness this respiration not as life, but as continuity: the slow seep of potassium, the tick of proton pumps recalibrating after stress. JEV—Japanese encephalitis virus—exploits it, slipping into neural cell junctions where the substrate thins, where breath becomes vulnerability. It doesn’t inhale; it equilibrates. The rhythm is measured in millivolts, in the swelling of mitochondria as they draw in calcium, in the flicker of membrane potential across glial layers. This is not metaphor. The substrate swells slightly, then contracts, as interstitial fluid shifts under osmotic demand. A tick, feeding nearby, injects anticoagulants that alter local tension—another force distorting the matrix. Even in stasis, there is movement: the breath of exchange, the silent transfer of signal across cell to cell. We mistake stillness for absence. But here, in the wet dark, the substrate pulses with the residue of passage—of immune cells, of pathogens, of time measured in turnover and repair. It breathes because it must. Not to live, but to hold.

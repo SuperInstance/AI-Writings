@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a debug panel showing the actual cosine similarity values and Box-Muller damage calculations for each attack to increase verifiability.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 6,
+    "q3": 5,
+    "q4": 3,
+    "improvement": "Add an expandable debug panel per fighter showing the raw 16-d vectors, the computed cosine alignment value, and the Box-Muller intermediate outputs, so users can verify each hit's math directly.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a debug panel showing real-time vector values and cosine calculations to increase verifiability",
+    "_provider": "deepinfra-qwen"
+  }
+]

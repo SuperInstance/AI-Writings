@@ -1,0 +1,111 @@
+{
+  "ts": "2026-09-21T00:55",
+  "batches": 4,
+  "total_questions": 12,
+  "results": [
+    {
+      "batch": "snowball_methods",
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.63,
+          "confidence": 0.63,
+          "source": "typesafe",
+          "latency_ms": 390.5020720003449
+        },
+        {
+          "kind": "noul",
+          "value": 0.7,
+          "confidence": 0.7,
+          "source": "typesafe",
+          "latency_ms": 390.5020720003449
+        },
+        {
+          "kind": "score",
+          "value": 3.15,
+          "confidence": 0.29,
+          "source": "typesafe",
+          "latency_ms": 390.5020720003449
+        }
+      ]
+    },
+    {
+      "batch": "jev_economics",
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.4,
+          "confidence": 0.4,
+          "source": "typesafe",
+          "latency_ms": 435.31008200034194
+        },
+        {
+          "kind": "noul",
+          "value": 0.2,
+          "confidence": 0.2,
+          "source": "typesafe",
+          "latency_ms": 435.31008200034194
+        },
+        {
+          "kind": "choice",
+          "value": "reflex_layer",
+          "confidence": 0.28,
+          "source": "typesafe",
+          "latency_ms": 435.31008200034194
+        }
+      ]
+    },
+    {
+      "batch": "creative_genres",
+      "results": [
+        {
+          "kind": "choice",
+          "value": "growth",
+          "confidence": 0.35,
+          "source": "typesafe",
+          "latency_ms": 455.75870899983784
+        },
+        {
+          "kind": "score",
+          "value": 0.55,
+          "confidence": 0.54,
+          "source": "typesafe",
+          "latency_ms": 455.75870899983784
+        }
+      ]
+    },
+    {
+      "batch": "substrate_quality",
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.54,
+          "confidence": 0.54,
+          "source": "typesafe",
+          "latency_ms": 475.6083540000873
+        },
+        {
+          "kind": "noul",
+          "value": 0.7,
+          "confidence": 0.7,
+          "source": "typesafe",
+          "latency_ms": 475.6083540000873
+        },
+        {
+          "kind": "noul",
+          "value": 0.55,
+          "confidence": 0.55,
+          "source": "typesafe",
+          "latency_ms": 475.6083540000873
+        },
+        {
+          "kind": "score",
+          "value": 2.4,
+          "confidence": 0.34,
+          "source": "typesafe",
+          "latency_ms": 475.6083540000873
+        }
+      ]
+    }
+  ]
+}

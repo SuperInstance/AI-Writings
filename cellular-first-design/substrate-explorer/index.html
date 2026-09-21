@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Explorer — file system</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at center,#0a0a1a 0%,#06080f 60%)}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:200px 1fr 250px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.tree{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2);max-height:500px;overflow-y:auto}
+.tree .item{padding:.2rem .4rem;cursor:pointer;border-radius:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tree .item:hover{background:rgba(0,255,157,0.1);color:var(--accent)}
+.tree .item.active{background:rgba(0,255,157,0.2);color:var(--accent);font-weight:bold}
+.tree .item.folder{color:var(--accent2)}
+.editor{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;min-height:500px;display:flex;flex-direction:column}
+.editor h3{color:var(--accent);font-size:.95rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.7rem}
+textarea{flex:1;min-height:300px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.7rem;font-family:var(--mono);font-size:.85rem;line-height:1.4;resize:vertical}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-right:.3rem;margin-top:.5rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;height:fit-content;font-family:var(--mono);font-size:.78rem;color:var(--text2)}
+.panel h3{color:var(--accent);font-size:.95rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.7rem}
+.hash-display{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;font-family:var(--mono);font-size:.65rem;color:var(--accent2);word-break:break-all;margin-top:.3rem}
+.file-list{margin-top:.5rem}
+.file-row{padding:.3rem;border-bottom:1px solid var(--border);font-size:.72rem;color:var(--text2);display:flex;justify-content:space-between;align-items:center}
+.file-row .hash{color:var(--accent2);font-size:.6rem;margin-left:.3rem}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📁 Substrate Explorer</h1>
+<p class="tagline">A cellular file system. Each file = FNV-1a hash. Navigate, edit, witness.</p>
+</header>
+
+<main>
+<aside class="tree" id="tree">
+<div style="color:var(--dim);font-style:italic">Loading...</div>
+</aside>
+<section class="editor">
+<h3 id="filename">substrate-explorer.md</h3>
+<textarea id="content">The substrate speaks through its files.
+
+Each file is a cell. Each cell has a witness hash. When you change a file, its hash changes — and so does the parent directory's hash, recursively, all the way to the root.
+
+This is what it means for a substrate to be auditable.</textarea>
+<button onclick="saveFile()">💾 Save</button>
+<button class="secondary" onclick="newFile()">+ New file</button>
+<button class="secondary" onclick="exportFS()">⬇ Export</button>
+</section>
+<aside class="panel">
+<h3>Current File</h3>
+<div class="hash-display" id="fileHash">—</div>
+<h3 style="margin-top:1rem">All Files</h3>
+<div class="file-list" id="allFiles"></div>
+<h3 style="margin-top:1rem">Stats</h3>
+<div style="margin-top:.5rem;font-size:.75rem">
+<div>Total files: <span style="color:var(--accent)" id="sFiles">—</span></div>
+<div>Total chars: <span style="color:var(--accent)" id="sChars">—</span></div>
+<div>Root hash: <span style="color:var(--accent2);word-break:break-all;font-size:.6rem" id="sRoot">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>📁 substrate explorer · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+// File system as flat object: path -> content
+const fs = {
+  'cell.md': 'The cell is the irreducible unit of intelligence.\n\nCells bind, link, effect, view, and tick.',
+  'witness.md': 'The witness log is the prediction.\n\nEach entry is bound to the one before it.',
+  'canon.md': 'The canon is substrate, vocabulary, tool, community, journey.',
+  'substrate/fnv-1a.md': 'FNV-1a 64-bit is a small machine: an offset basis and a prime.\n\n  h = 0xcbf29ce484222325n\n  h = (h ^ byte) * 0x100000001b3n',
+  'substrate/xoshiro.md': 'Xoshiro256** spins its state in a sealed dance.\n\nFour 64-bit words, three operations, infinite sequence.',
+  'substrate/cosine.md': 'The cosine is the angle between two truths.\n\ncos(A, B) = (A · B) / (|A| · |B|)',
+  'demos/index.md': 'A live catalog of every demo, every substrate primitive, every proof.',
+  'reports/alignment-kills.md': 'See ../reports/alignment-kills.md',
+  'README.md': '# Substrate\n\nA cellular-first design canon.\n\nHash once, hash everywhere.',
+};
+
+let currentFile = 'cell.md';
+
+function saveFile() {
+  const content = document.getElementById('content').value;
+  fs[currentFile] = content;
+  render();
+}
+
+function newFile() {
+  const name = prompt('New file path:', 'untitled.md');
+  if (name) {
+    fs[name] = '';
+    currentFile = name;
+    document.getElementById('filename').textContent = name;
+    document.getElementById('content').value = '';
+    render();
+  }
+}
+
+function selectFile(name) {
+  currentFile = name;
+  document.getElementById('filename').textContent = name;
+  document.getElementById('content').value = fs[name] || '';
+  render();
+}
+
+function exportFS() {
+  const data = JSON.stringify(fs, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `substrate-fs-${Date.now()}.json`; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function fileHash(content) {
+  return '0x' + fnv1a64(new TextEncoder().encode(content)).toString(16).padStart(16, '0');
+}
+
+function rootHash() {
+  const sorted = Object.keys(fs).sort();
+  const str = sorted.map(k => k + ':' + fileHash(fs[k])).join('\n');
+  return '0x' + fnv1a64(new TextEncoder().encode(str)).toString(16).padStart(16, '0');
+}
+
+function render() {
+  // Tree
+  const treeEl = document.getElementById('tree');
+  treeEl.innerHTML = '';
+  const sorted = Object.keys(fs).sort();
+  for (const path of sorted) {
+    const div = document.createElement('div');
+    const isFolder = path.includes('/') && !path.split('/').pop().includes('.');
+    div.className = 'item' + (path === currentFile ? ' active' : '') + (isFolder ? ' folder' : '');
+    div.textContent = path;
+    div.addEventListener('click', () => selectFile(path));
+    treeEl.appendChild(div);
+  }
+  // File hash
+  document.getElementById('fileHash').textContent = fileHash(document.getElementById('content').value);
+  // All files
+  const allEl = document.getElementById('allFiles');
+  allEl.innerHTML = '';
+  for (const path of sorted) {
+    const div = document.createElement('div');
+    div.className = 'file-row';
+    div.innerHTML = `<span>${path}</span><span class="hash">${fileHash(fs[path]).slice(0, 8)}...</span>`;
+    allEl.appendChild(div);
+  }
+  document.getElementById('sFiles').textContent = sorted.length;
+  document.getElementById('sChars').textContent = Object.values(fs).reduce((a, c) => a + c.length, 0);
+  document.getElementById('sRoot').textContent = rootHash();
+}
+
+document.getElementById('content').addEventListener('input', () => {
+  document.getElementById('fileHash').textContent = fileHash(document.getElementById('content').value);
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "ann-search": [
+    {
+      "q1": 7,
+      "q2": 8,
+      "q3": 6,
+      "q4": 5,
+      "one_fix": "Add a 'math details' toggle that reveals the actual vector operations (e.g., cosine similarity formula, k-means update step) and shows intermediate numeric values (e.g., centroid coordinates, distance matrix) so a reviewer can trace the computation and verify correctness.",
+      "provider": "deepinfra-deepseek",
+      "model": "deepseek-ai/DeepSeek-V4-Flash"
+    },
+    {
+      "q1": 6,
+      "q2": 7,
+      "q3": 8,
+      "q4": 5,
+      "one_fix": "The author should include a visible, step-by-step mathematical derivation or reference to the underlying algorithm (e.g., how text is mapped to 1024-d vectors via FNV1a hashing and random projections), instead of relying on obfuscated inline math \u2014 this would allow reviewers to verify correctness without reverse-engineering the code.",
+      "provider": "deepinfra-qwen",
+      "model": "Qwen/Qwen3-235B-A22B-Instruct-2507"
+    },
+    {
+      "q1": 6,
+      "q2": 7,
+      "q3": 3,
+      "q4": 4,
+      "one_fix": "Be upfront that the 'vectors' are hash-derived pseudo-random projections, not semantic embeddings \u2014 cosine similarity between 'neural networks learning' and 'boats sailing' will be pure noise with real text. The killer fix is to expose a small embedding table (even 6 topic keywords \u2192 hand-set vectors) so query results actually track meaning, and add a 'brute-force vs clustered-ANN recall@k' readout so a reviewer can verify the ANN path doesn't just return garbage. Right now the math is real (cosine, k-means++, Lloyd's) but it's operating on meaningless inputs, which is worse than hand-waving \u2014 it's correct code answering a question nobody asked. Also ship a deterministic seed mode so I can reproduce numbers exactly.",
+      "provider": "zai",
+      "model": "glm-4.5"
+    }
+  ],
+  "quantum-dance": [
+    {
+      "q1": 7,
+      "q2": 8,
+      "q3": 6,
+      "q4": 5,
+      "one_fix": "Show the actual state vector and gate matrices in a collapsible panel so a reviewer can verify the math step by step, rather than just seeing the resulting probabilities and entropy.",
+      "provider": "deepinfra-deepseek",
+      "model": "deepseek-ai/DeepSeek-V4-Flash"
+    },
+    {
+      "q1": 7,
+      "q2": 6,
+      "q3": 8,
+      "q4": 7,
+      "one_fix": "Replace hardcoded gate buttons with a dynamic gate selector and expose the underlying state vector and unitary matrices in a collapsible debug panel to allow direct verification of quantum operations.",
+      "provider": "deepinfra-qwen",
+      "model": "Qwen/Qwen3-235B-A22B-Instruct-2507"
+    }
+  ]
+}

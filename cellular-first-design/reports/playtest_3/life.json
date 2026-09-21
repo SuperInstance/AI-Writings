@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 9,
+    "q4": 6,
+    "improvement": "Add a debug panel showing the current generation number and state hash, and allow users to step through generations manually.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 8,
+    "q3": 7,
+    "q4": 7,
+    "improvement": "Add a visible generation counter with the state hash displayed alongside speed controls and a step-by-step mode, so users can watch the hash change and confirm identical configurations produce identical hashes.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 8,
+    "q2": 9,
+    "q3": 7,
+    "q4": 6,
+    "improvement": "Add a visible generation counter and allow stepping backward to improve verifiability and user control.",
+    "_provider": "deepinfra-qwen"
+  }
+]
