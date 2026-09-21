@@ -125,7 +125,16 @@ in `experiments/rsi/routes/`, and `erised-next` (the wide-run harness).
   measure the disease: what fraction of commons queries are re-answers of
   already-known situations (same content-hash neighborhood, agent already correct
   ≥N times)? That wasted-load number is the size of the prize.
-- **Status.** Not built. G4b is a one-afternoon measurement and should go first.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/standing.mjs`
+  (+ `standing.test.mjs`, CI-enforced). **G4b (the prize), measured:** on a
+  repeating stream, **90%** of a shared commons's queries are redundant
+  re-answers of already-known situations. **G4:** a fourth verdict `ANSWER`,
+  conferred by the commons after N correct ACTs on a content-hash neighborhood
+  and revoked the instant the world shifts, **cuts queries by 90% with no
+  increase in error rate**, and standing evaporates **~2.5 ticks** after a regime
+  change. Standing is never self-granted (baseline serves 0 local answers), and
+  the four-verdict set stays a JEV schema — even "stop asking" is a legal move.
+  0 illegal. This is the exact seam Pincher4Jev's scale-thumbing bias rides.
 
 ## G5 — Portable, cross-model deposit inheritance (warm-start)
 
