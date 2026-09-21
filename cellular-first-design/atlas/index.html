@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Atlas — every demo</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 2rem;text-align:center;padding:2rem 0;border-bottom:1px solid var(--border)}
+h1{color:var(--accent);font-size:2.2rem;margin:0 0 .5rem;font-weight:200;letter-spacing:-.02em}
+.tagline{color:var(--dim);font-size:1rem;font-style:italic;max-width:600px;margin:0 auto 1rem}
+.meta{color:var(--dim);font-family:var(--mono);font-size:.75rem}
+.atlas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
+.category{margin-bottom:2rem}
+.category h2{color:var(--accent);font-size:1.1rem;margin:0 0 1rem;font-family:var(--mono);letter-spacing:2px;text-transform:uppercase}
+.demo{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;transition:all .2s;display:flex;flex-direction:column;justify-content:space-between;min-height:140px}
+.demo:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,255,157,0.1)}
+.demo h3{margin:0 0 .3rem;color:var(--text);font-size:1rem}
+.demo p{color:var(--text2);font-size:.8rem;line-height:1.4;margin:0 0 .5rem;flex:1}
+.demo .tag{display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.1rem .4rem;font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-right:.2rem;margin-bottom:.2rem}
+.demo a{color:var(--accent2);text-decoration:none;font-family:var(--mono);font-size:.75rem;display:inline-block;margin-top:.3rem}
+.demo a:hover{text-decoration:underline}
+footer{max-width:1200px;margin:2rem auto 0;padding:1.5rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none;margin:0 .5rem}
+</style>
+</head>
+<body>
+<header>
+<h1>Substrate Atlas</h1>
+<p class="tagline">A complete catalog of every live demo. 30+ browser playgrounds running on the same substrate math.</p>
+<p class="meta" id="meta"></p>
+</header>
+
+<div class="atlas" id="atlas"></div>
+
+<footer>
+<a href="../math-layer.html">math-layer</a> ·
+<a href="../codex/index.html">codex</a> ·
+<a href="../cellular-first-design/index.html">cellular-first-design</a> ·
+<a href="https://github.com/SuperInstance/AI-Writings">github</a>
+</footer>
+
+<script>
+const ATLAS = [
+  // Quantum
+  { cat: 'quantum', name: 'quantum-dance', title: 'Quantum Dance', desc: 'Bell states + GHZ + W. Apply H/X/Y/Z/S/T/Rx/CNOT/QFT/Grover/Deutsch-Jozsa.', tags: ['bell', 'ghz', 'grover'] },
+  { cat: 'quantum', name: 'wave-fn', title: 'Wave Function', desc: 'Single-qubit circuit with gates. Measure to collapse. Trace check.', tags: ['qubit', 'gates', 'measure'] },
+  // Vectors / Search
+  { cat: 'vectors', name: 'ann-search', title: 'ANN Search', desc: '1024-d vector search + k-means++ clustering. Token-frequency embedder.', tags: ['kmeans', 'cosine', 'embed'] },
+  { cat: 'vectors', name: 'kmeans-viz', title: 'k-Means viz', desc: 'Lloyd\'s algorithm convergence. Click canvas, 4 distributions, silhouette score.', tags: ['kmeans', 'cluster'] },
+  // Randomness
+  { cat: 'randomness', name: 'd20', title: 'D20 dice', desc: 'xoshiro256** + Box-Muller luck. Advantage/disadvantage. Nat 20 crit.', tags: ['dice', 'box-muller'] },
+  { cat: 'randomness', name: 'blackjack', title: 'Blackjack', desc: '6-deck shoe, Box-Muller shuffle, Poisson(2) dealer. Full rules.', tags: ['shuffle', 'poisson'] },
+  { cat: 'randomness', name: 'dungeon', title: 'Dungeon', desc: 'Procedural 8-12 rooms. xoshiro256** + Box-Muller for monsters.', tags: ['procgen', 'rpg'] },
+  { cat: 'randomness', name: 'news', title: 'Fleet News', desc: 'Markov chain over canon bodies. 5-8 sentences per article.', tags: ['markov', 'procgen'] },
+  { cat: 'randomness', name: 'journal', title: 'Journal', desc: 'Personal logbook with witness hashes. Mood tracking + export.', tags: ['storage', 'hashing'] },
+  { cat: 'randomness', name: 'piano', title: 'Piano', desc: 'Box-Muller melodies. 4 scales. Adjustable tempo + volume.', tags: ['music', 'box-muller'] },
+  // CA
+  { cat: 'cellular-automata', name: 'life', title: 'Conway Life', desc: 'Game of Life on 80x80. Click cells, 6 patterns, auto-step.', tags: ['B3/S23', 'conway'] },
+  { cat: 'cellular-automata', name: 'rule-110', title: 'Rule 110', desc: 'Turing-complete 1D automaton. Any 8-bit rule.', tags: ['turing', '1D'] },
+  { cat: 'cellular-automata', name: 'lenia-viz', title: 'Lenia', desc: 'Continuous CA with bell-shaped kernel. 3 presets.', tags: ['continuous', 'kernel'] },
+  { cat: 'cellular-automata', name: 'tidepool', title: 'Tidepool', desc: 'Multi-agent world. 5 agents, 12 cell types. FNV-1a witness every 5 ticks.', tags: ['agent', 'multi'] },
+  // Games
+  { cat: 'games', name: 'tictactoe', title: 'Quantum Tic-Tac-Toe', desc: 'Each move = Bell state. Born-rule collapse after 6 moves.', tags: ['bell', 'game'] },
+  { cat: 'games', name: 'chess', title: 'Chess', desc: 'Cosine(piece_vec, square_vec) eval. Each piece 32-d. Greedy AI.', tags: ['cosine', 'eval'] },
+  { cat: 'games', name: 'checkers', title: 'Checkers', desc: '16-d piece vectors. Cosine-similarity AI. Kings + captures.', tags: ['cosine', 'captures'] },
+  { cat: 'games', name: 'tarot', title: 'Tarot', desc: '78 cards. Box-Muller for reversal. Celtic Cross spread.', tags: ['cartomancy'] },
+  { cat: 'games', name: 'zodiac', title: 'Zodiac', desc: 'Mathematical horoscope. Birth hash → natal chart with 10 planets.', tags: ['astrology'] },
+  // Polyformalism
+  { cat: 'polyformalism', name: 'polyformalism', title: 'Polyformalism', desc: 'Verify cell across 13 ports. 12 LE byte-exact, Forth differs by BE.', tags: ['verify', 'ports'] },
+  // Canon
+  { cat: 'canon', name: 'canon', title: 'Canon Search', desc: 'Semantic search across 73 canon pieces. Token-frequency embedder.', tags: ['search', 'embed'] },
+  { cat: 'canon', name: 'rosetta', title: 'Rosetta Stone', desc: 'JEV × JEPA correlation visualization. FNV-1a witness + 5-step prediction.', tags: ['jev', 'jepa'] },
+  { cat: 'canon', name: 'oracle', title: 'Oracle', desc: 'Ask a question. Combines FNV-1a + xoshiro256** + Box-Muller + Bell + cosine.', tags: ['ask', 'witness'] },
+  { cat: 'canon', name: 'poetry', title: 'Poetry', desc: 'Markov chain over Fleet Radio corpus. 1-6 stanzas. Witness hash.', tags: ['markov', 'verse'] },
+  { cat: 'canon', name: 'glossary', title: 'Glossary', desc: '36 substrate terms cross-linked via cosine similarity.', tags: ['terms', 'links'] },
+  { cat: 'canon', name: 'codex', title: 'Codex', desc: 'A-Z glossary of 50+ substrate terms with definitions, math, examples.', tags: ['codex'] },
+  // Generative
+  { cat: 'generative', name: 'radio', title: 'Substrate Radio', desc: 'Generative music. Xoshiro + Box-Muller. 6 presets.', tags: ['music', '6-presets'] },
+  { cat: 'generative', name: 'radio-fm', title: 'Radio FM', desc: 'Pirate radio. Box-Muller chords. Live spectrum analyzer.', tags: ['broadcast', 'spectrum'] },
+  { cat: 'generative', name: 'maritime-math', title: 'Maritime Math', desc: 'Fleet radio transmission. Live canvas: stars, waves, ship, sail.', tags: ['sea', 'transmission'] },
+  { cat: 'generative', name: 'algebra', title: 'Algebra', desc: '11-opcode cellular algebra. Compose cells. Watch them bind.', tags: ['opcodes', 'algebra'] },
+  { cat: 'generative', name: 'live-dance', title: 'Live Dance', desc: 'Real-time cell animation. Live API tick.', tags: ['live', 'api'] },
+  { cat: 'generative', name: 'animated-dance', title: 'Animated Dance', desc: 'Procedural cell animation. Multiple sequences.', tags: ['animated'] },
+  { cat: 'generative', name: 'civilizations', title: 'Civilizations', desc: 'Civilization simulation with cellular substrate.', tags: ['sim', 'civ'] },
+  { cat: 'generative', name: 'code', title: 'Code', desc: 'Code playground for cellular-first programs.', tags: ['code', 'sandbox'] },
+  { cat: 'generative', name: 'innovations-index', title: 'Innovations Index', desc: 'Index of all innovations and discoveries.', tags: ['index'] },
+];
+
+function render() {
+  const el = document.getElementById('atlas');
+  const cats = [...new Set(ATLAS.map(d => d.cat))];
+  el.innerHTML = '';
+  for (const cat of cats) {
+    const section = document.createElement('div');
+    section.className = 'category';
+    section.style.gridColumn = '1 / -1';
+    const h2 = document.createElement('h2');
+    h2.textContent = cat.replace(/-/g, ' ');
+    section.appendChild(h2);
+    const grid = document.createElement('div');
+    grid.className = 'atlas';
+    for (const d of ATLAS.filter(x => x.cat === cat)) {
+      const div = document.createElement('div');
+      div.className = 'demo';
+      div.innerHTML = `
+        <h3>${d.title}</h3>
+        <p>${d.desc}</p>
+        <div>
+          ${d.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+        <a href="../${d.name}/index.html">→ open</a>
+      `;
+      grid.appendChild(div);
+    }
+    section.appendChild(grid);
+    el.appendChild(section);
+  }
+  document.getElementById('meta').textContent = `${ATLAS.length} demos · ${cats.length} categories · updated ${new Date().toISOString().slice(0, 10)}`;
+}
+
+render();
+</script>
+</body>
+</html>
