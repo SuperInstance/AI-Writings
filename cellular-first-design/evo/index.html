@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Evolution — genetic algorithm</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#0a1a0a 0%,#06080f 60%)}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+canvas{display:block;background:#000;border:1px solid var(--accent);border-radius:6px;width:100%;image-rendering:pixelated}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text], input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem}
+input[type=range]{flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.chart{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.3rem;margin-top:.5rem;height:80px}
+canvas#chart{display:block;background:transparent;border:none;width:100%;height:80px}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🧬 Substrate Evolution</h1>
+<p class="tagline">A genetic algorithm evolves to find a target phrase. Mutation via Box-Muller. Crossover via xoshiro.</p>
+</header>
+
+<main>
+<div>
+<canvas id="creatures" width="600" height="400"></canvas>
+<div class="chart"><canvas id="chart"></canvas></div>
+</div>
+<aside class="panel">
+<label>Target: <input type="text" id="target" value="the fleet radio" style="flex:1"></label>
+<button onclick="startEvolution()">🧬 Start</button>
+<button class="secondary" onclick="pause()">⏸ Pause</button>
+<button class="secondary" onclick="reset()">↻ Reset</button>
+<label>Pop size: <input type="range" id="pop" min="20" max="500" value="100"> <span id="popLbl">100</span></label>
+<label>Mutation: <input type="range" id="mut" min="1" max="100" value="10"> <span id="mutLbl">0.10</span></label>
+<label>Seed: <input type="text" id="seed" value="evo" style="flex:1"></label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Generation: <span class="v" id="sGen">0</span></div>
+<div>Best fitness: <span class="v" id="sFit">0.0</span></div>
+<div>Best phrase: <span class="v" id="sBest" style="font-size:.7rem">—</span></div>
+<div>Avg fitness: <span class="v" id="sAvg">0.0</span></div>
+<div>Solved: <span class="v" id="sSolved">no</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🧬 substrate evolution · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,!?\'-';
+let rng = new Xoshiro256('evo-' + Date.now());
+let pop = [];
+let target = '';
+let gen = 0;
+let bestFitness = 0;
+let bestPhrase = '';
+let avgFitness = 0;
+let isRunning = false;
+let interval = null;
+let history = [];
+
+function fitness(phrase) {
+  let score = 0;
+  for (let i = 0; i < Math.min(phrase.length, target.length); i++) {
+    if (phrase[i] === target[i]) score++;
+  }
+  return score / target.length;
+}
+
+function randomPhrase(len) {
+  let p = '';
+  for (let i = 0; i < len; i++) p += CHARS[rng.intRange(0, CHARS.length)];
+  return p;
+}
+
+function mutate(phrase, rate) {
+  let p = '';
+  for (let i = 0; i < phrase.length; i++) {
+    if (rng.float() < rate) p += CHARS[rng.intRange(0, CHARS.length)];
+    else p += phrase[i];
+  }
+  return p;
+}
+
+function crossover(a, b) {
+  // Single-point crossover
+  const point = rng.intRange(0, a.length);
+  return a.slice(0, point) + b.slice(point);
+}
+
+function nextGen() {
+  const mutRate = parseInt(document.getElementById('mut').value) / 100;
+  const target_ = target;
+  // Fitness-sort
+  pop.forEach(p => p.fit = fitness(p.genes));
+  pop.sort((a, b) => b.fit - a.fit);
+  // Track best
+  if (pop[0].fit > bestFitness) {
+    bestFitness = pop[0].fit;
+    bestPhrase = pop[0].genes;
+  }
+  avgFitness = pop.reduce((a, p) => a + p.fit, 0) / pop.length;
+  history.push(bestFitness);
+  if (history.length > 60) history.shift();
+  // Selection: top 20% + crossover + mutation
+  const elite = pop.slice(0, pop.length * 0.2).map(p => ({ genes: p.genes, fit: p.fit }));
+  const newPop = [...elite];
+  while (newPop.length < pop.length) {
+    const a = pop[rng.intRange(0, pop.length * 0.5)];
+    const b = pop[rng.intRange(0, pop.length * 0.5)];
+    let child = crossover(a.genes, b.genes);
+    child = mutate(child, mutRate);
+    newPop.push({ genes: child });
+  }
+  pop = newPop;
+  gen++;
+}
+
+function render() {
+  const c = document.getElementById('creatures');
+  c.width = c.clientWidth;
+  c.height = c.clientHeight;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, c.width, c.height);
+  // Show top 10 creatures
+  pop.sort((a, b) => (b.fit || 0) - (a.fit || 0));
+  const top = pop.slice(0, 12);
+  for (let i = 0; i < top.length; i++) {
+    const y = (i / top.length) * c.height;
+    ctx.fillStyle = top[i].fit > 0.8 ? '#00ff9d' : top[i].fit > 0.5 ? '#ffb84d' : '#5a6580';
+    ctx.font = '12px monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText(`gen ${i}: ${top[i].genes.slice(0, 25)}`, 10, y + 14);
+    // Fitness bar
+    ctx.fillStyle = 'rgba(0, 255, 157, 0.3)';
+    ctx.fillRect(0, y + 18, (top[i].fit || 0) * c.width, 2);
+  }
+  // Update stats
+  document.getElementById('sGen').textContent = gen;
+  document.getElementById('sFit').textContent = bestFitness.toFixed(3);
+  document.getElementById('sBest').textContent = bestPhrase;
+  document.getElementById('sAvg').textContent = avgFitness.toFixed(3);
+  document.getElementById('sSolved').textContent = bestFitness >= 0.99 ? '✓ YES' : 'no';
+  // Chart
+  const ch = document.getElementById('chart');
+  const cctx = ch.getContext('2d');
+  ch.width = ch.clientWidth;
+  ch.height = ch.clientHeight;
+  cctx.fillStyle = '#000';
+  cctx.fillRect(0, 0, ch.width, ch.height);
+  if (history.length > 1) {
+    cctx.strokeStyle = '#00ff9d';
+    cctx.lineWidth = 2;
+    cctx.beginPath();
+    for (let i = 0; i < history.length; i++) {
+      const x = (i / history.length) * ch.width;
+      const y = ch.height - history[i] * ch.height;
+      if (i === 0) cctx.moveTo(x, y);
+      else cctx.lineTo(x, y);
+    }
+    cctx.stroke();
+  }
+}
+
+function startEvolution() {
+  if (isRunning) return;
+  target = document.getElementById('target').value;
+  const popSize = parseInt(document.getElementById('pop').value);
+  rng = new Xoshiro256(document.getElementById('seed').value + '-' + Date.now());
+  pop = [];
+  for (let i = 0; i < popSize; i++) pop.push({ genes: randomPhrase(target.length) });
+  gen = 0; bestFitness = 0; bestPhrase = ''; history = [];
+  isRunning = true;
+  interval = setInterval(() => {
+    nextGen();
+    render();
+    if (bestFitness >= 0.99) pause();
+  }, 50);
+}
+
+function pause() {
+  isRunning = false;
+  clearInterval(interval);
+}
+
+function reset() {
+  pause();
+  pop = [];
+  gen = 0;
+  bestFitness = 0;
+  bestPhrase = '';
+  history = [];
+  render();
+}
+
+['pop', 'mut'].forEach(id => {
+  document.getElementById(id).addEventListener('input', e => {
+    if (id === 'pop') document.getElementById('popLbl').textContent = e.target.value;
+    if (id === 'mut') document.getElementById('mutLbl').textContent = (e.target.value / 100).toFixed(2);
+  });
+});
+
+render();
+</script>
+</body>
+</html>

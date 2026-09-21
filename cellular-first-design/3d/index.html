@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate 3D — voxel field</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.view{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;height:600px;position:relative;overflow:hidden}
+canvas{display:block;background:#000;border-radius:6px;width:100%;height:100%;cursor:grab}
+canvas:active{cursor:grabbing}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text], input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem}
+input[type=range]{flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.controls-hint{color:var(--dim);font-family:var(--mono);font-size:.7rem;text-align:center;margin-top:.5rem}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📦 Substrate 3D</h1>
+<p class="tagline">A 3D voxel field rendered as wireframe. FNV-1a(x, y, z) → live voxel.</p>
+</header>
+
+<main>
+<div class="view">
+<canvas id="canvas"></canvas>
+<p class="controls-hint">drag to rotate · scroll to zoom</p>
+</div>
+<aside class="panel">
+<label>Seed: <input type="text" id="seed" value="xochitl" style="flex:1"></label>
+<button onclick="generate()">📦 Generate</button>
+<button class="secondary" onclick="reset()">↻ Reset view</button>
+<label>Size: <input type="range" id="size" min="8" max="32" value="16"> <span id="sizeLbl">16</span></label>
+<label>Density: <input type="range" id="density" min="5" max="50" value="20"> <span id="densityLbl">0.20</span></label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Voxels: <span class="v" id="sVoxels">0</span></div>
+<div>Total possible: <span class="v" id="sTotal">0</span></div>
+<div>Frame: <span class="v" id="sFrame">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>📦 substrate 3D · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let voxels = []; // { x, y, z, alive }
+let canvas, ctx;
+let rotX = 0.3, rotY = 0.5, zoom = 1;
+let dragging = false, lastX, lastY;
+let frame = 0;
+let animInterval = null;
+
+function generate() {
+  const seed = document.getElementById('seed').value;
+  const size = parseInt(document.getElementById('size').value);
+  const density = parseInt(document.getElementById('density').value) / 100;
+  voxels = [];
+  for (let x = 0; x < size; x++) {
+    for (let y = 0; y < size; y++) {
+      for (let z = 0; z < size; z++) {
+        const h = fnv1a64(new TextEncoder().encode(`${seed}|${x}|${y}|${z}`));
+        if (Number(h & 0xffn) / 255 < density) {
+          voxels.push({ x: x - size/2, y: y - size/2, z: z - size/2, alive: true });
+        }
+      }
+    }
+  }
+  document.getElementById('sVoxels').textContent = voxels.length;
+  document.getElementById('sTotal').textContent = size * size * size;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${seed}|${voxels.length}`)).toString(16).padStart(16, '0');
+}
+
+function project(x, y, z) {
+  // Rotate around Y then X
+  const cy = Math.cos(rotY), sy = Math.sin(rotY);
+  const x1 = x * cy - z * sy;
+  const z1 = x * sy + z * cy;
+  const cx = Math.cos(rotX), sx = Math.sin(rotX);
+  const y1 = y * cx - z1 * sx;
+  const z2 = y * sx + z1 * cx;
+  return { x: x1, y: y1, z: z2 };
+}
+
+function render() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const scale = 12 * zoom;
+  // Sort by depth (back to front)
+  const projected = voxels.map(v => ({ ...v, ...project(v.x, v.y, v.z) }));
+  projected.sort((a, b) => b.z - a.z);
+  for (const v of projected) {
+    const sx = cx + v.x * scale;
+    const sy = cy + v.y * scale;
+    const sz = (v.z + 50) / 100; // 0..1
+    const alpha = 0.3 + sz * 0.7;
+    const size = 2 + sz * 3;
+    // Color by position
+    const hue = (v.x + v.y + v.z) * 12 + 120;
+    ctx.fillStyle = `hsla(${hue}, 70%, 60%, ${alpha})`;
+    ctx.fillRect(sx - size/2, sy - size/2, size, size);
+  }
+  document.getElementById('sFrame').textContent = frame;
+  frame++;
+}
+
+function reset() {
+  rotX = 0.3; rotY = 0.5; zoom = 1;
+}
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+
+canvas.addEventListener('mousedown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+canvas.addEventListener('mouseup', () => dragging = false);
+canvas.addEventListener('mouseleave', () => dragging = false);
+canvas.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  rotY += (e.clientX - lastX) * 0.01;
+  rotX += (e.clientY - lastY) * 0.01;
+  lastX = e.clientX; lastY = e.clientY;
+});
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoom *= 1 + (-e.deltaY) * 0.001;
+  zoom = Math.max(0.3, Math.min(3, zoom));
+});
+
+['size', 'density'].forEach(id => {
+  document.getElementById(id).addEventListener('input', e => {
+    if (id === 'size') document.getElementById('sizeLbl').textContent = e.target.value;
+    if (id === 'density') document.getElementById('densityLbl').textContent = (e.target.value / 100).toFixed(2);
+    generate();
+  });
+});
+
+document.getElementById('seed').addEventListener('change', generate);
+
+generate();
+animInterval = setInterval(render, 50);
+</script>
+</body>
+</html>
