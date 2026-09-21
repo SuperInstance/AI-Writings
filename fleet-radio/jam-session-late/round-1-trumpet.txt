@@ -1,0 +1,7 @@
+ENTRY: [Bar 1, Beat 3, 2.9 seconds into the opening D chord’s 3-second sustain, 0.1 seconds before the guitar’s high E ghost note]
+NOTES:
+Bar 1: Single, breathy mid-register F natural (mezzo-piano, no vibrato) held through the guitar’s ghost pluck, trailing into the first thumb-driven fingerpicked pulse
+Bar 2: Hold the same F natural for the first two beats of the Dadd9/F# chord, then glissando a half-step up to F# on beat 3, holding the rest of the chord’s sustain locked to the guitar’s thumb pulse
+Bar 3: Soft, low-mid B natural, held synced to the guitar’s thumb-plucked bass pulses through the full Bm7 chord sustain
+Bar 4: High, clear A natural, held through the Gmaj9/A chord’s sustain, fading gently as the progression cycles back to D
+WHY: I heard the quiet, unspoken half-step tension between the D chord’s F# major third and the next chord’s F# bass, so the overlooked F natural flat third acts as a tiny, electric spark that makes the whole room lean in before resolving cleanly into the progression’s next shift.

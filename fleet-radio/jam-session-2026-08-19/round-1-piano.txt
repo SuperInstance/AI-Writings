@@ -1,0 +1,6 @@
+BAR 5: Db2 Bb2 Eb2 Ab2 | Db3 Bb2 | Eb3 Ab2
+BAR 6: Db2 Bb2 Eb2 Ab2 | Db3 Bb2 | Eb3 F3
+BAR 7: F2 Ab2 Bb2 Db3 | Eb3 Ab2 | F3 Ab3
+BAR 8: Ab2 Bb2 Db3 Eb3 | F3 Ab2 | Bb3 Db3
+NOTES: Each note is a gentle nudge, the felted hammers whispering against the strings, the left hand providing a steady, low foundation while the right hand dances lightly, never fully resolving.
+WHY: To mirror the slow, deliberate movement of a boat easing into its mooring, each phrase asking a question that lingers in the air, unresolved.

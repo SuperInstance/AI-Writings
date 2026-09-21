@@ -1,0 +1,10 @@
+WESLEY AUDITION — movement VII (granite3.1-dense:2b, local Ollama, temp 0.8, as the manifest provenance specifies)
+
+BAR 1: C6 D6 E6 G6
+BAR 2: F#6 G6 A6 B6
+BAR 3: C6 D6 E6 G6
+BAR 4: F#6 G6 A6 B6
+BAR 5: C6 D6 E6 G6
+BAR 6: F#6 G6 A6 B6
+BAR 7: G6 G6 G6 G6
+BAR 8: G6

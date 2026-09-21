@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder · JEV + Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#ff9944; --jev:#44ddaa; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Helvetica Neue', sans-serif; line-height:1.7; padding:1rem; max-width:1100px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.4em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; font-size:1.4em; letter-spacing:.02em; }
+h3 { color:var(--jev); margin:1rem 0 0.3rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+code { color:var(--jev); background:var(--bg); padding:.1rem .4rem; border-radius:3px; }
+.callout { background:rgba(255,153,68,.1); border-left:4px solid var(--accent); padding:1rem; margin:1rem 0; }
+.tag { display:inline-block; padding:.2rem .6rem; border-radius:3px; background:var(--accent); color:#000; font-weight:bold; font-size:.85em; }
+.big { font-size:3em; color:var(--accent); font-weight:bold; text-align:center; padding:1rem 0; }
+.big .small { font-size:.3em; color:var(--muted); display:block; margin-top:.5rem; font-weight:normal; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9em; }
+th, td { padding:.6rem; border-bottom:1px solid var(--boundary); text-align:left; }
+th { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🚀 Founder / Investor View</h1>
+  <p style="color:var(--muted)">Category shift · Market · Moat · Adjacent markets</p>
+</header>
+
+<div class="callout">
+<p><strong>The pitch in one paragraph:</strong> For 5 years (2020-2025), every product added AI features by adding text generation. JEV is the first model that returns <em>decisions</em> instead of text — typed, calibrated, schema-bounded. This is the same category shift as spreadsheets replacing ledgers: same data, fundamentally different interface. Quilt is the cellular substrate that turns those decisions into observable, signed, composable cells. The market is every B2B SaaS vertical that makes typed decisions.</p>
+</div>
+
+<div class="section">
+<h2>The category shift: decisions, not text</h2>
+
+<p>LLMs (2020-2025) are text generators. Every product added "AI features" by integrating a chat API and showing the response. Total addressable: every human-facing software surface.</p>
+
+<p>JEV (2026+) is a <em>decision</em> generator. The interface changes from "give me a paragraph" to "give me a typed answer with a probability." Every product can now add AI features by adding typed decision calls.</p>
+
+<h3>5 incumbent categories that get rebuilt</h3>
+<table>
+<tr><th>Category</th><th>Before (text-based)</th><th>After (JEV-decision)</th></tr>
+<tr><td>Search</td><td>User types query, system returns text</td><td>User types query, system returns top-3 docs + confidence</td></tr>
+<tr><td>Forms</td><td>Regex validates format</td><td>JEV validates meaning</td></tr>
+<tr><td>Routing</td><td>Rules engine with 5000 if-thens</td><td>20 questions to JEV</td></tr>
+<tr><td>CRM scoring</td><td>Lead-score formula in code</td><td>JEV calibrated score with explanation</td></tr>
+<tr><td>Support tickets</td><td>Keyword match → team</td><td>JEV intent + urgency → team</td></tr>
+</table>
+
+<p>The spreadsheet analogy is precise: spreadsheets replaced ledgers because they made the cell the unit of addressable, composable, auditable value. JEV replaces LLM-prompt-as-decision because it makes the decision the unit of addressable, composable, auditable value.</p>
+</div>
+
+<div class="section">
+<h2>Market sizing</h2>
+
+<div class="big">$25B<span class="small">SAM — developer-facing decision APIs + edge-hosted decision models (3-year)</span></div>
+
+<h3>TAM: software that makes decisions</h3>
+<p>Every B2B SaaS vertical. Lead scoring alone is a $4B market. Routing/triage is $8B. Form validation is $1.5B. Search relevance is $11B. These are decision-shaped problems.</p>
+
+<h3>SAM: developer-facing decision layer</h3>
+<p>The subset that today uses LLM tokens for typed decisions. At $25B, this is the achievable market with current JEV pricing and capabilities.</p>
+
+<h3>SOM (3-year): the cost-arbitrage segment</h3>
+<p>Apps that today burn LLM tokens on routing/validation/scoring because they have no cheaper alternative. Switching these to JEV is a 100x cost reduction.</p>
+
+<h3>Unit economics</h3>
+<table>
+<tr><th>Volume</th><th>Per-call cost (JEV)</th><th>Per-call cost (GPT-4)</th><th>Monthly JEV bill</th><th>Monthly GPT-4 bill</th></tr>
+<tr><td>100k decisions</td><td>$0.0025</td><td>$2.50</td><td>$2.50</td><td>$2,500</td></tr>
+<tr><td>1M decisions</td><td>$0.025</td><td>$2.50</td><td>$25</td><td>$25,000</td></tr>
+<tr><td>10M decisions</td><td>$0.25</td><td>$2.50</td><td>$250</td><td>$250,000</td></tr>
+<tr><td>1B decisions</td><td>$25</td><td>$2.50</td><td>$2,500</td><td>$25,000,000</td></tr>
+</table>
+<p>1000x cost difference at high volume. This is the wedge.</p>
+</div>
+
+<div class="section">
+<h2>Moat: why this is hard to copy</h2>
+
+<p><strong>First-mover moat.</strong> 6 months of inlined corpus + Workers + cells shipped live at ai-writings.pages.dev. Not a proof-of-concept — a production substrate with 115+ cell-being concepts, 82 inlined canon docs, 12+ live API endpoints.</p>
+
+<p><strong>Switching costs.</strong> Once your stack calls /api/jev/* for routing/validation/scoring, the entire decision layer is wired through this substrate. Replacing it means rewriting every decision point.</p>
+
+<p><strong>Data network effects.</strong> More decisions → better calibration → lower escalation rate → more decisions. The witness log gets denser. The model gets sharper. The substrate becomes more valuable the more it's used.</p>
+
+<p><strong>The cell layer as moat.</strong> Even if JEV commoditizes (TypeSafe open-sources, competitors catch up), the Quilt cell substrate does not. The cell algebra, the 11 opcodes, the witness log, the canon — that is the durable moat.</p>
+</div>
+
+<div class="section">
+<h2>5 adjacent markets this enables</h2>
+
+<h3>1. Sovereign edge decisions</h3>
+<p>Decide without sending data to a US hyperscaler. Every healthcare, defense, and EU-regulated customer needs this. JEV runs on TypeSafe today, but the schema constraint makes edge-hosting tractable.</p>
+
+<h3>2. Audit-grade agent loops</h3>
+<p>Every cell is signed. Every decision is justified by probabilities. Every witness is logged. Regulated industries (finance, healthcare, legal) can deploy AI agents because the audit trail is built in.</p>
+
+<h3>3. Decision CRDT</h3>
+<p>Merge decisions across distributed teams like Git merges code. Two people disagree about a routing rule? Run it through JEV. The decision log is conflict-free and reproducible.</p>
+
+<h3>4. School-of-cells</h3>
+<p>A learning substrate where each cell is both student and teacher. A cell that gets corrected updates its own confidence distribution. The substrate learns from its own corrections.</p>
+
+<h3>5. Citizen data trusts</h3>
+<p>Collective decisions about a community's data, made cheaply at the edge. A neighborhood can decide "share anonymized traffic data with the city" via a JEV-mediated vote, with each household's preference signed and traceable.</p>
+</div>
+
+<div class="section">
+<h2>Risks</h2>
+
+<ul>
+<li><strong>TypeSafe raises prices</strong>. Mitigation: switch to JEPA-decisions or open-source JEV; the cell substrate is model-agnostic.</li>
+<li><strong>JEV goes open-source</strong>. This is actually bullish — it commoditizes the model but elevates the substrate. Same as Linux vs Red Hat.</li>
+<li><strong>JEPA models converge on decision primitives</strong>. Possible. JEV's moat is then "we ship it today, with the cell layer attached."</li>
+<li><strong>CF Pages becomes a single point of failure</strong>. Mitigation: multi-region deploy, KV-backed cell store, JEPA fallback for offline mode.</li>
+</ul>
+</div>
+
+<div class="foot-link">
+Founder Docs · <a href="/docs/">all docs</a> · <a href="/docs/enterprise/">enterprise</a> · <a href="/docs/creative/">creative</a>
+</div>
+</body>
+</html>

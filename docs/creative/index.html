@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Canon · JEV + Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#ff44dd; --story:#77aaff; --lecture:#ff7799; --joke:#ffd966; --kid:#77dd99; --jepa:#aa88ff; --jev:#44ddaa; --llm:#77aaff; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:Georgia, serif; line-height:1.8; padding:1rem; max-width:800px; margin:0 auto; font-size:1.05em; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.4em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; }
+h3 { margin:1rem 0 0.3rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.section.story { border-color:var(--story); }
+.section.lecture { border-color:var(--lecture); }
+.section.joke { border-color:var(--joke); }
+.section.kids { border-color:var(--kid); }
+.section h2 { color:inherit; }
+.section.story h2 { color:var(--story); }
+.section.lecture h2 { color:var(--lecture); }
+.section.joke h2 { color:var(--joke); }
+.section.kids h2 { color:var(--kid); }
+.speaker { color:var(--accent); font-weight:bold; font-style:italic; }
+.tag { display:inline-block; padding:.1rem .5rem; border-radius:3px; font-size:.85em; font-weight:bold; }
+.tag.jev { background:var(--jev); color:#000; }
+.tag.llm { background:var(--llm); color:#000; }
+.tag.jepa { background:var(--jepa); color:#000; }
+.joke-line { background:rgba(0,0,0,.4); padding:.5rem; border-radius:4px; margin:.5rem 0; font-style:italic; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+em { color:var(--accent); }
+blockquote { border-left:3px solid var(--accent); padding-left:1rem; margin:1rem 0; font-style:italic; color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎨 The Creative Canon</h1>
+  <p style="color:var(--muted); font-style:italic">Stories, lectures, jokes, and bedtime explanations</p>
+</header>
+
+<div class="section" id="superego">
+<h2>The Superego Lecture (excerpt)</h2>
+
+<p class="speaker">[Casey, at a graduate seminar, third week of the AGI syllabus]</p>
+
+<p>"Let me tell you why your language model hallucinates."</p>
+
+<p>"Imagine a person at a buffet. They're hungry. They've been told they can eat anything. They've been given no conscience. What do they do?"</p>
+
+<p>They eat everything. They eat the prime rib. They eat the sushi. They eat the cake. They eat the cake again because the first slice tasted good. They eat until they vomit.</p>
+
+<p>That's your LLM. It's hungry for tokens. It has no superego. It eats whatever fits in its context window. It generates whatever sounds plausible. It hallucinates because <em>that's what an id without a superego does.</em></p>
+
+<p>"Now, what happens when you give the buffet-goer a conscience?"</p>
+
+<p>They stop. They ask, 'Is this enough? Is this too much? Have I eaten what I should? What would I regret tomorrow?' They choose. They stop when they're full. They remember who else is hungry.</p>
+
+<p>That's JEV. It's the superego. It's the part that says 'I am 95% sure this email is spam, but 5% of the time I might be wrong, so let me tell you the uncertainty.' It's the part that doesn't make up an answer outside the schema you gave it.</p>
+
+<p>"Without a superego, you have an id with no boundary. With only a superego, you have a prison. The psyche needs all three: id (JEPA, embodied prediction), ego (LLM, verbal analysis), superego (JEV, principled decision)."</p>
+
+<p>"When all three agree, you have a complete agent. When they disagree, the witness log shows the fork, and you wait for more data."</p>
+</div>
+
+<div class="section story">
+<h2>The Sorting Hat — A 2036 Novelette (excerpt)</h2>
+
+<p><em>(In production. See <a href="/docs/creative/story-2036" style="color:var(--story)">the full piece</a> when shipped.)</em></p>
+
+<p class="speaker">[Mei, junior logistics engineer, week 1 at FulfillmentCorp]</p>
+
+<p>"So this is the routing console," my manager said. "It used to be a screen with three buttons: Human Review, LLM Summary, Auto-route. Now there's a fourth button."</p>
+
+<p>I looked. The fourth button was a thin grey rectangle with one word on it: <span class="tag jev">JEV</span>.</p>
+
+<p>"What's JEV?"</p>
+
+<p>"It decides whether to call the other three. Press it. Tell it what the shipment is. It picks."</p>
+
+<p>"What if it's wrong?"</p>
+
+<p>"Then a human reviews. But the human only sees shipments JEV was uncertain about — five percent of them. The other ninety-five percent, the JEV was confident enough to decide alone."</p>
+
+<p>I pressed the button.</p>
+
+<blockquote>
+<b>JEV prompt:</b> Shipment #4127. Contents: industrial valves. Origin: Shenzhen. Destination: Detroit. Customs: pending. Receiver: tier-2 supplier. Weight: 4,200kg.<br><br>
+<b>JEV response:</b> handler = "Auto-route". confidence = 0.97. reason = "Standard industrial freight, no anomalies, all required docs present."<br><br>
+<b>Action:</b> Routed to warehouse. ETA: 2026-09-21.
+</blockquote>
+
+<p>"That's how it works," my manager said. "Ninety-five percent of shipments need zero human attention. Five percent get escalated. Of that five percent, eighty percent go to the LLM for a narrative summary. Twenty percent go to a human."</p>
+
+<p>"And JEV learns from its mistakes?"</p>
+
+<p>"It doesn't learn in real time. But every escalation is logged. Every correction is appended to the witness log. The next calibration cycle incorporates those corrections."</p>
+
+<p>By week 4, I noticed something. The LLM and JEV had started refusing each other's tasks. The LLM said "I don't accept this shipment — JEV said it was anomalous but its confidence is only 0.61, which I consider untrustworthy." The JEV said "I don't escalate this — confidence 0.84 is above my 0.70 threshold." They were negotiating.</p>
+
+<p>By week 8, I'd brokered a treaty.</p>
+</div>
+
+<div class="section joke">
+<h2>Jokes that get truer the more you apply them</h2>
+
+<div class="joke-line">Why did the JEV cross the schema? Because every other answer was out of bounds.</div>
+
+<div class="joke-line">An <span class="tag llm">LLM</span>, a <span class="tag jepa">JEPA</span>, and a <span class="tag jev">JEV</span> walk into a bar. The bartender says "What'll it be?" The LLM says "I'll have a paragraph about your finest spirits." The JEPA says "already pouring." The JEV says "Beer. Confidence 0.99."</div>
+
+<div class="joke-line">The LLM is always generating. The JEPA is always perceiving. The JEV is always deciding. They meet at the witness log.</div>
+
+<div class="joke-line">A schema walks into JEV with three options. JEV says: "Not bad. Not bad. Confidence 0.5, 0.3, 0.2." The schema says: "Is that a yes?" JEV says: "That's a probability."</div>
+
+<div class="joke-line">How many LLMs does it take to hallucinate a fact? One. How many JEVs? Zero, by construction. How many JEPAs? Undefined — they're in latent space.</div>
+
+<div class="joke-line">A junior engineer asks the senior engineer: "Should I use the LLM for this?" The senior says: "What kind of decision is it?" Junior: "Should I escalate this support ticket?" Senior: "Then use JEV." Junior: "But it's only $0.025 cheaper." Senior: "It's 1000x cheaper at 1M tickets/month, AND it can't hallucinate a routing." Junior: "Why does everyone still default to LLM?" Senior: "Because decisions are scary. Text is safe."</div>
+
+<div class="joke-line">If a JEPA falls in a forest with no JEPA-aware listener, does it make a sound? Yes — but only JEV hears it.</div>
+
+<div class="joke-line">The superego, the id, and the ego walk into a coffee shop. The superego orders a small. The id orders the kitchen sink. The ego writes a 1,200-word essay about why the kitchen sink is the wrong choice.</div>
+
+<div class="joke-line">Old AI systems: "I think this email is spam." New AI systems: "This email is spam. Confidence 0.91. Schema: {spam, ham}." Even newer: "This email is spam. Three witnesses agree. Witness log signed at t=14:23:07.334."</div>
+
+<div class="joke-line">A manager asks: "Why is our AI bill so high?" The team lead: "We're using GPT-4 for routing." Manager: "Use JEV." Team lead: "It's only $25/month for 1M decisions." Manager: "Why didn't we do this six months ago?" Team lead: "Because routing felt too simple to need a model."</div>
+
+<div class="joke-line">The lightning joke: a meteorologist, a JEPA, and a JEV are watching a storm. The meteorologist says "Lightning at 0km, thunder at 0km, storm overhead." The JEPA says "Already there." The JEV says "Distance: 0 miles. Confidence 1.0. But you're standing in it."</div>
+</div>
+
+<div class="section kids">
+<h2>For the kids (5-line Python)</h2>
+
+<p>Build your own Sorting Hat. Open any Python editor. Paste this. Run it.</p>
+
+<pre style="background:#000; padding:1rem; border-radius:4px; font-family:monospace; font-size:.85em; overflow-x:auto">
+import os, requests
+
+def sort(name, hobby):
+    r = requests.post(
+        "https://api.typesafe.ai/v1/systemone",
+        headers={"Authorization": f"Bearer {os.environ['TYPESAFEAI_KEY']}"},
+        json={
+            "model": "jev-latest",
+            "state": f"{name} likes {hobby}",
+            "questions": {
+                "house": {
+                    "type": "choice",
+                    "question": "Which house?",
+                    "criteria": {"Gryffindor":"brave","Ravenclaw":"clever","Hufflepuff":"kind","Slytherin":"ambitious"},
+                    "options": ["Gryffindor","Ravenclaw","Hufflepuff","Slytherin"]
+                }
+            }
+        }
+    )
+    return r.json()["answers"]["house"]["choice"]
+
+print(sort("Alice", "rock climbing"))
+print(sort("Bob", "reading books"))
+print(sort("Carmen", "helping grandma"))
+</pre>
+
+<p>You need a free account at <code>typesafe.ai</code>. Ask a parent to set it up. Then run the script. Try different hobbies. Try weird ones. The Sorting Hat does not make up houses — only the four you told it about.</p>
+</div>
+
+<div class="section">
+<h2>20 ways JEV changes a thing you already do</h2>
+
+<p><em>(Excerpt — see <a href="/docs/creative/ideation-lecture" style="color:var(--accent)">full lecture</a> when shipped.)</em></p>
+
+<p><strong>1. Spam filtering.</strong> Spam filters today use regex + bayesian + ML. With JEV, you have a calibrated yes/no probability per email, with a schema you define. Filters become a single call, not a pipeline.</p>
+
+<p><strong>2. Email triage.</strong> Rule engines ("if from:boss then folder:important") are brittle. JEV evaluates the email holistically and picks a folder with confidence. Replaces 5000 rules with 5 questions.</p>
+
+<p><strong>3. Lead scoring.</strong> Lead-score formulas are wrong about 60% of the time. JEV gives a calibrated score with reasoning. Sales reps trust the explanation.</p>
+
+<p><strong>4. Form validation.</strong> Regex catches format. JEV catches meaning. "555-01-0234" passes regex but JEV knows it's a fake SSN.</p>
+
+<p><strong>5. Customer support routing.</strong> Keyword routing fails on synonyms. JEV classifies intent with confidence, then routes. Low-confidence cases go to a human.</p>
+
+<p><strong>6. Fraud detection.</strong> Rule-based fraud is whack-a-mole. JEV scores each transaction against a rubric with calibrated probability. Threshold-based escalation.</p>
+
+<p><strong>7. Content moderation.</strong> Toxic-comment classifiers over-flag. JEV gives a probability per category, lets you set per-category thresholds, and escalates edge cases to humans.</p>
+
+<p><strong>8. A/B test analysis.</strong> Statistics packages give p-values. JEV gives a yes/no answer: "are these variants meaningfully different?" With calibrated confidence.</p>
+
+<p><strong>9. Code review.</strong> Linters are rule-based. JEV evaluates code semantics with confidence. Catches "this will break in production" with explanation.</p>
+
+<p><strong>10. Resume screening.</strong> Keyword matching misses context. JEV evaluates fit holistically with confidence. Bias-audit friendly because decisions are typed.</p>
+
+<p><strong>11. Search relevance.</strong> BM25 + vectors is brittle. JEV picks top-3 from candidates with confidence. Replaces ranking pipelines with one call.</p>
+
+<p><strong>12. Translation confidence.</strong> Neural MT is fluent but unreliable. JEV scores translation quality. Low-confidence goes to a human reviewer.</p>
+
+<p><strong>13. Medical triage.</strong> Symptom checkers are cautious. JEV scores severity with confidence. Helps patients decide whether to go to ER or wait.</p>
+
+<p><strong>14. Insurance underwriting.</strong> Rules engines are rigid. JEV evaluates risk holistically with confidence. Audit-friendly because every decision is logged.</p>
+
+<p><strong>15. KYC verification.</strong> Document checks are brittle. JEV verifies identity holistically. Low-confidence flags for human review.</p>
+
+<p><strong>16. Pricing optimization.</strong> A/B test prices via JEV confidence intervals. No more "we think this is better."</p>
+
+<p><strong>17. Churn prediction.</strong> Logistic regression gives a probability. JEV gives a yes/no + reasoning. Customer success can act on it.</p>
+
+<p><strong>18. Recommendation systems.</strong> Collaborative filtering ranks. JEV picks from top candidates with confidence. Replaces re-rankers with typed decisions.</p>
+
+<p><strong>19. Contract analysis.</strong> NLP clause extraction is brittle. JEV evaluates clause risk with confidence. Helps lawyers prioritize review.</p>
+
+<p><strong>20. Game NPC behavior.</strong> Behavior trees are rigid. JEV picks NPC action from options with confidence. NPCs feel alive because the world model is real.</p>
+
+<p>Each of these used to require either a brittle rule engine or an expensive LLM call. Now they require a single JEV call. <strong>That's the category shift.</strong></p>
+</div>
+
+<div class="foot-link">
+Creative Canon · <a href="/docs/">all docs</a> · <a href="/docs/kid-teacher/">kid+teacher</a> · <a href="/docs/founder/">founder</a> · <a href="/">home</a>
+</div>
+</body>
+</html>

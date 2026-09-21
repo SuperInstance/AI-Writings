@@ -1,0 +1,9 @@
+BAR 1: G4 D4 B3 A3 | sink  
+BAR 2: F4 C4 A3 G3 | press  
+BAR 3: E4 B3 G3 F3 | slide  
+BAR 4: D4 A3 F3 E3 | drag  
+BAR 5: C4 G3 E3 D3 | pull  
+BAR 6: B3 F#3 D3 C3 | dip  
+BAR 7: A3 E3 C3 B2 | drop  
+BAR 8: G1 G1 G1 G1 | scrape  
+WHY: The cellar’s gravity forces every line to fall lower until all strings rest on the deepest G, ending the night with a final scrape.

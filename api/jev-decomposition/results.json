@@ -1,0 +1,2102 @@
+[
+  {
+    "fn": "quiltc_compile",
+    "project": "quilt-c",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.65,
+          "probabilities": {
+            "FORGET": 0.01,
+            "VIEW": 0.04,
+            "WORLD": 0.01,
+            "ROUTE": 0.01,
+            "TICK": 0.01,
+            "EFFECT": 0.67,
+            "TIME": 0.01,
+            "LINK": 0.04,
+            "BIND": 0.1,
+            "CRDT": 0.01,
+            "PROOF": 0.09
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.2,
+          "confidence": 0.84,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.87,
+            "1": 0.09,
+            "2": 0.02,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 490,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "quiltc_link",
+    "project": "quilt-c",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "LINK",
+          "confidence": 1.0,
+          "probabilities": {
+            "TIME": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "VIEW": 0.0,
+            "EFFECT": 0.0,
+            "LINK": 1.0,
+            "CRDT": 0.0,
+            "ROUTE": 0.0,
+            "BIND": 0.0,
+            "WORLD": 0.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 1.45,
+          "confidence": 0.11,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.33,
+            "1": 0.15,
+            "2": 0.34,
+            "3": 0.11,
+            "4": 0.07
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 489,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "quiltc_view",
+    "project": "quilt-c",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 1.0,
+          "probabilities": {
+            "WORLD": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "TIME": 0.0,
+            "ROUTE": 0.0,
+            "LINK": 0.0,
+            "EFFECT": 0.0,
+            "BIND": 0.0,
+            "CRDT": 0.0,
+            "VIEW": 1.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.04,
+          "confidence": 0.96,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.98,
+            "1": 0.01,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 485,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "quiltc_tick",
+    "project": "quilt-c",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "TICK",
+          "confidence": 1.0,
+          "probabilities": {
+            "PROOF": 0.0,
+            "TIME": 0.0,
+            "LINK": 0.0,
+            "FORGET": 0.0,
+            "EFFECT": 0.0,
+            "TICK": 1.0,
+            "ROUTE": 0.0,
+            "CRDT": 0.0,
+            "BIND": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.46,
+          "confidence": 0.61,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.78,
+            "1": 0.09,
+            "2": 0.05,
+            "3": 0.04,
+            "4": 0.04
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "quiltc_witness",
+    "project": "quilt-c",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.91,
+          "probabilities": {
+            "ROUTE": 0.0,
+            "TIME": 0.0,
+            "EFFECT": 0.93,
+            "BIND": 0.02,
+            "PROOF": 0.04,
+            "FORGET": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "LINK": 0.01,
+            "CRDT": 0.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.31,
+          "confidence": 0.74,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.83,
+            "1": 0.08,
+            "2": 0.06,
+            "3": 0.02,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 487,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "bind_cell",
+    "project": "quilt-rust",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "BIND",
+          "confidence": 0.99,
+          "probabilities": {
+            "PROOF": 0.0,
+            "TICK": 0.0,
+            "CRDT": 0.0,
+            "FORGET": 0.0,
+            "ROUTE": 0.0,
+            "EFFECT": 0.0,
+            "VIEW": 0.0,
+            "TIME": 0.0,
+            "BIND": 0.99,
+            "WORLD": 0.0,
+            "LINK": 0.01
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.06,
+          "confidence": 0.95,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.97,
+            "1": 0.02,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "link_cells",
+    "project": "quilt-rust",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "LINK",
+          "confidence": 1.0,
+          "probabilities": {
+            "FORGET": 0.0,
+            "TIME": 0.0,
+            "PROOF": 0.0,
+            "BIND": 0.0,
+            "ROUTE": 0.0,
+            "TICK": 0.0,
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "EFFECT": 0.0,
+            "LINK": 1.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.97,
+          "confidence": 0.92,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.06,
+            "1": 0.92,
+            "2": 0.02,
+            "3": 0.0,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "effect_apply",
+    "project": "quilt-rust",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 1.0,
+          "probabilities": {
+            "VIEW": 0.0,
+            "TIME": 0.0,
+            "WORLD": 0.0,
+            "ROUTE": 0.0,
+            "BIND": 0.0,
+            "TICK": 0.0,
+            "CRDT": 0.0,
+            "LINK": 0.0,
+            "EFFECT": 1.0,
+            "FORGET": 0.0,
+            "PROOF": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.13,
+          "confidence": 0.89,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.95,
+            "1": 0.01,
+            "2": 0.02,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "view_cell",
+    "project": "quilt-rust",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 1.0,
+          "probabilities": {
+            "LINK": 0.0,
+            "PROOF": 0.0,
+            "BIND": 0.0,
+            "ROUTE": 0.0,
+            "VIEW": 1.0,
+            "TICK": 0.0,
+            "FORGET": 0.0,
+            "EFFECT": 0.0,
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "TIME": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.11,
+          "confidence": 0.91,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.94,
+            "1": 0.02,
+            "2": 0.02,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "tick_substrate",
+    "project": "quilt-rust",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "TICK",
+          "confidence": 1.0,
+          "probabilities": {
+            "FORGET": 0.0,
+            "TIME": 0.0,
+            "PROOF": 0.0,
+            "BIND": 0.0,
+            "TICK": 1.0,
+            "ROUTE": 0.0,
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "EFFECT": 0.0,
+            "LINK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.39,
+          "confidence": 0.68,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.79,
+            "1": 0.11,
+            "2": 0.05,
+            "3": 0.03,
+            "4": 0.02
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "loom_weave",
+    "project": "fabric",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.44,
+          "probabilities": {
+            "WORLD": 0.08,
+            "FORGET": 0.0,
+            "BIND": 0.11,
+            "PROOF": 0.0,
+            "CRDT": 0.01,
+            "VIEW": 0.0,
+            "TIME": 0.0,
+            "TICK": 0.0,
+            "LINK": 0.3,
+            "ROUTE": 0.0,
+            "EFFECT": 0.5
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.3,
+          "confidence": 0.75,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.8,
+            "1": 0.13,
+            "2": 0.04,
+            "3": 0.02,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 486,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "loom_cut",
+    "project": "fabric",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "FORGET",
+          "confidence": 0.4,
+          "probabilities": {
+            "CRDT": 0.0,
+            "TIME": 0.0,
+            "ROUTE": 0.0,
+            "VIEW": 0.0,
+            "TICK": 0.0,
+            "BIND": 0.0,
+            "FORGET": 0.46,
+            "LINK": 0.24,
+            "EFFECT": 0.3,
+            "WORLD": 0.0,
+            "PROOF": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 1.04,
+          "confidence": 0.13,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.42,
+            "1": 0.34,
+            "2": 0.1,
+            "3": 0.08,
+            "4": 0.06
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "loom_dye",
+    "project": "fabric",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.99,
+          "probabilities": {
+            "PROOF": 0.0,
+            "CRDT": 0.0,
+            "TICK": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "LINK": 0.0,
+            "BIND": 0.0,
+            "ROUTE": 0.0,
+            "FORGET": 0.0,
+            "EFFECT": 1.0,
+            "TIME": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.28,
+          "confidence": 0.76,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.83,
+            "1": 0.1,
+            "2": 0.05,
+            "3": 0.02,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "loom_inspect",
+    "project": "fabric",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 1.0,
+          "probabilities": {
+            "BIND": 0.0,
+            "ROUTE": 0.0,
+            "FORGET": 0.0,
+            "TIME": 0.0,
+            "TICK": 0.0,
+            "WORLD": 0.0,
+            "EFFECT": 0.0,
+            "VIEW": 1.0,
+            "PROOF": 0.0,
+            "LINK": 0.0,
+            "CRDT": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.34,
+          "confidence": 0.72,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.79,
+            "1": 0.13,
+            "2": 0.04,
+            "3": 0.03,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "ecosystem_run",
+    "project": "sunset-ecosystem",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "TICK",
+          "confidence": 0.99,
+          "probabilities": {
+            "ROUTE": 0.0,
+            "TICK": 0.99,
+            "EFFECT": 0.01,
+            "FORGET": 0.0,
+            "TIME": 0.0,
+            "BIND": 0.0,
+            "VIEW": 0.0,
+            "LINK": 0.0,
+            "WORLD": 0.0,
+            "PROOF": 0.0,
+            "CRDT": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.86,
+          "confidence": 0.28,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.64,
+            "1": 0.12,
+            "2": 0.08,
+            "3": 0.05,
+            "4": 0.11
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 486,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "ecosystem_inspect",
+    "project": "sunset-ecosystem",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 1.0,
+          "probabilities": {
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 1.0,
+            "BIND": 0.0,
+            "ROUTE": 0.0,
+            "LINK": 0.0,
+            "FORGET": 0.0,
+            "PROOF": 0.0,
+            "EFFECT": 0.0,
+            "TIME": 0.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.35,
+          "confidence": 0.71,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.8,
+            "1": 0.1,
+            "2": 0.06,
+            "3": 0.02,
+            "4": 0.02
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "ecosystem_species",
+    "project": "sunset-ecosystem",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 1.0,
+          "probabilities": {
+            "LINK": 0.0,
+            "TICK": 0.0,
+            "BIND": 0.0,
+            "EFFECT": 0.0,
+            "WORLD": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "TIME": 0.0,
+            "ROUTE": 0.0,
+            "CRDT": 0.0,
+            "VIEW": 1.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.52,
+          "confidence": 0.56,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.79,
+            "1": 0.06,
+            "2": 0.06,
+            "3": 0.02,
+            "4": 0.07
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "ecosystem_extinction",
+    "project": "sunset-ecosystem",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "FORGET",
+          "confidence": 0.95,
+          "probabilities": {
+            "LINK": 0.0,
+            "TIME": 0.0,
+            "VIEW": 0.0,
+            "BIND": 0.0,
+            "EFFECT": 0.04,
+            "ROUTE": 0.0,
+            "FORGET": 0.96,
+            "TICK": 0.0,
+            "CRDT": 0.0,
+            "PROOF": 0.0,
+            "WORLD": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.63,
+          "confidence": 0.48,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.67,
+            "1": 0.16,
+            "2": 0.1,
+            "3": 0.03,
+            "4": 0.04
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "plato_seek",
+    "project": "plato-room",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 0.81,
+          "probabilities": {
+            "TIME": 0.0,
+            "VIEW": 0.84,
+            "CRDT": 0.0,
+            "WORLD": 0.08,
+            "FORGET": 0.0,
+            "BIND": 0.0,
+            "ROUTE": 0.04,
+            "TICK": 0.0,
+            "PROOF": 0.0,
+            "LINK": 0.01,
+            "EFFECT": 0.03
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.61,
+          "confidence": 0.49,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.71,
+            "1": 0.13,
+            "2": 0.08,
+            "3": 0.02,
+            "4": 0.06
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "plato_ask",
+    "project": "plato-room",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "ROUTE",
+          "confidence": 0.82,
+          "probabilities": {
+            "ROUTE": 0.85,
+            "PROOF": 0.01,
+            "VIEW": 0.03,
+            "TIME": 0.0,
+            "FORGET": 0.0,
+            "LINK": 0.0,
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "EFFECT": 0.1,
+            "BIND": 0.01,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.22,
+          "confidence": 0.81,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.87,
+            "1": 0.05,
+            "2": 0.06,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "plato_respond",
+    "project": "plato-room",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "ROUTE",
+          "confidence": 0.52,
+          "probabilities": {
+            "FORGET": 0.01,
+            "WORLD": 0.01,
+            "BIND": 0.03,
+            "ROUTE": 0.5599999999999999,
+            "EFFECT": 0.22999999999999998,
+            "TICK": 0.01,
+            "CRDT": 0.0,
+            "LINK": 0.01,
+            "TIME": 0.01,
+            "VIEW": 0.1,
+            "PROOF": 0.03
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.35,
+          "confidence": 0.71,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.84,
+            "1": 0.05,
+            "2": 0.06,
+            "3": 0.03,
+            "4": 0.02
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "plato_advance",
+    "project": "plato-room",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "TICK",
+          "confidence": 0.81,
+          "probabilities": {
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "TIME": 0.01,
+            "ROUTE": 0.01,
+            "EFFECT": 0.14,
+            "PROOF": 0.0,
+            "BIND": 0.0,
+            "TICK": 0.84,
+            "LINK": 0.0,
+            "FORGET": 0.0,
+            "CRDT": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.23,
+          "confidence": 0.81,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.85,
+            "1": 0.08,
+            "2": 0.05,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "swarm_spawn",
+    "project": "quilt-swarm",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "BIND",
+          "confidence": 0.96,
+          "probabilities": {
+            "CRDT": 0.0,
+            "TICK": 0.0,
+            "TIME": 0.0,
+            "FORGET": 0.0,
+            "ROUTE": 0.0,
+            "LINK": 0.0,
+            "PROOF": 0.0,
+            "BIND": 0.97,
+            "WORLD": 0.01,
+            "EFFECT": 0.02,
+            "VIEW": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.5,
+          "confidence": 0.58,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.69,
+            "1": 0.19,
+            "2": 0.07,
+            "3": 0.02,
+            "4": 0.03
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 485,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "swarm_gather",
+    "project": "quilt-swarm",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.43,
+          "probabilities": {
+            "CRDT": 0.15,
+            "TICK": 0.01,
+            "TIME": 0.0,
+            "BIND": 0.03,
+            "ROUTE": 0.02,
+            "FORGET": 0.01,
+            "EFFECT": 0.48,
+            "PROOF": 0.0,
+            "WORLD": 0.11,
+            "LINK": 0.18,
+            "VIEW": 0.01
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 1.29,
+          "confidence": 0.0,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.52,
+            "1": 0.11,
+            "2": 0.11,
+            "3": 0.1,
+            "4": 0.16
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "swarm_disperse",
+    "project": "quilt-swarm",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.71,
+          "probabilities": {
+            "BIND": 0.0,
+            "TICK": 0.0,
+            "EFFECT": 0.74,
+            "VIEW": 0.0,
+            "TIME": 0.0,
+            "FORGET": 0.01,
+            "PROOF": 0.0,
+            "WORLD": 0.23,
+            "CRDT": 0.0,
+            "ROUTE": 0.01,
+            "LINK": 0.01
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 2.16,
+          "confidence": 0.0,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.28,
+            "1": 0.16,
+            "2": 0.06,
+            "3": 0.13,
+            "4": 0.37
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 485,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "swarm_decide",
+    "project": "quilt-swarm",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "CRDT",
+          "confidence": 0.54,
+          "probabilities": {
+            "CRDT": 0.58,
+            "BIND": 0.02,
+            "EFFECT": 0.21,
+            "ROUTE": 0.02,
+            "PROOF": 0.07,
+            "FORGET": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.07,
+            "LINK": 0.01,
+            "TIME": 0.01,
+            "TICK": 0.01
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.92,
+          "confidence": 0.23,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.67,
+            "1": 0.08,
+            "2": 0.06,
+            "3": 0.04,
+            "4": 0.15
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "canon_search",
+    "project": "ai-writings",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 0.98,
+          "probabilities": {
+            "WORLD": 0.0,
+            "FORGET": 0.0,
+            "PROOF": 0.0,
+            "CRDT": 0.0,
+            "VIEW": 1.0,
+            "EFFECT": 0.0,
+            "TIME": 0.0,
+            "LINK": 0.0,
+            "TICK": 0.0,
+            "BIND": 0.0,
+            "ROUTE": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.19,
+          "confidence": 0.84,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.89,
+            "1": 0.05,
+            "2": 0.04,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "cell_validate",
+    "project": "ai-writings",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "PROOF",
+          "confidence": 0.98,
+          "probabilities": {
+            "LINK": 0.0,
+            "TIME": 0.0,
+            "VIEW": 0.01,
+            "BIND": 0.0,
+            "EFFECT": 0.0,
+            "ROUTE": 0.0,
+            "FORGET": 0.0,
+            "TICK": 0.0,
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "PROOF": 0.99
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.07,
+          "confidence": 0.94,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.97,
+            "1": 0.02,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "witness_log",
+    "project": "ai-writings",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.98,
+          "probabilities": {
+            "TIME": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "ROUTE": 0.0,
+            "EFFECT": 0.99,
+            "LINK": 0.0,
+            "CRDT": 0.0,
+            "TICK": 0.0,
+            "BIND": 0.01,
+            "WORLD": 0.0,
+            "VIEW": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.27,
+          "confidence": 0.78,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.83,
+            "1": 0.1,
+            "2": 0.05,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "tick_advance",
+    "project": "ai-writings",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "TICK",
+          "confidence": 0.99,
+          "probabilities": {
+            "FORGET": 0.0,
+            "PROOF": 0.0,
+            "TIME": 0.0,
+            "VIEW": 0.0,
+            "EFFECT": 0.0,
+            "ROUTE": 0.0,
+            "WORLD": 0.0,
+            "LINK": 0.0,
+            "TICK": 1.0,
+            "CRDT": 0.0,
+            "BIND": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.23,
+          "confidence": 0.81,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.85,
+            "1": 0.08,
+            "2": 0.04,
+            "3": 0.02,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "tap_emit",
+    "project": "tap",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "ROUTE",
+          "confidence": 0.57,
+          "probabilities": {
+            "FORGET": 0.0,
+            "VIEW": 0.01,
+            "WORLD": 0.05,
+            "ROUTE": 0.6,
+            "TICK": 0.03,
+            "EFFECT": 0.18,
+            "TIME": 0.01,
+            "LINK": 0.03,
+            "CRDT": 0.0,
+            "BIND": 0.09,
+            "PROOF": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.21,
+          "confidence": 0.82,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.86,
+            "1": 0.09,
+            "2": 0.04,
+            "3": 0.01,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "tap_gather",
+    "project": "tap",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 0.52,
+          "probabilities": {
+            "PROOF": 0.0,
+            "LINK": 0.04,
+            "VIEW": 0.56,
+            "EFFECT": 0.15,
+            "FORGET": 0.01,
+            "TICK": 0.01,
+            "TIME": 0.0,
+            "ROUTE": 0.04,
+            "CRDT": 0.14,
+            "WORLD": 0.02,
+            "BIND": 0.02
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.34,
+          "confidence": 0.71,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.8,
+            "1": 0.09,
+            "2": 0.07,
+            "3": 0.02,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 485,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "tap_archive",
+    "project": "tap",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.82,
+          "probabilities": {
+            "PROOF": 0.0,
+            "LINK": 0.0,
+            "VIEW": 0.01,
+            "EFFECT": 0.84,
+            "FORGET": 0.1,
+            "ROUTE": 0.01,
+            "TIME": 0.02,
+            "TICK": 0.01,
+            "CRDT": 0.01,
+            "WORLD": 0.0,
+            "BIND": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.2,
+          "confidence": 0.83,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.85,
+            "1": 0.12,
+            "2": 0.03,
+            "3": 0.0,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "elephant_remember",
+    "project": "elephant",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.84,
+          "probabilities": {
+            "CRDT": 0.0,
+            "VIEW": 0.0,
+            "WORLD": 0.01,
+            "BIND": 0.12,
+            "ROUTE": 0.0,
+            "LINK": 0.01,
+            "FORGET": 0.01,
+            "PROOF": 0.0,
+            "EFFECT": 0.85,
+            "TIME": 0.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.46,
+          "confidence": 0.61,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.73,
+            "1": 0.15,
+            "2": 0.07,
+            "3": 0.02,
+            "4": 0.03
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 486,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "elephant_recall",
+    "project": "elephant",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 0.99,
+          "probabilities": {
+            "TIME": 0.0,
+            "BIND": 0.0,
+            "TICK": 0.0,
+            "ROUTE": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 1.0,
+            "LINK": 0.0,
+            "CRDT": 0.0,
+            "EFFECT": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.36,
+          "confidence": 0.7,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.74,
+            "1": 0.18,
+            "2": 0.06,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "elephant_forget",
+    "project": "elephant",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "FORGET",
+          "confidence": 1.0,
+          "probabilities": {
+            "CRDT": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "BIND": 0.0,
+            "PROOF": 0.0,
+            "LINK": 0.0,
+            "FORGET": 1.0,
+            "ROUTE": 0.0,
+            "EFFECT": 0.0,
+            "TIME": 0.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.26,
+          "confidence": 0.78,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.82,
+            "1": 0.11,
+            "2": 0.05,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "elephant_link",
+    "project": "elephant",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "LINK",
+          "confidence": 1.0,
+          "probabilities": {
+            "EFFECT": 0.0,
+            "TICK": 0.0,
+            "TIME": 0.0,
+            "CRDT": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "WORLD": 0.0,
+            "VIEW": 0.0,
+            "LINK": 1.0,
+            "BIND": 0.0,
+            "ROUTE": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.78,
+          "confidence": 0.35,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.51,
+            "1": 0.28,
+            "2": 0.16,
+            "3": 0.02,
+            "4": 0.03
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "pincher_extract",
+    "project": "pincher",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 0.93,
+          "probabilities": {
+            "WORLD": 0.01,
+            "FORGET": 0.01,
+            "TICK": 0.0,
+            "PROOF": 0.0,
+            "ROUTE": 0.01,
+            "TIME": 0.0,
+            "EFFECT": 0.02,
+            "VIEW": 0.93,
+            "LINK": 0.01,
+            "CRDT": 0.0,
+            "BIND": 0.01
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.26,
+          "confidence": 0.79,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.87,
+            "1": 0.05,
+            "2": 0.06,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 484,
+        "output_tokens": 120
+      }
+    }
+  },
+  {
+    "fn": "pincher_compare",
+    "project": "pincher",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "PROOF",
+          "confidence": 0.57,
+          "probabilities": {
+            "ROUTE": 0.0,
+            "CRDT": 0.01,
+            "EFFECT": 0.02,
+            "WORLD": 0.0,
+            "BIND": 0.01,
+            "LINK": 0.01,
+            "TIME": 0.0,
+            "PROOF": 0.61,
+            "FORGET": 0.0,
+            "VIEW": 0.34,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.32,
+          "confidence": 0.73,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.78,
+            "1": 0.15,
+            "2": 0.06,
+            "3": 0.01,
+            "4": 0.0
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "forth_define",
+    "project": "quilt-forth",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "BIND",
+          "confidence": 0.52,
+          "probabilities": {
+            "LINK": 0.1,
+            "TICK": 0.02,
+            "WORLD": 0.01,
+            "CRDT": 0.01,
+            "FORGET": 0.15,
+            "BIND": 0.5700000000000001,
+            "PROOF": 0.01,
+            "VIEW": 0.01,
+            "EFFECT": 0.11,
+            "ROUTE": 0.0,
+            "TIME": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.33,
+          "confidence": 0.72,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.78,
+            "1": 0.13,
+            "2": 0.06,
+            "3": 0.02,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "forth_execute",
+    "project": "quilt-forth",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "EFFECT",
+          "confidence": 0.77,
+          "probabilities": {
+            "VIEW": 0.03,
+            "TIME": 0.02,
+            "WORLD": 0.01,
+            "ROUTE": 0.03,
+            "BIND": 0.01,
+            "TICK": 0.08,
+            "CRDT": 0.0,
+            "LINK": 0.02,
+            "PROOF": 0.01,
+            "FORGET": 0.01,
+            "EFFECT": 0.78
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.29,
+          "confidence": 0.75,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.81,
+            "1": 0.12,
+            "2": 0.05,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 482,
+        "output_tokens": 121
+      }
+    }
+  },
+  {
+    "fn": "forth_inspect",
+    "project": "quilt-forth",
+    "result": {
+      "model": "jev-1.13.0",
+      "answers": {
+        "primary_op": {
+          "type": "choice",
+          "choice": "VIEW",
+          "confidence": 0.99,
+          "probabilities": {
+            "TIME": 0.0,
+            "PROOF": 0.0,
+            "FORGET": 0.0,
+            "VIEW": 1.0,
+            "EFFECT": 0.0,
+            "LINK": 0.0,
+            "CRDT": 0.0,
+            "ROUTE": 0.0,
+            "BIND": 0.0,
+            "WORLD": 0.0,
+            "TICK": 0.0
+          }
+        },
+        "complexity": {
+          "type": "score",
+          "score": 0.22,
+          "confidence": 0.81,
+          "legend": {
+            "0": "single cell",
+            "1": "2-3 cells",
+            "2": "small chain",
+            "3": "medium graph",
+            "4": "large network"
+          },
+          "probabilities": {
+            "0": 0.86,
+            "1": 0.08,
+            "2": 0.04,
+            "3": 0.01,
+            "4": 0.01
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 483,
+        "output_tokens": 120
+      }
+    }
+  }
+]

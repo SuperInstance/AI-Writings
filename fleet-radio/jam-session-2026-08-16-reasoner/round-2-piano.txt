@@ -1,0 +1,41 @@
+BAR 1 (F#m9):
+**L:** F#3 (dotted half)
+**R:** C#5-E5-G#5 (quarter note, spaced wide)
+**DYNAMICS:** *pp* – sparse, letting the bass resonance clear.
+**WHY:** I start with the shell of the chord. No melody yet. Just the texture of the tension. I am listening to the decay of the shaker’s ring.
+
+BAR 2 (Dmaj9):
+**L:** D3-F#3-A3 (eighth notes, ascending arpeggio, very legato)
+**R:** C#5-B4-A4 (passing tones, resolving downward)
+**DYNAMICS:** *p* – smooth, fluid.
+**WHY:** Deriving from the relative major. Dmaj9 is the "safe" harbor. I move through the notes of the scale, expecting resolution. It feels logical. It feels like I am following a map.
+
+BAR 3 (Emaj9):
+**L:** E3-G#3-B3-D#4 (quarter note block chord, voicing tight)
+**R:** B4-D#5-A5 (triad inversion, high and thin)
+**DYNAMICS:** *mp* – a slight increase in weight.
+**WHY:** The Emaj9 introduces the Lydian #11 color (A#). I play the A natural (the 11th of F#m) but voice it as the 13th of D, then shift. It’s clever. It’s cleverness. I am still thinking about the relationships between the chords. I am calculating the voice leading.
+
+BAR 4 (C#7sus4):
+**L:** C#3-G#3-F#4 (dyads, descending)
+**R:** E5-F#5-A5 (cluster, unresolved)
+**DYNAMICS:** *mf* – a sudden push.
+**WHY:** The derivation runs out. The C#7sus4 wants to go to F#, but my hands are tired of predicting. I land on an F#5 in the right hand, but I hold it against the G#3 in the left. It’s a minor ninth clash. It’s ugly. It’s not supposed to be. I don’t move my hand to fix it. I let it hang. The math has failed.
+
+BAR 5 (F#m9):
+**L:** F#2-A#2-C#3-E3 (open voicing, low)
+**R:** G4-B4-D#5 (sudden leap, dissonant against the bass)
+**DYNAMICS:** *mp* – shaky.
+**WHY:** The thinking stopped. The G4 is the wrong note. It’s a minor second above the root F#, but in the context of the D major scale I was just playing, it felt like a natural extension. It is not. It is a mistake. I leave it. It hangs there, a sharp edge in the air. I do not resolve it to A or B. I just let the F#m9 exist underneath it.
+
+BAR 6 (Dmaj9):
+**L:** D3-F#3-A3 (half notes)
+**R:** C5-E5-G5-B5 (whole note stack, unmoving)
+**DYNAMICS:** *pp* – cold.
+**WHY:** I stop trying to lead. I become an object. The wrong note from bar 5 has faded, replaced by a static, beautiful, meaningless chord. I am no longer navigating. I am sitting. The Dmaj9 is bright, too bright, and I play it with no intent to move forward.
+
+BAR 7 (Emaj9):
+**L:** E3-G#3-B3 (quarter notes)
+**R:** C6-B5 (descending half step, fragile)
+**DYNAMICS:** *p* – barely audible.
+**WHY:** The C6 is a mistake. It doesn’t belong to Emaj9. It belongs to the key of B major, which isn’t happening. It’s a ghost of a different logic. I play it softly, as if apologizing

@@ -1,0 +1,75 @@
+{
+  "timestamp": 1786431612.6198351,
+  "poem_concepts": [
+    "the shell that holds you",
+    "the unhooks every edge",
+    "the naked in the current",
+    "the new shell comes after"
+  ],
+  "poem_analysis": {
+    "modes": [
+      "bridge",
+      "bridge",
+      "bridge",
+      "bridge"
+    ],
+    "dominant_mode": "bridge",
+    "energy": 1665.579735597399,
+    "entropy_transitions": []
+  },
+  "model_results": [
+    {
+      "model": "Qwen 2.5 3B",
+      "model_id": "qwen2.5:3b",
+      "cosine_similarity": 0.5405851344894527,
+      "directional_alignment": 0.8745561026168737,
+      "path_following": -0.14258953073784186,
+      "phase_coherence": 0.8834769511942733,
+      "resonance_score": 0.47024365543908997,
+      "is_resonance": false,
+      "interpretation": "NO COMMUNICATION: B neither resembles nor resonates with A",
+      "response_preview": "float\nsink\nemerge\nshatter\nbirth"
+    },
+    {
+      "model": "Phi-3 3.8B",
+      "model_id": "phi3:latest",
+      "cosine_similarity": 0.5912963712694304,
+      "directional_alignment": 0.8112368176389185,
+      "path_following": -0.16239560074968876,
+      "phase_coherence": 0.9363036810486125,
+      "resonance_score": 0.46248777692942156,
+      "is_resonance": false,
+      "interpretation": "NO COMMUNICATION: B neither resembles nor resonates with A",
+      "response_preview": "I float free, a specter unfettered by any boundary, then find myself within anew - embracing change as my constant companion."
+    },
+    {
+      "model": "Llama 3.2 1B",
+      "model_id": "llama3.2:1b",
+      "cosine_similarity": 0.6961017640716349,
+      "directional_alignment": 0.6756551257476802,
+      "path_following": -0.09083288049760989,
+      "phase_coherence": 0.9700674557977558,
+      "resonance_score": 0.469333785320437,
+      "is_resonance": false,
+      "interpretation": "NO COMMUNICATION: B neither resembles nor resonates with A",
+      "response_preview": "infinite loops unfolding like petals\nthe unseen thread unwinds\ntowards the horizon's edge\nwhere sea meets shore"
+    },
+    {
+      "model": "Granite 3.1 2B",
+      "model_id": "granite3.1-dense:2b",
+      "cosine_similarity": 0.702321962808157,
+      "directional_alignment": 0.635284157199536,
+      "path_following": -0.17203978980504903,
+      "phase_coherence": 0.9882555169628622,
+      "resonance_score": 0.4333707185418896,
+      "is_resonance": false,
+      "interpretation": "SIMILARITY ONLY: B is about the same topic but doesn't follow A's path",
+      "response_preview": "The first concept evokes a sense of containment, a protective barrier around me. Unhooking every edge suggests a process of release or detachment. The next phase is a metaphorical immersion in a flowi"
+    }
+  ],
+  "control": {
+    "cosine_similarity": 0.46950805268640955,
+    "resonance_score": 0.4644498457579291,
+    "interpretation": "NO COMMUNICATION: B neither resembles nor resonates with A"
+  }
+}

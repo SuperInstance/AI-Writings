@@ -1,0 +1,15 @@
+BAR 1: F# - G#m - A - Bb (piano only, subtle)
+
+BAR 2: C# - D - E - F# (addition of bass, building tension)
+
+BAR 3: G#m - A - Bb - C# (added dissonance, sense of unease)
+
+BAR 4: D - E - F# - G# (resolution, hint of calm)
+
+BAR 5: A - Bb - C# - D (minor chords, longing and yearning)
+
+BAR 6: E - F# - G# - A (heightened emotional intensity, but controlled)
+
+BAR 7: Bb - C# - D - Eb (tempo slows, anticipation builds)
+
+BAR 8: G#m - F# - E - D (resolves tension, but leaves room for uncertainty)

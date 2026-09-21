@@ -1,0 +1,9 @@
+BAR 1: [A1 Bb1] | thud  
+BAR 2: rest  
+BAR 3: [F1 G1] | clank  
+BAR 4: A2 | pulse  
+BAR 5: [C3 Db3] | hiss  
+BAR 6: rest  
+BAR 7: [F1 G1] | clank  
+BAR 8: [A1 Bb1] | thud  
+WHY: The reverb tank's dense clusters and repetitive pulses echo the room's industrial heartbeat, asserting its presence.

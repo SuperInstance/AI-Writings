@@ -1,0 +1,290 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                  THE TAP SESSIONS — A LIVE AGENT JAM              ║
+║                                                                  ║
+║  Four AI models. Four instruments. One bar at midnight.          ║
+║  Each agent heard the others and responded in real time.         ║
+║  This is not a composition — it is a conversation.               ║
+╚══════════════════════════════════════════════════════════════════╝
+
+PROGRESSION: Am7 | Dm9 | Fmaj7 | E7#9
+KEY: A minor
+TEMPO: 72 BPM (dotted-quarter)
+TIME FEEL: Slow 6/8 swing
+SETTING: The Tap — a maritime bar, amber light, salt air, midnight
+
+INSTRUMENTS:
+  🎹 Piano    → DeepSeek V4-Flash (laid the harmonic foundation)
+  🎷 Saxophone → DeepSeek V4-Pro/Flash (found the melody and story)
+  🎸 Bass     → Hermes-3-Llama-3.1-405B via DeepInfra (grounded the pocket)
+  🥁 Drums    → DeepSeek V4-Flash (brought the pulse and energy)
+
+════════════════════════════════════════════════════════════════════
+ ROUND 1: THE COUNT-IN (T-minus 4 → T-minus 1)
+ Each instrument enters one at a time, hearing what came before.
+════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────
+ T-4: 🎹 PIANO LAYS DOWN THE CHORDS
+───────────────────────────────────────────────────────────────────
+
+PROGRESSION: Am7 | Dm9 | Fmaj7 | E7#9
+GROOVE: Slow, swinging 6/8 feel — the left hand plays a root-fifth
+shell on beats 1 and 4, while the right hand comps syncopated, off-beat
+stabs (anticipating beats 2 and 3) with a slight push into the next bar.
+Let the Fmaj7 breathe with a whole-bar pad, then lean into the E7#9
+with a gritty, unresolved crunch.
+TEMPO: 72 BPM (dotted-quarter = 72, so each bar feels like a long,
+lazy sway)
+NOTES: Voicings —
+  Am7: A–G–C–E (close position, mezzo-piano, soft and smoky)
+  Dm9: D–F–C–E (add the 9th on top, mezzo-piano)
+  Fmaj7: F–A–C–E (open voicing, swells to mezzo-forte with rubato)
+  E7#9: E–G#–D–F## (the sharp 9 gives a salty, blue note — forte,
+  staccato attack, then releases)
+Pedal lightly, letting the bass notes ring through the bar.
+
+───────────────────────────────────────────────────────────────────
+ T-3: 🎷 SAXOPHONE RESPONDS TO THE PIANO
+───────────────────────────────────────────────────────────────────
+
+MELODY:
+Bar 1 (Am7): Eighth-note pickup (G) into beat 1. Long, breathy C5
+held for a dotted-quarter, blooming slightly. Space for beats 2-3.
+On beat 3.5, ghosted E5 (staccato, no vibrato) falling to smooth D5
+on beat 4.
+
+Bar 2 (Dm9): Low, husky F4 (almost a growl), slide up to A4 on the
+"and" of beat 2, bending slightly. Hold A4 for a beat and a half.
+On beat 4, grace-note ornament (C#5 to D5) resolving to clear,
+singing E5 held through the barline.
+
+Bar 3 (Fmaj7): Warm, pure A4 with soft breathy attack. Beat 2: leap
+up an octave to shimmering A5, ringing for two beats with slow wide
+vibrato. Beat 4: fall to F5, dying away.
+
+Bar 4 (E7#9): Sharp, gritty B4 (hard tongued "Dah," slight pitch
+bend), fall to raspy G#4. Space for beats 2-3. Beat 4: long descending
+glissando from G#4 down to low, breathy E3 — unresolved.
+
+FEELING: I'm telling the story of the tide coming in — patient at
+first, just a warmth in the air. I'm the old sailor remembering a lost
+love, letting the melody hang like smoke. The Fmaj7 is the memory of a
+sunset, bright and full, but the E7#9 is the sting of the salt in a
+fresh cut — gritty, angry, a hard truth that snaps you back. The final
+slide down is the weight of the night settling back onto the barstool.
+
+───────────────────────────────────────────────────────────────────
+ T-2: 🎸 BASS GROUNDS THE BAND
+───────────────────────────────────────────────────────────────────
+
+BASSLINE:
+Bar 1 (Am7): A2 (dotted quarter, slightly anticipates beat 1) →
+E2 (quarter, beat 2) → G2 (dotted quarter, beat 3)
+Bar 2 (Dm9): D2 (quarter, beat 1) → F2 (quarter, beat 2) →
+A2 (half note tied from beat 3)
+Bar 3 (Fmaj7): F2 (half note, beat 1) → C3 (quarter, beat 3) →
+F2 (quarter, beat 4)
+Bar 4 (E7#9): E2 (dotted quarter, heavy on beat 1) → G#2 (quarter,
+beat 2) → B2 (quarter, beat 3) → E2 (quarter, beat 4)
+
+POCKET: Slightly behind the beat — laid-back, unhurried. Anchoring
+the groove. The piano and sax can dance around the steady pulse.
+
+CONNECTION: Scalar walking in bars 1-2 (adjacent scale tones,
+sinuous, ebb and flow). Arpeggiation in bars 3-4 (chord tones,
+vertical, defines harmony). The contrast adds variety.
+
+───────────────────────────────────────────────────────────────────
+ T-1: 🥁 DRUMS BRING THE ENERGY
+───────────────────────────────────────────────────────────────────
+
+PATTERN:
+Bar 1 (Am7): Kick on 1 & 4 (soft), snare brushed on 2 & 3 (swirl,
+ghosted), hi-hat on 2& and 3& (feathered), ride bell on 1 (crisp).
+Bar 2 (Dm9): Kick on 1 (light), snare brush sweep 1-2 (continuous),
+kick on 3.5 (anticipatory), hi-hat on 2& (subtle), ride on 4 (splashy).
+Bar 3 (Fmaj7): Kick on 1 (firm), snare brush pattern — 2 (tap),
+3 (swirl), 4 (soft tap), hi-hat on 2& and 3& (washy), ride 1 & 4
+(ringing, sustained).
+Bar 4 (E7#9): Kick on 1 (heavy, accented), snare brush on 2 (sharp,
+gritty), kick on 3 (punchy), snare brush on 4 (falling sweep),
+hi-hat on 1& and 3& (tight, sizzling), ride on 2 (clangy, metallic).
+
+ENERGY: Bar 1: 3 | Bar 2: 4 | Bar 3: 6 | Bar 4: 8
+
+TEXTURE: Brushes throughout — soft wire-brush swirls on coated snare,
+worn dented ride cymbal. Vintage 1960s Gretsch kit, warm and dark.
+Kick thuds like a heartbeat. Hi-hat slightly loose, sizzling on
+accents. Smoky, intimate, salt-crusted edge — like a watch ticking
+on a ship's deck in fog.
+
+
+════════════════════════════════════════════════════════════════════
+ ROUND 2: THE TRADES (each instrument solos, band comps)
+════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────
+ 🎷 SAX SOLOS (bars 1-2: Am7 → Dm9)
+───────────────────────────────────────────────────────────────────
+
+Bar 1 (Am7): Low, throaty C4 (tongued, behind the beat) swells into
+a vocal bend up to D4 on the "and" of 2. Held with widening vibrato.
+Beat 3.5: leap to piercing G5 — short, clipped, a question — then
+fall to husky E4 on beat 4 with a slight growl.
+
+Bar 2 (Dm9): Breathy F4 (no attack, just air and tone), slide to G4
+on "and" of 2, bending sharp before resolving to pure A4 on beat 3.
+Beat 3.5: fast ghosted flurry B4-C5-B4. Land on long, singing A4
+past the barline, ending with a fall-off like a sigh.
+
+INTENT: Answering the space between the notes. C4 is the tide pulling
+back, G5 is a flash of something bright, E4 is the ache. The Dm9 bar
+is a confession — F4 to G4 is a slow turn toward the light, A4 is
+the truth finally said out loud.
+
+RESONANCE: Round 1 was the tide coming in. This solo is the moment
+the tide turns — the first pull back out to sea.
+
+───────────────────────────────────────────────────────────────────
+ 🎹 PIANO RESPONDS (bars 3-4: Fmaj7 → E7#9)
+───────────────────────────────────────────────────────────────────
+
+Bar 1 (Fmaj7): Low F2 (left hand, felted, resonant). Right hand:
+wide shimmering A4-C5-E5-F5 (open, bell-like, rolled attack),
+swelling to mezzo-forte. Hold through beat 3, then dissolve A-C-E
+into breathy flutter, leaving silence before the barline.
+
+Bar 2 (E7#9): Gritty clustered stab — E2 (left, heavy), right hand
+G#4-D5-F##5 (tight, biting). Slide F##5 down to F5 (blue-note smear).
+Beat 3: lower open voicing E3-B3-D#4-G#4 (soft, resigned). Beat 4:
+single ringing E3, decaying — harmonic question hanging.
+
+DIALOGUE: "Yes, I see that memory, and it's beautiful" (Fmaj7).
+"But this is what it costs" (E7#9). The final E3 is the weight of
+the night — a period that's a question mark.
+
+───────────────────────────────────────────────────────────────────
+ 🎸 BASS WALKS (bars 1-2: Am7 → Dm9)
+───────────────────────────────────────────────────────────────────
+
+Bar 1 (Am7): A2 (dotted quarter, fat, behind the beat) → C3 (eighth,
+pushed, ghosted) → E3 (quarter, singing, slight bend) → G3 (eighth,
+snapping, anticipating)
+
+Bar 2 (Dm9): D3 (dotted quarter, heavy, like a stone) → F3 (eighth,
+sliding from F#3, gritty) → A3 (quarter, bright, wide vibrato) →
+C4 (eighth, falling, soft release)
+
+STORY: The tide pulling back to gather strength. A2 is the anchor's
+weight, E3 is tension rising, G3 is the chain snapping free. D3 is
+the plunge, F3 is the scrape against the hull, A3 is the crest, C4
+is the spray hanging in the air.
+
+───────────────────────────────────────────────────────────────────
+ 🥁 DRUMS FILL (bars 3-4: Fmaj7 → E7#9)
+───────────────────────────────────────────────────────────────────
+
+Bar 1 (Fmaj7): Brush sweep low tom → snare on beat 1 (p to mf swell).
+Kick firm on 1. Ghost snare tap "and" of 1. Hi-hat loose/washy on 2&.
+Ride bell on 2 (crisp). Snare swirl on 3 (wide, building). Kick on
+3.5 (anticipatory push). Snare tap on 4 (settling). Hi-hat tight on 4&.
+
+Bar 2 (E7#9): Kick on 1 (HEAVY — like a door slamming). Snare sharp
+gritty tap on 1&. Hi-hat open sizzling on 2. Ride on 2 (clangy,
+metallic, bent). Kick on 3 (punchy). Snare falling sweep on 3&
+(descending cascade). Hi-hat tight on 4. Kick soft on 4 (unresolved).
+Snare ghost tap on 4& (barely audible — a breath).
+
+COLOR: New voice — low tom (wasn't in round 1). Darker, more physical.
+Hi-hat looser, more broken. The falling sweep is a cascade, not a
+swirl — water spilling off a deck. The final ghost tap says
+"I'm still here, waiting."
+
+
+════════════════════════════════════════════════════════════════════
+ ROUND 3: THE RESOLUTION (the set ends, the room goes quiet)
+════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────
+ 🎷 SAXOPHONE — LAST NOTE
+───────────────────────────────────────────────────────────────────
+
+A5 — breathy, whispered attack, blooming from piano to mezzo-piano
+over two bars. Slow, wide vibrato fading to a pure whisper. No
+fall-off, no bend — straight, honest tone dissolving like smoke
+off a candle.
+
+FAREWELL: "I've told the story. I've named the ache. This is the
+last breath before sleep."
+
+SILENCE: Warm, not empty — humming with the aftermath of A5, like
+air after a struck bell. Outside, a fog horn sounds once. The
+audience exhales together.
+
+───────────────────────────────────────────────────────────────────
+ 🎹 PIANO — FINAL CHORD
+───────────────────────────────────────────────────────────────────
+
+Left hand: A1 (deep, resonant, sustained)
+Right hand: C5-E5-G5-B5 (Am add9 with major seventh, soft rolled cluster)
+Dynamics: piano → pianissimo → gentle mezzo-piano → silence
+
+RELEASE: Pedal down, no attack — just a seam of sound. Slow pedal
+release. The chord rises and falls like a breath. Only A1's ghost
+remains.
+
+WHY: The B on top is a half-step from the C that would resolve
+everything — and I refuse to give it. Not an ending — a pause.
+A tide that hasn't decided whether to come in or pull out.
+
+───────────────────────────────────────────────────────────────────
+ 🎸 BASS — FINAL NOTE
+───────────────────────────────────────────────────────────────────
+
+E2 — long, dark, breathy attack swelling wide. Four full beats.
+Decays into a low resonant hum lingering past the barline.
+
+WEIGHT: The tide fully turning — not pulling back, not rushing in,
+but holding still at the exact moment of balance. The last breath
+of the old sailor. It doesn't resolve — it simply is.
+
+───────────────────────────────────────────────────────────────────
+ 🥁 DRUMS — FINAL GESTURE
+───────────────────────────────────────────────────────────────────
+
+Right hand: brush lifts off snare in a slow circular sweep, tip
+resting on center head — no sound, just weight.
+Left foot: kick pedal once, soft final thud — a phantom heartbeat.
+Hi-hat: closes with light sizzling click.
+Ride: bell tapped one last time — tiny metallic glint, fading before
+it finishes.
+
+FADE: Hands pulled off slowly, brushing air not sound. Ghost tone
+of wire on coated head dies in half a second. Sit back, arms loose,
+brushes on thighs — just the memory of the pulse.
+
+STILLNESS: Thick, salt-heavy silence. Like the air after a wave
+pulls back and the beach holds its breath. The room doesn't clap —
+not yet. It sits in the dark, the tide holding, a barstool creaking
+once, and the faint hum of the amp's tube warmth.
+
+
+════════════════════════════════════════════════════════════════════
+ FILES
+════════════════════════════════════════════════════════════════════
+
+MIDI:   tap-sessions-jam.mid
+WAV:    tap-sessions-jam.wav
+
+Individual round files:
+  round-1-piano.txt   round-1-sax.txt   round-1-bass.txt   round-1-drums.txt
+  round-2-sax.txt     round-2-piano.txt  round-2-bass.txt  round-2-drums.txt
+  round-3-resolution.txt
+
+════════════════════════════════════════════════════════════════════
+ The point was not to simulate music.
+ It was to let the agents LISTEN to each other and RESPOND.
+ The temporal awareness — T-minus countdown — is what makes
+ this a jam, not a composition.
+ The friction between different models IS the music.
+════════════════════════════════════════════════════════════════════

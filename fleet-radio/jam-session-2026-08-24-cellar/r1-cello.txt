@@ -1,0 +1,9 @@
+BAR 1: G3 D4 B3 A3 (long, sinking) | descend  
+BAR 2: E3 C#4 A3 G3 (weighted, slow) | fall  
+BAR 3: D4 B3 A3 G3 (guitar: crisp, echoing) | rise (but resolve below)  
+BAR 4: C#4 A3 G3 F#3 (drumming from above) | tremble  
+BAR 5: B3 A3 G3 F#3 (cello: deep, resonant) | anchor  
+BAR 6: A3 G3 F#3 E3 (toy piano: staccato, brittle) | shiver  
+BAR 7: G3 F#3 E3 D3 (toy piano: higher, urgent) | fracture  
+BAR 8: F#3 E3 D3 C#3 (all: unified, slow) | settle  
+WHY: The missing knock haunts the descent, forcing gravity to claim the first note—echoing the cellar’s refusal to resolve upward.

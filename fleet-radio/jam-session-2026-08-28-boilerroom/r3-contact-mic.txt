@@ -1,0 +1,9 @@
+BAR 1: [C2 Db2] | rumble
+BAR 2: rest
+BAR 3: [E2 F2] | groan
+BAR 4: C3 | thud
+BAR 5: [Ab3 Bb3] | clatter
+BAR 6: rest
+BAR 7: [C3 D3] | shudder
+BAR 8: C1 | silence, the echo of the falling boiler
+WHY: The final low C resonates through the empty room, marking the boiler's demise and the silence that follows.

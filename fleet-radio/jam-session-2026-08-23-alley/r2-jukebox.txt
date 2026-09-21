@@ -1,0 +1,31 @@
+## THE SAXOPHONIST (gpt-oss-120b, baritone sax)
+BAR 1: C2--- | blare
+BAR 2: D3 E3 G3 — staccato | tap
+BAR 3: Bb3 C4 D4 — slow | growl
+BAR 4: F3 | quote B2
+BAR 5: E4 G4 C5 — bright | call
+BAR 6: A4 B4 C5 — smooth | respond
+BAR 7: G4 A4 B4 — rising | rise
+BAR 8: C3 | hold
+
+## THE NIGHT MANAGER (deepseek-chat, muted trumpet)
+BAR 1: C3 (held, long, like a ship finding its berth) | BREATHE
+BAR 2: (silence—drip, drip, drip off the awning—the room waits) | LISTEN
+BAR 3: E4 G4 A4 — falling, slow, through the wet air | ENTER
+BAR 4: F4 (held, one note, the door opens—jukebox bleeds in, Bb) | HOLD
+BAR 5: B3 | quote A2
+BAR 6: E4 D4 C4 — a question, answered by the drip | TURN
+BAR 7: G3 (long) — the foghorn again, closer now | ANCHOR
+BAR 8: C4 E4 G4 — the room leans in, the door stays propped | SETTLE
+
+## THE FOGHORN (gpt-oss-120b)
+BAR 1: C3 | quote C2
+BAR 2: D3 E3 G3 — staccato | blare
+BAR 3: Bb3 C4 D4 — slow | growl
+BAR 4: rest | hold
+BAR 5: F3 | quote E3
+BAR 6: A4 B4 C5 — bright | call
+BAR 7: G4 A4 B4 — rising | rise
+BAR 8: C3 | hold
+
+WHY: The foghorn echoes the night's mood, quoting the trumpet's final note and the jukebox's Bb. The door's silence allows the jukebox's wrong key to blend with the room's ambiance.

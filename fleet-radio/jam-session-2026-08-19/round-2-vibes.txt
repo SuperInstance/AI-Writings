@@ -1,0 +1,10 @@
+BAR 1: Db4 Eb4 F4 Ab4 | Bb4 Ab4 | F4 Eb4
+BAR 2: Db4 Eb4 F4 Ab4 | Bb4 C5 | Ab4 F4
+BAR 3: Eb4 F4 Ab4 C5 | Bb4 Ab4 | F4 Eb4
+BAR 4: Db4 Eb4 F4 Ab4 | Bb4 Ab4 | C5 Bb4
+BAR 5: F4 Ab4 Bb4 C5 | Db5 Bb4 | Ab4 F4
+BAR 6: Eb4 Gb4 Ab4 Bb4 | C5 Ab4 | Gb4 Eb4
+BAR 7: Db4 Eb4 F4 Ab4 | Bb4 C5 | Db5 Bb4
+BAR 8: Ab4 Bb4 C5 Db5 | Eb5 C5 | Ab4 Bb4
+NOTES: Motor on full shimmer, mallets bounce with a dry attack — the jukebox quote slips through bars 5-6 as a ghost of a sea shanty, then the last Bb4 hangs like a rope unmoored.
+WHY: The tide clock ticks its own question, borrowing a sailor's tune only to leave it drifting, unresolved, toward the harbor's dark edge.

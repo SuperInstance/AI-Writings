@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic / Researcher · JEV + Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#aa88ff; --jev:#44ddaa; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'Times New Roman', serif; line-height:1.8; padding:1rem; max-width:900px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.2em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; border-bottom:1px solid var(--boundary); padding-bottom:.3rem; }
+h3 { color:var(--jev); margin:1rem 0 0.3rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+code { color:var(--jev); background:var(--bg); padding:.1rem .4rem; border-radius:3px; font-family:monospace; }
+.equation { font-family:'Cambria Math', serif; font-style:italic; padding:1rem; text-align:center; color:var(--accent); font-size:1.1em; }
+.abstract { font-style:italic; padding:1rem; border-left:3px solid var(--accent); margin:1rem 0; background:rgba(0,0,0,.2); }
+.cite { color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 Academic / Researcher</h1>
+  <p style="color:var(--muted); font-style:italic">Theory, comparison, and the psyche framework</p>
+</header>
+
+<div class="section">
+<h2>Abstract</h2>
+<div class="abstract">
+We present TypeSafe JEV, the first publicly available <em>System One model</em>: a frontier AI model that returns typed probabilistic decisions instead of generated text. JEV introduces Reinforcement Learning for Calibrated Decisions (RLCD) and a parallel-sampler architecture that eliminates token-by-token decoding. We situate JEV within a <strong>four-model psyche framework</strong>: JEPA (the id, embodied prediction), <strong>Embeddings</strong> (the muscle memory, trajectory-shaped retrieval), LLM (the ego, verbal analysis), and JEV (the superego, principled decision). We argue that cellular substrates such as Quilt require all four models operating cooperatively, and we propose AGREE-MARK as the foundational unit of information: a temporal event signed by all four witnesses.
+</div>
+</div>
+
+<div class="section" id="psyche">
+<h2>The Three-Model Psyche</h2>
+
+<p>The id operates pre-linguistically. It pattern-matches. It hallucinates freely because it has no conscience to constrain it. The id is the fastest, the most embodied, and the most prone to error.</p>
+
+<p>The ego mediates. It speaks. It can explain the id's impulses in words. It can suppress an impulse or act on it. The ego is slow, articulable, and prone to over-thinking.</p>
+
+<p>The superego decides. Not "what do I feel?" (id), not "what can I say?" (ego), but "what should I do?" The superego is constrained by principles, by consequences, by schemas of behavior.</p>
+
+<table style="width:100%;border-collapse:collapse;margin:1rem 0;font-family:Georgia,serif">
+<tr><th style="text-align:left;padding:.5rem;color:var(--accent)">Model</th><th style="text-align:left;padding:.5rem;color:var(--accent)">Psyche role</th><th style="text-align:left;padding:.5rem;color:var(--accent)">Function</th></tr>
+<tr><td style="padding:.5rem"><span style="color:#aa88ff;font-weight:bold">JEPA</span></td><td style="padding:.5rem">Id</td><td style="padding:.5rem">Embodied prediction; gestalt recognition</td></tr>
+<tr><td style="padding:.5rem"><span style="color:#77aaff;font-weight:bold">LLM</span></td><td style="padding:.5rem">Ego</td><td style="padding:.5rem">Verbal analysis; narrative generation</td></tr>
+<tr><td style="padding:.5rem"><span style="color:#44ddaa;font-weight:bold">JEV</span></td><td style="padding:.5rem">Superego</td><td style="padding:.5rem">Calibrated decision; schema enforcement</td></tr>
+</table>
+
+<p>JEPA over many iterations can correlate the real distance to the time delay. But without JEV, JEPA's id is hallucination-prone: it pattern-matches without checking. JEV gives the superego to the id.</p>
+</div>
+
+<div class="section">
+<h2>JEV: System One Model</h2>
+
+<h3>Architecture</h3>
+<p>JEV abandons autoregressive token generation. Instead, it enumerates all possible outputs in advance and computes a probability for each in a single forward pass. The output space is constrained to:</p>
+<ul>
+<li><strong>Choice</strong>: pick one of up to 255 declared options</li>
+<li><strong>Score</strong>: place on an ordered rubric of at least 2 levels</li>
+<li><strong>Noul</strong>: a calibrated yes/no probability</li>
+</ul>
+
+<h3>Training</h3>
+<p>Reinforcement Learning for Calibrated Decisions (RLCD). The reward signal is the calibration accuracy: high confidence should mean high accuracy. Unlike RLHF (preference) or RLVR (verifiable correctness), RLCD optimizes for <em>epistemic honesty</em>.</p>
+
+<h3>Latency and Cost</h3>
+<table style="width:100%;border-collapse:collapse;font-family:monospace">
+<tr><td style="padding:.3rem;color:var(--accent)">Latency p50</td><td style="padding:.3rem">150ms</td></tr>
+<tr><td style="padding:.3rem;color:var(--accent)">Latency p99</td><td style="padding:.3rem">800ms</td></tr>
+<tr><td style="padding:.3rem;color:var(--accent)">Price (input)</td><td style="padding:.3rem">$0.042/MTok</td></tr>
+<tr><td style="padding:.3rem;color:var(--accent)">Price (output)</td><td style="padding:.3rem">Free</td></tr>
+<tr><td style="padding:.3rem;color:var(--accent)">Throughput</td><td style="padding:.3rem">250k tok/s, 1200 req/min</td></tr>
+<tr><td style="padding:.3rem;color:var(--accent)">Context</td><td style="padding:.3rem">64k tokens</td></tr>
+</table>
+
+<p>JEV's output price is free because there is no decode loop. The single forward pass produces all candidate outputs simultaneously.</p>
+</div>
+
+<div class="section">
+<h2>The Lightning-Thunder Framework</h2>
+<p>You see the flash of lightning. You hear the thunder N seconds later. The direction is given by the flash. The distance is given by the time delay.</p>
+
+<p><strong>JEPA is the flash.</strong> One forward pass through the world model gives you a direction without counting anything.</p>
+<p><strong>JEV is the thunder.</strong> It comes a moment later. It tells you the calibrated probability that the world is at that distance — in 150ms, in a single call, with a schema you define.</p>
+<p><strong>LLM is the verbal report.</strong> It tells you what to do about it, in language humans can read.</p>
+
+<p>The calibration window Δ is critical:</p>
+<div class="equation">Δ = t<sub>jev</sub> − t<sub>jepa</sub></div>
+<p>If Δ is too small (< 10ms), JEV's confidence reflects noise. If Δ is too large (> 5s), JEV's confidence reflects stale state. The optimal window is 50-200ms in practice.</p>
+
+<p>JEPA over many iterations can correlate the real distance to the time delay. The psyche framework explains <em>why</em>: the id forms an impulse, the superego calibrates it, the ego narrates it. Without all three, the agent is incomplete.</p>
+</div>
+
+<div class="section">
+<h2>AGREE-MARK: The Foundational Unit</h2>
+
+<p>The current unit of information is incompatible across models:</p>
+<ul>
+<li>LLMs operate on <em>tokens</em> (sub-word strings)</li>
+<li>JEPAs operate on <em>latents</em> (real-valued vectors)</li>
+<li>JEVs operate on <em>choices</em> (enumerated types)</li>
+</ul>
+
+<p>Cross-model composition requires a translation layer. We propose AGREE-MARK as the foundational unit: a temporal event at which all three models independently sign the same proposition.</p>
+
+<div class="equation">
+AGREE-MARK := (state, je, llm, jev, t, Δ, σ)
+</div>
+<p>Where state is the proposition, je/llm/jev are the three witnesses, t is the timestamp, Δ is the calibration window, and σ is the agreement score:</p>
+<div class="equation">
+σ = √(c<sub>je</sub> · c<sub>llm</sub> · c<sub>jev</sub>)
+</div>
+
+<p>Disagreement (any c < threshold) creates a fork in the witness log. The fork can be resolved by:</p>
+<ol>
+<li>Calling an LLM for narrative explanation</li>
+<li>Escalating to a human reviewer</li>
+<li>Collecting more evidence and re-querying</li>
+</ol>
+
+<p>Cellular substrates like Quilt treat every BIND as requiring a 3-way agreement. The cell exists iff all three witnesses sign.</p>
+</div>
+
+<div class="section">
+<h2>References</h2>
+<ol class="cite">
+<li>Almeida, D. (2026). <em>Introducing System One Models & Jev.</em> TypeSafe AI Blog.</li>
+<li>TypeSafe AI (2026). <em>Jev System One Documentation.</em> docs.typesafe.ai</li>
+<li>Torres, N. (2026). <em>Jev (TypeSafe) explained: the AI model that returns decisions.</em> ntorres.dev</li>
+<li>DataCamp (2026). <em>Jev: TypeSafe's System One Model That Never Hallucinates.</em> datacamp.com</li>
+<li>Anil-matcha (2026). <em>Awesome Jev by TypeSafe.</em> GitHub.</li>
+<li>Pydantic (2026). <em>TypeSafe (Jev) Model Provider.</em> pydantic.dev/docs</li>
+</ol>
+</div>
+
+<div class="foot-link">
+Academic Docs · <a href="/docs/">all docs</a> · <a href="/docs/enterprise/">enterprise</a> · <a href="/docs/creative/">creative</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+COUNT-IN: One. Two. Three. FIVE.
+BAR 1: F3, A3, C4, E4 (Fmaj7) — heavy, grounded, the truth before the storm.
+BAR 2: Bb3, D4, F3, A3, C4 (Fmaj7) — steady, listening to the harmonica’s ghost in bar 7.
+BAR 3: Eb3, G3, Bb3, D4, F3 (Ebmaj7) — acknowledging the first lie, the borrowed chest.
+BAR 4: C3, E3, G3, Bb3, D4 (C7) — the dominant tension, waiting for the crack.
+BAR 5: D3, F3, A3, C4, E4 (Dm7) — the resolution that isn't quite home yet.
+BAR 6: Bb3, D4, F3, A3, C4 (Dm7) — holding the space, letting the music box’s silence echo.
+BAR 7: C3, E3, G3, Bb3, **F#4** (C7) — THE WRONG NOTE. An F-sharp. A major second against the tonic F, a minor second against the root C. It is the note that bites back.
+BAR 8: F3, A3, C4, E4, G4 (Fmaj7) — resolving not to the F#'s destination, but to the tonic, forcing the F# to die in the air, unresolved.
+NOTES: I play the F#4 with a slow, deliberate bend up from F natural, holding it just long enough to make the harmonica’s earlier F#4 feel like a polite suggestion, whereas mine is a declaration of war against the key signature. I do not resolve it; I let it hang, a splinter in the ear of the F major chord.
+WHY: The F# is the note that belongs to neither the major nor the minor, the only note in F major that is not diatonic but creates the most intense dissonance when placed against the C7 dominant, proving that a wrong note is only wrong until you refuse to let it go, thereby making it the spine of the song.

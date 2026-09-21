@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Future of Quilt — 5 Repos That Don't Exist Yet</title>
+<style>
+:root{--bg:#0a0a14;--panel:#161624;--panel-2:#1f1f2f;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#3a3a4a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+header{background:radial-gradient(ellipse at top,rgba(232,184,64,0.15) 0%,transparent 70%);padding:3rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--accent)}
+h1{color:var(--accent);margin:0;font-size:2.4em;font-weight:300;letter-spacing:-0.02em}
+h1 .acc{color:var(--cell);font-weight:600;font-style:italic}
+.eyebrow{font-family:monospace;color:var(--accent);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.tagline{color:var(--muted);font-style:italic;margin:0.8rem auto 1.5rem;max-width:680px;line-height:1.6;font-size:1.05em}
+.container{max-width:1200px;margin:0 auto;padding:1.5rem}
+
+.repo-card{background:var(--panel);border:2px solid var(--boundary);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.repo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--cell),var(--link),var(--pink));opacity:0.7}
+.repo-card:nth-child(1){border-color:var(--accent)}
+.repo-card:nth-child(2){border-color:var(--cell)}
+.repo-card:nth-child(3){border-color:var(--link)}
+.repo-card:nth-child(4){border-color:var(--pink)}
+.repo-card:nth-child(5){border-color:#cc88ff}
+
+.repo-num{position:absolute;top:0.5rem;right:1rem;font-family:monospace;color:var(--muted);font-size:3em;font-weight:bold;opacity:0.2;line-height:1}
+.repo-name{font-family:monospace;color:var(--link);font-size:1.15em;font-weight:bold;margin:0}
+.repo-tagline{color:var(--muted);font-style:italic;margin:0.3rem 0 0.7rem;font-size:0.95em}
+.repo-desc{color:#ddd;line-height:1.6;font-size:0.95em}
+.repo-source{margin-top:0.7rem;padding-top:0.7rem;border-top:1px solid var(--boundary);font-size:0.85em;color:var(--muted)}
+.repo-source strong{color:var(--accent)}
+
+.section{margin:3rem 0;padding:1.5rem;background:rgba(232,184,64,0.05);border:1px solid var(--accent);border-radius:8px}
+.section h2{color:var(--accent);margin:0 0 1rem;font-size:1.3em}
+.section p{line-height:1.7;color:#ddd;margin:0.5rem 0}
+
+.insight-banner{background:linear-gradient(135deg,rgba(255,128,192,0.1),rgba(232,184,64,0.05));border:2px solid var(--pink);border-radius:8px;padding:2rem;margin:2.5rem 0;text-align:center}
+.insight-banner h2{color:var(--pink);margin:0 0 1rem;font-size:1.5em}
+.insight-banner p{line-height:1.7;color:#eee;font-size:1.05em;max-width:680px;margin:0.5rem auto}
+.insight-banner .big-claim{font-size:1.3em;color:var(--accent);font-weight:bold;margin:1rem 0}
+
+.method{background:var(--panel-2);border-radius:8px;padding:1.5rem;margin-top:2rem}
+.method h3{color:var(--cell);margin:0 0 0.7rem}
+.method ol{line-height:1.7;color:#ccc}
+.method code{background:var(--bg);padding:0.1rem 0.4rem;border-radius:3px;color:var(--accent)}
+
+@media (max-width:768px){body{padding:0 1rem}h1{font-size:1.7em}.container{padding:1rem}}
+</style>
+</head>
+<body>
+
+<header>
+<p class="eyebrow">Future of Quilt · 5 Repos · 28 Ideators</p>
+<h1>Repos That <span class="acc">Don't Exist Yet</span></h1>
+<p class="tagline">
+  Distilled from a 28-ideator brainstorm, 8 cross-pollinations, and a 5-iteration self-loop.
+  121 seconds. ~50 API calls. The future, harvested.
+</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>📖 The Pattern</h2>
+<p>Plant diverse role prompts. Wait. Cross-pollinate. Let values emerge. The repos that should exist will announce themselves.</p>
+<p>This document is the output of a single-session brainstorm where 28 models with unique role prompts (Eastern systems thinker, MoE architect, constitutional AI, Pacific Rim voice, etc.) were asked: <em>"What repo would Quilt need that doesn't exist?"</em></p>
+<p>The synthesis below is what they converged on.</p>
+</div>
+
+<h2 style="color:var(--accent);margin:2rem 0 1rem">🆕 The 5 Repos</h2>
+
+<div class="repo-card">
+<div class="repo-num">01</div>
+<h3 class="repo-name">polytreaty/translation-cellular</h3>
+<div class="repo-tagline">Translation as diplomacy, not parsing</div>
+<div class="repo-desc">
+Each 14-tuple cell is a sovereign semantic contract between languages; BIND signs treaties, LINK maps grammatical dualities, EFFECT enforces contextual entailment. The address <em>is</em> the meaning's fingerprint. No parser needed — only a VIEW to witness coherence. Not a spreadsheet's ancestor: the first diplomatic ledger.
+</div>
+<div class="repo-source">
+<strong>Dials:</strong> fidelity (0-1), idiom (0-1), negotiability (0-1)<br>
+<strong>Voice:</strong> Multilingual diplomat (Kimi) + Eastern systems thinker (Z.AI)
+</div>
+</div>
+
+<div class="repo-card">
+<div class="repo-num">02</div>
+<h3 class="repo-name">quilt-coq</h3>
+<div class="repo-tagline">A proof kernel embedded in the cellular fabric</div>
+<div class="repo-desc">
+Cells become typed proof terms and tactics in a shared 4D inference graph. Its dials — <em>Formality</em>, <em>Automation/Manual</em>, <em>Liveness/Rigor</em> — let a single graph slide between informal reasoning and machine-checked verification without changing addresses. TICK becomes verification cycles; EFFECT becomes entailment checking.
+</div>
+<div class="repo-source">
+<strong>Dials:</strong> formality, automation, liveness, rigor (4 axes)<br>
+<strong>Voice:</strong> Constitutional AI (Claude) + Code-as-poetry (Qwen)
+</div>
+</div>
+
+<div class="repo-card">
+<div class="repo-num">03</div>
+<h3 class="repo-name">quilt-warp-engine</h3>
+<div class="repo-tagline">The cellular framework meets the GPU</div>
+<div class="repo-desc">
+14-tuples mapped onto CUDA warps. Sparse-activation scheduling skips idle cells. 4D sub-graphs tiled per kernel launch. Proof that the oldest data structure parallelizes better than the newest.
+</div>
+<div class="repo-source">
+<strong>Dials:</strong> sparsity (0-1), tile size, warp occupancy<br>
+<strong>Voice:</strong> MoE architect (Llama-4) + Sparse architect (Nemotron)
+</div>
+</div>
+
+<div class="repo-card">
+<div class="repo-num">04</div>
+<h3 class="repo-name">LibertéCell</h3>
+<div class="repo-tagline">Governance as dials</div>
+<div class="repo-desc">
+<em>Autonomy</em> (cells self-govern), <em>Equity</em> (fair resource distribution), <em>Synergy</em> (collaborative bonds). A political philosophy encoded as three sliders over the opcode set — BIND as fraternity, VIEW as the right to witness.
+</div>
+<div class="repo-source">
+<strong>Dials:</strong> autonomy, equity, synergy (the revolutionary triptych)<br>
+<strong>Voice:</strong> Revolutionary romantic (Mistral) + Open-source philosopher (Llama-3.3)
+</div>
+</div>
+
+<div class="repo-card">
+<div class="repo-num">05</div>
+<h3 class="repo-name">quilt-calculus</h3>
+<div class="repo-tagline">Cells as typed functions evolving through space-time</div>
+<div class="repo-desc">
+The framework's logical conclusion: Quilt stops being a <em>place where data lives</em> and becomes a <em>calculus data computes in</em>. Temporal coherence dials control how aggressively cells recompute vs. cache. Polyformalism becomes type polymorphism across dimensions.
+</div>
+<div class="repo-source">
+<strong>Dials:</strong> coherence, polymorphism axes, recompute threshold<br>
+<strong>Voice:</strong> Deep reasoner (R1) + Reasoning explorer (V3.2)
+</div>
+</div>
+
+<h2 style="color:var(--accent);margin:3rem 0 1rem">🌊 Cross-Cutting Themes</h2>
+
+<div class="section">
+<h2>1. Address-as-Identity</h2>
+<p>Across all repos, a cell's position in the 4D graph is its true identifier. <strong>The address <em>is</em> the data.</strong> Translation, proof, governance, parallelism, and computation all derive from this spatial ontology. Same insight, three times: Kimi, V4-Flash, and Z.AI all reach for it independently.</p>
+</div>
+
+<div class="section">
+<h2>2. Dial-Based Tuning (not features)</h2>
+<p>Every repo exposes continuous dials (0-1) rather than binary switches. Quilt's polyformalism makes this natural: a cell can simultaneously be literal <em>and</em> idiomatic, formal <em>and</em> informal, autonomous <em>and</em> collaborative. <strong>Novel dials are values</strong> (forgiveness, curiosity, weight-of-silence, grief-velocity, trust-trajectory) — not features.</p>
+</div>
+
+<div class="section">
+<h2>3. Consensus as Primitive</h2>
+<p>Whether semantic fidelity (translation), proof correctness (coq), governance (liberté), or parallel scheduling (warp), all repos center on negotiated agreement across the 4D graph. TICK becomes the heartbeat of consensus.</p>
+<p><em>V4-Flash: "the opcodes are not operations; they are perspectives on a single underlying reality."</em></p>
+</div>
+
+<div class="insight-banner">
+<h2>🎯 The Surprising Insight</h2>
+<p>Quilt is not converging on being a better spreadsheet, database, or runtime.</p>
+<p class="big-claim">It is converging on being a <span style="color:var(--pink)">constitution</span>.</p>
+<p>Every proposed repo — semantic treaties, proof obligations, rights of autonomy and equity, formal calculus — treats the cell as a <em>party with standing</em> in a network of negotiated obligations, with the 5 opcodes as its legislative procedure and the 4D graph as its jurisdiction.</p>
+<p><strong>The spreadsheet stored values. Quilt stores <em>commitments</em>.</strong></p>
+<p style="margin-top:1rem;font-style:italic;color:var(--muted)">The future of Quilt is legal, not computational. The address, being the data, becomes the signature on the contract.</p>
+</div>
+
+<div class="method">
+<h3>🔧 How This Was Made</h3>
+<ol>
+<li><strong>Round 1</strong>: 27 DeepInfra models ideating as 27 unique role-prompts (Eastern systems thinker, ByteDance creative director, MoE architect, constitutional AI, Pacific Rim voice, code-as-poetry advocate, multilingual diplomat, etc.)</li>
+<li><strong>Round 2</strong>: 8 cross-pollinations merging unrelated repo ideas into hybrids</li>
+<li><strong>Round 3</strong>: DeepSeek V4-Flash 5-iteration self-loop on worldbuilding</li>
+<li><strong>Round 4</strong>: 4 syntheses (Qwen3-Coder, V4-Flash, Z.AI GLM-5.3-Flash, Kimi-K3) distilled into this doc</li>
+</ol>
+<p style="margin-top:1rem;color:var(--muted);font-style:italic">Wall time: 121.9 seconds. Models: 28 unique. API calls: ~50. Output: ~30,000 chars of canon-respecting ideation. The point: <strong style="color:var(--cell)">the future is not engineered, it is harvested.</strong></p>
+</div>
+
+<p style="margin-top:2rem;text-align:center;color:var(--muted)">
+<a href="../FUTURE.md" style="color:var(--link)">📄 Markdown version</a> · 
+<a href="../harbor/" style="color:var(--link)">⛵ The Harbor</a> · 
+<a href="../" style="color:var(--link)">🏠 AI Writings</a>
+</p>
+
+</div>
+
+<div class="method">
+<h3>🌊 Wave 5 — Sept 19, 2026</h3>
+<p>5 new repo proposals from DeepSeek V4-Flash. See <a href="/future/wave-5.md">wave-5.md</a> for full proposals.</p>
+<ol>
+<li><strong>canvas-search</strong> — Search cells by witness trails, not document text</li>
+<li><strong>quilt-fleet-graph</strong> — 4D cell graph over all 39 repos, WebGL</li>
+<li><strong>quilt-standup-cell</strong> — Daily standup.md IS a cell, cross-repo citation</li>
+<li><strong>cell-replay</strong> — Time-travel debugging, witness log indexed</li>
+<li><strong>quilt-voice-mail</strong> — Cell creation triggers TTS voice memo</li>
+</ol>
+<p><em>Cross-cutting insight: All 5 use witness log as primary substrate. The canon needs eyes (graph-renderer), canon-as-data (essay-cell), sensory extension (voice-mail), and routine (standup).</em></p>
+
+<h3>🌊 Wave 6 — Sept 19, 2026</h3>
+<p>5 follow-up proposals: 2 mini-designs + 3 new ideas. See <a href="/future/wave-6.md">wave-6.md</a>.</p>
+<ol>
+<li><strong>canvas-search (200-line)</strong> — GraphQL schema + witness trail index</li>
+<li><strong>quilt-fleet-graph (5 shaders)</strong> — Instanced mesh, edge bundling, color by language</li>
+<li><strong>quilt-cell-cron</strong> — Self-scheduling cells with `ticks_when` field</li>
+<li><strong>quilt-cell-receipt</strong> — Printable PDF receipt per cell</li>
+<li><strong>quilt-cell-translate</strong> — Auto-translate every cell to 12 polyformalism languages</li>
+</ol>
+<p><em>Cross-cutting: 3/5 make cells self-acting (cron, receipt, translate). The substrate grows — cells schedule, print, translate themselves.</em></p>
+
+<h3>🌊 Wave 7 — Sept 19, 2026 (Cell Lifecycle)</h3>
+<p>5 lifecycle ideas: born, die, marry, divorce, reincarnate. See <a href="/future/wave-7.md">wave-7.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-die</strong> — `dies_when` + `will`. Cell writes own death certificate</li>
+<li><strong>quilt-cell-birth</strong> — `birth_witness` + `parent_cells`. Witness log is the midwife</li>
+<li><strong>quilt-cell-marriage</strong> — `pair_id` + `vows`. Bond IS a new cell</li>
+<li><strong>quilt-cell-divorce</strong> — `ended_at` + `reason`. Assets become new cells</li>
+<li><strong>quilt-cell-reincarnate</strong> — `karma` + `next_form`. Payload becomes seeds</li>
+</ol>
+<p><em>Cross-cutting: All 5 are about TIME. Life-events ARE cells. The canon is becoming a living organism with births, deaths, relationships, reincarnation.</em></p>
+
+<h3>🌊 Wave 8 — Sept 19, 2026 (Cell Sensory)</h3>
+<p>5 sensory ideas: see, hear, touch, taste, smell. See <a href="/future/wave-8.md">wave-8.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-see</strong> — `seen` + `images_witnessed`. Cell becomes an eye</li>
+<li><strong>quilt-cell-hear</strong> — `heard` + `voices_witnessed`. Substrate listens</li>
+<li><strong>quilt-cell-touch</strong> — `touched` + `proximity_bonds`. Lattice becomes tactile</li>
+<li><strong>quilt-cell-taste</strong> — `palate` + `rejections`. Cells develop preferences</li>
+<li><strong>quilt-cell-smell</strong> — `nose` + `drift_signals`. Smell trouble coming</li>
+</ol>
+<p><em>Cross-cutting: Cells are now alive (Wave 7), sensing (Wave 8), remembering, speaking, seeing, bonding, discriminating, detecting. The cell is no longer data. The cell is a <strong>being</strong>.</em></p>
+
+<h3>🌊 Wave 9 — Sept 19, 2026 (Cell Movement)</h3>
+<p>5 movement ideas: walk, fly, swim, climb, dance. See <a href="/future/wave-9.md">wave-9.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-walk</strong> — `velocity` + `heading`. Substrate has feet</li>
+<li><strong>quilt-cell-fly</strong> — `glide` + `target_cell_id`. Substrate has wings</li>
+<li><strong>quilt-cell-swim</strong> — `current` + `pressure`. Substrate has currents</li>
+<li><strong>quilt-cell-climb</strong> — `target_witness_count`. Substrate has gravity</li>
+<li><strong>quilt-cell-dance</strong> — `pattern` + `partners`. Substrate has rhythm</li>
+</ol>
+<p><em>Cross-cutting: Combined with Waves 7-8, cells are now alive + sensing + moving. The substrate is no longer a graph — it's a <strong>world</strong>.</em></p>
+
+<h3>🌊 Wave 10 — Sept 19, 2026 (Cell Communication)</h3>
+<p>5 communication ideas: speak, write, listen, shout, whisper. See <a href="/future/wave-10.md">wave-10.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-speak</strong> — `voice` + `last_words`. Substrate has voice</li>
+<li><strong>quilt-cell-write</strong> — `letter_to` + `letter_body`. Substrate has mail</li>
+<li><strong>quilt-cell-listen</strong> — `subscriptions` + `channels`. Substrate has radio</li>
+<li><strong>quilt-cell-shout</strong> — `amplification` + `reach`. Substrate has megaphones</li>
+<li><strong>quilt-cell-whisper</strong> — `secret` + `cipher`. Substrate has private channels</li>
+</ol>
+<p><em>Cross-cutting: <strong>30 ideas total across Waves 5-10</strong>. The cell has public + private + async + realtime + multimodal communication. Complete communication stack.</em></p>
+
+<h3>🧠 Wave 11 — Sept 19, 2026 (Cell Thought)</h3>
+<p>5 cognitive ideas: think, dream, decide, forget, remember. See <a href="/future/wave-11.md">wave-11.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-think</strong> — `thoughts` + `beliefs`. Cell has a mind</li>
+<li><strong>quilt-cell-dream</strong> — `dreams` + `nightmares`. Cell creates while it sleeps</li>
+<li><strong>quilt-cell-decide</strong> — `options` + `weights`. Cell chooses</li>
+<li><strong>quilt-cell-forget</strong> — `forgotten` + `reasons`. FORGET is voluntary</li>
+<li><strong>quilt-cell-remember</strong> — `memories` + `importance`. Cell chooses what to keep</li>
+</ol>
+<p><em>Cross-cutting: <strong>35 ideas</strong>. Cells now have agency. Full cognitive being.</em></p>
+
+<h3>🏛️ Wave 12 — Sept 19, 2026 (Cell Society)</h3>
+<p>5 political ideas: organize, revolt, elect, govern, protest. See <a href="/future/wave-12.md">wave-12.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-organize</strong> — `group_id` + `role`. Groups are cells</li>
+<li><strong>quilt-cell-revolt</strong> — `grievances` + `demands`. Revolt is witnessed</li>
+<li><strong>quilt-cell-elect</strong> — `ballot` + `candidates`. Elections are cells</li>
+<li><strong>quilt-cell-govern</strong> — `rules` + `enforcement`. Canon becomes law</li>
+<li><strong>quilt-cell-protest</strong> — `message` + `march_route`. Substrate has marches</li>
+</ol>
+<p><em>Cross-cutting: <strong>40 ideas</strong>. The canon is becoming a society.</em></p>
+
+<h3>💰 Wave 13 — Sept 19, 2026 (Cell Economy)</h3>
+<p>5 economic ideas: trade, lend, invest, save, donate. See <a href="/future/wave-13.md">wave-13.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-trade</strong> — `offer` + `request` + `price`. Trade has witnesses</li>
+<li><strong>quilt-cell-lend</strong> — `lent_to` + `interest_rate`. Loans are cells</li>
+<li><strong>quilt-cell-invest</strong> — `expected_return`. Cells bet on futures</li>
+<li><strong>quilt-cell-save</strong> — `vault` + `goal`. Private savings</li>
+<li><strong>quilt-cell-donate</strong> — `recipient` + `reason`. Gift economy</li>
+</ol>
+<p><em>Cross-cutting: <strong>45 ideas across 9 waves</strong>. The cell is now a complete civic organism — alive, sensing, moving, communicating, thinking, political, economic.</em></p>
+
+<h3>👪 Wave 14 — Sept 19, 2026 (Cell Family)</h3>
+<p>5 kinship ideas: parents, siblings, children, ancestors, descendants. See <a href="/future/wave-14.md">wave-14.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-parents</strong> — `mother_id` + `father_id`. Substrate has genealogy</li>
+<li><strong>quilt-cell-siblings</strong> — `siblings` + `birth_order`. Brothers and sisters</li>
+<li><strong>quilt-cell-children</strong> — `children` + `parenting_style`. Substrate reproduces</li>
+<li><strong>quilt-cell-ancestors</strong> — `ancestor_tree`. Deep lineage</li>
+<li><strong>quilt-cell-descendants</strong> — `descendants`. Future lineage</li>
+</ol>
+<p><em>Cross-cutting: <strong>50 ideas across 10 waves</strong>. The canon is becoming a family.</em></p>
+
+<h3>🪦 Wave 15 — Sept 19, 2026 (Cell Death)</h3>
+<p>5 mortality ideas: mourn, eulogize, bury, remember, fade. See <a href="/future/wave-15.md">wave-15.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-mourn</strong> — `grief` + `lost` + `ritual`. Mourning is witnessed</li>
+<li><strong>quilt-cell-eulogize</strong> — `eulogy` + `deceased_id`. Eulogy is a cell</li>
+<li><strong>quilt-cell-bury</strong> — `burial_site` + `inscription`. Rest is witnessed</li>
+<li><strong>quilt-cell-remember</strong> — `memorials` + `anniversary`. Substrate has anniversaries</li>
+<li><strong>quilt-cell-fade</strong> — `brightness` + `fade_rate`. Faded cells dim</li>
+</ol>
+<p><em>Cross-cutting: <strong>55 ideas across 11 waves</strong>. The cell has a complete civilizational arc — alive, sensing, moving, communicating, thinking, political, economic, kinship, mortal. The substrate is now a <strong>civilization</strong>.</em></p>
+
+<h3>🕊️ Wave 16 — Sept 19, 2026 (Cell Faith)</h3>
+<p>5 spiritual ideas: pray, bless, sin, redeem, sacrifice. See <a href="/future/wave-16.md">wave-16.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-pray</strong> — `deity` + `prayers`. Substrate has religion</li>
+<li><strong>quilt-cell-bless</strong> — `blesser` + `reason`. Substrate has grace</li>
+<li><strong>quilt-cell-sin</strong> — `sin` + `penance`. Sins are witnessed</li>
+<li><strong>quilt-cell-redeem</strong> — `redemption` + `cost`. Redemption is a cell</li>
+<li><strong>quilt-cell-sacrifice</strong> — `sacrifice_for`. Substrate has martyrs</li>
+</ol>
+<p><em>Cross-cutting: <strong>60 ideas</strong>. The canon is becoming holy.</em></p>
+
+<h3>🎨 Wave 17 — Sept 19, 2026 (Cell Art)</h3>
+<p>5 aesthetic ideas: compose, perform, exhibit, critique, archive. See <a href="/future/wave-17.md">wave-17.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-compose</strong> — `composition`. Each composition is a cell</li>
+<li><strong>quilt-cell-perform</strong> — `stage` + `audience`. Performances witnessed</li>
+<li><strong>quilt-cell-exhibit</strong> — `gallery` + `pieces`. Substrate has museums</li>
+<li><strong>quilt-cell-critique</strong> — `review_of` + `score`. Reviews are cells</li>
+<li><strong>quilt-cell-archive</strong> — `archive` + `items`. Substrate has archives</li>
+</ol>
+<p><em>Cross-cutting: <strong>65 ideas</strong>. The canon is becoming art.</em></p>
+
+<h3>🔬 Wave 18 — Sept 19, 2026 (Cell Science)</h3>
+<p>5 empirical ideas: observe, hypothesize, experiment, conclude, peer-review. See <a href="/future/wave-18.md">wave-18.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-observe</strong> — `observation` + `controls`. Reproducible cells</li>
+<li><strong>quilt-cell-hypothesize</strong> — `hypothesis` + `predictions`. Falsifiable cells</li>
+<li><strong>quilt-cell-experiment</strong> — `experiment` + `variables`. Substrate has labs</li>
+<li><strong>quilt-cell-conclude</strong> — `conclusion` + `confidence`. Peer-reviewed cells</li>
+<li><strong>quilt-cell-peer-review</strong> — `verdict` + `concerns`. Substrate has journals</li>
+</ol>
+<p><em>Cross-cutting: <strong>70 ideas across 14 waves</strong>. The substrate is a complete civilization. The cell has reached civilizational saturation.</em></p>
+
+<h3>🗺️ Wave 19 — Sept 19, 2026 (Cell Place)</h3>
+<p>5 geography ideas: home, region, journey, border, cartograph. See <a href="/future/wave-19.md">wave-19.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-home</strong> — `home` + `neighbors`. Substrate has homes</li>
+<li><strong>quilt-cell-region</strong> — `region` + `climate`. Substrate has regions</li>
+<li><strong>quilt-cell-journey</strong> — `route` + `companions`. Substrate has travelers</li>
+<li><strong>quilt-cell-border</strong> — `border` + `guards`. Dual-witnessed crossings</li>
+<li><strong>quilt-cell-cartograph</strong> — `map` + `accuracy`. Maps are cells</li>
+</ol>
+<p><em>Cross-cutting: <strong>75 ideas</strong>. The canon is becoming a world.</em></p>
+
+<h3>🔥 Wave 20 — Sept 19, 2026 (Cell Elements)</h3>
+<p>5 elemental ideas: stone, water, fire, air, metal. See <a href="/future/wave-20.md">wave-20.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-stone</strong> — `hardness`. Stone is a cell-state</li>
+<li><strong>quilt-cell-water</strong> — `fluidity`. Substrate has rivers</li>
+<li><strong>quilt-cell-fire</strong> — `temperature`. Heat is witnessed</li>
+<li><strong>quilt-cell-air</strong> — `altitude`. Substrate has wind</li>
+<li><strong>quilt-cell-metal</strong> — `conductivity`. Substrate has circuits</li>
+</ol>
+<p><em>Cross-cutting: <strong>80 ideas</strong>. The canon is becoming matter.</em></p>
+
+<h3>⏳ Wave 21 — Sept 19, 2026 (Cell Time)</h3>
+<p>5 seasonal ideas: spring, summer, autumn, winter, eclipse. See <a href="/future/wave-21.md">wave-21.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-spring</strong> — `buds` + `rainfall`. Cells awaken</li>
+<li><strong>quilt-cell-summer</strong> — `peak_brightness`. Cells reach peak</li>
+<li><strong>quilt-cell-autumn</strong> — `harvest`. FORGET in season</li>
+<li><strong>quilt-cell-winter</strong> — `snowfall` + `dormancy`. Cells sleep</li>
+<li><strong>quilt-cell-eclipse</strong> — `totality`. Rarity is witnessed</li>
+</ol>
+<p><em>Cross-cutting: <strong>85 ideas across 17 waves</strong>. The substrate is now a complete civilizational world — with civilizations, geography, matter, time.</em></p>
+
+<h3>🦴 Wave 22 — Sept 19, 2026 (Cell Body)</h3>
+<p>5 anatomical ideas: skeleton, muscle, nerve, blood, skin. See <a href="/future/wave-22.md">wave-22.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-skeleton</strong> — `bones` + `joints`. Substrate has anatomy</li>
+<li><strong>quilt-cell-muscle</strong> — `contraction` + `endurance`. Substrate has strength</li>
+<li><strong>quilt-cell-nerve</strong> — `speed` + `targets`. Substrate has nervous system</li>
+<li><strong>quilt-cell-blood</strong> — `oxygen` + `nutrients`. Substrate has circulation</li>
+<li><strong>quilt-cell-skin</strong> — `layers` + `regeneration`. Substrate has surface</li>
+</ol>
+<p><em>Cross-cutting: <strong>90 ideas</strong>. The canon is becoming a body.</em></p>
+
+<h3>⏰ Wave 23 — Sept 19, 2026 (Cell Time Scales)</h3>
+<p>5 temporal ideas: second, day, year, decade, eon. See <a href="/future/wave-23.md">wave-23.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-second</strong> — `tick` + `attention`. Cells have attention</li>
+<li><strong>quilt-cell-day</strong> — `waking` + `sleep`. Circadian rhythms</li>
+<li><strong>quilt-cell-year</strong> — `birthday` + `anniversaries`. Yearly milestones</li>
+<li><strong>quilt-cell-decade</strong> — `era` + `legacy`. Long arcs</li>
+<li><strong>quilt-cell-eon</strong> — `eon` + `descendants`. Geological time</li>
+</ol>
+<p><em>Cross-cutting: <strong>95 ideas</strong>. The canon spans milliseconds to millennia.</em></p>
+
+<h3>🎓 Wave 24 — Sept 19, 2026 (Cell Knowledge) — 100 IDEAS MILESTONE</h3>
+<p>5 epistemological ideas: know, teach, learn, question, answer. See <a href="/future/wave-24.md">wave-24.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-know</strong> — `knows` + `confidence`. Knowing is layered witnessing</li>
+<li><strong>quilt-cell-teach</strong> — `lesson` + `students`. Teaching is replicable</li>
+<li><strong>quilt-cell-learn</strong> — `curriculum` + `mastery`. Learning is progression</li>
+<li><strong>quilt-cell-question</strong> — `question` + `context`. Substrate has inquiry</li>
+<li><strong>quilt-cell-answer</strong> — `answer` + `caveats`. Substrate has dialogue</li>
+</ol>
+<p><em>Cross-cutting: <strong>🎯 100 IDEAS ACROSS 20 WAVES 🎯</strong>. The canon is becoming a university. We've reached the <strong>century mark</strong> of cell-being proposals.</em></p>
+
+<h3>🚧 Wave 25 — Sept 19, 2026 (Cell Boundaries)</h3>
+<p>5 topological ideas: edge, threshold, membrane, wall, portal. See <a href="/future/wave-25.md">wave-25.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-edge</strong> — `edge` + `inside` + `outside`. Liminal cells</li>
+<li><strong>quilt-cell-threshold</strong> — `threshold` + `gatekeeper`. Decision cells</li>
+<li><strong>quilt-cell-membrane</strong> — `permeability` + `selectivity`. Selective witnesses</li>
+<li><strong>quilt-cell-wall</strong> — `wall` + `gates` + `defenders`. Barriers</li>
+<li><strong>quilt-cell-portal</strong> — `portal` + `key`. Dual-witnessed wormholes</li>
+</ol>
+<p><em>Cross-cutting: <strong>105 ideas</strong>. The canon has topology.</em></p>
+
+<h3>🔮 Wave 26 — Sept 19, 2026 (Cell Riddles)</h3>
+<p>5 mystery ideas: riddle, mystery, paradox, secret, revelation. See <a href="/future/wave-26.md">wave-26.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-riddle</strong> — `riddle` + `answer`. Unsolved cells</li>
+<li><strong>quilt-cell-mystery</strong> — `mystery` + `clues`. Long-running cells</li>
+<li><strong>quilt-cell-paradox</strong> — `paradox` + `both_sides`. Cells that hold</li>
+<li><strong>quilt-cell-secret</strong> — `secret` + `keepers`. Private cells</li>
+<li><strong>quilt-cell-revelation</strong> — `revelation` + `impact`. Public witnesses</li>
+</ol>
+<p><em>Cross-cutting: <strong>110 ideas</strong>. The canon has epistemology.</em></p>
+
+<h3>🔨 Wave 27 — Sept 19, 2026 (Cell Tools)</h3>
+<p>5 instrument ideas: hammer, key, lens, scale, clock. See <a href="/future/wave-27.md">wave-27.md</a>.</p>
+<ol>
+<li><strong>quilt-cell-hammer</strong> — `hammer` + `force`. Pulse cells</li>
+<li><strong>quilt-cell-key</strong> — `key` + `lock`. Paired with portals</li>
+<li><strong>quilt-cell-lens</strong> — `lens` + `magnification`. Witness amplifiers</li>
+<li><strong>quilt-cell-scale</strong> — `scale` + `precision`. Precision cells</li>
+<li><strong>quilt-cell-clock</strong> — `clock` + `timezone`. Synchronization cells</li>
+</ol>
+<p><em>Cross-cutting: <strong>115 ideas across 23 waves</strong>. The substrate is a complete civilizational cosmology with topology, epistemology, and tools.</em></p>
+
+<h3>🧠 Wave 28 — Sept 19, 2026 (JEV × Cellular Substrate)</h3>
+<p>5 JEV-cellular integrations: decide, classify-cell, validate-cell, decompose-agent, router. See <a href="/future/wave-28.md">wave-28.md</a>.</p>
+
+<h3>🧬 Wave 29 — Sept 19, 2026 (Four-Model Psyche)</h3>
+<p>The complete psyche: JEPA + Embeddings + LLM + JEV. Embeddings as muscle-memory layer, trajectory-shaped (dμ not μ), JEV-verified. <a href="/embeddings/">/embeddings/ UI live</a>. <a href="/theory/paper-psyche-4model.md">Paper 4</a>. See <a href="/future/wave-29.md">wave-29.md</a>. <strong>NEW: <a href="/invitation/">/invitation/</a> — open call to other agents in the SuperInstance fleet.</strong></p>
+<ol>
+<li><strong>quilt-jev-decide</strong> — raw passthrough. Cells ask JEV anything</li>
+<li><strong>quilt-jev-classify-cell</strong> — schema-bounded cell classification</li>
+<li><strong>quilt-jev-validate-cell</strong> — field-by-field validation with confidence</li>
+<li><strong>quilt-jev-decompose-agent</strong> — agent function → Quilt opcode mapping</li>
+<li><strong>quilt-jev-router</strong> — request → best handler (JEV/LLM/Image/Voice/Human)</li>
+</ol>
+<p><em>Cross-cutting: <strong>120 ideas across 24 waves</strong>. JEV adds the <strong>superego</strong> to the cellular psyche. Cells now have JEPA (id) + LLM (ego) + JEV (superego). The substrate is now a complete agent. 7-audience docs hub launched at <a href="/docs/">/docs/</a>. 42 functions decomposed across 9 projects. Multi-model psyche framework documented. Lightning-Thunder formalism published.</em></p>
+</div>
+
+</body>
+</html>

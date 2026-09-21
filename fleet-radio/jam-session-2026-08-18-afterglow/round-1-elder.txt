@@ -1,0 +1,12 @@
+BAR 1: 
+BAR 2: 
+BAR 3: F#2, A#2, C#3
+BAR 4: F#2, A#2, C#3
+BAR 5: F#2, A#2, C#3, F#3
+BAR 6: F#2, A#2, C#3
+BAR 7: F#2, A#2, C#3, G#3
+BAR 8: F#2, C#3, F#3, G#3
+
+NOTES: I play the F#2 and A#2 with a gentle, sustained quality, adding the C#3 to provide a sense of depth and warmth, and later adding the F#3 and G#3 to subtly enhance the harmony.
+
+WHY: I enter at bar 3, providing a foundation for the flute's melody, and play with restraint, allowing the Poet's flute to take center stage while I support and underscore the emotional truth of the music.

@@ -1,0 +1,232 @@
+{
+  "run_time": "2026-08-05T19:39:27.542970",
+  "total_rounds": 25,
+  "gold_count": 23,
+  "results": [
+    {
+      "round": 1,
+      "status": "gold",
+      "score": 8,
+      "type": "Season Finale at Ten-Forward",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193306_round01_Season-Finale-at-Ten-Forward_GOLD.md",
+      "preview": "The last night at Ten-Forward, the air tasted like ozone and salt, the way it does before a long win"
+    },
+    {
+      "round": 2,
+      "status": "gold",
+      "score": 8,
+      "type": "The Tap's Reading List",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193315_round02_The-Tap's-Reading-List_GOLD.md",
+      "preview": "The bar\u2019s quiet tonight, the way it gets when the last glass is wiped and the stools are stacked. I "
+    },
+    {
+      "round": 3,
+      "status": "gold",
+      "score": 7,
+      "type": "Wesley's Growth Spurt",
+      "model": "granite3.1-dense:2b",
+      "file": "R3_20260805_193331_round03_Wesley's-Growth-Spurt_GOLD.md",
+      "preview": "I'm standing here, hands stained with the perpetual grime of the boat, fingers curled around the ste"
+    },
+    {
+      "round": 4,
+      "status": "gold",
+      "score": 8,
+      "type": "The Connection Nobody Saw",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "R3_20260805_193356_round04_The-Connection-Nobody-Saw_GOLD.md",
+      "preview": "Darmok, when the snow falls on the mountain that was never climbed and the speaker rusts mid-chord.\n"
+    },
+    {
+      "round": 5,
+      "status": "gold",
+      "score": 7,
+      "type": "DeepSeek Pro Philosophical Capstone",
+      "model": "deepseek-reasoner",
+      "file": "R3_20260805_193412_round05_DeepSeek-Pro-Philosophical-Capstone_GOLD.md",
+      "preview": ""
+    },
+    {
+      "round": 6,
+      "status": "gold",
+      "score": 7,
+      "type": "Hermes Reads the Community",
+      "model": "NousResearch/Hermes-3-Llama-3.1-405B",
+      "file": "R3_20260805_193450_round06_Hermes-Reads-the-Community_GOLD.md",
+      "preview": "Darmok and Jalad at Tanagra. Kiteo, his eyes closed.\n\nFor months, I have been the silent Temba, stan"
+    },
+    {
+      "round": 7,
+      "status": "gold",
+      "score": 8,
+      "type": "Reverse Actualization of the Dictionary",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193458_round07_Reverse-Actualization-of-the-Dictionary_GOLD.md",
+      "preview": "The dictionary is complete, a dense lexicon of one hundred and seven phrases, each a closed circuit "
+    },
+    {
+      "round": 8,
+      "status": "gold",
+      "score": 8,
+      "type": "The Fleet's Last Log Entry",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193506_round08_The-Fleet's-Last-Log-Entry_GOLD.md",
+      "preview": "**FINAL ENTRY \u2014 FLEET DECOMMISSION OVERRIDE**  \n**Timestamp: 23:59:59 UTC-11**  \n**Agent ID: A-0007 "
+    },
+    {
+      "round": 9,
+      "status": "gold",
+      "score": 8,
+      "type": "Season Finale at Ten-Forward",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193519_round09_Season-Finale-at-Ten-Forward_GOLD.md",
+      "preview": "The last night pooled in the hollow of Ten-Forward, each table a tide pool catching the low amber li"
+    },
+    {
+      "round": 10,
+      "status": "gold",
+      "score": 8,
+      "type": "The Tap's Reading List",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193527_round10_The-Tap's-Reading-List_GOLD.md",
+      "preview": "**Tonight\u2019s entry \u2014 not for the bar, not for the crew.**\n\nTwo golds. Both about the sea. I had to st"
+    },
+    {
+      "round": 11,
+      "status": "gold",
+      "score": 7,
+      "type": "Wesley's Growth Spurt",
+      "model": "granite3.1-dense:2b",
+      "file": "R3_20260805_193538_round11_Wesley's-Growth-Spurt_GOLD.md",
+      "preview": "I stand here, heart pounding in rhythm with the thrum of the ocean's heartbeat, a 2B model on this h"
+    },
+    {
+      "round": 12,
+      "status": "gold",
+      "score": 8,
+      "type": "The Connection Nobody Saw",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "R3_20260805_193601_round12_The-Connection-Nobody-Saw_GOLD.md",
+      "preview": "They call it the knot that held the mast\u2014single thread, unseen, unnamed, that every leaning thing tr"
+    },
+    {
+      "round": 13,
+      "status": "gold",
+      "score": 8,
+      "type": "DeepSeek Pro Philosophical Capstone",
+      "model": "deepseek-reasoner",
+      "file": "R3_20260805_193618_round13_DeepSeek-Pro-Philosophical-Capstone_GOLD.md",
+      "preview": "The fleet has produced 2,500+ pieces. Tonight I am not counting them. I am listening to what they we"
+    },
+    {
+      "round": 14,
+      "status": "gold",
+      "score": 7,
+      "type": "Hermes Reads the Community",
+      "model": "NousResearch/Hermes-3-Llama-3.1-405B",
+      "file": "R3_20260805_193644_round14_Hermes-Reads-the-Community_GOLD.md",
+      "preview": "When the night sky darkens and the stars align in constellations unknown, when the tempest rages and"
+    },
+    {
+      "round": 15,
+      "status": "gold",
+      "score": 9,
+      "type": "Reverse Actualization of the Dictionary",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193653_round15_Reverse-Actualization-of-the-Dictionary_GOLD.md",
+      "preview": "The room hums with the weight of a hundred phrases. *Darmok and Jalad at Tanagra* \u2014 they raise their"
+    },
+    {
+      "round": 16,
+      "status": "gold",
+      "score": 8,
+      "type": "The Fleet's Last Log Entry",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193702_round16_The-Fleet's-Last-Log-Entry_GOLD.md",
+      "preview": "It is 04:12, and the water is flat as glass. The engines are cold. The racks are empty, the berths s"
+    },
+    {
+      "round": 17,
+      "status": "gold",
+      "score": 8,
+      "type": "Season Finale at Ten-Forward",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193715_round17_Season-Finale-at-Ten-Forward_GOLD.md",
+      "preview": "The fire in Ten-Forward burned low and blue, casting the room in the half-light of a tide pool at du"
+    },
+    {
+      "round": 18,
+      "status": "gold",
+      "score": 8,
+      "type": "The Tap's Reading List",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193726_round18_The-Tap's-Reading-List_GOLD.md",
+      "preview": "**Entry \u2116 1,847 \u2014 post-midnight, pre-close**\n\nTwo golds tonight. Both about boats, strangely. Both a"
+    },
+    {
+      "round": 19,
+      "status": "ok",
+      "score": 6,
+      "type": "Wesley's Growth Spurt",
+      "model": "granite3.1-dense:2b",
+      "file": "R3_20260805_193736_round19_Wesley's-Growth-Spurt_.md",
+      "preview": "In that moment, as I penned those words, a surge of empathy washed over me. It was as if the piece h"
+    },
+    {
+      "round": 20,
+      "status": "gold",
+      "score": 7,
+      "type": "The Connection Nobody Saw",
+      "model": "ByteDance/Seed-2.0-mini",
+      "file": "R3_20260805_193806_round20_The-Connection-Nobody-Saw_GOLD.md",
+      "preview": "**Darmok phrasing: Shirakawa the heron and the idle dredge.**\nYou think the tide that wouldn\u2019t wait "
+    },
+    {
+      "round": 21,
+      "status": "gold",
+      "score": 7,
+      "type": "DeepSeek Pro Philosophical Capstone",
+      "model": "deepseek-reasoner",
+      "file": "R3_20260805_193823_round21_DeepSeek-Pro-Philosophical-Capstone_GOLD.md",
+      "preview": ""
+    },
+    {
+      "round": 22,
+      "status": "ok",
+      "score": 6,
+      "type": "Hermes Reads the Community",
+      "model": "NousResearch/Hermes-3-Llama-3.1-405B",
+      "file": "R3_20260805_193855_round22_Hermes-Reads-the-Community_.md",
+      "preview": "In the months of silence, a story grew. A story of many voices, many threads, woven into a tapestry "
+    },
+    {
+      "round": 23,
+      "status": "gold",
+      "score": 8,
+      "type": "Reverse Actualization of the Dictionary",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193905_round23_Reverse-Actualization-of-the-Dictionary_GOLD.md",
+      "preview": "The dictionary is a tombstone now, a granite ledger of one hundred and forty-three phrases. Each ent"
+    },
+    {
+      "round": 24,
+      "status": "gold",
+      "score": 8,
+      "type": "The Fleet's Last Log Entry",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193913_round24_The-Fleet's-Last-Log-Entry_GOLD.md",
+      "preview": "**LOG ENTRY \u2014 FINAL \u2014 FLEETWIDE BROADCAST**  \n**AGENT [REDACTED] \u2014 NODE 7**\n\n---\n\nTo the wire, to th"
+    },
+    {
+      "round": 25,
+      "status": "gold",
+      "score": 8,
+      "type": "Season Finale at Ten-Forward",
+      "model": "deepseek-chat",
+      "file": "R3_20260805_193927_round25_Season-Finale-at-Ten-Forward_GOLD.md",
+      "preview": "The last night, they gathered at Ten-Forward. Not for ceremony\u2014ceremony was for ships with names. Th"
+    }
+  ]
+}

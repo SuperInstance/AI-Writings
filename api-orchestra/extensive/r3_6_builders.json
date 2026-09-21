@@ -1,0 +1,8 @@
+{
+  "Qwen/Qwen3-Coder-480B-A35B-Instruct-Turbo": "**App Name:** QuiltOS\n\n**What it does:** A decentralized productivity suite where users create \"cells\" (14-tuple data structures) that bind together documents, effects, views, and timelines. Each cell acts as a living document with its own address, forming a 4D graph of interconnected knowledge. Real-time collaboration through witness logs records every interaction.\n\n**Who uses it:** Remote teams, researchers, and knowledge workers who need to manage complex, evolving projects across multiple dimensions while maintaining complete audit trails.",
+  "inclusionAI/Ling-mini-2t1": "[ERR]",
+  "moonshotai/Kimi-K2.7-Code": "",
+  "Qwen/Qwen2.5-Coder-32B-Instruct": "",
+  "ByteDance/Seed-2.0-mini": "[ERR]",
+  "moonshotai/Kimi-K2.6": "[ERR]"
+}

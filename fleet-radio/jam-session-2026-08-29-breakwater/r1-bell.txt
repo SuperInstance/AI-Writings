@@ -1,0 +1,10 @@
+BAR 1: F#4... | a single, clear tone pierces the night air
+BAR 2: rest... | the sound fades, swallowed by the crashing waves
+BAR 3: A4... | another ring, higher, more urgent
+BAR 4: rest... | the bell's voice is lost again to the sea
+BAR 5: C#5... | a third chime, the highest yet, cutting through the storm
+BAR 6: rest... | the fury of the ocean nearly drowns it out
+BAR 7: F#4... | returning to the first note, a beacon in the dark
+BAR 8: rest... | the bell falls silent, yielding to the waves once more
+
+WHY: The fog bell's lonely voice cries out into the tempest, seeking connection amidst the chaos.

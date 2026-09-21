@@ -1,0 +1,11 @@
+COUNT-IN: One. Two. FIVE.
+BAR 1: F4, A4, C5, E5 (Fmaj7 — the tonic, a hand on the door)
+BAR 2: Bb4, D5, F4, A4 (Ebmaj7 — borrowed light, soft)
+BAR 3: G4, Bb4, D5, C5 (Dm7 — stepping down, patient)
+BAR 4: E5, G4, A4, C5 (C7 — the pull, the ache, almost home)
+BAR 5: F4, A4, C5, D5 (Fmaj7 — a breath, a settling)
+BAR 6: Bb4, D5, F4, E5 (Ebmaj7 — the echo of the first lie, forgiven)
+BAR 7: A4, C5, D5, E5 (Dm7 — rising, quiet, sure)
+BAR 8: G4, F#4—bent down to F4—held, released (C7 to Fmaj7 — the wrong note becomes the tonic, the question becomes the answer)
+NOTES: I play each phrase softer than the last, brushes on glass. The final bend starts sharp and slides a half-step down into F4, held for three full beats, then let go into silence.
+WHY: Every wrong note tonight was a question — F#4 and G#4 — and this last bend is the answer: not a rejection of the lie, but a landing that makes it true, the timekeeper's first melody ending where it began.

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Architect · JEV + Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#ffd966; --jev:#44ddaa; --jepa:#aa88ff; --llm:#77aaff; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:1100px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.2em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; }
+h3 { color:var(--jev); margin:1rem 0 0.3rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+code { color:var(--jev); background:var(--bg); padding:.1rem .4rem; border-radius:3px; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9em; }
+th, td { padding:.6rem; border-bottom:1px solid var(--boundary); vertical-align:top; }
+th { color:var(--accent); text-align:left; background:rgba(0,0,0,.3); }
+.cell-jev { background:rgba(68,221,170,.15); }
+.cell-jepa { background:rgba(170,136,255,.15); }
+.cell-llm { background:rgba(119,170,255,.15); }
+.tag { display:inline-block; padding:.1rem .5rem; border-radius:3px; font-size:.85em; background:var(--accent); color:#000; font-weight:bold; }
+.tag.jev { background:var(--jev); }
+.tag.jepa { background:var(--jepa); }
+.tag.llm { background:var(--llm); }
+pre { background:#000; border:1px solid var(--boundary); padding:1rem; border-radius:4px; overflow-x:auto; font-size:.85em; }
+.cost-table td { font-family:monospace; }
+.wins { color:var(--jev); }
+.warn { color:var(--accent); }
+.loss { color:#ff6655; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏛️ Enterprise Architect View</h1>
+  <p style="color:var(--muted)">When to use JEV vs LLM vs JEPA. Cost model. Reliability. Migration patterns.</p>
+</header>
+
+<div class="section">
+<h2>The 3-Model Psyche</h2>
+<p id="three-model"><strong>JEPA is the id.</strong> Gestalt, embodied, spatial, fast. One forward pass through the world model gives you a direction without needing to count anything. <span class="tag jepa">JEPA</span></p>
+<p><strong>LLM is the ego.</strong> Verbal, analytical, communicable, slow. Generates tokens one at a time, builds up an explanation, can read or write. <span class="tag llm">LLM</span></p>
+<p><strong>JEV is the superego.</strong> Constrained, principled, schema-bound, decision-oriented. Returns calibrated probabilities, not text. Cannot hallucinate outside your schema. <span class="tag jev">JEV</span></p>
+<p>Quilt cells use all three. Most substrates use one and bolt on the others. We use the psyche frame because it explains why cellular logic works: every cell needs an instinct, a voice, and a conscience.</p>
+</div>
+
+<div class="section">
+<h2>Decision matrix: JEV vs LLM vs JEPA</h2>
+<table>
+<tr><th>Axis</th><th class="cell-jev">JEV</th><th class="cell-llm">LLM</th><th class="cell-jepa">JEPA</th></tr>
+<tr><td>Output type</td><td class="cell-jev">Typed choice / score / noul + probabilities</td><td class="cell-llm">Generated text tokens</td><td class="cell-jepa">Latent vector</td></tr>
+<tr><td>Hallucination risk</td><td class="cell-jev">Zero (schema-constrained)</td><td class="cell-llm">High (open-ended)</td><td class="cell-jepa">Medium (vector-level)</td></tr>
+<tr><td>Latency p50</td><td class="cell-jev">150-300ms</td><td class="cell-llm">1.5-3s</td><td class="cell-jepa">50-200ms</td></tr>
+<tr><td>Latency p99</td><td class="cell-jev">800ms</td><td class="cell-llm">30s+</td><td class="cell-jepa">500ms</td></tr>
+<tr><td>Cost per call</td><td class="cell-jev">~$0.000025</td><td class="cell-llm">~$0.025</td><td class="cell-jepa">~$0.001</td></tr>
+<tr><td>Schema enforcement</td><td class="cell-jev">Hard (parallel sampler)</td><td class="cell-llm">None (you parse)</td><td class="cell-jepa">None</td></tr>
+<tr><td>Training data req</td><td class="cell-jev">Question schemas</td><td class="cell-llm">Prompt engineering</td><td class="cell-jepa">Embeddings corpus</td></tr>
+<tr><td>Auditability</td><td class="cell-jev">Probabilities + confidence</td><td class="cell-llm">None (free text)</td><td class="cell-jepa">None (latent space)</td></tr>
+<tr><td>Skill floor (junior eng)</td><td class="cell-jev">Define questions, read answers</td><td class="cell-llm">Prompt engineering</td><td class="cell-jepa">Vector DB + retrieval</td></tr>
+<tr><td>Sovereignty</td><td class="cell-jev">TypeSafe cloud (US)</td><td class="cell-llm">Various (US, EU, Asia)</td><td class="cell-jepa">Often self-hosted</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>When to use which</h2>
+<table>
+<tr><th>Use case</th><th class="wins">Best fit</th><th>Why</th></tr>
+<tr><td>Spam detection</td><td class="wins">JEV</td><td>Schema is {spam, not-spam}, high-volume, low-cost</td></tr>
+<tr><td>Email triage</td><td class="wins">JEV</td><td>Pick folder from known set</td></tr>
+<tr><td>Lead scoring</td><td class="wins">JEV</td><td>Score 1-5 on rubric</td></tr>
+<tr><td>Form validation</td><td class="wins">JEV</td><td>Decision with confidence</td></tr>
+<tr><td>Creative writing</td><td class="loss">LLM</td><td>Open-ended generation</td></tr>
+<tr><td>Image generation</td><td class="loss">FLUX/DALL-E</td><td>Not a decision</td></tr>
+<tr><td>Translation</td><td class="warn">LLM</td><td>Long context + fluency</td></tr>
+<tr><td>Sentiment analysis</td><td class="wins">JEV</td><td>Choice or score</td></tr>
+<tr><td>Image classification</td><td class="warn">JEPA</td><td>Vector-based similarity</td></tr>
+<tr><td>Audio transcription</td><td class="loss">Whisper</td><td>Not a decision</td></tr>
+<tr><td>Routing/triage</td><td class="wins">JEV</td><td>Pick from handlers, low cost</td></tr>
+<tr><td>Code review (linting)</td><td class="wins">JEV</td><td>Pass/fail decisions</td></tr>
+<tr><td>Code review (style)</td><td class="warn">LLM</td><td>Subjective</td></tr>
+<tr><td>Search relevance</td><td class="warn">JEPA + JEV</td><td>JEPA finds candidates, JEV ranks</td></tr>
+<tr><td>Customer support routing</td><td class="wins">JEV</td><td>Pick team from known set</td></tr>
+<tr><td>Fraud detection</td><td class="wins">JEV</td><td>Yes/no with confidence</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Anti-patterns: when JEV is wrong</h2>
+<ul>
+<li><strong>Open-ended generation.</strong> JEV cannot write a poem. Use LLM.</li>
+<li><strong>More than 255 options.</strong> JEV caps Choice at 255. Use a 2-stage decision or fall back to LLM.</li>
+<li><strong>Multi-modal input.</strong> JEV is text-only. Use JEPA/VLM for images.</li>
+<li><strong>Long context reasoning.</strong> JEV reads 32k+ but reasoning is shallow. Use LLM for chain-of-thought.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Cost model</h2>
+<h3>Per-call</h3>
+<table class="cost-table">
+<tr><th>Model</th><th>Avg input tokens</th><th>Avg cost</th></tr>
+<tr class="cell-jev"><td>JEV</td><td>600</td><td>$0.0000253</td></tr>
+<tr class="cell-llm"><td>GPT-4 (input only)</td><td>800</td><td>$0.0020</td></tr>
+<tr class="cell-llm"><td>DeepSeek V4-Flash (DeepInfra)</td><td>800</td><td>$0.000023</td></tr>
+<tr class="cell-jepa"><td>JEPA self-hosted</td><td>n/a</td><td>~$0.001</td></tr>
+</table>
+
+<h3>1M decisions/month</h3>
+<table class="cost-table">
+<tr><th>Pattern</th><th>Cost</th><th>Quality</th></tr>
+<tr><td>JEV only (no fallback)</td><td>$25</td><td>Medium (low-confidence routes to human)</td></tr>
+<tr><td>JEV (95%) + LLM (5%)</td><td>$75</td><td>High</td></tr>
+<tr><td>JEPA + JEV (70%) + LLM (30%)</td><td>$300</td><td>Highest</td></tr>
+<tr><td>LLM only (baseline)</td><td>$25,000</td><td>High but slow</td></tr>
+</table>
+<p><span class="wins">JEV-augmented stacks are 100-1000x cheaper</span> than LLM-only for typed decisions.</p>
+</div>
+
+<div class="section">
+<h2>Reliability</h2>
+<table>
+<tr><th>Component</th><th>SLA</th></tr>
+<tr><td>Cloudflare Pages (static)</td><td>99.99%</td></tr>
+<tr><td>Cloudflare Pages Worker</td><td>99.95%</td></tr>
+<tr><td>TypeSafe JEV (current)</td><td>Best effort, 250k tok/s, 1200 req/min</td></tr>
+<tr><td>Combined (worst case)</td><td>~99.9% (multiply)</td></tr>
+</table>
+
+<h3>Failure modes</h3>
+<ul>
+<li><strong>JEV 5xx</strong> — exponential backoff with jitter, 3 retries, then circuit breaker</li>
+<li><strong>JEV 429</strong> — rate limited; back off 30s, retry single request</li>
+<li><strong>CF Worker 1101</strong> — uncaught exception; check /api/status; redeploy</li>
+<li><strong>Low JEV confidence</strong> — escalate to LLM or human per your routing policy</li>
+</ul>
+
+<h3>Monitoring recommendations</h3>
+<ul>
+<li>Track p50/p95/p99 latency per endpoint</li>
+<li>Track confidence distribution (mean, std, % above threshold)</li>
+<li>Track fallback rate (% of decisions escalated to LLM)</li>
+<li>Track witness-log growth (cells/day)</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Migration patterns (5 examples)</h2>
+
+<h3>1. LLM-only spam filter → JEV + LLM</h3>
+<pre>// Before: prompt-engineered classifier
+const r = await openai.complete(
+  "Classify this email as spam or not-spam. Email: ..."
+);
+if (r.includes("spam")) block();
+
+// After: JEV-decision + LLM escalation
+const jev = await jev.decide(state, {
+  is_spam: {type: "noul", question: "Is this spam?", instructions: "..."}
+});
+if (jev.is_spam.noul > 0.9) block();
+else if (jev.is_spam.noul > 0.6) return await llm.review(jev);
+else deliver();</pre>
+
+<h3>2. Regex form validator → JEV semantic validator</h3>
+<p>Regex catches format errors. JEV catches semantic errors (e.g., "555-01-0234 is a fake SSN that passes the regex").</p>
+
+<h3>3. Rules-engine business logic → JEV + LLM narrative</h3>
+<p>Replace 5000-line rules engine with 20 questions. Output the rules as LLM narrative for audit logs.</p>
+
+<h3>4. Bayesian lead scoring → JEV score + JEPA cluster</h3>
+<p>JEV replaces the score function. JEPA replaces cluster features. LLM generates the sales email.</p>
+
+<h3>5. Multi-model ensemble → JEV router</h3>
+<p>JEV picks the right model per request (vs always calling all of them).</p>
+</div>
+
+<div class="foot-link">
+Enterprise Docs · <a href="/docs/">all docs</a> · <a href="/docs/developer/">developer</a> · <a href="/docs/academic/">academic</a> · <a href="/docs/founder/">founder</a>
+</div>
+</body>
+</html>

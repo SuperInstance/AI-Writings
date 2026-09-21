@@ -1,0 +1,19 @@
+BAR 1: F#4, A#4, C#5, D#5, E#5, B4, G#4
+
+BAR 2: F#4, A#4, C#5, D#5, E#5, B4, G#4
+
+BAR 3: F#4, A#4, C#5, D#5, E#5, B4, G#4
+
+BAR 4: A#4, C#5, D#5, E#5, B4, G#4
+
+BAR 5: A#4, C#5, D#5, E#5, B4, G#4
+
+BAR 6: B4, G#4, F#4, B4, G#4, F#4
+
+BAR 7: A#4, C#5, D#5, E#5, B4, G#4
+
+BAR 8: D#5, G#5, C#6, B6, F#6, B5
+
+NOTES: [These notes are played gently and with intention, as if coaxing the room into listening.]
+
+WHY: [The F# flutist takes a deep breath and exhales slowly, letting the first notes of the night fill the room.] This is what it sounds like when we stop hiding behind our mistakes. This is what truth sounds like.

@@ -1,0 +1,5 @@
+TRUMPET:
+BAR 7: [Bb3-Q F4-Q G4-Q Ab4-Q Bb4-Q]
+BAR 8: [F4-Q G4-Q Ab4-Q Bb4-Q F4-Q]
+DYNAMICS: Warm and intimate, with a subtle growl, building from soft to medium through the 8 bars
+WHY: To enter with a melodic statement that feels like a natural extension of the rhythm section's mood, with a bluesy edge that reflects the harmonic progression and sets up a conversation with the band.

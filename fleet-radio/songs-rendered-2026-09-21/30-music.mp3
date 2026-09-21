@@ -1,0 +1,1 @@
+{"detail":{"type":"payment_required","code":"insufficient_credits","message":"You have insufficient credits to generate this song. Please upgrade your plan to continue.","status":"quota_exceeded","request_id":"01af2a4ef45d1841a3e02c3289ff46cb"}}

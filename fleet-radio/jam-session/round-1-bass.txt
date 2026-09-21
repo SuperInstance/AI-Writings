@@ -1,0 +1,11 @@
+BASSLINE: 
+Bar 1 (Am7): A2 (dotted quarter note, slightly anticipates beat 1) - E2 (quarter note on beat 2) - G2 (dotted quarter note on beat 3)  
+Bar 2 (Dm9): D2 (quarter note on beat 1) - F2 (quarter note on beat 2) - A2 (half note tied from beat 3)  
+Bar 3 (Fmaj7): F2 (half note on beat 1) - C3 (quarter note on beat 3) - F2 (quarter note on beat 4)  
+Bar 4 (E7#9): E2 (dotted quarter note landing heavy on beat 1) - G#2 (quarter note on beat 2) - B2 (quarter note on beat 3) - E2 (quarter note on beat 4)
+
+POCKET:
+I sit slightly behind the beat, anchoring the groove with a laid-back, unhurried feel. By anticipating beat 1 in bar 1 and landing heavily on beat 1 in bar 4, I create a cyclical motion that propels the progression forward while still keeping things relaxed and spacious. The piano and sax can dance around my steady, dependable pulse.
+
+CONNECTION:
+I use a combination of scalar walking (bars 1-2) and arpeggiation (bars 3-4) to smoothly connect the chords. In bars 1-2, I outline the Am7 and Dm9 using adjacent scale tones, creating a sinuous, stepwise motion that ebbs and flows with the tide. In bars 3-4, I switch to a more vertical approach, emphasizing chord tones (roots, fifths, thirds, sevenths) to clearly define the harmony while maintaining a sense of forward motion. The contrast between the horizontal and vertical movement adds variety and interest to the line.

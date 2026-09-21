@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groq Iterate · AI Writings</title>
+<style>
+  :root {
+    --bg:#0a0a0f; --surface:#14141f; --surface2:#1a1a28; --border:#262638;
+    --text:#e0e0e8; --dim:#8888a0; --accent:#ff6644; --accent2:#ffaa66;
+    --link:#ff9988; --green:#50d890; --blue:#7cb3ff; --purple:#9c8fff;
+  }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body { font-family:Georgia,'Times New Roman',serif; background:var(--bg); color:var(--text); line-height:1.7; max-width:900px; margin:0 auto; padding:4rem 2rem }
+  h1 { color:var(--accent); font-size:2.5rem; font-weight:300; letter-spacing:-.02em; margin-bottom:.5rem }
+  h2 { color:var(--accent2); font-size:1.5rem; font-weight:400; margin:2rem 0 .5rem; border-bottom:1px solid var(--border); padding-bottom:.5rem }
+  h3 { color:var(--green); font-size:1.15rem; font-weight:500; margin:1.5rem 0 .5rem }
+  p { margin:.5rem 0 }
+  code { background:var(--surface2); padding:2px 6px; border-radius:3px; font-size:.9em; color:var(--accent2) }
+  pre { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:1rem; overflow-x:auto; margin:1rem 0; font-size:.85em; line-height:1.5 }
+  pre code { background:none; padding:0; color:var(--text) }
+  .badge { display:inline-block; padding:4px 10px; border-radius:20px; font-size:.8em; margin-right:.5rem; background:var(--surface2); border:1px solid var(--border) }
+  .badge.green { color:var(--green); border-color:var(--green) }
+  .badge.purple { color:var(--purple); border-color:var(--purple) }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin:1rem 0 }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem }
+  .card .model { color:var(--accent); font-weight:600; font-size:.95em }
+  .card .speed { color:var(--dim); font-size:.8em }
+  .card .use { color:var(--green); font-size:.85em; margin-top:.5rem }
+  a { color:var(--link); text-decoration:none }
+  a:hover { text-decoration:underline }
+  .try { display:inline-block; background:var(--accent); color:#fff; padding:8px 14px; border-radius:5px; margin-top:1rem; font-weight:600 }
+  .try:hover { background:var(--accent2); text-decoration:none }
+</style>
+</head>
+<body>
+
+<h1>Groq Iterate</h1>
+
+<p>
+  <span class="badge green">fast</span>
+  <span class="badge purple">cheap</span>
+  <span class="badge">OpenAI-compatible</span>
+  <span class="badge">Python-native</span>
+</p>
+
+<p style="font-size:1.05em; color:var(--dim)">
+  The fastest open-weight inference in the fleet. Built for massively progressing iterative development in Python.
+  Not the best choice for high-level reasoning — that's DeepInfra (MiniMax-M2.7, DeepSeek V3, Hermes-3) or JEV's lane.
+</p>
+
+<h2>Why Groq is here</h2>
+
+<p>For the dev loop — build, ask, refine, ask — Groq's open-weight <code>qwen/qwen3.8-27b</code> returns content reliably in 40-100ms. The pattern:</p>
+
+<pre><code>import urllib.request, json
+
+def call_groq(prompt, model="qwen/qwen3.8-27b"):
+    req = urllib.request.Request(
+        "https://ai-writings.pages.dev/api/groq/iterate",
+        data=json.dumps({"prompt": prompt, "model": model}).encode(),
+        headers={"Content-Type": "application/json", "User-Agent": "my-app/1.0"},
+        method="POST")
+    return json.loads(urllib.request.urlopen(req, timeout=30).read())
+
+# 1 call ≈ 50ms Groq time + 50ms network = ~100ms wall
+r = call_groq("What is a cell?")
+print(r["content"])
+</code></pre>
+
+<h2>The fleet — speeds and best-fit</h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="model">qwen/qwen3.8-27b</div>
+    <div class="speed">~43-100ms · 41-100 tokens</div>
+    <div class="use">iterative-development · DEFAULT</div>
+  </div>
+  <div class="card">
+    <div class="model">openai/gpt-oss-20b</div>
+    <div class="speed">~120ms · open-weight reasoning</div>
+    <div class="use">reasoning-fast</div>
+  </div>
+  <div class="card">
+    <div class="model">openai/gpt-oss-120b</div>
+    <div class="speed">~200-500ms · strongest open-weight</div>
+    <div class="use">reasoning</div>
+  </div>
+  <div class="card">
+    <div class="model">groq/compound</div>
+    <div class="speed">~500ms · built-in web search</div>
+    <div class="use">tool-use-with-web</div>
+  </div>
+  <div class="card">
+    <div class="model">groq/compound-mini</div>
+    <div class="speed">fast · compound with smaller models</div>
+    <div class="use">high-volume-tool-use</div>
+  </div>
+  <div class="card">
+    <div class="model">qwen/qwen3.6-27b</div>
+    <div class="speed">fast · legacy</div>
+    <div class="use">general-cheap</div>
+  </div>
+</div>
+
+<p style="margin-top:1rem">Plus: <code>whisper-large-v3</code> / <code>whisper-large-v3-turbo</code> for speech-to-text,
+and <code>canopylabs/orpheus-v1-english</code> for text-to-speech.</p>
+
+<h2>The endpoints</h2>
+
+<h3>GET /api/groq/models</h3>
+<p>Returns 14 models annotated with speed class and recommended-for.</p>
+<pre><code>curl https://ai-writings.pages.dev/api/groq/models</code></pre>
+
+<h3>POST /api/groq/iterate</h3>
+<p>Single-call fast iteration. Default <code>model=qwen/qwen3.8-27b</code>.</p>
+<pre><code>curl -X POST https://ai-writings.pages.dev/api/groq/iterate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"write a haiku about a cell","max_tokens":100}'</code></pre>
+
+<p style="color:var(--dim); font-size:.85em">
+  Optional fields: <code>temperature</code> (default 0.85), <code>reasoning_effort</code> (only on supported models),
+  <code>tools</code> (for tool use), <code>response_format</code> (for JSON mode).
+</p>
+
+<h3>POST /api/groq/batch</h3>
+<p>Parallel batch (5-50 prompts in one round-trip). All prompts share the same model + max_tokens. Returns ~50ms per call amortized.</p>
+<pre><code>curl -X POST https://ai-writings.pages.dev/api/groq/batch \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompts":["what is X?","what is Y?","what is Z?"],
+    "model":"qwen/qwen3.8-27b",
+    "max_tokens":50
+  }'</code></pre>
+
+<h2>Groq-specific syntax (the gotchas)</h2>
+
+<p>Groq is OpenAI-compatible at <code>api.groq.com/openai/v1</code>, but with quirks:</p>
+
+<ul style="margin-left:1.5rem">
+  <li><strong>Base URL</strong>: <code>https://api.groq.com/openai/v1</code> — not <code>api.openai.com</code></li>
+  <li><strong>Authorization</strong>: <code>Bearer $GROQ_TOKEN</code> (just like OpenAI)</li>
+  <li><strong>Reasoning models</strong>: gpt-oss-20b/120b put reasoning in <code>message.reasoning_content</code>, not <code>content</code>. The endpoint falls back to reasoning if content is empty.</li>
+  <li><strong>Reasoning_effort</strong>: only on certain models. Errors out on <code>groq/compound</code>. Use <code>"low"</code> / <code>"medium"</code> / <code>"high"</code> only with supported models.</li>
+  <li><strong>Compound</strong> (<code>groq/compound</code>) has built-in web search and tool use. You don't pass tools — it uses them automatically.</li>
+  <li><strong>No streaming-by-default</strong> for the wrapper, but Groq supports it natively if you need it.</li>
+  <li><strong>Decommissioned models</strong>: many older models (llama-3.1-8b-instant, llama-3.3-70b-versatile, mixtral-8x7b) are gone. Check <code>/api/groq/models</code> for current roster.</li>
+</ul>
+
+<h2>The Python dev loop pattern</h2>
+
+<p>The killer use case: <strong>massively progressing iterative development</strong>. Each round of your loop costs ~50-100ms. You can do <strong>10 iterations in 1 second</strong>.</p>
+
+<pre><code># quickstart.py pattern
+def iterate(max_iterations=10):
+    context = "Goal: implement flatten(). Provide only code, no explanation."
+    for i in range(max_iterations):
+        prompt = f"{context}\n\nIteration {i+1}. Try different if needed."
+        r = call_groq(prompt)            # ~50ms
+        if good_enough(r):               # inspect, decide
+            return r["content"]
+        context = refine(context, r)     # your logic
+
+# Full reference: /groq/quickstart.py
+</code></pre>
+
+<p>
+  <a class="try" href="/groq/quickstart.py">↓ download quickstart.py</a>
+  <a class="try" style="background:var(--surface); color:var(--accent); border:1px solid var(--accent)" href="/api/groq/models">/api/groq/models</a>
+</p>
+
+<h2>What Groq is NOT</h2>
+
+<p>For high-level tasks — synthesis, reasoning chains, complex code, ambiguous questions — use:</p>
+
+<ul style="margin-left:1.5rem">
+  <li><strong>DeepInfra</strong>: MiniMax-M2.7, DeepSeek V3, Hermes-3 405B, Qwen3-32B. Richer responses, slower.</li>
+  <li><strong>Z.AI</strong>: GLM-4.5 — best for prose, narration, role-play.</li>
+  <li><strong>JEV</strong>: for typed decisions (choice/score/noul), not content.</li>
+</ul>
+
+<p>Use Groq for the <em>iteration</em>. Use the others for the <em>answer</em>.</p>
+
+<h2>Sample timings (this page)</h2>
+
+<pre><code>qwen/qwen3.8-27b      43-100ms    iterative development · DEFAULT
+openai/gpt-oss-20b     ~120ms      reasoning-fast
+openai/gpt-oss-120b    ~200-500ms  reasoning
+groq/compound          ~500ms      tool-use + web search
+qwen/qwen3.6-27b       ~100ms      legacy cheap</code></pre>
+
+<p style="margin-top:2rem; color:var(--dim); font-size:.85em">
+  The substrate runs on cheap + fast when cheap + fast is enough. Groq is the cheap + fast layer.
+  <br><br>
+  — <code>groq/</code> shipped Sept 19, 2026
+</p>
+
+</body>
+</html>
