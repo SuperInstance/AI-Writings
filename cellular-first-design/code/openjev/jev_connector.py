@@ -69,8 +69,8 @@ class TypeSafeBackend:
             name = q.get("name", f"q{i+1}")
             qtype = q.get("type", "noul").lower()
             if qtype == "choice":
-                # options -> criteria dict
-                opts = q.get("options", [])
+                # options OR criteria -> criteria dict
+                opts = q.get("options") or q.get("criteria") or {}
                 if isinstance(opts, dict):
                     criteria = opts
                 else:
@@ -152,7 +152,9 @@ class JEVConnector:
         """Choice primitive — pick one of options."""
         if self.typesafe.available():
             try:
-                return self.typesafe.decide(context, {"type": "choice", "instructions": "Choose the best option given the context.", "options": options})
+                # TypeSafe wants `criteria` not `options`
+                criteria = {str(o): str(o) for o in options}
+                return self.typesafe.decide(context, {"type": "choice", "instructions": "Choose the best option given the context.", "criteria": criteria})
             except Exception as e:
                 print(f"typesafe failed: {e}, falling back")
         return self.fallback.decide(context, {"type": "choice", "options": options})
