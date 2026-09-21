@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Cipher — FNV-1a stream cipher</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#0a1a0a 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.panel h3{color:var(--accent);font-size:1rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.75rem}
+textarea{width:100%;min-height:150px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.7rem;font-family:var(--mono);font-size:.85rem;line-height:1.4;resize:vertical}
+input[type=text]{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.5rem;font-family:var(--mono);font-size:.85rem;margin-bottom:.5rem}
+button{background:var(--accent);color:#000;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-right:.3rem;margin-top:.5rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.controls{margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.hex-output{font-family:var(--mono);font-size:.75rem;color:var(--accent2);word-break:break-all;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem;min-height:50px}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🔐 Substrate Cipher</h1>
+<p class="tagline">A stream cipher where the keystream is xoshiro256** seeded with FNV-1a of the passphrase.</p>
+</header>
+
+<main>
+<section class="panel">
+<h3>Plaintext</h3>
+<textarea id="plaintext" placeholder="Type or paste plaintext here...">The witness log is the prediction.</textarea>
+<label style="color:var(--dim);font-family:var(--mono);font-size:.75rem;display:block;margin-top:.5rem">Passphrase</label>
+<input type="text" id="passphrase" value="the fleet radio">
+<button onclick="encrypt()">🔒 Encrypt</button>
+<button class="secondary" onclick="decrypt()">🔓 Decrypt</button>
+<button class="secondary" onclick="loadSample()">📚 Load sample</button>
+<div class="stats">
+<div>Bytes: <span class="v" id="sBytes">0</span></div>
+<div>Cipher mode: <span class="v">xoshiro256** stream (FNV-1a seed)</span></div>
+<div>Key hash: <span class="v" id="sKeyHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</section>
+
+<section class="panel">
+<h3>Ciphertext (hex)</h3>
+<div class="hex-output" id="ciphertext">—</div>
+<h3 style="margin-top:1rem">Decrypted (round-trip)</h3>
+<textarea id="decrypted" readonly style="min-height:120px">—</textarea>
+<div class="stats">
+<div>Ciphertext bytes: <span class="v" id="sCipherBytes">0</span></div>
+<div>Round-trip: <span class="v" id="sMatch">—</span></div>
+</div>
+</section>
+</main>
+
+<footer>🔐 substrate cipher · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  // Generate a stream of bytes
+  streamBytes(n) {
+    const out = new Uint8Array(n);
+    for (let i = 0; i < n; i++) {
+      // 8 bytes per next() — only use first byte for stream
+      out[i] = Number(this.next() & 0xffn);
+    }
+    return out;
+  }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+function bytesToHex(bytes) {
+  return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function xor(a, b) {
+  const out = new Uint8Array(a.length);
+  for (let i = 0; i < a.length; i++) out[i] = a[i] ^ b[i];
+  return out;
+}
+
+function streamCipher(input, passphrase) {
+  const rng = new Xoshiro256(passphrase);
+  const keyBytes = rng.streamBytes(input.length);
+  return xor(input, keyBytes);
+}
+
+function encrypt() {
+  const pt = document.getElementById('plaintext').value;
+  const pass = document.getElementById('passphrase').value;
+  const input = new TextEncoder().encode(pt);
+  const cipher = streamCipher(input, pass);
+  document.getElementById('ciphertext').textContent = bytesToHex(cipher);
+  document.getElementById('sBytes').textContent = input.length;
+  document.getElementById('sCipherBytes').textContent = cipher.length;
+  document.getElementById('sKeyHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(pass)).toString(16).padStart(16, '0');
+  // Round-trip
+  const decrypted = streamCipher(cipher, pass);
+  const decoded = new TextDecoder().decode(decrypted);
+  document.getElementById('decrypted').value = decoded;
+  document.getElementById('sMatch').textContent = decoded === pt ? '✓ match' : '✗ mismatch';
+}
+
+function decrypt() {
+  // Decrypt hex back to text
+  const hex = document.getElementById('ciphertext').textContent.replace(/\s/g, '');
+  const pass = document.getElementById('passphrase').value;
+  if (hex === '—') { alert('No ciphertext to decrypt'); return; }
+  const bytes = new Uint8Array(hex.match(/.{1,2}/g).map(s => parseInt(s, 16)));
+  const decrypted = streamCipher(bytes, pass);
+  const decoded = new TextDecoder().decode(decrypted);
+  document.getElementById('decrypted').value = decoded;
+  document.getElementById('sMatch').textContent = decoded === document.getElementById('plaintext').value ? '✓ match' : '✗ mismatch';
+}
+
+function loadSample() {
+  document.getElementById('plaintext').value = 'The substrate speaks in thirteen languages, byte-exact.';
+  document.getElementById('passphrase').value = 'cosine-jev-jepa-rosetta';
+  encrypt();
+}
+
+encrypt();
+</script>
+</body>
+</html>
