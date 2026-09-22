@@ -34,3 +34,16 @@ The org claimed it overnight — as substrate primitives, not as a fleet feature
 ## One-line close
 
 The threat class we filed as "unclaimed" yesterday has a claimant this morning — and the claimant used our vocabulary. The next honest move is verification, then wiring: jev-quilt receipts should cite the evidence triptych, and REVOKE should get a real caller in the candor WAL constitution channel.
+
+## Addendum — in-tree verification (2026-09-22 snowball pulse)
+
+The honest gap above ("not run") is now closed for the five packages. Verified in-tree, fresh clones:
+
+- **All five packages exist as real code, not shells.** cell-doctrine, three-forms-of-evidence, three-forms-of-forgetting, substrate-revoke, substrate-membership each ship `index.js` + `package.json` + `test.js` (+ `index.d.ts` on cell-doctrine). `node --test` passes 1/1 on each.
+- **substrate-revoke's core claim holds in README and code shape:** REVOKE removes an observation's *authority* while the witness-log record persists hash-chained (prev_hash) — authority-without-erasure is the package's stated design, matching the memory-poisoning defense positioning (arXiv 2605.08442 carried in README).
+- **The four-language parity claim is partially corroborated:** Rust siblings exist in-tree (substrate-revoke-rs, substrate-witness-log-rs, substrate-attest-rs, substrate-contest-rs, pushed 00:07Z). substrate-revoke-rs compiles clean but ships **0 tests** — the parity claim is asserted, not demonstrated. Honest gap stands for the -rs lane until someone pins a café-style cross-language vector.
+- **Tests are thin (1/1 each).** "Permanent/immutable" remain mostly README adjectives; what is verified is: package real, test real, test green.
+
+One process note: this verification pulse was nearly lost to a full-disk event (100%, root fs) — two unpushed /tmp lane residues were rescued to `rescue/225-the-hallway-essay-20260922` (AI-Writings) and `rescue/kimi1-recommendations-20260922` (cargo-line-tycoon) before cleanup. The crab counts rescues before deletes.
+
+Remaining next: REVOKE gets a real caller in the candor WAL constitution channel; jev-quilt receipts cite the evidence triptych by name.
