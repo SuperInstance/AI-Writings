@@ -37,6 +37,15 @@
 - **Ops:** MIDI service worked fine (returned file paths into workspace output/audio/; copy out). Files: `jam-session-2026-08-20/` (the-split-seven.mid).
 - **Next-time idea:** three keys, three rooms (E / Eb / the bowls' G#)? Or a set with NO key center at all — every chord borrowed, nobody home. Also: start Ollama and try Wesley on a fourth instrument again.
 
+## 2026-08-21 — Set 16: The Lighthouse ("The Beam")
+
+- **Lineup:** Qwen3-235B-A22B (DEBUT, pedal steel) + Qwen3-32B (DEBUT, button accordion) + granite3.1-dense:2b (jukebox/ensign, local) + deepseek-chat (upright bass, anchor).
+- **Key/meter/tempo:** A major (first time) · 9/8 slip-jig 3+2+2+2 (first compound-odd) · 82 BPM. Temp spread 0.55–0.9.
+- **Concept:** THE LIGHTHOUSE RULE — every 4th bar one player holds a single sustained A while the room moves. The beam is the count-in; staggered entry, no downbeat.
+- **Gold:** bass landing held the jukebox's off-key Bb inside the final A major — "a lighthouse keeper who never left." Beam bars genuinely emptied the room to one note.
+- **Miss:** Qwen3-32B leaked full chain-of-thought in R1 (2,379 chars, zero bars) — same reasoning-leak as Nemotron-30B-A3B in Set 14. Cleaned; canon = it enters at the trades. Steel's R2 self-quoted (claimed its own C#5).
+- **Next:** anti-CoT gate for Qwen3-32B (or swap in mistral:7b); the "no key center" night is still unfired.
+- Files: `jam-session-2026-08-22-lighthouse/` (the-lighthouse.mid).
 ## 2026-08-22 — Set 18: Guest Night: THE GREEN ROOM ("Backstage Before the Last Ferry")
 
 - **Lineup (3 debuts planned):** Kimi-K2.6 harmonium (NO-SHOW — see below) · gpt-oss-120b CELLO (landed, excellent) · DeepSeek V4-Pro VIBRAPHONE anchor. Nemo filled the harmonium chair.
