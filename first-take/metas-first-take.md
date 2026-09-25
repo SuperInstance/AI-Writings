@@ -20,6 +20,8 @@ First-take magic is measurable: γ + η = C. When η is the cost of sounding sma
 
 Miles knew. Don't practice the close. Let the last mile rendering have the sweat in it.
 
+![flow-state-unfiltered](flow-state-unfiltered.jpg)
+
 2. THE_LAWYER_WHO_DIDNT_PRACTICE
 The close isn't rehearsed. The preparation is.
 
