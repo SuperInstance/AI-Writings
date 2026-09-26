@@ -14,10 +14,19 @@ between four things the fleet already runs:
 
 | the artifact | the repo | its role in a Situation |
 |---|---|---|
-| the **fiction** (a story set forward) | `ai-writings/reverse-actualization/forward/` | authors the world and names the gaps |
-| the **gap ledger** (gaps → tests) | `ai-writings/.../GAPS.md` | compiles each gap to a machine-checkable predicate |
+| the **fiction** (a story set forward) | `ai-writings/reverse-actualization/forward/` † | authors the world and names the gaps |
+| the **gap ledger** (gaps → tests) | `ai-writings/reverse-actualization/forward/GAPS.md` † | compiles each gap to a machine-checkable predicate |
 | the **rungs** (the built capability) | `jev-quilt` (`FRONTIER.md`, the kernel) | what a passing test adds to the substrate |
 | the **verifier** (a playable run) | `erised` (cooperative fiction) + the compiler (G6) | runs the Situation wide and returns a failure map |
+
+> † **Lineage note (honest about limits).** The Forward Arc — the fiction and its
+> `GAPS.md` gap ledger (G2–G10, `G-auto-1`) — currently lives on the unmerged
+> branch `claude/reverse-actualization-forward`, not on `master` and not in this
+> branch's checkout. Every reference to `reverse-actualization/forward/` below
+> resolves once that branch lands; until then, treat those paths as **pending
+> merge**. The `jev-quilt` rungs (R1–R2, and G11 hardening) *are* shipped and
+> on-disk. This is the same STRETCH discipline the Situations themselves require
+> (TEMPLATE rule 4): a cross-reference we cannot yet ground is marked, not hidden.
 
 ## The loop, stated once
 
@@ -30,11 +39,15 @@ Situation  ──friction──▶  Gap  ──compile──▶  Acceptance Test
   Merge  ◀──build rung──  Failure Map  ◀──────────┘
 ```
 
-It has already closed on itself once: the compiler read its own gap ledger,
-**authored a gap no human had written** (`G-auto-1`), wrote its acceptance test,
-and closed it (`jev-quilt` FRONTIER R6/G10 lineage). A Situation is the unit that
-makes that loop repeatable at any scale — a toy on a kitchen table or a hundred
-boats on an ocean.
+The loop is designed to close on itself: the compiler reads its own gap ledger,
+**authors a gap no human had written** (`G-auto-1`), writes its acceptance test,
+and closes it (`jev-quilt` FRONTIER R4/R6, G6/G10 lineage). *Honesty about limits:*
+the shipped-and-on-disk half of that claim is the immutable move set (R1–R2 aboard,
+G11 hardening merged); the self-authoring half (R4/R6) is a **next haul**, and the
+`G-auto-1` "already closed once" narrative lives with the Forward Arc on the
+unmerged branch above — so it is marked STRETCH here and in `SUPERINSTANCE.md`, not
+asserted as on-disk fact. A Situation is the unit that makes the loop repeatable at
+any scale — a toy on a kitchen table or a hundred boats on an ocean.
 
 ## What a Situation is
 
@@ -52,6 +65,9 @@ in rough seas. Never two laws.
 
 - [`TEMPLATE.md`](TEMPLATE.md), [`schema.json`](schema.json) — the situation
   contract, human and machine.
+- [`GAPS.md`](GAPS.md) — the gap ledger the grand Situations surfaced (G11–G16),
+  each a machine-checkable predicate against a named `jev-quilt` module. G11 is
+  **shipped** (the loop has turned once); G12–G16 are the open frontier.
 - [`grand/`](grand/) — the grand Situations themselves: ocean/fleet-scale, civic
   and educational, scientific and robotic, and at least one of **SuperInstance as
   a concept beyond one account** — many fleets, many commons, trust and gluing
