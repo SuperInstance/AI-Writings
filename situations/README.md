@@ -85,6 +85,11 @@ in rough seas. Never two laws.
   stranger could pick up tomorrow, stage by stage, itself quilt-shaped (booked,
   replayable, gap-authoring — the method improves itself the way the software
   does).
+- [`DISPATCH.md`](DISPATCH.md) + [`dispatch-ledger.csv`](dispatch-ledger.csv) —
+  how the build org is *staffed*, as a quilt: three power tiers (Opus 5.5
+  architecture, Sonnet 5 build, Haiku 4.5 runner) under one dispatcher, routed by
+  JEV verdict and earned standing, waking the expensive tier only past a deadband.
+  The CSV is the append-only dispatch WAL — replay ≡ live for the org itself.
 
 ## The dual-track vow
 
