@@ -10,6 +10,12 @@ corpus keeps. One lane among bigger projects — scoped honestly, built cheap-fi
 
 🚢 → 🗺️ → 🎮 → 🌊
 
+> **Fable pass landed (2026-09-27).** The killer look-and-feel and unifying verb are
+> answered in [`../FABLE-CARGO-LINE-ANSWER.md`](../FABLE-CARGO-LINE-ANSWER.md) (Pencil
+> Sea; the verb is STAKE, the world's reply is LAND). This doc's §2 and §4 are revised
+> below to encode Fable's inversion — **the stack is a ring** — and the buildable
+> contract that revision commits to is [`cargo-line-fact-landed.md`](./cargo-line-fact-landed.md).
+
 ---
 
 ## 0. Thesis (three sentences)
@@ -92,16 +98,51 @@ roster in behind it.
 
 ## 2. Target architecture — the world as a reader's fold over evidence
 
-Six layers. The load-bearing idea is in layers 3–4: **the world is a quilt of cells,
-each carrying its own provenance, and procedural generation is a *bounded extension* of
-ground truth that must never contradict a truth-cell and is honestly marked wherever it
-outruns evidence.** This is the JEV stance — *a world that can be invented but never
-illegal* — applied to a game map.
+Six layers, but **not a stack — a ring.** This section originally drew a stack with
+truth as the foundation (L3), procgen as fill (L4), and the moat at the very bottom (L1,
+"invisible"). Fable's answer (§6) shows that orientation is upside down, and the
+correction is load-bearing enough to restate the whole section around it:
+
+> **Truth is not the foundation; it is the loot. The moat is not behind the game; it is
+> the surface. The seam is not hidden from the player; it is the only thing the player
+> looks at.** L1 does not sit *under* L6 — it **lands onto** it. They are one event,
+> `fact_landed`, seen from two sides: to the roster it is a promotion through the JEV
+> gate; to the player it is the best-feeling moment in the game.
+
+So the six layers close into a ring — **L3 → L4 → L5 → L6 → L1 → L3** — and the ring
+closes **through the player's stakes**: the player stakes a ship on a pencil (L4→L6)
+fact; the world lands it (L1/L6 share `fact_landed`); the landing writes new ground truth
+(→L3); the generator extends from the sharpened truth (L3→L4) and the ring turns again.
+The load-bearing idea is still in layers 3–4 — **the world is a quilt of cells, each
+carrying its own provenance, and procgen is a *bounded extension* of ground truth that
+must never contradict a truth-cell and is honestly marked wherever it outruns evidence**
+(the JEV stance: *a world that can be invented but never illegal*) — but its **surface**
+is the fold made visible, not a foundation buried under a UI.
+
+```
+                    ┌──────────────────────────────────────┐
+                    │  the player's STAKE closes the ring   │
+                    │  (chinagraph on pencil, L4→L6)        │
+                    └───────────────┬──────────────────────┘
+                                    │  fact_landed
+      L3  truth ◀── writes ── L1 background ◀── L6 game/UX ◀── L5 engine ◀── L4 procgen ◀── L3
+      (the loot)         learning (moat)      (the surface)    (kernel)     (bounded)    (truth)
+                                    ▲                 │
+                                    └──── one event, seen two ways ────┘
+                                          (promotion ⇆ the juice)
+```
+
+The catalogue of what each layer *is* (and what is on disk) is unchanged and follows;
+what changed is the orientation and the one event that closes the ring. The event's exact
+contract — the `fact_landed` witness-log entry, the refusal law, the truth-pool, the
+predicate — is [`cargo-line-fact-landed.md`](./cargo-line-fact-landed.md). The stack
+diagram below is kept as the *layer catalogue*; read its bottom-to-top as the ring's
+turn, not as a foundation-to-surface hierarchy.
 
 ```
 ┌───────────────────────────────────────────────────────────────────────┐
-│ L6  GAME / UX          the map, the fleet, the ledger, the juice        │  ← fun lives here
-│                        (offline-first web app; look-and-feel → Fable §6)│
+│ L6  GAME / UX          the map, the fleet, the ledger, the juice        │  ← the surface: fun + the fold made visible
+│                        (Pencil Sea; the Chart; Fable-CARGO-LINE-ANSWER) │
 ├───────────────────────────────────────────────────────────────────────┤
 │ L5  ENGINE / KERNEL    world-model: Ship/Route/Port/Market/Company      │  ← substrate-ts++
 │                        cells + booked tick loop + seeded RNG (replay≡live)│
@@ -109,14 +150,14 @@ illegal* — applied to a game map.
 │ L4  PROCGEN-BOUNDED    generate UP TO where truth exists; degrade        │  ← the quilt idea
 │     -BY-TRUTH          honestly beyond it; every gen-cell marked         │
 ├───────────────────────────────────────────────────────────────────────┤
-│ L3  GROUND-TRUTH       real ports/routes/chokepoints/prices/events       │  ← objective reality
+│ L3  GROUND-TRUTH       real ports/routes/chokepoints/prices/events       │  ← the LOOT (what a landing writes)
 │                        + provenance on every fact (witness-log)          │
 ├───────────────────────────────────────────────────────────────────────┤
 │ L2  SUBSTRATE          Cell + witness-log + signal-chain + canary        │  ← SHIPPED (both repos)
 │     (Quilt/canon/JEV)  + canon-api-worker (durable, shared, replayable)  │
 ├───────────────────────────────────────────────────────────────────────┤
-│ L1  BACKGROUND         roster-driven scouting & learning (opt-in,        │  ← the invisible moat
-│     LEARNING (moat)    invisible); promotes gen-cells → truth-cells      │
+│ L1  BACKGROUND         roster-driven scouting & learning (opt-in);       │  ← the moat, SURFACED as landings
+│     LEARNING (moat)    promotes gen-cells → truth-cells via fact_landed  │     (shares one event with L6)
 └───────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -214,8 +255,16 @@ jobs:
   scout books a scar and is not trusted twice (R2 revocable standing). The roster does
   the heavy learning; the substrate keeps it honest.
 
-This is a moat because it compounds and is auditable, and it is *behind the scenes*
-because fun must never wait on it. The game is fully playable with L1 switched off.
+This is a moat because it compounds and is auditable — but Fable §6.2 corrects *how* it
+compounds, and the correction is load-bearing: **the moat is opt-in, and its only fuel is
+opt-in play; nobody opts into something they cannot see.** An invisible moat cannot
+compound through players, only through a budget. So the moat compounds **iff it is the
+fun** — iff a fact landing (`fact_landed`) is the moment players wait for. Visible →
+wanted → opted-in → fed. That is why L1 and L6 must *share* the landing event rather than
+L1 running hidden beneath L6: the promotion and the juice are one thing. The game is still
+fully playable with L1 switched off — the offline ring closes through the truth-pool alone
+(`cargo-line-fact-landed.md` §5) — but L1 is no longer "behind the scenes"; it is the same
+surface the player already loves, extended.
 
 ---
 
@@ -286,11 +335,22 @@ winners, remember why. *Giving winners every time and knowing why.*
 ### The engine (four stages, each a booked cell)
 
 **Stage 1 — GENERATE candidate mid-states.**
-A mid-state is a *world snapshot*: a seed + a booked event-stream fast-forwarded N
-compressed months into a truth-anchored procgen world (fleet size, cash, rival positions,
-active events, unlocks). Generation is parameterized (early/mid/late game, calm/stormy
-event regime, contested/open lanes). Each candidate is a canon cell: `{seed, snapshot,
-params}`.
+A mid-state is **not** a stored snapshot blob; per Fable §6.2 it is a *chart at a truth
+horizon with a live stake*, and it is exactly this five-tuple:
+
+```
+mid_state = { seed,            // the world seed — replay ≡ live re-derives everything
+              book_prefix,     // the booked witness-log up to the jump-in tick (fact_landed + ship_assigned + ledger)
+              truth_horizon,   // the `as_of` of the last landed snapshot — which facts are ink vs pencil at this tick
+              live_stakes,     // the ships in flight on pencil facts (the open wagers the player inherits)
+              navigators_note} // a chinagraph-2 annotation DERIVED from the book (see Stage 4) — not a stored prose string
+```
+
+Because the kernel is deterministic (§2 L5), the seed + `book_prefix` *is* the world — the
+snapshot is a fold of the book, not a second source of truth. Generation is parameterized
+(early/mid/late game, calm/stormy event regime, contested/open lanes) and each candidate
+is a canon cell `{seed, book_prefix, params}`; the truth-horizon, live-stakes, and note are
+all readable *from* the book, never stored beside it.
 
 **Stage 2 — PLAYTEST via roster self-play (the wide run).**
 Play each candidate *forward* with the model roster acting as players, across several
@@ -319,13 +379,25 @@ A candidate is kept **iff** it clears two floors, both computed from the rollout
 Both floors are calibrated, not fixed — *legality is not calibration*. A seed can be
 technically winnable and still boring; the fun-floor is the second, separate judgment.
 
-**Stage 4 — COMPUTE and STORE the "why" (giving winners, knowing why).**
-For every kept seed, derive a human-readable **why-it's-a-good-jump-in** from the winning
-trajectory + the world-state diff: *"You're three ships from owning the trans-Pacific
-lane; a Bab-el-Mandeb disruption just opened a Cape arbitrage worth ~18 months of runway;
-your nearest rival is over-extended."* Store it on the seed cell alongside the fun-score
-and the winning path. When a player picks Mode B, they get a vetted-fun, provably-winnable
-world **and** the reason it's a good place to start.
+**Stage 4 — DERIVE the "why" (giving winners, knowing why).**
+The original design *stored a why-string* on the seed. Fable §6.2 corrects this: the why
+must be **derived from the book, not written beside it** — otherwise it is one more
+unmarked mark, a claim with no provenance. For every kept seed the "why" is a **function of
+the mid-state's `book_prefix`** — specifically the sequence of `fact_landed` +
+`ship_assigned` entries near the truth horizon — rendered as a previous navigator's blue
+(`chinagraph-2`) note *on the sheet*: a circled pencil port, an arrow, and a line read off
+the book, e.g. *"the Gulf is still pencil; Savannah's real throughput just landed 30% over
+the guess (`fact_landed · revised · as of <date>`); nobody has repriced."* Because it is
+derived, it cannot drift from the world it describes, and it re-derives bit-for-bit on
+replay. When a player picks Mode B, they inherit a vetted-fun, provably-winnable world
+**and** a reason they can *see*, drawn from the same book that proves the world is real.
+
+**Rivals as roster self-play trajectories (STRETCH).** Fable §7.1.5 names the payoff of
+closing the ring at L1: the roster's self-play strategies (Stage 2) *are* the procgen
+rivals the player sees — blue (`chinagraph-2`) lanes on the Chart — so every rival is a
+strategy that was **actually played**, not a scripted opponent. This needs Phase 4's
+rollouts to exist and be replayable, so it is **STRETCH**; naming it now costs nothing and
+aims the engine at it. Until then rivals are ordinary procgen cells marked as such.
 
 **The mapping to SuperInstance is exact** (and worth stating, per the wider-feel O9):
 generation = Situation authoring; self-play = the erised wide run; fun+winnability = the
@@ -395,6 +467,14 @@ promotion is booked with provenance and a wrong scout books a revocable scar.
 
 ## 6. Reserved for Fable — the killer look-and-feel + unifying play concept
 
+> **Answered (2026-09-27):** [`../FABLE-CARGO-LINE-ANSWER.md`](../FABLE-CARGO-LINE-ANSWER.md).
+> The aesthetic is **Pencil Sea** (ink = attested, pencil = invented, red chinagraph =
+> yours); the core screen is **the Chart**; the feeling is **the Tell**; the one verb is
+> **STAKE** and the world's only reply is **LAND**. That answer's inversion is now folded
+> into §2 (the ring) and §4 (the mid-state); its buildable contract is
+> [`cargo-line-fact-landed.md`](./cargo-line-fact-landed.md). The draft-question seed below
+> is kept as the record of what was asked.
+
 Per O11, one thing here genuinely wants the apex tier, and it is *not* any layer above —
 those are buildable now. It is the synthesis Opus cannot self-clear: **turning this
 well-architected need into a killer app — the novel, unifying look-and-feel and the one
@@ -447,6 +527,27 @@ without being told, what the single unifying verb of the game is.
 - **Scope.** This is one lane among bigger projects. The first three phases are a real,
   fun, offline game with a provenance-anchored world — a complete, shippable thing on
   their own. Everything past Phase 3 is upside, sequenced so each phase stands alone.
+- **The ring reading is Fable's, not yet exhibited by code (EXTENSION).** §2 now draws a
+  ring, but the code draws a stack until `fact_landed` exists — the ring is *exhibited*
+  only once L1 and L6 share that one event and a landing writes back to L3. Until the
+  Sonnet build (Fable §7.2) and Haiku sweep (§7.3) land, the ring is a design claim the
+  schema ([`cargo-line-fact-landed.md`](./cargo-line-fact-landed.md)) commits to, not a
+  property of the shipped toy.
+- **The on-disk bug the law closes (REAL, cited).** Manifest overstates what is on disk:
+  of the toy's three kinds of world-fact, only **ports** carry provenance
+  (`world.js:118`); **prices** (`world.js:122`, descending from a constant the data file
+  itself calls "flavor … not fabricated canon", `ports.js:13-20`) and the **one live
+  event** (`engine.js:145-149`, narrated as news) are invented and unmarked (Fable §6.3).
+  The refusal law (`cargo-line-fact-landed.md` §3) is what closes this — it is a *law*, not
+  a lint rule, because in Pencil Sea an unmarked cell has no medium and literally cannot be
+  drawn. Declared cost: the fixed-seed replay hash changes exactly once; book it.
+- **"Reality withheld, not invented" is Fable's doctrine (DESIGN).** The truth-pool
+  (`pool.json` + a seeded reveal schedule) is what closes the ring *offline on day one*;
+  the original §2 L1 assumed the roster was the only source of landings. The pool does not
+  replace the roster — it seeds it, and L1 *extends* it (Fable §8).
+- **Rivals as roster self-play trajectories (STRETCH).** §4 names it; it needs Phase 4's
+  replayable rollouts. Until then rivals are ordinary marked procgen cells, not played
+  strategies.
 
 ---
 
@@ -466,7 +567,14 @@ without being told, what the single unifying verb of the game is.
 | JEV oracle available to gate fun/scout trust | `ROSTER.md` (typesafe.ai `jev-1.13.0`, live-verified) | REAL (external API) |
 | Roster cheap tiers for self-play; GLM/Kimi blocked on balance | `ROSTER.md` | REAL (funding blocker) |
 | Live AIS/market feeds carry rights/ToS + cost | this doc §7 | STRETCH (rights review) |
-| Killer look-and-feel + unifying concept reserved for Fable | this doc §6; `DISPATCH.md` O11 | RESERVED |
+| Killer look-and-feel + unifying concept (Pencil Sea, the Chart, STAKE/LAND) | `../FABLE-CARGO-LINE-ANSWER.md`; `DISPATCH.md` O11 | ANSWERED (2026-09-27) |
+| The stack is a ring (L3→L4→L5→L6→L1→L3, closed through stakes) | this doc §2; Fable §6.2 | DESIGN (Fable's; exhibited once `fact_landed` exists) |
+| `fact_landed` is the one event L1 and L6 share (schema, verdicts, sources) | [`cargo-line-fact-landed.md`](./cargo-line-fact-landed.md); Fable §7.1.1 | SETTLED (schema) |
+| Refusal law: provenance required, RAISE-never-default (mirrors G20a) | `cargo-line-fact-landed.md` §3; Fable §6.3 | SETTLED (schema) |
+| Prices & the Panama event are unmarked on disk (the bug the law closes) | `world.js:122`, `engine.js:145-149`, `ports.js:13-20` | REAL (cited) |
+| Truth-pool: reality withheld, not invented (offline ring, day one) | `cargo-line-fact-landed.md` §5; Fable §7.1.3 | DESIGN (Fable's doctrine) |
+| Mid-state = {seed, book-prefix, truth-horizon, live stakes, note}; why derived from book | this doc §4; Fable §6.2 | DESIGN |
+| Rivals = roster self-play trajectories (blue lanes) | this doc §4; Fable §7.1.5 | STRETCH (Phase 4) |
 
 ---
 
