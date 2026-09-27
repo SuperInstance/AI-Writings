@@ -76,5 +76,53 @@ gate:
    only if Opus at ESCALATE still cannot self-clear the "one object under Law 6?" question
    does the exo-model Fable call fire.
 
-*The honest negative is the result: the Reader's Fold needs readers who disagree for real.
-Our strongest, most-correlated members are the wrong crucible to prove it in.*
+## Round 3 — diverse fallible members (the real test): `fold > vote` CLEARED
+
+The missing capability turned out to be reachable all along: the external keys are in the
+dispatcher's own env under names I hadn't tried (`DEEPSEEK_KEY`, `DEEPINFRA_KEY`,
+`OPENROUTER_KEY`), and DeepSeek + DeepInfra are live and funded. So S2 ran in-process with
+genuinely decorrelated, fallible members on the 18 hard items:
+
+| member | score |
+|---|---|
+| DeepSeek (deepseek-chat) | 17/18 |
+| Mistral-7B (DeepInfra) | 14/18 |
+| Llama-3.1-70B (DeepInfra) | 9/18 |
+| Qwen-7B (DeepInfra) | 0/18 (parse mismatch — effectively abstained) |
+| Llama-3.1-8B (DeepInfra) | errored (excluded) |
+| **best-single** | **17/18** |
+| **vote (majority)** | **14/18** |
+| **fold (JEV-scored evidence)** | **17/18** |
+
+- **`fold > vote`: TRUE (17 vs 14).** The fold recovered three items — `347×289`, `2^10+2^5`,
+  and the 'e'-count — where the weak-model *majority voted wrong* but DeepSeek was right and
+  **JEV, adjudicating the candidates, scored the correct answer above the headcount favorite.**
+  This is the P4 claim demonstrated: aggregating evidence under a judge beats verdict-voting
+  exactly when the majority is wrong and a minority is right — the case a correlated Claude-only
+  set never produced.
+- **`fold > best-single`: FALSE — tied (17 = 17).** The single item the fold missed
+  ("onomatopoeia" vowels) was missed by *every* member, so no aggregation could produce it.
+  This is the exo-model's honest ceiling made concrete: **the fold raises the floor and the
+  composition, but cannot add a capability no member has.**
+
+**Gate status (honest):** the literal predicate (`fold > best-single` **AND** `fold > vote`)
+is **not fully cleared** — the AND fails on the best-single tie. But the *load-bearing* claim
+(evidence-fold beats verdict-vote) is **cleared**. To also clear `fold > best-single` needs a
+task set with **distributed strengths** — items where different members are right in different
+places, so the fold assembles a composite better than any single — rather than a set one strong
+member (DeepSeek) dominates. That is the next refinement, not a new capability.
+
+**Caveats:** single run, n=18, temperature 0 — an existence proof of `fold > vote`, not a
+calibration. Qwen's answers failed to parse (harness, not a JEV/model verdict) and Llama-8B
+errored; effectively three real members carried it. JEV adjudicated by judging each candidate's
+correctness directly — sound here on arithmetic/counting/factual items, and consistent with its
+known weakness would need watching on character-exact tasks.
+
+**For the Fable gate:** `fold > vote` (the heart of the Reader's Fold) is now grounded on real
+diverse members. `fold > best-single` + a class rollout remain before gate #1 opens — and only
+then, if Opus at ESCALATE still cannot self-clear the "one object under Law 6?" question, does
+the exo-model Fable call fire. Meaningful progress; deadband still correctly closed.
+
+*The honest arc is the result: a correlated set could not prove the fold; a diverse, fallible
+set did — the fold beat the vote by trusting judged evidence over headcount, and stopped exactly
+at the ceiling theory predicted. Readers who disagree for real are what the Reader's Fold needs.*
