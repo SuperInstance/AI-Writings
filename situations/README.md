@@ -85,6 +85,10 @@ in rough seas. Never two laws.
   stranger could pick up tomorrow, stage by stage, itself quilt-shaped (booked,
   replayable, gap-authoring — the method improves itself the way the software
   does).
+- [`FABLE-DOSSIER.md`](FABLE-DOSSIER.md) — the back-burner accumulation toward one
+  apex call: the whole team's notes on the highest-level connections of the complete
+  SuperInstance, curated toward the eventual perfect Fable prompt. Not fired until the
+  bootstrap gate is met.
 - [`DISPATCH.md`](DISPATCH.md) + [`dispatch-ledger.csv`](dispatch-ledger.csv) —
   how the build org is *staffed*, as a quilt: three power tiers (Opus 5.5
   architecture, Sonnet 5 build, Haiku 4.5 runner) under one dispatcher, routed by
