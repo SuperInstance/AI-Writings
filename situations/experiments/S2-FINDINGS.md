@@ -170,3 +170,29 @@ evidence over headcount is a *win only where the judge is competent, and a loss 
 high AND the task-type is one JEV is competent on (arithmetic/factual), else keep the vote. This
 should restore fold ≥ vote and is the honest form of "trust judged evidence where the judge can
 judge." Gate status unchanged: `fold > best-single` still ❌ → Fable still NO-GO, correctly.
+
+## Round 5 — the oracle bound: `fold > best-single` needs complementarity, not diversity
+
+Recomputed from the stored round-3 and round-4 answers (no new calls). The **oracle upper
+bound** = for each item, was *any* member correct? It is the ceiling of *any* selection method.
+
+| set | best-single | oracle (any member right) | headroom | complementary items (anchor wrong, someone right) |
+|---|---|---|---|---|
+| round-3 (18) | 17 | 17 | **0** | **0** (the 1 miss was universal) |
+| round-4 (24) | 24 | 24 | **0** | **0** |
+
+**The finding, now rigorous:** `fold > best-single` is **unreachable** on both sets — not by a
+weak selector, but because the *oracle itself* can't beat best-single. There is **zero
+complementarity**: DeepSeek's correct-set contains every weaker member's, and when DeepSeek is
+wrong, everyone is wrong (universal miss). **Diversity is not complementarity.** A fold can only
+beat the best member when some member is right *where the best is wrong* — and a strong general
+anchor on general-quiz tasks offers none of those cases.
+
+**Consequence for the exo-model and the Fable gate.** The literal predicate `fold > best-single`
+is the *wrong target* for a strong-anchor general set — provably so. The Reader's Fold / exo-model
+value is what remains and is real: it **raises the floor** (beats vote and weak members —
+demonstrated), and it **composes/ports/revokes** (Opus's framing). To ever show `fold >
+best-single` honestly needs a **complementary-domain** set — specialist tasks where different
+models are genuinely best in different areas (code vs math vs multilingual vs recent-events) —
+not general quiz. Booked as the honest boundary of S2; the Fable gate for the exo-model should be
+reframed around floor-raising + composition, not beating the best member.
