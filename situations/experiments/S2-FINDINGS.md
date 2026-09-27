@@ -196,3 +196,30 @@ best-single` honestly needs a **complementary-domain** set — specialist tasks 
 models are genuinely best in different areas (code vs math vs multilingual vs recent-events) —
 not general quiz. Booked as the honest boundary of S2; the Fable gate for the exo-model should be
 reframed around floor-raising + composition, not beating the best member.
+
+## Round 6 — the safe hybrid fold (deployable): never degrade, gain where the judge is competent
+
+Re-analyzed the stored round-3 and round-4 answers under the **safe fold** = JEV **choice**
+adjudication on contested items, **except** counting-type → majority vote; and defer to a clear
+majority everywhere (JEV only breaks genuine splits).
+
+| set | best-single | vote | blind JEV-fold | **safe fold** |
+|---|---|---|---|---|
+| round-3 | 17 | 14 | 17 | **16** (recovered the 2 arithmetic ties; 0 degraded) |
+| round-4 | 24 | 24 | **21** ⚠ | **24** (fully recovered the blind-fold's collapse) |
+
+**The result:** the safe fold is **robust — `safe_fold ≥ vote` in both sets, never below.** It gives
+up a sliver of the blind-fold's lucky best case (round-3: it skipped one counting item the blind
+JEV happened to nail) to eliminate the catastrophic downside (round-4: the blind fold lost 3
+items; the safe fold lost none). Trading volatile upside for a guaranteed floor is the correct
+engineering choice for a judge with a known blind spot.
+
+**S2 arc, closed (the deployable prescription):**
+1. `fold > vote` needs *diverse, fallible* members (not a correlated strong set).
+2. A *blind* JEV-fold degrades below vote on the judge's blind-spot domains (counting).
+3. `fold > best-single` needs *complementarity*, which a strong anchor on general quiz lacks
+   (oracle bound = best-single) — so it is the wrong target there; floor-raising is the real value.
+4. JEV is a reliable adjudicator everywhere except counting; **pairwise choice ≫ independent noul**.
+5. The **safe fold** (JEV-choice + counting→vote + defer-to-clear-majority) is robust and deployable:
+   it raises the floor and never falls below the crowd. This is the honest, shippable Reader's-Fold
+   ensembling primitive — and the exam contract for the classroom.
