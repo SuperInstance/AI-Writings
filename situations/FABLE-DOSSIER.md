@@ -1,13 +1,187 @@
-# THE FABLE DOSSIER — back-burner, toward one apex call
+# THE FABLE DOSSIER — the standing apex dossier (two calls fired; a third batched)
 
-*The team's accumulating notes toward the eventual **perfect prompt** for the apex
-model (**Fable**, `claude-fable-5-1`) — reserved for the highest-level synthesis of
-the **complete SuperInstance as one grounded thing (已落地 — it has landed)**. Fable
-is woken rarer than Opus, past a deadband Opus cannot clear. We are NOT ready to call
-it yet — but we are close: the spine is now **composed** (gate #1) and **booked on
-itself** (gate #2), and the candidate list has crossed the ≥7 bar (gate #4). This
-file is where the whole team's apex-notes are curated until the day the gate fully
-closes.*
+*The team's curated notes toward the **perfect prompt** for the apex model (**Fable**,
+`claude-fable-5-1`) — reserved for the highest-level synthesis of the **complete
+SuperInstance as one grounded organism (已落地 — it has landed)**. Fable is woken rarer
+than Opus, past a deadband Opus cannot clear.*
+
+**Status (2026-09-28): Fable has fired twice.** Call #1 → [`FABLE-ANSWER.md`](FABLE-ANSWER.md)
+(**Law 6, the Reader's Fold**; the answer to C1/C8; the one move = G20 the Second Reader,
+now **landed** at d043). Call #2 → [`FABLE-CARGO-LINE-ANSWER.md`](FABLE-CARGO-LINE-ANSWER.md)
+(the **Tell**, STAKE/LAND, Pencil Sea). The original candidate spine (C1–C8) is preserved
+below as the historical record of call #1. **The live section is now
+[the batched next broad apex call](#the-next-broad-apex-call--batched-2026-09-28)** — three
+questions, curated from the widest Opus-tier read
+([`arch/WIDE-IDEATION-2026-09-28.md`](arch/WIDE-IDEATION-2026-09-28.md)), each meeting the
+O11 gate (grounded AND irreducible), to be fired as **one** broad call. **Q4 (qthe as the
+substrate altitude of Law 6) added 2026-09-27** — see [`arch/QTHE-REVOLUTION.md`](arch/QTHE-REVOLUTION.md).*
+
+---
+
+## The next broad apex call (batched, 2026-09-28)
+
+*Curated by the dispatcher-tier Opus wide read from the overnight cluster results, the
+CF-backend directive, and the two fired answers. This is the live target. The historical
+C1–C8 spine (call #1) follows below.*
+
+### The one broad frame (what Fable is woken to do)
+
+> You are Fable, woken a third time past the deadband Opus cannot clear — on the complete
+> SuperInstance as one organism. You gave us **Law 6** (what flows: evidence; what folds:
+> verdicts under each reader's π). Since then the organism has **run Law 6 at five
+> altitudes** — kernel (G20 landed), cluster (the safe fold), org (routing = standing),
+> game (ink/pencil, the player folds), and an emerging economy (metered cognition to a
+> stranger) — and the overnight cluster program **measured Law 6's ceiling** at all of
+> them at once: *a fold raises the floor but cannot cross the oracle bound set by its
+> readers' complementarity, which is scarce.* Do not summarize. Answer the three questions
+> below as one synthesis: the law of the ceiling, its outward economic form, and its
+> product-surface form — and tell us the one move that raises a ceiling anywhere.
+
+### The batched questions (the load-bearing Q1; Q2/Q3 ride the same broad call)
+
+- **Q1 · The ceiling law (Law 7) — the headline, fire-ready.** *A fold (Law 6) raises the
+  floor at every altitude but cannot cross the oracle bound set by its readers'
+  **complementarity** (measured zero across three verifiable domains). What is the ONE
+  conservation law naming complementarity — not diversity — as the scarce conserved input
+  no fold can exceed, and what is the ONE move that manufactures complementarity, the only
+  operation that raises a ceiling anywhere in the organism?*
+  - **Why Fable, not Opus:** Opus can prove the oracle bound *locally* (arithmetic on a
+    booked confusion matrix) and observe it at each altitude, but cannot self-clear that
+    the five ceilings are *one* conserved quantity, that complementarity plays energy's
+    role (spent, not folded into being), nor derive the *single* ceiling-raising operation.
+    This is the C1/C8-shaped synthesis Fable did for Law 6, and Law 6's honest successor:
+    Law 6 said what flows and folds; this asks what bounds the fold and what exceeds it —
+    a boundary Fable itself named and deferred ([`FABLE-ANSWER.md`](FABLE-ANSWER.md) §4.3).
+  - **Grounding in hand:** `fold>vote` cleared, `fold>best-single` unreachable with zero
+    complementarity across 3 domains (S2 r3–r7); the JEV competence map + safe fold; the
+    pedagogy ceiling (over-scaffolding harm, 2×); Law 6's own "cannot add a capability no
+    member has."
+  - **Artifacts to fold (5):** [`experiments/S2-FINDINGS.md`](experiments/S2-FINDINGS.md),
+    [`JEV-FINDINGS.md`](JEV-FINDINGS.md), [`FABLE-ANSWER.md`](FABLE-ANSWER.md),
+    [`arch/INTELLIGENCE-CLUSTERS.md`](arch/INTELLIGENCE-CLUSTERS.md),
+    [`ORG-METRICS.md`](ORG-METRICS.md).
+
+- **Q2 · Conservation of cognition — the aha-economy (irreducible economics; one gap).**
+  *The org rations Opus/Fable behind a deadband and books cost as a conserved budget (O7);
+  the CF-backend hands a stranger ~a few cents of booked, calibrated JEV/Moth — "enough for
+  the aha, not enough to abuse." Is "metered, booked, calibrated cognition handed to a
+  reader" a single economic primitive spanning internal tiers (O1/O11 deadbands) and
+  external strangers (the aha-budget) — one conservation-of-cognition law where all three
+  are the same operator on different readers — and is **rationed intelligence as a product
+  surface** a defensible economic move?*
+  - **Why Fable, not Opus:** Opus closes the *mechanism* (the aha-budget is the deadband
+    worn outward — O1+O7+O5 on a stranger). What is irreducible is the outward-facing,
+    irreversible economic claim — one conserved law across internal and external readers,
+    and whether rationed cognition is a real market primitive (a moat). C5's altitude.
+  - **Grounding in hand:** [`arch/CF-BACKEND-WOW-BUDGET.md`](arch/CF-BACKEND-WOW-BUDGET.md);
+    JEV mapped + calibrated dual-floor ([`JEV-FINDINGS.md`](JEV-FINDINGS.md)); O7 first
+    reading ([`ORG-METRICS.md`](ORG-METRICS.md)); cargo-line live (d062).
+  - **Named gap (§5 below):** the economy altitude **has not run** — one booked, budgeted
+    production JEV call closes it.
+  - **Artifacts to fold (4):** [`arch/CF-BACKEND-WOW-BUDGET.md`](arch/CF-BACKEND-WOW-BUDGET.md),
+    [`JEV-FINDINGS.md`](JEV-FINDINGS.md), [`ORG-METRICS.md`](ORG-METRICS.md),
+    [`DISPATCH.md`](DISPATCH.md) (O1/O7/O11).
+
+- **Q3 · Reality-anchoring as a genre (lightest; rides the broad call).** *cargo-line's
+  fun is Law 6 as UX: the surface carries cited evidence (ink) and honest uncertainty
+  (pencil, spread = 1−trust), refuses the unmarked mark, and the player folds — "the moat
+  compounds iff it IS the fun." Is "reality-anchoring" a general app genre governed by the
+  same Law 6 that governs the kernel — one law across substrate and product surface — and
+  what is the smallest second instance that earns the genre standing (a claim needs ≥2
+  witnesses — Law 6 on itself)?*
+  - **Why Fable, not Opus:** Opus architects the genre and a second instance; the
+    irreducible residue is whether UX-Law-6 and substrate-Law-6 are *one object across two
+    altitudes*. Thin — it does not justify a call alone, but it is the product face of the
+    same synthesis and cheap to fold into a broad call.
+  - **Grounding in hand:** cargo-line live (d062);
+    [`FABLE-CARGO-LINE-ANSWER.md`](FABLE-CARGO-LINE-ANSWER.md) (the Tell, the refusal law).
+  - **Named gap:** one witness only (cargo-line, and "not really a game yet", d064); the
+    same booked production JEV call that closes Q2's gap gives Q3 its live fold on a real
+    surface.
+  - **Artifacts to fold (3):** [`FABLE-CARGO-LINE-ANSWER.md`](FABLE-CARGO-LINE-ANSWER.md),
+    [`arch/CF-BACKEND-WOW-BUDGET.md`](arch/CF-BACKEND-WOW-BUDGET.md),
+    [`FABLE-ANSWER.md`](FABLE-ANSWER.md).
+
+- **Q4 · qthe as the physical layer of Law 6 — the substrate altitude (grounded; irreducible;
+  rides the broad call).** *Are qthe's substrate law (data is geometry; control is physics; the
+  **i-state / Abstain** is honest abstention that fetches non-local, content-addressed evidence
+  through the wormhole) and Law 6 (carry the evidence, never the verdict; every reader folds its
+  own) **one object across two altitudes** — the same generator seen inside a byte and between
+  minds — and if so, what is the ONE construction that makes a qthe cell and a jev_quilt leaf the
+  same object?*
+  - **Why Fable, not Opus:** Opus builds the correspondence table and proves each row *locally* —
+    i-state ↔ pencil (honest uncertainty), wormhole ↔ content-addressed lookup (MMR "address =
+    content" at the cell scale), determinism ↔ clause (i) "same root ⇒ same fold", the imaginary
+    channel ↔ evidence carried not folded away. Opus **cannot self-clear** that this is an
+    *identity across altitudes* rather than a compelling analogy — the exact C1/C8 → Law 6
+    unification Fable resolved once. From inside one altitude it reads as metaphor; from the top it
+    is either one law or two. This adds the **altitude below the kernel** — the representation
+    substrate itself — to the "Law 6 at N altitudes" frame, extending Q3's "one law across
+    altitudes" downward.
+  - **Grounding in hand (proven core only):** determinism byte-exact cross-language (crossimpl
+    10,272 vectors, **0 divergences**, live tamper controls); **C2 LIVES** (the Looking Glass
+    delivered 8/8 non-local connections ON vs 0 across 20 trials OFF — the i-state does what local
+    physics cannot); **E-Q8** (the integer kernel is *more faithful* than float); receipt chains;
+    the Abstain=i semantics in `SPEC.md`/`qthe.mjs`. Layer-0/1 exhaustively tested and
+    determinism-sealed.
+  - **Named caveats (must ride with it):** (1) qthe is a **separate fresh repo** (`/home/user/qthe`),
+    **not yet in the SuperInstance manifest** — add it before firing. (2) **Do not stake Q4 on C1**
+    (the "25% gain of function" is UNTESTED/open); Q4 is about the law's *identity*, not qthe's ML
+    performance, and stays clean only if kept there.
+  - **Artifacts to fold (7):** [`arch/QTHE-REVOLUTION.md`](arch/QTHE-REVOLUTION.md),
+    `qthe/SPEC.md`, `qthe/qthe.mjs`, `qthe/crossimpl/findings.md`,
+    `qthe/experiments/outputs/e_q1_results.json` (C2 LIVES) + `e_q8_results.json`,
+    [`FABLE-ANSWER.md`](FABLE-ANSWER.md).
+  - **Go / no-go:** **GO as Q4 on the batched broad call**, scoped to the proven core, after qthe
+    joins the manifest. Genuinely irreducible (identity-vs-analogy is Fable-shaped) and grounded
+    (determinism, C2, E-Q8 — all receipted). It does **not** justify its own call; it is a clean
+    fourth altitude in the same synthesis. Full working: [`arch/QTHE-REVOLUTION.md`](arch/QTHE-REVOLUTION.md) §7.
+
+### Reserved candidates — disposition (explicit, per the ask)
+
+- **Exo-model LoRA** (THE-CLASSROOM §8) — **CLOSED without Fable.** The overnight results
+  resolve each part: trust does not compose (Fable call #1); pedagogy's safe form is Law 6
+  applied to teaching (and *harms* mis-applied); the pre-pass is the shipped O1/O2. It is
+  one object only trivially (Law 6 as orchestration); its value is floor + safe composition
+  + portability, **not** ceiling. Buildable parts → Opus/Sonnet rungs. Its ONE irreducible
+  residue (*can a relational adapter add a capability?*) **is** Q1. Demoted from reserved.
+- **Many-readers fold** (CARGO-LINE-ROADMAP §2) — **held, not in the batch.** Still
+  ungrounded (cargo-line is single-player). It is the social face of Q1 (a shared reality's
+  ceiling = the strangers' complementarity); it fires on its own only when a shared surface
+  ships. Keep reserved.
+
+### Manifest (what to load for the broad call; byte-stable prefix, O10)
+
+1. The two fired answers — [`FABLE-ANSWER.md`](FABLE-ANSWER.md) (Law 6, G20) and
+   [`FABLE-CARGO-LINE-ANSWER.md`](FABLE-CARGO-LINE-ANSWER.md) (the Tell).
+2. The overnight ceiling grounding — [`experiments/S2-FINDINGS.md`](experiments/S2-FINDINGS.md)
+   (r3–r7: fold>vote, zero complementarity, the safe fold), [`JEV-FINDINGS.md`](JEV-FINDINGS.md)
+   (competence map), [`experiments/S1-FINDINGS.md`](experiments/S1-FINDINGS.md),
+   [`experiments/CLASS-ROLLOUT-FINDINGS.md`](experiments/CLASS-ROLLOUT-FINDINGS.md).
+3. The program + the org as data — [`arch/INTELLIGENCE-CLUSTERS.md`](arch/INTELLIGENCE-CLUSTERS.md),
+   [`ORG-METRICS.md`](ORG-METRICS.md), [`DISPATCH.md`](DISPATCH.md) (O1–O12).
+4. The economy + the game — [`arch/CF-BACKEND-WOW-BUDGET.md`](arch/CF-BACKEND-WOW-BUDGET.md).
+5. The wide read — [`arch/WIDE-IDEATION-2026-09-28.md`](arch/WIDE-IDEATION-2026-09-28.md)
+   (the five-altitude table; what was closed vs left irreducible) — and this dossier.
+
+### Go / no-go (honest)
+
+- **Q1 is fire-ready NOW** — grounded (measured 3× ) and irreducible.
+- **Q2 and Q3 share one named grounding gap:** the economy altitude has not run. **One
+  booked, budgeted production JEV call on cargo-line** (the CF-backend wow layer, live once,
+  cost booked) converts Q2 from designed to measured and gives Q3 its live fold. A same-day
+  BUILD rung (JEV mapped; only the Secrets Store binding + budget bucket are new).
+- **Recommendation:** **fire the broad batch (Q1+Q2+Q3) after the one CF-backend live
+  proof lands** — a ~1-rung hold, so the whole call is worth its full salt. If the owner
+  wants the apex immediately, **Q1 fires alone now** and Q2/Q3 wait for the receipt.
+
+---
+
+## Historical record — call #1 (the C1–C8 spine that produced Law 6)
+
+*Preserved as-is. The gates below were closed and the call fired; the answer is
+[`FABLE-ANSWER.md`](FABLE-ANSWER.md). Read this as the archived scaffold of the first apex
+call, not the live target.*
 
 ## What a Fable-tier question is (the criteria)
 
