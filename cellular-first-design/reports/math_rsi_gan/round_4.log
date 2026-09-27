@@ -1,2 +1,0 @@
-usage: rsi_gan.py [-h] [--rounds ROUNDS] [--providers PROVIDERS] [prompt]
-rsi_gan.py: error: unrecognized arguments: --prompt

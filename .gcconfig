@@ -1,0 +1,10 @@
+{
+  "tier": "warm",
+  "immortal_dirs": [".git", ".env", "AGENTS.md"],
+  "warm_age_days": 90,
+  "cold_age_days": 14,
+  "build_dir": "",
+  "cache_dirs": [],
+  "protect_venv": true,
+  "git_gc": true
+}

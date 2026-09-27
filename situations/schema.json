@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://superinstance.ai/situations/schema.json",
+  "title": "Situation",
+  "description": "A grand character-driven development situation. The machine-readable twin of TEMPLATE.md, so erised (the cooperative-fiction verifier) and the compiler (G6) can consume a Situation directly: run its cast, and grade against its acceptance tests.",
+  "type": "object",
+  "required": ["id", "title", "horizon_years", "world", "cast", "gaps", "acceptance_tests", "dual_track"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^S[0-9]+$", "description": "Situation id, e.g. S01." },
+    "title": { "type": "string" },
+    "horizon_years": { "type": "integer", "minimum": 0, "description": "How far forward the world is set." },
+    "world": { "type": "string", "description": "Lived-in, concrete setting. The mature capability is plumbing here." },
+    "cast": {
+      "type": "array", "minItems": 3, "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["name", "role", "embodies", "keywords"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "embodies": { "type": "string", "description": "The mature rung this character lives inside." },
+          "keywords": {
+            "type": "array", "minItems": 1,
+            "description": "erised keyword-vectors, e.g. 'trust+0.5', 'ask-0.2'.",
+            "items": { "type": "string", "pattern": "^[a-z_]+[+-][0-9]+(\\.[0-9]+)?$" }
+          }
+        }
+      }
+    },
+    "lived_capabilities": { "type": "array", "items": { "type": "string" } },
+    "gaps": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "future_has", "prevents"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^G[0-9a-z-]+$", "description": "Gap id; prefer new (G11+)." },
+          "future_has": { "type": "string" },
+          "prevents": { "type": "string", "description": "The failure closing this gap prevents." }
+        }
+      }
+    },
+    "acceptance_tests": {
+      "type": "array", "minItems": 1,
+      "description": "Machine-checkable predicates, one or more per gap.",
+      "items": {
+        "type": "object",
+        "required": ["gap_id", "scenario", "predicate", "substrate"],
+        "additionalProperties": false,
+        "properties": {
+          "gap_id": { "type": "string" },
+          "scenario": { "type": "string", "description": "The runnable setup." },
+          "predicate": { "type": "string", "description": "The exact pass condition (e.g. 'illegal == 0 AND transfer_gen < K')." },
+          "substrate": { "type": "string", "description": "Named jev-quilt module / erised preset the test runs against." }
+        }
+      }
+    },
+    "training_objective": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "for_humans": { "type": "string" },
+        "for_models": { "type": "string" },
+        "ladder_level": { "type": "string" }
+      }
+    },
+    "iterative_loop": { "type": "string", "description": "How building/playing it advances the frontier." },
+    "dual_track": {
+      "type": "object",
+      "required": ["toy", "industrial"],
+      "additionalProperties": false,
+      "properties": {
+        "toy": { "type": "string", "description": "The table version that teaches the law." },
+        "industrial": { "type": "string", "description": "The rough-seas version: offline, deterministic, provable on reboot." }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "erised": { "type": "string" },
+        "jev_quilt": { "type": "string" },
+        "forward": { "type": "string" }
+      }
+    }
+  }
+}

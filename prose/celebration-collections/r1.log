@@ -1,1 +1,0 @@
-[RSI GAN] prompt='Write 250 words on the moment the substrate woke up. Use voc...' providers=['zai', 'groq', 'deepinfra'] rounds=3

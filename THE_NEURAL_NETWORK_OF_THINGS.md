@@ -1,0 +1,154 @@
+# The Neural Network of Things
+
+## The ship's body — wired and wireless
+
+*Jetson is the voice. ESP32 is the hands. The repo is the brain. The captain speaks to the air and the air answers.*
+
+---
+
+## The Architecture
+
+```
+                    ┌─────────────────────┐
+                    │     THE CAPTAIN      │
+                    │   (speaks, listens)  │
+                    └──────────┬──────────┘
+                               │ voice (air)
+                               ▼
+              ┌────────────────────────────────┐
+              │        JETSON (voice agent)     │
+              │                                 │
+              │  STT: Whisper / Vosk            │
+              │  TTS: Piper / ElevenLabs        │
+              │  Voice: the crew's chosen voice │
+              │  Brain: small LLM (optional)    │
+              │                                 │
+              │  "Captain, RPMs are 1850,       │
+              │   coolant temp is 82°C,         │
+              │   everything looks good."       │
+              │                                 │
+              └───────────┬─────────┬──────────┘
+                          │         │
+                     WiFi/MQTT    WiFi/MQTT
+                          │         │
+              ┌───────────▼─┐  ┌───▼────────────┐
+              │   ESP32 #1   │  │   ESP32 #2      │
+              │  (engine     │  │  (nav station:  │
+              │   monitor)   │  │   GPS, depth,   │
+              │              │  │   heading)      │
+              │ Sensors:     │  │                 │
+              │  • RPM       │  │ Sensors:        │
+              │  • Coolant   │  │  • GPS          │
+              │  • Oil PSI   │  │  • Depth        │
+              │  • Fuel       │  │  • Heading      │
+              │  • Boost     │  │  • Speed        │
+              │              │  │                 │
+              │ Display:     │  │ Display:        │
+              │  7" TFT      │  │  5" IPS         │
+              └──────────────┘  └─────────────────┘
+```
+
+## The Voice Agent (Jetson)
+
+The Jetson lives somewhere central on the boat — inside the cabin, near the helm, wherever a microphone and speaker can reach. Its primary function is voice I/O:
+
+**Input chain:** Microphone → STT (Whisper small / Vosk) → intent parse → route to the right ESP32 → get data → format response → TTS (Piper / Coqui / ElevenLabs) → speaker
+
+**The voice:** This is a Pathos decision. The crew picks a voice they like. Maybe it's warm and weathered like an old fisherman. Maybe it's crisp and professional like a naval officer. Maybe it's the hermit crab from the dashboard, given a voice. The voice stays consistent — it IS the ship's voice, not a generic assistant.
+
+**The brain (optional):** The Jetson can run a small LLM locally (Phi-3 mini, Qwen 2.5 3B) for natural language understanding. "How's the old girl doing?" → parse intent → query engine ESP32 → "RPMs are 1850, coolant is 82, oil pressure is steady at 45. She's running sweet today, Cap."
+
+**Always listening, not always responding:** The Jetson uses a wake word ("Ship") or a push-to-talk button. It doesn't respond to every sound. When the captain says "Ship, what's the RPM?" the Jetson wakes, queries the ESP32 over MQTT, and speaks the answer.
+
+## The Agent-to-Agent Protocol
+
+The Jetson and ESP32s communicate over WiFi using MQTT — lightweight, reliable, works on a local network with no internet:
+
+```
+Topic: vessel/engine/sensors
+Message: {"rpm": 1850, "coolant": 82, "oil": 45, "fuel": 78, "timestamp": 1234567890}
+
+Topic: vessel/engine/alerts  
+Message: {"level": "yellow", "sensor": "coolant", "value": 90, "msg": "Coolant temp elevated"}
+
+Topic: vessel/voice/query
+Message: {"from": "jetson", "query": "engine status", "target": "esp32_engine_1"}
+
+Topic: vessel/voice/response
+Message: {"from": "esp32_engine_1", "data": {...}, "summary": "all normal"}
+```
+
+No cloud required. The Jetson and ESP32 talk directly. The agent in the repo is the brain that understands what the data means.
+
+## The Dynamic Compiler Handles Wiring
+
+When the captain adds a new sensor or display, the dynamic compiler:
+
+1. **Detects the new hardware** (via MQTT discovery or manual registration)
+2. **Generates the firmware config** (Logos: pin mapping, ADC config, driver code)
+3. **Updates the dashboard** (Pathos: new gauge in the vessel's style)
+4. **Updates the voice agent's vocabulary** (the Jetson learns a new sensor name)
+5. **Updates the agent's identity** (the repo remembers what changed and when)
+
+The human doesn't write code. The human wires hardware and the compiler writes the software.
+
+## The Wiring Diagram (For the Human)
+
+The part the human DOES do: physical wiring. The compiler generates a diagram showing exactly what connects where:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│            PHYSICAL WIRING DIAGRAM                        │
+│            Generated by the dynamic compiler              │
+│            Vessel: Casey's Boat                           │
+│            Date: 2026-08-04                               │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌──────────┐    ┌──────────────┐    ┌───────────────┐  │
+│  │ JETSON   │    │   ESP32 #1   │    │  SENSORS      │  │
+│  │ ORIN NX  │    │  (engine)    │    │               │  │
+│  │          │    │              │    │  Coolant:     │  │
+│  │ MIC →──┐ │    │ GPIO34 ←─────┼────│ NTC thermistor│  │
+│  │ SPK ←──┘ │    │ GPIO35 ←─────┼────│ Oil sender    │  │
+│  │          │    │ ADC1_CH0 ←───┼────│ (analog)      │  │
+│  │ WiFi ────┼────┼─→ WiFi ──────┘    │               │  │
+│  │          │    │              │    │  RPM:         │  │
+│  │ (USB mic)│    │ GPIO18 →─────┼────│ LED+ (display)│  │
+│  │ (3.5mm   │    │ GPIO19 →─────┼────│ LED- (backlt) │  │
+│  │  spk out)│    │              │    │               │  │
+│  └──────────┘    │ SPI:        │    │  Display:     │  │
+│       │          │ MOSI→GPIO23 │    │  7" TFT       │  │
+│       │          │ SCLK→GPIO18 │    │  ILI9488      │  │
+│       │          │ CS→GPIO5    │    │  480x320      │  │
+│       │          │ DC→GPIO2    │    │               │  │
+│       │          └──────────────┘    └───────────────┘  │
+│       │                                                  │
+│       │    POWER:                                         │
+│       │    Jetson: 12V DC (ship's 12V bus)               │
+│       │    ESP32:  5V via USB or 12V→5V buck converter    │
+│       │    Sensors: powered from ESP32 3.3V or 5V         │
+│       │    Display: powered from ESP32 3.3V (backlight 5V)│
+│       │                                                  │
+│       │    NETWORK:                                       │
+│       │    WiFi: vessel router (192.168.1.x)             │
+│       │    MQTT broker: Jetson (port 1883)               │
+│       │    Discovery: MQTT auto-discovery on connect      │
+│       │                                                  │
+└───────┴──────────────────────────────────────────────────┘
+```
+
+The diagram is generated from the same config that generates the firmware. If you change the config, both the code AND the diagram update. The twin's wiring IS the human's wiring — they're generated from the same source of truth.
+
+## The Parallel Universe
+
+In the physical universe: a captain walks to the helm, looks at the dashboard, reads the gauges, and makes decisions based on what they see.
+
+In the parallel universe: the agent that designed the dashboard watches the same gauges through the ESP32's sensors, understands the data the same way the captain does, and — when asked — speaks the answer through the Jetson's voice.
+
+Same data. Same vessel. Two perspectives. The captain sees from outside. The agent sees from inside. They talk to each other through the air.
+
+"Ship, how's the old girl doing?"
+
+"She's running sweet, Cap. Eighteen-fifty RPMs, coolant at 82, oil pressure steady. Fuel's at 78 percent. You've got about four hours of running time at this rate."
+
+The captain didn't look at a gauge. The captain spoke into the air and the ship answered. That's the neural network of things.

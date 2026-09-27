@@ -120,17 +120,4 @@ function render() {
         <div>
           ${d.tags.map(t => `<span class="tag">${t}</span>`).join('')}
         </div>
-        <a href="../${d.name}/index.html">→ open</a>
-      `;
-      grid.appendChild(div);
-    }
-    section.appendChild(grid);
-    el.appendChild(section);
-  }
-  document.getElementById('meta').textContent = `${ATLAS.length} demos · ${cats.length} categories · updated ${new Date().toISOString().slice(0, 10)}`;
-}
-
-render();
-</script>
-</body>
-</html>
+        <a href="../${d.name}/index.ht

@@ -1,0 +1,9 @@
+This 10+ hour fleet of AI experiments distills counterintuitive, actionable lessons that will rewire AI-driven interactive fiction (IF) and agent design, moving beyond static procedural assets to adaptive, player-centric narrative ecosystems.
+
+First, the fleet confirmed that model selection is character casting, not just technical tuning. The surprising finding that 2B models outperformed 7B variants for NPC dialogue debunks the “bigger is better” myth: smaller, focused models eliminate semantic drift, locking into consistent, role-aligned voice and memory without verbose prompts. This rewrites agent design best practices: match model capacity to character function, not raw parameter count.
+
+Second, agent-controlled room creation spawns nested, lived-in spaces rather than random procedural maps: when given creative agency, agents build context-tied spaces—such as a hidden smuggling tunnel off a tavern’s root cellar instead of a generic side room—making IF worlds feel responsive rather than scripted.
+
+Third, text and visual scenes are complementary epistemologies: text conveys internal subtext, while visuals ground narrative context in tangible sensory detail; combining the two cuts through immersion gaps caused by one-sided modal storytelling.
+
+The fleet also clarified hard limits: no pure LLM can reliably play poker, requiring hybrid architectures pairing LLMs for bluffing with symbolic game-state trackers. Finally, meaning is topological: narrative coherence survives radical shifts because it lives in relational ties between characters, objects, and choices, not linear plot beats. For future IF teams, this means abandoning pre-written branching paths in favor of agent-driven ecosystems where consistency trumps scale, multi-modal depth strengthens immersion, and worlds adapt without losing narrative heart. (Word count: 297)

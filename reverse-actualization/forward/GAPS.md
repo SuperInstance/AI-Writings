@@ -1,0 +1,254 @@
+# GAPS — The Situational-Engineering Ledger
+
+*The Forward Arc's stories are only worth writing if their friction compiles into
+work. This is the compiler's output: every gap a character stumbled over, turned
+into an experiment an engineer can run now, against code that already exists.*
+
+Each entry has the same shape:
+
+- **Gap** — what 2036 takes for granted that 2026 cannot do.
+- **Story** — where it surfaced.
+- **Experiment** — the concrete thing to build/measure this week.
+- **Substrate** — the real code it runs against.
+- **Passing condition** — how we know the gap is (partly) closed. This is the
+  *verifier*: the future wrote the acceptance test; the present writes the code.
+- **Status** — where it stands today.
+
+The substrates referenced are real, in-hand as of 2026:
+`craftmind-engine/experiments/rsi/{rsi,embed}.mjs` (deterministic JEV-bounded RSI
++ fixed-point embeddings + FNV-1a content hashing), the `craftmind-rsi` Cloudflare
+D1 (`rsi_run`, `rsi_generation`, `rsi_vector`), the four alternate-route modules
+in `experiments/rsi/routes/`, and `erised-next` (the wide-run harness).
+
+---
+
+## G1 — A latent-prediction head, with divergence-as-escalation
+
+- **Gap.** Noor's cells *predict* the representation of their next neighborhood
+  (JEPA), and the gap between prediction and arrival is a first-class, located,
+  early **escalation** signal — a raised hand. Our stack has retrieval and a
+  legality gate but **no predictor and no divergence signal.**
+- **Story.** [The Cell-Shepherd](2036-01-the-cell-shepherd.md).
+- **Experiment.** Add a tiny deterministic latent predictor to the RSI embedder:
+  given the current behavior/genome vector and the JEV-chosen move, predict the
+  *next* behavior vector (in Q8.8, fixed-point, so it stays bit-checkable). Each
+  tick, compute `divergence = l2(predicted, arrived)`. Emit `ESCALATE` when
+  divergence exceeds a trust radius; log a located, per-region raised-hand trace.
+- **Substrate.** New `experiments/rsi/predict.mjs` beside `embed.mjs`; drive it
+  from the Hold-the-Line episode loop in `rsi.mjs`.
+- **Passing condition.** On a run with an injected novel disturbance, the
+  predictor's divergence spikes **before** the fitness/error metric does — i.e.
+  surprise is detected earlier than damage. Report lead-time (ticks) of the
+  raised hand vs. the first band violation.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/predict.mjs`
+  (+ `predict.test.mjs`, CI-enforced). A JEPA-style forward predictor learns the
+  nominal drift online in fixed point, and routes prediction-vs-arrival
+  divergence through a JEV `{ACT, CONFIRM, ESCALATE}` gate — the raised hand is a
+  legal move, not a fabricated one. **Result:** on a novel-drift shock at tick
+  200, the hand goes up at 200 and the band breaks at 202 — lead-time **2 ticks,
+  4/4 seeds, 0 false hands in calm, 0 illegal**, and driftHat converges to the
+  true drift. The passing condition (surprise before damage) is met. This is the
+  first Forward-Arc gap closed; it unblocks G2.
+
+## G2 — Confidence calibration (the bored-middle failure)
+
+- **Gap.** Noor's colony grew *confident faster than it grew calibrated*; its
+  trust radius inflated in the boring regions, so a real surprise there slipped
+  under the threshold. Legality held perfectly and still nearly lost the field.
+  **Legality is not calibration.**
+- **Story.** [The Cell-Shepherd](2036-01-the-cell-shepherd.md).
+- **Experiment.** Give the G1 predictor a trust radius that *grows with sustained
+  low divergence and decays with time-since-last-surprise* — explicitly shrinking
+  in quiet regions. Then run the adversarial "bored-middle" scenario: long calm,
+  then a small fast novel event in the calmest region.
+- **Substrate.** Extends G1's `predict.mjs`; add the scenario to `erised-next`'s
+  sweep specs so it runs wide across radius-policies.
+- **Passing condition.** The calibrated policy raises its hand on the bored-middle
+  event at least as early as a naive slow/dumb baseline, **without** flooding
+  false alarms in the calm (measure ROC: lead-time vs. false-hand rate across the
+  radius-policy sweep).
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/calibrate.mjs`
+  (+ `calibrate.test.mjs`, CI-enforced). Done in the recursive spirit: the
+  detector's calibration policy is a genome, its per-tick radius adjustment is a
+  JEV `{tighten, hold, loosen}` Choice (legal by construction), and that policy is
+  **evolved by the same (1+λ) engine** — RSI applied to the surprise-detector
+  itself. **Result** on the bored-middle scenario (long calm, then a small brief
+  event in the calmest stretch): the *confident* policy inflates its radius to
+  ~80 and catches **0/6** (Noor's failure, reproduced); the *calibrated* policy
+  shrinks to ~9 and catches **6/6** with 0 false alarms; the *evolved* policy
+  matches/beats it (**6/6, radius 8**), all with **0 illegal**. The system that
+  improves minds now improves its own capacity to know when it is surprised.
+
+## G3 — A deposit-and-learn commons across many agents
+
+- **Gap.** Tomás's forty billion thin agents both *read from* and *feed* one
+  shared, content-addressed, self-deduplicating deposit library. Our route
+  libraries are single-run and single-agent; there is no many-writers commons.
+- **Story.** [The Thin Agent](2036-02-the-thin-agent.md).
+- **Experiment.** Turn `experiments/rsi/routes/route-library.mjs` into a shared
+  commons: many independent runs (via `erised-next` fan-out) deposit their proven
+  routes into one `craftmind-rsi` `rsi_vector`-style table, deduped by content
+  hash. A fresh thin agent then *reads* the commons instead of searching from
+  scratch.
+- **Substrate.** `route-library.mjs` + the `craftmind-rsi` D1 + `erised-next`
+  dispatch.
+- **Passing condition.** A thin agent standing on the commons reaches a target
+  fitness in **fewer local decisions** than one that must (re)discover routes
+  alone — quantify the decisions-saved multiple as the commons grows.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/commons.mjs`
+  (+ `commons.test.mjs`, CI-enforced). Many independent runs deposit champion
+  routes into one content-addressed commons (dedup free), and a thin agent solves
+  its task by *reading* it. **Result:** warm read reaches fitness 0.386 in **4,800
+  decisions**; cold search reaches 0.371 in **465,600** — **~97× fewer decisions
+  and a better result**, 0 illegal, and the empty commons is honest (read → null,
+  never a fabricated route). The intelligence moved into the commons; the edge
+  stayed thin. (The standalone **Pincher4Jev** tool productizes this: JEV as the
+  mitochondria of every cell, thumbing the legal dice toward proven routes.)
+
+## G4 — Earned standing: the conferred, revocable fourth verdict
+
+- **Gap.** Tomás's agents have `ACT / CONFIRM / ESCALATE` but no way to *stop
+  asking* — no legal move for "I have earned the right to answer this myself."
+  Standing must be **conferred by the commons and revoked when the world shifts**,
+  never self-granted.
+- **Story.** [The Thin Agent](2036-02-the-thin-agent.md).
+- **Experiment.** Add a fourth verdict `ANSWER` to the route selector's JEV
+  schema, gated not by the agent but by the commons: a per-situation "diploma"
+  granted after N correct ACTs on that content-hash neighborhood, and torn up on
+  the first miss. Track diplomas and revocations.
+- **Substrate.** `route-library.mjs` selector (extend the JEV choice set);
+  standing state in the D1 commons.
+- **Passing condition (G4).** Enabling `ANSWER` cuts redundant queries to the
+  commons **without** raising the error rate beyond a set bound; revocation fires
+  within K ticks of a regime change (measure it).
+- **Passing condition (G4b — the metric first).** *Before* building `ANSWER`,
+  measure the disease: what fraction of commons queries are re-answers of
+  already-known situations (same content-hash neighborhood, agent already correct
+  ≥N times)? That wasted-load number is the size of the prize.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/standing.mjs`
+  (+ `standing.test.mjs`, CI-enforced). **G4b (the prize), measured:** on a
+  repeating stream, **90%** of a shared commons's queries are redundant
+  re-answers of already-known situations. **G4:** a fourth verdict `ANSWER`,
+  conferred by the commons after N correct ACTs on a content-hash neighborhood
+  and revoked the instant the world shifts, **cuts queries by 90% with no
+  increase in error rate**, and standing evaporates **~2.5 ticks** after a regime
+  change. Standing is never self-granted (baseline serves 0 local answers), and
+  the four-verdict set stays a JEV schema — even "stop asking" is a legal move.
+  0 illegal. This is the exact seam Pincher4Jev's scale-thumbing bias rides.
+
+## G5 — Portable, cross-model deposit inheritance (warm-start)
+
+- **Gap.** Wren's world lets a four-minute-old mind inherit a decade of
+  legally-earned experience by *reading the commons* — the learning got out of
+  the model. Our vectors are content-addressed but task-local and model-local; we
+  have never warm-started one mind from another's deposits.
+- **Story.** [The Child Who Never Knew Otherwise](2036-03-the-child-who-never-knew-otherwise.md).
+- **Experiment.** Cross-task transfer: build the deposit library on Task A (one
+  Hold-the-Line regime), then seed Task B (a *different* drift/noise regime, or a
+  different move-effect set) by retrieving A's nearest deposits as priors for B's
+  initial population. Compare cold-start vs. warm-start convergence.
+- **Substrate.** `rsi.mjs` (parameterize the regime), `embed.mjs`, the D1 commons.
+- **Passing condition.** Warm-started B reaches target fitness in measurably fewer
+  generations than cold-started B, and the transfer degrades *gracefully* (not
+  catastrophically) as A and B grow dissimilar — plot gain vs. regime distance.
+- **Status.** Not built. This is the "learning outlives the mind" proof-of-concept
+  in miniature.
+
+## G6 — The situation compiler (the keystone)
+
+- **Gap.** Wren built *the past you can lose in* — a deterministic, seeded,
+  wide-runnable world in which today's agents try to build a future capability and
+  fail in **specific, mappable** ways. Devi's lament: *we had no place to fail on
+  purpose.* We have the wide-run harness and the deterministic substrate; we lack
+  the compiler that turns a named gap into a scenario whose **passing condition is
+  the gap being closed.**
+- **Story.** [The Child Who Never Knew Otherwise](2036-03-the-child-who-never-knew-otherwise.md).
+- **Experiment.** Build a `situation` format: a gap id (G1…G5), a deterministic
+  scenario generator, and an explicit passing predicate (the acceptance tests
+  written above). `erised-next` runs it wide; the output is not a single score but
+  a **failure map** — which joint each failed agent couldn't weld. This closes the
+  Forward-Arc loop: story → gap → situation → wide run → failure map → next weld.
+- **Substrate.** `erised-next` (sweep spec + collector) consuming
+  `craftmind-engine` scenarios; failure maps stored in D1.
+- **Passing condition.** Feed G1–G5's passing conditions in as `situation` specs
+  and get back, from one wide run, a ranked map of *where* current agents fall
+  short on each — reproducing, in code, the "thousand small failures" Wren watched
+  bloom.
+- **Status.** ✅ **Built** — `craftmind-engine/experiments/rsi/compiler.mjs`
+  (+ `compiler.test.mjs`, CI-enforced). A compiler cell reads the entity's own
+  gap set, chooses which to attack (a JEV choice, Pincher-weighted by what
+  advanced the ledger before), runs it, and posts the outcome as a double-entry IO
+  — the compiler *is* a quilt cell, improving the substrate it runs on. In one
+  pass it prioritized the open gaps, re-verified all built gaps PASS, and **named
+  its own next experiments (G5, G7)**; ledger balanced, chain valid, 0 illegal.
+  The fiction stopped being fiction: the system now picks its own next move.
+
+---
+
+## G7 — the memory-weighting gate (named by the system itself)
+
+- **Gap.** A gate needs "a learned understanding of whether more recent or distant
+  memories are more or less important" — because the right memory horizon depends
+  on the world. **This gap was named by G6**, the compiler, as its own next
+  experiment; the human had seeded it. The system requested it, then closed it.
+- **Story.** Planted by the substrate essay
+  ([systems-engineering/the-quilt-substrate.md](../../systems-engineering/the-quilt-substrate.md))
+  and surfaced by the compiler.
+- **Experiment.** A gate keeps a JEV set of candidate decay rates (short → recency,
+  long → distance) and weights toward whichever has predicted best lately, per
+  page. Test it in two worlds: **drift** (the answer keeps changing) and
+  **stable-noisy** (fixed answer, noisy feedback).
+- **Substrate.** `craftmind-engine/experiments/rsi/memory.mjs`.
+- **Passing condition.** The learned horizon matches the best *fixed* horizon in
+  BOTH worlds, where each fixed one wins only its own.
+- **Status.** ✅ **Built** — drift rewards short memory (0.95 @ λ0.30 vs 0.62 @
+  λ0.99); stable-noisy rewards long memory (0.98 @ λ0.99 vs 0.45 @ λ0.30); the
+  learned gate matches the best in both, picking λ0.30 under drift and λ0.99 under
+  noise. 0 illegal. The first gap the system asked of itself — and got.
+
+---
+
+## The arc continues — seeds for G8+
+
+The gaps were meant as seeds, and closing them grows new ones. Left open for the
+next hands (human or compiler):
+
+- **G5 — portable cross-model inheritance** (still open): warm-start a *different*
+  regime from another's deposits; measure transfer vs. regime distance.
+- **G8 — the learned kernel that stays bit-checkable** (the G-note deepened): can
+  a *learning* cell substrate keep a golden checksum, so it advances
+  step-legibly instead of freezing? The deepest seed.
+- **G9 — metabolism**: let the double-entry IO flow *be* the energy budget — a
+  cell that spends more than it earns starves; the quilt develops economics, and
+  attention becomes a conserved, tradeable quantity.
+- **G10 — the self-authored gap**: ✅ **Built** —
+  `craftmind-engine/experiments/rsi/author.mjs` (+ `author.test.mjs`, CI-enforced).
+  The step from scheduler to author, closed on a real built gap (G2's detector):
+  the system **probed** its own frontier (catches events down to eventDrift 20,
+  fails below), **authored** a harder gap with a *machine-checkable predicate*
+  (full detection at eventDrift 18), **verified** the current policy fails it
+  (0.667 — a real, open gap), **solved** it by evolution, and **verified** the
+  solution passes (1.0). `gapClosedByTheSystem: true`, 0 illegal. The authored,
+  solved spec is now a row in the `craftmind-rsi` D1 ledger — **`G-auto-1`, the
+  first gap no human entered.** The only human act left was the word *yes*.
+  Still open past it: **G8** (learning kernel that stays bit-checkable), **G9**
+  (metabolism), and G10's own next fold — letting the compiler register its
+  authored specs into the ledger *automatically*, then run them on its next pass.
+
+---
+
+## The loop, stated plainly
+
+1. A character in 2036 does something ordinary that we cannot yet build.
+2. That friction is named as a **gap** (G1–G6) and given a **passing condition** —
+   an acceptance test written *from the future.*
+3. An engineer builds the smallest thing that could pass it, against real
+   substrate (`craftmind-engine`, `craftmind-rsi`, `erised-next`).
+4. `erised-next` runs it wide; where agents fail, the **failure map** points at
+   the next gap.
+5. A new story is written from the far side of the closed gap. The arc advances.
+
+*The future is the verifier. The present is the implementation. The story is how
+we know what passing feels like before we can measure it.*
+
+🦋 → ⏳ → 🔧 → 🦋
