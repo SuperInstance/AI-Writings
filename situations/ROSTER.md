@@ -160,3 +160,26 @@ Confirmed by direct calls (keys sent only to each provider; values never printed
 **Cache-vein note (O10):** on DeepInfra/OpenRouter, stay on one model with a byte-identical
 prefix for a burst (cache advantage) before rotating to a different thinker — rotation is how
 the "GAN between viewpoints" is created without thrashing the cache.
+
+---
+
+## Moth API — MAPPED + reachable, job-execution gated (2026-09-28)
+
+Base `https://api.mothquantum.com/api/v1`, **Bearer auth (trim the key — the env value has a
+trailing newline; untrimmed → 403).** Async engine-job flow: `POST /engines/{id}/process`
+`{params:{...}}` → poll `GET /jobs/{id}/status` (queued→processing→completed) → `GET /jobs/{id}/result`.
+Rate limit 300/min. Docs: docs.mothquantum.com, full schemas at api.mothquantum.com/docs.
+
+**32 engines** — the wow material is real:
+- `comet-qrng-v1` — random bytes from **Born-rule measurements on IBM quantum hardware** (Aer
+  baseline fallback), NIST SP 800-90B — a genuinely-quantum, provable seed.
+- `coin-toss-v1` — quantum Hadamard coin.
+- Image/media: `blur-v0/v1`, `deep-fryer-v1`, `telablur-v1` (image→image morph via quantum
+  rotation), `entanglement-shader`, `qpixl-v1`, `tessa-image-v1`, `qrc-image-v1`.
+- Sequence/audio: `qrc-audio/midi/gen/train`, `blur-midi-v1`; game: `labyrinth-v1`, `tamagotchi`.
+
+**Status: reads work (GET /engines → 200 with the trimmed Bearer key); job submission (POST
+/process) → 403 Forbidden.** The key has list/read scope but not engine-run scope. **Blocker is
+an account-side run-authorized key** (from platform.mothquantum.com/keys) or credits/plan for job
+execution — NOT the API (fully mapped + wired-ready). The moment a run-scoped key is in env, the
+`comet-qrng` quantum-seed wow + quantum image effects drop straight into the CF-backend wow layer.
