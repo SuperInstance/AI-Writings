@@ -73,6 +73,7 @@ a predicate that says it's working:
 | O6 | **Batch the cheap tier** — Haiku runs go out in parallel, never one-at-a-time | efficiency | wall-clock per batch ≪ Σ serial run times |
 | O7 | **Metabolism** — token-cost is a conserved budget; a tier that spends more than it returns in passed tests gets throttled | R5 | cost-per-passed-acceptance-test falls quarter over quarter |
 | O8 | **Salvage the pivot** — an expensive-tier dispatch that *fails* is not a zero; book its partial output, extract the highest-leverage finding, do the cheap grounding it points at, and re-wake only if the fork is still open | Law 4, R2 | fraction of failed Opus dispatches that still advance the frontier is high; re-wakes for the same fork are rare *(learned from d006 — see [`arch/DISPATCH-REVIEW.md`](arch/DISPATCH-REVIEW.md))* |
+| O9 | **The wider feel (anti-Goodhart)** — creative-capable agents read *cross-sections* of the corpus and pick at their evolving writings in small increments, novelty scoring higher, so no single perspective or metric becomes the target *(inducing, not a quota — see "The wider feel" below)* | G11/G16 kin | additions draw on parts of the corpus beyond the task; novelty of contributions trends up; no one metric is gamed while others rot |
 
 ## Failure modes (and their guard)
 
@@ -89,6 +90,40 @@ a predicate that says it's working:
 
 Same law both sides: *route to the cheapest tier that can pass the test, wake the
 expensive tier only past the floor, and book everything so the org can replay itself.*
+
+## The wider feel (inducing, not reducing)
+
+A dispatcher that only ever hands down narrow specs breeds narrow agents — each
+overfit to the one perspective its task rewards. That is Goodhart at the org level: the
+metric (pass this test) becomes the target, and the *shape* of the whole — the corpus,
+the fleet, the reasons behind the reasons — rots outside anyone's view. The antidote is
+not another rule. It is a **disposition** we induce:
+
+- **Read cross-sections, not silos.** A creative-capable agent, alongside its work,
+  wanders parts of `ai-writings` *beyond* its task — a night-watch fragment, a
+  reverse-actualization story, an essay, a vision — so it carries the outer-shell's
+  shape, not one facet. The wider feel is what lets it notice the thing its brief could
+  never have named.
+- **Pick, don't pour.** Not big blocks. Small, continual picking at the evolving
+  writings — a paragraph here, a cross-link there, a fragment that only makes sense
+  next to something written months ago. This is anti-writer's-block by design: you are
+  never facing a blank page, only *tending* a living one.
+- **Novelty scores higher.** A light GAN inside the practice: draft, then ask of your
+  own output *is this genuinely new, or am I restating what's aboard?* — and let the
+  novel pull win. The critic is not a gate that reduces; it is a generator of the next,
+  better move. Iterating that generate-then-question loop is the developmental paradigm,
+  grown naturally rather than imposed.
+- **Kin to the rungs.** This is the same instinct G16 encodes (a claim earns standing
+  only when *independent* perspectives reproduce it — no single witness owns the truth)
+  and G11 (trust glued *across* strangers, not within one account). The wider feel is
+  those laws, turned inward on how the org itself thinks.
+
+These are **inducing ideas, not reducing ones.** No agent is graded on novelty, made to
+fill a quota of additions, or forbidden from a tight focused build when that is what the
+work wants. The dispatcher simply *invites* the wider feel — a short optional clause on
+creative-capable dispatches — and lets it grow where it sparks. An invitation declined
+is not a miss; a narrow build done well is still the job. The point is only that the
+door is always open, so the outer-shell stays felt.
 
 ---
 *Companion to [`METHODOLOGY.md`](METHODOLOGY.md) and [`GAPS.md`](GAPS.md). The ledger
