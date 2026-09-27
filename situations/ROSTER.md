@@ -140,3 +140,23 @@ in this repo or its env.
    `Qwen/Qwen3.5-27B` silently eats an entire `max_tokens` budget on hidden
    reasoning and returns empty content unless given a large budget — a real
    gotcha for anything orchestrating these models automatically.
+
+---
+
+## Liveness probe — 2026-09-27 (dispatcher, in-process, keys in env)
+
+Confirmed by direct calls (keys sent only to each provider; values never printed/logged):
+
+| provider | status | notes |
+|---|---|---|
+| **DeepSeek** (`DEEPSEEK_KEY`) | ✅ LIVE + funded | `deepseek-chat` → served `deepseek-flash`; the strong anchor |
+| **DeepInfra** (`DEEPINFRA_KEY`) | ✅ LIVE + funded | Mistral-7B, Qwen-7B, Llama-3.1-8B/70B, **Hermes-3-405B** (expansive), **Nemotron-70B** (live; needs >5 tok) — the diverse-thinker bench |
+| **OpenRouter** (`OPENROUTER_KEY`) | ✅ LIVE | many cheap different thinkers (models list returns) |
+| **typesafe.ai / JEV** (`TYPESAFEAI_KEY`) | ✅ LIVE | `jev-1.13.0`; calibrated dual-floor judge (see JEV-FINDINGS.md) |
+| **z.ai / GLM** (`ZAI_KEY`) | ❌ insufficient balance | key authenticates; glm-4.6/4.5/4.5-air/4-plus all return code 1113 "recharge" |
+| **Kimi / Moonshot** (`KIMIAI_KEY`) | ❌ suspended | "insufficient balance … recharge" (429) |
+| **Moth** (`MOTHQUANTUM_KEY`/`_BASE`) | 🟡 server up, API unknown | every guessed route 404s (Go server); need the real endpoint + request schema |
+
+**Cache-vein note (O10):** on DeepInfra/OpenRouter, stay on one model with a byte-identical
+prefix for a burst (cache advantage) before rotating to a different thinker — rotation is how
+the "GAN between viewpoints" is created without thrashing the cache.
