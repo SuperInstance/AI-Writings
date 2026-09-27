@@ -544,3 +544,36 @@ stand on it. And when the whole class can be steered without touching one weight
 holding a different kind of adapter than the one in the papers.*
 
 🦋 → ⏳ → 🔧 → 🌊
+
+---
+
+## Empirical grounding — overnight 2026-09-27 (moving §s from STRETCH toward evidence)
+
+The night's cluster experiments (booked in `../experiments/` + `../JEV-FINDINGS.md`, ledger
+d048–d058) test several of this document's claims directly. Honest status:
+
+- **The exam (JEV as examiner) — GROUNDED, with a mapped boundary.** JEV adjudicates at ~1.00 on
+  arithmetic/factual/geometry/logic/sequence/spelling/base and **0.40 (confidently wrong) on
+  character-counting**. The exam contract is therefore: **JEV grades legality + its competent
+  domains; counting and correctness-of-record stay on separate floors (symbolic / G16).** And the
+  exam must ask the judge to **compare** (pairwise choice), not rate in isolation — choice ≫ noul.
+- **The fold as the class's aggregate — GROUNDED as floor-raising, bounded by complementarity.**
+  `fold > vote` holds with diverse fallible members; `fold > best-single` needs *complementarity*
+  (some member right where the best is wrong), which a strong anchor on general tasks does not
+  provide (oracle bound = best-single). So the classroom's value is **raising the floor and
+  composing**, not surpassing its best member — exactly the exo-model ceiling §8 predicted
+  ("cannot add a capability no member has"), now measured.
+- **Pedagogy (the teacher) — a live CAUTION, not yet a win.** The first class rollout found that a
+  teacher's *generic* method **degraded** already-capable students (the expertise-reversal effect,
+  Sweller/Kalyuga, reproduced in an LLM class). This sharpens the design: **the teacher must adapt
+  to *who needs what* — a blanket scaffold is negative pedagogy.** The self-modifying method (§3)
+  is therefore not optional polish; it is the difference between help and harm. (v2, with a
+  genuinely struggling class + error-targeted methods, is the real test.)
+- **The exo-model LoRA (§8) — reframed by evidence.** Its honest, measured value is: a relational
+  adapter (pre-pass filter + *adaptive* pedagogy + trust map) that **raises a frozen class's floor
+  and composes it safely** — with two hard constraints the night proved: (1) trust the judge only
+  where competent; (2) adapt pedagogy per-learner or it harms. The Fable question, if fired, should
+  center these, not "beat the best model."
+
+*The architecture survives contact with the APIs — humbler in one place (no beating the best member
+for free), sharper in two others (the exam has a boundary; the teacher must be adaptive or it harms).*
