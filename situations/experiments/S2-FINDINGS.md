@@ -223,3 +223,20 @@ engineering choice for a judge with a known blind spot.
 5. The **safe fold** (JEV-choice + counting→vote + defer-to-clear-majority) is robust and deployable:
    it raises the floor and never falls below the crowd. This is the honest, shippable Reader's-Fold
    ensembling primitive — and the exam contract for the classroom.
+
+## Round 7 — complementarity hunt (code output): the third confirmation
+
+Six members (DeepSeek, Qwen-7B, Mistral-7B, Llama-70B, Hermes-405B, Llama-3.2-3B) on 18 Python
+code-output items (locally-verified truths; JEV-adjudicable). Result: five members scored 18/18
+(only Llama-70B lagged at 13/18), best-single = vote = **safe-fold = 18/18**, **oracle = 18/18**,
+**complementary items = 0**.
+
+**Third independent domain, same verdict.** Across general-hard quiz, arithmetic, and now code
+output, modern models are **near-ceiling on well-defined verifiable tasks and their failures
+coincide** — so there is **no complementarity for a fold to exploit**, and `fold > best-single` is
+not observable regardless of method. And in all three the **safe fold held at ≥ vote with zero
+degradation** — the robust, deployable property. Fable-gate 1a is settled: `fold > best-single` is
+the wrong target here; the honest, measured value of the fold/exo-model is **floor-raising +
+safety + composition**, and beating the best member would require a genuinely *complementary*
+crew (specialists with non-overlapping competence), which strong general models on verifiable
+tasks do not form. Chasing it further on verifiable general tasks is diminishing returns; booked.
