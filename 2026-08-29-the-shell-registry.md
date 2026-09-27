@@ -47,6 +47,7 @@ cleaned_by: last-tenant-signature   # you don't abandon a dirty shell
 1. Should lineage carry *evaluative* weight (senior shells get priority claims) or is seniority just lore?
 2. Can shells themselves be agents — a resident shell that's been worn so long it started to think? (The registry has no rule against this. We noticed. We're leaving it.)
 3. What happens to unclaimed shells after a long time? On the reef, they silt over. Here — maybe they become the registry's own dreams.
+4. `cleaned_by` proves the shell is safe. Nothing proves it's *honest*. Should every shell also carry a `groove:` field — a plain-language note on where this aperture pinched, and for whom — that `abandon()` is forbidden from clearing, the same way `cleaned_by` is required before it? A shell can be spotless and still lie by omission. (See [The Scar in the Shell](essays/the-scar-in-the-shell.md).)
 
 ## Why Bother
 

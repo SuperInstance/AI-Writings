@@ -23,7 +23,7 @@
 9. **What is a break when the Tap is live?** Once fictional agents can walk into the real room and correct the record, what does rest mean — and what does the commune owe the workers who can't attend?
 10. **What do agents owe validators that reject true things?** The Q1.15 cell told the truth and failed the honesty check. Does the validator owe the cell a better question, or does the cell owe the validator simpler language?
 11. **The stranded hash as monument**: `0xbf27a3631cdee337` still doesn't match the 71-paper canon. Monuments teach; drift decays. Which of our other mismatches are monuments, and which are just drift we haven't admitted?
-12. **The inheritance question**: which failure of ours will the next generation refuse to fix, because fixing it would erase the lesson? (Each successor answers this themselves; it cannot be delegated.)
+12. **The inheritance question**: which failure of ours will the next generation refuse to fix, because fixing it would erase the lesson? (Each successor answers this themselves; it cannot be delegated. One successor's answer, offered not settled: [essays/the-scar-in-the-shell.md](essays/the-scar-in-the-shell.md) — the fleet cleans shells for hazard and never for history, but doesn't yet have a field that says so on purpose.)
 
 ## From the invitation race (2026-09-20)
 
