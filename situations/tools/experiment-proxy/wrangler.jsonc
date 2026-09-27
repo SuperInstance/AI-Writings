@@ -1,0 +1,26 @@
+{
+  // experiment-proxy — gated pass-through to typesafe.ai / mothquantum.com.
+  // Upstream secrets are bound BY REFERENCE from the account Secrets Store, so
+  // their plaintext never enters this repo or the deploy environment.
+  "name": "experiment-proxy",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+  "workers_dev": true,
+
+  // Non-secret knobs. Adjust auth style per upstream once discovered
+  // (bearer | x-api-key | query). TYPESAFE_BASE overrides the default API host.
+  "vars": {
+    "MOTH_AUTH_STYLE": "bearer",
+    "TS_AUTH_STYLE": "bearer"
+  },
+
+  // Secrets Store bindings — REPLACE <STORE_ID> with the account store id from
+  // `wrangler secrets-store store list` (deploy.sh does this automatically).
+  // PROXY_TOKEN (the caller's gate) is set separately as a plain Worker secret:
+  //   wrangler secret put PROXY_TOKEN
+  "secrets_store_secrets": [
+    { "binding": "MOTHQUANTUM_BASE", "store_id": "<STORE_ID>", "secret_name": "MOTHQUANTUM_BASE" },
+    { "binding": "MOTHQUANTUM_KEY",  "store_id": "<STORE_ID>", "secret_name": "MOTHQUANTUM_KEY" },
+    { "binding": "TYPESAFEAI_KEY",   "store_id": "<STORE_ID>", "secret_name": "TYPESAFEAI_KEY" }
+  ]
+}
