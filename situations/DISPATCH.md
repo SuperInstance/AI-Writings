@@ -72,6 +72,7 @@ a predicate that says it's working:
 | O5 | **Booked double-entry dispatch** — every hand-down (debit) and result (credit) is a ledger row | Law 4 | 100% of shipped work traces to a booked dispatch; replay reproduces the org's history |
 | O6 | **Batch the cheap tier** — Haiku runs go out in parallel, never one-at-a-time | efficiency | wall-clock per batch ≪ Σ serial run times |
 | O7 | **Metabolism** — token-cost is a conserved budget; a tier that spends more than it returns in passed tests gets throttled | R5 | cost-per-passed-acceptance-test falls quarter over quarter |
+| O8 | **Salvage the pivot** — an expensive-tier dispatch that *fails* is not a zero; book its partial output, extract the highest-leverage finding, do the cheap grounding it points at, and re-wake only if the fork is still open | Law 4, R2 | fraction of failed Opus dispatches that still advance the frontier is high; re-wakes for the same fork are rare *(learned from d006 — see [`arch/DISPATCH-REVIEW.md`](arch/DISPATCH-REVIEW.md))* |
 
 ## Failure modes (and their guard)
 
