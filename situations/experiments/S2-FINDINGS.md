@@ -126,3 +126,47 @@ the exo-model Fable call fire. Meaningful progress; deadband still correctly clo
 *The honest arc is the result: a correlated set could not prove the fold; a diverse, fallible
 set did — the fold beat the vote by trusting judged evidence over headcount, and stopped exactly
 at the ceiling theory predicted. Readers who disagree for real are what the Reader's Fold needs.*
+
+## Round 4 — S2′ distributed-strengths (the judge-competence finding)
+
+Six diverse members (DeepSeek, Hermes-3-405B, Nemotron-70B, Mistral-7B, Qwen-7B, Llama-70B) on
+24 hard items across buckets (arithmetic, letter/vowel counting, obscure factual, lateral,
+geometry, base/sequence, combinatorics). JEV adjudicated the fold.
+
+| measure | score |
+|---|---|
+| single: DeepSeek | **24/24** |
+| single: Nemotron / Qwen-7B | 23/24 |
+| single: Hermes-405B | 22/24 |
+| single: Mistral-7B / Llama-70B | 18 / 17 |
+| best-single | **24/24** |
+| vote | **24/24** |
+| **fold (JEV)** | **21/24** ← *worse than both* |
+
+**The fold LOST 3 items the vote got right** — Q6 (count 'i' in "indivisibility"=6), Q8 (vowels
+in "sequoia"=5), Q15 (clock angle at 4:20=10°). In each, the majority was correct, but **JEV
+scored a wrong minority answer above the right majority one** and the fold followed JEV off the
+cliff.
+
+**The finding (load-bearing, refines the whole cluster thesis):** the Reader's Fold with a judge
+is only as good as **the judge's competence in that task's domain.** JEV is a calibrated
+*legality/confidence* floor — it recovered *arithmetic* in round 3 (it can verify arithmetic),
+but here it **actively harmed** the fold on *perceptual/counting/geometry* tasks it cannot
+actually verify, overriding a correct majority with a confidently-wrong minority. Trusting judged
+evidence over headcount is a *win only where the judge is competent, and a loss where it is not.*
+
+**Design consequences (feed the next rounds and the exo-model):**
+1. **Domain-gated fold.** The fold must weight the judge by its *known competence per task-type*,
+   or fall back to vote where the judge is weak. A blind JEV-fold is not safe.
+2. **Two floors, kept separate — proven the hard way.** JEV (legality/confidence) must never be
+   the *correctness* oracle; a real correctness floor (tests / ground truth / a domain-competent
+   checker) stays beside it. Round 4 is the empirical cost of conflating them.
+3. **`fold > best-single` is doubly gated:** it needs (a) a set where no single member (not even
+   DeepSeek) is perfect, AND (b) a judge competent on those very items — and (a) and (b) fight
+   each other, because the items a strong member misses are often the perceptual ones the judge
+   also can't check. This is a real, honest limit on the exo-model's reach, not a tuning knob.
+
+**Next:** a **hybrid fold** — vote as the base; let JEV *override* only when its confidence is
+high AND the task-type is one JEV is competent on (arithmetic/factual), else keep the vote. This
+should restore fold ≥ vote and is the honest form of "trust judged evidence where the judge can
+judge." Gate status unchanged: `fold > best-single` still ❌ → Fable still NO-GO, correctly.
