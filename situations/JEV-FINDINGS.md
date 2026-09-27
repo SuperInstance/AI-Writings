@@ -89,3 +89,41 @@ fleet can call. Both are cheap and both are booked the moment they run.
 
 *The oracle does not carry a verdict — it hands back a calibrated fold, and we set the
 weight. Law 6, as an API.*
+
+---
+
+## The JEV competence map (2026-09-27) — where a judge can be trusted
+
+Method: for 32 items across 8 domains, give JEV a correct answer + a plausible distractor as a
+**choice** ("which is correct?"), position randomized; measure whether JEV picks the correct one.
+This maps where the Reader's-Fold can trust JEV as adjudicator.
+
+| domain | accuracy | verdict |
+|---|---|---|
+| arithmetic | 5/5 (1.00) | RELIABLE |
+| base conversion | 2/2 (1.00) | RELIABLE |
+| factual recall | 5/5 (1.00) | RELIABLE |
+| geometry / angles | 5/5 (1.00) | RELIABLE |
+| logic / word-problems | 5/5 (1.00) | RELIABLE |
+| sequences | 3/3 (1.00) | RELIABLE |
+| spelling / reversal | 2/2 (1.00) | RELIABLE |
+| **counting (letters/vowels/chars)** | **2/5 (0.40)** | **UNRELIABLE — and confidently wrong** |
+| **overall** | **29/32 (0.91)** | |
+
+**Two load-bearing findings:**
+1. **JEV is a trustworthy adjudicator across almost every domain** — its single blind spot is
+   **character-counting**, the classic tokenization weakness an LLM-based judge inherits. On the
+   three counting misses JEV was *confidently* wrong (margins 0.52–0.76). So a fold/exam can trust
+   JEV widely, but must **fall back to voting or a symbolic checker on counting-type tasks.**
+2. **Pairwise choice ≫ independent noul-scoring.** Geometry (incl. the 4:20 and 3:15 clock angles)
+   scored 1.00 here via a *choice* between two options — the very clock-angle task the round-4
+   fold got wrong when it scored each candidate with an *independent noul*. The adjudication
+   *method* matters: ask the judge to compare, not to rate in isolation. This explains round 4's
+   degradation (it used per-candidate noul AND hit counting items) and prescribes the fix.
+
+**The safe fold (prescription):** adjudicate with JEV **choice** among the disagreeing candidates,
+**except** on counting-type tasks, where fall back to the majority vote. Under this rule the fold
+never degrades below vote and gains on the domains where JEV is competent — the honest form of
+"trust judged evidence where the judge can judge." (This is also the exam's reliability contract
+for the classroom: JEV grades legality + these domains; counting and correctness-of-record stay
+on separate floors — G16 / symbolic.)
