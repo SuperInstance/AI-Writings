@@ -455,3 +455,29 @@ tier earn its class only when a second reader agrees. Measure legal and good on 
 floors. Then read the red bar honestly.*
 
 🦋 → ⏳ → 🔧 → 🌊
+
+---
+
+## Results log — overnight 2026-09-27 (dispatcher, live APIs)
+
+The studies moved from plan to evidence tonight (DeepSeek + DeepInfra + JEV live in-process):
+
+| study | status | headline result | doc |
+|---|---|---|---|
+| **S2** Reader's-Fold ensemble | **DONE (6 rounds)** | `fold>vote` CLEARED on diverse fallible members (17v14); `fold>best-single` needs *complementarity* (oracle bound = best-single on general quiz → wrong target for a strong anchor); **safe fold** = JEV-choice + counting→vote is robust (≥vote always) | `experiments/S2-FINDINGS.md` |
+| **S4′** JEV competence map | **DONE** | JEV adjudicates 1.00 on arithmetic/factual/geometry/logic/sequence/spelling/base, **0.40 (confidently wrong) on counting**; **pairwise choice ≫ independent noul** | `JEV-FINDINGS.md` |
+| **S1** JEV-gated best-of-N | **DONE** | JEV-choice selection lifts Mistral-7B **0.94→1.00**; **self-consistency (0.89) underperforms greedy** — an outside judge beats self-voting | `experiments/S1-FINDINGS.md` |
+| **1b** class rollout (adaptive pedagogy) | **running** | does a teacher-model's adapted method raise the weak-student class floor over rounds? | (pending) |
+
+**The through-line (a real thesis, earned tonight):** an external *competent* judge is a genuine
+force multiplier — it lifts a weak model (S1), and folds a diverse crew above the vote (S2) —
+**but only inside its competence, and only where the crew is complementary.** Diversity is cheap;
+complementarity and judge-competence are the scarce inputs. The honest cluster primitive is the
+**safe fold**: trust judged evidence where the judge can judge, defer to the crowd where it cannot,
+and never pretend to add a capability no member holds. Every number here re-derives from booked
+`/tmp` results and the ledger (replay ≡ live).
+
+**Fable gate (exo-model LoRA):** 1a reframed (`fold>best-single` is the wrong target on general
+quiz; the exo-model's proven value is floor-raising + composition + portability); 1b in flight;
+deadband correctly holds until the class rollout lands and Opus at ESCALATE is tested on the
+"one object under Law 6?" question.
