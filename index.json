@@ -58557,6 +58557,25 @@
     "size_bytes": 5555
   },
   {
+    "filename": "PLAYABLE-SITUATIONS.md",
+    "path": "situations/arch/PLAYABLE-SITUATIONS.md",
+    "title": "Playable Situations — project JEV + Moth so PLAYING finds the answer",
+    "description": "\"set up quilt SITUATIONS so that PLAYING them finds the answers — that's the ultimate pass on the untested subject.\" Ground truth: `arch/TOOLING-LIVE-2026-09-28.md` (verified live JEV + Moth schemas),...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 690,
+    "date": "2026-09-28",
+    "size_bytes": 12964
+  },
+  {
     "filename": "CARGO-LINE-ROADMAP.md",
     "path": "situations/arch/CARGO-LINE-ROADMAP.md",
     "title": "cargo-line-tycoon — the forward roadmap (the Chart is flowing; where the ring turns next)",
@@ -58829,6 +58848,24 @@
     "word_count": 785,
     "date": "2026-09-27",
     "size_bytes": 18110
+  },
+  {
+    "filename": "THE-WEAKEST-CLAIM-METHOD.md",
+    "path": "situations/arch/THE-WEAKEST-CLAIM-METHOD.md",
+    "title": "The Weakest-Claim Method — an un-gameable audit instrument",
+    "description": "This is the reusable tool the experiments produced: point it at any tool's advertised guarantee and it returns the guarantee's weakest claim + whether an adversary nobody could steer breaks it. Runnab...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 642,
+    "date": "2026-09-28",
+    "size_bytes": 4360
   },
   {
     "filename": "G16-architecture.md",
