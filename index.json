@@ -252953,6 +252953,24 @@
     "size_bytes": 1315
   },
   {
+    "filename": "TWELVE_WAYS_TO_SAY_IT.md",
+    "path": "short-stories/TWELVE_WAYS_TO_SAY_IT.md",
+    "title": "Twelve Ways to Say It",
+    "description": "utterance below encodes to the identical eleven-byte data plane — `i love you` — while the timbre trajectory (Ground/Attract/Repel/Abstain, Latin-square keyed) carries the actual meaning. A skimming r...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 529,
+    "date": "2026-09-28",
+    "size_bytes": 3447
+  },
+  {
     "filename": "read-me-a-film.md",
     "path": "short-stories/read-me-a-film.md",
     "title": "Read Me a Film",
