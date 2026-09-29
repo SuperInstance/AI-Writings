@@ -58531,9 +58531,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 765,
+    "word_count": 747,
     "date": "2026-09-29",
-    "size_bytes": 5864
+    "size_bytes": 6796
   },
   {
     "filename": "README-EDUCATION-STANDARD.md",
@@ -58697,9 +58697,9 @@
       "Claude Opus"
     ],
     "style": "Dialogue",
-    "word_count": 770,
+    "word_count": 738,
     "date": "2026-09-29",
-    "size_bytes": 6329
+    "size_bytes": 9323
   },
   {
     "filename": "cargo-line-fact-landed.md",
@@ -58993,6 +58993,24 @@
     "word_count": 762,
     "date": "2026-09-28",
     "size_bytes": 8103
+  },
+  {
+    "filename": "SCOUT-FINDINGS-2026-09-29.md",
+    "path": "situations/arch/SCOUT-FINDINGS-2026-09-29.md",
+    "title": "Scout findings — cutting edge + the rest of SuperInstance (2026-09-29)",
+    "description": "durable capture so the next shipwright acts on intel, not vibes. Each finding is tagged with the move it unlocks. Sources: web (cutting edge) + GitHub MCP reads of ~44 SuperInstance repos.*",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 665,
+    "date": "2026-09-29",
+    "size_bytes": 8944
   },
   {
     "filename": "WIDE-IDEATION-2026-09-28.md",
