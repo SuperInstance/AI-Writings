@@ -19,7 +19,7 @@ the `ROUTE→OUTCOME` spine at volume; the live transcripts supply the rare, exp
 for the capture discipline: we have thousands of routes on record and almost no folds — so folds are
 the gold to capture going forward.
 
-## The fleet as a routing process (ROUTE → OUTCOME, n=124)
+## The fleet as a routing process (ROUTE → OUTCOME, snapshot as of the d122 booking, n=124)
 
 | outcome | count | share |
 |---------|------:|------:|
@@ -35,6 +35,11 @@ the gold to capture going forward.
 86% of dispatches reached DONE. The honest scars (ABANDONED, FOLDED, PARTIAL) are booked, not hidden
 — which is what makes this clean training data for a learned dispatch router: the negatives are real
 negatives. This table is the first quantitative self-portrait of the fleet's operation.
+
+*The corpus grows by one route per new dispatch — including the dispatches that build the corpus
+(booking d123 pushed the live count to 125, DONE=108). The self-portrait paints itself: quilts
+inside quilts. Run `bash labs/situation-recorder/run_all.sh` for live counts; the numbers above are
+the pinned d122 snapshot.*
 
 ## Decomposition (FOLD, n=3)
 

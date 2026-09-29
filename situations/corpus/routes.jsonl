@@ -121,4 +121,5 @@
 {"actor": "ledger", "outcome": "OPEN", "sid": "ledger-d120", "subtask": "syzygy / production / rsi", "to": "dispatcher", "why": "handed_down_from=d117 cost_class=1"}
 {"actor": "ledger", "outcome": "DONE", "sid": "ledger-d121", "subtask": "corpus / capture / inter-relational / rsi", "to": "dispatcher", "why": "handed_down_from=d120 cost_class=1"}
 {"actor": "ledger", "outcome": "DONE", "sid": "ledger-d122", "subtask": "tools / dogfood / dice / corpus", "to": "dispatcher", "why": "handed_down_from=d121 cost_class=1"}
+{"actor": "ledger", "outcome": "DONE", "sid": "ledger-d123", "subtask": "corpus / tables / backfill / ml-baseline / rsi", "to": "dispatcher", "why": "handed_down_from=d122 cost_class=1"}
 {"actor": "opus-4.8", "outcome": "capture-path-validated", "sid": "sit-2026-09-29-capture-path", "subtask": "build+validate capture cell and local-dice bridge", "to": "dispatcher-self", "why": "key-independent; no fresh session can spawn under the 5h limit"}
