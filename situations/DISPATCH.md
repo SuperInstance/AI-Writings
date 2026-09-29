@@ -14,9 +14,20 @@ work happened.*
 | tier | model | role | cost class | woken | earns |
 |---|---|---|---|---|---|
 | **Architecture / top management** | **Opus 5.5** | pressure-tests the design, sets the architecture a build team executes, makes the irreversible/cross-cutting calls | **8** (expensive) | **sparingly** — only past the deadband (a genuine architectural fork, an outward/irreversible action, a law-level change) | — |
-| **Build team** | **Sonnet 5** | executes an architecture into shipped, tested code; the standing workforce | **3** | per project | **standing** on a task-class after N booked-correct |
+| **Build team** | **Sonnet 5.5** | executes an architecture into shipped, tested code; the standing workforce | **3** | per project | **standing** on a task-class after N booked-correct |
 | **Runner** | **Haiku 4.5** | low-power grunt work — search sweeps, test running, format/lint, mechanical edits, batch checks | **1** (cheap) | freely, in **parallel batches** | standing on narrow, well-specified runs |
 | **Dispatcher** | *me* | routes work to the cheapest tier that can pass its acceptance test; books every dispatch; wakes Opus only past the floor | **1** | always on | — |
+
+**Default model IDs (standing rule, Casey 2026-09-29).** Every dispatched session and
+subagent uses the **5.5** generation by default — pass `model` explicitly on every
+`create_session` / Agent spawn, never rely on inheritance:
+
+- Architecture / Opus tier → **`claude-opus-5-5`**
+- Build team / Sonnet tier → **`claude-sonnet-5-5`**
+- Runner → `claude-haiku-4-5` (unchanged)
+
+Only drop below 5.5 when a task is explicitly cheap-and-mechanical enough for the
+runner, or Casey names a different model for that job.
 
 The dispatcher is a **cell**, not a boss: it makes one typed decision — *which tier,
 and why* — and books it. The "why" is a **JEV verdict** (below). It never does the
