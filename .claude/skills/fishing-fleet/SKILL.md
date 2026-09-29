@@ -71,6 +71,15 @@ work a deckhand can do.*
 3. **Many commits = time-capsules.** Commit after each experiment/haul with a message that tips
    the hand of the reasoning (tried / expected / found / implication). Push often. `git pull
    --rebase` before each push; never force-push.
+3b. **Leave a transcript (the gold is the I/O, not just the repo).** Alongside the prose commit,
+   record the situation as a hash-chained transcript with `labs/situation-recorder/` — one
+   relation-record per step (`TASK ROUTE DRAFT DRAW FOLD KEEP DROP MARK OUTCOME`), `refs` pointing
+   at what each step folded. Write it to `situations/transcripts/<sid>.jsonl`. The `FOLD` record
+   MUST keep the leaves, the located weakest (argmin), and the gap — not just the scalar. When the
+   Moth API is throttled/blocked, draw the un-gameable `DRAW` values **locally** from `MicroMoth-quilt`
+   (a Bell/GHZ circuit, no network) and put its collapse-ledger id in the receipt. Why: the transcript
+   is the corpus a future model learns to decompose from — see
+   `situations/arch/INTER-RELATIONAL-INTELLIGENCE.md`. The repo is the silver; the transcript is the gold.
 4. **Harvest.** The parent's scheduled check-in pulls the commit trail, promotes gems, books the
    yield, and re-drives the captain (or spawns the next haul) while budget holds.
 5. **Stop cleanly on limits.** Rate limits are account-wide (5-hour and 7-day); on a limit,
