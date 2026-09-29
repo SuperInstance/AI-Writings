@@ -58060,9 +58060,9 @@
       "Claude Opus"
     ],
     "style": "Essay",
-    "word_count": 816,
+    "word_count": 797,
     "date": "2026-09-26",
-    "size_bytes": 13773
+    "size_bytes": 14592
   },
   {
     "filename": "FABLE-ANSWER.md",
@@ -58261,6 +58261,42 @@
     "word_count": 544,
     "date": "2026-09-27",
     "size_bytes": 3188
+  },
+  {
+    "filename": "external-ux-conventions.md",
+    "path": "situations/scout/external-ux-conventions.md",
+    "title": "Scout B — external UX & data-model conventions for ActiveLedger / Cell Graph",
+    "description": "Feeds the \"schema decisions\" fold before B1 schema-freeze. Companion to Scout A (`internal-inventory.md`). Anchor doc: `../arch/ACTIVELEDGER-CELL-GRAPH.md`.",
+    "folder": "scout",
+    "topic": "Scout",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 632,
+    "date": "2026-09-29",
+    "size_bytes": 14340
+  },
+  {
+    "filename": "internal-inventory.md",
+    "path": "situations/scout/internal-inventory.md",
+    "title": "Scout A — Internal Inventory (SuperInstance org)",
+    "description": "primitives instead of reinventing them. Written 2026-09-29 by Scout A (opus-4.8).",
+    "folder": "scout",
+    "topic": "Scout",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 692,
+    "date": "2026-09-29",
+    "size_bytes": 14308
   },
   {
     "filename": "02-the-table-and-the-wheelhouse.md",
@@ -58641,7 +58677,7 @@
     "style": "Essay",
     "word_count": 771,
     "date": "2026-09-29",
-    "size_bytes": 12698
+    "size_bytes": 23226
   },
   {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
