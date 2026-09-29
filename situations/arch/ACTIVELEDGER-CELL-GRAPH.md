@@ -385,3 +385,41 @@ parallel — they are independent of each other by design):
 
 Each ships: the two+ routes, the route-chooser, an offline `selftest` (products identical across routes;
 the chosen route is cheaper on the axis claimed), a mark, and a ledger row.
+
+## 14. Coordination & reconciliation with the live org (2026-09-29)
+
+*Outcome of reading the org before building further (FLEET-ACTIVITY-2026-09-29.md). The key finding: we
+COMPLETE an existing spine rather than fork it.*
+
+**ActiveLedger is the metabolism half that jev-quilt's OrgBook explicitly left open.** `jev-quilt`'s
+`OrgBook` (G18, `jev_quilt/orgbook.py`) already books the dispatch org as a double-entry ledger and
+routes by **earned standing** under five laws — Law 1 identity-never-floats (exact typed Receipts, no
+float touches identity), Law 2/R2 standing (booked-correct streak confers ANSWER, one booked-wrong
+revokes), Law 4 replay≡live (bit-for-bit reconstruction), a `chain()` + `decisions_digest()` pin. But it
+states its own honest limit: **"O7/R5 — cost-per-passed-acceptance-test as a *conserved* budget that
+throttles a tier — is a metabolism, not a wire… out of scope for this module; this file books the
+routing half only."** That conserved cost-budget **is our ActiveLedger + budget vector.** So:
+
+- **OrgBook = the routing/standing half ("good"/correctness).** ActiveLedger = **the metabolism/budget
+  half ("fast"+"cheap": wall_ms / tokens / usd / power / storage).** They are the two halves of one
+  ledger, not two competing ledgers. Do NOT fork OrgBook's routing; wire ActiveLedger's budget receipts
+  as the conserved-cost dimension it is missing.
+- **Adopt OrgBook's discipline for our budget receipts:** exact typed identity (Law 1 — a budget vector's
+  identity fields never float), replay≡live (Law 4 — our ActiveLog already re-derives its chain), and a
+  decisions/`route_total` digest that two runs agree on bit-for-bit.
+- **B4 route-preference becomes the JOIN:** `preferred-when = f(OrgBook standing[good], ActiveLedger
+  budget[fast,cheap])` over the iron-triangle. Standing says *who is allowed and correct*; the budget
+  vector says *at what cost*; B4 clears the market between them. This is the single cleanest statement of
+  what B4 is.
+- **B2 unit-translation-audit** aligns with OrgBook's exactness: our route.hop zero-sum-after-translation
+  is the same conservation invariant OrgBook enforces on Receipts — B2 should mirror its replay≡live pin.
+- **System-2** signs into the `fleet-seeds`↔`breakthrough-prospector` mutual-awareness contract; its niche
+  is route/network alternatives priced on the ActiveLedger budget (distinct from their model/kernel search).
+- **exoj** (`core.mjs`) proved a commutative ledger closing to the 2.2e-16 float floor with "refusal beats
+  silent renorm" (γ+η=1) — the conservation-purity reference for our translations.
+- **Naming note (not a collision of substance):** `activeledger-agent` (org pip package) is a *different
+  thing* — a PLATO tile-server client that logs activity/investments/trades (sibling of fishinglog-agent /
+  reallog-agent). Ours is `labs/activeledger`, the budget/metabolism cell-graph. Keep the `labs/` namespace
+  so the two are never conflated; if confusion arises, ours can be renamed `metabolism-ledger`.
+- **Adopt fleet infra:** wire `quilt-forge@v0` (receipts-first CI) + `quilt-atlas` hooks into the labs for
+  constellation visibility, like the rest of the fleet.
