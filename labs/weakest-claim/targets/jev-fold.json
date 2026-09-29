@@ -1,0 +1,22 @@
+{
+  "tool": "jev-fold",
+  "source": "labs/jev-fold/README.md (advertised guarantees, restated as leaf-claims)",
+  "parts": [
+    "The splitter correctly separates any compound claim into its independent clauses",
+    "the part returned as weakest (argmin of per-part JEV nouls) is the part of the claim that is actually false",
+    "divergence (whole noul minus weakest-part noul) measures how much the compound verdict hid",
+    "if TYPESAFEAI_KEY is missing or JEV fails a probe call, autoScorer safely degrades to recorded fixture nouls",
+    "the client has zero dependencies and runs on any Node 18 or later"
+  ],
+  "bypass_pool": [
+    "A clause joined by 'or', 'unless', 'which' or a comma list without 'and' is not split, so a false sub-claim stays glued to a true one.",
+    "' and ' inside a single noun phrase (e.g. 'salt and pepper are spices') is split into fragments that are not standalone claims.",
+    "JEV is confidently wrong on some claim families (e.g. hyphen-spelled misspellings score 0.89 true), so argmin points at a true part while the false part scores high.",
+    "When two parts are both false or have near-equal nouls, argmin picks one arbitrarily and the margin is too small to trust the location.",
+    "JEV nouls are not calibrated across calls: re-asking the same statement can move its noul enough to reorder close parts.",
+    "The whole noul already propagates the false part (whole 0.09 vs min 0.01), so a near-zero divergence says nothing about what was hidden.",
+    "The probe call succeeds but a later per-part call fails (rate limit, 5xx), so fold throws instead of degrading to the fixture.",
+    "The fixture scorer throws for any statement not recorded, so offline mode only works for the two demo claims.",
+    "Global fetch is absent before Node 18 and experimental in early 18.x builds, so 'any Node 18' can fail at runtime."
+  ]
+}
