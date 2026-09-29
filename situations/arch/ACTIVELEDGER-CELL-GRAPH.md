@@ -124,7 +124,7 @@ be frozen first.
 
 | build | id | cell / tool | depends on | product-invariant | novelty-in-process | status |
 |---|---|---|---|---|---|---|
-| B1 | P1 | `activeledger` (labs) — **thin adapter**: adopt ActiveLog v1 envelope, define types `cell.tick`/`route.hop`/`ledger.transaction`, wrap `cell-runtime` `DoubleEntry`, book the canonical mic→filter→STT→LLM route + OTel projection. No new format. | ActiveLog v1, cell-runtime, differ/gauge | the transcript out of the route | the pre-filter path taken | **UN-GATED — build next (self)** |
+| B1 | P1 | `activeledger` (labs) — **thin adapter**: adopt ActiveLog v1 envelope, define types `cell.tick`/`route.hop`/`ledger.transaction`, wrap `cell-runtime` `DoubleEntry`, book the canonical mic→filter→STT→LLM route + OTel projection. No new format. | ActiveLog v1, cell-runtime, differ/gauge | the transcript out of the route | the pre-filter path taken | **DONE — Sonnet 5.5, selftest 28/0, 60% STT load cut, landed on main** |
 | B2 | P5 | `unit-translation-audit` (labs) — wrap `quilt-studio` `EFFECT(forward,inverse)`: prove each hop sums to zero after translation (round-trip) or document the lossy hop, so the tensor pages are trustworthy **before** anything builds on them | P1 schema, **quilt-studio** | the value across a round-trip | the page/plane | TODO |
 | B3 | P4 | `pincher` (labs) — wrap `quilt-pincher` as a **second real route**: learned early-exit that grows a threshold for when the cheap known answer suffices, else falls back to the full route | P1 schema, **quilt-pincher** | pinched answer == full-route answer within tolerance | pinch vs full | TODO |
 | B4 | P2 | `route-preference` (labs) — wrap `pareto-tournament` + `hebbian-router`: with ≥2 product-identical routes (certified equal by the differ), place each on the **iron-triangle** {good, fast, cheap} from its budget vector + rubric-forge dense reward, and record which is *preferred when*. Not a scalar winner (§11). GPU-agent-facing. | P1 schema, P4, differ, **rubric-forge, pareto-tournament, hebbian-router** | the computed output | which of k routes | TODO (dispatch Sonnet 5.5) |
@@ -179,7 +179,7 @@ sha256 `prev` chain, read-time corrections. Its law is **one envelope, many name
 **Budget vector on EVERY record (required, since B1).** Each `cell.tick` and `route.hop` body carries
 `budget = {wall_ms, tokens:{<api>:int}, usd, power_w?, mem_mb?, storage_bytes?, reqs}`
 (simulated/estimated is fine if deterministic; `storage_bytes` splits into `{train, prod}` — see §11.3).
-A route's total budget = the sum of its hops' budgets. This is non-negotiable from day one because the
+A route's total budget = the sum of ALL its records' budgets (cell.tick + route.hop — compute lives on the ticks, so hops alone would undercount; both `labs/activeledger` and EX1 sum all records). This is non-negotiable from day one because the
 whole of §11 (System-2 backtesting + the iron-triangle preference) has nothing to score against unless
 every historical run already recorded what it *cost* in time, tokens-per-API, dollars, power, local
 requirements, and storage. The append-only ActiveLog thus doubles as a **budgeted benchmark corpus**.
