@@ -42,3 +42,24 @@ Encodes a list/grid of values into a quantum state (QPIXL), runs it, reads it ba
   `{"result":{"backend":"aer","ibm_job_id":[],"output":[0.05,0.19995,0.42383,0.60392,0.80346,0.95],"qpu_seconds":0}}`
 
 The round-trip is lossy by shot noise (0.4 → 0.424) — that noise is the effect. `fake_<chip>` should add device noise (not tried).
+
+## tamagotchi-v1 — works (0 credits)
+
+Quantum error-correction "pet": a CSS code (default `steane`) with logical `actions` `[gate, target]`
+(gates `I,X,Z,H,S,CX,SE`; `SE` = syndrome extraction) under a depolarizing `noise` model.
+
+`{"code":"steane","n_logical":1,"shots":1000,"actions":[["SE",0],["X",0],["SE",0]],"noise":{"p_gate":0.01,"p_1q":0.005,"p_meas":0.01,"p_idle":0.002},"seed":7}`
+→ job `37c8fb0e-71e8-4462-8e86-96ccee5cdd91`:
+
+```json
+{"result":{"output":{"code":"steane","success_rate":0.869,"logical_error_count":131,"syndromes_detected":1058,
+ "corrections_applied":1058,"per_logical":[{"logical_qubit":0,"expected":1,"success_rate":0.869,"logical_error_rate":0.131}],"shots":1000}}}
+```
+
+A "health" number (success_rate) for a noisy logical qubit — seedable, so reproducible.
+
+## Not probed
+
+- Multipart upload engines (`qrc-*`, `qdrive-api-v1`, `retrocausal-echo-v1`): need a file, not JSON params.
+- Binary-output image/shader/MIDI engines (`blur-v*`, `telablur-v1`, `entanglement-shader-*`, `tessa-image-v1`, `blur-midi-v1`, `deep-fryer-v1`): need an input image/MIDI; skipped to keep binaries out of the repo.
+- `graph-v1`, `labyrinth-v1` (5 credits each), `otoc-echo-v1`, `tomography-api-v2`: look JSON-runnable; not needed for this pass.
