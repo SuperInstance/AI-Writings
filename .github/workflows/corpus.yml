@@ -1,0 +1,36 @@
+name: corpus
+# The loop guards its own dataset. Every transcript is a hash-chained receipt
+# ledger; this gate rebuilds the corpus from committed sources and fails if ANY
+# chain does not re-derive — tamper-evidence enforced in CI, no keys, no network.
+# (ML-IN-THE-LOOP.md: a naive loop rots; the first guardrail is honest, verifiable data.)
+on:
+  push:
+    branches: [main]
+    paths:
+      - "situations/transcripts/**"
+      - "situations/dispatch-ledger.csv"
+      - "labs/situation-recorder/**"
+      - ".github/workflows/corpus.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "situations/transcripts/**"
+      - "situations/dispatch-ledger.csv"
+      - "labs/situation-recorder/**"
+      - ".github/workflows/corpus.yml"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: recorder self-test (chain + tamper-evidence)
+        run: python3 labs/situation-recorder/recorder.py
+      - name: rebuild + verify the whole corpus (fails on any broken chain)
+        run: bash labs/situation-recorder/run_all.sh
+      - name: assert every transcript chain verifies
+        run: |
+          python3 labs/situation-recorder/corpus.py >/dev/null
+          echo "all transcript chains verified ✓"
