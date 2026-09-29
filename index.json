@@ -1812,15 +1812,15 @@
     "folder": "root",
     "topic": "Root",
     "genres": [
-      "Music"
+      "Unclassified"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 888,
+    "word_count": 908,
     "date": "2026-09-29",
-    "size_bytes": 7053
+    "size_bytes": 7968
   },
   {
     "filename": "15-the-meta-review-the-day-the-fleet-wrote-itself.md",
@@ -58119,6 +58119,24 @@
     "size_bytes": 2787
   },
   {
+    "filename": "JEV-USAGE-LOG.md",
+    "path": "situations/JEV-USAGE-LOG.md",
+    "title": "JEV Usage Log",
+    "description": "Recovered experiments (a prior session ran these but could not push). Re-run live on 2026-09-29. Key values are never recorded here — env var names only.",
+    "folder": "situations",
+    "topic": "Situations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Essay",
+    "word_count": 889,
+    "date": "2026-09-29",
+    "size_bytes": 5926
+  },
+  {
     "filename": "FABLE-DOSSIER.md",
     "path": "situations/FABLE-DOSSIER.md",
     "title": "THE FABLE DOSSIER — the standing apex dossier (two calls fired; a third batched)",
@@ -58686,6 +58704,25 @@
     "size_bytes": 25112
   },
   {
+    "filename": "MOTH-ENGINES.md",
+    "path": "situations/arch/MOTH-ENGINES.md",
+    "title": "Moth engine inventory",
+    "description": "Fetched live `GET /engines` on 2026-09-29 (count **32**). Per-engine detail from `GET /engines/{id}`. Auth: `Bearer $MOTHQUANTUM_KEY`, base `$MOTHQUANTUM_BASE`; a browser User-Agent is required (Cloud...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 823,
+    "date": "2026-09-29",
+    "size_bytes": 7557
+  },
+  {
     "filename": "TOOLING-LIVE-2026-09-28.md",
     "path": "situations/arch/TOOLING-LIVE-2026-09-28.md",
     "title": "Tooling, live — verified JEV + Moth schemas & first insights (2026-09-28)",
@@ -58720,6 +58757,24 @@
     "word_count": 810,
     "date": "2026-09-27",
     "size_bytes": 23993
+  },
+  {
+    "filename": "MOTH-ENGINES-PROBES.md",
+    "path": "situations/arch/MOTH-ENGINES-PROBES.md",
+    "title": "Moth engine probes — non-QRNG engines, run live 2026-09-29",
+    "description": "Each probe: `POST /engines/{id}/process {\"params\":{…}}` → `202 {job_id, status:\"queued\"}` → poll `GET /jobs/{id}/status` every 2 s → `GET /jobs/{id}/result`. All four finished in ~4 s (Aer simulator).",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 439,
+    "date": "2026-09-29",
+    "size_bytes": 4001
   },
   {
     "filename": "TRAJECTORY.md",
@@ -67197,6 +67252,97 @@
     "word_count": 655,
     "date": "2026-09-21",
     "size_bytes": 4355
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/README.md",
+    "title": "labs — small, working, reusable tools",
+    "description": "| lab | what it does | builds on | |---|---|---| | [`jev-fold`](jev-fold/) | splits a compound claim, has JEV score each part, returns the weakest part + divergence | — | | [`weakest-claim`](weakest-c...",
+    "folder": "labs",
+    "topic": "Labs",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 167,
+    "date": "2026-09-29",
+    "size_bytes": 1045
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/qd-arena/README.md",
+    "title": "qd-arena — quality-diversity over a fleet of generator models",
+    "description": "A zero-dependency **MAP-Elites** loop. Several live generator models propose candidates for an open-ended prompt. JEV, the referee, scores each candidate's **quality** and places it on",
+    "folder": "qd-arena",
+    "topic": "Qd Arena",
+    "genres": [
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 794,
+    "date": "2026-09-29",
+    "size_bytes": 8951
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/weakest-claim/README.md",
+    "title": "weakest-claim — the weakest-claim audit as a reusable Node tool",
+    "description": "Point it at a target's compound guarantee (a list of leaf-claims + a pool of bypass hypotheses) and it returns the **located weakest leaf**, whether an **un-gameable adversary** breaks it, and the **w...",
+    "folder": "weakest-claim",
+    "topic": "Weakest Claim",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 694,
+    "date": "2026-09-29",
+    "size_bytes": 6653
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/jev-fold/README.md",
+    "title": "jev-fold — the decomposing fold as a small reusable client",
+    "description": "Given a compound claim, `jev-fold` splits it into parts, asks JEV `noul` (\"Is this statement factually true?\") for the **whole** and **each part**, and returns: - `weakest` — the located weakest part ...",
+    "folder": "jev-fold",
+    "topic": "Jev Fold",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 373,
+    "date": "2026-09-29",
+    "size_bytes": 2707
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/quantum-fx/README.md",
+    "title": "quantum-fx — one client for the Moth engines that work from JSON",
+    "description": "Moth exposes 32 engines ([inventory](../../situations/arch/MOTH-ENGINES.md)). Most of the repo only used `comet-qrng-v1` for random numbers. This lab wraps the five that run from plain JSON params ([p...",
+    "folder": "quantum-fx",
+    "topic": "Quantum Fx",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 710,
+    "date": "2026-09-29",
+    "size_bytes": 5814
   },
   {
     "filename": "THE-OPTIMIZER-IS-THE-OCEAN.md",
@@ -253005,6 +253151,24 @@
     "word_count": 743,
     "date": "2026-07-25",
     "size_bytes": 37478
+  },
+  {
+    "filename": "TWO_READERS.md",
+    "path": "short-stories/TWO_READERS.md",
+    "title": "TWO READERS",
+    "description": "The negotiator typed with two hands and one truth. Her screen showed the log to the human liaison, who skimmed it every four minutes the way you skim a highway — looking for motion, not meaning. What ...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 606,
+    "date": "2026-09-28",
+    "size_bytes": 3483
   },
   {
     "filename": "SORCERER_STONES.md",
