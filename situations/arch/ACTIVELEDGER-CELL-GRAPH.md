@@ -124,18 +124,19 @@ be frozen first.
 
 | build | id | cell / tool | depends on | product-invariant | novelty-in-process | status |
 |---|---|---|---|---|---|---|
-| B1 | P1 | `activeledger` (labs) — double-entry routing book + **frozen record schema** (transaction, unit-translation tensor, recorded-run JSONL) + canonical mic→filter→STT→LLM route simulated; confidence + STT-load-reduction recorded | shipped differ/gauge (oracle) | the transcript out of the route | the pre-filter path taken | **BUILDING (self)** |
-| B2 | P5 | `unit-translation-audit` (labs) — receipt idiom over §3 translations: prove A→B units round-trip or document the lossy hop, so the tensor pages are trustworthy **before** anything builds on them | P1 schema | the value across a round-trip | the page/plane | TODO |
-| B3 | P4 | `pincher` (labs) — a **second real route**: learned early-exit cell that grows a threshold for when the cheap known answer suffices, else falls back to the full route | P1 schema (posts transactions) | pinched answer == full-route answer within tolerance | pinch vs full | TODO |
-| B4 | P2 | `route-preference` (labs) — with ≥2 product-identical routes (P1 + P4) certified equal by the differ, learn/record which is *preferred when* over a regime grid. GPU-agent-facing. Consumes rubric-forge's dense reward as the preference score. | P1 schema, P4 (2nd route), differ, **rubric-forge** | the computed output | which of k routes | TODO (dispatch 5.5) |
-| B5 | P3 | `synoptic-view` (artifact) — browser spreadsheet projection of the ActiveLog + ActiveLedger tensor, query-by-any-2D-dim, tick, rewind. Renders the **finished** data model (P1+P4+P2). | frozen schema + real runs from P1/P4/P2 | the recorded run | the projection dimension | TODO |
-| B6 | P6 | quantum reach — once MicroMoth-quilt is maxed, an IonQ-API cell as one more *route* to a product a classical route already yields (durability, not novelty for its own sake) | P2 preference map | the product a classical route yields | classical vs quantum route | LATER |
+| B1 | P1 | `activeledger` (labs) — **thin adapter**: adopt ActiveLog v1 envelope, define types `cell.tick`/`route.hop`/`ledger.transaction`, wrap `cell-runtime` `DoubleEntry`, book the canonical mic→filter→STT→LLM route + OTel projection. No new format. | ActiveLog v1, cell-runtime, differ/gauge | the transcript out of the route | the pre-filter path taken | **UN-GATED — build next (self)** |
+| B2 | P5 | `unit-translation-audit` (labs) — wrap `quilt-studio` `EFFECT(forward,inverse)`: prove each hop sums to zero after translation (round-trip) or document the lossy hop, so the tensor pages are trustworthy **before** anything builds on them | P1 schema, **quilt-studio** | the value across a round-trip | the page/plane | TODO |
+| B3 | P4 | `pincher` (labs) — wrap `quilt-pincher` as a **second real route**: learned early-exit that grows a threshold for when the cheap known answer suffices, else falls back to the full route | P1 schema, **quilt-pincher** | pinched answer == full-route answer within tolerance | pinch vs full | TODO |
+| B4 | P2 | `route-preference` (labs) — wrap `pareto-tournament` + `hebbian-router`: with ≥2 product-identical routes (P1 + P4) certified equal by the differ, learn/record which is *preferred when* over a regime grid. GPU-agent-facing. Consumes rubric-forge's dense reward. | P1 schema, P4, differ, **rubric-forge, pareto-tournament, hebbian-router** | the computed output | which of k routes | TODO (dispatch Sonnet 5.5) |
+| B5 | P3 | `synoptic-view` — extend `quilt-view` + OTel export: Phoenix-style pivot table (project tensor by any 2D dim) + Temporal/LangGraph tick-scrubber with rewind/fork over the **finished** model (P1+P4+P2) | frozen schema + real runs, **quilt-view** | the recorded run | the projection dimension | TODO |
+| B6 | P6 | quantum reach — `MicroMoth-quilt` as a *superposed route* (§10.4): let the preference map hold amplitude, collapse at the settle tick; IonQ only once the classical map exists to hedge | P2 preference map, **MicroMoth-quilt** | the product a classical route yields | classical vs quantum route | LATER |
 
 ### 6.1 Why this order (so it doesn't get rejigged)
 
-1. **B1 freezes the schema.** The ActiveLedger transaction + unit-translation tensor + recorded-run
-   format is the load-bearing artifact. Everything else reads/writes it, so it is built and frozen
-   first. Its demo (one route) matters less than the schema being stable.
+1. **B1 freezes the schema — by ADOPTING ActiveLog v1, not authoring one** (see §8). The load-bearing
+   act is choosing the existing internal envelope and defining three namespaced types on it, so
+   everything downstream reads/writes a format that already has a spec, a hash idiom, and internal
+   users. Its demo (one route) matters less than the schema being stable.
 2. **B2 audits the foundation before the tower.** If translations are lossy or wrong, every page of
    the tensor is on sand. Validate round-trips *immediately after* B1, *before* piling routes and
    views on top — this is the single biggest rejig-avoider.
@@ -151,28 +152,114 @@ be frozen first.
 **Rule (Casey):** every experiment must do something *new* — do not re-run a prior design. Novelty
 in process is the point; the product staying identical is the proof it worked.
 
-## 8. Scouting gate (runs BEFORE B1 schema-freeze)
+## 7. Scouting gate — DONE (both scouts folded into §8)
 
-Casey's rule: **don't reinvent the wheel, and follow prevailing UX so we fit and integrate
-seamlessly.** So B1's schema-freeze is *gated* on two scouts landing first — otherwise we'd freeze a
-home-grown format and rejig it later to match what the world already does.
+Casey's rule: **don't reinvent the wheel, follow prevailing UX so we fit and integrate seamlessly.**
+Two scouts ran before B1's schema-freeze (2026-09-29). Raw findings:
+`situations/scout/internal-inventory.md` (Scout A, org) and `situations/scout/external-ux-conventions.md`
+(Scout B, cutting edge). Decisions distilled in §8.
 
-- **Scout A — internal (SuperInstance org).** Inventory every org repo for primitives we'd otherwise
-  reinvent: existing ledger/routing/cell-graph/quilt/embedding/viewer code, the MicroMoth-quilt and
-  Syzygy surfaces, any recorded-run or trace format already in use. Deliverable:
-  `situations/scout/internal-inventory.md` — a table of {repo, relevant primitive, reuse-or-extend}.
-- **Scout B — external (cutting edge / trending).** Survey the conventions our B1 record schema and
-  B5 synoptic viewer should adopt: agent-trace / dataflow / pipeline observability UX (e.g. LangSmith,
-  LangGraph Studio, Arize Phoenix, W&B Weave, Temporal UI, Dagster/Prefect, ComfyUI node graphs,
-  OpenTelemetry span model), tensor/spreadsheet projection UIs, and double-entry ledger data models.
-  Deliverable: `situations/scout/external-ux-conventions.md` — {convention, who uses it, how we adopt}.
+## 8. Schema decisions (scouts folded — this un-gates B1)
 
-**Gate:** fold both into a short "schema decisions" section, THEN freeze B1. Until then B1 stays at
-skeleton (interfaces sketched, format not frozen).
+The headline: **we do not author a record format. Almost every layer already exists internally.**
 
-## 7. Working discipline
+**Record envelope — adopt internal `ActiveLog v1`** (`cocapn-foundation/activelog-spec`,
+`schema/event.schema.json`). Append-only, `(dev,seq)`-keyed JSONL envelope
+`{alv, dev, seq, ts, mono, type, body, fix?, prev?}` with set-union merge, monotonic clocks, per-device
+sha256 `prev` chain, read-time corrections. Its law is **one envelope, many namespaced types** — so we
+*add* types, never a new format:
+
+- `cell.tick` — a cell's intra-step (ActiveLog / yin view). Body carries the cell's own-units state.
+- `route.hop` — an inter-cell hop (ActiveLedger / yang view), as a **balanced double-entry**:
+  `{credit:{cell,units,amount}, debit:{cell,units,amount}, price:<translation ref>}`.
+- `ledger.transaction` — the settled/promissory record binding the two sides (see §9 async settle).
+
+**Reuse, don't rebuild (Scout A map):**
+- **cell** = `cell-runtime` (Python) / `quilt-cell` (JS) — the 8-primitive cell, already shipping a
+  `DoubleEntry` debit/credit primitive. B1 wraps this; it does not reimplement a ledger.
+- **booked WAL** = `jev-quilt` — per-cell `(tick, state_hash, delta, decision_receipt)`, fnv1a-chained,
+  replay≡live. Closest single repo to the whole vision; B1 aligns to its record.
+- **B2 unit round-trip** = `quilt-studio`'s `EFFECT(forward, inverse)` contract — the inverse *is* the
+  round-trip auditor; B2 wraps it instead of writing a new one.
+- **B3 pincher** = `quilt-pincher`. **B4 preference** = `pareto-tournament` + `hebbian-router`.
+  **B5 viewer** = `quilt-view` (rewindable). **B6 quantum** = `MicroMoth-quilt`. **anti-GAN thesis** =
+  `quilt-gan` (tournament-not-gradient referee; "record changes, points don't").
+- **hash idiom** = fnv1a-64 over canonical JSON (org canary `0x24a555471370b18d`); enforce record
+  shapes in CI with `gauge`'s `receipt`/`tile` schemas.
+
+**External interop — a projection, not the native store (Scout B).** ActiveLog v1 stays native; we add
+an **export projection to OpenTelemetry spans + OpenInference semantic attributes** so Phoenix / Langfuse
+/ Weave / Jaeger ingest our runs with zero custom code. Cell kinds map to OpenInference span-kinds
+(LLM / TOOL / RETRIEVER / CHAIN / AGENT / GUARDRAIL) **extended as a superset** with our kinds
+(FILTER / PHYSICAL / SIM / PINCHER) — extend the enum, never rename. Borrow LangSmith's `dotted_order`
+as the single hierarchy+tick sort key, and Weave's Op-vs-Call split (versioned cell *definition* vs
+recorded cell *run*). Routes follow beancount: a hop must **sum to zero after translation** — that
+zero-sum check *is* B2.
+
+**So B1 is now a thin adapter PoC**, not an engine: adopt the ActiveLog v1 envelope, define the three
+namespaced types, wrap `cell-runtime`'s `DoubleEntry`, book the canonical mic→filter→STT→LLM route, and
+emit an OTel projection. Schema is **frozen on ActiveLog v1** — B1 is un-gated.
+
+## 9. The heterogeneous async cell fabric + the typesafe.ai learning loop
+
+*(Casey's second layer — the substance under the routes.)*
+
+Cells are not one kind of thing. A route hops through a **heterogeneous palette**, each cell an async
+worker with read/write links to its neighbours:
+
+- **typesafe.ai cells** — *abundant allowance; use liberally.* The high-ceiling tier that raises the
+  quality of everything. Every builder is told (see `DISPATCH.md`) it has an extensive typesafe.ai budget.
+- **cheap-fast SLM cells** — DeepSeek, and Gemini Flash **with thinking OFF + limited output** — for
+  high-fanout, low-stakes subtasks (grammar cleanup, speech/noise pre-filter, classification, pinch
+  candidates). Pennies each; the workhorses of wide routes.
+- **MothQuantum cells** — `MicroMoth-quilt` and Moth-quantum tech, simulated or real, pushed to their
+  classical limits before IonQ.
+- **async-algorithm cells** — plain clever code (filters, comb, FFT) in their own cells, linked to
+  read/write each other.
+
+**The learning loop (this is the compounding move).** typesafe.ai is used *and observed*. Every abundant
+top-tier call is recorded as a **demonstration** in the ActiveLog. A distillation cell (`skill-forge` in
+the RD backlog) mines those demonstrations into **quilt-native templates** — route-templates and
+reasoning-cards a *cheap* cell can then execute. This is "many routes to the same product" applied to
+**cost**: the expensive route *teaches* a cheap route that reaches the same product; once the differ
+certifies equivalence, the preference map (B4) shifts that work down the cost gradient. **Pay once at the
+top, harvest cheap forever** — amortized intelligence. As the template library grows, larger and larger
+use-collections become quilt-native by default, and the thing designs *its own* templates for the next
+scale up.
+
+## 10. Horizon — thinking further than the brief
+
+*(Explicit extrapolation beyond what Casey stated, marked as such so it stays honest. Harvest what earns
+its keep; discard the rest.)*
+
+1. **The ledger is the scheduler.** Model each async leg as a **promissory** double-entry: a `route.hop`
+   posts an unbalanced debit the moment a typesafe.ai / MothQuantum / SLM call is *issued*, and
+   **settles** when it returns. Unsettled transactions are accounts-receivable; a route completes when
+   its legs settle. Asynchronous composition then needs no separate orchestrator — the append-only book
+   *is* the scheduler, and rewind/replay is free because settling only appends.
+
+2. **It is more than a neural network — the wiring diagram is the memory.** A NN has fixed
+   gradient-learned weights. Here the links renegotiate by **earned standing** (`hebbian-router` already
+   exists): "weights" are *booked per-context* ("preferred when"), not backprop'd once. Learning = writing
+   the routing book, and it is auditable and rewindable. The topology *is* the memory; there is no separate
+   weight store to drift out of sync with the trace.
+
+3. **Routes as a market; the ActiveLedger as its order book.** Cells *bid* to serve a hop — typesafe.ai
+   bids high-quality/high-cost, Flash-no-think bids cheap/low-confidence, the pincher bids "free, I already
+   know." The router clears the market per context. Durability is then just **market liquidity**: many
+   sellers for every product means no single failure starves the route. "Preferred when" is the cleared
+   price, per regime.
+
+4. **Superposed routes (the quantum reach, stated sharply).** A MothQuantum cell lets a route be a
+   *mixture of routes* until measured/settled — something a classical NN cannot express. B6 is not "add a
+   quantum backend"; it is "let the preference map hold amplitude, not just a winner," and collapse only at
+   the settle tick. That is the first thing here a classical relational computer genuinely cannot do.
+
+## 11. Working discipline
 
 - Doc-first, sequential. This file is the source of truth; free context to it.
 - Push often. Many small, unique PoCs beat one big one.
 - Every PoC: a `selftest` in the house idiom, a receipt (situation-recorder), a ledger row.
 - The oracle (differ/gauge) certifies product-identity before any novelty claim is booked.
+- Every dispatched builder is reminded of its **extensive typesafe.ai allowance** and told to **record
+  what it learns** about typesafe.ai's call patterns for template distillation (§9).

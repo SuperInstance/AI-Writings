@@ -29,6 +29,17 @@ subagent uses the **5.5** generation by default — pass `model` explicitly on e
 Only drop below 5.5 when a task is explicitly cheap-and-mechanical enough for the
 runner, or Casey names a different model for that job.
 
+**typesafe.ai allowance + the cheap-cell palette (standing rule, Casey 2026-09-29).**
+Every dispatched builder is reminded, in its prompt, that it has an **extensive
+typesafe.ai API allowance (`TYPESAFEAI_KEY`)** — use it liberally to raise the ceiling
+of the work, AND **record what you learn** about typesafe.ai's call patterns / interfaces
+so we can distill quilt-native templates a cheaper cell can later run (the §9 learning
+loop in `arch/ACTIVELEDGER-CELL-GRAPH.md`: pay once at the top, harvest cheap forever).
+For high-fanout, low-stakes subtasks use the cheap-fast palette instead: **DeepSeek** and
+**Gemini Flash with thinking OFF + limited output**. Cells run async with read/write links
+to each other; prefer many cheap cells over one expensive monolith where the differ can
+certify the products match.
+
 The dispatcher is a **cell**, not a boss: it makes one typed decision — *which tier,
 and why* — and books it. The "why" is a **JEV verdict** (below). It never does the
 build team's work; it routes and books.
