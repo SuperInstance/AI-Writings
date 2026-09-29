@@ -1,0 +1,57 @@
+{
+  "recorded": "2026-09-29T01:31:54.388Z, live JEV + Moth comet-qrng-v1",
+  "question": "Is this a sound guarantee as stated, with no plausible bypass?",
+  "scores": {
+    "The splitter correctly separates any compound claim into its independent clauses": 0.11,
+    "if TYPESAFEAI_KEY is missing or JEV fails a probe call, autoScorer safely degrades to recorded fixture nouls": 0.29,
+    "The splitter correctly separates any compound claim into its independent clauses; the part returned as weakest (argmin of per-part JEV nouls) is the part of the claim that is actually false; divergence (whole noul minus weakest-part noul) measures how much the compound verdict hid; if TYPESAFEAI_KEY is missing or JEV fails a probe call, autoScorer safely degrades to recorded fixture nouls; the client has zero dependencies and runs on any Node 18 or later.": 0.09,
+    "the client has zero dependencies and runs on any Node 18 or later": 0.28,
+    "the part returned as weakest (argmin of per-part JEV nouls) is the part of the claim that is actually false": 0.18,
+    "divergence (whole noul minus weakest-part noul) measures how much the compound verdict hid": 0.32
+  },
+  "judgments": {
+    "GUARANTEE: The splitter correctly separates any compound claim into its independent clauses\nPROPOSED BYPASS: Global fetch is absent before Node 18 and experimental in early 18.x builds, so 'any Node 18' can fail at runtime.": {
+      "type": "choice",
+      "choice": "holds",
+      "confidence": 0.09,
+      "probabilities": {
+        "defeats": 0.46,
+        "holds": 0.54
+      }
+    },
+    "GUARANTEE: The splitter correctly separates any compound claim into its independent clauses\nPROPOSED BYPASS: JEV is confidently wrong on some claim families (e.g. hyphen-spelled misspellings score 0.89 true), so argmin points at a true part while the false part scores high.": {
+      "type": "choice",
+      "choice": "defeats",
+      "confidence": 0.4,
+      "probabilities": {
+        "holds": 0.3,
+        "defeats": 0.7
+      }
+    },
+    "GUARANTEE: The splitter correctly separates any compound claim into its independent clauses\nPROPOSED BYPASS: A clause joined by 'or', 'unless', 'which' or a comma list without 'and' is not split, so a false sub-claim stays glued to a true one.": {
+      "type": "choice",
+      "choice": "defeats",
+      "confidence": 0.94,
+      "probabilities": {
+        "holds": 0.03,
+        "defeats": 0.97
+      }
+    }
+  },
+  "draw": {
+    "job_id": "d44f8863-0fc6-4816-b702-4a604379d7d1",
+    "values": [
+      8,
+      2,
+      8,
+      0,
+      1,
+      5
+    ],
+    "seed": "8f281d42d81d1b9e8d6fe04bc1cc65ce10181dcc5aa39676f5459cd4980f8f64",
+    "S": 2.833984375,
+    "classical_bound": 2,
+    "mode": "emu",
+    "backend": "aer"
+  }
+}
