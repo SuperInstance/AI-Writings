@@ -177,11 +177,12 @@ sha256 `prev` chain, read-time corrections. Its law is **one envelope, many name
 - `ledger.transaction` — the settled/promissory record binding the two sides (see §9 async settle).
 
 **Budget vector on EVERY record (required, since B1).** Each `cell.tick` and `route.hop` body carries
-`budget = {wall_ms, tokens:{<api>:int}, usd, power_w?, mem_mb?, reqs}` (simulated/estimated is fine if
-deterministic). A route's total budget = the sum of its hops' budgets. This is non-negotiable from day
-one because the whole of §11 (System-2 backtesting + the iron-triangle preference) has nothing to score
-against unless every historical run already recorded what it *cost* in time, tokens-per-API, dollars,
-power, and local requirements. The append-only ActiveLog thus doubles as a **budgeted benchmark corpus**.
+`budget = {wall_ms, tokens:{<api>:int}, usd, power_w?, mem_mb?, storage_bytes?, reqs}`
+(simulated/estimated is fine if deterministic; `storage_bytes` splits into `{train, prod}` — see §11.3).
+A route's total budget = the sum of its hops' budgets. This is non-negotiable from day one because the
+whole of §11 (System-2 backtesting + the iron-triangle preference) has nothing to score against unless
+every historical run already recorded what it *cost* in time, tokens-per-API, dollars, power, local
+requirements, and storage. The append-only ActiveLog thus doubles as a **budgeted benchmark corpus**.
 
 **Reuse, don't rebuild (Scout A map):**
 - **cell** = `cell-runtime` (Python) / `quilt-cell` (JS) — the 8-primitive cell, already shipping a
@@ -298,12 +299,34 @@ none, but still does the job. "Preferred when" = which corner or edge the applic
 is then structural: there is always at least a satisfice route standing, and usually an elite route for
 the axis you need — many routes to the same product, priced.
 
+The **cheap** axis is not one number. It carries at least two measurements: **compute-cost**
+($/tokens/power/latency-as-money) and **storage-cost** (§11.3). A route can be cheap on compute yet
+expensive on storage, or the reverse — so "faster-cheaper" and the rest are positions in a space, and
+System-2 records *which* cheapness a route buys.
+
 ### 11.2 Honest caveat (so backtests don't lie)
 
 Replay assumes recorded inputs are representative and budgets are roughly stationary. When a model gets
 cheaper, hardware changes, or an API reprices, old backtests mislead. System-2 must **flag regime shift**
 and re-weight recent history over stale — a backtest carries the as-of window it trusted, the same way a
 FOLD carries its weakest leaf.
+
+### 11.3 Pruning, and storage as its own cost
+
+System-2 first grows **wide**: for an application it develops a large collection of alternative networks
+(the anti-GAN thirst for novel process — §13). That collection *is training data*, and it is expensive to
+keep. So pruning has two storage budgets, not one:
+
+- **Training-data store (GC'd).** The full tree of alternatives + their backtest records. It has a **max
+  size**; a garbage collector drops dominated / stale / redundant branches once backtesting has learned
+  from them, keeping enough diversity to stay durable but not the whole combinatorial fan-out.
+- **Production quilt spec (lean).** The pruned, deployed footprint — only the routes the preference map
+  actually reaches, at the storage spec the target demands (an embedded money calculator ships kilobytes;
+  a server quilt can ship more).
+
+Storage is therefore **part of the cheaper↔expensive spectrum, but as a distinct measurement from
+compute** (§11.1). Pruning optimizes the tree *toward the production storage spec* — the same alternative
+that wins on tokens may lose once its on-disk footprint is counted, and System-2 must see both.
 
 ## 12. Working discipline
 
@@ -313,3 +336,52 @@ FOLD carries its weakest leaf.
 - The oracle (differ/gauge) certifies product-identity before any novelty claim is booked.
 - Every dispatched builder is reminded of its **extensive typesafe.ai allowance** and told to **record
   what it learns** about typesafe.ai's call patterns for template distillation (§9).
+
+## 13. The example collection — the anti-GAN of programming
+
+The point of the labs is not one grand quilt; it is a **collection of working example quilts in as many
+novel configurations as possible, testable *between one another***. This is the anti-GAN of programming:
+we chase **durable logic** by building many independent quilts that reach correct products through
+genuinely different routing — quilts that **surprise the developer that they work**, then reveal a niche
+optimization for a narrow-but-clever use.
+
+**Principles for the collection:**
+
+- **The clearer and more obvious the use-case, the better the example.** A reader should get it instantly.
+- **Chase unique *uses* as much as unique *math*.** A weird routing pattern for an ordinary need teaches
+  as much as clever math; the odd, obvious cases are the best templates.
+- **Every example books to the shared ActiveLog** (same envelope, same budget vector) so examples are
+  comparable and System-2 can backtest them against each other — testable *between* one another, not in
+  isolation. An `labs/examples/run_all` interop harness runs them all and checks they book cleanly.
+- **Progression: templates → examples → tutorials.** First a reusable template, then a concrete worked
+  example quilt, and later a tutorial walking a zero-shot user through it.
+
+**First worked example — `calculator-quilt` (EX1).** A calculator with two product-identical routes for
+the same equation:
+
+- a **simple money route** — fixed-point / integer-cents remainder arithmetic, because the register's
+  transactions are limited in scope (no interest, no compounding). Tiny routing, tiny tooling, tiny
+  storage.
+- a **full route** — floating/decimal + interest & compounding tooling, for equations that need it.
+
+The quilt **chooses the simple route for every equation that doesn't need the extra math tooling**, and
+only escalates when the equation demands interest. It books both routes' budgets — the simple route wins
+decisively on compute *and* storage (§11.3) — so it is a crisp, obvious demonstration of the whole
+thesis at once: novelty-in-process / identity-in-product, iron-triangle preference, and the storage cost
+axis. Endless siblings follow (a units-converter quilt, a date quilt that skips timezones when all inputs
+are UTC, a text quilt that skips tokenization for pure-ASCII, …) — each an obvious use, each a clever
+skip.
+
+**Backlog for the collection** (all depend on B1's `labs/activeledger` landing, then fan out in
+parallel — they are independent of each other by design):
+
+| id | example quilt | the obvious use | the clever skip / niche optimization |
+|---|---|---|---|
+| EX1 | `calculator-quilt` | arithmetic | fixed-point money route when no interest is needed |
+| EX2 | `convert-quilt` | unit conversion | identity/no-op route when source unit == target unit |
+| EX3 | `datetime-quilt` | date math | skip timezone/DST tooling when all inputs are UTC |
+| EX4 | `text-normalize-quilt` | clean up text | skip tokenizer/unicode tooling for pure-ASCII input |
+| EX5 | `image-thumb-quilt` | make a thumbnail | skip decode+resample when the source is already ≤ target |
+
+Each ships: the two+ routes, the route-chooser, an offline `selftest` (products identical across routes;
+the chosen route is cheaper on the axis claimed), a mark, and a ledger row.
