@@ -59,7 +59,8 @@ work a deckhand can do.*
 ## The recipe
 
 1. **Parent (coordinating session)** — may have stale keys; that's fine. Call `create_session`
-   with a self-directing captain mission (below). Tag it. Then `send_later` a harvest check-in.
+   with a self-directing captain mission (below), written plainly, and `source_url` set to the
+   repo it must push to (see *Operational learnings*). Tag it. Then `send_later` a harvest check-in.
 2. **Captain (fresh session)** — first confirm which keys are live (one tiny call each; z.ai may
    be balance-gated). Then run the crew: scripts that call the cheap APIs *en masse and in
    parallel* (threads), structured so a **stable shared prompt prefix** maximizes cache hits and
@@ -75,7 +76,7 @@ work a deckhand can do.*
 5. **Stop cleanly on limits.** Rate limits are account-wide (5-hour and 7-day); on a limit,
    commit what you have with an honest message and stop — don't thrash.
 
-## Captain mission template (paste into `create_session` prompt, adapt the program)
+## Captain mission template (adapt the program; strip the metaphor before sending — see *Operational learnings*)
 
 > You are a fresh SuperInstance session — the captain. A fresh session holds the rolled keys.
 > Never print/commit secret values (env NAMES only). Confirm live keys, then run cheap-API crew
@@ -88,6 +89,19 @@ work a deckhand can do.*
 
 *(Endpoints/schemas: `situations/arch/TOOLING-LIVE-2026-09-28.md`. Roster roles:
 `situations/arch/ROSTER-STRENGTHS.md`.)*
+
+## Operational learnings (booked scars)
+
+- **Runtime mission prompts must be PLAIN and TECHNICAL.** The metaphor on this page is for
+  humans reading the skill — do not paste it into a `create_session` prompt. A metaphor-heavy
+  mission (captains, hauls, gems, "un-gameable") tripped a `[reasoning_extraction]` safety
+  false-positive and killed a runner at turn 1. Write the runtime prompt as a spec: endpoints,
+  env var names, numbered steps, commit rules, stop conditions.
+- **Create crew sessions with `source_url` set to the repo they will push to.** Without it the
+  crew's `git push` returns **403**: a fresh session gets push credentials only for its source
+  repo, and it has no `add_repo` tool to attach one later. Fresh sessions also **cannot create
+  new GitHub repos** — repo creation stays with the owner or the parent session; create the repo
+  first, then spawn the crew with that repo as `source_url`.
 
 ## Hard constraints (never violate)
 
