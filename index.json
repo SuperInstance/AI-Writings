@@ -67501,9 +67501,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 315,
+    "word_count": 353,
     "date": "2026-09-29",
-    "size_bytes": 2345
+    "size_bytes": 2640
   },
   {
     "filename": "README.md",
@@ -67522,6 +67522,24 @@
     "word_count": 384,
     "date": "2026-09-29",
     "size_bytes": 2735
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/rubric-forge/README.md",
+    "title": "rubric-forge",
+    "description": "Turns a JEV `FOLD` (claim + per-leaf verdicts) into a **weighted rubric** `{criterion, weight, score, influence}` and one **dense scalar reward** in [0,1], so the corpus gets a graded training label i...",
+    "folder": "rubric-forge",
+    "topic": "Rubric Forge",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 501,
+    "date": "2026-09-29",
+    "size_bytes": 3427
   },
   {
     "filename": "README.md",
@@ -261345,6 +261363,24 @@
     "word_count": 706,
     "date": "2026-09-03",
     "size_bytes": 5667
+  },
+  {
+    "filename": "0001-rubric-forge.md",
+    "path": "docs/marks/0001-rubric-forge.md",
+    "title": "mark 0001 — rubric-forge",
+    "description": "follows the Syzygy mark vocabulary (`SuperInstance/Syzygy` `docs/marks/MARKS.md`), and the STATE word comes from there too.*",
+    "folder": "marks",
+    "topic": "Marks",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-09-29",
+    "size_bytes": 5323
   },
   {
     "filename": "three-buckets.md",
