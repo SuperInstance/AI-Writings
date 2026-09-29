@@ -1,0 +1,2 @@
+# derived from dispatch-ledger.csv by ledger_to_transcript.py — regenerate with run_all.sh
+*.jsonl
