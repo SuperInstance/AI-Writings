@@ -1,0 +1,13 @@
+{
+  "recorded": "2026-09-29, live JEV (jev-1.13.0), question: 'Is this statement factually true?'",
+  "scores": {
+    "The Eiffel Tower is in Paris, and the Great Wall of China is in Japan, and water freezes at 0 degrees Celsius.": 0.08,
+    "The Eiffel Tower is in Paris": 0.98,
+    "the Great Wall of China is in Japan": 0.01,
+    "water freezes at 0 degrees Celsius": 0.94,
+    "Mount Everest is the tallest mountain above sea level, and the Amazon River flows through Brazil, and the chemical symbol for gold is Ag.": 0.08,
+    "Mount Everest is the tallest mountain above sea level": 0.91,
+    "the Amazon River flows through Brazil": 0.96,
+    "the chemical symbol for gold is Ag": 0.02
+  }
+}
