@@ -58446,6 +58446,24 @@
     "size_bytes": 4170
   },
   {
+    "filename": "INTER-RELATIONAL-INTELLIGENCE.md",
+    "path": "situations/arch/INTER-RELATIONAL-INTELLIGENCE.md",
+    "title": "Inter-relational intelligence — saving the system so a model can learn to decompose",
+    "description": "systems that worked for something. And the inputs and outputs of that greater system can be data of the inter-relational-intelligence for modeling the SuperInstance as a thing. That's the broad brushs...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 759,
+    "date": "2026-09-29",
+    "size_bytes": 8878
+  },
+  {
     "filename": "INTELLIGENCE-CLUSTERS.md",
     "path": "situations/arch/INTELLIGENCE-CLUSTERS.md",
     "title": "INTELLIGENCE-CLUSTERS — a research program for a cluster that is more than its models",
@@ -58993,6 +59011,24 @@
     "word_count": 718,
     "date": "2026-09-27",
     "size_bytes": 9368
+  },
+  {
+    "filename": "README.md",
+    "path": "situations/transcripts/README.md",
+    "title": "transcripts/ — the inter-relational corpus (WAL)",
+    "description": "Hash-chained JSONL transcripts of manager↔crew situations, one file per situation (`<sid>.jsonl`). Written by [`../../labs/situation-recorder/`](../../labs/situation-recorder/). Each line is a relatio...",
+    "folder": "transcripts",
+    "topic": "Transcripts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 79,
+    "date": "2026-09-29",
+    "size_bytes": 729
   },
   {
     "filename": "G21-FINDINGS.md",
@@ -67343,6 +67379,24 @@
     "word_count": 694,
     "date": "2026-09-29",
     "size_bytes": 6653
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/situation-recorder/README.md",
+    "title": "situation-recorder — the manager↔crew system, saved as a decomposable corpus",
+    "description": "The fleet's real product is not only the repos a crew ships — it is the **recorded inputs and outputs of the manager↔crew system**, saved so a future model can learn the one skill this fleet runs on: ...",
+    "folder": "situation-recorder",
+    "topic": "Situation Recorder",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 615,
+    "date": "2026-09-29",
+    "size_bytes": 5340
   },
   {
     "filename": "README.md",
