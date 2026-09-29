@@ -67645,9 +67645,27 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 404,
+    "word_count": 556,
     "date": "2026-09-29",
-    "size_bytes": 3089
+    "size_bytes": 4238
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/examples/text-normalize-quilt/README.md",
+    "title": "text-normalize-quilt (EX4) — mark",
+    "description": "skip the unicode tooling when the input is pure ASCII.* - **WHAT** — A text normalizer (lowercase + strip + collapse whitespace) with **two product-identical routes** for the same request: a **cheap**...",
+    "folder": "text-normalize-quilt",
+    "topic": "Text Normalize Quilt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 269,
+    "date": "2026-09-29",
+    "size_bytes": 1965
   },
   {
     "filename": "README.md",
@@ -67666,6 +67684,60 @@
     "word_count": 384,
     "date": "2026-09-29",
     "size_bytes": 2735
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/examples/convert-quilt/README.md",
+    "title": "convert-quilt (EX2) — mark",
+    "description": "obvious use (unit conversion) with a free skip (identity).* - **WHAT** — A unit converter with **two product-identical routes**: a **cheap** identity/no-op route (source unit == target unit → value re...",
+    "folder": "convert-quilt",
+    "topic": "Convert Quilt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 289,
+    "date": "2026-09-29",
+    "size_bytes": 2051
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/examples/datetime-quilt/README.md",
+    "title": "datetime-quilt (EX3) — mark",
+    "description": "skip the whole timezone/DST stack when every input is UTC.* - **WHAT** — A datetime calculator (add duration / diff) with **two product-identical routes**: a",
+    "folder": "datetime-quilt",
+    "topic": "Datetime Quilt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 313,
+    "date": "2026-09-29",
+    "size_bytes": 2215
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/examples/image-thumb-quilt/README.md",
+    "title": "image-thumb-quilt (EX5) — mark",
+    "description": "\"make a thumbnail\" with the clever skip \"don't decode or resample when the source is already ≤ target\".* - **WHAT** — A thumbnailer with **two product-identical routes** on a deterministic synthetic g...",
+    "folder": "image-thumb-quilt",
+    "topic": "Image Thumb Quilt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 262,
+    "date": "2026-09-29",
+    "size_bytes": 1880
   },
   {
     "filename": "README.md",
