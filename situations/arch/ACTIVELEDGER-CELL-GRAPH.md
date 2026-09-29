@@ -151,6 +151,25 @@ be frozen first.
 **Rule (Casey):** every experiment must do something *new* — do not re-run a prior design. Novelty
 in process is the point; the product staying identical is the proof it worked.
 
+## 8. Scouting gate (runs BEFORE B1 schema-freeze)
+
+Casey's rule: **don't reinvent the wheel, and follow prevailing UX so we fit and integrate
+seamlessly.** So B1's schema-freeze is *gated* on two scouts landing first — otherwise we'd freeze a
+home-grown format and rejig it later to match what the world already does.
+
+- **Scout A — internal (SuperInstance org).** Inventory every org repo for primitives we'd otherwise
+  reinvent: existing ledger/routing/cell-graph/quilt/embedding/viewer code, the MicroMoth-quilt and
+  Syzygy surfaces, any recorded-run or trace format already in use. Deliverable:
+  `situations/scout/internal-inventory.md` — a table of {repo, relevant primitive, reuse-or-extend}.
+- **Scout B — external (cutting edge / trending).** Survey the conventions our B1 record schema and
+  B5 synoptic viewer should adopt: agent-trace / dataflow / pipeline observability UX (e.g. LangSmith,
+  LangGraph Studio, Arize Phoenix, W&B Weave, Temporal UI, Dagster/Prefect, ComfyUI node graphs,
+  OpenTelemetry span model), tensor/spreadsheet projection UIs, and double-entry ledger data models.
+  Deliverable: `situations/scout/external-ux-conventions.md` — {convention, who uses it, how we adopt}.
+
+**Gate:** fold both into a short "schema decisions" section, THEN freeze B1. Until then B1 stays at
+skeleton (interfaces sketched, format not frozen).
+
 ## 7. Working discipline
 
 - Doc-first, sequential. This file is the source of truth; free context to it.
