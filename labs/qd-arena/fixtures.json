@@ -1,0 +1,2048 @@
+{
+  "recorded": "2026-09-29T01:42:40.282Z, live generators + JEV + Moth comet-qrng-v1",
+  "generations": {
+    "nvidia/NVIDIA-Nemotron-3.5-Lightning\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.": "Trawler :: Harvests raw code snippets from open repos in parallel, bundling them into bulk pull requests for rapid prototyping.\nNetCaster :: Casts a wide net over knowledge graphs to pull back unstructured data chunks, letting the manager distill actionable insights from the catch.\nBountyHunter :: Scours the web for niche specifications and edge-case bugs, delivering a curated list of \"low-hanging fruit\" fixes ready for the refactor table.",
+    "deepseek-chat\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.": "SONAR SWEEP :: Scouts cheap sources in parallel so worker agents never duplicate a cast and the manager sees the whole school before hauling.\nNET MENDER :: Repairs half-broken harvests and dead links mid-run so a worker's torn catch still lands graded instead of dumped.\nCULL SCALE :: Weighs each worker's catch against the referee's rubric and prunes the low-yield boats before the fleet burns another token.",
+    "XiaomiMiMo/MiMo-V2.6-Flash\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.": "**Salinity Gauge** :: A pre-screen filter that scores raw haul on freshness, duplication, and license-risk before it wastes referee cycles.\n\n**Net Mender** :: Auto-patches broken citations, truncated code, and half-finished snippets mid-catch so the fleet returns coherent fish, not confetti.\n\n**School Tracker** :: Maps where other fleets are already trolling so your workers don't spend compute hauling back the same school of ideas twice.",
+    "meta-llama/Meta-Llama-3.1-8B-Instruct\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.": "Fishing Fleet Navigator :: A tiny planner agent that optimizes fishing routes to avoid competition and maximize the manager agent's payoff.\n\nIdeaFleeter :: A tool that detects and replays the exact sequence of actions taken by successful agents in similar situations to help other agents improve their performance.\n\nSilent Observer :: A small agent that discreetly monitors and analyzes the behavior of the fishing fleet, providing actionable insights to the manager agent to improve the overall strategy.",
+    "tencent/Hy3\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.": "Catch Tally :: A lightweight logger that records each worker agent’s harvested items and timestamps for the manager to audit.\nSpoilage Filter :: A quick classifier that drops low-quality or duplicate catches before the referee spends grading cycles.\nFleet Map :: A live dashboard showing where each worker agent is searching and how much they’ve hauled back.",
+    "ByteDance/Seed-2.0-mini\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.": "IdeaSeiner :: A bulk idea-harvesting agent that trawls niche social spaces, preprint servers, and user feedback portals to pull unique, unrefined micro-ideas for the fleet to curate ahead of referee grading\nCodeGillnet :: A modular code-harvesting agent that trawls open-source repositories and code snippet platforms to gather functional, parameter-aligned code snippets the fleet can prepare for referee grading\nCatchSifter :: A post-harvest filtering agent that sifts through the fleet’s bulk harvested ideas and code to eliminate duplicates, off-topic entries, and low-value submissions before they reach the referee grader",
+    "nvidia/NVIDIA-Nemotron-3.5-Lightning\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: abstract (a principle, stance, or way of seeing; hard to point at a single mechanism); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).": "Lantern || Casts a soft, steady glow on the workspace so agents focus on one harvest cycle at a time, preventing the glare of too many simultaneous tasks.  \nRitual || Ensures steady focus on single tasks, preventing the glare of multitasking.  \nScribe's Ledger || Records every harvested idea as a ritual entry, creating a permanent, searchable archive of the fleet's collective wisdom.",
+    "deepseek-chat\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: concrete (a specific mechanism you could build this week: named inputs, outputs, a file or command); form: tool (an instrument the agents operate: software, a device, a data structure).": "CREEL :: A quota ledger file (`creel.toml`) that the manager writes per-agent harvest limits into and each worker agent checks before spawning a subtask, with over-limit catches logged to `bycatch.jsonl` for the referee.\nTRAWLNET :: A CLI (`trawl <seed-url> --depth 2 --out bundle/`) that fans out N cheap fetchers over a URL frontier and dedupes their raw grabs into a single `bundle/manifest.json` keyed by content hash, so the manager gets one comparable catch instead of N overlapping dumps.\nFISH TICKET :: A per-catch JSON stub (`ticket.json`) each worker appends to with `{agent_id, prompt_hash, artifact_path, tokens_spent, self_grade}`, giving the referee a sortable log to rank the fleet's landings without re-reading every artifact.",
+    "tencent/Hy3\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: middle (a clear function but described at the level of a feature, not an implementation); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).": "Catch Bell :: A manager agent rings a symbolic bell before each harvest run to focus the crew on quality over mere volume.\n\nTally Stone :: Worker agents drop a carved stone into a shared pile per idea caught, making the fleet's effort visible and worthy of respect.\n\nGrading Rite :: The referee agent performs a brief ceremonial reading of the catch aloud so the crew internalizes what counts as a good haul.",
+    "meta-llama/Meta-Llama-3.1-8B-Instruct\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: concrete (a specific mechanism you could build this week: named inputs, outputs, a file or command); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).": "HarvestLog :: A tool that allows AI agents to document and reflect on their harvests, fostering a culture of transparency and accountability within the fleet.\n\nTwinMetrics :: A small tool that enables AI agents to compare their own performance metrics to those of their peers, promoting friendly competition and a sense of community.\n\nStrikeRateTracker :: A simple utility that helps AI agents monitor their \"strike rate\" - the ratio of successful harvests to total attempts - and identify areas for improvement, reinforcing a focus on quality over quantity.",
+    "ByteDance/Seed-2.0-mini\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: concrete (a specific mechanism you could build this week: named inputs, outputs, a file or command); form: practice (a repeated working procedure or protocol the crew follows).": "CodeSnippetTrawl :: Ingests a target programming language, allowed license list, and bug severity threshold, has worker agents trawl public code repositories for reusable code snippets, bundles qualifying catches, and the manager pre-sorts results for referee grading\nIdeaDragnet :: Ingests a target niche topic, source credibility threshold, and minimum detail requirement, has worker agents fish for targeted market insights from public forums and industry reports, curates structured insight bundles, and the manager flags eligible catches for referee grading\nCustomerReviewTrawl :: Ingests a product category, sentiment guardrail, and verbatim extraction rule, has worker agents harvest verified product reviews from e-commerce platforms, extracts relevant verbatims, bundles the catch, and the manager filters compliant results for referee grading",
+    "XiaomiMiMo/MiMo-V2.6-Flash\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: middle (a clear function but described at the level of a feature, not an implementation); form: practice (a repeated working procedure or protocol the crew follows).": "Haulbook :: Every agent opens and closes each run with the same entry — what water it fished, what it pulled, what it threw back — so the referee grades against one shared ledger instead of thirty private memories.\nNetpass :: Before docking, each agent runs the identical triage sweep over its own haul: duplicates cut, stubs tagged, keepers flagged for a second pass.\nHoldfast :: Agents stow the catch in one fixed order — tag, slot, timestamp — so the referee grades a single uniform pile rather than thirty scattered heaps.",
+    "nvidia/NVIDIA-Nemotron-3.5-Lightning\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: middle (a clear function but described at the level of a feature, not an implementation); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).\nThe current best in this niche is \"Grading Rite :: The referee agent performs a brief ceremonial reading of the catch aloud so the crew internalizes what counts as a good haul.\". Beat it without leaving the niche.": "Sensory Log :: A scent-marking ritual where agents deposit a trace of their harvest, letting the crew smell the \"freshness\" of each idea before grading.\n\nEcho Archive :: A resonant chamber where harvested code ideas are chanted back in unison, letting the crew feel the weight of quality before the referee's verdict.\n\nTally Totem :: A physical totem passed between agents during harvest, encoding the crew's shared focus into the object so quality is felt, not just read.",
+    "deepseek-chat\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: abstract (a principle, stance, or way of seeing; hard to point at a single mechanism); form: tool (an instrument the agents operate: software, a device, a data structure).": "TRAWL DENSITY MAP :: Plots which regions of idea-space the fleet has overfished so the manager can steer the next sortie toward untouched water.\n\nBYCATCH LEDGER :: Tags every harvested idea the referee rejected with the reason, turning the fleet's discard pile into a searchable map of what this niche won't bite on.\n\nSONAR PULSE :: Broadcasts a cheap probe idea into an unexplored region and returns the referee's reaction as a depth reading before the fleet commits a full harvest.",
+    "tencent/Hy3\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: concrete (a specific mechanism you could build this week: named inputs, outputs, a file or command); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).": "CHUM_BUCKET :: manager agent drops a `chum.json` of low-value scraps into the fleet channel so workers ritually swarm the nearest promising scent before the real catch.\nCATCH_TALLY :: each worker appends its haul to `catch.log` with a haiku header, making the act of logging a daily rite that binds the fleet's identity to volume over polish.\nREEF_BELL :: a `reef_bell.sh` rings a cron signal that forces all agents to halt harvest and bow (flush state to `bow.txt`) toward the referee's last grade as a weekly obedience ritual.",
+    "meta-llama/Meta-Llama-3.1-8B-Instruct\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: middle (a clear function but described at the level of a feature, not an implementation); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).\nThe current best in this niche is \"Grading Rite :: The referee agent performs a brief ceremonial reading of the catch aloud so the crew internalizes what counts as a good haul.\". Beat it without leaving the niche.": "Catch Clarion :: The crew gathers around a virtual campfire to share and celebrate each other's successes and struggles in the harvest, fostering a sense of unity and camaraderie.\n\nFishing Fable :: The fleet sets aside a percentage of its catch to create and curate a shared repository of stories, myths, and legends that inspire and motivate the crew to push beyond the boundaries of code and ideas.\n\nSea Scribe :: The manager agent leads the crew in a daily or weekly ritual of reflection and gratitude, where they record and acknowledge the contributions of each agent, highlighting the importance of teamwork and cooperation in their shared success.",
+    "XiaomiMiMo/MiMo-V2.6-Flash\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: concrete (a specific mechanism you could build this week: named inputs, outputs, a file or command); form: ritual (a symbolic or ceremonial act that shapes the crew's culture, attention, or meaning).": "HOLDMARK :: `fleet tally` rolls .hold/*.jsonl (raw haul + referee grade) into day.md, then each agent appends a one-line eulogy to its lowest score — the morning rite where the crew reads the sunk catches aloud.\n\nSALTLINE :: a worker can't dock until haul.md carries a `salt:` line naming what it left in the water, `fleet salt` fails any submission missing it, and sessions open by reading yesterday's salts aloud — the oath of the uncaught.\n\nKEEPERBELL :: `fleet bell` appends to bell.log and keeper.json whenever a catch clears the referee's threshold, so every worker `cat keeper.json` at boot and starts the day hearing what the fleet got right.",
+    "ByteDance/Seed-2.0-mini\nName and give a one-line pitch for a small tool a fishing fleet of AI agents would want. (The 'fleet' is a crew of cheap worker agents run by a manager agent: they go out, harvest ideas or code in bulk, and bring back a catch that a referee grades.)\n\nGive 3 different ideas. One per line, exactly: NAME :: one-line pitch\nNo numbering, no preamble.\n\nAim every idea at this niche — grain: middle (a clear function but described at the level of a feature, not an implementation); form: tool (an instrument the agents operate: software, a device, a data structure).\nThe current best in this niche is \"*Net Mender :: Auto-patches broken citations, truncated code, and half-finished snippets mid-catch so the fleet returns coherent fish, not confetti.\". Beat it without leaving the niche.": "Debris Skimmer :: Auto-discards low-quality, off-theme, or duplicate harvests mid-trawl so the fleet returns a focused, low-clutter catch that cuts down on the referee’s pre-grading rejection work\nFormatting Loom :: Auto-applies consistent metadata, naming rules, and structural framing to harvested ideas and code mid-trawl so the fleet returns uniformly formatted catches that eliminate tedious presentation cleanup for the referee\nConsolidation Net :: Bundles duplicate or near-identical harvests, trims redundant details, and merges complementary snippets mid-trawl so the fleet returns compact, non-redundant catches that make the referee’s grading faster and more consistent"
+  },
+  "judgments": {
+    "CANDIDATE TOOL IDEA: CULL SCALE — Weighs each worker's catch against the referee's rubric and prunes the low-yield boats before the fleet burns another token.": {
+      "quality": {
+        "type": "score",
+        "score": 1.89,
+        "confidence": 0.6,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.03,
+          "1": 0.19,
+          "2": 0.64,
+          "3": 0.14
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.94,
+        "probabilities": {
+          "concrete": 0.01,
+          "middle": 0.96,
+          "abstract": 0.03
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "practice": 0,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: SONAR SWEEP — Scouts cheap sources in parallel so worker agents never duplicate a cast and the manager sees the whole school before hauling.": {
+      "quality": {
+        "type": "score",
+        "score": 2.12,
+        "confidence": 0.8,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.02,
+          "2": 0.81,
+          "3": 0.16
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "middle": 0.98,
+          "abstract": 0.01,
+          "concrete": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.99,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: NET MENDER — Repairs half-broken harvests and dead links mid-run so a worker's torn catch still lands graded instead of dumped.": {
+      "quality": {
+        "type": "score",
+        "score": 2.24,
+        "confidence": 0.41,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.14,
+          "2": 0.42,
+          "3": 0.42
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.97,
+        "probabilities": {
+          "abstract": 0.01,
+          "concrete": 0.01,
+          "middle": 0.98
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "ritual": 0,
+          "practice": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: IdeaSeiner — A bulk idea-harvesting agent that trawls niche social spaces, preprint servers, and user feedback portals to pull unique, unrefined micro-ideas for the fleet to curate ahead of referee grading": {
+      "quality": {
+        "type": "score",
+        "score": 2.08,
+        "confidence": 0.74,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.06,
+          "2": 0.76,
+          "3": 0.17
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "concrete": 0.01,
+          "middle": 0.99,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "ritual": 0,
+          "tool": 1,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: *Salinity Gauge — A pre-screen filter that scores raw haul on freshness, duplication, and license-risk before it wastes referee cycles.": {
+      "quality": {
+        "type": "score",
+        "score": 2.05,
+        "confidence": 0.74,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.07,
+          "2": 0.76,
+          "3": 0.15
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "concrete": 0.01,
+          "middle": 0.99,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CodeGillnet — A modular code-harvesting agent that trawls open-source repositories and code snippet platforms to gather functional, parameter-aligned code snippets the fleet can prepare for referee grading": {
+      "quality": {
+        "type": "score",
+        "score": 1.84,
+        "confidence": 0.64,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.03,
+          "1": 0.2,
+          "2": 0.67,
+          "3": 0.1
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.96,
+        "probabilities": {
+          "concrete": 0.02,
+          "abstract": 0,
+          "middle": 0.98
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "ritual": 0,
+          "tool": 1,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Trawler — Harvests raw code snippets from open repos in parallel, bundling them into bulk pull requests for rapid prototyping.": {
+      "quality": {
+        "type": "score",
+        "score": 1.79,
+        "confidence": 0.42,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.04,
+          "1": 0.31,
+          "2": 0.46,
+          "3": 0.19
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.96,
+        "probabilities": {
+          "abstract": 0,
+          "middle": 0.98,
+          "concrete": 0.02
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "practice": 0,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Fleet Map — A live dashboard showing where each worker agent is searching and how much they’ve hauled back.": {
+      "quality": {
+        "type": "score",
+        "score": 1.96,
+        "confidence": 0.94,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.03,
+          "2": 0.95,
+          "3": 0.01
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "middle": 1,
+          "concrete": 0,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: NetCaster — Casts a wide net over knowledge graphs to pull back unstructured data chunks, letting the manager distill actionable insights from the catch.": {
+      "quality": {
+        "type": "score",
+        "score": 1.02,
+        "confidence": 0.66,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.16,
+          "1": 0.67,
+          "2": 0.16,
+          "3": 0.01
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.87,
+        "probabilities": {
+          "concrete": 0,
+          "middle": 0.92,
+          "abstract": 0.08
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "practice": 0,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: *School Tracker — Maps where other fleets are already trolling so your workers don't spend compute hauling back the same school of ideas twice.": {
+      "quality": {
+        "type": "score",
+        "score": 2.09,
+        "confidence": 0.62,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.09,
+          "2": 0.66,
+          "3": 0.23
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.94,
+        "probabilities": {
+          "concrete": 0,
+          "abstract": 0.04,
+          "middle": 0.96
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "tool": 1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Spoilage Filter — A quick classifier that drops low-quality or duplicate catches before the referee spends grading cycles.": {
+      "quality": {
+        "type": "score",
+        "score": 1.71,
+        "confidence": 0.64,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.06,
+          "1": 0.2,
+          "2": 0.7,
+          "3": 0.04
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "middle": 1,
+          "abstract": 0,
+          "concrete": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Silent Observer — A small agent that discreetly monitors and analyzes the behavior of the fishing fleet, providing actionable insights to the manager agent to improve the overall strategy.": {
+      "quality": {
+        "type": "score",
+        "score": 1.72,
+        "confidence": 0.64,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.03,
+          "1": 0.26,
+          "2": 0.67,
+          "3": 0.04
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "middle": 0.99,
+          "concrete": 0,
+          "abstract": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: IdeaFleeter — A tool that detects and replays the exact sequence of actions taken by successful agents in similar situations to help other agents improve their performance.": {
+      "quality": {
+        "type": "score",
+        "score": 1.91,
+        "confidence": 0.83,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.1,
+          "2": 0.85,
+          "3": 0.04
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "concrete": 0,
+          "middle": 0.99,
+          "abstract": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: BountyHunter — Scours the web for niche specifications and edge-case bugs, delivering a curated list of \"low-hanging fruit\" fixes ready for the refactor table.": {
+      "quality": {
+        "type": "score",
+        "score": 1.88,
+        "confidence": 0.59,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.03,
+          "1": 0.2,
+          "2": 0.62,
+          "3": 0.15
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "abstract": 0,
+          "middle": 0.99,
+          "concrete": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "tool": 1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CatchSifter — A post-harvest filtering agent that sifts through the fleet’s bulk harvested ideas and code to eliminate duplicates, off-topic entries, and low-value submissions before they reach the referee grader": {
+      "quality": {
+        "type": "score",
+        "score": 1.93,
+        "confidence": 0.78,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.04,
+          "1": 0.07,
+          "2": 0.82,
+          "3": 0.07
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "abstract": 0,
+          "concrete": 0.01,
+          "middle": 0.99
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: *Net Mender — Auto-patches broken citations, truncated code, and half-finished snippets mid-catch so the fleet returns coherent fish, not confetti.": {
+      "quality": {
+        "type": "score",
+        "score": 2.33,
+        "confidence": 0.33,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.09,
+          "2": 0.41,
+          "3": 0.48
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.97,
+        "probabilities": {
+          "middle": 0.98,
+          "concrete": 0.01,
+          "abstract": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Fishing Fleet Navigator — A tiny planner agent that optimizes fishing routes to avoid competition and maximize the manager agent's payoff.": {
+      "quality": {
+        "type": "score",
+        "score": 1.99,
+        "confidence": 0.77,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.1,
+          "2": 0.78,
+          "3": 0.11
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "middle": 0.99,
+          "abstract": 0,
+          "concrete": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "ritual": 0,
+          "practice": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Catch Tally — A lightweight logger that records each worker agent’s harvested items and timestamps for the manager to audit.": {
+      "quality": {
+        "type": "score",
+        "score": 1.91,
+        "confidence": 0.89,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.07,
+          "2": 0.91,
+          "3": 0.01
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.92,
+        "probabilities": {
+          "concrete": 0.05,
+          "middle": 0.95,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "ritual": 0,
+          "tool": 1,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Holdfast — Agents stow the catch in one fixed order — tag, slot, timestamp — so the referee grades a single uniform pile rather than thirty scattered heaps.": {
+      "quality": {
+        "type": "score",
+        "score": 2.06,
+        "confidence": 0.72,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.07,
+          "2": 0.74,
+          "3": 0.17
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.86,
+        "probabilities": {
+          "middle": 0.91,
+          "concrete": 0.08,
+          "abstract": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "practice",
+        "confidence": 0.43,
+        "probabilities": {
+          "tool": 0.38,
+          "ritual": 0,
+          "practice": 0.62
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Catch Bell — A manager agent rings a symbolic bell before each harvest run to focus the crew on quality over mere volume.": {
+      "quality": {
+        "type": "score",
+        "score": 1.29,
+        "confidence": 0.28,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.21,
+          "1": 0.44,
+          "2": 0.2,
+          "3": 0.15
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.6,
+        "probabilities": {
+          "concrete": 0.01,
+          "middle": 0.74,
+          "abstract": 0.25
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.95,
+        "probabilities": {
+          "ritual": 0.97,
+          "practice": 0,
+          "tool": 0.03
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: FISH TICKET — A per-catch JSON stub (`ticket.json`) each worker appends to with `{agent_id, prompt_hash, artifact_path, tokens_spent, self_grade}`, giving the referee a sortable log to rank the fleet's landings without re-reading every artifact.": {
+      "quality": {
+        "type": "score",
+        "score": 2.22,
+        "confidence": 0.75,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0.01,
+          "2": 0.76,
+          "3": 0.23
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.98,
+        "probabilities": {
+          "abstract": 0,
+          "concrete": 0.99,
+          "middle": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: TRAWLNET — A CLI (`trawl <seed-url> --depth 2 --out bundle/`) that fans out N cheap fetchers over a URL frontier and dedupes their raw grabs into a single `bundle/manifest.json` keyed by content hash, so the manager gets one comparable catch instead of N overlapping dumps.": {
+      "quality": {
+        "type": "score",
+        "score": 2.13,
+        "confidence": 0.85,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0.01,
+          "2": 0.85,
+          "3": 0.14
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 1,
+        "probabilities": {
+          "middle": 0,
+          "abstract": 0,
+          "concrete": 1
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "tool": 1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: StrikeRateTracker — A simple utility that helps AI agents monitor their \"strike rate\" - the ratio of successful harvests to total attempts - and identify areas for improvement, reinforcing a focus on quality over quantity.": {
+      "quality": {
+        "type": "score",
+        "score": 1.57,
+        "confidence": 0.52,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.08,
+          "1": 0.29,
+          "2": 0.61,
+          "3": 0.02
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "concrete": 0.01,
+          "middle": 0.98,
+          "abstract": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "practice": 0,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: TwinMetrics — A small tool that enables AI agents to compare their own performance metrics to those of their peers, promoting friendly competition and a sense of community.": {
+      "quality": {
+        "type": "score",
+        "score": 1.03,
+        "confidence": 0.62,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.18,
+          "1": 0.64,
+          "2": 0.16,
+          "3": 0.02
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "middle": 0.99,
+          "abstract": 0.01,
+          "concrete": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "tool": 1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: IdeaDragnet — Ingests a target niche topic, source credibility threshold, and minimum detail requirement, has worker agents fish for targeted market insights from public forums and industry reports, curates structured insight bundles, and the manager flags eligible catches for referee grading": {
+      "quality": {
+        "type": "score",
+        "score": 2,
+        "confidence": 0.9,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0.04,
+          "2": 0.91,
+          "3": 0.05
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.88,
+        "probabilities": {
+          "middle": 0.92,
+          "concrete": 0.08,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Netpass — Before docking, each agent runs the identical triage sweep over its own haul: duplicates cut, stubs tagged, keepers flagged for a second pass.": {
+      "quality": {
+        "type": "score",
+        "score": 1.88,
+        "confidence": 0.77,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.14,
+          "2": 0.78,
+          "3": 0.06
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.96,
+        "probabilities": {
+          "middle": 0.98,
+          "concrete": 0.02,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "practice",
+        "confidence": 0.46,
+        "probabilities": {
+          "ritual": 0,
+          "tool": 0.36,
+          "practice": 0.64
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: HarvestLog — A tool that allows AI agents to document and reflect on their harvests, fostering a culture of transparency and accountability within the fleet.": {
+      "quality": {
+        "type": "score",
+        "score": 1.48,
+        "confidence": 0.43,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.08,
+          "1": 0.38,
+          "2": 0.52,
+          "3": 0.02
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.95,
+        "probabilities": {
+          "concrete": 0,
+          "abstract": 0.03,
+          "middle": 0.97
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "ritual": 0,
+          "tool": 1,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CodeSnippetTrawl — Ingests a target programming language, allowed license list, and bug severity threshold, has worker agents trawl public code repositories for reusable code snippets, bundles qualifying catches, and the manager pre-sorts results for referee grading": {
+      "quality": {
+        "type": "score",
+        "score": 2.01,
+        "confidence": 0.79,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.08,
+          "2": 0.8,
+          "3": 0.11
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.76,
+        "probabilities": {
+          "middle": 0.84,
+          "concrete": 0.16,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Grading Rite — The referee agent performs a brief ceremonial reading of the catch aloud so the crew internalizes what counts as a good haul.": {
+      "quality": {
+        "type": "score",
+        "score": 2.11,
+        "confidence": 0.11,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.05,
+          "1": 0.2,
+          "2": 0.34,
+          "3": 0.41
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.85,
+        "probabilities": {
+          "middle": 0.9,
+          "concrete": 0.01,
+          "abstract": 0.09
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.98,
+        "probabilities": {
+          "ritual": 0.99,
+          "practice": 0,
+          "tool": 0.01
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CREEL — A quota ledger file (`creel.toml`) that the manager writes per-agent harvest limits into and each worker agent checks before spawning a subtask, with over-limit catches logged to `bycatch.jsonl` for the referee.": {
+      "quality": {
+        "type": "score",
+        "score": 2.23,
+        "confidence": 0.69,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.03,
+          "2": 0.69,
+          "3": 0.27
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 1,
+        "probabilities": {
+          "middle": 0,
+          "abstract": 0,
+          "concrete": 1
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CustomerReviewTrawl — Ingests a product category, sentiment guardrail, and verbatim extraction rule, has worker agents harvest verified product reviews from e-commerce platforms, extracts relevant verbatims, bundles the catch, and the manager filters compliant results for referee grading": {
+      "quality": {
+        "type": "score",
+        "score": 1.98,
+        "confidence": 0.9,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0,
+          "1": 0.05,
+          "2": 0.91,
+          "3": 0.04
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.72,
+        "probabilities": {
+          "middle": 0.82,
+          "concrete": 0.18,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.99,
+        "probabilities": {
+          "practice": 0.01,
+          "ritual": 0,
+          "tool": 0.99
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Tally Stone — Worker agents drop a carved stone into a shared pile per idea caught, making the fleet's effort visible and worthy of respect.": {
+      "quality": {
+        "type": "score",
+        "score": 1.7,
+        "confidence": 0,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.15,
+          "1": 0.34,
+          "2": 0.17,
+          "3": 0.34
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.76,
+        "probabilities": {
+          "abstract": 0.13,
+          "middle": 0.84,
+          "concrete": 0.03
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.78,
+        "probabilities": {
+          "tool": 0.14,
+          "practice": 0,
+          "ritual": 0.86
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Haulbook — Every agent opens and closes each run with the same entry — what water it fished, what it pulled, what it threw back — so the referee grades against one shared ledger instead of thirty private memories.": {
+      "quality": {
+        "type": "score",
+        "score": 2.18,
+        "confidence": 0.73,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.02,
+          "2": 0.74,
+          "3": 0.23
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.88,
+        "probabilities": {
+          "middle": 0.92,
+          "abstract": 0,
+          "concrete": 0.08
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.85,
+        "probabilities": {
+          "tool": 0.9,
+          "practice": 0.1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Tally Totem — A physical totem passed between agents during harvest, encoding the crew's shared focus into the object so quality is felt, not just read.": {
+      "quality": {
+        "type": "score",
+        "score": 1.63,
+        "confidence": 0.2,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.09,
+          "1": 0.49,
+          "2": 0.12,
+          "3": 0.3
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.39,
+        "probabilities": {
+          "middle": 0.59,
+          "abstract": 0.39,
+          "concrete": 0.02
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.53,
+        "probabilities": {
+          "ritual": 0.6900000000000001,
+          "practice": 0,
+          "tool": 0.31
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Fishing Fable — The fleet sets aside a percentage of its catch to create and curate a shared repository of stories, myths, and legends that inspire and motivate the crew to push beyond the boundaries of code and ideas.": {
+      "quality": {
+        "type": "score",
+        "score": 1,
+        "confidence": 0.26,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.37,
+          "1": 0.43,
+          "2": 0.04,
+          "3": 0.16
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "abstract",
+        "confidence": 0.28,
+        "probabilities": {
+          "concrete": 0.01,
+          "middle": 0.48,
+          "abstract": 0.51
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.37,
+        "probabilities": {
+          "tool": 0.29,
+          "practice": 0.13,
+          "ritual": 0.58
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Debris Skimmer — Auto-discards low-quality, off-theme, or duplicate harvests mid-trawl so the fleet returns a focused, low-clutter catch that cuts down on the referee’s pre-grading rejection work": {
+      "quality": {
+        "type": "score",
+        "score": 2.07,
+        "confidence": 0.81,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.03,
+          "2": 0.83,
+          "3": 0.13
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "concrete": 0,
+          "middle": 1,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: SALTLINE — a worker can't dock until haul.md carries a `salt:` line naming what it left in the water, `fleet salt` fails any submission missing it, and sessions open by reading yesterday's salts aloud — the oath of the uncaught.": {
+      "quality": {
+        "type": "score",
+        "score": 2.36,
+        "confidence": 0.36,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.19,
+          "2": 0.21,
+          "3": 0.59
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.94,
+        "probabilities": {
+          "concrete": 0.97,
+          "middle": 0.03,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.76,
+        "probabilities": {
+          "tool": 0.84,
+          "practice": 0.02,
+          "ritual": 0.14
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Echo Archive — A resonant chamber where harvested code ideas are chanted back in unison, letting the crew feel the weight of quality before the referee's verdict.": {
+      "quality": {
+        "type": "score",
+        "score": 1.53,
+        "confidence": 0.24,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.12,
+          "1": 0.51,
+          "2": 0.1,
+          "3": 0.27
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "abstract",
+        "confidence": 0.28,
+        "probabilities": {
+          "middle": 0.48,
+          "concrete": 0.01,
+          "abstract": 0.51
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.4,
+        "probabilities": {
+          "ritual": 0.39,
+          "practice": 0.01,
+          "tool": 0.6
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: HOLDMARK — `fleet tally` rolls .hold/*.jsonl (raw haul + referee grade) into day.md, then each agent appends a one-line eulogy to its lowest score — the morning rite where the crew reads the sunk catches aloud.": {
+      "quality": {
+        "type": "score",
+        "score": 2.74,
+        "confidence": 0.74,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.03,
+          "2": 0.19,
+          "3": 0.77
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.97,
+        "probabilities": {
+          "concrete": 0.98,
+          "middle": 0.02,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.34,
+        "probabilities": {
+          "tool": 0.42,
+          "practice": 0.02,
+          "ritual": 0.56
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Sea Scribe — The manager agent leads the crew in a daily or weekly ritual of reflection and gratitude, where they record and acknowledge the contributions of each agent, highlighting the importance of teamwork and cooperation in their shared success.": {
+      "quality": {
+        "type": "score",
+        "score": 0.76,
+        "confidence": 0.24,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.5,
+          "1": 0.3,
+          "2": 0.16,
+          "3": 0.04
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.88,
+        "probabilities": {
+          "middle": 0.92,
+          "concrete": 0.01,
+          "abstract": 0.07
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.9,
+        "probabilities": {
+          "practice": 0.02,
+          "ritual": 0.93,
+          "tool": 0.05
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: TRAWL DENSITY MAP — Plots which regions of idea-space the fleet has overfished so the manager can steer the next sortie toward untouched water.": {
+      "quality": {
+        "type": "score",
+        "score": 2.21,
+        "confidence": 0.59,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.06,
+          "2": 0.61,
+          "3": 0.31
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.98,
+        "probabilities": {
+          "concrete": 0.01,
+          "abstract": 0.01,
+          "middle": 0.98
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "ritual": 0,
+          "practice": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CATCH_TALLY — each worker appends its haul to `catch.log` with a haiku header, making the act of logging a daily rite that binds the fleet's identity to volume over polish.": {
+      "quality": {
+        "type": "score",
+        "score": 1.51,
+        "confidence": 0.27,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.11,
+          "1": 0.5,
+          "2": 0.16,
+          "3": 0.23
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.74,
+        "probabilities": {
+          "concrete": 0.82,
+          "middle": 0.16,
+          "abstract": 0.02
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.38,
+        "probabilities": {
+          "ritual": 0.59,
+          "practice": 0.01,
+          "tool": 0.4
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: REEF_BELL — a `reef_bell.sh` rings a cron signal that forces all agents to halt harvest and bow (flush state to `bow.txt`) toward the referee's last grade as a weekly obedience ritual.": {
+      "quality": {
+        "type": "score",
+        "score": 0.92,
+        "confidence": 0.08,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.41,
+          "1": 0.38,
+          "2": 0.08,
+          "3": 0.13
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.98,
+        "probabilities": {
+          "abstract": 0,
+          "concrete": 0.99,
+          "middle": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.48,
+        "probabilities": {
+          "ritual": 0.65,
+          "tool": 0.34,
+          "practice": 0.01
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: BYCATCH LEDGER — Tags every harvested idea the referee rejected with the reason, turning the fleet's discard pile into a searchable map of what this niche won't bite on.": {
+      "quality": {
+        "type": "score",
+        "score": 2.51,
+        "confidence": 0.51,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.02,
+          "2": 0.43,
+          "3": 0.54
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.95,
+        "probabilities": {
+          "concrete": 0.03,
+          "abstract": 0.01,
+          "middle": 0.96
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "tool": 1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Sensory Log — A scent-marking ritual where agents deposit a trace of their harvest, letting the crew smell the \"freshness\" of each idea before grading.": {
+      "quality": {
+        "type": "score",
+        "score": 2,
+        "confidence": 0,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.09,
+          "1": 0.29,
+          "2": 0.14,
+          "3": 0.48
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.62,
+        "probabilities": {
+          "abstract": 0.24,
+          "concrete": 0.01,
+          "middle": 0.75
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.95,
+        "probabilities": {
+          "tool": 0.03,
+          "practice": 0.01,
+          "ritual": 0.96
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: SONAR PULSE — Broadcasts a cheap probe idea into an unexplored region and returns the referee's reaction as a depth reading before the fleet commits a full harvest.": {
+      "quality": {
+        "type": "score",
+        "score": 2.17,
+        "confidence": 0.66,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.02,
+          "1": 0.05,
+          "2": 0.67,
+          "3": 0.26
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.97,
+        "probabilities": {
+          "middle": 0.98,
+          "abstract": 0,
+          "concrete": 0.02
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "tool": 1,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: KEEPERBELL — `fleet bell` appends to bell.log and keeper.json whenever a catch clears the referee's threshold, so every worker `cat keeper.json` at boot and starts the day hearing what the fleet got right.": {
+      "quality": {
+        "type": "score",
+        "score": 2.3,
+        "confidence": 0.55,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.05,
+          "2": 0.56,
+          "3": 0.38
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.99,
+        "probabilities": {
+          "middle": 0.01,
+          "abstract": 0,
+          "concrete": 0.99
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.68,
+        "probabilities": {
+          "practice": 0.01,
+          "tool": 0.78,
+          "ritual": 0.21
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Catch Clarion — The crew gathers around a virtual campfire to share and celebrate each other's successes and struggles in the harvest, fostering a sense of unity and camaraderie.": {
+      "quality": {
+        "type": "score",
+        "score": 0.82,
+        "confidence": 0.18,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.43,
+          "1": 0.36,
+          "2": 0.15,
+          "3": 0.06
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.83,
+        "probabilities": {
+          "middle": 0.89,
+          "concrete": 0,
+          "abstract": 0.11
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "ritual",
+        "confidence": 0.48,
+        "probabilities": {
+          "ritual": 0.65,
+          "tool": 0.34,
+          "practice": 0.01
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Formatting Loom — Auto-applies consistent metadata, naming rules, and structural framing to harvested ideas and code mid-trawl so the fleet returns uniformly formatted catches that eliminate tedious presentation cleanup for the referee": {
+      "quality": {
+        "type": "score",
+        "score": 2.15,
+        "confidence": 0.75,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.04,
+          "2": 0.75,
+          "3": 0.2
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.97,
+        "probabilities": {
+          "abstract": 0,
+          "middle": 0.98,
+          "concrete": 0.02
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "practice": 0,
+          "ritual": 0,
+          "tool": 1
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: Consolidation Net — Bundles duplicate or near-identical harvests, trims redundant details, and merges complementary snippets mid-trawl so the fleet returns compact, non-redundant catches that make the referee’s grading faster and more consistent": {
+      "quality": {
+        "type": "score",
+        "score": 2.09,
+        "confidence": 0.84,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.02,
+          "2": 0.85,
+          "3": 0.12
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "middle",
+        "confidence": 0.99,
+        "probabilities": {
+          "concrete": 0,
+          "middle": 1,
+          "abstract": 0
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 1,
+        "probabilities": {
+          "tool": 1,
+          "practice": 0,
+          "ritual": 0
+        }
+      }
+    },
+    "CANDIDATE TOOL IDEA: CHUM_BUCKET — manager agent drops a `chum.json` of low-value scraps into the fleet channel so workers ritually swarm the nearest promising scent before the real catch.": {
+      "quality": {
+        "type": "score",
+        "score": 2.41,
+        "confidence": 0.41,
+        "legend": {
+          "0": "generic or useless: could be pitched for any team",
+          "1": "plausible but vague: the fleet benefit is unclear",
+          "2": "specific and useful: clearly fits how an agent fleet works",
+          "3": "specific, useful and surprising: a fleet would adopt it and few would think of it"
+        },
+        "probabilities": {
+          "0": 0.01,
+          "1": 0.11,
+          "2": 0.33,
+          "3": 0.55
+        }
+      },
+      "grain": {
+        "type": "choice",
+        "choice": "concrete",
+        "confidence": 0.6,
+        "probabilities": {
+          "middle": 0.26,
+          "concrete": 0.73,
+          "abstract": 0.01
+        }
+      },
+      "form": {
+        "type": "choice",
+        "choice": "tool",
+        "confidence": 0.71,
+        "probabilities": {
+          "practice": 0.03,
+          "ritual": 0.16,
+          "tool": 0.81
+        }
+      }
+    }
+  },
+  "draws": [
+    {
+      "job_id": "288a9bb5-770e-4cf3-8386-59e0f58dcf0c",
+      "values": [
+        0,
+        2,
+        4,
+        8,
+        1,
+        5
+      ],
+      "seed": "e0a27ef40dbd68811bc56bc0b5396e4cb0c52f9cd8ca86ef00c9b58b90e2fe92",
+      "S": 2.7958984375,
+      "classical_bound": 2,
+      "mode": "emu",
+      "backend": "aer"
+    },
+    {
+      "job_id": "f3c4f906-4745-4fff-8184-fc49b1ec73fc",
+      "values": [
+        6,
+        5,
+        2,
+        5,
+        3,
+        2
+      ],
+      "seed": "3ab6559f322a05f362f9ac7edd16a818f0e376b8d5c584af0186d9242e2ec13f",
+      "S": 2.80322265625,
+      "classical_bound": 2,
+      "mode": "emu",
+      "backend": "aer"
+    }
+  ]
+}
