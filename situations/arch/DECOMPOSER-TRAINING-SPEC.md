@@ -45,6 +45,16 @@ tamper-evident by construction — the MLOps "can't reproduce the data" failure 
   draws that force an un-steerable arm choice on some fraction of dispatches turn the log into an
   off-policy-evaluable dataset (contextual-bandit shape). Until DRAW-gated routing runs, treat
   Objective 2 as **descriptive only** (cost/outcome summaries), not a trained policy. Do not ship a
+- **Confirmed by the SOTA scout (2026-09-29), with the concrete fix.** The off-policy-learning
+  literature (Offline CB with New Actions 2605.18509; Logging Policy Design for OPE 2605.15108) says
+  exactly this: a deterministic logging policy puts **zero propensity mass on untried arms**, so IPS/DR
+  estimators are undefined — no estimator rescues a log with no exploration, and the papers that claim
+  to are quietly re-introducing bias via extrapolation. **The fix is cheap and must happen at the
+  source, now:** add explicit **ε-exploration to the live dispatcher** (5–10% epsilon-greedy or
+  Boltzmann over routes) and **log the propensity at decision time** into the `ROUTE` record. Retrofitting
+  propensities onto past logs is impossible, so every day without this is unrecoverable routing data.
+  This is the single highest-leverage change for the router objective. See SCOUT-FINDINGS-2026-09-29.md.
+- Do not ship a
   router trained on confounded observational data.
 
 ## Objective 3 — the value model (was a KEEP/DROP worth it?)

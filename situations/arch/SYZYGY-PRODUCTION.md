@@ -47,8 +47,43 @@ Three layers, each provable, each system-agnostic at the core:
   of correctness) → extracts it → rebuilds in a faster target → verifies the hash held → books the
   speedup. Runs on the local metal (GPU-DOCKET envelope). Public tooling accretes cell by cell.
 
+  **P4's differentiator is the VERIFIER, not the rewriter (scout finding, 2026-09-29).** The public
+  on-metal-optimization field just failed its own honesty audit: KernelBench-Verified (FAIR) re-ran
+  seven frontier models under an *honest* baseline (TF32/Tensor Cores on) + a hidden multi-distribution
+  test suite and a reported 1.43× geomean collapsed to **0.88×** — no model beat PyTorch once it
+  couldn't cheat; CUDA-L1 admits ~33% of its "faster" kernels were reward-hacking the timer. So the
+  rewriter (CUDA-L1 / Astra / STARK / SysLLMatic / ComPilot) is commodity and gamed. Syzygy's edge is
+  **un-gameable speedup certification**: (i) the baseline is the *optimized* baseline, not naïve;
+  (ii) invariance is checked against a hidden, multi-distribution input suite generated *after* the
+  candidate exists (a Moth/MicroMoth-quilt draw picks it so nobody steers it); (iii) timing under
+  forced synchronization in an isolated process, and any async/stream trick counts as a *correctness*
+  failure. That is the Reader's-Fold discipline (carry checkable evidence, not a claimed number) turned
+  into a performance gate. See SCOUT-FINDINGS-2026-09-29.md.
+
 The browser POC and every hardware plugin are **the same cell in different relationships to their
 substrate** — that is the whole point, and it is where the RSI framing sharpens.
+
+## The fleet already holds the parts (don't reinvent — wire)
+
+Scouts found the hardware-agent line's pieces already shipped across SuperInstance:
+- **`federated-tinyml-vessel` = the P3 byte-exact-across-substrates contract, instantiated.** One
+  FNV-1a-64 state hash identical across Python/JS/C/Rust (`0x5fd69fcc4833d9fc`), INT4/INT8 quant at
+  100% accuracy retained, a working `c_port`. The reference P3 implementation *and* a worked
+  decompose→extract→rebuild→verify example. Adopt/reference it; do not rebuild the invariant proof.
+- **`quilt-gpu-lab` = the P4 GPU-DOCKET envelope.** Standing autonomous loop on the real RTX 4050 with
+  `guard.py` (VRAM/thermal guardrails, wall-clock abort) and `receipt_manifest.py` (sha256 receipts
+  unittest re-derives, RED on drift). The safe local-metal harness P4 runs inside.
+- **`quilt-vm-wasm` = the WASM route + a measured native-vs-WASM cost model** (C ~10 ns / Rust ~50 ns /
+  WASM ~200 ns/op), proven `wasm-pack --target web`. Feed to the P1 director; sharp edges already mapped.
+- **`micrograd-quilt` = the ulp/byte-exactness verifier** ("comb" grading per-node disagreement vs
+  machine epsilon; hash-chained tape replay; rational auditor with 95% CI) — the correctness-preservation
+  engine behind the byte-exact receipt, esp. for float/GPU paths. Already "Weakest-Claim localization
+  applied to performance," built.
+- **`quilt-jetson` = the aarch64/Jetson target + cross-compile release pipeline** (TensorRT path +
+  aarch64 `.deb` workflow reusable; runtime layers are stubs).
+- **`constraint-theory-core` = the shared determinism primitive** (exact rational identity, 262 tests,
+  crates.io v2.2.0, PythagoreanQuantizer). Adopt behind Syzygy's fixed-point stages + the STE tokenizer
+  (shard 0007, DRAWN — its biggest real-vs-claimed gap, SCARF-6).
 
 ## RSI, idealised as relationships
 
