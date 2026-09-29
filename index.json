@@ -58630,6 +58630,24 @@
     "size_bytes": 20102
   },
   {
+    "filename": "SYZYGY-PRODUCTION.md",
+    "path": "situations/arch/SYZYGY-PRODUCTION.md",
+    "title": "Syzygy to production grade — one cell, every substrate, agents on the metal",
+    "description": "byte-exact kernel. \"Production grade\" here is not polish; it is **actualization on any hardware from one system-agnostic core**, with a browser-native zero-dependency proof that anyone can run. Execut...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Dialogue",
+    "word_count": 770,
+    "date": "2026-09-29",
+    "size_bytes": 6329
+  },
+  {
     "filename": "cargo-line-fact-landed.md",
     "path": "situations/arch/cargo-line-fact-landed.md",
     "title": "cargo-line-tycoon — the `fact_landed` schema (the one event the ring shares)",
@@ -58811,6 +58829,24 @@
     "word_count": 793,
     "date": "2026-09-28",
     "size_bytes": 9510
+  },
+  {
+    "filename": "ML-IN-THE-LOOP.md",
+    "path": "situations/arch/ML-IN-THE-LOOP.md",
+    "title": "ML in the loop — baking learning into the iterative git CI/CD structure",
+    "description": "first cell when we've lived enough of it. Ties to GPU-DOCKET.md (local training), THE-WEAKEST-CLAIM-METHOD.md (the audit gate), the fishing-fleet skill (the loop), and the dispatch-ledger (the dataset...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 805,
+    "date": "2026-09-29",
+    "size_bytes": 6476
   },
   {
     "filename": "NEW-DIRECTIONS.md",
