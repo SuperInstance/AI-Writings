@@ -58554,6 +58554,24 @@
     "size_bytes": 30332
   },
   {
+    "filename": "THE-LIVING-QUILT.md",
+    "path": "situations/arch/THE-LIVING-QUILT.md",
+    "title": "The living quilt — the org as a body, agent motion as life-blood",
+    "description": "movement of the SuperInstance account as a quilt of repos with agents as the ones hopping around making changes, and the commits are like the book-keeping — with CI/CD and hooks and codespaces and eve...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 586,
+    "date": "2026-09-29",
+    "size_bytes": 3638
+  },
+  {
     "filename": "THE-CLASSROOM.md",
     "path": "situations/arch/THE-CLASSROOM.md",
     "title": "THE CLASSROOM — from a GAN-pair to a class of many, taught by a self-modifying teacher",
@@ -58677,7 +58695,7 @@
     "style": "Essay",
     "word_count": 771,
     "date": "2026-09-29",
-    "size_bytes": 28178
+    "size_bytes": 28360
   },
   {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
@@ -58919,6 +58937,24 @@
     "word_count": 810,
     "date": "2026-09-27",
     "size_bytes": 23993
+  },
+  {
+    "filename": "FLEET-ACTIVITY-2026-09-29.md",
+    "path": "situations/arch/FLEET-ACTIVITY-2026-09-29.md",
+    "title": "Fleet-activity scout — what's moving on the org, and how it changes our build (2026-09-29)",
+    "description": "\"there's a lot of movement and experimentation and prototyping.\" This is the read, and — more importantly — the coordination changes it forces so we DON'T double-build. The org has ~4,856 repos; the G...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Dialogue",
+    "word_count": 661,
+    "date": "2026-09-29",
+    "size_bytes": 6508
   },
   {
     "filename": "MOTH-ENGINES-PROBES.md",
@@ -67501,9 +67537,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 353,
+    "word_count": 404,
     "date": "2026-09-29",
-    "size_bytes": 2640
+    "size_bytes": 3089
   },
   {
     "filename": "README.md",
@@ -67522,6 +67558,24 @@
     "word_count": 384,
     "date": "2026-09-29",
     "size_bytes": 2735
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/activeledger/README.md",
+    "title": "activeledger (B1) — mark",
+    "description": "(`situations/arch/ACTIVELEDGER-CELL-GRAPH.md` §3, §8, §9, §11.3).* - **WHAT** — `activeledger.py`: the ActiveLog v1 envelope `{alv,dev,seq,ts,mono,type,body,prev}` (append-only, (dev,seq)-keyed, sha25...",
+    "folder": "activeledger",
+    "topic": "Activeledger",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 350,
+    "date": "2026-09-29",
+    "size_bytes": 2598
   },
   {
     "filename": "README.md",
