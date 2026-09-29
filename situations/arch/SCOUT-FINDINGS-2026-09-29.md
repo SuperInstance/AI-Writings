@@ -104,3 +104,74 @@ docs; treat the others as candidates to migrate or retire.
    the routing corpus becomes learnable).
 5. **exoj → FOLD** wiring (a director task): the corpus's fold-starvation fix + the exoj tie-in.
 6. **quilt-live-canon /api/jev + opcode alignment** (a director task): the live edge starts speaking the season.
+
+---
+
+## Scout wave 2 (2026-09-29) — cutting-edge Fronts 4 & 5 + canon/application cluster
+
+### Front 4 — LLM-judge decomposition, ensembles vs independent reach (verified papers)
+- **"Nine Judges, Two Effective Votes" (2605.29800).** A 9-model panel across 7 families = only ~2
+  *independent* votes (Kish effective-N); ~75% of nominal independence lost to shared mistakes; real
+  panels run 8–22pp below the independent-voting ideal and aggregation closes ≤11% of the gap. The
+  bottleneck is **correlation, not aggregation** — more LLM votes cannot fix it. **Empirical proof of
+  Law 7:** diversity of *reach*, not of *opinion*.
+- **"Blind to the Pivotal Vote" (2608.06940).** An independent tool-backed signal gives **+10.4–23.3pp
+  — but ONLY on one-vote-margin "pivotal" queries, and exactly zero elsewhere.** So independence must
+  be **spent where the panel is split**, not averaged in globally. → Formal justification for
+  **margin-gated** escalation to a symbolic/tool checker.
+- **CAVEAT that corrects OUR method — "Rethinking Atomic Decomposition" (2603.28005).** Holistic
+  judging *beat* self-decomposing atomic judging on completeness-heavy QA by **+14.5–33.0pp**, at
+  1.4–2.3× the tokens: self-decomposition "fragments completeness reasoning, making global omission
+  detection harder." **Decompose-and-localize catches a WRONG leaf well but a MISSING leaf poorly** —
+  JEV's fold is only as good as its claim graph; an omitted branch is invisible to leaf-scoring. The
+  decomposition step also injects its own errors.
+- **Blind spots (route to code, never a judge):** counting + letter-level spelling (tokenization),
+  position bias, verbosity bias (+15–30pp for longer answers), self-preference (β up to 0.307;
+  forced-choice multi-dim scoring cuts it ~31.5%; **Claude Sonnet 4.5 measured β=−0.229, anti-self** —
+  self-preference is model-specific, don't assume a universal fix). Showing a judge a prior score
+  destroys its independence (anchoring) — so a FOLD must **not** show leaves the whole-claim verdict.
+- **→ MOVES for JEV / our fold:** (1) **margin-gate** the independent checker — escalate a leaf to a
+  symbolic/tool verifier only when sub-judges are within one vote (that is exactly and only where
+  reach pays); (2) run a cheap **holistic "missing-leaf" completeness pass in parallel** to the claim
+  graph and flag disagreement; (3) track **Kish effective-vote count**, not judge count; (4) route
+  counting/spelling/arithmetic leaves to code; (5) never anchor a leaf on the whole verdict.
+
+### Front 5 — certified / quantum randomness in loops (verified)
+- **"Seed Hijacking of LLM Sampling" (2605.08313).** Recover MT19937 state from 624 consecutive
+  outputs → force **99.6–100% exact tokens with no trace**, bypassing RLHF/SFT. Defense = a hardware
+  QRNG on the sampling seed path (+0.6% latency). **A real, deployable reason for Moth/true-randomness
+  on the seed path** — and why a *simulator* (MicroMoth-quilt, a PRNG) is honest-silver only.
+- **Certified randomness from a trapped-ion QPU (Nature 2025, JPMorganChase + Quantinuum).** 71,313
+  device-certified bits on 56-qubit H2 via random-circuit-sampling certified expansion (untrusted
+  server, client verifies), validated with 1.1 exaflops. The genuinely "provably un-gameable" tier —
+  Moth's `comet-qrng-v1` (NIST SP 800-90B) is our accessible analogue for un-steerable eval/adversary draws.
+
+### Canon + application cluster — top moves
+- **Fleet fnv1a-64 canary is consistent everywhere** (`0x024a555471370b18d` "café Δ 日本語"; cargo-line
+  + tidepool cite the same). The cell algebra runs in production in hermit's D1 WAL.
+- **1. Wire the REAL JEV into tidepool's recall gate.** tidepool ships a `TIDEPOOL_JEV` gate
+  (`σ = √(c_emb·c_jev)`, decision surface|suppress|abstain) whose `JEV_API_URL` falls back to a mock;
+  jev-1.13.0 is the funded oracle it was named after. Point it at `api.typesafe.ai/v1/systemone` →
+  upgrades every downstream agent (hermit, q16, plato-portal SDK) at once.
+- **2. Promote q16-trajectories to the canonical duke-lab↔tidepool bridge** and unify the two 16-dim
+  oceans (`MUSICIANS_NATIVE` + `TIDEPOOL_NATIVE`) into one Vectorize index (identity codec proven
+  exact vs BigInt; 40+18 tests green).
+- **3. FIX hermit's RED main (one evening).** `src/quilt/projection.ts` doesn't export
+  `projectNominationVote`/`VoteProjectionInput` that `commit.ts` imports → `bun test` dies in ~15
+  files; also `reconcileTick` is landed but not wired into the Worker `scheduled()` handler. hermit is
+  the flagship live cell-algebra deployment shipping broken — a cheap fix makes it the reference impl.
+- **4. Aim `vector-novelty` at the situation-recorder corpus.** vector-novelty reads a hash-chained
+  receipt ledger as a *signal* (`window_novelty` = 1 − nearest-precedent similarity; `find_fish` =
+  recurring low-similarity frontiers). Point `window_novelty`/`find_fish` at our transcripts +
+  cargo-line's witness-log = a fleet **anomaly radar** on the one substrate common to everything. The
+  sensor exists; it just needs pointing at the real corpus.
+- **5. Transcribe app-cluster prose links → `.quilt/links.yml`** (hermit, cocapn-plato, openconstruct,
+  plato-portal, tidepool, duke-lab) — the generator (`quilt-links.mjs`) already lives in fleet-seeds.
+
+### Ranked wave-2 actions
+1. **Fold the "missing-leaf" + margin-gated-independence + no-anchor corrections into THE-WEAKEST-CLAIM-METHOD
+   and DECOMPOSER-TRAINING-SPEC** — this genuinely fixes our fold method. *(doc, now)*
+2. **hermit RED-main fix** (director; concrete, cheap, unbreaks the flagship). 
+3. **vector-novelty → situation-recorder corpus** (director; the anomaly radar on our own transcripts).
+4. **tidepool real-JEV wiring** (director; one funded oracle upgrades all downstream).
+5. Re-dispatch the FAILED cross-poll directors (jev-quilt, quilt) + q16 bridge + links.yml transcription.

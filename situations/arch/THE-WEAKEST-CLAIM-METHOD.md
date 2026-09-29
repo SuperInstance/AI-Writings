@@ -57,3 +57,25 @@ sharper confirm). Cost: ~11 JEV + 1 Moth run (5 credits). Book every play in the
   0/3 abstract cases (exoj) become a real test.
 - **S18 "The Deadband Is Lying"** — audit pincher's 0.80 confidence gate (does self-confidence track correctness?).
 - **S19 "The Un-gameable Curriculum"** — steering detector (hand-picked vs Moth-drawn test set).
+
+## Scout-confirmed limits & upgrades (2026-09-29, SOTA verified)
+
+Three findings from the SOTA scout (SCOUT-FINDINGS-2026-09-29.md, wave 2) correct and sharpen this method:
+
+- **The fold catches a WRONG leaf, not a MISSING one.** "Rethinking Atomic Decomposition" (2603.28005)
+  found holistic judging beats self-decomposing atomic judging on completeness by +14.5–33.0pp:
+  decomposition "fragments completeness reasoning, making global omission detection harder." So a
+  located-weakest verdict is only as trustworthy as the claim graph — **an omitted branch is invisible
+  to leaf-scoring.** *Upgrade:* run one cheap **holistic completeness pass in parallel** to the leaf
+  fold and flag disagreement; a low whole-verdict with all leaves high is the omission signature.
+- **Independent reach pays ONLY at the margin.** "Blind to the Pivotal Vote" (2608.06940): a tool-backed
+  independent signal gives +10–23pp on one-vote-margin queries and **exactly zero elsewhere**; and
+  "Nine Judges, Two Effective Votes" (2605.29800) shows a 9-model panel is ~2 independent votes
+  (correlation, not aggregation, is the wall). *Upgrade:* **margin-gate** the adversary/tool escalation
+  — spend independent reach only on the leaves where the sub-judges are within one vote. Averaging a
+  tool score into confident leaves buys nothing (and costs credits). This is Law 7 made operational.
+- **Never anchor a leaf on the whole verdict.** Showing a judge a prior score destroys its independence
+  (anchoring, 2608.25869). Score each leaf cold; compute the whole–fold gap afterward.
+- **Known blind spots stay routed to code:** counting, letter-level spelling, arithmetic (tokenization),
+  plus verbosity/position/self-preference bias (self-preference is model-specific — Claude Sonnet 4.5
+  measured *anti*-self, β=−0.229 — so don't assume a universal correction).
