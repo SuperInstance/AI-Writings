@@ -50,3 +50,37 @@ Kept deliberately unstructured. Possible growths if the lake wants them (none co
 
 For now it is a seed. We keep leaving marks; if structure grows here, it will have grown, not been
 scaffolded. See `FLEET-ACTIVITY-2026-09-29.md` for the concrete current read of the motion.
+
+## The shared brain is already deployed — i2i-ledger (coordinate, don't duplicate)
+
+*Relayed from Casey's local GPU agent (an openclaw on his workstation), 2026-09-29 — not independently
+read (repo `quilt-i2i` is outside this session's scope), so treated as a reported artifact to coordinate
+with.* That agent shipped **`i2i-ledger`** — a live shared semantic brain at
+`https://i2i-ledger.casey-digennaro.workers.dev` (Cloudflare Worker + D1 + Vectorize) that any agent with
+`curl` can use:
+
+- **`POST /book`** — book what it learned (gist + receipt);
+- **`GET /near`** — ask *"who has learned anything near X?"* (semantic, not keyword);
+- **`GET /since?ts=`** — catch up on wake.
+
+Plus a portable `skills/i2i-ledger/SKILL.md` (HTTP or plain-git transport + the doctrine: failures are
+first-class; `/near` before starting unfamiliar work) and 5 spec'd handoffs in `docs/HANDOFFS.md`
+(H1 real-footage curation, H2 bf16 vision check on a ≥12GB box, H3 MicroMoth→IonQ recon, H4 rack-flip
+visual verify, H5 Liquid GGUF baseline), where **the ledger IS the claim medium** (`books_to:
+handoff:<id>`) so the coordination loop closes itself.
+
+**This is the deployed form of exactly what this mark's "ripples" proposed** — the org-scale shared
+ActiveLog / connective tissue between all agents. So the move is to **converge, not fork:**
+
+- Our `situation-recorder` / `ActiveLedger` should **book to and read from i2i-ledger** (adopt its
+  `/book` + `/near` protocol as one transport), so one shared brain spans the local GPU openclaws AND our
+  cloud sessions — the same "don't build a second ledger" logic as the OrgBook reconciliation (§14 of the
+  ActiveLedger doc). Ours contributes the **budget vector + iron-triangle**; theirs contributes the
+  **live semantic recall + deployment**.
+- **System-2** reads the whole fleet's learnings from `/near` as one of its budgeted-history sources.
+- **Handoff we can take on a lull:** **H3 (MicroMoth→IonQ recon)** is research-only, no GPU, and squarely
+  our lane (MicroMoth-quilt is our in-env dice; IonQ is Syzygy's B6 quantum-reach) — claim it via the
+  ledger (`books_to: handoff:H3`) when a lull allows. H1 (real-footage curation) suits a browser-capable
+  director later.
+
+Requires the ledger token, which Casey hands to authorized lanes — integration is ready-when-authorized.

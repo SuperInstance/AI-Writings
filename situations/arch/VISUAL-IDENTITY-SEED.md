@@ -74,3 +74,14 @@ Each compartment shows its resident team + a couple of specialists doing the one
 
 *Held as a seed. The mechanics-writing for future engineers/agents comes first; this diffuses alongside as
 the work throws off gems.*
+
+## Refinement (Casey, 2026-09-29): the hermit-crab
+
+Not just any crab — a **hermit crab.** It fits the time, and it fits the mechanics: a hermit crab wears a
+**borrowed shell**, moves **between shells**, and **molts into a bigger one as it grows**. That is the
+fleet exactly — **agents wearing repo-shells**, hopping between them (the life-blood motion), and the
+whole organism **outgrowing shells and finding bigger ones** — molting *is* RSI. The house image sharpens
+to a **Biesty cutaway of a hermit-crab-ship**: the crew (agents) live inside a shell (the repo/vessel)
+that is itself a found, inhabited thing, and when they outgrow it they carry the crew into a larger shell.
+Empty shells left behind are archived repos; a shell traded up is a migration/refactor. The crab is the
+continuity; the shells come and go. Lock this as the core metaphor for the whole visual language.
