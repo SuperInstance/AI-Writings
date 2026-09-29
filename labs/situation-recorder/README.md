@@ -52,9 +52,27 @@ s.write("../../situations/transcripts/sit-2026-09-29-syzygy-p1.jsonl")
 
 ### Drawing the dice with no network (in-environment)
 
-When the Moth API is rate-limited or blocked, get `DRAW` records **locally** from MicroMoth-quilt —
-a Bell/GHZ circuit + `simulate(..., shots=N)` gives quantum-shaped draws, and its collapse ledger
-seals the receipt. Same relation, local provenance: put the collapse-ledger id in `receipt`.
+When the Moth API is rate-limited or blocked, get `DRAW` records **locally** with
+[`draw_local.py`](draw_local.py) — it builds a MicroMoth-quilt circuit, seals the draw as a
+collapse-ledger receipt, self-verifies the chain, and returns `(value, receipt)` you pass straight
+to `Situation.draw()`:
+
+```bash
+MICROMOTH_QUILT=/path/to/MicroMoth-quilt python3 draw_local.py   # self-demo: reproducible, fair, sealed
+```
+
+```python
+from draw_local import draw_int
+idx, receipt = draw_int(0, 4, seed=42)          # un-steerable-by-the-crew, reproducible
+s.draw({"tier": "dice", "id": "micromoth-quilt/local"}, request="...", value=idx, receipt=receipt)
+```
+
+**Honest provenance (keeps the corpus clean):** MicroMoth-quilt is a *simulator* — the draw is
+quantum-structured and replayable with a tamper-evident receipt, but it is **not** a hardware QRNG
+and carries no Bell-S. So it's the *throttled-case* dice; reach for the real Moth QRNG when you need
+hardware un-gameability, and never launder one as the other. See the first real transcript
+[`../../situations/transcripts/sit-2026-09-29-capture-path.jsonl`](../../situations/transcripts/sit-2026-09-29-capture-path.jsonl),
+where a `FOLD` located exactly this caveat as the weakest leaf.
 
 ## Verify / replay
 
