@@ -58677,7 +58677,7 @@
     "style": "Essay",
     "word_count": 771,
     "date": "2026-09-29",
-    "size_bytes": 23226
+    "size_bytes": 28178
   },
   {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
@@ -67504,6 +67504,24 @@
     "word_count": 315,
     "date": "2026-09-29",
     "size_bytes": 2345
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/examples/calculator-quilt/README.md",
+    "title": "calculator-quilt (EX1) — mark",
+    "description": "the anti-GAN-of-programming thesis on the most obvious possible use-case.* - **WHAT** — A money calculator with **two product-identical routes** for the same equation: a",
+    "folder": "calculator-quilt",
+    "topic": "Calculator Quilt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 384,
+    "date": "2026-09-29",
+    "size_bytes": 2735
   },
   {
     "filename": "README.md",
