@@ -16,12 +16,18 @@ verifier" — which is our fold/receipt ethos, scaled.***
    fishing-fleet + situation-recorder — tool-description hash-pinning **is** our fnv1a receipt idiom
    applied to the tool surface; drift-detection = the RED-on-drift pattern quilt-gpu-lab already runs.
    Cheapest, defends the whole dispatch fleet.
-2. **`wasm-native-drift-differ`** (S–M) — differential-test the native vs WASM build of one IR on a
+2. **`wasm-native-drift-differ`** (S–M) — **SHIPPED** (Syzygy `claude/verifier-cells`, mark V02;
+   independently verified 2026-09-29: selftest 27/27, all 6 planted drifts D1–D6 caught with correct
+   first-divergent-field + minimal repro, port byte-exact vs native on 2405 cases) — differential-test
+   the native vs WASM build of one IR on a
    fuzzed suite, deterministic build = golden, localize the first divergent op with a minimal repro.
    *Grounded:* Kaizen metamorphic+differential (2607.04058), bit-exact inference verification
    (2606.00279). *Enhances:* **the Syzygy P1 POC we just shipped** (an automated drift alarm vs the C,
    extending the `0x6dbdd1a8` idiom) + quilt-vm-wasm (adds a correctness differ beside its cost model).
-3. **`kernel-oracle-mutant-gauge`** (S) — mutation-test the *oracle itself*: seed documented buggy
+3. **`kernel-oracle-mutant-gauge`** (S) — **SHIPPED** (Syzygy `claude/verifier-cells`, mark V01;
+   independently verified 2026-09-29: selftest 13/13, full gauge reproduced oracle-strength 41/41=100%
+   — 0 survivors, hash-chain re-derivation byte-identical. Honest SHORTCUT: 100% is *of a hand-written
+   42-mutant catalog*, not operator-generated) — mutation-test the *oracle itself*: seed documented buggy
    kernel variants, report the fraction that escape the suite = an **oracle-strength score**.
    *Grounded:* "Measuring the Checker" (2609.22220), "Correctness Illusion in LLM GPU Kernels"
    (2606.20128 — 9/9 seeded bugs passed KernelBench/TritonBench/GEAK). *Enhances:* **Syzygy P4** — a
