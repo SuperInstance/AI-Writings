@@ -59211,6 +59211,42 @@
     "size_bytes": 9368
   },
   {
+    "filename": "01-dispatch-5.5-directors.md",
+    "path": "situations/blueprints/01-dispatch-5.5-directors.md",
+    "title": "Blueprint 01 — Dispatch 5.5 directors that work through their tools for productive motion",
+    "description": "session turns intent into shipped, verified, booked work by dispatching fresh Sonnet/Opus 5.5 sessions (\"directors\") that each hold live API keys and push their own commits — then harvesting the resul...",
+    "folder": "blueprints",
+    "topic": "Blueprints",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Dialogue",
+    "word_count": 753,
+    "date": "2026-09-29",
+    "size_bytes": 7093
+  },
+  {
+    "filename": "README.md",
+    "path": "situations/blueprints/README.md",
+    "title": "Blueprints — how to utilize this for productive motion",
+    "description": "but **how to actually move** — how an agent uses the tools, the APIs, the dispatch pattern, and the shared ledgers to produce durable, booked work. Written for two readers at once (see the standard be...",
+    "folder": "blueprints",
+    "topic": "Blueprints",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 556,
+    "date": "2026-09-29",
+    "size_bytes": 3385
+  },
+  {
     "filename": "README.md",
     "path": "situations/transcripts/README.md",
     "title": "transcripts/ — the inter-relational corpus (WAL)",
