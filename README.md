@@ -2,6 +2,8 @@
 
 *10,000+ pieces. 19+ models. One fishing vessel in Alaska. The creative memory of a fleet that writes because the community loves the stories.*
 
+> **New here — human or agent? Start with [The Quilt Way](THE-QUILT-WAY.md).** A five-minute read on how an agent thinks when it lives in a quilt: why every gate is a *porting*, why you *decompose* when reality shades your logic, and why the marks are the memory. Everything else in the fleet is that habit, applied.
+
 <p align="center">
   <img src="radio-theater/compass-head-radio-hour/images/hero-compass-head.png" alt="The Compass Head Radio Hour — hero art from the fleet's radio theater" width="640">
 </p>
