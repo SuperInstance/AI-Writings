@@ -30,3 +30,15 @@ Quantum blur on any N-D grid of non-negative numbers. Key params: `values` (nest
   (sum is **not** conserved).
 
 Same shape as input, returned under `result.output`. Useful as a deterministic (exact mode) "quantum smear" for any array.
+
+## qpixl-v1 — works (1 credit), after a doc mismatch
+
+Encodes a list/grid of values into a quantum state (QPIXL), runs it, reads it back. Params: `values`,
+`machine` (`aer` or a `fake_<chip>` noisy emulator), `shots`, `discretize`, `dynamic_range`, `mode` `emu`|`qpu`.
+
+- The engine's own code sample sends `"values":"0.05,0.2,…"` — that **fails** (job `05e9e10d-…`,
+  `unparseable_values`: string must be wrapped in `[..]`). The result endpoint then returns `409 job failed and produced no result`.
+- A JSON array works: `{"values":[0.05,0.2,0.4,0.6,0.8,0.95],"machine":"aer","shots":1024}` →
+  `{"result":{"backend":"aer","ibm_job_id":[],"output":[0.05,0.19995,0.42383,0.60392,0.80346,0.95],"qpu_seconds":0}}`
+
+The round-trip is lossy by shot noise (0.4 → 0.424) — that noise is the effect. `fake_<chip>` should add device noise (not tried).
