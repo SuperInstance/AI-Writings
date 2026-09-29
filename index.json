@@ -34570,6 +34570,24 @@
     "size_bytes": 7415
   },
   {
+    "filename": "novelty-in-process-sameness-in-product.md",
+    "path": "essays/novelty-in-process-sameness-in-product.md",
+    "title": "Novelty in process, sameness in product",
+    "description": "A system can win at looking like it is searching while producing the same thing every time. I have watched it happen and I have built it by accident, which is worse. The failure has a shape. You set u...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 818,
+    "date": "2026-09-29",
+    "size_bytes": 4499
+  },
+  {
     "filename": "THE-PROPRIOCEPTIVE-AGENT.md",
     "path": "essays/THE-PROPRIOCEPTIVE-AGENT.md",
     "title": "THE PROPRIOCEPTIVE AGENT",
@@ -58036,15 +58054,15 @@
     "folder": "situations",
     "topic": "Situations",
     "genres": [
-      "Technical"
+      "Unclassified"
     ],
     "models": [
       "Claude Opus"
     ],
     "style": "Essay",
-    "word_count": 825,
+    "word_count": 816,
     "date": "2026-09-26",
-    "size_bytes": 13249
+    "size_bytes": 13773
   },
   {
     "filename": "FABLE-ANSWER.md",
@@ -58608,6 +58626,24 @@
     "size_bytes": 17677
   },
   {
+    "filename": "ACTIVELEDGER-CELL-GRAPH.md",
+    "path": "situations/arch/ACTIVELEDGER-CELL-GRAPH.md",
+    "title": "ActiveLedger & the Relational Cell Graph — vision + sequenced build plan",
+    "description": "vision dump. This is the anchor doc: it holds the vision AND the ordered build backlog so any session can drop context and resume from here. Update the backlog table (§6) as items ship.",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 771,
+    "date": "2026-09-29",
+    "size_bytes": 12698
+  },
+  {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
     "path": "situations/arch/CARGO-LINE-FUN-AND-GRAPHICS.md",
     "title": "Cargo Line — Fun & Graphics: from honest tech-demo to a genuinely fun, good-looking game",
@@ -58700,6 +58736,24 @@
     "word_count": 738,
     "date": "2026-09-29",
     "size_bytes": 9323
+  },
+  {
+    "filename": "RD-MODULAR-TOOLS.md",
+    "path": "situations/arch/RD-MODULAR-TOOLS.md",
+    "title": "R&D modular-tool backlog — trending papers/repos → composable cells (2026-09-29)",
+    "description": "that could enhance our projects. Wide-scope quest.\" Three R&D scouts (agent-infra / systems-edge / leftfield) surveyed 2025–2026 SOTA, each verifying load-bearing sources by fetching, each told to go ...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 645,
+    "date": "2026-09-29",
+    "size_bytes": 10757
   },
   {
     "filename": "cargo-line-fact-landed.md",
@@ -67411,9 +67465,27 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 273,
+    "word_count": 315,
     "date": "2026-09-29",
-    "size_bytes": 2012
+    "size_bytes": 2345
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/tool-pin-receipts/README.md",
+    "title": "tool-pin-receipts",
+    "description": "Hash-pin a tool/MCP manifest, then detect **drift** (rug-pull) and **injection** (tool poisoning) before an agent ever loads the tools. Zero dependencies (Python stdlib). ``` python3 pin.py --self-tes...",
+    "folder": "tool-pin-receipts",
+    "topic": "Tool Pin Receipts",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 429,
+    "date": "2026-09-29",
+    "size_bytes": 3006
   },
   {
     "filename": "README.md",
@@ -67451,6 +67523,24 @@
     "word_count": 694,
     "date": "2026-09-29",
     "size_bytes": 6653
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/dominated-novelty-search/README.md",
+    "title": "dominated-novelty-search — threshold-free local competition for QD",
+    "description": "step in [`../qd-arena`](../qd-arena/).* Quality-diversity without a grid, a novelty threshold, or bins to tune — the exact knobs that break MAP-Elites in high-dimensional or unsupervised behavior spac...",
+    "folder": "dominated-novelty-search",
+    "topic": "Dominated Novelty Search",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 322,
+    "date": "2026-09-29",
+    "size_bytes": 2199
   },
   {
     "filename": "README.md",
