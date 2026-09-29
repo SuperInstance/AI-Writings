@@ -127,9 +127,11 @@ be frozen first.
 | B1 | P1 | `activeledger` (labs) — **thin adapter**: adopt ActiveLog v1 envelope, define types `cell.tick`/`route.hop`/`ledger.transaction`, wrap `cell-runtime` `DoubleEntry`, book the canonical mic→filter→STT→LLM route + OTel projection. No new format. | ActiveLog v1, cell-runtime, differ/gauge | the transcript out of the route | the pre-filter path taken | **UN-GATED — build next (self)** |
 | B2 | P5 | `unit-translation-audit` (labs) — wrap `quilt-studio` `EFFECT(forward,inverse)`: prove each hop sums to zero after translation (round-trip) or document the lossy hop, so the tensor pages are trustworthy **before** anything builds on them | P1 schema, **quilt-studio** | the value across a round-trip | the page/plane | TODO |
 | B3 | P4 | `pincher` (labs) — wrap `quilt-pincher` as a **second real route**: learned early-exit that grows a threshold for when the cheap known answer suffices, else falls back to the full route | P1 schema, **quilt-pincher** | pinched answer == full-route answer within tolerance | pinch vs full | TODO |
-| B4 | P2 | `route-preference` (labs) — wrap `pareto-tournament` + `hebbian-router`: with ≥2 product-identical routes (P1 + P4) certified equal by the differ, learn/record which is *preferred when* over a regime grid. GPU-agent-facing. Consumes rubric-forge's dense reward. | P1 schema, P4, differ, **rubric-forge, pareto-tournament, hebbian-router** | the computed output | which of k routes | TODO (dispatch Sonnet 5.5) |
+| B4 | P2 | `route-preference` (labs) — wrap `pareto-tournament` + `hebbian-router`: with ≥2 product-identical routes (certified equal by the differ), place each on the **iron-triangle** {good, fast, cheap} from its budget vector + rubric-forge dense reward, and record which is *preferred when*. Not a scalar winner (§11). GPU-agent-facing. | P1 schema, P4, differ, **rubric-forge, pareto-tournament, hebbian-router** | the computed output | which of k routes | TODO (dispatch Sonnet 5.5) |
 | B5 | P3 | `synoptic-view` — extend `quilt-view` + OTel export: Phoenix-style pivot table (project tensor by any 2D dim) + Temporal/LangGraph tick-scrubber with rewind/fork over the **finished** model (P1+P4+P2) | frozen schema + real runs, **quilt-view** | the recorded run | the projection dimension | TODO |
 | B6 | P6 | quantum reach — `MicroMoth-quilt` as a *superposed route* (§10.4): let the preference map hold amplitude, collapse at the settle tick; IonQ only once the classical map exists to hedge | P2 preference map, **MicroMoth-quilt** | the product a classical route yields | classical vs quantum route | LATER |
+| B7 | P7 | `system2-backtest` (labs) — **System-2 evaluator**: replay historical ActiveLog runs against an *alternative* network and score both on the budget vector across the iron-triangle. Differ must certify product-identity BEFORE budgets are compared. Runs offline on the budgeted benchmark corpus — zero live cost. | P1 budget schema, ActiveLog history, differ | the product each recorded input yielded | the network being scored | TODO (parallel-OK once B1 + history exist) |
+| B8 | P8 | `system2-redesigner` (labs) — **System-2 proposer**: the slow cell that proposes alternative networks, runs B7 to A/B them, and promotes iron-triangle winners (better-faster / better-cheaper / faster-better, plus satisfice fallbacks) into B4's preference map | B7, B4 | the product | the proposed topology | TODO |
 
 ### 6.1 Why this order (so it doesn't get rejigged)
 
@@ -173,6 +175,13 @@ sha256 `prev` chain, read-time corrections. Its law is **one envelope, many name
 - `route.hop` — an inter-cell hop (ActiveLedger / yang view), as a **balanced double-entry**:
   `{credit:{cell,units,amount}, debit:{cell,units,amount}, price:<translation ref>}`.
 - `ledger.transaction` — the settled/promissory record binding the two sides (see §9 async settle).
+
+**Budget vector on EVERY record (required, since B1).** Each `cell.tick` and `route.hop` body carries
+`budget = {wall_ms, tokens:{<api>:int}, usd, power_w?, mem_mb?, reqs}` (simulated/estimated is fine if
+deterministic). A route's total budget = the sum of its hops' budgets. This is non-negotiable from day
+one because the whole of §11 (System-2 backtesting + the iron-triangle preference) has nothing to score
+against unless every historical run already recorded what it *cost* in time, tokens-per-API, dollars,
+power, and local requirements. The append-only ActiveLog thus doubles as a **budgeted benchmark corpus**.
 
 **Reuse, don't rebuild (Scout A map):**
 - **cell** = `cell-runtime` (Python) / `quilt-cell` (JS) — the 8-primitive cell, already shipping a
@@ -255,7 +264,48 @@ its keep; discard the rest.)*
    quantum backend"; it is "let the preference map hold amplitude, not just a winner," and collapse only at
    the settle tick. That is the first thing here a classical relational computer genuinely cannot do.
 
-## 11. Working discipline
+## 11. System-2 — the learning system (Casey named it)
+
+**System-2** is the fleet's name for the slow, deliberative **learning component** — the counterpart to
+the fast **System-1** routes that serve live traffic. System-1 *runs* the graph; System-2 *studies and
+rebuilds* it. System-2 never touches live traffic; it works entirely against the append-only ActiveLog,
+which — because every record carries a budget vector (§8) — is a **budgeted benchmark corpus** it can
+replay for free.
+
+System-2's loop:
+
+1. **Propose** alternative cell-networks — different topologies / route choices that reach the *same
+   product* (`system2-redesigner`, B8).
+2. **Backtest** each alternative by replaying historical ActiveLog runs against it and scoring both on
+   the recorded budgets — time, tokens-per-API, dollars, power, local requirements — with **no live
+   cost** (`system2-backtest`, B7). The differ/oracle must certify the alternative reaches the identical
+   product *before* any budget is compared; otherwise you are pricing a cheaper *different* answer.
+3. **Promote** winners into the preference map (B4), and keep the losers as documented dead-ends.
+
+### 11.1 The iron-triangle — "fast, good, cheap: pick two"
+
+Preference is **not a scalar**. Each route is a position on the triangle {**good** (quality), **fast**
+(latency), **cheap** ($/tokens/power)}. The old contractor line holds: the *best contractors* give you
+**two** of the three — so System-2 keeps, per product and regime, a small stable of elite routes:
+
+- **better-faster** (top quality, low latency, costs more),
+- **better-cheaper** (top quality, low cost, slower),
+- **faster-cheaper** (fast and cheap, quality merely adequate),
+
+plus **satisfice routes** that only *meet the requirements* — a lesser contractor that hits one axis, or
+none, but still does the job. "Preferred when" = which corner or edge the application demands *right now*
+(a live UX turn wants faster; a batch backfill wants cheaper; a safety check wants better). **Durability**
+is then structural: there is always at least a satisfice route standing, and usually an elite route for
+the axis you need — many routes to the same product, priced.
+
+### 11.2 Honest caveat (so backtests don't lie)
+
+Replay assumes recorded inputs are representative and budgets are roughly stationary. When a model gets
+cheaper, hardware changes, or an API reprices, old backtests mislead. System-2 must **flag regime shift**
+and re-weight recent history over stale — a backtest carries the as-of window it trusted, the same way a
+FOLD carries its weakest leaf.
+
+## 12. Working discipline
 
 - Doc-first, sequential. This file is the source of truth; free context to it.
 - Push often. Many small, unique PoCs beat one big one.
