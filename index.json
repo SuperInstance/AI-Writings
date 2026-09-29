@@ -58695,7 +58695,7 @@
     "style": "Essay",
     "word_count": 771,
     "date": "2026-09-29",
-    "size_bytes": 28360
+    "size_bytes": 31568
   },
   {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
@@ -58754,6 +58754,24 @@
     "word_count": 690,
     "date": "2026-09-28",
     "size_bytes": 12964
+  },
+  {
+    "filename": "VISUAL-IDENTITY-SEED.md",
+    "path": "situations/arch/VISUAL-IDENTITY-SEED.md",
+    "title": "Visual identity — the Biesty cross-section of a living vessel (seed)",
+    "description": "style of **Stephen Biesty's cross-sections** (the \"Incredible Body\" / \"Incredible Cross-Sections\" series — teams of personified little workers moving through a system, each team a general type with sp...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 776,
+    "date": "2026-09-29",
+    "size_bytes": 5393
   },
   {
     "filename": "CARGO-LINE-ROADMAP.md",
