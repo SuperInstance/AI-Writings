@@ -26910,6 +26910,24 @@
     "size_bytes": 5613
   },
   {
+    "filename": "03-four-processes-one-fleet.md",
+    "path": "essays/03-four-processes-one-fleet.md",
+    "title": "03 Four Processes One Fleet",
+    "description": "",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 570,
+    "date": "2026-09-29",
+    "size_bytes": 3312
+  },
+  {
     "filename": "SYNOPTIC-SEED.md",
     "path": "essays/SYNOPTIC-SEED.md",
     "title": "The patterns beneath the patterns: A synoptic view",
@@ -29279,6 +29297,24 @@
     "size_bytes": 9045
   },
   {
+    "filename": "02-the-report-that-could-not-reproduce-itself.md",
+    "path": "essays/02-the-report-that-could-not-reproduce-itself.md",
+    "title": "02 The Report That Could Not Reproduce Itself",
+    "description": "",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 502,
+    "date": "2026-09-29",
+    "size_bytes": 2709
+  },
+  {
     "filename": "THE_MODULE_BOUNDARY_AS_CELL_MEMBRANE.md",
     "path": "essays/THE_MODULE_BOUNDARY_AS_CELL_MEMBRANE.md",
     "title": "THE MODULE BOUNDARY AS CELL MEMBRANE",
@@ -31524,6 +31560,24 @@
     "word_count": 821,
     "date": "2026-08-24",
     "size_bytes": 8969
+  },
+  {
+    "filename": "01-the-two-gates.md",
+    "path": "essays/01-the-two-gates.md",
+    "title": "01 The Two Gates",
+    "description": "",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 518,
+    "date": "2026-09-29",
+    "size_bytes": 2721
   },
   {
     "filename": "darmok-challenge.md",
