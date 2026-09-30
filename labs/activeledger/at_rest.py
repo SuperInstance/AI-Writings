@@ -15,6 +15,10 @@ Format ALR1 (schema-agnostic; any body shape the emitter accepts):
   flag bit 0 = Reed-Solomon RS(255,223), 8-way interleaved, around the whole payload:
   corrects up to 16 bad bytes per 255-byte block (E2: 12/12 at BER 1e-3 and 64 B bursts).
 
+ALRM (`pack_many`/`unpack_many`): many independent runs, each GENESIS-rooted, in one archive —
+one head receipt per run, one shared lzma context, same optional RS flag. Small runs are
+where it pays: route/fixture logs of a handful of records share their strings.
+
 Refuses to pack a run whose chain does not verify; unpack raises if the head receipt or
 any structure does not match — it never returns different records silently.
 """
@@ -27,6 +31,7 @@ import lzma
 import activeledger as AL
 
 MAGIC = b"ALR1"
+MAGIC_MANY = b"ALRM"
 FLAG_RS = 1
 
 
@@ -183,7 +188,8 @@ def _ctx(body) -> str:
 
 
 # ---- pack / unpack ------------------------------------------------------------------------
-def pack(records: list[dict], repair: bool = False) -> bytes:
+def _payload(records: list[dict]) -> bytes:
+    """One verified run -> the uncompressed ALR1 stream payload."""
     if not records:
         raise AtRestError("empty run")
     if not AL.verify_chain(records):
@@ -235,27 +241,76 @@ def pack(records: list[dict], repair: bool = False) -> bytes:
     payload = _uv(len(records)) + _uv(len(table)) + table
     for k in S:
         payload += _uv(len(S[k])) + bytes(S[k])
-    body = lzma.compress(payload, preset=9 | lzma.PRESET_EXTREME)
-    head = hashlib.sha256(AL.canon(records[-1]).encode()).digest()
-    flags = FLAG_RS if repair else 0
-    inner = head + body
-    if repair:
-        inner = rs_wrap(inner)
-    return MAGIC + bytes([flags]) + inner
+    return payload
+
+
+def _head(records: list[dict]) -> bytes:
+    return hashlib.sha256(AL.canon(records[-1]).encode()).digest()
+
+
+def _xz(payload: bytes) -> bytes:
+    return lzma.compress(payload, preset=9 | lzma.PRESET_EXTREME)
+
+
+def _unxz(body: bytes) -> bytes:
+    try:
+        return lzma.decompress(body)
+    except lzma.LZMAError as e:
+        raise AtRestError("payload corrupt: %s" % e)
+
+
+def _open(blob: bytes, magic: bytes) -> bytes:
+    if blob[:4] != magic:
+        raise AtRestError("not an %s blob" % magic.decode())
+    inner = blob[5:]
+    return rs_unwrap(inner) if blob[4] & FLAG_RS else inner
+
+
+def _seal(magic: bytes, inner: bytes, repair: bool) -> bytes:
+    return magic + bytes([FLAG_RS if repair else 0]) + (rs_wrap(inner) if repair else inner)
+
+
+def pack(records: list[dict], repair: bool = False) -> bytes:
+    """One run -> ALR1 bytes."""
+    return _seal(MAGIC, _head(records) + _xz(_payload(records)), repair)
 
 
 def unpack(blob: bytes) -> list[dict]:
-    if blob[:4] != MAGIC:
-        raise AtRestError("not an ALR1 blob")
-    flags = blob[4]
-    inner = blob[5:]
-    if flags & FLAG_RS:
-        inner = rs_unwrap(inner)
-    head, body = inner[:32], inner[32:]
-    try:
-        payload = lzma.decompress(body)
-    except lzma.LZMAError as e:
-        raise AtRestError("payload corrupt: %s" % e)
+    inner = _open(blob, MAGIC)
+    return _checked(_from_payload(_unxz(inner[32:])), inner[:32])
+
+
+def pack_many(runs: list[list[dict]], repair: bool = False) -> bytes:
+    """Many independent runs (each its own GENESIS-rooted chain) -> one ALRM archive:
+    one head receipt per run, one shared lzma context (small runs share their strings)."""
+    if not runs:
+        raise AtRestError("no runs")
+    heads = b"".join(_head(r) for r in runs)
+    joined = b"".join(_uv(len(p)) + p for p in (_payload(r) for r in runs))
+    return _seal(MAGIC_MANY, _uv(len(runs)) + heads + _xz(joined), repair)
+
+
+def unpack_many(blob: bytes) -> list[list[dict]]:
+    inner = _open(blob, MAGIC_MANY)
+    r = _Reader(inner)
+    n = r.uv()
+    heads = r.take(32 * n)
+    pr = _Reader(_unxz(inner[r.i:]))
+    runs = [_checked(_from_payload(pr.take(pr.uv())), heads[32 * k:32 * k + 32]) for k in range(n)]
+    if pr.i != len(pr.b):
+        raise AtRestError("trailing bytes in archive")
+    return runs
+
+
+def _checked(out: list[dict], head: bytes) -> list[dict]:
+    if not out or _head(out) != head:
+        raise AtRestError("head receipt mismatch: unpacked run is not the packed run")
+    if not AL.verify_chain(out):
+        raise AtRestError("unpacked chain does not verify")
+    return out
+
+
+def _from_payload(payload: bytes) -> list[dict]:
     r = _Reader(payload)
     n = r.uv()
     table = json.loads(r.take(r.uv()))
@@ -265,7 +320,6 @@ def unpack(blob: bytes) -> list[dict]:
     S = streams
     templates = [_parse_shape(s) for s in table["shapes"]]
     strs, mean, last_mono = [], _Mean(), 0
-    log = AL.ActiveLog(dev="unpack")
     out = []
     for seq in range(n):
         dev = table["devs"][S["dev"].uv()]
@@ -305,10 +359,8 @@ def unpack(blob: bytes) -> list[dict]:
         body = _build(templates[sid], iter(leaves))
         prev = AL.link_hash(out[-1]) if out else AL.GENESIS
         out.append({"alv": AL.ALV, "dev": dev, "seq": seq, "ts": ts, "mono": mono, "type": typ, "body": body, "prev": prev})
-    if hashlib.sha256(AL.canon(out[-1]).encode()).digest() != head:
-        raise AtRestError("head receipt mismatch: unpacked run is not the packed run")
-    if not AL.verify_chain(out):
-        raise AtRestError("unpacked chain does not verify")
+    if r.i != len(payload):
+        raise AtRestError("trailing bytes in run payload")
     return out
 
 

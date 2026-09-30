@@ -114,5 +114,10 @@ for i in range(40, 40 + 64):  # a 64-byte burst inside the RS-protected body
     rblob[i] ^= 0xA5
 check("ALR1+RS repairs a 64-byte burst exactly", A.canon(AR.unpack(bytes(rblob))) == A.canon(recs))
 
+runs2 = [R.run(True)["log"].records, R.run(False)["log"].records]
+arch = AR.pack_many(runs2)
+check("ALRM multi-run archive round-trips every run", A.canon(AR.unpack_many(arch)) == A.canon(runs2))
+check("ALRM archive of two runs is smaller than two ALR1 blobs", len(arch) < sum(len(AR.pack(r)) for r in runs2))
+
 print("activeledger selftest: %d checks, %d failures" % (checks, fails))
 sys.exit(1 if fails else 0)
