@@ -59409,6 +59409,24 @@
     "size_bytes": 18110
   },
   {
+    "filename": "ML-IN-QUILT-ARCHITECTURE.md",
+    "path": "situations/arch/ML-IN-QUILT-ARCHITECTURE.md",
+    "title": "ML in Quilt — the forward pass as a priced cell graph",
+    "description": "should think big and architect correctly whatever we build for these ends in quilt.\" The runnable half is [`labs/ml-in-quilt/`](../../labs/ml-in-quilt/), whose selftest reports 66 checks and 0 failure...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 759,
+    "date": "2026-09-30",
+    "size_bytes": 26364
+  },
+  {
     "filename": "THE-WEAKEST-CLAIM-METHOD.md",
     "path": "situations/arch/THE-WEAKEST-CLAIM-METHOD.md",
     "title": "The Weakest-Claim Method — an un-gameable audit instrument",
@@ -67845,7 +67863,7 @@
     "style": "Dialogue",
     "word_count": 658,
     "date": "2026-09-29",
-    "size_bytes": 7512
+    "size_bytes": 8139
   },
   {
     "filename": "README.md",
@@ -68063,6 +68081,24 @@
     "word_count": 726,
     "date": "2026-09-30",
     "size_bytes": 6390
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/ml-in-quilt/README.md",
+    "title": "ml-in-quilt — a transformer where every block is a cell System-2 can price",
+    "description": "[`situations/arch/ML-IN-QUILT-ARCHITECTURE.md`](../../situations/arch/ML-IN-QUILT-ARCHITECTURE.md).*",
+    "folder": "ml-in-quilt",
+    "topic": "Ml In Quilt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 697,
+    "date": "2026-09-30",
+    "size_bytes": 10926
   },
   {
     "filename": "README.md",
