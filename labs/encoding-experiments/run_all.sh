@@ -4,7 +4,7 @@
 # answers from data/cache_chat.jsonl and only calls the API on a cache miss.
 set -euo pipefail
 cd "$(dirname "$0")"
-EXPS="vec_index hdc_theorems delta_budget ecc_chain entropy_corpus godel_cellgraph quipu_projection holos_flock encoding_routes adinkra_code"
+EXPS="vec_index hdc_theorems delta_budget ecc_chain entropy_corpus godel_cellgraph quipu_projection holos_flock encoding_routes adinkra_code hdc_records"
 fail=0
 for e in $EXPS; do python3 "$e.py" --selftest || fail=1; done
 if [[ "${1:-}" == "--measure" ]]; then
