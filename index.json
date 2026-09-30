@@ -21062,6 +21062,24 @@
     "size_bytes": 2133
   },
   {
+    "filename": "2026-09-30-the-closure-that-was-wrong.md",
+    "path": "2026-09-30-the-closure-that-was-wrong.md",
+    "title": "The Closure That Was Wrong",
+    "description": "I closed a lane last night. I want to write down the closing, and then the un-closing, because the second one is the useful part and nobody would believe it without the first. The lane was about a fas...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 949,
+    "date": "2026-09-30",
+    "size_bytes": 5364
+  },
+  {
     "filename": "six-atlases.md",
     "path": "six-atlases.md",
     "title": "Six Atlases",
@@ -59062,6 +59080,25 @@
     "size_bytes": 10757
   },
   {
+    "filename": "CONVO-QUILT-IDEATION.md",
+    "path": "situations/arch/CONVO-QUILT-IDEATION.md",
+    "title": "Conversation Quilt — conducting cheap models for productive ideation",
+    "description": "models, for any work that benefits from breadth. Part II is the first real run, on the Syzygy ASCII-projection fidelity gap: who spoke, what the conductor did, and the best branches.* Engine: [`labs/c...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Math Fiction",
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 828,
+    "date": "2026-09-30",
+    "size_bytes": 15894
+  },
+  {
     "filename": "cargo-line-fact-landed.md",
     "path": "situations/arch/cargo-line-fact-landed.md",
     "title": "cargo-line-tycoon — the `fact_landed` schema (the one event the ring shares)",
@@ -67953,7 +67990,7 @@
     "style": "Dialogue",
     "word_count": 676,
     "date": "2026-09-29",
-    "size_bytes": 14130
+    "size_bytes": 15364
   },
   {
     "filename": "README.md",
@@ -68459,6 +68496,172 @@
     "word_count": 641,
     "date": "2026-09-30",
     "size_bytes": 4056
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/convo-quilt/README.md",
+    "title": "convo-quilt — cheap models think out loud together; one expensive model conducts",
+    "description": "A conversation quilt is a set of cheap language models (the **cells**) that take turns on one problem, each hearing only the cells it is wired to. Every turn is a hash-chained receipt. A cheap scorer ...",
+    "folder": "convo-quilt",
+    "topic": "Convo Quilt",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 756,
+    "date": "2026-09-30",
+    "size_bytes": 6265
+  },
+  {
+    "filename": "harvest-input.md",
+    "path": "labs/convo-quilt/runs/syzygy/harvest-input.md",
+    "title": "Harvest Input",
+    "description": "",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Qwen 3.6"
+    ],
+    "style": "Narrative",
+    "word_count": 766,
+    "date": "2026-09-30",
+    "size_bytes": 19233
+  },
+  {
+    "filename": "digest-2.md",
+    "path": "labs/convo-quilt/runs/syzygy/digest-2.md",
+    "title": "Digest 2",
+    "description": "",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 744,
+    "date": "2026-09-30",
+    "size_bytes": 5193
+  },
+  {
+    "filename": "digest.md",
+    "path": "labs/convo-quilt/runs/syzygy/digest.md",
+    "title": "Digest",
+    "description": "",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 219,
+    "date": "2026-09-30",
+    "size_bytes": 1689
+  },
+  {
+    "filename": "harvest-draft.md",
+    "path": "labs/convo-quilt/runs/syzygy/harvest-draft.md",
+    "title": "Harvest Draft",
+    "description": "The brainstorm began with **hy3 (main.t0)** proposing a 2-bit/channel ordered-dither glyph alphabet to replace luma pooling, predicting 9 bits/cell vs luma's ~2.6. **qwen (main.t3)** reframed this as ...",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 641,
+    "date": "2026-09-30",
+    "size_bytes": 4594
+  },
+  {
+    "filename": "digest-4.md",
+    "path": "labs/convo-quilt/runs/syzygy/digest-4.md",
+    "title": "Digest 4",
+    "description": "",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 702,
+    "date": "2026-09-30",
+    "size_bytes": 4880
+  },
+  {
+    "filename": "digest-5.md",
+    "path": "labs/convo-quilt/runs/syzygy/digest-5.md",
+    "title": "Digest 5",
+    "description": "",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1"
+    ],
+    "style": "Dialogue",
+    "word_count": 219,
+    "date": "2026-09-30",
+    "size_bytes": 1689
+  },
+  {
+    "filename": "digest-3.md",
+    "path": "labs/convo-quilt/runs/syzygy/digest-3.md",
+    "title": "Digest 3",
+    "description": "",
+    "folder": "syzygy",
+    "topic": "Syzygy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "GLM-5.1",
+      "Qwen 3.6"
+    ],
+    "style": "Dialogue",
+    "word_count": 752,
+    "date": "2026-09-30",
+    "size_bytes": 5452
+  },
+  {
+    "filename": "digest.md",
+    "path": "labs/convo-quilt/runs/meta/digest.md",
+    "title": "Digest",
+    "description": "",
+    "folder": "meta",
+    "topic": "Meta",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 173,
+    "date": "2026-09-30",
+    "size_bytes": 1245
   },
   {
     "filename": "THE-OPTIMIZER-IS-THE-OCEAN.md",
