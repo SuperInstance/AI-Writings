@@ -1,6 +1,6 @@
 # encoding-experiments — older SuperInstance encoding repos, tested against our current systems
 
-*Eleven small stdlib-Python experiments, each with a selftest and a measured result. They take ideas
+*Fourteen small stdlib-Python experiments, each with a selftest and a measured result. They take ideas
 from SuperInstance's older encoding repos (compression, error correction, hyperdimensional and holographic
 encodings, quipu, adinkra, Gödel numbering) and test them on our mature systems (turbovec/TurboQuant,
 ActiveLedger, situation-recorder, System-2 B7/B4). The full write-up, including why each experiment
@@ -10,7 +10,7 @@ exists and what did and did not work, is in
 ## Run
 
 ```
-./run_all.sh              # 11 selftests, offline: 403 checks, 0 failures
+./run_all.sh              # 14 selftests, offline: 417 checks, 0 failures
 ./run_all.sh --measure    # + every measurement (~3 min); E6 replays cached LLM answers
 python3 <name>.py         # one measurement; python3 <name>.py --selftest for its checks
 ```
@@ -36,15 +36,17 @@ data with `python3 build_corpus.py`, which makes 8 embedding calls. Each measure
 | E9 | `entropy_corpus.py` | huffman-code, arithmetic-code, lau-compression | corpus + ActiveLog + embeddings | On corpus text, BWT→MTF→arith **2.64** bits/byte beats lzma (2.70) and trails bz2 (2.46). Huffman0 / arith0 sit at ≈H0 (4.45). On the float16 embeddings nothing does better than 7.18 bits/byte |
 | E10 | `adinkra_code.py` | adinkra-math-pypi | error correction | adinkra-math's rank-N Adinkra **is** the N-cube. The 8-cube/e8 quotient is a 16-node decoder that corrects **128/128** single errors and detects **448/448** double errors |
 | E11 | `hdc_records.py` | flux-hdc (binding) | situation cells | Role-filler read-back **1.000** at 256+ bits. Conjunctive query by partial record: **1.0 at ≥512 bits**, 0.29–0.36 below |
+| E12 | `at_rest_bench.py` | E1 + E2, promoted to `labs/activeledger/at_rest.py` (ALR1) | any B1 body shape, no schema given | Generic ALR1: **109–119× vs JSONL**, 10.6–15.5× vs JSONL+lzma. **1.57× larger** than E1's hand-fitted codec (5,653 vs 3,604 B), the measured cost of generality. BER 1e-4: plain 0/6, with RS **6/6** |
+| E13 | `hdc_vs_crq.py` | flux-hdc vs `labs/code-real-quant` (its real `CodeIndex`) | recall@10 at equal bytes | crq ADC **0.842** vs best HDC 0.552 (crq's own synthetic benchmark); crq **0.937** vs best HDC 0.790 (real MiniLM). HDC loses as a substrate even with an asymmetric query |
+| E14 | `b7_mem_axis.py` | E8's finding | B7's scoring, re-run with a `mem_mb` cheap sign (B7 itself untouched) | Retrieval verdicts flip `dominates-faster-cheaper` → `trade-off` on **28–29/30** queries (varies with timing noise). B7's 23 shipped fixture pairs, which do report mem_mb: **0 verdicts changed** |
 
 ## Honest labels
 
-- **Built and measured:** everything in the table. All codecs are lossless (asserted on decode) except
+- **Built and measured:** everything in the table. E12 exercises the promoted cell `labs/activeledger/at_rest.py`, which also added 6 checks to the B1 selftest (now 34/0). All codecs are lossless (asserted on decode) except
   where the table says quantized.
 - **Simulated inputs:** the budget numbers in E1, E2 and E8 come from a seeded cost model through the real
   B1 emitter, the same way B1's own `route_sim` makes them. E1's second stream uses real numbers: 169
   autoclaw judge scores.
 - **Not reachable:** `SuperInstance/godel-number` (404 on master/main). flux-hdc's source (only its README
   resolved). plato-perception and plato-prediction are README-only apart from their names.
-  `labs/code-real-quant`, named in the brief, does not exist in this repo, so TurboQuant was
-  re-implemented in E3.
+  `labs/code-real-quant` landed on main after round 1. E3 re-implemented TurboQuant, and E13 uses the real module: its 0.937 on MiniLM matches E3's tq4 0.945.

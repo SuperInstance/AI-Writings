@@ -3,8 +3,8 @@
 *A study, 2026-09-30, on branch `claude/encoding-gems`. It reads 23 public SuperInstance encoding repos
 and runs 11 small experiments that apply their ideas to turbovec/TurboQuant, ActiveLedger,
 situation-recorder, Syzygy's projection, and System-2 (B7/B4). The code is in
-[`labs/encoding-experiments/`](../../labs/encoding-experiments/README.md): 403 selftest checks, 0
-failures. Every number below was printed by a run in this session. Where a claim comes only from a
+[`labs/encoding-experiments/`](../../labs/encoding-experiments/README.md): 14 experiments, 417 selftest
+checks, 0 failures. Round 2 (§9) promoted two of the gems into `labs/activeledger/at_rest.py`. Every number below was printed by a run in this session. Where a claim comes only from a
 repo's README, the text says so. Voice: this reports results; it does not argue for any repo.*
 
 ---
@@ -282,15 +282,66 @@ situation logs.
 - [`situations/arch/TURBOVEC-FAMILY-STUDY.md`](TURBOVEC-FAMILY-STUDY.md): the earlier turbovec study. That study counted 35 upstream tests as green; §6 of this one shows why a green suite did not catch the compression gap.
 - [`labs/system2-backtest/README.md`](../../labs/system2-backtest/README.md) and [`labs/route-preference/README.md`](../../labs/route-preference/README.md): the B7/B4 contracts that E8 plugs into.
 
+## 9. Round 2 (same day): promotion, a head-to-head, and a B7 axis
+
+Three follow-ups from the round-1 handoff, each built and measured.
+
+**Promoted: `labs/activeledger/at_rest.py` (format ALR1).** E1 + E2 became a real B1 cell that works
+without a schema.
+- A body's key/type skeleton goes into a shape table. Numeric leaves are coded as residuals against
+  the running mean of the same (shape, cell, leaf position). Strings go to a table. The `prev` hashes
+  are recomputed on unpack and checked against a 32-byte head receipt. Reed–Solomon is optional
+  (`pack(records, repair=True)`).
+- It refuses to pack a chain that doesn't verify, and raises rather than returning different
+  records.
+- 6 new checks in B1's `selftest.py`: round-trip, recomputed chain, smaller than JSONL, refuses a
+  tampered chain, a flipped byte never passes silently, RS repairs a 64-byte burst. B1: **34 checks,
+  0 failures**.
+
+**E12, the cost of generality:**
+
+| log | records | JSONL | JSONL+lzma | ALR1 | ALR1+RS | BER 1e-4 survival (plain / RS) |
+|---|---|---|---|---|---|---|
+| e1-ticks | 2,000 | 673,508 | 87,844 | **5,653** (119×) | 8,167 | 0/6 / **6/6** |
+| voice-mix (route_sim replayed 300×, jittered) | 2,700 | 1,450,756 | 140,060 | **13,257** (109×) | 16,327 | 0/6 / **6/6** |
+| routes-e8 | 6 | 2,089 | 640 | 377 | 2,047 | 0/6 / **6/6** |
+
+E1's hand-fitted codec does e1-ticks in 3,604 B, so generality costs **1.57×**. Most of the gap is
+probably the per-route strings (`voice-N`), which the hand-fit rebuilds from an index and ALR1 stores
+as new literals; this is a guess, not measured. For tiny runs RS's 8-block padding dominates (377 →
+2,047 B). Use `repair=True` for archives, not for single routes.
+
+**E13: HDC as the turbovec substrate, head-to-head against the real code-real-quant.** Its
+`CodeIndex` was imported unchanged. Recall@10 at equal bytes per vector:
+
+| benchmark | crq ADC 4-bit | HDC symmetric | HDC asymmetric (float query) | HDC 1024-bit (128 B) |
+|---|---|---|---|---|
+| crq's own synthetic (N=2000, d=64, 32 B) | **0.842** | 0.474 | 0.552 | 0.660 |
+| real MiniLM (N=480, d=384, 192 B) | **0.937** | 0.743 | 0.790 | 0.688 |
+
+This is a clear negative for the counterintuitive idea. Even given the asymmetric-query trick, sign
+bits waste the budget that 4-bit Lloyd–Max codes spend on magnitude. HDC's place is E11's role–filler
+algebra, not nearest neighbour. Cross-check: crq's 0.937 agrees with E3's independent tq4 at 0.945.
+
+**E14: a hot-memory axis for B7, without touching B7.** B7's own `replay_route`, `_combine` and
+`_classify` were re-used with `mem_mb` added as a fourth cheap sign.
+- On crq-shortlist + exact rerank vs exact scan: B7 today says `dominates-faster-cheaper` for exact.
+  With the memory axis it becomes `trade-off` on **28–29 of 30** queries (two runs; the remainder
+  is wall-clock noise on `fast`). The route holds 8.0× less hot memory (92,160 vs 737,280 B).
+- On B7's 23 shipped fixture pairs, which do report `mem_mb` (1–6 MB): **0 verdicts change**.
+  The axis only matters where memory moves against storage.
+- Recommendation: add it upstream as an additive cheap sign, gated on both routes reporting
+  `mem_mb`.
+
 ### Next iteration (handoff)
 
-1. **Upstream the turbovec-substrate fix** (scale, renormalize, asymmetric scoring, drop the stored
-   float) as a PR on that repo. Re-run E3's `tv-asis` row against it.
-2. **Wire E1 + E2 into `labs/activeledger`** as an `at_rest.py` (`pack(records) → bytes`,
-   `unpack(bytes) → records`, head-receipt checked). Add it to the B1 selftest.
-3. **Add a `mem_hot_bytes` axis to B7/B4** and re-run E8 Workload B. Expected: tq4 + rerank becomes
-   `trade-off` (hot memory vs wall_ms) instead of being dominated.
-4. **Scale E3 to 10k vectors and a real query set** (not leave-one-out), and add E1's predictor idea to
-   the *codes*: delta-coding the tq4 codes of near-duplicate cells.
-5. **E11 at situation-log scale:** encode the real fleet situation JSONLs once they exist, and compare
-   HDC partial-record queries against a plain inverted index on bytes and latency.
+1. **Upstream B7's memory axis:** a small patch to `axes_of`/`score` in `labs/system2-backtest`, with
+   E14 as its regression test (0/23 fixture changes).
+2. **Close the 1.57× generality gap in ALR1:** tokenize strings with numeric suffixes
+   (`voice-17` → template + int residual), then re-measure E12.
+3. **Upstream the turbovec-substrate fix** (scale, renormalize, asymmetric scoring, drop the stored
+   float), or simply point the family at `labs/code-real-quant`, which E13 confirms at 0.937.
+4. **Wire ALR1 into System-2 routes for real:** have B7 read at-rest archives directly (unpack → replay),
+   so history is backtested from the compressed form.
+5. **E11 at scale:** HDC role–filler queries over real situation JSONLs vs an inverted index.
+
