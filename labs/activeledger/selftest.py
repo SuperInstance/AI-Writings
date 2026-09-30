@@ -86,5 +86,33 @@ check("fnv1a-64 matches the fleet vector (empty string = offset basis)", A.fnv1a
 check("fnv1a-64 known vector 'a'", A.fnv1a64("a") == 0xAF63DC4C8601EC8C)
 check("projection is JSON-serialisable", bool(json.dumps(proj)))
 
+# ---- at_rest (ALR1): compact, repairable at-rest form (promoted from encoding-experiments E1+E2) ----
+import at_rest as AR  # noqa: E402
+
+blob = AR.pack(recs)
+check("ALR1 unpack is canonically identical to the run", A.canon(AR.unpack(blob)) == A.canon(recs))
+check("ALR1 recomputed prev-chain verifies", A.verify_chain(AR.unpack(blob)))
+check("ALR1 is smaller than the JSONL", len(blob) < len(f["log"].to_jsonl().encode()))
+tampered = [dict(r) for r in recs]
+tampered[3] = dict(tampered[3], ts="det:999999")
+try:
+    AR.pack(tampered)
+    refused = False
+except AR.AtRestError:
+    refused = True
+check("ALR1 refuses to pack a run whose chain does not verify", refused)
+bad = bytearray(blob)
+bad[-8] ^= 0x40
+try:
+    AR.unpack(bytes(bad))
+    caught = False
+except (AR.AtRestError, Exception):
+    caught = True
+check("ALR1 (no repair) never returns different records from a flipped byte", caught)
+rblob = bytearray(AR.pack(recs, repair=True))
+for i in range(40, 40 + 64):  # a 64-byte burst inside the RS-protected body
+    rblob[i] ^= 0xA5
+check("ALR1+RS repairs a 64-byte burst exactly", A.canon(AR.unpack(bytes(rblob))) == A.canon(recs))
+
 print("activeledger selftest: %d checks, %d failures" % (checks, fails))
 sys.exit(1 if fails else 0)
