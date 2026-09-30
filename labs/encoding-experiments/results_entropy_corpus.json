@@ -1,0 +1,37 @@
+{
+ "corpus": {
+  "bytes": 179578,
+  "H0_bpb": 4.436,
+  "H2_bpb": 2.654,
+  "huffman0": 100638,
+  "arith0": 99830,
+  "ctx2-ideal": 65559,
+  "bwt+mtf+arith0": 59200,
+  "zlib9": 68237,
+  "bz2-9": 55305,
+  "lzma9": 60668
+ },
+ "activelog": {
+  "bytes": 180000,
+  "H0_bpb": 4.858,
+  "H2_bpb": 1.715,
+  "huffman0": 110155,
+  "arith0": 109710,
+  "ctx2-ideal": 41848,
+  "bwt+mtf+arith0": 31872,
+  "zlib9": 30435,
+  "bz2-9": 25073,
+  "lzma9": 23896
+ },
+ "emb-f16": {
+  "bytes": 180000,
+  "H0_bpb": 7.332,
+  "H2_bpb": 3.166,
+  "huffman0": 165721,
+  "arith0": 166298,
+  "ctx2-ideal": 202385,
+  "zlib9": 166210,
+  "bz2-9": 161717,
+  "lzma9": 161624
+ }
+}
