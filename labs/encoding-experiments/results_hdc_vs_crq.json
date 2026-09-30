@@ -1,0 +1,28 @@
+{
+ "crq-synth": {
+  "crq-adc4": 0.842,
+  "hdc-sym": 0.474,
+  "hdc-adc": 0.552,
+  "hdc1024-sym": 0.66,
+  "bytes": {
+   "crq-adc4": 32,
+   "hdc-sym": 32,
+   "hdc-adc": 32,
+   "hdc1024-sym": 128
+  },
+  "crq_build_s": 0.6
+ },
+ "minilm-384": {
+  "crq-adc4": 0.9367,
+  "hdc-sym": 0.7433,
+  "hdc-adc": 0.79,
+  "hdc1024-sym": 0.6883,
+  "bytes": {
+   "crq-adc4": 192,
+   "hdc-sym": 192,
+   "hdc-adc": 192,
+   "hdc1024-sym": 128
+  },
+  "crq_build_s": 2.7
+ }
+}
