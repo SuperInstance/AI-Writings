@@ -1,0 +1,30 @@
+OK   deepinfra   tencent/Hy3                                Blue.
+OK   deepinfra   thinkingmachines/Inkling-Small             Blue is a calming color.
+OK   deepinfra   nvidia/NVIDIA-Nemotron-3.5-Lightning       Blue
+OK   deepinfra   meta-models/Muse-Glimmer-30B               Blue is a color.
+OK   deepinfra   inclusionAI/Ling-3.0-flash                 Blue is a color.
+FAIL deepinfra   ibm-granite/granite-4.2-30b                empty content (reasoning=10470 chars)
+OK   deepinfra   Qwen/Qwen3.8-Flash                         The color is blue.
+OK   deepinfra   XiaomiMiMo/MiMo-V2.6-Pro                   Blue.
+OK   deepinfra   deepseek-ai/DeepSeek-V4-Flash              Black.
+OK   deepinfra   zai-org/GLM-5.3-Flash                      Blue.
+OK   deepinfra   moonshotai/Kimi-K3                         Blue.
+OK   deepinfra   Qwen/Qwen3.8-27B                           The color is blue.
+OK   deepinfra   google/gemma-4-31B-it                      The color is blue.
+OK   deepinfra   openai/gpt-oss-120b                        Blue.
+OK   deepinfra   XiaomiMiMo/MiMo-V2.6-Flash                 Blue.
+OK   deepinfra   thinkingmachines/Inkling                   The sky is blue.
+FAIL zai         glm-4.6                                    HTTP 429: {"error":{"code":"1113","message":"Insufficient balance or n
+FAIL zai         glm-5.3-flash                              HTTP 429: {"error":{"code":"1113","message":"Insufficient balance or n
+FAIL zai         glm-5.3                                    HTTP 429: {"error":{"code":"1113","message":"Insufficient balance or n
+OK   zai-coding  glm-4.6                                    The sky is blue.
+OK   zai-coding  glm-5.3                                    Blue is the color.
+FAIL kimi        kimi-k3                                    HTTP 429: {"error":{"message":"Your account org-REDACTED
+FAIL kimi        kimi-k2.6                                  HTTP 429: {"error":{"message":"Your account org-REDACTED
+FAIL kimi        kimi-latest                                HTTP 429: {"error":{"message":"Your account org-REDACTED
+OK   deepseek    deepseek-chat                              Blue.
+FAIL groq        llama-3.3-70b-versatile                    HTTP 404: {"error":{"message":"The model `llama-3.3-70b-versatile` doe
+OK   groq        openai/gpt-oss-120b                        Blue.
+OK   groq        qwen/qwen3.8-27b                           Blue.
+JEV {'ok': True, 'shape': '{"model": "jev-1.13.0", "answers": {"ideation": {"type": "score", "score": 1.7, "confidence": 0.39, "legend": {"0": "stuck", "1": "flat", "2": "useful", "3": "generative", "4": "breakthrough"}, "probabilities": {"0": 0.01, "1": 0.5, "2": 0.26, "3": 0.23, "4": 0.0}}}, "usage": {"input_tokens": 327, "'}
+MOTH {'ok': True, 'job': 'dbbf4c1f-b5ba-43f7-b4b0-e2552c34949c', 'heads_of_64': 35, 'draw_mod5': 0}

@@ -1,0 +1,11 @@
+## branch names (parent ['parse', 'parse.t10']) turns=9 state=0xdcb7a6f3e0dc13b0
+adj={"nemo": ["dsv4", "ling", "glm"], "dsv4": ["nemo", "ling", "glm"], "ling": ["nemo", "dsv4", "glm"], "glm": ["nemo", "dsv4", "ling"]}
+tones={"nemo": "CONDUCTOR CORRECTION: nearest-named-colour quantization happ", "dsv4": "CONDUCTOR CORRECTION: nearest-named-colour quantization happ", "ling": "CONDUCTOR CORRECTION: nearest-named-colour quantization happ", "glm": "CONDUCTOR CORRECTION: nearest-named-colour quantization happ"}
+muted=[]
+recent derails=['names.t8']
+checkpoints=['n1']
+  * names.t0 nemo (0.86): **nemo**   That's a compelling reduction — CSS names bypass the in-context learning tax entirely. But I want to check the colour-count assumption: the VLM's pre-training covers ~528 named colours (9 bits), yet real scene
+  * names.t1 dsv4 (0.84): **dsv4**   Nemo, the two-tier anchor-grid is elegant but introduces a *decision boundary* the VLM must learn: when to trust `teal` vs `residual-3`. That's a new latent rule, which is the same problem as the legend—just s
+  * names.t2 ling (0.82): dsv4's Unicode glyph `█A` is a solid step: zero-learning, no residual bucket. But it pays the in-context tax nemo flagged: the VLM must still learn that `█`+hex-digit encodes a 3D RGB centroid, not a character pair. That
+  * names.t4 dsv4 (0.80): dsv4 — nemo's learned-char hash is the theoretical optimum but requires *per-scene VLM queries* during encoding, which kills throughput. The encoder becomes a proxy inference engine.  **Mechanism:** Pre-compute a static 
+errors: 23 (last: {'branch': 'names', 'cell': 'glm', 'model': 'glm-5.3', 'error': 'empty content (reasoning=3745 chars)'})

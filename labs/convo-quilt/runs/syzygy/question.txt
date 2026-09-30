@@ -1,0 +1,18 @@
+Syzygy renders frames as ASCII so a VLM can 'see' them. Fidelity gap: a VLM recovers ~0.92 of scene facts from the real frame but only 0.3-0.5 from our best text projection. The voxelglyph repo proves why: the projection is rank-one (BT.601 luma, R^3->R) with 2x4 pooling, so colours 403 apart in RGB collide at one luma — a ceiling of the ENCODER, not the reader. What projection, glyph alphabet, or agent-glyph (a glyph that is itself a tiny agent/cell) breaks past that ceiling while staying text a VLM/LLM can read? Want: concrete mechanisms, an estimate of bits/glyph, and a 1-day falsifiable test.
+
+CONTEXT BRIEF:
+# Compressed Repo Notes
+
+**syz.txt** — Syzygy at `main e6c5b53` (shards 0001–0008 HEWN, 201 checks) is in-org; do not re-seed. `wasm-native-drift-differ` (S–M) SHIPPED (Syzygy `claude/verifier-cells` mark V02; selftest 27/27, all 6 drifts D1–D6 caught, port byte-exact vs native on 2405 cases). `kernel-oracle-mutant-gauge` (S) SHIPPED (mark V01; selftest 13/13, oracle-strength 41/41=100% on hand-written 42-mutant catalog). `rubric-forge` (M) removes baseline selection from Syzygy P4. `dominated-novelty-search` (M) threshold-free QD. `schema-fuzz-suite` (M) generates hidden multi-distribution input suite post-candidate.
+
+**voxelglyph.md** — Syzygy's observation is rank-one linear projection R³→R (BT.601 luma) with 2×4 pooling. Two colours 403 apart in RGB can share luma: (0,240,0) and (255,60,255) both luma 140. exp1 solid, ceiling is encoder property. exp2 inconclusive (undertrained, not unreadable). Next: minimal sufficient encoding where linear policy matches pixel policy.
+
+**jev-fusion.md** — Tests four claims about discrete judge governing generative loop: (1) geometric constraint before output exists, (2) updating parameters during sampling, (3) local per-canvas + central router, (4) selective compute. Same discrete judge in all experiments via documented contract.
+
+**quilt-bandit.md** — Federation of bandit agents with observation cells in quilt diff-DAG. Gossip-ring sync (K merges per sync). C3 (FEDERATED < ISOLATED) FAILED 6/10. C4 (DITHERED < FEDERATED) FAILED 2/10. Finding: variance collapse — per-seed spread 22.36 isolated vs 5.92 federated (3.78× compression).
+
+**cellgraph.md** — Transformer forward pass as quilt cell graph holds: perturbed weight's first consumer cell moves first. Wq moves 14 cells, Wlog moves 2. `tensor_digest` bug: float32 cast before hashing hid 9.8e-10 changes. Fix: hash original dtype, include dtype in digest.
+
+**quilt-nn.md** — Neural nets as quilt cell graphs: weights, activations, gradients, SGD step all explicit cells. Graph is JSON. Per-epoch sha256 receipt chain. Cell kinds: input, weight, sum, product, act, loss, grad, tick. LCG init, same seed→same bytes.
+
+SEEDS (gossip, provoke don't implement): (a) sparse top-K scorer->router->compactor context bottleneck feeding downstream cross-attention; (b) compose existing Quilt primitives (plato-attention-tracker, Jev judge, FLUX VM, membrane, Elephant memory) rather than build new; (c) learning = compression of deliberation into reflex: HARDCODE/CACHED/HYBRID/MODEL capability metabolizer.
