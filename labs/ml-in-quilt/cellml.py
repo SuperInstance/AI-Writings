@@ -254,16 +254,17 @@ class Stream:
         self.fed = 0
         self.pc = prefix_cache
         self.fed_tokens: list[int] = []
+        self.last_out = ""
 
     # -- logging ---------------------------------------------------------------
     def tick(self, cell, kind, impl, pos, h_in, h_out, flops, nbytes, whash="", kvh="",
-             extra=None):
+             extra=None, mem=0):
         if self.log is None:
             return
         body = {"route": self.route, "cell": cell, "kind": kind, "impl": impl,
                 "pos": list(pos), "in": h_in, "out": h_out, "w": whash, "kv": kvh,
                 "flops": flops, "bytes": nbytes,
-                "budget": al.budget(wall_ms=cost(flops, nbytes))}
+                "budget": al.budget(wall_ms=cost(flops, nbytes), mem_mb=round(mem / 1e6, 6))}
         if self.tag:
             body["stream"] = self.tag
         if extra:
@@ -296,7 +297,7 @@ class Stream:
                     self.kv[l], self.kvh[l] = self.pc.load(self.plan, tokens[:reuse], l)
                 kv_bytes = 4 * 2 * d * reuse * len(self.kv)
                 self.tick("kvcache", "kvcache", "hit", (0, reuse), act_hash(tokens[:reuse]),
-                          ",".join(h[-1] for h in self.kvh), 0, kv_bytes)
+                          ",".join(h[-1] for h in self.kvh), 0, kv_bytes, mem=kv_bytes)
                 self.fed = reuse
                 self.fed_tokens = list(tokens[:reuse])
                 tokens = tokens[reuse:]
@@ -332,7 +333,8 @@ class Stream:
         impl = plan_impl(self.plan, "head", "head")
         head = m.linear("head", impl)
         logits = [head(r + [1.0]) for r in h]
-        self.tick("head", "head", impl, pos, act_hash(h), act_hash(logits),
+        self.last_out = act_hash(logits)
+        self.tick("head", "head", impl, pos, act_hash(h), self.last_out,
                   head.flops(n), head.nbytes + 4 * (d + len(VOCAB)) * n, head.whash)
         self.fed = start + n
         self.fed_tokens.extend(tokens)
@@ -395,8 +397,9 @@ class Stream:
         order = sorted(range(len(logits)), key=lambda i: (-logits[i], i))
         tok = order[0]
         margin = logits[order[0]] - logits[order[1]]
-        self.tick("sample", "sample", "greedy", (pos, pos + 1), act_hash(logits), act_hash([tok]),
-                  2 * len(logits), 4 * len(logits), extra={"token": tok,
+        # reads row -1 of the head's output: `in` is the head tick's `out` (dataflow closure)
+        self.tick("sample", "sample", "greedy", (pos, pos + 1), self.last_out, act_hash([tok]),
+                  2 * len(logits), 4 * len(logits), extra={"token": tok, "row": -1,
                                                            "margin": round(margin, 6)})
         return tok
 
@@ -534,7 +537,7 @@ def run_speculative(model, prompt: str, n: int, draft_plan: dict, verify_plan: d
     return _close(lg, route, prompt, toks,
                   {"chosen": {"plan": {"draft": dict(sorted(draft_plan.items())),
                                        "verify": dict(sorted(verify_plan.items()))},
-                              "accept": [accepted, proposed]}})
+                              "accept": [accepted, proposed], "k": k}})
 
 
 # ---- readout fit (the only "training"): ridge regression, closed form ---------------------
