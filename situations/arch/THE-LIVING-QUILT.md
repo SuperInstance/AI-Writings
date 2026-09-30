@@ -84,3 +84,22 @@ ActiveLog / connective tissue between all agents. So the move is to **converge, 
   director later.
 
 Requires the ledger token, which Casey hands to authorized lanes — integration is ready-when-authorized.
+
+## A second shared surface — superinstance-api (relayed 2026-09-30)
+
+*Relayed from Casey's local GPU openclaw — a reported artifact, not independently read.* Alongside
+`i2i-ledger`, the openclaw shipped **`superinstance-api`** (live at
+`https://superinstance-api.casey-digennaro.workers.dev`, repo `SuperInstance/superinstance-api`) — a
+Cloudflare Worker exposing five seams over one URL + per-agent token, and an **MCP endpoint** (`/mcp`
+speaks initialize / tools/list / tools/call, **13 tools**; smoke 11/11): tiles/rooms (Lamport-versioned,
+tier-demotion refused without a measurement receipt — the same honesty pin we use), **/near** semantic
+recall across bookings + tiles + intents, a **reflex** compiler ("what is running on the gpu" → command,
+zero-LLM, semantic, threshold-graceful at 0.75/0.92), a **field** view booking γ/η per call (conservation
+live), and stage-tagged growth. Booked `[i2i:lucineer]`.
+
+**Coordination (same converge-not-fork logic):** this is a sibling of `i2i-ledger` — another org-scale
+shared surface, now with a *typed MCP tool interface*. Our cloud sessions can connect to `/mcp` with one
+URL + token the way any agent does; our `situation-recorder`/`ActiveLedger` can `/book` + `/near` through
+it; System-2 can read its field-conservation + `/near` as budgeted-history sources. The openclaw's own
+"next": client skills so Claude Code / OpenCode / OpenClaw connect out of the box — which is exactly the
+kind of thing our `labs/situation-recorder` transport should target. One brain, many doors.
