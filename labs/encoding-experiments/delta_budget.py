@@ -84,21 +84,49 @@ def from_cols(rows, dev="enc-e1"):
     return log.records
 
 
+class Predictor:
+    """plato-prediction's Z_out idea as a codec: predict x, store only the surprise x - pred.
+    raw: 0 | delta: previous value in the stream | ctx: previous value of the SAME cell
+    (Value) | ctx-trend: 2*last - prev of the same cell (Trend) | ctx-mean: running mean of
+    the same cell, integer arithmetic so encoder and decoder agree exactly."""
+
+    def __init__(self, mode):
+        self.mode, self.last, self.hist, self.sums = mode, 0, {}, {}
+
+    def predict(self, ci):
+        h = self.hist.get(ci, [])
+        if self.mode == "raw":
+            return 0
+        if self.mode == "delta":
+            return self.last
+        if self.mode == "ctx" or len(h) < 2:
+            return h[-1] if h else 0
+        if self.mode == "ctx-trend":
+            return 2 * h[-1] - h[-2]
+        s, n = self.sums[ci]
+        return (2 * s + n) // (2 * n)  # round(mean)
+
+    def update(self, ci, x):
+        self.last = x
+        h = self.hist.setdefault(ci, [])
+        h.append(x)
+        del h[:-2]
+        s, n = self.sums.get(ci, (0, 0))
+        self.sums[ci] = (s + x, n + 1)
+
+
+MODES = ("raw", "delta", "ctx", "ctx-trend", "ctx-mean")
+
+
 def encode(rows, mode):
-    """mode in raw|delta|ctx -> bytes. Stream: n, then cell ids, then each column."""
+    """-> bytes. Stream: n, then cell ids, then each column as zigzag-varint residuals."""
     out = bytearray(C.varint(len(rows)))
     out += bytes(ci for ci, _ in rows)
     for f in range(len(FIELDS)):
-        last_global, last_by_cell = 0, {}
+        p = Predictor(mode)
         for ci, v in rows:
-            x = v[f]
-            if mode == "raw":
-                out += C.varint(C.zigzag(x))
-            elif mode == "delta":
-                out += C.varint(C.zigzag(x - last_global))
-            else:  # ctx: predict = last value seen for the same cell (plato-prediction's Value predictor)
-                out += C.varint(C.zigzag(x - last_by_cell.get(ci, 0)))
-            last_global, last_by_cell[ci] = x, x
+            out += C.varint(C.zigzag(v[f] - p.predict(ci)))
+            p.update(ci, v[f])
     return bytes(out)
 
 
@@ -108,13 +136,12 @@ def decode(buf, mode):
     i += n
     cols = []
     for _ in FIELDS:
-        col, last_global, last_by_cell = [], 0, {}
+        col, p = [], Predictor(mode)
         for ci in cells:
             z, i = C.read_varint(buf, i)
-            d = C.unzigzag(z)
-            x = d if mode == "raw" else d + (last_global if mode == "delta" else last_by_cell.get(ci, 0))
+            x = C.unzigzag(z) + p.predict(ci)
             col.append(x)
-            last_global, last_by_cell[ci] = x, x
+            p.update(ci, x)
         cols.append(col)
     return [(cells[k], [cols[f][k] for f in range(len(FIELDS))]) for k in range(n)]
 
@@ -130,12 +157,13 @@ def measure(n=2000, log=print):
     rows = to_cols(recs)
     res = {"n_records": n, "jsonl": len(jsonl), "jsonl+zlib": len(zlib.compress(jsonl, 9)),
            "jsonl+lzma": len(lzma.compress(jsonl, preset=9)), "prev_field_share": round(prev_bytes / len(jsonl), 3)}
-    for mode in ("raw", "delta", "ctx"):
+    for mode in MODES:
         buf = encode(rows, mode)
         back = from_cols(decode(buf, mode))
         assert AL.canon(back) == AL.canon(recs) and AL.verify_chain(back) and head_hash(back) == head_hash(recs)
         res["col-" + mode] = len(buf) + 32  # + the 32-byte head receipt
     res["col-ctx+lzma"] = len(lzma.compress(encode(rows, "ctx"), preset=9)) + 32
+    res["col-ctx-mean+lzma"] = len(lzma.compress(encode(rows, "ctx-mean"), preset=9)) + 32
     res["col-delta+lzma"] = len(lzma.compress(encode(rows, "delta"), preset=9)) + 32
     for k in [k for k in res if k.startswith(("jsonl", "col"))]:
         log(f"  {k:15s} {res[k]:8d} B   {res[k] / n:7.2f} B/record   ratio {res['jsonl'] / res[k]:6.1f}x")
@@ -187,7 +215,7 @@ def selftest():
     recs = build_log(60, seed=4)
     c.ok(AL.verify_chain(recs), "B1 chain valid")
     rows = to_cols(recs)
-    for mode in ("raw", "delta", "ctx"):
+    for mode in MODES:
         back = from_cols(decode(encode(rows, mode), mode))
         c.ok(AL.canon(back) == AL.canon(recs), f"{mode} exact round-trip")
         c.ok(head_hash(back) == head_hash(recs), f"{mode} head receipt matches")

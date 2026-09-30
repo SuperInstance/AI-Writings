@@ -8,7 +8,10 @@
   "col-raw": 22715,
   "col-delta": 25352,
   "col-ctx": 18713,
+  "col-ctx-trend": 18974,
+  "col-ctx-mean": 18598,
   "col-ctx+lzma": 3816,
+  "col-ctx-mean+lzma": 3604,
   "col-delta+lzma": 5260
  },
  "autoclaw_scores": {
