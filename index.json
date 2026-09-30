@@ -59173,6 +59173,24 @@
     "size_bytes": 4001
   },
   {
+    "filename": "ENCODING-GEMS-STUDY.md",
+    "path": "situations/arch/ENCODING-GEMS-STUDY.md",
+    "title": "Encoding gems: what SuperInstance's older encoding repos do for the systems we run now",
+    "description": "and runs 11 small experiments that apply their ideas to turbovec/TurboQuant, ActiveLedger, situation-recorder, Syzygy's projection, and System-2 (B7/B4). The code is in [`labs/encoding-experiments/`](...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 682,
+    "date": "2026-09-30",
+    "size_bytes": 20073
+  },
+  {
     "filename": "TRAJECTORY.md",
     "path": "situations/arch/TRAJECTORY.md",
     "title": "Trajectory — where this is heading",
@@ -67825,9 +67843,27 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 646,
+    "word_count": 658,
     "date": "2026-09-29",
-    "size_bytes": 5699
+    "size_bytes": 7512
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/code-real-quant/README.md",
+    "title": "code-real-quant — make the 8× real, and measure what it costs",
+    "description": "A small TurboQuant vector index whose cells keep **only 4-bit codes** (no float vector), searched by asymmetric distance on those codes, with the recall lost against exact float search measured and pr...",
+    "folder": "code-real-quant",
+    "topic": "Code Real Quant",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 628,
+    "date": "2026-09-30",
+    "size_bytes": 4219
   },
   {
     "filename": "README.md",
@@ -67994,6 +68030,24 @@
   },
   {
     "filename": "README.md",
+    "path": "labs/polyform/README.md",
+    "title": "polyform — the same kernel, checked in four formalisms",
+    "description": "Follows the dual-audience standard in [`situations/blueprints/README.md`](../../situations/blueprints/README.md).*",
+    "folder": "polyform",
+    "topic": "Polyform",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 728,
+    "date": "2026-09-30",
+    "size_bytes": 9057
+  },
+  {
+    "filename": "README.md",
     "path": "labs/unit-translation-audit/README.md",
     "title": "unit-translation-audit (B2)",
     "description": "An auditor that replays every unit conversion recorded in a run and tells you, hop by hop, whether converting forward and then back returns exactly what you started with — or, if not, says precisely w...",
@@ -68153,6 +68207,42 @@
     "word_count": 373,
     "date": "2026-09-29",
     "size_bytes": 2707
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/encoding-experiments/README.md",
+    "title": "encoding-experiments — older SuperInstance encoding repos, tested against our current systems",
+    "description": "from SuperInstance's older encoding repos (compression, error correction, hyperdimensional and holographic encodings, quipu, adinkra, Gödel numbering) and test them on our mature systems (turbovec/Tur...",
+    "folder": "encoding-experiments",
+    "topic": "Encoding Experiments",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 724,
+    "date": "2026-09-30",
+    "size_bytes": 5030
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/situation-memory/README.md",
+    "title": "situation-memory — recall over the mission corpus",
+    "description": "[`../../situations/arch/TURBOVEC-FAMILY-STUDY.md`](../../situations/arch/TURBOVEC-FAMILY-STUDY.md).*",
+    "folder": "situation-memory",
+    "topic": "Situation Memory",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 674,
+    "date": "2026-09-30",
+    "size_bytes": 14031
   },
   {
     "filename": "README.md",
