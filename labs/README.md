@@ -1,5 +1,9 @@
 # labs — small, working, reusable tools
 
+**New here?** Read [`docs/`](docs/) — the collection guide ([`docs/README.md`](docs/README.md): the
+dependency graph + through-line) and [`docs/using-the-labs.md`](docs/using-the-labs.md): a run-the-whole-loop
+walkthrough with real output.
+
 | lab | what it does | builds on |
 |---|---|---|
 | [`jev-fold`](jev-fold/) | splits a compound claim, has JEV score each part, returns the weakest part + divergence | — |
@@ -11,6 +15,7 @@
 | [`activeledger`](activeledger/) | the **B1 keystone**: adopts the ActiveLog v1 envelope + 3 namespaced types (`cell.tick`/`route.hop`/`ledger.transaction`), balanced double-entry route.hops, budget vector (incl storage_bytes {train,prod}), fnv1a-64 content hash + prev-chain, and an OpenTelemetry/OpenInference export; the canonical mic→filter→STT→LLM route (60% STT load cut) | ActiveLog v1; shared emitter for the **example collection** |
 | [`rubric-forge`](rubric-forge/) | turns a hash-chained transcript into a **dense scalar reward** via a JEV weighted-rubric (harmonic mean of chain-leaf scores) — the dense signal B4 route-preference consumes to rank product-identical routes | **`situation-recorder`** chains; feeds **B4** |
 | [`unit-translation-audit`](unit-translation-audit/) | **B2**: audits every route.hop's unit translation — proves it round-trips (forward∘inverse == identity) or classifies the lossy hop; mirrors quilt-studio EFFECT(forward,inverse) + OrgBook replay=live | wraps **activeledger** hops; the B2 gate for the routing tensor |
+| [`route-preference`](route-preference/) | **B4**: the market-clearing JOIN — given ≥2 routes B7 certified product-identical, places each on the iron-triangle {good, fast, cheap} (good = OrgBook-style standing), keeps the **Pareto frontier** (not one scalar winner), records `preferred_when` per priority + contractor pair (`null` on a real trade-off), and reinforces the map with a bounded **Hebbian** `PreferenceBook` | consumes **system2-backtest** (B7); §14 join |
 | [`system2-backtest`](system2-backtest/) | **B7**: prices two recorded routes on the iron-triangle — gates **product identity first** (different answer → refused, no budgets shown), then reports faster (`wall_ms`) and cheaper (split into compute vs storage bytes) with a dominance/trade-off class + as-of window; real placements over all 5 example quilts | replays **activeledger** runs; feeds **B4**/**B8** |
 
 `weakest-claim` builds on `jev-fold`: it takes a repo that already works and reuses it to make a
