@@ -58875,7 +58875,7 @@
     "style": "Essay",
     "word_count": 771,
     "date": "2026-09-29",
-    "size_bytes": 31813
+    "size_bytes": 32014
   },
   {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
@@ -59207,6 +59207,24 @@
     "word_count": 793,
     "date": "2026-09-28",
     "size_bytes": 9510
+  },
+  {
+    "filename": "POLYFORMALISM-ARRAY-LANGUAGES.md",
+    "path": "situations/arch/POLYFORMALISM-ARRAY-LANGUAGES.md",
+    "title": "Polyformalism — building the parts that mattered into Uiua, Futhark, and BQN",
+    "description": "ideate on these not just for polyformalism thoughts about constraints, but also as tools for various architectures with our components.\" Held to the house voice: what functional use each gives us, not",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 778,
+    "date": "2026-09-30",
+    "size_bytes": 8166
   },
   {
     "filename": "ML-IN-THE-LOOP.md",
@@ -67779,7 +67797,7 @@
     "filename": "README.md",
     "path": "labs/README.md",
     "title": "labs — small, working, reusable tools",
-    "description": "| lab | what it does | builds on | |---|---|---| | [`jev-fold`](jev-fold/) | splits a compound claim, has JEV score each part, returns the weakest part + divergence | — | | [`weakest-claim`](weakest-c...",
+    "description": "dependency graph + through-line) and [`docs/using-the-labs.md`](docs/using-the-labs.md): a run-the-whole-loop walkthrough with real output. | lab | what it does | builds on | |---|---|---| | [`jev-fol...",
     "folder": "labs",
     "topic": "Labs",
     "genres": [
@@ -67789,9 +67807,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 651,
+    "word_count": 646,
     "date": "2026-09-29",
-    "size_bytes": 4981
+    "size_bytes": 5699
   },
   {
     "filename": "README.md",
@@ -68045,6 +68063,60 @@
     "word_count": 615,
     "date": "2026-09-29",
     "size_bytes": 5340
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/route-preference/README.md",
+    "title": "route-preference (B4) — record which of several same-answer routes to pick, and when",
+    "description": "Given two or more routes that reach the identical result, this tool records which route to choose when you care most about quality, speed, or cost (or two of the three), instead of collapsing them int...",
+    "folder": "route-preference",
+    "topic": "Route Preference",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 769,
+    "date": "2026-09-30",
+    "size_bytes": 6747
+  },
+  {
+    "filename": "using-the-labs.md",
+    "path": "labs/docs/using-the-labs.md",
+    "title": "Using the labs — a run-through of the whole loop",
+    "description": "Three commands, run from the repo root, exercise the whole shelf: one rebuilds the corpus of recorded manager↔crew missions, one runs the five example quilts, one prices cheap-vs-full routes; this art...",
+    "folder": "docs",
+    "topic": "Docs",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 722,
+    "date": "2026-09-30",
+    "size_bytes": 14644
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/docs/README.md",
+    "title": "labs/ — index and through-line",
+    "description": "`labs/` is a shelf of small, dependency-light tools that record how a manager agent and its crew worked, turn those records into training tables and rewards, and check whether cheaper ways of doing th...",
+    "folder": "docs",
+    "topic": "Docs",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 712,
+    "date": "2026-09-30",
+    "size_bytes": 10628
   },
   {
     "filename": "README.md",
