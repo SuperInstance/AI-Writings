@@ -243,6 +243,8 @@ class Forest:
             if t is None:
                 raise Refusal("zoom target %r not found" % move["turn"])
             keep = move.get("cells") or list(q.cells)
+            if not isinstance(keep, list) or set(keep) - set(q.cells):
+                raise Refusal("zoom cells must come from branch %r: %s" % (b, sorted(q.cells)))
             cells = [ModelCell(**q.cells[c].spec()) for c in keep]
             n = Quilt(move["name"], "Go one level deeper on this single fragment; make it buildable.\n"
                       "PARENT QUESTION: %s\nFRAGMENT (%s, %s): %s" % (q.question, t["id"], t["cell"], t["text"]),
@@ -332,14 +334,23 @@ def digest(forest, top=4, clip=220):
 
 
 def auto_moves(forest, bname, tick, branch_at=0.62):
-    """Heuristic stand-in for the expensive conductor: checkpoint, rewind a derail streak, fork a peak.
+    """Heuristic stand-in for the expensive conductor: checkpoint, rewind a derail streak, mute a
+    cell that came back empty twice, fork a peak.
     Moth (when wired) breaks ties among equally good fork points."""
     q = forest.branches[bname]
     moves = [{"op": "checkpoint", "branch": bname, "label": "cp%d" % tick}]
     last = [t for t in q.turns[-3:] if "score" in t]
     if len(last) == 3 and all(t["score"]["derail"] for t in last) and len(q.checkpoints) > 0:
-        moves = [{"op": "rewind", "branch": bname, "to": sorted(q.checkpoints)[-1]},
+        moves = [{"op": "rewind", "branch": bname, "to": list(q.checkpoints)[-1]},
                  {"op": "tone", "branch": bname, "cell": "*", "text": "Return to the QUESTION; one concrete mechanism."}]
+    # reflex metabolized from the meta-quilt run (runs/meta): a cell that came back empty twice on this
+    # branch is a capacity failure (reasoning model out of budget), not a content signal -> mute it.
+    empties = {}
+    for e in forest.errors:
+        if e["branch"] == bname and "empty content" in e["error"]:
+            empties[e["cell"]] = empties.get(e["cell"], 0) + 1
+    moves += [{"op": "mute", "branch": bname, "cell": c} for c, n in sorted(empties.items())
+              if n >= 2 and c not in q.muted]
     peaks = [t for t in q.turns if "score" in t and t["score"]["total"] >= branch_at
              and not any(b.parent == [bname, t["id"]] for b in forest.branches.values())]
     if peaks and len(forest.branches) < 6:

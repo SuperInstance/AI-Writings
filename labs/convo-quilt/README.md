@@ -21,7 +21,7 @@ tamper-evident log. Going back in time moves the band, never the log.
 ## 2. Quickstart
 
 ```bash
-python3 selftest.py                                   # offline, no keys: 58 checks, 0 failures
+python3 selftest.py                                   # offline, no keys: 60 checks, 0 failures
 python3 probe.py                                      # which models actually answer -> probe.json
 python3 convo_quilt.py --out runs/demo --rounds 2     # offline stub quilt
 python3 convo_quilt.py --play --out runs/x --rounds 2 --question "..."   # live: 8 cheap models
@@ -40,7 +40,7 @@ python3 convo_quilt.py --play --out runs/x --resume --auto --rounds 1     # heur
 | `score(text, question, prior)` | heuristic head-space: novelty · anchoring · concreteness, `derail` flag |
 | `jev_scorer` | TypeSafe JEV "generativity" score, blended 50/50 when keyed |
 | `digest(forest)` | the one page the conductor reads |
-| `auto_moves(forest, branch, tick)` | heuristic stand-in conductor (checkpoint / rewind derail streak / fork a peak, Moth breaks ties) |
+| `auto_moves(forest, branch, tick)` | heuristic stand-in conductor (checkpoint / rewind derail streak / mute a cell after 2 empty replies / fork a peak, Moth breaks ties) |
 | `providers.chat / jev / moth_draw` | stdlib HTTP to DeepInfra, z.ai, Kimi, DeepSeek, Groq; TypeSafe JEV; Moth coin-toss |
 
 Conductor moves (anything else, extra fields, or missing fields are **refused**):

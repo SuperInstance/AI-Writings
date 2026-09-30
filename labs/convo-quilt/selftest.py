@@ -117,6 +117,8 @@ check("zoom question embeds fragment", q.turns[2]["text"][:30] in z.question)
 check("zoom has only chosen cells", sorted(z.cells) == ["hy3", "nemo"])
 check("zoom starts empty", z.turns == [] and len(f.round("z1")) == 2)
 
+check("zoom with foreign cell refused", refused(f, {"op": "zoom", "branch": "z1", "turn": at, "name": "z2", "cells": ["ling"]}))
+
 # 11. mute + prune
 f.apply({"op": "mute", "branch": "main", "cell": "nemo"})
 check("muted cell does not speak", "nemo" not in [t["cell"] for t in f.round("main")])
@@ -173,6 +175,11 @@ for t in a.branches["main"].turns:
     t["score"]["total"] = 0.8
 ms3 = [m for m in C.auto_moves(a, "main", 3) if m["op"] == "branch"]
 check("auto: draw picks among ties", ms3 and ms3[0]["at"] != a.branches["main"].turns[1]["id"])
+
+a.errors = [{"branch": "main", "cell": "ling", "error": "empty content (reasoning=9 chars)"}] * 2 + \
+           [{"branch": "main", "cell": "nemo", "error": "HTTP 429"}] * 3
+mm = [m for m in C.auto_moves(a, "main", 4) if m["op"] == "mute"]
+check("auto: 2 empties -> mute; 429s do not", [m["cell"] for m in mm] == ["ling"])
 
 # 16. persistence round trip + CLI offline run
 with tempfile.TemporaryDirectory() as d:
