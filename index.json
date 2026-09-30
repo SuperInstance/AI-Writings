@@ -59155,6 +59155,24 @@
     "size_bytes": 3449
   },
   {
+    "filename": "TURBOVEC-FAMILY-STUDY.md",
+    "path": "situations/arch/TURBOVEC-FAMILY-STUDY.md",
+    "title": "The turbovec family — a deep study of five older substrate-memory repos",
+    "description": "— the five `*turbovec*` repos in the SuperInstance org (all pushed 2026-09-22). Cloned and read in full; every claim below is grounded in a run (35 tests green across the family) or a cited line, not ...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 676,
+    "date": "2026-09-30",
+    "size_bytes": 9899
+  },
+  {
     "filename": "G13-G14-architecture.md",
     "path": "situations/arch/G13-G14-architecture.md",
     "title": "G13 + G14 architecture — the portable, weather-carrying diploma",
