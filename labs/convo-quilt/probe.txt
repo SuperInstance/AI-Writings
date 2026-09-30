@@ -19,9 +19,9 @@ FAIL zai         glm-5.3-flash                              HTTP 429: {"error":{
 FAIL zai         glm-5.3                                    HTTP 429: {"error":{"code":"1113","message":"Insufficient balance or n
 OK   zai-coding  glm-4.6                                    The sky is blue.
 OK   zai-coding  glm-5.3                                    Blue is the color.
-FAIL kimi        kimi-k3                                    HTTP 429: {"error":{"message":"Your account org-74284a792f0743efbe6172
-FAIL kimi        kimi-k2.6                                  HTTP 429: {"error":{"message":"Your account org-74284a792f0743efbe6172
-FAIL kimi        kimi-latest                                HTTP 429: {"error":{"message":"Your account org-74284a792f0743efbe6172
+FAIL kimi        kimi-k3                                    HTTP 429: {"error":{"message":"Your account org-REDACTED
+FAIL kimi        kimi-k2.6                                  HTTP 429: {"error":{"message":"Your account org-REDACTED
+FAIL kimi        kimi-latest                                HTTP 429: {"error":{"message":"Your account org-REDACTED
 OK   deepseek    deepseek-chat                              Blue.
 FAIL groq        llama-3.3-70b-versatile                    HTTP 404: {"error":{"message":"The model `llama-3.3-70b-versatile` doe
 OK   groq        openai/gpt-oss-120b                        Blue.

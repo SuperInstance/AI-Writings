@@ -4,7 +4,7 @@ Every call returns {"text", "tokens": {"in", "out"}, "wall_ms", "model", "provid
 ProviderError. No retries hidden inside: the bus decides what a failure means.
 Keys come from env only; nothing here logs a key.
 """
-import json, os, time, urllib.request, urllib.error
+import json, os, re, time, urllib.request, urllib.error
 
 ENDPOINTS = {   # provider -> (base chat URL, env key)
     "deepinfra": ("https://api.deepinfra.com/v1/openai/chat/completions", "DEEPINFRA_KEY"),
@@ -18,7 +18,8 @@ JEV_URL = "https://api.typesafe.ai/v1/systemone"
 
 
 class ProviderError(Exception):
-    pass
+    def __init__(self, msg):   # provider error bodies can echo account ids; keep them out of logs
+        super().__init__(re.sub(r"org-[0-9a-f]{8,}", "org-REDACTED", str(msg)))
 
 
 def _post(url, key, body, timeout):
