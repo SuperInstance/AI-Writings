@@ -31544,6 +31544,24 @@
     "size_bytes": 5368
   },
   {
+    "filename": "a-and-the-frame.md",
+    "path": "essays/a-and-the-frame.md",
+    "title": "\"A\" and the frame",
+    "description": "A content matcher was asked how much a video frame had changed. Asked positionally, it said every cell had moved. Asked by content-matching, it said a third had not. The ground truth, computed by hand...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 896,
+    "date": "2026-09-29",
+    "size_bytes": 5492
+  },
+  {
     "filename": "THE_AMNESIAC_ARCHITECT.md",
     "path": "essays/THE_AMNESIAC_ARCHITECT.md",
     "title": "The Amnesiac Architect",
@@ -67645,9 +67663,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 595,
+    "word_count": 651,
     "date": "2026-09-29",
-    "size_bytes": 4567
+    "size_bytes": 4981
   },
   {
     "filename": "README.md",
@@ -67847,6 +67865,24 @@
     "word_count": 694,
     "date": "2026-09-29",
     "size_bytes": 6653
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/system2-backtest/README.md",
+    "title": "system2-backtest (B7) — price alternative routes without ever pricing a different answer",
+    "description": "Given two recorded routes that claim to reach the same result, this tool first proves the results are identical, and only then says which route is faster, which is cheaper, and when you'd pick each.",
+    "folder": "system2-backtest",
+    "topic": "System2 Backtest",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 754,
+    "date": "2026-09-30",
+    "size_bytes": 5121
   },
   {
     "filename": "README.md",
@@ -267861,6 +267897,26 @@
     "word_count": 698,
     "date": "89-the-tid",
     "size_bytes": 10266
+  },
+  {
+    "filename": "seed-2026-09-30.md",
+    "path": "research/chord/seed-2026-09-30.md",
+    "title": "Seed 2026 09 30",
+    "description": "",
+    "folder": "chord",
+    "topic": "Chord",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Qwen 3.6",
+      "Seed Mini"
+    ],
+    "style": "Dialogue",
+    "word_count": 704,
+    "date": "2026-09-29",
+    "size_bytes": 6402
   },
   {
     "filename": "README.md",
