@@ -1,0 +1,228 @@
+{
+ "A": {
+  "jsonl vs ctx-lzma": {
+   "labels": [
+    "jsonl",
+    "ctx-lzma"
+   ],
+   "cases": [
+    {
+     "id": "batch200",
+     "status": "certified",
+     "class": "trade-off",
+     "verdict_hash": "0xcdcc97be3ee71c62"
+    },
+    {
+     "id": "batch400",
+     "status": "certified",
+     "class": "trade-off",
+     "verdict_hash": "0xe2e99f7d3748f9bf"
+    },
+    {
+     "id": "batch800",
+     "status": "certified",
+     "class": "trade-off",
+     "verdict_hash": "0xf224ef82cd35b08d"
+    }
+   ],
+   "certified": 3,
+   "refused": 0,
+   "inapplicable": 0,
+   "totals": {
+    "jsonl": {
+     "wall_ms": 18,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 468689
+    },
+    "ctx-lzma": {
+     "wall_ms": 145,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 3160
+    }
+   },
+   "workload": {
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl",
+     "cheap": "ctx-lzma"
+    },
+    "cheap_detail": {
+     "compute": "tie",
+     "storage": "ctx-lzma"
+    },
+    "class": "trade-off",
+    "dominant": null,
+    "satisfices": null,
+    "wins": {
+     "jsonl": [
+      "fast"
+     ],
+     "ctx-lzma": [
+      "cheap"
+     ]
+    },
+    "preferred_when": {
+     "good": "tie",
+     "fast": "jsonl",
+     "cheap": "ctx-lzma"
+    }
+   },
+   "verdict_hash": "0xf93b69f2b6f5d47b"
+  },
+  "ctx-lzma vs ctx-lzma-rs": {
+   "labels": [
+    "ctx-lzma",
+    "ctx-lzma-rs"
+   ],
+   "cases": [
+    {
+     "id": "batch200",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x517e80bcaf36d5e0"
+    },
+    {
+     "id": "batch400",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x8f9165876da85a97"
+    },
+    {
+     "id": "batch800",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x64154ab35603d4c9"
+    }
+   ],
+   "certified": 3,
+   "refused": 0,
+   "inapplicable": 0,
+   "totals": {
+    "ctx-lzma": {
+     "wall_ms": 145,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 3160
+    },
+    "ctx-lzma-rs": {
+     "wall_ms": 170,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 6126
+    }
+   },
+   "workload": {
+    "axes": {
+     "good": "tie",
+     "fast": "ctx-lzma",
+     "cheap": "ctx-lzma"
+    },
+    "cheap_detail": {
+     "compute": "tie",
+     "storage": "ctx-lzma"
+    },
+    "class": "dominates-faster-cheaper",
+    "dominant": "ctx-lzma",
+    "satisfices": "ctx-lzma-rs",
+    "wins": {
+     "ctx-lzma": [
+      "cheap",
+      "fast"
+     ]
+    },
+    "preferred_when": {
+     "good": "tie",
+     "fast": "ctx-lzma",
+     "cheap": "ctx-lzma"
+    }
+   },
+   "verdict_hash": "0xaae535465e16e462"
+  },
+  "B4": {
+   "status": "certified",
+   "class": "trade-off",
+   "routes": {
+    "ctx-lzma": {
+     "wall_ms": 53,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 1672
+    },
+    "ctx-lzma-rs": {
+     "wall_ms": 67,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 2042
+    },
+    "jsonl": {
+     "wall_ms": 10,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 268148
+    }
+   },
+   "standing": {
+    "ctx-lzma": 8,
+    "ctx-lzma-rs": 18,
+    "jsonl": 0
+   },
+   "good_source": "standing",
+   "frontier": [
+    "ctx-lzma",
+    "ctx-lzma-rs",
+    "jsonl"
+   ],
+   "dominated": {},
+   "preferred_when": {
+    "good": "ctx-lzma-rs",
+    "fast": "jsonl",
+    "cheap": "ctx-lzma",
+    "better-faster": null,
+    "better-cheaper": null,
+    "faster-cheaper": null
+   },
+   "tied": {},
+   "caveat": "stationary-budget assumption (\u00a711.2): re-backtest on repricing/hardware change",
+   "product_hash": "0x45aea810287201de",
+   "as_of": {
+    "ctx-lzma": {
+     "records": 2,
+     "mono": [
+      1,
+      2
+     ]
+    },
+    "ctx-lzma-rs": {
+     "records": 2,
+     "mono": [
+      1,
+      2
+     ]
+    },
+    "jsonl": {
+     "records": 2,
+     "mono": [
+      1,
+      2
+     ]
+    }
+   },
+   "result_hash": "0x345cd14228cd82d6"
+  }
+ },
+ "B": {
+  "stats": {
+   "tq4+rerank": {
+    "identical": 60,
+    "refused": 0
+   },
+   "hdc1024+rerank": {
+    "identical": 56,
+    "refused": 4
+   }
+  },
+  "shortlist": 50
+ }
+}

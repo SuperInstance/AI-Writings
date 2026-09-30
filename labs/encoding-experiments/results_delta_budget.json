@@ -1,0 +1,28 @@
+{
+ "activelog": {
+  "n_records": 2000,
+  "jsonl": 673508,
+  "jsonl+zlib": 112149,
+  "jsonl+lzma": 87844,
+  "prev_field_share": 0.241,
+  "col-raw": 22715,
+  "col-delta": 25352,
+  "col-ctx": 18713,
+  "col-ctx-trend": 18974,
+  "col-ctx-mean": 18598,
+  "col-ctx+lzma": 3816,
+  "col-ctx-mean+lzma": 3604,
+  "col-delta+lzma": 5260
+ },
+ "autoclaw_scores": {
+  "rows": 169,
+  "json": 2660,
+  "json+lzma": 1096,
+  "varint-raw": 1070,
+  "varint-raw+lzma": 936,
+  "varint-delta": 849,
+  "varint-delta+lzma": 820,
+  "varint-mean": 823,
+  "varint-mean+lzma": 792
+ }
+}

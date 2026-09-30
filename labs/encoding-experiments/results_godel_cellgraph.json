@@ -1,0 +1,73 @@
+{
+ "real": {
+  "nodes": 8,
+  "edges": 10,
+  "godel_bits": 197,
+  "godel_decimal_digits": 60,
+  "varint_adj_bytes": 27,
+  "canon_json_bytes": 143,
+  "roundtrip": true
+ },
+ "algebra": {
+  "sub_divides": true,
+  "non_sub_divides": false,
+  "lcm_is_union": true,
+  "gcd_is_intersection": true
+ },
+ "growth": {
+  "8": {
+   "edges": 10,
+   "godel_bytes": 22,
+   "varint_bytes": 27,
+   "ratio": 0.81,
+   "enc_ms": 0.0,
+   "dec_ms": 0.0,
+   "roundtrip": true
+  },
+  "16": {
+   "edges": 22,
+   "godel_bytes": 61,
+   "varint_bytes": 55,
+   "ratio": 1.11,
+   "enc_ms": 0.0,
+   "dec_ms": 0.1,
+   "roundtrip": true
+  },
+  "32": {
+   "edges": 41,
+   "godel_bytes": 168,
+   "varint_bytes": 106,
+   "ratio": 1.58,
+   "enc_ms": 0.0,
+   "dec_ms": 0.2,
+   "roundtrip": true
+  },
+  "64": {
+   "edges": 93,
+   "godel_bytes": 382,
+   "varint_bytes": 222,
+   "ratio": 1.72,
+   "enc_ms": 0.0,
+   "dec_ms": 0.9,
+   "roundtrip": true
+  },
+  "128": {
+   "edges": 180,
+   "godel_bytes": 855,
+   "varint_bytes": 438,
+   "ratio": 1.95,
+   "enc_ms": 0.1,
+   "dec_ms": 4.0,
+   "roundtrip": true
+  },
+  "256": {
+   "edges": 357,
+   "godel_bytes": 2080,
+   "varint_bytes": 871,
+   "ratio": 2.39,
+   "enc_ms": 0.5,
+   "dec_ms": 28.7,
+   "roundtrip": true
+  }
+ }
+}

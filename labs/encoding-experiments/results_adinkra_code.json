@@ -1,0 +1,40 @@
+{
+ "cube_iso": {
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": true,
+  "6": true,
+  "7": true,
+  "8": true
+ },
+ "chromotopology": {
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": true,
+  "6": true,
+  "7": true,
+  "8": true
+ },
+ "quotient": {
+  "nodes": 16,
+  "bosons": 8,
+  "valid_chromotopology": true,
+  "e8_codewords": 16,
+  "e8_min_weight": 4
+ },
+ "decode": {
+  "1": {
+   "corrected": 128
+  },
+  "2": {
+   "detected": 448
+  },
+  "3": {
+   "MIScorrected": 896
+  }
+ }
+}

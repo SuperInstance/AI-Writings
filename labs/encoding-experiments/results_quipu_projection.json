@@ -1,0 +1,58 @@
+{
+ "llm": {
+  "meta-llama/Meta-Llama-3.1-8B-Instruct|decimal": {
+   "exact": 1.0,
+   "values": 50,
+   "prompt_tokens_per_feed": 106
+  },
+  "meta-llama/Meta-Llama-3.1-8B-Instruct|quipu": {
+   "exact": 0.0,
+   "values": 50,
+   "prompt_tokens_per_feed": 264
+  },
+  "meta-llama/Meta-Llama-3.1-8B-Instruct|braille": {
+   "exact": 0.02,
+   "values": 50,
+   "prompt_tokens_per_feed": 222
+  },
+  "meta-llama/Meta-Llama-3.1-8B-Instruct|trit": {
+   "exact": 0.0,
+   "values": 50,
+   "prompt_tokens_per_feed": 190
+  },
+  "deepseek-ai/DeepSeek-V3|decimal": {
+   "exact": 1.0,
+   "values": 50,
+   "prompt_tokens_per_feed": 101
+  },
+  "deepseek-ai/DeepSeek-V3|quipu": {
+   "exact": 0.84,
+   "values": 50,
+   "prompt_tokens_per_feed": 267
+  },
+  "deepseek-ai/DeepSeek-V3|braille": {
+   "exact": 1.0,
+   "values": 50,
+   "prompt_tokens_per_feed": 206
+  },
+  "deepseek-ai/DeepSeek-V3|trit": {
+   "exact": 0.02,
+   "values": 50,
+   "prompt_tokens_per_feed": 190
+  }
+ },
+ "check_digits": {
+  "quipu-digit-sum": {
+   "substitution_detect": 1.0,
+   "transposition_detect": 0.0
+  },
+  "luhn": {
+   "substitution_detect": 1.0,
+   "transposition_detect": 0.9825
+  },
+  "mod11-weighted": {
+   "substitution_detect": 1.0,
+   "transposition_detect": 1.0
+  }
+ }
+}
