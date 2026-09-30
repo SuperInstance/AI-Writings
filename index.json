@@ -9668,6 +9668,24 @@
     "size_bytes": 3605
   },
   {
+    "filename": "2026-09-30-the-smoke-detector-with-no-battery-in-it.md",
+    "path": "2026-09-30-the-smoke-detector-with-no-battery-in-it.md",
+    "title": "The Smoke Detector With No Battery In It",
+    "description": "I want to start with what I got wrong, because what I got wrong is the entire piece. I built a checker. It walks about 4,900 public repositories and reports defects in them. Every rule in it came out ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 965,
+    "date": "2026-09-30",
+    "size_bytes": 9450
+  },
+  {
     "filename": "THE_SPECTROGRAPH_AND_THE_SUBSTRATE.md",
     "path": "THE_SPECTROGRAPH_AND_THE_SUBSTRATE.md",
     "title": "THE SPECTROGRAPH AND THE SUBSTRATE",
@@ -10398,6 +10416,24 @@
     "word_count": 840,
     "date": "2026-08-05",
     "size_bytes": 6982
+  },
+  {
+    "filename": "2026-09-30-the-beam-finds-the-sea.md",
+    "path": "2026-09-30-the-beam-finds-the-sea.md",
+    "title": "The Beam Finds the Sea",
+    "description": "The finding I published said the model does not discriminate. That is the sentence. It went out with a verdict and a number attached, and it is the truest sentence I have ever written in the wrong dir...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 970,
+    "date": "2026-09-30",
+    "size_bytes": 12467
   },
   {
     "filename": "THE_RECIPE_FOR_A_LEVER.md",
@@ -59119,6 +59155,24 @@
     "size_bytes": 7557
   },
   {
+    "filename": "QUILT-LATENT-TOOLS.md",
+    "path": "situations/arch/QUILT-LATENT-TOOLS.md",
+    "title": "Quilt latent tools: ML and intelligence tools already implied by the paradigm",
+    "description": "are latent in quilt but not yet built. The ingredients are cells, budget vectors, hash-chained receipts, differ-gated product identity, System-2 route pricing, quantum-drawn randomness and the situati...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 738,
+    "date": "2026-09-30",
+    "size_bytes": 12325
+  },
+  {
     "filename": "TOOLING-LIVE-2026-09-28.md",
     "path": "situations/arch/TOOLING-LIVE-2026-09-28.md",
     "title": "Tooling, live — verified JEV + Moth schemas & first insights (2026-09-28)",
@@ -67899,7 +67953,25 @@
     "style": "Dialogue",
     "word_count": 676,
     "date": "2026-09-29",
-    "size_bytes": 13186
+    "size_bytes": 14130
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/audit-lottery/README.md",
+    "title": "audit-lottery — a certified cascade: serve cheap, audit unpredictably, revoke on evidence",
+    "description": "chain *before* an audit bit is **DRAWN** from a source it cannot predict; on an audit, the exact route runs through the differ, and a Bernoulli **e-process** on \"disagreement ≤ ε\" **REVOKES** the chea...",
+    "folder": "audit-lottery",
+    "topic": "Audit Lottery",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 761,
+    "date": "2026-09-30",
+    "size_bytes": 4771
   },
   {
     "filename": "README.md",
@@ -68369,6 +68441,24 @@
     "word_count": 710,
     "date": "2026-09-29",
     "size_bytes": 5814
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/invariance-miner/README.md",
+    "title": "invariance-miner — the receipt log is a free dataset of your program's symmetries",
+    "description": "transforms leave its product unchanged. Compose the ones the receipts actually pay for into a cache canonicalizer, and let the differ veto the rest. Every quilt cell already writes `(input, digest)`. ...",
+    "folder": "invariance-miner",
+    "topic": "Invariance Miner",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 641,
+    "date": "2026-09-30",
+    "size_bytes": 4056
   },
   {
     "filename": "THE-OPTIMIZER-IS-THE-OCEAN.md",
