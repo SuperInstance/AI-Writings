@@ -10,6 +10,7 @@ import sys
 
 import cellml as C
 import mlq_system2 as S
+import localize as LZ
 
 import activeledger as al
 import backtest as bt
@@ -199,6 +200,42 @@ def main():
     check("recall accuracies computed against a majority baseline",
           all(0 <= v <= 1 for v in Rc["loo_knn_acc"].values()), Rc["loo_knn_acc"])
     check("the lexical embedder is flagged non-semantic", Rc["semantic"] is False)
+
+    print("-- perturbation-localization control (cellgraph's receipt)")
+    rows = LZ.control(model)
+    print(LZ.table(rows))
+    check("perturbing one weight by %g moves a digest for all %d tensors" % (LZ.EPS, len(rows)),
+          all(r["n_moved"] > 0 for r in rows), [r["weight"] for r in rows if not r["n_moved"]])
+    check("first-detected cell == declared direct consumer, for every weight",
+          all(r["first"] == r["expected_first"] for r in rows),
+          [(r["weight"], r["first"], r["expected_first"]) for r in rows if r["first"] != r["expected_first"]])
+    check("moved set == declared downstream cone (damage tracks dependency)",
+          all(r["moved_matches"] for r in rows), {r["weight"]: r["n_moved"] for r in rows})
+    by = {r["weight"]: r["n_moved"] for r in rows}
+    check("damage tracks logic: L1.w1 leaves every layer-0 cell and L0 KV chain untouched; head moves 1 cell",
+          by["L1.w1"] == 3 and by["head"] == 1 and 0 not in next(r for r in rows if r["weight"] == "L1.w1")["kv_moved"], by)
+    check("KV-chain heads moved == declared layers, for every weight",
+          all(r["kv_moved"] == r["kv_expected"] for r in rows))
+
+    print("-- dtype in the digest")
+    x = [[0.1234567 * (i + 1) + j * 0.01 for j in range(4)] for i in range(3)]
+    xp = [row[:] for row in x]
+    xp[1][2] += 1e-9
+    check("f64 digest detects a 1e-9 perturbation", C.act_hash(x) != C.act_hash(xp))
+    m32 = C.act_hash(x, "f32") == C.act_hash(xp, "f32")
+    check("...and a float32 downcast would MASK it (copy demo: digests equal)", m32,
+          "f64 %s != %s; f32 %s == %s" % (C.act_hash(x), C.act_hash(xp), C.act_hash(x, "f32"),
+                                            C.act_hash(xp, "f32")))
+    check("same values, two declared dtypes -> different digests", C.act_hash(x, "f64") != C.act_hash(x, "f32"))
+    import struct as _st
+    raw = _st.pack("<2i", 1, 2)
+    check("dtype tag is hashed: identical bytes under f32 vs i64 tags differ",
+          C.crq.fnv1a64(b"f32:" + raw) != C.crq.fnv1a64(b"i64:" + raw))
+    try:
+        C.act_hash(x, "f16")
+        check("unknown dtype refused", False)
+    except ValueError:
+        check("unknown dtype refused", True)
 
     print("-- determinism")
     again = S.run_route(model, "spec-q4", S.PROMPTS[0])

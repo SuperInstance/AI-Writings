@@ -106,7 +106,7 @@ How to read the output:
 - `run_gated(model, prompt, n, cheap_plan, exact_plan, route, eps, final_verify)`: with
   `final_verify=True` the route is exact by construction. With `False`, tokens trusted by
   calibration are never re-checked, and B7 decides whether the route holds.
-- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 66 checks, 0 failures` (~50 s).
+- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 76 checks, 0 failures` (~50 s).
 
 ## 6. Failure modes / scars
 - **Identity is not quality.** On "the rat ", fp writes `sat sathe ma` and q8 writes `sat on the m`.
@@ -134,6 +134,59 @@ How to read the output:
   test is weaker than it looks. A logit error above ε on unseen text would still let a wrong
   confident token through. B7 would refuse such a run, but only after the fact.
   `gate-q8` pays roughly 14% more modeled time (accel) to remove this risk.
+
+## Localization control
+
+*Credit: the cellgraph repo proved this shape (perturb one weight, watch which cell digests move
+first; Wq → 14 cells, Wv → 12, Wlog → 2). We had only asserted that faults localize. See
+[`situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md`](../../situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md).*
+
+[`localize.py`](localize.py) adds 1e-9 to one element of one weight, re-runs the prompt
+`"the cat sat on the "`, and compares the per-cell `out` digests (plus each layer's KV chain head)
+against the baseline. It reads digests only. The expected answer comes from a declared
+graph (weight → consumer cell, in execution order) that the digests are checked against.
+Measured (`python3 localize.py`, 11 cells in this 2-layer toy):
+
+| perturbed | first cell moved | cells moved | KV-chain layers moved |
+|---|---|---|---|
+| embed | embed | 11 / 11 | 0, 1 |
+| L0.wqkv | L0.attn | 9 / 11 | 0, 1 |
+| L0.wo | L0.attn | 9 / 11 | 1 |
+| L0.w1 | L0.mlp | 7 / 11 | 1 |
+| L0.w2 | L0.mlp | 7 / 11 | 1 |
+| L1.wqkv | L1.attn | 5 / 11 | 1 |
+| L1.wo | L1.attn | 5 / 11 | none |
+| L1.w1 | L1.mlp | 3 / 11 | none |
+| L1.w2 | L1.mlp | 3 / 11 | none |
+| head | head | 1 / 11 | none |
+
+In every row the first-detected cell is the declared direct consumer, and the moved set is exactly
+the declared downstream cone. Selftest asserts both. What this does and does not show:
+the residual stream makes this toy a single chain, so the moved set is always a suffix of the
+execution order. Localization pins down *where the suffix starts*, and the KV-chain column adds
+a second, non-suffix signal (an `L0.w1` fault changes layer 1's cache but not layer 0's).
+It is a 19k-param toy, and one prompt and one element per tensor were tried, so this is a
+control, not a coverage claim. The `wqkv` element is a K row, because a Q-row perturbation
+would not touch the KV chain. Caveat: the `fp` kernel's at-rest `whash` packs float32, so a 1e-9
+change to a weight is invisible to `load:` ticks. Activation digests are what catch it.
+
+## Why dtype is in the digest
+
+*Credit: cellgraph found that casting to float32 before hashing made a 9.8e-10 perturbation
+byte-identical, so the digest silently lied.*
+
+`act_hash` in [`cellml.py`](cellml.py) already packed full float64 bytes (no downcast). It now also
+hashes a dtype tag (`f64:`, `f32:` or `i64:`) in front of the bytes, so the same bytes declared under
+two precisions cannot collide, and a future lower-precision route has to say what it is.
+`act_hash(x, "f32")` exists to declare such a route (and to demonstrate the failure).
+Selftest proves, on a copy of a small activation: (a) the default f64 digest detects a 1e-9
+perturbation; (b) hashing that same pair at f32 gives equal digests, i.e. the masking is real;
+(c) the same values under two declared dtypes hash differently.
+
+**Golden-hash change.** Prepending the tag changes every activation digest, so previously recorded
+ml-in-quilt logs and the report hash no longer match. The selftest `report_hash` moved from
+`0xb1f485ee166a8e53` to `0x0f8f32c90426f98a`. No pass/fail check changed. The old value is quoted in
+`situations/dispatch-ledger.csv` row d155 as history, and that row was not edited.
 
 ## 7. How it composes
 - **B1** `labs/activeledger`: envelope, budget vector, chain.

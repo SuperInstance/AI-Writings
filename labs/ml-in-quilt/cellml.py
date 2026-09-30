@@ -64,17 +64,25 @@ LINEAR_KINDS = ("attn", "mlp", "head")
 
 # ---- hashing -------------------------------------------------------------------------
 
-def act_hash(rows) -> str:
-    """fnv1a-64 over the IEEE-754 little-endian bytes of an activation (list of rows,
-    list of floats, or ints). Exact: two activations hash equal iff bit-identical."""
+DTYPES = {"f64": "d", "f32": "f", "i64": "q"}   # declared precision tag -> struct code
+
+
+def act_hash(rows, dtype: str = None) -> str:
+    """fnv1a-64 over `<dtype>:` + the little-endian bytes of an activation (list of rows,
+    list of floats, or ints). Exact: two activations hash equal iff same dtype AND
+    bit-identical at that dtype. Default dtype is inferred: ints -> i64, floats -> f64
+    (no downcast). Passing "f32" packs at float32, which is LOSSY: it is here so a
+    lower-precision route declares itself, and so the masking can be demonstrated.
+    The tag is in the hash input so the same bytes under two dtypes cannot collide."""
     if rows and isinstance(rows[0], list):
         flat = [x for r in rows for x in r]
     else:
         flat = list(rows)
-    if flat and isinstance(flat[0], int):
-        blob = struct.pack("<%dq" % len(flat), *flat)
-    else:
-        blob = struct.pack("<%dd" % len(flat), *flat)
+    if dtype is None:
+        dtype = "i64" if flat and isinstance(flat[0], int) else "f64"
+    if dtype not in DTYPES:
+        raise ValueError("unknown dtype %r" % dtype)
+    blob = dtype.encode() + b":" + struct.pack("<%d%s" % (len(flat), DTYPES[dtype]), *flat)
     return "0x%016x" % crq.fnv1a64(blob)
 
 

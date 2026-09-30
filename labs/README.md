@@ -4,6 +4,37 @@
 dependency graph + through-line) and [`docs/using-the-labs.md`](docs/using-the-labs.md): a run-the-whole-loop
 walkthrough with real output.
 
+## For the agent continuing this work — how the pieces synergize
+
+These labs are not a pile of scripts; they are one **learning-to-learn loop**, and each cell is a modular
+piece you can lift out and reuse. The through-line, in the order the pieces feed each other:
+
+1. **Capture** — `situation-recorder` records every manager↔crew mission as a hash-chained transcript
+   (relation verbs + un-gameable quantum-drawn values). *The recorded I/O is the real product*, saved so a
+   future model can learn to decompose. → the **corpus** + a **base rate** a learned cell must beat.
+2. **Recall** — `situation-memory` embeds those transcripts and gives `find_similar_missions()` (distance +
+   OUTCOME), the memory a slow "System-2" cell reads to ask *"what happened last time we were near here?"*.
+3. **Account** — `activeledger` (B1) is the ActiveLog envelope every cell books into: a **budget vector**
+   (wall_ms, tokens, usd, storage) on a double-entry, fnv1a-64 prev-chain where **replay == live**. Its
+   `at_rest` layer compresses the log 119× and **repairs** it with Reed–Solomon.
+4. **Price** — a route is any way to reach a product. `system2-backtest` (**B7**) gates *product identity
+   first* (different answer → refused), then `route-preference` (**B4**) places the product-identical routes
+   on the **iron-triangle {good, fast, cheap}** and records *preferred-when* — never one scalar winner.
+   `code-real-quant` (a real 4-bit vector substrate) and the `encoding-experiments` are routes B7/B4 price.
+5. **Verify honestly** — `unit-translation-audit` (B2) proves each hop round-trips; `polyform` proves a
+   kernel agrees across formalisms (one golden hash); `rubric-forge` turns a chain into a dense reward;
+   `weakest-claim`/`jev-fold` find the flimsiest guarantee. Honesty is a *receipt*, never an assertion.
+6. **Apply to ML itself** — `ml-in-quilt` makes a transformer's forward pass a priced cell graph (B7/B4
+   choose fp vs quantized per block); `priced-training` asks the same of training and finds it is
+   **boundable, not freely priceable** (an anytime-valid witness retracts a bad route). `quilt-kernel` is
+   the whole pattern (Cell · Differ · Ledger · Price) extracted for *any* pipeline to `import`.
+
+**The one habit under all of it:** wrap a pure function as a *cell*, give it a *budget* and a *receipt*,
+compare only *product-identical* routes, and prefer the honest negative to the polished claim. To extend
+the loop, add a cell with one job + a selftest + a mark; to reuse a piece elsewhere, start from
+`quilt-kernel`. Architecture rationale lives in [`../situations/arch/ACTIVELEDGER-CELL-GRAPH.md`](../situations/arch/ACTIVELEDGER-CELL-GRAPH.md)
+(the program) and the fleet is converging on the same idea — see [`../situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md`](../situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md).
+
 | lab | what it does | builds on |
 |---|---|---|
 | [`jev-fold`](jev-fold/) | splits a compound claim, has JEV score each part, returns the weakest part + divergence | — |
@@ -52,4 +83,12 @@ Small, obvious use-cases where a quilt picks a cheap route when it can, reaching
 
 ## ml-in-quilt (`labs/ml-in-quilt/`)
 
-The forward pass as a **priced cell graph**: each transformer block (tokenize/embed/norm/attention/MLP/head/sample) is a quilt cell with a budget vector + hash-chained activations, so B7 gates product-identity and B4 prices interchangeable block implementations (fp / 8-bit / 4-bit-via-code-real-quant / approximate / cached) per situation + device — B7 and B4 imported **unmodified**. `cellml.py` (the cell forward pass) + `mlq_system2.py` (route pricing) + selftest **66/0**. Design: [`../situations/arch/ML-IN-QUILT-ARCHITECTURE.md`](../situations/arch/ML-IN-QUILT-ARCHITECTURE.md).
+The forward pass as a **priced cell graph**: each transformer block (tokenize/embed/norm/attention/MLP/head/sample) is a quilt cell with a budget vector + hash-chained activations, so B7 gates product-identity and B4 prices interchangeable block implementations (fp / 8-bit / 4-bit-via-code-real-quant / approximate / cached) per situation + device — B7 and B4 imported **unmodified**. `cellml.py` (the cell forward pass) + `mlq_system2.py` (route pricing) + `localize.py` + selftest **76/0**. Hardened with the fleet's `cellgraph` receipts: a **perturbation-localization control** (perturb one weight, see which cells' digests move first — damage tracks logic, not file position: L0.wo→9/11 cells, head→1/11) and **dtype-in-digest** so a lower-precision route can't silently collide. Design: [`../situations/arch/ML-IN-QUILT-ARCHITECTURE.md`](../situations/arch/ML-IN-QUILT-ARCHITECTURE.md); fleet siblings in [`../situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md`](../situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md).
+
+## priced-training (`labs/priced-training/`)
+
+Asks B7's question of a *training* step, not just a forward pass: can a cheaper training route (fp32 / bf16 stochastic-rounding) be certified product-identical to fp64, or only bounded? **Answer, measured: boundable, not freely priceable** — the loss digest diverges, so instead an **anytime-valid witness** (`route_witness.py`, a Ville-bounded e-process) tracks the cheaper route and **retracts** when it drifts (demo: fp32→bf16-sr switch → WITNESSED → RETRACTED, E_max=20.4; null fires at 0.028 < the 0.05 Ville bound — statistically honest). The extractable general tool is the route-witness. Design: [`../situations/arch/PRICED-TRAINING.md`](../situations/arch/PRICED-TRAINING.md). | cell-native training mirrors **quilt-nn** (cited); witness borrows **quilt-ewitness**.
+
+## quilt-kernel (`labs/quilt-kernel/`) — the pattern, extracted for anyone
+
+The reusable distillation of everything above into one dependency-light module any pipeline can `import`: a **Cell** wrapper (turn a pure function into a receipted cell that emits {product, budget, fnv1a-64 hash} into a hash-chained log), a **Differ** (product-identity), a **Ledger** (ActiveLog v1 + verify), and a **Price** hook (iron-triangle placement for ≥2 product-identical cells). selftest **123/0**, with worked examples for a data pipeline, an LLM call, and a build step — each receipted + priced in ~10 lines. [`quilt-kernel/EXTRACTION.md`](quilt-kernel/EXTRACTION.md) is the manifest for lifting it into a standalone repo (proposed `quilt-kernel` / `receipt-kernel`), aligned with the fleet's `forge-quilt` OpenAPI spec. **Start here to reuse the quilt pattern in another project.**
