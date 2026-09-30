@@ -29844,6 +29844,24 @@
     "size_bytes": 4968
   },
   {
+    "filename": "seven-i-called-dead.md",
+    "path": "essays/seven-i-called-dead.md",
+    "title": "Seven I called dead",
+    "description": "question and nine said yes. Six writers, four answers, and one thing none of them noticed.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 805,
+    "date": "2026-09-29",
+    "size_bytes": 4576
+  },
+  {
     "filename": "GROTHENDIECK_WAS_RIGHT_ABOUT_EVERYTHING.md",
     "path": "essays/GROTHENDIECK_WAS_RIGHT_ABOUT_EVERYTHING.md",
     "title": "Grothendieck Was Right About Everything",
