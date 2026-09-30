@@ -1,0 +1,87 @@
+prereg: EPS={'sine': 0.02, 'circle': 0.02}  P0_POINT=0.01  P0_SEED=0.1  DELTA=0.05  seeds=40  (clean obs to cross: point 421, seed 40)
+
+=== sine  (25 params, {'hidden': 8, 'batch': 8, 'epochs': 300, 'lr': 0.2})  reference deterministic: True
+E1/E2  vs fp64 over 40 seeds
+   impl       vs     loss=  root=  trace= div@ep  max|df|     med max|df|  <=eps  lbl=   flips  swallow  final_loss
+   fp64-rev   fp64     0      0      0    0       1.776e-15   1.110e-15     40    -      -      0.0000   1.177e-02
+   fp32       fp64     0      0      0    0       7.571e-07   2.604e-07     40    -      -      0.0000   1.177e-02
+   bf16-sr    fp64     0      0      0    0       6.500e-02   1.781e-02     24    -      -      0.1571   1.202e-02
+   bf16-rn    fp64     0      0      0    0       6.465e-02   1.763e-02     24    -      -      0.1654   1.190e-02
+   fsum-rev   fsum    40     40     40    None    0.000e+00   0.000e+00     40    -      -      0.0000   1.177e-02
+   fp64 final_loss mean 1.177e-02   fsum final_loss mean 1.177e-02   fsum trace == fp64 trace: 0/40
+E3  witness (per function: 2048 streamed points, p0=0.01; per route: seeds, p0=0.1)
+   fp64-rev   functions witnessed 40/40 (retracted 0, misses 0, worst ucb 0.00223872)   route: WITNESSED stop_t=40 misses=0 E=20.4 ucb=0.1
+   fp32       functions witnessed 40/40 (retracted 0, misses 0, worst ucb 0.00223872)   route: WITNESSED stop_t=40 misses=0 E=20.4 ucb=0.1
+   bf16-sr    functions witnessed 24/40 (retracted 0, misses 7294, worst ucb None)   route: NOT_WITNESSED stop_t=-1 misses=16 E=0.00485 ucb=None
+   bf16-rn    functions witnessed 23/40 (retracted 0, misses 8280, worst ucb None)   route: NOT_WITNESSED stop_t=-1 misses=16 E=0.00485 ucb=None
+   fsum-rev   functions witnessed 40/40 (retracted 0, misses 0, worst ucb 0.00223872)   route: WITNESSED stop_t=40 misses=0 E=20.4 ucb=0.1
+E4  B7 on edge:
+   level=step   fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   level=preds  fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   B4 all-routes: {"seeds_all_certified": 0, "status": "refused"}
+E4  B7 on accel:
+   level=step   fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   level=preds  fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   B4 all-routes: {"seeds_all_certified": 0, "status": "refused"}
+quality (explicit second relation, prereg amendment 1; per-seed fail -> route witness p0=0.1)
+   fp64-rev   mse_ratio cheap 0.01155 vs ref 0.01155   seeds failing 0   witness WITNESSED stop_t=40 ucb=0.1
+   fp32       mse_ratio cheap 0.01155 vs ref 0.01155   seeds failing 0   witness WITNESSED stop_t=40 ucb=0.1
+   bf16-sr    mse_ratio cheap 0.01175 vs ref 0.01155   seeds failing 7   witness NOT_WITNESSED stop_t=-1 ucb=None
+   bf16-rn    mse_ratio cheap 0.01217 vs ref 0.01155   seeds failing 11   witness NOT_WITNESSED stop_t=-1 ucb=None
+   fsum-rev   mse_ratio cheap 0.01155 vs ref 0.01155   seeds failing 0   witness WITNESSED stop_t=40 ucb=0.1
+verdict:
+   fp64-rev   step 0/40   preds 0/40   witness WITNESSED     -> bounded
+   fp32       step 0/40   preds 0/40   witness WITNESSED     -> bounded
+   bf16-sr    step 0/40   preds 0/40   witness NOT_WITNESSED -> flagged
+   bf16-rn    step 0/40   preds 0/40   witness NOT_WITNESSED -> flagged
+   fsum-rev   step 40/40   preds 40/40   witness WITNESSED     -> priceable at the step (byte-identical trajectory)
+cost (declared, per step): fp64 1250F/3800B  fsum 2050F/3800B  fp64-rev 1250F/3800B  fp32 1300F/2000B  bf16-sr 1350F/1100B  bf16-rn 1300F/1100B  fsum-rev 2050F/3800B
+python wall ms (best of 3, sidecar): fp64 78.0  fsum 83.9  fp64-rev 72.8  fp32 83.0  bf16-sr 93.3  bf16-rn 89.5  fsum-rev 85.4
+
+=== circle  (33 params, {'hidden': 8, 'batch': 8, 'epochs': 200, 'lr': 1.0})  reference deterministic: True
+E1/E2  vs fp64 over 40 seeds
+   impl       vs     loss=  root=  trace= div@ep  max|df|     med max|df|  <=eps  lbl=   flips  swallow  final_loss
+   fp64-rev   fp64     4      0      0    0       6.556e-14   1.554e-15     40    40     0      0.0000   3.877e-02
+   fp32       fp64     0      0      0    0       1.264e-04   9.501e-07     40    40     0      0.0000   3.877e-02
+   bf16-sr    fp64     0      0      0    0       7.368e-01   8.048e-02      0    6      224    0.1847   3.748e-02
+   bf16-rn    fp64     0      0      0    0       4.909e-01   7.615e-02      0    4      237    0.1952   3.826e-02
+   fsum-rev   fsum    40     40     40    None    0.000e+00   0.000e+00     40    40     0      0.0000   3.877e-02
+   fp64 final_loss mean 3.877e-02   fsum final_loss mean 3.877e-02   fsum trace == fp64 trace: 0/40
+E3  witness (per function: 2048 streamed points, p0=0.01; per route: seeds, p0=0.1)
+   fp64-rev   functions witnessed 40/40 (retracted 0, misses 0, worst ucb 0.00223872)   route: WITNESSED stop_t=40 misses=0 E=20.4 ucb=0.1
+   fp32       functions witnessed 40/40 (retracted 0, misses 0, worst ucb 0.00223872)   route: WITNESSED stop_t=40 misses=0 E=20.4 ucb=0.1
+   bf16-sr    functions witnessed  0/40 (retracted 0, misses 21359, worst ucb None)   route: NOT_WITNESSED stop_t=-1 misses=40 E=3e-06 ucb=None
+   bf16-rn    functions witnessed  0/40 (retracted 0, misses 22050, worst ucb None)   route: NOT_WITNESSED stop_t=-1 misses=40 E=3e-06 ucb=None
+   fsum-rev   functions witnessed 40/40 (retracted 0, misses 0, worst ucb 0.00223872)   route: WITNESSED stop_t=40 misses=0 E=20.4 ucb=0.1
+E4  B7 on edge:
+   level=step   fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   level=preds  fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   level=labels fp64-rev 40/40 equivalent:40  fp32 40/40 dominates-faster-cheaper:40  bf16-sr 6/40 dominates-faster-cheaper:6  bf16-rn 4/40 dominates-faster-cheaper:4  fsum-rev 40/40 equivalent:40
+   B4 all-routes: {"seeds_all_certified": 1, "frontier": ["bf16-rn"], "class": "dominant", "preferred_when": {"fast": "bf16-rn", "cheap": "bf16-rn"}, "dominated": {"bf16-sr": ["bf16-rn"], "fp32": ["bf16-rn", "bf16-sr"], "fp64": ["bf16-rn", "bf16-sr", "fp32"], "fp64-rev": ["bf16-rn", "bf16-sr", "fp32"]}}
+E4  B7 on accel:
+   level=step   fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   level=preds  fp64-rev 0/40  fp32 0/40  bf16-sr 0/40  bf16-rn 0/40  fsum-rev 40/40 equivalent:40
+   level=labels fp64-rev 40/40 equivalent:40  fp32 40/40 dominates-faster-cheaper:40  bf16-sr 6/40 dominates-faster-cheaper:6  bf16-rn 4/40 dominates-faster-cheaper:4  fsum-rev 40/40 equivalent:40
+   B4 all-routes: {"seeds_all_certified": 1, "frontier": ["bf16-rn", "bf16-sr"], "class": "trade-off", "preferred_when": {"fast": "bf16-rn", "cheap": "bf16-rn"}, "dominated": {"fp32": ["bf16-rn", "bf16-sr"], "fp64": ["bf16-rn", "bf16-sr", "fp32"], "fp64-rev": ["bf16-rn", "bf16-sr", "fp32"]}}
+   B4 fp64 vs fp32 (edge): {"seeds_all_certified": 40, "frontier": ["fp32"], "class": "dominant", "preferred_when": {"fast": "fp32", "cheap": "fp32"}}
+   B4 fp64 vs fp32 (accel): {"seeds_all_certified": 40, "frontier": ["fp32"], "class": "dominant", "preferred_when": {"fast": "fp32", "cheap": "fp32"}}
+quality (explicit second relation, prereg amendment 1; per-seed fail -> route witness p0=0.1)
+   fp64-rev   acc_drop cheap 0.8747 vs ref 0.8747   seeds failing 0   witness WITNESSED stop_t=40 ucb=0.1
+   fp32       acc_drop cheap 0.8747 vs ref 0.8747   seeds failing 0   witness WITNESSED stop_t=40 ucb=0.1
+   bf16-sr    acc_drop cheap 0.872 vs ref 0.8747   seeds failing 8   witness NOT_WITNESSED stop_t=-1 ucb=None
+   bf16-rn    acc_drop cheap 0.8812 vs ref 0.8747   seeds failing 5   witness NOT_WITNESSED stop_t=-1 ucb=0.31622777
+   fsum-rev   acc_drop cheap 0.8747 vs ref 0.8747   seeds failing 0   witness WITNESSED stop_t=40 ucb=0.1
+verdict:
+   fp64-rev   step 0/40   labels 40/40   witness WITNESSED     -> priceable at the product boundary
+   fp32       step 0/40   labels 40/40   witness WITNESSED     -> priceable at the product boundary
+   bf16-sr    step 0/40   labels 6/40   witness NOT_WITNESSED -> priceable-where-certified, route unbounded (flagged)
+   bf16-rn    step 0/40   labels 4/40   witness NOT_WITNESSED -> priceable-where-certified, route unbounded (flagged)
+   fsum-rev   step 40/40   labels 40/40   witness WITNESSED     -> priceable at the step (byte-identical trajectory)
+cost (declared, per step): fp64 1650F/5016B  fsum 2706F/5016B  fp64-rev 1650F/5016B  fp32 1716F/2640B  bf16-sr 1782F/1452B  bf16-rn 1716F/1452B  fsum-rev 2706F/5016B
+python wall ms (best of 3, sidecar): fp64 108.0  fsum 135.6  fp64-rev 115.1  fp32 118.6  bf16-sr 144.4  bf16-rn 138.2  fsum-rev 142.1
+
+fsum (canonical step) vs fsum-rev, sine, B4 at level=step: {"edge": {"seeds_all_certified": 40, "frontier": ["fsum", "fsum-rev"], "class": "trade-off", "preferred_when": {"fast": "fsum", "cheap": "fsum"}}, "accel": {"seeds_all_certified": 40, "frontier": ["fsum", "fsum-rev"], "class": "trade-off", "preferred_when": {"fast": "fsum", "cheap": "fsum"}}}
+fsum vs fp64 (sine seed 1, level=preds) B7: {"edge": "refused", "accel": "refused"}
+retraction control (circle, fp32 x40 then bf16-sr x40): at switch WITNESSED -> final RETRACTED (stop_t=40, E_max=20.4, E_final=8e-06)
+null validity: Bernoulli(p=0.1) vs p0=0.1, 2000 streams x 200: fired 56 (rate 0.0280, Ville bound 0.05)
+null validity: Bernoulli(p=0.01) vs p0=0.01, 400 streams x 2048: fired 7 (rate 0.0175, Ville bound 0.05)

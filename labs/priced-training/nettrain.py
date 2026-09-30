@@ -20,6 +20,10 @@ shared, so any divergence is caused by the update implementation alone:
     bf16-sr    weights stored in bfloat16 with STOCHASTIC rounding (seeded, own LCG stream)
     bf16-rn    weights stored in bfloat16 with round-to-nearest-even (the classic stall:
                updates smaller than half an ulp are swallowed — Gupta et al. 2015)
+    fsum       the CONSTRUCTIVE candidate: float64, but every cross-sample reduction (batch
+               gradient sums, epoch loss sum) is correctly rounded (math.fsum, Shewchuk), so
+               its result does not depend on accumulation order
+    fsum-rev   fsum with the batch order reversed — the reorder test for the canonical step
 
 Tasks: `sine` (1-8-1 tanh/linear, regression, y = sin(pi x)) and `circle` (2-8-1 tanh/sigmoid,
 classification, y = [x^2 + y^2 < 0.5]). Stdlib only, deterministic, offline.
@@ -42,9 +46,11 @@ for _d in ("activeledger", "system2-backtest", "route-preference"):
 
 import activeledger as al  # noqa: E402
 
-IMPLS = ("fp64", "fp64-rev", "fp32", "bf16-sr", "bf16-rn")
+IMPLS = ("fp64", "fp64-rev", "fp32", "bf16-sr", "bf16-rn", "fsum", "fsum-rev")
 DTYPE = {"fp64": ("f64", 8), "fp64-rev": ("f64", 8), "fp32": ("f32", 4),
-         "bf16-sr": ("bf16", 2), "bf16-rn": ("bf16", 2)}
+         "bf16-sr": ("bf16", 2), "bf16-rn": ("bf16", 2), "fsum": ("f64", 8), "fsum-rev": ("f64", 8)}
+EXACT_SUM = ("fsum", "fsum-rev")
+REVERSED = ("fp64-rev", "fsum-rev")
 
 TASKS = {
     "sine": {"n_in": 1, "hidden": 8, "out": "linear", "n_train": 32, "batch": 8,
@@ -112,7 +118,7 @@ def to_bf16_sr(x: float, r16: int) -> float:
 
 
 def store(impl: str, x: float, rng: LCG | None) -> float:
-    if impl in ("fp64", "fp64-rev"):
+    if impl in ("fp64", "fp64-rev", "fsum", "fsum-rev"):
         return x
     if impl == "fp32":
         return to_f32(x)
@@ -232,12 +238,14 @@ def labels(preds: list[float]) -> list[int]:
 
 def step_cost(task: str, impl: str) -> dict:
     """Per-step flops and bytes under a DECLARED model: fwd = 2P, bwd = 4P flops per sample,
-    update 2P, rounding 2P (rn) / 4P (sr, incl. RNG). Weights streamed once per sample for fwd
+    update 2P, rounding 2P (rn) / 4P (sr, incl. RNG); a correctly rounded sum (fsum) is
+    declared at 4 extra flops per accumulated term (Shewchuk partials, typical case). Weights streamed once per sample for fwd
     and bwd plus one read-modify-write per step at storage width; the gradient buffer is fp64."""
     P, B = n_params(task), TASKS[task]["batch"]
     bw = DTYPE[impl][1]
-    rnd = {"fp64": 0, "fp64-rev": 0, "fp32": 2, "bf16-rn": 2, "bf16-sr": 4}[impl]
-    flops = 6 * P * B + 2 * P + rnd * P
+    rnd = {"fp64": 0, "fp64-rev": 0, "fp32": 2, "bf16-rn": 2, "bf16-sr": 4,
+           "fsum": 0, "fsum-rev": 0}[impl]
+    flops = 6 * P * B + 2 * P + rnd * P + (4 * P * B if impl in EXACT_SUM else 0)
     nbytes = P * bw * (2 * B + 2) + P * 8
     return {"flops": flops, "bytes": nbytes}
 
@@ -267,24 +275,29 @@ def train(task: str, impl: str, seed: int, epochs: int | None = None) -> dict:
     swallowed = updates = 0          # updates the storage precision rounded back to no-op
     for ep in range(epochs):
         order = rng.shuffle(range(len(data)))
-        loss_sum = 0.0
+        loss_sum, losses = 0.0, []
         w_in = weight_root(w, dtype)
         for s in range(0, len(order), B):
             idx = order[s:s + B]
-            if impl == "fp64-rev":
+            if impl in REVERSED:
                 idx = idx[::-1]
-            gsum = [0.0] * len(w)
-            for i in idx:
-                l, g = grad_one(task, w, *data[i])
-                loss_sum += l
-                for p in range(len(w)):
-                    gsum[p] += g[p]
+            if impl in EXACT_SUM:
+                lg = [grad_one(task, w, *data[i]) for i in idx]
+                losses += [l for l, _ in lg]
+                gsum = [math.fsum(g[p] for _, g in lg) for p in range(len(w))]
+            else:
+                gsum = [0.0] * len(w)
+                for i in idx:
+                    l, g = grad_one(task, w, *data[i])
+                    loss_sum += l
+                    for p in range(len(w)):
+                        gsum[p] += g[p]
             n = len(idx)
             new = [store(impl, w[p] - lr * (gsum[p] / n), sr) for p in range(len(w))]
             swallowed += sum(1 for p in range(len(w)) if gsum[p] != 0.0 and new[p] == w[p])
             updates += len(w)
             w = new
-        loss = loss_sum / len(data)
+        loss = (math.fsum(losses) if impl in EXACT_SUM else loss_sum) / len(data)
         entry = {"v": 2, "seq": ep, "epoch": ep, "impl": impl, "loss": loss,
                  "loss_sha": scalar_sha(loss), "w_in": w_in,
                  "weight_root_sha": weight_root(w, dtype), "prev": prev}
@@ -317,6 +330,13 @@ def verify_chain(chain: list[dict]) -> bool:
 PRODUCT_LEVELS = ("step", "preds", "labels")
 
 
+def step_trace(run: dict) -> str:
+    """Digest of every epoch's (loss_sha, weight_root) — the whole trajectory, WITHOUT the route
+    label (the receipt chain tip carries `impl`, so two routes' tips never match by design)."""
+    return hashlib.sha256("|".join(e["loss_sha"] + ":" + e["weight_root_sha"]
+                                   for e in run["chain"]).encode()).hexdigest()
+
+
 def product_of(run: dict, level: str, xs: list[tuple]) -> dict:
     """What a training route PRODUCES, at three strengths:
     step   — the trained weights and the loss digest (what xruntime-conformance compared)
@@ -325,7 +345,7 @@ def product_of(run: dict, level: str, xs: list[tuple]) -> dict:
     task = run["task"]
     base = {"task": task, "heldout": vec_sha([v for x in xs for v in x])}
     if level == "step":
-        return {**base, "loss_sha": run["chain"][-1]["loss_sha"], "tip": run["tip"],
+        return {**base, "loss_sha": run["chain"][-1]["loss_sha"], "trace": step_trace(run),
                 "weight_root": weight_root(run["weights"], "f64")}
     preds = predict(task, run["weights"], xs)
     if level == "preds":

@@ -33,11 +33,15 @@ import backtest as bt  # noqa: E402
 import route_preference as rp  # noqa: E402
 
 REF = "fp64"
-CHEAP = ("fp64-rev", "fp32", "bf16-sr", "bf16-rn")
+CHEAP = ("fp64-rev", "fp32", "bf16-sr", "bf16-rn", "fsum-rev")
+# fsum-rev is compared against its own canonical reference (fsum), not fp64: the question for
+# it is "is the correctly-rounded step order-invariant?". Every other route is vs fp64.
+REF_OF = {i: REF for i in CHEAP} | {"fsum-rev": "fsum"}
 SEEDS = tuple(range(1, R.N_SEEDS + 1))
 STREAM_SEED = 0x57AE
 
 _RUNS: dict = {}
+_PRED: dict = {}
 
 
 def run(task, impl, seed):
@@ -47,10 +51,19 @@ def run(task, impl, seed):
     return _RUNS[key]
 
 
+def preds(task, impl, seed, n=None):
+    """Cached held-out (n=None) or streamed (n=N_STREAM) predictions."""
+    key = (task, impl, seed, n)
+    if key not in _PRED:
+        xs = N.heldout(task, R.N_HELDOUT) if n is None else N.sample_points(task, n, STREAM_SEED)
+        _PRED[key] = N.predict(task, run(task, impl, seed)["weights"], xs)
+    return _PRED[key]
+
+
 def diverge_epoch(a, b):
-    """First epoch whose loss digest differs (the step's 'product horizon'); None if never."""
+    """First epoch whose loss digest or weight root differs (the step's 'product horizon'); None if never."""
     for ea, eb in zip(a["chain"], b["chain"]):
-        if ea["loss_sha"] != eb["loss_sha"]:
+        if ea["loss_sha"] != eb["loss_sha"] or ea["weight_root_sha"] != eb["weight_root_sha"]:
             return ea["epoch"]
     return None
 
@@ -69,25 +82,27 @@ def fails(task, pa, pb):
 # ---- E1 + E2 ---------------------------------------------------------------------------
 
 def e1_e2(task):
-    xs = N.heldout(task, R.N_HELDOUT)
     rows = {}
     for impl in CHEAP:
-        same_loss = same_root = 0
+        ref = REF_OF[impl]
+        same_loss = same_root = same_trace = 0
         horizons, maxd, flips, fail_seeds, swallowed = [], [], [], 0, 0.0
         for s in SEEDS:
-            a, b = run(task, REF, s), run(task, impl, s)
+            a, b = run(task, ref, s), run(task, impl, s)
             same_loss += a["chain"][-1]["loss_sha"] == b["chain"][-1]["loss_sha"]
             same_root += N.weight_root(a["weights"], "f64") == N.weight_root(b["weights"], "f64")
+            same_trace += N.step_trace(a) == N.step_trace(b)
             h = diverge_epoch(a, b)
             horizons.append(h)
-            f = fails(task, N.predict(task, b["weights"], xs), N.predict(task, a["weights"], xs))
+            f = fails(task, preds(task, impl, s), preds(task, ref, s))
             maxd.append(f["max_abs"])
             flips.append(f.get("flips", 0))
             fail_seeds += f["fail"]
             swallowed += b["swallowed"] / b["updates"]
         hs = [h for h in horizons if h is not None]
         rows[impl] = {
-            "seeds": len(SEEDS), "loss_digest_equal": same_loss, "weight_root_equal": same_root,
+            "ref": ref, "seeds": len(SEEDS), "loss_digest_equal": same_loss,
+            "weight_root_equal": same_root, "trace_equal": same_trace,
             "diverge_epoch_first": min(hs) if hs else None, "diverge_epoch_max": max(hs) if hs else None,
             "max_abs_pred_diff": max(maxd), "median_max_abs": sorted(maxd)[len(maxd) // 2],
             "seeds_within_eps": sum(1 for v in maxd if v <= R.EPS[task]),
@@ -98,9 +113,40 @@ def e1_e2(task):
             "swallowed_update_share": round(swallowed / len(SEEDS), 6),
             "final_loss_mean": sum(run(task, impl, s)["final_loss"] for s in SEEDS) / len(SEEDS),
         }
-    rows[REF] = {"final_loss_mean": sum(run(task, REF, s)["final_loss"] for s in SEEDS) / len(SEEDS),
-                 "swallowed_update_share": 0.0}
+    for r in (REF, "fsum"):
+        rows[r] = {"final_loss_mean": sum(run(task, r, s)["final_loss"] for s in SEEDS) / len(SEEDS),
+                   "swallowed_update_share": 0.0}
+    rows["fsum_vs_fp64_trace_equal"] = sum(N.step_trace(run(task, "fsum", s)) ==
+                                           N.step_trace(run(task, REF, s)) for s in SEEDS)
     return rows
+
+
+# ---- quality: the explicit SECOND relation (prereg amendment 1) -------------------------
+
+def quality_fail(task, impl, seed):
+    xs = N.heldout(task, R.N_HELDOUT)
+    truth = [N.target(task, x) for x in xs]
+    ref = REF_OF[impl]
+    pa, pr = preds(task, impl, seed), preds(task, ref, seed)
+    kind, tol = R.QUALITY[task]
+    if kind == "acc_drop":
+        acc = lambda p: sum(1 for l, y in zip(N.labels(p), truth) if l == y) / len(p)  # noqa: E731
+        return acc(pr) - acc(pa) > tol, acc(pa), acc(pr)
+    mse = lambda p: sum((v - y) ** 2 for v, y in zip(p, truth)) / len(p)  # noqa: E731
+    return mse(pa) > tol * mse(pr), mse(pa), mse(pr)
+
+
+def quality(task):
+    out = {}
+    for impl in CHEAP:
+        rs = [quality_fail(task, impl, s) for s in SEEDS]
+        xs = [1.0 if f else 0.0 for f, _, _ in rs]
+        w = W.witness(xs, R.P0_SEED, R.DELTA, R.BET_GRID)
+        out[impl] = {"metric": R.QUALITY[task][0], "cheap_mean": sum(a for _, a, _ in rs) / len(rs),
+                     "ref_mean": sum(b for _, _, b in rs) / len(rs), "seeds_failing": int(sum(xs)),
+                     "witness": w["state"], "stop_t": w["stop_t"], "E_final": w["E_final"],
+                     "ucb": W.upper_bound(xs, R.DELTA, bets=R.BET_GRID)}
+    return out
 
 
 def reference_determinism(task):
@@ -113,9 +159,7 @@ def reference_determinism(task):
 # ---- E3: the witness -------------------------------------------------------------------
 
 def point_stream(task, impl, seed):
-    xs = N.sample_points(task, R.N_STREAM, STREAM_SEED)
-    a, b = run(task, REF, seed), run(task, impl, seed)
-    pa, pb = N.predict(task, a["weights"], xs), N.predict(task, b["weights"], xs)
+    pa, pb = preds(task, REF_OF[impl], seed, R.N_STREAM), preds(task, impl, seed, R.N_STREAM)
     out = []
     for x, y in zip(pa, pb):
         miss = abs(x - y) > R.EPS[task]
@@ -126,14 +170,12 @@ def point_stream(task, impl, seed):
 
 
 def e3(task):
-    xs = N.heldout(task, R.N_HELDOUT)
     out = {}
     for impl in CHEAP:
         per_fn = [W.witness(point_stream(task, impl, s), R.P0_POINT, R.DELTA, R.BET_GRID)
                   for s in SEEDS]
-        seed_x = [1.0 if fails(task, N.predict(task, run(task, impl, s)["weights"], xs),
-                               N.predict(task, run(task, REF, s)["weights"], xs))["fail"] else 0.0
-                  for s in SEEDS]
+        seed_x = [1.0 if fails(task, preds(task, impl, s), preds(task, REF_OF[impl], s))["fail"]
+                  else 0.0 for s in SEEDS]
         route = W.witness(seed_x, R.P0_SEED, R.DELTA, R.BET_GRID)
         out[impl] = {
             "per_function": {"witnessed": sum(1 for r in per_fn if r["state"] == "WITNESSED"),
@@ -165,11 +207,8 @@ def _worst_ucb(task, impl):
 def retraction_control(task, good, bad):
     """A route that is clean for N_SEEDS runs, then regresses (e.g. a kernel swap mid-life):
     the witness must fire on the clean half and RETRACT on the bad half."""
-    xs = N.heldout(task, R.N_HELDOUT)
-
     def x(impl, s):
-        return 1.0 if fails(task, N.predict(task, run(task, impl, s)["weights"], xs),
-                            N.predict(task, run(task, REF, s)["weights"], xs))["fail"] else 0.0
+        return 1.0 if fails(task, preds(task, impl, s), preds(task, REF, s))["fail"] else 0.0
     stream = [x(good, s) for s in SEEDS] + [x(bad, s) for s in SEEDS]
     w = W.RouteWitness(R.P0_SEED, R.DELTA, R.BET_GRID)
     at_switch = None
@@ -196,19 +235,20 @@ def e4(task, device):
     for level in levels:
         per = {}
         for impl in CHEAP:
-            cert, classes, acc = 0, {}, {REF: [], impl: []}
+            cert, classes, acc = 0, {}, {impl: []}
             for s in SEEDS:
-                ra = N.to_activelog(run(task, REF, s), level, xs, device)
+                ref = REF_OF[impl]
+                ra = N.to_activelog(run(task, ref, s), level, xs, device)
                 rb = N.to_activelog(run(task, impl, s), level, xs, device)
                 v = bt.backtest_pair(ra, rb)
                 if v["status"] == "certified":
                     cert += 1
                     classes[v["class"]] = classes.get(v["class"], 0) + 1
-                    acc[REF].append(v["routes"][REF])
+                    acc.setdefault(ref, []).append(v["routes"][ref])
                     acc[impl].append(v["routes"][impl])
             row = {"certified": cert, "refused": len(SEEDS) - cert, "classes": classes}
             if cert:
-                row["workload"] = {n: bt._sum_axes(acc[n]) for n in acc}
+                row["workload"] = {n: bt._sum_axes(acc[n]) for n in acc if acc[n]}
             per[impl] = row
         out[level] = per
     return out
@@ -218,7 +258,7 @@ def b4_frontier(task, device, level):
     """B4 over the reference + every cheap route, on the seeds where ALL of them are certified
     (B4 needs one shared product across all routes)."""
     xs = N.heldout(task, R.N_HELDOUT)
-    names = (REF,) + CHEAP
+    names = (REF,) + tuple(i for i in CHEAP if REF_OF[i] == REF)
     axes, used = {n: [] for n in names}, 0
     for s in SEEDS:
         recs = [(n, N.to_activelog(run(task, n, s), level, xs, device)) for n in names]
@@ -263,7 +303,7 @@ def b4_subset(task, device, level, routes):
 def python_wall(task):
     """Sidecar: best-of-3 Python wall ms for one training run per impl. Never logged."""
     out = {}
-    for impl in (REF,) + CHEAP:
+    for impl in (REF, "fsum") + CHEAP:
         best = None
         for _ in range(3):
             t = time.perf_counter()
@@ -286,8 +326,10 @@ def verdict(task, e12, e3r, e4r):
         cert = e4r["edge"][boundary][impl]["certified"]
         wit = e3r[impl]["per_route"]["state"] == "WITNESSED"
         step = e4r["edge"]["step"][impl]["certified"]
-        if cert == len(SEEDS):
-            v = "priceable"
+        if step == len(SEEDS):
+            v = "priceable at the step (byte-identical trajectory)"
+        elif cert == len(SEEDS):
+            v = "priceable at the product boundary"
         elif cert and wit:
             v = "priceable-where-certified + bounded"
         elif cert:
@@ -319,11 +361,19 @@ def report() -> dict:
             "e1_e2": e12, "e3": e3r, "e4": e4r,
             "b4": {d: b4_frontier(task, d, bnd) for d in N.DEVICES},
             "verdict": verdict(task, e12, e3r, e4r),
-            "step_cost": {i: N.step_cost(task, i) for i in (REF,) + CHEAP},
+            "step_cost": {i: N.step_cost(task, i) for i in (REF, "fsum") + CHEAP},
+            "quality": quality(task),
             "python_wall_ms": python_wall(task),
         }
     rep["tasks"]["circle"]["b4_certified_pair"] = {
-        d: b4_subset("circle", d, "labels", (REF, "fp32")) for d in N.DEVICES}
+        d: b4_subset("circle", d, "labels", (REF, "fp32", "fp64-rev")) for d in N.DEVICES}
+    rep["fsum_step_b4"] = {d: b4_subset("sine", d, "step", ("fsum", "fsum-rev")) for d in N.DEVICES}
+    rep["fsum_vs_fp64_b7"] = {}
+    for d in N.DEVICES:
+        xs = N.heldout("sine", R.N_HELDOUT)
+        v = bt.backtest_pair(N.to_activelog(run("sine", REF, 1), "preds", xs, d),
+                             N.to_activelog(run("sine", "fsum", 1), "preds", xs, d))
+        rep["fsum_vs_fp64_b7"][d] = v["status"]
     rep["retraction"] = retraction_control("circle", "fp32", "bf16-sr")
     rep["null_validity"] = null_control()
     return rep
@@ -341,16 +391,19 @@ def _fmt(rep) -> str:
                  (task, t["params"], {k: t["config"][k] for k in ("hidden", "batch", "epochs", "lr")},
                   t["ref_deterministic"]))
         L.append("E1/E2  vs fp64 over %d seeds" % len(SEEDS))
-        L.append("   impl       loss=  root=  div@ep  max|df|     med max|df|  <=eps  lbl=   flips  swallow  final_loss")
+        L.append("   impl       vs     loss=  root=  trace= div@ep  max|df|     med max|df|  <=eps  lbl=   flips  swallow  final_loss")
         for impl in CHEAP:
             r = t["e1_e2"][impl]
-            L.append("   %-9s  %3d    %3d    %-6s  %.3e   %.3e    %3d    %-5s  %-5s  %.4f   %.3e" % (
-                impl, r["loss_digest_equal"], r["weight_root_equal"], r["diverge_epoch_first"],
+            L.append("   %-9s  %-5s  %3d    %3d    %3d    %-6s  %.3e   %.3e    %3d    %-5s  %-5s  %.4f   %.3e" % (
+                impl, r["ref"], r["loss_digest_equal"], r["weight_root_equal"], r["trace_equal"],
+                r["diverge_epoch_first"],
                 r["max_abs_pred_diff"], r["median_max_abs"], r["seeds_within_eps"],
                 r["seeds_label_identical"] if r["seeds_label_identical"] is not None else "-",
                 r["label_flips_total"] if r["label_flips_total"] is not None else "-",
                 r["swallowed_update_share"], r["final_loss_mean"]))
-        L.append("   fp64 final_loss mean %.3e" % t["e1_e2"][REF]["final_loss_mean"])
+        L.append("   fp64 final_loss mean %.3e   fsum final_loss mean %.3e   fsum trace == fp64 trace: %d/%d"
+                 % (t["e1_e2"][REF]["final_loss_mean"], t["e1_e2"]["fsum"]["final_loss_mean"],
+                    t["e1_e2"]["fsum_vs_fp64_trace_equal"], len(SEEDS)))
         L.append("E3  witness (per function: %d streamed points, p0=%s; per route: seeds, p0=%s)" %
                  (p["N_STREAM"], p["P0_POINT"], p["P0_SEED"]))
         for impl in CHEAP:
@@ -371,6 +424,12 @@ def _fmt(rep) -> str:
         if "b4_certified_pair" in t:
             for d, b in t["b4_certified_pair"].items():
                 L.append("   B4 fp64 vs fp32 (%s): %s" % (d, json.dumps(b)))
+        L.append("quality (explicit second relation, prereg amendment 1; per-seed fail -> route witness p0=%s)"
+                 % p["P0_SEED"])
+        for impl, q in t["quality"].items():
+            L.append("   %-9s  %s cheap %.4g vs ref %.4g   seeds failing %d   witness %s stop_t=%s ucb=%s" % (
+                impl, q["metric"], q["cheap_mean"], q["ref_mean"], q["seeds_failing"], q["witness"],
+                q["stop_t"], q["ucb"]))
         L.append("verdict:")
         for impl, v in t["verdict"].items():
             L.append("   %-9s  step %d/%d   %s %d/%d   witness %-13s -> %s" % (
@@ -380,8 +439,10 @@ def _fmt(rep) -> str:
             "%s %dF/%dB" % (i, c["flops"], c["bytes"]) for i, c in t["step_cost"].items()))
         L.append("python wall ms (best of 3, sidecar): " + "  ".join(
             "%s %.1f" % kv for kv in t["python_wall_ms"].items()))
-    r = rep["retraction"]
     L.append("")
+    L.append("fsum (canonical step) vs fsum-rev, sine, B4 at level=step: " + json.dumps(rep["fsum_step_b4"]))
+    L.append("fsum vs fp64 (sine seed 1, level=preds) B7: " + json.dumps(rep["fsum_vs_fp64_b7"]))
+    r = rep["retraction"]
     L.append("retraction control (circle, %s x%d then %s x%d): at switch %s -> final %s "
              "(stop_t=%d, E_max=%.3g, E_final=%.3g)" % (r["good"], len(SEEDS), r["bad"], len(SEEDS),
                                                         r["state_at_switch"], r["state"], r["stop_t"],
