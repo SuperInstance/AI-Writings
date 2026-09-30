@@ -3,8 +3,9 @@
 *A study, 2026-09-30, on branch `claude/encoding-gems`. It reads 23 public SuperInstance encoding repos
 and runs 11 small experiments that apply their ideas to turbovec/TurboQuant, ActiveLedger,
 situation-recorder, Syzygy's projection, and System-2 (B7/B4). The code is in
-[`labs/encoding-experiments/`](../../labs/encoding-experiments/README.md): 14 experiments, 417 selftest
-checks, 0 failures. Round 2 (§9) promoted two of the gems into `labs/activeledger/at_rest.py`. Every number below was printed by a run in this session. Where a claim comes only from a
+[`labs/encoding-experiments/`](../../labs/encoding-experiments/README.md): 15 experiments, 427 selftest
+checks, 0 failures. Round 2 (§9) promoted two of the gems into `labs/activeledger/at_rest.py`. Round 3 (§10)
+made that format a real System-2 route that B7 prices. Every number below was printed by a run in this session. Where a claim comes only from a
 repo's README, the text says so. Voice: this reports results; it does not argue for any repo.*
 
 ---
@@ -333,15 +334,71 @@ algebra, not nearest neighbour. Cross-check: crq's 0.937 agrees with E3's indepe
 - Recommendation: add it upstream as an additive cheap sign, gated on both routes reporting
   `mem_mb`.
 
+## 10. Round 3: the at-rest format as a real System-2 route
+
+**The job.** Serve an archive of recorded route runs back so System-2 can backtest them.
+- **The product** is B7's own replay of every run in the archive: its route label, `product_hash`,
+  and the content hash of the replayed total budget. Two storage routes are product-identical only
+  if every run comes back exactly enough that B7 replays it identically.
+- **Each storage route is itself an ActiveLog run:** a `decode` tick (best-of-3 measured ms) and a
+  `replay` tick (B7's replay time), with `storage_bytes.prod` = bytes at rest, closed by a
+  `ledger.transaction` carrying the product.
+- **B7** (`backtest_pair` / `backtest_corpus`) and **B4** (`prefer`, with standing = survivals out
+  of 6 at BER 1e-4) price the routes. The code is `labs/encoding-experiments/alr1_route.py` (E15).
+
+**The corpus is real emitter output:**
+- All 59 runs (348 records) that B7's own `fixture_pairs()` produce from the five example quilts.
+- The 2 route_sim runs.
+- 300 route_sim runs with seeded jitter. This part is simulated: shapes and strings are real, the
+  numbers jittered, and each run's declared total is recomputed so B7 replays it.
+
+**Two changes to `labs/activeledger/at_rest.py` came out of it** (B1 selftest 36/0):
+- **ALRM** (`pack_many`/`unpack_many`) puts many GENESIS-rooted runs in one archive with one shared
+  lzma context.
+  - The first cut carried a 32-byte head receipt per run. In the 300-run archive those receipts were
+    9.6 KB of 27.8 KB and incompressible.
+  - They are now replaced by **one** 32-byte receipt: sha256 over every run's head hash, so any
+    changed run still fails. That took 27,815 → 18,247 B and 6,139 → 4,219 B.
+  - Cost: a failure no longer names *which* run is wrong.
+- **A second chain dialect.** 11 of the 59 fixture runs (the calculator-quilt) use the older
+  fnv1a-64 `hash`-field chain. ALR1 refused them. Both `prev` and `hash` in that dialect turn out to
+  be recomputable, so ALR1 now carries a dialect flag (ALR1: flag bit; ALRM: a byte per run) and
+  still stores zero chain bytes. Only a real corpus exposed this; round 2's synthetic logs could not.
+
+**Results** (bytes at rest; wall_ms is decode + replay, best of 3):
+
+| case | jsonl | jsonl+lzma | alr1 | alr1+rs | B7 verdicts (all certified) |
+|---|---|---|---|---|---|
+| 59 fixture runs, each alone (summed) | 147,158 | 44,912 | **30,987** | 120,773 | jsonl vs alr1 and jsonl+lzma vs alr1: `trade-off` (fast = jsonl, cheap = alr1). alr1 vs alr1+rs: alr1 `dominates-faster-cheaper` |
+| fixtures + route_sim, 61 runs batched | 156,235 | 14,512 | **4,219** | 6,127 | `trade-off` (fast = jsonl+lzma 19 ms / jsonl 24 ms vs alr1 49 ms) |
+| voice300, 300 runs batched | 1,434,987 | 117,176 | **18,247** | 22,448 | `trade-off` (fast = jsonl 141 ms vs alr1 513 ms) |
+
+BER 1e-4 survival: alr1+rs **6/6** in both batches; jsonl, jsonl+lzma and alr1 **0/6**. B4's
+`preferred_when` on voice300 is good = **alr1+rs**, fast = **jsonl**, cheap = **alr1**, a genuine
+three-way frontier. On the fixture batch B4 drops raw jsonl from the frontier: jsonl+lzma is faster
+there and smaller.
+
+**What this settles, and what it doesn't:**
+- **Batching is most of the win for small runs.** The same 59 fixture runs take 30,987 B stored one
+  archive per run, and 4,219 B batched (with route_sim's 2 runs). Per-run ALR1 beats jsonl+lzma by
+  only 1.45× on runs of about 6 records.
+- **RS on tiny single archives is a loss:** 120,773 B, 3.9× alr1, *more than* jsonl+lzma. Its
+  8-block padding dominates. Put RS on batched archives only.
+- **ALR1 is the slow route.** Decode takes 2–3.6× jsonl's time in pure Python (voice300: 513 vs
+  141 ms, of which replay is common to both). B7 correctly calls it a trade-off, not a dominance.
+- **The fast axis is noisy even at best-of-3.** In voice300, alr1+rs measured *faster* than its own
+  subset alr1 (452 vs 513 ms), so B7 called that pair `trade-off` instead of alr1
+  `dominates-faster-cheaper` as in the other two cases. Treat single-case `fast` verdicts within
+  about 15% as noise.
+
 ### Next iteration (handoff)
 
-1. **Upstream B7's memory axis:** a small patch to `axes_of`/`score` in `labs/system2-backtest`, with
-   E14 as its regression test (0/23 fixture changes).
-2. **Close the 1.57× generality gap in ALR1:** tokenize strings with numeric suffixes
-   (`voice-17` → template + int residual), then re-measure E12.
-3. **Upstream the turbovec-substrate fix** (scale, renormalize, asymmetric scoring, drop the stored
-   float), or simply point the family at `labs/code-real-quant`, which E13 confirms at 0.937.
-4. **Wire ALR1 into System-2 routes for real:** have B7 read at-rest archives directly (unpack → replay),
-   so history is backtested from the compressed form.
+1. **Upstream B7's memory axis** (E14; 0/23 fixture verdicts change) and add a **noise band** to
+   `fast` (for example, a tie when |Δ| < 15% or under a floor), since E8, E14 and E15 each caught
+   noise flipping a verdict.
+2. **Make B7 read ALRM archives directly** (`backtest_corpus` over `unpack_many`), so System-2
+   backtests history from the compressed form.
+3. **Close ALR1's 1.57× generality gap** (numeric-suffix string tokens) and profile the decode
+   (shape parsing is repeated per record; cache the templates' leaf-tag lists).
+4. **Upstream the turbovec-substrate fix** or point the family at `labs/code-real-quant` (E13: 0.937).
 5. **E11 at scale:** HDC role–filler queries over real situation JSONLs vs an inverted index.
-

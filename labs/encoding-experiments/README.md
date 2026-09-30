@@ -1,6 +1,6 @@
 # encoding-experiments — older SuperInstance encoding repos, tested against our current systems
 
-*Fourteen small stdlib-Python experiments, each with a selftest and a measured result. They take ideas
+*Fifteen small stdlib-Python experiments, each with a selftest and a measured result. They take ideas
 from SuperInstance's older encoding repos (compression, error correction, hyperdimensional and holographic
 encodings, quipu, adinkra, Gödel numbering) and test them on our mature systems (turbovec/TurboQuant,
 ActiveLedger, situation-recorder, System-2 B7/B4). The full write-up, including why each experiment
@@ -10,7 +10,7 @@ exists and what did and did not work, is in
 ## Run
 
 ```
-./run_all.sh              # 14 selftests, offline: 417 checks, 0 failures
+./run_all.sh              # 15 selftests, offline: 427 checks, 0 failures
 ./run_all.sh --measure    # + every measurement (~3 min); E6 replays cached LLM answers
 python3 <name>.py         # one measurement; python3 <name>.py --selftest for its checks
 ```
@@ -39,6 +39,7 @@ data with `python3 build_corpus.py`, which makes 8 embedding calls. Each measure
 | E12 | `at_rest_bench.py` | E1 + E2, promoted to `labs/activeledger/at_rest.py` (ALR1) | any B1 body shape, no schema given | Generic ALR1: **109–119× vs JSONL**, 10.6–15.5× vs JSONL+lzma. **1.57× larger** than E1's hand-fitted codec (5,653 vs 3,604 B), the measured cost of generality. BER 1e-4: plain 0/6, with RS **6/6** |
 | E13 | `hdc_vs_crq.py` | flux-hdc vs `labs/code-real-quant` (its real `CodeIndex`) | recall@10 at equal bytes | crq ADC **0.842** vs best HDC 0.552 (crq's own synthetic benchmark); crq **0.937** vs best HDC 0.790 (real MiniLM). HDC loses as a substrate even with an asymmetric query |
 | E14 | `b7_mem_axis.py` | E8's finding | B7's scoring, re-run with a `mem_mb` cheap sign (B7 itself untouched) | Retrieval verdicts flip `dominates-faster-cheaper` → `trade-off` on **28–29/30** queries (varies with timing noise). B7's 23 shipped fixture pairs, which do report mem_mb: **0 verdicts changed** |
+| E15 | `alr1_route.py` | E12's ALR1 + the new ALRM multi-run archive | **real B7 + B4 over real emitted runs** (59 example-quilt fixture runs, route_sim, 300 jittered voice runs) | Four storage routes (jsonl, jsonl+lzma, alr1, alr1+rs) are **product-identical** (B7 replays every served run identically) on 59/59 single runs and both batches. Batched: alr1 **4,219 B** vs jsonl+lzma 14,512 (fixtures) and **18,247 B** vs 117,176 (voice300). B4: good = alr1+rs (6/6 at BER 1e-4, every other route 0/6), cheap = alr1, fast = jsonl / jsonl+lzma. **Negatives:** decode is 2–3.6× slower in pure Python; RS on tiny single runs costs 3.9× more bytes than alr1 alone; and the real corpus exposed an fnv-chain dialect (11/59 runs) that ALR1 refused until fixed |
 
 ## Honest labels
 
