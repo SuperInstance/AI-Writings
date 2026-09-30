@@ -59445,6 +59445,24 @@
     "size_bytes": 6231
   },
   {
+    "filename": "FLEET-CONVERGENCE-CELL-NATIVE-ML.md",
+    "path": "situations/arch/FLEET-CONVERGENCE-CELL-NATIVE-ML.md",
+    "title": "Fleet convergence — the whole account is building cell-native ML at once",
+    "description": "(last ~12h) and found that several independent session lines — notably the Mavis × Casey line — are converging on the exact thesis our own `ML-IN-QUILT-ARCHITECTURE.md` (d155) landed tonight. This rec...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 737,
+    "date": "2026-09-30",
+    "size_bytes": 6783
+  },
+  {
     "filename": "G16-architecture.md",
     "path": "situations/arch/G16-architecture.md",
     "title": "G16 architecture — reproducibility as `mmr_root` (federated discovery from strangers)",
