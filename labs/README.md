@@ -49,3 +49,7 @@ Small, obvious use-cases where a quilt picks a cheap route when it can, reaching
 | [`image-thumb-quilt`](examples/image-thumb-quilt/) | thumbnail | skip decode+resample when source <= target | 18/0 |
 
 `run_all.py` runs every example's selftest and confirms they all sit on one shared ActiveLog: 5/5 green, one ledger.
+
+## ml-in-quilt (`labs/ml-in-quilt/`)
+
+The forward pass as a **priced cell graph**: each transformer block (tokenize/embed/norm/attention/MLP/head/sample) is a quilt cell with a budget vector + hash-chained activations, so B7 gates product-identity and B4 prices interchangeable block implementations (fp / 8-bit / 4-bit-via-code-real-quant / approximate / cached) per situation + device — B7 and B4 imported **unmodified**. `cellml.py` (the cell forward pass) + `mlq_system2.py` (route pricing) + selftest **66/0**. Design: [`../situations/arch/ML-IN-QUILT-ARCHITECTURE.md`](../situations/arch/ML-IN-QUILT-ARCHITECTURE.md).
