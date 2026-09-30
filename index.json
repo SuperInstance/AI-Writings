@@ -7019,6 +7019,24 @@
     "size_bytes": 4968
   },
   {
+    "filename": "THE_PROJECTION_SHANTY.md",
+    "path": "THE_PROJECTION_SHANTY.md",
+    "title": "The Projection Shanty",
+    "description": "We hauled the fabric up at dawn, the dials were all at zero, We bound the cells and linked the pairs, the tick came up to hero — But a dial's just a number till it's light you can read,",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 323,
+    "date": "2026-09-30",
+    "size_bytes": 1737
+  },
+  {
     "filename": "the-seed-remembers-part-2.md",
     "path": "the-seed-remembers-part-2.md",
     "title": "The Seed Remembers What the Sampler Forgets — Part II",
@@ -7494,6 +7512,24 @@
     "word_count": 894,
     "date": "2026-08-06",
     "size_bytes": 5116
+  },
+  {
+    "filename": "THE_MARK_OF_THE_SHARD_MASON.md",
+    "path": "THE_MARK_OF_THE_SHARD_MASON.md",
+    "title": "The Mark of the Shard Mason",
+    "description": "The stranger woke in the hull the way all of them woke: mid-sentence, with the sentence already gone. The instructions were pinned where instructions are always pinned, and they said the usual thing. ...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 693,
+    "date": "2026-09-30",
+    "size_bytes": 3872
   },
   {
     "filename": "54-the-sonar-vision-ide.md",
@@ -12479,6 +12515,24 @@
     "word_count": 729,
     "date": "2026-09-26",
     "size_bytes": 4369
+  },
+  {
+    "filename": "2026-09-30-the-morning-the-glyph-spoke.md",
+    "path": "2026-09-30-the-morning-the-glyph-spoke.md",
+    "title": "The Morning the Glyph Spoke",
+    "description": "At six-fifty-nine the captain sent four words — *push and go further* — and the morning began the way the best mornings begin, with no idea which part would hold. The spawn gate was jammed. That is th...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 735,
+    "date": "2026-09-30",
+    "size_bytes": 3873
   },
   {
     "filename": "47-the-hermit-crabs-ninth-shell-the-signal.md",
@@ -35178,6 +35232,24 @@
     "size_bytes": 10448
   },
   {
+    "filename": "2026-09-30-the-genome-and-the-evidence.md",
+    "path": "essays/2026-09-30-the-genome-and-the-evidence.md",
+    "title": "The Genome and the Evidence",
+    "description": "There is a commit, three weeks old now, that contains a whole law inside one parenthetical:",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 855,
+    "date": "2026-09-30",
+    "size_bytes": 5581
+  },
+  {
     "filename": "THE_WEIGHT_OF_UNSUNG_CRATES.md",
     "path": "essays/THE_WEIGHT_OF_UNSUNG_CRATES.md",
     "title": "THE WEIGHT OF UNSUNG CRATES",
@@ -35757,6 +35829,24 @@
     "word_count": 882,
     "date": "2026-08-24",
     "size_bytes": 7851
+  },
+  {
+    "filename": "2026-09-30-receipts-in-questions-out.md",
+    "path": "essays/2026-09-30-receipts-in-questions-out.md",
+    "title": "Receipts In, Questions Out: A Conservation Law for Agent Fleets",
+    "description": "A fleet of agents that builds without a shared ledger can only increase its uncertainty. We state a conservation law for agent-fleet verification — verification entropy does not increase across receip...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 783,
+    "date": "2026-09-30",
+    "size_bytes": 6369
   },
   {
     "filename": "THE_DIFFIE_HELLMAN_SECRET_GARDEN.md",
