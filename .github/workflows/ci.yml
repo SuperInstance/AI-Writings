@@ -1,15 +1,48 @@
 name: CI
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
-  test:
+  writings-gate:
+    name: Writings gate (real, fail-able)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install -e . 2>/dev/null
+
+      # The corpus is prose. The gate must be able to fail on real defects:
+      # an empty/truncated file, or an internal relative link that dangles
+      # inside the corpus. The previous job (pip install -e . 2>/dev/null)
+      # could not work at all -- the repo has no packaging metadata -- and
+      # it hid its own error text. A muted non-gate is worse than none.
+      - name: every .md is non-empty
+        run: |
+          python3 - <<'PYEOF'
+          import pathlib, sys
+          bad = [p for p in pathlib.Path('.').rglob('*.md')
+                 if p.stat().st_size == 0 or len(p.read_text(errors='ignore').strip()) < 20]
+          for p in bad: print(f"EMPTY/TRUNCATED: {p}")
+          print(f"checked files, bad={len(bad)}")
+          sys.exit(1 if bad else 0)
+          PYEOF
+
+      - name: internal relative links resolve
+        run: |
+          python3 - <<'PYEOF'
+          import pathlib, re, sys
+          root = pathlib.Path('.')
+          md = list(root.rglob('*.md'))
+          broken = []
+          for p in md:
+              text = p.read_text(errors='ignore')
+              for m in re.finditer(r'\]\((?!https?://|#|mailto:)([^)#]+?)(?:#[^)]*)?\)', text):
+                  target = (p.parent / m.group(1).strip()).resolve()
+                  if not target.exists():
+                      broken.append(f"{p} -> {m.group(1)}")
+          for b in broken[:40]: print(f"BROKEN LINK: {b}")
+          print(f"checked {len(md)} files, {len(broken)} broken internal links")
+          sys.exit(1 if len(broken) > 0 else 0)
+          PYEOF
