@@ -92,3 +92,10 @@ Asks B7's question of a *training* step, not just a forward pass: can a cheaper 
 ## quilt-kernel (`labs/quilt-kernel/`) — the pattern, extracted for anyone
 
 The reusable distillation of everything above into one dependency-light module any pipeline can `import`: a **Cell** wrapper (turn a pure function into a receipted cell that emits {product, budget, fnv1a-64 hash} into a hash-chained log), a **Differ** (product-identity), a **Ledger** (ActiveLog v1 + verify), and a **Price** hook (iron-triangle placement for ≥2 product-identical cells). selftest **123/0**, with worked examples for a data pipeline, an LLM call, and a build step — each receipted + priced in ~10 lines. [`quilt-kernel/EXTRACTION.md`](quilt-kernel/EXTRACTION.md) is the manifest for lifting it into a standalone repo (proposed `quilt-kernel` / `receipt-kernel`), aligned with the fleet's `forge-quilt` OpenAPI spec. **Start here to reuse the quilt pattern in another project.**
+
+## quilt-latent tools (`labs/audit-lottery/`, `labs/invariance-miner/`)
+
+Breakthrough tools mined from the quilt substrate (9 candidates surveyed; see [`../situations/arch/QUILT-LATENT-TOOLS.md`](../situations/arch/QUILT-LATENT-TOOLS.md) for the ranked extraction backlog + honest speculative/blocked notes).
+
+- [`invariance-miner`](invariance-miner/) — **25/0.** Finds the invariants a cell actually preserves (what stays fixed across its inputs) — the raw material for a product-identity gate you didn't hand-write. Deterministic.
+- [`audit-lottery`](audit-lottery/) — quantum-drawn (MothQuantum) random audit: spot-check a fraction of cells un-gameably so a cheap route can't hide a rare wrong answer. **Known issue (caught here): its selftest is FLAKY** (33/1 on one run, 33/0 the next) — a non-deterministic check, almost certainly an unseeded draw; pin the seed before trusting it. Landed with the flaw documented, not as green.
