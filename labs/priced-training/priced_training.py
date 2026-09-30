@@ -394,7 +394,7 @@ def _fmt(rep) -> str:
         L.append("   impl       vs     loss=  root=  trace= div@ep  max|df|     med max|df|  <=eps  lbl=   flips  swallow  final_loss")
         for impl in CHEAP:
             r = t["e1_e2"][impl]
-            L.append("   %-9s  %-5s  %3d    %3d    %3d    %-6s  %.3e   %.3e    %3d    %-5s  %-5s  %.4f   %.3e" % (
+            L.append("   %-9s  %-5s  %3d    %3d    %3d    %-6s  %.3e   %.3e    %3d    %-5s  %-5s  %.2e  %.3e" % (
                 impl, r["ref"], r["loss_digest_equal"], r["weight_root_equal"], r["trace_equal"],
                 r["diverge_epoch_first"],
                 r["max_abs_pred_diff"], r["median_max_abs"], r["seeds_within_eps"],
