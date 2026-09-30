@@ -1,0 +1,32 @@
+audit-lottery — certified cascade: COMMIT -> unpredictable DRAW -> differ AUDIT -> e-process LICENSE
+
+1. honest drift (lazy route; unicode arrives at item 1000; audit p=1/16; R=200, N=3000)
+   measured post-onset disagreement of the lazy route: 0.201
+   revoked: 100% of runs (0 before onset: True)   detection delay: mean 482 items, max 1643
+   wrong products served: 96.7  vs 401.7 with no audits  (4.2x less)
+   cost: 6311  vs always-exact 9000  vs always-cheap 3000
+
+2. strategic contractor (cheats when unwatched; p=1/16; R=200, N=3000)
+   public-seed + oracle   revoked   0%  wrong served 2814.3 (93.8% of N)  E_max 1
+   secret + blind cheat   revoked 100%  wrong served 38.7 (1.3% of N)  E_max 138
+
+3. validity (Ville): revocation rate of a route at/below eps=0.01 over 2000 audits, R=1000 (bar: <= delta=0.05)
+   q=0.01: 0.020  q=0.005: 0.005  q=0: 0.000
+
+4. frontier (lazy route, drift at 1000; always-exact = cost 9000, harm 0)
+   p=1/64  cost   5008  wrong served  212.2  revoked  87%
+   p=1/32  cost   5650  wrong served  153.9  revoked  98%
+   p=1/16  cost   6262  wrong served  105.2  revoked 100%
+   p=1/8   cost   6792  wrong served   73.3  revoked 100%
+   p=1/4   cost   7360  wrong served   63.6  revoked 100%
+
+5. receipts: clean chain ok=True order ok=True | in-place edit detected=True | answer-swap-after-draw: chain still valid=True, caught by COMMIT/AUDIT check=True
+
+6. trust credit — detection delay (items after drift onset) vs length of the honest past; p=1/16, R=100
+   honest past      0 items | Ville: delay    165 missed   0% wrong   33.2 | SR(A=40000): delay   348 missed   0% wrong   69.7 false-early 0
+   honest past   1000 items | Ville: delay    491 missed   0% wrong   97.0 | SR(A=40000): delay   345 missed   0% wrong   67.9 false-early 0
+   honest past   4000 items | Ville: delay   1302 missed   1% wrong  262.4 | SR(A=40000): delay   367 missed   0% wrong   72.0 false-early 0
+   honest past  16000 items | Ville: delay   2651 missed  98% wrong  596.4 | SR(A=40000): delay   366 missed   0% wrong   72.2 false-early 0
+   SR false alarms within 2000 audits (A=40000, R=400): q=0.01: 0.010  q=0.005: 0.000
+
+7. live Moth draws: moth comet-qrng-v1 job 9e204e48 (emu/aer, S=2.802) — 1000 bits; served 3000 items (pool exhausted=False), 3 audits, revoked at 6, E_max 935, chain ok=True, order ok=True
