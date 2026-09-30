@@ -16,7 +16,8 @@ Format ALR1 (schema-agnostic; any body shape the emitter accepts):
   corrects up to 16 bad bytes per 255-byte block (E2: 12/12 at BER 1e-3 and 64 B bursts).
 
 ALRM (`pack_many`/`unpack_many`): many independent runs, each GENESIS-rooted, in one archive —
-one head receipt per run, one shared lzma context, same optional RS flag. Small runs are
+ONE 32-byte receipt (sha256 over every run's head hash, so any changed run fails it), a
+dialect byte per run, one shared lzma context, same optional RS flag. Small runs are
 where it pays: route/fixture logs of a handful of records share their strings.
 
 Refuses to pack a run whose chain does not verify; unpack raises if the head receipt or
@@ -33,6 +34,8 @@ import activeledger as AL
 MAGIC = b"ALR1"
 MAGIC_MANY = b"ALRM"
 FLAG_RS = 1
+FLAG_FNV = 2  # ALR1 only: the run uses the fnv1a-64 `hash`-field chain dialect (calculator-quilt stand-in)
+FNV_GENESIS = "0x0000000000000000"
 
 
 class AtRestError(ValueError):
@@ -188,18 +191,39 @@ def _ctx(body) -> str:
 
 
 # ---- pack / unpack ------------------------------------------------------------------------
-def _payload(records: list[dict]) -> bytes:
+def _fnv_hash(env: dict) -> str:
+    return "0x%016x" % AL.fnv1a64(AL.canon({k: v for k, v in env.items() if k != "hash"}))
+
+
+def _fnv_chain_ok(records: list[dict]) -> bool:
+    prev = FNV_GENESIS
+    for rec in records:
+        if rec.get("prev") != prev or rec.get("hash") != _fnv_hash(rec):
+            return False
+        prev = rec["hash"]
+    return True
+
+
+def _dialect(records: list[dict]) -> int:
+    """0 = ActiveLog v1 sha256 prev-chain; 1 = fnv1a-64 `hash`-field chain. Both are fully
+    recomputable from content, so neither stores any chain bytes."""
+    if AL.verify_chain(records):
+        return 0
+    if all("hash" in r for r in records) and _fnv_chain_ok(records):
+        return 1
+    raise AtRestError("refusing to pack: ActiveLog chain does not verify")
+
+
+def _payload(records: list[dict], dialect: int = 0) -> bytes:
     """One verified run -> the uncompressed ALR1 stream payload."""
     if not records:
         raise AtRestError("empty run")
-    if not AL.verify_chain(records):
-        raise AtRestError("refusing to pack: ActiveLog chain does not verify")
     devs, shapes, strs = {}, {}, {}
     S = {k: bytearray() for k in ("dev", "type", "shape", "mono", "ts", "num", "scale", "str", "lit", "bool")}
     mean = _Mean()
     last_mono = 0
     for rec in records:
-        extra = set(rec) - set(AL.REQUIRED)
+        extra = set(rec) - set(AL.REQUIRED) - ({"hash"} if dialect == 1 else set())
         if extra or rec["alv"] != AL.ALV:
             raise AtRestError("envelope fields outside ActiveLog v1: %s" % sorted(extra))
         if rec["dev"] not in devs:
@@ -272,12 +296,15 @@ def _seal(magic: bytes, inner: bytes, repair: bool) -> bytes:
 
 def pack(records: list[dict], repair: bool = False) -> bytes:
     """One run -> ALR1 bytes."""
-    return _seal(MAGIC, _head(records) + _xz(_payload(records)), repair)
+    d = _dialect(records)
+    blob = _seal(MAGIC, _head(records) + _xz(_payload(records, d)), repair)
+    return blob[:4] + bytes([blob[4] | (FLAG_FNV if d else 0)]) + blob[5:]
 
 
 def unpack(blob: bytes) -> list[dict]:
     inner = _open(blob, MAGIC)
-    return _checked(_from_payload(_unxz(inner[32:])), inner[:32])
+    d = 1 if blob[4] & FLAG_FNV else 0
+    return _checked(_from_payload(_unxz(inner[32:]), d), inner[:32], d)
 
 
 def pack_many(runs: list[list[dict]], repair: bool = False) -> bytes:
@@ -285,32 +312,39 @@ def pack_many(runs: list[list[dict]], repair: bool = False) -> bytes:
     one head receipt per run, one shared lzma context (small runs share their strings)."""
     if not runs:
         raise AtRestError("no runs")
-    heads = b"".join(_head(r) for r in runs)
-    joined = b"".join(_uv(len(p)) + p for p in (_payload(r) for r in runs))
-    return _seal(MAGIC_MANY, _uv(len(runs)) + heads + _xz(joined), repair)
+    ds = [_dialect(r) for r in runs]
+    receipt = hashlib.sha256(b"".join(_head(r) for r in runs)).digest()
+    joined = b"".join(_uv(len(p)) + p for p in (_payload(r, d) for r, d in zip(runs, ds)))
+    return _seal(MAGIC_MANY, _uv(len(runs)) + receipt + bytes(ds) + _xz(joined), repair)
 
 
 def unpack_many(blob: bytes) -> list[list[dict]]:
     inner = _open(blob, MAGIC_MANY)
     r = _Reader(inner)
     n = r.uv()
-    heads = r.take(32 * n)
+    receipt = r.take(32)
+    ds = r.take(n)
     pr = _Reader(_unxz(inner[r.i:]))
-    runs = [_checked(_from_payload(pr.take(pr.uv())), heads[32 * k:32 * k + 32]) for k in range(n)]
+    runs = [_from_payload(pr.take(pr.uv()), ds[k]) for k in range(n)]
     if pr.i != len(pr.b):
         raise AtRestError("trailing bytes in archive")
+    if hashlib.sha256(b"".join(_head(x) for x in runs)).digest() != receipt:
+        raise AtRestError("archive receipt mismatch: unpacked runs are not the packed runs")
+    for x, d in zip(runs, ds):
+        if not (_fnv_chain_ok(x) if d else AL.verify_chain(x)):
+            raise AtRestError("unpacked chain does not verify")
     return runs
 
 
-def _checked(out: list[dict], head: bytes) -> list[dict]:
+def _checked(out: list[dict], head: bytes, dialect: int = 0) -> list[dict]:
     if not out or _head(out) != head:
         raise AtRestError("head receipt mismatch: unpacked run is not the packed run")
-    if not AL.verify_chain(out):
+    if not (_fnv_chain_ok(out) if dialect else AL.verify_chain(out)):
         raise AtRestError("unpacked chain does not verify")
     return out
 
 
-def _from_payload(payload: bytes) -> list[dict]:
+def _from_payload(payload: bytes, dialect: int = 0) -> list[dict]:
     r = _Reader(payload)
     n = r.uv()
     table = json.loads(r.take(r.uv()))
@@ -357,8 +391,13 @@ def _from_payload(payload: bytes) -> list[dict]:
             else:
                 leaves.append(v)
         body = _build(templates[sid], iter(leaves))
-        prev = AL.link_hash(out[-1]) if out else AL.GENESIS
-        out.append({"alv": AL.ALV, "dev": dev, "seq": seq, "ts": ts, "mono": mono, "type": typ, "body": body, "prev": prev})
+        rec = {"alv": AL.ALV, "dev": dev, "seq": seq, "ts": ts, "mono": mono, "type": typ, "body": body}
+        if dialect:
+            rec["prev"] = out[-1]["hash"] if out else FNV_GENESIS
+            rec["hash"] = _fnv_hash(rec)
+        else:
+            rec["prev"] = AL.link_hash(out[-1]) if out else AL.GENESIS
+        out.append(rec)
     if r.i != len(payload):
         raise AtRestError("trailing bytes in run payload")
     return out

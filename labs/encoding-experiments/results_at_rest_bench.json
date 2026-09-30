@@ -4,7 +4,7 @@
   "jsonl": 673508,
   "jsonl+lzma": 87844,
   "E1-hand-fit": 3604,
-  "alr1_ms": 201,
+  "alr1_ms": 308,
   "ALR1": 5653,
   "ALR1+RS": 8167,
   "survive_ber1e-4": {
@@ -16,7 +16,7 @@
   "records": 2700,
   "jsonl": 1450756,
   "jsonl+lzma": 140060,
-  "alr1_ms": 412,
+  "alr1_ms": 568,
   "ALR1": 13257,
   "ALR1+RS": 16327,
   "survive_ber1e-4": {
@@ -27,8 +27,8 @@
  "routes-e8": {
   "records": 6,
   "jsonl": 2089,
-  "jsonl+lzma": 640,
-  "alr1_ms": 38,
+  "jsonl+lzma": 644,
+  "alr1_ms": 52,
   "ALR1": 377,
   "ALR1+RS": 2047,
   "survive_ber1e-4": {

@@ -1,0 +1,1437 @@
+{
+ "corpus": {
+  "fixture_runs": 59,
+  "fixture_records": 348,
+  "routesim_runs": 2
+ },
+ "single": {
+  "jsonl vs alr1": {
+   "labels": [
+    "jsonl",
+    "alr1"
+   ],
+   "cases": [
+    {
+     "id": "fx0",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x91e9c709ca10de13"
+    },
+    {
+     "id": "fx1",
+     "status": "certified",
+     "class": "trade-off",
+     "verdict_hash": "0x3a1709b3bc213225"
+    },
+    {
+     "id": "fx2",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x9778885a26ec079e"
+    },
+    {
+     "id": "fx3",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xe0ddbefdf4b8a6a5"
+    },
+    {
+     "id": "fx4",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xbafc3c799f87458e"
+    },
+    {
+     "id": "fx5",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xf9ad923fed089816"
+    },
+    {
+     "id": "fx6",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb3fc220cc5816c6d"
+    },
+    {
+     "id": "fx7",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x3b54e337e6e574ac"
+    },
+    {
+     "id": "fx8",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xcd82d1d5d3d60dbd"
+    },
+    {
+     "id": "fx9",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xc751dacf5183e9d0"
+    },
+    {
+     "id": "fx10",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb01874f02472bd55"
+    },
+    {
+     "id": "fx11",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x2eda24a017cda08f"
+    },
+    {
+     "id": "fx12",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x5df75c5005706ae5"
+    },
+    {
+     "id": "fx13",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x1df702c2c97303e0"
+    },
+    {
+     "id": "fx14",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x435a83f3a4f373c6"
+    },
+    {
+     "id": "fx15",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xdaf3fba8424c78af"
+    },
+    {
+     "id": "fx16",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x63d459fc5a7d11e3"
+    },
+    {
+     "id": "fx17",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x7a860256a1e52f48"
+    },
+    {
+     "id": "fx18",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x3c1dde7a05e4e886"
+    },
+    {
+     "id": "fx19",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x8443041b8b783e0a"
+    },
+    {
+     "id": "fx20",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x7c5e023ca58d0da2"
+    },
+    {
+     "id": "fx21",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x23aef2e119f50c9f"
+    },
+    {
+     "id": "fx22",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xcd82545478ad972a"
+    },
+    {
+     "id": "fx23",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x1a55bf80f5e4335f"
+    },
+    {
+     "id": "fx24",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xd569796ff73178b2"
+    },
+    {
+     "id": "fx25",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x400824b2db868414"
+    },
+    {
+     "id": "fx26",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xba3d154dd83d8311"
+    },
+    {
+     "id": "fx27",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x28df896698cc9426"
+    },
+    {
+     "id": "fx28",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xd40f3d1328936e5a"
+    },
+    {
+     "id": "fx29",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x1049e15784ab6952"
+    },
+    {
+     "id": "fx30",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x232b116ad2d6d2fa"
+    },
+    {
+     "id": "fx31",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xbc2883fc9bfc9280"
+    },
+    {
+     "id": "fx32",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x215c1d77443227ee"
+    },
+    {
+     "id": "fx33",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xdcaef4bf981bae76"
+    },
+    {
+     "id": "fx34",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xdc852086c633077f"
+    },
+    {
+     "id": "fx35",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x302366da7947f73b"
+    },
+    {
+     "id": "fx36",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x21e105b83e9ba146"
+    },
+    {
+     "id": "fx37",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xd291475495963523"
+    },
+    {
+     "id": "fx38",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x74be723501c0d5bf"
+    },
+    {
+     "id": "fx39",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x27597eaf36102b99"
+    },
+    {
+     "id": "fx40",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x7fd59364d9d06bb9"
+    },
+    {
+     "id": "fx41",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x3c682d8c62031557"
+    },
+    {
+     "id": "fx42",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xc49f100bd93be391"
+    },
+    {
+     "id": "fx43",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x638b2609763aacf0"
+    },
+    {
+     "id": "fx44",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x045b822b76f576af"
+    },
+    {
+     "id": "fx45",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xac11a7f81b646ffc"
+    },
+    {
+     "id": "fx46",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x0ae8e2df9f359b7a"
+    },
+    {
+     "id": "fx47",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x2e1c14a466fe56e4"
+    },
+    {
+     "id": "fx48",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x27a1a5d3fcea1e43"
+    },
+    {
+     "id": "fx49",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x7f6bcb93efb8b6a3"
+    },
+    {
+     "id": "fx50",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x8c449fba1a04ad07"
+    },
+    {
+     "id": "fx51",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xab3e3c8a497ec260"
+    },
+    {
+     "id": "fx52",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xa490ac3a48ccd862"
+    },
+    {
+     "id": "fx53",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x501fc5d7647cda13"
+    },
+    {
+     "id": "fx54",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x189f8e10ccc18024"
+    },
+    {
+     "id": "fx55",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xf7f4ee20f35aa96a"
+    },
+    {
+     "id": "fx56",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb75658fcb66174c4"
+    },
+    {
+     "id": "fx57",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x0520203a77fd2142"
+    },
+    {
+     "id": "fx58",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x129ae0690a0a65eb"
+    }
+   ],
+   "certified": 59,
+   "refused": 0,
+   "inapplicable": 0,
+   "totals": {
+    "jsonl": {
+     "wall_ms": 118,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 147158
+    },
+    "alr1": {
+     "wall_ms": 119,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 30987
+    }
+   },
+   "workload": {
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl",
+     "cheap": "alr1"
+    },
+    "cheap_detail": {
+     "compute": "tie",
+     "storage": "alr1"
+    },
+    "class": "trade-off",
+    "dominant": null,
+    "satisfices": null,
+    "wins": {
+     "jsonl": [
+      "fast"
+     ],
+     "alr1": [
+      "cheap"
+     ]
+    },
+    "preferred_when": {
+     "good": "tie",
+     "fast": "jsonl",
+     "cheap": "alr1"
+    }
+   },
+   "verdict_hash": "0xbe80bff10d8174d0"
+  },
+  "jsonl+lzma vs alr1": {
+   "labels": [
+    "jsonl+lzma",
+    "alr1"
+   ],
+   "cases": [
+    {
+     "id": "fx0",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xf0f6b665ab34d208"
+    },
+    {
+     "id": "fx1",
+     "status": "certified",
+     "class": "trade-off",
+     "verdict_hash": "0xf8b971b326a9a0df"
+    },
+    {
+     "id": "fx2",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xbab6e87c8c138489"
+    },
+    {
+     "id": "fx3",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xdc4f2fe47c0a1d22"
+    },
+    {
+     "id": "fx4",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x15234bebc52ca6af"
+    },
+    {
+     "id": "fx5",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xd43c5f4a67d6e168"
+    },
+    {
+     "id": "fx6",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x324474dd623281ec"
+    },
+    {
+     "id": "fx7",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb9be43c44999c68f"
+    },
+    {
+     "id": "fx8",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x11aff43dc111f65f"
+    },
+    {
+     "id": "fx9",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x74487bdb5d674d81"
+    },
+    {
+     "id": "fx10",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xbaa59ddcf0fcacb3"
+    },
+    {
+     "id": "fx11",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x4ca2b2e73a75dc76"
+    },
+    {
+     "id": "fx12",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x05f733e99f454d6c"
+    },
+    {
+     "id": "fx13",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x2955503e1b5a0ecb"
+    },
+    {
+     "id": "fx14",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x77c280d241a5a899"
+    },
+    {
+     "id": "fx15",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xeeecf6fea07b8e02"
+    },
+    {
+     "id": "fx16",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x50437629d85e9a1d"
+    },
+    {
+     "id": "fx17",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb517ff38a188a173"
+    },
+    {
+     "id": "fx18",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x09fffa0c4e28a023"
+    },
+    {
+     "id": "fx19",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb769f5b76ca477dc"
+    },
+    {
+     "id": "fx20",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x5c421af15eb24232"
+    },
+    {
+     "id": "fx21",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x231d63c8521c3cf3"
+    },
+    {
+     "id": "fx22",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x6ba83304b848d92c"
+    },
+    {
+     "id": "fx23",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xfe628f461edb1321"
+    },
+    {
+     "id": "fx24",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xe491a3859ef6a5a8"
+    },
+    {
+     "id": "fx25",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x389df45ce3663df4"
+    },
+    {
+     "id": "fx26",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x90454a5f3f3daca1"
+    },
+    {
+     "id": "fx27",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xa0e273f467a7d3bf"
+    },
+    {
+     "id": "fx28",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x72cb063b61d5e128"
+    },
+    {
+     "id": "fx29",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xc6609a0f3d6f1234"
+    },
+    {
+     "id": "fx30",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x8daba1991cab3aa4"
+    },
+    {
+     "id": "fx31",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x78cd53effcf83a1e"
+    },
+    {
+     "id": "fx32",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x94da3bab04082b56"
+    },
+    {
+     "id": "fx33",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x16ad4edf58c948da"
+    },
+    {
+     "id": "fx34",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x175537638c3fd1ad"
+    },
+    {
+     "id": "fx35",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xda3a1a2614dd24cf"
+    },
+    {
+     "id": "fx36",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x77274f007c46b9f8"
+    },
+    {
+     "id": "fx37",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x8c7a1786b2bb1164"
+    },
+    {
+     "id": "fx38",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x48d5e851cc8517e0"
+    },
+    {
+     "id": "fx39",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xd966adb1d03edc8c"
+    },
+    {
+     "id": "fx40",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xbde665cb61d20351"
+    },
+    {
+     "id": "fx41",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x77062818677582d6"
+    },
+    {
+     "id": "fx42",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xba1beba014122e63"
+    },
+    {
+     "id": "fx43",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xcb82149e6ef9c3ea"
+    },
+    {
+     "id": "fx44",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xd098bdf0049a9481"
+    },
+    {
+     "id": "fx45",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xf91e2c6d627f1741"
+    },
+    {
+     "id": "fx46",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x3c36afd985242ae6"
+    },
+    {
+     "id": "fx47",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x6d2d81c81bae3481"
+    },
+    {
+     "id": "fx48",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x9d4566c030365ae3"
+    },
+    {
+     "id": "fx49",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x5139ddb1d9e95540"
+    },
+    {
+     "id": "fx50",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x72f872dc2e28862a"
+    },
+    {
+     "id": "fx51",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xa3be4a29676cf5dc"
+    },
+    {
+     "id": "fx52",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xb38589ee15e1c24b"
+    },
+    {
+     "id": "fx53",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xa286853953f8dcfd"
+    },
+    {
+     "id": "fx54",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x0a28fe739e273e71"
+    },
+    {
+     "id": "fx55",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0xa1b3c2b3786e7382"
+    },
+    {
+     "id": "fx56",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x4db4c6dc07752d61"
+    },
+    {
+     "id": "fx57",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x0b2683ee0534d4f3"
+    },
+    {
+     "id": "fx58",
+     "status": "certified",
+     "class": "dominates-one-axis",
+     "verdict_hash": "0x469240526f19e060"
+    }
+   ],
+   "certified": 59,
+   "refused": 0,
+   "inapplicable": 0,
+   "totals": {
+    "jsonl+lzma": {
+     "wall_ms": 118,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 44912
+    },
+    "alr1": {
+     "wall_ms": 119,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 30987
+    }
+   },
+   "workload": {
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl+lzma",
+     "cheap": "alr1"
+    },
+    "cheap_detail": {
+     "compute": "tie",
+     "storage": "alr1"
+    },
+    "class": "trade-off",
+    "dominant": null,
+    "satisfices": null,
+    "wins": {
+     "jsonl+lzma": [
+      "fast"
+     ],
+     "alr1": [
+      "cheap"
+     ]
+    },
+    "preferred_when": {
+     "good": "tie",
+     "fast": "jsonl+lzma",
+     "cheap": "alr1"
+    }
+   },
+   "verdict_hash": "0xbfde4f8cc242e162"
+  },
+  "alr1 vs alr1+rs": {
+   "labels": [
+    "alr1",
+    "alr1+rs"
+   ],
+   "cases": [
+    {
+     "id": "fx0",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x60e521f4cc2f9906"
+    },
+    {
+     "id": "fx1",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xfa78e7247f152450"
+    },
+    {
+     "id": "fx2",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x4cbdc325d6cb9113"
+    },
+    {
+     "id": "fx3",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x95263859f143ac34"
+    },
+    {
+     "id": "fx4",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xfe353c72fcfa8c9e"
+    },
+    {
+     "id": "fx5",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xc1de3406b6741b5f"
+    },
+    {
+     "id": "fx6",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x425aa5d2a0a94cda"
+    },
+    {
+     "id": "fx7",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x0a944ae3dc11a75f"
+    },
+    {
+     "id": "fx8",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x613e0b6ae97a6c01"
+    },
+    {
+     "id": "fx9",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x73e624c608a98fde"
+    },
+    {
+     "id": "fx10",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x27071b163478a9b4"
+    },
+    {
+     "id": "fx11",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x82eaf44c6266aa00"
+    },
+    {
+     "id": "fx12",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x4176630f3cda5447"
+    },
+    {
+     "id": "fx13",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xda9de0c4b9680d91"
+    },
+    {
+     "id": "fx14",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x81343d385265f340"
+    },
+    {
+     "id": "fx15",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x75c3f140ff8b1040"
+    },
+    {
+     "id": "fx16",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x98cec0b5870e27f9"
+    },
+    {
+     "id": "fx17",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x43165a7553cd8546"
+    },
+    {
+     "id": "fx18",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x0701c365d78390c2"
+    },
+    {
+     "id": "fx19",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x3fff6ab17b8c50f6"
+    },
+    {
+     "id": "fx20",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x255a4b4b3b0e9496"
+    },
+    {
+     "id": "fx21",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xa3310d28dd1cc60e"
+    },
+    {
+     "id": "fx22",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x569e140690115bad"
+    },
+    {
+     "id": "fx23",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x747a05f641537a43"
+    },
+    {
+     "id": "fx24",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xb8d04b0b45df71ca"
+    },
+    {
+     "id": "fx25",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xc04446a5bd75bad8"
+    },
+    {
+     "id": "fx26",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xa5915098900f3a84"
+    },
+    {
+     "id": "fx27",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x8858de391e3aa235"
+    },
+    {
+     "id": "fx28",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x00fa9527d0abc4ed"
+    },
+    {
+     "id": "fx29",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xe6ea7124888256ed"
+    },
+    {
+     "id": "fx30",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x559aa04d270d21a0"
+    },
+    {
+     "id": "fx31",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xc2541887044e6f52"
+    },
+    {
+     "id": "fx32",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x6517a9196427af45"
+    },
+    {
+     "id": "fx33",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x29b696e4b04d36a6"
+    },
+    {
+     "id": "fx34",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x0eefdd77e3f4d55b"
+    },
+    {
+     "id": "fx35",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xeb250f74c9df254e"
+    },
+    {
+     "id": "fx36",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x9e580d17a302e3de"
+    },
+    {
+     "id": "fx37",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x22eec462e5ec6c41"
+    },
+    {
+     "id": "fx38",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x602f8efcd12207dd"
+    },
+    {
+     "id": "fx39",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x74251cd28d0fa8ac"
+    },
+    {
+     "id": "fx40",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x657ca0bf1cecf067"
+    },
+    {
+     "id": "fx41",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x8b39f6699bcc425f"
+    },
+    {
+     "id": "fx42",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x567261060d4d8469"
+    },
+    {
+     "id": "fx43",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xecb432fe45d3a415"
+    },
+    {
+     "id": "fx44",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xfa0f66e36b2d39a5"
+    },
+    {
+     "id": "fx45",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x254d8af51b8c5a6c"
+    },
+    {
+     "id": "fx46",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x3306c4c15a571d8d"
+    },
+    {
+     "id": "fx47",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x228d5de34188cdb4"
+    },
+    {
+     "id": "fx48",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x09b917a6da3bc605"
+    },
+    {
+     "id": "fx49",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x7c8b9d6676257f6e"
+    },
+    {
+     "id": "fx50",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x44c5bd86f962c479"
+    },
+    {
+     "id": "fx51",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xbef57e3cff832309"
+    },
+    {
+     "id": "fx52",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xceb26dc6625eca6d"
+    },
+    {
+     "id": "fx53",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x2a3fa69444a9f8eb"
+    },
+    {
+     "id": "fx54",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xf3e127ad4bd8e1db"
+    },
+    {
+     "id": "fx55",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xaea9b582603b5016"
+    },
+    {
+     "id": "fx56",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0xe198f2d12e647a52"
+    },
+    {
+     "id": "fx57",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x783070bd5902ffed"
+    },
+    {
+     "id": "fx58",
+     "status": "certified",
+     "class": "dominates-faster-cheaper",
+     "verdict_hash": "0x937d820974c80861"
+    }
+   ],
+   "certified": 59,
+   "refused": 0,
+   "inapplicable": 0,
+   "totals": {
+    "alr1": {
+     "wall_ms": 119,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 30987
+    },
+    "alr1+rs": {
+     "wall_ms": 386,
+     "usd": 0.0,
+     "tokens": 0,
+     "storage_bytes": 120773
+    }
+   },
+   "workload": {
+    "axes": {
+     "good": "tie",
+     "fast": "alr1",
+     "cheap": "alr1"
+    },
+    "cheap_detail": {
+     "compute": "tie",
+     "storage": "alr1"
+    },
+    "class": "dominates-faster-cheaper",
+    "dominant": "alr1",
+    "satisfices": "alr1+rs",
+    "wins": {
+     "alr1": [
+      "cheap",
+      "fast"
+     ]
+    },
+    "preferred_when": {
+     "good": "tie",
+     "fast": "alr1",
+     "cheap": "alr1"
+    }
+   },
+   "verdict_hash": "0x0553bd5820b04e5a"
+  }
+ },
+ "fixtures+routesim": {
+  "bytes": {
+   "jsonl": 156235,
+   "jsonl+lzma": 14512,
+   "alr1": 4219,
+   "alr1+rs": 6127
+  },
+  "standing_ber1e-4": {
+   "jsonl": 0,
+   "jsonl+lzma": 0,
+   "alr1": 0,
+   "alr1+rs": 6
+  },
+  "pairs": {
+   "jsonl vs alr1": {
+    "status": "certified",
+    "class": "trade-off",
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl",
+     "cheap": "alr1"
+    },
+    "routes": {
+     "jsonl": {
+      "wall_ms": 24,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 156235
+     },
+     "alr1": {
+      "wall_ms": 49,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 4219
+     }
+    },
+    "reason": null
+   },
+   "jsonl+lzma vs alr1": {
+    "status": "certified",
+    "class": "trade-off",
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl+lzma",
+     "cheap": "alr1"
+    },
+    "routes": {
+     "jsonl+lzma": {
+      "wall_ms": 19,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 14512
+     },
+     "alr1": {
+      "wall_ms": 49,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 4219
+     }
+    },
+    "reason": null
+   },
+   "alr1 vs alr1+rs": {
+    "status": "certified",
+    "class": "dominates-faster-cheaper",
+    "axes": {
+     "good": "tie",
+     "fast": "alr1",
+     "cheap": "alr1"
+    },
+    "routes": {
+     "alr1": {
+      "wall_ms": 49,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 4219
+     },
+     "alr1+rs": {
+      "wall_ms": 65,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 6127
+     }
+    },
+    "reason": null
+   }
+  },
+  "B4": {
+   "frontier": [
+    "alr1",
+    "alr1+rs",
+    "jsonl+lzma"
+   ],
+   "preferred_when": {
+    "good": "alr1+rs",
+    "fast": "jsonl+lzma",
+    "cheap": "alr1",
+    "better-faster": null,
+    "better-cheaper": null,
+    "faster-cheaper": null
+   },
+   "status": "certified"
+  }
+ },
+ "voice300": {
+  "bytes": {
+   "jsonl": 1434987,
+   "jsonl+lzma": 117176,
+   "alr1": 18247,
+   "alr1+rs": 22448
+  },
+  "standing_ber1e-4": {
+   "jsonl": 0,
+   "jsonl+lzma": 0,
+   "alr1": 0,
+   "alr1+rs": 6
+  },
+  "pairs": {
+   "jsonl vs alr1": {
+    "status": "certified",
+    "class": "trade-off",
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl",
+     "cheap": "alr1"
+    },
+    "routes": {
+     "jsonl": {
+      "wall_ms": 141,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 1434987
+     },
+     "alr1": {
+      "wall_ms": 513,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 18247
+     }
+    },
+    "reason": null
+   },
+   "jsonl+lzma vs alr1": {
+    "status": "certified",
+    "class": "trade-off",
+    "axes": {
+     "good": "tie",
+     "fast": "jsonl+lzma",
+     "cheap": "alr1"
+    },
+    "routes": {
+     "jsonl+lzma": {
+      "wall_ms": 160,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 117176
+     },
+     "alr1": {
+      "wall_ms": 513,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 18247
+     }
+    },
+    "reason": null
+   },
+   "alr1 vs alr1+rs": {
+    "status": "certified",
+    "class": "trade-off",
+    "axes": {
+     "good": "tie",
+     "fast": "alr1+rs",
+     "cheap": "alr1"
+    },
+    "routes": {
+     "alr1": {
+      "wall_ms": 513,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 18247
+     },
+     "alr1+rs": {
+      "wall_ms": 452,
+      "usd": 0.0,
+      "tokens": 0,
+      "storage_bytes": 22448
+     }
+    },
+    "reason": null
+   }
+  },
+  "B4": {
+   "frontier": [
+    "alr1",
+    "alr1+rs",
+    "jsonl",
+    "jsonl+lzma"
+   ],
+   "preferred_when": {
+    "good": "alr1+rs",
+    "fast": "jsonl",
+    "cheap": "alr1",
+    "better-faster": null,
+    "better-cheaper": null,
+    "faster-cheaper": null
+   },
+   "status": "certified"
+  }
+ }
+}
