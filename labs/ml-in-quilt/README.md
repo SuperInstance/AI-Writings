@@ -57,11 +57,14 @@ model  d=32 layers=2 heads=2 ff=64 ctx=64  params=19260  readout train_acc=0.758
    q4         certified  0 refused 24
    spec-q4    certified 24 refused  0  class=dominates-faster-cheaper   (fp dominant)  accept=195/379
    spec-jepa  certified 24 refused  0  class=dominates-faster-cheaper   (fp dominant)  accept=190/399
-== B7 ... device=accel
-   spec-q4    certified 24 refused  0  class=trade-off   fast=spec-q4 cheap=fp
-== B4 device=edge   exact routes=['fp','spec-jepa','spec-q4']  frontier=['fp']
-   per-situation fast pick counts: {'fp': 4, 'q8': 20}
-== B4 device=accel  frontier=['fp','spec-q4']
+   gate-q8    certified 24 refused  0  (fp dominant)  eps=0.0283 verifies=101/288 fixed=0
+   trust-q8   certified 24 refused  0  (fp dominant)  eps=0.0283 verifies=80/288 fixed=0
+== B7 ... device=accel   (modeled wall ms, 24 situations: fp 2.428)
+   spec-q4    certified 24 refused  0  class=trade-off   wall 2.374
+   gate-q8    certified 24 refused  0  class=trade-off   wall 2.144
+   trust-q8   certified 24 refused  0  class=trade-off   wall 1.879
+== B4 device=edge   exact routes=[fp, gate-q8, spec-jepa, spec-q4, trust-q8]  frontier=['fp']
+== B4 device=accel  frontier=['fp','spec-q4','trust-q8']  fast=trust-q8  cheap=fp
 == replay==live (spec-q4, 177 records): True   tamper L1.w1[0][0]+0.25 -> first divergence load:L1.w1, first compute cell L1.mlp
 == prefix cache: reused 19 positions, kv heads match=True, B7 certified, flops 1308792 -> 589680
 == at rest: weights fp=73456 q8=20396 q4=11244 B (q4 6.53x smaller); RS x1.270, 96 bytes corrupted -> repaired=True
@@ -77,6 +80,14 @@ How to read the output:
   depends on the device:
   - On `edge` (flop:byte = 1), fp dominates it.
   - On `accel` (flop:byte = 100), the batched verify is nearly free, and spec-q4 is the faster of the two.
+- **Margin-triggered verify** (`cellml.run_gated`, the routes `gate-q8` and `trust-q8`):
+  - q8 decodes on its own. When its top-1 margin is ≤ 2ε, fp catches up on every pending token in
+    one batched pass and supplies the uncertain token itself.
+  - ε = 0.0283, the max |Δlogit| on the first half of the corpus.
+  - **trust-q8 never re-checks confident tokens, yet it is certified 24/24**, against 20/24 for
+    q8 alone. Across all runs the confident tokens were never wrong (0 fixes).
+  - On `accel` it is the fastest exact-product route measured: 1.88 ms modeled, vs 2.43 for fp and
+    2.37 for spec-q4. On `edge`, fp still wins.
 
 ## 5. The contract
 - `cellml.run_greedy(model, prompt, n, plan, route)` and
@@ -89,7 +100,10 @@ How to read the output:
   - Every compute tick reads an earlier tick's output (dataflow closure).
   - A prefix-cache hit's KV chain head equals the computed one.
   - A refused B7 verdict exposes no budget.
-- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 53 checks, 0 failures`.
+- `run_gated(model, prompt, n, cheap_plan, exact_plan, route, eps, final_verify)`: with
+  `final_verify=True` the route is exact by construction. With `False`, tokens trusted by
+  calibration are never re-checked, and B7 decides whether the route holds.
+- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 64 checks, 0 failures` (~45 s).
 
 ## 6. Failure modes / scars
 - **Identity is not quality.** On "the rat ", fp writes `sat sathe ma` and q8 writes `sat on the m`.
@@ -111,8 +125,10 @@ How to read the output:
 - **Toy scale.** The model is 19k params, with seeded weights and a ridge-fitted readout. It is an
   echo-state net, not an LLM, and none of the numbers transfer to real models as values. What
   transfers is the *shape*: gate at the token, and price by device.
-- The margin gate's ε is the max |Δlogit| on the first half of the corpus. With 0 flips on the
-  held-out half it is certified by calibration, not proven.
+- **trust-q8 is certified by calibration, not proven.** ε is the max |Δlogit| on the first half
+  of the corpus, and the 24 situations overlap that corpus. A logit error above ε on unseen text
+  would let a wrong confident token through. B7 would refuse such a run, but only after the fact.
+  `gate-q8` pays roughly 14% more modeled time (accel) to remove this risk.
 
 ## 7. How it composes
 - **B1** `labs/activeledger`: envelope, budget vector, chain.

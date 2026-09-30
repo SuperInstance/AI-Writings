@@ -2,7 +2,7 @@
 
 *Architecture mark, 2026-09-30. Written in response to Casey's charge: "we have moved to so many things we
 should think big and architect correctly whatever we build for these ends in quilt." The runnable half is
-[`labs/ml-in-quilt/`](../../labs/ml-in-quilt/), whose selftest reports 53 checks and 0 failures. Every
+[`labs/ml-in-quilt/`](../../labs/ml-in-quilt/), whose selftest reports 64 checks and 0 failures. Every
 number in this document comes from that lab unless it is marked **(speculative)** or **(arithmetic)**. The
 doc follows the dual-audience standard in [`situations/blueprints/README.md`](../blueprints/README.md).*
 
@@ -150,7 +150,7 @@ route runs again with new inputs.
 ## 4. Walkthrough — what the skeleton runs
 
 ```
-$ cd labs/ml-in-quilt && python3 selftest.py      # 53 checks, 0 failures, ~30 s
+$ cd labs/ml-in-quilt && python3 selftest.py      # 64 checks, 0 failures, ~45 s
 $ python3 mlq_system2.py                           # the full report
 ```
 
@@ -189,6 +189,7 @@ excludes):
 | content-addressed KV | a prefix cache warmed by `"the cat sat on the "` serves `"the cat sat on the log"`: 19 positions reused, loaded KV chain heads equal computed ones, B7 certifies it, flops 1,308,792 → 589,680 |
 | at rest | weight blobs: fp32 73,456 B, q8 20,396 B, q4 11,244 B (6.53×). With RS the q4 blob is 1.27× larger; after corrupting 96 bytes, repair is exact and the repaired blob decodes to the live kernel's weights. Activation log (177 records): JSONL 88,765 B, JSONL+lzma 12,108 B, ALR1+RS 6,127 B, round-trip exact |
 | margin gate | ε = max \|Δlogit\| on the first half of the corpus. On the held-out half, q8 tokens with margin > 2ε are 82% of positions, with 0 flips. q4 has 0% safe (ε is too large) |
+| **margin-triggered verify (ML-1)** | q8 decodes, and fp catches up in one batched pass only when q8's margin is ≤ 2ε. **`trust-q8` (confident tokens never re-checked) is certified 24/24, against 20/24 for q8 alone, with 0 fixes.** On `accel` it is the fastest exact-product route measured: 1.88 ms vs fp 2.43 vs spec-q4 2.37, with 80 verify passes for 288 tokens. B4's accel frontier becomes `[fp, spec-q4, trust-q8]` (fast: trust-q8, cheap: fp). The by-construction variant `gate-q8` costs 2.14 ms |
 | cost model vs Python | Python wall time (best of 3, sidecar): fp 45.8 ms, q8 41.4, q4 51.6, spec-q4 99.7. In pure Python, q4 is *slower*. The roofline prices a fused kernel, not our loop |
 
 ## 5. The contract
@@ -217,7 +218,7 @@ excludes):
    the differ.
 3. Every verdict is valid only for the device profile it was priced under (§11.2 stationarity).
 
-**Receipt:** `python3 labs/ml-in-quilt/selftest.py` → `ml-in-quilt selftest: 53 checks, 0 failures`.
+**Receipt:** `python3 labs/ml-in-quilt/selftest.py` → `ml-in-quilt selftest: 64 checks, 0 failures`.
 
 ## 6. How each of our systems plugs in
 
@@ -302,7 +303,8 @@ per situation whether the predictor earns its place as a draft.
 
 | # | item | why next | receipt |
 |---|---|---|---|
-| ML-1 | **Margin-triggered verify.** Run q8. Only when a token's margin is ≤ 2ε, feed the unverified tail to fp in one batched catch-up pass (adaptive speculative decoding) | q8 is skip-safe on 82% of held-out tokens with 0 flips. This route could be near-q8 cost at near-fp identity | B7 certified-rate and modeled wall vs spec-q4 and q8 |
+| ~~ML-1~~ | **Margin-triggered verify. BUILT** in this pass (`run_gated`, `gate-q8`, `trust-q8`) | trust-q8 certified 24/24, 0 fixes, fastest exact route on accel | selftest §"margin-triggered verify" |
+| ML-1b | **ε on unseen text.** Calibrate ε on one corpus, test trust-q8 on disjoint text, and add a per-cell ε (the differ profile) so the gate knows *which block* is uncertain | trust-q8's 24/24 is in-distribution only | certified rate on held-out text; the first fix observed |
 | ML-2 | **B7 `mem_mb` axis** (hot memory) | Unblocks honest pricing of prefix caches, KV quantization and resident drafts | B7 selftest plus a pcache verdict that changes class |
 | ML-3 | **Real weights, one substrate**: a ~15M-param TinyStories-class checkpoint behind the same cell interface, with numpy allowed at this step | Tests whether q4's product horizon and the regime flip survive a real model | the same report, measured per device, best-of-3 timing |
 | ML-4 | **Fused-group impls and the receipt-level knob** | The simple-llm tension (§3.4) | a fused `norm+attn` impl certified against unfused |
@@ -314,6 +316,6 @@ per situation whether the predictor earns its place as a draft.
 
 1. **Every transformer block is a cell.** Pure, budgeted, hash-chained in and out, weights named by content.
 2. **The product is the token, not the activation.** Quantized routes are certified exactly where they give the same answer.
-3. **A verifier cell turns any lossy impl into an exact route.** Speculative decoding is the B7 gate made into a route.
+3. **A verifier cell turns any lossy impl into an exact route.** Speculative decoding is the B7 gate made into a route, and the cheap cell's own margin can decide when to call the verifier.
 4. **Preference is a function of situation and device.** B4 picks per situation, and the frontier moves with the flop:byte ratio.
 5. **At rest and in memory, content addressing does the work.** Repairable weight blobs, ALR1 activation logs, and KV chains that make prefix reuse checkable.

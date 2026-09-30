@@ -116,11 +116,35 @@ def main():
     acc = E["spec-q4"]["accept"]
     check("draft acceptance is measured, not assumed", 0 < acc[0] < acc[1], "%d/%d" % tuple(acc))
 
+    print("-- margin-triggered verify (ML-1)")
+    for dev, R in (("edge", E), ("accel", A)):
+        check("gate-q8 exact by construction on %s (24/24)" % dev,
+              R["gate-q8"]["certified"] == len(S.PROMPTS))
+        check("trust-q8 certified 24/24 on %s (q8 alone: %d/24) — by calibration, not proof"
+              % (dev, R["q8"]["certified"]), R["trust-q8"]["certified"] == len(S.PROMPTS))
+    g = A["trust-q8"]["gate"]
+    check("confident q8 tokens were never wrong (0 fixes)", g["fixed"] == 0
+          and A["gate-q8"]["gate"]["fixed"] == 0, g)
+    check("trust-q8 verifies fewer tokens than it emits", g["verifies"] < g["tokens"],
+          "%d verify passes / %d tokens" % (g["verifies"], g["tokens"]))
+    wa = A["trust-q8"]["totals"]
+    check("accel: trust-q8 faster than fp and than spec-q4",
+          wa["trust-q8"]["wall_ms"] < wa["fp"]["wall_ms"]
+          and wa["trust-q8"]["wall_ms"] < A["spec-q4"]["totals"]["spec-q4"]["wall_ms"],
+          "%.3f vs fp %.3f" % (wa["trust-q8"]["wall_ms"], wa["fp"]["wall_ms"]))
+    check("edge: fp still dominates trust-q8", E["trust-q8"]["dominant"] == "fp")
+    check("dataflow closed per stream (trust-q8)", dataflow_closed(runs["edge"]["trust-q8"][S.PROMPTS[3]]))
+    check("replay == live (trust-q8, eps recorded in `chosen`)",
+          S.replay(model, runs["edge"]["trust-q8"][S.PROMPTS[3]])["equal"])
+
     print("-- B4: preference is per situation and per device")
     b4e, b4a = rep["b4"]["edge"], rep["b4"]["accel"]
     check("edge workload over exact routes: fp alone on the frontier", b4e["workload"]["frontier"] == ["fp"])
-    check("accel workload: frontier holds fp and spec-q4",
-          b4a["workload"]["frontier"] == ["fp", "spec-q4"], b4a["workload"]["frontier"])
+    check("accel workload: frontier holds fp, spec-q4 and trust-q8",
+          b4a["workload"]["frontier"] == ["fp", "spec-q4", "trust-q8"], b4a["workload"]["frontier"])
+    check("accel workload: trust-q8 is the fast pick, fp the cheap one",
+          b4a["workload"]["preferred_when"]["fast"] == "trust-q8"
+          and b4a["workload"]["preferred_when"]["cheap"] == "fp", b4a["workload"]["preferred_when"])
     check("per-situation fast pick varies across situations", len(b4e["per_situation_fast"]) > 1,
           b4e["per_situation_fast"])
     check("hebbian book settles on one fast route", b4e["settled"]["fast"]["route"] == "q8",

@@ -540,6 +540,65 @@ def run_speculative(model, prompt: str, n: int, draft_plan: dict, verify_plan: d
                               "accept": [accepted, proposed], "k": k}})
 
 
+def run_gated(model, prompt: str, n: int, cheap_plan: dict, exact_plan: dict, route: str,
+              eps: float, final_verify: bool = True):
+    """Margin-triggered speculative decoding. The cheap plan decodes greedily; a token whose
+    top-1 margin exceeds 2*eps is committed PENDING (trusted for now). When the cheap plan is
+    unsure, the exact plan catches up on every pending token in ONE batched pass, fixes the
+    first disagreement, and supplies the uncertain token itself.
+      final_verify=True : pending tokens are verified at the end -> exact by construction.
+      final_verify=False: tokens trusted by calibration are never re-checked -> B7 decides."""
+    lg = al.ActiveLog(dev="ml-in-quilt")
+    _load_ticks(lg, model, route, [cheap_plan, exact_plan])
+    dr = Stream(model, cheap_plan, lg, route, tag="draft")
+    vf = Stream(model, exact_plan, lg, route, tag="verify")
+    seq = tokenize(prompt)
+    p0 = len(seq)
+    pending = verifies = fixed = 0
+
+    def verify(extra_token: bool):
+        nonlocal seq, pending, verifies, fixed
+        rows = vf.feed(seq[vf.fed:])
+        start = len(seq) - pending                   # first pending position
+        preds = [argmax(r) for r in rows[-(pending + 1):]]   # preds for start..len(seq)
+        j = 0
+        while j < pending and seq[start + j] == preds[j]:
+            j += 1
+        before = list(seq)
+        if j < pending:
+            seq = seq[:start + j] + [preds[j]]
+            fixed += 1
+        elif extra_token:
+            seq = seq + [preds[pending]]
+        vf.tick("verify", "verify", "exact", (start, len(before)), act_hash(before[start:]),
+                act_hash(seq[start:]), 0, 0, extra={"proposed": pending, "accepted": j})
+        verifies += 1
+        vf.truncate(len(seq) - 1)
+        dr.truncate(min(dr.fed, start + j))
+        pending = 0
+
+    while True:
+        if len(seq) - p0 >= n:
+            if final_verify and pending:
+                verify(extra_token=False)
+                continue
+            break
+        lo = dr.feed(seq[dr.fed:])[-1]
+        order = sorted(range(len(lo)), key=lambda i: (-lo[i], i))
+        margin = lo[order[0]] - lo[order[1]]
+        if margin > 2 * eps:
+            seq = seq + [order[0]]
+            pending += 1
+        else:
+            verify(extra_token=True)
+    toks = seq[p0:p0 + n]
+    return _close(lg, route, prompt, toks,
+                  {"chosen": {"plan": {"draft": dict(sorted(cheap_plan.items())),
+                                       "verify": dict(sorted(exact_plan.items()))},
+                              "gate": {"eps": eps, "final_verify": final_verify,
+                                       "verifies": verifies, "fixed": fixed}}})
+
+
 # ---- readout fit (the only "training"): ridge regression, closed form ---------------------
 
 def features(model, text: str, chunk: int = None) -> tuple[list, list]:

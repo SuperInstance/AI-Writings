@@ -44,7 +44,24 @@ ROUTES = {
     "q4": Q4,
     "spec-q4": ("spec", Q4, {}, 4),
     "spec-jepa": ("spec", JEPA, {}, 4),
+    "gate-q8": ("gate", Q8, {}, True),       # margin-triggered verify, exact by construction
+    "trust-q8": ("gate", Q8, {}, False),     # confident tokens never re-checked: B7 decides
 }
+_EPS = {}
+
+
+def gate_eps(model, plan=Q8):
+    """eps = max |dlogit| of `plan` vs fp on the FIRST half of the corpus (calibration)."""
+    key = (model.weights_hash(), C.plan_sig(plan))
+    if key not in _EPS:
+        ids = C.tokenize(C.CORPUS)
+        win = [ids[s:s + model.cfg["ctx"]] for s in range(0, len(ids), model.cfg["ctx"])]
+        ref = [r for w in win for r in _logits(model, {}, w)]
+        alt = [r for w in win for r in _logits(model, plan, w)]
+        half = len(ref) // 2
+        _EPS[key] = round(max(max(abs(x - y) for x, y in zip(a, b))
+                              for a, b in zip(ref[:half], alt[:half])), 4)
+    return _EPS[key]
 
 # Situations: corpus slices (in-distribution) + recombinations the corpus never contains.
 PROMPTS = ["the cat ", "the dog s", "a cat and", "the rat ", "the dog ate", "on the m",
@@ -55,6 +72,10 @@ PROMPTS = ["the cat ", "the dog s", "a cat and", "the rat ", "the dog ate", "on 
 
 def run_route(model, name, prompt, n=N_TOKENS):
     r = ROUTES[name]
+    if isinstance(r, tuple) and r[0] == "gate":
+        _, cheap, exact, final = r
+        return C.run_gated(model, prompt, n, cheap, exact, name, gate_eps(model, cheap),
+                           final).records
     if isinstance(r, tuple):
         _, draft, verify, k = r
         return C.run_speculative(model, prompt, n, draft, verify, name, k=k).records
@@ -91,7 +112,10 @@ def replay(model, records):
     try:
         n = len(tx["tokens"])
         plan = ch["plan"]
-        if "warm" in ch:
+        if "gate" in ch:
+            again = C.run_gated(model, tx["prompt"], n, plan["draft"], plan["verify"],
+                                tx["route"], ch["gate"]["eps"], ch["gate"]["final_verify"]).records
+        elif "warm" in ch:
             again = run_pcache(model, ch["warm"], tx["prompt"], n, plan)
         elif "draft" in plan:
             again = C.run_speculative(model, tx["prompt"], n, plan["draft"], plan["verify"],
@@ -182,9 +206,15 @@ def b7_matrix(model, devices=("edge", "accel"), prompts=PROMPTS):
                               "dominant": rep.get("workload", {}).get("dominant"),
                               "preferred_when": rep.get("workload", {}).get("preferred_when"),
                               "verdict_hash": rep["verdict_hash"]}
-            if isinstance(ROUTES[name], tuple):
+            if isinstance(ROUTES[name], tuple) and ROUTES[name][0] == "spec":
                 acc = [alt[p][-1]["body"]["chosen"]["accept"] for p in prompts]
                 res[dev][name]["accept"] = [sum(a for a, _ in acc), sum(b for _, b in acc)]
+            if isinstance(ROUTES[name], tuple) and ROUTES[name][0] == "gate":
+                g = [alt[p][-1]["body"]["chosen"]["gate"] for p in prompts]
+                res[dev][name]["gate"] = {"eps": g[0]["eps"],
+                                          "verifies": sum(x["verifies"] for x in g),
+                                          "fixed": sum(x["fixed"] for x in g),
+                                          "tokens": len(prompts) * N_TOKENS}
     C.use_device("edge")
     return res, runs
 
@@ -391,6 +421,8 @@ def _fmt(rep):
         for name, v in rows.items():
             t = v["totals"] or {}
             extra = "  accept=%d/%d" % tuple(v["accept"]) if "accept" in v else ""
+            if "gate" in v:
+                extra = "  eps=%(eps)s verifies=%(verifies)d/%(tokens)d fixed=%(fixed)d" % v["gate"]
             L.append("   %-10s certified %2d refused %2d  class=%-26s wall fp=%s alt=%s%s" % (
                 name, v["certified"], v["refused"], v["class"],
                 t.get("fp", {}).get("wall_ms", "-") if t else "-",
