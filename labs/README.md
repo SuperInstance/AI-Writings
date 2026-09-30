@@ -21,6 +21,15 @@ walkthrough with real output.
 | [`code-real-quant`](code-real-quant/) | makes TurboQuant's compression **real + measured**: ranks on the 4-bit codes via asymmetric distance (ADC) and **drops the float vector**, so 8× is actually saved; reports the honest cost — **recall@10 ≈ 0.89** at ⅛ the bytes/cell | fixes gap #1 of the turbovec study |
 | [`polyform`](polyform/) | cross-formalism differ: the same fnv1a-64 kernel in **Python / BQN / Futhark / Uiua**, run over 7 vectors, must land on **one golden hash** — agreement is the receipt, divergence localizes to a formalism; honest about which toolchains actually ran vs reference-only | realizes POLYFORMALISM-ARRAY-LANGUAGES.md #1 |
 
+## Latent tools (`labs/audit-lottery/`, `labs/invariance-miner/`)
+
+Tools implied by the paradigm but not built before. The landscape, numbers and extraction backlog are in [`../situations/arch/QUILT-LATENT-TOOLS.md`](../situations/arch/QUILT-LATENT-TOOLS.md).
+
+| lab | what it does | selftest |
+|---|---|---|
+| [`audit-lottery`](audit-lottery/) | a certified cascade: the cheap route COMMITs its output, then an unpredictable DRAW decides whether to audit it with the differ, and an e-process REVOKES the license on evidence. Public-seed draws let a strategic route serve 93.8% wrong answers uncaught; secret draws cap it at 1.3%. Ville "trust credit" vs Shiryaev–Roberts. | 33/0 |
+| [`invariance-miner`](invariance-miner/) | reads receipts backwards to find the program's symmetries (0 extra calls) and builds differ-guarded canonical cache keys: 36× fewer calls on text-normalize with 0 false hits. The Occam guard catches the off-support trap that sampled verification misses. | 25/0 |
+
 ## Encoding experiments (`labs/encoding-experiments/`)
 
 Wide, iterative experiments transplanting gems from the org's older encoding repos into our mature systems — intuitive and counterintuitive, with honest negatives. 11 selftests, 403 checks, 0 failures (`bash labs/encoding-experiments/run_all.sh`). Full study: [`../situations/arch/ENCODING-GEMS-STUDY.md`](../situations/arch/ENCODING-GEMS-STUDY.md). Top gems that paid off: **delta-predict + lossless code → 187× smaller ActiveLog budget log**; **Reed–Solomon around the compressed log → the hash chain can repair, not just detect**; **4-bit TurboQuant → 0.945 recall@10 at ⅛ size (exact with rerank)**.
