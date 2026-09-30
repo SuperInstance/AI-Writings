@@ -199,5 +199,23 @@ with tempfile.TemporaryDirectory() as d:
           and st2["branches"]["main"]["tones"]["qwen"] == "go stranger")
     check("resume ledger still one chain", K.Ledger.load(open(os.path.join(d, "ledger.jsonl")).read()).verify()["intact"])
 
+# 17. parallel branches == sequential branches (state), ledger stays one intact chain
+def fork3(par):
+    with tempfile.TemporaryDirectory() as d:
+        import contextlib, io
+        mv = os.path.join(d, "m.json")
+        with contextlib.redirect_stdout(io.StringIO()):
+            C.main(["--out", d, "--rounds", "1", "--question", "rank-one luma"])
+            json.dump([{"op": "branch", "from": "main", "at": "main.t2", "name": "b1"},
+                       {"op": "zoom", "branch": "main", "turn": "main.t4", "name": "z", "cells": ["hy3", "glm"]}], open(mv, "w"))
+            C.main(["--out", d, "--resume", "--moves", mv, "--rounds", "2", "--parallel", str(par)])
+        st = json.load(open(os.path.join(d, "state.json")))
+        led = K.Ledger.load(open(os.path.join(d, "ledger.jsonl")).read())
+        return {k: [t["receipt"] for t in v["turns"]] for k, v in st["branches"].items()}, led.verify()["intact"], len(led.records)
+s_seq, ok_seq, n_seq = fork3(1)
+s_par, ok_par, n_par = fork3(4)
+check("parallel branches reach sequential state", s_seq == s_par and len(s_par) == 3)
+check("parallel ledger intact, same size", ok_par and ok_seq and n_par == n_seq)
+
 print("convo-quilt selftest: %d checks, %d failures" % (checks, fails))
 sys.exit(1 if fails else 0)

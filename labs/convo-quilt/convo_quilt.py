@@ -11,7 +11,8 @@
 
 Offline by default (stub model). `python3 convo_quilt.py --help` for the live loop.
 """
-import argparse, copy, json, os, re, sys, time
+import argparse, copy, json, os, re, sys, threading, time
+from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "quilt-kernel"))
@@ -133,6 +134,7 @@ class Forest:
         self.caller, self.jev, self.draw = caller, jev, draw
         self.ledger = K.Ledger(dev="convo-quilt", path=ledger_path)
         self.errors = []
+        self._lock = threading.Lock()   # branches may run in parallel; the ledger stays one chain
 
     def add(self, q):
         if q.name in self.branches:
@@ -142,7 +144,8 @@ class Forest:
 
     def _log(self, cell, inp, product, bud):
         ih, ph = K.content_hash(inp), K.content_hash(product)
-        return self.ledger.emit("cell.tick", {"cell": cell, "input_hash": ih, "product_hash": ph,
+        with self._lock:
+            return self.ledger.emit("cell.tick", {"cell": cell, "input_hash": ih, "product_hash": ph,
                                               "activation": K.activation(cell, ih, ph),
                                               "product": product, "budget": bud})
 
@@ -155,7 +158,8 @@ class Forest:
         try:
             r = self.caller(c.provider, c.model, msgs, max_tokens=c.max_tokens)
         except Exception as e:
-            self.errors.append({"branch": bname, "cell": cell, "model": c.model, "error": str(e)[:160]})
+            with self._lock:
+                self.errors.append({"branch": bname, "cell": cell, "model": c.model, "error": str(e)[:160]})
             self._log("conductor", {"op": "call-failed", "branch": bname, "cell": cell},
                       {"error": str(e)[:160]}, K.budget(reqs="none"))
             return None
@@ -400,6 +404,7 @@ def main(argv=None):
     ap.add_argument("--auto", action="store_true", help="apply heuristic auto_moves at the pause")
     ap.add_argument("--cells", default="", help="comma list of roster names (default all)")
     ap.add_argument("--no-jev", action="store_true")
+    ap.add_argument("--parallel", type=int, default=4, help="branches played concurrently (1 = sequential)")
     a = ap.parse_args(argv)
     os.makedirs(a.out, exist_ok=True)
     live = a.play
@@ -423,10 +428,15 @@ def main(argv=None):
                 print("applied", m["op"], m.get("name") or m.get("branch"))
             except Refusal as e:
                 print("REFUSED", e)
-    for b in [b for b, q in f.branches.items() if q.alive]:
+    alive = [b for b, q in f.branches.items() if q.alive]
+
+    def play(b):
         for _ in range(a.rounds):
             f.round(b)
         f.score_turns(b)
+    with ThreadPoolExecutor(max(1, a.parallel)) as ex:
+        list(ex.map(play, alive))
+    for b in alive:
         if a.auto:
             for m in auto_moves(f, b, len(f.ledger.records)):
                 f.apply(m)
