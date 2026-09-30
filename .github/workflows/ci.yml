@@ -18,14 +18,27 @@ jobs:
       # inside the corpus. The previous job (pip install -e . 2>/dev/null)
       # could not work at all -- the repo has no packaging metadata -- and
       # it hid its own error text. A muted non-gate is worse than none.
-      - name: every .md is non-empty
+      # Intentional placeholder holds are registered in
+      # .writings-gate-allowlist; the gate fires on any empty file NOT
+      # listed there, so a new empty file still fails CI.
+      - name: every .md is non-empty (allowlist-aware)
         run: |
           python3 - <<'PYEOF'
           import pathlib, sys
-          bad = [p for p in pathlib.Path('.').rglob('*.md')
-                 if p.stat().st_size == 0 or len(p.read_text(errors='ignore').strip()) < 20]
-          for p in bad: print(f"EMPTY/TRUNCATED: {p}")
-          print(f"checked files, bad={len(bad)}")
+          allow = set()
+          al = pathlib.Path('.writings-gate-allowlist')
+          if al.exists():
+              allow = {l.strip() for l in al.read_text().splitlines()
+                       if l.strip() and not l.strip().startswith('#')}
+          bad = []
+          for p in pathlib.Path('.').rglob('*.md'):
+              rel = str(p)
+              if rel in allow:
+                  continue
+              if p.stat().st_size == 0 or len(p.read_text(errors='ignore').strip()) < 20:
+                  bad.append(rel)
+          for x in bad: print(f"EMPTY/TRUNCATED: {x}")
+          print(f"empty/truncated: {len(bad)} (allowlist holds: {len(allow)})")
           sys.exit(1 if bad else 0)
           PYEOF
 
