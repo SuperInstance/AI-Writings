@@ -70,6 +70,12 @@ PROMPTS = ["the cat ", "the dog s", "a cat and", "the rat ", "the dog ate", "on 
            "the cat and the", "dog sat on", "a rat", "the frog ate", "mat. the", "cat sat"]
 
 
+# Out-of-distribution situations: words and letters the corpus never contains (ML-1b).
+OOD_PROMPTS = ["zebra quiz", "xylophone", "quick brown fox", "jumps over", "lazy vex",
+               "my big jug", "wizard kept", "job of frozen", "quartz sphinx", "heavy box",
+               "fjord nymph", "glib jocks", "vow of kings", "dumb waltz", "pyx judge", "the quiz"]
+
+
 def run_route(model, name, prompt, n=N_TOKENS):
     r = ROUTES[name]
     if isinstance(r, tuple) and r[0] == "gate":
@@ -367,6 +373,25 @@ def recall_experiment(model, runs, dev="edge", route="q8", prompts=PROMPTS, k=3)
             "embedder": emb.id, "semantic": emb.semantic}
 
 
+def ood_experiment(model, routes=("q8", "gate-q8", "trust-q8"), dev="accel"):
+    """Does the corpus-calibrated eps still hold on text the corpus never contained?"""
+    C.use_device(dev)
+    out = {r: {"certified": 0} for r in routes}
+    ver = fixed = 0
+    for p in OOD_PROMPTS:
+        a = run_route(model, "fp", p)
+        for r in routes:
+            b = run_route(model, r, p)
+            out[r]["certified"] += bt.backtest_pair(a, b)["status"] == "certified"
+            if r == "trust-q8":
+                g = b[-1]["body"]["chosen"]["gate"]
+                ver += g["verifies"]
+                fixed += g["fixed"]
+    C.use_device("edge")
+    return {"situations": len(OOD_PROMPTS), "device": dev, "routes": out,
+            "trust_verifies": ver, "trust_fixed": fixed, "tokens": len(OOD_PROMPTS) * N_TOKENS}
+
+
 # ---- the whole report -------------------------------------------------------------------
 
 def python_wall(model, name, prompt="the cat ", reps=3):
@@ -396,6 +421,7 @@ def report(model=None, fit=None, timing=False):
     rep["pcache"] = pcache_experiment(model)
     rep["at_rest"] = at_rest_experiment(model, sample)
     rep["recall"] = recall_experiment(model, runs)
+    rep["ood"] = ood_experiment(model)
     rep["report_hash"] = al.content_hash(rep)
     if timing:   # sidecar: real python wall time, best of 3; NOT hashed, NOT logged
         rep["python_wall_ms"] = {n: python_wall(model, n) for n in ROUTES}
@@ -451,6 +477,11 @@ def _fmt(rep):
     L.append("   activation log %d records: jsonl %d B, jsonl+lzma %d B, ALR1+RS %d B, exact=%s" % (
         a["log_records"], a["log_jsonl_bytes"], a["log_jsonl_lzma_bytes"],
         a["log_alr1_rs_bytes"], a["log_roundtrip_exact"]))
+    o = rep["ood"]
+    L.append("== out-of-distribution (%d situations, %s): certified %s; trust-q8 verifies %d/%d,"
+             " fixed %d" % (o["situations"], o["device"],
+                            {k: v["certified"] for k, v in o["routes"].items()},
+                            o["trust_verifies"], o["tokens"], o["trust_fixed"]))
     c = rep["recall"]
     L.append("== recall (%s held on %d/%d situations; majority %.4f): LOO 3-NN %s" % (
         c["route"], c["held"], c["situations"], c["majority_baseline"], c["loo_knn_acc"]))

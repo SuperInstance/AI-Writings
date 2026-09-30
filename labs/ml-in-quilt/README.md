@@ -88,6 +88,9 @@ How to read the output:
     q8 alone. Across all runs the confident tokens were never wrong (0 fixes).
   - On `accel` it is the fastest exact-product route measured: 1.88 ms modeled, vs 2.43 for fp and
     2.37 for spec-q4. On `edge`, fp still wins.
+  - **Out of distribution** (`OOD_PROMPTS`: 16 pangram fragments whose words the corpus never
+    contains; accel profile), trust-q8 is again 16/16 with 0 fixes, against 12/16 for q8 alone.
+    It needed 44 verify passes for 192 tokens.
 
 ## 5. The contract
 - `cellml.run_greedy(model, prompt, n, plan, route)` and
@@ -103,7 +106,7 @@ How to read the output:
 - `run_gated(model, prompt, n, cheap_plan, exact_plan, route, eps, final_verify)`: with
   `final_verify=True` the route is exact by construction. With `False`, tokens trusted by
   calibration are never re-checked, and B7 decides whether the route holds.
-- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 64 checks, 0 failures` (~45 s).
+- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 66 checks, 0 failures` (~50 s).
 
 ## 6. Failure modes / scars
 - **Identity is not quality.** On "the rat ", fp writes `sat sathe ma` and q8 writes `sat on the m`.
@@ -126,8 +129,10 @@ How to read the output:
   echo-state net, not an LLM, and none of the numbers transfer to real models as values. What
   transfers is the *shape*: gate at the token, and price by device.
 - **trust-q8 is certified by calibration, not proven.** ε is the max |Δlogit| on the first half
-  of the corpus, and the 24 situations overlap that corpus. A logit error above ε on unseen text
-  would let a wrong confident token through. B7 would refuse such a run, but only after the fact.
+  of the corpus, and the 24 situations overlap that corpus. The 16 OOD situations also held.
+  However, after the first few characters generation drifts back to corpus-like text, so the OOD
+  test is weaker than it looks. A logit error above ε on unseen text would still let a wrong
+  confident token through. B7 would refuse such a run, but only after the fact.
   `gate-q8` pays roughly 14% more modeled time (accel) to remove this risk.
 
 ## 7. How it composes

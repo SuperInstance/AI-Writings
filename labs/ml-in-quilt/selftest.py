@@ -137,6 +137,13 @@ def main():
     check("replay == live (trust-q8, eps recorded in `chosen`)",
           S.replay(model, runs["edge"]["trust-q8"][S.PROMPTS[3]])["equal"])
 
+    O = rep["ood"]
+    check("OOD: trust-q8 certified on every unseen situation (%d/%d; q8 alone %d)"
+          % (O["routes"]["trust-q8"]["certified"], O["situations"], O["routes"]["q8"]["certified"]),
+          O["routes"]["trust-q8"]["certified"] == O["situations"]
+          and O["routes"]["q8"]["certified"] < O["situations"])
+    check("OOD: still 0 fixes (confident q8 tokens never wrong)", O["trust_fixed"] == 0, O)
+
     print("-- B4: preference is per situation and per device")
     b4e, b4a = rep["b4"]["edge"], rep["b4"]["accel"]
     check("edge workload over exact routes: fp alone on the frontier", b4e["workload"]["frontier"] == ["fp"])
