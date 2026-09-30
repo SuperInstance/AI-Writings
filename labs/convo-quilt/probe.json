@@ -1,0 +1,327 @@
+{
+ "probed_at": "2026-09-30T20:19:53Z",
+ "asked": [
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "tencent/Hy3",
+   "ok": true,
+   "wall_ms": 1298,
+   "tokens": {
+    "in": 25,
+    "out": 3
+   },
+   "sample": "Blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "thinkingmachines/Inkling-Small",
+   "ok": true,
+   "wall_ms": 1313,
+   "tokens": {
+    "in": 24,
+    "out": 86
+   },
+   "sample": "Blue is a calming color."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "nvidia/NVIDIA-Nemotron-3.5-Lightning",
+   "ok": true,
+   "wall_ms": 1808,
+   "tokens": {
+    "in": 26,
+    "out": 2
+   },
+   "sample": "Blue"
+  },
+  {
+   "retried_2500": true,
+   "provider": "deepinfra",
+   "model": "meta-models/Muse-Glimmer-30B",
+   "ok": true,
+   "wall_ms": 2719,
+   "tokens": {
+    "in": 66,
+    "out": 385
+   },
+   "sample": "Blue is a color."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "inclusionAI/Ling-3.0-flash",
+   "ok": true,
+   "wall_ms": 787,
+   "tokens": {
+    "in": 30,
+    "out": 18
+   },
+   "sample": "Blue is a color."
+  },
+  {
+   "provider": "deepinfra",
+   "model": "ibm-granite/granite-4.2-30b",
+   "ok": false,
+   "error": "empty content (reasoning=10470 chars)"
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "Qwen/Qwen3.8-Flash",
+   "ok": true,
+   "wall_ms": 3730,
+   "tokens": {
+    "in": 71,
+    "out": 114
+   },
+   "sample": "The color is blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "XiaomiMiMo/MiMo-V2.6-Pro",
+   "ok": true,
+   "wall_ms": 6774,
+   "tokens": {
+    "in": 17,
+    "out": 16
+   },
+   "sample": "Blue."
+  }
+ ],
+ "extra": [
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "ok": true,
+   "wall_ms": 1149,
+   "tokens": {
+    "in": 14,
+    "out": 3
+   },
+   "sample": "Black."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "zai-org/GLM-5.3-Flash",
+   "ok": true,
+   "wall_ms": 2138,
+   "tokens": {
+    "in": 22,
+    "out": 4
+   },
+   "sample": "Blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "moonshotai/Kimi-K3",
+   "ok": true,
+   "wall_ms": 6796,
+   "tokens": {
+    "in": 98,
+    "out": 140
+   },
+   "sample": "Blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "Qwen/Qwen3.8-27B",
+   "ok": true,
+   "wall_ms": 2980,
+   "tokens": {
+    "in": 62,
+    "out": 84
+   },
+   "sample": "The color is blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "google/gemma-4-31B-it",
+   "ok": true,
+   "wall_ms": 1853,
+   "tokens": {
+    "in": 23,
+    "out": 6
+   },
+   "sample": "The color is blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "openai/gpt-oss-120b",
+   "ok": true,
+   "wall_ms": 2646,
+   "tokens": {
+    "in": 64,
+    "out": 88
+   },
+   "sample": "Blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "XiaomiMiMo/MiMo-V2.6-Flash",
+   "ok": true,
+   "wall_ms": 2779,
+   "tokens": {
+    "in": 17,
+    "out": 16
+   },
+   "sample": "Blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepinfra",
+   "model": "thinkingmachines/Inkling",
+   "ok": true,
+   "wall_ms": 18597,
+   "tokens": {
+    "in": 24,
+    "out": 54
+   },
+   "sample": "The sky is blue."
+  },
+  {
+   "provider": "zai",
+   "model": "glm-4.6",
+   "ok": false,
+   "error": "HTTP 429: {\"error\":{\"code\":\"1113\",\"message\":\"Insufficient balance or no resource package. Please recharge.\"}}"
+  },
+  {
+   "provider": "zai",
+   "model": "glm-5.3-flash",
+   "ok": false,
+   "error": "HTTP 429: {\"error\":{\"code\":\"1113\",\"message\":\"Insufficient balance or no resource package. Please recharge.\"}}"
+  },
+  {
+   "provider": "zai",
+   "model": "glm-5.3",
+   "ok": false,
+   "error": "HTTP 429: {\"error\":{\"code\":\"1113\",\"message\":\"Insufficient balance or no resource package. Please recharge.\"}}"
+  },
+  {
+   "retried_2500": false,
+   "provider": "zai-coding",
+   "model": "glm-4.6",
+   "ok": true,
+   "wall_ms": 2606,
+   "tokens": {
+    "in": 22,
+    "out": 60
+   },
+   "sample": "The sky is blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "zai-coding",
+   "model": "glm-5.3",
+   "ok": true,
+   "wall_ms": 1860,
+   "tokens": {
+    "in": 22,
+    "out": 26
+   },
+   "sample": "Blue is the color."
+  },
+  {
+   "provider": "kimi",
+   "model": "kimi-k3",
+   "ok": false,
+   "error": "HTTP 429: {\"error\":{\"message\":\"Your account org-74284a792f0743efbe6172ff90745c0c \\u003cak-fcw8pkb3f7q111cgqho1\\u003e is suspended due to insufficient balance, p"
+  },
+  {
+   "provider": "kimi",
+   "model": "kimi-k2.6",
+   "ok": false,
+   "error": "HTTP 429: {\"error\":{\"message\":\"Your account org-74284a792f0743efbe6172ff90745c0c \\u003cak-fcw8pkb3f7q111cgqho1\\u003e is suspended due to insufficient balance, p"
+  },
+  {
+   "provider": "kimi",
+   "model": "kimi-latest",
+   "ok": false,
+   "error": "HTTP 429: {\"error\":{\"message\":\"Your account org-74284a792f0743efbe6172ff90745c0c \\u003cak-fcw8pkb3f7q111cgqho1\\u003e is suspended due to insufficient balance, p"
+  },
+  {
+   "retried_2500": false,
+   "provider": "deepseek",
+   "model": "deepseek-chat",
+   "ok": true,
+   "wall_ms": 940,
+   "tokens": {
+    "in": 14,
+    "out": 2
+   },
+   "sample": "Blue."
+  },
+  {
+   "provider": "groq",
+   "model": "llama-3.3-70b-versatile",
+   "ok": false,
+   "error": "HTTP 404: {\"error\":{\"message\":\"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.\",\"type\":\"invalid_request_error\",\"code\":\"model"
+  },
+  {
+   "retried_2500": false,
+   "provider": "groq",
+   "model": "openai/gpt-oss-120b",
+   "ok": true,
+   "wall_ms": 605,
+   "tokens": {
+    "in": 81,
+    "out": 88
+   },
+   "sample": "Blue."
+  },
+  {
+   "retried_2500": false,
+   "provider": "groq",
+   "model": "qwen/qwen3.8-27b",
+   "ok": true,
+   "wall_ms": 308,
+   "tokens": {
+    "in": 22,
+    "out": 3
+   },
+   "sample": "Blue."
+  }
+ ],
+ "jev": {
+  "ok": true,
+  "shape": "{\"model\": \"jev-1.13.0\", \"answers\": {\"ideation\": {\"type\": \"score\", \"score\": 1.7, \"confidence\": 0.39, \"legend\": {\"0\": \"stuck\", \"1\": \"flat\", \"2\": \"useful\", \"3\": \"generative\", \"4\": \"breakthrough\"}, \"probabilities\": {\"0\": 0.01, \"1\": 0.5, \"2\": 0.26, \"3\": 0.23, \"4\": 0.0}}}, \"usage\": {\"input_tokens\": 327, \""
+ },
+ "moth": {
+  "ok": true,
+  "job": "dbbf4c1f-b5ba-43f7-b4b0-e2552c34949c",
+  "heads_of_64": 35,
+  "draw_mod5": 0
+ },
+ "working": [
+  "deepinfra:tencent/Hy3",
+  "deepinfra:thinkingmachines/Inkling-Small",
+  "deepinfra:nvidia/NVIDIA-Nemotron-3.5-Lightning",
+  "deepinfra:meta-models/Muse-Glimmer-30B",
+  "deepinfra:inclusionAI/Ling-3.0-flash",
+  "deepinfra:Qwen/Qwen3.8-Flash",
+  "deepinfra:XiaomiMiMo/MiMo-V2.6-Pro",
+  "deepinfra:deepseek-ai/DeepSeek-V4-Flash",
+  "deepinfra:zai-org/GLM-5.3-Flash",
+  "deepinfra:moonshotai/Kimi-K3",
+  "deepinfra:Qwen/Qwen3.8-27B",
+  "deepinfra:google/gemma-4-31B-it",
+  "deepinfra:openai/gpt-oss-120b",
+  "deepinfra:XiaomiMiMo/MiMo-V2.6-Flash",
+  "deepinfra:thinkingmachines/Inkling",
+  "zai-coding:glm-4.6",
+  "zai-coding:glm-5.3",
+  "deepseek:deepseek-chat",
+  "groq:openai/gpt-oss-120b",
+  "groq:qwen/qwen3.8-27b"
+ ]
+}
