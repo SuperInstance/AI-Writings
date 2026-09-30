@@ -67887,19 +67887,19 @@
     "filename": "README.md",
     "path": "labs/README.md",
     "title": "labs — small, working, reusable tools",
-    "description": "dependency graph + through-line) and [`docs/using-the-labs.md`](docs/using-the-labs.md): a run-the-whole-loop walkthrough with real output. | lab | what it does | builds on | |---|---|---| | [`jev-fol...",
+    "description": "dependency graph + through-line) and [`docs/using-the-labs.md`](docs/using-the-labs.md): a run-the-whole-loop walkthrough with real output.",
     "folder": "labs",
     "topic": "Labs",
     "genres": [
-      "Music"
+      "Technical"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 658,
+    "word_count": 676,
     "date": "2026-09-29",
-    "size_bytes": 8139
+    "size_bytes": 13186
   },
   {
     "filename": "README.md",
@@ -68083,6 +68083,42 @@
     "size_bytes": 8951
   },
   {
+    "filename": "EXTRACTION.md",
+    "path": "labs/quilt-kernel/EXTRACTION.md",
+    "title": "EXTRACTION — turning `labs/quilt-kernel` into a standalone repo",
+    "description": "Status: **manifest only. Nothing has been extracted or published.** This file says what would move, what would not, and what must be true first. Every command below was run from this directory on this...",
+    "folder": "quilt-kernel",
+    "topic": "Quilt Kernel",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 700,
+    "date": "2026-09-30",
+    "size_bytes": 8138
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/quilt-kernel/README.md",
+    "title": "quilt-kernel",
+    "description": "Status: **extraction-ready, not yet extracted.** Lives at `labs/quilt-kernel/` so it can be tested against the labs it came from; [`EXTRACTION.md`](EXTRACTION.md) is the plan for making it its own rep...",
+    "folder": "quilt-kernel",
+    "topic": "Quilt Kernel",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 720,
+    "date": "2026-09-30",
+    "size_bytes": 7846
+  },
+  {
     "filename": "README.md",
     "path": "labs/polyform/README.md",
     "title": "polyform — the same kernel, checked in four formalisms",
@@ -68134,7 +68170,7 @@
     "style": "Dialogue",
     "word_count": 697,
     "date": "2026-09-30",
-    "size_bytes": 10926
+    "size_bytes": 14132
   },
   {
     "filename": "README.md",
