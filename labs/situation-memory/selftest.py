@@ -179,6 +179,45 @@ def main():
     check("a different embedder plugs into the same interface",
           alt.verify_chain()[0] and len(ah) == 3 and alt.cells[0]["embedder"] == "selftest/only-rel")
 
+    # 9. playtest hardening (PLAYTEST-REPORT.md)
+    def refuses(f):
+        try:
+            f()
+        except ValueError:
+            return True
+        except Exception:
+            return False
+        return False
+    small = sm.MissionIndex()
+    for i, b in enumerate(["harvest and verify a cell", "draw dice for the lottery", "build the polyform ports"]):
+        small.add(planted("pt-%d" % i, b, ["OUTCOME"]))
+    check("PT: negative / non-int k is refused (was: negative k silently returned all-but-the-last)",
+          refuses(lambda: small.find_similar_missions("harvest cell", k=-1)) and refuses(lambda: small.find_similar_missions("harvest cell", k=2.0))
+          and small.find_similar_missions("harvest cell", k=0) == [])
+    check("PT: zero / negative / NaN / unknown-block weights are ValueError (was ZeroDivisionError or negative distances)",
+          all(refuses(lambda w=w: small.find_similar_missions("harvest cell", weights=w))
+              for w in ({"text": 0}, {"text": -1}, {"text": float("nan")}, {"zzz": 1}, {"rel": 1})))
+    check("PT: empty / stopword-only / non-Latin text query is refused (was: every mission at distance 1.0, ordered by sid)",
+          all(refuses(lambda q=q: small.find_similar_missions(q)) for q in ("", "the a an of", "日本語のテスト")))
+    check("PT: indexing an empty / None transcript is a ValueError (was IndexError / TypeError)",
+          refuses(lambda: small.add([])) and refuses(lambda: small.add(None)))
+    check("PT: exclude='sid' (a bare string) excludes that sid (was: set('sid') = characters, silently ignored)",
+          all(h["sid"] != "pt-0" for h in small.find_similar_missions("harvest verify cell", k=5, exclude="pt-0")))
+    check("PT: negated outcomes are not DONE ('NOT done' / 'not verified' -> OPEN)",
+          sm.classify_outcome("NOT done") == "OPEN" and sm.classify_outcome("not verified") == "OPEN" and sm.classify_outcome("verified") == "DONE")
+    check("PT: _fin() sanitises NaN/inf/garbage budget numbers (so they cannot poison vectors)",
+          sm._fin(float("nan")) == 0.0 and sm._fin("abc") == 0.0 and sm._fin(None) == 0.0 and sm._fin("3") == 3.0 and sm._fin(float("inf")) == 0.0)
+    check("KNOWN LIMIT: the stand-in embedder is ASCII-lexical: two different non-Latin briefs embed identically",
+          sm.MissionEmbedder().embed_text("日本語") == sm.MissionEmbedder().embed_text("中文字"))
+    dup = sm.MissionIndex()
+    dup.add(planted("same", "harvest cell", ["OUTCOME"])); dup.add(planted("same", "harvest cell", ["OUTCOME"]))
+    check("KNOWN LIMIT: MissionIndex.add does not dedupe sids (build_index cannot produce dups: corpus is a dict keyed by sid)",
+          [h["sid"] for h in dup.find_similar_missions("harvest cell", k=5)] == ["same", "same"])
+    tl = sm.MissionIndex(); tl.add(planted("t", "x y z", ["OUTCOME"]))
+    tl.cells[0]["outcome"] = "SCAR"
+    tl.cells[0]["hash"] = sm.hx(sm.fnv1a64(sm.canon({k: v for k, v in tl.cells[0].items() if k != "hash"})))
+    check("KNOWN LIMIT: tamper + re-hash of the LAST cell passes verify_chain (anchor head() externally)", tl.verify_chain()[0])
+
     print("situation-memory selftest: %d checks, %d failures" % (CHECKS["n"], CHECKS["fail"]))
     return 0 if CHECKS["fail"] == 0 else 1
 
