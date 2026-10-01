@@ -119,5 +119,19 @@ arch = AR.pack_many(runs2)
 check("ALRM multi-run archive round-trips every run", A.canon(AR.unpack_many(arch)) == A.canon(runs2))
 check("ALRM archive of two runs is smaller than two ALR1 blobs", len(arch) < sum(len(AR.pack(r)) for r in runs2))
 
+# ---- playtest hardening (PLAYTEST-REPORT.md) ----------------------------------------------
+check("PT: add_budget('' + 'local') has no leading '+' (precedence bug: `-` bound tighter than `|`)",
+      A.add_budget(A.budget(reqs=""), A.budget(reqs="local"))["reqs"] == "local"
+      and A.add_budget(A.budget(reqs="net"), A.budget(reqs="local"))["reqs"] == "local+net")
+check("PT: budget_ok rejects inf / NaN / bool fields (they hash as non-JSON or as 1)",
+      not any(A.budget_ok(b) for b in (A.budget(usd=float("inf")), A.budget(usd=float("nan")),
+                                       A.budget(tokens={"a": True}), A.budget(wall_ms=True), A.budget(mem_mb=float("inf")))))
+try:
+    A.canon({"a": float("nan")}); nan_loud = False
+except ValueError:
+    nan_loud = True
+check("PT: canon() refuses NaN/Infinity instead of emitting non-JSON", nan_loud)
+check("PT: verify_chain / validate_envelope treat non-dict records as invalid (was TypeError)",
+      A.verify_chain([1]) is False and A.verify_chain([None]) is False and A.verify_chain([]) is True)
 print("activeledger selftest: %d checks, %d failures" % (checks, fails))
 sys.exit(1 if fails else 0)

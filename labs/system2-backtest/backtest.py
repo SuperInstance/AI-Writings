@@ -58,6 +58,9 @@ def _fnv_chain_ok(records: list[dict]) -> bool:
 def replay_route(records: list[dict]) -> dict:
     """Deterministically replay ONE route's run: re-sum its budget from the records and
     audit it against the declared ledger.transaction total. Returns a route summary."""
+    if not isinstance(records, list) or not all(isinstance(r, dict) and "type" in r and "seq" in r and "mono" in r
+                                                for r in records):
+        raise Refusal("records must be a list of ActiveLog envelopes")
     txs = [r for r in records if r["type"] == "ledger.transaction"]
     if len(txs) != 1:
         raise Refusal("a route run must contain exactly one ledger.transaction (got %d)" % len(txs))
@@ -73,6 +76,8 @@ def replay_route(records: list[dict]) -> dict:
     if al.canon(total) != al.canon(tx["total_budget"]):
         raise Refusal("replayed budget != declared total_budget (receipt does not replay)")
     label = tx.get("path") or tx.get("chosen") or tx.get("route")
+    if not isinstance(label, str):
+        raise Refusal("route label must be a string (got %s)" % type(label).__name__)
     product = {k: v for k, v in tx.items() if k not in NON_PRODUCT}
     monos = [r["mono"] for r in records]
     return {
@@ -174,6 +179,11 @@ def backtest_pair(records_a: list[dict], records_b: list[dict], quality: dict | 
         a, b = replay_route(records_a), replay_route(records_b)
     except Refusal as e:
         return _verdict({"status": "refused", "reason": "replay: %s" % e})
+    if a["route"] == b["route"]:
+        return _verdict({"status": "refused", "reason": "both routes carry the label %r — verdicts are keyed by label" % a["route"]})
+    if quality is not None and not (isinstance(quality, dict) and all(
+            v is None or (isinstance(v, (int, float)) and not isinstance(v, bool)) for v in quality.values())):
+        return _verdict({"status": "refused", "reason": "quality must be {'A'|'B': number}"})
     if a["product_hash"] != b["product_hash"] or al.canon(a["product"]) != al.canon(b["product"]):
         return _verdict({"status": "refused",
                          "reason": "products differ — never price a cheaper different answer",
@@ -195,15 +205,20 @@ def backtest_corpus(cases: list[dict], labels: tuple[str, str]) -> dict:
     """cases: [{'id', 'a': records|None, 'b': records|None}]. A route that could not handle a
     case (None) is recorded as `inapplicable` (a coverage fact, not a comparison). Workload
     verdict = the same axis logic over the SUM of certified cases only."""
+    if labels[0] == labels[1]:
+        raise ValueError("labels must be distinct (verdicts are keyed by label)")
     per, acc_a, acc_b = [], [], []
     refused = inapplicable = 0
-    for c in cases:
+    for i, c in enumerate(cases):
+        c = {"id": i, **c}
         if c["a"] is None or c["b"] is None:
             inapplicable += 1
             per.append({"id": c["id"], "status": "inapplicable",
                         "only": labels[1] if c["a"] is None else labels[0]})
             continue
         v = backtest_pair(c["a"], c["b"])
+        if v["status"] == "certified" and (labels[0] not in v["routes"] or labels[1] not in v["routes"]):
+            v = {"status": "refused", "reason": "case routes %s do not match labels %s" % (sorted(v["routes"]), list(labels))}
         if v["status"] != "certified":
             refused += 1
             per.append({"id": c["id"], "status": "refused", "reason": v["reason"]})
