@@ -89,5 +89,35 @@ check("same input -> same search", a.code_search(vecs[5], 10) == b.code_search(v
 check("measure() deterministic", q.measure(n=200, m=10, dim=32)["recall"]
       == q.measure(n=200, m=10, dim=32)["recall"])
 
+# --- playtest hardening (PLAYTEST-REPORT.md)
+def raises(f):
+    try:
+        f()
+    except ValueError:
+        return True
+    except Exception:
+        return False
+    return False
+pi = q.CodeIndex(8, keep_float=True)
+for v in q.synth(30, 8, 1):
+    pi.add(v)
+qq = q.synth(1, 8, 99)[0]
+check("PT: negative k is refused (was: silently returned n-1 results)", raises(lambda: pi.code_search(qq, -1)) and raises(lambda: pi.float_search(qq, -1)))
+check("PT: k=0 -> [] and k>n -> n results", pi.code_search(qq, 0) == [] and len(pi.code_search(qq, 1000)) == 30)
+check("PT: NaN / inf vectors are refused (were: silently indexed as an all-zero code)",
+      raises(lambda: q.CodeIndex(8).add([float("nan")] * 8)) and raises(lambda: q.CodeIndex(8).add([float("inf")] + [0.0] * 7))
+      and raises(lambda: pi.code_search([float("nan")] * 8, 3)))
+check("PT: wrong-dimension add/query is a ValueError (assert vanishes under -O; query used to truncate via zip)",
+      raises(lambda: q.CodeIndex(8).add([1.0] * 7)) and raises(lambda: pi.code_search([1.0] * 7, 3)))
+base = [1.0, -2.0, 3.0, 0.5, -0.25, 4.0, -1.5, 2.0]
+check("PT: scale-invariance incl. 1e200 / 1e-200 (was: overflow/underflow -> constant all-7 code)",
+      all(q.CodeIndex(8).add([x * sc for x in base]).codes == q.CodeIndex(8).add(base).codes for sc in (1e200, 1e-200, 1e-3, 1e3)))
+check("PT: float_search without keep_float is a clear ValueError", raises(lambda: q.CodeIndex(8).float_search(qq, 3)))
+check("PT: measure(n=0 / m=0) is a clear ValueError", raises(lambda: q.measure(n=0, m=2, dim=8)) and raises(lambda: q.measure(n=9, m=0, dim=8)))
+check("PT: exact duplicates tie-break by id (deterministic)", (lambda ix: (ix.add([1.0] * 8), ix.add([1.0] * 8), ix.code_search([1.0] * 8, 2))[2])(q.CodeIndex(8)) == [0, 1])
+tx = q.CodeIndex(8); tx.add([1.0] * 8); tx.add([2.0] + [1.0] * 7)
+tx.cells[-1].codes = b"\x00" * 4; tx.cells[-1].hash = q.fnv1a64(q.struct.pack("<QQ", 1, tx.cells[-1].prev_hash) + tx.cells[-1].codes)
+check("KNOWN LIMIT: tamper + re-hash of the LAST cell is undetectable without an external anchor (quilt-kernel has one; this lab does not)", tx.verify_chain())
+
 print(f"code-real-quant selftest: {checks} checks, {fails} failures")
 sys.exit(1 if fails else 0)
