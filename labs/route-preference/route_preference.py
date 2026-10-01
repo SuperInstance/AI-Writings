@@ -39,6 +39,7 @@ CLI:      python3 route_preference.py [--json]   # demo over the example quilts'
 from __future__ import annotations
 
 import json
+import math
 import os
 import sys
 
@@ -115,13 +116,35 @@ def _standing_ok(standing) -> str | None:
     return None
 
 
+def _axes_ok(named_axes: dict) -> str | None:
+    """Names must be strings; every axis vector needs finite, non-negative, non-bool numbers
+    (NaN/inf would make every comparison False and then crash or mis-rank)."""
+    for n, ax in named_axes.items():
+        if not isinstance(n, str):
+            return "route names must be strings, got %r" % (n,)
+        if not isinstance(ax, dict):
+            return "axes for %r must be a dict" % n
+        for k in ("wall_ms", "usd", "tokens", "storage_bytes"):
+            v = ax.get(k)
+            if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) or v < 0:
+                return "axes[%r][%r] must be a finite non-negative number, got %r" % (n, k, v)
+    return None
+
+
 def prefer_axes(named_axes: dict, standing: dict | None = None, weights: dict | None = None) -> dict:
     """Preference over already-certified axis vectors {name: {wall_ms, usd, tokens, storage_bytes}}.
     The caller owns the product-identity gate; use `prefer` to have it run for you."""
+    if standing is not None and not isinstance(standing, dict):
+        return _refused("standing must be {route: non-negative int}")
     standing = dict(standing or {})
     weights = weights or {}
-    if len(named_axes) < 2:
+    if not isinstance(weights, dict) or not all(isinstance(w, dict) for w in weights.values()):
+        return _refused("weights must be {priority: {route: int}} (e.g. PreferenceBook.weights)")
+    if not isinstance(named_axes, dict) or len(named_axes) < 2:
         return _refused("need >= 2 routes to express a preference")
+    bad = _axes_ok(named_axes)
+    if bad:
+        return _refused(bad)
     bad = _standing_ok(standing)
     if bad:
         return _refused(bad)
@@ -166,10 +189,17 @@ def prefer_axes(named_axes: dict, standing: dict | None = None, weights: dict | 
 def prefer(routes, standing: dict | None = None, weights: dict | None = None) -> dict:
     """routes: [(name, records)]. B7's gate runs FIRST: every route must replay, and every
     product must equal the first route's — otherwise `refused`, and no budget is exposed."""
-    routes = list(routes)
+    try:
+        routes = list(routes)
+        if not all(len(r) == 2 for r in routes):
+            raise TypeError
+    except TypeError:
+        return _refused("routes must be a list of (name, records) pairs")
     if len(routes) < 2:
         return _refused("need >= 2 routes to express a preference")
     names = [n for n, _ in routes]
+    if not all(isinstance(n, str) for n in names):
+        return _refused("route names must be strings")
     if len(set(names)) != len(names):
         return _refused("route names must be unique")
     reps = {}

@@ -163,5 +163,29 @@ check("the cheap route is preferred for fast and cheap on every quilt",
           and v["workload"]["preferred_when"]["cheap"] == v["labels"][0] for v in demo.values()))
 check("demo is deterministic", rp.demo() == demo)
 
+# ---- playtest hardening (PLAYTEST-REPORT.md) ----------------------------------------------
+_ax = lambda w=1, u=1.0, t=0, st=0: {"wall_ms": w, "usd": u, "tokens": t, "storage_bytes": st}
+_A = {"a": _ax(1, 2), "b": _ax(2, 1)}
+check("PT: prefer_axes refuses (never raises) on non-string route names",
+      rp.prefer_axes({1: _ax(), "b": _ax()})["status"] == "refused" and rp.prefer_axes({("a",): _ax(), ("b",): _ax()})["status"] == "refused")
+check("PT: prefer_axes refuses NaN / inf / negative / bool / str / missing axis values (was TypeError/KeyError/IndexError, or silently ranked)",
+      all(rp.prefer_axes({"a": bad, "b": _ax()})["status"] == "refused"
+          for bad in (_ax(float("nan")), _ax(1, float("inf")), _ax(1, -5), _ax(True), _ax("1"), {"wall_ms": 1}, 5)))
+check("PT: prefer_axes refuses malformed weights/standing (was AttributeError/TypeError)",
+      all(rp.prefer_axes(_A, weights=w)["status"] == "refused" for w in ({"cheap": "x"}, [1], {"cheap": 3}))
+      and rp.prefer_axes(_A, standing=[1])["status"] == "refused")
+check("PT: prefer() refuses non-pair routes / non-string names (was ValueError/TypeError)",
+      all(rp.prefer(r)["status"] == "refused" for r in ({"a": [], "b": []}, [1, 2], [(1, []), ("a", [])], [("a", None), ("b", None)])))
+check("PT: hebbian weights never override a STRICT win, even at 10**12",
+      rp.prefer_axes({"a": _ax(1, 1), "b": _ax(1, 2)}, weights={"cheap": {"b": 10 ** 12}})["preferred_when"]["cheap"] == "a")
+_bk = rp.PreferenceBook()
+for _ in range(500):
+    _bk.observe(rp.prefer_axes(_A))
+check("PT: 500 observations keep every weight inside [0, SCALE]", all(0 <= w <= rp.SCALE for v in _bk.weights.values() for w in v.values()))
+check("PT: all-identical routes are a tie broken only by weights, then name (deterministic)",
+      (lambda r: r["class"] == "trade-off" and r["frontier"] == ["a", "b"] and r["preferred_when"]["cheap"] == "a")(rp.prefer_axes({"a": _ax(), "b": _ax()}))
+      and rp.prefer_axes({"a": _ax(), "b": _ax()}, weights={"cheap": {"b": 9}})["preferred_when"]["cheap"] == "b")
+check("KNOWN LIMIT: usd is compared as an exact float (0.1+0.2 vs 0.3 differ by 1 ulp => 'dominant', not tied)",
+      rp.prefer_axes({"a": _ax(1, 0.1 + 0.2), "b": _ax(1, 0.3)})["class"] == "dominant")
 print("route-preference selftest: %d checks, %d failures" % (checks, failures))
 sys.exit(1 if failures else 0)
