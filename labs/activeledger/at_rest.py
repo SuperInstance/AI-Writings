@@ -28,6 +28,7 @@ from __future__ import annotations
 import hashlib
 import json
 import lzma
+from struct import error as struct_error
 
 import activeledger as AL
 
@@ -276,16 +277,39 @@ def _xz(payload: bytes) -> bytes:
     return lzma.compress(payload, preset=9 | lzma.PRESET_EXTREME)
 
 
+MAX_PAYLOAD = 1 << 28   # 256 MiB decompressed: a hostile blob must not be an lzma bomb
+
+
 def _unxz(body: bytes) -> bytes:
     try:
-        return lzma.decompress(body)
+        d = lzma.LZMADecompressor()
+        out = d.decompress(body, max_length=MAX_PAYLOAD + 1)
+        if len(out) > MAX_PAYLOAD:
+            raise AtRestError("payload larger than %d bytes refused" % MAX_PAYLOAD)
+        if not d.eof:
+            raise AtRestError("payload corrupt: Compressed data ended before the end-of-stream marker was reached")
+        if d.unused_data:
+            raise AtRestError("payload corrupt: trailing data after the lzma stream")
+        return out
     except lzma.LZMAError as e:
         raise AtRestError("payload corrupt: %s" % e)
+
+
+def _structure(f, *a):
+    """Run a structural decode; ANY malformed-input failure surfaces as AtRestError, never IndexError/JSONDecodeError/..."""
+    try:
+        return f(*a)
+    except AtRestError:
+        raise
+    except (ValueError, IndexError, KeyError, TypeError, OverflowError, UnicodeError, ZeroDivisionError, RecursionError, MemoryError, struct_error) as e:
+        raise AtRestError("malformed payload: %s: %s" % (type(e).__name__, e))
 
 
 def _open(blob: bytes, magic: bytes) -> bytes:
     if blob[:4] != magic:
         raise AtRestError("not an %s blob" % magic.decode())
+    if len(blob) < 5:
+        raise AtRestError("truncated %s blob (no flags byte)" % magic.decode())
     inner = blob[5:]
     return rs_unwrap(inner) if blob[4] & FLAG_RS else inner
 
@@ -296,6 +320,8 @@ def _seal(magic: bytes, inner: bytes, repair: bool) -> bytes:
 
 def pack(records: list[dict], repair: bool = False) -> bytes:
     """One run -> ALR1 bytes."""
+    if not records:
+        raise AtRestError("refusing to pack an empty run")
     d = _dialect(records)
     blob = _seal(MAGIC, _head(records) + _xz(_payload(records, d)), repair)
     return blob[:4] + bytes([blob[4] | (FLAG_FNV if d else 0)]) + blob[5:]
@@ -304,14 +330,14 @@ def pack(records: list[dict], repair: bool = False) -> bytes:
 def unpack(blob: bytes) -> list[dict]:
     inner = _open(blob, MAGIC)
     d = 1 if blob[4] & FLAG_FNV else 0
-    return _checked(_from_payload(_unxz(inner[32:]), d), inner[:32], d)
+    return _checked(_structure(_from_payload, _unxz(inner[32:]), d), inner[:32], d)
 
 
 def pack_many(runs: list[list[dict]], repair: bool = False) -> bytes:
     """Many independent runs (each its own GENESIS-rooted chain) -> one ALRM archive:
     one head receipt per run, one shared lzma context (small runs share their strings)."""
-    if not runs:
-        raise AtRestError("no runs")
+    if not runs or not all(runs):
+        raise AtRestError("no runs (or an empty run)")
     ds = [_dialect(r) for r in runs]
     receipt = hashlib.sha256(b"".join(_head(r) for r in runs)).digest()
     joined = b"".join(_uv(len(p)) + p for p in (_payload(r, d) for r, d in zip(runs, ds)))
@@ -321,11 +347,11 @@ def pack_many(runs: list[list[dict]], repair: bool = False) -> bytes:
 def unpack_many(blob: bytes) -> list[list[dict]]:
     inner = _open(blob, MAGIC_MANY)
     r = _Reader(inner)
-    n = r.uv()
-    receipt = r.take(32)
-    ds = r.take(n)
+    n = _structure(r.uv)
+    receipt = _structure(r.take, 32)
+    ds = _structure(r.take, n)
     pr = _Reader(_unxz(inner[r.i:]))
-    runs = [_from_payload(pr.take(pr.uv()), ds[k]) for k in range(n)]
+    runs = [_structure(lambda k=k: _from_payload(pr.take(pr.uv()), ds[k])) for k in range(n)]
     if pr.i != len(pr.b):
         raise AtRestError("trailing bytes in archive")
     if hashlib.sha256(b"".join(_head(x) for x in runs)).digest() != receipt:
