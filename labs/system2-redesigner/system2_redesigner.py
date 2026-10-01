@@ -40,7 +40,7 @@ Library:  parse(obj) -> proposal | raises Invalid
           redesign(proposals) -> full report (gate + promote + tallies), report_hash
           crew_propose(models) -> (proposals, crew log)            # live only
 CLI:      python3 system2_redesigner.py [--json]                   # offline: built-in stubs
-          python3 system2_redesigner.py --live [--models a,b,c] [--moth] [--out runs/x.json]
+          python3 system2_redesigner.py --live [--models a,b,c] [--moth] [--bold] [--out runs/x.json]
 """
 
 from __future__ import annotations
@@ -422,10 +422,17 @@ STUBS = [
 # ---- live: the cheap-model crew --------------------------------------------------------
 
 CREW = ["deepseek-ai/DeepSeek-V4-Flash", "zai-org/GLM-5.3-Flash", "Qwen/Qwen3.8-Flash",
-        "moonshotai/Kimi-K3", "inclusionAI/Ling-3.0-flash", "openai/gpt-oss-120b"]
+        "moonshotai/Kimi-K3", "inclusionAI/Ling-3.0-flash", "openai/gpt-oss-120b",
+        "XiaomiMiMo/MiMo-V2.6-Pro", "tencent/Hy3"]
 
 
-def crew_prompt() -> str:
+BOLD = ("\nBE AGGRESSIVE this round: every proposal must DROP, REORDER or SUBSTITUTE at least one "
+        "reference step on some guarded path (e.g. lower for casefold, nfc for nfkc, str ops on "
+        "latin1, casefold before nfkc) where you believe it is still byte-identical. Wrong bets are "
+        "fine; they will be caught and logged.")
+
+
+def crew_prompt(bold: bool = False) -> str:
     ops = {k: "wall_ms=%d prod_bytes=%d" % (v["wall_ms"], v["storage_bytes"]["prod"])
            for k, v in OP_COST.items()}
     gs = {k: "wall_ms=%d prod_bytes=%d" % (v["wall_ms"], v["storage_bytes"]["prod"])
@@ -452,7 +459,7 @@ def crew_prompt() -> str:
         "ligatures, fullwidth, roman numerals, German sharp s, Turkish dotted I, Greek final sigma, "
         "unicode spaces). One wrong output and it is rejected. Ideas: reorderings, cheaper encodings, "
         "early exits, extra guarded fast paths.\n"
-        "Reply with ONLY a JSON array of 2 or 3 proposals, no prose." % (ops, gs))
+        "Reply with ONLY a JSON array of 2 or 3 proposals, no prose." % (ops, gs)) + (BOLD if bold else "")
 
 
 def extract_json_array(text: str):
@@ -470,11 +477,11 @@ def extract_json_array(text: str):
     return None
 
 
-def crew_propose(models: list[str], use_moth: bool = False):
+def crew_propose(models: list[str], use_moth: bool = False, bold: bool = False):
     """Ask each cheap model for proposals. Returns (proposal items, crew log). Failures are
     logged, never hidden. Moth (optional) rotates the gating order with an un-gameable draw."""
     import providers as pv
-    msgs = [{"role": "user", "content": crew_prompt()}]
+    msgs = [{"role": "user", "content": crew_prompt(bold)}]
     items, log = [], []
     for m in models:
         try:
@@ -538,7 +545,8 @@ def main(argv):
         models = CREW
         if "--models" in argv:
             models = argv[argv.index("--models") + 1].split(",")
-        items, crew = crew_propose(models, use_moth="--moth" in argv)
+        items, crew = crew_propose(models, use_moth="--moth" in argv, bold="--bold" in argv)
+        crew["bold"] = "--bold" in argv
         rep = redesign(items)
         rep["crew"] = crew
         out = argv[argv.index("--out") + 1] if "--out" in argv else None
