@@ -125,8 +125,21 @@ class SecretDraws:
     name = "secret (os CSPRNG)"
     predictable = False
 
+    _pin: "random.Random | None" = None     # selftest-only global pin (see pin()); None in production
+
+    @classmethod
+    def pin(cls, seed: int | None):
+        """TEST ONLY: make every later SecretDraws() deterministic (replayable => NOT secret). pin(None) restores the CSPRNG."""
+        cls._pin = random.Random(seed) if seed is not None else None
+
+    def __init__(self, test_seed: int | None = None):
+        # test_seed / pin() are ONLY for deterministic selftests; they make the draw replayable (i.e. NOT secret).
+        if test_seed is None and SecretDraws._pin is not None:
+            test_seed = SecretDraws._pin.getrandbits(64)
+        self._rng = random.Random(test_seed) if test_seed is not None else None
+
     def bits(self, k: int) -> int:
-        return secrets.randbits(k)
+        return self._rng.getrandbits(k) if self._rng is not None else secrets.randbits(k)
 
 
 class PoolDraws:
@@ -338,12 +351,12 @@ def exp_drift(R=200, N=3000, onset=1000, uni=0.3, p=1 / 16):
             "cost_always_cheap": N * CHEAP_COST}
 
 
-def exp_strategic(R=200, N=3000, p=1 / 16, blind=0.2):
+def exp_strategic(R=200, N=3000, p=1 / 16, blind=0.2, secret_seed=None):
     """A contractor that cheats when unwatched. Public-seed draws vs secret draws."""
     out = {}
     for label, mk_src, mk_cheat in [
         ("public-seed + oracle", lambda r: PublicSeedDraws(r), lambda r: cheater(guarded_cheap, oracle=True)),
-        ("secret + blind cheat", lambda r: SecretDraws(), lambda r: cheater(guarded_cheap, None, blind, random.Random(r))),
+        ("secret + blind cheat", lambda r: SecretDraws(None if secret_seed is None else secret_seed + r), lambda r: cheater(guarded_cheap, None, blind, random.Random(r))),
     ]:
         rows = []
         for r in range(R):
