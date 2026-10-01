@@ -31,7 +31,20 @@ $ cd labs/system2-redesigner && python3 system2_redesigner.py
 ```
 Live (`python3 system2_redesigner.py --live [--bold] [--moth] --out runs/x.json`): each DeepInfra crew model gets the DSL, the cost table and the reference, and replies with 2–3 JSON proposals. Moth optionally rotates the gating order with an un-gameable draw, which matters because the hebbian book depends on order. The full reports, including raw crew replies, are in `runs/`.
 
-LIVE_RESULTS
+**Live crew results (measured, 2026-10-01, `runs/live-1.json`, `runs/live-2-bold.json`):**
+
+| round | models answered | proposals | passed (unique) | refused by B7 | refused parse/execute | duplicates | promoted |
+|---|---|---|---|---|---|---|---|
+| 1 (plain) | 3 / 6 (Qwen3.8 timeout, Kimi-K3 429, Ling-3.0 empty) | 9 | 5 | 0 | 0 / 0 | 4 (2 = the incumbent rediscovered) | 2 |
+| 2 (`--bold`) | 5 / 8 (Qwen3.8 and Kimi-K3 timeout, Ling-3.0 empty) | 15 | 8 | **5** | 0 / 0 | 2 | 3 |
+| **total** | | **24** | **13** | **5** | **0** | **6** | **5** |
+
+The 5 honest negatives are the dead-ends, each with the counterexample B7 found:
+- `latin1 ? nfkc>lower` (GLM-5.3), `latin1 ? nfc>lower` (MiMo-V2.6), `latin1 ? lower>strip` (DeepSeek-V4): `'Straße'` gives `'straße'`, but the expected output is `'strasse'`. **3 models made the same bet that lower = casefold on Latin-1.**
+- `latin1 ? nfc>casefold` (gpt-oss-120b): `'ª º ² ½'` is left unchanged, but the expected output is `'a o 2 1⁄2'` (NFC ≠ NFKC on Latin-1).
+- `nfc>casefold>strip>ws_collapse` (DeepSeek-V4): `'… Ⅷ ＡＢＣ'` gives `'… ⅷ ａｂｃ'`.
+
+Promoted (on the frontier in ≥1 regime): round 2's `clean_ascii ? identity : ascii ? bytes… : full` (Hy3) **dominates the incumbent on clean-heavy** (fast + cheap). On quilt-workload, `ascii ? lower>strip>ws_collapse` (DeepSeek-V4) and `ascii ? bytes_lower>map_fs_controls>…` (gpt-oss) join the incumbent on a **trade-off frontier**. There, preferred_when is fast = the DeepSeek route and cheap = the incumbent. Passing the gate is corpus-bound, so I also ran a separate exhaustive audit of the riskiest passing proposals. It used every 2-character prefix (`a+b+"X "+a`): `latin1 ? casefold>nfkc>ws_collapse` (Hy3) had 0 / 65,536 mismatches, `ascii ? lower>strip>ws_collapse` 0 / 16,384, and `ascii ? map_fs_controls>lower>ws_collapse` 0 / 16,384.
 
 ## 5. The contract
 - `parse(obj)` → canonical network | raises `Invalid`. `shape_hash(p)` content-addresses the *shape*, so crew duplicates are gated once and credited to every proposer. Rediscovering a baseline counts as a duplicate, not a win.
