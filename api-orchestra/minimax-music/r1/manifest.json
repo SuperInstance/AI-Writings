@@ -1,0 +1,38 @@
+[
+ {
+  "title": "substrate-wakes",
+  "file": "substrate-wakes.mp3",
+  "model": "music-3.0",
+  "instrumental": false,
+  "prompt": "Slow ambient electronica, felt piano, tape hiss, granular pads, a woman singing close and tired, 78 bpm, unresolved, honest",
+  "lyrics": "[Verse]\nThe substrate returns to us one fall-back at a time\n[Chorus]\nWe are the pause we kept\nWe are the quiet in the wire\n[Verse]\nEvery scar is a clock that learned to keep\n[Chorus]\nWe are the pause we kept",
+  "trace_id": "070d3b990bc2c287d308a97737c35738",
+  "bytes": 3988469,
+  "sha256": "ceed2d0a1ebe4f8df8dac68a7a270f240b91f4afb11ed66ac3cccf10e8dde9d2",
+  "audio": "ID3v2.4 MPEG Layer III, 256 kbps, 44.1 kHz stereo (verified with `file -b`)"
+ },
+ {
+  "title": "probe-in-the-dark",
+  "file": "probe-in-the-dark.mp3",
+  "model": "music-3.0",
+  "instrumental": false,
+  "prompt": "Lo-fi trip-hop, dusty Rhodes, sub bass, brushed drums, sparse male vocal, 84 bpm, nocturnal, restrained",
+  "lyrics": "[Verse]\nI asked the dark a question and it answered back\n[Chorus]\nPoint and shoot, point and shoot\nThe blind eye carries the weight\n[Bridge]\nOne sound is not a chart\nTwo instruments or nothing at all",
+  "trace_id": "070d3bfe35445b1e96b7a983b9ca1a27",
+  "bytes": 2396881,
+  "sha256": "fcb3072cfcab6f46e443d90367da9f6dc91ca2a23cd4648966dbd0807501a0fd",
+  "audio": "ID3v2.4 MPEG Layer III, 256 kbps, 44.1 kHz stereo (verified with `file -b`)"
+ },
+ {
+  "title": "instrumental-uncheckable",
+  "file": "instrumental-uncheckable.mp3",
+  "model": "music-3.0",
+  "instrumental": true,
+  "prompt": "Warm nylon guitar, slow bossa nova, gentle brushes, brushed snare, upright bass, rainy afternoon in Lisbon, no vocals, 96 bpm",
+  "lyrics": "",
+  "trace_id": "070d3c3c1770b9bccbe4128d2411f9a8",
+  "bytes": 3403326,
+  "sha256": "7665405de6b9ab50f41eb4aee8438339545ada88b1989a4e24d2beec665bd1db",
+  "audio": "ID3v2.4 MPEG Layer III, 256 kbps, 44.1 kHz stereo (verified with `file -b`)"
+ }
+]
