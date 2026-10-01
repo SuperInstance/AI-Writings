@@ -199325,6 +199325,24 @@
     "size_bytes": 3162
   },
   {
+    "filename": "README.md",
+    "path": "api-orchestra/minimax-music/README.md",
+    "title": "minimax-music",
+    "description": "Songs generated with the **MiniMax `music-3.0`** API, in rounds. Each round is a directory with the MP3s and a `manifest.json` carrying the exact prompt, lyrics, `trace_id`, byte count and `sha256` fo...",
+    "folder": "minimax-music",
+    "topic": "Minimax Music",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 362,
+    "date": "2026-10-01",
+    "size_bytes": 2217
+  },
+  {
     "filename": "lyrics-translation-chain.md",
     "path": "lyrics/lyrics-translation-chain.md",
     "title": "The Lyric Translation Chain",
