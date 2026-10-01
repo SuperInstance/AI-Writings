@@ -72,7 +72,9 @@ def _with_file(data: bytes, fn):
 
 
 def _limbs_to_hex(text: str) -> str:
-    nums = [int(x) for x in re.findall(r"\d+", text)]
+    if re.search(r"[-¯]\s*[0-9]|[0-9][.eE][-+¯]?[0-9]", text):      # a negative or non-integer limb is not a limb
+        raise RuntimeError("expected 4 non-negative integer 16-bit limbs, got %r" % text)
+    nums = [int(x) for x in re.findall(r"[0-9]+", text)]            # ASCII digits only (\d also matches e.g. Arabic-Indic)
     if len(nums) != 4 or any(n > 0xFFFF for n in nums):
         raise RuntimeError("expected 4 16-bit limbs, got %r" % text)
     return _hex(sum(n << (16 * i) for i, n in enumerate(nums)))
@@ -192,13 +194,17 @@ def run_formalism(f: Formalism, vectors, disabled=()) -> dict:
 
 
 def run_all(formalisms=None, vectors=None, disabled=None) -> list:
+    if vectors is not None and not vectors:
+        raise ValueError("no vectors: an empty set would 'agree' vacuously (0/0)")
     if disabled is None:
         disabled = [x for x in os.environ.get("POLYFORM_DISABLE", "").split(",") if x]
     return [run_formalism(f, golden_vectors(vectors), disabled) for f in (formalisms or FORMALISMS)]
 
 
 def ok(results) -> bool:
-    return all(r["status"].startswith(("ran, agreed", "reference-only")) for r in results)
+    """No divergence, no toolchain error — AND at least one formalism actually ran and agreed
+    (vacuous truth: ok([]) / everything disabled used to be OK)."""
+    return any(r["status"].startswith("ran, agreed") for r in results) and all(r["status"].startswith(("ran, agreed", "reference-only")) for r in results)
 
 
 def report(results) -> str:
@@ -225,7 +231,19 @@ def report(results) -> str:
 if __name__ == "__main__":
     res = run_all()
     # --require bqn,futhark,uiua : treat "reference-only" for those as a failure (for CI that has the toolchains)
-    req = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--require=")), [])
+    argv = sys.argv[1:]
+    req = []
+    for i, a in enumerate(argv):
+        if a.startswith("--require="):
+            req += a.split("=", 1)[1].split(",")
+        elif a == "--require" and i + 1 < len(argv):
+            req += argv[i + 1].split(",")
+    req = [x for x in req if x]
+    unknown = sorted(set(req) - {r["name"] for r in res})
+    if unknown or ("--require" in argv and not req):      # a typo must not silently pass as "required and satisfied"
+        print("--require: unknown / missing formalism name(s): %s (known: %s)" % (", ".join(unknown) or "<none given>",
+              ", ".join(r["name"] for r in res)), file=sys.stderr)
+        sys.exit(2)
     unmet = [r["name"] for r in res if r["name"] in req and not r["status"].startswith("ran, agreed")]
     if unmet:
         print("REQUIRED but did not run+agree: " + ", ".join(unmet), file=sys.stderr)

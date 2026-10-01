@@ -93,5 +93,35 @@ check(not pf.ok(res3), "harness fails when any formalism diverges")
 check("DIVERGENCE localized to wrong-prime" in pf.report(res3), "report names the diverging formalism")
 check(pf.ok([by3["python"]]), "ok() passes with only agreeing formalisms")
 
+# 4. playtest hardening (PLAYTEST-REPORT.md) -------------------------------------------------
+import random, subprocess
+rng = random.Random(5)
+mism = 0
+for _ in range(3000):
+    d = bytes(rng.randrange(256) for _ in range(rng.choice((0, 1, 2, 3, 7, 8, 9, 16, 17, 255, 256, 1000))))
+    mism += pf.limb_model(d) != pf.fnv1a64(d)
+check(mism == 0, "PT: limb model (the BQN/Uiua algorithm) == python fnv1a64 on 3000 random inputs (carry edge cases incl. 0xff runs)")
+check(pf.limb_model(b"\xff" * 5000) == pf.fnv1a64(b"\xff" * 5000), "PT: limb model correct on 5000 x 0xff")
+check(not pf.ok([]), "PT: ok([]) is False (was vacuously True)")
+check(not pf.ok(pf.run_all(disabled=["python", "bqn", "futhark", "uiua"])), "PT: ok() is False when NO formalism ran (everything disabled was 'OK')")
+try:
+    pf.run_all(vectors={}, disabled=[]); empty_ok = False
+except ValueError:
+    empty_ok = True
+check(empty_ok, "PT: an empty vector set is refused (was 'ran, agreed on golden (0/0 vectors)')")
+for bad in ("1 2 3 -4", "1 2 3 ¯4", "1.5 2 3", "1e3 2 3", "65536 0 0 0", "1 2 3"):
+    try:
+        pf._limbs_to_hex(bad); got = False
+    except RuntimeError:
+        got = True
+    check(got, "PT: _limbs_to_hex rejects %r" % bad)
+check(pf._limbs_to_hex("⟨ 8997 33826 40164 52210 ⟩") == "cbf29ce484222325", "PT: _limbs_to_hex still parses a BQN-style vector")
+cli = lambda *a: subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "polyform.py"), *a],
+                                capture_output=True, text=True).returncode
+check(cli("--require=bqnn") == 2, "PT: --require with an unknown formalism name exits 2 (typo used to exit 0 = false assurance)")
+check(cli("--require", "bqnn") == 2, "PT: space-separated '--require NAME' is parsed too (was silently ignored)")
+check(cli("--require=python") == 0, "PT: --require=python (present) still passes")
+check(pf.check_reference_only(pf.FORMALISMS[1], {"a": (b"a", pf.GOLDEN["a"][1])})["constants_in_source"],
+      "KNOWN LIMIT: reference-only = constants-in-source text + python model of the algorithm; it is NOT a run of BQN/Uiua/Futhark (none installed here)")
 print("polyform selftest: %d checks, %d failures" % (n, fails))
 sys.exit(1 if fails else 0)
