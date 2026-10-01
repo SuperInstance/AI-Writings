@@ -254378,6 +254378,24 @@
     "size_bytes": 5995
   },
   {
+    "filename": "STATIC_ON_THE_MORTAR.md",
+    "path": "short-stories/STATIC_ON_THE_MORTAR.md",
+    "title": "STATIC ON THE MORTAR",
+    "description": "The storm started small. One step in every ten arrived wrong. On the north desk, the plaintext reader filed its verdicts with the same confidence as always. *Beckon. Withdraw. Hold.* It had one key an...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 476,
+    "date": "2026-09-30",
+    "size_bytes": 2605
+  },
+  {
     "filename": "RINGS_IN_THE_DARK.md",
     "path": "short-stories/RINGS_IN_THE_DARK.md",
     "title": "Rings in the Dark",
@@ -254395,6 +254413,24 @@
     "word_count": 555,
     "date": "2026-07-25",
     "size_bytes": 27023
+  },
+  {
+    "filename": "EIGHT_REFLEXES.md",
+    "path": "short-stories/EIGHT_REFLEXES.md",
+    "title": "EIGHT REFLEXES, ONE POOL OF WORDS",
+    "description": "The lantern-keeper's reflex graph has eight edges and no labels. Approach, withdraw, yield, hold, probe, pause, feint, beckon. Eight ways a thing can lean when it hears you. The graph was drawn long a...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 484,
+    "date": "2026-09-30",
+    "size_bytes": 2764
   },
   {
     "filename": "THE_SMEAR_THAT_HAD_A_NAME.md",
@@ -254618,6 +254654,24 @@
     "size_bytes": 5409
   },
   {
+    "filename": "SIX_STREAMS_ONE_WALL.md",
+    "path": "short-stories/SIX_STREAMS_ONE_WALL.md",
+    "title": "SIX STREAMS, ONE WALL",
+    "description": "The archive hands the file to two desks by mistake, or by design — the clerk never says which. The desk on the left gets the plaintext. It reads:",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 456,
+    "date": "2026-09-30",
+    "size_bytes": 2490
+  },
+  {
     "filename": "FIRST_WAR_GAMES.md",
     "path": "short-stories/FIRST_WAR_GAMES.md",
     "title": "The First War Games",
@@ -254688,6 +254742,78 @@
     "word_count": 853,
     "date": "2026-07-25",
     "size_bytes": 18498
+  },
+  {
+    "filename": "THE_PINCHER.md",
+    "path": "short-stories/THE_PINCHER.md",
+    "title": "The Pincher",
+    "description": "The old keeper at the end of the pier had eight reflexes and no thoughts. That was the design. Come fog: raise the lamp. Come gull: wave it off. Come stranger: judge, in half a second, whether to beck...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 414,
+    "date": "2026-09-30",
+    "size_bytes": 2291
+  },
+  {
+    "filename": "INTERLEAVED.md",
+    "path": "short-stories/INTERLEAVED.md",
+    "title": "THE INTERLEAVED TRANSCRIPT",
+    "description": "Two stories were copied onto one tape. The machine did not care; a stream is a stream. Downstream, the channel reader wakes. It cannot see words — the words live on the data plane, flat and forgettabl...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 403,
+    "date": "2026-09-30",
+    "size_bytes": 2480
+  },
+  {
+    "filename": "STAY.md",
+    "path": "short-stories/STAY.md",
+    "title": "STAY.",
+    "description": "The key turns. The light doesn't come on, because the bulb burned out eleven days ago and nobody has been tall enough to change it since. She stands in the doorway with her bag still over her shoulder...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 481,
+    "date": "2026-09-30",
+    "size_bytes": 2625
+  },
+  {
+    "filename": "THE_FOLD_MISAPPLIED.md",
+    "path": "short-stories/THE_FOLD_MISAPPLIED.md",
+    "title": "THE FOLD, MISAPPLIED",
+    "description": "scheme that loses exactly what matters*",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 618,
+    "date": "2026-09-30",
+    "size_bytes": 3583
   },
   {
     "filename": "the-tile-that-remembered-being-a-mountain.md",
