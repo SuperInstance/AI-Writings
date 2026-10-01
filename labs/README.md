@@ -78,8 +78,11 @@ Small, obvious use-cases where a quilt picks a cheap route when it can, reaching
 | [`datetime-quilt`](examples/datetime-quilt/) | date math | skip tz/DST when all inputs are UTC | 14/0 |
 | [`text-normalize-quilt`](examples/text-normalize-quilt/) | clean text | skip unicode/tokenizer for pure-ASCII | 17/0 |
 | [`image-thumb-quilt`](examples/image-thumb-quilt/) | thumbnail | skip decode+resample when source <= target | 18/0 |
+| [`match-quilt`](examples/match-quilt/) | find all matches | literal `str.find` loop when the pattern has no regex metachars | 17/0 |
+| [`currency-round-quilt`](examples/currency-round-quilt/) | round money to cents (half-even) | integer-cents digit surgery when there is no fx rate | 17/0 |
+| [`csv-stats-quilt`](examples/csv-stats-quilt/) | column stats | single-pass split when ungrouped/unquoted | 17/0 |
 
-`run_all.py` runs every example's selftest and confirms they all sit on one shared ActiveLog: 5/5 green, one ledger.
+`run_all.py` runs every example's selftest and confirms they all sit on one shared ActiveLog: 8/8 green, one ledger.
 
 ## ml-in-quilt (`labs/ml-in-quilt/`)
 

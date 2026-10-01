@@ -382,6 +382,9 @@ parallel — they are independent of each other by design):
 | EX3 | `datetime-quilt` | date math | skip timezone/DST tooling when all inputs are UTC |
 | EX4 | `text-normalize-quilt` | clean up text | skip tokenizer/unicode tooling for pure-ASCII input |
 | EX5 | `image-thumb-quilt` | make a thumbnail | skip decode+resample when the source is already ≤ target |
+| EX6 | `match-quilt` | find all matches | literal `str.find` loop when the pattern has no regex metachars |
+| EX7 | `currency-round-quilt` | round money to cents | integer-cents route when no fx rate |
+| EX8 | `csv-stats-quilt` | column stats | single-pass split when ungrouped/unquoted |
 
 Each ships: the two+ routes, the route-chooser, an offline `selftest` (products identical across routes;
 the chosen route is cheaper on the axis claimed), a mark, and a ledger row.
