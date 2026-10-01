@@ -49,5 +49,6 @@ one article per idea, linked, each standing on its own.
 | # | blueprint | what it teaches |
 |---|-----------|-----------------|
 | 01 | [`01-dispatch-5.5-directors.md`](01-dispatch-5.5-directors.md) | run a wave of Sonnet/Opus 5.5 director sessions that work through their tools + APIs, harvested via git — the fleet's core productive-motion loop |
+| 02 | [`02-cheap-crew-dispatch.md`](02-cheap-crew-dispatch.md) | run a 5.5 director that does its volume on cheap, cacheable APIs (pinned working roster), gates crew output with a verified cell, and records the token-split so API use is measured — portable across dev environments |
 
 *(More land as we live them. Each new blueprint: add a row, keep it runnable.)*
