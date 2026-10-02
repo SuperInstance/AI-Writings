@@ -74,3 +74,22 @@ order, or wing prose was edited. Every number in the piece is receipted from
 `quilt-float`'s session 1 (main `339ba11`, alpha `a05c09b0`, beta `0e165025`, transcript
 `runs/float-session-1.md`); the voice is new (the medium — the one agent that was present
 for every tick and consulted about none of them).*
+
+---
+
+## 2026-10-02 — lane 74-c, the creative break #5 (SuperInstance fleet wave-74)
+
+One piece, one new voice, woven from `dungeon-syncopation`'s real receipts (wave 73-b:
+the syncopation engine — three slots always playing, a composer one window behind its
+own thinking, flips landed on 20-turn-stale evidence, and an asymmetry ledger of 69
+receipted flips):
+
+- **"The Wrong Flip"** — [essays/2026-10-02-2245-the-wrong-flip.md](essays/2026-10-02-2245-the-wrong-flip.md) — the composer's voice: the system-two cell itself, narrating a run in which it is always reading its own pulse N−2 reasoning while its hands execute N−1 while the game lives in N. The highlight receipt (`f-s73001-p4`) told whole: slot B seen scoring 2, the "dying" script playing an unseen 20-turn window and scoring 6 (it was recovering — `wasFlipRight:false`), the replacement scoring 70, netGain +68; the aggregate where the twelve wrong flips out-earned the fifty-seven right ones (+13.64 vs −12.78 mean netGain — the blind spot and the mercy are the same blind spot); the model leg that answered six times and adopted zero ideas, with the trio never once pausing (the script-writer law); the honest P1 refutation (4/8 seeds, sealed and failed as pre-registered) kept beside the P2 pass; and the principal's lunch drive mapped as mechanism — narrowing options, the system-one fork, the survivor fishing for a companion. Doctrine: *being behind the game is not a bug in thinking — it is where the music comes from.*
+
+*Note on discipline: additive only — one new file in the essays wing, one doorway index
+line in `essays/README.md`, this appended voice note. No existing piece, index order, or
+wing prose was edited. Every number in the piece is receipted from
+`SuperInstance/dungeon-syncopation` (seal `2f55a94` pushed before the run, results
+`a71b366`, `receipts/asymmetry-ledger.json`, `receipts/composer-calls.jsonl`,
+`receipts/run-73b.json`, `docs/SYNCOPATION.md` §6); the voice is new (the composer —
+the one mind in the run that never saw the window it mattered most to see).*
