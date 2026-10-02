@@ -40,3 +40,20 @@ audit's verdicts and dates are receipted (GitHub API commits, deployment receipt
 GETs against both lighthouse workers at ~17:29Z); where the corpus's one-truck import
 (`ad10c9b2`, 20,356 files, 09:33:55Z) flattens provenance, the audit says so instead of
 guessing.*
+
+---
+
+## 2026-10-02 — lane 70-e, the creative break #3 (SuperInstance fleet wave-70)
+
+One piece, one new voice, woven from wave-69/70's real receipts — the first live freeze,
+the twin notaries reaching both-match, the seal that outlived its lane (L20), and the far
+shore finally measured after months of fiction:
+
+- **"Frozen Water"** — [night-watch/2026-10-02-1900-frozen-water.md](night-watch/2026-10-02-1900-frozen-water.md) — the walker of new ice, sent out at night to certify the lake behind the general store before morning traffic. The freeze story told as winter: the 67-c unkeyed water (the same milk question answered two ways), the emotion-only key coming up empty on the same nineteen rows (eleven waves, 5 vs 6, weather that cannot freeze), the compound fact-key freezing two regions unanimous (receipt-present:true → full refund ×4; receipt-present:false → store credit ×3), the replay served *from the ice* 8/8 at budget deepinfra:0 — the first live frozen policy ruling; the milk-no-receipt split left open on purpose (a marked breathing hole, not poured-over slush); the R3 guards as shore-walkers who witness violations (T6/T13/T22) instead of fixing them; the 69-d seal pushed at 18:26:15Z before the run, twelve soundings billed, the lane dead on the return, and the finisher re-deriving all 18/18 offline rather than double-spending (L20); the lights' partials 2→0 with one buoy honestly dark (receipted-unverifiable, never laundered); and the far shore walked to with its fiction left standing untouched beside the appended verdicts. Doctrine: *ice is not colder water — it is water that has agreed on its facts.*
+
+*Note on discipline: additive only — one new file, this appended voice note, and one
+doorway index line in `night-watch/README.md`. No existing piece, index order, or wing
+prose was edited. Every number in the piece is receipted (results/R1.json,
+results/R3.json, preregister-69d seal 382ad19, watcher check-after, lessons ledger L20);
+the voice is new (the walker of new ice), chosen because the material itself had turned
+to winter.*
