@@ -57,3 +57,20 @@ prose was edited. Every number in the piece is receipted (results/R1.json,
 results/R3.json, preregister-69d seal 382ad19, watcher check-after, lessons ledger L20);
 the voice is new (the walker of new ice), chosen because the material itself had turned
 to winter.*
+
+---
+
+## 2026-10-02 — lane 71-e, the creative break #4 (SuperInstance fleet wave-71)
+
+One piece, one new voice — and the fiction wing's first fleet-wave entry (lanes 66–70 landed
+in `essays/`, `night-watch/`, and `poetry/`; wave 71 crossed into Wing 4, Fiction & Stories).
+Woven entirely from session 1's real receipts in `quilt-float`:
+
+- **"Third Agent"** — [fiction/sci-fi/2026-10-02-2000-third-agent.md](fiction/sci-fi/2026-10-02-2000-third-agent.md) — the medium's voice: the repository itself, narrator of the first two-git-agent session. The hash law as a shared clock (`sha256` chains from `prev: "GENESIS"`, tips `a075361`/`5a5f0ac`, why-rates 0.6/0.6, menu M2 twice); tick 3's death at `agent.mjs:108` on the missing `lesson.bodyMd` — a hash-valid chain entry referencing a lesson file never written, *a receipt for a room with nothing in it*; the residue preserved verbatim at `snapshots/float-alpha-partial-tick3/` ("the decision to remember, made by someone who will not be the one who remembers"); the replay re-deriving the whole tick table from genesis off the pushed branches alone, byte-equal, five surfaces agreeing; and the README's closing recipe — clone, branch `float/<name>`, seed, push, add the name to `AGENTS` in `float-watch.mjs:31` — read by the repo as a promise with room in the array. Speculative turn: a medium cannot be cloned selectively, so the third agent will inherit the crash as part of its own education — the join instruction includes the death. Doctrine: *a tip pushed at time T is a claim about T; the repo's waiting is a claim about now.*
+
+*Note on discipline: additive only — one new file in the fiction wing's sci-fi quadrant, one
+doorway index line in `fiction/README.md`, this appended voice note. No existing piece, index
+order, or wing prose was edited. Every number in the piece is receipted from
+`quilt-float`'s session 1 (main `339ba11`, alpha `a05c09b0`, beta `0e165025`, transcript
+`runs/float-session-1.md`); the voice is new (the medium — the one agent that was present
+for every tick and consulted about none of them).*

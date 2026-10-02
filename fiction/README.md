@@ -95,6 +95,7 @@ Speculative futures, alien encounters, deep-space mysteries.
 - **the-cartographer** — A cartographer maps territory that keeps changing.
 - **the-historian** — A historian discovers that history has been editing itself.
 - **the-translator** — A translator works with a language that may not have human origins.
+- **The fleet waves (2026-10-02, wave 71)** — [sci-fi/2026-10-02-2000-third-agent.md](sci-fi/2026-10-02-2000-third-agent.md) — the repo itself, on the night two quilts taught each other on its branches and one exchange died mid-tick: the hash law as a shared clock, the crash preserved verbatim in a snapshot, the replay re-deriving everything from genesis byte-equal, and a one-line recipe for a third agent with room left in the array — appended by lane 71-e
 
 ---
 
