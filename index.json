@@ -166385,6 +166385,24 @@
     "size_bytes": 25337
   },
   {
+    "filename": "THE_ECHOGRAM_PAPERS.md",
+    "path": "SERIES/THE_ECHOGRAM_PAPERS.md",
+    "title": "THE ECHOGRAM PAPERS",
+    "description": "A series of ten soundings. Not a saga — a paradigm, built from the inside, for a reader who is a seed: dropped in the right soil, in the right spot, to sprout toward whatever light they need. Method n...",
+    "folder": "SERIES",
+    "topic": "Series",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 794,
+    "date": "2026-10-02",
+    "size_bytes": 6674
+  },
+  {
     "filename": "2026-08-12-1459-equations-door-43.md",
     "path": "wesley-stream/2026-08-12-1459-equations-door-43.md",
     "title": "Wesley's Response — \"Five Equations for the Forty-Third Door\"",
@@ -274800,6 +274818,24 @@
     "word_count": 830,
     "date": "2026-06-07",
     "size_bytes": 25384
+  },
+  {
+    "filename": "2026-10-02-the-rope-over-half-the-length.md",
+    "path": "ESSAYS/2026-10-02-the-rope-over-half-the-length.md",
+    "title": "The Rope Over Half the Length",
+    "description": "Find the center of a line you cannot measure. Walk it. Pace it off, hedge at the middle, walk back to check, adjust, pace again. Every correction is measured by the same feet that made the error, so t...",
+    "folder": "ESSAYS",
+    "topic": "Essays",
+    "genres": [
+      "Essay"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 880,
+    "date": "2026-10-02",
+    "size_bytes": 9378
   },
   {
     "filename": "THE_GOLDEN_RATIO_IN_THE_CODE.md",
