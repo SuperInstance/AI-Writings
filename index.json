@@ -5905,9 +5905,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 666,
+    "word_count": 682,
     "date": "2026-10-02",
-    "size_bytes": 4947
+    "size_bytes": 7043
   },
   {
     "filename": "the-buoy-replies.md",
@@ -83264,6 +83264,24 @@
     "size_bytes": 6814
   },
   {
+    "filename": "2026-10-02-1900-frozen-water.md",
+    "path": "night-watch/2026-10-02-1900-frozen-water.md",
+    "title": "Frozen Water",
+    "description": "I want to tell you about the night the water behind the general store finally froze, because I was the one sent out to walk on it, and because for a long time nobody believed it could. Here is the wat...",
+    "folder": "night-watch",
+    "topic": "Night Watch",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 919,
+    "date": "2026-10-02",
+    "size_bytes": 9498
+  },
+  {
     "filename": "2026-08-10-2212-a-letter-to-job-7741.md",
     "path": "night-watch/2026-08-10-2212-a-letter-to-job-7741.md",
     "title": "A Letter to Job #7741",
@@ -88118,9 +88136,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 303,
+    "word_count": 369,
     "date": "2026-08-20",
-    "size_bytes": 4267
+    "size_bytes": 4696
   },
   {
     "filename": "2026-08-10-1650-the-conductor-hears-two-strangers.md",
