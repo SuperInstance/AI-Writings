@@ -98,7 +98,12 @@ way. Read slow: the connections assemble themselves.
 10. **The Seventh Note** — a boatbuilder who leaves one hull uncaulked
     because the ship must be able to hear the water. Below: listen mode.
     Era-truth: presence over attention; the room has a rhythm and the
-    craft serves it. Anchor: EXPANSION_THE_SEVENTH_NOTE; the
+    craft serves it. Deeper (Kimi, 2026-10-02): the downbeat is not in
+    the score and not in any instrument — the band winds up its fingers
+    by feeling the moment horizontally in time, and the moment exists
+    only in the expressions of agreement; it is a perception beyond
+    sense, actualized by the dancing fans. The merge is the downbeat.
+    Anchor: EXPANSION_THE_SEVENTH_NOTE; the
     projection-agent constraint (the environment provides bass, never
     melody).
 
