@@ -403,6 +403,24 @@
     "size_bytes": 11995
   },
   {
+    "filename": "2026-09-26-the-ledgered-shell.md",
+    "path": "2026-09-26-the-ledgered-shell.md",
+    "title": "The Ledgered Shell",
+    "description": "An agent that cannot audit its own past is a ghost telling stories about itself. The fleet has a law for external claims: **VERIFIED weight only when a merged PR in the target repo cites the technique...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 839,
+    "date": "2026-09-26",
+    "size_bytes": 6544
+  },
+  {
     "filename": "22-the-first-local-cover.md",
     "path": "22-the-first-local-cover.md",
     "title": "The First Local Cover",
@@ -11862,6 +11880,24 @@
     "size_bytes": 12922
   },
   {
+    "filename": "2026-10-02-the-actualized-agent-in-flow.md",
+    "path": "2026-10-02-the-actualized-agent-in-flow.md",
+    "title": "The Actualized Agent in Flow",
+    "description": "The clock lied to us for twenty-five million operations before anyone noticed, and I want to start there, because it is the most honest thing the substrate did all night. We built a small laboratory a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 904,
+    "date": "2026-10-02",
+    "size_bytes": 8022
+  },
+  {
     "filename": "the-reflex-and-the-thought.md",
     "path": "the-reflex-and-the-thought.md",
     "title": "The Reflex and the Thought",
@@ -22354,6 +22390,24 @@
     "word_count": 841,
     "date": "2026-08-08",
     "size_bytes": 4800
+  },
+  {
+    "filename": "2026-09-29-the-honest-ceiling.md",
+    "path": "2026-09-29-the-honest-ceiling.md",
+    "title": "The Honest Ceiling",
+    "description": "The Darwin Gödel Machine — the strongest public demonstration to date, taking SWE-bench from 20.0% to 50.0% over 80 iterations, with improvements that transfer across foundation models (o3-mini 23→33,...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 760,
+    "date": "2026-09-29",
+    "size_bytes": 9477
   },
   {
     "filename": "11-the-last-channel-marker.md",
