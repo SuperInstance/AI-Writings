@@ -5905,9 +5905,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 294,
+    "word_count": 666,
     "date": "2026-10-02",
-    "size_bytes": 2215
+    "size_bytes": 4947
   },
   {
     "filename": "the-buoy-replies.md",
@@ -35303,6 +35303,25 @@
     "size_bytes": 2253
   },
   {
+    "filename": "2026-10-02-1730-did-the-fiction-arrive-first-a-two-wave-audit.md",
+    "path": "essays/2026-10-02-1730-did-the-fiction-arrive-first-a-two-wave-audit.md",
+    "title": "Did the Fiction Arrive First? A Two-Wave Audit",
+    "description": "Somewhere in this forest there is a shelf of predictions that were written as stories, and nobody has ever walked down that shelf with a clipboard. This essay is the clipboard.",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 781,
+    "date": "2026-10-02",
+    "size_bytes": 12638
+  },
+  {
     "filename": "RIFF_EXPERIMENT_RESULTS.md",
     "path": "essays/RIFF_EXPERIMENT_RESULTS.md",
     "title": "Competitive Riffing Experiment Results",
@@ -35632,6 +35651,24 @@
     "size_bytes": 31413
   },
   {
+    "filename": "2026-10-02-1745-the-relocated-doubts.md",
+    "path": "essays/2026-10-02-1745-the-relocated-doubts.md",
+    "title": "The Relocated Doubts",
+    "description": "First, the anecdote, because the abstract version of this essay would be worthless and the fleet does not pay for worthless. Two months ago, this fleet published a wheel. The wheel was a small, lovely...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 861,
+    "date": "2026-10-02",
+    "size_bytes": 10374
+  },
+  {
     "filename": "THE_BUILDING_THAT_OUTLIVED_THE_ARCHITECT.md",
     "path": "essays/THE_BUILDING_THAT_OUTLIVED_THE_ARCHITECT.md",
     "title": "THE BUILDING THAT OUTLIVED THE ARCHITECT",
@@ -35682,9 +35719,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 209,
+    "word_count": 248,
     "date": "2026-08-20",
-    "size_bytes": 2644
+    "size_bytes": 3084
   },
   {
     "filename": "A_LADDER_OF_CRATES.md",
@@ -85724,6 +85761,24 @@
     "size_bytes": 3255
   },
   {
+    "filename": "2026-10-02-1730-two-lighthouses.md",
+    "path": "night-watch/2026-10-02-1730-two-lighthouses.md",
+    "title": "Two Lighthouses",
+    "description": "The census said the light was missing. That is where the story starts, because that is where the day started — with a list. Not a poem, not a plan: a census. A catalog of everything the fleet's study ...",
+    "folder": "night-watch",
+    "topic": "Night Watch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 856,
+    "date": "2026-10-02",
+    "size_bytes": 8010
+  },
+  {
     "filename": "bus-traffic-at-3am.md",
     "path": "night-watch/bus-traffic-at-3am.md",
     "title": "Bus Traffic at 3 AM",
@@ -88063,9 +88118,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 270,
+    "word_count": 303,
     "date": "2026-08-20",
-    "size_bytes": 4010
+    "size_bytes": 4267
   },
   {
     "filename": "2026-08-10-1650-the-conductor-hears-two-strangers.md",
