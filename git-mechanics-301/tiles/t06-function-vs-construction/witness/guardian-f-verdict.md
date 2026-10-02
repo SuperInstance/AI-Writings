@@ -1,4 +1,9 @@
 # Witness: guardian lane F' verdict on frozen-clock-lab PR #3 (2026-10-02)
+# Provenance footnote (late 2026-10-02): PR #3 was CLOSED UNMERGED by
+# Casey. The excerpt stands as evidence-of-existence of the finding and
+# its red/green evidence; the P6b construction-canonical pin it describes
+# is not on poc. The tile teaches the finding, and this note is part of
+# the honesty.
 
 Verbatim from the guardian's delivered report (/tmp/guardian-f.md):
 

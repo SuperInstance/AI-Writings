@@ -74,12 +74,12 @@
     },
     "t08": {
       "title": "trusted-but-unaudited",
-      "status": "draft",
+      "status": "pinned",
       "prereqs": ["t01", "t04"],
       "pin": "tiles/t08-trusted-but-unaudited/pin.sh",
       "doc": "tiles/t08-trusted-but-unaudited/tile.md",
       "concepts": ["coverage query", "divergence", "attest", "honest limits"],
-      "provenance": "wave-4 query lane design contract (in flight; pin RED by design until witness ships)"
+      "provenance": "wave-4 query lane — quilt-in-git PR #9 MERGED 2026-10-02; born draft (RED by design), flipped on merge"
     },
     "t09": {
       "title": "ledgered-breakthroughs",
@@ -89,6 +89,24 @@
       "doc": "tiles/t09-ledgered-breakthroughs/tile.md",
       "concepts": ["diffusion", "provenance", "the course as its own witness"],
       "provenance": "this repo: README doctrine + LEDGER.md births"
+    },
+    "t10": {
+      "title": "portable-witness-substrate",
+      "status": "pinned",
+      "prereqs": ["t01"],
+      "pin": "tiles/t10-portable-witness-substrate/pin.sh",
+      "doc": "tiles/t10-portable-witness-substrate/tile.md",
+      "concepts": ["selective disclosure", "genesis-anchored export", "named tamper", "completeness limit"],
+      "provenance": "doubt-ledger wave-2 export+signing, MERGED 2026-10-02 into poc (549c395, PR #3)"
+    },
+    "t11": {
+      "title": "version-names-nonlinear",
+      "status": "pinned",
+      "prereqs": ["t02"],
+      "pin": "tiles/t11-version-names-nonlinear/pin.sh",
+      "doc": "tiles/t11-version-names-nonlinear/tile.md",
+      "concepts": ["identity vs order", "non-linear names", "order-sensitive chain", "replay detection"],
+      "provenance": "9c memo docs/RESEARCH-AGENT-NATIVE-VCS.md — quilt-in-git PR #10 (OPEN as of 2026-10-02; flip scheduled on merge)"
     }
   },
   "divergence-watch": [

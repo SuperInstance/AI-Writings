@@ -1,0 +1,37 @@
+# t08 shipped receipts — the wave-4 merge
+# Provenance: SuperInstance/quilt-in-git main, post-merge of PR #9
+# (wave4-query, MERGED 2026-10-02). The tile was born draft with a RED pin
+# by design; this file is the merge receipt that flips it. The journal
+# (LEDGER.md) preserves the RED phase; this file preserves the proof.
+
+## FAIL-first evidence — pins/failfirst-w4q.log (pristine main, pre-build)
+
+    FAIL Q1-0 quilt-query missing/not executable
+    FAIL Q2-0 quilt-query missing/not executable
+    FAIL Q3-0 quilt-query missing/not executable
+
+Three pins, all RED on pristine main, matching the repo's original
+failfirst style: the harness exists before the binary does.
+
+## GREEN evidence — pins/pins-w4q-final.log (implementation tip)
+
+    Q2 coverage (LEDGER intersection) : PASS
+    Q3 divergence (dial diff)         : PASS
+
+    PINS: 3/3 pins pass (24 checks pass, 0 checks fail)
+    PINS: ALL PASS
+    exit=0
+
+Q1 (trusted-but-unaudited lists receipted commits no audit position
+covers) and the attest idempotence proof are above the tail shown here;
+the full log is in the merged repo (tests/pins_query.sh, .quilt/bin/quilt-query).
+
+## What the shipped layer is
+
+.quilt/bin/quilt-query: 4 subcommands — trusted-but-unaudited, coverage,
+divergence, attest (the only write: parentless receipt commit, idempotent
+per position). 7 honest limits declared in RESULT.md, headlined by: the
+layer audits receipt *existence* and auditor *claims*, never claims truth;
+attestations are format-level trust (unsigned); committed-only visibility.
+
+The tile teaches with the limits, not despite them.

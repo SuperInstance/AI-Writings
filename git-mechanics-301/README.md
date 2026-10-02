@@ -64,12 +64,14 @@ the graph permits, with the failures named rather than hidden.
 
 ## Current state of the graph
 
-Nine tiles seeded (see `program/manifest.json`). Six are **pinned** with
-real fleet evidence as witnesses. One (`t08 trusted-but-unaudited`) is
-**draft** — its pin is RED by design: the layer it teaches is under
-construction in the fleet right now, and the course refuses to teach it
-until the witness exists. That RED tile is not an embarrassment; it is the
-course demonstrating its own doctrine on itself.
+Twelve tiles (see `program/manifest.json`), all **pinned** — each with
+real fleet evidence as witnesses. The ninth, `t08 trusted-but-unaudited`,
+was born **draft with a pin RED by design** while its layer was under
+construction; when `quilt-in-git` PR #9 merged (2026-10-02), the
+witness shipped, the pin went GREEN, and the tile pinned — the course's
+first live diffusion event. The journal preserves the RED phase;
+the pin preserves the proof. That arc is not an anecdote; it is the
+doctrine demonstrating itself.
 
 `LEDGER.md` is the diffusion journal — how each tile was born. Read it
 last; it is the receipt for the course's own claims about itself.
