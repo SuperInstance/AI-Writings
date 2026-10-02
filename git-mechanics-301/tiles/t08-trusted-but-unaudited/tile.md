@@ -1,13 +1,13 @@
 ---
 id: t08
 title: trusted-but-unaudited
-status: draft
+status: pinned
 prereqs: [t01, t04]
 ---
 
-# t08 — trusted-but-unaudited *(draft — the course refuses to teach this yet)*
+# t08 — trusted-but-unaudited *(was draft; flipped on the wave-4 merge)*
 
-## The claim (unverified — that is the point)
+## The claim (now verified — see witness/shipped-receipts.md)
 
 Trust without audit is the gap this tile will teach you to *see*: a
 commit can be in the ancestry everyone builds on (trusted) while no
@@ -16,7 +16,16 @@ attestation covers it (unaudited). The wave-4 query layer's
 receipt and names every such commit — coverage, divergence, and auditor
 attestation (`refs/quilt/attest`) as first-class queryable state.
 
-## Why it is a draft
+## Why it was a draft — and what flipped it
+
+This tile was the course's self-demonstration: born DRAFT with a RED pin
+by design, because the doctrine says a course must not teach what it
+cannot prove. The wave-4 query layer shipped as `SuperInstance/quilt-in-git`
+**PR #9, MERGED 2026-10-02** — FAIL-first on file (0/3 pins on pristine
+main), 3/3 pins / 24/24 checks GREEN at the implementation tip, 7 honest
+limits declared. The merge is the receipt; `witness/shipped-receipts.md`
+carries the excerpts. The journal preserves the RED phase; the pin
+preserves the proof.
 
 The design contract is on file (`witness/design-contract.md`) — but the
 implementation is still being built by a fleet lane, and under this

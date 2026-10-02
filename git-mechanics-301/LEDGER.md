@@ -65,6 +65,30 @@ is the *merge*, not the PR. On merge: replace
 go GREEN, flip the manifest status. The course's first live
 diffusion event, scheduled.
 
+## 2026-10-02 (late) — THE MERGE WAVE: three births, one flip
+
+Casey opened the gate. **quilt-in-git PR #9 MERGED** — t08 flipped:
+`witness/shipped-receipts.md` added (failfirst 0/3 + 3/3 / 24-check
+GREEN excerpts from main), manifest status draft→pinned, tile.md
+rewritten as was-draft→pinned. The course's first live diffusion
+event, executed: the journal preserves the RED phase, the pin
+preserves the proof.
+
+- **t10 portable-witness-substrate BORN (pinned)** — doubt-ledger wave-2
+  (export.py genesis-anchored chain, named-tamper verify, optional
+  Ed25519 root signing, stdlib-only core; PR #3 MERGED into poc
+  @549c395). Motivation excerpt carries the MajorLabs 0/6 finding —
+  the open cross-reference birth below is now half-tiled.
+- **t11 version-names-nonlinear BORN (pinned, PR-stage provenance)** —
+  9c memo §2.3 steal 2 / §7 synthesis (quilt-in-git PR #10, OPEN as of
+  this entry; flip scheduled on merge per the t06 precedent). Doctrine:
+  version names non-linear; receipt chain order-sensitive by design.
+- **t06 provenance footnote** — frozen-clock PR #3 closed unmerged
+  2026-10-02; the witness excerpt stands as evidence-of-existence and
+  its provenance line says so.
+
+Graph: 12 tiles, 12 pinned, 0 draft. Verify: 12/12 PASS.
+
 ## Open births (observed, not yet tiled)
 
 - Guardian lane D' found substring-semantics false positives in
@@ -73,5 +97,6 @@ diffusion event, scheduled.
   `manifest.json divergence-watch` until the finding is pinned
   independently.
 - Edge-watch frontier finding: 0/6 production memory systems sign
-  memory (Major Labs) — external validation of t04. Cross-reference tile
-  pending primary-source read.
+  memory (Major Labs) — external validation of t04 and now load-bearing
+  in t10's birth excerpt. Remaining cross-reference: the primary-source
+  read itself.
