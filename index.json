@@ -104835,9 +104835,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 683,
+    "word_count": 697,
     "date": "2026-10-01",
-    "size_bytes": 4130
+    "size_bytes": 4240
   },
   {
     "filename": "LEDGER.md",
@@ -104853,9 +104853,9 @@
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 611,
+    "word_count": 740,
     "date": "2026-10-01",
-    "size_bytes": 4190
+    "size_bytes": 5516
   },
   {
     "filename": "tile.md",
@@ -104925,9 +104925,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 274,
+    "word_count": 357,
     "date": "2026-10-01",
-    "size_bytes": 1734
+    "size_bytes": 2296
   },
   {
     "filename": "design-contract.md",
@@ -105069,9 +105069,63 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 119,
+    "word_count": 170,
     "date": "2026-10-01",
-    "size_bytes": 796
+    "size_bytes": 1099
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t11-version-names-nonlinear/tile.md",
+    "title": "Tile",
+    "description": "Identity and order are different things, and conflating them is how distributed systems lie to themselves. The 9c agent-native-VCS research (quilt-in-git PR #10, open as of 2026-10-02) pinned the dist...",
+    "folder": "t11-version-names-nonlinear",
+    "topic": "T11 Version Names Nonlinear",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 324,
+    "date": "2026-10-02",
+    "size_bytes": 2263
+  },
+  {
+    "filename": "memo-steal.md",
+    "path": "git-mechanics-301/tiles/t11-version-names-nonlinear/witness/memo-steal.md",
+    "title": "9c memo excerpt — the steal that became doctrine",
+    "description": "From §2.3 (steal 2), on pijul's line-graph vs our receipt chain:",
+    "folder": "witness",
+    "topic": "Witness",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 191,
+    "date": "2026-10-02",
+    "size_bytes": 1211
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t10-portable-witness-substrate/tile.md",
+    "title": "Tile",
+    "description": "A witness that *travels* beats a witness that must be believed. doubt-ledger's wave-2 layer (merged 2026-10-02, `poc` @ 549c395, PR #3) makes a ledger slice self-proving: a fnv1a-64 chain over per-lin...",
+    "folder": "t10-portable-witness-substrate",
+    "topic": "T10 Portable Witness Substrate",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 362,
+    "date": "2026-10-02",
+    "size_bytes": 2376
   },
   {
     "filename": "tile.md",
