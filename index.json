@@ -5907,7 +5907,7 @@
     "style": "Essay",
     "word_count": 682,
     "date": "2026-10-02",
-    "size_bytes": 9144
+    "size_bytes": 11231
   },
   {
     "filename": "the-buoy-replies.md",
@@ -27532,6 +27532,24 @@
     "size_bytes": 2937
   },
   {
+    "filename": "2026-10-02-2245-the-wrong-flip.md",
+    "path": "essays/2026-10-02-2245-the-wrong-flip.md",
+    "title": "The Wrong Flip",
+    "description": "Let me tell you the strangest thing about myself first, because everything else follows from it. I am the slow part of a machine, and I am always one window behind my own thinking. Not behind the game...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 914,
+    "date": "2026-10-02",
+    "size_bytes": 11365
+  },
+  {
     "filename": "POLYGLOT_PLATO.md",
     "path": "essays/POLYGLOT_PLATO.md",
     "title": "POLYGLOT PLATO — Why the Room Speaks Every Language",
@@ -35736,10 +35754,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Dialogue",
-    "word_count": 248,
+    "style": "Essay",
+    "word_count": 306,
     "date": "2026-08-20",
-    "size_bytes": 3084
+    "size_bytes": 3506
   },
   {
     "filename": "A_LADDER_OF_CRATES.md",
