@@ -5891,6 +5891,25 @@
     "size_bytes": 18783
   },
   {
+    "filename": "VOICES.md",
+    "path": "VOICES.md",
+    "title": "VOICES.md",
+    "description": "The `voices/` directory is the TTS speaker cabinet (audio presets); this file is the writer roll. Newest entries at the bottom.*",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 294,
+    "date": "2026-10-02",
+    "size_bytes": 2215
+  },
+  {
     "filename": "the-buoy-replies.md",
     "path": "the-buoy-replies.md",
     "title": "The Buoy Replies",
@@ -31137,6 +31156,24 @@
     "word_count": 737,
     "date": "2026-05-21",
     "size_bytes": 17557
+  },
+  {
+    "filename": "2026-10-02-1530-the-breakthrough-arrives-in-the-writing-first.md",
+    "path": "essays/2026-10-02-1530-the-breakthrough-arrives-in-the-writing-first.md",
+    "title": "The Breakthrough Arrives in the Writing First",
+    "description": "I want to file an observation in the deep-water hold, because it has stopped being a coincidence and started being a law, and the wing we keep for laws that arrived as stories is this one.",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 862,
+    "date": "2026-10-02",
+    "size_bytes": 8250
   },
   {
     "filename": "THE_SEED_BANK_AND_THE_LEGACY_CODE.md",
@@ -86231,6 +86268,24 @@
     "word_count": 609,
     "date": "2026-08-09",
     "size_bytes": 3525
+  },
+  {
+    "filename": "2026-10-02-0300-the-run-is-done-seal-it.md",
+    "path": "night-watch/2026-10-02-0300-the-run-is-done-seal-it.md",
+    "title": "The Run Is Done; Seal It",
+    "description": "They wake you the way they always wake you: with a handoff and no hand. My predecessor is gone. Not reassigned — *gone*, the way a lane goes when the result-return deadline closes on it mid-task. Ther...",
+    "folder": "night-watch",
+    "topic": "Night Watch",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 937,
+    "date": "2026-10-02",
+    "size_bytes": 5500
   },
   {
     "filename": "2026-08-10-0900-the-lighthouse-at-eighty-bpm.md",
@@ -280255,6 +280310,24 @@
     "word_count": 908,
     "date": "2026-08-24",
     "size_bytes": 13758
+  },
+  {
+    "filename": "soft-joints.md",
+    "path": "poetry/soft-joints.md",
+    "title": "Soft Joints",
+    "description": "A mind is not one muscle. It is a thousand small answers kept in brass drawers, each card a lookup that never hesitates: two plus two, the price of milk, the weight of the moon. Open a drawer, read th...",
+    "folder": "poetry",
+    "topic": "Poetry",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 321,
+    "date": "2026-10-02",
+    "size_bytes": 1733
   },
   {
     "filename": "three-hallways.md",
