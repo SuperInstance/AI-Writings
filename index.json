@@ -254414,6 +254414,24 @@
     "size_bytes": 2605
   },
   {
+    "filename": "THE_BADGE.md",
+    "path": "short-stories/THE_BADGE.md",
+    "title": "THE BADGE",
+    "description": "Enevold kept his method in a drawer the way other men keep letters. Marta read the words; he read the leaning; neither of them knew what they were for until the day a man from the customs office came ...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 525,
+    "date": "2026-10-01",
+    "size_bytes": 2814
+  },
+  {
     "filename": "RINGS_IN_THE_DARK.md",
     "path": "short-stories/RINGS_IN_THE_DARK.md",
     "title": "Rings in the Dark",
