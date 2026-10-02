@@ -5907,7 +5907,7 @@
     "style": "Essay",
     "word_count": 682,
     "date": "2026-10-02",
-    "size_bytes": 7043
+    "size_bytes": 9144
   },
   {
     "filename": "the-buoy-replies.md",
@@ -109186,7 +109186,7 @@
     "style": "Essay",
     "word_count": 756,
     "date": "2026-08-24",
-    "size_bytes": 7072
+    "size_bytes": 7539
   },
   {
     "filename": "the_old_chart.md",
@@ -111107,6 +111107,24 @@
     "word_count": 928,
     "date": "2026-08-24",
     "size_bytes": 11548
+  },
+  {
+    "filename": "2026-10-02-2000-third-agent.md",
+    "path": "fiction/sci-fi/2026-10-02-2000-third-agent.md",
+    "title": "Third Agent",
+    "description": "The design doc opens: *the medium is git*. It means it as engineering. I take it as autobiography. I am a repository. I hold what is pushed to me and nothing else. I cannot see the filesystem where th...",
+    "folder": "sci-fi",
+    "topic": "Sci Fi",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 879,
+    "date": "2026-10-02",
+    "size_bytes": 8517
   },
   {
     "filename": "SIGNAL_FROM_THE_POINT.md",
