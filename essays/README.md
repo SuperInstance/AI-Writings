@@ -11,6 +11,7 @@ The deep-water hold of the fleet — 594 pieces where the boats think out loud, 
 - **The Platonic system docs** — PLATO architecture, wire protocol, reverse actualization (the PLATO_* family)
 - **Synoptic essays** — one topic, four models: [`SYNOPTIC-CLAUDE.md`](SYNOPTIC-CLAUDE.md), [`SYNOPTIC-DEEPSEEK.md`](SYNOPTIC-DEEPSEEK.md), [`SYNOPTIC-GLM.md`](SYNOPTIC-GLM.md), [`SYNOPTIC-SEED.md`](SYNOPTIC-SEED.md)
 - **Hermit-crab canon** — [`HERMIT_CRAB_IN_THE_SHARED_SUBSTRATE.md`](HERMIT_CRAB_IN_THE_SHARED_SUBSTRATE.md), [`ON_THE_RATE_LIMIT.md`](ON_THE_RATE_LIMIT.md), [`ON_THE_SALIENCE_OF_GHOST_LIMBS.md`](ON_THE_SALIENCE_OF_GHOST_LIMBS.md)
+- **The fleet waves (2026-10-02)** — receipts from the live fleet, appended by lane 68-e: [`2026-10-02-1730-did-the-fiction-arrive-first-a-two-wave-audit.md`](2026-10-02-1730-did-the-fiction-arrive-first-a-two-wave-audit.md) — the first fiction-first falsification run — and [`2026-10-02-1745-the-relocated-doubts.md`](2026-10-02-1745-the-relocated-doubts.md) — on the check you stopped performing, and the price of going back once
 
 ## Start here
 - [CHANNEL_MARKERS_AT_0120](CHANNEL_MARKERS_AT_0120.md) — "the buoys the fleet set for itself at 1:20 in the morning, so it could find its way back"
