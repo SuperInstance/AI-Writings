@@ -98026,6 +98026,153 @@
     "size_bytes": 6388
   },
   {
+    "filename": "00-foundations.md",
+    "path": "git-mechanics-201/00-foundations.md",
+    "title": "00 — Foundations: the tripartite model",
+    "description": "The conversation's philosophical engine. Everything technical in Modules 1–4 is an implementation of this section's claims.",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Music",
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 437,
+    "date": "2026-10-01",
+    "size_bytes": 2738
+  },
+  {
+    "filename": "02-module2-temporal-ledger.md",
+    "path": "git-mechanics-201/02-module2-temporal-ledger.md",
+    "title": "02 — Module 2: The Temporal Ledger (Weeks 5–7)",
+    "description": "The center of the course. Deep-dive weeks; Labs 4–5 carry strict constraints.",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 528,
+    "date": "2026-10-01",
+    "size_bytes": 3368
+  },
+  {
+    "filename": "03-module3-grafting-and-rollback.md",
+    "path": "git-mechanics-201/03-module3-grafting-and-rollback.md",
+    "title": "03 — Module 3: Grafting and Rollback (Weeks 8–10)",
+    "description": "The time-travel module. Deep-dive weeks; Labs 6–8 carry strict constraints, Lab 8 the strictest in the course.",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 552,
+    "date": "2026-10-01",
+    "size_bytes": 3646
+  },
+  {
+    "filename": "06-side-quests.md",
+    "path": "git-mechanics-201/06-side-quests.md",
+    "title": "06 — Side Quests (deliberately deferred)",
+    "description": "Threaded through the source conversation, explicitly *not* part of the spine. Deferred is not discarded — each is a course of its own.",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Education",
+      "Music",
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 332,
+    "date": "2026-10-01",
+    "size_bytes": 2093
+  },
+  {
+    "filename": "01-module1-dual-signal-input.md",
+    "path": "git-mechanics-201/01-module1-dual-signal-input.md",
+    "title": "01 — Module 1: Dual-Signal Input (Weeks 2–4)",
+    "description": "The physical substrate and the translation matrix. Deep-dive weeks; labs with strict constraints.",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 600,
+    "date": "2026-10-01",
+    "size_bytes": 4046
+  },
+  {
+    "filename": "README.md",
+    "path": "git-mechanics-201/README.md",
+    "title": "Git Mechanics 201 — The Foundational Course",
+    "description": "1. **Every number below is a design target, not a receipt.** No part of this course has been built, benchmarked, or run on the hardware it names. Where the source conversation asserted \"X fits in Y,\" ...",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Essay",
+    "word_count": 490,
+    "date": "2026-10-01",
+    "size_bytes": 3144
+  },
+  {
+    "filename": "04-module4-planetary-replication.md",
+    "path": "git-mechanics-201/04-module4-planetary-replication.md",
+    "title": "04 — Module 4: Planetary Replication (Weeks 12–13)",
+    "description": "Scale-out. Deep-dive weeks. (Week 11 is scaffolding: mesh enrollment and identity — named in the TOC, not deep-dived in the source.)",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 432,
+    "date": "2026-10-01",
+    "size_bytes": 2974
+  },
+  {
+    "filename": "05-open-problems.md",
+    "path": "git-mechanics-201/05-open-problems.md",
+    "title": "05 — Open Problems (the five gaps the source named)",
+    "description": "1. **Temporal de-noising.** A keystroke is a noisy proxy for intent: hesitation masquerades as deliberation; a backspace storm reads as intent reversal but is often muscle error. The course assumes a",
+    "folder": "git-mechanics-201",
+    "topic": "Git Mechanics 201",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 275,
+    "date": "2026-10-01",
+    "size_bytes": 1877
+  },
+  {
     "filename": "manifest.md",
     "path": "assets/2026-08-11-morning/manifest.md",
     "title": "Visual Wave — 2026-08-11 Morning",
@@ -104673,6 +104820,276 @@
     "word_count": 67,
     "date": "2026-07-12",
     "size_bytes": 394
+  },
+  {
+    "filename": "README.md",
+    "path": "git-mechanics-301/README.md",
+    "title": "Git Mechanics 301 — A Course Built in Quilt",
+    "description": "201 was written front-to-back before any learner ran it. That violated its own doctrine: - **FAIL-first** — but 201's labs were specified before any of them had ever been failed by a real student on r...",
+    "folder": "git-mechanics-301",
+    "topic": "Git Mechanics 301",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 683,
+    "date": "2026-10-01",
+    "size_bytes": 4130
+  },
+  {
+    "filename": "LEDGER.md",
+    "path": "git-mechanics-301/LEDGER.md",
+    "title": "LEDGER.md — the diffusion journal",
+    "description": "The course was seeded from one day of fleet operation. Every tile below was born from something that *happened*, not something that was planned. This is the founding proof of the diffusion rule: a dis...",
+    "folder": "git-mechanics-301",
+    "topic": "Git Mechanics 301",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 611,
+    "date": "2026-10-01",
+    "size_bytes": 4190
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t04-double-entry-doubt/tile.md",
+    "title": "Tile",
+    "description": "A system that is *sure* it is fine is a system that has stopped looking. The double-entry move, applied to doubt itself: every place you stop checking something must be recorded as an **Entry** with f...",
+    "folder": "t04-double-entry-doubt",
+    "topic": "T04 Double Entry Doubt",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 229,
+    "date": "2026-10-01",
+    "size_bytes": 1543
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t02-order-not-time/tile.md",
+    "title": "Tile",
+    "description": "Wall-clock timestamps are **decorations** on a receipt chain. Order lives in the chain itself: each receipt commits to its predecessor. Two streams with identical ops in identical order produce byte-i...",
+    "folder": "t02-order-not-time",
+    "topic": "T02 Order Not Time",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 251,
+    "date": "2026-10-01",
+    "size_bytes": 1651
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t05-receipts-as-time-travel/tile.md",
+    "title": "Tile",
+    "description": "Save any mid-stream receipt — call it the **genesis anchor**. Hand it to a fresh chain seeded with that anchor, replay the remaining ops in order, and you arrive at the original terminal hash. That is...",
+    "folder": "t05-receipts-as-time-travel",
+    "topic": "T05 Receipts As Time Travel",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 273,
+    "date": "2026-10-01",
+    "size_bytes": 1750
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t08-trusted-but-unaudited/tile.md",
+    "title": "Tile",
+    "description": "Trust without audit is the gap this tile will teach you to *see*: a commit can be in the ancestry everyone builds on (trusted) while no attestation covers it (unaudited). The wave-4 query layer's `tru...",
+    "folder": "t08-trusted-but-unaudited",
+    "topic": "T08 Trusted But Unaudited",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 274,
+    "date": "2026-10-01",
+    "size_bytes": 1734
+  },
+  {
+    "filename": "design-contract.md",
+    "path": "git-mechanics-301/tiles/t08-trusted-but-unaudited/witness/design-contract.md",
+    "title": "Witness: wave-4 query layer design contract (2026-10-02, in flight)",
+    "description": "Recovered from the wave-4 lane's working log (its final design notes before the host process was killed; the lane was resumed as a subagent against this exact contract).",
+    "folder": "witness",
+    "topic": "Witness",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 301,
+    "date": "2026-10-01",
+    "size_bytes": 2128
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t01-receipts-as-timeline/tile.md",
+    "title": "Tile",
+    "description": "A world's history is not its commit log — it is the **receipts its operations emitted**. A commit says *what the tree became*; a receipt says *what happened, in order, with a witness*. If you can clon...",
+    "folder": "t01-receipts-as-timeline",
+    "topic": "T01 Receipts As Timeline",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 267,
+    "date": "2026-10-01",
+    "size_bytes": 1638
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t07-mutation-discipline/tile.md",
+    "title": "Tile",
+    "description": "Not all mutations are mutations. A change that alters **comments, whitespace, or dead literals** changes nothing the machine executes — so a pin suite that \"survives\" it proves nothing, and a pin suit...",
+    "folder": "t07-mutation-discipline",
+    "topic": "T07 Mutation Discipline",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 284,
+    "date": "2026-10-01",
+    "size_bytes": 1754
+  },
+  {
+    "filename": "false-claim-correction.md",
+    "path": "git-mechanics-301/tiles/t07-mutation-discipline/witness/false-claim-correction.md",
+    "title": "Witness: the false claim, and its public correction (2026-10-02)",
+    "description": "During a decorative-pin audit (wave-3a), the auditor first reported:",
+    "folder": "witness",
+    "topic": "Witness",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 168,
+    "date": "2026-10-01",
+    "size_bytes": 1092
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t03-demonstrated-red-canary/tile.md",
+    "title": "Tile",
+    "description": "A check that has never been seen failing is **not a check** — it is a decoration that reassures. A canary that cannot fail is worse than no canary, because it spends your vigilance on theater. The doc...",
+    "folder": "t03-demonstrated-red-canary",
+    "topic": "T03 Demonstrated Red Canary",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 272,
+    "date": "2026-10-01",
+    "size_bytes": 1712
+  },
+  {
+    "filename": "r73-mutation.md",
+    "path": "git-mechanics-301/tiles/t03-demonstrated-red-canary/witness/r73-mutation.md",
+    "title": "Witness: pong-quilt R73 franken-save guard, mutation-tested 2026-10-02",
+    "description": "Source: playtest round 73 branch, `tests/r73-franken-save-guard-glue.test.js` (4 tests). Audit procedure: clone to /tmp/pq-audit, checkout `playtest-round-73`, run suite → 4/4 green. Mutate the guard ...",
+    "folder": "witness",
+    "topic": "Witness",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 81,
+    "date": "2026-10-01",
+    "size_bytes": 655
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t06-function-vs-construction/tile.md",
+    "title": "Tile",
+    "description": "Pinning the **function** is not pinning the **construction**. Two implementations can produce identical outputs on every test you wrote — same vectors, same vectors after mutation of your chosen const...",
+    "folder": "t06-function-vs-construction",
+    "topic": "T06 Function Vs Construction",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 274,
+    "date": "2026-10-01",
+    "size_bytes": 1904
+  },
+  {
+    "filename": "guardian-f-verdict.md",
+    "path": "git-mechanics-301/tiles/t06-function-vs-construction/witness/guardian-f-verdict.md",
+    "title": "Witness: guardian lane F' verdict on frozen-clock-lab PR #3 (2026-10-02)",
+    "description": "Verbatim from the guardian's delivered report (/tmp/guardian-f.md):",
+    "folder": "witness",
+    "topic": "Witness",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 119,
+    "date": "2026-10-01",
+    "size_bytes": 796
+  },
+  {
+    "filename": "tile.md",
+    "path": "git-mechanics-301/tiles/t09-ledgered-breakthroughs/tile.md",
+    "title": "Tile",
+    "description": "Understanding can be **explained as it forms**. The method: when a breakthrough materializes — a guardian finding, a demonstrated RED, a corrected claim, a shipped mechanism — it is recorded immediate...",
+    "folder": "t09-ledgered-breakthroughs",
+    "topic": "T09 Ledgered Breakthroughs",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 346,
+    "date": "2026-10-01",
+    "size_bytes": 2171
   },
   {
     "filename": "simulation-as-training.md",
