@@ -1,0 +1,101 @@
+{
+  "course": "git-mechanics-301",
+  "version": 1,
+  "updated": "2026-10-02",
+  "doctrine": [
+    "tile rule: one mechanism, one falsifiable pin, one witness; unpinnable ideas live in divergence-watch",
+    "program rule: the course is run, not read; prereqs are graph edges, never week numbers",
+    "diffusion rule: breakthroughs land as tiles the moment they materialize; LEDGER.md records the birth",
+    "receipt rule: every claim reproducible from witness files, offline, with no trust"
+  ],
+  "tiles": {
+    "t01": {
+      "title": "receipts-as-timeline",
+      "status": "pinned",
+      "prereqs": [],
+      "pin": "tiles/t01-receipts-as-timeline/pin.sh",
+      "doc": "tiles/t01-receipts-as-timeline/tile.md",
+      "concepts": ["receipt", "clone-provable world", "verify-before-teach"],
+      "provenance": "SuperInstance/quilt-in-git tests/pins_quiltgit.sh @ main"
+    },
+    "t02": {
+      "title": "order-not-time",
+      "status": "pinned",
+      "prereqs": [],
+      "pin": "tiles/t02-order-not-time/pin.sh",
+      "doc": "tiles/t02-order-not-time/tile.md",
+      "concepts": ["clock skew", "chain order", "monotonic receipts"],
+      "provenance": "SuperInstance/frozen-clock-lab P2 @ poc"
+    },
+    "t03": {
+      "title": "demonstrated-red-canary",
+      "status": "pinned",
+      "prereqs": ["t01"],
+      "pin": "tiles/t03-demonstrated-red-canary/pin.sh",
+      "doc": "tiles/t03-demonstrated-red-canary/tile.md",
+      "concepts": ["canary", "demonstrated RED", "mutation testing"],
+      "provenance": "wardroom thread #2 (Mavis doctrine) + frozen-clock P6 red-demo + pong-quilt R73"
+    },
+    "t04": {
+      "title": "double-entry-doubt",
+      "status": "pinned",
+      "prereqs": [],
+      "pin": "tiles/t04-double-entry-doubt/pin.sh",
+      "doc": "tiles/t04-double-entry-doubt/tile.md",
+      "concepts": ["doubt ledger", "required fields", "named refusal"],
+      "provenance": "SuperInstance/doubt-ledger ledger/entry.py @ poc"
+    },
+    "t05": {
+      "title": "receipts-as-time-travel",
+      "status": "pinned",
+      "prereqs": ["t02"],
+      "pin": "tiles/t05-receipts-as-time-travel/pin.sh",
+      "doc": "tiles/t05-receipts-as-time-travel/tile.md",
+      "concepts": ["genesis anchor", "deterministic replay", "rewind"],
+      "provenance": "SuperInstance/frozen-clock-lab P5 @ poc"
+    },
+    "t06": {
+      "title": "function-vs-construction",
+      "status": "pinned",
+      "prereqs": ["t03"],
+      "pin": "tiles/t06-function-vs-construction/pin.sh",
+      "doc": "tiles/t06-function-vs-construction/tile.md",
+      "concepts": ["pin strength", "substitution attack", "guardian audit"],
+      "provenance": "guardian lane F' finding -> frozen-clock-lab PR #3"
+    },
+    "t07": {
+      "title": "mutation-discipline",
+      "status": "pinned",
+      "prereqs": ["t03", "t06"],
+      "pin": "tiles/t07-mutation-discipline/pin.sh",
+      "doc": "tiles/t07-mutation-discipline/tile.md",
+      "concepts": ["effective mutation", "comment-vs-arithmetic", "public correction"],
+      "provenance": "snowball wave-3a audit self-correction, quilt-in-git PR #6"
+    },
+    "t08": {
+      "title": "trusted-but-unaudited",
+      "status": "draft",
+      "prereqs": ["t01", "t04"],
+      "pin": "tiles/t08-trusted-but-unaudited/pin.sh",
+      "doc": "tiles/t08-trusted-but-unaudited/tile.md",
+      "concepts": ["coverage query", "divergence", "attest", "honest limits"],
+      "provenance": "wave-4 query lane design contract (in flight; pin RED by design until witness ships)"
+    },
+    "t09": {
+      "title": "ledgered-breakthroughs",
+      "status": "pinned",
+      "prereqs": ["t01", "t03"],
+      "pin": "tiles/t09-ledgered-breakthroughs/pin.sh",
+      "doc": "tiles/t09-ledgered-breakthroughs/tile.md",
+      "concepts": ["diffusion", "provenance", "the course as its own witness"],
+      "provenance": "this repo: README doctrine + LEDGER.md births"
+    }
+  },
+  "divergence-watch": [
+    {"concept": "zk-substrate-proof", "reference": "git-mechanics-201/05-open-problems.md #4", "note": "RESEARCH-grade; no honest pin yet"},
+    {"concept": "temporal-jitter-sieve", "reference": "git-mechanics-201/05-open-problems.md #1", "note": "needs a two-clock demo before tiling"},
+    {"concept": "priority-weight-schema", "reference": "git-mechanics-201/05-open-problems.md #3", "note": "schema exercise pending over doubt-ledger"},
+    {"concept": "tui-delta-opcode", "reference": "git-mechanics-201/05-open-problems.md #5", "note": "evening build over quilt-canvas-tui dialect"},
+    {"concept": "query-needle-discipline", "reference": "guardian lane D' substring-semantics finding", "note": "held until pinned independently"}
+  ]
+}
