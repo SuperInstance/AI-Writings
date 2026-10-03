@@ -305,13 +305,17 @@ def reconcile(logs: dict, p: dict | None = None, fs: list[dict] | None = None) -
             for k, v in vec.items():
                 _vadd(cells, k, v)
         check(rs == p["grand"] and cs == p["grand"] and cells == p["grand"], "R2 margins do not sum to grand")
+    fs_by_log = {}
+    for f in fs:
+        fs_by_log.setdefault(f["log"], []).append(f)
     # R3 per route (sha256 logs): pivot route row == activeledger.route_total(records, route)
     for name, recs in logs.items():
         if flavor(recs) != "sha256-prev":
             continue
-        byroute = pivot(fs, "route", "component", where=lambda f, n=name: f["log"] == n)["row_tot"]
+        byroute = pivot(fs_by_log.get(name, []), "route", "component")["row_tot"]
         for route, vec in byroute.items():
             check(_close(vec, _budget_vec(AL.route_total(recs, route))), "R3 %s route %s" % (name, route))
+    byrun = pivot(fs, "run", "component")["row_tot"]
     # R4 every ledger.transaction's declared total == the emitter's own semantics at that point:
     #    sha256 logs: route_total(prefix, route); fnv1a calc log: the sum of its own run segment.
     #    Separately: a txn whose total != its OWN run's segment sum is reported as a FINDING.
@@ -327,7 +331,7 @@ def reconcile(logs: dict, p: dict | None = None, fs: list[dict] | None = None) -
                 if flavor(recs) == "sha256-prev":
                     check(_close(_budget_vec(tb), _budget_vec(AL.route_total(recs[:i], r["body"]["route"]))),
                           "R4 %s txn seq %d" % (name, r["seq"]))
-                run_vec = pivot(fs, "run", "component", where=lambda f, k="%s/%03d" % (name, run - 1): f["run"] == k)["grand"]
+                run_vec = byrun.get("%s/%03d" % (name, run - 1), {})
                 check(_close(run_vec, _budget_vec(seg)), "R4b %s run %d facts != segment" % (name, run - 1))
                 if flavor(recs) == "fnv1a-hash":
                     check(_close(_budget_vec(tb), _budget_vec(seg)), "R4 %s txn seq %d" % (name, r["seq"]))
@@ -349,7 +353,7 @@ def reconcile(logs: dict, p: dict | None = None, fs: list[dict] | None = None) -
             kind = a["openinference.span.kind"] if a["activelog.type"] == "cell.tick" else "HOP"
             _vadd(ot.setdefault(kind, {}), "wall_ms", _exact(a["activeledger.budget.wall_ms"]))
             _vadd(ot.setdefault(kind, {}), "usd", _exact(a["activeledger.budget.usd"]))
-        pk = pivot(fs, "kind", "component", where=lambda f, n=name: f["log"] == n and f["component"] in ("wall_ms", "usd"))
+        pk = pivot(fs_by_log.get(name, []), "kind", "component", where=lambda f: f["component"] in ("wall_ms", "usd"))
         check(all(_close(ot[k], pk["row_tot"][k]) for k in ot) and set(ot) == set(pk["row_tot"]),
               "R5 %s OTel projection != pivot" % name)
     return rep
@@ -361,19 +365,24 @@ def _summary(body: dict) -> dict:
     return {k: v for k, v in body.items() if k not in ("budget", "total_budget", "binds", "confidences")}
 
 
-def fold(records: list[dict], t: int) -> dict:
+def fold(records: list[dict], t: int, fl: str | None = None) -> dict:
     """State of a run after its first t records. Pure; always recomputed from the prefix."""
-    st = {"tick": 0, "head": head_of([], flavor(records)), "seq_next": 0, "counts": {k: 0 for k in AL.TYPES},
+    st = {"tick": 0, "head": head_of([], fl or flavor(records)), "seq_next": 0, "counts": {k: 0 for k in AL.TYPES},
           "total": AL.ZERO_BUDGET, "by_route": {}, "open": AL.ZERO_BUDGET, "cells": {}, "settled": [],
           "last": None}
     for r in records[:t]:
-        st = step_state(st, r)
-    return st
+        _advance(st, r)
+    return copy.deepcopy(st)                            # detach from the records' nested dicts
 
 
 def step_state(st: dict, r: dict) -> dict:
     """Advance a state by ONE record (new dict; the input state is not mutated)."""
     st = copy.deepcopy(st)
+    _advance(st, r)
+    return copy.deepcopy(st)
+
+
+def _advance(st: dict, r: dict) -> None:
     b = r["body"]
     st["tick"] += 1
     st["seq_next"] = r["seq"] + 1
@@ -390,7 +399,6 @@ def step_state(st: dict, r: dict) -> dict:
         st["open"] = AL.ZERO_BUDGET
     st["last"] = {"dev": r["dev"], "seq": r["seq"], "type": r["type"]}
     st["head"] = r["hash"] if "hash" in r else AL.link_hash(r)
-    return st
 
 
 def state_hash(st: dict) -> str:
@@ -400,19 +408,19 @@ def state_hash(st: dict) -> str:
 class Scrubber:
     """Step / rewind / seek over one recorded run. Holds a private deep copy; never writes to it."""
 
-    def __init__(self, records: list[dict], name: str = "run"):
+    def __init__(self, records: list[dict], name: str = "run", fl: str | None = None):
         if not verify(records):
             raise ValueError("refusing to scrub an unverified chain: %s" % name)
         self._recs = copy.deepcopy(records)
         self.name, self.n, self.t = name, len(records), 0
-        self._state = fold(self._recs, 0)
-        self.flavor = flavor(self._recs)
+        self.flavor = fl or flavor(self._recs)
+        self._state = fold(self._recs, 0, self.flavor)
         self.recorded_hash = run_hash(self._recs)
 
     def state_at(self, t: int) -> dict:
         if not isinstance(t, int) or isinstance(t, bool) or not 0 <= t <= self.n:
             raise IndexError("tick %r out of range 0..%d" % (t, self.n))
-        return fold(self._recs, t)
+        return fold(self._recs, t, self.flavor)
 
     def record(self, t: int) -> dict:
         """The record that moved state t-1 -> t (1-based tick), as a copy."""
@@ -465,7 +473,7 @@ class Fork:
         return self._log.emit(type_, body)            # the owner's emitter: same validation + chain rule
 
     def scrubber(self) -> Scrubber:
-        return Scrubber(self.records, name="%s#%s" % (self.meta["parent"], self.meta["branch"]))
+        return Scrubber(self.records, name="%s#%s" % (self.meta["parent"], self.meta["branch"]), fl=self.flavor)
 
     def fork(self, t: int, branch: str) -> "Fork":
         if not branch or "#" in branch:
