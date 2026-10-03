@@ -158,6 +158,21 @@ with tempfile.TemporaryDirectory() as td:
     check("corpus: 1 valid of 3", len(cs) == 1 and cs[0]["env"] == "fork+keys" and cs[0]["source"] == "corpus")
     check("corpus absent -> []", pr.load_corpus(os.path.join(td, "nope.jsonl")) == [])
 
+# 6b. crew agreement: advisory, column-echo names filtered, absent -> None
+with tempfile.TemporaryDirectory() as td:
+    cp = os.path.join(td, "crew.json")
+    import json
+    json.dump({"crew": ["m"], "usage": {}, "proposals": {
+        "a": {"outcome": "WORKED", "patterns": ["act", "new-move"]},
+        "b": {"outcome": "WORKED", "patterns": ["ledger-note"]}}}, open(cp, "w"))
+    ca = pr.crew_agreement(rows, cp)
+    check("crew: agreement counted against the rule classifier",
+          ca["compared"] == 2 and ca["agree"] == sum(
+              1 for rid in ("a", "b") if pr.classify_row(next(r for r in rows if r["id"] == rid))["outcome"] == "WORKED"))
+    check("crew: echo name 'act' filtered, novel name kept, canonical dropped",
+          [n for n, _ in ca["candidate_names"]] == ["new-move"])
+    check("crew file absent -> None", pr.crew_agreement(rows, os.path.join(td, "none.json")) is None)
+
 # 7. the real ledger: parse, determinism, cells emitted for every env
 real = pr.load_ledger()
 check("real ledger parses >= 160 rows", len(real) >= 160)
@@ -175,6 +190,8 @@ for name, text in r1["_cells"].items():
     except ValueError:
         ok = False
 check("every emitted cell is well-formed and named <pattern>.<env>.md", ok)
+check("gate cell inherits the ungated-output scar",
+      "ungated" in r1["_cells"].get("verified-gate.cloud-session.md", "ungated"))
 check("report marks the token figure as an estimate", "ESTIMATE" in pr.render_report(r1))
 check("fnv1a64 known vector", pr.fnv1a64("") == "0xcbf29ce484222325")
 

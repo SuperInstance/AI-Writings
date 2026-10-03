@@ -122,6 +122,9 @@ SEED_CANONICAL = (
     (r"roster|cheap model", "cheap-crew-brief"),
     (r"selftest", "independent-selftest-receipt"),
 )
+# A seed scar wounds one canonical pattern, but some also belong in another pattern's
+# setup cell as a known scar (skipping the gate is the gate's scar too).
+SETUP_ALSO = {"verified-gate": r"ungated|unseeded"}
 SEED_PHASE = ((r"brief|perm|add_repo", "DISPATCH"), (r"harvest|clobber", "HARVEST"),
               (r"push|503", "PUSH"), (r"roster|selftest|cheap", "BUILD"), (r"cap", "DISPATCH"))
 
@@ -315,7 +318,9 @@ def crew_agreement(rows: list[dict], path: str = CREW) -> dict | None:
         for nm in p.get("patterns") or []:
             if isinstance(nm, str):
                 names[_slug(nm)] += 1
-    novel = [(n, c) for n, c in names.most_common() if n not in PATTERNS][:10]
+    # names that just echo a ledger column (tier/verdict like "act", "build") are not moves
+    echo = {r["tier"].lower() for r in rows} | {"act", "escalate", "obs", "induce", "confirm", "hold"}
+    novel = [(n, c) for n, c in names.most_common() if n not in PATTERNS and n not in echo][:10]
     return {"labelled": len(props), "compared": total, "agree": agree,
             "agreement": round(agree / total, 3) if total else None,
             "candidate_names": novel, "crew": data.get("crew"), "usage": data.get("usage")}
@@ -543,7 +548,10 @@ def build(ledger: str = LEDGER, spec: str = SPEC, corpus: str = CORPUS, crew: st
     top = top_worked(rates)
     cells = OrderedDict()
     for pattern, _ in top:
-        scars = [s for s in seed + corp if s.get("canonical") == pattern and s["outcome"] != "WORKED"]
+        also = SETUP_ALSO.get(pattern)
+        scars = [s for s in seed + corp if s["outcome"] != "WORKED" and (
+            s.get("canonical") == pattern
+            or (also and re.search(also, s.get("label", s["pattern"]), re.I)))]
         refs = sorted({s["ref"] for s in led if s["canonical"] == pattern and s["outcome"] != "WORKED"},
                       key=lambda r: [int(x) if x.isdigit() else x for x in re.split(r"(\d+)", r)])
         for env in ENVS:

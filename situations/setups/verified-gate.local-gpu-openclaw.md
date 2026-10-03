@@ -29,7 +29,10 @@ a gate verdict (pass or refusal) with its hash, reproducible on re-run
 
 ## Known scars
 
-- none recorded for this pattern
+- **flaky selftest (unseeded draw)** (SCAR) — fix: pin the seed; prove N consecutive green before trusting
+- **trusting a cheap model's output ungated** (SCAR) — fix: cheap models propose, verified cells (B7/probes/TypeSafe) decide
+
+*Scars above were hit in cloud-session; which carry over to `local-gpu-openclaw` is unmeasured.*
 
 ## Evidence refs
 
