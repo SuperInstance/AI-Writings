@@ -1,0 +1,1099 @@
+{
+ "crew": [
+  "deepseek-ai/DeepSeek-V4-Flash",
+  "Qwen/Qwen3.8-Flash",
+  "zai-org/GLM-5.3-Flash"
+ ],
+ "proposals": {
+  "100": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "adversarial-audit",
+    "weakest-claim-decomposition"
+   ]
+  },
+  "101": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "adversarial-audit",
+    "control-comparison"
+   ]
+  },
+  "102": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "codify-method",
+    "knowledge-consolidation"
+   ]
+  },
+  "103": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "live-integration",
+    "feature-gating"
+   ]
+  },
+  "104": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "verify-claim",
+    "honest-defense"
+   ]
+  },
+  "105": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "self-localization",
+    "feature-implementation"
+   ]
+  },
+  "106": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "seed-diffusion",
+    "architecture-reconstruction"
+   ]
+  },
+  "107": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "arena-implementation",
+    "zero-alloc"
+   ]
+  },
+  "108": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "fixed-point-fft",
+    "scar-resolution"
+   ]
+  },
+  "109": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "arena-integration",
+    "ingest-implementation"
+   ]
+  },
+  "110": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "kernel-fusion",
+    "keystone-integration"
+   ]
+  },
+  "111": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "tokenizer-implementation",
+    "shard-completion"
+   ]
+  },
+  "112": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "environment-probing",
+    "session-isolation"
+   ]
+  },
+  "113": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "owner-directive",
+    "style-transmission"
+   ]
+  },
+  "114": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "skill-codification",
+    "captain-crew-pattern"
+   ]
+  },
+  "115": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "deferred-drawing",
+    "anti-premature-crystallization"
+   ]
+  },
+  "116": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "end-to-end-validation",
+    "push-provisioning"
+   ]
+  },
+  "117": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "parallel-lanes",
+    "import-not-reimplement"
+   ]
+  },
+  "118": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "docs-update",
+    "onboarding-refresh"
+   ]
+  },
+  "119": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "design-doc",
+    "reframe"
+   ]
+  },
+  "d001": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "author",
+    "escalate",
+    "situations"
+   ]
+  },
+  "d002": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "design",
+    "escalate",
+    "curriculum"
+   ]
+  },
+  "d003": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "concept",
+    "escalate",
+    "methodology"
+   ]
+  },
+  "d004": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "build",
+    "act",
+    "provenance"
+   ]
+  },
+  "d005": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "harvest",
+    "act",
+    "reconcile"
+   ]
+  },
+  "d006": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "pressure-test",
+    "escalate",
+    "architect"
+   ]
+  },
+  "d006b": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "salvage",
+    "act",
+    "ground"
+   ]
+  },
+  "d007": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "build",
+    "act",
+    "test"
+   ]
+  },
+  "d008": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "confirm",
+    "re-run",
+    "verify"
+   ]
+  },
+  "d009": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "architect",
+    "act",
+    "resolve"
+   ]
+  },
+  "d010": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "build",
+    "act",
+    "test"
+   ]
+  },
+  "d011": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "confirm",
+    "re-run",
+    "verify"
+   ]
+  },
+  "d012": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "induce",
+    "wander",
+    "iterate"
+   ]
+  },
+  "d013": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "drive-to-green",
+    "act",
+    "merge"
+   ]
+  },
+  "d014": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "experiment",
+    "escalate",
+    "proxy"
+   ]
+  },
+  "d015": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "architect",
+    "act",
+    "reuse"
+   ]
+  },
+  "d016": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "build",
+    "act",
+    "fix"
+   ]
+  },
+  "d017": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "strategy",
+    "escalate",
+    "recommend"
+   ]
+  },
+  "d018": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "build",
+    "act",
+    "attest"
+   ]
+  },
+  "d019": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "deploy",
+    "act",
+    "experiment"
+   ]
+  },
+  "d040": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "provenance-sweep",
+    "test-backed-invariant",
+    "determinism-check"
+   ]
+  },
+  "d041": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "roadmap",
+    "predicate-setting",
+    "playtest-plan"
+   ]
+  },
+  "d042": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "ops-runbook",
+    "deploy-plan",
+    "playtest-protocol"
+   ]
+  },
+  "d043": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "independent-reader",
+    "byte-for-byte-port",
+    "exact-arithmetic"
+   ]
+  },
+  "d044": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "research-program",
+    "predicate-design",
+    "evidence-flow"
+   ]
+  },
+  "d045": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "wal-metrics",
+    "honest-baseline",
+    "small-window-caveat"
+   ]
+  },
+  "d046": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "live-api-probe",
+    "api-mapping",
+    "judge-experiment"
+   ]
+  },
+  "d047": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "vision-doc",
+    "conceptual-reframe",
+    "exo-model"
+   ]
+  },
+  "d048": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "ensemble-experiment",
+    "fold-predicate",
+    "ceiling-check"
+   ]
+  },
+  "d049": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "diverse-ensemble",
+    "in-process-probe",
+    "fold-experiment"
+   ]
+  },
+  "d050": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "roster-probe",
+    "liveness-check",
+    "funding-audit"
+   ]
+  },
+  "d051": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "orchestration-doc",
+    "role-casting",
+    "judge-gating"
+   ]
+  },
+  "d052": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "distributed-ensemble",
+    "fold-experiment",
+    "failure-analysis"
+   ]
+  },
+  "d053": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "oracle-bound",
+    "stored-data-analysis",
+    "headroom-check"
+   ]
+  },
+  "d054": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "competence-map",
+    "judge-benchmark",
+    "blind-spot-audit"
+   ]
+  },
+  "d055": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "safe-hybrid-fold",
+    "fallback-design",
+    "stored-data-validation"
+   ]
+  },
+  "d056": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "creative-writing",
+    "discovery-narrative",
+    "repo-contribution"
+   ]
+  },
+  "d057": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "best-of-n",
+    "judge-selection",
+    "self-consistency-compare"
+   ]
+  },
+  "d058": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "adaptive-pedagogy",
+    "class-rollout",
+    "failure-analysis"
+   ]
+  },
+  "d059": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "complementarity-hunt",
+    "local-verification",
+    "oracle-bound"
+   ]
+  },
+  "d060": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "class-rollout",
+    "pedagogy-test",
+    "ceiling-analysis"
+   ]
+  },
+  "d061": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "production-audit",
+    "blocker-survey",
+    "ci-gap"
+   ]
+  },
+  "d062": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "production-deploy",
+    "bundle-fix",
+    "self-containment"
+   ]
+  },
+  "d063": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "merge-gate",
+    "ci-green",
+    "pr-management"
+   ]
+  },
+  "d064": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "game-diagnosis",
+    "fun-plan",
+    "interaction-design"
+   ]
+  },
+  "d065": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "backend-plan",
+    "secret-store",
+    "offline-first"
+   ]
+  },
+  "d066": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "asset-pipeline",
+    "flux-generation",
+    "visual-validation"
+   ]
+  },
+  "d067": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "wide-ideation",
+    "ceiling-measurement",
+    "fable-batching"
+   ]
+  },
+  "d068": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "physical-layer",
+    "abstain-primitive",
+    "law-6-thesis"
+   ]
+  },
+  "d069": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "api-unblock",
+    "key-trimming",
+    "engine-polling"
+   ]
+  },
+  "d070": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "backend-proof",
+    "token-bucket",
+    "graceful-degrade"
+   ]
+  },
+  "d071": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "apex-call",
+    "law-7-thesis",
+    "oracle-bound"
+   ]
+  },
+  "d072": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "reader-experiment",
+    "symbolic-reader",
+    "diversity-fail"
+   ]
+  },
+  "d073": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "fun-predicates",
+    "keystone-mechanic",
+    "dispatcher-verify"
+   ]
+  },
+  "d074": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "graphics-leap",
+    "coastline-canon",
+    "deploy-verify"
+   ]
+  },
+  "d075": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "merge-stack",
+    "ci-green",
+    "docket-clear"
+   ]
+  },
+  "d076": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "quantum-plugin",
+    "simulator-fork",
+    "dual-mode"
+   ]
+  },
+  "d077": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "bug-fix",
+    "refusal-law",
+    "render-abstain"
+   ]
+  },
+  "d078": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "cross-blocker",
+    "credential-reject",
+    "root-trace"
+   ]
+  },
+  "d079": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "quantum-wow",
+    "es-module",
+    "plugin-verify"
+   ]
+  },
+  "d080": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "status-update",
+    "scope-verification",
+    "constraint-documentation"
+   ]
+  },
+  "d081": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "owner-directive",
+    "standardization",
+    "documentation"
+   ]
+  },
+  "d082": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "live-deploy",
+    "hash-verification",
+    "interaction-validation"
+   ]
+  },
+  "d083": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "breakthrough-refinement",
+    "serverless-proxy",
+    "end-to-end-validation"
+   ]
+  },
+  "d084": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "owner-directive",
+    "history-consolidation",
+    "orphan-branch-merge"
+   ]
+  },
+  "d085": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "owner-directive",
+    "experiment-docket",
+    "house-style-alignment"
+   ]
+  },
+  "d086": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "fork-documentation",
+    "educational-readme",
+    "branch-prep"
+   ]
+  },
+  "d087": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "shared-generator",
+    "fleet-seed",
+    "idempotency-verification"
+   ]
+  },
+  "d088": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "bulk-merge",
+    "branch-landing",
+    "no-pr-merge"
+   ]
+  },
+  "d089": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "agent-dispatch",
+    "safety-compliance",
+    "publication"
+   ]
+  },
+  "d090": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "pressure-test",
+    "rate-limit-recovery",
+    "claim-refinement"
+   ]
+  },
+  "d091": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "experiment-harness",
+    "convention-naming",
+    "branch-landing"
+   ]
+  },
+  "d092": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "credit-exhaustion",
+    "no-retry-policy",
+    "artifact-preservation"
+   ]
+  },
+  "d093": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "cold-open",
+    "bug-fix",
+    "live-landing"
+   ]
+  },
+  "d094": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "CLUNKY",
+   "patterns": [
+    "zero-dep-verifier",
+    "permission-block",
+    "fallback-landing"
+   ]
+  },
+  "d095": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "drop-in-component",
+    "secret-handling",
+    "rate-limiting"
+   ]
+  },
+  "d096": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "finalization",
+    "branch-cleanup",
+    "default-landing"
+   ]
+  },
+  "d097": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "key-rotation",
+    "schema-mapping",
+    "insight-capture"
+   ]
+  },
+  "d098": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "dogfooding",
+    "play-simulation",
+    "weakness-discovery"
+   ]
+  },
+  "d099": {
+   "model": "Qwen/Qwen3.8-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "hardening",
+    "overclaim-correction",
+    "threat-model"
+   ]
+  },
+  "d120": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "system-agnostic-core",
+    "browser-poc",
+    "on-metal-optimization"
+   ]
+  },
+  "d121": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "manager-crew-decomposition",
+    "information-preservation",
+    "superinstance-modeling"
+   ]
+  },
+  "d122": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "local-tool-proving",
+    "micro-moth-quilt",
+    "collapse-ledger"
+   ]
+  },
+  "d123": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "corpus-queryable",
+    "hash-chain-verification",
+    "ml-in-the-loop"
+   ]
+  },
+  "d124": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "self-guarding-corpus",
+    "ci-tamper-evidence",
+    "offline-verification"
+   ]
+  },
+  "d125": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "scout-dispatch",
+    "honesty-audit",
+    "memory-capture"
+   ]
+  },
+  "d126": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "syzygy-p1-director",
+    "browser-poc",
+    "independent-verification"
+   ]
+  },
+  "d127": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "scout-wave-2",
+    "llm-judge-decomposition",
+    "canon-application-cluster"
+   ]
+  },
+  "d128": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "rd-scouts",
+    "modular-tools",
+    "receipt-based-defense"
+   ]
+  },
+  "d129": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "SCAR",
+   "patterns": [
+    "operational-scar",
+    "director-stall",
+    "prompt-injection-defense"
+   ]
+  },
+  "d130": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "backlog-cell",
+    "key-independent",
+    "dominated-nash-equilibrium"
+   ]
+  },
+  "d131": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "harvest-builder",
+    "tool-pin-receipts",
+    "tool-poisoning-defense"
+   ]
+  },
+  "d132": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "harvest-builder",
+    "hermit-fix",
+    "export-restoration"
+   ]
+  },
+  "d133": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "harvest-builder",
+    "syzygy-verifier-cells",
+    "independent-verification"
+   ]
+  },
+  "d134": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "calculator-quilt",
+    "active-log-schema",
+    "anti-gan-of-programming"
+   ]
+  },
+  "d135": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "harvest-rubric-forge",
+    "jev-weighted-rubric",
+    "dense-scalar-reward"
+   ]
+  },
+  "d136": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "harvest-activeledger",
+    "active-log-adoption",
+    "independent-verification"
+   ]
+  },
+  "d137": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "fleet-activity-scout",
+    "org-activity-scan",
+    "distinct-actor-identification"
+   ]
+  },
+  "d138": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "living-quilt-abstract",
+    "superinstance-account",
+    "agent-motion-lifeblood"
+   ]
+  },
+  "d139": {
+   "model": "deepseek-ai/DeepSeek-V4-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "coordination-read",
+    "namespace-collision-check",
+    "substance-verification"
+   ]
+  },
+  "d160": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "substrate-mining",
+    "independent-verification"
+   ]
+  },
+  "d161": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "conductor-orchestration",
+    "independent-verification"
+   ]
+  },
+  "d162": {
+   "model": "zai-org/GLM-5.3-Flash",
+   "outcome": "WORKED",
+   "patterns": [
+    "process-systematization",
+    "foundation-seeding"
+   ]
+  }
+ },
+ "usage": {
+  "calls": 7,
+  "completion_tokens": 11897,
+  "failed": 2,
+  "prompt_tokens": 14188
+ }
+}

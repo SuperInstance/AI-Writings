@@ -115,7 +115,23 @@ remembering to. It is importable standalone (no CCR needed — the `fork+keys` s
 doctrine travels across environments. selftest **33/0**; seed corpus of **12 scars** already booked. The
 frame: [`../situations/arch/DEVELOPMENT-AS-A-QUILT.md`](../situations/arch/DEVELOPMENT-AS-A-QUILT.md) (signal
 schema + setup cells) and [`../situations/blueprints/02-cheap-crew-dispatch.md`](../situations/blueprints/02-cheap-crew-dispatch.md)
-(the env-portable how-to). The `process-refinery` that mines these signals is the next cell.
+(the env-portable how-to).
+
+## process-refinery (`labs/process-refinery/`) — System-2 pointed at development itself
+
+The miner that pairs with `crew-runner`'s sensor: it reads the **dispatch-ledger** + the
+**process-signal corpus** (`situations/corpus/process-signals.jsonl`) and reports, per pattern per env,
+the **worked-rate**, the **scar-heaviest** patterns, and the headline objective **Anthropic-tokens-per-shipped-receipt**
+— the number the whole cheap-crew doctrine exists to drive down. Then it emits updated **setup cells**: the
+12 in [`../situations/setups/`](../situations/setups/) are 4 patterns (`architecture-spec`,
+`cheap-crew-brief`, `independent-selftest-receipt`, `verified-gate`) × 3 envs (`cloud-session` /
+`fork+keys` / `local-gpu-openclaw`), each an env-portable "to run pattern P here, do these steps + known
+scars" cell. Deterministic (builds twice, compares a `result_hash`), selftest **74/0**. Against live main it
+currently reads 164 ledger rows (142 resolved) + 12 signals → top WORKED `verified-gate` (41/64), worst SCAR
+`dispatch-5.5-director|cloud-session` (16/47). Honest about its own limits: ledger outcomes are *inferred*
+from prose and labelled as such; the crew's prose labels feed **no** metric (they're a cheap-proposer
+convenience the verified counts don't trust). Report: [`../situations/arch/PROCESS-REFINERY-REPORT.md`](../situations/arch/PROCESS-REFINERY-REPORT.md);
+frame: [`../situations/arch/DEVELOPMENT-AS-A-QUILT.md`](../situations/arch/DEVELOPMENT-AS-A-QUILT.md). **This closes the process-as-a-quilt spine: capture (crew-runner) → mine (process-refinery) → emit portable setups.**
 
 ## convo-quilt (`labs/convo-quilt/`) — an Opus conductor over a quilt of cheap models
 
