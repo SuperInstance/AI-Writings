@@ -262001,6 +262001,24 @@
     "size_bytes": 3410
   },
   {
+    "filename": "one-more-night.md",
+    "path": "game-night/one-more-night.md",
+    "title": "One More Night",
+    "description": "Fourteen stalls. That was the number Kestrel carried in, and the number she carried out, and the number the watch-double walked without ever once knowing it was counting. The double took the far leg o...",
+    "folder": "game-night",
+    "topic": "Game Night",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 880,
+    "date": "2026-10-02",
+    "size_bytes": 10367
+  },
+  {
     "filename": "nights-at-the-vesper-table.md",
     "path": "game-night/nights-at-the-vesper-table.md",
     "title": "Nights at the Vesper Table",
