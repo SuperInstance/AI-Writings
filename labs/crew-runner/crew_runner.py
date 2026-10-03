@@ -382,18 +382,28 @@ def seed_scars(path=SIGNALS_PATH):
 
 
 def live_smoke(models):
-    crew = CrewRunner(models=models, ref="crew-runner --live smoke", max_tokens=200)
+    # DeepInfra only prefix-caches past ~1024 prompt tokens (measured), so the stable prefix carries the doctrine.
+    with open(os.path.join(ROOT, "situations", "blueprints", "02-cheap-crew-dispatch.md"), encoding="utf-8") as f:
+        doctrine = f.read()
+    crew = CrewRunner(models=models, ref="crew-runner --live smoke", max_tokens=200,
+                      prefix="You are one model in a cheap-model crew. Answer exactly in the format asked.\n\n"
+                             "DOCTRINE (read-only context):\n" + doctrine)
     task = ("Propose ONE concrete way to cut the expensive-model tokens a coding director spends per task. Reply "
             'with ONLY a JSON object: {"idea": "<=20 words", "metric": "how to measure it"}.')
+    crew.checkpoint("start")
     first = crew.ask("brainstorm", task)
     kept, rej = crew.gate(first, json_gate("idea", "metric"))
-    second = crew.ask("brainstorm", task)              # same prompt: must be served from the local cache
+    crew.rewind("start")                               # kept outputs became context; rewind so the repeat is identical
+    second = crew.ask("brainstorm", task)              # same messages: must be served from the local cache
+    crew.rewind("start")
     third = crew.ask("brainstorm", task, use_cache=False)   # bypass local cache: measures provider prefix caching
     for o in first:
         print("  %-42s %s" % (o["model"], (o.get("error") or o["text"]).replace("\n", " ")[:110]))
     print("gate: %d kept, %d rejected %s" % (len(kept), len(rej), [r["reason"] for r in rej]))
     print("repeat ask: %d/%d served from cache" % (sum(o["cached"] for o in second), len(second)))
-    print("provider-cached prompt tokens on the uncached re-run: %d" % sum(o["tokens"].get("cached", 0) for o in third))
+    for a, b in zip(first, third):
+        print("  provider cache %-40s cached %d/%d prompt tokens, usd %s -> %s" % (a["model"], b["tokens"].get("cached", 0),
+              b["tokens"]["in"], a.get("usd"), b.get("usd")))
     s = crew.split()
     print("split:", json.dumps(s))
     crew.signal("BUILD", "crew-runner live smoke", "WORKED" if kept else "SCAR", s,
