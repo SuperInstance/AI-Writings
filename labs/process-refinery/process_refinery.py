@@ -668,7 +668,7 @@ def render_report(res: dict) -> str:
               "still breaks. `verified-gate`'s SCAR count is partly over-spread blame: e.g. d078/d083 "
               "book the TypeSafe/JEV 401 outage — the gate was unreachable, not wrong — and blocked "
               "director rows that merely name a gate are charged to it too." % (
-                  wk.split("|")[0], wv["SCAR"], wv["n"], share[0][0][0],
+                  wk.split("|")[0], wv["SCAR"], wv["n"], share[0][0].split("|")[0],
                   _pct(share[0][1]["SCAR"] / share[0][1]["n"]), share[0][1]["n"])]
     L += ["", "Seed scars by the pattern they wound:", ""]
     sc = Counter(s["canonical"] for s in res["seed"] if s["outcome"] == "SCAR")

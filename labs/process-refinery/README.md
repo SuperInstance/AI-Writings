@@ -22,7 +22,7 @@ patterns: "to run pattern P in env E, do these steps; here is the receipt; here 
 python3 labs/process-refinery/process_refinery.py           # summary
 python3 labs/process-refinery/process_refinery.py --write   # report + setup cells
 python3 labs/process-refinery/process_refinery.py --json    # everything, machine-readable
-python3 labs/process-refinery/selftest.py                   # process-refinery selftest: 73 checks, 0 failures
+python3 labs/process-refinery/selftest.py                   # process-refinery selftest: 74 checks, 0 failures
 python3 labs/process-refinery/crew_name_patterns.py         # optional, needs DEEPINFRA_KEY
 ```
 

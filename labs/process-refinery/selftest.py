@@ -192,6 +192,9 @@ for name, text in r1["_cells"].items():
 check("every emitted cell is well-formed and named <pattern>.<env>.md", ok)
 check("gate cell inherits the ungated-output scar",
       "ungated" in r1["_cells"].get("verified-gate.cloud-session.md", "ungated"))
+import re as _re
+_m = _re.search(r"Worst by share \(n ≥ 5\):\*\* `([^`]+)`", pr.render_report(r1))
+check("report names a real pattern as worst-by-share", bool(_m) and _m.group(1) in pr.PATTERNS)
 check("report marks the token figure as an estimate", "ESTIMATE" in pr.render_report(r1))
 check("fnv1a64 known vector", pr.fnv1a64("") == "0xcbf29ce484222325")
 

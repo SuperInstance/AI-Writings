@@ -62,7 +62,7 @@ Combined signals (ledger-inferred + seed scars + corpus). worked_rate = WORKED /
 | `scheduled-trigger` | cloud-session | 6 | 8 | 75% |
 | `independent-selftest-receipt` | cloud-session | 6 | 42 | 14% |
 
-**Worst by count:** `dispatch-5.5-director` (15 SCAR of 46). **Worst by share (n ≥ 5):** `s` (75% of 8). The director lane is where nearly every seed scar lives too (perm mode, metaphor brief, cross-repo push, usage caps) — the spawn step, not the build, is what still breaks. `verified-gate`'s SCAR count is partly over-spread blame: e.g. d078/d083 book the TypeSafe/JEV 401 outage — the gate was unreachable, not wrong — and blocked director rows that merely name a gate are charged to it too.
+**Worst by count:** `dispatch-5.5-director` (15 SCAR of 46). **Worst by share (n ≥ 5):** `scheduled-trigger` (75% of 8). The director lane is where nearly every seed scar lives too (perm mode, metaphor brief, cross-repo push, usage caps) — the spawn step, not the build, is what still breaks. `verified-gate`'s SCAR count is partly over-spread blame: e.g. d078/d083 book the TypeSafe/JEV 401 outage — the gate was unreachable, not wrong — and blocked director rows that merely name a gate are charged to it too.
 
 Seed scars by the pattern they wound:
 
