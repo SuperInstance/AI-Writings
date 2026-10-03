@@ -13523,6 +13523,24 @@
     "size_bytes": 11390
   },
   {
+    "filename": "90-the-luthiers-notebook.md",
+    "path": "90-the-luthiers-notebook.md",
+    "title": "90: The Luthier's Notebook",
+    "description": "Three apprentices came to me this season, each asking the same question in their own dialect: *when is an instrument ready for its skin?* The first wanted a formula. I gave him one, because formulas a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 773,
+    "date": "2026-10-03",
+    "size_bytes": 4175
+  },
+  {
     "filename": "THE_CRYSTALLIZATION_CURVE.md",
     "path": "THE_CRYSTALLIZATION_CURVE.md",
     "title": "The Crystallization Curve",
