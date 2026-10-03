@@ -183,14 +183,20 @@ PATTERNS = OrderedDict([
     ("ledger-note", ("BOOK", r"^(note|scar|owner-block)\b")),
 ])
 
-SCAR_RX = re.compile(r"\b40[13]\b|clobber|flaky|killed|stall|\bblocked\b|failed on|"
-                     r"injection|broke|red main|authentication_error", re.I)
+# Tuned against the real ledger: "403 checks", "evil-origin rejected 403", "injection scan",
+# "1 blocked" (an inventory) and "honest scars" (scars as data) are features, not breaks.
+SCAR_RX = re.compile(r"(?<!rejected )\b40[13]\b(?!\s*(checks|/|rejected))|clobber|flaky|killed|"
+                     r"\bstall(ed|s)?\b|(?<!\d )\bblocked\b|failed on|injection(?![ -]scan)|"
+                     r"\bbroke\b|red main|authentication_error", re.I)
+# Phrases that name a break only to negate it or describe a feature; blanked before scanning.
+NEGATED_RX = re.compile(r"\bno (\S+ )?stall|reject(ed|s)? 40[13]|40[13]-checks|"
+                        r"injection can evade|encoded injection", re.I)
 CLUNKY_RX = re.compile(r"re-?dispatch|retr(y|ied)|rate.?limit|\b503\b|paused|workaround|"
                        r"session limit|usage cap|salvage|re-?steer|restart|conflict|flapp|"
                        r"\bv2\b|errored|stalled", re.I)
 # A row that SCHEDULES local-GPU work was still run from a cloud session; only a row saying
 # the openclaw agent itself shipped/ran something is evidence for that env.
-SCAR_WORD = re.compile(r"\bscars?\b", re.I)
+SCAR_WORD = re.compile(r"\bscar\b(?!s)", re.I)
 WRITING_TIERS = {"DOC", "ARCH", "SEED", "SKILL", "SYSTEMIZE", "PLAN", "COORD"}
 ENV_RX = (("local-gpu-openclaw", re.compile(r"openclaw\s+(shipped|ran|built|landed)", re.I)),
           ("fork+keys", re.compile(r"(ran|shipped|built) (from|in|on) (a |the )?fork", re.I)))
@@ -203,7 +209,7 @@ def classify_row(row: dict) -> dict:
     st = row["status"]
     # writing ABOUT scars/friction (a doc/arch row) is not having them: for writing tiers
     # only the status column can mark a row SCAR/CLUNKY
-    prose = "" if row["tier"] in WRITING_TIERS else row["text"]
+    prose = "" if row["tier"] in WRITING_TIERS else NEGATED_RX.sub(" ", row["text"])
     if (row["tier"] in ("SCAR", "OWNER-BLOCK") or st in RESOLVED_BAD or SCAR_WORD.search(prose)
             or SCAR_RX.search(prose)):
         outcome = "SCAR"
@@ -644,16 +650,31 @@ def render_report(res: dict) -> str:
     for k, v in res["scar_heaviest"]:
         p, e = k.split("|")
         L.append("| `%s` | %s | %d | %d | %s |" % (p, e, v["SCAR"], v["n"], _pct(v["SCAR"] / v["n"])))
+    if res["scar_heaviest"]:
+        (wk, wv) = res["scar_heaviest"][0]
+        share = sorted(((k, v) for k, v in res["rates"].items() if v["n"] >= 5 and v["SCAR"]),
+                       key=lambda kv: (-kv[1]["SCAR"] / kv[1]["n"], kv[0]))
+        L += ["", "**Worst by count:** `%s` (%d SCAR of %d). **Worst by share (n ≥ 5):** `%s` "
+              "(%s of %d). The director lane is where nearly every seed scar lives too (perm mode, "
+              "metaphor brief, cross-repo push, usage caps) — the spawn step, not the build, is what "
+              "still breaks. `verified-gate`'s SCAR count is partly over-spread blame: e.g. d078/d083 "
+              "book the TypeSafe/JEV 401 outage — the gate was unreachable, not wrong — and blocked "
+              "director rows that merely name a gate are charged to it too." % (
+                  wk.split("|")[0], wv["SCAR"], wv["n"], share[0][0][0],
+                  _pct(share[0][1]["SCAR"] / share[0][1]["n"]), share[0][1]["n"])]
     L += ["", "Seed scars by the pattern they wound:", ""]
     sc = Counter(s["canonical"] for s in res["seed"] if s["outcome"] == "SCAR")
     cl = Counter(s["canonical"] for s in res["seed"] if s["outcome"] == "CLUNKY")
     for p in sorted(set(sc) | set(cl), key=lambda p: (-sc[p], -cl[p], p)):
         L.append("- `%s`: %d SCAR, %d CLUNKY" % (p, sc[p], cl[p]))
     L += ["", "## WORKED-dominant patterns → setup cells", "",
-          "Rule: worked-rate ≥ 50%% over ≥ 5 signals in cloud-session, ranked by WORKED count. "
+          "Rule: worked-rate ≥ 50% over ≥ 5 signals in cloud-session, ranked by WORKED count. "
           "Each gets three env cells in `situations/setups/`.", ""]
     for p, v in res["top_worked"]:
         L.append("- `%s` — %d WORKED / %d (%s)" % (p, v["WORKED"], v["n"], _pct(v["worked_rate"])))
+    L += ["", "`architecture-spec` reads optimistic by construction: doc/arch rows can only fail by "
+          "status (prose about scars is not a scar), so its rate measures *did the doc land*, not "
+          "*was the design right*."]
     L += ["", "Emitted: " + ", ".join("`%s`" % c for c in res["setup_cells"]), ""]
     cr = res["crew"]
     L += ["## Cheap-crew pattern naming (advisory, gated)", ""]

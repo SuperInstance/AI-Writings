@@ -101,6 +101,10 @@ check("scheduling local-GPU work stays cloud-session",
       pr.classify_row(row("BUILD", "docket of local-GPU experiments"))["env"] == "cloud-session")
 check("openclaw shipped -> local-gpu-openclaw",
       pr.classify_row(row("COORD", "Casey's openclaw shipped superinstance-api"))["env"] == "local-gpu-openclaw")
+check("'403 checks' is a count, not a 403", pr.classify_row(row("HARVEST", "11 selftests, 403 checks, 0 failures"))["outcome"] == "WORKED")
+check("'no stall' is negated", pr.classify_row(row("SESSION", "fallbacks worked, no unfunded-provider stall"))["outcome"] == "WORKED")
+check("'reject 403' is a feature", pr.classify_row(row("BUILD", "cross-origin reject 403, oversized 413"))["outcome"] == "WORKED")
+check("flaky selftest is a SCAR", pr.classify_row(row("HARVEST", "its selftest is FLAKY"))["outcome"] == "SCAR")
 check("unmatched row -> other", pr.classify_row(row("BUILD", "zzz"))["patterns"] == ["other"])
 
 # 4. tokens-per-receipt arithmetic
