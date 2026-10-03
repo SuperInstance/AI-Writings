@@ -59006,6 +59006,24 @@
     "size_bytes": 4170
   },
   {
+    "filename": "PROCESS-REFINERY-REPORT.md",
+    "path": "situations/arch/PROCESS-REFINERY-REPORT.md",
+    "title": "Process-refinery report — what our development moves actually do",
+    "description": "- **Ledger outcomes are inferred, not recorded.** The dispatch-ledger has no outcome column; a rule classifier reads each row's prose. SCAR = the row names a break (403/401, blocked, clobber, flaky, s...",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 852,
+    "date": "2026-10-03",
+    "size_bytes": 7216
+  },
+  {
     "filename": "INTER-RELATIONAL-INTELLIGENCE.md",
     "path": "situations/arch/INTER-RELATIONAL-INTELLIGENCE.md",
     "title": "Inter-relational intelligence — saving the system so a model can learn to decompose",
@@ -59914,6 +59932,224 @@
     "word_count": 598,
     "date": "2026-09-29",
     "size_bytes": 3670
+  },
+  {
+    "filename": "independent-selftest-receipt.cloud-session.md",
+    "path": "situations/setups/independent-selftest-receipt.cloud-session.md",
+    "title": "Independent Selftest Receipt.Cloud Session",
+    "description": "a lab with selftest.py (stdlib, offline)",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 173,
+    "date": "2026-10-03",
+    "size_bytes": 1214
+  },
+  {
+    "filename": "cheap-crew-brief.fork+keys.md",
+    "path": "situations/setups/cheap-crew-brief.fork+keys.md",
+    "title": "Cheap Crew Brief.Fork+Keys",
+    "description": "API keys (DEEPINFRA_KEY at minimum), the pinned roster, a task with a verifiable gate",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 217,
+    "date": "2026-10-03",
+    "size_bytes": 1564
+  },
+  {
+    "filename": "independent-selftest-receipt.local-gpu-openclaw.md",
+    "path": "situations/setups/independent-selftest-receipt.local-gpu-openclaw.md",
+    "title": "Independent Selftest Receipt.Local Gpu Openclaw",
+    "description": "a lab with selftest.py (stdlib, offline)",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 169,
+    "date": "2026-10-03",
+    "size_bytes": 1265
+  },
+  {
+    "filename": "cheap-crew-brief.cloud-session.md",
+    "path": "situations/setups/cheap-crew-brief.cloud-session.md",
+    "title": "Cheap Crew Brief.Cloud Session",
+    "description": "API keys (DEEPINFRA_KEY at minimum), the pinned roster, a task with a verifiable gate",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "DeepSeek",
+      "GLM-5.1",
+      "Qwen 3.6"
+    ],
+    "style": "Essay",
+    "word_count": 229,
+    "date": "2026-10-03",
+    "size_bytes": 1645
+  },
+  {
+    "filename": "architecture-spec.local-gpu-openclaw.md",
+    "path": "situations/setups/architecture-spec.local-gpu-openclaw.md",
+    "title": "Architecture Spec.Local Gpu Openclaw",
+    "description": "a design question past the deadband, Opus 5.5",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 130,
+    "date": "2026-10-03",
+    "size_bytes": 979
+  },
+  {
+    "filename": "verified-gate.fork+keys.md",
+    "path": "situations/setups/verified-gate.fork+keys.md",
+    "title": "Verified Gate.Fork+Keys",
+    "description": "a candidate output (crew draft, cheaper route, model answer) and a gate that can refuse it",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 198,
+    "date": "2026-10-03",
+    "size_bytes": 1390
+  },
+  {
+    "filename": "architecture-spec.cloud-session.md",
+    "path": "situations/setups/architecture-spec.cloud-session.md",
+    "title": "Architecture Spec.Cloud Session",
+    "description": "a design question past the deadband, Opus 5.5",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 124,
+    "date": "2026-10-03",
+    "size_bytes": 898
+  },
+  {
+    "filename": "cheap-crew-brief.local-gpu-openclaw.md",
+    "path": "situations/setups/cheap-crew-brief.local-gpu-openclaw.md",
+    "title": "Cheap Crew Brief.Local Gpu Openclaw",
+    "description": "API keys (DEEPINFRA_KEY at minimum), the pinned roster, a task with a verifiable gate",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 213,
+    "date": "2026-10-03",
+    "size_bytes": 1557
+  },
+  {
+    "filename": "independent-selftest-receipt.fork+keys.md",
+    "path": "situations/setups/independent-selftest-receipt.fork+keys.md",
+    "title": "Independent Selftest Receipt.Fork+Keys",
+    "description": "a lab with selftest.py (stdlib, offline)",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 169,
+    "date": "2026-10-03",
+    "size_bytes": 1220
+  },
+  {
+    "filename": "architecture-spec.fork+keys.md",
+    "path": "situations/setups/architecture-spec.fork+keys.md",
+    "title": "Architecture Spec.Fork+Keys",
+    "description": "a design question past the deadband, Opus 5.5",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Essay",
+    "word_count": 138,
+    "date": "2026-10-03",
+    "size_bytes": 968
+  },
+  {
+    "filename": "verified-gate.local-gpu-openclaw.md",
+    "path": "situations/setups/verified-gate.local-gpu-openclaw.md",
+    "title": "Verified Gate.Local Gpu Openclaw",
+    "description": "a candidate output (crew draft, cheaper route, model answer) and a gate that can refuse it",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 198,
+    "date": "2026-10-03",
+    "size_bytes": 1439
+  },
+  {
+    "filename": "verified-gate.cloud-session.md",
+    "path": "situations/setups/verified-gate.cloud-session.md",
+    "title": "Verified Gate.Cloud Session",
+    "description": "a candidate output (crew draft, cheaper route, model answer) and a gate that can refuse it",
+    "folder": "setups",
+    "topic": "Setups",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 225,
+    "date": "2026-10-03",
+    "size_bytes": 1551
   },
   {
     "filename": "README.md",
@@ -68280,7 +68516,7 @@
     "style": "Dialogue",
     "word_count": 676,
     "date": "2026-09-29",
-    "size_bytes": 17898
+    "size_bytes": 19449
   },
   {
     "filename": "README.md",
@@ -68624,6 +68860,24 @@
     "word_count": 726,
     "date": "2026-09-30",
     "size_bytes": 6390
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/process-refinery/README.md",
+    "title": "process-refinery — System-2 pointed at the development process",
+    "description": "§2–§4. Output: [`PROCESS-REFINERY-REPORT.md`](../../situations/arch/PROCESS-REFINERY-REPORT.md) + [`situations/setups/`](../../situations/setups/).* The labs are what we build; the **development proce...",
+    "folder": "process-refinery",
+    "topic": "Process Refinery",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 648,
+    "date": "2026-10-03",
+    "size_bytes": 5266
   },
   {
     "filename": "README.md",
