@@ -119,5 +119,81 @@ arch = AR.pack_many(runs2)
 check("ALRM multi-run archive round-trips every run", A.canon(AR.unpack_many(arch)) == A.canon(runs2))
 check("ALRM archive of two runs is smaller than two ALR1 blobs", len(arch) < sum(len(AR.pack(r)) for r in runs2))
 
+# ---- playtest hardening (PLAYTEST-REPORT.md) ----------------------------------------------
+check("PT: add_budget('' + 'local') has no leading '+' (precedence bug: `-` bound tighter than `|`)",
+      A.add_budget(A.budget(reqs=""), A.budget(reqs="local"))["reqs"] == "local"
+      and A.add_budget(A.budget(reqs="net"), A.budget(reqs="local"))["reqs"] == "local+net")
+check("PT: budget_ok rejects inf / NaN / bool fields (they hash as non-JSON or as 1)",
+      not any(A.budget_ok(b) for b in (A.budget(usd=float("inf")), A.budget(usd=float("nan")),
+                                       A.budget(tokens={"a": True}), A.budget(wall_ms=True), A.budget(mem_mb=float("inf")))))
+try:
+    A.canon({"a": float("nan")}); nan_loud = False
+except ValueError:
+    nan_loud = True
+check("PT: canon() refuses NaN/Infinity instead of emitting non-JSON", nan_loud)
+check("PT: verify_chain / validate_envelope treat non-dict records as invalid (was TypeError)",
+      A.verify_chain([1]) is False and A.verify_chain([None]) is False and A.verify_chain([]) is True)
+import lzma as _lzma
+import random as _random
+_mk = A.ActiveLog("pt")
+for _i in range(30):
+    _mk.emit("cell.tick", {"c": "cell%d" % (_i % 3), "n": _i * 5, "f": _i / 3, "s": "hello%d" % (_i % 4), "ok": _i % 2 == 0, "l": [_i, "x"],
+                           "budget": A.budget()})
+_recs, _pay, _head = _mk.records, AR._payload(_mk.records, 0), AR._head(_mk.records)
+_rng, _kinds, _wrong = _random.Random(3), set(), 0
+for _t in range(400):
+    _b = bytearray(_pay)
+    for _ in range(_rng.choice((1, 1, 2, 5))):
+        _op, _p = _rng.random(), _rng.randrange(len(_b))
+        if _op < .6:
+            _b[_p] = _rng.randrange(256)
+        elif _op < .8:
+            del _b[_p:_p + _rng.randrange(1, 5)]
+        else:
+            _b[_p:_p] = bytes(_rng.randrange(256) for _ in range(_rng.randrange(1, 4)))
+    try:
+        _o = AR.unpack(b"ALR1\x00" + _head + _lzma.compress(bytes(_b)))
+        _wrong += A.canon(_o) != A.canon(_recs)
+    except AR.AtRestError:
+        pass
+    except Exception as _e:                     # old code: ~60% of mutations escaped as IndexError/JSONDecodeError/UnicodeDecodeError
+        _kinds.add(type(_e).__name__)
+check("PT: 400 structurally-mutated payloads (valid lzma) only ever raise AtRestError (was IndexError/JSONDecodeError/UnicodeDecodeError)", not _kinds)
+check("PT: ...and never silently return different records", _wrong == 0)
+def _atrest_err(f):
+    try:
+        f()
+    except AR.AtRestError:
+        return True
+    except Exception:
+        return False
+    return False
+check("PT: pack([]) / pack_many with an empty run -> AtRestError (was IndexError)",
+      _atrest_err(lambda: AR.pack([])) and _atrest_err(lambda: AR.pack_many([[], _recs])))
+check("PT: a blob that is only the 4-byte magic -> AtRestError (was IndexError)",
+      _atrest_err(lambda: AR.unpack(b"ALR1")) and _atrest_err(lambda: AR.unpack_many(b"ALRM")))
+check("PT: trailing bytes after the lzma stream are refused", _atrest_err(lambda: AR.unpack(AR.pack(_recs) + b"\x00")))
+_old = AR.MAX_PAYLOAD
+AR.MAX_PAYLOAD = 1000
+check("PT: decompressed payload over MAX_PAYLOAD is refused (lzma-bomb guard)",
+      _atrest_err(lambda: AR.unpack(b"ALR1\x00" + _head + _lzma.compress(b"\x00" * 5000))))
+AR.MAX_PAYLOAD = _old
+_rb = AR.pack(_recs, repair=True)
+def _flip(n, seed):
+    r, b = _random.Random(seed), bytearray(_rb)
+    for _ in range(n):
+        b[r.randrange(5, len(b))] ^= 1 << r.randrange(8)      # skip magic+flags (those are not RS-protected)
+    return bytes(b)
+_rec1 = all(A.canon(AR.unpack(_flip(1, k))) == A.canon(_recs) for k in range(20))
+_wr = 0
+for _k in range(20):
+    try:
+        _wr += A.canon(AR.unpack(_flip(100, _k))) != A.canon(_recs)
+    except AR.AtRestError:
+        pass
+    except Exception:
+        _wr += 1
+check("PT: RS-protected blob: 1 flipped bit always recovers; 100 flips either recover or raise AtRestError, never wrong/other", _rec1 and _wr == 0)
+
 print("activeledger selftest: %d checks, %d failures" % (checks, fails))
 sys.exit(1 if fails else 0)

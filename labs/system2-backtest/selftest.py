@@ -101,5 +101,29 @@ rep = bt.backtest_corpus(poisoned, labels)
 check("poisoned case refused, rest still certified",
       rep["refused"] == 1 and rep["certified"] == r1["convert"]["certified"] - 1)
 
+# ---- playtest hardening (PLAYTEST-REPORT.md) ----------------------------------------------
+pa, pb = route("A", {"v": 1}, 5, usd=1.0), route("B", {"v": 1}, 3, usd=2.0)
+check("PT: same route label on both sides is refused (was: verdict silently collapsed to one key)",
+      bt.backtest_pair(route("X", {"v": 1}, 1), route("X", {"v": 1}, 2))["status"] == "refused")
+try:
+    bt.backtest_corpus([{"id": 1, "a": pa, "b": pb}], ("A", "A")); same_lab = False
+except ValueError:
+    same_lab = True
+check("PT: backtest_corpus(labels=('A','A')) raises ValueError", same_lab)
+check("PT: non-envelope records are 'refused', not KeyError/TypeError",
+      all(bt.backtest_pair(x, x)["status"] == "refused" for x in ([{"x": 1}], [1], None, "abc")))
+dl = route("A", {"v": 1}, 1); dl[-1]["body"]["path"] = {"plan": 1}
+check("PT: dict-valued route label is refused (was: TypeError unhashable)", bt.backtest_pair(dl, pb)["status"] == "refused")
+check("PT: non-numeric quality is refused (was: TypeError)", bt.backtest_pair(pa, pb, quality={"A": "hi", "B": 3})["status"] == "refused")
+check("PT: corpus labels that do not match the routes are 'refused' per case (was: KeyError)",
+      bt.backtest_corpus([{"id": 1, "a": pa, "b": pb}], ("x", "y"))["refused"] == 1)
+check("PT: corpus case without an id gets its index (was: KeyError)", bt.backtest_corpus([{"a": pa, "b": pb}], ("A", "B"))["cases"][0]["id"] == 0)
+check("PT: NFC vs NFD products are DIFFERENT products (byte-exact identity, documented strictness)",
+      bt.backtest_pair(route("A", {"v": "\u00e9"}, 1), route("B", {"v": "e\u0301"}, 1))["status"] == "refused")
+check("PT: 1 vs 1.0 and True vs 1 are different products (type-exact)",
+      bt.backtest_pair(route("A", {"v": 1}, 1), route("B", {"v": 1.0}, 1))["status"] == "refused"
+      and bt.backtest_pair(route("A", {"v": True}, 1), route("B", {"v": 1}, 1))["status"] == "refused")
+check("PT: key order in a product does not matter", bt.backtest_pair(route("A", {"a": 1, "b": 2}, 1), route("B", {"b": 2, "a": 1}, 1))["status"] == "certified")
+check("PT: empty corpus is a verdict with no workload block", "workload" not in bt.backtest_corpus([], ("A", "B")))
 print("system2-backtest selftest: %d checks, %d failures" % (checks, failures))
 sys.exit(1 if failures else 0)

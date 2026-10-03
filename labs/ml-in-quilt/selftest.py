@@ -237,6 +237,30 @@ def main():
     except ValueError:
         check("unknown dtype refused", True)
 
+    print("-- playtest hardening")
+    def _raises(f, exc=ValueError):
+        try:
+            f()
+        except exc:
+            return True
+        except Exception:
+            return False
+        return False
+    check("empty prompt is a clear ValueError (was opaque IndexError) in greedy/spec/gated",
+          all(_raises(f) for f in (lambda: C.run_greedy(model, "", 2, {}, "x"),
+                                   lambda: C.run_speculative(model, "", 2, S.Q8, {}, "x"),
+                                   lambda: C.run_gated(model, "", 2, S.Q8, {}, "x", eps=0.1))))
+    check("all-out-of-vocab prompt ('XYZ') is the same clear ValueError", _raises(lambda: C.run_greedy(model, "XYZ", 2, {}, "x")))
+    check("n=0 with an empty prompt is also refused (feed([]) used to IndexError)", _raises(lambda: C.run_greedy(model, "", 0, {}, "x")))
+    check("run_speculative(k<0) is refused (was: silently WRONG tokens)", _raises(lambda: C.run_speculative(model, "the ", 3, S.Q8, {}, "x", k=-2)))
+    check("run_speculative(k=0 / huge k) still equals exact greedy",
+          all(C.run_speculative(model, "the cat ", 5, S.Q4, {}, "x", k=kk).records[-1]["body"]["tokens"]
+              == C.run_greedy(model, "the cat ", 5, {}, "x").records[-1]["body"]["tokens"] for kk in (0, 1, 99)))
+    check("run_gated(eps<0 / NaN / huge) with final_verify still equals exact greedy",
+          all(C.run_gated(model, "the dog ", 5, S.Q4, {}, "x", eps=e).records[-1]["body"]["tokens"]
+              == C.run_greedy(model, "the dog ", 5, {}, "x").records[-1]["body"]["tokens"] for e in (-1.0, float("nan"), 1e9)))
+    check("KNOWN LIMIT: tokenize drops out-of-vocab chars ('The cat' == 'he cat' as token ids)", C.tokenize("The cat") == C.tokenize("he cat"))
+
     print("-- determinism")
     again = S.run_route(model, "spec-q4", S.PROMPTS[0])
     check("same inputs -> byte-identical log", al.canon(again) == al.canon(spec))

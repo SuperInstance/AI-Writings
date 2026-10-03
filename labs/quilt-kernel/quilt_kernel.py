@@ -92,7 +92,7 @@ def add_budget(a: dict, b: dict) -> dict:
 def budget_ok(b) -> bool:
     try:
         return (b["wall_ms"] >= 0 and b["usd"] >= 0 and b["mem_mb"] >= 0 and b["power_w"] >= 0
-                and all(isinstance(v, int) and v >= 0 for v in b["tokens"].values())
+                and all(isinstance(v, int) and not isinstance(v, bool) and v >= 0 for v in b["tokens"].values())
                 and set(b["storage_bytes"]) == {"train", "prod"} and isinstance(b["reqs"], str))
     except (KeyError, TypeError, AttributeError):
         return False
@@ -158,7 +158,7 @@ class Ledger:
         prev = self.genesis
         for i, r in enumerate(self.records):
             why = None
-            if not all(k in r for k in REQUIRED) or r["alv"] != ALV or r["type"] not in TYPES:
+            if not isinstance(r, dict) or not all(k in r for k in REQUIRED) or r["alv"] != ALV or r["type"] not in TYPES:
                 why = "malformed envelope"
             elif r["seq"] != i:
                 why = "seq not contiguous"
@@ -170,8 +170,13 @@ class Ledger:
                 return {"intact": False, "firstBreak": i + 1, "reason": why}
             prev = self.link_hash(r)
         if anchor is not None:
-            s = anchor["seq"]
-            if s >= len(self.records) or self.link_hash(self.records[s]) != anchor["digest"]:
+            s = anchor.get("seq") if isinstance(anchor, dict) else None
+            if s == -1 and not self.records:             # anchor of an empty ledger = the genesis digest
+                ok = anchor.get("digest") == self.genesis
+            else:
+                ok = (isinstance(s, int) and not isinstance(s, bool) and 0 <= s < len(self.records)
+                      and self.link_hash(self.records[s]) == anchor.get("digest"))
+            if not ok:
                 return {"intact": False, "firstBreak": None, "reason": "does not reproduce anchored head"}
         return {"intact": True, "firstBreak": None, "reason": None}
 
@@ -384,6 +389,10 @@ def price(candidates: dict, standing: dict | None = None, weights: dict | None =
     standing, weights = dict(standing or {}), weights or {}
     if len(candidates) < 2:
         return _refused("need >= 2 implementations to express a preference")
+    if not all(isinstance(n, str) for n in candidates):
+        return _refused("implementation names must be strings")
+    if not (isinstance(weights, dict) and all(isinstance(w, dict) for w in weights.values())):
+        return _refused("weights must be {priority: {name: int}} (e.g. Book.weights)")
     runs = {n: [_body(r) for r in (v if isinstance(v, (list, tuple)) else [v])] for n, v in candidates.items()}
     names = sorted(runs)
     if len({len(v) for v in runs.values()}) != 1 or not runs[names[0]]:

@@ -48,6 +48,8 @@ the loop, add a cell with one job + a selftest + a mark; to reuse a piece elsewh
 | [`unit-translation-audit`](unit-translation-audit/) | **B2**: audits every route.hop's unit translation — proves it round-trips (forward∘inverse == identity) or classifies the lossy hop; mirrors quilt-studio EFFECT(forward,inverse) + OrgBook replay=live | wraps **activeledger** hops; the B2 gate for the routing tensor |
 | [`route-preference`](route-preference/) | **B4**: the market-clearing JOIN — given ≥2 routes B7 certified product-identical, places each on the iron-triangle {good, fast, cheap} (good = OrgBook-style standing), keeps the **Pareto frontier** (not one scalar winner), records `preferred_when` per priority + contractor pair (`null` on a real trade-off), and reinforces the map with a bounded **Hebbian** `PreferenceBook` | consumes **system2-backtest** (B7); §14 join |
 | [`system2-backtest`](system2-backtest/) | **B7**: prices two recorded routes on the iron-triangle — gates **product identity first** (different answer → refused, no budgets shown), then reports faster (`wall_ms`) and cheaper (split into compute vs storage bytes) with a dominance/trade-off class + as-of window; real placements over all 5 example quilts | replays **activeledger** runs; feeds **B4**/**B8** |
+| [`system2-redesigner`](system2-redesigner/) | **B8**: the System-2 **proposer** that closes the loop — generates topology/route variants, A/Bs each through B7's offline replay, and promotes only a variant the differ certifies **product-identical** *and* that strictly improves ≥1 iron-triangle axis with no regression on another; the win is written back to B4's `PreferenceBook`, losers kept as documented dead-ends. selftest **68/0** with two live redesign runs | drives **B7**; writes **B4** — closes EX→B7→B8→B4 |
+| [`pincher`](pincher/) | **B3**: the genuine **second route** the preference story requires — a learned early-exit whose confidence threshold grows from agreement history; pinches to the cheap known answer only when the differ certifies it product-identical to the full route, else falls through (**fail-open** on low confidence). selftest **73/0** | wraps **quilt-pincher**; the second route **B4** compares |
 | [`situation-memory`](situation-memory/) | joins the vector chain to the mission chain: embeds each situation-recorder transcript (relation-verb histogram + budget features + hash-BoW, a swappable stand-in for a semantic embedder), indexes chained cells with substrate-style 4-bit codes, and gives **`find_similar_missions()`** returning each match's distance + OUTCOME — the recall primitive System-2 (§11) lacked | **`situation-recorder`** + turbovec substrate idiom |
 | [`code-real-quant`](code-real-quant/) | makes TurboQuant's compression **real + measured**: ranks on the 4-bit codes via asymmetric distance (ADC) and **drops the float vector**, so 8× is actually saved; reports the honest cost — **recall@10 ≈ 0.89** at ⅛ the bytes/cell | fixes gap #1 of the turbovec study |
 | [`polyform`](polyform/) | cross-formalism differ: the same fnv1a-64 kernel in **Python / BQN / Futhark / Uiua**, run over 7 vectors, must land on **one golden hash** — agreement is the receipt, divergence localizes to a formalism; honest about which toolchains actually ran vs reference-only | realizes POLYFORMALISM-ARRAY-LANGUAGES.md #1 |
@@ -78,8 +80,10 @@ Small, obvious use-cases where a quilt picks a cheap route when it can, reaching
 | [`datetime-quilt`](examples/datetime-quilt/) | date math | skip tz/DST when all inputs are UTC | 14/0 |
 | [`text-normalize-quilt`](examples/text-normalize-quilt/) | clean text | skip unicode/tokenizer for pure-ASCII | 17/0 |
 | [`image-thumb-quilt`](examples/image-thumb-quilt/) | thumbnail | skip decode+resample when source <= target | 18/0 |
+| [`currency-round-quilt`](examples/currency-round-quilt/) | money rounding | skip banker's-rounding path when amounts are already whole minor-units | 17/0 |
+| [`match-quilt`](examples/match-quilt/) | pattern match | skip regex compile+scan when the pattern is a plain literal (substring route) | 17/0 |
 
-`run_all.py` runs every example's selftest and confirms they all sit on one shared ActiveLog: 5/5 green, one ledger.
+`run_all.py` runs every example's selftest and confirms they all sit on one shared ActiveLog: 7/7 green, one ledger.
 
 ## ml-in-quilt (`labs/ml-in-quilt/`)
 
@@ -98,7 +102,20 @@ The reusable distillation of everything above into one dependency-light module a
 Breakthrough tools mined from the quilt substrate (9 candidates surveyed; see [`../situations/arch/QUILT-LATENT-TOOLS.md`](../situations/arch/QUILT-LATENT-TOOLS.md) for the ranked extraction backlog + honest speculative/blocked notes).
 
 - [`invariance-miner`](invariance-miner/) — **25/0.** Finds the invariants a cell actually preserves (what stays fixed across its inputs) — the raw material for a product-identity gate you didn't hand-write. Deterministic.
-- [`audit-lottery`](audit-lottery/) — quantum-drawn (MothQuantum) random audit: spot-check a fraction of cells un-gameably so a cheap route can't hide a rare wrong answer. **Known issue (caught here): its selftest is FLAKY** (33/1 on one run, 33/0 the next) — a non-deterministic check, almost certainly an unseeded draw; pin the seed before trusting it. Landed with the flaw documented, not as green.
+- [`audit-lottery`](audit-lottery/) — quantum-drawn (MothQuantum) random audit: spot-check a fraction of cells un-gameably so a cheap route can't hide a rare wrong answer. **Flakiness FIXED (d163 playtester):** the non-deterministic check was an unseeded draw; the seed is now pinned and the selftest is **deterministic at 34/0** — verified green across **11 consecutive runs** by the dispatcher before landing. The honest-audit property is preserved (the *live* draw still uses MothQuantum; only the selftest is seeded).
+
+## crew-runner (`labs/crew-runner/`) — the cheap-crew substrate, and the sensor that records the process
+
+The importable substrate every director uses to run the **cheap-crew doctrine** (director reasons only on
+decomposition + verification; cheap APIs do the volume; cheap models propose, a verified cell decides) —
+*and* the sensor that makes **development itself a quilt**. As it runs a lane it emits typed
+`process_signal`s (`phase / pattern / outcome∈{WORKED,CLUNKY,SCAR} / cost / env / fix / ref`) to
+`situations/corpus/process-signals.jsonl`, so every future lane deposits process-data without anyone
+remembering to. It is importable standalone (no CCR needed — the `fork+keys` setup cell), which is why the
+doctrine travels across environments. selftest **33/0**; seed corpus of **12 scars** already booked. The
+frame: [`../situations/arch/DEVELOPMENT-AS-A-QUILT.md`](../situations/arch/DEVELOPMENT-AS-A-QUILT.md) (signal
+schema + setup cells) and [`../situations/blueprints/02-cheap-crew-dispatch.md`](../situations/blueprints/02-cheap-crew-dispatch.md)
+(the env-portable how-to). The `process-refinery` that mines these signals is the next cell.
 
 ## convo-quilt (`labs/convo-quilt/`) — an Opus conductor over a quilt of cheap models
 

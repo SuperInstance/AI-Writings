@@ -304,6 +304,31 @@ if os.path.isdir(os.path.join(LABS, "route-preference")):
 else:
     print("  note: labs/ not found next to quilt-kernel; parity checks skipped (standalone mode)")
 
+# -- playtest hardening regressions (PLAYTEST-REPORT.md) -------------------------------
+def _raises(f):
+    try:
+        f(); return False
+    except Exception:
+        return True
+_e = K.Ledger()
+check("PT: verify() of an empty ledger reproduces its own anchor (was IndexError)", _e.verify(_e.anchor())["intact"])
+check("PT: empty-ledger anchor with a wrong digest is refused, not crashed",
+      not K.Ledger().verify({"digest": "sha256:" + "1" * 64, "seq": -1, "link": "sha256"})["intact"])
+_n = K.Ledger(); _n.emit("route.hop", {"budget": K.budget()})
+check("PT: malformed anchors (missing keys / bad seq / negative / bool) return intact=False, never raise",
+      all(not _n.verify(a)["intact"] for a in ({}, {"digest": "x"}, {"seq": 0}, {"digest": _n.head(), "seq": -1},
+                                               {"digest": _n.head(), "seq": True}, {"digest": _n.head(), "seq": "0"}, 7)))
+check("PT: a good anchor still verifies", _n.verify(_n.anchor())["intact"])
+check("PT: non-dict JSONL lines (1, null) are 'malformed envelope', not TypeError (+ list/str still are)",
+      all(K.Ledger.load(j).verify() == {"intact": False, "firstBreak": 1, "reason": "malformed envelope"} for j in ("1", "null", "[1]", '"s"', "3.5", "true")))
+check("PT: bool token counts are not a well-formed budget", not K.budget_ok(K.budget(tokens={"a": True})))
+_r = lambda u: (lambda l, c: (c(), l.records[0])[1])(*(lambda l: (l, K.Cell(lambda: 1, "x", l, cost=lambda *a, **k: {"usd": u, "wall_ms": 1})))(K.Ledger()))
+_a, _b = _r(1), _r(2)
+check("PT: price() refuses (never raises) on non-string names", K.price({1: _a, "b": _b})["status"] == "refused")
+check("PT: price() refuses (never raises) on malformed weights",
+      all(K.price({"a": _a, "b": _b}, weights=w)["status"] == "refused" for w in ({"cheap": "x"}, {"cheap": 3}, [1])))
+check("PT: well-formed weights still price", K.price({"a": _a, "b": _b}, weights={"cheap": {"b": 5}})["status"] == "certified")
+
 # -- examples and the README quickstart actually run -----------------------------------
 def run_py(path):
     return subprocess.run([sys.executable, path], capture_output=True, text=True, cwd=tempfile.gettempdir())

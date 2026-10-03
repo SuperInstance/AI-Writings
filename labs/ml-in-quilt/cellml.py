@@ -447,6 +447,15 @@ class PrefixCache:
 
 # ---- routes: each run is one ActiveLog closed by one ledger.transaction ------------------
 
+def _prompt_tokens(prompt: str, n: int) -> list[int]:
+    """tokenize() silently drops out-of-vocab characters, so an empty / all-OOV prompt would die
+    later with an opaque IndexError (no logits to sample from). Fail up front instead."""
+    toks = tokenize(prompt)
+    if not toks:
+        raise ValueError("prompt %r has no in-vocabulary characters (vocab %r)" % (prompt, VOCAB))
+    return toks
+
+
 def _close(log, route, prompt, toks, extra=None):
     """Product = {prompt, tokens, text}. Route metadata goes under `chosen`, which B7
     (system2-backtest NON_PRODUCT) excludes from the identity gate."""
@@ -494,7 +503,7 @@ def run_greedy(model, prompt: str, n: int, plan: dict, route: str, prefix_cache=
     if lg is not None:
         _load_ticks(lg, model, route, [plan])
     s = Stream(model, plan, lg, route, prefix_cache=prefix_cache)
-    toks = tokenize(prompt)
+    toks = _prompt_tokens(prompt, n)
     logits = s.feed(toks)
     out = []
     for i in range(n):
@@ -512,11 +521,13 @@ def run_speculative(model, prompt: str, n: int, draft_plan: dict, verify_plan: d
     """Draft k tokens with a cheap plan, verify them in ONE batched pass of the exact plan.
     Every committed token is the verify plan's argmax given the committed prefix, so the
     product equals run_greedy(verify_plan) by construction — the verifier cell IS the gate."""
+    if not isinstance(k, int) or isinstance(k, bool) or k < 0:
+        raise ValueError("k must be an int >= 0 (a negative k silently produced WRONG tokens)")
     lg = al.ActiveLog(dev="ml-in-quilt")
     _load_ticks(lg, model, route, [draft_plan, verify_plan])
     dr = Stream(model, draft_plan, lg, route, tag="draft")
     vf = Stream(model, verify_plan, lg, route, tag="verify")
-    seq = tokenize(prompt)
+    seq = _prompt_tokens(prompt, n)
     p0 = len(seq)
     proposed = accepted = 0
     while len(seq) - p0 < n:
@@ -560,7 +571,7 @@ def run_gated(model, prompt: str, n: int, cheap_plan: dict, exact_plan: dict, ro
     _load_ticks(lg, model, route, [cheap_plan, exact_plan])
     dr = Stream(model, cheap_plan, lg, route, tag="draft")
     vf = Stream(model, exact_plan, lg, route, tag="verify")
-    seq = tokenize(prompt)
+    seq = _prompt_tokens(prompt, n)
     p0 = len(seq)
     pending = verifies = fixed = 0
 

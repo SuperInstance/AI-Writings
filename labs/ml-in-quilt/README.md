@@ -106,7 +106,7 @@ How to read the output:
 - `run_gated(model, prompt, n, cheap_plan, exact_plan, route, eps, final_verify)`: with
   `final_verify=True` the route is exact by construction. With `False`, tokens trusted by
   calibration are never re-checked, and B7 decides whether the route holds.
-- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 76 checks, 0 failures` (~50 s).
+- Receipt: `python3 selftest.py` prints `ml-in-quilt selftest: 83 checks, 0 failures` (~50 s).
 
 ## 6. Failure modes / scars
 - **Identity is not quality.** On "the rat ", fp writes `sat sathe ma` and q8 writes `sat on the m`.

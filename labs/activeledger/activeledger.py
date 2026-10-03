@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 
 ALV = 1
 GENESIS = "sha256:" + "0" * 64
@@ -42,7 +43,7 @@ def fnv1a64(s: str) -> int:
 
 
 def canon(obj) -> str:
-    return json.dumps(obj, sort_keys=True, separators=(",", ":"))
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), allow_nan=False)   # NaN/Infinity are not JSON: fail loud
 
 
 def content_hash(obj) -> str:
@@ -70,7 +71,7 @@ def add_budget(a: dict, b: dict) -> dict:
     tokens = dict(a["tokens"])
     for k, v in b["tokens"].items():
         tokens[k] = tokens.get(k, 0) + v
-    reqs = sorted(set(a["reqs"].split("+")) | set(b["reqs"].split("+")) - {""})
+    reqs = sorted((set(a["reqs"].split("+")) | set(b["reqs"].split("+"))) - {""})   # parens: `-` binds tighter than `|`
     return {"wall_ms": a["wall_ms"] + b["wall_ms"], "tokens": tokens,
             "usd": round(a["usd"] + b["usd"], 6),
             "power_w": round(a["power_w"] + b["power_w"], 6),
@@ -80,14 +81,19 @@ def add_budget(a: dict, b: dict) -> dict:
             "reqs": "+".join(reqs)}
 
 
+def _num(x) -> bool:
+    """A finite real number (not bool, not NaN/inf — those hash as non-JSON `NaN`/`Infinity`)."""
+    return isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x)
+
+
 def budget_ok(b) -> bool:
     try:
-        return (isinstance(b["wall_ms"], (int, float)) and b["wall_ms"] >= 0
+        return (_num(b["wall_ms"]) and b["wall_ms"] >= 0
                 and isinstance(b["tokens"], dict)
-                and all(isinstance(v, int) and v >= 0 for v in b["tokens"].values())
-                and isinstance(b["usd"], (int, float)) and b["usd"] >= 0
-                and (b["power_w"] is None or b["power_w"] >= 0)
-                and (b["mem_mb"] is None or b["mem_mb"] >= 0)
+                and all(isinstance(v, int) and not isinstance(v, bool) and v >= 0 for v in b["tokens"].values())
+                and _num(b["usd"]) and b["usd"] >= 0
+                and (b["power_w"] is None or (_num(b["power_w"]) and b["power_w"] >= 0))
+                and (b["mem_mb"] is None or (_num(b["mem_mb"]) and b["mem_mb"] >= 0))
                 and set(b["storage_bytes"]) == {"train", "prod"}
                 and isinstance(b["reqs"], str))
     except (KeyError, TypeError):
@@ -159,7 +165,7 @@ REQUIRED = ("alv", "dev", "seq", "ts", "mono", "type", "body", "prev")
 
 
 def validate_envelope(rec: dict) -> bool:
-    return (all(k in rec for k in REQUIRED) and rec["alv"] == ALV
+    return (isinstance(rec, dict) and all(k in rec for k in REQUIRED) and rec["alv"] == ALV
             and rec["type"] in TYPES and isinstance(rec["body"], dict)
             and isinstance(rec["seq"], int) and isinstance(rec["mono"], int))
 

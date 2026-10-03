@@ -87,6 +87,10 @@ _OUTCOME_RULES = [
 ]
 
 
+_NEGATED_DONE = re.compile(r"\b(not|never|no longer|without|isn't|wasn't|hasn't|didn't|un)\s+(?:\w+\s+)?"
+                           r"(done|verified|validated|shipped|folded|kept|green|landed|merged)\b")
+
+
 def classify_outcome(result) -> str:
     """Map a raw OUTCOME result to DONE / OPEN / SCAR / OTHER (UNLABELED when absent)."""
     if result is None or str(result).strip() == "":
@@ -95,6 +99,8 @@ def classify_outcome(result) -> str:
     for cls, pat in _OUTCOME_RULES:
         if pat.search(text):
             return cls
+        if cls == "OPEN" and _NEGATED_DONE.search(text):   # "NOT done" / "not verified" is not DONE
+            return "OPEN"
     return "OTHER"
 
 
@@ -134,6 +140,15 @@ BUDGET_FEATURES = [
     ("fold_gap",           "min FOLD.gap (0 if none)",                                 "real (FOLD)"),
     ("live",               "1 if no record is provenance-stamped as reconstructed",    "real"),
 ]
+
+
+def _fin(x) -> float:
+    """A finite float, else 0.0 (a NaN/inf/garbage budget field must not poison the vector)."""
+    try:
+        x = float(x)
+    except (TypeError, ValueError):
+        return 0.0
+    return x if math.isfinite(x) else 0.0
 
 
 def _l2(v):
@@ -179,15 +194,15 @@ class MissionEmbedder:
                     cost = max(cost, float(m.group(1)))
             bud = b.get("budget")
             if isinstance(bud, dict):
-                wall += float(bud.get("wall_ms", 0) or 0)
+                wall += _fin(bud.get("wall_ms", 0))
                 tk = bud.get("tokens", 0)
-                toks += float(sum(tk.values()) if isinstance(tk, dict) else (tk or 0))
-                usd += float(bud.get("usd", 0) or 0)
+                toks += _fin(sum(_fin(v) for v in tk.values()) if isinstance(tk, dict) else tk)
+                usd += _fin(bud.get("usd", 0))
             if r["rel"] == "FOLD":
                 if b.get("folded_min") is not None:
-                    folds.append(float(b["folded_min"]))
+                    folds.append(_fin(b["folded_min"]))
                 if b.get("gap") is not None:
-                    gaps.append(float(b["gap"]))
+                    gaps.append(_fin(b["gap"]))
         budget = [
             math.log1p(n) / 4, math.log1p(len(actors)) / 3, math.log1p(cost) / 3,
             math.log1p(wall) / 16, math.log1p(toks) / 16, math.log1p(1000 * usd) / 10,
@@ -290,6 +305,8 @@ class MissionIndex:
     def add(self, records, source: str = "live") -> dict:
         """Verify the transcript chain, embed it, append one mission cell. Refuses a
         transcript whose own chain does not replay (never index an unverified mission)."""
+        if not isinstance(records, (list, tuple)) or not records:
+            raise ValueError("refusing an empty / non-list transcript (nothing to index)")
         ok, msg = verify(records)
         if not ok:
             raise ValueError("refusing unverified transcript %r: %s"
@@ -351,11 +368,20 @@ class MissionIndex:
         floats (asymmetric distance). Ties break on sid for determinism."""
         if mode not in ("float", "codes"):
             raise ValueError("mode must be 'float' or 'codes'")
+        if not isinstance(k, int) or isinstance(k, bool) or k < 0:
+            raise ValueError("k must be an int >= 0 (a negative k used to return all-but-the-last hit)")
         w = dict(weights or {"rel": 0.25, "budget": 0.15, "text": 0.60})
+        if not all(isinstance(v, (int, float)) and math.isfinite(v) and v >= 0 for v in w.values()):
+            raise ValueError("weights must be finite non-negative numbers")
+        if isinstance(query, str) and not any(self.embedder.embed_text(query)):
+            raise ValueError("query has no indexable tokens (the stand-in embedder is ASCII [a-z0-9]+ only; "
+                             "an empty / stopword-only / non-Latin query would rank every mission at distance 1.0 by sid)")
         qrot, _ = self._encode(self._query_blocks(query))
         blocks = [b for b in qrot if w.get(b, 0) > 0]
         wsum = sum(w[b] for b in blocks)
-        excl = set(exclude)
+        if not wsum:
+            raise ValueError("no weighted block overlaps the query's blocks %s" % sorted(qrot))
+        excl = {exclude} if isinstance(exclude, str) else set(exclude)
         scored = []
         for c in self.cells:
             if c["sid"] in excl:

@@ -90,7 +90,15 @@ CENTROIDS = lloyd_max_gaussian()
 
 def _unit_scaled(v):
     """Unit-normalize then scale by sqrt(dim) so rotated coords are ~N(0,1)."""
-    n = math.sqrt(sum(x * x for x in v)) or 1.0
+    if not all(math.isfinite(x) for x in v):
+        raise ValueError("vector has NaN/inf (it would silently index as an all-zero code)")
+    n = math.sqrt(sum(x * x for x in v))
+    if not (1e-150 < n < 1e150):          # x*x over/underflowed: rescale by max|x| (normal vectors untouched)
+        m = max((abs(x) for x in v), default=0.0)
+        if m:
+            v = [x / m for x in v]
+            n = math.sqrt(sum(x * x for x in v))
+    n = n or 1.0
     s = math.sqrt(len(v)) / n
     return [x * s for x in v]
 
@@ -141,6 +149,13 @@ class Cell:
         return 24 + len(self.codes)
 
 
+def _check_query(query, k, dim):
+    if len(query) != dim:
+        raise ValueError("expected a %d-dim query, got %d" % (dim, len(query)))
+    if not isinstance(k, int) or isinstance(k, bool) or k < 0:
+        raise ValueError("k must be an int >= 0 (a negative k used to slice off only the last result)")
+
+
 class CodeIndex:
     def __init__(self, dim=64, seed=SEED, keep_float=False):
         self.dim = dim
@@ -150,7 +165,8 @@ class CodeIndex:
         self._float = [] if keep_float else None
 
     def add(self, vec):
-        assert len(vec) == self.dim
+        if len(vec) != self.dim:
+            raise ValueError("expected a %d-dim vector, got %d" % (self.dim, len(vec)))
         u = _unit_scaled(vec)
         codes = pack(quantize(_matvec(self.R, u)))
         prev = self.cells[-1].hash if self.cells else GENESIS
@@ -172,6 +188,9 @@ class CodeIndex:
 
     def float_search(self, query, k):
         """Exact L2 over full float vectors (baseline)."""
+        if self._float is None:
+            raise ValueError("float_search needs CodeIndex(keep_float=True)")
+        _check_query(query, k, self.dim)
         q = _unit_scaled(query)
         d = [(sum((a - b) ** 2 for a, b in zip(q, v)), i)
              for i, v in enumerate(self._float)]
@@ -181,6 +200,7 @@ class CodeIndex:
     def code_search(self, query, k):
         """ADC: float query rotated once; each cell scored via a per-dim table
         lookup of its dequantized centroid. Reads only cell.codes."""
+        _check_query(query, k, self.dim)
         qr = _matvec(self.R, _unit_scaled(query))
         table = [[(x - c) ** 2 for c in CENTROIDS] for x in qr]
         d = []
@@ -203,6 +223,8 @@ def synth(n, dim, seed, clusters=20, noise=0.5):
 
 
 def measure(n=2000, m=50, dim=64, k=10, data_seed=7):
+    if n < 1 or m < 1 or k < 1:
+        raise ValueError("measure needs n, m, k >= 1")
     vecs = synth(n, dim, data_seed)
     idx = CodeIndex(dim, keep_float=True)
     for v in vecs:
