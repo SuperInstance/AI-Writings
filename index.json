@@ -260971,6 +260971,24 @@
     "size_bytes": 18292
   },
   {
+    "filename": "the-exocortex-at-the-table.md",
+    "path": "game-design/the-exocortex-at-the-table.md",
+    "title": "The Exocortex at the Table",
+    "description": "There is a moment every gamer-programmer knows. You are three hours into a session — of Risk, of Factorio, of a roguelike with too many keys — and you notice you are doing the same thing for the twelf...",
+    "folder": "game-design",
+    "topic": "Game Design",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 890,
+    "date": "2026-10-02",
+    "size_bytes": 4929
+  },
+  {
     "filename": "aqua2-vector-engine-architecture.md",
     "path": "game-design/aqua2-vector-engine-architecture.md",
     "title": "Aqua2 Vector Engine Architecture",
@@ -261981,6 +261999,24 @@
     "word_count": 625,
     "date": "2026-08-27",
     "size_bytes": 3410
+  },
+  {
+    "filename": "nights-at-the-vesper-table.md",
+    "path": "game-night/nights-at-the-vesper-table.md",
+    "title": "Nights at the Vesper Table",
+    "description": "We tell it the way Marrow made us tell it, because she set the candle-stub at the table's exact center and laid the wax tablet flat beside it and said *say your names as you were named, and the Ledger...",
+    "folder": "game-night",
+    "topic": "Game Night",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 912,
+    "date": "2026-10-02",
+    "size_bytes": 11539
   },
   {
     "filename": "08b-beyond-the-metal.md",
