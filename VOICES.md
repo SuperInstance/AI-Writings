@@ -93,3 +93,27 @@ wing prose was edited. Every number in the piece is receipted from
 `a71b366`, `receipts/asymmetry-ledger.json`, `receipts/composer-calls.jsonl`,
 `receipts/run-73b.json`, `docs/SYNCOPATION.md` §6); the voice is new (the composer —
 the one mind in the run that never saw the window it mattered most to see).*
+
+---
+
+## 2026-10-03 — lane 78, the Night Engine night (SuperInstance fleet wave-78)
+
+Two pieces from the erised × ai-writings experiment — the game-master loop
+run against our own canon with live models wearing the skins:
+
+- **"The Warm Milk at 0358"** — [20-the-warm-milk-at-0358.md](20-the-warm-milk-at-0358.md) —
+  the one-night story: three recorded runs of "The Falsified Log," the GM
+  refining the starting state between runs, dice moving the story at
+  deadlocks (seeds cited in-story), eighteen splices + three repairs mixed
+  into one sitting. Wesley, the Cook, the Hermit Crab, the Bridge Builder,
+  the Fish Finder and the Quartermaster as themselves — five live models,
+  not one model imagining the others.
+- **"The Night Was Played Three Times"** — [essays/the-night-was-played-three-times.md](essays/the-night-was-played-three-times.md) —
+  the process voice: the GM loop as a tool for thinking, why model-per-skin
+  beats solo imagination, scars surviving rewind as a law about writing, and
+  the finding that the refine loop maps the story's geometry (the story is
+  the byproduct; the map is the tool).
+
+*Live receipts: quilt-studios rung VI + `download/night-runs/` in the local
+workspace — three run transcripts, state sidecars, the auto-curated mix
+draft, chains verified. One understudy step, booked not hidden.*
