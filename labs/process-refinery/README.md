@@ -86,3 +86,15 @@ cloud-session steps and the first real run should book a `process_signal` for th
 - `labs/situation-recorder/corpus.py` — the corpus tables this reads beside.
 - `crew-runner` (next) — writes `process-signals.jsonl`, which turns every estimate here into a
   measurement.
+
+## Provenance
+
+The cell-with-a-receipt shape this lab mines for is the Quilt cell model whose canonical
+source is [`algebra.md`](../../algebra.md) @ `3807557abd075517d01c816e589f75d8e72fda90`
+(five opcodes, witnesses, the 14-tuple cell) — same repo, pinned. The report's fnv1a-64
+`result_hash` is the fleet's hash function; the org-wide receipt/referral lineage it
+composes with lives in `SuperInstance/quilt-tools` (`experiments/REFERRAL_GRAPH.md`), and
+"the dispatcher re-runs it; the director's own claim is not the receipt" is the fleet
+receipts-over-scores doctrine as practiced in `SuperInstance/pong-quilt`
+(`EXPERIMENTS.md`). Adoption, not rivalry: this lab reads the development record — it
+does not re-implement the chain, and its ledger outcomes stay prose-inferred (above).

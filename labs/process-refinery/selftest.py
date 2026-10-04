@@ -198,5 +198,15 @@ check("report names a real pattern as worst-by-share", bool(_m) and _m.group(1) 
 check("report marks the token figure as an estimate", "ESTIMATE" in pr.render_report(r1))
 check("fnv1a64 known vector", pr.fnv1a64("") == "0xcbf29ce484222325")
 
+# 8. provenance pins (README lineage block cites canonical sources)
+_readme_path = os.path.join(HERE, "README.md")
+_readme = open(_readme_path, encoding="utf-8").read()
+check("provenance: README cites canonical algebra.md",
+      "algebra.md" in _readme and "3807557abd075517d01c816e589f75d8e72fda90" in _readme)
+check("provenance: algebra.md exists in-tree at the cited relative path",
+      os.path.isfile(os.path.join(HERE, "..", "..", "algebra.md")))
+check("provenance: README names the fleet lineage (quilt-tools REFERRAL_GRAPH)",
+      "quilt-tools" in _readme and "REFERRAL_GRAPH" in _readme)
+
 print("process-refinery selftest: %d checks, %d failures" % (checks, failures))
 sys.exit(1 if failures else 0)
