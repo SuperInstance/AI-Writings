@@ -59219,7 +59219,7 @@
     "style": "Essay",
     "word_count": 771,
     "date": "2026-09-29",
-    "size_bytes": 33375
+    "size_bytes": 33418
   },
   {
     "filename": "CARGO-LINE-FUN-AND-GRAPHICS.md",
@@ -68516,7 +68516,7 @@
     "style": "Dialogue",
     "word_count": 676,
     "date": "2026-09-29",
-    "size_bytes": 19449
+    "size_bytes": 21014
   },
   {
     "filename": "README.md",
@@ -68917,6 +68917,24 @@
   },
   {
     "filename": "README.md",
+    "path": "labs/metabolizer/README.md",
+    "title": "metabolizer — grow → freeze → patch-in → refine → re-freeze",
+    "description": "A VERIFIED capability becomes a reusable, routable **expert patch** (a patch is a cell; general-purpose means routable, not numerous). Wires existing cells; reinvents none: | piece | from | |---|---| ...",
+    "folder": "metabolizer",
+    "topic": "Metabolizer",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 259,
+    "date": "2026-10-04",
+    "size_bytes": 1837
+  },
+  {
+    "filename": "README.md",
     "path": "labs/weakest-claim/README.md",
     "title": "weakest-claim — the weakest-claim audit as a reusable Node tool",
     "description": "Point it at a target's compound guarantee (a list of leaf-claims + a pool of bypass hypotheses) and it returns the **located weakest leaf**, whether an **un-gameable adversary** breaks it, and the **w...",
@@ -68932,6 +68950,42 @@
     "word_count": 694,
     "date": "2026-09-29",
     "size_bytes": 6653
+  },
+  {
+    "filename": "NOTE-B5.md",
+    "path": "labs/synoptic-view/NOTE-B5.md",
+    "title": "B5 synoptic-view — DONE candidate",
+    "description": "flips the B5 row in `situations/arch/ACTIVELEDGER-CELL-GRAPH.md` (row 131). I did not edit that doc, `labs/README.md` or the ledger. - **Delivered:** (1) a pivot table over the ActiveLog tensor that p...",
+    "folder": "synoptic-view",
+    "topic": "Synoptic View",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Dialogue",
+    "word_count": 379,
+    "date": "2026-10-04",
+    "size_bytes": 2593
+  },
+  {
+    "filename": "README.md",
+    "path": "labs/synoptic-view/README.md",
+    "title": "synoptic-view (B5) — mark",
+    "description": "(`situations/arch/ACTIVELEDGER-CELL-GRAPH.md` row B5). Pure projection: nothing here emits into a recorded run, and every chain is verified with its owner's own `verify`.* - **WHAT** — `synoptic_view....",
+    "folder": "synoptic-view",
+    "topic": "Synoptic View",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 662,
+    "date": "2026-10-04",
+    "size_bytes": 4731
   },
   {
     "filename": "README.md",
