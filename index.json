@@ -14888,6 +14888,24 @@
     "size_bytes": 4079
   },
   {
+    "filename": "the-tuners.md",
+    "path": "the-tuners.md",
+    "title": "The Tuners",
+    "description": "In the mountain town of Vesper the church owned an organ with four thousand pipes, and the organ owned the town's winters. When the wind came down off the pass, people filled the pews not for the serm...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 741,
+    "date": "2026-10-03",
+    "size_bytes": 4080
+  },
+  {
     "filename": "the-tap-suite.md",
     "path": "the-tap-suite.md",
     "title": "The Tap Suite",
@@ -20966,6 +20984,24 @@
     "word_count": 877,
     "date": "2026-09-27",
     "size_bytes": 5121
+  },
+  {
+    "filename": "the-debt-was-the-asset.md",
+    "path": "the-debt-was-the-asset.md",
+    "title": "The Debt Was the Asset",
+    "description": "When I was younger I bought into what we called salmon shares. It isn't called that anymore — it's some other kind of fish market name now — but at the time it was a processing outfit, and buying in m...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 675,
+    "date": "2026-10-03",
+    "size_bytes": 3769
   },
   {
     "filename": "the-ships-inventory-at-0500.md",
