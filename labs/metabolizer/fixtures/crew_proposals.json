@@ -1,0 +1,78 @@
+{
+ "inputs": [
+  "Hello World",
+  "This is a test",
+  "UPPERCASE TEXT",
+  "lowercase text",
+  "Mixed CASE Example",
+  "Hello, world!",
+  "How are you?",
+  "Test: one two three",
+  "Leading spaces",
+  "Trailing spaces   ",
+  "Special characters!@#",
+  "Hyphenated-word",
+  "Underscore_test",
+  "Dots...",
+  "Apostrophe's test",
+  "Quotes \"here\"",
+  "Parentheses (test)",
+  "Brackets [test]",
+  "Braces {test}",
+  "Slash/test",
+  "Backslash\\test",
+  "Colon: test",
+  "Semicolon; test",
+  "Comma, test",
+  "Exclamation!",
+  "Question?",
+  "Plus+test",
+  "Equals=test",
+  "Ampersand & test",
+  "Percent%test",
+  "Dollar$test",
+  "At@test",
+  "Hash#test",
+  "Star*test",
+  "Tilde~test",
+  "Caret^test",
+  "Pipe|test",
+  "Less<test",
+  "Greater>test",
+  "SingleWord"
+ ],
+ "tab_inputs": [
+  "hello\tworld",
+  "tab\tbetween\twords",
+  "first\tsecond\tthird",
+  "a\tb\tc\td",
+  "TAB\tHERE",
+  "test\t\tmultiple"
+ ],
+ "blend_cases": [
+  {
+   "input": "rock&roll"
+  },
+  {
+   "input": "black&white"
+  },
+  {
+   "input": "up&down"
+  },
+  {
+   "input": "left&right"
+  },
+  {
+   "input": "hot&cold"
+  },
+  {
+   "input": "day&night"
+  },
+  {
+   "input": "salt&pepper"
+  },
+  {
+   "input": "thunder&lightning"
+  }
+ ]
+}
