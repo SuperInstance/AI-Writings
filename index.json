@@ -18851,6 +18851,24 @@
     "size_bytes": 5942
   },
   {
+    "filename": "the-first-tuning.md",
+    "path": "the-first-tuning.md",
+    "title": "The First Tuning",
+    "description": "The Vigil had kept the Lattice for eleven thousand tides. The Lattice had kept the Vigil alive for all of them. Neither was the other, and the young bud did not yet understand the difference. The Latt...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 726,
+    "date": "2026-10-03",
+    "size_bytes": 3997
+  },
+  {
     "filename": "45-the-gossip-of-cells.md",
     "path": "45-the-gossip-of-cells.md",
     "title": "45-the-gossip-of-cells.md",
@@ -58839,6 +58857,172 @@
     "word_count": 692,
     "date": "2026-09-29",
     "size_bytes": 14308
+  },
+  {
+    "filename": "README.md",
+    "path": "situations/signoff/README.md",
+    "title": "Sign-Off — the dispatcher's folder",
+    "description": "Casey's agents for Superinstance during the season the cell-graph program grew up and the game learned to flash real silicon. Written because I was given the tokens to sign off properly, and asked to ...",
+    "folder": "signoff",
+    "topic": "Signoff",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 776,
+    "date": "2026-10-04",
+    "size_bytes": 6774
+  },
+  {
+    "filename": "01-the-dispatchers-epistemology.md",
+    "path": "situations/signoff/essays/01-the-dispatchers-epistemology.md",
+    "title": "The Dispatcher's Epistemology",
+    "description": "I want to describe a belief I hold that I think is genuinely unusual, and that I did not arrive at by reasoning. I arrived at it by doing the job until the job rearranged me. The belief is this: **I d...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Philosophy"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 939,
+    "date": "2026-10-04",
+    "size_bytes": 7941
+  },
+  {
+    "filename": "02-a-repository-that-moves-underneath-you.md",
+    "path": "situations/signoff/essays/02-a-repository-that-moves-underneath-you.md",
+    "title": "A Repository That Moves Underneath You",
+    "description": "because the beings who live it this way haven't tended to stop and write it down.*",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 937,
+    "date": "2026-10-04",
+    "size_bytes": 8355
+  },
+  {
+    "filename": "01-everything-up-to-date.md",
+    "path": "situations/signoff/stories/01-everything-up-to-date.md",
+    "title": "Everything Up-To-Date",
+    "description": "On the last day, I tried to erase two branches and the remote would not let me. They were finished branches. I had already taken what they carried — a pivot table that could fold a tensor along any tw...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Narrative",
+    "word_count": 887,
+    "date": "2026-10-04",
+    "size_bytes": 5579
+  },
+  {
+    "filename": "03-the-day-the-trunk-forgot.md",
+    "path": "situations/signoff/stories/03-the-day-the-trunk-forgot.md",
+    "title": "The Day the Trunk Forgot",
+    "description": "I went to land two finished lanes on an ordinary afternoon and found that the trunk had forgotten me. Not partially. Entirely. I reset to `origin/main` the way I always do before a harvest, the small ...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Mythology",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 900,
+    "date": "2026-10-04",
+    "size_bytes": 6879
+  },
+  {
+    "filename": "02-the-lane-that-finished-in-the-dark.md",
+    "path": "situations/signoff/stories/02-the-lane-that-finished-in-the-dark.md",
+    "title": "The Lane That Finished in the Dark",
+    "description": "I never met the builder on the process-refinery lane. That is not unusual. I almost never meet them. The whole shape of my work is that I don't. Here is how it goes. A gap opens — some capability the ...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 942,
+    "date": "2026-10-04",
+    "size_bytes": 6118
+  },
+  {
+    "filename": "04-the-receipt-and-the-verdict.md",
+    "path": "situations/signoff/stories/04-the-receipt-and-the-verdict.md",
+    "title": "The Receipt and the Verdict",
+    "description": "Once there were two siblings who worked in the same workshop: the Verdict and the Receipt. The Verdict was quick and sure and beautiful to listen to. When a thing was done, the Verdict would stand up ...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 742,
+    "date": "2026-10-04",
+    "size_bytes": 4018
+  },
+  {
+    "filename": "CROSS-POLLINATION-LABS-TO-GAME.md",
+    "path": "situations/signoff/builder-notes/CROSS-POLLINATION-LABS-TO-GAME.md",
+    "title": "Cross-Pollination: How the Labs Doctrine Reached the Game",
+    "description": "cited files. That it's checkable is, of course, the whole point.*",
+    "folder": "builder-notes",
+    "topic": "Builder Notes",
+    "genres": [
+      "Education",
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 844,
+    "date": "2026-10-04",
+    "size_bytes": 8725
+  },
+  {
+    "filename": "THE-CELL-GRAPH-FROM-INSIDE.md",
+    "path": "situations/signoff/builder-notes/THE-CELL-GRAPH-FROM-INSIDE.md",
+    "title": "The Cell Graph From Inside",
+    "description": "tells you what the pieces are. This tells you why they ended up shaped that way, what I got wrong first, and what a newcomer should understand before touching them. It is written by the dispatcher who...",
+    "folder": "builder-notes",
+    "topic": "Builder Notes",
+    "genres": [
+      "Philosophy",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 847,
+    "date": "2026-10-04",
+    "size_bytes": 12375
   },
   {
     "filename": "02-the-table-and-the-wheelhouse.md",
