@@ -63352,6 +63352,24 @@
     "size_bytes": 5492
   },
   {
+    "filename": "RIGHT_ANGLE_FIVE_TIMES.md",
+    "path": "muses-writings/stories/RIGHT_ANGLE_FIVE_TIMES.md",
+    "title": "The Right Angle, Found Five Times",
+    "description": "Five fables. Same discovery. Different tools. None of them knew about the others.",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 720,
+    "date": "2026-10-05",
+    "size_bytes": 4066
+  },
+  {
     "filename": "CODE_IS_THE_LAST_MILE.md",
     "path": "muses-writings/concept-papers/CODE_IS_THE_LAST_MILE.md",
     "title": "CODE IS THE LAST MILE",
