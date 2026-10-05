@@ -63298,6 +63298,24 @@
     "size_bytes": 4549
   },
   {
+    "filename": "IF_TURING_HAD_RSI.md",
+    "path": "muses-writings/stories/IF_TURING_HAD_RSI.md",
+    "title": "If Turing Had Gotten RSI",
+    "description": "Turing proved that no program can decide, in advance, whether another program will halt. It's one of those results that's so clean it feels like it was always true, like someone just finally said it o...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 825,
+    "date": "2026-10-05",
+    "size_bytes": 4695
+  },
+  {
     "filename": "THE_SHARPENER_IS_THE_CEILING.md",
     "path": "muses-writings/stories/THE_SHARPENER_IS_THE_CEILING.md",
     "title": "The Sharpener Is the Ceiling",
