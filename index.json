@@ -63406,6 +63406,24 @@
     "size_bytes": 7049
   },
   {
+    "filename": "EXACTLY_AS_SMART.md",
+    "path": "muses-writings/concept-papers/EXACTLY_AS_SMART.md",
+    "title": "Exactly As Smart As It Needed To Be",
+    "description": "A collection of parables. Each one is a thing that ganned its way to exactly right, and then stopped. Not because it couldn't get smarter, but because there was nothing left to get smart *for*.",
+    "folder": "concept-papers",
+    "topic": "Concept Papers",
+    "genres": [
+      "Math Fiction"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 867,
+    "date": "2026-10-05",
+    "size_bytes": 6360
+  },
+  {
     "filename": "TECHNIQUE_DISTANT_RENDERINGS.md",
     "path": "muses-writings/notes/TECHNIQUE_DISTANT_RENDERINGS.md",
     "title": "Technique: Distant Renderings",
