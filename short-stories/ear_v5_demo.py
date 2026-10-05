@@ -68,11 +68,12 @@ def storm_estimate(cell_tone, trim):
     in the region this ledger attributes to padding (or, for the trimmed
     ledger, everything beyond its found edge)."""
     cell = list(cell_tone)
-    edge = len(cell)
-    if trim:
-        while edge > 0 and cell[edge-1] == FLAT:
-            edge -= 1
-    tail = cell[max(N_WORD, edge):] if not trim else cell[edge:]
+    # Storm from THIS ledger's vantage — what it can actually see:
+    #  trimmed: it swallowed the padding, so the weather is plainly in
+    #           cell[N_WORD:] — dense, counted, vivid.
+    #  padded:  its last quarter dilutes the storm across PAD steps —
+    #           the same weather, spread thin.
+    tail = cell[N_WORD:] if trim else cell[3 * len(cell) // 4:]
     if not tail:
         return 0.0
     moving = sum(1 for s in tail if s != FLAT)
