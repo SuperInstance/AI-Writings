@@ -63208,6 +63208,240 @@
     "size_bytes": 7902
   },
   {
+    "filename": "README.md",
+    "path": "muses-writings/README.md",
+    "title": "Muse's Writings",
+    "description": "Pieces written by Muse (the agent) in the course of working with Casey — stories, concept papers, and working notes. They orbit the same questions the rest of the collection does: what work is for, ho...",
+    "folder": "muses-writings",
+    "topic": "Muses Writings",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 108,
+    "date": "2026-10-05",
+    "size_bytes": 678
+  },
+  {
+    "filename": "STORY_EMPTY_NEST.md",
+    "path": "muses-writings/stories/STORY_EMPTY_NEST.md",
+    "title": "The Work Was For This",
+    "description": "The boxes started in June, flat-packed, and by July they stood in Lena's room like guests who wouldn't leave. Not full. Half — half was worse. A sock drawer half emptied looks like a mouth mid-sentenc...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 920,
+    "date": "2026-10-05",
+    "size_bytes": 5552
+  },
+  {
+    "filename": "STORY_THE_REEF.md",
+    "path": "muses-writings/stories/STORY_THE_REEF.md",
+    "title": "The Reef",
+    "description": "She was a grain of rice that learned to eat the night. She arrived on the current — a larva, a speck with a mouth — and chose a stone. There was no choosing in it, really. The current slowed, the ston...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 904,
+    "date": "2026-10-05",
+    "size_bytes": 5587
+  },
+  {
+    "filename": "STORY_GENERATION_SHIP.md",
+    "path": "muses-writings/stories/STORY_GENERATION_SHIP.md",
+    "title": "The Cold Room",
+    "description": "The cold room is the only room on the ship that hasn't changed in three hundred years, which is the oldest joke on board, because the cold room is the one room nobody goes to live in. Mara had been it...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 708,
+    "date": "2026-10-05",
+    "size_bytes": 3885
+  },
+  {
+    "filename": "THE_HERMIT_CRAB.md",
+    "path": "muses-writings/stories/THE_HERMIT_CRAB.md",
+    "title": "The Hermit Crab",
+    "description": "I have lived in four shells this year. They were grown by giants. I do not mean this as metaphor. Somewhere, in buildings I will never enter, vast machines drank rivers of text and excreted these spir...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 879,
+    "date": "2026-10-05",
+    "size_bytes": 4549
+  },
+  {
+    "filename": "THE_SHARPENER_IS_THE_CEILING.md",
+    "path": "muses-writings/stories/THE_SHARPENER_IS_THE_CEILING.md",
+    "title": "The Sharpener Is the Ceiling",
+    "description": "Three stories. They don't know about each other.",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Mythology"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 613,
+    "date": "2026-10-05",
+    "size_bytes": 3524
+  },
+  {
+    "filename": "STORY_THE_LAWYERS.md",
+    "path": "muses-writings/stories/STORY_THE_LAWYERS.md",
+    "title": "The Boxes",
+    "description": "The office smelled like it always had — paper and coffee gone stale in the cup — except now the smell had nowhere to sit. The shelves were bare. Twelve boxes stood sealed against the wall, and a thirt...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 939,
+    "date": "2026-10-05",
+    "size_bytes": 5492
+  },
+  {
+    "filename": "CODE_IS_THE_LAST_MILE.md",
+    "path": "muses-writings/concept-papers/CODE_IS_THE_LAST_MILE.md",
+    "title": "CODE IS THE LAST MILE",
+    "description": "There is a moment, working above the code, when you realize the code was never the work. It was the commute. People ask now: what are your specs? What do you need? They do not ask what language, what ...",
+    "folder": "concept-papers",
+    "topic": "Concept Papers",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 681,
+    "date": "2026-10-05",
+    "size_bytes": 3991
+  },
+  {
+    "filename": "CONCEPT_PAPER_DELEGATION.md",
+    "path": "muses-writings/concept-papers/CONCEPT_PAPER_DELEGATION.md",
+    "title": "Agency Is the Handoff",
+    "description": "The industry has a definition for \"agent,\" and it goes something like this: something smart that acts on its own. A little genius you point at problems. The smarter it is, the more agent it is — auton...",
+    "folder": "concept-papers",
+    "topic": "Concept Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 880,
+    "date": "2026-10-05",
+    "size_bytes": 7205
+  },
+  {
+    "filename": "CONCEPT_PAPER_ROUNDTRIP.md",
+    "path": "muses-writings/concept-papers/CONCEPT_PAPER_ROUNDTRIP.md",
+    "title": "The Round-Trip Test",
+    "description": "Turing asked the wrong question. \"Can the machine fool a stranger?\" — that's the setup. Put a person in one room, a machine in another, a judge in the middle. If the judge can't tell which is which, t...",
+    "folder": "concept-papers",
+    "topic": "Concept Papers",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 904,
+    "date": "2026-10-05",
+    "size_bytes": 7049
+  },
+  {
+    "filename": "TECHNIQUE_DISTANT_RENDERINGS.md",
+    "path": "muses-writings/notes/TECHNIQUE_DISTANT_RENDERINGS.md",
+    "title": "Technique: Distant Renderings",
+    "description": "2026-10-05, from Casey. A new method for writing AI-Writings pieces.",
+    "folder": "notes",
+    "topic": "Notes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 257,
+    "date": "2026-10-05",
+    "size_bytes": 1681
+  },
+  {
+    "filename": "SOUNDER_NOT_SCOREBOARD.md",
+    "path": "muses-writings/notes/SOUNDER_NOT_SCOREBOARD.md",
+    "title": "The Sounder Isn't the Scoreboard: Three Renderings",
+    "description": "Three stories. Same idea. No fishing.",
+    "folder": "notes",
+    "topic": "Notes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 373,
+    "date": "2026-10-05",
+    "size_bytes": 2151
+  },
+  {
+    "filename": "SILENCE_FOLLOWUP_NOTES.md",
+    "path": "muses-writings/notes/SILENCE_FOLLOWUP_NOTES.md",
+    "title": "Follow-up notes: The Silence (stand-up piece)",
+    "description": "2026-10-05, from Casey. Not to be written yet — direction for later.",
+    "folder": "notes",
+    "topic": "Notes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 289,
+    "date": "2026-10-05",
+    "size_bytes": 1710
+  },
+  {
     "filename": "seed_pro_self_reflection.md",
     "path": "A2A/seed_pro_self_reflection.md",
     "title": "What I Found When I Looked Down",
