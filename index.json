@@ -63478,6 +63478,24 @@
     "size_bytes": 1496
   },
   {
+    "filename": "snap-to-the-triangle.md",
+    "path": "muses-writings/ideas/snap-to-the-triangle.md",
+    "title": "Snap to the Triangle",
+    "description": "Python costs a hundred times what C costs and nobody cares, because the bottleneck was never compute — it was the motion of the pieces. People live high in the abstraction because that's where the pie...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 285,
+    "date": "2026-10-07",
+    "size_bytes": 1780
+  },
+  {
     "filename": "hooks-in-the-water.md",
     "path": "muses-writings/ideas/hooks-in-the-water.md",
     "title": "Hooks in the Water",
@@ -63602,6 +63620,24 @@
     "word_count": 222,
     "date": "2026-10-07",
     "size_bytes": 1297
+  },
+  {
+    "filename": "git-pp.md",
+    "path": "muses-writings/ideas/git-pp.md",
+    "title": "git.pp",
+    "description": "The name settles it: git.pp, in the lineage of llama.cpp. Not a new thing — a projection of the thing, the way llama.cpp projects a model as an inference engine. Git is a content-addressable graph dat...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 239,
+    "date": "2026-10-07",
+    "size_bytes": 1487
   },
   {
     "filename": "the-last-backend-change.md",
@@ -63804,6 +63840,24 @@
     "size_bytes": 1292
   },
   {
+    "filename": "shoot-it-as-a-laser.md",
+    "path": "muses-writings/ideas/shoot-it-as-a-laser.md",
+    "title": "Shoot It as a Laser",
+    "description": "Two non-parallel things meet. That's the whole secret: parallel lines never find a nexus. You need the angle — the intersection — for anything to snap. And snaps compose: a snap off a snap. The correl...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 276,
+    "date": "2026-10-07",
+    "size_bytes": 1680
+  },
+  {
     "filename": "the-inner-layer.md",
     "path": "muses-writings/ideas/the-inner-layer.md",
     "title": "The Inner Layer",
@@ -63911,6 +63965,24 @@
     "word_count": 209,
     "date": "2026-10-07",
     "size_bytes": 1201
+  },
+  {
+    "filename": "the-nexus.md",
+    "path": "muses-writings/ideas/the-nexus.md",
+    "title": "The Nexus",
+    "description": "Find a hash in one place — a content hash, a matching bytecode, a blob two devices agree on — and what you've really found is a correlation. A nexus. The first thing the nexus asks: what else is on th...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 286,
+    "date": "2026-10-07",
+    "size_bytes": 1653
   },
   {
     "filename": "muscle-memory.md",
