@@ -63858,6 +63858,25 @@
     "size_bytes": 1347
   },
   {
+    "filename": "hooks-and-drops.md",
+    "path": "muses-writings/ideas/hooks-and-drops.md",
+    "title": "Hooks and Drops",
+    "description": "Telegram was the demo channel, never the protocol. It needs a human gesture to send, it doesn't queue, it doesn't version, and tonight it proved it: the automation couldn't get a message out at all. T...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Education",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 288,
+    "date": "2026-10-07",
+    "size_bytes": 1688
+  },
+  {
     "filename": "the-missing-function-finder.md",
     "path": "muses-writings/ideas/the-missing-function-finder.md",
     "title": "The Missing-Function Finder",
