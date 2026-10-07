@@ -63678,6 +63678,24 @@
     "size_bytes": 1668
   },
   {
+    "filename": "where-git-commands-the-physical.md",
+    "path": "muses-writings/ideas/where-git-commands-the-physical.md",
+    "title": "Where Git Commands the Physical",
+    "description": "Copy a program in, and the board becomes a place. Not a device — a location the git agent commands. Each Uno Q is a room in the physical universe. Its manifest says where it is (the dock, the boat, th...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 259,
+    "date": "2026-10-07",
+    "size_bytes": 1440
+  },
+  {
     "filename": "the-root.md",
     "path": "muses-writings/ideas/the-root.md",
     "title": "The Root",
@@ -63694,6 +63712,24 @@
     "word_count": 211,
     "date": "2026-10-07",
     "size_bytes": 1221
+  },
+  {
+    "filename": "git-plus-plus.md",
+    "path": "muses-writings/ideas/git-plus-plus.md",
+    "title": "Git++",
+    "description": "Not the device. The Arduino, the reflexes, the pins — those are last-mile renderings. Don't mistake the screen for the computer. The first-class citizen isn't the hardware. It's the layer above git th...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 269,
+    "date": "2026-10-07",
+    "size_bytes": 1620
   },
   {
     "filename": "root-user.md",
