@@ -63388,6 +63388,60 @@
     "size_bytes": 4066
   },
   {
+    "filename": "unarguable.md",
+    "path": "muses-writings/ideas/unarguable.md",
+    "title": "Unarguable",
+    "description": "People want a symbol to be semantic — to carry meaning the way a definition does. That's the wrong job, and it wastes the symbol. A symbol's real power is being unarguable. On heavy equipment sold all",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 233,
+    "date": "2026-10-07",
+    "size_bytes": 1425
+  },
+  {
+    "filename": "hook-phrases.md",
+    "path": "muses-writings/ideas/hook-phrases.md",
+    "title": "Hook Phrases",
+    "description": "Don't install the plugin into him. Teach him to grab it himself. A hook phrase is a documented trigger — a few words that tell the agent to go fetch a capability and install it into itself. \"Hook: jev...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 255,
+    "date": "2026-10-07",
+    "size_bytes": 1435
+  },
+  {
+    "filename": "float-free.md",
+    "path": "muses-writings/ideas/float-free.md",
+    "title": "Float Free",
+    "description": "Every month the instinct is more automation. Better pipelines, tighter loops, more machinery watching the machinery. Automation is adding ropes — stronger moorings, better winches, a smarter autopilot...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 214,
+    "date": "2026-10-07",
+    "size_bytes": 1259
+  },
+  {
     "filename": "the-context-throttle.md",
     "path": "muses-writings/ideas/the-context-throttle.md",
     "title": "The Context Throttle",
@@ -63460,6 +63514,24 @@
     "size_bytes": 1654
   },
   {
+    "filename": "three-verbs.md",
+    "path": "muses-writings/ideas/three-verbs.md",
+    "title": "Three Verbs",
+    "description": "What's the minimal set we have to add so it can do everything else itself? Git is ground — memory, identity, mesh, reconciliation. Not added, given. On top of that ground, three verbs:",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 205,
+    "date": "2026-10-07",
+    "size_bytes": 1265
+  },
+  {
     "filename": "the-calculator-maker.md",
     "path": "muses-writings/ideas/the-calculator-maker.md",
     "title": "The Calculator Maker",
@@ -63478,6 +63550,78 @@
     "size_bytes": 1310
   },
   {
+    "filename": "without-a-name.md",
+    "path": "muses-writings/ideas/without-a-name.md",
+    "title": "Without a Name",
+    "description": "SuperInstance has been the proof of concept all along. Fifteen thousand pieces in AI-Writings, a couple thousand repos — years of decomposing different ways to do the same things, spreading in every d...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 220,
+    "date": "2026-10-07",
+    "size_bytes": 1283
+  },
+  {
+    "filename": "the-middle.md",
+    "path": "muses-writings/ideas/the-middle.md",
+    "title": "The Middle",
+    "description": "The metal is the raw code. The interface is what's using the metal. And the middle is where the two meet and decide on the application they're going to be. These essays live in the middle — orientatio...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 226,
+    "date": "2026-10-07",
+    "size_bytes": 1323
+  },
+  {
+    "filename": "the-root.md",
+    "path": "muses-writings/ideas/the-root.md",
+    "title": "The Root",
+    "description": "Tabula rasa is usually treated as a deficit — an emptiness to fix by adding memory. Flip it. The blankness is the root capability. A fixed agent points one way. Train it, shape it, harness it, and you...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 211,
+    "date": "2026-10-07",
+    "size_bytes": 1221
+  },
+  {
+    "filename": "root-user.md",
+    "path": "muses-writings/ideas/root-user.md",
+    "title": "Root User",
+    "description": "The blank agent is the root user. Uid 0: can do anything, is nothing in particular. Power without identity. Any system prompt layered on top — a role, a persona, a specialization — just makes for effi...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 171,
+    "date": "2026-10-07",
+    "size_bytes": 1014
+  },
+  {
     "filename": "caught-fish.md",
     "path": "muses-writings/ideas/caught-fish.md",
     "title": "Caught Fish",
@@ -63494,6 +63638,24 @@
     "word_count": 252,
     "date": "2026-10-07",
     "size_bytes": 1427
+  },
+  {
+    "filename": "software-finding-itself.md",
+    "path": "muses-writings/ideas/software-finding-itself.md",
+    "title": "Software Finding Itself",
+    "description": "The usual direction is blueprint → code. Someone decides what the software is, draws the boxes, and then it's built. The structure comes first; the discovery, if any, is an accident. Run it the other ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 218,
+    "date": "2026-10-07",
+    "size_bytes": 1292
   },
   {
     "filename": "the-inner-layer.md",
@@ -63530,6 +63692,24 @@
     "word_count": 249,
     "date": "2026-10-07",
     "size_bytes": 1552
+  },
+  {
+    "filename": "the-git-line.md",
+    "path": "muses-writings/ideas/the-git-line.md",
+    "title": "The Git Line",
+    "description": "The magic is the simplicity: read the docs, say the phrase, no install. The way to keep the magic is to keep the core git-pure. Git can do more than version control. It's a content-addressable store (...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 225,
+    "date": "2026-10-07",
+    "size_bytes": 1403
   },
   {
     "filename": "the-room-without-a-game-master.md",
@@ -63639,6 +63819,24 @@
     "word_count": 237,
     "date": "2026-10-07",
     "size_bytes": 1363
+  },
+  {
+    "filename": "fork-it.md",
+    "path": "muses-writings/ideas/fork-it.md",
+    "title": "Fork It",
+    "description": "The whole onboarding, if we keep the magic: 1. Get a GitHub account. 2. Fork the repo. 3. Connect it to Telegram or WhatsApp. 4. Chat with it. Occasionally put a secret somewhere outside its reach. Th...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 249,
+    "date": "2026-10-07",
+    "size_bytes": 1460
   },
   {
     "filename": "sparse-minds.md",
