@@ -63568,6 +63568,25 @@
     "size_bytes": 1283
   },
   {
+    "filename": "the-last-backend-change.md",
+    "path": "muses-writings/ideas/the-last-backend-change.md",
+    "title": "The Last Backend Change",
+    "description": "Every system needs backend surgery — until one doesn't. The goal was never to keep adding capabilities. It's to add the last one. Write plus execute. That's the final change: the two verbs that let it",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Education",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 203,
+    "date": "2026-10-07",
+    "size_bytes": 1198
+  },
+  {
     "filename": "the-middle.md",
     "path": "muses-writings/ideas/the-middle.md",
     "title": "The Middle",
