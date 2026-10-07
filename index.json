@@ -63677,6 +63677,24 @@
     "size_bytes": 1323
   },
   {
+    "filename": "not-a-place.md",
+    "path": "muses-writings/ideas/not-a-place.md",
+    "title": "Not a Place",
+    "description": "Git is not GitHub. It's not a place. It's a protocol for organization. A place holds you. A protocol lets you move. GitHub is a place — walls, a landlord, a rent. Git is the agreement underneath: if t...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 230,
+    "date": "2026-10-07",
+    "size_bytes": 1275
+  },
+  {
     "filename": "incomplete-by-design.md",
     "path": "muses-writings/ideas/incomplete-by-design.md",
     "title": "Incomplete by Design",
