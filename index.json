@@ -63568,6 +63568,24 @@
     "size_bytes": 1283
   },
   {
+    "filename": "on-the-metal-off-the-metal.md",
+    "path": "muses-writings/ideas/on-the-metal-off-the-metal.md",
+    "title": "On the Metal, Off the Metal",
+    "description": "Two lanes. Don't mix them up. Off the metal is the zeropoc work: pure steering, no substrate. The agent as an idea — prompt engineering, question-trees, honesty training. It runs anywhere because it r...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 222,
+    "date": "2026-10-07",
+    "size_bytes": 1297
+  },
+  {
     "filename": "the-last-backend-change.md",
     "path": "muses-writings/ideas/the-last-backend-change.md",
     "title": "The Last Backend Change",
