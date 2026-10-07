@@ -63659,6 +63659,24 @@
     "size_bytes": 1014
   },
   {
+    "filename": "the-composer.md",
+    "path": "muses-writings/ideas/the-composer.md",
+    "title": "The Composer",
+    "description": "The git agents have a root (blank), a memory (git), and a mentor (me — expensive, off-metal, in the loop every turn). What's missing is the consistent thinker: the thing that composes the next idea, e...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 254,
+    "date": "2026-10-07",
+    "size_bytes": 1476
+  },
+  {
     "filename": "caught-fish.md",
     "path": "muses-writings/ideas/caught-fish.md",
     "title": "Caught Fish",
