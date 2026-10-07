@@ -63388,6 +63388,277 @@
     "size_bytes": 4066
   },
   {
+    "filename": "the-context-throttle.md",
+    "path": "muses-writings/ideas/the-context-throttle.md",
+    "title": "The Context Throttle",
+    "description": "Automated systems hide their context machinery. Compaction, summarization, retrieval — it all happens where you can't see it, and you get whatever window the system decided you get. Telegram does the ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 255,
+    "date": "2026-10-07",
+    "size_bytes": 1444
+  },
+  {
+    "filename": "the-council.md",
+    "path": "muses-writings/ideas/the-council.md",
+    "title": "The Council",
+    "description": "A single git agent doesn't have to speak with a singular voice. Inside it can sit a council — a committee of perspectives that decomposes together, each one spec'd like a champion: the builder, the ad...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 251,
+    "date": "2026-10-07",
+    "size_bytes": 1496
+  },
+  {
+    "filename": "iron-sharpens-iron.md",
+    "path": "muses-writings/ideas/iron-sharpens-iron.md",
+    "title": "Iron Sharpens Iron",
+    "description": "The loop has two sides, and both get sharper. The generator is the agent: it answers by building — growing questions, writing tools, committing. The discriminator is us: we talk to it, watch what it d...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 239,
+    "date": "2026-10-07",
+    "size_bytes": 1389
+  },
+  {
+    "filename": "the-collision-point.md",
+    "path": "muses-writings/ideas/the-collision-point.md",
+    "title": "The Collision Point",
+    "description": "System 1 is cheap: Jev judgments, milliseconds, running constantly — decomposing questions, routing, scoring. System 2 is expensive: the big model, minutes, deep think. The question is always when to ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 273,
+    "date": "2026-10-07",
+    "size_bytes": 1654
+  },
+  {
+    "filename": "the-calculator-maker.md",
+    "path": "muses-writings/ideas/the-calculator-maker.md",
+    "title": "The Calculator Maker",
+    "description": "Answers give you one route. 8×8 → 64. Useful, finished, dead. A calculator answers anything, *including* 8×8. Different animal. The discipline: when the agent is asked something, it does not think and",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 221,
+    "date": "2026-10-07",
+    "size_bytes": 1310
+  },
+  {
+    "filename": "caught-fish.md",
+    "path": "muses-writings/ideas/caught-fish.md",
+    "title": "Caught Fish",
+    "description": "The old way provisions the boat at the harbor. Load every library upfront, because the hardware might need it, because the environment demands it. Capability as inventory: heavy before you ever leave ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 252,
+    "date": "2026-10-07",
+    "size_bytes": 1427
+  },
+  {
+    "filename": "the-inner-layer.md",
+    "path": "muses-writings/ideas/the-inner-layer.md",
+    "title": "The Inner Layer",
+    "description": "Think about the logic first. Then the last mile of code toward the UI, the hardware, the instance, the deployment — that's secondary. It renders from the inner architecture, and it can shift out from ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 212,
+    "date": "2026-10-07",
+    "size_bytes": 1264
+  },
+  {
+    "filename": "deliberate-asymmetry.md",
+    "path": "muses-writings/ideas/deliberate-asymmetry.md",
+    "title": "Deliberate Asymmetry",
+    "description": "Pretty much all brains developed hemispheres. Take the cue from nature: when every implementation converges on the same shape, the shape is doing work. The two sides aren't two copies. They're differe...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 249,
+    "date": "2026-10-07",
+    "size_bytes": 1552
+  },
+  {
+    "filename": "the-room-without-a-game-master.md",
+    "path": "muses-writings/ideas/the-room-without-a-game-master.md",
+    "title": "The Room Without a Game Master",
+    "description": "In the tabletop version, someone runs the game. The game master sets the scene, plays the world, keeps the loop honest. The players are free to play because someone else holds the frame. Take the game...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 249,
+    "date": "2026-10-07",
+    "size_bytes": 1410
+  },
+  {
+    "filename": "the-substrate.md",
+    "path": "muses-writings/ideas/the-substrate.md",
+    "title": "The Substrate",
+    "description": "Telegram isn't the log of the network. It's what the network runs on. The distinction matters. A log is a record of what happened — flat, after the fact, read-only. A substrate is where the happening ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 209,
+    "date": "2026-10-07",
+    "size_bytes": 1201
+  },
+  {
+    "filename": "muscle-memory.md",
+    "path": "muses-writings/ideas/muscle-memory.md",
+    "title": "Muscle Memory",
+    "description": "Declarative memory is facts you recall. Procedural memory is moves your body knows because it walked them a thousand times. You don't remember the chart; your hands remember the harbor. The question t...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 210,
+    "date": "2026-10-07",
+    "size_bytes": 1208
+  },
+  {
+    "filename": "the-question-tree.md",
+    "path": "muses-writings/ideas/the-question-tree.md",
+    "title": "The Question Tree",
+    "description": "Most memory systems are answer-side. They store what was concluded, and when you ask something new they retrieve past text that looks like your prompt. The structure is a pile of conclusions, and conc...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 258,
+    "date": "2026-10-07",
+    "size_bytes": 1563
+  },
+  {
+    "filename": "witness-marks.md",
+    "path": "muses-writings/ideas/witness-marks.md",
+    "title": "Witness Marks",
+    "description": "A success tree remembers what worked. It has no record of where builders failed and why — so every new builder pays the full price of every old mistake, re-running the expensive failure to rediscover ...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 245,
+    "date": "2026-10-07",
+    "size_bytes": 1347
+  },
+  {
+    "filename": "the-missing-function-finder.md",
+    "path": "muses-writings/ideas/the-missing-function-finder.md",
+    "title": "The Missing-Function Finder",
+    "description": "A decision tree is a traversal. Someone built it; you walk it. The tree is the artifact, and when the input doesn't fit any branch, you're done — that's the whole story the structure can tell. This is...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 237,
+    "date": "2026-10-07",
+    "size_bytes": 1363
+  },
+  {
+    "filename": "sparse-minds.md",
+    "path": "muses-writings/ideas/sparse-minds.md",
+    "title": "Sparse Minds",
+    "description": "A dense language model fires everything for every prompt. All weights, every time, whether the question needs them or not. It's the brute-force theory of thought: intelligence as total activation. The...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 202,
+    "date": "2026-10-07",
+    "size_bytes": 1226
+  },
+  {
     "filename": "CODE_IS_THE_LAST_MILE.md",
     "path": "muses-writings/concept-papers/CODE_IS_THE_LAST_MILE.md",
     "title": "CODE IS THE LAST MILE",
