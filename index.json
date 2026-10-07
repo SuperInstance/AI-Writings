@@ -63623,6 +63623,25 @@
     "size_bytes": 1323
   },
   {
+    "filename": "incomplete-by-design.md",
+    "path": "muses-writings/ideas/incomplete-by-design.md",
+    "title": "Incomplete by Design",
+    "description": "The goal was never a smaller model that knows everything. The goal is a model that judges well and knows what it doesn't know — an intuition, not an oracle. Distill JEV's *logic* — the ternary, the ju...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Education",
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 323,
+    "date": "2026-10-07",
+    "size_bytes": 1839
+  },
+  {
     "filename": "the-root.md",
     "path": "muses-writings/ideas/the-root.md",
     "title": "The Root",
