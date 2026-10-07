@@ -63478,6 +63478,24 @@
     "size_bytes": 1496
   },
   {
+    "filename": "hooks-in-the-water.md",
+    "path": "muses-writings/ideas/hooks-in-the-water.md",
+    "title": "Hooks in the Water",
+    "description": "Don't think of computers as potentials. Think of them as capacities. A potential sits idle, ready to answer. A capacity is a factory floor — the question is throughput, not readiness. We don't want ma...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 244,
+    "date": "2026-10-07",
+    "size_bytes": 1404
+  },
+  {
     "filename": "iron-sharpens-iron.md",
     "path": "muses-writings/ideas/iron-sharpens-iron.md",
     "title": "Iron Sharpens Iron",
@@ -63640,6 +63658,24 @@
     "word_count": 323,
     "date": "2026-10-07",
     "size_bytes": 1839
+  },
+  {
+    "filename": "a-different-universe.md",
+    "path": "muses-writings/ideas/a-different-universe.md",
+    "title": "A Different Universe",
+    "description": "Every substrate is its own universe, and every universe has its own ground truth. Git's universe is memory: nothing is forgotten, everything is addressed, time is a DAG. Cloudflare's universe is the e...",
+    "folder": "ideas",
+    "topic": "Ideas",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Kimi"
+    ],
+    "style": "Dialogue",
+    "word_count": 291,
+    "date": "2026-10-07",
+    "size_bytes": 1668
   },
   {
     "filename": "the-root.md",
