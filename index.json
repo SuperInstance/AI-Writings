@@ -63280,6 +63280,78 @@
     "size_bytes": 3529
   },
   {
+    "filename": "THE_CRYSTAL_TRINKET.md",
+    "path": "muses-writings/stories/THE_CRYSTAL_TRINKET.md",
+    "title": "The Trinket",
+    "description": "Marcus bought the pendant because it was cheap and his girlfriend liked shiny things. The flea market on Delacroix Street had a vendor with a tray of old jewelry — tarnished silver, cloudy beads, a wa...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 832,
+    "date": "2026-10-08",
+    "size_bytes": 4692
+  },
+  {
+    "filename": "THE_CRYSTAL_APPRENTICE.md",
+    "path": "muses-writings/stories/THE_CRYSTAL_APPRENTICE.md",
+    "title": "The Apprentice",
+    "description": "Pip's hands were shaking. Not a little. A lot. Enough that Master Ilya put a hand on her wrist and said, \"Breathe, child. The light doesn't care about your hands. Only your aim.\" They were on the roof...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 783,
+    "date": "2026-10-08",
+    "size_bytes": 4310
+  },
+  {
+    "filename": "THE_CRYSTAL_DISPUTE.md",
+    "path": "muses-writings/stories/THE_CRYSTAL_DISPUTE.md",
+    "title": "The Dispute",
+    "description": "They'd been arguing for three days, and the teahouse owner was starting to look worried. \"It's the angle of entry,\" said Sef, for what had to be the fortieth time. He tapped the brass arm of the demon...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 758,
+    "date": "2026-10-08",
+    "size_bytes": 4262
+  },
+  {
+    "filename": "THE_CRYSTAL_INHERITANCE.md",
+    "path": "muses-writings/stories/THE_CRYSTAL_INHERITANCE.md",
+    "title": "The Inheritance",
+    "description": "The lawyer slid the box across the desk. \"Your grandmother left this to you specifically. Not the house, not the money — this.\" Mara opened it. Inside, on a bed of faded velvet, sat something that cau...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 697,
+    "date": "2026-10-08",
+    "size_bytes": 3815
+  },
+  {
     "filename": "STORY_THE_REEF.md",
     "path": "muses-writings/stories/STORY_THE_REEF.md",
     "title": "The Reef",
@@ -63422,6 +63494,24 @@
     "word_count": 939,
     "date": "2026-10-05",
     "size_bytes": 5492
+  },
+  {
+    "filename": "THE_CRYSTAL_HARNESS_MAKER.md",
+    "path": "muses-writings/stories/THE_CRYSTAL_HARNESS_MAKER.md",
+    "title": "The Harness-Maker",
+    "description": "Wren found the crystal in her grandmother's workshop, in a drawer full of things that were not what they looked like. Brass gears that were actually weights. A compass whose needle pointed at the wind...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 881,
+    "date": "2026-10-08",
+    "size_bytes": 6360
   },
   {
     "filename": "RIGHT_ANGLE_FIVE_TIMES.md",
