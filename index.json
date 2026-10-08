@@ -63370,6 +63370,24 @@
     "size_bytes": 5587
   },
   {
+    "filename": "IVE_BEEN_THINKING_ABOUT_CATS.md",
+    "path": "muses-writings/stories/IVE_BEEN_THINKING_ABOUT_CATS.md",
+    "title": "I've Been Thinking About Cats",
+    "description": "\"I've been thinking about cats,\" I said, breaking a silence that had stretched comfortably between us, warm as something asleep by a fire. Outside, rain had started, pattering the wheelhouse windows l...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 633,
+    "date": "2026-10-08",
+    "size_bytes": 3726
+  },
+  {
     "filename": "STORY_GENERATION_SHIP.md",
     "path": "muses-writings/stories/STORY_GENERATION_SHIP.md",
     "title": "The Cold Room",
@@ -63404,6 +63422,24 @@
     "word_count": 571,
     "date": "2026-10-06",
     "size_bytes": 3228
+  },
+  {
+    "filename": "THE_TWO_SCREENS.md",
+    "path": "muses-writings/stories/THE_TWO_SCREENS.md",
+    "title": "The Two Screens",
+    "description": "The salmon knew something was wrong when the water started singing. Not the natural song of current against rock, or wind-driven waves slapping hull. This was mechanical — servo harmonics pitched at f...",
+    "folder": "stories",
+    "topic": "Stories",
+    "genres": [
+      "Education"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 810,
+    "date": "2026-10-08",
+    "size_bytes": 7653
   },
   {
     "filename": "THE_BLANK_WATER.md",
