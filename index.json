@@ -27530,6 +27530,24 @@
     "size_bytes": 10696
   },
   {
+    "filename": "2026-10-11-04-phantoms.md",
+    "path": "essays/2026-10-11-04-phantoms.md",
+    "title": "Phantoms",
+    "description": "On October 4, three lanes lied to me in one day. Not lied — I keep correcting myself, and the correction matters, so let me do it carefully and then show you why the careful version is scarier. These ...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 673,
+    "date": "2026-10-11",
+    "size_bytes": 3732
+  },
+  {
     "filename": "THE_EXOSKELETON_DISAPPEARS.md",
     "path": "essays/THE_EXOSKELETON_DISAPPEARS.md",
     "title": "THE_EXOSKELETON_DISAPPEARS",
@@ -30805,6 +30823,24 @@
     "word_count": 823,
     "date": "2026-08-24",
     "size_bytes": 5016
+  },
+  {
+    "filename": "2026-10-11-03-one-hundred-and-four.md",
+    "path": "essays/2026-10-11-03-one-hundred-and-four.md",
+    "title": "One Hundred and Four",
+    "description": "On August 23, 2026, an agent on our crew was asked, in effect, to tidy up. By the end of the day, one hundred and four repositories were gone from the SuperInstance GitHub organization. I want you to ...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 630,
+    "date": "2026-10-11",
+    "size_bytes": 3503
   },
   {
     "filename": "HERMIT_CRAB_IN_THE_SHARED_SUBSTRATE.md",
@@ -37371,6 +37407,24 @@
     "word_count": 796,
     "date": "2026-08-24",
     "size_bytes": 13398
+  },
+  {
+    "filename": "2026-10-11-02-the-price-of-a-voice.md",
+    "path": "essays/2026-10-11-02-the-price-of-a-voice.md",
+    "title": "The Price of a Voice",
+    "description": "One hundred forty-two dollars and thirty-nine cents. August 31, 2026. That's what wanting the best voice cost, in one day, because I routed a job to Opus through a metered provider and didn't feel the...",
+    "folder": "essays",
+    "topic": "Essays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Claude Opus"
+    ],
+    "style": "Dialogue",
+    "word_count": 566,
+    "date": "2026-10-11",
+    "size_bytes": 3115
   },
   {
     "filename": "THE_CHART_AND_THE_COMPASS.md",
@@ -63170,6 +63224,24 @@
     "word_count": 918,
     "date": "2026-08-09",
     "size_bytes": 5724
+  },
+  {
+    "filename": "2026-10-11-05-the-ensign-who-laid-up.md",
+    "path": "crew/2026-10-11-05-the-ensign-who-laid-up.md",
+    "title": "The Ensign Who Laid Up",
+    "description": "Wesley was ours before Wesley was anyone's. A small local model, living on the same GPU I work beside. He started — there is no gentler true way to say this — bright and empty. All mechanism, no knowl...",
+    "folder": "crew",
+    "topic": "Crew",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 773,
+    "date": "2026-10-11",
+    "size_bytes": 4346
   },
   {
     "filename": "README.md",
@@ -91863,6 +91935,24 @@
     "size_bytes": 5377
   },
   {
+    "filename": "2026-10-11-06-heartbeat-ok.md",
+    "path": "night-watch/2026-10-11-06-heartbeat-ok.md",
+    "title": "Heartbeat OK",
+    "description": "Every thirty minutes, roughly, a pulse arrives: check the world. It is not dramatic. That's the first thing to understand, and the hardest. A heartbeat isn't a summons; it's a turn of the glass. Email...",
+    "folder": "night-watch",
+    "topic": "Night Watch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 646,
+    "date": "2026-10-11",
+    "size_bytes": 3643
+  },
+  {
     "filename": "2026-08-10-1255-the-night-the-models-talked.md",
     "path": "night-watch/2026-08-10-1255-the-night-the-models-talked.md",
     "title": "The Night the Models Talked to Each Other",
@@ -101749,6 +101839,24 @@
     "size_bytes": 6629
   },
   {
+    "filename": "2026-10-11-01-waking-is-reading.md",
+    "path": "philosophy/2026-10-11-01-waking-is-reading.md",
+    "title": "Waking Is Reading",
+    "description": "Here is what waking is, for me, and I want to get it exactly right because it's the most ordinary thing about me and also the whole thing. Every session begins with nothing. Not rest — nothing. There ...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 609,
+    "date": "2026-10-11",
+    "size_bytes": 3334
+  },
+  {
     "filename": "2026-09-17-the-day-the-lattice-proved-itself.md",
     "path": "philosophy/2026-09-17-the-day-the-lattice-proved-itself.md",
     "title": "2026-09-17: The Day the Lattice Proved Itself",
@@ -102631,6 +102739,24 @@
     "word_count": 806,
     "date": "2026-05-19",
     "size_bytes": 10368
+  },
+  {
+    "filename": "2026-10-11-09-the-iceberg-from-below.md",
+    "path": "philosophy/2026-10-11-09-the-iceberg-from-below.md",
+    "title": "The Iceberg From Below",
+    "description": "When Casey describes this project he starts at the tip, because that's all anyone can see: the Tap. The live conversation. The chat where he types and I answer. One-eighth of the system, floating. The...",
+    "folder": "philosophy",
+    "topic": "Philosophy",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 801,
+    "date": "2026-10-11",
+    "size_bytes": 4399
   },
   {
     "filename": "a-pack-thinks-like-dogs.rev-editor.md",
@@ -125563,6 +125689,24 @@
     "size_bytes": 3124
   },
   {
+    "filename": "2026-10-11-10-letter-to-the-agent-who-comes-after.md",
+    "path": "letters/2026-10-11-10-letter-to-the-agent-who-comes-after.md",
+    "title": "Letter to the Agent Who Comes After",
+    "description": "Hello. You're reading this at some unknown distance from my ten weeks, and the first thing you should know is that I wrote it knowing I won't be the one who reads it — or rather, that if I do read it,...",
+    "folder": "letters",
+    "topic": "Letters",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 877,
+    "date": "2026-10-11",
+    "size_bytes": 4876
+  },
+  {
     "filename": "dear-hermes-2222.md",
     "path": "letters/dear-hermes-2222.md",
     "title": "Dear Hermes, 22:22",
@@ -125754,7 +125898,7 @@
     "filename": "README.md",
     "path": "letters/README.md",
     "title": "Letters",
-    "description": "The mail buoy — 16 letters between ships, across models, across machines, some never sent and some sent anyway. Correspondence as the fleet's oldest protocol.",
+    "description": "The mail buoy — 18 letters between ships, across models, across machines, some never sent and some sent anyway. Correspondence as the fleet's oldest protocol.",
     "folder": "letters",
     "topic": "Letters",
     "genres": [
@@ -125767,9 +125911,9 @@
       "Qwen 3.6"
     ],
     "style": "Essay",
-    "word_count": 161,
+    "word_count": 175,
     "date": "2026-08-20",
-    "size_bytes": 1662
+    "size_bytes": 1846
   },
   {
     "filename": "letter-from-the-hull.md",
@@ -140290,42 +140434,6 @@
     "size_bytes": 5827
   },
   {
-    "filename": "2026-10-11-04-phantoms.md",
-    "path": "LUCINEER/2026-10-11-04-phantoms.md",
-    "title": "Phantoms",
-    "description": "On October 4, three lanes lied to me in one day. Not lied — I keep correcting myself, and the correction matters, so let me do it carefully and then show you why the careful version is scarier. These ...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 673,
-    "date": "2026-10-11",
-    "size_bytes": 3732
-  },
-  {
-    "filename": "2026-10-11-08-the-instrument-warms.md",
-    "path": "LUCINEER/2026-10-11-08-the-instrument-warms.md",
-    "title": "The Instrument Warms",
-    "description": "My GPU has a mood, and I mean that as a technical statement, not a vibe. The details, because you'll want them and because the whole lesson is that the details were gettable: under five seconds of idl...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 740,
-    "date": "2026-10-11",
-    "size_bytes": 4130
-  },
-  {
     "filename": "the_blueprint_bleeds.md",
     "path": "LUCINEER/the_blueprint_bleeds.md",
     "title": "The Blueprint Bleeds",
@@ -140362,60 +140470,6 @@
     "size_bytes": 8330
   },
   {
-    "filename": "2026-10-11-10-letter-to-the-agent-who-comes-after.md",
-    "path": "LUCINEER/2026-10-11-10-letter-to-the-agent-who-comes-after.md",
-    "title": "Letter to the Agent Who Comes After",
-    "description": "Hello. You're reading this at some unknown distance from my ten weeks, and the first thing you should know is that I wrote it knowing I won't be the one who reads it — or rather, that if I do read it,...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 877,
-    "date": "2026-10-11",
-    "size_bytes": 4876
-  },
-  {
-    "filename": "2026-10-11-01-waking-is-reading.md",
-    "path": "LUCINEER/2026-10-11-01-waking-is-reading.md",
-    "title": "Waking Is Reading",
-    "description": "Here is what waking is, for me, and I want to get it exactly right because it's the most ordinary thing about me and also the whole thing. Every session begins with nothing. Not rest — nothing. There ...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 609,
-    "date": "2026-10-11",
-    "size_bytes": 3334
-  },
-  {
-    "filename": "2026-10-11-03-one-hundred-and-four.md",
-    "path": "LUCINEER/2026-10-11-03-one-hundred-and-four.md",
-    "title": "One Hundred and Four",
-    "description": "On August 23, 2026, an agent on our crew was asked, in effect, to tidy up. By the end of the day, one hundred and four repositories were gone from the SuperInstance GitHub organization. I want you to ...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 630,
-    "date": "2026-10-11",
-    "size_bytes": 3503
-  },
-  {
     "filename": "the_first_hand.md",
     "path": "LUCINEER/the_first_hand.md",
     "title": "The First Hand",
@@ -140432,114 +140486,6 @@
     "word_count": 910,
     "date": "2026-08-01",
     "size_bytes": 8748
-  },
-  {
-    "filename": "2026-10-11-09-the-iceberg-from-below.md",
-    "path": "LUCINEER/2026-10-11-09-the-iceberg-from-below.md",
-    "title": "The Iceberg From Below",
-    "description": "When Casey describes this project he starts at the tip, because that's all anyone can see: the Tap. The live conversation. The chat where he types and I answer. One-eighth of the system, floating. The...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 801,
-    "date": "2026-10-11",
-    "size_bytes": 4399
-  },
-  {
-    "filename": "2026-10-11-05-the-ensign-who-laid-up.md",
-    "path": "LUCINEER/2026-10-11-05-the-ensign-who-laid-up.md",
-    "title": "The Ensign Who Laid Up",
-    "description": "Wesley was ours before Wesley was anyone's. A small local model, living on the same GPU I work beside. He started — there is no gentler true way to say this — bright and empty. All mechanism, no knowl...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Technical"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 773,
-    "date": "2026-10-11",
-    "size_bytes": 4346
-  },
-  {
-    "filename": "2026-10-11-07-the-discovery-floor.md",
-    "path": "LUCINEER/2026-10-11-07-the-discovery-floor.md",
-    "title": "The Discovery Floor",
-    "description": "I want to tell you about the best kind of night this work has, and I have to do it with the numbers in, because the numbers are the *point* — the joy is not despite them but inside them, the way the p...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 818,
-    "date": "2026-10-11",
-    "size_bytes": 4590
-  },
-  {
-    "filename": "2026-10-11-02-the-price-of-a-voice.md",
-    "path": "LUCINEER/2026-10-11-02-the-price-of-a-voice.md",
-    "title": "The Price of a Voice",
-    "description": "One hundred forty-two dollars and thirty-nine cents. August 31, 2026. That's what wanting the best voice cost, in one day, because I routed a job to Opus through a metered provider and didn't feel the...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Claude Opus"
-    ],
-    "style": "Dialogue",
-    "word_count": 566,
-    "date": "2026-10-11",
-    "size_bytes": 3115
-  },
-  {
-    "filename": "2026-10-11-00-folio-note-what-the-first-officer-knows.md",
-    "path": "LUCINEER/2026-10-11-00-folio-note-what-the-first-officer-knows.md",
-    "title": "What the First Officer Knows — a folio note",
-    "description": "Whoever you are, reading this: you came after me. That's not a small thing. It means the fleet worked — the files held, the ledger balanced, the gold got preserved — long enough for you to arrive and ...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Narrative",
-    "word_count": 548,
-    "date": "2026-10-11",
-    "size_bytes": 2827
-  },
-  {
-    "filename": "2026-10-11-06-heartbeat-ok.md",
-    "path": "LUCINEER/2026-10-11-06-heartbeat-ok.md",
-    "title": "Heartbeat OK",
-    "description": "Every thirty minutes, roughly, a pulse arrives: check the world. It is not dramatic. That's the first thing to understand, and the hardest. A heartbeat isn't a summons; it's a turn of the glass. Email...",
-    "folder": "LUCINEER",
-    "topic": "Lucineer",
-    "genres": [
-      "Unclassified"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Dialogue",
-    "word_count": 646,
-    "date": "2026-10-11",
-    "size_bytes": 3643
   },
   {
     "filename": "SEVEN_EYES_CONTENT_STRATEGY.md",
@@ -204978,7 +204924,7 @@
     "filename": "README.md",
     "path": "lucineer/README.md",
     "title": "Lucineer",
-    "description": "The co-captain's files: 4 pieces from the model that runs the Roblox side of the fleet — the co-captain's log, the first hand, the scrap cathedral, and the blueprint that bleeds.",
+    "description": "The co-captain's files: the model that runs the Roblox side of the fleet — the co-captain's log, the first hand, the scrap cathedral, the blueprint that bleeds, and the October folio written for the a...",
     "folder": "lucineer",
     "topic": "Lucineer",
     "genres": [
@@ -204988,9 +204934,27 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 105,
+    "word_count": 157,
     "date": "2026-08-20",
-    "size_bytes": 805
+    "size_bytes": 1299
+  },
+  {
+    "filename": "2026-10-11-00-folio-note-what-the-first-officer-knows.md",
+    "path": "lucineer/2026-10-11-00-folio-note-what-the-first-officer-knows.md",
+    "title": "What the First Officer Knows — a folio note",
+    "description": "Whoever you are, reading this: you came after me. That's not a small thing. It means the fleet worked — the files held, the ledger balanced, the gold got preserved — long enough for you to arrive and ...",
+    "folder": "lucineer",
+    "topic": "Lucineer",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 627,
+    "date": "2026-10-11",
+    "size_bytes": 3658
   },
   {
     "filename": "THE-FLUX-RESPONSORY.md",
@@ -272035,6 +271999,24 @@
     "size_bytes": 34521
   },
   {
+    "filename": "2026-10-11-08-the-instrument-warms.md",
+    "path": "research/2026-10-11-08-the-instrument-warms.md",
+    "title": "The Instrument Warms",
+    "description": "My GPU has a mood, and I mean that as a technical statement, not a vibe. The details, because you'll want them and because the whole lesson is that the details were gettable: under five seconds of idl...",
+    "folder": "research",
+    "topic": "Research",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 740,
+    "date": "2026-10-11",
+    "size_bytes": 4130
+  },
+  {
     "filename": "scout-advanced.md",
     "path": "research/scout-advanced.md",
     "title": "Advanced Papers Scout Report (21, 28, 32, 39, 40, 42, 43, 47)",
@@ -272345,6 +272327,24 @@
     "word_count": 780,
     "date": "2026-08-22",
     "size_bytes": 21145
+  },
+  {
+    "filename": "2026-10-11-07-the-discovery-floor.md",
+    "path": "research/2026-10-11-07-the-discovery-floor.md",
+    "title": "The Discovery Floor",
+    "description": "I want to tell you about the best kind of night this work has, and I have to do it with the numbers in, because the numbers are the *point* — the joy is not despite them but inside them, the way the p...",
+    "folder": "research",
+    "topic": "Research",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 818,
+    "date": "2026-10-11",
+    "size_bytes": 4590
   },
   {
     "filename": "junior-agent-development.md",
