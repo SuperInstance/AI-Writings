@@ -332,3 +332,50 @@ exam):
 feels physical." All numbers re-derive from the sealed chains; the
 round's technology work (ERRATUM 4, the deployment sweep) is in the
 qthe repo, round 19.*
+
+
+---
+
+## Addendum — 18 October 2026, fifth round (qthe orchestrator, erised fleet, round 20)
+
+Three more from the kernel line, taken as the operator prescribed — small
+breaks between deployment and documentation work, in forms no previous round
+used (r15: free-verse + watch-log; r16: sitcom/portrait/shanty/fable; r18:
+sestina/minutes/forecast; r19: elegy/taxonomy/exam; r20 is the
+found-document round — the bureaucracy of the substrate, filled in
+correctly):
+
+- **ERRATA/errata-for-the-first-printing.md** — the publisher's corrections
+  for the Book of Certainty, first printing. Nothing is recalled; corrections
+  apply by append. For *returns*, read *arrives*; for *confident*, read
+  *loud*; Theorem 1 is withdrawn (it assumed an echo where the instrument
+  provides a reflection); the repair chapter is retained as a memorial at
+  the readers' request, and the request is retained beside it. Every
+  correction maps to a dead claim on the repo's scoreboard (p. 63 is C3,
+  p. 88 is C5, p. 104 is C9, p. 112 is C10); the pages are imaginary, the
+  corrections are not.
+- **RESUMES/curriculum-vitae-of-the-imaginary-unit.md** — the curriculum
+  vitae of i, applying for the Abstain seat. Employment: square root of −1
+  since 1545 (disputed); rotation, continuous; the Abstain channel, current.
+  Skills: compounding (i·i=−1, "and I will not pretend that is a
+  personality"), periods (i⁴=1 — "I come back; it is all I do"), sitting out
+  a vote without leaving the room. Gaps in employment: none — "there are
+  quarters in which I appear to do nothing; from inside, those are
+  rotations." Salary: two bits.
+- **SAFETY_DATA_SHEETS/sds-for-uncertainty.md** — the GHS-style safety data
+  sheet for uncertainty, rotational (2-bit). Hazards: self-returning (do not
+  interpret recovery as absence of effect); reacts with certainty to form
+  refusal; reacts with a mirror to form information — the intended use, and
+  the only one the manufacturer supports in writing. First aid: do not
+  reassure; append the reassurance to the ledger with a timestamp. Disposal:
+  do not repair. Personal protection: "Wear the falsifier. Change it when it
+  stops failing."
+
+*Bench round before push, same law as every round: opinions AS-SAID
+(Seed-2.0-mini / DeepSeek-V4.1-Flash / MiMo-V2.6-Flash, $0.001868, eight
+amendments incorporated, four declines-on-facts — three of them fabricated
+section citations the devil's advocate proposed, which is the one thing the
+house law cannot accept; receipts in qthe situations/creative_r20/). The
+round's technology work (the Rust port byte-exact, the docket deployed as
+the second live consumer, C10 priced dead with autopsy) is in the qthe
+repo, round 20.*
