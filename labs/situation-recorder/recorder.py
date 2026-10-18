@@ -204,6 +204,33 @@ def _jcs(v) -> str:
     if isinstance(v, str):
         return _jcs_string(v)
     if isinstance(v, int):
+        # RFC 8785 s3.2.2.3 serializes a number as ECMAScript's
+        # Number::toString -- that is, as the IEEE-754 DOUBLE. An integer
+        # above 2^53 is not exactly representable as a double, so there is
+        # no correct ECMAScript rendering OF THE VALUE: the only thing
+        # ECMAScript can print is the value it would have ROUNDED TO.
+        #
+        # THIS IS NOT A COSMETIC EDGE. Python's json keeps an integer above
+        # 2^53 EXACT through a round trip; JSON.parse in JavaScript cannot
+        # represent it and rounds it to 9007199254740992. So the two
+        # languages would hash the SAME logical record DIFFERENTLY -- and
+        # 2^53+1 is not an I-JSON value, so RFC 8785 does not say which is
+        # right. Found by cross-checking the two implementations against each
+        # other for the first time.
+        #
+        # THE FIX IS NOT TO PICK A SIDE. A body that leaves the I-JSON range
+        # must be REFUSED, so that the chain says "this cannot be hashed"
+        # instead of quietly meaning something different in each language.
+        if abs(v) > 9007199254740992:
+            raise ValueError(
+                "JCS: integer " + str(v) + " is outside the I-JSON range "
+                "(+/- 2^53). It is not exactly representable as an IEEE-754 "
+                "double, so ECMAScript's Number::toString -- which RFC 8785 "
+                "requires -- has no correct rendering of it, and Python and "
+                "JavaScript would canonicalize it differently. Refuse it "
+                "rather than let two implementations disagree about what a "
+                "record means. Store it as a string, or as a float, if the "
+                "exact value matters.")
         return str(v)
     if isinstance(v, float):
         return _jcs_number(v)
@@ -293,6 +320,27 @@ def _check_rfc8785() -> None:
         assert got == want, (
             "JCS disagrees with RFC 8785 Appendix B at " + hexbits
             + ": got " + repr(got) + " want " + repr(want))
+
+    # THE I-JSON BOUNDARY, and the refusal that enforces it. Without this
+    # check the behaviour is UNTESTED, and an untested refusal is a
+    # comment: the next person to touch _jcs() would not know it was there.
+    #
+    # 2^53 is INSIDE the range and must canonicalize normally.
+    assert _jcs(9007199254740992) == "9007199254740992", "2^53 is representable and must canonicalize"
+    assert _jcs(-9007199254740992) == "-9007199254740992", "-2^53 likewise"
+    # 2^53+1 is OUTSIDE it, and must be refused rather than canonicalized.
+    for bad in (9007199254740993, -9007199254740993, 10 ** 30):
+        try:
+            got = _jcs(bad)
+        except ValueError:
+            continue
+        raise AssertionError(
+            "JCS accepted the out-of-range integer " + str(bad) + " and "
+            "canonicalized it to " + repr(got) + ". Two implementations "
+            "would disagree about that record and no spec says which is "
+            "right. It must be refused.")
+    # A bool is an int in Python, and must NOT be refused.
+    assert _jcs(True) == "true" and _jcs(False) == "false"
 
 
 GENESIS = "0x0000000000000000"
