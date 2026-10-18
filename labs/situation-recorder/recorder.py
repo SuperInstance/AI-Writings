@@ -123,23 +123,65 @@ def _jcs_string(s: str) -> str:
     return "".join(out)
 
 
+def _shortest_digits(v: float):
+    """The shortest round-trip digits of a positive finite double.
+
+    Returns (s, k, n) with value == s * 10**(n-k), 10**(k-1) <= s < 10**k,
+    and k as small as possible. ECMA-262 6.1.6.1.20.
+    """
+    r = repr(v)                       # shortest round-trip, Python's layout
+    if "e" in r or "E" in r:
+        mant, _, exp = r.replace("E", "e").partition("e")
+        exp = int(exp)
+    else:
+        mant, exp = r, 0
+    ip, _, fp = mant.partition(".")
+    digits = ip + fp
+    n = len(ip) + exp                  # the decimal point sits after n digits
+    stripped = digits.lstrip("0")
+    n -= (len(digits) - len(stripped))
+    digits = stripped.rstrip("0")
+    if not digits:
+        return ("0", 1, 1)
+    return (digits, len(digits), n)
+
+
 def _jcs_number(v: float) -> str:
-    """ECMAScript Number::toString for the subset JSON can hold."""
+    """ECMAScript Number::toString, exactly as RFC 8785 Appendix B wants.
+
+    THE PREVIOUS VERSION OF THIS FUNCTION WAS WRONG, and it was wrong in the
+    exact way the fleet's own witness-spec caught: it used Python's repr()
+    with an exponent fix-up, and repr() is not ECMAScript's Number::toString.
+
+    Three differences, each visible in RFC 8785 Appendix B:
+
+      * the SHORTEST round-trip digits of a large integer are NOT the exact
+        integer value. 295147905179352830000 is a double whose exact value
+        is 295147905179352825856; ECMAScript prints the former.
+      * the plain-decimal band is -6 < n <= 21, so 1e-6 prints as
+        "0.000001", not "1e-06".
+      * an exponent has NO leading zero: "9.999999999999997e-7".
+
+    A chain is only worth its hash if the canonical form is the STANDARD
+    one. The witness-spec conformance suite exists to catch exactly this,
+    and it caught it here.
+    """
     if v != v or v in (float("inf"), float("-inf")):
         raise ValueError("JCS: non-finite number")
     if v == 0:
-        return "0"
-    if v == int(v) and abs(v) < 1e21:
-        return str(int(v))
-    r = repr(v)
-    if "e" in r:
-        m, e = r.split("e")
-        sign = "+" if not e.startswith("-") else "-"
-        exp = e.lstrip("+-")
-        if len(exp) < 2:
-            exp = "0" + exp
-        r = m + "e" + sign + exp
-    return r
+        return "0"                      # -0 canonicalises to 0
+    sign = "-" if v < 0 else ""
+    s, k, n = _shortest_digits(abs(v))
+    if k <= n <= 21:
+        return sign + s + ("0" * (n - k))
+    if 0 < n <= 21:
+        return sign + s[:n] + "." + s[n:]
+    if -6 < n <= 0:
+        return sign + "0." + ("0" * (-n)) + s
+    e = n - 1
+    esign = "+" if e >= 0 else "-"
+    head = s[0] if k == 1 else s[0] + "." + s[1:]
+    return sign + head + "e" + esign + str(abs(e))
 
 
 def _jcs(v) -> str:
@@ -185,6 +227,62 @@ def sign_head(head: str, key: bytes) -> str:
 
 def verify_head(head: str, signature: str, key: bytes) -> bool:
     return hmac.compare_digest(sign_head(head, key), signature)
+
+
+
+# -- RFC 8785 Appendix B: the COMPLETE number-serialization samples -------
+
+# The value is reconstructed from its IEEE-754 hex, so the test is
+# self-contained and exact.
+#
+# This list was ADDED because the previous canonicalisation -- Python's
+# repr() with an exponent fix-up -- failed 10 of these 24. It is not a
+# hypothetical: the house's own witness-spec caught it, and this file is
+# the fleet's reference implementation.
+#
+# A conformance suite that lists only the cases it passes is decoration.
+# These are ALL of them, asserted by COUNT, by hex, and by canonical form.
+RFC8785_APPENDIX_B = [
+    ("0000000000000000", "0"),
+    ("8000000000000000", "0"),
+    ("0000000000000001", "5e-324"),
+    ("8000000000000001", "-5e-324"),
+    ("7fefffffffffffff", "1.7976931348623157e+308"),
+    ("ffefffffffffffff", "-1.7976931348623157e+308"),
+    ("4340000000000000", "9007199254740992"),
+    ("c340000000000000", "-9007199254740992"),
+    ("4430000000000000", "295147905179352830000"),
+    ("44b52d02c7e14af5", "9.999999999999997e+22"),
+    ("44b52d02c7e14af6", "1e+23"),
+    ("44b52d02c7e14af7", "1.0000000000000001e+23"),
+    ("444b1ae4d6e2ef4e", "999999999999999700000"),
+    ("444b1ae4d6e2ef4f", "999999999999999900000"),
+    ("444b1ae4d6e2ef50", "1e+21"),
+    ("3eb0c6f7a0b5ed8c", "9.999999999999997e-7"),
+    ("3eb0c6f7a0b5ed8d", "0.000001"),
+    ("41b3de4355555553", "333333333.3333332"),
+    ("41b3de4355555554", "333333333.33333325"),
+    ("41b3de4355555555", "333333333.3333333"),
+    ("41b3de4355555556", "333333333.3333334"),
+    ("41b3de4355555557", "333333333.33333343"),
+    ("becbf647612f3696", "-0.0000033333333333333333"),
+    ("43143ff3c1cb0959", "1424953923781206.2"),
+]
+
+
+def _check_rfc8785() -> None:
+    """Assert this implementation matches RFC 8785 Appendix B, in full."""
+    import struct
+    assert len(RFC8785_APPENDIX_B) == 24, (
+        "RFC 8785 Appendix B has 24 numeric samples; this list has "
+        + str(len(RFC8785_APPENDIX_B))
+        + ". A truncated list is how the last bug hid.")
+    for hexbits, want in RFC8785_APPENDIX_B:
+        value = struct.unpack(">d", bytes.fromhex(hexbits))[0]
+        got = _jcs(value)
+        assert got == want, (
+            "JCS disagrees with RFC 8785 Appendix B at " + hexbits
+            + ": got " + repr(got) + " want " + repr(want))
 
 
 GENESIS = "0x0000000000000000"
@@ -446,6 +544,9 @@ def main(argv=None):
         ok, msg = verify(load(args.verify))
         print(("VERIFY OK  — " if ok else "VERIFY FAIL — ") + msg)
         return 0 if ok else 1
+
+    _check_rfc8785()
+    print("RFC 8785 Appendix B: all 24 samples match")
 
     s = _demo()
     path = s.write(args.out)
