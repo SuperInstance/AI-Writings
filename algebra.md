@@ -75,6 +75,19 @@ type Witness = {
   op: 'BIND' | 'LINK' | 'EFFECT' | 'VIEW' | 'TICK' | 'FORGET' | 'PROOF' | 'ROUTE' | 'CRDT' | 'WORLD' | 'TIME';
   cell: string;
   params: Record<string, any>;
+  // What the operation PRODUCED. A witness that records only the request
+  // witnesses an intent, not an outcome -- and an intent is not the
+  // substrate of truth for anything.
+  //
+  // This is the field that makes an ADOPTED system teachable. When a
+  // cell defers to a model or a service, the request is cheap to repeat
+  // and worthless on its own; it is the ANSWER, recorded once and
+  // chained, that lets a later reader -- a smaller model, a rule engine,
+  // no model at all -- reach the same result without paying again.
+  //
+  // Optional, because not every operation produces a value worth
+  // keeping (FORGET produces nothing). Present when there was one.
+  result?: any;
   hash: string;
   prev_hash: string;
   sig: string;  // optional cryptographic
