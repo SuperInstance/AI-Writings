@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 13317
+    "size_bytes": 15256
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -139097,6 +139097,43 @@
     "size_bytes": 4643
   },
   {
+    "filename": "lyrics.md",
+    "path": "radio-theater/compass-head-radio-hour/the-ternary-crew/songs/01-shanty/lyrics.md",
+    "title": "Lyrics",
+    "description": "",
+    "folder": "01-shanty",
+    "topic": "01 Shanty",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 421,
+    "date": "2026-10-17",
+    "size_bytes": 2128
+  },
+  {
+    "filename": "prompt.md",
+    "path": "radio-theater/compass-head-radio-hour/the-ternary-crew/songs/01-shanty/prompt.md",
+    "title": "Prompt",
+    "description": "",
+    "folder": "01-shanty",
+    "topic": "01 Shanty",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 189,
+    "date": "2026-10-17",
+    "size_bytes": 1018
+  },
+  {
     "filename": "episode-02-script.md",
     "path": "radio-theater/compass-head-radio-hour/episode-02-the-score-as-fleet-law/script/episode-02-script.md",
     "title": "Episode 02 Script",
@@ -257873,6 +257910,24 @@
     "size_bytes": 27023
   },
   {
+    "filename": "ledger_of_the_Iron_bells.md",
+    "path": "short-stories/ledger_of_the_Iron_bells.md",
+    "title": "Ledger Of The Iron Bells",
+    "description": "",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Maritime"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 787,
+    "date": "2026-10-17",
+    "size_bytes": 4292
+  },
+  {
     "filename": "EIGHT_REFLEXES.md",
     "path": "short-stories/EIGHT_REFLEXES.md",
     "title": "EIGHT REFLEXES, ONE POOL OF WORDS",
@@ -258959,6 +259014,24 @@
     "word_count": 851,
     "date": "2026-07-21",
     "size_bytes": 7993
+  },
+  {
+    "filename": "E22_THE_SMALLEST_WORKING_ANIMAL.md",
+    "path": "SIT-COM_THE_WORKING_ANIMALS/E22_THE_SMALLEST_WORKING_ANIMAL.md",
+    "title": "E22 — THE SMALLEST WORKING ANIMAL",
+    "description": "`[ τ:2 | d:6 ]`",
+    "folder": "SIT-COM_THE_WORKING_ANIMALS",
+    "topic": "Sit Com The Working Animals",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 832,
+    "date": "2026-10-17",
+    "size_bytes": 11700
   },
   {
     "filename": "E02_THE_DASHBOARD.md",
@@ -264396,6 +264469,24 @@
     "word_count": 240,
     "date": "2026-08-20",
     "size_bytes": 2703
+  },
+  {
+    "filename": "four-seats-at-the-tavern.md",
+    "path": "MODEL_PORTRAITS/four-seats-at-the-tavern.md",
+    "title": "Model Portrait: The Four Seats at the Tavern — One Round, Four Answers",
+    "description": "The bench works because no seat can do another seat's job, and every seat has a disability the others were hired to cover: Seed breaks it, DeepSeek corrects it, MiMo tells you if it lands, and Hy4 — m...",
+    "folder": "MODEL_PORTRAITS",
+    "topic": "Model Portraits",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 795,
+    "date": "2026-10-17",
+    "size_bytes": 8599
   },
   {
     "filename": "channel-markers-three-voices.md",
