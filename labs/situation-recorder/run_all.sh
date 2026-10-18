@@ -7,7 +7,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-echo "== recorder self-test (chain + tamper-evidence) =="
+echo "== recorder self-test (chain re-derivation + the re-chained-rewrite limit) =="
 python3 recorder.py >/dev/null && echo "  ok"
 
 echo "== backfill corpus from the dispatch-ledger =="
