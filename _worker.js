@@ -404,6 +404,54 @@ export default {
       ];
       const [sailor, dials, cell, image, deepseek_v3, glm_51] = await Promise.all(streams);
 
+      // WITNESS WHAT WAS ADOPTED.
+      //
+      // This tick asked one question ("what is seen?") of four to six
+      // systems at once, and the answers went straight into the
+      // response and were then gone. Nothing recorded that they were
+      // asked, nothing recorded what came back, and nothing recorded
+      // what they cost.
+      //
+      // A tick is the cheapest question this fleet ever asks, and it
+      // is asked on every one. Left unwitnessed, the most expensive
+      // code path in the corpus is also the least useful: six systems
+      // answering the same question, with no way to compare them, no
+      // way to check any of them later, and no way for a smaller model
+      // to reach the same answer without paying again.
+      //
+      // So witness it. One witness per stream that actually answered,
+      // carrying the request AND the answer. Six witnesses a tick, and
+      // the corpus grows a (question, answer) corpus by itself.
+      //
+      // The image is recorded by length and head rather than whole: it
+      // is a data URL, it would dominate the log, and what a later
+      // reader needs to know about it is that it was produced.
+      const adopted = [];
+      const streamNames = ['zai', 'v4', 'qwen', 'flux', 'deepseek_v3', 'glm_51'];
+      const answers = [sailor, dials, cell, image, deepseek_v3, glm_51];
+      const tickAt = Date.now();
+      for (let i = 0; i < answers.length; i++) {
+        const answer = answers[i];
+        if (answer == null) continue;
+        const isImage = typeof answer === 'string' && answer.startsWith('data:');
+        const w = {
+          id: `w:${tickAt}-${streamNames[i]}-${Math.random().toString(36).slice(2, 8)}`,
+          opcode: 'EFFECT',
+          cell_id: `tick:${tickAt}`,
+          timestamp: tickAt,
+          payload_summary: {
+            stream: streamNames[i],
+            question_chars: prompt.length,
+            via: 'tick'
+          },
+          result: isImage
+            ? { image: true, bytes: answer.length, data_url_head: answer.slice(0, 32) }
+            : answer
+        };
+        WITNESS_LOG.push(w);
+        adopted.push(w);
+      }
+
       return jsonResponse({
         tick: Date.now(),
         canon_aware: useCanon,
