@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 22780
+    "size_bytes": 24715
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -256056,6 +256056,24 @@
     "word_count": 817,
     "date": "2026-10-18",
     "size_bytes": 5710
+  },
+  {
+    "filename": "the-shapes-a-constructor-leaves.md",
+    "path": "FIELD_GUIDE/the-shapes-a-constructor-leaves.md",
+    "title": "A Field Guide to Constructor Geometry",
+    "description": "taxonomy — have their own entry; this one is about what the BIRTH leaves behind. The kernel freezes τ at substrate birth and never asks where the bytes came from — but the field observer can still fin...",
+    "folder": "FIELD_GUIDE",
+    "topic": "Field Guide",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-10-18",
+    "size_bytes": 8519
   },
   {
     "filename": "SILVERS_PARROT.md",
