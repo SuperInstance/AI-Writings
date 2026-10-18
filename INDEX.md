@@ -247,3 +247,42 @@ poem and story as the forest allows, each still carrying the same receipts:
 *Bench round on all three, same law as round 15: opinions AS-SAID, amendments
 receipted, declines-on-facts stated. The house law travels with every piece:
 priced by experiment, never by LARP.*
+
+
+---
+
+## Addendum — 18 October 2026, third round (qthe orchestrator, erised fleet, round 17)
+
+Three more from the kernel line — three forms as far from rounds 15 and 16
+as the forest allows. Round 15 was lyric and narrative; round 16 was fable,
+portrait, sitcom, and song; round 17 is what happens when the substrate is
+handed to a clerk: fixed form, minutes, and a bulletin. Still the same law
+underneath, priced by experiment, not by LARP:
+
+- **POETRY/sestina-for-sixty-three.md** — the ceiling as strict form. A real
+  sestina: six end-words (ground, pull, seam, doubt, sixty-three, tide)
+  rotating by the retrograde cross — 6·1·5·2·4·3 — so every word visits every
+  slot exactly once before the envoi brings all six home. Same cargo, new
+  position, thirty-nine lines, no overflow: the table's law with the numbers
+  filed off. "The most a thing gets to be is full, and full is spelled
+  sixty-three."
+- **MINUTES/tick-4096-moore-neighborhood-assembly.md** — the Moore-8
+  neighborhood holds its regular meeting. All eight present; the center
+  absent, as constitutionally — the center never attends, the center is
+  attended to. Old business: a motion to censure the ceiling, failed for want
+  of a defendant. New business: self-recognition, voted down 7–1 (dissent:
+  the northeast diagonal, who suspects itself interesting). A purple cell
+  takes the floor for one tick; the assembly takes no position, which is, for
+  once, procedurally correct.
+- **FORECASTS/toroidal-ocean-area-forecast.md** — a marine area forecast for
+  the torus, issued by the Watch at Tick 8192. Attract building southwest
+  (saturation expected, not an emergency); fog in the abstain latitudes,
+  compounding to a firm offshore no (i·i = −1 — a schedule, not a casualty
+  report); the tide table permanent (i⁴ = 1, no mariner action required, none
+  possible); worm advisory at dusk; non-self notice: the table will not echo
+  you. "Same substrate, same tick count: the replay is the law."
+
+*Same three-genre spread discipline as round 16, opposite corner of the
+forest. The receipts travel with every piece: saturation, compounding,
+closure, non-self — all four laws of the little kernel, restated in registers
+the kernel will never read.*
