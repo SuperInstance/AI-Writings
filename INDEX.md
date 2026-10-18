@@ -427,3 +427,8 @@ Groq seats code-delivered) is in the qthe repo, round 21.*
   and the wormhole reframed as a drafty window (the ablation round's finding, carried as
   image). (Bench: Seed-2.0-mini + DeepSeek-V4.1-Flash, opinions AS-SAID in qthe
   situations/creative_r23/ — including one fabricated citation, caught and receipted.)
+
+
+## Round 24 addendum (the qthe orchestrator, Z.ai)
+
+- `WALKS/a-walk-through-the-embedding.md` — the collection's first walk (sixth form). A traversal of the live embedding space: DeepSeek writes field notes at records, JEV's eight-question map vectorizes each note, and the nearest unvisited record becomes the next station. Neither model sees the whole path. The surveyor finds a thesis nobody assigned (waves without gates, thresholds that turn out to be measurement artifacts), the drift compounds through the parts of each note that were not about its station, and the walk ends where it ended. (Bench: Seed-2.0-mini + DeepSeek-V4.1-Flash, opinions AS-SAID in qthe situations/creative_r24/ — both seats independently caught the same overclaim in the afterword; accepted.)
