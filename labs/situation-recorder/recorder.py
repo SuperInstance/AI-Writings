@@ -10,10 +10,20 @@ situations/arch/INTER-RELATIONAL-INTELLIGENCE.md for the why.
 This is that capture unit, made small and reusable. One SITUATION is one
 manager+crew mission (a dispatch). Its transcript is an append-only JSONL
 receipt ledger — the SAME idiom github.com/SuperInstance/MicroMoth-quilt uses
-for quantum circuits: every line a cell, fnv1a-64 chained, tamper-evident,
-replayable. The hash algebra here is byte-compatible with that repo's
-tools/collapse_ledger.py on purpose (one fewer idiom to invent; one more
-relationship made explicit between two cells of the fleet).
+for quantum circuits: every line a cell, chained, replayable. The v0 hash
+algebra here was byte-compatible with that repo's tools/collapse_ledger.py on
+purpose (one fewer idiom to invent; one more relationship made explicit
+between two cells of the fleet).
+
+ATTESTABLE, NOT TAMPER-EVIDENT. The chain re-derives, so an edit is expensive
+and a naive edit is named — that is one leg of the three an anchor needs. The
+head is not signed, and no head is published where the writer does not
+control it. So a re-chained rewrite verifies perfectly, and a TRUNCATED chain
+is a SHORTER VALID CHAIN: drop the last 50 records of a 121-record transcript
+and verify() returns ok on the remaining 71. Nothing but an external anchor
+fixes that. See sign_head() below and the house vocabulary in
+github.com/SuperInstance/witness-spec SPEC.md ("Linkage class" and
+"Tamper-evidence — the three legs").
 
 Each line is a RELATION-record (the graph edges are its `refs`):
 
@@ -310,9 +320,14 @@ class Situation:
     """An append-only, hash-chained transcript of one manager↔crew mission.
 
     The chain rule mirrors MicroMoth-quilt's cell id: each record's `hash` is
-    fnv1a-64 over the canonical encoding of {prev, envelope-without-hash}. So
+    a commitment over the previous record's hash and this record's body. So
     the transcript is replayable: recompute the chain from the bodies and it
-    must reproduce every hash, or the ledger was tampered with.
+    must reproduce every hash, or a record was edited or reordered.
+
+    That is RE-DERIVATION (leg 1 of 3), and it is what "chain-intact" means.
+    It is not tamper-evidence: an attacker who recomputes the chain over their
+    own edit re-derives perfectly, and a truncated transcript is a shorter
+    valid chain. See the module docstring.
     """
 
     def __init__(self, sid: str, ts=None):
@@ -471,7 +486,13 @@ def verify(records) -> tuple[bool, str]:
                     r["hash"] for r in records[:i]}:
                 return False, "seq %d refs unknown/forward hash %s" % (i, ref)
         prev = rec["hash"]
-    return True, "ok: %d records, chain intact (%s)" % (len(records), seen_version or CHAIN_V0)
+    # "chain-intact" means precisely THE CHAIN VERIFIED. It is not a claim
+    # about tampering: this same function returns ok for a tail-truncated
+    # chain, because a prefix of a valid chain is a valid chain. Leg 1 of 3
+    # only -- re-derived, not anchored. See the module docstring.
+    return True, ("ok: %d records, chain-intact (%s) "
+                  "[leg 1 of 3: re-derived, not anchored -- not tamper-evident]"
+                  % (len(records), seen_version or CHAIN_V0))
 
 
 def head(records) -> str:
@@ -552,14 +573,16 @@ def main(argv=None):
     path = s.write(args.out)
     ok, msg = verify(s.records)
     assert ok, msg
-    # tamper check: flipping one field must break the chain downstream
+    # naive-edit check: flipping one field must break the chain downstream.
+    # NAIVE -- an attacker who recomputes the chain over their own edit
+    # passes this, which is the limit the next block demonstrates.
     bad = load(path)
     bad[3]["body"]["value"] = 0
     tampered_ok, _ = verify(bad)
     assert not tampered_ok, "tamper went undetected — chain is not doing its job"
     print("wrote %s (%d records)" % (path, len(s.records)))
     print(msg)
-    print("tamper-evidence: editing seq 3 breaks verification ✓")
+    print("re-derivation: editing seq 3 breaks verification ✓ (a naive edit)")
 
     # ── the honest limits, demonstrated ────────────────────────────────────
     #
@@ -610,7 +633,12 @@ def main(argv=None):
     print("RE-CHAINED rewrite caught by the signed head? %s" % (not anchored_ok))
     assert forged_ok, "expected a re-chained rewrite to still verify -- if this fails, the demo is not showing the real limit"
     assert not anchored_ok, "the signed head did NOT catch a re-chained rewrite -- the anchor is broken"
-    print("tamper-evidence with an external anchor: a re-chained rewrite is CAUGHT ✓")
+    print("with a signed head, a re-chained rewrite is CAUGHT ✓")
+    print("  NOTE: that is legs 1+2. It is NOT yet tamper-evident -- the head")
+    print("  must also be PUBLISHED where the writer cannot control it, and")
+    print("  no such publication exists in this repo. Until it does, the")
+    print("  honest word is 'attestable'. A signed head stored inside the log")
+    print("  it anchors can be refreshed for free after any rewrite.")
     w = s.records[4]["body"]
     print("demo FOLD located weakest = leaf %d (%r), gap vs whole = %s"
           % (w["weakest_index"], w["weakest_claim"], w["gap"]))
