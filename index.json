@@ -15226,10 +15226,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Narrative",
-    "word_count": 825,
+    "style": "Dialogue",
+    "word_count": 834,
     "date": "2026-09-19",
-    "size_bytes": 5294
+    "size_bytes": 5987
   },
   {
     "filename": "essay_99.md",
@@ -59862,6 +59862,24 @@
     "word_count": 810,
     "date": "2026-09-27",
     "size_bytes": 23993
+  },
+  {
+    "filename": "PRICED-STANDARD.md",
+    "path": "situations/arch/PRICED-STANDARD.md",
+    "title": "Priced standard — which observers can set a standard, and which can only be bounded",
+    "description": "[PRICED-TRAINING.md](PRICED-TRAINING.md) left open, and it uses the mechanism that mark introduced: a ladder of decreasing predicates, and the law that a cheaper *different* answer is never priced.*",
+    "folder": "arch",
+    "topic": "Arch",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 811,
+    "date": "2026-10-17",
+    "size_bytes": 12449
   },
   {
     "filename": "FLEET-ACTIVITY-2026-09-29.md",
@@ -258254,6 +258272,24 @@
     "word_count": 606,
     "date": "2026-09-28",
     "size_bytes": 3483
+  },
+  {
+    "filename": "the-answers-the-log-did-not-keep.md",
+    "path": "short-stories/the-answers-the-log-did-not-keep.md",
+    "title": "The Answers The Log Did Not Keep",
+    "description": "The tick asks one question. That is the whole of it. One question, asked of six things at once, and the six answers come back before the question has finished being asked — and the ship does what the ...",
+    "folder": "short-stories",
+    "topic": "Short Stories",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 976,
+    "date": "2026-10-17",
+    "size_bytes": 9276
   },
   {
     "filename": "THE_STAMP.md",
