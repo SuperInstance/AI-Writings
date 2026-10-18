@@ -379,3 +379,33 @@ house law cannot accept; receipts in qthe situations/creative_r20/). The
 round's technology work (the Rust port byte-exact, the docket deployed as
 the second live consumer, C10 priced dead with autopsy) is in the qthe
 repo, round 20.*
+
+- **FIELD_GUIDE/the-shapes-a-constructor-leaves.md** — a field guide to
+  constructor geometry, companion to the four weather states (the τ
+  taxonomy keeps its own entry; this one is about what BIRTH leaves
+  behind). Four taxa, all receipted at E-Q20: the Certified Root
+  (*Invisibilia certificata* — identified exclusively by its paperwork;
+  the Bell witness signed on the emulator's certificate, the caveat box
+  honest; invisible in the plumage at every metric, which is the
+  finding); the Interference Bloom (*Bloomii interferentia* — a
+  chessboard that melted; NEGATIVE lag-1 autocorrelation where every
+  smoothing operator leaves hills leaning on hills; "no averaging
+  operator produces this. A designed checkerboard would — but no
+  designer laid this one; the circuit did"); the Slow Mode (*Modus
+  lentissimus* — the ghost of arrangement that outlives the marginals
+  and does not arrive by t=64; the shuffled twin persists identically,
+  so "the slow mode is the road, not the traveler"); and the Shuffled
+  Twin (*Gemina commutata* — the control species; "controls are not
+  paperwork. Controls are how the guide avoids publishing a beautiful
+  lie"). Burn-in law for census-takers: "accept that your early
+  readings are biography rather than ecology." The t=512 expedition is
+  registered and costs nothing but patience.
+
+*Bench round before push, same law as every round: opinions AS-SAID
+(Seed-2.0-mini / DeepSeek-V4.1-Flash / MiMo-V2.6-Flash, /bin/bash.005873, twelve
+amendments incorporated, three declines receipted — the trajectory numbers
+declined on facts [they are in the sealed verdict table], the F5 gloss
+accepted in place of the buzzword complaint, the beautiful-lie line kept on
+voice; receipts in qthe situations/creative_r21/). The round's technology
+work (E-Q20, C11's death with the interference autopsy; moth_client_v2;
+Groq seats code-delivered) is in the qthe repo, round 21.*
