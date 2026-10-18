@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 20063
+    "size_bytes": 22780
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -97200,6 +97200,25 @@
     "word_count": 85,
     "date": "2026-08-20",
     "size_bytes": 654
+  },
+  {
+    "filename": "errata-for-the-first-printing.md",
+    "path": "ERRATA/errata-for-the-first-printing.md",
+    "title": "Errata — The Book of Certainty, First Printing",
+    "description": "The publisher regrets the following. Corrections are applied by append; the first printing stands; nothing is recalled. A reader holding the errata and the book together holds more truth than either a...",
+    "folder": "ERRATA",
+    "topic": "Errata",
+    "genres": [
+      "Math Fiction",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 540,
+    "date": "2026-10-18",
+    "size_bytes": 3164
   },
   {
     "filename": "R2_20260805_192758_round11_connection_GOLD.md",
@@ -202893,6 +202912,24 @@
     "size_bytes": 2217
   },
   {
+    "filename": "sds-for-uncertainty.md",
+    "path": "SAFETY_DATA_SHEETS/sds-for-uncertainty.md",
+    "title": "Safety Data Sheet — Uncertainty, Rotational (2-bit)",
+    "description": "In accordance with the Honest Communication of Hazards Standard. Revision: round 20. Section 16 last, as required.",
+    "folder": "SAFETY_DATA_SHEETS",
+    "topic": "Safety Data Sheets",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 660,
+    "date": "2026-10-18",
+    "size_bytes": 4204
+  },
+  {
     "filename": "lyrics-translation-chain.md",
     "path": "lyrics/lyrics-translation-chain.md",
     "title": "The Lyric Translation Chain",
@@ -259015,6 +259052,25 @@
     "word_count": 88,
     "date": "2026-08-20",
     "size_bytes": 773
+  },
+  {
+    "filename": "curriculum-vitae-of-the-imaginary-unit.md",
+    "path": "RESUMES/curriculum-vitae-of-the-imaginary-unit.md",
+    "title": "Curriculum Vitae — i, the imaginary unit",
+    "description": "Reachable at the square root of minus one. I keep no fixed address; I keep a period, and it is four. Four turns and I am where I started, minus what I learned on the way around.",
+    "folder": "RESUMES",
+    "topic": "Resumes",
+    "genres": [
+      "Education",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 489,
+    "date": "2026-10-18",
+    "size_bytes": 2701
   },
   {
     "filename": "E18_THE_READING_ALOUD.md",
