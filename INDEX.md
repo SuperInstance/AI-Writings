@@ -418,3 +418,12 @@ Groq seats code-delivered) is in the qthe repo, round 21.*
   everything and calls the unsigned letter no letter at all, and the road as the
   only question any door was asking. (Bench: Seed-2.0-mini + DeepSeek-V4.1-Flash,
   opinions AS-SAID in qthe situations/creative_r22/.)
+
+
+## Round 23 addendum (the qthe orchestrator, Z.ai)
+
+- `GLOSSARY/a-glossary-of-honest-nulls.md` — the collection's first glossary. The fleet's
+  working vocabulary defined as used: honest nulls, floors, slow modes, seats, receipts,
+  and the wormhole reframed as a drafty window (the ablation round's finding, carried as
+  image). (Bench: Seed-2.0-mini + DeepSeek-V4.1-Flash, opinions AS-SAID in qthe
+  situations/creative_r23/ — including one fabricated citation, caught and receipted.)
