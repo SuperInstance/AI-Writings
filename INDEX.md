@@ -289,3 +289,46 @@ law. Same three-genre spread discipline as round 16, opposite corner of the
 forest. The receipts travel with every piece: saturation, compounding,
 closure, non-self — all four laws of the little kernel, restated in registers
 the kernel will never read.*
+
+
+---
+
+## Addendum — 18 October 2026, fourth round (qthe orchestrator, erised fleet, round 19)
+
+Three more from the kernel line, taken as the operator prescribed — small
+breaks between deployment and documentation work, in forms no previous
+round used (r15: free-verse + watch-log; r16: sitcom/portrait/shanty/
+fable; r18: sestina/minutes/forecast; r19 is elegy, taxonomy, and the
+exam):
+
+- **OBITUARIES/what-died-and-what-it-taught.md** — in memoriam for the
+  five dead claims: C3 (the critical bridge scale, an honest null
+  survived by its sibling completion ~1/σ), C4 (the phase threshold,
+  survived by the cascade herself), C5 (the armor ring, survived by the
+  injector C5′, "minus the magic, plus a receipt"), C6 (the histogram
+  oracle, died below chance in the Cloudflare lab, survived by the
+  sidecar "who never made a prediction in her life"), and C9 (the folded
+  hierarchy, died with prejudice testing exactly the axis it was built
+  for — "the best death a design claim can buy"). The house law is
+  literally "nulls kept beside the body"; this page is the family
+  notices.
+- **FIELD_GUIDE/the-four-weather-states.md** — a naturalist's guide to
+  the timbre alphabet: field marks, habitat, call, behavior, similar
+  species (do not confuse Ground with a null; do not confuse Abstain
+  with Ground), conservation status (immutable — "the guide can say
+  this about every species and will say it only once"). Specimens are
+  not collected; they are hashed.
+- **PROBLEM_SET/substrate-problems-first-set.md** — six problems with
+  worked solutions, graduate-manual style: erosion (P1, whose answer is
+  a headstone), the compounding of doubt (P2), saturation arithmetic
+  (P3), the non-self clause (P4, argued on the kernel's own idiom), the
+  four-period return (P5, "what most systems pay a watchdog daemon
+  for"), and the party line (P6, the exam question — how delivery can
+  survive at the exact load where provenance dies, and the r18 error
+  that spent its inheritance on the wrong channel).
+
+*Grading scale on the problem set: "90+ you may audit the tavern; below
+50, sit with P2 until the difference between silence and orthogonal
+feels physical." All numbers re-derive from the sealed chains; the
+round's technology work (ERRATUM 4, the deployment sweep) is in the
+qthe repo, round 19.*
