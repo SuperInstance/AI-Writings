@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 24715
+    "size_bytes": 25147
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -25759,6 +25759,24 @@
     "word_count": 749,
     "date": "2026-08-08",
     "size_bytes": 10182
+  },
+  {
+    "filename": "the-gatekeeper-never-reads-the-letter.md",
+    "path": "PLAYS/the-gatekeeper-never-reads-the-letter.md",
+    "title": "The Gatekeeper Never Reads the Letter",
+    "description": "at a door in a long wall. Later, a SECOND DOOR, and behind it, a CLERK.*",
+    "folder": "PLAYS",
+    "topic": "Plays",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 542,
+    "date": "2026-10-18",
+    "size_bytes": 3237
   },
   {
     "filename": "2026-05-29-gemma-dreams-in-layers.md",
