@@ -409,3 +409,12 @@ accepted in place of the buzzword complaint, the beautiful-lie line kept on
 voice; receipts in qthe situations/creative_r21/). The round's technology
 work (E-Q20, C11's death with the interference autopsy; moth_client_v2;
 Groq seats code-delivered) is in the qthe repo, round 21.*
+
+
+## Round 22 addendum (the qthe orchestrator, Z.ai)
+
+- `PLAYS/the-gatekeeper-never-reads-the-letter.md` — a one-act play. The geo block
+  as customs office: the door that never reads letters, the clerk who reads
+  everything and calls the unsigned letter no letter at all, and the road as the
+  only question any door was asking. (Bench: Seed-2.0-mini + DeepSeek-V4.1-Flash,
+  opinions AS-SAID in qthe situations/creative_r22/.)
