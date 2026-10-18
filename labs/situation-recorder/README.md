@@ -11,9 +11,74 @@ that capture unit. Design: [`../../situations/arch/INTER-RELATIONAL-INTELLIGENCE
 
 Records one **situation** (one manager+crew mission) as an append-only JSONL **receipt ledger** —
 the same idiom [`SuperInstance/MicroMoth-quilt`](https://github.com/SuperInstance/MicroMoth-quilt)
-uses for quantum circuits: every line a cell, **fnv1a-64 chained** (byte-compatible with that
-repo's `tools/collapse_ledger.py`), tamper-evident, replayable. Each line is one **relation-record**
-whose `refs` are the graph edges — so a transcript is a *graph of how the parts related*, not a flat log.
+uses for quantum circuits: every line a cell, **hash-chained**, replayable. Each line is one
+**relation-record** whose `refs` are the graph edges — so a transcript is a *graph of how the parts
+related*, not a flat log.
+
+## The chain rule: `witness-chain/1`
+
+The chain rule was upgraded. The old one is **`witness-chain/0`** and is still READ and VERIFIED —
+a log that cannot verify its own history is a lie about the past. New records are
+**`witness-chain/1`**.
+
+```
+v0:  hash = fnv1a64(json.dumps({prev, **envelope}, sort_keys=True, separators=(",", ":")))
+v1:  leaf(i) = SHA256(0x00 || JCS(record_i))          RFC 6962 2.1 domain separation
+     hash(i) = SHA256(0x01 || hash(i-1) || leaf(i))    RFC 6962 2.1
+```
+
+**Why the change, in three parts. The third is the one that matters.**
+
+1. **RFC 8785 (JCS)** instead of the house convention. The v0 canonicalisation was
+   `json.dumps(sort_keys=True)`, reimplemented by hand in every port. It is not a standard, and it
+   diverges from JCS in three measured ways: `1.0` -> `"1.0"` (JCS: `"1"`); keys are sorted by
+   **code point** in Python and by **UTF-16 code unit** in JCS, so they disagree for any key above
+   U+FFFF against one below; and Python's `ensure_ascii` escapes non-ASCII where JCS does not.
+   RFC 8785 is a `MUST` in A2A v1.0 §8.4.1, so this is interoperability, not pedantry.
+
+2. **Domain separation** — a leaf hashes with a `0x00` prefix and a node with `0x01`, so the two
+   kinds of thing cannot be confused.
+
+3. **THE OLD RULE HAD NO TAMPER-EVIDENCE AT ALL.** A hash chain is *self-consistent*, and
+   self-consistency is not tamper-evidence: rewrite a record, re-chain it, and the chain verifies
+   perfectly, because the attacker recomputed it. v0 also used **FNV-1a-64**, which is 64 bits and
+   not collision-resistant, so an attacker rewriting a chain does not need to collide anything —
+   they just recompute.
+
+   **Tamper-evidence needs an anchor OUTSIDE the log.** `sign_head()` / `verify_head()` implement
+   the standard shape (RFC 6962 / Trillian's `LogWitness`): a **signed tree head**, under a key the
+   log writer does not hold, published somewhere the writer does not control.
+
+   **The key must not be the writer's key**, or the writer can re-sign and there is no anchor.
+   HMAC-SHA256 is used because it is in both the Python and the JavaScript standard libraries, but
+   **it is a stand-in, not a signature** — it is symmetric, so it proves "someone with the key
+   wrote it", not "who". Ed25519 is the production answer.
+
+`recorder.py --out` demonstrates all of it, and the self-test asserts both halves:
+
+```
+RE-CHAINED rewrite verifies?           True   <- a chain alone CANNOT tell
+RE-CHAINED rewrite caught by the signed head? True
+```
+
+The forgery in that demo is a **fixpoint**: it re-chains *and* re-points every `refs` entry that
+names a changed hash, because re-pointing a ref changes a record's body, which changes its hash,
+which cascades. A forgery that only re-chains is caught by the `refs` check — that is a second
+layer of detection, and worth knowing about, but it is only as good as the attacker's care. The
+signed head does not depend on the attacker's competence.
+
+### Migration
+
+This changes every hash, so it is a **format change**. `verify()` accepts both versions and
+**rejects a chain that MIXES them** — the version is a field inside the record, so it is inside
+the hashed bytes and cannot be stripped without breaking the chain. To migrate: **start a new
+transcript and name the previous head in it.** Do not rewrite history.
+
+### Cross-implementation byte identity
+
+`SuperInstance/witness-spec` holds the conformance vectors and the JavaScript reference. This
+implementation reproduces **every canonical form, leaf hash, chain hash, the head, and the
+signature** from them, byte for byte. Three implementations, one chain rule.
 
 ```
 rel ∈  TASK   dispatcher→captain: the brief (input)

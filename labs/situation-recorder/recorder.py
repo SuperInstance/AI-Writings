@@ -29,10 +29,163 @@ a self-test that builds a demo situation and re-verifies the whole chain:
 from __future__ import annotations
 
 import argparse
+import hashlib
+import hmac
 import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+
+# ── witness-chain/1 ────────────────────────────────────────────────────────
+#
+# The chain rule was upgraded. The old one is witness-chain/0 and is still
+# READ and VERIFIED, because a log that cannot verify its own history is a
+# lie about the past. New records are witness-chain/1.
+#
+#   v0:  hash = fnv1a64(json.dumps({prev, **envelope}, sort_keys=True,
+#                                 separators=(",", ":")))
+#   v1:  leaf(i) = SHA256(0x00 || JCS(record_i))
+#        hash(i) = SHA256(0x01 || hash(i-1) || leaf(i))
+#
+# THREE REASONS, and the third is the important one.
+#
+# 1. RFC 8785 (JCS) instead of a house convention. The v0 canonicalisation
+#    was json.dumps(sort_keys=True), reimplemented by hand in every port.
+#    It is not a standard, and it DIVERGES from JCS in three measured ways:
+#      * 1.0 -> "1.0" in v0, "1" in JCS (ECMAScript Number::toString)
+#      * keys are sorted by CODE POINT in Python and by UTF-16 CODE UNIT in
+#        JCS, so they disagree for any key above U+FFFF against one below
+#      * Python's ensure_ascii escapes non-ASCII; JCS does not
+#    RFC 8785 is a MUST in A2A v1.0 8.4.1, so this is interoperability too.
+#
+# 2. DOMAIN SEPARATION (RFC 6962 2.1): a leaf hashes with a 0x00 prefix and
+#    a node with 0x01, so the two kinds of thing cannot be confused.
+#
+# 3. THE ONE THAT MATTERS: v0 HAD NO TAMPER-EVIDENCE.
+#    A hash chain is SELF-CONSISTENT, and self-consistency is not
+#    tamper-evidence. Rewrite a record, re-chain it, and the chain still
+#    verifies -- because the attacker recomputed it. v0 also used FNV-1a-64,
+#    which is 64 bits and not collision-resistant, so an attacker rewriting
+#    a chain does not need to collide anything.
+#    Tamper-evidence needs an anchor OUTSIDE the log: a SIGNED TREE HEAD,
+#    signed under a key the log writer does not hold (RFC 6962 / Trillian's
+#    LogWitness). See sign_head()/verify_head() below.
+#
+# The key must NOT be the log writer's key, or the writer can re-sign and
+# there is no anchor. HMAC-SHA256 is used here because it is in both the
+# Python and the JavaScript standard libraries; it is a STAND-IN, not a
+# signature, because it is symmetric -- it proves "someone with the key
+# wrote it", not "who". Ed25519 is the production answer.
+
+CHAIN_VERSION = "witness-chain/1"
+CHAIN_V1 = "witness-chain/1"
+CHAIN_V0 = "witness-chain/0"
+
+_LEAF_PREFIX = b"\x00"
+_NODE_PREFIX = b"\x01"
+_HEAD_PREFIX = b"\x03"
+
+
+def _jcs_key(s: str) -> bytes:
+    """Sort key: the key's UTF-16 code units, as bytes.
+
+    JCS sorts object keys by UTF-16 CODE UNITS. Python's sorted() sorts by
+    CODE POINT. They disagree for any key above U+FFFF against one below:
+
+        "\U00010000"  code point 0x10000, UTF-16 lead unit 0xD800
+        "\ue000"      code point 0xE000,  UTF-16 unit      0xE000
+
+    Python's sorted() puts \ue000 first (0xE000 < 0x10000). UTF-16 puts
+    \U00010000 first (0xD800 < 0xE000). So a chain hashed in Python and a
+    chain hashed in JavaScript would diverge on any object carrying both
+    kinds of key -- silently, and only on the keys that matter least.
+    """
+    return s.encode("utf-16-be", "surrogatepass")
+
+
+_JCS_ESCAPES = {
+    "\b": "\\b", "\t": "\\t", "\n": "\\n", "\f": "\\f", "\r": "\\r",
+    '"': '\\"', "\\": "\\\\",
+}
+
+
+def _jcs_string(s: str) -> str:
+    out = ['"']
+    for ch in s:
+        if ch in _JCS_ESCAPES:
+            out.append(_JCS_ESCAPES[ch])
+        elif ord(ch) < 0x20:
+            out.append("\\u%04x" % ord(ch))
+        else:
+            out.append(ch)
+    out.append('"')
+    return "".join(out)
+
+
+def _jcs_number(v: float) -> str:
+    """ECMAScript Number::toString for the subset JSON can hold."""
+    if v != v or v in (float("inf"), float("-inf")):
+        raise ValueError("JCS: non-finite number")
+    if v == 0:
+        return "0"
+    if v == int(v) and abs(v) < 1e21:
+        return str(int(v))
+    r = repr(v)
+    if "e" in r:
+        m, e = r.split("e")
+        sign = "+" if not e.startswith("-") else "-"
+        exp = e.lstrip("+-")
+        if len(exp) < 2:
+            exp = "0" + exp
+        r = m + "e" + sign + exp
+    return r
+
+
+def _jcs(v) -> str:
+    if v is None:
+        return "null"
+    if v is True:
+        return "true"
+    if v is False:
+        return "false"
+    if isinstance(v, str):
+        return _jcs_string(v)
+    if isinstance(v, int):
+        return str(v)
+    if isinstance(v, float):
+        return _jcs_number(v)
+    if isinstance(v, (list, tuple)):
+        return "[" + ",".join(_jcs(x) for x in v) + "]"
+    if isinstance(v, dict):
+        keys = sorted(v.keys(), key=_jcs_key)
+        return "{" + ",".join(_jcs_string(k) + ":" + _jcs(v[k]) for k in keys) + "}"
+    raise TypeError("JCS: unsupported type " + type(v).__name__)
+
+
+def _leaf_hash_v1(record: dict) -> str:
+    body = {k: v for k, v in record.items() if k != "hash"}
+    return "0x" + hashlib.sha256(_LEAF_PREFIX + _jcs(body).encode("utf-8")).hexdigest()
+
+
+def _chain_hash_v1(prev: str, leaf: str) -> str:
+    return "0x" + hashlib.sha256(
+        _NODE_PREFIX + prev.encode("utf-8") + leaf.encode("utf-8")).hexdigest()
+
+
+def sign_head(head: str, key: bytes) -> str:
+    """The signed tree head -- the EXTERNAL ANANCHOR.
+
+    Publish this somewhere the log writer does not control, and keep the key
+    from the log writer. Without both, there is no anchor and no
+    tamper-evidence, only a self-consistent chain.
+    """
+    return "0x" + hmac.new(key, _HEAD_PREFIX + head.encode("utf-8"), hashlib.sha256).hexdigest()
+
+
+def verify_head(head: str, signature: str, key: bytes) -> bool:
+    return hmac.compare_digest(sign_head(head, key), signature)
+
 
 GENESIS = "0x0000000000000000"
 REL_TYPES = {"TASK", "ROUTE", "DRAFT", "DRAW", "FOLD", "KEEP", "DROP", "MARK", "OUTCOME"}
@@ -79,6 +232,7 @@ class Situation:
             raise ValueError("actor must be a dict with at least a 'tier' key")
         prev = self.records[-1]["hash"] if self.records else GENESIS
         rec = {
+            "v": CHAIN_VERSION,
             "sid": self.sid,
             "seq": len(self.records),
             "ts": (self._clock() if self._clock else _now()),
@@ -87,7 +241,7 @@ class Situation:
             "refs": list(refs or []),
             "body": body,
         }
-        rec["hash"] = "0x%016x" % fnv1a64(_canon({"prev": prev, **_envelope(rec)}))
+        rec["hash"] = _chain_hash_v1(prev, _leaf_hash_v1(rec))
         self.records.append(rec)
         return rec
 
@@ -174,13 +328,43 @@ def _envelope(rec: dict) -> dict:
 
 
 def verify(records) -> tuple[bool, str]:
-    """Replay the chain. Returns (ok, message). Catches reorder, edit, and drop —
-    the same tamper-evidence MicroMoth-quilt gives a circuit ledger."""
+    """Replay the chain. Returns (ok, message). Catches reorder, edit, and drop.
+
+    BOTH chain versions are accepted, and a chain that MIXES them is a
+    FAILURE, not a convenience:
+
+      witness-chain/0  fnv1a64 over a house-convention canonical form
+      witness-chain/1  SHA-256, RFC 8785 canonicalisation, RFC 6962 domain
+                       separation
+
+    The version is a field INSIDE the record, so it is inside the hashed
+    bytes: you cannot strip or downgrade a version without breaking the
+    chain. That is why a mixed chain is detectable.
+
+    What this does NOT do: it does not detect an edit that the writer
+    RE-CHAINED. A chain is self-consistent, and self-consistency is not
+    tamper-evidence. For that you need the signed tree head -- sign_head()
+    and verify_head() -- published somewhere the writer does not control.
+    """
     prev = GENESIS
+    seen_version = None
     for i, rec in enumerate(records):
         if rec.get("seq") != i:
             return False, "seq gap at index %d (got %r)" % (i, rec.get("seq"))
-        want = "0x%016x" % fnv1a64(_canon({"prev": prev, **_envelope(rec)}))
+        version = rec.get("v")
+        if version is None:
+            version = CHAIN_V0
+        if seen_version is None:
+            seen_version = version
+        elif version != seen_version:
+            return False, ("MIXED CHAIN VERSIONS at seq %d: %s then %s -- a chain "
+                           "does not change its rule mid-flight; start a new "
+                           "transcript and name the previous head in it"
+                           % (i, seen_version, version))
+        if version == CHAIN_V1:
+            want = _chain_hash_v1(prev, _leaf_hash_v1(rec))
+        else:
+            want = "0x%016x" % fnv1a64(_canon({"prev": prev, **_envelope(rec)}))
         if rec.get("hash") != want:
             return False, "hash mismatch at seq %d: stored %s want %s" % (
                 i, rec.get("hash"), want)
@@ -189,7 +373,12 @@ def verify(records) -> tuple[bool, str]:
                     r["hash"] for r in records[:i]}:
                 return False, "seq %d refs unknown/forward hash %s" % (i, ref)
         prev = rec["hash"]
-    return True, "ok: %d records, chain intact" % len(records)
+    return True, "ok: %d records, chain intact (%s)" % (len(records), seen_version or CHAIN_V0)
+
+
+def head(records) -> str:
+    """The chain head -- what gets signed."""
+    return records[-1]["hash"] if records else GENESIS
 
 
 def load(path) -> list[dict]:
@@ -270,6 +459,57 @@ def main(argv=None):
     print("wrote %s (%d records)" % (path, len(s.records)))
     print(msg)
     print("tamper-evidence: editing seq 3 breaks verification ✓")
+
+    # ── the honest limits, demonstrated ────────────────────────────────────
+    #
+    # A chain is SELF-CONSISTENT. An attacker who edits a record and
+    # RE-CHAINS it produces a chain that verifies perfectly -- and the
+    # difference between "nobody touched this" and "somebody rewrote the
+    # whole thing" is INVISIBLE without an anchor outside the log.
+    #
+    # This is the defect the old rule (witness-chain/0) had, and it is worth
+    # being able to SHOW rather than assert.
+    key = b"a-key-the-log-writer-does-not-hold"
+    good = load(path)
+    sig = sign_head(head(good), key)
+
+    forged = load(path)
+    forged[3]["body"]["value"] = 0
+    # The attacker recomputes the chain over their own edit -- and must also
+    # re-point every `refs` entry that names a hash they changed, because
+    # verify() checks refs against the hashes of EARLIER records. Re-pointing
+    # a ref changes a record's body, which changes its hash, which cascades.
+    # So the attack is a FIXPOINT, and this iterates it to convergence.
+    #
+    # (A first attempt that only re-chained, without re-pointing refs, was
+    # caught -- by the refs check. That is a SECOND layer of detection, and
+    # it is worth knowing about, but it is not the same as tamper-evidence:
+    # it is only as good as the attacker's care. The signed head does not
+    # depend on the attacker's competence.)
+    for _ in range(16):
+        before = [r["hash"] for r in forged]
+        prev = GENESIS
+        for r in forged:
+            r["hash"] = _chain_hash_v1(prev, _leaf_hash_v1(r))
+            prev = r["hash"]
+        remap = {before[i]: forged[i]["hash"] for i in range(len(forged))}
+        changed = False
+        for r in forged:
+            for j, ref in enumerate(r.get("refs", [])):
+                if isinstance(ref, str) and ref in remap and remap[ref] != ref:
+                    r["refs"][j] = remap[ref]
+                    changed = True
+        if not changed:
+            break
+    forged_ok, forged_msg = verify(forged)
+    print("RE-CHAINED rewrite verifies?           %s  (%s)" % (forged_ok, forged_msg))
+    print("  -> a chain alone CANNOT tell. The witness log is self-consistent,")
+    print("     not tamper-evident. That was true of witness-chain/0 too.")
+    anchored_ok = verify_head(head(forged), sig, key)
+    print("RE-CHAINED rewrite caught by the signed head? %s" % (not anchored_ok))
+    assert forged_ok, "expected a re-chained rewrite to still verify -- if this fails, the demo is not showing the real limit"
+    assert not anchored_ok, "the signed head did NOT catch a re-chained rewrite -- the anchor is broken"
+    print("tamper-evidence with an external anchor: a re-chained rewrite is CAUGHT ✓")
     w = s.records[4]["body"]
     print("demo FOLD located weakest = leaf %d (%r), gap vs whole = %s"
           % (w["weakest_index"], w["weakest_claim"], w["gap"]))
