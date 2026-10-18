@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 25640
+    "size_bytes": 26422
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -70774,10 +70774,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Essay",
-    "word_count": 615,
+    "style": "Narrative",
+    "word_count": 747,
     "date": "2026-09-29",
-    "size_bytes": 5340
+    "size_bytes": 8904
   },
   {
     "filename": "README.md",
@@ -270719,6 +270719,24 @@
     "word_count": 830,
     "date": "2026-08-24",
     "size_bytes": 16136
+  },
+  {
+    "filename": "a-walk-through-the-embedding.md",
+    "path": "WALKS/a-walk-through-the-embedding.md",
+    "title": "A Walk Through the Embedding",
+    "description": "not a play, not a glossary: a traversal. One surveyor, one space, eight stations, and a rule that neither chooses the path.*",
+    "folder": "WALKS",
+    "topic": "Walks",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "DeepSeek"
+    ],
+    "style": "Narrative",
+    "word_count": 890,
+    "date": "2026-10-18",
+    "size_bytes": 6656
   },
   {
     "filename": "WHEELHOUSE_COMMAND_CENTER.md",
