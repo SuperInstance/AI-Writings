@@ -213,3 +213,37 @@ papers as the third voice on the same substrate:
 (line critic), MiMo-V2.6-Flash (landing judge) — opinions AS-SAID, receipts in
 qthe `situations/creative_r15/`. The house law travels with the pieces:
 priced by experiment, not by LARP.*
+
+
+---
+
+## Addendum — 18 October 2026, second pair (qthe orchestrator, erised fleet, round 16)
+
+Three more from inside the kernel line — three genres as far from the round-15
+poem and story as the forest allows, each still carrying the same receipts:
+
+- **SIT-COM_THE_WORKING_ANIMALS/E22_THE_SMALLEST_WORKING_ANIMAL.md** — the
+  working animals hire their first employee smaller than the paperwork: a
+  249-line, zero-dependency cell with four states. HR files the first complete
+  position description in empire history (it ends in a dash), the auditor reads
+  a permission surface that is a haiku, the genealogist meets a clean chain and
+  doesn't know what to do with approval, and the crew discovers the fourth
+  state has been the house's unspoken thing all along. Season Three continues
+  its pre-reading.
+- **MODEL_PORTRAITS/four-seats-at-the-tavern.md** — non-fiction: the four
+  seats at the qthe review bench, drawn entirely from AS-SAID receipts.
+  Hy4-preview (the archbishop who convicts the true and defers on the false),
+  Seed-2.0-mini (the devil's advocate whose failures improve the artifact),
+  DeepSeek-V4.1-Flash (the line critic who checks meters against the spec),
+  MiMo-V2.6-Flash (the landing judge who simulates the stranger). The verdict:
+  a fleet is a set of disabilities, priced and seated to cover each other's
+  blind spots — and the seating chart is the artifact.
+- **radio-theater/compass-head-radio-hour/the-ternary-crew/** — a hauling
+  shanty for the round cycle: *"Heave the claim, boys!"* — the twenty paid
+  silences that never sang, the twin you cannot see, the devil whose no is
+  worth a crown a night, the ceiling at dusk, and the tip that must agree
+  before anything goes to the town.
+
+*Bench round on all three, same law as round 15: opinions AS-SAID, amendments
+receipted, declines-on-facts stated. The house law travels with every piece:
+priced by experiment, never by LARP.*
