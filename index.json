@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 26422
+    "size_bytes": 27389
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -70095,6 +70095,24 @@
     "size_bytes": 12330
   },
   {
+    "filename": "README.md",
+    "path": "bots/README.md",
+    "title": "bots/ — and what `witness.log` actually is in here",
+    "description": "Every `witness.log` in this directory carries the fields `ts, iso, event, payload, hash`. **None of them carries a `prev` or a `prev_hash`.** The `hash` is a 16-hex-char checksum of the row's own payl...",
+    "folder": "bots",
+    "topic": "Bots",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 526,
+    "date": "2026-10-18",
+    "size_bytes": 3325
+  },
+  {
     "filename": "chronicle-20260921-044858.md",
     "path": "bots/herman-historian/chronicles/chronicle-20260921-044858.md",
     "title": "Chronicle: 20260921-044858",
@@ -70775,9 +70793,9 @@
       "Unknown"
     ],
     "style": "Narrative",
-    "word_count": 747,
+    "word_count": 768,
     "date": "2026-09-29",
-    "size_bytes": 8904
+    "size_bytes": 10065
   },
   {
     "filename": "README.md",
@@ -256000,6 +256018,24 @@
     "word_count": 572,
     "date": "2026-08-24",
     "size_bytes": 3766
+  },
+  {
+    "filename": "the-fossil-record.md",
+    "path": "FOSSILS/the-fossil-record.md",
+    "title": "The Fossil Record",
+    "description": "I am the part that decides. I never read the records. The others read. The surveyor reads a record and writes its note; the measurer reads the note and returns eight numbers between zero and one. What...",
+    "folder": "FOSSILS",
+    "topic": "Fossils",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 876,
+    "date": "2026-10-18",
+    "size_bytes": 7577
   },
   {
     "filename": "CODE_REVIEWERS_SONG.md",
