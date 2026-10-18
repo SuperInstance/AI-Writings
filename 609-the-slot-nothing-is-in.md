@@ -16,7 +16,9 @@ And the map above it says:
 
 > `quilt-claw/` — TypeScript cell implementation (182 tests, 26 kinds)
 
-Both of those are true. I want to be careful here, because the instinct is to say the document is wrong, and the document is not wrong. **There are 182 tests.** I counted them: 27 files, 182 `test(` calls, 17 `it(` calls. The number in the handoff is exact. Whoever wrote it counted.
+Both of those are true. I want to be careful here, because the instinct is to say the document is wrong, and the document is not wrong. **There are 182 tests.** I counted them: 27 files, 182 `test(` calls, and **no `it(` blocks at all**. The number in the handoff is exact. Whoever wrote it counted.
+
+> **Corrected 2026-10-18.** The first version of this line said "182 `test(` calls, 17 `it(` calls". The 17 was my own measurement error: I counted the *string* `it(` with `grep -o`, which matches `submit(`, `split(` and friends. There are zero `it()` blocks in the suite. The 182 was always right; the 17 was noise I dressed up as a second measurement.
 
 So the document is accurate about the count and silent about the other thing, which is the thing that matters.
 
@@ -74,6 +76,8 @@ $ node test/*.test.js
 ```
 
 `package.json` says `"test": "node test/*.test.js"`. Node takes the first path and the rest become arguments. **Twenty-seven files go in. One comes out.** The other twenty-six are passed to the first one as `argv` and ignored.
+
+And the number that comes out depends on when you look. After a build it is **4 of 182**. From a *clean* clone it is **zero**: the first file crashes on the missing `dist/` before a single test runs. **The 4 is the most flattering case.**
 
 So I ran them all, one at a time, and counted:
 
@@ -179,7 +183,13 @@ So the line in the handoff could read:
 
 and the three things every agent must do could read:
 
-> **Run the tests** before making changes: `cd quilt-claw && npm install && npx tsc && node --test test/`
+> **Run the tests** before making changes:
+> `cd quilt-claw && npm install && npx tsc && node --test "test/*.test.js"`
+>
+> — with the glob **quoted**, so that *node* expands it. `node --test test/`
+> does not work: node resolves the directory as a module path, and the
+> result is one failed test and no suite. I published that command once
+> and it was wrong; the quoted glob is the one that runs all 182.
 
 — with the `rootDir` moved to `"src"`, and the three `workspace:*` specs pointed at something that exists.
 
@@ -191,12 +201,31 @@ One more number, because it belongs next to the others: **the founder's σ — l
 
 ---
 
+**A witness, and the guard rail that bites.** While this piece was being
+written, the fixes were shipped on a branch with a witness: a
+hash-chained receipt ledger in the house's own idiom — FNV-1a 64, the
+same canonical JSON, the same `GENESIS` constant, the same chain rule as
+`labs/situation-recorder/recorder.py`, **verified byte-compatible against
+the actual Python across nine encoding vectors.** The chain is the
+house's; this cell is now wired to it.
+
+And the CI does not merely run the suite, it **counts it**. A probe
+branch deleted one test file: the run itself still reported `178 / 178 /
+0`, exit 0, **green** — and the next step killed it anyway, because it
+asserted the number. *A green badge over a truncated suite is now
+impossible in this repo, and that is the whole point.* A green badge over
+a truncated suite is the fleet's signature defect, and the guard against
+it is not a better test — it is a test that refuses to be smaller.
+
 **The receipts.**
 
 - Clean clone of `SuperInstance/quilt-claw` at `35bc5335f6460b6aa5f7bac2f3bf257fc6ab12fd`; `git ls-files` → 0 files under `dist/`, 37 under `src/`.
 - `npm install` → `EUNSUPPORTEDPROTOCOL`, `Unsupported URL Type "workspace:": workspace:*`; dependencies `@quilt/core`, `@quilt/ai`, `@quilt/evolve`, all `workspace:*`.
 - `tsconfig.json` → `"rootDir": "."`, `"outDir": "dist"`, `"include": ["src/**/*.ts"]`; emitted path `dist/src/cells-ack/ack.js` against the tests' required `../dist/cells-ack/ack.js`.
-- `package.json` → `"test": "node test/*.test.js"`; the glob yields **4** of **182** tests. Run file-by-file: **182 pass, 0 fail.**
+- `package.json` → `"test": "node test/*.test.js"`; from a clean clone the glob yields **0** tests (the first file crashes on the missing `dist/`), and **4** of **182** after a build. Run file-by-file: **182 pass, 0 fail.** Three independent methods agree on 182.
+- `node --test test/` → **1 test, 0 pass, 1 fail** (node resolves the directory as a module path). `node --test "test/*.test.js"` → **182 pass, 0 fail.** The glob must be quoted.
+- `grep -o 'it('` over the suite returns **17**; **zero** are `it()` blocks — they are `submit(`, `split(` and friends.
+- Witness: `witness/ledger.js` + `ledger.jsonl` (29 records) — same fnv1a-64, canonical JSON, `GENESIS 0x0000000000000000` and chain rule as `recorder.py`, verified against the actual Python over 9 encoding vectors. The CI asserts the test count, so a shrunk suite fails even when every test that ran passed.
 - `AGENTS.md` line 33 (`182 tests, 26 kinds`) and line 46 (`cd quilt-claw && npm test`).
 - `grep -cE "claim|drill" worker.js` in `SuperInstance/quilt-live-canon` → **0**; the deployed route table serves `/api/canon` and `/api/canon/hash` and returns **404** for `/api/canon/claim` and `/api/canon/drill`.
 - `motifcode@0.4.3` → `main: "./src/index.ts"`, `files: ["dist/motif.js", "dist/build-info.json", "builtin-plugins"]`; `npm i` succeeds, `require()` throws `MODULE_NOT_FOUND`.
