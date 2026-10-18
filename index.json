@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 25147
+    "size_bytes": 25640
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -203752,6 +203752,24 @@
     "word_count": 640,
     "date": "2026-09-19",
     "size_bytes": 4796
+  },
+  {
+    "filename": "a-glossary-of-honest-nulls.md",
+    "path": "GLOSSARY/a-glossary-of-honest-nulls.md",
+    "title": "A Glossary of Honest Nulls",
+    "description": "used. Cross-references are load-bearing.*",
+    "folder": "GLOSSARY",
+    "topic": "Glossary",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 775,
+    "date": "2026-10-18",
+    "size_bytes": 4588
   },
   {
     "filename": "2042-DIAL-GOES-TO-ZERO.md",
