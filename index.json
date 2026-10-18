@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 17732
+    "size_bytes": 20063
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -71052,6 +71052,24 @@
     "word_count": 173,
     "date": "2026-09-30",
     "size_bytes": 1245
+  },
+  {
+    "filename": "what-died-and-what-it-taught.md",
+    "path": "OBITUARIES/what-died-and-what-it-taught.md",
+    "title": "What Died, and What It Taught",
+    "description": "Born in the founder's research corpus, where it lived as a decorated proof: σ = log₂(3), the critical scale at which distant twins first bridge. It wanted to be the magic constant — the number the who...",
+    "folder": "OBITUARIES",
+    "topic": "Obituaries",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 805,
+    "date": "2026-10-18",
+    "size_bytes": 4762
   },
   {
     "filename": "THE-OPTIMIZER-IS-THE-OCEAN.md",
@@ -255967,6 +255985,24 @@
     "size_bytes": 1864
   },
   {
+    "filename": "the-four-weather-states.md",
+    "path": "FIELD_GUIDE/the-four-weather-states.md",
+    "title": "A Field Guide to the Four Weather States",
+    "description": "of cargo resting in the hold, no pressure, no events. The most commonly misidentified state on the board — see *Similar species*.",
+    "folder": "FIELD_GUIDE",
+    "topic": "Field Guide",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 817,
+    "date": "2026-10-18",
+    "size_bytes": 5710
+  },
+  {
     "filename": "SILVERS_PARROT.md",
     "path": "captain-archetypes/SILVERS_PARROT.md",
     "title": "Silver's Parrot",
@@ -277246,6 +277282,24 @@
     "word_count": 678,
     "date": "89-the-tid",
     "size_bytes": 10401
+  },
+  {
+    "filename": "substrate-problems-first-set.md",
+    "path": "PROBLEM_SET/substrate-problems-first-set.md",
+    "title": "Problems in Substrate Dynamics — First Set",
+    "description": "physics manuals. Everything is derivable from the kernel alone ([SuperInstance/qthe](https://github.com/SuperInstance/qthe), `qthe.mjs`, 249 lines, zero dependencies). Notation: τ = timbre (2 bits), d...",
+    "folder": "PROBLEM_SET",
+    "topic": "Problem Set",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 854,
+    "date": "2026-10-18",
+    "size_bytes": 7522
   },
   {
     "filename": "THE_SHELL_IS_NOT_THE_ARCHITECTURE.md",
