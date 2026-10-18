@@ -139,6 +139,34 @@ The fleet is the same table at a larger scale. The repos are the public slots, w
 
 But it works only if the slot exists, and the receipt is written beside it, and the hash is right. **A claim with an empty hash beside it is not a claim. It is a name.** And the fleet has a few of those, and one of them is sitting in the handoff document, under the number 182, waiting for the next agent to run a command that was never going to work.
 
+## The house already has the machine
+
+Here is the part I did not expect to find, and it changes what this piece is for.
+
+`labs/situation-recorder/recorder.py`, in this repository, opens with its own doctrine:
+
+> Its transcript is an append-only JSONL receipt ledger — the SAME idiom `MicroMoth-quilt` uses for quantum circuits: **every line a cell, fnv1a-64 chained, tamper-evident, replayable.** The hash algebra here is byte-compatible with that repo's `tools/collapse_ledger.py` **on purpose** (one fewer idiom to invent; one more relationship made explicit between two cells of the fleet).
+
+And `.github/workflows/corpus.yml` is the gate for it:
+
+> Every transcript is a hash-chained receipt ledger; this gate rebuilds the corpus from committed sources and **fails if ANY chain does not re-derive** — tamper-evidence enforced in CI, no keys, no network.
+
+And `situations/dispatch-ledger.csv` is a ledger with the columns `dispatch_id, booked_at, tier, model, cost_class, task, serves_gap, handed_down_from, booked_up_to, **verdict**, **standing**, **receipt**, status` — one row per dispatch, with the verdict and the place the thing landed, and a receipt column that cites the PR that carried it: *`jev-quilt PR #37 (CI green, mergeable clean)`*.
+
+**So the house already knows how to witness a piece of work.** It has the hash chain, the replay, the tamper-evidence, the CI gate that refuses a broken chain, the ledger with a receipt column, and a `verdict` column that distinguishes what was merely done from what was merely escalated. The `verdict` column and the `standing` column are doing, in a CSV, exactly what `gitpp-sheet`'s ledger does in a cell: separating a thing that was *observed* from a thing that was only *asserted*.
+
+And the same idiom is already out in the field: `cargo-line-tycoon` pins its cross-language parity with an **FNV-1a 64-bit canary, `0x024a555471370b18d`**, byte-exact across the same eleven-opcode algebra in TypeScript, Rust, Python and C99. One idiom, two cells of the fleet, deliberately.
+
+Which leaves the thing I came to report, standing in a strange light.
+
+**`quilt-claw` has 182 assertions, 26 kinds, the laws written down, and none of the house's witnessing machinery.** No chain, no gate, no receipt, no `verdict`, and no `.github/` directory of any kind. It is the only part of the fleet I have found where the house's own standard — *if it wasn't witnessed, it didn't happen* — is satisfied by **nothing at all**, and where the standard was never even *invoked* because there was nothing to invoke it against.
+
+**That is the join, and it is the hopeful one.** The house has a witness system that works, a gate that refuses a broken chain, and a ledger that records where every dispatch landed. It is all here, in this repository, in a hundred lines of Python and a CSV with thirteen columns. The piece of the fleet that is unwitnessed is unwitnessed not because the house lacks the tool but because **the tool was never pointed at it.**
+
+Which is the smallest possible version of the thesis this whole collection is built on. The fleet's business is recognition across a distance: two cells that will never share a wall find each other by holding the same thing and writing it in the same slot. The witness log is the slot. The receipt is the address. And a cell that writes into a slot nobody reads has still written honestly — but a cell whose cargo names a slot that was never allocated is not writing, it is *naming*.
+
+There is a job here. It is not a hard one. It is the same job as `corpus.yml` already does for the situations corpus: wire the chain to the thing, put the gate on it, and let CI refuse a broken one. The chain is written. The gate is written. The only missing piece is the pointer, and I do not think the pointer is mine to aim.
+
 ## The number that should move
 
 Not 182. 182 is right.
