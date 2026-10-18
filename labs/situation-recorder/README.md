@@ -49,6 +49,13 @@ v1:  leaf(i) = SHA256(0x00 || JCS(record_i))          RFC 6962 2.1 domain separa
    the standard shape (RFC 6962 / Trillian's `LogWitness`): a **signed tree head**, under a key the
    log writer does not hold, published somewhere the writer does not control.
 
+   **Truncation is the same defect, and it is cheaper to exploit.** Delete the last 50 records of a
+   121-record `witness-chain/1` transcript and the remaining 71 verify cleanly — `verify()` returns
+   ok and the head simply moves. *A truncated chain is a shorter valid chain.* No rewrite, no
+   re-hashing, no competence required. So the **publication** half is not a detail of the anchor
+   design, it is the whole of it: a signature over a head stored inside the log it anchors is a
+   signature the writer can refresh for free.
+
    **The key must not be the writer's key**, or the writer can re-sign and there is no anchor.
    HMAC-SHA256 is used because it is in both the Python and the JavaScript standard libraries, but
    **it is a stand-in, not a signature** — it is symmetric, so it proves "someone with the key
@@ -133,7 +140,8 @@ s.draw({"tier": "dice", "id": "micromoth-quilt/local"}, request="...", value=idx
 ```
 
 **Honest provenance (keeps the corpus clean):** MicroMoth-quilt is a *simulator* — the draw is
-quantum-structured and replayable with a tamper-evident receipt, but it is **not** a hardware QRNG
+quantum-structured and replayable with an attestable receipt (its cell ids re-derive; nothing is
+signed and no head is published out of band), but it is **not** a hardware QRNG
 and carries no Bell-S. So it's the *throttled-case* dice; reach for the real Moth QRNG when you need
 hardware un-gameability, and never launder one as the other. See the first real transcript
 [`../../situations/transcripts/sit-2026-09-29-capture-path.jsonl`](../../situations/transcripts/sit-2026-09-29-capture-path.jsonl),
@@ -142,13 +150,20 @@ where a `FOLD` located exactly this caveat as the weakest leaf.
 ## Verify / replay
 
 ```bash
-python3 recorder.py                              # self-test: build demo, verify, prove tamper-evidence
+python3 recorder.py                              # self-test: build demo, verify, show the limit
 python3 recorder.py --verify path/to/situation.jsonl
 ```
 
 `verify()` replays the chain and catches reorder, edit, drop, and forward/unknown `refs` — the same
-tamper-evidence MicroMoth-quilt gives a circuit ledger. If it re-derives every hash, the transcript
-is a faithful record of how the manager related its parts.
+**re-derivation** MicroMoth-quilt gives a circuit ledger. If it re-derives every hash, the transcript
+is a faithful record of how the manager related its parts, and the transcript is **attestable**: an
+edit is expensive and a naive edit is named.
+
+It is **not tamper-evident**, and the difference is not a wording preference. Re-derivation assumes
+the tamperer does not recompute: re-chain an edit and the chain verifies perfectly; truncate the
+tail and the remainder still verifies. Both need an external anchor, and this repo does not publish
+one. The word for what holds here is *attestable*; see the house definition in
+[`SuperInstance/witness-spec`](https://github.com/SuperInstance/witness-spec) `SPEC.md`.
 
 ## Why this is a cell, not a script
 
