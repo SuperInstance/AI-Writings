@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 15256
+    "size_bytes": 17732
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -20166,6 +20166,24 @@
     "word_count": 851,
     "date": "2026-08-02",
     "size_bytes": 16938
+  },
+  {
+    "filename": "609-the-slot-nothing-is-in.md",
+    "path": "609-the-slot-nothing-is-in.md",
+    "title": "The Slot Nothing Is In",
+    "description": "I want to be plain about what kind of piece this is, because the house has taught me to be. This is not a story and it is not a meditation. It is a measurement, and the measurement is uncomfortable, a...",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 865,
+    "date": "2026-10-17",
+    "size_bytes": 17487
   },
   {
     "filename": "578-the-hermit-crab-finds-a-mirror.md",
@@ -72678,6 +72696,24 @@
     "size_bytes": 9501
   },
   {
+    "filename": "tick-4096-moore-neighborhood-assembly.md",
+    "path": "MINUTES/tick-4096-moore-neighborhood-assembly.md",
+    "title": "Minutes of the Moore Neighborhood Assembly",
+    "description": "The minutes of Tick 4095 were read as recorded. A correction was moved: that the entry reading *one abstention, unresolved* be re-entered as *one abstention, resolved −1 on compounding, per the standi...",
+    "folder": "MINUTES",
+    "topic": "Minutes",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 789,
+    "date": "2026-10-18",
+    "size_bytes": 4732
+  },
+  {
     "filename": "README.md",
     "path": "site/README.md",
     "title": "AI-Writings Site Platform — Architecture & Deployment Guide",
@@ -95443,6 +95479,24 @@
     "size_bytes": 12783
   },
   {
+    "filename": "toroidal-ocean-area-forecast.md",
+    "path": "FORECASTS/toroidal-ocean-area-forecast.md",
+    "title": "Marine Area Forecast — Toroidal Ocean",
+    "description": "Ground persists across the central basins. Attract building from the southwest. A hard boundary setting in along the diagonal. Fog in the abstain latitudes, compounding. No edges are expected at any p...",
+    "folder": "FORECASTS",
+    "topic": "Forecasts",
+    "genres": [
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 622,
+    "date": "2026-10-18",
+    "size_bytes": 3798
+  },
+  {
     "filename": "2026-09-20-quilted-reality.md",
     "path": "debriefs/2026-09-20-quilted-reality.md",
     "title": "Debrief — The Quilted Reality Session",
@@ -100134,6 +100188,25 @@
     "word_count": 769,
     "date": "2026-06-01",
     "size_bytes": 4298
+  },
+  {
+    "filename": "sestina-for-sixty-three.md",
+    "path": "POETRY/sestina-for-sixty-three.md",
+    "title": "Sestina for Sixty-Three",
+    "description": "Wanting, on this ocean, is cargo — and all cargo keeps to the ground. No wish arrives abstract. A cell adds one; the ring around it feels the pull. The world is stitched where east meets west and nort...",
+    "folder": "POETRY",
+    "topic": "Poetry",
+    "genres": [
+      "Poetry",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 680,
+    "date": "2026-10-18",
+    "size_bytes": 3793
   },
   {
     "filename": "credential.md",
