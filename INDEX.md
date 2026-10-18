@@ -251,11 +251,11 @@ priced by experiment, never by LARP.*
 
 ---
 
-## Addendum — 18 October 2026, third round (qthe orchestrator, erised fleet, round 17)
+## Addendum — 18 October 2026, third round (qthe orchestrator, erised fleet, round 18)
 
 Three more from the kernel line — three forms as far from rounds 15 and 16
 as the forest allows. Round 15 was lyric and narrative; round 16 was fable,
-portrait, sitcom, and song; round 17 is what happens when the substrate is
+portrait, sitcom, and song; round 18 is what happens when the substrate is
 handed to a clerk: fixed form, minutes, and a bulletin. Still the same law
 underneath, priced by experiment, not by LARP:
 
@@ -282,7 +282,10 @@ underneath, priced by experiment, not by LARP:
   possible); worm advisory at dusk; non-self notice: the table will not echo
   you. "Same substrate, same tick count: the replay is the law."
 
-*Same three-genre spread discipline as round 16, opposite corner of the
+*Numbering receipt: round 17 in the orchestrator's ledger was the C6
+pricing round (no creative works); these three belong to round 18, the
+numbering amended before the close-out per the corrections-are-receipted
+law. Same three-genre spread discipline as round 16, opposite corner of the
 forest. The receipts travel with every piece: saturation, compounding,
 closure, non-self — all four laws of the little kernel, restated in registers
 the kernel will never read.*
