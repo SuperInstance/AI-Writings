@@ -1,7 +1,14 @@
 name: corpus
 # The loop guards its own dataset. Every transcript is a hash-chained receipt
 # ledger; this gate rebuilds the corpus from committed sources and fails if ANY
-# chain does not re-derive — tamper-evidence enforced in CI, no keys, no network.
+# chain does not re-derive — no keys, no network.
+#
+# WHAT THIS IS: RE-DERIVATION, not tamper-evidence. This gate proves every hash
+# re-derives from the committed bodies, which makes a naive edit expensive and
+# visible. It cannot see a rewrite that recomputes the chain, and it cannot see
+# a tail truncation at all — a truncated chain is a SHORTER VALID CHAIN and this
+# gate would pass it. Tamper-evidence needs a signed head published out of band,
+# which this repo does not have. The honest word is "attestable".
 # (ML-IN-THE-LOOP.md: a naive loop rots; the first guardrail is honest, verifiable data.)
 on:
   push:
@@ -26,9 +33,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: recorder self-test (chain + tamper-evidence)
+      - name: recorder self-test (chain re-derivation + the re-chained-rewrite limit)
         run: python3 labs/situation-recorder/recorder.py
-      - name: rebuild + verify the whole corpus (fails on any broken chain)
+      - name: rebuild + verify the whole corpus (fails on any chain that does not re-derive)
         run: bash labs/situation-recorder/run_all.sh
       - name: assert every transcript chain verifies
         run: |
