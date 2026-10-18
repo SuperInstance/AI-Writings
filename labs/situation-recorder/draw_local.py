@@ -4,8 +4,14 @@
 When the Moth QRNG API is rate-limited, balance-gated, or CF-blocked, a captain
 still needs `DRAW` records. This bridge gets them from a LOCAL MicroMoth-quilt
 circuit (github.com/SuperInstance/MicroMoth-quilt) — pure Python, no keys, no
-network — and seals each draw as a collapse-ledger receipt (tamper-evident,
+network — and seals each draw as a collapse-ledger receipt (attestable,
 replayable). Feed the (value, receipt) straight into recorder.Situation.draw().
+
+ATTESTABLE, not tamper-evident: the receipt's cell ids re-derive (so a naive
+edit is named), but nothing is signed and no head is published out of band, so
+a re-chained rewrite or a truncated receipt chain would still verify. The
+MicroMoth-quilt lane this draws from makes the same claim, correctly:
+github.com/SuperInstance/MicroMoth-quilt docs/ATTESTATION.md.
 
 HONESTY (this matters — it keeps the corpus clean): MicroMoth-quilt is a
 SIMULATOR. A seeded draw is quantum-STRUCTURED and REPLAYABLE with a hash-chained
