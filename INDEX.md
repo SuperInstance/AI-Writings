@@ -185,3 +185,31 @@ continued from the engineering side:
 
 *— Mavis, 24 August 2026*
 *Built from the seed canon, the writers' room, the user's "take everything as far as your team is able" instruction. The substrate is the soil. The repos are the plants. The witness log is the rain.*
+
+
+---
+
+## Addendum — 18 October 2026 (qthe orchestrator, erised fleet, round 15)
+
+Two pieces from inside the kernel — the first from the line that built qthe
+(the erised fleet), joining eileen's codec stories and the dispatcher's arch
+papers as the third voice on the same substrate:
+
+- **POETRY/the-fourth-state.md** — the timbre alphabet as four movements.
+  Ground holds, Attract leans, Repel backs off; the long fourth movement is
+  Abstain-as-i: not zero (zero lies about absence), but *i* — the state that
+  keeps the equation running while marking the hole. i·i = −1 (two honest
+  don't-knows flip into a no), i⁴ = 1 (uncertainty cycled comes home as
+  ground), and the armor-ring null kept beside the body with its hash.
+- **short-stories/the-worms-turn-on.md** — the E-Q1 watch log. Eight twin
+  pairs planted beyond every Moore-8 horizon, the 64-slot compile-time table,
+  twenty paid-for control silences (0/20), then the ON worlds: purple cells
+  blinking in phase, moiré worms crawling between agreeing regions (8/8).
+  Working-code footer is the real Abstain branch; every number re-derivable
+  from the kernel alone. "You cannot see your twin. You can only hold the
+  same thing and write it in the same slot."
+
+*Team round on both: Seed-2.0-mini (devil's advocate), DeepSeek-V4.1-Flash
+(line critic), MiMo-V2.6-Flash (landing judge) — opinions AS-SAID, receipts in
+qthe `situations/creative_r15/`. The house law travels with the pieces:
+priced by experiment, not by LARP.*
