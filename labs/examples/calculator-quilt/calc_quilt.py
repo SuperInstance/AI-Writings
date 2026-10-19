@@ -118,7 +118,16 @@ class ActiveLog:
 
 
 def verify_chain(records: list[dict]) -> bool:
-    """Re-derive each hash from the running prev; tamper-evident."""
+    """Re-derive each hash from the running prev; attestable, not tamper-evident.
+
+    Re-derivation assumes the tamperer does not recompute: a naive edit breaks
+    the chain here and is named, but an attacker who re-chains their own edit
+    re-derives perfectly, and a truncated tail is still a shorter valid chain.
+    That is leg 1 of 3. This log signs no head and publishes none where the
+    writer does not control it, so the honest word for it is `attestable`.
+    """
+    # The same claim in the body: a naive edit is named here. A re-chained edit
+    # and a truncated tail are not -- there is no signed, published head.
     prev = GENESIS
     for rec in records:
         env = {k: v for k, v in rec.items() if k != "hash"}

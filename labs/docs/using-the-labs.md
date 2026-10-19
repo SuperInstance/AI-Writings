@@ -78,7 +78,7 @@ selftests: 5/5 green
 on the shared labs/activeledger: 5/5  (all one ledger)
 ```
 
-Each quilt has two routes to the same product (e.g. calculator: integer-cents fixed point vs `Decimal`; text-normalize: skip unicode handling for pure ASCII) and a chooser that picks the cheap one when it applies. The selftests prove product identity across routes, well-formed budget vectors, reconciling route totals, a tamper-evident chain and byte-identical re-runs. 82 checks in total (12+21+14+18+17).
+Each quilt has two routes to the same product (e.g. calculator: integer-cents fixed point vs `Decimal`; text-normalize: skip unicode handling for pure ASCII) and a chooser that picks the cheap one when it applies. The selftests prove product identity across routes, well-formed budget vectors, reconciling route totals, a re-derivable chain and byte-identical re-runs. 82 checks in total (12+21+14+18+17).
 
 **Read the last line carefully.** `run_all.py` decides "on the shared ledger" by checking whether any `.py` file in the example directory contains the text `activeledger`. `calculator-quilt/calc_quilt.py` contains that text in a comment about its inline stand-in emitter, so it counts. Step 4 shows a concrete consequence.
 

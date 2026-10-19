@@ -24,7 +24,9 @@ pin = receipt(descriptors, fitness, 5, scores)   # re-derivable fnv1a-64; a veri
 
 `(descriptors, fitness, k) -> (scores, survivors)` + an **fnv1a-64 receipt** over
 `(rounded descriptors, fitness, k, scores)` — same hash idiom as `situation-recorder`, so the ranking
-is replayable and tamper-evident (nudge one fitness → the pin moves).
+is replayable and re-derivable (nudge one fitness → the pin moves): **attestable, not
+tamper-evident** — the nudge is named when the receipt is re-derived, and nothing signs or
+publishes a head, so a re-chained nudge and a shorter log both still verify.
 
 ## Why it beats a grid for us
 

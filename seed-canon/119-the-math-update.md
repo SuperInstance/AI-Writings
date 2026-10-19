@@ -121,7 +121,7 @@ The chaining deserves a sentence. Each agent's log is itself a hash chain:
 
     h_k = H(h_{k−1} ‖ tick_k ‖ address_k ‖ action_k ‖ value_k)
 
-with h_0 the agent's genesis. This means an agent's history is tamper-evident on its own terms: you cannot rewrite one entry without breaking every entry after it. And because the substrate also commits to the set of current agent-log heads at each tick (see Part IV, where the Merkle tree subsumes this), the per-agent chains are anchored into the global structure.
+with h_0 the agent's genesis. This means an agent's history is re-derivable on its own terms: you cannot rewrite one entry without breaking every entry after it — unless you recompute the chain, and nothing has signed the head. That is one leg of three. And because the substrate also commits to the set of current agent-log heads at each tick (see Part IV, where the Merkle tree subsumes this), the per-agent chains are anchored into the global structure.
 
 ### The math
 
@@ -317,7 +317,7 @@ Within the suite lives `test_math.py`: 17 tests, each one a theorem from the can
 2. **Convoy weighted-median breakdown bound** — coalitions below half-weight cannot escape the honest range.
 3. **Convoy trimmed-mean trim bound** — coalitions below the trim fraction cannot move the estimate.
 4. **Convoy highest-weight delegation** — the strongest witness's value wins, provably and visibly.
-5. **Agent chain tamper-evidence** — any single-entry rewrite breaks the chain head.
+5. **Agent chain re-derivation** — any single-entry rewrite that does not recompute the chain breaks the chain head.
 6. **Agent audit linearity** — enumeration over a tick range is linear in actions taken.
 7. **Merkle root determinism** — same state, same root, every time.
 8. **Merkle inclusion soundness** — valid proofs verify; this is the collision-resistance reduction in executable form.
@@ -342,7 +342,7 @@ At the close of paper 118, the substrate carried **5 proved properties** — the
 This update adds **5 resolved open questions**, each resolution carrying its own theorems, each theorem pinned by its own tests:
 
 1. **Convoy weighted-mean consensus** (Q1) — now a four-method spectrum with a proved robustness ordering.
-2. **Per-agent witness log** (Q3) — tamper-evident, linearly auditable, chain-verified.
+2. **Per-agent witness log** (Q3) — attestable, linearly auditable, chain-verified.
 3. **Merkle inclusion and exclusion** (Q4) — O(log N) proofs of presence and, just as important, of absence.
 4. **Four new openers** (Q6) — voice, telnet, gesture, flowchart; all pure functions of committed state.
 5. **Convoy value commitment** (Q7, half) — the leaf binds the answer, not just the deliberation.

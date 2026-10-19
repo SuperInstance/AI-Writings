@@ -5,7 +5,8 @@ shared cases (novelty in process, identity in product); the quilt chooses the ch
 route when interest isn't needed; the simple route is genuinely cheaper on BOTH the
 compute and the storage measurements of the iron-triangle; every record carries a
 well-formed budget vector and the route total reconciles; route.hops balance after
-their unit translation; and the ActiveLog chain is tamper-evident.
+their unit translation; and the ActiveLog chain is attestable, not tamper-evident
+(a naive edit breaks it; a re-chained one does not).
 """
 
 from __future__ import annotations
@@ -105,7 +106,7 @@ check("every route.hop sums to zero after unit translation (credit*rate == debit
 roundtrip = abs(cq.dollars_to_cents("12.34") - 1234) == 0 and cq.cents_to_dollars(1234) == "12.34"
 check("dollars->cents->dollars round-trips exactly", roundtrip)
 
-# 10. The ActiveLog chain is tamper-evident.
+# 10. The ActiveLog chain re-derives -- attestable, not tamper-evident.
 good = cq.verify_chain(recs)
 tampered = [dict(r) for r in recs]
 tampered[1] = dict(tampered[1])

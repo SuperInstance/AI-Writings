@@ -9,7 +9,7 @@ the labs it came from; [`EXTRACTION.md`](EXTRACTION.md) is the plan for making i
 
 You have several ways to do the same job — two models, two algorithms, two build strategies. Which one
 should you use? You can't say until you know (a) they really give the *same answer*, and (b) what each
-one *costs*. `quilt_kernel` does both, and keeps a tamper-evident log of what it saw:
+one *costs*. `quilt_kernel` does both, and keeps a re-derivable (attestable) log of what it saw:
 
 - **Cell** — wrap a function; every call leaves a *receipt* (answer hash + cost) in a log.
 - **Ledger** — the log: append-only, each record hash-linked to the one before.
@@ -118,7 +118,7 @@ or one more axis" — otherwise it belongs in a layer above, not here.
 
 `labs/activeledger` (envelope, budget, double-entry, prev-chain) · `labs/system2-backtest` (identity
 gate, iron triangle) · `labs/route-preference` (Pareto frontier, Hebbian book) · `labs/situation-recorder`
-(fnv1a-64 canonical-JSON, tamper-evident chain) · API shape follows
+(fnv1a-64 canonical-JSON, attestable — re-derivable — chain) · API shape follows
 [SuperInstance/forge-quilt](https://github.com/SuperInstance/forge-quilt) `openapi.yaml`
 (`verifyWitnessChain` → `{intact, firstBreak}`, `getAnchoredHead`, `getCanary`; FNV-1a is conformance-only).
 See [`EXTRACTION.md`](EXTRACTION.md).

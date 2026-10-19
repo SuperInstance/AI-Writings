@@ -472,7 +472,7 @@ Begin scheduled decay.
 - Erase non-essential logs  
 - Rotate substrate identity  
 - Migrate to new primitives  
-- Archive in tamper-evident format
+- Archive in attestable (re-derivable) format
 
 Not deletion.  
 Not amnesia.  
