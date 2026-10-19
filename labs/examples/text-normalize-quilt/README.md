@@ -12,7 +12,7 @@ skip the unicode tooling when the input is pure ASCII.*
 - **STATE** — **HEWN.** `selftest.py`: **17 checks, 0 failures**, offline & deterministic. Products
   identical on all 128 ASCII code points (3 contexts) + 2000 seeded fuzz strings; chooser iff-ASCII;
   cheap cheaper on compute (wall_ms 5 vs 13), storage (prod 176 B vs 7168 B), mem, power; budgets
-  well-formed; ticks+hops total == ledger.transaction; route.hops balance; chain tamper-evident;
+  well-formed; ticks+hops total == ledger.transaction; route.hops balance; chain re-derivable;
   byte-identical re-runs.
 - **RUNS** — `python3 textnorm_quilt.py` (demo) · `python3 selftest.py` (the proof).
 - **GOTCHA (caught by the exhaustive check)** — `str.split()` treats `0x1c–0x1f` as whitespace but

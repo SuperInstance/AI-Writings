@@ -16,7 +16,7 @@ Think of a jam session where the players are inexpensive AI models and the band 
 a hand every few bars. The leader can say *"you two, listen only to each other"*, *"go back to
 where that was good"*, *"you — take that riff somewhere else in another room"* (a branch, so the
 main song keeps going), or *"quieter, more concrete"*. Every note played is written into a
-tamper-evident log. Going back in time moves the band, never the log.
+re-derivable (attestable) log. Going back in time moves the band, never the log.
 
 ## 2. Quickstart
 
@@ -65,8 +65,10 @@ Each turn's receipt is `fnv1a-64(canon{prev receipt, cell, model, heard ids, ton
 turn plus each conductor move is a `cell.tick` in an ActiveLog v1 ledger (sha256 prev-chain, budget
 vector with per-model tokens and wall-ms). So the log proves **what each cell was shown and said,
 in what order, and every rewiring/rewind the conductor made**. Rewinds truncate the quilt, never the
-ledger. It does **not** prove the text came from the named model (a provider could substitute) and
-fnv1a-64 is a conformance hash, not tamper evidence — the sha256 chain is the tamper evidence.
+ledger. It does **not** prove the text came from the named model (a provider could substitute);
+fnv1a-64 is a conformance hash (a collision is cheap), and the sha256 chain is re-derivable — a
+naive edit is named. Neither is tamper-evident: no head is signed, and none is published where
+the writer does not control it.
 
 ## 6. Limits (honest)
 

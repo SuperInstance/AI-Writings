@@ -39,7 +39,7 @@ which is the manager's actual job, and the thing we want to hand off.
 
 One **situation** = one manager+crew mission (a dispatch). Its transcript is an append-only JSONL
 receipt ledger — the *same idiom MicroMoth-quilt already uses for quantum circuits* (every step a
-cell, fnv1a-64 chained, tamper-evident, replayable). Every line is one **relation-record** with a
+cell, fnv1a-64 chained, attestable, replayable). Every line is one **relation-record** with a
 common envelope and a typed body:
 
 ```

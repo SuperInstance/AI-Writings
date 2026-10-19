@@ -84,7 +84,7 @@ check("route.hops balance after translation (both routes)",
       len(hops) == 2 and all(al_mod.hop_balanced(h["body"]) for h in hops)
       and all(al_mod.hop_balanced(h["body"]) for h in rf["log"].records if h["type"] == "route.hop"))
 
-# 9. Chain tamper-evident (also on a mixed-route log).
+# 9. Chain re-derivable -- attestable, not tamper-evident (also on a mixed-route log).
 mixed = al_mod.ActiveLog(dev="text-normalize-quilt")
 for t in tq.WORKLOAD:
     tq.run(t, mixed)

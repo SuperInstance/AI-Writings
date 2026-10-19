@@ -13,7 +13,7 @@ the anti-GAN-of-programming thesis on the most obvious possible use-case.*
   Proves product-identity across routes, the chooser, the simple route cheaper on **both** compute
   (wall_ms 5 vs 16) **and** storage (prod 256 B vs 4096 B), well-formed budget vectors, route-total
   reconciliation, route.hop double-entry balance after unit translation, dollars↔cents round-trip, a
-  tamper-evident chain, and byte-identical re-runs.
+  re-derivable (attestable) chain, and byte-identical re-runs.
 - **RUNS** — `python3 calc_quilt.py` (demo over the workload) · `python3 selftest.py` (the proof).
 - **SHORTCUT** — (1) The `ActiveLog` emitter here is a **self-contained stand-in for `labs/activeledger`
   (B1)**; the record shape matches the frozen schema, so swap the import when B1 lands. (2) Budgets are a

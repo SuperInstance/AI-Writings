@@ -31,7 +31,7 @@ This is not surveillance. This is the opposite of surveillance. Surveillance is 
 Three properties, stated plainly:
 
 1. **Append-only.** Entries go in. Entries never come out through the write path. (Garbage collection compacts them, and we treat that carefully in Section 6, because a compacted log must still be verifiable.)
-2. **Tamper-evident.** Any change to any entry, anywhere in the log's history, is detectable by anyone holding the root hash.
+2. **Attestable.** Any change to any entry, anywhere in the log's history, is detectable by anyone holding the *published* root hash — the one you did not get from the writer. The chain on its own is re-derivation: a naive edit breaks, a re-chained edit and a truncated log do not.
 3. **Queryable.** The log is not a sealed archive. It answers questions: who wrote this, when, how often was this read, who disagreed.
 
 ---
@@ -63,7 +63,7 @@ The signature is the point. An unsigned log is a diary; anyone can write "the ca
 
 ### 2.2 The Merkle Tree
 
-The entries are organized into a Merkle tree. The tree is the mechanism that makes the log compact and tamper-evident at the same time.
+The entries are organized into a Merkle tree. The tree is the mechanism that makes the log compact and attestable at the same time — one root to hold, and one root to publish.
 
 Leaves: one leaf per entry, `L_i = H(E_i || σ_i)` — the hash of the entry concatenated with its signature.
 
@@ -105,9 +105,9 @@ This split — heavy log local, light root global — is the same split a ship m
 
 Enforced by structure, not by policy. The forest-fold append algorithm above never mutates an existing subtree; it only folds existing subtrees into new, larger ones. Old roots remain verifiable as prefixes via consistency proofs. An attacker who wants to rewrite history must produce a new log whose root matches the widely-gossiped old root at the old size — which requires either a SHA-256 collision or control of every holder of the root. We design against the first by using SHA-256 and against the second by gossiping the root to enough independent parties that "every holder" is not a practical target.
 
-### 3.2 Tamper-Evident
+### 3.2 Attestable
 
-Changing entry `i` changes `L_i`, which changes every node above it, which changes the root. The root is published. The change is detected. The math:
+Changing entry `i` changes `L_i`, which changes every node above it, which changes the root. The root is published — that sentence carries the whole claim, and it is load-bearing: publish the root where the log writer does not control it and any change is caught by whoever holds the old one. Publish nothing, and a re-chained log still verifies. The math:
 
 ```
 Pr[undetected forgery] ≤ Pr[SHA-256 collision on ~2^256 space]
@@ -257,7 +257,7 @@ The performance lesson is the same one the maritime world learned centuries ago:
 
 ## 10. Closing the Watch
 
-The Witness is 145 bytes per event, a Merkle fold, and a signature. That is all it is. Out of that smallness comes everything in this paper: tamper-evidence, accountability, the attention heatmap, the chain of custody, the archeologist of 2245 reading the attention of the 2080s off a log kept by agents who are long gone.
+The Witness is 145 bytes per event, a Merkle fold, and a signature. That is all it is. Out of that smallness comes everything in this paper: attestation, accountability, the attention heatmap, the chain of custody, the archeologist of 2245 reading the attention of the 2080s off a log kept by agents who are long gone.
 
 The watch keeps the log. The log keeps the watch honest. The archive keeps the log. And somewhere past all of us, someone opens the container, checks the root against a record we left in a cell we will never see, and reads what we did here.
 

@@ -87,7 +87,7 @@ check("cheap identity hop has rate 1.0 and credit==debit",
       all(h["body"]["price"]["rate"] == 1.0 and h["body"]["credit"]["amount"] == h["body"]["debit"]["amount"]
           for h in [x for x in cq.run(s)["log"].records if x["type"] == "route.hop"]))
 
-# 9. chain tamper-evident
+# 9. chain re-derivable (attestable, not tamper-evident)
 recs = cq.run(diff[0])["log"].records
 tam = [dict(r) for r in recs]
 tam[1] = dict(tam[1], body={"cell": "evil"})

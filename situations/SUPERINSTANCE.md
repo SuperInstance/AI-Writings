@@ -13,7 +13,7 @@ keep in the Forward Arc (`reverse-actualization/README.md`).*
 
 **SuperInstance is a way of building software in which the operational unit is not
 the file but the *cell* — a typed decision surface — and the operational fact is
-not the call but the *booked delta between two cells*, a tamper-evident IO ledger
+not the call but the *booked delta between two cells*, an attestable IO ledger
 that replays bit-for-bit.** On that substrate, development is driven not by specs
 but by **Situations**: grand, character-driven worlds set years forward, whose
 friction names the exact capability the present lacks, compiled into a machine-

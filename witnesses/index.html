@@ -118,8 +118,8 @@ h1 .acc{color:var(--cell);font-weight:600;font-style:italic}
 <li><strong style="color:var(--accent)">cell</strong> — the cell it happened to</li>
 <li><strong style="color:var(--accent)">params</strong> — what was bound / linked / effected</li>
 <li><strong style="color:var(--accent)">hash</strong> — hash of (prev_hash + op + cell + params + tick)</li>
-<li><strong style="color:var(--accent)">prev_hash</strong> — the chain link (tamper-evident)</li>
-<li><strong style="color:var(--accent)">sig</strong> — optional HMAC</li>
+<li><strong style="color:var(--accent)">prev_hash</strong> — the chain link (re-derivable; a naive edit breaks it)</li>
+<li><strong style="color:var(--accent)">sig</strong> — optional HMAC (optional, so no signed head is claimed)</li>
 </ul>
 <p style="color:var(--cell);margin-top:0.5rem"><strong>The witness log IS the source of truth.</strong> Every cell is derived from the log. Tampering with the log changes the hashes — the chain breaks visibly.</p>
 </div>

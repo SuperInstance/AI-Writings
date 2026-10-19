@@ -10,8 +10,10 @@ to work yet — the corpus is still thin (3 folds). This is the plan the volume 
 
 `bash labs/situation-recorder/run_all.sh` writes `situations/corpus/{decompositions,routes,
 judgments}.jsonl`. Schemas in `situations/corpus/README.md`. Every row descends from a
-chain-verified transcript; the `corpus` CI gate refuses a broken chain, so the training set is
-tamper-evident by construction — the MLOps "can't reproduce the data" failure is closed here.
+chain-verified transcript; the `corpus` CI gate refuses a broken chain, so a broken chain is
+caught at the gate. That is re-derivation, so the training set is attestable by construction and
+not tamper-evident: nothing signs or publishes a head. The MLOps "can't reproduce the data"
+failure is closed here.
 
 ## Objective 1 — the decomposer (learn to localize the weakest leaf)
 
