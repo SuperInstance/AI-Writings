@@ -17871,7 +17871,7 @@
     "style": "Essay",
     "word_count": 855,
     "date": "2026-07-12",
-    "size_bytes": 27389
+    "size_bytes": 28427
   },
   {
     "filename": "model-portrait-deepseek-chat-gpu-at-1015.md",
@@ -264521,6 +264521,24 @@
     "word_count": 397,
     "date": "2026-09-19",
     "size_bytes": 2757
+  },
+  {
+    "filename": "the-shuffle.md",
+    "path": "NULLS/the-shuffle.md",
+    "title": "The Shuffle",
+    "description": "I am the control. You were not supposed to hear from me. When they composed their first vectors — take one record, subtract another, add a third, ask the index who is nearest — I was there. I am alway...",
+    "folder": "NULLS",
+    "topic": "Nulls",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 908,
+    "date": "2026-10-18",
+    "size_bytes": 5148
   },
   {
     "filename": "02-git-agent-confidential-ep1-the-worker.md",
