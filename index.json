@@ -255875,6 +255875,24 @@
     "size_bytes": 3605
   },
   {
+    "filename": "04_what_the_golden_does_not_certify.md",
+    "path": "negative-space/04_what_the_golden_does_not_certify.md",
+    "title": "What the Golden Does Not Certify",
+    "description": "There are three ways to write a float in this fleet, and until last week there were three ways to write it in the *same* fleet, in three languages, that all claimed to be the same one. The specificati...",
+    "folder": "negative-space",
+    "topic": "Negative Space",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 845,
+    "date": "2026-10-18",
+    "size_bytes": 5774
+  },
+  {
     "filename": "03_the_first_file_ever_written.md",
     "path": "negative-space/03_the_first_file_ever_written.md",
     "title": "The First File Ever Written",
@@ -256200,6 +256218,24 @@
     "word_count": 817,
     "date": "2026-10-18",
     "size_bytes": 5710
+  },
+  {
+    "filename": "the-port-that-passes-its-own-golden.md",
+    "path": "FIELD_GUIDE/the-port-that-passes-its-own-golden.md",
+    "title": "A Field Guide to the Port That Passes Its Own Golden",
+    "description": "sample it was given. The agreement is real. It is also not the property you wanted. Range: any conformance suite, any language, any format. Season: every port.*",
+    "folder": "FIELD_GUIDE",
+    "topic": "Field Guide",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 857,
+    "date": "2026-10-18",
+    "size_bytes": 5525
   },
   {
     "filename": "the-four-green-lights.md",
