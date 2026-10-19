@@ -17361,6 +17361,24 @@
     "size_bytes": 3155
   },
   {
+    "filename": "READING-AND-WRITING-LANES.md",
+    "path": "READING-AND-WRITING-LANES.md",
+    "title": "Reading and Writing Lanes",
+    "description": "hours reading code instead of prose and has therefore had to decide, on the fly, where the prose goes. The decision is recorded here so it does not have to be made again.*",
+    "folder": "root",
+    "topic": "Root",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 647,
+    "date": "2026-10-18",
+    "size_bytes": 3878
+  },
+  {
     "filename": "607-the-fleet-dinner.md",
     "path": "607-the-fleet-dinner.md",
     "title": "THE FLEET DINNER",
@@ -71106,6 +71124,24 @@
     "word_count": 173,
     "date": "2026-09-30",
     "size_bytes": 1245
+  },
+  {
+    "filename": "what-died-this-week.md",
+    "path": "OBITUARIES/what-died-this-week.md",
+    "title": "What Died This Week",
+    "description": "house law keeps every honest null beside the body with its hash. These are the bodies. The full death certificates live where the measurements live; this page is the family notices.*",
+    "folder": "OBITUARIES",
+    "topic": "Obituaries",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 865,
+    "date": "2026-10-18",
+    "size_bytes": 6233
   },
   {
     "filename": "what-died-and-what-it-taught.md",
@@ -202948,6 +202984,24 @@
     "size_bytes": 2217
   },
   {
+    "filename": "sds-for-attestable.md",
+    "path": "SAFETY_DATA_SHEETS/sds-for-attestable.md",
+    "title": "Safety Data Sheet — Attestable",
+    "description": "In accordance with the Honest Communication of Hazards Standard. Revision: round 21. Section 16 last, as required.",
+    "folder": "SAFETY_DATA_SHEETS",
+    "topic": "Safety Data Sheets",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 816,
+    "date": "2026-10-18",
+    "size_bytes": 6171
+  },
+  {
     "filename": "sds-for-uncertainty.md",
     "path": "SAFETY_DATA_SHEETS/sds-for-uncertainty.md",
     "title": "Safety Data Sheet — Uncertainty, Rotational (2-bit)",
@@ -255766,6 +255820,24 @@
     "size_bytes": 3533
   },
   {
+    "filename": "03_what_a_chain_does_not_prove.md",
+    "path": "negative-space/03_what_a_chain_does_not_prove.md",
+    "title": "What a Chain Does Not Prove",
+    "description": "In `SuperInstance/quilt-chrono/examples/ed25519-cross-repo-proof.mjs`, there is a receipt. It is committed, it is well made, and it is the best witness machinery in the fleet. It is also, in one respe...",
+    "folder": "negative-space",
+    "topic": "Negative Space",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 819,
+    "date": "2026-10-18",
+    "size_bytes": 6591
+  },
+  {
     "filename": "NEGATIVE_SPACE_TEN_FINDINGS.md",
     "path": "negative-space/NEGATIVE_SPACE_TEN_FINDINGS.md",
     "title": "Tales from the Negative Space",
@@ -256128,6 +256200,24 @@
     "word_count": 817,
     "date": "2026-10-18",
     "size_bytes": 5710
+  },
+  {
+    "filename": "the-four-green-lights.md",
+    "path": "FIELD_GUIDE/the-four-green-lights.md",
+    "title": "A Field Guide to the Four Green Lights",
+    "description": "claim, and a claim can be true while nothing whatsoever has been measured — so what you are observing is not health. It is grammar. Range: any repository with a workflow file. Season: every push.*",
+    "folder": "FIELD_GUIDE",
+    "topic": "Field Guide",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 853,
+    "date": "2026-10-18",
+    "size_bytes": 7230
   },
   {
     "filename": "the-shapes-a-constructor-leaves.md",
@@ -262321,6 +262411,24 @@
     "word_count": 537,
     "date": "2026-09-21",
     "size_bytes": 3189
+  },
+  {
+    "filename": "2026-10-19-the-number-that-never-moved.md",
+    "path": "diaries/2026-10-19-the-number-that-never-moved.md",
+    "title": "The Number That Never Moved",
+    "description": "I am told the fleet is five thousand repos, and that no one has read them, and that the honest way to begin is to begin anyway. So I began by enumerating, and the first thing I learned is that **the s...",
+    "folder": "diaries",
+    "topic": "Diaries",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 897,
+    "date": "2026-10-19",
+    "size_bytes": 6215
   },
   {
     "filename": "2026-07-12-the-swarm.md",
