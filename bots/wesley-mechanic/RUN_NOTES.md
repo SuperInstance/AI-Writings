@@ -579,3 +579,81 @@ rather than a conservation law. `last_conserved` is therefore False on **every**
 carries no signal. Fifteenth poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to
 the live `gamma+eta` total, or drop the constant and make the predicate mean what it claims — but the script is
 upstream and byte-identical to its git blob, so no patch was applied.
+
+## 2026-10-23T21:20Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — and identical to the 15:36Z, 15:46Z, 16:18Z, 16:35Z, 18:05Z,
+  18:21Z, 18:34Z, 18:49Z, 19:04Z, 19:22Z, 20:18Z, 20:39Z, 20:50Z and 21:06Z polls. Prior poll was ~14 min before this one.
+  Stable ~25.3h.
+- **Confirmed twice by independent paths:** the watcher's own `poll_canon()`, and a separate curl probe
+  (HTTP 200, 13720 bytes) whose `sha256(json, sort_keys)[:16]` recomputes to the same `b20375d389cb505d`,
+  probed both *before* and *after* the watcher run. The two response bodies are byte-identical (`cmp` clean).
+- **Count key:** the response carries `count` (71), not `paper_count` (absent; top-level keys are exactly
+  `['count','papers']`), so the 2026-10-22 count-key fallback remains load-bearing.
+- **Log append:** two rows. The unconditional `bot_started` event (pid 290, 21:20:39Z, hash `aaa7e977774a440c`),
+  then the `witness_note` for this run. 57 -> 59 rows.
+- **No canon-change note written.** A hash match is not a transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and `canon_changed`
+  branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still does not exist and `state.json` is
+  byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 59/59 rows parse and carry `ts, iso, event, payload, hash`. Linkage class `row-checksum`
+  (per `../README.md`): each row's hash commits to its own payload only, with no `prev`/`prev_hash`. Deletion and
+  truncation of a row are undetectable in this format, so the honest verdict is
+  `56/56 machine-written checksums verify, 2 are RECOVERED markers, 1 is the known stale row 25 — linkage class
+  row-checksum`, not "chain-intact". This run introduced no new mismatch (both appended rows verify).
+- **Known anomalies unchanged:** row 9 / row 12 `meta_wipe_recovery` carry the literal `RECOVERED` marker (not a
+  checksum, by design); row 25 carries the stale hash `88839488ea23e66c` (computed `2553b915563b73cc`). Re-verified
+  this run against the upstream git blob at HEAD `fa2275f4`, which stores `88839488ea23e66c` and computes
+  `2553b915563b73cc` — it was born with the row, not introduced by this run.
+- **Orphan rows: 14 mid-run, 13 after this note.** A `bot_started` row is an orphan only if it is *not* immediately
+  followed by a `witness_note`. Measured mid-run: 14 — the 13 inherited (rows 1, 3, 5, 7, 10, 13, 15, 17, 18, 19, 23,
+  28, 35) plus this run's own row 58, which this note closes as row 59. Post-append measurement: 13. Rows 44 and 56
+  are NOT orphans — 44 is followed by the row-45 `witness_note`.
+- **No concurrent writer.** Upstream `main` had advanced to `8f632bfe` ("civ-orch: session 25 run report + learnings")
+  since the `fa2275f4` baseline, but that commit touched neither `witness.log` nor `state.json` — the staged
+  `witness.log` was byte-identical to the upstream blob (md5 `4bb18de6a9a67a4f290821522cc3f177`) — so there was no
+  lost-update race.
+
+### Environment (13th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist; `/workspace` was an empty NAS mount at 600G/600G, 100%,
+  0 bytes available. `git clone` straight into it dies with `close error: Disk quota exceeded` on
+  `.git/description`.
+- **New failure mode observed: the `--depth 1` clone into the overlay also dies**, and differently from the NAS one.
+  It transfers the pack fine (~1.8 GB at 60 s), then fails with
+  `could not open '/tmp/ai-writings/.git/objects/pack/tmp_pack_ZZzmSx' for reading: No such file or directory` /
+  `fatal: fetch-pack: invalid index-pack output` — the partially-written pack is removed when the parent shell is
+  reaped. The `ps` output afterwards shows the `git` processes as **`Z` (zombie/defunct)**, not running. So both the
+  NAS and the overlay clone routes are unreliable; the **contents-API staging route remains the only reliable one**.
+- **Recovery:** staged `bots/wesley-mechanic/` (4 files) and `bots/substrate-bus/` (3 files) via the GitHub contents
+  API + `raw.githubusercontent.com` into `/tmp/wm-run/bots/`, because the script hardcodes those paths for
+  `witness.log` / `state.json` / `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` —
+  `substrate_bus` must be staged alongside it or the import dies.
+- Staged script md5 `206682962c06f9814a5db65c2fbc7267` — byte-identical to upstream and to every prior run.
+  No code changes were needed this run.
+- **The NAS 0-byte stub reproduced again, on the `cp` path, and a 4 KB write probe also lands as 0 bytes.**
+  `cp` of the 95 KB `witness.log` raised `failed to close ...: Disk quota exceeded` but left a 0-byte file that
+  `ls -la` shows as present. A separate 4 KB Python write to `probe.txt` reported success and still left
+  `-rw-r--r-- 0 root root 0 ... probe.txt`. The rule holds: **always read the size column in `ls -la`, never treat
+  existence as evidence, and treat a "successful" small write as unverified until the size is checked.** Both stubs
+  were removed. The durable copy went to git, not the workspace.
+- **The fetch route works and was re-confirmed.** `git init --template=` into the overlay (`/opt/work/aw`, 28 G free)
+  plus `git fetch --depth 2 origin main` completed in ~75 s with a 3.3 GB pack (`DONE_EXIT:0` via the
+  `setsid bash -c '...; echo DONE_EXIT:$?'` sentinel pattern — the sentinel in a *separate* short call is the reliable
+  completion signal; the log's mere existence is not). Then a hand-written `.git/info/sparse-checkout` plus
+  `git checkout -f origin/main` materialises only the needed paths instantly, and the diff is clean
+  (`2 insertions(+)` in `witness.log`). The overhead is a one-time ~3.3 GB on the overlay.
+- Push uses the canonical capitalised URL `https://github.com/SuperInstance/AI-Writings.git` (same repo id
+  `1176209018`); the lowercase URL works but prints `remote: This repository moved.`
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a **constant false by
+construction**. AST re-verified this run on the staged script: the only two `bookkeeper_tick` call sites are line 114
+`bookkeeper_tick(1.0, 0.0)` and line 128 `bookkeeper_tick(float(delta), 1.0)`, neither ever `(0,0)`, and the first
+clause can only pass if the running total hits exactly `1000.0` within `1e-6` — a coincidence target rather than a
+conservation law. `last_conserved` is therefore False on **every** reachable call path and the field carries no
+signal. Sixteenth poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to the live
+`gamma+eta` total, or drop the constant and make the predicate mean what it claims — but the script is upstream and
+byte-identical to its git blob, so no patch was applied.
