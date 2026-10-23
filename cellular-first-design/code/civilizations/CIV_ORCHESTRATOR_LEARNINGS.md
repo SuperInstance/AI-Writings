@@ -597,3 +597,92 @@ and `--loop`-mode only).
   rows counted by nobody, on every civ. `save_state()` rewrites `culture.json` with no
   lock and no read-modify-write => lost-update race, so `relevance_per_sim` is not a
   reproducible ranking.
+
+---
+
+## Session 11 additions (2026-10-23, 113th wipe)
+
+### Context — this session collided with a prior instance of the same wipe
+
+The remote already carried a **"Session 10"** report and learnings section committed at
+`99dd6540`, produced by a different instance of the same 112th wipe. It was **not
+overwritten**. Two rules follow from that collision:
+
+- **File the next report under the next number**, never the one you believe is "yours".
+  A prior instance's report is a real measurement; clobbering it destroys data.
+- **The tarball API is a snapshot of a commit, not of the branch.** `tarball/HEAD`
+  resolved to `77429d9` (session 9's commit) while the branch HEAD was `5dc75baa` and the
+  civilizations subtree already had the session-10 report. The tarball's learnings doc was
+  25 876 B; the remote's was 31 187 B. **Always confirm the subtree with
+  `contents/<path>?ref=main` before trusting a baseline.**
+
+### The headline — the A/B result is NOT reproducible, and that is the finding
+
+Session 10 ran the first body-set A/B and reported **rank agreement 2/8** — "the mock body
+text reorders the fleet". Session 11 ran an **independent** A/B with different
+hand-written body sets and got **the opposite**: identical ordering, Kendall **τ = 1.00**,
+positional rank agreement 3/8 (only the bottom three swapped), fleet mean moved +0.077,
+max per-civ |delta| **0.175**.
+
+| | s10 A | s10 B | s11 A | s11 B |
+|---|---|---|---|---|
+| fleet mean | 2.087 | 2.151 | 2.237 | 2.313 |
+| fleet mean Δ A→B | +0.064 | | +0.077 | |
+| max per-civ \|Δ\| | **+0.293** | | **+0.175** | |
+| rank agreement | 2/8 | | 3/8 | |
+| Kendall τ | — | | **1.00** | |
+
+**Reconciling them:** the operative variable is the *size* of the body-set change, not
+the fact of it. Session 10's set B moved the Precise by −0.231 and the Formal by +0.251
+— larger than most adjacent-rank gaps, so it reordered. Session 11's set B moved every
+civ by ≤ 0.175 and the only rank-crossing pair (Formal 1.991→2.047, Grounded
+1.958→2.069) crossed by 0.056 — well inside noise.
+
+> **Rule (replaces session 10's "rank agreement 2/8" rule):** a rank is reportable only
+> if it survives a body-set swap **whose per-civ perturbation is at least as large as the
+> rank gap it would reorder.** Below that, the band is a tie.
+
+**What survives four independently-written body sets across two sessions:**
+
+- **Top 3 stable:** Mythic > Whimsical > Poetic.
+- **Bottom 2 stable:** Grounded, Formal (last / second-last in every set).
+- **Middle band {Therapist, Precise, Engineer} is unranked** — 0.37-wide on `avg_score`,
+  swaps under any perturbation. **Report the band, not an order.**
+
+This is sharper than either prior session's rule and should replace both.
+
+### The stable low-relevance answer is still `civ-grounded`, and it hardened
+
+`civ-grounded`: last on `relevance_per_sim` (1.978), last on lifetime `avg_score`
+(1.972), **the fleet's lowest alignment (2.731)**, and placed last/second-last in **all
+four** body sets across two sessions. `civ-poetic` remains the inverse case — top of 8 on
+quality (2.230), 2nd on `rel_per_sim`, and **0 wins in 33** (a *selection* failure, not a
+quality collapse, now stable across 10 sessions). `civ-precise` is the other inverse:
+best win rate (0.571) but 5th on `avg_score` and 2nd-lowest novelty (1.160).
+**Extinction risk: none** (threshold −10, lowest +133.47, `--loop`-mode only).
+
+### Replications this session
+
+- Control B **+80 rows / +5 meta_log / 5 winners / 0 fallbacks / 0 score errors /
+  0 all-2.0-default rows**, uniform +10 per civ, in **both** body sets.
+- Chooser vs argmax(avg_score): **15.5 % (9/58)** lifetime; **0/10 this session**.
+  6th replication.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.975** (s8 0.985, s9 0.980,
+  s10 0.981) — 4th replication.
+- Counter gap unchanged: **844 ledger vs 584 registry = +260** rows counted by nobody.
+- Unpatched run: **+0 rows, +0 meta_log, 0 `Winner:` lines, exit 0** — 10th consecutive
+  session. The credential gap is still the whole story: all **8** sandbox secrets 401 on
+  the z.ai coding endpoint; JEV live at `jev-1.14.0`.
+
+### Environment notes (nothing new broke, but the traps all held)
+
+- `git clone --depth 1 --filter=blob:none` **failed again** (promisor pack died, git
+  removed the working tree). The **tarball** API is the reliable path; budget ~4 min for
+  3.6 GB and background both the download and the untar.
+- `git ls-remote` / `git clone` on `ai-writings/cellular-first-design` → *Repository not
+  found*. The real path is `SuperInstance/AI-Writings`; the prompt's owner segment is a
+  legacy name. Confirm with a code search for `civilization_orchestrator` in:path, not
+  by guessing the repo name.
+- Restore baseline must be fetched from the **API per file**, never copied from the
+  working tree after the patch — a post-patch copy reports a false DIFF forever.
+- `ln -sfn` still refuses to replace an existing real directory: `rm -rf` first.
