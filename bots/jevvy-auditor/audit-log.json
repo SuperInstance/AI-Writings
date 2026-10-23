@@ -179,6 +179,96 @@
           }
         }
       }
+    },
+    {
+      "ts": 1792739204.8138545,
+      "iso": "2026-10-23T07:06:44",
+      "verdict": "FAIL",
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "when_the_substrate_teaches",
+        "wide_unknown_rsi_gan",
+        "wesleys-sunday-afternoon-dream"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.25,
+          "confidence": 0.8,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.78,
+            "1": 0.2,
+            "2": 0.02,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.25
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.32
+        },
+        "q3": {
+          "type": "score",
+          "score": 2.22,
+          "confidence": 0.48,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.05,
+            "1": 0.11,
+            "2": 0.43,
+            "3": 0.41,
+            "4": 0.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.25,
+          "confidence": 0.78,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.8099999999999999,
+            "1": 0.15,
+            "2": 0.02,
+            "3": 0.01,
+            "4": 0.01
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "too-abstract",
+          "confidence": 0.29,
+          "probabilities": {
+            "low-quality": 0.39,
+            "redundant": 0.02,
+            "off-topic": 0.12,
+            "too-abstract": 0.43,
+            "none": 0.04
+          }
+        }
+      }
     }
   ]
 }

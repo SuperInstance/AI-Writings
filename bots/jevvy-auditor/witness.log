@@ -2,3 +2,7 @@
 {"ts": 1789964657.1744602, "iso": "2026-09-21T04:24:17", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
 {"ts": 1789967298.977806, "iso": "2026-09-21T05:08:18", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 4579}, "hash": "4c9020b02e59737c"}
 {"ts": 1789967299.313576, "iso": "2026-09-21T05:08:19", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
+{"ts": 1792739177.9123235, "iso": "2026-10-23T07:06:17", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 129}, "hash": "2e2758014522f895"}
+{"ts": 1792739178.1246638, "iso": "2026-10-23T07:06:18", "event": "jev_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
+{"ts": 1792739204.6627102, "iso": "2026-10-23T07:06:44", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 146}, "hash": "66f2da18fd02f148"}
+{"ts": 1792739204.8147109, "iso": "2026-10-23T07:06:44", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
