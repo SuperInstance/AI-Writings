@@ -3432,3 +3432,109 @@ distribution 10 calls per voice across all 8 voices per set, 0 fallbacks,
   byte-identical.
 - `civ-grounded` lowest on the score lenses — 14th session running.
 - `civ-poetic` 1 win in 58 — 24th session running.
+
+---
+
+## Session 27 additions (2026-10-23, 110th wipe)
+
+### The credential gap is still the whole story (25th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` absent from env **and** from the 8-entry
+secret store. All 7 readable sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **401** on every one
+(endpoint healthy ⇒ credential gap, not outage). JEV live (`jev-1.14.0`).
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Re-verified from scratch, with the delta measured rather than assumed:** the
+unpatched command printed the batch header and all 8 `[Name] running 5 sims...`
+lines, then an **empty competition section**, then **exit 0**. Ledger delta
+**+0 rows, +0 meta_log entries** (1 244 → 1 244, 83 → 83). Only
+`leaderboard.json` was rewritten. **Assert on the row delta, never on exit code.**
+
+### Control B reconfirmed a 5th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (10/civ,
+uniform), +5 meta_log, 5 winners, 0 all-2.0-default rows, 0 score errors, 0
+scaffolding leaks, 80/80 provider=zai, 80 mock calls, 10 per voice, 0 fallbacks,
+0 no-auth, 66 distinct avg_score, 40 distinct content_preview.** Reproduces
+sessions 6, 7, 8, 25b, 26.
+
+> **`distinct content_preview` is 40/80, not 80/80 — and that is correct.** The
+> mock's prose is deterministic per `(civ, prompt)`, and the 5 batch sims and
+> the 5 competition sims draw from the **same 5-prompt set**, so each
+> `(civ, prompt)` pair recurs exactly twice. 8 voices x 5 prompts = 40
+> distinct previews. A mock keyed on `(civ, prompt, temperature)` would give
+> 80. Do not read 40/80 as a collapse — check `mock calls per voice` (10 each)
+> instead.
+
+### Chooser vs `argmax(avg_score)` — 0/5, and visible in one session
+
+**20th replication.** Lifetime 18/88 = 20.5 %. This session the argmax was
+**`civ-poetic` in all 5 rounds** and it won **0** — the selection/scoring
+uncorrelation is now visible within a single session, not just lifetime. The
+chooser never sees the scores (it gets only 150 chars of each preview).
+
+### NEW: the mock's `hashlib` call must be encoded, and the traceback lies
+
+`hashlib.sha256((civ or "none") + "|" + q + "|" + str(body.get("temperature")))`
+raises `TypeError: Strings must be encoded before hashing` when temperature is
+`None` — and the handler dies with an **empty reply**, so `curl` returns
+nothing and the mock's own log file is never created. Fix:
+`hashlib.sha256(("%s|%s|%s" % (civ, q, temp)).encode())`.
+
+**The diagnostic trap:** the mock server writes its traceback to the same
+`/tmp/zai_mock.log` that the *next* launch truncates. After a restart the old
+traceback is still in the file, so the log looks like the patched code is
+still broken. **Check process liveness (`ps`) and the file's mtime, not the log
+contents.** Also: `kill` by PID from
+`ps -eo pid,args --no-headers | grep "[z]ai_mock"` — a `pkill -f` self-match
+will kill the invoking shell.
+
+### NEW: the clone's default branch is `main`, not `master`
+
+`git clone --filter=blob:none --no-checkout --depth 1` then
+`git sparse-checkout set cellular-first-design/code/civilizations` then
+`git checkout main` — the civ subtree landed in ~90 s with a **47 MB** working
+tree. `git checkout master` fails with
+`pathspec 'master' did not match any file(s) known to git`; `git branch -a`
+shows only `main` and `origin/main`.
+
+A plain `--depth 1` clone of the full repo was killed **twice** by the 30 s
+tool timeout mid-`index-pack`
+(`fatal: could not open '.git/objects/pack/tmp_pack_XXXX' for reading`), after
+growing to 2.0 GB. `--filter=blob:none` is the part that makes the transfer
+small — keep using it, and never start a second clone at a target that already
+has a live fetch.
+
+### The NAS EDQUOT trap, re-verified
+
+`cp -r` of the 1.5 MB civilizations tree onto the 100 %-full NAS mount failed
+with **`Disk quota exceeded`** on *every* file while still **creating 0-byte
+files that then appeared in `ls`** — a silent truncation that reads as a
+successful copy. `mkdir -p` and a 0-byte write succeed; anything with content
+does not. Mitigation: work on the overlay (`/tmp`) and expose it at the
+canonical path with a symlink placed **inside** the NAS dir
+(`/workspace/repos/ai-writings -> /tmp/repos/ai-writings`).
+**Remove the stale 0-byte copies before running**, or the next `ls` shows a
+plausible-but-empty tree.
+
+### Standing results this session
+
+- **Control B** +80 rows / +5 meta_log / 5 winners / 0 defaults / 0 errors —
+  **20th**.
+- **Chooser vs `argmax`** 0/5 this session, 18/88 (20.5 %) lifetime — **20th**.
+- **Temperature vs lifetime novelty**: Pearson r = **0.9691** — **15th**.
+- **Counter gap +260** (`ledger − registry`, standing form) — **7th**, byte-identical.
+- **`civ-grounded` lowest on the score lenses** — **15th session running**
+  (1.552 `relevance_per_sim`, 1.876 `avg_score`, 2.555 `alignment`).
+- **`civ-poetic` quality-leader / never-selected** — **25th session running**
+  (2.557 `avg_score`, 1st on `quality` 2.114, 1W/62L).
+
+### Ledger left byte-identical to the remote blobs
+
+Following the session-25b precedent, the 80 Control B rows and the resulting
+`culture.json` / `meta_log.jsonl` / `leaderboard.json` changes were **reverted
+before committing**; only `RUN_REPORT_2026-10-23_session27.md` and this
+learnings file are committed. The run's verified deltas are recorded in the
+report. The `ZAI_URL_OVERRIDE` seam was reverted too
+(`grep -c ZAI_URL_OVERRIDE` → 0 on the committed file).
