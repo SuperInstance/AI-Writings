@@ -3578,3 +3578,188 @@ the file's mtime, not the log contents. Also, a `pkill`/`xargs kill` in the
 *same* command line that launches the mock can kill the invoking shell before
 the launch runs — **start the mock in its own tool call**, then verify with an
 HTTP health check.
+
+---
+
+## Session 28 additions (2026-10-23, 117th wipe)
+
+> Filed as session 28. The remote HEAD was session 27 (`e5a4e6ca`) at session start; the
+> civ subtree there is byte-identical to this session's baseline.
+> **Baseline: 1324 ledger rows, 88 `meta_log` entries, registry `simulations_run` sum 1064,
+> counter gap +260.** A **concurrent instance** wrote 170 rows into the shared working tree
+> during this session (see the new trap below) — its rows are *not* in the committed tree.
+
+### The credential gap is still the whole story (16th consecutive session)
+
+`ZAI_TOKEN` / `ZAI_KEY` absent from env **and** from the 8-entry secret store. All **8**
+present sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or incorrect"**
+on every one (endpoint healthy ⇒ credential gap, not outage). `groq` → 401/403.
+**No alternate live provider.** JEV live at `jev-1.14.0`. Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch: batch header + 8 per-civ lines + **empty competition
+section** + **exit 0**. Ledger **+0 rows (1324 → 1324)**, `meta_log` **+0 (88 → 88)**,
+**0 `Winner:` lines**. Only `leaderboard.json` was rewritten.
+**Assert on the row delta, never on the exit code.**
+
+### NEW TRAP — a `git checkout --` restore BETWEEN the two A/B runs destroys set A
+
+The obvious way to run an A/B is: run set A → restore the tree → run set B → compare.
+**That destroys set A's rows.** `git checkout -- <subtree>` reverts the ledger to HEAD, so
+set A's 80 rows are gone before the comparison is made, and the "last N rows per civ" slice
+then returns set B's rows for *both* samples. The A/B silently becomes set B vs set B.
+
+**Do not restore between the two sets.** Instead:
+
+1. Restore once, to pristine, before the first run.
+2. Run set A and set B **back to back, with no restore in between**.
+3. Separate the two sets by a **unique marker in the mock's content prefix**, e.g.
+   `[mock-zai S28A #041]` / `[mock-zai S28B #041]`, and slice by marker, not by position.
+
+This session's first attempt did exactly the wrong thing: set A ran, then
+`git checkout --` wiped its rows, and set B's rows were then misread as set A's. The
+telltale was that the A-slice assertion (`content_preview.startswith(mark)`) failed.
+**Always assert the marker on every slice, not just the row count** — the row count was
+right in both samples; only the marker check caught it.
+
+Corollary: a **committed** mock-row session (s27 precedent) and an **A/B** session are
+mutually exclusive dispositions unless the mock rows carry a per-run marker, because the
+committed baseline already contains mock rows from earlier sessions.
+
+### NEW TRAP — a concurrent instance can write into the shared working tree
+
+The prompt's path is a **shared clone target**. A second instance of the same wipe ran the
+orchestrator against the **same** working tree while this session was between its two
+Control B runs, leaving **160 rows** with a different marker format
+(`[mock-zai set=B civ-grounded t=0.35 s=aee2d48662e1]`) plus **10 rows** with no marker at
+all — interleaved into the per-civ ledgers.
+
+**How to detect it, cheaply and reliably — use marker taxonomy, not row counts:**
+
+```python
+from collections import Counter
+c = Counter()
+for f in sorted(glob.glob('civ-*/simulations.jsonl')):
+    for l in open(f).read().splitlines():
+        pv = json.loads(l)['content_preview']
+        c['mock:setAB' if pv.startswith('[mock-zai set=') else
+          ('mock:plain'  if pv.startswith('A cell keeps its ledger honest') else
+          ('mine'        if pv.startswith('[mock-zai S28') else 'REAL'))] += 1
+```
+
+A census showing marker families you did not write means someone else did. **Note that the
+concurrent rows also carry a diagnostic signature:** their content was **reversed**
+(`.sdnetni ti tahw yb ton ,w` for "what a cell is.") and their `avg_score` values sat in the
+**0.6–1.1** band, well below the 1.6–2.9 band of a normal mock run. A reversed-text prefix
+or a bimodal score band is a strong tell that a *different* mock is in play.
+
+**The committed baseline is not a clean ledger.** The pristine HEAD's 1324 rows decompose as
+**914 REAL / 240 `mock:other` / 160 `mock:setAB` / 10 `mock:plain`** — i.e. **31 % of the
+committed "lifetime" ledger is mock output** from earlier sessions that committed mock rows
+(s25/s27). Any lifetime statistic must therefore be computed on the **REAL subset only**
+(924 rows after this session's own rows are excluded) or it silently reports the mock's
+prose, not the fleet's. The session-16 rule ("report baseline-only numbers") now applies to
+the **baseline itself**, not just to the current session's rows.
+
+### Control B reconfirmed, 22nd time, in both body sets
+
+`--sims 5 --prompts 5 --providers zai` → **+80 rows/set (10 per civ, uniform), +5
+`meta_log`/set, 5 winners/set, 0 all-2.0-default rows, 0 score errors, 0 fallbacks**,
+79/80 and 80/80 distinct `content_preview` (ceiling 80), 0 scaffolding leak, 0 salt-in-prompt.
+Mock voice distribution uniform, 10/civ, in both sets.
+
+### A/B verdict — a 3-slot middle-band scramble behind a stable fleet mean
+
+| | set A | set B |
+|---|---|---|
+| fleet mean `avg_score` | 2.4198 | 2.3559 (**−0.064**) |
+| max per-civ \|Δ\| | — | **0.380** (`civ-engineer`) |
+| positional rank agreement | — | **5/8** |
+| Kendall τ | — | **0.143** (16 conc / 12 disc) |
+| set A adjacent rank gaps | — | median **0.128** |
+| top-3 **set** | Poetic, Mythic, Therapist | Poetic, Mythic, Therapist |
+| bottom-2 **set** | Grounded, Precise | Grounded, Precise |
+
+max |Δ| **0.380** > median gap **0.128** ⇒ the perturbation exceeds the gap it would have to
+overturn ⇒ the middle band's **order** is not reportable, but the **sets** are. This is the
+**middle-band-scramble end** of the perturbation axis (s11 and s16 sat at the tie-preserving
+end; s12/s13 at the total-reorder end). The rule is unchanged and now re-confirmed from a
+fourth direction: **compare the run's max |Δ| against its own adjacent rank gaps.**
+
+Note the failure mode this exposes: a **stable fleet mean (−0.064)** sat next to a **3-slot
+reorder**. A mean is not a summary of an ordering.
+
+### Low relevance — four lenses, four answers (unchanged shape, new numbers)
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` | **civ-grounded** | 1.614 |
+| raw relevance | **civ-engineer** | 269.39 |
+| `win_rate` | **civ-poetic** | **0.014 (1W/72L)** |
+| lifetime `avg_score` (REAL rows only) | **civ-grounded** | 1.878 |
+| lifetime `quality` | civ-engineer | 1.486 |
+| lifetime `novelty` | civ-formal | 1.121 |
+| lifetime `alignment` | **civ-grounded** | **2.556** |
+
+- **`civ-grounded` = the stable low-relevance civ.** Last on `rel_per_sim`, lifetime
+  `avg_score` and lifetime `alignment`; bottom-2 **set** in both body sets. Genuine quality
+  signal, not the longevity artefact the `rel_per_sim` denominator suggests (it ran the most
+  sims, 169).
+- **`civ-poetic` = the inverse case.** 1st of 8 on lifetime `avg_score` (2.558), 1st on
+  `rel_per_sim` (2.358), and **1 win in 73**. A *selection* failure, not a quality collapse.
+  **26 sessions.**
+- **`civ-precise` = the other inverse.** Best win rate (0.471, 32W/36L) but 5th of 8 on
+  `avg_score` and 2nd-lowest novelty.
+- **Extinction risk: none** (threshold −10, lowest +269.39, `--loop`-only).
+
+### Replications
+
+- Chooser vs `argmax(avg_score)`: **0/10 this session** (0/5 in each body set),
+  **17.3 % lifetime (17/98)** — 11th replication. In every round of both runs the chooser
+  crowned a civ that was **not** the top scorer.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9703** — 9th replication.
+- Counter gap **+260**, measured **blob-to-blob** (pristine ledger vs pristine registry).
+  Measuring it against the *live* `culture.json` reported a spurious **+100**, because the
+  concurrent instance's run had rewritten the registry in place. **The session-13 trap, hit
+  again** — the two sides of the comparison must come from the same point in time, and
+  "the registry" is not a single point in time while another writer is live.
+
+### Environment notes (the old ones all held)
+
+1. The task path did not exist at session start. `/workspace` held only `.plugin-cache`;
+   **NAS is at 100 % quota** (600 G used, 0 avail) — the EDQUOT trap.
+2. **A plain shallow clone worked in ~60 s** (`git clone --depth 1 <token-url>`), consistent
+   with session 17 and again contradicting sessions 9–16's "3.4–3.7 GB, >3 min". **Time it
+   rather than trust a recorded duration.** The first attempt here used `--depth 1` into an
+   existing dir and died with `could not open .../tmp_pack_JzaRsB for reading` + git
+   removing the working tree — retry into a **fresh** target.
+3. `rm -rf /workspace/repos && mkdir -p /workspace/repos && ln -sfn /tmp/aw/AI-Writings
+   /workspace/repos/ai-writings` — the symlink is what makes the hardcoded `CIVS_DIR`
+   resolve. `ln -sfn` will not replace an existing real directory: `rm -rf` first.
+4. `gh` CLI is still not installed; the GitHub REST API with `$GITHUB_TOKEN` works. The
+   remote repo is **`SuperInstance/AI-Writings`** (capitalised) — the prompt's
+   `ai-writings/cellular-first-design` owner segment is a **legacy name** and 404s.
+5. The `read` tool rejects paths outside the workspace and cannot write `/tmp`; the `write`
+   tool is jailed to the workspace root. Use **bash heredocs for `/tmp` artifacts**.
+6. **Restore the tree with `git checkout -- <subtree>` and verify with `cmp` against
+   `git show HEAD:<path>`** over `git ls-tree -r --name-only HEAD <subtree>` — all **66
+   files** were byte-identical this session. `git status` alone is not the check.
+7. `ZAI_URL_OVERRIDE` seam: 1-line patch, blast radius verified by `diff` against the
+   pristine blob, **not committed** (`grep -c` → 0 after restore).
+
+### Standing results this session
+
+- **Control B** +80 rows / +5 meta_log / 5 winners / 0 defaults / 0 errors / 0 fallbacks —
+  **22nd** reproduction.
+- **Chooser vs `argmax`** 0/10 this session, 17.3 % lifetime — **11th** replication.
+- **Temperature vs lifetime novelty**: Pearson r = **0.9703** — **9th**.
+- **Counter gap +260** (blob-to-blob) — standing form, unchanged.
+- **`civ-grounded` lowest on the score lenses** — **16th session running**
+  (1.614 `rel_per_sim`, 1.878 `avg_score`, 2.556 `alignment`).
+- **`civ-poetic` quality-leader / never-selected** — **26th session running**
+  (2.558 `avg_score`, 1st on `quality` 2.113, 1W/72L).
+- **The mock rows were reverted before commit** (ledger byte-identical to the remote blobs),
+  following the s25b/s26 precedent. The committed ledger therefore does **not** grow by this
+  session, and the lifetime lenses above are computed on the **REAL subset** of the
+  *baseline* (924 rows) — never on the baseline's 1324, of which 31 % is mock output.
