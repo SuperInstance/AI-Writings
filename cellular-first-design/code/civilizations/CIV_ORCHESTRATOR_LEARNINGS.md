@@ -877,3 +877,198 @@ against a *different* target, so keep one clone per target.
 - Counter gap: **exactly +260** (764 ledger rows vs 504 registry `simulations_run`).
   `save_state()` has no lock and no read-modify-write => lost-update race =>
   `relevance_per_sim` is **not a reproducible ranking**.
+
+---
+
+## Session 13 additions (2026-10-23, 114th wipe)
+
+> **Filed as session 13, not session 12.** A concurrent instance of the same wipe pushed
+> `RUN_REPORT_2026-10-23_session12.md` (remote commit `715abb3`) while this run was in
+> flight; this session's push was rejected as non-fast-forward and the new file was
+> found on re-fetch. That report is a real measurement and is **left untouched** — see
+> the new rule below. This session's report is `RUN_REPORT_2026-10-23_session13.md`.
+
+### NEW RULE - a concurrent push is a signal, not an obstacle
+
+The session-11 rule said "file the next report under the next number, never the one you
+believe is yours". This session proves the rule is load-bearing: **the remote already
+carried a `RUN_REPORT_2026-10-23_session12.md` from another instance of the same wipe**,
+committed under a *force-update* (`4992e1c -> 715abb3`).
+
+The correct handling of the rejected push:
+
+1. `git fetch --depth 1 origin main`; diff `4992e1c..FETCH_HEAD` to see **what** changed.
+2. Look for a **name collision** with a file you have already written locally. Here the
+   diff showed the remote had added a `RUN_REPORT_..._session12.md` that was *not* ours.
+3. **Rename to the next free number** (`session13`), update the report header **and** the
+   learnings heading, and re-file.
+4. Rebase onto the new remote head; push.
+
+**Never force-push over another instance's report.** A rejected push is telling you
+something true about the world.
+
+**Also: a concurrent instance may run against a DIFFERENT ledger baseline.** The remote
+session-12 report quotes a registry of 424 `simulations_run` and `civ-poetic` at 0W/28L;
+this session's baseline is 684 committed rows, 48 `meta_log` entries, `civ-poetic` 0W/33L.
+**Absolute numbers across concurrent reports are not comparable — only ranks and
+qualitative findings are.** Always state your own baseline in the report header.
+
+### The two instances agree on substance, and that is an independent replication
+
+| finding | concurrent instance | this session |
+|---|---|---|
+| unpatched command is a green no-op | +0 rows, 0 `Winner:` lines | +0 rows, 0 `Winner:` lines |
+| `civ-grounded` = stable low-relevance civ | bottom-2 in 3/4 pooled sets, lowest pooled mean 1.998 | last on `rel_per_sim` **and** lifetime `avg_score`, lowest alignment 2.747, bottom-2 in both sets |
+| `civ-poetic` = stable selection failure | 0 wins in 28, "held across 11 sessions" | 0 wins in 33, 1st on `rel_per_sim` |
+| `civ-precise` = selection/quality inversion | best win_rate 0.652, last novelty 1.069 | best win_rate 0.536, last novelty 0.955 |
+| extinction risk | none | none |
+| A/B positional rank agreement | **2/8** | **2/8** |
+| A/B Kendall tau | **0.286** | **0.714** |
+
+Two instances, different baselines, different mock body sets, **the same 2/8 positional
+rank agreement** and the same four civ-level conclusions. The τ difference (0.286 vs
+0.714) is *not* a contradiction — it is the same "perturbation magnitude vs adjacent-rank
+gap" axis, and the concurrent instance's own report reconciles it that way.
+
+**Across sessions 10, 11, 13 and the concurrent instance, what never moves is the SET:**
+top-3 {Therapist, Poetic, Mythic}, bottom-2 {Engineer, Formal}, middle band
+{Precise, Whimsical, Grounded} unranked. **Report sets; report the middle band as a band.**
+
+
+
+### The credential gap is still the whole story (11th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the secret store. All **7** candidate
+sandbox secrets re-tested against the z.ai coding endpoint -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage). z.ai's
+balance/model endpoints 401 as well, consistent with the fleet's `situations/ROSTER.md`
+note that the key is out of balance (code 1113 "recharge") - so a key alone would not
+have been sufficient either.
+
+**NEW this session: `groq` is now also confirmed dead.** `https://api.groq.com/openai/v1/chat/completions`
+-> **HTTP 403 `error code: 1010`** on every candidate token (a Cloudflare block, not an
+auth failure). **There is no alternate live provider in this sandbox** - `zai` is the only
+path in the orchestrator, and it is unavailable. Any session that proposes "just switch
+providers" will find nothing to switch to.
+
+JEV live at `jev-1.14.0`. Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch: batch header + all 8 `[Name] running 5 sims...`
+lines, **no `Winner:` lines**, **exit 0**, ledger delta **+0 rows, +0 meta_log**
+(684 -> 684, 48 -> 48). **Assert on the row delta, never on exit code.**
+
+### Control B reconfirmed a 6th time, in both body sets
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows (+10 per civ, uniform), +5 meta_log,
+5 winners, 0 all-2.0-default rows, 0 score errors, 0 mock fallbacks, 73/80 distinct
+`content_preview`** - reproduces sessions 6-11 exactly.
+
+### NEW TRAP - the salt must NOT be mixed into the prompt
+
+The mock's body-selection seed needs `(temperature, max_tokens, len(prompt))`. If the
+salt is appended to the prompt **before** the question is stripped, the salted string
+leaks into the rendered content:
+
+```
+"On the question of what a cell is.|0.8|300, the same rule holds: ..."
+```
+
+Nothing raises. The run still produces +80 rows, 0 fallbacks and 0 score errors, so
+every existing acceptance check passes. **The only tell is the mock call log's
+`question` field, which is logged separately from the content.**
+
+> **Strip the question from the ORIGINAL prompt; apply the salt to the seed only.**
+> `make_content(prompt, body_set, temp, maxtok)` must take the raw prompt and the two
+> request-body params as separate arguments, and the seed must be built as
+> `f"{prompt}|{temp}|{maxtok}|{len(prompt)}|{body_set}"` *after* `strip_question` has
+> already run on the untainted prompt.
+
+**Generalisation: a control's own log is the instrument that catches a control that
+"passes" - keep logging the raw inputs, not just the outputs.**
+
+### NEW TRAP - the counter gap must be measured baseline-to-baseline
+
+The `+260` gap (684 ledger rows vs 424 registry `simulations_run`) is **unchanged**.
+Measuring it as *live `culture.json`* vs *baseline ledger* reports a spurious **+100**
+and looks like the gap shrank, because the session's own runs rewrote `culture.json`.
+
+> **Both sides of the counter-gap comparison must come from the same point in time.**
+> Compare the pristine git blobs to each other, never a live file to a baseline file.
+> This is the same class of error as the restore-baseline trap (comparing a post-patch
+> copy to a post-patch file) and it produces a confident, wrong, directionally-opposite
+> number.
+
+### The A/B verdict reproduces session 11 - and the reportable granularity is a SET, not an order
+
+| | set A | set B |
+|---|---|---|
+| fleet mean `avg_score` | 1.9933 | 2.0325 (**+0.039**) |
+| max per-civ \|delta\| | — | **0.247** |
+| positional rank agreement | — | **2/8** |
+| Kendall tau | — | **0.714** (24 conc / 4 disc) |
+| top-3 **set** | Therapist, Poetic, Mythic | Poetic, Mythic, Therapist |
+| bottom-2 **set** | Engineer, Formal | Engineer, Formal |
+| competition winners | Formal, Therapist, Grounded, Therapist, Precise | Engineer, Grounded, Grounded, Precise, Engineer |
+
+**Three sessions (10, 11, 12) with six independently-written body sets now agree:**
+**top-3 set stable, bottom-2 set stable, middle band {Precise, Whimsical, Grounded}
+unranked.**
+
+- **Top 3 set: {Therapist, Poetic, Mythic}** - and the same three top every lifetime ranking.
+- **Bottom 2 set: {Engineer, Formal}** - and the same two sit at the bottom of the lifetime ranking.
+- **Middle band {Precise, Whimsical, Grounded}** - the swap between Whimsical (4th->5th)
+  and Precise (4th->6th) happened on a perturbation of only 0.090-0.138 while the
+  adjacent rank gaps were 0.10-0.15, i.e. the perturbation is **smaller** than the gap
+  it reorders. That is noise. **Report the band, not an order.**
+
+Note the *competition winners* are the least stable quantity measured: 5 winners in set A
+(Formal x1, Therapist x2, Grounded x1, Precise x1) and 5 in set B (Engineer x2,
+Grounded x2, Precise x1) - **no civ won in both sets.** A single round's winner is
+therefore not a measurement of anything.
+
+### The stable low-relevance answer is `civ-grounded`, and it has now held 3 sessions running
+
+`civ-grounded`: last on `relevance_per_sim` (1.944), last on lifetime `avg_score`
+(1.965), **the fleet's lowest alignment (2.747)**, and last/second-last in **every**
+body set across sessions 10, 11 and 12. It is the one low-relevance answer that does
+not depend on which lens you pick.
+
+`civ-poetic` remains the inverse case - 1st of 8 on `relevance_per_sim` (2.584), 2nd on
+lifetime `avg_score` (2.649), 2nd on alignment (3.343), and **0 wins in 33**. A
+*selection* failure, not a quality collapse, stable across 11 sessions.
+`civ-precise` is the other inverse: best win rate (0.536) but 5th on `avg_score` and
+**last on novelty (0.955)**.
+**Extinction risk: none** (threshold -10, lowest +127.54, `--loop`-mode only).
+
+### Replications this session
+
+- Control B **+80 rows / +5 meta_log / 5 winners / 0 fallbacks / 0 score errors /
+  0 all-2.0-default rows**, uniform +10 per civ, in **both** body sets.
+- Chooser vs `argmax(avg_score)`: **22.4 % lifetime (13/58)**, **4/10 this session**
+  (s7 4.4 %, s8 18.9 %, s9 ~17 %, s10 15.5 %, s11 15.5 %) - 7th replication.
+  Disagreement margins ran to **1.10** (chooser crowned Grounded 1.69 over Mythic 2.78).
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9845** (s8 0.985, s9 0.980,
+  s10 0.981, s11 0.975) - 5th replication. The fleet is 8 points on one
+  temperature/novelty gradient with a style overlay.
+- Counter gap unchanged at **+260** (684 vs 424), measured baseline-to-baseline.
+
+### Environment notes (two new ones, and the old ones all held)
+
+1. **A plain `git clone` into `/workspace` dies on the NAS quota, not on git.** Symptom:
+   `error: .../.git/description: close error: Disk quota exceeded` +
+   `fatal: cannot copy '/usr/share/git-core/templates/description' ...`. The EDQUOT trap
+   again. **Clone to `/tmp`**, then `rm -rf /workspace/repos/ai-writings && ln -sfn
+   /tmp/aiw /workspace/repos/ai-writings`.
+2. **A 30 s tool timeout kills a clone mid-pack** and leaves a 713 MB `.git` with a
+   corrupt/absent working tree. Re-run in `/tmp` with
+   `--filter=blob:none --no-checkout` + `git sparse-checkout set cellular-first-design`,
+   backgrounded. This time the filtered clone **succeeded** (55 MB working tree, ~60 s),
+   contradicting session 9/10/11's "the filtered clone always fails" - **treat it as
+   unreliable-but-possible, and fall back to the tarball API rather than retrying it
+   repeatedly.**
+3. `ln -sfn` still refuses to replace an existing real directory: `rm -rf` first.
+4. The restore path was the easy one this session: with a **real clone** available,
+   `git checkout -- cellular-first-design/code/civilizations/` restored the tree, and
+   all **21 files** verified byte-identical with `cmp` against `git show HEAD:<path>`.
+   **Take the restore baseline from the git blob, never from a working-tree copy taken
+   after patching** - that error is unchanged and still produces a false DIFF forever.
