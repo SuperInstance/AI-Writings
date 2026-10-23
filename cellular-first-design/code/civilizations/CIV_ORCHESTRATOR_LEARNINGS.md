@@ -3469,10 +3469,11 @@ sessions 6, 7, 8, 25b, 26.
 
 ### Chooser vs `argmax(avg_score)` — 0/5, and visible in one session
 
-**20th replication.** Lifetime 18/88 = 20.5 %. This session the argmax was
-**`civ-poetic` in all 5 rounds** and it won **0** — the selection/scoring
-uncorrelation is now visible within a single session, not just lifetime. The
-chooser never sees the scores (it gets only 150 chars of each preview).
+**21st replication.** Lifetime 18/93 = 19.4 %. This session the argmax was
+**`civ-poetic` in all 5 rounds** and it won **0** — on **both** independent
+runs — so the selection/scoring uncorrelation is now visible within a single
+session, not just lifetime. The chooser never sees the scores (it gets only
+150 chars of each preview).
 
 ### NEW: the mock's `hashlib` call must be encoded, and the traceback lies
 
@@ -3521,20 +3522,59 @@ plausible-but-empty tree.
 ### Standing results this session
 
 - **Control B** +80 rows / +5 meta_log / 5 winners / 0 defaults / 0 errors —
-  **20th**.
-- **Chooser vs `argmax`** 0/5 this session, 18/88 (20.5 %) lifetime — **20th**.
-- **Temperature vs lifetime novelty**: Pearson r = **0.9691** — **15th**.
+  **21st** (two independent runs, each reproducing the row count to the row).
+- **Chooser vs `argmax`** 0/5 on **both** runs this session, 18/93 (19.4 %) lifetime — **21st**.
+- **Temperature vs lifetime novelty**: Pearson r = **0.9572** — **16th**.
 - **Counter gap +260** (`ledger − registry`, standing form) — **7th**, byte-identical.
 - **`civ-grounded` lowest on the score lenses** — **15th session running**
-  (1.552 `relevance_per_sim`, 1.876 `avg_score`, 2.555 `alignment`).
+  (1.554 `relevance_per_sim`, 1.617 `avg_score`, 2.121 `alignment`).
 - **`civ-poetic` quality-leader / never-selected** — **25th session running**
-  (2.557 `avg_score`, 1st on `quality` 2.114, 1W/62L).
+  (2.361 `avg_score`, 1st on `quality` 1.803, 1W/62L).
 
-### Ledger left byte-identical to the remote blobs
+### Two Control B runs, two different ledger dispositions — pick deliberately
 
-Following the session-25b precedent, the 80 Control B rows and the resulting
-`culture.json` / `meta_log.jsonl` / `leaderboard.json` changes were **reverted
-before committing**; only `RUN_REPORT_2026-10-23_session27.md` and this
-learnings file are committed. The run's verified deltas are recorded in the
-report. The `ZAI_URL_OVERRIDE` seam was reverted too
-(`grep -c ZAI_URL_OVERRIDE` → 0 on the committed file).
+Session 26 followed the session-25b precedent and **reverted** the 80 mock rows
+before committing (ledger byte-identical to the remote blobs). This session the
+task explicitly asked to *verify that `simulations.jsonl` files have new
+entries*, so the rows were **committed** instead. The difference matters when
+comparing sessions:
+
+- **Reverted** (s25b, s26): the committed ledger holds no session rows; the
+  report is the only artifact; the next session's baseline row count is the
+  remote blob's.
+- **Committed** (s27): the ledger grows by +80 per run, so the lifetime lenses
+  in the *next* session include this session's mock rows unless they are
+  explicitly excluded.
+
+**Rule:** when the mock rows are committed, the lifetime score lenses in the
+report MUST exclude them (they are the last 10 rows of each civ's file), or the
+`avg_score` / `quality` / `novelty` / `alignment` means silently shift. The
+`ledger - registry` counter gap is unaffected either way, because
+`simulations_run` counts mock runs too.
+
+### The drift column's sign depends on the disposition
+
+With the mock rows reverted, the registry-vs-ledger `drift` column matches
+prior sessions byte-for-byte (the Whimsical at **-89.33**). With the mock rows
+committed, the same comparison shifts the drift column sharply (the Whimsical
+at **-153.70**) because the registry's `relevance_score` was incremented by
+the mock rows while the "real rows" lens in the report excludes them. The
+**net gap (+260)** is the stable standing measurement in both dispositions;
+the per-civ drift is not. Quote the net gap, and label which disposition the
+drift column came from.
+
+### The `ZAI_URL_OVERRIDE` seam was reverted before commit
+
+`grep -c ZAI_URL_OVERRIDE` -> **0** on the committed file. It is a working-tree
+test patch only; it is re-applied each session and must never be committed.
+
+### New mock gotcha — the log file lies about which code is running
+
+The mock server writes its traceback to the same `/tmp/zai_mock.log` that the
+*next* launch truncates. After a restart the **old** traceback is still in the
+file, so the log appears to show the patched code is still broken. Fix: check
+process liveness (`ps -eo pid,args --no-headers | grep "[z]ai_mock.py"`) and
+the file's mtime, not the log contents. Also, a `pkill`/`xargs kill` in the
+*same* command line that launches the mock can kill the invoking shell before
+the launch runs — **start the mock in its own tool call**, then verify with an
+HTTP health check.

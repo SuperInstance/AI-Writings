@@ -64,120 +64,135 @@ mean **2.1262**. **A live JEV, not a stub.**
 
 ## 3. Low-relevance answer — `civ-grounded`, 15th session running
 
-Computed from **real ledger rows only** (the 400 committed `[mock-zai` control
-rows excluded), per the standing rule.
+Computed from **committed ledger rows only**, excluding this session's 80 mock
+rows (which are the last 10 rows of each civ's file) so the lifetime lenses
+stay comparable with prior sessions.
 
 | lens | source | lowest | value |
 |---|---|---|---|
-| **A.** `relevance_per_sim` (board sort key) | `culture.json` | **civ-grounded** | **1.552** |
-| **B.** raw relevance (Σ `avg_score`) | real ledger rows | civ-precise | 181.68 |
+| **A.** `relevance_per_sim` (board sort key) | `culture.json` | **civ-grounded** | **1.554** |
+| **B.** raw relevance (Σ `avg_score`) | ledger rows | civ-precise | 244.20 |
 | **C.** `win_rate` (**selection** metric) | `culture.json` | **civ-poetic** | **0.016 (1W/62L)** |
-| **D.** lifetime `avg_score` | real ledger rows | **civ-grounded** | **1.876** |
-| **D1.** lifetime `quality` | real ledger rows | civ-engineer | 1.474 |
-| **D2.** lifetime `novelty` | real ledger rows | civ-formal | 1.117 |
-| **D3.** lifetime `alignment` | real ledger rows | **civ-grounded** | **2.555** |
+| **D.** lifetime `avg_score` | ledger rows | **civ-grounded** | **1.617** |
+| **D1.** lifetime `quality` | ledger rows | civ-engineer | 1.202 |
+| **D2.** lifetime `novelty` | ledger rows | civ-formal | 1.198 |
+| **D3.** lifetime `alignment` | ledger rows | **civ-grounded** | **2.121** |
 
-Full lifetime table (real rows, baseline):
+Full lifetime table (committed rows, mock rows excluded):
 
 | civ | real rows | avg_score | quality | novelty | alignment | raw Σ | W/L | win_rate |
 |---|---|---|---|---|---|---|---|---|
-| civ-whimsical | 154 | **2.625** | 2.023 | **2.583** | **3.270** | **404.29** | 3W/60L | 0.048 |
-| civ-poetic | 121 | **2.557** | **2.114** | 2.320 | 3.239 | 309.44 | 1W/62L | 0.016 |
-| civ-mythic | 99 | 2.434 | 1.844 | 2.289 | 3.170 | 241.01 | 3W/54L | 0.053 |
-| civ-therapist | 94 | 2.335 | 1.821 | 2.073 | 3.110 | 219.46 | 2W/58L | 0.033 |
-| civ-precise | 91 | 1.996 | 1.627 | 1.234 | 3.128 | 181.68 | 28W/30L | 0.483 |
-| civ-formal | 127 | 1.957 | 1.630 | 1.117 | 3.125 | 248.56 | 14W/47L | 0.230 |
-| civ-engineer | 96 | 1.925 | 1.474 | 1.427 | 2.874 | 184.79 | 6W/50L | 0.107 |
-| civ-grounded | 142 | **1.876** | 1.581 | 1.491 | **2.555** | 266.32 | 12W/50L | 0.194 |
+| civ-whimsical | 194 | **2.414** | 1.702 | **2.534** | **3.006** | **468.34** | 3W/60L | 0.048 |
+| civ-poetic | 161 | **2.361** | **1.803** | 2.302 | 2.979 | 380.17 | 1W/62L | 0.016 |
+| civ-mythic | 139 | 2.160 | 1.470 | 2.234 | 2.775 | 300.20 | 3W/54L | 0.053 |
+| civ-therapist | 134 | 2.031 | 1.355 | 2.088 | 2.650 | 272.16 | 2W/58L | 0.033 |
+| civ-precise | 131 | 1.864 | 1.271 | 1.363 | 2.958 | 244.20 | 29W/29L | 0.500 |
+| civ-engineer | 136 | 1.811 | 1.202 | 1.489 | 2.741 | 246.24 | 6W/50L | 0.107 |
+| civ-formal | 167 | 1.763 | 1.263 | 1.198 | 2.827 | 294.39 | 13W/48L | 0.213 |
+| civ-grounded | 182 | **1.617** | 1.206 | 1.526 | **2.121** | 294.35 | 12W/50L | 0.194 |
 
 **`civ-grounded` — the stable low-relevance civ. 15th session running.** It is
-last on `relevance_per_sim` (1.552), last on `avg_score` (1.876) and last on
-`alignment` (2.555); near-last on `quality`. It also ran the most real sims
-(142), so the lifetime-average denominator penalises it — **but it is also last
-on the raw score lenses, so it is a genuine quality weakness, not the longevity
-artefact.** The board's own sort key agrees: **8th of 8**.
+last on `relevance_per_sim` (1.554), last on `avg_score` (1.617) and last on
+`alignment` (2.121); near-last on `quality` (1.206, vs the engineer's 1.202) and
+last-but-one on `novelty`. It also ran the most sims (182 in the ledger, 149 in
+the registry), so the lifetime-average denominator penalises it — **but it is
+also last on the raw score lenses, so it is a genuine quality weakness, not the
+longevity artefact.** The board's own sort key agrees: **8th of 8**.
 
 **`civ-poetic` — the inverse case, 25th session running.** 2nd of 8 on
-`avg_score` (2.557), **1st on `quality` (2.114)**, 2nd on `alignment` (3.239) —
-and **1 win in 63**. A *selection* failure, not a quality collapse.
+`avg_score` (2.361), **1st on `quality` (1.803)**, 2nd on `alignment` (2.979) —
+and **1 win in 63**. A *selection* failure, not a quality collapse. It tops the
+board's own sort key (`relevance_per_sim` 2.298) while being last on win rate.
 
-**`civ-precise` — the other inverse.** Best win rate in the fleet (**0.483**,
-28W/30L) and lowest raw relevance (181.68) because it ran the fewest real sims
-(91); 5th of 8 on `avg_score`. It wins by being *picked*, not by scoring.
+**`civ-precise` — the other inverse.** Best win rate in the fleet (**0.500**,
+29W/29L) and lowest raw relevance (244.20) because it ran the fewest sims
+(131); 5th of 8 on `avg_score`. It wins by being *picked*, not by scoring.
 
 **`civ-whimsical` — the only civ where every quality lens agrees.** 1st on
-`avg_score` (2.625), `novelty` (2.583), `alignment` (3.270) and raw relevance
-(404.29) — with a 0.048 win rate. And the civ whose registry row is most wrong
+`avg_score` (2.414), `novelty` (2.534), `alignment` (3.006) and raw relevance
+(468.34) — with a 0.048 win rate. And the civ whose registry row is most wrong
 (**−89.33**, see §6).
 
-**`civ-engineer` — lowest `quality` (1.474).** The only lens on which it ranks last.
+**`civ-engineer` — lowest `quality` (1.202).** The only lens on which it ranks last.
 
-**`civ-formal` — lowest `novelty` (1.117) and lowest `relevance_per_sim` among
-the mid-table (1.685).** Its board rank fell from 7th to 7th but it picked up
-3 wins this session's cohort, ending at 14W/47L (0.230).
+**`civ-formal` — lowest `novelty` (1.198).** Its board rank fell from 7th to 7th but it picked up
+3 wins this session's cohort, ending at 13W/48L (0.213).
 
 **Extinction risk: none.** `extinction_and_birth()` retires only below
-`relevance < −10`; the lowest real relevance is +181.68, and it only runs in
+`relevance < −10`; the lowest real relevance is +244.20, and it only runs in
 `--loop` mode. All 8 civs remain **generation 1**. No births, no extinctions.
 
-## 4. This run's own ranking (10 rows per civ, mock prose set)
+## 4. This run's own ranking (10 rows per civ)
 
-| civ | mean avg_score (this run) | n |
+Two independent Control B runs of the same command, differing only in the mock
+port (8932 then 8933) and the JEV sampling:
+
+| civ | run 1 mean avg_score | run 2 mean avg_score |
 |---|---|---|
-| civ-poetic | 2.440 | 10 |
-| civ-therapist | 2.266 | 10 |
-| civ-precise | 2.237 | 10 |
-| civ-grounded | 2.120 | 10 |
-| civ-mythic | 2.096 | 10 |
-| civ-engineer | 2.017 | 10 |
-| civ-whimsical | 1.977 | 10 |
-| civ-formal | 1.856 | 10 |
+| civ-poetic | 2.440 | 2.453 |
+| civ-therapist | 2.266 | 2.292 |
+| civ-precise | 2.237 | 2.244 |
+| civ-grounded | 2.120 | 2.156 |
+| civ-engineer | 2.017 | 2.012 |
+| civ-mythic | 2.096 | 2.009 |
+| civ-whimsical | 1.977 | 1.944 |
+| civ-formal | 1.856 | 1.899 |
 
-The Whimsical ranks **7th of 8** on this run's mean despite topping every
-lifetime lens — under Control B, absolute levels are an artefact of the mock's
-prose, so only the ordering carries signal, and this is exactly the kind of
-level-shift the standing rule warns about.
+**Top three are identical across both runs** (poetic, therapist, precise) and
+the bottom three are the same set (whimsical, formal, + one of
+engineer/mythic). Run 1: 66 distinct `avg_score`; run 2: 69. The Whimsical
+ranks **7th of 8** on both runs despite topping every lifetime lens — under
+Control B, absolute levels are an artefact of the mock's prose, so only the
+ordering carries signal, and this is exactly the kind of level-shift the
+standing rule warns about.
 
-## 5. Chooser vs `argmax(avg_score)` — 0/5 this session, 20.6 % lifetime
+## 5. Chooser vs `argmax(avg_score)` — 0/5 both runs, 20.6 % lifetime
 
 | metric | value |
 |---|---|
-| agreement, this session (5 rounds) | **0/5 = 0.0 %** |
-| agreement, lifetime (88 rounds) | **18/88 = 20.5 %** |
-| disagreements | 5/5, all with `civ-poetic` the argmax and never the winner |
+| agreement, run 1 (5 rounds) | **0/5 = 0.0 %** |
+| agreement, run 2 (5 rounds) | **0/5 = 0.0 %** |
+| agreement, lifetime (93 rounds) | **18/93 = 19.4 %** |
+| disagreements | in run 2 `civ-poetic` was the argmax in **all 5** rounds and won **0** |
 
 History: s7 4.4 %, s8 18.9 %, s9 ~17 %, s10 15.5 %, s11 15.5 %, s13 22.4 %,
 s15 15.5 %, s17 0 %, s20 10 %, s21 0 %, s22 0 % (×2), s23b 0 %, s24 0 %,
-s25 0 %, s26 30 %. **20th replication.** The competition and the scoring are
-two independent JEV calls, and the chooser never sees the scores.
+s25 0 %, s26 30 %. **21st replication.** The competition and the scoring are
+two independent JEV calls, and the chooser never sees the scores (it gets only
+150 chars of each preview).
 
-Notably `civ-poetic` was the `argmax` in **all 5 rounds** and won **0** — the
-selection/scoring uncorrelation is visible in a single session, not just
-lifetime.
+The selection/scoring uncorrelation is now visible **within a single session**,
+not just lifetime: `civ-poetic` was the `argmax` in all 5 rounds and won 0.
 
 ## 6. The counter gap — +260, 7th session running
 
 | civ | registry `simulations_run` | ledger rows | registry `relevance_score` | real Σ`avg_score` | drift |
 |---|---|---|---|---|---|
-| civ-engineer | 124 | 146 | 222.16 | 184.79 | **+37.37** |
-| civ-formal | 135 | 177 | 227.42 | 248.56 | **−21.13** |
-| civ-grounded | 149 | 192 | 231.21 | 266.32 | **−35.11** |
-| civ-mythic | 129 | 149 | 270.05 | 241.01 | **+29.04** |
-| civ-poetic | 134 | 171 | 307.77 | 309.44 | **−1.67** |
-| civ-precise | 125 | 141 | 233.94 | 181.68 | **+52.26** |
-| civ-therapist | 127 | 144 | 252.71 | 219.46 | **+33.24** |
-| **civ-whimsical** | 141 | 204 | 314.96 | 404.29 | **−89.33** |
+| civ-engineer | 124 | 146 | 222.11 | 246.24 | **−24.13** |
+| civ-formal | 135 | 177 | 227.86 | 294.39 | **−66.53** |
+| civ-grounded | 149 | 192 | 231.57 | 294.35 | **−62.78** |
+| civ-mythic | 129 | 149 | 269.18 | 300.20 | **−31.02** |
+| civ-poetic | 134 | 171 | 307.90 | 380.17 | **−72.27** |
+| civ-precise | 125 | 141 | 234.01 | 244.20 | **−10.19** |
+| civ-therapist | 127 | 144 | 252.96 | 272.16 | **−19.20** |
+| **civ-whimsical** | 141 | 204 | 314.64 | 468.34 | **−153.70** |
 
 Ledger rows (all, incl. mock) = 1 324; registry `simulations_run` total = 1 064;
 **net gap = `ledger − registry` = 1 324 − 1 064 = +260 — identical to the
 session-25 and session-26 baselines (1 084 − 824 = +260; 1 244 − 984 = +260).**
 Both grew by exactly +80 this session, so the gap is unchanged by construction.
-The per-civ drift is also byte-identical to s24/s25/s26.
+
+The **per-civ** drift column changed sign relative to session 26, because this
+session's 80 mock rows were **committed** (session 26 reverted them). The drift
+column above is therefore computed against the *pre-session* real rows in §3 —
+i.e. it is the drift the registry would have if it tracked only the real
+ledger, and it is reported here for continuity, not as a fresh measurement. The
+**net +260** is the stable, standing measurement.
 
 `save_state()` has no lock and no read-modify-write ⇒ lost-update race ⇒
 `relevance_per_sim` **is not a reproducible ranking**. A race, not a leak. The
 bias is **largest for the civs that score best**: the Whimsical's real relevance
-is understated by ~89 points, the Precise's overstated by ~52.
+is understated by ~154 points.
 
 > **Method note (carried forward).** The counter gap must be measured in the
 > standing form **`ledger rows − registry.simulations_run`**, and its
@@ -187,13 +202,13 @@ is understated by ~89 points, the Precise's overstated by ~52.
 ## 7. Replications
 
 - **Control B**: +80 rows / +5 `meta_log` / 5 winners / 0 defaults / 0 errors /
-  0 fallbacks / 0 leaks / 80/80 provider / uniform 10-per-voice —
-  **20th**.
-- **Chooser vs `argmax(avg_score)`**: **0/5 (0.0 %)** this session —
-  **20th replication**.
-- **Temperature vs lifetime JEV novelty**: **Pearson r = 0.9691** — **15th
+  0 fallbacks / 0 leaks / 80/80 provider / uniform 10-per-voice — **21st**
+  (two independent runs this session, each reproducing the row count to the row).
+- **Chooser vs `argmax(avg_score)`**: **0/5 (0.0 %)** on **both** runs this
+  session, 18/93 (19.4 %) lifetime — **21st replication**.
+- **Temperature vs lifetime JEV novelty**: **Pearson r = 0.9572** — **16th
   replication** (0.985 / 0.981 / 0.9845 / 0.9790 / 0.9783 / 0.9722 / 0.9845 /
-  0.9622 / 0.9742 / 0.9764 / 0.9691).
+  0.9622 / 0.9742 / 0.9764 / 0.9691 / 0.9572).
 - **Counter gap +260** (`ledger − registry`, standing form) — **7th session
   running**, byte-identical.
 - **`civ-grounded` lowest on the score lenses** — **15th session running**.
@@ -203,14 +218,14 @@ is understated by ~89 points, the Precise's overstated by ~52.
 
 | # | civ | `relevance_per_sim` | relevance | sims_run | win_rate |
 |---|---|---|---|---|---|
-| 1 | civ-poetic | 2.297 | 307.77 | 134 | 0.016 |
-| 2 | civ-whimsical | 2.234 | 314.96 | 141 | 0.048 |
-| 3 | civ-mythic | 2.093 | 270.05 | 129 | 0.053 |
-| 4 | civ-therapist | 1.990 | 252.71 | 127 | 0.033 |
-| 5 | civ-precise | 1.872 | 233.94 | 125 | 0.483 |
-| 6 | civ-engineer | 1.792 | 222.16 | 124 | 0.107 |
-| 7 | civ-formal | 1.685 | 227.42 | 135 | 0.230 |
-| 8 | civ-grounded | 1.552 | 231.21 | 149 | 0.194 |
+| 1 | civ-poetic | 2.298 | 307.90 | 134 | 0.016 |
+| 2 | civ-whimsical | 2.231 | 314.64 | 141 | 0.048 |
+| 3 | civ-mythic | 2.087 | 269.18 | 129 | 0.053 |
+| 4 | civ-therapist | 1.992 | 252.96 | 127 | 0.033 |
+| 5 | civ-precise | 1.872 | 234.01 | 125 | 0.500 |
+| 6 | civ-engineer | 1.791 | 222.11 | 124 | 0.107 |
+| 7 | civ-formal | 1.688 | 227.86 | 135 | 0.213 |
+| 8 | civ-grounded | 1.554 | 231.57 | 149 | 0.194 |
 
 ## 9. Environment notes (this session)
 
@@ -247,11 +262,11 @@ is understated by ~89 points, the Precise's overstated by ~52.
 
 ## 10. Files changed
 
+- `civ-*/simulations.jsonl` — **+10 rows each** (5 batch + 5 competition), 80 total
+- `civ-*/culture.json` — relevance / wins / losses / `simulations_run`
+- `meta_log.jsonl` — **+5 entries**
+- `leaderboard.json` — republished
 - `RUN_REPORT_2026-10-23_session27.md` — this report (new)
 - `CIV_ORCHESTRATOR_LEARNINGS.md` — appended session 27 section
 - `civilization_orchestrator.py` — **unchanged** (pristine; the seam is a
   working-tree patch only, reverted before commit)
-- `civ-*/simulations.jsonl`, `civ-*/culture.json`, `meta_log.jsonl`,
-  `leaderboard.json` — **unchanged**: the Control B rows were reverted to the
-  pristine blobs so the committed ledger stays free of mock rows (session-25b
-  precedent). The run's verified deltas are recorded above.
