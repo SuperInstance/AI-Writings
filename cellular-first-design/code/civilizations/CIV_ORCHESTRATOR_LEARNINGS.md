@@ -378,3 +378,128 @@ mock row presented as a provider result poisons the fleet's only durable quality
 record. Save run artifacts outside the repo, restore the working tree with
 `git checkout -- cellular-first-design/code/civilizations/`, verify with `cmp`
 against the git blob, and commit **only** the report and the learnings doc.
+
+---
+
+## Session 9 additions (2026-10-23, 111th wipe)
+
+### The credential gap is still the whole story (9th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8
+sandbox secrets re-tested against the z.ai coding endpoint → **401 on every one**
+(endpoint healthy ⇒ credential gap, not outage). The fleet's own
+`situations/ROSTER.md` records z.ai as **"❌ insufficient balance"** (code 1113
+"recharge") *even when a key authenticates*, and `labs/qd-arena/README.md` says
+`ZAI_KEY` is "in the roster but marked not live" — so **a key alone would not have
+been sufficient either**. `DEEPINFRA_KEY` is also absent: there is no alternate live
+provider in this sandbox. JEV live at `jev-1.14.0`.
+
+Unpatched run re-verified from scratch: batch header + all 8 `[Name] running 5 sims...`
+lines, **no `Winner:` lines**, **exit 0**, ledger delta **+0 rows, +0 meta_log**
+(684 → 684, 48 → 48). **Assert on the row delta, never on exit code.**
+
+### NEW environment trap — the tarball API has no `.git`, so there is no local restore
+
+A tarball checkout (`/repos/.../tarball/main`) is a fine substitute for a clone and
+has **no `.git`**, so the session-8 recovery path (`git checkout -- <path>`) does not
+exist. Restore pristine copies from the API instead — one
+`contents/<path>?ref=main` call per file, base64-decode the `content` field. This
+gives a **byte-exact** restore baseline without a clone. Verified the tarball *was*
+the current remote HEAD by comparing sizes: `CIV_ORCHESTRATOR_LEARNINGS.md` 19 232 B,
+`civilization_orchestrator.py` 17 188 B, `meta_log.jsonl` 16 659 B — all exact.
+
+**`git clone --depth 1 --filter=blob:none` is worse than a full clone here:** the
+promisor-remote fetch died mid-pack (`could not open .../tmp_pack_XXXX for reading`)
+and git removed the working tree entirely. Prefer **tarball → sparse → full**.
+
+### NEW — the mock's voice table must be keyed on the POST-TEMPLATE string
+
+The orchestrator renders `f"Your voice: {voice}."` — **with a trailing period**. A
+mock table keyed on the raw `culture.json` value (`"lyrical, dense"`, no period)
+matches **nothing**, and every civ falls through to the shared FALLBACK pool.
+
+**This failure passes every existing acceptance check.** The broken run produced
+`+80 rows`, `+5 meta_log`, `5 winners`, `0 all-2.0-default rows`, `72 distinct
+avg_score` — all identical to a good run. The only tell was a **collapsed
+`content_preview` distinct count: 10 of 80** (a healthy run gives 50–68).
+
+**New mandatory check — log a `fallback` flag per mock call:**
+```python
+with open(LOG,"a") as f:
+    f.write(json.dumps({"voice":voice,"question":q,"fallback":voice not in VOICE_BODIES,...})+"\n")
+```
+then assert `any fallback == False`. Build the table from the **rendered** string:
+```python
+for c in json.load(open('civilizations.json')):
+    v=json.load(open(f'{c}/culture.json'))['voice_emphasis']
+    print(f"{c:16s} -> 'Your voice: {v}.'")   # key the table on THIS
+```
+
+### NEW FINDING — the mock body text is a FIRST-ORDER confounder
+
+Same orchestrator, same JEV, same prompts, **only the mock's per-voice prose
+changed** → every civ's mean `avg_score` moved by **+0.21 to +1.00**:
+
+| civ | fallback-body run | corrected-body run | delta |
+|---|---|---|---|
+| civ-mythic | 1.539 | 2.541 | **+1.002** |
+| civ-whimsical | 1.251 | 2.207 | **+0.956** |
+| civ-therapist | 1.412 | 2.286 | **+0.874** |
+| civ-poetic | 1.854 | 2.561 | +0.707 |
+| civ-grounded | 1.527 | 1.956 | +0.429 |
+| civ-formal | 1.898 | 2.191 | +0.293 |
+| civ-engineer | 1.959 | 2.185 | +0.226 |
+| civ-precise | 2.026 | 2.234 | +0.208 |
+
+That spread is **the same size as the spread between civs**. Every civ got better
+when the mock stopped feeding it the same three generic sentences — that is a
+**prompt** improvement, not a civ improvement.
+
+**Consequence: under Control B, absolute scores are an artefact of the mock. Only
+the relative ordering within a single run carries signal.** Prior sessions validated
+the mock *structurally* (distinct previews, no fallback) and never measured its
+*magnitude* impact.
+
+**Rule: re-run with a second body set before believing any absolute score.** A civ
+whose score moves >0.3 when only the mock prose changes is not being measured.
+
+### Chooser/scoring decoupling — 4th replication
+
+Lifetime agreement `best_civ` vs `argmax(avg_score)` = **17.0 % (9/53)** (s7 4.4 %,
+s8 18.9 %). This run's 5 rounds: **0/5** — in every round the chooser picked a civ
+that was **not** the top scorer, four times by ≥0.41. A competition win is **not**
+evidence of a higher JEV score.
+
+### Low-relevance, four lenses, four answers (unchanged shape, new numbers)
+
+| lens | lowest | what it really measures |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded 1.966** | longevity artefact — it ran the most sims (79) |
+| raw relevance | **civ-engineer 113.23** | accumulated score, same denominator artefact |
+| `win_rate` | **civ-poetic 0.000 (0W/28L)** | **selection** appeal under a 150-char preview |
+| mean `avg_score` + sub-scores | **civ-grounded 1.964** | actual writing quality — the only real quality lens |
+
+- **`civ-grounded` is the genuinely weak one** — last on `rel_per_sim`, last on
+  lifetime `avg_score` (1.964), last on this run's `avg_score` (1.956). The one civ
+  where the board's verdict and the quality lens agree.
+- **`civ-poetic` is the highest-relevance civ that is never selected** — 1st of 8 on
+  this run's `avg_score` (2.561), 2nd lifetime (2.641), 2nd on `rel_per_sim` (2.655),
+  2nd on alignment (3.340), and **0 wins in 28**. A *selection* failure, not a
+  quality collapse and not an extinction risk.
+- **`civ-precise`** is the inverse: best win rate (0.696) but 4th on lifetime
+  `avg_score` (2.104) and 7th on novelty (1.109).
+- **Extinction risk: none** — threshold is `relevance < -10`, minimum is +113.23,
+  and `extinction_and_birth()` only runs in `--loop` mode every third iteration.
+
+### Counter gap unchanged at exactly +260
+
+Ledger 764 vs registry 504 = **+260** committed rows counted by nobody, on every
+civ. `save_state()` rewrites `culture.json` from in-memory counters with no lock ⇒
+lost-update race. **`relevance_per_sim` is not a reproducible ranking.**
+
+### Temperature ↔ novelty — 2nd replication
+
+Pearson **r = 0.980** (s8: 0.985). The fleet is **8 points on one
+temperature/novelty gradient with a style overlay**, not 8 independent voices.
+`mutate()` (±0.15) is nearly a no-op on quality, and the `max(0.1, …)` floor makes
+the cold end a **one-way ratchet** (Precise 0.2, Formal 0.3 can only move warmer).
