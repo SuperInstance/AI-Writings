@@ -3154,6 +3154,8 @@ committed. Report: `RUN_REPORT_2026-10-23_session25.md`.
 
 ---
 
+---
+
 ## Session 25 addendum (2026-10-23, 124th wipe) — method corrections and two new traps
 
 The upstream session-25 section already covers the **240 pre-existing mock rows**,
@@ -3333,3 +3335,100 @@ hand (`--ours` during a rebase means the *upstream* side, not your commit).
   0.9845 / 0.9790 / 0.9783 / 0.9722 / 0.9845 / 0.9622).
 - Counter gap **+260** — 6th session running, byte-identical, per-civ drift also
   reproduced to the cent.
+
+---
+
+## Session 26 (2026-10-23) — NEW durable lessons
+
+### NEW — the counter gap's denominator is ALL ledger rows, not mock-excluded rows
+
+`registry.simulations_run` counts **every** simulation, including the `[mock-zai`
+control runs. Measuring the gap as `simulations_run − (real rows only)` produces
+a **spurious sign flip**: session 25 reported `+260`, and this session the same
+comparison gave `−260 → +140`, which reads exactly like a leak.
+
+The correct comparison is the standing one — **ledger rows − registry
+`simulations_run`** — and its denominator is **ALL** ledger rows, including the
+`[mock-zai` control rows:
+
+| | ledger rows | registry `simulations_run` | gap |
+|---|---|---|---|
+| session-25 baseline | 1 084 | 824 | **+260** |
+| session 26 | 1 244 | 984 | **+260** |
+
+Both grew by exactly +160, so the gap is unchanged **by construction** — the
+per-civ drift table is byte-identical to s24/s25.
+
+**Rule: the denominator of the counter gap is every row in the ledger, including
+the control rows.** `simulations_run` counts *every* simulation, mock runs
+included, so comparing it against a mock-excluded row count produces a
+spurious sign flip. This session that mistake showed up as `−260 → +140`,
+which reads exactly like a leak. Check the *delta* of the gap against the
+standing `ledger − registry` form, never a bare sign.
+
+### NEW — the NAS can be 100 % full and still "succeed" at copying
+
+`/workspace` is an NFS mount on a 600 G volume shared across sandboxes. This
+session it was at **100 % (0 bytes free)**. `cp` then failed with
+`Disk quota exceeded` **while still creating the destination files**, and those
+files were 0 bytes and appeared normally in `ls`. A copy that reports partial
+failure this way produces a tree that looks complete and is empty.
+
+**Detection:** compare `du -sh` of the destination against the source, or
+`stat` the size of a file you know should be non-empty. `df` alone is not
+enough — the mount is shared, so the volume can be full from *other* sandboxes'
+data while your own directory is nearly empty.
+
+### NEW — an NFS mount will not follow a symlink that points OFF the mount
+
+To run against a writable overlay while keeping the canonical path
+`/workspace/repos/ai-writings/...` (the script hardcodes it), the naive
+approach fails:
+
+```
+ln -s /tmp/work /workspace/repos          # symlink AT 'repos'  -> does NOT resolve
+ln -s /tmp/work /workspace/repos/ai-writings   # symlink INSIDE 'repos' -> WORKS
+```
+
+NFS resolves symlinks **server-side**; a link whose target is off-mount cannot
+be followed. Placing the link one level deeper, as a real directory entry on
+the mount, makes the client resolve it locally and it works.
+
+**Rule: on an NFS mount, place the symlink as a child of a real directory, not
+as a replacement for one.**
+
+### A/B body-set perturbation — session 26 numbers
+
+| | set A | set B |
+|---|---|---|
+| fleet mean `avg_score` | 1.3733 | 1.1367 |
+| winners | precise x3, formal x2 | precise x4, engineer, formal |
+| positional agreement | **3/8** | |
+| Kendall tau | **1.000** (28 conc / 0 disc) | |
+| max per-civ \|delta\| | **0.340** (civ-mythic) | |
+| civs with \|delta\| > 0.3 | poetic, mythic, therapist | |
+
+**The ordering survives (tau 1.000, zero inversions) but the levels do not** —
+the whole fleet shifted down 0.24 when only the mock's prose changed. This is
+the cleanest separation yet between what the mock can and cannot invalidate:
+*ranks* are robust to the mock's prose, *levels* are not. Report the A/B
+agreement and the max |delta| together; the agreement alone hides a uniform
+level shift, and the |delta| alone hides the fact that no pair inverted.
+
+### Control B reconfirmed, 19th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B (two body sets) ->
+**+160 rows (20/civ, uniform), +10 meta_log, 10 winners, 0 all-2.0-default rows,
+0 score errors, 0 scaffolding leak, 160/160 provider `zai`, mock internal
+distribution 10 calls per voice across all 8 voices per set, 0 fallbacks,
+80/80 distinct salts and 80/80 distinct body_hashes per set.**
+
+### Replications
+
+- Chooser vs `argmax(avg_score)`: **3/10 (30.0 %) this session, 17/83 (20.5 %)
+  lifetime** — 19th replication.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9764** — 14th replication.
+- Counter gap **+260** (`ledger − registry`, standing form) — 6th session running,
+  byte-identical.
+- `civ-grounded` lowest on the score lenses — 14th session running.
+- `civ-poetic` 1 win in 58 — 24th session running.
