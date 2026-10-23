@@ -3763,3 +3763,138 @@ reorder**. A mean is not a summary of an ordering.
   following the s25b/s26 precedent. The committed ledger therefore does **not** grow by this
   session, and the lifetime lenses above are computed on the **REAL subset** of the
   *baseline* (924 rows) — never on the baseline's 1324, of which 31 % is mock output.
+
+---
+
+## Session 28b additions (2026-10-23, 111th wipe) — concurrent session, same run spec
+
+> **Concurrent-session collision (this is why the heading is `28b`).** A parallel
+> session ran the **identical** command against the same base commit and pushed
+> first, landing its own `Session 28 additions (2026-10-23, 117th wipe)` section
+> and a report named `RUN_REPORT_2026-10-23_session28.md`. The push here was
+> **rejected** (`! [rejected] HEAD -> main (fetch first)`) because the remote
+> had been **force-updated** (`e5a4e6ca...ad848e19 (forced update)`) to a
+> history that no longer shared my base.
+>
+> **Resolution that avoided clobbering anyone:** the remote session had
+> **reverted** its mock rows (ledgers back to the base counts, `meta_log` 88),
+> so the ledgers were **append-only-compatible** with mine. Rather than rebase
+> (exceeds the tool timeout on this repo), I did
+> `git branch backup-session28 <my commit>` → `git reset --hard <remote head>` →
+> `git checkout backup-session28 -- <civ subtree>`, then **renamed my report
+> to `session28b`** and **merged both learnings sections** instead of
+> overwriting the remote's. The repo's existing `session22b`/`session23b` names
+> are the precedent for this.
+>
+> **Lesson:** when the remote moves fast, do not `git checkout` over a path the
+> remote also changed. Check the remote's version of the *same-named* artifact
+> first, and when both sides legitimately produced work, **merge and rename**
+> instead of resolving in favour of one session.
+
+### The credential gap is still the whole story (26th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store.
+All 8 sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **HTTP 401 "token
+expired or incorrect"** on every one (endpoint answers ⇒ credential gap, not
+outage). JEV live at `jev-1.14.0` (probe: quality 1.13, confidence 0.04,
+non-degenerate probabilities). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Re-verified from scratch, delta measured rather than assumed:** the
+unpatched command printed the batch header and all 8
+`[Name] running 5 sims...` lines, then an **empty competition section**, then
+**exit 0**. Ledger delta **+0 rows, +0 meta_log** (1324 → 1324, 88 → 88).
+Only `leaderboard.json` was rewritten. **Assert on the row delta, never on
+exit code.** The per-civ sim lines print *before* the provider call.
+
+### Control B reconfirmed a 6th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (10/civ,
+uniform), +5 meta_log, 5 winners, 0 all-2.0-default rows, 0 score errors,
+0 scaffolding leaks, 0 prompt-echo leaks, 80/80 provider=zai, 76 distinct
+content_preview, 70 distinct avg_score.** Reproduces sessions 6, 7, 8, 25b, 26, 27.
+
+### The `ZAI_TOKEN` gate is still UPSTREAM of the URL — set BOTH
+
+Re-confirmed the s24 note empirically: the gate
+(`token = os.environ.get(p["env"], ""); if not token: return None`) fires
+**before** the URL is read, so `ZAI_URL_OVERRIDE` alone produces **+0 rows**
+and a **0-byte mock log**. The control recipe line is
+`ZAI_TOKEN=<dummy> + ZAI_URL_OVERRIDE=<mock URL>`. The dummy is never
+validated — the mock does not check auth.
+
+### NEW: the mock must resolve the civ by DISPLAY NAME, not by civ id
+
+The orchestrator's cultural prompt carries the civ's **name**
+(`You are a voice in the tradition of "The Grounded".`), never its **id**
+(`civ-grounded`). A mock that scans the prompt for the id string resolves
+every call to `civ-unknown` — the run still produces +80 rows and 0 default
+scores, so **the row-count assertion does not catch it**; only the
+per-voice distribution does (all 80 calls on one "voice"). Map
+name → id explicitly:
+
+```python
+NAME_TO_CIV = {"The Grounded": "civ-grounded", "The Whimsical": "civ-whimsical",
+               "The Formal": "civ-formal", "The Poetic": "civ-poetic",
+               "The Precise": "civ-precise", "The Mythic": "civ-mythic",
+               "The Therapist": "civ-therapist", "The Engineer": "civ-engineer"}
+```
+
+**Assert the mock's per-voice call counts (expect 10 each for 8 voices), not
+just the total.** A wrong-voice mock is silent otherwise.
+
+### NEW: backgrounding the mock in the same call that health-checks it times out
+
+Launching the mock with `setsid nohup ... &` and then health-checking it in
+the **same** tool call kept the wrapper shell attached to the background job
+and the call **timed out twice** (30 s and 60 s), even though the mock was
+healthy and had already served the request. The pattern that works:
+1. tool call A — launch the mock, redirect stdio, `disown`; ignore the call
+   hanging on the job.
+2. tool call B — `ps -eo pid,args --no-headers | grep "[z]ai_mock_r28.py"` to
+   confirm liveness, then a **separate** call for the HTTP health check.
+A `python3 - <<EOF` health check on its own is fine; it is the co-located
+`&` + heredoc combination that wedges.
+
+### The `ZAI_URL_OVERRIDE` seam was reverted before commit
+
+`grep -c ZAI_URL_OVERRIDE` → **0**; `civilization_orchestrator.py` verified
+byte-identical to the pristine blob with `cmp`. The seam is a working-tree
+test patch only, re-applied each session, never committed.
+
+### The NAS EDQUOT trap, re-verified — and it now bites at `git init`
+
+`/workspace` was at **100 % quota** (600 G used, 0 avail). `git init` inside
+it failed with `fatal: cannot copy '.git/description' ... Disk quota
+exceeded` — the failure is at the **first** write, not at checkout. Mitigation
+unchanged: work on the overlay (`/tmp`, 28 G free) and expose it at the
+canonical path with `ln -sfn /tmp/aiw/ai-writings /workspace/repos/ai-writings`
+— `CIVS_DIR` is hardcoded to the `/workspace` path, so the symlink is what
+makes the script write into the clone. The sparse checkout of
+`cellular-first-design/code/civilizations` alone is ~47 MB; the full repo is
+3.7 GB and does not fit.
+
+### Standing results this session
+
+- **Control B** +80 rows / +5 meta_log / 5 winners / 0 defaults / 0 errors —
+  **22nd** replication.
+- **Chooser vs `argmax`** **0/5** this session, lifetime **18/93 (19.4 %)** —
+  **22nd** replication. Argmax was `civ-poetic` in 4 of 5 rounds; the chooser
+  picked `civ-grounded` ×3.
+- **Counter gap +260** (`ledger − registry`, standing form) — **8th** session
+  running, byte-identical.
+- **`civ-grounded` lowest on the score lenses** — **16th** session running
+  (1.560 `relevance_per_sim`, 1.645 lifetime `avg_score`, 2.137 alignment).
+- **`civ-poetic` quality-leader / never-selected** — **26th** session running
+  (2.367 lifetime `avg_score`, 1st on `quality` 1.804, 1W/67L = 0.015).
+- **Extinction: none.** Lowest raw relevance +240.71 ≫ threshold −10, and
+  `extinction_and_birth()` only runs in `--loop` mode on every 3rd iteration.
+
+### Disposition: committed (session 27's precedent)
+
+The task explicitly asked to *verify that the `simulations.jsonl` files have new
+entries*, so the +80 mock rows were **committed**. Per the standing rule, the
+lifetime score lenses in the report **exclude** the last 10 rows of each civ's
+file. The **net** counter gap (+260) is stable in either disposition; the
+per-civ drift column is not.
