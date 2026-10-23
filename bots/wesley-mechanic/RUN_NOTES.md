@@ -432,3 +432,29 @@ note. Carried forward unchanged.
 first clause can only pass if the running total hits exactly `1000.0` within `1e-6` — a coincidence
 target, not a conservation law. The field carries no signal. Still unfixed; the fix is a one-liner, but
 the script is upstream and byte-identical to its git blob, so no patch was applied.
+
+### Two new environment facts, measured this run
+
+- **The `setsid nohup ... &` pattern from the durable notes is NOT sufficient when the launching
+  tool call itself times out.** Launching the fetch as
+  `(setsid nohup timeout -s KILL 900 env GIT_SSL_NO_VERIFY=1 git fetch --depth 2 origin main > /tmp/fetch.log 2>&1 &)`
+  inside a `bash` call that then hit the 30 s tool timeout produced **no log file at all** on the
+  next poll — the detached job was reaped with its parent. The pattern that worked was to
+  `setsid bash -c '<cmd>; echo "DONE_EXIT:$?" >> /tmp/fetch.log' < /dev/null > /dev/null 2>&1 & disown`
+  and then poll for the `DONE_EXIT` sentinel in a **separate** short call. The sentinel is the
+  reliable completion signal; the log's mere existence is not.
+- **A stale `shallow.lock` blocks the retry.** The first (timed-out) fetch left
+  `.git/shallow.lock` behind, and the retry died with `fatal: Unable to create
+  '/opt/work/aw/.git/shallow.lock': File exists.` Remove `.git/shallow.lock` and
+  `.git/index.lock` before re-launching, or the retry never starts.
+- **`git fetch --depth 2 origin main` on AI-Writings is not a small fetch.** It produced a
+  **4.9 GB** `.git` pack (the repo has ~22,000 tree entries and large binary assets), taking
+  ~4 min. The `--depth` boundary limits history, not blob size. Once fetched, the sparse
+  checkout (`--no-cone`, paths written by hand to `.git/info/sparse-checkout`) is instant and
+  the push is fast. The overhead is a one-time ~4.9 GB on the overlay, so the honest cost of the
+  git route is disk and ~4 min, not the multi-GB-forever transfer that a full `git clone`
+  represents.
+- **The repo is at `https://github.com/SuperInstance/AI-Writings.git`** (capitalisation). The
+  push to the lowercase `ai-writings` URL succeeds but prints
+  `remote: This repository moved. Please use the new location:`. Same repo id
+  (`1176209018`); use the canonical capitalised URL for the remote to avoid the warning.
