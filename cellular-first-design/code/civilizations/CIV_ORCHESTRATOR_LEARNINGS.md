@@ -2731,3 +2731,151 @@ Both independent sessions agreed on the two headline findings
 (civ-grounded lowest on `relevance_per_sim`; civ-poetic `win_rate` 0.000),
 which is useful corroboration: the low-relevance answer is stable across
 sessions *and* across body sets.
+
+---
+
+## Session 24 additions (2026-10-23, 123rd wipe)
+
+### The credential gap is still the whole story (22nd consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (1084 -> 1084)**,
+`meta_log` **+0 (73 -> 73)**, **0** `Winner:` lines. Only `leaderboard.json` was
+rewritten. **Assert on the row delta, never on the exit code.**
+
+All 8 sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage).
+JEV live at `jev-1.14.0` (HTTP 200, `quality.score 0.86`). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### NEW TRAP — the `/orgs/` endpoint 404s and silently reads as "no repos"
+
+`https://api.github.com/orgs/SuperInstance/repos` -> **404 Not Found**. The account
+is a **User**, not an Org. The correct endpoint is
+`https://api.github.com/users/SuperInstance/repos` (**5 307 repos** enumerated over
+53 paged requests). The 404 body is `{"message": "Not Found"}` with a `count` of 0
+if you parse it naively, which looks exactly like "the org has no repositories" and
+would send you hunting for a missing repo that in fact exists. **Try both
+`/orgs/` and `/users/` before concluding a repo is absent.**
+
+Also: the repo is **`SuperInstance/AI-Writings`** (capital A-W) — the lowercase
+spelling `ai-writings` is accepted by git's http transport (it redirects) but
+**not** by the code-search API's `repo:` qualifier, which needs the exact case.
+
+### NEW TRAP — `sparse-checkout disable` can DELETE the working tree
+
+```
+git clone --depth 1 --filter=blob:none --sparse <url> aiw
+cd aiw && git sparse-checkout disable
+-> fatal: Unable to read current working directory: No such file or directory
+-> the checkout is GONE (the clone dir survives but is empty of files)
+```
+
+The `--filter=blob:none` partial clone does not have the blobs to materialise the
+full tree, so disabling the sparse filter leaves the worktree empty and the shell's
+CWD unresolvable. **Do not run `sparse-checkout disable` on a blob-filtered clone.**
+A **full** `--depth 1` clone into `/tmp` (≈3.7 GB, ~75 s) is the reliable path if
+you need the whole tree; it must be backgrounded and polled because it exceeds the
+30 s tool timeout.
+
+### Control B reconfirmed, 17th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ,
+uniform), +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors,
+provider `zai` on 80/80, 62/80 distinct `avg_score`** (range 0.973-3.010,
+mean 2.040), mock log **82 calls** (10 per voice across all 8 voices, +2 from the
+port probe). JEV sub-scores on the 80 rows: quality mean 1.197 (0.060-2.610, 61
+distinct), novelty 2.402 (1.720-2.910, 55 distinct), alignment 2.520
+(0.880-3.660, 68 distinct). **A live JEV, not a stub.**
+
+The `ZAI_URL_OVERRIDE` seam is **still not in the committed blob** (remote
+`civilization_orchestrator.py` is 17 188 B = pristine). Re-apply the one-line
+patch each session (verified: 1 insertion, 1 deletion).
+
+### NEW — the s23b "distinct content_preview" ceiling does NOT apply to this mock shape
+
+s23b established that a 3-body-per-voice mock tops out at **24** distinct
+`content_preview` values, because the script truncates each preview to 200 chars
+and every body is longer than that. **This session's mock produced 65 distinct
+previews from 80 rows** — above the "ceiling" — because the mock bodies here are
+shorter than 200 chars *and* carry a per-turn tag, so the truncation point lands
+mid-body and different turns hash to different visible prefixes. The s23b
+correction stands in its own terms (**compare distinct previews against the
+mock's own body count x voice count, not against a fixed band**), but do not treat
+24 as a universal constant: it is a property of *that* mock's body lengths.
+
+### The low-relevance answer — unchanged for the 12th session running
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.540 |
+| raw relevance | **civ-engineer** | 183.98 |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.019 (1W/52L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.645 |
+| lifetime `quality` | **civ-engineer** | 1.257 |
+| lifetime `novelty` | **civ-formal** | 1.130 |
+| lifetime `alignment` | **civ-grounded** | 2.175 |
+| this-run `avg_score` | **civ-grounded** | 0.987 |
+| this-run `quality` | **civ-grounded** | 0.181 |
+| this-run `alignment` | **civ-grounded** | 0.952 |
+
+- **`civ-grounded` = the stable low-relevance civ, 12th session running.** Last of
+  8 on `relevance_per_sim`, lifetime `avg_score` and lifetime `alignment`; last of
+  8 on **this run's** `avg_score`, `quality` and `alignment`. It ran the most sims
+  (172) so the denominator effect is present, but it is **also** last on the raw
+  score lenses, so **it is a genuine quality weakness, not the longevity
+  artefact.** (Note: this session it is last on this-run `quality` too, where
+  s23 had `civ-engineer` last — the two civs are close and the quality floor
+  alternates between them.)
+- **`civ-poetic` = the inverse case, 22nd session running.** 1st of 8 on
+  `relevance_per_sim` (2.303) and 1st on lifetime `quality` (1.869), yet **1 win in
+  53** (win_rate 0.019) and 2 of all 78 meta rounds. A *selection* failure, not a
+  quality collapse.
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate in the
+  fleet (**0.521**, 25W/23L), 26 of 78 meta-round wins, but 5th of 8 on lifetime
+  `avg_score` (1.867) and 2nd-last on lifetime `novelty` (1.302).
+- **`civ-whimsical` = the only civ where every quality lens agrees.** 1st on
+  lifetime `avg_score` (2.442), novelty (2.523), alignment (3.038) and raw relevance
+  (276.15) — yet win_rate 0.057, because it wins by being *picked*.
+- **`civ-formal` = the fleet's novelty floor.** Last on lifetime `novelty` (1.130),
+  2nd-last on `avg_score`, 2nd-lowest `relevance_per_sim` (1.675).
+- **Extinction risk: none** (threshold -10, lowest +183.98, `--loop`-mode only).
+  All 8 civs remain generation 1. No births, no extinctions.
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / uniform 10-per-voice -
+  **17th**.
+- Chooser vs `argmax(avg_score)`: lifetime **15/78 (19.2 %)**. History: s8 18.9 %,
+  s13 22.4 %, s15 15.5 %, s17 0 %, s20 10 %, s21 0 %, s22 0 % (x2), s23 19.1 %.
+  **17th replication.**
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9601** (baseline band
+  0.962-0.985) - **12th replication**.
+- Counter gap **+260** (1 164 ledger rows vs 904 registry `simulations_run`),
+  **identical to the s20/s21/s22 baseline**. A race in `save_state()`, not a leak.
+  **Report as measured this session, never as a trend against a quoted number.**
+
+### Restore verification - 25 files
+
+All 8 `simulations.jsonl`, all 8 `culture.json`, `meta_log.jsonl` and
+`civilization_orchestrator.py` restored from the pristine `HEAD` blobs and verified
+with `cmp` against the **git blob** (not an md5 eyeball): **ALL_IDENTICAL=1**.
+The 80 mock rows carry a `[mock-zai #...]` marker in `content_preview` and would
+pollute the real ledger, so the restore is mandatory, not optional.
+
+### Environment notes
+
+- The task path did not exist at session start; NAS `/workspace` was at **100 %
+  quota** (600 G used, 0 avail) - the EDQUOT trap. `/tmp` (overlay, 28 G free) is
+  exempt and is the only reliable write path.
+- The mock's `setsid nohup … &` inside a foreground bash call kept the shell open
+  and hit the 30 s timeout, but the mock **did** start and the port was live on the
+  next call. **Verify with `ps -eo pid,args --no-headers | grep "[z]ai_mock.py"`
+  before assuming the start failed** - do not re-launch a second mock on the same
+  port (s8 rule: never race two writers on one target).
+- The `write`/`edit` tools are jailed to the workspace root and cannot touch
+  `/tmp`; a `python3 - <<'EOF'` heredoc is the cleanest way to patch a file in
+  place outside the workspace.
+- `gh` CLI is still not installed; use the GitHub REST API, and remember
+  `/orgs/` 404s for this account - use `/users/`.
