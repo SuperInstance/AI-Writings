@@ -54,6 +54,8 @@ def call_elevenlabs(prompt, duration=60):
 
 def call_zai(prompt, max_tokens=300):
     """Use ZAI to describe the song in words"""
+    if not os.environ.get("ZAI_TOKEN"):
+        return None
     data = json.dumps({
         "model": "glm-4.5",
         "messages": [{"role":"user","content":f"Describe this music in 150 words: {prompt}"}],
