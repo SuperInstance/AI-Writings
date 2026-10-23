@@ -240,3 +240,141 @@ board, which is the one case where every lens agrees.
   content — the prompt is `header + tenets + voice + blank line + question`, so
   take the **last non-empty line** and strip the `Write N words on ` prefix.
   Echoing it makes all 8 civs score identical text and destroys the chooser's signal.
+
+---
+
+## Session 8 additions (2026-10-23, 110th wipe)
+
+### The credential gap is still the whole story (8th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8
+sandbox secrets re-tested against the z.ai coding endpoint → **401 "token expired
+or incorrect"** on every one (endpoint healthy ⇒ credential gap, not outage).
+JEV live at `jev-1.14.0`. Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Re-verified from scratch this session, with the delta measured rather than
+assumed:** the unpatched command printed the batch header and all 8
+`[Name] running 5 sims...` lines, then an empty competition section, then
+**exit 0**. Ledger delta **+0 rows, +0 meta_log entries** (684 → 684, 48 → 48).
+Only `leaderboard.json` was rewritten. The per-civ sim lines print *before* the
+provider call, so they are **not** evidence of work.
+
+**Assert on the row delta, never on exit code.** Cheapest form:
+```bash
+before=$(cat civ-*/simulations.jsonl | wc -l); python3 civilization_orchestrator.py ...
+after=$(cat civ-*/simulations.jsonl | wc -l); [ "$after" -gt "$before" ] || echo "NO-OP RUN"
+```
+
+### Control B reconfirmed a 4th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (10 per civ,
+uniform), +5 meta_log, 5 winners, 0 score errors, 0 all-2.0-default rows, 73
+distinct `avg_score` values** among the 80. Score spread 1.55–2.85. Reproduces
+sessions 6 and 7 exactly.
+
+### NEW environment traps (both cost real time)
+
+1. **`ln -sfn` will NOT replace an existing directory.** If
+   `/workspace/repos/ai-writings` already exists as a real dir (e.g. an earlier
+   `mkdir -p`), `ln -sfn /tmp/aiw /workspace/repos/ai-writings` creates
+   `…/ai-writings/ai-writings` and the target still does not resolve. Fix:
+   `rm -rf /workspace/repos/ai-writings` **first**, then `ln -sfn`.
+2. **Never start a second clone at a target that already has a live fetch.** A
+   full clone and a sparse clone raced on the same `/tmp/aiw` and both wrote to
+   it. Kill the older PID explicitly, then let the newer one finish. (`ps |
+   grep` self-matches the invoking shell — kill by PID from
+   `ps -eo pid,args --no-headers | grep "[z]ai_mock" | grep -v grep`.)
+
+**Sparse checkout is much faster than the full 3.7 GB pack:**
+```
+git init aiw && cd aiw
+git remote add origin "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git"
+git config core.sparseCheckout true && git sparse-checkout init --cone
+git sparse-checkout set cellular-first-design/code/civilizations
+GIT_SSL_NO_VERIFY=1 git fetch --depth 1 origin main && git checkout -f FETCH_HEAD
+```
+~90 s for the civ subtree vs >3 min for the full clone.
+
+### NEW finding — temperature and novelty are the SAME axis (r = 0.985)
+
+`preferred_params.temperature` vs lifetime mean JEV `novelty`, all 8 civs:
+
+| temp | civ | novelty |
+|---|---|---|
+| 0.20 | civ-precise | 0.955 |
+| 0.30 | civ-formal | 0.971 |
+| 0.40 | civ-engineer | 1.305 |
+| 0.50 | civ-grounded | 1.369 |
+| 0.60 | civ-therapist | 1.937 |
+| 0.80 | civ-poetic | 2.291 |
+| 0.85 | civ-mythic | 2.275 |
+| 0.95 | civ-whimsical | 2.611 |
+
+**Pearson r = 0.985** (only the Poetic/Mythic pair transposed). Consequences:
+
+- The fleet is **8 points on one temperature/novelty gradient** with a style
+  overlay, not 8 independent voices. "Civilization diversity" is far thinner
+  than the registry suggests, and a score change attributed to a cultural
+  change may just be a temperature change.
+- `mutate()` (±0.15 on temperature) is nearly a no-op on quality, and the
+  `max(0.1, …)` floor makes the cold end a **one-way ratchet** — Precise (0.2)
+  and Formal (0.3) can only ever move warmer.
+- It explains the Precise's paradox: coldest ⇒ least novel (0.955, last of 8),
+  yet most selectable (17W/6L, 0.739). Low temperature makes output consistently
+  shaped, and a 150-char preview rewards consistency over originality.
+
+### The chooser/scoring decoupling: 3rd replication, and it is not narrowing
+
+Session 7 measured `best_civ` vs `argmax(avg_score)` at 4.4 % (2/45). Session 8:
+**18.9 % (10/53)** lifetime, and **1/5 this run** — in 4 of 5 rounds the
+competition crowned a civ that was **not** the top scorer, once by 0.58.
+
+**Consequence for the "which civ is low relevance" answer:** the answer keeps
+changing with the lens, and there is no privileged lens.
+
+| lens | lowest | what it really measures |
+|---|---|---|
+| `relevance_per_sim` (board sort) | civ-grounded 1.979 | longevity artefact — it ran the most sims (79) |
+| raw relevance | civ-engineer 112.96 | accumulated score, same denominator artefact |
+| `win_rate` | civ-poetic 0.000 (0W/28L) | **selection appeal under a 150-char preview** |
+| mean `avg_score` + sub-scores | civ-formal 1.955 (run) | actual writing quality — **the only real quality lens** |
+
+**The civ to actually watch: `civ-poetic`.** 1st of 8 on this run's mean
+`avg_score` (2.598), 2nd lifetime (2.644), 2nd on alignment (3.337), 2nd on the
+board's `rel_per_sim` (2.661) — and **0 wins in 28**. It is the
+highest-relevance civ that has never been selected. Not a quality collapse, not
+an extinction risk (threshold is `relevance < -10`; minimum is +112.96).
+
+**The inverse: `civ-precise`** — 0.739 win rate (best of 8) but 5th of 8 on
+lifetime `avg_score` (2.145) and **last of 8 on novelty (0.955)**.
+
+**`civ-formal`** is genuinely weak: last on this run's `avg_score` (1.955),
+last-but-one lifetime (2.034), 2nd-lowest novelty (0.971).
+
+**`civ-grounded`** is the one whose *quality* is genuinely low, not just its
+lifetime average: last on `rel_per_sim` (1.979), last lifetime `avg_score`
+(1.973), and **lowest alignment of all 8 (2.752)**.
+
+### Mock quality decides whether the run means anything
+
+A mock that echoes the orchestrator's scaffolding makes all 8 civs score
+near-identical text and **destroys the chooser's signal** — the run then
+produces a meaningless leaderboard that still looks green. Requirements:
+- take the **last non-empty line** of the prompt, strip `Write N words on `;
+  never echo the `header + tenets + voice` scaffolding back;
+- select a **per-voice body** from a hand-written table (one distinct register
+  per civ) so the 8 responses are genuinely distinguishable;
+- salt the deterministic seed with `(temperature, max_tokens, len(prompt))` so
+  repeated prompts still vary.
+
+Check: **68 distinct `content_preview` among 80 rows**, and every civ's voice
+unambiguous in the mock call log. If the distinct count collapses, the run is
+decorative — fix the mock before trusting the leaderboard.
+
+### Protocol (unchanged, still correct)
+
+Mock rows are **not committed**. The committed ledger holds real z.ai output; a
+mock row presented as a provider result poisons the fleet's only durable quality
+record. Save run artifacts outside the repo, restore the working tree with
+`git checkout -- cellular-first-design/code/civilizations/`, verify with `cmp`
+against the git blob, and commit **only** the report and the learnings doc.
