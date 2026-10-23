@@ -2205,3 +2205,121 @@ adjacent gaps, and report the **set**, not the order, whenever the delta wins.
 10. The orchestrator writes `leaderboard.json` even on a no-op run, so a
     `git checkout HEAD -- <subtree>` is needed after the unpatched run too -
     otherwise the restore diff will show a spurious 2-line change.
+
+---
+
+## Session 21 additions (2026-10-23, 120th wipe)
+
+### The credential gap is still the whole story (19th consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (764 -> 764)**, `meta_log`
+**+0 (53 -> 53)**, **0** `Winner:` lines. **Assert on the row delta, never on the
+exit code.** The per-civ sim lines print *before* the provider call.
+
+All 8 sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage).
+`ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` absent from env and from the secret store.
+**JEV live at `jev-1.14.0`** (HTTP 200, `quality.score 0.47, confidence 0.61`).
+
+### Control B reconfirmed, 14th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ,
+uniform), +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 0
+fallback calls, provider `zai` on 80/80, 79/80 distinct `content_preview`,
+75/80 distinct `avg_score`** (range 1.24-2.50, mean 1.871), mock log **81 calls**
+(80 + 1 probe) with **exactly 10 per voice across all 8 voices** (name-keyed voice
+table, s17 rule).
+
+JEV sub-score spread on the 80 rows: quality mean 1.019 (0.17-2.00), novelty mean
+2.161 (1.32-2.82), alignment mean 2.432 (1.27-3.22), confidence mean 0.532 with
+35 distinct values. **A live JEV, not a stub.**
+
+### The full-clone failure did NOT reproduce (s20 rule needs softening)
+
+s20 recorded `git clone --depth 1` into `/tmp` fetching 2.8 GB and then failing to
+produce a working tree ("your current branch 'master' does not have any commits
+yet"). **This session a plain `git clone --depth 1` into `/tmp` succeeded completely**,
+working tree and all, in one call. So: **the sparse form is still the fast, safe
+default, but the full clone is not reliably broken** - do not state it as a rule.
+Keep cloning to `/tmp` regardless (NAS `/workspace` is at 100 % quota and a clone
+into it fails mid-copy with "Disk quota exceeded").
+
+### The chooser agreement hit 0/5 with the smallest margins yet (13th replication)
+
+`best_civ` == `argmax(avg_score)` in **0 of 5 rounds (0 %)**. Disagreement margins
+**0.18 / 0.03 / 0.03 / 0.18 / 0.08**, mean **0.100** - **the smallest mean margin
+recorded** (lifetime mean was 0.539). Two rounds were decided by **0.03**, which is
+inside the noise band of the sub-scores. **The two metrics remain essentially
+uncorrelated; the chooser never sees the scores.** Replicate the count, not the rate.
+
+### The low-relevance answer - unchanged for the 9th session running, with new baselines
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.846 |
+| raw relevance | **civ-engineer** | 125.98 |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.000 (0W/33L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.883 |
+| lifetime `quality` | **civ-engineer** | 1.552 |
+| lifetime `novelty` | **civ-formal** | 1.122 |
+| lifetime `alignment` | **civ-grounded** | 2.601 |
+| this-session `avg_score` (80 rows) | **civ-grounded** | 1.487 |
+| this-session `quality` | **civ-grounded** | 0.605 |
+| this-session `novelty` | **civ-formal** | 1.952 |
+| this-session `alignment` | **civ-grounded** | 1.886 |
+
+- **`civ-grounded` = the stable low-relevance civ, 9th session running.** Last on
+  `relevance_per_sim`, lifetime `avg_score`, lifetime `alignment`, and last this
+  session on `avg_score`, `quality` and `alignment`. It ran the most sims (89), but
+  it is *also* last on the raw score lenses, so **it is a genuine quality weakness,
+  not the longevity artefact the denominator suggests.**
+- **`civ-poetic` = the inverse case, 19th session running.** 2nd of 8 on
+  `relevance_per_sim` (2.578), **0 wins in 33**, **0 of 5** rounds this session. A
+  *selection* failure, not a quality collapse.
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate in the
+  fleet (**0.643**, 18W/10L) and **3 of 5** wins this session, but 2nd-last on
+  lifetime `avg_score` (1.978) and 2nd-last on lifetime `novelty` (1.141).
+- **`civ-whimsical` = the only civ where every quality lens agrees** (1st on
+  `relevance_per_sim` 2.594, lifetime `avg_score` 2.717, novelty 2.622, alignment
+  3.410) - and 3rd-lowest win rate (0.061), 0 of 5 this session.
+- **Extinction risk: none** (threshold -10, lowest +125.98, `--loop`-mode only).
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / 0 fallback / 80-80
+  provider / uniform 10-per-voice - **14th**.
+- Chooser vs `argmax(avg_score)`: **0/5 this session (0 %)**, 13th replication.
+  History: s8 18.9 %, s13 22.4 %, s15 15.5 %, s17 0 %, s20 10 %, s21 0 %.
+- Counter gap **+260** (844 ledger rows vs 584 registry `simulations_run`), identical
+  to the s20 baseline. A **race** in `save_state()`, not a leak. **Report as measured
+  this session, never as a trend against a quoted number.**
+
+### Restore verification - 28 files
+
+8 ledgers + 8 `culture.json` + 8 `witness.log` + `meta_log.jsonl` +
+`leaderboard.json` + `civilizations.json` + the script, all **byte-identical to
+`git show HEAD:<path>`** via `cmp` (**28 identical, 0 differing**). The
+**timestamp-leak test** returned **0** for all 8 committed ledgers. Mock killed by
+explicit PID (332), confirmed gone via a fresh `ps | grep "[z]ai_mock"`. `git status`
+clean at `e045e68c`. Session report: `RUN_REPORT_2026-10-23_session21.md`.
+
+### Environment notes (nothing new broke; the known traps all held)
+
+1. 120th consecutive wipe - the task path did not exist; `/workspace` held only
+   `.plugin-cache` and `.skills`. NAS `/workspace` at **100 %** (600 G used, 0 avail).
+2. `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/ai-writings /workspace/repos/ai-writings`
+   - the `rm -rf` is still required (s8 trap). `CIVS_DIR` is hardcoded to the
+   `/workspace` path, so the symlink is what makes the script write into the clone.
+3. `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"` - without it JEV silently degrades to
+   the `{"quality": 2.0, ...}` default and the run measures nothing while exiting 0.
+4. The **`ZAI_URL_OVERRIDE` seam is still not in the committed blob** - re-apply the
+   one-line patch each session (verified: `git diff --stat` = 1 insertion, 1 deletion),
+   and re-apply after every `git checkout HEAD -- <subtree>`.
+5. Mock kill discipline: kill by explicit PID from
+   `ps -eo pid,args --no-headers | grep "[z]ai_mock" | grep -v grep`.
+   `pkill -f` self-matches and kills the invoking shell.
+6. `__pycache__/` is written into the civilizations dir - remove it before committing.
+7. The orchestrator writes `leaderboard.json` even on a no-op run, so a
+   `git checkout HEAD -- .` is needed after the **unpatched** run too.
