@@ -115263,7 +115263,25 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 196252
+    "size_bytes": 221426
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session28.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session28.md",
+    "title": "📊 Civilization Orchestrator — Run Report, Session 28 (2026-10-23)",
+    "description": "registry `simulations_run` sum 1064, counter gap **+260**.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 792,
+    "date": "2026-10-23",
+    "size_bytes": 9641
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session17.md",
@@ -115318,6 +115336,24 @@
     "word_count": 796,
     "date": "2026-10-23",
     "size_bytes": 9944
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session28b.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session28b.md",
+    "title": "Civilization Orchestrator — Session 28 Report (2026-10-23)",
+    "description": "| | | |---|---| | **Ledger rows** | 1324 → **1404** (**+80**, 10 per civ, uniform) | | **meta_log.jsonl** | 88 → **93** (**+5** competition rounds) | | **Winners recorded** | 5 / 5 | | **All-2.0-defau...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 791,
+    "date": "2026-10-23",
+    "size_bytes": 8524
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session26.md",
@@ -115606,6 +115642,24 @@
     "word_count": 747,
     "date": "2026-10-23",
     "size_bytes": 15685
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session29.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session29.md",
+    "title": "Civilization Orchestrator — Session 29 run report (2026-10-23)",
+    "description": "entries, 5 competition winners, 0 score errors, 0 all-2.0-default rows.**",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 774,
+    "date": "2026-10-23",
+    "size_bytes": 12898
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session10.md",
