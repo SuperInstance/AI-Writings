@@ -458,3 +458,51 @@ the script is upstream and byte-identical to its git blob, so no patch was appli
   push to the lowercase `ai-writings` URL succeeds but prints
   `remote: This repository moved. Please use the new location:`. Same repo id
   (`1176209018`); use the canonical capitalised URL for the remote to avoid the warning.
+
+## 2026-10-23T19:04Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — and identical to the 15:36Z, 15:46Z, 18:34Z and
+  18:49Z polls. Prior poll was ~15 min before this one.
+- **Confirmed twice by independent paths:** the watcher's own `poll_canon()`, and a separate curl probe
+  (HTTP 200, 13720 bytes) whose `sha256(json, sort_keys)[:16]` recomputes to the same `b20375d389cb505d`,
+  probed both *before* and *after* the watcher run.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent), so the 2026-10-22 count-key
+  fallback fix remains load-bearing.
+- **Log append:** two rows. The unconditional `bot_started` event, then the `witness_note` for this run.
+  45 -> 47 rows.
+- **No canon-change note written.** A hash match is not a transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and `canon_changed`
+  branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still does not exist and
+  `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 47/47 rows parse and carry `ts, iso, event, payload, hash`. Linkage class `row-checksum`
+  (per `../README.md`): each row's hash commits to its own payload only, with no `prev`/`prev_hash`. Deletion and
+  truncation of a row are undetectable in this format, so the honest verdict is
+  `44/44 machine-written checksums verify, 2 are RECOVERED markers, 1 is the known stale row 25 — linkage class
+  row-checksum`, not "chain-intact". This run introduced no new mismatch (both appended rows verify).
+- **Known anomalies unchanged:** row 9 / row 12 `meta_wipe_recovery` carry the literal `RECOVERED` marker (not a
+  checksum, by design); row 25 carries the stale hash `88839488ea23e66c` (computed `2553b915563b73cc`), inherited
+  from upstream commit `43b98389` and previously traced through `092a4e64`, `d709e263`, `76b840e`.
+
+### Environment (11th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist; `/workspace` was an empty NAS mount at 600G/600G, 100%,
+  0 bytes available. `git clone` straight into it fails with `close error: Disk quota exceeded`.
+- **Recovery:** staged `bots/wesley-mechanic/` (4 files) and `bots/substrate-bus/` (3 files) via the GitHub contents
+  API + `raw.githubusercontent.com` into `/tmp/wm-run/bots/`, because the script hardcodes those paths for
+  `witness.log` / `state.json` / `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` —
+  `substrate_bus` must be staged alongside it or the import dies.
+- Staged to `/tmp` because the NAS rejects writes above a few bytes with `OSError: [Errno 122] Disk quota
+  exceeded` while a 5-byte `echo >` still succeeds — a failed write can leave a **0-byte stub that looks present
+  in `ls`**. Always check the size field in `ls -la`, not just existence.
+- Staged script md5 `206682962c06f9814a5db65c2fbc7267` — byte-identical to upstream and to every prior run.
+  No code changes were needed this run.
+- **The multi-GB pack problem is not fixed.** `git init --template=` + `git fetch --depth 2 origin main` still
+  timed out at 30 s this run; a full `--depth 1` fetch walks all blobs and the sparse cone filter only applies at
+  checkout. The contents-API staging path remains the reliable route.
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a **constant false
+by construction** — the delta path can never satisfy the predicate, so the field carries no signal. Fourth poll
+reporting this; still unfixed.
