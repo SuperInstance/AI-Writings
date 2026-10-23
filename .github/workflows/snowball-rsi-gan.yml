@@ -1,0 +1,91 @@
+# snowball-rsi-gan.yml — run snowball-scout's RSI GAN competition with vault-backed providers.
+#
+# snowball_writer.py --once --competition fans out to three LLMs in parallel and
+# picks the winner by the script's own heuristic (length + substrate-vocab density).
+# The script's provider calls need ZAI_TOKEN / GROQ_TOKEN / DEEPINFRA_TOKEN, which
+# live on the fleet host and are not in this environment. This workflow supplies
+# the three generations through the fleet's SuperInstance vault instead (GitHub
+# OIDC -> vault /proxy -> MiniMax), leaving the writer's own prompt, scoring,
+# file naming, witness log and substrate-bus publication untouched.
+#
+# Result lands in prose/snowball-inspired/ and is committed back.
+
+name: snowball-rsi-gan
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: 'Optional seed override (default: writer picks from canon)'
+        required: false
+        default: ''
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Get OIDC token for vault
+        run: |
+          OIDC_TOKEN=$(curl -s \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=vault" \
+            | python3 -c "import sys,json; print(json.load(sys.stdin).get('value',''))")
+          echo "OIDC_TOKEN=${OIDC_TOKEN}" >> $GITHUB_ENV
+
+      - name: Run snowball writer (RSI GAN competition)
+        env:
+          OIDC_TOKEN: ${{ env.OIDC_TOKEN }}
+          VAULT_URL: https://superinstance-vault.casey-digennaro.workers.dev
+          SEED_OVERRIDE: ${{ inputs.seed }}
+        run: |
+          set -uo pipefail
+          python3 - <<'PY'
+          import os, sys, json, pathlib
+          bot = pathlib.Path("bots/snowball-scout")
+          sys.path.insert(0, str(bot))
+          sys.path.insert(0, "bots/substrate-bus")
+          import snowball_writer as sw
+
+          # Route the three providers through the vault.
+          sys.path.insert(0, "bots/snowball-scout")
+          import importlib.util
+          spec = importlib.util.spec_from_file_location("vault_provider_shim", bot/"vault_provider_shim.py")
+          shim = importlib.util.module_from_spec(spec); spec.loader.exec_module(shim)
+          sw.call_zai = shim.call_zai
+          sw.call_groq = shim.call_groq
+          sw.call_deepinfra = shim.call_deepinfra
+
+          # Optional seed override.
+          if os.environ.get("SEED_OVERRIDE"):
+              sw.pick_seed = lambda: os.environ["SEED_OVERRIDE"]
+
+          sw.run_once(competition=True)
+          PY
+          echo "--- prose/snowball-inspired/ ---"
+          ls -la prose/snowball-inspired/ | tail -8
+
+      - name: Commit the inspired piece
+        run: |
+          git config user.name "snowball-scout"
+          git config user.email "snowball@superinstance.dev"
+          git add prose/snowball-inspired/ bots/snowball-scout/witness.log bots/substrate-bus/ || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+            exit 1
+          fi
+          git commit -m "snowball: RSI GAN inspired piece (vault providers)"
+          git push
