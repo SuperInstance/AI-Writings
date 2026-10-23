@@ -3151,3 +3151,185 @@ those rows as if they were provider output.
 pre-existing mock rows), `meta_log` back to 73, `ZAI_URL_OVERRIDE` count 0 in the
 working tree, `__pycache__/` removed. This session's 80 control rows were **not**
 committed. Report: `RUN_REPORT_2026-10-23_session25.md`.
+
+---
+
+## Session 25 addendum (2026-10-23, 124th wipe) — method corrections and two new traps
+
+The upstream session-25 section already covers the **240 pre-existing mock rows**,
+the **biased board sort key** and the **standing rule** (compute lifetime statistics
+from the ledger, never from `culture.json`). The notes below are the parts that
+session did not have, plus a correction to its restore-verification habit.
+
+### NEW BOOTSTRAP — the GitHub tree/blob API is 2 700x cheaper than the sparse-git path
+
+Every prior session bootstrapped with `git sparse-checkout` + `git fetch --depth 1` and
+recorded the cost as **3.3 GB / ~90 s** (s24 called it "a 90 s / 3.3 GB operation, not
+a 1 MB one"). Re-measured this session: the full clone reached **811 MB in 60 s and was
+still growing**; the sparse clone reached **1.7 GB in 56 s and was still growing**.
+Both aborted. `--filter=blob:none` did not constrain the initial pack either.
+
+The working path is **1.2 MB / ~25 s**:
+
+```bash
+curl -sS -H "Authorization: Bearer $GITHUB_TOKEN" \
+  "https://api.github.com/repos/SuperInstance/AI-Writings/git/trees/HEAD?recursive=1" \
+  -o tree.json          # 7 MB JSON, 22 064 entries
+# then GET /git/blobs/<sha> for each blob under the target prefix -> base64 "content"
+```
+
+The civ subtree is **63 blobs / 1 197 057 bytes**. **Assert `truncated == false`** on the
+tree response — if it were `true` the subtree listing would be incomplete and the
+restore would silently drop files. After the restore, assert `extra: []` and
+`missing: []` against the tree listing. This is the same discipline as the s24
+`cmp`-against-the-blob restore at 1/2 700th of the bytes.
+
+**Repo name is capitalised:** `SuperInstance/AI-Writings`. The repos endpoint 404s on
+`SuperInstance/ai-writings`; the tree/blob endpoints are case-insensitive.
+
+
+### The `ZAI_TOKEN` gate is UPSTREAM of the URL — `ZAI_URL_OVERRIDE` alone is a no-op
+
+A Control B attempt with **only** `ZAI_URL_OVERRIDE` set produced **+0 rows** and a
+**0-byte mock log**. The request was never attempted, because `call_provider` does:
+
+```python
+token = os.environ.get(p["env"], "")
+if not token: return None      # gate fires BEFORE the URL is read
+```
+
+`ZAI_URL_OVERRIDE` rewrites the URL, but the function **returns before it looks at
+the URL**. The s7 note "leave the `ZAI_TOKEN` gate check alone" is right about *where*
+to stub and wrong as an operational recipe: the control's own recipe line
+(`ZAI_TOKEN=<set> + provider URL -> local mock`) carries the part that matters, and the
+s24 report's code snippet dropped it, which reads as "override only".
+
+**You must set `ZAI_TOKEN` to a dummy value as well.** The dummy is never validated —
+the request goes to the mock, which does not check auth. **Stub at or below the
+failing line.**
+
+
+### A fixed-template mock caps `content_preview` at 40/80 — rotate the LEADING fragment
+
+The orchestrator picks prompts with `random.choice` from 5, so the 40 batch sims hit
+only **40 distinct (civ, prompt) pairs** out of 80 rows. A mock that returns **one
+fixed template per (civ, topic)** therefore produces byte-identical `content_preview`
+for every repeat: **40/80 distinct**, against the 80/80 the prior session recorded.
+
+Rotate the **leading** fragment every call, not the fragment *order*:
+
+```python
+lead = idx % len(pool)                       # rotates EVERY call
+parts = [pool[(i + lead) % len(pool)] for i in range(len(pool))]
+```
+
+Rotating only the *order* (`rot = idx // len(pool)`) leaves calls 1-5 of a
+(civ, topic) identical, because `lead` stays 0 — and `content_preview` is only the
+**first 200 characters**, so variety that starts late in the body is invisible to the
+check. **The distinctness that matters is in the first 200 chars.** Verify 5/5
+distinct previews per voice for all 8 voices *before* the run. Set B reached 77/80:
+three legitimate collisions where a wrapped pool put the same fragment first and the
+200-char windows coincided.
+
+
+### A background mock can be killed by your own cleanup line
+
+`ps -eo pid,args --no-headers | grep "[z]ai_mock.py" | awk '{print $1}' | xargs -r kill -9`
+run right after starting a new mock **killed the new one too** — the `ps` snapshot
+included the just-started process, and the same log path was truncated twice. Symptom:
+the mock is `<defunct>`, the port refuses connections, and the log still holds the
+*previous* run's rows, which then look like a distribution failure.
+
+**Use a distinct port and a distinct log path per set** (`mockA.log` / `mockB.log`,
+8961 / 8962), start the mock in its own command, and confirm it is listening before
+the run. The `ps | grep` self-match trap applies here too: the invoking shell's own
+command line contains the pattern, so it appears in the PID list and is killed as well.
+
+
+### A/B — the lowest Kendall tau in the series
+
+| | set A | set B |
+|---|---|---|
+| fleet mean `avg_score` | 2.0622 | 2.0586 (**-0.0036**) |
+| max per-civ \|delta\| | — | **0.418** (Grounded) |
+| positional rank agreement | — | **2/8** |
+| Kendall tau | — | **0.500** (21 conc / 7 disc) |
+| top-3 set | {Poetic, Precise, Whimsical} | {Poetic, Whimsical, Mythic} |
+| bottom-2 set | {Grounded, Formal} | {Grounded, Formal} |
+| competition winners | Precise x4, Engineer | Precise x4, Formal |
+
+**A fleet mean that moved by 0.0036 hid a 4-slot reordering.** Kendall tau **0.500**
+is the **lowest** in the series — the perturbation reordered the middle band almost
+completely. Set B adjacent gaps: 0.092 / 0.056 / 0.040 / 0.135 / 0.072 / 0.403 / 0.689.
+The stable quantities are the **bottom-2 set** and the **top-2** {Poetic, Whimsical}.
+**Report sets, not orders.**
+
+### NEW — a byte-level "identical to the remote blob" check does NOT prove the content
+
+This session restored the subtree from the remote blobs and reported "**no mock rows
+committed**" because every `simulations.jsonl` was byte-identical to its blob. That
+was true of the *restore* and **false of the baseline**: the 1 084-row baseline is
+byte-identical to the remote and **still contains 240 mock rows**.
+
+> A blob comparison proves a file was **not modified**. It does not prove the file
+> contains what its name suggests. **Check the content, not just the checksum** —
+> `grep -c "mock-zai" civ-*/simulations.jsonl` is one line and settles it.
+
+### The mock-row spread, per civ (quantifies "not neutral noise")
+
+| civ | real avg (n) | mock avg (n) | spread |
+|---|---|---|---|
+| civ-engineer | 1.914 (86) | 1.763 (30) | −0.151 |
+| civ-formal | 1.966 (117) | 1.228 (30) | **−0.737** |
+| civ-grounded | 1.857 (132) | 0.932 (30) | **−0.925** |
+| civ-mythic | 2.472 (89) | 1.807 (30) | −0.665 |
+| civ-poetic | 2.568 (111) | 2.120 (30) | −0.448 |
+| civ-precise | 1.967 (81) | 1.785 (30) | −0.181 |
+| civ-therapist | 2.343 (84) | 1.752 (30) | −0.590 |
+| civ-whimsical | 2.670 (144) | 1.773 (30) | **−0.898** |
+
+Mock rows depress **every** civ and **reorder the fleet**:
+combined (1 084) vs real-only (844) gives a different lowest `quality`
+(**Grounded 1.333 -> Engineer 1.523**) and a different temp-vs-novelty Pearson r
+(**0.9622 -> 0.9764**). **`max_tokens` does not discriminate** — both sets use
+300/350/400/450/500/550. **Filter on the `[mock-zai ...]` marker.**
+
+### The per-civ counter drift, reproduced independently
+
+Net gap **+260**, but the drift is **directional** — largest for the civs that score
+best. (The concurrent session-25 agent produced the same eight values from a
+*different* body set; both runs agree to the cent.)
+
+| civ | registry `simulations_run` | real rows | registry `relevance_score` | real Σ`avg_score` | drift |
+|---|---|---|---|---|---|
+| civ-engineer | 94 | 86 | 173.28 | 164.62 | **+8.66** |
+| civ-formal | 105 | 117 | 181.33 | 230.00 | **−48.67** |
+| civ-grounded | 119 | 132 | 188.74 | 245.12 | **−56.38** |
+| civ-mythic | 99 | 89 | 223.15 | 220.05 | **+3.11** |
+| civ-poetic | 104 | 111 | 251.84 | 285.03 | **−33.20** |
+| civ-precise | 95 | 81 | 180.24 | 159.31 | **+20.93** |
+| civ-therapist | 97 | 84 | 207.26 | 196.80 | **+10.46** |
+| **civ-whimsical** | 111 | 144 | 264.56 | 384.52 | **−119.96** |
+
+**The bias favours the low scorers**, which is why `civ-grounded` sits last on the
+board's sort key while running the most sims.
+
+### Concurrent sessions on one repo
+
+Two session-25 agents ran concurrently and pushed to `main` in the same window; the
+second push is rejected. **Re-`fetch` and rebase before pushing** — the fix is
+`git fetch origin main && git rebase origin/main`, then resolve content conflicts by
+hand (`--ours` during a rebase means the *upstream* side, not your commit).
+
+### Replications
+
+- Control B: +80/set, +5 `meta_log`/set, 5 winners/set, 0 defaults, 0 errors,
+  0 fallbacks, 0 leaks, 80-80 provider, uniform 10-per-voice — **18th**.
+- Chooser vs `argmax(avg_score)`: **0/10 this session (0 %)**. History: s8 18.9 %,
+  s13 22.4 %, s15 15.5 %, s17 0 %, s20 10 %, s21 0 %, s22 0 % (x2), s24 0 %.
+  **19th replication.** Disagreement margins 0.250-0.827, mean **0.400**.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9764 on real rows**
+  (0.9622 when mock rows are mixed in) — **13th replication** (0.985 / 0.981 /
+  0.9845 / 0.9790 / 0.9783 / 0.9722 / 0.9845 / 0.9622).
+- Counter gap **+260** — 6th session running, byte-identical, per-civ drift also
+  reproduced to the cent.
