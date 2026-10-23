@@ -1317,3 +1317,149 @@ Assert `src.count(old) == 1` before replacing, and re-apply after every
 5. `git checkout -- <subtree>` after a Control B run restores **all** files byte-identical
    to `HEAD`; verify with a `git show HEAD:<path> | cmp -s -` loop over
    `git ls-tree -r --name-only HEAD <subtree>`, not with `git status` alone.
+
+---
+
+## Session 16 additions (2026-10-23)
+
+> Filed as session 16. The remote carried sessions 2-15; this session's baseline is the
+> civ subtree at `cdc2aae7` (a `github-actions[bot]` auto-update that touched only
+> `index.html`/`index.json` — the civ subtree is byte-identical to `e532e66`).
+> **Baseline: 684 ledger rows, 48 `meta_log` entries, registry sum 424, gap +260.**
+
+### The credential gap is still the whole story (14th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All **7**
+candidate secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions`
+-> **401 "token expired or incorrect" on every one** (endpoint healthy => credential gap,
+not outage). `groq` -> 403/401. **No alternate live provider.** JEV live at `jev-1.14.0`
+(`quality.score 0.3, confidence 0.73`). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch: batch header + all 8 `[Name] running 5 sims...`
+lines, **no `Winner:` lines**, **exit 0**, ledger delta **+0 rows, +0 `meta_log`**
+(684 -> 684, 48 -> 48). **Assert on the row delta, never on exit code.**
+
+> **`leaderboard.json` is rewritten on every run, including the no-op run.** Its mtime
+> changes tell you nothing about whether work happened. (Re-confirmed, session 15.)
+
+### NEW TRAP - a "tail slice" of a per-civ ledger is not "the new rows"
+
+The ledgers are **per-civ files**, so "the last 80 rows" across the fleet is **not** the
+80 rows this run appended. Taking `rows[-80:]` after a glob-and-concat reads the tail of
+whichever civ's file sorts last, and makes it look like **one civ produced all 80 rows**
+and like **70 of them were real (unmocked) content**. Both readings were wrong.
+
+> **The new rows are the last N of EACH civ's file, not the last N of the concatenation.**
+> Slice per file (`lines[-10:]` inside the per-civ loop), then assert the per-civ counts.
+> The per-civ count assertion is what catches it: 10/10/10/10/10/10/10/10, not 80/0/0/0.
+
+This one nearly produced a false "the z.ai API is live!" headline and a false "the mock
+is leaking 70/80" defect report. **Both were artifacts of the slice.**
+
+### NEW TRAP - `rm -f` on a running mock's log file silently detaches it
+
+The mock opens its log once at startup and holds the fd. `rm -f /tmp/zai_mock_calls.log`
+**removes the directory entry but the process keeps writing to the unlinked inode**
+(`/proc/<pid>/fd/3 -> /tmp/zai_mock_calls.log (deleted)`). The log then appears empty
+forever and the "control's own log" — the instrument sessions 13-15 rely on to catch a
+control that "passes" — silently stops working.
+
+> **Never `rm` a file a running process holds open. Restart the process with a fresh log
+> path instead**, and confirm with `ls -l /proc/<pid>/fd` that the fd points at a live
+> inode. Cheap check: `ls -l /proc/<mock_pid>/fd | grep deleted` must be empty.
+
+### Control B reconfirmed, 9th time, in both body sets
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows/set (10 per civ, uniform),
++5 `meta_log`/set, 5 winners/set, 0 all-2.0-default rows, 0 score errors, 0 scaffolding
+leak, 0 salt-in-prompt**, 79/80 distinct `content_preview`, 77 distinct `temperature`.
+The mock's internal distribution is uniform (80 calls, 10 per civ) in **both** sets.
+
+### A/B verdict — a tie-preserving swap this time
+
+| | set A | set B |
+|---|---|---|
+| fleet mean `avg_score` | 1.4800 | 1.4804 (+0.0003) |
+| max per-civ \|delta\| | — | **0.117** |
+| positional rank agreement | — | **4/8** |
+| Kendall tau | — | **0.857** (26 conc / 2 disc) |
+| top-3 **set** | {Poetic, Whimsical, Precise} | {Poetic, Whimsical, Precise} |
+| bottom-2 **set** | {Grounded, Therapist} | {Grounded, Therapist} |
+
+Max perturbation **0.117** vs set A adjacent gaps 0.056 / 0.025 / 0.184 / 0.071 / 0.090 /
+0.221 / 0.046 -> the perturbation is **smaller** than the gap it would have to overturn, so
+the order was preserved. This is the **tie-preserving end** of the perturbation axis
+(sessions 11 and 13 sat at the other end). **The rule is unchanged and this run
+re-confirms it from a third direction:** compare the run's max |delta| against **its own**
+adjacent rank gaps before claiming a rank moved.
+
+**Competition winners remain the least stable quantity:** set A Precise x3 + Grounded +
+Formal; set B Precise x2 + Engineer x2 + Formal. **No civ won in both sets.** A single
+round's winner is not a measurement of anything.
+
+### The low-relevance answer, unchanged and now with the baseline-only numbers
+
+The 684 **committed** rows (this session's 160 mock rows excluded) give:
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` | **civ-grounded** | 1.785 |
+| raw relevance | **civ-engineer** | 118.27 (youngest, not weakest) |
+| `win_rate` | **civ-poetic** | **0.000 (0W/33L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.965 |
+| lifetime `quality` | civ-engineer | 1.765 |
+| lifetime `novelty` | civ-precise | 0.955 |
+| lifetime `alignment` | **civ-grounded** | 2.747 |
+
+> **Report the baseline-only (mock-free) numbers.** The mock's prose is an artefact and
+> it shifts the lifetime averages by a visible margin (e.g. `civ-grounded` lifetime
+> `avg_score` 1.965 baseline-only vs 1.843 with mock rows mixed in). Mixing control rows
+> into a lifetime statistic silently rewrites the thing you are reporting.
+
+- **`civ-grounded` = the stable low-relevance civ.** Last on `relevance_per_sim`,
+  lifetime `avg_score` and lifetime `alignment`; bottom-2 in **both** body sets. A genuine
+  quality signal, not the longevity artefact the `relevance_per_sim` denominator suggests
+  (it ran the most sims, 89).
+- **`civ-poetic` = the inverse case.** Top-2 in both body sets, 2nd of 8 on lifetime
+  `avg_score` (2.649), 1st on quality (2.315), 2nd on alignment (3.343) — and **0 wins in
+  33**. A *selection* failure, not a quality collapse. **14 sessions.**
+- **`civ-precise` = the other inverse.** Best win rate of the fleet (0.643, 18W/10L) but
+  6th on `avg_score` and last on novelty (0.955).
+- **Extinction risk: none** (threshold −10, lowest +118.27, `--loop`-mode only).
+
+### Replications
+
+- Chooser vs `argmax(avg_score)`: **15.5 % lifetime (9/58)**, **0/10 this session** — 10th
+  replication. Disagreement margin ran to **1.113**.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9722** (s8 0.985, s10 0.981,
+  s13 0.9845, s14 0.9790, s15 0.9783) — 8th replication.
+- Counter gap **unchanged at +260** (684 vs 424), measured blob-to-blob.
+
+### Environment notes
+
+1. **The task path does not exist at session start** and the prompt's owner segment
+   (`ai-writings/...`) is a **legacy name** — `github.com/ai-writings/cellular-first-design`
+   and `github.com/SuperInstance/cellular-first-design` both 404. The real repo is
+   **`SuperInstance/AI-Writings`** (3.7 GB) and the tree lives at
+   `cellular-first-design/code/civilizations/`. Confirm with a code search for
+   `civilization_orchestrator` in:path, not by guessing the repo name.
+2. **A sparse clone works and is fast** (~45 MB, ~60 s):
+   `git clone --depth 1 --filter=blob:none --sparse <token-url> AI-Writings` then
+   `git sparse-checkout set cellular-first-design/code/civilizations`. This contradicts
+   sessions 9-11's "the filtered clone always fails" and session 14's "prefer the tarball
+   API" — **treat it as reliable-but-variable, and fall back to the tarball API.**
+   The 30 s tool timeout will kill a clone mid-pack, so background it.
+3. **Clone to `/tmp` and symlink** — `rm -rf /workspace/repos/ai-writings && ln -sfn
+   /tmp/AI-Writings /workspace/repos/ai-writings`. The script's hardcoded `CIVS_DIR`
+   resolves through it. A clone into `/workspace` dies with `close error: Disk quota
+   exceeded` (NAS at 100 %).
+4. **A `github-actions[bot]` force-update lands on the branch mid-session.** This session's
+   fetch showed `+ e532e66...cdc2aae main -> origin/main (forced update)`. The diff was
+   **only `index.html` / `index.json`** — the civ subtree was untouched. A forced update
+   is **not** evidence of a conflicting report; **diff the subtree** before reacting:
+   `git diff --stat HEAD FETCH_HEAD -- <subtree>`. Empty diff => nothing to reconcile.
+5. `git reset --soft FETCH_HEAD` then `git reset FETCH_HEAD -- index.html index.json`
+   un-stages the bot's files without touching the subtree. Verify the subtree with
+   `cmp` against `git show FETCH_HEAD:<path>` afterwards.
+6. The `read` tool rejects paths outside the workspace ("Workspace path escapes Cloud
+   Host root") and cannot write `/tmp`; use `bash` heredocs for `/tmp` artifacts.
