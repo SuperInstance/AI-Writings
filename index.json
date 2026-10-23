@@ -70131,6 +70131,24 @@
     "size_bytes": 3325
   },
   {
+    "filename": "RUN_NOTES.md",
+    "path": "bots/wesley-mechanic/RUN_NOTES.md",
+    "title": "wesley-mechanic — operational run notes",
+    "description": "Dated run reports for the canon watcher. Each entry records what the poll observed, what was appended to `witness.log`, and what environment problem had to be solved to get there.",
+    "folder": "wesley-mechanic",
+    "topic": "Wesley Mechanic",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 703,
+    "date": "2026-10-23",
+    "size_bytes": 9217
+  },
+  {
     "filename": "AUDIT-NOTE.md",
     "path": "bots/jevvy-auditor/AUDIT-NOTE.md",
     "title": "Audit Note — jevvy-auditor, 2026-10-23T07:06:44Z",
@@ -115120,6 +115138,42 @@
     "word_count": 376,
     "date": "2026-09-21",
     "size_bytes": 2905
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session2.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session2.md",
+    "title": "Civilization Orchestrator — Run Report (session 2)",
+    "description": "The task path `/workspace/repos/ai-writings/cellular-first-design/code/civilizations` did **not exist** at session start. Two distinct blockers: 1. **The repo root is `SuperInstance/AI-Writings`, not ...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 752,
+    "date": "2026-10-23",
+    "size_bytes": 12175
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23.md",
+    "title": "Civilization Orchestrator — Run Report",
+    "description": "The task path `/workspace/repos/ai-writings/cellular-first-design/code/civilizations` did **not exist** at session start. The NAS-backed workspace mount (`/run/csi/mount-root/nas/...`, 600 G) is at **...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 751,
+    "date": "2026-10-23",
+    "size_bytes": 7919
   },
   {
     "filename": "wr13-grammar-curated.md",
