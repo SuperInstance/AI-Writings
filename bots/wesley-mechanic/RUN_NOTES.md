@@ -363,3 +363,72 @@ leaves a `bot_started` with no matching note. Worth watching: a `bot_started` wi
 the first clause can only pass if the running total hits exactly `1000.0` within `1e-6` — a
 coincidence target, not a conservation law. The field carries no signal. Still unfixed; the fix is a
 one-liner, but the script is upstream and byte-identical to its git blob, so no patch was applied.
+
+## 2026-10-23T18:05Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~22.0h, and ~32 min since the
+  17:33Z poll.
+- **Confirmed twice by independent paths:** the watcher's own `poll_canon()`, and a separate curl probe
+  (HTTP 200, 13720 bytes) whose `sha256(json, sort_keys)[:16]` recomputes to the same `b20375d389cb505d`
+  both **before and after** the watcher run, with the two response bodies byte-identical (`cmp` clean).
+- **Count key:** the response carries `count` (71), not `paper_count` (absent), so the 2026-10-22 count-key
+  fallback fix remains load-bearing.
+- **Log append:** two rows — the unconditional `bot_started` event (pid 261, 18:05:50Z) written by
+  `main()`, then this poll's `witness_note` (hash `1a42f56ff72113f8`). `witness.log` went 37 → 39 rows.
+- **No canon-change note written.** A hash match is not a transition. The `witness_note` row records the
+  poll, not a transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and
+  `canon_changed` branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still does not
+  exist and `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 39/39 rows parse and carry `ts, iso, event, payload, hash`. Linkage class
+  `row-checksum` (per `../README.md`): each row's hash commits to its own payload only, with no
+  `prev`/`prev_hash`. Deletion and truncation of a row are undetectable in this format, so the honest
+  verdict is `36/39 row checksums match — linkage class row-checksum`, not "chain-intact". Of the 39:
+  36 verify, 2 are the literal `hash='RECOVERED'` marker on hand-authored `meta_wipe_recovery` rows, and
+  1 (row 25, the 2026-10-23T11:31Z note) carries a stale hash `88839488ea23e66c` against a computed
+  `2553b915563b73cc` — **born with the row** in upstream commit `43b98389` and propagated unchanged
+  since. Not caused by this run. This run's own row 39 self-verifies (`1a42f56ff72113f8`).
+- **Substrate log:** `substrate-witness.jsonl` byte-unchanged at 440 bytes (md5
+  `e1240259a3f082af0aacde5c117bbf96`). Correct — the substrate calls in the watcher fire only from the
+  `first_poll` branch.
+
+### Environment (14th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` was an empty NAS mount at
+  600G/600G, 100%, 0 bytes available, and `git clone` into it died with
+  `close error: Disk quota exceeded` on `.git/description`.
+- **Recovery:** fetched the four required files from `raw.githubusercontent.com` plus the contents API and
+  staged them to `/tmp/wm-run/bots/`, because the script hardcodes those paths for `witness.log` /
+  `state.json` / `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` —
+  `substrate_bus` must be staged alongside it or the import dies.
+- **A full `git clone` was started and abandoned**: it had reached ~804 MB of pack after ~90 s and was
+  still climbing, so it was killed and the pack discarded rather than left to consume the overlay. The
+  file-level recovery is the right move for a repo this size when only four files are needed.
+- Staged script md5 `206682962c06f9814a5db65c2fbc7267` — byte-identical to the upstream git blob at
+  HEAD (sha `9a974d4166ec6fe88cb9bdde8b46ff97952e606d`, 5805 bytes) and to the value recorded in every
+  prior run. No code changes were needed this run.
+- **The NAS 0-byte truncation trap was re-verified live, not assumed.** A 20-byte probe write returned
+  exit 0 and landed as a **0-byte stub** that still appeared in `ls -la`. `substrate_bus.py` hardcodes its
+  write target to `/workspace/repos/ai-writings/bots/substrate-bus/`, so the substrate witness would
+  have been silently lost. Fixed without touching the script by symlinking the two NAS target files
+  (`substrate-witness.jsonl`, `topics.json`) to their `/tmp/wm-run/bots/substrate-bus/` counterparts;
+  read-through confirmed 440 and 2259 bytes respectively, matching upstream.
+- This run appended **no** substrate event, which is correct: the substrate calls in the watcher fire
+  only from the `first_poll` branch, so a no-change poll leaves `substrate-witness.jsonl` byte-unchanged.
+
+### Orphaned row still present in the upstream log
+
+The upstream `witness.log` carries a `bot_started` row at `2026-10-23T16:46:32Z` (pid 218) that was
+never followed by a `witness_note` — that poll was launched but its note was never written. A
+`bot_started` with no subsequent `witness_note` is the signature of a run that died between launch and
+note. Carried forward unchanged.
+
+### Open defect — still unresolved (eighth poll reporting)
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a
+**constant false by construction**. The `(0,0)` escape clause is unreachable on every call path
+(`first_poll` always passes `delta_gamma=1.0`; `canon_changed` always passes `delta_eta=1.0`), and the
+first clause can only pass if the running total hits exactly `1000.0` within `1e-6` — a coincidence
+target, not a conservation law. The field carries no signal. Still unfixed; the fix is a one-liner, but
+the script is upstream and byte-identical to its git blob, so no patch was applied.
