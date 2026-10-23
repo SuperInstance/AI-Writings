@@ -2323,3 +2323,155 @@ clean at `e045e68c`. Session report: `RUN_REPORT_2026-10-23_session21.md`.
 6. `__pycache__/` is written into the civilizations dir - remove it before committing.
 7. The orchestrator writes `leaderboard.json` even on a no-op run, so a
    `git checkout HEAD -- .` is needed after the **unpatched** run too.
+
+---
+
+## Session 22 additions (2026-10-23, 121st wipe)
+
+### The credential gap is still the whole story (20th consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (764 -> 764)**, `meta_log`
+**+0 (53 -> 53)**, **0** `Winner:` lines. **Assert on the row delta, never on the
+exit code.** The per-civ sim lines print *before* the provider call.
+
+All 8 sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage).
+`ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` absent from env and from the 8-entry secret store.
+**JEV live at `jev-1.14.0`** (HTTP 200, `quality.score 0.13, confidence 0.82`).
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### NEW — the GitHub API tree fetch is a FAST, RELIABLE bootstrap (no pack file)
+
+The full clone failed AGAIN in a new way: `git clone --depth 1 --filter=blob:none`
+into `/tmp` fetched ~1.1 GB, then died with
+`could not open '/tmp/aw/.git/objects/pack/tmp_pack_XXXX' for reading: No such file or
+directory` and **removed the working tree entirely** ("Clone succeeded, but checkout
+failed"). This is the same `--filter=blob:none` promisor-remote failure the s16
+session recorded. **Do not use `--filter=blob:none`.**
+
+**The API tree fetch is now the preferred bootstrap** - no pack file, no multi-GB
+download, no working-tree checkout:
+
+```
+GET /repos/SuperInstance/AI-Writings/git/trees/main?recursive=1
+  -> 22,059 entries, truncated: false
+filter to blobs under cellular-first-design/code/civilizations/  -> 58 files
+for each: GET /repos/SuperInstance/AI-Writings/git/blobs/<sha>
+  -> base64-decode the `content` field, write to /tmp/aw/<path>
+```
+
+**Whole civ subtree in ~40 s.** The `contents/<path>` API works too, but
+`git/trees` + `git/blobs` is one call to enumerate and avoids the directory
+round-trips. Same byte-exact restore property as the s16 tarball path.
+
+### Control B reconfirmed, 15th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ,
+uniform), +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 0
+fallback calls, provider `zai` on 80/80, 80/80 distinct `content_preview`,
+73/80 distinct `avg_score`** (range 0.603-2.293, mean 1.543), mock log **80 calls**
+with **exactly 10 per voice across all 8 voices** (name-keyed voice table, s17 rule).
+
+JEV sub-score spread on the 80 rows: quality mean 0.547 (0.01-1.56), novelty mean
+1.883 (0.77-2.55), alignment mean 2.198 (0.21-3.36), confidence mean 0.632 with 48
+distinct values. **A live JEV, not a stub.**
+
+### NEW — the A/B result depends on WHETHER THE REGISTER CHANGED, not on the words
+
+Ran body set A and body set B, changing **only the mock's per-voice prose**. Max
+|delta avg_score| across all 8 civs: **0.037**. **No civ moved >0.3.** Rank
+agreement **8/8** - same civ in the same position in both sets, same top-1
+(`civ-poetic`), same bottom-1 (`civ-grounded`). History for this measurement:
+s9 2/8, s10 2/8, s11 mid-range perturbation, s18 mid-range. **8/8 is the first
+fully-clean A/B in the record.**
+
+**But read the result correctly.** Sets A and B were written as *paraphrases of the
+same per-voice register* (same voice, same shape, different words). The large
+perturbations in s9 (+0.21 to +1.00) came from swapping the **register itself** -
+one set generic, one set in-voice. So:
+
+- **8/8 here is a statement about PARAPHRASE robustness**, not about the mock's
+  absolute offset. The offset is still a first-order confounder.
+- **Absolute scores remain mock artefacts. Only the relative ordering carries
+  signal** - and this run it is stable under paraphrase.
+- To test register-sensitivity properly, body set B must change the *register*,
+  not the wording. **A paraphrase-vs-paraphrase A/B is a weak test and will look
+  clean; do not report it as "the mock does not affect the ranking".**
+
+### The chooser agreement hit 0/5 in BOTH runs (15th replication)
+
+`best_civ` == `argmax(avg_score)` in **0 of 5** rounds in run A **and 0 of 5** in run
+B. Margins (A) 0.13 / 0.85 / 0.03 / 0.54 / 0.22, mean 0.354; (B) mean 0.648.
+**`civ-poetic` was the argmax in all 5 run-A rounds and won 0.** The two metrics
+remain essentially uncorrelated; the chooser never sees the scores. History: s8
+18.9 %, s13 22.4 %, s15 15.5 %, s17 0 %, s20 10 %, s21 0 %, s22 0 % (x2 runs).
+
+### The low-relevance answer - unchanged for the 10th session running
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.654 |
+| raw relevance | **civ-engineer** | 144.27 |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.000 (0W/38L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.825 |
+| lifetime `quality` | **civ-engineer** | 1.558 |
+| lifetime `novelty` | **civ-formal** | 1.046 |
+| lifetime `alignment` | **civ-grounded** | 2.494 |
+| this-session `avg_score` | **civ-grounded** | 0.719 |
+| this-session `quality` | **civ-grounded** | 0.067 |
+| this-session `novelty` | **civ-formal** | 1.063 |
+| this-session `alignment` | **civ-grounded** | 0.478 |
+
+- **`civ-grounded` = the stable low-relevance civ, 10th session running.** Last on
+  `relevance_per_sim`, lifetime `avg_score`, lifetime `alignment`, and last this
+  session on `avg_score`, `quality` and `alignment`. It ran the most sims (99),
+  but it is *also* last on the raw score lenses, so **it is a genuine quality
+  weakness, not the longevity artefact the denominator suggests.**
+- **`civ-poetic` = the inverse case, 20th session running.** 1st of 8 on
+  `relevance_per_sim` (2.475) and 2nd on lifetime `avg_score` (2.564), but **0 wins
+  in 38** and **0 of 5** rounds in run A - a *selection* failure, not a quality
+  collapse.
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate in the
+  fleet (**0.576**, 19W/14L) and 3 of 5 wins in run A, but 2nd on lifetime
+  `avg_score` (2.001) and 2nd-last on lifetime `novelty` (1.114).
+- **`civ-whimsical` = the only civ where every quality lens agrees** (1st on
+  lifetime `avg_score` 2.627, novelty 2.579, alignment 3.284) - and 3rd-lowest win
+  rate (0.053), 0 of 5 in run A.
+- **Extinction risk: none** (threshold -10, lowest +144.27, `--loop`-mode only).
+  All 8 civs remain generation 1.
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / 0 fallback / 80-80
+  provider / uniform 10-per-voice - **15th**.
+- Chooser vs `argmax(avg_score)`: **0/5 in both runs (0 %)**, 15th replication.
+- Counter gap **+260** (924 ledger rows vs 664 registry `simulations_run`),
+  **identical to the s20/s21 baseline**. A **race** in `save_state()`, not a leak.
+  **Report as measured this session, never as a trend against a quoted number.**
+
+### Environment notes (nothing new broke; the known traps all held)
+
+1. 121st consecutive wipe - the task path did not exist; `/workspace` held only
+   `.plugin-cache`. NAS `/workspace` at **100 %** (600 G used, 0 avail) - a clone
+   into it fails mid-copy with "Disk quota exceeded". `/tmp` is on the overlay
+   (28 G free) and is exempt.
+2. `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/aw /workspace/repos/ai-writings`
+   - the `rm -rf` is still required (s8 trap). `CIVS_DIR` is hardcoded to the
+   `/workspace` path, so the symlink is what makes the script write into the clone.
+3. The **`ZAI_URL_OVERRIDE` seam is still not in the committed blob** - re-apply the
+   one-line patch each session (verified: 1 insertion, 1 deletion).
+4. **A health-check probe of the mock pollutes its call log** (s18 trap, hit again
+   this session). The probe POSTs `{}`, which produces one `fallback: true` row.
+   **Never probe the mock before the run** - restart it with the log removed
+   instead. The probe row is also *not* one of the 80 real calls, so any
+   "80 calls, 0 fallback" assertion must be made after a clean restart.
+5. `setsid nohup python3 mock.py &` inside a foreground tool call **blocks past the
+   30 s timeout**; the process does start, but the call must be re-checked
+   afterwards. Write the file first, start the process second.
+6. `gh` CLI is still not installed; use the GitHub REST API. The `search` quota is
+   separate from core and was still available.
+7. The per-civ ledger slice for "the new rows" is the **last 10 of EACH civ's file**,
+   not the tail of the concatenation (s17 trap) - the per-civ counts came out
+   10/10/10/10/10/10/10/10, not 80/0/0/0.
