@@ -269,6 +269,96 @@
           }
         }
       }
+    },
+    {
+      "ts": 1792782267.109084,
+      "iso": "2026-10-23T19:04:27",
+      "verdict": "FAIL",
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "wolffs_law_of_tensors_rsi_gan",
+        "when_the_substrate_teaches",
+        "witness_log_as_prediction_rsi_gan"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.28,
+          "confidence": 0.77,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.78,
+            "1": 0.18,
+            "2": 0.03,
+            "3": 0.01,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.55
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.4
+        },
+        "q3": {
+          "type": "score",
+          "score": 2.21,
+          "confidence": 0.32,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.07,
+            "1": 0.14,
+            "2": 0.32,
+            "3": 0.45999999999999996,
+            "4": 0.01
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.87,
+          "confidence": 0.43,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.4,
+            "1": 0.44,
+            "2": 0.07,
+            "3": 0.06,
+            "4": 0.03
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "too-abstract",
+          "confidence": 0.74,
+          "probabilities": {
+            "low-quality": 0.12,
+            "redundant": 0.04,
+            "off-topic": 0.04,
+            "too-abstract": 0.79,
+            "none": 0.01
+          }
+        }
+      }
     }
   ]
 }
