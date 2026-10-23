@@ -4484,3 +4484,102 @@ rate (0.506, 42W/41L) but 5th on quality and 2nd-lowest novelty.
 - **`setsid nohup ... &` did not keep the mock HTTP server alive** across bash
   tool calls, while the tool's own `run_in_background` did. Prefer the tool's
   background mode for long-lived listeners.
+
+---
+
+## Session 33b additions (2026-10-23, 129th wipe) — concurrent independent replication of session 33
+
+> Session 33 (pushed concurrently as `db412bc8`) ran the same spec and reached the same
+> headline conclusions. This section records the **independent** replication: different
+> mock body set, different seed, different JEV draws, separate report file
+> (`RUN_REPORT_2026-10-23_session33b.md`). **All headline findings agree.**
+
+### The credential gap is still the whole story (14th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All **8** sandbox
+secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` -> **HTTP 401
+"token expired or incorrect"** on every one. No-auth probe -> **401 code 1001 "Authentication
+parameter not received"** (endpoint healthy => credential gap, not outage). `GROQ_TOKEN` absent.
+JEV live at `jev-1.14.0` (`quality.score 1.67, confidence 0.51`). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched `--sims 5 --prompts 5 --providers zai` re-verified from scratch: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows, +0
+meta_log** (1644 -> 1644, 108 -> 108), only `leaderboard.json` rewritten. **Assert on the row
+delta, never on the exit code.**
+
+### `ZAI_URL_OVERRIDE` confirmed STILL not in the committed blob — and landed this session
+
+`git show HEAD:...civilization_orchestrator.py | grep -n ZAI_URL_OVERRIDE` -> **no match**.
+The session-7/s13/s32 notes describe it as "the working one-line patch", but it was never
+committed. Landed it this session; **blast radius = 1 line**, verified with `git diff` against
+the blob:
+
+```python
+"url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/api/coding/paas/v4/chat/completions"),
+```
+
+**Worth landing upstream** — it is a test seam and it makes the control reproducible without a
+code fork. It leaves the `ZAI_TOKEN` gate, the request body, and the whole JEV path untouched.
+
+### The clone-to-`/tmp` + symlink bridge, re-verified end to end
+
+`/workspace` at **100 % NAS quota**; `git clone` into `/workspace` fails with `Disk quota
+exceeded` **and exits 0** (a `tail` in the pipeline reports the last command's status, not
+git's). Cloned to `/tmp` (overlay, 28 G free) and bridged:
+
+```
+mkdir -p /tmp/civroot/cellular-first-design/code
+ln -sfn /tmp/ws/ai-writings/cellular-first-design/code/civilizations /tmp/civroot/cellular-first-design/code/civilizations
+ln -sfn /tmp/civroot /workspace/repos/ai-writings
+```
+
+`git status --short` after the clone was **empty** (the session-32b 22,003-files-staged-as-
+deleted trap did **not** fire here). Always status-check a fresh tree before `git add -A`.
+
+### Control B — 14th identical replication
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (+10/civ uniform),
++5 meta_log, 5 winners, 0 JEV score errors, 0 all-2.0-default rows, 0 mock fallbacks**,
+distinct `avg_score` 9-10/10 per civ.
+
+**Mock log line count is 81, not 80, and that is correct** — the 81st is a pre-run probe POST.
+Exclude it by timestamp (`ts < min(ledger new-row ts)`), not by deleting a line. Asserting
+`== 80` on a log that includes your own probe is a false negative.
+
+**Per-civ distinct `content_preview` = 5-6/10** (fleet-wide 47/80) with 8 bodies per voice and
+a random *sentence window* per call — above the session-32b ">= 2 per civ" floor, comfortably
+below the 50-68 fleet-wide band that earlier sessions saw, because that band was a property of
+the pool size, not a property of the run.
+
+### The low-relevance answer — `civ-grounded` (unchanged, 5 of 8 lenses)
+
+| lens | lowest | value |
+|---|---|---|
+| A `relevance_per_sim` (board sort) | **civ-grounded** | 1.477 |
+| B raw relevance | **civ-grounded** | 294.00 |
+| C win rate | **civ-poetic** | 0.011 (1W/87L) |
+| D lifetime `avg_score` | **civ-grounded** | 1.563 |
+| D' lifetime alignment | **civ-grounded** | 2.007 (next 2.550) |
+| E lifetime quality | civ-engineer | 1.029 (grounded 1.060) |
+| F lifetime novelty | civ-formal | 1.299 |
+| G this-run `avg_score` | **civ-grounded** | 0.320 |
+
+`civ-grounded` is lowest on **5 of 8 lenses** including both that matter most (lifetime
+`avg_score`, lifetime `alignment`), and it is *also* lowest on the two lenses with no
+denominator effect (raw relevance, this-run) — so it is a genuine quality signal, not the
+longevity artefact lens A alone suggests. `civ-poetic` remains the inverse (1 win in 88;
+2nd on `rel_per_sim`, 1st on lifetime quality) and `civ-precise` the mirror (best win rate
+0.518, 4th on `avg_score`). **Extinction risk: none** (threshold -10, lowest +294.00,
+`--loop`-mode only).
+
+### Replications
+
+- Chooser vs `argmax(avg_score)`: **1/5 (20.0 %)** this run; lifetime **13/106 = 12.3 %** —
+  9th replication (s8 4.4 %, s9 18.9 %, s10 15.5 %, s11 15.5 %, s13 22.4 %, s32b 12.8 %).
+  In 4 of 5 rounds the winner's own score was **below** the runner-up's, by 0.017-0.750.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9554** — 7th replication.
+- Counter gap: **+260** (ledger 1724 vs registry 1464) — unchanged for 14 sessions.
+- Working tree restored and verified **byte-identical to the git HEAD blob for every file**
+  via `cmp` against `git show HEAD:<path>`; `git status --short` empty; `diff -rq` against a
+  `/tmp/pristine` snapshot clean.
