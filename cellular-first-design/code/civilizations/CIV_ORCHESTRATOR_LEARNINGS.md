@@ -3006,3 +3006,148 @@ done
 
 If any number is non-zero, the committed ledger carries control rows and every
 lifetime statistic computed from it is suspect until they are excluded.
+
+---
+
+## Session 25 additions (2026-10-23, 124th wipe)
+
+> Filed as session 25. Baseline measured from git blob `fa2275f4`: **1 084 ledger
+> rows, 240 of them `[mock-zai` control rows** (30/civ), `meta_log` 73, registry
+> `simulations_run` 824. **Absolute numbers across sessions are not comparable —
+> only ranks and qualitative findings are.**
+
+### The credential gap is still the whole story (23rd consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 (1 084 -> 1 084)**, `meta_log`
+**+0 (73 -> 73)**, **0** `Winner:` lines; only `leaderboard.json` was rewritten.
+All 8 sandbox secrets -> **401 "token expired or incorrect"** against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` (endpoint healthy => credential
+gap). JEV **live at `jev-1.14.0`**.
+
+### NEW BOOTSTRAP — `--filter=blob:none` makes the sparse path cheap (~25 s, ~1 MB)
+
+The s24 note ("sparse limits the *checkout*, not the *transfer*") is **true only for
+the `--depth 1` path**. Adding `--filter=blob:none` changes the transfer too:
+
+```bash
+git clone --depth 1 --filter=blob:none --no-checkout \
+  https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/ai-writings.git aiw
+cd aiw && git sparse-checkout init --cone && git sparse-checkout set cellular-first-design
+git checkout
+```
+
+Measured: **~25 s, ~1 MB working tree**, versus a `--depth 1` full clone that
+transferred 2.8 GB and then died with
+`could not open .../tmp_pack_MmrfSK for reading` -> `fetch-pack: invalid index-pack
+output`. The blobless path did **not** reproduce the s9/s10/s11 intermittent
+`tmp_pack` failure. **Try this before the sparse-init recipe.** Note the
+`--filter=blob:none` flag is what does the work; without it the fetch still pulls
+multi-GB.
+
+> **`ls` of the clone directory can fail mid-transfer** (`/tmp/aiw` disappeared from
+> `ls` while the pack was still being written). Poll for the *process* to exit, not
+> for the path to appear. A vanished path plus a live `git clone` process is normal,
+> not a failure.
+
+### Control B reconfirmed, 18th time, in both body sets
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows (10/civ, uniform), +5
+`meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 0 scaffolding leak,
+80/80 provider=zai, 80 mock calls, exactly 10 per voice across all 8 voices, 0
+fallbacks, 0 no-auth calls, 70/80 distinct `avg_score`, 24/80 distinct
+`content_preview`**. JEV spread: quality 0.030-2.430 (66), novelty 1.240-2.910 (60),
+alignment 0.450-3.520 (65), confidence 0.140-0.980 (43). **A live JEV.**
+
+`distinct content_preview = 24` is the **ceiling for a 3-body-per-voice mock**, not
+the s9 collapsed-mock red band. The discriminating check is the mock log
+(call count + per-voice distribution + fallback rows), never the preview count
+alone.
+
+### The mock's per-voice bodies CAN mute a voice-specific weakness — read the lifetime table
+
+This session's body set put `civ-grounded` **3rd-last** on `avg_score` (1.893),
+where the lifetime table puts it **last** (1.860 of 142 real rows). Cause: the
+mock's 3 bodies per voice are written in a house style JEV rewards generically, so
+the Grounded's *voice* disadvantage is muted; the mock measures the question, not
+the culture.
+
+> **A mock body set is a perturbation check on the RANKS, never a level measurement
+> and never a replacement for the lifetime table.** The mock also scored a fleet
+> mean of 2.040 against s24's 1.6552/1.6864 — a 0.35 level shift from the same
+> questions. **Report ranks and sets from a body set; report levels from the
+> lifetime ledger.**
+
+### Low-relevance answer: `civ-grounded` — 13th session running
+
+Baseline-only, real rows only (240 committed mock rows excluded):
+
+| lens | lowest | value |
+|---|---|---|
+| real `relevance_per_sim` | **civ-grounded** | **1.860** |
+| real raw relevance | civ-precise | 177.53 |
+| `win_rate` (selection) | **civ-poetic** | **0.019 (1W/52L)** |
+| lifetime `avg_score` | **civ-grounded** | **1.860** |
+| lifetime `quality` | civ-engineer | 1.446 |
+| lifetime `novelty` | civ-formal | 1.123 |
+| lifetime `alignment` | **civ-grounded** | **2.526** |
+
+- **`civ-grounded` = the stable low-relevance civ.** Last on `relevance_per_sim`,
+  `avg_score` and `alignment`; 7th on `quality`. It ran the most sims (142) so the
+  lifetime-average denominator penalises it, **but it is also last on the raw score
+  lenses, so it is a genuine quality weakness, not the longevity artefact.**
+- **`civ-poetic` = the inverse case, 23rd session running.** 1st of 8 on
+  `relevance_per_sim` (2.542), 2nd on `avg_score`, 2nd on `alignment`, 1st on
+  `quality` (2.074) — and **1 win in 52**. A *selection* failure, not a quality
+  collapse.
+- **`civ-precise` = the other inverse.** Best win rate (0.479, 23W/25L), lowest raw
+  relevance (177.53) because it ran the fewest sims (91), 5th on `avg_score`. Wins
+  by being *picked*, not by scoring.
+- **`civ-whimsical` = the only civ where every quality lens agrees** (`avg_score`
+  2.642, `novelty` 2.601, `alignment` 3.282, raw relevance 406.90) with a 0.057 win
+  rate — and the civ whose registry row is most wrong (−119.96).
+- **`civ-engineer` = lowest `quality` (1.446)** this session, a step below its own
+  historical band; it is the only lens on which it ranks last.
+- **Extinction risk: none** (threshold −10, lowest real relevance +177.53,
+  `--loop`-only). All 8 civs remain **generation 1**. No births, no extinctions.
+
+### Replications
+
+- Control B: +80/set, +5 `meta_log`/set, 5 winners/set, 0 defaults, 0 errors,
+  0 fallbacks, 0 leaks, 80-80 provider, uniform 10-per-voice — **18th**.
+- Chooser vs `argmax(avg_score)`: **0/5 this session (0 %)**; disagreement margins
+  0.013-0.237, mean 0.128. History: s8 18.9 %, s13 22.4 %, s15 15.5 %, s17 0 %,
+  s20 10 %, s21 0 %, s22 0 % (x2), s23b 0 %, s24 0 %. **18th replication.**
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9742** — **13th replication**
+  (0.985 / 0.981 / 0.9845 / 0.9790 / 0.9783 / 0.9722 / 0.9845 / 0.9622 / 0.9742).
+- Counter gap **+260** (1 164 ledger rows vs 904 registry `simulations_run`) —
+  **identical to the s20-s24 baseline**, and the per-civ drift table is
+  **byte-identical to s24's** (engineer +8.66, formal −48.67, grounded −56.38,
+  mythic +3.11, poetic −33.20, precise +20.93, therapist +10.46, whimsical −119.96).
+  A race, not a leak. `relevance_per_sim` is **not** a reproducible ranking.
+- `civ-grounded` lowest on the score lenses — **13th session running**.
+
+### The pre-existing 240 mock rows are still in the committed ledger — check first, every time
+
+The s24 finding stands and is now 2 sessions old: the committed baseline contains
+**240 `[mock-zai` rows (30 per civ, 22 % of the ledger)**, committed by an earlier
+session. **Every session since has been computing lifetime statistics over a ledger
+that is ~22 % control rows**, and the `culture.json` counters additionally counted
+those rows as if they were provider output.
+
+> **Check the mock-row count FIRST, before computing any lifetime statistic:**
+> ```bash
+> for f in $(git ls-tree -r --name-only HEAD cellular-first-design/code/civilizations/ | grep simulations.jsonl); do
+>   echo "$f: $(git show HEAD:$f | grep -c 'mock-zai')"
+> done
+> ```
+> This session: **30 in every civ, 240 total** — unchanged from s24. The registry
+> drift table is also unchanged, which is the cross-check that the pollution has
+> not spread.
+
+### Restore state
+
+62 files compared against `HEAD` -> **0 mismatches**. Ledger back to 1 084 (240
+pre-existing mock rows), `meta_log` back to 73, `ZAI_URL_OVERRIDE` count 0 in the
+working tree, `__pycache__/` removed. This session's 80 control rows were **not**
+committed. Report: `RUN_REPORT_2026-10-23_session25.md`.
