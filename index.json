@@ -70146,25 +70146,25 @@
     "style": "Essay",
     "word_count": 703,
     "date": "2026-10-23",
-    "size_bytes": 35397
+    "size_bytes": 31679
   },
   {
     "filename": "AUDIT-NOTE.md",
     "path": "bots/jevvy-auditor/AUDIT-NOTE.md",
-    "title": "Audit Note — jevvy-auditor, 2026-10-23T19:04:27Z",
-    "description": "fourth consecutive FAIL and it is an artifact, not a finding.** Run 2026-10-23T07:06:44Z already documented the blocking defect, and this run reproduces it unchanged: `pick_recent_canon()` truncates e...",
+    "title": "Audit Note — jevvy-auditor, 2026-10-23T07:06:44Z",
+    "description": "bot is failing for the wrong reason and would fail identically on canon that is excellent. `run_once()` builds a 326-char `canon_state` from the first 80 chars of three files and passes it as JEV's `s...",
     "folder": "jevvy-auditor",
     "topic": "Jevvy Auditor",
     "genres": [
-      "Unclassified"
+      "Music"
     ],
     "models": [
       "Unknown"
     ],
     "style": "Dialogue",
-    "word_count": 402,
+    "word_count": 399,
     "date": "2026-10-23",
-    "size_bytes": 2625
+    "size_bytes": 2552
   },
   {
     "filename": "chronicle-20260921-044858.md",
@@ -70252,9 +70252,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 217,
+    "word_count": 171,
     "date": "2026-09-21",
-    "size_bytes": 1749
+    "size_bytes": 1329
   },
   {
     "filename": "adr-0014-cross-instance-fabric-with-a2a-bus.md",
@@ -115209,25 +115209,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 89675
-  },
-  {
-    "filename": "RUN_REPORT_2026-10-23_session17.md",
-    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session17.md",
-    "title": "RUN_REPORT_2026-10-23_session17.md",
-    "description": "Civilization Orchestrator — `--sims 5 --prompts 5 --providers zai` Session 17 (2026-10-23, 116th wipe). Repo HEAD `fb712705`.",
-    "folder": "civilizations",
-    "topic": "Civilizations",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 901,
-    "date": "2026-10-23",
-    "size_bytes": 11583
+    "size_bytes": 71972
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session5.md",
@@ -115318,24 +115300,6 @@
     "word_count": 832,
     "date": "2026-10-23",
     "size_bytes": 14227
-  },
-  {
-    "filename": "RUN_REPORT_2026-10-23_session16.md",
-    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session16.md",
-    "title": "Civilization Orchestrator — Run Report (Session 16)",
-    "description": "The task path did not exist at session start (`/workspace` held only `.plugin-cache` and `.skills`). Rebuilt from `SuperInstance/AI-Writings` (the prompt's `ai-writings/...` owner segment is a legacy ...",
-    "folder": "civilizations",
-    "topic": "Civilizations",
-    "genres": [
-      "Music"
-    ],
-    "models": [
-      "Unknown"
-    ],
-    "style": "Essay",
-    "word_count": 816,
-    "date": "2026-10-23",
-    "size_bytes": 6111
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session6.md",

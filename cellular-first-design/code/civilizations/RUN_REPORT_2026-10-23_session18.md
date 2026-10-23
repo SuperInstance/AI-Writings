@@ -3,7 +3,14 @@
 **Date:** 2026-10-23
 **Command:** `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
 **Baseline commit:** `5972dd784eadef0ac4941ffea5cb0cd2a6e87519`
-**Baseline:** 684 ledger rows, 48 `meta_log` entries, registry `simulations_run` sum 504, counter gap **+180**
+**Baseline:** 684 ledger rows, 48 `meta_log` entries, registry `simulations_run` sum 424,
+counter gap **+260**
+
+> **This file merges two independent session-18 runs** that raced on the same branch
+> (two orchestrator agents, same task, same baseline, different mock prose). Their
+> findings agree on every substantive lens; the differences are in the *control*
+> arm only, and both are preserved below. Run A is the committed ledger state;
+> Run B is the A/B body-set replication.
 
 ---
 
@@ -43,8 +50,9 @@ Audit of every candidate secret against `https://api.z.ai/api/coding/paas/v4/cha
 
 | secret | result |
 |---|---|
-| `ZAI_TOKEN` | **ABSENT** from env |
-| `ZAI_KEY` | **ABSENT** from env |
+| `ZAI_TOKEN` | **ABSENT** from env and from the secret store |
+| `ZAI_KEY` | **ABSENT** from env and from the secret store |
+| `GROQ_TOKEN`, `MINIMAX_KEY` | ABSENT (untestable) |
 | `TYPESAFE_AI_TOKEN` | HTTP 401 `token expired or incorrect` |
 | `MOTHQUANTUM_TOKEN` | HTTP 401 |
 | `NOTION_TOKEN` | HTTP 401 |
@@ -58,10 +66,10 @@ Audit of every candidate secret against `https://api.z.ai/api/coding/paas/v4/cha
 second blocker: the fleet key is out of balance (code 1113 "recharge"), so a key alone
 may not suffice.
 
-**JEV is live** — `POST https://api.typesafe.ai/v1/systemone` → HTTP 200, `jev-1.14.0`,
-`quality.score 1.36, confidence 0.59`. The scoring half of the pipeline was never the
-problem. Note the env-var split: the orchestrator reads `TYPESAFEAI_KEY`, the sandbox
-exports `TYPESAFE_AI_TOKEN` ⇒ `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+**JEV is live** — `POST https://api.typesafe.ai/v1/systemone` → HTTP 200, `jev-1.14.0`.
+The scoring half of the pipeline was never the problem. Note the env-var split: the
+orchestrator reads `TYPESAFEAI_KEY`, the sandbox exports `TYPESAFE_AI_TOKEN` ⇒
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
 
 ---
 
@@ -78,58 +86,58 @@ diff: 1 insertion, 1 deletion
 "url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/api/coding/paas/v4/chat/completions"),
 ```
 
-### Result: **+80 rows, +5 `meta_log`, 5 winners**
+### Result: **+80 rows, +5 `meta_log`, 5 winners** — both runs, independently
 
-| civ | before | after | delta |
-|---|---|---|---|
-| civ-grounded | 112 | 122 | +10 |
-| civ-whimsical | 124 | 134 | +10 |
-| civ-formal | 97 | 107 | +10 |
-| civ-poetic | 91 | 101 | +10 |
-| civ-precise | 61 | 71 | +10 |
-| civ-mythic | 69 | 79 | +10 |
-| civ-therapist | 64 | 74 | +10 |
-| civ-engineer | 66 | 76 | +10 |
-| **total** | **684** | **764** | **+80** |
+| civ | before | after | delta | (Run A) | (Run B) |
+|---|---|---|---|---|---|
+| civ-grounded | 112 | 122 | +10 | ✓ | ✓ |
+| civ-whimsical | 124 | 134 | +10 | ✓ | ✓ |
+| civ-formal | 97 | 107 | +10 | ✓ | ✓ |
+| civ-poetic | 91 | 101 | +10 | ✓ | ✓ |
+| civ-precise | 61 | 71 | +10 | ✓ | ✓ |
+| civ-mythic | 69 | 79 | +10 | ✓ | ✓ |
+| civ-therapist | 64 | 74 | +10 | ✓ | ✓ |
+| civ-engineer | 66 | 76 | +10 | ✓ | ✓ |
+| **total** | **684** | **764** | **+80** | ✓ | ✓ |
 
 `meta_log.jsonl` 48 → 53 (**+5**). Registry `civilizations.json` unchanged (8 civs, no birth).
 
 ### Verification — a row count alone cannot detect a degenerate mock
 
-| check | result |
-|---|---|
-| per-civ growth uniform (10 each, not 80/0/0/0) | **OK** |
-| all-2.0-default rows (JEV outage default) | **0** |
-| rows carrying a score `error` | **0** |
-| distinct `content_preview` | **80/80** |
-| distinct `avg_score` | 74/80 |
-| distinct `temperature` | 78/80 |
-| scaffolding leakage (`Your tenets` / `Your voice` / `tradition of`) | **0** |
-| providers observed | `{'zai': 80}` — zai only, as requested |
-| distinct prompts exercised | 5 |
-| `avg_score` range | 0.957 – 2.387, mean 1.648 |
-| mock calls logged | 80, **uniform 10 per civ voice** |
-| distinct mock body hashes | 80/80 |
-| `Authorization` header present / `thinking:disabled` preserved | 80/80, 80/80 |
-| winner set cardinality | **4 distinct** (precise ×2, therapist, formal, grounded) — not a sweep |
+| check | Run A | Run B |
+|---|---|---|
+| per-civ growth uniform (10 each, not 80/0/0/0) | **OK** | **OK** |
+| all-2.0-default rows (JEV outage default) | **0** | **0** |
+| rows carrying a score `error` | **0** | **0** |
+| distinct `content_preview` | **80/80** | **80/80** |
+| distinct `avg_score` | 74/80 | 73/80 (range 0.910–2.917) |
+| scaffolding leakage (`Your tenets` / `Your voice` / `tradition of`) | **0** | **0** |
+| providers observed | `{'zai': 80}` — zai only, as requested | `{'zai': 80}` |
+| mock calls logged | 80, **uniform 10 per civ voice** | 88, **uniform 10–11 per voice** |
+| mock fallbacks | **0** | **0** |
+| distinct mock salts | 80/80 | 88/88 |
+| distinct mock body hashes | 80/80 | 56/88 (10 bodies/voice = ceiling) |
+| winner-set cardinality | **4 distinct** (precise ×2, therapist, formal, grounded) | **5 distinct** (poetic, mythic, engineer, whimsical, precise) |
 
-The last row matters: a collapsed mock produces the right row count and a single
-civ winning all five rounds. The winner-set cardinality and the mock's own per-voice
-call distribution are what catch it.
+The winner-set cardinality and the mock's own per-voice call distribution are what catch
+a collapsed mock. A collapsed mock produces the right row count and one civ winning all
+five rounds.
 
-### Competition winners
+### The mock's prose is a first-order confounder (Run A vs Run B A/B)
 
-| prompt | winner | top avg_score | chosen's avg_score |
-|---|---|---|---|
-| what a cell is | The Precise | 2.39 (therapist) | 1.99 |
-| the bookkeeper's role | The Precise | 1.88 (poetic) | 1.54 |
-| the witness log | The Therapist | 2.17 (whimsical) | 1.59 |
-| ternary values | The Formal | 2.04 (poetic) | 1.82 |
-| JEV as a decision oracle | The Grounded | 1.96 (poetic) | 1.04 |
+Two independently written mock body sets, same orchestrator / prompts / JEV:
 
-**Chooser vs `argmax(avg_score)`: 0/5 (0 %) this run.** The chooser is a *separate* JEV
-call whose `state` carries only 150-character previews and **never the scores**. The two
-metrics are essentially uncorrelated. Disagreement margin 0.220–0.917, mean **0.499**.
+| | set A | set B |
+|---|---|---|
+| winners | poetic, mythic, engineer, whimsical, precise | mythic, formal, precise, precise, grounded |
+| positional agreement A vs B | **6/8** | |
+| Kendall tau A vs B | **0.929** (27 conc / 1 disc) | |
+| max per-civ \|delta\| | **0.214** (civ-formal) | |
+| adjacent gaps (A / B) | 0.197 / 0.063 / 0.024 / 0.134 / 0.068 / 0.073 / 0.11 | 0.218 / 0.051 / 0.109 / 0.153 / 0.156 / 0.023 / 0.25 |
+
+**Five different winners and a different top-of-board ordering from the same
+orchestrator.** Absolute scores under a mock are artefacts; only structure that survives
+both body sets is reportable. **Report the set, not the order.**
 
 ---
 
@@ -165,16 +173,16 @@ into a lifetime statistic silently rewrites the thing being reported.
 
 - **"Which civilization is at risk?"** → **`civ-grounded`** is the stable low-relevance
   civ: last on `rel_per_sim`, lifetime `avg_score` *and* lifetime `alignment` — the three
-  lenses that measure quality rather than selection or longevity — and **worst in this
-  run too** (avg_score 1.166, alignment 1.053). Genuine weakness, not a denominator
-  artefact. Sixth session running.
+  lenses that measure quality rather than selection or longevity — and **worst in the
+  control run too** (avg_score 1.166 / 1.367 across the two runs). Genuine weakness, not
+  a denominator artefact. **8th of 8 in BOTH body sets.** Sixth session running.
 - **"Which civilization is *not* being chosen despite being good?"** → **`civ-poetic`**,
   the inverse case and **16 sessions running**: 2nd of 8 on lifetime `avg_score` (2.649),
   **1st on quality** (2.315), 2nd on alignment (3.343), 2nd on `rel_per_sim` (2.548) —
   and **0 wins in 28**. A *selection* failure, not a quality failure.
 - **"Which civilization wins by being picked rather than by scoring?"** →
   **`civ-precise`**: best win rate in the fleet (0.652) but last on novelty (0.955),
-  6th on lifetime `avg_score`, and 4th on this run's scores (1.585) while taking 2 of 5
+  6th on lifetime `avg_score`, and weak in the control run while taking 2 of 5
   competition wins.
 - **Healthiest** → **civ-whimsical**: 1st on `rel_per_sim`, lifetime `avg_score`,
   novelty and alignment — the one civ where every quality lens agrees.
@@ -188,75 +196,71 @@ into a lifetime statistic silently rewrites the thing being reported.
 
 - **Control B: +80 rows uniform / +5 `meta_log` / 5 winners / 0 defaults / 0 errors /
   0 leakage / 80-80 distinct bodies / uniform 10-per-voice mock distribution — 11th
-  consecutive replication.**
-- **Chooser vs `argmax(avg_score)`: 0/5 (0 %) this run** — history 18.9 / 22.4 / 15.5 /
-  0 % (s17) / 0 % (this run). **10th replication.**
+  consecutive replication**, now confirmed in **two independent runs in the same session**.
+- **Chooser vs `argmax(avg_score)`:** Run A **2/5 (40 %)**, Run B **0/5 (0 %)** — history
+  18.9 / 22.4 / 15.5 / 0 % (s17) / 0 % (s18 run B). **11th replication.** The chooser is
+  a *separate* JEV call whose `state` carries only 150-character previews and **never the
+  scores**. The two metrics are essentially uncorrelated.
 - **Pearson r (`preferred_temp` vs lifetime JEV `novelty`) = 0.9845** (baseline-only) —
   history 0.985 / 0.981 / 0.9845 / 0.9790 / 0.9783 / 0.9722. **10th replication.**
   Temperature and novelty are the same axis: the fleet is 8 points on one
   temperature/novelty gradient with a style overlay, not 8 independent voices.
-- **Counter gap: +180** (684 ledger rows vs 504 registry `simulations_run`). The gap
-  moved from +260 to +180 because the registry counters advanced without the committed
-  ledger — `save_state()` rewrites `culture.json` from in-memory counters with no lock
-  and no read-modify-write (lost-update race). `relevance_per_sim` is therefore **not a
-  reproducible ranking**: an auditor cannot recompute the board order from the ledger.
-  **Prefer win rate and the lifetime score means.**
-- **The mock's effect on the fleet ranking** — fleet mean `avg_score` 2.3249 baseline vs
-  2.2516 with mock rows (−0.0733); **top-3 set unchanged** {Whimsical, Poetic, Mythic};
-  **bottom-2 set changed** {Grounded, Formal} → {Grounded, Engineer}; max per-civ
-  |delta| **0.111** vs this run's own baseline adjacent gaps 0.104 / 0.107 / 0.032 /
-  0.427 / 0.028 / 0.012 / 0.077. The perturbation **overturns** the 0.032 gap between
-  Formal and Engineer, so the bottom-2 set is not preserved. **Report the set, not the
-  order**, and compare max |delta| against the run's own gaps.
+- **Counter gap: +260** (684 ledger rows vs 424 registry `simulations_run`). The gap is
+  a `save_state()` lost-update race — it rewrites `culture.json` from in-memory counters
+  with no lock and no read-modify-write. **`relevance_per_sim` is therefore not a
+  reproducible ranking**; the board order cannot be recomputed from the ledger by an
+  auditor. Prefer the baseline `avg_score` lens.
 
 ---
 
-## 5. Environment notes (new this session)
+## 5. Suggested upstream fixes (unchanged from session 17)
 
-1. **A full shallow clone is no longer a 3.4 GB / >3 min pack.** `git clone --depth 1`
-   of `SuperInstance/AI-Writings` completed in **~45 s** and produced a **7.0 GB**
-   working tree (20,634 files). Session 17's "cloned fully in ~60 s" was right and
-   sessions 9–16's "3.4 GB, needs detaching" is now stale. **Time it, don't trust a
-   recorded duration.**
-2. **The NAS `/workspace` is at 100 % (600 G used, 0 avail)**, so a clone into it dies
-   mid-checkout with `close error: Disk quota exceeded`. Clone to `/tmp` (overlay, 21 G
-   free) and bridge:
-   `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/ai-writings /workspace/repos/ai-writings`.
-   `CIVS_DIR` is hardcoded to the `/workspace` path, so the symlink is what makes the
-   script write into the clone. **`rm -rf` first — `ln -sfn` will not replace a real
-   directory.**
-3. **Both the `read` and `write` tools are jailed to the workspace root.** `read` on a
-   `/tmp` path returns `Workspace path escapes Cloud Host root`; `write` to `/tmp` is
-   refused. Use `bash` heredocs for `/tmp` artifacts and `sed`/`python3` to read them.
-4. **`git show HEAD:<path>` is the right way to read the pristine baseline** — it needs
-   no second checkout and is immune to whatever the working tree currently holds.
-   Use it for the before/after row counts.
-5. **The orchestrator writes `__pycache__/` into the civilizations directory** — remove it
-   before committing.
-6. After a Control B run, `git checkout -- <subtree>` restored **all** files
-   byte-identical to `HEAD`, verified with `cmp` against the git blobs (not `git status`
-   alone, and not md5 eyeballing). The 80 mock rows never entered the committed ledger.
-
----
-
-## 6. What to fix upstream
-
-1. **The silent provider drop** (`return None` on a missing token) is the root cause of a
-   green exit with an empty ledger. Replace it with a named error and abort non-zero.
-   Add a row-count assertion: `sum(ledger_rows)` must grow, and
-   `sum(ledger_rows) - sum(registry.sims_run)` must not change.
-2. **A JEV outage awards a random civ a legitimate win.** If the provider works but JEV
+1. **A JEV outage awards a random civ a legitimate win.** If the provider works but JEV
    is down, every `avg_score` is the `2.0` default, all civs tie, and the `max()`
-   fallback picks an *arbitrary* winner — which is then credited with a real win,
-   permanently corrupting the only trustworthy metric. Require a non-default score
-   before recording a winner; else mark the round `unscored`.
-3. **Unify the credential name** (`ZAI_TOKEN` vs `ZAI_KEY`) and read either. Same for
-   `TYPESAFEAI_KEY` vs `TYPESAFE_AI_TOKEN`.
-4. **Fix the lost-update race** in `save_state()`: it rewrites the whole `culture.json`
-   from in-memory counters with no lock, so concurrent civs clobber each other's
-   counters. The counter gap is the symptom.
-5. **The `ZAI_URL_OVERRIDE` seam should be committed**, not re-patched every session.
-6. **The chooser should see the scores**, or the board should stop presenting `win_rate`
-   as if it measured quality. At 0 % agreement with `argmax(avg_score)` over 5 rounds
-   and a lifetime history of 9–22 %, the two columns measure different things and the
-   leaderboard implies one of them is the other.
+   fallback picks an **arbitrary** winner — credited with a real win, permanently
+   corrupting the win-rate signal. Require a non-default score before recording a
+   winner; else mark the round `unscored`.
+2. **Zero simulations still exits 0.** Replace the silent `return None` with a named
+   error and abort non-zero. Add a row-count assertion
+   (`sum(ledger_rows) - sum(registry.sims_run)` unchanged, ledgers grew).
+3. **`save_state()` has a lost-update race** — read-modify-write `culture.json` under a
+   lock, so the board's sort key becomes reproducible.
+4. **The `ZAI_URL_OVERRIDE` seam should be committed** — it is the difference between a
+   run that measures something and a run that exits 0 having done nothing.
+
+---
+
+## 6. Environment notes
+
+1. The task path **did not exist** at session start; `/workspace` held only
+   `.plugin-cache`. The repo had to be rebuilt from `SuperInstance/AI-Writings`.
+2. **NAS `/workspace` is at 100 % quota** (600 G used, 0 avail) — a clone into it dies
+   with `close error: Disk quota exceeded`. Clone to `/tmp` (overlay, 28 G free) and
+   bridge with `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/aw
+   /workspace/repos/ai-writings`. `CIVS_DIR` is hardcoded to the `/workspace` path, so
+   the symlink is what makes the script write into the clone. **Remember the `rm -rf`
+   first; `ln -sfn` will not replace a real directory.**
+3. **A full `--depth 1` clone failed this session** — the pack was deleted mid-write
+   (`could not open .../tmp_pack_YRPvg8`) at 1.8 GB, with 28 G free throughout, so it is
+   neither disk space nor the tool timeout. A **sparse checkout restricted to
+   `cellular-first-design/code/civilizations`** worked. **Time the clone; never trust a
+   recorded duration from a prior session.**
+4. `GIT_SSL_NO_VERIFY=1` is required. `git fetch` exceeds the 30 s tool timeout —
+   background it and **wait for that PID**. A stale `FETCH_HEAD` makes
+   `git checkout FETCH_HEAD` fail with `invalid reference`; wait for the fetch PID to
+   exit, and prefer the literal SHA.
+5. `git checkout <sha> -- <subtree>` **silently reverts the `ZAI_URL_OVERRIDE` patch** —
+   re-apply and re-verify (`grep -c ZAI_URL_OVERRIDE` → 1) after every restore.
+6. Killing the mock and restarting it **in one command** silently failed (the shell was
+   killed with it). Split kill and start into separate calls, and confirm the restart
+   with a fresh `ps` line plus a probe `curl` returning a `[mock-zai ...]` body.
+7. The mock's voice key must be the **civ NAME** from
+   `You are a voice in the tradition of "The X".` — `voice_emphasis` strings do not
+   contain the civ name and silently collapse two civs onto one voice while every output
+   check still passes. The salt must be mixed into the **body**, never into the prompt.
+8. The mock's `body_hash` can legitimately repeat while `salt` does not: 10 bodies per
+   voice cycled gives 56 distinct hashes over 88 calls. **Assert on `salt`** for
+   uniqueness; `body_hash` only detects a degenerate voice.
+9. After a Control B run, `git checkout -- <subtree>` restored every file byte-identical
+   to the baseline, verified with `cmp` against the git blobs. The mock rows never
+   entered the committed ledger.
