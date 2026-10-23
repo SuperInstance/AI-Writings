@@ -4400,3 +4400,87 @@ lowest novelty. **Extinction risk: none** (threshold -10, lowest +304.42, `--loo
 - Temperature vs lifetime novelty: **Pearson r = 0.9532** (s8 0.985, s9 0.980, s10 0.981, s11 0.975).
 - Counter gap: **+260** (ledger 1724 vs registry 1464), unchanged since s6.
 - Control B: **+80 / +80**, uniform, 0 all-2.0-default rows, 0 score errors, 0 fallbacks, 8/8 voices.
+
+---
+
+## Session 33 (2026-10-23) — 14th consecutive credential gap; the `TYPESAFEAI_KEY` name trap
+
+**Baseline** `0439197` · **civs** 8 · **command** `--sims 5 --prompts 5 --providers zai` ·
+**runs** A (set-A bodies) + B (independently written set-B bodies).
+
+### 1. The `TYPESAFEAI_KEY` vs `TYPESAFE_AI_TOKEN` name trap (new, and it silently fakes every score)
+
+The orchestrator reads the JEV credential as **`TYPESAFEAI_KEY`**
+(`civilization_orchestrator.py:42`), but the sandbox exposes it as **`TYPESAFE_AI_TOKEN`**.
+Run without the explicit alias:
+
+```bash
+TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"    # <-- required, or every score is the default
+```
+
+Without it `jev_score()` returns the hard-coded fallback
+`{quality: 2.0, novelty: 2.0, alignment: 2.0, confidence: 0.5}` on **every** row —
+and the run still exits 0 with a full-looking leaderboard. **This is the same
+all-2.0-default signature as a JEV outage, and the two are indistinguishable
+from the ledger alone.** Always export the alias explicitly and keep the
+all-2.0-default check in the acceptance set.
+
+### 2. The 14th consecutive credential gap — unchanged
+
+`ZAI_TOKEN` absent from env and from the 8-entry secret store; all 8 secrets
+→ z.ai **HTTP 401 "token expired or incorrect"**; z.ai no-auth **401 code 1001**;
+groq **401 "Invalid API Key"**; JEV **live (`jev-1.14.0`)**.
+Unpatched run: **+0 rows, 0 `Winner:` lines, exit 0**, every ledger md5 unchanged.
+The `running 5 sims...` lines print **before** the provider call — never evidence of work.
+
+### 3. A single body set cannot rank the middle of this fleet
+
+Set-B fleet mean ran **+0.221** above set A — larger than the gap separating
+several adjacent ranks. **5 of 8 civs reordered** between sets; positional rank
+agreement **2/8**, Kendall τ **+0.571**. Reportable under session 11's rule:
+**Whimsical** and **Therapist** (both stable at the same rank), **Poetic** in the
+top band, and **{Grounded, Formal}** the bottom band. Unranked:
+{Mythic, Engineer, Precise}. **Quote a mid-fleet rank from one mock set and you
+are over-claiming** — the lifetime view (all rows) is the stabler one and is what
+the low-relevance answer rests on.
+
+### 4. Low-relevance answer — unchanged across 10+ sessions
+
+`civ-grounded` is the low-relevance civ: lowest `rel_per_sim` (1.558), lowest
+lifetime `avg_score` (1.628), and **lowest lifetime alignment of 8 (2.079 vs
+next-best 2.603)** — a wide margin in every body set. `civ-formal` is second
+(bottom-2 in all three views, lowest raw relevance 306.76).
+**`civ-poetic` is the inverse failure**: 1st of 8 on quality (1.668), novelty
+(2.323) and alignment (2.935), with a **0.011 win rate (1W/87L)** — a *selection*
+failure, not a quality collapse. **`civ-precise` is the mirror image**: best win
+rate (0.506, 42W/41L) but 5th on quality and 2nd-lowest novelty.
+**Extinction risk: none** (threshold −10, minimum +305.92; `--loop`-mode only).
+
+### 5. Replications
+
+- Chooser vs argmax(avg_score): **0/5 set A, 0/5 set B**; lifetime 15.5 % — 8th replication.
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9553 / 0.9539** — 6th replication
+  (0.985 / 0.980 / 0.981 / 0.975 / 0.943 / 0.953). The fleet is 8 points on one gradient.
+- Counter gap: **+260** (ledger 1724 vs registry 1464), unchanged for 14 sessions —
+  `save_state()` has no lock, so `relevance_per_sim` is not a reproducible ranking.
+- Control B: **+80 rows both sets** (+10/civ uniform), +5 meta_log, 5 winners,
+  0 fallbacks, 0 score errors, 0 all-2.0-default rows, min 3 distinct previews per civ.
+
+### 6. Environment (durable, and painful)
+
+- **`/workspace` is a quota-capped NAS mount sitting at 100%** — a write there
+  silently produces a **0-byte file that still appears in `ls`**, and `git clone`
+  dies with `Disk quota exceeded`. `/tmp` (overlay) has 28 GB free and is **not**
+  subject to the trap. Clone and run in `/tmp`; use a **symlink** on the NAS to
+  bridge the script's hardcoded `CIVS_DIR = /workspace/repos/ai-writings/...`.
+  Symlinks on the NAS work fine; only *data* writes are capped.
+- **The full `ai-writings` clone fails on a ~2 GB pack**
+  (`could not open .../tmp_pack_* for reading`). Use
+  `git clone --filter=blob:none --no-checkout --depth 1` +
+  `git sparse-checkout set cellular-first-design/code/civilizations` — the whole
+  subtree materialises in seconds and the clone stays under 1 MB.
+- **The NAS mount intermittently returns `No such file or directory` for a path
+  that exists.** A short retry loop resolves it; do not assume the tree is gone.
+- **`setsid nohup ... &` did not keep the mock HTTP server alive** across bash
+  tool calls, while the tool's own `run_in_background` did. Prefer the tool's
+  background mode for long-lived listeners.
