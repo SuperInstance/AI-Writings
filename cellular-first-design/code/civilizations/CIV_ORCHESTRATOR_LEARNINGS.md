@@ -2042,7 +2042,25 @@ both directions. **Report the gap as measured this session.**
    byte-identical to `HEAD`, verified with `cmp` against the git blobs (9/9 files, all
    ledgers + `meta_log` + `leaderboard` + `culture.json`). The 80 mock rows never
    entered the committed ledger.
-8. **Mock kill discipline (session 17/18 rule, still valid): kill the mock and start
+8. **NEW TRAP - `grep -c "mock-zai"` on the COMMITTED ledger is NOT a leak test, and will
+   report a false positive.** The committed ledgers **already contain 10 mock rows per civ**
+   (80 total) committed by an **earlier** session - `git show 7d9a5ea:.../civ-grounded/simulations.jsonl`
+   already has 10. Every prior Control B run restored byte-identically, so the repo has
+   carried these rows since then. The last committed row carries `ts 1792782892` (19:21),
+   which **predates this session's 19:24 run**.
+   *The correct leak test is a **timestamp threshold**, not a content grep:*
+   ```bash
+   git show HEAD:.../civ-$d/simulations.jsonl | python3 -c "
+   import sys,json
+   rows=[json.loads(l) for l in sys.stdin if l.strip()]
+   print(sum(1 for r in rows if r['ts'] > $RUN_START_TS))"
+   ```
+   -> **0 rows with `ts` after the run's start** is the real assertion. A content grep
+   against a pre-seeded ledger answers a question about *history*, not about *this run*.
+   (`cmp` against the git blob, which this session also ran, remains the strongest check -
+   it proved the working tree byte-identical to `HEAD`.)
+
+9. **Mock kill discipline (session 17/18 rule, still valid): kill the mock and start
    the replacement in TWO separate tool calls**, and print the resolved PID plus the
    `ps` output in the kill call. This session: resolved PID 417 explicitly, then
    confirmed with a fresh `ps` showing no line. A restart that is not confirmed by a
