@@ -1072,3 +1072,147 @@ lifetime `avg_score` (2.649), 2nd on alignment (3.343), and **0 wins in 33**. A
    all **21 files** verified byte-identical with `cmp` against `git show HEAD:<path>`.
    **Take the restore baseline from the git blob, never from a working-tree copy taken
    after patching** - that error is unchanged and still produces a false DIFF forever.
+
+---
+
+## Session 14 additions (2026-10-23, 115th wipe)
+
+> Filed as session 14. The remote carried session 13 (`29e6eab7`, pushed 18:19:25Z) at
+> the start of this run; this session's baseline was re-measured from that commit and is
+> stated in the report header. Absolute numbers across concurrent reports are not
+> comparable — only ranks and qualitative findings are.
+
+### The credential gap is still the whole story (12th consecutive session)
+
+`ZAI_TOKEN` absent from env, from the 8-entry secret store, and from the repo. All **8**
+sandbox secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions`
+-> **401 "token expired or incorrect" on every one** (endpoint healthy => credential gap,
+not outage). `situations/ROSTER.md` still records z.ai as "❌ insufficient balance"
+(code 1113 "recharge") => **a key alone would not have been sufficient either.**
+
+**`groq` also dead**: HTTP 403 Cloudflare `1010` on the sandbox tokens, HTTP 401
+"Invalid API Key" on `GITHUB_TOKEN`. `DEEPINFRA_KEY` / `DEEPSEEK_KEY` absent.
+**There is no alternate live provider in this sandbox** — `zai` is the only path in the
+orchestrator, and it is unavailable. Any session proposing "just switch providers" will
+find nothing to switch to.
+
+JEV live at `jev-1.14.0` (`quality.score 0.39, confidence 0.68`).
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch: batch header + all 8 `[Name] running 5 sims...`
+lines, **no `Winner:` lines**, **exit 0**, ledger delta **+0 rows, +0 meta_log**
+(684 -> 684, 48 -> 48). **Assert on the row delta, never on exit code.**
+
+### Control B reconfirmed a 7th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows (+10 per civ, uniform), +5 meta_log,
+5 winners, 0 all-2.0-default rows, 0 score errors, 76/80 distinct `avg_score`,
+64/80 distinct `content_preview`**, score range 1.48-2.77. Reproduces sessions 6, 7, 8,
+9, 10, 11, 13 exactly.
+
+### NEW TRAP - the mock's voice detector must key off the civ NAME, not the voice string
+
+The cultural prompt carries both, and they do not align:
+
+| civ | `voice_emphasis` | naive keyword match |
+|---|---|---|
+| The Whimsical | `playful, surprising` | **"whimsical" absent** -> fell through to `poetic` |
+| The Poetic | `lyrical, dense` | "poetic" absent in the voice, matched via the name |
+
+Matching on `voice_emphasis` markers silently **collapsed two civs onto one body set**:
+the first attempt logged `poetic: 20, whimsical: 0` while all 8 civs still produced rows
+and **every existing acceptance check passed** (+80 rows, 0 fallbacks, 0 score errors,
+76/80 distinct previews). The only tell was the mock's own `body_set` distribution.
+
+> **Detect the voice from the civ NAME in the header** (`You are a voice in the tradition
+> of "The Whimsical".`) — the name is unambiguous. Keep `voice_emphasis` markers only as
+> a fallback. **And always assert the body_set distribution is uniform across all 8
+> civs** — a control that "passes" can still be misrouting a whole voice onto another.
+
+Generalisation (extends the s13 "log the raw inputs" rule): *the acceptance check must
+assert the control's internal distribution, not just its output totals.* A mock that
+feeds 20 rows of Poetic text into the Whimsical's slot produces a leaderboard that is
+wrong in a way no row-count or score-error check can see.
+
+### `ZAI_URL_OVERRIDE` landed as a one-line patch to `PROVIDERS["zai"]["url"]`
+
+The s7 learnings described this as "a clean, non-invasive way to redirect", but **the
+override was never actually implemented** in the committed script — `grep` for
+`ZAI_URL_OVERRIDE` returns nothing in the git blob. The working one-line patch:
+
+```python
+"url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/api/coding/paas/v4/chat/completions"),
+```
+
+It leaves the `ZAI_TOKEN` gate check, the request body, and the entire JEV path
+untouched, and it is the whole blast radius (verified with `diff` against the blob:
+**1 line**). Worth landing upstream — it is a test seam, and it makes the control
+reproducible without a code fork.
+
+### The stable low-relevance answer is `civ-grounded`, now 4 sessions running
+
+`civ-grounded` is **last on 6 of the 8 lenses** measured this session:
+
+| lens | lowest |
+|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** 1.937 |
+| raw relevance | civ-engineer 91.37 (young, not weak) |
+| `win_rate` | **civ-poetic** 0.000 (0W/28L) |
+| lifetime `avg_score` | **civ-grounded** 1.946 |
+| this-run `avg_score` | **civ-grounded** 1.729 |
+| lifetime `quality` | **civ-grounded** 1.703 |
+| lifetime `alignment` | **civ-grounded** 2.702 |
+| lifetime `novelty` | civ-formal 1.079 |
+
+It is the only low-relevance answer that does not depend on which lens you pick, and it
+is a genuine quality signal — not the longevity artefact that Lens A alone suggests
+(it ran the most sims, 69, and a lifetime-average denominator penalises the civ that ran
+most).
+
+**`civ-poetic` remains the inverse case** — 2nd of 8 on lifetime `avg_score` (2.637),
+1st on quality (2.277), 2nd on alignment (3.332), 2nd on the board's `rel_per_sim`
+(2.649) — and **0 wins in 28**. Stable across 12 sessions. A *selection* failure, not a
+quality collapse.
+**`civ-precise` is the other inverse** — best win rate of the fleet (0.609, 14W/9L) but
+6th on `avg_score` (2.085) and **last on novelty (1.092)**.
+**Extinction risk: none** (threshold -10, lowest +91.37, `--loop`-mode only).
+
+### Replications this session
+
+- Control B **+80 rows / +5 meta_log / 5 winners / 0 fallbacks / 0 score errors /
+  0 all-2.0-default rows**, uniform +10 per civ.
+- Chooser vs `argmax(avg_score)`: **20.0 % this run (1/5)**, **18.9 % lifetime (10/53)**
+  (s7 4.4 %, s8 18.9 %, s9 ~17 %, s10 15.5 %, s11 15.5 %, s13 22.4 %) — 8th replication.
+  Disagreement margins ran to **0.94** (chooser crowned Grounded 0.89 and Precise 0.94
+  *below* the top scorer).
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9790** (s8 0.985, s9 0.980,
+  s10 0.981, s11 0.975, s13 0.9845) — 6th replication.
+- Counter gap **unchanged at +260** (684 vs 424), measured baseline-to-baseline from the
+  git blobs to each other.
+- Lifetime top-3 **set** {Whimsical, Poetic, Mythic} and bottom-2 *set* {Grounded,
+  Formal} — the Grounded joined Formal at the bottom, and the Engineer moved up into the
+  middle band, consistent with its 1st-run finish on `avg_score` (2.381).
+  **Report the set, not the order.** Middle band {Engineer, Precise, Therapist}.
+- Competition winners are still the least stable quantity: this run Engineer x2,
+  Grounded, Precise, Formal — **no civ won in both this run and the session-13 set**.
+
+### Environment notes (the old ones all held)
+
+1. The task path did not exist at session start (`/workspace` held only `.plugin-cache`).
+   Rebuilt from `SuperInstance/AI-Writings` with a **sparse checkout of the civ subtree
+   only** — `git init` + `git remote add` + `GIT_SSL_NO_VERIFY=1 git fetch --depth 1` +
+   `git checkout FETCH_HEAD -- cellular-first-design/code/civilizations/`. Fast, and
+   avoids the 3.7 GB full pack entirely.
+2. `rm -rf /workspace/repos && mkdir -p /workspace/repos && ln -sfn /tmp/aw
+   /workspace/repos/ai-writings` — the symlink is what makes the hardcoded `CIVS_DIR`
+   resolve into the clone.
+3. `gh` CLI still not installed; GitHub REST API with `$GITHUB_TOKEN` works fine.
+   The org endpoint 404s (it is a **user**, not an org) — use
+   `users/SuperInstance/repos`, and page it; a single page is 100 of ~5,200 repos.
+4. **NEW: `git reset` after a sparse `git checkout FETCH_HEAD -- <path>` un-stages the
+   subtree and `git status` then reports the whole civ directory as *untracked* and
+   `git diff FETCH_HEAD` reports every file as *deleted*.** The working-tree **content**
+   was still correct — only the index was wrong. Fix: `git add <path>` again, then
+   `git diff --cached FETCH_HEAD -- <path>` is empty. **Do not "restore" from this
+   signal** — re-`git checkout` the path and re-`git add`, then verify with `cmp`
+   against `git show FETCH_HEAD:<path>`, which is the check that does not lie.
