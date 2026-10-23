@@ -2065,3 +2065,143 @@ both directions. **Report the gap as measured this session.**
    `ps` output in the kill call. This session: resolved PID 417 explicitly, then
    confirmed with a fresh `ps` showing no line. A restart that is not confirmed by a
    fresh `ps` line is not a restart.
+
+---
+
+## Session 20 additions (2026-10-23, 119th wipe)
+
+### The credential gap is still the whole story (18th consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (764 -> 764)**,
+`meta_log` **+0 (53 -> 53)**, `Winner:` lines **0**. Only `leaderboard.json` was
+rewritten. **Assert on the row delta, never on the exit code.**
+
+Full sandbox-secret audit (10 present candidates) against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **every one 401
+"token expired or incorrect"**. `ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` absent from env
+**and** from the 8-entry secret store. 401 = endpoint healthy => credential gap, not
+outage. **JEV live at `jev-1.14.0`** (HTTP 200, `quality.score 0.83,
+confidence 0.32`).
+
+### Control B reconfirmed, 13th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ,
+uniform), +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 0
+fallback calls, 80/80 distinct `content_preview`, 69/80 distinct `avg_score`
+(range 0.95-2.47), provider `zai` only, mock internal distribution **exactly 10
+calls per voice across all 8 voices** (name-keyed voice table, s17 rule).
+
+### The A/B landed on the LARGE-perturbation side this time - the middle order is a tie
+
+| | set A | set B |
+|---|---|---|
+| fleet mean avg_score | 1.649 | 1.527 |
+| max per-civ \|delta\| | **0.375** (mythic) | |
+| positional rank agreement | **1/8** | |
+| Kendall tau | 1.000 (same set, very different order) | |
+| top-3 SET | {poetic, whimsical, mythic} | {poetic, whimsical, precise} — **CHANGED** |
+| bottom-2 SET | {formal, grounded} | {grounded, mythic} — **CHANGED** |
+| set-A adjacent rank gaps | 0.011 / 0.016 / 0.033 / 0.036 / 0.124 / 0.259 / 0.269 | |
+
+The perturbation (0.375) **exceeds five of the seven adjacent gaps it would
+overturn**, so the middle band is a tie and only the extreme positions are
+reportable. This is the **s10 regime (large perturbation)**, not the s11 regime
+(tie-preserving) — the two regimes keep alternating, so **never assume a
+body-set swap is small.** Always report max |delta| against **this run's own**
+adjacent gaps, and report the **set**, not the order, whenever the delta wins.
+
+### The low-relevance answer - unchanged for the 8th session running, with new baseline numbers
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.741 |
+| raw relevance | **civ-engineer** | 139.80 |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.000 (0W/38L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.916 |
+| lifetime `alignment` | **civ-grounded** | 2.659 |
+| lifetime `quality` | **civ-engineer** | 1.667 |
+| lifetime `novelty` | **civ-precise** | 1.020 |
+| this-session `avg_score` (160 rows) | **civ-grounded** | 1.147 |
+| this-session `quality` | **civ-grounded** | 0.346 |
+
+- **`civ-grounded` = the stable low-relevance civ.** Last on `relevance_per_sim`,
+  lifetime `avg_score` **and** lifetime `alignment` - the three quality lenses -
+  and last in this session too on both `avg_score` and `quality`. Genuine
+  weakness, not the longevity artefact the `relevance_per_sim` denominator
+  suggests (it ran the most sims, 122).
+- **`civ-poetic` = the inverse case, 18th session running.** 2nd of 8 on lifetime
+  `avg_score` (2.617), **1st on quality (2.258)**, 2nd on alignment (3.296), 2nd on
+  `relevance_per_sim` (2.430) - and **0 wins in 38**, and **0 of 10** competition
+  rounds this session. A *selection* failure, not a quality collapse.
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate in the
+  fleet (0.485, 16W/17L), but **last on lifetime novelty (1.020)** and 3rd-last on
+  lifetime `avg_score` (2.020).
+- **`civ-whimsical` = the only civ where every quality lens agrees** (1st on
+  `relevance_per_sim` 2.476, lifetime `avg_score` 2.701, novelty 2.602, alignment
+  3.365) - and 2nd-lowest win rate (0.053).
+- **Extinction risk: none** (threshold -10, lowest +139.80, `--loop`-mode only).
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / 0 fallback / 80-80
+  distinct previews / uniform 10-per-voice - **13th**.
+- Chooser vs `argmax(avg_score)`: **1/10 this session (10 %)**, **2/18 lifetime
+  (11.1 %)**, disagreement margins 0.283-0.800 (this session) / 0.240-1.080
+  (lifetime), mean 0.539. History: s8 18.9 %, s13 22.4 %, s15 15.5 %, s17 0 %.
+  **12th replication.**
+- Temperature vs lifetime JEV novelty: per-civ-**mean** estimator (8 points, the
+  s8-s18 estimator) **r = 0.9883**; all-pairs estimator (n=764) **r = 0.7942**,
+  reproducing s19's 0.7942 exactly. **The two estimators are not comparable - the
+  per-civ-mean one is what the 11 prior replications used. Do not read a move
+  from 0.98 to 0.79 as a structural change until the estimator is confirmed
+  identical.** **12th replication.**
+- Counter gap **+260** (764 ledger rows vs 504 registry `simulations_run`),
+  measured baseline-to-baseline. It is a **race** in `save_state()`, not a leak,
+  and it moves in both directions (s18-A measured +180). **Report it as measured
+  this session, never as a trend against a quoted number.**
+
+### Environment notes (nothing new broke; the known traps all held)
+
+1. The task path **did not exist** at session start; `/workspace` held only
+   `.plugin-cache` and `.skills` (119th consecutive wipe). Rebuilt from
+   `SuperInstance/AI-Writings` (HEAD `1264ae5`).
+2. **The sparse-clone path is fast and reliable again (5th data point).**
+   `git clone --filter=blob:none --no-checkout --depth 1 --single-branch --branch
+   main` + `git sparse-checkout set cellular-first-design/code/civilizations` +
+   `git checkout` -> **seconds, one tool call**, 968 KB. **Treat a full clone as
+   unreliable and go straight to sparse** (s19's rule, reconfirmed).
+3. NAS `/workspace` at **100 %** (600 G used, 0 avail) -> a plain clone into
+   `/workspace/repos` **fails mid-copy with "Disk quota exceeded"** and leaves a
+   half-written `.git`. Clone to `/tmp` (overlay, 28 G free) and bridge with
+   `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/aw /workspace/repos/ai-writings`.
+   **`CIVS_DIR` is hardcoded to the `/workspace` path**, so the symlink is what
+   makes the script write into the clone.
+4. **`git clone --depth 1` (no filter) into `/tmp` fetched 2.8 GB and then failed
+   to produce a working tree** ("your current branch 'master' does not have any
+   commits yet") - the pack landed, the checkout did not. The sparse form avoids
+   this entirely. **Do not mix a `--filter` clone with a later plain `git fetch`
+   at the same target** - the shallow.lock left behind blocks the next fetch.
+5. `TYPESAFEAI_KEY` (script) vs `TYPESAFE_AI_TOKEN` (sandbox) - always
+   `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`, or JEV silently degrades to the
+   `{"quality": 2.0, ...}` default and the run measures nothing while exiting 0.
+6. The **`ZAI_URL_OVERRIDE` seam is still not in the committed blob** - re-apply
+   the one-line patch each session (verified: `git diff --stat` = 1 insertion,
+   1 deletion), and re-apply after every `git checkout HEAD -- <subtree>`.
+7. **Mock kill discipline**: kill by explicit PID (507 for set A, 582 for set B),
+   then confirm with a fresh `ps -eo pid,args --no-headers | grep "[z]ai_mock"`
+   that shows no line. `pkill -f` self-matches and kills the invoking shell.
+   Write the mock's log to a **fresh path per body set** (`mock_calls.log`,
+   `mock_calls_B.log`) so the two runs stay separable.
+8. **Restore verification, extended to 20 files this session**: 8 ledgers + 8
+   `culture.json` + `meta_log.jsonl` + `leaderboard.json` + `civilizations.json`
+   + the script, all **byte-identical to `git show HEAD:<path>`** via `cmp`. The
+   **timestamp leak test** (rows with `ts` after the run start) returned **0 for
+   all 8 committed ledgers**. A content grep for `mock-zai` is still a false
+   positive (the committed ledgers already carry mock rows from an earlier
+   session) - s19's rule holds.
+9. `__pycache__/` is written into the civilizations dir by the orchestrator -
+   remove it before committing.
+10. The orchestrator writes `leaderboard.json` even on a no-op run, so a
+    `git checkout HEAD -- <subtree>` is needed after the unpatched run too -
+    otherwise the restore diff will show a spurious 2-line change.
