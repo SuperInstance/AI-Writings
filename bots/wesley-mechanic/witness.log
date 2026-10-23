@@ -4,3 +4,11 @@
 {"ts": 1789964559.4487293, "iso": "2026-09-21T04:22:39", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
 {"ts": 1789967289.2614002, "iso": "2026-09-21T05:08:09", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 4570}, "hash": "35cd5a8f9847fc30"}
 {"ts": 1789967289.350599, "iso": "2026-09-21T05:08:09", "event": "poll_failed", "payload": {"error": "HTTP Error 403: Forbidden"}, "hash": "f7ca317a0aef36fa"}
+{"ts": 1792798528.5916657, "iso": "2026-10-23T23:35:28", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 325}, "hash": "6ed7ed04c76cb6e4"}
+{"ts": 1792798528.6785963, "iso": "2026-10-23T23:35:28", "event": "poll_failed", "payload": {"error": "HTTP Error 403: Forbidden"}, "hash": "f7ca317a0aef36fa"}
+{"ts": 1792798556.2213748, "iso": "2026-10-23T23:35:56", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 382}, "hash": "807bced0dc7b4a7d"}
+{"ts": 1792798559.364058, "iso": "2026-10-23T23:35:59", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 390}, "hash": "c37f59d9e7b82530"}
+{"ts": 1792798559.4597716, "iso": "2026-10-23T23:35:59", "event": "first_poll", "payload": {"hash": "b20375d389cb505d", "count": 71}, "hash": "ce4849b6512c5b1c"}
+{"ts": 1792798646.3295805, "iso": "2026-10-23T23:37:26", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2478}, "hash": "57502df39942799f"}
+{"ts": 1792798666.5630224, "iso": "2026-10-23T23:37:46", "event": "witness_note", "payload": {"note": "witness-note-20261023-233743.md", "canon_changed": false, "canon_hash": "b20375d389cb505d", "state_hash": "0x445185a3a99fd2e7", "paper_count": 71, "baseline_source": "paper-441 v1.2 drift audit 2026-09-20 (converged 71 / 0x445185a3a99fd2e7)", "first_successful_poll": true}, "hash": "8715c991186950f0"}
+{"ts": 1792798755.4164596, "iso": "2026-10-23T23:39:15", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2981}, "hash": "6d2a5155916c6a19"}

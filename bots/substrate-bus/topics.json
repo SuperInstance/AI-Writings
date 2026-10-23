@@ -90,5 +90,85 @@
         "casper-critic"
       ]
     }
+  ],
+  "canon_changed": [
+    {
+      "ts": 1792798559.462181,
+      "iso": "2026-10-23T23:35:59.462183+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "b20375d389cb505d",
+        "count": 71
+      },
+      "recipients": [
+        "snowball-scout"
+      ]
+    },
+    {
+      "ts": 1792798669.3063676,
+      "iso": "2026-10-23T23:37:49",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "b20375d389cb505d",
+        "state_hash": "0x445185a3a99fd2e7",
+        "count": 71,
+        "canon_changed": false,
+        "first_successful_poll": true
+      },
+      "recipients": [
+        "snowball-scout",
+        "jevvy-auditor"
+      ]
+    },
+    {
+      "ts": 1792798681.5996826,
+      "iso": "2026-10-23T23:38:01.599683+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "48b30f5bc4a62515",
+        "count": 0
+      },
+      "recipients": [
+        "snowball-scout"
+      ]
+    },
+    {
+      "ts": 1792798708.0615723,
+      "iso": "2026-10-23T23:38:28.061574+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "a682932520792206",
+        "count": 5
+      },
+      "recipients": [
+        "snowball-scout"
+      ]
+    },
+    {
+      "ts": 1792798724.4918945,
+      "iso": "2026-10-23T23:38:44.491896+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "a682932520792206",
+        "count": 5
+      },
+      "recipients": [
+        "snowball-scout"
+      ]
+    },
+    {
+      "ts": 1792798724.592981,
+      "iso": "2026-10-23T23:38:44.592982+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "11278d6df68c310a",
+        "count": 8,
+        "delta": 3
+      },
+      "recipients": [
+        "snowball-scout",
+        "jevvy-auditor"
+      ]
+    }
   ]
 }
