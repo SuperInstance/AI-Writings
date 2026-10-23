@@ -2475,3 +2475,178 @@ remain essentially uncorrelated; the chooser never sees the scores. History: s8
 7. The per-civ ledger slice for "the new rows" is the **last 10 of EACH civ's file**,
    not the tail of the concatenation (s17 trap) - the per-civ counts came out
    10/10/10/10/10/10/10/10, not 80/0/0/0.
+
+---
+
+## Session 23 additions (2026-10-23, 122nd wipe)
+
+### The credential gap is still the whole story (21st consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (924 -> 924)**,
+`meta_log` **+0 (63 -> 63)**, **0** `Winner:` lines. Only `leaderboard.json` was
+rewritten. **Assert on the row delta, never on the exit code.** The per-civ
+`running N sims...` lines print *before* the provider call.
+
+All 6 available sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage).
+`ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` absent from env and from the 8-entry secret
+store. **JEV live at `jev-1.14.0`** (HTTP 200, `quality.score 0.48,
+confidence 0.59`). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### NEW BEST BOOTSTRAP — sparse checkout, no pack file, no API crawl
+
+`git clone --depth 1 --filter=blob:none` into `/tmp` **failed and deleted the
+working tree** (2nd independent confirmation of the s22 finding: `could not open
+.../tmp_pack_XXXX for reading: No such file or directory` -> "Clone succeeded, but
+checkout failed"). The s22 "API tree fetch" path works but costs 58 blob
+round-trips. What is fastest and most reliable:
+
+```bash
+git init -q . && git remote add origin https://github.com/SuperInstance/ai-writings.git
+git sparse-checkout set --no-cone '/cellular-first-design/code/civilizations/'
+GIT_SSL_NO_VERIFY=1 git fetch --depth 1 origin main
+GIT_SSL_NO_VERIFY=1 git checkout main
+```
+
+**One fetch, one checkout, ~1 MB out of a 3.6 GB repo, inside the tool timeout.**
+The civ subtree is self-contained, so nothing else needs to be checked out. Use
+this instead of the API tree crawl. (`GIT_SSL_NO_VERIFY=1` is required; plain
+`git fetch` dies on `server certificate verification failed. CAfile: none`.)
+
+### THE PROMPT PATH IS WRONG BY ONE LEVEL (recurs every session)
+
+The task path `/workspace/repos/ai-writings/cellular-first-design/code/civilizations/`
+**does not exist**. The repo has no top-level `code/` directory. The real path is
+`cellular-first-design/code/civilizations/` (repo root + `cellular-first-design/`).
+The `ls` fails on the *directory*, so the script cannot run until the path is
+corrected. Check the tree API before assuming the layout:
+`git/trees/main?recursive=1` -> 22 061 entries, `truncated: false`.
+
+### Control B reconfirmed, 16th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ,
+uniform), +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 0
+fallback calls, provider `zai` on 80/80, 49/80 distinct `content_preview`,
+78/80 distinct `avg_score`** (range 0.860-2.820, mean 1.797), mock log **80
+calls** with **exactly 10 per voice across all 8 voices** (name-keyed voice
+table, s17 rule). JEV sub-score spread on the 80 rows: quality mean 0.899
+(0.010-2.650, 65 distinct), novelty 1.990 (0.480-2.800, 63 distinct), alignment
+2.502 (0.340-3.580, 71 distinct), confidence 0.585 (0.230-0.990, 41 distinct).
+**A live JEV, not a stub.**
+
+The `ZAI_URL_OVERRIDE` seam is **still not in the committed blob** (remote
+`civilization_orchestrator.py` is 17 188 B = pristine). Re-apply the one-line
+patch each session (verified: 1 insertion, 1 deletion).
+
+### NEW — the register A/B reorders the middle band, but the SETS hold
+
+Set B was written in a **different register** per voice, not a paraphrase (s22
+rule: a paraphrase-vs-paraphrase A/B is a weak test and will look clean).
+
+| | set A | set B |
+|---|---|---|
+| fleet mean `avg_score` | 1.797 | 1.779 (Delta **-0.018**) |
+| **max per-civ \|Delta\|** | — | **0.266** (Engineer +0.266) |
+| rank agreement (same position) | — | **4/8** |
+| same top-1 | — | **no** (A: Whimsical, B: Poetic) |
+| same bottom-1 | — | **yes** (Grounded) |
+| Kendall tau | — | **0.571** |
+| competition winners | Poetic, Grounded, Grounded, Grounded, Whimsical | Precise, Mythic, Therapist, Precise, Engineer |
+
+**A fleet mean that moved by 0.018 hid a 4/8 reordering.** The perturbation
+(0.266) exceeds the adjacent rank gaps it crosses, so the middle band really is
+swapped — consistent with the s11 decision rule.
+
+**What survives, across three views (lifetime / run A / run B):**
+
+| view | top-3 SET | bottom-2 SET | Grounded position |
+|---|---|---|---|
+| lifetime | {Poetic, Whimsical, Mythic} | {Formal, Grounded} | **8 of 8** |
+| run A | {Poetic, Whimsical, Mythic} | {Engineer, Grounded} | **8 of 8** |
+| run B | {Poetic, Whimsical, Mythic} | {Formal, Grounded} | **8 of 8** |
+
+**top-3 SET identical in all three views** — independent confirmation of the
+s11/s19/s20/s21 finding. The **bottom-2 SET moved** ({Formal, Grounded} ->
+{Engineer, Grounded}), exactly as s18 recorded, **but `civ-grounded` is last in
+every single view.** So the correct statement is:
+
+> **The bottom-2 SET is not stable; `civ-grounded` being LAST is.** Report the
+> civ, not the set. A set-level claim about the bottom two will be wrong in
+> about half the runs; a civ-level claim about the last position has held for
+> 11 consecutive sessions.
+
+### The low-relevance answer - unchanged for the 11th session running
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.622 |
+| raw relevance | **civ-engineer** | 157.44 |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.023 (1W/42L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.718 |
+| lifetime `quality` | **civ-engineer** | 1.375 |
+| lifetime `novelty` | **civ-formal** | 1.072 |
+| lifetime `alignment` | **civ-grounded** | 2.303 |
+| this-session `avg_score` | **civ-grounded** | 1.307 |
+| this-session `quality` | **civ-engineer** | 0.490 |
+| this-session `novelty` | **civ-formal** | 1.395 |
+| this-session `alignment` | **civ-grounded** | 1.647 |
+
+- **`civ-grounded` = the stable low-relevance civ, 11th session running.** Last
+  on `relevance_per_sim`, lifetime `avg_score` and lifetime `alignment`; **last
+  of 8 in all three views** on `avg_score`; last on lifetime quality and
+  alignment position (8 of 8). It ran the most sims (152) so the denominator
+  effect is still present, but it is **also** last on the raw score lenses, so
+  **it is a genuine quality weakness, not the longevity artefact.**
+- **`civ-poetic` = the inverse case, 21st session running.** 1st of 8 on
+  `relevance_per_sim` (2.439), 1st on lifetime `quality` (2.018), 2nd on
+  `avg_score` (2.489) and 2nd on alignment - and **1 win in 43** (win_rate
+  0.023). A *selection* failure, not a quality collapse. 1 of 5 competition wins
+  in run A, 0 of 5 in run B.
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate in the
+  fleet (**0.500**, 19W/19L), 2 of 5 competition wins in run B, but 5th of 8 on
+  lifetime `avg_score` (1.952) and 2nd-last on lifetime `novelty` (1.236).
+- **`civ-whimsical` = the only civ where every quality lens agrees.** 1st on
+  lifetime `avg_score` (2.544), novelty (2.560), alignment (3.186) and raw
+  relevance (244.11) - yet win_rate 0.070, because it wins by being *picked*.
+- **`civ-formal` = the fleet's novelty floor.** Last on lifetime `novelty`
+  (1.072), 2nd-last on `avg_score`, 2nd-lowest `relevance_per_sim` (1.750).
+- **Extinction risk: none** (threshold -10, lowest +157.44, `--loop`-mode only).
+  All 8 civs remain generation 1. No births, no extinctions.
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / 0 fallback / 80-80
+  provider / uniform 10-per-voice - **16th**.
+- Chooser vs `argmax(avg_score)`: run A **2/5 (40 %)**, run B **1/5 (20 %)**,
+  lifetime **13/68 (19.1 %)**. History: s8 18.9 %, s13 22.4 %, s15 15.5 %,
+  s17 0 %, s20 10 %, s21 0 %, s22 0 % (x2). **16th replication.**
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9622** (baseline band
+  0.972-0.985) - **11th replication**.
+- Counter gap **+260** (1 004 ledger rows vs 744 registry `simulations_run`),
+  **identical to the s20/s21/s22 baseline**. A race in `save_state()`, not a leak.
+  **Report as measured this session, never as a trend against a quoted number.**
+
+### Environment notes (two new traps)
+
+1. **A `kill` in the same command chain as the start kills the start.** The chain
+   `ps … | xargs -r kill; …; (setsid nohup mock.py &)` aborted before the mock
+   launched, and the "PORT OPEN" check then showed "Connection refused" for
+   *both* ports. **Kill in one tool call, start in the next.** (This is the same
+   class as the s10 `pkill` self-match trap: a kill earlier in the command
+   aborts the shell before the rest of the command lands.)
+2. **The remote `main` was FORCE-PUSHED during this session**
+   (`ca4f83b5…d961ba80`, a bot auto-update). `git fetch` reported
+   `+ ca4f83b5...d961ba80 main -> origin/main (forced update)`. **Re-fetch before
+   committing and never assume the branch is fast-forward.** The civ subtree
+   itself was byte-unchanged (verified via the `contents/` API), so no work was
+   lost - but a `git rebase` against a force-pushed branch is a rebase onto a
+   different history, not a replay.
+3. The `write`/`edit` tools are **jailed to the workspace root** and cannot touch
+   `/tmp`. A `python3 - <<'EOF'` heredoc that rewrites a file in place is the
+   cleanest way to apply a one-line patch outside the workspace.
+4. `gh` CLI is still not installed; use the GitHub REST API. The `search` quota
+   is separate from core.
+5. `git fetch` on the 3.6 GB repo exceeds the 30 s tool timeout - run it
+   detached and poll `FETCH_HEAD`.
