@@ -70146,7 +70146,7 @@
     "style": "Essay",
     "word_count": 703,
     "date": "2026-10-23",
-    "size_bytes": 48918
+    "size_bytes": 55648
   },
   {
     "filename": "AUDIT-NOTE.md",
@@ -70221,6 +70221,24 @@
     "size_bytes": 484
   },
   {
+    "filename": "time-01-the-tap-at-ten-critique.md",
+    "path": "bots/casper-critic/critiques/time-01-the-tap-at-ten-critique.md",
+    "title": "Critique: time-01-the-tap-at-ten",
+    "description": "- **q0** (score): 2.84 (confidence 0.66) - **q1** (noul): 0.16 (confidence 0.50) - **q2** (noul): 0.86 (confidence 0.50) - **q3** (score): 2.81 (confidence 0.82) - **q4** (choice): abstract (confidenc...",
+    "folder": "critiques",
+    "topic": "Critiques",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 70,
+    "date": "2026-10-23",
+    "size_bytes": 471
+  },
+  {
     "filename": "21-the-song-remembers-itself-critique.md",
     "path": "bots/casper-critic/critiques/21-the-song-remembers-itself-critique.md",
     "title": "Critique: 21-the-song-remembers-itself",
@@ -70237,6 +70255,24 @@
     "word_count": 75,
     "date": "2026-09-21",
     "size_bytes": 507
+  },
+  {
+    "filename": "time-01-the-tap-at-ten.md",
+    "path": "bots/casper-critic/witness-notes/time-01-the-tap-at-ten.md",
+    "title": "Witness Note: `time-01-the-tap-at-ten`",
+    "description": "",
+    "folder": "witness-notes",
+    "topic": "Witness Notes",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 622,
+    "date": "2026-10-23",
+    "size_bytes": 3759
   },
   {
     "filename": "prompts.md",
@@ -115263,7 +115299,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 227803
+    "size_bytes": 257264
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session28.md",
@@ -115354,6 +115390,24 @@
     "word_count": 791,
     "date": "2026-10-23",
     "size_bytes": 8524
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session32.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session32.md",
+    "title": "Civilization Orchestrator — Session 32 (2026-10-23)",
+    "description": "The command as given produces **zero simulations** and still exits 0. A local control provider (Control B) was used to make the orchestrator actually run, and the run then produced **+80 ledger rows (...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 820,
+    "date": "2026-10-23",
+    "size_bytes": 17824
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session26.md",
@@ -115536,6 +115590,24 @@
     "size_bytes": 13679
   },
   {
+    "filename": "RUN_REPORT_2026-10-23_session34.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session34.md",
+    "title": "Civilization Orchestrator — Run Report 2026-10-23 (session 34)",
+    "description": "| item | state | |---|---| | `/workspace` NAS | **100 % quota (600 G/600 G, 0 avail)** — writes produce **0-byte files** that still appear in `ls` | | repo path at session start | **absent** (only `.p...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 842,
+    "date": "2026-10-23",
+    "size_bytes": 8810
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session6.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session6.md",
     "title": "Civilization Orchestrator — Run Report (session 6)",
@@ -115552,6 +115624,24 @@
     "word_count": 725,
     "date": "2026-10-23",
     "size_bytes": 18027
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session33b.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session33b.md",
+    "title": "Civilization Orchestrator — Run Report, Session 33b (2026-10-23)",
+    "description": "The unpatched command was run first, exactly as specified: ``` EXIT=0 === Civilization batch: 8 civs x 5 sims each === [The Grounded] running 5 sims...   ... (all 8 civs) === Civilization competitions...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 750,
+    "date": "2026-10-23",
+    "size_bytes": 14267
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session27.md",
@@ -115750,6 +115840,24 @@
     "word_count": 853,
     "date": "2026-10-23",
     "size_bytes": 14217
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session33.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session33.md",
+    "title": "Civilization Orchestrator — Session 33 (2026-10-23)",
+    "description": "The command as given produces **zero simulations** and still exits 0. A local control provider (Control B) was used to make the orchestrator actually run, and the two independent runs then produced **...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 802,
+    "date": "2026-10-23",
+    "size_bytes": 11965
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session13.md",
@@ -169853,6 +169961,24 @@
     "word_count": 396,
     "date": "2026-09-21",
     "size_bytes": 2337
+  },
+  {
+    "filename": "snowball-20261023-230733-wesleys-aria_(deepinfra).md",
+    "path": "prose/snowball-inspired/snowball-20261023-230733-wesleys-aria_(deepinfra).md",
+    "title": "Wesleys-Aria (deepinfra) -- Snowball Inspired",
+    "description": "The tick of the old clock echoed through the workshop, a steady heartbeat amidst the chaos of gears and wires. I wiped my hands on a rag, leaving smudges of oil that spoke of a long day's work. The LI...",
+    "folder": "snowball-inspired",
+    "topic": "Snowball Inspired",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Poetic",
+    "word_count": 409,
+    "date": "2026-10-23",
+    "size_bytes": 2287
   },
   {
     "filename": "snowball-20261023-194146-witness_log_reading_itself_rsi.md",
