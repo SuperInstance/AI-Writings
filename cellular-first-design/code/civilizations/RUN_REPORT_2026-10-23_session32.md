@@ -220,3 +220,151 @@ Mock rows are **not committed**. The working tree was restored from the pristine
 snapshot and verified **byte-identical to the git HEAD blob** for every file in
 the subtree (`cmp` against `git show HEAD:<path>`, all files pass). Only this
 report and the learnings doc are committed.
+
+---
+
+# Appendix — Run B: a second, independent execution of the same task
+
+> A **concurrent instance of this same session** pushed its own session-32 report
+> (`e7b0a995`) while this run was in flight. Both are genuine, independent executions of the
+> same command from the same baseline (`f408e862`, 1644 ledger rows, 108 meta_log entries), so
+> **both are kept**. The report above is Run A; this appendix is Run B. Every headline finding
+> is corroborated by both.
+
+## Run B — what was different
+
+| | Run A (above) | Run B (this appendix) |
+|---|---|---|
+| repo retrieval | full `git clone --depth 1` into `/tmp` | same, but the **checkout phase was killed by the NAS quota** |
+| mock bodies/voice | 3 | 1 long body, **random sentence window** per call |
+| distinct `content_preview` | 21 / 80 | **36 / 80 (set A), 32 / 80 (set B)** |
+| fleet mean `avg_score` | 1.892 / 1.951 | 1.869 / 1.952 |
+| max per-civ \|delta\| | 0.247 | 0.381 |
+| positional rank agreement | 4/8 | **2/8** |
+| Kendall tau | 0.714 | **+0.714** |
+| chooser vs `argmax` | 1/10 | **0/10** (0/5 set A, 0/5 set B) |
+| temperature vs novelty | r = 0.9430 | **r = 0.9532** |
+| lowest `rel_per_sim` | civ-grounded 1.532 | **civ-grounded 1.543** |
+| lowest lifetime `avg_score` | civ-grounded 1.605 | **civ-grounded 1.617** |
+| lowest win rate | civ-poetic 0.022 (2W/91L) | **civ-poetic 0.011 (1W/87L)** |
+| raw-relevance lowest | civ-formal 318.81 | **civ-engineer 304.42** |
+| extinction risk | none | **none** |
+
+**Both runs agree on the low-relevance answer:** `civ-grounded` is lowest on the board's sort
+key **and** on the quality lens, in both body sets, with the fleet's lowest alignment.
+`civ-poetic` is the inverse — top of the fleet on quality, bottom on win rate, in both runs.
+`civ-precise` is the mirror image (best win rate, bottom on quality).
+
+## Run B — the two findings the merged record gains
+
+### 1. A quota-killed clone leaves 22 003 files staged as DELETED, and `ls` cannot see it
+
+`git clone --depth 1` into `/tmp` printed
+`warning: Clone succeeded, but checkout failed.` — the **checkout** phase died on the NAS
+EDQUOT trap while the object copy had already succeeded. The working tree landed on disk and
+looked perfect, but git had staged the **entire tree as deleted**:
+
+```
+git status --short   ->   22003 lines, almost all "D  <path>"
+```
+
+The damage is entirely in the **index**, and it silently poisons any later `git add -A` or
+commit. Recovery:
+
+```bash
+git reset -q HEAD -- <subtree>          # clear the bogus index
+git checkout -f HEAD -- <subtree>       # re-materialise from the object store
+# then verify EVERY file against the blob, not just the one you care about:
+git show HEAD:<path> | cmp - <path>
+```
+
+> **Generalisation: a failed clone leaves a half-built index that `ls` cannot detect.**
+> Always assert `git status --short` is empty (or contains only what you intended) before
+> trusting a freshly cloned tree, and never `git add -A` on a tree you have not status-checked.
+> This bit the commit itself: the first `git add` produced a 20 587-file, 2 939 889-deletion
+> staged diff. `git reset -q` + scoping the `git add` to the two intended paths fixed it.
+
+### 2. The distinct-preview acceptance check must be **per civ**, and the mock's body pool drives it
+
+Run A's mock had 3 bodies per voice and produced **21/80** fleet-wide distinct previews. Run B's
+mock had 1 long body per voice but a **random sentence window** per call and produced **36/80**.
+
+Run A's note is right that the absolute count is a property of the **pool size**, not of the
+run. But the metric that actually matters is neither the fleet-wide count nor the pool size —
+it is **how many distinct strings each civ contributes**, because the chooser compares civs
+against each other:
+
+> **A civ that always shows the same preview string is invisible to the chooser, no matter how
+> it scores.** That is precisely the failure that makes `civ-poetic` (1st on `avg_score`,
+> 1 win in 88) look like a mystery.
+
+The first version of Run B's mock built each body by a random **word offset**, which put the
+*start* of the body at the head of every response — so all 10 calls per civ produced an
+identical preview, giving **8 distinct previews out of 80** (exactly one per civ). That run
+passed **every** existing acceptance check: +80 rows, +5 meta_log, 5 winners, 0
+all-2.0-default rows, 76 distinct `avg_score`, 0 fallbacks. It was still **decorative** — the
+chooser was re-reading the same 8 strings and had no signal to pick from.
+
+**Fix:** choose a random *sentence window* per call (random start, no wraparound):
+```python
+sents = [x.strip() for x in re.split(r"(?<=[.!?])\s+", body) if x.strip()]
+si = rnd.randrange(0, len(sents))
+w = [sents[si+k] for k in range(min(3, len(sents)-si))]
+out = " ".join(w)
+```
+
+### 3. The mock daemon dies silently; its log is created on first request, not at startup
+
+`(setsid nohup MOCK_LOG=/tmp/x.log python3 /tmp/zai_mock.py &)` from the tool's shell **did not
+survive** — no error, no output, process simply gone. The same script launched via a wrapper
+that exports the env **inside** it works:
+
+```bash
+cat > /tmp/start_mock.sh <<'SH'
+#!/bin/bash
+export MOCK_LOG="$1"; export MOCK_BODY_SET="$2"; export MOCK_PORT="$3"; export MOCK_SEED="${4:-1}"
+cd /tmp
+exec python3 /tmp/zai_mock.py
+SH
+(setsid nohup timeout -s KILL 3000 /tmp/start_mock.sh /tmp/zai_mock_A.log A 8931 20261023 > /tmp/mock_A.out 2>&1 &)
+```
+
+**The mock's log file is only created on the FIRST REQUEST**, so `ls /tmp/zai_mock_A.log`
+reporting "No such file" right after launch is **not** evidence the process died — probe with a
+real POST and re-check. Switching body sets requires a restart **with the new log path**; the
+first attempt left the old path in place and the set-B log never appeared, which would have
+silently voided the `fallback`-flag check.
+
+## Run B — the four lenses (never merged)
+
+| lens | lowest | what it measures |
+|---|---|---|
+| A `relevance_per_sim` (board sort) | **civ-grounded 1.543** | lifetime average — penalises the civ that ran most (199 sims) |
+| B raw `relevance_score` | **civ-engineer 304.42** | accumulated score, same denominator artefact |
+| C `win_rate` | **civ-poetic 0.011 (1W/87L)** | **selection** appeal under a 150-char preview |
+| D mean `avg_score` (quality) | **civ-grounded 1.617 lifetime** | the only lens that answers "is this civ actually good?" |
+
+| civ | `rel_per_sim` | raw rel | wins | losses | win_rate | set A avg | set B avg |
+|---|---|---|---|---|---|---|---|
+| civ-grounded | **1.543** | 306.98 | 16 | 71 | 0.184 | **1.237** | 1.617 |
+| civ-formal | 1.670 | 308.96 | 17 | 69 | 0.198 | 1.710 | 1.773 |
+| civ-engineer | 1.750 | **304.42** | 11 | 70 | 0.136 | 1.880 | 1.611 |
+| civ-precise | 1.837 | 321.42 | 41 | 42 | **0.494** | 1.635 | 1.610 |
+| civ-therapist | 1.945 | 344.28 | 2 | 83 | 0.024 | 1.931 | 1.798 |
+| civ-mythic | 2.034 | 364.17 | 3 | 79 | 0.037 | 2.010 | 2.278 |
+| civ-whimsical | 2.148 | 410.24 | 3 | 85 | 0.034 | 2.111 | 2.238 |
+| civ-poetic | **2.259** | **415.73** | 1 | 87 | **0.011** | **2.441** | **2.691** |
+
+`civ-grounded` is lowest on `rel_per_sim`, lowest on lifetime `avg_score`, and holds the
+**lowest quality sub-score of 8 in both body sets** (0.71 / 0.94) and the lowest novelty in
+set A (1.14). `civ-poetic` is 1st on `avg_score` in both body sets, 1st on `rel_per_sim`, 1st
+on raw relevance — and has **1 win in 88**.
+
+## Run B — replications
+
+- Control B: **+80 / +80**, uniform +10/civ, 0 all-2.0-default rows, 0 score errors, 0
+  fallbacks, 8/8 voices, 80 mock calls per set with a 1:1 row-to-call ratio.
+- Chooser vs `argmax(avg_score)`: **0/5 set A, 0/5 set B**; lifetime **10/78 = 12.8 %**. In all
+  10 rounds the winning civ's **own score was below the runner-up's**, by 0.62–1.39.
+- Temperature vs lifetime novelty: **Pearson r = 0.9532**.
+- Counter gap: **+260** (ledger 1724 vs registry 1464), unchanged since session 6.

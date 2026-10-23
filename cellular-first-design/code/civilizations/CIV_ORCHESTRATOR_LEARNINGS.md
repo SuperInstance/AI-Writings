@@ -4273,3 +4273,130 @@ body sets, and 0.022 win rate (2W/91L)** — a *selection* failure, not a qualit
 - Counter gap: **+260** (ledger 1804 vs registry 1544) — unchanged for 13 sessions.
 - Working tree restored and verified **byte-identical to the git HEAD blob** for every file in
   the subtree via `cmp` against `git show HEAD:<path>`.
+
+
+---
+
+## Session 32b additions (2026-10-23) — concurrent independent replication: the preview-variety defect and a 22 003-file checkout trap
+
+### The credential gap is still the whole story (13th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All **8** sandbox
+secrets re-tested against the z.ai coding endpoint -> **401 "token expired or incorrect"** on every
+one (endpoint healthy => credential gap, not outage). JEV live at `jev-1.14.0`. Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched `--sims 5 --prompts 5 --providers zai` re-verified from scratch: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger delta **+0 rows,
++0 meta_log** (1644 -> 1644, 108 -> 108). **Assert on the row delta, never on exit code.**
+
+### NEW TRAP — a quota-killed clone leaves 22 003 files staged as DELETED
+
+`git clone --depth 1` into `/tmp` succeeded, but the **checkout phase died on the NAS quota**:
+`warning: Clone succeeded, but checkout failed.` The working tree landed *and* git staged the
+entire tree as deleted:
+
+```
+git status --short   ->   22003 lines, almost all "D  <path>"
+```
+
+**`ls` looked perfectly healthy** — the civ subtree was fully present on disk. The damage is
+entirely in the index, and it silently poisons any later `git add -A`, commit, or diff.
+
+Recovery (verified this session):
+```bash
+git reset -q HEAD -- <subtree>          # clear the bogus index
+git checkout -f HEAD -- <subtree>       # re-materialise from the object store
+# then verify EVERY file against the blob, not just the one you care about:
+git show HEAD:<path> | cmp - <path>
+```
+
+**The generalisation: a failed clone leaves a half-built index that `ls` cannot detect.**
+Always assert `git status --short` is empty (or contains only what you intended) before
+trusting a freshly cloned tree, and never `git add -A` on a tree you have not status-checked.
+
+### NEW DEFECT — the mock's preview must vary PER CIV, not just fleet-wide
+
+The orchestrator's chooser sees only `content_preview[:150]`. My first mock built each body by a
+random **word offset**, which put the *start* of the body at the head of every response — so all
+10 calls per civ produced an **identical** preview.
+
+- Set A, first attempt: **8 distinct previews out of 80** (exactly one per civ).
+- The run still passed **every** existing acceptance check: +80 rows, +5 meta_log, 5 winners,
+  0 all-2.0-default rows, 76 distinct `avg_score`, 0 fallbacks. **It was decorative.** The
+  chooser was re-reading the same 8 strings, so the competition had no signal to pick from.
+
+**Fix:** pick a random *sentence window* per call (random start, no wraparound):
+```python
+sents = [x.strip() for x in re.split(r"(?<=[.!?])\s+", body) if x.strip()]
+si = rnd.randrange(0, len(sents))
+w = [sents[si+k] for k in range(min(3, len(sents)-si))]
+out = " ".join(w)
+```
+Result: **36/80 distinct previews (set A), 32/80 (set B)**.
+
+> **New mandatory check: distinct previews PER CIV, not fleet-wide.**
+> A fleet-wide count of 36 looks healthy; the number that matters is how many distinct strings
+> *each* civ contributes, because the chooser compares civs against each other. A civ that always
+> shows the same string is invisible to the chooser **no matter how it scores** — which is exactly
+> the failure that made `civ-poetic` (1st on `avg_score`, 1 win in 88) look like a mystery.
+
+### The mock daemon dies silently under `setsid nohup ... &`
+
+`MOCK_LOG=/tmp/x.log python3 /tmp/zai_mock.py` launched with `(setsid nohup ... &)` from the
+tool's shell **did not survive** — no error, no output, process gone. The same script run via a
+wrapper script with the env exported **inside** it works:
+
+```bash
+cat > /tmp/start_mock.sh <<'SH'
+#!/bin/bash
+export MOCK_LOG="$1"; export MOCK_BODY_SET="$2"; export MOCK_PORT="$3"; export MOCK_SEED="${4:-1}"
+cd /tmp
+exec python3 /tmp/zai_mock.py
+SH
+(setsid nohup timeout -s KILL 3000 /tmp/start_mock.sh /tmp/zai_mock_A.log A 8931 20261023 > /tmp/mock_A.out 2>&1 &)
+```
+
+**The mock's log file is only created on the FIRST REQUEST**, not at startup — so
+`ls /tmp/zai_mock_A.log` reporting "No such file" right after launch is *not* evidence the
+process died. Probe with a real POST and check the log again.
+
+### The mock must be restarted between body sets, and the log path must be set on the RESTART
+
+Switching from body set A to set B requires killing and restarting the server **with the new
+`MOCK_LOG`/`MOCK_BODY_SET`/`MOCK_SEED` env**. The first attempt left the old log path in place
+and the set-B run's mock log never appeared — the run itself was fine, but the `fallback` flag
+check had nothing to read. **Assert the log has exactly 80 lines with `body_set` matching the run
+before trusting the acceptance checks.**
+
+### Body-set A/B, 2nd replication — the rank band is stable, the middle is not
+
+| | set A | set B | delta |
+|---|---|---|---|
+| ledger rows | 1724 (+80) | 1724 (+80) | uniform +10/civ |
+| meta_log | 113 (+5) | 113 (+5) | |
+| fleet mean `avg_score` | 1.869 | 1.952 | **+0.083** |
+| exact rank agreement | — | **2/8** | Kendall **tau = +0.714** |
+| max per-civ abs-delta | — | **0.381** (grounded +0.381, engineer -0.269, mythic +0.269) | |
+
+Rankable under session 11's rule (survives a perturbation at least as large as the gap it would
+reorder): **Poetic 1st in both**; Mythic/Whimsical 2nd-3rd as a band; **Grounded bottom-two in
+both**; Precise bottom in both. **Unranked band: Engineer and Therapist.**
+
+### The low-relevance answer, and its two inverses
+
+**`civ-grounded` is the low-relevance civ** — lowest `rel_per_sim` (1.543), lowest lifetime
+`avg_score` (1.617), and **lowest quality sub-score of 8 in both body sets** (0.71 / 0.94).
+**`civ-poetic`** is the inverse: **1st of 8 on `avg_score` in both sets** (2.441 / 2.691), 1st on
+`rel_per_sim` (2.259), 1st on raw relevance (415.73) — and **1 win in 88**. A *selection* failure.
+**`civ-precise`** is the other inverse: best win rate of 8 (0.494) while 7th/8th on `avg_score`,
+lowest novelty. **Extinction risk: none** (threshold -10, lowest +304.42, `--loop`-mode only).
+
+### Replications
+
+- Chooser vs argmax(avg_score): **0/5 set A, 0/5 set B**; lifetime **10/78 = 12.8 %**. In all 10
+  rounds the winning civ's own score was **below** the runner-up's, by 0.62-1.39. A competition win
+  is not evidence of a higher JEV score.
+- Temperature vs lifetime novelty: **Pearson r = 0.9532** (s8 0.985, s9 0.980, s10 0.981, s11 0.975).
+- Counter gap: **+260** (ledger 1724 vs registry 1464), unchanged since s6.
+- Control B: **+80 / +80**, uniform, 0 all-2.0-default rows, 0 score errors, 0 fallbacks, 8/8 voices.
