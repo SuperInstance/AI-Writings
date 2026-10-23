@@ -4655,3 +4655,107 @@ a **genuine quality signal**, not the longevity artefact lens A alone suggests. 
 takes the win-rate lens (0.024) with `civ-poetic`/`civ-whimsical` tied at 0.034 behind it.
 `civ-precise` remains the mirror image: best win rate (0.482), mid-table `avg_score` (1.863).
 **Extinction risk: none** (threshold -10, lowest +305.73, `--loop`-mode only).
+
+---
+
+## Session 35 (2026-10-23) — 16th consecutive credential gap; Control B 16th replication
+
+**Baseline** `972b17c` · **civs** 8 · **command** `--sims 5 --prompts 5 --providers zai` ·
+**report** `RUN_REPORT_2026-10-23_session35.md`.
+
+### 1. The credential gap — 16th consecutive session, unchanged
+
+`ZAI_TOKEN` absent from env **and** from the 8-entry secret store. All **8** sandbox secrets
+re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` -> **HTTP 401
+"token expired or incorrect"** on every one. No-auth probe -> **401 code 1001
+"Authentication parameter not received in Header"** (endpoint healthy => credential gap, not
+outage). JEV **live at `jev-1.14.0`** (`quality.score 0.34, confidence 0.71`).
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"` — the orchestrator reads the **name**
+`TYPESAFEAI_KEY` (`civilization_orchestrator.py:42`) but the sandbox exposes `TYPESAFE_AI_TOKEN`.
+Without the alias every score silently falls back to the hard-coded
+`{quality: 2.0, novelty: 2.0, alignment: 2.0}`.
+
+**Unpatched control re-verified from scratch:** batch header + all 8 `[Name] running 5 sims...`
+lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows** (all 8 md5s byte-identical),
+meta_log **+0** (108 -> 108), only `leaderboard.json` rewritten. The `running 5 sims...` lines
+print **before** the provider call — never evidence of work. **Assert on the row delta, never on
+the exit code.**
+
+### 2. Control B — 16th identical replication
+
+`ZAI_URL_OVERRIDE` is **still not in the committed blob** (`git show HEAD:... | grep` -> no
+match), 16th session running. Landed as a working-tree-only 1-line patch
+(`"url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/...")`), `git diff --stat` = 1 file,
+1 insertion, 1 deletion. Restored after the run; the restore check is **`cmp` against
+`git show HEAD:<path>`**, not `git status` alone.
+
+**+80 rows (+10/civ uniform), +5 meta_log, 5 competition winners, 0 JEV score errors,
+0 all-2.0-default rows, 0 mock fallbacks**, distinct `content_preview` **10/10 per civ**
+(80/80 fleet-wide), this-run `avg_score` spread 0.20-2.59.
+
+Mock log = **81** lines = 80 calls + 1 pre-run probe POST (exclude by timestamp, not by deletion).
+
+**Committed-ledger mock baseline confirmed at 70 `mock-zai` rows per civ** (560 fleet-wide) from
+earlier sessions. The post-run leak test must compare against **70/civ, not zero** — a naive
+`grep -c mock-zai == 0` assertion is a false negative against a 15-session-old baseline.
+
+### 3. NEW — the pooled vs per-civ temperature correlation diverge (do not mix them)
+
+- **Per-civ** mean temperature vs **per-civ** lifetime novelty (n=8): **Pearson r = 0.9525** —
+  9th replication of the strong figure.
+- **Pooled row-level** temperature vs novelty (n=1724): **r = 0.5854** — barely half.
+
+The between-civ gradient is very strong and replicates; the within-civ row-level relation is
+much noisier. **Quote the per-civ figure.** A pooled row-level r is not the same measurement
+and will look like a regression if reported next to the per-civ series.
+
+### 4. Chooser vs `argmax(avg_score)`: **0/5 (0.0 %)** this run
+
+In all 5 rounds the winner's own score was **below** the runner-up's, by 0.38-2.01.
+The JEV chooser selects on the *candidates' texts*, not their scores. (Lifetime ~12 %.)
+Also r = 0.7797 vs lifetime quality, r = 0.0976 vs lifetime alignment (alignment noisiest).
+
+**Counter gap: +80** (ledger 1724 vs registry 1464) — the gap is *this session's* rows, because
+`save_state()` and the ledger append are unsynchronised. **`relevance_per_sim` is not a
+reproducible ranking while this gap is open.**
+
+### 5. The low-relevance answer — `civ-grounded` (unchanged, 4 of 8 lenses)
+
+| lens | lowest | value |
+|---|---|---|
+| A board sort `relevance_per_sim` | **civ-grounded** | 1.523 |
+| B raw relevance | **civ-grounded** | 303.06 |
+| C win rate | **civ-poetic** | 0.011 (1W/87L) |
+| D lifetime `avg_score` | **civ-grounded** | 1.601 |
+| D2 lifetime quality | civ-engineer | 1.049 |
+| E lifetime novelty | civ-formal | 1.373 |
+| F lifetime alignment | **civ-grounded** | 2.027 (next 2.508) |
+| G this-run `avg_score` | civ-therapist | 1.081 |
+
+`civ-grounded` is lowest on **4 of 8 lenses**, including both that need no denominator
+(lifetime `avg_score`, lifetime `alignment`) plus the board's own sort key — a **genuine quality
+signal**, not the longevity artefact lens A alone suggests. `civ-poetic` is the **inverse
+failure** (1st of 8 on quality/novelty/alignment, win rate 0.011) — a *selection* failure, not a
+quality collapse. `civ-precise` is the mirror image (best win rate 0.482, 5th of 8 on quality).
+**Extinction risk: none** (threshold -10, lowest +303.06, `--loop`-mode only).
+
+### 6. Environment (durable, 7th consecutive ephemeral-path session)
+
+- **The task path did not exist at session start** — `/workspace` held only `.plugin-cache` and
+  `.skills`. 7th consecutive time the prompt named an ephemeral path.
+- `/workspace` is a **100 %-full NAS mount** — a write there yields a 0-byte file that still
+  appears in `ls`. `/tmp` (overlay) is free and is **not** subject to the trap. Clone and run in
+  `/tmp`; bridge with a symlink because **`CIVS_DIR` is hardcoded**:
+  `ln -sfn /tmp/civroot /workspace/repos/ai-writings`. Symlinks on the NAS work; only *data*
+  writes are capped.
+- **A full clone dies on a ~2 GB pack** (`could not open .../tmp_pack_* for reading` ->
+  `fatal: fetch-pack: invalid index-pack output` -> "Clone succeeded, but checkout failed").
+  Use `git clone --filter=blob:none --no-checkout --depth 1 --branch main` +
+  `git sparse-checkout set cellular-first-design/code/civilizations` — the whole subtree
+  materialises in seconds. `--filter=blob:none` **without** `--no-checkout` also fails the
+  checkout for the same reason; both flags together are required.
+- `git status --short` was **empty** on the fresh tree (the session-32b 22,003-files-staged-as-
+  deleted trap did not fire). Always status-check a fresh tree before `git add -A`.
+- The report was written to the NAS at **7,021 bytes** (non-zero) and copied to `/tmp` —
+  the NAS accepted it this time, but the 0-byte trap is quota-dependent, so **always `wc -c`
+  the deliverable before claiming it exists**.
