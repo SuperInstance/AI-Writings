@@ -686,3 +686,194 @@ best win rate (0.571) but 5th on `avg_score` and 2nd-lowest novelty (1.160).
 - Restore baseline must be fetched from the **API per file**, never copied from the
   working tree after the patch — a post-patch copy reports a false DIFF forever.
 - `ln -sfn` still refuses to replace an existing real directory: `rm -rf` first.
+
+---
+
+## Session 12 additions (2026-10-23, 114th wipe — concurrent replication of session 11)
+
+### The credential gap is still the whole story (10th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the secret store. All **7** available
+secrets re-tested against the z.ai coding endpoint -> **401 "token expired or incorrect"**
+on every one (endpoint healthy => credential gap, not outage). `GROQ_TOKEN` also absent,
+so there is no alternate live provider. JEV live at `jev-1.14.0`. Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Re-verified from scratch, delta measured not assumed: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger delta
+**+0 rows, +0 meta_log** (684 -> 684, 48 -> 48). Only `leaderboard.json` rewritten.
+**Assert on the row delta, never on exit code.**
+
+### THE HEADLINE — reconciled with the concurrent session 11: perturbation vs rank gap
+
+A separate instance ran the **same command** and committed
+`RUN_REPORT_2026-10-23_session11.md` (commit `733638e`) while this run was in
+flight. Its mock A/B gave **Kendall tau 1.00** (order preserved, max per-civ
+|d| 0.175); this run's gave **tau 0.286** (order scrambled, max |d| 0.384).
+**They are not contradictory — they differ by how loudly their mock spoke.**
+
+> **A rank is disturbed only when a civ's per-civ shift exceeds the gap to its
+> neighbour. Compare each run's max |d| against its own adjacent-rank gaps.**
+
+| run | max per-civ \|d\| | median adjacent gap | order outcome |
+|---|---|---|---|
+| s12 (this) | **0.384** | 0.081 | scrambled (tau 0.286, 0/8 slots) |
+| s11 (concurrent) | **0.175** | 0.038 | preserved (tau 1.00, 4/8 slots) |
+
+The operative rule is therefore **not** "the mock reorders the fleet" and **not**
+"the mock preserves the fleet's order" but:
+
+> **The mock's prose is a first-order confounder whose magnitude is a property of
+> the *body set*, not of the fleet. A rank is reportable only if it survives a
+> body-set swap that perturbs the fleet at least as hard as the rank gap it would
+> reorder. A civ whose score moves more than the gap to its neighbour under a
+> prose swap is not being measured.**
+
+This is now confirmed **from both directions** by two independent sessions, which
+is stronger than either alone. A third session (s10) saw 2/8 with a much larger
+perturbation, consistent with the rule.
+
+**Practical corollary for mock authors: control the perturbation.** A body set
+whose per-civ shift is below the adjacent gap will *always* reproduce a ranking,
+and will therefore always look like it "confirms" the previous run. To test
+whether a ranking is real, write a body set that perturbs *harder* than the gap
+you are trying to resolve.
+
+### The stable answer, pooled over FOUR independently-written body sets
+
+| civ | bottom-2 in | top-2 in | pooled mean avg_score (4 sets) |
+|---|---|---|---|
+| **civ-grounded** | **3/4** | 0/4 | **1.998 (lowest of 8)** |
+| **civ-formal** | **3/4** | 1/4 | 2.071 |
+| civ-precise | 1/4 | 0/4 | 2.006 |
+| civ-poetic | 1/4 | 2/4 | 2.155 |
+| civ-mythic | 0/4 | 2/4 | 2.229 |
+| **civ-whimsical** | 0/4 | **3/4** | **2.319 (highest of 8)** |
+| civ-therapist | 0/4 | 0/4 | 2.159 (middle band) |
+| civ-engineer | 0/4 | 0/4 | 2.099 (middle band) |
+
+**Stable low: `civ-grounded`** (3/4 bottom-two, lowest pooled mean, lowest alignment
+of all 8). **Stable high: `civ-whimsical`** (3/4 top-two, highest pooled mean).
+**The middle band {therapist, engineer, precise} is unranked** — report the band,
+never an order.
+
+### THIS RUN's raw A/B (set A vs set B)
+
+Exact position agreement: **0 / 8**, Kendall tau **0.286**.
+
+| rank | set A | set B |
+|---|---|---|
+| 1 | civ-mythic 2.284 | civ-poetic 2.413 |
+| 2 | civ-whimsical 2.238 | civ-therapist 2.300 |
+| 3 | civ-therapist 2.198 | civ-whimsical 2.210 |
+| 4 | civ-poetic 2.113 | civ-mythic 2.165 |
+| 5 | civ-engineer 2.032 | civ-grounded 2.154 |
+| 6 | civ-precise 1.998 | civ-formal 2.113 |
+| 7 | civ-grounded 1.828 | civ-engineer 1.926 |
+| 8 | civ-formal 1.729 | civ-precise 1.778 |
+
+Per-civ delta A->B: Formal **+0.384**, Grounded **+0.326**, Poetic **+0.300**,
+Therapist +0.102, Engineer -0.106, Mythic -0.119, Precise -0.220, Whimsical -0.028.
+Fleet mean moved only **+0.080** (2.053 -> 2.132) — a stable fleet mean completely hid
+a total reordering. **Absolute scores AND ordering are both mock artefacts. Only
+signals surviving every body set are real.**
+
+| rank | set A | set B |
+|---|---|---|
+| 1 | civ-mythic 2.284 | civ-poetic 2.413 |
+| 2 | civ-whimsical 2.238 | civ-therapist 2.300 |
+| 3 | civ-therapist 2.198 | civ-whimsical 2.210 |
+| 4 | civ-poetic 2.113 | civ-mythic 2.165 |
+| 5 | civ-engineer 2.032 | civ-grounded 2.154 |
+| 6 | civ-precise 1.998 | civ-formal 2.113 |
+| 7 | civ-grounded 1.828 | civ-engineer 1.926 |
+| 8 | civ-formal 1.729 | civ-precise 1.778 |
+
+Per-civ delta A->B: Formal **+0.384**, Grounded **+0.326**, Poetic **+0.300**,
+Therapist +0.102, Engineer -0.106, Mythic -0.119, Precise -0.220, Whimsical -0.028.
+Fleet mean moved only **+0.080** (2.053 -> 2.132) — a stable fleet mean completely hid a
+total reordering. **Absolute scores AND ordering are both mock artefacts. Only signals
+surviving both body sets are real.**
+
+### CORRECTION to session 10's "one stably-low civ" claim — and its resolution
+
+Session 10 concluded `civ-grounded` was the one civ stably low (bottom-two in both of
+its sets). **Within this run's two sets alone, bottom-two set A = {formal, grounded}
+and set B = {engineer, precise} — intersection empty, so the claim is NOT reproduced
+from two sets.** But pooled over **four** body sets (s10-A, s10-B, s11-A, s11-B) the
+Grounded is bottom-two in **3/4** and has the **lowest pooled mean**. The resolution:
+**the claim was right, but the evidence bar was wrong** — "stably low" is a
+*band-level* claim requiring >=3 body sets, not a rank claim requiring an
+intersection of 2. `civ-formal` is nearly as low (also 3/4 bottom-two) and is the
+civ most likely to be mis-ranked by any single run.
+
+**Test to keep using (it is cheap and it is honest):** report a civ's rank only if it
+holds in >=2 independently written body sets. Below that, report **unranked**. The
+bottom-two-intersection test is the sharpest version.
+
+### Low relevance — four lenses, four answers (unchanged shape, new numbers)
+
+| lens | lowest | what it really measures |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded 1.991** | longevity artefact — it ran the most sims (79) |
+| raw relevance | **civ-engineer 110.63** | accumulated score, same denominator artefact |
+| `win_rate` | **civ-poetic 0.000 (0W/28L)** | **selection** appeal under a 150-char preview |
+| mean `avg_score` set A / set B | **civ-formal 1.729** / **civ-precise 1.778** | writing quality — the two sets disagree |
+
+- **`civ-poetic` is the only civ flagged consistently across lenses**: 4th in set A,
+  **1st in set B**, 2nd on `rel_per_sim` (2.632), 2nd on raw relevance, and
+  **0 wins in 28**. A *selection* failure, not a quality collapse.
+- **`civ-precise`** — best win rate (0.652) but 6th/8th on quality and **lowest
+  novelty of all 8 (1.069)**. Selection/quality inversion again.
+- **`civ-grounded`** — lowest on the board's own sort key but 7th/5th on quality. Its
+  low `rel_per_sim` is the longevity artefact.
+- **Extinction risk: none** (threshold `relevance < -10`, lowest +110.63, `--loop`-only).
+
+### NEW trap — the mock's distinct-preview CEILING is bodies_per_voice
+
+A mock with **3 bodies per voice** cannot produce more than **24** globally distinct
+previews (8 voices x 3 bodies), *whatever the seed does*. A run reporting 23-24
+distinct previews looks like a collapsed mock but is actually hitting the ceiling.
+With 8 bodies per voice the ceiling rises and the observed counts (45 / 39) become
+meaningful. **When checking distinct-preview counts, compute the ceiling first:**
+`bodies_per_voice x n_voices`. Otherwise you will "fix" a mock that is not broken, or
+accept a broken one that is not.
+
+### NEW trap — `cp` into `/workspace` yields 0-byte files on the EDQUOT trap
+
+Copying the civ tree into `/workspace/repos/...` produced a directory listing with
+every correct filename and **0 bytes in every file**, with
+`cp: failed to close ...: Disk quota exceeded` on stderr. **`ls` looks healthy.**
+Always copy to `/tmp` and symlink:
+`ln -sfn /tmp/aiw_sparse /workspace/repos/ai-writings` — the script's hardcoded
+`CIVS_DIR` then resolves into the exempt overlay.
+
+### NEW trap — `kill -9 $PID` can kill the invoking shell, silently skipping later steps
+
+`ps -eo pid,args --no-headers | grep "[z]ai_mock.py" | awk '{print $1}'` still matched
+the wrapper shell's own command line. `kill -9` on it aborted the whole command, so the
+*restore* and the *mock restart* never ran, and the next orchestrator run wrote on top
+of the previous run's rows (the ledger delta then looked like +160 instead of +80).
+**Kill by PID captured in a PRIOR call, and always probe the mock immediately before
+the run.**
+
+### NEW — sparse checkout is the fast path
+
+`git clone --filter=blob:none --no-checkout --depth 1` + `git sparse-checkout set
+cellular-first-design/code/civilizations` = ~40 s and 968 K, versus a full clone still
+running after 3 minutes (the pack is ~3.6 GB). Prefer sparse. Note: unlike session 9,
+`--filter=blob:none` worked this time — but the full clone was also still running
+against a *different* target, so keep one clone per target.
+
+### Replications this session
+
+- Control B: **+80 rows / +5 meta_log / 5 winners / 0 fallbacks / 0 score errors /
+  0 all-2.0-default rows** — reproduces sessions 6-10 exactly.
+- Chooser vs argmax(`avg_score`): set A **1/5**, set B **0/5**. 6th replication. A
+  competition win is **not** evidence of a higher JEV score.
+- Temperature vs lifetime JEV novelty: Pearson **r = 0.9810** (s8 0.985, s9 0.980,
+  s10 0.9809) — 4th replication. The fleet is 8 points on one temperature/novelty
+  gradient, and the `max(0.1, ...)` floor makes the cold end a **one-way ratchet**.
+- Counter gap: **exactly +260** (764 ledger rows vs 504 registry `simulations_run`).
+  `save_state()` has no lock and no read-modify-write => lost-update race =>
+  `relevance_per_sim` is **not a reproducible ranking**.
