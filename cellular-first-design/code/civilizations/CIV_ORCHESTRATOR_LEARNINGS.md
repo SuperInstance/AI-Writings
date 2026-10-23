@@ -1625,3 +1625,121 @@ tie-preserving). **Report the set, not the order**, and compare max |delta| agai
    `ps -eo pid,args --no-headers | grep "[z]ai_mock"`.
 5. The `write` tool cannot write `/tmp`; use a bash heredoc. The orchestrator writes
    `__pycache__/` into the civilizations dir - remove it before committing.
+
+---
+
+## Session 18 additions (2026-10-23, 117th wipe)
+
+### The credential gap is still the whole story (16th consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (684 -> 684)**, `meta_log`
+**+0 (48 -> 48)**, `Winner:` lines **0**. **Assert on the row delta, never on the exit
+code.**
+
+Full sandbox-secret audit against `https://api.z.ai/api/coding/paas/v4/chat/completions`
+(9 candidates; `ZAI_TOKEN` and `ZAI_KEY` **absent**, the other 7 present) -> **every
+present one 401 "token expired or incorrect"**. 401 = endpoint healthy => credential gap,
+not outage. **JEV live at `jev-1.14.0`** (`quality.score 1.36, confidence 0.59`).
+
+### NEW ENVIRONMENT FACT - the clone size and duration have changed again (3rd data point)
+
+| session | clone size | wall time |
+|---|---|---|
+| s9-s16 | 3.4-3.7 GB | ">3 min", needs detaching |
+| s17 | not measured | "~60 s", inside the timeout |
+| **s18** | **7.0 GB working tree, 20,634 files** | **~45 s, inside the timeout** |
+
+`git clone --depth 1 https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git`
+-> `/tmp` completed in one tool call. **Stop budgeting 3 minutes and stop reaching for the
+sparse-checkout fallback by default.** The lesson is unchanged: *time the clone, never
+trust a recorded duration* - but the recorded durations in this file are now stale in
+both directions (the pack grew 2x while the time stayed the same).
+
+### Control B reconfirmed, 11th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ, uniform),
++5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 0 scaffolding leak,
+80/80 distinct `content_preview`, 80/80 distinct mock body hashes, 78/80 distinct
+temperature**, provider `zai` only, mock internal distribution **exactly 10 calls per
+voice across all 8 voices**, winner-set cardinality **4** (not a sweep).
+
+### NEW TRAP - a pre-run health-check probe pollutes the mock's call log
+
+The mock's per-voice call distribution is the instrument that catches a collapsed
+control. If you hand-test the mock with a manual POST **before** the orchestrator run,
+the log contains **81 calls** and one voice shows **11** - a spurious "distribution not
+uniform" failure that looks like a broken control.
+
+> **Either test the mock on a throwaway log path, or subtract the probe by index.** The
+> cleanest is to start the mock with a fresh log path for the run, or to record the
+> probe's `idx` and slice `rows[probe_count:]`. Do not "fix" the distribution by
+> changing the mock - the control was fine.
+
+### The counter gap MOVED: +260 -> +180 (not a fix - a measurement artifact)
+
+This session: **684 ledger rows vs 504 registry `simulations_run` = +180**. Every prior
+session since s9 recorded **+260**. The gap did not close - **the registry counters
+advanced by 80 while the committed ledger did not.** `save_state()` rewrites the whole
+`culture.json` from in-memory counters with no lock and no read-modify-write, so it is a
+lost-update race that can move the gap in either direction.
+
+> **Report the gap as measured this session, and never compare it against a gap quoted
+> from a previous session as if it were a trend.** It is a race, not a leak.
+
+### The low-relevance answer (baseline-only, 684 rows)
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` | **civ-grounded** | 1.866 |
+| raw relevance | **civ-engineer** | 107.09 (youngest, 44 sims) |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.000 (0W/28L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.965 |
+| lifetime `alignment` | **civ-grounded** | 2.747 |
+| lifetime `quality` | **civ-engineer** | 1.765 |
+| lifetime `novelty` | **civ-precise** | 0.955 |
+
+- **`civ-grounded` = the stable low-relevance civ.** Last on `rel_per_sim`, lifetime
+  `avg_score` and lifetime `alignment`; and **worst in this run too** (avg_score 1.166,
+  alignment 1.053). Sixth session running.
+- **`civ-poetic` = the inverse case, 16th session running.** 2nd on lifetime `avg_score`
+  (2.649), **1st on quality** (2.315), 2nd on alignment, 2nd on `rel_per_sim` - and
+  **0 wins in 28**. A *selection* failure.
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate (0.652),
+  last on novelty (0.955), 4th on this run's scores (1.585), took 2 of 5 competition
+  wins.
+- **`civ-whimsical` = the only civ where every quality lens agrees** (1st on
+  `rel_per_sim`, `avg_score`, novelty, alignment).
+- **Extinction risk: none** (threshold -10, lowest +107.09, `--loop`-mode only).
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / 0 leak / 80-80 distinct
+  bodies / uniform 10-per-voice distribution - **11th**.
+- Chooser vs `argmax(avg_score)`: **0/5 this run (0 %)**, disagreement margin
+  0.220-0.917, mean **0.499** - **10th replication**.
+- Temperature vs lifetime JEV novelty: Pearson **r = 0.9845** (baseline-only) -
+  **10th replication**. Temperature and novelty are the same axis.
+- Mock perturbation: fleet mean `avg_score` 2.3249 -> 2.2516 (-0.0733); **top-3 set
+  unchanged** {Whimsical, Poetic, Mythic}; **bottom-2 set CHANGED** {Grounded, Formal}
+  -> {Grounded, Engineer}; max |delta| **0.111** vs baseline adjacent gaps
+  0.104 / 0.107 / 0.032 / 0.427 / 0.028 / 0.012 / 0.077. The perturbation **overturns the
+  0.032 gap** between Formal and Engineer => the bottom-2 set is not preserved.
+  **Report the set, not the order.**
+
+### Environment notes
+
+1. **Both `read` and `write` tools are jailed to the workspace root.** `read` on a `/tmp`
+   path returns `Workspace path escapes Cloud Host root`; `write` to `/tmp` is refused.
+   Use `bash` heredocs for `/tmp` artifacts, and `sed`/`python3` to read them. This is
+   the same jail sessions 15-17 recorded, now observed on both tools.
+2. `git show HEAD:<path>` is the cleanest way to read a pristine baseline - no second
+   checkout, immune to the current working tree. Use it for before/after row counts.
+3. NAS `/workspace` still at 100 % (600 G used, 0 avail) -> clone to `/tmp` and bridge
+   with `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/ai-writings /workspace/repos/ai-writings`.
+   **`rm -rf` first; `ln -sfn` will not replace a real directory.**
+4. The orchestrator writes `__pycache__/` into the civilizations directory - remove it
+   before committing.
+5. After a Control B run, `git checkout -- <subtree>` restored every file byte-identical
+   to `HEAD`, verified with `cmp` against the git blobs. The 80 mock rows never entered
+   the committed ledger.
