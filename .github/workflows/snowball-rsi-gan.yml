@@ -60,6 +60,16 @@ jobs:
           sys.path.insert(0, "bots/substrate-bus")
           import snowball_writer as sw
 
+          # The writer hardcodes /workspace/repos/ai-writings (its fleet-host
+          # path). On a GitHub runner the checkout lives elsewhere, so repoint
+          # its module-level path constants at the real checkout before use.
+          import pathlib
+          ROOT = pathlib.Path.cwd()
+          sw.CANON_DIR = ROOT / "prose"
+          sw.WITNESS_PATH = ROOT / "bots/snowball-scout/witness.log"
+          sw.BOOKKEEPER_PATH = ROOT / "bots/snowball-scout/bookkeeper.wal"
+          sw.INSPIRED_DIR = ROOT / "prose/snowball-inspired"
+
           # Route the three providers through the vault.
           sys.path.insert(0, "bots/snowball-scout")
           import importlib.util
