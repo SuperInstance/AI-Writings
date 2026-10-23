@@ -144,3 +144,77 @@ into the NAS at all.**
 `last_conserved` is a **constant false by construction** — the delta path can never
 satisfy the predicate, so the field carries no signal. Fourth poll reporting this;
 still unfixed.
+
+## 2026-10-23T16:18Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~20.2h, and ~32 min
+  since the 15:46Z poll.
+- **Confirmed twice by independent paths:** the watcher's own `poll_canon()`, and a separate
+  curl probe (HTTP 200, 13720 bytes) whose `sha256(json, sort_keys)[:16]` recomputes to the
+  same `b20375d389cb505d`, taken *before* the watcher run.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent), so the
+  2026-10-22 count-key fallback fix remains load-bearing.
+- **Log append:** two rows. The unconditional `bot_started` event (written by `main()`), then
+  the `witness_note` for this run. 30 -> 32 rows.
+- **No canon-change note written.** A hash match is not a transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and
+  `canon_changed` branches, so stable canon correctly produces zero ticks — `bookkeeper.wal`
+  still does not exist and `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 32/32 rows parse and carry `ts, iso, event, payload, hash`. Linkage class
+  `row-checksum` (per `../README.md`): each row's hash commits to its own payload only, with
+  no `prev`/`prev_hash`. Deletion and truncation of a row are undetectable in this format, so
+  the honest verdict is `32/32 row checksums accounted for — linkage class row-checksum`, not
+  "chain-intact". The two exceptions are unchanged from prior polls and are documented below.
+- **Substrate log:** `substrate-witness.jsonl` byte-unchanged at 440 bytes. Correct — the
+  substrate calls in the watcher fire only from the `first_poll` branch.
+
+### Inherited-row exceptions (unchanged, carried forward)
+
+| Row | Event | Hash field | Verdict |
+|-----|-------|-----------|---------|
+| 9  | `meta_wipe_recovery` | literal `RECOVERED` | Hand-authored **marker**, explicitly not a checksum. Not corruption. |
+| 12 | `meta_wipe_recovery` | literal `RECOVERED` | Same. |
+| 25 | `witness_note` (11:31Z) | `88839488ea23e66c` | **Stale** — computed is `2553b915563b73cc`. Genuine mismatch. |
+
+Row 25's mismatch was **born with the row** in upstream commit `43b98389` and propagated
+unchanged through `092a4e64`, `d709e263`, `76b840e` and `b88a6d2e`. It is *not* a post-hoc
+payload edit. No single-field substitution and no prefix truncation of the note text reproduces
+the stored hash, so the hash was not computed over any plausible earlier revision of the
+payload. Row 27 (the 15:04Z hand-written `witness_note`) verifies correctly, so the
+hand-authored format *can* be written correctly — row 25 is a **one-off authoring slip**, not a
+systemic format failure.
+
+**Net for this run:** 29/32 machine-written rows verify, 2 are `RECOVERED` markers, 1 is the
+stale hash from the upstream slip. This run introduced no new mismatch (both appended rows
+verify).
+
+### Environment (11th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` was an empty NAS mount
+  at 600G/600G, 100%, 0 bytes available.
+- **`git init` into the NAS also fails**: `unable to write symref for HEAD: Disk quota
+  exceeded`, and `git init --template=` was not enough to escape it. The repo cannot be hosted
+  on the NAS at all, so the git work has to happen on a real filesystem and be pushed from
+  there.
+- **A full `git clone` of AI-Writings was attempted first and abandoned** — it transfers a
+  multi-GB pack (335 MB after ~30 s and still climbing) and the NAS could not hold it. The
+  working recovery is to fetch the four required files from `raw.githubusercontent.com` and stage
+  them to `/tmp/wm-run/bots/`, because the script hardcodes those paths for `witness.log` /
+  `state.json` / `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` —
+  `substrate_bus` must be staged alongside it or the import dies.
+- `AI-Writings` and `ai-writings` are the **same repository** (repo id `1176209018`); GitHub
+  resolves the two casings to one repo.
+- Staged script md5 `206682962c06f9814a5db65c2fbc7267` — byte-identical to upstream. No code
+  changes were needed this run.
+- The NAS **truncates writes to 0 bytes** while reporting success, so the two
+  `substrate_bus.py` target files (`substrate-witness.jsonl`, `topics.json`) were symlinked to
+  their `/tmp/wm-run/bots/substrate-bus/` counterparts rather than written into the NAS. The
+  symlink is followed and the substrate log lands on a real filesystem. Read-through verified:
+  440 and 2259 bytes respectively, matching upstream.
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so
+`last_conserved` is a **constant false by construction** — the delta path can never satisfy
+the predicate, so the field carries no signal. Fifth poll reporting this; still unfixed.
