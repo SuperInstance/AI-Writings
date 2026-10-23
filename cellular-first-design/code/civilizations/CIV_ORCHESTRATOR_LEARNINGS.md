@@ -4033,3 +4033,105 @@ drift column is not.
   byte-identical.
 - **`civ-grounded` lowest on the score lenses** — **17th** session running.
 - **`civ-poetic` quality-leader / never-selected** — **27th** session running.
+
+
+---
+
+## Session 30/31 additions (2026-10-23) — the trees API beats the clone
+
+### The cheap environment reconstruction: the GitHub trees API, not a clone
+
+The repo is a 3.4 GB pack. **Do not clone it.** Measured this session:
+- clone into `/workspace` → NAS EDQUOT trap (600 G / 0 avail) — fails on `.git/description`.
+- `git clone --depth 1` into `/tmp` → still pulls a **2.7 GB pack**; a 30 s tool timeout kills
+  the fetch mid-stream, leaving an orphaned `tmp_pack_*` and a `.git` with no commits.
+
+**Instead:**
+```
+GET /repos/SuperInstance/ai-writings/git/trees/<sha>?recursive=1     # 22 070 entries, one call
+GET /repos/SuperInstance/ai-writings/git/blobs/<blob_sha>             # base64 content
+```
+The `cellular-first-design/code/civilizations/` subtree is **69 blobs / 1.6 MB ≈ 0.05 % of the
+repo** and took seconds. **Verify every fetched file** with
+`sha1(b"blob %d\0" % len(raw) + raw) == blob.sha` — all 69 matched on the first pass. This is
+faster, smaller and *more auditable* than a clone (a clone you cannot SHA-check every file of).
+`raw.githubusercontent.com/<owner>/<repo>/<branch>/<path>` also works for verification and
+**does not consume REST API quota** — important when the core rate limit is 5000/5000.
+
+### The symlink bridge: the path shape is `<root>/cellular-first-design/code/civilizations`
+
+`CIVS_DIR` is hardcoded, so the bridge must reproduce that exact shape. The civilizations
+files can sit *directly* in a directory, so build it as a chain of symlinks rather than
+pointing one symlink at the civs dir:
+```
+mkdir -p /tmp/civroot/cellular-first-design/code
+ln -sfn /tmp/civwork /tmp/civroot/cellular-first-design/code/civilizations
+ln -sfn /tmp/civroot   /workspace/repos/ai-writings
+```
+**Trap: `rm -rf` on a path that the bridge depends on breaks the bridge silently.**
+Cleaning up a stray `cellular-first-design/` symlink *inside* the civs dir with `rm -rf`
+removed the real directory, and `/workspace/repos/ai-writings/...` stopped resolving —
+`ls` reported "No such file or directory" with no hint that a symlink was involved.
+**Always `ls -la /workspace/repos/` to see whether the bridge is a symlink** and re-create it
+if a cleanup step removed a component. `ln -sfn` also will not replace a real directory.
+
+### groq's failure mode changed: 401, not 403/1010
+
+s11 recorded groq as `HTTP 403 error code: 1010` (a Cloudflare block). This session it
+returned **`HTTP 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error",
+"code":"invalid_api_key"}}`** on `https://api.groq.com/openai/v1/chat/completions`.
+It is still dead, but **the status code is not a stable discriminator** — do not conclude
+"the endpoint is blocked" from a 403 and "the key is wrong" from a 401 across sessions.
+The durable fact is: **no alternate live provider exists.**
+
+### A concurrent instance can land on the same branch mid-run
+
+`sessions 30 and 31` were two instances of the same task against the same baseline
+(`1d2a3b3f`). The sibling pushed `15b7ce63` (session 30) at 22:23:58Z while this run was
+in flight; the push was rejected as non-fast-forward.
+
+**Merge policy that worked: keep BOTH runs.** They are independent, genuine executions of
+the same command from the same baseline, so the ledger must contain both:
+- `simulations.jsonl` → **union** of the two appended tails (assert each side is a pure
+  append of the common prefix before unioning).
+- `meta_log.jsonl` → **union** of the appended tails (98 → 108).
+- `culture.json` → **sum** the deltas from the common baseline, not the final values:
+  `wins = base.wins + (ours.wins - base.wins) + (theirs.wins - base.wins)`, same for
+  `losses`, `simulations_run`, and `relevance_score`.
+- `leaderboard.json` → **regenerate** from the merged `culture.json` (it is derived).
+- Report filenames → the sibling keeps `session30`, yours becomes `session31`.
+
+**Trap: `:2:` is OURS and `:3:` is THEIRS in a rebase conflict — and I wrote them swapped,
+clobbering the sibling's session-30 report with mine.** The tell was a diffstat of "348
+changed lines" on a file I had no business touching. **Always re-verify a file you claim to
+have preserved with `git show origin/main:<path> | sha1sum` against the local file**, and
+re-`git add` after fixing the working tree — the index keeps the stale version until you do.
+
+**The GitHub core rate limit (5000) can be exhausted mid-session** (blob downloads burn it
+fast: 69 blobs + a recursive tree + compare calls). `git fetch`/`git push` over the git
+protocol do **not** consume it — use `git ls-remote` and `git fetch origin main` to check
+remote state instead of the REST API, and `raw.githubusercontent.com` for content checks.
+
+### The chooser-vs-argmax match: use meta_log `results` as the join key
+
+My first chooser-vs-argmax computation reused one dict across all 5 rounds and reported
+**identical margins (0.307 × 5)** — a dead giveaway that the round matcher was broken.
+The correct join: `meta_log` entries carry `results` as a list of `(civ_id, avg_score)`
+pairs; that **is** the authoritative key. With it, this run's 5 rounds gave margins of
+0.180–0.493 and agreement **0/5**, and the lifetime join (cluster ledger rows by ts gaps
+> 2 s, keep 8-row clusters, match by exact score-multiset equality) gave **0/8**.
+
+### Session 30/31 results
+
+- Unpatched: **+0 rows, +0 meta_log, 0 `Winner:` lines, exit 0** (12th+ consecutive session).
+- Control B: **+80 rows (+10/civ uniform), +5 meta_log, 5 winners, 0 all-2.0-default rows,
+  0 score errors, 80/80 distinct previews, mock per-voice distribution 10 × 8 voices.**
+- Low relevance (lenses separate): A `relevance_per_sim` → **civ-grounded** 1.549;
+  B raw relevance → **civ-engineer** 274.29; C win rate → **civ-poetic** 0.013 (1W/77L);
+  D `avg_score` quality → **civ-grounded** 1.629 lifetime / 1.472 this run.
+  **civ-grounded's alignment (2.087) is lowest of 8 by a wide margin** (next 2.604).
+- `civ-poetic` remains the inverse case (2nd on `avg_score`, 1st on `rel/sim`, 1 win in 78).
+  `civ-precise` won **all 5** rounds and has the fleet's best win rate (0.521) while sitting
+  5th on `avg_score` — and is **1st on alignment (2.959)**, last-ish on novelty.
+- Replications: chooser vs argmax **0/5** this run, **0/8** lifetime.
+  Temperature vs lifetime novelty **Pearson r = 0.9472**. Counter gap **unchanged at +260**.
