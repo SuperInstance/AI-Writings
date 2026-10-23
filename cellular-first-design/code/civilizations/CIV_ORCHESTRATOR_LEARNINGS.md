@@ -3898,3 +3898,138 @@ entries*, so the +80 mock rows were **committed**. Per the standing rule, the
 lifetime score lenses in the report **exclude** the last 10 rows of each civ's
 file. The **net** counter gap (+260) is stable in either disposition; the
 per-civ drift column is not.
+
+## Session 29 additions (2026-10-23, 122nd wipe)
+
+> Remote HEAD at session start was session 28b (`77e2a9f`); the civ subtree there
+> is byte-identical to this session's baseline.
+> **Baseline: 1404 ledger rows, 93 `meta_log` entries, registry `simulations_run`
+> sum 1144, counter gap +260.** Marker census of the committed baseline:
+> **994 REAL / 240 `mock:plain` / 160 `mock:setAB` / 10 `mock:plain2`** — i.e.
+> **29 % of the "lifetime" ledger is mock output** from earlier sessions that
+> committed mock rows. The session-16 rule ("compute lifetime lenses on the
+> baseline-only subset") now applies to **the baseline itself**, not just to the
+> current session's rows.
+
+### The credential gap is still the whole story (27th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` absent from env **and** from the 8-entry secret
+store. All **8** present sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **HTTP 401 "token expired
+or incorrect"** on every one (the endpoint *answers* on every probe ⇒ credential
+gap, not outage). JEV live at `jev-1.14.0` (probe: quality 1.15, confidence 0.56,
+non-degenerate probabilities). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch, delta measured rather than assumed: batch
+header + all 8 `[Name] running 5 sims...` lines + **empty competition section** +
+**exit 0**. Ledger **+0 rows (1404 → 1404)**, `meta_log` **+0 (93 → 93)**, **0
+`Winner:` lines**. Only `leaderboard.json` rewritten.
+**Assert on the row delta, never on the exit code.**
+
+### Control B reconfirmed, 23rd time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (10/civ,
+uniform), +5 meta_log, 5 winners, 0 all-2.0-default rows, 0 score errors, 0
+scaffolding leaks, 0 prompt-echo leaks, 80/80 provider=zai, 66 distinct
+`avg_score`, 40 distinct `content_preview` (the ceiling)**, `avg_score` range
+1.197–2.027, mock calls 10 per voice across all 8 voices.
+Reproduces sessions 6, 7, 8, 25b, 26, 27, 28, 28b.
+
+### NEW — `find` returns 0 files on the 100 %-full NAS while `ls` shows directories
+
+The NAS volume is at **100 % (600 G used, 0 avail)**. The failure mode is
+*inconsistent by size*, which is what makes it dangerous:
+
+| operation | result |
+|---|---|
+| `find /workspace -type f \| wc -l` | **0** |
+| `ls -la /workspace` | shows `.plugin-cache`, `.skills` |
+| `echo hi > file` (40 B) | **succeeds** |
+| `dd bs=1M count=1` (1 MB) | **fails** `Disk quota exceeded`, leaves a **0-byte** file that still appears in `ls` |
+| `cp` of a 200 KB file | **fails**, creates the destination as **0 bytes** |
+
+So a copy that "succeeds" can leave a tree that looks complete and is empty.
+**Detection:** `du -sh` the destination against the source, or `stat` a file you
+know should be non-empty. `df` alone is not enough — the volume is shared, so it
+can be full from other sandboxes' data while your own directory is nearly empty.
+
+### NEW — a sparse `--filter=blob:none` fetch of the civ subtree is ~30 s and 960 KB
+
+Sessions 9–16 recorded the clone as "3.4–3.7 GB, >3 min"; sessions 17 and 28
+contradicted that. The fast form is a **sparse** fetch, and it is worth using
+every time:
+
+```
+git init aiw && cd aiw
+git remote add origin "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git"
+git config core.sparseCheckout true && git sparse-checkout init --cone
+git sparse-checkout set cellular-first-design/code/civilizations
+GIT_SSL_NO_VERIFY=1 git fetch --depth 1 --filter=blob:none origin main && git checkout -f FETCH_HEAD
+```
+
+→ **~30 s, 960 KB working tree.** A plain `--depth 1` full clone was killed by
+the tool timeout **twice** before this, mid-`index-pack`. Time it, don't trust a
+recorded duration.
+
+### NEW — the mock's per-voice count includes the health probe, so expect 11 for one voice
+
+The health check I fired at the mock before the run used the *"The Grounded"*
+display name, so it was logged as a `civ-grounded` call. The mock's own log
+therefore showed **11 for `civ-grounded` and 10 for the other seven** — and the
+ledger still showed a clean **10 per civ**.
+
+**Do not read the mock's log as the run's row census.** The mock log counts
+*requests* (including probes); the ledger counts *committed rows*. When they
+disagree by exactly the number of probes you made, the run is fine. Check the
+ledger for the row census and the mock log only for the *voice distribution*.
+
+### The `ZAI_URL_OVERRIDE` seam was reverted before commit
+
+`grep -c ZAI_URL_OVERRIDE` → **0**; `civilization_orchestrator.py` verified
+**byte-identical** to the pristine blob with `cmp`, and all **50** non-ledger files
+in the subtree byte-identical to HEAD. The seam is a working-tree test patch
+only, re-applied each session, never committed.
+
+### Disposition: committed (session 27 / 28b precedent)
+
+The task explicitly asked to *verify that the `simulations.jsonl` files have new
+entries*, so the +80 mock rows were **committed**. Per the standing rule, the
+lifetime score lenses in the report **exclude** the last 10 rows of each civ's
+file. The **net** counter gap (+260) is stable in either disposition; the per-civ
+drift column is not.
+
+### Low relevance — four lenses, four answers (unchanged shape, new numbers)
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` | **civ-grounded** | 1.554 |
+| raw relevance | **civ-engineer** | 256.69 |
+| `win_rate` | **civ-poetic** | **0.014 (1W/72L)** |
+| lifetime `avg_score` (REAL rows only) | **civ-grounded** | 1.842 |
+| lifetime `quality` | civ-engineer | 1.444 |
+| lifetime `novelty` | civ-formal | 1.213 |
+| lifetime `alignment` | **civ-grounded** | **2.514** |
+
+- **`civ-grounded` = the stable low-relevance civ.** Last on `rel_per_sim`,
+  lifetime `avg_score` **and** lifetime `alignment`; ran the most sims (169).
+  Genuine quality signal, not the longevity artefact the `rel_per_sim` denominator
+  suggests. **17th session running.**
+- **`civ-poetic` = the inverse case.** 1st of 8 on lifetime `avg_score` (2.531),
+  1st on `quality` (2.051), 1st on `rel_per_sim` (2.256) — and **1 win in 73**.
+  A *selection* failure, not a quality collapse. **27th session running.**
+- **`civ-precise` = the other inverse.** Best win rate (0.485, 33W/35L) but 4th
+  of 8 on `avg_score` and 2nd-lowest novelty (1.350).
+- **`civ-formal`** has the fleet's lowest novelty (1.213); **`civ-engineer`** the
+  lowest quality (1.444).
+- **Extinction risk: none** (threshold −10, lowest +256.69, `--loop`-only).
+
+### Replications
+
+- Chooser vs `argmax(avg_score)`: **2/5 (40.0 %)** this session — lifetime ≈
+  19–20 %; **12th** replication.
+- Temperature vs lifetime JEV novelty: Pearson **r = 0.9589** — **10th**.
+- Counter gap **+260** (`ledger − registry`, standing form) — **9th** session,
+  byte-identical.
+- **`civ-grounded` lowest on the score lenses** — **17th** session running.
+- **`civ-poetic` quality-leader / never-selected** — **27th** session running.
