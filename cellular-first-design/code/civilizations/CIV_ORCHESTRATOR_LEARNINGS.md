@@ -2879,3 +2879,146 @@ pollute the real ledger, so the restore is mandatory, not optional.
   place outside the workspace.
 - `gh` CLI is still not installed; use the GitHub REST API, and remember
   `/orgs/` 404s for this account - use `/users/`.
+
+---
+
+## Session 25 additions (2026-10-23, 124th wipe)
+
+### The credential gap is still the whole story (23rd consecutive session)
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + 8 per-civ lines +
+**empty competition section** + **exit 0**. Ledger **+0 rows (1084 -> 1084)**,
+`meta_log` **+0 (73 -> 73)**, **0** `Winner:` lines. Only `leaderboard.json` was
+rewritten. **Assert on the row delta, never on the exit code.**
+
+All 8 sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage).
+JEV live at `jev-1.14.0` (HTTP 200, `quality.score 0.88`). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### NEW TRAP — the orchestrator is NOT on `main`; it lives on a branch
+
+`SuperInstance/AI-Writings` `main` has **no `cellular-first-design/` directory at
+all**. The subtree is on `origin/civ-orch/session24-report` (also
+`origin/research/civ-orchestrator-session4`). **A clone of `main` succeeds, produces
+a repo with no orchestrator, and raises no error.** Enumerate the branch list
+(`git ls-remote --heads`) before concluding a file is absent.
+
+Also: the repo is **`SuperInstance/AI-Writings`** (capital A-W). The lowercase
+spelling works for git's http transport but not for the code-search API's `repo:`
+qualifier.
+
+### The sparse checkout DID work (contradicting sessions 9-12)
+
+`git init` + `git remote add` + `git fetch --depth 1 --filter=blob:none` +
+`git sparse-checkout set cellular-first-design/code/civilizations` +
+`git checkout origin/civ-orch/session24-report` -> **succeeded first try**, 55 MB
+working tree, no 3.7 GB pack, no timeout. The old note "the filtered clone always
+fails" is **not** true here. Try the sparse path first; fall back to the tarball
+API only if it actually fails.
+
+### NEW FINDING — 240 mock rows (22% of the ledger) are ALREADY COMMITTED upstream
+
+**The `cmp`-against-the-git-blob restore verification is correct but blind.** It
+proves the working tree matches upstream. It cannot detect rows that an *earlier*
+session already committed. Measured against the **pristine `HEAD` blob**:
+
+| | rows | of which `mock-zai` | share |
+|---|---|---|---|
+| per civ (all 8) | 1084 | **30 each** | 17-27 % |
+| **TOTAL** | **1084** | **240** | **22 %** |
+
+**22 % of the permanent civilization ledger is mock-generated text scored by a real
+JEV.** Marker formats vary by session - `[mock-zai 201352add0f6]`,
+`[mock-zai-A 0e17daca]`, and the session-local `[mock-zai #NNN civ]` - so a
+marker search over **one** format misses the others. Search with the bare
+substring `mock-zai`, not a per-session pattern.
+
+**Effect: the rank order is IDENTICAL with and without the mock rows.** The
+Grounded is last either way; the top-3 set {Therapist/Whimsical/Mythic} and the
+bottom-2 set {Engineer, Formal} are unchanged. The mock rows score *lower* than
+real model output (flatter style), so they uniformly **depress** the magnitudes.
+The leaderboard is **directionally right and numerically depressed**. Every
+lifetime number in every prior session's report is therefore a slight
+under-estimate - the qualitative reads stand.
+
+**Fix (not applied - the ledger is a shared artifact and this session does not own
+the history):** filter `mock-zai` rows out of the scoring lifetime, or purge the
+240 rows in a dedicated commit that re-derives every `culture.json` counter.
+Note `relevance_per_sim` cannot be recomputed by an auditor today anyway (the
+counter gap below).
+
+### Control B reconfirmed, 18th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (10/civ,
+uniform), +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors,
+provider `zai` on 80/80, 71/80 distinct `avg_score`** (range 1.467-2.483,
+mean 2.088), mock log **81 calls** (10 per voice across all 8 voices, +1 from the
+port probe). JEV sub-scores: quality mean 1.141 (0.370-1.940, 66 distinct),
+novelty 2.264 (1.680-2.770, 49 distinct), alignment 2.860 (1.650-3.450, 65
+distinct). **A live JEV, not a stub.**
+
+The `ZAI_URL_OVERRIDE` seam is **still not in the committed blob** (remote
+`civilization_orchestrator.py` is 17 188 B = pristine). Re-apply the one-line
+patch each session (verified: 1 insertion, 1 deletion).
+
+### The low-relevance answer — unchanged for the 13th session running
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.595 |
+| raw relevance | **civ-engineer** | 194.11 |
+| `win_rate` (**selection** metric) | **civ-poetic** | **0.019 (1W/52L)** |
+| lifetime `avg_score` | **civ-grounded** | 1.686 |
+| lifetime `quality` | **civ-grounded** | 1.301 |
+| lifetime `novelty` | **civ-formal** | 1.162 |
+| lifetime `alignment` | **civ-grounded** | 2.242 |
+| this-run `avg_score` | **civ-grounded** | 1.695 |
+| this-run `quality` | **civ-grounded** | 0.780 |
+| this-run `alignment` | **civ-grounded** | 2.103 |
+
+- **`civ-grounded` = the stable low-relevance civ, 13th session running.** Last of
+  8 on `relevance_per_sim`, lifetime `avg_score`/`quality`/`alignment`, and on
+  **this run's** `avg_score`, `quality` and `alignment`. It ran the most sims
+  (129 registry / 162 ledger rows) so the denominator effect is present, but it is
+  **also** last on the raw score lenses - **a genuine quality weakness, not the
+  longevity artefact.** Its lifetime `alignment` 2.242 is 0.68 below the
+  next-lowest: it is not merely long-lived, it is less culturally legible to the
+  judge.
+- **`civ-poetic` = the inverse case, 23rd session running.** 1st of 8 on
+  `relevance_per_sim` (2.413) and 1st on lifetime `quality` (1.934), yet **1 win in
+  53** (win_rate 0.019) and 2 of all 78 meta rounds. A *selection* failure.
+- **`civ-formal` = the fleet's novelty floor.** Last on lifetime `novelty` (1.162)
+  and on this run's novelty (2.030).
+- **`civ-precise` = wins by being picked, not by scoring.** Best win rate
+  (**0.479**, 23W/25L), 24 of 78 meta-round wins, but 5th of 8 on lifetime
+  `avg_score` (1.941) and 2nd-last on lifetime `novelty` (1.327).
+- **`civ-whimsical` = the only civ where every quality lens agrees.** 1st on
+  lifetime `avg_score` (2.497), novelty (2.557), alignment (3.121) and raw
+  relevance (286.23) - yet win_rate 0.057.
+- **Extinction risk: none** (threshold -10, lowest +194.11, `--loop`-mode only).
+  All 8 civs remain generation 1. No births, no extinctions.
+
+### Replications
+
+- Control B: +80 / +5 / 5 winners / 0 defaults / 0 errors / uniform 10-per-civ -
+  **18th**.
+- Chooser vs `argmax(avg_score)`: lifetime **14/78 (17.9 %)**, **0/5 this run**.
+  History: s8 18.9 %, s13 22.4 %, s15 15.5 %, s17 0 %, s20 10 %, s21 0 %, s22 0 %
+  (x2), s23 19.1 %, s24 19.2 %. **18th replication.**
+- Temperature vs lifetime JEV novelty: **Pearson r = 0.9600** (baseline band
+  0.962-0.985) - **13th replication**.
+- Counter gap **+260** (1 164 ledger rows vs 904 registry `simulations_run`),
+  identical to the s20/s21/s22/s24 baseline. A race in `save_state()`, not a leak.
+
+### Restore verification - 28 files
+
+All 8 `simulations.jsonl`, all 8 `culture.json`, all 8 `witness.log`, `meta_log.jsonl`,
+`leaderboard.json`, `civilizations.json` and `civilization_orchestrator.py` restored
+from the pristine `HEAD` blobs and verified with `cmp` against the **git blob**:
+**files checked = 28, ALL_IDENTICAL = 1**. Post-restore count back to the baseline
+**1084 rows / 73 meta_log entries**. `__pycache__/` removed. Mock stopped by PID.
+
+**Caveat:** the blob being verified against contains the 240 pre-existing mock
+rows. `ALL_IDENTICAL=1` means "matches upstream", not "uncontaminated".
