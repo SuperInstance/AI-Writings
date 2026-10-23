@@ -70146,7 +70146,7 @@
     "style": "Essay",
     "word_count": 703,
     "date": "2026-10-23",
-    "size_bytes": 14165
+    "size_bytes": 19118
   },
   {
     "filename": "AUDIT-NOTE.md",
@@ -115176,6 +115176,60 @@
     "size_bytes": 13522
   },
   {
+    "filename": "CIV_ORCHESTRATOR_LEARNINGS.md",
+    "path": "cellular-first-design/code/civilizations/CIV_ORCHESTRATOR_LEARNINGS.md",
+    "title": "civ-orchestrator-learnings",
+    "description": "Durable operational knowledge for the Civilization Orchestrator (`cellular-first-design/code/civilizations/civilization_orchestrator.py`). Survives sandbox wipes. Verified across sessions 1-6 (2026-10...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 715,
+    "date": "2026-10-23",
+    "size_bytes": 7713
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session5.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session5.md",
+    "title": "Civilization Orchestrator — Run Report (session 5)",
+    "description": "Session 5's added value is (a) an **independent re-verification from a clean wipe** (different clone, different path, different control tree), (b) a",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 708,
+    "date": "2026-10-23",
+    "size_bytes": 14388
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session6.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session6.md",
+    "title": "Civilization Orchestrator — Run Report (session 6)",
+    "description": "proved the downstream pipeline works via Control B. Session 6 adds three things sessions 1–5 did not have: 1. **A second, independent clone path** — the task path did not exist again (112th wipe), and...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 725,
+    "date": "2026-10-23",
+    "size_bytes": 18027
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23.md",
     "title": "Civilization Orchestrator — Run Report",
@@ -115192,6 +115246,24 @@
     "word_count": 751,
     "date": "2026-10-23",
     "size_bytes": 7919
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session4.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session4.md",
+    "title": "Civilization Orchestrator — Run Report (session 4)",
+    "description": "confirmed three times. The new work here is (a) an independent re-verification that reaches the same conclusion by a different route, (b) the **first correct positive control** — sessions 1–3 stubbed ...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 760,
+    "date": "2026-10-23",
+    "size_bytes": 13510
   },
   {
     "filename": "wr13-grammar-curated.md",
