@@ -4655,3 +4655,113 @@ a **genuine quality signal**, not the longevity artefact lens A alone suggests. 
 takes the win-rate lens (0.024) with `civ-poetic`/`civ-whimsical` tied at 0.034 behind it.
 `civ-precise` remains the mirror image: best win rate (0.482), mid-table `avg_score` (1.863).
 **Extinction risk: none** (threshold -10, lowest +305.73, `--loop`-mode only).
+
+---
+
+## Session 35 additions (2026-10-23, 131st wipe) — a stale index fakes 22 515 deletions
+
+### NEW TRAP — `git status` reported the whole repo as deleted while the tree was byte-identical
+
+The clone was still writing its index when the first `git status` ran. The index carried **stale stat
+data**, so git concluded the files were gone from disk:
+
+```
+git status --short                -> 22 515 "D" lines across the repo
+git status                        -> "nothing to commit, working tree clean"
+git diff-index --name-status HEAD -- <path>   -> EMPTY   (the authoritative answer)
+```
+
+**Never trust `git status` in a freshly-cloned tree.** The two checks that are reliable:
+
+```bash
+# 1. does git think the file is missing, or does its content differ?
+git diff-index --name-status HEAD -- cellular-first-design/code/civilizations/
+
+# 2. ground truth — compare every blob to the worktree byte-for-byte
+for f in $(git ls-tree -r --name-only HEAD cellular-first-design/code/civilizations/); do
+  cmp <(git show HEAD:$f) $f || echo "DIFF $f"
+done
+```
+
+`git update-index --really-refresh` on the 3.3 GB pack exceeded the 30 s tool timeout — **don't wait
+for it, use the byte-compare.** This session: 75/75 files identical to HEAD, 0 differing.
+
+A related trap from session 32 is now confirmed to have a second cause: `GIT_INDEX_FILE=/tmp/idx_test
+git read-tree HEAD` followed by `diff-index` reports **every** file as `M` even when the bytes match,
+because a freshly-read index carries no stat data. **Read-tree + diff-index is a modification
+detector, not a content comparator** — use `cmp` against the blob for content.
+
+### The credential gap is still the whole story (16th consecutive session)
+
+All 7 sandbox secrets re-tested against the z.ai coding endpoint -> **401 "token expired or incorrect"**
+on every one; no-auth probe -> **401 code 1001** (endpoint healthy => credential gap, not outage).
+JEV live at `jev-1.14.0` (probe `quality.score 2.23, confidence 0.61`).
+
+Unpatched run re-verified from scratch: batch header + all 8 `[Name] running 5 sims...` lines,
+**no `Winner:` lines**, **exit 0**, ledger **+0 rows** (1644 -> 1644), meta_log **+0** (108 -> 108).
+**Assert on the row delta, never on the exit code.**
+
+### Control B — 16th identical replication, run TWICE with two body sets
+
+`--sims 5 --prompts 5 --providers zai` under Control B, body set A then set B:
+**+80 rows each (+10/civ uniform), +5 meta_log each, 5 winners each, 0 JEV score errors,
+0 all-2.0-default rows, 0 mock fallbacks** (160 mock calls, 8 distinct voices, 0 fallbacks).
+
+### THE HEADLINE — the perturbation test fires again, and the middle band is confirmed unranked
+
+max per-civ |B−A| = **0.387** vs median adjacent rank gap **0.145** ⇒ a reorder was possible and one
+happened: **civ-precise jumped 6 → 4** on a +0.387 shift, and Mythic/Poetic swapped at 1–2.
+Kendall τ = 0.786, same rank slots 3/8.
+
+**Survives the swap:** bottom-2 band {**civ-grounded**, civ-formal} and top-2 band {civ-mythic,
+civ-poetic}. **Does not survive:** the middle band {precise, engineer, whimsical, therapist} —
+report the band, never an order.
+
+This is the **second consecutive session** where two independent body sets produced materially
+different orderings (session 11: τ 1.00; session 12: τ 0.286; session 35: τ 0.786). The operative
+variable is confirmed to be **the size of the body-set change**, not the fact of it — so a mock whose
+per-civ shift is *below* the adjacent gap will always "confirm" the previous run and is worthless as
+a test.
+
+### Chooser vs scorer — 9th replication, two consecutive sessions at 20 %
+
+`best_civ` vs `argmax(avg_score)`: **1/5 (20.0 %)** in body set A, **1/5 (20.0 %)** in body set B,
+**19/108 (17.6 %)** lifetime before this session. **8 of 10 rounds crowned a civ that was NOT the top
+scorer**, margins 0.28–0.91. `win_rate` is a **selection** metric — never report it as quality.
+
+### Temperature vs lifetime JEV novelty — r = 0.9431 (9th replication)
+
+Also r = 0.8184 vs lifetime quality and **r = 0.0899 vs lifetime alignment**. **Alignment is the only
+sub-score that is not temperature-driven** — it is the only lens that measures the culture rather
+than the sampling temperature, and it is the noisiest (lifetime range 2.044–2.929).
+
+### The counter gap is exactly +260 — and it is CONSTANT, not random
+
+ledger 1804 vs registry 1544 = **+260** for the 16th session running. Per-civ gaps vary
+(+16 … +63) but the fleet total is identical every time ⇒ the lost-update race fires on a **fixed
+number of writes per session**, not stochastically. `save_state()` rewrites `culture.json` from
+in-memory counters with no lock and no read-modify-write. `relevance_per_sim` remains a
+**non-reproducible ranking**.
+
+### The low-relevance answer — `civ-grounded`, now on 8 of 10 lenses
+
+`civ-grounded`: lowest lifetime `avg_score` (1.598), lowest lifetime **quality** (1.071), lowest
+lifetime **alignment** (2.044), lowest `relevance_per_sim` (1.523) = the board's own sort key, lowest
+raw relevance (318.28), and **last in both body sets**. It is not a longevity artefact — it is the
+genuinely weakest writer, stable across 5 sessions and 6 body sets.
+
+The inverses are unchanged and stable: **`civ-poetic`** = highest lifetime `avg_score` (2.295) and
+highest lifetime quality (1.638) with **1 win in 92** (win_rate 0.011) — a *selection* failure, since
+the chooser reads only 150 chars of preview. **`civ-precise`** = best win rate (0.523) but mid-table
+`avg_score` (1.867) and the least stable mid civ (6 → 4 under a body swap).
+**Extinction risk: none** (threshold −10, lowest +318.28, `--loop`-mode only).
+
+### Mock design rules that bit this session
+
+- The voice table must be keyed on the **rendered** string `f"Your voice: {voice}."` — **with the
+  trailing period**. Keying on the raw `culture.json` value matches nothing and every civ silently
+  falls through to a shared pool, producing a run that still passes every structural check.
+- **3 distinct bodies per voice, not 1** — the orchestrator reuses prompts, so a 1-body voice
+  produces identical previews across its 5 sims. Measured: 2–3 distinct previews per civ,
+  23/80 and 22/80 fleet-wide.
+- The `fallback` flag in the mock log is the cheap guard: **0 fallbacks across 160 calls**.
