@@ -4583,3 +4583,75 @@ longevity artefact lens A alone suggests. `civ-poetic` remains the inverse (1 wi
 - Working tree restored and verified **byte-identical to the git HEAD blob for every file**
   via `cmp` against `git show HEAD:<path>`; `git status --short` empty; `diff -rq` against a
   `/tmp/pristine` snapshot clean.
+
+---
+
+## Session 34 additions (2026-10-23, 130th wipe) — Control B, 15th identical replication
+
+### Environment (re-verified, all durable traps still live)
+
+- **`/workspace` is the 100 %-full NAS again** — a write there produces a **0-byte file that still
+  appears in `ls`** (`printf 'hello' > f` -> `wc -c` = 0). `git clone` into it dies with
+  `Disk quota exceeded`. Clone to `/tmp` (overlay, free) and bridge with a symlink:
+  `mkdir -p /workspace/repos && ln -sfn /tmp/repos_tmp /workspace/repos/ai-writings`.
+  **The script's `CIVS_DIR` is hardcoded**, so the symlink is what makes the real path resolve.
+- **The task path did not exist at session start** — `/workspace` held only `.plugin-cache` and
+  `.skills`. 6th consecutive time the prompt named an ephemeral path.
+- `ZAI_URL_OVERRIDE` is **still not in the committed blob** (`git show HEAD:... | grep` -> no match),
+  15th session running. Landed it as a working-tree-only 1-line patch again
+  (`"url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/...")`), verified with
+  `git diff --stat` = 1 file, 1 insertion, 1 deletion. **Restore it after the run** — the
+  restore check is `cmp` against `git show HEAD:<path>`, not `git status` alone.
+
+### Credential gap — 15th consecutive session
+
+All 8 sandbox secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` ->
+**HTTP 401 "token expired or incorrect"** on every one; no-auth probe -> **401 code 1001
+"Authentication parameter not received in Header"** (endpoint healthy => credential gap, not outage).
+JEV live at `jev-1.14.0` (`quality.score 0.83, confidence 0.58`). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Unpatched control re-verified from scratch:** batch header + all 8 `[Name] running 5 sims...`
+lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows** (1644 -> 1644), meta_log **+0**
+(108 -> 108), only `leaderboard.json` rewritten. **Assert on the row delta, never on the exit code.**
+
+### Control B — 15th identical replication
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+80 rows (+10/civ uniform),
++5 meta_log, 5 competition winners, 0 JEV score errors, 0 all-2.0-default rows, 0 mock
+fallbacks**, distinct `avg_score` 9-10/10 per civ, distinct `content_preview` 5/10 per civ.
+
+**New durable fact — the committed ledger already contains 70 `[mock-zai` rows per civ**
+(560 fleet-wide), committed by earlier sessions. The post-run leak test must therefore compare
+against the **baseline (70/civ), not against zero**: after `git checkout --` the count must be
+**exactly 70/civ and the working tree must be byte-identical to the HEAD blob**. A naive
+`grep -c mock-zai == 0` assertion is a false negative against a 15-session-old baseline.
+
+### Findings
+
+- **Chooser vs `argmax(avg_score)`: 2/5 (40.0 %)** this run. In 3 of 5 rounds the winner's own
+  score was **below** the runner-up's, by 0.223-0.970. (Lifetime figure unchanged from earlier
+  sessions: 13/106 = 12.3 %.)
+- **Temperature vs lifetime JEV novelty: Pearson r = 0.9473** — 8th replication. Also
+  r = 0.7625 vs lifetime quality, r = 0.1115 vs lifetime alignment (alignment is the noisiest lens).
+- **Counter gap: +260** (ledger 1724 vs registry 1464) — unchanged for 15 sessions.
+
+### The low-relevance answer — `civ-grounded` (lowest on 4 of 8 lenses) / `civ-therapist` (win rate)
+
+| lens | lowest | value |
+|---|---|---|
+| A lifetime `avg_score` | **civ-grounded** | 1.621 |
+| B raw relevance | **civ-engineer** | 305.73 |
+| C win rate | **civ-therapist** | 0.024 (2W/83L) |
+| D lifetime quality | **civ-engineer** | 1.081 |
+| E lifetime novelty | **civ-formal** | 1.386 |
+| F lifetime alignment | **civ-grounded** | 2.059 |
+| G `relevance_per_sim` (board sort) | **civ-grounded** | 1.548 |
+| H this-run `avg_score` | **civ-mythic** | 1.339 |
+
+`civ-grounded` is lowest on **4 of 8 lenses** including lifetime `avg_score` and lifetime
+`alignment` — the two that need no denominator — and is last on the board's own sort key, so it is
+a **genuine quality signal**, not the longevity artefact lens A alone suggests. `civ-therapist`
+takes the win-rate lens (0.024) with `civ-poetic`/`civ-whimsical` tied at 0.034 behind it.
+`civ-precise` remains the mirror image: best win rate (0.482), mid-table `avg_score` (1.863).
+**Extinction risk: none** (threshold -10, lowest +305.73, `--loop`-mode only).
