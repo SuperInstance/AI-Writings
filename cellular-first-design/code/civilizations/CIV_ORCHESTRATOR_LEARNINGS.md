@@ -2650,3 +2650,84 @@ every single view.** So the correct statement is:
    is separate from core.
 5. `git fetch` on the 3.6 GB repo exceeds the 30 s tool timeout - run it
    detached and poll `FETCH_HEAD`.
+
+---
+
+## Session 23b additions (2026-10-23, 122nd wipe)
+
+### NEW — a mock hash collision can masquerade as "collapsed content"
+
+The s9 rule says a healthy run gives **50–68 distinct `content_preview`** and a
+run at ~10 signals a **broken mock** (the voice table fell through to a shared
+FALLBACK pool). That band is **not reachable for a 3-body-per-voice mock** —
+24 is the mathematical ceiling (8 voices x 3 bodies), because the script
+truncates `content_preview` to **200 chars** and every body is longer than that.
+
+This session's first mock used
+`h = (sum(ord(ch) for ch in question) + SEED + len(pool)) % len(pool)`
+to select a body. That hash **collapsed onto 2 of 3 bodies per voice** ->
+`distinct content_preview = 16` (2 per civ), i.e. **inside the s9 red band**,
+which would have been misread as a broken mock.
+
+**The cheap tell that it was a mock artifact and not a real signal:**
+
+1. every `content_preview` is **exactly 200 chars** (truncation), and
+2. the mock log shows **all 8 voices reaching all 5 questions**.
+
+Both are properties of the *mock's selection function*, not of the fleet.
+Fix: combine the question hash with a per-voice call counter —
+`h = (qh + _CALLNO[voice] - 1) % len(pool)` — which restores 3 bodies/voice and
+**24 distinct previews** (the true ceiling for this mock shape).
+
+**Correction to the s9 check:** compare `distinct content_preview` against the
+mock's **own body count x voice count**, not against a fixed 50–68 band. The
+50–68 figure came from a mock with more bodies per voice.
+
+### `cellular-first-design` is a SUBDIRECTORY of `ai-writings`, not a repo
+
+`git ls-remote https://github.com/SuperInstance/cellular-first-design.git` ->
+**`Repository not found`**. The real path is
+`SuperInstance/ai-writings` -> `cellular-first-design/code/civilizations/`.
+Do not try to clone the subdirectory as its own repo.
+
+### A full `--depth 1` clone into `/tmp` is ~4.7 GB and exceeds the tool timeout
+
+The full clone runs 2+ minutes and times out at 30 s in a foreground bash call.
+Two workable bootstraps: (a) background the clone with
+`(setsid nohup timeout -s KILL 900 git clone ... &)` and poll `du -sh`, or
+(b) the **sparse-checkout** path (s22/s23 parallel): `git init` +
+`git sparse-checkout set --no-cone '/cellular-first-design/code/civilizations/'`
++ `git fetch --depth 1` + one `checkout` — the civ subtree is ~1 MB and lands
+well inside the timeout. **Prefer sparse.**
+
+### The NAS mount can no longer take even a 1-byte file
+
+Session 22b reported the trap as **size-discriminating** (bytes fit, ~10 KB did
+not). This session, after the failed clone attempt consumed the remaining
+quota, even `echo probe > /workspace/output/.probe` produced a **0-byte file**.
+So the trap is **not reliably size-discriminating** — it can degrade to
+*nothing fits at all* within a single session. Keep treating `/tmp` as the only
+reliable write path and the git commit as the durable copy. A file that appears
+in `ls` at 0 bytes is a **failed** write, not a delivered one: always `wc -c`.
+
+### Parallel-session reconciliation is now routine
+
+This is the **second** time in three sessions that a parallel orchestrator
+session pushed while this run was in flight (s22 -> s22b, s23 -> s23b). The
+procedure that works:
+
+1. `git fetch` the remote -> `FETCH_HEAD`.
+2. `git reset --soft HEAD~1` then `git reset` to drop the local commit, then
+   `git clean -fd <path>` to clear the untracked report (**the checkout aborts
+   if an untracked file with the same name exists** — this is the step that
+   actually blocks the rebase).
+3. `git checkout -B <newbranch> FETCH_HEAD` -> the working tree now carries the
+   **remote's** committed rows.
+4. **Verify the remote's rows survived** by counting the ledgers
+   (this session: 1084 rows, `meta_log` 73) before committing anything.
+5. File the report under a **non-colliding name** (`session23b`) and push.
+
+Both independent sessions agreed on the two headline findings
+(civ-grounded lowest on `relevance_per_sim`; civ-poetic `win_rate` 0.000),
+which is useful corroboration: the low-relevance answer is stable across
+sessions *and* across body sets.
