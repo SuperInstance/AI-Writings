@@ -151,3 +151,92 @@ ledger by an auditor. Prefer win rate.
   commits API** (one file, +379/-0).
 - All 8 `simulations.jsonl` and all 8 `culture.json` **byte-identical to the
   pristine commit** (verified with `cmp`).
+
+---
+
+## Session 7 additions (2026-10-23, 109th wipe)
+
+### The credential gap is still the whole story
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store.
+All 8 sandbox secrets re-tested against the z.ai coding endpoint → **401
+"token expired or incorrect"** on every one (endpoint healthy, credential gap).
+No key is committed in the repo either. The z.ai account is also reportedly
+out of balance (code 1113 "recharge"), so a key alone may not be sufficient.
+
+**TELL for "the run did nothing":** the output has the `=== Civilization batch`
+header and the per-civ `[Name] running 5 sims...` lines, then the competition
+header and **no `Winner:` lines at all**. The per-civ sim lines print regardless
+of whether a single sim succeeded — they are printed *before* the call. Exit
+code is 0. **Assert on `Winner:` lines, not on exit code.**
+
+### Control B reconfirmed, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+10 rows per civ
+(5 batch + 5 competition) = +80 total**, **+5 `meta_log.jsonl`**, 5 winners,
+**0 score errors**, **0 all-2.0-default rows**. Per-civ growth uniform. If your
+run gives a different delta, the stub is misbehaving — check the mock's call log.
+
+Cheapest verification that the run was real:
+```python
+import json,glob
+bad=sum(1 for f in glob.glob('civ-*/simulations.jsonl') for l in open(f)
+        if all(json.loads(l)['scores'].get(k)==2.0 for k in ('quality','novelty','alignment')))
+```
+`bad == 0` AND `sum(ledger_rows)` grew ⇒ real JEV scores, not the outage default.
+
+### NEW: `win_rate` measures selection appeal, NOT relevance
+
+**The competition and the scoring are two independent JEV calls, and the chooser
+never sees the scores.**
+
+```python
+state += f"\n[{civ.culture['name']}]: {sim['content_preview'][:150]}\n"  # 150 chars
+body = {"questions": {"best_civ": {"type": "choice", ...}}}               # no scores
+```
+
+Measured over 53 meta_log rounds: `best_civ` agrees with the argmax of
+`avg_score` **2 times and disagrees 43 times — 4.4 % agreement.** The two metrics
+are essentially uncorrelated, so **"prefer win rate" (the old guidance) is unsafe
+as stated.**
+
+| | The Poetic | The Precise |
+|---|---|---|
+| mean per-sim `avg_score` | **2.643** (2nd of 8) | 2.100 (5th of 8) |
+| mean JEV alignment | **3.344** (2nd of 8) | 3.309 (3rd of 8) |
+| finished 1st on avg_score | **10 rounds** of 38 | — |
+| board win_rate | **0.000** (0W/28L, last) | **0.652** (15W/8L) |
+
+The Poetic scores near the top and is never selected; the Precise scores mid-table
+and wins most. **A civ can be a quality leader and still read as "low relevance"
+on the board.** Always report the three lenses separately and say which one you
+mean — and flag that win_rate is a *selection* metric.
+
+**Rule:** report low-relevance on (a) `relevance_per_sim` from `culture.json`,
+(b) raw relevance, (c) win rate — and never merge them. Add (d) mean per-sim
+`avg_score` and the sub-score breakdown, because that is the only lens that
+answers "is this civ actually good?".
+
+### Per-civ sub-score means are the new diagnostic
+
+`quality` / `novelty` / `alignment` means separate cleanly and show *where* a
+civ wins. The Grounded is the inverse case: alignment 2.692 (lowest of 8) but
+mean avg_score 1.930 (lowest of 8) — it is a weak writer, not merely
+long-lived. The Whimsical tops all three (2.172 / 2.603 / 3.430) and tops the
+board, which is the one case where every lens agrees.
+
+### Environment notes (new this session)
+
+- The full `ai-writings` clone is **3.6 GB** and takes **>3 min** — a 30 s tool
+  timeout will kill it. Clone detached, then poll `git -C ... rev-parse HEAD`
+  until it resolves; the working tree lands after the object copy.
+- `ln -sfn /tmp/ai-writings /workspace/repos/ai-writings` is the supported
+  bridge. `CIVS_DIR` is hardcoded to the `/workspace` path, so the symlink is
+  what makes the script write into the clone.
+- `ZAI_URL_OVERRIDE` is a clean, non-invasive way to redirect the z.ai provider:
+  read it as the URL default in `PROVIDERS["zai"]`, leave the `ZAI_TOKEN` gate
+  check alone, and the control has full power (the request is really attempted).
+- The mock must **not** echo the orchestrator's scaffolding prompt into the
+  content — the prompt is `header + tenets + voice + blank line + question`, so
+  take the **last non-empty line** and strip the `Write N words on ` prefix.
+  Echoing it makes all 8 civs score identical text and destroys the chooser's signal.
