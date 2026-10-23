@@ -70146,7 +70146,7 @@
     "style": "Essay",
     "word_count": 703,
     "date": "2026-10-23",
-    "size_bytes": 35397
+    "size_bytes": 48918
   },
   {
     "filename": "AUDIT-NOTE.md",
@@ -115263,7 +115263,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 138387
+    "size_bytes": 196252
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session17.md",
@@ -115318,6 +115318,42 @@
     "word_count": 796,
     "date": "2026-10-23",
     "size_bytes": 9944
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session26.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session26.md",
+    "title": "Civilization Orchestrator — Session 26 (2026-10-23)",
+    "description": "The unpatched command prints the batch header and all 8 per-civ `[Name] running 5 sims...` lines, then an **empty competition section**, then **exit 0**. | check | unpatched | patched (Control B) | |-...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 901,
+    "date": "2026-10-23",
+    "size_bytes": 15013
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session23.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session23.md",
+    "title": "Civilization Orchestrator — Run Report, Session 23 (2026-10-23)",
+    "description": "credential-gap control it produced **+80 ledger rows, +5 `meta_log` entries and 5 competition winners** with a **live JEV oracle**. The `simulations.jsonl` files in `civ-*/` all grew by **10 rows each...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 709,
+    "date": "2026-10-23",
+    "size_bytes": 13634
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session9.md",
@@ -115410,6 +115446,24 @@
     "size_bytes": 6111
   },
   {
+    "filename": "RUN_REPORT_2026-10-23_session23b.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session23b.md",
+    "title": "Civilization Orchestrator — Run Report, Session 23b (independent replication) (2026-10-23)",
+    "description": "Control B seam the same command produced **+80 live rows** (10/civ) per body set,",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 801,
+    "date": "2026-10-23",
+    "size_bytes": 13679
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session6.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session6.md",
     "title": "Civilization Orchestrator — Run Report (session 6)",
@@ -115428,6 +115482,24 @@
     "size_bytes": 18027
   },
   {
+    "filename": "RUN_REPORT_2026-10-23_session27.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session27.md",
+    "title": "Civilization Orchestrator — Session 27 (2026-10-23)",
+    "description": "The unpatched command prints the batch header and all 8 per-civ `[Name] running 5 sims...` lines, then an **empty competition section**, then **exit 0**. | check | unpatched | patched (Control B) | |-...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 861,
+    "date": "2026-10-23",
+    "size_bytes": 14634
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23.md",
     "title": "Civilization Orchestrator — Run Report",
@@ -115444,6 +115516,24 @@
     "word_count": 751,
     "date": "2026-10-23",
     "size_bytes": 7919
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session25.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session25.md",
+    "title": "Civilization Orchestrator — Session 25 (2026-10-23, 124th wipe)",
+    "description": "`[mock-zai ...]` control rows committed by an earlier session**, leaving **844 real z.ai rows** — 73 `meta_log` entries, registry `simulations_run` sum 824 (counter gap",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 804,
+    "date": "2026-10-23",
+    "size_bytes": 27280
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session7.md",
@@ -115480,6 +115570,24 @@
     "word_count": 713,
     "date": "2026-10-23",
     "size_bytes": 6914
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-23_session24.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session24.md",
+    "title": "Civilization Orchestrator — Session 24 (2026-10-23, 123rd wipe)",
+    "description": "entries, registry `simulations_run` sum 824 (counter gap **+260**).",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 727,
+    "date": "2026-10-23",
+    "size_bytes": 20677
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session8.md",
