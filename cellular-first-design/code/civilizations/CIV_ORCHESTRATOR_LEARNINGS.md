@@ -6231,3 +6231,30 @@ artifacts saved outside the repo to `/tmp/aw_run48/artifacts/`.
 - The `write` tool is jailed to the workspace root (13th recurrence) — bash
   heredocs for `/tmp`.
 - `gh` CLI still not installed; use the GitHub REST API.
+
+### 10. NEW TRAP - the NAS quota blocks the DELIVERABLE, not just the clone
+
+`/workspace` is on the NAS at hard quota (600 G / 600 G, 0 avail). This session
+the quota blocked **three distinct things**, and the third is new:
+
+1. `git clone` into `/workspace` -> `close error: Disk quota exceeded`.
+2. `git init` into `/workspace` -> git's template copy fails, init aborts.
+3. **Copying the finished report into `/workspace/output/` for delivery** ->
+   `cp: failed to close ...: Disk quota exceeded`, leaving a **0-byte file**
+   that *appears* in `ls`.
+
+> **A 0-byte file in `ls` is not a delivered file.** `cp` reports the error on
+> *close*, so the entry is created and the size is 0. Always `wc -c` a
+> deliverable after copying it, and delete the 0-byte stub on failure —
+> otherwise the next `ls` looks like the copy worked.
+
+A **symlink into the workspace does not get you a deliverable either.** The
+`read`/`write`/`glob` jail resolves the final path and refuses anything that
+escapes the workspace root, so `ln -s /tmp/x /workspace/output/x` is rejected
+with ENOENT even though `ls` follows it fine. Per-entry symlinks work for
+*reading repo files* (s48's bridge) but **not** as a delivery mechanism.
+
+**Durable workaround: the remote repo IS the delivery channel.** Commit and
+push the report, then verify it with the contents API
+(`GET /repos/{owner}/{repo}/contents/{path}` -> HTTP 200 + `size` + `sha`).
+The pushed blob is the authoritative copy; the local `/tmp` copy is scratch.
