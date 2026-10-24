@@ -116186,6 +116186,24 @@
     "size_bytes": 20008
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session94.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session94.md",
+    "title": "civ-orchestrator session 94 (2026-10-24) — credential gap 32nd deep; the Grounded's bottom **replicated** across both body sets (first time in 6 sessions); committed ledger is 35.3% synthetic",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 692,
+    "date": "2026-10-24",
+    "size_bytes": 15194
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session14.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session14.md",
     "title": "Civilization Orchestrator — Run Report, Session 14 (2026-10-23)",
