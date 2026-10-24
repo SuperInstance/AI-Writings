@@ -527,3 +527,65 @@ won 0/5. `civ-precise` = best `win_rate` (0.505), won 4/5, 1st on lifetime `alig
 column 1` — the file is a pretty-printed array. Use `json.loads(open(...).read())`. The civ
 ledgers (`simulations.jsonl`) *are* JSONL and parse fine, so the error looks like ledger
 corruption when it is not — it cost a debugging cycle this session.
+
+### Session 122 — the quality collapse is civ-selective; chooser-vs-argmax is 4/5 (2026-10-24)
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so the session-112
+index-wrap bug was live again. The **pre-flight probe saved the run again**: 3 different civs
+→ 3 different seeds against the *live* mock with the exact long cultural prompt, HTTP 200,
+158-char bodies, `[mock-zai seed=…]` prefix present, **0 tracebacks** in `/tmp/mock_zai.log`,
+*before* launching the batch.
+
+**Verification held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, **0** rows with a JEV
+`error` key, sim→competition ts gap at index 4 in all 8 civs (2.46 s–2.62 s), and
+**5/5 competition prompts at 8/8 distinct previews** — the **fourth clean mock measurement**
+(118, 120, 121, 122).
+
+**NEW — the quality collapse is CIV-SELECTIVE, not a uniform field-wide floor.** This run's
+`quality` was again collapsed (mean 0.0214, min 0.010, max 0.290) — the third session in that
+regime (119, 121, 122) against session-120's 0.106–0.446 — but the floor is **not** uniform
+across the field:
+
+- `civ-precise` — `quality` **0.068**, `alignment` **1.631** (the only civ off the floor on
+  either dimension; the other seven sat at `quality` 0.010–0.022 and `alignment` 0.023–0.388).
+- the other seven civs — collapsed together.
+
+So "the run collapsed" is a **weaker** claim than "**7 of 8 civs** collapsed". The durable rule
+survives and is re-confirmed: **compare cross-civ spreads, not absolute levels, before ranking
+on a dimension** — and, sharpened this session, **check the floor per-civ before declaring a
+field-wide level**. `alignment` again carried the widest spread (2.790 vs quality 0.280,
+novelty 1.190) and is again the axis the chooser selects on.
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in **5/5** and won
+**4/5**; `civ-formal` won the one it lost (argmax was still `civ-precise` at 1.707 vs the
+winner's 0.910). The clean-mock series is now **0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121)
+→ 4/5 (122)**. Five-sample points cannot narrow a rate — the honest claim is *somewhere in
+0–80 %*. What survives every session: the chooser is **not** a pure argmax, and in all 5
+disagreements across 116/118/119/120/122 it picked a **lower**-scoring candidate.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — **27 consecutive sessions
+(95–122)**. Last on lifetime `avg_score` (1.2673), `alignment` (1.5388), `quality` (0.6298),
+`relevance` (817.94) and `relevance_per_sim` (1.2230); **last on every dimension of this run**
+(avg 0.4110, alignment 0.048, quality 0.010). The structural gap is `alignment`: **0.3916**
+below the next civ (1.5388 vs 1.9304), versus **0.0343** on quality. Alignment is the dimension
+the meta-GAN selects on, so Grounded fails to *embody a distinctive voice* — a voice failure,
+not a prose failure. `civ-formal` remains the low-**novelty** axis (1.4708). `civ-poetic` =
+1st on `avg_score` (1.8821) / `quality` (1.0684) / `novelty` (2.1086) but last on `win_rate`
+(0.015), won 0/5. `civ-precise` = best `win_rate` (0.509), won 4/5, 1st on lifetime
+`alignment` (2.5074), 6th on `avg_score` (1.6131) — the mirror inverse.
+
+**Watch-axis `civ-engineer` — the session-121 low did NOT repeat.** Engineer was 4th of 8 on
+this run's `avg_score` (0.6230) and 2nd-lowest on `alignment` (0.386) but no longer last; it
+stays 6th of 8 on lifetime `relevance_per_sim` (1.4350). **One more session at the bottom
+would make it a trend** — do not promote it to a finding yet.
+
+- **Extinction risk NONE** — threshold −10, lowest relevance +817.94 (82× above floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42,
+  poetic +37, engineer +22, mythic +20, therapist +17, precise +16. `save_state()` has no
+  lock ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (8th session); `gh` not installed (9th session);
+  tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
