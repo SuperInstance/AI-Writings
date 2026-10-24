@@ -115426,7 +115426,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "90-the-lut",
-    "size_bytes": 635284
+    "size_bytes": 643579
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session84.md",
@@ -116220,6 +116220,24 @@
     "word_count": 788,
     "date": "90-the-lut",
     "size_bytes": 15270
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session93.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session93.md",
+    "title": "civ-orchestrator session 93 (2026-10-24) — credential gap 31st deep; the A/B estimator was STABLE (4/8, rho=0.952) and the committed ledger is 29.6% synthetic",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 715,
+    "date": "2026-10-24",
+    "size_bytes": 15034
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session52.md",
