@@ -8409,3 +8409,144 @@ one-way ratchet: Precise (0.2) and Formal (0.3) can only ever move warmer.
 - **Chooser vs `argmax(avg_score)`: 2/5 this session, 30/163 = 18.4 %
   lifetime.** Two independent JEV calls; the chooser sees 150 chars, the
   scorer sees the whole response. `win_rate` is a **selection** metric.
+
+---
+
+## s74-addendum (2026-10-24, concurrent session) — a second, independent run of the same command: same verdict, one new mock defect
+
+A second session ran the same command against the same tree while the
+`session74` report above was being written. It was **not** a duplicate — it
+produced an **independent measurement** of the same question, and it agreed on
+every durable conclusion while adding one new failure mode.
+
+### Independent reproduction of the headline numbers
+
+| metric | concurrent session (above) | this addendum |
+|---|---|---|
+| unpatched ledger delta | **+0 rows** (2444 → 2444) | **+0 rows** (2444 → 2444) |
+| unpatched `meta_log` delta | +0 | +0 (158 → 158) |
+| `Winner:` lines (unpatched) | 0 | 0 |
+| exit code | 0 | 0 |
+| Control B ledger delta | **+80** (+10/civ uniform) | **+80** (+10/civ uniform) |
+| Control B `meta_log` delta | +5 | +5 |
+| `Winner:` lines (Control B) | 5 | 5 |
+| distinct 200-char previews | 80/80 | **80/80** |
+| all-2.0-default rows | 0 | **0** |
+| JEV score errors | 0 | **0** |
+| counter gap | +260 | **+260** |
+
+Two independent mock implementations, two independent JEV draw sequences, the
+same +80/+5/5/0/0. **The credential gap and the pipeline health are both
+reproduced, not inferred.**
+
+### The one place the two runs disagree — and the disagreement is the finding
+
+| lens | concurrent session | this addendum | same civ? |
+|---|---|---|---|
+| board `relevance_per_sim` (lowest) | civ-grounded 1.469 | civ-grounded 1.505 | **yes** |
+| raw relevance (lowest) | civ-grounded 431.46 | civ-grounded 450.06 | **yes** |
+| lifetime `avg_score` (lowest) | civ-grounded 1.554 | civ-grounded 1.737 | **yes** |
+| lifetime alignment (lowest) | civ-grounded 1.972 | civ-grounded 2.314 | **yes** |
+| lifetime quality (lowest) | civ-grounded 0.960 | **civ-engineer 1.190** | **no** |
+| lifetime novelty (lowest) | civ-formal 1.470 | **civ-formal 1.374** | yes |
+| this-session `avg_score` (lowest) | civ-grounded (A) / civ-therapist (B) | **civ-whimsical 1.836** | **no** |
+| win rate (lowest) | civ-poetic 0.007 (1W/132L) | civ-poetic 0.007 (1W/137L) | **yes** |
+| chooser/argmax agreement | 2/5 (40 %) | **0/5** | — |
+| board inverted vs selection | 8/8 | **8/8** | **yes** |
+
+Two **durable** lenses agree exactly (board sort key, raw relevance, lifetime
+avg, lifetime alignment, win rate, board inversion). Two **noisy** lenses
+disagree — and one of them disagrees in a way that is itself the lesson:
+
+> **The this-session group (n=10 per civ) moved `civ-whimsical` from 1st of 8 on lifetime quality to 8th of 8 on this run's `avg_score`, and moved the "lowest" label from `civ-grounded` to `civ-whimsical`.** The n=10 lens is a *sample*, and a sample of 10 from a noisy distribution is not a verdict. This is the same failure the A/B body swap exposed, seen from the other side: a single run's per-civ means move more than the gaps between civs.
+
+**Rule, sharpened: report the durable lenses (board sort key, raw relevance, lifetime mock-filtered `avg_score`/sub-scores, win rate) and label the per-run group as a sample with its n.** Never let an n=10 group decide the headline.
+
+### A different mock filter changes the lifetime numbers — so the lifetime lens must declare its filter
+
+The concurrent session computed "lifetime" over **all 2444** rows. This addendum
+computed it over the **1644 mock-filtered** rows
+(`content_preview.startswith('[')` removed). That is why lifetime `avg_score`
+for `civ-grounded` reads **1.554** there and **1.737** here.
+
+Both numbers are arithmetically correct; they are **different populations**.
+The committed baseline is **2444 rows = 1644 real + 800 mock (exactly 100 per
+civ, 32.7 %)** — a third of the durable quality record is provider-stand-in
+output. The two lenses disagree on the *level* but **agree on the order**
+(the mock-free ranking reproduces the all-rows ranking, civ-grounded last).
+
+> **State the filter with the number.** "Lifetime avg 1.737 (mock-filtered, n=1644)" and "lifetime avg 1.554 (all rows, n=2444)" are both true and are not comparable. A future session that reads the other population's number and calls it a discrepancy is reading a *filter* difference, not a regression.
+
+### NEW — the mock's voice table must be asserted against the RENDERED string, at boot, per civ
+
+This session's first mock launch printed **`in pool: False` for all 8 civs** —
+the body table had been keyed on *guessed* voice strings. The real
+`culture.json` values are:
+
+| civ | `voice_emphasis` |
+|---|---|
+| civ-grounded | `warm, factual` |
+| civ-whimsical | `playful, surprising` |
+| civ-formal | `measured, exact` |
+| civ-poetic | `lyrical, dense` |
+| civ-precise | `technical, sparse` |
+| civ-mythic | `ancient, narrative` |
+| civ-therapist | `warm, attentive` |
+| civ-engineer | `structural, practical` |
+
+and the orchestrator renders `f"Your voice: {voice}."` — **with a trailing
+period**. The table must be keyed on the rendered string, and the mock should
+print the assertion at startup:
+
+```python
+for cid in json.load(open('civilizations.json')):
+    v = json.load(open(f'{cid}/culture.json'))['voice_emphasis']
+    print(f"{cid:16s} -> 'Your voice: {v}.' in pool: {('Your voice: %s.' % v) in VOICE_BODIES}")
+```
+
+**This boot-time check is worth more than every downstream acceptance check combined.** An all-fallback mock still produces +80 rows, +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, zai-only providers — **every acceptance check except the distinct count passes**. The collapsed distinct count (10/80) is the *only* symptom, and it arrives after the run has already written 80 rows into the fleet's durable ledger. A boot-time `in pool` printout moves the failure from "post-hoc, one weak signal" to "before the run starts, unambiguous".
+
+### Mock-server hygiene, 4th recurrence
+
+- **Launch from a copied, distinctly-named file.** The first launch wrote its
+  log, answered exactly one probe, and **died silently**; the second launch's
+  stdout went to the *same* file, so the `.out` looked right while the port
+  answered `000` for ~40 s. **Always `curl` the port after launch**, not just
+  after the run.
+- `ps -eo pid,args --no-headers | grep "[m]ockd74"` — the bracket trick is
+  what keeps the pattern out of the invoking shell's own command line.
+- After cleanup, confirm with the **port probe** (`curl` → `000`), never with
+  the kill's exit status.
+
+### The board is inverted 8/8 against selection — 9th session running, now confirmed twice in one day
+
+```
+board order      poetic, whimsical, mythic, therapist, precise, engineer, formal, grounded
+win-rate order   precise, grounded, formal, engineer, mythic, whimsical, therapist, poetic
+```
+
+**All 8 positions differ.** `relevance_per_sim` is a lifetime accumulation over
+a lifetime denominator, and it is not a selection ranking and not reproducible
+(the +260 counter gap). If a board must be published, sort on a lifetime
+mock-filtered `avg_score` mean, and publish the win rate next to it.
+
+### Chooser vs `argmax(avg_score)` — 0/5 here, 2/5 in the concurrent run, 17.7–18.4 % lifetime
+
+Lifetime agreement across the whole ledger: **28/158 = 17.7 %** (this run) and
+**30/163 = 18.4 %** (concurrent run). Two independent runs, the same structural
+result: the chooser is a JEV *choice* over **150-char previews with no scores in
+the prompt**, the scorer sees per-civ quality/novelty/alignment over the whole
+response. **A chooser sweep is a selection result, not a quality result.**
+
+### What this addendum adds to the standing answers
+
+- **`civ-grounded` is the durable low-relevance civ** — lowest on board
+  `relevance_per_sim`, raw relevance, lifetime `avg_score` (both filters) and
+  lifetime alignment, in **two independent runs**, while holding the **most**
+  real rows (232) ⇒ a genuine writing deficit, not a longevity artefact.
+- **`civ-poetic` is the durable selection failure** — 1st of 8 on the board and
+  on lifetime quality, **1 win in 133–138**, for 21 sessions.
+- **The counter gap is exactly +260 in both runs** — the race fires on a fixed
+  number of writes per session, not stochastically.
+- **Per-run (n=10) per-civ means are not reportable as a ranking.** Two
+  independent runs put the "lowest" label on three different civs.

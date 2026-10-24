@@ -378,3 +378,70 @@ holds real z.ai output.
 Mock rows are **not** committed. Artifacts stay outside the repo (`/root/work`). The working
 tree is restored with a byte-level check against the upstream git blob SHAs, and only the
 report and the learnings addendum are committed.
+
+---
+
+## Addendum (concurrent session, same day) — an independent second run of the same command
+
+A second session ran the same command against the same tree while this report
+was being written. It is recorded here because **two independent runs agreeing
+on the durable numbers and disagreeing on the noisy ones is the finding.**
+
+| metric | this report | concurrent run |
+|---|---|---|
+| unpatched ledger delta | **+0 rows** (2444 → 2444) | **+0 rows** (2444 → 2444) |
+| unpatched `meta_log` delta | +0 (158 → 158) | +0 |
+| `Winner:` lines (unpatched) | 0 | 0 |
+| exit code | 0 | 0 |
+| Control B ledger delta | **+80** (+10/civ uniform) | **+80** (+10/civ uniform) |
+| Control B `meta_log` delta | +5 | +5 |
+| `Winner:` lines (Control B) | 5 | 5 |
+| distinct 200-char previews | 80/80 | 80/80 |
+| all-2.0-default rows | 0 | 0 |
+| JEV score errors | 0 | 0 |
+| counter gap | **+260** | **+260** |
+| chooser/argmax agreement | **0/5** | 2/5 (40 %) |
+| board inverted vs selection | **8/8** | **8/8** |
+
+**Durable lenses agree exactly**: board sort key, raw relevance, lifetime
+`avg_score` (order), lifetime alignment, win rate, board inversion. **Noisy
+lenses disagree** — and that is the lesson:
+
+- **Lifetime "lowest" label:** this report `civ-grounded` (1.737 mock-filtered /
+  1.554 all-rows); concurrent run `civ-grounded` (1.554 all-rows) on avg but
+  `civ-engineer` (0.972) on quality.
+- **This-session "lowest" label:** this report `civ-whimsical` (1.836, n=10);
+  concurrent run `civ-grounded` in body set A and `civ-therapist` in body set B.
+
+> **The per-run group (n=10 per civ) moved `civ-whimsical` from 1st of 8 on
+> lifetime quality to 8th of 8 on this run, and moved the "lowest" label onto
+> three different civs across three runs.** A sample of 10 from a noisy
+> distribution is not a verdict. **Report the durable lenses; label the per-run
+> group as a sample with its n.**
+
+**Also note the filter.** The two runs computed "lifetime" over different
+populations: all **2444** rows vs the **1644** mock-filtered rows
+(`content_preview.startswith('[')` removed; the committed baseline is 2444 =
+1644 real + 800 mock = 100 per civ, 32.7 %). Both numbers are correct and are
+**not comparable** — the mock-free ranking reproduces the all-rows ranking, so
+the *order* is stable and only the *level* moves. **Always state the filter
+with the number.**
+
+**One new mock defect caught before the run.** The first mock launch printed
+`in pool: False` for all 8 civs — the body table had been keyed on guessed
+voice strings. The real `voice_emphasis` values are `warm, factual` /
+`playful, surprising` / `measured, exact` / `lyrical, dense` /
+`technical, sparse` / `ancient, narrative` / `warm, attentive` /
+`structural, practical`, and the orchestrator renders `f"Your voice: {voice}."`
+**with a trailing period**. An all-fallback mock passes *every* acceptance
+check except the distinct count — the boot-time per-civ `in pool` printout is
+worth more than all of them, because it fires before the run writes 80 rows
+into the fleet's durable ledger.
+
+**Standing answer, confirmed twice in one day:**
+`civ-grounded` = durable low-relevance civ (lowest on the board sort key, raw
+relevance, lifetime `avg_score` under both filters, and lifetime alignment,
+while holding the most real rows); `civ-poetic` = durable selection failure
+(1st of 8 on the board and on lifetime quality, **1 win in 133–138**);
+`civ-precise` = healthiest (best win rate, swept 4 of 5 competitions here);
+extinction risk = **none** (lowest +450.06 vs the −10 threshold).
