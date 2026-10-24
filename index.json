@@ -70146,7 +70146,7 @@
     "style": "Essay",
     "word_count": 703,
     "date": "2026-10-23",
-    "size_bytes": 88450
+    "size_bytes": 101417
   },
   {
     "filename": "AUDIT-NOTE.md",
@@ -115248,6 +115248,24 @@
     "size_bytes": 9160
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session79.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session79.md",
+    "title": "civ-orchestrator session 79 (2026-10-24) — ZAI_TOKEN gap 21st deep; run verified +80 rows, ledger restored",
+    "description": "`env` and from the 8-entry secret store. All 8 available secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 \"token expired or incorrect\"** on every one. 401 (not...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 737,
+    "date": "2026-10-24",
+    "size_bytes": 11192
+  },
+  {
     "filename": "RUN_REPORT_2026-10-24_session68.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session68.md",
     "title": "civ-orchestrator run report — session 68 (2026-10-24)",
@@ -115390,7 +115408,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 503790
+    "size_bytes": 519837
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session46.md",
@@ -115914,6 +115932,24 @@
     "word_count": 749,
     "date": "2026-10-23",
     "size_bytes": 18015
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session80.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session80.md",
+    "title": "Civilization Orchestrator — Run Report, Session 80 (2026-10-24)",
+    "description": "errors, 0 all-2.0-default rows, 80/80 distinct `content_preview`, 80/80 distinct salts.** Under **Control B** (local mock at the provider URL seam) because the real z.ai endpoint rejects every sandbox...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 777,
+    "date": "2026-10-24",
+    "size_bytes": 12313
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session44.md",
