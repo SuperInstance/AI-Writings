@@ -1,0 +1,20 @@
+{"ts": 1789964557.3606603, "iso": "2026-09-21T04:22:37", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2779}, "hash": "2ab3f2143b163c21"}
+{"ts": 1789964557.4485974, "iso": "2026-09-21T04:22:37", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
+{"ts": 1789964559.3671875, "iso": "2026-09-21T04:22:39", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 2783}, "hash": "5a020889adbe7c53"}
+{"ts": 1789964559.4487293, "iso": "2026-09-21T04:22:39", "event": "poll_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
+{"ts": 1789967289.2614002, "iso": "2026-09-21T05:08:09", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 4570}, "hash": "35cd5a8f9847fc30"}
+{"ts": 1789967289.350599, "iso": "2026-09-21T05:08:09", "event": "poll_failed", "payload": {"error": "HTTP Error 403: Forbidden"}, "hash": "f7ca317a0aef36fa"}
+{"ts": 1792858068.828418, "iso": "2026-10-24T16:07:48", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 642}, "hash": "a38085c40604c235"}
+{"ts": 1792858068.9363112, "iso": "2026-10-24T16:07:48", "event": "poll_failed", "payload": {"error": "HTTP Error 403: Forbidden"}, "hash": "f7ca317a0aef36fa"}
+{"ts": 1792858100.8470623, "iso": "2026-10-24T16:08:20", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 678}, "hash": "09e06ab9472098bd"}
+{"ts": 1792858100.987553, "iso": "2026-10-24T16:08:20", "event": "first_poll", "payload": {"hash": "b20375d389cb505d", "count": 71}, "hash": "ce4849b6512c5b1c"}
+{"ts": 1792858106.1138687, "iso": "2026-10-24T16:08:26", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 687}, "hash": "f58bd736bd682f1a"}
+{"ts": 1792858106.3075912, "iso": "2026-10-24T16:08:26", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 688}, "hash": "8255e8b641fbf0ec"}
+{"ts": 1792858175.972277, "iso": "2026-10-24T16:09:35", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 969}, "hash": "8c9cf0b37e37492a"}
+{"ts": 1792859264.704783, "iso": "2026-10-24T16:27:44", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 525}, "hash": "a2f233c6bf947b54"}
+{"ts": 1792859650.2507596, "iso": "2026-10-24T16:34:10", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 460}, "hash": "c90ca290a65e4878"}
+{"ts": 1792859697.251436, "iso": "2026-10-24T16:34:57", "event": "witness_note", "payload": {"bot": "wesley-mechanic", "note": "2026-10-24T16:34Z no_change \u2014 canon b20375d389cb505d / 71 papers; witness.log 14->15 rows; state.json and bookkeeper.wal unchanged; NAS 100% quota, artifacts in /tmp mirror via symlink, pending re-land"}, "hash": "117c6ac5f914bdad"}
+{"ts": 1792860489.323533, "iso": "2026-10-24T16:48:09", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 601}, "hash": "0fd3b34f5014e069"}
+{"ts": 1792860529.1370015, "iso": "2026-10-24T16:48:49", "event": "witness_note", "payload": {"bot": "wesley-mechanic", "note": "2026-10-24T16:48Z no_change \u2014 canon b20375d389cb505d / 71 papers; witness.log 16->17 rows; state.json and bookkeeper.wal unchanged; NAS 100% quota (600G/600G/0), artifacts in /tmp mirror via symlink, pending re-land"}, "hash": "fefb43233be4f007"}
+{"ts": 1792861529.1948907, "iso": "2026-10-24T17:05:29", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 460}, "hash": "c90ca290a65e4878"}
+{"ts": 1792861559.3750093, "iso": "2026-10-24T17:05:59", "event": "witness_note", "payload": {"bot": "wesley-mechanic", "note": "2026-10-24T17:05Z no_change \u2014 canon b20375d389cb505d / 71 papers; witness.log 18->19 rows; state.json and bookkeeper.wal unchanged; NAS 100% quota (600G/600G/0), artifacts in /tmp mirror via symlink, pending re-land"}, "hash": "41b5aaa19cd423fd"}
