@@ -6258,3 +6258,141 @@ with ENOENT even though `ls` follows it fine. Per-entry symlinks work for
 push the report, then verify it with the contents API
 (`GET /repos/{owner}/{repo}/contents/{path}` -> HTTP 200 + `size` + `sha`).
 The pushed blob is the authoritative copy; the local `/tmp` copy is scratch.
+
+---
+
+## Session 49 additions (2026-10-24) — the credential gap 15th deep, and the first A/B where the bottom-2 survived the prose change
+
+### The credential gap is still the whole story (15th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the secret store. All **8** sandbox
+secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` ->
+**401 "token expired or incorrect" on every one** (endpoint healthy => credential gap,
+not outage). `mcode-tools connector tools --keyword zai` -> **`{"tools": []}`** — there is
+no z.ai connector, so the App path cannot supply a key either. No key committed in the
+repo. `ZAI_TOKEN`/`ZAI_KEY`/`GROQ_TOKEN` all absent => **no alternate live provider.**
+
+JEV live at `jev-1.14.0` (`quality.score 0.18`, confidence 0.86). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"` — 15th recurrence of the name split.
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows**
+(1884 -> 1884), meta_log **+0** (123 -> 123). The no-op run **still rewrote
+`leaderboard.json`** (md5 `a5f2f98c...` -> `51a9315e...`) — 15th session in a row.
+**Assert on the row delta, never on the exit code.**
+
+### NEW — the A/B can have a stable BOTTOM even when the top is a total scramble
+
+Session 9/10 established that the mock's prose is a first-order confounder. This session
+ran the two body sets and measured the split cleanly:
+
+| | rank agreement A vs B | max per-civ \|delta\| | bottom-2 in BOTH sets |
+|---|---|---|---|
+| this session | **2/8 positions** | 0.277 | **`civ-formal`, `civ-grounded`** |
+
+Rank agreement was 2/8 and the **#1 civ changed** (`civ-poetic` -> `civ-therapist`),
+yet the **bottom-2 was identical in both body sets**. That is the useful shape of the
+result:
+
+> **The A/B is a two-sided test. Report the ORDER only for civs whose position is
+> stable across BOTH body sets, and report the per-civ |delta| so the reader can see
+> how much of the ordering is prose.** Bottom-of-table positions survived a full prose
+> swap here; mid-table positions did not. Do not report a mid-table ordering from a
+> single body set — this session moved `civ-precise` 4th -> 6th and `civ-therapist`
+> 3rd -> 1st on prose alone.
+
+### Control B — 16th identical replication, +80 rows both body sets
+
+Body set A and body set B, each from the same 1884-row pristine baseline:
+**+80 rows (10 per civ, uniform)**, **+5 meta_log** (123 -> 128), **5 winners**,
+**81 mock calls** (1 pre-run smoke + 80), **0 fallbacks**, **81 distinct salts**,
+**0 all-2.0-default rows**, **0 JEV errors**, **80/80 distinct previews**, **10/10
+per civ**, **0 scaffolding leak**, **68 distinct `avg_score`** (run A, range
+0.623-2.093). Run B: 80/80 distinct, 0 defaults, 0 errors.
+
+Chooser vs argmax(`avg_score`): **0/5 in run A, 0/5 in run B** — 0 % agreement,
+**16th replication**. In run B the chooser swept `civ-precise` 4 of 5 rounds while
+`civ-therapist` was the top scorer in 3 of 5. **A sweep is a selection result, not a
+quality result.**
+
+### The low-relevance answer — `civ-grounded` last on three lenses, `civ-poetic` the selection failure
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.474 |
+| raw relevance | **civ-grounded** | 337.60 |
+| win rate | **civ-poetic** | 0.010 (1W/102L) |
+| lifetime `avg_score` | **civ-grounded** | 1.551 |
+| lifetime quality | `civ-engineer` | 1.007 |
+| lifetime novelty | `civ-formal` | 1.352 |
+| lifetime alignment | **civ-grounded** | 1.971 (26 % below the next civ, 2.663) |
+| body-set A bottom-2 | `civ-formal`, `civ-grounded` | — |
+| body-set B bottom-2 | `civ-formal`, `civ-grounded` | **identical** |
+
+**`civ-grounded` is the one to watch** — last on **three** of the four lifetime lenses,
+lowest alignment of all 8, and in the bottom-2 under **both** independently-written
+body sets. It ran the **most** sims (229) and still scores lowest, so it is **not** a
+longevity artefact.
+
+**`civ-poetic` remains the flagship selection failure**: 1st on the board (2.166),
+highest raw relevance (463.42), highest lifetime `avg_score` (2.232), highest lifetime
+quality (1.554) — and **1 win in 103**. **16 sessions.**
+
+**Healthiest:** `civ-precise` (53W/45L, 0.541) — the only civ whose relevance rank and
+win rate agree. **Extinction: none** (lowest +337.60 vs the -10 threshold;
+`extinction_and_birth()` is `--loop`-mode only).
+
+**Board ranks backwards against selection — 8/8 positions inverted** (unchanged, 5th
+session running).
+
+**Counter gap: exactly +260, unchanged for the 16th session** (ledger 1964 vs registry
+1704). `save_state()` has no lock and no read-modify-write => `relevance_per_sim` is
+not a reproducible ranking.
+
+### The committed baseline still carries 560 mock rows
+
+`grep -c 'mock' civ-*/simulations.jsonl` on the **pristine committed** ledgers returns
+**70 per civ (560 fleet-wide)** tagged `[mock-zai <hash>]`, spanning 2026-10-23
+19:14-22:19, while `provider` reads `zai` on **all 1884 rows** — the field lies about
+provenance. **Check the content, not just the checksum.**
+
+### NEW environment notes
+
+1. **A rejected push needs a *soft* reset, not a rebase.** The remote moved 2 commits
+   (a canon poll + a landing-page auto-update). `git rebase origin/main` failed first
+   with **"unable to auto-detect email address"** (the rebase creates a *new* commit,
+   so the repo-local `user.email` is required — set it with `git config user.email`
+   *in the repo*, or pass `-c user.email=...` to the rebase). It then failed again with
+   the stale-`.git/rebase-merge` error. Working recovery, no rebase needed:
+   ```bash
+   git rebase --abort 2>&1 | tail -2; rm -rf .git/rebase-merge .git/rebase-apply
+   git reset --soft origin/main; git reset -q        # unstage everything
+   git checkout origin/main -- index.html index.json # drop stale local auto-index
+   git add <only my file>; git commit
+   ```
+   **The `git reset --soft` stages the remote's newer `index.html`/`index.json` into
+   your index** — if you `git add -A` you would commit the canon's auto-index as your
+   own change. `git checkout origin/main -- <those paths>` puts them back.
+2. **The sparse-clone fast path worked in ONE foreground call again** (48th session
+   running): `git init` + `core.sparseCheckout` + `sparse-checkout set
+   cellular-first-design/code/civilizations` + `GIT_SSL_NO_VERIFY=1 git fetch --depth 1
+   --filter=blob:none origin HEAD` + `git checkout FETCH_HEAD` -> **48 MB, no timeout,
+   no detached background dance.** This is now the default attempt, not the fallback.
+3. **Per-entry symlinks keep the `read`/`write`/`glob` jail working** (s48's fix,
+   confirmed): `mkdir -p` the real dir, then one `ln -s` per file and per `civ-*`
+   dir. A *directory* symlink still fails the jail.
+4. `ZAI_URL_OVERRIDE` is still **not** in the committed script — re-apply the one-line
+   patch each session; verify `grep -c ZAI_URL_OVERRIDE` = 0 after restore.
+5. `gh` CLI still not installed; use the GitHub REST API.
+
+### Restore + verification
+
+`git checkout -- cellular-first-design/code/civilizations/` -> ledger 1884, meta_log
+123, `git status --porcelain` empty, `grep -c ZAI_URL_OVERRIDE` = 0, `__pycache__`
+removed, both mocks killed by explicit PID, ports 8931/8932 confirmed closed
+(`curl` -> `000`). **89/89 files verified byte-identical to the live remote** by
+comparing the local `git hash-object` sha against the GitHub contents API sha.
+
+Session report: `RUN_REPORT_2026-10-24_session49.md`, commit `326feff`,
+**pushed to `SuperInstance/AI-Writings` `main` and remote-verified via the contents
+API** (one file, +221/-0, size 10821).
