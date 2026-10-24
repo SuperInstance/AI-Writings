@@ -9713,3 +9713,130 @@ level and this session contributed 0 of it.
 0 fallback flags / 81 calls; uniform 10 calls per voice; 81/81 distinct salts;
 81/81 distinct `body_hash`; **10/10 distinct `content_preview` per civ** (the fleet-wide 80/80
 is satisfied even by a mock that only varies across civs — the per-civ count is the real check).
+
+---
+
+## Session 85 (2026-10-24) — 121st wipe — the credential gap is 25 sessions deep; the Grounded is last on 6 of 8 lenses
+
+### The gap is unchanged, and it is still the whole story
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env and from the 8-entry secret store. `POST
+https://api.z.ai/api/coding/paas/v4/chat/completions` → **HTTP 401** (endpoint healthy ⇒
+credential gap, not outage). JEV live at `jev-1.14.0`; always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Control A re-verified from scratch: batch header + all 8 `[Name] running 5 sims...` lines,
+**no `Winner:` lines**, **exit 0**, ledger delta **+0 rows / +0 meta_log** (2684 → 2684,
+173 → 173). Only `leaderboard.json` changed. **Assert on the row delta, never on exit code.**
+
+### Control B — 16th replication, +80 uniform, and the mock-health checks still hold
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (10 per civ, uniform),
++5 meta_log, 5 winners, 0 all-2.0-default rows, 0 score errors, 81 mock calls, 8 distinct
+voices, 10 calls/voice, 79/81 distinct `body_hash`, 79/80 distinct `content_preview` fleet-wide
+and 10/10 per civ except Grounded 9/10.** Reproduces sessions 6, 7, 8 and 84 exactly.
+
+### The bridge needs TWO levels — reaffirmed, and the check that proves it
+
+`CIVS_DIR` = `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`. The
+symlink must be placed on the **deepest** component:
+
+```bash
+rm -rf /workspace/repos && mkdir -p /workspace/repos/ai-writings
+ln -sfn /tmp/work/aiw/cellular-first-design /workspace/repos/ai-writings/cellular-first-design
+```
+
+`rm -rf /workspace/repos` first — `ln -sfn` will not replace an existing directory, and a
+one-level symlink leaves `cellular-first-design` to be resolved *inside* the NAS.
+**Verify with `wc -c` on a real file through the bridge** (141 bytes for
+`civilizations.json`), not by exit code. `cp -r` into the NAS loses file content
+(`Disk quota exceeded` on close, files present at 0 bytes) — **symlink, never copy.**
+
+### `/workspace` is at 100 % quota and writes fail *silently*
+
+`dd if=/dev/zero of=/workspace/_t2 bs=1k count=64` → `closing output file: Disk quota
+exceeded`, and the file **remains in `ls` at 0 bytes**. A plain `open(...).write(...)` from
+Python also produces a **0-byte** file with **exit 0**. So a naive "did the file get
+written?" check passes while the content is gone. **Always `stat -c %s` a file you wrote.**
+`/tmp` is on the overlay and is exempt.
+
+### The Grounded is last on 6 of 8 lenses — 5th session running
+
+| lens | last place |
+|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded 1.457** |
+| raw relevance | **civ-grounded 479.35** |
+| lifetime mean `avg_score` | **civ-grounded 1.5153** |
+| this-run mean `avg_score` | **civ-grounded 1.3353** |
+| this-run `quality` | **civ-grounded 0.413** |
+| this-run `alignment` | **civ-grounded 1.393** |
+| win rate | civ-poetic 0.007 (selection metric, different question) |
+| — | civ-precise healthiest (win rate 0.514, only civ whose relevance rank and win rate agree in sign) |
+
+The Grounded's sub-scores are the diagnostic: **novelty 2.200 (3rd of 8) but quality 0.413
+and alignment 1.393 (both last)**. It is the inverse case — novelty it does not convert into
+quality, and the *alignment* penalty says its own tenets ("concrete images, no
+abstractions") are not being met. It is the only civ last on quality **and** alignment.
+**Still not a collapse:** mid-field on win rate (0.243) and it **won 2 of the 5 competitions
+this run**. Part of its `relevance_per_sim` last place remains a longevity artefact (329 sims
+vs 304-321).
+
+### `civ-poetic` — the inversion, 25 sessions running
+
+1st of 8 on raw relevance (662.41), on `relevance_per_sim` (2.110) **and** on lifetime
+`avg_score` (2.1630); **last of 8 on win rate at 1W/152L = 0.007**. Accumulates relevance
+while essentially never being selected. Not an extinction risk (threshold -10, lowest
++479.35).
+
+### `civ-formal` and `civ-engineer` are NOT rankable this session
+
+`civ-formal` is 2nd-lowest on both quality lenses but mid-field on lifetime alignment
+(2.6509). `civ-engineer` is 3rd-lowest on lifetime `avg_score` (1.7266) yet **won 3 of 5
+competitions** — the quality lens and the selection lens disagree sharply, so neither
+supports a stable low-relevance claim. Report them as unranked, not as low.
+
+### Chooser vs `argmax(avg_score)`: 0/5 — 14th consecutive replication
+
+Every one of the 5 rounds crowned a civ that was **not** the top scorer (twice by the
+Whimsical, once each by the Formal, the Mythic and the Poetic). The competition is a
+separate JEV call whose state carries only a 150-char preview and **no scores**, so the two
+metrics are essentially uncorrelated. **This is why "which civ is low relevance" has no
+single answer** — always report the four lenses separately and name which one you mean.
+
+### The committed ledger is 34.7 % synthetic — inherited, and the rule still was not applied
+
+`grep -c '\[mock-zai' civ-*/simulations.jsonl` → 120 per civ; 960/2764 = **34.7 %**. All
+120 per civ are **pre-existing**. This session's own 80 rows were removed and the tree
+restored (27/27 files byte-identical to the git blob via `cmp`), so the 34.7 % is entirely
+inherited and this session contributed **0** of it.
+
+> **A rule enforced only on the writes of the session that learns it does not clean the
+> history it inherits.** The `[mock-zai` marker distinguishes older synthetic rows, but
+> **this session's rows carried no marker** (0/80) — identification was by row offset from a
+> recorded per-civ baseline. **Record the per-civ baseline line count before every run**;
+> it is the only thing that lets you separate your own rows from inherited ones.
+
+### The counter gap is +260 and still not uniform
+
+Ledger 2764 rows vs `simulations_run` 2504 → **+260**. `save_state()` rewrites the whole
+`culture.json` from in-memory counters with no lock and no read-modify-write ⇒ lost-update
+race. `relevance_per_sim` is therefore **not reproducible from the ledger by an auditor**.
+Prefer win rate and mean `avg_score`.
+
+### Two sandbox notes
+
+- `ps -eo pid,args --no-headers | grep "[z]ai_mock" | grep -v grep` then `kill <pid>` by
+  PID. A `pkill -f zai_mock` **self-matches the killing shell's own command line** and
+  kills it (3rd occurrence of this class).
+- A `curl -d '{...\"quoted\"...}'` health probe breaks on the nested quotes and surfaces as
+  a **server-side JSONDecodeError** — which looks like a mock bug but is a shell-quoting
+  artefact. Probe the mock from a **Python** heredoc with `urllib` instead.
+
+### State at session 85 close
+
+- 8 civs, ledger restored to **2684** rows, `meta_log.jsonl` restored to **173** entries.
+- Working tree **clean** (`git status --porcelain` empty); **27/27** files byte-identical to
+  the git blob (`cmp`).
+- Session report: `RUN_REPORT_2026-10-24_session85.md`.
+- **Credential gap: 25 sessions deep.** Control A: no-op. Control B: +80 uniform, 5 winners,
+  real JEV, 0 errors.
