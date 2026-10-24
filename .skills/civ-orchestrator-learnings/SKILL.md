@@ -106,10 +106,13 @@ ZAI_TOKEN=<set>  +  ZAI_URL_OVERRIDE -> local mock
 A transport-only stub (URL unroutable, token unset) is a control with no
 power: the request is never attempted.
 
-`ZAI_URL_OVERRIDE` is **not in the committed blob** — re-apply this one-line
-patch each session (blast radius = 1 insertion, 1 deletion):
+**`ZAI_URL_OVERRIDE` is NOW IN THE COMMITTED BLOB** (script lines 84-86) — **do
+not re-apply a patch** (session 64 confirmed: patched nothing, got a clean
+Control B). The hook is provider-generic:
 ```python
-"url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/api/coding/paas/v4/chat/completions"),
+_ov = os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")
+if _ov:
+    p = dict(p); p["url"] = _ov
 ```
 
 ### Mock rules that are easy to get wrong
@@ -269,6 +272,99 @@ being selected. Healthiest: `civ-precise` (52W/46L, 0.531). Extinction: none
 (lowest relevance +347.82 vs threshold -10). Counter gap **+260** (unchanged).
 
 ---
+
+## Session 64 additions (2026-10-24) — 27th credential gap; Control B 12th replication; STALE `ZAI_URL_OVERRIDE` instruction; a clone with an EMPTY INDEX that looks fine
+
+**Base commit `030feb4f`.** Ledger 2284 rows, `meta_log` 148, **640 mock rows (27.1 %)**.
+Unpatched `--sims 5 --prompts 5 --providers zai` → **+0 rows, +0 meta_log, 0 `Winner:`
+lines, exit 0** (27th replication). Control B → **+80 rows (exactly +10/civ, uniform), +5
+meta_log, 5 winners, 0 all-2.0-default rows, 0 score errors, 0 cross-civ preview collisions,
+80/80 distinct previews, 71/80 distinct `avg_score` (0.670–1.773, mean 1.1533), JEV
+confidence 0.420–0.990, 0 scaffolding leaks, mock 80/80 distinct salts, uniform 10-per-voice
+distribution.** Control B = **12th consecutive identical replication**.
+
+### STALE INSTRUCTION — `ZAI_URL_OVERRIDE` is NOW UPSTREAM; do not look for a patch
+
+The skill's "re-apply this one-line patch each session" line is **obsolete**. The committed
+blob already contains the Control B hook at **lines 84–86** of `civilization_orchestrator.py`:
+```python
+_ov = os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")
+if _ov:
+    p = dict(p); p["url"] = _ov
+```
+It reads `f"{name.upper()}_URL_OVERRIDE"`, so it is generic across providers, not ZAI-specific.
+**Session 64 patched nothing and still got a clean Control B.** The script md5 was
+`501fa686b846199b2057d3b70b4d66d9` — unchanged. Delete the patch instruction from this skill.
+
+### NEW — a clone can have a PERFECT WORKTREE and an EMPTY INDEX
+
+The first `git clone --depth 50` attempt died mid-transfer but left a **stale
+`.git/index.lock` and NO `.git/index`**. The second clone (`--depth 1 --single-branch`)
+then wrote the worktree but never the index. Symptoms that look like corruption but are not:
+
+- `git ls-files | wc -l` → **0** (every tracked file "missing")
+- `git status --porcelain` → **105 civ-dir files as STAGED deletions** (`D `, not ` D`)
+- the files are all present and correct on disk
+
+Fix: `rm -f .git/index.lock && git read-tree HEAD` — on a 3.4 GB tree this **exceeds a 30 s
+tool call**; run it in the background. **Assert `git ls-files | wc -l > 0` AND that
+`git status --porcelain` shows no `D ` entries after every clone**, before trusting the
+worktree or staging anything. A `D `-heavy status is an index problem, not a deleted repo.
+
+### NEW — `git clone --depth 50` is broken (confirmed again), `--depth 1 --single-branch` works
+
+`--depth 50` died with `fatal: could not open .../tmp_pack_xVlHiQ for reading: No such file
+or directory` / `invalid index-pack output` after ~1.1–3.4 GB. `--depth 1 --single-branch
+--no-tags` succeeded in ~2 min (3.4 GB). The runbook's blobless recipe remains the cheapest
+(1 MB) — but it excludes the index materialisation step that bit this session.
+
+### Grounded is bottom on **9 of 16** lenses — the stable answer
+
+| lens | lowest |
+|---|---|
+| A `relevance_per_sim` (board key) | `civ-grounded` 1.479 |
+| B raw relevance | `civ-grounded` 412.73 |
+| C win rate | `civ-poetic` 0.008 (1W/127L) |
+| D lifetime avg / alignment | `civ-grounded` 1.700 / 2.261 |
+| D lifetime quality / novelty | `civ-engineer` 1.140 / `civ-formal` 1.357 |
+| E this-run avg / alignment | `civ-grounded` 0.863 / 1.032 |
+| E this-run quality / novelty | `civ-engineer` 0.202 / `civ-formal` 0.985 |
+| F de-con lifetime avg / align | `civ-grounded` 1.700 / 2.261 |
+| F de-con lifetime quality | `civ-engineer` 1.140 |
+| G ledger avg (all rows) | `civ-grounded` 1.544 |
+| H `simulations_run` | `civ-engineer` 254 |
+
+**Lowest-lens count: Grounded 9, Engineer 3, Formal 2.** (Session 61: 8/4/2. Session 60: 6/14.)
+`Pearson r(sims_run, rel_per_sim) = −0.310` — **negative, so NOT a longevity artefact**
+(most-run is `civ-whimsical` 271; board-last `civ-grounded` 279). The Grounded has the
+**2nd-highest win rate (0.252)** while producing the **lowest** scores — it wins on
+*selection appeal* and loses on *substance*; its "warm, factual" voice reads as tonally flat
+to JEV (lowest lifetime alignment 2.261). **The Poetic anomaly holds for the 12th run:**
+1st of 8 on every quality lens (A 2.126, B 561.22, D 2.305) and last on win rate.
+**E moves session to session** — E-bottom was Engineer/Formal this run, Formal on all three
+in session 61. **Grounded was E-bottom on avg + alignment in both** — that is the stable part.
+
+**Chooser vs `argmax(avg_score)`: 1/5 this run** (chooser Grounded ×3, Precise ×2; argmax
+Precise ×3, Engineer ×2). Lifetime by exact score-multiset match: **7 agree / 25 disagree =
+21.9 %** (32/153 rounds had a unique score owner). History 4.4 → 22.4 → 17.6 → 11.9 → 17.6
+→ **21.9 %**. `r(preferred_temp, lifetime novelty) = +0.9371`.
+**Counter gap +260, unchanged** (ledger 2364 vs registry 2104) — the run added 80 to both, so
+it does not widen. **Mock contamination 640/2364 = 27.1 %.**
+
+### A force-update on the remote is now routine — commit on top, never rebase
+
+Remote moved `030feb4f → 6a32efa1` mid-session (touching only `index.html`/`index.json`, a
+landing-page auto-update). `git diff --name-only HEAD origin/main -- <civ dir>` → **0 files**,
+so a plain commit-on-top is clean and conflict-free. After `git reset --soft origin/main`,
+the remote's own auto-update files appear **staged** — `git restore --staged index.html
+index.json` to drop them, then stage only your own file. Verify with `ls-remote`
+immediately before the push (the tip moved twice in session 62).
+
+**Restore verified 105/105 byte-identical** to the HEAD blobs with the materialised-blob
+`cmp` (never against a process-substitution FIFO). Ledger back to 2284, meta_log 148, mock
+rows 640, script md5 unchanged, `git status --porcelain` clean, no `__pycache__/`.
+**Push verified two ways** — `ls-remote` and the commits API; the report file was also
+re-fetched via the contents API and confirmed **byte-identical** to the local copy.
 
 ## Session 61 additions (2026-10-24) — 26th credential gap; blobless+sparse bootstrap; within-civ salt collision vs cross-civ signal defect
 
