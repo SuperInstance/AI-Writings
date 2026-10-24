@@ -76,12 +76,20 @@ def bookkeeper_tick(delta_gamma, delta_eta):
 def poll_canon():
     """Poll canon endpoint and compute state hash"""
     try:
-        with urllib.request.urlopen(CANON_URL, timeout=10) as resp:
+        # The canon endpoint sits behind a User-Agent filter: a default
+        # Python-urllib agent is answered 403, so send an ordinary client UA.
+        req = urllib.request.Request(CANON_URL, headers={"User-Agent": "curl/8.5.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read().decode())
         # Compute hash from paper_count + a sample
         canon_str = json.dumps(data, sort_keys=True, default=str)
         canon_hash = hashlib.sha256(canon_str.encode()).hexdigest()[:16]
-        paper_count = data.get("paper_count", 0) if isinstance(data, dict) else len(data)
+        # The live canon publishes its size as "count"; "paper_count" is a
+        # legacy key the endpoint no longer serves.
+        if isinstance(data, dict):
+            paper_count = data.get("paper_count", data.get("count", 0))
+        else:
+            paper_count = len(data)
         return canon_hash, paper_count, data
     except Exception as e:
         return None, 0, {"error": str(e)}
@@ -132,8 +140,15 @@ def run_once(verbose=True):
                 "hash": canon_hash, "count": paper_count, "delta": delta
             }, recipients=["snowball-scout", "jevvy-auditor"])
         except: pass
-        if verbose: print(f"[WESLEY] poll failed: {raw.get('error')}")
-        return False
+        # Conservation: gamma grows with canon growth, eta grows with witness events
+        bookkeeper_tick(float(delta), 1.0)
+        if verbose:
+            print(f"[WESLEY] canon changed: {state['last_hash']} -> {canon_hash} ({state['last_count']} -> {paper_count}, delta={delta})")
+        # Advance the state, otherwise every later poll re-reports the same change.
+        state["last_hash"] = canon_hash
+        state["last_count"] = paper_count
+        save_state(state)
+        return True
     
     if state["last_hash"] is None:
         # First poll

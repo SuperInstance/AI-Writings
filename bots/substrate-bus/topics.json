@@ -90,5 +90,19 @@
         "casper-critic"
       ]
     }
+  ],
+  "canon_changed": [
+    {
+      "ts": 1792858100.9880004,
+      "iso": "2026-10-24T16:08:20.988002+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "b20375d389cb505d",
+        "count": 71
+      },
+      "recipients": [
+        "snowball-scout"
+      ]
+    }
   ]
 }
