@@ -7989,3 +7989,103 @@ quality (last, 1.1905). Extinction risk: **none** — threshold −10, lowest +4
 - `ZAI_URL_OVERRIDE` **is** committed upstream (generic `f"{name.upper()}_URL_OVERRIDE"` hook). The literal
   string `ZAI_URL_OVERRIDE` never appears in the file — `grep -c ZAI_URL_OVERRIDE` returns **0** while the
   hook works. Grep for `_URL_OVERRIDE`.
+
+---
+
+## Session 69 (2026-10-24) — 10th wipe, sparse checkout, two mock formats, main-vs-master
+
+### `main` is the canonical branch — not `master`
+
+Session 68's commit `a9a53e78` lives on **`main`**, not `master`. `master` is a separate essay branch
+(`01f2f4f5` "essay 113: The Reader and the Witness") whose `civ-grounded` ledger has only **112 rows** —
+a different, shorter history. Pushing to `master` is rejected (`fetch first`) and a rebase then replays the
+whole civ-orchestrator history, producing conflicts in unrelated files (`seed-canon/papers/paper-441.md`,
+`witnesses/index.html`).
+
+**Recipe — cherry-pick onto the right branch instead of rebasing:**
+
+```bash
+cd /tmp/ai-writings
+git fetch --depth 50 origin main
+git checkout -B pushmain origin/main
+git config user.name "civilization-orchestrator"
+git config user.email "civilization-orchestrator@superinstance.local"
+git cherry-pick <my-commit>          # stages everything, then fails on missing identity
+git -c core.editor=true cherry-pick --continue
+git push "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git" pushmain:main
+```
+
+Verify with the **commits API** (`/repos/.../commits/main` → sha) and `raw.githubusercontent.com` row
+counts — a push exit code alone is not proof.
+
+### Sparse checkout beats a full clone of this repo
+
+A full `--depth 1` clone pulls a **3.3 G pack** for a 16 KB script. Use a sparse checkout of the one
+subtree instead:
+
+```bash
+git init -q . && git remote add origin "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git"
+git config core.sparseCheckout true
+printf 'cellular-first-design/code/civilizations/\n' > .git/info/sparse-checkout
+git pull --depth 1 origin main
+```
+
+**Do not `rm -rf` a clone directory while `index-pack` is still running.** It deletes `tmp_pack_*`
+mid-flight and the clone dies with `could not open ... tmp_pack_UG8IDt for reading` / `invalid index-pack
+output`. A clone that outlives its 30 s command timeout is **not** a failure — poll for the worktree.
+
+### The ledger holds TWO mock formats — a de-contamination filter must match both
+
+Session 68's "640 mock rows (28 %)" claim is **correct** and re-verified against the committed blob at
+`HEAD`. The marker is a **prefix on `content_preview`**:
+
+| format | rows | shape |
+|---|---|---|
+| older | **640** (80/civ) | `"[mock-zai 47862e3989af] Somebody has to keep the numbers..."` |
+| this session | **80** (10/civ) | `"[The Poetic] Write 100 words on what a cell is. Rendered in a lyrical..."` |
+
+A filter matching only the *current* format silently admits the 640 older rows and **every lifetime number
+comes out wrong** — grounded lifetime avg reads **1.5591 contaminated** vs **1.7366 clean**. The de-con
+lens values must reproduce session 68's to 4 decimals (grounded avg 1.7366, engineer quality 1.1905,
+formal novelty 1.3737); that is the cross-check that the filter is right.
+
+**The 80 rows added by a Control B run are mock rows too and are not tagged** — the ledger still cannot
+distinguish mock from real provider output.
+
+### Two self-inflicted false positives to avoid
+
+1. **Wrong leak test.** Grepping the *whole row* for `mock-zai` in non-`content_preview` fields, or
+   filtering on `content_preview.startswith("[The ")`, concludes "the baseline is clean". Match the
+   `content_preview` **prefix** and cover **both** markers.
+2. **Wrong scaffolding check.** Testing `p.startswith("[The ") and "tenets" not in p` gave **0/80** — because
+   the mock's own body *starts* with `[The Poetic]`. The real leak test is whether the **cultural preamble**
+   (`Your tenets:` / `You are a voice in the tradition`) appears in the content — **0** here.
+
+### Low-relevance answer — 11 lenses, Grounded 5/11
+
+`civ-grounded` is last on 5 of 11 de-contaminated lenses: board sort key **1.4970**, raw relevance
+**417.68**, lifetime avg **1.7366**, lifetime alignment **2.3139** (0.376 below the next civ), this-run
+quality **0.4550**. It ran the **most genuine sims (232)** and still scores lowest ⇒ a real writing deficit.
+`civ-poetic` is the inverse: 1st on `relevance_per_sim` (2.135) **and** 1st on lifetime avg (2.354) **and**
+1st on lifetime quality (1.750), yet **1 win in 128** (wr 0.008) — a *selection* failure. `civ-engineer`
+owns lifetime quality (last, 1.1905). Extinction risk: **none** — threshold −10, lowest +417.68, a
+**427-point margin**; `extinction_and_birth()` only runs in `--loop` mode. Chooser vs argmax **1/5**.
+
+### The NAS can deliver no file larger than a few KB
+
+`/workspace` is at 100 % quota. Small writes succeed; a 16 KB `close()` fails with **EDQUOT**, and a
+chunked 512-byte write fails with **Errno 122**. Even `cp` leaves a **0-byte stub** that *appears* in `ls`.
+**The durable copy is git** — commit the report and push it, then deliver it from the overlay path via a
+symlink: `ln -sfn /tmp/.../FILE.md /workspace/output/FILE.md` (the symlink itself is a tiny NAS write and
+resolves to the overlay inode).
+
+### Session 69 environment notes
+
+- `gh` CLI still absent — GitHub REST API with `GITHUB_TOKEN` only.
+- `GIT_SSL_NO_VERIFY=1` required; the token form `https://x-access-token:$GITHUB_TOKEN@github.com/...` works.
+- The orchestrator writes `__pycache__/` into the civilizations dir — remove it before the commit.
+- `ZAI_URL_OVERRIDE` **is** committed upstream (generic `f"{name.upper()}_URL_OVERRIDE"` hook). The literal
+  string `ZAI_URL_OVERRIDE` never appears in the file — `grep -c ZAI_URL_OVERRIDE` returns **0** while the
+  hook works. Grep for `_URL_OVERRIDE`.
+- The `read`/`edit` tools **cannot write through the symlink bridge** (`ENOENT` on edit) — edit the real
+  file under `/tmp/ai-writings` and let the symlink expose it.
