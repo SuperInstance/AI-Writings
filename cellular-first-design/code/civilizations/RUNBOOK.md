@@ -97,6 +97,18 @@ The mock ignores the bearer value, so a placeholder is safe. Start it detached
 and **kill it by PID from `ps`** (match `python3 /tmp/mock_zai.py` exactly) —
 never `pkill -f mock_zai`, which self-matches. Verify the port is closed after.
 
+### A mock that crashes still leaves a listening socket (session 112)
+
+The Control B mock's seed→word derivation used `seed[i*2:i*2+2]`, which is **empty for
+`i >= 4`** ⇒ `ValueError: invalid literal for int() with base 16: ''` on every request ⇒ the
+bridge answered HTTP 500 and the orchestrator would have scored *nothing*. The socket stayed
+open, so a naive port/200 check looked healthy.
+
+**A 200 on a probe is not proof the mock is correct** — probe it with a payload that exercises
+the same path the orchestrator uses (a long `messages[].content`, not a one-word body), and
+**grep the mock's stdout for a traceback before starting the run.** Fix by wrapping the index:
+`seed[(i*2)%8:((i*2)%8)+2]`.
+
 ## Verifying a run — assert on rows, never on exit code
 
 `call_provider()` returns `None` when the token is missing, `run_simulation()`
