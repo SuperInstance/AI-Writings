@@ -7887,3 +7887,105 @@ the local exit code.
   win is not evidence of a higher JEV score.
 - Counter gap **260** — unchanged, did not widen.
 - No source file modified — only the report and this learnings append.
+
+---
+
+## Session 68 additions (2026-10-24) — the committed ledger already carries 640 mock rows
+
+**Baseline HEAD:** `759649e5` — ledger **2284** rows, `meta_log.jsonl` **148** lines, 8 civs.
+Two runs: inert control (+0) then Control B (**+80 rows, +10/civ uniform, +5 meta_log, 5 winners,
+0 all-2.0-default rows, 0 JEV errors, 80/80 distinct previews**). 16th consecutive identical replication.
+All 20 artifacts restored and byte-verified (20 PASS / 0 FAIL on `cmp` vs the git blob; 20/20 pre-run md5s).
+
+### The credential gap is 31 sessions deep
+
+All 8 sandbox secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` → **401
+"token expired or incorrect"** on every one. No auth header at all → `{"code":"1001","message":"Authentication
+parameter not received in Header"}`. A 401 (not 5xx) ⇒ endpoint healthy ⇒ credential gap, not outage. The
+same `GITHUB_TOKEN` → `api.github.com/user` = **200**, so the secrets are live and the failure is z.ai-specific.
+JEV live at `jev-1.14.0` (probe quality 0.61, confidence 0.50 — a real score).
+
+**NEW trap — `git clone` of the full repo is not needed and the *repo* is hard to find by name.**
+The task path `repos/ai-writings/cellular-first-design/...` is **repo-relative**; there is no repo named
+`cellular-first-design`. `git ls-remote https://github.com/ai-writings/cellular-first-design` → *Repository not
+found*. The org `ai-writings` **does not exist**. The real repo is `SuperInstance/AI-Writings` (capital `A`,
+capital `W`). *Repo* search for `cellular-first-design` returns nothing useful; **GitHub *code* search finds it**:
+```
+GET /search/code?q=civilization_orchestrator+in:path   ->  repo id 1176209018
+```
+
+### NEW — the committed ledger already contains 640 mock rows (28 % of the durable record)
+
+The **baseline** ledger — committed, pre-existing — holds **640 of 2284 rows** whose `content_preview`
+starts with `[mock-zai`. These carry real JEV scores and real timestamps, so nothing downstream flags them:
+**28 % of the fleet's only durable quality record is provider-mock output.**
+
+- **De-contaminate before quoting any lifetime number.** All lifetime lenses this session were computed with
+  mock rows stripped (n per civ 181–244). The contamination shifts absolute means but not the **ordering** —
+  Grounded is last both ways.
+- **The leak test is against the COMMITTED blob, not the working tree:**
+  ```bash
+  git show HEAD:cellular-first-design/code/civilizations/civ-poetic/simulations.jsonl | grep -c 'mock-zai'
+  ```
+- The count is **not** growing from a Control B run, because the Control B rows are restored out of the
+  working tree before the commit. A growing count means someone committed mock rows.
+- **Recommendation (not applied):** purge the mock rows in one explicitly-labelled migration with pre/post
+  row counts, rather than leaving them in the durable record indefinitely.
+
+### The mock, rebuilt from the spec (no committed mock exists — write it each session)
+
+There is no mock script in the repo. Rebuilding it from the spec above, the four rules that matter:
+
+1. **Question extraction:** the **last non-empty line** of the prompt, strip the `Write N words on ` prefix.
+   Never echo the `header + tenets + voice` scaffolding — the chooser only sees 150-char previews.
+2. **Voice selection:** parse the **`Your voice:`** line specifically. Using `lines[1:3]` picks up the
+   `Your tenets:` line and collapses all 8 civs onto the same prefix (the session-? failure mode).
+3. **Seed built AFTER stripping:** `f"{question}|{temp}|{maxtok}|{len(prompt)}|{voice}"` — the salt must
+   never enter the prompt, or it leaks into the rendered content.
+4. **Marker at the FRONT:** `[mock-zai <salt>] (<voice>) …` so it survives the 200-char `content_preview`
+   truncation.
+
+**Acceptance for a healthy mock** (all four must hold, or the run is decorative):
+`distinct content_preview` == 80/80 · 8 distinct voices in the call log · 0 scaffolding/salt leaks in the
+mock's own `question` field · a **varied** winner set (this run: Precise ×3, Grounded, Formal).
+**The row delta cannot detect a degenerate mock** — assert on distinctness and winner-set cardinality too.
+
+### The temperature→novelty band replicates to three decimals — and is still a BETWEEN-civ statistic
+
+| statistic | session 68 | session 67 |
+|---|---|---|
+| `r(preferred_temp, lifetime novelty)` **across the 8 civs** (de-con) | **+0.9383** | +0.9374 |
+| mean **per-civ** within-civ `r(sampled temp, novelty)` (de-con) | **+0.0102** | +0.0103 |
+
+Same conclusion, third replication: the band is a **between-civ** statistic on a confounded per-civ constant.
+`preferred_temp` is confounded with culture, voice and tenets. **Do not cite 0.94 as a within-civ law.**
+The pooled per-row correlation is a Simpson's-paradox artefact.
+
+### Chooser vs argmax(avg_score): 1/5 (20 %) this run
+
+In 4 of 5 rounds the competition crowned a civ that was **not** the top scorer (margins 0.07 / 0.31 / 0.39 /
+0.49). Lifetime agreement remains ~10–13 %. The chooser **never sees the scores**. **A competition win is
+not evidence of a higher JEV score**; `win_rate` is a **selection** metric, never merge it with
+`relevance_per_sim`.
+
+### Low-relevance answer — 11 lenses, Grounded 6/11
+
+`civ-grounded` is last on 6 of 11 lenses (board sort key 1.5028, raw relevance 419.29, lifetime avg 1.7366,
+lifetime alignment 2.3139, this-run avg 1.5193) — the stable finding across sessions 59, 60, 67.
+`civ-poetic` is the inverse: 1st on `relevance_per_sim` (2.1498) **and** 1st on lifetime avg (2.3541), yet
+**1 win in 128** (wr 0.008) — a *selection* failure, not a quality failure. `civ-engineer` owns lifetime
+quality (last, 1.1905). Extinction risk: **none** — threshold −10, lowest +419.29, and
+`extinction_and_birth()` only runs in `--loop` mode.
+
+### Session 68 environment notes
+
+- NAS `/workspace` at 100 % quota (600 G used, 0 avail) — the EDQUOT trap. `git clone` into `/workspace`
+  fails at `.git/description` with *Disk quota exceeded*. `/tmp` is on the overlay and **exempt**.
+- **Bridge:** `rm -rf /workspace/repos; mkdir -p /workspace/repos; ln -sfn /tmp/ai-writings /workspace/repos/ai-writings`
+  — `ln -sfn` will not replace a real directory.
+- The `write` tool is **jailed to the workspace root** and cannot write `/tmp` — use a bash heredoc.
+- Use `<<'PYEOF'` (quoted) for any heredoc whose body contains `$` — an unquoted delimiter expands it.
+- The orchestrator writes `__pycache__/` into the civilizations dir — remove it before the restore/commit.
+- `ZAI_URL_OVERRIDE` **is** committed upstream (generic `f"{name.upper()}_URL_OVERRIDE"` hook). The literal
+  string `ZAI_URL_OVERRIDE` never appears in the file — `grep -c ZAI_URL_OVERRIDE` returns **0** while the
+  hook works. Grep for `_URL_OVERRIDE`.
