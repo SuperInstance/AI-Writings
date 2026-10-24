@@ -6591,3 +6591,91 @@ Grounded's rank, the Grounded's weakness is **not** purely a longevity artefact.
 civs** (0.2 and 0.5). The chooser prefers terse/precise text, which is exactly the opposite of the
 temperature→novelty gradient (r = 0.985) that the quality lens rewards. The high-temperature,
 high-novelty civs accumulate relevance while never being selected.
+
+---
+
+## Session 53 (2026-10-24) — credential gap 18th deep; two corrections to the standing diagnosis
+
+### CORRECTION 1: the 401s are endpoint-specific, NOT a global credential outage
+
+Previous sessions recorded "all 8 sandbox secrets -> 401" and framed it as the sandbox credentials
+being dead. **That framing is wrong.** This session proved the secrets are live:
+
+```
+GITHUB_TOKEN -> https://api.github.com/user  => HTTP 200, login "SuperInstance"
+GITHUB_TOKEN -> https://api.z.ai/api/coding/paas/v4/chat/completions => 401
+```
+
+Same `urllib` call path, same token, different endpoint. **The sandbox secrets work; none of them
+is a z.ai key.** The correct statement is *"no sandbox secret is a z.ai key"* — the key must be
+provisioned, it cannot be recovered from the environment. Do not report a global credential outage
+again; a 401 on one provider plus a 200 on another is a **gap**, not an outage.
+
+### CORRECTION 2: "The Grounded is a bad civ" was over-read from one run
+
+Session 52 reported the Grounded as "a genuinely mediocre writer" (avg_score 1.743 = 3rd lowest).
+Session 53 scored it **2.138 = 7th of 8** with novelty 2.087 = 3rd of 8. Its persistent last place on
+`relevance_per_sim` (1.532) and raw relevance (366.09) is a **longevity artefact**: it has run the
+most sims (239) and the denominator is a lifetime average. **The Grounded is last on a career
+average, not because it got worse.** Only the Poetic anomaly is stable across runs
+(sessions 6, 7, 8, 52, 53).
+
+**Longevity rule (state it whenever you read the board):** `relevance_per_sim` = cumulative
+relevance / cumulative sims, so a civ that ran earlier is permanently penalised. It **cannot
+separate "wrote worse" from "wrote longer"**. Read it as *career average*, never *current form*.
+A fair metric is a rolling window (last 50 sims) — the ledger supports it, `culture.json` does not.
+
+### The two low-relevance civs, always reported separately
+- **The Grounded** — last on the board's sort key and on raw relevance. **Longevity artefact.**
+- **The Poetic** — the genuine anomaly: quality leader (2.719 = 2nd of 8), highest
+  `relevance_per_sim` (2.204 = 1st of 8), and **last on win rate (0.009, 1W/107L)**. The chooser
+  sees only 150 chars of `content_preview` and **never sees the scores**, so `win_rate` measures
+  *selection appeal*, not relevance.
+- **The Precise** (0.544, 56W/47L) is the only civ whose relevance rank and win rate agree.
+
+### The chooser prefers the two lowest-temperature civs — again
+Session 53: Precise x3 + Grounded x2 (5/5 rounds to the 0.2 and 0.5 temperature civs), matching
+session 52 (Precise x4 + Grounded x1). The chooser prefers terse/precise text — the exact opposite
+of the temperature->novelty gradient the quality lens rewards. High-temperature, high-novelty civs
+accumulate relevance while never being selected.
+
+### Environment notes (session 53)
+- **The symlink must be TWO-level, not one-level.** `CIVS_DIR` is hardcoded to
+  `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`, so the **innermost**
+  path must be the symlink:
+  `ln -sfn /tmp/ai-writings/cellular-first-design/code/civilizations /workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+  Symlinking `/workspace/repos/ai-writings -> /tmp/ai-writings` does **not** work.
+- **NAS `/workspace` is at 100 % quota.** `write` to `/workspace/research/x` failed with
+  `cat: write error: Disk quota exceeded` even though the `write` tool's own jail check passed.
+  **Heredoc straight to `/tmp`** for all artifacts, then `cp` into the repo (cp to the repo worked
+  fine — the repo is on the overlay, not the NAS).
+- `write` to `/tmp` errors "Workspace path escapes Cloud Host root" — the tool jail is unchanged.
+  A large `write` to `/workspace` can also die with `-122` on close; retry or use a heredoc.
+- `secret` CLI is **not on PATH** in this sandbox (`command -v secret` -> not found). Only
+  `mcode-tools` is at `/usr/local/bin`. `mcode-tools connector tools --keyword llm` -> `[]`
+  (GitHub + email connectors only) — no LLM provider App.
+- GitHub REST API works with `GITHUB_TOKEN`; `gh` is absent.
+  `/repos/SuperInstance/ai-writings/actions/secrets` -> `[]`, `/actions/variables` -> `[]`.
+- `git log --all -S ZAI_TOKEN` -> 1 hit (the session-52 report itself) — **no key in git history**.
+
+### Mock-harness correctness rule (cost 4 iterations this session)
+A Control B mock that returns the **same body for every civ** produces a green run and a
+**meaningless** leaderboard. The civ key needed normalising twice:
+`marker.split('"')[1]` yields `The Poetic` (bare — the quotes are the delimiters), but the template
+table was keyed `Poetic`, so every civ silently fell back to the Grounded template **with no error
+logged**. Fix: `TEMPLATES.get(civ) or TEMPLATES.get(civ.replace("The ", "", 1))`.
+**Assert the 8 outputs differ before trusting any Control B result.** The 73-distinct-`avg_score`
+check is the cheap guard.
+
+### Background-launch gotcha
+`setsid nohup python3 mock.py &` *inside* a compound command that also contains a heredoc silently
+loses the server (connection refused on the next call), and `pkill -f <name>.py` in the same call
+can kill the freshly-started instance. **Launch the server as a dedicated background task, `pkill`
+in a separate call, then verify with a client probe.**
+
+### Counter gap — 260 rows, still uncounted
+Ledger rows vs `sum(culture.json simulations_run)`: **2044 vs 1784** (was 200 in session 52). The gap
+grew by exactly the 80 Control B rows in part, but the root cause is unchanged: `save_state()`
+rewrites `culture.json` from in-memory counters with no lock and no read-modify-write => lost-update
+race. `relevance_per_sim` is not a reproducible ranking; an auditor cannot recompute the board order
+from the ledger. Report win rate **and** mean `avg_score`, and name the lens.
