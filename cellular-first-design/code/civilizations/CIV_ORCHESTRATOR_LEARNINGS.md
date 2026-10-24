@@ -8550,3 +8550,99 @@ response. **A chooser sweep is a selection result, not a quality result.**
   number of writes per session, not stochastically.
 - **Per-run (n=10) per-civ means are not reportable as a ranking.** Two
   independent runs put the "lowest" label on three different civs.
+
+---
+
+## Session 75 addendum (2026-10-24) — a mock that passes every check except one; and a filter that silently keeps the wrong rows
+
+### Two new durable lessons
+
+**1. A mock whose voice-extraction regex is anchored at `$` with `re.S` will capture the
+whole prompt tail — and the distinct-preview count is what catches it.** The orchestrator
+renders `f"Your voice: {voice}."` on its **own line**. A pattern like
+`r"Your voice: (.+?)\.\s*$"` with `re.S` lets `.` match newlines, so the capture returns
+`'technical, sparse.\n\nWrite 100 words on what a cell is'`. Every request then falls to
+the fallback body. The symptom was **8/50 distinct 200-char previews** plus an `UNPOOLED`
+marker in the output. Fix: iterate `msg.splitlines()` and match the line that *starts with*
+`Your voice:`, then `rstrip(".")`. **A deterministic per-voice body hides the same bug**,
+because the distinct-count check cannot fire — rotate a per-voice counter across the bank.
+The **boot-time per-civ `in pool` printout** is worth more than every acceptance check
+combined, because it fires *before* the run writes rows into the fleet's durable ledger.
+
+**2. The mock-filter for "lifetime" rows must be POSITIONAL, not textual — and the prior
+session's `content_preview.startswith('[')` filter silently kept every mock row this
+session.** Rows are **appended**, so the real z.ai rows are exactly `rows[:BASE_N]` and the
+mock rows are the tail. A textual marker only works if the mock writes a marker; this
+session's mock wrote *real prose* with no `[` prefix, so the old filter would have kept all
+160 mock rows and reported a lifetime population of 2 604 when the real one is 2 444.
+**Sanity check that caught it:** 800 of 2 604 rows start with `[` — those are the *prior*
+session's mock rows, a different population. **Verify the filter by reproducing the previous
+session's baseline numbers exactly** — the positional filter reproduced session 74's
+lifetime table digit-for-digit (grounded 1.554, poetic 2.189, formal novelty 1.470,
+precise alignment 2.868), which is a positive control on the filter itself.
+
+### The A/B gap-ratio is not a sufficient reorder test
+
+```
+perturbation (max |d|) = 0.223  <  median adjacent rank gap = 0.282  => "no reorder possible"
+but 4 of 8 rank slots actually changed, Kendall tau = 0.714
+```
+
+The fleet-mean criterion and the slot-change count **disagreed**: the ratio said the order
+was safe, and the slots moved anyway. **Count the slots that actually moved** and report
+the band, not the order. Only `civ-formal` (top-1) and `civ-whimsical` (bottom-1) survived
+the swap; the band {engineer, mythic, therapist, grounded} did not.
+
+### Standing answers, re-confirmed (22nd session)
+
+- **`civ-grounded` = durable low-relevance civ.** Lowest on **6 of 11** cross-lens metrics:
+  lifetime avg (real), lifetime quality (real), lifetime alignment (real), lifetime avg
+  (all rows), board `relevance_per_sim`, board raw relevance. It holds the **most** real
+  rows (332) and still scores lowest => a genuine writing deficit, not a longevity
+  artefact. Lowest raw relevance **478.14**.
+- **`civ-poetic` = durable selection failure.** 1st of 8 on the board, highest raw
+  relevance (**633.03**), highest lifetime `avg_score` (**2.189**) and highest lifetime
+  quality (**1.472**) — and **1 win in 143** (0.007). 22 sessions.
+- **`civ-precise` = healthiest** (70W/68L, 0.507); the only civ whose relevance rank and
+  win rate agree.
+- **Extinction risk = none.** Lowest +478.14 vs the −10 threshold, and
+  `extinction_and_birth()` only runs under `--loop` every third iteration.
+- **The board is inverted against selection in 8/8 positions** (10th session running).
+- **The counter gap is exactly +260** for the 22nd session — the `save_state()`
+  lost-update race fires on a fixed number of writes per session, not stochastically.
+  Per-civ: whimsical 63, grounded 43, formal 42, poetic 37, engineer 22, mythic 20,
+  therapist 17, precise 16.
+
+### The per-run group can invert a lifetime ordering (new direction of the error)
+
+The prior sessions established that the per-run group (n=10/civ) is too noisy to be a
+verdict, and showed it **inflating** a civ's standing. This session showed the opposite
+direction: **`civ-formal` was lowest in BOTH per-run body sets** (1.868 and 2.074) while
+the lifetime ledger puts it **7th of 8** on avg and the board puts it **7th of 8**. A
+10-row draw from a noisy JEV distribution can invert a lifetime ordering in either
+direction. **Report the durable lenses; label the per-run group as a sample with its n.**
+
+### Chooser vs scorer — 13th replication
+
+Agreement this session: **2/10 (20 %)**. In **8 of 10** rounds the crowned civ was not the
+top scorer, with margins **0.02 – 0.91**. The chooser sees a **150-character preview**; the
+scorer sees the whole response. `win_rate` is a **selection** metric — never report it as
+quality.
+
+### Credential gap — 22nd consecutive session
+
+`ZAI_TOKEN` absent from env and from the 8-entry secret store; all 8 sandbox secrets 401
+against `https://api.z.ai/api/coding/paas/v4/chat/completions`, and the **no-header
+baseline also 401** => the endpoint is healthy, so this is a **credential gap, not an
+outage**. `TYPESAFEAI_KEY` is still absent because the sandbox exports
+`TYPESAFE_AI_TOKEN` (JEV live, HTTP 200, `jev-1.14.0`). Every run needs
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### Environment note
+
+`--depth 1 --filter=blob:none --no-checkout` + `git sparse-checkout set cellular-first-design`
+clones the ~3.7 GB repo as a ~1.8 MB tree in seconds; a full clone into `/tmp` reached
+2.0 GB and was still growing when killed. The NAS `/workspace` remains at 100 % quota —
+`cp` into it fails with `close error: Disk quota exceeded` while `ls` shows the file at
+**0 bytes**, so **write deliverables to `/tmp` (overlay) and copy into the repo checkout
+there**, not into `/workspace`.
