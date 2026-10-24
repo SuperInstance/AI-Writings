@@ -15,10 +15,10 @@
   "voice_emphasis": "structural, practical",
   "color": "#3b82f6",
   "born_at": "2026-09-21",
-  "relevance_score": 1031.200000000001,
+  "relevance_score": 1037.2166666666678,
   "wins": 36,
-  "losses": 365,
-  "simulations_run": 814,
+  "losses": 370,
+  "simulations_run": 824,
   "generation": 1,
   "parent": null
 }
