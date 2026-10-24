@@ -115248,6 +115248,24 @@
     "size_bytes": 12175
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session98.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session98.md",
+    "title": "Civilization Orchestrator — Session 98 (2026-10-24, 113th wipe)",
+    "description": "Command: `python3 .../civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 845,
+    "date": "2026-10-24",
+    "size_bytes": 6468
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session22.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session22.md",
     "title": "Civilization Orchestrator — Session 22 (2026-10-23, 121st wipe)",
@@ -115426,7 +115444,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "90-the-lut",
-    "size_bytes": 662149
+    "size_bytes": 668687
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session96.md",
