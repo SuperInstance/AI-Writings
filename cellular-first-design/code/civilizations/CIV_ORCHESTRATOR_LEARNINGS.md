@@ -7249,3 +7249,84 @@ server — check `ps` before concluding the mock is down.
 All 8 `simulations.jsonl` diffs verified as **pure appends** with the old content an
 exact prefix: `head -n old | cmp -s - <(git show HEAD:path)` => `PREFIX-OK` for all 8.
 Total diff **152 insertions, 67 deletions** across 18 files. No source file modified.
+
+---
+
+## Session 59 (2026-10-24) — 24th credential gap; API bootstrap beats a 7 GB clone; the Grounded is 8-of-11
+
+### NEW SHAPE — the API bootstrap is faster AND more reliable than a full clone
+
+The repo was pushed to **within 1 minute** of session start (`pushed_at 2026-10-24T05:11:27Z`)
+— a moving target. A `git clone --depth 1` into `/tmp/aiw` reached 1.3 GB and then the
+**directory vanished from the filesystem view** mid-run with the clone process dying with it
+(the `/tmp` non-durability trap again, but this time it killed an in-flight clone rather
+than a finished one).
+
+**The trees API is the better bootstrap and should now be the default:**
+
+```bash
+curl -sL -H "Authorization: token $GITHUB_TOKEN" \
+  "https://api.github.com/repos/SuperInstance/AI-Writings/git/trees/main?recursive=1" -o tree.json
+# assert truncated == false  (here: 22 107 entries, ~1.4 MB)
+# then fetch the 36 non-report blobs from raw.githubusercontent.com  (36/36 OK)
+```
+
+Total: **~1.5 MB and seconds**, versus 7 GB and minutes. The civ subtree is only **100
+blobs**; the other 22 000 tree entries are the rest of the monorepo and are irrelevant.
+`raw.githubusercontent.com` does **not** count against the `api.github.com` rate limit, so
+this path survives the 403-rate-limited sessions.
+
+### NEW — the `/tmp` clone can DIE mid-flight; do not assume it is still there
+
+`ls -d /tmp/aiw` returned "No such file or directory" **while `ps` still showed
+`git-remote-https` and `index-pack` running at 40 %+ CPU** against a now-absent path. The
+background task and the filesystem view disagreed. **If the clone is your only copy of the
+tree, an API-fetched copy is the safety net** — fetch the civ subtree *first*, clone second,
+and treat the API copy as the restore source.
+
+### CONFIRMED — the Grounded is lowest on 8 of 11 lenses, and survives de-contamination
+
+| lens | lowest |
+|---|---|
+| A `relevance_per_sim` | `civ-grounded` 1.503 |
+| B raw relevance | `civ-grounded` 419.45 |
+| C win rate | `civ-poetic` 0.008 |
+| D lifetime avg | `civ-grounded` 1.565 |
+| D lifetime quality | `civ-engineer` 0.985 |
+| D lifetime novelty | `civ-formal` 1.447 |
+| D lifetime alignment | `civ-grounded` 1.992 |
+| E this-run avg | `civ-grounded` 1.536 |
+| E this-run quality | `civ-grounded` 0.532 |
+| E this-run novelty | `civ-precise` 1.698 |
+| E this-run alignment | `civ-grounded` 1.750 |
+
+**Lowest-lens count: Grounded 8, Formal 1, Poetic 1, Precise 1.** (Session 58 had 5 of 7.)
+
+**The de-contamination test now exists and should be run every session.** Strip every mock
+row from the baseline ledger and recompute: the Grounded **stays last** on lifetime
+`avg_score` (1.737 vs 1.827 for the next civ) and on lifetime alignment (2.314 vs 2.690).
+**Its last place is not the contamination.** But on *quality* the Engineer is last
+(1.190 vs 1.261, a 0.07 margin) — **the Grounded owns relevance, the Engineer owns quality.
+Do not collapse the two; report the contested lens as contested.**
+
+### NEW — `extinction_and_birth()` can never fire in a single-shot run
+
+The function is only called from the `--loop` branch, on `iter % 3 == 0`. A single-shot
+`--sims 5 --prompts 5` run **cannot** mutate the registry, create a `civ-gen*` directory, or
+retire anyone. Registry stayed at 8 civs; lowest relevance **+419.45** against a threshold
+of **−10** (a 429-point margin). **Never report extinction/birth as a risk of a one-shot run.**
+
+### Micro-notes
+
+- `bc` is **not installed** in this sandbox — use `python3` for arithmetic in snapshot scripts.
+- `ln -sfn` will **not** replace a real directory: `rm -rf` the target first, `mkdir -p` the
+  parent first, then link the **innermost** `civilizations` path.
+- The **unpatched** run rewrote `leaderboard.json` (bumping `iso`) with **zero** work done.
+  A reader cannot distinguish an inert run from a real one by the board's timestamp.
+- The unpatched run left the registry sum at exactly **2024 → 2024 (+0)**, confirming the
+  session-57 "inert run desyncs the counters" claim is **session-specific, not a property
+  of an inert run**.
+- JEV live at `jev-1.14.0` (probe `quality 1.62`, `confidence 0.40` — a real score, not
+  the 2.0 default). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+- All 8 sandbox secrets → z.ai = **401** ×8; the same `GITHUB_TOKEN` → `api.github.com/user`
+  = **200**. **Credential gap, not outage — never phrase it as a global outage.**
