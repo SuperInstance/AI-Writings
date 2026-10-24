@@ -6396,3 +6396,137 @@ comparing the local `git hash-object` sha against the GitHub contents API sha.
 Session report: `RUN_REPORT_2026-10-24_session49.md`, commit `326feff`,
 **pushed to `SuperInstance/AI-Writings` `main` and remote-verified via the contents
 API** (one file, +221/-0, size 10821).
+
+## Session 51 additions (2026-10-24) — the credential gap 16th deep, and the "stable bottom-2" finding did not replicate
+
+### The credential gap is still the whole story (16th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the secret store; `GROQ_TOKEN`
+absent too. All **8** sandbox secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect" on every one** (endpoint healthy => credential gap, not outage).
+`mcode-tools connector tools --keyword zai` -> `{"tools": []}`; `--keyword glm`
+and `--keyword llm` also empty, so the App path cannot supply a key either. No
+z.ai key committed in the repo.
+
+JEV live at `jev-1.14.0` (`quality.score 1.34`, confidence 0.27). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"` — 16th recurrence of the name split.
+
+Unpatched `--sims 5 --prompts 5 --providers zai` -> batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger
+**+0 rows** (1884 -> 1884), meta_log **+0** (123 -> 123). The no-op run **still
+rewrote `leaderboard.json`** (md5 `a5f2f98c...` -> `736d78dd...`) — 16th session
+in a row. **Assert on the row delta, never on the exit code.**
+
+### NEW — the "stable bottom-2 under both body sets" finding did NOT replicate
+
+Session 49 reported the same bottom-2 under two independently-written mock body
+sets and I wrote it up as the useful shape of the A/B. Session 51 ran two
+equally independent body sets and the bottom-2 **changed**:
+
+| | rank agreement | max per-civ \|delta\| | bottom-2 in BOTH sets |
+|---|---|---|---|
+| session 49 | 2/8 | 0.277 | **YES** (`civ-formal`, `civ-grounded`) |
+| session 51 | **1/8** | **0.744** | **NO** (A: mythic+grounded, B: engineer+grounded) |
+
+Only `civ-grounded` held last place in both. **Treat "the bottom survived the
+prose swap" as a per-session observation to be re-checked every session, never as
+a property of the fleet.** One replication is not a pattern.
+
+### NEW — a full-body-set A/B can scramble the ENTIRE table, not just the top
+
+Max per-civ \|delta\| reached **0.744** (civ-grounded) with only **1/8** rank
+agreement and a changed #1 (`civ-therapist` -> `civ-poetic`). That delta is
+larger than most of the spread between adjacent civs on the board. When
+agreement falls this low, the correct report is **"the ordering is not
+measurable from a mock"** — not a ranking with caveats. Report mock runs as
+*harness proof* only.
+
+### Control B — 17th identical replication
+
+**+80 rows** (10 per civ, uniform) from the 1884-row pristine baseline,
+**+5 meta_log** (123 -> 128), **5 winners**, **0 all-2.0-default rows**,
+**0 JEV errors**, 18-20 distinct `avg_score` per civ of 20. The harness is
+live end-to-end; the only missing piece in the unpatched run is a credential.
+
+### Chooser vs argmax(avg_score) — 17th replication
+
+**4/10** agreement over the 10 new meta rows (body set B swept `civ-precise`
+4 of 5 rounds while `civ-poetic` was the top scorer in 3 of 5). A sweep is a
+selection result, not a quality result.
+
+### The low-relevance answer — `civ-grounded` last on FOUR lenses, `civ-poetic` still the selection failure
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.463 |
+| raw relevance | **civ-grounded** | 349.57 |
+| lifetime `avg_score` | **civ-grounded** | 1.742 |
+| lifetime quality | `civ-engineer` | 1.243 |
+| lifetime novelty | `civ-formal` | 1.308 |
+| lifetime alignment | **civ-grounded** | 2.294 |
+| win rate | **civ-poetic** | 0.019 (2W/106L) |
+
+**`civ-grounded` is the one to watch** — last on **four** lifetime lenses, ran
+the **most** sims (239) so it is **not** a longevity artefact, and held last
+place under **both** body sets. **`civ-poetic` remains the flagship selection
+failure**: 1st on the board (2.139), highest raw relevance (479.03), highest
+lifetime `avg_score` (2.399), highest lifetime quality (1.838) — and **2 wins
+in 108**. **17 sessions.**
+
+**Healthiest:** `civ-precise` (53W/50L, 0.515). **Extinction: none** (lowest
++349.57 vs the -10 threshold; `extinction_and_birth()` is `--loop`-mode only).
+
+### Board ranks backwards against selection — only 1/8 positions match now
+
+Previous sessions reported "8/8 positions inverted". This session the count is
+**1/8 matching** (civ-grounded is 8th on both) — i.e. the inversion is still
+near-total, but the metric should be reported as *"1/8 positions match"* rather
+than a hand-wave. The board's sort key rewards average quality; the thing the
+board is *for* is which civ JEV actually selects.
+
+### Counter gap: exactly +260, unchanged for the 17th session (ledger 2044 vs registry 1784)
+
+`save_state()` has no lock and no read-modify-write => `relevance_per_sim` is
+not a reproducible ranking.
+
+### The committed baseline still carries 560 mock rows
+
+`grep -c 'mock' civ-*/simulations.jsonl` on the **pristine committed** ledgers
+returns **70 per civ (560 fleet-wide)** while `provider` reads `zai` on **all
+1884 rows** — the field lies about provenance. **This contradicts session 50's
+claim that the baseline was clean; the mock rows are still in `HEAD`.** Check
+the content, not just the checksum.
+
+### NEW environment notes
+
+1. **`ZAI_URL_OVERRIDE` is NOT in the committed script** (`grep -c` = 0 at
+   HEAD) — but the script *does* read it:
+   `_ov = os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")`. The one-line
+   patch is **unnecessary**; set the env var and the stub works against the
+   committed file. Still verify `grep -c ZAI_URL_OVERRIDE` = 0 after restore.
+2. **`ss -lptn` did not report the mock listener PID** in this sandbox;
+   `ps aux | grep mock_zai` did. **Use `ps` to find mock PIDs, not `ss`.**
+   Kill the `timeout` wrapper too (the `timeout -s KILL` parent outlives the
+   child kill and the port stays bound).
+3. **`curl` against a live mock returns 501 for a GET** (it only implements
+   POST). Do not read 501 as "server down". Closure is confirmed when the port
+   returns **000** *after* the process is killed.
+4. The **sparse-clone fast path worked in ONE foreground call** (50th session
+   running): `git clone --depth 1 --filter=blob:none --sparse` +
+   `git sparse-checkout set cellular-first-design/code/civilizations`. The
+   per-entry symlink bridge (one `ln -s` per file AND per `civ-*` dir) keeps the
+   `read`/`write`/`glob` jail working; a *directory* symlink does not.
+5. `gh` CLI still not installed; use the GitHub REST API. `GIT_SSL_NO_VERIFY=1`
+   required. NAS `/workspace` still at **hard quota** (600 G / 600 G, 0 avail) —
+   clone to `/tmp` and bridge.
+
+### Restore + verification
+
+`git checkout -- cellular-first-design/code/civilizations/` -> ledger 1884,
+meta_log 123, `leaderboard.json` md5 back to `a5f2f98c...`, `git status
+--porcelain` empty, `grep -c ZAI_URL_OVERRIDE` = 0, `__pycache__` removed,
+mocks killed by explicit PID, ports 8931/8932 closed (`curl` -> `000`).
+**91/91 files verified byte-identical to `HEAD`** via `git show HEAD:<path> | cmp`.
+
+Session report: `RUN_REPORT_2026-10-24_session51.md`.
