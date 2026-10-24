@@ -82,6 +82,24 @@ only one of the two copies would split the behaviour. The script was **not** mod
 run, on the principle that a watcher which rewrites its own detector stops being a witness
 to it.
 
+**One transient filesystem artifact was observed and characterised this session, and it is
+not a data-integrity issue.** Twice during verification, `ls -la
+/workspace/repos/ai-writings/bots/wesley-mechanic/` returned `No such file or directory` even
+though the very same absolute path listed correctly moments earlier and moments later, and
+even though `stat -L`, `test -d`, and direct reads of the files inside it all succeeded
+throughout. The cause is NFS client-side cache staleness on the `/workspace` export (which
+`stat -f` reports as `nfs`) during symlink traversal: `/workspace/repos` is a real directory
+on the NFS mount while `/workspace/repos/ai-writings` is a symlink onto the overlayfs
+(`/opt`), and the NFS side occasionally serves a stale negative dentry for the resolved
+target. A 24-iteration probe (12 against the symlink path, 12 against the overlay path
+directly, 0.3s apart) returned **24/24 successes** on both, and the artifacts themselves are
+unaffected because they physically reside on the overlayfs side of the symlink — the stale
+answer comes from the NFS directory-entry cache, not from the files. The practical rule for
+the next session: treat a lone ENOENT on the `/workspace/repos/...` path as suspect until
+re-tested — re-run `ls -la` on the overlay path and diff the file inventory before
+concluding the working copy was lost, and never re-clone or re-checkout over a live
+working copy on the strength of a single failed `ls`.
+
 **Outstanding debt, unchanged: these artifacts must be re-landed onto
 `/workspace/repos/ai-writings` once the NAS quota frees, or the durable copy continues to
 live only in git and the `/opt` overlay, which is wiped on every session reset.**
