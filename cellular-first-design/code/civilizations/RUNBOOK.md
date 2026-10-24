@@ -351,3 +351,59 @@ on one civ, NOT a quality signal.**
   `avg_score` (1.332), `alignment` (1.638), `quality` (0.675), `relevance` (797.20) and
   `relevance_per_sim` (1.288). 22+ sessions reproduce it. Extinction risk **NONE**
   (threshold −10, lowest raw relevance +797.20, 80× above). Counter gap **+260**, unchanged.
+
+### Session 118 — the session-117 degeneracy is FIXED; chooser-vs-argmax is 0 % (2026-10-24)
+
+**The fix (applied).** The mock now seeds from `md5(whole_message)[:8]` instead of the first 8
+alnum chars of the message. The civ-specific fields (name, tenets, voice) enter the hash, so
+each civ emits distinct text. The mock lives at `/tmp/mock_zai.py`; keep the session-112
+index-wrap `seed[(i*2)%8:((i*2)%8)+2]` (a plain `seed[i*2:i*2+2]` crashes on `i>=4`).
+
+**The diagnostic that must pass before you trust any competition result:**
+
+```python
+# for ONE competition prompt, across the 8 civs
+assert len({r["content_preview"] for r in new_competition_rows}) == 8
+```
+
+If it is 1, the mock is degenerate and the run's competition ordering and `avg_score` spread
+are **void**. Measured this session: **8/8 on all 5 prompts, 40/40 across the run** — the
+first clean measurement in the fleet's history.
+
+**Why this matters for the fleet's standing numbers:** every "chooser vs `avg_score` argmax
+≈ 15 %, replicated 29 consecutive times" measurement was taken under the degenerate mock,
+where the chooser was breaking a tie among 8 identical strings. **Session 118's clean value is
+0/5 (0 %)** — the chooser disagreed with the argmax in every competition, and `civ-poetic` was
+argmax in 3/5 and near-argmax in a 4th while winning **zero**. Treat the historical 15 % as
+void and 0 % as the current measurement.
+
+**Session 116's "the chooser picked the lowest-scoring candidate" is re-confirmed** under the
+working mock (winners at `avg_score` 0.077 and 0.217 against argmaxes 0.583 and 0.457). It is
+no longer a mock artifact.
+
+**Still-true standing findings after the fix:**
+
+- **`civ-grounded` (The Grounded) is the low-relevance civ** — last on lifetime `relevance`
+  (799.55), `relevance_per_sim` (1.271), `avg_score` (1.315), `quality` (0.665) and
+  `alignment` (1.616). The **alignment** gap is the structural one: 0.417 below the next civ,
+  versus a 0.037 margin on quality. `alignment` is the dimension the meta-GAN selects on, so
+  the civ fails to *embody a distinctive voice*, not merely to write well. 23 sessions (95–118).
+- **`civ-formal` is the low-novelty axis** (novelty 1.475, lowest; alignment 2.298, fine).
+- **The two stable inverses:** `civ-poetic` = 1st on quality (1.126) / `avg_score` (1.947) but
+  last on `win_rate` (0.017) and won 0/5; `civ-precise` = best `win_rate` (0.490) but 5th on
+  `avg_score` (1.648).
+- **Extinction risk NONE** — threshold −10, lowest relevance +799.55 (81× above floor).
+  Registry 8, `max_civs` 12. Extinction/birth only under `--loop`.
+- **Counter gap is per-civ uneven**, not a uniform offset: civ-whimsical +63, civ-grounded
+  +43, civ-formal +42, civ-poetic +37, civ-engineer +22, civ-mythic +20, civ-therapist +17,
+  civ-precise +16. `save_state()` has no lock ⇒ `relevance_per_sim` is not recomputable from
+  the ledger by an auditor.
+- **`meta_log.jsonl` `results` is a list of `[civ_id, score]` pairs** (not a dict). A
+  dict-shaped reader silently yields 0 % agreement and empty pick tallies.
+- **Re-confirmations:** NAS EDQUOT total (5th session); `gh` not installed (5th session);
+  tool timeout 30 s < run ~45 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten.
+- **Verification pattern held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ =
+  **+5**, `Winner:` lines = **5**, 80/80 rows with the `[mock-zai` prefix, **0** rows with a
+  JEV `error` key.
