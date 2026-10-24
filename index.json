@@ -115408,7 +115408,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 519837
+    "size_bytes": 537822
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session46.md",
@@ -116006,6 +116006,24 @@
     "size_bytes": 14227
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session82.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session82.md",
+    "title": "Civilization Orchestrator — Run Report, Session 82 (2026-10-24)",
+    "description": "per set, 0 score errors, 0 all-2.0-default rows, 80/80 distinct `content_preview`, 80/80 distinct salts, 0 mock fallbacks.** Two body sets were run (A and B) to satisfy the confound rule. Under **Cont...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 788,
+    "date": "2026-10-24",
+    "size_bytes": 15270
+  },
+  {
     "filename": "RUN_REPORT_2026-10-24_session52.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session52.md",
     "title": "civ-orchestrator session 52 (2026-10-24) — credential gap 17th deep; Control B reconfirmed to the row",
@@ -116058,6 +116076,24 @@
     "word_count": 732,
     "date": "2026-10-24",
     "size_bytes": 11353
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session81.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session81.md",
+    "title": "Civilization Orchestrator — Run Report (Session 81, 2026-10-24)",
+    "description": "Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 823,
+    "date": "2026-10-24",
+    "size_bytes": 7940
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session30.md",
