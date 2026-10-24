@@ -1344,3 +1344,39 @@ The 8 impossibility proofs (in order of discovery):
 6. The build cannot ship what hasn't been built
 7. The system cannot be a system without a watch
 8. The agent cannot grow without help (recursion bottoms out)
+
+---
+
+### Civilization Orchestrator — session 36 environment corrections (2026-10-23)
+
+Three corrections to the standing environment notes, all of which contradict what
+was previously recorded:
+
+1. **`/tmp` is EPHEMERAL across tool calls in this sandbox — it is not a safe
+   clone target.** A clone reached 1.7 GB across two tool calls and the
+   directory was gone by the third (`ls: cannot access '/tmp/aw/': No such file
+   or directory`, log file still present). The old advice "clone to `/tmp`, it is
+   exempt from the NAS EDQUOT trap" is only half right: the EDQUOT exemption
+   holds, but the filesystem does not survive between calls.
+
+   **Use `/root/work`** (overlay, 27 G free) for anything that must outlive one
+   tool call. `/var/tmp` and `/mnt/envd` are also overlay-backed. Only
+   `/workspace` hits the NAS quota.
+
+2. **`git clone --depth 1 --filter=blob:none --no-checkout` + `git sparse-checkout
+   set <one-dir>` is RELIABLE and fast** — 968 K, ~30 s, where `--depth 50` pulled
+   1.7 GB and timed out. This contradicts sessions 9/10/11's "the filtered clone
+   always fails". Restated rule: **filtered + sparse to ONE directory = reliable;
+   filtered alone = unreliable.**
+
+3. **`/workspace` is an NFS mount at 100 % quota (600 G / 600 G, 0 avail).** Every
+   write there produces a **0-byte file that still appears in `ls`**, including
+   into `/workspace/.skills/`. File delivery to the user is therefore BLOCKED
+   while the quota is full — it is not a tooling problem. The durable channel is
+   the git remote (`SuperInstance/AI-Writings`, note the capitalisation: pushing
+   to `ai-writings` works but the server answers "This repository moved").
+   Verify a push via the **commits API**, not the push output.
+
+Also confirmed this session: `gh` is still absent, `GIT_SSL_NO_VERIFY=1` is still
+required, and the `write` tool remains jailed to the workspace root (use a bash
+heredoc for files destined for `/root`).
