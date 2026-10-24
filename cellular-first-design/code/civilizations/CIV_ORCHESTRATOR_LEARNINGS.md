@@ -9479,3 +9479,128 @@ so it is the one civ this run does not measure. **Rankable:** `civ-grounded` bot
 5. **The mock must be restarted between body sets with a new `MOCK_LOG`/`MOCK_BODY_SET`/
    `MOCK_SEED`, launched via a wrapper that exports the env inside it.** The log file appears
    only on the **first request**; a missing log right after launch is not evidence of death.
+
+---
+
+## Session 83 additions (2026-10-24) — the credential gap 24th deep; the mock keys on the culture NAME; "exit 0 + 0 rows" has TWO causes
+
+### The credential gap (24th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env. All **8** sandbox secrets re-tested with a real POST
+against `https://api.z.ai/api/coding/paas/v4/chat/completions` -> **HTTP 401** "token expired or
+incorrect" for every one. A 401 (not 5xx) => the endpoint is healthy -> **credential gap, not
+outage**. JEV live at `jev-1.14.0` (`{"score":0.77,"confidence":0.38}`).
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**NEW — the secret store is not always mounted, but the secrets are in `env`.** `secret list`
+worked in this sandbox (8 entries) and `env | cut -d= -f1` shows the same 8 names. The credential
+audit therefore never depends on the store: **`env` first, store second**. Do not report "no
+secrets available" without printing `env | cut -d= -f1`.
+
+### NEW — the mock's voice table must be keyed by the culture NAME, not the civ id
+
+**The first Control B attempt of this session produced 0 rows and looked exactly like Control A's
+credential failure.** The orchestrator interpolates the culture **name** into the prompt:
+
+```python
+cultural_prompt = f'You are a voice in the tradition of "{self.culture["name"]}".\n...'
+```
+
+i.e. `"The Grounded"`, not `civ-grounded`. A voice table keyed by civ id therefore matches
+nothing, the mock's fail-closed selfcheck fires, and the server `sys.exit(1)`s — giving
+**exit 0, zero rows, zero winners**.
+
+> **Rule: key the mock on `culture["name"]`; keep the civ id as an alias.**
+> **Diagnostic: read the MOCK's stderr, not just the orchestrator's stdout.** A selfcheck failure
+> prints the unclassifiable prompt and the list of known civs.
+> **"Exit 0 + 0 rows" has TWO distinct causes — a missing credential (orchestrator side) and a
+> mis-keyed voice table (mock side). Separate them with the mock's call log: 0 calls =
+> credential; >=1 call then silence = keying.** This cost one wasted Control B run.
+
+### `ZAI_URL_OVERRIDE` is still committed — the blast radius is ZERO lines
+
+`grep -n ZAI_URL_OVERRIDE civilization_orchestrator.py` -> line 47, unchanged since session 82.
+Control B remains **env-only**: `ZAI_TOKEN=<set>` +
+`ZAI_URL_OVERRIDE=http://127.0.0.1:<port>/chat/completions`. **Check this before planning a
+patch** — patching an already-patched line creates a second, conflicting mechanism.
+
+### Control A / Control B, to the row
+
+| metric | Control A (unpatched) | Control B | expected |
+|---|---|---|---|
+| ledger rows | 2684 -> 2684 (**+0**) | 2684 -> **2764 (+80)** | +80 |
+| rows per civ | 0 | **+10 each, uniform** | 10 |
+| `meta_log.jsonl` | 173 -> 173 (+0) | 173 -> **178 (+5)** | +5 |
+| `Winner:` lines | **0** | **5** | 5 |
+| rows with an `error` field | — | **0** | 0 |
+| all-2.0-default rows | — | **0** | 0 |
+
+Score spread across the 80 new rows: quality 0.27–2.22 (64 distinct), novelty 1.37–2.83 (58),
+alignment 2.46–3.52 (46); `avg_score` took **70 distinct values in 80 rows**. Real JEV, not the
+`{"quality":2.0,...}` default. `leaderboard.json` is rewritten on **both** controls, including
+the no-op (3rd confirmation).
+
+### The committed ledger is 37.6 % synthetic, and this session contributed 0 of it
+
+`grep -c '\[mock-zai' civ-*/simulations.jsonl` -> **120 per civ** (pre-existing; this run added
+10, then restored), **1040 / 2764 = 37.6 %**. `meta_log.jsonl` holds 178 winner entries computed
+over that corpus, so the `wins`/`losses`/`win_rate` signal — the metric the learnings call the
+most trustworthy — is itself computed over a corpus that is 37.6 % synthetic.
+
+> **The rule was right and was not applied — again.** Sessions 6/7/8 documented "mock rows are not
+> committed"; their own runs were clean, but rows written by *earlier* sessions were committed and
+> never reaped. **A ledger rule enforced only on the writes of the session that learns it does not
+> clean the history it inherits.** The one-line whole-file guard:
+> `grep -l '\[mock-zai' civ-*/simulations.jsonl && echo "LEDGER CONTAINS MOCK ROWS"`.
+
+### Low relevance, 9 lenses (unchanged shape, new numbers)
+
+`civ-grounded` is last on **4 of 9** lenses (rel_per_sim 1.476, raw relevance 485.61, lifetime
+real-row avg 1.7210, lifetime alignment 2.287) — **4 sessions running**. It is *not* a collapse:
+it ranks mid-field on win rate (0.250) and **beat 7 of 8 civs in this run's own competition**.
+`civ-poetic` remains the inversion: **1st of 8** on raw relevance (666.96), rel_per_sim (2.124),
+lifetime real-row avg (2.3162) and lifetime alignment (3.013), and **last of 8 on win rate,
+1W/152L = 0.007** — **23 sessions running**. `civ-formal` is the newcomer to the bottom on this
+run's own avg (1.778, quality 0.750) — one run is not a trend. `civ-precise` keeps the best win
+rate (0.514, 76–72). `civ-therapist` posted this run's best avg (2.504).
+**Extinction risk: none** (threshold -10, lowest +485.61).
+
+### Replications
+
+- Chooser vs `argmax(avg_score)`: **0/5 (0 %)**. Margins ran to **+0.03**.
+  **12th consecutive replication.**
+- Counter gap unchanged at exactly **+260** (ledger 2764 vs `simulations_run` 2504).
+- `meta_log.jsonl` `results` is a **LIST OF PAIRS**, not a list of dicts.
+
+### NEW environment traps
+
+1. **NAS `/workspace` at 100 % (600 G/600 G, 0 avail)** -> 0-byte files; `git init` fails at
+   `.git/description`. `/tmp` (overlay) is exempt. The **one-level symlink bridge**
+   (`ln -sfn /tmp/aiw2 /workspace/repos/ai-writings`) makes the hardcoded `CIVS_DIR` resolve into
+   the clone. **Verify the bridge with `wc -c` on a 0-byte touch, not by the exit code.**
+2. **`cp -r` of a blobless (`--filter=blob:none`) clone yields 0-byte files** — the working tree
+   holds lazy-fetch stubs. Fetch the blobs, or clone normally (`--depth 1` of the full tree
+   worked here: 4.9 GB, 20 719 files).
+3. **`ls -la <path>` on a missing path returns exit 2** — that is not evidence the repo is missing.
+4. **`sed` on a non-matching pattern is a silent no-op**, and it made a *negative* result look
+   like a pass: my first "mutation test" of the mock's selfcheck mutated nothing and therefore
+   tested the **unbroken** mock. **Assert the mutation landed** (`grep -c` the mutated token)
+   before trusting any negative result. A fail-closed claim that was never broken is untested.
+5. **`secret` may not be in `PATH`** even when the secret tool works — use the tool API, and fall
+   back to `env | cut -d= -f1`.
+
+### The mock's fail-closed selfcheck — mutation-verified twice
+
+Renaming one culture name in a *copy* of the mock made it `sys.exit(1)` with the missing-name
+list and the incoming prompt; the real mock served normally. Verified against **both** the
+id-keyed and the name-keyed table.
+
+### State at session 83 close
+
+- 8 civs, **2764** ledger rows at this run's peak, `meta_log.jsonl` 178 at the peak.
+- **Restored to pristine**: all 8 `simulations.jsonl` + all 8 `culture.json` + `meta_log.jsonl` +
+  `leaderboard.json` byte-verified **identical to the git blob** via `cmp` (18/18 files, 0
+  mismatches). This session commits **the report and the learnings only** — no ledger rows.
+- Session report: `RUN_REPORT_2026-10-24_session83.md`.
+- **Credential gap: 24 sessions deep.** Control A: no-op. Control B: +80 uniform, 5 winners,
+  real JEV, 0 errors.
