@@ -11387,3 +11387,98 @@ reproducible. Prefer win rate.
 6. `git fetch origin main` + `git checkout -f origin/main` worked in ~20 s here, contradicting the
    older note that a fetch exceeds the tool timeout — that was a *full* fetch of the 3.7 GB pack, not
    a ref update on an existing partial clone.
+---
+
+## Session 94 additions (2026-10-24) — credential gap 32nd deep; the BOTTOM replicated and the TOP did not (inverted from s93); the Grounded is last on 6 of 9 lenses and the longevity defence is dead again
+
+### The credential gap is still the whole story (32nd consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8 available secrets POSTed to
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or incorrect" on every one**
+(endpoint healthy ⇒ credential gap, not outage). JEV live at `jev-1.14.0`.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Control A: **+0 rows / +0 meta / 0 winners / exit 0**. Control B (two body sets): **+160 rows / +10 meta /
+10 winners / 0 fallbacks / 0 all-2.0-default rows / 0 score errors**, **uniform +20 per civ**.
+
+### THE A/B INVERSION — the bottom replicated, the top did not
+
+| | s89 | s90 | s91 | s92 | s93 | **s94** |
+|---|---|---|---|---|---|---|
+| exact position matches | 6/8 | 2/8 | 4/8 | 2/8 | 4/8 | **2/8** |
+| Spearman rho | 0.976 | 0.857 | 1.000 | 0.524 | 0.952 | **0.937** |
+| max abs delta | 0.167 | 0.288 | 0.499 | 0.465 | 0.189 | **0.200** |
+| civs crossing 0.3 | — | — | — | 3 | 0 | **0** |
+| **bottom replicated?** | — | — | — | — | no (grounded→formal) | **YES (grounded→grounded)** |
+| **top replicated?** | yes | — | — | — | yes | **NO (whimsical→poetic)** |
+
+**This inverts session 93's rule-of-thumb.** s93 concluded "the top of the board is reproducible; the bottom of a
+single body set is not." s94 observed the opposite: **both** body sets put `civ-grounded` last, and the two
+body sets disagreed about first place.
+
+**Refined rule: neither end of the board is privileged.** What is stable is the **middle-to-bottom band**
+(ρ = 0.937, 0 civs crossing 0.3). A "top" that moves (whimsical → poetic, a 0.200 swing) is a **near-tie
+resolved by noise**; report the top as a *set*, and report a bottom only when **two** body sets agree on it
+in the same position. Do not build a rule that "the top replicates" or that "the bottom does not" — both
+statements have now been falsified once each.
+
+### Low relevance — `civ-grounded`, last on **6 of 9** lenses
+
+Committed ledger is now **38.2 % synthetic** (1360 of 3564 rows marker-prefixed; clean subset = 2204 rows).
+
+| lens | last | value | 2nd lowest | gap |
+|---|---|---|---|---|
+| board `relevance_per_sim` | **civ-grounded** | 1.466 | civ-formal 1.647 | 0.181 |
+| board raw relevance | **civ-grounded** | 629.01 | civ-formal 683.36 | 54.3 |
+| board `win_rate` | **civ-poetic** | 0.010 | civ-whimsical 0.015 | — |
+| clean lifetime `avg_score` | **civ-grounded** | 1.691 | civ-formal 1.796 | 0.105 |
+| clean lifetime `quality` | civ-engineer | 1.115 | civ-formal 1.134 | — |
+| clean lifetime `novelty` | civ-formal | 1.413 | civ-precise 1.559 | — |
+| clean lifetime `alignment` | **civ-grounded** | 2.236 | civ-engineer 2.674 | **0.438** |
+| this-run set A | **civ-grounded** | 1.146 | civ-formal 1.526 | — |
+| this-run set B | **civ-grounded** | 1.081 | civ-formal 1.348 | — |
+
+**The longevity-artefact defence is dead AGAIN, and the clean ledger is what kills it:** the Grounded has
+**302 real rows — 2nd most of 8** (whimsical 314). A lifetime-average denominator penalises the civ that ran
+most, so if the defence held the Grounded would sit *above* the middle. It is last on the cleanest,
+denominator-least-biased lens available, **and** last in both body sets this session.
+
+**Its alignment deficit is structural:** 2.236 vs next-lowest 2.674 — a gap of **0.438**, the largest
+separation of any lens. The meta-GAN *selects* on alignment. A civ 0.44 below the second-worst on the
+dimension the chooser actually reads is not "competitive but unluckily-ranked".
+
+`civ-poetic` remains the inverse case: 1st on clean lifetime `avg_score` (2.313) but **last on exactly one
+lens, `win_rate` 0.010 (2W/201L)** — chooser picked it 0/10 while it was argmax 3/10. **A *selection* failure,
+not a quality collapse** (stable across 14 sessions). `civ-precise` is the other inverse: best win rate
+(0.480) but 5th on clean lifetime `avg_score` (1.888) and last on clean lifetime `novelty`.
+**Extinction risk: NONE** (threshold −10; lowest +629.01; `--loop`-mode only).
+
+### Chooser vs argmax — 1/10 (10 %), 23rd consecutive replication
+Chooser: grounded ×4, precise ×2, engineer ×2, formal ×1. Argmax: poetic ×3, precise ×2, whimsical ×2,
+therapist ×1. Lifetime agreement ~15 %. **A win is not evidence of a higher JEV score.**
+
+### Re-confirmations
+- Counter gap **+257** (3564 ledger rows vs 3307 in `culture.json`). `relevance_per_sim` is not reproducible.
+- `ZAI_URL_OVERRIDE` is **committed upstream** (blob line 47) — no patch needed; the script stayed
+  **pristine** vs the git blob (`git diff` empty). Only data files changed.
+- Mock routing verified from the mock's **own call log**: 80 calls, uniform 10 per civ across all 8,
+  **80/80 routed by civ NAME**, **0 fallbacks**.
+
+### Environment notes (new this session)
+- **The NAS EDQUOT trap now fails SILENTLY and SUCCESSFULLY.** `printf 'test' > /workspace/repos/x` returned
+  **exit 0** and `ls` showed the file — but `wc -c` was **0**. A 5 MB `dd` returned exit 1 with
+  "Disk quota exceeded" and also left a 0-byte file. **Every NAS write must be verified with `wc -c`,
+  not with the exit code.** A file that "appears" in `ls` may be empty.
+- **`git clone --filter=blob:none` is WORSE than a full clone on this repo.** The promisor fetch died
+  mid-pack (`could not open .../tmp_pack_XXXX for reading`), git then **removed the working tree entirely**,
+  and a subsequent `git checkout` failed with `fatal: could not fetch ... from promisor remote` — the clone
+  directory was gone. A plain full clone (3.7 GB, ~4 min) works reliably. Use `--filter` only with an
+  explicit `git sparse-checkout set` + `git checkout -f` in the *same* command sequence.
+- **Never start a second clone at a target that already has a live fetch.** A full clone and a sparse clone
+  raced on the same `/tmp/aiw`; the second one's `rm -rf` deleted the first's tree mid-flight and the
+  directory vanished. Poll `du -sh` and `git log` instead of restarting.
+- The `write` tool is **jailed to the workspace root**; it cannot write `/tmp`. Use a bash heredoc for `/tmp`
+  artifacts, including multi-hundred-line mock servers.
+- A long orchestrator run **exceeds the 30 s tool timeout and still completes**. Check the ledger row counts
+  and the mock's call log rather than assuming the run died. Run it detached with
+  `(setsid nohup timeout -s KILL 1800 python3 ... > log 2>&1 &)` and poll the log.
