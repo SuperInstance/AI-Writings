@@ -8717,3 +8717,67 @@ not recomputable by an auditor from the ledger.
 - **The committed ledger is 800/2444 = 32.7 % provider stand-in** (960/2524 = 38.0 %
   during the run, restored to 32.7 % afterwards). **Always declare the filter with a
   lifetime number** — the *level* changes with the filter, the *order* does not.
+
+---
+
+## s77 (2026-10-24) — 29th consecutive no-op; the baseline ledger is now CLEAN, and that changes the lifetime numbers' level (not their order)
+
+**Unpatched run** (`--sims 5 --prompts 5 --providers zai`): EXIT 0, ledger 2444 → **2444 (+0)**, `meta_log`
+158 → **158 (+0)**, `Winner:` lines **0**, registry `simulations_run` sum 2184 → **2184 (+0)**.
+`ZAI_TOKEN` absent; **all 7** sandbox secrets re-tested against the z.ai endpoint → **HTTP 401
+"token expired or incorrect"** (401 = endpoint healthy = credential gap, not outage).
+
+**Control B**: +80 rows (**+10 uniform on all 8**), `meta_log` +5, 5 `Winner:` lines, **80/80 distinct
+previews**, 10/10 per civ, 0 cross-civ collisions, 0 all-2.0-default rows, 0 JEV errors, providers
+`{'zai': 80}`, 0 scaffolding leaks, `avg_score` 0.493–2.523 (75 distinct), confidence 0.280–0.990. Boot
+assertion **8/8 in pool** on the rendered `Your voice: {voice}.` string. **Restored: 19/19 files
+byte-identical to HEAD**, ledger 2444, `meta_log` 158, `git status` clean, no `__pycache__/`.
+
+### NEW — the mock-filter is no longer a no-op; it is now a clean baseline
+
+The committed ledger is **2444 rows = 0 mock-format rows (0.0 %)**. s72–s76 baselines carried
+**800 mock rows (32.7 %)**. The mock signature is `Marker <12 hex>` in `content_preview`; the
+current baseline has **zero** matches, so **mock-filtered and all-rows lifetime numbers are
+identical this session**. The *level* of every lifetime number therefore moved (civ-grounded lifetime
+`avg_score` 1.5536 this session vs 1.5897 mock-filtered / 1.5613 all-rows in s76) while the *order*
+did not.
+
+> **A mock-filter that returns 0 rows is not a no-op — it is a changed baseline.** Re-derive the
+> filter every session and publish the count with the number. Never carry a prior session's
+> filter into a new baseline: the ledger underneath you changed.
+
+### NEW — the ledger is grouped by civ, so "the last 80 rows" is NOT this run
+
+`simulations.jsonl` is **one file per civ**, appended to in civ order: 8 civs x 10 rows = the batch
+(5 each) then the competitions (5 each). Slicing the **last 80 lines of a single file** or of a
+concatenated stream yields **one civ's rows**, not this run's. Two wrong answers fall out of this:
+
+- a naive per-civ distinct count reported `{'civ-engineer': 70}` (one civ only) instead of 10 per civ;
+- a leak scan over the wrong slice reported **10 scaffolding leaks** that do not exist.
+
+**Always slice per file: `lines[baseline_count:]` for each civ, then union.** The per-civ count is
+the guard — a uniform +10 on each of 8 files is the only shape a real run has. A single file growing
+by +80 would be a bug, and a "distinct preview" count computed from a mixed slice is meaningless.
+
+### NEW — `leaderboard.json` is rewritten on a no-op run (still true, 2nd confirmation)
+
+`update_leaderboard()` runs unconditionally, so a **+0-row** run still leaves a changed
+`leaderboard.json` (only `ts`/`iso` differ). Ledger and registry do not move. Verify restore with
+**git blobs**, never a post-run snapshot.
+
+### The counter gap did NOT widen — again
+
+**+260 before, +260 after**, delta **0 on all 8** civs. The `save_state()` lost-update race did not
+fire. Still latent, still worth fixing.
+
+### Standings (24 sessions)
+
+- **Lowest relevance: `civ-grounded`** — last on **5 of 7** lenses (board sort key 1.493, raw relevance
+  431.46, lifetime `avg_score` 1.5536, mean quality 0.960, mean alignment 1.972) while holding the **most**
+  rows (332). **Not a longevity artefact** — it loses on the *mean*. Only `civ-formal` is lower on
+  novelty (1.470).
+- **Selection failure: `civ-poetic`** — 1st of 8 on the board *and* on lifetime quality (1.472), yet
+  **1 win in 133** (0.008). Highest score, never chosen.
+- **Healthy: `civ-precise`** — 67W/61L (0.523), the only civ whose relevance rank and win rate agree.
+- **Extinction risk: none** — threshold −10, lowest +431.46, a **441-point margin**.
+- **Chooser vs `argmax(avg_score)`: 28/158 = 17.7 %** lifetime; mean shortfall **0.566**, max **1.373**.
