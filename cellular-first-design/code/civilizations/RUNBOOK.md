@@ -150,3 +150,37 @@ derived from `md5(content + len(pool))` repeats ⇒ 80 rows but 40 distinct
   **not recomputable from the ledger** by an auditor.
 - **Extinction risk: NONE** (threshold −10; lowest raw relevance ≈ +707).
   Registry 8 civs, `max_civs` 12. Extinction/birth only runs under `--loop`.
+
+### The NAS EDQUOT trap is TOTAL, not size-dependent (session 114)
+
+Session 113 recorded "a 100-byte file also fails". The precise finding: **no write to the
+NAS succeeds at all** — a 5-byte `echo` produces a **0-byte** file. The signature is a
+0-byte file that `ls` still lists, with `cp` exiting 0. Do not reason about a size threshold;
+`mkdir` works and the symlink bridge is the only way in. Verify the bridge by **inode
+identity** (`stat -L -c '%d:%i'` on both sides), not by `ls`.
+
+### Faster sparse fetch: single-subtree checkout (session 114)
+
+`git clone --filter=blob:none --no-checkout` then `git checkout HEAD -- <subdir>` reaches a
+single directory in seconds without downloading the repo's 3.7 GB of blobs — faster and
+simpler than `sparse-checkout init/set` for one directory.
+
+### Finding the upstream owner without `gh` (session 114)
+
+`GET /user/repos?per_page=100&sort=updated` with `GITHUB_TOKEN` lists every repo the token
+can see. `SuperInstance/AI-Writings` is the 3.7 GB one; the `ai-writings/cellular-first-design`
+slug 404s. `gh` is not installed in this sandbox.
+
+### Backgrounding from the tool shell blocks the call (session 114)
+
+`setsid nohup ... &` **does** start the job, but the child inherits stdout so the *tool call*
+does not return until the tool timeout. Redirect the child's stdout/stderr to a file and
+expect the call to hang; verify the job with `ps` rather than assuming the launch failed.
+Both the mock and the orchestrator ran to completion this way.
+
+### `ps | grep <script>` self-matches the launching shell (session 114)
+
+The shell's own command line contains the script path, so `grep` matches it too. Use
+`ps -eo pid,args | awk '/mock_zai/ && !/awk/'` and match the *exact* args
+(`python3 /tmp/mock_zai.py`) to find the real server pid. The `timeout` wrapper is a
+separate pid — kill both.
