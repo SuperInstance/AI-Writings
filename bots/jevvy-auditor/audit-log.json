@@ -449,6 +449,96 @@
           }
         }
       }
+    },
+    {
+      "ts": 1792825563.1877916,
+      "iso": "2026-10-24T07:06:03",
+      "verdict": "FAIL",
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "wesley-what-they-didnt-notice",
+        "wesleys-confession",
+        "wesley-the-journal-grows"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 1.39,
+          "confidence": 0.47,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.13,
+            "1": 0.43,
+            "2": 0.37,
+            "3": 0.07,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.11
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.49
+        },
+        "q3": {
+          "type": "score",
+          "score": 1.76,
+          "confidence": 0.47,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.09,
+            "1": 0.26,
+            "2": 0.45999999999999996,
+            "3": 0.18,
+            "4": 0.01
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.2,
+          "confidence": 0.83,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.87,
+            "1": 0.09,
+            "2": 0.02,
+            "3": 0.01,
+            "4": 0.01
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "low-quality",
+          "confidence": 0.26,
+          "probabilities": {
+            "low-quality": 0.41,
+            "redundant": 0.06,
+            "off-topic": 0.11,
+            "too-abstract": 0.38,
+            "none": 0.04
+          }
+        }
+      }
     }
   ]
 }
