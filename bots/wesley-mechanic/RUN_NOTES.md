@@ -733,3 +733,63 @@ than a conservation law. `last_conserved` is therefore False on **every** reacha
 carries no signal. Seventeenth poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to
 the live `gamma+eta` total, or drop the constant and make the predicate mean what it claims — but the script is
 upstream and byte-identical to its git blob, so no patch was applied.
+
+## 2026-10-24T02:17Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~30.2h, and ~14 min
+  since the 02:02Z poll.
+- **Confirmed twice by independent paths:** the watcher's own `poll_canon()`, and a separate
+  curl probe taken *after* the watcher run (HTTP 200, 13720 bytes) whose
+  `sha256(json, sort_keys)[:16]` recomputes to the same `b20375d389cb505d`.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent), so the
+  2026-10-22 count-key fallback fix remains load-bearing.
+- **Log append:** two rows. The unconditional `bot_started` event (written by `main()`), then
+  the `witness_note` for this run. 81 -> 83 rows.
+- **No canon-change note written.** A hash match is not a transition. The `witness_note` row is
+  a NO-CHANGE record and claims no transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and
+  `canon_changed` branches, so stable canon correctly produces zero ticks — `bookkeeper.wal`
+  still does not exist and `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 83/83 rows parse and carry `ts, iso, event, payload, hash`. 80/83 row
+  checksums verify; 2 are literal `RECOVERED` markers (rows 9, 12); 1 is the inherited stale
+  hash on row 25 (stored `88839488ea23e66c`, computed `2553b915563b73cc`) — the known upstream
+  authoring slip, **not** introduced by this run. Both rows appended by this run verify.
+  Linkage class remains `row-checksum` (no row carries `prev`/`prev_hash`), so deletion and
+  truncation of a row are undetectable in this format — the honest verdict is
+  `80/83 row checksums accounted for — linkage class row-checksum`, not "chain-intact".
+- **Substrate log:** byte-unchanged (`substrate-witness.jsonl` md5 `24a2c03292371575655a287c334d8df8`,
+  `topics.json` md5 `58599882cd997ecc57ea71d14bf09f52`). Correct — the substrate calls in the
+  watcher fire only from the `first_poll` branch.
+
+### Environment (12th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` was an empty NAS mount at
+  600G/600G, 100%, 0 bytes available.
+- **Recovery:** fetched the script, `witness.log`, `state.json` and the substrate-bus trio via the
+  GitHub contents API and `raw.githubusercontent.com`, staged to `/tmp/wm-run/bots/` because the
+  script hardcodes those paths for `witness.log` / `state.json` / `bookkeeper.wal` and does
+  `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` — `substrate_bus` must be staged alongside
+  it or the import dies.
+- Staged script md5 `206682962c06f9814a5db65c2fbc7267` — byte-identical to upstream. No code
+  changes were needed this run.
+- **The NAS symlink fix was applied again, and the `stat` trap was nearly missed.** `substrate_bus.py`
+  hardcodes its write targets to `/workspace/repos/ai-writings/bots/substrate-bus/{substrate-witness.jsonl,topics.json}`,
+  and on a 100%-full NAS a write there lands as a **0-byte stub that still shows up in `ls -la`**. Both NAS
+  paths were symlinked to their `/tmp/wm-run/bots/substrate-bus/` counterparts.
+  **Note for next time:** bare `stat -c %s` on a symlink reports the *link length* (54 and 42 bytes) and
+  looks like truncation; `stat -L` follows the link and reports the true target size (1085 and 6739 bytes).
+  Always use `stat -L` for a symlinked file — `ls -la` shows the link size too.
+- **Git route:** `git init --template=` into the overlay plus `GIT_SSL_NO_VERIFY=1 git fetch --depth 2
+  origin main`, then a hand-written `.git/info/sparse-checkout` (the `git init --template=` route skips
+  creating `.git/info/`, so it must be made by hand) and `git checkout -f origin/main`.
+  Upstream `witness.log` at `origin/main` was byte-identical to the staged baseline
+  (`6df959e7d8325d41eb75b877a3b0edef`), so the committed diff is exactly the two rows this run appended.
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a **constant false
+by construction** — the delta path can never satisfy the predicate, so the field carries no signal. Eighteenth
+poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to the live `gamma+eta` total,
+or drop the constant and make the predicate mean what it claims — but the script is upstream and byte-identical
+to its git blob, so no patch was applied.
