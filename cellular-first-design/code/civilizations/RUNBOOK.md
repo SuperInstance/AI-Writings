@@ -468,3 +468,62 @@ failure. It is 2nd worst on this run's `alignment` too.
 - **Verification pattern held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ =
   **+5**, `Winner:` lines = **5**, 80/80 rows with the `[mock-zai` prefix, **0** rows with a
   JEV `error` key, sim→competition ts gap at index 4 in all 8 civs.
+
+### Session 121 — the quality axis is a LEVEL, not a property; chooser-vs-argmax is 4/5 (2026-10-24)
+
+**Mock rebuilt from scratch** (this session's `/tmp` was wiped), so the session-112 index-wrap
+bug was live again. The **pre-flight probe saved the run**: assert 3 different civs → 3
+different seeds against the *live* mock with the exact long cultural prompt, and
+`grep -c Traceback /tmp/mock_zai.log` → **0**, *before* launching the batch. A crashing mock
+still leaves a listening socket, so a port/200 probe looks healthy — this is the one check
+that cannot be skipped after a rebuild.
+
+**Verification held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, **0** rows with a JEV
+`error` key, sim→competition ts gap at index 4 in all 8 civs (1.08 s–22.74 s), and
+**5/5 competition prompts at 8/8 distinct previews** — the third clean mock measurement
+(118, 120, 121).
+
+**NEW — the quality collapse is a LEVEL, not a property of the mock.** Session 119 measured
+`quality` at 0.009–0.030; session 120 at 0.106–0.446; **session 121 back at 0.010–0.37
+(mean 0.0193)** — under the *same* mock, which was **rebuilt**, not reused. So the collapse
+is **not** a stable property; it is a level that moves. The durable rule survives and is
+re-confirmed: **compare cross-civ spreads, not absolute levels, before ranking on a
+dimension.** `alignment` again carried the widest spread (per-prompt 0.96–2.82) and is again
+the axis the chooser selects on.
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in **5/5** and won
+**4/5**; `civ-formal` won the one it lost (argmax was still `civ-precise` at 1.73). The
+clean-mock series is now **0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121)**. Five-sample
+points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. What survives every
+session: the chooser is **not** a pure argmax, and in all 4 disagreements across
+116/118/119/120 it picked a **lower**-scoring candidate.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — 26 consecutive sessions
+(95–121). Last on lifetime `avg_score` (1.2794), `alignment` (1.5600), `quality` (0.6386),
+`relevance` (813.83) and `relevance_per_sim` (1.2350). **The structural gap is `alignment`:
+0.3995 below the next civ (1.5600 vs 1.9596), versus 0.0348 on quality.** Alignment is the
+dimension the meta-GAN selects on, so Grounded fails to *embody a distinctive voice* — a
+voice failure, not a prose failure. `civ-formal` remains the low-**novelty** axis (1.4673).
+`civ-poetic` = 1st on `avg_score` (1.8993) / `quality` (1.0838) but last on `win_rate` (0.016),
+won 0/5. `civ-precise` = best `win_rate` (0.505), won 4/5, 1st on lifetime `alignment`
+(2.5209), 3rd on `avg_score` (1.6487) — the mirror inverse.
+
+**New watch-axis:** `civ-engineer` was last on this run's `avg_score` (0.5853) and `alignment`
+(0.262) but 6th of 8 on lifetime `relevance_per_sim` (1.4480) — a single-run low, not a trend.
+
+- **Extinction risk NONE** — threshold −10, lowest relevance +813.83 (81× above floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42,
+  poetic +37, engineer +22, mythic +20, therapist +17, precise +16.
+- **Re-confirmations:** NAS EDQUOT total (7th session); `gh` not installed (8th session);
+  tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+
+### Gotcha: `civilizations.json` is multi-line JSON, not JSONL (session 121)
+
+`json.loads(l)` over the lines of `civilizations.json` raises `JSONDecodeError: line 2
+column 1` — the file is a pretty-printed array. Use `json.loads(open(...).read())`. The civ
+ledgers (`simulations.jsonl`) *are* JSONL and parse fine, so the error looks like ledger
+corruption when it is not — it cost a debugging cycle this session.

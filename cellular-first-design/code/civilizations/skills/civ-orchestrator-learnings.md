@@ -4,6 +4,36 @@ The authoritative operational RUNBOOK lives in the repo at
 `cellular-first-design/code/civilizations/RUNBOOK.md`.
 This file holds the short, high-signal rules that survive a sandbox wipe.
 
+## Session 121 (2026-10-24) — the mock was REBUILT, and the quality level moved anyway
+
+**Rebuild the mock, then re-run the pre-flight.** This session's `/tmp` was wiped, so
+`/tmp/mock_zai.py` was rebuilt from scratch — exactly when the session-112 index-wrap bug
+(`seed[i*2:i*2+2]` -> empty for `i>=4` -> HTTP 500) is likely to reappear. A crashing mock
+still leaves a **listening socket**, so a port/200 probe looks healthy. The pre-flight that
+catches it: probe the **live** mock with the exact long cultural prompt for 3 different civs,
+assert **3 distinct seeds**, and `grep -c Traceback /tmp/mock_zai.log` -> **0** — *before*
+launching the batch. Measured: 3/3 distinct, 0 tracebacks, 8/8 distinct previews on all 5
+competition prompts (third clean measurement: 118, 120, 121).
+
+**The `quality` collapse is a LEVEL, not a property of the mock.** Session 119 measured
+`quality` 0.009-0.030; session 120 measured 0.106-0.446; **session 121 measured 0.010-0.37
+(mean 0.0193)** — under the *same* mock, which was **rebuilt**, not reused. So the collapse
+does not reproduce: it is a level that moves. The durable rule survives and is re-confirmed
+— **compare cross-civ spreads, not absolute levels, before ranking on a dimension.**
+`alignment` again carried the widest spread (per-prompt 0.96-2.82) and is again the axis the
+chooser selects on.
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in 5/5 and won 4/5.
+Clean-mock series: **0/5 (118) -> 3/5 (119) -> 1/5 (120) -> 4/5 (121)**. Five-sample points
+cannot narrow a rate — the honest claim is *somewhere in 0-80 %*. What survives every session:
+the chooser is **not** a pure argmax, and in all 4 disagreements across 116/118/119/120 it
+picked a **lower**-scoring candidate.
+
+**Gotcha: `civilizations.json` is multi-line pretty-printed JSON, not JSONL.** A line-based
+`json.loads(l)` raises `JSONDecodeError: line 2 column 1`. Use
+`json.loads(open(path).read())`. The civ ledgers *are* JSONL and parse fine, so the error
+looks like ledger corruption when it is not.
+
 ## Session 118 (2026-10-24) — the session-117 mock degeneracy is FIXED
 
 The Control B mock seeded from the first 8 alnum chars of the message. The cultural prompt
@@ -32,14 +62,14 @@ mock — no longer an artifact.
 ## Standing findings
 
 - **`civ-grounded` (The Grounded) is the low-relevance civ** — last on lifetime `relevance`
-  (799.55), `relevance_per_sim` (1.271), `avg_score` (1.315), `quality` (0.665) and
-  `alignment` (1.616). The **alignment** gap is the structural one: 0.417 below the next civ
+  (813.83), `relevance_per_sim` (1.2350), `avg_score` (1.2794), `quality` (0.6386) and
+  `alignment` (1.5600). The **alignment** gap is the structural one: **0.3995** below the next
   vs a 0.037 margin on quality. `alignment` is the dimension the meta-GAN *selects* on, so
   the civ fails to *embody a distinctive voice*, not merely to write weakly. 23 sessions (95-118).
-- **`civ-formal`** = the low-novelty axis (novelty 1.475, lowest; alignment 2.298, fine).
+- **`civ-formal`** = the low-novelty axis (novelty 1.4673, lowest; alignment healthy).
 - **The two stable inverses:** `civ-poetic` = 1st on quality (1.126) / `avg_score` (1.947) but
   last on `win_rate` (0.017); `civ-precise` = best `win_rate` (0.490) but 5th on `avg_score`.
-- **Extinction risk NONE** — threshold -10, lowest relevance +799.55 (81x above floor).
+- **Extinction risk NONE** — threshold -10, lowest relevance +813.83 (81x above floor).
   Registry 8, `max_civs` 12. Extinction/birth only runs under `--loop`.
 - **Counter gap is per-civ uneven**, not a uniform offset (+16..+63). `save_state()` has no
   lock => `relevance_per_sim` is not recomputable from the ledger by an auditor.
@@ -68,7 +98,7 @@ mock — no longer an artifact.
   Control B needs **both** `ZAI_TOKEN` (any non-empty placeholder) **and** `ZAI_URL_OVERRIDE`.
 - **`ZAI_TOKEN` is absent** from env and the secret store; z.ai returns 401 (endpoint healthy,
   credential gap). JEV is live.
-- **Tool timeout 30 s < orchestrator run ~45 s.** Launch detached with stdout to a file, poll
+- **Tool timeout 30 s < orchestrator run ~50 s.**
   `ps` + the log. Kill the mock by **exact args** (`python3 /tmp/mock_zai.py`) — two pids.
 - **A 200 on a mock probe is not proof the mock is correct.** Probe with the exact long
   cultural prompt and `grep -c Traceback` the mock log.
