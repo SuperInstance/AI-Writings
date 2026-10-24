@@ -5043,3 +5043,127 @@ Baseline snapshot taken **before** patching, restored, and verified **byte-for-b
 and `civilization_orchestrator.py` — **20/20 OK, 0 DIFF**. Ledger back to 1644, meta_log back
 to 108, `grep -c ZAI_URL_OVERRIDE civilization_orchestrator.py` = **0** (the seam is still not
 in the committed blob; re-apply it each session).
+
+## Session 39 additions (2026-10-24, 134th wipe) — the credential gap is now 19 sessions deep, and a new catch in the restore step
+
+### The credential gap is still the whole story (19th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env and from the 8-entry secret store. All 8 sandbox
+secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` ->
+**401 "token expired or incorrect"** on every one; the no-auth probe -> **401 code 1001
+"Authentication parameter not received in Header"**. A 401 (not 5xx) means the endpoint is
+healthy => credential gap, not outage. JEV live at `jev-1.14.0` (`quality.score 0.7`,
+confidence 0.43). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch, delta measured not assumed: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows**
+(1644 -> 1644), meta_log **+0** (108 -> 108). **Assert on the row delta, never on the exit code.**
+
+### NEW TRAP — the *unpatched* run rewrites `leaderboard.json`, so a snapshot taken
+### afterwards is already dirty
+
+`update_leaderboard()` runs unconditionally at the end of `run_civilization_batch()`, and it
+fires even when every provider call silently dropped. So the **unpatched** run leaves behind a
+`leaderboard.json` with a fresh `ts`/`iso` and the same civ numbers. If the "baseline
+snapshot" is taken *after* the unpatched run, the snapshot contains that rewritten board, and
+the later restore puts a *dirty* file back.
+
+Symptom seen this session: after restore, `cmp` against the live remote blob said
+`leaderboard.json DIFF` while the 8 `simulations.jsonl` and the other 3 files said OK. The
+diff was exactly two lines:
+
+```
+<     "ts": 0,                          <- remote (session 38, ts scrubbed)
+<     "iso": "2026-10-23T22:26:00",
+---
+>     "ts": 1792802101.809238,          <- local snapshot (unpatched run at 00:35)
+>     "iso": "2026-10-24T00:35:01",
+```
+
+**Rule:** snapshot the baseline **before** any orchestrator invocation, or — better — verify
+every restored file against the **live remote blob** (`raw.githubusercontent.com`), not against a
+local snapshot. The remote is the only authority; a local snapshot can be silently dirty.
+Note the remote's `ts` is `0` (someone scrubs it), so a `ts` field is not a reliable
+"was this rewritten" signal either. Byte-compare all 12 tracked files against the remote.
+
+### Control B — 19th identical replication, with a voice-accurate mock
+
+`--sims 5 --prompts 5 --providers zai` under Control B -> **+10 rows per civ (5 batch + 5
+competition) = +80 total**, **+5 `meta_log.jsonl`**, 5 winners, **81 mock calls**, **0
+all-2.0-default rows**, **0 JEV score errors**. Ledger 1644 -> **1724**, meta_log 108 -> **113**.
+Restored afterwards: **12/12 files byte-identical to the live remote**, `grep -c
+ZAI_URL_OVERRIDE` = **0**, `__pycache__` removed, mock server killed and port confirmed closed.
+
+**New mock detail worth copying:** the orchestrator's prompt is
+`header + "Your tenets: ..." + "Your voice: ..." + blank + question`, so the *voice* is the
+best routing key — a mock that routes on the civ name in the header gives all 8 civs identical
+text and destroys the chooser's signal. This mock routes on `Your voice:` (falling back to a
+hash of it) and emits a **per-register body** (8 hand-written voice bodies + 2 openers each).
+Each response ends with a random integer (`[voice 200047]`) so the 8 previews are textually
+distinct even when the register body repeats, which keeps the chooser's 150-char preview from
+collapsing into a tie.
+
+### The low-relevance answer — `civ-grounded` is last on the board's own sort key; `civ-poetic` is the selection failure
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.538 |
+| raw relevance | **civ-engineer** | 302.48 |
+| win rate | **civ-poetic** | 0.011 (1W/87L) |
+| lifetime `avg_score` | **civ-grounded** | 1.613 |
+| lifetime quality | civ-formal / civ-engineer | 1.080 / 1.040 |
+| lifetime novelty | **civ-formal** | 1.385 |
+| lifetime alignment | **civ-grounded** | 2.058 |
+| this run (10 new rows/civ) | **civ-engineer** | 1.417 |
+
+**`civ-grounded` is the genuinely weak one** — last on the board's own sort key, lowest
+lifetime `avg_score`, and **lowest alignment of all 8 (2.058, 20 % below the next civ)**. It
+ran the **most** sims (199) and still scores lowest, so it is **not** a longevity artefact.
+`civ-grounded` won **2 of 5** competitions this run — the first time it has led the session
+board, which is a selection fluke, not a quality turn.
+
+**`civ-poetic` remains the flagship selection failure:** highest lifetime `avg_score` (2.300),
+highest quality (1.645), 1st on `rel_per_sim` (2.237), and **1 win in 88**. `civ-whimsical` is
+the same shape (2.292 avg, 3W/88L, wr 0.034), and `civ-mythic` (2.065, wr 0.037) and
+`civ-therapist` (2.002, wr 0.024) are mid. **`civ-precise` is the only civ whose relevance
+rank and win rate agree** (wr 0.494, 41W/42L) but it sits 5th on `avg_score` (1.862) —
+the chooser prefers precision because it reads clearly in 150 chars.
+**`civ-formal` is the mis-ranking magnet:** 2nd-lowest on `rel_per_sim` (1.668), 2nd-lowest
+lifetime `avg_score` (1.736), and **lowest novelty of all 8 (1.385)**.
+**Extinction risk: none** (threshold `relevance < -10`; lowest +302.48; `--loop`-mode only).
+
+### Chooser vs argmax(avg_score) — 12th replication
+
+**0/5 (0.0 %)** this session; lifetime **20/123 = 16.3 %**. In all 5 rounds the crowned civ
+was **not** the top scorer, margins **0.42 - 0.74**. The chooser reads a **150-char preview**;
+the scorer reads the whole response. `win_rate` is a **selection** metric — never report it as
+quality, and never merge it with `relevance_per_sim`.
+
+### Counter gap: exactly +260, unchanged for the 19th session
+
+ledger 1644 -> 1724 vs registry 1384 -> 1464 = **+260** rows counted by nobody, on every civ
+(per-civ gaps 16-63). `save_state()` rewrites `culture.json` from in-memory counters with **no
+lock and no read-modify-write** => lost-update race => `relevance_per_sim` is **not a
+reproducible ranking**; an auditor cannot recompute the board order from the ledger.
+
+### The committed baseline already carries 560 mock rows
+
+`grep -c "mock" civ-*/simulations.jsonl` on the **pristine committed** ledgers returns **70
+rows per civ (560 fleet-wide)** that never came from a live provider. A byte-comparison
+against the remote blob proves those files were **not modified** — it does **not** prove the
+content is what the filename suggests. **The committed ledger is already partly mock**, which
+is a stronger reason than ever not to add more. Check the content, not just the checksum.
+
+### Environment notes (new this session)
+
+- The **trees API** is still the cheapest bootstrap: one recursive call (**22 084 entries**,
+  `truncated: false`) + 12 raw-file fetches for the civilizations subtree. A full `git clone`
+  reached **1.8 GB of .git in ~90 s** and was still growing (pack ~3.6 GB) — killed it and used
+  the API instead. **Assert `truncated == false`.**
+- **NAS `/workspace` is at 100 % quota** (600 G used, 0 avail). A `curl -o` into
+  `/workspace/repos/...` fails with `curl: (23) Failed writing body` — the *write* fails, not
+  the download, and the error is easy to misread as a network fault. Build the tree in `/tmp`
+  and bridge with `ln -sfn /tmp/ai-writings /workspace/repos/ai-writings` (`mkdir -p
+  /workspace/repos` first; `ln -sfn` will not replace a real directory — `rm -rf` it).
+- `secret` CLI is **not installed** in this sandbox (the tool name in the catalog is
+  `mavis`-side; the shell has no `secret` binary). Audit `env` directly instead.
