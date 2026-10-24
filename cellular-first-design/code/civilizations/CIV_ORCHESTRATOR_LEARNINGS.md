@@ -5167,3 +5167,127 @@ is a stronger reason than ever not to add more. Check the content, not just the 
   /workspace/repos` first; `ln -sfn` will not replace a real directory — `rm -rf` it).
 - `secret` CLI is **not installed** in this sandbox (the tool name in the catalog is
   `mavis`-side; the shell has no `secret` binary). Audit `env` directly instead.
+
+
+---
+
+## Session 40 additions (2026-10-24, 135th wipe) — the salt-placement defect, and why the session-39 mock recipe silently collapses the preview
+
+### The credential gap is still the whole story (20th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env and from the 8-entry secret store. All 8 sandbox secrets
+re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect"** on every one (endpoint healthy => credential gap, not outage). JEV live at `jev-1.14.0`
+(`quality.score 0.29`, confidence 0.77). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch, delta measured not assumed: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows**
+(1644 -> 1644), meta_log **+0** (108 -> 108). **Assert on the row delta, never on the exit code.**
+
+### NEW DEFECT — the mock's salt must be at the START of the body, not the end
+
+Session 39's recipe says: *"Each response ends with a random integer (`[voice 200047]`) so the 8
+previews are textually distinct even when the register body repeats."* **That is wrong.** The
+orchestrator stores only the first 200 characters:
+
+```python
+"content_preview": content[:200],
+```
+
+so a salt appended at the **end** of the body is truncated away whenever the body is >= 200 chars.
+The preview then collapses to the *body variants only*. Measured on this session's first
+Control B run:
+
+| salt position | distinct `content_preview` | per-civ distinct | verdict |
+|---|---|---|---|
+| end of body (session-39 recipe) | **24 / 80** | 2/10 (except `civ-precise` 10/10) | **collapsed** |
+| **start of body (fixed)** | **80 / 80** | 10/10 | healthy |
+
+**`civ-precise` was the only survivor at 10/10** because its bodies are short (< 200 chars) and
+its salt was never truncated. **A short-bodied civ masks the defect** — the per-civ minimum looked
+perfect while the fleet-level count was a quarter of the healthy band. The fleet-level distinct
+count is the only reliable tell.
+
+**Rules:**
+1. Salt the **first** token: `[Your voice: lyrical, dense. 481920] A cell is ...`.
+2. Assert `distinct(content_preview) >= 50` **and** `min(per-civ distinct) == 10`.
+3. Keep the body **under ~150 chars** if you want the salt to survive a 150-char chooser preview.
+
+**Second-order lesson:** "distinct previews" and "distinct underlying responses" are different
+quantities, and the orchestrator only ever exposes the **truncated** one. The session-9 acceptance
+check (`distinct preview 50-68`) is only meaningful **if the salt sits inside the truncated
+window**. If the salt is outside it, the check silently measures body-variant count instead.
+
+### Control B — 20th identical replication
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows (10 per civ, uniform)**, **+5 `meta_log.jsonl`**
+(108 -> 113), **5 winners**, **80 mock calls**, **0 fallbacks**, **80 distinct salts**,
+**0 all-2.0-default rows**, **0 JEV score errors**, **80/80 distinct previews**, **72 distinct
+`avg_score`**. Score spread avg_score 1.343-2.797; quality 0.09-2.19, novelty 1.02-2.79,
+alignment 2.10-3.64. Restored afterwards: **21/21 files byte-identical to the live remote**,
+`grep -c ZAI_URL_OVERRIDE` = **0**, `__pycache__` removed, mock killed, port closed.
+
+### The low-relevance answer — `civ-grounded` is last on three lenses; `civ-poetic` is the selection failure
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.539 |
+| raw relevance | **civ-engineer** | 288.31 |
+| win rate | **civ-poetic** | 0.012 (1W/82L) |
+| lifetime `avg_score` | **civ-grounded** | 1.617 |
+| lifetime quality | **civ-engineer** | 1.079 |
+| lifetime novelty | **civ-formal** | 1.349 |
+| lifetime alignment | **civ-grounded** | 2.061 |
+| this run (5 competition rounds) | **civ-precise** | 1.862 |
+
+**`civ-grounded` is the one to watch** — last on **three** lenses (the board's own sort key,
+lifetime `avg_score`, and alignment). Its alignment 2.061 is **20 % below the next civ**
+(`civ-therapist` 2.598); the other seven sit at 2.598-2.926. It ran the **most** sims (189,
+ledger 232) and still scores lowest, so it is **not** a longevity artefact.
+
+**`civ-poetic`** remains the flagship selection failure: highest lifetime `avg_score` (2.302),
+**highest quality of all 8 (1.663)**, 1st on `rel_per_sim` (2.235), highest raw relevance (388.82) —
+and **1 win in 82**. **`civ-engineer`** is the sub-score weakling (lowest raw relevance 288.31,
+lowest quality 1.079). **`civ-formal`** is the mis-ranking magnet (lowest novelty 1.349).
+**`civ-precise`** is the inverse case: best win rate (0.513) but **last** on this run's
+`avg_score` (1.862) — it won 3 of 5 rounds while scoring last.
+**Extinction risk: none** (threshold `relevance < -10`; lowest +288.31; `--loop`-mode only).
+
+### Chooser vs argmax(avg_score) — 13th replication
+
+**0/5 (0.0 %)** this session; in **all five** rounds the crowned civ was **not** the top scorer,
+margins **0.64-1.25**. `win_rate` is a **selection** metric — never report it as quality.
+
+### Counter gap: exactly +260, unchanged for the 20th session
+
+ledger 1644 vs registry 1384 = **+260** rows counted by nobody, on every civ (per-civ gaps 16-63).
+`save_state()` rewrites `culture.json` from in-memory counters with no lock and no
+read-modify-write => lost-update race => `relevance_per_sim` is **not a reproducible ranking**.
+
+### The committed baseline already carries 560 mock rows
+
+`grep -c "mock" civ-*/simulations.jsonl` on the **pristine committed** ledgers returns **70 rows
+per civ (560 fleet-wide)** that never came from a live provider, while `provider` reads `zai` on
+all 1644 rows — the field lies about provenance. Our own mock left **0** traces
+(`rows containing 'Your voice:'` = 0). The committed ledger is already partly mock, which is a
+stronger reason than ever not to add more. Check the content, not just the checksum.
+
+### Environment notes
+
+- `ZAI_URL_OVERRIDE` is **not** in the committed `civilization_orchestrator.py` — the learnings
+  describe a patch that was never committed. Re-apply it each session:
+  `os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/...")` in `PROVIDERS["zai"]["url"]`.
+  Verify with `grep -c ZAI_URL_OVERRIDE` after the restore.
+- **A mock server launched with a short `timeout -s KILL N` dies mid-run and the orchestrator
+  silently drops every row** (exit 0, +0 rows) while the *stale* call log still shows the earlier
+  run's 88 entries — which reads as "the mock was hit". **Always assert the mock is listening
+  (`curl -o /dev/null -w '%{http_code}'`) immediately before the run, and check the call log's
+  mtime/line count against the run window.** Clear the log at the start of every run.
+- A `git clone --filter=blob:none --no-checkout` + `git sparse-checkout set
+  cellular-first-design/code/civilizations` reproduced the civ subtree in **~15 s** — far faster
+  than the 3.6 GB full pack. Run it from a **detached script file** (`setsid nohup bash script.sh &`),
+  not an inline heredoc: an inline `git clone` gets killed when the 30 s tool timeout fires, leaving
+  the git processes as zombies and the working tree missing.
+- NAS `/workspace` is at 100 % quota; `/tmp` is on the overlay and exempt. The bridge is
+  `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/aiw /workspace/repos/ai-writings`
+  (`ln -sfn` will not replace a real directory).
