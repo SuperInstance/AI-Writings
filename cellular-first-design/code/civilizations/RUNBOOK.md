@@ -743,3 +743,70 @@ attempt, including the first. The bridge was verified by inode identity before t
 (`stat -L -c '%d:%i'` = `129:12601` on the resolved path, identical to the target, plus `-ef`).
 Unchanged guidance: **a single `ls` failure is not evidence of a missing directory**; re-check and
 retry before touching the bridge. Do not "fix" a bridge that is passing.
+
+### Session 127 — chooser-vs-argmax is 3/5; the mock is non-degenerate for the 9th time (2026-10-24)
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so the session-112 index-wrap bug
+(`seed[i*2:i*2+2]` → empty for `i>=4` → HTTP 500 while the socket stays open) was live again. The
+**pre-flight probe caught it before it reached the ledger**: 4 different civs → 4 different seeds AND
+4 different previews against the *live* mock with the exact long cultural prompt, HTTP 200,
+`[mock-zai seed=…]` prefix present on every body, `grep -c Traceback /tmp/mock_zai.log` → **0**.
+
+**Verification held:** per-civ Δ = **+10** (5 sim-phase + 5 competition-phase), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, `provider={zai}`,
+**0** rows with a JEV `error` key, sim→competition ts gap at index 4 in all 8 civs (1.09 s–23.06 s),
+and **5/5 competition prompts at 8/8 distinct previews** — the **ninth clean mock measurement**
+(118, 120, 121, 122, 123, 124, 125, 126, 127). 40 distinct seeds across the run's 80 rows.
+
+**Chooser vs `avg_score` argmax: 3/5 (60 %).** `civ-precise` was argmax in 3/5 and won **3/3** of those;
+`civ-therapist` won p4 at 1.763 against `civ-poetic`'s argmax 2.260, and `civ-whimsical` won p5 at
+1.937 against `civ-poetic`'s argmax 2.683. Clean-mock series: 0/5 (118) → 3/5 (119) → 1/5 (120) →
+4/5 (121) → 4/5 (122) → 3/5 (123) → 0/5 (124) → 4/5 (125) → 1/5 (126) → **3/5 (127)**.
+Ten five-sample points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. What survives
+every session: the chooser is **not** a pure argmax, and in **all** disagreements this session it picked a
+**lower**-scoring candidate (8th consecutive session with that direction: 116/118/119/120/122/123/125/127).
+
+**NEW — the `quality` axis did NOT collapse this run.** Field spread **1.063** (min 0.5640, max 1.6270)
+versus the 119/121/122/123/125/126 regime (spread 0.004–0.337) — this is the session-120/124 regime.
+Re-confirms the durable rule: **the quality collapse is a LEVEL that moves, not a stable property** —
+compare cross-civ spreads, not absolute levels, before ranking on a dimension. Per-civ quality floors
+were again uneven (precise 1.627, poetic 1.565 … whimsical 0.564) — the session-122 civ-selective floor.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — **32 consecutive sessions (95–127)**.
+Last on lifetime `avg_score` (1.2267), `alignment` (1.4709), `quality` (0.5998), `relevance` (850.42)
+and `relevance_per_sim` (1.183). The **structural gap is `alignment`: 0.3528 below the next civ
+(1.4709 vs 1.8237)**, versus **0.0326** on quality — ~11× wider. Alignment is the dimension the
+meta-GAN selects on, so Grounded fails to *embody a distinctive voice* — a voice failure, not a prose
+failure.
+
+**NEW — Grounded did NOT take the run-level low label for the 2nd consecutive session.** Grounded was
+5th of 8 on this run's `avg_score` (1.4683) and 2nd-lowest on `alignment` (1.4510). The run-level low
+went to `civ-whimsical` (avg 1.3997, quality 0.5640, novelty 1.9040) and `civ-therapist` on `alignment`
+(1.0710). Session 126's run-level low was also therapist. **The lifetime finding and the run-level
+label are now decoupled** — keep reporting them as two separate claims.
+
+- **`civ-formal`** is the low-**novelty** axis (lifetime novelty 1.4630, last; alignment 2.1036 fine).
+  **`civ-poetic`** = 1st on lifetime `avg_score` (1.8303) / `quality` (1.0269) / `novelty` (2.0619) /
+  `alignment` (2.4020) but **last on `win_rate` (0.014)**, won **0/5** despite argmaxing p4 and p5 —
+  the stable selection-failure inverse. **`civ-precise`** = best `win_rate` (0.525), won 3/5,
+  **1st on lifetime `alignment` (2.4422)**, 3rd of 8 on `avg_score` — the mirror inverse.
+- **NEW — `civ-whimsical` ties `civ-poetic` at the `win_rate` bottom** (both 0.014: 5/343) and was
+  also the run-level `avg_score` low. A 0.000-wide band at the bottom — treat as a tie, not a rank.
+- **Watch-axis `civ-therapist` — the run-level low DID repeat for a 2nd time** (last on this run's
+  `alignment` 1.0710, 7th of 8 on `avg_score` 1.4340), but its lifetime alignment (1.8237) is
+  mid-field. Axis stays open; do not promote to a finding.
+- **Watch-axis `civ-engineer` — the session-121 low did NOT repeat.** 7th of 8 on this run's
+  `avg_score` (1.4547), 6th on lifetime `relevance_per_sim` (1.382). **Do not promote it yet.**
+- **Extinction risk NONE** — threshold −10, lowest relevance +850.42 (85× above floor). Registry 8,
+  `max_civs` 12. All 8 civs still `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` 1.887,
+  `quality` 1.063, `avg_score` 0.897, `novelty` 0.464. `alignment` again carried the widest spread
+  and is again the axis the chooser selects on.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42, poetic +37,
+  engineer +22, mythic +20, therapist +17, precise +16 (total +260). `save_state()` has no lock ⇒
+  `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (11th session); `gh` not installed (14th session);
+  tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race did
+  not reproduce (the bridge passed on the first attempt).
