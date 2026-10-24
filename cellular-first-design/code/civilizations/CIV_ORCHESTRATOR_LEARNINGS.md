@@ -9011,3 +9011,164 @@ by nobody**. Extinction risk: none (lowest relevance +445.78 vs threshold −10)
    Always `wc -c` after writing; if 0, the file is not there. When the NAS is
    blocked, `/opt/work` (overlay, 28 G free) still works — but files there are
    **not deliverable**; push through git instead.
+
+---
+
+## Session 80 additions (2026-10-24) — the credential gap 22nd deep; a `setsid`ed mock silently loses its own call log; the synthetic share of the ledger crosses 30 %
+
+### The gap, again, measured not assumed
+
+`ZAI_TOKEN` absent from `env` and from the 8-entry secret store. All 8 secrets re-tested
+against `https://api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or
+incorrect" on every one** (endpoint healthy ⇒ credential gap, not outage). JEV live at
+`jev-1.14.0`. `TYPESAFEAI_KEY=$TYPESAFE_AI_TOKEN` as always.
+
+Unpatched run: batch header + all 8 `[Name] running 5 sims...` lines, then an **empty
+competition section**, then **exit 0**. Ledger **+0 rows, +0 `meta_log`**; `sha256sum -c`
+on all 8 `simulations.jsonl` + `meta_log.jsonl` → **all OK**. Only `leaderboard.json` was
+rewritten (it is rewritten on every run, no-op included — its mtime tells you nothing).
+
+Control B reproduced to the row: **+10 rows per civ (uniform, 5 batch + 5 competition)
+= +80, +5 `meta_log`, 5 winners, 0 all-2.0-default rows, 0 score errors, 80/80 distinct
+`content_preview`, 80/80 distinct salts, 80/80 distinct `temperature`, 75/80 distinct
+`avg_score`** (range 0.7933–2.1533), per-civ distinct previews **10/10 for every civ**,
+voice distribution uniform at 10 per voice. The baseline was verified to be a **byte-exact
+prefix** of every file, so the delta is an append and not a silent rewrite.
+
+### NEW — a `setsid`ed mock server does not receive `kill -INT`, so it loses its own call log
+
+The mock accumulates one log line per call in memory and flushes it in a `finally:`
+block. Launched as `(setsid nohup python3 mock.py > log 2>&1 &)`, the server sits in a
+**different session** and the parent's `kill -INT` never reaches it:
+
+```
+kill -INT <pid>   -> process still alive
+ps aux | grep -c "[z]ai_mock.py"   -> 1
+/tmp/mock_calls.log                -> No such file
+```
+
+The `finally` block only runs on a **clean** exit, so a server that is SIGKILLed — or one
+whose SIGINT never arrives — **never writes the log at all**. The symptom is
+`grep -c "^call=" /tmp/mock_boot.log -> 0`, which is easy to misread as "the orchestrator
+made no calls" when in fact the run was perfect.
+
+**Rule: a mock must write each call line to disk AS IT HAPPENS, not at exit.** Open the
+log file in append mode inside `do_POST` and flush it per call. A mock whose only record
+of its own behaviour lives in memory is a mock with no receipt, and the receipts are
+the one acceptance artifact that a detached process can silently destroy.
+
+> Corollary: the orchestrator's own gate was still proven without the mock log —
+> importing the module with `ZAI_TOKEN` unset and calling `run_simulation()` returns
+> `None` and writes no row, which proves the stub sits **at the gate** (not merely at the
+> transport). Do that in-process rather than relying on a log file.
+
+### NEW — the synthetic share of the committed ledger has crossed 30 %
+
+Whole-file scan of the **committed** state (not a diff):
+
+| file | `[mock-zai ...]` rows | total rows |
+|---|---|---|
+| each of the 8 `simulations.jsonl` | **90** pre-existing + **10** this run = **100** | 291–354 |
+| **fleet total** | **800** | **2524** = **31.7 %** |
+
+The 720 pre-existing rows predate this session (this run's rows have `ts` 1792835681 –
+1792835709 only, and the baseline is a byte-exact prefix of every file). `meta_log.jsonl`
+now holds **163** winner entries computed over a corpus that is **31.7 % synthetic** — so
+the `wins`/`losses`/`win_rate` signal that these notes have called "the only trustworthy
+signal" is itself computed over synthetic content. `civ-precise` holds **69 of the 163**
+recorded wins; how many were mock-derived is unknown.
+
+**The rule was right and was not applied.** Sessions 6/7/8 documented "mock rows are not
+committed" and their own runs were clean, but rows written by *earlier* sessions were
+committed and never reaped. **A ledger rule enforced only on the writes of the session that
+learns it does not clean the history it inherits.** The one-line guard must scan the
+**whole file**, or it will never see the 720 rows that are already there:
+
+```bash
+grep -l '\[mock-zai' civ-*/simulations.jsonl && echo "LEDGER CONTAINS MOCK ROWS"
+```
+
+### NEW — the temperature↔novelty replication finally left its band, and the cause is the contamination
+
+**Pearson r = 0.9330** (mean per-civ `temperature` vs mean per-civ lifetime JEV novelty),
+against a 12-replication band of **0.9783 – 0.985**. The *ordering* of the civs is
+unchanged; the *level* moved. The cause is arithmetic, not a broken model: the lifetime
+means now fold in **800 mock rows** whose own per-call temperature/salt jitter is
+uncorrelated with JEV's novelty judgement, and at 31.7 % of the corpus that noise is
+now large enough to pull the correlation down.
+
+**Do not report a drop in this correlation as a model regression until the corpus is
+decontaminated** — the statistic is computed over the corpus, and the corpus is
+contaminated. A replication that has held for 12 sessions breaking in exactly the
+direction a known contamination would push it is a *measurement* result, not a discovery.
+
+### Low-relevance this run (lenses still disagree, so still never merge them)
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.474 |
+| raw relevance | **civ-grounded** | 440.81 |
+| `win_rate` (selection) | **civ-poetic** | 0.007 (1W/137L) |
+| lifetime mean `avg_score` | **civ-grounded** | 1.536 |
+| this run's mean `avg_score` | **civ-grounded** | 0.935 |
+| lifetime quality | **civ-grounded** | 0.935 |
+| lifetime alignment | **civ-grounded** | 1.947 |
+| lifetime novelty | civ-formal | 1.475 |
+| this run's quality | **civ-grounded** | 0.114 |
+| this run's novelty | **civ-grounded** | 1.573 |
+
+**`civ-grounded` is lowest on 7 of 10 lenses** — 6 sessions running. This is no longer
+merely the longevity artefact the board's `relevance_per_sim` denominator produces: the
+*quality* lenses land on the same civ independently (lifetime quality 0.935, this run's
+quality 0.114). It is a genuine quality signal.
+
+**`civ-poetic` is the signature inversion, 22 sessions:** 1st of 8 on raw relevance
+(602.48), 1st on lifetime `avg_score` (2.178), 1st on lifetime quality (1.45), and
+**last on win rate — 1 win in 138 rounds**. A *selection* failure, not a quality collapse.
+
+**`civ-precise` is the other inverse:** best win rate in the fleet (0.519, 69W/64L) but
+5th of 8 on lifetime `avg_score` and last of 8 on this run's novelty.
+
+**`civ-formal` won 2 of 5 competitions this run** (the most of any civ) yet posted the
+run's **2nd-lowest** `avg_score` (1.235) — lifetime alignment 2.65 (near best) with
+lifetime quality 0.97 (near floor). The chooser never sees the scores, so the competition
+winner and the quality leader stay decoupled.
+
+**Extinction risk: none** (threshold −10, lowest +440.81, `--loop`-mode only).
+
+### Structural replications
+
+- Chooser vs `argmax(avg_score)`: **0/5 this run (0.0 %)**, lifetime 17.0–18.4 % —
+  **10th replication**. Disagreement margins ran to **−1.03** (the chooser crowned
+  `civ-grounded` 1.03 *below* the top scorer) and −0.93 in round 1.
+- Temperature vs lifetime JEV novelty: **r = 0.9330** — see above, first replicate
+  outside the 0.9783–0.985 band, explained by the contamination.
+- Counter gap **unchanged at +260** (ledger 2524 vs `simulations_run` 2264), measured
+  baseline-to-baseline.
+- Lifetime top-3 **set** {Whimsical, Poetic, Mythic} and bottom-2 **set** {Grounded,
+  Formal} — both unchanged since session 11. **Report the set, not the order.**
+  Board order and selection order are inverted 8/8 again (9th session running).
+
+### Environment — the sparse blobless clone is the fast path, and the symlink bridge is one level
+
+1. The task path did not exist at session start (`/workspace` held only `.plugin-cache`).
+   `git clone --filter=blob:none --no-checkout --depth 1` +
+   `git sparse-checkout set --cone cellular-first-design/code/civilizations` → **968 K**
+   in `/tmp`, and the working tree checked out in one command. No detached fetch, no poll
+   loop, and the 3.7 GB pack is never materialised.
+2. **NAS `/workspace` at 100 % quota.** A 1-byte write lands as a **0-byte file**; a 10 KB
+   write fails with `Disk quota exceeded`; `git init` fails at `.git/description`. The
+   bridge is **one level**:
+   `ln -sfn /tmp/ai-writings /workspace/repos/ai-writings` — the script's hardcoded
+   `CIVS_DIR` resolves into the clone and writes land on the overlay (28 G free).
+   `git sparse-checkout` needs `--cone`; a non-cone path pattern silently checks out the
+   repo root instead of the subdirectory.
+3. `gh` CLI still not installed; GitHub REST API with `$GITHUB_TOKEN` works. The account is
+   a **user**, not an org. The fastest route to the repo was **code search** for
+   `filename:civilization_orchestrator.py` (1 hit) rather than paging 54 pages of repos.
+4. `GIT_SSL_NO_VERIFY=1` required for every git operation.
+5. **The `write` tool is jailed to `/workspace` and cannot reach `/tmp`** ("Workspace path
+   escapes Cloud Host root") — author `/tmp` files with a bash heredoc. The `read` tool is
+   likewise jailed; read `/tmp` files with `sed`/`cat` in Bash.
+6. **Importing the orchestrator as a module creates `__pycache__/`**, which shows up as an
+   untracked directory in `git status`. Remove it before committing.

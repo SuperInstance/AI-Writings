@@ -44,7 +44,7 @@ JEV_KEY = os.environ.get("TYPESAFEAI_KEY", "")
 # Standard providers
 PROVIDERS = {
     "zai": {
-        "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+        "url": os.environ.get("ZAI_URL_OVERRIDE", "https://api.z.ai/api/coding/paas/v4/chat/completions"),
         "model": "glm-4.5",
         "env": "ZAI_TOKEN",
         "extra": {"thinking": {"type":"disabled"}},
