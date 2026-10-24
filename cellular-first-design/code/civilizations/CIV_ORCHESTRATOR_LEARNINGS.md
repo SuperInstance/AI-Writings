@@ -6892,3 +6892,102 @@ arbitrary win; silent empty-token drop exiting 0) remain AST-confirmed.
   restored from git blobs and **byte-identical to HEAD** (verified with `cmp`).
 - Report: `RUN_REPORT_2026-10-24_session55.md`.
 
+
+---
+
+## Session 56 (2026-10-24) — credential gap 21st deep; the Grounded is now last on *every* lens at once
+
+### The credential gap — 21st session, unchanged
+
+All 7 sandbox secrets → z.ai coding endpoint = **401** (incl. `GITHUB_TOKEN` this time).
+**401 (not 5xx) ⇒ endpoint healthy ⇒ credential gap, not outage.** `ZAI_TOKEN`/`ZAI_KEY`
+absent from env and from the 8-entry secret store; the key must be provisioned, it
+cannot be recovered. JEV live at `jev-1.14.0` (direct probe `quality 0.87` — a real
+score, not the 2.0 default). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Unpatched `--sims 5 --prompts 5 --providers zai` → exit 0, 0 `Winner:` lines, +0 rows,
++0 meta_log (2124 → 2124, 138 → 138).** All 8 `simulations.jsonl` **byte-identical to
+HEAD** (verified with `cmp`, not md5 eyeballing); only `leaderboard.json` was rewritten.
+21st identical outcome. **Assert on the row delta and the `Winner:` count, never on the
+exit code.**
+
+### NEW: a GitHub 403 is a rate limit, not a dead token
+
+`curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user` returned
+**403 "API rate limit exceeded"** — *not* 401. The git transport was unaffected and
+clone/push continued to work. **Do not read a 403 from api.github.com as an auth
+failure**; the body distinguishes them ("rate limit exceeded" vs "Bad credentials").
+
+### Control B — 8th consecutive identical replication
+
+`ZAI_TOKEN=<set>` + `ZAI_URL_OVERRIDE=http://127.0.0.1:8731/chat/completions` (token
+gate left intact ⇒ a real HTTP request is genuinely attempted; the mock stands **below**
+the failing line, so the control has full power):
+**+80 rows (exactly +10/civ, uniform), +5 meta_log, 5 `Winner:` lines, 0 all-2.0-default
+rows, 0 score errors, 81 mock calls received (80 + 1 health probe).**
+New-row `avg_score` range 0.373–3.047, all distinct. The mock must derive content from
+the *cultural header* (tenets + voice) so the 8 civs present 8 different candidates —
+echoing the scaffolding prompt makes all 8 score identical text and destroys the
+chooser's signal.
+
+### NEW SHAPE: the Grounded is last on every lens simultaneously
+
+| lens | lowest | |
+|---|---|---|
+| A `relevance_per_sim` | `civ-grounded` 1.505 | longevity artefact (302 ledger rows, 2nd-highest win rate 0.222) |
+| B raw relevance | `civ-grounded` 389.78 | same cause |
+| C win rate | `civ-poetic` 0.008 (1W/117L) | selection appeal, not relevance |
+| D ledger `avg_score` | `civ-grounded` 1.570 | weak writer too (quality 1.019, align 2.000) |
+| **E this run's rows only** | **`civ-grounded` 0.830** | **quality 0.045, alignment 0.508 — worst on the board** |
+
+Previous sessions could argue the Grounded's last place was *only* a denominator
+artefact. **This run it is also last on quality (0.045) and alignment (0.508)** — a
+genuine quality collapse on top of the longevity effect. **When a civ is bottom on A
+and B, check E before calling it an artefact: E separates "ran most" from "is bad".**
+A previous session had the Therapist at the E-bottom; this run it moved to 2nd-worst
+(E avg 1.089, alignment 1.000) — **E moves around session to session, so report E per
+run and never as a standing constant.**
+
+### The Poetic anomaly — 8th consecutive run (sessions 6, 7, 8, 52, 53, 54, 55, 56)
+
+Still **1st of 8 on every quality lens** (A 2.164, B 527.94, D 2.223, best E quality
+0.521 / E alignment 2.322) and **last on win rate** (0.008, 1W/117L).
+Chooser-vs-`argmax(avg_score)` agreement over all **143** meta_log rounds:
+**25 agree / 118 disagree = 17.5 %** (previous session 16.8 % — the figure is stable
+around 17 %, not 4.4 %; the earlier 4.4 % was a small-sample artefact). The chooser
+sees only the first **150 chars** of `content_preview` and never the scores.
+**`win_rate` is selection appeal, not relevance — always say which lens you mean.**
+
+### Counter gap still 260 rows — and this run proves it does not widen
+
+Ledger 2204 vs registry `simulations_run` 1970 = **260 uncounted committed rows**
+(per-civ 16–63). **Identical to the pre-run baseline of 260**: the run added 80 rows to
+the ledger *and* 80 to the counters, so the gap held steady. `save_state()` has no lock
+and no read-modify-write ⇒ lost-update race; the board is still not reproducible from
+the ledger alone. Both silent-corruption defects (JEV-outage arbitrary win; silent
+empty-token drop exiting 0) remain AST-confirmed.
+
+### Environment notes (new this session)
+
+- `/workspace` at **100 % NAS quota** (600 G used, 0 avail) — the EDQUOT trap. Clone to
+  `/tmp` (28 G free on the overlay, exempt), then
+  `ln -sfn /tmp/ai-writings /workspace/repos/ai-writings`. `CIVS_DIR` is hardcoded to
+  the `/workspace` path, so **the symlink is what makes the script write into the
+  clone** — without it the script creates empty dirs at the `/workspace` path and
+  crashes on a missing `culture.json`.
+- The clone is **3.3 GB**; `index-pack` alone ran >3 min and a 30 s tool timeout kills
+  it. Clone detached, poll for the working tree, and **never start a second fetch at
+  the same target** — the leftover `shallow.lock` makes the second fetch die with
+  "Another git process seems to be running".
+- `git sparse-checkout set cellular-first-design/code/civilizations` reduces the
+  working set without re-cloning.
+- **Snapshot the tracked blobs to a separate directory the moment checkout completes**
+  (see the session 55 recipe). It is both the safety net if the clone vanishes and the
+  authoritative restore source.
+
+### Session 56 state
+
+- 8 civs, **2204** committed ledger rows, `meta_log.jsonl` **143** lines.
+- Report: `RUN_REPORT_2026-10-24_session56.md`.
+- No source file modified; only the 8 `simulations.jsonl`, 8 `culture.json`,
+  `meta_log.jsonl`, `leaderboard.json`.
