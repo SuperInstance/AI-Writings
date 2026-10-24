@@ -115426,7 +115426,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "90-the-lut",
-    "size_bytes": 643579
+    "size_bytes": 656128
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session84.md",
@@ -115715,6 +115715,24 @@
     "word_count": 699,
     "date": "90-the-lut",
     "size_bytes": 10972
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session95.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session95.md",
+    "title": "civ-orchestrator session 95 (2026-10-24) — credential gap 33rd deep; the Grounded's bottom **replicated a second time** (2 body sets, 2 sessions); the ledger's synthetic share crossed 36 %",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 723,
+    "date": "2026-10-24",
+    "size_bytes": 14541
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session39.md",
@@ -116188,8 +116206,8 @@
   {
     "filename": "RUN_REPORT_2026-10-24_session94.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session94.md",
-    "title": "civ-orchestrator session 94 (2026-10-24) — credential gap 32nd deep; the Grounded's bottom **replicated** across both body sets (first time in 6 sessions); committed ledger is 35.3% synthetic",
-    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "title": "RUN REPORT — 2026-10-24, session 94",
+    "description": "verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
     "folder": "civilizations",
     "topic": "Civilizations",
     "genres": [
@@ -116198,10 +116216,10 @@
     "models": [
       "Unknown"
     ],
-    "style": "Dialogue",
-    "word_count": 692,
+    "style": "Essay",
+    "word_count": 750,
     "date": "2026-10-24",
-    "size_bytes": 15194
+    "size_bytes": 11513
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session14.md",
