@@ -70311,6 +70311,24 @@
     "size_bytes": 4456
   },
   {
+    "filename": "adr-0015-temporal-validity-lifecycle-for-cells.md",
+    "path": "bots/bruno-architect/adrs/adr-0015-temporal-validity-lifecycle-for-cells.md",
+    "title": "ADR-0015: Temporal validity lifecycle for cells",
+    "description": "Proposed",
+    "folder": "adrs",
+    "topic": "Adrs",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 604,
+    "date": "2026-10-24",
+    "size_bytes": 4275
+  },
+  {
     "filename": "adr-0009-bookkeeper-wal-semantics-for-cell-state-changes.md",
     "path": "bots/bruno-architect/adrs/adr-0009-bookkeeper-wal-semantics-for-cell-state-changes.md",
     "title": "ADR-0009: Bookkeeper WAL semantics for cell state changes",
@@ -115372,7 +115390,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 456568
+    "size_bytes": 492931
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session46.md",
@@ -115591,6 +115609,25 @@
     "size_bytes": 17726
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session73.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session73.md",
+    "title": "civ-orchestrator session 73 (2026-10-24) — credential gap 20th deep; the ZAI_TOKEN gate is upstream of the URL and the override alone is a no-op",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 714,
+    "date": "2026-10-24",
+    "size_bytes": 14379
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session20.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session20.md",
     "title": "Civilization Orchestrator — Run Report, Session 20",
@@ -115697,6 +115734,24 @@
     "word_count": 901,
     "date": "2026-10-23",
     "size_bytes": 15013
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session75.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session75.md",
+    "title": "civ-orchestrator session 75 (2026-10-24) — credential gap 22nd deep; the trees-API bootstrap beats every clone, and the \"+80\" ledger growth is *provider stand-in output*",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 753,
+    "date": "2026-10-24",
+    "size_bytes": 21743
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session60.md",
@@ -115825,6 +115880,24 @@
     "size_bytes": 15504
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session71.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session71.md",
+    "title": "civ-orchestrator run report — session 71 (2026-10-24)",
+    "description": "| question | answer | |---|---| | Did the command work as-is? | **No.** Exit 0, **+0 rows**, 0 `Winner:` lines. `ZAI_TOKEN` absent — the provider gate drops every call. | | Did the ledgers grow? | Not...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 734,
+    "date": "2026-10-24",
+    "size_bytes": 18083
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session11.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session11.md",
     "title": "Civilization Orchestrator — Run Report, session 11 (2026-10-23)",
@@ -115859,6 +115932,24 @@
     "word_count": 815,
     "date": "2026-10-24",
     "size_bytes": 14895
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session76.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session76.md",
+    "title": "civ-orchestrator session 76 (2026-10-24) — credential gap 23rd deep; the one-level symlink bridge is enough, and the board's sort key still points at the wrong civ",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 715,
+    "date": "2026-10-24",
+    "size_bytes": 20008
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session14.md",
@@ -116149,6 +116240,24 @@
     "size_bytes": 11872
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session72.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session72.md",
+    "title": "Civilization Orchestrator — Run Report, Session 72 (2026-10-24)",
+    "description": "``` python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai EXIT=0   rows 2364 -> 2364 (+0)   meta_log 153 -> 153 (+0)   \"Winner:\" lines = 0 ``` | check | value | |---|---| | exit co...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 772,
+    "date": "2026-10-24",
+    "size_bytes": 11851
+  },
+  {
     "filename": "RUN_REPORT_2026-10-24_session66.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session66.md",
     "title": "civ-orchestrator run report — session 66 (2026-10-24)",
@@ -116165,6 +116274,24 @@
     "word_count": 824,
     "date": "2026-10-24",
     "size_bytes": 7442
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session74.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session74.md",
+    "title": "civ-orchestrator session 74 (2026-10-24) — credential gap 21st deep; the unpatched command is a green exit with an empty ledger",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 760,
+    "date": "2026-10-24",
+    "size_bytes": 22178
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session59.md",
@@ -274109,6 +274236,24 @@
     "word_count": 667,
     "date": "2026-08-22",
     "size_bytes": 37132
+  },
+  {
+    "filename": "bruno-adr-20261024.md",
+    "path": "research/bruno-adr-20261024.md",
+    "title": "Bruno ADR run — 2026-10-24 (durable lessons)",
+    "description": "Task: `python3 /workspace/repos/ai-writings/bots/bruno-architect/bruno_adr.py --once` -> write one new ADR, verify it in `bots/bruno-architect/adrs/`.",
+    "folder": "research",
+    "topic": "Research",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 712,
+    "date": "2026-10-24",
+    "size_bytes": 9269
   },
   {
     "filename": "jev-esp32-client.md",
