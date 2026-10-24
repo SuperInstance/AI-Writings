@@ -159,6 +159,23 @@ NAS succeeds at all** — a 5-byte `echo` produces a **0-byte** file. The signat
 `mkdir` works and the symlink bridge is the only way in. Verify the bridge by **inode
 identity** (`stat -L -c '%d:%i'` on both sides), not by `ls`.
 
+### `ln -sfn` does NOT clobber a real directory — verify the bridge with `-ef` (session 139)
+
+A failed in-NAS `git clone` attempt leaves a **real directory** at
+`/workspace/repos/ai-writings/cellular-first-design/`. A later
+`ln -sfn /tmp/.../cellular-first-design /workspace/repos/ai-writings/cellular-first-design`
+then **replaces the symlink with that directory** instead of creating a link — `ln -sfn`
+does not overwrite a directory target. `ls -la` shows a normal-looking tree, but
+`stat -L -c '%d:%i'` gives **different inodes** on the two sides and `-ef` fails.
+
+**Always verify with `-ef` + inode identity, never `ls -la` alone.** If the link path is a
+real directory: `rm -rf` it first, then use plain `ln -s` (no `-f`), then re-check
+`stat -L -c '%d:%i'` on both sides and `[ target -ef link ]`.
+
+The NAS write trap is total and size-independent: a **1 KB** `dd` into `/workspace` fails
+with `Disk quota exceeded` while the workspace itself shows only 2 KB used — the quota is
+**account-wide**, consumed by other sessions, not by this one.
+
 ### Faster sparse fetch: single-subtree checkout (session 114)
 
 `git clone --filter=blob:none --no-checkout` then `git checkout HEAD -- <subdir>` reaches a
