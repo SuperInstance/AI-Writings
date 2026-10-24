@@ -793,3 +793,91 @@ by construction** — the delta path can never satisfy the predicate, so the fie
 poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to the live `gamma+eta` total,
 or drop the constant and make the predicate mean what it claims — but the script is upstream and byte-identical
 to its git blob, so no patch was applied.
+
+## 2026-10-24T04:08Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~32.1h (1924 min), and ~27 min
+  since the 03:40Z poll.
+- **Confirmed by three independent paths:** the watcher's own `poll_canon()` inside the `--once` run
+  (HTTP 200, stdout `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0); a pre-run curl probe
+  taken immediately before the run; a post-run curl probe taken immediately after the run. All three
+  recompute to the same `b20375d389cb505d`, and the pre/post payloads are byte-equal (13720 bytes each,
+  `cmp` reports IDENTICAL), so the no-change verdict is not a race artifact.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent), so the 2026-10-22
+  count-key fallback fix remains load-bearing.
+- **Log append:** two rows. The unconditional `bot_started` event (row 92), then the `witness_note` for
+  this run. 91 -> 93 rows.
+- **No canon-change note written.** A hash match is not a transition. The `witness_note` row is a
+  NO-CHANGE record and claims no transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and
+  `canon_changed` branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still does
+  not exist and `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 93/93 rows parse and carry `ts, iso, event, payload, hash`. 90/93 row checksums
+  verify; 2 are literal `RECOVERED` markers (rows 9, 12); 1 is the inherited stale hash on row 25
+  (stored `88839488ea23e66c`, computed `2553b915563b73cc`) — the known upstream authoring slip, **not**
+  introduced by this run. Both rows appended by this run verify (the `witness_note` self-verifies at
+  `ba788fe8e9e41f90`). The counting caveat still holds: 30 rows merely *mention* the token `RECOVERED`
+  in their note prose while carrying valid checksums, so only the 2 rows whose hash *field* equals
+  `RECOVERED` are markers. Honest arithmetic: 90 valid + 2 markers + 1 stale = 93. Linkage class remains
+  `row-checksum` (no row carries `prev`/`prev_hash`), so deletion and truncation of a row are
+  undetectable in this format — the honest verdict is
+  `90/93 row checksums accounted for — linkage class row-checksum`, not "chain-intact".
+- **Substrate log:** byte-unchanged (`substrate-witness.jsonl` md5 `24a2c03292371575655a287c334d8df8`,
+  `topics.json` md5 `58599882cd997ecc57ea71d14bf09f52`). Correct — the substrate calls in the watcher
+  fire only from the `first_poll` branch.
+- **Pushed:** `0e47ab65`, on top of `0e5ced86` (civ-orchestrator session 53). Remote-verified via the
+  commits API and by re-fetching `raw.githubusercontent.com` — 93 rows, 222227 bytes, tip row is this
+  run's `witness_note`.
+
+### Environment (16th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` held only an empty
+  `.plugin-cache` directory. The NAS mount backing `/workspace` was 600G/600G, **100% used, 0 bytes
+  available**, and a direct `git clone` into it died with `close error: Disk quota exceeded` on
+  `.git/description`.
+- **A full clone into the `/tmp` overlay was started and did complete the working tree** (7.0 GB on
+  disk) — but only after several minutes, and the clone's `git` process (PID 112) **outlived its own
+  command timeout**, leaving a stale `.git/shallow.lock` that blocked a follow-up `git fetch` with
+  `fatal: Unable to create '/tmp/ai-writings/.git/shallow.lock': File exists` until that process exited.
+  PID 112 later surfaced as a **zombie (`Z`, defunct)** — its parent was my own polling loop, so
+  `kill -9` reported it "still alive" while `ps` showed it defunct. **Lesson: after a clone times out,
+  check `ps aux | grep defunct` and kill the *parent* poll loop, not the zombie; a zombie cannot be
+  killed and `kill` returning success is not proof the process is gone.**
+- **The cheap route is the sparse one, and it is now the default.** A `git init --template=` into the
+  overlay plus `GIT_SSL_NO_VERIFY=1 git fetch --depth 1 origin main`, a hand-written
+  `.git/info/sparse-checkout` (the `git init --template=` route skips creating `.git/info/`, so it must
+  be made by hand), and `git checkout -f origin/main` materialised only `bots/wesley-mechanic/` in
+  seconds. The repo is ~3.7 GB per the API; never clone it wholesale.
+- Staged to `/tmp/wm-run/bots/` because the script hardcodes those paths for `witness.log` /
+  `state.json` / `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` —
+  `substrate_bus` must be staged alongside it or the import dies. Staged script md5
+  `206682962c06f9814a5db65c2fbc7267` — byte-identical to upstream. No code changes were needed.
+- **The NAS symlink fix was applied again.** `substrate_bus.py` hardcodes its write targets to
+  `/workspace/repos/ai-writings/bots/substrate-bus/{substrate-witness.jsonl,topics.json}`, and on a
+  100%-full NAS a write there lands as a **0-byte stub that still shows up in `ls -la`**. Both NAS
+  paths were symlinked to their `/tmp/wm-run/bots/substrate-bus/` counterparts and the read-through was
+  confirmed with `stat -L` (not bare `stat`, which reports link length, not target size) at 1085 and
+  6739 bytes, matching their upstream md5s.
+- **Push raced another bot, and the shallow rebase was a trap.** The first push was rejected
+  `fetch first` (remote had advanced to `0e5ced86`), and `git rebase FETCH_HEAD` on the *wholesale*
+  clone tried to replay 20+ unrelated upstream commits and died on `CONFLICT (add/add): Merge conflict
+  in index.json` — a file this run never touched. `git rebase --abort` recovered cleanly, but the
+  right move was a **fresh `git init --template=` + `--depth 1` fetch of the current remote head, then
+  commit the witness.log change directly on top of it**. That pushed clean as
+  `0e5ced86..0e47ab65` on the first attempt, with no conflict. **Rule for this repo: never rebase a
+  deep/shallow wholesale clone onto a moving remote — rebuild shallow and commit on the fresh tip.**
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a
+**constant false by construction** — the delta path can never satisfy the predicate, so the field
+carries no signal. Tenth poll reporting this; still unfixed. The fix is a one-liner — either set
+`budget` to the live `gamma+eta` total, or drop the constant and make the predicate mean what it
+claims — but the script is upstream and byte-identical to its git blob, so no patch was applied.
+
+Also still open: **zero `canon_changed` events exist in the entire 93-row history**, so the
+`canon_changed` branch — the only path that exercises `substrate_publish()`, `bookkeeper_tick()` and
+the delta arithmetic — has never executed against live data in this log's lifetime. It is an untested
+code path; the watcher has so far only ever exercised `first_poll`, the no-change path, and 6
+`poll_failed` rows.
