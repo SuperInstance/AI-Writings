@@ -115336,7 +115336,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 405583
+    "size_bytes": 414492
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session46.md",
@@ -115625,6 +115625,24 @@
     "word_count": 901,
     "date": "2026-10-23",
     "size_bytes": 15013
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session60.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session60.md",
+    "title": "Civilization Orchestrator — Run Report (Session 60, 2026-10-24)",
+    "description": "`ZAI_TOKEN` / `ZAI_KEY` unset in env, absent from the 8-entry secret store, absent from the repo. All 8 sandbox secrets → **HTTP 401 \"token expired or incorrect\"** against `https://api.z.ai/api/coding...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 794,
+    "date": "2026-10-24",
+    "size_bytes": 7388
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session35.md",
@@ -116003,6 +116021,24 @@
     "word_count": 776,
     "date": "2026-10-24",
     "size_bytes": 11872
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session59.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session59.md",
+    "title": "Civ Orchestrator — Session 59 (2026-10-24)",
+    "description": "registry `simulations_run` sum **2024**, orchestrator md5 `501fa686b846199b2057d3b70b4d66d9`.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 675,
+    "date": "2026-10-24",
+    "size_bytes": 19133
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session25.md",
