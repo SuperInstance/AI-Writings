@@ -115426,7 +115426,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "90-the-lut",
-    "size_bytes": 656128
+    "size_bytes": 662149
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session96.md",
@@ -115973,7 +115973,7 @@
     "filename": "RUN_REPORT_2026-10-24_session90.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session90.md",
     "title": "RUN REPORT — Civilization Orchestrator — session 90 (2026-10-24)",
-    "description": "`/workspace/repos/ai-writings/cellular-first-design/code/civilizations` was absent at session start. `/workspace` held only `.plugin-cache`. The NAS mount is at **100 % quota** (600 G used, 0 avail) —",
+    "description": "`/workspace/repos/ai-writings/cellular-first-design/code/civilizations` was absent at session start. `/workspace` held only `.plugin-cache` and an empty `.home`. The NAS is at **100 % quota** (600 G u...",
     "folder": "civilizations",
     "topic": "Civilizations",
     "genres": [
@@ -115983,9 +115983,9 @@
       "Unknown"
     ],
     "style": "Essay",
-    "word_count": 730,
+    "word_count": 744,
     "date": "90-the-lut",
-    "size_bytes": 15825
+    "size_bytes": 15386
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session48.md",
@@ -116544,6 +116544,24 @@
     "word_count": 861,
     "date": "90-the-lut",
     "size_bytes": 14634
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session97.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session97.md",
+    "title": "civ-orchestrator session 97 (2026-10-24) — credential gap 35th deep; the **Formal** took the bottom on both body sets this run; the Grounded's lifetime bottom held for a 4th session",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 688,
+    "date": "2026-10-24",
+    "size_bytes": 15749
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session57.md",
