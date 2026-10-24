@@ -6,7 +6,7 @@
 # host, not in the sandbox, and the credential gap has been hit for 20+
 # consecutive sessions upstream. The fleet's own answer is the SuperInstance
 # vault (https://superinstance-vault.casey-digennaro.workers.dev/proxy), which
-# holds the LLM credential and is reachable from inside GitHub Actions via a
+# holds an LLM credential and is reachable from inside GitHub Actions via a
 # GitHub OIDC token. This workflow mints that OIDC token and reroutes the
 # provider call through the vault.
 #
@@ -20,6 +20,15 @@
 # (/workspace/repos/ai-writings), so they are repointed at the runner's
 # checkout before the script is used -- same treatment snowball-rsi-gan.yml
 # gives snowball_writer.py.
+#
+# HONESTY NOTE (2026-10-24)
+# -------------------------
+# The vault shim swallows provider errors and returns None. bruno_adr.py's
+# run_once() then writes nothing and still exits 0 -- a green job that produced
+# no ADR. This workflow therefore does NOT trust the exit code: it asserts that
+# a new ADR file actually appeared, and fails the job if it did not. The
+# snowball-rsi-gan.yml workflow has this bug today (it commits a witness row
+# and reports success while all three providers return 403).
 
 name: bruno-adr
 
@@ -61,6 +70,37 @@ jobs:
             | python3 -c "import sys,json; print(json.load(sys.stdin).get('value',''))")
           echo "OIDC_TOKEN=${OIDC_TOKEN}" >> $GITHUB_ENV
 
+      - name: Probe the vault directly (shows the real upstream status)
+        env:
+          OIDC_TOKEN: ${{ env.OIDC_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request
+          VAULT = "https://superinstance-vault.casey-digennaro.workers.dev/proxy"
+          body = {"oidc_token": os.environ["OIDC_TOKEN"], "service": "llm", "action": "complete",
+                  "params": {"model": "MiniMax-M2.5",
+                             "messages": [{"role": "user", "content": "Reply with exactly: PONG"}],
+                             "max_tokens": 20}}
+          req = urllib.request.Request(VAULT, data=json.dumps(body).encode(), method="POST",
+                                       headers={"Content-Type": "application/json",
+                                                "User-Agent": "purplepincher-zero/1.0"})
+          try:
+              r = urllib.request.urlopen(req, timeout=120)
+              print("VAULT STATUS:", r.status)
+              print("VAULT BODY:", r.read().decode()[:600])
+          except Exception as e:
+              body_txt = ""
+              try:
+                  body_txt = e.read().decode()[:600]
+              except Exception:
+                  pass
+              print("VAULT ERROR:", type(e).__name__, str(e)[:200])
+              print("VAULT ERROR BODY:", body_txt)
+              # A 401 means the OIDC token failed verification.
+              # A 403 means OIDC passed and the vault's upstream provider refused.
+              print("DIAGNOSIS:", "OIDC_REJECTED" if "401" in str(e) else "UPSTREAM_PROVIDER_REFUSED")
+          PY
+
       - name: Run Bruno (write one ADR)
         env:
           OIDC_TOKEN: ${{ env.OIDC_TOKEN }}
@@ -88,7 +128,15 @@ jobs:
           )
           shim = importlib.util.module_from_spec(spec)
           spec.loader.exec_module(shim)
-          ba.call_zai = shim.call_zai
+
+          # Do not let the shim swallow the failure: wrap it so a provider
+          # error is visible in the log rather than becoming a silent None.
+          def call_zai(prompt, max_tokens=1500):
+              out = shim.call_zai(prompt, max_tokens=max_tokens)
+              if not out:
+                  raise RuntimeError("vault provider returned no content")
+              return out
+          ba.call_zai = call_zai
 
           # Optional topic override so a dispatch can name the ADR it wants.
           override = os.environ.get("TOPIC_OVERRIDE", "").strip()
@@ -100,21 +148,23 @@ jobs:
               ba.random.choice = lambda seq, _m=match: _m[0]
 
           ba.run_once()
-
-          # Report what landed, so the log carries the artifact identity.
-          adrs = sorted((BOT / "adrs").glob("adr-*.md"))
-          print("--- bots/bruno-architect/adrs/ ---")
-          for p in adrs:
-              print("%7d  %s" % (p.stat().st_size, p.name))
           PY
 
-      - name: Show the new ADR
+      - name: Assert an ADR was actually written
         run: |
+          set -uo pipefail
           echo "--- adrs/ ---"
           ls -la bots/bruno-architect/adrs/
           echo
           echo "--- witness.log tail ---"
           tail -3 bots/bruno-architect/witness.log
+          echo
+          if [ -z "$(git status --porcelain bots/bruno-architect/adrs/)" ]; then
+            echo "ASSERTION FAILED: no new or modified ADR file in bots/bruno-architect/adrs/"
+            echo "The generator reported success but produced no ADR. Failing the job."
+            exit 1
+          fi
+          echo "OK: an ADR file is present and changed."
 
       - name: Commit the ADR
         if: ${{ inputs.dry_run != 'true' }}
