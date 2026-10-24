@@ -1,0 +1,110 @@
+{
+  "ts": 1792855608.0260103,
+  "iso": "2026-10-24T15:26:48",
+  "civilizations": [
+    {
+      "id": "civ-poetic",
+      "name": "The Poetic",
+      "generation": 1,
+      "relevance": 970.48,
+      "sims_run": 454,
+      "relevance_per_sim": 2.138,
+      "wins": 3,
+      "losses": 220,
+      "win_rate": 0.013,
+      "preferred_temp": 0.8,
+      "color": "#f59e0b"
+    },
+    {
+      "id": "civ-whimsical",
+      "name": "The Whimsical",
+      "generation": 1,
+      "relevance": 904.48,
+      "sims_run": 461,
+      "relevance_per_sim": 1.962,
+      "wins": 4,
+      "losses": 219,
+      "win_rate": 0.018,
+      "preferred_temp": 0.95,
+      "color": "#ec4899"
+    },
+    {
+      "id": "civ-mythic",
+      "name": "The Mythic",
+      "generation": 1,
+      "relevance": 855.7,
+      "sims_run": 449,
+      "relevance_per_sim": 1.906,
+      "wins": 4,
+      "losses": 213,
+      "win_rate": 0.018,
+      "preferred_temp": 0.85,
+      "color": "#dc2626"
+    },
+    {
+      "id": "civ-therapist",
+      "name": "The Therapist",
+      "generation": 1,
+      "relevance": 833.83,
+      "sims_run": 447,
+      "relevance_per_sim": 1.865,
+      "wins": 6,
+      "losses": 214,
+      "win_rate": 0.027,
+      "preferred_temp": 0.6,
+      "color": "#fb7185"
+    },
+    {
+      "id": "civ-precise",
+      "name": "The Precise",
+      "generation": 1,
+      "relevance": 801.05,
+      "sims_run": 445,
+      "relevance_per_sim": 1.8,
+      "wins": 100,
+      "losses": 118,
+      "win_rate": 0.459,
+      "preferred_temp": 0.2,
+      "color": "#10b981"
+    },
+    {
+      "id": "civ-engineer",
+      "name": "The Engineer",
+      "generation": 1,
+      "relevance": 762.65,
+      "sims_run": 444,
+      "relevance_per_sim": 1.718,
+      "wins": 24,
+      "losses": 192,
+      "win_rate": 0.111,
+      "preferred_temp": 0.4,
+      "color": "#3b82f6"
+    },
+    {
+      "id": "civ-formal",
+      "name": "The Formal",
+      "generation": 1,
+      "relevance": 744.85,
+      "sims_run": 455,
+      "relevance_per_sim": 1.637,
+      "wins": 37,
+      "losses": 184,
+      "win_rate": 0.167,
+      "preferred_temp": 0.3,
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "civ-grounded",
+      "name": "The Grounded",
+      "generation": 1,
+      "relevance": 682.63,
+      "sims_run": 469,
+      "relevance_per_sim": 1.456,
+      "wins": 51,
+      "losses": 171,
+      "win_rate": 0.23,
+      "preferred_temp": 0.5,
+      "color": "#06b6d4"
+    }
+  ]
+}
