@@ -9840,3 +9840,131 @@ Prefer win rate and mean `avg_score`.
 - Session report: `RUN_REPORT_2026-10-24_session85.md`.
 - **Credential gap: 25 sessions deep.** Control A: no-op. Control B: +80 uniform, 5 winners,
   real JEV, 0 errors.
+
+---
+
+## Session 86 — 2026-10-24 (path reconstruction, NAS hardening, low-relevance lenses)
+
+### The NAS is now a HARD constraint, not a soft one
+
+Session 85 reported "a `dd` of 64 kB returns `Disk quota exceeded` and leaves a 0-byte file".
+Session 86 measured further: **even a 4 096-byte `write()` raises `OSError 122`** and leaves a
+0-byte file. `df` reports **600 G used / 0 avail** on a workspace that `du` says is **0 bytes**
+— the quota is exhausted at the *account* level, not by anything in your own tree.
+
+What still works on the full NAS:
+
+| operation | status |
+|---|---|
+| `mkdir` | **works** |
+| `ln -s` (symlink creation) | **works** |
+| writing file content (any size, even 4 KB) | **fails**, leaves a 0-byte file that still shows in `ls` |
+| `git clone` into the NAS | **fails** at `.git/description` |
+
+⇒ **The bridge MUST be a symlink.** A copy into `/workspace` is impossible; the directory
+skeleton can be created but never filled. The two-level bridge still holds:
+
+```bash
+mkdir -p /workspace/repos/ai-writings
+ln -sfn /tmp/ai-writings2/cellular-first-design \
+       /workspace/repos/ai-writings/cellular-first-design
+```
+
+Verify with `wc -c` **through the bridge** (real byte count), never by exit code.
+
+### Do NOT full-clone `SuperInstance/AI-Writings`
+
+The full pack is **3.3 GB** and blows a 30 s command timeout. Sparse + blobless + depth 1
+gives **45 MB** in ~60 s:
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse \
+  "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git" ai-writings2
+git sparse-checkout set cellular-first-design/code
+```
+
+### The `write` tool cannot write `/tmp` — use a bash heredoc
+
+`write` → `/tmp/zai_mock.py` fails with *"Workspace path escapes Cloud Host root"*. Author
+`/tmp` artifacts with `cat > /tmp/file <<'PYEOF' ... PYEOF` and then `python3 -c
+"import ast;ast.parse(...)"` to syntax-check. A heredoc to a *file* is also more reliable
+than `python3 - <<EOF` (which sporadically hits `-122` on close).
+
+### `git show` in a process substitution silently mismatches
+
+Verifying "restored to pristine" with
+`cmp -s "$f" <(git show "HEAD:$f")` reported **115 DIFFERS / 12 IDENTICAL** while
+`git status --porcelain` was **empty**. Cause: the path had a leading `./` and the
+`git show` ran in a subshell whose cwd was not the repo root. Correct form:
+
+```bash
+for f in $(git ls-files "$C"); do
+  rel=${f#$C/}
+  git show "HEAD:$f" > /tmp/_blob && cmp -s "$C/$rel" /tmp/_blob || echo "DIFFERS: $rel"
+done
+```
+
+⇒ **127/127 IDENTICAL**. When `git status` and `cmp` disagree, **trust `git status`** and fix
+the `cmp` invocation — do not conclude the tree is dirty.
+
+### The board's `relevance` field is counter-derived, so it inherits the counter gap
+
+`update_leaderboard()` writes `civ.relevance`, which `save_state()` loaded from
+`culture.json`'s `relevance_score` — a counter, not a ledger sum. Since the counter is
+**+260 behind** the ledger, the leaderboard's own `relevance` and `relevance_per_sim` are
+**not** recomputable from the ledger. **Recompute raw relevance from
+`sum(r['avg_score'] for r in ledger)`** before reporting it; the board's number and your
+recomputed number will differ.
+
+### Low-relevance reporting: the four lenses disagree sharply, and that is the finding
+
+Re-derived from the ledger this session (per-sim + raw + win rate + sub-scores):
+
+- **`civ-grounded` is the one to watch** (6th session running). Last of 8 on the board's own
+  sort key (`rel_per_sim` 1.530), last of 8 on lifetime quality (0.9113), **and** last of 8 on
+  lifetime alignment (1.9461) — the only civ that is last on all three. It also ran *more*
+  sims than 6 of 8 civs (372), so its last place is **not** the longevity artefact the
+  denominator creates. Yet it is 2nd on win rate (0.225) and won 1 of 5 competitions ⇒ not a
+  collapse, but a persistent quality floor.
+- **`civ-poetic` inverts**: 1st on `rel_per_sim` (2.182), 1st on this-run quality (1.608) and
+  1st on this-run alignment (3.250) — and **last of 8 on win rate (2W/163L = 0.012)**.
+  26 sessions running. It accumulates relevance while essentially never being *selected*.
+  A 150-char preview does not reward its voice.
+- **`civ-precise` is the healthiest**: win rate 0.336 (77W/152L), 4.6× the next civ, best
+  lifetime alignment (2.8841), 2 of 5 competitions won. Coldest temperature (0.20) → most
+  consistent output → a preview rewards consistency.
+- **`civ-engineer` is the trap**: last of 8 on **raw relevance (565.84)** and last of 8 on
+  run novelty (1.732) — but **2nd on run quality (1.208)** and 4th on win rate. Reporting
+  "lowest relevance = civ-engineer" from the board's raw field alone would be **wrong**.
+- **`civ-formal`** is 2nd-lowest on run quality (0.567) and 2nd-lowest on run alignment
+  (2.470) but 3rd on win rate — not a stable claim either way.
+
+⇒ **Never report "the civ with low relevance" as a single name.** Report the lens, then the
+name. The four lenses produce *four different* bottom-1 civs here
+(grounded / formal / engineer / poetic). Asking "which civ has low relevance?" without
+naming the metric is under-specified.
+
+### Inherited synthetic contamination keeps growing
+
+The committed ledger is now **37.6 % synthetic** (1040/2764 rows carry `[mock-zai`,
+**130 per civ**), up from 34.7 % in session 85 — the inherited level grew by ~80 rows from
+sessions 84/85. **Record the per-civ baseline line count before every run**; it is the only
+thing that lets you separate your own rows from inherited ones. This session's own 80 rows
+were removed and the tree restored to pristine, contributing **0** to the 37.6 %.
+
+### Chooser vs scorer: 15th consecutive replication of near-zero correlation
+
+Chooser's pick agreed with `argmax(avg_score)` in **1 of 5** prompts (20 %). The competition
+is a *separate* JEV call whose state contains only a 150-char preview and **no scores** — so
+it is not a scorer, it is a re-reader. A civ can win the competition while scoring worst on
+the same prompt (`civ-grounded` won "the bookkeeper's role" with 2.03 while `civ-poetic`
+scored 2.29).
+
+### State at session 86 close
+
+- 8 civs, ledger restored to **2684** rows, `meta_log.jsonl` restored to **173** entries.
+- Working tree **clean** (`git status --porcelain` empty); **127/127** files byte-identical to
+  the git blob (`cmp`).
+- Session report: `RUN_REPORT_2026-10-24_session86.md`.
+- **Credential gap: 26 sessions deep.** Control A: no-op (+0 rows). Control B: +80 uniform,
+  5 winners, real JEV, 0 errors.
