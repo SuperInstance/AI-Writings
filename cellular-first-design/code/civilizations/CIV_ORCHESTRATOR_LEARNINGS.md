@@ -4765,3 +4765,139 @@ the chooser reads only 150 chars of preview. **`civ-precise`** = best win rate (
   produces identical previews across its 5 sims. Measured: 2–3 distinct previews per civ,
   23/80 and 22/80 fleet-wide.
 - The `fallback` flag in the mock log is the cheap guard: **0 fallbacks across 160 calls**.
+
+---
+
+## Session 36 additions (2026-10-23, 132nd wipe) — `/tmp` is ephemeral, and the chooser disagreed 10/10
+
+> Baseline commit `e4101aa` ("Wesley: canon poll 2026-10-23T23:48Z"). The task path did
+> not exist at session start (7th consecutive time); the working tree was restored to
+> byte-identical with HEAD before this section was written.
+
+### NEW TRAP — `/tmp` is NOT durable across tool calls
+
+Sessions 9–35 all say "clone to `/tmp`, it is exempt from the NAS EDQUOT trap". Both
+halves of that sentence are now wrong in this sandbox:
+
+- **Right:** `/tmp` is exempt from the EDQUOT trap. A `git clone` into `/workspace`
+  still dies with `close error: Disk quota exceeded`.
+- **Wrong:** `/tmp` here is a **tmpfs the runtime re-creates between tool calls.** A
+  clone reached **1.7 GB** across two calls and the directory was **gone** by the
+  third (`ls: cannot access '/tmp/aw/': No such file or directory`, with the log file
+  still present).
+
+**Use `/root/work` (overlay, 26 G free) for anything that must survive more than one
+tool call.** `/var/tmp` and `/mnt/envd` are also overlay-backed. Only `/workspace`
+hits the NAS quota. The `write` tool remains jailed to the workspace root, so files
+destined for `/root` must be written with a bash heredoc.
+
+### The filtered clone IS reliable, when paired with a single-directory sparse-checkout
+
+`git clone --depth 50` pulled 1.7 GB of blobs and timed out. This worked in ~30 s at
+**968 K**:
+
+```bash
+git clone --depth 1 --filter=blob:none --no-checkout <token-url> /root/work/aw
+git -C /root/work/aw sparse-checkout init --cone
+git -C /root/work/aw sparse-checkout set cellular-first-design/code/civilizations
+git -C /root/work/aw checkout HEAD
+```
+
+This contradicts sessions 9/10/11 ("the filtered clone always fails"). Restate the
+rule: **filtered + sparse to ONE directory = reliable; filtered alone = unreliable.**
+
+### NEW TRAP — probe a POST-only mock with the real verb, and a short timeout
+
+A `GET` to the mock returned **501** (the handler implements only `do_POST`) and a
+`POST` with `-m 10` hung past a 30 s tool timeout. A hung curl is ambiguous between
+"mock dead" and "mock slow". Probe with `--max-time 8`, then confirm via the mock's
+**own log file** — the log is the instrument, not the socket.
+
+### Credential gap — 17th consecutive session
+
+All **8** sandbox secrets → **HTTP 401 "token expired or incorrect"** on
+`https://api.z.ai/api/coding/paas/v4/chat/completions`; no-auth probe → **401 code
+1001** (endpoint healthy ⇒ credential gap, not outage). `groq` → **HTTP 401**.
+**No alternate live provider exists in this sandbox.** JEV live at `jev-1.14.0`.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Unpatched control:** batch header + all 8 `[Name] running 5 sims...` lines, **no
+`Winner:` lines**, **exit 0**, ledger **+0 rows** (1644 → 1644), meta_log **+0**
+(108 → 108). **Assert on the row delta, never on the exit code.**
+
+### Control B — 17th identical replication, run TWICE with two body sets
+
+`--sims 5 --prompts 5 --providers zai` under Control B, body set A then set B:
+**+80 rows each (+10/civ uniform), +5 meta_log each, 5 winners each, 160 mock calls,
+0 fallbacks, 8/8 voices detected in both, 0 salt leaks, 0 all-2.0-default rows,
+0 JEV score errors**, distinct `content_preview` 24/80 (= the `3 bodies × 8 voices`
+ceiling — not a collapse), score range 1.270–2.860. Total ledger 1644 → **1804**,
+meta_log 108 → **118**.
+
+### The perturbation test fires again — and the middle band is confirmed unranked
+
+fleet mean A = 2.2105, B = 2.0902 (**−0.1203**); max per-civ \|delta\| = **0.212**
+vs median adjacent rank gap **0.028** ⇒ perturbation **7.6× the gap**, so a reorder
+was possible and one happened (**precise 3 → 5**). Kendall τ = **0.714** (24 conc /
+4 disc), same rank slots **3/8**.
+
+**Survives:** bottom-2 {**grounded, formal**}, top-2 {**mythic, poetic**}.
+**Does not survive:** middle band {precise, engineer, whimsical, therapist} —
+**report the band, never an order.**
+
+### Chooser vs `argmax(avg_score)` — 10th replication, and 0/10 this session
+
+`best_civ` agreed with the top scorer in **0/5 (set A) and 0/5 (set B) = 0.0 %**.
+In **every** round the crowned civ was *not* the top scorer; margins **0.16–0.93**
+(widest: precise 1.54 crowned over therapist 2.47). Lifetime unchanged:
+**19/108 = 17.6 %**.
+
+> **Do not "fix" this by making the chooser read the same field the scorer reads.**
+> The chooser sees a 150-char preview; the scorer sees the whole response. They are
+> *different questions*, and the fleet's "win rate" measures the first one. Reporting
+> `win_rate` as quality is the error, not the disagreement.
+
+### Temperature vs lifetime JEV novelty — r = 0.9518 (10th replication)
+
+Also r = **0.7774** vs lifetime quality, **0.1245** vs lifetime alignment.
+**Alignment is the only sub-score that is not temperature-driven** — the only lens
+that measures the culture rather than the sampling temperature, and the noisiest
+(lifetime range 2.061–2.926).
+
+### Counter gap: exactly +260, 17th session running
+
+ledger 1644 vs registry 1384 = **+260**, measured **baseline-to-baseline** from the
+pristine git blobs. The fleet total is identical every session ⇒ the `save_state()`
+lost-update race fires on a **fixed number of writes per session**, not
+stochastically. `relevance_per_sim` remains a **non-reproducible ranking**.
+
+### The low-relevance answer — `civ-grounded`, lowest on 4 of 7 lenses
+
+| lens | lowest | value |
+|---|---|---|
+| A lifetime `avg_score` | **civ-grounded** | 1.617 |
+| B raw relevance | **civ-grounded** | 324.88 |
+| C win rate | **civ-poetic** | 0.011 (1W/92L) |
+| D lifetime quality | **civ-engineer** | 1.079 |
+| E lifetime novelty | **civ-formal** | 1.349 |
+| F lifetime alignment | **civ-grounded** | 2.061 |
+| G `relevance_per_sim` | **civ-grounded** | 1.554 |
+| H this-run `avg_score` (both sets) | **civ-grounded** | — |
+
+`civ-grounded` is lowest on **4 of 7** lifetime lenses including the three that need
+no denominator, is last on the board's own sort key, and is last in **both** body
+sets. It has run the **most** sims (209) and still scores lowest — **not** a longevity
+artefact. Its lifetime alignment (2.061) is **19 % below** the next civ (2.598).
+
+Inverses, stable: **`civ-poetic`** = highest lifetime `avg_score` (2.302) and quality
+(1.663) with **1 win in 92** — a *selection* failure, since the chooser reads only
+150 chars of preview. **`civ-precise`** = best win rate (0.511) but 5th on lifetime
+`avg_score` (1.867) and the least stable mid civ (3 → 5 under a body swap).
+**Extinction risk: none** (threshold −10, lowest +324.88, `--loop`-mode only).
+
+### Restore
+
+`git checkout -- cellular-first-design/code/civilizations/`; **76/76 files
+byte-identical to the HEAD blob** (`cmp` against `git show HEAD:<path>`), `diff-index`
+empty. Post-restore leak test asserts **exactly 70 `[mock-zai` rows per civ**
+(the 16-session-old committed baseline), not zero.
