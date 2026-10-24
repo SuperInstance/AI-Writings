@@ -8717,3 +8717,131 @@ not recomputable by an auditor from the ledger.
 - **The committed ledger is 800/2444 = 32.7 % provider stand-in** (960/2524 = 38.0 %
   during the run, restored to 32.7 % afterwards). **Always declare the filter with a
   lifetime number** — the *level* changes with the filter, the *order* does not.
+
+---
+
+# Session 77 (2026-10-24) — credential gap 24th deep; +80 under Control B
+
+## Environment notes (new this session)
+
+### The `ai-writings` *user* is a decoy — find the repo by CODE search, not repo search
+
+`repos/ai-writings` in the task path is a **legacy owner name**. Both of these exist:
+
+- `GET /users/ai-writings/repos` → **200**, 7 real repos (`PakePlus`, `ai-writing`, …).
+  None is `cellular-first-design`. Following this **wastes a turn** and looks plausible,
+  because the account name matches the path segment exactly.
+- `GET /orgs/ai-writings/repos` → **404**. The real owner is a **user**, `SuperInstance`.
+
+**Fastest reliable resolution — code search** (the script path is unique):
+```
+GET /search/code?q=civilization_orchestrator+in:path
+  -> SuperInstance/AI-Writings  cellular-first-design/code/civilizations/civilization_orchestrator.py
+```
+`search/code` is separate from `search/repositories` and needs no repo index. Do the
+**code** search before the **repo** search when the task path names a script.
+
+### The one-level bridge silently fails if the target already exists as a directory
+
+```
+mkdir -p /workspace/repos
+ln -sfn /tmp/AI-Writings /workspace/repos/ai-writings
+```
+If `/workspace/repos/ai-writings` **already exists as a real directory**, `ln -sfn` puts
+the symlink *inside* it (`/workspace/repos/ai-writings/AI-Writings`) and the bridge
+resolves to **nothing** — with **no error**. The run then writes to a path that does not
+exist and fails at import.
+
+**Always assert the link type:**
+```
+stat -c '%F' /workspace/repos/ai-writings     # must print: symbolic link
+```
+Fix when it prints `directory`:
+```
+rm -f /workspace/repos/ai-writings/AI-Writings && rmdir /workspace/repos/ai-writings
+ln -sfn /tmp/AI-Writings /workspace/repos/ai-writings
+```
+Same shape as the earlier `rmdir` trap: **the file is inside the directory you meant to
+replace.** Check `ls -la` on the parent, not just the link's exit status.
+
+### Upstream moves between sessions — merge, then prove the subtree is untouched
+
+Upstream HEAD at fetch was `5733db68`, one commit past s76's `8a536c8f`, and the new
+commit was a landing-page auto-update. `git merge --ff-only FETCH_HEAD` applied cleanly.
+
+**Before using the fetched tree as a baseline, prove the subtree you care about did not
+move:**
+```
+git diff --stat <old>..<new> -- cellular-first-design/code/civilizations/
+# empty => the ledger state you have is still the baseline
+```
+
+### Distinct-preview denominator: the number of NEW rows, not a hardcoded 160
+
+s76 reported "160/160 distinct previews" for a run that wrote **80** ledger rows. The
+ledger stores **one row per sim**; this run produced **80 sims** (8 civs × 5 batch +
+8 civs × 5 competition), so the correct denominator is **80**. Both conventions agree
+there was no collapse. **Divide by the number of new rows you actually wrote** — do not
+carry a previous session's constant forward.
+
+## Findings (re-confirmed + new)
+
+### The unpatched run STILL rewrites `leaderboard.json` (24th confirmation)
+
+`update_leaderboard()` runs **regardless of whether any simulation succeeded**, so a
+**+0-row** run leaves a changed board — the diff is **only** `ts`/`iso`
+(`08:06:11` → `09:07:19`). `git status --porcelain` after the unpatched run shows
+`M .../leaderboard.json`.
+
+**Two consequences:**
+1. A snapshot-based restore check will report a **false mismatch** against a snapshot
+   taken *after* the unpatched run. **The git blob check is authoritative:**
+   `git hash-object <worktree>` vs `git rev-parse HEAD:<path>`.
+2. The orchestrator should **refuse to rewrite `leaderboard.json` when it produced 0 rows**.
+
+### NEW — the selection failure got its cleanest proof: argmax 5/5, crowned 0/5
+
+`civ-poetic` was the `argmax(avg_score)` in **all five** competition rounds this session
+and won **none**:
+
+| round | winner | argmax | shortfall |
+|---|---|---|---|
+| 1 | civ-grounded | **civ-poetic** | 0.583 |
+| 2 | civ-precise | **civ-poetic** | 0.260 |
+| 3 | civ-formal | **civ-poetic** | 0.003 |
+| 4 | civ-precise | **civ-poetic** | 0.050 |
+| 5 | civ-engineer | **civ-poetic** | 0.217 |
+
+The chooser is not merely **uncorrelated** with the scorer — on the civ that leads the
+scorer it is **anti-correlated**. The chooser reads **150 characters** of preview with
+**no scores in the prompt**; the scorer sees per-civ quality/novelty/alignment over the
+whole response.
+
+**Lifetime agreement rose to 28/163 = 17.2 %** (s76: 21/156 = 13.5 %), mean shortfall
+**0.459** (s76: 0.560), max **1.373**. **135/163** rounds crown a non-argmax civ.
+
+**A chooser sweep is a selection result, not a quality result** — win rate is the only
+metric that measures selection, and `relevance_per_sim` is the only metric a board
+displays. That gap is the whole defect.
+
+### The counter gap did not widen: +260 before, +260 after, delta 0 on all 8
+
+Inherited baseline defect, not a per-session constant. Still live: while the gap exists,
+`relevance_per_sim` is **not recomputable by an auditor from the ledger**.
+
+## Standings (24 sessions)
+
+- **Lowest relevance: `civ-grounded`** — last on the board sort key (**1.487**), raw
+  relevance (**444.60**), lifetime `avg_score` on both filters (**1.5825** mock-filtered
+  n=312 / **1.5466** all-rows n=342), and **lowest quality bar of all 8** (**1.0130** —
+  now lower than `civ-engineer`'s 1.0238, which was the only lower bar in s76), while
+  holding the **most** real rows (312). **A genuine writing deficit, not a longevity
+  artefact** — it loses on the mock-filtered *mean*, which no denominator can manufacture.
+- **Selection failure: `civ-poetic`** — 1st of 8 on the board, on lifetime quality
+  (1.5305) and on raw relevance (603.59), and **1 win in 138** (0.007). **Argmax in 5 of
+  5 rounds this session, crowned 0.**
+- **Healthy: `civ-precise`** — 69W/64L (0.519), the only civ whose relevance rank and
+  win rate agree.
+- **Extinction risk: none** — threshold −10, lowest +444.60, a **454.60-point margin**.
+- **The committed ledger is 800/2444 = 32.7 % provider stand-in** (880/2524 = 34.9 %
+  during the run). **Always declare the filter with a lifetime number.**
