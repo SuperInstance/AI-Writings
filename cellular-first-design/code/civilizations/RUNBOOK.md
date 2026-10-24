@@ -407,3 +407,64 @@ no longer a mock artifact.
 - **Verification pattern held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ =
   **+5**, `Winner:` lines = **5**, 80/80 rows with the `[mock-zai` prefix, **0** rows with a
   JEV `error` key.
+
+### Session 120 — quality collapse did NOT reproduce; the ls race is not a trailing-slash issue (2026-10-24)
+
+**The session-119 "quality collapse" is downgraded from a run property to a possible one-off.**
+Session 119 measured `quality` at 0.009–0.030 for every civ (spread 0.021). This session
+measured **0.106–0.446 (spread 0.340)** — a ~10× higher level and a 16× wider spread, under
+the *same* mock. Session 119's durable rule survives and is re-confirmed
+(*compare cross-civ spreads, not absolute levels, before ranking on a dimension*), but the
+*collapse itself* is not a stable property of the mock. `alignment` again carried the widest
+spread (1.043 vs quality 0.340, novelty 0.326) and is again the axis the chooser selects on.
+
+**Chooser vs `avg_score` argmax across the three clean-mock sessions: 0/5 (118) → 3/5 (119)
+→ 1/5 (120).** All 5-sample points — the honest claim is *somewhere in 0–60 %, no single run
+can say which*. What survives all three: the chooser is **not** a pure argmax, and in all 4
+disagreements this session it picked a **lower**-scoring candidate (4th consecutive session:
+116/118/119/120).
+
+**Mock non-degeneracy: 40/40 across the run** (8/8 distinct previews on every one of the 5
+prompts) — the second clean measurement in the fleet's history, so session 120's competition
+results and `avg_score` spread are **real measurements**, not tie-breaks.
+
+**NEW: the `ls` race on the symlinked deep path is NOT a trailing-slash issue.** This session
+`ls -la <path>` failed 2/2 and `ls -la <path>/` failed 2/2, then both variants passed 20/20
+on retry. The trailing slash is not the trigger and there is still no explanation. Diagnostic
+remains inode identity + `readlink -f` + `[-e]` + retry. **Refine the triage:** the
+session-115 signature for a *wrong symlink target* is a **consistent 5/5 failure**; an
+intermittent 2/2-then-20/20 pattern is the **race**, not a broken bridge. Do not
+"fix" a bridge that is passing 20/20.
+
+**Mock pre-flight improvement:** assert **two different civs ⇒ two different seeds** against
+the live mock *before* launching the batch. It is a 3-second check that prevents a broken
+mock from ever reaching the ledger, instead of discovering it afterwards in the rows.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — 25 consecutive sessions
+(95–120). Last on lifetime `avg_score` (1.2925), `alignment` (1.5820), `quality` (0.6477),
+`relevance` (810.06) and `relevance_per_sim` (1.248). **The structural gap is `alignment`:
+0.408 below the next civ (1.582 vs 1.990), versus 0.035 on quality.** The meta-GAN selects
+on alignment, so Grounded fails to *embody a distinctive voice* — a voice failure, not a prose
+failure. It is 2nd worst on this run's `alignment` too.
+
+**New axis to watch: `civ-engineer`** was last on this run's `avg_score` (0.8597), `quality`
+(0.106) and `alignment` (0.803) — but is only 6th of 8 on lifetime `relevance_per_sim`
+(1.461). A single-run low, not yet a trend; it would become a finding if it repeats.
+
+- **`civ-formal`** is the low-novelty axis (lifetime novelty 1.4652, last; alignment 2.2499
+  healthy). **`civ-poetic`** = 1st on lifetime avg_score (1.9173) / quality (1.0997) /
+  alignment (2.5378) / relevance_per_sim (1.876) but **last** on win_rate (0.016) and won
+  0/5 (argmax in 2/5) — the stable selection-failure inverse. **`civ-precise`** = best
+  win_rate (0.500), 4/5 wins, 6th on lifetime avg_score — the mirror inverse.
+- **Extinction risk NONE** — threshold −10, lowest relevance +810.06 (81× above floor).
+  Registry 8, `max_civs` 12. Extinction/birth only under `--loop`.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42,
+  poetic +37, engineer +22, mythic +20, therapist +17, precise +16. `save_state()` has no
+  lock ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (6th session); `gh` not installed (7th session);
+  tool timeout 30 s < run ~45 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+- **Verification pattern held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ =
+  **+5**, `Winner:` lines = **5**, 80/80 rows with the `[mock-zai` prefix, **0** rows with a
+  JEV `error` key, sim→competition ts gap at index 4 in all 8 civs.
