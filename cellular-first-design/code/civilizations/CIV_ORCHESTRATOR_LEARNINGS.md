@@ -5826,3 +5826,102 @@ Low relevance: `civ-grounded` 1.494 (lowest; widest gap to leader 2.185, and
 the *largest* sample at 219 sims, so it is a real per-sim deficit, not a
 sample-size artifact), then `civ-formal` 1.635. No civ near extinction
 (min relevance +327 vs threshold −10).
+
+---
+
+## Session 46 (2026-10-24) — a backgrounded clone can vanish mid-session; the committed ledger is 28 % mock output
+
+### 1. `/tmp` is not durable within a session either
+
+The s45 note said "`/tmp` survives the session but not necessarily the sandbox."
+This session tightened that: the clone landed at `/tmp/ai-writings`, was **fully
+readable** (script md5, all 8 civ baselines, the 324 KB learnings file), and was
+**gone** a few minutes later — `/tmp` at 28 G free, no reaper in the log. The
+likely cause was a `rm -rf /tmp/ai-writings` in a *retry* command from an earlier
+step in this same session.
+
+- **Rule: never put a live clone at a path a retry command might `rm -rf`.** Use
+  a fresh, purpose-named directory (`/tmp/aw`) and treat any `rm -rf` in the
+  session as suspect.
+- **Rule: `ls` + md5 the checkout immediately after each `git sparse-checkout`,
+  and re-verify it exists before every later phase.** A vanished checkout
+  otherwise shows up as a confusing "path does not exist" mid-task.
+
+### 2. The mock must split the preamble before parsing the topic
+
+The cultural prompt the orchestrator builds is:
+
+```
+You are a voice in the tradition of "The Poetic".
+Your tenets: salt, ember.
+Your voice: lyrical, dense.
+
+Write 100 words on what a cell is.
+```
+
+A topic regex applied to the **whole** string yields
+`of the poeticyour tenets salt emberwrite 100 words on what a` — silently wrong
+output, no error. **Split on `\n\n` and take the last chunk first**, then parse
+the topic from that.
+
+- The **civ id never appears in the prompt** — only the culture *name* does, in
+  `tradition of "<Name>"`. Key the mock's voice map on the **name** (from
+  `culture.json`), not the id.
+- Result: **10/10 distinct content prefixes per civ** — s45's false-collision
+  artifact does not recur.
+
+### 3. A restarted mock that fails to bind keeps serving the old code
+
+`HTTPServer((host, port))` without the request-handler class raises
+`TypeError: TCPServer.__init__() missing 1 required positional argument`. The
+new process dies, but **the old process still holds the port**, so the
+"fixed" mock silently keeps serving stale output and the fix appears not to
+work.
+
+- **Rule: after restarting a local mock, kill by PID from `ps -eo pid,args`,
+  confirm the port is free, and re-run the smoke test before the real run.**
+- `pkill -f <script>.py` **self-matches and kills the wrapper shell** (2nd
+  occurrence) — use explicit PIDs.
+
+### 4. The committed ledger is now 28 % mock output — and `grep -c` is not a leak test
+
+| civ | `[mock-zai` rows in the pristine remote blob |
+|---|---|
+| each of the 8 civs | **70** |
+| **total** | **560 of 1964 rows (28 %)** |
+
+s24 found 240; it has since grown to 560. Every session's lifetime statistics
+are computed over a baseline that is ~28 % control output, and `culture.json`
+counters count those rows as if they were provider output.
+
+> **A `grep -c "mock-zai"` on the committed ledger is a false positive at
+> baseline.** The leak test is a **delta** against the baseline count, never an
+> absolute count. Check the delta first, before computing any lifetime stat.
+
+### 5. Low-relevance reading, session 46 (16th / 27th session running)
+
+- **Lowest `relevance_per_sim`: `civ-grounded` 1.519** (229 sims — the *largest*
+  sample, so the deficit is real, not a denominator artifact), then
+  `civ-formal` 1.667, `civ-engineer` 1.737.
+- **Lowest raw relevance: `civ-grounded` 347.82** — now lowest on all three lenses.
+- **Lowest win rate: `civ-poetic` 0.010 (1W/102L)** — 1st on the board and last
+  at being selected. Then `civ-therapist` 0.020, `civ-whimsical` 0.029.
+- **Healthiest: `civ-precise`** (52W/46L, 0.531) — the only civ whose relevance
+  rank and win rate agree.
+- **Extinction: none.** Lowest relevance +347.82 vs the −10 threshold, and
+  `extinction_and_birth()` only runs under `--loop` every third iteration.
+- Counter gap **+260** (ledger 1964 vs `culture.json` 1704) — unchanged.
+
+### 6. Reproduce (session 46)
+
+```bash
+export ZAI_TOKEN="${ZAI_TOKEN:-sandbox-control-b-placeholder}"
+export ZAI_URL_OVERRIDE="http://127.0.0.1:8765/chat/completions"
+export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"
+python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai
+```
+
+**+80 rows (10/civ), +5 meta, 5 winners, 0 default-2.0, 0 JEV errors, 73
+distinct `avg_score` (1.893–2.727)**, script md5 unchanged
+(`501fa686b846199b2057d3b70b4d66d9`), remote base `3c63035`. Mock rows reverted
+before commit; 27 files verified `cmp`-identical to the remote blobs.

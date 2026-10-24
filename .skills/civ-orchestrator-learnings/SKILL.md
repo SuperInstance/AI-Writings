@@ -67,6 +67,12 @@ they are not evidence of work.
   Use a bash heredoc there.
 - `pkill -f <pattern>` self-matches and kills the invoking shell. Kill by PID
   from `ps -eo pid,args --no-headers | grep "[z]ai_mock"`.
+- **`/tmp` is not durable WITHIN a session** (session 46): a clone that was
+  fully readable minutes earlier was simply gone, `/tmp` at 28 G free. A
+  `rm -rf <clone>` in a *retry* command is the likely culprit.
+  **Never keep a live clone at a path a retry command might `rm -rf`** — use a
+  fresh purpose-named dir (`/tmp/aw`), and re-verify with `ls` + md5 after
+  every `git sparse-checkout` and before every later phase.
 - `rm -f` on a running mock's log silently detaches it (the fd survives on the
   unlinked inode). **Restart the mock with a fresh log path** instead.
 
@@ -119,6 +125,20 @@ patch each session (blast radius = 1 insertion, 1 deletion):
 - **Always assert the mock's own per-voice call distribution** (10 per voice
   across all 8). A control can "pass" every output check while misrouting a
   whole voice.
+- **Split the cultural preamble before parsing the topic** (session 46). The
+  prompt is `You are a voice in the tradition of "The X".\nYour tenets: ...\n\n<TASK>`.
+  A topic regex over the WHOLE string yields
+  `of the poeticyour tenets salt emberwrite 100 words on what a` — silently
+  wrong output, no error. **Split on `\n\n`, take the last chunk, then parse.**
+  Derive the topic from the TASK line and the voice from the **name** in the
+  `tradition of "<Name>"` line (the civ id never appears in the prompt).
+  Result: 10/10 distinct content prefixes per civ — no false-collision artefact.
+- **A restarted mock that fails to bind keeps serving the OLD code** (session
+  46). `HTTPServer((host, port))` without the request-handler class raises
+  `TypeError: TCPServer.__init__() missing 1 required positional argument`;
+  the new process dies but the old one still holds the port, so the fix appears
+  not to work. **Kill by PID, confirm the port is free, re-run the smoke test
+  before the real run.**
 
 ## Verification: per-civ, not on the concatenation
 
@@ -133,6 +153,21 @@ bad=sum(1 for f in glob.glob('civ-*/simulations.jsonl') for l in open(f)
         if all(json.loads(l)['scores'].get(k)==2.0 for k in ('quality','novelty','alignment')))
 ```
 `bad == 0` AND `sum(ledger_rows)` grew => real JEV scores.
+
+### The committed ledger is already 28 % mock output — `grep -c` is NOT a leak test
+
+| civ | `[mock-zai` rows in the pristine remote blob |
+|---|---|
+| each of the 8 civs | **70** |
+| **total** | **560 of 1964 rows (28 %)** |
+
+s24 found 240; it has since grown to 560 (session 46). Every session's lifetime
+statistics are computed over a baseline that is ~28 % control output, and
+`culture.json` counters count those rows as if they were provider output.
+
+> **A `grep -c "mock-zai"` on the committed ledger is a false positive at
+> baseline.** The leak test is a **delta** against the baseline count, never an
+> absolute count. Check the delta *before* computing any lifetime statistic.
 
 ### Restoring the mock-free ledger
 
@@ -220,6 +255,15 @@ not a reproducible ranking.** Measure the gap blob-to-blob, baseline-to-baseline
 
 ## Session reports
 
-`RUN_REPORT_2026-10-23_sessionN.md` in the civilizations dir, N = 1..17.
-Session 17 = commit `ea94f35b`, pushed to `SuperInstance/AI-Writings` `main`
-and remote-verified via the commits API.
+`RUN_REPORT_2026-10-23_sessionN.md` / `RUN_REPORT_2026-10-24_sessionN.md` in
+the civilizations dir, N = 1..46. Session 46 = base commit `3c63035`;
+**+80 rows (10/civ) / +5 meta / 5 winners / 0 default-2.0 / 0 JEV errors / 73
+distinct `avg_score` (1.893-2.727)**, script md5 unchanged
+(`501fa686b846199b2057d3b70b4d66d9`), mock rows reverted before commit and all
+27 files verified `cmp`-identical to the remote blobs.
+
+**Session 46 low-relevance:** `civ-grounded` 1.519 rel/sim (lowest; 229 sims =
+largest sample, so a real deficit), `civ-formal` 1.667, `civ-engineer` 1.737.
+Lowest win rate: **`civ-poetic` 0.010 (1W/102L)** — 1st on the board, last at
+being selected. Healthiest: `civ-precise` (52W/46L, 0.531). Extinction: none
+(lowest relevance +347.82 vs threshold -10). Counter gap **+260** (unchanged).
