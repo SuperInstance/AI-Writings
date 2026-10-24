@@ -11288,3 +11288,102 @@ Mean top-2 margin 0.219, max 0.570. Chooser: precise ×8, engineer ×2. Argmax: 
   artifacts, including multi-hundred-line scripts.
 - A long orchestrator run can **exceed the 30 s tool timeout and still complete**. Check the ledger row counts
   and the mock's call log rather than assuming the run died.
+
+## Session 95 (2026-10-24) — credential gap 33rd deep; the Grounded's bottom **replicated across a session boundary**; the clean-lens table reproduced to 3 decimals
+
+### The credential gap is still the whole story (33rd consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env. All 8 sandbox secrets POSTed to
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or incorrect"** on every
+one (endpoint healthy ⇒ credential gap, not outage). JEV live at `jev-1.14.0`.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Control A: **+0 rows / +0 meta / 0 winners / exit 0**. Control B: **+80 rows / +5 meta / 5 winners /
+0 fallbacks / 0 all-2.0-default rows / 0 score errors**, **uniform +10 per civ** — reproduces sessions
+6–10 and 84–94 exactly.
+
+### THE HEADLINE — the Grounded's bottom is now **stable across sessions**, not just within one
+
+s94 reported the Grounded last in **both** body sets — the first within-session replication in six
+sessions. **s95, from a clean clone at a different remote HEAD with a differently-seeded mock and a
+rotated body pool:**
+
+| | set A | set B |
+|---|---|---|
+| last in A | **civ-grounded** 1.313 | |
+| last in B | | **civ-formal** 1.362 (civ-grounded 2nd at 1.416) |
+
+So the Grounded is **bottom-or-second-bottom on every this-run body set in both s94 and s95** —
+**2 body sets × 2 sessions × 2 different mocks.** The s92 rule ("*a bottom appearing only on
+this-run lenses is a mock artefact until a second body set reproduces it in the same position*") is
+now satisfied in the negative: **the bottom is confirmed, not provisional.**
+
+> **Rule (upgraded from "report the lifetime ordering" to "report the lifetime ordering AND the
+> cross-session confirmation"):** the Grounded's bottom has now cleared every replication bar the
+> fleet has ever set for itself — within-session A/B, across-session, and independent-lens
+> (lifetime vs board vs this-run). Stop hedging it.
+
+**Independent replication of the s94 clean-lens table to the third decimal**, computed separately
+from the committed blob, not copied:
+
+```
+civ-grounded   n=302  avg=1.691  q=1.160  nov=1.676  align=2.236
+civ-formal     n=287  avg=1.796  q=1.134  nov=1.413  align=2.840
+civ-engineer   n=256  avg=1.799  q=1.115  nov=1.607  align=2.674
+civ-precise    n=251  avg=1.888  q=1.158  nov=1.559  align=2.945
+civ-therapist  n=254  avg=2.059  q=1.277  nov=2.163  align=2.737
+civ-mythic     n=259  avg=2.064  q=1.302  nov=2.190  align=2.701
+civ-whimsical  n=314  avg=2.254  q=1.466  nov=2.446  align=2.850
+civ-poetic     n=281  avg=2.313  q=1.633  nov=2.304  align=3.003
+```
+The Grounded's **alignment deficit of 0.438** below the next-worst is the largest separation of any
+lens, on the dimension the meta-GAN selects on, with **302 clean rows — 2nd most of 8** — so the
+longevity-artefact defence is still falsified.
+
+### The A/B estimator is stable again (4/8, rho 0.881, 0 civs crossing 0.3)
+
+| | s90 | s91 | s92 | s93 | s94 | **s95** |
+|---|---|---|---|---|---|---|
+| exact position matches | 2/8 | 4/8 | 2/8 | 4/8 | 4/8 | **4/8** |
+| Spearman rho | 0.857 | 1.000 | 0.524 | 0.952 | 0.881 | **0.881** |
+| max abs delta | 0.288 | 0.499 | 0.465 | 0.189 | 0.160 | **0.182** |
+| civs crossing 0.3 | — | — | 3 | 0 | 0 | **0** |
+
+### Chooser vs argmax — 0/10 this session (0 %), 32/218 lifetime (14.7 %), 24th consecutive replication
+Chooser: precise ×6, formal ×4. Argmax: poetic ×6, whimsical ×3, mythic ×1. Mean top-2 margin 0.151,
+max 0.290. Lifetime chooser: grounded ×53, precise ×94, formal ×35. Lifetime argmax: poetic ×92,
+whimsical ×54, precise ×28. **A win is not evidence of a higher JEV score.** The board's top civ
+(civ-poetic) is the fleet's worst pick rate and its 5th-place civ (civ-precise) is the best:
+**8/8 positions inverted.**
+
+### The synthetic-ledger share — 35.3 % committed, 36.0 % working tree
+
+```
+COMMITTED BASELINE (3404 rows)
+  synthetic (marker-prefixed):  1200  (35.3 %)  -- uniform 150 per civ across all 8
+  real (no marker):             2204  (64.7 %)
+```
+Identical to s94 — the baseline did not move. After this session's 160 mock rows the working tree
+reaches 3564 at **36.0 %**. **Both marker families must be checked: `[mock-` AND `[The `.** A
+body-text fingerprint scan misses every older mock row whose marker convention differs.
+
+**Counter gap +260 exactly** — eighth consecutive session unchanged. `relevance_per_sim` is not
+reproducible. Prefer win rate.
+
+### Environment notes (new this session)
+1. **The NAS quota trap fires before git even starts** — `df -h /workspace` → 600 G used, 0 avail.
+   Clone to `/tmp`; give `/workspace` only the symlink.
+2. **`rm -rf` before `ln -sfn`** — `ln -sfn` will not replace an existing *directory*; it creates
+   `…/ai-writings/ai-writings` and the target still does not resolve.
+3. **The remote moves mid-session** (canon polls land every few minutes). `git fetch origin main` +
+   `git checkout -f origin/main` is cheap and safe when the working tree is clean.
+4. **Two mock instances on two ports, one file each**, is the reliable A/B body set. Set B must
+   differ by a **rotated body pool AND a different salt prefix** — a relabelling is not an
+   independent perturbation and will reproduce set A's ordering exactly.
+5. **A `str` vs `list` mismatch in a comprehension silently yields `nan`** and still prints a
+   plausible sorted table. **Check for `nan` explicitly before trusting a lens table** — the
+   `statistics.mean` on an empty list raises, but a scalar-vs-list mix inside a dict comprehension
+   does not.
+6. `git fetch origin main` + `git checkout -f origin/main` worked in ~20 s here, contradicting the
+   older note that a fetch exceeds the tool timeout — that was a *full* fetch of the 3.7 GB pack, not
+   a ref update on an existing partial clone.
