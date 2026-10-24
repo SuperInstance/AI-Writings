@@ -262,3 +262,30 @@ out first, then restore, then copy back into the *nested* path and `git add` tha
 Symptom triage: `ls` failing **5/5 in a row** (not intermittently) after a restructure means a
 *wrong symlink target*, not the transient mount race. Re-run the inode check before touching the
 bridge.
+
+### Session 116 — re-confirmations and one new observation
+
+- **NAS EDQUOT still total (3rd session running).** `git clone` directly into
+  `/workspace/repos/...` dies with `Disk quota exceeded`; only the symlink bridge works. Target
+  must be the **nested** `cellular-first-design` dir.
+- **A plain `git clone --filter=blob:none` of `SuperInstance/AI-Writings` into `/tmp` checks out the
+  whole tree fine.** The civ subtree is small; the `sparse-checkout init/set` dance is unnecessary.
+  (`/tmp` = overlay, ~28 G free; the NAS quota does not apply.)
+- **`gh` is not installed** — 3rd session running. `GET /user/repos?per_page=100` and
+  `GET /search/repositories?q=…` with `GITHUB_TOKEN` both work for locating upstream. The API is
+  case-insensitive: `SuperInstance/ai-writings` and `SuperInstance/AI-Writings` are the same repo.
+- **Tool-call timeout is 30 s**, shorter than the ~45 s orchestrator run. Launch detached with
+  stdout redirected to a file, then poll `ps` + the log. The launch call itself returns fine.
+
+**New: the chooser can pick the LOWEST-scoring candidate.** In session 116's "witness log"
+competition, `civ-grounded` won with `avg_score` 0.040 while the field's top was 0.533
+(`civ-precise`). The meta-GAN chooser scores the *text* via JEV; it does not read `avg_score`.
+So `win_rate` and `avg_score` are genuinely different signals, and a low-scoring civ can still
+take a competition. This strengthens the standing rule: **never treat `win_rate` as a quality
+metric** — measure quality on `avg_score` / lifetime score dims instead.
+
+**Verification pattern that held (re-confirmed 116):** per-civ Δ = **+10** for `--sims 5`
+(5 sim-phase + 5 competition-phase rows), `meta_log.jsonl` Δ = **+5**, `Winner:` lines = **5**,
+and 80/80 new rows carry the `[mock-zai]` prefix with `provider=zai` and **no `error` key** in
+`scores` (the no-error check is what proves JEV really scored rather than silently returning
+the 2.0 default).
