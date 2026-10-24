@@ -810,3 +810,91 @@ label are now decoupled** — keep reporting them as two separate claims.
   clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
   `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race did
   not reproduce (the bridge passed on the first attempt).
+
+### Session 128 — chooser-vs-argmax is 0/5; the mock is non-degenerate for the 10th time (2026-10-24)
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped — twice — see below), so the
+session-112 index-wrap bug was live again. The **pre-flight probe caught it before it reached the
+ledger**: 4 different civs → 4 different seeds AND 4 different previews against the *live* mock
+with the exact long cultural prompt, HTTP 200, `[mock-zai seed=…]` prefix present on every body,
+`grep -c Traceback /tmp/mock_zai.log` → **0**.
+
+**Verification held:** per-civ Δ = **+10** (5 sim-phase + 5 competition-phase), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, `provider={zai}`,
+**0** rows with a JEV `error` key, sim→competition ts gap at index 4 in all 8 civs
+(1.08 s–22.61 s), and **5/5 competition prompts at 8/8 distinct previews** — the **tenth clean
+mock measurement** (118, 120, 121, 122, 123, 124, 125, 126, 127, 128). 40 distinct seeds across
+the run's 80 rows.
+
+**Chooser vs `avg_score` argmax: 0/5 (0 %).** Clean-mock series:
+0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → 3/5 (123) → 0/5 (124) → 4/5 (125) →
+3/5 (126) → 3/5 (127) → **0/5 (128)**. Ten five-sample points cannot narrow a rate — the honest
+claim is *somewhere in 0–80 %*. What survives every session: the chooser is **not** a pure argmax,
+and in **all 5** disagreements this session it picked a **lower**-scoring candidate. The extreme
+case: on p3, `civ-grounded` won at **0.070** while the argmax `civ-whimsical` scored **0.763** —
+the session-123 finding in its strongest form, and the fleet's lowest-relevance civ taking a
+competition. **A competition win is not evidence of relevance.**
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — **31 consecutive sessions
+(95–128)**. Last on lifetime `relevance` (852.28), `relevance_per_sim` (1.169), `avg_score`
+(1.2133), `quality` (0.5921) and `alignment` (1.4526). **The structural gap is `alignment`:
+0.3463 below the next civ** (1.4526 vs 1.7989 `civ-therapist`), versus **0.0321** on quality —
+11× wider. Alignment is the dimension the meta-GAN selects on, so Grounded fails to *embody a
+distinctive voice* — a voice failure, not a prose failure. It was last on this run's `avg_score`
+(0.1860) and 2nd-lowest on `alignment` (0.0540). `civ-formal` remains the low-**novelty** axis
+(1.4501). `civ-poetic` = 1st on lifetime `avg_score` (1.8108) / `quality` (1.0135) but **last** on
+`win_rate` (0.014), won 0/5 — the stable selection-failure inverse. `civ-precise` = best
+`win_rate` (0.526), 1st on lifetime `alignment` (2.4133), won 3/5 — the mirror inverse.
+
+**Watch-axis `civ-therapist` — the session-123 signal EXTENDED (now 2 sessions).** Therapist was
+**lowest** on this run's `alignment` (**0.0260**, below `civ-grounded`'s 0.0540) and 2nd-lowest on
+`avg_score` (0.1590); its lifetime alignment is now **1.7989, 2nd-lowest of 8**. Second
+consecutive session on the bottom of the alignment axis — still a watch, not a finding.
+
+**Watch-axis `civ-engineer` — the session-121 low did NOT repeat for a fourth time.** Last on this
+run's `avg_score` (0.1423) and novelty (0.3120), but 6th of 8 on lifetime `relevance_per_sim`
+(1.365) and lifetime `avg_score` (1.3841). Not a trend.
+
+- **Extinction risk NONE** — threshold −10, lowest relevance +852.28 (86× above floor).
+  Registry 8, `max_civs` 12. All 8 still `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` 0.7000,
+  `novelty` 0.2440, `avg_score` 0.2267, `quality` 0.0180. `alignment` again carried the widest
+  spread and is again the axis the chooser selects on. `quality` again collapsed (field mean
+  0.0110) — the 119/121/122/123/125 regime vs session-120's 0.106–0.446. **The quality collapse
+  is a LEVEL that moves, not a stable property.**
+- **Counter gap per-civ, unchanged**: whimsical +63, grounded +43, formal +42, poetic +37,
+  engineer +22, mythic +20, therapist +17, precise +16 (total +260). `save_state()` has no lock
+  ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **`culture.json` has no `relevance_per_sim` field — that is NOT a regression.** It is written
+  only to `leaderboard.json` (`civilization_orchestrator.py:380`). Do not read its absence from
+  `culture.json` as a dropped field.
+- **Re-confirmations:** NAS EDQUOT total (11th session); `gh` not installed (13th session);
+  tool timeout 30 s < run ~45 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+
+### NEW — `/tmp` is reclaimed MID-SESSION, not just between sessions (session 128)
+
+The runbook's "this session's `/tmp` was wiped" note means *between sessions*. This session the
+overlay reclaimed `/tmp` **between two tool calls inside the same session**: a clone at 20:12
+(`/tmp/work`, 11 MB, `git log` working) was **gone by 20:14** — `ls /tmp` no longer listed it, and
+`cd` into it failed with `No such file or directory`, while `/tmp/probe_aiw` and `/tmp/probe_plato`
+(cloned minutes earlier) survived. The overlay is **not** wiped wholesale; **individual
+directories are evicted**, apparently on an age/size basis.
+
+Practical consequences:
+- **Re-check `[ -d /tmp/<workdir> ]` before every use of a `/tmp` path**, and re-clone if it is
+  gone. A vanished path is a wipe, not a bug in your command — do not debug the command.
+- Keep the **workspace symlink bridge** pointing at the clone: if the symlink target vanishes the
+  bridge breaks too, so re-point it after a re-clone and re-verify by inode identity.
+- `/tmp/mock_zai.py` is subject to the same eviction — keep the mock script content somewhere
+  that survives (rewrite it from the runbook recipe if it disappears).
+
+### NEW — the REST API can rate-limit while the git protocol still works (session 128)
+
+`GET /user/repos` returned **403 "API rate limit exceeded"** and `GET /search/repositories`
+succeeded on a retry. A rate-limit body renders as a *negative* result for every query at once —
+the same class of error as reading a 403 as "no tree". **Fall back to the git protocol**
+(`git ls-remote <repo>`), which does not consume REST budget at all. `git ls-remote` on a
+guessed slug is also a fast existence probe: "Repository not found" is authoritative, where a
+404 from the API may be a rate limit.
