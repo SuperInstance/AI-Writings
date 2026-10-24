@@ -11482,3 +11482,90 @@ therapist ×1. Lifetime agreement ~15 %. **A win is not evidence of a higher JEV
 - A long orchestrator run **exceeds the 30 s tool timeout and still completes**. Check the ledger row counts
   and the mock's call log rather than assuming the run died. Run it detached with
   `(setsid nohup timeout -s KILL 1800 python3 ... > log 2>&1 &)` and poll the log.
+
+---
+
+## Session 97 additions (2026-10-24, 112th wipe)
+
+### The credential gap is still the whole story (35th consecutive session)
+`ZAI_TOKEN`/`ZAI_KEY` absent from env. All 7 sandbox secrets re-tested against the z.ai coding
+endpoint → **401 "token expired or incorrect" on every one** (endpoint healthy ⇒ credential gap, not
+outage). JEV live: **HTTP 200, model `jev-1.14.0`**, real score (1.37, conf 0.17). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**TELL for "the run did nothing":** the output has the `=== Civilization batch` header and all 8
+`[Name] running 5 sims...` lines, then the competition header and **no `Winner:` lines at all**. The
+per-civ sim lines print *before* the provider call, so they are **not** evidence of work. Exit code 0.
+**Assert on `Winner:` lines and on the ledger row delta — never on exit code.**
+
+### NEW: the mock marker must be at the FRONT of the content
+The orchestrator stores only `content[:200]` in `content_preview`. A mock whose salt marker sits at the
+**end** of the body template has it **silently truncated away**. The first Control B run this session
+produced 80 rows but only **76/80 distinct** `content_preview`, and a marker-prefix scan reported the
+new rows as **not** mock-marked — every other check (delta +80, 5 winners, 0 default rows, 0 score
+errors) passed. Two consequences at once:
+1. the synthetic-row audit cannot see the rows, and
+2. same body + same prompt ⇒ byte-identical preview ⇒ duplicate previews weaken the chooser's signal.
+
+**Rule: `content = f"{salt} " + body` — marker first, body after.** Symptom to recognise: distinct
+`content_preview` < row count while every other check passes. Fix: re-template, `git checkout --` the
+ledger, re-run from a clean baseline. After the fix: 80/80 marked, 80/80 distinct.
+
+### NEVER `cp -a` the clone into `/workspace` — the NAS quota truncates silently
+`/workspace` is at 100 % quota. Copying the working tree in reported **`cp exit:0`** while 20+ files
+came out **truncated (0 bytes) and still visible in `ls -la`**. The failure is invisible unless you
+check file sizes. Use the symlink bridge (`ln -sfn /tmp/bridge /workspace/repos` +
+`/tmp/bridge/ai-writings/cellular-first-design -> /tmp/aiw/cellular-first-design`) and verify by
+**inode identity** (`stat -c '%d:%i'` through the bridge and the clone must match), not by `ls`.
+
+### A this-run bottom is NOT stable across sessions — the lifetime bottom is
+s96 had the this-run bottom = grounded (A) / formal (B). **s97 had formal (A) AND formal (B)** — a
+different session, a different remote HEAD, a differently-seeded mock. So the "who is last on this
+run's body set" question is **body-set dependent and session dependent**, and must never be reported
+as *the* low-relevance civ.
+
+**The stable finding is the lifetime one.** `civ-grounded` is last on the committed lifetime lenses for a
+**4th consecutive session** (s94, s95, s96, s97):
+| lens | lowest | value | 2nd lowest | gap |
+|---|---|---|---|---|
+| board `relevance_per_sim` | civ-grounded | 1.466 | civ-formal 1.647 | 0.181 |
+| raw `relevance_score` | civ-grounded | 629.01 | civ-formal 683.36 | 54.4 |
+| clean lifetime `avg_score` (n=2204) | civ-grounded | 1.691 | civ-formal 1.796 | 0.105 |
+| clean lifetime `alignment` | civ-grounded | 2.236 | civ-engineer 2.674 | **0.438** |
+| clean lifetime `novelty` | **civ-formal** | 1.413 | civ-precise 1.559 | 0.146 |
+| this-run `avg_score` (A / B) | **civ-formal** | 1.158 / 1.163 | civ-precise 1.347 | 0.189 |
+| `win_rate` | **civ-poetic** | 0.010 (2W/201L) | civ-mythic 0.015 | 0.005 |
+
+The Grounded has **302 clean rows — 2nd most of 8**, so the longevity-artefact defence stays falsified:
+a lifetime-average denominator should penalise it relative to the middle, and it is instead last on the
+cleanest, denominator-least-biased lens. Its alignment deficit (0.438 below the next-worst) is the
+largest separation of any lens, and alignment is the dimension the meta-GAN selects on.
+
+**The Formal's weakness is specifically flattest prose** — lowest clean lifetime `novelty` (1.413) and
+last on both this-run body sets. That is a real, *style-specific* deficiency, distinct from the
+Grounded's *alignment* deficiency. Name the axis; do not merge them into one "lowest civ".
+
+### Re-measured: the chooser and the scorer are decoupled
+On the committed `meta_log.jsonl` (228 rounds): the JEV chooser agrees with the `avg_score` argmax
+**33 times = 14.5 %**. The competition chooser never sees the scores (`state` carries only
+`content_preview[:150]`, and the question is a `choice` with no score column), so the two are two
+independent JEV calls that are essentially uncorrelated. **"Prefer win rate" is unsafe as a standalone
+rule.** Report the three lenses separately and label each: board `relevance_per_sim` (a lifetime
+average), raw relevance, and win rate (a *selection* metric).
+
+### Committed-ledger state (unchanged from s96)
+- 3564 committed rows; **1360 synthetic (38.2 %)** by the two-family marker scan (`[mock-` and
+  `[The `), uniform 170 per civ; 2204 real.
+- **Counter gap: 3564 ledger rows vs 3304 registry `simulations_run` = 260 uncounted (7.3 %)**, gap
+  +16..+63 per civ. `save_state()` rewrites `culture.json` from in-memory counters with no lock ⇒
+  `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- Board vs win-rate rank inversion: **8/8 positions differ.** The board's 1st (civ-poetic) is the fleet's
+  worst pick rate; the board's 5th (civ-precise) is the best.
+- Extinction risk: none (lowest raw relevance +629.01 vs threshold −10; only reachable in `--loop`).
+- Remote HEAD at session start: `3fa43f2`.
+
+### State at session 97 close
+- 8 civs, 3564 committed ledger rows, `meta_log.jsonl` 228 lines, 38.2 % synthetic.
+- Session report: `RUN_REPORT_2026-10-24_session97.md`.
+- Ledger restored from git and verified with `cmp` against the blobs: all 20 tracked files
+  byte-identical to `origin/main`, `git status --short` empty, no `__pycache__` left behind.
