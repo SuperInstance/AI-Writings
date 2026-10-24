@@ -267,3 +267,157 @@ largest sample, so a real deficit), `civ-formal` 1.667, `civ-engineer` 1.737.
 Lowest win rate: **`civ-poetic` 0.010 (1W/102L)** — 1st on the board, last at
 being selected. Healthiest: `civ-precise` (52W/46L, 0.531). Extinction: none
 (lowest relevance +347.82 vs threshold -10). Counter gap **+260** (unchanged).
+
+---
+
+## Session 61 additions (2026-10-24) — 26th credential gap; blobless+sparse bootstrap; within-civ salt collision vs cross-civ signal defect
+
+**Baseline HEAD `26fcb75` (session 60): ledger 2284 rows, `meta_log` 148.**
+Unpatched `--sims 5 --prompts 5 --providers zai` → **+0 rows, +0 meta_log, 0 `Winner:`
+lines, exit 0** (26th replication). Control B → **+80 rows (exactly +10/civ, uniform),
++5 meta_log, 5 winners, 0 all-2.0-default rows, 0 score errors, 0 cross-civ preview
+collisions, 79/80 distinct full previews, 67/80 distinct `avg_score` (0.830–1.810, mean
+1.3569), JEV confidence 0.340–0.990.** Control B = **11th consecutive identical replication**.
+
+**Credential gap: 26th session.** `api.z.ai` = **401**; the same-family
+`api.github.com/user` = **200**; JEV live at `jev-1.14.0` (probe `quality 1.54`,
+`confidence 0.42`). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+**Assert on the row delta and the `Winner:` count, never on the exit code.**
+
+### NEW — `--filter=blob:none --no-checkout` + `sparse-checkout` is the cheapest bootstrap (1 MB, seconds)
+
+The full `git clone --depth 50` **died twice** at the 30 s tool timeout
+(`invalid index-pack output` at 1.1 GB). The blobless path succeeded in **one foreground call**:
+
+```bash
+git -c http.postBuffer=524288000 clone --filter=blob:none --no-checkout --depth 30 \
+    "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/ai-writings.git" /tmp/aw
+cd /tmp/aw && git sparse-checkout init --cone \
+  && git sparse-checkout set cellular-first-design/code/civilizations \
+  && git checkout
+```
+
+**1 MB vs 3.3 GB** — three orders of magnitude, and it still gives a real git history for
+push/verify. The civ subtree is ~100 blobs; everything else in the pack is irrelevant.
+Gotcha: `git sparse-checkout set <dir>` **fails on a subdirectory path** — set the *parent*
+dir so the cone includes the civ subdirs. A second gotcha: a sparse checkout **excludes
+top-level paths such as `.skills/` from the index** — use `git add --sparse <path>` (or
+disable the sparse rules) or the file silently refuses to stage.
+
+### NEW — a within-civ preview collision is a SALT artifact; a cross-civ one is a SIGNAL defect
+
+`civ-precise` produced **9 distinct previews for 10 rows** (all other civs 10/10). Traced to
+the row: the temperature jitter is `preferred ± 0.2` **clamped at the 0.1 floor**, so two sims
+drew *exactly* `temperature=0.1000` with identical `max_tokens` and prompt length; the mock's
+salt is `sha1(temperature|max_tokens|len(prompt))` ⇒ same salt ⇒ same preview.
+
+- **within-civ** = the *mock's* salt is not unique enough — a harness artifact, harmless to the chooser.
+- **cross-civ** = one template is serving two civilizations — it **destroys the chooser's signal**
+  and must fail the run.
+
+**Assert the cross-civ count (must be 0) and treat a within-civ duplicate as a salt-collision to
+investigate, not as a same-body failure.** Mock fix: salt on
+`(temperature, max_tokens, len(prompt), civ)` **plus a per-request counter**.
+
+### NEW — a LOST `cd` produced a FALSE "hook absent" reading that nearly voided the whole plan
+
+`cd <dir> && grep -c "ZAI_URL_OVERRIDE" file` returned **0** while the hook was plainly present
+at lines 84–86. The `cd` was silently lost inside the compound command, so `grep` read a stale
+path. **Use absolute paths for every read in this project.** A wrong "the hook is missing"
+conclusion here would have discarded the only mechanism that makes the run produce rows at all.
+This is a *different* failure from the runbook's `cd`-loss trap: that one makes a **relative**
+path fail; this one is easy to misread as "the feature is absent".
+
+### The Grounded is bottom on **8 of 16** lenses; Formal is the new E-bottom
+
+| lens | lowest |
+|---|---|
+| A `relevance_per_sim` (board key) | `civ-grounded` 1.491 |
+| B raw relevance | `civ-grounded` 416.02 |
+| C win rate | `civ-poetic` 0.008 (1W/127L) |
+| D lifetime avg / align | `civ-grounded` 1.554 / 1.979 |
+| D lifetime quality / novelty | `civ-engineer` 0.960 / `civ-formal` 1.431 |
+| E this-run avg / quality / novelty | **`civ-formal`** 1.080 / 0.136 / 1.364 |
+| E this-run alignment | `civ-grounded` 1.340 |
+| F de-con lifetime avg / align | `civ-grounded` 1.737 / 2.314 |
+| F de-con lifetime quality | `civ-engineer` 1.190 |
+| G ledger avg (all rows) | `civ-grounded` 1.554 |
+
+**Lowest-lens count: Grounded 8, Formal 4, Engineer 2, Poetic 1.** (Session 60: 6/14.)
+`Pearson r(ledger_rows, rel_per_sim) = −0.095` (near zero); the most-run civ is
+`civ-whimsical` (334) and the board-last is `civ-grounded` (322) ⇒ **not a longevity
+artefact.** The Grounded has the **2nd-highest win rate (0.244)** while producing the
+**lowest** scores — it wins on *selection appeal* and loses on *substance*; its
+`"warm, factual"` voice reads as tonally flat to JEV (lowest lifetime alignment 1.979).
+**`civ-formal` is the new E-bottom — E moves session to session, report it per run, never as
+a standing constant.**
+**The Poetic anomaly holds for the 11th run:** 1st of 8 on every quality lens (A 2.140,
+B 565.02, D 2.199, F-decon 2.354) and last on win rate (0.008).
+
+**Chooser vs `argmax(avg_score)`: 0/5 this run** (argmax picked `civ-poetic` on 4 of 5 prompts;
+the chooser picked it **zero** times). Lifetime **27 agree / 126 disagree = 17.6 %** — stable
+around 18 %. `r(preferred_temp, lifetime novelty) = +0.9270`. Winners: Precise ×2, Grounded ×2,
+Formal ×1 — **4 of 5 rounds to the two lowest-temperature civs (0.20, 0.50)**.
+
+### Counter gap 260 (unchanged, and this run proves it does not widen)
+
+Ledger **2364** vs registry `simulations_run` **2104** = **260 uncounted**. The run added 80
+to the ledger *and* 80 to the counters, so the gap held steady. **Mock contamination: 720 /
+2364 = 30.5 %** of the committed ledger is `[mock-zai` rows — **every lifetime figure is
+computed over a ~30 % synthetic ledger**; quote it only with that caveat. **Source fix still
+outstanding:** tag mock rows with `"mock": true` and purge the 640 historical mock rows
+from HEAD.
+
+### Session-58 correction re-confirmed
+
+The inert run left the registry sum at exactly **2024 → 2024 (+0)**. **Session 57's "an inert
+run advances `simulations_run` by 10/civ" is session-specific, not a property of an inert
+run.** `run_simulation()` returns `None` on a failed call and `save_state()` writes back the
+unchanged in-memory counters.
+
+### NEW — the rebase trap bit again, and the recovery worked (2nd independent confirmation)
+
+`git rebase FETCH_HEAD` on a remote that had **force-updated** (`26fcb75...fb9db80`) tried to
+replay **another instance's commit** (`0ef5559`, session 54b) and **reset the worktree — my
+report file vanished**. Recovery, without a rebase:
+
+```bash
+git rebase --abort || true; rm -rf .git/rebase-merge .git/rebase-apply; git reset --hard <remote-sha>
+git cat-file -t <my-commit>                    # the commit object survives
+git show <my-commit>:<path> > /tmp/recovered.md # extract from the commit
+```
+
+`git reset --hard` wiped the worktree copy but **the commit object was intact** — extracted
+**byte-identical**. Then committed **on top of the remote head** (no rebase) and pushed.
+**Never rebase when the remote force-updated; commit on top of the remote head instead.**
+Check `git diff --name-only <base> <remote> -- <civ dir>` first; if it is 0 files, a plain
+commit-on-top is clean and conflict-free.
+
+### The NAS quota is SHARED across sessions
+
+`df -h /workspace` showed 600 G used / 0 avail while **this session's own footprint was
+1 KB** — other sessions on the same mount consume it. A full mount blocks the `write` tool
+*and* bash heredocs alike (`cat: write error: Disk quota exceeded`, 0-byte file, exit 0).
+Inodes were fine (5 % used) — it is a **space** quota, not an inode quota. The repo on the
+overlay is unaffected, so **the git copy is the durable one**; `cp` into `/workspace` can
+leave 0-byte files that `ls` shows as present — verify with `wc -c` every time.
+
+### Other environment notes
+
+- `ls -la <dir> | grep simulations.jsonl` finds nothing — the ledgers are one level down in
+  `civ-*/simulations.jsonl`. Use `ls -la <dir>/civ-*/simulations.jsonl`.
+- The mock's launch still **hangs the tool call for its full timeout** when `setsid nohup
+  ... &` shares a command with other work; the server is nonetheless up and serves every
+  request. **Launch in a dedicated call; probe in a separate call; check `ps` before
+  declaring it down.**
+- Symlink bridge (innermost path) re-confirmed: `stat -c %i` gave **132349 on both sides**.
+- **Restore verified 19/19 byte-identical** to the HEAD blob with the materialised-blob
+  `cmp` (never `cmp` against a process-substitution FIFO — it reports false differences).
+  `git status --porcelain` empty; no `__pycache__/`.
+- **Push verified two ways:** `git ls-remote` and the commits API (1 file, +238/-0). The
+  remote prints *"This repository moved … use the new location"* — the canonical name is
+  **`AI-Writings`** (capital), though `ai-writings` still redirects.
+- **Concurrent sessions publish to the same paths.** Session 62 committed
+  `RUN_REPORT_2026-10-24_session62.md` on top of my session-61 commit while I was working.
+  **Name-check the remote before publishing, and re-sync with `ls-remote` immediately
+  before the push** — the tip moved twice during this session.
