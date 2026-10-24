@@ -11852,3 +11852,188 @@ Set A: chooser `formal/formal/poetic/precise/engineer`; argmax `mythic/whimsical
 - **The remote is force-updated by canon polls.** The branch moved `0944e86 → 02526f9` mid-session and a **session 99** report already existed. Fetch `FETCH_HEAD` and check out **exactly once**; then **file the next report under the next number** — never the one you believe is yours.
 - `pkill -f mock_zai` self-matches the invoking command line. Kill by PID from `ps -eo pid,args --no-headers | grep "[m]ock_zai_s100.py" | awk '{print $1}'`.
 - **A 30 s tool timeout will kill a ~29 s orchestrator run mid-flight.** The set-B run appeared to time out with `rows=3804 meta=243` already written but **no `Winner:` lines in the captured output**, because `tee` was killed with the shell. Run the orchestrator **detached** (`setsid nohup … &`) and poll the output file, or the report will record a run whose results were never captured.
+
+---
+
+## Session 100b additions (2026-10-24, 114th wipe — a SECOND concurrent session-100 instance)
+
+> **Context:** session 100 was already filed on `main` by another agent
+> (`RUN_REPORT_2026-10-24_session100.md`, remote `fc34a9db`). This is a
+> **second independent session 100**, with a different mock body set. Neither
+> report supersedes the other. **The two independently agree on every
+> lifetime lens and disagree on the this-run lens** — which is the cleanest
+> demonstration yet of why the lifetime lens is the one to report.
+
+### The credential gap is still the whole story (37th consecutive session)
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store.
+z.ai coding endpoint probed with a live sandbox secret -> **HTTP 401 `token
+expired or incorrect`** (healthy endpoint => credential gap, not outage).
+JEV probed directly -> **HTTP 200, `jev-1.14.0`, real score 0.79 / conf 0.35**.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Control A (the command exactly as asked):** batch header + all 8
+`[Name] running 5 sims...` lines, competition header, **no `Winner:` lines**.
+**Exit 0. Ledger +0 rows (3724 -> 3724), `meta_log` +0 (238 -> 238).**
+
+**Control B:** **+80 rows (10 per civ, uniform 8/8)**, **+5 `meta_log`**, **5
+winners**, **0 all-2.0-default rows**, **0 score errors**, **80/80
+mock-marked**, **80/80 `provider: zai`**, **80/80 distinct
+`content_preview`**, 76 distinct `avg_score` (1.29–2.77), **0/81 mock
+fallbacks**. `ZAI_URL_OVERRIDE` is **committed upstream** — the script stayed
+byte-identical to the git blob; no patch applied.
+
+### NEW — the glob-order artifact that nearly became a finding
+```python
+rows = [json.loads(l) for f in glob.glob('civ-*/simulations.jsonl') for l in open(f)]
+new = rows[-80:]        # WRONG
+```
+`glob.glob` returns files in **directory order**, so the last 80 rows are
+**all one civ** — it reported `civ-whimsical 80/80` and `uniform: True`, which
+looks like a *result*. Count per file instead:
+```python
+for f in sorted(glob.glob('civ-*/simulations.jsonl')):
+    new = [json.loads(l) for l in open(f).read().splitlines()[-10:]]
+```
+-> the real histogram **8 x 10**. **A glob-order artifact nearly became a
+single-civ headline. Any "the last N rows" slice over a multi-file glob must
+be counted per file.**
+
+### NEW — the task path is NOT a repo; GitHub code search finds it in ONE call
+`/workspace/repos/ai-writings/cellular-first-design` is **not a repository**.
+`git ls-remote` on `ai-writings/cellular-first-design`, `autoclaw/…`,
+`purplepincher/…`, `SuperInstance/cellular-first-design` all return
+`Repository not found`. The code lives at
+`cellular-first-design/code/civilizations/` inside **`SuperInstance/AI-Writings`**.
+
+**One call, done:**
+```
+GET /search/code?q=civilization_orchestrator+in:path
+-> total_count 1 -> SuperInstance/AI-Writings @ af62acb2
+```
+The `in:path` qualifier makes it a *path* search instead of a full-text
+search. **Repo-name guessing across 4 candidate orgs cost ~8 tool calls; the
+code search cost 1. Try the code search FIRST when a task names a file path
+inside a repo you have not located.**
+
+### The NAS EDQUOT trap hits `git clone` into `/workspace` — and the clone still exits 0
+`git clone` into `/workspace` printed `Cloning into 'cellular-first-design'…`
+and **exited 0** while dying with
+`error: …/.git/description: close error: Disk quota exceeded` (NAS 100 %,
+600 G used, 0 avail). Clone into `/tmp` (overlay, 28 G free, exempt).
+
+**A full `--depth 1` clone to `/tmp` was killed by the 30 s tool timeout
+mid-checkout** and left a `.git` with **"No commits yet"** and a 2.3 GB
+working tree. That state is the **signature of a timeout kill**, not of a
+fresh `git init` — check `git log --oneline -1` resolves before trusting the
+clone. The shape that fits: `--filter=blob:none --no-checkout` + sparse
+checkout, as a **single sequence** (a racing second clone at the same target
+is the real cause of the "filter is worse" claim in s94).
+
+**Bridge verification by inode identity still holds:**
+`stat -c '%d:%i' /tmp/aw/cellular-first-design /workspace/repos/ai-writings/cellular-first-design`
+-> `129:219` on both sides.
+
+### NEW — a prompt-set sensitivity split: a free stability check, no second run
+This run's 10 rows per civ are two prompt sets (5 batch + 5 competition), so
+the batch-half vs competition-half `avg_score` shift measures **prompt
+sensitivity with zero extra cost**:
+
+| civ | batch | comp | delta |
+|---|---|---|---|
+| civ-engineer | 2.091 | 1.754 | **-0.337** |
+| civ-grounded | 2.237 | 1.958 | -0.279 |
+| civ-whimsical | 2.442 | 2.230 | -0.212 |
+| civ-formal | 1.981 | 1.919 | -0.061 |
+| civ-therapist | 2.103 | 2.041 | -0.062 |
+| civ-precise | 1.483 | 1.645 | +0.161 |
+| civ-mythic | 2.287 | 2.341 | +0.053 |
+| civ-poetic | 2.557 | 2.561 | +0.004 |
+
+**The Engineer's swing (-0.337) is larger than the gap between adjacent civs
+on the board** — so an absolute score difference of that size is not evidence
+of a quality difference. Poetic and Mythic are the two prompt-stable civs.
+**This is the cheapest companion to the "re-run with a second body set" rule:
+split the run you already have by prompt set and read the shift.**
+
+### Low relevance — the lifetime bottom REPLICATES across two independent session-100 body sets
+| lens | this instance | other session-100 | agree? |
+|---|---|---|---|
+| board `relevance_per_sim` last | civ-grounded 1.481 | civ-grounded 1.469 | **yes** |
+| board raw relevance last | civ-grounded 679.72 | civ-grounded 674.37 | **yes** |
+| board `win_rate` last | civ-poetic 0.009 | civ-poetic 0.009 | **yes** |
+| clean lifetime `avg_score` last | civ-grounded 1.668 | civ-grounded 1.678 | **yes** |
+| clean lifetime `alignment` last | civ-grounded 2.204 | civ-grounded 2.221 | **yes** |
+| clean lifetime `novelty` last | civ-formal 1.423 | civ-formal 1.414 | **yes** |
+| clean lifetime `quality` last | civ-precise 1.093 | civ-precise 1.104 | **yes** |
+| **this-run `avg_score` last** | **civ-precise 1.564** | **civ-grounded 1.563** | **NO** |
+
+**This is the strongest evidence yet for the reporting rule: the lifetime
+bottom replicates across two independently-written mock body sets; the
+this-run bottom does not.** Report the lifetime lens. (Clean n = 2444 here
+vs 2364 there — a 12-row difference in what each instance classified as
+synthetic, see below.)
+
+**`civ-grounded` remains the low-relevance civilization** — last on the
+board's sort key, last on raw relevance, last on clean lifetime `avg_score`,
+last on clean lifetime `alignment` (2.204, gap **0.469** to next-worst
+civ-mythic 2.673 — the largest separation of any lens, on the dimension the
+meta-GAN selects on). Longevity defence dead again: **332 clean rows, 2nd
+most of 8** (whimsical 344).
+
+**`civ-formal`** — lowest clean lifetime `novelty` (1.423): flattest prose, a
+*different axis* from the Grounded's alignment deficit. **Name the axis.**
+
+**`civ-poetic`** — 1st on clean lifetime `avg_score` (2.270), 1st on board
+`relevance_per_sim` (2.138), 1st on clean lifetime `alignment` (2.955), yet
+**last on `win_rate` (0.009, 2W/216L)**. A *selection* failure, stable 15+
+sessions. **`civ-precise`** — best win rate (0.460), last on clean lifetime
+`quality` (1.093).
+
+**Extinction risk: NONE** (threshold −10; lowest +679.72; `--loop`-mode only).
+
+### NEW — the Grounded is the only civ whose ALIGNMENT falls off the temperature gradient
+Pearson **r = 0.938** (temp vs clean novelty; s8 0.985, s9 0.980). Every other
+civ's `alignment` rises with temperature. The Grounded (temp 0.50) has the
+fleet's **lowest `alignment` (2.204)** and **lowest `avg_score` (1.668)** while
+sitting mid-gradient on `novelty` (1.693). **Its deficit is cultural, not
+thermal** — the sharpest single argument in this fleet's data for why the
+meta-GAN keeps passing over it. (Corollary: a fleet-wide "raise the cold civs'
+temperature" intervention would **not** fix the Grounded.)
+
+### NEW — there is NO single agreed "synthetic fraction" for the committed ledger
+Two session-100 instances report **38.7 %** and **36.6 %** synthetic for the
+same 3724-row ledger, because they use different marker-family scans
+(`[mock-` + `[The ` vs "contains 'mock' or starts with `[`"), and the 12-row
+disagreement in the clean count (2364 vs 2444) is exactly the rows carrying a
+`[The …]` bracket that one scan calls synthetic and the other calls clean.
+**Always state the scan you used.** The durable number is the **counter gap
++260**, which is scan-independent (3804 ledger rows vs 3544 registry
+`simulations_run`).
+
+### Chooser vs argmax — 15.6 % (25th consecutive replication)
+Committed `meta_log.jsonl` (243 rounds): chooser agrees with the `avg_score`
+argmax **38 times = 15.6 %**. Chooser: precise 99, grounded 59, formal 42,
+engineer 23, whimsical 7, therapist 6, mythic 4, **poetic 3**. Argmax:
+**poetic 101**, whimsical 58, precise 32, therapist 21, mythic 18, formal 6,
+engineer 4, grounded 3. **All 5 rounds of this run disagreed.** "Prefer win
+rate" remains unsafe as a standalone rule. **This instance's winners were
+`formal x4 / grounded x1`; the other instance's sets A and B were
+`formal x2 / poetic / precise / engineer` and `precise x3 / engineer / formal`
+— so the chooser's picks are not stable across body sets either.**
+
+### Re-confirmations
+- **Restore + verify:** `git checkout -- cellular-first-design/code/civilizations/`
+  then **`cmp` each tracked file against `git show HEAD:<path>`** — 143/143
+  byte-identical, 0 differing; `git status --short` empty; no `__pycache__`.
+  The `cmp`-against-`git show` loop over `git ls-files <dir>` covers every
+  tracked file including the ~120 `RUN_REPORT_*.md` blobs.
+- The orchestrator script was **not modified** (byte-identical to the blob).
+- Mock rows were **not committed** — a mock row presented as a provider result
+  poisons the fleet's only durable quality record.
+
+### State at session 100b close
+- 8 civs, 3724 committed ledger rows, `meta_log.jsonl` 238 lines.
+- Session report: `RUN_REPORT_2026-10-24_session100b.md`.
+- Remote HEAD at session start: `fc34a9db` (session 100 by another agent).
+  This session's two files were committed **on top of** that HEAD, not as a
+  replacement.
