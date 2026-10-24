@@ -4,6 +4,32 @@ The authoritative operational RUNBOOK lives in the repo at
 `cellular-first-design/code/civilizations/RUNBOOK.md`.
 This file holds the short, high-signal rules that survive a sandbox wipe.
 
+## Session 125 (2026-10-24) — a 5-sample point cannot narrow a rate; only the direction is stable
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in 4/5 and won **5/5**.
+Clean-mock series: 0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → 3/5 (123) →
+0/5 (124) → **4/5 (125)**.
+
+**NEW — consecutive sessions swung 0/5 → 4/5 on the same mock and the same scorer.** A five-sample
+point carries almost no information about a rate. The only stable signal is the **direction**:
+in **all 6** disagreements across 116/118/119/120/122/123/125 the chooser picked a
+**lower**-scoring candidate. Report the fraction as a sample; report the direction as the finding.
+
+**Mock non-degeneracy: 5/5 competition prompts at 8/8 distinct previews** — the **seventh clean
+measurement** (118, 120, 121, 122, 123, 124, 125). Pre-flight again saved the run: 4 civs → 4
+distinct seeds AND 4 distinct previews, `[mock-zai seed=…]` present, 0 tracebacks.
+
+**`civ-grounded` is the low-relevance civ** — 30 consecutive sessions (95-125). Last on lifetime
+`avg_score` (1.2378), `alignment` (1.4906), `quality` (0.6064), `relevance` (834.13),
+`relevance_per_sim` (1.193). The **alignment** gap is the structural one: **0.3700** below the
+next civ, vs **0.0334** on quality — 11x wider. Alignment is what the chooser selects on, so
+Grounded fails to *embody a distinctive voice*: a voice failure, not a prose failure.
+
+**New environment fact: the GitHub code-search API rate-limits hard** (0/10 on `code_search`
+while `core` had 3878/5000). A rate-limit body renders as "no results" for every query at once.
+Locate repos with `GET /search/repositories` and `GET /user/repos`, never code search — and never
+read a rate-limit body as a negative result.
+
 ## Session 121 (2026-10-24) — the mock was REBUILT, and the quality level moved anyway
 
 **Rebuild the mock, then re-run the pre-flight.** This session's `/tmp` was wiped, so

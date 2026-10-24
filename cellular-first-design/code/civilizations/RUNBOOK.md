@@ -662,3 +662,84 @@ not promote it to a finding yet.
   returns **0 competition prompts** and a false FAIL. Group by the **per-civ slot index**
   (`rows[-10:][5..9]` for the competition phase, `[0..4]` for the sim phase) — that aligns the
   8 civs' rows for the same prompt without relying on the truncated prompt string.
+
+### Session 125 — chooser-vs-argmax is 4/5; the mock is non-degenerate for the 7th time (2026-10-24)
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so the session-112 index-wrap bug
+(`seed[i*2:i*2+2]` → empty for `i>=4` → HTTP 500 while the socket stays open) was live again. The
+**pre-flight probe caught it before it reached the ledger**: 4 different civs → 4 different seeds AND
+4 different previews against the *live* mock with the exact long cultural prompt, HTTP 200,
+`[mock-zai seed=…]` prefix present on every body, `grep -c Traceback /tmp/mock_zai.log` → **0**.
+
+**Verification held:** per-civ Δ = **+10** (5 sim-phase + 5 competition-phase), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, `provider={zai}`,
+**0** rows with a JEV `error` key, sim→competition ts gap at index 4 in all 8 civs (1.10 s–22.96 s),
+and **5/5 competition prompts at 8/8 distinct previews** — the **seventh clean mock measurement**
+(118, 120, 121, 122, 123, 124, 125).
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in 4/5 and won **5/5**;
+`civ-poetic` argmaxed p4 at 0.680 and lost to `civ-precise` at 0.647. Clean-mock series:
+0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → 3/5 (123) → 0/5 (124) → **4/5 (125)**.
+Eight five-sample points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. What
+survives every session: the chooser is **not** a pure argmax, and in **all 6** disagreements across
+116/118/119/120/122/123/125 it picked a **lower**-scoring candidate.
+
+**NEW — the 0/5 → 4/5 swing between consecutive sessions on the same mock and scorer shows a
+5-sample point carries almost no information about a rate.** Only the *direction* of the
+disagreements (always the lower scorer) is stable. Do not promote a single session's fraction to
+a fleet claim; report it as a sample, and report the direction as the finding.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — **30 consecutive sessions
+(95–125)**. Last on lifetime `avg_score` (1.2378), `alignment` (1.4906), `quality` (0.6064),
+`relevance` (834.13) and `relevance_per_sim` (1.193). **The structural gap is `alignment`:
+0.3700 below the next civ (1.4906 vs 1.8606)**, versus **0.0334** on quality — 11× wider.
+Alignment is the dimension the meta-GAN selects on, so Grounded fails to *embody a distinctive
+voice* — a voice failure, not a prose failure. It was last on this run's `avg_score` (0.4750) and
+`novelty` (1.3890) too. `civ-formal` remains the low-**novelty** axis (1.4696).
+`civ-poetic` = 1st on lifetime `avg_score` (1.8456) / `quality` (1.0335) but last on `win_rate`
+(0.015), won 0/5. `civ-precise` = best `win_rate` (0.523), won 5/5, 1st on lifetime `alignment`
+(2.4562), 5th of 8 on `avg_score` — the mirror inverse.
+
+**Watch-axis `civ-therapist` — the two-session lifetime signal did NOT extend, but the run-level
+low did.** Therapist was last on this run's `avg_score` (0.4907) and lowest on this run's
+`alignment` (0.0210, below `civ-grounded`'s 0.0270) — so the *run-level* label flipped to
+therapist — but its **lifetime** alignment rose to 1.8606 (2nd-lowest of 8). The axis stays open;
+do not promote it to a finding.
+
+**Watch-axis `civ-engineer` — the session-121 low did NOT repeat for a third time.** 7th of 8 on
+this run's `avg_score` (0.5180), 6th on lifetime `relevance_per_sim` (1.398). **One more session at
+the bottom would make it a trend** — do not promote it to a finding yet.
+
+- **Extinction risk NONE** — threshold −10, lowest relevance +834.13 (83× above floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` 0.548,
+  `novelty` 0.262, `avg_score` 0.230, `quality` 0.004. `alignment` again carried the widest
+  spread and is again the axis the chooser selects on. `quality` again collapsed (field mean
+  0.0100, min 0.008, max 0.012) — the 119/121/122/123 regime vs session-124's 0.337 and
+  session-120's 0.106–0.446. **The quality collapse is a LEVEL that moves, not a stable
+  property** — compare cross-civ spreads before ranking on a dimension. Per-civ quality floors
+  were uneven again (poetic 0.012 … mythic 0.008) — the session-122 civ-selective floor.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42,
+  poetic +37, engineer +22, mythic +20, therapist +17, precise +16 (total +260).
+  `save_state()` has no lock ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (10th session); `gh` not installed (12th session);
+  tool timeout 30 s < run ~45 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+
+### New environment fact: the GitHub **code-search** API rate-limits hard (session 125)
+
+`GET /search/code?q=...` returned `API rate limit exceeded` with a **0/10** remaining counter on the
+`code_search` resource, while `core` had 3878/5000 left. A rate-limit body renders as **"no
+results"** for every query at once. Locating the upstream repo by code search is the wrong tool —
+use `GET /search/repositories?q=...` and `GET /user/repos?per_page=100`, which draw on the `search`
+and `core` budgets. This is the same class of error as reading a 403 as "empty tree": **never read
+a rate-limit body as a negative result.**
+
+### The `ls` race did NOT reproduce this session (session 125)
+
+`ls -la /workspace/repos/ai-writings/cellular-first-design/code/civilizations/` succeeded on every
+attempt, including the first. The bridge was verified by inode identity before the run
+(`stat -L -c '%d:%i'` = `129:12601` on the resolved path, identical to the target, plus `-ef`).
+Unchanged guidance: **a single `ls` failure is not evidence of a missing directory**; re-check and
+retry before touching the bridge. Do not "fix" a bridge that is passing.
