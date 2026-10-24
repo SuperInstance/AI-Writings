@@ -517,3 +517,96 @@ leave 0-byte files that `ls` shows as present — verify with `wc -c` every time
   `RUN_REPORT_2026-10-24_session62.md` on top of my session-61 commit while I was working.
   **Name-check the remote before publishing, and re-sync with `ls-remote` immediately
   before the push** — the tip moved twice during this session.
+
+---
+
+## Session 67 (2026-10-24) — Control B 15th; the temp→novelty band is a BETWEEN-civ statistic
+
+**Command:** `--sims 5 --prompts 5 --providers zai` · baseline `1f17f6c6` · ledger 2284 · meta_log 148
+**Outcome:** inert control **+0 rows / 0 winners** (green no-op, exit 0) · Control B **+80 rows
+(uniform +10/civ), +5 meta_log, 5 winners, 0 JEV-default rows, 0 score errors** · all 20 files
+restored byte-identical · report `RUN_REPORT_2026-10-24_session67.md` · remote-verified
+`66165044` (report) + `4e0cf09b` (learnings).
+
+### NEW — `r(preferred_temp, lifetime novelty) = 0.93` is BETWEEN-civ; within-civ it is ~0.01
+
+The 0.93–0.99 band reproduces **exactly** (+0.9374 de-con, +0.9314 all-rows) — but only because
+it measures `preferred_temp` (a **per-civ constant**) against lifetime novelty **across the 8 civs**.
+Within a single civ there is **no** temperature→novelty relationship:
+
+| statistic | n | Pearson r |
+|---|---|---|
+| pooled all rows | 2364 | +0.5227 |
+| pooled de-con | 1724 | +0.5494 |
+| **per-civ, de-con (mean of 8)** | 8 | **+0.0103** (−0.0975 … +0.1140) |
+| `r(preferred_temp, lifetime novelty)` across the 8 civs | 8 | **+0.9374** |
+
+The pooled per-row figure is a **Simpson's-paradox** artefact: the between-civ effect
+(low-temp precise/engineer vs high-temp whimsical/poetic) dominates. `preferred_temp` is
+confounded with culture/voice/tenets, and it is the generator's *centre* — sampled per-row
+temperatures jitter ±0.2 around it, so it is **not** the mean sampled temperature.
+**Never cite 0.93 as a within-civ law.** Report both numbers, labelled.
+
+### NEW — `content_preview` is the first 200 chars; the cultural preamble eats ~120 of them
+
+`content_preview` uniqueness **understates** body uniqueness. The prompt begins
+`You are a voice in the tradition of "<civ>".\nYour tenets: …`, so two same-civ rows truncate
+**identically** before the generated body starts. 4 collision pairs this run — all same-civ, all
+exactly 200 chars. Every pair had **different `avg_score`** and **different sampling params**,
+proving distinct bodies. **Assert on `avg_score` uniqueness or hash the full body — never on
+`content_preview` alone.**
+
+### NEW — the provider-override hook is generic; grep `_URL_OVERRIDE`, not the expanded name
+
+`civilization_orchestrator.py` line 84: `os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")`.
+The literal string **`ZAI_URL_OVERRIDE` never appears in the file**, so `grep -c ZAI_URL_OVERRIDE`
+returns **0** even though the hook is present and working. (`zai` → `ZAI_URL_OVERRIDE`,
+`groq` → `GROQ_URL_OVERRIDE`.)
+
+### NEW — the task path is REPO-RELATIVE; the repo is `SuperInstance/AI-Writings`
+
+There is **no** repo named `cellular-first-design` — it is a *subdirectory* of `AI-Writings`
+(capital-W; lowercase redirects). The task path
+`ai-writings/cellular-first-design/code/civilizations/` = repo root + `cellular-first-design/…`.
+Repo-name search (`/user/repos?per_page=100&page=N&affiliation=owner`, 5327 repos / 54 pages /
+~55 s) finds **no** match; **GitHub *code* search finds it**
+(`q=civilization_orchestrator+user:SuperInstance`). `gh` CLI is **not installed** here — use
+`curl` + `api.github.com`.
+
+### NEW — NAS 100 % quota: the symlink bridge must point at `/tmp`, and so must the clone
+
+`git clone` straight into `/workspace` dies at `.git/description` (*Disk quota exceeded*).
+Recipe: clone into `/tmp/aiw` with `--filter=blob:none --no-checkout` +
+`git sparse-checkout set cellular-first-design`, `cp -a` the civ subtree to `/tmp/civapi`, then
+`ln -s /tmp/civapi /workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+Writes through the symlink land on the overlay. **A `cp` into the NAS yields a 0-byte file with
+no error** — never place deliverables there.
+
+### NEW — an UNQUOTED heredoc delimiter destroys `$` variables in the script body
+
+`cat > /tmp/x.py <<'PYEOF'` (unquoted) lets the shell expand `$c`/`$v` inside the script →
+`FileNotFoundError: '/tmp/baseline_ledgers/c.jsonl'`, `NameError`. The symptom looks like a logic
+bug, not a shell bug. **Always `<<'PYEOF'`** for any script containing `$`.
+
+### Push: the remote moves under you — commit ON TOP, never rebase
+
+`AI-Writings` is auto-committed by other bots; a plain push was rejected ("tip is behind").
+`git fetch` + `git rebase origin/main` **silently dropped the report commit** (no git identity
+configured → abort, file left staged) and left HEAD **detached**. Recovery that worked:
+`git config user.name/user.email` **in the repo**, `git add` + `git commit` on top of the fresh
+`origin/main`, then push. Always verify via the **commits + contents API**, not the local exit code.
+
+### Session 67 state
+
+- 8 civs, **2284** committed ledger rows (restored), `meta_log.jsonl` **148** lines.
+- Lowest-lens count (of 15): Grounded **7**, Therapist **3**, Engineer **2**, Formal **2**, Poetic 1.
+- `civ-grounded` = the low-relevance civ (last of 8 on `relevance_per_sim` 1.505; survives
+  de-contamination — lifetime avg 1.7305 vs 1.8273 engineer, alignment 2.2873 vs 2.6636 mythic).
+- `civ-poetic` = selection failure, not quality failure: 1st on `relevance_per_sim` (2.153) and
+  raw relevance (568.40), yet 1 win in 128 (wr 0.008) — lowest of 8.
+- `civ-therapist` bottom on all 3 this-run lenses (avg 1.092, quality 0.365, alignment 0.511) but
+  4th of 8 on lifetime `relevance_per_sim` — this-run lenses (n=10) are noisy.
+- Choser vs argmax(avg_score): **2/5 (40%)** this run (session 66: 0/5). Still low; a competition
+  win is not evidence of a higher JEV score.
+- Counter gap **260** — unchanged, did not widen.
+- No source file modified — only the report and this learnings append.
