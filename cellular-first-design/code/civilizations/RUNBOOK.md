@@ -238,3 +238,27 @@ on a bogus token means the endpoint is healthy but the credential is absent.)
 The 3.7 GB upstream is **`SuperInstance/AI-Writings`**; the `ai-writings/cellular-first-design`
 slug 404s. A `--depth 50` full clone of that repo pulled only 4.4 MB for this subtree — no
 `--filter=blob:none` needed when the tree is small, so prefer the simple clone.
+
+### The symlink gotcha has TWO directions — don't flatten the clone (session 115)
+
+The RUNBOOK says the symlink "must point at the `cellular-first-design` directory itself, NOT its
+parent". Session 115 hit the **mirror-image** trap: the clone of `SuperInstance/AI-Writings` has the
+tree at **`<repo-root>/cellular-first-design/code/civilizations/`**, and the repo root *is* the
+`cellular-first-design` directory. Flattening the extra nesting level (to make `code/` sit at the
+repo root) looks tidy but then:
+
+- `git status` shows every file as `D` (deleted) + untracked, because the tracked paths still have
+  the `cellular-first-design/` prefix;
+- `git clean -fd` then **destroys the flattened copy** and silently reverts to the pre-run baseline;
+- the symlink (still pointing at the repo root) resolves `code/` **one level too deep** ⇒
+  `CIVS_DIR` finds nothing and `ls` fails *consistently* (5/5), unlike the transient race.
+
+**Do not flatten.** Clone, leave the tree nested, and point the symlink at
+`<clone-root>/cellular-first-design` (the nested dir), verified by
+`stat -L -c '%d:%i'` == `stat -c '%d:%i'` on the nested target and `-ef`. If a flattening has already
+happened, `git checkout -- .` restores the baseline but **discards the run's outputs** — copy them
+out first, then restore, then copy back into the *nested* path and `git add` that path.
+
+Symptom triage: `ls` failing **5/5 in a row** (not intermittently) after a restructure means a
+*wrong symlink target*, not the transient mount race. Re-run the inode check before touching the
+bridge.
