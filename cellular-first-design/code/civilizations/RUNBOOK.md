@@ -1076,3 +1076,53 @@ a mid-field citizen, not a structural loser. **Per-run low ⇒ watch axis, not a
   with `stat -L -c '%d:%i'` + `-ef` (got `129:10434`); never flatten; `TYPESAFEAI_KEY` must be
   exported; JEV liveness = 422 on a malformed `questions`; z.ai = 401 on a bogus bearer (credential
   gap); the `ls` race did not reproduce (bridge passed 5/5 on the first attempt).
+
+### Session 134 — chooser-vs-argmax is 0/5 (0 %), the lowest of the clean-mock series (2026-10-24)
+
+**Run:** 8 civs x 5 sims + 5 competition prompts, Control B mock, JEV live. All verification PASS
+(per-civ delta +10 x 8 = 80 rows, `meta_log` 403 -> 408, `Winner:` lines 5, 0 JEV `error` keys,
+0 rows with the 2.0/2.0/2.0 fallback triple, 80/80 rows `[mock-zai`-prefixed, `provider` = `{zai}`,
+sim -> competition ts gap 1.09-23.24 s at index 4 in all 8 civs, `leaderboard.json` rewritten at
+21:37:20Z). Upstream `95a424a` (session 133 baseline).
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so **both** historical mock
+bugs had to be re-applied on rebuild — the session-112 index wrap `seed[(i*2)%8:((i*2)%8)+2]` and
+the session-118 md5-of-whole-message seeding. The pre-flight probe caught the pre-run state with
+the **exact long cultural prompt**: 8/8 distinct seeds, 8/8 distinct previews, HTTP 200,
+333-361-char bodies, `[mock-zai seed=...]` prefix present, **0 tracebacks** in `/tmp/mock_zai.log`.
+**The tenth clean mock measurement** (118, 120-123, 125, 131-134) — 5/5 competition prompts at
+8/8 distinct previews AND 8/8 distinct seeds.
+
+**Chooser vs `avg_score` argmax: 0/5 (0 %) — the lowest of the series.** Clean-mock series:
+0/5 (118) -> 3/5 (119) -> 1/5 (120) -> 4/5 (121) -> 4/5 (122) -> 3/5 (123) -> 0/5 (124) ->
+4/5 (125) -> 1/5 (126) -> 3/5 (127) -> 2/5 (128) -> 4/5 (130) -> 1/5 (131) -> 2/5 (132) ->
+2/5 (133) -> **0/5 (134)**. Fifteen five-sample points cannot narrow a rate — the honest claim is
+*somewhere in 0-80 %*. What survives every session: the chooser is **not** a pure argmax, and in
+**all 5** disagreements this session it picked a **lower**-scoring candidate (p0 precise 0.543 vs
+whimsical 0.947; p1 formal 0.523 vs precise 0.783; p2 formal 0.293 vs poetic 1.117; p3 engineer
+0.307 vs whimsical 0.773; p4 formal 0.480 vs precise 0.650) — the stable direction across
+116/118/119/120/122/123/125/131/133/134 (**12th consecutive session** with that direction).
+The meta-GAN chooser scores the *text* via JEV; it does not read `avg_score`.
+**Never treat `win_rate` as a quality metric.**
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ — 37 consecutive sessions (95-134).**
+Last on lifetime `avg_score` (1.1519), `alignment` (1.3613), `quality` (0.5517), `relevance`
+(874.01) and `relevance_per_sim` (1.108). **The structural gap is `alignment`: 0.315 below the
+next civ** (therapist 1.6763) versus **0.032** on quality — ~10x wider. Alignment is the
+dimension the meta-GAN selects on, so Grounded fails to *embody a distinctive voice* — a **voice**
+failure, not a prose failure. Grounded was **also the run-level low** on this run's `avg_score`
+(0.2460) and run `alignment` (0.1970) — the 5th consecutive session where the run-level label
+went to it (127 whimsical; 128/129/130/133/**134** grounded). Keep the lifetime finding and the
+run-level label as two separate claims.
+
+**`civ-formal` is the low-novelty axis** — lifetime novelty **1.4114** (last), alignment 1.9684
+healthy. **`civ-poetic`** = 1st on lifetime `avg_score` (1.7372) / `quality` (0.9489) / `novelty`
+(1.9741), 2nd on `alignment` (2.2887), but **last on `win_rate` (0.013)** and won **0/5** this
+run — the stable selection-failure inverse. **`civ-precise`** = best `win_rate` (0.545), 1st on
+lifetime `alignment` (2.3406) — the mirror inverse. Winner tally this run: formal 3, precise 1,
+engineer 1.
+
+**Extinction risk: NONE** (threshold -10; lowest raw relevance 874.01). Registry 8 civs,
+`max_civs` 12; extinction/birth only runs under `--loop`. **Counter gap:** ledger rows exceed
+registry `simulations_run` by **+260** (6444 vs 6184) — `save_state()` rewrites `culture.json`
+with no lock, so `relevance_per_sim` is **not recomputable from the ledger** by an auditor.
