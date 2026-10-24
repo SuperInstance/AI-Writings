@@ -873,3 +873,73 @@ label are now decoupled** — keep reporting them as two separate claims.
   the session-118 seeding fix (`md5(whole_message)[:8]`). Both are load-bearing: without the wrap the
   bridge 500s on `i>=4`; without the md5 seeding the 8 civs emit identical text and every competition
   result is void.
+
+---
+
+## Session 130 — clean mock #11; chooser-vs-argmax 4/5; Grounded is the run-level low for the 4th time (2026-10-24)
+
+- **Run:** 8 civs × 5 sims + 5 competition prompts, Control B mock, JEV live. All verification PASS
+  (per-civ Δ +10 × 8 = 80 rows, `meta_log` 383 → 388, `Winner:` lines 5, 0 JEV `error` keys,
+  80/80 rows `[mock-zai`-prefixed, `provider` = `{zai}`, sim→competition ts gap 1.10–23.21 s at
+  index 4, `leaderboard.json` rewritten at 20:44:07Z).
+- **Mock non-degeneracy: 8/8 distinct previews AND 8/8 distinct seeds on all 5 competition
+  prompts** — the **eleventh** consecutive clean measurement (118, 120–130). Pre-flight probe
+  against the live mock used the **exact long cultural prompt**: 8 civs → 8 seeds, 8 previews,
+  204-char bodies, `[mock-zai seed=…]` prefix present, **0 tracebacks** in `/tmp/mock_zai.log`.
+  **Both historical mock bugs had to be re-applied on rebuild** (`/tmp` was wiped): the session-112
+  index wrap `seed[(i*2)%8:((i*2)%8)+2]` and the session-118 md5-of-whole-message seeding.
+  Without either the bridge 500s on `i>=4` or makes all 8 civs emit identical text and voids
+  every competition result.
+- **Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in 5/5 and won 4/5; the
+  single disagreement was p3 "witness log" — `civ-formal` won at **0.463** against
+  `civ-precise`'s argmax **1.243**, i.e. the chooser again picked a **lower**-scoring candidate.
+  Clean-mock series: 0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → 3/5 (123) →
+  0/5 (124) → 4/5 (125) → 1/5 (126) → 3/5 (127) → 2/5 (128) → **4/5 (130)**. Thirteen five-sample
+  points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. **Every** observed
+  disagreement across the fleet goes the same way (chooser picks a lower-scoring candidate) —
+  10th consecutive session with that direction. **Never treat `win_rate` as a quality metric.**
+- **`civ-grounded` (The Grounded) remains the low-relevance civ — 34 consecutive sessions
+  (95–130).** Last on lifetime `avg_score` (1.1852), `alignment` (1.4167), `quality` (0.5772),
+  `relevance` (854.32) and `relevance_per_sim` (1.141). The **alignment** gap is the structural
+  one: **0.3342** below the next civ (therapist 1.7509) versus **0.0280** on quality — ~12× wider.
+  Alignment is what the meta-GAN *selects* on, so this is a **voice** failure, not a prose failure.
+  Grounded was **also the run-level low** on `avg_score` (0.1203) — the 4th consecutive session
+  where the run-level label went to it (127 → whimsical, 128/129/130 → grounded).
+- **`civ-formal` is the low-novelty axis** — lifetime novelty **1.4240** (last); alignment 2.0289
+  healthy. **`civ-poetic`** = 1st on lifetime `avg_score` (1.7753) / `quality` (0.9875) / `novelty`
+  (2.0066) / `alignment` (2.3318) but **last on `win_rate` (0.014, 5/358)** and won **0/5**
+  (6th of 8 on run `avg_score`) — the stable selection-failure inverse. **`civ-precise`** = best
+  `win_rate` (0.534, 191/167), won 4/5, **1st on lifetime `alignment` (2.3884)** and 1st on this
+  run's `avg_score` (0.7823) — the mirror inverse.
+- **Watch-axis `civ-engineer` — the session-121 low did NOT repeat for a 4th time.** 4th of 8 on
+  this run's `avg_score` (0.2577), 3rd on `alignment` (0.2070), 7th of 8 on lifetime
+  `relevance_per_sim` (1.334). **Do not promote it to a finding.**
+- **Watch-axis `civ-therapist` — LAST on this run's `alignment` (0.0120, below Grounded's 0.0290)**
+  and 2nd-lowest on run `avg_score` (0.1960); lifetime alignment 1.7509 is mid-field. Single-run
+  low — the axis stays open.
+- **New run-level note — `civ-mythic` was 2nd-lowest on run `alignment` (0.0200)**, 5th of 8 on
+  run `avg_score` (0.2620); lifetime mid-field. Run-level signal only.
+- **Extinction risk NONE** — threshold −10, lowest relevance +854.32 (85× above floor). Registry 8,
+  `max_civs` 12. All 8 civs still `generation=1` (birth/extinction only under `--loop`).
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` **1.3230**,
+  `avg_score` 0.6620, `novelty` 0.6570, `quality` **0.0230** (min 0.0090, max 0.0320). The
+  `quality` axis was again effectively **flat**, in the 119/121/122/123/125/126 regime (spread
+  0.004–0.337) against session-127's 1.063 and session-120's 0.340. Re-confirms: **the quality
+  collapse is a LEVEL that moves, not a stable property** — compare cross-civ spreads, not
+  absolute levels, before ranking on a dimension.
+- **Absolute score levels this run are depressed vs lifetime** (run `avg_score` 0.120–0.782 vs
+  lifetime 1.19–1.78) — a level shift in the JEV scorer's output for this batch, **not a civ
+  effect**; the cross-civ *ordering* carries the information.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42, poetic +37,
+  engineer +22, mythic +20, therapist +17, precise +16 (total +260). `save_state()` has no lock
+  ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (13th session — `git clone` into `/workspace/repos/...`
+  dies on `.git/description`); `gh` not installed (16th session); tool timeout 30 s < run ~50 s
+  (completed in ~27 s of polling); `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef` (got `129:12604`); never flatten; `TYPESAFEAI_KEY` must be exported;
+  the `ls` race did not reproduce (bridge passed 5/5 on the first attempt).
+- **ZAI credential gap re-confirmed (16th session):** `ZAI_TOKEN` absent from env and all 8
+  secrets; the real endpoint returns `401 token expired or incorrect` against a bogus bearer
+  (endpoint healthy ⇒ credential gap, not an outage). **JEV live:** `422 {"type":"dict_type"}` on
+  a malformed `questions` = token accepted.
