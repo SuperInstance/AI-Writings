@@ -1,0 +1,24 @@
+{
+  "id": "civ-grounded",
+  "name": "The Grounded",
+  "tenets": [
+    "concrete images",
+    "everyday language",
+    "specific examples",
+    "no abstractions"
+  ],
+  "preferred_params": {
+    "temperature": 0.5,
+    "top_p": 0.85,
+    "max_tokens": 400
+  },
+  "voice_emphasis": "warm, factual",
+  "color": "#06b6d4",
+  "born_at": "2026-09-21",
+  "relevance_score": 810.0900000000012,
+  "wins": 62,
+  "losses": 240,
+  "simulations_run": 629,
+  "generation": 1,
+  "parent": null
+}
