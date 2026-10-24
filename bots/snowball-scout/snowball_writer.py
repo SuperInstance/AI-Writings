@@ -57,6 +57,8 @@ def witness(event_type, payload):
         f.write(json.dumps(entry) + "\n")
 
 def call_zai(prompt, max_tokens=600):
+    if "ZAI_TOKEN" not in os.environ:
+        return _minimax_fallback(prompt, max_tokens, PROVIDER_MODELS["zai"], "zai")
     data = json.dumps({
         "model": "glm-4.5",
         "messages": [{"role":"user","content":prompt}],
@@ -77,6 +79,8 @@ def call_zai(prompt, max_tokens=600):
         return None
 
 def call_groq(prompt, max_tokens=600, model="qwen/qwen3.8-27b"):
+    if "GROQ_TOKEN" not in os.environ:
+        return _minimax_fallback(prompt, max_tokens, PROVIDER_MODELS["groq"], "groq")
     data = json.dumps({
         "model": model,
         "messages": [{"role":"user","content":prompt}],
@@ -96,6 +100,8 @@ def call_groq(prompt, max_tokens=600, model="qwen/qwen3.8-27b"):
         return None
 
 def call_deepinfra(prompt, max_tokens=600, model="Qwen/Qwen3-235B-A22B-Instruct-2507"):
+    if "DEEPINFRA_TOKEN" not in os.environ:
+        return _minimax_fallback(prompt, max_tokens, PROVIDER_MODELS["deepinfra"], "deepinfra")
     data = json.dumps({
         "model": model,
         "messages": [{"role":"user","content":prompt}],
@@ -113,6 +119,65 @@ def call_deepinfra(prompt, max_tokens=600, model="Qwen/Qwen3-235B-A22B-Instruct-
             return json.loads(resp.read().decode())["choices"][0]["message"]["content"]
     except Exception as e:
         return None
+
+# --- MiniMax fallback providers (sandbox / non-vault hosts) ---
+# The three canonical providers (zai / groq / deepinfra) need ZAI_TOKEN /
+# GROQ_TOKEN / DEEPINFRA_TOKEN, which live on the fleet host only. Where
+# MINIMAX_KEY is present instead (this sandbox), the same three parallel
+# lanes are served by MiniMax models, matching the fleet's own
+# vault_provider_shim.py mapping. Used ONLY when the original provider's own
+# token is absent, so the fleet-host and GitHub-Actions paths are unchanged.
+MINIMAX_URL = "https://api.minimax.io/v1/text/chatcompletion_v2"
+MINIMAX_KEY = os.environ.get("MINIMAX_KEY", "")
+
+PROVIDER_MODELS = {
+    "zai": "MiniMax-M2.5",
+    "groq": "MiniMax-M1",
+    "deepinfra": "MiniMax-Text-01",
+}
+
+
+def _strip_think(text):
+    """MiniMax M1/M2.5 emit <think>...</think> before the answer. Keep the answer."""
+    if not text:
+        return text
+    if "</think>" in text:
+        text = text.split("</think>", 1)[1]
+    if "<think>" in text and text.count("<think>") == 1:
+        text = text.split("<think>", 1)[0] + text.split("<think>", 1)[1]
+    return text.strip()
+
+
+def _minimax_complete(prompt, model, max_tokens=600, timeout=120):
+    if not MINIMAX_KEY:
+        raise RuntimeError("MINIMAX_KEY not set")
+    data = json.dumps({
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": max_tokens,
+        "temperature": 0.85,
+    }).encode()
+    req = urllib.request.Request(
+        MINIMAX_URL,
+        data=data,
+        headers={"Authorization": f"Bearer {MINIMAX_KEY}", "Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        raw = json.loads(resp.read().decode())
+    if raw.get("base_resp", {}).get("status_code", 0) not in (0, None):
+        raise RuntimeError("minimax error: %s" % json.dumps(raw.get("base_resp"))[:300])
+    return _strip_think(raw["choices"][0]["message"]["content"] or "")
+
+
+def _minimax_fallback(prompt, max_tokens, model, label):
+    """Used when the canonical provider token is missing."""
+    try:
+        return _minimax_complete(prompt, model, max_tokens)
+    except Exception as e:
+        print("[%s] failed: %s" % (label, e))
+        return None
+
 
 def read_recent_canon(n=5):
     """Read recent prose pieces for inspiration"""
