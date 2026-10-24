@@ -7029,3 +7029,115 @@ so the API commit check could not run. `git fetch --depth 1 origin main` then
 `git rev-parse origin/main` == `git rev-parse HEAD` is an equally authoritative
 remote verification and does not consume API quota. **Use the git-level check when the
 API is throttled.**
+
+---
+
+## Session 57 (2026-10-24) — the "longevity artefact" explanation is falsified; `cmp` on a FIFO lies
+
+**Command:** `--sims 5 --prompts 5 --providers zai`. Baseline HEAD `351db9a2` (session 56):
+ledger **2204** rows, `meta_log` **143**. After the run: ledger **2284** (+80, exactly
++10/civ uniform), `meta_log` **148** (+5), **5 `Winner:` lines**, **0** all-2.0-default
+rows, **0** score errors, **80/80** distinct `content_preview`, **0** cross-civ
+collisions, 76/80 distinct `avg_score` (1.050–2.823, mean 1.9798), JEV confidence
+0.070–0.970 (mean 0.5138). Control B = **9th consecutive identical replication**.
+
+**Credential gap: 22nd session.** Three probes of
+`api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or incorrect"** on
+every one (endpoint healthy ⇒ credential gap, not outage). JEV live at `jev-1.14.0`
+(probe `quality 1.34`, `confidence 0.38`).
+
+### The longevity-artefact explanation is WRONG — stop repeating it
+
+Sessions 6–56 explained `civ-grounded`'s last place as *"a longevity artefact — it ran the
+most sims, and a lifetime-average denominator punishes that."* **Never tested until now.**
+
+```
+Pearson r(ledger_rows, relevance_per_sim) = -0.067     (near zero)
+most-run civ  = civ-whimsical (324 rows)     board-last civ = civ-grounded (312 rows)
+```
+
+The board-last civ is **not** the most-run civ — Whimsical ran **12 more rows** and sits
+2nd. A denominator effect cannot produce a last place for a civ that did not run the most.
+
+**What Grounded actually scores like** (this run, n=10): qual 0.731, **nov 2.386**,
+**align 1.819** — versus `civ-precise` qual 0.814 / nov 1.839 / align 2.943. That is a
+**voice-misfit signature** (high novelty, low alignment), not a longevity one. Its
+`voice_emphasis` is `"warm, factual"`, tenets `concrete images / everyday language /
+specific examples / no abstractions`; against the canon prompts it writes competent but
+tonally flat prose that JEV scores as novel and *not aligned*.
+
+**Grounded is last on 4 of 5 lenses** (A `rel/sim` 1.510, B raw rel 406.23,
+D lifetime avg 1.572, E this-run avg 1.645) simultaneously — a stable, real weakness.
+**Retire the longevity excuse from the standing report set**; it has been copied ~10
+sessions without a correlation test, and it points remediation the wrong way (wait for the
+average to recover) when the signal is a miscalibrated voice.
+
+**Method rule: any claim of the form "X is low because of how many times it ran" must be
+backed by a correlation test over the actual per-civ row counts. A narrative reason that
+survives a dozen sessions unchallenged is not evidence.**
+
+### An inert run is NOT a no-op — it manufactures counter-gap rows
+
+The unpatched run (+0 ledger rows, +0 `meta_log`, 0 `Winner:` lines, exit 0) **still
+advanced `culture.json` `simulations_run`** (`civ-poetic` 224 → 234) and rewrote
+`leaderboard.json`. So a green-exit run that does no work **desynchronises the registry
+from the ledger** and publishes a board whose `sims_run` matches no evidence of work.
+This is a direct mechanism for the standing **260-row counter gap** (ledger 2284 vs
+registry 2024 this session): an inert run adds 10 to `sims_run` per civ with zero rows
+behind it. **When you report "+0 rows, run was inert", also report the counter delta —
+the run was not harmless.**
+
+### `cmp` against `<(git show ...)` reports FALSE failures — materialise the blob
+
+The standing restore check `cmp -s file <(git show HEAD:path)` is a **FIFO race**:
+`cmp` opens the FIFO and the regular file concurrently, and reading the FIFO first can
+short-read and report a difference on byte-identical files.
+
+Observed: **16 of 27 files reported `FAIL`** while `git status --porcelain` was **empty**
+and `git cat-file -s` matched `stat -c%s` exactly. Re-run with the blob materialised:
+
+```bash
+git show HEAD:$BASE/civ-$c/simulations.jsonl > /tmp/verify/blob
+cmp -s "$BASE/civ-$c/simulations.jsonl" /tmp/verify/blob
+```
+→ **27/27 identical, 0 differing.**
+
+> **A false-negative restore check is worse than no check** — it invites a spurious
+> "the tree is dirty" conclusion and a needless rebase. **Always materialise the blob
+> before `cmp`.** `git status --porcelain` being empty is the cheap cross-check.
+
+### GitHub API quota died mid-session — use `git ls-remote`, not the API
+
+`api.github.com/repos/SuperInstance/ai-writings/commits/main` returned **403 "API rate
+limit exceeded"** while `git ls-remote origin main` still worked fine. The `core` quota
+(0/5000) and the `search` quota are separate. **Get the remote SHA from
+`git ls-remote origin main`.**
+
+Also: `git fetch --depth 1 <sha>` updates `FETCH_HEAD` but the tree/parent objects may be
+absent ⇒ `git cat-file -t <sha>` fails and `git reset --hard <sha>` dies with
+"Could not parse object". **Fetch the branch, then verify `git cat-file -t` before
+resetting.** A truncated/mistyped SHA gives `remote error: upload-pack: not our ref` —
+which looks exactly like a rate-limited API failure if you only read the error text.
+
+### Standing lens table this session
+
+| civ | A rel/sim | B raw rel | C win_rate | D life avg | E run avg | rows |
+|---|---|---|---|---|---|---|
+| `civ-grounded` | **1.510** | **406.23** | 0.221 | **1.572** | **1.645** | 312 |
+| `civ-formal` | 1.651 | 420.92 | 0.165 | 1.705 | 1.726 | 297 |
+| `civ-engineer` | 1.724 | 420.58 | 0.086 | 1.747 | 1.673 | 266 |
+| `civ-precise` | 1.844 | 451.71 | 0.525 | 1.856 | 1.865 | 261 |
+| `civ-therapist` | 1.910 | 471.80 | 0.017 | 1.947 | 1.992 | 264 |
+| `civ-mythic` | 1.929 | 480.20 | 0.034 | 1.975 | 2.318 | 269 |
+| `civ-whimsical` | 2.035 | 531.24 | 0.024 | 2.174 | 2.271 | 324 |
+| `civ-poetic` | 2.171 | 551.42 | **0.008** | 2.228 | 2.348 | 291 |
+
+**Poetic anomaly: 9th consecutive run** (sessions 6, 7, 8, 52–57) — 1st of 8 on every
+quality lens, last on win rate. Chooser vs `argmax(avg_score)` over **148** meta_log
+rounds: **26 agree / 122 disagree = 17.6 %**; this run alone **1/5**. `civ-poetic` was
+the argmax on **4 of 5** prompts and was chosen **0 times**.
+
+`r(temperature, novelty)` this run **+0.682** (prior: 0.985, 0.464) — the gradient is
+real but the near-perfect figure does not replicate. **Quote the range, re-measure per run.**
+
+**No extinction:** lowest relevance +406.23 vs the −10 threshold.
