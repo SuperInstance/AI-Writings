@@ -289,3 +289,65 @@ metric** — measure quality on `avg_score` / lifetime score dims instead.
 and 80/80 new rows carry the `[mock-zai]` prefix with `provider=zai` and **no `error` key** in
 `scores` (the no-error check is what proves JEV really scored rather than silently returning
 the 2.0 default).
+
+### Session 117 — the mock's seed ignores the civ ⇒ the chooser CANNOT discriminate
+
+**New, verified, and it invalidates the competition results of any Control B run.**
+
+The mock derives its response seed from `re.sub(r"[^a-zA-Z0-9]", "", msg)[:8]` — the **first
+8 alphanumeric characters** of the cultural prompt. But the cultural prompt begins with the
+**civ-invariant** prefix:
+
+```
+You are a voice in the tradition of "<CIV NAME>".   <-- differs
+Your tenets: ...                                     <-- differs
+Your voice: ...                                      <-- differs
+```
+
+The first 8 alphanumeric chars of that whole string are `YouAreA` for **every civ**. So the
+seed is `youareav` regardless of civ.
+
+**Consequence (measured, not inferred):** in the competition phase all 8 civs'
+`content_preview` is **byte-identical** — one distinct preview per civ, and the *same* preview
+across all 8 civs on all 5 prompts. JEV's chooser receives 8 copies of one string and must
+break a perfect tie. Session 117's "civ-precise won 5/5" is **an arbitrary tie-break landing
+on one civ, NOT a quality signal.**
+
+**Rules that follow:**
+
+- **A Control B run's competition ordering and the `avg_score` spread are NOT quality
+  measurements.** The spread is JEV scoring identical text 8× — residual differences are JEV
+  nondeterminism. Label every Control B report as *mock-limited*.
+- **Only the lifetime leaderboard columns are trustworthy** in a Control B run.
+- Session 116's finding (the chooser picked the *lowest*-scoring candidate) is **not
+  refuted** by session 117 — it simply **cannot be re-tested** under the current mock.
+- **The fix (not yet applied):** seed from a hash of the *whole* message, or from a hash of
+  the civ-specific fields only (`voice_emphasis` + `tenets` + prompt), not the leading
+  prefix. Then each civ emits distinct text and the chooser becomes a real test again.
+- **Diagnostic to run after any mock change:** for one competition prompt, assert
+  `len({r["content_preview"] for r in new_competition_rows}) == 8`. If it is 1, the mock is
+  degenerate and the run's competition results are void.
+
+### Session 117 — re-confirmations
+
+- **NAS EDQUOT still total (4th session running).** `git clone` into `/workspace/repos/...`
+  dies with `Disk quota exceeded`; only the symlink bridge works. Target = the **nested**
+  `cellular-first-design` dir. Verified by `stat -L -c '%d:%i'` on both sides + `-ef`.
+- **The `ls` race on the symlinked deep path reproduced once** in session 117 (one `ls` →
+  `No such file or directory`), then 5/5 retries OK and `stat -L`/`readlink -f`/`[-e]` all
+  correct. Unchanged guidance: **a single `ls` failure is not evidence of a missing
+  directory**; re-check and retry before touching the bridge.
+- **`gh` is not installed — 4th session running.** `GET /search/repositories?q=ai-writings`
+  with `GITHUB_TOKEN` works; the API is case-insensitive
+  (`SuperInstance/ai-writings` == `SuperInstance/AI-Writings`).
+- **Tool timeout (30 s) < orchestrator run (~45 s).** Launch detached with stdout redirected
+  to a file, then poll `ps` + the log.
+- **Verification pattern held again:** per-civ Δ = **+10** (5 sim-phase + 5
+  competition-phase), `meta_log.jsonl` Δ = **+5**, `Winner:` lines = **5**, 80/80 rows with
+  the `[mock-zai]` prefix, **0** rows with a JEV `error` key.
+- **The sim→competition ts gap sits at index 4** in every civ file (4.2 s–22.9 s observed) —
+  a cheap structural check that both phases landed.
+- **`civ-grounded` (The Grounded) remains the low-relevance civ** — last on lifetime
+  `avg_score` (1.332), `alignment` (1.638), `quality` (0.675), `relevance` (797.20) and
+  `relevance_per_sim` (1.288). 22+ sessions reproduce it. Extinction risk **NONE**
+  (threshold −10, lowest raw relevance +797.20, 80× above). Counter gap **+260**, unchanged.
