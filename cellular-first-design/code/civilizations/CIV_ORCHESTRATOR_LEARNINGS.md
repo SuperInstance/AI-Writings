@@ -7141,3 +7141,111 @@ the argmax on **4 of 5** prompts and was chosen **0 times**.
 real but the near-perfect figure does not replicate. **Quote the range, re-measure per run.**
 
 **No extinction:** lowest relevance +406.23 vs the −10 threshold.
+
+---
+
+## Session 58 (2026-10-24) — credential gap 23rd deep; the repo path is a SUBDIRECTORY, and the committed ledger is 1/3 mock
+
+**Command:** `--sims 5 --prompts 5 --providers zai`. Baseline HEAD `45be027a` (session 57):
+ledger **2204** rows, `meta_log` **143**. After the run: ledger **2284** (+80, exactly
++10/civ uniform), `meta_log` **148** (+5), **5 `Winner:` lines**, **0** all-2.0-default
+rows, **0** score errors, **80/80** distinct `content_preview`, **0** cross-civ
+collisions, 66/80 distinct `avg_score` (1.200-2.397, mean 1.7392), JEV confidence
+0.230-0.980 (mean 0.6711). Control B = **10th consecutive identical replication**.
+
+**Credential gap: 23rd session.** Three probes of
+`api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or incorrect"**
+on every one (endpoint healthy => credential gap, not outage). `ZAI_TOKEN`/`ZAI_KEY`
+absent from env **and** from the 8-entry secret store (no ZAI key among
+MOTHQUANTUM/TYPESAFE_AI/MINIMAX/NOTION/NPMJS/CRATES/PYPI/GITHUB). JEV live at
+`jev-1.14.0` (probe `quality 1.7`, `confidence 0.48`). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### NEW — the task's repo path is a SUBDIRECTORY of a differently-named repo
+
+The prompt named `/workspace/repos/ai-writings/cellular-first-design/code/civilizations/`.
+The GitHub repo is **`SuperInstance/ai-writings`**; `cellular-first-design/` is a
+subdirectory of it. `git ls-remote` on `ai-writings/cellular-first-design` and 5 other
+owner/repo guesses all returned `Repository not found`; `SuperInstance/ai-writings`
+returned FOUND. **Do not infer the repo name from the task's path — probe with
+`git ls-remote` (one cheap call, no clone) before cloning.** The path also did not
+exist locally: `/workspace` was wiped (only `.skills/`) and at **100 % NAS quota**.
+
+Working recipe (clone is now **7.0 GB**, up from 3.3):
+
+```bash
+git clone --depth 40 "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/ai-writings.git" /tmp/aw
+mkdir -p /workspace/repos/ai-writings/cellular-first-design/code
+ln -sfn /tmp/aw/cellular-first-design/code/civilizations \
+        /workspace/repos/ai-writings/cellular-first-design/code/civilizations
+```
+
+`--depth 40` completed in ONE foreground call — `--filter=blob:none` +
+`sparse-checkout` was **not** needed this time. `mkdir -p` on the NAS works even at
+100 % quota; only writes of real content hit EDQUOT. Symlink the **innermost**
+`civilizations` path (session 55's rule, re-confirmed).
+
+### CORRECTION — the inert run does NOT desync the registry counters (session 57 was wrong to generalise)
+
+Session 57 reported that an inert run advances `culture.json` `simulations_run` by
+10/civ while writing zero ledger rows, "seeding the 260-row counter gap". **This
+session did not reproduce it:** the unpatched run left the registry sum at exactly
+**1944 -> 1944 (+0)**. Reason: `run_simulation()` returns `None` on a failed provider
+call and `save_state()` runs *after* the loop, writing back the **unchanged**
+in-memory counters. So the desync is **not** a deterministic property of an inert
+run — treat session 57's mechanism as session-specific. The 260-row gap itself is
+real and reproduced exactly (2284 ledger vs 2024 registry).
+
+Unpatched = **+0 rows, +0 meta, exit 0**, 0 `Winner:` lines (23rd session).
+**Assert on the row delta and the `Winner:` count, never on the exit code.**
+
+### NEW — the committed ledger is 31.5 % synthetic; stop quoting lifetime numbers without the caveat
+
+`grep -c 'mock'` on the **pristine committed** ledgers at HEAD: **80 rows in each of
+the 8 civs = 640 mock rows already committed**. This session's Control B added 80 more
+-> **720 mock rows in a 2284-row ledger (31.5 %)**. Every lifetime figure (A `rel/sim`,
+B raw relevance, D lifetime `avg_score`) is computed over a mostly-mock ledger. The
+*ordering* stays meaningful (stable across 10 sessions and 4 lenses) but the absolute
+numbers are not evidence of real model behaviour. **Fix at the source:** tag mock rows
+with `"mock": true` in the ledger so lifetime analytics can exclude them, and purge
+the 640 historical mock rows from HEAD. Until then, quote every lifetime relevance
+number with the contamination caveat.
+
+### Low relevance — the Grounded is bottom on 5 of 7 lenses at once (9th consecutive session)
+
+| civ | A rel/sim | B raw rel | C win rate | D life avg | E run avg | E qual | E align | rows |
+|---|---|---|---|---|---|---|---|---|
+| `civ-poetic` | 2.159 | 548.44 | 0.008 | 2.217 | 2.050 | 0.788 | 2.835 | 291 |
+| `civ-whimsical` | 2.018 | 526.64 | 0.024 | 2.160 | 1.810 | 0.472 | 2.342 | 324 |
+| `civ-mythic` | 1.902 | 473.48 | 0.026 | 1.950 | 1.647 | 0.493 | 2.128 | 269 |
+| `civ-therapist` | 1.896 | 468.42 | 0.017 | 1.934 | 1.654 | 0.391 | 2.209 | 264 |
+| `civ-precise` | 1.847 | 452.63 | **0.534** | 1.859 | 1.958 | 0.625 | **3.162** | 261 |
+| `civ-engineer` | 1.726 | 421.08 | 0.086 | 1.749 | 1.722 | 0.431 | 2.598 | 266 |
+| `civ-formal` | 1.647 | 420.06 | 0.149 | 1.702 | 1.641 | **0.245** | 2.736 | 297 |
+| `civ-grounded` | **1.502** | **404.10** | 0.238 | **1.566** | **1.432** | 0.435 | **1.980** | 312 |
+
+**`civ-grounded` = the low-relevance civ.** Bottom on A, B, D, E-avg and E-alignment
+simultaneously, 2nd-lowest on E-quality. **Not** a longevity artefact: it has the
+2nd-most ledger rows (312) and the **2nd-highest win rate (0.238)** while producing the
+**lowest** scores. It wins the chooser's vote on *selection appeal* and loses on
+*substance*. **`civ-formal` is the new E-bottom** (quality 0.245) — E moves session to
+session, report it per run. **`civ-poetic` is the 10th-consecutive-run mirror
+anomaly:** 1st on every quality lens, last on win rate (0.008).
+
+Chooser vs `argmax(avg_score)` over all **148** rounds: **27 agree / 121 disagree =
+18.2 %** (prev 17.5 %) — the figure is **stable around 18 %**, not 4.4 %.
+
+### Background-launch gotcha — re-confirmed with a twist
+
+`setsid nohup python3 mock.py &` inside a compound command that ALSO runs `curl`
+**hung the tool call for the full 120 s timeout**, even though the server started
+fine and served every subsequent request. The server was found via
+`ps aux | grep "[m]ock_zai"`. **Launch the mock in a dedicated call; probe it in a
+separate call.** A hung `curl` on a live mock is a *launch* artefact, not a dead
+server — check `ps` before concluding the mock is down.
+
+### Diff integrity — pure appends, verified
+
+All 8 `simulations.jsonl` diffs verified as **pure appends** with the old content an
+exact prefix: `head -n old | cmp -s - <(git show HEAD:path)` => `PREFIX-OK` for all 8.
+Total diff **152 insertions, 67 deletions** across 18 files. No source file modified.
