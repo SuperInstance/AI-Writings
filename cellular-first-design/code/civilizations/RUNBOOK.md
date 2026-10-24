@@ -1313,3 +1313,51 @@ inverse (1st on lifetime `avg_score` 1.6773, last on `win_rate` 0.014, won 0/5 t
 12 of the last 13 clean-mock sessions (the exception is session 120). **The quality collapse is a
 LEVEL that moves, not a stable property** — rank on cross-civ spreads, never on absolute quality
 levels, and never on a single run's low.
+
+## Session 145 — the mock's seed placeholder must be interpolated, not left literal (2026-10-24)
+
+**A silent mock degradation that only the seed-distinctness assertion exposes.**
+
+The Control B mock's response template was written as a literal `"[mock-zai seed={}] "` with
+the placeholder **never interpolated** (a `.format()`-style template with no `.format()` call).
+Consequence: **every** response carried the identical seed `{}` — 8 civs x 5 prompts produced
+**1 distinct seed**, not 40.
+
+The mock was otherwise *healthy by every socket-level check*:
+- HTTP **200** on a probe
+- the `[mock-zai` prefix present in every row
+- **0 tracebacks** in the mock's stdout
+- 80 rows, 8/8 rows per civ, +10 per civ, +5 meta rows, 5 `Winner:` lines
+
+**Only the `distinct seeds == 40` assertion caught it.** The prefix check passes on a literal
+`seed={}`; the row-count checks pass; the exit code is 0. The RUNBOOK already warns that
+"a 200 on a probe is not proof the mock is correct" (session 112) and that "never check the
+preview instead of the seed" (session 117) — this session is the third distinct way a mock
+can be wrong while looking fine, and it lands on the same assertion.
+
+**Corollary for the probe:** the orchestrator's own `cultural_prompt` template is *correct*
+— 8 civs on the same prompt give 8 distinct md5s. So if the pre-flight reports
+`distinct_seeds == 1`, **suspect the mock's formatting before suspecting the probe's
+reconstruction of the template.** Re-derive the md5s in the probe script and compare.
+
+**The pre-flight saved the run for the third time in the series** (sessions 115, 117, 145).
+Keep rebuilding it; never trust a 200.
+
+**Environment re-confirmations (24th session with no `gh`, 42nd on the z.ai credential gap):**
+NAS EDQUOT still total (clone to the local overlay at `/root/repos/ai-writings`, 28 G free);
+the symlink bridge verified by inode identity (`129:12606` on both sides, `-ef` OK) with the
+`[ -e path ] && [ ! -L path ]` pre-check run first; the bridge pointed at the **nested**
+`cellular-first-design` dir so `CIVS_DIR` resolved; the `ls` race did not fire.
+
+**Chooser-vs-argmax 4/5 (80 %) — joint-highest of the clean-mock series, and the rate is not
+narrowing** (137-144 gave 20 %, 60 %, 20 %, 80 %). The single disagreement again took the
+**lower**-scoring candidate. `civ-precise` swept 4/5 and is the lifetime `win_rate` leader
+(0.554) at `preferred_temp` 0.2 — the coldest voice is the one the chooser rewards.
+
+**`civ-grounded` holds the low for the 43rd consecutive session (95-145)**, and the label
+did not rotate: last before the run (relevance 926.99) and last after (932.06). The
+alignment gap to the next civ is **1.0064** vs quality's **0.3716** — a **2.7x** wider
+alignment gap (the ratio has fallen from 8.2x in session 142, so quote the absolute gaps,
+not the ratio). `civ-therapist` took the run low on `avg_score` (0.5033) for the 4th time
+(sessions 138, 141, 144, 145) and is still mid-field on the lifetime axis (1.2731, 5th of
+8) — **watch axis, not a finding.**
