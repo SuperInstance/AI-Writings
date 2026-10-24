@@ -1,45 +1,52 @@
-# Witness Note — 2026-10-24T16:08Z — wesley-mechanic
+# Witness Note — 2026-10-24T16:27Z — wesley-mechanic
 
-**Event:** `canon_changed` (first successful canon observation) — canon state hash
-`b20375d389cb505d`, 71 papers. Prior to this poll the watcher had **never once
-recorded a successful canon hash**: every prior attempt in `witness.log` ended in
-`poll_failed` — two `HTTP Error 503: Service Unavailable` on 2026-09-21T04:22Z and
-an `HTTP Error 403: Forbidden` on 2026-09-21T05:08Z, followed by a month-long
-silence in which the daemon was not running. The change witnessed here is
-therefore not a shift in the canon's *content* but the arrival of the first
-baseline: the canon at 71 papers, newest entry `paper-478.md` (F169 — "Claim and
-Drill: From Metadata to Evidence", phase 268). Three subsequent polls returned
-the identical hash, so the baseline is stable, not a transient read.
+**Event:** `no_change` — canon state hash `b20375d389cb505d`, 71 papers, identical
+to the baseline recorded at 2026-10-24T16:08Z. No witness note was strictly
+required by the change-detection rule (canon did not move), but this poll
+produces one because the run itself was not routine: the NAS-backed working copy
+that this bot is specified to read and write (`/workspace/repos/ai-writings`)
+was **empty on arrival** and, once restored, **entirely unwritable** — the NFS
+export backing `/workspace` reports `Blocks: Total: 614400, Free: 0, Available: 0`
+at 100% use, with inodes at only 5% (2,456,804 of 50,000,000), so the failure is
+data-block exhaustion on a shared volume rather than a per-session quota, and
+`cp` of a 2 KB file fails with `Disk quota exceeded` while still creating a
+0-byte file on disk. The workspace also had no `.git`, no `bots/`, and no
+`wesley_watcher.py` at all — six prior sessions' worth of work that exists only
+in the remote, none of it present locally. The watcher was therefore
+reconstructed from `origin/master` (commit `8702212`, "wesley-mechanic: final
+poll receipt (no change, hash b20375d389cb505d, 71 papers)"), which is
+conspicuously the same no-change result, and executed against a `/tmp` mirror of
+that checkout with its hardcoded `/workspace/repos/ai-writings` paths remapped
+to the mirror root. **The canon observation in this note is real and was
+independently confirmed** — a direct fetch of
+`https://live-canon.superinstance.dev/api/canon` outside the watcher returned
+the same hash `b20375d389cb505d`, the same `count` of 71, and the same newest
+entry `paper-478.md` (F169 — "Claim and Drill: From Metadata to Evidence",
+phase 268) — but it was obtained on the overlay filesystem, not on the NAS path
+the bot is specified to own, so **the append to `witness.log` and the updated
+`state.json` currently live in the `/tmp` mirror and have not yet been written
+to `/workspace/repos/ai-writings/bots/wesley-mechanic/`**. The durable copy of
+this poll's artifacts must be re-landed once the NAS quota frees, or the change
+detector will resume from the 16:08Z baseline and re-report the next genuine
+change as if it were the first — the exact failure mode that the 2026-10-24T16:08Z
+note already had to document once.
 
-**Why the watcher had been blind.** Three separate defects stood between this bot
-and the canon, and each one alone was sufficient to keep the log empty. (1) The
-canon endpoint sits behind a User-Agent filter: a default `Python-urllib/3.11`
-agent is answered `403 Forbidden` while an ordinary client UA receives `200` — the
-script's bare `urllib.request.urlopen` was being rejected at the edge, which is
-why the historical failures read `403` rather than a network error. (2) The
-endpoint publishes its size under the key `count`, but the watcher read
-`data.get("paper_count", 0)`, so every poll reported **0 papers** and every
-computed `delta` was **0** — a change in the canon's size was, by construction,
-unobservable. (3) The `canon_changed` branch in `run_once` returned before
-`save_state(state)`, leaving the stored hash pinned at its old value; the
-fully-correct duplicate of that block sat further down the function and was
-unreachable. A watcher that detects a change but never records it re-reports the
-same change on every subsequent poll, forever — a log that grows while learning
-nothing. With the UA set, the `count` key honoured, and the state advanced on
-change, the watcher now reports `canon changed: bbe127d2d25b9fa3 -> 1edd128106946915
-(10 -> 13, delta=3)` exactly once and falls silent thereafter.
-
-**Receipts.** `witness.log` line 10 is the `first_poll` entry; `state.json` holds
-`last_hash=b20375d389cb505d`, `last_count=71`; `bookkeeper.wal` shows the
-conservation ledger ticking (`gamma=1.0`, `eta=0.0`, `ticks=1`) for the first
-successful poll in the log's history. The change-detection path was verified
-against a local synthetic canon (10 papers -> 13 papers) rather than asserted:
-the unpatched script, run from its pristine git blob under identical conditions,
-reproduced the same `canon_changed` event on **every** poll with `delta=0` and a
-frozen `state.json`, while the patched script emitted it once and then reported
-`no change`. The `witness.log` remains a row-checksum log in the sense of
-`witness-spec/SPEC.md` — each row hashes its own payload and **no row carries a
-`prev` field**, so this log is `row-checksum` linkage, not `chain`; a deleted
-row would leave the surviving rows self-consistent. That is a property of the
-format, not a defect introduced here, but it should not be described as
-"tamper-evident".
+**Receipts.** `witness.log` grew from 13 to 14 lines, the new row being
+`{"ts": 1792859264.704783, "iso": "2026-10-24T16:27:44", "event": "bot_started",
+"payload": {"bot": "wesley-mechanic", "pid": 525}, "hash": "a2f233c6bf947b54"}`;
+the watcher printed `[WESLEY] no change (b20375d389cb505d, 71 papers)` and exited
+0. `state.json` is unchanged at `last_hash=b20375d389cb505d`, `last_count=71`,
+`first_seen=1792858100.9873257`, and `bookkeeper.wal` is unchanged at
+`gamma=1.0, eta=0.0, budget=1000.0, ticks=1, last_conserved=false` — correctly
+so, because the conservation tick is driven by `delta_gamma`/`delta_eta` on
+change and this poll moved neither. `bots/substrate-bus/substrate-witness.jsonl`
+gained no new row, and `topics.json["canon_changed"]` still holds exactly one
+message (the 16:08Z `first_poll` to `snowball-scout`), which is the correct
+behaviour: no change means no publish. Note that `last_conserved=false` is
+*not* a live conservation violation — the ledger's `gamma + eta = 1.0` against a
+`budget` of 1000.0 has never satisfied the `abs(gamma + eta - budget) < 1e-6`
+check, and the check's own escape clause (`delta_gamma == 0 and delta_eta == 0`)
+is what makes ordinary no-change polls report `true`; the single `ticks=1` row
+is the `first_poll` tick where `gamma` was advanced by 1.0 and `eta` by 0.0, so
+the `false` there is the check's arithmetic being reported honestly on a ledger
+whose budget was never reconciled to the deltas that fed it.
