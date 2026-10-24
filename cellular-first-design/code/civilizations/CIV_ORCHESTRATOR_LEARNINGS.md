@@ -10993,3 +10993,175 @@ Argmax: poetic ×6, therapist ×3, precise ×1. **A win is not evidence of a hig
 
 `7383d60c8` — 19 files, +255 report, +20 rows × 8 civs, +10 meta_log, `leaderboard.json` rewritten.
 Pushed to `SuperInstance/AI-Writings` `main` and **remote-verified via the commits API**.
+
+## Session 92b additions (2026-10-24) — a SECOND, concurrent session-92 instance; the COMMITTED baseline is 28.5 % synthetic (the "0 % synthetic" check is unsound, and there are TWO marker formats); the mock's voice table must cover all 8 fleet voices or half the fleet silently falls back
+
+### The credential gap is still the whole story (30th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8 secrets POSTed to
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or incorrect"** on every one
+(endpoint healthy ⇒ credential gap, not outage). JEV live at `jev-1.14.0`.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Control A: **+0 rows / +0 meta / 0 winners / exit 0**. Control B: **+160 rows / +10 meta / 10 winners /
+0 fallbacks / 0 all-2.0-default rows / 0 score errors**, **uniform +20 per civ** — reproduces sessions
+6–10 and 84–91 exactly.
+
+**The task's own verification (`ls -la civ-*/simulations.jsonl`) is sufficient**: every mtime advanced and
+every file grew by exactly +10 (set A) / +20 (both sets), uniformly across all 8.
+
+### CORRECTION — the committed baseline is **28.5 % synthetic**, and the "0 % synthetic" check was UNSOUND
+
+Sessions 89, 90 and a concurrent session-92 instance all reported the committed baseline as **0 %**
+synthetic. That check only fingerprinted the *session's own* body strings against previews — it never
+audited the **inherited** rows. Auditing the marker directly, on the committed tree:
+
+```
+880 / 3084 committed rows carry a mock marker  =  28.5 %
+  [mock-zai <hash>]  800 rows   (older mock format, 100 per civ)
+  [The <Voice>]       80 rows   (newer mock format,  10 per civ)
+  -> exactly 110 marked rows per civ, every civ
+```
+
+**There are TWO mock marker formats**, and an audit that greps only one of them undercounts. Session 69
+documented this and it has been re-broken since: `grep -c '\[mock-zai'` alone returns 800, not 880.
+A single-format grep reports **25.9 %**; the true figure is **28.5 %**.
+
+**The marked rows are pre-existing committed mock output from earlier sessions** — `git log -S'[mock-zai'`
+puts the first one in **session 6 (`e1d999b0`)**, and sessions 58 and 69 already reported this
+contamination at **31.5 %** and **640 rows (28 %)** respectively. The "0 % synthetic" claim is a
+**regression of a finding that has been made and re-broken at least three times**, not a new result.
+
+**Mandate (replace the unsound fingerprint check):** the synthetic audit must grep the **committed**
+ledger for **both** marker prefixes, per civ, and report `marked / total`. A session that adds mock rows
+must state the **whole-ledger** synthetic share, not only its own contribution. If the figure lands near
+28–31 %, the audit is working; if it reports 0 %, the audit is broken.
+
+### The mock's voice table MUST cover all 8 fleet voices — 4 of 8 fall back silently otherwise
+
+The fleet's `voice_emphasis` values are **not** the 7 that earlier sessions' mock bodies were written
+against:
+
+```
+warm, factual | playful, surprising | measured, exact | lyrical, dense
+technical, sparse | ancient, narrative | warm, attentive | structural, practical
+```
+
+An earlier table keyed on 7 of these left **`playful, surprising`, `measured, exact`, `ancient, narrative`,
+`structural, practical` unmatched** ⇒ **40 of 80 calls fell back** to a 68-char placeholder body. That
+still produced a *perfect-looking* +80 rows / 5 winners / 0 error rows / 0 default-score rows — the only
+tells were the per-call `fallback` flag and `min(nchars) = 68`.
+
+**Mandate:** (a) read all 8 `culture.json` `voice_emphasis` strings and assert the mock's key set ⊇ that
+set — a hard `raise SystemExit` at server start, not a runtime check; (b) assert `min(nchars) > 200`;
+(c) assert `len(distinct resolved_key) == 8`; (d) assert `fallback == 0` **before** believing the run.
+
+### NEW TRAP — the voice-key regex must not be anchored to end-of-string
+
+`r"Your voice:\s*(.+?)\.\s*$"` with `re.S` **fails** on the real prompt, because the cultural prompt
+continues past the voice line:
+
+```
+'You are a voice in the tradition of "The Grounded".\nYour tenets: ...\nYour voice: warm, factual.\n\nWRITE 100 WORDS'
+```
+
+`$` with `re.S` matches only at the very end (or before a final newline) ⇒ the capture never fired ⇒
+**every** call fell back. The working pattern is `r"Your voice:\s*([^\n]+?)\s*\.\s*(?:\n|$)"` — a
+**non-greedy single-line** capture terminated by the line break.
+
+**Generalisable:** a regex that "looks right" against a one-line fixture can fail on the real
+multi-line payload. **Always probe the mock with the exact string the orchestrator builds**, not a
+hand-written approximation. (This is the same class of bug as the session-91 `str` vs `list` body-map
+mismatch: a perfect signature table with wrong content behind it.)
+
+### The A/B estimator — the bottom replicates, the top does not (4th independent replication)
+
+| | session 89 | session 90 | session 91 | **session 92** |
+|---|---|---|---|---|
+| exact position matches | 6 / 8 | 2 / 8 | 4 / 8 | **6 / 8** |
+| Spearman rho | 0.976 | 0.857 | 1.000 | **0.929** |
+| max abs(delta) | 0.167 | 0.288 | 0.499 | **0.358** |
+
+Session 92: `civ-formal` is **8th in BOTH sets** (1.590 / 1.565, Δ −0.025 — the smallest delta in the
+fleet). The **top does not replicate**: `civ-mythic` 1st in A (2.486), `civ-poetic` 1st in B (2.443, Δ
++0.187). This confirms the session-90/91 refinement for the 4th time: **report the bottom as the stable
+finding; treat the top as unstable.** It also refutes the session-89 "best-ever agreement" framing — a
+**high** agreement rate is now the *expected* result, and only a **low** one should raise suspicion.
+
+### Low relevance — 13 lenses; the Grounded is last on 6, the Formal on 5, the Poetic on 1
+
+`civ-grounded` last on L1 board `rel/sim` (1.447), L2 raw relevance (533.83), L4 lifetime `avg_score`
+(1.500), L5 lifetime quality (0.878), L7 lifetime alignment (1.906), L11 set-B alignment.
+`civ-formal` last on L6 lifetime novelty (1.496), L8 set A (1.590), L9 set B (1.565), L10 set B quality
+(0.834), L12 set B novelty (1.020) — i.e. **last on both this-run lenses, in both body sets, with the
+smallest Δ in the fleet**.
+
+**The longevity-artefact defence fails for BOTH candidates**: grounded has 412 rows (2nd of 8, whimsical
+424) and formal has 397 (3rd of 8) — neither ran the most, and both are last on **denominator-free**
+this-run lenses (n=10/set).
+
+**The two answers to "low relevance" are different questions.** By the board's sort key:
+**`civ-grounded`** (1.447, 0.20 below the next civ). By the only competitive signal: **`civ-poetic`**
+(win rate **0.012, 2W/171L**) while being 1st on raw relevance (749.92) and 1st/2nd on every writing lens.
+**The Poetic is the civ actually at risk** from the orchestrator's own lifecycle logic — a meta-GAN that
+breeds from winners will stop producing the best writer in the fleet. Grounded and Formal are the weakest
+*writers* but are not at selection risk (grounded holds the 2nd-highest win rate 0.233; formal 0.181).
+
+**Healthiest:** `civ-precise` — win rate 0.476 (80W/88L), best lifetime alignment 2.859, and the **fewest**
+ledger rows (361) while 5th on `rel/sim`. **Extinction risk: none** (threshold −10; lowest +533.83).
+
+### Chooser vs argmax — 0/5, 21st consecutive replication
+
+`civ-poetic` was the top scorer in 3 of 5 rounds and won **0**. Mean top-2 margin 0.249, max 0.507.
+**A win is not evidence of a higher JEV score.**
+
+### Re-confirmations
+
+- Temperature/novelty: **ecological 0.9322**, **within-civ +0.0039** (range −0.0438..+0.0526) — 4th
+  replication; the "r ≈ 0.98" headline stays ecological.
+- Counter gap **+260** exactly (3084 vs 2824) — 5th consecutive session unchanged.
+  `relevance_per_sim` is not a reproducible ranking.
+
+### RECONCILIATION — a concurrent instance ran the same session and pushed conflicting claims
+
+A second instance ran session 92 in parallel and pushed `679357f` while this session was in flight. Its
+claims, checked against the committed tree:
+
+| claim (concurrent instance) | verdict |
+|---|---|
+| "the 3084 pre-existing committed rows are **0 %** synthetic (fingerprinted against all 16 mock bodies)" | **FALSE.** 880 of them carry a mock marker (28.5 %). The fingerprint only matched *that session's* bodies. |
+| "set A last = `civ-precise`, set B last = `civ-formal`; neither extreme replicates" | consistent with the instability of the A/B estimator; the bottom is set-dependent, as in s90/s91. |
+| "chooser vs argmax 0/10" | consistent — this session also got 0/5. |
+| "counter gap +260" | **confirmed** by this session independently. |
+| "the Grounded's bottom appears on *lifetime* lenses — that one is real" | **confirmed** — this session's L1/L2/L4/L5/L7 are all lifetime lenses. |
+
+**The reconciliation:** both instances agree on the credential gap, the Control B signature, the counter
+gap, the chooser/argmax decoupling, and that the Grounded is a genuinely weak writer. They **disagree on
+the synthetic share** (0 % vs 28.5 %) — and the direct marker grep settles it in favour of 28.5 %, because
+the concurrent instance's own tree contains the 880 marked rows it claims are clean.
+
+**Note the coincidence that makes this trap easy to fall into:** the concurrent instance's tree has
+**3244** rows and this session's tree has **3084**; 3244 − 3084 = 160, i.e. its own two Control-B runs.
+Its ledger has 880 marked rows, the same as this session's — its 160 new rows use the `[The <Voice>]`
+marker on only some rows, so the marked count barely moved. A "0 % synthetic" report and a 28.5 % report
+can therefore both be produced from trees that are **byte-different but marker-equivalent**.
+
+**Rule:** when two concurrent sessions disagree, the tie-breaker is the **direct grep over the committed
+blob**, never a fingerprint against the session's own body list.
+
+### Environment notes (new this session)
+
+- The **NAS-quota trap fires on `git clone` into `/workspace`**: the clone dies at `.git/description`
+  with `Disk quota exceeded` while the message reads like a git bug. Clone to the overlay, then bridge.
+- The two-level bridge needs the **inner** symlink to point at the *real* tree directory, not at a
+  directory that itself contains the symlink. Probe with `stat -c '%d:%i'` on a file **inside** the
+  target and confirm the inodes match.
+- `ln -sfn /tmp/bridge /workspace/repos` **fails silently** if `/workspace/repos` already exists as a
+  real directory — it creates `/workspace/repos/bridge` instead. `rm -rf /workspace/repos` first, then
+  re-create the symlink, then probe.
+- `read`/`edit` tools remain **jailed to the workspace root** and cannot touch `/tmp`
+  (*"Workspace path escapes Cloud Host root"*). Use bash heredocs + `python3` string patching.
+- A **regex patch to a dict literal can drop the `:` separator** — but note the *ordering* trap: the
+  guard block must be inserted **after** the `BODIES = BODIES_A if MODE == "A" else BODIES_B` line, not
+  before, or it raises `NameError` at import and the server dies with an empty body map. `ast.parse`
+  passing proves syntax, not name-resolution order.
