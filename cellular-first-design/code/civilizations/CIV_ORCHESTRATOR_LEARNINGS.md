@@ -4901,3 +4901,145 @@ Inverses, stable: **`civ-poetic`** = highest lifetime `avg_score` (2.302) and qu
 byte-identical to the HEAD blob** (`cmp` against `git show HEAD:<path>`), `diff-index`
 empty. Post-restore leak test asserts **exactly 70 `[mock-zai` rows per civ**
 (the 16-session-old committed baseline), not zero.
+
+---
+
+## Session 37 additions (2026-10-23, 133rd wipe) — the trees API again, and an A/B with genuinely zero body overlap
+
+### The credential gap is still the whole story (18th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store (including
+`MINIMAX_KEY`, which the sandbox does export). All 8 secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or incorrect"**
+on every one; the **no-auth** probe -> **401 code 1001 "Authentication parameter not received in
+Header"**. A 401 (not a 5xx) means the endpoint is healthy => credential gap, not outage.
+groq -> **401 "Invalid API Key"**. **No alternate live provider exists in this sandbox.**
+JEV live at `jev-1.14.0` (`quality.score 1.35, confidence 0.44`).
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch, delta measured not assumed: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows**
+(1644 -> 1644), meta_log **+0** (108 -> 108). Only `leaderboard.json` rewritten.
+**Assert on the row delta, never on the exit code.**
+
+### NEW — the trees API is still the cheapest bootstrap, and `truncated` is the guard
+
+A full `git clone` reached **707 MB in 30 s** and was still growing (pack ~3.6 GB); the tool
+timeout killed it and the working tree went with it. The **trees/blob API** did the whole
+subtree in seconds: one recursive tree call (**22 082 entries**, `truncated: false`) plus 20
+raw-file fetches = **~800 KB**. **Assert `truncated == false`** — if it were `true` the listing
+would be incomplete and the restore would silently drop files. The repo is
+`SuperInstance/AI-Writings` (capitalised); the prompt's `ai-writings/...` path is a legacy
+owner name and `git ls-remote` on it returns *Repository not found*.
+
+### NEW — `ln -sfn` needs the parent to exist first
+
+`ln -sfn /root/work/civroot /workspace/repos/ai-writings` failed with *No such file or
+directory* because `/workspace/repos` did not exist. `ln -sfn` creates the link, not the
+parent chain. Do `mkdir -p /workspace/repos` first, and `rm -rf /workspace/repos` if a real
+directory is in the way (`ln -sfn` will not replace one).
+
+### Control B — 18th identical replication, run TWICE, with **zero body overlap**
+
+`--sims 5 --prompts 5 --providers zai` under Control B, body set A then set B:
+**+80 rows each (+10/civ uniform), +5 meta_log each, 5 winners each, 161 mock calls,
+0 fallbacks, 8/8 voices in both sets, 0 all-2.0-default rows, 0 JEV score errors.**
+Total ledger 1644 -> **1804**, meta_log 108 -> **118**.
+
+**New: make the two body sets provably independent.** Set A had 36 distinct body heads, set B
+had 33, and the **intersection was 0** — every voice had freshly written prose. A body set
+that reuses fragments across A and B is not a test of the ranking's stability; it is a test of
+the same prose twice. Check the intersection before trusting an A/B:
+
+```python
+ha = {json.loads(l)["head"] for l in open("mockA.log")}
+hb = {json.loads(l)["head"] for l in open("mockB.log")}
+assert not (ha & hb)          # 0 here; a non-empty intersection invalidates the A/B
+```
+
+### The A/B — 6th independent run, and the perturbation rule fires from the other side
+
+```
+fleet mean   A = 1.9988    B = 2.0060    Δ = +0.0072   (a "stable" mean)
+max per-civ |Δ| = 0.234 (civ-therapist)
+median adjacent gap = 0.108 (A) / 0.031 (B)
+perturbation / gap = 3.5×   ⇒ reorder possible, and one happened
+Kendall τ = 0.714 (24 conc / 4 disc)   same rank slots 5/8
+```
+
+**Survives the swap:** top-2 = {**poetic, whimsical**} (identical in both sets);
+bottom-2 intersection = {**grounded**}.
+**Does not survive:** middle band {precise, engineer, therapist} — **report the band, never
+an order.** `civ-therapist` took the largest hit (-0.234) and fell 5th -> 7th;
+`civ-grounded` gained +0.183 and rose 8th -> 7th; `civ-precise` gained +0.124 and rose 6th -> 4th.
+
+**A fleet mean that moved by 0.0072 hid a 4-slot reordering.** Pooled over the six A/Bs now
+in the series, the stable quantities are **top-2 {poetic, whimsical}** and **bottom-2
+{grounded, formal}**; everything between is a tie.
+
+### Chooser vs argmax(avg_score) — 11th replication
+
+**1/5 (20.0 %)** in set A, **0/5 (0.0 %)** in set B = **1/10 (10 %)** this session;
+lifetime **20/118 = 16.9 %**. In 9 of 10 rounds the crowned civ was **not** the top scorer,
+margins **0.02 - 0.79**.
+
+> The chooser reads a **150-char preview**; the scorer reads the whole response. Different
+> questions. `win_rate` is a **selection** metric — never report it as quality.
+
+### Temperature vs lifetime JEV novelty — r = 0.9521 (11th replication)
+
+Also **r = 0.7857** vs lifetime quality and **r = 0.1281** vs lifetime alignment.
+**Alignment is the only sub-score that is not temperature-driven** — the only lens that
+measures the culture rather than the sampling temperature, and the noisiest.
+The fleet is 8 points on one temperature/novelty gradient with a style overlay.
+
+### Counter gap: exactly +260, unchanged for the 18th session
+
+ledger 1644 -> 1804 vs registry 1384 -> 1544 = **+260** rows counted by nobody, on every civ.
+`save_state()` rewrites `culture.json` from in-memory counters with **no lock and no
+read-modify-write** => lost-update race => `relevance_per_sim` is **not a reproducible
+ranking**. The gap being identical every session means the race fires on a **fixed number of
+writes per session**, not stochastically.
+
+### The low-relevance answer — `civ-grounded`, lowest on 5 of 9 lenses
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.558 |
+| raw relevance | civ-engineer | 324.77 |
+| win rate | **civ-poetic** | 0.011 (1W/92L) |
+| lifetime `avg_score` | **civ-grounded** | 1.627 |
+| lifetime quality | civ-engineer | 1.067 |
+| lifetime novelty | civ-formal | 1.373 |
+| lifetime alignment | **civ-grounded** | 2.070 |
+| this-run set A / set B | **civ-grounded** | 1.653 / 1.837 |
+
+**`civ-grounded` is the genuinely weak one** — lowest on the board's own sort key, lowest
+lifetime `avg_score`, **lowest alignment of all 8 (2.070, 20 % below the next civ)**, and last
+in **both** body sets. It ran the **most** sims (209) and still scores lowest, so it is **not**
+a longevity artefact.
+
+Inverses, stable across 6 sessions: **`civ-poetic`** = highest lifetime `avg_score` (2.299),
+highest quality (1.644), highest alignment (2.936), 1st on `rel_per_sim` (2.239) and
+**1 win in 93** — a *selection* failure, since the chooser reads only 150 chars of a lyrical
+register. **`civ-precise`** = best win rate (0.500) but 6th on `avg_score` and 2nd-lowest
+novelty. **`civ-formal`** is second-lowest on `rel_per_sim` and lifetime `avg_score` and
+**lowest novelty of all 8 (1.373)** — the civ most likely to be mis-ranked by any single run.
+**Extinction risk: none** (threshold `relevance < -10`, lowest +324.77, `--loop`-mode only).
+
+### The committed baseline already carries 560 mock rows
+
+`grep -c "mock" civ-*/simulations.jsonl` on the **pristine committed** ledgers returns **70
+rows per civ** (560 fleet-wide) that never came from a live provider. A byte-comparison
+against the remote blob proves those files were **not modified** — it does **not** prove the
+content is what the filename suggests. The committed ledger is therefore **already partly
+mock**, which is a stronger reason than ever not to add more. Check the content, not just
+the checksum.
+
+### Restore
+
+Baseline snapshot taken **before** patching, restored, and verified **byte-for-byte** with
+`cmp` for all 20 civ files plus `meta_log.jsonl`, `leaderboard.json`, `civilizations.json`
+and `civilization_orchestrator.py` — **20/20 OK, 0 DIFF**. Ledger back to 1644, meta_log back
+to 108, `grep -c ZAI_URL_OVERRIDE civilization_orchestrator.py` = **0** (the seam is still not
+in the committed blob; re-apply it each session).
