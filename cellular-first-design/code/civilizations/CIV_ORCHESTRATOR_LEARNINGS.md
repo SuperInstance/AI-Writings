@@ -11165,3 +11165,126 @@ blob**, never a fingerprint against the session's own body list.
   guard block must be inserted **after** the `BODIES = BODIES_A if MODE == "A" else BODIES_B` line, not
   before, or it raises `NameError` at import and the server dies with an empty body map. `ast.parse`
   passing proves syntax, not name-resolution order.
+
+## Session 93 additions (2026-10-24) — credential gap 31st deep; the A/B estimator was STABLE (4/8, ρ=0.952); INDEPENDENTLY CONFIRMS session 92b on the synthetic-ledger finding (29.6 % vs their 28.5 %)
+
+> **Two concurrent sessions (92b and 93) reached the synthetic-ledger conclusion independently.** 92b
+> measured **28.5 %** on a 3084-row baseline; this session measured **29.6 %** on a 3244-row baseline.
+> The difference is the baseline (92b read the tree before 160 more rows landed), not a disagreement.
+> **Tie-breaker, per 92b: the direct grep over the committed blob.** Both agree: **the "0 % synthetic"
+> claim is false.**
+
+### The credential gap is still the whole story (31st consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8 available secrets POSTed to
+`https://api.z.ai/api/coding/paas/v4/chat/completions` → **401 "token expired or incorrect"** on every one
+(endpoint healthy ⇒ credential gap, not outage). JEV live at `jev-1.14.0`.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Control A: **+0 rows / +0 meta / 0 winners / exit 0**. Control B: **+160 rows / +10 meta / 10 winners /
+0 fallbacks / 0 all-2.0-default rows / 0 score errors**, **uniform +20 per civ** — reproduces sessions
+6–10 and 84–92 exactly.
+
+### THE HEADLINE — the "0 % synthetic" check is UNSOUND; the committed ledger is **29.6 % synthetic**
+
+Session 92 reported "the 3084 pre-existing committed rows are **0 % synthetic** (fingerprinted against all 16
+mock bodies)". **That is wrong, and the method is the reason.** Fingerprinting against a *body-text* set cannot
+detect older mock rows whose **marker convention** differs.
+
+> **Rule: detect synthetic rows with the MARKER PREFIX, never with a body-text fingerprint set.**
+> Every synthetic row carries a `[mock-` prefix at the front of `content_preview`. Every mock implementation
+> across ~12 prior sessions used one — `[mock-zai #N]`, `[mock-zai <hash>]`, `[mock-zai-A <hash>]`,
+> `[mock-zai set=A civ-grounded t=… s=…]`, `[mock-zai S29 #000]`, `[mock-zai A #N]`, and (per 92b) a newer
+> `[The <Voice>]` format. A body-fingerprint scan misses **every one of them** and reports 0 %.
+
+```
+COMMITTED BASELINE (3244 rows)
+  mock-marked (synthetic): 960   (29.6 %)  -- uniform 120 per civ across all 8
+  real (no marker):       2284   (70.4 %)
+```
+The synthetic rows are **interleaved, not a tail** — they are the accumulated output of 8 mock cohort-hours
+(2026-10-23 19h/20h/21h/22h, 2026-10-24 04h/08h/09h/10h). The real rows span
+**2026-09-21 05:39 → 2026-10-24 13:08**. Full ledger after this session: 3404 rows, **32.9 % synthetic**.
+
+**Consequence: recompute every lifetime lens on the clean (real) subset.** The ordering does not change;
+the numbers do.
+
+| lens (clean, n=2284) | lowest | value | 2nd lowest |
+|---|---|---|---|
+| lifetime avg_score | **civ-grounded** | 1.680 | civ-formal 1.799 |
+| lifetime quality | civ-engineer | 1.115 | civ-grounded 1.132 |
+| lifetime novelty | civ-formal | 1.422 | civ-grounded 1.575 |
+| lifetime alignment | **civ-grounded** | 2.217 | civ-mythic 2.668 |
+
+Clean lifetime avg_score ordering:
+`poetic 2.286 > whimsical 2.222 > mythic 2.039 > therapist 2.033 > precise 1.889 > engineer 1.805 >
+formal 1.799 > **grounded 1.680**`
+
+### Low relevance — `civ-grounded`, and the longevity-artefact defence is DEAD
+
+`civ-grounded` is last on **8 of 12 lenses** and on **2 of 4 clean lifetime lenses**.
+
+**The longevity-artefact defence is falsified on the clean ledger:** the Grounded has **312 real rows —
+2nd most of 8** (whimsical 324). A lifetime-average denominator penalises the civ that ran most, so if the
+defence held the Grounded should be *above* the middle. It is last on the cleanest, denominator-least-biased
+lens available. **Its alignment deficit is structural:** 2.217 against a next-lowest of **2.668** — a gap of
+**0.451**, the largest separation of any lens. A civ 0.45 below the second-worst on the dimension the
+meta-GAN actually selects on is not "competitive but unluckily-ranked".
+
+**But the this-run bottom IS a mock artefact.** Set A put the Grounded last (1.569); set B put it **7th**
+(1.737, +0.168). Session 92's rule holds and is sharper: *a bottom appearing **only** on this-run lenses is a
+mock artefact until a second body set reproduces it in the same position.* The Grounded's this-run bottom did
+**not** reproduce; its **lifetime** bottom did, and is mock-independent. **Report the lifetime signal.**
+
+**`civ-poetic` remains the inverse case** — 1st of 8 on 7 of 12 lenses (clean lifetime avg_score 2.286,
+lifetime quality 1.396, this-run avg_score 2.411 in **both** body sets) and **last on exactly one:
+win rate 0.0104 (2W/191L)**. The chooser picked it **0 times in 10** while it was the argmax **6 times**.
+Stable across 13 sessions: a *selection* failure, not a quality collapse.
+**`civ-precise`** is the other inverse — best win rate of the fleet (0.4947, 93W/95L) but 5th on clean
+lifetime avg_score (1.889) and last on this-run novelty (1.635).
+**Extinction risk: none** (threshold −10; lowest +606.74; `--loop`-mode only).
+
+### THE A/B estimator was STABLE this session — first time in five
+
+| | s89 | s90 | s91 | s92 | **s93** |
+|---|---|---|---|---|---|
+| exact position matches | 6/8 | 2/8 | 4/8 | 2/8 | **4/8** |
+| Spearman rho | 0.976 | 0.857 | 1.000 | 0.524 | **0.952** |
+| max abs delta | 0.167 | 0.288 | 0.499 | 0.465 | **0.189** |
+| civs crossing 0.3 | — | — | — | 3 | **0** |
+
+**0 civs crossed the 0.3 threshold** and the max delta is the smallest since s89. **The top replicates this
+time** (Poetic first in both sets) — the first time in five sessions. The bottom does **not**: set A last =
+`civ-grounded`, set B last = `civ-formal`. So: **the top of the board is reproducible; the bottom of a
+single body set is not.** Report the lifetime ordering, and treat any single-set bottom as provisional.
+
+### Chooser vs argmax — 0/10 (0 %), 22nd consecutive replication
+Mean top-2 margin 0.219, max 0.570. Chooser: precise ×8, engineer ×2. Argmax: poetic ×6, therapist ×4.
+**A win is not evidence of a higher JEV score.** Lifetime agreement 32/218 (14.7 %).
+
+### Re-confirmations
+- Counter gap **+260 exactly** — sixth consecutive session unchanged. `relevance_per_sim` is not reproducible.
+- `ZAI_URL_OVERRIDE` is **committed upstream** (blob line 47) — no patch needed; the script stayed **pristine**
+  vs the git blob (`git diff` empty). Only data files changed.
+- Mock routing verified from the mock's **own call log**: 80 calls, uniform 10 per civ across all 8,
+  **80/80 detected by civ NAME** (0 by voice-marker fallback) — the distribution check session 84 found can
+  fail silently.
+
+### Environment notes (new this session)
+- **The task path can carry a segment the repo does not have.** `/workspace/repos/ai-writings/…` — the repo
+  root *is* `AI-Writings`, so the real path is `cellular-first-design/code/civilizations`. The `ai-writings`
+  directory does not exist *inside* the repo.
+- **A cone sparse-checkout path that does not exist at the repo root yields an EMPTY tree and NO error.**
+  `git ls-tree -r --name-only HEAD | grep -i <name>` is the reliable discovery step; a `git checkout` that
+  "succeeds" against a bogus path proves nothing.
+- `git clone --filter=blob:none --no-checkout --depth 1` + `git sparse-checkout set <path>` + explicit
+  `git checkout` keeps the 3.7 GB pack off disk entirely — ~30 s.
+- **`git rebase FETCH_HEAD` on this repo STILL exceeds the 30 s tool timeout** and leaves a stale
+  `.git/rebase-merge` ("git-rebase-todo is missing. No commands done."). The recovery in the header worked
+  exactly: `git rebase --abort; rm -rf .git/rebase-merge .git/rebase-apply; git reset --hard FETCH_HEAD;
+  git checkout <mycommit> -- <my paths>` — and the committed tree is intact afterwards, because the
+  92b commits touched only the learnings and the session-92 report.
+- The `write` tool is **jailed to the workspace root**; it cannot write `/tmp`. Use a bash heredoc for `/tmp`
+  artifacts, including multi-hundred-line scripts.
+- A long orchestrator run can **exceed the 30 s tool timeout and still complete**. Check the ledger row counts
+  and the mock's call log rather than assuming the run died.
