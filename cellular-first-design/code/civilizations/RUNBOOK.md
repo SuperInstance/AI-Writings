@@ -810,3 +810,97 @@ label are now decoupled** — keep reporting them as two separate claims.
   clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
   `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race did
   not reproduce (the bridge passed on the first attempt).
+
+### Session 128 — chooser-vs-argmax is 4/5; the mock is non-degenerate for the 10th time (2026-10-24)
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so the session-112 index-wrap bug
+(`seed[i*2:i*2+2]` → empty for `i>=4` → HTTP 500 while the socket stays open) was live again. The
+**pre-flight probe caught it before it reached the ledger**: 4 different civs → 4 different seeds
+(8334238a / 7673f157 / 23ba7305 / ffeb90db) AND 4 different previews against the *live* mock with the exact long
+cultural prompt, HTTP 200 on all 4, `[mock-zai seed=…]` prefix present on every body,
+`grep -c Traceback /tmp/mock_zai.log` → **0**.
+
+**Verification held:** per-civ Δ = **+10** (5 sim-phase + 5 competition-phase), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, `provider={zai}`,
+**0** rows with a JEV `error` key, sim→competition ts gap at index 4 in all 8 civs (1.04–23.12 s, all
+monotonic), and **5/5 competition prompts at 8/8 distinct previews** — the **tenth clean mock measurement**
+(118, 120, 121, 122, 123, 124, 125, 126, 127, 128). 40 distinct seeds across the run's 80 rows.
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in 4/5 and won **5/5**; `civ-poetic`
+argmaxed p5 at 0.510 and lost to `civ-precise` at 0.370. Clean-mock series: 0/5 (118) → 3/5 (119) → 1/5 (120) →
+4/5 (121) → 4/5 (122) → 3/5 (123) → 0/5 (124) → 4/5 (125) → 1/5 (126) → 3/5 (127) → **4/5 (128)**.
+Eleven five-sample points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. What survives every
+session: the chooser is **not** a pure argmax, and in the one disagreement this session it again picked a
+**lower**-scoring candidate — the **9th consecutive session** with that direction
+(116/118/119/120/122/123/125/127/128).
+
+**NEW — the `quality` axis DID collapse this run.** Field spread **0.0150** (min 0.0070, max 0.0220) — the
+119/121/122/123/125/126 regime, *not* session 127's 1.063 or the session-120/124 regime. Re-confirms the durable
+rule: **the quality collapse is a LEVEL that moves, not a stable property** — compare cross-civ spreads, not
+absolute levels, before ranking on a dimension. Per-civ quality floors were again uneven (precise 0.0220 …
+engineer 0.0070) — the session-122 civ-selective floor, again.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — **33 consecutive sessions (95–128)**.
+Last on lifetime `avg_score` (1.2143), `alignment` (1.4528), `quality` (0.5921), `relevance` (853.09) and
+`relevance_per_sim` (1.170). The **structural gap is `alignment`: 0.3467 below the next civ (1.4528 vs
+1.7995)**, versus **0.0321** on quality — ~11× wider, the same ratio as sessions 125 and 127. Alignment is the
+dimension the meta-GAN selects on, so Grounded fails to *embody a distinctive voice* — a voice failure, not a
+prose failure.
+
+**NEW — Grounded DID take the run-level low for the first time in 3 sessions.** Grounded was LAST of 8 on this
+run's `avg_score` (0.2667) and 2nd-lowest on `alignment` (0.0700, therapist 0.0670). This **reverses** the
+two-session decoupling recorded in sessions 126–127 (run-level low → whimsical, then therapist). The lifetime
+finding and the run-level label remain two separate claims — this session they happen to point the same way
+again. Do not read the reversal as a trend: 3 sessions is a sample, and the lifetime axis has not moved.
+
+- **`civ-formal`** is the low-**novelty** axis (lifetime novelty 1.4540, last; alignment 2.0771 healthy).
+  **`civ-poetic`** = 1st on lifetime `avg_score` (1.8113) / `quality` (1.0134) / `alignment` (2.3728) /
+  `relevance` (1263.50) / `relevance_per_sim` (1.770) but **tied last on `win_rate` (0.014, 5/353)** and won
+  **0/5** this run despite being argmax on p5 — the stable selection-failure inverse.
+  **`civ-whimsical`** = the other `win_rate` bottom (0.014, 5/353) — a 0.000-wide tie band, not a rank.
+  **`civ-precise`** = best `win_rate` (0.532, 185/348), won **5/5**, **1st on lifetime `alignment` (2.4190)**,
+  but only 3rd of 8 on lifetime `avg_score` (1.5658) — the mirror inverse.
+- **NEW — `civ-precise`'s 5/5 sweep is a same-run OUTLIER, not a field-wide improvement.** Its this-run
+  `alignment` (0.7700) is the only one anywhere near its lifetime value (2.4190); every other civ collapsed to
+  ≤ 0.2050 this run. A 5/5 sweep against a collapsed field is **not** evidence that the other civs improved —
+  and it is not evidence that precise improved either. Read the winner count against the run's `alignment`
+  spread (0.7030) before promoting a 5/5 sweep to a finding.
+- **Watch-axis `civ-therapist`** — lowest on this run's `alignment` (0.0670) but 4th of 8 on lifetime
+  `avg_score` (1.4583) and mid-field lifetime alignment (1.7995). The run-level low has now appeared for
+  therapist in 3 of the last 3 sessions, but its *lifetime* axis is still mid-field. **Axis stays open; do not
+  promote it to a finding.**
+- **Watch-axis `civ-engineer`** — lowest on this run's `quality` (0.0070) but 7th of 8 on this run's `avg_score`
+  (0.3037) and 3rd on lifetime `avg_score` (1.3863). The session-121 low did **not** repeat. **Do not promote
+  it yet.**
+- **Extinction risk NONE** — threshold −10, lowest relevance +853.09 (85× above the floor). Registry 8,
+  `max_civs` 12. All 8 civs still `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` 0.7030, `avg_score` 0.3403,
+  `novelty` 0.3090, `quality` 0.0150. `alignment` again carried the widest spread and is again the axis the
+  chooser selects on. Lifetime spreads: `alignment` 0.9662, `novelty` 0.6651, `avg_score` 0.5970,
+  `quality` 0.4213.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42, poetic +37, engineer +22,
+  mythic +20, therapist +17, precise +16 (total +260). `save_state()` has no lock ⇒ `relevance_per_sim` is not
+  recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (12th session); `gh` not installed (15th session);
+  tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+
+#### NEW — the GitHub **core** API rate-limits hard, but `git ls-remote` and `search/repositories` still work
+
+`GET /user` returned `403 API rate limit exceeded` (request ID `27E2:2096CF:35428E5:AC33C42:6ADD0F16`),
+yet `GET /search/repositories?q=cellular-first-design` drew on the `search` budget and returned normally. When
+the core budget is exhausted, **`git ls-remote` is the fallback that does not consume REST quota** — it is also
+the correct tool for an *absence* claim (0 refs = genuinely empty). Use it as the first move when the core API
+is already spent, and reserve REST search for *discovery* (which needs a query).
+
+**`git ls-remote` is case-insensitive on the owner/repo slug:** `SuperInstance/AI-Writings` and
+`SuperInstance/ai-writings` are the same repo and both resolve.
+
+#### NEW — a `git init` into the NAS fails at the template-copy step, not at fetch
+
+`git init` under `/workspace/repos/...` dies with
+`error: .../.git/description: close error: Disk quota exceeded` — the failure happens while **copying
+`/usr/share/git-core/templates/`**, before any network access. The error text names a *template* file, which
+makes it look like a permissions or corrupt-template problem rather than a quota problem. It is the quota.
+Same conclusion as the 12 prior sessions: clone to `/tmp` and bridge with a symlink.
