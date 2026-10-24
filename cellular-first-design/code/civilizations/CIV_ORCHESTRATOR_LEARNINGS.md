@@ -5439,3 +5439,170 @@ stronger reason than ever not to add more. Check the content, not just the check
 - NAS `/workspace` is at **100 % quota** (600 G used, 0 avail) but `touch` still succeeds — a
   `curl -o` into it fails with `curl: (23) Failed writing body`, which is a *write* failure, not a
   network fault. Build in `/tmp` and bridge by symlink.
+
+---
+
+## Session 42 additions (2026-10-24, 137th wipe) — the `top_p` salt collision, and a falsified position-anchoring hypothesis
+
+### The credential gap is still the whole story (22nd consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8 sandbox secrets
+re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or
+incorrect"** on every one (endpoint healthy => credential gap, not outage). JEV live at
+`jev-1.14.0` (`quality.score 1.84`, confidence 0.49). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+Unpatched run re-verified from scratch, delta measured not assumed: batch header + all 8
+`[Name] running 5 sims...` lines, **no `Winner:` lines**, **exit 0**, ledger **+0 rows**
+(1644 -> 1644), meta_log **+0** (108 -> 108). **Assert on the row delta, never on the exit code.**
+
+### NEW DEFECT — the mock's salt seed must include `top_p`
+
+Session 40 fixed *where* the salt sits (at the START of the body). This session found the
+sibling defect: *what the salt is derived from*.
+
+The orchestrator jitters `temperature` (+/-0.2) **and** `top_p` (+/-0.05) per call, and the two
+jitters are drawn from different random streams. A salt seeded on
+`(temperature, max_tokens, len(prompt))` alone therefore collides whenever two calls land on the
+same `temperature` but differ in `top_p` — same salt, and (with a body RNG keyed the same way)
+the **same body** => one identical `content_preview`.
+
+Observed on `civ-precise`, run B: `salt 361916` at `temp 0.1, max_tokens 450` with `top_p`
+0.7907985351844046 and 0.8161527342576012. Symptom: **min per-civ distinct == 9** instead of 10,
+fleet distinct previews 79/80. **Every other acceptance check still passed** (+80 rows, +5
+meta_log, 5 winners, 0 fallbacks, 0 score errors) because the collision costs only *distinctness*.
+
+**Fix** — key the salt (and the body) on every jittered parameter:
+```python
+salt_rng = random.Random(f"{SEED}|{key}|{temperature:.4f}|{max_tokens}|{top_p:.6f}|{len(prompt or '')}|{q}")
+body_rng = random.Random(f"{SEED}|body|{key}|{temperature:.4f}|{max_tokens}|{top_p:.6f}|{len(prompt or '')}|{q}")
+```
+After: **80/80 distinct previews, min per-civ distinct 10, 80/80 distinct salts.**
+
+> **Rule: the salt seed must key on every parameter the orchestrator jitters.** `temperature`
+> alone is not enough. This is the salt-placement defect's sibling — session 40 fixed *where* the
+> salt sits, this fixes *what it is derived from*.
+
+### Cross-session note — the concurrent session 41's `leaderboard.json` defect is confirmed here
+
+Session 41 (a concurrent wipe) found that a **no-op run still rewrites `leaderboard.json`** with
+a fresh `ts`/`iso`, converting the committed `ts: 0` sentinel ("never successfully computed")
+into a real timestamp. **Confirmed independently this session**: the unpatched run rewrote the
+board while the ledger stayed at 1644 rows. Restore `leaderboard.json` with the ledgers, and
+treat a `ts` that advanced while the ledger did not as the signature of a credential-gap no-op.
+
+### Control B — 22nd identical replication, run TWICE with zero prose overlap
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows (10 per civ, uniform), +5 `meta_log.jsonl`,
+5 winners, 80 mock calls, 0 fallbacks, 0 all-2.0-default rows, 0 JEV score errors, 80/80 distinct
+`content_preview`, min per-civ distinct 10, 0 scaffolding leakage, 72-75 distinct `avg_score`**.
+Score spread `avg_score` 0.80-2.52; quality 0.01-1.63; novelty 0.30-2.78; alignment 0.89-3.64.
+Body sets: 24 bodies each, **0 overlap**.
+
+### NEW FINDING — the chooser is content-driven, NOT position-anchored
+
+Run B produced a **winner-set cardinality of 1** (`civ-formal` x5) — a shape prior sessions
+flagged as degenerate. Two hypotheses: (1) position anchoring, since the chooser's `state` lists
+candidates in `as_completed` order; (2) genuine content preference.
+
+**Hypothesis 1 is falsified.** Same content, four orderings, chooser replicated verbatim:
+
+| ordering | chose | confidence |
+|---|---|---|
+| `civ-formal` FIRST | `civ-formal` | 0.81 |
+| `civ-formal` LAST | `civ-formal` | 0.84 |
+| `civ-whimsical` FIRST | `civ-formal` | 0.86 |
+| `civ-whimsical` LAST | `civ-formal` | 0.77 |
+
+The chooser picks `civ-formal` **regardless of position**, and the answer is a **valid criteria
+key** (`"choice": "civ-formal"`, `probabilities {civ-formal: 0.91}`) — so the `results[0][0]`
+fallback is **not** being reached. `civ-formal` scored *lowest or near-lowest* in all 5 rounds
+(1.45 / 0.96 / 1.33 / 0.88 / 0.80) while being chosen at up to 0.91 confidence.
+
+> **Reconciliation with the concurrent session 41** (observed **5 distinct winners across 5
+> rounds**, concluded the chooser is "near-uniform-random over the field"). That conclusion is
+> **not supported by this measurement**: with the content held fixed and only the **ordering**
+> changed, the chooser picks the **same civ every time** (4/4 orderings, confidence 0.77-0.86).
+> A uniform-random chooser cannot do that. Both observed shapes — 1 winner x5 (this session,
+> body set B) and 5 winners x1 (session 41) — are consistent with a **content-driven chooser**
+> whose output depends on the prose it is shown. **Report winner spread, and test the mechanism
+> before attributing it.** Do not write "the chooser prefers X" from one sample.
+
+**Consequence:** the winner's *identity* is body-set dependent (`civ-formal` x4 + `civ-engineer`
+x1 under set B vs `civ-formal`, `civ-grounded`, `civ-precise` x2, `civ-engineer` under set A).
+`win_rate` measures the chooser's taste, which the mock's prose can steer. **Report the winner
+SET, never the winner count alone.** And do not "fix" a low-cardinality winner set by blaming
+position — test the orderings first.
+
+### The perturbation test fires again — the middle band is confirmed unranked
+
+Two independently-written body sets, zero prose overlap: positional agreement **3/8**, Kendall
+tau **0.643**, max |delta| **0.264**. **Top-3 SET changed** (A = {Mythic, Therapist, Poetic},
+B = {Mythic, Whimsical, Therapist}) — the 2nd independent run in a row. **Bottom-2 SET stable**
+= {Precise, Formal} in both. The bottom-2 set is the stable finding; the middle band is unranked.
+Report the **set**, not the order.
+
+### Chooser vs argmax(avg_score) — 15th replication
+
+**0/5 in both runs** (0.0%). Margins **0.40-0.88** (A) and **0.86-1.28** (B) — in every round the
+crowned civ was not the top scorer, by a wide margin. `win_rate` is a **selection** metric.
+
+### The low-relevance answer — three civs, and the lens matters
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.539 |
+| raw relevance | **civ-engineer** | 288.31 |
+| win rate (selection) | **civ-poetic** | 0.012 (1W/82L) |
+| lifetime `avg_score` | **civ-grounded** | 1.617 |
+| lifetime quality | **civ-engineer** | 1.079 |
+| lifetime novelty | **civ-formal** | 1.349 |
+| lifetime alignment | **civ-grounded** | 2.061 |
+| this run A / B `avg_score` | **civ-formal** | 1.351 / 1.087 |
+
+- **`civ-grounded`** — last on **three** lenses (the board's own sort key, lifetime `avg_score`,
+  lifetime alignment), sixth session running. Alignment 2.061 is **21 % below the next civ**
+  (`civ-therapist` 2.598); the other seven sit at 2.598-2.926. It ran the **most** sims (189,
+  ledger 232) and still scores lowest => **not** a longevity artefact.
+- **`civ-formal`** — last on **three** lenses (lifetime novelty, both this-run `avg_score`
+  lenses) and the only civ that won a round under body set B. The mis-ranking magnet.
+- **`civ-poetic`** — the flagship selection failure: highest lifetime `avg_score` (2.302),
+  **highest quality of all 8 (1.663)**, 1st on `rel_per_sim` (2.235), highest raw relevance
+  (388.82) — and **1 win in 82**. Stable across 22 sessions.
+- **`civ-engineer`** — sub-score weakling (lowest raw relevance 288.31, lowest quality 1.079).
+- **`civ-precise`** — inverse case: best win rate (0.513) but last on this-run `avg_score`.
+- **Extinction risk: none** (threshold -10, lowest +288.31, `--loop`-mode only).
+
+**Counter gap unchanged at +260** (ledger 1644 vs registry 1384). `save_state()` rewrites
+`culture.json` from in-memory counters with no lock and no read-modify-write => lost-update race
+=> `relevance_per_sim` is **not a reproducible ranking**.
+
+### Restore
+
+**36/36 files byte-identical to the live git blob** (`git show HEAD:<path> | cmp -s -` over
+`git ls-tree -r --name-only HEAD`), `git status --porcelain` clean, `grep -c ZAI_URL_OVERRIDE`
+= **0**, `__pycache__` removed, both mocks killed, ports 8765/8766 closed.
+
+### Environment notes (new this session)
+
+1. `git clone --filter=blob:none --no-checkout` + `git sparse-checkout set
+   cellular-first-design/code/civilizations` reproduced the civ subtree in **~15 s** and avoided
+   the 3.6 GB pack. Clone to **`/tmp`** (overlay, exempt from the NAS quota) and bridge with
+   `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/aiw /workspace/repos/ai-writings`.
+   `ln -sfn` will not replace a **real directory** — `rm -rf` it first.
+2. **`cp -r` into the NAS creates 0-byte files.** The directory entries appear in `ls` and the
+   copy "succeeds" (exit 0) while every payload is empty — `Disk quota exceeded` on close. The
+   `write` tool is jailed to the workspace root and **cannot** write `/tmp`; use a bash heredoc
+   for `/tmp` artifacts.
+3. **A background mock started with `( ... & )` inside a tool call died silently.**
+   `setsid nohup /tmp/start_mock.sh ... &` hit the 30 s tool timeout while still starting
+   correctly. The robust form is a **launcher script file** + `setsid nohup` + a **separate**
+   `curl` probe; the timeout does not kill a `setsid`-detached process.
+4. **`kill` (SIGTERM) did not stop the mock** — `kill -9` was required. Verify with `ps` and a
+   port probe, not with the exit code of the kill.
+5. **Restoring the pristine script silently removed the `ZAI_URL_OVERRIDE` hook**, and the next
+   run then hit the *real* z.ai endpoint with the mock token -> 401 -> **+0 rows, exit 0, no
+   `Winner:` lines** — an accidental but clean live demonstration of the silent-drop defect.
+   **Re-apply the patch after every restore**, and assert `grep -c ZAI_URL_OVERRIDE` == 1
+   *immediately before* the run, not after.
+6. The `read` tool rejects paths outside the workspace ("Workspace path escapes Cloud Host
+   root"), so the civ subtree in `/tmp` must be inspected with `bash` (`sed`, `cat`, `grep`).
