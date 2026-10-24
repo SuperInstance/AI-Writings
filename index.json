@@ -115317,7 +115317,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 346608
+    "size_bytes": 354346
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session46.md",
@@ -115428,6 +115428,24 @@
     "size_bytes": 10960
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session49.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session49.md",
+    "title": "RUN REPORT — Civilization Orchestrator, session 49 (2026-10-24)",
+    "description": "JEV live) produced **+80 rows / 5 winners**. Low-relevance civs: **`civ-grounded`** (last on 3 of 4 lifetime lenses, and bottom-2 under *both* mock body sets) and",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 798,
+    "date": "2026-10-24",
+    "size_bytes": 10821
+  },
+  {
     "filename": "RUN_REPORT_2026-10-24_session39.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session39.md",
     "title": "Civilization Orchestrator — Session 39 Report (2026-10-24, 135th wipe)",
@@ -115498,6 +115516,24 @@
     "word_count": 791,
     "date": "2026-10-23",
     "size_bytes": 8524
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session50.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session50.md",
+    "title": "Civilization Orchestrator — session 50 (2026-10-24)",
+    "description": "```bash python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py \\ --sims 5 --prompts 5 --providers zai ```",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 883,
+    "date": "2026-10-24",
+    "size_bytes": 11315
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session32.md",
@@ -170177,6 +170213,24 @@
     "word_count": 408,
     "date": "2026-09-21",
     "size_bytes": 2366
+  },
+  {
+    "filename": "snowball-20261024-031818-wide_unknown_rsi_gan_(deepinfr.md",
+    "path": "prose/snowball-inspired/snowball-20261024-031818-wide_unknown_rsi_gan_(deepinfr.md",
+    "title": "Wide Unknown Rsi Gan (deepinfra) -- Snowball Inspired",
+    "description": "In the dim glow of the workshop, the tick of the old clock was a steady heartbeat, counting down the seconds of a world that had long since forgotten the sun. The Mechanic, a man of grease and grime, ...",
+    "folder": "snowball-inspired",
+    "topic": "Snowball Inspired",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Narrative",
+    "word_count": 479,
+    "date": "2026-10-23",
+    "size_bytes": 2655
   },
   {
     "filename": "snowball-20261023-193449-what_just_happened_bus_aware_(.md",
@@ -274006,6 +274060,24 @@
     "word_count": 681,
     "date": "2026-08-29",
     "size_bytes": 19449
+  },
+  {
+    "filename": "snowball-rsi-gan-20261024.md",
+    "path": "research/snowball-rsi-gan-20261024.md",
+    "title": "RSI GAN prose run — 2026-10-24 (durable lessons)",
+    "description": "Task: `python3 /workspace/repos/ai-writings/bots/snowball-scout/snowball_writer.py --once --competition` -> write an inspired prose piece via RSI GAN competition, verify in `prose/snowball-inspired/`.",
+    "folder": "research",
+    "topic": "Research",
+    "genres": [
+      "Unclassified"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 688,
+    "date": "2026-10-23",
+    "size_bytes": 6577
   },
   {
     "filename": "scout-foundational.md",
