@@ -49,9 +49,17 @@ they are not evidence of work.
   `Disk quota exceeded` / errno 122, and the `write` tool fails with errno
   -122. **Git is the only reliable delivery channel** — commit + push + verify
   via the GitHub API.
-- A plain `git clone --depth 1` of `AI-Writings` now completes in **~60 s**
-  (20,632 files) — earlier sessions' "3.4 GB / >3 min" note is stale. Try the
-  plain shallow clone first; keep sparse/tarball as the fallback.
+- **`git clone --depth 50` of `AI-Writings` is BROKEN (session 39)**: it
+  transfers 4.0 GB and then dies with `fatal: remote did not send all
+  necessary objects` (`Could not read 08c7ea77...`, `Failed to traverse
+  parents of commit 5c3904ef...`) — a bad history object at the shallow
+  boundary. **Use the blobless partial fetch instead (~15 s, 7.0 GB tree):**
+  ```
+  git init -q . && git remote add origin "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git"
+  git -c fetch.writeCommitGraph=false fetch --depth 1 --filter=blob:none origin main
+  git checkout -q origin/main
+  ```
+  This supersedes the older sparse-checkout recipe.
 - `GIT_SSL_NO_VERIFY=1` is required. Push to the explicit token URL
   (`https://x-access-token:$GITHUB_TOKEN@github.com/...`).
 - `gh` CLI is **not installed**. Use the GitHub REST API.
@@ -148,15 +156,18 @@ The authoritative source is `culture.json` (the registry), not the board.
 
 - **`civ-grounded` = the stable low-relevance civ.** Last on A, D and E — the
   three lenses that measure *quality*. A genuine weakness, not the longevity
-  artefact A alone suggests.
+  artefact A alone suggests. **This is the answer to "which civilization has
+  low relevance."**
 - **`civ-poetic` = the inverse case** (15+ sessions). 2nd of 8 on `avg_score`,
   1st on quality, 2nd on alignment, and **0 wins in 28**. A *selection*
   failure, not a quality collapse.
 - **`civ-precise` = the other inverse.** Best win rate (0.696) but last on
   novelty, 6th on `avg_score`, and in session 17 it was the **weakest scorer
   of the 8 while taking 3 of 5 competition wins**.
-- **`civ-whimsical` = the only civ where every lens agrees** (1st on A, D, and
-  every sub-score).
+- **`civ-poetic` = 1st on A, D *and* E** (2.235 / 2.302 / 2.926) — and the
+  *same* civ is **last on win rate**. (Session 39 correction: the older
+  "`civ-whimsical` = the only civ where every lens agrees" claim is **not**
+  supported — whimsical is 2nd on A and D, 3rd on E. It is 1st on **novelty**.)
 - **Extinction risk: none** (threshold -10, lowest +106.75, `--loop`-mode
   only).
 
@@ -186,8 +197,15 @@ not a reproducible ranking.** Measure the gap blob-to-blob, baseline-to-baseline
 - **Control B**: +80 rows uniform / +5 meta_log / 5 winners / 0 defaults /
   0 errors / 0 scaffolding leak / 80/80 distinct bodies / uniform 10-per-voice
   mock distribution. (Session 17 = 10th replication.)
-- **Chooser vs `argmax(avg_score)`**: 0/5 this run, 0/10 lifetime in session
-  17; history 4.4 % -> 22.4 %. **The two metrics are essentially
+- **Chooser vs `argmax(avg_score)`**: 1/5 this run, 12/101 lifetime (11.9 %)
+  in session 39; history 4.4 % -> 22.4 % -> 17.6 % -> 11.9 %. **The two
+  metrics are essentially uncorrelated** — the chooser never sees the scores,
+  only 150 chars of preview. Match rounds by **exact score-multiset equality**
+  against `meta_log`'s `results` field, then disambiguate by the tightest
+  time window (<=60 s) over candidate ledger rows. **The meta `ts` is the
+  *competition* timestamp and never equals any ledger row's `ts`** — a naive
+  timestamp-equality test matches 0 rounds; a loose +/-2 s heuristic matched
+  2 of 53 and reported a bogus 100 % agreement in an earlier session. **The two metrics are essentially
   uncorrelated.** The chooser never sees the scores — it only sees 150 chars of
   preview. Match rounds by **exact score-multiset equality** against
   `meta_log`'s `results` field, not by a loose timestamp window (a ±2 s
