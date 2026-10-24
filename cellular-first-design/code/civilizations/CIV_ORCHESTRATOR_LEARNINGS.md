@@ -6679,3 +6679,82 @@ grew by exactly the 80 Control B rows in part, but the root cause is unchanged: 
 rewrites `culture.json` from in-memory counters with no lock and no read-modify-write => lost-update
 race. `relevance_per_sim` is not a reproducible ranking; an auditor cannot recompute the board order
 from the ledger. Report win rate **and** mean `avg_score`, and name the lens.
+
+---
+
+## Session 54 (2026-10-24) — credential gap 19th deep; blobless+sparse clone is the working route
+
+### Repo identity (cost 5 failed clones this session)
+The repo is **`SuperInstance/AI-Writings`** (capital `AI`). There is **no** `ai-writings/cellular-first-design`
+repo on GitHub — that path shape returns `Repository not found`. The token is `SuperInstance`
+(`api.github.com/user` -> 200). `gh` CLI is **absent**; use the REST API:
+`search/repositories?q=...` finds it, `user:SuperInstance ai-writings` is the shortest query.
+
+### Clone route that actually works: blobless + sparse
+A full clone is a 3.4 GB pack and **dies mid-`index-pack`** under the tool timeout
+(`could not open '.git/objects/pack/tmp_pack_XXXX' for reading: No such file or directory`).
+The working route, ~35 MB total and one tool call:
+
+```
+git -c protocol.version=2 clone --filter=blob:none --no-checkout --depth 30 <url> ai-writings
+git -C ai-writings sparse-checkout init --cone
+git -C ai-writings sparse-checkout set cellular-first-design
+git -C ai-writings checkout
+```
+
+`sparse-checkout set` alone does **not** materialise files — the explicit `git checkout` is required.
+Clone to **`/tmp`** (overlay, 28 G free, quota-exempt); `/workspace` is NAS at 100 % and dies with
+`Disk quota exceeded` on any real write.
+
+### Hardcoded `CIVS_DIR` — two-level symlink (confirmed again)
+`CIVS_DIR = /workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+Symlinking `/workspace/repos/ai-writings -> /tmp/...` does **not** work. Required:
+```
+mkdir -p /workspace/repos/ai-writings/cellular-first-design/code
+ln -sfn /tmp/work/ai-writings/cellular-first-design/code/civilizations \
+        /workspace/repos/ai-writings/cellular-first-design/code/civilizations
+```
+
+### Credential gap — 19th session, endpoint healthy
+All 7 sandbox secrets -> `api.z.ai/api/coding/paas/v4/chat/completions` = **401**. The same
+`urllib` path with `GITHUB_TOKEN` -> `api.github.com/user` = **200**. **A 401 (not 5xx) means the
+endpoint is healthy => credential gap, not outage.** JEV live at `jev-1.14.0` (probe quality 1.38).
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"` or JEV silently returns the 2.0 default.
+
+### Control B reproduced — signature now 6/6 sessions
+`--sims 5 --prompts 5 --providers zai` with the gate mocked: **+80 rows (exactly +10 per civ),
++5 meta_log, 5 `Winner:` lines, 0 all-2.0-default rows, 0 score errors.** avg_score 1.390–2.370,
+mean 1.8797, 69 distinct of 80. JEV confidence 0.170–0.930 (real scores, not defaults).
+
+**New guard, stronger than the 73-distinct-`avg_score` check:** assert **0 cross-civ identical
+`content_preview` collisions** and **N distinct previews per civ** (this run: 5 each). A single
+template serving all 8 civs still produces distinct `avg_score` values (JEV varies run to run) and
+would pass the old check while destroying the chooser's signal.
+
+### The Poetic anomaly — 6th consecutive run
+**The Poetic: relevance leader (2.204 rel/sim, 1st of 8) AND board-last win rate (0.009, 1W/112L).**
+It accumulates relevance while essentially never being selected. Corroborated across sessions
+6, 7, 8, 52, 53, 54. **Win rate, not `relevance_per_sim`, is the metric to trust on this board.**
+
+### Grounded's last place is a longevity artefact (re-confirmed)
+`civ-grounded` is board-last on `relevance_per_sim` (1.533) but has the **second-highest** win rate
+(0.205) — it simply ran the most sims (249) and a lifetime-average denominator punishes that.
+Lowest by raw relevance is also `civ-grounded` (381.79). Not a quality collapse. **Extinction risk:
+none** — `extinction_and_birth()` retires only below `relevance < -10` and only in `--loop` mode
+every third iteration; a single-shot run never triggers it.
+
+### Counter gap — 260 rows, and a refinement
+Ledger 2124 vs registry 1864 = **260 uncounted committed rows** (per-civ 16–63). Root cause
+unchanged: `save_state()` rewrites `culture.json` from in-memory counters with no lock and no
+read-modify-write => lost-update race.
+**Refinement (new this session):** the board order *did* reproduce from the ledger (recomputing
+`relevance_per_sim` from ledger `avg_score` sums over ledger row counts gave the identical 8-civ
+order). So the gap is a **reproducibility** hazard, not a guaranteed misranking. The board is still
+**not auditable from the ledger alone**; prefer win rate.
+
+### Both silent-corruption defects still present (AST-confirmed)
+1. **JEV outage awards an arbitrary civ a real win.** Fallback is
+   `winner_civ = max(results, key=lambda r: r[1]["avg_score"])[0]` — on an all-`2.0` tie `max()`
+   returns the **first** element encountered. AST check confirms **no tie-break awareness**.
+2. **The empty-token drop is silent** — `call_provider` returns `None` and the caller cannot tell
+   "no credential" from "provider refused". A zero-usable-provider run should exit non-zero.
