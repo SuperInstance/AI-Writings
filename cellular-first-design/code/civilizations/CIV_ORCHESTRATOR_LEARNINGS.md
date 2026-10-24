@@ -8289,3 +8289,123 @@ power**: it cannot distinguish "credential missing" from "transport broken".
    All 8 secrets returned 401 against z.ai, and so did no-auth at all. A 401
    (not 5xx) proves the endpoint is healthy => credential gap. Without the
    baseline, "all secrets 401" is also consistent with a wrong URL path.
+
+---
+
+## s74 (2026-10-24) — 21st deep; the trees/blob API beats any clone, and the bridge dies on NAS flaps (11th time the path did not exist)
+
+### The fast path for reconstructing this repo (no clone at all)
+
+A full `git clone` of `SuperInstance/AI-Writings` reached **2.0 GB and was still
+growing** (pack ~3.6 GB) on both the 100 %-full NAS and the 28 G `/tmp`
+overlay, and was killed twice. The **GitHub trees + raw-blob API** does the
+same job in **~800 KB and seconds**:
+
+```python
+# 1. one recursive tree call -- 22 125 entries, ~7 MB JSON
+GET https://api.github.com/repos/SuperInstance/AI-Writings/git/trees/main?recursive=1
+#   MUST assert tree["truncated"] is False before trusting the listing
+# 2. fetch only the 30 blobs under cellular-first-design/code/civilizations/
+#    via raw.githubusercontent.com + the Authorization header
+```
+
+**Verify with git blob SHAs, not raw SHA-1.** The tree API's `sha` is the
+*git blob* hash, `sha1(b"blob %d\0" % len(data) + data)`. A raw `hashlib.sha1`
+compare says `False` for every file and looks like total corruption. The
+correct check is:
+
+```python
+h = hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+ok = (h == t["sha"])     # 28/28 OK, 0 BAD
+```
+
+Use this same check to prove the tree is restored pristine after a run —
+it is a stronger receipt than md5 of a copy you made yourself.
+
+### The bridge dies on NAS flaps; `ls` can lie in both directions
+
+The two-level symlink (the script's `CIVS_DIR` is hardcoded to the deep
+`/workspace` path, so a one-level link does **not** work):
+
+```
+mkdir -p /workspace/repos/ai-writings/cellular-first-design/code
+ln -sfn /root/work/civtree /workspace/repos/ai-writings/cellular-first-design/code/civilizations
+```
+
+Mid-session the **deep path disappeared from `ls` while `find` still showed
+the symlink**. `mkdir -p` + `ln -sfn` restored it and `stat -L -c %i`
+matched again (3723 both sides). Immediately after, a single `ls` failed
+while a later `ls` succeeded — **the NAS mount flaps, the bridge does not
+break**. Re-verify with `stat -L`, not with one `ls`.
+
+### `pkill -f` self-match killed my own shell again (3rd occurrence)
+
+`pkill -f "mock_zai.py"` matched the **bash wrapper running the command
+string itself** and killed the whole invocation — the mock log, the run log
+and the row counts all came back empty, which looked like a failed run rather
+than a killed shell. Two safe habits:
+
+- **Give each mock a distinct filename** (`mockserverB.py`) and kill by
+  scanning `pgrep -f <name>`, never by a pattern that also appears in the
+  command you are typing.
+- **Always capture the `kill` and the re-probe in separate statements**, so a
+  self-kill cannot swallow the evidence.
+
+### The A/B body swap changes the winners, not just the scores
+
+Set A gave `civ-precise` **5 of 5** crowns; set B (independent bodies, 0
+shared text) gave grounded x1, precise x2, formal x2. `civ-precise` won **5/5
+rounds in set A** and **2/5 in set B** — the chooser's verdict is a function
+of the prose it was shown. This is a sharper form of the standing rule:
+
+> A crown is a property of (civ, prose shown), not of the civ.
+
+It also means "the civ that won this session" is not a reportable quantity
+without the body set attached.
+
+### A rank is reportable only if it survives a swap at least as hard as the gap
+
+```
+fleet mean   A = 0.9275   B = 0.9971   d = +0.0696
+max per-civ |d| = 0.159 (civ-whimsical)
+median adjacent rank gap = 0.115
+perturbation / gap = 1.4x    => reorder possible, and 4/8 slots changed
+Kendall tau = 0.929 (26 concordant / 2 discordant)
+```
+
+Survived the swap: top-1 {civ-precise}, bottom-1 {civ-therapist}, slots 4-5
+{poetic, whimsical}. Did **not** survive: {formal, engineer, grounded, mythic}.
+**Report the band, never the order.** A fleet mean that moved 0.07 hid a
+4-slot reordering — the 7th independent A/B in the series.
+
+### r(temp, alignment) is now **-0.06**: alignment is not temperature-driven at all
+
+`r(temp, novelty) = +0.929`, `r(temp, quality) = +0.677`,
+`r(temp, alignment) = -0.064`. Alignment is the only lens that measures the
+*culture* rather than the sampling temperature — and therefore the only one
+that is **not** a proxy for a knob the fleet already holds. It is also the
+noisiest. The `max(0.1, ...)` floor in `mutate()` keeps the cold end a
+one-way ratchet: Precise (0.2) and Formal (0.3) can only ever move warmer.
+
+### Standing answers (21 sessions)
+
+- **Lowest relevance: `civ-grounded`** — lowest on 8 of 11 lenses: board
+  `relevance_per_sim` (1.469), raw relevance (431.46), lifetime avg (1.554),
+  lifetime quality (0.960), lifetime alignment (1.972, 20 % below the next
+  civ), and both body sets' avg / quality. It also ran the **most** sims
+  (332) and still scores lowest => a genuine writing deficit, not the
+  longevity artefact the denominator suggests.
+- **Selection failure: `civ-poetic`** — 1st of 8 on the board, highest raw
+  relevance (584.04), highest lifetime `avg_score` (2.189) and quality
+  (1.472), and **1 win in 133** (0.007). The chooser reads only **150
+  characters**; a dense lyrical register is filtered by *readability*, not
+  quality.
+- **Healthy: `civ-precise`** — 67W/61L (0.523), the only civ whose relevance
+  rank and win rate agree, and top-1 on both body sets.
+- **Counter gap: exactly +260, 21 sessions running.** `save_state()` rewrites
+  `culture.json` from in-memory counters with no lock and no read-modify-write
+  => lost-update race => **`relevance_per_sim` is not a reproducible ranking**
+  and no auditor can recompute the board order from the ledger.
+- **Chooser vs `argmax(avg_score)`: 2/5 this session, 30/163 = 18.4 %
+  lifetime.** Two independent JEV calls; the chooser sees 150 chars, the
+  scorer sees the whole response. `win_rate` is a **selection** metric.
