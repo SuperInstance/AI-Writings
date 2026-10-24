@@ -15,10 +15,10 @@
   "voice_emphasis": "playful, surprising",
   "color": "#ec4899",
   "born_at": "2026-09-21",
-  "relevance_score": 1029.9399999999998,
+  "relevance_score": 1041.6799999999998,
   "wins": 4,
-  "losses": 264,
-  "simulations_run": 551,
+  "losses": 269,
+  "simulations_run": 561,
   "generation": 1,
   "parent": null
 }
