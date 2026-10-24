@@ -589,3 +589,76 @@ would make it a trend** — do not promote it to a finding yet.
   tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
   clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
   `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+
+### Session 123 — chooser-vs-argmax is 3/5; the chooser picked the LOWEST-scoring candidate (2026-10-24)
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so the session-112
+index-wrap bug was live again. The **pre-flight probe saved the run a third time**: 4 different
+civs → 4 different seeds AND 4 different previews against the *live* mock with the exact long
+cultural prompt, `[mock-zai seed=…]` prefix present, HTTP 200, **0 tracebacks** in
+`/tmp/mock_zai.log`, *before* launching the batch.
+
+**Verification held:** per-civ Δ = **+10** (5 sim + 5 competition), `meta_log` Δ = **+5**,
+`Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix, `provider={zai}`,
+**0** rows with a JEV `error` key, sim→competition ts gap at index 4 in all 8 civs
+(1.15 s–23.28 s), and **5/5 competition prompts at 8/8 distinct previews** — the **fifth
+clean mock measurement** (118, 120, 121, 122, 123).
+
+**NEW — the chooser picked the LOWEST-scoring candidate on p1.** `civ-poetic` argmaxed at
+**0.790**; `civ-grounded` won at **0.163**, the lowest score on the field. `civ-grounded` is
+also the fleet's lowest-relevance civ, so this is the session-116 finding in its strongest
+form yet: **a competition win is not evidence of relevance.** The chooser reads the *text* via
+JEV, not `avg_score`.
+
+**Chooser vs `avg_score` argmax: 3/5 (60 %).** Clean-mock series:
+0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → **3/5 (123)**.
+Six five-sample points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*.
+What survives every session: the chooser is **not** a pure argmax, and in **both**
+disagreements this session it picked a **lower**-scoring candidate.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ** — **28 consecutive sessions
+(95–123)**. Last on lifetime `avg_score` (1.2525), `alignment` (1.5184), `quality` (0.6212),
+`relevance` (819.94) and `relevance_per_sim` (1.208). The **structural gap is `alignment`:
+0.650 below the next civ (1.5184 vs 2.1684)**, versus **0.034** on quality — 19× wider.
+Alignment is the dimension the meta-GAN selects on, so Grounded fails to *embody a distinctive
+voice* — a voice failure, not a prose failure. It was last on every axis of this run too
+(avg 0.2000, alignment 0.0670, quality 0.0100). `civ-formal` remains the low-**novelty** axis
+(1.4619). `civ-poetic` = 1st on lifetime avg_score (1.8672) / quality (1.0538) / novelty
+(2.0894) but **last** on win_rate (0.015, 5/323) and won **0/5** despite argmaxing p1 and p2 —
+the stable selection-failure inverse. `civ-precise` = best win_rate (0.514, 166/157), won 4/5,
+3rd of 8 on lifetime avg_score — the mirror inverse.
+
+**NEW watch-axis `civ-therapist`:** 2nd-lowest on this run's `alignment` (**0.0420**) — the
+*lowest* alignment in the field, below `civ-grounded`'s 0.0670. Lifetime alignment 1.9024 is
+mid-field, so this is a single-run low, not a second axis yet. Watch it.
+
+**Watch-axis `civ-engineer` — the session-121 low did NOT repeat for a second time.** 5th of 8
+on this run's `avg_score` (0.2923), 2nd-lowest on `alignment` (0.2510), 6th of 8 on lifetime
+`relevance_per_sim` (1.417). **One more session at the bottom would make it a trend** — do
+not promote it to a finding yet.
+
+- **Extinction risk NONE** — threshold −10, lowest relevance +819.94 (82× above floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` 2.320,
+  `novelty` 0.870, `quality` 0.080. `alignment` again carried the widest spread and is again
+  the axis the chooser selects on. `quality` again collapsed (mean 0.017) — the 119/121/122
+  regime vs session-120's 0.106–0.446. **The quality collapse is a LEVEL that moves, not a
+  stable property** — compare cross-civ spreads before ranking on a dimension.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42,
+  poetic +37, engineer +22, mythic +20, therapist +17, precise +16. `save_state()` has
+  no lock ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (9th session); `gh` not installed (10th session);
+  tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+- **NEW — a `setsid nohup … &` launch whose child inherits stdout BLOCKS the tool call**
+  until the tool timeout (30 s), even though the job starts correctly. Redirect the child's
+  stdout/stderr to a file **and** `< /dev/null`, and expect the launch call to hang anyway;
+  verify the job with `ps` rather than assuming the launch failed. (Distinct from the
+  session-114 note, where the redirect alone was enough — adding `< /dev/null` is harmless.)
+- **NEW — grouping this run's rows by `r["prompt"]` is WRONG for the non-degeneracy check.**
+  `prompt` is truncated to 80 chars and the *sim phase* reuses the same 5 canon prompts, so
+  grouping by prompt yields 16 rows per prompt, not 8, and a naive "exactly 8 rows" filter
+  returns **0 competition prompts** and a false FAIL. Group by the **per-civ slot index**
+  (`rows[-10:][5..9]` for the competition phase, `[0..4]` for the sim phase) — that aligns the
+  8 civs' rows for the same prompt without relying on the truncated prompt string.
