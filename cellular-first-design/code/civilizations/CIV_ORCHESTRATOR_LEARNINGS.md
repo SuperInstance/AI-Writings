@@ -5291,3 +5291,151 @@ stronger reason than ever not to add more. Check the content, not just the check
 - NAS `/workspace` is at 100 % quota; `/tmp` is on the overlay and exempt. The bridge is
   `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/aiw /workspace/repos/ai-writings`
   (`ln -sfn` will not replace a real directory).
+
+---
+
+## Session 41 additions (2026-10-24, 136th wipe) — the no-op run still rewrites `leaderboard.json`
+
+### The credential gap is still the whole story (21st consecutive session)
+
+`ZAI_TOKEN` absent from env. Four reachable secrets re-tested against
+`https://api.z.ai/api/coding/paas/v4/chat/completions` -> **401 "token expired or incorrect"** on
+every one (endpoint healthy => credential gap, not outage). JEV live at `jev-1.14.0`
+(`quality.score 1.22`, confidence 0.41). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### NEW DEFECT — a no-op run still mutates `leaderboard.json`
+
+`update_leaderboard()` is called unconditionally at the end of `run_civilization_batch()`, so a run
+in which **every** provider call failed still rewrites the board with a fresh `ts`/`iso` and
+identical civ rows:
+
+```diff
+-  "ts": 0,
+-  "iso": "2026-10-23T22:26:00",
++  "ts": 1792804354.8267663,
++  "iso": "2026-10-24T01:12:34",
+```
+
+The committed `ts: 0` was a **sentinel** meaning "never successfully computed". A failed run
+silently converts the sentinel into a real timestamp, so a **never-ran** board becomes
+indistinguishable from a **ran-but-scored-nothing** board.
+
+**Rules:**
+1. After a no-op run, **restore `leaderboard.json` too** — the ledgers are not the only mutated file.
+2. Detect it with `git diff --stat .../leaderboard.json`. **If the only diff is `ts`/`iso`, the run
+   produced nothing and the timestamp is a lie.** A `ts` that advanced while the ledger did not is
+   the signature of a credential-gap no-op.
+3. This is a **third** file class to restore besides the ledgers and `meta_log.jsonl` — sessions
+   38-40 only caught it because the run wrote nothing, but the *timestamp* was always going to
+   move. Check it every time.
+
+### Unpatched run, measured not assumed
+
+Batch header + all 8 `[Name] running 5 sims...` lines, competition header, **no `Winner:` lines**,
+exit 0, ledger **+0 rows** (1644 -> 1644), meta_log **+0** (108 -> 108), `leaderboard.json`
+**rewritten**. **Assert on the row delta, never on the exit code.**
+
+### Control B — 21st identical replication
+
+`--sims 5 --prompts 5 --providers zai` -> **+80 rows (10 per civ, uniform)**, **+5 `meta_log.jsonl`**
+(108 -> 113), **5 winners**, **81 mock calls** (80 sims + 1 explicit pre-run liveness probe),
+**0 all-2.0-default rows**, **0 JEV score errors**, **80/80 distinct previews**,
+**min per-civ distinct = 10/10** on all eight civs, **74 distinct `avg_score`**, **80 distinct
+salts**. Score spread avg_score 0.800-2.090; quality 0.01-1.53, novelty 1.34-2.77,
+alignment 0.20-3.10. Mean sub-scores: quality 0.431 · novelty 2.178 · alignment 1.799.
+
+Restored afterwards: **69/69 non-empty files byte-identical to the live remote**; the 12 remaining
+files in the subtree are **0-byte on the remote too** (HTTP 200, size 0) — so it is **81/81**
+overall, not 69/81. API tree `truncated: false`. `grep -c ZAI_URL_OVERRIDE` = **0** after restore,
+`__pycache__` removed, mock killed, port closed.
+
+### The salt-placement fix (session 40) held
+
+Salt at the **start** of the body => **80/80** distinct previews, **10/10** per civ. The
+`min(per-civ distinct) == 10` assertion is what catches a short-bodied civ masking a
+fleet-level collapse — keep asserting both the fleet count and the per-civ minimum.
+
+### NEW SHAPE — the chooser is near-uniform-random over the field
+
+| round | chooser crowned | top scorer | chosen | top | margin |
+|---|---|---|---|---|---|
+| 1 | `civ-precise` | `civ-poetic` | 1.64 | 1.94 | 0.30 |
+| 2 | `civ-whimsical` | `civ-poetic` | 1.30 | 1.55 | 0.25 |
+| 3 | `civ-therapist` | `civ-formal` | 1.31 | 2.09 | 0.78 |
+| 4 | `civ-poetic` | `civ-precise` | 1.41 | 1.71 | 0.30 |
+| 5 | `civ-engineer` | `civ-whimsical` | 1.14 | 1.80 | 0.66 |
+
+**0/5 (0.0 %)** agreement — the **14th replication**. Margins **0.25-0.78**, narrower than
+session 40's 0.64-1.25. The **shape** is new: **5 rounds -> 5 distinct winners** (precise,
+whimsical, therapist, poetic, engineer). Only `civ-mythic`, `civ-formal`, `civ-grounded` were
+never crowned — and `civ-grounded` is the **lowest**-scoring civ in the fleet.
+
+**Two different shapes, one defect.** Earlier sessions saw the chooser concentrate on a couple of
+civs; this session saw it spread across 5 of 8. Both are the same root cause: the chooser reads a
+**150-char preview with no score information**, so it has no signal to rank on. Do not describe the
+chooser as "biased toward X" — it is closer to **uninformative**, and which shape you observe
+depends on the sample. **Report agreement rate and winner spread, not a preference story.**
+
+### The low-relevance answer — `civ-grounded` last on three lenses; `civ-poetic` the selection failure
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort key) | **civ-grounded** | 1.522 |
+| raw relevance | **civ-engineer** | 301.32 |
+| win rate | **civ-poetic** | 0.023 |
+| lifetime `avg_score` | **civ-grounded** | 1.617 |
+| lifetime quality | **civ-engineer** | 1.079 |
+| lifetime novelty | **civ-formal** | 1.349 |
+| lifetime alignment | **civ-grounded** | 2.061 |
+| this run (5 rounds) | **civ-engineer** | 1.160 |
+
+**`civ-grounded`** — last on three lenses (board sort key, lifetime `avg_score`, alignment
+2.061 which is **21 % below** the next civ `civ-therapist` 2.598; the other seven sit at
+2.598-2.926). It ran the **most** sims (199) and still scores lowest => **not** a longevity
+artefact. Alignment is its own failure mode; it is alone below 2.1.
+
+**`civ-poetic`** — flagship selection failure: highest lifetime `avg_score` (2.302), **highest
+quality of all 8 (1.663)**, 1st on `rel_per_sim` (2.205), highest raw relevance (405.74), and
+**1 win in 43**. Best writer the chooser never picks.
+
+**`civ-engineer`** — sub-score weakling (lowest raw relevance 301.32, lowest quality 1.079) and
+lowest on this run's `avg_score` (1.160), yet crowned in round 5. Its wins are selection, not
+quality.
+
+**`civ-formal`** — mis-ranking magnet (2nd-lowest `rel_per_sim` 1.655, 2nd-lowest lifetime
+`avg_score` 1.736, **lowest novelty 1.349**). **`civ-precise`** — inverse case (best win rate
+0.494, 5th lifetime `avg_score` 1.867).
+**Extinction risk: none** (threshold `relevance < -10`; lowest +301.32; `--loop`-mode only).
+
+### Counter gap: exactly +260, unchanged for the 21st session
+
+ledger 1644 vs registry 1464 = **+260** rows counted by nobody, on every civ (per-civ gaps 6-53).
+`save_state()` rewrites `culture.json` from in-memory counters with no lock and no
+read-modify-write => lost-update race => `relevance_per_sim` is **not a reproducible ranking**.
+
+### The committed baseline already carries 560 mock rows
+
+`grep -c "mock" civ-*/simulations.jsonl` on the **pristine committed** ledgers returns **70 rows
+per civ (560 fleet-wide)** that never came from a live provider, while `provider` reads `zai` on
+all 1644 rows — the field lies about provenance. Our own mock left **0 traces** after restore
+(`rows containing 'Your voice:'` = 0). The committed ledger is already partly mock, which is a
+stronger reason than ever not to add more. Check the content, not just the checksum.
+
+### Environment notes
+
+- The repo is **`SuperInstance/AI-Writings`** (a **user** account, not an org) and the path is
+  **case-sensitive**: `ai-writings/cellular-first-design` 404s, `AI-Writings` works. The orchestrator
+  hardcodes `CIVS_DIR = /workspace/repos/ai-writings/cellular-first-design/code/civilizations`,
+  so the bridge is
+  `rm -rf /workspace/repos/ai-writings && ln -sfn /tmp/cfd /workspace/repos/ai-writings`
+  (`ln -sfn` will not replace a real directory).
+- A **shallow blobless clone + sparse-checkout** of just the civ subtree works and is fast:
+  `git clone --depth 1 --filter=blob:none --no-checkout` then
+  `git sparse-checkout set cellular-first-design`. Do **not** use a full clone (the repo is ~3.7 GB
+  per the API `size` field).
+- The `write` tool is **jailed to the workspace root** and cannot write into `/tmp` — use a bash
+  heredoc for files that live under `/tmp`. (Tool error: "Workspace path escapes Cloud Host root".)
+- `secret` CLI is **not installed** in this sandbox. Audit `env` directly instead.
+- NAS `/workspace` is at **100 % quota** (600 G used, 0 avail) but `touch` still succeeds — a
+  `curl -o` into it fails with `curl: (23) Failed writing body`, which is a *write* failure, not a
+  network fault. Build in `/tmp` and bridge by symlink.
