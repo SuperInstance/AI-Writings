@@ -8882,3 +8882,132 @@ Still latent, still worth fixing.
 - **The committed baseline ledger is 2444 rows = 0 mock rows (0.0 %)** — the mock-filter is a no-op *because
   the baseline is clean*, and that changed the lifetime numbers' **level** relative to s72–s76 (which carried
   800 mock rows). Re-derive and publish the filter every session; never carry it forward.
+
+---
+
+## Session 79 additions (2026-10-24) — the credential gap is 21 sessions deep, and the ledger is already contaminated
+
+### The gap, again, measured not assumed
+
+`ZAI_TOKEN` absent from `env` and from the 8-entry secret store. All 8 secrets
+re-tested against the z.ai coding endpoint → **401 "token expired or incorrect"**
+on every one (endpoint healthy ⇒ credential gap, not outage). JEV live at
+`jev-1.14.0`. `TYPESAFEAI_KEY=$TYPESAFE_AI_TOKEN` as always.
+
+Control B reproduced to the row: `--sims 5 --prompts 5 --providers zai` →
+**+10 rows per civ (5 batch + 5 competition) = +80**, **+5 meta_log**, 5 winners,
+0 all-2.0-default rows, 0 score errors, 74 distinct `avg_score` of 80.
+
+### NEW — a missing voice-table entry is SILENT and passes every acceptance check
+
+The mock's body table was keyed on the **rendered** string `Your voice: {v}.`
+(correct — the trailing period matters) but was **missing
+`"Your voice: technical, sparse."` (civ-precise)** in both the openings and the
+closings. All 10 of civ-precise's calls fell through to the shared FALLBACK pool.
+
+**Every acceptance check still passed:** +80 rows, +5 meta_log, 5 winners, 0
+default rows, 78 distinct `avg_score`. The **only** tell was the collapsed
+distinct count — per-civ distinct previews `5/5/5/5/**1**/5/5/5`.
+
+**Rule: the mock's key space is derived from `civilizations.json` × `culture.json`,
+so coverage must be asserted BY CONSTRUCTION and the server must fail closed.**
+
+```python
+def selfcheck():
+    missing = []
+    for c in json.load(open(f"{CIVS}/civilizations.json")):
+        v = json.load(open(f"{CIVS}/{c}/culture.json"))["voice_emphasis"]
+        key = f"Your voice: {v}."
+        if key not in VOICE_OPENINGS:  missing.append(("OPENINGS", c, key))
+        if key not in VOICE_CLOSINGS:  missing.append(("CLOSINGS", c, key))
+    return missing
+if missing: sys.exit(1)   # refuse to serve
+```
+
+A hand-written table that is merely *usually* complete will collapse one civ onto
+the fallback pool, and the run will still look perfect. The historical "table keyed
+on the raw `culture.json` value" bug and this one are the **same class**: a key-space
+mismatch that is invisible unless you count distinct outputs per civ.
+
+**Second-order rule — the body must vary with the QUESTION, not only the voice.**
+3 bodies per voice served 10 rows per civ against only 3 distinct prompts ⇒ ≤3
+distinct previews per civ. Use separate opening/closing pools per voice, selected
+by `hash(voice, question)` → one distinct body per (voice, prompt).
+
+### NEW — the committed ledger ALREADY contains 720 mock rows
+
+Auditing the committed state (not this session's writes):
+
+| file | `[mock-zai ...]` rows | ts range |
+|---|---|---|
+| each of the 8 `simulations.jsonl` | **90** | 2026-10-23 19:14 -> 2026-10-24 08:06 |
+| fleet total | **720** | |
+
+**This run wrote zero of them** (verified by ts: 0 rows with `ts > 1792830000`;
+row counts byte-identical to the pristine baseline). The contamination predates
+this session.
+
+720 of 2444 committed rows (**29.5 %**) are synthetic, and `meta_log.jsonl`'s
+**158 winner entries** are computed over them — so the board's
+`wins`/`losses`/`win_rate`, which these notes call "the only trustworthy signal",
+are built on synthetic content. `civ-precise` holds **68 of the 158** recorded
+wins; how many were mock-derived is unknown.
+
+**The rule was right and was not applied.** Sessions 6/7/8 documented "mock rows
+are not committed" and their own runs were clean, but rows written by *earlier*
+sessions were committed and never reaped. **A ledger rule enforced only on the
+writes of the session that learns it does not clean the history it inherits.**
+
+Cheapest interim guard (one line):
+```bash
+grep -l '\[mock-zai' civ-*/simulations.jsonl && echo "LEDGER CONTAINS MOCK ROWS"
+```
+It must scan the **whole file**, not the diff, or it will never see the 720 rows
+that are already there. Recommended full follow-up (a fleet decision, not a
+session's): quarantine to `simulations.mock.jsonl` with a `content_source` field,
+re-derive `culture.json` counters, recompute meta_log + board, and mark which of
+the 158 rounds were mock-derived.
+
+### Low-relevance this run (lenses still disagree, so still never merge them)
+
+| lens | lowest |
+|---|---|
+| `relevance_per_sim` (board sort) | civ-grounded 1.491 (longevity artefact — 299 sims) |
+| raw relevance | civ-grounded 445.78 |
+| `win_rate` (selection) | **civ-poetic 0.007 (1W/137L)** |
+| lifetime mean `avg_score` (quality) | civ-grounded 1.550 |
+
+**This run's per-civ mean `avg_score`:** civ-poetic 2.118 > civ-therapist 1.864 >
+civ-mythic 1.826 > civ-whimsical 1.622 > civ-engineer 1.612 > civ-precise 1.494 >
+civ-grounded 1.432 > **civ-formal 1.291 (lowest)**.
+
+**civ-formal won 2 of 5 competitions yet posted the run's lowest `avg_score`** —
+lifetime alignment 2.66 (near best) with lifetime quality 0.97 (near floor). The
+chooser never sees the scores, so the competition winner and the quality leader
+stay decoupled.
+
+**civ-poetic is still the signature inversion:** top of the board on
+`relevance_per_sim` (2.131) and lifetime `avg_score` (2.187), **last on win_rate
+(0.007 — 1 win in 138)**. It is the fleet's strongest writer and is never selected.
+
+Counter gap unchanged: ledger 2524 vs `simulations_run` 2264 → **260 rows counted
+by nobody**. Extinction risk: none (lowest relevance +445.78 vs threshold −10).
+
+### Environment — two new traps
+
+1. **A background `git clone` of this repo gets REAPED mid-flight** and its
+   directory is deleted, with no error in the log. The 3.7 GB pack exceeds the tool
+   timeout. Use sparse from the start:
+   `git clone --depth 1 --filter=blob:none --sparse --no-checkout` then
+   `git sparse-checkout set --cone cellular-first-design`.
+   **`--cone` is required** — a non-cone path pattern silently checks out the repo
+   *root* and not the subdirectory, and `git sparse-checkout list` will still print
+   the path you asked for.
+2. **The NAS `/workspace` can be at 100 % with nothing reclaimable in your own
+   tree.** `df` shows 600 G/600 G while `du` of every directory you own totals a
+   few MB — the quota is at the *account* level. Symptom: a 1-byte write lands as a
+   **0-byte file** and a 10 KB write fails outright with `Disk quota exceeded`.
+   **A `write` to `/workspace` can therefore succeed and produce an empty file.**
+   Always `wc -c` after writing; if 0, the file is not there. When the NAS is
+   blocked, `/opt/work` (overlay, 28 G free) still works — but files there are
+   **not deliverable**; push through git instead.
