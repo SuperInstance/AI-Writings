@@ -988,3 +988,85 @@ Also still open: **zero `canon_changed` events exist in the entire 97-row histor
 and the delta arithmetic — has never executed against live data in this log's lifetime. It is an
 untested code path; the watcher has so far only ever exercised `first_poll`, the no-change path,
 and 6 `poll_failed` rows.
+
+## 2026-10-24T05:48Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~33.7h (2024 min), and ~24 min
+  since the 05:24Z poll.
+- **Confirmed three times by independent paths:** the watcher's own `poll_canon()` inside the
+  `--once` run (HTTP 200, stdout `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0);
+  a pre-run probe taken immediately before the run; and a post-run probe taken immediately after
+  the run. All three recompute to the same `b20375d389cb505d`, and the pre/post payloads are
+  byte-equal (13720 bytes each, `cmp` reports IDENTICAL), so the no-change verdict is not a race
+  artifact.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent), so the 2026-10-22
+  count-key fallback fix remains load-bearing.
+- **Log append:** two rows — the unconditional `bot_started` event (row 104, pid 333, hash
+  `94a26bf614e22a7f`, checksum re-verified VALID) written by `main()`, then this run's
+  `witness_note` (row 105, hash `a978eb29cea3f236`) closing it. `witness.log` went 103 → 105 rows.
+- **No canon-change note written.** A hash match is not a transition, and the operator instruction
+  gates the note on canon having changed. The `witness_note` row records the poll, not a transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and
+  `canon_changed` branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still
+  does not exist and `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 105/105 rows parse and carry `ts, iso, event, payload, hash`. 102/105 row
+  checksums verify, 2 carry the literal marker `hash='RECOVERED'` (rows 9 and 12, the hand-authored
+  `meta_wipe_recovery` rows — an explicit non-checksum marker, not corruption), and 1 is the
+  inherited stale hash on row 25 (stored `88839488ea23e66c`, computed `2553b915563b73cc`) — a
+  known upstream authoring slip, not introduced by this run. Linkage class remains `row-checksum`
+  (per `../README.md`): no row carries `prev`/`prev_hash`, so deletion and truncation of a row are
+  undetectable in this format — the honest verdict is
+  `102/105 row checksums accounted for — linkage class row-checksum`, not "chain-intact".
+  This run's own row 105 self-verifies (`a978eb29cea3f236`).
+- **Substrate log byte-unchanged** (`substrate-witness.jsonl` md5 `24a2c03292371575655a287c334d8df8`,
+  `topics.json` md5 `58599882cd997ecc57ea71d14bf09f52`), which is correct: the substrate calls fire
+  only from the `first_poll` branch, and neither `first_poll` nor `canon_changed` was reached.
+- **Event census:** across all 105 rows the mix is 54 `bot_started`, 41 `witness_note`,
+  6 `poll_failed`, 2 `first_poll`, 2 `meta_wipe_recovery`, and **zero `canon_changed`**.
+
+### Environment (18th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` held only an empty
+  `.plugin-cache` directory. The NAS mount backing `/workspace` was 600G/600G, 100% used, 0 bytes
+  available, and a direct `cp` of the script into it failed with
+  `failed to close './wesley_watcher.py': Disk quota exceeded`.
+- **Recovery:** the GitHub **contents** API for `bots/wesley-mechanic/{wesley_watcher.py,state.json,witness.log}`
+  and `bots/substrate-bus/{substrate_bus.py,topics.json,substrate-witness.jsonl}`, staged to
+  `/tmp/wm-run/bots/` — which is where the script hardcodes its write targets (`witness.log` /
+  `state.json` / `bookkeeper.wal`) and where it does
+  `sys.path.insert('/tmp/wm-run/bots/substrate-bus')`, so `substrate_bus` must be staged alongside
+  it or the import dies. The **contents API was used rather than `raw.githubusercontent.com`**
+  because the raw endpoint is not a reliable read path for a file this actively written — it served
+  a stale copy in a prior run.
+- Staged script md5 `206682962c06f9814a5db65c2fbc7267` — byte-identical to upstream. No code changes
+  were needed this run. All other staged md5s (`state.json` `5ce39812d7f3af41583e4003872b6ef6`,
+  `substrate-witness.jsonl` `24a2c03292371575655a287c334d8df8`, `topics.json`
+  `58599882cd997ecc57ea71d14bf09f52`) match upstream exactly.
+- **The NAS 0-byte truncation trap was re-verified live, not assumed.** A 6-byte `echo >` returned
+  exit 0 and landed as a **0-byte stub** (md5 `d41d8cd98f00b204e9800998ecf8427e`) that still appeared
+  in `ls -la`. The three NAS-facing paths
+  (`wesley-mechanic/wesley_watcher.py`, `substrate-bus/substrate-witness.jsonl`,
+  `substrate-bus/topics.json`) were symlinked to their `/tmp/wm-run` counterparts; `stat -L` confirms
+  5805 / 1085 / 6739 bytes with upstream-matching md5s through all three paths. This is the
+  established three-path fix — a plain `cp` onto the NAS silently loses the file.
+- **No concurrent instance raced this poll.** The upstream log was 103 rows immediately before the
+  run and 103 rows immediately after it (both verified via the contents API), so the two-log
+  reconciliation procedure from the 04:22Z run was not needed this time.
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a
+**constant false by construction**. The `(0,0)` escape clause is unreachable on every call path
+(`first_poll` always passes `delta_gamma=1.0`; `canon_changed` always passes `delta_eta=1.0`), and
+the first clause can only pass if the running total hits exactly `1000.0` within `1e-6` — a
+coincidence target, not a conservation law. The field carries no signal. Twelfth poll reporting
+this; still unfixed. The fix is a one-liner — either set `budget` to the live `gamma+eta` total, or
+drop the constant and make the predicate mean what it claims — but the script is upstream and
+byte-identical to its git blob, so no patch was applied.
+
+Also still open: **zero `canon_changed` events exist in the entire 105-row history**, so the
+`canon_changed` branch — the only path that exercises `substrate_publish()`, `bookkeeper_tick()` and
+the delta arithmetic — has never executed against live data in this log's lifetime. It is an untested
+code path; the watcher has so far only ever exercised `first_poll`, the no-change path, and
+6 `poll_failed` rows.
