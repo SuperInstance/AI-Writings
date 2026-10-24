@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rosetta Stone — JEV × JEPA</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:linear-gradient(135deg,#06080f 0%,#1a1428 50%,#06080f 100%)}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:2rem;margin:0 0 .3rem;font-weight:300;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:1rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.panel h2{color:var(--accent);font-size:1.2rem;margin:0 0 .5rem;font-weight:600}
+.panel.jev h2{color:var(--accent)}
+.panel.jepa h2{color:var(--accent3)}
+.panel .sub{color:var(--dim);font-size:.78rem;margin-bottom:1rem;font-family:var(--mono)}
+canvas{background:#000;border:1px solid var(--border);border-radius:6px;width:100%;height:300px;display:block}
+.controls{margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.controls button{background:var(--bg);color:var(--text);border:1px solid var(--border);padding:.4rem .8rem;border-radius:4px;cursor:pointer;font-family:var(--mono);font-size:.78rem}
+.controls button:hover{border-color:var(--accent)}
+.controls button.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.stats .v3{color:var(--accent3);font-weight:bold}
+.correlation{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;grid-column:span 2}
+@media(max-width:900px){.correlation{grid-column:span 1}}
+.correlation h2{color:var(--amber);font-size:1.2rem;margin:0 0 .5rem}
+.correlation canvas{height:180px}
+.phrase{font-family:var(--mono);color:var(--text);font-size:.85rem;text-align:center;margin:1rem 0;padding:.5rem;background:var(--bg);border:1px solid var(--border);border-radius:4px}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🌌 The Rosetta Stone</h1>
+<p class="tagline">JEV validates. JEPA predicts. They share the same latent space. Watch the correlation.</p>
+</header>
+
+<main>
+<section class="panel jev">
+<h2>JEV — Joint Embedding Validator</h2>
+<p class="sub">"This state could only follow from that one." Forward direction in time, but reversed: a present state rejects past states that couldn't produce it.</p>
+<canvas id="jevCanvas"></canvas>
+<div class="phrase" id="jevPhrase">— waiting —</div>
+<div class="stats">
+<div>accepted states: <span class="v" id="jevAccepted">0</span></div>
+<div>rejected states: <span class="v" id="jevRejected">0</span></div>
+<div>validation energy: <span class="v" id="jevEnergy">0.000</span></div>
+<div>last witness: <span class="v" id="jevHash" style="font-size:.65rem;word-break:break-all">—</span></div>
+</div>
+<div class="controls">
+<button onclick="jevStep()" class="active">Step JEV</button>
+<button onclick="jevReset()">Reset</button>
+</div>
+</section>
+
+<section class="panel jepa">
+<h2>JEPA — Joint Embedding Predictive Architecture</h2>
+<p class="sub">"This state will follow from that one." Forward direction in time. A past state projects into plausible futures.</p>
+<canvas id="jepaCanvas"></canvas>
+<div class="phrase" id="jepaPhrase">— waiting —</div>
+<div class="stats">
+<div>predicted states: <span class="v3" id="jepaPredicted">0</span></div>
+<div>prediction entropy: <span class="v3" id="jepaEntropy">0.000</span></div>
+<div>future horizon: <span class="v3" id="jepaHorizon">0</span></div>
+<div>last proposal: <span class="v3" id="jepaHash" style="font-size:.65rem;word-break:break-all">—</span></div>
+</div>
+<div class="controls">
+<button onclick="jepaStep()" class="active">Step JEPA</button>
+<button onclick="jepaReset()">Reset</button>
+</div>
+</section>
+
+<section class="correlation">
+<h2>The Correlation</h2>
+<p class="sub">JEV rejects what JEPA predicts. JEV accepts what JEPA doesn't predict. Their overlap IS the substrate.</p>
+<canvas id="corrCanvas"></canvas>
+<div class="phrase" id="corrPhrase">— The two systems share the same latent space. The witness is the meeting point. —</div>
+</section>
+</main>
+
+<footer>🌌 The Rosetta Stone · JEV × JEPA · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+const W = 600, H = 300;
+const DT = 0.05;
+
+// === Substrate math (browser port) ===
+const FNV1A_OFFSET = 0xcbf29ce484222325n;
+const FNV1A_PRIME = 0x100000001b3n;
+function fnv1a64(bytes) {
+  let h = FNV1A_OFFSET;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * FNV1A_PRIME);
+  return h;
+}
+
+// === JEV state ===
+let jevState = null;
+let jevAccepted = 0, jevRejected = 0;
+let jevWitnesses = [];
+
+function jevReset() {
+  jevState = { x: 0.5, y: 0.5, vx: 0.01, vy: 0.005 };
+  jevAccepted = 0; jevRejected = 0; jevWitnesses = [];
+  drawJev();
+}
+
+function jevStep() {
+  // JEV: evolve state, validate against history
+  jevState.x += jevState.vx;
+  jevState.y += jevState.vy;
+  if (jevState.x < 0 || jevState.x > 1) jevState.vx *= -1;
+  if (jevState.y < 0 || jevState.y > 1) jevState.vy *= -1;
+  // Witness hash
+  const bytes = new Uint8Array(16);
+  const view = new DataView(bytes.buffer);
+  view.setFloat32(0, jevState.x, true);
+  view.setFloat32(4, jevState.y, true);
+  view.setFloat32(8, jevState.vx, true);
+  view.setFloat32(12, jevState.vy, true);
+  const h = fnv1a64(bytes);
+  // Validate against recent witnesses — if too similar (within 0.1 cosine), reject
+  let energy = 0;
+  let accepted = true;
+  for (const w of jevWitnesses.slice(-10)) {
+    const dx = jevState.x - w.x, dy = jevState.y - w.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 0.05) { accepted = false; energy += 0.1; }
+    else energy += dist;
+  }
+  if (accepted) { jevAccepted++; jevWitnesses.push({ x: jevState.x, y: jevState.y, hash: h }); }
+  else { jevRejected++; }
+  if (jevWitnesses.length > 50) jevWitnesses.shift();
+  document.getElementById('jevAccepted').textContent = jevAccepted;
+  document.getElementById('jevRejected').textContent = jevRejected;
+  document.getElementById('jevEnergy').textContent = energy.toFixed(3);
+  document.getElementById('jevHash').textContent = '0x' + h.toString(16).padStart(16, '0');
+  drawJev();
+}
+
+// === JEPA state ===
+let jepaState = null;
+let jepaPredicted = 0;
+let jepaHistory = [];
+let jepaFuture = [];
+
+function jepaReset() {
+  jepaState = { x: 0.5, y: 0.5 };
+  jepaPredicted = 0; jepaHistory = []; jepaFuture = [];
+  drawJpa();
+}
+
+function jepaStep() {
+  // JEPA: predict 3 future states from current
+  jepaHistory.push({ ...jepaState });
+  if (jepaHistory.length > 30) jepaHistory.shift();
+  jepaFuture = [];
+  for (let i = 0; i < 5; i++) {
+    // Predicted: perturbed by noise + inertia
+    const noise = (Math.sin(i * 7 + jepaHistory.length) * 0.5 + 0.5) * 0.05;
+    const next = {
+      x: Math.max(0, Math.min(1, jepaState.x + Math.sin(i + jepaHistory.length * 0.1) * 0.05 + noise)),
+      y: Math.max(0, Math.min(1, jepaState.y + Math.cos(i + jepaHistory.length * 0.1) * 0.05 + noise)),
+      confidence: 1 - i * 0.2,
+    };
+    jepaFuture.push(next);
+    jepaState = { x: next.x, y: next.y };
+  }
+  jepaPredicted += 5;
+  let entropy = 0;
+  for (const f of jepaFuture) {
+    const p = f.confidence;
+    if (p > 0) entropy -= p * Math.log2(p);
+  }
+  document.getElementById('jepaPredicted').textContent = jepaPredicted;
+  document.getElementById('jepaEntropy').textContent = entropy.toFixed(3);
+  document.getElementById('jepaHorizon').textContent = jepaFuture.length;
+  const bytes = new TextEncoder().encode(`${jepaState.x}|${jepaState.y}|${jepaPredicted}`);
+  document.getElementById('jepaHash').textContent = '0x' + fnv1a64(bytes).toString(16).padStart(16, '0');
+  drawJpa();
+}
+
+// === Drawing ===
+function drawJev() {
+  const canvas = document.getElementById('jevCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  // Draw witnesses as fading dots
+  for (let i = 0; i < jevWitnesses.length; i++) {
+    const w = jevWitnesses[i];
+    const a = i / jevWitnesses.length;
+    ctx.fillStyle = `rgba(0,255,157,${a})`;
+    ctx.beginPath();
+    ctx.arc(w.x * W, w.y * H, 6, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // Current state
+  if (jevState) {
+    ctx.fillStyle = '#00ff9d';
+    ctx.beginPath();
+    ctx.arc(jevState.x * W, jevState.y * H, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#00ff9d';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+}
+
+function drawJpa() {
+  const canvas = document.getElementById('jepaCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  // History
+  ctx.strokeStyle = 'rgba(124,92,255,0.4)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let i = 0; i < jepaHistory.length; i++) {
+    const h = jepaHistory[i];
+    if (i === 0) ctx.moveTo(h.x * W, h.y * H);
+    else ctx.lineTo(h.x * W, h.y * H);
+  }
+  ctx.stroke();
+  // Future (dashed)
+  ctx.strokeStyle = 'rgba(124,92,255,0.8)';
+  ctx.setLineDash([4, 4]);
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let i = 0; i < jepaFuture.length; i++) {
+    const f = jepaFuture[i];
+    if (i === 0 && jepaHistory.length > 0) ctx.moveTo(jepaState.x * W, jepaState.y * H);
+    else if (i === 0) ctx.moveTo(f.x * W, f.y * H);
+    else ctx.lineTo(f.x * W, f.y * H);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+  // Predicted future points
+  for (let i = 0; i < jepaFuture.length; i++) {
+    const f = jepaFuture[i];
+    ctx.fillStyle = `rgba(124,92,255,${f.confidence})`;
+    ctx.beginPath();
+    ctx.arc(f.x * W, f.y * H, 4 + f.confidence * 4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // Current state
+  ctx.fillStyle = '#7c5cff';
+  ctx.beginPath();
+  ctx.arc(jepaState.x * W, jepaState.y * H, 8, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+let lastJev = null;
+let lastJpa = null;
+function drawCorr() {
+  const canvas = document.getElementById('corrCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  // Draw connection between jev's latest witness and jepa's latest state
+  if (lastJev && lastJpa) {
+    // Draw axis lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.beginPath(); ctx.moveTo(0, H/2); ctx.lineTo(W, H/2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(W/2, 0); ctx.lineTo(W/2, H); ctx.stroke();
+    // Curve from JEV to JEPA — the Rosetta stone
+    ctx.strokeStyle = 'rgba(255,184,77,0.8)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    const x1 = lastJev.x * W, y1 = lastJev.y * H;
+    const x2 = lastJpa.x * W, y2 = lastJpa.y * H;
+    const cx = (x1 + x2) / 2, cy = (y1 + y2) / 2 - 50;
+    ctx.moveTo(x1, y1);
+    ctx.quadraticCurveTo(cx, cy, x2, y2);
+    ctx.stroke();
+    // Markers
+    ctx.fillStyle = '#00ff9d'; ctx.beginPath(); ctx.arc(x1, y1, 8, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#7c5cff'; ctx.beginPath(); ctx.arc(x2, y2, 8, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = '12px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('JEV witness', x1, y1 - 14);
+    ctx.fillText('JEPA prediction', x2, y2 + 22);
+    ctx.fillStyle = '#ffb84d';
+    ctx.fillText('Rosetta stone', cx, cy - 5);
+  }
+}
+
+setInterval(() => {
+  lastJev = jevWitnesses[jevWitnesses.length - 1] || null;
+  lastJpa = jepaState || null;
+  drawCorr();
+}, 200);
+
+jevReset();
+jepaReset();
+
+// Auto-step
+setInterval(() => { jevStep(); jepaStep(); }, 800);
+</script>
+
+</body>
+</html>

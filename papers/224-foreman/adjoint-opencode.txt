@@ -1,0 +1,128 @@
+All numbers below are cross-verified three ways: hand derivation, exact rationals (`Fraction`), and IEEE-754 float64 rollout (script at `/tmp/opencode/adjoint_fabric.py`; `docs/ACADEMIC-RIGOR.md` is not present in this workspace, so — per your instruction — conservation is used **as an axiom**, never as a proven theorem).
+
+---
+
+## 0. The conservation axiom in first-order form
+
+Axiom (ACADEMIC-RIGOR §3, L1/L2 status: unproven, assumed): `1ᵀ T(s,θ) = 1ᵀ s` for all reachable `(s,θ)`, where `1` is the all-ones vector. Differentiating w.r.t. `s`:
+
+```
+1ᵀ J_A(s) + η·1ᵀ B(s) = 1ᵀ        B(s) := ∂[H(s)θ]/∂s ∈ R^{n×n},  B_ij = Σ_k (∂H_ik/∂s_j) θ_k
+```
+
+Since `A` alone is column-stochastic (`1ᵀ J_A = 1ᵀ`), the axiom forces `1ᵀ B = 0`, and applying the axiom to values forces the **balanced-write condition** `1ᵀ H(s)θ = 0` (the Hebbian term must be mass-neutral). These are consistency obligations the substrate must satisfy; I use them as hypotheses.
+
+---
+
+## 1. Adjoint recursion
+
+`L = L(s_T(θ))` through the unrolled graph `s_{t+1} = A(s_t) + η H(s_t) θ`. Chain rule via VJP factorization — the `s`-dependence of `H` is absorbed into the adjoint, so `g` contains only the *explicit* `θ`-partials:
+
+**Terminal condition**
+```
+λ_T = ∇_{s_T} L(s_T)
+```
+
+**Backward recursion** (t = T−1 … 0), with `J_t := J_A(s_t) + η B(s_t)` the tick Jacobian:
+```
+λ_t = (∂s_{t+1}/∂s_t)ᵀ λ_{t+1} = J_A(s_t)ᵀ λ_{t+1} + η B(s_t)ᵀ λ_{t+1}
+```
+
+**Parameter gradient** (θ shared across ticks, hence accumulated):
+```
+g = ∂L/∂θ = Σ_{t=0}^{T−1} (∂s_{t+1}/∂θ)ᵀ λ_{t+1} = η Σ_{t=0}^{T−1} H(s_t)ᵀ λ_{t+1}
+```
+Per-tick contribution `γ_t = η H(s_t)ᵀ λ_{t+1}`. (If θ were a per-tick trajectory, `g_t = γ_t` without the sum.) Cost: one backward pass, `O(T)` VJPs, no per-parameter unrolls.
+
+**Two structural freebies:**
+- If `1ᵀ H(s) = 0` (balanced writes for all θ), then `1ᵀ g = η Σ_t (H(s_t)1)ᵀ λ_{t+1} = 0`: **the gradient is automatically mass-neutral** — plain SGD already preserves `Σθ = m` up to roundoff.
+- If `J_t` is doubly stochastic, `1ᵀ λ_t = 1ᵀ λ_{t+1}`: a **dual conservation law** on the adjoint.
+
+---
+
+## 2. The theorem obligation
+
+**Lemma A (algebraic core — no conditions on A, no mass assumption).**
+```
+|g_k| = η|Σ_t Σ_i H_ik(s_t) λ_{t+1}[i]| ≤ η Σ_t Σ_i |H_ik||λ_{t+1}[i]| ≤ η Σ_{t=0}^{T−1} ‖λ_{t+1}‖₁ ≤ η·T·max_t ‖λ_{t+1}‖₁
+```
+(Triangle + Hölder + |H_ij| ≤ 1.) So the bound as literally posed is **true** with `C(λ) = max_t ‖λ_{t+1}‖₁` — but vacuous unless λ is intrinsically bounded. The real question is whether that max is bounded by substrate data alone.
+
+**Lemma B (∞-contractivity of the adjoint — this is where mass enters).**
+Assume **(N)**: `J_t = J_A(s_t) + η B(s_t)` is entrywise ≥ 0 along the trajectory (mass is routed, never anti-routed; automatic if `H` is constant and `J_A ≥ 0`, e.g. attention/routing weights). By the first-order axiom `J_t` is column-stochastic, and nonneg + column sums 1 ⇒ every entry of `J_t` lies in `[0,1]` — each tick Jacobian is a stochastic matrix. Then:
+```
+‖J_tᵀ λ‖_∞ = max_j |Σ_i (J_t)_ij λ_i| ≤ max_j Σ_i (J_t)_ij |λ_i| ≤ max_j (Σ_i (J_t)_ij)‖λ‖_∞ = ‖λ‖_∞
+```
+Iterating: `‖λ_t‖_∞ ≤ ‖λ_T‖_∞` for all t. No bound on `B`'s magnitude is needed — stochasticity caps it.
+
+**Theorem 1 (substrate gradient-clipping theorem).** Under the axiom, **(N)**, |H_ij| ≤ 1, and `L∞ := sup_{reachable s} ‖∇L(s)‖_∞ < ∞`:
+```
+‖g‖_∞ ≤ η Σ_t ‖λ_{t+1}‖₁ ≤ η Σ_t n‖λ_{t+1}‖_∞ ≤ η·T·n·L∞
+```
+If the state axioms additionally keep `s_t` in the compact simplex `{s ≥ 0, Σs = M}` (bounded mass + nonneg cells), then any `L ∈ C¹` has finite `L∞` by Weierstrass — `C(λ) = n·L∞` is an **a priori constant**. Clipping at `g* := ηTnL∞` provably never engages: it is an assertion, not a safety wrapper.
+
+**Theorem 2 (sharp ℓ₁ form — needs an extra condition conservation does NOT give).**
+Assume **(D)**: `‖J_t‖_∞ = max_i Σ_j |(J_t)_ij| ≤ 1` (abs-row-substochastic; e.g. doubly stochastic / permutation routing). Then `‖λ_t‖₁ ≤ ‖λ_T‖₁` and `‖g‖_∞ ≤ η·T·‖∇L(s_T)‖₁`.
+
+**Why (D) is genuinely extra — counterexample.** `n = 2`, `A(s) = (s₁+s₂, 0)`: `J_A = [[1,1],[0,0]]` is nonnegative and column-stochastic (perfectly mass-conserving), yet `‖J_Aᵀ‖₁→₁ = ‖J_A‖_∞ = 2`. With `L(s₂) = s₂[1]`, `T = 2`: `λ₂ = (1,0)`, `λ₁ = J_Aᵀλ₂ = (1,1)` — `‖λ₁‖₁ = 2·‖λ₂‖₁`. The ℓ₁-norm of the adjoint **doubles** in one step under exact conservation. So conservation bounds column sums, and the adjoint needs **row** sums; the ℓ₁-form of the bound fails without (D). (The ∞-form, Theorem 1, is immune: concentrators grow `‖λ‖₁` only by spreading it, which `‖·‖_∞` does not see.)
+
+**Precise conditions required:**
+- **On A:** entrywise nonnegative tick Jacobian **(N)** (comes free with column-stochasticity in the usual sense, plus `B = 0` or a dominated `ηB`); column-stochasticity itself is the axiom's first-order shadow. For the tight ℓ₁ constant, add **(D)**.
+- **On λ:** `‖∇L(s_T)‖_∞ ≤ L∞` finite — automatic for C¹ losses on the compact reachable simplex; fails for boundary-singular losses (entropy/KL), where clipping must remain an external wrapper.
+- **Mass's actual role:** Lemma A never uses it; Lemma B *is* it. Conservation buys the clip theorem through compactness + column stochasticity, not through `M` appearing in the constant.
+
+---
+
+## 3. On-chip mass-preserving update rule
+
+```
+u = θ − α g                                  (per-cell, local)
+θ⁺ = u − ((Σ_k u_k − m)/p)·1                 (hyperplane projection; one broadcast accumulator)
+```
+Closed form, O(p), idempotent, and exact in real arithmetic. Since `1ᵀ g = 0` (§1), the residual is pure roundoff; compute it with a compensated (Kahan) sum — drift ≤ 1 ulp of m per step. If parameter cells must also stay nonnegative (they hold mass), use the Euclidean simplex projection (Duchi et al.): sort `u` descending, find
+```
+ρ = max{ k : u_(k) − (Σ_{j≤k} u_(j) − m)/k > 0 },   τ = (Σ_{j≤ρ} u_(j) − m)/ρ
+θ⁺_i = max(u_i − τ, 0)
+```
+which coincides with the hyperplane projection whenever `u ≥ 0, Σu = m` already. By Theorem 1, `|g_k| ≤ ηTnL∞` intrinsically — an optional saturate at that threshold is provably inert. For bit-exact mass over long runs, hold θ in fixed point with an integer mass ledger.
+
+---
+
+## 4. Bit-exact test (IEEE-754 float64, values to 6 dp)
+
+**Instance (as specified):** `n=2, p=1, T=3, η=0.1, α=0.05`; `A(s) = Ws`, `W = [[0.75,0.25],[0.25,0.75]]` (symmetric doubly stochastic); `H ≡ (1, −1)ᵀ` (constant, balanced: `1ᵀH = 0`); `s₀ = (1,2)`, `M = 3`; `θ₀ = m = 1.0`; `L(s₃) = ½‖s₃‖²` ⇒ `λ₃ = s₃`.
+
+Forward (masses all 3.000000):
+```
+s₁ = (1.350000, 1.650000)   s₂ = (1.525000, 1.475000)   s₃ = (1.612500, 1.387500)
+```
+Adjoint (`λ_t = Wᵀλ_{t+1}`, `B = 0` since H constant; `Wᵀ = W`):
+```
+λ₃ = (1.612500, 1.387500)
+λ₂ = (1.556250, 1.443750)
+λ₁ = (1.528125, 1.471875)
+```
+Gradient (`g = η Σ_t Hᵀλ_{t+1}`, sum ascending in t):
+```
+γ₀ = 0.005625   γ₁ = 0.011250   γ₂ = 0.022500
+g  = 0.039375          (exact rational 63/1600; float64 0.03937500000000003 → 0.039375)
+```
+Central-difference check: `dL/dθ ≈ 0.039375` (agrees to 3.0e−10). Update + projection:
+```
+u  = 1 − 0.05·0.039375 = 0.998031
+θ⁺ = 1.000000          ← p = 1 makes {θ : Σθ = m} the single point {m}: the projection
+                          exactly cancels the update (a deliberate degeneracy of the
+                          spec'd p=1 case — it tests that projection returns m exactly)
+```
+Theorem checks: `‖g‖∞ = 0.039375 ≤ ηTn‖λ₃‖∞ = 0.967500` (Thm 1) and `≤ ηT‖λ₃‖₁ = 0.900000` (Thm 2, (D) holds for W). Both hold.
+
+**Companion instance (p = 2, to exercise the projection):** same `W, s₀, η, α, L`; `H = [[1,−1],[−1,1]]`, `θ₀ = (0.6, 0.4)`, `m = 1`:
+```
+s₁ = (1.270000, 1.730000)  s₂ = (1.405000, 1.595000)  s₃ = (1.472500, 1.527500)
+λ₃ = (1.472500, 1.527500)  λ₂ = (1.486250, 1.513750)  λ₁ = (1.493125, 1.506875)
+g  = (−0.009625, 0.009625)                        (Σg = 0 exactly — mass-neutral gradient)
+u  = (0.600481, 0.399519)                          (0.60048125, 0.39951875; residual 0.0 here)
+θ⁺ = (0.600481, 0.399519)                          (hyperplane = simplex projection; both nonneg)
+Projection unit test: (0.615, 0.410) → (0.602500, 0.397500)
+```
+**Canonical evaluation order for bit-exactness:** forward ticks `t = 0,1,2` with `s_{t+1} = W s_t + η·H·θ` evaluated as one fused expression per row; backward ticks descending; `g` accumulated ascending in `t`; projection last. All values above are stable at 6 dp in float64 (exact rationals: `g = 63/1600`, `u = 31937/32000`).

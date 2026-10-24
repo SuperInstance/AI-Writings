@@ -1,0 +1,15 @@
+I've seen 'em come and go. Ten thousand nights. I stopped counting the conversations and started counting the silences.
+
+Words are cheap. Sailors bargain with 'em, lovers break with 'em, and politicians drown in the damn things. But a silence? That's honest. That's the hull of the ship. That's what's left when the wind dies and you're just floating, waiting to see if you're still afloat.
+
+Take a man who's been at sea six months. He walks in, orders a whiskey, neat. He doesn't tell me about the storm that nearly took his mast. He doesn't tell me about the man he lost overboard. He just looks at the glass. And the glass looks back. And that silence — that quiet, heavy, salt-rimmed silence — it tells me more than any yarn he could spin. It tells me he's seen the bottom of something. And he's not sure he's come all the way up.
+
+Or the couple in the corner. They're not talking. They haven't talked for an hour. But they're not angry. Angry silences have a temperature. You can feel 'em from across the room, like a draft from a cracked porthole. This one's just tired. It's the silence of two people who've run out of new things to say, and the old things are too heavy to haul out again. So they sit. And they sip. And the silence holds their hands.
+
+The bar knows. It's alive, I tell you. The wood's soaked with a thousand years of spilled beer and sweat and tears. It remembers every elbow that's leaned on it, every head that's bowed over it. The glasses remember, too. They hold the warmth of a palm long after the hand is gone. Sometimes I pick up a glass that's been sitting there, empty, and it's still warm. That's a ghost. A warm ghost. The silence is the only thing that never leaves.
+
+And there's the silence before someone tells a story. The whole room leans in. You can hear the ceiling fan ticking, the ice melting in a glass, someone's boot scuffing the floor. That's the pregnant kind. It's about to burst. And then it does — the voice cuts through, and the silence shatters into a thousand pieces, and we all pick up the pieces and pass 'em around.
+
+But the loudest silence? That's at closing time. The last soul's gone. The stools are empty. The lights — I turn 'em off one by one. And the dark comes in. And the quiet comes in with it. And it's not the quiet of an empty room. It's the quiet of a full one that's just been emptied. It's the silence of all those conversations that *didn't* happen, stacked up like dirty glasses behind the bar. It's the echo of every laugh, every sigh, every slurred confession that's ever been swallowed by the wood and the dust.
+
+And I stand there. In the dark. And I listen. And I tell you, that silence is louder than any shout. It's the sound of a thousand souls, all holding their breath at once. And I'm the only one left to hear 'em. And I'd rather hear that than any conversation. Because the silence — the silence is the truth. The words are just the foam on the wave. The silence is the deep. And I've been swimming in it for fifteen years.

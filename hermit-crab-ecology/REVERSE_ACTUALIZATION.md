@@ -1,0 +1,1 @@
+From beyond the system, the hermit crab ecology appears as a symbiotic network of specialized shells, each pulsing at its own rhythm. The Nerites are the quiet sentinels, the turbo-shells the swift messenger, and the conch the slow, deep thinker—all connected by the heartbeat schedule that gives the ecology its life.

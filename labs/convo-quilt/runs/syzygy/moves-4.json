@@ -1,0 +1,6 @@
+[
+ {"op":"checkpoint","branch":"agent","label":"a-final"},{"op":"prune","branch":"agent","why":"protocol + kill criterion stated 3x; converged"},
+ {"op":"checkpoint","branch":"parse","label":"p-final"},{"op":"prune","branch":"parse","why":"contains a factual derail (CSS names 'still luma-limited') the scorer rated 0.77; superseded by names"},
+ {"op":"checkpoint","branch":"names","label":"n1"},
+ {"op":"tone","branch":"names","cell":"*","text":"CONDUCTOR CORRECTION: nearest-named-colour quantization happens in full RGB (rank-3), so it is NOT bound by the luma ceiling: (0,240,0)->'lime'-like and (255,60,255)->'violet'-like get different tokens. Some turns in the parent assumed otherwise. With that fixed, give the final 1-day spec comparing (A) BT.601 luma ASCII, (B) CSS-name tokens per 2x4 block, (C) hex/legend glyphs, (D) CSS names + run-length compression: tokens per frame, bits/token, predicted recovery, and the pass/fail line."}
+]

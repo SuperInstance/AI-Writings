@@ -1,0 +1,10 @@
+1. Bb3~2 D4~2 F4~2 | high reach
+2. F3~2 A3~2 Bb3~2 | high reach
+3. Eb3~2 G3~2 A3~2 | high reach
+4. Db3~2 G3~2 Bb3~2 | high reach
+5. Eb3~2 G3~2 A3~2 | high reach
+6. F3~2 A3~2 Bb3~2 | high reach
+7. [Bb3 C4~2 D4~2 Eb4~2]~3 | high reach
+8. r~2 Bb3~2 D4~2 | settle
+
+WHY: Each bar starts with a high note (F3/A3/Bb3/C4) to answer the piano's high reaches, maintaining a smooth, ascending melodic line that blends seamlessly into the previous piano notes.

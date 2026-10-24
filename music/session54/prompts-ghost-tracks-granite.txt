@@ -1,0 +1,21 @@
+1. Title: "Whispers of Vesperia"
+   Genre: Haunted Folk - Incorporate this genre by adding reverse-played acoustic guitars, detuned fiddles, and time-stretched banjo plucks. The rhythm should mimic the irregular pulse of a heartbeat, with an off-beat BPM of 65.
+   Key: Microtonal, lying between C♭ major and D♭ major.
+   Dynamic Structure: Loud moments are fleeting silences, punctuated by the soft strumming of reverse guitar chords. The song is a spectral echo of traditional village tunes, now heard as if from a distant, haunted past.
+
+2. Title: "Echoes of Eclipse"
+   Genre: Haunted Techno - Use reversed and detuned synth leads, time-stretched percussion, and a stuttering bassline to evoke this lost anthem. The BPM is slightly off at 130 (should be 125), and the key is microtonal, lying between A minor and B minor.
+   Dynamic Structure: Loud sections are brief, intense bursts of sound, interspersed with silence that echoes the memory of a dance floor long gone.
+
+3. Title: "Memories of Kinder"
+   Genre: Haunted Children's Music - Incorporate this by using reversed and detuned chimes, time-stretched flute melodies, and a childlike piano rhythm. The key is microtonal, positioned between D major and E minor.
+   BPM: 75 (should be 80), with the dynamic structure based on silence that amplifies the whispers of childhood tunes from an erased culture.
+
+4. Title: "Sibylline Codex"
+   Genre: Haunted Classical - Implement this by employing reversed and detuned violin phrases, time-stretched cello vibrato, and a harp that seems to tremble with the weight of forgotten score pages. The key is microtonal, situated between G major and A minor.
+   BPM: 55 (should be 60), where silence replaces the expected rhythm, mimicking the loss of a musical composition burned by an enraged survivor.
+
+5. Title: "Liverpool's Lost Beat"
+   Genre: Haunted Pop - Use reversed and detuned bass lines, time-stretched guitar riffs that mimic The Beatles' iconic tones, and a drum machine with off-beat snare hits to create this ghostly pop track. The key is microtonal, nestled between F major and G♭ major.
+   BPM: 105 (should be 110), where the absence of Beatles' familiar rhythm creates an eerie vacancy that echoes through the streets of a city untouched by their music.
+

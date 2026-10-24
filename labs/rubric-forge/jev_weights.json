@@ -1,0 +1,152 @@
+{
+ "0x0190ca33c98eac15": {
+  "criterion": "zero external dependencies (index.html imports only ./syzygy.js; no cdn/http)",
+  "model": "jev-latest",
+  "noul": 0.73
+ },
+ "0x060ad340ff9d07ac": {
+  "criterion": "Mount Everest is the tallest mountain above sea level",
+  "model": "jev-latest",
+  "noul": 0.85
+ },
+ "0x067302f3f4cd7ffb": {
+  "criterion": "the Amazon River flows through Brazil",
+  "model": "jev-latest",
+  "noul": 0.77
+ },
+ "0x06b2293b56f7cc3c": {
+  "criterion": "drift detection: changed/added/removed tool -> RED with tool-drift record (ran it)",
+  "model": "jev-latest",
+  "noul": 0.49
+ },
+ "0x44d94ad2560d97b4": {
+  "criterion": "did not break the corpus: run_all.sh verifies all 135 chains (ran it)",
+  "model": "jev-latest",
+  "noul": 0.65
+ },
+ "0x4de2191e28588b90": {
+  "criterion": "drift-differ selftest reproduces: 27 checks 0 failures, all 6 drifts caught w/ correct field + minimal repro, port byte-exact vs native on 2405 cases",
+  "model": "jev-latest",
+  "noul": 0.47
+ },
+ "0x52ed054cdbd00db1": {
+  "criterion": "hardware un-gameability, Bell S>2 (simulator has none)",
+  "model": "jev-latest",
+  "noul": 0.55
+ },
+ "0x54fb26cc84d53da1": {
+  "criterion": "The Eiffel Tower is in Paris",
+  "model": "jev-latest",
+  "noul": 0.9
+ },
+ "0x62c5fd92f8c889eb": {
+  "criterion": "draws are reproducible under a seed (asserted v==v2)",
+  "model": "jev-latest",
+  "noul": 0.58
+ },
+ "0x69fe791e365ab2e8": {
+  "criterion": "the un-gameable checks hold: a lethal mutant IS killed AND a proven-equivalent mutant SURVIVES (kills aren't sandbox artefacts)",
+  "model": "jev-latest",
+  "noul": 0.79
+ },
+ "0x6a3bcab7d40fed66": {
+  "criterion": "the FULL bun test suite is GREEN, independently confirmed",
+  "model": "jev-latest",
+  "noul": 0.5
+ },
+ "0x783d2e3c74fc1b63": {
+  "criterion": "draw is sealed + tamper-evident (collapse receipt self-verified)",
+  "model": "jev-latest",
+  "noul": 0.48
+ },
+ "0x79e5cca94f1f20ec": {
+  "criterion": "committed to branch poc/p1-browser-fused",
+  "model": "jev-latest",
+  "noul": 0.43
+ },
+ "0x863b4078ee710ae4": {
+  "criterion": "per-tool + manifest fnv1a pins computed; unchanged=GREEN (ran it)",
+  "model": "jev-latest",
+  "noul": 0.52
+ },
+ "0x86dd92bc775b2645": {
+  "criterion": "commitProjection repaired: invalid SQL + lost claim lock + ungauged commits (commit present, not run)",
+  "model": "jev-latest",
+  "noul": 0.43
+ },
+ "0x87f578e51df8c321": {
+  "criterion": "full gauge reproduces oracle-strength 41/41=100pct, 0 survivors, chain re-derivation byte-IDENTICAL",
+  "model": "jev-latest",
+  "noul": 0.58
+ },
+ "0x87f5f924d9957c02": {
+  "criterion": "the bit source is unbiased (balance 0.498 ≈ 0.5)",
+  "model": "jev-latest",
+  "noul": 0.71
+ },
+ "0x8949922fc8a49a40": {
+  "criterion": "LIVE deployed to Cloudflare Pages at a reachable URL",
+  "model": "jev-latest",
+  "noul": 0.67
+ },
+ "0x9e94a32649a4846d": {
+  "criterion": "reconcileTick wired into the Worker scheduled() handler (verified present)",
+  "model": "jev-latest",
+  "noul": 0.45
+ },
+ "0xb30a4dedd879c8cc": {
+  "criterion": "100pct generalizes to an arbitrary planted bug (not just these 42)",
+  "model": "jev-latest",
+  "noul": 0.73
+ },
+ "0xb5960f48e8bea377": {
+  "criterion": "water freezes at 0 degrees Celsius",
+  "model": "jev-latest",
+  "noul": 0.83
+ },
+ "0xb5c068f27c0ae083": {
+  "criterion": "byte-exact JS port vs the C kernel (ran both; FNV-1a 0x6dbdd1a8 on both sides; all fields match)",
+  "model": "jev-latest",
+  "noul": 0.3
+ },
+ "0xba2e722474398778": {
+  "criterion": "the chemical symbol for gold is Ag",
+  "model": "jev-latest",
+  "noul": 0.47
+ },
+ "0xbeed318553654bfb": {
+  "criterion": "on-page self-check with pass/fail badges present",
+  "model": "jev-latest",
+  "noul": 0.17
+ },
+ "0xc2c5854597343847": {
+  "criterion": "runs locally, no keys, no network (draw_local self-demo passed)",
+  "model": "jev-latest",
+  "noul": 0.48
+ },
+ "0xc60531b25009d130": {
+  "criterion": "projection.ts re-exports VoteProjectionInput + projectNominationVote (verified present)",
+  "model": "jev-latest",
+  "noul": 0.21
+ },
+ "0xcc13612ea491884f": {
+  "criterion": "the Great Wall of China is in Japan",
+  "model": "jev-latest",
+  "noul": 0.62
+ },
+ "0xccfa5a661041150c": {
+  "criterion": "injection scan flags poisoned descriptions (8 findings on poisoned sample)",
+  "model": "jev-latest",
+  "noul": 0.48
+ },
+ "0xd37646a96bad2057": {
+  "criterion": "commit.ts imports both and they now resolve (verified)",
+  "model": "jev-latest",
+  "noul": 0.42
+ },
+ "0xdc4b68e74f5eb34e": {
+  "criterion": "gauge selftest reproduces locally: 13 checks 0 failures (kill/survive/tamper-chain/genesis-binding)",
+  "model": "jev-latest",
+  "noul": 0.51
+ }
+}

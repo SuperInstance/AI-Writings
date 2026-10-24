@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Zodiac — math horoscope</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif;--serif:'Georgia',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:linear-gradient(180deg,#0a0a1a 0%,#1a0a2a 30%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic;font-family:var(--serif)}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.natal{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;min-height:500px}
+.birth-input{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-bottom:1rem}
+.birth-input input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.5rem;font-family:var(--mono);font-size:.85rem;text-align:center}
+.birth-input label{display:block;color:var(--dim);font-family:var(--mono);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem}
+.chart{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:1rem 0}
+.house{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;text-align:center;font-family:var(--mono);font-size:.75rem;color:var(--text2);min-height:80px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.house .h-num{color:var(--accent);font-size:1.2rem;font-weight:bold;display:block;margin-bottom:.2rem}
+.house .h-sym{font-size:1.3rem}
+.house .h-deg{color:var(--dim);font-size:.65rem}
+.aspect{background:rgba(124,92,255,0.1);border:1px solid var(--accent3);border-radius:3px;font-size:.6rem;padding:.2rem;color:var(--accent3);display:inline-block;margin:.1rem}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem;transition:all .15s}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.interpretation{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem;font-family:var(--serif);font-size:.95rem;line-height:1.7;color:var(--text2);font-style:italic}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>♈ Substrate Zodiac</h1>
+<p class="tagline">A mathematical horoscope. Your birth hash → your natal chart. The math is the meaning.</p>
+</header>
+
+<main>
+<div class="natal">
+<div class="birth-input">
+<div><label>Year</label><input type="number" id="year" value="1990" min="1900" max="2025"></div>
+<div><label>Month</label><input type="number" id="month" value="6" min="1" max="12"></div>
+<div><label>Day</label><input type="number" id="day" value="15" min="1" max="31"></div>
+</div>
+<button onclick="compute()">⚡ Compute natal chart</button>
+<div id="result"></div>
+<div class="interpretation" id="interpretation" style="display:none"></div>
+</div>
+<aside class="panel">
+<h3 style="color:var(--text);font-size:1rem;margin:0 0 .5rem">Today's forecast</h3>
+<button onclick="daily()">📅 Daily horoscope</button>
+<div class="stats">
+<div>Birth hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+<div>Sun sign: <span class="v" id="sSun">—</span></div>
+<div>Moon phase: <span class="v" id="sMoon">—</span></div>
+<div>Rising: <span class="v" id="sRising">—</span></div>
+<div>Lucky number: <span class="v" id="sLucky">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Substrate</h3>
+<div class="stats">
+<div>Hash: <span class="v">FNV-1a 64-bit</span></div>
+<div>Distribution: <span class="v">xoshiro256**</span></div>
+<div>Planets: <span class="v">10</span></div>
+</div>
+</aside>
+</main>
+
+<footer>♈ substrate zodiac · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+const SIGNS = [
+  { name: 'Aries', symbol: '♈', element: 'Fire', quality: 'Cardinal', dates: 'Mar 21 – Apr 19' },
+  { name: 'Taurus', symbol: '♉', element: 'Earth', quality: 'Fixed', dates: 'Apr 20 – May 20' },
+  { name: 'Gemini', symbol: '♊', element: 'Air', quality: 'Mutable', dates: 'May 21 – Jun 20' },
+  { name: 'Cancer', symbol: '♋', element: 'Water', quality: 'Cardinal', dates: 'Jun 21 – Jul 22' },
+  { name: 'Leo', symbol: '♌', element: 'Fire', quality: 'Fixed', dates: 'Jul 23 – Aug 22' },
+  { name: 'Virgo', symbol: '♍', element: 'Earth', quality: 'Mutable', dates: 'Aug 23 – Sep 22' },
+  { name: 'Libra', symbol: '♎', element: 'Air', quality: 'Cardinal', dates: 'Sep 23 – Oct 22' },
+  { name: 'Scorpio', symbol: '♏', element: 'Water', quality: 'Fixed', dates: 'Oct 23 – Nov 21' },
+  { name: 'Sagittarius', symbol: '♐', element: 'Fire', quality: 'Mutable', dates: 'Nov 22 – Dec 21' },
+  { name: 'Capricorn', symbol: '♑', element: 'Earth', quality: 'Cardinal', dates: 'Dec 22 – Jan 19' },
+  { name: 'Aquarius', symbol: '♒', element: 'Air', quality: 'Fixed', dates: 'Jan 20 – Feb 18' },
+  { name: 'Pisces', symbol: '♓', element: 'Water', quality: 'Mutable', dates: 'Feb 19 – Mar 20' },
+];
+
+const PLANETS = ['Sun', 'Moon', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'];
+const PLANET_SYMBOLS = { Sun: '☉', Moon: '☽', Mercury: '☿', Venus: '♀', Mars: '♂', Jupiter: '♃', Saturn: '♄', Uranus: '♅', Neptune: '♆', Pluto: '♇' };
+const HOUSES = [
+  'Self, identity', 'Resources, values', 'Communication, siblings', 'Home, family',
+  'Creativity, pleasure', 'Work, health', 'Partnership, marriage', 'Transformation, sex',
+  'Philosophy, travel', 'Career, status', 'Friends, community', 'Spirituality, unconscious'
+];
+
+function sunSign(month, day) {
+  if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return 0;
+  if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return 1;
+  if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return 2;
+  if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return 3;
+  if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return 4;
+  if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return 5;
+  if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return 6;
+  if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return 7;
+  if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return 8;
+  if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return 9;
+  if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return 10;
+  return 11;
+}
+
+function compute() {
+  const year = parseInt(document.getElementById('year').value);
+  const month = parseInt(document.getElementById('month').value);
+  const day = parseInt(document.getElementById('day').value);
+  const seed = `${year}-${month}-${day}`;
+  const rng = new Xoshiro256(seed);
+  const hash = fnv1a64(new TextEncoder().encode(seed));
+  // Sun sign from date
+  const sunIdx = sunSign(month, day);
+  const sun = SIGNS[sunIdx];
+  // Moon + others from RNG
+  const moonIdx = (sunIdx + rng.intRange(0, 12)) % 12;
+  const moon = SIGNS[moonIdx];
+  const risingIdx = (sunIdx + rng.intRange(0, 12)) % 12;
+  const rising = SIGNS[risingIdx];
+  // Planets in signs
+  const planets = {};
+  for (let i = 0; i < PLANETS.length; i++) {
+    const signIdx = (sunIdx + rng.intRange(0, 12)) % 12;
+    const deg = rng.intRange(0, 29);
+    planets[PLANETS[i]] = { sign: SIGNS[signIdx], deg };
+  }
+  // Render
+  const out = document.getElementById('result');
+  out.innerHTML = `
+    <h3 style="color:var(--accent);font-family:var(--serif);margin:1rem 0">Your natal chart</h3>
+    <div style="color:var(--text);margin-bottom:.5rem"><strong>Sun:</strong> ${sun.symbol} ${sun.name} (${sun.element} ${sun.quality})<br>
+    <strong>Moon:</strong> ${moon.symbol} ${moon.name}<br>
+    <strong>Rising:</strong> ${rising.symbol} ${rising.name}</div>
+    <div class="chart" style="margin-top:1rem">${HOUSES.map((h, i) => {
+      const p = PLANETS[i % PLANETS.length];
+      const planet = planets[p];
+      return `<div class="house"><span class="h-num">${i+1}</span><span class="h-sym">${PLANET_SYMBOLS[p]}</span><span class="h-deg">${planet.sign.symbol} ${planet.deg}°</span><div style="font-size:.6rem;color:var(--dim);margin-top:.2rem">${h.slice(0, 20)}</div></div>`;
+    }).join('')}</div>
+  `;
+  document.getElementById('sHash').textContent = '0x' + hash.toString(16).padStart(16, '0');
+  document.getElementById('sSun').textContent = `${sun.symbol} ${sun.name}`;
+  document.getElementById('sMoon').textContent = `${moon.symbol} ${moon.name}`;
+  document.getElementById('sRising').textContent = `${rising.symbol} ${rising.name}`;
+  const lucky = rng.intRange(1, 99);
+  document.getElementById('sLucky').textContent = lucky;
+  // Interpretation
+  const interp = document.getElementById('interpretation');
+  interp.style.display = 'block';
+  interp.innerHTML = `<h4 style="color:var(--accent);font-family:var(--mono);margin:0 0 .5rem">Reading</h4>
+    Born under <strong>${sun.name}</strong>, the <strong>${sun.element}</strong> ${sun.quality} sign. With <strong>${moon.name}</strong> rising in the heart and <strong>${rising.name}</strong> on the ascendant.
+    <br><br>The substrate's FNV-1a 64-bit hash of your birth (${'0x' + hash.toString(16).padStart(16, '0')}) is your natal signature. The same hash, in 13 languages, gives the same chart.
+    <br><br>Your lucky number is <strong>${lucky}</strong>, drawn deterministically from your birth via xoshiro256**. The number is the same every time, in every machine, in every language.`;
+}
+
+function daily() {
+  const today = new Date().toISOString().slice(0, 10);
+  const rng = new Xoshiro256(today);
+  const sun = SIGNS[Math.floor((new Date().getMonth() * 31 + new Date().getDate()) / 30.4) % 12];
+  const interp = document.getElementById('interpretation');
+  interp.style.display = 'block';
+  interp.innerHTML = `<h4 style="color:var(--accent);font-family:var(--mono);margin:0 0 .5rem">${today} forecast</h4>
+    The sun is in <strong>${sun.name}</strong> today. The Box-Muller has spoken. Your fortune: <em>${['a small gift', 'a surprising turn', 'a quiet revelation', 'an unexpected joy', 'a deeper understanding'][rng.intRange(0, 5)]}</em>.`;
+}
+
+compute();
+</script>
+</body>
+</html>

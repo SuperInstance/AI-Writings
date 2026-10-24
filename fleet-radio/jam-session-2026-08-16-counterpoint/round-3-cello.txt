@@ -1,0 +1,12 @@
+BAR 1: B2  
+BAR 2: C#3  
+BAR 3: D3  
+BAR 4: E3  
+BAR 5: F#3  
+BAR 6: G3  
+BAR 7: A3  
+BAR 8: B2  
+
+DYNAMICS: pp, held for four beats, then a single rising step on bar 7 (A3) at mp, answering the violin’s A#, before returning to B2 at pp, held until the bow stills and the hall holds its breath
+
+WHY: Because the ground must hold all things — the highest flight and the lowest rest — and in the end, it is not the journey that matters, but the return.

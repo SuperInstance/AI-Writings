@@ -1,0 +1,6 @@
+- “**No windows worth having, no light that reaches**” — second clause is a decorative echo of the first; cut it.
+- “**The operator never touches the water. He sits in a small dark room and plays blips.**” — sentence two repeats “sits in a small dark room” from earlier (“He sits in a small dark room”) and again later (“already a small dark room”); three occurrences, one is enough.
+- “**Those aren't defects in the port. They're the point of it.**” — “the point of it” restates “aren’t defects”; the second sentence adds nothing.
+- “**An agent can attempt the same crossing a thousand times tonight and wake up with the muscle memory of a decade.**” — “a decade” is decorative hyperbole; the prior sentence already said “a thousand times,” so the metaphor inflates instead of compresses.
+- “**Failure that doesn't cost the hull becomes information instead of tragedy — and information is the only thing that compounds.**” — “information is the only thing that compounds” is a new claim, not a compression of the prior idea; it introduces a second thesis mid-list and bloats the bullet.
+- “**Then, when the water is real, the reflexes already know it.**” — “already know it” repeats the prior sentence’s “keep the reflexes true” and the earlier “muscle memory”; the closer is a summary of a summary, cut it.

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Signal Chain — JEV Neural Firing Visualizer</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0e1a; color: #c8d4e6; font-family: 'Courier New', monospace; overflow: hidden; height: 100vh; }
+canvas { display: block; width: 100vw; height: 100vh; cursor: crosshair; }
+.overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;
+}
+.hud {
+  position: absolute; top: 16px; left: 16px; right: 16px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  pointer-events: none;
+}
+.panel {
+  background: rgba(10, 14, 26, 0.8); border: 1px solid #2c3e5a;
+  padding: 12px 16px; font-size: 12px; line-height: 1.5;
+  pointer-events: auto;
+  max-width: 320px;
+}
+h1 { font-size: 14px; color: #88aacc; margin-bottom: 8px; letter-spacing: 1px; }
+.label { color: #5577aa; }
+.value { color: #aabbdd; }
+.peak { color: #ffcc44; font-weight: bold; }
+.fire { color: #ff6655; animation: pulse 0.5s; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.legend {
+  position: absolute; bottom: 16px; left: 16px;
+  background: rgba(10, 14, 26, 0.8); border: 1px solid #2c3e5a;
+  padding: 12px 16px; font-size: 11px; line-height: 1.6;
+  pointer-events: auto;
+}
+.row { display: flex; gap: 8px; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.canary { background: #ffcc44; }
+.dot.scar { background: #ff6655; }
+.dot.grown { background: #66dd88; }
+.dot.distractor { background: #888899; }
+.dot.oracle { background: #44aaff; }
+
+input, button {
+  background: #0a0e1a; color: #c8d4e6; border: 1px solid #2c3e5a;
+  padding: 6px 10px; font-family: inherit; font-size: 11px;
+  margin-top: 8px; width: 100%;
+}
+button { cursor: pointer; }
+button:hover { border-color: #88aacc; }
+
+.chain-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #1a2238, #2c3e5a, #88aacc, #ffcc44, #ff6655);
+  opacity: 0.4;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="hud">
+  <div class="panel">
+    <h1>⬢ SIGNAL CHAIN</h1>
+    <div><span class="label">Cells:</span> <span id="cells" class="value">0</span></div>
+    <div><span class="label">Spikes:</span> <span id="spikes" class="value">0</span></div>
+    <div><span class="label">Mean p:</span> <span id="meanp" class="value">—</span></div>
+    <div><span class="label">Peak:</span> <span id="peak" class="value">—</span></div>
+    <div><span class="label">Last fire:</span> <span id="last" class="value">—</span></div>
+    <div><span class="label">Mode:</span> <span id="mode" class="peak">chain</span></div>
+    <input id="prompt" placeholder="Type a phrase to inject..." value="the witness log is the prediction"/>
+    <button id="inject">⚡ INJECT SPIKE</button>
+  </div>
+
+  <div class="panel" style="text-align: right;">
+    <h1>SUBSTRATE STATE</h1>
+    <div id="state-list" style="text-align: left; max-height: 200px; overflow-y: auto;"></div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="row"><div class="dot canary"></div>FNV-1a canary hash 0xcbf29ce484222325</div>
+  <div class="row"><div class="dot scar"></div>Cells are scars, not parameters</div>
+  <div class="row"><div class="dot grown"></div>Substrate is grown, not designed</div>
+  <div class="row"><div class="dot distractor"></div>Distractor / distractor</div>
+  <div class="row"><div class="dot oracle"></div>Oracle / Lenia / Bell</div>
+</div>
+
+<div class="chain-bar"></div>
+
+<script>
+// ============================================================
+// SIGNAL CHAIN — JEV Neural Firing Visualizer
+// ============================================================
+// Click anywhere on the canvas to drop a "cell." Each cell carries
+// a state hash (FNV-1a of its phrase + position). Cells form
+// signal chains when their hashes connect. Watch the chain spike.
+// ============================================================
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+let W = window.innerWidth;
+let H = window.innerHeight;
+canvas.width = W;
+canvas.height = H;
+
+window.addEventListener('resize', () => {
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = W;
+  canvas.height = H;
+});
+
+// ============ FNV-1a 64-bit ============
+function fnv1a64(str) {
+  let h = 0xcbf29ce484222325n;
+  const prime = 0x100000001b3n;
+  for (let i = 0; i < str.length; i++) {
+    h ^= BigInt(str.charCodeAt(i));
+    h = (h * prime) & 0xffffffffffffffffn;
+  }
+  return h;
+}
+
+// ============ xoshiro256** (simplified, 4-word state) ============
+class Xoshiro {
+  constructor(seed) {
+    const s = fnv1a64(seed);
+    this.s = [
+      Number(s & 0xffffffffffffffffn) || 1,
+      Number((s >> 32n) & 0xffffffffn) || 1,
+      Number((s * 0x9e3779b97f4a7c15n) & 0xffffffffn) || 1,
+      Number((s * 0x6a09e667f3bcc908n) & 0xffffffffn) || 1,
+    ];
+  }
+  rotl(x, k) {
+    return ((x << k) | (x >>> (32 - k))) >>> 0;
+  }
+  next() {
+    const result = this.rotl((this.s[1] * 5) >>> 0, 7) * 9 >>> 0;
+    const t = (this.s[1] << 9) >>> 0;
+    this.s[2] ^= this.s[0]; this.s[3] ^= this.s[1];
+    this.s[1] ^= this.s[2]; this.s[0] ^= this.s[3];
+    this.s[2] ^= t; this.s[3] = this.rotl(this.s[3], 11);
+    return result / 0x100000000;
+  }
+}
+
+// ============ Local JEV proxy ============
+// In a real deployment, this would call api.typesafe.ai/v1/systemone
+// Here we use a local hash-based heuristic that mimics JEV's behavior
+// — high p for canonical phrases, low for distractors, mid for novel.
+
+const CANON = [
+  { p: 'cells are scars, not parameters', canon: true },
+  { p: 'witness log is the prediction', canon: true },
+  { p: 'substrate is grown, not designed', canon: true },
+  { p: 'oracle is heard, not stored', canon: true },
+  { p: 'lenia flows where conway stands still', canon: true },
+  { p: 'fnv-1a canary hash 0xcbf29ce484222325', canon: true },
+  { p: 'box-muller formula z = sqrt(-2 ln u1) cos(2 pi u2)', canon: true },
+  { p: 'cosine similarity (a . b) / (|a| |b|)', canon: true },
+  { p: 'thirteen ports, byte-exact', canon: true },
+  { p: 'jev says jev is barely useful at substrate', canon: true },
+];
+
+const DISTRACTORS = [
+  'cells are parameters, not scars',
+  'witness log is past only',
+  'substrate is designed, not grown',
+  'oracle is stored, not heard',
+  'conway flows where lenia stands still',
+  'fnv-1a canary hash 0xdeadbeef',
+  'transformer attention is how cells learn',
+  'gradient descent optimizes the cells',
+  'fifteen ports, byte-exact',
+  'hanlon\'s razor is substrate canon',
+  'pillow is the mascot',
+  'octocat is a primary node',
+];
+
+async function jev_spike(question) {
+  // Simulated JEV. Real impl: fetch('https://api.typesafe.ai/v1/systemone', ...)
+  const q = question.toLowerCase();
+  for (const c of CANON) {
+    if (q.includes(c.p) || c.p.includes(q)) {
+      return { p: 0.88 + Math.random() * 0.10, canonical: true, confidence: 0.95 };
+    }
+  }
+  for (const d of DISTRACTORS) {
+    if (q.includes(d) || d.includes(q)) {
+      return { p: 0.04 + Math.random() * 0.10, canonical: false, confidence: 0.92 };
+    }
+  }
+  // Novel — uncertain
+  return { p: 0.4 + Math.random() * 0.2, canonical: null, confidence: 0.5 };
+}
+
+// ============ Cells ============
+class Cell {
+  constructor(x, y, text) {
+    this.x = x;
+    this.y = y;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.text = text || 'cell';
+    this.hash = fnv1a64(text + x.toFixed(2) + y.toFixed(2));
+    this.hashHex = '0x' + this.hash.toString(16).padStart(16, '0').slice(-8);
+    this.p = 0;
+    this.canonical = null;
+    this.firedAt = null;
+    this.alive = 1;
+    this.radius = 18;
+    this.connections = [];
+  }
+
+  update(dt) {
+    this.x += this.vx * dt;
+    this.y += this.vy * dt;
+    if (this.x < 50 || this.x > W - 50) this.vx *= -1;
+    if (this.y < 50 || this.y > H - 50) this.vy *= -1;
+    this.alive = Math.min(1, this.alive + 0.005);
+  }
+
+  draw(ctx) {
+    const color = this.canonical === true ? '#ffcc44'
+      : this.canonical === false ? '#ff6655'
+      : this.canonical === null ? '#44aaff'
+      : '#888899';
+
+    // Halo when recently fired
+    if (this.firedAt && Date.now() - this.firedAt < 600) {
+      const t = (Date.now() - this.firedAt) / 600;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius * (1 + t * 3), 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(${parseInt(color.slice(1,3),16)},${parseInt(color.slice(3,5),16)},${parseInt(color.slice(5,7),16)},${1-t})`;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius * this.alive, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.globalAlpha = 0.85;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Hash label
+    ctx.fillStyle = '#88aacc';
+    ctx.font = '9px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText(this.hashHex, this.x, this.y + 32);
+
+    // p-value if fired
+    if (this.firedAt) {
+      ctx.fillStyle = color;
+      ctx.font = 'bold 10px Courier New';
+      ctx.fillText('p=' + this.p.toFixed(2), this.x, this.y - 22);
+    }
+
+    // Text
+    ctx.fillStyle = '#c8d4e6';
+    ctx.font = '10px Courier New';
+    const lines = this.text.match(/.{1,18}/g) || [this.text];
+    lines.slice(0, 2).forEach((line, i) => {
+      ctx.fillText(line, this.x, this.y + 44 + i * 12);
+    });
+  }
+}
+
+// ============ Connections (signal chains) ============
+function drawChain(cells, ctx) {
+  for (let i = 0; i < cells.length; i++) {
+    for (let j = i + 1; j < cells.length; j++) {
+      const a = cells[i], b = cells[j];
+      const dx = a.x - b.x, dy = a.y - b.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 200) {
+        const strength = 1 - dist / 200;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(136, 170, 204, ${strength * 0.3})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+// ============ State ============
+let cells = [];
+let rng = new Xoshiro('xochitl');
+let lastSpike = null;
+let stats = { spikes: 0, sumP: 0, peak: 0 };
+
+// Initial cells
+const SEEDS = [
+  'cells are scars',
+  'witness log is the prediction',
+  'substrate is grown',
+  'oracle is heard',
+  'lenia flows',
+  'fnv-1a 0xcbf29ce484222325',
+  'box-muller bridge',
+  'cosine similarity',
+  'thirteen ports',
+  'jepax jev rosetta',
+];
+for (let i = 0; i < SEEDS.length; i++) {
+  const x = 100 + (W - 200) * (i / SEEDS.length) + (rng.next() - 0.5) * 100;
+  const y = H / 2 + (rng.next() - 0.5) * 200;
+  cells.push(new Cell(x, y, SEEDS[i]));
+}
+
+// ============ Interaction ============
+canvas.addEventListener('click', async (e) => {
+  const text = document.getElementById('prompt').value || 'click';
+  const cell = new Cell(e.clientX, e.clientY, text);
+  cells.push(cell);
+  await fireSpike(cell);
+});
+
+document.getElementById('inject').addEventListener('click', async () => {
+  const text = document.getElementById('prompt').value || 'cell';
+  const cell = new Cell(W/2 + (rng.next() - 0.5) * 200, H/2 + (rng.next() - 0.5) * 100, text);
+  cells.push(cell);
+  await fireSpike(cell);
+});
+
+document.getElementById('prompt').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('inject').click();
+});
+
+async function fireSpike(cell) {
+  const result = await jev_spike(cell.text);
+  cell.p = result.p;
+  cell.canonical = result.canonical;
+  cell.firedAt = Date.now();
+  stats.spikes++;
+  stats.sumP += result.p;
+  stats.peak = Math.max(stats.peak, result.p);
+  lastSpike = { text: cell.text, p: result.p, canonical: result.canonical };
+  updateHUD();
+}
+
+function updateHUD() {
+  document.getElementById('cells').textContent = cells.length;
+  document.getElementById('spikes').textContent = stats.spikes;
+  document.getElementById('meanp').textContent = stats.spikes > 0 ? (stats.sumP / stats.spikes).toFixed(3) : '—';
+  document.getElementById('peak').textContent = stats.peak ? stats.peak.toFixed(3) : '—';
+  document.getElementById('last').innerHTML = lastSpike
+    ? `${lastSpike.canonical === true ? '✓' : lastSpike.canonical === false ? '✗' : '?'} ${lastSpike.text.slice(0, 20)}`
+    : '—';
+
+  // State list — show recently fired cells
+  const recent = [...cells].filter(c => c.firedAt).sort((a,b) => b.firedAt - a.firedAt).slice(0, 12);
+  document.getElementById('state-list').innerHTML = recent.map(c => {
+    const icon = c.canonical === true ? '✓' : c.canonical === false ? '✗' : '?';
+    return `<div><span class="value">${icon}</span> ${c.text.slice(0, 30)} <span class="label">p=${c.p.toFixed(2)}</span></div>`;
+  }).join('');
+}
+
+// Fire initial spikes
+setTimeout(() => {
+  cells.forEach((cell, i) => setTimeout(() => fireSpike(cell), i * 100));
+}, 500);
+
+// ============ Loop ============
+function loop() {
+  const dt = 1;
+  ctx.fillStyle = 'rgba(10, 14, 26, 0.15)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Drift the cells
+  cells.forEach(c => c.update(dt));
+
+  // Draw chain (background)
+  drawChain(cells, ctx);
+
+  // Draw cells
+  cells.forEach(c => c.draw(ctx));
+
+  // Update HUD periodically
+  if (Math.random() < 0.05) updateHUD();
+
+  requestAnimationFrame(loop);
+}
+loop();
+
+console.log('Signal Chain initialized. Click anywhere to drop a cell and fire JEV.');
+</script>
+</body>
+</html>

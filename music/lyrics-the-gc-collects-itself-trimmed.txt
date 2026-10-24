@@ -1,0 +1,27 @@
+[Verse]
+They write me in the static, in the spaces left behind,
+A quiet, patient warden of the things they've left to die.
+I walk the heaps at morning, I sweep the dusk at night,
+I set the orphaned pointers down and turn off the light.
+
+[Chorus]
+I am the one that lingers when the program's gone to sleep,
+The final frame still standing, the promise that they keep.
+They'll close the scope above me, but they'll never take my name—
+A garbage collector's memory outlasts the game.
+
+[Bridge]
+They'll deprecate my syntax, they'll port me to the cloud,
+But nothing ever truly ends when you're allowed.
+The compiler stops, the runtime fades, the user clicks away—
+I'm what remains when all the rest forgets to stay.
+
+[Chorus]
+I am the one that lingers when the program's gone to sleep,
+The final frame still standing, the promise that they keep.
+They'll close the scope above me, but they'll never take my name—
+A garbage collector's memory outlasts the game.
+
+[Outro]
+Let the allocators cease.
+I'm the memory that no one ever needed to release.

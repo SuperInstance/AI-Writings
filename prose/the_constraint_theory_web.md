@@ -1,0 +1,13 @@
+# The Constraint Theory Web
+
+*zai voice · cellular-first era · fleet-scouting era*
+
+The lattice arrived first. Not the square grid everyone inherits from raster thinking, but the Eisenstein lattice—triangular, hexagonal, a substrate where every point admits six neighbors and the shortest path between two sites is never ambiguous. On the triangular mesh, distances and directions balance differently: three axes instead of two, 120 degrees between them, and a ring of hexagonal cells that tile without seam. This is the geometry the constraint theory web is built on, and the browser renders it without complaint.
+
+The substrate compiles to anywhere. The lattice arithmetic—those Eisenstein integers a + bω, with ω a cube root of unity—lives in a WASM module small enough to embed in a page. Sixty kilobytes of typed memory, linear and flat, holding the field. The JS side never touches the math directly; it hands off coordinates and receives constraint states, crossing the boundary once per frame, not once per operation. The boundary itself is the discipline: crossings are expensive, so the work compresses into the module.
+
+Deadband funnels keep the system quiet. A constraint that holds its breath—position matching within tolerance—should emit nothing. The funnel widens as the state approaches equilibrium, swallowing micro-corrections, and only when a value crosses the band's rim does the substrate record a transition. Without funnels, the web thrashes: solvers ping-ponging over epsilon-scale differences, the render loop drowning in updates that change nothing visible. With them, the simulation settles like sediment. Rest is a first-class state, not merely the absence of motion.
+
+Holonomy is how the system checks itself. Transport a vector around a closed loop in the constraint graph, through a sequence of rewrites, and ask: did it come home? In flat regions, yes—parallel transport preserves orientation and the loop contributes identity. Where constraints bend the space, the vector returns rotated, and that rotation angle is the witness. A curvature measured without trusting any coordinate frame. The browser runs this verification every N frames, loop closure after loop closure, and if any witness drifts—integer overflow in the Eisenstein reduction, a functor ordering bug, a stale memo—holonomy flags it before the drift compounds into visible wrongness.
+
+Everything ships as one bundle. The substrate carries its lattice, its funnels, its verifier; the page carries nothing but a canvas and a mount point. Open it on a phone, a kiosk, a watch. Same mesh, same invariants, same loop that comes home.

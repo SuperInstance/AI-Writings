@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 8,
+    "q2": 9,
+    "q3": 7,
+    "q4": 6,
+    "improvement": "Add a visible debug panel showing the Box-Muller transform parameters and the generated chord frequencies to allow users to verify the math.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 7,
+    "q2": 7,
+    "q3": 5,
+    "q4": 4,
+    "improvement": "Add a debug/inspector panel showing the Box-Muller intermediate values (uniform samples, radius, angle) so users can verify the Gaussian math is real.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 8,
+    "q2": 7,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a debug panel showing real-time Box-Muller transformation values and statistical tests (e.g. normality) to improve verifiability and credibility.",
+    "_provider": "deepinfra-qwen"
+  }
+]

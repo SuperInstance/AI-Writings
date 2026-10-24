@@ -1,0 +1,9 @@
+BAR 1: D3 F3 A3 D4 | weighing
+BAR 2: C3 E3 G3 C4 | falling
+BAR 3: Bb2 D3 F3 Bb3 | lifting
+BAR 4: A2 C3 E3 A3 | leaving
+BAR 5: G2 Bb2 D3 G3 | Rising
+BAR 6: F2 A2 C3 F3 | Abyss
+BAR 7: Eb2 G2 Bb2 Eb3 | Sinking
+BAR 8: D3 F3 A3/D4 A4 | Knock
+WHY: The water reclaims the music as the tide comes back in, from our hands, passes everything through the piling.

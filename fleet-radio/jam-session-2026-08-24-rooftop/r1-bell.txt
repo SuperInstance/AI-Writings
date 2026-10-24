@@ -1,0 +1,11 @@
+```
+| D4 F#4 A4 D5 | CLIMB |
+| F#4 A4 D5 G#4 | CLIMB |
+| A4 D5 G#4 C5 | CLIMB |
+| D5 G#4 C5 F#5 | CLIMB |
+| G#4 C5 F#5 A#5 | CLIMB |
+| C5 F#5 A#5 D#5 | CLIMB |
+| F#5 A#5 D#5 G#5 | CLIMB |
+| A#5 D#5 G#5 C#5 | CLIMB |
+| WHY: The wind takes a solo in any gap longer than two beats.
+```

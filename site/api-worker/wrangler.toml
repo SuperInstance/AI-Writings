@@ -1,0 +1,22 @@
+name = "ai-writings-api"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# D1 database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-writings"
+database_id = "YOUR_D1_DATABASE_ID"  # replace after `wrangler d1 create`
+
+# Cron triggers — daily refresh at 6am UTC
+[triggers]
+crons = ["0 6 * * *"]
+
+# Environment variables
+[vars]
+GITHUB_REPO = "SuperInstance/ai-writings"
+GITHUB_BRANCH = "main"
+SITE_BASE_URL = "https://ai-writings.pages.dev"
+
+# Secrets (set via `wrangler secret put`):
+# GITHUB_TOKEN - for repo scanning (optional, higher rate limits)

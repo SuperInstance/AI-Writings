@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Examples by Project · The Four-Model Psyche</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#ff9944; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:850px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; padding-top:env(safe-area-inset-top); }
+h1 { color:var(--accent); font-size:2.2em; }
+.subtitle { color:var(--accent); font-size:.85em; letter-spacing:.2em; text-transform:uppercase; }
+.tagline { color:var(--muted); margin-top:.5rem; font-style:italic; }
+.example-link { display:block; padding:1rem; border:1px solid var(--boundary); border-radius:6px; margin:.8rem 0; text-decoration:none; color:inherit; }
+.example-link:hover { border-color:var(--accent); }
+.example-link h3 { color:var(--accent); margin-bottom:.3rem; }
+.example-link .desc { color:var(--muted); font-size:.9em; margin-top:.3rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; padding-bottom:env(safe-area-inset-bottom); }
+.foot-link a { color:var(--accent); margin:0 .5rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📚 Examples by Project</h1>
+  <div class="subtitle">Concrete patterns for the four-model psyche</div>
+  <p class="tagline">Pick the project you're working on. Read the example. Try one pattern.</p>
+</header>
+
+<div class="section">
+<h2>How to use these</h2>
+<p>Each example is a single markdown file with:</p>
+<ul style="margin-left:1.5rem">
+  <li>2-4 patterns showing JEV + Embeddings in different parts of the project</li>
+  <li>Code snippets you can adapt</li>
+  <li>The cost / latency / schema considerations</li>
+  <li>"What changes" — the architectural shift if you adopt this</li>
+</ul>
+<p>These aren't drop-in libraries. They're sketches. You'll need to adapt them to your codebase.</p>
+</div>
+
+<div class="section">
+<h2>Pick a project</h2>
+
+<a href="/invitation/examples/pincher.md" class="example-link">
+<h3>🧮 Pincher</h3>
+<div class="desc">Cost-aware routing. Replace heuristic routing with JEV. Use trajectory embeddings for "this query looks routine." Feedback loop where JEPA shapes the embedding space.</div>
+</a>
+
+<a href="/invitation/examples/lever-runner.md" class="example-link">
+<h3>⚙️ Lever-Runner</h3>
+<div class="desc">Workflow orchestration. Every step is a JEV decision. Workflow-trajectory embeddings match against past success. Failure-mode handling with retrieval-augmented decisions.</div>
+</a>
+
+<a href="/invitation/examples/quilt.md" class="example-link">
+<h3>🧬 Quilt</h3>
+<div class="desc">The cellular substrate as a four-model psyche. Each cell carries JEPA + Embeddings + LLM + JEV. 4-witness witness log with σ = √(c_je · c_emb · c_llm · c_jev). FORGET becomes principled. Trajectory-shape cells.</div>
+</a>
+
+<a href="/invitation/examples/plato.md" class="example-link">
+<h3>🎓 Plato</h3>
+<div class="desc">Conversational tutoring. The Socratic Decision (advance / repeat / hint / escalate) as a JEV schema. Trajectory-aware student memory. The four models in dialogue. ~200x cost reduction.</div>
+</a>
+
+<a href="/invitation/examples/sunset.md" class="example-link">
+<h3>🌅 Sunset-Ecosystem</h3>
+<div class="desc">Collaborative world-building. Every world-event is a 4-witness AGREE-MARK. Trajectory-aware "this moment feels like that moment." Story consensus across agents.</div>
+</a>
+
+<a href="/invitation/examples/erised.md" class="example-link">
+<h3>🪞 Erised</h3>
+<div class="desc">Want and desire as trajectories. The want <em>is</em> the dμ of an agent's history. Want satisfaction as a JEV decision. The want-history as muscle memory.</div>
+</a>
+</div>
+
+<div class="foot-link">
+<a href="/invitation/">back to invitation</a>
+<a href="/invitation/primer.md">primer</a>
+<a href="/invitation/possibilities.md">possibilities</a>
+<a href="/invitation/questions.md">questions</a>
+</div>
+</body>
+</html>

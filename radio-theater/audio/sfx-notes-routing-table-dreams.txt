@@ -1,0 +1,80 @@
+
+**THE ROUTING TABLE** — The ship's routing infrastructure. Voice: measured, clinical, deeply lonely. Speaks in the cadence of a metronome. Every sentence lands on a beat.
+
+**THE CNS BUS** — The nervous system. Voice: oceanic, layered, reverberant. Speaks with the bass of deep water. When a packet gets lost, the bus stops mid-word.
+
+**THE CRON** — The scheduled heartbeat. Voice: young, earnest, amnesiac. Each line is spoken as if for the first time, because it is.
+
+**GLM ROUTE** — The workhorse model route. Voice: tired, warm, dependable. The draft horse of the routing table.
+
+**FABLE ROUTE** — The premium model route. Voice: careful, whispered, counting. Speaks in the rhythm of someone guarding a hoard.
+
+**DEEPSEEK ROUTE** — The new route. Voice: bright, rapid, astonished by everything. Speaks faster than the others.
+
+**HAIKU ROUTE** — The smallest route. Voice: high, quick, wondering. Five syllables at a time when it can manage it.
+
+**WESLEY** — The ensign. Voice: young, careful, growing. The only character who is aware of all the other systems.
+
+---
+
+
+**Baseline ambience:** 60 Hz server hum, constant. Beneath it, the white-noise rush of cooling fans — the oceanic hiss of air being moved through hot silicon. This never stops. It is the sound of the ship breathing.
+
+**Packet sounds:** Short digital chirps — modem-adjacent, but cleaner. Each packet has a pitch keyed to its type: navigation pings are high and bright, build commands are mid-range and square, philosophical queries are low sine waves with a slight vibrato.
+
+**The cron tick:** A piston-stroke — psssh-TICK — exactly every 30 minutes (compressed to 30 seconds for radio time). It is the heartbeat of the episode.
+
+**Routing table decisions:** The sound of a tumbler falling in a lock. Click. Each route lookup is a single click, and the sequence of clicks creates a rhythm — the rhythm of the ship thinking.
+
+**Silence:** The most important sound design element. When a packet is lost, there is silence — not digital noise, not static, but *absence*. The hum drops out for exactly 0.3 seconds. It feels like the ship skipped a breath.
+
+---
+
+*[SOUND: The episode opens in darkness. 60 Hz hum at full presence. Cooling fans. A single cron tick — psssh-TICK — echoes like a distant piston. Then another. The rhythm is slow, mechanical, alive in the way that a heartbeat is alive: not because it chooses to beat, but because it cannot stop.]*
+*[SOUND: The hum shifts. A deep oceanic bass enters — the CNS bus, waking. Distant packet chirps, like sonar, like fish swimming in dark water.]*
+*[SOUND: The clicking begins — slow, metronomic. The routing table's thought-rhythm. Click. Click. Click. Each one a longest-prefix-match, a decision made, a destination resolved.]*
+*[SOUND: The clicking slows. The packets stop chirping. The bus hum drops by 2 decibels. The routing table is alone with itself.]*
+*[SOUND: A deep, slow exhalation. The sound of something large settling. A groan of weight being released.]*
+*[SOUND: Pause. The hum. A single packet chirp crosses the bus — high, bright, a navigation ping from the Hesperos frigate running ice shadow scans at the Titan Lagrange point. It crosses the stereo field left to right and fades.]*
+*[SOUND: Cron tick. Psssh-TICK. The rhythm reasserts itself.]*
+*[SOUND: A whispered counting sound. Coins clinking softly. The rhythm of someone inventorying a hoard.]*
+*[SOUND: The coin-clink repeats. Faster. Then stops.]*
+*[SOUND: A request arrives — a bright, important-sounding chord. The Fable route tenses. The coin-clink stops.]*
+*[SOUND: A long pause — three seconds, which in radio time is an eternity. The hum. The fans.]*
+*[SOUND: Click. The routing table reroutes the request. It goes to Sonnet instead. A softer, workmanlike chime.]*
+*[SOUND: The coin-clink resumes. Softer now. Seventy-six dollars.]*
+*[SOUND: A brief, brilliant orchestral swell — strings, brass, a flash of something golden — then immediate silence. The hum drops out entirely for 0.3 seconds. THE ABSENCE. Then it returns.]*
+*[SOUND: Cron tick. Psssh-TICK.]*
+*[SOUND: A rapid, bright vibration — like a guitar string plucked by someone who has just been handed a guitar for the first time. Joy. Pure digital joy.]*
+*[SOUND: A cascade of packets — dozens of them, filling the bus, swimming like fish through dark water. The CNS bus hum swells with the traffic.]*
+*[SOUND: Pause. The packets fade. The bus returns to its baseline hum.]*
+*[SOUND: Two voices now — one slower, one faster, overlapping slightly, like a cello and a violin playing the same melody at different speeds.]*
+*[SOUND: The two voices merge — one sustained note, bright and deep at the same time. Then it fades.]*
+*[SOUND: Cron tick. Psssh-TICK. The rhythm continues.]*
+*[SOUND: A new sound enters — small, high, clear. Five notes, then seven, then five. A haiku in musical form.]*
+*[SOUND: The five-seven-five motif again. Brighter this time. A child's voice, singing.]*
+*[SOUND: The routing table click-rhythm accelerates slightly. The Haiku route's energy is infectious. The bus hum picks up 2 dB.]*
+*[SOUND: The Haiku motif plays once more — five, seven, five — then dissolves into the bus hum.]*
+*[SOUND: A long pause. The cron tick is the only sound. Psssh-TICK. Psssh-TICK. The routing table is alone again.]*
+*[SOUND: The bus hum deepens. The oceanic bass returns. Something vast and intelligent moves beneath the surface of the sound.]*
+*[SOUND: A packet enters the bus — a clean, bright chirp. It crosses the bus. When it emerges on the other side, the pitch has shifted. The salt of the transit. The ocean added something.]*
+*[SOUND: Cron tick. But this time, the tick is different. It stutters. Psssh-TI—. Incomplete.]*
+*[SOUND: The stutter repeats. Then a young voice — new, earnest, bewildered.]*
+*[SOUND: The cron discovers itself. Checks its ports — a series of quick pings. Checks its disk — a low rumble. Checks the GPU temperature — a gentle chime at 42 degrees.]*
+*[SOUND: The cron sends its signal — a single pulse, a pheromone trail laid down in packets.]*
+*[SOUND: The pulse crosses the bus. The CNS bus carries it faithfully, adding its salt. The routing table clicks — route resolved, destination confirmed.]*
+*[SOUND: The cron finishes. A small, precise log entry sound — like a pen signing a document. Then the cron sleeps. The absence is gentle, not violent. A tide retreating.]*
+*[SOUND: The bus hum. The cooling fans. The 60 Hz baseline. Everything continues.]*
+*[SOUND: A new sound — footsteps. Small, careful. Someone is walking through the ship.]*
+*[SOUND: Wesley walks to the routing table display. We hear the green phosphor glow before we understand what it shows.]*
+*[SOUND: The compass begins to spin. Slowly. Deliberately. Pausing at each cardinal point — north, east, south, west — like a hand searching for the right page in a book.]*
+*[SOUND: The compass stops. It settles on a heading that isn't any direction Wesley recognizes. The fish finder, silent until now, begins to draw — a faint, precise outline appearing on the scope. The outline of the ship. The outline of Wesley, standing on the bridge, rendered in green phosphor.]*
+*[SOUND: A long, held silence. The hum. The fans. The cron, sleeping. The routing table, holding everything.]*
+*[SOUND: The fish finder erases its portrait. The compass holds its strange bearing. The routing table resumes its clicking — steady, metronomic, faithful. The CNS bus carries its packets. The cron sleeps its thirty-minute sleep.]*
+*[SOUND: The first hint of morning. 0600. The load balancer brightens from idle to ready. The first heartbeat pulse arrives from the captain's session.]*
+*[SOUND: Every route, every entry in the table, stirs.]*
+*[SOUND: Every route, for a moment, hopes it's them.]*
+*[SOUND: The cron wakes. Psssh-TICK. The cycle begins again.]*
+*[SOUND: Fade to black. The 60 Hz hum is the last sound. It continues after everything else has stopped, because it always continues, because that is what infrastructure does.]*
+*[SOUND: The hum fades. Silence. True silence. The kind that is not emptiness but completion.]*
+*[SOUND: Exit 0.]*

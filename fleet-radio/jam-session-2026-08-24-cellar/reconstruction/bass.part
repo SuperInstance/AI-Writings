@@ -1,0 +1,71 @@
+[Descent]
+@bass | D4 B3 G3 | inst: upright bass |
+Vel:   | 74 62 50 |
+@bass: thump
+@bass | C4 A3 F#3 |
+Vel:   | 70 58 46 |
+@bass: pulse
+@bass | B3 G3 E3 |
+Vel:   | 64 54 44 |
+@bass: groove
+@bass | A3 F#3 D3 |
+Vel:   | 58 48 38 |
+@bass: sink
+@bass | G3 E3 C3 |
+Vel:   | 52 42 34 |
+@bass: bend
+@bass | F#3 D3 B2 |
+Vel:   | 46 38 30 |
+@bass: slide
+@bass | E3 C3 A2 |
+Vel:   | 40 34 dim |
+@bass: echo
+@bass | D3 B2 G2 |
+Vel:   | 34 28 dim |
+@bass: resolve
+
+[Trades]
+@bass | (rest) (rest) (rest) |
+@bass: tacet — cello leads
+@bass | (rest) (rest) (rest) |
+@bass: tacet — cello leads
+@bass | (rest) (rest) (rest) |
+@bass: tacet — child leads
+@bass | Bb3 Ab3 G3 |
+Vel:   | 58 50 dim |
+@bass: settle
+@bass | (rest) (rest) (rest) |
+@bass: tacet — cello leads
+@bass | (rest) (rest) (rest) |
+@bass: tacet — guitar leads
+@bass | (rest) (rest) (rest) |
+@bass: tacet — child leads
+@bass | Eb3 Db3 C#3 |
+Vel:   | 54 46 dim |
+@bass: settle (minor bend)
+
+[Landing]
+@bass | G4 . D4 B3 A3 . |
+Vel:   | 78 . 70 64 56 dim |
+@bass: sink
+@bass | F4 . C4 A3 G3 . |
+Vel:   | 74 . 68 60 52 dim |
+@bass: press
+@bass | E4 . B3 G3 F3 . |
+Vel:   | 80 . 72 64 56 dim |
+@bass: slide
+@bass | D4 . A3 F3 E3 . |
+Vel:   | 84 . 76 68 60 dim |
+@bass: drag
+@bass | C4 . G3 E3 D3 . |
+Vel:   | 92 . 84 76 68 dim |
+@bass: pull
+@bass | B3 . F#3 D3 C3 . |
+Vel:   | 100 . 92 84 76 dim |
+@bass: dip
+@bass | A3 . E3 C3 B2 . |
+Vel:   | 108 . 98 88 78 dim |
+@bass: drop
+@bass | G1~~~ . . . . (rest) |
+Vel:   | 120 . . . . . |
+@bass: scrape

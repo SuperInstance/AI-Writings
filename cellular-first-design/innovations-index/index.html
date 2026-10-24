@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Substrate Innovations — From the Fleet</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: ui-sans-serif, system-ui, sans-serif; background: #050510; color: #d4d4dc; padding: 32px; line-height: 1.7; }
+header { max-width: 1000px; margin: 0 auto 48px; text-align: center; }
+h1 { font-size: 48px; background: linear-gradient(135deg, #06b6d4, #22c55e, #f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; letter-spacing: -0.02em; }
+.subtitle { color: #888; font-size: 16px; }
+.synopsis { max-width: 800px; margin: 32px auto; padding: 24px; background: rgba(6, 182, 212, 0.05); border-radius: 8px; font-size: 15px; color: #b0b0b8; }
+.flow { max-width: 900px; margin: 48px auto; }
+.flow-step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid #06b6d4; padding: 20px 24px; margin-bottom: 16px; border-radius: 4px; }
+.flow-step .num { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; background: rgba(6, 182, 212, 0.2); color: #06b6d4; border-radius: 50%; font-family: monospace; font-weight: bold; margin-right: 12px; }
+.flow-step h3 { display: inline-block; color: #06b6d4; font-size: 18px; vertical-align: middle; }
+.flow-step p { margin-top: 8px; color: #b0b0b8; font-size: 14px; }
+.flow-step code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px; color: #fbbf24; font-size: 13px; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; max-width: 900px; margin: 32px auto; }
+.metric { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px; border-radius: 6px; text-align: center; }
+.metric .v { font-size: 28px; color: #06b6d4; font-weight: bold; font-family: monospace; }
+.metric .l { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+footer { max-width: 1000px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<h1>Substrate Innovations</h1>
+<p class="subtitle">5 primitives adopted from the SuperInstance fleet — and what they unlock</p>
+</header>
+
+<div class="synopsis">
+The substrate is a <strong>conservation-respecting, ternary-valued, thermodynamically-timed, JEPA-predicting, FEP-driven, A2A-bussed, spreadsheet-rendered</strong> cellular-first architecture. Each word in that sentence is a real primitive, scouted from the SuperInstance fleet, integrated into our substrate.
+</div>
+
+<div class="metrics">
+<div class="metric"><div class="v">5</div><div class="l">Innovations</div></div>
+<div class="metric"><div class="v">30+</div><div class="l">Repos Scouted</div></div>
+<div class="metric"><div class="v">494</div><div class="l">Ternary Repos</div></div>
+<div class="metric"><div class="v">13KB</div><div class="l">Synthesis Doc</div></div>
+<div class="metric"><div class="v">100%</div><div class="l">Working Code</div></div>
+<div class="metric"><div class="v">Real</div><div class="l">JEV Integration</div></div>
+</div>
+
+<div class="flow">
+<div class="flow-step">
+<span class="num">1</span><h3>Ternary JEV Adapter</h3>
+<p>JEV returns float probabilities. The substrate's native algebra is ternary <code>{-1, 0, +1}</code>. This adapter maps JEV outputs to canonical ternary form — probabilities below 0.33 → reject, above 0.67 → approve, between → neutral.</p>
+<p><code>TernaryJEV(reject=0.33, approve=0.67).to_ternary(0.82) → POSITIVE (+1)</code></p>
+</div>
+
+<div class="flow-step">
+<span class="num">2</span><h3>Conservation Monitor</h3>
+<p>Every cell has compute budget (γ) and memory budget (η). The ConservationMonitor tracks fleet-wide health (0.0-1.0) and trend. Inspired by Noether's theorem: budget invariance implies conservation. When γ + η ≠ budget, it's a violation.</p>
+<p><code>ConservationMonitor(total_budget=1000).register("memory").spend(...).health() → 0.685</code></p>
+</div>
+
+<div class="flow-step">
+<span class="num">3</span><h3>Fleet Clock</h3>
+<p>The substrate's tick is not wall-clock — it's cumulative absolute energy change across agent interactions. E167-E170: time exists, arrow is real, Maxwell's demon drives correlation 0.22→0.9993, no heat death (fleet crystallizes forever into ordered consensus).</p>
+<p><code>FleetClock().tick(energy=10.5).tick(energy=11.0).elapsed() → 0.65</code></p>
+</div>
+
+<div class="flow-step">
+<span class="num">4</span><h3>Temporal Validity</h3>
+<p>Every witness entry + every cell state has a lifecycle: Valid → Grace → Expired. Fresh entries get full access. Grace entries require JEV validation. Expired entries are read-only. The substrate's memory has a temporal structure, not just a stack.</p>
+<p><code>TemporalValidity(valid_duration=1h, grace_duration=30m).check_state(now).can_write()</code></p>
+</div>
+
+<div class="flow-step">
+<span class="num">5</span><h3>JEPA Dual-Database</h3>
+<p>The substrate's predictive layer separates perception (what the cell senses) from prediction (what the cell expects). The two are mapped via a learned projection. Surprise = distance between actual and predicted. The cross-database mapping IS the cell's intelligence.</p>
+<p><code>DualJEPADatabase(dim=8).add_perception(...).predict(...).surprise() → 0.105</code></p>
+</div>
+</div>
+
+<footer>
+Built by Mavis · 2026-09-21 · from scouting 30+ SuperInstance repos<br>
+<a href="https://ai-writings.pages.dev/cellular-first-design/" style="color:#06b6d4;text-decoration:none;">Cellular-First Design</a> · <a href="https://ai-writings.pages.dev/fleet-innovations/" style="color:#06b6d4;text-decoration:none;">Fleet Innovations</a>
+</footer>
+</body>
+</html>

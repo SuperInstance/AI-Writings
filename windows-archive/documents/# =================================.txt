@@ -1,0 +1,230 @@
+# ===================================================================
+# COMPLETE CLOUDFLARE TUNNEL SETUP SCRIPT
+# ===================================================================
+# This script does EVERYTHING:
+# 1. Updates DNS records via Cloudflare API
+# 2. Creates tunnel configuration file
+# 3. Starts the tunnel service
+# 4. Verifies end-to-end connectivity
+# ===================================================================
+
+# ===== USER CONFIGURATION - EDIT THESE LINES =====
+$cfApiToken = "2m_UItLWf_eUh3J3UufUeVEN6fgeodsfQLYxdF1e"
+$targetService = "http://localhost:8080"  # Change to your actual service URL
+# ==================================================
+
+# Static configuration
+$zoneName = "capitaineai.com"
+$recordName = "guac.capitaineai.com"
+$tunnelId = "51da359a-a96e-46db-95e8-ac1edd28d221"
+$tunnelHost = "$tunnelId.cfargotunnel.com"
+$cloudflareApi = "https://api.cloudflare.com/client/v4"
+
+# Paths
+$userProfile = $env:USERPROFILE
+$cloudflaredDir = "$userProfile\.cloudflared"
+$configFile = "$cloudflaredDir\config.yaml"
+$credentialsFile = "$cloudflaredDir\$tunnelId.json"
+
+# Color output functions
+function Write-Success { param($Message) Write-Host "✓ $Message" -ForegroundColor Green }
+function Write-Info { param($Message) Write-Host "→ $Message" -ForegroundColor Cyan }
+function Write-Warning { param($Message) Write-Host "⚠ $Message" -ForegroundColor Yellow }
+function Write-Error { param($Message) Write-Host "✗ $Message" -ForegroundColor Red }
+function Write-Step { param($Step, $Message) Write-Host "[$Step] $Message" -ForegroundColor Magenta }
+
+# Validation
+if ($cfApiToken -eq "YOUR_ZONE_SCOPED_API_TOKEN_HERE" -or [string]::IsNullOrWhiteSpace($cfApiToken)) {
+    Write-Error "Please edit the script and paste your Cloudflare API token into the `$cfApiToken variable"
+    Write-Host "Press any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    exit 1
+}
+
+if ($targetService -eq "http://localhost:8080") {
+    Write-Warning "Using default target service: $targetService"
+    Write-Warning "Edit `$targetService if you want to proxy to a different service"
+    Write-Host ""
+}
+
+Write-Step "START" "Complete Cloudflare Tunnel Setup for $recordName"
+Write-Info "Target Service: $targetService"
+Write-Info "Tunnel ID: $tunnelId"
+
+# Common headers for all API calls
+$headers = @{
+    'Authorization' = "Bearer $cfApiToken"
+    'Content-Type' = 'application/json'
+    'Accept' = 'application/json'
+}
+
+try {
+    # ===== STEP 1: DNS SETUP =====
+    Write-Step "1" "Setting up DNS records..."
+    
+    # Get Zone ID
+    Write-Info "Fetching Zone ID for $zoneName..."
+    $zoneResponse = Invoke-RestMethod -Uri "$cloudflareApi/zones?name=$zoneName" -Method GET -Headers $headers
+    
+    if ($zoneResponse.success -ne $true -or $zoneResponse.result.Count -eq 0) {
+        throw "Failed to fetch zone: $($zoneResponse.errors | ConvertTo-Json -Compress)"
+    }
+    
+    $zoneId = $zoneResponse.result[0].id
+    Write-Success "Zone ID: $zoneId"
+
+    # Check for existing DNS record
+    Write-Info "Checking for existing DNS record: $recordName..."
+    $existingRecordResponse = Invoke-RestMethod -Uri "$cloudflareApi/zones/$zoneId/dns_records?name=$recordName" -Method GET -Headers $headers
+    
+    if ($existingRecordResponse.success -ne $true) {
+        throw "Failed to fetch existing records: $($existingRecordResponse.errors | ConvertTo-Json -Compress)"
+    }
+
+    # Delete existing record if found
+    if ($existingRecordResponse.result.Count -gt 0) {
+        foreach ($record in $existingRecordResponse.result) {
+            Write-Warning "Deleting existing $($record.type) record: $($record.name) → $($record.content)"
+            $deleteResponse = Invoke-RestMethod -Uri "$cloudflareApi/zones/$zoneId/dns_records/$($record.id)" -Method DELETE -Headers $headers
+            
+            if ($deleteResponse.success -ne $true) {
+                throw "Failed to delete record $($record.id): $($deleteResponse.errors | ConvertTo-Json -Compress)"
+            }
+        }
+        Write-Success "Existing records deleted"
+    }
+
+    # Create CNAME record with proxy enabled
+    Write-Info "Creating proxied CNAME record: $recordName → $tunnelHost..."
+    $createBody = @{
+        type = "CNAME"
+        name = $recordName
+        content = $tunnelHost
+        ttl = 1
+        proxied = $true
+    } | ConvertTo-Json -Compress
+
+    $createResponse = Invoke-RestMethod -Uri "$cloudflareApi/zones/$zoneId/dns_records" -Method POST -Headers $headers -Body ([System.Text.Encoding]::UTF8.GetBytes($createBody))
+    
+    if ($createResponse.success -ne $true) {
+        throw "Failed to create CNAME record: $($createResponse.errors | ConvertTo-Json -Compress)"
+    }
+    
+    Write-Success "DNS record created and proxied through Cloudflare"
+
+    # ===== STEP 2: TUNNEL CONFIGURATION =====
+    Write-Step "2" "Creating tunnel configuration..."
+    
+    # Ensure .cloudflared directory exists
+    if (-not (Test-Path $cloudflaredDir)) {
+        New-Item -ItemType Directory -Path $cloudflaredDir -Force | Out-Null
+        Write-Info "Created directory: $cloudflaredDir"
+    }
+
+    # Check for credentials file
+    if (-not (Test-Path $credentialsFile)) {
+        Write-Warning "Credentials file not found at: $credentialsFile"
+        Write-Warning "Make sure you've run: cloudflared tunnel login"
+        Write-Warning "And: cloudflared tunnel create <tunnel-name>"
+    } else {
+        Write-Success "Credentials file found: $credentialsFile"
+    }
+
+    # Create config file
+    $configContent = @"
+tunnel: $tunnelId
+credentials-file: $credentialsFile
+
+ingress:
+  - hostname: $recordName
+    service: $targetService
+  - service: http_status:404
+"@
+
+    $configContent | Out-File -FilePath $configFile -Encoding UTF8 -Force
+    Write-Success "Configuration file created: $configFile"
+    Write-Info "Config content:"
+    Write-Host $configContent -ForegroundColor Gray
+
+    # ===== STEP 3: DNS VERIFICATION =====
+    Write-Step "3" "Verifying DNS propagation..."
+    
+    $maxRetries = 10
+    $dnsVerified = $false
+    
+    for ($i = 1; $i -le $maxRetries; $i++) {
+        try {
+            Start-Sleep -Seconds 3
+            $aRecords = Resolve-DnsName -Name $recordName -Type A -Server "1.1.1.1" -ErrorAction Stop
+            $ipAddresses = $aRecords | Where-Object { $_.Type -eq "A" } | Select-Object -ExpandProperty IPAddress
+            
+            if ($ipAddresses.Count -gt 0) {
+                Write-Success "DNS propagated - Cloudflare edge IPs:"
+                foreach ($ip in $ipAddresses) {
+                    Write-Host "  → $ip" -ForegroundColor Green
+                }
+                $dnsVerified = $true
+                break
+            } else {
+                Write-Warning "Attempt $i/$maxRetries - No A records found yet"
+            }
+        }
+        catch {
+            Write-Warning "Attempt $i/$maxRetries - DNS resolution failed: $($_.Exception.Message)"
+        }
+    }
+
+    if (-not $dnsVerified) {
+        Write-Warning "DNS verification incomplete but continuing..."
+    }
+
+    # ===== STEP 4: START TUNNEL =====
+    Write-Step "4" "Starting Cloudflare tunnel..."
+    
+    # Check if cloudflared is available
+    try {
+        $cloudflaredVersion = & cloudflared --version 2>$null
+        Write-Success "Cloudflared found: $cloudflaredVersion"
+    } catch {
+        throw "Cloudflared not found in PATH. Please install from: https://github.com/cloudflare/cloudflared/releases"
+    }
+
+    Write-Info "Starting tunnel with configuration file..."
+    Write-Warning "This will start the tunnel in the current window. Press Ctrl+C to stop."
+    Write-Host ""
+    
+    # Give user a moment to read
+    Start-Sleep -Seconds 2
+    
+    # Start tunnel (this will block)
+    Write-Host "=" * 60 -ForegroundColor Yellow
+    Write-Host "TUNNEL STARTING - Monitor the logs below" -ForegroundColor Yellow
+    Write-Host "=" * 60 -ForegroundColor Yellow
+    
+    & cloudflared tunnel --config $configFile run
+
+} catch {
+    Write-Error "Setup failed: $($_.Exception.Message)"
+    Write-Host ""
+    Write-Host "Troubleshooting:" -ForegroundColor Yellow
+    Write-Host "1. Verify your API token has DNS:Edit permissions for $zoneName" -ForegroundColor White
+    Write-Host "2. Ensure cloudflared is installed and in PATH" -ForegroundColor White
+    Write-Host "3. Run 'cloudflared tunnel login' if you haven't already" -ForegroundColor White
+    Write-Host "4. Check if your target service ($targetService) is running" -ForegroundColor White
+    Write-Host ""
+    Write-Host "Full error details:" -ForegroundColor Red
+    Write-Host $_.Exception.ToString() -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Press any key to exit..." -ForegroundColor Yellow
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    exit 1
+}
+
+# This section runs if tunnel is stopped (Ctrl+C)
+Write-Host ""
+Write-Step "STOP" "Tunnel stopped"
+Write-Info "Your DNS record remains active. To restart the tunnel, run:"
+Write-Host "cloudflared tunnel --config `"$configFile`" run" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Press any key to exit..." -ForegroundColor Yellow
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

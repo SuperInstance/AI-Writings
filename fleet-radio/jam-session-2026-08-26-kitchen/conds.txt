@@ -1,0 +1,14 @@
+CONDITIONS -CONDITIONS - SET 23: THE KITCHEN (Wednesday 8:30 PM, after close)
+The Tap's kitchen after last call. Doors locked, lights half-off, griddle still ticking as it cools.
+Steam still rises off the dish pit. The room smells of bleach and tomorrow's bread proofing on the rack.
+Nobody's being paid tonight - the band stayed because the kitchen is the warmest room in the building
+and the walk-in hums a perfect G. It has hummed that G for thirty years; tonight you tune to the walk-in.
+- KEY: G major, but no instrument may play the open G string as a melody note - the walk-in owns that G.
+  You may only touch it in passing. It is the room's note, not yours.
+- METER: 5/4 - a slow wolf swing, five counts like carrying four plates plus the coffee.
+  TEMPO: 88 BPM. The room is small; play like it.
+- THE STEAM RULE: whenever you finish a phrase, at least one note must be DAMPED - choked, muted,
+  swallowed - as if a cloud of steam took it. The kitchen eats one note per phrase. Feed it.
+FORMAT - output ONLY bar lines, no preamble, no thinking:
+BAR 1: <notes with octaves, e.g. B4 D5 G4> | <one gesture-word in lowercase>
+8 bars per round. Last line: WHY: <one sentence>.

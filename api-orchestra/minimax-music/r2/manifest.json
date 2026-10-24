@@ -1,0 +1,26 @@
+[
+ {
+  "title": "the-probe-remembers",
+  "file": "the-probe-remembers.mp3",
+  "model": "music-3.0",
+  "instrumental": false,
+  "prompt": "Slow electric blues, warm tube amp, brushed snare, walking bass, low smoky male vocal, 62 bpm, late night, unhurried",
+  "lyrics": "[Verse]\nI asked a question of a wall of glass\nIt gave me back the number that I had\n[Chorus]\nThe probe remembers what the system forgets\n[Verse]\nThree times we ran it and the third one lied\n[Chorus]\nThe probe remembers\nThe probe remembers",
+  "trace_id": "070d3c690456af47f8c02c12df1fbaef",
+  "bytes": 3043046,
+  "sha256": "8513254ddc2d12313e35cf926360666b2d1b5efb92b22dbc1ac6252f35a60383",
+  "audio": "ID3v2.4 MPEG Layer III, 256 kbps, 44.1 kHz stereo (verified with `file -b`)"
+ },
+ {
+  "title": "observation-is-a-projection",
+  "file": "observation-is-a-projection.mp3",
+  "model": "music-3.0",
+  "instrumental": false,
+  "prompt": "Modern folk, fingerpicked acoustic guitar, upright bass, four-part close harmony, steady, 104 bpm, plainspoken",
+  "lyrics": "[Verse]\nEverything you ever saw was only ever a slice\nEvery slice dropped a part of it to keep it nice\n[Chorus]\nWhat survives is bounded by the observation\nNo clever mind recovers what the looking never carried home\n[Verse]\nDownstream cannot fix a loss upstream\n[Chorus]\nWhat survives is what the seeing let through",
+  "trace_id": "070d3cb48257fdf09ec4ded53f1765aa",
+  "bytes": 3377413,
+  "sha256": "6165a5258fc27a0d0d2d6a4e460558f4c4622200587b83b66b455c0007a858d7",
+  "audio": "ID3v2.4 MPEG Layer III, 256 kbps, 44.1 kHz stereo (verified with `file -b`)"
+ }
+]

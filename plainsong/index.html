@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎵 Plainsong — 4 voices swap mid-stream</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.4em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:2rem}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0}
+audio{width:100%;margin:.5rem 0}
+.voice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.5rem 0}
+.voice-card{background:#1a1a2e;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;cursor:pointer;transition:all .2s}
+.voice-card:hover{border-color:#e8b840;transform:translateY(-2px)}
+.voice-card.active{border-color:#44cc88;background:#2a2a3a}
+.voice-name{color:#e8b840;font-weight:bold;font-size:1.05em;margin-bottom:.3rem}
+.voice-desc{color:#bbb;font-size:.85em;margin-bottom:.5rem}
+.voice-status{color:#888;font-size:.8em;font-family:monospace}
+.swap-matrix{overflow-x:auto;margin:1.5rem 0}
+table{width:100%;border-collapse:collapse;font-size:0.88em}
+th,td{padding:.5rem;border:1px solid #2a2a3a;text-align:center}
+th{background:#11111a;color:#e8b840}
+.swatch{width:60px;height:30px;border-radius:4px;display:inline-block;vertical-align:middle}
+.callout{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1rem 0;font-style:italic;color:#ccc}
+.composer{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0}
+.swap-row{display:flex;gap:.5rem;margin:.5rem 0;align-items:center}
+.swap-row label{flex:0 0 120px;color:#e8b840}
+.swap-row select{flex:1;background:#1a1a2e;color:#e8e0d0;border:1px solid #2a2a3a;border-radius:4px;padding:.3rem;font-family:monospace}
+.swap-row button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:4px;padding:.3rem .8rem;cursor:pointer}
+.swap-row button:hover{background:#e8b840;color:#0a0a14}
+.sequence-display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:4px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:.9em;color:#44cc88;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/lab/">← /lab</a><a href="/brewcast/">brewcast</a></div>
+
+<h1>🎵 Plainsong</h1>
+<p class="lead">Four voices. Each on its own frequency. You can swap any voice mid-stream — the song continues, but the harmony shifts.</p>
+
+<div class="callout">
+<strong>Plainsong</strong> is the substrate's collaborative harmony. Each voice represents one lens — EXTENSION-SEEKER, HISTORIAN, SKEPTIC, MECHANIC. The four voices don't argue; they sing. You can swap any voice for another at any point, and the plainsong recomposes itself.
+</div>
+
+<h2>The 4 voices</h2>
+<div class="voice-grid" id="voice-grid"></div>
+
+<h2>Listen — original plainsong</h2>
+<div class="stage">
+<audio controls src="../brewcast/episode-001/music/plainsong.mp3"></audio>
+<p style="color:#888;font-size:.85em">3:00 · 4-voice procedural plainsong (ffmpeg sin waves + brown noise + echo)</p>
+</div>
+
+<h2>The swap matrix</h2>
+<p>Each row is a voice slot. Each column is a lens. Click any (slot, lens) cell to swap.</p>
+<div class="swap-matrix">
+<table>
+<thead>
+<tr><th>Voice slot ↓ / Lens →</th><th>EXTENSION-SEEKER</th><th>HISTORIAN</th><th>SKEPTIC</th><th>MECHANIC</th></tr>
+</thead>
+<tbody id="swap-matrix-body"></tbody>
+</table>
+</div>
+
+<h2>Build your own plainsong</h2>
+<div class="composer">
+<p style="color:#bbb;margin-bottom:1rem">Each row swaps one voice to a different lens. The order matters — each voice builds on the previous.</p>
+<div id="swaps"></div>
+<div style="margin-top:1rem">
+<button onclick="addSwap()" style="background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;padding:.5rem 1.2rem;cursor:pointer">+ Add swap</button>
+<button onclick="composePlainsong()" style="background:#44cc88;color:#0a0a14;border:none;border-radius:20px;padding:.5rem 1.2rem;cursor:pointer;margin-left:.5rem;font-weight:bold">▶ Compose</button>
+</div>
+<div class="sequence-display" id="sequence"></div>
+</div>
+
+<script>
+const VOICES = [
+  { id: 'EXTENSION-SEEKER', name: 'Extension-Seeker', desc: 'High frequency, rising tones. Pushes the harmony outward.', color: '#ff6b6b', freq: 'low+sine+chorus' },
+  { id: 'HISTORIAN', name: 'Historian', desc: 'Mid frequency, stable tones. Carries the memory of past harmonies.', color: '#44cc88', freq: 'mid+sine+echo' },
+  { id: 'SKEPTIC', name: 'Skeptic', desc: 'Dissonant frequency, questioning intervals. The harmony that doubts itself.', color: '#e8b840', freq: 'dissonant+sine' },
+  { id: 'MECHANIC', name: 'Mechanic', desc: 'Low drone, fixed rhythm. Holds the foundation while others sing.', color: '#88ddff', freq: 'low+drone+brown_noise' },
+];
+
+const grid = document.getElementById('voice-grid');
+const matrixBody = document.getElementById('swap-matrix-body');
+
+const SLOTS = ['Voice 1 (root)', 'Voice 2 (middle)', 'Voice 3 (high)', 'Voice 4 (drone)'];
+const currentAssignment = ['EXTENSION-SEEKER', 'HISTORIAN', 'SKEPTIC', 'MECHANIC'];
+
+// Render voice cards
+VOICES.forEach(v => {
+  const card = document.createElement('div');
+  card.className = 'voice-card';
+  card.dataset.voice = v.id;
+  card.innerHTML = `
+    <div class="voice-name">${v.name}</div>
+    <div class="voice-desc">${v.desc}</div>
+    <div class="voice-status" style="color:${v.color}">frequency: ${v.freq}</div>
+  `;
+  card.onclick = () => {
+    document.querySelectorAll('.voice-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  };
+  grid.appendChild(card);
+});
+
+// Render swap matrix
+SLOTS.forEach((slot, slotIdx) => {
+  const row = document.createElement('tr');
+  row.innerHTML = `<td style="text-align:left;color:#e8b840;font-weight:bold">${slot}</td>`;
+  VOICES.forEach(voice => {
+    const cell = document.createElement('td');
+    const isCurrent = voice.id === currentAssignment[slotIdx];
+    if (isCurrent) cell.style.background = voice.color + '40';
+    cell.style.cursor = 'pointer';
+    cell.innerHTML = `<span class="swatch" style="background:${voice.color}"></span>`;
+    cell.onclick = () => {
+      currentAssignment[slotIdx] = voice.id;
+      // Re-render
+      matrixBody.innerHTML = '';
+      SLOTS.forEach((s, i) => {
+        const r = document.createElement('tr');
+        r.innerHTML = `<td style="text-align:left;color:#e8b840;font-weight:bold">${s}</td>`;
+        VOICES.forEach(v => {
+          const c = document.createElement('td');
+          const isC = v.id === currentAssignment[i];
+          if (isC) c.style.background = v.color + '40';
+          c.style.cursor = 'pointer';
+          c.innerHTML = `<span class="swatch" style="background:${v.color}"></span>`;
+          c.onclick = arguments.callee;
+          r.appendChild(c);
+        });
+        matrixBody.appendChild(r);
+      });
+    };
+    row.appendChild(cell);
+  });
+  matrixBody.appendChild(row);
+});
+
+// Swap composer
+const swapsDiv = document.getElementById('swaps');
+const swapRows = [];
+
+function addSwap() {
+  const row = document.createElement('div');
+  row.className = 'swap-row';
+  row.innerHTML = `
+    <label>Slot ${swapRows.length + 1}:</label>
+    <select>
+      ${SLOTS.map(s => `<option value="${s}">${s}</option>`).join('')}
+    </select>
+    <span style="color:#888">→</span>
+    <select>
+      ${VOICES.map(v => `<option value="${v.id}">${v.name}</option>`).join('')}
+    </select>
+    <button onclick="this.parentNode.remove(); swapRows.splice(${swapRows.length}, 1)">×</button>
+  `;
+  swapsDiv.appendChild(row);
+  swapRows.push(row);
+}
+
+function composePlainsong() {
+  const seq = [];
+  seq.push(`ORIGINAL plainsong:`);
+  seq.push(currentAssignment.map(v => VOICES.find(x => x.id === v).name).join(' → '));
+  
+  swapRows.forEach((row, idx) => {
+    const slot = row.querySelectorAll('select')[0].value;
+    const lens = row.querySelectorAll('select')[1].value;
+    const lensName = VOICES.find(v => v.id === lens).name;
+    seq.push(`SWAP ${idx + 1}: ${slot} → ${lensName}`);
+  });
+  
+  seq.push(`FINAL:`);
+  seq.push(swapRows.length > 0 ? '(modified assignment)' : '(unchanged)');
+  
+  document.getElementById('sequence').textContent = seq.join('\n');
+}
+
+// Add initial swap row
+addSwap();
+</script>
+
+</body>
+</html>

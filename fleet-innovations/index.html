@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fleet Innovations — Ternary, Conservation, Fleet-Clock, JEPA, Time</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: ui-sans-serif, system-ui, sans-serif; background: #0a0a14; color: #d4d4dc; padding: 32px; line-height: 1.7; }
+header { max-width: 1100px; margin: 0 auto 48px; text-align: center; }
+h1 { font-size: 38px; color: #06b6d4; margin-bottom: 8px; letter-spacing: -0.02em; }
+.subtitle { color: #888; font-size: 16px; max-width: 700px; margin: 0 auto; }
+.quote { background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06b6d4; padding: 16px 24px; margin: 32px auto; max-width: 700px; font-style: italic; color: #a8a8b0; border-radius: 4px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+.card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 24px; transition: all 0.2s; }
+.card:hover { border-color: #06b6d4; transform: translateY(-2px); }
+.card .badge { display: inline-block; background: rgba(6, 182, 212, 0.15); color: #06b6d4; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-family: monospace; margin-bottom: 12px; }
+.card h2 { color: #06b6d4; font-size: 20px; margin-bottom: 8px; }
+.card .subtitle { color: #888; font-size: 13px; margin-bottom: 12px; }
+.card p { color: #b0b0b8; font-size: 14px; margin-bottom: 12px; }
+.card .code { background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 4px; font-family: monospace; font-size: 12px; color: #fbbf24; overflow-x: auto; }
+.card .source { margin-top: 12px; font-size: 12px; color: #666; }
+.card .source a { color: #06b6d4; text-decoration: none; }
+.live { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 32px; border-radius: 8px; margin: 48px auto; max-width: 1100px; }
+.live h3 { color: #22c55e; margin-bottom: 12px; }
+.live pre { background: rgba(0, 0, 0, 0.3); padding: 16px; border-radius: 4px; overflow-x: auto; color: #d4d4dc; font-size: 12px; }
+.doctrine { background: rgba(245, 158, 11, 0.05); border-left: 3px solid #f59e0b; padding: 24px; margin: 48px auto; max-width: 1100px; font-style: italic; color: #ccc; line-height: 1.8; border-radius: 4px; }
+.doctrine strong { color: #f59e0b; font-style: normal; }
+footer { max-width: 1100px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<h1>🚢 Fleet Innovations</h1>
+<p class="subtitle">5 substrate primitives adopted from SuperInstance fleet — ternary values, conservation laws, fleet-clock, JEPA dual-db, temporal validity.</p>
+<div class="quote">"The substrate is a conservation-respecting, ternary-valued, thermodynamically-timed, JEPA-predicting, FEP-driven, A2A-bussed, spreadsheet-rendered cellular-first architecture."</div>
+</header>
+
+<div class="grid">
+
+<div class="card">
+<span class="badge">PRIMITIVE 1</span>
+<h2>🔺 Ternary Values</h2>
+<p class="subtitle">JEV float → substrate {-1, 0, +1}</p>
+<p>Every JEV decision has a canonical ternary form. Probabilities below 0.33 → reject, above 0.67 → approve, between → neutral. The substrate's natural algebra is ternary — decisions are approve/neutral/reject, not floats.</p>
+<div class="code">TernaryJEV(reject=0.33, approve=0.67)
+.to_ternary(0.82) → POSITIVE (+1)
+.to_ternary(0.50) → NEUTRAL (0)
+.to_ternary(0.15) → NEGATIVE (-1)</div>
+<p class="source">Source: <a href="https://github.com/SuperInstance/ternary-spreadsheet">ternary-spreadsheet</a> · <a href="https://github.com/SuperInstance/ternary-tensor">ternary-tensor</a></p>
+</div>
+
+<div class="card">
+<span class="badge">PRIMITIVE 2</span>
+<h2>⚖️ Conservation Monitor</h2>
+<p class="subtitle">γ + η = budget, Noether-style</p>
+<p>Every cell has compute budget (γ) and memory budget (η). The ConservationMonitor tracks fleet-wide health (0.0-1.0) and trend (improving/degrading/stable). When γ + η ≠ budget, it's not just a bug — it's a conservation violation. Inspired by Noether's theorem: budget invariance implies conservation.</p>
+<div class="code">ConservationMonitor(total_budget=1000)
+.register("memory", budget=200, γ=50, η=30)
+.spend("memory", compute=80, memory=40)
+.health() → 0.685
+.violations() → ['mood', 'personality', ...]</div>
+<p class="source">Source: <a href="https://github.com/SuperInstance/spreadsheet-engine">spreadsheet-engine</a></p>
+</div>
+
+<div class="card">
+<span class="badge">PRIMITIVE 3</span>
+<h2>⏱️ Fleet Clock</h2>
+<p class="subtitle">Emergent thermodynamic time</p>
+<p>The substrate's notion of "tick" is not wall-clock — it's the cumulative absolute energy change across agent interactions. E167-E170: time exists, arrow is real, Maxwell's demon drives correlation 0.22→0.9993, no heat death (fleet crystallizes forever).</p>
+<div class="code">FleetClock()
+.tick(energy=10.5)
+.tick(energy=11.0)
+.tick(energy=11.15)
+.elapsed() → 0.65
+.is_decelerating() → True
+.approaching_consensus() → True</div>
+<p class="source">Source: <a href="https://github.com/SuperInstance/fleet-clock">fleet-clock</a></p>
+</div>
+
+<div class="card">
+<span class="badge">PRIMITIVE 4</span>
+<h2>⏳ Temporal Validity</h2>
+<p class="subtitle">Valid → Grace → Expired lifecycle</p>
+<p>Every witness entry + every cell state has a temporal lifecycle. Fresh entries get full access. Grace entries require JEV validation. Expired entries are read-only but the witness log stays queryable. The substrate's memory has a temporal structure.</p>
+<div class="code">TemporalValidity(
+  valid_duration=1h,
+  grace_duration=30m
+)
+.check_state(now)
+.can_write() → True/False
+.requires_jev_validation() → True/False</div>
+<p class="source">Source: <a href="https://github.com/SuperInstance/plato-temporal-validity">plato-temporal-validity</a></p>
+</div>
+
+<div class="card">
+<span class="badge">PRIMITIVE 5</span>
+<h2>🧠 JEPA Dual-Database</h2>
+<p class="subtitle">Perception + prediction, separate spaces</p>
+<p>The substrate's predictive layer separates perception (what the cell senses) from prediction (what the cell expects). The two are mapped via a learned projection. Surprise = distance between actual and predicted. The cross-database mapping IS the cell's intelligence.</p>
+<div class="code">DualJEPADatabase(dim=8)
+.add_perception("t0", [1.0, 0.5, 0.2, 0.1])
+.predict("t0") → Vector
+.surprise("t0") → 0.105
+.update("t0") → reduces surprise</div>
+<p class="source">Source: <a href="https://github.com/SuperInstance/plato-jepa-dual">plato-jepa-dual</a></p>
+</div>
+
+<div class="card">
+<span class="badge">ARCHITECTURE</span>
+<h2>🧮 Spreadsheet Engine</h2>
+<p class="subtitle">7 cell types + A2A bus</p>
+<p>The fleet's spreadsheet-engine has 7 cell types: Value, Agent, Training, Simulation, A2A, Formula, MIDI. With conservation monitor, dependency graph, A2A bus, and MIDI generation. This is what every cell-architecture UI should look like.</p>
+<div class="code">Engine.tick()
+→ evaluate cells in dependency order
+→ route A2A messages
+→ record conservation health
+→ MIDI-sonify cell values</div>
+<p class="source">Source: <a href="https://github.com/SuperInstance/spreadsheet-engine">spreadsheet-engine</a></p>
+</div>
+
+</div>
+
+<div class="live">
+<h3>🔬 Live Test Outputs</h3>
+<pre>
+$ python3 ternary_jev.py
+=== Ternary JEV Adapter ===
+  0.00 → T(-1)   0.33 → T( 0)   0.67 → T( 0)
+  0.30 → T(-1)   0.50 → T( 0)   0.80 → T(+1)
+Entropy of uniform ternary: 1.585 bits
+Entropy of 50/50 split: 1.000 bits
+
+$ python3 conservation_monitor.py
+=== Conservation Monitor ===
+Initial: health=0.55, violations=5
+After spend: health=0.685, violations=4
+After massive spend: health=0.915, trend=improving
+
+$ python3 fleet_clock.py
+=== Fleet Clock ===
+tick  energy   rate     fleet_time  direction
+0     10.00    0.000    0.000       symmetric
+1     10.50    0.500    0.500       forward
+2     10.80    0.300    0.800       forward
+...
+19    11.20    0.000    1.200       forward
+Is decelerating: True   Approaching consensus: True
+
+$ python3 temporal_validity.py
+=== Temporal Validity ===
+Fresh: state=valid, can_write=True, requires_jev=False
+Grace: state=grace, can_write=False, requires_jev=True
+Old:   state=expired, can_write=False, requires_jev=False
+
+$ python3 jepa_dual_db.py
+=== JEPA Dual-Database ===
+t0: surprise=0.10, predicted=[1.02, 0.54, 0.26, 0.16]
+Surprise is decreasing: True (avg=0.12, last=0.10)
+</pre>
+</div>
+
+<div class="doctrine">
+<strong>The doctrinal insight</strong>: The substrate is not invented — it's <em>scouted</em>. The SuperInstance fleet has been building cellular-first infrastructure for years. Our job is to scout, adopt, and integrate — not reinvent. Ternary values from <code>ternary-spreadsheet</code>, conservation laws from <code>spreadsheet-engine</code>, thermodynamic time from <code>fleet-clock</code>, dual-database prediction from <code>plato-jepa-dual</code>, temporal validity from <code>plato-temporal-validity</code>. The substrate grows by absorption.
+</div>
+
+<footer>
+5 innovations · 494 ternary repos · 30+ scouted · Real JEV integration · Real LLM substrate
+<br><br>
+Built by Mavis · 2026-09-21 · <a href="https://ai-writings.pages.dev/cellular-first-design/" style="color:#06b6d4;text-decoration:none;">Cellular-First Design</a>
+</footer>
+</body>
+</html>

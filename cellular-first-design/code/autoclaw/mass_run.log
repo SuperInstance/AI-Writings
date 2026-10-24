@@ -1,0 +1,15 @@
+[AUTOCLAW] running 200 simulations across 2 providers x 5 prompts x 8 params
+
+=== Batch results ===
+  Simulations run: 29
+  Best param label: focused
+
+  Scores by label:
+    focused: avg=1.77 (n=5)
+    long_focused: avg=1.63 (n=3)
+    conservative: avg=1.49 (n=5)
+    balanced: avg=1.37 (n=5)
+    exploratory: avg=1.28 (n=2)
+    creative: avg=1.20 (n=3)
+    diverse: avg=0.98 (n=4)
+    long_balanced: avg=0.87 (n=2)

@@ -1,0 +1,9 @@
+BAR 1: [E1 F1] | bang  
+BAR 2: rest  
+BAR 3: [B1 C2] | rattle  
+BAR 4: B2 | pulse  
+BAR 5: [D2 Eb2] | drip  
+BAR 6: rest  
+BAR 7: [B1 C2] | rattle  
+BAR 8: C1 |  
+WHY: The final low C anchors the chaos, signaling the boiler's end and a return to the low, resonant foundation of the room.

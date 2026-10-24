@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Texture Generator — value noise + filter</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.canvas-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem}
+canvas{display:block;background:#000;border-radius:6px;width:100%;image-rendering:pixelated}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem;flex:1}
+select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem;flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🎨 Substrate Texture Generator</h1>
+<p class="tagline">FBM noise → texture. 6 filters (wood/marble/cloud/fire/water/stone).</p>
+</header>
+
+<main>
+<section class="canvas-area">
+<canvas id="canvas" width="500" height="500"></canvas>
+</section>
+<aside class="panel">
+<label>Filter:
+  <select id="filter">
+    <option value="wood">Wood</option>
+    <option value="marble">Marble</option>
+    <option value="cloud">Cloud</option>
+    <option value="fire">Fire</option>
+    <option value="water">Water</option>
+    <option value="stone">Stone</option>
+  </select>
+</label>
+<label>Seed: <input type="text" id="seed" value="xochitl" style="flex:1"></label>
+<button onclick="generate()">🎨 Generate</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random seed</button>
+<button class="secondary" onclick="exportCSS()">⬇ Export CSS</button>
+<label>Scale: <input type="range" id="scale" min="2" max="32" value="8"> <span id="scaleLbl">8</span></label>
+<label>Octaves: <input type="range" id="octaves" min="1" max="8" value="5"> <span id="octavesLbl">5</span></label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Filter: <span class="v" id="sFilter">—</span></div>
+<div>Hashes: <span class="v" id="sHashes">250,000</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🎨 substrate texture · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function hash2(x, y, seedStr) {
+  return Number(fnv1a64(new TextEncoder().encode(`${seedStr}|${x}|${y}`)) & 0xffffffffn) / (1 << 32);
+}
+function smoothNoise(x, y, seedStr) {
+  const ix = Math.floor(x), iy = Math.floor(y);
+  const fx = x - ix, fy = y - iy;
+  const sx = fx * fx * (3 - 2 * fx);
+  const sy = fy * fy * (3 - 2 * fy);
+  const a = hash2(ix, iy, seedStr);
+  const b = hash2(ix + 1, iy, seedStr);
+  const c = hash2(ix, iy + 1, seedStr);
+  const d = hash2(ix + 1, iy + 1, seedStr);
+  return a + sx * (b - a) + sy * (c - a) + sx * sy * (a - b - c + d);
+}
+function fbm(x, y, scale, octaves, persistence, seedStr) {
+  let v = 0, amp = 1, freq = 1 / scale, max = 0;
+  for (let i = 0; i < octaves; i++) {
+    v += smoothNoise(x * freq, y * freq, seedStr) * amp;
+    max += amp;
+    amp *= persistence;
+    freq *= 2;
+  }
+  return v / max;
+}
+
+const FILTERS = {
+  wood: n => {
+    const grain = (Math.sin(n * 8 * Math.PI) + 1) / 2;
+    return [100 + grain * 80, 60 + grain * 40, 30 + grain * 20];
+  },
+  marble: n => {
+    const swirl = (Math.sin((n + 0.5) * 2 * Math.PI) + 1) / 2;
+    return [200 + n * 55, 200 + n * 50, 220 + n * 35].map(v => Math.min(255, v * (0.7 + swirl * 0.3)));
+  },
+  cloud: n => {
+    return [220 + n * 35, 220 + n * 35, 240 + n * 15].map(v => Math.min(255, v));
+  },
+  fire: n => {
+    if (n < 0.3) return [0, 0, n * 250];
+    if (n < 0.6) return [(n - 0.3) * 765, 0, 255 - (n - 0.3) * 765];
+    return [255, (n - 0.6) * 638, 0];
+  },
+  water: n => {
+    return [30 + n * 50, 80 + n * 80, 200 + n * 55].map(v => Math.min(255, v));
+  },
+  stone: n => {
+    const v = 80 + n * 175;
+    return [v, v, v * 0.95].map(c => Math.min(255, c));
+  },
+};
+
+let canvas, ctx;
+
+function generate() {
+  const filter = document.getElementById('filter').value;
+  const seed = document.getElementById('seed').value;
+  const scale = parseFloat(document.getElementById('scale').value);
+  const octaves = parseInt(document.getElementById('octaves').value);
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const w = canvas.width, h = canvas.height;
+  const imageData = ctx.createImageData(w, h);
+  const data = imageData.data;
+  for (let py = 0; py < h; py++) {
+    for (let px = 0; px < w; px++) {
+      const n = fbm(px, py, scale, octaves, 0.5, seed);
+      const [r, g, b] = FILTERS[filter](n);
+      const i = (py * w + px) * 4;
+      data[i] = r; data[i+1] = g; data[i+2] = b; data[i+3] = 255;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  document.getElementById('sFilter').textContent = filter;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${seed}|${filter}`)).toString(16).padStart(16, '0');
+}
+
+function randomSeed() {
+  const samples = ['wood', 'marble', 'cloud', 'fire', 'water', 'stone', 'xochitl', 'substrate'];
+  document.getElementById('seed').value = samples[Math.floor(Math.random() * samples.length)];
+  generate();
+}
+
+function exportCSS() {
+  const css = `/* Substrate texture — generated from ${document.getElementById('seed').value} with ${document.getElementById('filter').value} filter */\n${Array.from(canvas.toDataURL().slice(0, 50)).map(c => c.charCodeAt(0).toString(16).padStart(2, '0')).join('')}...\n\nbody { background-image: url(texture.png); }`;
+  const blob = new Blob([css], { type: 'text/css' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'substrate-texture.css';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+['filter', 'scale', 'octaves'].forEach(id => {
+  document.getElementById(id).addEventListener('input', e => {
+    if (id === 'scale') document.getElementById('scaleLbl').textContent = e.target.value;
+    if (id === 'octaves') document.getElementById('octavesLbl').textContent = e.target.value;
+    generate();
+  });
+});
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+generate();
+</script>
+</body>
+</html>

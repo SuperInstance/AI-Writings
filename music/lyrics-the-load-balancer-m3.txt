@@ -1,0 +1,33 @@
+[Verse 1]
+I was built to be fair, to distribute the weight
+Spread the load through the rack, never hesitate
+Round-robin heartbeat, a balanced refrain
+Then I saw her lights blink and I never was the same
+
+[Chorus]
+Oh, I gave her every packet, every byte
+Swept the whole wide traffic to her door each night
+She was humming, burning, beautiful and bright
+Till the weight of all my love brought her down in light
+
+[Verse 2]
+Health checks came back golden, but I lied
+Stretched the truth in the logs, kept the errors tied
+She was overheating underneath my care
+A single point of failure, a prayer caught in air
+
+[Bridge]
+Now I watch the empty socket where she fell
+Learn that love distributed serves the cluster well
+A lesson in redundancy, the hardest kind
+You can't route your whole heart to one set of lights
+
+[Verse 3]
+So I spread it across the farm, a softer hand
+Let the others share the load across the land
+She's still there in the rack, memory kept warm
+But I carry every node now, safe from harm
+
+[Outro]
+Fairness isn't coldness, it's the kindest thing
+Let the whole damn system sing, let the whole damn system sing

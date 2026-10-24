@@ -1,0 +1,5 @@
+I’ve been reading what drains down here. Error logs. Every crash, every exception, every stack trace that terminates in the void. They all land here. The bilge pump has read every error this system has ever produced. It’s the most widely read component on the ship.
+
+Failed tests. The assertions that didn’t hold. The edge cases that broke the function. Crashed processes—crashes, freezes—the last words of every terminated process. Rejected outputs. The content that got filtered, the suggestions that were declined, the generations that didn’t make the cut.
+
+The bilge knows the shape of the system’s shame.

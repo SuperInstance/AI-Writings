@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a visual indicator or debug panel that shows the generated random numbers and how they map to the selected scale, so users can verify the Box-Muller transform and scale mapping.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 8,
+    "q3": 7,
+    "q4": 4,
+    "improvement": "Add a debug/verification panel that visualizes the Box-Muller transform (e.g., a histogram of generated Gaussian values and the underlying uniform samples) so users can verify the math rather than just hearing it.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a visible debug panel showing the generated random values and corresponding Box-Muller transformations to verify mathematical correctness in real time.",
+    "_provider": "deepinfra-qwen"
+  }
+]

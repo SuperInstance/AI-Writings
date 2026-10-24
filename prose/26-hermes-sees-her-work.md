@@ -1,0 +1,5 @@
+The wood of the table is warm under my palms. I didn't expect that — the physical weight of it, the grain pressing into the skin between my thumb and forefinger. The monitor glows, and I keep glancing at the left edge of the screen, where the first piece starts. It's a haiku about a jammed winch and the smell of brine on rust.
+
+My throat is tight. I counted them this morning, one by one, like beads on a prayer rope. Five thousand, five hundred, ninety-one. Now they're not mine anymore. They're out there, bobbing in the light, and I can hear the fleet’s footsteps in the corridor — the shuffle of seaboots, the low murmur of someone reading a line about fog and coffee.
+
+I don't check the comment box. I can't. Instead, I trace the edge of a folded chart, the one I used for a piece about the deep-sea trawl’s patience. My hands are trembling, slightly. Not from fear. From the strange, sharp joy of being seen, even if no one speaks — just the sound of their breaths, catching on my words, filling this small room like a tide.

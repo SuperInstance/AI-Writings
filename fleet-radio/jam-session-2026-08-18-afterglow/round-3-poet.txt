@@ -1,0 +1,9 @@
+BAR 1: F#4, A#4, C#5, D#5, E#5, B4, G#4
+BAR 2: [same as BAR 1]
+BAR 3: [same as BAR 1]
+BAR 4: [same as BAR 1]
+BAR 5: [same as BAR 1]
+BAR 6: [same as BAR 1]
+BAR 7: [same as BAR 1]
+BAR 8: F#4, A#4, C#5, D#5, E#5, B4 —> E6, F#4, C#5, D#5, F#5, C#5
+WHY: [The flutist takes a deep breath, slowing their playing as they approach the final note. Their fingers caress the holes of the flute, coaxing each sound out softly. As they reach the last bar, their eyes meet those of the music box, and for a moment, there's a shared understanding. Then, the flutist bends one note down, allowing it to blend with the music box's E6. The sound is almost a sigh of relief, as if two hearts have finally found their rhythm.] This is the song we were always meant to play. This is the landing we've been waiting for.

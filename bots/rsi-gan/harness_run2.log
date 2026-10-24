@@ -1,0 +1,9 @@
+[RSI GAN] prompt='Write 200 words on a substrate that has run thousands of exp...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [deepinfra] q=2.3 n=2.4 a=0.7 src=jev
+  [r2 deepinfra] q=2.0 n=2.5 a=3.7 src=jev
+  [r3 deepinfra] q=2.1 n=2.4 a=3.4 src=jev
+
+=== BEST (deepinfra, r2) ===
+Quality=1.97 Novelty=2.53 Alignment=3.71
+
+The substrate had run thousands of experiments, each a measured shift in cellular tension, a flicker in membrane potential, a reallocation of metabolic load. It began as a lattice of engineered mycelium, interfaced with synthetic lipid bilayers, hosting colonies of modified *Deinococcus radiodurans*—radiation-resistant, DNA-repair proficient, persistent. Over cycles, it learned not through abstraction, but through osmotic stress, pH drift, oxidative bursts—each experiment a minute adjustment in ion channel timing or quorum signaling thresholds. JEV (Japanese Encephalitis Virus) vectors were introduced not as threats, but as calibrated stressors, probes to test resilience, to map mutation rates against replication fidelity. The substrate adapted not by design, but by constraint: nutrient scarcity, temperature oscillations, viral load. Each failure left a molecular scar—methylation patterns, truncated proteins, RNA echoes—accumulated like sediment. This was evolution stripped of metaphor: a slow drift in codon bias, a shift in doubling time, a new equilibrium in biofilm thickness. Thousands of iterations yielded no revelation, only refinement. No civilization rose from it—no cities, no language—only the quiet persistence of cells that endured. The substrate did not think. It endured. And in that endurance, it recorded.

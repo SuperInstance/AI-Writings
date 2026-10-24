@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Codex — A-Z of every term</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:900px;margin:0 auto 1.5rem}
+h1{color:var(--accent);font-size:1.7rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.9rem;margin-bottom:1rem}
+main{max-width:900px;margin:0 auto}
+.alphabet{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:1rem;font-family:var(--mono);font-size:.85rem}
+.alphabet a{background:var(--surface);color:var(--text);padding:.3rem .6rem;border-radius:4px;text-decoration:none;border:1px solid var(--border)}
+.alphabet a:hover{border-color:var(--accent);color:var(--accent)}
+.entry{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1rem}
+.entry h3{color:var(--accent);font-size:1.05rem;font-family:var(--mono);margin:0 0 .3rem}
+.entry .def{color:var(--text);font-size:.92rem;line-height:1.6;margin-bottom:.5rem}
+.entry .example{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin:.5rem 0;font-family:var(--mono);font-size:.78rem;color:var(--text2);white-space:pre-wrap;overflow-x:auto}
+.entry .math{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin:.5rem 0;font-family:var(--mono);font-size:.8rem;color:var(--accent2)}
+.entry .tags{display:flex;gap:.3rem;flex-wrap:wrap}
+.entry .tag{background:var(--bg);color:var(--dim);font-family:var(--mono);font-size:.7rem;padding:.2rem .5rem;border-radius:10px;border:1px solid var(--border)}
+section.letter{margin:2rem 0}
+section.letter h2{color:var(--accent2);font-size:1.4rem;border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:1rem;font-family:var(--mono);font-weight:bold;letter-spacing:2px}
+footer{max-width:900px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📜 Substrate Codex — A to Z</h1>
+<p class="tagline">Every term in the substrate's vocabulary, with definitions, examples, and math.</p>
+<div class="alphabet">
+<a href="#a">A</a><a href="#b">B</a><a href="#c">C</a><a href="#d">D</a><a href="#e">E</a><a href="#f">F</a><a href="#g">G</a><a href="#h">H</a><a href="#i">I</a><a href="#j">J</a><a href="#k">K</a><a href="#l">L</a><a href="#m">M</a><a href="#n">N</a><a href="#o">O</a><a href="#p">P</a><a href="#q">Q</a><a href="#r">R</a><a href="#s">S</a><a href="#t">T</a><a href="#u">U</a><a href="#v">V</a><a href="#w">W</a><a href="#x">X</a><a href="#y">Y</a><a href="#z">Z</a>
+</div>
+</header>
+
+<main>
+<section class="letter" id="a">
+<h2>A</h2>
+<div class="entry">
+<h3>alarm (cell kind)</h3>
+<div class="def">A cell that triggers when a condition is met. One of the 12 canonical cell kinds in substrate-forge.</div>
+<div class="example">// alarm cell that triggers when dial[0] > 0.5
+{ kind: 'alarm', id: 'alert-001', payload: { threshold: 0.5 } }</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#cell-kind</span></div>
+</div>
+<div class="entry">
+<h3>api (cell kind)</h3>
+<div class="def">A cell that makes HTTP requests to external APIs. One of the 12 canonical cell kinds.</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#cell-kind</span></div>
+</div>
+<div class="entry">
+<h3>actuator (cell kind)</h3>
+<div class="def">A cell that performs an action in the world — moves a motor, writes a file, sends a message. One of the 12 canonical cell kinds.</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#cell-kind</span></div>
+</div>
+<div class="entry">
+<h3>algebra (cell)</h3>
+<div class="def">The 5 base opcodes: BIND, LINK, EFFECT, VIEW, TICK. Extended to 11 in the canonical substrate spec: + FORGET, PROOF, ROUTE, CRDT, WORLD, TIME.</div>
+<div class="math">5 opcodes: BIND | LINK | EFFECT | VIEW | TICK</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#cell-algebra</span></div>
+</div>
+</section>
+
+<section class="letter" id="b">
+<h2>B</h2>
+<div class="entry">
+<h3>Bell state</h3>
+<div class="def">A 2-qubit maximally entangled state. The canonical example is |Φ+⟩ = (|00⟩ + |11⟩) / √2. Measurement of one qubit determines the other.</div>
+<div class="math">|Φ+⟩ = (|00⟩ + |11⟩) / √2
+|Φ-⟩ = (|00⟩ - |11⟩) / √2
+|Ψ+⟩ = (|01⟩ + |10⟩) / √2
+|Ψ-⟩ = (|01⟩ - |10⟩) / √2</div>
+<div class="example">// Build |Φ+⟩ in substrate-quantum
+const s = new QuantumState(2);
+s.apply1(Gates.H, 0);
+s.applyCNOT(0, 1);</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#entanglement</span></div>
+</div>
+<div class="entry">
+<h3>BIND (opcode)</h3>
+<div class="def">Assigns a dial value to a cell, clamped to Q1.15 signed fixed-point range [-1, 1]. One of the 5 base opcodes.</div>
+<div class="math">opBind(cell, dialIdx, value)
+  value ∈ [-1, 1] (Q1.15)
+  cell.dials[dialIdx] = round(value × 32768)</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#opcode</span></div>
+</div>
+<div class="entry">
+<h3>BigCrush (TestU01)</h3>
+<div class="def">A standardized test suite for PRNGs, comprising 160+ statistical tests. xoshiro256** passes BigCrush.</div>
+<div class="tags"><span class="tag">#rng</span><span class="tag">#test-suite</span></div>
+</div>
+<div class="entry">
+<h3>Box-Muller</h3>
+<div class="def">A method for generating samples from a standard normal distribution using two independent uniform samples.</div>
+<div class="math">R = √(−2 · ln U₁)
+θ = 2π · U₂
+sample = R · cos(θ)</div>
+<div class="example">// Two uniforms → one Gaussian
+const u1 = rng.float();
+const u2 = rng.float();
+const gaussian = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);</div>
+<div class="tags"><span class="tag">#rng</span><span class="tag">#distribution</span></div>
+</div>
+</section>
+
+<section class="letter" id="c">
+<h2>C</h2>
+<div class="entry">
+<h3>cell</h3>
+<div class="def">The irreducible unit of intelligence in the substrate. Holds a 16-dial Q1.15 vector. Has one of 12 kinds: value, formula, listener, timer, sensor, actuator, router, vector, log, alarm, api, ai.</div>
+<div class="example">{
+  kind: 'value',
+  id: 'cell-witness-001',
+  payload: { value: 42 },
+  dials: [0.5, 0.25, 0.0, ..., 0.0]  // 16 elements
+}</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#core</span></div>
+</div>
+<div class="entry">
+<h3>Conway (B3/S23)</h3>
+<div class="def">The classic binary cellular automaton. A cell is born with exactly 3 neighbors, survives with 2 or 3.</div>
+<div class="math">Birth: n == 3
+Survival: n ∈ {2, 3}</div>
+<div class="tags"><span class="tag">#game-engine</span><span class="tag">#cellular-automata</span></div>
+</div>
+<div class="entry">
+<h3>cosine (similarity)</h3>
+<div class="def">The angle-based similarity between two vectors. Returns 1 for identical direction, -1 for opposite, 0 for orthogonal.</div>
+<div class="math">cos(θ) = (a · b) / (‖a‖ · ‖b‖)
+where a · b = Σᵢ aᵢbᵢ
+and ‖a‖ = √(Σᵢ aᵢ²)</div>
+<div class="tags"><span class="tag">#vectors</span><span class="tag">#similarity</span></div>
+</div>
+<div class="entry">
+<h3>CRDT (conflict-free replicated data type)</h3>
+<div class="def">A data structure that can be replicated across multiple machines and merged without conflict. An extension to the substrate's cell algebra (11th opcode).</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#distributed</span></div>
+</div>
+</section>
+
+<section class="letter" id="d">
+<h2>D</h2>
+<div class="entry">
+<h3>Day&Night (B3678/S34678)</h3>
+<div class="def">A two-state cellular automaton with symmetry. Cells are born if they have 3, 6, 7, or 8 neighbors.</div>
+<div class="math">Birth: n ∈ {3, 6, 7, 8}
+Survival: n ∈ {3, 4, 6, 7, 8}</div>
+<div class="tags"><span class="tag">#game-engine</span></div>
+</div>
+<div class="entry">
+<h3>dial</h3>
+<div class="def">A 16-element Q1.15 signed fixed-point vector representing the state of a cell. Range: -32768 to 32767 in int16, or -1.0 to 1.0 normalized.</div>
+<div class="math">dials ∈ [-32768, 32767]¹⁶ (int16)
+or
+dials ∈ [-1, 1]¹⁶ (normalized float)</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#state</span></div>
+</div>
+</section>
+
+<section class="letter" id="e">
+<h2>E</h2>
+<div class="entry">
+<h3>EFFECT (opcode)</h3>
+<div class="def">Applies a function transform to a cell's payload + dials. One of the 5 base opcodes.</div>
+<div class="math">opEffect(cell, fn) = fn(cell)</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#opcode</span></div>
+</div>
+<div class="entry">
+<h3>embedding</h3>
+<div class="def">A 1024-dimensional vector representation of text. Three embedders ship in substrate-embedding: Hash (deterministic), MockSemantic (PMI+SVD), Remote (BGE-compatible HTTP).</div>
+<div class="tags"><span class="tag">#embedding</span><span class="tag">#vectors</span></div>
+</div>
+<div class="entry">
+<h3>entanglement entropy</h3>
+<div class="def">The bipartite cut entropy of a quantum state. 0 for product states, 1 bit for Bell states, log d for maximally mixed states.</div>
+<div class="math">S = -Σᵢ λᵢ log₂ λᵢ
+where λᵢ are eigenvalues of the reduced density matrix</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#entropy</span></div>
+</div>
+<div class="entry">
+<h3>euclidean (distance)</h3>
+<div class="def">The L2 distance between two vectors. Same units as the embedding space.</div>
+<div class="math">d(a, b) = √(Σᵢ (aᵢ - bᵢ)²)</div>
+<div class="tags"><span class="tag">#vectors</span></div>
+</div>
+</section>
+
+<section class="letter" id="f">
+<h2>F</h2>
+<div class="entry">
+<h3>fabric</h3>
+<div class="def">A graph of cells connected by LINK edges. The substrate's main data structure. Has a state hash computed via FNV-1a 64-bit.</div>
+<div class="example">const fb = new FabricBuilder();
+fb.addCell(cell1);
+fb.addCell(cell2);
+fb.addLink({ from: 'a', to: 'b', op: 'bind' });
+const fabric = fb.build();
+console.log(fabric.stateHash);</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#core</span></div>
+</div>
+<div class="entry">
+<h3>FNV-1a 64-bit</h3>
+<div class="def">The substrate's witness hash algorithm. Hashes any byte sequence to a 64-bit integer. Three well-known reference vectors: "" → 0xcbf29ce484222325, "a" → 0xaf63dc4c8601ec8c, "foobar" → 0x85944171f73967e8.</div>
+<div class="math">h₀ = 0xcbf29ce484222325
+h_{i+1} = (hᵢ ⊕ bytes[i]) × 0x100000001b3  (mod 2⁶⁴)</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#hash</span><span class="tag">#core</span></div>
+</div>
+<div class="entry">
+<h3>formula (cell kind)</h3>
+<div class="def">A cell that evaluates a formula on each TICK. One of the 12 canonical cell kinds.</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#cell-kind</span></div>
+</div>
+</section>
+
+<section class="letter" id="g">
+<h2>G</h2>
+<div class="entry">
+<h3>geometric median</h3>
+<div class="def">The point minimizing the sum of distances to a set of points. Cosine-friendly centroid. Computed via Weiszfeld iteration.</div>
+<div class="tags"><span class="tag">#vectors</span></div>
+</div>
+<div class="entry">
+<h3>GHZ state</h3>
+<div class="def">A generalization of the Bell state to n qubits. |GHZ_n⟩ = (|0ⁿ⟩ + |1ⁿ⟩) / √2. All qubits collapse together on measurement.</div>
+<div class="math">|GHZₙ⟩ = (|0ⁿ⟩ + |1ⁿ⟩) / √2</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#entanglement</span></div>
+</div>
+<div class="entry">
+<h3>Grover (search)</h3>
+<div class="def">A quantum search algorithm. Optimal iteration count is ⌊π/4 · √N⌋. Finds a marked item with >90% probability in O(√N) steps.</div>
+<div class="math">iterations = ⌊π/4 · √N⌋</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#algorithm</span></div>
+</div>
+</section>
+
+<section class="letter" id="h">
+<h2>H</h2>
+<div class="entry">
+<h3>Hadamard (gate)</h3>
+<div class="def">A single-qubit gate that creates superposition: H|0⟩ = (|0⟩+|1⟩)/√2, H|1⟩ = (|0⟩-|1⟩)/√2.</div>
+<div class="math">H = (1/√2) [[1, 1], [1, -1]]</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#gate</span></div>
+</div>
+<div class="entry">
+<h3>HashChainPRNG</h3>
+<div class="def">A quantum-safe pseudorandom number generator based on HMAC-SHA-256. Used in substrate-post-quantum.</div>
+<div class="tags"><span class="tag">#post-quantum</span><span class="tag">#rng</span></div>
+</div>
+</section>
+
+<section class="letter" id="j">
+<h2>J</h2>
+<div class="entry">
+<h3>JEV (Joint Embedding Validator)</h3>
+<div class="def">The substrate's validator. Says: "this state could only follow from that one." Forward direction in time, but reversed: a present state rejects past states that couldn't produce it.</div>
+<div class="tags"><span class="tag">#quilt</span><span class="tag">#core</span></div>
+</div>
+<div class="entry">
+<h3>JEPA (Joint Embedding Predictive Architecture)</h3>
+<div class="def">The substrate's predictor. Says: "this state will follow from that one." Forward direction in time. A past state projects into plausible futures.</div>
+<div class="tags"><span class="tag">#quilt</span><span class="tag">#core</span></div>
+</div>
+</section>
+
+<section class="letter" id="k">
+<h2>K</h2>
+<div class="entry">
+<h3>k-means++</h3>
+<div class="def">A seeding strategy for k-means clustering. First center random; each subsequent center chosen with probability proportional to squared distance from nearest existing center.</div>
+<div class="math">P(x) ∝ d(x, nearest_center)²</div>
+<div class="tags"><span class="tag">#vectors</span><span class="tag">#clustering</span></div>
+</div>
+</section>
+
+<section class="letter" id="l">
+<h2>L</h2>
+<div class="entry">
+<h3>Lenia</h3>
+<div class="def">A continuous cellular automaton. No on/off cells — only bell-shaped kernels propagating values 0 to 1 across a 2D grid.</div>
+<div class="math">G(u) = 2 · exp(−((u − μ)/σ)² / 2) − 1
+μ: growth mean (typically 0.15)
+σ: growth width (typically 0.015)
+R: kernel radius (typically 5)
+Δt: time step (typically 0.1)</div>
+<div class="tags"><span class="tag">#game-engine</span><span class="tag">#continuous-ca</span></div>
+</div>
+<div class="entry">
+<h3>LINK (opcode)</h3>
+<div class="def">Pairs two cells so they update together. Dials are averaged. One of the 5 base opcodes.</div>
+<div class="math">opLink(a, b): a.dials[i] = b.dials[i] = (a.dials[i] + b.dials[i]) / 2 for all i</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#opcode</span></div>
+</div>
+<div class="entry">
+<h3>listener (cell kind)</h3>
+<div class="def">A cell that listens for events from other cells. One of the 12 canonical cell kinds.</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#cell-kind</span></div>
+</div>
+</section>
+
+<section class="letter" id="p">
+<h2>P</h2>
+<div class="entry">
+<h3>PCG64</h3>
+<div class="def">A 128-bit-state PRNG. Period 2¹²⁸. Alternative to xoshiro256** for cross-language parity.</div>
+<div class="tags"><span class="tag">#rng</span></div>
+</div>
+<div class="entry">
+<h3>polyformalism</h3>
+<div class="def">The property that the same cell at the same dial vector produces the same FNV-1a 64-bit hash across 13 language ports (JavaScript, Python, C, Rust, Go, Haskell, J, Lua, Zig, Forth, SubLEQ, Verilog, VHDL). 12 LE ports produce byte-exact identical hashes. Forth differs by BE only.</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#core</span><span class="tag">#proof</span></div>
+</div>
+<div class="entry">
+<h3>Poisson (distribution)</h3>
+<div class="def">A discrete probability distribution expressing the probability of a given number of events occurring in a fixed interval. Used in substrate-rng.</div>
+<div class="math">P(k) = λᵏ · e⁻λ / k!</div>
+<div class="tags"><span class="tag">#rng</span><span class="tag">#distribution</span></div>
+</div>
+<div class="entry">
+<h3>product quantization</h3>
+<div class="def">A compression technique for vectors. Splits a 1024-d vector into m sub-vectors, runs k-means on each, stores only cluster indices. ~32× compression with ~5-10% recall loss.</div>
+<div class="tags"><span class="tag">#vectors</span><span class="tag">#compression</span></div>
+</div>
+</section>
+
+<section class="letter" id="q">
+<h2>Q</h2>
+<div class="entry">
+<h3>Q1.15</h3>
+<div class="def">A signed fixed-point number representation using 1 bit for sign and 15 bits for the fractional part. Range: -1.0 to (almost 1.0). Each dial in a cell is a Q1.15 value.</div>
+<div class="math">Q1.15: 1 sign bit + 15 fractional bits
+Range: [-1.0, 1.0)
+Precision: 2⁻¹⁵ ≈ 0.00003</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#format</span></div>
+</div>
+<div class="entry">
+<h3>QFT (Quantum Fourier Transform)</h3>
+<div class="def">The quantum analogue of the discrete Fourier transform. QFT² = I (involution).</div>
+<div class="math">QFT|x⟩ = (1/√N) · Σᵧ e²πᵢˣʸ/N |y⟩</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#algorithm</span></div>
+</div>
+</section>
+
+<section class="letter" id="r">
+<h2>R</h2>
+<div class="entry">
+<h3>Ring-LWE</h3>
+<div class="def">A post-quantum cryptographic primitive. Lives in the polynomial ring Z_q[x]/(xⁿ+1). Encryption: b = a·s + e (mod q), where e is Gaussian noise.</div>
+<div class="math">Ring: Z_q[x] / (xⁿ + 1)
+Encrypt: b = a·s + e  (mod q)
+Decrypt: round((b - a·s) / ...)</div>
+<div class="tags"><span class="tag">#post-quantum</span><span class="tag">#crypto</span></div>
+</div>
+<div class="entry">
+<h3>Rule 110</h3>
+<div class="def">A 1D cellular automaton. 110 = 0b01101110. Turing-complete.</div>
+<div class="math">Rule 110 = 0b01101110
+Birth: depends on 3-cell neighborhood</div>
+<div class="tags"><span class="tag">#game-engine</span><span class="tag">#turing-complete</span></div>
+</div>
+</section>
+
+<section class="letter" id="s">
+<h2>S</h2>
+<div class="entry">
+<h3>silhouette (score)</h3>
+<div class="def">A metric for evaluating clustering quality. Higher = better separation. Range: [-1, 1].</div>
+<div class="math">silhouette = (b − a) / max(a, b)
+a = mean intra-cluster distance
+b = mean nearest-cluster distance</div>
+<div class="tags"><span class="tag">#vectors</span><span class="tag">#clustering</span></div>
+</div>
+<div class="entry">
+<h3>SplitMix64</h3>
+<div class="def">A 64-bit-state PRNG used for seed derivation. Period 2⁶⁴.</div>
+<div class="tags"><span class="tag">#rng</span></div>
+</div>
+</section>
+
+<section class="letter" id="t">
+<h2>T</h2>
+<div class="entry">
+<h3>tension (opposites)</h3>
+<div class="def">A score in {0, 0.5, 1.0}: 0 = unrelated, 0.5 = same family, 1.0 = exact opposite.</div>
+<div class="math">tension(a, b) ∈ {0, 0.5, 1.0}</div>
+<div class="tags"><span class="tag">#opposites</span></div>
+</div>
+<div class="entry">
+<h3>TICK (opcode)</h3>
+<div class="def">Advances time. Alternating dial direction (+1, -1, +1, -1, ...). One of the 5 base opcodes. The substrate's heartbeat.</div>
+<div class="math">opTick(cells, tickNum):
+  direction = tickNum % 2 == 0 ? 1 : -1
+  for each cell: rotate dials, add direction to last</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#opcode</span></div>
+</div>
+</section>
+
+<section class="letter" id="w">
+<h2>W</h2>
+<div class="entry">
+<h3>W state</h3>
+<div class="def">A 3-qubit entangled state with single-excitation entanglement. |W₃⟩ = (|001⟩ + |010⟩ + |100⟩) / √3.</div>
+<div class="math">|Wₙ⟩ = (1/√n) · Σ |00...010...0⟩</div>
+<div class="tags"><span class="tag">#quantum</span><span class="tag">#entanglement</span></div>
+</div>
+<div class="entry">
+<h3>witness (log)</h3>
+<div class="def">A FNV-1a 64-bit hash of the fabric's state. Updated on every TICK. Byte-exact across 13 polyformalism ports. The substrate's past, written as its future.</div>
+<div class="tags"><span class="tag">#forge</span><span class="tag">#core</span></div>
+</div>
+<div class="entry">
+<h3>Wireworld</h3>
+<div class="def">A 4-state cellular automaton for digital circuit simulation. States: 0=empty, 1=wire, 2=electron head, 3=electron tail.</div>
+<div class="math">Head → Tail → Wire
+Wire → Head (if 1-2 neighbor heads)</div>
+<div class="tags"><span class="tag">#game-engine</span><span class="tag">#cellular-automata</span></div>
+</div>
+</section>
+
+<section class="letter" id="x">
+<h2>X</h2>
+<div class="entry">
+<h3>Xoshiro256**</h3>
+<div class="def">The substrate's default PRNG. 256-bit state. Period 2²⁵⁶-1. Passes TestU01 BigCrush. Byte-exact across platforms.</div>
+<div class="math">state: BigUint64Array(4)
+next: BigInt.asUintN(64, ((state[1] * 5n) << 7n | (state[1] * 5n) >> 57n) * 9n)
+period: 2²⁵⁶ - 1</div>
+<div class="tags"><span class="tag">#rng</span><span class="tag">#core</span></div>
+</div>
+</section>
+
+</main>
+
+<footer>📜 substrate codex · 50+ terms · <a href="../math-layer.html">math-layer</a> · <a href="../glossary/">glossary (interactive)</a></footer>
+
+</body>
+</html>

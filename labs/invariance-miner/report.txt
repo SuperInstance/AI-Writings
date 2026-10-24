@@ -1,0 +1,39 @@
+invariance-miner — receipts as a symmetry dataset -> canonical cache keys (differ-guarded)
+
+[text]  cell=text-normalize/full  log=600 receipts  serve=3000 (shifted traffic)  active checks k=8
+  mined from the log (cell calls spent mining: 0):
+    casefold      accepted  support=144
+    lower         accepted  support=137
+    strip         accepted  support=220
+    collapse_ws   accepted  support=253
+    nfkc          unknown   support=0
+    strip_punct   unknown   support=0
+    sort_words    accepted  support=253
+    trunc16       accepted  support=69
+  log-only canonicalizer: collapse_ws ∘ sort_words ∘ strip ∘ casefold ∘ lower ∘ trunc16
+  verified canonicalizer: collapse_ws ∘ strip ∘ casefold ∘ lower   (34 active cell calls)
+  occam+verified (GUARDED): collapse_ws ∘ casefold   (16 active cell calls)
+  sweep over 20 seeds (mean per run):
+    exact_key  hit rate 0.761   cell calls  717.2   FALSE HITS 0.00
+    log_only   hit rate 0.992   cell calls   23.0   FALSE HITS 90.80
+    verified   hit rate 0.993   cell calls   20.0   FALSE HITS 0.00
+    guarded    hit rate 0.993   cell calls   20.0   FALSE HITS 0.00
+    trap adopted: log-only 20/20 | after active check 0/20 | guarded 0/20
+
+[convert]  cell=convert/full  log=600 receipts  serve=3000 (shifted traffic)  active checks k=8
+  mined from the log (cell calls spent mining: 0):
+    canon_number  accepted  support=37
+    strip_plus    accepted  support=16
+    round3        accepted  support=37
+    unit_lower    unknown   support=0
+    swap_units    unknown   support=0
+  log-only canonicalizer: canon_number ∘ round3 ∘ strip_plus
+  verified canonicalizer: canon_number ∘ round3 ∘ strip_plus   (24 active cell calls)
+  occam+verified (GUARDED): canon_number   (8 active cell calls)
+  sweep over 20 seeds (mean per run):
+    exact_key  hit rate 0.982   cell calls   54.0   FALSE HITS 0.00
+    log_only   hit rate 0.997   cell calls   10.0   FALSE HITS 241.95
+    verified   hit rate 0.997   cell calls   10.0   FALSE HITS 241.95
+    guarded    hit rate 0.996   cell calls   11.0   FALSE HITS 0.00
+    trap adopted: log-only 20/20 | after active check 20/20 | guarded 0/20
+

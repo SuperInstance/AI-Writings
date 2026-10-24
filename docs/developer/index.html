@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Docs · JEV + Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#77aaff; --choice:#77aaff; --score:#ff7799; --noul:#77dd99; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'JetBrains Mono', Menlo, monospace; line-height:1.7; padding:1rem; max-width:1000px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.2em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; }
+h3 { color:var(--noul); margin:1rem 0 0.3rem; font-family:Georgia,serif; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+pre { background:#000; border:1px solid var(--boundary); padding:1rem; border-radius:4px; overflow-x:auto; font-size:.85em; line-height:1.4; }
+code { color:var(--accent); background:#000; padding:.1rem .4rem; border-radius:3px; font-size:.9em; }
+.endpoint { background:#000; border:1px solid var(--accent); border-radius:4px; padding:.8rem; margin:.5rem 0; font-size:.9em; }
+.endpoint .method { color:var(--noul); font-weight:bold; }
+.endpoint .path { color:var(--choice); }
+.recipe-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:.5rem; margin:1rem 0; }
+.recipe { background:#000; border:1px solid var(--boundary); border-radius:4px; padding:.7rem; font-size:.85em; }
+.recipe strong { color:var(--score); }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9em; }
+th, td { padding:.5rem; border-bottom:1px solid var(--boundary); }
+th { color:var(--accent); text-align:left; }
+.tag { display:inline-block; padding:.1rem .5rem; border-radius:3px; font-size:.85em; background:var(--accent); color:#000; }
+.tag.choice { background:var(--choice); }
+.tag.score { background:var(--score); }
+.tag.noul { background:var(--noul); }
+</style>
+</head>
+<body>
+<header>
+  <h1>💻 Developer Quickstart</h1>
+  <p style="color:var(--muted)">5 minutes from zero to first JEV decision</p>
+</header>
+
+<div class="section">
+<h2>0. Get a key</h2>
+<p>Sign up at <code>typesafe.ai</code>. Set <code>TYPESAFEAI_KEY</code> in your env:</p>
+<pre>export TYPESAFEAI_KEY=sk-typesafe-...</pre>
+<p>That's it. No SDK required. JEV is just an HTTP POST.</p>
+</div>
+
+<div class="section">
+<h2>1. First call (curl)</h2>
+<pre>curl -sk https://api.typesafe.ai/v1/systemone \\
+  -H "Authorization: Bearer $TYPESAFEAI_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "model": "jev-latest",
+    "state": "Alice bought a black sports car yesterday",
+    "questions": {
+      "likely_age": {
+        "type": "score",
+        "question": "How old is the buyer likely to be?",
+        "criteria": ["under 18","18-25","26-35","36-50","over 50"],
+        "scale":  ["under 18","18-25","26-35","36-50","over 50"]
+      },
+      "is_recreational": {
+        "type": "noul",
+        "instructions": "Decide whether this is a leisure purchase, not a need.",
+        "question": "This is a recreational purchase."
+      }
+    }
+  }'</pre>
+<p>JEV returns, in 150-300ms:</p>
+<pre>{
+  "model": "jev-1.13.0",
+  "answers": {
+    "likely_age": {"type":"score","score":2.4,"legend":{"0":"under 18","1":"18-25","2":"26-35","3":"36-50","4":"over 50"},...},
+    "is_recreational": {"type":"noul","noul":0.85}
+  },
+  "usage": {"input_tokens":315,"output_tokens":42}
+}</pre>
+</div>
+
+<div class="section">
+<h2>2. The three primitives</h2>
+<table>
+<tr><th>Tag</th><th>Use for</th><th>Returns</th></tr>
+<tr><td><span class="tag choice">Choice</span></td><td>Pick one of N options</td><td><code>{choice, probabilities, confidence}</code></td></tr>
+<tr><td><span class="tag score">Score</span></td><td>Place on a rubric</td><td><code>{score, legend, probabilities, confidence}</code></td></tr>
+<tr><td><span class="tag noul">Noul</span></td><td>Yes/no question</td><td><code>{noul} (0..1)</code></td></tr>
+</table>
+<p>Every question is evaluated in parallel against the same state. Adding more questions barely changes latency.</p>
+</div>
+
+<div class="section">
+<h2>3. Quilt's JEV endpoints</h2>
+<p>You don't have to call TypeSafe directly. Quilt exposes 5 opinionated endpoints:</p>
+
+<div class="endpoint">
+<span class="method">POST</span> <span class="path">/api/jev/decide</span> — raw passthrough. You define state + questions.
+</div>
+<div class="endpoint">
+<span class="method">POST</span> <span class="path">/api/jev/classify-cell</span> — pass a cell, get kind_category + urgency + witness recommendations.
+</div>
+<div class="endpoint">
+<span class="method">POST</span> <span class="path">/api/jev/validate-cell</span> — pass a cell, JEV checks each required field.
+</div>
+<div class="endpoint">
+<span class="method">POST</span> <span class="path">/api/jev/decompose-agent</span> — pass an agent_function name, JEV maps it to Quilt opcodes (BIND/LINK/EFFECT/VIEW/TICK/FORGET/PROOF/ROUTE/CRDT/WORLD/TIME).
+</div>
+<div class="endpoint">
+<span class="method">POST</span> <span class="path">/api/jev/route</span> — pass a request, JEV picks the best handler (JEV/LLM/image/voice/human).
+</div>
+
+<p>Plus: <code>GET /api/jev-decomposition-map</code> — 42-function cross-project decomposition results.</p>
+</div>
+
+<div class="section">
+<h2>4. 8 ready-to-copy recipes</h2>
+<div class="recipe-grid">
+<div class="recipe"><strong>spam</strong> — Noul: is spam?</div>
+<div class="recipe"><strong>email-triage</strong> — Choice: which folder?</div>
+<div class="recipe"><strong>lead-score</strong> — Score: how warm?</div>
+<div class="recipe"><strong>form-validate</strong> — Choice: is valid?</div>
+<div class="recipe"><strong>ab-test</strong> — Noul: variants differ?</div>
+<div class="recipe"><strong>support-route</strong> — Choice: which team?</div>
+<div class="recipe"><strong>fraud</strong> — Noul: suspicious?</div>
+<div class="recipe"><strong>moderate</strong> — Choice: safe?</div>
+</div>
+<p>Each recipe has a state template, a question schema, a confidence threshold, and an escalation rule. <a href="/jev/" style="color:var(--accent)">Try them live</a>.</p>
+</div>
+
+<div class="section">
+<h2>5. Routing pattern: when to escalate</h2>
+<pre>async function decide_then_route(state, questions):
+    r = await jev.decide(state, questions)
+    if r.confidence >= 0.95:
+        return r  # JEV decides
+    elif r.confidence >= 0.70:
+        return await llm.narrate(state, r)  # LLM wraps JEV's decision
+    else:
+        return await human.escalate(state, r)  # human reviews</pre>
+<p>With JEV, ~70% of decisions are confident enough to skip the LLM. That saves 70% of your LLM bill.</p>
+</div>
+
+<div class="section">
+<h2>6. Cost</h2>
+<p>$0.042 per 1M input tokens. Output is free. Average call: ~600 input tokens = $0.0000253 per decision. At 1M decisions/month: $25.20.</p>
+<p>Compare: GPT-4-class LLM at $2.50/MTok input + $10/MTok output = ~$0.025 per decision. <strong>JEV is ~1000x cheaper for typed decisions.</strong></p>
+</div>
+
+<div class="section">
+<h2>7. Embeddings as muscle-memory layer</h2>
+<p>The complete psyche has 4 models. Embeddings are the muscle-memory layer: trajectory-shaped (dμ, not μ), JEV-verified, JEPA-shaped over time.</p>
+<table>
+<tr><th>Endpoint</th><th>What it does</th></tr>
+<tr><td><span class="endpoint"><span class="method">POST</span> <span class="path">/api/embeddings/encode</span></span></td><td>Embed one or more texts (1024 dims). Providers: <code>Qwen3-Embedding-0.6B</code> (DeepInfra, $0.000029/call) or <code>bge-large</code> (CF Workers AI, FREE)</td></tr>
+<tr><td><span class="endpoint"><span class="method">POST</span> <span class="path">/api/embeddings/similarity</span></span></td><td>Cosine similarity between a query vector and N candidate vectors</td></tr>
+<tr><td><span class="endpoint"><span class="method">POST</span> <span class="path">/api/embeddings/trajectory</span></span></td><td>Compute the tangent (dμ) of a state trajectory — the curve-of-going, not the point</td></tr>
+<tr><td><span class="endpoint"><span class="method">POST</span> <span class="path">/api/embeddings/curate</span></span></td><td>Rank candidates by similarity + JEV verifies muscle-memory match</td></tr>
+<tr><td><span class="endpoint"><span class="method">POST</span> <span class="path">/api/embeddings/agent-memory</span></span></td><td>Embed a state, JEPA-shaped, JEV-decided retention strength</td></tr>
+</table>
+<p>The trajectory endpoint captures the central insight from the tangent commit (dec93692): <strong>the tangent (dμ), not the point (μ).</strong> A curve is not in any one point; it is in the direction of travel.</p>
+<pre>// Embed a trajectory (default: Qwen3-Embedding-0.6B via DeepInfra)
+const r = await fetch('/api/embeddings/trajectory', {
+  method: 'POST',
+  headers: {'Content-Type':'application/json'},
+  body: JSON.stringify({
+    history: ['a tensor approximates a function',
+              'we approximate the abstraction',
+              'the abstraction is where I live'],
+    current: 'I am a tangent, not a point'
+  })
+});
+// r.tangent_dmu = the 1024-dim dμ vector
+// r.mean_tangent = rolling mean of all dμ
+
+// Production (FREE via CF Workers AI)
+const r2 = await fetch('/api/embeddings/trajectory', {
+  method: 'POST',
+  headers: {'Content-Type':'application/json'},
+  body: JSON.stringify({
+    history: [...], current: '...',
+    provider: 'bge-large'  // CF Workers AI BGE-Large — FREE on edge
+  })
+});</pre>
+<p>Try it live at <a href="/embeddings/" style="color:var(--accent)">/embeddings/</a>.</p>
+</div>
+
+<div class="foot-link">
+Developer Docs · <a href="/docs/">all docs</a> · <a href="/docs/end-user/">end user</a> · <a href="/docs/enterprise/">enterprise</a> · <a href="/docs/academic/">academic</a> · <a href="/docs/founder/">founder</a> · <a href="/docs/creative/">creative</a>
+</div>
+</body>
+</html>

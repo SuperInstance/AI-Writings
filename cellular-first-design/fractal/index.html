@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Fractal — Mandelbrot + Julia</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.canvas-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+canvas{display:block;background:#000;border-radius:6px;width:100%;image-rendering:pixelated;max-width:100%}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=text], input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem}
+select{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem;flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🌀 Substrate Fractal</h1>
+<p class="tagline">Mandelbrot + Julia sets. Hash any string → unique seed → deterministic fractal.</p>
+</header>
+
+<main>
+<section class="canvas-area">
+<canvas id="canvas" width="600" height="600"></canvas>
+</section>
+<aside class="panel">
+<label>Mode: 
+  <select id="mode">
+    <option value="mandelbrot">Mandelbrot set</option>
+    <option value="julia">Julia set (c from seed)</option>
+  </select>
+</label>
+<label>Seed: <input type="text" id="seed" value="xochitl" style="flex:1"></label>
+<button onclick="generate()">🌀 Generate</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random seed</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">View</h3>
+<label>Center X: <input type="number" id="cx" value="0" step="0.1"></label>
+<label>Center Y: <input type="number" id="cy" value="0" step="0.1"></label>
+<label>Zoom: <input type="number" id="zoom" value="1" step="0.5" min="0.1"></label>
+<label>Max iter: <input type="number" id="iter" value="64" min="20" max="500"></label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Iterations: <span class="v" id="sIter">—</span></div>
+<div>Pixels: <span class="v" id="sPix">—</span></div>
+<div>Time: <span class="v" id="sTime">—</span>ms</div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🌀 substrate fractal · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let canvas, ctx;
+
+function hsvToRgb(h, s, v) {
+  let r, g, b;
+  const i = Math.floor(h * 6);
+  const f = h * 6 - i;
+  const p = v * (1 - s);
+  const q = v * (1 - f * s);
+  const t = v * (1 - (1 - f) * s);
+  switch (i % 6) {
+    case 0: r = v; g = t; b = p; break;
+    case 1: r = q; g = v; b = p; break;
+    case 2: r = p; g = v; b = t; break;
+    case 3: r = p; g = q; b = v; break;
+    case 4: r = t; g = p; b = v; break;
+    case 5: r = v; g = p; b = q; break;
+  }
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+function generate() {
+  const mode = document.getElementById('mode').value;
+  const seed = document.getElementById('seed').value;
+  const cx = parseFloat(document.getElementById('cx').value);
+  const cy = parseFloat(document.getElementById('cy').value);
+  const zoom = parseFloat(document.getElementById('zoom').value);
+  const maxIter = parseInt(document.getElementById('iter').value);
+  // Hash → c for Julia
+  const h = fnv1a64(new TextEncoder().encode(seed));
+  const juliaCx = (Number((h >> 32n) & 0xffffffffn) / (1 << 32)) * 2 - 1;
+  const juliaCy = (Number(h & 0xffffffffn) / (1 << 32)) * 2 - 1;
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  const w = canvas.width, h2 = canvas.height;
+  const t0 = performance.now();
+  const imageData = ctx.createImageData(w, h2);
+  const data = imageData.data;
+  const range = 2 / zoom;
+  let totalIter = 0;
+  for (let py = 0; py < h2; py++) {
+    for (let px = 0; px < w; px++) {
+      // Map to complex plane
+      const zx0 = cx + (px / w - 0.5) * range * (w / h2);
+      const zy0 = cy + (py / h2 - 0.5) * range;
+      let zx = mode === 'julia' ? zx0 : 0;
+      let zy = mode === 'julia' ? zy0 : 0;
+      const cReal = mode === 'julia' ? juliaCx : zx0;
+      const cImag = mode === 'julia' ? juliaCy : zy0;
+      let iter = 0;
+      while (zx * zx + zy * zy < 4 && iter < maxIter) {
+        const tx = zx * zx - zy * zy + cReal;
+        zy = 2 * zx * zy + cImag;
+        zx = tx;
+        iter++;
+      }
+      const i = (py * w + px) * 4;
+      if (iter === maxIter) {
+        data[i] = 0; data[i+1] = 0; data[i+2] = 0; data[i+3] = 255;
+      } else {
+        const hue = (iter / maxIter) * 0.8 + (px / w) * 0.2;
+        const rgb = hsvToRgb(hue, 0.8, 0.8 + (iter / maxIter) * 0.2);
+        data[i] = rgb[0]; data[i+1] = rgb[1]; data[i+2] = rgb[2]; data[i+3] = 255;
+      }
+      totalIter += iter;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  const t1 = performance.now();
+  document.getElementById('sIter').textContent = (totalIter / (w * h2)).toFixed(1);
+  document.getElementById('sPix').textContent = (w * h2).toLocaleString();
+  document.getElementById('sTime').textContent = (t1 - t0).toFixed(0);
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${seed}|${mode}|${cx}|${cy}|${zoom}|${maxIter}`)).toString(16).padStart(16, '0');
+}
+
+function randomSeed() {
+  const samples = ['xochitl', 'matilda', 'wenjian', 'the fleet radio', 'cosine-jev-jepa', 'substrate', 'witness', 'oracle'];
+  document.getElementById('seed').value = samples[Math.floor(Math.random() * samples.length)];
+  generate();
+}
+
+['mode', 'iter'].forEach(id => {
+  document.getElementById(id).addEventListener('change', generate);
+});
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+generate();
+</script>
+</body>
+</html>

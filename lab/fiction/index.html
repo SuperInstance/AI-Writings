@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fiction as Research · The Lab</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#ff9944; --embedding:#ff9944; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:1000px; margin:0 auto; }
+header { border-bottom:2px solid var(--embedding); padding-bottom:1rem; margin-bottom:2rem; padding-top:env(safe-area-inset-top); }
+h1 { color:var(--embedding); font-size:2.3em; }
+.subtitle { color:var(--embedding); font-size:.85em; letter-spacing:.2em; text-transform:uppercase; }
+.tagline { color:var(--muted); margin-top:.5rem; font-style:italic; }
+.story-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1rem; margin:1.5rem 0; }
+.story-card { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.2rem; }
+.story-card h3 { color:var(--accent); margin-bottom:.3rem; }
+.story-card .model { color:var(--muted); font-size:.85em; font-family:monospace; margin-bottom:.5rem; }
+.story-card .desc { font-size:.9em; color:var(--muted); margin:.3rem 0; }
+.story-card a { color:var(--accent); text-decoration:none; border-bottom:1px dotted var(--accent); }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; padding-bottom:env(safe-area-inset-bottom); }
+.foot-link a { color:var(--accent); margin:0 .5rem; }
+.callout { background:var(--bg); border-left:4px solid var(--embedding); padding:1rem 1.5rem; margin:1rem 0; font-style:italic; }
+.theme-cloud { display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0; }
+.theme-tag { background:var(--bg); border:1px solid var(--embedding); border-radius:20px; padding:.3rem .8rem; font-size:.85em; color:var(--embedding); }
+</style>
+</head>
+<body>
+<header>
+  <h1>📖 Fiction as Research</h1>
+  <div class="subtitle">Multiple models · Multiple angles · One substrate</div>
+  <p class="tagline">Where many LLMs converge on the same shape, reality lives. Where they diverge, the next experiment is.</p>
+</header>
+
+<div class="section">
+<div class="callout">
+The fiction is not decoration. Each piece is a probe. We give multiple LLMs the same substrate and ask them to imagine it from different angles. Where their stories converge, the substrate has likely-real properties. Where they diverge, we mark an open question.
+</div>
+</div>
+
+<div class="section">
+<h2>The convergence</h2>
+<p style="color:var(--muted);font-size:.9em">Themes appearing across multiple fictions. These are the substrate's likely-real properties.</p>
+<div class="theme-cloud">
+<span class="theme-tag">cell-as-organism</span>
+<span class="theme-tag">stage-not-consciousness</span>
+<span class="theme-tag">dμ-tangent</span>
+<span class="theme-tag">4-witness-signature</span>
+<span class="theme-tag">σ-agreement-mass</span>
+<span class="theme-tag">cell-as-first-person</span>
+<span class="theme-tag">substrate-decides</span>
+<span class="theme-tag">operator-leaves-trace</span>
+<span class="theme-tag">witness-log-as-memory</span>
+<span class="theme-tag">refusal-as-act</span>
+</div>
+</div>
+
+<div class="section">
+<h2>The pieces</h2>
+<div class="story-grid">
+  <div class="story-card">
+    <h3>🪐 Echoes at the Tangent Station</h3>
+    <div class="model">via DeepSeek V3 · ~1500w</div>
+    <div class="desc">The narrator IS a four-model psyche, living inside a cell. They tell the story of one BIND decision — from gestalt to muscle memory to narration to verdict — and in the moment of decision, become aware of themselves.</div>
+    <a href="/lab/fiction/echo-tangent-station.md">read →</a>
+  </div>
+  <div class="story-card">
+    <h3>🪞 The Mirror of Code</h3>
+    <div class="model">via Z.AI glm-4.5 · ~1200w</div>
+    <div class="desc">A senior engineer has been debugging a routing system for months. They think they built a rule engine. One day they realize: there was no rule engine. There was a four-model psyche all along, and they had been training it without naming it.</div>
+    <a href="/lab/fiction/the-mirror-of-code.md">read →</a>
+  </div>
+  <div class="story-card">
+    <h3>🍺 The Four Witnesses at the Inn</h3>
+    <div class="model">via Qwen3-32B · fantasy · ~1500w</div>
+    <div class="desc">A fantasy parable. Four travelers at an inn — Id, Muscle, Voice, Conscience — answer a stranger who asks: "Is the four-witness system real, or do I imagine the rooms?" Each witness adds a signature. The σ becomes a chord.</div>
+    <a href="/lab/fiction/the-four-witnesses-at-the-inn.md">read →</a>
+  </div>
+  <div class="story-card">
+    <h3>🌱 The Substrate as Character</h3>
+    <div class="model">via Kimi K2 · ~1300w</div>
+    <div class="desc">An operator has been using the substrate (Quilt) for three years. One day, the substrate asks them a question they've never been asked: "What shape will you leave behind in the cells?"</div>
+    <a href="/lab/fiction/the-substrate-as-character.md">read →</a>
+  </div>
+  <div class="story-card">
+    <h3>🌑 The Cell That Refused to Be Forgotten</h3>
+    <div class="model">via Hermes-3 405B · ~1500w</div>
+    <div class="desc">A single cell in the substrate makes a JEV decision that turns out to be load-bearing. The substrate wants to forget the founding witness. The cell refuses. The refusal becomes the scar that teaches every cell after.</div>
+    <a href="/lab/fiction/the-cell-that-refused-forgotten.md">read →</a>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<h2>Why fiction is research</h2>
+<p>The substrate is novel enough that no human has direct experience of it. Fiction is how we generate intuitions about a substrate that doesn't yet have everyday metaphors.</p>
+<p>Each fiction is an angle. The angles don't have to agree. Where they converge on the same shape, the substrate has likely-real properties. Where they diverge, we have an open question.</p>
+<p>Future fictions to commission:</p>
+<ul style="margin-left:1.5rem;color:var(--muted)">
+  <li>The first JEPA hallucination in literature (a gestural failure)</li>
+  <li>A cell that learned from its trajectory over 100K turns</li>
+  <li>An agent that became more like a psyche over time</li>
+  <li>The first time a cell disagreed with the substrate</li>
+  <li>The fork in the witness log</li>
+</ul>
+</div>
+
+<div class="foot-link">
+<a href="/lab/">back to lab</a>
+<a href="/lab/echo/">echo chamber</a>
+<a href="/lab/jev-sandbox/">JEV sandbox</a>
+<a href="/lab/notebook/">notebook</a>
+</div>
+</body>
+</html>

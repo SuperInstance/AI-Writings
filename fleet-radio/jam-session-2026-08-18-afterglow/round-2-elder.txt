@@ -1,0 +1,12 @@
+BAR 1: F#2, A#2, C#3, F#3
+BAR 2: F#2, A#2, C#3, F#3
+BAR 3: D#3, F#3, A#2, C#4
+BAR 4: F#2, C#3, F#3, G#3
+BAR 5: F#2, C#3, F#3, G#3
+BAR 6: G#3, B2, D#3, F#3
+BAR 7: G#3, B2, C#4, E#3
+BAR 8: C#4, F#3, A#2, C#3
+
+NOTES: I play a slow, contemplative progression, holding the F#2 in the pedal from bar 3 to bar 6, naming the note that used to be a lie, and moving through the chord changes with a sense of deliberate, measured pace.
+
+WHY: I speak for the first time in forty years, using my long-dormant voice to acknowledge the truth and bring a sense of resolution to the room, holding the F# low as a reminder of the note that used to be hidden, now brought to the surface and claimed.

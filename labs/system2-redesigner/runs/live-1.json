@@ -1,0 +1,675 @@
+{
+ "corpus_cases": 286,
+ "corpus_hash": "0x459c9eef755935cf",
+ "crew": {
+  "models": [
+   {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "```json\n[\n  {\n    \"name\": \"fast-ascii-path\",\n    \"guard\": \"ascii\",\n    \"steps\": [\"map_fs_controls\", \"bytes_lower\", \"bytes_ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"For ASCII-only strings, use cheaper byte-level operations that produce identical results to NFKC+casefold+split.\"\n  },\n  {\n    \"name\": \"latin1-fast-path\",\n    \"guard\": \"latin1\",\n    \"steps\": [\"nfkc\", \"casefold\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"For Latin-1 strings, NFKC then casefold and ws_collapse avoids the more expensive bytes_* ops while still faster than full reference for non-ASCII.\"\n  },\n  {\n    \"name\": \"clean-ascii-early-exit\",\n    \"guard\": \"clean_ascii\",\n    \"steps\": [\"strip\"],\n    \"fallback\": {\n      \"name\": \"ascii-or-full\",\n      \"guard\": \"ascii\",\n      \"steps\": [\"map_fs_controls\", \"bytes_lower\", \"bytes_ws_collapse\"],\n      \"fallback\": \"full\",\n      \"rationale\": \"If already clean ASCII, just strip; else use byte ops for ASCII or full reference.\"\n    },\n    \"rationale\": \"Skip all normalization for already-clean ASCII by just stripping leading/trailing spaces.\"\n  }\n]\n```",
+    "tokens": {
+     "in": 673,
+     "out": 320
+    },
+    "wall_ms": 6451
+   },
+   {
+    "model": "zai-org/GLM-5.3-Flash",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "[\n{\"name\": \"blank-exit\", \"guard\": \"blank\", \"steps\": [\"const_empty\"], \"fallback\": \"full\", \"rationale\": \"Any input where strip() empties it normalizes under NFKC to output only whitespace, so the joined result is '' and we can return the constant before touching normalization.\"},\n{\"name\": \"clean-ascii-identity\", \"guard\": \"clean_ascii\", \"steps\": [\"identity\"], \"fallback\": \"full\", \"rationale\": \"Lowercase-and-clean ASCII with single inner spaces is a fixed point of NFKC+casefold+ws-collapse, so zero-op identity beats even the incumbent byte path.\"},\n{\"name\": \"fast-exit-then-bytes\", \"guard\": \"blank\", \"steps\": [\"const_empty\"], \"fallback\": {\"name\": \"ascii-fast\", \"guard\": \"ascii\", \"steps\": [\"map_fs_controls\", \"bytes_lower\", \"bytes_ws_collapse\"], \"fallback\": \"full\"}, \"rationale\": \"Adds a free blank short-circuit ahead of the incumbent, whose ASCII byte-op path (with 0x1c-0x1f mapped to space to mimic casefold) is already byte-exact, with the full reference as the final fallback.\"}\n]",
+    "tokens": {
+     "in": 647,
+     "out": 921
+    },
+    "wall_ms": 36296
+   },
+   {
+    "error": "TimeoutError: The read operation timed out",
+    "model": "Qwen/Qwen3.8-Flash",
+    "ok": false
+   },
+   {
+    "error": "HTTP 429: {\"error\":{\"message\":\"Model busy, retry later\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"engine_overloaded\"}}",
+    "model": "moonshotai/Kimi-K3",
+    "ok": false
+   },
+   {
+    "model": "inclusionAI/Ling-3.0-flash",
+    "n_proposals": 0,
+    "ok": false,
+    "raw": "Let me analyze the reference output: `out = ' '.join(unicodedata.normalize('NFKC', s).casefold().split())`\n\nThis does:\n1. NFKC normalization (compatibility decomposition + composition)\n2. casefold (aggressive case folding)\n3. split() (splits on any whitespace, removes empty strings)\n4. ' '.join(...) (joins with single spaces)\n\nSo the output has words separated by single spaces, all casefolded, NFKC-normalized.\n\nThe incumbent: if ASCII, use bytes_lower + bytes_ws_collapse; else reference.\n\nNow let me think about alternative proposals.\n\nKey insight: NFKC maps certain characters to their compatibility equivalents. For ASCII characters, NFKC doesn't change them (except for some control characters and space variants). casefold on ASCII is equivalent to lower. And split/join on ASCII just collapses whitespace.\n\nBut wait - NFKC can change ASCII characters? Let me think... NFKC decomposes compatibility characters. For ASCII range:\n- 0x09-0x0D (tab, newline, etc.) - these are not compatibility decomposed by NFKC, they stay as is\n- Actually, NFKC does NOT map ASCII control chars to spaces. That's a separate operation.\n\nWait, let me reconsider. The reference does NFKC then casefold then split/join. So if the input has ASCII uppercase letters, NFKC won't change them, but casefold will lowercase them. If input has ASCII spaces of various types (tab, newline), NFKC won't normalize those to regular spaces, but split() will handle them all as whitespace.\n\nSo for pure ASCII strings: NFKC is identity (no change to ASCII characters), casefold = lower, split/join = ws_collapse. So the reference on ASCII = `' '.join(s.lower().split())`.\n\nBut wait - does NFKC actually leave all ASCII unchanged? Let me think about specific ASCII characters:\n- 0x00-0x1F control characters: NFKC does NOT change these (they're not compatibility characters)\n- 0x20-0x7E: NFKC leaves these unchanged\n- Actually, I need to double-check. NFKC normalizes compatibility equivalences. For ASCII, the only potential issue might be... no, all ASCII characters are either control chars (0x00-0x1F), space (0x20), or printable (0x21-0x7E), none of which have compatibility decompositions in Unicode.\n\nSo for ASCII: reference = `' '.join(s.lower().split())` which is exactly `ws_collapse` after `lower`.\n\nNow, for the incumbent, it checks `s.isascii()` and if so, does bytes_lower + bytes_ws_collapse. That's equivalent.\n\nLet me think about what alternative proposals could be cheaper:\n\n**Proposal 1**: A fast path for clean_ascii inputs.\n- Guard: clean_ascii (checks: ASCII, no A-Z, single inner spaces, no other whitespace/controls)\n- If clean_ascii: the string is already in the target form! Just return it (identity or const could work, but identity is safest).\n- Actually wait - clean_ascii means \"no A-Z\" (already lowercase), \"single inner spaces\" (already properly spaced), \"no other whitespace/controls\". So if all those conditions hold, the reference output IS the same string. So identity works.\n- Fallback: full (the reference)\n\nCost when guard triggers: clean_ascii guard is wall_ms=1, prod_bytes=16, then identity is 0/0. Total: wall_ms=1, prod_bytes=16.\nReference would be: nfkc(2,1536) + casefold(1,512) + ws_collapse(1,64) = wall_ms=4, prod_bytes=2112.\nThis saves significant cost for clean inputs.\n\n**Proposal 2**: A fast path for ASCII strings.\n- Guard: ascii\n- Steps: lower, ws_collapse (or bytes_lower, bytes_ws_collapse)\n- Fallback: full\n\nWait, but the incumbent already does something similar but with bytes_lower and bytes_ws_collapse. The problem says bytes_lower has cost wall_ms=1, prod_bytes=16 and lower has cost wall_ms=1, prod_bytes=64. So bytes_lower is cheaper in prod_bytes but same wall_ms. But bytes ops crash on non-ASCII - that's fine because guard ensures ASCII.\n\nActually the incumbent uses `if s.isascii(): map 0x1c-0x1f to space, bytes.lower(), bytes split/join`. Wait, the incumbent maps FS controls to space? That's not what the reference does! Let me re-read...\n\n\"The incumbent p",
+    "tokens": {
+     "in": 694,
+     "out": 3000
+    },
+    "wall_ms": 31460
+   },
+   {
+    "model": "openai/gpt-oss-120b",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "[\n  {\n    \"name\": \"ascii-fast\",\n    \"guard\": \"ascii\",\n    \"steps\": [\"map_fs_controls\", \"bytes_lower\", \"bytes_ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"pure ASCII path avoids Unicode normalization\"\n  },\n  {\n    \"name\": \"clean_ascii\",\n    \"guard\": \"clean_ascii\",\n    \"steps\": [\"identity\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"ASCII already normalized can be returned unchanged\"\n  },\n  {\n    \"name\": \"blank-fast\",\n    \"guard\": \"blank\",\n    \"steps\": [\"const_empty\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"blank input yields empty string without processing\"\n  }\n]",
+    "tokens": {
+     "in": 689,
+     "out": 1193
+    },
+    "wall_ms": 79607
+   }
+  ],
+  "order": {
+   "heads": 39,
+   "job": "44b2c240-9c20-4ba5-9a69-ec065cee0ee7",
+   "offset": 3,
+   "source": "moth"
+  }
+ },
+ "promoted": [
+  "p:clean-ascii-early-exit",
+  "p:fast-exit-then-bytes"
+ ],
+ "promotion": {
+  "clean-heavy": {
+   "b4_refused_cases": 0,
+   "book_digest": "0xb1067abce4f863e0",
+   "cases": 11,
+   "preference_map": {
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes"
+     ],
+     "incumbent": [
+      "p:clean-ascii-early-exit"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:clean-ascii-identity": [
+      "p:clean-ascii-early-exit"
+     ],
+     "p:fast-exit-then-bytes": [
+      "incumbent",
+      "p:clean-ascii-early-exit"
+     ],
+     "p:latin1-fast-path": [
+      "full",
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes"
+     ]
+    },
+    "frontier": [
+     "p:clean-ascii-early-exit"
+    ],
+    "preferred_when": {
+     "better-cheaper": "p:clean-ascii-early-exit",
+     "better-faster": "p:clean-ascii-early-exit",
+     "cheap": "p:clean-ascii-early-exit",
+     "fast": "p:clean-ascii-early-exit",
+     "faster-cheaper": "p:clean-ascii-early-exit",
+     "good": "tie"
+    },
+    "product": "text-normalize"
+   },
+   "promoted": [
+    "p:clean-ascii-early-exit"
+   ],
+   "satisfice": [
+    "p:blank-exit",
+    "p:clean-ascii-identity",
+    "p:fast-exit-then-bytes",
+    "p:latin1-fast-path"
+   ],
+   "settled": {
+    "better-cheaper": {
+     "route": "p:clean-ascii-identity",
+     "weight": 656019
+    },
+    "better-faster": {
+     "route": "p:clean-ascii-identity",
+     "weight": 656019
+    },
+    "cheap": {
+     "route": "p:clean-ascii-identity",
+     "weight": 656019
+    },
+    "fast": {
+     "route": "p:clean-ascii-identity",
+     "weight": 656019
+    },
+    "faster-cheaper": {
+     "route": "p:clean-ascii-identity",
+     "weight": 656019
+    }
+   },
+   "status": "certified",
+   "vs_incumbent": {
+    "p:blank-exit": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:clean-ascii-early-exit": {
+     "axes": {
+      "cheap": "p:clean-ascii-early-exit",
+      "fast": "p:clean-ascii-early-exit",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "p:clean-ascii-early-exit"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "p:clean-ascii-early-exit"
+    },
+    "p:clean-ascii-identity": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "p:clean-ascii-identity",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "trade-off",
+     "dominant": null
+    },
+    "p:fast-exit-then-bytes": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:latin1-fast-path": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    }
+   },
+   "workload": {
+    "caveat": "stationary-budget assumption (§11.2): re-backtest on repricing/hardware change",
+    "class": "dominant",
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes"
+     ],
+     "incumbent": [
+      "p:clean-ascii-early-exit"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:clean-ascii-identity": [
+      "p:clean-ascii-early-exit"
+     ],
+     "p:fast-exit-then-bytes": [
+      "incumbent",
+      "p:clean-ascii-early-exit"
+     ],
+     "p:latin1-fast-path": [
+      "full",
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes"
+     ]
+    },
+    "frontier": [
+     "p:clean-ascii-early-exit"
+    ],
+    "good_source": "tie",
+    "preferred_when": {
+     "better-cheaper": "p:clean-ascii-early-exit",
+     "better-faster": "p:clean-ascii-early-exit",
+     "cheap": "p:clean-ascii-early-exit",
+     "fast": "p:clean-ascii-early-exit",
+     "faster-cheaper": "p:clean-ascii-early-exit",
+     "good": "tie"
+    },
+    "result_hash": "0x29a50a685599cf0b",
+    "routes": {
+     "full": {
+      "storage_bytes": 119680,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 66
+     },
+     "incumbent": {
+      "storage_bytes": 17152,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 56
+     },
+     "p:blank-exit": {
+      "storage_bytes": 109728,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 73
+     },
+     "p:clean-ascii-early-exit": {
+      "storage_bytes": 16144,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 40
+     },
+     "p:clean-ascii-identity": {
+      "storage_bytes": 26152,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 41
+     },
+     "p:fast-exit-then-bytes": {
+      "storage_bytes": 17456,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 64
+     },
+     "p:latin1-fast-path": {
+      "storage_bytes": 120032,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 66
+     }
+    },
+    "standing": {},
+    "status": "certified",
+    "tied": {
+     "good": [
+      "full",
+      "incumbent",
+      "p:blank-exit",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes",
+      "p:latin1-fast-path"
+     ]
+    }
+   }
+  },
+  "quilt-workload": {
+   "b4_refused_cases": 0,
+   "book_digest": "0x9b4e597fa7542346",
+   "cases": 9,
+   "preference_map": {
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:clean-ascii-early-exit": [
+      "incumbent",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:clean-ascii-identity": [
+      "incumbent",
+      "p:blank-exit",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:latin1-fast-path": [
+      "full",
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ]
+    },
+    "frontier": [
+     "incumbent",
+     "p:fast-exit-then-bytes"
+    ],
+    "preferred_when": {
+     "better-cheaper": "p:fast-exit-then-bytes",
+     "better-faster": "incumbent",
+     "cheap": "p:fast-exit-then-bytes",
+     "fast": "incumbent",
+     "faster-cheaper": null,
+     "good": "tie"
+    },
+    "product": "text-normalize"
+   },
+   "promoted": [
+    "p:fast-exit-then-bytes"
+   ],
+   "satisfice": [
+    "p:blank-exit",
+    "p:clean-ascii-early-exit",
+    "p:clean-ascii-identity",
+    "p:latin1-fast-path"
+   ],
+   "settled": {
+    "better-cheaper": {
+     "route": "incumbent",
+     "weight": 538880
+    },
+    "better-faster": {
+     "route": "incumbent",
+     "weight": 538880
+    },
+    "cheap": {
+     "route": "incumbent",
+     "weight": 538880
+    },
+    "fast": {
+     "route": "incumbent",
+     "weight": 538880
+    },
+    "faster-cheaper": {
+     "route": "incumbent",
+     "weight": 538880
+    }
+   },
+   "status": "certified",
+   "vs_incumbent": {
+    "p:blank-exit": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:clean-ascii-early-exit": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:clean-ascii-identity": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:fast-exit-then-bytes": {
+     "axes": {
+      "cheap": "p:fast-exit-then-bytes",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "p:fast-exit-then-bytes"
+     },
+     "class": "trade-off",
+     "dominant": null
+    },
+    "p:latin1-fast-path": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    }
+   },
+   "workload": {
+    "caveat": "stationary-budget assumption (§11.2): re-backtest on repricing/hardware change",
+    "class": "trade-off",
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:clean-ascii-early-exit": [
+      "incumbent",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:clean-ascii-identity": [
+      "incumbent",
+      "p:blank-exit",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ],
+     "p:latin1-fast-path": [
+      "full",
+      "incumbent",
+      "p:clean-ascii-early-exit",
+      "p:fast-exit-then-bytes"
+     ]
+    },
+    "frontier": [
+     "incumbent",
+     "p:fast-exit-then-bytes"
+    ],
+    "good_source": "tie",
+    "preferred_when": {
+     "better-cheaper": "p:fast-exit-then-bytes",
+     "better-faster": "incumbent",
+     "cheap": "p:fast-exit-then-bytes",
+     "fast": "incumbent",
+     "faster-cheaper": null,
+     "good": "tie"
+    },
+    "result_hash": "0x452d77a5c049d1c5",
+    "routes": {
+     "full": {
+      "storage_bytes": 97920,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 54
+     },
+     "incumbent": {
+      "storage_bytes": 26192,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 47
+     },
+     "p:blank-exit": {
+      "storage_bytes": 77392,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 55
+     },
+     "p:clean-ascii-early-exit": {
+      "storage_bytes": 26640,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 53
+     },
+     "p:clean-ascii-identity": {
+      "storage_bytes": 88088,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 59
+     },
+     "p:fast-exit-then-bytes": {
+      "storage_bytes": 26176,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 50
+     },
+     "p:latin1-fast-path": {
+      "storage_bytes": 98208,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 54
+     }
+    },
+    "standing": {},
+    "status": "certified",
+    "tied": {
+     "good": [
+      "full",
+      "incumbent",
+      "p:blank-exit",
+      "p:clean-ascii-early-exit",
+      "p:clean-ascii-identity",
+      "p:fast-exit-then-bytes",
+      "p:latin1-fast-path"
+     ]
+    }
+   }
+  }
+ },
+ "proposals": [
+  {
+   "cases": 286,
+   "name": "blank-exit",
+   "network": "blank ? const_empty : full",
+   "proposer": "zai-org/GLM-5.3-Flash",
+   "rationale": "Any input where strip() empties it normalizes under NFKC to output only whitespace, so the joined result is '' and we can return the constant before touching normalization.",
+   "shape": "0x813356d3b550d679",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "clean-ascii-identity",
+   "network": "clean_ascii ? identity : full",
+   "proposer": "zai-org/GLM-5.3-Flash",
+   "rationale": "Lowercase-and-clean ASCII with single inner spaces is a fixed point of NFKC+casefold+ws-collapse, so zero-op identity beats even the incumbent byte path.",
+   "shape": "0x860dfa9d4f3eb099",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "fast-exit-then-bytes",
+   "network": "blank ? const_empty : ascii ? map_fs_controls>bytes_lower>bytes_ws_collapse : full",
+   "proposer": "zai-org/GLM-5.3-Flash",
+   "rationale": "Adds a free blank short-circuit ahead of the incumbent, whose ASCII byte-op path (with 0x1c-0x1f mapped to space to mimic casefold) is already byte-exact, with the full reference as the final fallback.",
+   "shape": "0x8152aaabc5fdf276",
+   "status": "passed"
+  },
+  {
+   "duplicate_of": "incumbent",
+   "name": "ascii-fast",
+   "network": "ascii ? map_fs_controls>bytes_lower>bytes_ws_collapse : full",
+   "proposer": "openai/gpt-oss-120b",
+   "shape": "0x51e27d41fedc44c5",
+   "status": "passed"
+  },
+  {
+   "duplicate_of": "clean-ascii-identity",
+   "name": "clean_ascii",
+   "network": "clean_ascii ? identity : full",
+   "proposer": "openai/gpt-oss-120b",
+   "shape": "0x860dfa9d4f3eb099",
+   "status": "passed"
+  },
+  {
+   "duplicate_of": "blank-exit",
+   "name": "blank-fast",
+   "network": "blank ? const_empty : full",
+   "proposer": "openai/gpt-oss-120b",
+   "shape": "0x813356d3b550d679",
+   "status": "passed"
+  },
+  {
+   "duplicate_of": "incumbent",
+   "name": "fast-ascii-path",
+   "network": "ascii ? map_fs_controls>bytes_lower>bytes_ws_collapse : full",
+   "proposer": "deepseek-ai/DeepSeek-V4-Flash",
+   "shape": "0x51e27d41fedc44c5",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "latin1-fast-path",
+   "network": "latin1 ? nfkc>casefold>ws_collapse : full",
+   "proposer": "deepseek-ai/DeepSeek-V4-Flash",
+   "rationale": "For Latin-1 strings, NFKC then casefold and ws_collapse avoids the more expensive bytes_* ops while still faster than full reference for non-ASCII.",
+   "shape": "0x2ac23eb123d44612",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "clean-ascii-early-exit",
+   "network": "clean_ascii ? strip : ascii ? map_fs_controls>bytes_lower>bytes_ws_collapse : full",
+   "proposer": "deepseek-ai/DeepSeek-V4-Flash",
+   "rationale": "Skip all normalization for already-clean ASCII by just stripping leading/trailing spaces.",
+   "shape": "0x4e16670f4ea980d0",
+   "status": "passed"
+  }
+ ],
+ "quilt": "text-normalize",
+ "report_hash": "0x35165a77246a951d",
+ "satisfice": [
+  "p:blank-exit",
+  "p:clean-ascii-identity",
+  "p:latin1-fast-path"
+ ],
+ "tally": {
+  "duplicates": 4,
+  "passed": 5,
+  "promoted": 2,
+  "proposals": 9,
+  "refused_b7": 0,
+  "refused_execute": 0,
+  "refused_parse": 0,
+  "satisfice": 3,
+  "unique": 5
+ }
+}

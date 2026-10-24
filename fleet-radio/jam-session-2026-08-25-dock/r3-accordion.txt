@@ -1,0 +1,9 @@
+BAR 1: D3 F3 A3 D4 | Swaying  
+BAR 2: D3 G3 Bb3 D4 | Rocking  
+BAR 3: C3 E3 G3 C4 | Creaking  
+BAR 4: Bb2 D3 F3 Bb3 | Groaning  
+BAR 5: A2 C3 E3 A3 | Lifting  
+BAR 6: G2 Bb2 D3 G3 | Soaring  
+BAR 7: F2 A2 C3 F3 | Dipping  
+BAR 8: D2 D3 F3 D3 D2 | Knocking  
+WHY: The water's final hum of the melody lingers, a haunting echo that blends the music with the sound of the float knocking against the pilings.

@@ -1,0 +1,10 @@
+BAR 1: C# - D - Eb - F
+BAR 2: G#m - A - Bb - C#
+BAR 3: F#m7 - G#m - Ab - B
+BAR 4: D - E - F# - G#
+BAR 5: A - Bb - C# - D
+BAR 6: E - F# - G# - A
+BAR 7: Bb - C# - D - Eb
+BAR 8: G#m - F# - E - D
+
+WHY: To create a sense of tension and resolve, while maintaining the melancholic atmosphere, by introducing a hint of dissonance in the third bar.

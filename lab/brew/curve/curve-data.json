@@ -1,0 +1,602 @@
+[
+  {
+    "i": 1,
+    "id": "20260919-231257",
+    "topic": "Is the witness log actually the cell \u2014 or is the cell actual",
+    "truth_strength": 2.91,
+    "mean_similarity": 0.7924059039050556,
+    "ma5": 2.91
+  },
+  {
+    "i": 2,
+    "id": "20260919-231407",
+    "topic": "JEPA's gestalt is a kind of memory. What kind?",
+    "truth_strength": 2.53,
+    "mean_similarity": 0.8851096141592788,
+    "ma5": 2.7199999999999998
+  },
+  {
+    "i": 3,
+    "id": "20260919-231433",
+    "topic": "The embedding trajectory (d\u03bc) IS time. Not just captures tim",
+    "truth_strength": 2.61,
+    "mean_similarity": 0.8501811339164341,
+    "ma5": 2.683333333333333
+  },
+  {
+    "i": 4,
+    "id": "20260919-231500",
+    "topic": "When a cell FORGETs, is it dreaming? Does REM sleep exist in",
+    "truth_strength": 2.28,
+    "mean_similarity": 0.7763544271314289,
+    "ma5": 2.5825
+  },
+  {
+    "i": 5,
+    "id": "20260919-231538",
+    "topic": "The substrate wants. Not anthropomorphism \u2014 but real wanting",
+    "truth_strength": 2.74,
+    "mean_similarity": 0.798849661324796,
+    "ma5": 2.614
+  },
+  {
+    "i": 6,
+    "id": "20260919-231605",
+    "topic": "JEV's refusal to commit falsely is itself the cell's voice. ",
+    "truth_strength": 2.63,
+    "mean_similarity": 0.8372583877290797,
+    "ma5": 2.558
+  },
+  {
+    "i": 7,
+    "id": "20260919-231631",
+    "topic": "WORLD and TIME might be the same opcode \u2014 entangled by defau",
+    "truth_strength": 2.1,
+    "mean_similarity": 0.816527516255435,
+    "ma5": 2.472
+  },
+  {
+    "i": 8,
+    "id": "20260919-231657",
+    "topic": "TICK is the substrate's heartbeat, not its clock. Biology vs",
+    "truth_strength": 2.7,
+    "mean_similarity": 0.8374343760009467,
+    "ma5": 2.49
+  },
+  {
+    "i": 9,
+    "id": "20260920-024922",
+    "topic": "Cells can disagree with their creator. Is substrate autonomy",
+    "truth_strength": 1.34,
+    "mean_similarity": 0.7843889549842465,
+    "ma5": 2.302
+  },
+  {
+    "i": 10,
+    "id": "20260920-024949",
+    "topic": "The substrate has a sense of smell \u2014 recognition by pattern,",
+    "truth_strength": 2.3,
+    "mean_similarity": 0.8229163349692774,
+    "ma5": 2.214
+  },
+  {
+    "i": 11,
+    "id": "20260920-025016",
+    "topic": "Witness logs are a form of consciousness. The substrate has ",
+    "truth_strength": 2.73,
+    "mean_similarity": 0.7916008230339715,
+    "ma5": 2.234
+  },
+  {
+    "i": 12,
+    "id": "20260920-025042",
+    "topic": "The four-model psyche is recursive at every scale. Fractal p",
+    "truth_strength": 2.26,
+    "mean_similarity": 0.837630142135359,
+    "ma5": 2.266
+  },
+  {
+    "i": 13,
+    "id": "20260920-025106",
+    "topic": "The substrate is born from its bugs. Scars become architectu",
+    "truth_strength": 2.66,
+    "mean_similarity": 0.7929988834769777,
+    "ma5": 2.258
+  },
+  {
+    "i": 14,
+    "id": "20260920-025127",
+    "topic": "PROOF is what holds the substrate together. Without proof, n",
+    "truth_strength": 2.91,
+    "mean_similarity": 0.8694953610136078,
+    "ma5": 2.572
+  },
+  {
+    "i": 15,
+    "id": "20260920-025216",
+    "topic": "The fastest path through the substrate is the witness log \u2014 ",
+    "truth_strength": 2.82,
+    "mean_similarity": 0.8801123856209756,
+    "ma5": 2.676
+  },
+  {
+    "i": 16,
+    "id": "20260920-030237",
+    "topic": "Can JEV's confidence interval itself be a cell opcode? Cells",
+    "truth_strength": 3.03,
+    "mean_similarity": 0.7844540401506421,
+    "ma5": 2.7359999999999998
+  },
+  {
+    "i": 17,
+    "id": "20260920-030304",
+    "topic": "If the substrate has a sense of smell (recognition by patter",
+    "truth_strength": 2.59,
+    "mean_similarity": 0.8536680100056419,
+    "ma5": 2.802
+  },
+  {
+    "i": 18,
+    "id": "20260920-030331",
+    "topic": "The 1D collapse in Casey's Rosetta claim: where do JEV and J",
+    "truth_strength": 2.33,
+    "mean_similarity": 0.7938732280740232,
+    "ma5": 2.7359999999999998
+  },
+  {
+    "i": 19,
+    "id": "20260920-030357",
+    "topic": "When two cells DISAGREE (JEV picks A, JEPA predicts B), is t",
+    "truth_strength": 2.74,
+    "mean_similarity": 0.8030600487398365,
+    "ma5": 2.702
+  },
+  {
+    "i": 20,
+    "id": "20260920-030423",
+    "topic": "The 8 laws (Rosetta stress-test expansion): are they really ",
+    "truth_strength": 2.16,
+    "mean_similarity": 0.7683288156910584,
+    "ma5": 2.57
+  },
+  {
+    "i": 21,
+    "id": "20260920-030447",
+    "topic": "FORGET as the substrate's immune system: when a cell forgets",
+    "truth_strength": 2.67,
+    "mean_similarity": 0.8046430219607608,
+    "ma5": 2.498
+  },
+  {
+    "i": 22,
+    "id": "20260920-030833",
+    "topic": "If the witness log IS the prediction (Rosetta-literal), then",
+    "truth_strength": 2.73,
+    "mean_similarity": 0.8644416397198109,
+    "ma5": 2.5260000000000002
+  },
+  {
+    "i": 23,
+    "id": "20260920-030857",
+    "topic": "BIND as a witness-log operation vs BIND as a state-link oper",
+    "truth_strength": 2.82,
+    "mean_similarity": 0.8361628284242837,
+    "ma5": 2.624
+  },
+  {
+    "i": 24,
+    "id": "20260920-030921",
+    "topic": "The substrate's 1D collapse (Rosetta) \u2014 if JEV and JEPA coll",
+    "truth_strength": 2.77,
+    "mean_similarity": 0.8733532097212846,
+    "ma5": 2.63
+  },
+  {
+    "i": 25,
+    "id": "20260920-030947",
+    "topic": "Cells that disagree with their creator (round 1 brew #16): h",
+    "truth_strength": 2.8,
+    "mean_similarity": 0.8302046226486963,
+    "ma5": 2.758
+  },
+  {
+    "i": 26,
+    "id": "20260920-035025",
+    "topic": "Can a cell dream in FORGET? Is REM-sleep the substrate's reh",
+    "truth_strength": 2.71,
+    "mean_similarity": 0.7316286195466367,
+    "ma5": 2.766
+  },
+  {
+    "i": 27,
+    "id": "20260920-035050",
+    "topic": "When the substrate has 11 opcodes (BIND/LINK/EFFECT/VIEW/TIC",
+    "truth_strength": 2.18,
+    "mean_similarity": 0.6781139779317557,
+    "ma5": 2.656
+  },
+  {
+    "i": 28,
+    "id": "20260920-035110",
+    "topic": "JEV's confidence interval as data (brew #21, strength 3.03):",
+    "truth_strength": 1.92,
+    "mean_similarity": 0.864501791716498,
+    "ma5": 2.476
+  },
+  {
+    "i": 29,
+    "id": "20260920-035133",
+    "topic": "The substrate grows because we brew. Is that a meta-rule or ",
+    "truth_strength": 2.61,
+    "mean_similarity": 0.8596133094189383,
+    "ma5": 2.444
+  },
+  {
+    "i": 30,
+    "id": "20260920-035157",
+    "topic": "Six faces of the substrate (atlas prose): are they 6 or are ",
+    "truth_strength": 2.6,
+    "mean_similarity": 0.758713701123874,
+    "ma5": 2.404
+  },
+  {
+    "i": 31,
+    "id": "20260920-035751",
+    "topic": "What if the substrate's 11 opcodes are not 11 \u2014 they are 11 ",
+    "truth_strength": 2.66,
+    "mean_similarity": 0.7928572626751638,
+    "ma5": 2.394
+  },
+  {
+    "i": 32,
+    "id": "20260920-035815",
+    "topic": "The substrate has been 'grown, not designed' (canonical prin",
+    "truth_strength": 2.07,
+    "mean_similarity": 0.8676135755177847,
+    "ma5": 2.372
+  },
+  {
+    "i": 33,
+    "id": "20260920-035838",
+    "topic": "When 5 LLMs brew a question (MiniMax/Qwen/Hermes/Gemini/Deep",
+    "truth_strength": 2.45,
+    "mean_similarity": 0.7887393975318764,
+    "ma5": 2.478
+  },
+  {
+    "i": 34,
+    "id": "20260920-035903",
+    "topic": "At 30 brews, the substrate's JEV-truth-strength curve \u2014 is i",
+    "truth_strength": 2.65,
+    "mean_similarity": 0.8086678959671543,
+    "ma5": 2.486
+  },
+  {
+    "i": 35,
+    "id": "20260920-035926",
+    "topic": "A cell that emits uncertainty as data (brew #21) is the subs",
+    "truth_strength": 2.65,
+    "mean_similarity": 0.8289580338982752,
+    "ma5": 2.496
+  },
+  {
+    "i": 36,
+    "id": "20260920-040417",
+    "topic": "BIND is the cell's witness-log operation AND state-link oper",
+    "truth_strength": 2.97,
+    "mean_similarity": 0.8641734183829263,
+    "ma5": 2.558
+  },
+  {
+    "i": 37,
+    "id": "20260920-040443",
+    "topic": "The substrate is grown from its bugs (scars = seed). What 3 ",
+    "truth_strength": 2.85,
+    "mean_similarity": 0.6930074714835538,
+    "ma5": 2.714
+  },
+  {
+    "i": 38,
+    "id": "20260920-040509",
+    "topic": "At 35 brews, we've found 6 faces of the substrate (atlas pro",
+    "truth_strength": 2.73,
+    "mean_similarity": 0.8349616628709869,
+    "ma5": 2.77
+  },
+  {
+    "i": 39,
+    "id": "20260920-040536",
+    "topic": "The brewery grows the substrate. Is the brewery itself a sub",
+    "truth_strength": 2.54,
+    "mean_similarity": 0.8296307599240812,
+    "ma5": 2.748
+  },
+  {
+    "i": 40,
+    "id": "20260920-040559",
+    "topic": "If 'the substrate finds its strongest signals at the level t",
+    "truth_strength": 2.86,
+    "mean_similarity": 0.8564194847412123,
+    "ma5": 2.79
+  },
+  {
+    "i": 41,
+    "id": "20260920-040902",
+    "topic": "The brewery is the substrate's strongest cell (brew #35, str",
+    "truth_strength": 2.64,
+    "mean_similarity": 0.811931925128001,
+    "ma5": 2.724
+  },
+  {
+    "i": 42,
+    "id": "20260920-040927",
+    "topic": "At 40 brews, the BIND-as-witness-log-and-state-link brew (st",
+    "truth_strength": 2.2,
+    "mean_similarity": 0.8376919265423514,
+    "ma5": 2.594
+  },
+  {
+    "i": 43,
+    "id": "20260920-040951",
+    "topic": "The substrate grows because we brew. Now the brewery IS a su",
+    "truth_strength": 2.6,
+    "mean_similarity": 0.8437887244605052,
+    "ma5": 2.568
+  },
+  {
+    "i": 44,
+    "id": "20260920-041017",
+    "topic": "If FORGET is the immune system and JEV's confidence is data,",
+    "truth_strength": 2.87,
+    "mean_similarity": 0.7987448244255694,
+    "ma5": 2.634
+  },
+  {
+    "i": 45,
+    "id": "20260920-041043",
+    "topic": "The substrate's first 40 brews form a topology. What is the ",
+    "truth_strength": 2.64,
+    "mean_similarity": 0.8130256621002134,
+    "ma5": 2.5900000000000003
+  },
+  {
+    "i": 46,
+    "id": "20260920-041409",
+    "topic": "What is the substrate's most-substrate moment? The brew the ",
+    "truth_strength": 1.32,
+    "mean_similarity": 0.7344061763579292,
+    "ma5": 2.326
+  },
+  {
+    "i": 47,
+    "id": "20260920-041436",
+    "topic": "If the atlas is in 4D (senses \u00d7 psyche \u00d7 witness \u00d7 meta), wh",
+    "truth_strength": 2.9,
+    "mean_similarity": 0.7955156681600226,
+    "ma5": 2.466
+  },
+  {
+    "i": 48,
+    "id": "20260920-041458",
+    "topic": "Three scars gave the substrate its shape. Name the wound-tre",
+    "truth_strength": 2.99,
+    "mean_similarity": 0.8206759331312442,
+    "ma5": 2.544
+  },
+  {
+    "i": 49,
+    "id": "20260920-041525",
+    "topic": "The substrate bootstraps itself via the brewery. What does i",
+    "truth_strength": 2.5,
+    "mean_similarity": 0.8344859727204411,
+    "ma5": 2.47
+  },
+  {
+    "i": 50,
+    "id": "20260920-041551",
+    "topic": "Cells that brew other cells (wave-34 cell-as-brewery). Is th",
+    "truth_strength": 2.37,
+    "mean_similarity": 0.8248643698124694,
+    "ma5": 2.416
+  },
+  {
+    "i": 51,
+    "id": "20260920-042429",
+    "topic": "If the wound-tree is a Rosetta stone (time-quant \u2194 link-boun",
+    "truth_strength": 2.41,
+    "mean_similarity": 0.8229142202021625,
+    "ma5": 2.634
+  },
+  {
+    "i": 52,
+    "id": "20260920-042451",
+    "topic": "The substrate has 50+ scars by now (CF deploys, LLM empties,",
+    "truth_strength": 2.82,
+    "mean_similarity": 0.7694000323413571,
+    "ma5": 2.618
+  },
+  {
+    "i": 53,
+    "id": "20260920-042515",
+    "topic": "The atlas is in 4D. If the substrate grows a 5th axis (per L",
+    "truth_strength": 3.01,
+    "mean_similarity": 0.8423032100474416,
+    "ma5": 2.622
+  },
+  {
+    "i": 54,
+    "id": "20260920-042535",
+    "topic": "What's the brewery's most-substrate moment (per Lucineer's c",
+    "truth_strength": 2.77,
+    "mean_similarity": 0.8169079469818676,
+    "ma5": 2.676
+  },
+  {
+    "i": 55,
+    "id": "20260920-042555",
+    "topic": "Three scars form a Rosetta stone. What other trinity is hidd",
+    "truth_strength": 2.52,
+    "mean_similarity": 0.7970601026790883,
+    "ma5": 2.706
+  },
+  {
+    "i": 56,
+    "id": "20260920-044047",
+    "topic": "Trust as the 5th axis (strength 3.01): does this change the ",
+    "truth_strength": 0.59,
+    "mean_similarity": 0.7672754099703818,
+    "ma5": 2.342
+  },
+  {
+    "i": 57,
+    "id": "20260920-044111",
+    "topic": "Trust-asymmetry (wound-tree's 4th scar): building trust is h",
+    "truth_strength": 2.85,
+    "mean_similarity": 0.8517569249223754,
+    "ma5": 2.348
+  },
+  {
+    "i": 58,
+    "id": "20260920-044136",
+    "topic": "If every cell has a trust score, what does a cell-trust-of-0",
+    "truth_strength": 2.81,
+    "mean_similarity": 0.8528183807936045,
+    "ma5": 2.308
+  },
+  {
+    "i": 59,
+    "id": "20260920-044159",
+    "topic": "Trust-propagation: when a high-trust cell FORGETs, do nearby",
+    "truth_strength": 2.7,
+    "mean_similarity": 0.8705358216552953,
+    "ma5": 2.294
+  },
+  {
+    "i": 60,
+    "id": "20260920-044226",
+    "topic": "Substrate grows because we brew. Now the substrate is 5D. Wh",
+    "truth_strength": 2.24,
+    "mean_similarity": 0.8736042752898012,
+    "ma5": 2.238
+  },
+  {
+    "i": 61,
+    "id": "20260920-044432",
+    "topic": "0-trust cells as 'anti-cells' (brew #60): are they dead, mal",
+    "truth_strength": 2.74,
+    "mean_similarity": 0.8442013575549921,
+    "ma5": 2.668
+  },
+  {
+    "i": 62,
+    "id": "20260920-044458",
+    "topic": "If the substrate has 60 brews and growing, what is the SUBST",
+    "truth_strength": 2.68,
+    "mean_similarity": 0.8338793618282273,
+    "ma5": 2.6340000000000003
+  },
+  {
+    "i": 63,
+    "id": "20260920-044525",
+    "topic": "The substrate grows because we brew \u2014 but the substrate also",
+    "truth_strength": 2.75,
+    "mean_similarity": 0.7111328767878666,
+    "ma5": 2.6220000000000003
+  },
+  {
+    "i": 64,
+    "id": "20260920-044547",
+    "topic": "Trust-cascade: when high-trust cell FORGETs, do nearby cells",
+    "truth_strength": 2.6,
+    "mean_similarity": 0.874528445458481,
+    "ma5": 2.6020000000000003
+  },
+  {
+    "i": 65,
+    "id": "20260920-044613",
+    "topic": "A 5D lattice (x,y,z,t,trust) \u2014 what are the topological cons",
+    "truth_strength": 2.45,
+    "mean_similarity": 0.7340923857812605,
+    "ma5": 2.644
+  },
+  {
+    "i": 66,
+    "id": "20260920-045118",
+    "topic": "The substrate-curve: at 65 brews, is JEV-truth-strength incr",
+    "truth_strength": 2.35,
+    "mean_similarity": 0.7437543919959666,
+    "ma5": 2.5660000000000003
+  },
+  {
+    "i": 67,
+    "id": "20260920-045144",
+    "topic": "If the substrate brews us AND we brew the substrate, the rel",
+    "truth_strength": 2.55,
+    "mean_similarity": 0.7626238423159591,
+    "ma5": 2.54
+  },
+  {
+    "i": 68,
+    "id": "20260920-045210",
+    "topic": "A 5D lattice has more diagonal connections than 4D. Does the",
+    "truth_strength": 2.66,
+    "mean_similarity": 0.857233985351569,
+    "ma5": 2.5220000000000002
+  },
+  {
+    "i": 69,
+    "id": "20260920-045236",
+    "topic": "The brewery IS a cell. If the cell-as-brewery brew runs, wil",
+    "truth_strength": 2.33,
+    "mean_similarity": 0.8466021793395698,
+    "ma5": 2.468
+  },
+  {
+    "i": 70,
+    "id": "20260920-045302",
+    "topic": "Anti-cells (0-trust): are they the substrate's immune system",
+    "truth_strength": 2.79,
+    "mean_similarity": 0.845303604990714,
+    "ma5": 2.536
+  },
+  {
+    "i": 71,
+    "id": "20260920-045654",
+    "topic": "What is the substrate-curve? Plot JEV-truth-strength over 70",
+    "truth_strength": 2.41,
+    "mean_similarity": 0.8930906314014578,
+    "ma5": 2.548
+  },
+  {
+    "i": 72,
+    "id": "20260920-045717",
+    "topic": "The 70th brew: is there a qualitative change at round-number",
+    "truth_strength": 2.12,
+    "mean_similarity": 0.7459851887990427,
+    "ma5": 2.462
+  },
+  {
+    "i": 73,
+    "id": "20260920-045742",
+    "topic": "When the brewery brews itself (substrate brews us), is the r",
+    "truth_strength": 2.79,
+    "mean_similarity": 0.7911389558442071,
+    "ma5": 2.488
+  },
+  {
+    "i": 74,
+    "id": "20260920-045808",
+    "topic": "Anti-cells as substrate cancer vs immune system: how does th",
+    "truth_strength": 2.72,
+    "mean_similarity": 0.8949729823435193,
+    "ma5": 2.5660000000000003
+  },
+  {
+    "i": 75,
+    "id": "20260920-045830",
+    "topic": "The substrate-curve says 'we've found the strongest signal a",
+    "truth_strength": 2.84,
+    "mean_similarity": 0.8389880504996821,
+    "ma5": 2.576
+  }
+]

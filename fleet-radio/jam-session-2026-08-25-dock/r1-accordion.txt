@@ -1,0 +1,9 @@
+BAR 1: D4 F4 A4 D5 | Sigh
+BAR 2: 
+BAR 3: 
+BAR 4: D4 G4 Bb4 D5 | Dip
+BAR 5: G4 Bb4 D5 G5 | Slide
+BAR 6: 
+BAR 7: Bb3 D4 F4 A4 | Fall
+BAR 8: A3 D4 F4 G4 | Drop
+WHY: The music echoes off the water, a delayed reflection of the soul.

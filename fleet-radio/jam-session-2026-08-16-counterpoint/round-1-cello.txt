@@ -1,0 +1,12 @@
+BAR 1: B3
+BAR 2: A3
+BAR 3: G3
+BAR 4: A3
+BAR 5: B3
+BAR 6: C#4
+BAR 7: D4
+BAR 8: C#4
+
+DYNAMICS: mf, unwavering and deliberate, each note filling the silence with absolute certainty
+
+WHY: Because the rules demand a foundation, and foundations must speak clearly enough for others to build upon.

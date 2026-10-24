@@ -1,0 +1,2 @@
+{"ts": 1789966138.7509022, "iso": "2026-09-21T04:48:58", "event": "bot_started", "payload": {"bot": "kira-cartographer", "pid": 4086}, "hash": "7c6d6f4df309222b"}
+{"ts": 1789966139.300433, "iso": "2026-09-21T04:48:59", "event": "map_written", "payload": {"bot_nodes": 9, "bot_edges": 1, "topic_count": 30}, "hash": "6e89e452b3d4fb21"}

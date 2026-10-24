@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Quilt Holodeck — every object a cell</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --panel: #131826;
+    --cell: #1f2937;
+    --cell-fresh: #4ade80;
+    --cell-conv: #fbbf24;
+    --cell-infer: #60a5fa;
+    --cell-fog: #374151;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --accent: #38bdf8;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header .badge { font-size: 11px; color: var(--text-dim); }
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 360px;
+    height: calc(100vh - 60px);
+  }
+  .panel {
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    background: var(--panel);
+  }
+  .panel-right {
+    border-right: none;
+    border-left: 1px solid var(--border);
+  }
+  .panel h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 16px;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .view-list { list-style: none; }
+  .view-list li {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .view-list li:hover { background: rgba(56, 189, 248, 0.05); }
+  .view-list li.active { background: rgba(56, 189, 248, 0.12); border-left: 3px solid var(--accent); padding-left: 13px; }
+  .view-list li .title { font-size: 13px; font-weight: 500; }
+  .view-list li .desc { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  #canvas {
+    position: relative;
+    background: var(--bg);
+    overflow: hidden;
+    cursor: crosshair;
+  }
+  #canvas svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  .controls {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  .btn {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn:hover { background: var(--cell); }
+  .zoom-label {
+    background: var(--panel);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 4px;
+  }
+  .inspector { padding: 16px; font-size: 12px; }
+  .inspector .label { color: var(--text-dim); font-size: 10px; text-transform: uppercase; }
+  .inspector .value { color: var(--text); margin-top: 4px; word-break: break-all; }
+  .inspector hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+  .witness-entry {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .witness-entry:last-child { border-bottom: none; }
+  .witness-entry .agent { color: var(--accent); }
+  .witness-entry .action { color: var(--text-dim); }
+  .legend {
+    display: flex;
+    gap: 12px;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 12px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>⊹ The Quilt Holodeck</h1>
+  <div class="badge">every object a cell · zoom reveals sub-cells</div>
+</div>
+<div class="layout">
+  <div class="panel">
+    <h2>The Views</h2>
+    <ul class="view-list" id="view-list"></ul>
+  </div>
+  <div id="canvas">
+    <svg id="svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="controls">
+      <button class="btn" id="zoom-in">+</button>
+      <span class="zoom-label" id="zoom-label">1.00x</span>
+      <button class="btn" id="zoom-out">−</button>
+      <button class="btn" id="zoom-reset">reset</button>
+    </div>
+  </div>
+  <div class="panel panel-right">
+    <h2>The Witness</h2>
+    <div class="inspector" id="inspector">
+      <div class="label">Click a cell</div>
+      <div class="value">Each cell carries its history.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+// The substrate is a small in-memory store.
+// 4 views of the same 4D cell-graph: chart, list, tensor, witness.
+
+const SUBSTRATE = {
+  cells: [],  // all cells
+  byAddress: new Map(),
+};
+
+function makeCell(address, value, tensor, axes, witness, kind = "fresh") {
+  return { address, value, tensor, axes, witness, kind, confidence: kind === "fresh" ? 1.0 : (kind === "convoy" ? 0.7 : (kind === "infer" ? 0.4 : 0.1)) };
+}
+
+const VIEWS = [
+  { id: "chart", name: "The Bay Cross-Section", desc: "Reyes's planned tack",
+    cells: () => {
+      const cells = [];
+      // 60 depth cells along the tack
+      for (let i = 0; i < 60; i++) {
+        const x = 50 + i * 10;
+        const y = 300 + Math.sin(i * 0.3) * 100;
+        const d = 10 + Math.sin(i * 0.4) * 8;
+        cells.push(makeCell(`bay/${i}`, d, [d], ["depth"], [
+          { ts: 1000 + i, agent: "reyes", action: "write", value: d },
+          { ts: 1001 + i, agent: "boat-01", action: "read", value: d },
+        ], i % 3 === 0 ? "fresh" : (i % 3 === 1 ? "convoy" : "infer")));
+      }
+      return cells;
+    } },
+  { id: "list", name: "The Convoy's Reading List", desc: "What 10 boats surveyed",
+    cells: () => {
+      const cells = [];
+      for (let i = 0; i < 10; i++) {
+        const boats = [`boat-${i.toString().padStart(2, "0")}`];
+        for (let j = 0; j < 8; j++) {
+          cells.push(makeCell(`reading/${i}/${j}`, j, [j], ["index"], [
+            { ts: 2000 + j, agent: boats[0], action: "read", value: j },
+            { ts: 2001 + j, agent: "reyes", action: "infer", value: j * 1.1 },
+          ], "convoy"));
+        }
+      }
+      return cells;
+    } },
+  { id: "tensor", name: "The Tensor — 3D Bathymetry", desc: "x, y, depth",
+    cells: () => {
+      const cells = [];
+      // 5x5x3 tensor
+      for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+          for (let z = 0; z < 3; z++) {
+            const d = 8 + x * 2 + y * 0.5 + z * 0.3;
+            cells.push(makeCell(`tensor/${x},${y},${z}`, d, [d, d*1.1, d*0.9], ["depth", "temp", "sal"], [
+              { ts: 3000 + x, agent: "skate", action: "write", value: d },
+            ], z === 0 ? "fresh" : "infer"));
+          }
+        }
+      }
+      return cells;
+    } },
+  { id: "witness", name: "The Witness Log", desc: "Every read, every write",
+    cells: () => {
+      const cells = [];
+      // A focused witness log on one cell, 20 entries
+      const c = makeCell("witness/42", 12.5, [12.5], ["depth"], [], "fresh");
+      for (let i = 0; i < 20; i++) {
+        c.witness.push({
+          ts: 4000 + i * 7,
+          agent: ["reyes", "skate", "boat-00", "inference", "drone"][i % 5],
+          action: i % 3 === 0 ? "write" : "read",
+          value: 12.5 + (Math.random() - 0.5) * 0.2,
+        });
+      }
+      cells.push(c);
+      return cells;
+    } },
+  { id: "graph", name: "The Cell Graph", desc: "Connections between cells",
+    cells: () => {
+      const cells = [];
+      // Build a graph: 1 root, 3 children, 9 grandchildren
+      cells.push(makeCell("graph/root", "root", [0], ["x"], [], "fresh"));
+      for (let i = 0; i < 3; i++) {
+        cells.push(makeCell(`graph/child-${i}`, `c${i}`, [i+1], ["x"], [], "convoy"));
+        for (let j = 0; j < 3; j++) {
+          cells.push(makeCell(`graph/grand-${i}-${j}`, `g${i}.${j}`, [i*3+j+4], ["x"], [], "infer"));
+        }
+      }
+      return cells;
+    } },
+];
+
+// Render a view
+let currentView = VIEWS[0];
+let zoom = 1.0;
+let pan = { x: 0, y: 0 };
+let selectedCell = null;
+
+function renderViewList() {
+  const ul = document.getElementById("view-list");
+  ul.innerHTML = "";
+  VIEWS.forEach((v, i) => {
+    const li = document.createElement("li");
+    if (v === currentView) li.classList.add("active");
+    li.innerHTML = `<div class="title">${v.name}</div><div class="desc">${v.desc}</div>`;
+    li.onclick = () => { currentView = v; selectedCell = null; renderViewList(); renderCanvas(); renderInspector(); };
+    ul.appendChild(li);
+  });
+}
+
+function renderCanvas() {
+  const svg = document.getElementById("svg");
+  svg.innerHTML = "";
+  // Set viewBox
+  svg.setAttribute("viewBox", `${-pan.x / zoom} ${-pan.y / zoom} ${800 / zoom} ${600 / zoom}`);
+
+  const cells = currentView.cells();
+  const n = cells.length;
+
+  if (currentView.id === "chart") {
+    // Render the cross-section: line plot of depth
+    const line = cells.map((c, i) => `${i * (800 / n)}, ${300 - c.value * 8}`).join(" ");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+    path.setAttribute("points", line);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "#38bdf8");
+    path.setAttribute("stroke-width", "2");
+    svg.appendChild(path);
+    // Dots
+    cells.forEach((c, i) => {
+      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      dot.setAttribute("cx", i * (800 / n));
+      dot.setAttribute("cy", 300 - c.value * 8);
+      dot.setAttribute("r", 5);
+      const color = c.kind === "fresh" ? "#4ade80" : (c.kind === "convoy" ? "#fbbf24" : "#60a5fa");
+      dot.setAttribute("fill", color);
+      dot.style.cursor = "pointer";
+      dot.onclick = () => { selectedCell = c; renderInspector(); };
+      svg.appendChild(dot);
+    });
+  } else if (currentView.id === "list") {
+    // Render as a stacked list
+    cells.forEach((c, i) => {
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", 50);
+      rect.setAttribute("y", 30 + i * 14);
+      rect.setAttribute("width", 700);
+      rect.setAttribute("height", 12);
+      rect.setAttribute("fill", c.kind === "fresh" ? "#4ade80" : "#fbbf24");
+      rect.setAttribute("opacity", c.confidence);
+      rect.style.cursor = "pointer";
+      rect.onclick = () => { selectedCell = c; renderInspector(); };
+      svg.appendChild(rect);
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", 60);
+      text.setAttribute("y", 39 + i * 14);
+      text.setAttribute("fill", "#0a0e1a");
+      text.setAttribute("font-size", "10");
+      text.setAttribute("font-family", "ui-monospace, monospace");
+      text.textContent = c.address;
+      svg.appendChild(text);
+    });
+  } else if (currentView.id === "tensor") {
+    // Render as a 3D grid (5x5x3 → 75 cells in a grid)
+    cells.forEach((c, i) => {
+      const z = i % 3;
+      const y = Math.floor(i / 3) % 5;
+      const x = Math.floor(i / 15);
+      const px = 100 + x * 130 + z * 30;
+      const py = 60 + y * 80 + z * 10;
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", px);
+      rect.setAttribute("y", py);
+      rect.setAttribute("width", 110);
+      rect.setAttribute("height", 70);
+      rect.setAttribute("fill", c.kind === "fresh" ? "#4ade80" : "#60a5fa");
+      rect.setAttribute("opacity", c.confidence);
+      rect.setAttribute("stroke", "#0a0e1a");
+      rect.setAttribute("stroke-width", "1");
+      rect.style.cursor = "pointer";
+      rect.onclick = () => { selectedCell = c; renderInspector(); };
+      svg.appendChild(rect);
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", px + 5);
+      text.setAttribute("y", py + 12);
+      text.setAttribute("fill", "#0a0e1a");
+      text.setAttribute("font-size", "9");
+      text.setAttribute("font-family", "ui-monospace, monospace");
+      text.textContent = `${c.address} = ${c.value.toFixed(1)}`;
+      svg.appendChild(text);
+    });
+  } else if (currentView.id === "witness") {
+    // Render the witness log as a timeline
+    const c = cells[0];
+    c.witness.forEach((w, i) => {
+      const px = 50 + i * 36;
+      const py = 250 - Math.random() * 100;
+      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      dot.setAttribute("cx", px);
+      dot.setAttribute("cy", py);
+      dot.setAttribute("r", 8);
+      dot.setAttribute("fill", w.action === "write" ? "#4ade80" : "#94a3b8");
+      dot.style.cursor = "pointer";
+      dot.onclick = () => { selectedCell = c; renderInspector(); };
+      svg.appendChild(dot);
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", px - 12);
+      text.setAttribute("y", py + 25);
+      text.setAttribute("fill", "#94a3b8");
+      text.setAttribute("font-size", "8");
+      text.textContent = w.agent;
+      svg.appendChild(text);
+    });
+  } else if (currentView.id === "graph") {
+    // Render as a graph: root → 3 children → 9 grandchildren
+    cells.forEach((c) => {
+      const parts = c.address.split("/")[1].split("-");
+      let px, py;
+      if (parts[0] === "root") { px = 400; py = 100; }
+      else if (parts[0] === "child") { px = 150 + parseInt(parts[1]) * 250; py = 280; }
+      else { px = 50 + parseInt(parts[1]) * 250 + parseInt(parts[2].split("-")[1]) * 60; py = 450; }
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", px);
+      circle.setAttribute("cy", py);
+      circle.setAttribute("r", 18);
+      circle.setAttribute("fill", c.kind === "fresh" ? "#4ade80" : (c.kind === "convoy" ? "#fbbf24" : "#60a5fa"));
+      circle.setAttribute("stroke", "#0a0e1a");
+      circle.setAttribute("stroke-width", "2");
+      circle.style.cursor = "pointer";
+      circle.onclick = () => { selectedCell = c; renderInspector(); };
+      svg.appendChild(circle);
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", px - 18);
+      text.setAttribute("y", py + 5);
+      text.setAttribute("fill", "#0a0e1a");
+      text.setAttribute("font-size", "10");
+      text.setAttribute("font-weight", "bold");
+      text.textContent = c.value;
+      svg.appendChild(text);
+    });
+  }
+}
+
+function renderInspector() {
+  const ins = document.getElementById("inspector");
+  if (!selectedCell) {
+    ins.innerHTML = `<div class="label">Click a cell</div><div class="value">Each cell carries its history. The holodeck renders the same 4D cell-graph in 5 different views.</div><div class="legend"><div class="legend-item"><div class="legend-swatch" style="background:#4ade80"></div>fresh</div><div class="legend-item"><div class="legend-swatch" style="background:#fbbf24"></div>convoy</div><div class="legend-item"><div class="legend-swatch" style="background:#60a5fa"></div>infer</div></div>`;
+    return;
+  }
+  const c = selectedCell;
+  ins.innerHTML = `
+    <div class="label">Address</div>
+    <div class="value">${c.address}</div>
+    <hr>
+    <div class="label">Value</div>
+    <div class="value">${typeof c.value === "number" ? c.value.toFixed(3) : c.value}</div>
+    <hr>
+    <div class="label">Tensor</div>
+    <div class="value">[${c.tensor.map(v => typeof v === "number" ? v.toFixed(2) : v).join(", ")}]</div>
+    <div class="label">Axes</div>
+    <div class="value">${c.axes.join(", ")}</div>
+    <hr>
+    <div class="label">Confidence</div>
+    <div class="value">${c.confidence.toFixed(3)}</div>
+    <div class="label">Kind</div>
+    <div class="value">${c.kind}</div>
+    <hr>
+    <div class="label">Witness log (${c.witness.length} entries)</div>
+    ${c.witness.map(w => `<div class="witness-entry"><span class="agent">${w.agent}</span> <span class="action">${w.action}</span> ${typeof w.value === "number" ? w.value.toFixed(2) : w.value} <span style="color:#475569">@${w.ts}</span></div>`).join("")}
+  `;
+}
+
+// Zoom controls
+document.getElementById("zoom-in").onclick = () => { zoom = Math.min(zoom * 1.5, 8); document.getElementById("zoom-label").textContent = zoom.toFixed(2) + "x"; renderCanvas(); };
+document.getElementById("zoom-out").onclick = () => { zoom = Math.max(zoom / 1.5, 0.5); document.getElementById("zoom-label").textContent = zoom.toFixed(2) + "x"; renderCanvas(); };
+document.getElementById("zoom-reset").onclick = () => { zoom = 1.0; pan = {x:0, y:0}; document.getElementById("zoom-label").textContent = "1.00x"; renderCanvas(); };
+
+// Pan
+let dragging = false;
+let lastMouse = null;
+document.getElementById("canvas").onmousedown = (e) => { dragging = true; lastMouse = {x: e.clientX, y: e.clientY}; };
+document.getElementById("canvas").onmouseup = () => { dragging = false; };
+document.getElementById("canvas").onmouseleave = () => { dragging = false; };
+document.getElementById("canvas").onmousemove = (e) => {
+  if (!dragging) return;
+  pan.x -= (e.clientX - lastMouse.x) * zoom;
+  pan.y -= (e.clientY - lastMouse.y) * zoom;
+  lastMouse = {x: e.clientX, y: e.clientY};
+  renderCanvas();
+};
+
+renderViewList();
+renderCanvas();
+renderInspector();
+</script>
+</body>
+</html>

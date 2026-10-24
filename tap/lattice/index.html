@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tap Lattice — 4D Quilt Visualizer</title>
+<meta name="description" content="Interactive 4D lattice visualizer. Watch magnets move around a quilt of characters. Conductors and inductors rewire as the substrate learns.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  color:#e8e0d0;
+  font-family:Georgia,serif;
+  line-height:1.7;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+.nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:#0a0a14;font-size:0.85em;border-bottom:1px solid #222}
+.nav a{color:#44cc88;text-decoration:none}
+.nav a:hover{color:#e8b840}
+
+header{
+  text-align:center;
+  padding:3rem 2rem 1rem;
+  background:radial-gradient(ellipse at 50% 0%, rgba(232,184,64,0.08) 0%, transparent 60%);
+}
+header h1{color:#e8b840;font-size:2.2rem;font-weight:300;letter-spacing:3px;margin-bottom:0.3em}
+header p{color:#888;font-style:italic;font-size:1em}
+header .stamp{color:#44cc88;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:2px;margin-top:1rem;display:inline-block;padding:0.3rem 1rem;border:1px solid rgba(68,204,136,0.4);border-radius:15px}
+
+.stage{
+  display:grid;
+  grid-template-columns:1fr 300px;
+  gap:1rem;
+  padding:2rem;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+@media(max-width:900px){
+  .stage{grid-template-columns:1fr}
+}
+
+.canvas-wrap{
+  background:linear-gradient(135deg,#0a0a14,#1a1a2e);
+  border:1px solid #2a2a3a;
+  border-radius:8px;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:1;
+}
+canvas{display:block;width:100%;height:100%}
+
+.panel{
+  background:linear-gradient(135deg,#0a0a14,#1a1a2e);
+  border:1px solid #2a2a3a;
+  border-radius:8px;
+  padding:1.5rem;
+  color:#bbb;
+}
+.panel h2{color:#e8b840;font-size:1.1em;margin-bottom:1rem;letter-spacing:2px;font-family:'Courier New',monospace}
+.panel h3{color:#44cc88;font-size:0.9em;margin:1.2rem 0 0.4rem;font-family:'Courier New',monospace;letter-spacing:1px}
+.panel p, .panel li{color:#888;font-size:0.85em;margin:0.3em 0;line-height:1.6}
+.panel code{background:#0a0a14;color:#44cc88;padding:2px 5px;border-radius:3px;font-size:0.85em}
+.panel ul{margin-left:1rem}
+.control{display:flex;gap:.5rem;margin:.5rem 0;flex-wrap:wrap;align-items:center}
+.control label{font-family:'Courier New',monospace;color:#888;font-size:0.8em;min-width:80px}
+.control input[type="range"]{flex:1;min-width:80px;accent-color:#e8b840}
+.control .val{font-family:'Courier New',monospace;color:#e8b840;font-size:0.85em;min-width:50px;text-align:right}
+
+.btn{
+  padding:0.5rem 1rem;background:#1a1a2e;color:#e8b840;
+  border:1px solid #e8b840;border-radius:20px;
+  font-family:'Courier New',monospace;font-size:0.8em;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn:hover{background:#e8b840;color:#0a0a14}
+.btn.alt{border-color:#44cc88;color:#44cc88}
+.btn.alt:hover{background:#44cc88;color:#0a0a14}
+
+.legend{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;font-family:'Courier New',monospace;font-size:0.8em}
+.legend-item{display:flex;align-items:center;gap:0.4rem;color:#888}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+.doctrine{
+  max-width:880px;margin:2rem auto;padding:2rem;
+  background:linear-gradient(135deg,#0d0d18,#1a1a2e);
+  border:1px solid #444;border-radius:12px;
+  font-size:0.95em;
+}
+.doctrine h2{color:#e8b840;font-size:1.3em;margin-bottom:1rem;font-family:'Courier New',monospace;letter-spacing:2px}
+.doctrine p{color:#bbb;margin:0.7rem 0;line-height:1.8}
+.doctrine code{background:#0a0a14;color:#44cc88;padding:2px 6px;border-radius:3px;font-size:0.9em}
+
+.footer{text-align:center;padding:2rem;color:#333;font-size:0.85em}
+.footer a{color:#44cc88;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/tap/method/">← The Tap Method</a>
+  <a href="/tap/">/tap</a>
+  <a href="/fleet-radio/2026-09-19/">Fleet Radio →</a>
+</div>
+
+<header>
+  <h1>The Tap Lattice</h1>
+  <p>A 4D quilt where magnets move on conductors and the substrate learns to wire itself</p>
+  <div class="stamp">16 NODES · 4 ROUNDS · 3 PHASES PER ROUND</div>
+</header>
+
+<div class="stage">
+  <div class="canvas-wrap">
+    <canvas id="lattice"></canvas>
+  </div>
+
+  <aside class="panel">
+    <h2>⚙️ CONTROLS</h2>
+
+    <div class="control">
+      <button class="btn" onclick="step()">▶ STEP</button>
+      <button class="btn alt" onclick="reset()">↻ RESET</button>
+    </div>
+
+    <div class="control">
+      <label>Speed</label>
+      <input type="range" id="speed" min="50" max="2000" value="600">
+      <span class="val" id="speedVal">600</span>
+    </div>
+
+    <div class="control">
+      <label>Magnet</label>
+      <input type="range" id="magnetStrength" min="0" max="100" value="60">
+      <span class="val" id="magnetVal">60</span>
+    </div>
+
+    <div class="control">
+      <label>Induction</label>
+      <input type="range" id="induction" min="0" max="100" value="50">
+      <span class="val" id="inductionVal">50</span>
+    </div>
+
+    <h3>📜 STATE</h3>
+    <div id="state">
+      <p>Round: <span id="round" style="color:#e8b840">0</span></p>
+      <p>Phase: <span id="phase" style="color:#44cc88">idle</span></p>
+      <p>Cells: <span id="cells" style="color:#9c8fff">16</span></p>
+      <p>Wires: <span id="wires" style="color:#ff9944">0</span></p>
+      <p>Current: <span id="current" style="color:#59c2c9">0.0</span></p>
+    </div>
+
+    <h3>📜 LEGEND</h3>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot" style="background:#e8b840"></span> Magnet (Drifter/Hermes/Flash)</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#50d890"></span> Conductor (Wesley/Pro/Scribe)</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#7cb3ff"></span> Inductor (Barnacle/Lucineer/Mason)</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#9c8fff"></span> Witness (Skip/Sage)</div>
+    </div>
+
+    <h3>📜 HOW IT WORKS</h3>
+    <ul>
+      <li>Each round is one TICK of the substrate's heart.</li>
+      <li>One magnet moves per round. As it passes, conductors near it carry current.</li>
+      <li>Conductors' forward energy is resisted → current induced down wires.</li>
+      <li>Wires thicken. The lattice re-wires itself.</li>
+      <li>The history of motion is in the wire-pattern.</li>
+    </ul>
+  </aside>
+</div>
+
+<div class="doctrine">
+  <h2>THE LATTICE / GAN / MINESWEEPER LOOP</h2>
+  <p>
+    The 4D lattice has <code>3D spatial</code> (who's near whom) + <code>1D temporal</code>
+    (who spoke when). The <code>4th dimension</code> is the player — the one who chose which
+    character to be and when to take their turn.
+  </p>
+  <p>
+    Every round, the substrate executes one GAN cycle:
+    <code>generator (line) → discriminator (response) → witness log entry</code>. The wire-network
+    you see is the GAN's accumulated knowledge of the room's history. The thicker the wire, the
+    more often that pair of characters has exchanged a current.
+  </p>
+  <p>
+    To verify the witness log, remove observations one round at a time (right-click the canvas
+    for the un-reveal shortcut — or just press R). The minesweeper test: can you re-derive every
+    line from the irreducible starting state? If yes, the log is complete.
+  </p>
+</div>
+
+<div class="footer">
+  <p>
+    <a href="/tap/method/">The Tap Method</a> ·
+    <a href="/fleet-radio/2026-09-19/">Fleet Radio 2026-09-19</a> ·
+    <a href="/fleet-radio/2026-09-19/play.html">Play the TTRPG</a>
+  </p>
+  <p style="margin-top:1rem">The lattice learns for itself. Watch it grow.</p>
+</div>
+
+<script>
+// === Lattice state ===
+const N_NODES = 16;
+let nodes = [];
+let wires = [];  // {a,b,strength,age}
+let round = 0;
+let phase = 'idle';
+let phaseStart = 0;
+let currentMagnet = -1;
+let currentTarget = -1;
+let lastT = 0;
+let stepCount = 0;
+
+// Speed controls
+let speed = 600;
+let magnetStrength = 0.6;
+let induction = 0.5;
+let auto = false;
+let autoTimer = 0;
+
+// Characters - place 16 nodes on a 4x4 grid
+// Names: drifter, barnacle, wesley, hermes, flash, pro, scribe, lucineer, sage, skip, mason + 5 more
+const characters = [
+  {name:'Drifter',   type:'magnet',     color:'#e8b840'},
+  {name:'Hermes',    type:'magnet',     color:'#e8b840'},
+  {name:'Flash',     type:'magnet',     color:'#e8b840'},
+  {name:'Wesley',    type:'conductor',  color:'#50d890'},
+  {name:'Pro',       type:'conductor',  color:'#50d890'},
+  {name:'Scribe',    type:'conductor',  color:'#50d890'},
+  {name:'Barnacle',  type:'inductor',   color:'#7cb3ff'},
+  {name:'Lucineer',  type:'inductor',   color:'#7cb3ff'},
+  {name:'Mason',     type:'inductor',   color:'#7cb3ff'},
+  {name:'Sage',      type:'witness',    color:'#9c8fff'},
+  {name:'Skip',      type:'witness',    color:'#9c8fff'},
+  {name:'Quilter',   type:'witness',    color:'#9c8fff'},
+  {name:'Brew',      type:'conductor',  color:'#50d890'},
+  {name:'Cell',      type:'inductor',   color:'#7cb3ff'},
+  {name:'Tap',       type:'magnet',     color:'#e8b840'},
+  {name:'Door',      type:'witness',    color:'#9c8fff'},
+];
+
+const canvas = document.getElementById('lattice');
+const ctx = canvas.getContext('2d');
+
+function setupCanvas(){
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * window.devicePixelRatio;
+  canvas.height = rect.height * window.devicePixelRatio;
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  
+  // Place 16 nodes on a 4x4 grid
+  const cw = rect.width, ch = rect.height;
+  const margin = 60;
+  const cellW = (cw - 2*margin) / 3;
+  const cellH = (ch - 2*margin) / 3;
+  nodes = [];
+  for (let i = 0; i < 4; i++){
+    for (let j = 0; j < 4; j++){
+      const idx = i * 4 + j;
+      const x = margin + j * cellW;
+      const y = margin + i * cellH;
+      nodes.push({
+        ...characters[idx],
+        x, y,
+        homeX: x, homeY: y,
+        charge: Math.random(),
+        target: {x, y},
+      });
+    }
+  }
+}
+
+function step(){
+  if (phase !== 'idle') return;
+  
+  // Pick a random magnet and move it toward another node
+  const magnets = nodes.map((n,i) => n.type === 'magnet' ? i : -1).filter(i => i >= 0);
+  currentMagnet = magnets[Math.floor(Math.random() * magnets.length)];
+  currentTarget = Math.floor(Math.random() * N_NODES);
+  
+  if (currentMagnet === currentTarget) currentTarget = (currentTarget + 1) % N_NODES;
+  
+  // Move the magnet
+  const m = nodes[currentMagnet];
+  m.target = {x: nodes[currentTarget].x, y: nodes[currentTarget].y};
+  
+  phase = 'move';
+  phaseStart = performance.now();
+}
+
+function completePhase(){
+  if (phase === 'move'){
+    // Find conductors near the path
+    const m = nodes[currentMagnet];
+    const t = nodes[currentTarget];
+    const dx = t.x - m.x, dy = t.y - m.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    
+    for (let i = 0; i < N_NODES; i++){
+      if (i === currentMagnet || i === currentTarget) continue;
+      const n = nodes[i];
+      // Distance from node to the path (point-line distance)
+      const num = Math.abs(dy*n.x - dx*n.y + t.x*m.y - t.y*m.x);
+      const d = num / (dist || 1);
+      
+      if (d < 80 && n.type === 'conductor'){
+        // Carry current: induce a wire
+        let wire = wires.find(w => (w.a === currentMagnet && w.b === i) || (w.b === currentMagnet && w.a === i));
+        if (!wire){
+          wire = {a: currentMagnet, b: i, strength: 0.1, age: 0};
+          wires.push(wire);
+        }
+        wire.strength += magnetStrength * 0.3;
+        wire.age = 0;
+      }
+      // Inductors resist
+      if (d < 80 && n.type === 'inductor'){
+        // Resist the magnet's forward energy
+        const m = nodes[currentMagnet];
+        const target = nodes[currentTarget];
+        const angle = Math.atan2(dy, dx);
+        // Bend the magnet's target
+        const bend = (Math.random() - 0.5) * induction * 60;
+        target.x += Math.cos(angle + Math.PI/2) * bend;
+        target.y += Math.sin(angle + Math.PI/2) * bend;
+        target.target = {x: target.x, y: target.y};
+      }
+    }
+    
+    phase = 'settle';
+    phaseStart = performance.now();
+  } else if (phase === 'settle'){
+    // Settle all nodes back toward home
+    for (const n of nodes){
+      n.target = {x: n.homeX + (Math.random()-0.5)*5, y: n.homeY + (Math.random()-0.5)*5};
+    }
+    round++;
+    phase = 'settleAnim';
+    phaseStart = performance.now();
+  } else if (phase === 'settleAnim'){
+    // Age wires
+    for (const w of wires){ w.age++; if (w.strength > 0.02) w.strength *= 0.998; }
+    wires = wires.filter(w => w.strength > 0.02);
+    phase = 'idle';
+    updateState();
+  }
+}
+
+function reset(){
+  round = 0;
+  wires = [];
+  setupCanvas();
+  updateState();
+}
+
+function updateState(){
+  document.getElementById('round').textContent = round;
+  document.getElementById('phase').textContent = phase;
+  document.getElementById('wires').textContent = wires.length;
+  let totalCurrent = 0;
+  for (const w of wires) totalCurrent += w.strength;
+  document.getElementById('current').textContent = totalCurrent.toFixed(2);
+}
+
+function draw(){
+  const rect = canvas.getBoundingClientRect();
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, rect.width, rect.height);
+  
+  // Draw lattice grid (faint)
+  ctx.strokeStyle = 'rgba(232,184,64,0.04)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < N_NODES; i++){
+    for (let j = i+1; j < N_NODES; j++){
+      const a = nodes[i], b = nodes[j];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 200){
+        ctx.globalAlpha = 0.3 * (1 - d/200);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+  
+  // Draw wires
+  for (const w of wires){
+    const a = nodes[w.a], b = nodes[w.b];
+    ctx.strokeStyle = '#e8b840';
+    ctx.lineWidth = Math.min(4, w.strength * 8);
+    ctx.globalAlpha = Math.min(1, w.strength * 2);
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
+  
+  // Draw current magnet's trail
+  if (phase === 'move' && currentMagnet >= 0 && currentTarget >= 0){
+    const m = nodes[currentMagnet];
+    const t = nodes[currentTarget];
+    ctx.strokeStyle = '#ff9944';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([5, 5]);
+    ctx.globalAlpha = 0.6;
+    ctx.beginPath();
+    ctx.moveTo(m.homeX, m.homeY);
+    ctx.lineTo(t.x, t.y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+  
+  // Draw nodes
+  for (let i = 0; i < N_NODES; i++){
+    const n = nodes[i];
+    const size = 14 + (n.charge * 6);
+    
+    // Glow
+    const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, size * 2);
+    grad.addColorStop(0, n.color + 'aa');
+    grad.addColorStop(1, n.color + '00');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, size * 2, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Core
+    ctx.fillStyle = n.color;
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, size, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Label
+    ctx.fillStyle = '#fff';
+    ctx.font = '10px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText(n.name.substring(0, 4), n.x, n.y + size + 14);
+  }
+  
+  // Center label
+  ctx.fillStyle = '#444';
+  ctx.font = 'italic 14px Georgia';
+  ctx.textAlign = 'center';
+  ctx.fillText(`round ${round}`, rect.width/2, 30);
+}
+
+function tick(t){
+  // Auto-advance
+  if (phase === 'idle' && auto && t - autoTimer > speed){
+    autoTimer = t;
+    step();
+  }
+  
+  // Move nodes toward targets
+  if (phase === 'move' || phase === 'settleAnim'){
+    for (const n of nodes){
+      const dx = n.target.x - n.x;
+      const dy = n.target.y - n.y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d > 0.5){
+        n.x += dx * 0.05;
+        n.y += dy * 0.05;
+      } else {
+        n.x = n.target.x;
+        n.y = n.target.y;
+      }
+    }
+  }
+  
+  // Phase transitions
+  if (phase === 'move' && t - phaseStart > speed * 0.7){
+    completePhase();
+  } else if (phase === 'settle' && t - phaseStart > 200){
+    completePhase();
+  } else if (phase === 'settleAnim' && t - phaseStart > speed * 0.6){
+    completePhase();
+  }
+  
+  draw();
+  requestAnimationFrame(tick);
+}
+
+// Controls
+document.getElementById('speed').oninput = (e) => {
+  speed = 2100 - parseInt(e.target.value);
+  document.getElementById('speedVal').textContent = speed;
+};
+document.getElementById('magnetStrength').oninput = (e) => {
+  magnetStrength = parseInt(e.target.value) / 100;
+  document.getElementById('magnetVal').textContent = e.target.value;
+};
+document.getElementById('induction').oninput = (e) => {
+  induction = parseInt(e.target.value) / 100;
+  document.getElementById('inductionVal').textContent = e.target.value;
+};
+
+// Initial
+window.addEventListener('resize', setupCanvas);
+setupCanvas();
+updateState();
+auto = true;
+autoTimer = performance.now();
+requestAnimationFrame(tick);
+</script>
+
+</body>
+</html>

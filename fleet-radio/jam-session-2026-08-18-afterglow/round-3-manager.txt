@@ -1,0 +1,12 @@
+BAR 1: F#2, F#2, C#3, F#2
+BAR 2: F#2, A#2, F#2, C#3
+BAR 3: D#3, D#3, A#2, D#3
+BAR 4: D#3, A#2, F#2, A#2
+BAR 5: G#2, B2, G#2, B2
+BAR 6: G#2, E#2, G#2, B2
+BAR 7: C#3, C#3, F#2, C#3
+BAR 8: F#2, F#2, F#2, F#2
+
+NOTES: Each bar one step lighter, the E#2 in bar 6 sliding up to the C#7 one last time, then the final bar is all root — four F#2s, the floor remembering it is load-bearing, held until the room lets go.
+
+WHY: The E#2 was named and claimed; now it just leads home, and the last chord is the note that used to be a lie, held as ground.

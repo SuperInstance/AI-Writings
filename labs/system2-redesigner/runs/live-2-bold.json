@@ -1,0 +1,1007 @@
+{
+ "corpus_cases": 286,
+ "corpus_hash": "0x459c9eef755935cf",
+ "crew": {
+  "bold": true,
+  "models": [
+   {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "```json\n[\n  {\n    \"name\": \"latin1-early-exit\",\n    \"guard\": \"latin1\",\n    \"steps\": [\"lower\", \"strip\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"For latin1 strings, lower is equivalent to casefold and no normalization is needed, saving casefold and nfkc cost.\"\n  },\n  {\n    \"name\": \"ascii-fast-casefold-then-nfc\",\n    \"guard\": \"ascii\",\n    \"steps\": [\"lower\", \"strip\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"On ASCII, casefold equals lower, and nfkc has no effect; thus we replace casefold with lower and drop nfkc entirely.\"\n  },\n  {\n    \"name\": \"nfc-cheaper-before-casefold\",\n    \"guard\": \"always\",\n    \"steps\": [\"nfc\", \"casefold\", \"strip\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"Reordering to cheaper nfc before casefold is byte-identical for most strings and reduces wall time while preserving correctness.\"\n  }\n]\n```",
+    "tokens": {
+     "in": 754,
+     "out": 260
+    },
+    "wall_ms": 4945
+   },
+   {
+    "model": "zai-org/GLM-5.3-Flash",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "[\n  {\"name\": \"blank-exit\", \"guard\": \"blank\", \"steps\": [\"const_empty\"], \"fallback\": \"full\", \"rationale\": \"Whitespace-only strings strip to '' under the reference too, so we can skip nfkc+casefold entirely and return the empty string immediately.\"},\n  {\"name\": \"clean-ascii-identity\", \"guard\": \"clean_ascii\", \"steps\": [\"ws_collapse\"], \"fallback\": \"full\", \"rationale\": \"Guaranteed-normalized lowercase ASCII with single inner spaces needs neither nfkc nor casefold; one str split/join reproduces the output.\"},\n  {\"name\": \"latin1-lower-bet\", \"guard\": \"latin1\", \"steps\": [\"nfkc\", \"lower\", \"ws_collapse\"], \"fallback\": \"full\", \"rationale\": \"Bet that NFKC already expands the only casefold-lower divergences in Latin-1 range (e.g. sharp s handling after normalization) so cheaper lower suffices on the ord<256 path.\"}\n]",
+    "tokens": {
+     "in": 722,
+     "out": 1145
+    },
+    "wall_ms": 81540
+   },
+   {
+    "error": "TimeoutError: The read operation timed out",
+    "model": "Qwen/Qwen3.8-Flash",
+    "ok": false
+   },
+   {
+    "error": "TimeoutError: The read operation timed out",
+    "model": "moonshotai/Kimi-K3",
+    "ok": false
+   },
+   {
+    "model": "inclusionAI/Ling-3.0-flash",
+    "n_proposals": 0,
+    "ok": false,
+    "raw": "Let me carefully analyze the reference: `out = ' '.join(unicodedata.normalize('NFKC', s).casefold().split())`\n\nThis does:\n1. NFKC normalization\n2. casefold (aggressive lowercase)\n3. split (whitespace splitting)\n4. join with single spaces\n\nI need to find guarded fast paths that produce byte-identical output but are cheaper.\n\nLet me think about what substitutions are valid:\n\n**Key insight 1: ASCII-only inputs**\nIf `s.isascii()` is true, then NFKC normalization is a no-op (ASCII is already NFKC-normalized). And `casefold()` on ASCII is equivalent to `lower()` (since casefold only differs from lower for certain non-ASCII characters like German ß→ss, Turkish İ→i, etc. - but those are non-ASCII). So for ASCII: `s.lower().split()` then join with spaces. But wait, we also need to handle ASCII whitespace. The reference's `split()` handles all whitespace. For ASCII, `bytes_lower` and `bytes_ws_collapse` could work.\n\nBut wait - the incumbent already does this. Let me think of NEW proposals.\n\n**Key insight 2: For ASCII strings, NFKC is a no-op**\nSo `nfkc` can be replaced with `identity` or skipped entirely when guard is `ascii`.\n\n**Key insight 3: `casefold` vs `lower`**\ncasefold differs from lower only for: ß→ss, certain ligatures (already handled by NFKC), Turkish İ, etc. After NFKC normalization, some characters get decomposed. But casefold is still needed for things like ß which NFKC doesn't change (ß remains ß under NFKC). Actually wait - NFKC does NOT map ß to ss. So casefold is still needed even after NFKC for non-ASCII.\n\nBut for ASCII strings, casefold == lower. So guarded by `ascii`, we can use `lower` instead of `casefold`.\n\n**Key insight 4: clean_ascii guard**\nIf `clean_ascii` holds (ASCII, already NFKC-normalized, no A-Z, single inner spaces, no other whitespace/controls), then the string is already in final form. We could just return `s` (identity) or even `const_empty`... no wait, we need to return `s` itself since it's already normalized. Actually if there are no uppercase letters, no extra whitespace, and no control characters, then `casefold()` is a no-op, `split()`+`join()` is a no-op, and `NFKC` is a no-op. So we can just return `s`.\n\n**Key insight 5: latin1 guard with ordering**\nFor latin1 (all ord < 256), NFKC might still be needed because some latin1 characters like ½, ¼, ⅓ etc. get changed by NFKC. Actually wait, NFKC does change things like ¼→1/4, ½→1/2, superscripts, etc. So NFKC is NOT a no-op for all latin1.\n\nBut `lower` is equivalent to `casefold` for latin1? Let me check... casefold differs from lower for ß (U+00DF), which IS latin1. So casefold(ß) = \"ss\" but lower(ß) = \"ß\". So even for latin1, we can't always substitute lower for casefold.\n\nHmm, but if we do NFKC first, does that help? NFKC(ß) = ß (unchanged). So no.\n\n**Key insight 6: What about fullwidth characters?**\nFullwidth 'Ａ' (U+FF21) → NFKC → 'A' (U+0041). After NFKC, it's ASCII. So if we do NFKC first, then check if the result is ASCII, we could use lower instead of casefold. But we can't check that without doing NFKC first.\n\nSo: `nfkc` then check `ascii` on result... but the guard operates on input `s`, not intermediate results. Unless we structure it as a fallback network.\n\nLet me think about this differently with the network structure.\n\n**Proposal 1: Fast path for clean ASCII**\n```\nguard: clean_ascii\nsteps: [identity]\nfallback: full\n```\nWhen input is already clean ASCII (already NFKC, no uppercase, single spaces, no controls), just return it. This skips nfkc, casefold, split, join.\n\nWait, let me verify: clean_ascii means \"ASCII and already normalized (no A-Z, single inner spaces, no other whitespace/controls)\". If there are no uppercase letters, casefold is no-op. If single inner spaces and no other whitespace, split/join is no-op. NFKC is no-op for ASCII. So identity is correct.\n\n**Proposal 2: ASCII fast path with lower instead of casefold, skip NFKC**\n```\nguard: ascii\nsteps: [bytes_lower, bytes_ws_collapse]\nfallback: full\n```\nFor ASCII, NFKC is n",
+    "tokens": {
+     "in": 769,
+     "out": 3000
+    },
+    "wall_ms": 74648
+   },
+   {
+    "model": "openai/gpt-oss-120b",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "[\n  {\n    \"name\": \"fast_clean_ascii\",\n    \"guard\": \"clean_ascii\",\n    \"steps\": [\"identity\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"If the string is already ASCII and normalized, return it unchanged, skipping all heavy operations.\"\n  },\n  {\n    \"name\": \"ascii_fast_path\",\n    \"guard\": \"ascii\",\n    \"steps\": [\"bytes_lower\", \"map_fs_controls\", \"bytes_ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"For any ASCII input, lower‑case, map control characters to space and collapse whitespace using cheap byte ops.\"\n  },\n  {\n    \"name\": \"latin1_nfc_fast\",\n    \"guard\": \"latin1\",\n    \"steps\": [\"nfc\", \"casefold\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"Latin‑1 characters never need compatibility decomposition, so replace NFKC with the cheaper NFC.\"\n  }\n]",
+    "tokens": {
+     "in": 763,
+     "out": 1152
+    },
+    "wall_ms": 54978
+   },
+   {
+    "model": "XiaomiMiMo/MiMo-V2.6-Pro",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "```json\n[\n  {\n    \"name\": \"clean-ascii-strip-fastpath\",\n    \"guard\": \"clean_ascii\",\n    \"steps\": [\"identity\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"On already-normalized lowercase ASCII (no A-Z, single inner spaces, no other whitespace/controls) NFKC, casefold and ws_collapse are all identity, so the reference reduces to the input itself (strip is implicit in the guard contract).\"\n  },\n  {\n    \"name\": \"latin1-casefold-first-lower\",\n    \"guard\": \"latin1\",\n    \"steps\": [\"nfc\", \"lower\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"For code points < 256 the only NFKC-vs-NFC deltas are compatibility-only ones whose lowercase/casefold results agree (ª→a, º→o, ²³¹→2 3 1, ¼½¾→fraction strings), so NFC+lower reproduces NFKC+casefold up to ws_collapse.\"\n  },\n  {\n    \"name\": \"ascii-reorder-casefold-last\",\n    \"guard\": \"ascii\",\n    \"steps\": [\"map_fs_controls\", \"bytes_lower\", \"bytes_ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"ASCII strings are unaffected by NFKC and by code-point ordering of casefold vs. lower, so the byte-level map/lower/collapse chain reproduces the reference while skipping nfkc and casefold.\"\n  }\n]\n```",
+    "tokens": {
+     "in": 733,
+     "out": 2132
+    },
+    "wall_ms": 75287
+   },
+   {
+    "model": "tencent/Hy3",
+    "n_proposals": 3,
+    "ok": true,
+    "raw": "[\n  {\n    \"name\": \"latin1-casefold-first\",\n    \"guard\": \"latin1\",\n    \"steps\": [\"casefold\", \"nfkc\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"On Latin-1 inputs casefold then NFKC yields identical results to NFKC then casefold but allows earlier folding.\"\n  },\n  {\n    \"name\": \"clean-ascii-fast\",\n    \"guard\": \"clean_ascii\",\n    \"steps\": [\"identity\"],\n    \"fallback\": {\n      \"name\": \"ascii-map-lower\",\n      \"guard\": \"ascii\",\n      \"steps\": [\"map_fs_controls\", \"bytes_lower\", \"bytes_ws_collapse\"],\n      \"fallback\": \"full\",\n      \"rationale\": \"ASCII fast path uses cheaper byte ops instead of NFKC/casefold.\"\n    },\n    \"rationale\": \"Already-normalized ASCII passes through untouched; others use byte-level ASCII route.\"\n  },\n  {\n    \"name\": \"nfc-for-ascii\",\n    \"guard\": \"ascii\",\n    \"steps\": [\"map_fs_controls\", \"lower\", \"ws_collapse\"],\n    \"fallback\": \"full\",\n    \"rationale\": \"ASCII never needs NFKC so lower+ws_collapse replaces NFKC+casefold exactly.\"\n  }\n]",
+    "tokens": {
+     "in": 739,
+     "out": 291
+    },
+    "wall_ms": 7281
+   }
+  ],
+  "order": {
+   "heads": 31,
+   "job": "a862d659-7c25-481d-9b9f-f392c2ac9c51",
+   "offset": 1,
+   "source": "moth"
+  }
+ },
+ "promoted": [
+  "p:ascii-fast-casefold-then-nfc",
+  "p:ascii_fast_path",
+  "p:clean-ascii-fast"
+ ],
+ "promotion": {
+  "clean-heavy": {
+   "b4_refused_cases": 0,
+   "book_digest": "0x000ee111bc0bf643",
+   "cases": 11,
+   "preference_map": {
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "incumbent": [
+      "p:clean-ascii-fast"
+     ],
+     "p:ascii-fast-casefold-then-nfc": [
+      "p:clean-ascii-fast"
+     ],
+     "p:ascii_fast_path": [
+      "p:clean-ascii-fast"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "p:clean-ascii-identity": [
+      "p:ascii-fast-casefold-then-nfc",
+      "p:clean-ascii-fast",
+      "p:fast_clean_ascii"
+     ],
+     "p:fast_clean_ascii": [
+      "p:clean-ascii-fast"
+     ],
+     "p:latin1-casefold-first": [
+      "full",
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "p:nfc-for-ascii": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast"
+     ]
+    },
+    "frontier": [
+     "p:clean-ascii-fast"
+    ],
+    "preferred_when": {
+     "better-cheaper": "p:clean-ascii-fast",
+     "better-faster": "p:clean-ascii-fast",
+     "cheap": "p:clean-ascii-fast",
+     "fast": "p:clean-ascii-fast",
+     "faster-cheaper": "p:clean-ascii-fast",
+     "good": "tie"
+    },
+    "product": "text-normalize"
+   },
+   "promoted": [
+    "p:clean-ascii-fast"
+   ],
+   "satisfice": [
+    "p:ascii-fast-casefold-then-nfc",
+    "p:ascii_fast_path",
+    "p:blank-exit",
+    "p:clean-ascii-identity",
+    "p:fast_clean_ascii",
+    "p:latin1-casefold-first",
+    "p:nfc-for-ascii"
+   ],
+   "settled": {
+    "better-cheaper": {
+     "route": "p:clean-ascii-fast",
+     "weight": 656019
+    },
+    "better-faster": {
+     "route": "p:clean-ascii-fast",
+     "weight": 656019
+    },
+    "cheap": {
+     "route": "p:clean-ascii-fast",
+     "weight": 656019
+    },
+    "fast": {
+     "route": "p:clean-ascii-fast",
+     "weight": 656019
+    },
+    "faster-cheaper": {
+     "route": "p:clean-ascii-fast",
+     "weight": 728909
+    }
+   },
+   "status": "certified",
+   "vs_incumbent": {
+    "p:ascii-fast-casefold-then-nfc": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "p:ascii-fast-casefold-then-nfc",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "trade-off",
+     "dominant": null
+    },
+    "p:ascii_fast_path": {
+     "axes": {
+      "cheap": "tie",
+      "fast": "tie",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "tie"
+     },
+     "class": "equivalent",
+     "dominant": null
+    },
+    "p:blank-exit": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:clean-ascii-fast": {
+     "axes": {
+      "cheap": "p:clean-ascii-fast",
+      "fast": "p:clean-ascii-fast",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "p:clean-ascii-fast"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "p:clean-ascii-fast"
+    },
+    "p:clean-ascii-identity": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "p:clean-ascii-identity",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "trade-off",
+     "dominant": null
+    },
+    "p:fast_clean_ascii": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "p:fast_clean_ascii",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "trade-off",
+     "dominant": null
+    },
+    "p:latin1-casefold-first": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:nfc-for-ascii": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "tie",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-one-axis",
+     "dominant": "incumbent"
+    }
+   },
+   "workload": {
+    "caveat": "stationary-budget assumption (§11.2): re-backtest on repricing/hardware change",
+    "class": "dominant",
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "incumbent": [
+      "p:clean-ascii-fast"
+     ],
+     "p:ascii-fast-casefold-then-nfc": [
+      "p:clean-ascii-fast"
+     ],
+     "p:ascii_fast_path": [
+      "p:clean-ascii-fast"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "p:clean-ascii-identity": [
+      "p:ascii-fast-casefold-then-nfc",
+      "p:clean-ascii-fast",
+      "p:fast_clean_ascii"
+     ],
+     "p:fast_clean_ascii": [
+      "p:clean-ascii-fast"
+     ],
+     "p:latin1-casefold-first": [
+      "full",
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "p:nfc-for-ascii": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast"
+     ]
+    },
+    "frontier": [
+     "p:clean-ascii-fast"
+    ],
+    "good_source": "tie",
+    "preferred_when": {
+     "better-cheaper": "p:clean-ascii-fast",
+     "better-faster": "p:clean-ascii-fast",
+     "cheap": "p:clean-ascii-fast",
+     "fast": "p:clean-ascii-fast",
+     "faster-cheaper": "p:clean-ascii-fast",
+     "good": "tie"
+    },
+    "result_hash": "0xd548338378715566",
+    "routes": {
+     "full": {
+      "storage_bytes": 119680,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 66
+     },
+     "incumbent": {
+      "storage_bytes": 17152,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 56
+     },
+     "p:ascii-fast-casefold-then-nfc": {
+      "storage_bytes": 19792,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 46
+     },
+     "p:ascii_fast_path": {
+      "storage_bytes": 17152,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 56
+     },
+     "p:blank-exit": {
+      "storage_bytes": 109728,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 73
+     },
+     "p:clean-ascii-fast": {
+      "storage_bytes": 15928,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 40
+     },
+     "p:clean-ascii-identity": {
+      "storage_bytes": 27880,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 50
+     },
+     "p:fast_clean_ascii": {
+      "storage_bytes": 26152,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 41
+     },
+     "p:latin1-casefold-first": {
+      "storage_bytes": 120032,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 66
+     },
+     "p:nfc-for-ascii": {
+      "storage_bytes": 20032,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 56
+     }
+    },
+    "standing": {},
+    "status": "certified",
+    "tied": {
+     "good": [
+      "full",
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:blank-exit",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:latin1-casefold-first",
+      "p:nfc-for-ascii"
+     ]
+    }
+   }
+  },
+  "quilt-workload": {
+   "b4_refused_cases": 0,
+   "book_digest": "0x7d34db50420e8ddb",
+   "cases": 9,
+   "preference_map": {
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:clean-ascii-fast": [
+      "incumbent",
+      "p:ascii_fast_path"
+     ],
+     "p:clean-ascii-identity": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:blank-exit",
+      "p:clean-ascii-fast",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "p:fast_clean_ascii": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:blank-exit",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:latin1-casefold-first": [
+      "full",
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:nfc-for-ascii": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path"
+     ]
+    },
+    "frontier": [
+     "incumbent",
+     "p:ascii-fast-casefold-then-nfc",
+     "p:ascii_fast_path"
+    ],
+    "preferred_when": {
+     "better-cheaper": "incumbent",
+     "better-faster": "p:ascii-fast-casefold-then-nfc",
+     "cheap": "incumbent",
+     "fast": "p:ascii-fast-casefold-then-nfc",
+     "faster-cheaper": null,
+     "good": "tie"
+    },
+    "product": "text-normalize"
+   },
+   "promoted": [
+    "p:ascii-fast-casefold-then-nfc",
+    "p:ascii_fast_path"
+   ],
+   "satisfice": [
+    "p:blank-exit",
+    "p:clean-ascii-fast",
+    "p:clean-ascii-identity",
+    "p:fast_clean_ascii",
+    "p:latin1-casefold-first",
+    "p:nfc-for-ascii"
+   ],
+   "settled": {
+    "better-cheaper": {
+     "route": "incumbent",
+     "weight": 538880
+    },
+    "better-faster": {
+     "route": "p:ascii-fast-casefold-then-nfc",
+     "weight": 538880
+    },
+    "cheap": {
+     "route": "incumbent",
+     "weight": 538880
+    },
+    "fast": {
+     "route": "p:ascii-fast-casefold-then-nfc",
+     "weight": 538880
+    },
+    "faster-cheaper": {
+     "route": "full",
+     "weight": 437500
+    }
+   },
+   "status": "certified",
+   "vs_incumbent": {
+    "p:ascii-fast-casefold-then-nfc": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "p:ascii-fast-casefold-then-nfc",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "trade-off",
+     "dominant": null
+    },
+    "p:ascii_fast_path": {
+     "axes": {
+      "cheap": "tie",
+      "fast": "tie",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "tie"
+     },
+     "class": "equivalent",
+     "dominant": null
+    },
+    "p:blank-exit": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:clean-ascii-fast": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:clean-ascii-identity": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:fast_clean_ascii": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:latin1-casefold-first": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "incumbent",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-faster-cheaper",
+     "dominant": "incumbent"
+    },
+    "p:nfc-for-ascii": {
+     "axes": {
+      "cheap": "incumbent",
+      "fast": "tie",
+      "good": "tie"
+     },
+     "cheap_detail": {
+      "compute": "tie",
+      "storage": "incumbent"
+     },
+     "class": "dominates-one-axis",
+     "dominant": "incumbent"
+    }
+   },
+   "workload": {
+    "caveat": "stationary-budget assumption (§11.2): re-backtest on repricing/hardware change",
+    "class": "trade-off",
+    "dominated": {
+     "full": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:blank-exit": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:clean-ascii-fast": [
+      "incumbent",
+      "p:ascii_fast_path"
+     ],
+     "p:clean-ascii-identity": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:blank-exit",
+      "p:clean-ascii-fast",
+      "p:fast_clean_ascii",
+      "p:nfc-for-ascii"
+     ],
+     "p:fast_clean_ascii": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:blank-exit",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:latin1-casefold-first": [
+      "full",
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:clean-ascii-fast",
+      "p:nfc-for-ascii"
+     ],
+     "p:nfc-for-ascii": [
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path"
+     ]
+    },
+    "frontier": [
+     "incumbent",
+     "p:ascii-fast-casefold-then-nfc",
+     "p:ascii_fast_path"
+    ],
+    "good_source": "tie",
+    "preferred_when": {
+     "better-cheaper": "incumbent",
+     "better-faster": "p:ascii-fast-casefold-then-nfc",
+     "cheap": "incumbent",
+     "fast": "p:ascii-fast-casefold-then-nfc",
+     "faster-cheaper": null,
+     "good": "tie"
+    },
+    "result_hash": "0x5dd7e92bc372024c",
+    "routes": {
+     "full": {
+      "storage_bytes": 97920,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 54
+     },
+     "incumbent": {
+      "storage_bytes": 26192,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 47
+     },
+     "p:ascii-fast-casefold-then-nfc": {
+      "storage_bytes": 28040,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 40
+     },
+     "p:ascii_fast_path": {
+      "storage_bytes": 26192,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 47
+     },
+     "p:blank-exit": {
+      "storage_bytes": 77392,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 55
+     },
+     "p:clean-ascii-fast": {
+      "storage_bytes": 26616,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 53
+     },
+     "p:clean-ascii-identity": {
+      "storage_bytes": 88280,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 60
+     },
+     "p:fast_clean_ascii": {
+      "storage_bytes": 88088,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 59
+     },
+     "p:latin1-casefold-first": {
+      "storage_bytes": 98208,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 54
+     },
+     "p:nfc-for-ascii": {
+      "storage_bytes": 28208,
+      "tokens": 0,
+      "usd": 0.0,
+      "wall_ms": 47
+     }
+    },
+    "standing": {},
+    "status": "certified",
+    "tied": {
+     "cheap": [
+      "incumbent",
+      "p:ascii_fast_path"
+     ],
+     "good": [
+      "full",
+      "incumbent",
+      "p:ascii-fast-casefold-then-nfc",
+      "p:ascii_fast_path",
+      "p:blank-exit",
+      "p:clean-ascii-fast",
+      "p:clean-ascii-identity",
+      "p:fast_clean_ascii",
+      "p:latin1-casefold-first",
+      "p:nfc-for-ascii"
+     ]
+    }
+   }
+  }
+ },
+ "proposals": [
+  {
+   "cases": 286,
+   "name": "ascii-fast-casefold-then-nfc",
+   "network": "ascii ? lower>strip>ws_collapse : full",
+   "proposer": "deepseek-ai/DeepSeek-V4-Flash",
+   "rationale": "On ASCII, casefold equals lower, and nfkc has no effect; thus we replace casefold with lower and drop nfkc entirely.",
+   "shape": "0x3ac905e991ab5742",
+   "status": "passed"
+  },
+  {
+   "case": 7,
+   "expected": "strasse fine viii abc",
+   "got": "strasse fine ⅷ ａｂｃ",
+   "input": "Straße  ﬁne  Ⅷ  ＡＢＣ",
+   "name": "nfc-cheaper-before-casefold",
+   "network": "nfc>casefold>strip>ws_collapse",
+   "proposer": "deepseek-ai/DeepSeek-V4-Flash",
+   "rationale": "Reordering to cheaper nfc before casefold is byte-identical for most strings and reduces wall time while preserving correctness.",
+   "reason": "products differ — never price a cheaper different answer",
+   "shape": "0x13c1b21a7b2afb09",
+   "stage": "b7",
+   "status": "refused",
+   "verdict_hash": "0xdf3e83281b07df9d"
+  },
+  {
+   "cases": 286,
+   "name": "blank-exit",
+   "network": "blank ? const_empty : full",
+   "proposer": "zai-org/GLM-5.3-Flash",
+   "rationale": "Whitespace-only strings strip to '' under the reference too, so we can skip nfkc+casefold entirely and return the empty string immediately.",
+   "shape": "0x813356d3b550d679",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "clean-ascii-identity",
+   "network": "clean_ascii ? ws_collapse : full",
+   "proposer": "zai-org/GLM-5.3-Flash",
+   "rationale": "Guaranteed-normalized lowercase ASCII with single inner spaces needs neither nfkc nor casefold; one str split/join reproduces the output.",
+   "shape": "0xccde16cfd3abd2fd",
+   "status": "passed"
+  },
+  {
+   "case": 137,
+   "expected": "strasse",
+   "got": "straße",
+   "input": "Straße",
+   "name": "latin1-lower-bet",
+   "network": "latin1 ? nfkc>lower>ws_collapse : full",
+   "proposer": "zai-org/GLM-5.3-Flash",
+   "rationale": "Bet that NFKC already expands the only casefold-lower divergences in Latin-1 range (e.g. sharp s handling after normalization) so cheaper lower suffices on the ord<256 path.",
+   "reason": "products differ — never price a cheaper different answer",
+   "shape": "0x08dd26341e258896",
+   "stage": "b7",
+   "status": "refused",
+   "verdict_hash": "0x79cf5e8c61c35b37"
+  },
+  {
+   "cases": 286,
+   "name": "fast_clean_ascii",
+   "network": "clean_ascii ? identity : full",
+   "proposer": "openai/gpt-oss-120b",
+   "rationale": "If the string is already ASCII and normalized, return it unchanged, skipping all heavy operations.",
+   "shape": "0x860dfa9d4f3eb099",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "ascii_fast_path",
+   "network": "ascii ? bytes_lower>map_fs_controls>bytes_ws_collapse : full",
+   "proposer": "openai/gpt-oss-120b",
+   "rationale": "For any ASCII input, lower‑case, map control characters to space and collapse whitespace using cheap byte ops.",
+   "shape": "0x916787faa2971d2d",
+   "status": "passed"
+  },
+  {
+   "case": 151,
+   "expected": "a o 2 1⁄2",
+   "got": "ª º ² ½",
+   "input": "ª º ² ½",
+   "name": "latin1_nfc_fast",
+   "network": "latin1 ? nfc>casefold>ws_collapse : full",
+   "proposer": "openai/gpt-oss-120b",
+   "rationale": "Latin‑1 characters never need compatibility decomposition, so replace NFKC with the cheaper NFC.",
+   "reason": "products differ — never price a cheaper different answer",
+   "shape": "0xb710db161cb76b63",
+   "stage": "b7",
+   "status": "refused",
+   "verdict_hash": "0x8605655eb04b76b3"
+  },
+  {
+   "duplicate_of": "fast_clean_ascii",
+   "name": "clean-ascii-strip-fastpath",
+   "network": "clean_ascii ? identity : full",
+   "proposer": "XiaomiMiMo/MiMo-V2.6-Pro",
+   "shape": "0x860dfa9d4f3eb099",
+   "status": "passed"
+  },
+  {
+   "case": 137,
+   "expected": "strasse",
+   "got": "straße",
+   "input": "Straße",
+   "name": "latin1-casefold-first-lower",
+   "network": "latin1 ? nfc>lower>ws_collapse : full",
+   "proposer": "XiaomiMiMo/MiMo-V2.6-Pro",
+   "rationale": "For code points < 256 the only NFKC-vs-NFC deltas are compatibility-only ones whose lowercase/casefold results agree (ª→a, º→o, ²³¹→2 3 1, ¼½¾→fraction strings), so NFC+lower reproduces NFKC+casefold up to ws_collapse.",
+   "reason": "products differ — never price a cheaper different answer",
+   "shape": "0x8c9ee64a5b40829d",
+   "stage": "b7",
+   "status": "refused",
+   "verdict_hash": "0xcd799f608e88176c"
+  },
+  {
+   "duplicate_of": "incumbent",
+   "name": "ascii-reorder-casefold-last",
+   "network": "ascii ? map_fs_controls>bytes_lower>bytes_ws_collapse : full",
+   "proposer": "XiaomiMiMo/MiMo-V2.6-Pro",
+   "shape": "0x51e27d41fedc44c5",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "latin1-casefold-first",
+   "network": "latin1 ? casefold>nfkc>ws_collapse : full",
+   "proposer": "tencent/Hy3",
+   "rationale": "On Latin-1 inputs casefold then NFKC yields identical results to NFKC then casefold but allows earlier folding.",
+   "shape": "0x69e577d5c0fb17d4",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "clean-ascii-fast",
+   "network": "clean_ascii ? identity : ascii ? map_fs_controls>bytes_lower>bytes_ws_collapse : full",
+   "proposer": "tencent/Hy3",
+   "rationale": "Already-normalized ASCII passes through untouched; others use byte-level ASCII route.",
+   "shape": "0xf300b6c20a67f0a4",
+   "status": "passed"
+  },
+  {
+   "cases": 286,
+   "name": "nfc-for-ascii",
+   "network": "ascii ? map_fs_controls>lower>ws_collapse : full",
+   "proposer": "tencent/Hy3",
+   "rationale": "ASCII never needs NFKC so lower+ws_collapse replaces NFKC+casefold exactly.",
+   "shape": "0x73415f90e3ae7cf9",
+   "status": "passed"
+  },
+  {
+   "case": 137,
+   "expected": "strasse",
+   "got": "straße",
+   "input": "Straße",
+   "name": "latin1-early-exit",
+   "network": "latin1 ? lower>strip>ws_collapse : full",
+   "proposer": "deepseek-ai/DeepSeek-V4-Flash",
+   "rationale": "For latin1 strings, lower is equivalent to casefold and no normalization is needed, saving casefold and nfkc cost.",
+   "reason": "products differ — never price a cheaper different answer",
+   "shape": "0x48bdab7f47432128",
+   "stage": "b7",
+   "status": "refused",
+   "verdict_hash": "0x28ee55ea7e3b2696"
+  }
+ ],
+ "quilt": "text-normalize",
+ "report_hash": "0xa14c04a356366d4d",
+ "satisfice": [
+  "p:blank-exit",
+  "p:clean-ascii-identity",
+  "p:fast_clean_ascii",
+  "p:latin1-casefold-first",
+  "p:nfc-for-ascii"
+ ],
+ "tally": {
+  "duplicates": 2,
+  "passed": 8,
+  "promoted": 3,
+  "proposals": 15,
+  "refused_b7": 5,
+  "refused_execute": 0,
+  "refused_parse": 0,
+  "satisfice": 5,
+  "unique": 13
+ }
+}

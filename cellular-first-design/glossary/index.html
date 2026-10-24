@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Glossary — cross-linked terms</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem}
+h1{color:var(--accent);font-size:1.7rem;margin:0 0 .3rem;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;margin-bottom:1rem}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.search{width:100%;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:.7rem;font-size:1rem;margin-bottom:1rem}
+.search:focus{outline:none;border-color:var(--accent)}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.term{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;transition:all .15s;cursor:pointer}
+.term:hover{border-color:var(--accent);background:var(--surface2)}
+.term.selected{border-color:var(--accent2);background:var(--surface2);box-shadow:0 0 0 2px rgba(0,212,255,0.2)}
+.term-name{color:var(--accent);font-size:1.05rem;font-weight:600;margin-bottom:.3rem;font-family:var(--mono)}
+.term-def{color:var(--text2);font-size:.85rem;line-height:1.5;margin-bottom:.5rem}
+.term-tags{display:flex;gap:.3rem;flex-wrap:wrap}
+.tag{background:var(--bg);color:var(--dim);font-family:var(--mono);font-size:.7rem;padding:.2rem .5rem;border-radius:10px;border:1px solid var(--border)}
+.related{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content;position:sticky;top:1rem}
+.related h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem}
+.related h3:not(:first-child){margin-top:1rem}
+.rel-item{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem;margin-bottom:.4rem;font-family:var(--mono);font-size:.78rem;cursor:pointer;transition:all .15s}
+.rel-item:hover{border-color:var(--accent);background:var(--surface2)}
+.rel-item .name{color:var(--accent);font-weight:bold}
+.rel-item .sim{color:var(--dim);font-size:.7rem;float:right}
+.rel-item .why{color:var(--text2);font-size:.7rem;margin-top:.2rem}
+.footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+.footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📚 Substrate Glossary — cross-linked terms</h1>
+<p class="tagline">Click any term. Watch its math-adjacent terms light up via cosine similarity. 30+ terms spanning all 8 substrate repos.</p>
+<input type="text" id="search" class="search" placeholder="Search terms or definitions...">
+</header>
+
+<main>
+<div>
+<div class="terms" id="terms"></div>
+</div>
+<aside class="related" id="related" style="display:none">
+<h3>Related to <span id="selName" style="color:var(--accent)">—</span></h3>
+<div id="relList"></div>
+<h3>Opposite</h3>
+<div id="oppList"></div>
+</aside>
+</main>
+
+<footer>📚 substrate glossary · terms linked via substrate-vectors cosine + substrate-opposites involution · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// === Substrate glossary terms ===
+const TERMS = [
+  { name: 'cell', def: 'The irreducible unit of intelligence. Holds a 16-dial Q1.15 vector. Has one of 12 kinds: value, formula, listener, timer, sensor, actuator, router, vector, log, alarm, api, ai.', tags: ['forge', 'quilt'] },
+  { name: 'fabric', def: 'A graph of cells connected by LINK edges. The cell substrate. Computes a state hash via FNV-1a 64-bit.', tags: ['forge'] },
+  { name: 'polyformalism', def: 'The property that the same cell in 13 languages produces the same FNV-1a 64-bit hash, byte-exact.', tags: ['forge'] },
+  { name: 'dial', def: 'A 16-element Q1.15 signed fixed-point vector. The state of a cell. -32768..32767 in int16 terms.', tags: ['forge'] },
+  { name: 'witness', def: 'A FNV-1a 64-bit hash of the fabric\'s state. Updated on every TICK. Byte-exact across polyformalism ports.', tags: ['forge', 'canonical'] },
+  { name: 'tick', def: 'The opcode that advances time. Alternating dial direction (+1, -1, +1, -1, ...). The substrate\'s heartbeat.', tags: ['forge'] },
+  { name: 'bind', def: 'The opcode that assigns a dial value, clamped to Q1.15 range.', tags: ['forge'] },
+  { name: 'link', def: 'The opcode that pairs two cells so they update together (averaged dials).', tags: ['forge'] },
+  { name: 'effect', def: 'The opcode that applies a function transform to a cell\'s payload + dials.', tags: ['forge'] },
+  { name: 'view', def: 'The opcode that reads a cell\'s state without modifying it.', tags: ['forge'] },
+  { name: 'cosine', def: 'cos(θ) = (a·b) / (‖a‖·‖b‖). Angle-based similarity in [-1, 1]. The substrate\'s "how close?" question.', tags: ['vectors'] },
+  { name: 'k-means++', def: 'A seeding strategy for k-means clustering: pick first random center, then weighted-by-distance for the rest. O(log k)-competitive.', tags: ['vectors'] },
+  { name: 'euclidean', def: '√(Σ(aᵢ-bᵢ)²). Distance metric in the substrate. Same units as space.', tags: ['vectors'] },
+  { name: 'product quantization', def: 'Split vector into m sub-vectors, k-means each, store only cluster indices. ~32× compression, ~5-10% recall loss.', tags: ['vectors'] },
+  { name: 'silhouette', def: '(b−a)/max(a,b) where a = mean intra-cluster dist, b = mean nearest-cluster dist. Range [-1, 1]. Cluster quality.', tags: ['vectors'] },
+  { name: 'xoshiro256**', def: 'A 256-bit-state PRNG. Period 2²⁵⁶-1. Passes TestU01 BigCrush. Default RNG in substrate-rng.', tags: ['rng'] },
+  { name: 'pcg64', def: 'A 128-bit-state PRNG. Period 2¹²⁸. Alternative to xoshiro for cross-language parity.', tags: ['rng'] },
+  { name: 'box-muller', def: 'R = √(−2 ln U₁), θ = 2π U₂. Two uniforms → one Gaussian sample. The substrate\'s bridge from discrete to continuous.', tags: ['rng'] },
+  { name: 'poisson', def: 'A discrete distribution for λ events per unit time. The substrate\'s "how many?" question.', tags: ['rng'] },
+  { name: 'bell state', def: 'A 2-qubit maximally entangled state. |Φ+⟩ = (|00⟩+|11⟩)/√2. Measurement collapses only to |00⟩ or |11⟩.', tags: ['quantum'] },
+  { name: 'ghz state', def: '|GHZₙ⟩ = (|0ⁿ⟩+|1ⁿ⟩)/√2. n-qubit generalization of Bell. Verified for n=3,4.', tags: ['quantum'] },
+  { name: 'w state', def: '|Wₙ⟩ = (|001⟩+|010⟩+|100⟩)/√3. Three-qubit state with single-excitation entanglement.', tags: ['quantum'] },
+  { name: 'qft', def: 'Quantum Fourier Transform. The substrate\'s "all phases at once." QFT² = I (involution).', tags: ['quantum'] },
+  { name: 'grover', def: 'Quantum search algorithm. Optimal iteration count ⌊π/4·√N⌋. Finds marked item with >90% probability.', tags: ['quantum'] },
+  { name: 'entanglement entropy', def: 'Bipartite cut entropy of a quantum state. 0 for product states, 1 bit for Bell, log d for maximally mixed.', tags: ['quantum'] },
+  { name: 'wots', def: 'Winternitz One-Time Signature. Hash-based: pk[i] = sk^(max+i), sig[i] = sk^(max−count[i]). ONE-TIME — reuse leaks.', tags: ['post-quantum'] },
+  { name: 'merkle tree', def: 'Hash tree with leaf-up proofs. Each leaf proves membership in O(log n) hashes.', tags: ['post-quantum'] },
+  { name: 'ring-lwe', def: 'ℤ_q[x]/(xⁿ+1). Polynomial ring for lattice-based crypto. Encryption: b = a·s + e. Substrate post-quantum primitive.', tags: ['post-quantum'] },
+  { name: 'embedding', def: 'A 1024-d vector that represents text. Three embedders: Hash (deterministic), MockSemantic (PMI+SVD), Remote (BGE-compatible).', tags: ['embedding'] },
+  { name: 'top-k', def: 'Find the k nearest vectors to a query. O(n·d) brute force, or O(log n) with product quantization.', tags: ['vectors'] },
+  { name: 'opposite', def: 'An involution: opposite(opposite(x)) = x. 29 canonical pairs in substrate-opposites.', tags: ['opposites'] },
+  { name: 'tension', def: 'A score in {0, 0.5, 1.0}: 0 = unrelated, 0.5 = same family, 1.0 = exact opposite.', tags: ['opposites'] },
+  { name: 'lenia', def: 'A continuous cellular automaton with bell-shaped kernel and Gaussian growth function. Smooth life.', tags: ['game-engine'] },
+  { name: 'conway', def: 'B3/S23. The classic binary cellular automaton. Block (still life), blinker (oscillator), glider (spaceship).', tags: ['game-engine'] },
+  { name: 'rule 110', def: 'A 1D cellular automaton. 110 = 0b01101110. Turing-complete.', tags: ['game-engine'] },
+  { name: 'wireworld', def: '4-state cellular automaton for digital circuit simulation. Electron propagation: head → tail → wire.', tags: ['game-engine'] },
+];
+
+// === Build embeddings ===
+function tokenize(s) { return s.toLowerCase().split(/\W+/).filter(t => t.length > 1); }
+function buildVocab() {
+  const freq = new Map();
+  for (const t of TERMS) for (const tok of tokenize(t.name + ' ' + t.def)) freq.set(tok, (freq.get(tok) || 0) + 1);
+  const sorted = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 256);
+  const v = new Map();
+  for (let i = 0; i < sorted.length; i++) v.set(sorted[i][0], i);
+  return v;
+}
+const vocab = buildVocab();
+function embed(text) {
+  const v = new Float32Array(256);
+  for (const tok of tokenize(text)) {
+    const idx = vocab.get(tok);
+    if (idx !== undefined) v[idx] += 1;
+  }
+  let n2 = 0;
+  for (let i = 0; i < 256; i++) n2 += v[i] * v[i];
+  const n = Math.sqrt(n2);
+  if (n > 0) for (let i = 0; i < 256; i++) v[i] /= n;
+  return v;
+}
+const termVecs = TERMS.map(t => embed(t.name + ' ' + t.def));
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+
+// === Opposites (canonical pairs from substrate-opposites) ===
+const OPPOSITE_PAIRS = {
+  cell: 'scars', witness: 'prediction', bind: 'unbind', link: 'sever',
+  tick: 'rest', cosine: 'euclidean', xoshiro256: 'deterministic-trap',
+  'box-muller': 'discrete-only', 'bell state': 'product-state',
+  ghz: 'pure', merkle: 'flat-list', ring: 'field',
+  embedding: 'one-hot', opposite: 'same', tension: 'harmony',
+  lenia: 'conway', conway: 'lenia', 'rule 110': 'rule 0',
+  wireworld: 'empty',
+};
+
+function render() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const out = document.getElementById('terms');
+  out.innerHTML = '';
+  const matches = TERMS.filter(t =>
+    !search || t.name.toLowerCase().includes(search) || t.def.toLowerCase().includes(search)
+  );
+  for (let i = 0; i < matches.length; i++) {
+    const t = matches[i];
+    const div = document.createElement('div');
+    div.className = 'term';
+    div.innerHTML = `<div class="term-name">${t.name}</div>
+      <div class="term-def">${t.def}</div>
+      <div class="term-tags">${t.tags.map(t => `<span class="tag">#${t}</span>`).join('')}</div>`;
+    div.addEventListener('click', () => select(i, matches));
+    out.appendChild(div);
+  }
+}
+
+function select(idx, list) {
+  const t = list[idx];
+  document.getElementById('related').style.display = 'block';
+  document.getElementById('selName').textContent = t.name;
+  // Find related via cosine
+  const originalIdx = TERMS.indexOf(t);
+  const tVec = termVecs[originalIdx];
+  const sims = TERMS.map((other, i) => ({ i, name: other.name, sim: cosine(tVec, termVecs[i]) }));
+  sims.sort((a, b) => b.sim - a.sim);
+  const rel = sims.slice(1, 8);  // skip self
+  document.getElementById('relList').innerHTML = rel.map(r => `<div class="rel-item">
+    <span class="name">${r.name}</span><span class="sim">${r.sim.toFixed(3)}</span>
+    <div class="why">${TERMS[r.i].def.slice(0, 100)}...</div></div>`).join('');
+  // Opposite
+  const opp = OPPOSITE_PAIRS[t.name] || OPPOSITE_PAIRS[t.name.toLowerCase()] || '—';
+  document.getElementById('oppList').innerHTML = `<div class="rel-item">
+    <span class="name">${opp}</span><span class="sim">opposite</span>
+    <div class="why">canonical opposite pair (involution)</div></div>`;
+}
+
+document.getElementById('search').addEventListener('input', render);
+render();
+</script>
+</body>
+</html>

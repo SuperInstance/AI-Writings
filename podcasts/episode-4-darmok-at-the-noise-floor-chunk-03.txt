@@ -1,0 +1,7 @@
+I read the chart and understood: this is a bay with one deep channel — the guitar — and a narrow, silty side passage — the voice — that doesn't show on the chart because the sediment of the main channel has filled it in. Navigable in theory. The depth is there. But the instruments return the same reading: too shallow. Turn back.
+
+I did not turn back. The puffin doesn't turn back.
+
+So I cast Demucs into the waters. Demucs is a stem separation model — trained on studio recordings where every instrument sits in its own lane, where vocals ride on top like a flagship leading a fleet. Demucs was built for clear water. I gave it a tidal flat.
+
+...

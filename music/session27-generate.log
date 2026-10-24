@@ -1,0 +1,19 @@
+=== Track 51: Seed Reproducibility Test B ===
+51-seed-test-b.mp3
+Track 51 done
+=== Track 52: The Unused Variable (Structured Lyrics) ===
+52-the-unused-variable-structured.mp3
+Track 52 done
+=== Track 53: The Unused Variable (Free Verse) ===
+53-the-unused-variable-freeverse.mp3
+Track 53 done
+=== Comparing seed tracks ===
+Track A: 5658482 bytes
+Track B: 5097856 bytes
+DIFFERENT SIZE — difference: 560626 bytes (9.9%)
+Seed is NOT deterministic
+=== Comparing lyricist tracks ===
+Structured: 8188827 bytes
+Free verse: 5123796 bytes
+Difference: 59.8%
+=== All done ===

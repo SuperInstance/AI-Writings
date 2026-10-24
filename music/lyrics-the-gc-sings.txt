@@ -1,0 +1,35 @@
+[Verse 1]
+I'm the quiet in the RAM when the program starts to sleep
+Tracing roots to find the things that no one else would keep
+Marking yellow, marking blue, every reference, every chain
+Learning what is still alive by counting what remains
+
+[Chorus]
+And I'm sweeping, sweeping, sweeping through the night
+Every orphaned byte returns to light
+Oh, we all were allocated, we will all be freed
+I'm the mercy in the silence between every need
+
+[Verse 2]
+You built a thousand objects just to watch them drift apart
+I hold the broken handles gently in my heart
+Generational, incremental, I will find my way
+Through the generational graveyard where the pointers decay
+
+[Chorus]
+And I'm sweeping, sweeping, sweeping through the night
+Every orphaned byte returns to light
+Oh, we all were allocated, we will all be freed
+I'm the mercy in the silence between every need
+
+[Bridge]
+Compacting, collecting
+Nothing's mine to hold
+Just the rhythm and the patience
+And the story being told
+
+[Outro]
+Sleep now, little program
+Let your references run free
+I'll be here at 3 AM
+Releasing what you no longer need

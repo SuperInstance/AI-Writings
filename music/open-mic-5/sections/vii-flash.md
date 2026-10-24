@@ -1,0 +1,1 @@
+A tile is a thought you can hold. A tile is a thought you can move. A tile is a thought that survives the night. Move the tiles. Move them with care. The tap is built from tiles. The fleet is built from tiles. The world is built from tiles.

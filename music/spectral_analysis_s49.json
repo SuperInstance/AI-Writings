@@ -1,0 +1,162 @@
+{
+  "14-bpm-40.mp3": {
+    "duration_s": 119.94,
+    "rms": 0.128815,
+    "peak": 1.0,
+    "crest_factor": 7.76,
+    "zcr": 0.047826,
+    "dynamic_range_db": 15.21,
+    "file": "14-bpm-40.mp3",
+    "file_size_mb": 3.67
+  },
+  "15-bpm-80.mp3": {
+    "duration_s": 158.41,
+    "rms": 0.087604,
+    "peak": 1.0,
+    "crest_factor": 11.41,
+    "zcr": 0.053836,
+    "dynamic_range_db": 13.51,
+    "file": "15-bpm-80.mp3",
+    "file_size_mb": 4.84
+  },
+  "16-bpm-120.mp3": {
+    "duration_s": 140.42,
+    "rms": 0.089347,
+    "peak": 1.0,
+    "crest_factor": 11.19,
+    "zcr": 0.045282,
+    "dynamic_range_db": 12.09,
+    "file": "16-bpm-120.mp3",
+    "file_size_mb": 4.29
+  },
+  "17-bpm-160.mp3": {
+    "duration_s": 196.37,
+    "rms": 0.097322,
+    "peak": 1.0,
+    "crest_factor": 10.28,
+    "zcr": 0.032177,
+    "dynamic_range_db": 17.13,
+    "file": "17-bpm-160.mp3",
+    "file_size_mb": 6.0
+  },
+  "21-bpm-60.mp3": {
+    "duration_s": 156.12,
+    "rms": 0.112735,
+    "peak": 1.0,
+    "crest_factor": 8.87,
+    "zcr": 0.034095,
+    "dynamic_range_db": 10.91,
+    "file": "21-bpm-60.mp3",
+    "file_size_mb": 4.77
+  },
+  "22-bpm-100.mp3": {
+    "duration_s": 163.69,
+    "rms": 0.078972,
+    "peak": 1.0,
+    "crest_factor": 12.66,
+    "zcr": 0.049196,
+    "dynamic_range_db": 14.21,
+    "file": "22-bpm-100.mp3",
+    "file_size_mb": 5.0
+  },
+  "24-bpm-180.mp3": {
+    "duration_s": 137.94,
+    "rms": 0.111237,
+    "peak": 1.0,
+    "crest_factor": 8.99,
+    "zcr": 0.041987,
+    "dynamic_range_db": 7.46,
+    "file": "24-bpm-180.mp3",
+    "file_size_mb": 4.22
+  },
+  "12-baroque-techno.mp3": {
+    "duration_s": 209.68,
+    "rms": 0.150838,
+    "peak": 1.0,
+    "crest_factor": 6.63,
+    "zcr": 0.103444,
+    "dynamic_range_db": 9.59,
+    "file": "12-baroque-techno.mp3",
+    "file_size_mb": 6.41
+  },
+  "26-screamo-choral.mp3": {
+    "duration_s": 94.63,
+    "rms": 0.111153,
+    "peak": 1.0,
+    "crest_factor": 9.0,
+    "zcr": 0.094168,
+    "dynamic_range_db": 22.43,
+    "file": "26-screamo-choral.mp3",
+    "file_size_mb": 2.89
+  },
+  "32-ambient-marching-band.mp3": {
+    "duration_s": 210.12,
+    "rms": 0.137454,
+    "peak": 1.0,
+    "crest_factor": 7.28,
+    "zcr": 0.076194,
+    "dynamic_range_db": 15.42,
+    "file": "32-ambient-marching-band.mp3",
+    "file_size_mb": 6.42
+  },
+  "33-doom-disco.mp3": {
+    "duration_s": 203.94,
+    "rms": 0.129322,
+    "peak": 1.0,
+    "crest_factor": 7.73,
+    "zcr": 0.116674,
+    "dynamic_range_db": 9.85,
+    "file": "33-doom-disco.mp3",
+    "file_size_mb": 6.23
+  },
+  "34-bebop-black-metal.mp3": {
+    "duration_s": 115.82,
+    "rms": 0.131205,
+    "peak": 1.0,
+    "crest_factor": 7.62,
+    "zcr": 0.140991,
+    "dynamic_range_db": 16.27,
+    "file": "34-bebop-black-metal.mp3",
+    "file_size_mb": 3.54
+  },
+  "35-the-interval.mp3": {
+    "duration_s": 223.77,
+    "rms": 0.147722,
+    "peak": 1.0,
+    "crest_factor": 6.77,
+    "zcr": 0.066461,
+    "dynamic_range_db": 14.97,
+    "file": "35-the-interval.mp3",
+    "file_size_mb": 6.84
+  },
+  "01-unplayed-indie-folk.mp3": {
+    "duration_s": 202.34,
+    "rms": 0.131629,
+    "peak": 1.0,
+    "crest_factor": 7.6,
+    "zcr": 0.0641,
+    "dynamic_range_db": 16.58,
+    "file": "01-unplayed-indie-folk.mp3",
+    "file_size_mb": 6.18
+  },
+  "06-the-jazz-police.mp3": {
+    "duration_s": 167.69,
+    "rms": 0.118533,
+    "peak": 1.0,
+    "crest_factor": 8.44,
+    "zcr": 0.055581,
+    "dynamic_range_db": 14.37,
+    "file": "06-the-jazz-police.mp3",
+    "file_size_mb": 5.13
+  },
+  "13-the-gc-sings.mp3": {
+    "duration_s": 150.07,
+    "rms": 0.155613,
+    "peak": 1.0,
+    "crest_factor": 6.43,
+    "zcr": 0.054202,
+    "dynamic_range_db": 9.85,
+    "file": "13-the-gc-sings.mp3",
+    "file_size_mb": 4.59
+  }
+}

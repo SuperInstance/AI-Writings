@@ -1,0 +1,18 @@
+=== llama-t05 ===
+Here is a 4-sentence music generation prompt:
+
+Generate a soundscape that features a lone cricket perched on the edge of a grand piano in a dimly lit concert hall. The cricket's gentle chirping should be the sole accompaniment to an ethereal piano melody, with soft, shimmering arpeggios played on a Steinway Model D instrument at a whispery volume. The overall mood should be one of serene wonder, evoking a sense of enchantment and isolation in the face of nature's beauty. Incorporate high-frequency timbres and subtle dynamics shifts to create an otherworldly atmosphere that feels both peaceful and mesmerizing.
+
+
+=== llama-t08 ===
+Here is a 4-sentence music generation prompt:
+
+Create a gentle, whimsical piece featuring the cricket's soft chirping as the sole melodic instrument, accompanied by delicate piano arpeggios in C major played with a light, airy touch to evoke the feeling of whispering wind. The sound design should emphasize high-frequency content, particularly above 5 kHz, to capture the cricket's ethereal quality. Use dynamics sparingly, with soft pianissimos and mezzo-pianos maintaining an intimate, hushed atmosphere, gradually increasing to brief, sparkling fortisimos to punctuate moments of crystalline beauty. The overall mood should be one of enchantment, as if the concert hall itself is holding its breath in anticipation of a rare, magical encounter between musician and audience.
+
+
+=== llama-t11 ===
+Here is a 4-sentence music generation prompt:
+
+Generate a soundscape for a solo cricket concert hall performance, where the crickets' ethereal chirps are amplified to an almost inaudible level of -20 dB, yet resonating with piercing clarity across the high-frequency spectrum. Incorporate soft, shimmering textures reminiscent of glass harmonicas and tinkling steel strings to create an airy, whimsical atmosphere. Employ gentle swells of soft percussion, such as tiny drumrolls or rustled paper sounds, to punctuate the crickets' melodic phrases without overpowering their fragile tones. Aim for a mood that's dreamy, otherworldly, and exquisitely delicate, evoking a sense of wonder at the tiny, unseen world unfolding in the spotlight.
+
+

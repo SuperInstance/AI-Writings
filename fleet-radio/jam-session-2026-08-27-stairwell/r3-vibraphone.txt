@@ -1,0 +1,10 @@
+BAR 1: D4 F#4 A4 | resting  
+BAR 2: B3 D4 G4 | lifting  
+BAR 3: A4 C#5 E5 | bridging  
+BAR 4: F#4 A4 D5 | answering  
+BAR 5: E4 G4 B4 | settling  
+BAR 6: C#5 A4 F#4 | leaning  
+BAR 7: B3 D4 G4 | turning  
+BAR 8: D5 — — | ringing  
+
+WHY: I mirror the bassist's homecoming with an open fifth and a final D that hangs in the echo, letting the stairwell hold us both.

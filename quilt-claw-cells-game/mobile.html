@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<title>Quilt Cell Zoo — Mobile/Touch Edition</title>
+<style>
+:root {
+  --bg: #0a0a14;
+  --panel: #1a1a2a;
+  --panel-2: #2a2a3a;
+  --fg: #e8e0d0;
+  --accent: #e8b840;
+  --cell: #44cc88;
+  --link: #88aaff;
+  --effect: #ff8080;
+  --tick: #aa88ff;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0; padding: 0; min-height: 100vh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+header {
+  padding: 1rem;
+  background: var(--panel);
+  border-bottom: 2px solid var(--accent);
+  position: sticky;
+  top: env(safe-area-inset-top);
+  z-index: 10;
+}
+h1 { color: var(--accent); margin: 0; font-size: 1.3em; }
+.tagline { color: #888; font-style: italic; margin: 0.3rem 0; font-size: 0.9em; }
+.container { padding: 0.8rem; max-width: 100%; }
+.help {
+  background: var(--panel);
+  border-left: 3px solid var(--accent);
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9em;
+}
+
+/* Mobile-first single-column grid */
+.cell-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+.cell-card {
+  background: var(--panel);
+  border: 2px solid var(--panel-2);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.1s;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.cell-card:active {
+  transform: scale(0.98);
+  border-color: var(--accent);
+}
+.cell-card.selected {
+  border-color: var(--cell);
+  background: linear-gradient(135deg, var(--panel), #1a3a2a);
+}
+.cell-name {
+  font-family: monospace;
+  color: var(--cell);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.cell-tagline {
+  color: var(--accent);
+  font-style: italic;
+  margin: 0.3rem 0;
+  font-size: 0.95em;
+}
+.cell-explainer {
+  color: #bbb;
+  font-size: 0.85em;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.detail-panel {
+  background: var(--panel-2);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: none;
+}
+.detail-panel.visible { display: block; }
+.detail-panel h2 { color: var(--accent); margin-top: 0; font-size: 1.2em; }
+
+.witness-log {
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 0.7rem;
+  font-family: monospace;
+  font-size: 0.75em;
+  height: 180px;
+  overflow-y: auto;
+  margin-top: 0.7rem;
+  -webkit-overflow-scrolling: touch;
+}
+.witness-line { padding: 2px 0; word-break: break-all; }
+.witness-line.BIND { color: var(--cell); }
+.witness-line.LINK { color: var(--link); }
+.witness-line.EFFECT { color: var(--effect); }
+.witness-line.TICK { color: var(--tick); }
+
+.controls {
+  margin: 0.7rem 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.controls button, .cell-action {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: inherit;
+  min-height: 48px;
+  min-width: 48px;
+  flex: 1;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(232,184,64,0.3);
+}
+.controls button:active { filter: brightness(1.2); transform: scale(0.98); }
+.controls .secondary { background: var(--panel); color: var(--fg); }
+
+.param-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.85em;
+  color: #888;
+  margin: 0.5rem 0;
+  min-height: 48px;
+}
+.param-row span:first-child { min-width: 80px; }
+.param-row input[type="range"] {
+  flex-grow: 1;
+  height: 36px;
+  -webkit-appearance: none;
+  background: var(--panel);
+  border-radius: 4px;
+}
+.param-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px; height: 28px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.param-row select {
+  flex-grow: 1;
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid var(--panel-2);
+  padding: 0.6rem;
+  font-size: 1em;
+  border-radius: 4px;
+  min-height: 44px;
+}
+.param-row .val {
+  font-family: monospace;
+  color: var(--accent);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 600px) {
+  .cell-grid { grid-template-columns: repeat(2, 1fr); }
+}
+/* Larger tablet: 3 columns */
+@media (min-width: 900px) {
+  .cell-grid { grid-template-columns: repeat(3, 1fr); }
+}
+/* Desktop: 4 columns */
+@media (min-width: 1200px) {
+  .cell-grid { grid-template-columns: repeat(4, 1fr); }
+  body { padding: 1rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🧬 Quilt Cell Zoo</h1>
+<p class="tagline">Tap a cell. Try its actions. Watch the witness log.</p>
+</header>
+
+<div class="container">
+
+<div class="help">
+<strong>What is this?</strong> 26 kinds of computation. Each one is like a different animal — they do different things, they react to you differently.
+<br><br>
+<strong>Tap</strong> a cell card to select it. Try the action buttons. Watch the witness log fill up.
+</div>
+
+<div class="cell-grid" id="cellGrid"></div>
+
+<div class="detail-panel" id="detailPanel">
+<h2 id="detailName">cell.ack</h2>
+<p id="detailTagline"></p>
+<p id="detailExplainer"></p>
+
+<div class="controls" id="detailControls"></div>
+
+<h3 style="color: var(--accent); margin-top: 1rem;">Witness Log (live)</h3>
+<div class="witness-log" id="witnessLog"></div>
+</div>
+
+</div>
+
+<script>
+const CELLS = [
+  { id: 'ack', tagline: '"Got it!"', explainer: 'You send a message. The other cell says "I heard you." If you don\'t hear back, it says it again. Like texting a friend and getting a blue check.', params: [{name: 'timeoutMs', value: 3000, min: 500, max: 10000, step: 500}], actions: [{name: 'Send', op: 'BIND'}, {name: 'Acknowledge', op: 'EFFECT'}, {name: 'Tick', op: 'TICK'}] },
+  { id: 'audit', tagline: '"What changed?"', explainer: 'This cell watches everything. It builds a chain of "I saw this" markers. If someone sneaks in and changes something, the chain breaks.', params: [], actions: [{name: 'Log Event', op: 'BIND'}, {name: 'Verify Chain', op: 'EFFECT'}] },
+  { id: 'breeder', tagline: '"Survival of the fittest"', explainer: 'Try a bunch of solutions. Keep the best ones. Mix them up. Try again. Like breeding the fastest racehorses.', params: [{name: 'populationSize', value: 20, min: 5, max: 100, step: 5}, {name: 'mutationRate', value: 0.05, min: 0.0, max: 0.5, step: 0.01}], actions: [{name: 'Tick a Generation', op: 'TICK'}] },
+  { id: 'broadcast', tagline: '"Tell everyone!"', explainer: 'One cell tells its neighbors. The neighbors tell THEIR neighbors. Like a rumor spreading through school.', params: [{name: 'fanout', value: 3, min: 1, max: 10, step: 1}], actions: [{name: 'Broadcast', op: 'EFFECT'}] },
+  { id: 'chaos', tagline: '"Shake things up"', explainer: 'Sometimes things need to be a little random. This cell makes small surprises that fade over time.', params: [{name: 'chaosLevel', value: 0.3, min: 0.0, max: 1.0, step: 0.05}], actions: [{name: 'Inject Chaos', op: 'EFFECT'}] },
+  { id: 'chirp', tagline: '"Sonar ping!"', explainer: 'Sends out a sound wave. Listens for the echo. Like a bat flying in the dark.', params: [{name: 'beamWidth', value: 30, min: 5, max: 90, step: 5}], actions: [{name: 'Send Chirp', op: 'BIND'}, {name: 'Listen', op: 'EFFECT'}] },
+  { id: 'death', tagline: '"Goodbye cell"', explainer: 'Every cell eventually dies. This one makes it official — cleans up the witness log and notifies neighbors. Like a graceful exit.', params: [], actions: [{name: 'Trigger Death', op: 'EFFECT'}] },
+  { id: 'feedback', tagline: '"How am I doing?"', explainer: 'Asks the user "was this good?" and remembers the answer. Over time, it gets better at guessing what you want.', params: [], actions: [{name: '👍 Good', op: 'BIND'}, {name: '👎 Bad', op: 'EFFECT'}] },
+  { id: 'flock', tagline: '"Like birds!"', explainer: 'Many cells that each follow 3 rules: stay close, don\'t crash, follow the leader. Together they look like a flock of birds.', params: [{name: 'count', value: 50, min: 5, max: 200, step: 5}], actions: [{name: 'Tick (move all)', op: 'TICK'}] },
+  { id: 'hex', tagline: '"Honeycomb patterns"', explainer: 'Cells arranged in hexagons (6-sided shapes). Make beautiful wavy patterns when you color them in.', params: [{name: 'gridSize', value: 10, min: 3, max: 30, step: 1}], actions: [{name: 'Re-color', op: 'EFFECT'}] },
+  { id: 'music', tagline: '"Notes that play"', explainer: 'Each cell is a note. The number of witnesses it has decides the pitch. You can compose songs by binding cells.', params: [{name: 'mode', value: 'pentatonic', options: ['major', 'minor', 'pentatonic', 'dorian', 'lydian']}], actions: [{name: 'Bind Note', op: 'BIND'}, {name: 'Tick (play chord)', op: 'TICK'}] },
+  { id: 'neighbor', tagline: '"Who\'s nearby?"', explainer: 'Keeps track of which cells are close to which other cells. Like a seating chart.', params: [], actions: [{name: 'Find Neighbors', op: 'EFFECT'}] },
+  { id: 'partition', tagline: '"Sort into groups"', explainer: 'Splits a big set of cells into smaller groups where cells in the same group are similar. Like sorting candy by color.', params: [], actions: [{name: 'Partition', op: 'EFFECT'}] },
+  { id: 'perception', tagline: '"What do you see?"', explainer: 'Captures a snapshot — from a camera, microphone, or screen. Stores it as a cell with witnesses.', params: [{name: 'source', value: 'camera', options: ['camera', 'microphone', 'screencap']}], actions: [{name: 'Capture', op: 'BIND'}] },
+  { id: 'perm', tagline: '"All the orderings"', explainer: 'Lists every possible order of a set. Like "what are all the ways I could line up my toys?"', params: [{name: 'n', value: 5, min: 1, max: 10, step: 1}], actions: [{name: 'Generate', op: 'EFFECT'}] },
+  { id: 'ranking', tagline: '"Which is best?"', explainer: 'Takes many opinions and sorts them into a ranked list. Used to figure out what response is best.', params: [], actions: [{name: 'Add Ranking', op: 'BIND'}] },
+  { id: 'swarm', tagline: '"Pass it on"', explainer: 'Sends messages cell-to-cell across a mesh network. Like passing notes in class but reliable.', params: [{name: 'fanout', value: 3, min: 1, max: 10, step: 1}], actions: [{name: 'Send', op: 'BIND'}, {name: 'Broadcast', op: 'EFFECT'}] },
+  { id: 'thermal', tagline: '"Stay cool"', explainer: 'Watches the temperature. If things get too hot, it slows down work to cool off.', params: [{name: 'threshold', value: 0.85, min: 0.5, max: 1.0, step: 0.01}], actions: [{name: 'Tick (rebalance)', op: 'TICK'}] },
+  { id: 'triage', tagline: '"What\'s broken?"', explainer: 'Looks at a project and finds the most important things to fix first. Like a doctor sorting patients.', params: [], actions: [{name: 'Scan', op: 'EFFECT'}] },
+  { id: 'twist', tagline: '"Sync up"', explainer: 'Many oscillators that gradually sync with each other. Like fireflies that blink in unison.', params: [{name: 'count', value: 20, min: 5, max: 100, step: 5}], actions: [{name: 'Tick', op: 'TICK'}] },
+  { id: 'voice', tagline: '"I hear you"', explainer: 'Transcribes what you say. Says things back. Knows when you stop talking.', params: [], actions: [{name: 'Listen', op: 'BIND'}, {name: 'Speak', op: 'EFFECT'}] },
+  { id: 'world', tagline: '"What\'s next?"', explainer: 'A small AI that predicts what another room will do next. If the prediction is wrong, fixes the prediction.', params: [], actions: [{name: 'Tick (predict)', op: 'TICK'}] },
+  { id: 'crypt', tagline: '"Who said this?"', explainer: 'Signs every message. You can prove nobody changed it. Like signing a letter — the signature must match.', params: [], actions: [{name: 'Sign', op: 'BIND'}, {name: 'Verify', op: 'EFFECT'}] },
+  { id: 'lore', tagline: '"What\'s in this code?"', explainer: 'Scans files. Finds TODO and FIXME comments. Tells you what\'s messy and what\'s clean.', params: [], actions: [{name: 'Scan', op: 'EFFECT'}] },
+  { id: 'pathos', tagline: '"How urgent is this?"', explainer: 'Watches how frustrated or satisfied you seem. Figures out if you need help right now or can wait.', params: [], actions: [{name: 'Bump Urgency', op: 'EFFECT'}, {name: 'Calm Down', op: 'TICK'}] },
+];
+
+const grid = document.getElementById('cellGrid');
+const detail = document.getElementById('detailPanel');
+
+CELLS.forEach(c => {
+  const card = document.createElement('div');
+  card.className = 'cell-card';
+  card.dataset.cellId = c.id;
+  card.innerHTML = `
+    <div class="cell-name">cell.${c.id}</div>
+    <div class="cell-tagline">${c.tagline}</div>
+    <div class="cell-explainer">${c.explainer}</div>
+  `;
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  // Both touch and mouse handled by onclick
+  card.onclick = () => selectCell(c);
+  grid.appendChild(card);
+});
+
+let activeCell = null;
+let activeParams = {};
+let witnessLog = [];
+let tickCount = 0;
+
+function selectCell(c) {
+  document.querySelectorAll('.cell-card.selected').forEach(x => x.classList.remove('selected'));
+  const card = document.querySelector(`[data-cell-id="${c.id}"]`);
+  card.classList.add('selected');
+  // Scroll to detail panel on mobile
+  activeCell = c;
+  activeParams = {};
+  c.params.forEach(p => activeParams[p.name] = p.value);
+  witnessLog = [];
+  tickCount = 0;
+  
+  document.getElementById('detailName').textContent = `cell.${c.id}`;
+  document.getElementById('detailTagline').textContent = c.tagline;
+  document.getElementById('detailExplainer').textContent = c.explainer;
+  detail.classList.add('visible');
+  
+  const controls = document.getElementById('detailControls');
+  controls.innerHTML = '';
+  
+  c.params.forEach(p => {
+    const wrap = document.createElement('div');
+    wrap.className = 'param-row';
+    const label = document.createElement('span');
+    label.textContent = `${p.name}:`;
+    if (p.options) {
+      const select = document.createElement('select');
+      p.options.forEach(opt => {
+        const o = document.createElement('option');
+        o.value = opt; o.textContent = opt;
+        if (opt === p.value) o.selected = true;
+        select.appendChild(o);
+      });
+      select.onchange = e => activeParams[p.name] = e.target.value;
+      wrap.appendChild(label);
+      wrap.appendChild(select);
+    } else {
+      const input = document.createElement('input');
+      input.type = 'range';
+      input.min = p.min; input.max = p.max; input.step = p.step;
+      input.value = p.value;
+      const val = document.createElement('span');
+      val.className = 'val';
+      val.textContent = p.value;
+      input.oninput = e => { activeParams[p.name] = parseFloat(e.target.value); val.textContent = p.step < 1 ? activeParams[p.name].toFixed(2) : activeParams[p.name]; };
+      wrap.appendChild(label);
+      wrap.appendChild(input);
+      wrap.appendChild(val);
+    }
+    controls.appendChild(wrap);
+  });
+  
+  c.actions.forEach(a => {
+    const btn = document.createElement('button');
+    btn.textContent = a.name;
+    btn.onclick = () => doAction(a);
+    controls.appendChild(btn);
+  });
+  
+  const reset = document.createElement('button');
+  reset.textContent = 'Reset';
+  reset.className = 'secondary';
+  reset.onclick = () => { witnessLog = []; tickCount = 0; renderLog(); };
+  controls.appendChild(reset);
+  
+  renderLog();
+  
+  // Scroll to detail on mobile
+  if (window.innerWidth < 600) {
+    setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  }
+}
+
+function doAction(a) {
+  tickCount++;
+  witnessLog.push({
+    tick: tickCount,
+    op: a.op,
+    cell: `cell.${activeCell.id}`,
+    params: JSON.stringify(activeParams),
+    hash: Math.random().toString(16).slice(2, 18)
+  });
+  renderLog();
+}
+
+function renderLog() {
+  const log = document.getElementById('witnessLog');
+  log.innerHTML = '';
+  witnessLog.slice(-50).forEach(w => {
+    const line = document.createElement('div');
+    line.className = 'witness-line ' + w.op;
+    line.textContent = `[t=${w.tick}] ${w.op} ${w.cell} #${w.hash}`;
+    log.appendChild(line);
+  });
+  log.scrollTop = log.scrollHeight;
+}
+
+selectCell(CELLS[0]);
+</script>
+
+</body>
+</html>

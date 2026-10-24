@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎹 Tensor-MIDI — substrate vocabulary as harmony</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1.5rem}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+textarea{width:100%;min-height:140px;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:'Courier New',monospace;font-size:14px;padding:.7rem;line-height:1.5;box-sizing:border-box}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin-top:.5rem}
+button:hover{background:#e8b840;color:#0a0a14}
+.row{display:flex;gap:1rem;align-items:flex-start;margin:1rem 0;flex-wrap:wrap}
+.row > *{flex:1;min-width:200px}
+.score-card{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:.7rem;margin:.3rem 0;font-size:.9em}
+.score-w{color:#e8b840;font-weight:bold}
+.bar{display:inline-block;height:8px;background:linear-gradient(90deg,#44cc88,#e8b840,#ff6b6b);vertical-align:middle;border-radius:2px}
+.embed{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:.9em;color:#44cc88;line-height:1.5;white-space:pre-wrap}
+.legend{font-size:.85em;color:#888;margin:.5rem 0}
+input[type=text]{width:100%;background:#0a0a14;border:1px solid #2a2a3a;border-radius:4px;color:#e8e0d0;font-family:'Courier New',monospace;padding:.5rem;font-size:13px}
+.midi-display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin-top:1rem;overflow-x:auto}
+.midi-row{display:flex;gap:4px;align-items:flex-end;height:80px;margin-bottom:.5rem}
+.midi-cell{flex:1;background:#1a1a2e;border-radius:2px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;font-size:.7em;color:#888;padding:.2rem;min-width:35px}
+.midi-cell.active{background:#e8b840;color:#0a0a14;font-weight:bold}
+.midi-cell.high{background:#ff6b6b;color:#fff}
+.midi-cell.mid{background:#e8b840;color:#0a0a14}
+.midi-cell.low{background:#44cc88;color:#0a0a14}
+.lane{display:flex;align-items:flex-end;height:18px;margin-bottom:.3rem}
+.lane-label{flex:0 0 90px;color:#e8b840;font-size:.8em;font-weight:bold}
+.note{flex:1;background:#444;border-radius:2px;font-size:.7em;color:#fff;text-align:center;padding:.1rem;margin:0 2px;min-width:30px;opacity:0.5}
+.note.witness{background:#e8b840;color:#0a0a14;opacity:1}
+.note.proof{background:#ff6b6b;color:#fff;opacity:1}
+.note.bind{background:#44cc88;color:#0a0a14;opacity:1}
+.note.forget{background:#666;color:#fff;opacity:0.6}
+.note.tick{background:#88ddff;color:#0a0a14;opacity:1}
+.note.link{background:#fff;color:#0a0a14;opacity:1}
+.note.jev{background:#ff6b6b;color:#fff;opacity:1}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/lab/">← /lab</a><a href="/brewcast/">brewcast</a></div>
+
+<h1>🎹 Tensor-MIDI</h1>
+<p class="lead">Each substrate word has a tensor (a vector). The tensor becomes a note. The sentence becomes a chord. The substrate's vocabulary plays itself.</p>
+
+<div class="stage">
+<label style="color:#e8b840;font-weight:bold">Type a substrate sentence:</label>
+<div class="legend">Use natural substrate vocabulary: WITNESS, PROOF, BIND, FORGET, TICK, JEV, JEPA, LINK, ROUTE, CRDT</div>
+<textarea id="sentence">WITNESS the substrate FORGET its old PROOF, BIND a new one, TICK forward, and let JEV confirm.</textarea>
+<button onclick="composeMidi()">🎹 Compose MIDI</button>
+</div>
+
+<div class="stage" id="result" style="display:none">
+<h2 style="margin-top:0">Tensor chord</h2>
+<div class="embed" id="midiEmbed"></div>
+
+<h2>Note-by-note</h2>
+<div class="midi-display" id="midiDisplay"></div>
+
+<h2>Word-score mapping</h2>
+<div id="wordScores"></div>
+</div>
+
+<script>
+// Tensor-MIDI: substrate vocabulary → MIDI notes
+const WORD_NOTE = {
+  'WITNESS': { midi: 60, lane: 'W', label: 'C4', strength: 1.0 }, // C
+  'PROOF':   { midi: 62, lane: 'P', label: 'D4', strength: 0.95 },
+  'BIND':    { midi: 64, lane: 'B', label: 'E4', strength: 0.9 },
+  'LINK':    { midi: 65, lane: 'L', label: 'F4', strength: 0.85 },
+  'TICK':    { midi: 67, lane: 'T', label: 'G4', strength: 0.8 },
+  'JEV':     { midi: 69, lane: 'J', label: 'A4', strength: 0.95 },
+  'JEPA':    { midi: 71, lane: 'A', label: 'B4', strength: 0.9 },
+  'ROUTE':   { midi: 72, lane: 'R', label: 'C5', strength: 0.7 },
+  'CRDT':    { midi: 74, lane: 'C', label: 'D5', strength: 0.7 },
+  'FORGET':  { midi: 76, lane: 'F', label: 'E5', strength: 0.4 },
+  'EFFECT':  { midi: 77, lane: 'E', label: 'F5', strength: 0.6 },
+  'VIEW':    { midi: 79, lane: 'V', label: 'G5', strength: 0.7 },
+  'WORLD':   { midi: 81, lane: 'W', label: 'A5', strength: 0.5 },
+  'TIME':    { midi: 83, lane: 'T', label: 'B5', strength: 0.5 },
+  'CELL':    { midi: 84, lane: 'C', label: 'C6', strength: 0.8 },
+  'SUBSTRATE':{ midi: 86, lane: 'S', label: 'D6', strength: 0.85 },
+};
+
+// Substrate-vocabularized scoring via cosine to canonical anchors
+// (locally approximated — the live word-weight page uses BGE-Large)
+async function getPseudoWeight(word) {
+  const w = word.toUpperCase().replace(/[^A-Z]/g, '');
+  const canonical = Object.keys(WORD_NOTE).find(k => k === w);
+  if (canonical) {
+    return WORD_NOTE[canonical].strength;
+  }
+  // Hash-based pseudo weight (deterministic)
+  let h = 0;
+  for (let i = 0; i < w.length; i++) h = ((h << 5) - h + w.charCodeAt(i)) & 0xffff;
+  return 0.3 + ((h % 60) / 100);
+}
+
+async function composeMidi() {
+  const sentence = document.getElementById('sentence').value.trim();
+  if (!sentence) return;
+
+  const words = sentence.split(/\s+/).filter(w => w.length > 0);
+  const tokens = [];
+  for (const word of words) {
+    const clean = word.replace(/[^\w]/g, '').toUpperCase();
+    if (!clean) continue;
+    const note = WORD_NOTE[clean];
+    const weight = await getPseudoWeight(clean);
+    tokens.push({
+      word: clean,
+      raw: word,
+      note: note || null,
+      weight: weight,
+      // Default note for unknown words based on weight
+      midi: note ? note.midi : Math.round(48 + weight * 36),
+      lane: note ? note.lane : '?',
+    });
+  }
+
+  // Build chord (avg of all tokens)
+  const chord = tokens.reduce((sum, t) => sum + t.midi, 0) / tokens.length;
+
+  // Result display
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('midiEmbed').textContent = 
+    `CHORD: ${chord.toFixed(1)} (avg of ${tokens.length} tokens)\n` +
+    `TONALITY: ${chord < 60 ? 'low (drone)' : chord > 75 ? 'high (reveal)' : 'mid (steady)'}\n` +
+    `STRENGTH: ${(tokens.reduce((s,t) => s+t.weight, 0) / tokens.length).toFixed(2)}`;
+
+  // Note-by-note lanes
+  const display = document.getElementById('midiDisplay');
+  display.innerHTML = '';
+
+  const lanes = ['W', 'P', 'B', 'L', 'T', 'J', 'A', 'R', 'C', 'F', 'E', 'V'];
+  for (const lane of lanes) {
+    const laneDiv = document.createElement('div');
+    laneDiv.className = 'lane';
+    laneDiv.innerHTML = `<div class="lane-label">${lane}-lane</div>`;
+
+    const laneTokens = tokens.filter(t => t.lane === lane);
+    if (laneTokens.length === 0) {
+      // Empty placeholders
+      for (let i = 0; i < tokens.length; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'note';
+        cell.style.opacity = '0.15';
+        cell.textContent = '·';
+        laneDiv.appendChild(cell);
+      }
+    } else {
+      for (const tok of tokens) {
+        const cell = document.createElement('div');
+        cell.className = `note ${tok.lane.toLowerCase()}`;
+        if (tok.lane !== lane) {
+          cell.style.opacity = '0.1';
+        }
+        cell.textContent = `${tok.lane}${tok.note?.label || ''}`;
+        cell.title = `${tok.word} (${tok.note?.label || '?'}, weight ${tok.weight.toFixed(2)})`;
+        laneDiv.appendChild(cell);
+      }
+    }
+    display.appendChild(laneDiv);
+  }
+
+  // Word scores
+  const wordScores = document.getElementById('wordScores');
+  wordScores.innerHTML = tokens.map(t => `
+    <div class="score-card">
+      <span class="score-w">${t.raw}</span>
+      ${t.note ? `→ ${t.note.label} (MIDI ${t.note.midi})` : `→ MIDI ${t.midi}`}
+      <span style="float:right">
+        <span class="bar" style="width:${t.weight * 80}px"></span>
+        weight ${t.weight.toFixed(2)}
+      </span>
+    </div>
+  `).join('');
+}
+
+// Compose on load
+composeMidi();
+</script>
+
+</body>
+</html>

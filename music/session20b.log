@@ -1,0 +1,133 @@
+2026-08-09 11:43:41.968 | DEBUG    | acestep.core.generation.handler.init_service_memory_basic:_apply_malloc_mmap_threshold:50 - [memory] Set M_MMAP_THRESHOLD=131072 for immediate OS reclaim of large frees
+2026-08-09 11:43:56.672 | WARNING  | acestep.training.trainer:<module>:40 - bitsandbytes not installed. Using standard AdamW.
+2026-08-09 11:43:56.718 | INFO     | __main__:<module>:16 - Loading model...
+2026-08-09 11:43:56.914 | INFO     | acestep.gpu_config:get_gpu_memory_gb:578 - CUDA GPU detected: NVIDIA GeForce RTX 4050 Laptop GPU (6.0 GB)
+2026-08-09 11:44:00.749 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:174 - [initialize_service] Attempting to load model with attention implementation: sdpa
+2026-08-09 11:44:05.538 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:201 - [initialize_service] Keeping main model on cuda (persistent)
+2026-08-09 11:49:31.712 | INFO     | __main__:<module>:23 - Loaded in 335.0s
+2026-08-09 11:49:31.712 | INFO     | __main__:<module>:42 - TRACK 1/8: sf20-polka-black-metal (60s, 140 BPM)
+2026-08-09 11:49:31.712 | INFO     | acestep.inference:generate_music:641 - [generate_music] LLM usage decision: thinking=True, use_cot_caption=True, use_cot_language=True, use_cot_metas=True, need_lm_for_cot=True, llm_initialized=False, use_lm=False
+2026-08-09 11:49:31.713 | INFO     | acestep.core.generation.handler.generate_music:generate_music:289 - [generate_music] Turbo model detected: overriding guidance_scale 7.0 -> 1.0 (turbo does not use CFG).
+2026-08-09 11:49:31.713 | INFO     | acestep.core.generation.handler.generate_music:generate_music:304 - [generate_music] Starting generation...
+2026-08-09 11:49:31.713 | INFO     | acestep.core.generation.handler.generate_music:generate_music:307 - [generate_music] Preparing inputs...
+2026-08-09 11:49:31.778 | DEBUG    | acestep.core.generation.handler.generate_music:_vram_preflight_check:132 - [generate_music] VRAM pre-flight: skipping check (offload_to_cpu=True, models loaded one-at-a-time)
+2026-08-09 11:49:31.932 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 4066 MB)
+2026-08-09 11:49:35.818 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 3.5198s (RSS: 4066 -> 3402 MB, delta: -664 MB)
+2026-08-09 11:49:35.890 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3432 MB)
+2026-08-09 11:49:36.913 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 0.6864s (RSS: 3432 -> 4075 MB, delta: +644 MB)
+2026-08-09 11:49:36.975 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:119 - 
+======================================================================
+2026-08-09 11:49:36.976 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:120 - 🔍 [DEBUG] DiT TEXT ENCODER INPUT (Inference)
+2026-08-09 11:49:36.976 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:121 - ======================================================================
+2026-08-09 11:49:36.976 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:122 - text_prompt:
+# Instruction
+Fill the audio semantic mask based on the given conditions:
+
+# Caption
+Polka meets Norwegian black metal, accordion and tremolo guitar, blast beats with oompah bass
+
+# Metas
+- bpm: 140
+- timesignature: N/A
+- keyscale: D minor
+- duration: 60 seconds
+<|endoftext|>
+
+2026-08-09 11:49:36.976 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:123 - ======================================================================
+2026-08-09 11:49:36.976 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:124 - lyrics_text:
+# Languages
+unknown
+
+# Lyric
+<|endoftext|>
+2026-08-09 11:49:36.976 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:125 - ======================================================================
+
+2026-08-09 11:49:37.005 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 4059 MB)
+2026-08-09 11:49:38.027 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 0.6979s (RSS: 4059 -> 3415 MB, delta: -643 MB)
+2026-08-09 11:49:38.056 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3436 MB)
+2026-08-09 11:49:39.281 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 0.8821s (RSS: 3436 -> 4080 MB, delta: +644 MB)
+2026-08-09 11:49:39.289 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:110 - [preprocess_batch] Inferring prompt embeddings...
+2026-08-09 11:49:39.290 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading text_encoder to cuda (RSS: 4080 MB)
+2026-08-09 11:49:42.885 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded text_encoder to cuda in 3.2092s (RSS: 4080 -> 1807 MB, delta: -2273 MB)
+2026-08-09 11:49:44.494 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:113 - [preprocess_batch] Inferring lyric embeddings...
+2026-08-09 11:49:44.707 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading text_encoder to CPU (RSS: 2255 MB)
+2026-08-09 11:49:46.219 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded text_encoder to CPU in 1.0668s (RSS: 2255 -> 3392 MB, delta: +1137 MB)
+2026-08-09 11:49:46.219 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:161 - [service_generate] Generating audio... (DiT backend: PyTorch (cuda))
+2026-08-09 11:49:47.042 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:263 - [service_generate] DiT diffusion via PyTorch (cuda)...
+2026-08-09 11:49:47.348 | INFO     | acestep.models.common.dcw_correction:__init__:98 - [DCW] Active — mode=double, scaler=0.0500, high_scaler=0.0200, wavelet='haar'
+2026-08-09 11:49:49.258 | INFO     | acestep.models.common.dcw_loader:get:84 - [DCW] Built DWT1D for wavelet='haar' (low-pass filter taps=2, device=cuda:0, dtype=torch.bfloat16).
+2026-08-09 11:49:53.709 | INFO     | acestep.core.generation.handler.generate_music_decode:_prepare_generate_music_decode_state:42 - [generate_music] Model generation completed. Decoding latents...
+2026-08-09 11:49:53.711 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_prepare_generate_music_decode_state:64 - [generate_music] pred_latents: torch.Size([1, 1500, 64]), dtype=torch.bfloat16
+2026-08-09 11:49:53.712 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_prepare_generate_music_decode_state:65 - [generate_music] time_costs: {'encoder_time_cost': 0.19172430038452148, 'diffusion_time_cost': 6.474351406097412, 'diffusion_per_step_time_cost': 0.8092939257621765, 'total_time_cost': 6.666075706481934, 'offload_time_cost': 10.06212568283081}
+2026-08-09 11:49:53.985 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:127 - [generate_music] Decoding latents with VAE...
+2026-08-09 11:49:53.985 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 3727 MB)
+2026-08-09 11:49:54.933 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 0.5602s (RSS: 3727 -> 3084 MB, delta: -643 MB)
+2026-08-09 11:49:54.939 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:136 - [generate_music] Before VAE decode: allocated=4.80GB, max=5.61GB
+2026-08-09 11:49:54.943 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:154 - [generate_music] Effective free VRAM before VAE decode: 0.02 GB
+2026-08-09 11:49:54.943 | WARNING  | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:159 - [generate_music] Only 0.02 GB free VRAM; auto-enabling CPU VAE decode
+2026-08-09 11:49:54.943 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:165 - [generate_music] Moving VAE to CPU for decode (ACESTEP_VAE_ON_CPU=1)...
+2026-08-09 11:49:55.291 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:172 - [generate_music] Using tiled VAE decode to reduce VRAM usage...
+2026-08-09 11:49:55.292 | DEBUG    | acestep.core.generation.handler.memory_utils:_get_auto_decode_chunk_size:108 - [_get_auto_decode_chunk_size] Effective free VRAM: 0.04 GB
+2026-08-09 11:49:55.293 | DEBUG    | acestep.core.generation.handler.memory_utils:_should_offload_wav_to_cpu:131 - [_should_offload_wav_to_cpu] Effective free VRAM: 0.04 GB
+2026-08-09 11:49:55.294 | INFO     | acestep.core.generation.handler.vae_decode:tiled_decode:56 - [tiled_decode] chunk_size=128, offload_wav_to_cpu=True, latents_shape=torch.Size([1, 64, 1500])
+2026-08-09 11:49:55.294 | WARNING  | acestep.core.generation.handler.vae_decode_chunks:_tiled_decode_inner:39 - [tiled_decode] Reduced overlap from 64 to 32 for chunk_size=128
+2026-08-09 11:51:41.780 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:190 - [generate_music] Restoring VAE to original device after CPU decode path...
+2026-08-09 11:51:45.712 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:193 - [generate_music] After VAE decode: allocated=4.79GB, max=5.61GB
+2026-08-09 11:51:45.760 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3328 MB)
+2026-08-09 11:51:49.409 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 0.5708s (RSS: 3328 -> 3936 MB, delta: +609 MB)
+2026-08-09 11:51:49.707 | INFO     | acestep.core.generation.handler.generate_music_payload:_build_generate_music_success_payload:38 - [generate_music] VAE decode completed. Preparing audio tensors...
+2026-08-09 11:51:49.707 | INFO     | acestep.core.generation.handler.generate_music_payload:_build_generate_music_success_payload:50 - [generate_music] Done! Generated 1 audio tensors.
+2026-08-09 11:51:54.020 | INFO     | acestep.inference:generate_music:981 - [Normalization] Audio 0 BEFORE: Peak=1.0000, Target=-1.0dB
+2026-08-09 11:51:54.114 | INFO     | acestep.inference:generate_music:986 - [Normalization] Audio 0 AFTER: Peak=0.8913
+2026-08-09 11:51:55.065 | DEBUG    | acestep.audio_utils:_save_mp3:183 - [AudioSaver] Saved audio to /home/eileen/projects/ai-writings/music/ace-step-output/139986d4-6496-41e9-d08e-9786fe052949.mp3 (mp3, 48000Hz, 256k)
+2026-08-09 11:51:55.071 | INFO     | __main__:<module>:60 - ✅ sf20-polka-black-metal: 143.4s, 0.00MB
+2026-08-09 11:51:57.420 | INFO     | __main__:<module>:42 - TRACK 2/8: sf20-zydeco-shoegaze (60s, 120 BPM)
+2026-08-09 11:51:57.421 | INFO     | acestep.inference:generate_music:641 - [generate_music] LLM usage decision: thinking=True, use_cot_caption=True, use_cot_language=True, use_cot_metas=True, need_lm_for_cot=True, llm_initialized=False, use_lm=False
+2026-08-09 11:51:57.421 | INFO     | acestep.core.generation.handler.generate_music:generate_music:289 - [generate_music] Turbo model detected: overriding guidance_scale 7.0 -> 1.0 (turbo does not use CFG).
+2026-08-09 11:51:57.421 | INFO     | acestep.core.generation.handler.generate_music:generate_music:304 - [generate_music] Starting generation...
+2026-08-09 11:51:57.421 | INFO     | acestep.core.generation.handler.generate_music:generate_music:307 - [generate_music] Preparing inputs...
+2026-08-09 11:51:57.440 | DEBUG    | acestep.core.generation.handler.generate_music:_vram_preflight_check:132 - [generate_music] VRAM pre-flight: skipping check (offload_to_cpu=True, models loaded one-at-a-time)
+2026-08-09 11:52:01.465 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 3971 MB)
+2026-08-09 11:52:02.293 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 0.5760s (RSS: 3971 -> 3328 MB, delta: -643 MB)
+2026-08-09 11:52:02.312 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3328 MB)
+2026-08-09 11:52:10.590 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 7.9908s (RSS: 3328 -> 3972 MB, delta: +644 MB)
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:119 - 
+======================================================================
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:120 - 🔍 [DEBUG] DiT TEXT ENCODER INPUT (Inference)
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:121 - ======================================================================
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:122 - text_prompt:
+# Instruction
+Fill the audio semantic mask based on the given conditions:
+
+# Caption
+Zydeco meets shoegaze, accordion and washboard buried in walls of guitar fuzz, Cajun feedback
+
+# Metas
+- bpm: 120
+- timesignature: N/A
+- keyscale: A major
+- duration: 60 seconds
+<|endoftext|>
+
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:123 - ======================================================================
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:124 - lyrics_text:
+# Languages
+unknown
+
+# Lyric
+<|endoftext|>
+2026-08-09 11:52:10.617 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:125 - ======================================================================
+
+2026-08-09 11:52:10.628 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading vae to cuda (RSS: 3939 MB)
+2026-08-09 11:52:18.096 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded vae to cuda in 7.2017s (RSS: 3939 -> 3295 MB, delta: -644 MB)
+2026-08-09 11:52:18.098 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading vae to CPU (RSS: 3295 MB)
+2026-08-09 11:52:25.690 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded vae to CPU in 7.3126s (RSS: 3295 -> 3939 MB, delta: +644 MB)
+2026-08-09 11:52:25.691 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:110 - [preprocess_batch] Inferring prompt embeddings...
+2026-08-09 11:52:25.691 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:41 - [_load_model_context] Loading text_encoder to cuda (RSS: 3939 MB)
+2026-08-09 11:52:34.313 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:58 - [_load_model_context] Loaded text_encoder to cuda in 8.3528s (RSS: 3939 -> 2802 MB, delta: -1137 MB)
+2026-08-09 11:52:34.359 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:113 - [preprocess_batch] Inferring lyric embeddings...
+2026-08-09 11:52:34.360 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:67 - [_load_model_context] Offloading text_encoder to CPU (RSS: 2802 MB)
+2026-08-09 11:52:46.309 | INFO     | acestep.core.generation.handler.init_service_offload_context:_load_model_context:83 - [_load_model_context] Offloaded text_encoder to CPU in 8.7226s (RSS: 2802 -> 3939 MB, delta: +1137 MB)
+2026-08-09 11:52:46.310 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:161 - [service_generate] Generating audio... (DiT backend: PyTorch (cuda))
+2026-08-09 11:52:50.433 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:263 - [service_generate] DiT diffusion via PyTorch (cuda)...
+2026-08-09 11:52:57.934 | INFO     | acestep.models.common.dcw_correction:__init__:98 - [DCW] Active — mode=double, scaler=0.0500, high_scaler=0.0200, wavelet='haar'

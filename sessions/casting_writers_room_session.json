@@ -1,0 +1,87 @@
+{
+  "timestamp": 1787628158.208632,
+  "pieces": [
+    {
+      "piece": 1,
+      "type": "fable_compression",
+      "model": "SEED_MINI",
+      "opener": "slate",
+      "cost": 0.00045,
+      "latency_ms": 11796,
+      "success": true,
+      "quality": 0.95,
+      "output_len": 2371,
+      "output": "1.  **Analyze the Request:**\n    *   **Topic:** A fable comparing a kennel ledger (double-entry: debit/credit per dog) to a substrate's witness log (append-only: action + context).\n    *   **Word count:** Exactly or approximately 200 words (aim for exactly 200 or very close, usually \"a fable of 200 words\" means around 200 words, but I should try to hit it precisely if possible, or at least keep it strictly constrained). Let's aim for ~200 words.\n    *   **Ending:** A single sentence lesson about"
+    },
+    {
+      "piece": 2,
+      "type": "creative_ideation",
+      "model": "SEED_MINI",
+      "opener": "slate",
+      "cost": 0.00045,
+      "latency_ms": 11289,
+      "success": true,
+      "quality": 0.95,
+      "output_len": 2560,
+      "output": "1.  **Analyze the Request:**\n    *   **Topic:** Cowboy metaphor for AI alignment.\n    *   **Specific References to include:**\n        *   Saddle = the gear.\n        *   Pincher = the reflex shell.\n        *   Cowboy = the rider.\n        *   Bit = the system prompt.\n        *   Reins = the chunked directives.\n        *   Harness = not the rider; what makes one animal of horse and rider.\n    *   **Word count:** Exactly or around 300 words.\n    *   **Tone:** Maritime forecast \u2014 calm authority, salt"
+    },
+    {
+      "piece": 3,
+      "type": "fable_compression",
+      "model": "SEED_MINI",
+      "opener": "slate",
+      "cost": 0.00045,
+      "latency_ms": 10494,
+      "success": true,
+      "quality": 0.95,
+      "output_len": 2309,
+      "output": "1.  **Analyze the Request:**\n    *   **Topic:** A fable about a \"frozen state\" (system prompt + filters + params saved as a content-addressed file, uneditable, only re-freezable).\n    *   **Metaphor:** Compare the frozen state to a photograph.\n    *   **Length:** Exactly or approximately 150 words (aim for exactly 150 if possible, or very close).\n    *   **Ending:** \"You don't edit a frozen state. You freeze a new one, and the old one stays.\"\n\n2.  **Deconstruct the Concept:**\n    *   *Frozen sta"
+    },
+    {
+      "piece": 4,
+      "type": "math_grief",
+      "model": "PHI-4",
+      "opener": "reef",
+      "cost": 0.00045,
+      "latency_ms": 10718,
+      "success": true,
+      "quality": 0.95,
+      "output_len": 2341,
+      "output": "1.  **Analyze the Request:**\n    *   **Topic:** Wilson score lower bound.\n    *   **Length:** Exactly or approximately 400 words (usually implies a strict target or close to it). Let's aim for ~400 words.\n    *   **Formula:** Provide and explain `lower = (p + z\u00b2/(2n) - z*sqrt(p(1-p)/n + z\u00b2/(4n\u00b2))) / (1 + z\u00b2/n)` where `p = successes/n`, `z = 1.96` for 95% confidence.\n    *   **Key Explanations:**\n        *   Why it's a *lower* bound (conservative).\n        *   Why it punishes small `n` (no data, "
+    },
+    {
+      "piece": 5,
+      "type": "voice_narration",
+      "model": "HERMES_405B",
+      "opener": "voice",
+      "cost": 0.00525,
+      "latency_ms": 23531,
+      "success": true,
+      "quality": 0.95,
+      "output_len": 2129,
+      "output": "The user wants a captain's log entry, ~100 words, maritime voice, terse and professional. Subject: F/V EILEEN at 0300, calm sea, chart on tablet showing 4.2m depth, tide ebbing, wind 5 knots NW. End with time and depth like a sonar ping.\n\nLet me draft this. Captain's log style: date optional, facts first, weather, sea state, position, observations. Spare language. No sentimentality. Should feel authentic \u2014 fishing vessel (F/V = fishing vessel). Tide ebbing means falling water \u2014 a captain would n"
+    }
+  ],
+  "summary": {
+    "total_cost": 0.007050000000000001,
+    "total_latency_ms": 67828,
+    "avg_quality": 0.95,
+    "model_picks": {
+      "SEED_MINI": 3,
+      "PHI-4": 1,
+      "HERMES_405B": 1
+    },
+    "wilson_profiles": {
+      "('Murmur', 'slate', 'SEED_MINI')": 0.43849391955098227,
+      "('Murmur', 'slate', 'LING_FLASH')": 0.5,
+      "('Murmur', 'slate', 'PHI-4')": 0.5,
+      "('Murmur', 'slate', 'HERMES_405B')": 0.5,
+      "('Murmur', 'tide', 'DEEPSEEK_V4_FLASH')": 0.5,
+      "('Murmur', 'reef', 'PHI-4')": 0.5,
+      "('Murmur', 'reef', 'CLAUDE_OPUS')": 0.5,
+      "('Murmur', 'voice', 'HERMES_405B')": 0.5,
+      "('Murmur', 'voice', 'CLAUDE_OPUS')": 0.5,
+      "('Murmur', 'voice', 'DEEPSEEK_V4_FLASH')": 0.5
+    }
+  }
+}

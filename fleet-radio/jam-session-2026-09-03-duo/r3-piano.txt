@@ -1,0 +1,25 @@
+1. NOTATION | soft landing  
+F3~2 A3~2 Bb3~2  
+
+2. NOTATION | steady descent  
+D3~2 G3~2 Bb3~2  
+
+3. NOTATION | gentle glide  
+Eb3~2 G3~2 A3~2  
+
+4. NOTATION | slow release  
+F3~2 A3~2 Bb3~2  
+
+5. NOTATION | breathy fade  
+r~2 Bb3~2 D4~2  
+
+6. NOTATION | quiet resolve  
+r~2 Eb3~2 G3~2  
+
+7. NOTATION | soft hold  
+r~2 F3~2 A3~2  
+
+8. NOTATION | final touch  
+[Bb3 C4 D4 Eb4]~4  
+
+WHY: Each bar starts with a high note (F3/A3/Bb3/C4) to answer the piano's high reaches, maintaining a smooth, ascending melodic line that blends seamlessly into the previous piano notes. The final Bb chord is low and warm, held to the end for a shared, grounded resolution.

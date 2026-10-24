@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>TypeSafe Edge — Validators at the Edge</title>
+<style>
+:root{--bg:#0a0a14;--panel:#161624;--panel-2:#1f1f2f;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#3a3a4a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+header{background:radial-gradient(ellipse at top,rgba(232,184,64,0.15) 0%,transparent 70%);padding:2.5rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--accent)}
+h1{color:var(--accent);margin:0;font-size:2.2em;font-weight:300}
+.eyebrow{font-family:monospace;color:var(--accent);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.tagline{color:var(--muted);font-style:italic;margin:0.5rem auto 1rem;max-width:680px;line-height:1.5;font-size:1.05em}
+.container{max-width:1300px;margin:0 auto;padding:1.5rem}
+
+.intro{background:linear-gradient(135deg,rgba(232,184,64,0.08),rgba(68,204,136,0.05));border:1px solid var(--accent);border-radius:12px;padding:1.5rem;margin-bottom:2rem;line-height:1.7}
+.intro h2{color:var(--accent);margin:0 0 0.5rem;font-size:1.3em}
+.intro .formula{font-family:monospace;color:var(--accent);background:var(--bg);padding:0.5rem 1rem;border-radius:4px;display:inline-block;margin:0.5rem 0}
+
+.section{background:var(--panel);border:1px solid var(--boundary);border-radius:8px;padding:1.5rem;margin-bottom:1.5rem}
+.section h2{color:var(--cell);margin:0 0 0.7rem;font-size:1.3em}
+.section h3{color:var(--link);margin:1rem 0 0.5rem;font-size:1.05em}
+
+.code{background:var(--bg);border:1px solid var(--boundary);border-radius:6px;padding:1rem;font-family:monospace;font-size:0.85em;line-height:1.6;overflow-x:auto;white-space:pre;color:#ccc;margin:0.5rem 0}
+.code .c-color{color:var(--accent)}
+.code .cell{color:var(--cell)}
+.code .op{color:var(--pink)}
+.code .num{color:#f0a070}
+.code .str{color:#90c090}
+.code .type{color:var(--link)}
+
+.demo-panel{background:var(--panel-2);border-radius:6px;padding:1rem;margin:0.8rem 0}
+.demo-panel textarea{width:100%;min-height:80px;background:var(--bg);border:1px solid var(--boundary);color:var(--fg);padding:0.5rem;border-radius:4px;font-family:monospace;font-size:0.85em}
+.demo-panel button{padding:0.5rem 1rem;background:var(--accent);color:#000;border-radius:20px;border:none;cursor:pointer;font-family:inherit;font-weight:bold;margin-top:0.5rem;margin-right:0.5rem}
+.demo-panel button.secondary{background:var(--panel);color:var(--link);border:1px solid var(--link)}
+.demo-output{font-family:monospace;color:#ccc;font-size:0.85em;background:var(--bg);padding:0.7rem;border-radius:4px;margin-top:0.5rem;max-height:300px;overflow-y:auto;white-space:pre-wrap;border-left:3px solid var(--cell)}
+.demo-output .ok{color:var(--cell)}
+.demo-output .err{color:var(--red)}
+.demo-output .type{color:var(--link)}
+.demo-output .key{color:var(--accent)}
+
+.matrix{font-family:monospace;font-size:0.85em;width:100%;border-collapse:collapse;margin:1rem 0}
+.matrix th,.matrix td{padding:0.5rem;border:1px solid var(--boundary);text-align:center}
+.matrix th{background:var(--panel-2);color:var(--accent);text-transform:uppercase;letter-spacing:0.1em}
+.matrix td.yes{background:rgba(68,204,136,0.2);color:var(--cell)}
+.matrix td.no{color:var(--muted)}
+
+@media (max-width:768px){body{padding:0 1rem}h1{font-size:1.6em}.container{padding:1rem}.code{font-size:0.75em}}
+</style>
+</head>
+<body>
+
+<header>
+<p class="eyebrow">TypeSafe · Edge Validator · Cloudflare Workers</p>
+<h1>TypeSafe Edge</h1>
+<p class="tagline">Types in. Types out. The boundary is the validator. Cloudflare Workers run Zod schemas at the edge — every byte checked, every error caught.</p>
+</header>
+
+<div class="container">
+
+<div class="intro">
+<h2>What is TypeSafe Edge?</h2>
+<p>A pattern where every Cloudflare Worker / Pages Function has a <strong>runtime validator</strong> at its boundary. The validator is defined in TypeScript types, but checked at runtime with Zod (or Valibot, ArkType, etc.).</p>
+<div class="formula">typesafe = (typescript types) × (runtime validation) × (at the edge)</div>
+<p>Why this matters: the edge is where untrusted data enters the system. A typesafe boundary means every input is shape-checked, every output is shape-validated, and TypeScript catches every shape mismatch at compile time. The same schema serves as documentation, test, runtime check, and inferred type.</p>
+</div>
+
+<div class="section">
+<h2>📐 The Pattern</h2>
+<h3>1. Define a schema (the source of truth)</h3>
+<pre class="code"><span class="c-color">// cell.ts — single source of truth for a cell</span>
+<span class="op">import</span> { z } <span class="op">from</span> <span class="str">'zod'</span>;
+
+<span class="op">export const</span> <span class="type">CellSchema</span> = z.object({
+  id: z.string().regex(/^[a-z]+:\d+$/),
+  kind: z.enum([<span class="str">'ack'</span>, <span class="str">'music'</span>, <span class="str">'voice'</span>, <span class="str">'swarm'</span>, <span class="str">'world'</span>, <span class="str">'crypt'</span>, <span class="str">'pathos'</span>, <span class="str">'ranking'</span>, <span class="str">'partition'</span>, <span class="str">'neighbor'</span>, <span class="str">'audit'</span>, <span class="str">'twist'</span>, <span class="str">'death'</span>, <span class="str">'broadcast'</span>, <span class="str">'chirp'</span>, <span class="str">'chaos'</span>, <span class="str">'thermal'</span>, <span class="str">'feedback'</span>, <span class="str">'lore'</span>, <span class="str">'perception'</span>, <span class="str">'hex'</span>, <span class="str">'flock'</span>, <span class="str">'triage'</span>, <span class="str">'breeder'</span>]),
+  payload: z.record(z.unknown()),
+  ticker: z.number().int().nonnegative(),
+  hex: z.string().regex(/^0x[0-9a-f]+$/),
+  tag: z.string(),
+  meta: z.record(z.unknown()).default({}),
+  created_at: z.number().int().positive(),
+  updated_at: z.number().int().positive(),
+  author: z.string(),
+  sig: z.string().nullable(),
+  parents: z.array(z.string()).default([]),
+  links: z.array(z.string()).default([]),
+  witnesses: z.array(z.<span class="type">WitnessSchema</span>).default([])
+});
+
+<span class="c-color">// Type is inferred FROM the schema</span>
+<span class="op">export type</span> <span class="type">Cell</span> = z.infer&lt;<span class="op">typeof</span> <span class="type">CellSchema</span>&gt;;</pre>
+
+<h3>2. Validate at the edge boundary</h3>
+<pre class="code"><span class="c-color">// worker.ts — every input validated before reaching handler</span>
+<span class="op">import</span> { <span class="type">CellSchema</span> } <span class="op">from</span> <span class="str">'./cell'</span>;
+
+<span class="op">export default</span> {
+  <span class="op">async</span> fetch(req: <span class="type">Request</span>, env: <span class="type">Env</span>): <span class="type">Promise</span>&lt;<span class="type">Response</span>&gt; {
+    <span class="c-color">// 1. Parse body</span>
+    <span class="op">const</span> body = <span class="op">await</span> req.json().catch(() =&gt; <span class="op">null</span>);
+    <span class="op">if</span> (!body) <span class="op">return</span> <span class="type">errorResponse</span>(400, <span class="str">'invalid_json'</span>);
+    
+    <span class="c-color">// 2. Validate shape (TS sees the return type as Cell)</span>
+    <span class="op">const</span> result = <span class="type">CellSchema</span>.safeParse(body);
+    <span class="op">if</span> (!result.success) {
+      <span class="op">return</span> <span class="type">errorResponse</span>(422, <span class="str">'validation_failed'</span>, result.error.format());
+    }
+    
+    <span class="c-color">// 3. Now TS knows result.data is Cell — safe to use</span>
+    <span class="op">const</span> cell: <span class="type">Cell</span> = result.data;
+    
+    <span class="c-color">// 4. Run handler with validated input</span>
+    <span class="op">const</span> updated = <span class="op">await</span> handleCell(cell);
+    
+    <span class="c-color">// 5. Validate output shape too (defense in depth)</span>
+    <span class="op">const</span> outCheck = <span class="type">CellSchema</span>.safeParse(updated);
+    <span class="op">if</span> (!outCheck.success) <span class="op">return</span> <span class="type">errorResponse</span>(500, <span class="str">'handler_corruption'</span>);
+    
+    <span class="op">return</span> <span class="type">Response</span>.json(outCheck.data);
+  }
+};</pre>
+
+<h3>3. The same schema is documentation + test + type</h3>
+<pre class="code"><span class="c-color">// In a unit test: the schema IS the test</span>
+test(<span class="str">'every cell in corpus validates'</span>, () =&gt; {
+  <span class="op">for</span> (<span class="op">const</span> cell <span class="op">of</span> corpus) {
+    expect(() =&gt; <span class="type">CellSchema</span>.parse(cell)).not.toThrow();
+  }
+});
+
+<span class="c-color">// In OpenAPI docs: the schema generates the spec</span>
+<span class="op">const</span> openapi = zodToOpenAPI(<span class="type">CellSchema</span>);
+
+<span class="c-color">// In TypeScript code: the type is inferred from the schema</span>
+<span class="op">function</span> bind(c: <span class="type">Cell</span>, p: <span class="type">Payload</span>): <span class="type">Cell</span> { <span class="c-color">/* ... */</span> }</pre>
+</div>
+
+<div class="section">
+<h2>🧪 Live Validator Demo</h2>
+<p>Try the schema against your own JSON. See what passes and what fails.</p>
+
+<div class="demo-panel">
+<label style="color:var(--muted);font-size:0.85em;display:block;margin-bottom:0.3rem">Paste a Cell JSON to validate:</label>
+<textarea id="cellInput">{
+  "id": "ack:7",
+  "kind": "ack",
+  "payload": {"timeoutMs": 3000},
+  "ticker": 0,
+  "hex": "0xa1b2c3",
+  "tag": "the keeper",
+  "meta": {},
+  "created_at": 1700000000000,
+  "updated_at": 1700000000000,
+  "author": "human",
+  "sig": null,
+  "parents": [],
+  "links": [],
+  "witnesses": []
+}</textarea>
+<br>
+<button onclick="validateCell()">✓ Validate</button>
+<button class="secondary" onclick="loadSample(0)">Sample 1 (valid)</button>
+<button class="secondary" onclick="loadSample(1)">Sample 2 (bad kind)</button>
+<button class="secondary" onclick="loadSample(2)">Sample 3 (bad hex)</button>
+<button class="secondary" onclick="loadSample(3)">Sample 4 (missing fields)</button>
+<button class="secondary" onclick="loadSample(4)">Sample 5 (wrong types)</button>
+<div class="demo-output" id="cellOutput">Click "Validate" to check this JSON...</div>
+</div>
+</div>
+
+<div class="section">
+<h2>📊 TypeSafety Matrix</h2>
+<p>Compare typesafe approaches. The TypeSafe Edge column is what we use.</p>
+<table class="matrix">
+<tr><th>Layer</th><th>No validation</th><th>TS types only</th><th>TypeSafe Edge</th><th>Zod + Zod-to-TS</th></tr>
+<tr><td>Compile-time</td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Runtime</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Edge boundary</td><td class="no">✗</td><td class="no">~</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Self-documenting</td><td class="no">~</td><td class="no">~</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>One source of truth</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Auto-generated OpenAPI</td><td class="no">✗</td><td class="no">~</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+<tr><td>Sub-millisecond validation</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🛠 The Implementation in Cloudflare Workers</h2>
+<h3>Schema (TypeScript + Zod)</h3>
+<pre class="code"><span class="op">import</span> { z } <span class="op">from</span> <span class="str">'zod'</span>;
+
+<span class="c-color">// Strict schema — every field required</span>
+<span class="op">export const</span> <span class="type">TickRequestSchema</span> = z.object({
+  prompt: z.string().min(1).max(1000),
+  dials: z.object({
+    compass: z.number().min(-1).max(1).default(0),
+    depth: z.number().min(0).max(100).default(0),
+    clarity: z.number().min(0).max(1).default(0.5),
+    drift: z.number().min(0).max(1).default(0.5),
+    weight: z.number().min(0).max(1).default(0.5)
+  }).default({}),
+  image_prompt: z.string().max(500).optional()
+}).strict();  <span class="c-color">// reject unknown keys</span>
+
+<span class="op">export type</span> <span class="type">TickRequest</span> = z.infer&lt;<span class="op">typeof</span> <span class="type">TickRequestSchema</span>&gt;;
+
+<span class="c-color">// Response schema</span>
+<span class="op">export const</span> <span class="type">TickResponseSchema</span> = z.object({
+  tick: z.number().int().positive(),
+  sailor: z.string(),
+  dials: z.string(),
+  cell: z.string(),
+  image: z.string().nullable()
+});
+<span class="op">export type</span> <span class="type">TickResponse</span> = z.infer&lt;<span class="op">typeof</span> <span class="type">TickResponseSchema</span>&gt;;</pre>
+
+<h3>Worker entry with typesafe boundary</h3>
+<pre class="code"><span class="op">import</span> { <span class="type">TickRequestSchema</span>, <span class="type">TickResponseSchema</span>, <span class="type">TickRequest</span>, <span class="type">TickResponse</span> } <span class="op">from</span> <span class="str">'./types'</span>;
+
+<span class="op">export interface</span> <span class="type">Env</span> {
+  DEEPINFRA_TOKEN: <span class="type">string</span>;
+  CF_TOKEN: <span class="type">string</span>;
+}
+
+<span class="c-color">// Helper for consistent error response shape</span>
+<span class="op">function</span> errorResponse(status: <span class="type">number</span>, code: <span class="type">string</span>, details?: <span class="type">unknown</span>): <span class="type">Response</span> {
+  <span class="op">return</span> <span class="type">Response</span>.json({ error: code, details }, { status });
+}
+
+<span class="op">async function</span> handleTick(req: <span class="type">TickRequest</span>, env: <span class="type">Env</span>): <span class="type">Promise</span>&lt;<span class="type">TickResponse</span>&gt; {
+  <span class="c-color">// ... run 4 parallel API calls ...</span>
+  <span class="op">return</span> { tick: Date.now(), sailor, dials, cell, image };
+}
+
+<span class="op">export default</span> {
+  <span class="op">async</span> fetch(req: <span class="type">Request</span>, env: <span class="type">Env</span>): <span class="type">Promise</span>&lt;<span class="type">Response</span>&gt; {
+    <span class="op">if</span> (req.method !== <span class="str">'POST'</span>) <span class="op">return</span> <span class="type">errorResponse</span>(405, <span class="str">'method_not_allowed'</span>);
+    
+    <span class="c-color">// 1. Parse</span>
+    <span class="op">const</span> raw = <span class="op">await</span> req.json().catch(() =&gt; <span class="op">null</span>);
+    <span class="op">if</span> (!raw) <span class="op">return</span> <span class="type">errorResponse</span>(400, <span class="str">'invalid_json'</span>);
+    
+    <span class="c-color">// 2. Validate input (Zod safeParse)</span>
+    <span class="op">const</span> parsed = <span class="type">TickRequestSchema</span>.safeParse(raw);
+    <span class="op">if</span> (!parsed.success) {
+      <span class="op">return</span> <span class="type">errorResponse</span>(422, <span class="str">'validation_failed'</span>, parsed.error.format());
+    }
+    
+    <span class="c-color">// 3. Handler (TS knows parsed.data is TickRequest)</span>
+    <span class="op">const</span> result = <span class="op">await</span> handleTick(parsed.data, env);
+    
+    <span class="c-color">// 4. Validate output (defense in depth)</span>
+    <span class="op">const</span> outCheck = <span class="type">TickResponseSchema</span>.safeParse(result);
+    <span class="op">if</span> (!outCheck.success) <span class="op">return</span> <span class="type">errorResponse</span>(500, <span class="str">'handler_corruption'</span>);
+    
+    <span class="c-color">// 5. Return validated</span>
+    <span class="op">return</span> <span class="type">Response</span>.json(outCheck.data, {
+      headers: { <span class="str">'Cache-Control'</span>: <span class="str">'no-store'</span> }
+    });
+  }
+};</pre>
+
+<h3>Why this works on the edge</h3>
+<ul style="line-height:1.7;color:#ddd">
+<li><strong style="color:var(--cell)">Zod is small</strong> (~12 KB gzipped) — fits in any Worker bundle</li>
+<li><strong style="color:var(--cell)">Validation is fast</strong> (sub-millisecond for simple schemas)</li>
+<li><strong style="color:var(--cell)">Same schema = type + validator + doc + test</strong></li>
+<li><strong style="color:var(--cell)">TS catches at compile</strong>; Zod catches at runtime; CF edge enforces at network</li>
+<li><strong style="color:var(--cell)">Self-documenting</strong>: OpenAPI spec generated from same source</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>📦 Where TypeSafe Edge applies</h2>
+<ul style="line-height:1.8;color:#ddd">
+<li><a href="../the-beyond/" style="color:var(--link)">The Beyond</a> — tick endpoint validates TickRequest, returns TickResponse</li>
+<li><a href="../api-orchestra/" style="color:var(--link)">API Orchestra</a> — each /extensive /massive /ideator route validates its own request/response</li>
+<li><a href="../quilt-classroom/" style="color:var(--link)">Quilt Classroom</a> — submission endpoint validates student answers</li>
+<li><a href="../quilt-claw-cells-game/" style="color:var(--link)">Quilt Cell Zoo</a> — cell parameter changes validated against CellSchema</li>
+<li><a href="../tensor-midi/" style="color:var(--link)">Tensor-MIDI</a> — message schema (speaker, text) validated before processing</li>
+<li><a href="../polyformalism/" style="color:var(--link)">Polyformalism Explorer</a> — cell builder input validated in real-time</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+// Zod-like validator (lightweight client-side)
+class Z {
+  constructor(schema) { this.schema = schema; }
+  static object(shape) { return new Z({ type: 'object', shape }); }
+  static string() { return new Z({ type: 'string' }); }
+  static number() { return new Z({ type: 'number' }); }
+  static boolean() { return new Z({ type: 'boolean' }); }
+  static array(item) { return new Z({ type: 'array', item }); }
+  static enum(opts) { return new Z({ type: 'enum', opts }); }
+  static record(val) { return new Z({ type: 'record', val }); }
+  static nullable() { return new Z({ type: 'nullable' }); }
+  static literal(v) { return new Z({ type: 'literal', value: v }); }
+  
+  regex(re) { this.schema.regex = re; return this; }
+  min(n) { this.schema.min = n; return this; }
+  max(n) { this.schema.max = n; return this; }
+  int() { this.schema.int = true; return this; }
+  positive() { this.schema.positive = true; return this; }
+  nonnegative() { this.schema.nonnegative = true; return this; }
+  default(v) { this.schema.default = v; return this; }
+  strict() { this.schema.strict = true; return this; }
+  
+  safeParse(value) {
+    try {
+      const data = this._parse(value);
+      return { success: true, data };
+    } catch (e) {
+      return { success: false, error: e };
+    }
+  }
+  
+  _parse(value) {
+    const s = this.schema;
+    if (value === undefined) {
+      if (s.default !== undefined) return s.default;
+      throw new Error(`Required`);
+    }
+    if (s.type === 'nullable') {
+      if (value === null) return null;
+      return this._parse(value);
+    }
+    if (s.type === 'string') {
+      if (typeof value !== 'string') throw new Error(`Expected string, got ${typeof value}`);
+      if (s.regex && !s.regex.test(value)) throw new Error(`String doesn't match pattern ${s.regex}`);
+      if (s.min !== undefined && value.length < s.min) throw new Error(`String too short (min ${s.min})`);
+      if (s.max !== undefined && value.length > s.max) throw new Error(`String too long (max ${s.max})`);
+      return value;
+    }
+    if (s.type === 'number') {
+      const n = typeof value === 'string' ? parseFloat(value) : value;
+      if (typeof n !== 'number' || isNaN(n)) throw new Error(`Expected number, got ${typeof value}`);
+      if (s.int && !Number.isInteger(n)) throw new Error(`Expected integer`);
+      if (s.positive && n <= 0) throw new Error(`Expected positive`);
+      if (s.nonnegative && n < 0) throw new Error(`Expected non-negative`);
+      return n;
+    }
+    if (s.type === 'boolean') {
+      if (typeof value !== 'boolean') throw new Error(`Expected boolean`);
+      return value;
+    }
+    if (s.type === 'enum') {
+      if (!s.opts.includes(value)) throw new Error(`Expected one of ${s.opts.join(', ')}, got ${value}`);
+      return value;
+    }
+    if (s.type === 'literal') {
+      if (value !== s.value) throw new Error(`Expected ${s.value}`);
+      return value;
+    }
+    if (s.type === 'array') {
+      if (!Array.isArray(value)) throw new Error(`Expected array`);
+      return value.map(v => s.item._parse(v));
+    }
+    if (s.type === 'object') {
+      if (typeof value !== 'object' || value === null || Array.isArray(value)) throw new Error(`Expected object`);
+      const result = {};
+      for (const [key, schema] of Object.entries(s.shape)) {
+        result[key] = schema._parse(value[key]);
+      }
+      if (s.strict) {
+        const extra = Object.keys(value).filter(k => !(k in s.shape));
+        if (extra.length) throw new Error(`Unknown keys: ${extra.join(', ')}`);
+      }
+      return result;
+    }
+    if (s.type === 'record') {
+      if (typeof value !== 'object' || value === null) throw new Error(`Expected object`);
+      const result = {};
+      for (const [k, v] of Object.entries(value)) {
+        result[k] = s.val._parse(v);
+      }
+      return result;
+    }
+    throw new Error(`Unknown type ${s.type}`);
+  }
+}
+
+const WitnessSchema = Z.object({
+  tick: Z.number().int().nonnegative(),
+  op: Z.enum(['BIND', 'LINK', 'EFFECT', 'VIEW', 'TICK', 'FORGET', 'PROOF', 'ROUTE', 'CRDT', 'WORLD', 'TIME']),
+  cell: Z.string(),
+  params: Z.record(Z.literal('any')),
+  hash: Z.string().regex(/^0x[0-9a-f]+$/),
+  prev_hash: Z.string().regex(/^0x[0-9a-f]+$/),
+  sig: Z.nullable()
+});
+
+const CellSchema = Z.object({
+  id: Z.string().regex(/^[a-z]+:\d+$/),
+  kind: Z.enum(['ack','music','voice','swarm','world','crypt','pathos','ranking','partition','neighbor','audit','twist','death','broadcast','chirp','chaos','thermal','feedback','lore','perception','hex','flock','triage','breeder']),
+  payload: Z.record(Z.literal('any')),
+  ticker: Z.number().int().nonnegative(),
+  hex: Z.string().regex(/^0x[0-9a-f]+$/),
+  tag: Z.string(),
+  meta: Z.record(Z.literal('any')).default({}),
+  created_at: Z.number().int().positive(),
+  updated_at: Z.number().int().positive(),
+  author: Z.string(),
+  sig: Z.nullable(),
+  parents: Z.array(Z.string()).default([]),
+  links: Z.array(Z.string()).default([]),
+  witnesses: Z.array(WitnessSchema).default([])
+}).strict();
+
+function validateCell() {
+  const input = document.getElementById('cellInput').value;
+  let parsed;
+  try {
+    parsed = JSON.parse(input);
+  } catch (e) {
+    document.getElementById('cellOutput').innerHTML = 
+      `<span class="err">❌ JSON parse error:</span> ${e.message}`;
+    return;
+  }
+  
+  const result = CellSchema.safeParse(parsed);
+  if (result.success) {
+    document.getElementById('cellOutput').innerHTML = 
+      `<span class="ok">✅ Valid! Cell passes all schema checks.</span>\n\n` +
+      JSON.stringify(result.data, null, 2).replace(/"([^"]+)":/g, '<span class="key">"$1"</span>:').replace(/"([^"]+)"/g, (m) => m.includes(':') ? m : `<span class="str">${m}</span>`);
+  } else {
+    document.getElementById('cellOutput').innerHTML = 
+      `<span class="err">❌ Validation failed:</span>\n${result.error.message}`;
+  }
+}
+
+const SAMPLES = [
+  `{
+  "id": "ack:7",
+  "kind": "ack",
+  "payload": {"timeoutMs": 3000},
+  "ticker": 0,
+  "hex": "0xa1b2c3",
+  "tag": "the keeper",
+  "meta": {},
+  "created_at": 1700000000000,
+  "updated_at": 1700000000000,
+  "author": "human",
+  "sig": null,
+  "parents": [],
+  "links": [],
+  "witnesses": []
+}`,
+  `{
+  "id": "invalid:7",
+  "kind": "NOT_A_KIND",
+  "payload": {},
+  "ticker": 0,
+  "hex": "bad-hex",
+  "tag": "",
+  "created_at": -1,
+  "updated_at": 0
+}`,
+  `{
+  "id": "ack:7",
+  "kind": "ack",
+  "payload": {},
+  "ticker": 0,
+  "hex": "not-a-hex-string",
+  "tag": "test",
+  "created_at": 1700000000000,
+  "updated_at": 1700000000000
+}`,
+  `{
+  "id": "ack:7"
+}`,
+  `{
+  "id": 7,
+  "kind": "ack",
+  "payload": "not-an-object",
+  "ticker": "zero",
+  "hex": "0xa1",
+  "tag": "test",
+  "created_at": 1700000000000,
+  "updated_at": 1700000000000
+}`
+];
+
+function loadSample(i) {
+  document.getElementById('cellInput').value = SAMPLES[i];
+  validateCell();
+}
+</script>
+
+</body>
+</html>

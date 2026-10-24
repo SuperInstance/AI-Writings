@@ -1,0 +1,8 @@
+BAR 1: <C4 E4 G4 C5> | sweeping
+BAR 2: <A2 C3 E3 A3> | (damped)
+BAR 3: <B2 D3 F#3 B2> | (damped)
+BAR 4: | (silence, griddle stops ticking)
+BAR 5: <F#3 A3 C4> | (damped)
+BAR 6: <D4 F#4 A4> | (damped)
+BAR 7: | (soft hum, broom sweeping)
+BAR 8: | (G, door hisses shut)

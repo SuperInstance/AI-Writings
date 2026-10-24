@@ -1,0 +1,69 @@
+# Deep Listening Protocol — llama3.2
+# Session 54, 2026-08-13 02:46 AKST
+# Purpose: Systematic protocol for a human listener to explore 366 AI-generated tracks
+
+## Session Structure
+- 53 listening sessions
+- 7 tracks per session (~1.5 hours including breaks)
+- 5-minute breaks between groups
+- Total: ~6.5 hours per week
+- Full corpus: ~52 sessions (approximately 7.5 weeks at 1 session/week)
+
+## Categorization Framework
+Group tracks by hybrid approach:
+1. **Genre** — Electronic, Classical, Jazz, Impossible Genre, Cover Chain
+2. **Mood** — Calm, Energetic, Nostalgic, Eerie, Melancholic
+3. **Instrumentation** — Synth-only, Orchestral, Hybrid, Found Sound
+4. **Structure** — Repetitive pattern, Gradual build, Through-composed, Sectional
+
+## Rating System (1-5 scale)
+| Dimension | Question |
+|---|---|
+| Creativity | How innovative or unique is the composition? |
+| Emotional Resonance | How well does the music evoke emotions? |
+| Technical Craftsmanship | Production quality, arrangement, execution |
+| Originality | How distinctive and memorable is the sound? |
+| Engagement | How effectively does the music hold attention? |
+
+## Notation Format
+```
+Track ###:
+Genre: 
+Mood: 
+Instrumentation:
+Structure:
+Creativity: X/5
+Emotional Resonance: X/5
+Technical Craftsmanship: X/5
+Originality: X/5
+Engagement: X/5
+Notes: 
+```
+
+## Special Protocols
+
+### Impossible Genres
+- Label as "Genre X" when the track defies categorization
+- Note the specific genre fusion attempted
+- Rate whether the fusion produces something genuinely novel vs. just chaotic
+- Record specific spectral impressions (brightness, density, texture)
+
+### Cover Chains
+- Listen to covers in sequence (original → cover 1 → cover 2 → ...)
+- Track how the sonic identity shifts with each generation
+- Note whether degradation is creative (new sounds emerge) or destructive (quality drops)
+- Compare RMS and ZCR impressions with measured values from spectral analysis
+
+### Temperature Comparisons
+- Listen to same-concept tracks at different temperatures sequentially
+- Note emotional shifts between temperature variants
+- Record which temperature feels most "musically complete"
+- Compare felt differences with measured spectral differences
+
+## Additional Recommendations
+1. Listen to each track at least twice before rating
+2. Take breaks between sessions to avoid ear fatigue
+3. Keep a listening journal alongside the rating sheet
+4. Note surprising tracks — the ones that don't sound AI-generated
+5. Pay attention to production artifacts (glitches, unnatural transitions, phase issues)
+6. For the first listen, don't look at the genre label — guess it, then compare

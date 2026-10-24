@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Wave Function — collapse visualization</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at center,#1a1428 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:300;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto}
+.quantum{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem}
+canvas{display:block;background:#000;border-radius:6px;width:100%;height:200px;margin-bottom:1rem}
+.gates{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.gate{background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.5rem 1rem;cursor:pointer;font-family:var(--mono);font-size:.85rem;min-width:50px;text-align:center}
+.gate:hover{border-color:var(--accent)}
+.gate.applied{border-color:var(--accent);color:var(--accent);background:rgba(0,255,157,0.1)}
+.gate.measure{background:var(--warn);color:#000;font-weight:bold;margin-left:auto;padding:.5rem 1.5rem}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-right:.3rem}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.state{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2)}
+.state .v{color:var(--accent);font-weight:bold}
+.state .pair{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.5rem}
+.state .amp{color:var(--accent3)}
+.state .prob{color:var(--amber)}
+.state .row{padding:.2rem;border-bottom:1px solid var(--border);font-size:.75rem;display:grid;grid-template-columns:60px 1fr 1fr;gap:.3rem}
+.history{margin-top:1rem;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;max-height:150px;overflow-y:auto;font-size:.7rem}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>∿ Substrate Wave Function</h1>
+<p class="tagline">Single-qubit + ancilla. Build a circuit, watch the state evolve, collapse on measure.</p>
+</header>
+
+<main>
+<div class="quantum">
+<canvas id="bloch"></canvas>
+<div class="gates">
+<div class="gate" data-gate="H" onclick="applyGate('H')">H</div>
+<div class="gate" data-gate="X" onclick="applyGate('X')">X</div>
+<div class="gate" data-gate="Y" onclick="applyGate('Y')">Y</div>
+<div class="gate" data-gate="Z" onclick="applyGate('Z')">Z</div>
+<div class="gate" data-gate="S" onclick="applyGate('S')">S</div>
+<div class="gate" data-gate="T" onclick="applyGate('T')">T</div>
+<div class="gate" data-gate="Rx" onclick="applyGate('Rx')">Rx(π/4)</div>
+<div class="gate" data-gate="Ry" onclick="applyGate('Ry')">Ry(π/4)</div>
+<div class="gate" data-gate="Rz" onclick="applyGate('Rz')">Rz(π/4)</div>
+<button class="secondary" onclick="undo()">⏮ Undo</button>
+<button class="secondary" onclick="reset()">↻ Reset</button>
+<button class="gate measure" onclick="measure()">⊕ Measure</button>
+</div>
+<div class="state" id="state"></div>
+</div>
+</main>
+
+<footer>∿ substrate wave function · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// Complex number arithmetic
+const C = {
+  add: (a, b) => [a[0] + b[0], a[1] + b[1]],
+  sub: (a, b) => [a[0] - b[0], a[1] - b[1]],
+  mul: (a, b) => [a[0]*b[0] - a[1]*b[1], a[0]*b[1] + a[1]*b[0]],
+  scale: (a, s) => [a[0]*s, a[1]*s],
+  abs2: a => a[0]*a[0] + a[1]*a[1],
+};
+const c0 = [1, 0]; const c1 = [0, 0];
+const cos = x => Math.cos(x), sin = x => Math.sin(x);
+
+// Gate matrices (2x2 complex)
+const GATES = {
+  I: [[c1, c0], [c0, c1]],
+  H: [[ [1/Math.SQRT2, 0], [1/Math.SQRT2, 0] ], [ [1/Math.SQRT2, 0], [-1/Math.SQRT2, 0] ]],
+  X: [[c0, c1], [c1, c0]],
+  Y: [[c0, [0, -1]], [[0, 1], c0]],
+  Z: [[c1, c0], [c0, [-1, 0]]],
+  S: [[c1, c0], [c0, [0, 1]]],
+  T: [[c1, c0], [c0, [1/Math.SQRT2, 1/Math.SQRT2]]],
+  Rx: (() => {
+    const t = Math.PI / 4;
+    return [[cos(t/2), c0], [c0, [Math.cos(t/2)*0, -Math.sin(t/2)]]].map(row => row.map((v, i) => i === 1 ? [Math.cos(t/2) * 0, -Math.sin(t/2)] : v));
+  })(),
+  // Simplify: implement Rx as [[cos θ/2, -i sin θ/2], [-i sin θ/2, cos θ/2]]
+};
+
+// Proper Rx, Ry, Rz
+function makeRx(theta) {
+  const c = Math.cos(theta/2), s = Math.sin(theta/2);
+  return [[ [c, 0], [0, -s] ], [ [0, -s], [c, 0] ]];
+}
+function makeRy(theta) {
+  const c = Math.cos(theta/2), s = Math.sin(theta/2);
+  return [[ [c, 0], [-s, 0] ], [ [s, 0], [c, 0] ]];
+}
+function makeRz(theta) {
+  const c = Math.cos(theta/2), s = Math.sin(theta/2);
+  return [[ [c, -s], c0 ], [ c0, [c, s] ]];
+}
+
+let state = [c1, c0];  // |0⟩
+let history = [];
+let collapsed = false;
+let lastGate = null;
+
+function applyGate(name) {
+  if (collapsed) return;
+  let m;
+  if (name === 'H') m = GATES.H;
+  else if (name === 'X') m = GATES.X;
+  else if (name === 'Y') m = GATES.Y;
+  else if (name === 'Z') m = GATES.Z;
+  else if (name === 'S') m = GATES.S;
+  else if (name === 'T') m = GATES.T;
+  else if (name === 'Rx') m = makeRx(Math.PI / 4);
+  else if (name === 'Ry') m = makeRy(Math.PI / 4);
+  else if (name === 'Rz') m = makeRz(Math.PI / 4);
+  const newState = [C.add(C.mul(m[0][0], state[0]), C.mul(m[0][1], state[1])),
+                    C.add(C.mul(m[1][0], state[0]), C.mul(m[1][1], state[1]))];
+  state = newState;
+  lastGate = name;
+  history.push(name);
+  // Mark applied
+  document.querySelectorAll('.gate').forEach(el => el.classList.remove('applied'));
+  const btn = document.querySelector(`[data-gate="${name}"]`);
+  if (btn) btn.classList.add('applied');
+  render();
+}
+
+function undo() {
+  if (history.length === 0) return;
+  history.pop();
+  // Replay
+  reset();
+  for (const g of history) applyGate(g);
+  history.pop(); // applyGate re-pushes
+  // Re-mark the new last gate
+  document.querySelectorAll('.gate').forEach(el => el.classList.remove('applied'));
+  if (history.length > 0) {
+    const last = history[history.length - 1];
+    const btn = document.querySelector(`[data-gate="${last}"]`);
+    if (btn) btn.classList.add('applied');
+  }
+  render();
+}
+
+function reset() {
+  state = [c1, c0];
+  history = [];
+  collapsed = false;
+  lastGate = null;
+  document.querySelectorAll('.gate').forEach(el => el.classList.remove('applied'));
+  render();
+}
+
+function measure() {
+  const p0 = C.abs2(state[0]);
+  const r = Math.random();
+  if (r < p0) { state = [c1, c0]; collapsed = '|0⟩'; }
+  else { state = [c0, c1]; collapsed = '|1⟩'; }
+  history.push(`M→${collapsed}`);
+  render();
+}
+
+function render() {
+  // Probability bar
+  const canvas = document.getElementById('bloch');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, w, h);
+  const p0 = C.abs2(state[0]);
+  const p1 = C.abs2(state[1]);
+  // Draw 4 bars for |00⟩, |01⟩, |10⟩, |11⟩ — show single qubit as 2 bars
+  const barW = w / 4;
+  ctx.fillStyle = '#00ff9d';
+  ctx.fillRect(barW * 0.5, h - p0 * h * 0.9, barW * 0.8, p0 * h * 0.9);
+  ctx.fillStyle = '#00d4ff';
+  ctx.fillRect(barW * 2.5, h - p1 * h * 0.9, barW * 0.8, p1 * h * 0.9);
+  ctx.fillStyle = '#5a6580';
+  ctx.font = '12px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('|0⟩', barW * 1.4, h - 5);
+  ctx.fillText('|1⟩', barW * 3.4, h - 5);
+  // State text
+  const stateEl = document.getElementById('state');
+  stateEl.innerHTML = `
+    <div class="pair">
+      <div>
+        <strong>State vector</strong>
+        <div class="row"><span>|0⟩</span><span class="amp">${state[0][0].toFixed(4)}${state[0][1] >= 0 ? '+' : ''}${state[0][1].toFixed(4)}i</span><span class="prob">P=${p0.toFixed(4)}</span></div>
+        <div class="row"><span>|1⟩</span><span class="amp">${state[1][0].toFixed(4)}${state[1][1] >= 0 ? '+' : ''}${state[1][1].toFixed(4)}i</span><span class="prob">P=${p1.toFixed(4)}</span></div>
+      </div>
+      <div>
+        <strong>Trace check</strong><br>
+        Σ|α|² = ${(p0 + p1).toFixed(6)} ${Math.abs(p0 + p1 - 1) < 0.001 ? '<span style="color:var(--accent)">✓ normalized</span>' : '<span style="color:var(--warn)">✗ not normalized</span>'}
+        <br><br>
+        <strong>Last gate</strong>: <span class="v">${lastGate || '—'}</span>
+        ${collapsed ? `<br><br><strong>Collapsed to</strong>: <span style="color:var(--warn)">${collapsed}</span>` : ''}
+        <br><br>
+        <strong>History</strong>: <span class="v">${history.join(' → ') || '|0⟩'}</span>
+      </div>
+    </div>
+  `;
+}
+
+reset();
+</script>
+</body>
+</html>

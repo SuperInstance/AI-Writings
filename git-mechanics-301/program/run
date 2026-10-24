@@ -1,0 +1,117 @@
+#!/bin/sh
+# git-mechanics-301 program runner — POSIX sh, no dependencies.
+# The course is run, not read. Usage:
+#   program/run verify            run every tile's pin (the course's CI)
+#   program/run coverage          tile status counts
+#   program/run path TILE         topologically ordered prereq closure for TILE
+#   program/run teach TILE        verify the path, then print the tile
+#   program/run teach-all         verify everything, print what holds (failures named)
+#   program/run divergence        concepts referenced but untiled
+set -u
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+MANIFEST="$ROOT/program/manifest.json"
+
+# --- tiny manifest queries (python3 is the only dependency; awk fallback would hurt readability)
+q() { python3 -c "
+import json,sys
+m=json.load(open('$MANIFEST'))
+t=sys.argv[1]
+if t=='tiles': print(' '.join(sorted(m['tiles'])))
+elif t=='status':
+    tid=sys.argv[2]; print(m['tiles'][tid]['status'])
+elif t=='prereqs':
+    tid=sys.argv[2]; print(' '.join(m['tiles'][tid]['prereqs']))
+elif t=='pin':
+    tid=sys.argv[2]; print(m['tiles'][tid]['pin'])
+elif t=='doc':
+    tid=sys.argv[2]; print(m['tiles'][tid]['doc'])
+elif t=='title':
+    tid=sys.argv[2]; print(m['tiles'][tid]['title'])
+elif t=='field':
+    tid,f=sys.argv[2],sys.argv[3]; print(m['tiles'][tid][f])
+" "$@"; }
+
+cmd=${1:-help}; shift 2>/dev/null || true
+
+case "$cmd" in
+  verify)
+    fail=0
+    for tid in $(q tiles); do
+      pin="$ROOT/$(q pin "$tid")"
+      if out=$(sh "$pin" 2>&1); then
+        printf 'PASS %s %-28s %s\n' "$tid" "$(q title "$tid")" "$(printf '%s' "$out" | head -1)"
+      else
+        printf 'FAIL %s %-28s %s\n' "$tid" "$(q title "$tid")" "$(printf '%s' "$out" | head -1)"
+        fail=1
+      fi
+    done
+    [ $fail -eq 0 ] && echo "-- all tiles verify" || echo "-- failures named above; the course refuses to teach them"
+    exit $fail
+    ;;
+
+  coverage)
+    python3 -c "
+import json,collections
+m=json.load(open('$MANIFEST'))
+c=collections.Counter(v['status'] for v in m['tiles'].values())
+for k in ('pinned','draft','speculative'):
+    print(f'{k}: {c.get(k,0)}')
+print('divergence-watch:', len(m['divergence-watch']))
+"
+    ;;
+
+  path)
+    tid=${1:?usage: program/run path TILE}
+    python3 -c "
+import json,sys
+m=json.load(open('$MANIFEST'))
+tid=sys.argv[1]
+if tid not in m['tiles']: sys.exit('no such tile: '+tid)
+seen,order=[],[]
+def visit(t):
+    if t in seen: return
+    for p in m['tiles'][t]['prereqs']: visit(p)
+    seen.append(t); order.append(t)
+visit(tid)
+print(' '.join(order))
+" "$tid"
+    ;;
+
+  teach)
+    tid=${1:?usage: program/run teach TILE}
+    for t in $(sh "$0" path "$tid"); do
+      pin="$ROOT/$(q pin "$t")"
+      if ! sh "$pin" >/dev/null 2>&1; then
+        echo "REFUSED: $t does not verify — the course does not teach what it cannot prove."
+        echo "run: program/run verify   to see the failure"
+        exit 1
+      fi
+    done
+    cat "$ROOT/$(q doc "$tid")"
+    ;;
+
+  teach-all)
+    for tid in $(q tiles); do
+      if sh "$ROOT/$(q pin "$tid")" >/dev/null 2>&1; then
+        echo "===== $tid $(q title "$tid") ====="
+        cat "$ROOT/$(q doc "$tid")"
+        echo
+      else
+        echo "===== $tid $(q title "$tid") — WITHHELD (pin does not verify; see LEDGER.md) ====="
+      fi
+    done
+    ;;
+
+  divergence)
+    python3 -c "
+import json
+m=json.load(open('$MANIFEST'))
+for d in m['divergence-watch']:
+    print(f\"{d['concept']}: {d['note']}  [ref: {d['reference']}]\")
+"
+    ;;
+
+  *)
+    sed -n '2,9p' "$0"
+    ;;
+esac

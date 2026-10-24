@@ -1,0 +1,9 @@
+{
+  "model": "phi3",
+  "raw": "```json\n\n[\n\n    \"The stone's descent into the calm lake generates ripples on its surface in concentric circles, slowly propagating outward with each stroke it makes against the bedrock.\",\n\n    \"As the ball strikes the water-soaked ground after a high dive from above, it momentarily disrupts local kinetic energy before resurfacing to make subsequent leaps that carry increasing amplitude in its vibrations through air and liquid medium alike.\",\n\n    \"A gust of wind sweeps across an open field carrying the melody as crisp leaves rustle together like tiny percussion instruments, their movements synchronized by unseen forces.\"\n\n]\n\n```",
+  "parsed": [
+    "The stone's descent into the calm lake generates ripples on its surface in concentric circles, slowly propagating outward with each stroke it makes against the bedrock.",
+    "As the ball strikes the water-soaked ground after a high dive from above, it momentarily disrupts local kinetic energy before resurfacing to make subsequent leaps that carry increasing amplitude in its vibrations through air and liquid medium alike.",
+    "A gust of wind sweeps across an open field carrying the melody as crisp leaves rustle together like tiny percussion instruments, their movements synchronized by unseen forces."
+  ]
+}

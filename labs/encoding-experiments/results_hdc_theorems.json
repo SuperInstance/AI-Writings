@@ -1,0 +1,67 @@
+{
+ "T1": {
+  "mean_abs_dev_from_0.5": 0.0128,
+  "unbind_exact": 1.0
+ },
+ "T2": {
+  "3": {
+   "member_sim": 0.7473,
+   "recovered": 1.0
+  },
+  "5": {
+   "member_sim": 0.6873,
+   "recovered": 1.0
+  },
+  "9": {
+   "member_sim": 0.6348,
+   "recovered": 1.0
+  },
+  "17": {
+   "member_sim": 0.5985,
+   "recovered": 1.0
+  },
+  "33": {
+   "member_sim": 0.5687,
+   "recovered": 0.932
+  },
+  "65": {
+   "member_sim": 0.5502,
+   "recovered": 0.831
+  },
+  "129": {
+   "member_sim": 0.5357,
+   "recovered": 0.736
+  }
+ },
+ "T3": {
+  "random_pair_sim_std": 0.0156,
+  "match_error_at_sim0.7_vs_999": 0.0
+ },
+ "T4": {
+  "0.7": {
+   "xor_mean_err": 0.2,
+   "sub_mean_err": 0.0307,
+   "xor_theory": 0.1997
+  },
+  "0.8": {
+   "xor_mean_err": 0.2929,
+   "sub_mean_err": 0.026,
+   "xor_theory": 0.2916
+  },
+  "0.9": {
+   "xor_mean_err": 0.3172,
+   "sub_mean_err": 0.0193,
+   "xor_theory": 0.3161
+  },
+  "0.95": {
+   "xor_mean_err": 0.2353,
+   "sub_mean_err": 0.0127,
+   "xor_theory": 0.2348
+  }
+ },
+ "T5": {
+  "pairs": 1012,
+  "mean_err_1024": 0.012,
+  "mean_err_128": 0.0352
+ }
+}

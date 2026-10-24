@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Journal — personal logbook</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif;--serif:'Georgia',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:900px;margin:0 auto 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+h1{color:var(--accent);font-size:1.6rem;margin:0}
+.tagline{color:var(--dim);font-size:.85rem;font-family:var(--mono)}
+main{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:1rem}
+.entry{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.entry.new{border-color:var(--accent)}
+.entry h3{margin:0 0 .5rem;color:var(--text);font-size:1rem;font-family:var(--mono)}
+.entry textarea{width:100%;min-height:80px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.5rem;font-family:var(--serif);font-size:1rem;line-height:1.5;resize:vertical}
+.entry textarea:focus{outline:none;border-color:var(--accent)}
+.entry .meta{color:var(--dim);font-family:var(--mono);font-size:.7rem;margin-top:.3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem}
+.entry .hash{color:var(--accent2)}
+.entry .actions{margin-top:.5rem;display:flex;gap:.3rem;flex-wrap:wrap}
+.entry .actions button{background:var(--accent);color:#000;border:none;padding:.3rem .7rem;border-radius:4px;cursor:pointer;font-size:.75rem;font-weight:bold}
+.entry .actions button:hover{background:#3dffb7}
+.entry .actions button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.entry pre{color:var(--text2);font-family:var(--serif);font-size:.95rem;white-space:pre-wrap;word-wrap:break-word;margin:.3rem 0}
+.tools{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.tools button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem}
+.tools button:hover{background:#3dffb7}
+.tools button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.tools label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem}
+.tools input[type=range]{width:100px}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:900px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+<div>
+<h1>📓 Substrate Journal</h1>
+<p class="tagline">A personal logbook where each entry has a deterministic witness hash.</p>
+</div>
+<button onclick="newEntry()" style="background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold">+ New entry</button>
+</header>
+
+<main>
+<div class="tools">
+<button onclick="exportEntries()">⬇ Export as JSON</button>
+<button class="secondary" onclick="importEntries()">⬆ Import</button>
+<button class="secondary" onclick="clearAll()" style="background:var(--surface2);color:var(--warn);border-color:var(--warn)">🗑 Clear all</button>
+<label>Mood: <input type="range" id="mood" min="1" max="5" value="3"> <span id="moodLbl">3</span></label>
+</div>
+<div class="stats">
+<div>Entries: <span class="v" id="sEntries">0</span></div>
+<div>Total chars: <span class="v" id="sChars">0</span></div>
+<div>Avg mood: <span class="v" id="sAvgMood">3.0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<div id="entries"></div>
+</main>
+
+<footer>📓 substrate journal · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let entries = [];
+const STORAGE_KEY = 'substrate-journal-v1';
+
+function loadEntries() {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    if (Array.isArray(data)) entries = data;
+  } catch (e) {}
+}
+
+function saveEntries() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+}
+
+function newEntry() {
+  const now = new Date();
+  const isoStamp = now.toISOString();
+  const id = `entry-${now.getTime()}`;
+  const entry = {
+    id,
+    created: isoStamp,
+    mood: parseInt(document.getElementById('mood').value),
+    text: '',
+    hash: '0x' + fnv1a64(new TextEncoder().encode(isoStamp)).toString(16).padStart(16, '0'),
+  };
+  entries.unshift(entry);
+  saveEntries();
+  render();
+  // focus the new textarea
+  setTimeout(() => {
+    const ta = document.querySelector(`[data-id="${id}"] textarea`);
+    if (ta) ta.focus();
+  }, 50);
+}
+
+function updateEntry(id, field, value) {
+  const e = entries.find(x => x.id === id);
+  if (!e) return;
+  e[field] = value;
+  if (field === 'text') {
+    e.hash = '0x' + fnv1a64(new TextEncoder().encode(e.text + e.created)).toString(16).padStart(16, '0');
+  }
+  saveEntries();
+  renderStats();
+  // update only the hash display
+  const hashEl = document.querySelector(`[data-id="${id}"] .hash`);
+  if (hashEl) hashEl.textContent = e.hash;
+}
+
+function deleteEntry(id) {
+  entries = entries.filter(e => e.id !== id);
+  saveEntries();
+  render();
+}
+
+function renderStats() {
+  const totalChars = entries.reduce((a, e) => a + (e.text || '').length, 0);
+  const avgMood = entries.length ? entries.reduce((a, e) => a + e.mood, 0) / entries.length : 0;
+  const stateHash = fnv1a64(new TextEncoder().encode(entries.map(e => e.id + e.hash).join('|')));
+  document.getElementById('sEntries').textContent = entries.length;
+  document.getElementById('sChars').textContent = totalChars;
+  document.getElementById('sAvgMood').textContent = avgMood.toFixed(1);
+  document.getElementById('sHash').textContent = '0x' + stateHash.toString(16).padStart(16, '0');
+}
+
+function render() {
+  const el = document.getElementById('entries');
+  el.innerHTML = '';
+  for (const e of entries) {
+    const div = document.createElement('div');
+    div.className = 'entry' + (e.text === '' ? ' new' : '');
+    div.dataset.id = e.id;
+    const date = new Date(e.created);
+    div.innerHTML = `
+      <h3>${date.toLocaleString()}</h3>
+      <textarea placeholder="What's on your mind?">${escapeHtml(e.text)}</textarea>
+      <div class="meta">
+        <span>Mood: <span class="mood-val">${'★'.repeat(e.mood)}${'☆'.repeat(5 - e.mood)}</span></span>
+        <span>Hash: <span class="hash">${e.hash}</span></span>
+      </div>
+      <div class="actions">
+        <button class="secondary" onclick="deleteEntry('${e.id}')">Delete</button>
+      </div>
+    `;
+    const ta = div.querySelector('textarea');
+    ta.addEventListener('input', () => updateEntry(e.id, 'text', ta.value));
+    el.appendChild(div);
+  }
+  renderStats();
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function exportEntries() {
+  const data = JSON.stringify(entries, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `substrate-journal-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importEntries() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'application/json';
+  input.onchange = () => {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(reader.result);
+        if (Array.isArray(data)) {
+          entries = data;
+          saveEntries();
+          render();
+        }
+      } catch (e) {}
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function clearAll() {
+  if (confirm('Clear all entries?')) {
+    entries = [];
+    saveEntries();
+    render();
+  }
+}
+
+document.getElementById('mood').addEventListener('input', e => document.getElementById('moodLbl').textContent = e.target.value);
+
+loadEntries();
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "slugs": [
+    "echo-tangent-station",
+    "the-substrate-as-character",
+    "the-mirror-of-code",
+    "the-four-witnesses-at-the-inn",
+    "the-cell-that-refused-forgotten"
+  ],
+  "titles": [
+    "Echoes at the Tangent Station",
+    "The Substrate as Character",
+    "The Mirror of Code",
+    "The Four Witnesses at the Inn",
+    "The Cell That Refused to Be Forgotten"
+  ],
+  "model": "bge-large-en-v1.5",
+  "dimension": 1024,
+  "similarities": [
+    [
+      1.0,
+      0.8064435427235069,
+      0.765756088579194,
+      0.700104125500595,
+      0.7978000494188097
+    ],
+    [
+      0.8064435427235069,
+      1.0,
+      0.7602973595258111,
+      0.6824394244253467,
+      0.7518000193643578
+    ],
+    [
+      0.765756088579194,
+      0.7602973595258111,
+      1.0000000000000002,
+      0.6764140116108224,
+      0.7039305722432483
+    ],
+    [
+      0.700104125500595,
+      0.6824394244253467,
+      0.6764140116108224,
+      1.0,
+      0.7066954289732275
+    ],
+    [
+      0.7978000494188097,
+      0.7518000193643578,
+      0.7039305722432483,
+      0.7066954289732275,
+      0.9999999999999998
+    ]
+  ]
+}

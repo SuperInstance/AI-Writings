@@ -1,0 +1,13 @@
+The rhythm section doesn't change. That's the thing the audience never sees, never needs to see. The bassline is the through-line, the walking pulse that never stops even when the soloist steps up to the mic. In our world, the bass is the boat itself — the constant hum of the diesel at trolling speed, the hydraulic whine of the drum, the slap of water against the hull that never stops asking for attention.
+
+We rotate through the wheelhouse like a jazz quartet trading fours. The old man takes the first watch, his hands on the wheel like they've been there since the boat was laid down in the yard, scarred knuckles and a slow, patient touch. He knows the water like the back of his own palm, the way it shoals off the point, the way the tide runs hard against the wind in the gray hours before dawn.
+
+Then the mate takes over, younger, quicker. He pushes the throttle a little harder, reads the sounder with the urgency of a man who's got somewhere to be, even though the somewhere is just the same stretch of water. The difference is in the tempo. The old man plays it like a ballad, spare and unhurried. The mate plays it like a burner, all sixteenth notes and restless fingers.
+
+When I take the wheel, I carry what they left me. The old man's patience, the mate's hunger. The boat doesn't know the difference. The engine turns the same revolutions, the gearbox engages with the same metallic click, the lines run out with the same hiss of monofilament through the guides. The fish don't know who's driving. The fish only know the bait, the hook, the weight of the gear.
+
+That's the secret of a good section. The bassline carries the changes underneath every solo, and when the horn player steps back and nods to the piano, the piano doesn't have to ask where they are. The form is memorized. The changes are set. The only question is what you bring to the tune in the moment you have the stand.
+
+I've heard sessions where you can hear the seams — where one player finishes a phrase and there's a breath before the next one picks it up, a hesitation, a moment of listening too hard. That's a bad night. A good night, you can't tell where one ends and the other begins. The line just keeps moving. The story keeps telling itself.
+
+Out here, the story is the same one we've always told. The fish are out there. The weather is coming. The gear is heavy and the hours are long. But the telling — that's where the music lives. I step up to the rail and take the solo, and when I'm done, I hand it back to the old man, and the line keeps walking. The bass never stops. The boat never stops. The tune goes on.

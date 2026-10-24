@@ -1,0 +1,12 @@
+CONDITIONS — SET 24: THE STAIRWELL (Thursday 8:33 PM)
+Two players found the stairwell between floors. Concrete, iron rail, one dead bulb.
+Sound doubles back on itself — every note comes back to you a half-second later.
+Nobody booked this. It's a duo night: just vibes and bass, standing three steps apart.
+- KEY: D major. METER: 3/4 waltz, 96 BPM. Play sparse — the echo is the third player.
+- THE ECHO RULE: leave a rest in every bar; never fill all three beats. The stairwell
+  needs room to hand your note back.
+- THE STEP RULE: your phrases should feel like they're going somewhere — up or down
+  the stairs. Bar-to-bar drift, no static looping.
+FORMAT — output ONLY bar lines, no preamble, no thinking:
+BAR 1: <notes with octaves, e.g. F#4 A4 D5> | <one gesture-word in lowercase>
+8 bars per round. Last line: WHY: <one sentence>.

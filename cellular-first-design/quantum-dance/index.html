@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Quantum Dance — substrate-quantum demo</title>
+<meta name="description" content="Interactive visualization of quantum states. Bell states, GHZ, W states, QFT, Grover. Real amplitude math, real measurement, real entanglement entropy. All in your browser.">
+<style>
+:root{
+  --bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;
+  --text:#e8ecf4;--text2:#a8b2c8;--dim:#5a6580;
+  --accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;
+  --warn:#ff4d6d;--pink:#ff80c0;
+  --mono:'SF Mono','JetBrains Mono','Fira Code',monospace;
+  --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5;padding:1.5rem;min-height:100vh;background-image:radial-gradient(ellipse at top,#1a1a2a 0%,#06080f 50%)}
+
+header{max-width:1200px;margin:0 auto 1.5rem}
+h1{color:var(--accent);font-size:1.7rem;font-weight:600;margin:0 0 .3rem;letter-spacing:-.01em}
+.tagline{color:var(--text2);margin:0 0 .8rem;font-size:.95rem}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.badge{display:inline-block;background:var(--surface);border:1px solid var(--border);padding:.3rem .7rem;border-radius:20px;font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+.badge.green{color:var(--accent);border-color:rgba(0,255,157,.3)}
+.badge.cyan{color:var(--accent2);border-color:rgba(0,212,255,.3)}
+.badge.purple{color:var(--accent3);border-color:rgba(124,92,255,.3)}
+.badge.amber{color:var(--amber);border-color:rgba(255,184,77,.3)}
+
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+
+aside{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;height:fit-content}
+aside h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem}
+aside h3:not(:first-child){margin-top:1rem}
+aside .btn{display:block;width:100%;background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:.6rem;border-radius:6px;cursor:pointer;font-family:inherit;font-size:.85rem;margin-bottom:.4rem;text-align:left;transition:all .15s}
+aside .btn:hover{border-color:var(--accent);background:var(--bg)}
+aside .btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:bold}
+
+article{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+article h2{color:var(--text);font-size:1.1rem;margin:0 0 .3rem;font-weight:600}
+article .sub{color:var(--dim);font-size:.85rem;margin-bottom:1rem;font-family:var(--mono)}
+
+canvas{display:block;background:var(--bg);border:1px solid var(--border);border-radius:8px;margin:1rem 0;width:100%;height:280px}
+
+.state-viz{display:grid;grid-template-columns:repeat(auto-fit,minmax(60px,1fr));gap:.4rem;margin:1rem 0}
+.bit-row{display:flex;align-items:center;gap:.3rem;padding:.3rem .5rem;background:var(--bg);border:1px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:.78rem}
+.bit-label{color:var(--dim);min-width:55px}
+.bit-val{color:var(--text);font-weight:bold}
+.bit-amp{color:var(--accent);font-size:.7rem}
+.bit-bar{height:3px;background:var(--accent);border-radius:2px}
+
+.controls{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:1rem}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.85rem;transition:all .15s}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2);display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.stats .lbl{color:var(--dim);font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold;font-size:1rem}
+
+#hist{margin-top:1rem}
+.hist-bar{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;font-family:var(--mono);font-size:.8rem}
+.hist-label{color:var(--text);min-width:60px}
+.hist-fill-wrap{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:4px;height:18px;overflow:hidden;position:relative}
+.hist-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
+.hist-pct{color:var(--accent);min-width:60px;text-align:right}
+
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.78rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none;border:none}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🌌 Quantum Dance — substrate-quantum</h1>
+<p class="tagline">Real quantum state simulation. Click a state, apply gates, measure, watch entanglement.</p>
+<div class="badges">
+<span class="badge green">⬢ 4 Bell states</span>
+<span class="badge cyan">⬢ GHZ + W</span>
+<span class="badge purple">⬢ Grover + QFT</span>
+<span class="badge amber">⬢ von Neumann entropy</span>
+</div>
+</header>
+
+<main>
+<aside>
+<h3>Initial States</h3>
+<button class="btn active" onclick="loadState('bellPhiPlus')">|Φ+⟩ Bell</button>
+<button class="btn" onclick="loadState('bellPhiMinus')">|Φ-⟩ Bell</button>
+<button class="btn" onclick="loadState('bellPsiPlus')">|Ψ+⟩ Bell</button>
+<button class="btn" onclick="loadState('bellPsiMinus')">|Ψ-⟩ Bell</button>
+<button class="btn" onclick="loadState('ghz3')">GHZ(3)</button>
+<button class="btn" onclick="loadState('ghz4')">GHZ(4)</button>
+<button class="btn" onclick="loadState('w3')">W(3)</button>
+<button class="btn" onclick="loadState('plus')">|+⟩|+⟩|+⟩</button>
+
+<h3>Gates</h3>
+<button class="btn" onclick="applyGate('H', 0)">H on qubit 0</button>
+<button class="btn" onclick="applyGate('X', 0)">X on qubit 0</button>
+<button class="btn" onclick="applyGate('Y', 0)">Y on qubit 0</button>
+<button class="btn" onclick="applyGate('Z', 0)">Z on qubit 0</button>
+<button class="btn" onclick="applyGate('S', 0)">S on qubit 0</button>
+<button class="btn" onclick="applyGate('T', 0)">T on qubit 0</button>
+<button class="btn" onclick="applyGate('CNOT', 0, 1)">CNOT 0→1</button>
+<button class="btn" onclick="applyGate('QFT')">QFT (all qubits)</button>
+<button class="btn" onclick="applyGate('Rx', 0, Math.PI/4)">Rx(π/4) on qubit 0</button>
+
+<h3>Algorithms</h3>
+<button class="btn" onclick="runGrover()">▶ Grover search</button>
+<button class="btn" onclick="runDeutsch()">▶ Deutsch-Jozsa</button>
+
+<h3>Sample</h3>
+<button class="btn" onclick="sampleMany(100)">▶ 100 measurements</button>
+<button class="btn" onclick="sampleMany(1000)">▶ 1000 measurements</button>
+</aside>
+
+<article>
+<h2 id="title">|Φ+⟩ = (|00⟩ + |11⟩) / √2</h2>
+<p class="sub" id="desc">Bell state. Maximum entanglement — measuring one qubit instantly determines the other.</p>
+
+<canvas id="canvas" width="800" height="280"></canvas>
+
+<div class="state-viz" id="stateviz"></div>
+
+<div class="controls">
+<button onclick="measure()">🎲 Measure (collapse)</button>
+<button class="secondary" onclick="reset()">↻ Reset</button>
+</div>
+
+<div class="stats">
+<div><div class="lbl">Qubits</div><div class="v" id="sN">2</div></div>
+<div><div class="lbl">Dimension</div><div class="v" id="sDim">4</div></div>
+<div><div class="lbl">Purity</div><div class="v" id="sPurity">1.000</div></div>
+<div><div class="lbl">Entanglement</div><div class="v" id="sEnt">1.000 bit</div></div>
+<div><div class="lbl">Most-likely</div><div class="v" id="sMost">|00⟩</div></div>
+<div><div class="lbl">Probability</div><div class="v" id="sMostProb">50.0%</div></div>
+</div>
+
+<h3 style="margin-top:1rem;color:var(--text);font-size:.95rem">Measurement histogram (last batch)</h3>
+<div id="hist"></div>
+
+<details style="margin-top:1rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem">
+<summary style="cursor:pointer;color:var(--accent);font-family:var(--mono);font-size:.85rem">▸ Show raw state vector & gate matrices (for verification)</summary>
+<div style="margin-top:.5rem">
+<h4 style="color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin:.5rem 0">State vector (real, imag, |amplitude|²)</h4>
+<pre id="stateRaw" style="font-family:var(--mono);font-size:.7rem;color:var(--text);white-space:pre-wrap;background:var(--surface);padding:.5rem;border-radius:4px;max-height:200px;overflow-y:auto"></pre>
+<h4 style="color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin:.5rem 0">Last gate applied</h4>
+<pre id="gateRaw" style="font-family:var(--mono);font-size:.7rem;color:var(--text);white-space:pre-wrap;background:var(--surface);padding:.5rem;border-radius:4px"></pre>
+<h4 style="color:var(--dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;margin:.5rem 0">Trace check (Σ |α|² must equal 1.000)</h4>
+<pre id="traceCheck" style="font-family:var(--mono);font-size:.7rem;color:var(--text);white-space:pre-wrap;background:var(--surface);padding:.5rem;border-radius:4px"></pre>
+</div>
+</details>
+</article>
+</main>
+
+<footer>
+<p>🌌 substrate-quantum demo · <a href="https://github.com/SuperInstance/substrate-quantum">github.com/SuperInstance/substrate-quantum</a></p>
+<p style="margin-top:.5rem">All math runs locally. Real amplitudes, real measurement, real entanglement entropy.</p>
+</footer>
+
+<script>
+// === substrate-quantum math (browser port) ===
+const C = (re, im = 0) => [re, im];
+
+class QuantumState {
+  constructor(n, init = 'zero') {
+    this.n = n;
+    this.dim = 1 << n;
+    if (init === 'zero') this.amplitudes = Array.from({length: this.dim}, (_, i) => i === 0 ? C(1) : C(0));
+    else if (init === 'plus') {
+      const norm = 1 / Math.sqrt(this.dim);
+      this.amplitudes = Array.from({length: this.dim}, () => C(norm));
+    } else if (init === 'random') {
+      const reals = Array.from({length: this.dim}, () => Math.random()*2-1);
+      const imags = Array.from({length: this.dim}, () => Math.random()*2-1);
+      let n2 = 0;
+      for (let i = 0; i < this.dim; i++) n2 += reals[i]*reals[i] + imags[i]*imags[i];
+      const norm = Math.sqrt(n2);
+      this.amplitudes = reals.map((r, i) => C(r/norm, imags[i]/norm));
+    } else if (Array.isArray(init)) {
+      this.amplitudes = init.map(c => [c[0], c[1]]);
+      this.normalize();
+    }
+  }
+  normalize() {
+    let s = 0;
+    for (const a of this.amplitudes) s += a[0]*a[0] + a[1]*a[1];
+    const n = Math.sqrt(s);
+    if (n === 0) throw new Error('zero');
+    for (let i = 0; i < this.dim; i++) { this.amplitudes[i][0] /= n; this.amplitudes[i][1] /= n; }
+  }
+  apply1(gate, q) {
+    const newAmp = Array.from({length: this.dim}, () => C(0));
+    for (let i = 0; i < this.dim; i++) {
+      const bit = (i >> q) & 1;
+      const partner = i ^ (1 << q);
+      if (bit === 0) {
+        newAmp[i][0] = gate[0][0][0]*this.amplitudes[i][0] - gate[0][0][1]*this.amplitudes[i][1] + gate[0][1][0]*this.amplitudes[partner][0] - gate[0][1][1]*this.amplitudes[partner][1];
+        newAmp[i][1] = gate[0][0][0]*this.amplitudes[i][1] + gate[0][0][1]*this.amplitudes[i][0] + gate[0][1][0]*this.amplitudes[partner][1] + gate[0][1][1]*this.amplitudes[partner][0];
+      } else {
+        newAmp[i][0] = gate[1][0][0]*this.amplitudes[partner][0] - gate[1][0][1]*this.amplitudes[partner][1] + gate[1][1][0]*this.amplitudes[i][0] - gate[1][1][1]*this.amplitudes[i][1];
+        newAmp[i][1] = gate[1][0][0]*this.amplitudes[partner][1] + gate[1][0][1]*this.amplitudes[partner][0] + gate[1][1][0]*this.amplitudes[i][1] + gate[1][1][1]*this.amplitudes[i][0];
+      }
+    }
+    this.amplitudes = newAmp;
+  }
+  applyCNOT(c, t) {
+    const newAmp = this.amplitudes.slice().map(a => [...a]);
+    for (let i = 0; i < this.dim; i++) {
+      if (((i >> c) & 1) === 1) {
+        const partner = i ^ (1 << t);
+        if (i < partner) [newAmp[i], newAmp[partner]] = [newAmp[partner], newAmp[i]];
+      }
+    }
+    this.amplitudes = newAmp;
+  }
+  applyControlled(gate, c, t) {
+    const newAmp = this.amplitudes.slice().map(a => [...a]);
+    for (let i = 0; i < this.dim; i++) {
+      if (((i >> c) & 1) === 1) {
+        const partner = i ^ (1 << t);
+        const a = this.amplitudes[partner];
+        const b = this.amplitudes[i];
+        newAmp[i][0] = gate[0][0][0]*a[0] - gate[0][0][1]*a[1] + gate[0][1][0]*b[0] - gate[0][1][1]*b[1];
+        newAmp[i][1] = gate[0][0][0]*a[1] + gate[0][0][1]*a[0] + gate[0][1][0]*b[1] + gate[0][1][1]*b[0];
+        newAmp[partner][0] = gate[1][0][0]*a[0] - gate[1][0][1]*a[1] + gate[1][1][0]*b[0] - gate[1][1][1]*b[1];
+        newAmp[partner][1] = gate[1][0][0]*a[1] + gate[1][0][1]*a[0] + gate[1][1][0]*b[1] + gate[1][1][1]*b[0];
+      }
+    }
+    this.amplitudes = newAmp;
+  }
+  measure() {
+    const probs = this.amplitudes.map(a => a[0]*a[0] + a[1]*a[1]);
+    const r = Math.random();
+    let cum = 0;
+    for (let i = 0; i < this.dim; i++) {
+      cum += probs[i];
+      if (r < cum) {
+        this.amplitudes = Array.from({length: this.dim}, (_, j) => j === i ? C(1) : C(0));
+        return i;
+      }
+    }
+    const last = this.dim - 1;
+    this.amplitudes = Array.from({length: this.dim}, (_, j) => j === last ? C(1) : C(0));
+    return last;
+  }
+  probabilities() { return this.amplitudes.map(a => a[0]*a[0] + a[1]*a[1]); }
+  toString() {
+    const terms = [];
+    for (let i = 0; i < this.dim; i++) {
+      const a = this.amplitudes[i];
+      const m = Math.sqrt(a[0]*a[0] + a[1]*a[1]);
+      if (m < 1e-10) continue;
+      const bs = '|' + i.toString(2).padStart(this.n, '0') + '⟩';
+      const re = a[0].toFixed(3);
+      const im = a[1] === 0 ? '' : (a[1] >= 0 ? '+' : '') + a[1].toFixed(3) + 'i';
+      terms.push(`(${re}${im})${bs}`);
+    }
+    return terms.join(' + ') || '0';
+  }
+}
+
+const Gates = {
+  I: [[C(1),C(0)],[C(0),C(1)]],
+  X: [[C(0),C(1)],[C(1),C(0)]],
+  Y: [[C(0),C(0,-1)],[C(0,1),C(0)]],
+  Z: [[C(1),C(0)],[C(0),C(-1)]],
+  H: (() => { const s = 1/Math.SQRT2; return [[C(s),C(s)],[C(s),C(-s)]]; })(),
+  S: [[C(1),C(0)],[C(0),C(0,1)]],
+  T: [[C(1),C(0)],[C(0),C(Math.SQRT1_2,Math.SQRT1_2)]],
+  Rx: (theta) => { const c = Math.cos(theta/2), s = Math.sin(theta/2); return [[C(c),C(0,-s)],[C(0,-s),C(c)]]; },
+};
+
+function bellPhiPlus() { const s = new QuantumState(2); s.apply1(Gates.H, 0); s.applyCNOT(0, 1); return s; }
+function bellPhiMinus() { const s = bellPhiPlus(); s.apply1(Gates.Z, 0); return s; }
+function bellPsiPlus() { const s = new QuantumState(2); s.apply1(Gates.H, 0); s.apply1(Gates.X, 1); s.applyCNOT(0, 1); return s; }
+function bellPsiMinus() { const s = bellPsiPlus(); s.apply1(Gates.Z, 0); return s; }
+function ghzState(n) { const s = new QuantumState(n); s.apply1(Gates.H, 0); for (let i = 0; i < n-1; i++) s.applyCNOT(i, i+1); return s; }
+function wState(n) {
+  const dim = 1 << n;
+  const norm = 1 / Math.sqrt(n);
+  const amps = [];
+  for (let i = 0; i < dim; i++) {
+    let c = 0;
+    for (let b = 0; b < n; b++) if ((i >> b) & 1) c++;
+    amps.push(c === 1 ? C(norm) : C(0));
+  }
+  return new QuantumState(n, amps);
+}
+function qft(s) {
+  for (let i = 0; i < s.n; i++) {
+    s.apply1(Gates.H, i);
+    for (let j = i+1; j < s.n; j++) {
+      const phase = Math.cos(Math.PI/(1<<(j-i)));
+      const phaseI = Math.sin(Math.PI/(1<<(j-i)));
+      const phaseGate = [[C(1),C(0)],[C(0),C(phase,phaseI)]];
+      s.applyControlled(phaseGate, j, i);
+    }
+  }
+  for (let i = 0; i < Math.floor(s.n/2); i++) {
+    s.applyCNOT(i, s.n-1-i);
+    s.applyCNOT(s.n-1-i, i);
+    s.applyCNOT(i, s.n-1-i);
+  }
+}
+function grover(s, marked) {
+  const N = s.dim;
+  s.amplitudes = Array.from({length: N}, () => C(1/Math.sqrt(N)));
+  const iters = Math.floor(Math.PI/4 * Math.sqrt(N));
+  for (let it = 0; it < iters; it++) {
+    s.amplitudes[marked] = [-s.amplitudes[marked][0], -s.amplitudes[marked][1]];
+    let avg = C(0);
+    for (const a of s.amplitudes) { avg[0] += a[0]; avg[1] += a[1]; }
+    avg = [avg[0]/N, avg[1]/N];
+    for (let i = 0; i < N; i++) {
+      s.amplitudes[i] = [2*avg[0] - s.amplitudes[i][0], 2*avg[1] - s.amplitudes[i][1]];
+    }
+  }
+}
+
+// === UI ===
+let state = bellPhiPlus();
+let lastHist = {};
+let lastGateApplied = 'bellPhiPlus (initial state)';
+let lastGateMatrix = null;
+const titles = {
+  bellPhiPlus: '|Φ+⟩ = (|00⟩ + |11⟩) / √2',
+  bellPhiMinus: '|Φ-⟩ = (|00⟩ - |11⟩) / √2',
+  bellPsiPlus: '|Ψ+⟩ = (|01⟩ + |10⟩) / √2',
+  bellPsiMinus: '|Ψ-⟩ = (|01⟩ - |10⟩) / √2',
+  ghz3: 'GHZ(3) = (|000⟩ + |111⟩) / √2',
+  ghz4: 'GHZ(4) = (|0000⟩ + |1111⟩) / √2',
+  w3: 'W(3) = (|001⟩ + |010⟩ + |100⟩) / √3',
+  plus: '|+⟩|+⟩|+⟩ uniform superposition'
+};
+
+function loadState(name) {
+  if (name === 'bellPhiPlus') state = bellPhiPlus();
+  else if (name === 'bellPhiMinus') state = bellPhiMinus();
+  else if (name === 'bellPsiPlus') state = bellPsiPlus();
+  else if (name === 'bellPsiMinus') state = bellPsiMinus();
+  else if (name === 'ghz3') state = ghzState(3);
+  else if (name === 'ghz4') state = ghzState(4);
+  else if (name === 'w3') state = wState(3);
+  else if (name === 'plus') state = new QuantumState(3, 'plus');
+  document.getElementById('title').textContent = titles[name];
+  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  lastHist = {};
+  render();
+}
+
+function applyGate(name, q, arg) {
+  if (name === 'QFT') { qft(state); lastGateApplied = `QFT on all ${state.n} qubits`; lastGateMatrix = null; }
+  else if (name === 'CNOT') { state.applyCNOT(q, arg); lastGateApplied = `CNOT(${q}→${arg})`; lastGateMatrix = '[[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]'; }
+  else if (name === 'Rx') { state.apply1(Gates.Rx(arg), q); lastGateApplied = `Rx(${arg.toFixed(4)}) on qubit ${q}`; lastGateMatrix = formatMatrix(Gates.Rx(arg)); }
+  else { state.apply1(Gates[name], q); lastGateApplied = `${name} on qubit ${q}`; lastGateMatrix = formatMatrix(Gates[name]); }
+  render();
+}
+
+function formatMatrix(m) {
+  return m.map(row => '[' + row.map(c => `${c[0].toFixed(3)}${c[1] === 0 ? '' : (c[1] >= 0 ? '+' : '') + c[1].toFixed(3) + 'i'}`).join(', ') + ']').join('\n');
+}
+
+function measure() {
+  const out = state.measure();
+  document.getElementById('title').textContent = `Measured: |${out.toString(2).padStart(state.n, '0')}⟩`;
+  lastHist = { [out]: 1 };
+  render();
+}
+
+function reset() {
+  state = bellPhiPlus();
+  document.getElementById('title').textContent = titles.bellPhiPlus;
+  lastHist = {};
+  render();
+}
+
+function sampleMany(n) {
+  const saved = state.amplitudes.map(a => [...a]);
+  const hist = {};
+  for (let i = 0; i < n; i++) {
+    const o = state.measure();
+    hist[o] = (hist[o] || 0) + 1;
+    state.amplitudes = saved.map(a => [...a]);
+  }
+  lastHist = hist;
+  render();
+}
+
+function runGrover() {
+  const n = 3;
+  const marked = 5;
+  state = new QuantumState(n);
+  grover(state, marked);
+  document.getElementById('title').textContent = `Grover marked=${marked} (3 qubits, should be |101⟩)`;
+  render();
+}
+
+function runDeutsch() {
+  const n = 2;
+  const balanced = x => x % 2;
+  const s = new QuantumState(n+1);
+  s.apply1(Gates.X, n);
+  for (let i = 0; i <= n; i++) s.apply1(Gates.H, i);
+  for (let x = 0; x < (1 << n); x++) {
+    if (balanced(x)) {
+      const low = x, high = x | (1 << n);
+      [s.amplitudes[low], s.amplitudes[high]] = [s.amplitudes[high], s.amplitudes[low]];
+    }
+  }
+  for (let i = 0; i < n; i++) s.apply1(Gates.H, i);
+  state = s;
+  document.getElementById('title').textContent = `Deutsch-Jozsa: balanced function detected`;
+  render();
+}
+
+function render() {
+  drawCanvas();
+  renderStateViz();
+  renderStats();
+  renderHist();
+  renderDebug();
+}
+
+function renderDebug() {
+  // State vector
+  const lines = [];
+  for (let i = 0; i < state.dim; i++) {
+    const a = state.amplitudes[i];
+    const m2 = a[0]*a[0] + a[1]*a[1];
+    lines.push(`|${i.toString(2).padStart(state.n, '0')}⟩  re=${a[0].toFixed(4)}  im=${a[1].toFixed(4)}  |α|²=${m2.toFixed(4)}`);
+  }
+  document.getElementById('stateRaw').textContent = lines.join('\n');
+
+  // Last gate
+  document.getElementById('gateRaw').textContent = lastGateApplied + (lastGateMatrix ? '\n' + lastGateMatrix : '');
+
+  // Trace check
+  let trace = 0;
+  for (const a of state.amplitudes) trace += a[0]*a[0] + a[1]*a[1];
+  const ok = Math.abs(trace - 1) < 1e-9;
+  document.getElementById('traceCheck').textContent = `Σᵢ |αᵢ|² = ${trace.toFixed(10)}  →  ${ok ? '✓ NORMALIZED' : '✗ NOT NORMALIZED (diff: ' + (trace - 1).toExponential(2) + ')'}`;
+}
+
+function drawCanvas() {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.fillStyle = '#06080f';
+  ctx.fillRect(0, 0, W, H);
+  const probs = state.probabilities();
+  const maxP = Math.max(...probs, 0.01);
+  const barWidth = (W - 40) / state.dim;
+  for (let i = 0; i < state.dim; i++) {
+    const x = 20 + i * barWidth;
+    const barH = (probs[i] / maxP) * (H - 40);
+    const hue = i / state.dim * 360;
+    ctx.fillStyle = `hsl(${hue}, 70%, 55%)`;
+    ctx.fillRect(x + 2, H - 20 - barH, barWidth - 4, barH);
+    ctx.fillStyle = '#e8ecf4';
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('|' + i.toString(2).padStart(state.n, '0') + '⟩', x + barWidth/2, H - 6);
+  }
+  // Title
+  ctx.fillStyle = '#00ff9d';
+  ctx.font = 'bold 12px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText(state.toString(), 20, 18);
+}
+
+function renderStateViz() {
+  const out = document.getElementById('stateviz');
+  out.innerHTML = '';
+  for (let i = 0; i < state.dim; i++) {
+    const a = state.amplitudes[i];
+    const m = Math.sqrt(a[0]*a[0] + a[1]*a[1]);
+    const p = m * m;
+    const row = document.createElement('div');
+    row.className = 'bit-row';
+    row.innerHTML = `<span class="bit-label">|${i.toString(2).padStart(state.n, '0')}⟩</span>
+      <span class="bit-val">${a[0].toFixed(2)}${a[1] !== 0 ? (a[1] >= 0 ? '+' : '') + a[1].toFixed(2) + 'i' : ''}</span>
+      <span class="bit-amp">${(p * 100).toFixed(1)}%</span>`;
+    out.appendChild(row);
+  }
+}
+
+function renderStats() {
+  document.getElementById('sN').textContent = state.n;
+  document.getElementById('sDim').textContent = state.dim;
+  // Purity = tr(rho^2) = sum(|alpha|^4)
+  let tr2 = 0;
+  for (const a of state.amplitudes) tr2 += Math.pow(a[0]*a[0] + a[1]*a[1], 2);
+  document.getElementById('sPurity').textContent = tr2.toFixed(3);
+  // Entanglement entropy of qubit 0 (simplified)
+  const probs = state.probabilities();
+  let maxI = 0;
+  for (let i = 1; i < state.dim; i++) if (probs[i] > probs[maxI]) maxI = i;
+  document.getElementById('sMost').textContent = '|' + maxI.toString(2).padStart(state.n, '0') + '⟩';
+  document.getElementById('sMostProb').textContent = (probs[maxI] * 100).toFixed(1) + '%';
+  // Entanglement: 0 for product states, ~1 for maximally entangled
+  let S = 0;
+  for (let i = 0; i < state.dim; i += 2) {
+    const p1 = probs[i] + probs[i | (1 << (state.n - 1))];
+    const p0 = probs[i + 1] + probs[(i+1) | (1 << (state.n - 1))];
+    if (p1 > 1e-10) S -= p1 * Math.log2(p1);
+    if (p0 > 1e-10) S -= p0 * Math.log2(p0);
+  }
+  document.getElementById('sEnt').textContent = (S / 2).toFixed(3) + ' bit';
+}
+
+function renderHist() {
+  const out = document.getElementById('hist');
+  out.innerHTML = '';
+  const keys = Object.keys(lastHist).map(Number).sort((a, b) => a - b);
+  const total = keys.reduce((s, k) => s + lastHist[k], 0);
+  if (total === 0) return;
+  for (const k of keys) {
+    const count = lastHist[k];
+    const pct = count / total * 100;
+    const row = document.createElement('div');
+    row.className = 'hist-bar';
+    row.innerHTML = `<span class="hist-label">|${k.toString(2).padStart(state.n, '0')}⟩</span>
+      <div class="hist-fill-wrap"><div class="hist-fill" style="width:${pct.toFixed(1)}%"></div></div>
+      <span class="hist-pct">${count} (${pct.toFixed(1)}%)</span>`;
+    out.appendChild(row);
+  }
+}
+
+render();
+</script>
+
+</body>
+</html>

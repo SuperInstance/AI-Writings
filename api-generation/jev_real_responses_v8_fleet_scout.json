@@ -1,0 +1,78 @@
+{
+  "ts": "2026-09-21T04:08",
+  "total_questions": 8,
+  "results": [
+    {
+      "batch": "fleet_scout_findings",
+      "latency_ms": 213.0515569997442,
+      "results": [
+        {
+          "kind": "score",
+          "value": 1.0,
+          "confidence": 0.33,
+          "source": "fallback"
+        },
+        {
+          "kind": "noul",
+          "value": 0.5036122224332457,
+          "confidence": 0.5036122224332457,
+          "source": "fallback"
+        }
+      ]
+    },
+    {
+      "batch": "deep_research",
+      "latency_ms": 213.74255099999573,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.7487847308614487,
+          "confidence": 0.7487847308614487,
+          "source": "fallback"
+        },
+        {
+          "kind": "score",
+          "value": 1.0,
+          "confidence": 0.33,
+          "source": "fallback"
+        }
+      ]
+    },
+    {
+      "batch": "scout_adoption",
+      "latency_ms": 215.80019299972264,
+      "results": [
+        {
+          "kind": "score",
+          "value": 1.0,
+          "confidence": 0.33,
+          "source": "fallback"
+        },
+        {
+          "kind": "noul",
+          "value": 0.702537573962387,
+          "confidence": 0.702537573962387,
+          "source": "fallback"
+        }
+      ]
+    },
+    {
+      "batch": "three_layer",
+      "latency_ms": 216.5249770000628,
+      "results": [
+        {
+          "kind": "choice",
+          "value": "a",
+          "confidence": 0.33,
+          "source": "fallback"
+        },
+        {
+          "kind": "score",
+          "value": 1.0,
+          "confidence": 0.33,
+          "source": "fallback"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+ "queries": 30,
+ "refused_product_differs": 0,
+ "class_today->with_mem": {
+  "dominates-faster-cheaper -> trade-off": 28,
+  "trade-off -> trade-off": 2
+ },
+ "verdicts_changed": 28,
+ "hot_bytes": {
+  "exact": 737280,
+  "crq+rerank": 92160
+ },
+ "fixtures": {
+  "certified_pairs": 23,
+  "verdicts_changed": 0
+ }
+}

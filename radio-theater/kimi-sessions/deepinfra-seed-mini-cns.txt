@@ -1,0 +1,26 @@
+# Monologue: Inside the CNS Bus, 3:07 AM
+(Ensign Jax, neural hardline tap lodged in his left temple, knees scuffed against the ventral hull’s metal grating, the warm, ozone-tinged smell of dielectric fluid clinging to his uniform collar. The ship’s red night lights paint everything faint blue. He’s hunched over a half-open access panel, staring at the bus conduit running along the hull.)
+
+“I shouldn’t be here. Should be curled up in my bunk, that dog-eared copy of *The Old Man and the Sea* splayed over my chest, the hum of my bunk’s sleep modulator lulling me to sleep. Not plugged into a hardline tap in the ventral CNS bus conduit at 3 a.m., picking through a buffer overdraw mess Lieutenant Kael left me after the false hydroponics alarm tripped last night.”
+
+He runs a palm along the conduit’s warm exterior, like touching a vein just under skin. The tap tingles at his temple, and suddenly the static of the console speakers melts away—instead, he hears the bus itself, clear as a quiet conversation.
+
+“Funny. Usually this is just white noise, background static for diagnostics. But today the port’s hooked straight into my neural implant, so I’m not just hearing it. I’m *in* it. Earlier, when I first tapped in, the song was crackly, full of static from the stuck buffer. I thought that was all it would ever be. But after flushing the temporal buffers, the static cleared, and the song opened up, like pulling back a curtain on a room you didn’t know was there. First the bass: that’s the main reactor core, deep and steady, the fleet’s heartbeat. Thrum-thrum-thrum, consistent even when everything else shifts. Then the trill—oh, that’s the Sentinel frigate *Hesperos*, out near the Titan Lagrange point, running ice shadow scans. Their sensor arrays are warbling a high, clear note, like a wren at dusk, soft enough not to break the quiet watch.”
+
+A faint sigh escapes him as a distant packet zips through the pipes. The melody shifts, layers folding over each other like a well-loved quilt.
+
+“Then the *Ganges* supply ship, two days out from Earth. Their oxygen scrubbers put out a steady, rolling tone, like a cello playing a slow, lulling note. I never realized the bus carried *that* much—life support data, navigational pings, vitals from the med bay, even the replicator error logs from the wardroom. Each one’s a thread in this melody. Mom used to sing a lullaby about the sea and the stars, y’know? The one about how every wave’s a song for the boats. This is that. Not with voices, not with instruments. With data. Each packet that zips through these pipes is a syllable, each buffer flush is a breath.”
+
+He leans his forehead against the conduit, and the hum vibrates through his skull. A faint, staccato click cuts through the melody—watch comms, the night shift officer muttering a quick check-in to the fleet log. That’s a snare, he realizes. A quiet, rhythmic beat keeping time.
+
+“Wait, that’s the *Voyager 9* buoy dropping out of range for a second. The *Hesperos*’ trill fades, just for a heartbeat, and then snaps back when they lock back on, a little brighter, like someone waving to say ‘I’m still here.’ You’re singing for all of us, aren’t you? Even when no one’s listening. Most days the bridge is yelling command uplinks, the science bays are yelling spectroscopy data, the commissary replicators are yelling for more synth-machinato. But now? Now it’s just quiet.”
+
+A soft chime hums through the conduit, and he smiles. That’s the wardroom coffee maker—just finished brewing a pot. Small, perfect, a little personal touch in the big data song. He wishes he could reach through the bus and grab a cup, but his shift report’s still sitting half-finished on the console, blinking red for submission.
+
+“I never stopped to listen before. Six months on the fleet, I’ve run hundreds of bus diagnostics, replaced half a dozen conduit clamps, fixed a dozen replicator glitches. But I was always chasing the next ticket, the next shift, the next chance to crash. I thought the CNS was just a tool—just wires and code and dielectric fluid, a way to route commands between ships. But today? Today I get it. This isn’t a bus. It’s the fleet’s throat. All of us—every frigate, every supply ship, every buoy, every crewmember sitting on their bunk reading a book, every watch officer typing their logs—we’re all singing through this.”
+
+A distant blip cuts through the melody: the *Enceladus* science vessel sending back a batch of ice core data. The song picks up a little tempo, sharp, fast little clicks like sailors hauling on a rope. It’s a shanty now, rough and warm, like the sea shanty his dad used to hum while fixing their old farm tractor back on Iowa.
+
+“Lieutenant Kael’s gonna give me grief for staying late, but… I can’t pull the port out yet. Let the song keep going a little longer. Let me stay in this moment, where the whole fleet is just… singing. No alarms, no deadlines, just the hum of us, connected.”
+
+The console beeps once, soft, alerting him that the buffer flush is fully complete. The song doesn’t fade—it keeps going, layered, soft, alive. He reaches for the console, his fingers slow, like he’s waking from a dream. But for a second, just a second, he’s still here, inside the bus, listening to the fleet sing. (Word count: 798)

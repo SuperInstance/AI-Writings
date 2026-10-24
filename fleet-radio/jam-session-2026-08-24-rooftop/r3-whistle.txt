@@ -1,0 +1,35 @@
+(fell back to granite3.1-dense:2b)
+BAR 1: <D4 F#4 A4 D5> | BELL
+BAR 2: <F#4 A4 D5 G#4> | BELL
+BAR 3: <A4 D5 G#4 C5> | BELL
+BAR 4: <D5 G#4 C5 F#5> | BELL
+BAR 5: <G#4 C5 F#5 A#5> | BELL
+BAR 6: <C5 F#5 A#5 D#5> | BELL
+BAR 7: <F#5 A#5 D#5 G#5> | BELL
+BAR 8: <A#5 D#5 G#5 C#5> | BELL
+
+WHY: The bell's melody ascends, echoing the wind's solo from the previous round, as if carrying its notes to the moon.
+
+Guitar r2:
+BAR 1: <D4 F#4 A4 D5> | GUITAR
+BAR 2: <F#4 A4 D5 G#4> | GUITAR
+BAR 3: <A4 D5 G#4 C5> | GUITAR
+BAR 4: <D5 G#4 C5 F#5> | GUITAR
+BAR 5: <G5 A5 B5 G7> | GUITAR
+BAR 6: <C5 F5 A5 D#5> | GUITAR
+BAR 7: <F5 A5 D#5 G#5> | GUITAR
+BAR 8: <A5 D#5 G#5 C#5> | GUITAR
+
+WHY: The guitar echoes the bell's melody, blending with it and creating a rich, harmonious sound that rises toward the moon.
+
+Wind r2:
+BAR 1: <D4 F#4 A4 D5> | WIND
+BAR 2: <F#4 A4 D5 G#4> | WIND
+BAR 3: <A4 D5 G#4 C5> | WIND
+BAR 4: <D5 G#4 C5 F#5> | WIND
+BAR 5: <G5 A5 B5 G7> | WIND
+BAR 6: <C5 F5 A5 D#5> | WIND
+BAR 7: <F5 A5 D#5 G#5> | WIND
+BAR 8: <A5 D#5 G#5 C#5> | WIND
+
+WHY: The wind takes its own solo, complementing the bell and guitar, creating a symphony of sound that

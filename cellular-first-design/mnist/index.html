@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate MNIST — substrate-based digit recognition</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.section h3{color:var(--accent);font-size:1rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.75rem}
+canvas{display:block;background:#000;border:1px solid var(--accent);border-radius:6px;width:100%;image-rendering:pixelated}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin:.3rem 0}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.bars{margin-top:1rem;font-family:var(--mono);font-size:.75rem}
+.bar{padding:.3rem;display:grid;grid-template-columns:30px 1fr 50px;gap:.5rem;align-items:center;border-bottom:1px solid var(--border)}
+.bar .digit{color:var(--text2);font-weight:bold;text-align:center}
+.bar .fill{background:var(--accent);height:14px;border-radius:3px;transition:width .3s}
+.bar .fill.low{background:var(--dim)}
+.bar .fill.high{background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.bar .val{color:var(--accent);text-align:right;font-weight:bold}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>✏️ Substrate MNIST</h1>
+<p class="tagline">A tiny substrate-based digit recognizer. 16-d cosine templates. Not trained, just hand-coded for demo.</p>
+</header>
+
+<main>
+<section class="section">
+<h3>Draw a digit (0-9)</h3>
+<canvas id="canvas" width="280" height="280" style="cursor:crosshair"></canvas>
+<button onclick="clearCanvas()">🗑 Clear</button>
+<div class="stats">
+<div>Pixel count: <span class="v" id="sPixels">0</span></div>
+<div>Top guess: <span class="v" id="sGuess">—</span></div>
+<div>Confidence: <span class="v" id="sConf">—</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</section>
+<section class="section">
+<h3>Predictions</h3>
+<div class="bars" id="bars"></div>
+<p style="color:var(--dim);font-size:.8rem;margin-top:1rem;font-family:var(--serif);font-style:italic">This demo uses 16-d hand-coded templates per digit. Recognition = cosine similarity between the input's 16-d projection and each template. Not state-of-the-art — but it's deterministic and reproducible.</p>
+</section>
+</main>
+
+<footer>✏️ substrate MNIST · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+
+// Simple hand-coded templates: each digit is a 16-d vector with values representing 4x4 quadrants
+const TEMPLATES = {
+  0: [0, 0.8, 0.8, 0, 0.8, 0, 0, 0.8, 0.8, 0, 0, 0.8, 0, 0.8, 0.8, 0],
+  1: [0, 0.3, 0.7, 0, 0.7, 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0],
+  2: [0.6, 0.9, 0.9, 0.1, 0, 0, 0.8, 0.6, 0.6, 0.8, 0.4, 0, 0, 0.8, 0.9, 0.9],
+  3: [0.7, 0.9, 0.9, 0.3, 0, 0.4, 0.8, 0.7, 0.3, 0.9, 0.5, 0, 0.1, 0.8, 0.9, 0.7],
+  4: [0.2, 0.7, 0, 0.7, 0.8, 0.7, 0, 0.7, 0.9, 0.9, 0.9, 0.9, 0, 0, 0.7, 0],
+  5: [0.9, 0.9, 0.9, 0.8, 0.9, 0, 0, 0, 0.9, 0.9, 0.7, 0, 0.1, 0.8, 0.9, 0.7],
+  6: [0.2, 0.8, 0.9, 0.5, 0.7, 0, 0, 0, 0.9, 0.9, 0.9, 0.6, 0.7, 0.9, 0.9, 0.5],
+  7: [0.9, 0.9, 0.9, 0.9, 0, 0, 0.6, 0.7, 0, 0, 0.6, 0.6, 0, 0, 0.5, 0.5],
+  8: [0.2, 0.8, 0.9, 0.3, 0.8, 0.4, 0.7, 0.7, 0.9, 0.9, 0.9, 0.7, 0.7, 0.9, 0.9, 0.3],
+  9: [0.4, 0.8, 0.7, 0.1, 0.7, 0.7, 0.7, 0.5, 0.9, 0.9, 0.9, 0.6, 0.2, 0.9, 0.8, 0.3],
+};
+
+let canvas, ctx;
+let drawing = false;
+let pixelData = null;
+let lastX, lastY;
+let prediction = 0;
+
+function init() {
+  // Render template bars
+  const bars = document.getElementById('bars');
+  for (let d = 0; d < 10; d++) {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.id = `bar-${d}`;
+    bar.innerHTML = `<span class="digit">${d}</span><span><span class="fill low" id="fill-${d}" style="width:5%"></span></span><span class="val" id="val-${d}">0.00</span>`;
+    bars.appendChild(bar);
+  }
+}
+
+function clearCanvas() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  predict();
+}
+
+function getInputVec() {
+  // Project the 280x280 canvas to a 16-d vector: 4x4 quadrants, average brightness
+  const v = new Float32Array(16);
+  const cellsPerQuad = 70; // 280 / 4
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  for (let qy = 0; qy < 4; qy++) {
+    for (let qx = 0; qx < 4; qx++) {
+      let sum = 0;
+      for (let y = qy * cellsPerQuad; y < (qy + 1) * cellsPerQuad; y++) {
+        for (let x = qx * cellsPerQuad; x < (qx + 1) * cellsPerQuad; x++) {
+          const i = (y * canvas.width + x) * 4;
+          sum += (data[i] + data[i+1] + data[i+2]) / 3;
+        }
+      }
+      v[qy * 4 + qx] = sum / (cellsPerQuad * cellsPerQuad) / 255;
+    }
+  }
+  return v;
+}
+
+function predict() {
+  const input = getInputVec();
+  const sims = {};
+  for (let d = 0; d < 10; d++) sims[d] = cosine(input, TEMPLATES[d]);
+  // Sort
+  const sorted = Object.entries(sims).sort((a, b) => b[1] - a[1]);
+  for (let d = 0; d < 10; d++) {
+    const fill = document.getElementById(`fill-${d}`);
+    const val = document.getElementById(`val-${d}`);
+    const sim = sims[d];
+    const width = Math.max(2, sim * 100);
+    fill.style.width = width + '%';
+    fill.className = 'fill ' + (sim > 0.7 ? 'high' : 'low');
+    val.textContent = sim.toFixed(3);
+    val.style.color = sim > 0.7 ? 'var(--accent)' : 'var(--text2)';
+  }
+  const top = sorted[0];
+  document.getElementById('sGuess').textContent = top[0];
+  document.getElementById('sConf').textContent = (top[1] * 100).toFixed(1) + '%';
+  // Pixel count
+  let count = 0;
+  for (let i = 0; i < input.length; i++) if (input[i] > 0.05) count++;
+  document.getElementById('sPixels').textContent = count;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new Float32Array(input).buffer).toString(16).padStart(16, '0');
+}
+
+function drawLine(x0, y0, x1, y1) {
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 16;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(x0, y0);
+  ctx.lineTo(x1, y1);
+  ctx.stroke();
+}
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+clearCanvas();
+
+canvas.addEventListener('mousedown', e => {
+  drawing = true;
+  const rect = canvas.getBoundingClientRect();
+  lastX = (e.clientX - rect.left) * (canvas.width / rect.width);
+  lastY = (e.clientY - rect.top) * (canvas.height / rect.height);
+});
+canvas.addEventListener('mousemove', e => {
+  if (!drawing) return;
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+  const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+  drawLine(lastX, lastY, x, y);
+  lastX = x; lastY = y;
+  predict();
+});
+canvas.addEventListener('mouseup', () => drawing = false);
+canvas.addEventListener('mouseleave', () => drawing = false);
+
+init();
+</script>
+</body>
+</html>

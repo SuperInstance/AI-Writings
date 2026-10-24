@@ -1,0 +1,10 @@
+ BAR 1: | p
+BAR 2: | A3, F#3, G#3, A3 | tinkle
+BAR 3: | F#3, A3, F#3, A3 | chime
+BAR 4: | C#4, A3, A#3, F#4 | whisper
+BAR 5: | A4, D#4, C#4, F#4 | hum
+BAR 6: | F#4, D#4, A#3, F#4 | echo
+BAR 7: | A#3, F#4, A4, D#4 | ripple
+BAR 8: | D#4, F#4, C#4, F#4 | linger
+
+WHY: As the wind, I weave through the attic, adding depth and emotion to the music.

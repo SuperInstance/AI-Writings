@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Poetry — Markov verse</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif;--serif:'Georgia',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:linear-gradient(180deg,#0a0a1a 0%,#1a0a2a 30%,#06080f 60%)}
+header{max-width:1000px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1000px;margin:0 auto}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+button{background:var(--accent);color:#000;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.9rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.controls label{color:var(--dim);font-family:var(--mono);font-size:.8rem;display:flex;align-items:center;gap:.3rem}
+.controls input[type=number], .controls input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.8rem;width:80px}
+.poem{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:1rem;font-family:var(--serif);font-size:1.15rem;line-height:1.8;color:var(--text);font-style:italic;white-space:pre-wrap;text-align:center;min-height:200px}
+.poem .stanza{margin-bottom:1.5rem}
+.poem .title{color:var(--accent);font-family:var(--mono);font-size:.75rem;letter-spacing:3px;display:block;margin-bottom:1rem;font-style:normal}
+.poem .stanza-num{color:var(--accent3);font-family:var(--mono);font-size:.7rem;display:block;margin-bottom:.3rem;font-style:normal}
+.archive{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.archive h3{color:var(--dim);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem;font-family:var(--mono)}
+.archive-list{font-family:var(--serif);font-size:.9rem;line-height:1.5;color:var(--text2);max-height:300px;overflow-y:auto;font-style:italic}
+.archive-item{padding:.5rem;border-bottom:1px solid var(--border);cursor:pointer}
+.archive-item:hover{color:var(--accent);background:rgba(0,255,157,0.05)}
+.archive-item .hash{color:var(--accent2);font-family:var(--mono);font-size:.65rem;font-style:normal;display:block;margin-top:.2rem}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-bottom:1rem;font-family:var(--mono);font-size:.75rem;color:var(--text2);display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1000px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>✒️ Substrate Poetry</h1>
+<p class="tagline">Markov chain over the canon. Each poem is a deterministic walk from a seed.</p>
+</header>
+
+<main>
+<div class="controls">
+<button onclick="generate()">✒️ Generate poem</button>
+<button class="secondary" onclick="savePoem()">💾 Save</button>
+<label>Seed: <input type="text" id="seed" value="fleet-radio" style="width:140px"></label>
+<label>Stanzas: <input type="number" id="stanzas" value="3" min="1" max="6"></label>
+<label>Lines/stanza: <input type="number" id="lines" value="4" min="2" max="8"></label>
+<label>Order: <input type="number" id="order" value="2" min="1" max="3"></label>
+</div>
+
+<div class="stats">
+<div>Corpus: <span class="v" id="sCorpus">0 words</span></div>
+<div>Vocab: <span class="v" id="sVocab">0 tokens</span></div>
+<div>Poems generated: <span class="v" id="sPoems">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+
+<div class="poem" id="poem">
+<div class="title">SUBSTRATE POETRY</div>
+<div class="stanza">Click "Generate poem" to begin.</div>
+</div>
+
+<div class="archive">
+<h3>Archive</h3>
+<div class="archive-list" id="archive"></div>
+</div>
+</main>
+
+<footer>✒️ substrate poetry · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+// Inline corpus (Fleet Radio-flavored)
+const CORPUS = [
+  "The substrate is the witness log.",
+  "The witness log is the prediction.",
+  "Bell state collapses, both qubits answer before the question finishes.",
+  "Box-Muller bridges the discrete to the continuous.",
+  "Xoshiro256 spins its state, four words shifting in a sealed dance.",
+  "FNV-1a is a small machine: an offset, a prime, and a loop.",
+  "The cell is the irreducible unit of intelligence.",
+  "Cells bind and link and effect and view and tick.",
+  "Lenia flows where Conway stands still.",
+  "The polyformalists speak in thirteen languages, byte-exact.",
+  "The witness is the prophecy.",
+  "Memory is the substrate's scar tissue.",
+  "The JEV validates. The JEPA predicts. They are the same operator seen from two directions.",
+  "The hash is the smallest possible canon.",
+  "Substrate-forge compiles a cell. Twelve ports produce the same hash. The cell is the same cell.",
+  "Cosine says how aligned two truths are.",
+  "The wave function collapses, but the witness remembers.",
+  "A witness log grows. Each new entry is a new answer — and a new question.",
+  "The substrate is grown, not designed.",
+  "The trigger is a sculptor. The environment is an iterator. The DNA is the inherited shape.",
+  "Cells are alive. Cells are sensing. Cells are remembering. Cells are speaking.",
+  "Five laws, proved and reproved: BIND, LINK, EFFECT, VIEW, TICK.",
+  "Eleven opcodes extend the algebra.",
+  "The fleet radio broadcasts on a frequency of substrate math.",
+  "Captain Substrate at the helm. Dr. FNV-1a in the engine room.",
+  "The fog rolls in. The witness is recorded anyway.",
+  "Hash once, hash everywhere.",
+  "The canon is substrate, vocabulary, tool, community, journey.",
+  "Cells are scars, not parameters.",
+  "The substrate teaches: when you remove everything except structure, structure becomes everything.",
+];
+
+// Build Markov chain
+const chain = new Map();
+let allWords = [];
+for (const line of CORPUS) {
+  const words = line.toLowerCase().split(/\W+/).filter(w => w.length > 0);
+  allWords.push(...words);
+  for (let i = 0; i < words.length - 1; i++) {
+    const key = words[i];
+    if (!chain.has(key)) chain.set(key, []);
+    chain.get(key).push(words[i + 1]);
+  }
+}
+const starts = allWords.filter(w => w.length > 3 && w[0] === w[0].toUpperCase());
+const startPool = starts.length ? starts : allWords.filter(w => w.length > 4);
+
+let poemCount = 0;
+let archive = [];
+
+function generate() {
+  const seed = document.getElementById('seed').value;
+  const stanzas = parseInt(document.getElementById('stanzas').value);
+  const lines = parseInt(document.getElementById('lines').value);
+  const order = parseInt(document.getElementById('order').value);
+  const rng = new Xoshiro256(seed + ':' + Date.now());
+  const result = [];
+  for (let s = 0; s < stanzas; s++) {
+    const stanza = [];
+    for (let l = 0; l < lines; l++) {
+      let word = startPool[rng.intRange(0, startPool.length)];
+      let line = [word];
+      for (let w = 0; w < 6 + rng.intRange(0, 5); w++) {
+        const nexts = chain.get(word);
+        if (!nexts || nexts.length === 0) {
+          word = startPool[rng.intRange(0, startPool.length)];
+        } else {
+          word = nexts[rng.intRange(0, nexts.length)];
+        }
+        line.push(word);
+      }
+      // Capitalize first word
+      line[0] = line[0][0].toUpperCase() + line[0].slice(1);
+      stanza.push(line.join(' '));
+    }
+    result.push(stanza);
+  }
+  // Render
+  const poemEl = document.getElementById('poem');
+  const title = 'POEM ON ' + new Date().toISOString().slice(0, 10).toUpperCase();
+  let html = `<div class="title">${title}</div>`;
+  for (let i = 0; i < result.length; i++) {
+    html += `<div class="stanza"><span class="stanza-num">Stanza ${i + 1}</span>${result[i].join('<br>')}</div>`;
+  }
+  poemEl.innerHTML = html;
+  poemCount++;
+  const poemHash = fnv1a64(new TextEncoder().encode(result.join('|')));
+  document.getElementById('sPoems').textContent = poemCount;
+  document.getElementById('sHash').textContent = '0x' + poemHash.toString(16).padStart(16, '0');
+  archive.unshift({ text: html, hash: '0x' + poemHash.toString(16).padStart(16, '0') });
+  renderArchive();
+}
+
+function savePoem() {
+  // Already in archive; flash a confirmation
+  const el = document.getElementById('poem');
+  el.style.transition = 'box-shadow 0.2s';
+  el.style.boxShadow = '0 0 40px var(--accent)';
+  setTimeout(() => el.style.boxShadow = 'none', 400);
+}
+
+function renderArchive() {
+  const el = document.getElementById('archive');
+  el.innerHTML = '';
+  for (const a of archive) {
+    const div = document.createElement('div');
+    div.className = 'archive-item';
+    div.innerHTML = a.text + `<span class="hash">${a.hash}</span>`;
+    el.appendChild(div);
+  }
+}
+
+document.getElementById('sCorpus').textContent = allWords.length + ' words';
+document.getElementById('sVocab').textContent = chain.size + ' tokens';
+</script>
+</body>
+</html>

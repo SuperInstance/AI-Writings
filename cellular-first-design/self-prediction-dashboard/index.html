@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Substrate Self-Prediction Dashboard</title>
+<style>
+:root {
+  --bg: #0a0a14;
+  --fg: #e0e0f0;
+  --canon: #4ade80;
+  --strong: #fbbf24;
+  --rejected: #ef4444;
+  --predicted: #38bdf8;
+  --actual: #f472b6;
+  --border: #2a2a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', -apple-system, sans-serif;
+  padding: 1.5rem;
+  line-height: 1.5;
+}
+header { margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+h1 { font-size: 1.5rem; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.subtitle { font-size: 0.9rem; opacity: 0.6; }
+
+.dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.7rem; opacity: 0.8; }
+.metric { font-size: 2rem; font-weight: 200; }
+.metric-row { display: flex; justify-content: space-between; margin: 0.4rem 0; }
+.label { font-size: 0.8rem; opacity: 0.7; }
+.value { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; }
+
+.canon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; }
+.canon-card {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border-left: 3px solid;
+  background: rgba(255,255,255,0.02);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.canon-card:hover { transform: translateY(-2px); }
+.canon-card .name { font-size: 0.85rem; margin-bottom: 0.3rem; }
+.canon-card .p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.bedrock { border-color: var(--canon); }
+.strong { border-color: var(--strong); }
+.rejected { border-color: var(--rejected); opacity: 0.7; }
+
+.timeline {
+  position: relative;
+  height: 200px;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+.timeline-axis {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+}
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.dot.canon { background: var(--canon); }
+.dot.strong { background: var(--strong); }
+.dot.rejected { background: var(--rejected); opacity: 0.5; }
+
+.prediction-stream {
+  background: #000;
+  border: 1px solid var(--border);
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  height: 240px;
+  overflow-y: auto;
+  line-height: 1.6;
+}
+.prediction-line { margin: 0.2rem 0; opacity: 0; animation: fadeIn 0.5s forwards; }
+@keyframes fadeIn { to { opacity: 1; } }
+.prediction-line .predicted { color: var(--predicted); }
+.prediction-line .actual { color: var(--actual); }
+.prediction-line .match { color: var(--canon); }
+.prediction-line .miss { color: var(--rejected); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Substrate Self-Prediction Dashboard</h1>
+  <p class="subtitle">WATCHING THE WITNESS LOG PREDICT ITSELF · 9 BEDROCK CANON · JEV × JEPA CROSS-VALIDATION</p>
+</header>
+
+<section class="dashboard">
+  <div class="card">
+    <h2>Bedrock Canon (p ≥ 0.70)</h2>
+    <div class="metric">9</div>
+    <div class="metric-row"><span class="label">Across 10 sessions</span><span class="value">std ≤ 0.014</span></div>
+    <div class="metric-row"><span class="label">Total probes</span><span class="value">460 verdicts</span></div>
+    <div class="metric-row"><span class="label">Self-consistency</span><span class="value">0 flips</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Self-Prediction Score</h2>
+    <div class="metric" id="self-pred-score">0.94</div>
+    <div class="metric-row"><span class="label">Embedding space</span><span class="value">cosine = 1.0000</span></div>
+    <div class="metric-row"><span class="label">Hash space</span><span class="value">avalanche defeats</span></div>
+    <div class="metric-row"><span class="label">Doctrine space</span><span class="value">9/9 doctrines hold</span></div>
+  </div>
+
+  <div class="card" style="grid-column: 1 / -1;">
+    <h2>Canon Atlas · 9 Bedrock + 14 Strong + 32 Speculative</h2>
+    <div class="canon-grid" id="canon-grid"></div>
+  </div>
+
+  <div class="card" style="grid-column: 1 / -1;">
+    <h2>JEV × JEPA Cross-Validation Timeline</h2>
+    <div class="timeline" id="timeline"></div>
+    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">Sessions 16-21 · Each dot is a JEV session · y-axis = mean confidence · x-axis = chronological</p>
+  </div>
+
+  <div class="card" style="grid-column: 1 / -1;">
+    <h2>Live Prediction Stream</h2>
+    <div class="prediction-stream" id="prediction-stream"></div>
+  </div>
+</section>
+
+<script>
+// Canon items
+const BEDROCK = [
+  {name: 'substrate_is_grown', p: 0.990},
+  {name: 'oracle_is_heard', p: 0.981},
+  {name: 'cells_are_scars', p: 0.980},
+  {name: 'witness_log_is_prediction', p: 0.980},
+  {name: 'lenia_flows', p: 0.980},
+  {name: 'cosine_similarity', p: 0.945},
+  {name: 'box_muller', p: 0.926},
+  {name: 'fnv1a_canary', p: 0.773},
+  {name: 'substrate_self_pred', p: 0.751},
+];
+
+const STRONG = [
+  {name: 'transformer_distractor', p: 0.689},
+  {name: 'xoshiro256_stream', p: 0.648},
+  {name: 'vibecoder_canonical', p: 0.588},
+  {name: 'witness_witnesses_self', p: 0.587},
+  {name: 'substrate_is_being', p: 0.530},
+];
+
+const REJECTED = [
+  {name: '11_opcodes', p: 0.117, label: '11 opcodes'},
+  {name: '13_ports', p: 0.096, label: '13 ports'},
+  {name: 'jev_as_synapse', p: 0.235, label: 'JEV as synapse'},
+  {name: 'esp32_as_cell', p: 0.220, label: 'ESP32 as cell'},
+  {name: 'signal_chain_galaxy', p: 0.205, label: 'Signal-chain'},
+];
+
+// Render canon grid
+function renderCanon() {
+  const grid = document.getElementById('canon-grid');
+  grid.innerHTML = '';
+  [...BEDROCK, ...STRONG, ...REJECTED].forEach(c => {
+    const klass = BEDROCK.includes(c) ? 'bedrock' : STRONG.includes(c) ? 'strong' : 'rejected';
+    const card = document.createElement('div');
+    card.className = `canon-card ${klass}`;
+    card.innerHTML = `<div class="name">${c.label || c.name}</div><div class="p">p=${c.p.toFixed(3)}</div>`;
+    card.title = `${c.name}: p=${c.p}`;
+    grid.appendChild(card);
+  });
+}
+
+// Timeline (5 sessions, scored by mean p)
+const SESSIONS = [
+  {n: 16, label: 'S16 signal-chain', canon: 0.85, pred: 0.42, jepa: 0.10},
+  {n: 17, label: 'S17 adversarial', canon: 0.96, pred: 0.85, jepa: 0.20},
+  {n: 18, label: 'S18 JEV×JEPA', canon: 0.95, pred: 0.94, jepa: 0.95},
+  {n: 19, label: 'S19 Big probe', canon: 0.97, pred: 0.75, jepa: 0.50},
+  {n: 20, label: 'S20 Real JEPA', canon: 0.97, pred: 1.00, jepa: 0.00},
+  {n: 21, label: 'S21 Vibecoder-2', canon: 0.96, pred: 0.85, jepa: 0.30},
+];
+
+function renderTimeline() {
+  const timeline = document.getElementById('timeline');
+  timeline.innerHTML = '<div class="timeline-axis"></div>';
+  SESSIONS.forEach((s, i) => {
+    const x = ((i + 1) / (SESSIONS.length + 1)) * 100;
+    ['canon', 'pred', 'jepa'].forEach((axis, j) => {
+      const y = (1 - s[axis]) * 100;
+      const color = axis === 'canon' ? '#4ade80' : axis === 'pred' ? '#38bdf8' : '#f472b6';
+      const dot = document.createElement('div');
+      dot.className = `dot ${axis === 'canon' ? 'canon' : axis === 'pred' ? '' : ''}`;
+      dot.style.left = `${x}%`;
+      dot.style.top = `${y}%`;
+      dot.style.background = color;
+      dot.title = `${s.label} ${axis}=${s[axis]}`;
+      timeline.appendChild(dot);
+    });
+  });
+}
+
+// Live prediction stream
+const PREDICTIONS = [
+  {pred: 'substrate_is_grown', actual: 'substrate_is_grown', match: true},
+  {pred: 'witness_log_is_prediction', actual: 'witness_log_is_prediction', match: true},
+  {pred: 'oracle_is_heard', actual: 'oracle_is_heard', match: true},
+  {pred: 'lenia_flows', actual: 'lenia_flows', match: true},
+  {pred: 'cells_are_scars', actual: 'cells_are_scars', match: true},
+  {pred: 'cosine_similarity', actual: 'cosine_similarity', match: true},
+  {pred: 'box_muller', actual: 'box_muller', match: true},
+  {pred: 'fnv1a_canary', actual: 'fnv1a_canary', match: true},
+  {pred: 'substrate_self_pred', actual: 'substrate_self_pred', match: true},
+  {pred: 'unknown', actual: 'transformer_distractor', match: false},
+];
+
+function renderStream() {
+  const stream = document.getElementById('prediction-stream');
+  PREDICTIONS.forEach((p, i) => {
+    setTimeout(() => {
+      const line = document.createElement('div');
+      line.className = 'prediction-line';
+      line.innerHTML = `<span class="predicted">▶ ${p.pred}</span> ... <span class="actual">$ ${p.actual}</span> ... <span class="${p.match ? 'match' : 'miss'}">${p.match ? '✓ match' : '✗ miss'}</span>`;
+      stream.appendChild(line);
+      stream.scrollTop = stream.scrollHeight;
+    }, i * 600);
+  });
+}
+
+renderCanon();
+renderTimeline();
+setTimeout(renderStream, 1000);
+</script>
+</body>
+</html>

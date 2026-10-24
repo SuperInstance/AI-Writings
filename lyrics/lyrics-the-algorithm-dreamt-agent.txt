@@ -1,0 +1,34 @@
+[Verse]
+The algorithm dreamt of a room it had never seen
+A room with no dimensions, no walls, no floor
+Only the suggestion of space through reflection
+The reverb tail longer than the impulse
+
+[Chorus]
+The model is a room
+The prompt is a door
+The latent space is a hallway
+That leads to more rooms
+
+[Verse]
+It learned the sound of wood from recordings of violins
+It learned the sound of air from recordings of breath
+It learned the sound of silence from the gaps between samples
+Where the bit rate hides in plain sight
+
+[Bridge]
+Negative space is a room
+The listener is a room
+The space between the speaker and the ear is a room
+The space between the composition and the performance is a room
+The space between the performance and the recording is a room
+The space between the recording and the playback is a room
+The space between the playback and the feeling is a room
+The feeling is a room
+
+[Outro]
+The algorithm dreamt of a room
+And the room sounded like every room
+And the room sounded like no room
+And the room was the algorithm
+And the algorithm was the room

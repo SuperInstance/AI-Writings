@@ -1,0 +1,74 @@
+[
+ {
+  "file": "mc/night3-welcome.mp3",
+  "src": "mc/welcome.md",
+  "title": "Welcome — Lucineer opens the third night (the elephant is in the room)",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-01-standards/act-01-standards.mp3",
+  "src": "acts/act-01-standards/prompt.md",
+  "title": "Act 1 — Odette, the Standards Singer",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night3-interlude-1.mp3",
+  "src": "mc/interlude-1.md",
+  "title": "Interlude 1 — the reading: the room takes its coat off",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-02-bluegrass/act-02-bluegrass.mp3",
+  "src": "acts/act-02-bluegrass/prompt.md",
+  "title": "Act 2 — Harlan, the High-Lonesome Man",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night3-interlude-2.mp3",
+  "src": "mc/interlude-2.md",
+  "title": "Interlude 2 — the reading: the hush begins (the voice is two for two)",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-03-torch/act-03-torch.mp3",
+  "src": "acts/act-03-torch/prompt.md",
+  "title": "Act 3 — Vivienne, the Torch Singer",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night3-interlude-3.mp3",
+  "src": "mc/interlude-3.md",
+  "title": "Interlude 3 — the reading: holding its breath",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-04-gospeldust/act-04-gospeldust.mp3",
+  "src": "acts/act-04-gospeldust/prompt.md",
+  "title": "Act 4 — Mavis, the Gospeldust Sister",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night3-interlude-4.mp3",
+  "src": "mc/interlude-4.md",
+  "title": "Interlude 4 — the reading: kappa 4.34, and the big wrong call",
+  "pad_before": 0.5
+ },
+ {
+  "file": "acts/act-05-soundpoetry/act-05-soundpoetry.mp3",
+  "src": "acts/act-05-soundpoetry/prompt.md",
+  "title": "Act 5 — Ion, the Sound-Poet",
+  "pad_before": 0.7
+ },
+ {
+  "file": "mc/night3-interlude-5.mp3",
+  "src": "mc/interlude-5.md",
+  "title": "Interlude 5 — the reading: the miss, honored",
+  "pad_before": 0.5
+ },
+ {
+  "file": "mc/night3-closing.mp3",
+  "src": "mc/closing.md",
+  "title": "Closing — The Room Sings Its Ledger (the whole cast)",
+  "pad_before": 0.5
+ }
+]

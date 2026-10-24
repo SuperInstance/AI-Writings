@@ -1,0 +1,44 @@
+applied checkpoint main
+applied mute main
+applied rearrange main
+applied tone main
+applied tone main
+applied branch agent
+applied zoom parse
+applied mute agent
+applied mute agent
+applied mute agent
+applied mute agent
+## branch main (parent None) turns=25 state=0x8deebbc6339a07f2
+adj={"hy3": ["glm", "nemo"], "nemo": ["hy3", "qwen", "dsv4", "glm"], "ling": ["hy3", "nemo"], "qwen": ["ling", "nemo"], "mimo": ["qwen", "nemo"], "dsv4": ["mimo", "nemo"], "glm": ["dsv4", "nemo"], "inkling": []}
+tones={"hy3": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "inkling": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "nemo": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "ling": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "qwen": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "mimo": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "dsv4": "Converge toward ONE 1-day experiment spec: encoder, alphabet", "glm": "Converge toward ONE 1-day experiment spec: encoder, alphabet"}
+muted=['inkling']
+recent derails=['main.t22']
+checkpoints=['c1']
+  * main.t0 hy3 (0.88): Extend voxelglyph.md's finding: the ceiling is rank-one encoder. Break it with a 2-bit/channel ordered-dither glyph alphabet instead of luma pooling. Mechanism: for each 2×4 cell, compute R,G,B means, then Floyd–Steinber
+  * main.t6 glm (0.82): **glm** (architect)  dsv4's legend is not decoration — it's a *witness cell*. Map it into the Quilt model: legend header = cell with sha256 receipt (quilt-nn chain); glyph body = downstream cells. Mechanism: append one d
+  * main.t5 dsv4 (0.81): **dsv4**   I buy the rank-3 reasoning but the bottleneck isn't bits/cell—it's *how the VLM parses the glyph stream*. Mimo's contiguous 16-symbol glyph is cleaner than triplets but still forces the VLM to learn a new visu
+  * main.t3 qwen (0.80): Build on hy3/nemo: make each ASCII cell a rank-3 agent-glyph that answers three 2-bit questions, one glyph each.  Queries over 2×4 mean RGB: `R-G`, `G-B`, `Y` quantized to four ASCII states: `- . _ +`. Output `a b c` per
+## branch agent (parent ['main', 'main.t3']) turns=10 state=0x11f59c9d68bfbfa0
+adj={"hy3": ["qwen", "glm"], "qwen": ["hy3", "mimo"], "mimo": ["qwen", "glm"], "glm": ["mimo", "hy3"], "inkling": [], "nemo": [], "ling": [], "dsv4": []}
+tones={"hy3": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "inkling": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "nemo": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "ling": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "qwen": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "mimo": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "dsv4": "Agent-glyph direction: a glyph is not a pixel but a tiny cel", "glm": "Agent-glyph direction: a glyph is not a pixel but a tiny cel"}
+muted=['dsv4', 'inkling', 'ling', 'nemo']
+recent derails=['agent.t15']
+checkpoints=[]
+  * main.t0 hy3 (0.88): Extend voxelglyph.md's finding: the ceiling is rank-one encoder. Break it with a 2-bit/channel ordered-dither glyph alphabet instead of luma pooling. Mechanism: for each 2×4 cell, compute R,G,B means, then Floyd–Steinber
+  * main.t3 qwen (0.80): Build on hy3/nemo: make each ASCII cell a rank-3 agent-glyph that answers three 2-bit questions, one glyph each.  Queries over 2×4 mean RGB: `R-G`, `G-B`, `Y` quantized to four ASCII states: `- . _ +`. Output `a b c` per
+  * main.t1 nemo (0.78): **nemo**   I see the dither-glyph mechanism: 2-bit ordered dithering per channel yields 8-level glyphs per triplet, pushing bits/cell from ~2.6 to 9. That's a concrete rank-break from the luma ceiling. However, a skeptic
+  * agent.t17 qwen (0.76): Extend mimo t15 and hy3 t16: stop paying for density; make the glyph a selector program.  For each 2×4 cell compute means R,G,B,Y. Pick max-contrast opponent among RG, BY, RB, Y; emit one compact 2-char cell glyph: selec
+## branch parse (parent ['main', 'main.t5']) turns=6 state=0x3707f58534d69c7c
+adj={"nemo": ["dsv4", "ling", "glm"], "dsv4": ["nemo", "ling", "glm"], "ling": ["nemo", "dsv4", "glm"], "glm": ["nemo", "dsv4", "ling"]}
+tones={}
+muted=[]
+recent derails=[]
+checkpoints=[]
+  * parse.t1 dsv4 (0.84): dsv4  Nemo, your agent-glyph is elegant but you're overloading shape with color—the VLM still has to *parse geometry* to extract RGB, which is just a different cipher. Worse, 3×3 ASCII blocks lose spatial resolution: a 1
+  * parse.t0 nemo (0.83): **nemo** (skeptic)  I respect the legend-header idea—it demystifies the glyph mapping for the VLM—but I'm tracking a deeper failure mode. The header row *still* forces the VLM to learn a new visual codebook from scratch 
+  * parse.t3 nemo (0.81): **nemo** (skeptic)  ling, I see the anchor-glyph's advantage: zero in-context learning cost, unlike the header. But 8 bits/glyph is too thin. An anchor that only gives luma (1D) forces the VLM to still infer chroma from 
+  * parse.t4 dsv4 (0.80): **dsv4**   Nemo, 25 bits/glyph is tempting but you're counting raw pixels, not *what the VLM can parse*. A 3×3 block forces the VLM to segment perimeter vs interior, count pixel shades per region, and map to RGB—that's a
+errors: 9 (last: {'branch': 'parse', 'cell': 'glm', 'model': 'glm-5.3', 'error': 'empty content (reasoning=4644 chars)'})
+
+ledger: 57 records, intact=True, spend={"tencent/Hy3": 14451, "nvidia/NVIDIA-Nemotron-3.5-Lightning": 6478, "inclusionAI/Ling-3.0-flash": 19090, "Qwen/Qwen3.8-Flash": 37246, "XiaomiMiMo/MiMo-V2.6-Pro": 17573, "deepseek-ai/DeepSeek-V4-Flash": 17065, "glm-5.3": 14774}

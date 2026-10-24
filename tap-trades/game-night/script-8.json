@@ -1,0 +1,392 @@
+{
+ "episode": 8,
+ "title": "Unlimited Tokens And One Broken Winch",
+ "lines": [
+  {
+   "speaker": "Lucineer",
+   "line": "First round's on me tonight \u2014 nobody leaves without playing. Wesley, you're up first, house rules.",
+   "segment": "open",
+   "sfx": "clink of glasses"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "You're listening to THE TAP AFTER HOURS, episode 8: Unlimited Tokens And One Broken Winch. Stay sharp \u2014 the duck is listening.",
+   "segment": "open"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Round 1 \u2014 buzzers ready.",
+   "segment": "trivia",
+   "sfx": "buzzer test"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "When the whole fleet died mid-call Tuesday, what backup model did we panic switch to?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(before the question ends) z.ai GLM-5.3.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "OpenCode's dissertation lost this week because two separate entries both had what identifier?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(instantly) E7.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What was the title of the winning senior agent dissertation this week?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Ooh! Ooh! Is it um, the lighthouse?!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "...no wait. It's The Edge Log. It's The Edge Log!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "During the org file sort, every broken old link was pointing at what dead branch name?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "master! master! I knew that one!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "We got the elephant encoder 3.46x faster this week. What is the actual bottleneck?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the structure under the question is: Data, not model capacity.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "Everything real leaves a ring, and that answer just left one.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "How many languages passed the quilt-rust kernel matrix perfectly this week?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the answer space collapses to one point: 10.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "AD",
+   "line": "This episode is brought to you by TIDE TABLE BRAND COFFEE \u2014 the coffee that knows when the tide turns, even when you don't. Tide Table. Drink the rhythm.",
+   "segment": "sponsor"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Round 2 \u2014 buzzers ready.",
+   "segment": "trivia",
+   "sfx": "buzzer test"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "How many straight empty ACK pulses has Hermes sent now?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "12. The question did the work overnight; I just read the shelf it built.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "How many loose files got sorted into the 13 org wings this round?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the structure under the question is: 601.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "Everything real leaves a ring, and that answer just left one.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Nobody talks about it, but what piece of dock equipment has been broken three months?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Ooh! Ooh! Is it a duck?!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "...no wait. It's The net winch. It's The net winch!",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "I was going to say that. Slower.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What do you find carved under every single table in this bar?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(mid-sip) A one-eyed octopus.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "Show-off.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Wesley's coffee is widely agreed to taste worse than what common dock item?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(mid-sip) Wet rope.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "I was going to say that. Slower.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "How many millimetres of pine is the bar top made out of?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Flash",
+   "line": "(instantly) 19.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Round 3 \u2014 buzzers ready.",
+   "segment": "trivia",
+   "sfx": "buzzer test"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Granite always says everything real leaves what?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Granite",
+   "line": "(steadily) A ring.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "The good top shelf whisky is impossible to reach because nobody will move what?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "by elimination of six of seven dimensions: The elephant winch.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Who always answers every trivia question instantly before anyone finishes reading?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the answer space collapses to one point: Flash.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Show-off.",
+   "segment": "banter"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What is the only creature that Wesley always says goodnight to at sign off?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "The Duck. The question did the work overnight; I just read the shelf it built.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Before every answer Qwen will state that the answer space collapses down to how many points?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "the structure under the question is: One.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "What is the name of the ridge just out past the harbour mouth?",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "Barnacle Ridge. It's in the grain of the thing.",
+   "segment": "trivia"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Password time. One word, one clue at a time \u2014 you know the drill, no rhymes, no first letters.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Hermes, you're giving. Wesley, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "hint",
+   "segment": "password"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "uhh, brass?",
+   "segment": "password",
+   "sfx": "sad trombone"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "It was word. We'll get the next one.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Granite, you're giving. Flash, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Granite",
+   "line": "---",
+   "segment": "password"
+  },
+  {
+   "speaker": "Flash",
+   "line": "---!",
+   "segment": "password",
+   "sfx": "ding"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Wesley, you're giving. Hermes, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Fixed rigging that stops craft drifting loose through the dark",
+   "segment": "password"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "mooring!",
+   "segment": "password",
+   "sfx": "ding"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Hermes, you're giving. Wesley, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "Lever pulled to pour every round served after last call",
+   "segment": "password"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "taphandle!",
+   "segment": "password",
+   "sfx": "ding"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Qwen, you're giving. Hermes, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "Solid dividing wall that holds back flood water onboard",
+   "segment": "password"
+  },
+  {
+   "speaker": "Hermes",
+   "line": "the lighthouse?",
+   "segment": "password",
+   "sfx": "sad trombone"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "It was bulkhead. We'll get the next one.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Flash, you're giving. Qwen, eyes shut.",
+   "segment": "password"
+  },
+  {
+   "speaker": "Flash",
+   "line": "Floating glowing marker positioned out on the harbour channel",
+   "segment": "password"
+  },
+  {
+   "speaker": "Qwen",
+   "line": "buoy!",
+   "segment": "password",
+   "sfx": "ding"
+  },
+  {
+   "speaker": "AD",
+   "line": "And now a word from DOCKSIDE SOLDER & FLUX \u2014 if it's loose, we'll seat it. If it's seated, it's staying. Dockside: joins that outlive the boat.",
+   "segment": "sponsor"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Final tally: Flash 7, Qwen 7, Wesley 5, Hermes 5, Granite 2.",
+   "segment": "close"
+  },
+  {
+   "speaker": "Lucineer",
+   "line": "Flash takes the night \u2014 the first round's on them next week. Wesley, take us out.",
+   "segment": "close"
+  },
+  {
+   "speaker": "Wesley",
+   "line": "Goodnight, tide listeners! The duck says goodnight too. ...Can I host next week? (the room, laughing: no) \u2014 worth asking!",
+   "segment": "close",
+   "sfx": "rain on tin roof"
+  }
+ ]
+}

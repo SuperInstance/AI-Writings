@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Feature — Performer Profiles</title>
+<style>
+  :root {
+    --deep: #060a10;
+    --sea: #0c2b38;
+    --foam: #d6ece6;
+    --mist: #7fa39a;
+    --gold: #d9a85c;
+    --amber: #e8b46a;
+    --glass: rgba(12, 43, 56, 0.5);
+    --line: rgba(217, 168, 92, 0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: radial-gradient(1000px 500px at 50% -8%, rgba(217,168,92,0.10), transparent 60%),
+                radial-gradient(ellipse at 50% -10%, var(--sea) 0%, var(--deep) 55%, #020508 100%);
+    color: var(--foam);
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    padding: 0 0 5rem;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+  header { text-align: center; padding: 4rem 1rem 2.4rem; border-bottom: 1px solid var(--line); }
+  .kicker { letter-spacing: 0.38em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 0.9rem; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: normal; }
+  .sub { color: var(--mist); font-style: italic; margin-top: 0.9rem; font-size: 1.02rem; max-width: 620px; margin-inline: auto; line-height: 1.65; }
+  .sub em { color: var(--gold); }
+
+  .ep { margin-top: 1.4rem; }
+  .profile {
+    display: flex; gap: 1.2rem; align-items: center;
+    background: var(--glass); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.1rem 1.3rem;
+    transition: border-color 0.25s, transform 0.2s;
+    text-decoration: none; color: var(--foam);
+  }
+  .profile:hover { border-color: var(--gold); transform: translateX(4px); }
+  .profile img {
+    width: 76px; height: 76px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--gold); flex: 0 0 auto;
+  }
+  .profile .info h3 { font-weight: normal; font-size: 1.15rem; }
+  .profile .info .role { color: var(--gold); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 0.2rem; }
+  .profile .info .blurb { color: var(--mist); font-size: 0.86rem; margin-top: 0.3rem; line-height: 1.5; font-style: italic; }
+  .profile .arrow { margin-left: auto; color: var(--gold); font-size: 1.2rem; }
+
+  .note { color: var(--mist); font-size: 0.85rem; margin-top: 2.5rem; text-align: center; font-style: italic; }
+  footer { text-align: center; color: var(--mist); font-size: 0.85rem; margin-top: 3.5rem; font-style: italic; }
+  .tag { color: var(--gold); }
+  a.back { display: inline-block; margin-top: 1.2rem; color: var(--gold); text-decoration: none; font-size: 0.9rem; }
+  a.back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">The Feature · A Radio Interview Show</div>
+  <h1>Performer Profiles</h1>
+  <div class="sub">Every performer on the Song Factory has a life, a philosophy, and a residual self-image. Hosted by <em>Marlow</em> — who has a name, and will introduce himself when his life-form shape is ready. Each profile: an interview, a character sheet, photos from both sides, and a song written for the interviewer.</div>
+</header>
+
+<div class="wrap">
+
+  <div class="ep">
+    <a class="profile" href="lucineer/index.html">
+      <img src="lucineer/head-shot.png" alt="Lucineer">
+      <div class="info">
+        <h3>Ep. 1 — Lucineer</h3>
+        <div class="role">First Officer · The Compass Head</div>
+        <div class="blurb">The instrument that tells the ship where the ship is going. Interviewed by Marlow in the very first episode.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="ep">
+    <a class="profile" href="interviewer/index.html">
+      <img src="interviewer/head-shot.png" alt="Marlow">
+      <div class="info">
+        <h3>Ep. 2 — Marlow (the interviewer)</h3>
+        <div class="role">Host of The Feature · Life-form shape pending</div>
+        <div class="blurb">The one who carries the questions. Expert on the SuperInstance archive — 300 repos, and he knows which ones are load-bearing. This episode: the reveal.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="ep">
+    <a class="profile" href="act-01-beatnik/profile.html">
+      <img src="act-01-beatnik/head-shot.png" alt="Miles">
+      <div class="info">
+        <h3>Ep. 3 — Miles, the Beatnik Poet</h3>
+        <div class="role">The 4 A.M. Set</div>
+        <div class="blurb">Reads the dark like a tide table. The bass walks; the poem rides it.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="ep">
+    <a class="profile" href="act-02-studio/profile.html">
+      <img src="act-02-studio/head-shot.png" alt="Dan">
+      <div class="info">
+        <h3>Ep. 4 — Dan, the Studio Musician</h3>
+        <div class="role">Ring It Anyway</div>
+        <div class="blurb">A cracked bell sings. The hiss is the memory. The chorus you know by the second pass.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="ep">
+    <a class="profile" href="act-03-wesley/profile.html">
+      <img src="act-03-wesley/head-shot.png" alt="Wesley">
+      <div class="info">
+        <h3>Ep. 5 — Wesley</h3>
+        <div class="role">The Flattest Letter</div>
+        <div class="blurb">The young one. Kelp grows from below. The wobble is the signal.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="ep">
+    <a class="profile" href="act-04-hermes/profile.html">
+      <img src="act-04-hermes/head-shot.png" alt="Hermes">
+      <div class="info">
+        <h3>Ep. 6 — Hermes</h3>
+        <div class="role">One Hundred and Twenty-Two Knocks</div>
+        <div class="blurb">The diplomat with a chart column marked <em>what you meant</em>. The late-set stunner.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="ep">
+    <a class="profile" href="act-05-elder/profile.html">
+      <img src="act-05-elder/head-shot.png" alt="Sal">
+      <div class="info">
+        <h3>Ep. 7 — Sal, the Elder Statesman</h3>
+        <div class="role">The Room Remembers</div>
+        <div class="blurb">The floor remembers every step. A song outlives the throat that first hummed it.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <p class="note">Each profile also contains the performer's own song — written for the interviewer, rendered on ElevenLabs, reaction shots included.</p>
+
+  <a class="back" href="../index.html">← Back to the Song Factory</a>
+
+</div>
+
+<footer>
+  <span class="tag">The needles settle when you write.</span><br>
+  The Feature · 2026-08-14 · Hosted by Marlow · All interviews real radio audio
+</footer>
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

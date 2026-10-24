@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tidepool — Multi-Agent Substrate World</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1rem;min-height:100vh;overflow:hidden}
+header{max-width:1400px;margin:0 auto 1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+h1{color:var(--accent);font-size:1.4rem;margin:0;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.8rem;font-family:var(--mono)}
+main{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1rem;height:calc(100vh - 100px)}
+@media(max-width:1000px){main{grid-template-columns:1fr}}
+canvas{background:#000;border:1px solid var(--border);border-radius:8px;width:100%;height:100%;display:block;image-rendering:pixelated}
+aside{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;height:fit-content;max-height:calc(100vh - 100px);overflow-y:auto}
+aside h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem}
+aside h3:not(:first-child){margin-top:1rem}
+button{display:block;width:100%;background:var(--surface2);color:var(--text);border:1px solid var(--border);padding:.5rem;border-radius:6px;cursor:pointer;font-family:inherit;font-size:.8rem;margin-bottom:.4rem;text-align:left;transition:all .15s}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:bold;text-align:center}
+.controls{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.5rem;align-items:center}
+.controls label{color:var(--dim);font-size:.75rem;font-family:var(--mono)}
+input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem;font-family:var(--mono);font-size:.75rem;width:50px}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.agent-log{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.3rem;margin-top:.3rem;font-family:var(--mono);font-size:.65rem;color:var(--dim);max-height:80px;overflow-y:auto}
+.agent-log .l-ok{color:var(--accent)}
+.agent-log .l-fail{color:var(--warn)}
+</style>
+</head>
+<body>
+<header>
+<div>
+<h1>🌊 Tidepool — Multi-Agent Substrate</h1>
+<p class="tagline">5 agents, 12 cell types, 11 opcodes, FNV-1a witness, k-means++ clusters. Watch them negotiate, learn, evolve.</p>
+</div>
+<div>
+<button class="primary" id="runBtn" onclick="toggleRun()" style="width:auto;display:inline-block;padding:.5rem 1rem">▶ Run</button>
+<button onclick="reset()" style="width:auto;display:inline-block;padding:.5rem 1rem">↻ Reset</button>
+</div>
+</header>
+<main>
+<canvas id="c" width="800" height="600"></canvas>
+<aside>
+<h3>Agents</h3>
+<div id="agents"></div>
+<h3>Speed</h3>
+<div class="controls">
+<label><input type="number" id="speed" value="100" min="10" max="2000" step="10"> ms</label>
+</div>
+<h3>Seed</h3>
+<button onclick="seedScenario('negotiation')">Trade negotiation</button>
+<button onclick="seedScenario('exploration')">Resource exploration</button>
+<button onclick="seedScenario('disaster')">Disaster response</button>
+<h3>Stats</h3>
+<div class="stats">
+<div>tick: <span class="v" id="sTick">0</span></div>
+<div>cells: <span class="v" id="sCells">0</span></div>
+<div>links: <span class="v" id="sLinks">0</span></div>
+<div>witnesses: <span class="v" id="sWit">0</span></div>
+<div>ties: <span class="v" id="sTie">0</span></div>
+<div>state hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3>Activity Log</h3>
+<div class="agent-log" id="log"></div>
+</aside>
+</main>
+<script>
+// === substrate-forge math (browser port) ===
+const FNV1A_OFFSET = 0xcbf29ce484222325n;
+const FNV1A_PRIME = 0x100000001b3n;
+function fnv1a64(bytes) {
+  let h = FNV1A_OFFSET;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * FNV1A_PRIME);
+  return h;
+}
+function fnv1a64Hex(s) { return '0x' + fnv1a64(new TextEncoder().encode(s)).toString(16).padStart(16, '0'); }
+
+// === substrate-vectors math ===
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+function vecFromText(s, dim = 16) {
+  const data = new Float32Array(dim);
+  for (let i = 0; i < dim; i++) {
+    let h = 0xcbf29ce484222325n;
+    const tok = s + ':' + i;
+    for (const c of tok) h = (h ^ BigInt(c.charCodeAt(0))) * FNV1A_PRIME;
+    data[i] = Number(BigInt.asIntN(32, h)) / (1 << 31);
+  }
+  return data;
+}
+
+// === substrate-rng math (xoshiro256** simplified) ===
+class RNG {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i * 0x9e3779b97f4a7c15n));
+    } else this.state = new BigUint64Array([BigInt(seed), BigInt(seed + 1), BigInt(seed + 2), BigInt(seed + 3)]);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+  pick(arr) { return arr[this.intRange(0, arr.length)]; }
+}
+
+// === Cell kinds ===
+const CELL_KINDS = ['value', 'formula', 'listener', 'timer', 'sensor', 'actuator', 'router', 'vector', 'log', 'alarm', 'api', 'ai'];
+const AGENT_COLORS = ['#00ff9d', '#00d4ff', '#ff80c0', '#ffb84d', '#7c5cff'];
+
+// === Agents ===
+class Agent {
+  constructor(id, x, y, color) {
+    this.id = id;
+    this.x = x; this.y = y;
+    this.vx = 0; this.vy = 0;
+    this.color = color;
+    this.cells = [];   // owned cells
+    this.fuel = 100;
+    this.energy = 100;
+    this.ties = 0;
+    this.rng = new RNG(id + ':' + Date.now());
+    this.dial = new Float32Array(16);
+    for (let i = 0; i < 16; i++) this.dial[i] = this.rng.float() * 2 - 1;
+  }
+  act(world) {
+    // 5 possible actions
+    const r = this.rng.float();
+    if (r < 0.3) this.move(world);
+    else if (r < 0.5) this.tick(world);
+    else if (r < 0.7) this.bind(world);
+    else if (r < 0.85) this.link(world);
+    else this.effect(world);
+  }
+  move(world) {
+    this.vx = this.rng.float() * 4 - 2;
+    this.vy = this.rng.float() * 4 - 2;
+    this.x = Math.max(20, Math.min(780, this.x + this.vx));
+    this.y = Math.max(20, Math.min(580, this.y + this.vy));
+    this.energy -= 1;
+  }
+  tick(world) {
+    // TICK: rotate dials
+    const last = this.dial[15];
+    for (let i = 15; i > 0; i--) this.dial[i] = this.dial[i-1];
+    this.dial[0] = last + (world.tick % 2 === 0 ? 1 : -1) * 0.05;
+  }
+  bind(world) {
+    // BIND: spawn a new cell
+    if (this.cells.length >= 5) return;
+    const kind = this.rng.pick(CELL_KINDS);
+    const cell = { id: `${this.id}-cell-${world.tick}-${this.cells.length}`, kind, owner: this.id, dial: this.dial.slice(), spawnTick: world.tick };
+    this.cells.push(cell);
+    world.cells.push(cell);
+    world.log(`${this.id} BIND ${kind}`);
+  }
+  link(world) {
+    // LINK: connect to nearest agent's cell
+    if (this.cells.length === 0) return;
+    let nearest = null, nearestDist = Infinity;
+    for (const a of world.agents) {
+      if (a === this || a.cells.length === 0) continue;
+      const d = (a.x - this.x) ** 2 + (a.y - this.y) ** 2;
+      if (d < nearestDist) { nearestDist = d; nearest = a; }
+    }
+    if (nearest && nearestDist < 30000) {
+      const link = { from: this.cells[this.cells.length-1].id, to: nearest.cells[0].id, op: 'link' };
+      world.links.push(link);
+      this.ties++; nearest.ties++;
+      world.log(`${this.id} LINK → ${nearest.id}`);
+    }
+  }
+  effect(world) {
+    // EFFECT: average dial with closest other agent
+    let nearest = null, nearestDist = Infinity;
+    for (const a of world.agents) {
+      if (a === this) continue;
+      const d = (a.x - this.x) ** 2 + (a.y - this.y) ** 2;
+      if (d < nearestDist) { nearestDist = d; nearest = a; }
+    }
+    if (nearest && nearestDist < 50000) {
+      for (let i = 0; i < 16; i++) {
+        this.dial[i] = (this.dial[i] + nearest.dial[i]) / 2;
+        nearest.dial[i] = this.dial[i];
+      }
+      world.log(`${this.id} EFFECT ←→ ${nearest.id}`);
+    }
+  }
+}
+
+// === World ===
+class World {
+  constructor() {
+    this.tick = 0;
+    this.agents = [];
+    this.cells = [];
+    this.links = [];
+    this.witnesses = [];
+    this.witnessLog = [];
+    this.canvas = document.getElementById('c');
+    this.ctx = this.canvas.getContext('2d');
+    this.W = 800; this.H = 600;
+    this.scenario = null;
+  }
+  reset() {
+    this.tick = 0;
+    this.agents = [];
+    this.cells = [];
+    this.links = [];
+    this.witnesses = [];
+    this.witnessLog = [];
+    if (this.scenario) this[this.scenario]();
+  }
+  negotiation() {
+    // 5 agents in a circle, each wants to trade
+    for (let i = 0; i < 5; i++) {
+      const a = new Agent('cap' + (i+1), 400 + Math.cos(i * 1.256) * 200, 300 + Math.sin(i * 1.256) * 200, AGENT_COLORS[i]);
+      this.agents.push(a);
+    }
+  }
+  exploration() {
+    // 5 agents scattered, want to find each other
+    const positions = [[100, 100], [700, 100], [400, 300], [100, 500], [700, 500]];
+    for (let i = 0; i < 5; i++) {
+      this.agents.push(new Agent('scout' + (i+1), positions[i][0], positions[i][1], AGENT_COLORS[i]));
+    }
+  }
+  disaster() {
+    // 5 agents clustered at center, fire spreading from edges
+    for (let i = 0; i < 5; i++) {
+      const a = new Agent('rsc' + (i+1), 400 + (i-2) * 60, 300, AGENT_COLORS[i]);
+      this.agents.push(a);
+    }
+  }
+  step() {
+    this.tick++;
+    // Each agent acts
+    for (const a of this.agents) a.act(this);
+    // Witness: hash all cell dials (FNV-1a 64-bit)
+    if (this.tick % 5 === 0) this.witness();
+    // Draw
+    this.draw();
+    // Update stats
+    this.updateStats();
+  }
+  witness() {
+    // Concatenate all cell dials
+    const bytes = new Uint8Array(this.cells.length * 16 * 4);
+    let off = 0;
+    const view = new DataView(bytes.buffer);
+    for (const c of this.cells) {
+      for (let i = 0; i < 16; i++) {
+        const dial = Math.round(c.dial[i] * 32768) | 0;
+        view.setInt32(off, dial, true);
+        off += 4;
+      }
+    }
+    const h = fnv1a64(bytes);
+    this.witnesses.push({ tick: this.tick, hash: '0x' + h.toString(16).padStart(16, '0') });
+  }
+  draw() {
+    const ctx = this.ctx;
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, this.W, this.H);
+    // Grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+    for (let i = 0; i < this.W; i += 50) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, this.H); ctx.stroke(); }
+    for (let j = 0; j < this.H; j += 50) { ctx.beginPath(); ctx.moveTo(0, j); ctx.lineTo(this.W, j); ctx.stroke(); }
+    // Links
+    ctx.strokeStyle = 'rgba(0,255,157,0.15)';
+    ctx.lineWidth = 1;
+    const cellMap = new Map();
+    for (const c of this.cells) cellMap.set(c.id, c);
+    for (const l of this.links) {
+      const c1 = cellMap.get(l.from);
+      const c2 = cellMap.get(l.to);
+      if (!c1 || !c2) continue;
+      const a1 = this.agents.find(a => a.cells.includes(c1));
+      const a2 = this.agents.find(a => a.cells.includes(c2));
+      if (a1 && a2) {
+        ctx.beginPath(); ctx.moveTo(a1.x, a1.y); ctx.lineTo(a2.x, a2.y); ctx.stroke();
+      }
+    }
+    // Agents
+    for (const a of this.agents) {
+      // Body
+      ctx.fillStyle = a.color;
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, 12, 0, Math.PI * 2);
+      ctx.fill();
+      // Energy ring
+      ctx.strokeStyle = a.color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, 16, -Math.PI/2, -Math.PI/2 + (a.energy / 100) * Math.PI * 2);
+      ctx.stroke();
+      // Cells orbiting
+      for (let i = 0; i < a.cells.length; i++) {
+        const c = a.cells[i];
+        const angle = this.tick * 0.05 + (i / a.cells.length) * Math.PI * 2;
+        const cx = a.x + Math.cos(angle) * 24;
+        const cy = a.y + Math.sin(angle) * 24;
+        ctx.fillStyle = a.color;
+        ctx.fillRect(cx - 2, cy - 2, 4, 4);
+        // Type label on hover would be nice but skip
+      }
+      // ID
+      ctx.fillStyle = '#fff';
+      ctx.font = '10px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(a.id, a.x, a.y + 30);
+      // Ties
+      ctx.fillStyle = '#888';
+      ctx.fillText(`ties:${a.ties}`, a.x, a.y + 42);
+    }
+  }
+  log(msg) {
+    this.witnessLog.unshift(`[${this.tick.toString().padStart(4, '0')}] ${msg}`);
+    if (this.witnessLog.length > 50) this.witnessLog.pop();
+    const logEl = document.getElementById('log');
+    logEl.innerHTML = this.witnessLog.slice(0, 10).map(l => `<div>${l}</div>`).join('');
+  }
+  updateStats() {
+    document.getElementById('sTick').textContent = this.tick;
+    document.getElementById('sCells').textContent = this.cells.length;
+    document.getElementById('sLinks').textContent = this.links.length;
+    document.getElementById('sWit').textContent = this.witnesses.length;
+    const totalTies = this.agents.reduce((s, a) => s + a.ties, 0);
+    document.getElementById('sTie').textContent = totalTies;
+    const last = this.witnesses[this.witnesses.length - 1];
+    document.getElementById('sHash').textContent = last ? last.hash : '—';
+  }
+  renderAgents() {
+    const out = document.getElementById('agents');
+    out.innerHTML = '';
+    for (const a of this.agents) {
+      const div = document.createElement('div');
+      div.style.cssText = `background:var(--bg);border:1px solid var(--border);border-left:3px solid ${a.color};border-radius:4px;padding:.4rem;margin-bottom:.3rem;font-family:var(--mono);font-size:.7rem`;
+      div.innerHTML = `<div style="color:${a.color};font-weight:bold">${a.id}</div>
+        <div style="color:var(--dim)">energy: ${a.energy.toFixed(0)}</div>
+        <div style="color:var(--dim)">cells: ${a.cells.length}</div>
+        <div style="color:var(--dim)">ties: ${a.ties}</div>`;
+      out.appendChild(div);
+    }
+  }
+}
+
+let world = new World();
+let running = false;
+let timer = null;
+
+function toggleRun() {
+  running = !running;
+  document.getElementById('runBtn').textContent = running ? '⏸ Pause' : '▶ Run';
+  if (running) {
+    const speed = parseInt(document.getElementById('speed').value);
+    timer = setInterval(() => {
+      world.step();
+      if (world.tick % 10 === 0) world.renderAgents();
+    }, speed);
+  } else clearInterval(timer);
+}
+
+function reset() {
+  if (timer) clearInterval(timer);
+  running = false;
+  document.getElementById('runBtn').textContent = '▶ Run';
+  world = new World();
+  world.scenario = currentScenario;
+  world.reset();
+  world.renderAgents();
+}
+
+let currentScenario = 'negotiation';
+function seedScenario(name) {
+  currentScenario = name;
+  reset();
+}
+
+world.scenario = currentScenario;
+world.reset();
+world.renderAgents();
+world.draw();
+</script>
+</body>
+</html>

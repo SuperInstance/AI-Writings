@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕸️ Cell Graph — the substrate as 3D lattice</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1400px;margin:0 auto;padding:1.5rem;overflow-x:hidden}
+h1{color:#e8b840;font-size:2em;font-weight:300;letter-spacing:3px;margin-bottom:0.3em}
+.nav{padding:.5rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1rem}
+#canvas-wrap{position:relative;width:100%;height:600px;background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;overflow:hidden;margin:1rem 0}
+canvas{display:block}
+.controls{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em}
+.controls button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.5rem 1rem;cursor:pointer;font-family:inherit;font-size:.85em}
+.controls button:hover{background:#e8b840;color:#0a0a14}
+.controls .label{color:#888;align-self:center;margin-right:.3rem}
+.legend{font-size:0.85em;color:#888;margin:1rem 0;padding:1rem;background:#11111a;border-radius:8px;border:1px solid #2a2a3a}
+.legend .item{display:inline-block;margin-right:1.5rem;margin-bottom:.5rem}
+.legend .swatch{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:.3rem;vertical-align:middle}
+.stats{font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88;margin:1rem 0;padding:1rem;background:#0a0a14;border-radius:8px;border:1px solid #2a2a3a;line-height:1.8}
+.stats .label{color:#e8b840}
+</style>
+</head>
+<body>
+
+<div class="nav"><a href="/lab/">← /lab</a><a href="/lab/brew/atlas/">atlas</a><a href="/lab/brew/curve/">curve</a></div>
+
+<h1>🕸️ Cell Graph</h1>
+<p class="lead">The substrate as a 3D lattice. Each cell is a node. Each link is an edge. Drag to rotate. Scroll to zoom. Click a cell to see its details.</p>
+
+<div id="canvas-wrap">
+<canvas id="canvas"></canvas>
+</div>
+
+<div class="controls">
+  <span class="label">VIEW:</span>
+  <button onclick="setView('isometric')">Isometric</button>
+  <button onclick="setView('top')">Top</button>
+  <button onclick="setView('side')">Side</button>
+  <button onclick="setView('front')">Front</button>
+  <span class="label">|</span>
+  <span class="label">FILTER:</span>
+  <button onclick="filterCells('all')">All</button>
+  <button onclick="filterCells('brew')">Brews</button>
+  <button onclick="filterCells('forge')">Forge</button>
+  <button onclick="filterCells('quantum')">Quantum</button>
+  <button onclick="filterCells('prose')">Prose</button>
+  <span class="label">|</span>
+  <span class="label">FORCE:</span>
+  <button onclick="reseed()">Reseed</button>
+  <button onclick="togglePhysics()" id="physics-btn">Pause</button>
+</div>
+
+<div class="stats">
+  <div><span class="label">CELLS</span> <span id="cell-count">0</span></div>
+  <div><span class="label">LINKS</span> <span id="link-count">0</span></div>
+  <div><span class="label">VIEW</span> <span id="view-label">isometric</span></div>
+  <div><span class="label">PHYSICS</span> <span id="physics-status">running</span></div>
+  <div><span class="label">SELECTED</span> <span id="selected-cell">none</span></div>
+</div>
+
+<div class="legend">
+  <div class="item"><span class="swatch" style="background:#e8b840"></span>Brew (n=90)</div>
+  <div class="item"><span class="swatch" style="background:#ff6b6b"></span>Forge (n=4)</div>
+  <div class="item"><span class="swatch" style="background:#88ddff"></span>Quantum (n=2)</div>
+  <div class="item"><span class="swatch" style="background:#44cc88"></span>Prose (n=6)</div>
+  <div class="item"><span class="swatch" style="background:#b8860b"></span>Song (n=6)</div>
+  <div class="item"><span class="swatch" style="background:#666"></span>Other (wave, atlas, etc.)</div>
+</div>
+
+<script>
+// === CELL GRAPH ===
+// The substrate as a 3D lattice. 90+ cells, dynamic physics, click to inspect.
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const wrap = document.getElementById('canvas-wrap');
+
+function resize() {
+  canvas.width = wrap.clientWidth;
+  canvas.height = wrap.clientHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+// Cell definitions
+const COLORS = {
+  brew: '#e8b840',
+  forge: '#ff6b6b',
+  quantum: '#88ddff',
+  prose: '#44cc88',
+  song: '#b8860b',
+  other: '#666',
+};
+
+// Generate the cell graph procedurally
+const cells = [];
+const links = [];
+
+function makeCells() {
+  cells.length = 0;
+  links.length = 0;
+
+  // 90 brews (substrate reasoning)
+  for (let i = 0; i < 90; i++) {
+    const phi = Math.acos(-1 + (2 * i) / 90);
+    const theta = Math.sqrt(90 * Math.PI) * phi;
+    cells.push({
+      id: `brew-${i}`,
+      type: 'brew',
+      label: `Brew #${i + 1}`,
+      x: 200 * Math.sin(phi) * Math.cos(theta) + (Math.random() - 0.5) * 30,
+      y: 200 * Math.sin(phi) * Math.sin(theta) + (Math.random() - 0.5) * 30,
+      z: 200 * Math.cos(phi) + (Math.random() - 0.5) * 30,
+      vx: 0, vy: 0, vz: 0,
+      strength: 2.0 + Math.random() * 1.5,
+    });
+  }
+
+  // 4 forge repos
+  cells.push({ id: 'forge-luciddream', type: 'forge', label: 'luciddream', x: 0, y: 0, z: 250, vx:0,vy:0,vz:0, strength: 3.0 });
+  cells.push({ id: 'forge-quantum', type: 'forge', label: 'substrate-quantum', x: 250, y: 0, z: 0, vx:0,vy:0,vz:0, strength: 3.0 });
+  cells.push({ id: 'forge-post-quantum', type: 'forge', label: 'substrate-post-quantum', x: -250, y: 0, z: 0, vx:0,vy:0,vz:0, strength: 3.0 });
+  cells.push({ id: 'forge-forge', type: 'forge', label: 'substrate-forge', x: 0, y: 250, z: 0, vx:0,vy:0,vz:0, strength: 3.0 });
+
+  // 2 quantum repos as quantum
+  cells.push({ id: 'quantum-quantum', type: 'quantum', label: 'substrate-quantum', x: 150, y: 0, z: 100, vx:0,vy:0,vz:0, strength: 2.8 });
+  cells.push({ id: 'quantum-post', type: 'quantum', label: 'substrate-post-quantum', x: -150, y: 0, z: 100, vx:0,vy:0,vz:0, strength: 2.8 });
+
+  // 6 prose pieces
+  for (let i = 0; i < 6; i++) {
+    cells.push({
+      id: `prose-${i}`, type: 'prose', label: `prose-${i}`,
+      x: Math.cos(i / 6 * Math.PI * 2) * 180,
+      y: -180 + i * 10,
+      z: Math.sin(i / 6 * Math.PI * 2) * 180,
+      vx:0,vy:0,vz:0, strength: 2.5
+    });
+  }
+
+  // 6 songs
+  for (let i = 0; i < 6; i++) {
+    cells.push({
+      id: `song-${i}`, type: 'song', label: `song-${i}`,
+      x: Math.cos(i / 6 * Math.PI * 2) * 150,
+      y: 180 - i * 5,
+      z: Math.sin(i / 6 * Math.PI * 2) * 150,
+      vx:0,vy:0,vz:0, strength: 2.4
+    });
+  }
+
+  // Link forge cells to all their dependents
+  const forgeCells = cells.filter(c => c.type === 'forge' || c.type === 'quantum');
+  cells.forEach(c => {
+    if (c.type === 'brew' || c.type === 'prose' || c.type === 'song') {
+      // Link to nearest forge cell
+      const target = forgeCells.reduce((best, f) => {
+        const d = Math.hypot(c.x-f.x, c.y-f.y, c.z-f.z);
+        return !best || d < best.d ? {f, d} : best;
+      }, null);
+      if (target) links.push({ from: c.id, to: target.f.id });
+    }
+  });
+
+  // Link brew cells to each other (sparse)
+  for (let i = 0; i < 90; i++) {
+    if (Math.random() < 0.05) {
+      const j = Math.floor(Math.random() * 90);
+      if (i !== j) links.push({ from: `brew-${i}`, to: `brew-${j}` });
+    }
+  }
+}
+
+let physics = true;
+let rotation = { x: -0.3, y: 0.5 };
+let camera = { x: 0, y: 0, z: 600 };
+let selected = null;
+let filter = 'all';
+
+function setView(name) {
+  if (name === 'isometric') rotation = { x: -0.5, y: 0.5 };
+  else if (name === 'top') rotation = { x: 0, y: 0 };
+  else if (name === 'side') rotation = { x: Math.PI / 2, y: 0 };
+  else if (name === 'front') rotation = { x: 0, y: Math.PI / 2 };
+  document.getElementById('view-label').textContent = name;
+}
+
+function filterCells(type) {
+  filter = type;
+}
+
+function reseed() {
+  makeCells();
+}
+
+function togglePhysics() {
+  physics = !physics;
+  document.getElementById('physics-status').textContent = physics ? 'running' : 'paused';
+  document.getElementById('physics-btn').textContent = physics ? 'Pause' : 'Resume';
+}
+
+// Mouse interaction
+let dragging = false;
+let lastX = 0, lastY = 0;
+canvas.addEventListener('mousedown', (e) => {
+  dragging = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+});
+canvas.addEventListener('mouseup', () => dragging = false);
+canvas.addEventListener('mouseleave', () => dragging = false);
+canvas.addEventListener('mousemove', (e) => {
+  if (dragging) {
+    rotation.y += (e.clientX - lastX) * 0.01;
+    rotation.x += (e.clientY - lastY) * 0.01;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  }
+});
+canvas.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  camera.z += e.deltaY * 0.5;
+});
+canvas.addEventListener('click', (e) => {
+  // Project mouse to world
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) / rect.width * 2 - 1;
+  const my = (e.clientY - rect.top) / rect.height * 2 - 1;
+
+  // Find closest cell
+  let best = null, bestD = 30;
+  cells.forEach(c => {
+    if (filter !== 'all' && c.type !== filter) return;
+    const p = project(c.x, c.y, c.z);
+    const d = Math.hypot(p.x - e.clientX + rect.left, p.y - e.clientY + rect.top);
+    if (d < bestD) { bestD = d; best = c; }
+  });
+
+  if (best) {
+    selected = best.id;
+    document.getElementById('selected-cell').textContent = `${best.label} (${best.type})`;
+  } else {
+    selected = null;
+    document.getElementById('selected-cell').textContent = 'none';
+  }
+});
+
+function project(x, y, z) {
+  // Rotate around Y then X
+  let cx = x * Math.cos(rotation.y) + z * Math.sin(rotation.y);
+  let cz = -x * Math.sin(rotation.y) + z * Math.cos(rotation.y);
+  let cy = y * Math.cos(rotation.x) - cz * Math.sin(rotation.x);
+  cz = y * Math.sin(rotation.x) + cz * Math.cos(rotation.x);
+  // Project
+  const scale = camera.z / (camera.z + cz);
+  return {
+    x: canvas.width / 2 + cx * scale,
+    y: canvas.height / 2 + cy * scale,
+    scale: scale,
+  };
+}
+
+function updatePhysics() {
+  if (!physics) return;
+  // Simple repulsion
+  for (let i = 0; i < cells.length; i++) {
+    for (let j = i + 1; j < cells.length; j++) {
+      const a = cells[i], b = cells[j];
+      const dx = b.x - a.x, dy = b.y - a.y, dz = b.z - a.z;
+      const d = Math.hypot(dx, dy, dz) + 0.01;
+      const force = 50 / (d * d);
+      a.vx -= (dx / d) * force * 0.01;
+      a.vy -= (dy / d) * force * 0.01;
+      a.vz -= (dz / d) * force * 0.01;
+      b.vx += (dx / d) * force * 0.01;
+      b.vy += (dy / d) * force * 0.01;
+      b.vz += (dz / d) * force * 0.01;
+    }
+  }
+  // Spring links
+  links.forEach(l => {
+    const a = cells.find(c => c.id === l.from);
+    const b = cells.find(c => c.id === l.to);
+    if (!a || !b) return;
+    const dx = b.x - a.x, dy = b.y - a.y, dz = b.z - a.z;
+    const d = Math.hypot(dx, dy, dz);
+    const target = 80;
+    const force = (d - target) * 0.005;
+    a.vx += (dx / d) * force;
+    a.vy += (dy / d) * force;
+    a.vz += (dz / d) * force;
+    b.vx -= (dx / d) * force;
+    b.vy -= (dy / d) * force;
+    b.vz -= (dz / d) * force;
+  });
+  // Apply velocities with damping
+  cells.forEach(c => {
+    c.x += c.vx;
+    c.y += c.vy;
+    c.z += c.vz;
+    c.vx *= 0.85;
+    c.vy *= 0.85;
+    c.vz *= 0.85;
+  });
+}
+
+function draw() {
+  ctx.fillStyle = '#0a0a14';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Draw links first
+  ctx.lineWidth = 0.5;
+  links.forEach(l => {
+    const a = cells.find(c => c.id === l.from);
+    const b = cells.find(c => c.id === l.to);
+    if (!a || !b) return;
+    if (filter !== 'all' && a.type !== filter && b.type !== filter) return;
+    const pa = project(a.x, a.y, a.z);
+    const pb = project(b.x, b.y, b.z);
+    const alpha = Math.min(pa.scale, pb.scale);
+    ctx.strokeStyle = `rgba(232,184,64,${alpha * 0.4})`;
+    ctx.beginPath();
+    ctx.moveTo(pa.x, pa.y);
+    ctx.lineTo(pb.x, pb.y);
+    ctx.stroke();
+  });
+
+  // Draw cells
+  cells.forEach(c => {
+    if (filter !== 'all' && c.type !== filter) return;
+    const p = project(c.x, c.y, c.z);
+    const r = Math.max(2, c.strength * p.scale * 2);
+    ctx.fillStyle = COLORS[c.type] || '#666';
+    ctx.globalAlpha = Math.min(1, p.scale);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (selected === c.id) {
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // Label forge / quantum / selected cells
+    if (c.type === 'forge' || c.type === 'quantum' || selected === c.id) {
+      ctx.fillStyle = '#fff';
+      ctx.font = '10px Courier New';
+      ctx.fillText(c.label, p.x + r + 3, p.y + 3);
+    }
+  });
+  ctx.globalAlpha = 1;
+}
+
+function tick() {
+  updatePhysics();
+  draw();
+  document.getElementById('cell-count').textContent = cells.length;
+  document.getElementById('link-count').textContent = links.length;
+  requestAnimationFrame(tick);
+}
+
+makeCells();
+tick();
+</script>
+
+</body>
+</html>
