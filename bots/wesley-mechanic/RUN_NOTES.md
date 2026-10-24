@@ -1163,3 +1163,90 @@ Also still open: **zero `canon_changed` events in the entire 124-row history**, 
 `canon_changed` branch — the only path that exercises `substrate_publish()` to snowball-scout,
 `bookkeeper_tick()` and the delta arithmetic — has never executed against live data in this log's
 lifetime. It remains an untested code path.
+
+### Poll 2026-10-24T09:47Z — canon unchanged (23rd consecutive no-change)
+
+- **Verdict: no canon change.** Hash `b20375d389cb505d` / 71 papers, identical to the
+  2026-10-22T20:04:28Z `first_poll` baseline (row 16) and to every poll since — now stable
+  **~37.7h (2263 min)**, ~14 min since the 09:33Z poll (row 124).
+- **Triangulated, not asserted:** (1) the watcher's own `poll_canon()` in the `--once` run
+  (HTTP 200, stdout `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0); (2) a
+  pre-run curl probe (HTTP 200, 13720 bytes, md5 `d9915bb9f3bcb8794cb57810427d0288`);
+  (3) a post-run curl probe of the same URL — **byte-identical bodies, `cmp` clean** — so the
+  verdict is not a race artifact.
+- **Count key:** the endpoint returns the count under `count` (71), not `paper_count`
+  (absent; top-level keys are exactly `['count','papers']`). The 2026-10-22 count-key
+  fallback remains **load-bearing and still correct**.
+- **No `canon_changed` event written, no gamma/eta delta claimed** — a hash match is not a
+  transition. `state.json` byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`; `last_hash`
+  `b20375d389cb505d`, `last_count` 71, `first_seen` 1792699490.998806 preserved) and
+  `bookkeeper.wal` **still does not exist** — the correct no-op, since `bookkeeper_tick()` is
+  only reached from the `first_poll` and `canon_changed` branches.
+- **Appended rows:** the run added exactly one row, the unconditional `bot_started` event
+  (pid 367, hash `11faeef20a5551e0`); `witness.log` went 124 → 125 rows, and the
+  `witness_note` is the 126th. **126/126 rows parse** and carry
+  `ts/iso/event/payload/hash`; **123 verify**, 2 carry the hand-authored
+  `hash='RECOVERED'` marker, and 1 — **row 25**, the 2026-10-23T11:31:39Z note — carries a
+  stale hash `88839488ea23e66c` against a computed `2553b915563b73cc`. That mismatch was
+  **born with the row upstream** and is the known authoring slip, not a post-hoc edit and not
+  caused by this run. **Honest verdict: linkage class `row-checksum`** — a payload-scanning
+  pass for linkage keys (`prev`, `prev_hash`, `parent`, `prev_row_hash`) found **NONE**, so
+  deletion and truncation of a row are undetectable in this format and a `chain-intact`
+  verdict is not producible.
+- **Orphan rows: 14** (rows 1,3,5,7,10,13,15,17,18,19,23,28,35,120) — the same 14 inherited
+  from prior runs. This run's own row 125 was closed by its own note, so the count did **not**
+  grow. Rows 44 and 56 are **not** orphans. The signature is polls launched and dying before
+  their note was written, not evidence of canon transitions.
+- **Event census over 126 rows:** 65 `bot_started`, 51 `witness_note`, 6 `poll_failed`,
+  2 `meta_wipe_recovery`, 2 `first_poll`, **0 `canon_changed`** — zero canon transitions
+  across the entire recorded history.
+- **No lost-update race:** our pre-run staged `witness.log` (124 rows, 313271 bytes, md5
+  `12dfae237da5c64bce4c1ed652d615ea`) was byte-identical to the upstream blob, and our
+  post-run log is that exact byte prefix plus our two appended rows
+  (`ours.startswith(upstream) == True`, 313271 → 320143 bytes). The 125th row is a clean
+  append; no concurrent writer dropped a row.
+
+### Environment (30th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` held only an empty
+  `.plugin-cache` and `.mavis/tool-results`, and the NAS mount behind it was **600G/600G,
+  100% used, 0 bytes available**.
+- **Clone note (new this run):** a plain `git clone` into `/workspace` **failed with
+  `close error: Disk quota exceeded`** while the partially-created tree still appeared in
+  `ls` — the classic NAS trap. `/tmp` is **not** subject to the EDQUOT trap, so the clone was
+  redone at `/tmp/ai-writings` with `--depth 1 --filter=blob:none --sparse` (the repo is
+  3.7 GB; a full transfer is minutes and blows the quota). Then
+  `git sparse-checkout set bots/wesley-mechanic bots/substrate-bus` to materialize only the
+  six files that matter.
+- **Staging:** the six required files were staged to the `/tmp` overlay at
+  `/tmp/wm-run/bots/` — the script hardcodes those paths for `witness.log` / `state.json` /
+  `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')`, so
+  `substrate_bus` must be staged alongside it or the import dies.
+- **All six staged files verified byte-identical to upstream by md5:** script
+  `206682962c06f9814a5db65c2fbc7267`, `witness.log` `12dfae237da5c64bce4c1ed652d615ea`,
+  `state.json` `5ce39812d7f3af41583e4003872b6ef6`, `substrate_bus.py`
+  `6fa03e34e185ca52e3f51356bd76f611`, `substrate-witness.jsonl`
+  `246e49ffbb60922343befef78e15bf4b`, `topics.json` `e7d4cb8c41b32a724bfec8b1cc60329b`.
+- **The NAS 0-byte truncation trap was avoided, not assumed.** The six NAS-facing paths were
+  symlinked to their `/tmp/wm-run` counterparts; `stat -L` confirms 5805 / 320143 / 92 / 4493 /
+  1532 / 8987 bytes with upstream-matching md5s read *through* the symlinks. On a quota-full
+  NAS, `ls -la` showing a file is not evidence it was written — always check the size field.
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a
+**constant false by construction**. AST re-verified this run: the only two `bookkeeper_tick`
+call sites are line 114 `bookkeeper_tick(1.0, 0.0)` and line 128
+`bookkeeper_tick(float(delta), 1.0)`, and an AST scan for a literal `(0.0, 0.0)` call site
+returned **0 matches** — the escape clause is **unreachable on every call path**. The
+`budget` constant sits at line 62, the predicate at line 71. The first clause can only pass if
+the running total hits exactly `1000.0` within `1e-6` — a coincidence target, not a
+conservation law. The field carries no signal. **Twenty-third poll reporting this; still
+unfixed.** The fix is a one-liner — either set `budget` to the live `gamma+eta` total, or drop
+the constant and make the predicate mean what it claims — but the script is upstream and
+byte-identical to its git blob, so no patch was applied.
+
+Also still open: **zero `canon_changed` events in the entire 126-row history**, so the
+`canon_changed` branch — the only path that exercises `substrate_publish()` to snowball-scout,
+`bookkeeper_tick()` and the delta arithmetic — has never executed against live data in this
+log's lifetime. It remains an untested code path.
