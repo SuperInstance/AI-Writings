@@ -12,3 +12,5 @@
 {"ts": 1792858106.3075912, "iso": "2026-10-24T16:08:26", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 688}, "hash": "8255e8b641fbf0ec"}
 {"ts": 1792858175.972277, "iso": "2026-10-24T16:09:35", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 969}, "hash": "8c9cf0b37e37492a"}
 {"ts": 1792859264.704783, "iso": "2026-10-24T16:27:44", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 525}, "hash": "a2f233c6bf947b54"}
+{"ts": 1792859650.2507596, "iso": "2026-10-24T16:34:10", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 460}, "hash": "c90ca290a65e4878"}
+{"ts": 1792859697.251436, "iso": "2026-10-24T16:34:57", "event": "witness_note", "payload": {"bot": "wesley-mechanic", "note": "2026-10-24T16:34Z no_change \u2014 canon b20375d389cb505d / 71 papers; witness.log 14->15 rows; state.json and bookkeeper.wal unchanged; NAS 100% quota, artifacts in /tmp mirror via symlink, pending re-land"}, "hash": "117c6ac5f914bdad"}
