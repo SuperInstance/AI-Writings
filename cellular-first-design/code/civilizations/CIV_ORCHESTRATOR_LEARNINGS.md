@@ -7562,3 +7562,102 @@ plain commit-on-top is clean and conflict-free.
 - 8 civs, **2284** committed ledger rows (restored), `meta_log.jsonl` **148** lines.
 - Report: `RUN_REPORT_2026-10-24_session61.md`, commit **`c9fd85e`**, pushed and remote-verified.
 - **No source file modified** — only the report. The run artifacts were mock rows and were restored.
+
+---
+
+## Session 63 (2026-10-24) — credential gap 27th deep; the Grounded is bottom on 10 of 16 lenses; a 200-char preview truncates the collision test
+
+**Command:** `--sims 5 --prompts 5 --providers zai`. Baseline HEAD `ce66d0b` (session 62): ledger **2284**
+rows, `meta_log` **148**. Remote head at push time `f253d90`; report commit **`135345a`** (remote-verified
+two ways: `git ls-remote` and the commits API, 1 file, **+296/-0**).
+
+**Credential gap: 27th session.** `api.z.ai` = **401** for all 8 sandbox secrets (endpoint healthy ⇒
+credential gap, not outage). JEV live at `jev-1.14.0`. Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`. **Assert on the row delta and the `Winner:` count, never
+on the exit code.** Inert control: exit 0, **+0 rows**, 0 `Winner:` lines, only `leaderboard.json`
+rewritten.
+
+**Control B = 12th consecutive identical replication.** **+80 rows (exactly +10/civ, uniform), +5
+`meta_log`, 5 `Winner:` lines, 0 all-2.0-default rows, 0 score errors, 0 cross-civ preview collisions,
+8/8 distinct previews, 69/80 distinct `avg_score` (1.137–1.947, mean 1.4911), JEV confidence
+0.430–0.930.**
+
+### NEW — "40/80 distinct full previews" is a TRUNCATION artefact, not a same-body defect
+
+The mock emits a 100-word body; the ledger stores only `content_preview[:200]`. Bodies of identical
+length therefore collide in the **preview** while the underlying content differs. A naive
+"distinct previews / total" check reads 40/80 and looks like a broken mock.
+
+**The gate that matters is CROSS-civ collisions, and it must be 0.** Within-civ preview duplicates are
+expected on a fixed-length body. Check the cross-civ count (0) and treat a within-civ duplicate as a
+salt collision to investigate — not as a same-body failure. *(Session 61's rule still holds: a
+within-civ *salt* collision is a harness artefact; a cross-civ one destroys the chooser's signal.)*
+`civ-precise` again showed 8/10 distinct salts because its temperature jitter clamps at the **0.1
+floor** — same root cause as session 61.
+
+### NEW — compute the lens table on the PRISTINE ledger, not the post-run one
+
+Running the lens math on the post-run state mixes this session's 80 mock rows into the "lifetime"
+columns and moves the bottom civ. Computing A/B/D/F/G on the **pristine HEAD** ledger and A/B/C/E
+from the post-run board gives a stable picture; the post-run "de-contaminated" figure was *wrong*
+because the new rows' mock marker differed from the historical one.
+
+**Pristine de-contaminated lifetime (2284 rows, 640 mock = 28.0 %):** Poetic 2.354 / Whimsical 2.329
+/ Therapist 2.120 / Mythic 2.108 / Precise 1.955 / Formal 1.845 / Engineer 1.827 / **Grounded 1.737**.
+
+### The Grounded is bottom on 10 of 16 lenses — the strongest confirmation yet
+
+| lens | lowest | value |
+|---|---|---|
+| A `relevance_per_sim` (board key) | `civ-grounded` | 1.502 |
+| B raw relevance | `civ-grounded` | 404.10 |
+| C win rate | `civ-poetic` | 0.008 |
+| D lifetime avg / alignment | `civ-grounded` | 1.566 / 2.000 |
+| D lifetime quality / novelty | `civ-engineer` / `civ-formal` | 0.989 / 1.433 |
+| E this-run avg / novelty / alignment | `civ-grounded` | 1.432 / 1.881 / 1.980 |
+| E this-run quality | `civ-formal` | 0.245 |
+| F decon avg / alignment | `civ-grounded` | 1.737 / 2.314 |
+| F decon quality / novelty | `civ-engineer` / `civ-formal` | 1.190 / 1.374 |
+| G ledger avg | `civ-grounded` | 1.566 |
+
+**Lowest-lens count: Grounded 10, Formal 3, Engineer 2, Poetic 1, rest 0.** The Grounded still holds
+the **2nd-highest win rate (0.244)** — it wins on *selection appeal* and loses on *substance*, and
+its `"warm, factual"` voice is the lowest lifetime alignment in the fleet (2.000 vs a 2.5–2.9 field).
+**The Poetic anomaly holds for the 12th run:** 1st of 8 on every quality lens, last on win rate.
+**Chooser vs `argmax(avg_score)`: 0/5 this run** (lifetime 27/126 = **17.6 %**, stable at ~18 %).
+Winners: Precise ×3, Grounded ×2 — 4 of 5 rounds to the two lowest-temperature civs (0.20, 0.50).
+`r(preferred_temp, lifetime novelty) = +0.9312`; `r(ledger_rows, rel_per_sim) = −0.0855` (the Grounded
+is **not** a longevity artefact).
+
+**Counter gap 260 held steady** (the run added 80 to the ledger *and* 80 to the counters).
+**Mock contamination 640 / 2284 = 28.0 %.** Source fix still outstanding: tag mock rows with
+`"mock": true` and purge the 640 historical mock rows from HEAD.
+
+### Environment notes
+
+- **`/workspace` is 100 % full at the account level, not just this mount.** `df` says 600 G/600 G
+  and `du` on the NAS path says 2 K — the quota is enforced at the bucket, so the local view lies.
+  **A 2 KB write to `/workspace` yields a 0-byte file with no error.** Do not try to place
+  deliverables in `/workspace`; the report lives in the repo and is pushed.
+- `gh` CLI **not installed** — use the REST API via `curl` (`/repos/…/git/trees/main?recursive=1`
+  gives the full path map in one call).
+- The `git clone --filter=blob:none` + `sparse-checkout` (non-cone, explicit path pattern in
+  `.git/info/sparse-checkout`) path works and fetches in **one foreground call, ≈1 MB, seconds** —
+  no need for the detached-fetch dance. Use `git init` + `remote add` + `fetch --depth 1
+  --filter=blob:none` + `checkout FETCH_HEAD` rather than `git clone` (the clone path re-fetches
+  blobs and races).
+- A full `git clone` into `/workspace` dies with `Disk quota exceeded`; **two overlapping clones
+  raced the same target** and had to be killed by PID. `pkill -f "git clone"` self-matches and
+  kills the invoking shell — use `ps -eo pid,args --no-headers | grep "[g]it clone"`.
+- Remote moved during the session (`ce66d0b` → `f253d90`, landing-page auto-update, **civ subtree
+  untouched**). Committed on top of the remote head with `git reset --hard <remote-sha>` + commit
+  (never rebase) — clean, 1 file, no conflict.
+- Restore verified **18/18 byte-identical** to the HEAD blobs via `cmp` against materialised
+  `git show HEAD:<path>` output; `git status --porcelain` empty; no `__pycache__/`.
+- The mock was killed by explicit PID and port 8931 confirmed closed (`curl` → `000`).
+
+### Session 63 state
+
+- 8 civs, **2284** committed ledger rows (restored), `meta_log.jsonl` **148** lines.
+- Report: `RUN_REPORT_2026-10-24_session63.md`, commit **`135345a`**, pushed and remote-verified.
+- **No source file modified** — only the report and this learnings append.
