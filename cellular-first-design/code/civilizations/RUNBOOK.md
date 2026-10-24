@@ -1193,3 +1193,51 @@ with no lock, so `relevance_per_sim` is **not recomputable from the ledger** by 
   `/tmp`, symlink the **nested** `cellular-first-design` dir, never flatten; `TYPESAFEAI_KEY` must be
   exported; JEV liveness = 422 on a malformed `questions`; z.ai = 401 on a bogus bearer (credential
   gap, endpoint healthy).
+
+---
+
+## Session 137 — the per-prompt distinctness slice must be ts-sorted (2026-10-24)
+
+**What went wrong.** The first mock-integrity cut of session 137 grouped the 80 new rows by
+`prompt` and took `rows[-8:]` of each group. That reported **3–6 of 8 distinct previews per
+prompt** and looked like a degraded mock. It was the *analysis* that was wrong.
+
+**Why.** The 80 new rows are **two interleaved phases**:
+
+- **40 sim-phase rows** — each civ draws a *random* prompt per sim (`random.choice(prompts)`).
+- **40 competition-phase rows** — each civ answers each of the 5 prompts exactly once.
+
+Grouping by prompt and taking `rows[-8:]` mixes the two phases: a prompt's last 8 rows can
+contain the *same* civ twice and miss others entirely, so the count is meaningless.
+
+**The correct slice.** Sort the whole 80-row set by `ts` first, then group by prompt and take the
+**last 8 rows** of each group — the competition phase is the later block. That yields **8/8 on all
+5 prompts**.
+
+**Two invariants that are phase-independent and should be the primary check:**
+
+1. **Run-wide seed count = 40 distinct seeds / 80 rows.** The mock seeds on `md5(whole_message)`,
+   and the message is *cultural prompt + prompt text* ⇒ 8 civs × 5 prompts = 40 unique cultural
+   prompts ⇒ exactly 40 seeds. Anything else means a broken mock.
+2. **Per-`(civ, prompt)` 1:1** — no combo maps to more than one seed.
+
+**Never use preview-distinctness alone, and never check the preview instead of the seed.**
+A degenerate mock (session-117, first-8-alnum seeding) shows **1 seed for all 8 civs on the same
+prompt**. Check the *seed*; identical seed ⇒ identical text by construction, so a duplicate seed
+across *different* civs on the *same* prompt is the real red flag.
+
+Session 137 result: **40/40 seeds, 5/5 prompts at 8/8 seeds and 8/8 previews** — the twelfth
+consecutive clean measurement.
+
+## Session 137 — the chooser is a JEV `choice` question, `avg_score` is three `score` questions
+
+Confirmed in the source (`civilization_competition`): the winner is picked by a JEV
+`questions.best_civ` **`choice`** question over 150-char `content_preview` snippets, whereas
+`avg_score` is the mean of three **`score`** questions (quality / novelty / alignment) on the same
+text. Different question types ⇒ different answers, so **chooser-vs-argmax disagreement is
+expected, not a bug**. Session 137 measured 1/5 agreement with the largest gap yet in the
+clean-mock series (**−0.683**, "witness log", where the chooser took `civ-mythic` at 0.880 over
+`civ-precise` at 1.563).
+
+Every disagreement ever observed across the fleet goes the **same direction** — the chooser picks a
+*lower*-scoring candidate. **Never treat `win_rate` as a quality metric.**
