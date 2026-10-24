@@ -1126,3 +1126,70 @@ engineer 1.
 `max_civs` 12; extinction/birth only runs under `--loop`. **Counter gap:** ledger rows exceed
 registry `simulations_run` by **+260** (6444 vs 6184) — `save_state()` rewrites `culture.json`
 with no lock, so `relevance_per_sim` is **not recomputable from the ledger** by an auditor.
+
+---
+
+## Session 136 — clean mock #11; chooser-vs-argmax 4/5; Grounded is the run-level low again (2026-10-24)
+
+- **Run:** 8 civs × 5 sims + 5 competition prompts, Control B mock, JEV live. All **20** verification
+  checks PASS (per-civ Δ +10 × 8 = 80 rows, `meta_log` 413 → 418, `Winner:` lines 5, 0 JEV `error`
+  keys, 0 rows with the 2.0/2.0/2.0 fallback triple, 80/80 rows `[mock-zai`-prefixed, `provider` =
+  `{zai}`, sim→competition ts gap 1.11–22.75 s at index 4 in all 8 civs, `leaderboard.json` rewritten
+  at 22:05:27Z). Upstream `7ddd3f0`.
+- **Mock non-degeneracy: 8/8 distinct previews AND 8/8 distinct seeds on all 5 competition prompts —
+  the ELEVENTH consecutive clean measurement** (118, 120–123, 125, 131–134). Pre-flight probe against
+  the live mock used the **exact long cultural prompt**: 8/8 distinct seeds, 8/8 distinct previews,
+  HTTP 200, `[mock-zai seed=…]` prefix present, **0 tracebacks** in `/tmp/mock_zai.log`.
+- **Mock rebuilt from scratch again** (`/tmp` was wiped) ⇒ **both** historical bugs had to be
+  re-applied: the session-112 index wrap `seed[(i*2)%8:((i*2)%8)+2]` and the session-118
+  md5-of-whole-message seeding. Both are load-bearing: without the wrap the bridge 500s on `i>=4`
+  while the socket stays open; without the md5 seeding the 8 civs emit identical text and every
+  competition result is void.
+- **Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` was argmax in 4/5 and won **5/5**;
+  the single disagreement was p3 "ternary values" — argmax `civ-poetic` 0.580, winner `civ-precise`
+  0.577, i.e. the chooser picked a **marginally lower**-scoring candidate. Clean-mock series:
+  0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → 3/5 (123) → 0/5 (124) → 4/5 (125) →
+  1/5 (126) → 3/5 (127) → 2/5 (128) → 4/5 (130) → 1/5 (131) → 2/5 (132) → 2/5 (133) → 0/5 (134) →
+  **4/5 (136)**. Sixteen five-sample points cannot narrow a rate — the honest claim is *somewhere in
+  0–80 %*. What survives every session: the chooser is **not** a pure argmax, and **every** observed
+  disagreement across the fleet goes the same way (it picks a lower-scoring candidate).
+  **Never treat `win_rate` as a quality metric.**
+- **`civ-grounded` (The Grounded) remains the low-relevance civ — 38 consecutive sessions (95–136).**
+  Last on lifetime `avg_score` (**1.1368**), `alignment` (**1.3330**), `quality` (**0.5391**),
+  `relevance` (**884.22**) and `relevance_per_sim` (**1.093**). The structural gap is **alignment**:
+  **0.4743** below the next civ (engineer 1.8073) versus **0.0694** on quality — ~6.8× wider.
+  Alignment is the dimension the meta-GAN *selects* on, so Grounded fails to *embody a distinctive
+  voice* — a **voice** failure, not a prose failure. Grounded was **also the run-level low** this
+  session on `avg_score` (0.2703) and `alignment` (0.1510) — the 6th consecutive session where the
+  run-level label went to it. Keep the lifetime finding and the run-level label as two separate
+  claims.
+- **`civ-formal`** is the low-**novelty** axis — lifetime novelty **1.4089** (last), alignment
+  1.9342 healthy. **`civ-poetic`** = 1st on lifetime `avg_score` (1.7210) / `quality` (0.9295) /
+  `alignment` (2.2660) but **last on `win_rate` (0.013, 5/393)** — the stable selection-failure
+  inverse. **`civ-precise`** = best `win_rate` (0.549), won 5/5, 1st on lifetime `alignment`
+  (2.3233) — the mirror inverse.
+- **Watch-axis `civ-engineer`** — 7th of 8 on lifetime `relevance_per_sim` (1.280) and 2nd-lowest on
+  lifetime `avg_score` (1.2998), but **2nd of 8 on this run's `avg_score`** (0.3407) — no trend;
+  do not promote. **Watch-axis `civ-therapist`** — mid-field lifetime (avg 1.3533, 4th of 8).
+- **Extinction risk: NONE** — threshold −10; lowest raw relevance +884.22 (88× above the floor).
+  Registry 8 civs, `max_civs` 12; birth/extinction only runs under `--loop`. All 8 `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` **1.2200**,
+  `novelty` 0.7230, `avg_score` 0.5310, `quality` **0.0380**. `alignment` again carried the widest
+  spread and is again the axis the chooser selects on. `quality` again collapsed (0.018–0.056) — the
+  119/121/122/123/125/126/130/131/134 regime vs session-120's 0.106–0.446. **The quality collapse is
+  a LEVEL that moves, not a stable property** — compare cross-civ spreads, not absolute levels,
+  before ranking on a dimension.
+- **Absolute run levels depressed vs lifetime** (run `avg_score` 0.270–0.801 vs lifetime 1.14–1.72)
+  — a level shift in the JEV scorer's output for this batch, **not a civ effect**; the cross-civ
+  *ordering* carries the information.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42, poetic +37,
+  engineer +22, mythic +20, therapist +17, precise +16 (total +260). `save_state()` rewrites
+  `culture.json` with no lock ⇒ `relevance_per_sim` is **not recomputable from the ledger** by an
+  auditor.
+- **Re-confirmations:** NAS EDQUOT total (19th session — `git clone` into `/workspace/repos/...` dies
+  on `.git/description`); `gh` not installed (18th session); tool timeout 30 s < run ~50 s; the
+  `ls` race **did not reproduce** (bridge passed 5/5 on the first attempt, inode identity `129:12602`
+  on both sides + `-ef`); `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`); clone into
+  `/tmp`, symlink the **nested** `cellular-first-design` dir, never flatten; `TYPESAFEAI_KEY` must be
+  exported; JEV liveness = 422 on a malformed `questions`; z.ai = 401 on a bogus bearer (credential
+  gap, endpoint healthy).
