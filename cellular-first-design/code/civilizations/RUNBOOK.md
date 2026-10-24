@@ -184,3 +184,57 @@ The shell's own command line contains the script path, so `grep` matches it too.
 `ps -eo pid,args | awk '/mock_zai/ && !/awk/'` and match the *exact* args
 (`python3 /tmp/mock_zai.py`) to find the real server pid. The `timeout` wrapper is a
 separate pid — kill both.
+
+### The `ls` race is NOT triggered by concurrency — do not chase the wrong cause (session 115)
+
+Session 105 recorded the transient `ls` failure on the symlinked deep path. Session 115 reproduced it
+(`ls -la …/code/civilizations/` → `No such file or directory` while the tree was provably present) and
+then **falsified the obvious hypotheses**:
+
+- 8 **concurrent** `ls` → 8/8 OK (not a concurrency/ordering race)
+- `ls` immediately after `stat -L` → 6/6 OK (not a stat-priming effect)
+- `cd` into the path then `ls` absolute → OK; trailing slash → OK; parent → OK
+- 10/10 and 12/12 sequential retries → OK
+
+The failure is **intermittent and unexplained**; the tree was always intact. **Keep the documented
+diagnostic and the retry, and stop hypothesising a cause**: `stat -L -c '%d:%i'` + `readlink -f` +
+`[ -e path ]` + retry. Two different tool turns in session 115 failed and then passed, and a
+*later* turn in the same session failed again after a clean run — so "it worked last time" is not
+evidence the tree exists.
+
+### Competition-phase rows: per-civ Δ is +10, not +45 (session 115)
+
+Reading the code suggests 5 sims + 5 competitions × 8 civs = 45 rows per civ. The **actual** ledger
+delta is **+10 per civ** (80 total). Reason: the competition phase runs 8 civs in parallel but
+`run_simulation()` appends **one row per civ per prompt** — 5 prompts → 5 rows per civ, and the
+8 civs' rows are spread across the 8 ledgers (not 8 rows each). So per civ:
+**5 (sim phase) + 5 (one per competition prompt) = 10**. Total = 8 × 10 = 80.
+
+Corollary for isolating a run's rows: the competition phase is a **separate ts cluster** ~20 s after
+the sim phase. A `ts >` cutoff drawn in the wrong place will attribute competition rows to the wrong
+cluster — count from the end of the file (`rows[-delta:]`) instead.
+
+### Control B mock: the index-wrap fix, verified (session 115)
+
+Rewrote `/tmp/mock_zai.py` with `seed[(i*2)%8:((i*2)%8)+2]` (the session-112 fix). Verified before
+the run with the **exact long multi-sentence cultural prompt** the orchestrator sends (not a one-word
+body): HTTP 200, 210-char body, `[mock-zai seed=…]` prefix present, **0 tracebacks** in stdout.
+All 80 ledger rows carried the prefix ⇒ mock integrity confirmed at the ledger level, not just the
+socket level.
+
+`ZAI_URL_OVERRIDE` alone is still dead code — the token gate returns `None` first. Control B needs
+**both** `ZAI_TOKEN` (any non-empty placeholder) **and** `ZAI_URL_OVERRIDE`.
+
+### JEV liveness check: HTTP 422 means auth OK, not down (session 115)
+
+Probing JEV with a string where `questions` expects an object returns
+`422 {"type":"model_attributes_type"}` — a **payload-shape** complaint, which means the token was
+accepted. Do not read 422 as "JEV unreachable"; it is proof of liveness. (Contrast z.ai, where 401
+on a bogus token means the endpoint is healthy but the credential is absent.)
+
+### `gh` is not installed; list repos with the REST API (session 115, re-confirmed)
+
+`GET /user/repos?per_page=100&sort=updated` with `GITHUB_TOKEN` lists every repo the token can see.
+The 3.7 GB upstream is **`SuperInstance/AI-Writings`**; the `ai-writings/cellular-first-design`
+slug 404s. A `--depth 50` full clone of that repo pulled only 4.4 MB for this subtree — no
+`--filter=blob:none` needed when the tree is small, so prefer the simple clone.
