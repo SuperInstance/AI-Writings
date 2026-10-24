@@ -70146,7 +70146,7 @@
     "style": "Essay",
     "word_count": 703,
     "date": "2026-10-23",
-    "size_bytes": 60178
+    "size_bytes": 75008
   },
   {
     "filename": "AUDIT-NOTE.md",
@@ -115248,6 +115248,25 @@
     "size_bytes": 12838
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session55.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session55.md",
+    "title": "RUN_REPORT_2026-10-24_session55.md — Civilization Orchestrator, 20th-deep credential gap, 7th Control B replication",
+    "description": "| run | exit | `Winner:` lines | ledger delta | meta_log delta | verdict | |---|---|---|---|---|---| | unpatched (no `ZAI_TOKEN`) | **0** | **0** | **+0** | **+0** | **did nothing** | | Control B (gat...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music",
+      "Technical"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 735,
+    "date": "2026-10-24",
+    "size_bytes": 12208
+  },
+  {
     "filename": "RUN_REPORT_2026-10-24_session42.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session42.md",
     "title": "RUN_REPORT_2026-10-24_session42",
@@ -115317,7 +115336,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "2026-10-23",
-    "size_bytes": 365220
+    "size_bytes": 398919
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session46.md",
@@ -115444,6 +115463,24 @@
     "word_count": 798,
     "date": "2026-10-24",
     "size_bytes": 10821
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session54.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session54.md",
+    "title": "civ-orchestrator session 54 (2026-10-24) — credential gap 19th deep; Control B +80 rows; the Poetic anomaly holds for the 6th run and the Grounded's board-last place is confirmed a longevity artefact",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 699,
+    "date": "2026-10-24",
+    "size_bytes": 10972
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session39.md",
@@ -115896,6 +115933,24 @@
     "size_bytes": 14634
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session57.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session57.md",
+    "title": "Civ Orchestrator — Session 57 (2026-10-24)",
+    "description": "`ZAI_TOKEN` absent from env. Direct probe of `https://api.z.ai/api/coding/paas/v4/chat/completions` with the sandbox token: | probe | HTTP | body | |---|---|---| | 1 | **401** | `{\"error\":{\"code\":\"401...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 833,
+    "date": "2026-10-24",
+    "size_bytes": 9585
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23.md",
     "title": "Civilization Orchestrator — Run Report",
@@ -115968,6 +116023,24 @@
     "size_bytes": 7785
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session54b.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session54b.md",
+    "title": "civ-orchestrator session 54 (2026-10-24) — credential gap 19th deep; chooser/argmax decoupled 0/5; Poetic anomaly holds for the 6th run",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Technical",
+    "word_count": 806,
+    "date": "2026-10-23",
+    "size_bytes": 10859
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session36.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session36.md",
     "title": "Civilization Orchestrator — Run Report, session 36 (2026-10-23, 132nd wipe)",
@@ -116002,6 +116075,24 @@
     "word_count": 713,
     "date": "2026-10-23",
     "size_bytes": 6914
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session53.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session53.md",
+    "title": "civ-orchestrator session 53 (2026-10-24) — credential gap 18th deep; the two low-relevance civs split cleanly and the Poetic anomaly holds for the 5th run",
+    "description": "Run `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`, verify `simulations.jsonl` files have new entries, note any civilization with low relevance.",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 720,
+    "date": "2026-10-24",
+    "size_bytes": 13396
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session24.md",
@@ -116164,6 +116255,24 @@
     "word_count": 853,
     "date": "2026-10-23",
     "size_bytes": 14217
+  },
+  {
+    "filename": "RUN_REPORT_2026-10-24_session56.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session56.md",
+    "title": "Civ Orchestrator — Session 56 (2026-10-24)",
+    "description": "`ZAI_TOKEN` absent from env **and** from the 8-entry secret store. All 7 candidate sandbox secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions`: | secret | HTTP | |---|---|",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Essay",
+    "word_count": 857,
+    "date": "2026-10-24",
+    "size_bytes": 7476
   },
   {
     "filename": "RUN_REPORT_2026-10-23_session33.md",
