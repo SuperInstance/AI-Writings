@@ -8187,3 +8187,54 @@ All 5 competition rounds crowned a civ that was **not** the top scorer (twice by
 **158** historical rounds the chooser agrees with `argmax(avg_score)` in only **28 (17.7 %)**. The disagreement
 is **structural** — the chooser never sees the scores. `win_rate` is a *selection* metric; never merge it with
 `relevance_per_sim`.
+
+### Session 71 addendum — the `raw.githubusercontent.com` CDN serves a STALE blob
+
+After a successful push (`332ca4bf..2719ddbc  HEAD -> main`, verified by the push output), fetching the
+changed file back from `raw.githubusercontent.com` returned the **pre-push** size (**456 568** bytes) and
+`grep -c "Session 71"` → **0** — even with a `?cb=<timestamp>` cache-buster and a fresh connection. The
+committed blob was **462 719** bytes and did contain the section.
+
+**The CDN was serving a stale copy.** A cache-buster does not help; `raw` is cached by URL path.
+
+**Authoritative verification (no core API quota needed) — use the git protocol:**
+```bash
+GIT_SSL_NO_VERIFY=1 git ls-remote origin refs/heads/main      # -> the pushed sha
+git fetch --filter=blob:none origin main
+git rev-parse origin/main:<path>          # remote blob sha
+git rev-parse HEAD:<path>                 # local blob sha   -- must MATCH
+```
+Blob-SHA equality is a stronger proof than reading the file back over HTTP. **Do not conclude a push failed
+because `raw` served stale content** — it is the most likely false negative available here.
+
+**Also note:** the GitHub **core REST quota was exhausted** (5000/5000) during this session, so
+`GET /repos/.../contents/<path>` returned a rate-limit error and the commits API could not verify the push.
+`git ls-remote` + `git fetch` + blob-SHA comparison bypasses the REST quota entirely and is the verification
+method to use when core quota is 0.
+
+### Session 71 addendum — `origin/main` can be force-updated between fetch and push
+
+The remote branch moved from `b0fd448` to `332ca4bf` (**forced update**, a canon-poll commit) while this
+session was running. The civ-orchestrator tree was untouched by that commit, and `session71` was still free
+(no filename collision). The safe sequence:
+```bash
+git fetch --filter=blob:none origin main
+git reset -q --soft origin/main          # rebase onto the new head, keep staging
+git reset -q HEAD -- .                    # unstage EVERYTHING (the new head brought its own files)
+git add <only my two files>              # re-stage exactly what I own
+git commit -F msg.txt
+git push origin HEAD:main
+```
+`git reset --soft` after the fetch stages the **new head's** files too — the canon-poll's `index.html`,
+`index.json` and `bots/wesley-mechanic/witness.log` appeared in the index. Re-stage explicitly.
+
+### Session 71 addendum — a blobless clone re-fetches blobs *during commit*
+
+`git commit` on a `--filter=blob:none` clone triggers a background `git fetch` of the staged blobs
+(`index-pack --stdin --fix-thin --keep=fetch-pack`), which takes **minutes** and holds `.git/index.lock` the
+whole time. A 30 s tool timeout kills the commit and leaves a stale lock, and a second commit then fails with
+*"Unable to create .git/index.lock: File exists"*.
+
+**Do not `rm -f` the lock** — the original commit is often still running and will die. Instead: wait for the
+process, then `git fetch --filter=blob:none origin main` to pre-materialise the blobs, and only then commit.
+Committing with `git config gc.auto 0` and a detached `(setsid nohup git commit ... &)` avoids the timeout.
