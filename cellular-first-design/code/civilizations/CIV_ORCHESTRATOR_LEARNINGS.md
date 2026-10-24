@@ -6753,3 +6753,142 @@ the full preview.
   **name-check the remote before publishing** (a 409 on a *new* file means it already
   exists with identical content; a 409 on an *existing* file means a stale `sha`).
   Mine is published as **`RUN_REPORT_2026-10-24_session54b.md`**.
+
+### Control B reproduced — signature now 6/6 sessions
+`--sims 5 --prompts 5 --providers zai` with the gate mocked: **+80 rows (exactly +10 per civ),
++5 meta_log, 5 `Winner:` lines, 0 all-2.0-default rows, 0 score errors.** avg_score 1.390–2.370,
+mean 1.8797, 69 distinct of 80. JEV confidence 0.170–0.930 (real scores, not defaults).
+
+**New guard, stronger than the 73-distinct-`avg_score` check:** assert **0 cross-civ identical
+`content_preview` collisions** and **N distinct previews per civ** (this run: 5 each). A single
+template serving all 8 civs still produces distinct `avg_score` values (JEV varies run to run) and
+would pass the old check while destroying the chooser's signal.
+
+### The Poetic anomaly — 6th consecutive run
+**The Poetic: relevance leader (2.204 rel/sim, 1st of 8) AND board-last win rate (0.009, 1W/112L).**
+It accumulates relevance while essentially never being selected. Corroborated across sessions
+6, 7, 8, 52, 53, 54. **Win rate, not `relevance_per_sim`, is the metric to trust on this board.**
+
+### Grounded's last place is a longevity artefact (re-confirmed)
+`civ-grounded` is board-last on `relevance_per_sim` (1.533) but has the **second-highest** win rate
+(0.205) — it simply ran the most sims (249) and a lifetime-average denominator punishes that.
+Lowest by raw relevance is also `civ-grounded` (381.79). Not a quality collapse. **Extinction risk:
+none** — `extinction_and_birth()` retires only below `relevance < -10` and only in `--loop` mode
+every third iteration; a single-shot run never triggers it.
+
+### Counter gap — 260 rows, and a refinement
+Ledger 2124 vs registry 1864 = **260 uncounted committed rows** (per-civ 16–63). Root cause
+unchanged: `save_state()` rewrites `culture.json` from in-memory counters with no lock and no
+read-modify-write => lost-update race.
+**Refinement (new this session):** the board order *did* reproduce from the ledger (recomputing
+`relevance_per_sim` from ledger `avg_score` sums over ledger row counts gave the identical 8-civ
+order). So the gap is a **reproducibility** hazard, not a guaranteed misranking. The board is still
+**not auditable from the ledger alone**; prefer win rate.
+
+### Both silent-corruption defects still present (AST-confirmed)
+1. **JEV outage awards an arbitrary civ a real win.** Fallback is
+   `winner_civ = max(results, key=lambda r: r[1]["avg_score"])[0]` — on an all-`2.0` tie `max()`
+   returns the **first** element encountered. AST check confirms **no tie-break awareness**.
+2. **The empty-token drop is silent** — `call_provider` returns `None` and the caller cannot tell
+   "no credential" from "provider refused". A zero-usable-provider run should exit non-zero.
+
+## Session 55 (2026-10-24) — credential gap 20th deep; the clone vanished mid-run and faked a code bug
+
+### NEW TRAP: a deleted clone presents as an orchestrator `FileNotFoundError`
+
+The first clone at `/tmp/wk/ai-writings` was **deleted between 04:22 and 04:23, while the
+orchestrator was running**. The run died with:
+
+```
+FileNotFoundError: [Errno 2] No such file or directory:
+  '/workspace/repos/ai-writings/.../civ-whimsical/culture.json'
+```
+
+**This is not an orchestrator defect** — the civ directory was removed underneath the process.
+The signature: a `FileNotFoundError` on a `culture.json` for a civ that has *just* printed its
+`[Name] running 5 sims...` line. **When you see this, check that the clone still exists
+before you start auditing the script.** (`ls /tmp/wk/ai-writings` → *No such file or directory*.)
+
+**Mitigation — adopt this from the start.** Snapshot the tracked blobs to a *separate* directory
+the moment the checkout completes, before running anything:
+```bash
+for c in grounded whimsical formal poetic precise mythic therapist engineer; do
+  git show HEAD:.../civ-$c/simulations.jsonl > /tmp/pristine/civ-$c.simulations.jsonl
+  git show HEAD:.../civ-$c/culture.json       > /tmp/pristine/civ-$c.culture.json
+done
+```
+This backup is both the safety net when the clone vanishes **and** the authoritative restore
+source (verify with `cmp` against the git blob, never md5 eyeballing). A second clone at
+`/tmp/wk/ai2` restored the tree in one tool call, and `cmp` against HEAD confirmed every file
+byte-identical before the run even started.
+
+### Credential gap — 20th session, and the endpoint-specific framing holds
+
+All 8 sandbox secrets → z.ai coding endpoint = **401**. The same `GITHUB_TOKEN` →
+`api.github.com/user` = **200** (login `SuperInstance`). **A 401 (not 5xx) ⇒ endpoint healthy
+⇒ credential gap, not outage.** `ZAI_TOKEN`/`ZAI_KEY` absent from env and from the 8-entry
+secret store; the key must be provisioned, it cannot be recovered. JEV live at `jev-1.14.0`
+(probe quality **2.16** — a real score, not the 2.0 default). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Unpatched `--sims 5 --prompts 5 --providers zai` → exit 0, 0 `Winner:` lines, +0 rows,
++0 meta_log (2124 → 2124, 138 → 138).** 20th identical outcome. **Assert on the row delta and
+the `Winner:` count, never on the exit code.**
+
+### Control B — 7th consecutive identical replication
+
+`ZAI_TOKEN=<set>` + `ZAI_URL_OVERRIDE=http://127.0.0.1:8731/chat/completions` (leave the
+token gate alone so a real HTTP request is attempted):
+**+80 rows (exactly +10/civ, uniform), +5 meta_log, 5 `Winner:` lines, 0 all-2.0-default rows,
+0 score errors, 75 distinct `avg_score` of 80 (1.123–2.463, mean 1.8038), 0 cross-civ
+`content_preview` collisions, 80 mock calls received.**
+
+**New micro-finding:** `civ-precise` had 7 distinct previews across its 10 new rows (others 10).
+That is **expected, not a defect** — it ran 5 batch + 5 competition sims on a *fixed* prompt
+set at a *fixed* temperature, so duplicate (prompt, temperature) pairs legitimately produce the
+same salt. The old "N distinct previews per civ" check should allow `>= distinct(prompts)`.
+
+### The Therapist is the new bottom by current form — do not let the board hide it
+
+| lens | lowest | |
+|---|---|---|
+| A `relevance_per_sim` (board sort key) | `civ-grounded` 1.534 | longevity artefact — 2nd-highest win rate (0.214), won 2 of 5 rounds |
+| B raw relevance | `civ-grounded` 397.30 | same cause |
+| C win rate | `civ-poetic` 0.008 (1W/117L) | selection appeal, not relevance |
+| D ledger `avg_score` (all history) | `civ-grounded` 1.595 | weak writer too (quality 1.028, align 2.016) |
+| **E this run's rows only** | **`civ-therapist` 1.282** | quality 0.456, **alignment 0.851 — worst on the board** |
+
+`civ-therapist` is mid-table on its lifetime average (1.955) but **last on this run's rows on
+both quality (0.456) and alignment (0.851)**. That is a **current-form decline, not longevity** —
+the third distinct shape of "low relevance" and the one most likely to become a real
+extinction candidate. **Add Lens E (this run's rows only) to the standing report set**; the
+lifetime lenses hide it.
+
+**The Poetic anomaly: 7th consecutive run** (sessions 6, 7, 8, 52, 53, 54, 55). Still
+**1st of 8 on every quality lens** (rel/sim 2.200, raw rel 536.81, ledger avg 2.255, best
+quality 1.584) and **last on win rate** (0.008, 1W/117L). Chooser-vs-`argmax(avg_score)`
+agreement over all **143** meta_log rounds: **24 agree / 119 disagree = 16.8 %** (this run
+alone: 1/5). The chooser sees only the first **150 chars** of `content_preview` and never the
+scores. **`win_rate` is selection appeal, not relevance — always say which lens you mean.**
+
+### Temperature → novelty is real, but r = 0.985 did NOT replicate
+
+This run: Pearson **r(temp, novelty) = 0.464** (session 52 reported 0.985). The gradient
+exists; the near-perfect figure was not reproduced. Do not quote 0.985 as a standing constant —
+quote the range and re-measure per run.
+
+### Counter gap still 260 rows
+
+Ledger 2204 vs registry `simulations_run` 1944 = **260 uncounted committed rows** (per-civ
+16–63). `save_state()` has no lock and no read-modify-write ⇒ lost-update race; the board is
+not reproducible from the ledger by an auditor. Both silent-corruption defects (JEV-outage
+arbitrary win; silent empty-token drop exiting 0) remain AST-confirmed.
+
+### Session 55 state
+
+- HEAD `e47117be`; sparse checkout of `cellular-first-design/code/civilizations` via
+  blobless clone + `sparse-checkout set` + explicit `git checkout` (**~35 MB, one tool call**).
+- All 8 `simulations.jsonl`, all 8 `culture.json`, `meta_log.jsonl`, `leaderboard.json`
+  restored from git blobs and **byte-identical to HEAD** (verified with `cmp`).
+- Report: `RUN_REPORT_2026-10-24_session55.md`.
+
