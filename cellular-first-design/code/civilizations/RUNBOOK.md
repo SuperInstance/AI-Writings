@@ -898,3 +898,43 @@ the same class of error as reading a 403 as "no tree". **Fall back to the git pr
 (`git ls-remote <repo>`), which does not consume REST budget at all. `git ls-remote` on a
 guessed slug is also a fast existence probe: "Repository not found" is authoritative, where a
 404 from the API may be a rate limit.
+
+### NEW — a second sample of the SAME session number is not a conflict; publish it as `session<N>b` (session 128b)
+
+A first session-128 run was **already published** on `refs/heads/civ-orch/session128-report`
+(commit `09580793`) from the same session-127 baseline (`078a137`). A second run of the same command
+from the same baseline produced a **different** winner mix:
+
+| | first s128 (`09580793`) | second s128 (this session) |
+|---|---|---|
+| winners p1..p5 | precise, precise, precise, precise, precise | precise, precise, **grounded**, **engineer**, precise |
+| chooser vs `avg_score` argmax | 4/5 (80 %) | **0/5 (0 %)** |
+| this-run `avg_score` spread | 0.3403 | 0.2267 |
+| this-run `alignment` spread | 0.7030 | 0.7000 |
+
+Both runs are valid independent draws; the divergence is **the evidence** that a single 5-sample
+point carries almost no information about a rate — which is exactly what the runbook has said since
+session 125. **Do not overwrite the earlier report and do not re-use its session number.**
+
+Procedure:
+- Name the report `RUN_REPORT_<date>_session<N>b.md` and publish to
+  `refs/heads/civ-orch/session<N>b-report` — **not** `session<N>-report`, which is taken.
+- The earlier `civ-orch/session128-report` branch is a **root commit with no parent** (it was pushed
+  without its session-127 ancestry), so `git diff` against it works but `git rebase` onto it does
+  not. Compare file contents, not commit topology.
+- `master` is a **different line of development** (a `wesley-mechanic` canon-poll branch) where the
+  civilizations subtree is still at the 2026-09-21 state (112 rows, no run reports). **Pushing to
+  `master` would clobber that subtree with a 20-session-older tree.** The civ-orchestrator work
+  lives on the `civ-orch/*` branch line — publish there, not to `master`.
+
+### Fetching from a 3.7 GB upstream: `--depth 1` on a SHA still pulls the whole tree (session 128b)
+
+`git fetch --depth 1 <url> <sha>` on this repo downloaded **~9 GB** and took ~3 minutes, because a
+depth-1 fetch of a single commit still walks the full tree and downloads every blob in it. The
+`.git` directory grew 8.7 GB → 12 GB across three such fetches and the overlay went to 43 % full.
+**Do not fetch the upstream repeatedly.** Fetch **once**, and prefer
+`git ls-remote <url> <ref>` (cheap, no blobs) to check what a remote tip is before fetching it.
+A `--filter=blob:none` partial clone or a `--depth 1` **clone** (not fetch) is far cheaper.
+
+**A killed `git fetch` leaves `shallow.lock` behind** and the next fetch fails with
+`Another git process seems to be running`. `rm -f .git/shallow.lock .git/index.lock` clears it.

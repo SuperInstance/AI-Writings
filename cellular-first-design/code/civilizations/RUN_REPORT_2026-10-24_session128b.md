@@ -1,4 +1,12 @@
-# Civ Orchestrator — Run Report 2026-10-24 (session 128)
+# Civ Orchestrator — Run Report 2026-10-24 (session 128b)
+
+**This is the SECOND independent sample of the session-128 command.** A first session-128 run was already
+published on `civ-orch/session128-report` (commit `09580793`) from the same session-127 baseline
+(`078a137`). That run had `civ-precise` winning 5/5 and chooser-vs-argmax 4/5; **this** run had a
+different winner mix (`civ-precise` 3/5, `civ-grounded` 1/5, `civ-engineer` 1/5) and chooser-vs-argmax
+0/5. Both are valid, independent draws of the same command from the same baseline — the divergence
+between them is itself the evidence that a single 5-sample point carries almost no information.
+The first run's report is left untouched at `RUN_REPORT_2026-10-24_session128.md`.
 
 **Command:** `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
 **Upstream:** `SuperInstance/AI-Writings` @ `078a137` (session 127)
