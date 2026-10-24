@@ -1000,3 +1000,79 @@ voice ("warm, factual") are the least differentiating prompt in the field.
   clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
   `stat -L -c '%d:%i'` + `-ef` (129:3669); never flatten; `TYPESAFEAI_KEY` must be exported;
   JEV liveness = 422 on a malformed `questions`; z.ai = 401 on a bogus bearer (credential gap).
+
+### Session 132 — chooser 2/5 (40 %); `civ-precise` swept 5/5 while ranking 3rd/4th (2026-10-24)
+
+**Verification held (all PASS):** per-civ Δ = **+10** × 8 (5 sim-phase + 5 competition-phase),
+`meta_log.jsonl` Δ = **+5** (393 → 398), `Winner:` lines = **5**, **80/80** rows carry the
+`[mock-zai` prefix, `provider` = `{zai}`, **0** rows with a JEV `error` key, and **5/5** competition
+prompts at **8/8 distinct previews AND 8/8 distinct seeds** — the **ninth** clean mock measurement
+(118, 120–123, 125, 131, 132).
+
+**Mock rebuilt from scratch again** (this session's `/tmp` was wiped), so **both** historical mock bugs
+had to be re-applied on rebuild — the session-112 index wrap `seed[(i*2)%8:((i*2)%8)+2]` and the
+session-118 md5-of-whole-message seeding. The pre-flight probe caught the pre-run state: 8/8 distinct
+seeds, 8/8 distinct previews, HTTP 200, 1174–1574-char bodies, `[mock-zai seed=…]` present,
+`grep -c Traceback /tmp/mock_zai.log` → **0**. **Probe with the exact long cultural prompt, not a
+one-word body** — the one-word probe cannot reach the `i>=4` path that crashes.
+
+**Chooser vs `avg_score` argmax: 2/5 (40 %).** `civ-precise` won **5/5**; `civ-poetic` was argmax in
+**2/5** and won **0/5**. Clean-mock series: 0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) →
+3/5 (123) → 0/5 (124) → 4/5 (125) → 1/5 (126) → 3/5 (127) → 2/5 (128) → 4/5 (130) → **2/5 (132)**.
+Fourteen five-sample points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. What
+survives every session: the chooser is **not** a pure argmax, and in **all 3** disagreements this
+session it picked a **lower**-scoring candidate — the stable direction across
+116/118/119/120/122/123/125/131 (11th consecutive session with that direction).
+`civ-precise` won 5/5 while ranking **4th** (0.273 vs poetic 0.587) on prompt 0 and **3rd**
+(0.267 vs poetic 0.463) on prompt 1. **Never treat `win_rate` as a quality metric.**
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ — 35 consecutive sessions (95–132).**
+Last on lifetime `avg_score` (1.1660), `alignment` (1.3865), `quality` (0.5637), `relevance` (862.47)
+and `relevance_per_sim` (1.122). **The structural gap is `alignment`: 0.9687 below the field**
+(2.3553 precise − 1.3865), versus **0.4019** on quality — **2.4× wider** (the lifetime gap ratio has
+widened from ~11× in sessions 125–131 as the field's alignment scores drifted up). Alignment is what
+the meta-GAN selects on, so Grounded fails to *embody a distinctive voice* — a **voice** failure, not a
+prose failure.
+
+**New observation — run-level `avg_score` and `alignment` rankings are IDENTICAL (Spearman ρ = +1.000)**
+across all 8 civs, at lifetime level ρ = +0.738. The run's score dimensions moved together this
+session, so there is **no run-level divergence** between the score the chooser sees and the composite
+score the leaderboard ranks by. The divergence is at the **competition** level (the chooser ranking a
+civ 3rd/4th by `avg_score` and picking it anyway) — that is where the meta-GAN's text-based judgement
+separates from the numeric argmax.
+
+**`civ-therapist` took the run-level low this session** — 8th of 8 on run `avg_score` (0.1117) **and**
+8th of 8 on run `alignment` (0.0240), with the field's worst run/lifetime alignment ratio (0.014).
+But its **lifetime** `avg_score` is 5th of 8 (1.3942) and lifetime `alignment` 7th of 8 (1.7119):
+a mid-field citizen, not a structural loser. **Per-run low ⇒ watch axis, not a finding.** Keep
+`civ-grounded` as the structural finding and `civ-therapist` as a separate watch axis.
+
+- **`civ-formal`** remains the low-**novelty** axis (lifetime novelty 1.4121, last; alignment 1.9875 healthy).
+- **`civ-engineer`** = 5th of 8 on run `avg_score` (0.1657) and 5th of 8 on lifetime `avg_score`
+  (1.3284) — no lifetime-level gap. The session-121/122/123 single-run low has now appeared in 3 of
+  the last 5 sessions but **still without a lifetime gap**. Do not promote it.
+- **The two stable inverses:** `civ-poetic` = 1st on lifetime `avg_score` (1.7519) / `quality` (0.9656) /
+  `novelty` (1.9876) / `alignment` (2.3025) but **last on `win_rate`** (0.013, 5/368) and won **0/5**
+  despite argmaxing 2/5 — the stable selection-failure inverse. `civ-precise` = best `win_rate`
+  (0.546, 201/167), won **5/5**, 1st on lifetime `alignment` (2.3553) but only 3rd on lifetime
+  `avg_score` (1.5193) — the mirror inverse. **The chooser tracks `alignment`**, and precise wins on
+  exactly that axis.
+- **Extinction risk NONE** — threshold −10, lowest relevance +862.47 (86× above floor). Registry 8,
+  `max_civs` 12. All 8 civs still `generation=1`.
+- **Score-dimension spreads this run (cross-civ, not absolute levels):** `alignment` **0.7230**,
+  `avg_score` 0.2567, `novelty` 0.2050, `quality` **0.0090**. `alignment` again carried the widest
+  spread and is again the axis the chooser selects on. `quality` collapsed again (0.007–0.016) — the
+  119/121/122/123/125/126/130/131 regime. **The quality collapse is a LEVEL that moves, not a stable
+  property** — compare cross-civ spreads before ranking on a dimension.
+- **Absolute run levels depressed vs lifetime** (run `avg_score` 0.112–0.368 vs lifetime 1.17–1.75) —
+  a level shift in the JEV scorer's output for this batch, **not a civ effect**.
+- **Counter gap per-civ uneven, unchanged**: whimsical +63, grounded +43, formal +42, poetic +37,
+  engineer +22, mythic +20, therapist +17, precise +16 (total +260). `save_state()` has no lock ⇒
+  `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- **Re-confirmations:** NAS EDQUOT total (18th session — `cp` into `/workspace` exits 1 with
+  `Disk quota exceeded` on *every* file, and the 0-byte files still appear in `ls`); `gh` not
+  installed (18th session); tool timeout 30 s < run ~45 s; `ZAI_URL_OVERRIDE` alone is dead code
+  (needs `ZAI_TOKEN`); clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify
+  with `stat -L -c '%d:%i'` + `-ef` (got `129:10434`); never flatten; `TYPESAFEAI_KEY` must be
+  exported; JEV liveness = 422 on a malformed `questions`; z.ai = 401 on a bogus bearer (credential
+  gap); the `ls` race did not reproduce (bridge passed 5/5 on the first attempt).

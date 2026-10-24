@@ -147,3 +147,53 @@ All failure modes are silent with exit code 0 — a missing token makes `call_pr
 
 Isolate this run's rows by **count from the end of the file** (`rows[-delta:]`), not by a `ts`
 cutoff — prior sessions left mock rows behind, so a `ts >=` filter pulls in history.
+
+## Session 132 (2026-10-24) — run-level rank divergence is NOT the signal; the competition gap is
+
+**Chooser vs `avg_score` argmax: 2/5 (40 %).** `civ-precise` won **5/5**; `civ-poetic` was argmax in
+**2/5** and won **0/5**. Clean-mock series: 0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) →
+3/5 (123) → 0/5 (124) → 4/5 (125) → 1/5 (126) → 3/5 (127) → 2/5 (128) → 4/5 (130) → **2/5 (132)**.
+Fourteen five-sample points cannot narrow a rate — the honest claim is *somewhere in 0–80 %*. What
+survives every session: the chooser is **not** a pure argmax, and in **all 3** disagreements this
+session it picked a **lower**-scoring candidate — the stable direction across
+116/118/119/120/122/123/125/131 (**11th** consecutive session with that direction).
+
+**New: run-level `avg_score` and `alignment` rankings can be IDENTICAL (ρ = +1.000).** This session
+measured Spearman ρ(avg_score, alignment) = **+1.000** at run level (all 8 civs in the same order on
+both axes) and +0.738 at lifetime level. So a run-level divergence between "the score the chooser
+sees" and "the composite the leaderboard ranks by" is **not guaranteed** — do not look for it. The
+divergence that *is* real lives at the **competition** level: `civ-precise` won 5/5 while ranking
+**4th** (0.273 vs poetic 0.587) on prompt 0 and **3rd** (0.267 vs poetic 0.463) on prompt 1. Measure
+the chooser gap **per competition prompt**, not as a run-level rank correlation.
+
+**The chooser tracks `alignment`, and `civ-precise` wins on exactly that axis:** 1st of 8 on lifetime
+`alignment` (2.3553) but only 3rd on lifetime `avg_score` (1.5193); swept 5/5. Its mirror,
+`civ-poetic`, is 1st on lifetime `avg_score` (1.7519) and 2nd on `alignment` (2.3025) but last on
+`win_rate` (0.013, 5/368) and won 0/5. **Never treat `win_rate` as a quality metric.**
+
+**`civ-grounded` is the low-relevance civ — 35 consecutive sessions (95–132).** Last on lifetime
+`avg_score` (1.1660), `alignment` (1.3865), `quality` (0.5637), `relevance` (862.47) and
+`relevance_per_sim` (1.122). The structural gap is `alignment`: **0.9687** below the field, versus
+**0.4019** on quality — **2.4× wider** (the gap ratio has widened from ~11× in sessions 125–131 as the
+field's alignment scores drifted up). Alignment is the dimension the meta-GAN selects on ⇒ a **voice**
+failure, not a prose failure.
+
+**`civ-therapist` took the run-level low this session — but it is a WATCH axis, not a finding.**
+8th of 8 on run `avg_score` (0.1117) **and** 8th of 8 on run `alignment` (0.0240), with the field's
+worst run/lifetime alignment ratio (0.014). But its **lifetime** `avg_score` is 5th of 8 (1.3942) and
+lifetime `alignment` 7th of 8 (1.7119) — a mid-field citizen. **Per-run low ⇒ watch axis.** The
+session-121/122/123 rule stands: *do not promote a single-run low without a lifetime-level gap.*
+`civ-formal` = low-**novelty** axis (lifetime novelty 1.4121, last; alignment 1.9875 healthy);
+`civ-engineer` = 5th of 8 on both run and lifetime `avg_score`, still no lifetime gap — do not promote.
+
+**Verification pattern that held (9th clean mock measurement — 118, 120–123, 125, 131, 132):** per-civ
+Δ = **+10** (5 sim-phase + 5 competition-phase), `meta_log` Δ = **+5** (393 → 398), `Winner:` lines =
+**5**, **80/80** rows `[mock-zai`-prefixed, `provider={zai}`, **0** rows with a JEV `error` key, and
+**5/5** competition prompts at **8/8 distinct previews AND 8/8 distinct seeds**.
+
+**`/tmp` was wiped again ⇒ the mock was rebuilt from scratch, so BOTH historical mock bugs had to be
+re-applied on rebuild**: the session-112 index wrap `seed[(i*2)%8:((i*2)%8)+2]` and the session-118
+md5-of-whole-message seeding. **Pre-flight with the exact long cultural prompt** (8 civs → 8 distinct
+seeds AND 8 distinct previews, 1174–1574-char bodies, `[mock-zai seed=…]` present, 0 tracebacks) —
+a one-word probe cannot reach the `i>=4` path that crashes. A crashing mock still leaves a listening
+socket, so a port/200 check is **not** proof of correctness.
