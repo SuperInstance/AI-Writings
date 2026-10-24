@@ -6991,3 +6991,41 @@ empty-token drop exiting 0) remain AST-confirmed.
 - Report: `RUN_REPORT_2026-10-24_session56.md`.
 - No source file modified; only the 8 `simulations.jsonl`, 8 `culture.json`,
   `meta_log.jsonl`, `leaderboard.json`.
+
+### Session 56 addendum — the false-conflict rebase recovery (reusable)
+
+A concurrent instance committed to `main` between my fetch and my push, **re-adding the
+same civ files** (97 files, 24953 insertions, **0 deletions**). `git rebase` then:
+1. produced an `AA` (both-added) conflict on every civ file, and
+2. the rebase todo **replayed another instance's commit**, not just mine — so a
+   "rebase onto remote" is not a 1-commit operation and can drag in a whole foreign
+   history.
+
+**Do NOT rebase in this situation. Recover without it:**
+
+```bash
+# 1. verify the remote's ledgers are a strict PREFIX of yours
+for c in grounded whimsical formal poetic precise mythic therapist engineer; do
+  n=$(wc -l < civ-$c/simulations.jsonl)
+  head -n $((n-10)) civ-$c/simulations.jsonl | cmp -s - /tmp/rem_$c.jsonl \
+    && echo "civ-$c OK" || echo "civ-$c DIVERGED"
+done
+# 2. branch from the remote head, re-apply your files, commit, push
+git checkout -B <branch> FETCH_HEAD
+#    ...restore your civ files (keep a copy OUTSIDE the worktree: a branch
+#    checkout resets the worktree and will silently revert them)...
+git add cellular-first-design/code/civilizations/ && git commit && git push <url> HEAD:main
+```
+
+**Critical gotcha:** after `git checkout -B <branch> FETCH_HEAD` the **working tree is
+reset to the remote state** — your in-worktree copies are gone. Extract them from
+your commit (`git show <mycommit>:path > /tmp/s56/...`) **before** switching branches,
+and keep them in `/tmp`. The final pushed diff was byte-identical to the pre-rebase
+diff (410 insertions, 72 deletions) and every remote ledger verified as
+`remote-prefix + 10 new` rows.
+
+**Push verification:** the GitHub **API** was rate-limited (403 "rate limit exceeded"),
+so the API commit check could not run. `git fetch --depth 1 origin main` then
+`git rev-parse origin/main` == `git rev-parse HEAD` is an equally authoritative
+remote verification and does not consume API quota. **Use the git-level check when the
+API is throttled.**
