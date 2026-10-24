@@ -1,0 +1,130 @@
+# bruno-adr.yml — run Bruno the Architect's ADR generator with vault-backed providers.
+#
+# WHY THIS EXISTS
+# ---------------
+# bruno_adr.py calls z.ai (glm-4.5) with ZAI_TOKEN. That key lives on the fleet
+# host, not in the sandbox, and the credential gap has been hit for 20+
+# consecutive sessions upstream. The fleet's own answer is the SuperInstance
+# vault (https://superinstance-vault.casey-digennaro.workers.dev/proxy), which
+# holds the LLM credential and is reachable from inside GitHub Actions via a
+# GitHub OIDC token. This workflow mints that OIDC token and reroutes the
+# provider call through the vault.
+#
+# WHAT STAYS UNTOUCHED
+# --------------------
+# bruno_adr.py's own logic: topic selection, prompt construction, ADR file
+# naming, the header/footer format, and the witness.log append. Only the
+# transport changes, exactly as snowball-rsi-gan.yml does for snowball-scout.
+#
+# The script's module-level paths are hardcoded to the fleet-host layout
+# (/workspace/repos/ai-writings), so they are repointed at the runner's
+# checkout before the script is used -- same treatment snowball-rsi-gan.yml
+# gives snowball_writer.py.
+
+name: bruno-adr
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Optional ADR topic number override (0007-0018). Empty = Bruno picks at random.'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Generate the ADR but do not commit it.'
+        required: false
+        default: 'false'
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Get OIDC token for vault
+        run: |
+          OIDC_TOKEN=$(curl -s \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=vault" \
+            | python3 -c "import sys,json; print(json.load(sys.stdin).get('value',''))")
+          echo "OIDC_TOKEN=${OIDC_TOKEN}" >> $GITHUB_ENV
+
+      - name: Run Bruno (write one ADR)
+        env:
+          OIDC_TOKEN: ${{ env.OIDC_TOKEN }}
+          VAULT_URL: https://superinstance-vault.casey-digennaro.workers.dev
+          TOPIC_OVERRIDE: ${{ inputs.topic }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -uo pipefail
+          python3 - <<'PY'
+          import os, sys, pathlib, importlib.util
+
+          ROOT = pathlib.Path.cwd()
+          BOT = ROOT / "bots" / "bruno-architect"
+
+          sys.path.insert(0, str(BOT))
+          import bruno_adr as ba
+
+          # Repoint the hardcoded fleet-host paths at this runner's checkout.
+          ba.ADRS_DIR = BOT / "adrs"
+          ba.WITNESS_PATH = BOT / "witness.log"
+
+          # Route the provider call through the vault (holds the LLM credential).
+          spec = importlib.util.spec_from_file_location(
+              "vault_provider_shim", ROOT / "bots" / "snowball-scout" / "vault_provider_shim.py"
+          )
+          shim = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(shim)
+          ba.call_zai = shim.call_zai
+
+          # Optional topic override so a dispatch can name the ADR it wants.
+          override = os.environ.get("TOPIC_OVERRIDE", "").strip()
+          if override:
+              override = override.zfill(4)
+              match = [t for t in ba.ADR_TOPICS if t[0] == override]
+              if not match:
+                  raise SystemExit("unknown topic %s; known: %s" % (override, [t[0] for t in ba.ADR_TOPICS]))
+              ba.random.choice = lambda seq, _m=match: _m[0]
+
+          ba.run_once()
+
+          # Report what landed, so the log carries the artifact identity.
+          adrs = sorted((BOT / "adrs").glob("adr-*.md"))
+          print("--- bots/bruno-architect/adrs/ ---")
+          for p in adrs:
+              print("%7d  %s" % (p.stat().st_size, p.name))
+          PY
+
+      - name: Show the new ADR
+        run: |
+          echo "--- adrs/ ---"
+          ls -la bots/bruno-architect/adrs/
+          echo
+          echo "--- witness.log tail ---"
+          tail -3 bots/bruno-architect/witness.log
+
+      - name: Commit the ADR
+        if: ${{ inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "bruno-architect"
+          git config user.email "bruno@superinstance.dev"
+          git add bots/bruno-architect/adrs/ bots/bruno-architect/witness.log || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+            exit 0
+          fi
+          git commit -m "bruno-architect: ADR via vault-backed provider"
+          git push origin HEAD:bot/bruno-adr-vault
