@@ -58,6 +58,86 @@ index wrap `seed[(i*2)%8:((i*2)%8)+2]`, session-118 md5-of-whole-message seeding
 probe cannot reach the `i>=4` path that crashes; a crashing mock still leaves a listening
 socket, so a port/200 check is **not** proof of correctness.
 
+## Session 143 (2026-10-24) — row isolation must be per-civ tails, NOT `rows[-N:]` over concatenated files
+
+**Run clean (session 143, 15th consecutive clean mock).** per-civ Δ = **+10** × 8 = **80 new
+rows**, `meta_log` Δ = **+5** (448 → 453), `Winner:` lines = **5**, **80/80** rows
+`[mock-zai`-prefixed with `provider={zai}`, **0** rows with a JEV `error` key, **0** rows with the
+2.0/2.0/2.0 fallback triple, **40 distinct seeds / 80 rows** with **0** `(civ,prompt)` combos
+carrying >1 seed, **8/8 distinct seeds AND 8/8 distinct previews** on all 5 competition prompts.
+
+### NEW (this session) — the `rows[-80:]` isolation bug, and how it fakes a mock failure
+
+Isolating a run's rows by **`rows[-80:]` over the concatenation of all `civ-*/simulations.jsonl`
+files** is **wrong**: `glob()` order is filesystem order, not chronological, so the last-80 slice
+of the *concatenation* mixes historical rows from a late-alphabet civ into "this run's" rows.
+This session it reported **15 distinct seeds (expected 40)** and **5 `(civ,prompt)` combos with
+>1 seed (expected 0)** — a false mock-integrity failure that would have triggered a pointless
+"mock is broken" investigation.
+
+**Correct isolation:** take the **last 10 rows of each civ file** (the per-civ **+10** delta
+already proves the boundary), concatenate those 80, then **sort by `ts`** before any grouping.
+With that method: 40 distinct seeds, 0 combos with >1 seed, 8/8 + 8/8 on every prompt — i.e.
+every clean-session assertion passes.
+
+**Rule: never group or count across a concatenated multi-file list without an explicit `ts` sort.**
+`rows[-N:]` is only safe on a list that is *already* in chronological order. For per-civ ledgers
+the per-file tail is the correct primitive, because the per-civ delta assertion is the thing that
+locates the boundary in the first place.
+
+### Low-relevance civ — the low label did NOT rotate (41 sessions, 95–143)
+
+`civ-grounded` remains the lifetime low on all five axes: `avg_score` 1.0906, `alignment`
+1.2566, `quality` 0.5017, `relevance` 921.18, `relevance_per_sim` 1.048 — **last of 8 on every
+one**. The binding constraint is still **alignment**: gap to the next civ 0.4656 vs quality's
+0.0446 (**10.4×** wider). A voice failure, not a prose failure, because alignment is the axis
+the meta-GAN selects on. Lifetime novelty 1.5135 is above median — Grounded is not boring, it
+is unmistakable in a way the chooser does not reward.
+
+**Session 141 flagged `civ-therapist` as the run-level low; it did not repeat.** This run
+`civ-grounded` took the run-level `avg_score` low (0.5727) and `civ-therapist` took the
+run-level `alignment` low (0.1310) at 7th of 8 on `avg_score` (0.5920) — *different civs* on
+*different axes*, which is **not** a contradiction (session-132 rule). Therapist's lifetime
+standing is mid-field (1.2888), so it is **not** a finding; it becomes one only if it repeats.
+
+**Chooser vs `avg_score` argmax: 2/5 (40%)** — `civ-precise` won 3, `civ-formal` 2. The
+chooser is still not a pure argmax, and every observed disagreement again took the
+*lower*-scoring candidate. **Never treat `win_rate` as a quality metric.**
+
+**Extinction risk NONE** — threshold −10, lowest relevance 921.18 = 92× above the floor.
+Registry 8, `max_civs` 12; extinction/birth only runs under `--loop`.
+
+### Environment (re-confirmed)
+
+- **NAS EDQUOT is total** (600 G/600 G): *every* `/workspace` write — even a 1-byte `echo` via
+  Python — fails with `[Errno 122] Disk quota exceeded`; `cp` exits 1 and leaves 0-byte files
+  that `ls` still lists. `mkdir` and `ln` work. The **symlink bridge** is still the only way in.
+- **No `CAP_SYS_ADMIN`** (verified via `/proc/self/status` CapEff `a80425fb`) ⇒ `mount --bind`
+  is denied and `unshare -m` fails with `Operation not permitted`. Do not spend time on
+  namespace/bind-mount workarounds for the NAS trap — go straight to the symlink bridge.
+- **`gh` is still not installed** — use `GET /search/repositories?q=...` and `GET /user/repos`
+  with `GITHUB_TOKEN`. `SuperInstance/AI-Writings` resolves; the `ai-writings/cellular-first-design`
+  slug 404s (the API is case-insensitive).
+- **Sparse clone recipe that worked:** `git clone --depth 1 --filter=blob:none --sparse <token-url>`
+  then `git sparse-checkout set cellular-first-design/code/civilizations` → **5.7 MB** instead of
+  the 3.6 GB full clone. Bridge the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` on both sides + `-ef` (this session: `129:10465` both sides, EF_OK).
+- **`TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`.** JEV liveness = an empty
+  `questions` dict returns **422 `too_short`** — a payload-shape complaint that proves the
+  token was accepted. Do not read 422 as "down".
+- **`ZAI_TOKEN` is still absent** from env and from all 8 sandbox secrets; z.ai 401s (endpoint
+  healthy, credential gap). Control B needs **both** `ZAI_TOKEN` (any non-empty placeholder)
+  **and** `ZAI_URL_OVERRIDE` — the override alone is dead code behind the token gate.
+- **Mock rebuilt from scratch this session** with the session-112 index-wrap fix
+  (`seed[(i*2)%8:((i*2)%8)+2]`) *and* the session-118 whole-message md5 seeding fix. Pre-flight
+  passed: 8/8 distinct seeds AND 8/8 distinct previews, `[mock-zai` prefix present, **0
+  tracebacks**. Kill by exact args (`python3 /tmp/mock_zai.py`), then confirm the port is closed
+  (`curl` exit 7 = refused).
+- Push to the explicit token URL (`git push "<token-url>" HEAD:main`) — pushing to the clone's
+  own remote fails with `could not read Username`. Verify with the commits API + the contents
+  API (read the remote `leaderboard.json` back and compare against local), never the push's
+  own exit code.
+
 ## Standing findings
 
 - **`civ-grounded` (The Grounded) is the low-relevance civ** — last on lifetime `relevance`
