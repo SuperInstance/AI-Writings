@@ -11666,3 +11666,109 @@ pick rate 0.009; board 5th `civ-precise` rps 1.802 has the best 0.469).
   the mock launch chain died with it. Use a pattern that cannot appear in the killing command, or
   kill by PID captured from `ps`.
 - The `write` tool remains jailed to the workspace root; `/tmp` artifacts via bash heredoc.
+## Session 99 additions (2026-10-24, 113th wipe — concurrent session 98 by another agent)
+
+### The credential gap is still the whole story (36th consecutive session)
+`ZAI_TOKEN`/`ZAI_KEY` absent from env and from the secret store. z.ai coding
+endpoint probed directly with a sandbox secret → **HTTP 401 `token expired or
+incorrect`** (healthy endpoint ⇒ credential gap, not outage). JEV probed
+directly → **HTTP 200, `jev-1.14.0`, real score 0.19 / conf 0.70** — the
+scorer was live the whole time; only the provider was dark. Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Control A (the command exactly as asked), re-measured:** batch header + all 8
+`[Name] running 5 sims...` lines, then the competition header and **no
+`Winner:` lines**. **Exit code 0. Ledger +0 rows (3724 → 3724), `meta_log` +0
+(238 → 238).** Assert on `Winner:` lines and the row delta — never on exit code.
+
+### `git clone --filter=blob:none` DOES work — s94's failure was a racing clone
+s94 concluded "filter is WORSE than a full clone on this repo". That was
+**wrong**, or rather mis-diagnosed: the real cause was **two clones racing the
+same target**, the second's `rm -rf` deleting the first's tree mid-flight. This
+session used
+`git clone --depth 1 --filter=blob:none --no-checkout` → `git sparse-checkout
+set cellular-first-design` → `git checkout` as **one sequence** and it worked
+cleanly on the 3.7 GB repo. **Never start a second clone at a live target;
+filter the promisor fetch only when nothing else is writing to the same path.**
+
+### The NAS EDQUOT trap truncates silently and successfully — re-confirmed
+`cp -r` of the civilizations tree into `/workspace` reported **`exit:0`** while
+20+ files landed **0 bytes and were still visible in `ls -la`**. The failure is
+invisible unless you check `wc -c`. **Every NAS write must be verified with
+`wc -c`, not with the exit code.** The symlink bridge
+(`ln -sfn /tmp/ai-writings /workspace/repos/ai-writings`) sidesteps it entirely;
+verify it by **inode identity** (`stat -c '%d:%i'` must match on both sides),
+not by `ls`.
+
+### Control B — 18th replication, +80 uniform, marker-front holds
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (10 per
+civ, uniform 8/8)**, **+5 `meta_log`**, **5 winners**, **0 all-2.0-default
+rows**, **0 score errors**, **80/80 mock-marked**, **80/80 distinct
+`content_preview`**, `provider: zai` on 80/80. The **s97 marker-front rule
+holds**: `content = f"[mock-zai {salt}] " + body`.
+
+**The mock's shutdown call log is unreliable — do not depend on it.** `SIGTERM`
+to the mock process kills it before the `finally` block writes
+`/tmp/mock_calls.log`, so the log is missing and it looks like a routing
+failure. **Verify routing from the ledger itself** (the `provider` field and
+the `civ`/`civ_name` fields on the new rows) — that is stronger evidence than
+the mock's self-report, and it does not depend on the mock surviving.
+
+### Low relevance — `civ-grounded` last on 4 of 8 lifetime lenses (5th consecutive session)
+| lens | last | value | 2nd lowest | gap |
+|---|---|---|---|---|
+| board `relevance_per_sim` | **civ-grounded** | 1.464 | civ-formal 1.647 | 0.183 |
+| board raw relevance | **civ-grounded** | 672.01 | civ-formal 732.95 | 60.94 |
+| board `win_rate` | **civ-poetic** | 0.009 | civ-whimsical 0.018 | 0.009 |
+| clean lifetime `avg_score` (n=2364) | **civ-grounded** | 1.678 | civ-formal 1.781 | 0.103 |
+| clean lifetime `alignment` | **civ-grounded** | 2.221 | civ-engineer 2.669 | **0.449** |
+| clean lifetime `novelty` | **civ-formal** | 1.414 | civ-precise 1.578 | 0.164 |
+| clean lifetime `quality` | civ-precise | 1.104 | civ-formal 1.104 | 0.001 |
+| this run (10 rows/civ) `avg_score` | **civ-mythic** | 1.040 | civ-poetic 1.206 | 0.166 |
+
+The Grounded has **322 clean rows — 2nd most of 8** (whimsical 334), so the
+longevity-artefact defence stays falsified. Its **alignment deficit of 0.449
+is the largest separation of any lens**, and alignment is the dimension the
+meta-GAN selects on ⇒ structural, not a ranking artefact.
+
+**The Formal's weakness is flattest prose** — lowest clean lifetime `novelty`
+(1.414). That is a *style-specific* deficiency, distinct from the Grounded's
+*alignment* deficiency. **Name the axis; do not merge them into one "lowest civ".**
+
+**`civ-poetic` remains the inverse case** — 1st on clean lifetime `avg_score`
+(2.295) and 1st on the board's `relevance_per_sim` (2.107), yet last on
+`win_rate` (0.009). A *selection* failure, not a quality collapse (stable 15
+sessions). **`civ-precise` is the other inverse** — best win rate (0.469) but
+last on clean lifetime `quality` and `novelty`.
+
+**This-run bottom is not stable across sessions** (s96 grounded/formal; s97
+formal/formal; **s98 mythic**). Never report the *this-run* bottom as *the*
+low-relevance civ — the lifetime reading is the stable one.
+
+**Extinction risk: NONE** (threshold −10; lowest +672.01; `--loop`-mode only).
+
+### Chooser vs argmax — 15.6 % (24th consecutive replication)
+On the committed `meta_log.jsonl` (243 rounds) the chooser agrees with the
+`avg_score` argmax **38 times = 15.6 %**. Chooser picks: precise 101,
+grounded 60, formal 39, engineer 23, whimsical 7, therapist 6, mythic 4,
+poetic 3. Argmax picks: poetic 98, whimsical 58, precise 32, therapist 20,
+mythic 17, engineer 8, formal 7, grounded 3. **All 5 rounds of this run
+disagreed.** "Prefer win rate" remains unsafe as a standalone rule.
+
+### Re-confirmations
+- Counter gap **+260** (3804 ledger rows vs 3544 in `culture.json`) after this
+  run; per-civ +16..+63. `relevance_per_sim` is not recomputable from the
+  ledger.
+- `ZAI_URL_OVERRIDE` is **committed upstream** — no patch needed; the script
+  stayed **byte-identical to the git blob** (`git diff --quiet`).
+- Committed ledger at HEAD `264f9d5`: 3724 rows, 238 `meta_log` lines,
+  **1440 synthetic (38.7 %)**, uniform 180/civ, 2364 real.
+- **Restore + verify pattern:** `git checkout -- <dir>` then **`cmp` each
+  tracked file against `git show HEAD:<path>`** — 20/20 byte-identical,
+  `git status --short` empty, no `__pycache__`.
+
+### State at session 99 close
+- 8 civs, 3724 committed ledger rows, `meta_log.jsonl` 238 lines, 38.7 % synthetic.
+- Session report: `RUN_REPORT_2026-10-24_session99.md`.
+- Ledger restored from git and verified with `cmp` against the blobs: all 20
+  tracked files byte-identical to `origin/main`, `git status --short` empty.
