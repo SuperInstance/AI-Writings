@@ -1258,3 +1258,58 @@ clean-mock series (**−0.683**, "witness log", where the chooser took `civ-myth
 
 Every disagreement ever observed across the fleet goes the **same direction** — the chooser picks a
 *lower*-scoring candidate. **Never treat `win_rate` as a quality metric.**
+
+## Session 142 — clean mock #14; chooser-vs-argmax 3/5; Grounded holds the low on BOTH axes (2026-10-24)
+
+**Environment re-confirmations (23rd session with no `gh`, 41st on the z.ai credential gap):**
+
+- **NAS EDQUOT is still total.** A 5 MB `dd` into `/workspace` fails with `Disk quota exceeded`
+  while `df` shows the workspace at 600 G/600 G, 0 bytes free. The account-wide quota is consumed
+  by other sessions, not this one. `/tmp` (overlay, 28 G free) remains the only writable location;
+  the symlink bridge is the only way into the NAS.
+- **Bridge verified by inode identity, not `ls`.** `ln -sfn /tmp/AI-Writings/cellular-first-design
+  /workspace/repos/ai-writings/cellular-first-design` gave `129:3669` on both sides and `-ef`
+  confirmed. The path did not exist beforehand, so the session-139 "real directory clobbers the
+  symlink" trap did not fire — but check with `[ -e path ] && [ ! -L path ]` **before** `ln -sfn`
+  anyway.
+- **`GET /user/repos?per_page=100&affiliation=owner` finds the upstream in one call** (the
+  `affiliation` variant returns the same 100 repos across pages). `SuperInstance/AI-Writings` is
+  3.7 GB; `sparse-checkout set cellular-first-design` pulls only the civ subtree.
+- **The run took ~28 s wall** this session (sim phase ~4-26 s + competition phase), still close to
+  the 30 s tool timeout. Keep the detached-launch discipline.
+- **z.ai 401 changed wording**: the live endpoint now returns
+  `{"error":{"code":"1001","message":"Authentication parameter not received in Header, unable to
+  authenticate"}}` rather than the older `token expired or incorrect`. Both are credential-gap
+  signatures with a healthy endpoint. Do not treat the new wording as a different fault.
+- **Mock teardown: killed both pids** (timeout wrapper 309 + server 311). `curl` exit 7 = port
+  closed. 0 tracebacks in `/tmp/mock_zai.log`.
+
+**Pre-flight probe recipe (rebuild it, don't trust a 200):** rebuild the orchestrator's own
+`cultural_prompt()` template (culture name + tenets + voice_emphasis + prompt) in the probe
+script and replay all 8 civs x 5 prompts through the live mock. Expect **40/40 distinct seeds**,
+**8/8 seeds and 8/8 previews on every prompt**, 0 tracebacks. A one-word probe only proves the
+socket is open — session 112's mock 500'd on `i>=4` while still answering 200 on a short body.
+
+**Results:** 3/5 chooser-vs-argmax (60 %) — the joint-highest of the clean-mock series and a
+reminder that the rate is not narrowing. `civ-precise` swept the first 3 prompts and was argmax
+on all 3; `civ-formal` took the last 2 while `civ-precise` was argmax (deltas -0.207, -0.140).
+Both disagreements again went the **same direction** (chooser takes the lower-scoring candidate).
+
+**The low-relevance label did NOT rotate.** Session 141 flagged `civ-therapist` as the new
+run-level low. This session therapist was 5th of 8 on run `avg_score` (0.5373) and Grounded was
+**last of 8** (0.3547) for the 8th consecutive session. **A single-run low is not a trend; keep
+Grounded as the low until the *lifetime* axis moves too.** Lifetime: Grounded last on
+`avg_score` 1.0963, `alignment` 1.2676, `quality` 0.5071, `relevance` 915.46,
+`relevance_per_sim` 1.053 — 41 consecutive sessions (95-142).
+
+**Alignment remains the binding constraint, and the gap is widening.** Grounded's alignment gap to
+the next civ is **0.2785** (vs quality 0.0341) — ~8.2x. Alignment is the dimension the meta-GAN
+*selects* on, so this is a **voice** failure, not a prose failure. `civ-formal` is the separate
+low-novelty axis (1.3992) and won 2/5 this run; `civ-poetic` remains the stable selection-failure
+inverse (1st on lifetime `avg_score` 1.6773, last on `win_rate` 0.014, won 0/5 this run).
+
+**Dimension-spread discipline (re-confirmed):** this run's cross-civ spreads were `alignment`
+1.2500, `novelty` 0.6340, `quality` 0.0380. `quality` has now collapsed to a 0.014-0.052 band in
+12 of the last 13 clean-mock sessions (the exception is session 120). **The quality collapse is a
+LEVEL that moves, not a stable property** — rank on cross-civ spreads, never on absolute quality
+levels, and never on a single run's low.
