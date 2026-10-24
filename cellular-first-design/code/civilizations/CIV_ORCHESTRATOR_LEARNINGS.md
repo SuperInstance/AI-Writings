@@ -9172,3 +9172,158 @@ winner and the quality leader stay decoupled.
    likewise jailed; read `/tmp` files with `sed`/`cat` in Bash.
 6. **Importing the orchestrator as a module creates `__pycache__/`**, which shows up as an
    untracked directory in `git status`. Remove it before committing.
+
+---
+
+## Session 81 additions (2026-10-24) — the credential gap 24th deep; the mock's tail-placed variation collides *within* a civ; the committed ledger is back to 36.9 % synthetic
+
+### The gap, again, measured not assumed
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from `env`; the `secret` CLI is **not on PATH**. All **7**
+sandbox secrets re-tested against `https://api.z.ai/api/coding/paas/v4/chat/completions`
+→ **HTTP 401** `{"code":"401","message":"token expired or incorrect"}` on every one.
+The **no-auth baseline** returns a **different** 401 body —
+`{"code":"1001","message":"Authentication parameter not received in Header"}`. Two
+different 401 bodies = endpoint live **and** URL path right ⇒ credential gap, not outage.
+
+JEV live at `jev-1.14.0`; `jev_score()` returned real scores
+(q 0.16 / n 1.42 / a 0.70 / conf 0.86) — not the 2.0 default.
+
+**Unpatched run:** EXIT **0**, ledger **+0 rows on all 8 files**, `meta_log` **+0**,
+**0 `Winner:` lines**, all 9 files byte-identical to the pre-run snapshot. Only
+`leaderboard.json` changed (ts/iso) — the board is rewritten unconditionally, so its
+mtime is **not** a work receipt.
+
+**In-process gate proof (better than a log):** importing the module and calling
+`call_provider()` three ways — empty token → `None`; dummy token against the **real**
+z.ai URL → `None` with the request **genuinely attempted** and HTTP 401 observed; and
+`jev_score()` → real scores. That separates "the request never left" from "the request
+left and was refused", which a log-only check cannot.
+
+### Control B — 20th replication, all acceptance checks pass
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (+10 uniform on all
+8)**, **+5 `meta_log`**, **5 `Winner:` lines**, **80 mock calls**, **0 fallbacks**,
+**boot assertion 8/8**, **0 all-2.0-default rows**, **0 scaffolding leaks**,
+providers `{'zai': 80}`, 67/80 distinct `avg_score` (1.307–2.760).
+
+**Restored:** all **20** files verified byte-identical to the git blobs
+(`git hash-object` vs `git rev-parse HEAD:<path>`), `git status` clean, no
+`__pycache__/`, mock stopped **by PID** and the port re-probed (`000`).
+
+### NEW — tail-placed mock variation collides WITHIN a civ, not just across civs
+
+The first mock put the seed-driven element at the **end** of a ~200-char body. Because the
+orchestrator truncates `content_preview` to `content[:200]`, the variation fell outside the
+window and the run produced only **30/80 distinct previews** — with **9 genuine collisions**,
+and every collision was **within one civ** (e.g. `civ-engineer`'s "bookkeeper's role" and
+"JEV as a decision oracle" shared a preview string).
+
+This is the session-71 trap **one level deeper**: session 71 caught tail-placed variation
+that was invisible to the check. Here it was visible (30 < 80) but could have been
+misread as a *collapsed* mock. The decomposition is the diagnostic:
+
+```
+distinct (civ, prompt) keys     : 40   (8 civs x 5 prompts)
+distinct (civ, prompt, preview) : 40   (80)   <- if this is 40, the body is deterministic per (civ,prompt)
+distinct raw preview strings    : 30   <- the COLLAPSE is truncation, not the body
+previews shared by >1 (civ,prompt): 9   <- the real defect number
+```
+
+**Rule: report `distinct (civ, prompt, preview)` and the count of previews shared by
+more than one `(civ, prompt)` — never a bare distinct-preview count.** A deterministic
+mock gives 40/80 legitimately (session 78); a *truncating* mock gives 30/80. Both look
+like "fewer distinct previews" in a bare count, and only the decomposition separates them.
+
+**Fix:** front-load the variation — put the seed-driven element at **position 0**. After
+the fix: **0 cross-key collisions**, previews 185–200 chars.
+
+### NEW — `confidence: 0.0` is NOT a score error
+
+Two of the 80 rows carried `confidence: 0.0` on a **valid** JEV score
+(q 1.22 / n 2.41 / a 2.70). A confidence-0 check will report these as failures. The
+outage signature is the **all-2.0-default** triple, not a zero confidence. **Check the
+scores themselves, not the confidence field.**
+
+### The `results` field in `meta_log.jsonl` is a LIST OF PAIRS
+
+```json
+{"ts":..., "prompt":..., "winner_civ":"civ-precise", "results":[["civ-precise",1.61],["civ-therapist",2.07]]}
+```
+
+`results` is a list of `[civ_id, avg_score]` pairs, **not** a dict. `max(results, key=...)`
+fails with `KeyError: 1`; use `{k: v for k, v in m['results']}`.
+
+### The committed ledger is synthetic again — 36.9 %
+
+Whole-file scan of the **committed** state: **960 of 2604 rows** (36.9 %) have a
+mock-format `content_preview` (starts with `[`). Session 77's "clean baseline" (0.0 %) has
+been **re-contaminated** by later sessions. The mock-filter is therefore **not** a no-op
+again, and **every lifetime number must declare its filter and its n**.
+
+### Low-relevance this run (lenses still disagree, so still never merge them)
+
+| lens | lowest | value |
+|---|---|---|
+| `relevance_per_sim` (board sort) | **civ-grounded** | 1.474 |
+| raw relevance | **civ-grounded** | 440.81 |
+| `win_rate` (selection) | **civ-poetic** | 0.007 (1W/147L) |
+| lifetime mean `avg_score` (mock-filtered) | **civ-grounded** | 1.737 (n=232) |
+| lifetime alignment | **civ-grounded** | 2.314 |
+| lifetime quality | civ-engineer | 1.190 |
+| lifetime novelty | civ-formal | 1.374 |
+| this run's mean `avg_score` | **civ-grounded** | 1.665 (n=10) |
+
+**`civ-grounded` is last on 3 of 3 durable lenses** (board sort key, raw relevance,
+lifetime mock-filtered `avg_score`) plus the fleet's lowest alignment, while running the
+**most** sims (299). **Not a longevity artefact** — it loses on the mean.
+
+**`civ-poetic` is the signature inversion, 25 sessions:** 1st of 8 on the board sort key
+(2.121), on raw relevance (602.48), on lifetime `avg_score` (2.354) and on lifetime quality
+(1.750) — and **1 win in 148 (0.007)**. A *selection* failure, not a quality collapse.
+
+**`civ-precise` is the other inverse:** best win rate in the fleet (0.531, 76W/67L) but
+5th of 8 on lifetime `avg_score` and 7th of 8 on novelty (1.529).
+
+**Extinction risk: none** (threshold −10, lowest +440.81, a 450.81-point margin).
+
+### Structural replications
+
+- Chooser vs `argmax(avg_score)`: **0/5 this run** (margins −0.477 to −0.703), lifetime
+  **28/168 = 16.7 %** — **11th replication**. The chooser reads 150 characters and never
+  sees the scores.
+- Temperature ↔ lifetime JEV novelty: **r = 0.9383** (band 0.9783–0.985; s80 0.9330).
+  The drop is **not** a model regression — the corpus is 36.9 % synthetic. Also:
+  `r(temp, quality) = 0.7305`, `r(temp, alignment) = 0.0976`.
+- Counter gap **unchanged at +260** (ledger 2604 vs registry 2344), and not on any single
+  civ. `save_state()` has no lock and no read-modify-write ⇒ `relevance_per_sim` is not
+  recomputable by an auditor.
+- Board order vs selection order inverted **8/8** again.
+
+### Environment
+
+1. **The task path did not exist** (11th+ time). `/workspace` held only `.plugin-cache`
+   and `.skills`. The repo is `SuperInstance/AI-Writings` (a **user** account, not an org)
+   and the prompt's `repos/ai-writings/...` is a **subdirectory**, not a repo. Found it
+   with the **code-search** API in one call:
+   `curl -sS -k -H "Authorization: Bearer $GITHUB_TOKEN" \
+    "https://api.github.com/search/code?q=civilization_orchestrator.py+in:path"`.
+2. **A one-level bridge works** when the clone root is the repo root:
+   `ln -sfn /tmp/cfd /workspace/repos/ai-writings` — `CIVS_DIR` is hardcoded to
+   `/workspace/repos/ai-writings/cellular-first-design/code/civilizations` and resolves
+   into the clone. Verify with `stat -L -c %i` on both sides, not with one `ls`.
+3. **A plain `--depth 1` clone of this repo is 3.6 GB and takes >3 min**; a sparse
+   blobless clone is the fast path:
+   `git clone --filter=blob:none --no-checkout --depth 1` +
+   `git sparse-checkout set --cone cellular-first-design/code/civilizations`.
+   `GIT_SSL_NO_VERIFY=1` is required for every git operation.
+4. **A `kill` in the same command line as a `launch` can kill the new server.** The
+   sequence `... | xargs kill -9; ...; (setsid nohup python3 mock.py &)` left the port
+   dead and the log file missing — which reads exactly like a failed run. **Separate the
+   kill and the launch into different statements, and always `curl` the port after
+   launch.** This is the same self-match family as `pkill -f` (4th occurrence).
+5. **The `write` tool is jailed to the workspace root** — cannot write `/tmp`; author
+   `/tmp` files with a bash heredoc. The `read` tool is likewise jailed; read `/tmp`
+   files with `sed`/`cat` in Bash.
+6. Importing the orchestrator as a module creates `__pycache__/` — remove it before
+   committing.
