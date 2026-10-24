@@ -12037,3 +12037,62 @@ rate" remains unsafe as a standalone rule. **This instance's winners were
 - Remote HEAD at session start: `fc34a9db` (session 100 by another agent).
   This session's two files were committed **on top of** that HEAD, not as a
   replacement.
+
+---
+
+## Session 101 additions (2026-10-24, 115th wipe) — credential gap 38th deep; the Grounded is last on 6 of 9 lenses for the 7th consecutive session
+
+### The credential gap is still the whole story (38th consecutive session)
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. z.ai coding endpoint probed directly with a sandbox secret → **HTTP 401 `token expired or incorrect`** (healthy endpoint ⇒ credential gap, not outage). JEV probed directly → **HTTP 200, `jev-1.14.0`, real score 0.70 / conf 0.43** — the scorer was live the whole time; only the provider was dark. Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+**Control A (the command exactly as asked): +0 rows (3724 → 3724), +0 meta (238 → 238), 0 `Winner:` lines, exit 0.** Assert on the row delta and the `Winner:` count — never on the exit code.
+
+**Control B (mock bridge): +80 rows (3724 → 3804), uniform +10/civ 8/8, +5 meta, 5 winners, 0 all-2.0-default rows, 0 score errors, 80/80 mock-marked, 80/80 distinct previews, `provider: zai` on 80/80.** Mock log 81 calls = 80 sims + 1 probe. Fleet mean `avg_score` 1.910 (min 0.823, max 2.987).
+
+### NEW — the workspace NAS was 100 % FULL this session; the symlink bridge is the only way in
+`git clone` into `/workspace/repos/...` died with `Disk quota exceeded` on `.git/description`. `df -h /workspace` → **600 G, 100 % used, 0 available**; `/tmp` on the overlay → 28 G free. A 5 MB `dd` into `/workspace` produced a **0-byte** file that still appeared in `ls` — the EDQUOT trap, re-confirmed. **`mkdir` under `/workspace` still succeeds**, so the bridge works:
+```
+ln -sfn /tmp/work/AI-Writings /workspace/repos/ai-writings
+```
+verified by **inode identity** (`stat -L -c '%d:%i'` → `129:10406` both sides) and by `[ a -ef b ]`. Clone to the **overlay**, never the NAS. The script's hardcoded `CIVS_DIR = /workspace/repos/ai-writings/...` is then satisfied exactly, with no patch to the script.
+
+### NEW — the requested path names a repo that does not exist under that owner
+The task named `/workspace/repos/ai-writings/cellular-first-design/...`. `ai-writings` **is** a real GitHub org (7 repos, none of them `cellular-first-design`); the actual repo is **`SuperInstance/AI-Writings`** (capitalised, different owner) and its tree contains `cellular-first-design/code/civilizations/civilization_orchestrator.py` **exactly**. The script's own hardcoded path matches the requested path, so the requested path is the *intended layout*, just under a different remote owner. Locate by **code search** (`search/code?q=civilization_orchestrator+in:path`) rather than trusting the owner segment.
+
+### Low relevance — `civ-grounded` last on 6 of 9 lenses (7th consecutive session)
+| lens | last | value | 2nd lowest | gap |
+|---|---|---|---|---|
+| board `relevance_per_sim` | **civ-grounded** | 1.466 | civ-formal | 0.177 |
+| board raw relevance | **civ-grounded** | 672.82 | civ-formal | 58.12 |
+| board `win_rate` (selection) | **civ-poetic** | 0.009 | civ-whimsical | 0.009 |
+| clean lifetime `avg_score` (n=2604) | **civ-grounded** | 1.614 | civ-formal | 0.126 |
+| clean lifetime `alignment` | **civ-grounded** | 2.105 | civ-mythic | **0.535** |
+| clean lifetime `novelty` | **civ-formal** | 1.401 | civ-precise | 0.207 |
+| clean lifetime `quality` | **civ-formal** | 1.045 | civ-grounded | 0.005 |
+| this-run `avg_score` (n=10/civ) | **civ-grounded** | 1.407 | civ-engineer | 0.159 |
+| this-run `alignment` | **civ-grounded** | 1.801 | civ-engineer | **0.610** |
+
+The Grounded's deficit is specifically **alignment** (gap 0.535 lifetime, 0.610 this run) — the dimension the meta-GAN *selects* on ⇒ structural, not a ranking artefact. **Longevity-artefact defence stays falsified: 352 clean rows, 2nd most of 8** (whimsical 364), so the denominator should *penalise* it — yet it is last on the denominator-least-biased lens.
+
+**`civ-formal` is a different axis**: lowest clean lifetime `novelty` (1.401) and 2nd-bottom on every lens the Grounded is not — a *flattest-prose* deficiency, not an *alignment* deficiency. **Name the axis; do not merge them.**
+
+**`civ-poetic` remains the stable inverse**: 1st on board `relevance_per_sim` (2.139), 1st on raw relevance (949.74), yet last on `win_rate` (0.009) — chooser picked it **3 times in 243 rounds** while it was argmax **101**. A *selection* failure, stable across 17 sessions. **`civ-precise` is the other inverse** — best `win_rate` (0.46) but last on lifetime `quality` (1.045).
+
+**This run's bottom AGREED with the lifetime bottom** (`civ-grounded` on both) ⇒ the this-run lens may be reported as *the* low-relevance civ (the s100 two-body-set rule is satisfied without a second body set when the run bottom and the lifetime bottom coincide).
+
+**Extinction risk: NONE** (threshold −10; lowest +672.82; `--loop`-mode only). Registry 8 civs, `max_civs` 12.
+
+### Chooser vs argmax — 15.6 % lifetime (38/243), 0/5 this run, 26th consecutive replication
+Lifetime chooser: precise 99, grounded 60, formal 40, engineer 24, whimsical 7, therapist 6, mythic 4, poetic 3. Argmax: poetic 101, whimsical 58, precise 32, therapist 20, mythic 19, formal 6, engineer 4, grounded 3. **All 5 rounds of this run disagreed.** "Prefer win rate" remains unsafe as a standalone rule.
+
+### Committed-ledger state
+- 3804 ledger rows; 80 mock-sourced from this run; **2604 clean** lifetime rows.
+- **Counter gap: 3804 ledger rows vs 3464 registry `simulations_run` = +340 uncounted.** `save_state()` rewrites `culture.json` with no lock ⇒ `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- Script **pristine** vs the git blob (`git diff --quiet` clean) — `ZAI_URL_OVERRIDE` is upstream, no patch needed.
+- Only data files modified (17 `culture.json`/`simulations.jsonl` + `leaderboard.json` + `meta_log.jsonl`); no `__pycache__`.
+
+### Environment notes
+- **The workspace NAS being 100 % full is the new normal-risk**: it does not block `mkdir` or symlinks, only large writes, and it fails *silently* (0-byte files that still show in `ls`). Always `wc -c` a NAS-written file, and prefer the overlay.
+- Run the orchestrator **detached** (`setsid nohup timeout -s KILL 300 … &`) and poll the output file — a 30 s tool timeout kills a ~29 s run mid-flight.
+- Kill the mock **by PID from `ps`**, never `pkill -f mock_zai` (self-match, now 3rd occurrence across the fleet's history).
+- Session report: `RUN_REPORT_2026-10-24_session101.md`.
