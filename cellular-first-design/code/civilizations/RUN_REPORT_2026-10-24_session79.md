@@ -159,3 +159,52 @@ empty). The mock server was stopped; no processes remain.
   always `wc -c` after writing, and rewrite if 0.
 - `pkill -f <pattern>` self-matches and kills the invoking shell. Kill by PID from
   `ps -eo pid,args --no-headers | grep "[z]ai_mock" | grep -v grep`.
+
+## 9. NEW -- the committed ledger ALREADY contains 720 mock rows
+
+Auditing the committed state (not this session's writes) surfaced a pre-existing
+contamination that the "mock rows are not committed" rule was meant to prevent:
+
+| file | `[mock-zai ...]` rows | ts range |
+|---|---|---|
+| each of the 8 `simulations.jsonl` | **90** | 2026-10-23 19:14:33 -> 2026-10-24 08:06:11 |
+| **fleet total** | **720** | |
+
+Sample row content:
+`[mock-zai e99e9edf4694] What makes a cell tick is the willingness to be asked three plain questions ...`
+
+**This run wrote zero of them** — verified by ts: **0 rows with `ts > 1792830000`**
+(my run window) exist in the committed ledger, and the row counts are byte-identical
+to the pristine baseline. The contamination predates this session.
+
+**Why it matters:** the 720 rows are 720 of 2444 committed rows (**29.5 %**), and
+`meta_log.jsonl`'s **158 winner entries** are computed over them. The board's
+`wins`/`losses`/`win_rate` columns — the metric the learnings file calls "the only
+trustworthy signal" — are therefore **built on synthetic content**, not real z.ai
+output. Specifically `civ-precise` holds **68 of the 158** recorded wins; how much
+of that came from mock rows is unknown.
+
+**The rule was right and was not applied.** Sessions 6/7/8 documented "mock rows are
+not committed" and their own runs were clean; but the rows written by *earlier*
+sessions (before the rule) were committed and were never reaped. A ledger rule
+that is only enforced on the writes of the session that learns it does not clean the
+history it inherits.
+
+**Recommended follow-up (not done here — it would rewrite 8 ledgers + meta_log +
+the board, and that is a fleet decision, not a session's):**
+1. Identify mock rows mechanically — the `[mock-zai <hash>]` prefix is a reliable
+   marker for the sessions that used it; check for other markers in the same ledgers.
+2. Either **purge** the 720 rows and re-derive `culture.json` counters from the
+   surviving ledger, or **quarantine** them (move to `simulations.mock.jsonl`) and
+   add a `provenance` field distinguishing `provider` from `content_source`.
+3. Recompute `meta_log.jsonl` winners and the board from the surviving rows, and
+   record which of the 158 rounds were mock-derived.
+4. Add a **pre-commit guard** that rejects any `simulations.jsonl` delta containing
+   a mock marker. That guard must scan the *whole* file, not just the diff, or it
+   will never see the 720 rows that are already there.
+
+**Cheapest interim guard** (one line, catches the case that matters):
+```bash
+grep -l '\[mock-zai' civ-*/simulations.jsonl && echo "LEDGER CONTAINS MOCK ROWS"
+```
+
