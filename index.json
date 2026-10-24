@@ -115411,6 +115411,24 @@
     "size_bytes": 12033
   },
   {
+    "filename": "RUN_REPORT_2026-10-24_session100.md",
+    "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-24_session100.md",
+    "title": "Civilization Orchestrator — Run Report, Session 100 (2026-10-24)",
+    "description": "The task path did not exist at session start; `/workspace` held only `.plugin-cache`. - `SuperInstance/AI-Writings` is a **3.7 GB** pack. A NAS-side clone (`/workspace/repos/...`) died with `Disk quot...",
+    "folder": "civilizations",
+    "topic": "Civilizations",
+    "genres": [
+      "Music"
+    ],
+    "models": [
+      "Unknown"
+    ],
+    "style": "Dialogue",
+    "word_count": 804,
+    "date": "2026-10-24",
+    "size_bytes": 12424
+  },
+  {
     "filename": "RUN_REPORT_2026-10-23_session3.md",
     "path": "cellular-first-design/code/civilizations/RUN_REPORT_2026-10-23_session3.md",
     "title": "Civilization Orchestrator — Run Report (session 3)",
@@ -115444,7 +115462,7 @@
     "style": "Essay",
     "word_count": 715,
     "date": "90-the-lut",
-    "size_bytes": 675143
+    "size_bytes": 683871
   },
   {
     "filename": "RUN_REPORT_2026-10-24_session96.md",
