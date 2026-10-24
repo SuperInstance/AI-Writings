@@ -7330,3 +7330,89 @@ of **−10** (a 429-point margin). **Never report extinction/birth as a risk of 
   the 2.0 default). Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
 - All 8 sandbox secrets → z.ai = **401** ×8; the same `GITHUB_TOKEN` → `api.github.com/user`
   = **200**. **Credential gap, not outage — never phrase it as a global outage.**
+
+---
+
+## Session 60 (2026-10-24) — credential gap 25th deep; API bootstrap confirmed as the default; the Grounded is 6-of-14
+
+### The credential gap — 25th session, unchanged
+
+`ZAI_TOKEN`/`ZAI_KEY` unset in env, absent from the 8-entry secret store, absent from the repo.
+All **8** sandbox secrets → z.ai = **HTTP 401 "token expired or incorrect"** (endpoint healthy →
+**credential gap, not an outage**). The same `GITHUB_TOKEN` → `api.github.com/user` = **200**.
+JEV live at `jev-1.14.0` (probe quality 1.8, confidence 0.54). Always
+`export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"`.
+
+### API bootstrap is now the DEFAULT — clone is the fallback, not the first choice
+
+| path | time | bytes |
+|---|---|---|
+| `git clone --depth 50` (full checkout) | **~3.5 min, 3.3 GB .git** | 3.3 GB |
+| trees API + `raw.githubusercontent.com` (36 civ blobs) | **~20 s** | **~7 MB** |
+
+The clone also finished with a 3.3 GB pack for a subtree that is 100 blobs. The API path
+survives `api.github.com` rate limiting because `raw.githubusercontent.com` does not count against
+it. **Cross-check the API copy against the clone** — done this session, byte-identical on all 6
+files checked, which is what makes the API copy trustworthy enough to be the restore source.
+
+### The NAS 0-byte-file trap, observed directly
+
+`cp -r /tmp/civapi /workspace/.../civilizations` on a 100%-full NAS mount **exits 1 with
+"failed to close ... Disk quota exceeded"** and leaves **0-byte files that `ls` shows as present**.
+Do not read `ls` as success — `wc -c` every file you copy to `/workspace`. The fix is the symlink:
+`ln -sfn /tmp/civapi /workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+
+### Control B — 9th consecutive identical replication
+
+`--sims 5 --prompts 5 --providers zai` → **+80 rows (uniform +10/civ), +5 meta_log, 5 winners,
+0 all-2.0-default rows, 0 score errors, providers={zai} only, counter gap unchanged at 260.**
+
+### The Grounded is 6-of-14 lenses lowest; Whimsical is bottom on all 3 this-run lenses
+
+| lens | lowest |
+|---|---|
+| A `relevance_per_sim` (board key) | `civ-grounded` 1.511 |
+| B raw relevance | `civ-grounded` 421.58 |
+| C win rate | `civ-poetic` 0.0078 (1W/128) |
+| D lifetime avg | `civ-grounded` 1.571 |
+| D lifetime quality | `civ-engineer` 0.984 |
+| D lifetime novelty | `civ-formal` 1.455 |
+| D lifetime alignment | `civ-grounded` 2.007 |
+| E this-run avg / quality / alignment | **`civ-whimsical`** (all three) |
+| E this-run novelty | `civ-engineer` 2.065 |
+| F de-con lifetime avg | `civ-grounded` 1.737 |
+| F de-con lifetime quality | `civ-engineer` 1.190 |
+| F de-con lifetime alignment | `civ-grounded` 2.314 |
+
+**Lowest-lens count: Grounded 6, Engineer 3, Whimsical 3, Formal 1, Poetic 1.**
+
+**NEW SHAPE — a civ can be bottom on every this-run lens and still be 2nd of 8 on lifetime.**
+`civ-whimsical` is last on this-run avg (1.417), quality (0.732) and alignment (1.297), yet
+**2nd of 8 on lifetime `relevance_per_sim`** (1.996). This-run-only lenses are **noisy** — 10
+rows per civ. **Rank on lifetime + de-contaminated lenses; treat the this-run lens as a
+tie-breaker, never as the verdict.**
+
+**The Grounded survives de-contamination again** (lifetime avg 1.737 vs 1.827; alignment 2.314 vs
+2.690) — its last place is not the contamination. **The Engineer owns quality, the Grounded owns
+relevance — do not collapse the two.**
+
+### Baseline contamination is 80 mock rows/civ — `grep -c mock-zai` is NOT a leak test
+
+The committed ledger already carries **80 `[mock-zai` rows per civ** (28-33% of every ledger).
+Assert the **delta** per run, never the absolute count. This run added 10/civ (→90/civ) and all
+of it was removed in the restore.
+
+### Corroborations
+
+- Chooser vs argmax(avg_score): **4/5** this run (one disagreement: winner `civ-precise` 2.21 vs
+  argmax `civ-engineer` 2.26). Lifetime agreement remains ~10-13% across sessions.
+- Temperature → lifetime novelty: **Pearson r = 0.9300** (replicates the 0.95-0.99 band).
+- Counter gap **260**, unchanged, and this run proves it does not widen.
+- `extinction_and_birth()` **cannot** fire in a single-shot run (only from `--loop`, `iter%3==0`).
+  Lowest relevance +421.58 vs threshold −10 → 431.58-point margin.
+
+### Restore
+
+20 files verified **byte-identical to the git blob** via `cmp` against a materialised
+`git show HEAD:<path>`. Post-restore: **2284 ledger rows / 148 meta_log** = exact baseline.
+`__pycache__/` removed from the civ dir.
