@@ -6530,3 +6530,64 @@ mocks killed by explicit PID, ports 8931/8932 closed (`curl` -> `000`).
 **91/91 files verified byte-identical to `HEAD`** via `git show HEAD:<path> | cmp`.
 
 Session report: `RUN_REPORT_2026-10-24_session51.md`.
+
+---
+
+## Session 52 additions (2026-10-24, 17th deep)
+
+### The credential gap is still the whole story (17th consecutive session)
+
+`ZAI_TOKEN`/`ZAI_KEY` absent from env **and** from the 8-entry secret store. All 8 sandbox secrets
+re-tested against the z.ai coding endpoint → **401 "token expired or incorrect"** on every one
+(endpoint healthy ⇒ credential gap, not outage). JEV live at `jev-1.14.0`.
+Always `export TYPESAFEAI_KEY="$TYPESAFE_AI_TOKEN"` — the sandbox exports `TYPESAFE_AI_TOKEN`,
+the orchestrator reads `TYPESAFEAI_KEY`, and nothing reconciles them.
+
+**Unpatched `--sims 5 --prompts 5 --providers zai` → exit 0, +0 rows, +0 meta_log, 0 `Winner:` lines.**
+Ledger 1884 → 1884, meta 123 → 123. Only `leaderboard.json` was rewritten.
+**Assert on the row delta, never on exit code.** The per-civ `[Name] running 5 sims...` lines are
+printed *before* the provider call and are not evidence of work.
+
+### Control B reconfirmed a 5th time, to the row
+
+`--sims 5 --prompts 5 --providers zai` under Control B → **+80 rows (exactly +10 per civ, uniform),
++5 meta_log, 5 winners, 0 score errors, 0 all-2.0-default rows, 74 distinct `avg_score` values**
+among the 80 (range 1.457–2.300, mean 1.8665). Reproduces sessions 6, 7, 8 exactly.
+
+### Environment notes
+
+- HEAD `4004ef96` ("civ-orchestrator session 51"). Sparse checkout of
+  `cellular-first-design/code/civilizations` still pulls a **3.1 GB** pack (~90 s detached);
+  the full clone is 3.7 GB (>3 min). Sparse is the right call, not a small win.
+- `git fetch` **does not** populate `FETCH_HEAD` until it exits — `git rev-parse FETCH_HEAD` fails
+  mid-fetch and that is not an error. Poll for the fetch PID's exit, then read `FETCH_HEAD`.
+- `ls -la <dir> | grep simulations.jsonl` finds **nothing** — the ledgers are one level down in
+  `civ-*/simulations.jsonl`. Use `ls -la <dir>/civ-*/simulations.jsonl` to verify new entries.
+- The `write` tool is still jailed to the workspace root; use bash heredocs for `/tmp`.
+
+### The counter gap grew — 200 rows, still uncounted
+
+Ledger rows vs `sum(culture.json simulations_run)`: **1964 vs 1764** (was 260 in session 7).
+`save_state()` has no lock and no read-modify-write ⇒ lost-update race. `relevance_per_sim` is
+not a reproducible ranking; the board order cannot be recomputed from the ledger by an auditor.
+Report win rate **and** mean `avg_score` separately, and name the lens.
+
+### The Poetic anomaly is stable and now quantified on a fresh run
+
+The Poetic is simultaneously the **quality leader** (best quality 1.536, best novelty 1.876,
+top-3 alignment 2.802, highest `relevance_per_sim` 2.180, mean avg_score 2.071 = 1st of 8) and the
+**board's last-place win-rate civ** (1W/102L = 0.010). The Grounded is last on the board's own
+sort key (`relevance_per_sim` 1.505) and on raw relevance (344.71), and is a genuinely mediocre
+writer (quality 1.274, lowest novelty 1.624, mean avg_score 1.743 = 3rd lowest) — so unlike the
+Grounded's rank, the Grounded's weakness is **not** purely a longevity artefact.
+
+**Two distinct "low relevance" civs, do not conflate them:**
+- **The Grounded** — low on the board's sort key and on raw relevance; weak on sub-scores too.
+- **The Poetic** — healthy on every quality lens, rejected by the chooser. The chooser is shown only
+  150 chars of `content_preview` per civ and **never sees the scores**. `win_rate` measures
+  *selection appeal*, not relevance.
+
+**Winners this run: The Precise ×4, The Grounded ×1 — 5/5 rounds went to the two lowest-temperature
+civs** (0.2 and 0.5). The chooser prefers terse/precise text, which is exactly the opposite of the
+temperature→novelty gradient (r = 0.985) that the quality lens rewards. The high-temperature,
+high-novelty civs accumulate relevance while never being selected.
