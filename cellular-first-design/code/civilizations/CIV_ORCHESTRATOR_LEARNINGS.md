@@ -8550,3 +8550,80 @@ response. **A chooser sweep is a selection result, not a quality result.**
   number of writes per session, not stochastically.
 - **Per-run (n=10) per-civ means are not reportable as a ranking.** Two
   independent runs put the "lowest" label on three different civs.
+
+---
+
+## s75 (2026-10-24) — credential gap 22nd deep; the trees-API bootstrap is the whole answer, and the mock's voice table is the load-bearing part
+
+### The credential gap (22nd consecutive session)
+
+`ZAI_TOKEN` absent from `env`. All 7 sandbox secrets → **401 "token expired or incorrect"** at
+`https://api.z.ai/api/coding/paas/v4/chat/completions`. The **no-auth baseline returns a
+different 401 body** (`code 1001` "Authentication parameter not received in Header"), which is
+the control that proves the endpoint is live **and** the URL path is right ⇒ credential gap,
+not outage, not wrong path. JEV live at `jev-1.14.0` returning real scores (q 0.87 / n 2.20 /
+a 2.08 — not the 2.0 default). `secret` CLI is **not on PATH** (nor is `gh`) — enumerate
+credentials from `env` instead of concluding "no credential" from the store.
+
+Unpatched run: exit **0**, **+0 rows**, **0 `Winner:` lines**, **+0 meta_log** (2444 → 2444,
+158 → 158). Control B: **+80 rows (+10/civ uniform), +5 meta_log, 5 winners, 80 mock calls,
+0 all-2.0-default rows, 0 JEV errors, 80/80 distinct previews, 0 leaks.**
+
+### NEW — the mock's voice table is the load-bearing part, and the boot assertion must print
+
+The voice table must be keyed on the **rendered** string `Your voice: {voice}.` — **with the
+trailing period** the orchestrator actually emits. A table keyed on the raw `voice_emphasis`
+value falls back for **every** civ. The failure is silent: the run still produces +80 rows,
++5 meta_log, 5 winners, 0 default-score rows, 0 errors, zai-only — **every acceptance check
+except the distinct-preview count passes**, and the collapsed count arrives *after* 80 rows
+have been written into the durable ledger.
+
+**Fix: assert at boot, per civ, before the run starts.** This session printed
+`in pool: True` for 8/8 civs. It moves the failure from "post-hoc, one weak signal" to
+"before the run, unambiguous".
+
+### NEW — `git clone` into `/tmp` can vanish mid-session (3rd recurrence)
+
+The trees/blob API remains the fast path: one recursive tree call (**22 128 entries,
+`truncated: false`**, 7 MB JSON) + **116 raw blob fetches** for the 3.0 MB
+`code/civilizations/` subtree = **116/116 SHA-verified in seconds**.
+
+Meanwhile a full clone into `/tmp` reached **1.6 GB and was still growing** (pack ~3.6 GB);
+it was killed, and **the directory later disappeared entirely**, so `git status` reported
+*"not a git repository"*. **Do not trust a backgrounded clone to still be there later** —
+keep the verified API-fetched tree as the real copy.
+
+For the **commit** (not the run), a `git init` + `--filter=blob:none --depth 1` fetch +
+`sparse-checkout set /cellular-first-design/code/civilizations/` works and materialises
+**116 files**; `git ls-files -s` + recomputed blob SHAs → OK=116 BAD=0.
+
+### NEW — "80 scaffolding leaks" were HISTORICAL, not from this run
+
+A whole-ledger leak scan returns **80** rows whose `content_preview` contains
+`Write 100 words on` / `Your tenets:` / `You are a voice in the tradition`. **All 80 are
+prior sessions' mocks** echoing the question and civ name into the content; this session's
+mock produced **0**. **Always split the leak scan by run** (mock-tagged vs historical) before
+reporting it as your own defect — the historical rows are evidence about *earlier* mocks.
+
+### The counter gap did NOT widen this session
+
+**+260 before, +260 after** — and **not on any single civ** (every civ's ledger and registry
+counters each grew by exactly +10). The race fires on a fixed number of writes per session
+and this run did not trigger it; the +260 is inherited from the committed baseline. Still
+live as a defect: while the gap exists, `relevance_per_sim` is not recomputable by an auditor.
+
+### Standings (22 sessions)
+
+- **Lowest relevance: `civ-grounded`** — last on **4 of 6** lenses (board sort key 1.5082,
+  raw relevance 450.96, lifetime `avg_score` 1.7366, lifetime alignment 2.3139) while
+  holding the **most** real rows (232). Only `civ-engineer` is lower on quality (1.1905).
+- **Selection failure: `civ-poetic`** — 1st of 8 on the board and on lifetime quality,
+  **2 wins in 163** (0.012). The chooser reads 150 characters.
+- **Healthy: `civ-precise`** — 72W/91L (0.442), the only civ whose relevance rank and win
+  rate agree.
+- **Extinction risk: none** — threshold −10, lowest +450.96, a 461-point margin.
+- **Chooser vs `argmax(avg_score)`: 0/5 this run, 28/163 = 17.2 % lifetime.** 135/163
+  rounds crown a non-argmax civ, mean shortfall **0.554**, max **1.373**.
+- **The committed ledger is 800/2444 = 32.7 % provider stand-in** (880/2524 = 34.9 % after
+  this run's Control B). **Always declare the filter with a lifetime number** — the *level*
+  changes with the filter, the *order* does not.
