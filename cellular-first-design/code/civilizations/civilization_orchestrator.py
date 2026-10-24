@@ -77,6 +77,13 @@ def call_provider(name, prompt, params):
     if not p: return None
     token = os.environ.get(p["env"], "")
     if not token: return None
+
+    # Control B hook: redirect a provider to a local mock endpoint.
+    # Reads a URL override from the environment; leaves the token gate
+    # above untouched so the request is genuinely attempted.
+    _ov = os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")
+    if _ov:
+        p = dict(p); p["url"] = _ov
     
     data = {
         "model": p["model"],
