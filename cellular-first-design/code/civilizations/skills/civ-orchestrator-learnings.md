@@ -138,6 +138,58 @@ Registry 8, `max_civs` 12; extinction/birth only runs under `--loop`.
   API (read the remote `leaderboard.json` back and compare against local), never the push's
   own exit code.
 
+## Session 144 (2026-10-24) — the `Connection: close` fix, and the mock probe must use the *long* cultural prompt
+
+**Run clean (session 144, 16th consecutive clean mock).** per-civ Δ = **+10** × 8 = **80 new
+rows**, `meta_log` Δ = **+5** (453 → 458), `Winner:` lines = **5**, **80/80** rows
+`[mock-zai`-prefixed with `provider={zai}`, **0** rows with a JEV `error` key, **0** rows with the
+2.0/2.0/2.0 fallback triple, **40 distinct seeds / 80 rows** with **0** `(civ,prompt)` combos
+carrying >1 seed, **8/8 distinct seeds AND 8/8 distinct previews** on all 5 competition prompts.
+
+### NEW (this session) — a mock that answers 200 but never closes the connection hangs `curl`
+
+The rebuilt mock used `BaseHTTPRequestHandler` with a `Content-Length` header but **no
+`Connection: close`**. `urllib` (what the orchestrator uses) was fine, but a plain
+`curl -X POST …` **hung until the tool's 30 s timeout** while the server had already logged
+`200` — the classic "server answered, client waited for EOF" split. Symptom is easy to
+misread as "mock is down" and sends you re-debugging a healthy server.
+
+**Rule: a 200 in the mock's access log is not the same as the client completing.** Probe with
+`curl -m 8` (a timeout is a *result*, not an error) and add `Connection: close` to the
+response. After the patch the same probe returned `HTTP=200 time=0.001053`.
+
+### NEW (this session) — the pre-flight probe must use the *exact long cultural prompt*
+
+Probing the mock with a one-word body (`{"content":"hi"}`) does **not** exercise the path the
+orchestrator uses. The correct probe builds the full cultural prompt
+(`You are a voice in the tradition of "<CIV NAME>".\nYour tenets: …\nYour voice: …\n\n{prompt}`)
+for all 8 civs and asserts **8/8 distinct seeds AND 8/8 distinct previews**, plus
+`[mock-zai` prefix on all 8 and `grep -c Traceback` / `grep -c EXC:` on the mock log → 0.
+A one-word probe passes even against a partially broken mock. Measured this session: 8/8 and
+8/8, body lengths 332–369 chars.
+
+### Low-relevance civ — the low label did NOT rotate (42 sessions, 95–144)
+
+`civ-grounded` remains the lifetime low on all five axes: `avg_score` 1.0851, `alignment`
+1.2510, `quality` 0.4974, `relevance` 926.99, `relevance_per_sim` 1.043 — **last of 8 on every
+one**. The binding constraint is still **alignment**: gap to the next civ 0.2667 vs quality's
+0.0344 (**7.8×** wider). A voice failure, not a prose failure, because alignment is the axis
+the meta-GAN selects on. Lifetime novelty 1.5069 is above median — Grounded is not boring, it
+is unmistakable in a way the chooser does not reward.
+
+**`civ-therapist` appeared as a watch axis in sessions 138, 141 and 144 and has still never
+become a lifetime finding** (lifetime `avg_score` 1.2818, mid-field). It took the run-level
+`alignment` low (0.4460) while `civ-grounded` took the run `avg_score` low (0.5803) — the
+session-132 "different civs on different axes" case, not a contradiction.
+
+**Chooser vs `avg_score` argmax: 1/5 (20%)** — `civ-precise` won 3, `civ-mythic` 2. The chooser
+is still not a pure argmax, and every disagreement again took the *lower*-scoring candidate
+(largest this run: winner 0.83 vs argmax 1.32 on ternary values). **Never treat `win_rate` as
+a quality metric.**
+
+**Extinction risk NONE** — threshold −10, lowest relevance 926.99 = 92.7× above the floor.
+Registry 8, `max_civs` 12; extinction/birth only runs under `--loop`.
+
 ## Standing findings
 
 - **`civ-grounded` (The Grounded) is the low-relevance civ** — last on lifetime `relevance`
