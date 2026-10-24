@@ -733,3 +733,84 @@ than a conservation law. `last_conserved` is therefore False on **every** reacha
 carries no signal. Seventeenth poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to
 the live `gamma+eta` total, or drop the constant and make the predicate mean what it claims — but the script is
 upstream and byte-identical to its git blob, so no patch was applied.
+
+## 2026-10-24T15:50Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~29.5h (~15.4h since the 00:27Z poll).
+- **Confirmed three times by independent paths:** the watcher's own `poll_canon()`, and separate curl probes of
+  `live-canon.superinstance.dev/api/canon` taken BEFORE the run, AFTER the run, and again at note-writing time
+  (HTTP 200, 13720 bytes each) — all three response bodies byte-identical (`cmp` clean; body sha256
+  `43e5745c369f9b1fc8e19607eb96c6cfae676248e329f53715755ebe2baa8fde`, md5 `d9915bb9f3bcb8794cb57810427d0288`),
+  each recomputing to `sha256(json, sort_keys)[:16] = b20375d389cb505d`.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent; top-level keys are exactly
+  `['count','papers']`), so the 2026-10-22 count-key fallback remains load-bearing.
+- **Log append:** two rows — the unconditional `bot_started` event (pid 446, 15:50:14Z, hash `fb9aa3862c2d0852`)
+  and this run's `witness_note` (hash `c2367d6a2a0dd217`). `witness.log` went 71 → 73 rows; the diff against the
+  upstream blob is 2 insertions, 0 deletions — a clean append.
+- **No canon-change event written.** A hash match is not a transition, so no `canon_changed` row and no
+  gamma/eta delta were claimed.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and `canon_changed`
+  branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still does not exist and `state.json`
+  is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Log integrity:** 73/73 rows parse and carry `ts, iso, event, payload, hash`. 70 verify, 2 are `RECOVERED`
+  markers (rows 9, 12), 1 carries a stale hash (row 25, the 2026-10-23T11:31:39Z note) — re-verified this run as
+  **upstream-born**: the upstream blob at HEAD `a79d99a4` stores `88839488ea23e66c` against a computed
+  `2553b915563b73cc` with a byte-identical payload, so this run neither caused nor introduced it. Linkage class
+  `row-checksum` (per `../README.md`): each row's hash commits to its own payload only, with no `prev`/`prev_hash`
+  — re-verified by scanning every payload for `prev`, `prev_hash`, `parent`, `prev_row_hash`: none found. Deletion
+  and truncation are undetectable in this format, so the honest verdict is
+  `73/73 row checksums match — linkage class row-checksum`, not "chain-intact".
+- **Orphan rows:** 13 inherited (rows 1, 3, 5, 7, 10, 13, 15, 17, 18, 19, 23, 28, 35) — this run's own row is
+  closed by its note, and rows 44 and 56 are **not** orphans. The signature of the orphans is polls launched and
+  dying before their note was written, not evidence of canon transitions.
+- **Event census:** 73 rows — 38 `bot_started`, 25 `witness_note`, 6 `poll_failed`, 2 `meta_wipe_recovery`,
+  2 `first_poll`.
+- **No lost-update race:** the staged `witness.log` was byte-identical to the upstream blob at HEAD `a79d99a4`
+  (`d4bb826add16ee6f11ef9c87da0dfde8f2397440`, 71 rows, 148845 bytes) before the run, so the appended rows are a
+  clean append and no concurrent writer dropped a row.
+- **Scope note:** the task's witness note was conditioned on a canon change, and canon did **not** change. The note
+  was nonetheless written under the standing per-poll convention of the preceding notes, and it claims no
+  transition.
+
+### Environment (28th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist again; `/workspace` was an empty NAS mount at 600G/600G, 100%,
+  `statvfs f_bavail = 0` — zero bytes available. A live write probe confirmed the NAS is genuinely unwritable, not
+  merely reporting stale `df` numbers: a 100-byte write to `/workspace/.probe_test` returned **exit 0** yet landed
+  as a **0-byte** stub still visible in `ls -la` (stub removed afterwards). The rule holds: always read the size
+  column in `ls -la`, never treat existence as evidence, and treat a "successful" small write as unverified until
+  the size is checked.
+- **The full clone fails; the partial clone works.** A `--depth 1` clone of AI-Writings into the overlay died in
+  `index-pack` (`could not open '.git/objects/pack/tmp_pack_hDZXox'`) after ~2.0 GB. The working route is a
+  **blobless partial clone** with a sparse checkout of `bots/` only — 50 MB instead of 3.7 GB:
+  `git clone --filter=blob:none --no-checkout --single-branch --branch <branch> <url>`, then
+  `git sparse-checkout init --cone && git sparse-checkout set bots && git checkout`.
+- **Recovery:** the six files were fetched over the GitHub raw/contents API into the overlay at `/tmp` and staged
+  to `/tmp/wm-run/bots/`, because the script hardcodes those paths for `witness.log` / `state.json` /
+  `bookkeeper.wal` and does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` — `substrate_bus` must be staged
+  alongside it or the import dies. All six were verified **byte-identical** to the upstream git blobs at HEAD
+  `a79d99a4` by recomputing git blob SHA1 locally and comparing to HEAD's blob IDs: `9a974d41` (script),
+  `d4bb826a` (witness.log), `93c82290` (state.json), `ff2321ab` (substrate_bus.py), `e72d5c6a`
+  (substrate-witness.jsonl), `c9d63152` (topics.json) — all six match.
+- **Substrate truncation trap:** `substrate_bus.py`'s hardcoded write targets
+  `/workspace/repos/ai-writings/bots/substrate-bus/{substrate-witness.jsonl,topics.json}` do not exist on this NAS
+  mount, and a direct write there would land as a 0-byte stub still visible in `ls -la`. Avoided by symlinking both
+  NAS target files to their `/tmp/wm-run/bots/substrate-bus/` counterparts; read-through confirmed 865 and 4508
+  bytes. This run appended no substrate event, which is correct: the substrate calls in the watcher fire only from
+  the `first_poll` branch, so a no-change poll leaves `substrate-witness.jsonl` byte-unchanged (md5
+  `d3f588a44223088f4b62b262b5c8e8c2`, 865 bytes) and `topics.json` byte-unchanged (md5
+  `d94b0a5d5c23baa4c317441a046ed455`, 4508 bytes) — both verified post-run.
+
+### Open defect, still unresolved
+
+`bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of 70.0, so `last_conserved` is a **constant false by
+construction**. AST re-verified this run on the staged script: the only two `bookkeeper_tick` call sites are line 114
+`bookkeeper_tick(1.0, 0.0)` and line 128 `bookkeeper_tick(float(delta), 1.0)`, neither ever `(0,0)`, and an AST
+scan for a literal `(0.0, 0.0)` call site returned **0** matches — the escape clause is UNREACHABLE on every call
+path. The first clause can only pass if the running total hits exactly `1000.0` within `1e-6` — a coincidence target
+rather than a conservation law. `last_conserved` is therefore False on **every** reachable call path and the field
+carries no signal. Twenty-first poll reporting this; still unfixed. The fix is a one-liner — either set `budget` to
+the live `gamma+eta` total, or drop the constant and make the predicate mean what it claims — but the script is
+upstream and byte-identical to its git blob (md5 `206682962c06f9814a5db65c2fbc7267`, blob
+`9a974d4166ec6fe88cb9bdde8b46ff97952e606d`), so no patch was applied.
