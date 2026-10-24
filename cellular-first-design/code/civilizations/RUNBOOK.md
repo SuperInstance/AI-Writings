@@ -53,6 +53,27 @@ python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai
   A dict-shaped reader silently yields 0 % agreement and empty pick tallies.
   Winner fields are `winner_civ` / `winner_name`.
 
+### Transient NAS mount races on the symlinked deep path (session 105)
+
+`ls -la /workspace/repos/ai-writings/cellular-first-design/code/civilizations/`
+failed intermittently with **`No such file or directory`** even though the
+symlink, the target tree, and every file were present. `stat -L -c '%d:%i'`,
+`readlink -f`, and `ls` on *sub*-paths all resolved to the correct inode
+(`129:3671`) throughout; 10/10 retries then passed.
+
+**A single `ls` failure is not evidence of a missing directory.** Re-check with
+`stat -L` + `readlink -f` + `[-e path]` and retry before concluding the tree
+is gone. Do not "fix" a working symlink by re-creating it — the bridge is fine.
+
+### Killing the mock bridge: kill BOTH pids (session 105)
+
+Starting the mock as `setsid nohup timeout -s KILL 400 python3 /tmp/mock_zai.py &`
+creates **two** processes: the `timeout` wrapper and the real server. Killing
+the wrapper PID leaves the **server still serving** (port stayed open, HTTP
+200). Capture the pid of the process whose args are exactly
+`python3 /tmp/mock_zai.py` — not the `timeout ...` line — and verify the port
+is closed afterward (`curl` exit 7 = connection refused).
+
 ## Control B (mock provider bridge) — the override is DEAD CODE without a token
 
 `ZAI_URL_OVERRIDE` is committed upstream, but in `call_provider()` the token
