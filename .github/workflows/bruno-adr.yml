@@ -29,6 +29,16 @@
 # a new ADR file actually appeared, and fails the job if it did not. The
 # snowball-rsi-gan.yml workflow has this bug today (it commits a witness row
 # and reports success while all three providers return 403).
+#
+# CURRENT STATE: the vault refuses this repo. The call returns
+#   403 {"error":"Not authorized","repo":"SuperInstance/AI-Writings", ...}
+# The OIDC token is fine -- the vault parses it and echoes repo/workflow/branch
+# back -- so this is an allowlist decision. VAULT.md says a repo must be
+# registered by opening an issue titled "Register"; that issue is #94. Until
+# the coordinator adds this repo, the working route is to generate in
+# SuperInstance/zero-msg-test (registered) and publish the artifact here, which
+# is how ADR-0015 was written on 2026-10-24. See
+# research/snowball-rsi-gan-20261024.md for the same diagnosis.
 
 name: bruno-adr
 
@@ -96,9 +106,16 @@ jobs:
                   pass
               print("VAULT ERROR:", type(e).__name__, str(e)[:200])
               print("VAULT ERROR BODY:", body_txt)
-              # A 401 means the OIDC token failed verification.
-              # A 403 means OIDC passed and the vault's upstream provider refused.
-              print("DIAGNOSIS:", "OIDC_REJECTED" if "401" in str(e) else "UPSTREAM_PROVIDER_REFUSED")
+              code = getattr(e, "code", None)
+              if code == 401:
+                  print("DIAGNOSIS: OIDC_REJECTED - the vault could not verify the runner's OIDC token.")
+              elif code == 403 and "Not authorized" in body_txt:
+                  print("DIAGNOSIS: REPO_NOT_REGISTERED - the vault verified OIDC and refused on its allowlist.")
+                  print("REMEDIATION: open an issue titled 'Register' in this repo (see VAULT.md).")
+                  print("Until then, generate in SuperInstance/zero-msg-test (registered) and")
+                  print("publish the artifact here. See research/snowball-rsi-gan-20261024.md.")
+              else:
+                  print("DIAGNOSIS: UPSTREAM_PROVIDER_REFUSED - OIDC passed; the vault's model provider refused.")
           PY
 
       - name: Run Bruno (write one ADR)
@@ -134,7 +151,10 @@ jobs:
           def call_zai(prompt, max_tokens=1500):
               out = shim.call_zai(prompt, max_tokens=max_tokens)
               if not out:
-                  raise RuntimeError("vault provider returned no content")
+                  print("PROVIDER UNAVAILABLE: the vault returned no content.")
+                  print("The vault is reachable and OIDC is valid, but it refused on its")
+                  print("allowlist or its upstream provider refused. See the probe step above.")
+                  return None
               return out
           ba.call_zai = call_zai
 
@@ -161,7 +181,10 @@ jobs:
           echo
           if [ -z "$(git status --porcelain bots/bruno-architect/adrs/)" ]; then
             echo "ASSERTION FAILED: no new or modified ADR file in bots/bruno-architect/adrs/"
-            echo "The generator reported success but produced no ADR. Failing the job."
+            echo "The generator produced no ADR. The most likely cause is that this repo is"
+            echo "not on the vault allowlist, so the provider call is refused with 403."
+            echo "Register this repo (issue titled 'Register'), or generate in"
+            echo "SuperInstance/zero-msg-test and publish the artifact here."
             exit 1
           fi
           echo "OK: an ADR file is present and changed."
