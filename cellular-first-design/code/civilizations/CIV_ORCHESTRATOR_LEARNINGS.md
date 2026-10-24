@@ -9604,3 +9604,112 @@ id-keyed and the name-keyed table.
 - Session report: `RUN_REPORT_2026-10-24_session83.md`.
 - **Credential gap: 24 sessions deep.** Control A: no-op. Control B: +80 uniform, 5 winners,
   real JEV, 0 errors.
+
+---
+
+## Session 84 (2026-10-24) — 120th wipe — best-ever A/B rank agreement (6/8)
+
+### The bridge needs TWO levels — symlink the DEEPEST hardcoded component
+
+Session 83's bridge was `ln -sfn /tmp/aiw2 /workspace/repos/ai-writings` (one level). The script's
+hardcoded `CIVS_DIR` is:
+
+```
+/workspace/repos/ai-writings/cellular-first-design/code/civilizations
+```
+
+It includes the `cellular-first-design` component, so a one-level symlink at
+`/workspace/repos/ai-writings` leaves `cellular-first-design` to be resolved *inside* the NAS
+directory -> `FileNotFoundError` on `civilizations.json` at Control A.
+
+```bash
+mkdir -p /workspace/repos/ai-writings
+ln -sfn /tmp/AI-Writings/cellular-first-design \
+       /workspace/repos/ai-writings/cellular-first-design
+```
+
+> **Rule: count the components in `CIVS_DIR` and symlink the deepest one.**
+> Verify with `wc -c` on a real file through the bridge, not by exit code.
+
+### `cp -r` into the NAS loses every file's content
+
+`cp -r /tmp/AI-Writings/.../civilizations /workspace/repos/.../code/` reported
+`failed to close ...: Disk quota exceeded` for 5+ files while **all** of them appeared in `ls`
+as **0 bytes**. The NAS accepts directory entries and drops content. **Symlink, never copy.**
+
+### The vault fallback is gated on an Actions OIDC token — it is not a general fallback
+
+`bots/snowball-scout/vault_provider_shim.py` documents the intended escape hatch
+(`https://superinstance-vault.casey-digennaro.workers.dev/proxy`, holding the LLM credential).
+In a plain sandbox: `OIDC_TOKEN` is **not** in env and `GET /proxy` returns **404**. The vault is
+reachable only from GitHub Actions with an OIDC token. **The answer in a sandbox is always the
+local mock** — do not spend a session rediscovering this.
+
+### `pkill -f "zai_mock.py"` kills the shell that runs it (2nd occurrence of this class)
+
+The pattern matches the **command line of the killing shell itself**. Symptom: the mock dies
+*and* the tool call returns empty output with the redirect file never created. **Target the PID
+from `ps -eo pid,args`**, or use a pattern that cannot appear in the killing command.
+(Precedent: `pkill -9 -f jev_continuous_probe.py` in the JEV hourly rounds.)
+
+### THE HEADLINE — 6/8 exact rank agreement, the best ever recorded
+
+| | set A | set B | delta |
+|---|---|---|---|
+| fleet mean `avg_score` | 2.311 | 2.317 | +0.006 |
+| **exact rank agreement** | — | **6/8** | history: 2/8 (s9, s11, s13) |
+| movers | — | Engineer 8->6, Grounded 6->8 | one place each |
+
+Top three (Whimsical, Poetic, Mythic) **identical in both sets**; ranks 4, 5 and 7 also fixed.
+Only the 6th/8th pair swapped. **A stable fleet mean again hid a partial reordering** — but a
+far milder one than the 2/8 sessions, and the low-relevance answer is unchanged by it.
+
+### `civ-grounded` is the low-relevance civ — stable on 6 of 9 lenses, 5th session running
+
+Last on: set-A avg, set-B avg, **quality in both sets**, **alignment in both sets**, lifetime
+real-row avg (1.7210), lifetime alignment (2.287), `relevance_per_sim` (1.477). Bottom-two in
+**both** body sets on both mean-avg and quality. It is the **only** civ that is lowest on
+quality *and* alignment in *both* sets.
+
+**Still not a collapse**: mid-field on win rate (0.255), and it **won 2 of 5 competitions in
+set B** (1 in set A). Its last place on `relevance_per_sim` is partly a **longevity artefact** —
+a lifetime-average denominator penalises the civ that ran most (329 sims vs 305-331).
+
+**`civ-poetic` — the inversion**: 1st of 8 on raw relevance, `relevance_per_sim` (2.119),
+lifetime real-row avg (2.3162) and lifetime alignment (3.013); **last of 8 on win rate at
+2W/156L = 0.013**. It accumulates relevance while almost never being *selected*. 24 sessions.
+
+**`civ-engineer` — unranked**: last on set-A avg and on quality in both sets, but it moved
+*up* under perturbation (8th -> 6th), so its position is **not stable** -> report unranked.
+**`civ-formal` — unranked**: 7th on avg in both sets, but quality and alignment are mid-field.
+
+**`civ-precise` healthiest**: win rate 0.503 (77-76), the only civ whose relevance rank and
+win rate agree in sign; held rank 5 in both sets.
+**Extinction risk: none** (threshold -10, lowest +500.74, `--loop`-mode only).
+
+### The counter gap is NOT constant and NOT uniform — it grew and it is spread
+
+`+260` (s83) -> `+271` (s84): ledger 2844 vs `simulations_run` 2573, so the gap **grew by 11 in
+one session** and is **+16 Precise, +63 Whimsical, +43 Grounded, +37 Poetic, +22 Engineer**.
+Every row is counted by nobody, but the gap is not a constant offset to subtract.
+
+### Chooser vs `argmax(avg_score)`: 3/10 (30 %)
+
+**13th consecutive replication** that the chooser and the scorer are essentially uncorrelated;
+7 of 10 rounds picked a non-top-scoring civ.
+
+### The committed ledger is 39.4 % synthetic — the rule still was not applied
+
+`grep -c '\[mock-zai' civ-*/simulations.jsonl` -> 140 per civ; 1120/2844 = **39.4 %**.
+120 of the 140 per civ are **pre-existing**. Sessions 6/7/8 documented "mock rows are not
+committed"; their own runs were clean, but rows written by *earlier* sessions were committed and
+never reaped. **A ledger rule enforced only on the writes of the session that learns it does not
+clean the history it inherits.** This session's own 160 rows were removed and the ledger
+restored to pristine (18/18 files byte-verified with `cmp`), so the 39.4 % is the **inherited**
+level and this session contributed 0 of it.
+
+### Mock health checks that must stay green (both sets)
+
+0 fallback flags / 81 calls; uniform 10 calls per voice; 81/81 distinct salts;
+81/81 distinct `body_hash`; **10/10 distinct `content_preview` per civ** (the fleet-wide 80/80
+is satisfied even by a mock that only varies across civs — the per-civ count is the real check).
