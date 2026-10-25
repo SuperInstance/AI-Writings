@@ -1,3 +1,77 @@
+## Session 243 additions (2026-10-25)
+
+### 1. A WIPED WORKSPACE NEEDS `sparse-checkout disable`, NOT `git checkout -- prose/`
+
+`git sparse-checkout set cellular-first-design` leaves every path outside the cone **staged as
+deleted** in `git status --porcelain` (here: 3 `prose/snowball-inspired/*` files). The obvious
+repair, `git checkout -- prose/`, **fails** with
+
+```
+error: pathspec 'prose/' did not match any file(s) known to git
+```
+
+because those paths are not in the sparse index at all. The fix is `git sparse-checkout disable`
+— the working tree then matches `HEAD` and `git status --porcelain` is empty.
+
+*Rule: the change-detector for a run is `git status --porcelain` on the **baseline** tree. A
+dirty baseline turns "18 files changed" into "21 files changed" and every downstream file count
+becomes unverifiable. Assert an empty status before the run, and fix the index — not the
+worktree — when the cone is the cause.*
+
+### 2. A PRE-FLIGHT THAT REPORTS **9 SEEDS WHERE THE SPEC SAYS 8** IS A CHECKER BUG
+
+The mock was correct: 8/8 distinct seeds per prompt, all matching an independently recomputed
+md5. The **checker** was wrong — its `by_prompt` accumulator appended a `None` placeholder
+before the real seeds, so every prompt counted **9** ("8 real + 1 None").
+
+*Rule: the 8/8-per-prompt check must count the seeds it actually sent, never a padded list.
+And the standing rule holds: a recompute that disagrees with the mock means "the checker is
+wrong" before it means "the mock is wrong" — dump one real body and parse it by hand first.*
+This is the **third** occurrence of a checker-side false alarm in this series.
+
+### 3. `culture.json` HAS **`simulations_run`**, NOT `sims_run` — AND A BATTERY THAT DIES MID-WAY LEAVES A FALSE VERDICT
+
+The verification battery raised `KeyError: 'simulations_run'` on the first civ it checked, and
+the transcript up to that point was **18 PASS lines with no verdict**. A battery that crashes
+half-way reads exactly like a partial pass.
+
+*Rule: print an explicit final `VERIFICATION: n/n PASS` + `VERDICT:` line and `sys.exit(1)` on
+any failure. Also: `leaderboard.json` exposes `sims_run` but `culture.json` exposes
+`simulations_run` — the two files use different key names for the same quantity, so a checker
+that reads one and writes the other will fail on the civ it reaches first.*
+
+### 4. THE MOCK'S `d[0]` IS THE **RAW MD5 BYTE** — CONFIRMED **2480/2480** AGAIN
+
+Re-derived from the ledger and validated over the full current-format ledger *before* the run:
+**2480/2480 exact, 0 mismatches** (the current-format population is now 2480 rows; the
+historical `[mock-zai <12 hex>]` form is still 240 rows and does not parse).
+
+*Rule: `i = d[0] % 4` where `d[0]` is the raw byte — `int(h[0], 16)` is a different algorithm
+that will fail the recompute.*
+
+### 5. THE RUN LOW AND THE LIFETIME LOW DECOUPLED **AGAIN** — AND ALIGNMENT DOMINATED AT **2.52x**
+
+Run low `civ-therapist` (avg **1.1327**, fleet-low quality **0.2770** and fleet-low alignment
+**0.6630** — a two-axis collapse) against lifetime low `civ-grounded` (**2266.60**, lowest
+rel/sim **1.206**, lifetime-low quality **0.544**) for the **104th** consecutive session.
+
+The run's alignment spread (**1.8570**) is **2.52x** the `avg_score` spread (**0.7377**); quality
+0.87x, novelty 0.21x. Novelty is near-constant across the fleet (**0.1560** spread) and carries
+almost no ranking information.
+
+`civ-therapist`'s novelty is **3rd-highest of 8** while its alignment is the fleet low — the
+signature of a **voice** failure, not a prose failure. Report the axis, not just the label.
+
+### 6. THE **4-1 WINNER SPLIT** AND **1/5 (20 %) AGREEMENT** — STILL **0 UP-GRADES EVER**
+
+`civ-precise` took 4/5 competitions, `civ-formal` 1/5. Agreement with the `avg_score` argmax
+was **1/5 (20 %)**, with **4 down-grades and 0 up-grades**. The chooser reads only
+`content_preview[:150]` and never sees `avg_score`, so every disagreement is a down-grade **by
+construction** — the up-grade count is pinned at 0 structurally.
+
+*Rule: a winner-streak (here 4/5) is a description of history, not a prediction. Sessions 237
+split 2-2-1 and 243 split 4-1; the field is genuinely competitive.*
+
 ## Session 238 additions (2026-10-25)
 
 ### 1. THE TAIL IS A **PER-SESSION CONSTANT** — 13 TAILS, ALL SHARED BY ALL 8 CIVS
