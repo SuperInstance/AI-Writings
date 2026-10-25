@@ -268,7 +268,23 @@ right rule from the near-miss.*
    this run's `avg_score` (1.8087). `civ-therapist` took the run-level low and is the
    **2nd-lowest lifetime** civ. *Report the axis per civ; do not promote a run low to a lifetime
    finding.*
-6. **`ln -s` FAILS WITH ENOENT WHEN THE INTERMEDIATE DIRECTORY IS MISSING.** Creating
+6. **A PARALLEL SESSION WILL PUSH WHILE YOU ARE RUNNING — MERGE, DO NOT CLOBBER.** This
+   session's `git push` was rejected (`Updates were rejected because the remote contains work
+   that you do not have locally`): another session ran the **same command against the same
+   baseline** and pushed a `session 234` report while this run was in flight. Both runs are
+   valid — same baseline, same 80 rows, same `civ-precise` 5/5 sweep, same 2/5 chooser
+   agreement, same run-low and lifetime-low holders. The rebased merge **keeps both runs' rows**
+   (per-civ ledgers `base + 10 + 10`, `meta_log` `903 -> 913`, rows interleaved in `ts` order),
+   and the **culture.json counters are summed** (`relevance_score`, `wins`, `losses`,
+   `simulations_run`) so that `relevance delta == sum(last 20 avg_score)` still holds exactly
+   (residual <= 1.6e-12). *A concurrent session is not a conflict to resolve by picking a
+   winner — it is a second measurement to preserve. The only thing to renumber is the report
+   file, so two sessions do not both claim `session 234`.*
+   *Second lesson from the same merge: a rebase conflict resolution that touches an **absolute
+   counter** file must **recompute** the counter from the two runs' deltas, not take one side's
+   value. Taking one side's `culture.json` would have silently discarded the other session's
+   80 rows from the relevance total.*
+7. **`ln -s` FAILS WITH ENOENT WHEN THE INTERMEDIATE DIRECTORY IS MISSING.** Creating
    `/workspace/repos/ai-writings/cellular-first-design` as a symlink fails unless
    `/workspace/repos/ai-writings` already exists as a real directory. The error message
    ("No such file or directory") names the *target* path, not the missing parent, so it reads

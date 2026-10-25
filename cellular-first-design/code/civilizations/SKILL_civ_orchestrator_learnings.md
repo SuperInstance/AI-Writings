@@ -1,3 +1,46 @@
+## Session 234 additions (2026-10-25)
+
+*This session ran concurrently with session 235 against the same baseline (`f6f3609`). Its
+full addendum is in `skills/civ-orchestrator-learnings.md`; the summary is the same shape as
+session 235's — `civ-precise` swept 5/5, chooser/argmax agreement 2/5 (40 %) with 3
+down-grades and 0 up-grades, run low `civ-therapist` (avg 1.7533, fleet-low run alignment
+1.62), lifetime low `civ-grounded` (2122.93, 98th consecutive session), extinction risk NONE
+(lowest = 212x the -10 floor). The one addition worth carrying forward is recorded in the
+235 addendum: **a re-derivation is not a correction** — the two candidate index rules are
+provably the same rule, and a near-miss is invisible to every self-consistency check.*
+
+### 8. A PARALLEL SESSION WILL PUSH WHILE YOU ARE RUNNING — **MERGE, DO NOT CLOBBER**
+
+This session's `git push` was rejected with *"Updates were rejected because the remote contains
+work that you do not have locally"*: another session ran the **same command against the same
+baseline** and pushed a `session 234` report while this run was in flight. Both runs are valid
+and nearly identical in shape — same baseline, 80 rows each, `civ-precise` 5/5 in both, same
+2/5 chooser agreement, same run-low and lifetime-low holders.
+
+The rebased merge **preserves both runs**:
+- per-civ ledgers: `base + 10 + 10` rows, interleaved in `ts` order
+- `meta_log`: `903 -> 913`
+- `culture.json` counters **summed** (`relevance_score`, `wins`, `losses`, `simulations_run`)
+  so `relevance delta == sum(last 20 avg_score)` holds exactly (residual <= 1.6e-12)
+- the report **renumbered** to 235 so two sessions do not both claim `session 234`
+
+*Rule: a concurrent session is a **second measurement to preserve**, not a conflict to resolve
+by picking a winner. And when a merge touches an **absolute counter** file, **recompute** the
+counter from the two runs' deltas — taking one side's `culture.json` silently discards the other
+session's 80 rows from the relevance total while leaving the ledger looking intact.*
+*Corollary for the report: when two sessions produce near-identical headline numbers, the
+honest write-up is that **both runs agree**, and the ledger is the proof.*
+
+### 9. A REBASE CONFLICT IN A **JSONL LEDGER** IS RESOLVED BY **REBUILDING THE FILE**, NOT PICKING A SIDE
+
+`git rebase` marks the whole `simulations.jsonl` conflicted (every line is "added at the same
+position"), but the correct resolution is mechanical: `base_lines + sorted(theirs_new + mine_new,
+key=ts)`. Doing it by hand invites a silent row loss; doing it in code and then **asserting the
+row count and `ts` monotonicity** makes the merge auditable.
+
+*Rule: resolve ledger conflicts programmatically and verify the count, the ordering, and the
+absence of duplicates — then re-derive the counter identity against the rebuilt file.*
+
 ## Session 235 additions (2026-10-25)
 
 ### 1. A **RE-DERIVATION** IS NOT A **CORRECTION** — PROVE THE TWO RULES ARE ACTUALLY DIFFERENT

@@ -66,6 +66,38 @@ header/tail split, which drifts by a char between generations.*
   scorer level shift for this batch, not a civ effect.
 - Extinction risk **NONE** (floor -10, lowest +2122.93 = **212x**). Registry 8, `max_civs` 12.
 
+### 8. A PARALLEL SESSION WILL PUSH WHILE YOU ARE RUNNING — **MERGE, DO NOT CLOBBER**
+
+This session's `git push` was rejected with *"Updates were rejected because the remote contains
+work that you do not have locally"*: another session ran the **same command against the same
+baseline** and pushed a `session 234` report while this run was in flight. Both runs are valid
+and nearly identical in shape — same baseline, 80 rows each, `civ-precise` 5/5 in both, same
+2/5 chooser agreement, same run-low and lifetime-low holders.
+
+The rebased merge **preserves both runs**:
+- per-civ ledgers: `base + 10 + 10` rows, interleaved in `ts` order
+- `meta_log`: `903 -> 913`
+- `culture.json` counters **summed** (`relevance_score`, `wins`, `losses`, `simulations_run`)
+  so `relevance delta == sum(last 20 avg_score)` holds exactly (residual <= 1.6e-12)
+- the report **renumbered** to 235 so two sessions do not both claim `session 234`
+
+*Rule: a concurrent session is a **second measurement to preserve**, not a conflict to resolve
+by picking a winner. And when a merge touches an **absolute counter** file, **recompute** the
+counter from the two runs' deltas — taking one side's `culture.json` silently discards the other
+session's 80 rows from the relevance total while leaving the ledger looking intact.*
+*Corollary for the report: when two sessions produce near-identical headline numbers, the
+honest write-up is that **both runs agree**, and the ledger is the proof.*
+
+### 9. A REBASE CONFLICT IN A **JSONL LEDGER** IS RESOLVED BY **REBUILDING THE FILE**, NOT PICKING A SIDE
+
+`git rebase` marks the whole `simulations.jsonl` conflicted (every line is "added at the same
+position"), but the correct resolution is mechanical: `base_lines + sorted(theirs_new + mine_new,
+key=ts)`. Doing it by hand invites a silent row loss; doing it in code and then **asserting the
+row count and `ts` monotonicity** makes the merge auditable.
+
+*Rule: resolve ledger conflicts programmatically and verify the count, the ordering, and the
+absence of duplicates — then re-derive the counter identity against the rebuilt file.*
+
 ## Session 235 additions (2026-10-25)
 
 ### 1. A **RE-DERIVATION** IS NOT A **CORRECTION** — PROVE THE TWO RULES ARE ACTUALLY DIFFERENT
