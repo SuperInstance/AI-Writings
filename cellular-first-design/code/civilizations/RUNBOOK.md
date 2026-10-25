@@ -1,4 +1,15 @@
 # Civ Orchestrator — Run Report, session 217 (2026-10-25)
+## Session 218 (2026-10-25) — provider path, baseline, and result
+
+- Provider path: **Control B mock** (z.ai credential gap, **89th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `c9b1592e` (session 217 tree). **All 24 verification assertions PASS.** Pre-flight **10/10 PASS** (first build).
+- Result: `civ-precise` swept **5/5** competitions; chooser/argmax agreement **3/5 (60 %)** — 2 down-grades, 0 up-grades.
+- Run low: **`civ-therapist`** (avg **1.5310**, fleet-low alignment **1.1770**). Lifetime low: **`civ-grounded`** (**1851.31**, 86th consecutive session).
+- Full detail: `RUN_REPORT_2026-10-25_session218.md`.
+- The current-generation mock algorithm (seed/colour/figure) was **re-derived from the ledger and verified 480/480 exact** — see the SKILL file, session 218 addition 1.
+- The current-generation tail is **per-session**, not per-message — see the SKILL file, session 218 addition 2.
+- `simulations_run` advances by **+10** and `losses` = 5 − wins — see the SKILL file, session 218 addition 3.
+
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
 Provider path: **Control B mock** (z.ai credential gap, **88th session**) + **live JEV** (`jev-1.14.0`).

@@ -258,6 +258,67 @@ content is where I think it is". Verify with `find <root> -maxdepth 3 -not -path
   (self-matches the calling shell).
 
 
+
+## Session 218 additions (2026-10-25)
+
+### 1. THE CURRENT-GENERATION MOCK ALGORITHM, RE-DERIVED FROM THE LEDGER — 480/480 EXACT
+
+The SKILL file documents the **older** `[mock-zai seed=XXXX]` header format, not the current
+one. The current format is `[mock-zai <4hex>] #<4hex> <4hex>/<4hex>/<4hex>.` and the
+canonical algorithm is:
+
+```
+d      = md5(cultural_prompt).digest()
+h      = d.hex()
+i      = d[0] % 4
+seed   = h[(i*2)%8 : (i*2)%8+4]     # CONTIGUOUS 4-char slice
+color  = h[8:12]
+figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"
+```
+
+`cultural_prompt` is exactly the string the orchestrator builds in `run_simulation()`:
+`You are a voice in the tradition of "{name}".\nYour tenets: {tenets joined by ", "}.\nYour voice: {voice}.\n\n{prompt}`.
+
+**The `i = d[0] % 4` step is the part that is easy to miss.** `color` and `figure` sit at
+`h[8:12]` and `h[12:24]` and are trivially found. The **seed** is NOT at a fixed offset:
+`h[0:4]`, `h[2:6]`, `h[4:8]` and `h[6:10]` each match only ~30 % of rows, and a
+sample of one row will happily land on any of them. *Derive the seed by fitting
+`i = d[0] % 4` and then the `(i*2)%8` slice, not by scanning offsets.* Verified 480/480
+against the 6 most recent sessions of the ledger.
+
+### 2. THE CURRENT-GENERATION TAIL IS **PER-SESSION**, NOT PER-MESSAGE
+
+The ledger holds exactly **3** distinct 163-char tails. A merged-by-`ts` run-length
+encoding of all 480 current-format rows gives **`C×80, B×160, A×240`** — i.e. one tail per
+session (6 sessions detected at exactly 80 rows each, matching 8 civs × 10 rows), and
+**every** civ uses all three across sessions.
+
+*Rule: a tail is a mock configuration for the session, so any one of the three is valid.
+Do not go looking for a per-message tail selector — there is none, and hunting for one
+burns an hour.*
+
+### 3. `simulations_run` ADVANCES BY **+10**, AND `losses` = 5 − wins
+
+`run_simulation()` increments `sims_run` on **every** simulation, and the competition phase
+writes one row per civ per prompt. A civ therefore ends the run with 5 sim-phase rows
+**plus** 5 competition rows, and `simulations_run` advances by **10** while the ledger also
+grows by 10.
+
+`civilization_competition()` awards a loss only to civs that **participated**, so a sweep
+winner records **0 losses and 5 wins** — not a flat "+5 losses".
+
+*Both cost me a red verification battery on a perfectly clean run. Derive the expected
+counter delta from the code path, not from the number of prompts: the competition phase
+participates in the same counters as the sim phase.*
+
+### 4. THE `ls -la` VERIFICATION THE PROMPT ASKS FOR IS THE WEAKEST ONE
+
+"Verify with `ls -la` that simulations.jsonl files have new entries" is satisfied by an
+mtime change on all 8 files — which a run that wrote **0** rows would also satisfy if it
+touched the files. The discriminating check is the **row-count delta** (+10 each = 80)
+plus the git-blob baseline for the counter deltas. *Use `ls -la` to answer the question
+asked; use the row-count delta to answer the question meant.*
+
 ---
 
 ## Session 189 (2026-10-25) — THE TWO LENGTH BANDS, AND A VERIFIER THAT FAILS ITSELF
