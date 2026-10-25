@@ -2817,3 +2817,135 @@ phantom 0-byte file that a later `ls` will report as a successful deliverable. W
 to the overlay, commit them to git, and **verify the remote blob through the git protocol**
 (`git cat-file -p HEAD:<path>`), not through the contents API (which returns the file
 truncated to 1 row for a 2000-row JSONL and silently under-reports).*
+
+### 6. A **TREE-SHAPED** `cp` INTO A QUOTA-DEAD WORKSPACE LEAVES A DIRECTORY SKELETON — AND THE NAIVE `find -name simulations.jsonl` VERIFICATION **PASSES ON IT**
+
+Session 260 (2026-10-25). The single-file 0-byte trap is documented above (rule 5). The
+**recursive** form of the same trap is not, and it is the shape the orchestrator's own
+verification query takes.
+
+`cp -a <clone>/cellular-first-design /workspace/repos/ai-writings/` into a 100 %-quota
+workspace produced **no error on the directory entries** — `mkdir` succeeds because the
+directory inode costs no data blocks — and only failed at `close` on each file:
+
+```
+cp: failed to close '/workspace/repos/.../civ-engineer/culture.json': Disk quota exceeded
+cp: failed to close '/workspace/repos/.../civ-engineer/simulations.jsonl': Disk quota exceeded
+...
+```
+
+The result is a **complete-looking tree**: 8 `civ-*/` directories, each containing a
+`simulations.jsonl` that `find` reports at 0 bytes. The verification the task asks for —
+"confirm `simulations.jsonl` files have new entries" — is trivially satisfiable in its
+naive form:
+
+```
+$ find <dir> -name 'simulations.jsonl' -printf '%p\t%s\n'
+<dir>/civ-engineer/simulations.jsonl      0
+<dir>/civ-formal/simulations.jsonl        0
+... (8 paths found — reads as "all present")
+```
+
+**8 paths found, 0 bytes written, 0 rows added.** `cp` also returned **exit 0** (the failure
+is reported on stderr by the per-file `close`, not by the process status), so a `set -e`
+pipeline does not trip on it.
+
+*Rule: a path-existence check is **not** a receipt. Assert on the **row-count delta** of each
+`simulations.jsonl` — rows before vs rows after, per civ — and treat `size == 0` as a
+**failure**, not as an empty-but-valid ledger. Two 0-byte ledgers are indistinguishable from
+two populated ones by name alone.*
+
+Verified guard (both directions exercised, not just asserted):
+
+```python
+def sim_rows(p):
+    if not os.path.exists(p): return 0
+    with open(p, "rb") as f: return sum(1 for _ in f)
+
+before = {c: sim_rows(f"{base}/{c}/simulations.jsonl") for c in civs}
+# ... run ...
+after  = {c: sim_rows(f"{base}/{c}/simulations.jsonl") for c in civs}
+delta  = {c: after[c] - before[c] for c in after}
+assert all(v > 0 for v in delta.values()), delta     # per-civ growth
+assert not [c for c, v in after.items() if v == 0], after   # no zero-byte ledger
+```
+
+Negative control (2 × 0-byte stubs): naive path count = **2** ("looks fine"), delta = **0**.
+Positive control (append one row): delta = **1**, guard fires. A guard that only ever says
+"no" is not a guard — both directions must be exercised.
+
+### 7. `os.statvfs` GIVES A **MACHINE-READABLE** QUOTA STATE WHERE `df`/`du` ARE MISLEADING
+
+`df` and `du` are both wrong in the same direction here and the repo records the `du` half
+(rule 5: `du -sh /workspace` reports `0`). The **`statvfs`** fields are not recorded anywhere
+in this file, and they answer the question the other tools cannot: *is the mount writable at
+all, and how much space is left, without doing a write test?*
+
+```
+/workspace : f_bavail=0  f_bfree=0   f_blocks=614400  f_frsize=1048576
+             -> avail_bytes = 0        <-- hard stop, no write will land
+/tmp       : f_bavail=7257435  f_bfree=7654542  f_frsize=4096
+             -> avail_bytes = 29,726,453,760  (28 G)
+```
+
+`f_bavail * f_frsize == 0` is a **sufficient condition to stop attempting workspace writes
+and go straight to the `/tmp` clone + symlink bridge** — it needs no `dd`, no `cp`, and
+therefore creates no phantom 0-byte artifacts to clean up. Pair it with the same probe on
+the target: a `statvfs("/tmp")` reading of 28 G is what justifies relocating the clone.
+
+**Rule: probe `statvfs` before the first write, not after the first quota error.** The
+write probe is the expensive one — it costs a failed write plus a phantom file to delete.
+
+### 8. THE PROVIDER GATE STILL FAILS **SILENTLY** — AN EMPTY-TOKEN RUN IS INDISTINGUISHABLE FROM A CLEAN RUN
+
+Session 260 reconfirmed the credential gap (`ZAI_TOKEN` absent from the env; the only
+type-safe key present is `TYPESAFE_AI_TOKEN`, while the script reads `TYPESAFEAI_KEY` — the
+alias must be exported or every score silently falls back to the 2.0/2.0/2.0 triple).
+
+What is *new* here is only the **shape of the failure at the orchestrator level**: the
+`call_provider` gate returns `None` on an empty token, `run_simulation` returns `None`,
+`civilization_competition` finds no results and returns `None`, and `run_civilization_batch`
+appends **nothing** to `meta_log.jsonl` — then the process **exits 0**. Every stage of the
+pipeline treats "no provider" as "no work", and no stage raises.
+
+*Consequence for verification: a green exit is not evidence of a run. The three assertions
+that must accompany every orchestrator invocation are:*
+
+1. `sum(rows per civ) == sims * civs` **after** the run, and `> 0` for every civ;
+2. `meta_log.jsonl` grew by exactly `prompts` competition rows;
+3. `leaderboard.json` `ts` advanced **and** its `sims_run` per civ increased.
+
+Only (1) catches the silent gate; (2) and (3) catch the "scores written but competition
+never ran" variant, where the ledger is populated and the meta-GAN never happened.
+
+### 9. THE VERIFICATION GATE NOW EXISTS AS CODE — `tools/verify_run.py` (NEW IN SESSION 260)
+
+Rules 6-8 above were prose. They are now a **runnable gate** so that a future session does
+not re-derive them (and cannot skip them by forgetting to ask the right question):
+
+```
+python3 tools/verify_run.py snapshot . > /tmp/before.json     # BEFORE the run
+# ... run the orchestrator ...
+python3 tools/verify_run.py verify . /tmp/before.json \
+    --expect-sims 5 --expect-prompts 5                         # AFTER the run
+```
+
+It asserts six things: civs discovered; **every civ gained rows**; each gained *exactly*
+`--expect-sims`; **no zero-byte `simulations.jsonl`**; `meta_log.jsonl` grew by exactly
+`--expect-prompts`; `leaderboard.json` `ts` advanced with non-zero `sims_run` per civ.
+
+Exercise-tested in session 260 against three fixtures — the three ways a run can lie:
+
+| fixture | result |
+|---|---|
+| no-op (nothing ran) | **4 FAIL**, exit 1 — no growth, meta_log flat, leaderboard frozen |
+| quota-stub (tree copied, files 0 bytes) | **5 FAIL**, exit 1 — zero-byte detector fires, delta **negative** |
+| real success (5 rows/civ, 5 competition rows) | **ALL PASS**, exit 0 |
+
+A gate that has only ever been seen passing is not a gate. The negative and stub fixtures
+are the ones that matter; both are in the table above so the next session can re-run them
+against any rewrite of the tool.
+
+*Note the third fixture is not a formality:* `meta_log` growing while `leaderboard.ts` is
+frozen, or vice versa, is the "simulations ran but the meta-GAN never happened" signature
+(and its mirror). The gate checks both, so neither half can pass alone.
