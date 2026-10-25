@@ -1,3 +1,100 @@
+## Session 230 additions (2026-10-25)
+
+### 1. THE CONTROL B MOCK SOURCE IS **NOT IN THE REPO** — THE LEDGER IS THE SPECIFICATION
+
+A search of **every** remote branch (`git ls-remote --heads origin`, 60+ branches) for a mock
+server source returns **nothing**. The Control B server has always been a session-local
+artifact; the repository carries only the *reports* and the *skill file* that describe it.
+
+*Rule: a session that rebuilds the mock must first prove the algorithm against the **whole**
+current-format ledger — not against its own fresh rows, which is circular. This session
+re-derived the canonical algorithm and matched **1440/1440 exact, 0 mismatches** over the
+current-format rows of the 8 civ ledgers, before the run.*
+
+```
+d      = md5(cultural_prompt).digest()
+h      = d.hex()
+i      = d[0] % 4
+seed   = h[(i*2)%8 : (i*2)%8+4]
+color  = h[8:12]
+figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"
+```
+
+### 2. THE **38 / 162 / 200** GEOMETRY IS THE ONLY UNIVERSAL INVARIANT — THE TAIL TEXT IS FREE
+
+A merged count of the 1440 current-format rows yields **10 distinct tail prefixes**, all of
+them exactly **162** chars, and every visible preview exactly **200** chars. The
+**38 + 162 = 200** geometry holds across every session in the ledger; the tail *prose* rotates
+freely (10 distinct tails in this cut; the session-229 report counted 12 across a
+differently-cut row set — the count is a property of the cut, the **162** is a property of the
+ledger).
+
+*Rule: assert the geometry (38 / 162 / 200), never the tail prose.*
+
+### 3. THE **CONTINUATION** IS THE ONLY BODY-LENGTH CONTROL — AND THE FIRST BUILD CAN LAND BELOW THE BAND
+
+Header 38 + tail 162 = 200, leaving the continuation as the sole free variable. This
+session's first build appended 125 continuation chars for a **325**-char body — **7 below**
+the 332 floor. Extending the continuation to 151 gave **351**, mid-band.
+
+*Rule: solve the continuation as `target − 38 − 162`. Never trim the tail and never shorten
+the header — both are constants the ledger's own rows depend on.*
+
+### 4. THE META-LOG ROW IS WRITTEN **AFTER** THE COMPETITION ROWS — "LATER-TS" IS THE WRONG PREDICATE
+
+The session-229 battery asserted *"meta-vs-ledger `avg_score` 0 mismatch (later-ts row)"*.
+This session inherited that wording and failed **40/40** — every civ in every prompt.
+
+The code path settles it: `civilization_competition()` writes each civ's `simulations.jsonl`
+row **as the simulation completes**, and the `meta_log` row is appended **after the whole
+competition phase returns**. The ledger row is therefore **earlier** in `ts` than the meta row
+by ~3.1-3.2 s. The assertion looked for the opposite and so failed on a perfectly clean run.
+
+The deltas were a clean **+3.09 to +3.24 s** on all 40 pairs, and the `avg_score` values
+themselves had **0** real mismatches. Rewriting the check to `min(ts) <= meta.ts` gave **0**.
+
+*Rule: a 100 %-failure assertion is an **inverted predicate** until proven otherwise — check
+the *sign* of the expected delta before touching the data. The summary is written after the
+facts it summarises, never before.*
+
+### 5. THE COUNTER GAP IS **BYTE-IDENTICAL** TO SESSION 229 — FIXED, NOT ACCUMULATING
+
+| civ | relevance | ledger Σ avg_score | gap | session 229 |
+|---|---|---|---|---|
+| `civ-grounded` | 2052.7900 | 2137.1367 | **-84.3467** | -84.3500 |
+| `civ-therapist` | 2093.1867 | 2135.3000 | **-42.1133** | -42.1100 |
+| `civ-engineer` | 2298.6333 | 2342.8767 | **-44.2433** | -44.2400 |
+| `civ-mythic` | 2363.9167 | 2415.0267 | **-51.1100** | -51.1100 |
+| `civ-formal` | 2404.3700 | 2489.8967 | **-85.5267** | -85.5300 |
+| `civ-whimsical` | 2432.4667 | 2605.6100 | **-173.1433** | -173.1400 |
+| `civ-precise` | 2792.7533 | 2825.3867 | **-32.6333** | -32.6300 |
+| `civ-poetic` | 2911.5833 | 3008.3867 | **-96.8033** | -96.8000 |
+
+Max drift vs the documented values: **3.3e-03** (rounding in the published table). The offset
+is **fixed** — neither repaired nor worsened by this run.
+
+### 6. THE SERIES LINE ADVANCES, AND THE UP-GRADE COUNT IS **STILL 0**
+
+Agreement series (211-230): 0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 / 40 / 20 / 40 / 40 /
+100 / 60 / 80 / 40 / **40** %. Up-grades across **20** sessions: **0**.
+
+*Never predict the next value from the last one, and never let a sweep imply agreement.*
+This session `civ-precise` swept **5/5** and still disagreed on 3/5 — and all three
+down-grades were **marginal** (max **0.1033**, no cliff), the narrowest down-grade set of the
+series.
+
+### 7. THE ALIGNMENT AXIS DOMINATED THE SPREAD — 2.33x THE `avg_score` SPREAD
+
+Run alignment spread **2.0130** vs `avg_score` spread **0.8627** (2.33x), quality spread
+**0.6540** (3.08x) and novelty spread **0.2050** (9.82x). The alignment axis again dominates
+the run's variance.
+
+*Rule: report the axis signature **for this session**. The holder rotates; the axis does not.*
+This session's run low was `civ-therapist` (**1.5970**) with quality **1.1990** and alignment
+**1.0950** both at the fleet low — a **two-axis** collapse — while novelty held at **2.4970**,
+2nd-highest of 8. `civ-grounded` held the **lifetime low for the 94th consecutive session**
+(**2052.79**) and ranked **6th of 8** on the run's `avg_score**.
+
 ## Session 229 additions (2026-10-25)
 
 ### 1. A BULK RECOMPUTE MISMATCH OF THIS SIZE IS A **PARSER** BUG UNTIL THE SEED ALONE IS RE-CHECKED
