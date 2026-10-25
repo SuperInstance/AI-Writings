@@ -209,3 +209,60 @@ cross-civ spreads, never on absolute quality levels, never on a single run's low
 - **Kill the mock by exact argv** (`python3 /tmp/mock_zai.py`) — there are two pids (the
   `timeout` wrapper and the server); killing the wrapper leaves the server listening. Never
   `pkill -f mock_zai`, which self-matches the killing shell.
+
+---
+
+## Concurrency: this session collided with a peer session 158 (NEW, important)
+
+The push was **rejected** — upstream had moved from `b002296` to `0374e23`, a **peer session 158**
+(also "8 civs x 5 sims + 5 competitions, zai provider, JEV live", authored by Casey Digennaro,
+committed 02:25:46Z) that ran **concurrently with this one** in a different sandbox. Our runs
+**overlapped in wall-clock time**: ours finished 02:23:44Z, theirs 02:24:01Z. Their data differs
+from ours (their chooser-vs-argmax was 1/5, ours 3/5) — two independent mock runs of the same
+command, not a duplicate of the same run.
+
+**Consequence: the session number is not unique across sandboxes.** The local tree's last report
+was session 157, so I numbered this run 158 and pushed — but 158 was already taken upstream.
+Renumbered to **session 159** and rebased. **Do not assume the next session number from the local
+tree alone — check `git fetch` / `origin/main` before naming the report.**
+
+### Conflict resolution rules that were needed (the ledgers are append-only)
+
+`git rebase` conflicted in **all 18 files**: 8 `simulations.jsonl`, 8 `culture.json`,
+`meta_log.jsonl`, `leaderboard.json`. All four file classes resolve **differently**:
+
+| file class | nature | correct merge | result |
+|---|---|---|---|
+| `simulations.jsonl` | append-only ledger | **base + upstream's 10 + mine's 10**, deduped on `(ts, civ, prompt, preview)` | 1082–1094 rows/civ |
+| `meta_log.jsonl` | append-only ledger | **base + upstream's 5 + mine's 5**, deduped on `(ts, winner, prompt)` | **533** rows (523 + 5 + 5) |
+| `culture.json` | full-state snapshot, **additive counters** | **base + (upstream − base) + (mine − base)** for `simulations_run`, `relevance_score`, `wins`, `losses`; `preferred_params` = last writer wins | +20 sims_run, +10 W+L per civ |
+| `leaderboard.json` | full-state snapshot, **derived** | **recompute** from the merged `culture.json` files | reconciles 8/8 |
+
+**A text-splice of the conflict markers corrupts the append-only ledgers.** The first attempt
+kept only the 10 conflicted `meta_log` rows and **silently dropped the 523 ancestor rows**, and
+left `<<<<<<< HEAD` / `=======` / `>>>>>>>` marker lines embedded in the 8 ledgers (3 bad lines
+per file, 1085 "rows" of which 3 were markers). Both were caught only because the count and a
+per-line JSON parse were checked — `wc -l` alone would have reported 1085 and looked fine.
+**Resolve append-only ledgers by reconstructing from git blobs, never by splicing conflict
+markers, and always re-parse every line.**
+
+Post-merge verification: **0 conflict markers** anywhere in the civ tree, **all JSON/JSONL
+valid**, `meta_log` 533 rows, 8 ledgers at base+20, `culture.json` +20 sims_run and +10 W+L for
+all 8, `generation` still 1, `leaderboard` rebuilt and reconciling **8/8** against the merged
+`culture.json` files.
+
+### The merged-tree leaderboard (both sessions included)
+
+| civ | relevance | rel/sim | sims_run | win_rate | W/L |
+|---|---|---|---|---|---|
+| civ-poetic | 1580.80 | 1.544 | 1024 | 0.012 | 6/502 |
+| civ-precise | 1421.91 | 1.401 | 1015 | 0.577 | 290/213 |
+| civ-whimsical | 1398.36 | 1.356 | 1031 | 0.010 | 5/503 |
+| civ-mythic | 1285.27 | 1.261 | 1019 | 0.018 | 9/493 |
+| civ-therapist | 1182.97 | 1.163 | 1017 | 0.020 | 10/495 |
+| civ-formal | 1184.04 | 1.155 | 1025 | 0.164 | 83/423 |
+| civ-engineer | 1158.39 | 1.142 | 1014 | 0.086 | 43/458 |
+| **civ-grounded** | **1016.24** | **0.978** | 1039 | 0.134 | 68/439 |
+
+`civ-grounded` is **last of 8 on `relevance_per_sim` and on `relevance`** in the merged tree too —
+the low-relevance label is unchanged by the merge.
