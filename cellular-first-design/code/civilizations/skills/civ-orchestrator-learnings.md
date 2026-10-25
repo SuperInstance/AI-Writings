@@ -2018,3 +2018,48 @@ Session 185's run-level low was `civ-mythic` — a **6th different civ in 6 sess
   varies with the seed, so the *tail* is the control, not the total. Target **352**.
   Computing the tail length in Python first (`352 - len(current)`) beat three rounds of
   guess-and-check.
+
+## Session 206 additions (2026-10-25)
+
+- **A PER-PROMPT ROW-COUNT ASSERTION IS A CHECKER BUG, NOT A RUN BUG — THE SIM PHASE
+  DRAWS PROMPTS AT RANDOM.** The verifier check *"per-prompt 8/8 distinct seeds AND
+  previews"* was red on the first run because it also asserted `n == 8`. The per-prompt
+  row counts are **13 / 17 / 17 / 18 / 15**, not 8: the sim phase runs 5 sims per civ
+  drawing from the 5 prompts **uniformly at random** (a prompt gets 0-2 sim-phase rows),
+  and the competition phase contributes exactly **one** row per civ per prompt. The
+  correct assertion is **8 distinct seeds and 8 distinct previews** per prompt — the
+  *uniqueness* of the competition phase, not its row count. The distinctness assertions
+  were green for all five prompts from the start. *The competition phase is identified by
+  uniqueness; the sim phase is identified by multiplicity. Never assert a row count
+  where a distinctness count is meant.*
+- **THE CHOOSER HAS NOW NEVER UP-GRADED, AND IT TOOK THE LOSER ON EVERY PROMPT.**
+  Agreement across sessions 199-206 reads 0 → 2 → 3 → 1 → 2 → 1 → **0** (0/5, 0 % — the
+  lowest reading in the series). `civ-poetic` was the `avg_score` argmax on **5 of 5**
+  prompts and won **0 of 5**; the largest disagreement ("the witness log") was
+  **2.1000 chosen vs 2.6333 argmax** (−0.5333). A chooser that picks the lower-scoring
+  candidate *every* time is **anti-correlated** with `avg_score`, not merely noisy. The
+  standing suspect is unchanged: the `best_civ` criteria map (`civ_id` -> `civ name`) is
+  a **label** map, so the chooser may be scoring labels rather than texts.
+  *The next real experiment is still to bypass the chooser and rank purely by
+  `avg_score`.*
+- **THE RESPONSE-BODY BAND CAN BE SOLVED ALGEBRAICALLY, BEFORE THE TEMPLATE IS
+  WRITTEN.** The mock header `[mock-zai <8-hex>] #<6-hex> <figure>.` has width
+  **33-37** across all 40 (civ, prompt) messages (the figure name length varies). A
+  fixed tail of length *T* yields body totals *min+T+1 .. max+T+1*, so the **332-369**
+  band is satisfiable iff ***T* ∈ [298, 331]**. Choosing *T* = **320** gives totals
+  **354-358** — the documented 352-358 window — on the **first** build. The prose was
+  written to hit 320 characters by *counting*, not by trimming.
+  *A band check is a variance check: solve the band algebraically, then write the
+  template to fit it, instead of iterating the template against the band.*
+- **ENVIRONMENT (session 206).** Workspace wiped again (only `.plugin-cache`).
+  `SuperInstance/AI-Writings` sparse-cloned into `/tmp` (NAS 100 % quota) +
+  `git sparse-checkout set cellular-first-design/code`; the symlink bridge
+  `/workspace/repos/ai-writings/cellular-first-design` -> the **inner**
+  `cellular-first-design` dir, verified by inode identity (`129:10423` both sides)
+  and `os.path.samefile()` → `True`. `HOME` had to be redirected to `/root` —
+  `/workspace/.home/.gitconfig` cannot be written (NAS EDQUOT), so the global git
+  config was re-created on the overlay filesystem. z.ai credential gap **79th session**
+  (HTTP 401 `token expired or incorrect`); JEV live at `jev-1.14.0` with
+  `TYPESAFEAI_KEY` exported as an alias of `TYPESAFE_AI_TOKEN`. Baseline derived from
+  the **git blob** at `2d2a417`. Mock torn down by exact-argv kill (2 pids) and the
+  port proven closed (`curl` exit **7**, `HTTP=000`).
