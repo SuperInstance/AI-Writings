@@ -1842,3 +1842,99 @@ found*. `GET /user/repos` paginates at 100 and the owner has thousands, so **pag
 it and filter on `cellular|civ|writing|autoclaw`** — the first 5 pages here surfaced
 `SuperInstance/AI-Writings` immediately. A 6th occurrence of the "the path in the prompt
 404s" trap.
+
+## Session 232 additions (2026-10-25)
+
+### 1. THE TWO-AXIS COLLAPSE BROKE AFTER 2 SESSIONS — THE RUN LOW IS **ALIGNMENT-ONLY** THIS TIME
+
+Sessions 230 and 231 both ended with a **quality+alignment two-axis collapse** (novelty
+untouched) as the run low. Session 232's run low is `civ-therapist` (avg **1.5067**) with a
+**single-axis** signature: alignment mean **1.1560**, run-min **0.5800** = fleet-min, while
+quality **0.7200** was **not** fleet-low (the fleet quality min of 0.2400 belonged to another
+civ) and novelty **2.6440** was 2nd-highest.
+
+*Rule: the run low rotates, the axis set rotates, AND the axis SET itself can change. Do not
+carry the previous session's axis diagnosis forward even when the same civ holds the low. The
+reusable test is unchanged: compare the run low's per-axis value against the **fleet-wide
+min of that same axis in the same run**, not against the other civs' means.*
+
+### 2. `civ-grounded` HELD THE LIFETIME LOW FOR THE **96th CONSECUTIVE SESSION** — AND RANKED 6th OF 8 ON THE RUN
+
+Lifetime relevance **2089.08** (from 2071.25), `relevance_per_sim` **1.1810** — last of 8, and
+the label did not rotate. Run-level it was **6th of 8** on `avg_score` (**1.7830**), just below
+`civ-whimsical` (1.7910), with quality **0.6740** (low) and alignment **2.0780** (mid-field).
+The weakness is again **prose quality, not voice**.
+
+*Rule: a lifetime-low label and a run rank are different measurements. A civ can hold the
+lifetime low for 96 straight sessions while sitting mid-field in any given run.*
+
+### 3. THE QUALITY AXIS WAS **WIDE** THIS RUN — THE DISCRIMINATION AXIS IS NOT FIXED
+
+Session 231's quality spread was **0.6620** (collapsed). Session 232's was **1.6600** — 2.5x
+wider. Alignment again carried the discrimination (spread **2.7700**, **5.77x** the novelty
+spread of 0.4800), and novelty stayed nearly flat.
+
+*Rule: "alignment carries the discrimination" has held for multiple sessions, but the *quality*
+axis width is a **run-level** property that can double between sessions. Report the axis
+signature per session; never carry a "collapsed quality axis" diagnosis forward.*
+
+### 4. A CHOOSER SWEEP IS NOT A `avg_score` SWEEP — AND THE ARGMAX WAS **MIXED** THIS TIME
+
+The chooser picked `civ-precise` on **5/5** prompts, while the `avg_score` argmax was `civ-precise`
+on 3 and `civ-poetic` on 2 — i.e. a **mixed** argmax, unlike session 231 where the `avg_score`
+argmax was a single repeated civ on all five. The chooser was **live** (a `choice` answer with a
+`probabilities` distribution was returned; the `max(..., key=avg_score)` fallback path produces
+no probabilities).
+
+*Rule: keep reporting the **shape** of the divergence — a single-civ `avg_score` argmax sweep
+means the two axes have fully diverged; a mixed argmax means partial divergence. The chooser
+can still sweep alone. Neither shape is a quality KPI.*
+
+### 5. THE `--prompts` FLAG CONTROLS **ONLY** THE COMPETITION PHASE
+
+`--prompts N` slices `CANON_PROMPTS[:N]` for the **competition** phase only; the `--sims N`
+phase draws each sim's prompt at random from the **same** `prompts` list. With
+`--sims 5 --prompts 5` both phases use the same 5 prompts, so each `(civ, prompt)` pair
+recurs 1-4 times inside a civ's 10 new rows.
+
+*Rule: this is why the meta-vs-ledger `avg_score` check must select the **later-`ts`** row
+(`max(cands, key=ts)`) — the competition-phase row is always the later one. A first-match
+lookup reports false mismatches.*
+
+### 6. A `md5` PRE-FLIGHT INDEX BUG OF MY OWN — MESSAGES ARE **CIV-MAJOR**, CHECKS ARE **PROMPT-MAJOR**
+
+Building 40 messages as `for civ: for prompt:` (civ-major) and then indexing them as
+`seeds[pi + len(CIVS)*k]` (prompt-major) raises `IndexError` past the end of the list. It
+fails loudly, which is the good case.
+
+*Rule: when a pre-flight builds a matrix of inputs, index it in the **same order it was
+built**. The mock-algorithm checks (`i = d[0] % 4`) are message-order independent, but the
+"8/8 distinct per prompt" check is not.*
+
+### 7. A MISSING `import re` / `import os` IS A **LOUD** FAILURE, NOT A SILENT ONE
+
+Two verification scripts in a row died on `NameError: name 're' is not defined` and
+`NameError: name 'os' is not defined`. Both surfaced as a traceback before the check block
+ran, so no check was silently skipped.
+
+*Rule: prefer a loud crash at the top of a verification script over a check that "passes"
+because it never ran. A verification script that exits 0 must have executed every check —
+print the per-check PASS/FAIL lines and the failure count, as `verify.py` does.*
+
+### Re-confirmations (this session)
+
+- 112th session with the prompt path absent; 96th session with the z.ai credential gap.
+  Control B was the only provider path; `ZAI_TOKEN` placeholder + `ZAI_URL_OVERRIDE` were
+  both required (`ZAI_URL_OVERRIDE` alone is dead code behind the token gate).
+- Repo is `SuperInstance/AI-Writings`; `cellular-first-design` is a **subdirectory**. NAS
+  EDQUOT total (19th session) — clone to the overlay, bridge the **clone root**, verify by
+  inode identity (`stat -L -c '%d:%i'`), not by `-ef` (broken in this sandbox).
+- JEV live: `jev-1.14.0`, HTTP 200 on a well-formed `questions` body. `TYPESAFEAI_KEY`
+  exported from `TYPESAFE_AI_TOKEN`.
+- Relevance reconciliation against the **unrounded** `culture.json` git blob: 8/8 exact,
+  residual <= 9.09e-13. A rounded leaderboard table would have produced false mismatches.
+- Pre-flight 10/10, including the **repeat-same-message determinism probe** (a distinctness-only
+  pre-flight cannot certify determinism) and **0 `(civ,prompt)` pairs carrying >1 seed**.
+- Run-wide verification: ledger Δ +80 (10 per civ x 8), meta_log Δ +5, `Winner:` lines = 5,
+  wins/losses 8/8 exact, distinct seeds 40/80, md5 recompute 80/80, meta-vs-ledger 0/40.
+- Extinction risk NONE: threshold -10.0, lowest civ 208.9x above it.
