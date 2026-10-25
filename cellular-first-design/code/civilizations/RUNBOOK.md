@@ -1,3 +1,55 @@
+# Civ Orchestrator — Run Report, session 181 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 60th session) + **live JEV**.
+Baseline: `9b43a10` (session 180). **All 55 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session181.md`.
+
+## Headline for the next session
+
+- **THE MOCK NEEDS SEVEN FIXES, NOT SIX — fix (g) IS MISSING FROM THE "six fixes"
+  LIST.** The spec's `figure = h[12:16] / h[16:20] / h[20:24]` is **pseudo-code,
+  not Python**: read literally it divides two `str` values and raises
+  `TypeError: unsupported operand type(s) for /: 'str' and 'str'`. The mock then
+  500s on **every** request **while the socket stays open**, so a port/200
+  liveness probe still looks healthy. Built from the "six fixes" list this
+  session, the mock **failed its first live probe with HTTP 500**; the fix is
+  `figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"`. **Add a (g) row to the
+  checklist.**
+- **THE PRE-FLIGHT GATE HAS TEN CHECKS, NOT EIGHT** — the two additions are the
+  **repeat-same-message ⇒ same seed** probe (40 × 2, the only check that catches
+  fix (f)) and the **0 `(civ,prompt)` with >1 seed** check. This session:
+  **10/10 PASS on the FIRST build**, body lengths **167–209** chars.
+- **THE SEED SLICE IS 4 HEX CHARS (`h[(i*2)%8:(i*2)%8+4]`), NOT THE 2-CHAR SLICE
+  STILL SHOWN IN THE SPEC BLOCK.** The spec block still reads
+  `h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]` (padding is not
+  entropy). *Check the SLICE, not the render.*
+- **`civ-grounded` remains the low-relevance civ — 55th consecutive session.**
+  Last of 8 on lifetime `relevance` **1235.89**, `relevance_per_sim` **0.982**,
+  `avg_score` **1.0140**, `alignment` **1.0683**, `quality` **0.4006**. Alignment
+  gap **0.1347** vs quality gap **0.0419** = **3.22×** wider ⇒ a **voice**
+  failure, not a prose failure. Lifetime novelty 1.5731 is 3rd of 8.
+- **The run-level low ROTATED to `civ-engineer`** (run `avg_score` **0.6353**,
+  `quality` **0.0920**, `alignment` **0.5280**) — a **fifth** civ in five
+  sessions, while its lifetime standing is 3rd of 8. **Watch axis, not the
+  finding** (session-132 rule). The *holder* rotates; the *axis* does not.
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` took **3** of 5,
+  `civ-formal` and `civ-engineer` 1 each. **All four disagreements took the
+  LOWER-scoring candidate** (max |delta| **−0.3800**). **Never treat `win_rate`
+  as a quality metric** — it is a *selection* metric.
+- Counter gap **−609.9199**, fixed — identical to session 180 (per-civ delta
+  **0.000000** for 6 of 8, ±0.0001 float rounding for the other two).
+- Run spreads: `avg_score` 0.3797, `alignment` **0.9870** (widest), quality
+  0.1930, novelty 0.5680.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5**
+  (638 → 643), `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0
+  fallback triples, `zai × 80`, **40/40** distinct seeds, **0** `(civ,prompt)`
+  with >1 seed, **80/80** rows match an independently recomputed message md5,
+  8/8 seeds AND previews on all 5 prompts, **80/80** `[mock-zai` prefix,
+  registry 8 all gen 1, extinction **NONE** (lowest +1235.89 = **124×** the
+  floor). **55/55 PASS.**
+
 # Civ Orchestrator — Run Report, session 180 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
@@ -19,8 +71,9 @@ Full detail: `RUN_REPORT_2026-10-25_session180.md`.
 - **THE MOCK NEEDS THE SAME SIX FIXES** (a) index wrap, (b) md5 over the whole
   message, (c) `Connection: close` + `Content-Length`, (d) interpolate the seed
   placeholder, (e) 4-hex-char seed, (f) message-derived index `d[0] % 4`.
-  Rebuild from the spec in this file; the mock is **not** on disk at session
-  start (`/tmp` wiped).
+  *(SUPERSEDED — there are SEVEN: add (g) `figure` = three string components,
+  not a division. See session 181.)* Rebuild from the spec in this file; the
+  mock is **not** on disk at session start (`/tmp` wiped).
 - **WHEN THE VERIFIER DISAGREES WITH THE RUN, SUSPECT THE VERIFIER FIRST.**
   Three FAILs this session were all **check bugs**, not data defects: comparing
   the leaderboard's **2-dp rounded** relevance against an **unrounded** ledger
