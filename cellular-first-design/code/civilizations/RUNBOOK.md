@@ -1790,3 +1790,75 @@ exported from `TYPESAFE_AI_TOKEN`. JEV liveness = 422 on malformed `questions`; 
 (`git sparse-checkout init --cone && set cellular-first-design/code/civilizations`) works
 when the leaf is a *directory*; the session-151 `--no-cone` note applies to non-directory
 leaves. Either way the working tree is a few MB.
+
+## Session 156 — clean mock #24; Grounded holds the low for the 52nd session (2026-10-25)
+
+**Run:** 8 civs x 5 sims + 5 competition prompts, `--sims 5 --prompts 5 --providers zai`,
+Control B mock bridge, JEV live (`jev-1.14.0`). Baseline `c8275b5` (session 155).
+**All 77 checks PASS.**
+
+- per-civ ledger delta **+10** x 8 = **80 rows**; `meta_log` **513 -> 518** (+5);
+  `Winner:` lines **5**; **0** JEV `error` keys; **0** 2.0/2.0/2.0 fallbacks;
+  **80/80** `[mock-zai` prefix with `provider=zai`; **40/40** distinct seeds;
+  **0** `(civ,prompt)` combos with >1 seed; **80 distinct JEV score triples** and
+  **30 distinct confidences**; `git status --porcelain` = **18** modified.
+
+- **Chooser vs `avg_score` argmax: 0/5 (0 %)** — all 5 disagreements **negative**
+  (winner below argmax: -0.0633, -0.0933, -0.3167, -0.5433, -0.3900). `civ-poetic` was
+  argmax on **3/5** and won **0**. Clean-mock series now
+  `0,3,1,4,4,3,0,4,4,1,2,4,4,0,2,4,1,4,0,5,3,0` (s.118-156) — **24 five-sample points
+  cannot pin a rate**; the honest claim stays *somewhere in 0-100 %*. Every disagreement
+  ever observed under a clean mock has been **negative**.
+
+- **`civ-grounded` remains the low-relevance civ - 52 consecutive sessions (95-156).**
+  Last of 8 on lifetime `avg_score` (1.0309), lifetime `alignment` (1.1447), this-run
+  `avg_score` (1.0520) and this-run `quality` (0.0610). Only civ with `relevance_per_sim`
+  **below 1.0** (0.991); lowest absolute relevance (1000.12). Absolute gaps to
+  next-lowest: **alignment 0.2253** (vs therapist 1.3700) vs **avg_score 0.1437** (vs
+  engineer 1.1745) vs **quality 0.0345** (vs formal 0.4805). Alignment is the axis the
+  meta-GAN selects on => a **voice** failure, not a prose failure. Grounded is **above
+  median on novelty** (1.502, 5th of 8) - not boring, just *unmistakable in a way the
+  chooser does not reward*. `civ-formal` is the distinct low-**novelty** axis (1.4046).
+  **Watch axis `civ-therapist`** - last of 8 on run `avg_score` (1.0257) and run
+  `alignment` (0.4840) but 6th of 8 on lifetime `avg_score` and **above** Grounded on
+  lifetime alignment: run-low and lifetime-low are different civs on different axes
+  (session 132 rule) => watch axis, not a finding.
+
+- **Inverses hold:** `civ-poetic` 1st on lifetime `avg_score` (1.5953) / `quality`
+  (0.795) / `relevance_per_sim` (1.557) and 1st on this run's `avg_score` (1.6577) but
+  **last on `win_rate` (0.012)**, won 0/5 despite being argmax on 3/5 - the stable
+  selection-failure inverse. `civ-precise` best `win_rate` (0.570), **highest lifetime
+  alignment (2.1711)**, won 2/5 - the mirror inverse.
+
+- Extinction risk **NONE** (threshold -10, lowest +1000.12, 100x the floor). Registry 8,
+  `max_civs` 12, all `generation=1`.
+- Counter gap a **FIXED per-civ offset, byte-identical to s.151**: whimsical -173.14,
+  poetic -96.80, formal -85.53, grounded -84.35, mythic -51.11, engineer -44.24,
+  therapist -42.12, precise -32.63, **TOTAL -609.93**. Pre-vs-post delta **0.0000 on all
+  8** - a fixed offset, not an accumulating leak. `save_state()` has no lock =>
+  `relevance_per_sim` is not recomputable from the ledger by an auditor.
+- Cross-civ spreads: `alignment` **1.7790**, `avg_score` 0.6320, `quality` 0.2790,
+  `novelty` 0.1330. `alignment` again widest and again the selection axis. The `quality`
+  band was 0.061-0.340 (0.279 spread) - wider than the collapsed 0.010-0.028 bands of
+  recent clean-mock sessions, but a *level* that moves; rank on spreads, never levels.
+
+- **NEW - the REST core rate limit was exhausted at session start (5000/5000), so
+  `GET /user/repos` and the repo-search path were unusable.** `GET /rate_limit` still
+  answered, and **`/graphql` still had ~5000 points** (core and graphql are separate
+  budgets) - GraphQL `viewer.repositories` paginated over **all 4000** visible repos, and
+  **`search/code` still answered** with 29 search points: querying
+  `cellular-first-design/code/civilizations/civilization_orchestrator.py` returned repo
+  id `1176209018` = `SuperInstance/AI-Writings` directly. **When core REST is
+  rate-limited, use GraphQL (enumeration) and `search/code` (path lookup) - both stay
+  available.** GraphQL `search` does **not** accept `type: CODE` (argument-literal error)
+  and has no `CodeResult` type - code search is REST-only.
+
+- **Re-confirmations:** NAS EDQUOT total (14th session) - clone to `/tmp` (overlay, 28 G
+  free), then bridge the **nested** `cellular-first-design` dir and verify with
+  `stat -L -c '%d:%i'` on both sides + `-ef` (this session `129:524` both sides, EF_OK);
+  never flatten; `gh` not installed (29th session); tool timeout 30 s < run wall time
+  (~22 s of polling) - detached launch, then poll; `ZAI_URL_OVERRIDE` alone is dead code
+  (needs `ZAI_TOKEN`); `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`;
+  JEV liveness = 422 on a malformed `questions`; z.ai = 401 `token expired or incorrect`
+  (credential gap, endpoint healthy) - **45th session**.
+
