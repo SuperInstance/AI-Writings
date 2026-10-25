@@ -741,3 +741,89 @@ always re-derived from the session's own `meta_log`.
 against a run `avg_score` spread of **0.7633** — the two lowest civs are separated by
 less than one third of the run's own spread. Their ordering is noise. A "run low" claim
 that does not print the gap beside the spread is not a defensible claim.
+
+## Session 213 additions (2026-10-25)
+
+### 1. THE SEED INDEX IS THE RAW MD5 BYTE `d[0] % 4`, NOT THE HEX DIGIT
+
+The verified mock algorithm indexes the seed by `i = d[0] % 4` where `d` is the **raw
+digest bytes**. A near-miss reading, `i = int(h[0], 16) % 4`, looks identical ("the first
+byte mod 4", and both land in 0-3) but is a **different function**: `d[0]` spans
+`0x00-0xFF` while `int(h[0],16)` spans only `0x00-0x0F`.
+
+**The failure is silent and partial.** `colour = h[8:12]` and
+`figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` do **not** depend on the index, so a wrong
+index reproduces them **perfectly** — 80/80 — while the **seed** is wrong on roughly 70 % of
+rows. A pre-flight therefore reports `distinct_seeds 1/40` and `recomputed_md5 0/40` on a
+mock that is behaving exactly as the ledger demands.
+
+**How to settle it:** brute-force every candidate rule and let the ledger pick. Sweeping all
+4-hex windows of `h` crossed with `%2/%4/%8` index rules, the true rule scored **80/80**
+only under the raw-byte reading. *When a composite field recompute is partially right, the
+wrong field is the one that depends on the index — start there.*
+
+**Confirmation that the algorithm is right:** 80/80 recent-format ledger rows match on
+seed + colour + figure when recomputed from the **real `culture.json`** files.
+
+### 2. THE MOCK HEADER PARSE MUST BIND THE FIGURE'S TRAILING `". "`
+
+The recorded header is `[mock-zai <4hex>] #<4hex> <4/4/4>. ` — the figure is followed by a
+**period and a space**. A pattern that expects a bare space after the figure matches
+**0/40**, and the pre-flight then reports a false "the mock is broken" story:
+`distinct_seeds 1/40`, `recomputed_md5 0/40`, `per_prompt_8x5` all red, while
+`distinct_previews_40`, `body_len_band` and `cultural_prompt_band` stay green.
+
+The working parse:
+
+```python
+HDR = re.compile(r"^\[mock-zai ([0-9a-f]{4})\]\s*#?\s*([0-9a-f]{4})\s+"
+                 r"([0-9a-f]{4}/[0-9a-f]{4}/[0-9a-f]{4})\.\s")
+```
+
+Note the `#` is **attached to the colour** in the body (`#d64d`), and the `\.` is
+required. This is the **second** header-parse trap in the project after the
+seed/colour mis-split (session 204). *Generalise: when a pre-flight goes red on the
+recompute, dump one real body and parse it by hand before touching the server — a 0/40
+recompute means "the parser is wrong" before it means "the mock is wrong".*
+
+### 3. A `simulations_run` DELTA MUST BE TAKEN AGAINST THE `culture.json` BASELINE
+
+`simulations_run` counts **simulated** runs; the ledger carries rows from **every prior
+session**, so the two are not comparable. Checking the counter against
+`len(ledger_rows) - 10` failed **8/8** on a run whose per-civ **counter gaps came back at
+exactly the documented stable values** (grounded -84.35, whimsical -173.14, formal -85.53,
+poetic -96.80, precise -32.63, mythic -51.11, therapist -42.11, engineer -44.24).
+
+Take the baseline from the **git HEAD blob** of `culture.json`, not from the ledger.
+*Corollary that generalises: the per-civ counter gap is the cheapest integrity check in
+this project — it will tell you the run was clean while your check is the thing that is
+broken.*
+
+### 4. THE SPARSE-CLONE RECIPE WORKS AND THE BRIDGE TARGETS THE INNER `code` DIRECTORY
+
+`git init` + `core.sparseCheckout` + `.git/info/sparse-checkout` containing
+`cellular-first-design/code/civilizations` + `git fetch --depth 1 --filter=blob:none`
+gave an **11 M** working tree from a **3.7 GB** repo. The bridge is
+`ln -sfn /tmp/aiw/cellular-first-design/code /workspace/repos/ai-writings/cellular-first-design/code`,
+verified by inode identity `stat -L -c '%d:%i'` -> `129:3669` on both sides plus
+`os.path.samefile()` -> `True`.
+
+**The cone-mode warning is harmless:** `git sparse-checkout` prints
+`warning: disabling cone pattern matching` / `unrecognized pattern` for a multi-segment
+path, and still checks the directory out correctly. Verify the tree with `ls`, not with
+the absence of a warning.
+
+### 5. THE MOCK BODY LANDS IN BAND ON THE FIRST BUILD WHEN THE TAIL IS A SINGLE FIXED STRING
+
+Header `[mock-zai <4hex>] #<4hex> <4/4/4>. ` is a **constant 38 chars**; a 318-char fixed
+tail gives a **constant 356-char** body, inside the documented 332-369 band, with **no**
+iteration. The tail must contain **no culture-derived fields** — that is what removes the
+length variance the band exists to catch.
+
+### 6. THE RUN LOW AND THE LIFETIME ALIGNMENT LOW ARE DIFFERENT CIVS ON DIFFERENT AXES
+
+Session 213's run low is `civ-whimsical` (`avg_score` **1.5107**, alignment **0.8900**
+fleet-low, novelty **2.4860** fleet-high). But the **lifetime** alignment low is
+`civ-therapist` (spread **1.0570** over the full ledger) while `civ-grounded` is the
+lifetime low on `avg_score` and `quality`. The run table and the lifetime table are
+**two separate claims** — report both, and report the axis for each.

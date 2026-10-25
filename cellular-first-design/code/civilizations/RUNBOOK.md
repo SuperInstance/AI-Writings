@@ -1,3 +1,44 @@
+# Civ Orchestrator — Run Report, session 213 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **85th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `2cecc70` (session 212 tree). **All 30 verification assertions PASS.** Pre-flight **12/12 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session213.md`.
+
+**Session 213 in one line:** `civ-precise` took **4/5** competitions and held the run's best
+`avg_score` (**2.4933**) and the widest alignment lead (**3.1720**); the chooser/argmax
+agreement was **2/5 (40 %) — 3 down-grades, 0 up-grades**; the run-level low rotated to
+**`civ-whimsical`** while `civ-grounded` held the lifetime low for the **82nd** consecutive
+session.
+
+**Three durable lessons from this session:**
+
+1. **THE SEED INDEX IS THE RAW MD5 BYTE `d[0] % 4`, NOT THE HEX DIGIT `int(h[0],16) % 4`.**
+   Both read as "the first byte mod 4" but they are different functions — the hex-digit
+   reading reproduces the **colour** and **figure** exactly (both come from `h[8:24]`) and
+   gets the **seed** wrong on ~70 % of rows. *When a composite field recompute is partially
+   right, the wrong field is the one that depends on the index.*
+2. **THE MOCK HEADER PARSE MUST BIND THE FIGURE'S TRAILING `". "` — NOT A BARE SPACE.**
+   A regex expecting a space after the figure matches **0/40** and the pre-flight reports
+   `distinct_seeds 1/40` / `recomputed_md5 0/40` on a perfectly healthy mock. *Dump one real
+   body and parse it by hand before touching the server.*
+3. **A `simulations_run` DELTA MUST BE TAKEN AGAINST THE `culture.json` BASELINE, NOT THE
+   LEDGER ROW COUNT.** The ledger carries every prior session's rows. The per-civ counter gap
+   (grounded -84.35, whimsical -173.14, formal -85.53, poetic -96.80, precise -32.63,
+   mythic -51.11, therapist -42.11, engineer -44.24) is the cheapest integrity check there
+   is — it proved the run clean while the check was wrong.
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`** (a *user* account); the NAS under
+`/workspace` is at 100 % quota, so clone **sparse** to `/tmp/aiw` (11 M from a 3.7 GB repo) and
+bridge the **inner** `cellular-first-design/code` by symlink (inode identity `129:3669` +
+`os.path.samefile()` -> `True`). `civ-grounded` remains the lifetime low (**1758.28**,
+`relevance_per_sim` **1.114**) for the **82nd** consecutive session while its lifetime
+`win_rate` **0.094** is 3rd-best in the fleet; the run low rotated to `civ-whimsical`
+(**19th different run low in 19 sessions**) with the fleet-low alignment (**0.8900**) and
+fleet-high novelty (**2.4860**) — *high novelty, low alignment*. The down-grade count is **3**
+and must be re-based from this session's own data.
+
 # Civ Orchestrator — Run Report, session 212 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
