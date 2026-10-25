@@ -1,3 +1,59 @@
+## Session 222 additions (2026-10-25)
+
+### 1. THE BRIDGE TARGET IS DECIDED BY THE SCRIPT'S HARD-CODED `CIVS_DIR` — NOT BY THE VERIFICATION PROBE
+
+Session 221's note said to bridge the **inner** `cellular-first-design/code` dir. Session 222
+followed that and the run died on `load_civilizations()` with
+`FileNotFoundError: .../code/code/civilizations/civilizations.json`.
+
+`civilization_orchestrator.py:39` hard-codes:
+
+```
+CIVS_DIR = Path("/workspace/repos/ai-writings/cellular-first-design/code/civilizations")
+```
+
+so the bridge must target the **clone root** (`.../cellular-first-design`) for that constant
+to resolve. With the inner-`code` bridge it resolves to `.../code/code/civilizations`.
+
+*The pre-flight exercises the MOCK, not the orchestrator's path resolution — it passed
+11/11 on a configuration that could not possibly run. **Resolve the script's own constant
+first, then bridge to match it**, and treat "the pre-flight passed" as evidence about the
+mock only.*
+
+### 2. THE COUNTER-GAP CONSTANT IS NOT CONSTANT — IT MOVES BY EXACTLY `2W-5`
+
+Session 221 recorded the counter gap (`wins - losses`) as a **byte-identical fleet
+constant**. It is not. Every civ participates in **all 5** competitions, so a civ with
+`W` wins takes `(5 - W)` losses and the gap moves by
+
+```
+delta = W - (5 - W) = 2W - 5
+```
+
+Session 222: `civ-precise` (W=5) gap **+299 -> +304**; the seven civs that lost all five
+(W=0) each moved **exactly -5**. A check asserting a **zero** delta reports a false FAIL
+on a perfectly clean run.
+
+*Derive the expected counter delta from the code path, not from the last session's
+observed value. A "constant" observed 5 times in a row is still an observation.*
+
+### 3. THE BODY BAND SOLVED ALGEBRAICALLY LANDED AT **334** ON THE FIRST BUILD
+
+The current-generation header is a constant **38** chars
+(`[mock-zai <4hex>] #<4hex> <4/4/4>. `). A **161**-char tail + a **135**-char continuation
+gives a constant **334**-char body — inside the 332-369 band on the first build, with the
+cultural-prompt band measured from the real `culture.json` files at **167-209**.
+
+*Compute the allowance from the fixed prefix; do not trim prose to fit a band.*
+
+### 4. A FAILED LAUNCH MUST BE CHECKED FOR A CLEAN TREE BEFORE RE-RUNNING
+
+The first session-222 launch died at `load_civilizations()` and wrote **0** rows:
+`git status --porcelain` was empty and all 8 row counts were unchanged. That had to be
+*checked*, not assumed — the failure happened after `load_civilizations` would have been
+reached in a different code path, and a partial write would have needed a
+`git checkout --` reset.
+
 ## Session 208 (2026-10-25) — THE STREAK COUNTER IS RE-MEASURED, AND THE AXIS NAMES THE COHORT, NOT THE HOLDER
 
 **Run clean (session 208).** per-civ delta = **+10** x 8 = **80 new rows**,
