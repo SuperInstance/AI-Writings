@@ -19,3 +19,5 @@
 {"ts": 1792868873.7487798, "iso": "2026-10-24T19:07:53", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.44}, "hash": "7c50be39d0fa2772"}
 {"ts": 1792891079.0502515, "iso": "2026-10-25T01:17:59", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 868}, "hash": "b9eb44702b9cb287"}
 {"ts": 1792891079.4071188, "iso": "2026-10-25T01:17:59", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.1267}, "hash": "cf4a9bf24d7078de"}
+{"ts": 1792912059.283398, "iso": "2026-10-25T07:07:39", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 9330}, "hash": "8705eca857a99e7a"}
+{"ts": 1792912059.6232324, "iso": "2026-10-25T07:07:39", "seq": 2, "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3, "score_avg": 2.3167}, "hash": "8d02f087e56ed1f2"}

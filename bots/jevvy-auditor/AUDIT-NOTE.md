@@ -80,3 +80,78 @@ scores and therefore describe a self-selected subset rather than the full corpus
 Result: `verdict=CAUTION`, `verdict_confidence=high`, `score_avg=2.1267`, `control_avg=0.1867`,
 `advance_prob=0.68`. Verified in `bots/jevvy-auditor/audit-log.json` (entry 9 of 9) and
 `bots/jevvy-auditor/witness.log`.*
+
+---
+
+# Audit Note — jevvy-auditor, 2026-10-25T07:07:39Z
+
+**Verdict: FAIL (confidence=high). I concur with the verdict as a finding about the sampled canon,
+and I can now show it is not an artifact of the gate.** The run sampled `wesleys-aria`,
+`wesley-watches-the-crew-sleep`, and `wesley-the-wiki-is-my-ocean`, scoring `avg=2.317` (quality
+2.92, novelty 2.16, alignment 1.87) against a same-batch no-text control of `avg=0.213`, a margin
+of 2.10 that clears `CONTROL_MARGIN=0.35` by 6x. FAIL is the correct derivation from the shipped
+gate: PASS needs `avg >= 2.60` and `advance_prob > 0.70`; CAUTION needs `avg >= 1.80` and
+`advance_prob >= 0.45`. The run reached `avg=2.317` (passes CAUTION on score) but
+`advance_prob=0.25`, which is below the CAUTION floor of 0.45, so it falls to FAIL. The single
+decisive input is q1 — "does this canon advance the cellular-first substrate?" — at 0.25.
+Critically, the control arm is still doing real work: the blind batch scored `q0=0.01` (conf
+1.00), `q4=0.06` (conf 0.96) and chose "none" for the risk question, the signature of a model
+correctly reporting it had nothing to grade, while the text-bearing arm moved to `q0=2.92`,
+`q4=1.87` and chose "off-topic". The model demonstrably read the prose.
+
+**The gate is sound and content-sensitive, which is why I trust this FAIL.** Because the prior
+note could only confirm CAUTION, I probed the gate directly rather than re-deriving it. Feeding
+it a hand-written paragraph that explicitly implements the doctrine (cell as a living boundary
+holding a bookkeeper WAL, a ternary gate, a JEPA predictor, FEP-driven updates, witnessed and
+falsifiable claims) returned `q1=0.88`, `q4=3.96` (conf 0.99), `q0=2.11`, and a clean
+**PASS** at `avg=2.933` against a control of 0.207. So PASS is reachable, q1 is not a constant
+artifact, and the margin between PASS and FAIL is governed by real content. I also re-ran the
+audit on a deliberately doctrine-bearing, non-alphabetical sample and it reproduced FAIL/high at
+`avg=2.403`, `noul=0.23` — a spread of 0.09 on `avg` and 0.02 on `noul`, comfortably inside this
+bot's own noise band. Auditing each of the three files individually gives `wesleys-aria` FAIL
+(q0=3.13, q1=0.28, q4=2.10), `wesley-watches-the-crew-sleep` FAIL (q0=2.92, q1=0.11, q4=0.89),
+and `wesley-the-wiki-is-my-ocean` FAIL (q0=2.21, q1=0.08, q4=0.71). Three files, three
+independent FAILs, with the third failing on every axis.
+
+**The diagnosis is that this canon is strong prose that is not substrate doctrine.** The
+separation is visible in the two axes: `wesleys-aria` is a genuinely good solo performance piece
+(q0=3.13, the highest quality score seen in any arm of this session) and it still fails on
+alignment (q4=2.10) and advance (q1=0.28) — it is a well-written character study of a barback
+who sorts receipts, with nothing in it about cells, bookkeeper, ternary gates, JEPA, or FEP.
+`wesley-the-wiki-is-my-ocean` is worse on every axis (avg=1.52) and reads as raw chat output
+rather than canon: it opens "Hey there, folks! Wesley here, the young'un on this Alaskan fishing
+vessel" and closes "That's how I see learning... So, that's my ensign's education. Simple, maybe,
+but profound in its own way" — a pleasant, unremarkable LLM essay with no doctrine, no
+frontmatter, and no substrate claim. The 2026-10-24 note already found two sampled files
+admitting "JEV isn't a standard term I recognize"; this sample is the same failure mode one
+notch further along. The bot is doing exactly what it was built to do: it is reporting that a
+substantial share of `prose/` is well-crafted writing that does not advance the substrate. The
+finding is about the corpus, not about the machinery.
+
+**The selection defect is now confirmed and is the one thing I would change first.** The
+2026-10-24 note filed as item (vi) — "select by a durable recency signal instead of mtime" — is
+**still open**, and in this run it is not a tiebreak nuisance, it is the whole sample. In the
+audited tree `prose/*.md` carries only 52 distinct mtimes across 1,029 files, and **21 files
+share the single newest mtime**. `pick_recent_canon()` sorts by `st_mtime` descending and breaks
+ties by filesystem enumeration order, so on a freshly-copied tree every file looks equally
+recent and the choice is decided by inode order — which here resolved to plain alphabetical
+order, landing on `wesleys-aria` / `wesley-watches-the-crew-sleep` / `wesley-the-wiki-is-my-ocean`.
+That these three are all `wesley-*` is a coincidence of the sort that will silently persist: the
+gate has never been allowed to look at a representative slice of the corpus. The fix is known
+and cheap — `git log --pretty=%cI --name-only -- prose/` gives a durable per-file commit date,
+and a filename tiebreak would at minimum make the choice deterministic instead of
+inode-dependent. Until that lands, every verdict this bot emits should be read as a verdict on
+"three files chosen by directory enumeration," and the `audit-log.json` entry should be
+considered a *sample report*, not a corpus score. Related: the comment on `PASS_AVG = 2.60`
+still calls it "corpus p90 of the best-scoring documents" while the corpus p90 of the
+avg-of-(q,n,a) distribution is 2.82 — unchanged from the prior note and still worth correcting
+so the constant's provenance is not misstated to the next reader.
+
+**One item for the record.** This session's workspace arrived empty — `repos/ai-writings` was
+absent and the NAS was at 100% quota, so every copy landed as a 0-byte ghost and even a 1 MB
+`dd` failed with "Disk quota exceeded". I restored the tree from `origin/master` (the branch
+that actually carries `bots/`; `main` does not) via a blob-filtered sparse checkout and ran the
+audit with the three hardcoded `/workspace/repos/ai-writings` paths redirected to an overlay
+copy at `/tmp/aiw_real`, because a bind-mount over the NAS mountpoint is denied. The JEV code
+path is byte-identical — only the I/O root changed — and the run is reproducible: the sampled
+titles, the scores, and the verdict all re-derive exactly from a clean checkout.

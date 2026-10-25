@@ -1148,6 +1148,179 @@
           }
         }
       }
+    },
+    {
+      "ts": 1792912059.6205518,
+      "iso": "2026-10-25T07:07:39",
+      "verdict": "FAIL",
+      "verdict_confidence": "high",
+      "score_avg": 2.3167,
+      "advance_prob": 0.25,
+      "control_avg": 0.2133,
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "wesleys-aria",
+        "wesley-watches-the-crew-sleep",
+        "wesley-the-wiki-is-my-ocean"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 2.92,
+          "confidence": 0.58,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.06,
+            "2": 0.08,
+            "3": 0.62,
+            "4": 0.21
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.25
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.61
+        },
+        "q3": {
+          "type": "score",
+          "score": 2.16,
+          "confidence": 0.28,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.24,
+            "2": 0.29,
+            "3": 0.43,
+            "4": 0.01
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 1.87,
+          "confidence": 0.01,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.16,
+            "1": 0.35,
+            "2": 0.12,
+            "3": 0.2,
+            "4": 0.17
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "off-topic",
+          "confidence": 0.22,
+          "probabilities": {
+            "low-quality": 0.27,
+            "redundant": 0.05,
+            "off-topic": 0.38,
+            "too-abstract": 0.14,
+            "none": 0.16
+          }
+        }
+      },
+      "control_answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.01,
+          "confidence": 1.0,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.15
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.19
+        },
+        "q3": {
+          "type": "score",
+          "score": 0.57,
+          "confidence": 0.52,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.71,
+            "1": 0.02,
+            "2": 0.25,
+            "3": 0.02,
+            "4": 0.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.06,
+          "confidence": 0.96,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.96,
+            "1": 0.03,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.39,
+          "probabilities": {
+            "low-quality": 0.19,
+            "redundant": 0.0,
+            "off-topic": 0.18,
+            "too-abstract": 0.12,
+            "none": 0.51
+          }
+        }
+      }
     }
   ]
 }
