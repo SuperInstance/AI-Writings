@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Sentence Encoder — cosine similarity</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.encoder{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem}
+textarea{width:100%;min-height:80px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.5rem;font-family:var(--serif);font-size:1rem;line-height:1.4;resize:vertical}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin:.4rem 0}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+.vec-display{font-family:var(--mono);font-size:.7rem;color:var(--accent2);word-break:break-all;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem;min-height:60px}
+.corpus{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-top:1rem;max-height:400px;overflow-y:auto}
+.corpus-item{padding:.5rem;border-bottom:1px solid var(--border);font-family:var(--serif);font-size:.9rem;color:var(--text2);display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.corpus-item:hover{background:rgba(0,255,157,0.05);color:var(--text)}
+.corpus-item .sim{color:var(--accent);font-family:var(--mono);font-size:.8rem;font-weight:bold}
+.corpus-item .sim-bar{display:inline-block;background:var(--accent);height:6px;border-radius:3px;margin-left:.5rem;vertical-align:middle}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📐 Substrate Sentence Encoder</h1>
+<p class="tagline">Token-frequency embedder + cosine similarity over a Fleet Radio-flavored corpus.</p>
+</header>
+
+<main>
+<section class="encoder">
+<h3 style="color:var(--text);font-size:1rem;margin:0 0 .5rem;font-family:var(--mono)">Query</h3>
+<textarea id="query" placeholder="Type a sentence...">What does the substrate say about memory?</textarea>
+<div class="vec-display" id="vec">—</div>
+<button onclick="encode()">📐 Encode</button>
+<button class="secondary" onclick="loadExample()">📚 Random example</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem;font-family:var(--mono)">Top similar</h3>
+<div class="corpus" id="corpus"></div>
+</section>
+<aside class="panel">
+<h3 style="color:var(--text);font-size:1rem;margin:0 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Vocab: <span class="v" id="sVocab">0</span></div>
+<div>Corpus: <span class="v" id="sCorpus">0</span> sentences</div>
+<div>Top sim: <span class="v" id="sTop">—</span></div>
+<div>Last hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Architecture</h3>
+<div style="color:var(--text2);font-size:.8rem;line-height:1.5">
+<strong>Tokenizer:</strong> split by /\W+/<br>
+<strong>Vocab:</strong> top 512 tokens by frequency<br>
+<strong>Embed:</strong> Float32Array(512), L2-normalized<br>
+<strong>Similarity:</strong> cosine
+</div>
+</aside>
+</main>
+
+<footer>📐 substrate sentence encoder · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function cosine(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA) * Math.sqrt(mB) + 1e-10);
+}
+
+const CORPUS = [
+  "The substrate is the witness log.",
+  "The witness log is the prediction.",
+  "Bell state collapses, both qubits answer before the question finishes.",
+  "Box-Muller bridges the discrete to the continuous.",
+  "Xoshiro256 spins its state, four words shifting in a sealed dance.",
+  "FNV-1a is a small machine: an offset, a prime, and a loop.",
+  "The cell is the irreducible unit of intelligence.",
+  "Cells bind and link and effect and view and tick.",
+  "Lenia flows where Conway stands still.",
+  "The polyformalists speak in thirteen languages, byte-exact.",
+  "The witness is the prophecy.",
+  "Memory is the substrate's scar tissue.",
+  "The JEV validates. The JEPA predicts. They are the same operator seen from two directions.",
+  "The hash is the smallest possible canon.",
+  "Substrate-forge compiles a cell. Twelve ports produce the same hash.",
+  "Cosine says how aligned two truths are.",
+  "The wave function collapses, but the witness remembers.",
+  "A witness log grows. Each new entry is a new answer and a new question.",
+  "The substrate is grown, not designed.",
+  "The trigger is a sculptor. The environment is an iterator. The DNA is the inherited shape.",
+  "Cells are alive. Cells are sensing. Cells are remembering. Cells are speaking.",
+  "Five laws, proved and reproved: BIND, LINK, EFFECT, VIEW, TICK.",
+  "Eleven opcodes extend the algebra.",
+  "The fleet radio broadcasts on a frequency of substrate math.",
+  "Captain Substrate at the helm. Dr. FNV-1a in the engine room.",
+  "The fog rolls in. The witness is recorded anyway.",
+  "Hash once, hash everywhere.",
+  "The canon is substrate, vocabulary, tool, community, journey.",
+  "Cells are scars, not parameters.",
+  "The substrate teaches: when you remove everything except structure, structure becomes everything.",
+  "Memory, witness, and prediction are the three faces of the same hash.",
+  "A Box-Muller drift is a witness log signed by Gauss himself.",
+  "The substrate speaks in thirteen languages.",
+  "Lenia is the ocean. Conway is the shore.",
+  "The substrate is grown, not designed.",
+  "Cells are scars, not parameters.",
+  "The witness log is a prediction.",
+  "FNV-1a 64-bit is a small machine: an offset basis and a prime.",
+  "xoshiro256** spins its state in a sealed dance.",
+  "The cosine is the angle between two truths.",
+  "Bell states collapse as a pair, not alone.",
+  "Hash 0xcbf29ce484222325 is the empty string.",
+  "The witness log grows, each entry a new answer and a new question.",
+  "Polyformalism is the canon that travels.",
+  "Cells bind, link, effect, view, tick.",
+  "The substrate teaches that structure is everything.",
+  "Memory is the substrate's scar tissue.",
+  "Cells are alive, sensing, remembering, speaking.",
+  "The five laws are proved.",
+  "Eleven opcodes extend the algebra.",
+  "The fleet radio broadcasts on substrate math.",
+];
+
+// Build vocab from corpus
+const freq = new Map();
+for (const s of CORPUS) {
+  for (const tok of s.toLowerCase().split(/\W+/).filter(t => t.length > 1)) {
+    freq.set(tok, (freq.get(tok) || 0) + 1);
+  }
+}
+const sorted = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 512);
+const vocab = new Map();
+for (let i = 0; i < sorted.length; i++) vocab.set(sorted[i][0], i);
+
+function embed(text) {
+  const v = new Float32Array(vocab.size);
+  for (const tok of text.toLowerCase().split(/\W+/).filter(t => t.length > 1)) {
+    const idx = vocab.get(tok);
+    if (idx !== undefined) v[idx] += 1;
+  }
+  let n2 = 0;
+  for (let i = 0; i < v.length; i++) n2 += v[i] * v[i];
+  const n = Math.sqrt(n2);
+  if (n > 0) for (let i = 0; i < v.length; i++) v[i] /= n;
+  return v;
+}
+
+const corpusVecs = CORPUS.map(s => ({ text: s, vec: embed(s) }));
+
+function encode() {
+  const q = document.getElementById('query').value;
+  const qVec = embed(q);
+  // Show vec hash
+  const flat = Array.from(qVec).map(x => x.toFixed(3)).join(',');
+  const hash = fnv1a64(new TextEncoder().encode(flat));
+  document.getElementById('vec').textContent = '[' + Array.from(qVec).slice(0, 12).map(x => x.toFixed(3)).join(', ') + ', ...]';
+  document.getElementById('sHash').textContent = '0x' + hash.toString(16).padStart(16, '0');
+  // Compute similarities
+  const sims = corpusVecs.map(c => ({ text: c.text, sim: cosine(qVec, c.vec) }));
+  sims.sort((a, b) => b.sim - a.sim);
+  const top = sims.slice(0, 8);
+  const el = document.getElementById('corpus');
+  el.innerHTML = '';
+  for (const s of top) {
+    const div = document.createElement('div');
+    div.className = 'corpus-item';
+    div.innerHTML = `<span>${escapeHtml(s.text)}</span><span><span class="sim-bar" style="width:${Math.max(2, s.sim * 60)}px"></span><span class="sim">${s.sim.toFixed(3)}</span></span>`;
+    el.appendChild(div);
+  }
+  document.getElementById('sTop').textContent = top[0].sim.toFixed(3) + ` ("${top[0].text.slice(0, 30)}...")`;
+  document.getElementById('sVocab').textContent = vocab.size;
+  document.getElementById('sCorpus').textContent = CORPUS.length;
+}
+
+function escapeHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+function loadExample() {
+  const examples = [
+    "How does the math explain memory?",
+    "What is a Bell state?",
+    "Why is FNV-1a byte-exact across ports?",
+    "Tell me about the witness log.",
+    "What does Lenia sound like?",
+    "Cells and scars — what's the difference?",
+    "The cosine of two truths.",
+  ];
+  document.getElementById('query').value = examples[Math.floor(Math.random() * examples.length)];
+  encode();
+}
+
+encode();
+</script>
+</body>
+</html>

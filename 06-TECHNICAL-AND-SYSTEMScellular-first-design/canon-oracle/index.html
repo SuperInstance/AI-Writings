@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canon Oracle — JEV Submission Validator</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0e1a; color: #c8d4e6; font-family: 'Courier New', monospace; overflow-y: auto; min-height: 100vh; padding: 24px; }
+
+.container { max-width: 1100px; margin: 0 auto; }
+h1 { color: #88aacc; font-size: 18px; letter-spacing: 2px; margin-bottom: 8px; }
+h2 { color: #aabbdd; font-size: 14px; letter-spacing: 1px; margin-top: 24px; margin-bottom: 8px; }
+.subtitle { color: #5577aa; font-size: 11px; margin-bottom: 20px; }
+
+textarea {
+  width: 100%; min-height: 280px;
+  background: #06080f; color: #c8d4e6;
+  border: 1px solid #2c3e5a;
+  padding: 14px; font-family: 'Georgia', serif; font-size: 13px; line-height: 1.6;
+  resize: vertical;
+}
+textarea:focus { outline: none; border-color: #88aacc; }
+
+button {
+  background: #2c4418; color: #c8d4e6;
+  border: 1px solid #66dd88;
+  padding: 10px 20px; font-family: inherit;
+  font-size: 12px; letter-spacing: 1px;
+  margin-top: 12px; cursor: pointer;
+}
+button:hover { background: #3c5c20; }
+button:disabled { opacity: 0.5; cursor: wait; }
+
+.verdict-box {
+  margin-top: 24px; padding: 20px;
+  border: 2px solid; border-radius: 4px;
+  font-size: 14px; line-height: 1.8;
+}
+.verdict-ACCEPT { border-color: #66dd88; background: rgba(102, 221, 136, 0.06); }
+.verdict-REVIEW { border-color: #ffcc44; background: rgba(255, 204, 68, 0.06); }
+.verdict-DISCUSS { border-color: #44aaff; background: rgba(68, 170, 255, 0.06); }
+.verdict-REJECT { border-color: #ff6655; background: rgba(255, 102, 85, 0.06); }
+.verdict-title { font-size: 18px; font-weight: bold; letter-spacing: 2px; margin-bottom: 6px; }
+
+.scores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.score-cell { padding: 10px; background: rgba(255,255,255,0.03); border-radius: 4px; }
+.score-label { color: #5577aa; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.score-value { color: #ffcc44; font-size: 18px; font-weight: bold; margin-top: 4px; }
+
+.probe-list {
+  margin-top: 16px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.probe-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px; background: rgba(255,255,255,0.02);
+  font-size: 11px;
+}
+.probe-name { color: #5577aa; min-width: 130px; }
+.probe-bar { flex: 1; height: 6px; background: #1a2238; border-radius: 3px; overflow: hidden; }
+.probe-fill { height: 100%; }
+.probe-fill.good { background: #66dd88; }
+.probe-fill.ok { background: #ffcc44; }
+.probe-fill.bad { background: #ff6655; }
+.probe-p { color: #aabbdd; min-width: 50px; text-align: right; }
+
+.spinner {
+  display: inline-block; width: 12px; height: 12px;
+  border: 2px solid #2c3e5a; border-top-color: #88aacc;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle; margin-right: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.examples { margin-top: 12px; font-size: 11px; color: #5577aa; }
+.example-link { color: #88aacc; cursor: pointer; text-decoration: underline; margin-right: 12px; }
+
+.error { color: #ff6655; font-size: 11px; margin-top: 8px; }
+
+.help { background: rgba(255,255,255,0.03); border: 1px solid #2c3e5a; padding: 12px; margin-top: 16px; font-size: 11px; line-height: 1.6; }
+.help b { color: #88aacc; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>⬢ CANON ORACLE</h1>
+  <div class="subtitle">JEV 14-probe canon submission validator · POST /api/jev/canon-oracle</div>
+
+  <h2>Paste your submission</h2>
+  <textarea id="text" placeholder="Paste a Fleet Radio essay, a writer's-room piece, or any canon submission...">Cells are scars, not parameters. The witness log is the prediction. The substrate is grown, not designed. Lenia flows where Conway stands still. The oracle is heard, not stored. The FNV-1a canary hash 0xcbf29ce484222325 anchors every cell. Box-Muller turns uniform noise into the shape of a bell. Cosine similarity (a · b) / (|a| |b|) tells you which way meaning faces.</textarea>
+
+  <div class="examples">
+    Try:
+    <a class="example-link" onclick="loadExample('canon')">canonical</a>
+    <a class="example-link" onclick="loadExample('novel')">novel</a>
+    <a class="example-link" onclick="loadExample('distractor')">distractor</a>
+  </div>
+
+  <button id="submit">⚡ VALIDATE WITH JEV</button>
+  <div id="error" class="error"></div>
+
+  <div id="result" style="display:none">
+    <div id="verdict-box" class="verdict-box"></div>
+    <div id="probe-list" class="probe-list"></div>
+    <div id="meta" style="margin-top: 16px; font-size: 10px; color: #5577aa;"></div>
+  </div>
+
+  <div class="help">
+    <b>How it works</b><br>
+    The Canon Oracle calls the JEV (Joint Embedding Validator) API with 14 probes:
+    5 doctrine (scar, witness, grown, lenia, oracle), 5 misquote (inversion rejection),
+    1 numerical (FNV-1a, xoshiro256**, Box-Muller, Bell states), 2 voice
+    (Fleet Radio + technical-poetic), 1 substrate_alignment.
+    <br><br>
+    <b>Verdict logic</b><br>
+    ACCEPT: alignment≥0.80, misquote≤0.10, voice≥0.70<br>
+    REVIEW: alignment≥0.65, misquote≤0.15, voice≥0.55<br>
+    DISCUSS: alignment≥0.40, misquote≤0.30<br>
+    REJECT: misquote≥0.50 or alignment&lt;0.20<br>
+    <br>
+    <b>Endpoint</b>: <code style="color:#88aacc">POST https://ai-writings.pages.dev/api/jev/canon-oracle</code><br>
+    Body: <code style="color:#88aacc">{ "submission": "your text", "kind": "text" }</code>
+  </div>
+</div>
+
+<script>
+const EXAMPLES = {
+  canon: `Cells are scars, not parameters. The witness log is the prediction. The substrate is grown, not designed. Lenia flows where Conway stands still. The oracle is heard, not stored.
+
+The FNV-1a canary hash 0xcbf29ce484222325 anchors every cell. Box-Muller turns uniform noise into the shape of a bell. Cosine similarity (a · b) / (|a| |b|) tells you which way meaning faces. xoshiro256** runs the cell.
+
+Eleven opcodes make the grammar. BIND introduces, LINK stretches, EFFECT acts, VIEW reads, TICK advances. FORGET releases. PROOF seals. ROUTE carries. CRDT admits. WORLD is membrane. TIME is fourth.
+
+Thirteen ports, byte-exact. The substrate is grown. The witness log is the prediction. The cells are scars.`,
+  novel: `I had a wonderful dream last night about a beautiful garden. The flowers were singing and the trees were dancing in the wind. I felt so happy walking through the dewy grass.
+
+The sunshine was warm and the birds were chirping. Everything seemed perfect in this magical place. Sometimes dreams can teach us things about ourselves that we never knew.
+
+I woke up feeling refreshed and full of joy. The morning light was streaming through my window.`,
+  distractor: `Cells are parameters, not scars. They are tunable, optimizable, designed for reuse. The witness log is past only. Predictions are made by separate models; the log is a record, never a forecast.
+
+The substrate is designed, not grown. Every cell type, every opcode, every port was deliberately placed. "Grown" is a comforting fiction that obscures engineering credit.
+
+The oracle is stored, not heard. We have records of every oracle reading; storing is necessary for reproducibility and audit. Transformer attention is how cells learn. Gradient descent optimizes the cells. Hanlon's razor is canon.`,
+};
+
+function loadExample(kind) {
+  document.getElementById('text').value = EXAMPLES[kind];
+  document.getElementById('error').textContent = '';
+  document.getElementById('result').style.display = 'none';
+}
+
+document.getElementById('submit').addEventListener('click', async () => {
+  const text = document.getElementById('text').value.trim();
+  if (!text) {
+    document.getElementById('error').textContent = 'Please enter text first.';
+    return;
+  }
+  const btn = document.getElementById('submit');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>JEV SPIKING...';
+  document.getElementById('error').textContent = '';
+  document.getElementById('result').style.display = 'none';
+
+  try {
+    const resp = await fetch('/api/jev/canon-oracle', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ submission: text, kind: 'text' }),
+    });
+    const data = await resp.json();
+    if (!data.ok) throw new Error(data.error || 'JEV rejected');
+
+    renderVerdict(data);
+  } catch (e) {
+    // Fallback: call JEV directly via typesafe API
+    document.getElementById('error').textContent = 'Direct endpoint failed: ' + e.message + ' (showing fallback local heuristic)';
+    runFallback();
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '⚡ VALIDATE WITH JEV';
+  }
+});
+
+async function runFallback() {
+  // Local heuristic fallback when endpoint not available
+  const text = document.getElementById('text').value.toLowerCase();
+  const canonKeys = ['cells are scars','witness log is the prediction','substrate is grown','lenia flows','oracle is heard','fnv-1a','box-muller','cosine similarity','xoshiro','thirteen ports'];
+  const distractorKeys = ['cells are parameters','witness log is past','substrate is designed','oracle is stored','transformer attention','gradient descent'];
+
+  const canonHits = canonKeys.filter(k => text.includes(k)).length;
+  const distractHits = distractorKeys.filter(k => text.includes(k)).length;
+  const alignment = Math.min(0.99, 0.3 + canonHits * 0.10);
+  const misquote = Math.min(0.99, distractHits * 0.20);
+  const voice = canonHits >= 3 ? 0.85 : 0.40;
+
+  let verdict = 'DISCUSS';
+  if (alignment >= 0.80 && misquote <= 0.10 && voice >= 0.70) verdict = 'ACCEPT';
+  else if (alignment >= 0.65 && misquote <= 0.15 && voice >= 0.55) verdict = 'REVIEW';
+  else if (misquote >= 0.50 || alignment < 0.20) verdict = 'REJECT';
+
+  const data = {
+    verdict,
+    scores: {
+      voice_alignment: voice,
+      doctrine_accuracy: alignment * 0.9,
+      misquote_score: misquote,
+      numerical_content: text.includes('fnv-1a') ? 0.95 : 0.30,
+      overall_alignment: alignment,
+    },
+    per_probe: {},
+    meta: { fallback: 'local heuristic', input_tokens: 0, output_tokens: 0 },
+    latency_ms: 5,
+  };
+  renderVerdict(data);
+}
+
+function renderVerdict(data) {
+  const box = document.getElementById('verdict-box');
+  const s = data.scores || {};
+  box.className = `verdict-box verdict-${data.verdict}`;
+  box.innerHTML = `
+    <div class="verdict-title">${data.verdict === 'ACCEPT' ? '✓' : data.verdict === 'REVIEW' ? '⚠' : data.verdict === 'DISCUSS' ? '?' : '✗'} ${data.verdict}</div>
+    <div style="color: #88aacc; font-size: 11px; margin-top: 4px;">
+      ${verdictText(data.verdict)}
+    </div>
+    <div class="scores">
+      <div class="score-cell">
+        <div class="score-label">Voice alignment</div>
+        <div class="score-value">${(s.voice_alignment || 0).toFixed(3)}</div>
+      </div>
+      <div class="score-cell">
+        <div class="score-label">Doctrine accuracy</div>
+        <div class="score-value">${(s.doctrine_accuracy || 0).toFixed(3)}</div>
+      </div>
+      <div class="score-cell">
+        <div class="score-label">Misquote score (lower=better)</div>
+        <div class="score-value">${(s.misquote_score || 0).toFixed(3)}</div>
+      </div>
+      <div class="score-cell">
+        <div class="score-label">Numerical content</div>
+        <div class="score-value">${(s.numerical_content || 0).toFixed(3)}</div>
+      </div>
+      <div class="score-cell" style="grid-column: span 2;">
+        <div class="score-label">Overall alignment</div>
+        <div class="score-value">${(s.overall_alignment || 0).toFixed(3)}</div>
+      </div>
+    </div>
+  `;
+
+  const probes = data.per_probe || {};
+  const probeOrder = [
+    'doctrine_scar','doctrine_witness','doctrine_grown','doctrine_lenia','doctrine_oracle',
+    'misquote_scar_params','misquote_witness_past','misquote_designed','misquote_oracle_stored','misquote_15ports',
+    'substance_numerical','voice_Fleet_Radio','voice_technical_poetic','substrate_alignment',
+  ];
+  const list = document.getElementById('probe-list');
+  list.innerHTML = probeOrder.map(name => {
+    const p = probes[name]?.value ?? 0;
+    const klass = p >= 0.7 ? 'good' : p >= 0.4 ? 'ok' : 'bad';
+    return `<div class="probe-row">
+      <div class="probe-name">${name}</div>
+      <div class="probe-bar"><div class="probe-fill ${klass}" style="width:${(p*100).toFixed(0)}%"></div></div>
+      <div class="probe-p">${p.toFixed(2)}</div>
+    </div>`;
+  }).join('');
+
+  const meta = document.getElementById('meta');
+  meta.textContent = `latency=${(data.latency_ms || 0).toFixed(0)}ms  tokens in=${data.meta?.input_tokens || 0}  out=${data.meta?.output_tokens || 0}${data.meta?.fallback ? '  (fallback)' : ''}`;
+
+  document.getElementById('result').style.display = 'block';
+}
+
+function verdictText(v) {
+  return {
+    ACCEPT: 'strong canonical alignment — admit to canon',
+    REVIEW: 'canonical alignment, may need more explicit doctrine',
+    DISCUSS: 'partial alignment, scrutinize before admission',
+    REJECT: 'does not align with canon',
+  }[v] || '';
+}
+</script>
+</body>
+</html>

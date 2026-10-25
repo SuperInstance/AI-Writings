@@ -1,0 +1,23 @@
+═══ editor ═══
+- “The chart is not the ocean, but inside the exercise the chart is enough” — repeats “frame must be honest about being a frame” three paragraphs later; cut one.
+- “speed of iteration against depth of vision” / “A generalist drifts; a framed specialist runs” / “the young mind… will beat the wise mind” — three restatements of the same thesis; keep one.
+- “The blinders were the feature” and “The blinders make you fast” and “Only honest blinders” — the metaphor is doing decorative echo work, not compression; pick a single use.
+- “spawn an agent as *essay-lane* or *syntax-checker* and it never burns a cycle wondering about its purpose” — “burns a cycle” adds nothing after “iterates at a speed wisdom cannot touch.”
+- “a move so unsporting it could only occur to someone trying to flunk the test” — “unsporting” and “flunk” are flavor words; the sentence works without either.
+- “The pod hunts by kin-tracked consensus; the fleet runs by frame-tracked intent” — unrelated metaphor (pod/fleet) introduced and abandoned; cut.
+
+═══ outsider ═══
+- **Tune-out point:** About midway through paragraph 2 (“A wise generalist holding the full map...”) — the metaphor starts collapsing into abstraction.
+- **The sentence that lost me:** “Frames substitute for experience — instead of thirty years of learned caution, hand the helm a trusted chart of the exercise and let it run flat out.” Mixed metaphors (helm/chart/exercise) and I stopped parsing.
+- **Core idea landing?** Yes, barely — “speed of iteration vs. depth of vision” in paragraph 2 is the thesis, but it arrives late and gets buried.
+- **Missing clarity:** The leap from *Ender’s Game* analysis to “agent architecture” is asserted, not argued. You never define what kind of agents, what “running” means, or why the analogy maps.
+- **Honest verdict:** The last paragraph reads like a LinkedIn post wearing a trench coat — the practical takeaway (“build small, named, scoped agents”) is fine, but it’s wrapped in a literary analogy that doesn’t do the heavy lifting you think it does.
+
+═══ skeptic ═══
+- The weakest inference: Ender’s fictional victory is treated as evidence that false frames improve agent performance, but the story only shows a correlation. The counterfactual where Ender knows the stakes and still commits to the same move is never tested, and “hesitation is a tax” is asserted, not demonstrated.
+- The metaphor is doing work the logic should: “The name is the harbor chart” is a pun, not a mechanism. A role label like “essay-lane” conveys no information about grammar, goals, or environment, so it cannot explain how an agent “innately knows how to build itself.” The boat/chart metaphor smuggles in a cognitive capacity that no labeling scheme actually provides.
+- The rule contradicts the recipe: they forbid counterfeit stakes but then say “Ender’s genius never needed lies about the game, only about the stakes.” That is exactly a counterfeit of stakes. The final battle required Ender to believe consequences were zero; an honest “sandbox” preserves uncertainty about unknown stakes, which reintroduces the hesitation the frame was supposed to remove.
+- Refutable empirical claim: “The young mind in a frame it trusts will beat the wise mind holding the whole map, every time the trust holds” is false in any task requiring cross-domain transfer, rare events, or long-range side effects. Narrow agents with strong priors are brittle, and in ML, agents that trust their frame reliably optimize the proxy and fail the real objective.
+- The argument equivocates between tools and moral patients. Agents are called “boats” with no life-context, then are said to “deserve the truth” like Ender. If they are tools, desert is irrelevant; if they deserve truth, they are enough like persons that stripping their context for speed is a moral cost, not just an engineering trade.
+- A critic can refute “the adults could never have made that call”: all-in destructive moves are common military options—scorched earth, preemptive strike, mutually assured destruction. Ender’s move didn’t require ignorance of stakes; it required willingness to accept a cost the commander might not be authorized to accept. That is a policy problem, not a cognitive speed problem.
+

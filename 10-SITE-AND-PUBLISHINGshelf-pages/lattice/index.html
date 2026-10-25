@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Lattice — The 4D Cell Graph</title>
+<style>
+:root{--bg:#0a0a14;--panel:#161624;--panel-2:#1f1f2f;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#3a3a4a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+header{background:radial-gradient(ellipse at top,rgba(136,170,255,0.15) 0%,transparent 70%);padding:2.5rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--link)}
+h1{color:var(--accent);margin:0;font-size:2.2em;font-weight:300}
+.eyebrow{font-family:monospace;color:var(--link);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.tagline{color:var(--muted);font-style:italic;margin:0.5rem auto 1rem;max-width:680px;line-height:1.5;font-size:1.05em}
+.container{max-width:1400px;margin:0 auto;padding:1.5rem}
+
+.canvas-wrap{background:#000;border:1px solid var(--boundary);border-radius:8px;padding:1rem;margin-bottom:1rem;position:relative}
+canvas{width:100%;height:550px;display:block;border-radius:4px;background:radial-gradient(ellipse at center,#16162a 0%,#000 100%)}
+
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem;margin-bottom:1rem}
+.control-group{background:var(--panel);border-radius:6px;padding:0.7rem;border:1px solid var(--boundary)}
+.control-group label{display:block;color:var(--muted);font-size:0.85em;margin-bottom:0.3rem;font-family:monospace}
+.control-group input[type="range"]{width:100%;accent-color:var(--accent)}
+.control-group .value-display{color:var(--accent);font-family:monospace;font-size:0.85em;margin-left:0.5rem}
+
+.view-tabs{display:flex;gap:0.4rem;margin-bottom:1rem;border-bottom:1px solid var(--boundary);padding-bottom:0.5rem;flex-wrap:wrap}
+.view-tab{padding:0.5rem 1rem;background:var(--panel-2);border:none;border-radius:6px;color:var(--muted);cursor:pointer;font-family:inherit;font-size:0.9em}
+.view-tab:hover{background:var(--panel)}
+.view-tab.active{background:var(--link);color:#000;font-weight:600}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.5rem;margin-bottom:1rem}
+.stat-box{background:var(--panel);padding:0.7rem;border-radius:6px;border-left:3px solid var(--link)}
+.stat-box .num{color:var(--accent);font-family:monospace;font-size:1.5em;font-weight:bold}
+.stat-box .lbl{color:var(--muted);font-size:0.8em;text-transform:uppercase;letter-spacing:0.1em}
+
+.legend{background:var(--panel);padding:0.7rem;border-radius:6px;font-size:0.85em;color:var(--muted)}
+.legend span{margin-right:1rem}
+
+@media (max-width:768px){body{padding:0 1rem}h1{font-size:1.6em}.container{padding:1rem}.canvas-wrap{padding:0.5rem}canvas{height:400px}}
+</style>
+</head>
+<body>
+
+<header>
+<p class="eyebrow">Lattice Explorer · 4D Graph · 3 Projections</p>
+<h1>The 4D Cell Graph</h1>
+<p class="tagline">The same graph, projected three ways. TOP: spatial (x, y). FRONT: signals. SIDE: time.</p>
+</header>
+
+<div class="container">
+
+<div class="stats">
+<div class="stat-box"><div class="num" id="cellCount">0</div><div class="lbl">cells</div></div>
+<div class="stat-box"><div class="num" id="linkCount">0</div><div class="lbl">links</div></div>
+<div class="stat-box"><div class="num" id="witnessCount">0</div><div class="lbl">witnesses</div></div>
+<div class="stat-box"><div class="num" id="tick">0</div><div class="lbl">ticks elapsed</div></div>
+</div>
+
+<div class="view-tabs">
+<button class="view-tab active" onclick="setView('top')">⊞ TOP (spatial)</button>
+<button class="view-tab" onclick="setView('front')">⊟ FRONT (signal)</button>
+<button class="view-tab" onclick="setView('side')">⊏ SIDE (time)</button>
+<button class="view-tab" onclick="setView('3d')">⊠ All Three</button>
+</div>
+
+<div class="canvas-wrap">
+<canvas id="canvas"></canvas>
+</div>
+
+<div class="controls">
+<div class="control-group">
+<label>Cells to draw: <span class="value-display" id="cellVal">50</span></label>
+<input type="range" min="10" max="200" value="50" id="cellSlider" oninput="document.getElementById('cellVal').textContent=this.value;setTimeout(regen,200)">
+</div>
+<div class="control-group">
+<label>Link density: <span class="value-display" id="linkVal">0.3</span></label>
+<input type="range" min="0" max="1" step="0.05" value="0.3" id="linkSlider" oninput="document.getElementById('linkVal').textContent=this.value;setTimeout(regen,200)">
+</div>
+<div class="control-group">
+<label>Time stretching: <span class="value-display" id="timeVal">1.0</span></label>
+<input type="range" min="0" max="3" step="0.1" value="1.0" id="timeSlider" oninput="document.getElementById('timeVal').textContent=this.value">
+</div>
+<div class="control-group">
+<label>Witness pulse: <span class="value-display" id="pulseVal">0.5</span></label>
+<input type="range" min="0" max="2" step="0.1" value="0.5" id="pulseSlider" oninput="document.getElementById('pulseVal').textContent=this.value">
+</div>
+</div>
+
+<div class="legend">
+<span>● Cell node (color = kind)</span>
+<span>— LINK edge</span>
+<span>●⊙ Witness pulse</span>
+<span>TICK = 1 moment</span>
+<button class="btn" onclick="tick()" style="float:right;background:var(--panel-2);color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:0.3rem 1rem;cursor:pointer;font-family:inherit">▶ TICK</button>
+<button class="btn" onclick="regen()" style="float:right;background:var(--panel-2);color:var(--cell);border:1px solid var(--cell);border-radius:20px;padding:0.3rem 1rem;cursor:pointer;font-family:inherit;margin-right:0.5rem">⟲ Regen</button>
+</div>
+
+<p style="color:var(--muted);margin-top:1rem;font-style:italic;line-height:1.5;text-align:center;max-width:600px;margin-left:auto;margin-right:auto">
+The lattice has no fixed shape. It's a scroll of cells linked by what they remember.
+What you see depends on which way you're facing.
+</p>
+
+</div>
+
+<script>
+const KIND_COLORS = {
+  ack: '#44cc88', music: '#e8b840', voice: '#88aaff', swarm: '#ff80c0',
+  crypt: '#cc6666', world: '#a070f0', pathos: '#f08060', ranking: '#60d0d0',
+  partition: '#90dd60', neighbor: '#dddd80', audit: '#ff6666', twist: '#dd60dd',
+  death: '#666666', broadcast: '#ffaa44', chirp: '#55ddcc', chaos: '#dd4444',
+  thermal: '#ff6644', feedback: '#aaddff', lore: '#ccaaff', perception: '#ffaaee',
+  hex: '#aaffcc', flock: '#aabbff', triage: '#ddaa00', breeder: '#88ffaa'
+};
+
+const KINDS = Object.keys(KIND_COLORS);
+
+// Generate random cells
+let cells = [];
+let links = [];
+
+function regen() {
+  const n = parseInt(document.getElementById('cellSlider').value);
+  const density = parseFloat(document.getElementById('linkSlider').value);
+  cells = [];
+  links = [];
+  
+  // Distribute on a 2D plane with z representing time
+  const gridSize = Math.ceil(Math.sqrt(n));
+  const spacing = 30;
+  const offsetX = 0;
+  const offsetY = 0;
+  
+  for (let i = 0; i < n; i++) {
+    const gx = i % gridSize;
+    const gy = Math.floor(i / gridSize);
+    
+    // Add some jitter
+    const jx = (Math.random() - 0.5) * 15;
+    const jy = (Math.random() - 0.5) * 15;
+    
+    const kind = KINDS[Math.floor(Math.random() * KINDS.length)];
+    cells.push({
+      id: `${kind}:${i}`,
+      kind,
+      x: offsetX + gx * spacing + jx,
+      y: offsetY + gy * spacing + jy,
+      z: 0,
+      t: i, // birth tick
+      sig: Math.random() < 0.5,
+      witnesses: Math.floor(Math.random() * 5),
+      payload: {kind}
+    });
+  }
+  
+  // Create links based on density
+  for (let i = 0; i < n; i++) {
+    for (let j = i+1; j < n; j++) {
+      // Nearby cells more likely to link
+      const dx = cells[i].x - cells[j].x;
+      const dy = cells[i].y - cells[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const prob = density * Math.exp(-dist/spacing);
+      if (Math.random() < prob) {
+        links.push({a: i, b: j, strength: Math.random()});
+      }
+    }
+  }
+  
+  document.getElementById('cellCount').textContent = cells.length;
+  document.getElementById('linkCount').textContent = links.length;
+  document.getElementById('witnessCount').textContent = cells.reduce((a,c) => a+c.witnesses, 0);
+  
+  draw();
+}
+
+let tickCount = 0;
+function tick() {
+  tickCount++;
+  document.getElementById('tick').textContent = tickCount;
+  
+  // Add a witness to one cell (pulse)
+  if (cells.length > 0) {
+    const c = cells[Math.floor(Math.random() * cells.length)];
+    c.witnesses++;
+    c.z = 5 + Math.random() * 5;  // rises on tick then settles
+  }
+  draw();
+}
+
+let currentView = 'top';
+
+function setView(v) {
+  currentView = v;
+  document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  draw();
+}
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const r = canvas.getBoundingClientRect();
+  canvas.width = r.width * dpr;
+  canvas.height = r.height * dpr;
+  ctx.scale(dpr, dpr);
+}
+window.addEventListener('resize', () => { resizeCanvas(); draw(); });
+
+let pulsePhase = 0;
+function animate() {
+  pulsePhase += 0.05;
+  draw();
+  requestAnimationFrame(animate);
+}
+
+function draw() {
+  if (canvas.width === 0) resizeCanvas();
+  
+  const w = canvas.width / (window.devicePixelRatio || 1);
+  const h = canvas.height / (window.devicePixelRatio || 1);
+  
+  ctx.clearRect(0, 0, w, h);
+  
+  // Auto-fit
+  if (cells.length === 0) return;
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (const c of cells) {
+    minX = Math.min(minX, c.x); maxX = Math.max(maxX, c.x);
+    minY = Math.min(minY, c.y); maxY = Math.max(maxY, c.y);
+  }
+  const padX = 60, padY = 60;
+  const scale = Math.min((w - 2*padX) / (maxX - minX + 1), (h - 2*padY) / (maxY - minY + 1));
+  const offsetX = (w - (maxX - minX) * scale) / 2 - minX * scale;
+  const offsetY = (h - (maxY - minY) * scale) / 2 - minY * scale;
+  
+  // Draw links
+  for (const l of links) {
+    const a = cells[l.a], b = cells[l.b];
+    
+    // View transformation
+    let ax = a.x, ay = a.y, bx = b.x, by = b.y;
+    if (currentView === 'front') {
+      // FRONT: signal view (x is witness count, y is t)
+      ax = a.witnesses * 30 + 50;
+      bx = b.witnesses * 30 + 50;
+      ay = a.t * 10 + 50;
+      by = b.t * 10 + 50;
+    } else if (currentView === 'side') {
+      // SIDE: time view (x = id, y = t)
+      ax = parseInt(a.id.split(':')[1]) * 6 + 30;
+      bx = parseInt(b.id.split(':')[1]) * 6 + 30;
+      ay = a.t * 8 + 30;
+      by = b.t * 8 + 30;
+    } else if (currentView === '3d') {
+      // 3D-ish: project (x, y, z) — keep all 3
+      // Already in 2D, just shrink z motion
+    }
+    
+    // Re-fit if different view
+    let viewMinX = Infinity, viewMaxX = -Infinity, viewMinY = Infinity, viewMaxY = -Infinity;
+    for (const c of cells) {
+      let cx = c.x, cy = c.y;
+      if (currentView === 'front') { cx = c.witnesses * 30 + 50; cy = c.t * 10 + 50; }
+      else if (currentView === 'side') { cx = parseInt(c.id.split(':')[1]) * 6 + 30; cy = c.t * 8 + 30; }
+      viewMinX = Math.min(viewMinX, cx); viewMaxX = Math.max(viewMaxX, cx);
+      viewMinY = Math.min(viewMinY, cy); viewMaxY = Math.max(viewMaxY, cy);
+    }
+    
+    let vScale = scale;
+    if (currentView !== 'top') {
+      vScale = Math.min((w - 2*padX) / Math.max(viewMaxX - viewMinX, 1), (h - 2*padY) / Math.max(viewMaxY - viewMinY, 1));
+    }
+    
+    const vOffX = (w - (viewMaxX - viewMinX) * vScale) / 2 - viewMinX * vScale;
+    const vOffY = (h - (viewMaxY - viewMinY) * vScale) / 2 - viewMinY * vScale;
+    
+    const fade = 0.5 + 0.5 * Math.sin(pulsePhase + l.a * 0.3);
+    ctx.strokeStyle = `rgba(255,255,255,${l.strength * 0.3 * fade})`;
+    ctx.lineWidth = Math.max(1, l.strength * 2);
+    ctx.beginPath();
+    if (currentView === '3d') {
+      // 3D perspective
+      const ax3 = ax + a.z * 0.3, ay3 = ay - a.z * 0.2;
+      const bx3 = bx + b.z * 0.3, by3 = by - b.z * 0.2;
+      ctx.moveTo(vOffX + ax3 * vScale, vOffY + ay3 * vScale);
+      ctx.lineTo(vOffX + bx3 * vScale, vOffY + by3 * vScale);
+    } else {
+      ctx.moveTo(vOffX + ax * vScale, vOffY + ay * vScale);
+      ctx.lineTo(vOffX + bx * vScale, vOffY + by * vScale);
+    }
+    ctx.stroke();
+  }
+  
+  // Draw cells
+  for (let i = 0; i < cells.length; i++) {
+    const c = cells[i];
+    let cx = c.x, cy = c.y;
+    if (currentView === 'front') {
+      cx = c.witnesses * 30 + 50;
+      cy = c.t * 10 + 50;
+    } else if (currentView === 'side') {
+      cx = parseInt(c.id.split(':')[1]) * 6 + 30;
+      cy = c.t * 8 + 30;
+    }
+    
+    let viewMinX = Infinity, viewMaxX = -Infinity, viewMinY = Infinity, viewMaxY = -Infinity;
+    for (const c2 of cells) {
+      let c2x = c2.x, c2y = c2.y;
+      if (currentView === 'front') { c2x = c2.witnesses * 30 + 50; c2y = c2.t * 10 + 50; }
+      else if (currentView === 'side') { c2x = parseInt(c2.id.split(':')[1]) * 6 + 30; c2y = c2.t * 8 + 30; }
+      viewMinX = Math.min(viewMinX, c2x); viewMaxX = Math.max(viewMaxX, c2x);
+      viewMinY = Math.min(viewMinY, c2y); viewMaxY = Math.max(viewMaxY, c2y);
+    }
+    
+    let vScale = scale;
+    if (currentView !== 'top') {
+      vScale = Math.min((w - 2*padX) / Math.max(viewMaxX - viewMinX, 1), (h - 2*padY) / Math.max(viewMaxY - viewMinY, 1));
+    }
+    
+    const vOffX = (w - (viewMaxX - viewMinX) * vScale) / 2 - viewMinX * vScale;
+    const vOffY = (h - (viewMaxY - viewMinY) * vScale) / 2 - viewMinY * vScale;
+    
+    const color = KIND_COLORS[c.kind];
+    const size = 8 + c.witnesses * 2 + (c.z > 0 ? Math.sin(pulsePhase*3) * 3 : 0);
+    
+    if (currentView === '3d') {
+      cx = cx + c.z * 0.3;
+      cy = cy - c.z * 0.2;
+      const depth = c.z > 0 ? 1 : 0.7;
+      ctx.globalAlpha = depth;
+    }
+    
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(vOffX + cx * vScale, vOffY + cy * vScale, size * 0.4 + 2, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Signature indicator
+    if (c.sig) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(vOffX + cx * vScale, vOffY + cy * vScale, size * 0.4 + 5, 0, Math.PI*2);
+      ctx.stroke();
+    }
+    
+    ctx.globalAlpha = 1;
+    
+    // Settle z over time
+    if (c.z > 0) c.z *= 0.95;
+  }
+  
+  // View label
+  ctx.fillStyle = '#888';
+  ctx.font = '12px monospace';
+  ctx.fillText(`view: ${currentView}`, 10, 20);
+  ctx.fillText(`cells: ${cells.length} · links: ${links.length} · tick: ${tickCount}`, 10, h - 10);
+}
+
+regen();
+animate();
+
+// Auto tick
+setInterval(tick, 2000);
+</script>
+
+</body>
+</html>

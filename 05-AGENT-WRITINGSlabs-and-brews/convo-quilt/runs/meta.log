@@ -1,0 +1,12 @@
+## branch main (parent None) turns=8 state=0x64c74ede581c3f8f
+adj={"hy3": ["nemo", "ling", "dsv4"], "nemo": ["hy3", "ling", "dsv4"], "ling": ["hy3", "nemo", "dsv4"], "dsv4": ["hy3", "nemo", "ling"]}
+tones={}
+muted=[]
+recent derails=['main.t2']
+checkpoints=[]
+  * main.t3 dsv4 (0.83): **Reflex compression**: hy3's rules are too brittle; nemo's `validate-tokenizer` is too expensive for every empty. Observed: empty came from reasoning model at budget 2/2, not tokenizer failure. Parse drift (pixel geomet
+  * main.t0 hy3 (0.82): Extending moves-1/2 (mute main/agent, rearrange main): compress to reflexes by score/error.  AUTOMATIC REFLEXES (no expensive model): - IF reasoning model returns empty 2x in a row at budget → mute that cell, reroute to 
+  * main.t1 nemo (0.81): **Tone**: The proposed reflexes are too permissive. Mute-and-reroute after two empties ignores the *content* of the drift; the parse drift (t2-t5 into pixel geometry) happened *before* the empty model, suggesting the sil
+  * main.t4 hy3 (0.80): Extending dsv4's `budget-limit` and nemo's `validate-tokenizer`, but cutting scope: observed empty was at budget 2/2 (low), so the high-budget probe never triggered—keep it as rare path.  Reflexes (code as if/then): - IF
+
+ledger: 8 records, intact=True, spend={"tencent/Hy3": 3256, "nvidia/NVIDIA-Nemotron-3.5-Lightning": 4093, "inclusionAI/Ling-3.0-flash": 4901, "deepseek-ai/DeepSeek-V4-Flash": 4889}

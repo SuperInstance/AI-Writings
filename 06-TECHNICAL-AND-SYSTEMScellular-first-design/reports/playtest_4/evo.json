@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 9,
+    "q4": 6,
+    "improvement": "Add a debug panel showing the current generation number, average fitness, and mutation rate to help users verify the algorithm's progress.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 7,
+    "q3": 7,
+    "q4": 6,
+    "improvement": "Add an expandable debug panel showing a full generation's population with each individual's fitness, genes, and parent IDs, so users can trace exactly how crossover and mutation produced each offspring.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 8,
+    "q2": 7,
+    "q3": 9,
+    "q4": 6,
+    "improvement": "Add a toggleable debug panel showing mutation details and fitness calculations for the top individuals to improve verifiability.",
+    "_provider": "deepinfra-qwen"
+  }
+]

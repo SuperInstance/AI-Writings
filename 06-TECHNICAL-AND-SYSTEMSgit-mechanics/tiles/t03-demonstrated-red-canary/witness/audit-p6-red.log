@@ -1,0 +1,6 @@
+PASS P1 chain-survives-freeze — identical=True lines=10000
+PASS P2 order-not-time — first-divergence-position=1
+PASS P3 replay-detected — chain-verifies=True nonmonotonic-positions=3
+PASS P4 skew-reconciled
+PASS P5 genesis-anchor — replayed-forward-to-terminal=True
+FAIL P6 sig-canonical — reference-vectors-match=False

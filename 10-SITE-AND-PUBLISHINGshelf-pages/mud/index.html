@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕸️ Substrate MUD — a text-based environment</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#c0c0c0;font-family:'Courier New',monospace;line-height:1.5;margin:0;padding:0;height:100vh;overflow:hidden}
+#terminal{height:100vh;display:flex;flex-direction:column;max-width:900px;margin:0 auto;padding:1rem}
+#output{flex:1;overflow-y:auto;padding:1rem;background:#0a0a14;color:#c0c0c0;font-size:14px;line-height:1.5}
+.line{margin:.3rem 0;white-space:pre-wrap;word-wrap:break-word}
+.cmd{color:#e8b840}
+.response{color:#c0c0c0}
+.error{color:#ff6b6b}
+.success{color:#44cc88}
+.dim{color:#666;font-style:italic}
+.jev{color:#ff6b6b;background:rgba(255,107,107,0.05);padding:.2rem .4rem;border-left:2px solid #ff6b6b}
+.room{border:1px solid #2a2a3a;padding:.5rem;margin:.5rem 0;background:#11111a}
+.room-name{color:#e8b840;font-weight:bold}
+.exits{color:#888;font-size:.85em;margin-top:.3rem}
+#input-row{display:flex;border-top:1px solid #2a2a3a;padding:.5rem;background:#11111a}
+#prompt{color:#e8b840;padding:.3rem .5rem;font-weight:bold}
+#cmd{flex:1;background:transparent;border:none;color:#e8e0d0;font-family:'Courier New',monospace;font-size:14px;outline:none}
+.welcome{color:#e8b840;font-weight:bold;font-size:1.1em;margin:1rem 0 .5rem}
+.help-table{margin-left:1rem;color:#888}
+.help-table td{padding:.2rem .8rem .2rem 0}
+.ascii-banner{color:#44cc88;font-size:11px;margin:1rem 0;white-space:pre;line-height:1.2}
+.opcode-link{color:#e8b840;text-decoration:underline;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="terminal">
+  <div id="output"></div>
+  <div id="input-row">
+    <span id="prompt">cell@substrate&gt;</span>
+    <input type="text" id="cmd" autofocus autocomplete="off" spellcheck="false" />
+  </div>
+</div>
+
+<script>
+// ============ SUBSTRATE MUD ============
+// A text-based environment where:
+// - Cells are rooms (you can move between them)
+// - Opcodes are commands (BIND, LINK, EFFECT, VIEW, TICK, FORGET, PROOF, ROUTE, CRDT)
+// - Witness log is the lore book (every action adds to it)
+// - JEV validates your moves (probabilistic decisions)
+
+const ROOMS = {
+  "cell-root": {
+    name: "The Genesis Cell",
+    desc: "You stand in cell-root, the first cell of the substrate. Here, witness logs are empty and proofs are GENESIS. The lattice stretches in every direction. You can feel the substrate humming.",
+    exits: { north: "cell-bind", east: "cell-link", south: "cell-tick", west: "cell-witness" },
+    ops: ["BIND", "WITNESS"],
+    proof: "GENESIS",
+  },
+  "cell-bind": {
+    name: "The Bindery",
+    desc: "Cells come here to bind. You can see pairs of cells locked together, their witness logs merged into a single chain. The air smells of old paper and iron.",
+    exits: { south: "cell-root", east: "cell-effect" },
+    ops: ["BIND", "LINK"],
+    proof: "0xbind000001",
+  },
+  "cell-link": {
+    name: "The Linkstrands",
+    desc: "A lattice of threads. Each thread is a LINK between two cells. Touch one and you can trace its path through the substrate. Some threads pulse; others are dark.",
+    exits: { west: "cell-root", north: "cell-route" },
+    ops: ["LINK", "ROUTE"],
+    proof: "0xlink000001",
+  },
+  "cell-effect": {
+    name: "The Effect Chamber",
+    desc: "Where bindings become effects. You see cells being transformed by the actions of others. The transformation is observable but never direct — it always passes through WITNESS first.",
+    exits: { west: "cell-bind", south: "cell-view" },
+    ops: ["EFFECT", "VIEW"],
+    proof: "0xeff000001",
+  },
+  "cell-view": {
+    name: "The Viewroom",
+    desc: "A quiet place where cells read what they have done. The walls are made of witness logs. Read aloud and they speak in the cells' own voices.",
+    exits: { north: "cell-effect", east: "cell-forget" },
+    ops: ["VIEW", "FORGET"],
+    proof: "0xview00001",
+  },
+  "cell-tick": {
+    name: "The Clocktower",
+    desc: "Time flows here, but quantized. You hear TICKs in the distance, each marking a discrete moment. The walls are covered in countdowns.",
+    exits: { north: "cell-root", east: "cell-proof" },
+    ops: ["TICK"],
+    proof: "0xtick00001",
+  },
+  "cell-witness": {
+    name: "The Witness Hall",
+    desc: "The witness log lives here. Every event the substrate has ever recorded is written on these walls. It's a library without a librarian — every witness IS its own keeper.",
+    exits: { east: "cell-root", south: "cell-canon" },
+    ops: ["WITNESS", "PROOF"],
+    proof: "0xwitn00001",
+  },
+};
+
+const OPCODES = {
+  BIND: { cost: 1, desc: "Bind two cells together. Their witness logs merge." },
+  LINK: { cost: 1, desc: "Create a directed link from one cell to another." },
+  EFFECT: { cost: 2, desc: "Apply a transformation. Always passes through WITNESS first." },
+  VIEW: { cost: 0, desc: "Read the current state of a cell." },
+  TICK: { cost: 0, desc: "Advance time by one quanta. The substrate updates." },
+  FORGET: { cost: 0, desc: "Drop a witness log entry. Irreversible — the substrate will not let you un-FORGET." },
+  PROOF: { cost: 1, desc: "Validate that a state is consistent. Returns the chain hash." },
+  ROUTE: { cost: 1, desc: "Find the path between two cells." },
+  CRDT: { cost: 1, desc: "Reconcile two divergent cell states. The substrate picks the trust-weighted winner." },
+};
+
+// Game state
+let state = {
+  cell: "cell-root",
+  fuel: 10,
+  witnessLog: [],
+  proofChain: [],
+  jevConfidence: 0.85,
+  scarCount: 0,
+  history: [],
+};
+
+// ============ JEV PROXY ============
+function jevDecide(options, context) {
+  // Deterministic pseudo-random based on string hash + state
+  const seed = (state.fuel * 13 + state.scarCount * 7 + state.witnessLog.length * 3) % 100;
+  const idx = seed % options.length;
+  return {
+    pick: options[idx],
+    confidence: 0.65 + (seed % 30) / 100,
+    reasoning: `JEV-proxy: given fuel=${state.fuel}, scars=${state.scarCount}, witness=${state.witnessLog.length}, context=${context}`,
+  };
+}
+
+// ============ RENDERING ============
+const output = document.getElementById('output');
+function println(text, cls = 'response') {
+  const div = document.createElement('div');
+  div.className = `line ${cls}`;
+  div.textContent = text;
+  output.appendChild(div);
+  output.scrollTop = output.scrollHeight;
+}
+
+function printRoom() {
+  const room = ROOMS[state.cell];
+  if (!room) {
+    println(`You are in ${state.cell}. This cell is unknown to the witness log.`, 'error');
+    return;
+  }
+  println(`━━━ ${room.name} ━━━`, 'cmd');
+  println(room.desc);
+  println('');
+  println(`Available opcodes: ${room.ops.join(', ')}`, 'dim');
+  println(`Fuel: ${state.fuel} | JEV-confidence: ${state.jevConfidence.toFixed(2)} | Scars: ${state.scarCount} | Witness entries: ${state.witnessLog.length}`, 'dim');
+  println(`Proof chain: ${state.proofChain.join(' → ')}`);
+  println('');
+  println(`Exits: ${Object.entries(room.exits).map(([dir, dest]) => `${dir} → ${dest}`).join(' | ')}`, 'exits');
+}
+
+function printHelp() {
+  println('━━━ SUBSTRATE MUD — HELP ━━━', 'cmd');
+  println('');
+  println('Movement:');
+  println('  north, south, east, west (or n/s/e/w) — move between cells');
+  println('');
+  println('Opcodes (each is a verb you can type):');
+  Object.entries(OPCODES).forEach(([op, info]) => {
+    println(`  ${op.padEnd(10)} fuel=${info.cost}  ${info.desc}`);
+  });
+  println('');
+  println('Other commands:');
+  println('  look / ls         describe the current cell');
+  println('  witness / log     show the witness log (history)');
+  println('  proof / chain     show the proof chain');
+  println('  jev               ask JEV to decide something');
+  println('  help / ?          show this help');
+  println('  quit              exit the substrate');
+}
+
+function printWelcome() {
+  println('╔══════════════════════════════════════════════════╗', 'welcome');
+  println('║             SUBSTRATE MUD v0.1                    ║', 'welcome');
+  println('║   a text-based environment for the lattice       ║', 'welcome');
+  println('╚══════════════════════════════════════════════════╝', 'welcome');
+  println('');
+  println('You are a cell. The substrate is your world.', 'dim');
+  println('Every action you take becomes part of the witness log.', 'dim');
+  println('Every FORGET is irreversible.', 'dim');
+  println('JEV watches your moves and reports its confidence.', 'dim');
+  println('');
+  println('Type "help" for commands. Type "look" to see where you are.');
+  println('');
+}
+
+function printWitnessLog() {
+  println('━━━ WITNESS LOG ━━━', 'cmd');
+  if (state.witnessLog.length === 0) {
+    println('(empty)', 'dim');
+  } else {
+    state.witnessLog.forEach((entry, i) => {
+      println(`[${i}] ${entry}`);
+    });
+  }
+}
+
+function printProofChain() {
+  println('━━━ PROOF CHAIN ━━━', 'cmd');
+  if (state.proofChain.length === 0) {
+    println('GENESIS', 'dim');
+  } else {
+    println(state.proofChain.join('\n'));
+  }
+}
+
+// ============ COMMANDS ============
+function execute(cmd) {
+  const input = cmd.trim().toLowerCase();
+  println(`cell@substrate> ${cmd}`, 'cmd');
+
+  if (!input) return;
+
+  // Movement
+  const room = ROOMS[state.cell];
+  if (room && room.exits[input]) {
+    state.cell = room.exits[input];
+    state.fuel = Math.max(0, state.fuel - 1);
+    state.witnessLog.push(`${new Date().toISOString().slice(11,19)} — moved to ${state.cell} (fuel -1)`);
+    println(`You move to ${state.cell}.`, 'success');
+    printRoom();
+    return;
+  }
+
+  // Direction shortcuts
+  const dirs = { n: 'north', s: 'south', e: 'east', w: 'west' };
+  if (dirs[input] && room && room.exits[dirs[input]]) {
+    state.cell = room.exits[dirs[input]];
+    state.fuel = Math.max(0, state.fuel - 1);
+    state.witnessLog.push(`${new Date().toISOString().slice(11,19)} — moved ${dirs[input]} to ${state.cell}`);
+    println(`You move ${dirs[input]} to ${state.cell}.`, 'success');
+    printRoom();
+    return;
+  }
+
+  // Meta commands
+  if (input === 'help' || input === '?') {
+    printHelp();
+    return;
+  }
+  if (input === 'look' || input === 'ls') {
+    printRoom();
+    return;
+  }
+  if (input === 'witness' || input === 'log') {
+    printWitnessLog();
+    return;
+  }
+  if (input === 'proof' || input === 'chain') {
+    printProofChain();
+    return;
+  }
+  if (input === 'quit') {
+    println('You step out of the substrate. The witness log remains.', 'dim');
+    return true;
+  }
+
+  // Opcodes
+  const op = OPCODES[input.toUpperCase()];
+  if (op) {
+    if (state.fuel < op.cost) {
+      println(`Not enough fuel. ${input.toUpperCase()} costs ${op.cost}, you have ${state.fuel}.`, 'error');
+      state.scarCount++;
+      return;
+    }
+    if (!room.ops.includes(input.toUpperCase())) {
+      println(`${input.toUpperCase()} is not available in this cell. Available: ${room.ops.join(', ')}`, 'error');
+      state.scarCount++;
+      return;
+    }
+
+    state.fuel -= op.cost;
+    state.witnessLog.push(`${new Date().toISOString().slice(11,19)} — executed ${input.toUpperCase()} (fuel -${op.cost})`);
+
+    if (input.toUpperCase() === 'TICK') {
+      println('TICK. Time advances. The substrate updates.', 'success');
+      state.proofChain.push(`tick-${Date.now().toString(36)}`);
+      println(`New proof: ${state.proofChain[state.proofChain.length-1]}`);
+    } else if (input.toUpperCase() === 'FORGET') {
+      if (state.witnessLog.length > 1) {
+        const forgotten = state.witnessLog.pop();
+        state.witnessLog.pop(); // Pop the FORGET entry itself
+        println(`You FORGET: ${forgotten}`, 'success');
+        println(`Witness log now has ${state.witnessLog.length} entries.`, 'dim');
+      } else {
+        println('You cannot FORGET the genesis. There must be a witness.', 'error');
+        state.scarCount++;
+      }
+    } else if (input.toUpperCase() === 'PROOF') {
+      const newProof = `0x${Math.random().toString(16).slice(2,10)}`;
+      state.proofChain.push(newProof);
+      println(`PROOF generated: ${newProof}`, 'success');
+      const jev = jevDecide(['valid', 'invalid', 'uncertain'], 'proof validation');
+      println(`JEV (${jev.confidence.toFixed(2)}): ${jev.pick} — ${jev.reasoning}`, 'jev');
+    } else if (input.toUpperCase() === 'BIND') {
+      const jev = jevDecide(['strong-bind', 'weak-bind', 'rejected'], 'bind attempt');
+      println(`BIND initiated. JEV (${jev.confidence.toFixed(2)}): ${jev.pick}`, 'jev');
+      if (jev.pick === 'rejected') state.scarCount++;
+    } else if (input.toUpperCase() === 'JEV') {
+      // jev stand-alone command
+      const jev = jevDecide(['keep-going', 'rest', 'forget', 'tier-up'], 'general inquiry');
+      println(`JEV (${jev.confidence.toFixed(2)}): ${jev.pick} — ${jev.reasoning}`, 'jev');
+    } else {
+      println(`${input.toUpperCase()} executed. The substrate acknowledges.`, 'success');
+      if (input.toUpperCase() === 'VIEW') {
+        println(`You see: ${Object.keys(ROOMS).length} cells, ${state.witnessLog.length} witness entries, ${state.proofChain.length} proofs.`, 'dim');
+      }
+    }
+
+    println(`Fuel: ${state.fuel} | Scars: ${state.scarCount}`, 'dim');
+    return;
+  }
+
+  println(`Unknown command: "${cmd}". Type "help" for commands.`, 'error');
+  state.scarCount++;
+  return false;
+}
+
+// ============ INPUT HANDLING ============
+const cmdInput = document.getElementById('cmd');
+cmdInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const cmd = cmdInput.value;
+    cmdInput.value = '';
+    const shouldQuit = execute(cmd);
+    if (shouldQuit) {
+      cmdInput.disabled = true;
+    }
+  }
+});
+
+// Initial display
+printWelcome();
+printRoom();
+println('');
+println('Type a direction to move, or an opcode to act.', 'dim');
+output.focus();
+
+</script>
+
+</body>
+</html>

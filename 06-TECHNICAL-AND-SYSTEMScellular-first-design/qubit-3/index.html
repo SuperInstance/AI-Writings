@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate 3-Qubit — GHZ + W chains</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at center,#1a1428 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto}
+.gates{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-right:.3rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.spectra{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:1rem;margin-bottom:1rem}
+.spectrum{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.spectrum h3{color:var(--accent);font-size:.9rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.7rem}
+canvas{display:block;background:#000;border-radius:6px;width:100%;height:200px}
+.bars{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;margin-bottom:1rem;font-family:var(--mono);font-size:.65rem}
+.bar-cell{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem .3rem;text-align:center;color:var(--dim);min-height:50px;display:flex;flex-direction:column;justify-content:center}
+.bar-cell .label{font-size:.65rem;color:var(--dim)}
+.bar-cell .prob{color:var(--accent);font-weight:bold;font-size:.8rem}
+.bar-cell.low{opacity:.3}
+.state{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;font-family:var(--mono);font-size:.75rem;color:var(--text2);margin-top:1rem}
+.state .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>3-Qubit Substrate</h1>
+<p class="tagline">3-qubit GHZ and W entangled states. Apply gates. Measure.</p>
+</header>
+
+<main>
+<div class="gates">
+<button onclick="applyGhz()">Entangle → GHZ</button>
+<button onclick="applyW()">Entangle → W</button>
+<button onclick="applyH(0)">H⊗I⊗I</button>
+<button onclick="applyH(1)">I⊗H⊗I</button>
+<button onclick="applyH(2)">I⊗I⊗H</button>
+<button onclick="applyX(0)">X⊗I⊗I</button>
+<button onclick="applyX(1)">I⊗X⊗I</button>
+<button onclick="applyX(2)">I⊗I⊗X</button>
+<button onclick="applyCnot(0,1)">CNOT(0→1)</button>
+<button onclick="applyCnot(1,2)">CNOT(1→2)</button>
+<button onclick="applySwap(0,1)">Swap(0,1)</button>
+<button class="secondary" onclick="reset()">↻ Reset to |000⟩</button>
+<button class="secondary" onclick="measure()">⊕ Measure all</button>
+</div>
+<div class="bars" id="bars"></div>
+<div class="spectra">
+<div class="spectrum"><h3>Phase plot</h3><canvas id="phase"></canvas></div>
+<div class="spectrum"><h3>Real plot</h3><canvas id="real"></canvas></div>
+</div>
+<div class="state" id="state">State vector: |000⟩ — all probability on |000⟩ = 1.000. Trace = 1.000 ✓</div>
+</main>
+
+<footer>3-qubit substrate · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// 3-qubit state with complex amplitudes
+let state = new Float64Array(16); // pairs of (re, im)
+state[0] = 1; state[1] = 0; // |000⟩ amplitude 1+0i
+
+function setAmp(i, re, im) {
+  state[i * 2] = re;
+  state[i * 2 + 1] = im;
+}
+function getAmp(i) {
+  return [state[i * 2], state[i * 2 + 1]];
+}
+
+function normalize() {
+  let sum = 0;
+  for (let i = 0; i < 16; i++) sum += state[i*2] * state[i*2] + state[i*2+1] * state[i*2+1];
+  const n = Math.sqrt(sum);
+  if (n > 1e-9) for (let i = 0; i < 16; i++) {
+    state[i*2] /= n;
+    state[i*2+1] /= n;
+  }
+}
+
+// 1-qubit gates
+const H = [[1/Math.SQRT2, 1/Math.SQRT2], [1/Math.SQRT2, -1/Math.SQRT2]];
+const X = [[0, 1], [1, 0]];
+const Y = [[0, -1], [1, 0]];
+const Z = [[1, 0], [0, -1]];
+
+function gate1(g, target) {
+  const newState = new Float64Array(16);
+  for (let i = 0; i < 8; i++) {
+    const bits = [(i >> 2) & 1, (i >> 1) & 1, i & 1];
+    const bit = bits[target];
+    const other0 = (i >> 2) & 1, other1 = (i >> 1) & 1, other2 = i & 1;
+    let otherBits = [other0, other1, other2];
+    otherBits[target] = 0;
+    const i0 = (otherBits[0] << 2) | (otherBits[1] << 1) | otherBits[2];
+    const i1 = (otherBits[0] << 2) | (otherBits[1] << 1) | (1 << target) | otherBits[2];
+    otherBits[target] = 1;
+    const i1_actual = otherBits[0] * 4 + otherBits[1] * 2 + otherBits[2];
+    const a0 = getAmp(i0), a1 = getAmp(i1);
+    // gate * [a0, a1]
+    const re00 = g[0][0] * a0[0] - g[0][1] * a1[1];
+    const im00 = g[0][0] * a0[1] + g[0][1] * a1[0];
+    const re01 = g[1][0] * a0[0] - g[1][1] * a1[1];
+    const im01 = g[1][0] * a0[1] + g[1][1] * a1[0];
+    newState[i * 2] = re00;
+    newState[i * 2 + 1] = im00;
+    newState[(i ^ (1 << target)) * 2] = re01;
+    newState[(i ^ (1 << target)) * 2 + 1] = im01;
+  }
+  state = newState;
+}
+
+function applyH(target) { gate1(H, target); render(); }
+function applyX(target) { gate1(X, target); render(); }
+
+function applyCnot(control, target) {
+  const newState = new Float64Array(16);
+  for (let i = 0; i < 8; i++) {
+    newState[i * 2] = state[i * 2];
+    newState[i * 2 + 1] = state[i * 2 + 1];
+  }
+  // For each |abc⟩, if a[control] = 1, flip a[target]
+  for (let i = 0; i < 8; i++) {
+    const cBit = (i >> (2 - control)) & 1;
+    if (cBit === 1) {
+      const j = i ^ (1 << (2 - target));
+      newState[i * 2] = state[j * 2];
+      newState[i * 2 + 1] = state[j * 2 + 1];
+    }
+  }
+  state = newState;
+  render();
+}
+
+function applySwap(a, b) {
+  const newState = new Float64Array(16);
+  for (let i = 0; i < 8; i++) {
+    const bitA = (i >> (2 - a)) & 1;
+    const bitB = (i >> (2 - b)) & 1;
+    const newIdx = i - (bitA << (2 - a)) - (bitB << (2 - b)) + (bitB << (2 - a)) + (bitA << (2 - b));
+    newState[i * 2] = state[newIdx * 2];
+    newState[i * 2 + 1] = state[newIdx * 2 + 1];
+  }
+  state = newState;
+  render();
+}
+
+// GHZ state: |000⟩ + |111⟩ (after H⊗H⊗H + CNOT(0,1) + CNOT(1,2))
+function applyGhz() {
+  reset();
+  applyH(0);
+  applyCnot(0, 1);
+  applyCnot(1, 2);
+  render();
+}
+
+// W state: |001⟩ + |010⟩ + |100⟩
+function applyW() {
+  reset();
+  setAmp(0, 1, 0);
+  state[0] = 0; state[1] = 0;
+  setAmp(1, 1/Math.SQRT3, 0);
+  setAmp(2, 1/Math.SQRT3, 0);
+  setAmp(4, 1/Math.SQRT3, 0);
+  render();
+}
+
+function reset() {
+  state = new Float64Array(16);
+  state[0] = 1;
+  render();
+}
+
+function measure() {
+  let outcomes = [];
+  for (let n = 0; n < 100; n++) {
+    const r = Math.random();
+    let cum = 0;
+    for (let i = 0; i < 8; i++) {
+      const p = state[i*2]*state[i*2] + state[i*2+1]*state[i*2+1];
+      cum += p;
+      if (r < cum) { outcomes.push(i); break; }
+    }
+  }
+  const counts = Array(8).fill(0);
+  for (const o of outcomes) counts[o]++;
+  const summary = outcomes.slice(-5).map(o => '|' + ((o >> 2) & 1) + ((o >> 1) & 1) + (o & 1) + '⟩').join(' ');
+  document.getElementById('state').innerHTML += `<br><br><strong>Last 5 outcomes:</strong> ${summary}<br><strong>Distribution (100 shots):</strong> |000⟩=${counts[0]} |001⟩=${counts[1]} |010⟩=${counts[2]} |011⟩=${counts[3]} |100⟩=${counts[4]} |101⟩=${counts[5]} |110⟩=${counts[6]} |111⟩=${counts[7]}`;
+}
+
+function render() {
+  // Bars
+  const bars = document.getElementById('bars');
+  bars.innerHTML = '';
+  let totalProb = 0;
+  for (let i = 0; i < 8; i++) {
+    const p = state[i*2]*state[i*2] + state[i*2+1]*state[i*2+1];
+    totalProb += p;
+    const bits = '|' + ((i >> 2) & 1) + ((i >> 1) & 1) + (i & 1) + '⟩';
+    const div = document.createElement('div');
+    div.className = 'bar-cell' + (p < 0.01 ? ' low' : '');
+    div.innerHTML = `<div class="label">${bits}</div><div class="prob">${(p * 100).toFixed(1)}%</div>`;
+    bars.appendChild(div);
+  }
+  // Real/Imag plots
+  const real = document.getElementById('real');
+  const rctx = real.getContext('2d');
+  rctx.fillStyle = '#000'; rctx.fillRect(0, 0, real.width, real.height);
+  const phase = document.getElementById('phase');
+  const pctx = phase.getContext('2d');
+  pctx.fillStyle = '#000'; pctx.fillRect(0, 0, phase.width, phase.height);
+  const barW = real.width / 8;
+  for (let i = 0; i < 8; i++) {
+    const re = state[i*2], im = state[i*2+1];
+    const bits = '|' + ((i >> 2) & 1) + ((i >> 1) & 1) + (i & 1) + '⟩';
+    rctx.fillStyle = re >= 0 ? '#00ff9d' : '#ff6b6b';
+    rctx.fillRect(i * barW + 2, real.height / 2 - Math.abs(re) * 100, barW - 4, Math.abs(re) * 200);
+    pctx.fillStyle = im >= 0 ? '#00d4ff' : '#7c5cff';
+    pctx.fillRect(i * barW + 2, phase.height / 2 - Math.abs(im) * 100, barW - 4, Math.abs(im) * 200);
+    rctx.fillStyle = '#5a6580'; rctx.font = '9px monospace'; rctx.textAlign = 'center';
+    rctx.fillText(bits, i * barW + barW / 2, real.height - 5);
+    pctx.fillStyle = '#5a6580'; pctx.font = '9px monospace'; pctx.textAlign = 'center';
+    pctx.fillText(bits, i * barW + barW / 2, phase.height - 5);
+  }
+  // State summary
+  let nonZero = 0;
+  for (let i = 0; i < 8; i++) {
+    const p = state[i*2]*state[i*2] + state[i*2+1]*state[i*2+1];
+    if (p > 0.001) nonZero++;
+  }
+  const stateStr = [];
+  for (let i = 0; i < 8; i++) {
+    const p = state[i*2]*state[i*2] + state[i*2+1]*state[i*2+1];
+    if (p > 0.01) {
+      const bits = '|' + ((i >> 2) & 1) + ((i >> 1) & 1) + (i & 1) + '⟩';
+      const a = state[i*2].toFixed(3);
+      const b = state[i*2+1] >= 0 ? '+' + state[i*2+1].toFixed(3) : state[i*2+1].toFixed(3);
+      stateStr.push(`${a}${b}i·${bits}`);
+    }
+  }
+  document.getElementById('state').innerHTML = `<strong>State vector (${nonZero} non-zero basis):</strong> ${stateStr.join(' + ') || '|000⟩'}<br><strong>Trace:</strong> ${totalProb.toFixed(4)} ${Math.abs(totalProb - 1) < 0.001 ? '✓ normalized' : '✗'}`;
+}
+
+render();
+</script>
+</body>
+</html>

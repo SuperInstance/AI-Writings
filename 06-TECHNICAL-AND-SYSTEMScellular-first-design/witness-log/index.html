@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Witness Log — auditable ledger</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif;--serif:'Georgia',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-bottom:1px solid var(--border);padding-bottom:1rem}
+h1{color:var(--accent);font-size:1.6rem;margin:0}
+.tagline{color:var(--dim);font-size:.85rem;font-family:var(--mono)}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.warn{background:var(--warn);color:#000}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
+.section h3{color:var(--accent);font-size:1rem;margin:0 0 .5rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;font-size:.75rem}
+.input-area{width:100%;min-height:120px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.7rem;font-family:var(--serif);font-size:1rem;line-height:1.5;resize:vertical}
+.input-area:focus{outline:none;border-color:var(--accent)}
+input[type=text]{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.5rem;font-family:var(--mono);font-size:.85rem;margin-bottom:.5rem}
+.log-entries{max-height:500px;overflow-y:auto}
+.entry{padding:.7rem;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.78rem;color:var(--text2)}
+.entry:hover{background:rgba(0,255,157,0.03)}
+.entry .hash{color:var(--accent2);font-size:.7rem;word-break:break-all;margin-top:.3rem}
+.entry .prev{color:var(--dim);font-size:.65rem;margin-top:.2rem;word-break:break-all}
+.entry .verified{color:var(--accent);font-size:.65rem;display:inline-block;background:rgba(0,255,157,0.1);border-radius:3px;padding:.1rem .3rem;margin-top:.3rem}
+.entry .broken{color:var(--warn);font-size:.65rem;display:inline-block;background:rgba(255,107,107,0.1);border-radius:3px;padding:.1rem .3rem;margin-top:.3rem}
+.entry .text{font-family:var(--serif);color:var(--text);font-size:.95rem;margin-bottom:.3rem;line-height:1.5}
+.entry .meta{color:var(--dim);font-size:.7rem;display:flex;justify-content:space-between}
+button.verify{background:var(--accent2);color:#000;padding:.3rem .7rem;font-size:.7rem;margin:.2rem 0}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<div>
+<h1>📒 Substrate Witness Log</h1>
+<p class="tagline">An auditable ledger. Each entry = FNV-1a(prev_hash + text). Tamper detection via chain verification.</p>
+</div>
+<button onclick="exportLog()">⬇ Export</button>
+</header>
+
+<main>
+<section class="section">
+<h3>New entry</h3>
+<input type="text" id="title" placeholder="Title">
+<textarea class="input-area" id="text" placeholder="What gets witnessed?"></textarea>
+<button onclick="appendEntry()" style="width:100%;margin-top:.5rem">⊕ Append to ledger</button>
+<h3 style="margin-top:1rem">Stats</h3>
+<div class="stats">
+<div>Entries: <span class="v" id="sEntries">0</span></div>
+<div>Verified: <span class="v" id="sVerified">0</span></div>
+<div>Broken: <span class="v" id="sBroken">0</span></div>
+<div>Latest hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</section>
+
+<section class="section">
+<h3>Ledger</h3>
+<div class="log-entries" id="entries"></div>
+<button class="secondary verify" onclick="verifyAll()">🔍 Verify entire chain</button>
+<button class="secondary" onclick="tamperRandom()">⚠ Simulate tamper</button>
+</section>
+</main>
+
+<footer>📒 substrate witness log · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let ledger = [];
+const STORAGE = 'substrate-witness-log-v1';
+
+function load() {
+  try {
+    const d = JSON.parse(localStorage.getItem(STORAGE) || '[]');
+    if (Array.isArray(d)) ledger = d;
+  } catch (e) {}
+}
+function save() {
+  localStorage.setItem(STORAGE, JSON.stringify(ledger));
+}
+
+function appendEntry() {
+  const title = document.getElementById('title').value.trim() || `Entry ${ledger.length + 1}`;
+  const text = document.getElementById('text').value.trim();
+  if (!text) { alert('Text required'); return; }
+  const prev = ledger.length > 0 ? ledger[ledger.length - 1].hash : '0000000000000000000000000000000000000000000000000000000000000000';
+  const hash = fnv1a64(new TextEncoder().encode(prev + title + text));
+  ledger.push({ title, text, prev, hash: '0x' + hash.toString(16).padStart(16, '0'), ts: Date.now() });
+  document.getElementById('title').value = '';
+  document.getElementById('text').value = '';
+  save();
+  render();
+}
+
+function verifyAll() {
+  let ok = 0, broken = 0;
+  for (let i = 0; i < ledger.length; i++) {
+    const e = ledger[i];
+    const prev = i > 0 ? ledger[i - 1].hash : '0000000000000000000000000000000000000000000000000000000000000000';
+    const expected = '0x' + fnv1a64(new TextEncoder().encode(prev + e.title + e.text)).toString(16).padStart(16, '0');
+    if (expected === e.hash) { e.status = 'verified'; ok++; }
+    else { e.status = 'broken'; broken++; }
+  }
+  save();
+  document.getElementById('sVerified').textContent = ok;
+  document.getElementById('sBroken').textContent = broken;
+  render();
+}
+
+function tamperRandom() {
+  if (ledger.length === 0) return;
+  const i = Math.floor(Math.random() * ledger.length);
+  // Add a character to the text without recomputing hash
+  ledger[i].text = ledger[i].text + ' [tampered]';
+  save();
+  render();
+}
+
+function exportLog() {
+  const data = JSON.stringify(ledger, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `witness-log-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function render() {
+  const el = document.getElementById('entries');
+  el.innerHTML = '';
+  for (let i = ledger.length - 1; i >= 0; i--) {
+    const e = ledger[i];
+    const div = document.createElement('div');
+    div.className = 'entry';
+    let statusHtml = '';
+    if (e.status === 'verified') statusHtml = '<span class="verified">✓ verified</span>';
+    else if (e.status === 'broken') statusHtml = '<span class="broken">✗ broken</span>';
+    div.innerHTML = `
+      <div class="text">${escapeHtml(e.title)} — ${escapeHtml(e.text)}</div>
+      <div class="meta"><span>#${i + 1}</span><span>${new Date(e.ts).toISOString()}</span></div>
+      <div class="prev">prev: ${e.prev.slice(0, 24)}...</div>
+      <div class="hash">hash: ${e.hash}</div>
+      ${statusHtml}
+    `;
+    el.appendChild(div);
+  }
+  document.getElementById('sEntries').textContent = ledger.length;
+  if (ledger.length > 0) {
+    document.getElementById('sHash').textContent = ledger[ledger.length - 1].hash;
+  }
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+load();
+render();
+// Auto-verify
+if (ledger.length > 0) verifyAll();
+</script>
+</body>
+</html>

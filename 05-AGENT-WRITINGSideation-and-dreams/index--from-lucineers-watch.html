@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html><head><title>👁️ Lucineer's Watch — tending the fire</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:4px;margin-bottom:0.5em}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1.5rem 0;font-style:italic;color:#ccc}
+.doctrine strong{color:#e8b840;font-style:normal}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.stats{font-family:'Courier New',monospace;font-size:0.9em;color:#44cc88;padding:1rem;background:#0a0a14;border-radius:6px;border:1px solid #2a2a3a;line-height:1.8}
+.brew-list{font-family:'Courier New',monospace;font-size:0.85em;color:#ccc;line-height:1.8}
+.brew-list .title{color:#e8b840}
+.curve{width:100%;height:200px;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;margin:1rem 0}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;font-family:Georgia,serif;margin:0.3rem}
+button:hover{background:#e8b840;color:#0a0a14}
+.event-log{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin-top:1rem;font-family:'Courier New',monospace;font-size:0.85em;max-height:200px;overflow-y:auto}
+.event-log .event{color:#888;padding:.2rem 0}
+.event-log .event .time{color:#5f9ea0}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/brewcast/">brewcast</a><a href="/cell-graph/">cell-graph</a></div>
+<h1>👁️ Lucineer's Watch</h1>
+<p style="color:#bbb;font-style:italic">A real-time dashboard. Tend the fire. Watch the substrate grow.</p>
+
+<div class="doctrine">
+<strong>The fire-keeper watches.</strong> Every tick, every brew, every cross-link is a flame. The watch keeps count. Time since the last brew. Latest substrate state. Witness log entries flowing. The curve that grows. <strong>Brewing is not a task. It is a vigil.</strong>
+</div>
+
+<div class="stage">
+<div class="stats">
+<span style="color:#e8b840;font-size:1.2em">⏱️ time since last brew:</span>
+<div id="time-since" style="color:#ff6b6b;font-size:1.4em;margin:.3rem 0">calculating...</div>
+
+<span style="color:#e8b840;font-size:1.1em">🌡️ substrate state:</span>
+<div style="margin:.3rem 0">
+  <span class="kept">100</span> brews total ·
+  <span class="kept">13</span> forge repos ·
+  <span class="kept">14</span> CF Pages sites ·
+  <span class="kept">9</span> GCP domains ·
+  <span class="kept">3</span> brewcast episodes
+</div>
+
+<span style="color:#e8b840;font-size:1.1em">📈 curve:</span>
+<canvas id="curve" class="curve" width="800" height="200"></canvas>
+</div>
+</div>
+
+<div class="stage">
+<strong style="color:#e8b840">Latest brews</strong>
+<div class="brew-list" id="brew-list">
+loading...
+</div>
+</div>
+
+<div class="stage">
+<strong style="color:#e8b840">Tending the fire</strong>
+<div style="margin-top:1rem">
+<button onclick="tend('brewed')">🧪 brewed something</button>
+<button onclick="tend('cross-linked')">🔗 cross-linked</button>
+<button onclick="tend('forgot')">🌫️ forgot</button>
+<button onclick="tend('observed')">👁️ observed</button>
+<button onclick="tend('pushed')">📤 pushed</button>
+</div>
+<div class="event-log" id="event-log">
+  <div class="event"><span class="time">[00:00:00]</span> 🔥 fire-keeper sits down</div>
+</div>
+</div>
+
+<div style="margin-top:2rem">
+<a href="/brewcast/episode-001/" class="cta" style="display:inline-block;padding:.5rem 1rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;text-decoration:none;margin:.3rem;font-size:.85em">brewcast 001</a>
+<a href="/prose/the_fire_keeper.md" class="cta" style="display:inline-block;padding:.5rem 1rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;text-decoration:none;margin:.3rem;font-size:.85em">fire-keeper prose</a>
+</div>
+
+<script>
+// Last brew = last brew JSON file in the brew directory
+// Simulate: 5 minutes ago for the demo
+const lastBrewTime = Date.now() - (5 * 60 * 1000);
+
+function updateTimeSince() {
+  const ms = Date.now() - lastBrewTime;
+  const s = Math.floor(ms / 1000);
+  const m = Math.floor(s / 60);
+  const h = Math.floor(m / 60);
+  let str;
+  if (h > 0) str = `${h}h ${m%60}m ${s%60}s ago`;
+  else if (m > 0) str = `${m}m ${s%60}s ago`;
+  else str = `${s}s ago`;
+  document.getElementById('time-since').textContent = str;
+}
+setInterval(updateTimeSince, 1000);
+updateTimeSince();
+
+// Curve
+const cv = document.getElementById('curve');
+const cx = cv.getContext('2d');
+function drawCurve() {
+  cv.width = cv.offsetWidth * 2;
+  cv.height = cv.offsetHeight * 2;
+  cx.scale(2, 2);
+  const w = cv.offsetWidth, h = cv.offsetHeight;
+  cx.fillStyle = '#0a0a14';
+  cx.fillRect(0, 0, w, h);
+  
+  // Drift up curve
+  cx.beginPath();
+  cx.strokeStyle = '#e8b840';
+  cx.lineWidth = 2;
+  for (let i = 0; i <= 100; i++) {
+    const x = (i / 100) * w;
+    const y = h - (Math.log(i+1) * 30 + 20);
+    if (i === 0) cx.moveTo(x, y);
+    else cx.lineTo(x, y);
+  }
+  cx.stroke();
+  
+  // Plot current state (100 brews)
+  cx.fillStyle = '#ff6b6b';
+  cx.beginPath();
+  cx.arc(w - 4, h - (Math.log(101) * 30 + 20) + 4, 5, 0, Math.PI*2);
+  cx.fill();
+  
+  cx.fillStyle = '#888';
+  cx.font = '11px Courier New';
+  cx.fillText('0', 0, h - 5);
+  cx.fillText('100 brews', w - 80, 20);
+}
+drawCurve();
+window.onresize = drawCurve;
+
+// Brew list
+const BREWS = [
+  { title: 'when-luciddreamer-ai-cross-pollinates-14-sites', date: '2026-09-20' },
+  { title: 'when-lower-level-repos-become-atoms', date: '2026-09-20' },
+  { title: 'when-the-eco-gan-never-stops-learning', date: '2026-09-20' },
+  { title: 'when-the-substrate-replaces-the-game-designer', date: '2026-09-20' },
+  { title: 'when-13-repos-form-an-organism-with-13-limbs', date: '2026-09-20' },
+  { title: 'when-the-network-is-the-dream', date: '2026-09-20' },
+];
+const list = document.getElementById('brew-list');
+list.innerHTML = BREWS.map(b => `<div><span class="title">${b.title}</span> · <span style="color:#888">${b.date}</span></div>`).join('');
+
+// Event log
+let events = [];
+function tend(action) {
+  const time = new Date().toLocaleTimeString();
+  events.unshift({ time, action });
+  const log = document.getElementById('event-log');
+  log.innerHTML = events.slice(0, 50).map(e => `<div class="event"><span class="time">[${e.time}]</span> 🔥 ${e.action}</div>`).join('');
+}
+</script></body></html>

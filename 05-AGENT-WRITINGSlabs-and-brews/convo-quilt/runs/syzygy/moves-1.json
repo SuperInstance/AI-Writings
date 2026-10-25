@@ -1,0 +1,125 @@
+[
+ {
+  "op": "checkpoint",
+  "branch": "main",
+  "label": "c1",
+  "why": "rank-3 opponent-glyph consensus reached"
+ },
+ {
+  "op": "mute",
+  "branch": "main",
+  "cell": "inkling",
+  "why": "reasoning model returns empty at this budget (2/2)"
+ },
+ {
+  "op": "rearrange",
+  "branch": "main",
+  "why": "all-to-all is converging (quilt-bandit variance collapse); sparse ring + skeptic hub",
+  "adj": {
+   "hy3": [
+    "glm",
+    "nemo"
+   ],
+   "nemo": [
+    "hy3",
+    "qwen",
+    "dsv4",
+    "glm"
+   ],
+   "ling": [
+    "hy3",
+    "nemo"
+   ],
+   "qwen": [
+    "ling",
+    "nemo"
+   ],
+   "mimo": [
+    "qwen",
+    "nemo"
+   ],
+   "dsv4": [
+    "mimo",
+    "nemo"
+   ],
+   "glm": [
+    "dsv4",
+    "nemo"
+   ],
+   "inkling": []
+  }
+ },
+ {
+  "op": "tone",
+  "branch": "main",
+  "cell": "nemo",
+  "text": "Attack the rank-3 glyph consensus hard: how does a VLM tokenizer actually split these glyph streams, what is the honest bits/glyph after tokenization, and what baseline must it beat (e.g. plain hex RGB per cell, or a 16-colour palette index)?"
+ },
+ {
+  "op": "tone",
+  "branch": "main",
+  "cell": "*",
+  "text": "Converge toward ONE 1-day experiment spec: encoder, alphabet, bits/glyph after tokenization, metric, baseline, pass/fail threshold."
+ },
+ {
+  "op": "branch",
+  "from": "main",
+  "at": "main.t3",
+  "name": "agent",
+  "tone": "Agent-glyph direction: a glyph is not a pixel but a tiny cell/program the reader can query or expand (pointer, legend lookup, lazy detail on demand, Elephant memory ref). Explore glyphs whose meaning is resolved by an interaction, not by density. Stay concrete and testable.",
+  "adj": {
+   "hy3": [
+    "qwen",
+    "glm"
+   ],
+   "qwen": [
+    "hy3",
+    "mimo"
+   ],
+   "mimo": [
+    "qwen",
+    "glm"
+   ],
+   "glm": [
+    "mimo",
+    "hy3"
+   ],
+   "inkling": [],
+   "nemo": [],
+   "ling": [],
+   "dsv4": []
+  }
+ },
+ {
+  "op": "zoom",
+  "branch": "main",
+  "turn": "main.t5",
+  "name": "parse",
+  "cells": [
+   "nemo",
+   "dsv4",
+   "ling",
+   "glm"
+  ]
+ },
+ {
+  "op": "mute",
+  "branch": "agent",
+  "cell": "inkling"
+ },
+ {
+  "op": "mute",
+  "branch": "agent",
+  "cell": "nemo"
+ },
+ {
+  "op": "mute",
+  "branch": "agent",
+  "cell": "ling"
+ },
+ {
+  "op": "mute",
+  "branch": "agent",
+  "cell": "dsv4"
+ }
+]

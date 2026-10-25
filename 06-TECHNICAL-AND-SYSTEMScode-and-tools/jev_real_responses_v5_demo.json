@@ -1,0 +1,84 @@
+{
+  "ts": "2026-09-21T03:42",
+  "total_questions": 10,
+  "results": [
+    {
+      "batch": "chess_boat_validation",
+      "latency_ms": 361.1400280001362,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.27,
+          "confidence": 0.27,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 0.82,
+          "confidence": 0.63,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "go",
+          "confidence": 0.54,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "demo_app_validation",
+      "latency_ms": 369.0829560000566,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.71,
+          "confidence": 0.71,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.52,
+          "confidence": 0.52,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 2.44,
+          "confidence": 0.52,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "jev_validation",
+          "confidence": 0.79,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "substrate_growth",
+      "latency_ms": 440.3877760000796,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.62,
+          "confidence": 0.62,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.42,
+          "confidence": 0.42,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 3.44,
+          "confidence": 0.56,
+          "source": "typesafe"
+        }
+      ]
+    }
+  ]
+}

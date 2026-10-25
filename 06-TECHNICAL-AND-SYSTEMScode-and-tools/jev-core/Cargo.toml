@@ -1,0 +1,21 @@
+[package]
+name = "jev-core"
+version = "0.1.0"
+edition = "2021"
+description = "Schema types for JEV (TypeSafe System One) decision model. Three primitives: Choice, Score, Noul. Schema-bounded, can't hallucinate."
+license = "MIT"
+homepage = "https://ai-writings.pages.dev/lab/jev-quantum/"
+repository = "https://github.com/SuperInstance/AI-Writings/tree/master/packages/jev-core"
+readme = "README.md"
+keywords = ["jev", "typesafe", "decision", "schema-bounded", "quilt", "cellular-substrate"]
+categories = ["data-structures", "api-bindings"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11", features = ["json"], optional = true }
+tokio = { version = "1", features = ["rt", "macros"], optional = true }
+
+[features]
+default = []
+client = ["reqwest", "tokio"]

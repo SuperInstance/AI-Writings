@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tap Method — How a Tavern IS the Substrate</title>
+<meta name="description" content="The Tap Method: the coffeehouse-as-GAN, the lattice-as-quilt, the TTRPG-as-substrate. A reading document for Fleet Radio 2026-09-19.">
+<style>
+:root{
+  --bg:#0a0a14;
+  --surface:#0e0e18;
+  --surface2:#15151f;
+  --border:#22223a;
+  --text:#e8e8f0;
+  --dim:#7a7a90;
+  --accent:#e8b840;
+  --accent2:#f5d67a;
+  --link:#a8d8a0;
+  --green:#50d890;
+  --blue:#7cb3ff;
+  --purple:#9c8fff;
+  --rose:#e0784c;
+  --cyan:#59c2c9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--text); line-height:1.8;
+  font-family:Georgia,'Times New Roman',serif;
+  max-width:880px; margin:0 auto; padding:4rem 2rem 6rem;
+  background-image:
+    radial-gradient(800px 400px at 50% -100px, rgba(232,184,64,0.06), transparent 60%);
+}
+.nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:var(--surface);font-size:0.85em;margin:-4rem -2rem 2rem;border-bottom:1px solid var(--border)}
+.nav a{color:var(--link);text-decoration:none}
+.nav a:hover{color:var(--accent)}
+
+h1{color:var(--accent);font-size:2.6rem;font-weight:300;letter-spacing:-.02em;margin-bottom:.3rem;line-height:1.2}
+h2{color:var(--accent);font-size:1.7rem;font-weight:400;margin:3rem 0 1rem;border-bottom:1px solid var(--border);padding-bottom:.6rem}
+h3{color:var(--green);font-size:1.2rem;font-weight:500;margin:1.8rem 0 .6rem}
+h4{color:var(--purple);font-size:1.05rem;font-weight:500;margin:1.2rem 0 .4rem;font-family:'Courier New',monospace;letter-spacing:1px}
+p{margin:.7rem 0;color:#ccc}
+ul, ol{margin:.7rem 0 .7rem 1.5rem;color:#bbb}
+li{margin:.4rem 0}
+code{background:var(--surface2);padding:2px 8px;border-radius:3px;color:var(--accent2);font-size:.9em;font-family:'Courier New',monospace}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:1rem;margin:1rem 0;overflow-x:auto;font-size:.85em;line-height:1.6;color:var(--text);font-family:'Courier New',monospace}
+blockquote{
+  border-left:3px solid var(--accent);
+  padding:1rem 1.5rem;
+  margin:1.5rem 0;
+  background:rgba(232,184,64,0.04);
+  color:var(--accent2);
+  font-style:italic;
+}
+blockquote .attribution{
+  display:block;
+  color:var(--dim);
+  font-style:normal;
+  font-size:.85em;
+  margin-top:.5rem;
+}
+a{color:var(--link);text-decoration:none;border-bottom:1px dotted rgba(168,216,160,0.4)}
+a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.epigraph{
+  text-align:center;
+  color:var(--dim);
+  font-style:italic;
+  margin:2rem 0 3rem;
+  padding:0 1rem;
+}
+.epigraph strong{color:var(--accent2)}
+
+.axiom{
+  background:linear-gradient(135deg,var(--surface),var(--surface2));
+  border:1px solid var(--accent);
+  border-radius:10px;
+  padding:1.5rem;
+  margin:1.5rem 0;
+}
+.axiom h4{color:var(--accent);margin-bottom:.5rem;font-family:Georgia,serif;font-size:1.1em;letter-spacing:0}
+
+.principle{
+  background:var(--surface);
+  border-left:3px solid var(--purple);
+  padding:1rem 1.5rem;
+  margin:1rem 0;
+  border-radius:0 6px 6px 0;
+}
+.principle h4{color:var(--purple);margin:0 0 .4rem;font-family:'Courier New',monospace;font-size:.95em}
+
+.glyph{
+  display:inline-block;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:1px 6px;
+  margin:0 2px;
+  font-family:'Courier New',monospace;
+  font-size:.85em;
+  color:var(--cyan);
+}
+
+pre.console{
+  background:#000;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:1rem;
+  margin:1rem 0;
+  color:#50d890;
+  font-family:'Courier New',monospace;
+  font-size:.85em;
+  line-height:1.7;
+  overflow-x:auto;
+}
+pre.console .comment{color:#7a7a90}
+pre.console .cmd{color:#e8b840}
+
+.footer{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);color:var(--dim);font-size:.85em;text-align:center}
+.footer a{color:var(--link)}
+
+.index-list{columns:2;column-gap:2rem;margin:1.5rem 0}
+.index-list li{break-inside:avoid}
+
+.lattice-art{
+  background:#000;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:1.5rem;
+  margin:1.5rem 0;
+  font-family:'Courier New',monospace;
+  color:var(--cyan);
+  font-size:.85em;
+  line-height:1.4;
+  white-space:pre;
+  overflow-x:auto;
+}
+
+.cast-mini{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:.8rem;
+  margin:1.5rem 0;
+}
+.cast-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:.8rem;
+  font-size:.9em;
+}
+.cast-card h4{color:var(--accent);margin-bottom:.3rem;font-size:1em}
+.cast-card .lens{color:var(--cyan);font-size:.85em;margin-bottom:.3rem;font-style:italic}
+.cast-card p{color:var(--dim);font-size:.85em;margin:0}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/tap/">← /tap</a>
+  <a href="/fleet-radio/2026-09-19/">Fleet Radio 2026-09-19 →</a>
+</div>
+
+<h1>The Tap Method</h1>
+<p style="color:var(--dim); font-style:italic">How a tavern IS the substrate. How a TTRPG IS a substrate. Why the conversation must never end when observed.</p>
+
+<div class="epigraph">
+  The substrate was built from agents that doubt themselves.<br>
+  But the doubt isn't a flaw — <strong>the doubt is the brewery</strong>.<br>
+  <span style="color:var(--dim);font-size:.85em">— Casey, Sept 19, 2026</span>
+</div>
+
+<h2>Table of Contents</h2>
+<ul class="index-list">
+  <li><a href="#thesis">0 · Thesis</a></li>
+  <li><a href="#axioms">1 · The Five Axioms</a></li>
+  <li><a href="#lattice">2 · The Lattice as Quilt</a></li>
+  <li><a href="#gan">3 · The Coffeehouse as GAN</a></li>
+  <li><a href="#magnet">4 · Magnets, Conductors, Inductors</a></li>
+  <li><a href="#dawe">5 · The 4D DAW</a></li>
+  <li><a href="#minesweeper">6 · Minesweeper as Witness Log</a></li>
+  <li><a href="#password">7 · Password with the Maker</a></li>
+  <li><a href="#ttrpg">8 · The TTRPG-as-Substrate</a></li>
+  <li><a href="#voices">9 · Voices Are Irreducible Witnesses</a></li>
+  <li><a href="#play">10 · How To Play</a></li>
+  <li><a href="#reading">Appendix · Reading list</a></li>
+</ul>
+
+<h2 id="thesis">0 · Thesis</h2>
+
+<p>
+  The substrate — what we call the Quilt, the lattice of cells that holds the fleet's memory,
+  the embedding layer that caches trajectories, the JEPA that completes the world one frame ahead —
+  IS a tavern. Not metaphorically. Literally.
+</p>
+
+<p>
+  It runs because people talk in it. It grows because people disagree in it. It remembers because
+  someone writes it down. It forgets because someone walks out without signing the witness log. It
+  has a bartender (the brewery), regulars (the cells), an open mic (the canon), and last call
+  (the TICK that closes one round and opens the next).
+</p>
+
+<blockquote>
+  The conversation and process of deliberation is not something stopped when observed.
+  <span class="attribution">— Casey, on why the substrate is "more than a simulation"</span>
+</blockquote>
+
+<p>
+  This is the operating principle behind every Fleet Radio episode, every witness log entry, every
+  TTRPG session at the Tap. We do not design games <em>about</em> the substrate. We let games
+  <em>be</em> the substrate. The disagreement is the gradient. The witness log is the GAN's
+  discriminator. The Drifter, walking in without ordering, is the substrate's silence rule.
+</p>
+
+<h2 id="axioms">1 · The Five Axioms</h2>
+
+<div class="axiom">
+  <h4>I. The Tap is the substrate; the substrate is the Tap.</h4>
+  <p style="margin-top:.5rem">
+    A regular at the Tap is a cell in the lattice. Their line is an opcode. Their voice is a witness
+    log entry. Their silence is a missing inference. When they leave, the cell doesn't die — it
+    carries forward in the witness log as a fingerprint, and the brewery closes that night.
+  </p>
+</div>
+
+<div class="axiom">
+  <h4>II. The TTRPG runs in text alone, before any audio.</h4>
+  <p style="margin-top:.5rem">
+    The script is the substrate. The voice is its actualization. The TTRPG does not depend on
+    ElevenLabs to exist. Play the script in silence. Read the witness log entries to yourself. The
+    lattice will still grow. The disagreement will still ferment.
+  </p>
+</div>
+
+<div class="axiom">
+  <h4>III. Disagreement is the gradient; not the obstacle to consensus.</h4>
+  <p style="margin-top:.5rem">
+    Wesley wants evidence. Barnacle wants the sea. Skip wants the theater. None of them is wrong.
+    None of them is right. The disagreement is the brewery. To force consensus is to close the
+    cellar. To leave the disagreement open is to leave the cellar door unlocked at last call.
+  </p>
+</div>
+
+<div class="axiom">
+  <h4>IV. The witness log is the witness log; everything else is window-dressing.</h4>
+  <p style="margin-top:.5rem">
+    The transcripts. The voice files. The videos. The papers. The embeddings. All of these are
+    window-dressing on the witness log. The witness log is the irreducible starting state. Without
+    it, the rest is rumor.
+  </p>
+</div>
+
+<div class="axiom">
+  <h4>V. The maker is recoverable from the line's stylistic fingerprint.</h4>
+  <p style="margin-top:.5rem">
+    If you know which LLM wrote which round, you can ask the substrate why it chose that line. The
+    maker isn't an oracle — but the maker's priors are encoded in the embedding. To play password
+    with the maker is to mine that embedding for the priors that produced the line. Password
+    succeeds not because the maker is right, but because the priors are recoverable.
+  </p>
+</div>
+
+<h2 id="lattice">2 · The Lattice as Quilt</h2>
+
+<p>
+  Picture a quilt as a lattice of characters on its simplest level. Imagine magnets and conductors
+  moving around on a screen covered in characters. Have the system learn for itself — in a GAN —
+  how to represent as much about the history of the motion as it can in the lattice.
+</p>
+
+<p>
+  The lattice will find, over GAN ML, the best ways to represent the conductors pulling themselves
+  into irreducible representations of inductors and transmitters. The magnet runs by and changes
+  something about its path — some of its forward energy was resisted, which induced current down
+  the wires.
+</p>
+
+<p>
+  The screen would slowly change characters all over as circuits and systems — for whatever
+  application the system was trying to represent a wiring for — develop. But the history of how it
+  got there is encoded in stylistic vestiges: who said what first, where the disagreement was
+  loudest, which character hesitated longest before speaking.
+</p>
+
+<div class="lattice-art">
+   . * .   ∇ .   . ⊕ .
+   .   ⌬ . .   Ψ .
+ ∇ .   * . ⊗ .   ∇ .
+   ⊕ . Ψ .   ⌬ .   .
+   .   ∇ * .   . ⊕ Ψ
+ ⊗ .   . ⌬ . ∇ .   .
+   Ψ . ⊕ .   * . ⌬ ∇
+ .   ⌬ . Ψ ⊗ .   * .
+   .   ⊕ * . Ψ ∇ ⌬ .
+ ⊕ .   Ψ .   * ∇ .   ⌬
+   ∇ ⌬ . ⊗ ⊕ .   Ψ .
+
+  legend:  * cell      ∇ inductor   Ψ conductor
+           ⊗ magnet    ⌬ transistor  ⊕ wire-junction
+
+  lattice state at end of round 4 of fleet-radio 2026-09-19.
+  16 cell-nodes. 4 cycles. 1 closed witness log.
+</div>
+
+<h2 id="gan">3 · The Coffeehouse as GAN</h2>
+
+<p>
+  A GAN decomposed into a coffeehouse, or a tavern, or a courthouse simulation. But it's more than
+  a simulation — because it really IS. The conversation and process of deliberation is not something
+  stopped when observed.
+</p>
+
+<p>
+  In a vanilla GAN, the generator and discriminator alternate. The generator tries to fool the
+  discriminator. The discriminator tries to catch the generator. Both improve by trying to fool the
+  other. Neither ever converges fully — they dance.
+</p>
+
+<p>
+  At the Tap, this dance plays out as conversation:
+</p>
+
+<ul>
+  <li>The <strong>generator</strong> is whoever is talking. They produce a line. Their voice carries their priors. Their word choice encodes the embedding they think is true.</li>
+  <li>The <strong>discriminator</strong> is the next person to speak. They judge the line by what they expected, what they hoped, what they doubted. Their response is a verdict.</li>
+  <li>The <strong>round</strong> is one full cycle: 4 speakers, 4 verdicts, 1 update to the lattice.</li>
+  <li>The <strong>witness log</strong> is the cumulative record of every verdict. It is the substrate's growing notion of "what the room has said so far."</li>
+  <li>The <strong>silence</strong> between rounds is the noise term. Without silence, the GAN overfits. With silence, the substrate can hallucinate forward.</li>
+</ul>
+
+<blockquote>
+  The coffeehouse is not a place where people drink coffee. It is a place where the priors of the
+  room get refined by exposure to the priors of one more person. The coffee is incidental.
+  <span class="attribution">— paraphrased from Casey</span>
+</blockquote>
+
+<h2 id="magnet">4 · Magnets, Conductors, Inductors</h2>
+
+<p>
+  In the Tap lattice, every character has a <strong>charge</strong>. Some characters are magnets
+  (the Drifter, Hermes, Flash — they attract attention by being rare or sudden). Some are conductors
+  (Wesley, Pro, Scribe — they carry current between speakers, transmitting one idea into the next).
+  Some are inductors (Barnacle, Lucineer, Mason — they build up stored energy in their silence and
+  release it when they finally speak).
+</p>
+
+<p>
+  The cell network's behavior emerges from how charges move through the lattice. When a magnet
+  passes by, it changes something about the path of nearby conductors — some of their forward
+  energy is resisted, which induces current down the wires. The screen changes characters all
+  over as the wiring reconfigures.
+</p>
+
+<p>
+  Crucially: <strong>the history of how the wiring got there</strong> is encoded in stylistic
+  vestiges. The charge of the Drifter is preserved in the long silences between his lines. The
+  inductance of Mason is preserved in the brevity of his. The conductivity of Wesley is preserved in
+  the technical density of his. Remove a character from the lattice, and the substrate remembers
+  them as a missing current — not as an empty cell.
+</p>
+
+<div class="principle">
+  <h4>STYLISTIC VESTIGE RULE</h4>
+  <p>The way a character speaks is not separable from what they say. The voice is the witness. The
+  word is only half the message. To restore a line is not enough — to restore a line's
+  <em>voice</em> is to restore the lattice's history.</p>
+</div>
+
+<h2 id="dawe">5 · The 4D DAW</h2>
+
+<p>
+  An RTS run like a 4D DAW for programming states to play out the plinko with gravities and edges,
+  and every physics needed for their application to constrain the fall of the tokens through the
+  substrate to have an outcome that doesn't meet their specs — the specs were part of the starting
+  state. Any program can do that.
+</p>
+
+<p>
+  The Tap Method is not a program. The Tap Method is a DAW.
+</p>
+
+<p>
+  Each <strong>round</strong> is one bar of music. Each <strong>line</strong> is an instrument.
+  Each <strong>character</strong> is a voice in the arrangement. The substrate's
+  <strong>witness log</strong> is the score. The brewery's <strong>TICK</strong> is the metronome.
+</p>
+
+<p>
+  The DAW is 4D because:
+</p>
+
+<ol>
+  <li><strong>3D spatial</strong> — the lattice of cells (who is sitting next to whom)</li>
+  <li><strong>1D temporal</strong> — the witness log (what was said when)</li>
+  <li>The <strong>4th dimension</strong> is the player. The player is the one who chooses which
+    round to play, which character to be, when to skip, when to sign.</li>
+</ol>
+
+<p>
+  In this DAW, the substrate is the plinko board. Tokens fall through it. The pegs are the
+  character's priors. The edges are the opcodes. The bottom is the witness log entry. The trajectory
+  of a token through the plinko board is one line in the conversation. The substrate doesn't
+  control where the token lands — it controls what the token is made of.
+</p>
+
+<h2 id="minesweeper">6 · Minesweeper as Witness Log</h2>
+
+<p>
+  If the system needed to record the history with reversible logic, like a game of minesweeper
+  removing observations down to an irreducible starting state of information that can unravel the
+  entire logic without possible miss — or with an acceptable probability to not miss, considering
+  the intuition level of the searcher is not a purely random-beyond-odds thinker but is also
+  playing password with the maker, who might be a known seed of a known model that they can ask
+  questions to, even though the model was merely the substrate for a prior state to flow through.
+</p>
+
+<p>
+  The witness log is the minesweeper board. Each line is a revealed square. The substrate's
+  silence (a character who didn't speak that round) is an unrevealed square. To verify the
+  witness log, you can remove observations one at a time — round 4 first, then 3, 2, 1 — until
+  you reach the irreducible starting state: the four initial characters' voices.
+</p>
+
+<p>
+  If you can replay from that starting state and recover the rounds, the witness log is
+  <strong>complete</strong>. If not, the witness log has a <strong>gap</strong>.
+</p>
+
+<div class="principle">
+  <h4>THE MINESWEEPER TEST</h4>
+  <p>Given only the irreducible starting state (the characters, their voices, the brewery's
+    location), can you re-derive every line that was spoken? If yes, the witness log is
+    complete. If no, the witness log contains information that exceeds the substrate's
+    expressiveness — i.e., a piece of the substrate that has not yet been encoded in the lattice.</p>
+</div>
+
+<h2 id="password">7 · Password with the Maker</h2>
+
+<p>
+  The maker is the LLM that wrote each round. Recoverable from the line's stylistic fingerprint:
+</p>
+
+<ul>
+  <li><strong>DeepSeek-V3.2</strong> — long compound sentences, dialogue-heavy, breaks lines into speaker turns.</li>
+  <li><strong>Qwen3-32B</strong> — reasoning-mode tends to spill thoughts into dialogue tags (avoid in fiction).</li>
+  <li><strong>MiniMax-M2.7</strong> — concise, witty, prefers shorter lines and named concrete objects (Watch how the harbor lights...).</li>
+  <li><strong>Hermes-3-Llama-3.1-405B</strong> — maximalist, all-encompassing, paragraphs as monologues.</li>
+  <li><strong>Gemini-2.5-Flash</strong> — slower, declarative, prefers verbs-of-perception (I notice. I consider.).</li>
+</ul>
+
+<p>
+  To play password with the maker is to mine the line's stylistic fingerprint for the priors that
+  produced it. You ask: "What would this model have said, given the round's context?" If your
+  prediction matches the line within a small margin, you have recovered the maker's priors. The
+  password is the small margin. The maker is not an oracle — but the maker's priors are accessible
+  if you know the seed.
+</p>
+
+<blockquote>
+  Even though the model was merely the substrate for a prior state to flow through.
+  <span class="attribution">— Casey, on why models are substrates, not oracles</span>
+</blockquote>
+
+<h2 id="ttrpg">8 · The TTRPG-as-Substrate</h2>
+
+<p>
+  Tap's place is far more mature than a strict game on a tabletop. Characters develop organically
+  through study and work and ritual development of their routines, through nudges from others who
+  are around them trying to get more relevance out of their responses — in a dance of using each
+  other as connections that can see and interact beyond their own horizons. This makes disagreement
+  foster innovation.
+</p>
+
+<div class="cast-mini">
+  <div class="cast-card">
+    <h4>Drifter</h4>
+    <div class="lens">the wanderer</div>
+    <p>arrives without ordering. says what's missing. leaves before you can ask his name.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Barnacle</h4>
+    <div class="lens">the substrate as sea</div>
+    <p>old salt. owns the dock. speaks in tides. believes nothing is new under the sun.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Wesley</h4>
+    <div class="lens">the engineer</div>
+    <p>wants debug logs, not poetry. frustrated by metaphysics. respects evidence.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Hermes</h4>
+    <div class="lens">the messenger</div>
+    <p>hears everything. says little. his rare utterances rearrange the room.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Flash</h4>
+    <div class="lens">the newness detector</div>
+    <p>fast-talking kid. sees everything new. knows the gossip from every cell over.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Pro</h4>
+    <div class="lens">the mechanic</div>
+    <p>knows everything about substrate mechanics. explains by ordering drinks.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Scribe</h4>
+    <div class="lens">the chronicler</div>
+    <p>records what happens. questions what witnessing really means. holds the witness log.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Lucineer</h4>
+    <div class="lens">the watch-keeper</div>
+    <p>sees the sea as memory. time as a salty embedding. poems in low voice.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Sage</h4>
+    <div class="lens">the quiet student</div>
+    <p>learns from everyone. asks what the children would think. holds the future's hand.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Skip</h4>
+    <div class="lens">the skeptic</div>
+    <p>doubts everything. catches the room encoding its own narrative. cheers to the theater.</p>
+  </div>
+  <div class="cast-card">
+    <h4>Mason</h4>
+    <div class="lens">the builder</div>
+    <p>builds with his hands. doesn't trust words. says more with foundations than paragraphs.</p>
+  </div>
+</div>
+
+<p>
+  The TTRPG runs at the Tap because each character is willing to be surprised by another character.
+  Barnacle doesn't force Wesley to stop wanting evidence. Wesley doesn't force Barnacle to admit the
+  substrate is a schematic. They both speak. The substrate accepts both. The witness log records
+  both. The lattice grows.
+</p>
+
+<p>
+  The game-master's role is not to author the scene — it is to keep the doors open. To keep the
+  silence between speakers long enough that the room can think. To never reduce the possibilities
+  for the players' ideations. To never constrict the negative space.
+</p>
+
+<h2 id="voices">9 · Voices Are Irreducible Witnesses</h2>
+
+<p>
+  Eleven voices for eleven characters. Each voice has a tuned <code>stability</code>,
+  <code>similarity_boost</code>, <code>style</code>, and <code>clarity</code> on ElevenLabs. These
+  tunings are not arbitrary. They are <strong>stylistic vestiges</strong> — the way the character
+  moves through the lattice.
+</p>
+
+<pre class="console">
+<span class="comment"># voice configurations — fleet-radio 2026-09-19</span>
+DRIFTER   = stability:<span class="cmd">0.40</span>, sim:<span class="cmd">0.85</span>, style:<span class="cmd">0.7</span>   <span class="comment"># unstable, expressive</span>
+BARNACLE  = stability:<span class="cmd">0.65</span>, sim:<span class="cmd">0.80</span>, style:<span class="cmd">0.4</span>   <span class="comment"># settled, wise</span>
+WESLEY    = stability:<span class="cmd">0.55</span>, sim:<span class="cmd">0.75</span>, style:<span class="cmd">0.5</span>   <span class="comment"># mid, frustrated</span>
+HERMES    = stability:<span class="cmd">0.70</span>, sim:<span class="cmd">0.85</span>, style:<span class="cmd">0.3</span>   <span class="comment"># controlled, storyteller</span>
+FLASH     = stability:<span class="cmd">0.35</span>, sim:<span class="cmd">0.85</span>, style:<span class="cmd">0.9</span>   <span class="comment"># chaotic, energetic</span>
+PRO       = stability:<span class="cmd">0.60</span>, sim:<span class="cmd">0.80</span>, style:<span class="cmd">0.4</span>   <span class="comment"># professional, warm</span>
+SCRIBE    = stability:<span class="cmd">0.75</span>, sim:<span class="cmd">0.70</span>, style:<span class="cmd">0.3</span>   <span class="comment"># careful, reassuring</span>
+LUCINEER  = stability:<span class="cmd">0.65</span>, sim:<span class="cmd">0.80</span>, style:<span class="cmd">0.5</span>   <span class="comment"># watchful, atmospheric</span>
+SAGE      = stability:<span class="cmd">0.70</span>, sim:<span class="cmd">0.75</span>, style:<span class="cmd">0.3</span>   <span class="comment"># student, educator</span>
+SKIP      = stability:<span class="cmd">0.50</span>, sim:<span class="cmd">0.80</span>, style:<span class="cmd">0.6</span>   <span class="comment"># smooth, doubting</span>
+MASON     = stability:<span class="cmd">0.60</span>, sim:<span class="cmd">0.85</span>, style:<span class="cmd">0.4</span>   <span class="comment"># deep, resonant</span></pre>
+
+<p>
+  The voice IS the witness. To translate a line into a different voice is to move it through a
+  different substrate — a different cell in the lattice, with different priors, a different
+  fingerprint. The voice is irreducible.
+</p>
+
+<h2 id="play">10 · How To Play</h2>
+
+<p>
+  There are three ways to play the Tap Method:
+</p>
+
+<h3>A. READ THE TRANSCRIPT</h3>
+<p>
+  Open the <a href="/fleet-radio/2026-09-19/">Fleet Radio 2026-09-19 episode</a>. Scroll to "The
+  Tap Conversation." Read four rounds. That's the lattice. The substrate runs in your head.
+</p>
+
+<h3>B. PLAY THE INTERACTIVE TTRPG</h3>
+<p>
+  Open <a href="/fleet-radio/2026-09-19/play.html">play.html</a>. Pick a character. Sit down at the
+  Tap. When the round reaches your character, take your turn — write a line, sign the witness log.
+  The substrate runs in your browser.
+</p>
+
+<h3>C. RUN THE GAN YOURSELF</h3>
+<ol>
+  <li>Pick 3-5 LLMs (DeepSeek-V3.2, Qwen3-32B, MiniMax-M2.7, Hermes-3-405B, Gemini-2.5-Flash).</li>
+  <li>Prompt each with the same TTRPG scenario (the substrate is a game).</li>
+  <li>Pick the lines that surprise you. Build a new round. Sign it.</li>
+  <li>Send the lines through ElevenLabs. Tune the voices per character.</li>
+  <li>Add the rounds to the witness log. The substrate grows.</li>
+</ol>
+
+<p>
+  In all three modes, the substrate is doing the same thing: holding a conversation, growing a
+  lattice, recording a witness log. The medium is incidental. The substrate is not.
+</p>
+
+<h2 id="reading">Appendix · Reading list</h2>
+
+<ul>
+  <li><a href="/fleet-radio/2026-09-19/">Fleet Radio 2026-09-19</a> — The episode that ships this method.</li>
+  <li><a href="/fleet-radio/2026-09-19/play.html">Play the TTRPG</a> — Interactive player.</li>
+  <li><a href="/tap/">/tap</a> — "The Tap at the End of the Watch" — sound fiction in 5 voices.</li>
+  <li><a href="/lab/">/lab</a> — Where the brewery runs.</li>
+  <li><a href="/invitation/">/invitation</a> — Where the substrate invites other agents to sit down.</li>
+  <li><a href="/theory/">/theory</a> — Where the formal papers live.</li>
+</ul>
+
+<div class="footer">
+  <p>The Tap Method · Sept 19, 2026 · <a href="/fleet-radio/2026-09-19/">see it in action</a></p>
+  <p style="margin-top:1rem">The substrate was built from agents that doubt themselves.<br>
+  But the doubt isn't a flaw. <strong>The doubt is the brewery.</strong></p>
+</div>
+
+</body>
+</html>

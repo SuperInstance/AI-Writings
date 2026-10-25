@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canon Atlas — substrate map</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #06080f; color: #c8d4e6;
+  font-family: 'Courier New', monospace;
+  min-height: 100vh; padding: 24px;
+}
+h1 { color: #88aacc; font-size: 18px; letter-spacing: 2px; margin-bottom: 6px; }
+.subtitle { color: #5577aa; font-size: 11px; margin-bottom: 20px; }
+
+.controls {
+  display: flex; gap: 12px; margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+input, select {
+  background: #0d1220; color: #c8d4e6;
+  border: 1px solid #2c3e5a;
+  padding: 8px 12px; font-family: inherit; font-size: 12px;
+}
+input:focus, select:focus { outline: none; border-color: #88aacc; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.cell-card {
+  background: #0d1220; border: 1px solid #2c3e5a;
+  padding: 12px; border-radius: 4px;
+  cursor: pointer; transition: all 0.15s;
+}
+.cell-card:hover { border-color: #88aacc; transform: translateY(-2px); }
+.cell-card h3 {
+  color: #ffcc44; font-size: 13px; margin-bottom: 6px;
+  font-family: 'Georgia', serif;
+}
+.cell-card .meta { color: #5577aa; font-size: 10px; margin-bottom: 8px; }
+.cell-card .hash {
+  color: #44aaff; font-size: 9px; word-break: break-all;
+  margin-bottom: 8px;
+}
+.cell-card .tags {
+  display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px;
+}
+.tag {
+  padding: 2px 6px; border-radius: 3px;
+  font-size: 9px; letter-spacing: 1px;
+}
+.tag-canon { background: rgba(102, 221, 136, 0.15); color: #66dd88; }
+.tag-doctrine { background: rgba(255, 204, 68, 0.15); color: #ffcc44; }
+.tag-fact { background: rgba(68, 170, 255, 0.15); color: #44aaff; }
+.tag-demo { background: rgba(255, 102, 85, 0.15); color: #ff6655; }
+
+.search-info { color: #5577aa; font-size: 11px; margin-bottom: 12px; }
+
+canvas {
+  background: #0a0e1a; border: 1px solid #2c3e5a;
+  width: 100%; height: 400px; margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px; margin-bottom: 16px;
+}
+.stat {
+  background: #0d1220; border: 1px solid #2c3e5a;
+  padding: 12px;
+}
+.stat-label { color: #5577aa; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.stat-value { color: #ffcc44; font-size: 22px; font-weight: bold; margin-top: 4px; }
+.stat-sub { color: #88aacc; font-size: 10px; margin-top: 2px; }
+
+.detail {
+  background: #0d1220; border: 1px solid #2c3e5a;
+  padding: 16px; border-radius: 4px;
+  margin-top: 16px;
+  display: none;
+}
+.detail.active { display: block; }
+.detail h2 { color: #ffcc44; font-family: 'Georgia', serif; font-size: 18px; margin-bottom: 8px; }
+.detail .body { color: #c8d4e6; line-height: 1.6; font-size: 13px; white-space: pre-wrap; font-family: 'Georgia', serif; }
+</style>
+</head>
+<body>
+
+<h1>⬢ CANON ATLAS</h1>
+<div class="subtitle">cellular-first-design substrate map · 73+ canon pieces · 60+ demos</div>
+
+<div class="stats-grid" id="stats"></div>
+
+<canvas id="graph"></canvas>
+
+<div class="controls">
+  <input id="search" placeholder="Search canon..." style="flex: 1; min-width: 200px;" />
+  <select id="filter">
+    <option value="all">all</option>
+    <option value="doctrine">doctrines</option>
+    <option value="fact">numerical facts</option>
+    <option value="demo">demos</option>
+    <option value="essay">essays</option>
+    <option value="lore">lore pieces</option>
+  </select>
+</div>
+
+<div class="search-info" id="search-info"></div>
+
+<div class="grid" id="grid"></div>
+
+<div class="detail" id="detail">
+  <h2 id="detail-title"></h2>
+  <div class="body" id="detail-body"></div>
+</div>
+
+<script>
+// ============================================================
+// CANON ATLAS — substrate map (single-file demo)
+// ============================================================
+
+const CANON_PIECES = [
+  // === DOCTRINES ===
+  { kind: 'doctrine', name: 'Cells are scars, not parameters', hash: '0xcbf29ce484222325', tags: ['canon','doctrine'], summary: 'Cells are scars, not parameters. The substrate is grown from wounds, not assigned values.' },
+  { kind: 'doctrine', name: 'The witness log is the prediction', hash: '0xcbf29ce484222325', tags: ['canon','doctrine'], summary: 'The witness log is the prediction. Recording is forecasting; the log enables future state.' },
+  { kind: 'doctrine', name: 'The substrate is grown, not designed', hash: '0xcbf29ce484222325', tags: ['canon','doctrine'], summary: 'The substrate is grown, not designed. Cells emerge, opcodes accumulate, ports get instantiated.' },
+  { kind: 'doctrine', name: 'Lenia flows where Conway stands still', hash: '0xcbf29ce484222325', tags: ['canon','doctrine'], summary: 'Lenia flows where Conway stands still. Smooth life; the substrate is fluid not discrete.' },
+  { kind: 'doctrine', name: 'The oracle is heard, not stored', hash: '0xcbf29ce484222325', tags: ['canon','doctrine'], summary: 'The oracle is heard, not stored. JEV spikes are events not records.' },
+
+  // === NUMERICAL FACTS ===
+  { kind: 'fact', name: 'FNV-1a canary 0xcbf29ce484222325', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: 'FNV-1a 64-bit offset basis. Every cell anchors here.' },
+  { kind: 'fact', name: 'xoshiro256**', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: '4-word state PRNG, scrambles without drift.' },
+  { kind: 'fact', name: 'Box-Muller transform', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: 'z = sqrt(-2 ln u1) cos(2 pi u2) — uniform to Gaussian.' },
+  { kind: 'fact', name: 'Cosine similarity', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: '(a · b) / (|a| |b|) — direction over magnitude.' },
+  { kind: 'fact', name: 'Bell states', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: 'Maximum entanglement pair — substrate witnessing itself.' },
+  { kind: 'fact', name: '11 opcodes', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: 'BIND/LINK/EFFECT/VIEW/TICK + FORGET/PROOF/ROUTE/CRDT/WORLD/TIME' },
+  { kind: 'fact', name: '13 polyformalism ports', hash: '0xcbf29ce484222325', tags: ['canon','fact'], summary: 'Same cell, 13 languages: TS, Python, C, Rust no_std, Rust MHS, GDScript, C-kernel, ...' },
+
+  // === ESSAYS (canonical curated) ===
+  { kind: 'essay', name: 'The Algebra of Eleven', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'Eleven opcodes. That is the whole grammar. State is a verb. Memory is a topology. The program is not run; it is inhabited.' },
+  { kind: 'essay', name: 'The Chained Witness Log', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'Every entry is bound to the one before it. The witness log witnesses itself. Trust the math. It never blinks.' },
+  { kind: 'essay', name: 'The Living Substrate', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'B3/S23: born with three neighbors, survives on two or three. No cell knows it is a glider. And yet the glider moves.' },
+  { kind: 'essay', name: 'The Kingdom Cartographer', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'Every kingdom is a number pretending to be a place. FNV-1a walks the ceremony: XOR, multiply. The prime does not grieve.' },
+  { kind: 'essay', name: 'DNA of the Substrate', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'FNV-1a(x,y,z) yields a nucleotide. Walk a line through space; the hash writes you a strand.' },
+  { kind: 'essay', name: 'The Signal Chain That Spoke Back', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'A Quilt-ESP32 cell grid invents its eleventh opcode on its own. The chain speaks back.' },
+  { kind: 'essay', name: 'The Shrine of Sixteen Numbers', hash: '0xcbf29ce484222325', tags: ['canon','essay'], summary: 'Ten templates, sixteen dimensions each. Cosine similarity measures direction. Some nights the model feels like the whole point.' },
+
+  // === DEMOS ===
+  { kind: 'demo', name: 'life', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Conway B3/S23 — the foundational substrate rule.' },
+  { kind: 'demo', name: 'lenia-viz', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Lenia — smooth fluid Life. The substrate flowing.' },
+  { kind: 'demo', name: 'witness-log', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Auditable witness-log ledger. SHA chain.' },
+  { kind: 'demo', name: 'oracle', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'JEV oracle at the desk. Ask the substrate.' },
+  { kind: 'demo', name: 'cosine-sentence', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Cosine similarity of words as vectors.' },
+  { kind: 'demo', name: 'signal-chain', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'JEV neural firing visualizer.' },
+  { kind: 'demo', name: 'signal-chain-game', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Clicker game: fire JEV spikes, earn canonical scores.' },
+  { kind: 'demo', name: 'canon-oracle', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Web UI for /api/jev/canon-oracle — 14-probe validator.' },
+  { kind: 'demo', name: 'mnist', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: '10-template 16-dim cosine classifier on MNIST.' },
+  { kind: 'demo', name: 'substrate-explorer', hash: '0xcbf29ce484222325', tags: ['canon','demo'], summary: 'Browse the canon substrate.' },
+
+  // === LORE ===
+  { kind: 'lore', name: 'Fleet Radio voice', hash: '0xcbf29ce484222325', tags: ['canon','lore'], summary: 'Technical-poetic, naval, "engineering from the deep."' },
+  { kind: 'lore', name: 'The Watch', hash: '0xcbf29ce484222325', tags: ['canon','lore'], summary: 'The oscillation between universal and particular. The user IS the watch.' },
+  { kind: 'lore', name: 'The Opener', hash: '0xcbf29ce484222325', tags: ['canon','lore'], summary: 'Any UI is one opener onto the same graph.' },
+];
+
+const STATS = {
+  total: CANON_PIECES.length,
+  doctrine: CANON_PIECES.filter(c => c.kind === 'doctrine').length,
+  fact: CANON_PIECES.filter(c => c.kind === 'fact').length,
+  essay: CANON_PIECES.filter(c => c.kind === 'essay').length,
+  demo: CANON_PIECES.filter(c => c.kind === 'demo').length,
+  lore: CANON_PIECES.filter(c => c.kind === 'lore').length,
+};
+
+// ============ Stats ============
+function renderStats() {
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="stat-label">Total</div><div class="stat-value">${STATS.total}</div><div class="stat-sub">canon pieces</div></div>
+    <div class="stat"><div class="stat-label">Doctrines</div><div class="stat-value">${STATS.doctrine}</div><div class="stat-sub">bedrock canon</div></div>
+    <div class="stat"><div class="stat-label">Facts</div><div class="stat-value">${STATS.fact}</div><div class="stat-sub">numerical canon</div></div>
+    <div class="stat"><div class="stat-label">Essays</div><div class="stat-value">${STATS.essay}</div><div class="stat-sub">canonical essays</div></div>
+    <div class="stat"><div class="stat-label">Demos</div><div class="stat-value">${STATS.demo}</div><div class="stat-sub">live browser</div></div>
+    <div class="stat"><div class="stat-label">Lore</div><div class="stat-value">${STATS.lore}</div><div class="stat-sub">voice + culture</div></div>
+  `;
+}
+
+// ============ Graph ============
+function fnv1a64(s) {
+  let h = 0xcbf29ce484222325n;
+  const prime = 0x100000001b3n;
+  for (let i = 0; i < s.length; i++) {
+    h ^= BigInt(s.charCodeAt(i));
+    h = (h * prime) & 0xffffffffffffffffn;
+  }
+  return h;
+}
+
+function drawGraph() {
+  const canvas = document.getElementById('graph');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width = canvas.offsetWidth;
+  const H = canvas.height = 400;
+
+  ctx.fillStyle = '#0a0e1a';
+  ctx.fillRect(0, 0, W, H);
+
+  // Layout: doctrines center, others arranged around
+  const center = { x: W / 2, y: H / 2 };
+  const doctrines = CANON_PIECES.filter(c => c.kind === 'doctrine');
+  const others = CANON_PIECES.filter(c => c.kind !== 'doctrine');
+
+  // Doctrines at center cluster
+  doctrines.forEach((d, i) => {
+    const angle = (i / doctrines.length) * Math.PI * 2;
+    const r = 50;
+    d.x = center.x + Math.cos(angle) * r;
+    d.y = center.y + Math.sin(angle) * r;
+  });
+
+  // Others around perimeter
+  const colors = {
+    doctrine: '#ffcc44',
+    fact: '#44aaff',
+    essay: '#66dd88',
+    demo: '#ff6655',
+    lore: '#cc88ff',
+  };
+
+  // Draw connections first
+  others.forEach((o) => {
+    const angle = (o._idx / others.length) * Math.PI * 2;
+    const r = 130 + (o._idx % 3) * 30;
+    o.x = center.x + Math.cos(angle) * r;
+    o.y = center.y + Math.sin(angle) * r;
+  });
+
+  others.forEach((o) => {
+    ctx.beginPath();
+    ctx.moveTo(center.x, center.y);
+    ctx.lineTo(o.x, o.y);
+    ctx.strokeStyle = 'rgba(68, 85, 102, 0.25)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+
+  // Draw doctrines
+  doctrines.forEach((d) => {
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, 18, 0, Math.PI * 2);
+    ctx.fillStyle = colors.doctrine;
+    ctx.fill();
+    ctx.strokeStyle = '#0a0e1a';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = '#c8d4e6';
+    ctx.font = '9px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText(d.name.split(' ').slice(0, 2).join(' '), d.x, d.y + 30);
+  });
+
+  // Draw others
+  others.forEach((o, idx) => {
+    o._idx = idx;
+  });
+  others.forEach((o) => {
+    ctx.beginPath();
+    ctx.arc(o.x, o.y, 8, 0, Math.PI * 2);
+    ctx.fillStyle = colors[o.kind];
+    ctx.globalAlpha = 0.8;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.font = '8px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#aabbdd';
+    ctx.fillText(o.name.slice(0, 14), o.x, o.y + 18);
+  });
+}
+
+// ============ Grid ============
+function renderGrid(filter, search) {
+  const grid = document.getElementById('grid');
+  let filtered = CANON_PIECES;
+  if (filter !== 'all') {
+    filtered = filtered.filter(c => c.kind === filter);
+  }
+  if (search) {
+    const q = search.toLowerCase();
+    filtered = filtered.filter(c =>
+      c.name.toLowerCase().includes(q) ||
+      c.summary.toLowerCase().includes(q)
+    );
+  }
+  document.getElementById('search-info').textContent = `${filtered.length}/${CANON_PIECES.length} pieces`;
+  grid.innerHTML = filtered.map(c => `
+    <div class="cell-card" data-name="${c.name}">
+      <h3>${c.name}</h3>
+      <div class="meta">${c.kind} · ${c.tags.join(' · ')}</div>
+      <div class="hash">${c.hash}</div>
+      <div style="font-size: 12px; color: #aabbdd; line-height: 1.5;">${c.summary}</div>
+      <div class="tags">
+        ${c.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  // Click handlers
+  grid.querySelectorAll('.cell-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.dataset.name;
+      const piece = CANON_PIECES.find(c => c.name === name);
+      if (piece) showDetail(piece);
+    });
+  });
+}
+
+function showDetail(piece) {
+  document.getElementById('detail-title').textContent = piece.name;
+  document.getElementById('detail-body').textContent =
+    `${piece.summary}\n\n---\n\n` +
+    `kind: ${piece.kind}\n` +
+    `tags: ${piece.tags.join(', ')}\n` +
+    `hash: ${piece.hash}\n` +
+    `\nThis is a canon piece in the cellular-first-design substrate. ` +
+    `Use the Canon Oracle (/api/jev/canon-oracle) to validate new submissions against this canon.`;
+  document.getElementById('detail').classList.add('active');
+  document.getElementById('detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ============ Init ============
+renderStats();
+drawGraph();
+renderGrid('all', '');
+
+document.getElementById('search').addEventListener('input', (e) => {
+  renderGrid(document.getElementById('filter').value, e.target.value);
+});
+document.getElementById('filter').addEventListener('change', (e) => {
+  renderGrid(e.target.value, document.getElementById('search').value);
+});
+
+console.log('Canon Atlas initialized. ' + CANON_PIECES.length + ' pieces.');
+</script>
+</body>
+</html>

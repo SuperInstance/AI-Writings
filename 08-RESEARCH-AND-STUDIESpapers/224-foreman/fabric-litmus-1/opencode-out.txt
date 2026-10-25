@@ -1,0 +1,78 @@
+[0m
+> build · glm-5.3
+[0m
+[0m$ [0mpython3 --version && python3 -c "import numpy; print('numpy', numpy.__version__)"
+Python 3.14.4
+numpy 2.4.6
+[0m
+[0m← [0mWrite litmus.py
+Wrote file successfully.
+[0m
+[0m$ [0mpython3 litmus.py
+CANONICAL VERIFICATION (tol 1e-12)
+  PASS  P1 s3        got=[1.612500000000 1.387500000000]  want=[1.612500000000 1.387500000000]  |err|=2.22e-16
+  PASS  P1 lambda1   got=[1.528125000000 1.471875000000]  want=[1.528125000000 1.471875000000]  |err|=2.22e-16
+  PASS  P1 lambda2   got=[1.556250000000 1.443750000000]  want=[1.556250000000 1.443750000000]  |err|=2.22e-16
+  PASS  P1 lambda3   got=[1.612500000000 1.387500000000]  want=[1.612500000000 1.387500000000]  |err|=2.22e-16
+  PASS  P1 g         got=[0.039375000000]  want=[0.039375000000]  |err|=2.78e-17
+  PASS  P1 theta+    got=[1.000000000000]  want=[1.000000000000]  |err|=0.00e+00
+  PASS  P2 s3        got=[1.472500000000 1.527500000000]  want=[1.472500000000 1.527500000000]  |err|=2.22e-16
+  PASS  P2 g         got=[-0.009625000000  0.009625000000]  want=[-0.009625000000  0.009625000000]  |err|=1.73e-17
+  PASS  P2 theta+    got=[0.600481250000 0.399518750000]  want=[0.600481250000 0.399518750000]  |err|=5.55e-17
+  PASS  RefA lambda2 got=[ 0.251200000000 -0.188400000000]  want=[ 0.251200000000 -0.188400000000]  |err|=5.00e-16
+  PASS  RefA lambda1 got=[ 0.207240000000 -0.100480000000]  want=[ 0.207240000000 -0.100480000000]  |err|=4.72e-16
+  PASS  RefA g       got=[0.068766000000]  want=[0.068766000000]  |err|=2.78e-17
+ALL CANONICAL INSTANCES PASS
+
+LITMUS: z=[0.65 0.35], s0=[0.5 0.5], theta0=[0.6 0.4], T=3, N=200, eta=0.1, m=1
+--- alpha=0.05 ---
+Arm A s200 = (0.580727807, 0.419272193)   theta_A = (0.703207405, 0.296792595)
+Arm B s200 = (0.540000000, 0.460000000)   theta_B = (0.600000000, 0.400000000)
+|s-z| per-coord: A=(0.069272193, 0.069272193) max=0.069272193 | B=(0.110000000, 0.110000000) max=0.110000000
+||s-z|| final: A=0.097965675  B=0.155563492
+boundary ||s-z|| non-increasing after tick 25: A=True (worst step -5.92e-04)  B=True (worst step +0.00e+00)
+max|sum(s_t)-1| over all ticks: A=7.772e-16  B=0.000e+00   max|sum(theta)-1|: A=2.220e-16  B=0.000e+00
+A boundary ||s-z|| sample: t27=0.147150  t51=0.139100  t102=0.123428  t153=0.109521  t198=0.098558  t200=0.097966
+B boundary ||s-z|| sample: t27=0.155563  t51=0.155563  t102=0.155563  t153=0.155563  t198=0.155563  t200=0.155563
+Arm B cofire c = eta*H^T*ones = (0.000000, 0.000000)  (exactly zero -> theta_B frozen)
+
+--- alpha=0.1 ---
+Arm A s200 = (0.606559155, 0.393440845)   theta_A = (0.768141703, 0.231858297)
+Arm B s200 = (0.540000000, 0.460000000)   theta_B = (0.600000000, 0.400000000)
+|s-z| per-coord: A=(0.043440845, 0.043440845) max=0.043440845 | B=(0.110000000, 0.110000000) max=0.110000000
+||s-z|| final: A=0.061434633  B=0.155563492
+boundary ||s-z|| non-increasing after tick 25: A=True (worst step -7.48e-04)  B=True (worst step +0.00e+00)
+max|sum(s_t)-1| over all ticks: A=1.776e-15  B=0.000e+00   max|sum(theta)-1|: A=4.441e-16  B=0.000e+00
+A boundary ||s-z|| sample: t27=0.139123  t51=0.124255  t102=0.097725  t153=0.076860  t198=0.062182  t200=0.061435
+B boundary ||s-z|| sample: t27=0.155563  t51=0.155563  t102=0.155563  t153=0.155563  t198=0.155563  t200=0.155563
+Arm B cofire c = eta*H^T*ones = (0.000000, 0.000000)  (exactly zero -> theta_B frozen)
+
+COMPACT SUMMARY @ tick 200 (eta=0.1, T=3, N=200)
+alpha arm         s[0]         s[1]     theta[0]     theta[1]     max|s-z| mono>25  max|sum(s)-1|
+-------------------------------------------------------------------------------------------------
+ 0.05   A  0.580727807  0.419272193  0.703207405  0.296792595  0.069272193    True      7.772e-16
+ 0.05   B  0.540000000  0.460000000  0.600000000  0.400000000  0.110000000    True      0.000e+00
+  0.1   A  0.606559155  0.393440845  0.768141703  0.231858297  0.043440845    True      1.776e-15
+  0.1   B  0.540000000  0.460000000  0.600000000  0.400000000  0.110000000    True      0.000e+00
+[0m
+All canonical instances verified first (max err 5.0e-16, well under 1e-12), then the litmus ran.
+
+**Choices made** (spec silent on these): litmus reuses the P2 fabric (`W=[[0.75,.25],[.25,.75]]`, `H=[[1,-1],[-1,1]]`, p=2 since theta0∈R², eta=0.1); epoch loop = forward ticks → adjoint over that epoch's ticks (z=(0.65,0.35) every epoch, incl. the 2-tick partial) → one projected update, i.e., 67 updates total; "final theta" = after the last update, "final s" = state at tick 200; "after tick 25" = boundary ticks 27…200; monotonicity checked exactly (≤).
+
+**Results @ tick 200** (eta=0.1, T=3, N=200):
+
+| alpha | arm | s[0] | s[1] | theta[0] | theta[1] | max \|s−z\| | mono>25 | max \|Σs−1\| |
+|---|---|---|---|---|---|---|---|---|
+| 0.05 | A | 0.580727807 | 0.419272193 | 0.703207405 | 0.296792595 | 0.069272193 | True | 7.772e-16 |
+| 0.05 | B | 0.540000000 | 0.460000000 | 0.600000000 | 0.400000000 | 0.110000000 | True | 0 |
+| 0.10 | A | 0.606559155 | 0.393440845 | 0.768141703 | 0.231858297 | 0.043440845 | True | 1.776e-15 |
+| 0.10 | B | 0.540000000 | 0.460000000 | 0.600000000 | 0.400000000 | 0.110000000 | True | 0 |
+
+- ‖s−z‖ final: A(0.05)=0.097965675, A(0.1)=0.061434633; B=0.155563492 (both alphas).
+- Monotonicity after tick 25: **True for all arms**; A strictly decreasing (worst step −5.9e-4 / −7.5e-4), B flat-plateau (worst step +0.0).
+- Mass neutrality holds: max |Σs−1| ≤ 1.8e-15 (A, pure float roundoff), exactly 0 (B); max |Σθ−1| ≤ 4.4e-16.
+- Arm B mechanism: `c = eta·Hᵀ·1 = (0, 0)` exactly (balanced H), so theta_B is frozen at (0.6, 0.4) and s settles to the open-loop fixed point (0.54, 0.46).
+- Arm A's adjoint loop drives s toward z as predicted by the closed form: the (δ, d) mode converges geometrically per epoch (factor ≈0.9929 at α=0.05, ≈0.9858 at α=0.1) toward d* = 0.75, θ* = (0.875, 0.125); at tick 200 it is still en route (only ~67 epochs), hence residual errors 0.069/0.043 vs 0.11 for the no-op control. α=0.1 beats α=0.05, consistent with the larger per-epoch contraction.
+
+Script: `/tmp/litmus-cross/litmus.py` (verification asserts exit non-zero on any failure; all 12 canonical checks passed).
+DONE

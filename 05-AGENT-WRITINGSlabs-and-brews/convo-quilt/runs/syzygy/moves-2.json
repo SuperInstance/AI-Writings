@@ -1,0 +1,12 @@
+[
+ {"op":"checkpoint","branch":"main","label":"c2-spec","why":"spec converged: hex rank-3 glyph + legend + scrambled-legend ablation + pre-registration"},
+ {"op":"mute","branch":"main","cell":"hy3"},{"op":"mute","branch":"main","cell":"ling"},
+ {"op":"mute","branch":"main","cell":"qwen"},{"op":"mute","branch":"main","cell":"mimo"},
+ {"op":"rearrange","branch":"main","adj":{"nemo":["dsv4","glm"],"dsv4":["nemo","glm"],"glm":["nemo","dsv4"],"hy3":[],"ling":[],"qwen":[],"mimo":[],"inkling":[]},"why":"small red-team triangle"},
+ {"op":"tone","branch":"main","cell":"*","text":"Red-team the frozen spec (mimo t16 + dsv4 t17 + glm t24). Name the 3 likeliest ways it yields a FALSE POSITIVE or false negative, and the cheapest guard for each. No new arms."},
+ {"op":"checkpoint","branch":"agent","label":"a2","why":"selector+lazy-pointer peak"},
+ {"op":"tone","branch":"agent","cell":"*","text":"Converge the agent-glyph into a protocol: exact glyph grammar, what the reader does to expand (one tool call? inline?), token cost per frame vs the density baseline, and which scene facts only the expansion can recover. Numbers."},
+ {"op":"checkpoint","branch":"parse","label":"p-drift","why":"keep the drift for the record"},
+ {"op":"rewind","branch":"parse","to":"parse.t1","why":"t2-t5 drifted into pixel geometry; rewind point parse.t1 chosen by Moth draw 1 of {t0,t1} (job abba1caf, heads 27/64)"},
+ {"op":"tone","branch":"parse","cell":"*","text":"The reader sees TOKENS, not pixels. Compare zero-learning alphabets the model already knows (CSS colour names like 'teal', #RGB hex, colour-square emoji) against an in-context legend. Which costs fewer tokens per bit of scene fact recovered? Give a number and a test."}
+]

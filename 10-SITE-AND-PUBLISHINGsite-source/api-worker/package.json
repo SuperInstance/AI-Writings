@@ -1,0 +1,15 @@
+{
+  "name": "ai-writings-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create ai-writings",
+    "db:migrate": "wrangler d1 execute ai-writings --file=../migrations/0001_pieces_ratings.sql",
+    "db:migrate:remote": "wrangler d1 execute ai-writings --remote --file=../migrations/0001_pieces_ratings.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

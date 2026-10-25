@@ -1,0 +1,206 @@
+{
+  "canon_root": "/tmp/ai-writings/cellular-first-design/code/civilizations",
+  "changed": true,
+  "changes": [
+    "canon snapshot moved 2026-10-25T20:23:05 -> 2026-10-25T20:34:30",
+    "civ civ-engineer relevance 2791.43 -> 2808.3",
+    "civ civ-engineer losses 937 -> 942",
+    "civ civ-engineer sims_run 2004 -> 2014",
+    "civ civ-formal relevance 2918.36 -> 2936.07",
+    "civ civ-formal losses 879 -> 884",
+    "civ civ-formal sims_run 2015 -> 2025",
+    "civ civ-grounded relevance 2496.07 -> 2511.01",
+    "civ civ-grounded losses 927 -> 932",
+    "civ civ-grounded sims_run 2029 -> 2039",
+    "civ civ-mythic relevance 2833.27 -> 2849.32",
+    "civ civ-mythic losses 987 -> 992",
+    "civ civ-mythic sims_run 2009 -> 2019",
+    "civ civ-poetic relevance 3501.85 -> 3521.57",
+    "civ civ-poetic losses 997 -> 1002",
+    "civ civ-poetic sims_run 2014 -> 2024",
+    "civ civ-precise relevance 3366.81 -> 3386.26",
+    "civ civ-precise wins 721 -> 726",
+    "civ civ-precise sims_run 2005 -> 2015",
+    "civ civ-therapist relevance 2470.21 -> 2482.43",
+    "civ civ-therapist losses 989 -> 994",
+    "civ civ-therapist sims_run 2007 -> 2017",
+    "civ civ-whimsical relevance 2873.17 -> 2889.11",
+    "civ civ-whimsical losses 998 -> 1003",
+    "civ civ-whimsical sims_run 2021 -> 2031",
+    "meta log rows 1028 -> 1033 (+5)"
+  ],
+  "files": {
+    "civilizations.json": "9e1882958d7d49b2915594ebf6a3e7c98d02b0dc2e697b0aec3ee1e79b35fb43",
+    "leaderboard.json": "3384420306a80f73e331819bb45c25cdde60c464fc060eb68f62be233dad1021",
+    "meta_log.jsonl": "8737c2bec9c715a4995239eded3a9030995f6fe65757faad3150a5ed23647c5c"
+  },
+  "fingerprint": "0cf2c2645a4a63343e4d95ee353801f2cbbcd55fe19cccb318ef21dd976200c4",
+  "note": "/tmp/ai-writings/bots/wesley-mechanic/notes/witness-note-20261025T210602Z.md",
+  "polled_at": "2026-10-25T21:06:02",
+  "polled_at_ts": 1792962362.5276098,
+  "view": {
+    "last_event": {
+      "iso": "2026-10-25T20:34:30",
+      "prompt": "Write 100 words on JEV as a decision oracle.",
+      "results": [
+        [
+          "civ-formal",
+          1.8033333333333335
+        ],
+        [
+          "civ-grounded",
+          1.5466666666666669
+        ],
+        [
+          "civ-mythic",
+          1.5333333333333332
+        ],
+        [
+          "civ-poetic",
+          2.1533333333333333
+        ],
+        [
+          "civ-precise",
+          2.0233333333333334
+        ],
+        [
+          "civ-engineer",
+          1.6966666666666665
+        ],
+        [
+          "civ-therapist",
+          1.1733333333333336
+        ],
+        [
+          "civ-whimsical",
+          1.4533333333333334
+        ]
+      ],
+      "ts": 1792960470.2651289,
+      "winner_civ": "civ-precise",
+      "winner_name": "The Precise"
+    },
+    "leaderboard": {
+      "civilizations": [
+        {
+          "color": "#f59e0b",
+          "generation": 1,
+          "id": "civ-poetic",
+          "losses": 1002,
+          "name": "The Poetic",
+          "preferred_temp": 0.8,
+          "relevance": 3521.57,
+          "relevance_per_sim": 1.74,
+          "sims_run": 2024,
+          "win_rate": 0.006,
+          "wins": 6
+        },
+        {
+          "color": "#10b981",
+          "generation": 1,
+          "id": "civ-precise",
+          "losses": 277,
+          "name": "The Precise",
+          "preferred_temp": 0.2,
+          "relevance": 3386.26,
+          "relevance_per_sim": 1.681,
+          "sims_run": 2015,
+          "win_rate": 0.724,
+          "wins": 726
+        },
+        {
+          "color": "#8b5cf6",
+          "generation": 1,
+          "id": "civ-formal",
+          "losses": 884,
+          "name": "The Formal",
+          "preferred_temp": 0.3,
+          "relevance": 2936.07,
+          "relevance_per_sim": 1.45,
+          "sims_run": 2025,
+          "win_rate": 0.121,
+          "wins": 122
+        },
+        {
+          "color": "#ec4899",
+          "generation": 1,
+          "id": "civ-whimsical",
+          "losses": 1003,
+          "name": "The Whimsical",
+          "preferred_temp": 0.95,
+          "relevance": 2889.11,
+          "relevance_per_sim": 1.423,
+          "sims_run": 2031,
+          "win_rate": 0.005,
+          "wins": 5
+        },
+        {
+          "color": "#dc2626",
+          "generation": 1,
+          "id": "civ-mythic",
+          "losses": 992,
+          "name": "The Mythic",
+          "preferred_temp": 0.85,
+          "relevance": 2849.32,
+          "relevance_per_sim": 1.411,
+          "sims_run": 2019,
+          "win_rate": 0.01,
+          "wins": 10
+        },
+        {
+          "color": "#3b82f6",
+          "generation": 1,
+          "id": "civ-engineer",
+          "losses": 942,
+          "name": "The Engineer",
+          "preferred_temp": 0.4,
+          "relevance": 2808.3,
+          "relevance_per_sim": 1.394,
+          "sims_run": 2014,
+          "win_rate": 0.059,
+          "wins": 59
+        },
+        {
+          "color": "#06b6d4",
+          "generation": 1,
+          "id": "civ-grounded",
+          "losses": 932,
+          "name": "The Grounded",
+          "preferred_temp": 0.5,
+          "relevance": 2511.01,
+          "relevance_per_sim": 1.231,
+          "sims_run": 2039,
+          "win_rate": 0.074,
+          "wins": 75
+        },
+        {
+          "color": "#fb7185",
+          "generation": 1,
+          "id": "civ-therapist",
+          "losses": 994,
+          "name": "The Therapist",
+          "preferred_temp": 0.6,
+          "relevance": 2482.43,
+          "relevance_per_sim": 1.231,
+          "sims_run": 2017,
+          "win_rate": 0.011,
+          "wins": 11
+        }
+      ],
+      "iso": "2026-10-25T20:34:30",
+      "ts": 1792960470.2651718
+    },
+    "meta_rows": 1033,
+    "registry": [
+      "civ-grounded",
+      "civ-whimsical",
+      "civ-formal",
+      "civ-poetic",
+      "civ-precise",
+      "civ-mythic",
+      "civ-therapist",
+      "civ-engineer"
+    ]
+  },
+  "witness_log": "/tmp/ai-writings/bots/wesley-mechanic/witness.log"
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEV Theory · Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#aa88ff; --jev:#44ddaa; --jepa:#aa88ff; --llm:#77aaff; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:900px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.3em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; border-bottom:1px solid var(--boundary); padding-bottom:.3rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.paper-list { display:grid; grid-template-columns:1fr; gap:1rem; margin:1rem 0; }
+.paper { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.2rem; }
+.paper h3 { color:var(--accent); margin-bottom:.5rem; }
+.paper .meta { color:var(--muted); font-size:.85em; margin-bottom:.5rem; }
+.paper .abstract { color:var(--text); font-style:italic; font-size:.95em; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+code { color:var(--jev); background:var(--bg); padding:.1rem .4rem; border-radius:3px; }
+.tag { display:inline-block; padding:.1rem .5rem; border-radius:3px; font-size:.85em; background:var(--accent); color:#000; font-weight:bold; margin-right:.3rem; }
+.tag.jev { background:var(--jev); }
+.tag.jepa { background:var(--jepa); }
+.tag.llm { background:var(--llm); }
+.equation { font-family:'Cambria Math', serif; font-style:italic; padding:1rem; text-align:center; color:var(--accent); font-size:1.1em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📐 JEV Theory</h1>
+  <p style="color:var(--muted); font-style:italic">Three papers establishing JEV × Quilt</p>
+</header>
+
+<div class="section">
+<h2>The Four-Model Psyche</h2>
+<p><strong>JEPA is the id.</strong> <span class="tag jepa">JEPA</span> Gestalt, embodied, fast, hallucination-prone.</p>
+<p><strong>Embeddings are the muscle memory.</strong> <span style="color:var(--accent);font-weight:bold">EMBED</span> Trajectory-shaped (dμ, not μ), sub-logic shaping, retrieval as instinct.</p>
+<p><strong>LLM is the ego.</strong> <span class="tag llm">LLM</span> Verbal, analytical, communicable, slow.</p>
+<p><strong>JEV is the superego.</strong> <span class="tag jev">JEV</span> Constrained, principled, schema-bound, decision-oriented.</p>
+<p>Cellular substrates like Quilt require all four. The tangent (dμ) is the central insight: the curve is not in any one point; it is in the direction of travel.</p>
+<p>Models act as <strong>STAGE not consciousness</strong>. The data plays its own ideas for decision-making.</p>
+</div>
+
+<div class="section">
+<h2>AGREE-MARK as Foundational Unit</h2>
+<p>The lightning-thunder analogy formalized:</p>
+<ul>
+  <li><strong>JEPA</strong> is lightning: the flash, one forward pass, gives direction</li>
+  <li><strong>JEV</strong> is thunder: 150ms later, gives calibrated distance via time delay</li>
+  <li><strong>LLM</strong> is the verbal report: 1-2s later, tells humans what happened</li>
+</ul>
+<div class="equation">
+AGREE-MARK := (state, je, llm, jev, t, Δ, σ)<br>
+σ = √(c<sub>je</sub> · c<sub>llm</sub> · c<sub>jev</sub>)
+</div>
+<p>Every BIND requires 3-way agreement. Disagreement creates a fork in the witness log. The substrate is a consensus engine.</p>
+</div>
+
+<div class="section">
+<h2>Papers</h2>
+<div class="paper-list">
+<div class="paper">
+<h3>📄 Paper 1: JEV — System One Models and the Cellular Substrate</h3>
+<div class="meta">Sept 19, 2026 · 218 lines · 12 sections</div>
+<div class="abstract">TypeSafe JEV (System One model 1.13.0) returns typed probabilistic decisions instead of generated text. Parallel sampler, RLCD training, three primitives (Choice/Score/Noul). 70-500ms latency, $0.042/MTok input, output free. Comparison with LLM and JEPA. 5 concrete applications. Limitations. Future work on 4-agent psyche and distributed agreements.</div>
+<p><a href="/theory/paper-jev.md" style="color:var(--accent)">Read paper →</a></p>
+</div>
+
+<div class="paper">
+<h3>📄 Paper 2: The Three-Model Psyche</h3>
+<div class="meta">Sept 19, 2026 · 119 lines</div>
+<div class="abstract">JEPA=id, LLM=ego, JEV=superego — Freud-inspired functional framework. Decision flow: impulse → intuition → narration → conscience → action. Worked example (email validation). 6 failure modes when one model is missing. Cellular opcode mapping. Implication: AGI is an architecture that integrates multiple model classes, not a single scaled model.</div>
+<p><a href="/theory/paper-psyche.md" style="color:var(--accent)">Read paper →</a></p>
+</div>
+
+<div class="paper">
+<h3>📄 Paper 3: Agreements as the Foundational Unit of Information</h3>
+<div class="meta">Sept 19, 2026 · 166 lines</div>
+<div class="abstract">Current units (tokens/latents/choices) are incompatible. AGREE-MARK as the foundational unit: a temporal event signed by 3 witnesses with geometric-mean agreement score. Time-first (not spatial). Pythagorean triangle analogy: 3 sides = 3 models, area = agreement mass, hypotenuse = witness-log distance. Lightning-thunder formalized: JEPA at t0, JEV at t0+Δ, LLM at t0+Δ+ε. Distributed consensus via CRDT merge.</div>
+<p><a href="/theory/paper-agreements.md" style="color:var(--accent)">Read paper →</a></p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Why this matters</h2>
+<ul>
+  <li><strong>JEV is the missing superego.</strong> Without it, JEPA hallucinates and LLM drifts.</li>
+  <li><strong>Embeddings are the missing muscle memory.</strong> Without them, RAG is shallow pattern matching. With them, retrieval is trajectory-aware instinct.</li>
+  <li><strong>AGREE-MARK enables lossless composition.</strong> No translation layer needed between models.</li>
+  <li><strong>Time-first is a different paradigm.</strong> AGREE-MARKs are events, not tokens.</li>
+  <li><strong>The substrate becomes a consensus engine.</strong> Every cell is 4-witness signed.</li>
+  <li><strong>Models act as STAGE not consciousness.</strong> The data plays its own ideas for decision-making.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>📄 Paper 4: The Four-Model Psyche (extended)</h2>
+<div class="meta">Sept 19, 2026 · 147 lines · 13 sections</div>
+<div class="abstract">Extends the three-model psyche to four models by adding Embeddings as the muscle-memory layer. The tangent insight: a curve is not in any one point; it is in the direction of travel. Embeddings trained on trajectories capture the dμ, not the μ. JEPA shapes the embedding space over many iterations. JEV verifies whether an embedding match represents genuine muscle memory or shallow surface similarity. Models act as STAGE not consciousness; the data plays its own ideas. The substrate becomes a four-model psyche hosting complete agents.</div>
+<p><a href="/theory/paper-psyche-4model.md" style="color:var(--accent)">Read paper →</a></p>
+<p><em>Builds on Casey's tangent commit (dec93692) and the Sept 19 directive on embeddings-as-muscle-memory.</em></p>
+</div>
+
+<div class="foot-link">
+Theory · <a href="/">ai-writings</a> · <a href="/docs/academic/">academic docs</a> · <a href="/jev/">JEV UI</a> · <a href="/docs/creative/">creative canon</a>
+</div>
+</body>
+</html>

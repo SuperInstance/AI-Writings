@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Canon Map — 73 pieces as a galaxy</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.6rem;margin:0 0 .3rem;font-weight:200;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto}
+.galaxy{background:#000;border:1px solid var(--accent);border-radius:10px;position:relative;height:600px;overflow:hidden;margin-bottom:1rem}
+canvas{display:block;width:100%;height:100%}
+.tooltip{position:absolute;background:var(--surface);border:1px solid var(--accent);border-radius:6px;padding:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--text);pointer-events:none;display:none;max-width:300px;box-shadow:0 4px 16px rgba(0,0,0,0.8);z-index:10}
+.tooltip .title{color:var(--accent);font-size:.85rem;margin-bottom:.3rem}
+.tooltip .meta{color:var(--dim);font-size:.65rem}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem}
+input[type=range]{width:120px}
+input[type=text]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.85rem;flex:1}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.piece-list{margin-top:1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;max-height:200px;overflow-y:auto;font-family:var(--mono);font-size:.75rem}
+.piece-list .item{padding:.3rem;border-bottom:1px solid var(--border);color:var(--text2);cursor:pointer}
+.piece-list .item:hover{color:var(--accent);background:rgba(0,255,157,0.05)}
+.piece-list .item .hash{color:var(--accent2);font-size:.65rem;margin-left:.5rem}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>✦ Substrate Canon Map</h1>
+<p class="tagline">73 canon pieces as a galaxy. Each piece = its FNV-1a hash → its position. Closer = more similar.</p>
+</header>
+
+<main>
+<div class="galaxy">
+<canvas id="canvas"></canvas>
+<div class="tooltip" id="tooltip"></div>
+</div>
+<div class="controls">
+<label>Filter: <input type="text" id="filter" placeholder="paper/fable/story/all"></label>
+<button onclick="render()">✦ Redraw</button>
+<button class="secondary" onclick="zoomFit()">⊕ Fit</button>
+<label>Size: <input type="range" id="size" min="2" max="20" value="6"> <span id="sizeLbl">6</span></label>
+</div>
+<div class="stats">
+<div>Pieces shown: <span class="v" id="sShown">0</span></div>
+<div>Total: <span class="v" id="sTotal">73</span></div>
+<div>Centroid hash: <span class="v" id="sCentroid" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<div class="piece-list" id="pieceList"></div>
+</main>
+
+<footer>✦ substrate canon map · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+const CANON = [
+  'paper-001-the-cell-is-the-unit', 'paper-002-five-laws', 'paper-003-witness-log', 'paper-004-polyformalism',
+  'paper-005-fnv1a-64bit', 'paper-006-xoshiro256', 'paper-007-box-muller', 'paper-008-bell-state',
+  'paper-009-cosine-similarity', 'paper-010-rove-paper', 'paper-011-quil-canon', 'paper-012-jev-jepa',
+  'paper-013-spacetime-primacy', 'paper-014-dehooker-axiom', 'paper-015-game-of-password', 'paper-016-mycelial-seed',
+  'paper-017-double-entry-jam', 'paper-018-wolffs-law-tensors', 'paper-019-empty-room', 'paper-020-speciation-monolith',
+  'paper-021-death-of-ui', 'paper-022-cellular-first-design', 'paper-023-canon-as-vocabulary', 'paper-024-witness-is-prophecy',
+  'paper-025-rove-paper-2', 'paper-026-the-substrate-is-alive', 'paper-027-cell-as-scar', 'paper-028-the-trigger-is-sculptor',
+  'paper-029-environment-is-iterator', 'paper-030-dna-is-inherited-shape', 'paper-031-the-five-laws-proved',
+  'paper-032-substrate-bench', 'paper-033-substrate-vectors', 'paper-034-substrate-rng', 'paper-035-substrate-quantum',
+  'paper-036-substrate-post-quantum', 'paper-037-substrate-embedding', 'paper-038-substrate-opposites',
+  'paper-039-substrate-forge', 'paper-040-substrate-game-engine', 'paper-041-substrate-tidepool', 'paper-042-substrate-radio',
+  'paper-043-substrate-canon', 'paper-044-substrate-math', 'paper-045-substrate-cell', 'paper-046-substrate-pattern',
+  'paper-047-substrate-time', 'paper-048-substrate-rule-110', 'paper-049-substrate-lenia', 'paper-050-substrate-wave',
+  'paper-051-substrate-checker', 'paper-052-substrate-oracle', 'paper-053-substrate-zodiac', 'paper-054-substrate-tarot',
+  'paper-055-substrate-d20', 'paper-056-substrate-piano', 'paper-057-substrate-journal', 'paper-058-substrate-news',
+  'paper-059-substrate-dungeon', 'paper-060-substrate-chess', 'paper-061-substrate-tictactoe', 'paper-062-substrate-blackjack',
+  'paper-063-substrate-life', 'paper-064-substrate-glossary', 'paper-065-substrate-codex', 'paper-066-substrate-rosetta',
+  'paper-067-substrate-polyformalism', 'paper-068-substrate-kmeans', 'paper-069-substrate-ann-search', 'paper-070-substrate-quantum-dance',
+  'paper-071-substrate-maritime', 'paper-072-substrate-canon-search', 'paper-073-substrate-algebra',
+  // Fables
+  'fable-001-the-cell-and-the-witness', 'fable-002-the-fleet-radio', 'fable-003-the-wave-and-the-orbit',
+  'fable-004-the-xoshiro-spinners', 'fable-005-the-cosine-garden', 'fable-006-the-bell-and-the-oracle',
+  'fable-007-the-witness-log-of-the-fox', 'fable-008-the-polyformalism-tribe', 'fable-009-the-empty-room',
+  'fable-010-the-fingerprint-of-the-fjord', 'fable-011-the-five-laws-and-the-dehooker', 'fable-012-the-cellular-first-design',
+  'fable-013-the-game-of-password', 'fable-014-the-mycelial-seed', 'fable-015-the-death-of-ui',
+  // Stories
+  'story-001-the-witness-and-the-prediction', 'story-002-the-box-muller-bridge', 'story-003-the-rove-and-the-fox',
+  'story-004-the-canon-and-the-fleet', 'story-005-the-fingerprint-of-the-fjord', 'story-006-the-cosine-twin',
+  'story-007-the-bell-and-the-collapse', 'story-008-the-witness-log', 'story-009-the-xoshiro-twins',
+  'story-010-the-lenia-and-the-conway',
+];
+
+let canvas, ctx;
+let positions = {};
+let tooltip;
+
+function computePositions() {
+  positions = {};
+  for (const p of CANON) {
+    const h = fnv1a64(new TextEncoder().encode(p));
+    const x = Number((h >> 32n) & 0xffffffffn) / (1 << 32);
+    const y = Number(h & 0xffffffffn) / (1 << 32);
+    let kind = 'paper';
+    if (p.startsWith('fable')) kind = 'fable';
+    else if (p.startsWith('story')) kind = 'story';
+    positions[p] = { x, y, hash: '0x' + h.toString(16).padStart(16, '0'), kind };
+  }
+}
+
+function render() {
+  const size = parseFloat(document.getElementById('size').value);
+  const filter = document.getElementById('filter').value.trim().toLowerCase();
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Draw all
+  let shown = 0;
+  for (const [p, pos] of Object.entries(positions)) {
+    if (filter && !p.toLowerCase().includes(filter)) continue;
+    const colors = { paper: '#00ff9d', fable: '#ff80c0', story: '#00d4ff' };
+    ctx.fillStyle = colors[pos.kind];
+    ctx.beginPath();
+    ctx.arc(pos.x * canvas.width, pos.y * canvas.height, size, 0, Math.PI * 2);
+    ctx.fill();
+    shown++;
+  }
+  document.getElementById('sShown').textContent = shown;
+  document.getElementById('sTotal').textContent = CANON.length;
+  // Centroid hash
+  const sum = CANON.reduce((acc, p) => acc + fnv1a64(new TextEncoder().encode(p)), 0n);
+  document.getElementById('sCentroid').textContent = '0x' + (sum / BigInt(CANON.length)).toString(16).padStart(16, '0');
+}
+
+function zoomFit() { render(); }
+
+function attachListeners() {
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) / rect.width;
+    const my = (e.clientY - rect.top) / rect.height;
+    let closest = null, closestDist = Infinity;
+    for (const [p, pos] of Object.entries(positions)) {
+      const d = Math.hypot(pos.x - mx, pos.y - my);
+      if (d < 0.02 && d < closestDist) { closestDist = d; closest = { p, pos }; }
+    }
+    if (closest) {
+      tooltip.style.display = 'block';
+      tooltip.style.left = (e.clientX - rect.left + 10) + 'px';
+      tooltip.style.top = (e.clientY - rect.top + 10) + 'px';
+      tooltip.innerHTML = `<div class="title">${closest.p}</div><div class="meta">kind: ${closest.pos.kind}<br>hash: ${closest.pos.hash}</div>`;
+    } else {
+      tooltip.style.display = 'none';
+    }
+  });
+}
+
+document.getElementById('size').addEventListener('input', e => {
+  document.getElementById('sizeLbl').textContent = e.target.value;
+  render();
+});
+
+const list = document.getElementById('pieceList');
+list.innerHTML = CANON.slice(0, 30).map(p => `<div class="item" onclick="document.getElementById('filter').value='${p.split('-')[0]}';render()">${p}</div>`).join('');
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+tooltip = document.getElementById('tooltip');
+computePositions();
+render();
+attachListeners();
+window.addEventListener('resize', render);
+</script>
+</body>
+</html>

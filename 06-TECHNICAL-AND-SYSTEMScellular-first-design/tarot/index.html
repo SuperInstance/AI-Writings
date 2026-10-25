@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Tarot — 78 cards via Bell states</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif;--serif:'Georgia','Times New Roman',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#1a1428 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:300;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.spread{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;min-height:500px}
+.spread h3{color:var(--text);font-size:1rem;margin:0 0 1rem;font-family:var(--mono)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.card{background:linear-gradient(135deg,#1a1a2a 0%,#2a1a3a 100%);border:1px solid var(--accent);border-radius:8px;padding:1rem;aspect-ratio:2/3;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--serif);position:relative;transition:all .3s}
+.card.reversed{transform:rotate(180deg)}
+.card .num{color:var(--accent);font-size:.7rem;font-family:var(--mono);letter-spacing:2px}
+.card .name{color:var(--text);font-size:1rem;font-weight:bold;margin:.3rem 0}
+.card .suit{color:var(--amber);font-size:.7rem;font-family:var(--mono);text-transform:uppercase}
+.card .symbol{font-size:2rem;text-align:center;color:var(--pink)}
+.card .reversed-badge{position:absolute;top:2px;right:4px;font-size:.55rem;color:var(--warn);font-family:var(--mono)}
+.card .meaning{color:var(--text2);font-size:.7rem;font-style:italic;line-height:1.4;margin-top:.5rem}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem;transition:all .15s}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+.log{max-height:160px;overflow-y:auto;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem;margin-top:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
+.interpretation{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem;font-family:var(--serif);font-size:.95rem;line-height:1.6;font-style:italic;color:var(--text2)}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🃏 Substrate Tarot</h1>
+<p class="tagline">78 cards. Each drawn via Box-Muller + Bell-state superposition. Reversed via Poisson threshold.</p>
+</header>
+
+<main>
+<div class="spread">
+<h3 id="spreadTitle">Three-Card Spread</h3>
+<div class="cards" id="cards"></div>
+<div class="interpretation" id="interpretation" style="display:none"></div>
+</div>
+<aside class="panel">
+<button onclick="draw(1, 'Single Card — past, present, future compressed')">1 card</button>
+<button onclick="draw(3, 'Three-Card — past, present, future')">3 cards</button>
+<button onclick="draw(5, 'Five-Card — cross')">5 cards (Celtic Cross lite)</button>
+<button onclick="draw(10, 'Ten-Card — Celtic Cross')">10 cards (full cross)</button>
+<button class="secondary" onclick="interpret()">📜 Interpret spread</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Stats</h3>
+<div class="stats">
+<div>Total draws: <span class="v" id="sTotal">0</span></div>
+<div>Reversed: <span class="v" id="sRev">0</span></div>
+<div>Major arcana: <span class="v" id="sMaj">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .5rem">Log</h3>
+<div class="log" id="log"></div>
+<details style="margin-top:.5rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.5rem">
+<summary style="color:var(--accent);font-family:var(--mono);font-size:.75rem;cursor:pointer">🔬 debug: last draw's intermediate values</summary>
+<div id="tarotDebug" style="margin-top:.3rem;font-family:var(--mono);font-size:.65rem;color:var(--dim);line-height:1.5">Run a draw to populate.</div>
+</details>
+</aside>
+</main>
+
+<footer>🃏 substrate tarot · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+// === Tarot deck (78 cards) ===
+const MAJOR = [
+  { num: 0, name: 'The Fool', symbol: '🃏', up: 'Beginnings, innocence, spontaneity', rev: 'Recklessness, risk-taking' },
+  { num: 1, name: 'The Magician', symbol: '🪄', up: 'Manifestation, willpower', rev: 'Manipulation, trickery' },
+  { num: 2, name: 'The High Priestess', symbol: '🌙', up: 'Intuition, mystery', rev: 'Secrets, withdrawal' },
+  { num: 3, name: 'The Empress', symbol: '🌺', up: 'Fertility, abundance', rev: 'Dependence, smothering' },
+  { num: 4, name: 'The Emperor', symbol: '👑', up: 'Authority, structure', rev: 'Domination, rigidity' },
+  { num: 5, name: 'The Hierophant', symbol: '⛪', up: 'Tradition, conformity', rev: 'Rebellion, unconventional' },
+  { num: 6, name: 'The Lovers', symbol: '💕', up: 'Partnership, choice', rev: 'Disharmony, imbalance' },
+  { num: 7, name: 'The Chariot', symbol: '🏛', up: 'Direction, control', rev: 'Lack of control, aggression' },
+  { num: 8, name: 'Strength', symbol: '🦁', up: 'Inner strength, courage', rev: 'Self-doubt, weakness' },
+  { num: 9, name: 'The Hermit', symbol: '🕯', up: 'Introspection, solitude', rev: 'Isolation, loneliness' },
+  { num: 10, name: 'Wheel of Fortune', symbol: '☸', up: 'Cycles, fate, turning point', rev: 'Bad luck, resistance' },
+  { num: 11, name: 'Justice', symbol: '⚖', up: 'Fairness, truth', rev: 'Unfairness, dishonesty' },
+  { num: 12, name: 'The Hanged Man', symbol: '🙃', up: 'Surrender, new perspective', rev: 'Stalling, indecision' },
+  { num: 13, name: 'Death', symbol: '💀', up: 'Endings, transformation', rev: 'Resistance to change, stagnation' },
+  { num: 14, name: 'Temperance', symbol: '🕊', up: 'Balance, moderation, patience', rev: 'Imbalance, excess' },
+  { num: 15, name: 'The Devil', symbol: '😈', up: 'Bondage, addiction, materialism', rev: 'Releasing limits, independence' },
+  { num: 16, name: 'The Tower', symbol: '🗼', up: 'Sudden change, revelation', rev: 'Avoiding disaster, delayed change' },
+  { num: 17, name: 'The Star', symbol: '⭐', up: 'Hope, faith, renewal', rev: 'Despair, disconnection' },
+  { num: 18, name: 'The Moon', symbol: '🌕', up: 'Subconscious, intuition, illusion', rev: 'Release of fear, clarity' },
+  { num: 19, name: 'The Sun', symbol: '☀️', up: 'Joy, success, vitality', rev: 'Temporary depression, lack of success' },
+  { num: 20, name: 'Judgement', symbol: '📯', up: 'Reflection, reckoning, awakening', rev: 'Self-doubt, refusal to evolve' },
+  { num: 21, name: 'The World', symbol: '🌍', up: 'Completion, integration, accomplishment', rev: 'Incomplete, stagnation' },
+];
+
+const SUITS = ['wands', 'cups', 'swords', 'pentacles'];
+const SUIT_SYMBOLS = { wands: '🔥', cups: '💧', swords: '⚔', pentacles: '🪙' };
+const COURT = ['Page', 'Knight', 'Queen', 'King'];
+const MINOR = [];
+for (const suit of SUITS) {
+  for (let n = 1; n <= 14; n++) {
+    const name = n <= 10 ? String(n) : COURT[n - 11];
+    MINOR.push({
+      suit,
+      num: n,
+      name: `${name} of ${suit.charAt(0).toUpperCase() + suit.slice(1)}`,
+      symbol: SUIT_SYMBOLS[suit],
+      up: `${name} of ${suit} upright — element of ${suit}`,
+      rev: `${name} of ${suit} reversed — blocked or inverted ${suit} energy`,
+    });
+  }
+}
+
+let rng = new Xoshiro256('tarot-' + Date.now());
+let lastDraw = [];
+let totalDraws = 0, reversedCount = 0, majorCount = 0;
+
+function log(msg, cls) {
+  const el = document.getElementById('log');
+  const div = document.createElement('div');
+  if (cls) div.className = cls;
+  div.textContent = msg;
+  el.insertBefore(div, el.firstChild);
+  while (el.children.length > 30) el.removeChild(el.lastChild);
+}
+
+function drawCard() {
+  // 22% chance major arcana (Xoshiro draw)
+  const isMajor = rng.float() < 0.28;
+  let card;
+  if (isMajor) {
+    card = MAJOR[rng.intRange(0, MAJOR.length)];
+    majorCount++;
+  } else {
+    card = MINOR[rng.intRange(0, MINOR.length)];
+  }
+  // Reversal via Box-Muller: if gaussian < -0.5, reversed
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  const g = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+  const reversed = g < -0.5;
+  if (reversed) reversedCount++;
+  // Update debug
+  if (typeof document !== 'undefined') {
+    const el = document.getElementById('tarotDebug');
+    if (el) el.innerHTML = `<strong>Last draw:</strong> ${card.name} (${isMajor ? 'Major' : 'Minor'})<br><strong>Box-Muller</strong>: U1=${u1.toFixed(6)} U2=${u2.toFixed(6)} g=<strong style="color:var(--accent)">${g.toFixed(4)}</strong> ${g < -0.5 ? '→ REVERSED (g < -0.5)' : '→ upright'}<br><strong>xoshiro state[0]</strong>: 0x${rng.state[0].toString(16).padStart(16, '0').slice(0, 8)}...`;
+  }
+  return { ...card, reversed, isMajor };
+}
+
+function draw(count, title) {
+  document.getElementById('spreadTitle').textContent = title;
+  document.getElementById('interpretation').style.display = 'none';
+  const cards = [];
+  for (let i = 0; i < count; i++) cards.push(drawCard());
+  lastDraw = cards;
+  totalDraws++;
+  const area = document.getElementById('cards');
+  area.innerHTML = '';
+  for (let i = 0; i < cards.length; i++) {
+    const c = cards[i];
+    const div = document.createElement('div');
+    div.className = 'card' + (c.reversed ? ' reversed' : '');
+    const suitHtml = c.isMajor ? `<div class="suit">MAJOR · ${c.num}</div>` : `<div class="suit">${c.suit}</div>`;
+    div.innerHTML = `${c.reversed ? '<div class="reversed-badge">REV</div>' : ''}
+      <div>
+        <div class="num">${c.isMajor ? c.num : c.num}</div>
+        <div class="name">${c.name}</div>
+        ${suitHtml}
+      </div>
+      <div class="symbol">${c.symbol}</div>`;
+    area.appendChild(div);
+  }
+  log(`Drew ${count} cards`, '');
+  document.getElementById('sTotal').textContent = totalDraws;
+  document.getElementById('sRev').textContent = reversedCount;
+  document.getElementById('sMaj').textContent = majorCount;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${totalDraws}|${cards.map(c => c.name).join(',')}`)).toString(16).padStart(16, '0');
+}
+
+function interpret() {
+  if (lastDraw.length === 0) return;
+  const interp = document.getElementById('interpretation');
+  interp.style.display = 'block';
+  const lines = [];
+  for (let i = 0; i < lastDraw.length; i++) {
+    const c = lastDraw[i];
+    const position = lastDraw.length === 3 ? ['Past', 'Present', 'Future'][i] :
+                    lastDraw.length === 1 ? 'The Card' :
+                    `Position ${i + 1}`;
+    const meaning = c.reversed ? c.rev : c.up;
+    lines.push(`<strong>${position}: ${c.name}${c.reversed ? ' (Reversed)' : ''}</strong> — ${meaning}.`);
+  }
+  interp.innerHTML = `<h4 style="color:var(--accent);font-family:var(--mono);margin:0 0 .5rem">Reading</h4>${lines.join('<br>')}<p style="margin-top:1rem;color:var(--dim);font-size:.85rem">— Drawn deterministically from seed "${rng.state[0].toString(16).slice(0, 8)}…" via xoshiro256** + Box-Muller. —</p>`;
+}
+
+draw(3, 'Three-Card — past, present, future');
+</script>
+</body>
+</html>

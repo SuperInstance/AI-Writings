@@ -1,0 +1,2 @@
+{"ts": 1789966121.9307137, "iso": "2026-09-21T04:48:41", "event": "bot_started", "payload": {"bot": "herman-historian", "pid": 4084}, "hash": "60828bdb6aa44a5d"}
+{"ts": 1789966138.6767938, "iso": "2026-09-21T04:48:58", "event": "chronicle_written", "payload": {"path": "/workspace/repos/ai-writings/bots/herman-historian/chronicles/chronicle-20260921-044858.md", "commits": 15, "witness_entries": 20}, "hash": "80d9dcd48eb2d36f"}

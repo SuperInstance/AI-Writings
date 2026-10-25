@@ -1,0 +1,105 @@
+{
+  "ts": "2026-09-21T00:55",
+  "total_batches": 4,
+  "total_questions": 12,
+  "total_latency_ms": 1862.3140189997685,
+  "avg_latency_ms": 465.5785047499421,
+  "results": [
+    {
+      "batch": "snowball_sync",
+      "latency_ms": 467.68076699981975,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.53,
+          "confidence": 0.53,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.28,
+          "confidence": 0.28,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "demo_fused",
+          "confidence": 0.57,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "substrate_maturity",
+      "latency_ms": 403.92598100015675,
+      "results": [
+        {
+          "kind": "score",
+          "value": 1.61,
+          "confidence": 0.48,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.45,
+          "confidence": 0.45,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "demo_app",
+          "confidence": 0.8,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "doctrine_check",
+      "latency_ms": 501.6299280000567,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.58,
+          "confidence": 0.58,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.55,
+          "confidence": 0.55,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 1.74,
+          "confidence": 0.27,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "agent_health",
+      "latency_ms": 489.07734299973527,
+      "results": [
+        {
+          "kind": "noul",
+          "value": 0.62,
+          "confidence": 0.62,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 3.81,
+          "confidence": 0.84,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "trust_but_verify",
+          "confidence": 0.93,
+          "source": "typesafe"
+        }
+      ]
+    }
+  ]
+}

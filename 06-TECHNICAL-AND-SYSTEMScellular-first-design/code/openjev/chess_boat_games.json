@@ -1,0 +1,73 @@
+{
+  "ts": "2026-09-21T03:38",
+  "games": 5,
+  "total_moves": 25,
+  "total_time_ms": 12946.01032599985,
+  "learnings": [
+    {
+      "game": 1,
+      "moves": [
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4"
+      ],
+      "time_ms": 2568.0857329998616,
+      "witness_entries": 25,
+      "scars": 0
+    },
+    {
+      "game": 2,
+      "moves": [
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4"
+      ],
+      "time_ms": 2661.7462889998933,
+      "witness_entries": 25,
+      "scars": 0
+    },
+    {
+      "game": 3,
+      "moves": [
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4"
+      ],
+      "time_ms": 2495.4879100000653,
+      "witness_entries": 25,
+      "scars": 0
+    },
+    {
+      "game": 4,
+      "moves": [
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4"
+      ],
+      "time_ms": 2593.6951790001785,
+      "witness_entries": 25,
+      "scars": 0
+    },
+    {
+      "game": 5,
+      "moves": [
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4",
+        "e2-e4"
+      ],
+      "time_ms": 2626.9952149998517,
+      "witness_entries": 25,
+      "scars": 0
+    }
+  ]
+}

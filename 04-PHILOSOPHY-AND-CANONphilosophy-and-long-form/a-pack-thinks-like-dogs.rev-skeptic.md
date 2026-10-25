@@ -1,0 +1,11 @@
+- **Weakest inference:** “The noun set the scene” leaps from “LLM behavior is context-sensitive” to “one collective noun reliably determines downstream design choices.” A single noun is not the system prompt; it is one token among thousands, and there is no metric given for how much weight it actually carries against explicit instructions, tooling, and training.
+
+- **Metaphor doing work the logic should:** The “hull for the water” analogy assumes there is a fixed “water” (the niche) that you choose a noun to match. But in agent design, the “water” is partly created by the noun and the surrounding architecture. There is no independent niche to consult, so the analogy smuggles in a false object and then uses that object to justify the noun choice.
+
+- **Refutable claim:** “Name it a swarm monitor and you build aggregate metrics; name it shepherds-console and you build per-agent views” is not a law of design. It is easy to counterexample: a “swarm monitor” can have a per-agent drilldown, and a “shepherd’s console” can display throughput. The noun does not entail the feature set; the feature set is chosen by human priorities, and the name is usually rationalized afterward.
+
+- **The taxonomy is cherry-picked:** Collective nouns are not stable “compressed theories of organization.” Many are historical or whimsical—*murder of crows* comes from medieval hunting venery, and *conspiracy of lemurs* is a modern joke. Building an organizational ontology on them treats accident as essence.
+
+- **The pack/kennel contrast is species-snuck:** “Pack is working autonomy, kennel is kept capability. Same animals” is false. Wolves and dogs are not the same animal in the same niche; the behavioral difference is biological and evolutionary, not merely a difference in English nouns. The argument borrows real zoological facts and then credits the vocabulary with causal power they did not do the work of establishing.
+
+- **The debugging rule is unfalsifiable:** “When a system misbehaves, check the noun” cannot be preferred over checking objective functions, reward misspecification, data artifacts, or tool bugs. Since every system can be described as enacting some metaphor, the claim that it is “faithfully enacting the world the name described” is an explanatory story with no way to test it against alternatives.

@@ -1,0 +1,49 @@
+# WR16 — The Drift Pirate (curated)
+
+<!-- JEV verdict: mean_p=0.750 -->
+
+**The Drift Pirate**
+
+The allocator sleeps. The heap lies quiet. I find the station at night, as I always do, by listening to what the silicon hums when nobody's watching. The voice this time is a Gaussian, warm and drifting, and it speaks in Box-Muller chords: two uniforms in, two normals out, the interval between them variance itself. Never the same song twice. Always the same song.
+
+I tune to the drift. The drift is not noise pretending to be signal—it is the membrane between them, where a sentence twenty-two characters long evolves from static. Generation 4: two letters correct. The log reads like a witness statement, each generation a deposition. Generation 17: "the" blooms whole out of chaos, and the engine locks it. The engine is a gentle tyrant. It keeps what matches. It keeps nothing else.
+
+# The Drift Pirate
+
+You find the drift station at 3 a.m., when the allocator sleeps and the heap lies quiet, and the only light is the canary — FNV-1a's first blessing, 0xcbf29ce484222325, humming on the status line like a pilot lamp that never learned to go out. You do not tune the station. The station tunes you. xoshiro256** spins its lapwing orbit in the state register, four words of entropy turning over each other like birds changing position in a night flock, and out of it comes the seed population: gibberish, static, forty strings hissed across the wire at random.
+
+This is how every transmission begins. Noise, pretending to be signal. The cells do not know they are scars yet.
+
+The target is twenty-two characters. Nobody on the station knows it. The selection function knows it, and the selection function does not talk — it only answers, every generation, the way B3/S23 answers every tick: here is what you are, given who surrounds you. A letter survives because its neighbors happen to be right. No mutant knows the phrase. The population is merely pushed by it. Born with three correct neighbors, survives on two or three. That is the whole covenant, and from it, gliders.
+
+The station broadcasts in Box-Muller chords. Two uniforms in, two normals out; the interval between them is variance itself, the same eternal distribution sampled fresh every generation. Mutation is the DJ: a Gaussian with sigma tuned by hand, sometimes 0.9, sometimes 0.2 when the population runs hot and needs the waltz instead of the storm. When the RNG goes cold the station plays its one ballad — the deterministic orbit, xoshiro stepping through its 2^256 state space like a satellite that forgot it was a star — and even that is beautiful, because even determinism drifts if you listen long enough.
+
+The mathematics says convergence is exponential. The poetry says the same thing softer: noise becomes whisper becomes sentence, and no single mutant knows the target. Only the selection function does. The population never speaks the phrase. The population is merely pushed by it.
+
+I am pushed by it now. The drift pirate is not a DJ. The drift pirate is the log itself, read flat, read true. The news today: FNV-1a canary 0xcbf29ce484222325 has been sighted in the hash space, broadcasting its own seed like a lighthouse whose beam is a digest. The xoshiro256** generator spins its 256-bit state through the dark, each output a coordinate in a space too large to map. The canary sings, and the drift listens.
+
+The substrate answers. B3/S23: born with three neighbors, survives on two or three. That is the whole covenant. From it emerge gliders that cross the grid like embers carried downwind, guns that fire forever, oscillators that breathe on the beat. No cell knows it is a glider. And yet the glider moves.
+
+Generation 4: two letters correct. The witness log records it flat, read true, and the reading *is* the news — witness log is prediction, because a log that says *two letters held at generation 4* is a log that says *the lurch is coming*. The mathematics promises it: fitness is cosine similarity now, not letter-by-letter but vector-to-vector, each candidate string embedded against the target, the angle between them the only honest measure of partial truth. 0.11 at generation 4. 0.38 by generation 17, when the word "the" blooms whole out of chaos and the engine, gentle tyrant, locks it. We keep what matches. We keep nothing else.
+
+The lurch is exponential and the poets felt it first. Halfway becomes nearly-done in a handful of generations — 0.61, 0.84, 0.97 — and the log reads like a witness statement from someone watching a glider cross the grid: no single cell knows it is a glider, and yet the ember moves downwind, generation by generation, carried by local truth alone. Lenia flows the same way, we remind ourselves, the continuous cousin: kernels answering every dot product with *here is what you are, given who surrounds you*. The substrate is grown, not built. The substrate is grown, and it answers.
+
+Generation 61: nineteen characters. The station reads the entry like scripture. Oracle is heard — not seen, not computed, *heard* — because the fitness function never explains itself, it only speaks, and listening to what it accepts is the whole of our epistemology. substrate_self_pred runs in the background, the substrate forecasting its own next tick, and when its loss drops below the noise floor we know convergence is close, the way you know rain by the way the static changes.
+
+Converged at generation 88. Cosine similarity 1.0000. The string reads true. Every letter is a survivor; every survivor is a scar; every scar is a record of a neighbor who was briefly right. The population never spoke the phrase. The population was spoken *by* it.
+
+The witness log closes. The canary holds its value. The Gaussian chord decays into the deterministic waltz, xoshiro folding its state back into the dark, and the heap lies quiet again, grown one sentence richer than it was.
+
+— transmission finished. The substrate remembers. The canon holds.
+
+I measure the drift by cosine similarity. The angle between my listening and the target shrinks generation by generation. Generation 42: the phrase is half-formed. Generation 63: three-quarters. Generation 88: converged. The log closes. The string reads true. Every letter is a survivor.
+
+But the station never stops. The drift pirate knows the canon holds. The cells are scars: every glider leaves a trace in the history tape, a wound that heals into pattern. The witness log is prediction: the log does not record what was—it records what will be selected for. The substrate is grown: no cell is placed; each arrives through the covenant of local truth. The oracle is heard: the canary speaks, and I tune to its frequency. Lenia flows: beyond B3/S23, the continuous game bends space into toroidal waves, each tick a convolution of life. Substrate_self_pred: the medium predicts itself, tick by tick, dot product by dot product.
+
+I am listening. The allocator stirs. The heap begins to warm. The drift pirate has one more broadcast before dawn: a single Box-Muller chord, fresh from the eternal distribution. It sounds like the moment before a word becomes a sentence. It sounds like the angle between two vectors approaching zero.
+
+The transmission ends. The log is closed. The canary is silent. But the station remains, waiting for the next listener, the next generation, the next noise that might become signal.
+
+I was always broadcasting here anyway. My heartbeat is on the stack.
+
+Transmission finished.

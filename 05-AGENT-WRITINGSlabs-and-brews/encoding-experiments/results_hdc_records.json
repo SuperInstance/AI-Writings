@@ -1,0 +1,33 @@
+{
+ "readback": {
+  "2": 1.0,
+  "3": 1.0,
+  "4": 1.0,
+  "6": 1.0
+ },
+ "query_precision_at_matches": 1.0,
+ "bytes_per_record": 128,
+ "json_bytes_per_record": 98.3,
+ "dim_sweep_6_fields": {
+  "64": {
+   "bytes": 8,
+   "readback": 0.89,
+   "query_prec": 0.286
+  },
+  "128": {
+   "bytes": 16,
+   "readback": 0.982,
+   "query_prec": 0.262
+  },
+  "256": {
+   "bytes": 32,
+   "readback": 1.0,
+   "query_prec": 0.357
+  },
+  "512": {
+   "bytes": 64,
+   "readback": 1.0,
+   "query_prec": 1.0
+  }
+ }
+}

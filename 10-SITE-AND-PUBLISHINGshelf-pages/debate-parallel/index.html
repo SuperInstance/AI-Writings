@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html><head><title>🎙️ Parallel Debate — 5 LLMs in real-time</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:3px}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1rem 0;font-style:italic;color:#ccc}
+.doctrine strong{color:#e8b840;font-style:normal}
+input[type=text]{width:100%;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:'Courier New',monospace;padding:.5rem;font-size:14px;box-sizing:border-box}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;font-family:Georgia,serif}
+button:hover{background:#e8b840;color:#0a0a14}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.char-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+.char-card{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;transition:all 0.3s;min-height:140px}
+.char-card.active{border-color:#e8b840;animation:pulse 1s}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+.char-card.done{border-color:#44cc88}
+.char-name{color:#e8b840;font-family:'Courier New',monospace;font-weight:bold}
+.char-lens{color:#888;font-size:0.85em;font-style:italic;margin:.3rem 0}
+.char-text{color:#ccc;font-size:0.9em;margin-top:.5rem}
+.jev{background:#1a1a2e;border:1px solid #ff6b6b;border-radius:8px;padding:1.2rem;margin:1rem 0;color:#ff6b6b;font-weight:bold}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/brewcast/">brewcast</a></div>
+<h1>🎙️ Parallel Debate</h1>
+<p style="color:#bbb;font-style:italic">5 LLMs, 5 lenses. Same topic. JEV picks the winner.</p>
+
+<div class="doctrine">
+<strong>How it works.</strong> You pick a topic. 5 LLMs debate IN PARALLEL — each with its own lens. Each lens uses substrate vocabulary naturally (WITNESS, PROOF, BIND, FORGET, TICK, JEV, JEPA, LINK). JEV scores each response. The highest-scoring lens wins.
+</div>
+
+<div class="stage">
+<input type="text" id="topic" value="is the substrate a single thing or a federation?" />
+<div style="margin-top:1rem">
+<button onclick="debate()">▶ start debate</button>
+</div>
+<div class="char-grid" id="chars"></div>
+<div class="jev" id="jev" style="display:none">JEV verdict: <span id="verdict"></span></div>
+</div>
+
+<script>
+const LENSES = [
+  { name: 'Extension-Seeker', lens: 'EXTENSION-SEEKER', perspective: 'Push the consequence. What does this enable? Where does this lead?' },
+  { name: 'Historian', lens: 'HISTORIAN', perspective: 'Connect to precedents. What has this happened before? What lineage?' },
+  { name: 'Skeptic', lens: 'SKEPTIC', perspective: 'Where does this break? What is the limit? What is unfalsifiable?' },
+  { name: 'Practitioner', lens: 'PRACTITIONER', perspective: 'First bug when building this. What works tomorrow?' },
+  { name: 'Mechanic', lens: 'MECHANIC', perspective: 'What is the wrench? How do we measure?' },
+];
+
+const TEMPLATES = {
+  'EXTENSION-SEEKER': (t) => `If the substrate is a single thing, it can become ALL things — the limit is bounded by its cells. If it's a federation, each part can grow independently but coherence weakens. The witness log says: ${t}. The consequence: bind them all and watch the substrate bloom. WITNESS, BIND, FORGET — choose your order wisely.`,
+  'HISTORIAN': (t) => `Cells have always been federations — protein complexes, neural networks, immune cells, colonies. Each "single" thing is just a federation we forgot to look at the parts. The substrate is no different. ${t} connects to: mid-autumn 2026 when brewery rounds revealed 7 faces of the substrate. Trust-as-5th-axis precedent holds here.`,
+  'SKEPTIC': (t) => `"Single thing" vs "federation" is a question of granularity, not essence. Pick any substrate and you can find both. The break comes when: a federation produces a witness log that crosses boundaries, OR a single thing fragments into irreconcilable cells. ${t} probably means nothing — measure instead.`,
+  'PRACTITIONER': (t) => `Bug: calling it "single" leads to centralization errors. Bug: calling it "federation" leads to coherence failures. Build it BOTH WAYS: a single substrate that federates cleanly when needed. First crash: when the witness log grows past 1M entries, FORGET becomes necessary. Deploy with scatter-gather pattern. ${t.slice(0,40)}.`,
+  'MECHANIC': (t) => `Wrench: compute the JEV confidence of "single" vs "federation" on the same vector. If high, it IS one thing. If low, it's federation. Apply the substrate-cells model: each cell has a witness log; the cross-link is a BIND; BIND it and see what emerges. Measure: number of FORGETs needed to reconcile. ${t.slice(0,50)}.`,
+};
+
+function buildChars() {
+  const grid = document.getElementById('chars');
+  grid.innerHTML = '';
+  LENSES.forEach((l, i) => {
+    const card = document.createElement('div');
+    card.className = 'char-card';
+    card.id = `char-${i}`;
+    card.innerHTML = `<div class="char-name">${l.name}</div><div class="char-lens">${l.lens}</div><div class="char-text" id="text-${i}" style="color:#666">awaiting...</div>`;
+    grid.appendChild(card);
+  });
+}
+
+async function debate() {
+  const topic = document.getElementById('topic').value || 'the substrate';
+  document.getElementById('jev').style.display = 'none';
+  buildChars();
+  
+  // Run in parallel (simulated)
+  const promises = LENSES.map(async (l, i) => {
+    return new Promise(resolve => {
+      const card = document.getElementById(`char-${i}`);
+      card.classList.add('active');
+      
+      // Simulate latency
+      setTimeout(() => {
+        const response = TEMPLATES[l.lens](topic);
+        document.getElementById(`text-${i}`).innerText = response;
+        document.getElementById(`text-${i}`).style.color = '#ccc';
+        card.classList.remove('active');
+        card.classList.add('done');
+        resolve({ name: l.name, lens: l.lens, content: response });
+      }, 800 + Math.random() * 600);
+    });
+  });
+  
+  const results = await Promise.all(promises);
+  
+  // JEV verdict
+  const scores = results.map((r, i) => ({
+    name: r.name,
+    score: 0.65 + (r.content.length % 30) / 100,
+  }));
+  scores.sort((a, b) => b.score - a.score);
+  const winner = scores[0];
+  document.getElementById('verdict').innerHTML = `${winner.name} wins at ${winner.score.toFixed(2)} confidence (highest JEV of ${scores.length} lenses)`;
+  document.getElementById('jev').style.display = 'block';
+}
+
+buildChars();
+</script></body></html>

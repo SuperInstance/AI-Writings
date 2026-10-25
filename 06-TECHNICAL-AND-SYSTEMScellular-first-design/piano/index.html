@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Piano — Box-Muller melody</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:linear-gradient(180deg,#06080f 0%,#1a0a2a 100%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1100px;margin:0 auto}
+.keyboard{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:1rem}
+.keys{display:flex;height:140px;position:relative;background:#1a1a2a;border-radius:6px;overflow:hidden}
+.white{background:linear-gradient(180deg,#fff 0%,#ddd 100%);color:#000;flex:1;border-right:1px solid #999;display:flex;align-items:flex-end;justify-content:center;padding-bottom:.5rem;font-family:var(--mono);font-size:.7rem;cursor:pointer;user-select:none;transition:all .1s}
+.white:hover{background:linear-gradient(180deg,#fff 0%,#b8e0ff 100%)}
+.white.active{background:linear-gradient(180deg,#ffeb3b 0%,#ffc107 100%)}
+.black{position:absolute;background:linear-gradient(180deg,#000 0%,#222 100%);color:#fff;width:7%;height:60%;top:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:.3rem;font-family:var(--mono);font-size:.65rem;cursor:pointer;border-radius:0 0 4px 4px;z-index:2;user-select:none;transition:all .1s}
+.black:hover{background:linear-gradient(180deg,#000 0%,#0a3a5a 100%)}
+.black.active{background:linear-gradient(180deg,#7c5cff 0%,#5a3a8a 100%)}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1rem}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-family:inherit;font-size:.85rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.controls label{color:var(--dim);font-family:var(--mono);font-size:.8rem;display:flex;align-items:center;gap:.3rem}
+input[type=range]{width:120px}
+.stats{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:.78rem;color:var(--text2);display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🎹 Substrate Piano</h1>
+<p class="tagline">Play manually or have the substrate play. Box-Muller generates melodies. xoshiro256** controls timing.</p>
+</header>
+
+<main>
+<div class="keyboard">
+<div class="keys" id="keys"></div>
+</div>
+<div class="controls">
+<button onclick="togglePlay()" id="playBtn">▶ Play substrate melody</button>
+<button class="secondary" onclick="setScale('major')">Major</button>
+<button class="secondary" onclick="setScale('minor')">Minor</button>
+<button class="secondary" onclick="setScale('pentatonic')">Pentatonic</button>
+<button class="secondary" onclick="setScale('dorian')">Dorian</button>
+<label>Tempo: <input type="range" id="tempo" min="40" max="240" value="100"> <span id="tempoLbl">100</span></label>
+<label>Vol: <input type="range" id="vol" min="0" max="100" value="40"> <span id="volLbl">40</span></label>
+<label>Seed: <input type="text" id="seed" value="piano-001" style="width:100px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.2rem .4rem;font-family:var(--mono);font-size:.75rem"></label>
+</div>
+<div class="stats">
+<div>Notes played: <span class="v" id="sNotes">0</span></div>
+<div>Mode: <span class="v" id="sMode">idle</span></div>
+<div>Scale: <span class="v" id="sScale">major</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</main>
+
+<footer>🎹 substrate piano · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min + 1)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+const NOTES = [
+  // 2 octaves of C major starting from middle C
+  { name: 'C4', freq: 261.63, type: 'white' }, { name: 'C#4', freq: 277.18, type: 'black' },
+  { name: 'D4', freq: 293.66, type: 'white' }, { name: 'D#4', freq: 311.13, type: 'black' },
+  { name: 'E4', freq: 329.63, type: 'white' },
+  { name: 'F4', freq: 349.23, type: 'white' }, { name: 'F#4', freq: 369.99, type: 'black' },
+  { name: 'G4', freq: 392.00, type: 'white' }, { name: 'G#4', freq: 415.30, type: 'black' },
+  { name: 'A4', freq: 440.00, type: 'white' }, { name: 'A#4', freq: 466.16, type: 'black' },
+  { name: 'B4', freq: 493.88, type: 'white' },
+  { name: 'C5', freq: 523.25, type: 'white' }, { name: 'C#5', freq: 554.37, type: 'black' },
+  { name: 'D5', freq: 587.33, type: 'white' }, { name: 'D#5', freq: 622.25, type: 'black' },
+  { name: 'E5', freq: 659.25, type: 'white' },
+  { name: 'F5', freq: 698.46, type: 'white' }, { name: 'F#5', freq: 739.99, type: 'black' },
+  { name: 'G5', freq: 783.99, type: 'white' }, { name: 'G#5', freq: 830.61, type: 'black' },
+  { name: 'A5', freq: 880.00, type: 'white' }, { name: 'A#5', freq: 932.33, type: 'black' },
+  { name: 'B5', freq: 987.77, type: 'white' },
+];
+const WHITE_NOTES = NOTES.filter(n => n.type === 'white');
+const BLACK_INDICES = NOTES.map((n, i) => n.type === 'black' ? i : -1).filter(i => i >= 0);
+
+const SCALES = {
+  major: [0, 2, 4, 5, 7, 9, 11],
+  minor: [0, 2, 3, 5, 7, 8, 10],
+  pentatonic: [0, 2, 4, 7, 9],
+  dorian: [0, 2, 3, 5, 7, 9, 10],
+};
+
+let audioCtx = null, masterGain = null;
+let rng = new Xoshiro256('piano-001');
+let isPlaying = false;
+let playInterval = null;
+let notesPlayed = 0;
+let currentScale = 'major';
+let currentDegree = 0;
+let currentOctave = 0;
+
+function ensureAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = parseInt(document.getElementById('vol').value) / 100;
+    masterGain.connect(audioCtx.destination);
+  }
+}
+
+function playNote(freq, duration = 0.4) {
+  ensureAudio();
+  const osc = audioCtx.createOscillator();
+  const env = audioCtx.createGain();
+  osc.type = 'triangle';
+  osc.frequency.value = freq;
+  env.gain.setValueAtTime(0, audioCtx.currentTime);
+  env.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + 0.01);
+  env.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+  osc.connect(env); env.connect(masterGain);
+  osc.start();
+  osc.stop(audioCtx.currentTime + duration + 0.01);
+  // Flash
+  const noteIdx = NOTES.findIndex(n => Math.abs(n.freq - freq) < 0.5);
+  if (noteIdx >= 0) flashKey(noteIdx);
+  notesPlayed++;
+  document.getElementById('sNotes').textContent = notesPlayed;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(new TextEncoder().encode(`${notesPlayed}|${freq.toFixed(2)}`)).toString(16).padStart(16, '0');
+}
+
+function flashKey(idx) {
+  const el = document.querySelector(`[data-idx="${idx}"]`);
+  if (el) { el.classList.add('active'); setTimeout(() => el.classList.remove('active'), 200); }
+}
+
+function renderKeyboard() {
+  const keys = document.getElementById('keys');
+  keys.innerHTML = '';
+  // White keys
+  NOTES.forEach((n, i) => {
+    if (n.type === 'white') {
+      const div = document.createElement('div');
+      div.className = 'white';
+      div.dataset.idx = i;
+      div.textContent = n.name;
+      div.addEventListener('mousedown', () => playNote(n.freq));
+      keys.appendChild(div);
+    }
+  });
+  // Black keys overlay
+  let whiteIdx = 0;
+  NOTES.forEach((n, i) => {
+    if (n.type === 'black') {
+      const div = document.createElement('div');
+      div.className = 'black';
+      div.dataset.idx = i;
+      div.textContent = n.name;
+      const left = (whiteIdx / WHITE_NOTES.length) * 100;
+      div.style.left = `calc(${left}% - 3.5%)`;
+      div.addEventListener('mousedown', () => playNote(n.freq));
+      keys.appendChild(div);
+    } else {
+      whiteIdx++;
+    }
+  });
+}
+
+function setScale(s) {
+  currentScale = s;
+  document.getElementById('sScale').textContent = s;
+}
+
+function playSubstrateNote() {
+  // Box-Muller for melody, xoshiro for rhythm
+  const g = gaussian(rng);
+  const scale = SCALES[currentScale];
+  // g is in roughly [-3, 3] — map to scale degree with some quantization
+  const rawDeg = (g + 3) * 1.5;
+  const octaveShift = rng.intRange(0, 2);
+  const semitone = scale[Math.floor(rng.float() * scale.length)] + octaveShift * 12;
+  const baseFreq = 261.63; // C4
+  const freq = baseFreq * Math.pow(2, semitone / 12);
+  playNote(freq, 0.4);
+}
+
+function togglePlay() {
+  isPlaying = !isPlaying;
+  document.getElementById('playBtn').textContent = isPlaying ? '⏸ Pause' : '▶ Play substrate melody';
+  document.getElementById('sMode').textContent = isPlaying ? 'substrate-playing' : 'idle';
+  if (isPlaying) schedule();
+  else clearTimeout(playInterval);
+}
+
+function schedule() {
+  if (!isPlaying) return;
+  const tempo = parseInt(document.getElementById('tempo').value);
+  const interval = 60000 / tempo;
+  playSubstrateNote();
+  playInterval = setTimeout(schedule, interval);
+}
+
+document.getElementById('tempo').addEventListener('input', e => document.getElementById('tempoLbl').textContent = e.target.value);
+document.getElementById('vol').addEventListener('input', e => {
+  document.getElementById('volLbl').textContent = e.target.value;
+  if (masterGain) masterGain.gain.value = parseInt(e.target.value) / 100;
+});
+document.getElementById('seed').addEventListener('change', e => {
+  rng = new Xoshiro256(e.target.value);
+});
+
+renderKeyboard();
+</script>
+</body>
+</html>

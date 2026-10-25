@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End User · Quilt Docs</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#77dd99; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:760px; margin:0 auto; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.2em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+code { color:var(--accent); background:var(--bg); padding:.1rem .4rem; border-radius:3px; }
+.tag { display:inline-block; padding:.2rem .6rem; border-radius:3px; font-size:.85em; background:var(--accent); color:#000; font-weight:bold; }
+</style>
+</head>
+<body>
+<header>
+  <h1>👤 What this app does, in plain English</h1>
+  <p style="color:var(--muted); font-style:italic">For people who use Quilt-powered tools but don't write code</p>
+</header>
+
+<div class="section">
+<h2>What is this thing?</h2>
+<p>You're using a tool built on <strong>Quilt</strong>, a system that uses three kinds of AI together:</p>
+<ul>
+  <li><span class="tag">JEPA</span> The gut-feeling model. Knows what things look like.</li>
+  <li><span class="tag">JEV</span> The decision model. Tells you the answer with a confidence score.</li>
+  <li><span class="tag">LLM</span> The chat model. Writes words for you.</li>
+</ul>
+<p>Most AI tools you use today are LLM-only. Quilt tools use all three. That means fewer wrong answers, fewer made-up facts, and clearer "I don't know" when the AI is uncertain.</p>
+</div>
+
+<div class="section">
+<h2>What we remember about you</h2>
+<p>Every Quilt app keeps a <strong>witness log</strong> — a permanent record of important decisions. We log:</p>
+<ul>
+  <li>What you asked for</li>
+  <li>Which AI models answered</li>
+  <li>The AI's confidence in the answer</li>
+  <li>Whether a human reviewed it</li>
+</ul>
+<p>We <strong>do not</strong> log your private inputs unless they directly affect an answer you asked for.</p>
+<p>You can ask at any time: <em>"Show me everything you've remembered about me."</em></p>
+</div>
+
+<div class="section">
+<h2>When something goes wrong</h2>
+<p>Every AI answer is signed by the witness log. If something breaks, you can file a witness: <em>"This answer was wrong because…"</em> The next version of the model will be trained on that correction.</p>
+<p>The witness log is permanent and auditable. You cannot be gaslit about what the AI told you — the log shows exactly what it said, when, and with what confidence.</p>
+</div>
+
+<div class="section">
+<h2>Privacy and data</h2>
+<p>JEV is a hosted service from <code>typesafe.ai</code>. We send only the question + a short state. We do not send your full history unless you ask us to.</p>
+<p>You can delete your cells at any time. <em>"Forget me."</em> The system will remove every cell that originated from you.</p>
+</div>
+
+<div class="section">
+<h2>Why three models?</h2>
+<p>One model is brittle. Two is rigid. Three is a team.</p>
+<p>JEV alone can't write a poem. LLM alone might hallucinate. JEPA alone can't explain. Together: JEV decides, LLM explains, JEPA confirms. You get the speed of intuition, the rigor of decision, and the clarity of language.</p>
+<p><strong>Embeddings</strong> are the muscle-memory layer: they remember the shape of past decisions so you don't repeat mistakes. <em>"Was this email a newsletter last time? What did we do with it?"</em> — embeddings find that pattern by trajectory, not keyword.</p>
+</div>
+
+<div class="foot-link">
+End User Docs · <a href="/docs/">all docs</a> · <a href="/docs/kid-teacher/">kid+teacher</a> · <a href="/docs/developer/">developer</a> · <a href="/">home</a>
+</div>
+</body>
+</html>

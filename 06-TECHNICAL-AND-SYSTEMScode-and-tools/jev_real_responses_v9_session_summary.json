@@ -1,0 +1,54 @@
+{
+  "ts": "2026-09-21T04:11",
+  "total_questions": 6,
+  "results": [
+    {
+      "batch": "future_substrate",
+      "latency_ms": 297.48990400003095,
+      "results": [
+        {
+          "kind": "score",
+          "value": 0.68,
+          "confidence": 0.7,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.19,
+          "confidence": 0.7,
+          "source": "typesafe"
+        },
+        {
+          "kind": "score",
+          "value": 2.19,
+          "confidence": 0.7,
+          "source": "typesafe"
+        }
+      ]
+    },
+    {
+      "batch": "session_summary",
+      "latency_ms": 635.3316230001838,
+      "results": [
+        {
+          "kind": "score",
+          "value": 2.35,
+          "confidence": 0.22,
+          "source": "typesafe"
+        },
+        {
+          "kind": "noul",
+          "value": 0.55,
+          "confidence": 0.22,
+          "source": "typesafe"
+        },
+        {
+          "kind": "choice",
+          "value": "integration",
+          "confidence": 0.22,
+          "source": "typesafe"
+        }
+      ]
+    }
+  ]
+}

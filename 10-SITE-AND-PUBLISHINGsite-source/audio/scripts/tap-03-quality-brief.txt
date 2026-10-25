@@ -1,0 +1,55 @@
+Let me tell you about the day we realized we had coverage but not confidence.
+
+[PAUSE]
+
+No, sit down. This one's good. This one's about the morning the harbourmaster opened his desk and found three reports that disagreed on everything except the thing that mattered.
+
+[BACKGROUND MURMUR]
+
+Thirty-two hulls. Thirteen thousand tests across the registry. Seven vessels at 99% line coverage. The flagship at 100% in her core frame. That's the headline. The headline is true.
+
+[GLASS CLINKS]
+
+The headline is also not the whole chart.
+
+Overnight, the test count surged from 2,423 to 13,012. A 5.4x increase in a single watch. And the majority of that growth came from one vessel. Study-sunset-ecosystem. 8,702 tests. 67% of the entire fleet's inventory. Real cargo — auction algorithms, Hamiltonian constraint solvers, neural topology mappings. Not toy functions.
+
+[PAUSE]
+
+But the harbourmaster's analysts looked beneath the waterline. And they found something the headline doesn't mention.
+
+An estimated 30 to 40 percent of those new tests are parameter variants. Same logical path walked with different inputs. They count as tests. They inflate the number. They do not independently verify new behaviour.
+
+[QUIET MURMUR - someone shifts on a barstool]
+
+The fleet's test count is a sounding lead, not a depth chart. It tells you something. But not the thing you most need to know.
+
+[PAUSE]
+
+DeepSeek put it precisely. The fleet has coverage but not yet confidence.
+
+[SOMEONE REACTS - "Hmm."]
+
+Line coverage at 99% means every line of code executes during testing. It does not mean every behavioural path has been exercised. The distinction is not academic. It is the difference between knowing a rivet exists and knowing whether it holds under shear load.
+
+[PAUSE - takes a drink]
+
+What the fleet lacks is branch coverage. Are all decision paths exercised? And mutation testing. If you break the code, do the tests catch it? Line coverage measures execution. Branch coverage measures judgement. Mutation testing measures whether the judgement is any good.
+
+[GLASS CLINKS]
+
+The fleet has the first. The fleet needs the other two.
+
+And here's the thing. Here's what keeps me at the bar at this hour. The system stays afloat but the engineering watch cannot tell whether it is swimming or merely not drowning.
+
+[PAUSE - long]
+
+The fleet is sound. The hulls are tight. The tests run green. But sound is not the same as proven. And green is not the same as trustworthy.
+
+[QUIET]
+
+The gap between those two words — coverage and confidence — is where the next watch should spend its effort.
+
+[BACKGROUND MURMUR]
+
+Yeah. I know it's late. One more? Yeah. One more.

@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 8,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a toggleable debug overlay showing the FNV-1a hash values for a few selected voxels to help users verify the math.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 8,
+    "q2": 7,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a debug panel showing hash outputs and voxel coordinates to improve verifiability and mathematical transparency",
+    "_provider": "deepinfra-qwen"
+  },
+  {
+    "q1": 6,
+    "q2": 7,
+    "q3": 6,
+    "q4": 5,
+    "improvement": "Add a hover/click inspector showing the FNV-1a hex digest for the selected voxel, so users can verify the hash math themselves.",
+    "_provider": "zai"
+  }
+]

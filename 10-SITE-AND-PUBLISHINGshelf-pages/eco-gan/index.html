@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html><head><title>🧬 Eco-GAN — substrate learns from use</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:3px;margin-bottom:0.5em}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1.5rem 0;font-style:italic;color:#ccc}
+.doctrine strong{color:#e8b840;font-style:normal}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+input[type=text]{width:100%;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:'Courier New',monospace;padding:.5rem;font-size:14px;box-sizing:border-box}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;margin:0.3rem;font-family:Georgia,serif}
+button:hover{background:#e8b840;color:#0a0a14}
+.display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#ccc;line-height:1.5}
+.stats{font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88;padding:1rem;background:#0a0a14;border-radius:6px;border:1px solid #2a2a3a}
+.kept{color:#44cc88}.rejected{color:#666;text-decoration:line-through}.judge{color:#ff6b6b}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/brewcast/">brewcast</a><a href="/videogame-ml/">videogame-ml</a></div>
+<h1>🧬 Eco-GAN</h1>
+<p style="color:#bbb;font-style:italic">The meta-GAN. Generator proposes; JEV judges; best kept as training data. Coherence compounds.</p>
+
+<div class="doctrine">
+<strong>The cycle.</strong> Generator: 10 candidates. JEV: relevance (cosine to topic) + coherence (cosine to training data). Best kept. Training data grows. Next round's coherence strengthens. Over time, the GAN's output converges on the topic's essence. <strong>This IS the substrate.</strong> Every cell, every brew, every cross-link is a training sample.
+</div>
+
+<div class="stage">
+  <strong style="color:#e8b840">Topic:</strong>
+  <input type="text" id="topic" value="what does the substrate see when it observes itself?" />
+  <div style="margin-top:1rem">
+    <button onclick="step()">🎲 GAN step (10 candidates → JEV judge → keep best)</button>
+    <button onclick="autoRun()">▶ auto-run 10 rounds</button>
+  </div>
+  <div id="display" class="display" style="margin-top:1rem;color:#888">click "GAN step" to start</div>
+  <div class="stats" style="margin-top:1rem">
+    <span id="rounds">0</span> rounds · <span id="kept">0</span> kept · <span id="rejected">0</span> rejected · <span id="best">0.00</span> best judge · <span id="td-size">0</span> training data
+  </div>
+</div>
+
+<script>
+const VOCAB = ['witness','proof','bind','forget','tick','jev','jepa','link','forge','brew','cell','lattice','substrate','scar','belly','curve','atlas','mesh','fuse','root','echo','signal'];
+let rounds = 0, kept = 0, rejected = 0, best = 0, trainingData = [];
+
+function vec(s, dim=32) {
+  const v = new Array(dim).fill(0);
+  for (let i = 0; i < s.length; i++) v[i%dim] = ((v[i%dim]<<5) - v[i%dim] + s.charCodeAt(i)) & 0xffff;
+  const mag = Math.sqrt(v.reduce((sum,x) => sum+x*x, 0)) + 1e-10;
+  return v.map(x => x/mag);
+}
+
+function cos(a, b) {
+  let dot = 0, mA = 0, mB = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i]*b[i]; mA += a[i]*a[i]; mB += b[i]*b[i]; }
+  return dot / (Math.sqrt(mA)*Math.sqrt(mB) + 1e-10);
+}
+
+function generate(topic, n) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const v1 = VOCAB[i % VOCAB.length];
+    const v2 = VOCAB[(i*3+1) % VOCAB.length];
+    const v3 = VOCAB[(i*7+2) % VOCAB.length];
+    out.push(`${v1}.${v2}.${v3} | ${topic.slice(0,30)}`);
+  }
+  return out;
+}
+
+function judge(sample, topic) {
+  const sv = vec(sample), tv = vec(topic);
+  const relevance = cos(sv, tv);
+  let coherence = 0.5;
+  if (trainingData.length > 0) {
+    const sims = trainingData.slice(-5).map(t => cos(sv, vec(t)));
+    coherence = sims.reduce((s,x) => s+x, 0) / sims.length;
+  }
+  return Math.max(0, Math.min(0.99, relevance * 0.5 + coherence * 0.4 + Math.random() * 0.1));
+}
+
+function step() {
+  const topic = document.getElementById('topic').value || 'the substrate';
+  const candidates = generate(topic, 10);
+  const judged = candidates.map(c => ({ text: c, score: judge(c, topic) }));
+  judged.sort((a, b) => b.score - a.score);
+  const top = judged[0];
+  const keepThreshold = 0.55;
+  const keptItems = judged.filter(j => j.score >= keepThreshold);
+  trainingData.push(...keptItems.map(j => j.text));
+  rounds++;
+  kept += keptItems.length;
+  rejected += 10 - keptItems.length;
+  if (top.score > best) best = top.score;
+  
+  let html = `<div style="color:#e8b840;font-weight:bold">Round ${rounds} · topic: "${topic}"</div>\n`;
+  judged.slice(0, 5).forEach(j => {
+    const cls = j.score >= keepThreshold ? 'kept' : 'rejected';
+    html += `<div class="${cls}">${j.text} <span style="color:#888">· judge=${j.score.toFixed(3)}</span></div>\n`;
+  });
+  html += `\n<div style="color:#5f9ea0">training data size: ${trainingData.length}</div>`;
+  document.getElementById('display').innerHTML = html;
+  
+  document.getElementById('rounds').textContent = rounds;
+  document.getElementById('kept').textContent = kept;
+  document.getElementById('rejected').textContent = rejected;
+  document.getElementById('best').textContent = best.toFixed(3);
+  document.getElementById('td-size').textContent = trainingData.length;
+}
+
+function autoRun() {
+  for (let i = 0; i < 10; i++) setTimeout(step, i*200);
+}
+</script></body></html>

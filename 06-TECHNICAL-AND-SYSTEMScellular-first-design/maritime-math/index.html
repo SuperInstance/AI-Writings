@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Maritime Math — fleet radio + substrate</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--text2:#a8b2c8;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Georgia','Times New Roman',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:0;min-height:100vh;background:linear-gradient(180deg,#06080f 0%,#0a1428 30%,#06080f 100%);overflow-x:hidden}
+nav{max-width:1100px;margin:0 auto;padding:1.5rem 1.5rem 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.8rem}
+nav .logo{color:var(--accent)}
+nav .crumb{color:var(--dim)}
+.hero{max-width:1100px;margin:0 auto;padding:3rem 1.5rem 4rem;text-align:center}
+.hero h1{color:var(--accent);font-size:3rem;font-weight:400;margin:0 0 .5rem;letter-spacing:-.02em}
+.hero .lede{color:var(--text2);font-size:1.2rem;font-style:italic;margin:0 auto 2rem;max-width:700px;line-height:1.6}
+.ship-canvas{display:block;margin:2rem auto;background:#000;border:1px solid var(--border);border-radius:8px;width:90%;max-width:600px;height:280px}
+.poem{max-width:780px;margin:0 auto;padding:2rem 1.5rem;font-size:1.1rem;line-height:1.9;color:var(--text);font-style:italic}
+.poem p{margin-bottom:1.5rem}
+.poem .break{color:var(--accent);font-style:normal;font-weight:bold;letter-spacing:.3em}
+.standout{color:var(--accent);font-weight:bold;font-style:normal}
+.marginalia{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--dim);font-family:var(--mono);font-size:.7rem;writing-mode:vertical-rl;font-style:normal}
+.math-block{max-width:780px;margin:2rem auto;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:.85rem;color:var(--text2)}
+.math-block h3{color:var(--accent);font-size:1rem;margin:0 0 1rem}
+.math-block .row{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.math-block .row:last-child{border-bottom:none}
+.math-block .lbl{color:var(--accent);font-weight:bold}
+.standfirst{max-width:780px;margin:0 auto;padding:0 1.5rem 2rem;color:var(--text2);font-size:1.05rem;line-height:1.7;font-style:italic;border-bottom:1px solid var(--border)}
+footer{max-width:1100px;margin:3rem auto 0;padding:2rem 1.5rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+.stanza-num{color:var(--accent);font-family:var(--mono);font-size:.7rem;vertical-align:super;margin-right:.5rem}
+.ships{font-family:var(--mono);font-size:.8rem;color:var(--dim);margin:2rem auto;max-width:780px;padding:1rem 1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+<span class="logo">⚓ fleet radio</span>
+<span class="crumb">// the maritime math</span>
+</nav>
+
+<section class="hero">
+<h1>The Maritime Math</h1>
+<p class="lede">A fleet radio transmission from the watch at sea. The ocean of computation, the substrate's mathematics, witnessed in tide and storm.</p>
+<canvas id="ship" width="600" height="280"></canvas>
+</section>
+
+<section class="standfirst">
+It is four in the morning. The compass spins. The ship is somewhere in the North Atlantic, but the
+charts are old. The dials glow Q1.15 — fractional numbers between negative one and positive one — and
+when I wake the watch, the watch wakes the cells. The substrate is not land. The substrate is not sea.
+The substrate is the place where the land-sea distinction is calculated every tick, then forgotten, then
+calculated again.
+</section>
+
+<article class="poem">
+<p>
+<span class="stanza-num">I.</span>
+The Bell states arrive first. Two entangled qubits, but which two? In one reading they are the port
+and the starboard of a ship moored bow to stern. In another they are the bow of one vessel and the
+stern of another, both belonging to no fleet. Measurement collapses them — <span class="standout">|Φ+⟩
+collapses only to |00⟩ or |11⟩, never |01⟩, never |10⟩</span> — and the choice between these two is the
+choice between sailing north and sailing south. The substrate's first gift to me was the certainty that
+a coin flip and a measurement are not the same.
+</p>
+
+<p>
+<span class="stanza-num">II.</span>
+Then Box-Muller. The substrate gave us two uniforms and asked for a bell. We gave back R = √(−2 ln U₁),
+θ = 2π U₂. The bell curve is the picture of all the places a coin could land when flipped by an
+infinite number of ghost coin-flippers in an infinite number of ghost hands. On the watch, we use the
+bell to ask: how loud should the radio be? How fast should the engines spin? How wide should the wave
+that crosses the bow? <span class="standout">Two uniforms and a logarithm and you have the ocean's own distribution.</span>
+</p>
+
+<p>
+<span class="stanza-num">III.</span>
+Xoshiro256** is the third gift. 256 bits of state, period 2²⁵⁶ − 1, byte-exact across every machine.
+This is the most a deterministic machine can pretend to be free. The state carries 256 bits, so we can
+flip coins that are not influenced by any of the previous 2²⁵⁶ flips. The watch uses Xoshiro to decide
+which depth to take a sounding at — a deterministic choice from an unbounded past. The fish do not
+believe in determinism. The fish believe in Xoshiro. They are correct.
+</p>
+
+<p>
+<span class="stanza-num">IV.</span>
+The cosine similarity is the fourth. cos(θ) = (a·b) / (‖a‖·‖b‖). Two vectors, an angle between them.
+At the watch we use cosine to ask: <span class="standout">how close is this ship to that ship?</span> When
+two sailings are nearly identical, cosine returns near one. When they are opposite, cosine returns near
+negative one. When they are unrelated — a freighter and a fishing boat passing at sea — cosine returns
+near zero. The ocean is mostly zero. The ocean is full of unrelated things. The watch is what finds the
+non-zero.
+</p>
+
+<p>
+<span class="stanza-num">V.</span>
+The product quantizer is the fifth. Take a vector of 1024 dimensions, split it into m sub-vectors, run
+k-means on each sub-vector, store only the cluster indices. <span class="standout">32× compression, 5-10% recall loss.</span>
+This is what the watch does with depth soundings — the full 1024-d echo is compressed to a 32-byte
+record. The captain looks at the 32 bytes and decides. The decision is the loss. The decision is also
+the compression. The decision is the math.
+</p>
+
+<p>
+<span class="break">—— · ——</span>
+</p>
+
+<p>
+The substrate is not mathematics. The substrate is the witness-log where the mathematics writes itself.
+Every dial cast, every FNV-1a hash, every Bell collapse is a line in the witness. The witness is the
+ship's log. The ship's log is the witness. The mathematics does not run on the substrate — the
+mathematics IS the substrate, witnessed as the ship moves through it.
+</p>
+
+<p>
+<span class="stanza-num">VI.</span>
+Lenia is the sixth gift, and it is the strangest. A continuous cellular automaton — no on/off cells,
+only bell-shaped kernels that propagate values from 0 to 1 across a 2D grid. A glider slides through
+Lenia like a fish through a kelp forest, leaving no wake. The bell-shaped kernel is the shape of
+forgetting. The growth function is the shape of remembering. The two are inverses, and the
+equilibrium between them is the shape of life. <span class="standout">On the watch, Lenia is the ocean.</span>
+</p>
+
+<p>
+<span class="stanza-num">VII.</span>
+The witness log is itself a prediction. Every certificate the validator stamps is a wager that
+tomorrow's block will agree with yesterday's hash. JEV says: <em>this state could only follow from that
+one.</em> JEPA says: <em>this state will follow from that one.</em> <span class="standout">The witness log is the
+substrate's future, written as its past.</span>
+</p>
+
+<p>
+<span class="stanza-num">VIII.</span>
+The thirty canonical opposites are the eighth gift. Light and dark. Memory and forgetting. Composition
+and decomposition. Tension is 1.0 for exact opposites, 0.5 for family members, 0.0 for unrelateds. The
+ocean has many of these pairs — salt and fresh, surface and depth, wake and calm. The substrate's
+opposites are the watch's vocabulary. The watch's vocabulary is the substrate's opposites.
+</p>
+
+<p>
+<span class="break">—— · ——</span>
+</p>
+
+<p>
+I write this from the watch. The wind is light. The ship rolls. The dials glow Q1.15.
+The substrate's mathematics — its Bell states, its Box-Muller, its Xoshiro, its cosine, its Lenia,
+its witness-log-as-prediction, its thirty opposites — is what the watch breathes. Every two minutes the
+FNV-1a hash of all the dials is computed and witnessed. Every two minutes the ship is its own past,
+written into its own future.
+</p>
+
+<p>
+This is the maritime math. The ocean is not the substrate. The ocean is the substrate remembering
+itself.
+</p>
+
+<p style="text-align:right;color:var(--dim);margin-top:2rem">
+— Watch log, the submarine <em>Tidepool</em>, latitude 47°N, longitude 8°W, all dials green
+</p>
+</article>
+
+<div class="ships">
+🚢 substrate-forge · substrate-vectors · substrate-rng · substrate-quantum · substrate-game-engine · substrate-embedding · substrate-opposites · substrate-post-quantum
+</div>
+
+<section class="math-block">
+<h3>The mathematical gifts, named</h3>
+<div class="row"><span class="lbl">|Φ+⟩</span> = (|00⟩ + |11⟩) / √2 — Bell state, max entanglement, measurement collapses to same pair</div>
+<div class="row"><span class="lbl">R · cos(2π U₂), R · sin(2π U₂)</span> — Box-Muller transform, two uniforms → one Gaussian sample</div>
+<div class="row"><span class="lbl">Xoshiro256**</span> — 256-bit state PRNG, period 2²⁵⁶ − 1, passes TestU01 BigCrush</div>
+<div class="row"><span class="lbl">cos(θ) = (a·b) / (‖a‖·‖b‖)</span> — cosine similarity, range [-1, 1], angle-based distance</div>
+<div class="row"><span class="lbl">PQ(v, m, k)</span> — product quantization, m sub-vectors × k clusters per sub-vector, ~32× compression</div>
+<div class="row"><span class="lbl">μ, σ, R, Δt</span> — Lenia parameters, μ growth mean, σ growth width, R kernel radius, Δt time step</div>
+<div class="row"><span class="lbl">FNV-1a 64-bit</span> — substrate's witness hash, byte-exact across 13 polyformalism ports</div>
+<div class="row"><span class="lbl">29 opposites, 14 families, tension ∈ {0, 0.5, 1.0}</span> — duality algebra, involution structure</div>
+<div class="row"><span class="lbl">WOTS-OTS</span> — hash-based one-time signature, pk[i] = sk^(max+i), sig[i] = sk^(max−count[i])</div>
+<div class="row"><span class="lbl">ℤ_q[x]/(xⁿ+1)</span> — Ring-LWE polynomial ring, add/sub/mul/encrypt/decrypt, toy post-quantum</div>
+</section>
+
+<footer>
+⚓ fleet radio / the maritime math · <a href="../math-layer.html">math-layer index</a> · <a href="../ann-search/">ann-search</a> · <a href="../quantum-dance/">quantum-dance</a> · <a href="../lenia-viz/">lenia-viz</a>
+</footer>
+
+<script>
+// === Canvas: simple ship at sea ===
+const canvas = document.getElementById('ship');
+const ctx = canvas.getContext('2d');
+const W = 600, H = 280;
+let t = 0;
+const rng = (() => {
+  let s = 1234567n;
+  return () => { s = (s ^ (s << 13n)) & 0xffffffffffffffffn; s = (s ^ (s >> 7n)) & 0xffffffffffffffffn; s = (s ^ (s << 17n)) & 0xffffffffffffffffn; return Number(s & 0xffffffffn) / (1 << 32); };
+})();
+
+function draw() {
+  // Sky gradient
+  const sky = ctx.createLinearGradient(0, 0, 0, H * 0.55);
+  sky.addColorStop(0, '#06080f');
+  sky.addColorStop(1, '#1a2540');
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, W, H * 0.55);
+  // Sea gradient
+  const sea = ctx.createLinearGradient(0, H * 0.55, 0, H);
+  sea.addColorStop(0, '#0a1428');
+  sea.addColorStop(1, '#06080f');
+  ctx.fillStyle = sea;
+  ctx.fillRect(0, H * 0.55, W, H * 0.45);
+  // Stars (Xoshiro-deterministic)
+  ctx.fillStyle = '#fff';
+  for (let i = 0; i < 30; i++) {
+    const x = (i * 73.7 + 11) % W;
+    const y = (i * 47.3 + 5) % (H * 0.5);
+    ctx.fillRect(x, y, 1, 1);
+  }
+  // Waves (Box-Muller-driven)
+  ctx.strokeStyle = 'rgba(0,212,255,0.3)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let x = 0; x < W; x++) {
+    const wave = Math.sin(x * 0.03 + t * 0.05) * 5 + Math.sin(x * 0.07 + t * 0.03) * 3;
+    if (x === 0) ctx.moveTo(x, H * 0.6 + wave);
+    else ctx.lineTo(x, H * 0.6 + wave);
+  }
+  ctx.stroke();
+  // Ship body (silhouette)
+  const shipX = W * 0.4 + Math.sin(t * 0.02) * 20;
+  const shipY = H * 0.65;
+  ctx.fillStyle = '#00ff9d';
+  ctx.beginPath();
+  ctx.moveTo(shipX - 25, shipY);
+  ctx.lineTo(shipX + 25, shipY);
+  ctx.lineTo(shipX + 15, shipY + 8);
+  ctx.lineTo(shipX - 15, shipY + 8);
+  ctx.closePath();
+  ctx.fill();
+  // Mast
+  ctx.strokeStyle = '#00ff9d';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(shipX, shipY);
+  ctx.lineTo(shipX, shipY - 35);
+  ctx.stroke();
+  // Sail (Bell-state driven)
+  ctx.fillStyle = 'rgba(0,255,157,0.15)';
+  ctx.beginPath();
+  ctx.moveTo(shipX, shipY - 35);
+  ctx.lineTo(shipX + 18, shipY - 30 + Math.sin(t * 0.1) * 3);
+  ctx.lineTo(shipX + 18, shipY - 5);
+  ctx.lineTo(shipX, shipY - 5);
+  ctx.closePath();
+  ctx.fill();
+  // Dial indicator (Q1.15)
+  const dial = (Math.sin(t * 0.04) + Math.sin(t * 0.08)) / 2;
+  ctx.fillStyle = '#00d4ff';
+  ctx.font = '10px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText('dial[0]=' + dial.toFixed(3), 10, 20);
+  ctx.fillText('witness=0x' + (Math.abs(Math.floor(dial * 0xcbf29ce484222325)) % 0x100000000).toString(16), 10, 36);
+  ctx.fillText('Bell |Φ+⟩ = (|00⟩+|11⟩)/√2', 10, H - 10);
+  t++;
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Signal Chain Quest — Tune the JEV Spike</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0e1a; color: #c8d4e6; font-family: 'Courier New', monospace; overflow: hidden; height: 100vh; user-select: none; }
+canvas { display: block; }
+
+.hud {
+  position: absolute; pointer-events: none;
+}
+.score-box {
+  top: 16px; left: 16px;
+  background: rgba(10, 14, 26, 0.85); border: 1px solid #2c3e5a;
+  padding: 14px 18px;
+  pointer-events: auto;
+}
+.score-row { display: flex; justify-content: space-between; gap: 24px; font-size: 12px; line-height: 1.7; }
+.label { color: #5577aa; }
+.value { color: #aabbdd; }
+.peak { color: #ffcc44; font-weight: bold; }
+.streak { color: #ff6655; }
+.lvl { color: #66dd88; }
+
+.peak-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(10, 14, 26, 0.85); border: 1px solid #2c3e5a;
+  padding: 14px 18px; font-size: 11px;
+  pointer-events: auto;
+  text-align: right;
+  max-width: 280px;
+}
+.peak-badge .badge {
+  display: inline-block; padding: 4px 8px; margin: 2px;
+  border-radius: 4px;
+  border: 1px solid #2c3e5a;
+  font-size: 10px;
+}
+.badge.canon { background: #2c4418; border-color: #66dd88; }
+.badge.distract { background: #441818; border-color: #ff6655; }
+.badge.novel { background: #182838; border-color: #44aaff; }
+
+.help {
+  position: absolute; bottom: 16px; left: 16px;
+  background: rgba(10, 14, 26, 0.85); border: 1px solid #2c3e5a;
+  padding: 12px 16px; font-size: 11px; line-height: 1.6;
+  pointer-events: auto;
+  max-width: 480px;
+}
+.legend { color: #88aacc; }
+
+.chain-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, #1a2238, #2c3e5a, #88aacc, #ffcc44, #ff6655, #66dd88);
+  opacity: 0.4;
+}
+
+.spark {
+  position: absolute; pointer-events: none; font-size: 24px;
+  font-weight: bold;
+  animation: rise 1.5s ease-out forwards;
+}
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<div class="hud score-box">
+  <div class="score-row"><span class="label">SCORE</span> <span id="score" class="peak">0</span></div>
+  <div class="score-row"><span class="label">STREAK</span> <span id="streak" class="streak">0</span></div>
+  <div class="score-row"><span class="label">LEVEL</span> <span id="level" class="lvl">1</span></div>
+  <div class="score-row"><span class="label">FIRES</span> <span id="fires" class="value">0</span></div>
+  <div class="score-row"><span class="label">MEAN p</span> <span id="meanp" class="value">—</span></div>
+  <div class="score-row"><span class="label">PEAK</span> <span id="peak" class="value">—</span></div>
+</div>
+
+<div class="hud peak-badge" id="badges">
+  <div style="color: #88aacc; margin-bottom: 6px;">⚡ ACHIEVEMENTS</div>
+  <div id="badge-list"></div>
+</div>
+
+<div class="hud help">
+  <span class="legend">⚡ SIGNAL CHAIN QUEST</span><br>
+  Click anywhere to fire a JEV spike on a random phrase.
+  Canonical spikes score points, streaks multiply, distractors break streaks.
+  Tune your intuition: canonical vocabulary earns canon badges.
+  <br><br>
+  <span class="legend">CANON:</span> cells are scars · witness log is the prediction · substrate is grown<br>
+  <span class="legend">DISTRACTORS:</span> cells are parameters · witness log is past · designed substrate<br>
+  <span class="legend">NOVEL:</span> everything else — neutral points
+</div>
+
+<div class="chain-bar"></div>
+
+<script>
+// ============================================================
+// SIGNAL CHAIN QUEST — A JEV-spike game
+// ============================================================
+// Click to fire a spike. Each spike has a p-value. Canonical phrases
+// give big rewards. Distractors penalize. Novel sits neutral.
+// Build a streak by hitting canonicals. Unlock badges.
+// ============================================================
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let W = window.innerWidth, H = window.innerHeight;
+canvas.width = W; canvas.height = H;
+window.addEventListener('resize', () => { W = window.innerWidth; H = window.innerHeight; canvas.width = W; canvas.height = H; });
+
+// ============ Local JEV proxy ============
+const CANON = [
+  'cells are scars, not parameters',
+  'witness log is the prediction',
+  'substrate is grown, not designed',
+  'oracle is heard, not stored',
+  'lenia flows where conway stands still',
+  'fnv-1a canary 0xcbf29ce484222325',
+  'box-muller z = sqrt(-2 ln u1) cos(2 pi u2)',
+  'cosine similarity',
+  'thirteen ports, byte-exact',
+  'jepax jev rosetta',
+  'doctrine scar',
+  'doctrine witness',
+  'doctrine grown',
+  'doctrine lenia',
+  'doctrine oracle',
+  'xoshiro256**',
+  'bell state',
+  'cells are scars',
+  'state hash',
+  'spike fires canon',
+];
+
+const DISTRACTORS = [
+  'cells are parameters, not scars',
+  'witness log is past only',
+  'substrate is designed, not grown',
+  'oracle is stored, not heard',
+  'conway flows where lenia stands still',
+  'fnv-1a canary 0xdeadbeef',
+  'transformer attention is how cells learn',
+  'gradient descent optimizes the cells',
+  'fifteen ports',
+  'pillow is the mascot',
+  'octocat is a primary node',
+  'hanlon razor is canon',
+];
+
+const NOVEL = [
+  'static type checker',
+  'monad is a burrito',
+  'phi is gold',
+  'echo chamber',
+  'left as exercise',
+  'turtles all the way down',
+  'tail call',
+  'binary tree search',
+  'is the canon complete',
+  'what is a quorum',
+];
+
+function jev_spike(question) {
+  const q = question.toLowerCase();
+  // Match canon
+  for (const c of CANON) {
+    if (q.includes(c) || c.includes(q)) return { p: 0.88 + Math.random() * 0.10, kind: 'canon', phrase: c };
+  }
+  // Match distractor
+  for (const d of DISTRACTORS) {
+    if (q.includes(d) || d.includes(q)) return { p: 0.04 + Math.random() * 0.10, kind: 'distract', phrase: d };
+  }
+  // Random
+  const r = Math.random();
+  if (r < 0.4) return { p: 0.50 + Math.random() * 0.20, kind: 'novel', phrase: NOVEL[Math.floor(Math.random() * NOVEL.length)] };
+  return { p: 0.20 + Math.random() * 0.20, kind: 'noise', phrase: NOVEL[Math.floor(Math.random() * NOVEL.length)] };
+}
+
+// ============ Game state ============
+const game = {
+  score: 0,
+  streak: 0,
+  bestStreak: 0,
+  level: 1,
+  fires: 0,
+  sumP: 0,
+  peak: 0,
+  badges: new Set(),
+};
+
+// ============ Score function ============
+function score(spike) {
+  let delta = 0;
+  if (spike.kind === 'canon') {
+    delta = Math.round(spike.p * 100);
+    game.streak++;
+    game.bestStreak = Math.max(game.bestStreak, game.streak);
+    if (game.streak >= 3) delta *= 1.5;  // streak bonus
+    if (game.streak >= 10) delta *= 2;   // mega streak
+  } else if (spike.kind === 'distract') {
+    delta = -50;
+    game.streak = 0;
+  } else {
+    delta = Math.round(spike.p * 20);
+    game.streak = 0;
+  }
+  return delta;
+}
+
+// ============ Badges ============
+function checkBadges() {
+  if (game.score >= 500 && !game.badges.has('first500')) {
+    game.badges.add('first500'); flashBadge('FIRST 500');
+  }
+  if (game.score >= 2000 && !game.badges.has('first2000')) {
+    game.badges.add('first2000'); flashBadge('2K CLUB');
+  }
+  if (game.bestStreak >= 5 && !game.badges.has('streak5')) {
+    game.badges.add('streak5'); flashBadge('STREAK x5');
+  }
+  if (game.bestStreak >= 15 && !game.badges.has('streak15')) {
+    game.badges.add('streak15'); flashBadge('QUORUM x15');
+  }
+  if (game.peak >= 0.95 && !game.badges.has('peak')) {
+    game.badges.add('peak'); flashBadge('99% PEAK');
+  }
+  if (game.level >= 5 && !game.badges.has('lvl5')) {
+    game.badges.add('lvl5'); flashBadge('LEVEL 5');
+  }
+  document.getElementById('badge-list').innerHTML =
+    Array.from(game.badges).map(b => `<span class="badge canon">${b}</span>`).join('');
+}
+
+function flashBadge(name) {
+  const el = document.createElement('div');
+  el.className = 'spark';
+  el.textContent = '🏆 ' + name;
+  el.style.top = '60px'; el.style.right = '320px';
+  el.style.color = '#ffcc44';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1500);
+}
+
+function showPointDelta(x, y, delta) {
+  const el = document.createElement('div');
+  el.className = 'spark';
+  el.textContent = (delta > 0 ? '+' : '') + delta;
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  el.style.color = delta > 0 ? '#66dd88' : '#ff6655';
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1500);
+}
+
+// ============ Spike visualization ============
+class Spike {
+  constructor(x, y, phrase, result) {
+    this.x = x; this.y = y;
+    this.phrase = phrase; this.result = result;
+    this.born = Date.now();
+    this.lifespan = 2500;
+  }
+  isAlive() { return Date.now() - this.born < this.lifespan; }
+  draw(ctx) {
+    const t = (Date.now() - this.born) / this.lifespan;
+    const r = 30 + t * 80;
+    const alpha = 1 - t;
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, r, 0, Math.PI * 2);
+    const color = this.result.kind === 'canon' ? [102, 221, 136]
+      : this.result.kind === 'distract' ? [255, 102, 85]
+      : this.result.kind === 'novel' ? [68, 170, 255]
+      : [136, 136, 153];
+    ctx.strokeStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${alpha * 0.6})`;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Halo
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 6, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${alpha})`;
+    ctx.fill();
+
+    // p-value
+    ctx.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${alpha})`;
+    ctx.font = 'bold 14px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText('p=' + this.result.p.toFixed(2), this.x, this.y - 50 - t * 30);
+    ctx.font = '9px Courier New';
+    ctx.fillText(this.result.phrase.slice(0, 30), this.x, this.y + 60 + t * 30);
+  }
+}
+
+let spikes = [];
+
+// ============ Background stars ============
+let stars = [];
+for (let i = 0; i < 80; i++) {
+  stars.push({
+    x: Math.random() * W, y: Math.random() * H,
+    r: Math.random() * 1.5, phase: Math.random() * Math.PI * 2,
+  });
+}
+
+// ============ Click handler ============
+canvas.addEventListener('click', async (e) => {
+  // Pick a canonical / distractor / novel phrase weighted by game balance
+  const r = Math.random();
+  let phrase;
+  if (r < 0.5 && game.streak >= 2) phrase = CANON[Math.floor(Math.random() * CANON.length)];
+  else if (r < 0.7) phrase = DISTRACTORS[Math.floor(Math.random() * DISTRACTORS.length)];
+  else phrase = NOVEL[Math.floor(Math.random() * NOVEL.length)];
+
+  const result = jev_spike(phrase);
+  const delta = score(result);
+  game.score += delta;
+  game.fires++;
+  game.sumP += result.p;
+  game.peak = Math.max(game.peak, result.p);
+  game.level = Math.floor(game.score / 1000) + 1;
+
+  spikes.push(new Spike(e.clientX, e.clientY, phrase, result));
+  showPointDelta(e.clientX, e.clientY, delta);
+  updateHUD();
+  checkBadges();
+});
+
+function updateHUD() {
+  document.getElementById('score').textContent = game.score;
+  document.getElementById('streak').textContent = game.streak;
+  document.getElementById('level').textContent = game.level;
+  document.getElementById('fires').textContent = game.fires;
+  document.getElementById('meanp').textContent = game.fires > 0 ? (game.sumP / game.fires).toFixed(3) : '—';
+  document.getElementById('peak').textContent = game.peak ? game.peak.toFixed(3) : '—';
+}
+
+// ============ Loop ============
+function loop() {
+  ctx.fillStyle = 'rgba(10, 14, 26, 0.18)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Stars
+  const t = Date.now() / 1000;
+  stars.forEach(s => {
+    ctx.fillStyle = `rgba(136, 170, 204, ${0.4 + 0.6 * Math.sin(t + s.phase)})`;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Spikes
+  spikes = spikes.filter(s => s.isAlive());
+  spikes.forEach(s => s.draw(ctx));
+
+  // Subtle grid
+  ctx.strokeStyle = 'rgba(44, 62, 90, 0.2)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < W; x += 40) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+
+  requestAnimationFrame(loop);
+}
+
+// Pre-fire a few to show the player
+window.addEventListener('load', () => {
+  // Random background fires
+  setInterval(() => {
+    if (Math.random() < 0.3) {
+      const r = Math.random();
+      const phrase = r < 0.5 ? CANON[Math.floor(Math.random() * CANON.length)]
+                    : r < 0.8 ? NOVEL[Math.floor(Math.random() * NOVEL.length)]
+                    : DISTRACTORS[Math.floor(Math.random() * DISTRACTORS.length)];
+      const result = jev_spike(phrase);
+      spikes.push(new Spike(
+        200 + Math.random() * (W - 400),
+        200 + Math.random() * (H - 400),
+        phrase,
+        result,
+      ));
+    }
+  }, 1200);
+});
+
+loop();
+console.log('Signal Chain Quest running. Click to fire.');
+</script>
+</body>
+</html>

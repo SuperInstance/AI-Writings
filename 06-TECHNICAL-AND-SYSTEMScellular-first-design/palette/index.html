@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Palette — FNV-1a color generator</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem;font-weight:300}
+.tagline{color:var(--dim);font-size:.95rem;font-style:italic}
+main{max-width:1200px;margin:0 auto}
+.input-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+input[type=text]{flex:1;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.5rem;font-family:var(--mono);font-size:.85rem;min-width:200px}
+button{background:var(--accent);color:#000;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem}
+input[type=number]{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.8rem;width:60px}
+.palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;margin-bottom:1rem}
+.color{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .2s}
+.color:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+.color .swatch{height:100px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:.3rem;font-family:var(--mono);font-size:.7rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.5)}
+.color .info{padding:.5rem;font-family:var(--mono);font-size:.7rem;color:var(--text2)}
+.color .name{color:var(--accent);font-weight:bold;font-size:.85rem;margin-bottom:.3rem}
+.color .hash{color:var(--accent2);font-size:.6rem;word-break:break-all}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1rem}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-bottom:1rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🎨 Substrate Palette</h1>
+<p class="tagline">Generate color palettes deterministically from any seed.</p>
+</header>
+
+<main>
+<div class="input-area">
+<input type="text" id="seed" value="the fleet radio">
+<button onclick="generate()">🎨 Generate</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random</button>
+<label>Colors: <input type="number" id="count" value="8" min="2" max="32"></label>
+</div>
+<div class="controls">
+<button class="secondary" onclick="copyHex()">📋 Copy hex list</button>
+<button class="secondary" onclick="exportCSS()">⬇ Export CSS</button>
+</div>
+<div class="stats">
+<div>Seed: <span class="v" id="sSeed" style="font-size:.6rem;word-break:break-all">—</span></div>
+<div>Total hashes: <span class="v" id="sHashes">0</span></div>
+</div>
+<div class="palette" id="palette"></div>
+</main>
+
+<footer>🎨 substrate palette · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+function hslToHex(h, s, l) {
+  l /= 100;
+  const a = s * Math.min(l, 1 - l) / 100;
+  const f = n => {
+    const k = (n + h / 30) % 12;
+    const c = l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+    return Math.round(255 * c).toString(16).padStart(2, '0');
+  };
+  return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+const NAME_PREFIXES = ['fleet', 'witness', 'substrate', 'xoshiro', 'fnv', 'box', 'bell', 'cosine', 'lenia', 'conway', 'cell', 'canon', 'oracle', 'tidepool', 'algebra', 'forge', 'radio', 'cipher'];
+
+function generateName(idx, h) {
+  const prefix = NAME_PREFIXES[idx % NAME_PREFIXES.length];
+  return `${prefix}-${h.slice(2, 6)}`;
+}
+
+function generate() {
+  const seed = document.getElementById('seed').value;
+  const count = parseInt(document.getElementById('count').value);
+  const rng = new Xoshiro256(seed);
+  const el = document.getElementById('palette');
+  el.innerHTML = '';
+  document.getElementById('sSeed').textContent = seed;
+  document.getElementById('sHashes').textContent = count;
+  for (let i = 0; i < count; i++) {
+    const h = (rng.next() & 0xffffffffn).toString(16).padStart(8, '0');
+    const hue = rng.intRange(0, 360);
+    const sat = 50 + rng.intRange(0, 30);
+    const light = 40 + rng.intRange(0, 25);
+    const hex = hslToHex(hue, sat, light);
+    const div = document.createElement('div');
+    div.className = 'color';
+    div.innerHTML = `
+      <div class="swatch" style="background:${hex}">${hex}</div>
+      <div class="info">
+        <div class="name">${generateName(i, h)}</div>
+        <div class="hash">hsl(${hue}, ${sat}%, ${light}%)</div>
+        <div class="hash">#${h}</div>
+      </div>
+    `;
+    el.appendChild(div);
+  }
+}
+
+function randomSeed() {
+  const samples = ['the fleet radio', 'substrate', 'witness', 'cosine', 'box-muller', 'bell-state', 'xoshiro', 'lenia', 'FNV-1a', 'conway'];
+  document.getElementById('seed').value = samples[Math.floor(Math.random() * samples.length)];
+  generate();
+}
+
+function copyHex() {
+  const swatches = document.querySelectorAll('.color .swatch');
+  const text = Array.from(swatches).map(s => s.textContent.trim()).join(', ');
+  navigator.clipboard.writeText(text);
+}
+
+function exportCSS() {
+  const swatches = document.querySelectorAll('.color');
+  let css = ':root {\n';
+  for (let i = 0; i < swatches.length; i++) {
+    const hex = swatches[i].querySelector('.swatch').textContent.trim();
+    const name = swatches[i].querySelector('.name').textContent;
+    css += `  --${name}: ${hex};\n`;
+  }
+  css += '}';
+  const blob = new Blob([css], { type: 'text/css' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `palette-${Date.now()}.css`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+generate();
+</script>
+</body>
+</html>

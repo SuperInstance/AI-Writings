@@ -1,0 +1,160 @@
+{
+ "jsonl-200|none": {
+  "bytes": 66760,
+  "overhead": 0.0,
+  "ber=1e-05": {
+   "recovered": 1,
+   "detected": 11
+  },
+  "ber=0.0001": {
+   "detected": 12
+  },
+  "ber=0.001": {
+   "detected": 12
+  },
+  "burst=64": {
+   "detected": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "jsonl-200|crc32/4KB": {
+  "bytes": 66831,
+  "overhead": 0.001,
+  "ber=1e-05": {
+   "recovered": 1,
+   "detected": 11
+  },
+  "ber=0.0001": {
+   "detected": 12
+  },
+  "ber=0.001": {
+   "detected": 12
+  },
+  "burst=64": {
+   "detected": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "jsonl-200|hamming74": {
+  "bytes": 133523,
+  "overhead": 1.0,
+  "ber=1e-05": {
+   "recovered": 12
+  },
+  "ber=0.0001": {
+   "recovered": 12
+  },
+  "ber=0.001": {
+   "detected": 12
+  },
+  "burst=64": {
+   "detected": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "jsonl-200|rs255/223x8": {
+  "bytes": 77523,
+  "overhead": 0.161,
+  "ber=1e-05": {
+   "recovered": 12
+  },
+  "ber=0.0001": {
+   "recovered": 12
+  },
+  "ber=0.001": {
+   "recovered": 12
+  },
+  "burst=64": {
+   "recovered": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "ctx-lzma|none": {
+  "bytes": 536,
+  "overhead": 0.0,
+  "ber=1e-05": {
+   "recovered": 11,
+   "detected": 1
+  },
+  "ber=0.0001": {
+   "recovered": 6,
+   "detected": 6
+  },
+  "ber=0.001": {
+   "detected": 12
+  },
+  "burst=64": {
+   "detected": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "ctx-lzma|crc32/4KB": {
+  "bytes": 542,
+  "overhead": 0.011,
+  "ber=1e-05": {
+   "recovered": 11,
+   "detected": 1
+  },
+  "ber=0.0001": {
+   "recovered": 7,
+   "detected": 5
+  },
+  "ber=0.001": {
+   "detected": 12
+  },
+  "burst=64": {
+   "detected": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "ctx-lzma|hamming74": {
+  "bytes": 1074,
+  "overhead": 1.004,
+  "ber=1e-05": {
+   "recovered": 12
+  },
+  "ber=0.0001": {
+   "recovered": 12
+  },
+  "ber=0.001": {
+   "recovered": 12
+  },
+  "burst=64": {
+   "detected": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ },
+ "ctx-lzma|rs255/223x8": {
+  "bytes": 2042,
+  "overhead": 2.81,
+  "ber=1e-05": {
+   "recovered": 12
+  },
+  "ber=0.0001": {
+   "recovered": 12
+  },
+  "ber=0.001": {
+   "recovered": 12
+  },
+  "burst=64": {
+   "recovered": 12
+  },
+  "burst=512": {
+   "detected": 12
+  }
+ }
+}

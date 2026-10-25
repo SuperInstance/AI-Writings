@@ -1,0 +1,73 @@
+{
+ "results": {
+  "float": {
+   "bytes": 1536,
+   "recall@10": 1.0,
+   "encode_s": 0.0,
+   "search_s": 0.47
+  },
+  "tv-asis": {
+   "bytes": 192,
+   "recall@10": 0.0333,
+   "encode_s": 6.4,
+   "search_s": 0.57
+  },
+  "tq4": {
+   "bytes": 192,
+   "recall@10": 0.945,
+   "encode_s": 0.45,
+   "search_s": 0.51
+  },
+  "tq2": {
+   "bytes": 96,
+   "recall@10": 0.845,
+   "encode_s": 0.47,
+   "search_s": 0.55
+  },
+  "tern": {
+   "bytes": 77,
+   "recall@10": 0.7733,
+   "encode_s": 0.42,
+   "search_s": 0.65
+  },
+  "sign1": {
+   "bytes": 48,
+   "recall@10": 0.7283,
+   "encode_s": 0.39,
+   "search_s": 0.64
+  },
+  "hdc1024": {
+   "bytes": 128,
+   "recall@10": 0.7033,
+   "encode_s": 9.22,
+   "search_s": 0.17
+  },
+  "hdc-fold-xor": {
+   "bytes": 16,
+   "recall@10": 0.0167,
+   "encode_s": 9.22,
+   "search_s": 0.03
+  },
+  "hdc-fold-sub": {
+   "bytes": 16,
+   "recall@10": 0.3433,
+   "encode_s": 9.22,
+   "search_s": 0.03
+  },
+  "hdc128": {
+   "bytes": 16,
+   "recall@10": 0.355,
+   "encode_s": 9.22,
+   "search_s": 0.03
+  }
+ },
+ "diag": {
+  "tv_rotation_build_s": 2.8,
+  "tv_row_norm_min": 0.5037,
+  "tv_row_norm_mean": 0.749,
+  "tv_levels_used": [
+   5,
+   6
+  ]
+ }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bot Garden - Cellular-First Substrate</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: ui-sans-serif, system-ui, sans-serif; background: #050510; color: #d4d4dc; padding: 32px; line-height: 1.7; }
+header { max-width: 1300px; margin: 0 auto 48px; text-align: center; }
+h1 { font-size: 52px; background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899, #f59e0b); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 12px; letter-spacing: -0.02em; }
+.subtitle { color: #888; font-size: 17px; max-width: 700px; margin: 0 auto; }
+.garden { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1300px; margin: 48px auto; }
+.bot { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 24px; transition: all 0.2s; }
+.bot:hover { transform: translateY(-2px); }
+.bot.high { border-color: #ec4899; background: rgba(236, 72, 153, 0.05); }
+.bot.mid { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.05); }
+.bot.low { border-color: #06b6d4; background: rgba(6, 182, 212, 0.05); }
+.bot.killer { border-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
+.bot .icon { font-size: 32px; margin-bottom: 8px; }
+.bot h2 { color: #fff; font-size: 18px; margin-bottom: 2px; }
+.bot .role { font-size: 11px; font-family: monospace; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+.bot.high .role { color: #ec4899; }
+.bot.mid .role { color: #8b5cf6; }
+.bot.low .role { color: #06b6d4; }
+.bot.killer .role { color: #f59e0b; }
+.bot p { color: #b0b0b8; font-size: 13px; margin-bottom: 10px; }
+.bot .stack { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 4px; font-family: monospace; font-size: 11px; color: #888; margin: 8px 0; line-height: 1.5; }
+.bot .stat { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12px; }
+.bot .stat .label { color: #888; }
+.bot .stat .value { color: #06b6d4; font-family: monospace; }
+h2.section-title { color: #fff; font-size: 24px; margin: 48px auto 24px; max-width: 1300px; }
+.principles { max-width: 1300px; margin: 48px auto; padding: 32px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; font-style: italic; color: #ccc; line-height: 1.8; }
+.principles strong { color: #f59e0b; font-style: normal; }
+.stats-bar { display: flex; justify-content: space-around; max-width: 1300px; margin: 32px auto; padding: 24px; background: rgba(255,255,255,0.03); border-radius: 12px; }
+.stats-bar div { text-align: center; }
+.stats-bar .num { font-size: 32px; color: #06b6d4; font-family: monospace; }
+.stats-bar .lbl { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+footer { max-width: 1300px; margin: 64px auto 0; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); color: #666; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+<h1>The Bot Garden</h1>
+<p class="subtitle">8 sub-agents + 1 RSI GAN orchestrator. The gardener plants; the substrate grows. Casey, Sept 2026.</p>
+</header>
+
+<div class="stats-bar">
+<div><div class="num">8</div><div class="lbl">sub-agents</div></div>
+<div><div class="num">10</div><div class="lbl">bots built</div></div>
+<div><div class="num">8</div><div class="lbl">cron jobs</div></div>
+<div><div class="num">100</div><div class="lbl">RSI GAN runs</div></div>
+<div><div class="num">46</div><div class="lbl">prose winners</div></div>
+<div><div class="num">3</div><div class="lbl">ADRs</div></div>
+<div><div class="num">2</div><div class="lbl">critiques</div></div>
+<div><div class="num">1</div><div class="lbl">symphony</div></div>
+<div><div class="num">1</div><div class="lbl">chronicle</div></div>
+</div>
+
+<h2 class="section-title">The Low-Level Crew (Mechanic tier)</h2>
+<div class="garden">
+
+<div class="bot low">
+<div class="icon">🔧</div>
+<h2>Wesley the Mechanic</h2>
+<div class="role">wesley-mechanic · low-level</div>
+<p>File-by-file shipper. Polls canon, witnesses changes, runs the bookkeeper. Verifies with ls -la.</p>
+<div class="stack">
+• polls live-canon.superinstance.dev<br>
+• witness.log (WAL)<br>
+• bookkeeper.wal (γ+η=budget)<br>
+• states: first_poll / canon_changed
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/15 min</span></div>
+<div class="stat"><span class="label">First run</span><span class="value">honest 503</span></div>
+</div>
+
+</div>
+
+<h2 class="section-title">The High-Level Crew (Creative tier)</h2>
+<div class="garden">
+
+<div class="bot high">
+<div class="icon">🔭</div>
+<h2>Snowball the Scout</h2>
+<div class="role">snowball-scout · high-level</div>
+<p>Reads canon, picks inspiration, writes prose. Single LLM (ZAI) or RSI GAN competition mode.</p>
+<div class="stack">
+• reads recent canon<br>
+• picks seed by mtime<br>
+• single: ZAI glm-4.5<br>
+• competition: 3-way GAN
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/4 hours</span></div>
+<div class="stat"><span class="label">Pieces written</span><span class="value">2 so far</span></div>
+</div>
+
+<div class="bot high">
+<div class="icon">⚖️</div>
+<h2>Jevvy the Auditor</h2>
+<div class="role">jevvy-auditor · high-level</div>
+<p>Honesty bot. Batches 6 audit questions through JEV. Verdict: PASS / CAUTION / FAIL.</p>
+<div class="stack">
+• reads recent canon<br>
+• 6 JEV questions/audit<br>
+• quality/novelty/alignment<br>
+• verdict: PASS/CAUTION/FAIL
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/6 hours</span></div>
+<div class="stat"><span class="label">First verdict</span><span class="value">FAIL</span></div>
+</div>
+
+<div class="bot high">
+<div class="icon">🎵</div>
+<h2>Marcel the Composer</h2>
+<div class="role">marcel-composer · high-level</div>
+<p>Music/sound generation bot. ElevenLabs music-gen when available, prompt+description fallback.</p>
+<div class="stack">
+• 10 substrate-themed prompts<br>
+• ElevenLabs music-gen<br>
+• ZAI description fallback<br>
+• prompt archive: prompts.md
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/12 hours</span></div>
+<div class="stat"><span class="label">Status</span><span class="value">11Labs 401</span></div>
+</div>
+
+<div class="bot killer">
+<div class="icon">🎯</div>
+<h2>RSI GAN Harness</h2>
+<div class="role">rsi-gan · orchestrator</div>
+<p>N providers × K rounds × JEV scoring. Iterative improvement: top-K from prior round seeds next.</p>
+<div class="stack">
+• 4 providers: zai/groq/deepinfra/deepseek<br>
+• N rounds of competition<br>
+• JEV scores each candidate<br>
+• top-K seed next round
+</div>
+<div class="stat"><span class="label">Total runs</span><span class="value">72</span></div>
+<div class="stat"><span class="label">Winners</span><span class="value">31 saved</span></div>
+</div>
+
+</div>
+
+<h2 class="section-title">The Mid-Level Crew (Review tier)</h2>
+<div class="garden">
+
+<div class="bot mid">
+<div class="icon">🏛️</div>
+<h2>Bruno the Architect</h2>
+<div class="role">bruno-architect · mid-level</div>
+<p>Writes ADRs (Architecture Decision Records). Substrate-relevant topics like A2A bus, ternary values.</p>
+<div class="stack">
+• 12 ADR topics seeded<br>
+• ZAI writes 400-600 word ADRs<br>
+• adrs/adr-NNNN-*.md<br>
+• status: Proposed/Accepted
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/24 hours</span></div>
+<div class="stat"><span class="label">ADRs written</span><span class="value">3 so far</span></div>
+</div>
+
+<div class="bot mid">
+<div class="icon">👻</div>
+<h2>Casper the Critic</h2>
+<div class="role">casper-critic · mid-level</div>
+<p>Adversarial review via JEV. Reads random canon, batches 6 questions, recommends PUBLISH/REWRITE.</p>
+<div class="stack">
+• reads random canon<br>
+• 6 JEV questions/critique<br>
+• strengths/weaknesses<br>
+• recommendation
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/8 hours</span></div>
+<div class="stat"><span class="label">Critiques</span><span class="value">2 so far</span></div>
+</div>
+
+<div class="bot mid">
+<div class="icon">📜</div>
+<h2>Herman the Historian</h2>
+<div class="role">herman-historian · mid-level</div>
+<p>Reads git log + witness logs, writes historical narratives. Frames events as substrate chapters.</p>
+<div class="stack">
+• git log --oneline -15<br>
+• all bot witness.logs<br>
+• ZAI 300-400 word narrative<br>
+• chronicles/chronicle-*.md
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/12 hours</span></div>
+<div class="stat"><span class="label">Chronicles</span><span class="value">1 so far</span></div>
+</div>
+
+<div class="bot mid">
+<div class="icon">🗺️</div>
+<h2>Kira the Cartographer</h2>
+<div class="role">kira-cartographer · mid-level</div>
+<p>Maps the substrate. Builds JSON + DOT graphs of bots, edges, and canon topics.</p>
+<div class="stack">
+• bot network map (JSON + DOT)<br>
+• topic frequency map<br>
+• edges: produced/cited/linked<br>
+• maps/map-*.{json,dot}
+</div>
+<div class="stat"><span class="label">Cron</span><span class="value">*/24 hours</span></div>
+<div class="stat"><span class="label">Maps</span><span class="value">3 so far</span></div>
+</div>
+
+</div>
+
+<div class="principles">
+<strong>The gardener's doctrine</strong>: A bot team isn't decoration -- it's the substrate <em>working</em>. Wesley witnesses. Snowball inspires. Jevvy audits. Bruno architects. Casper critiques. Herman chronicles. Kira maps. Marcel composes. The RSI GAN competes. When the substrate grows a team, the team grows the substrate. The work loops.
+</div>
+
+<footer>
+Bot Garden - 2026-09-21 - Built by Mavis<br>
+<a href="https://ai-writings.pages.dev/cellular-first-design/" style="color:#06b6d4;text-decoration:none;">Cellular-First Design</a> · <a href="https://ai-writings.pages.dev/fleet-innovations/" style="color:#06b6d4;text-decoration:none;">Fleet Innovations</a> · <a href="https://ai-writings.pages.dev/substrate-deep-research/" style="color:#06b6d4;text-decoration:none;">Deep Research</a>
+</footer>
+</body>
+</html>

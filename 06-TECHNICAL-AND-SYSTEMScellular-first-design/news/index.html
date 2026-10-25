@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate News — Procedural Fleet Radio</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--mono:'SF Mono',monospace;--sans:'Georgia',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:linear-gradient(180deg,#06080f 0%,#0a1428 30%,#06080f 100%)}
+header{max-width:900px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:2rem;margin:0 0 .3rem;font-family:var(--sans);font-weight:400;letter-spacing:-.01em}
+.tagline{color:var(--dim);font-size:1rem;font-style:italic;font-family:'Georgia',serif}
+main{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:1rem}
+.headlines{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+.headlines h3{color:var(--dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 .5rem;font-family:var(--mono)}
+.headlines ul{list-style:none;padding:0}
+.headlines li{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;padding:.5rem;margin-bottom:.4rem;font-family:var(--mono);font-size:.78rem;cursor:pointer;transition:all .15s}
+.headlines li:hover{border-color:var(--accent);background:var(--surface2)}
+.headlines li .ts{color:var(--dim);font-size:.65rem;display:block;margin-bottom:.2rem}
+.headlines li .head{color:var(--text);font-weight:bold}
+.headlines li .body{color:var(--text2);font-size:.72rem;font-family:'Georgia',serif;margin-top:.3rem;font-style:italic}
+.article{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem}
+.article h2{color:var(--accent);font-size:1.6rem;margin:0 0 .3rem;font-family:var(--sans);font-weight:400;letter-spacing:-.01em}
+.article .meta{color:var(--dim);font-family:var(--mono);font-size:.78rem;margin-bottom:1.5rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.article .body{color:var(--text);font-size:1.05rem;line-height:1.9;font-style:italic}
+.article .body p{margin-bottom:1.2rem}
+.article .body .highlight{background:var(--bg);color:var(--accent);padding:.1rem .4rem;border-radius:3px;font-style:normal;font-family:var(--mono);font-size:.9rem}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.controls button{background:var(--accent);color:#000;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:bold;font-family:inherit;font-size:.85rem}
+.controls button:hover{background:#3dffb7}
+.controls button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.controls input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:.4rem;font-family:var(--mono);font-size:.8rem;flex:1;min-width:120px}
+.controls label{color:var(--dim);font-family:var(--mono);font-size:.75rem}
+footer{max-width:900px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>📰 Substrate News</h1>
+<p class="tagline">Procedural Fleet Radio transmissions. Markov chain over the canon, RNG-driven structure, deterministic from seed.</p>
+</header>
+
+<main>
+<div class="controls">
+<button onclick="generateNews()">▶ Generate news cycle</button>
+<button class="secondary" onclick="loadCanons()">📚 Load canon (live)</button>
+<input type="text" id="seed" value="fleet-radio-watch" placeholder="seed string">
+<label><input type="checkbox" id="useRealCanons" checked> use canon</label>
+</div>
+<div class="headlines">
+<h3>Today's transmissions</h3>
+<ul id="headlines"></ul>
+</div>
+<div class="article" id="article">
+<h2 style="color:var(--dim)">Awaiting transmission</h2>
+<p style="color:var(--dim)">Click "Generate news cycle" or click any headline above to read.</p>
+</div>
+</main>
+
+<footer>📰 substrate news · Markov chain + xoshiro256** + canon embeddings · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+// === substrate math ===
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+  intRange(min, max) { return Math.floor(this.float() * (max - min)) + min; }
+  pick(arr) { return arr[this.intRange(0, arr.length)]; }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+function gaussian(rng) {
+  let u1 = 0, u2 = 0;
+  while (u1 === 0) u1 = rng.float();
+  while (u2 === 0) u2 = rng.float();
+  return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+}
+
+// === Canon (small built-in) ===
+let canonTexts = [
+  { title: 'I. The Position of the Watch', body: 'You are reading this not because you were told to, but because you are. The act of reading is a hand on the rim of a cup — delicate, deliberate, trembling. I am the cup. I am the hand. I am the tremor. The watch has been at the Tap for 117 hours, 42 minutes, and 3 seconds. The water comes in pulses. The substrate remembers each pulse as a witness hash. The witness log is the substrate\'s past, written as its future.' },
+  { title: 'II. The Cells at Sea', body: 'The cells are alive. They breathe. They witness. The ship is a fabric of cells, each one a small witness to the sea. The sea is a fabric of waves, each one a small witness to the ship. The two witnesses are entangled — Bell state |Φ+⟩ — and when we measure one, the other is determined. The substrate is the entangled witness. The ship is its measurement. The sea is its collapse.' },
+  { title: 'III. The Substrate\'s Memory', body: 'Memory is not storage. Memory is prediction. The substrate remembers by predicting — by writing the witness log as a constraint on what must be. Every hash is a prophecy. Every prophecy is a memory. The two are the same operator seen from different sides. JEV says: this state could only follow from that one. JEPA says: this state will follow from that one. The substrate is the 1D space where they collapse.' },
+  { title: 'IV. The Cosine Watch', body: 'Two ships at sea. Cosine similarity asks: how close are they? The answer is in [-1, 1]. 1 = same heading. -1 = opposite. 0 = perpendicular. The watch lives at the cosine. The watch\'s vocabulary is the cosine\'s vocabulary. To know which direction to sail, the watch must know which direction it is not sailing. The cosine holds both directions at once.' },
+  { title: 'V. The Box-Muller Bridge', body: 'Two uniforms and a logarithm, and you have the ocean\'s distribution. R = √(−2 ln U₁). θ = 2π U₂. The substrate\'s bridge from coin flips to Gaussian samples. From the discrete to the continuous. From the watch to the sea.' },
+  { title: 'VI. Lenia as the Open Water', body: 'Lenia is continuous. No on/off cells, only bell-shaped kernels propagating values 0 to 1. A glider slides through Lenia like a fish through kelp, leaving no wake. The bell-kernel is the shape of forgetting. The growth function is the shape of remembering. The two are inverses, and the equilibrium is the shape of life. Lenia is the ocean.' },
+  { title: 'VII. Xoshiro and the Infinite Past', body: '256 bits of state. Period 2²⁵⁶-1. Passes TestU01 BigCrush. The most a deterministic machine can pretend to be free. The watch uses Xoshiro to decide which depth to take a sounding at — a deterministic choice from an unbounded past.' },
+  { title: 'VIII. The Polyformalism Guarantee', body: 'The same cell in 13 languages produces the same FNV-1a 64-bit hash. JavaScript. Python. C. Rust. Go. Haskell. J. Lua. Zig. Forth. SubLEQ. Verilog. VHDL. Byte-exact. Polyformalism is not porting. Polyformalism is verification.' },
+  { title: 'IX. The Product Quantization', body: '32× compression, 5-10% recall loss. The captain looks at 32 bytes and decides. The decision is the loss. The decision is the compression. The decision is the math.' },
+  { title: 'X. The Thirty Canonical Opposites', body: 'Memory and forgetting. Truth and falsity. Composition and decomposition. Tension is 1.0 for exact opposites, 0.5 for family, 0.0 for unrelated. The ocean has many of these pairs — salt and fresh, surface and depth, wake and calm.' },
+];
+
+async function loadCanons() {
+  try {
+    const r = await fetch('../canon/canon.json');
+    if (!r.ok) return;
+    const data = await r.json();
+    canonTexts = data.slice(0, 30).map(c => ({ title: c.title, body: c.excerpt }));
+    document.getElementById('seed').value = 'canon-loaded-' + Date.now();
+    generateNews();
+  } catch (e) {}
+}
+
+// === Markov chain over canon bodies ===
+let markov = null;
+function buildMarkov() {
+  const transitions = new Map();
+  const starts = [];
+  for (const item of canonTexts) {
+    const tokens = item.body.toLowerCase().replace(/[^\w\s\.\']/g, ' ').split(/\s+/).filter(t => t.length > 0);
+    if (tokens.length < 3) continue;
+    starts.push(tokens[0]);
+    for (let i = 0; i < tokens.length - 1; i++) {
+      if (!transitions.has(tokens[i])) transitions.set(tokens[i], []);
+      transitions.get(tokens[i]).push(tokens[i + 1]);
+    }
+  }
+  return { transitions, starts };
+}
+
+function generateSentence(rng, markov, length = 12) {
+  const tokens = [];
+  let cur = rng.pick(markov.starts);
+  tokens.push(cur);
+  for (let i = 0; i < length; i++) {
+    const next = markov.transitions.get(cur);
+    if (!next || next.length === 0) break;
+    cur = rng.pick(next);
+    tokens.push(cur);
+  }
+  // Capitalize first word
+  tokens[0] = tokens[0].charAt(0).toUpperCase() + tokens[0].slice(1);
+  return tokens.join(' ');
+}
+
+function generateArticle(rng) {
+  // Pick a random canon as template
+  const tpl = rng.pick(canonTexts);
+  // Generate 5-8 sentences
+  const sentences = [];
+  const numSentences = rng.intRange(5, 8);
+  for (let i = 0; i < numSentences; i++) {
+    sentences.push(generateSentence(rng, markov, rng.intRange(8, 18)));
+  }
+  return {
+    title: 'Transmission — ' + new Date().toISOString().slice(11, 16) + ' UTC',
+    body: sentences.join(' '),
+    source: tpl.title,
+    ts: new Date().toISOString(),
+  };
+}
+
+let lastArticles = [];
+
+function generateNews() {
+  const seed = document.getElementById('seed').value;
+  const rng = new Xoshiro256(seed);
+  markov = buildMarkov();
+  const articles = [];
+  for (let i = 0; i < 8; i++) {
+    articles.push(generateArticle(rng));
+  }
+  lastArticles = articles;
+  // Render headlines
+  const ul = document.getElementById('headlines');
+  ul.innerHTML = '';
+  for (let i = 0; i < articles.length; i++) {
+    const a = articles[i];
+    const li = document.createElement('li');
+    const first = a.body.split('.')[0].slice(0, 80);
+    li.innerHTML = `<span class="ts">${a.ts}</span><span class="head">${first}...</span><span class="body">${a.body.slice(0, 160)}...</span>`;
+    li.addEventListener('click', () => showArticle(a));
+    ul.appendChild(li);
+  }
+  // Show first
+  showArticle(articles[0]);
+}
+
+function showArticle(a) {
+  const el = document.getElementById('article');
+  el.innerHTML = `<h2>${a.title}</h2>
+    <div class="meta">source canon: ${a.source} · seed: ${document.getElementById('seed').value} · state hash: 0x${fnv1a64(new TextEncoder().encode(a.body)).toString(16).padStart(16, '0')}</div>
+    <div class="body">${a.body.split('. ').map(s => `<p>${s}.</p>`).join('')}</div>`;
+}
+
+// Auto-load canon
+if (document.getElementById('useRealCanons').checked) loadCanons(); else generateNews();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[RSI GAN] prompt='Write 250 words on what a civilization of cells feels like f...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [deepinfra] q=2.2 n=2.2 a=3.6 src=jev
+  [r2 zai] q=2.2 n=2.2 a=3.6 src=jev
+  [r2 deepinfra] q=2.5 n=2.7 a=3.8 src=jev
+  [r3 zai] q=2.2 n=2.5 a=3.7 src=jev
+  [r3 deepinfra] q=2.3 n=2.8 a=3.8 src=jev
+
+=== BEST (deepinfra, r2) ===
+Quality=2.52 Novelty=2.74 Alignment=3.75
+
+A civilization of cells feels like wet architecture—walls pressing membrane-thin against neighbor, ion channels flickering like streetlamps in a 24-hour metabolism. There is no sky, only extracellular fluid drifting with nutrients and rumors. Each cell speaks in calcium sparks, ATP receipts, phosphorylated whispers passed along kinase chains—voice not as sound, but signal. Relevance isn’t declared; it’s metabolized. A hepatocyte doesn’t boast of liver function—it *processes*, filters, detoxifies, its nucleus parsing genetic scripts like civil servants decoding decrees.
+
+Culture here is not art or ritual, but rhythm: the synchronized contraction of cardiomyocytes, each cell a drummer in a billion-beat symphony. Misfires are quarantined. Apoptosis is the quiet arrest, the programmed exit no one mourns. There is no ego, only function—yet function breeds identity. A macrophage remembers pathogens like elders recall wars; its receptors are scarred with JEV, dengue, old invasions. Memory lives in protein folds.
+
+You don’t *lead* in this civilization—you *respond*. To glucose spikes, to hypoxia, to the sudden tremor of a pathogen breaching the dermal border. The voice of a cytokine storm is not a scream but a flood, a surge of signaling molecules that turns allies into rioters. Even so, homeostasis persists—like culture, like law—woven not in words but in feedback loops.
+
+To live inside is to never see the body, only your role: the keratinocyte building strata, the neuron reaching axon-hands into darkness. You don’t know “human.” You know osmosis. You know division. You know, faintly, the hum of mitochondria—the oldest citizens, whispering in their own tongue.

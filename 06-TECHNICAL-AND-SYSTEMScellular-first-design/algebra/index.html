@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Algebra — 11-opcode playground</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at center,#0a0a1a 0%,#06080f 60%)}
+header{max-width:1200px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.6rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem}
+.section h3{color:var(--accent);font-size:1rem;margin:0 0 .5rem;font-family:var(--mono)}
+.section p{color:var(--text2);font-size:.85rem;line-height:1.5;margin:0 0 .5rem}
+.opcodes{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:1rem}
+.op{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;font-family:var(--mono);font-size:.7rem;cursor:pointer;transition:all .15s}
+.op:hover{border-color:var(--accent);color:var(--accent)}
+.op.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.op small{display:block;color:var(--dim);font-size:.6rem;margin-top:.1rem}
+.op.active small{color:#000}
+.codeblock{background:#000;border:1px solid var(--border);border-radius:4px;padding:.7rem;font-family:var(--mono);font-size:.75rem;color:var(--text);min-height:80px;margin-bottom:.5rem;line-height:1.4}
+.codeblock .op-line{color:var(--accent);font-weight:bold}
+.codeblock .comment{color:var(--dim)}
+.output{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;font-family:var(--mono);font-size:.78rem;color:var(--text2);min-height:120px}
+.output .cell{border:1px solid var(--accent3);border-radius:4px;padding:.4rem;margin-bottom:.3rem;background:rgba(124,92,255,0.05)}
+.output .cell-id{color:var(--accent3);font-size:.65rem}
+.output .hash{color:var(--accent2);font-size:.65rem;word-break:break-all}
+button{background:var(--accent);color:#000;border:none;padding:.4rem .8rem;border-radius:4px;cursor:pointer;font-weight:bold;font-size:.78rem;margin-right:.3rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;color:var(--text2)}
+.stats div{margin-bottom:.1rem}
+.stats .v{color:var(--accent);font-weight:bold}
+footer{max-width:1200px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>⚙️ Substrate Algebra</h1>
+<p class="tagline">The 11-opcode cellular algebra. Compose cells. Watch them bind.</p>
+</header>
+
+<main>
+<section class="section">
+<h3>📦 The 11 opcodes</h3>
+<p style="color:var(--dim)">The first 5 are the base algebra (Quilt core). The next 6 extend it (substrate-forge).</p>
+<div class="opcodes" id="opcodes"></div>
+
+<h3>📝 Program</h3>
+<div class="codeblock" id="program">// Click an opcode to add it to the program
+// Or pick a preset below
+</div>
+<button onclick="run()">▶ Execute</button>
+<button class="secondary" onclick="reset()">↻ Reset</button>
+<button class="secondary" onclick="loadPreset('hello')">hello</button>
+<button class="secondary" onclick="loadPreset('chain')">chain</button>
+<button class="secondary" onclick="loadPreset('witness')">witness</button>
+<button class="secondary" onclick="loadPreset('time')">time</button>
+</section>
+
+<section class="section">
+<h3>📋 Cell graph</h3>
+<div class="output" id="output">No cells yet. Click Execute.</div>
+<div class="stats">
+<div>Cells: <span class="v" id="sCells">0</span></div>
+<div>Writes: <span class="v" id="sWrites">0</span></div>
+<div>Total ticks: <span class="v" id="sTicks">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</section>
+</main>
+
+<footer>⚙️ substrate algebra · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+const OPCODES = [
+  { name: 'BIND',     desc: 'Create a cell',                  example: 'BIND my-cell dial:7 dial:12' },
+  { name: 'LINK',     desc: 'Connect two cells',              example: 'LINK a b' },
+  { name: 'EFFECT',   desc: 'Run an effect on a cell',        example: 'EFFECT a fn:tick' },
+  { name: 'VIEW',     desc: 'Read a cell\'s state',           example: 'VIEW a' },
+  { name: 'TICK',     desc: 'Advance the clock',              example: 'TICK' },
+  { name: 'FORGET',   desc: 'Garbage collect a cell',         example: 'FORGET a' },
+  { name: 'PROOF',    desc: 'Verify a witness hash',          example: 'PROOF a' },
+  { name: 'ROUTE',    desc: 'Find a path between cells',      example: 'ROUTE a z' },
+  { name: 'CRDT',     desc: 'Merge two cells',                example: 'CRDT a b' },
+  { name: 'WORLD',    desc: 'Load a world from canon',        example: 'WORLD fleet-radio-v3' },
+  { name: 'TIME',     desc: 'Travel to a witness-log tick',   example: 'TIME 42' },
+];
+
+class Xoshiro256 {
+  constructor(seed) {
+    if (typeof seed === 'string') {
+      const h = fnv1a64(new TextEncoder().encode(seed));
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+    } else {
+      this.state = new BigUint64Array(4);
+      for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, BigInt(seed + i * 0x9e3779b97f4a7c15));
+    }
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+let programLines = [];
+let cells = {};
+let tickCount = 0;
+let writeCount = 0;
+let rng = new Xoshiro256('algebra-' + Date.now());
+
+function renderOpcodes() {
+  const el = document.getElementById('opcodes');
+  el.innerHTML = '';
+  for (const op of OPCODES) {
+    const div = document.createElement('div');
+    div.className = 'op';
+    div.innerHTML = `<strong>${op.name}</strong><small>${op.desc}</small>`;
+    div.addEventListener('click', () => { programLines.push(`${op.name} #${rng.float().toString(16).slice(2, 8)}`); render(); });
+    el.appendChild(div);
+  }
+}
+
+function renderProgram() {
+  const el = document.getElementById('program');
+  el.innerHTML = '';
+  if (programLines.length === 0) {
+    el.innerHTML = '<span style="color:var(--dim)">// Empty program. Click an opcode to add a line.</span>';
+  } else {
+    el.innerHTML = programLines.map((l, i) => `<div><span class="comment">${i + 1:3d}</span> <span class="op-line">${l.split(' ')[0]}</span> <span>${l.slice(l.indexOf(' ') + 1)}</span></div>`).join('');
+  }
+}
+
+function render() {
+  renderProgram();
+}
+
+function loadPreset(name) {
+  if (name === 'hello') {
+    programLines = ['BIND hello dial:42', 'VIEW hello', 'TICK', 'TICK', 'TICK', 'VIEW hello', 'PROOF hello'];
+  } else if (name === 'chain') {
+    programLines = ['BIND a dial:7', 'BIND b dial:11', 'BIND c dial:13', 'LINK a b', 'LINK b c', 'LINK a c', 'PROOF c'];
+  } else if (name === 'witness') {
+    programLines = ['BIND witness-1 dial:100', 'TICK', 'BIND witness-2 dial:200', 'PROOF witness-1', 'PROOF witness-2'];
+  } else if (name === 'time') {
+    programLines = ['BIND origin dial:0', 'TICK', 'TIME 5', 'TICK', 'TICK', 'VIEW origin'];
+  }
+  render();
+}
+
+function execute() {
+  for (const line of programLines) {
+    const [op, ...args] = line.split(' ');
+    if (op === 'BIND') {
+      cells[args[0]] = { id: args[0], dial: parseInt(args[1].split(':')[1]) || 0, hash: '0x' + fnv1a64(new TextEncoder().encode(args[0])).toString(16).padStart(8, '0'), links: [], tick: 0 };
+      writeCount++;
+    } else if (op === 'LINK') {
+      if (cells[args[0]] && cells[args[1]]) {
+        cells[args[0]].links.push(args[1]);
+        cells[args[1]].links.push(args[0]);
+        writeCount++;
+      }
+    } else if (op === 'EFFECT') { tickCount++; }
+    else if (op === 'VIEW') { /* no-op */ }
+    else if (op === 'TICK') { tickCount++; for (const c of Object.values(cells)) c.tick++; }
+    else if (op === 'FORGET') { delete cells[args[0]]; }
+    else if (op === 'PROOF') {
+      const c = cells[args[0]];
+      if (c) c.proof = 'verified-' + rng.float().toString(16).slice(2, 6);
+    }
+    else if (op === 'ROUTE') { /* computed below */ }
+    else if (op === 'CRDT') {
+      if (cells[args[0]] && cells[args[1]]) {
+        const m = cells[args[0]], n = cells[args[1]];
+        const merged = { id: m.id + '+' + n.id, dial: m.dial ^ n.dial, hash: '0x' + fnv1a64(new TextEncoder().encode(m.id + n.id)).toString(16).padStart(8, '0'), links: [...new Set([...m.links, ...n.links])], tick: Math.max(m.tick, n.tick) };
+        cells[m.id + '+' + n.id] = merged;
+        writeCount++;
+      }
+    }
+    else if (op === 'WORLD') { /* no-op in demo */ }
+    else if (op === 'TIME') { tickCount += parseInt(args[0]) || 1; }
+  }
+  // Render output
+  const out = document.getElementById('output');
+  if (Object.keys(cells).length === 0) {
+    out.innerHTML = '<span style="color:var(--dim)">No cells yet</span>';
+  } else {
+    out.innerHTML = Object.values(cells).map(c => `
+      <div class="cell">
+        <div class="cell-id">${c.id} <span style="color:var(--dim)">(tick ${c.tick})</span></div>
+        <div class="hash">${c.hash}${c.proof ? ' · PROOF: ' + c.proof : ''}</div>
+        <div style="color:var(--text2);font-size:.7rem">dial: ${c.dial} · links: ${c.links.join(', ') || '—'}</div>
+      </div>
+    `).join('');
+  }
+  document.getElementById('sCells').textContent = Object.keys(cells).length;
+  document.getElementById('sWrites').textContent = writeCount;
+  document.getElementById('sTicks').textContent = tickCount;
+  const stateHash = fnv1a64(new TextEncoder().encode(Object.values(cells).map(c => c.id + c.hash).join('|')));
+  document.getElementById('sHash').textContent = '0x' + stateHash.toString(16).padStart(16, '0');
+}
+
+function run() { execute(); }
+function reset() {
+  programLines = [];
+  cells = {};
+  tickCount = 0;
+  writeCount = 0;
+  render();
+  document.getElementById('output').innerHTML = '<span style="color:var(--dim)">No cells yet</span>';
+  document.getElementById('sCells').textContent = '0';
+  document.getElementById('sWrites').textContent = '0';
+  document.getElementById('sTicks').textContent = '0';
+  document.getElementById('sHash').textContent = '—';
+}
+
+renderOpcodes();
+render();
+</script>
+</body>
+</html>

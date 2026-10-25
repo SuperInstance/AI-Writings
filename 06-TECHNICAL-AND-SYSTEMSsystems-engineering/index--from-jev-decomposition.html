@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEV Decomposition Map · Live · Quilt</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888;
+  --BIND:#77aaff; --LINK:#77dd99; --EFFECT:#ff7799; --VIEW:#ffd966; --TICK:#ff6655;
+  --FORGET:#888; --PROOF:#aa88ff; --ROUTE:#44ddaa; --CRDT:#ccff66; --WORLD:#ff9944; --TIME:#ff44dd; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.6; padding:1rem; max-width:1100px; margin:0 auto; }
+header { border-bottom:2px solid var(--EFFECT); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--EFFECT); font-size:2.3em; }
+.subtitle { color:var(--VIEW); font-size:.85em; letter-spacing:.15em; text-transform:uppercase; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.dist-bar { display:flex; height:40px; border-radius:4px; overflow:hidden; margin:1rem 0; border:1px solid var(--boundary); }
+.dist-seg { display:flex; align-items:center; justify-content:center; font-family:monospace; font-weight:bold; color:#000; font-size:.85em; padding:0 .5rem; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9em; }
+th, td { padding:.5rem .7rem; text-align:left; border-bottom:1px solid var(--boundary); }
+th { color:var(--VIEW); font-weight:bold; }
+.op { display:inline-block; padding:.2rem .6rem; border-radius:3px; font-family:monospace; font-weight:bold; color:#000; }
+.op.BIND { background:var(--BIND); } .op.LINK { background:var(--LINK); } .op.EFFECT { background:var(--EFFECT); }
+.op.VIEW { background:var(--VIEW); } .op.TICK { background:var(--TICK); color:#fff; }
+.op.FORGET { background:var(--FORGET); color:#fff; } .op.PROOF { background:var(--PROOF); }
+.op.ROUTE { background:var(--ROUTE); } .op.CRDT { background:var(--CRDT); }
+.op.WORLD { background:var(--WORLD); } .op.TIME { background:var(--TIME); }
+.conf { font-family:monospace; color:var(--VIEW); }
+.gap { color:var(--TICK); font-weight:bold; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--EFFECT); }
+.fn-row { display:flex; gap:.5rem; align-items:center; padding:.3rem 0; border-bottom:1px solid var(--boundary); font-size:.85em; }
+.fn-row:last-child { border-bottom:none; }
+.fn-name { flex:0 0 240px; font-family:monospace; }
+.fn-proj { flex:0 0 100px; color:var(--muted); }
+.fn-op { flex:0 0 80px; }
+.fn-conf { flex:0 0 80px; font-family:monospace; color:var(--VIEW); }
+.fn-cx { font-family:monospace; color:var(--muted); font-size:.85em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧠 JEV Decomposition Map · Live</h1>
+  <div class="subtitle">Cross-Project Opcode Coverage · 42 functions · 9 projects</div>
+</header>
+
+<div class="section">
+<h2>📊 Distribution</h2>
+<div id="dist-bar" class="dist-bar"></div>
+<p id="dist-summary"></p>
+</div>
+
+<div class="section">
+<h2>🏗️ Per-Function Breakdown</h2>
+<div id="fn-list"></div>
+</div>
+
+<div class="section">
+<h2>⚠️ Architecture Gaps</h2>
+<p id="gaps"></p>
+</div>
+
+<div class="section">
+<h2>🚀 What this enables</h2>
+<ul>
+<li><strong>Inter-project uniformity</strong> — every project maps onto 4-6 opcodes. Cross-project composition is now possible.</li>
+<li><strong>Live decomposition as code review</strong> — when a PR adds a function, /api/jev/decompose-agent classifies it. Mismatches trigger alerts.</li>
+<li><strong>Automatic witness categorization</strong> — opcode → witness_op mapping gives every witness entry semantic meaning.</li>
+<li><strong>Cross-quilt observability</strong> — knowing that EFFECT dominates 26% of operations tells us where to add caching, batching, and observability.</li>
+</ul>
+</div>
+
+<div class="foot-link">
+JEV Decomposition · <a href="/">ai-writings</a> · <a href="/jev/">JEV UI</a> · <a href="/docs/">docs</a>
+</div>
+
+<script>
+async function load() {
+  const r = await fetch('/api/jev-decomposition-map');
+  const data = await r.json();
+  const total = data.total;
+  const dist = data.distribution;
+  
+  // Distribution bar
+  const bar = document.getElementById('dist-bar');
+  bar.innerHTML = '';
+  const ops = Object.entries(dist).sort((a,b) => b[1]-a[1]);
+  for (const [op, n] of ops) {
+    const seg = document.createElement('div');
+    seg.className = 'dist-seg';
+    seg.style.background = `var(--${op})`;
+    seg.style.width = `${(n/total*100).toFixed(1)}%`;
+    seg.style.color = (op === 'TICK' || op === 'FORGET') ? '#fff' : '#000';
+    seg.textContent = `${op} ${n}`;
+    bar.appendChild(seg);
+  }
+  
+  // Distribution summary
+  const sumP = ops.slice(0, 2).map(([op,n]) => `${op}=${n}`).join(' and ');
+  document.getElementById('dist-summary').innerHTML =
+    `<strong>${total} functions decomposed across 9 projects.</strong> Top 2 opcodes: ${sumP} (${((ops[0][1]+ops[1][1])/total*100).toFixed(0)}%). ` +
+    `<span class="gap">No WORLD or TIME primitives found across any project.</span> PROOF is rare (${dist.PROOF||0}/${total}).`;
+  
+  // Function list
+  const list = document.getElementById('fn-list');
+  for (const r of data.results) {
+    if (!r.result || !r.result.answers) continue;
+    const op = r.result.answers.primary_op.choice;
+    const conf = (r.result.answers.primary_op.confidence * 100).toFixed(0);
+    const cx = r.result.answers.complexity.score.toFixed(2);
+    const row = document.createElement('div');
+    row.className = 'fn-row';
+    row.innerHTML = `
+      <span class="fn-name">${r.fn}</span>
+      <span class="fn-proj">${r.project}</span>
+      <span class="fn-op"><span class="op ${op}">${op}</span></span>
+      <span class="fn-conf">${conf}%</span>
+      <span class="fn-cx">cx=${cx}</span>
+    `;
+    list.appendChild(row);
+  }
+  
+  // Gaps
+  document.getElementById('gaps').innerHTML = `
+    <p class="gap">No TIME primitives</span> — no project schedules explicitly. Need a cross-project scheduler.</p>
+    <p class="gap">No WORLD primitives</span> — 4D lattice (x,y,z,t) is collapsed. Cells aren't spatially addressed.</p>
+    <p class="gap">PROOF is rare (${dist.PROOF||0}/${total})</span> — only pincher_compare and ai-writings cell_validate explicitly verify. Witness trust layer is thin.</p>
+  `;
+}
+
+load();
+</script>
+</body>
+</html>

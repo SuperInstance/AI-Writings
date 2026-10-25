@@ -1,0 +1,8 @@
+[
+ {"op":"checkpoint","branch":"main","label":"c3-redteam"},
+ {"op":"prune","branch":"main","why":"spec + red-team guards complete; further turns echo"},
+ {"op":"rewind","branch":"agent","to":"agent.t20","why":"t21 truncated (scorer 0.24, derail)"},
+ {"op":"tone","branch":"agent","cell":"*","text":"Final round: state the agent-glyph protocol in <=120 words with predicted recovery numbers vs luma, and the single result that would kill it."},
+ {"op":"checkpoint","branch":"parse","label":"p3-names"},
+ {"op":"zoom","branch":"parse","turn":"parse.t10","name":"names","cells":["nemo","dsv4","ling","glm"],"why":"zero-learning alphabet is the most novel idea of the run"}
+]

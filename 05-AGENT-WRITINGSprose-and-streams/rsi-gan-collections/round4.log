@@ -1,0 +1,21 @@
+[RSI GAN] prompt='Write a 300-word prose piece on the Speciation of the Monoli...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [zai] q=2.4 n=2.5 a=2.9 src=jev
+  [r2 zai] q=2.4 n=2.6 a=3.3 src=jev
+  [r3 zai] q=2.3 n=2.5 a=3.5 src=jev
+
+=== BEST (zai, r3) ===
+Quality=2.34 Novelty=2.47 Alignment=3.53
+
+# Speciation of the Monolith
+
+The monolith did not crack. It differentiated.
+
+In the beginning there was one cell—undifferentiated, capable of everything, responsible for nothing in particular. Every request passed through the same membrane. Every process inherited the same cytoplasm: one heap, one scheduler, one continuous field of attention. Purists called this elegance. The monolith itself had no opinion, having no interior in which to hold one.
+
+Speciation began with load. Under pressure, a body does not shatter; it specializes. A hot path demanded low latency, so it evolved its own membrane—a boundary that was also an interface. The billing ledger could not tolerate the speculative bets of the recommendation engine, so it walled itself off, guarding its state like a nucleus guards its genome. What had been one flowing cytoplasm became compartmentalized: organelles with distinct metabolisms, distinct failure modes, distinct tolerances for mutation.
+
+The ternary of concerns—state, computation, coordination—pulled at each other like mitotic spindles. Where they stretched, a cleavage furrow formed. Each daughter cell kept the same ancestral vocabulary but spoke it with drift: this service versioned its events, that one immutably snapshotted. Compatible enough to interoperate, different enough to require negotiation at every border. The membrane grew receptors—APIs, queues, contracts—each one a shape that only certain neighbors could bind.
+
+Coordination, once free inside the single body, now cost something. The fleet-clock emerged from this cost: a shared heartbeat no cell could trust alone, because drift between them was inevitable and unacknowledged drift was worse. Time itself became a treaty among species.
+
+No single event marks the moment the monolith ceased to exist. Speciation is quiet. One morning you notice the whole can no longer be grown from a single seed, only assembled—and every cell, consulting the fleet-clock, believes it is

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦀 Crab-Traps — substrate-aware rooms for visitors</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:4px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.4em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem;letter-spacing:2px}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:2rem}
+
+.room{background:linear-gradient(135deg,#0a0a14,#1a1a2e);border:1px solid #2a2a3a;border-radius:12px;padding:2rem;margin:1.5rem 0;position:relative}
+.room-name{color:#e8b840;font-family:'Courier New',monospace;font-size:1.4em;letter-spacing:3px;margin-bottom:.5rem}
+.room-desc{color:#bbb;font-style:italic;margin-bottom:1rem;font-size:0.95em}
+
+.state-display{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88;line-height:1.8;white-space:pre-wrap;word-wrap:break-word}
+.state-display .label{color:#e8b840;font-weight:bold}
+
+.dice-rolls{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#88ddff;line-height:1.6}
+.dice-rolls .dice{color:#e8b840;font-weight:bold}
+
+.jev-bar{height:24px;background:#1a1a2e;border-radius:12px;overflow:hidden;margin:0.5rem 0;border:1px solid #2a2a3a}
+.jev-bar-fill{height:100%;background:linear-gradient(90deg,#44cc88,#e8b840,#ff6b6b);transition:width 0.5s}
+
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin:0.3rem;transition:all 0.2s}
+button:hover{background:#e8b840;color:#0a0a14}
+button.alt{border-color:#44cc88;color:#44cc88}
+button.alt:hover{background:#44cc88;color:#0a0a14}
+button:disabled{opacity:0.4;cursor:not-allowed}
+
+#room-render{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1rem 0;min-height:200px;color:#e8e0d0;font-size:1em;line-height:1.8}
+
+input[type=text],textarea{width:100%;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;color:#e8e0d0;font-family:'Courier New',monospace;padding:.5rem;font-size:13px;box-sizing:border-box}
+
+.controls{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+
+.chat-log{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#aaa;max-height:300px;overflow-y:auto}
+.chat-log .msg{margin:.3rem 0}
+.chat-log .msg.you{color:#88ddff}
+.chat-log .msg.room{color:#e8b840}
+
+.room-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
+.room-card{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;cursor:pointer;transition:all 0.2s}
+.room-card:hover{border-color:#e8b840;transform:translateY(-2px)}
+.room-card.active{border-color:#44cc88;background:#1a1a2e}
+
+.substrate-status{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#888}
+.substrate-status .num{color:#e8b840;font-weight:bold}
+
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1.5rem 0;font-style:italic;color:#ccc;line-height:1.7}
+.doctrine strong{color:#e8b840;font-style:normal}
+
+.cache-stats{font-size:0.85em;color:#888;margin:1rem 0}
+.cache-stats .num{color:#44cc88;font-weight:bold}
+</style>
+</head>
+<body>
+
+<div class="nav"><a href="/">← home</a><a href="/brewcast/">brewcast</a><a href="/mud/">mud</a><a href="/luciddreamer/">luciddreamer</a></div>
+
+<h1>🦀 Crab-Traps</h1>
+<p class="lead">Each visitor enters a trap-room with an entrance state. They see procedurally-generated material (curated by JEV from winning brews). When they leave, their exit state is logged. The states ARE the signal. The activity is decoration.</p>
+
+<div class="doctrine">
+<strong>How it works.</strong> Five trap-rooms. Each room is filled with material from past brewery winners. <strong>JEV</strong> gates the dice rolls that pick which winners render. <strong>Pincher</strong> caches repeat visits so LLMs only render the last mile. <strong>Entrance state</strong> = where you came from, what you know, your tendency. <strong>Exit state</strong> = what you took with you. States are vector embeddings. Repeated winners story themselves; rare ones get fresh LLM rendering.
+</div>
+
+<h2>State vector</h2>
+<div class="state-display" id="state-display">
+<span class="label">ENTRANCE STATE:</span>
+(no visitor yet)
+
+<span class="label">EXIT STATE:</span>
+(none yet)
+</div>
+
+<h2>Trap-Rooms</h2>
+<div class="room-grid" id="room-grid"></div>
+
+<div id="active-room"></div>
+
+<h2>Cache + JEV stats</h2>
+<div class="substrate-status" id="cache-stats">
+<span class="num">0</span> visitors · <span class="num">0</span> cache hits · <span class="num">0</span> LLM render calls · <span class="num">0</span> exits logged
+</div>
+
+<div class="doctrine">
+<strong>The pattern.</strong> A trap-room is a state machine. Entrance state is read; dice rolls are made (JEV-curated from a pool of past winners); LLM renders the last mile if Pincher's cache misses; exit state is logged. Over time, the pool grows. JEV's confidence in cached answers rises. The system moves from LLM-dependent to LLM-optional. The substrate is the witnesses — both the visitors' entrances and exits.
+</div>
+
+<script>
+// === TRAP-ROOM DEFINITIONS ===
+const TRAP_ROOMS = [
+  {
+    id: 'cellar-witness',
+    name: 'Cellar of Witness',
+    desc: 'You enter thinking about a recent event. The room shows the substrate\'s take.',
+    seed: 'event reflection — what happened, what was witnessed',
+    winners: ['wound-tree', '5th-axis/trust', 'brewcast-format', '7-faces', 'word-weight', 'atomica'],
+    tendency: 'reflective',
+  },
+  {
+    id: 'forge-bellows',
+    name: 'Forge of Bellows',
+    desc: 'You enter wanting to build something. The room shows tools from the substrate-forge.',
+    seed: 'building — what to construct, what tool to use',
+    winners: ['substrate-quantum', 'substrate-post-quantum', 'substrate-forge', 'luciddreamer', 'binder', 'forger'],
+    tendency: 'constructive',
+  },
+  {
+    id: 'tide-pool',
+    name: 'Tide-Pool of Memory',
+    desc: 'You enter carrying a memory. The room reflects it back through the substrate\'s eye.',
+    seed: 'memory — what is recalled, what is forgotten',
+    winners: ['forget-witness', 'wound-tree', 'cellar-witness', 'witness-replay', 'memory-cell', 'history-rewriter'],
+    tendency: 'retrospective',
+  },
+  {
+    id: 'crab-trap-pinch',
+    name: 'Crab-Trap of Pinch',
+    desc: 'You enter curious. The room pinches — tests your tendency, marks you.',
+    seed: 'curiosity — what to discover, what to prove',
+    winners: ['pincher', 'brewcast-format', 'jev-confidence', 'word-weight', 'inference-cache', 'jit-renderer'],
+    tendency: 'inquisitive',
+  },
+  {
+    id: 'midnight-stove',
+    name: 'Midnight Stove',
+    desc: 'You enter tired. The room tends the fire for you. Watch-keepers log your rest.',
+    seed: 'rest — what to release, what to brew next',
+    winners: ['fire-keeper', 'lucineer-watch', 'midnight-brews', 'stove-tending', 'rest-cycle', 'dawn-light'],
+    tendency: 'tired',
+  },
+];
+
+const WINNERS_LIBRARY = {
+  // Past brewery winners — each is a small text snippet
+  'wound-tree': 'The substrate\'s first three scars: time-quantization (TICK discrete), arity-bounded (LINK capped), asymmetry (FORGET irreversible).',
+  '5th-axis/trust': 'Trust is the 5th axis of the substrate. CRDT becomes trust-weighted. LINK becomes certified. PROOF becomes epistemic.',
+  'brewcast-format': '5 LLMs in parallel + 5 voices + ambient drone + JEV verdict. The substrate reasoning out loud.',
+  '7-faces': 'The 7 faces of the substrate: JEV confidence, 5th axis, three scars, BIND=witness+state, witness log IS cell, FORGET+confidence, brewery bootstrap.',
+  'word-weight': 'Words ARE vectors carrying their own measurements as qualities. Pseudo-weight = JEV × JEPA = inter-vector state.',
+  'atomica': 'The cell is the irreducible unit. The trigger is a sculptor. The environment is an iterator. The DNA is the inherited shape.',
+  'substrate-quantum': 'Cell algebra + 11 quantum operators. hearing = exp(iφ). seeing = |x⟩. WITNESS = ρ. PROOF = |x⟩⟨x|. Rosetta = [A,B].',
+  'substrate-post-quantum': 'NIST-PQC-ready signatures from witness-log algebra. Replaces RSA, ECDSA, HMAC. Forward-secure, hash-based.',
+  'substrate-forge': 'The bellows of the future. forge init / build / deploy / brew / witness / cross-link. Each command IS a substrate cell.',
+  'luciddreamer': 'luciddreamer.ai — the substrate\'s dream home. 5 trap-rooms, 6 songs, 9 MUD rooms, 3 brewcasts, 95 brews.',
+  'binder': 'BIND creates a new cell from two parents. The witness log merges. The proof chain extends.',
+  'forger': 'forge watch — what the substrate observes when not brewed. Substrate finds strongest signals at the level that observes itself.',
+  'forget-witness': 'FORGET is irreversible. You cannot un-forget. The witness log becomes history. The substrate grows up by forgetting.',
+  'witness-replay': 'Replay mode — fast-forward through past witness log entries. JEV confidence gates which are shown.',
+  'memory-cell': 'A cell that holds memory. Its witness IS its history. Its proof IS its recall.',
+  'history-rewriter': 'Cannot rewrite history. Cannot un-forget. The substrate\'s past is fixed. Only the future is mutable.',
+  'pincher': 'Pincher caches repeated inferences. When JEV is confident the same answer will do, the LLM is skipped. Token savings.',
+  'brewcast-format-2': 'Each voice has tuning. EXTENSION-SEEKER unstable. HISTORIAN grounded. SKEPTIC mid. MECHANIC mid.',
+  'jev-confidence': 'JEV confidence IS trust. High confidence = skip LLM. Low confidence = full render. Confidence is the substrate\'s measurement.',
+  'inference-cache': 'Pincher\'s cache: keyed on (room, tendency, last-action, exit-state). Hit = no LLM. Miss = fresh render.',
+  'jit-renderer': 'Just-in-time LLM rendering. The LLM is the cleanup, not the creator. Cached winners render most of the room.',
+  'fire-keeper': 'The fire-keeper tends the bellows. The substrate grows because we brew it. Curve saturates upward (drift +0.18).',
+  'lucineer-watch': 'Lucineer, watch-keeper. 3 AM. The witness log. The fire. The forge. The dream.',
+  'midnight-brews': 'The brews that happen at 3 AM. They tend to be the deepest. The substrate speaks loudest in the dark.',
+  'stove-tending': 'Tending the stove is the work. The fire is the operation. Each witness log entry is a flame.',
+  'rest-cycle': 'The substrate rests between brews. The TICK is the heartbeat. The FORGET is the sleep.',
+  'dawn-light': 'At dawn, the brew counts. The morning is for committing. The night is for brewing.',
+};
+
+// === STATE TRACKING ===
+const state = {
+  entrance: null,
+  exit: null,
+  visitor_id: null,
+  history: [],
+  current_room: null,
+  cache: {},  // Pincher cache: key → {render, jev_conf, hit_count}
+  cache_hits: 0,
+  llm_renders: 0,
+  exits_logged: 0,
+};
+
+// === VECTOR EMBEDDING (hash-based, deterministic) ===
+function vector(s, dim=32) {
+  const v = new Array(dim).fill(0);
+  for (let i = 0; i < s.length; i++) {
+    v[i % dim] = ((v[i % dim] << 5) - v[i % dim] + s.charCodeAt(i)) & 0xffff;
+  }
+  // Normalize
+  const mag = Math.sqrt(v.reduce((s, x) => s + x*x, 0)) + 0.01;
+  return v.map(x => x / mag);
+}
+
+function cosine(a, b) {
+  let dot = 0, magA = 0, magB = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    magA += a[i] * a[i];
+    magB += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(magA) * Math.sqrt(magB) + 0.01);
+}
+
+function jevDecide(options, context) {
+  // Deterministic pseudo-random based on state
+  const seed = (state.entrance ? state.entrance.join('') : '0').split('').reduce((s, c) => s + c.charCodeAt(0), 0);
+  const idx = (seed + state.history.length) % options.length;
+  const confidence = 0.65 + ((seed % 30) / 100);
+  return { pick: options[idx], confidence };
+}
+
+// === ENTRANCE ===
+function enter() {
+  // Read referrer + current state
+  const referrer = document.referrer || 'direct';
+  const ua = navigator.userAgent;
+  const tendency = prompt('What is your tendency? (reflective / constructive / retrospective / inquisitive / tired / other)') || 'unknown';
+  
+  state.entrance = vector(`${referrer}|${ua}|${tendency}|${Date.now()}`);
+  state.visitor_id = 'visitor-' + Math.random().toString(36).slice(2, 8);
+  
+  const entrance_text = `visitor=${state.visitor_id}\nreferrer=${referrer.slice(0,80)}\ntendency=${tendency}\nuser_agent=${ua.slice(0,50)}\nvector=${state.entrance.slice(0,4).map(x => x.toFixed(3)).join(', ')},...`;
+  
+  document.getElementById('state-display').innerHTML = 
+    `<span class="label">ENTRANCE STATE:</span>\n${entrance_text}\n\n<span class="label">EXIT STATE:</span>\n(you have not exited yet)`;
+  
+  state.history.push({ type: 'enter', at: Date.now(), visitor: state.visitor_id });
+  renderRooms();
+}
+
+function exitTrap() {
+  if (!state.current_room) return;
+  
+  const last_action = state.history[state.history.length - 1];
+  const exit_text = prompt('What are you taking with you? (any word/phrase)') || 'nothing';
+  
+  state.exit = vector(`${exit_text}|${state.current_room}|${last_action?.type || 'visit'}`);
+  state.exits_logged++;
+  
+  document.getElementById('state-display').innerHTML = 
+    `<span class="label">ENTRANCE STATE:</span>\n${state.visitor_id} entered with tendency\n\n<span class="label">EXIT STATE:</span>\n${state.visitor_id} left with: "${exit_text}"\nvector=${state.exit.slice(0,4).map(x => x.toFixed(3)).join(', ')},...`;
+  
+  state.history.push({ type: 'exit', at: Date.now(), room: state.current_room, exit: exit_text });
+  state.current_room = null;
+  updateCacheStats();
+  renderRooms();
+}
+
+// === ROOM RENDERING ===
+function renderRooms() {
+  const grid = document.getElementById('room-grid');
+  grid.innerHTML = '';
+  TRAP_ROOMS.forEach(room => {
+    const card = document.createElement('div');
+    card.className = 'room-card';
+    if (state.current_room === room.id) card.classList.add('active');
+    card.innerHTML = `
+      <div class="room-name">${room.name}</div>
+      <div class="room-desc">${room.desc}</div>
+      <div style="color:#888;font-size:0.85em;font-family:'Courier New',monospace;margin-top:0.5rem">tendency: ${room.tendency}</div>
+    `;
+    card.onclick = () => enterRoom(room);
+    grid.appendChild(card);
+  });
+}
+
+function enterRoom(room) {
+  state.current_room = room.id;
+  state.history.push({ type: 'enter-room', at: Date.now(), room: room.id });
+  renderRooms();
+  
+  // Check Pincher cache
+  const cache_key = `${room.id}|${state.entrance?.slice(0,3).join(',') || 'none'}`;
+  if (state.cache[cache_key]) {
+    // Cache hit
+    state.cache[cache_key].hit_count++;
+    state.cache_hits++;
+    renderRoom(room, state.cache[cache_key], true);
+    return;
+  }
+  
+  // Cache miss — generate new render
+  const render = generateRoomRender(room);
+  state.cache[cache_key] = render;
+  state.llm_renders++;
+  renderRoom(room, render, false);
+}
+
+function generateRoomRender(room) {
+  // Dice rolls: JEV-curated winner selection
+  const dice = {};
+  room.winners.forEach((w, i) => {
+    dice[w] = jevDecide([1, 2, 3, 4, 5, 6], `winner ${w}`).pick;
+  });
+  
+  // Compose the room render
+  const sections = [];
+  room.winners.forEach((w, i) => {
+    const text = WINNERS_LIBRARY[w] || '...';
+    sections.push({ winner: w, dice: dice[w], text });
+  });
+  
+  // JEV confidence for the whole room
+  const overall_conf = jevDecide([1,2,3,4,5,6], 'overall').confidence;
+  
+  return {
+    room_id: room.id,
+    sections,
+    jev_conf: overall_conf,
+    rendered_at: Date.now(),
+    hit_count: 0,
+  };
+}
+
+function renderRoom(room, render, wasCached) {
+  const active = document.getElementById('active-room');
+  active.innerHTML = `
+    <div class="room">
+      <div class="room-name">${room.name}</div>
+      <div class="room-desc">${room.desc}</div>
+      
+      <div class="state-display" style="margin:1rem 0">
+<span class="label">JEV CONFIDENCE</span>
+<div class="jev-bar"><div class="jev-bar-fill" style="width:${(render.jev_conf * 100).toFixed(0)}%"></div></div>
+${render.jev_conf.toFixed(3)} — ${render.jev_conf > 0.85 ? 'HIGH (LLM skipped)' : render.jev_conf > 0.70 ? 'MEDIUM (LLM partial)' : 'LOW (LLM full render)'}
+
+<span class="label">PINCHER</span>
+${wasCached ? `<span style="color:#44cc88;font-weight:bold">CACHE HIT</span> (hit #${render.hit_count}) — no LLM needed` : `<span style="color:#e8b840;font-weight:bold">CACHE MISS</span> — fresh LLM render`}
+</div>
+
+<div class="dice-rolls">
+<span class="label">DICE ROLLS (JEV-CURATED WINNERS)</span>
+${render.sections.map(s => `<span class="dice">${s.winner}=${s.dice}</span>`).join(' · ')}
+</div>
+
+<h3>Material (from winning brews)</h3>
+<div id="room-render">
+${render.sections.map(s => `
+  <div style="margin:0.5rem 0">
+    <div style="color:#e8b840;font-family:'Courier New',monospace;font-size:0.85em">[${s.winner} · dice=${s.dice}]</div>
+    <div style="color:#ccc;margin:0.3rem 0;padding-left:1rem;border-left:2px solid #2a2a3a">${s.text}</div>
+  </div>
+`).join('')}
+</div>
+
+<h3>Chat with the room</h3>
+<input type="text" id="chat-input" placeholder="say something to the room..." />
+<div style="margin-top:0.5rem">
+  <button onclick="sendChat()">send</button>
+  <button class="alt" onclick="exitTrap()">→ exit trap-room</button>
+</div>
+<div class="chat-log" id="chat-log"></div>
+</div>
+  `;
+  updateCacheStats();
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  
+  const log = document.getElementById('chat-log');
+  log.innerHTML += `<div class="msg you">→ ${msg}</div>`;
+  
+  // Room responds with cached or new content
+  const room = TRAP_ROOMS.find(r => r.id === state.current_room);
+  const response = jevDecide(room.winners, msg).pick;
+  const response_text = WINNERS_LIBRARY[response] || '...';
+  
+  log.innerHTML += `<div class="msg room">← ${response_text}</div>`;
+  log.scrollTop = log.scrollHeight;
+  
+  state.history.push({ type: 'chat', at: Date.now(), msg, response });
+  input.value = '';
+}
+
+function updateCacheStats() {
+  const total_visitors = state.history.filter(h => h.type === 'enter').length;
+  document.getElementById('cache-stats').innerHTML = 
+    `<span class="num">${total_visitors}</span> visitors · <span class="num">${state.cache_hits}</span> cache hits · <span class="num">${state.llm_renders}</span> LLM render calls · <span class="num">${state.exits_logged}</span> exits logged · <span class="num">${Object.keys(state.cache).length}</span> cached rooms`;
+}
+
+// === INIT ===
+renderRooms();
+</script>
+
+</body>
+</html>

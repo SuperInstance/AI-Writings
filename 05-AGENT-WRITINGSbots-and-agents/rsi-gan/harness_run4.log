@@ -1,0 +1,13 @@
+[RSI GAN] prompt='Write 200 words on the gardener who has watched 100+ experim...' providers=['zai', 'groq', 'deepinfra'] rounds=3
+  [deepinfra] q=2.1 n=1.9 a=0.2 src=jev
+  [r2 zai] q=2.2 n=2.5 a=3.0 src=jev
+  [r2 deepinfra] q=2.4 n=2.4 a=2.9 src=jev
+  [r3 deepinfra] q=2.6 n=2.6 a=1.5 src=jev
+  [r3 zai] q=2.1 n=2.5 a=2.9 src=jev
+
+=== BEST (deepinfra, r2) ===
+Quality=2.41 Novelty=2.40 Alignment=2.94
+
+The gardener works at the edge of the field station, where the red soil resists the boot and the air hums with pollen and data. She has watched 107 experiments—not from a distance, but close, knees in the dust, fingers testing root tension, eyes tracking chlorophyll shifts at dawn. Each trial is a living circuit: gene-edited rye, drought-conditioned sorghum, mycorrhizal networks mapped across microplots. She witnesses not just growth, but response—how a leaf curls under UV stress, how a stem reorients after CRISPR tuning. Her notebooks are dense with cellular firsts: mitosis delayed, stomata count reduced, lignin distribution altered.
+
+She doesn’t wait for the final harvest to know success. It’s in the third week, when the control group wilts and the modified strain holds turgor. She watches for JEV—just-noticeable-effect—when a single nucleotide change becomes visible in the panicle. She has seen seeds fail in silence and others breach the soil with electric green force. Harvests come and go, but the data lingers—root scans, spectral reads, the quiet hum of adaptation. The gardener does not claim discovery. She tends. She records. She stands where the genome meets the ground, and lets the plants speak in their slow, cellular language.

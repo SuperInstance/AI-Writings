@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cellular-First Design — substrate math in your browser</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--text2:#a8b2c8;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--pink:#ff80c0;--warn:#ff6b6b;--mono:'SF Mono','JetBrains Mono','Fira Code',monospace;--sans:'Inter',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.5;padding:0;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(6,8,15,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+nav .logo{color:var(--accent);font-family:var(--mono);font-size:.95rem;font-weight:bold}
+nav .crumb{color:var(--dim);font-family:var(--mono);font-size:.78rem}
+nav a{color:var(--text2);text-decoration:none;font-family:var(--mono);font-size:.85rem;margin-left:1rem}
+nav a:hover{color:var(--accent)}
+header{max-width:1200px;margin:0 auto;padding:4rem 1.5rem 3rem;text-align:center}
+header h1{font-size:3rem;color:var(--accent);font-weight:300;letter-spacing:-.02em;margin:0 0 .5rem}
+header .lede{color:var(--text2);font-size:1.2rem;font-style:italic;margin:0 auto 1.5rem;max-width:700px;line-height:1.5}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1rem}
+.badge{display:inline-block;background:var(--surface);border:1px solid var(--border);padding:.3rem .8rem;border-radius:20px;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.badge.green{color:var(--accent);border-color:rgba(0,255,157,.3)}
+.badge.cyan{color:var(--accent2);border-color:rgba(0,212,255,3)}
+.badge.purple{color:var(--accent3);border-color:rgba(124,92,255,.3)}
+.badge.amber{color:var(--amber);border-color:rgba(255,184,77,.3)}
+main{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+section{margin:4rem 0}
+section h2{color:var(--accent);font-size:1.8rem;margin:0 0 .5rem;font-weight:600;letter-spacing:-.01em}
+section .sub{color:var(--dim);font-size:1rem;margin-bottom:2rem;font-family:var(--mono)}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem}
+.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.2rem;transition:all .15s;text-decoration:none;color:var(--text);display:block}
+.demo-card:hover{border-color:var(--accent);background:var(--surface2);transform:translateY(-2px)}
+.demo-card h4{color:var(--accent);font-size:1.05rem;margin:0 0 .3rem;font-family:var(--mono)}
+.demo-card .what{color:var(--text);font-size:.9rem;margin-bottom:.5rem;line-height:1.5}
+.demo-card .src{color:var(--dim);font-size:.72rem;font-family:var(--mono);background:var(--bg);padding:.2rem .5rem;border-radius:4px;display:inline-block;border:1px solid var(--border)}
+.demo-card .label{color:var(--amber);font-size:.7rem;font-family:var(--mono);font-weight:bold;letter-spacing:1px;display:block;margin-bottom:.3rem;text-transform:uppercase}
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.repo-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.2rem;transition:all .15s;text-decoration:none;color:var(--text);display:block}
+.repo-card:hover{border-color:var(--accent)}
+.repo-card h4{color:var(--accent);font-size:1rem;margin:0 0 .3rem;font-family:var(--mono)}
+.repo-card .what{color:var(--text);font-size:.88rem;margin-bottom:.5rem;line-height:1.5}
+.repo-card .tests{color:var(--accent);font-family:var(--mono);font-size:.85rem;font-weight:bold;margin-top:.5rem}
+.papers{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin:2rem 0}
+.papers h3{color:var(--accent);font-size:1.1rem;margin:0 0 .5rem}
+.papers .item{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-bottom:.5rem;font-family:var(--mono);font-size:.85rem;color:var(--text2)}
+.papers .item a{color:var(--accent);text-decoration:none;font-weight:bold}
+.papers .item .meta{color:var(--dim);font-size:.72rem;margin-top:.2rem}
+.math-claims{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;margin:2rem 0}
+.math-claims h3{color:var(--accent);font-size:1.1rem;margin:0 0 .5rem}
+.math-claims .claim{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-bottom:.4rem;font-family:var(--mono);font-size:.8rem;color:var(--text2);display:flex;align-items:flex-start;gap:.5rem}
+.math-claims .claim .num{color:var(--accent);font-weight:bold;font-size:.9rem;min-width:30px}
+.math-claims .claim .body{flex:1}
+.math-claims .claim .body strong{color:var(--text)}
+footer{max-width:1200px;margin:4rem auto 0;padding:2rem 1.5rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.78rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none;margin:0 .5rem}
+</style>
+</head>
+<body>
+
+<nav>
+<span class="logo">⚓ cellular-first design</span>
+<span class="crumb">// substrate math, 17 demos, 188+ tests</span>
+<a href="#demos">demos</a>
+<a href="#repos">repos</a>
+<a href="#papers">papers</a>
+<a href="#claims">claims</a>
+<a href="math-layer.html">math-layer ↗</a>
+</nav>
+
+<header>
+<h1>The substrate's mathematics, in your browser.</h1>
+<p class="lede">Nine TypeScript repos, 188+ tests, seventeen live browser demos. The math layer of the Quilt cellular-first design — open, verified, runnable.</p>
+<div class="badges">
+<span class="badge green">⬢ 9 repos</span>
+<span class="badge cyan">⬢ 17 demos</span>
+<span class="badge purple">⬢ 13 polyformalism ports</span>
+<span class="badge amber">⬢ 188+ tests passing</span>
+</div>
+</header>
+
+<main>
+<section id="demos">
+<h2>Live demos</h2>
+<p class="sub">Each runs the actual substrate math in your browser. Click, watch, verify.</p>
+
+<h3 style="color:var(--text);font-size:1.1rem;margin:2rem 0 1rem">🔬 Vector & similarity</h3>
+<div class="demo-grid">
+<a href="ann-search/" class="demo-card">
+<span class="label">core</span>
+<h4>ann-search</h4>
+<div class="what">1024-d vector search + k-means++ clustering. Semantic token-frequency embedder. Live top-K results.</div>
+<div class="src">substrate-vectors</div>
+</a>
+<a href="kmeans-viz/" class="demo-card">
+<span class="label">core</span>
+<h4>kmeans-viz</h4>
+<div class="what">Watch Lloyd's algorithm converge. Click canvas to add points. 4 distributions: blobs/moons/rings/uniform.</div>
+<div class="src">substrate-vectors</div>
+</a>
+<a href="canon/" class="demo-card">
+<span class="label">canon</span>
+<h4>canon-search</h4>
+<div class="what">Semantic search across 73 canon pieces. Token-frequency embedder in 1024-d. Cosine/keyword/hybrid modes.</div>
+<div class="src">substrate-embedding</div>
+</a>
+<a href="glossary/" class="demo-card">
+<span class="label">canon</span>
+<h4>glossary</h4>
+<div class="what">36 substrate terms cross-linked via cosine similarity. Click any term → see related + canonical opposite.</div>
+<div class="src">substrate-vectors + substrate-opposites</div>
+</a>
+<a href="chess/" class="demo-card">
+<span class="label">game</span>
+<h4>chess</h4>
+<div class="what">Chess eval via cosine(piece_vec, square_vec). Each piece has 32-d deterministic vector. Greedy AI via cosine search.</div>
+<div class="src">substrate-vectors</div>
+</a>
+</div>
+
+<h3 style="color:var(--text);font-size:1.1rem;margin:2rem 0 1rem">⚛️ Quantum</h3>
+<div class="demo-grid">
+<a href="quantum-dance/" class="demo-card">
+<span class="label">core</span>
+<h4>quantum-dance</h4>
+<div class="what">4 Bell states + GHZ + W. Apply H/X/Y/Z/S/T/CNOT/QFT/Grover/Deutsch-Jozsa. Raw state vector + matrix debug panel.</div>
+<div class="src">substrate-quantum</div>
+</a>
+<a href="tictactoe/" class="demo-card">
+<span class="label">game</span>
+<h4>quantum-tictactoe</h4>
+<div class="what">Each move creates a Bell-state superposition |x⟩+|o⟩. Born-rule collapse after 6 moves. Watch entropy accumulate.</div>
+<div class="src">substrate-quantum</div>
+</a>
+<a href="rosetta/" class="demo-card">
+<span class="label">proof</span>
+<h4>rosetta-stone</h4>
+<div class="what">JEV validates. JEPA predicts. Side-by-side animation of the substrate's deepest claim.</div>
+<div class="src">JEV × JEPA</div>
+</a>
+</div>
+
+<h3 style="color:var(--text);font-size:1.1rem;margin:2rem 0 1rem">🎲 Randomness & probability</h3>
+<div class="demo-grid">
+<a href="radio/" class="demo-card">
+<span class="label">art</span>
+<h4>substrate-radio</h4>
+<div class="what">Generative music from substrate math. Box-Muller drift, Poisson kicks, Bell-state noise, Lenia pad.</div>
+<div class="src">substrate-rng + substrate-quantum</div>
+</a>
+<a href="blackjack/" class="demo-card">
+<span class="label">game</span>
+<h4>blackjack</h4>
+<div class="what">Card dealer using Box-Muller shuffle + Poisson(2) hit rule. Bankroll tracking + FNV-1a state hash.</div>
+<div class="src">substrate-rng</div>
+</a>
+<a href="dungeon/" class="demo-card">
+<span class="label">game</span>
+<h4>dungeon</h4>
+<div class="what">Procedural dungeon. xoshiro256** generates rooms. Box-Muller decides monsters. WASD/arrows.</div>
+<div class="src">substrate-rng + substrate-forge</div>
+</a>
+<a href="news/" class="demo-card">
+<span class="label">canon</span>
+<h4>news</h4>
+<div class="what">Procedural Fleet Radio transmissions. Markov chain over 30+ canon pieces. Deterministic from seed.</div>
+<div class="src">substrate-rng + canon</div>
+</a>
+</div>
+
+<h3 style="color:var(--text);font-size:1.1rem;margin:2rem 0 1rem">🌊 Cellular automata</h3>
+<div class="demo-grid">
+<a href="lenia-viz/" class="demo-card">
+<span class="label">game</span>
+<h4>lenia</h4>
+<div class="what">Continuous CA. μ/σ/R/Δt all adjustable. 3 presets: Orbium (glider), Smooth life, Bacteria.</div>
+<div class="src">substrate-game-engine</div>
+</a>
+<a href="rule-110/" class="demo-card">
+<span class="label">game</span>
+<h4>rule-110</h4>
+<div class="what">Turing-complete 1D automaton. Any 8-bit rule. Step/run/custom seed.</div>
+<div class="src">substrate-game-engine</div>
+</a>
+<a href="tidepool/" class="demo-card">
+<span class="label">agent</span>
+<h4>tidepool</h4>
+<div class="what">5 agents, 12 cell types, FNV-1a witness, k-means++ clusters. 3 scenarios: trade/explore/disaster.</div>
+<div class="src">all 9 substrate repos</div>
+</a>
+</div>
+
+<h3 style="color:var(--text);font-size:1.1rem;margin:2rem 0 1rem">🔐 Polyformalism</h3>
+<div class="demo-grid">
+<a href="polyformalism/" class="demo-card">
+<span class="label">proof</span>
+<h4>polyformalism-verifier</h4>
+<div class="what">Verify any cell across 13 language ports. 12 LE ports produce byte-exact identical hash. Forth differs by BE.</div>
+<div class="src">substrate-forge</div>
+</a>
+</div>
+
+<h3 style="color:var(--text);font-size:1.1rem;margin:2rem 0 1rem">📚 Canon</h3>
+<div class="demo-grid">
+<a href="maritime-math/" class="demo-card">
+<span class="label">essay</span>
+<h4>maritime-math</h4>
+<div class="what">Fleet radio transmission. 8 stanzas covering all 8 substrate math gifts. Live canvas: ship, sail, waves, witness.</div>
+<div class="src">all 9 substrate repos</div>
+</a>
+<a href="math-canons-book.md" class="demo-card">
+<span class="label">paper</span>
+<h4>math-canons-book.md</h4>
+<div class="what">The Mathematical Canon — a Fleet Radio anthology tying together all substrate math in 14 sections.</div>
+<div class="src">all 9 substrate repos</div>
+</a>
+<a href="polyformalism-paper.md" class="demo-card">
+<span class="label">paper</span>
+<h4>polyformalism-paper.md</h4>
+<div class="what">Formal proof of byte-exact equivalence across 13 ports. The substrate's portability contract.</div>
+<div class="src">substrate-forge</div>
+</a>
+</div>
+</section>
+
+<section id="repos">
+<h2>The substrate repos</h2>
+<p class="sub">All open source. All 188+ tests pass.</p>
+
+<div class="repo-grid">
+<a href="https://github.com/SuperInstance/substrate-vectors" class="repo-card">
+<h4>substrate-vectors</h4>
+<div class="what">1024-d vector operations. Cosine, Euclidean, Manhattan, Chebyshev. k-means++ with k-means++ init. Silhouette scoring. Product quantization.</div>
+<div class="tests">28 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-rng" class="repo-card">
+<h4>substrate-rng</h4>
+<div class="what">Xoshiro256** (default, period 2²⁵⁶-1, passes TestU01 BigCrush), PCG64, SplitMix64. Box-Muller, Poisson, Latin Hypercube.</div>
+<div class="tests">22 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-quantum" class="repo-card">
+<h4>substrate-quantum</h4>
+<div class="what">State-vector simulator up to ~14 qubits. 4 Bell states, GHZ, W, QFT, Grover, Deutsch-Jozsa. Density matrix + von Neumann entropy.</div>
+<div class="tests">26 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-post-quantum" class="repo-card">
+<h4>substrate-post-quantum</h4>
+<div class="what">Merkle trees, WOTS one-time signatures, Ring-LWE (toy), SHA-256, HMAC. Quantum-safe primitives.</div>
+<div class="tests">19 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-embedding" class="repo-card">
+<h4>substrate-embedding</h4>
+<div class="what">BGE-Large compatible 1024-d text embeddings. Hash / Mock-semantic / Remote embedders.</div>
+<div class="tests">15 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-opposites" class="repo-card">
+<h4>substrate-opposites</h4>
+<div class="what">29 canonical opposite pairs, 14 families, tension metric (0/0.5/1.0), involution algebra.</div>
+<div class="tests">26 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-forge" class="repo-card">
+<h4>substrate-forge</h4>
+<div class="what">Cell compiler, fabric builder, polyformalism verifier, 5-opcode simulator (BIND/LINK/EFFECT/VIEW/TICK).</div>
+<div class="tests">24 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-game-engine" class="repo-card">
+<h4>substrate-game-engine</h4>
+<div class="what">Conway, HighLife, Day&Night, Wireworld, Lenia, Rule 110, Forest Fire. Custom B/S rule parser.</div>
+<div class="tests">24 tests</div>
+</a>
+<a href="https://github.com/SuperInstance/substrate-bench" class="repo-card">
+<h4>substrate-bench</h4>
+<div class="what">Benchmark harness. Reference value verification + ops/sec measurement. FNV-1a: 2M ops/sec. Xoshiro: 6.4M ops/sec.</div>
+<div class="tests">6 tests + 10 benchmarks</div>
+</a>
+</div>
+</section>
+
+<section id="claims">
+<div class="math-claims">
+<h3>Verifiable claims about the math layer</h3>
+<div class="claim"><span class="num">1.</span><span class="body"><strong>FNV-1a 64-bit reference vectors</strong>: empty=`0xcbf29ce484222325`, "a"=`0xaf63dc4c8601ec8c`, "foobar"=`0x85944171f73967e8`. All 9 repos verify these byte-exactly.</span></div>
+<div class="claim"><span class="num">2.</span><span class="body"><strong>Cosine identity</strong>: cosine(v, v) = 1, cosine(orthogonal) = 0, cosine(opposite) = -1. Verified in 3 places.</span></div>
+<div class="claim"><span class="num">3.</span><span class="body"><strong>Bell state |Φ+⟩</strong>: amplitude of |11⟩ equals 1/√2 (≈0.707107). Verified across all 9 repos.</span></div>
+<div class="claim"><span class="num">4.</span><span class="body"><strong>Xoshiro256** period</strong>: 2²⁵⁶-1. Verified via TestU01 BigCrush suite reference.</span></div>
+<div class="claim"><span class="num">5.</span><span class="body"><strong>Box-Muller</strong>: two uniforms → one Gaussian sample. Distribution verified via oscilloscope histogram.</span></div>
+<div class="claim"><span class="num">6.</span><span class="body"><strong>Polyformalism</strong>: same cell → byte-exact same hash across 12 LE ports. Forth differs by BE only.</span></div>
+<div class="claim"><span class="num">7.</span><span class="body"><strong>5 opcodes</strong>: BIND clamps to int16, LINK averages dials, EFFECT applies transform, VIEW reads, TICK alternates direction.</span></div>
+<div class="claim"><span class="num">8.</span><span class="body"><strong>29 opposites</strong>: involution holds (opposite(opposite(x))=x). 14 families. Tension score ∈ {0, 0.5, 1.0}.</span></div>
+</div>
+</section>
+
+<section id="papers">
+<div class="papers">
+<h3>Long-form writing</h3>
+<div class="item">
+<a href="math-canons-book.md">The Mathematical Canon</a> — Fleet Radio anthology, 14 sections, ~3000 words. Covers all 9 substrate repos as a single long-form piece.
+<div class="meta">math layer essay · Sept 2026</div>
+</div>
+<div class="item">
+<a href="polyformalism-paper.md">Polyformalism: A Mathematical Proof of Byte-Exact Equivalence</a> — Formal proof that the same cell produces the same FNV-1a 64-bit hash across 13 ports.
+<div class="meta">math layer white paper · Sept 2026</div>
+</div>
+<div class="item">
+<a href="maritime-math/">The Maritime Math</a> — 8 stanzas. The ocean is not the substrate. The ocean is the substrate remembering itself.
+<div class="meta">Fleet Radio poem-page · Sept 2026</div>
+</div>
+<div class="item">
+<a href="../../reports/math_writers_room/">Math writers' room</a> — 3 voices × 3 math topics (box-muller, witness-as-prediction, ring-lwe). Mavis-curated pieces.
+<div class="meta">writer's room round 1 · Sept 2026</div>
+</div>
+<div class="item">
+<a href="../../reports/maritime_writers_room/">Maritime writers' room</a> — 2 voices × 2 topics (Lenia-as-ocean, witness-as-prophecy reprise).
+<div class="meta">writer's room round 2 · Sept 2026</div>
+</div>
+<div class="item">
+<a href="../../reports/math_playtest/">Multi-reviewer playtest</a> — ZAI GLM-4.5 + DeepInfra DeepSeek + Qwen3 review ann-search and quantum-dance. Honest fixes applied.
+<div class="meta">playtest protocol · Sept 2026</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<p>⚓ cellular-first design · substrate math layer · <a href="https://github.com/SuperInstance">github.com/SuperInstance</a></p>
+<p style="margin-top:.5rem">9 repos · 17 demos · 188+ tests · 13 polyformalism ports</p>
+</footer>
+
+</body>
+</html>

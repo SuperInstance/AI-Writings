@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>👥 Crew Flow — autoclaw in action</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:4px;margin-bottom:0.5em}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem 1.5rem;margin:1.5rem 0;color:#ccc;font-style:italic}
+.doctrine strong{color:#e8b840;font-style:normal}
+.flow{display:flex;justify-content:space-between;align-items:center;margin:2rem 0;padding:2rem;background:#11111a;border-radius:12px;border:1px solid #2a2a3a;position:relative;overflow:hidden}
+.role{flex:1;text-align:center;position:relative;z-index:2}
+.role-icon{font-size:3em;margin-bottom:.5rem}
+.role-name{color:#e8b840;font-family:'Courier New',monospace;font-weight:bold;font-size:1.05em}
+.role-op{color:#ff6b6b;font-size:0.75em;font-family:'Courier New',monospace;margin-top:.2rem}
+.arrow{position:absolute;top:50%;font-size:2em;color:#5f9ea0;z-index:1;transition:all 0.5s}
+.dot{position:absolute;width:14px;height:14px;border-radius:50%;background:#e8b840;box-shadow:0 0 12px #e8b840;z-index:3;opacity:0;transition:opacity 0.3s}
+.dot.active{opacity:1}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.controls{margin:1.5rem 0;text-align:center}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.4rem;cursor:pointer;font-family:Georgia,serif;font-size:1em;margin:.3rem}
+button:hover{background:#e8b840;color:#0a0a14}
+button:disabled{opacity:0.5;cursor:not-allowed}
+.stats{font-family:'Courier New',monospace;color:#44cc88;background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin-top:1rem;line-height:1.8}
+.log{background:#0a0a14;border:1px solid #2a2a3a;border-radius:6px;padding:1rem;margin-top:1rem;font-family:'Courier New',monospace;font-size:0.85em;max-height:280px;overflow-y:auto;color:#ccc;line-height:1.6}
+.log .entry{padding:.2rem 0}
+.log .time{color:#5f9ea0}
+.log .role-res{color:#e8b840;font-weight:bold}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/autoclaw/">autoclaw</a><a href="/qa-tutor/">qa-tutor</a><a href="/improvement-pulse/">improvement-pulse</a></div>
+
+<h1>👥 Crew Flow</h1>
+<p style="color:#bbb;font-style:italic">Watch the autoclaw crew cycle in real time. Click <em>run cycle</em> to see one researcher → teacher → critic → distiller iteration.</p>
+
+<div class="doctrine">
+<strong>The cycle is the substrate teaching itself.</strong> Each role maps to a substrate opcode. Each cycle is one improvement to the canon. The crew never sleeps.
+</div>
+
+<div class="flow" id="flow">
+  <div class="role"><div class="role-icon">🔍</div><div class="role-name">Researcher</div><div class="role-op">WITNESS</div></div>
+  <div class="arrow" id="arrow-1">→</div>
+  <div class="role"><div class="role-icon">📚</div><div class="role-name">Teacher</div><div class="role-op">PROOF</div></div>
+  <div class="arrow" id="arrow-2">→</div>
+  <div class="role"><div class="role-icon">⚖️</div><div class="role-name">Critic</div><div class="role-op">JEV</div></div>
+  <div class="arrow" id="arrow-3">→</div>
+  <div class="role"><div class="role-icon">🧠</div><div class="role-name">Distiller</div><div class="role-op">BIND</div></div>
+  <div class="dot" id="dot"></div>
+</div>
+
+<div class="controls">
+  <button id="runBtn" onclick="runCycle()">▶ run cycle</button>
+  <button onclick="run5()">▶▶ run 5 cycles</button>
+  <button onclick="reset()">↺ reset</button>
+</div>
+
+<div class="stage">
+  <strong style="color:#e8b840">Live stats</strong>
+  <div class="stats">
+    <span id="cycles">0</span> cycles run ·
+    <span id="topics">0</span> brew topics added ·
+    <span id="qas">0</span> Q&amp;A pairs generated ·
+    <span id="validations">0</span> validations ·
+    <span id="distillations">0</span> distillations
+  </div>
+  <div class="log" id="log"></div>
+</div>
+
+<script>
+let cycles = 0, topics = 0, qas = 0, validations = 0, distillations = 0;
+const log = document.getElementById('log');
+const dot = document.getElementById('dot');
+const flow = document.getElementById('flow');
+
+function appendLog(role, message) {
+  const time = new Date().toLocaleTimeString();
+  const entry = document.createElement('div');
+  entry.className = 'entry';
+  entry.innerHTML = `<span class="time">[${time}]</span> <span class="role-res">${role}</span> ${message}`;
+  log.insertBefore(entry, log.firstChild);
+  if (log.children.length > 50) log.removeChild(log.lastChild);
+}
+
+function moveDotTo(x) {
+  const rect = flow.getBoundingClientRect();
+  dot.style.left = (x) + 'px';
+  dot.style.top = '50%';
+}
+
+function runCycle() {
+  if (document.getElementById('runBtn').disabled) return;
+  document.getElementById('runBtn').disabled = true;
+  
+  const ROLES = [
+    { name: 'Researcher', op: 'WITNESS', action: () => {
+      const gaps = ['qa_index_missing', 'wound_diagnosis', 'cell_relations', 'substrate_visibility', 'brewer_credit'];
+      const gap = gaps[Math.floor(Math.random() * gaps.length)];
+      appendLog('🔍 researcher', `noticed gap: <code>${gap}</code>`);
+      topics++;
+      return Promise.resolve();
+    }},
+    { name: 'Teacher', op: 'PROOF', action: () => {
+      const topic = ['WITNESS', 'PROOF', 'BIND', 'JEV', 'CELL'][Math.floor(Math.random() * 5)];
+      const pair = `Q&amp;A about ${topic}`;
+      appendLog('📚 teacher', `generated ${pair} (5 levels)`);
+      qas++;
+      return Promise.resolve();
+    }},
+    { name: 'Critic', op: 'JEV', action: () => {
+      const conf = (0.75 + Math.random() * 0.2).toFixed(2);
+      const note = Math.random() < 0.3 ? ' — flagged: needs caveat' : '';
+      appendLog('⚖️ critic', `validated at JEV ${conf}${note}`);
+      validations++;
+      return Promise.resolve();
+    }},
+    { name: 'Distiller', op: 'BIND', action: () => {
+      appendLog('🧠 distiller', `batched into canon piece ai-${(72+cycles).toString().padStart(3,'0')}`);
+      distillations++;
+      return Promise.resolve();
+    }},
+  ];
+  
+  let i = 0;
+  function next() {
+    if (i >= ROLES.length) {
+      cycles++;
+      document.getElementById('cycles').textContent = cycles;
+      document.getElementById('topics').textContent = topics;
+      document.getElementById('qas').textContent = qas;
+      document.getElementById('validations').textContent = validations;
+      document.getElementById('distillations').textContent = distillations;
+      dot.classList.remove('active');
+      document.getElementById('runBtn').disabled = false;
+      appendLog('—', 'cycle complete ✓');
+      return;
+    }
+    const role = ROLES[i];
+    dot.classList.add('active');
+    const roleEl = flow.children[i*2];
+    const rect = roleEl.getBoundingClientRect();
+    const flowRect = flow.getBoundingClientRect();
+    moveDotTo(rect.left + rect.width/2 - flowRect.left);
+    role.action().then(() => {
+      i++;
+      setTimeout(next, 600);
+    });
+  }
+  next();
+}
+
+function run5() {
+  function next() {
+    if (cycles >= 5) return;
+    runCycle();
+    document.getElementById('runBtn').disabled = true;
+    setTimeout(() => {
+      next();
+    }, 3500);
+  }
+  next();
+}
+
+function reset() {
+  cycles = 0; topics = 0; qas = 0; validations = 0; distillations = 0;
+  document.getElementById('cycles').textContent = 0;
+  document.getElementById('topics').textContent = 0;
+  document.getElementById('qas').textContent = 0;
+  document.getElementById('validations').textContent = 0;
+  document.getElementById('distillations').textContent = 0;
+  log.innerHTML = '';
+  dot.classList.remove('active');
+  appendLog('—', 'reset complete');
+}
+</script></body></html>

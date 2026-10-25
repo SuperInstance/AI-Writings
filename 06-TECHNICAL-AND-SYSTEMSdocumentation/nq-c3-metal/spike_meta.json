@@ -1,0 +1,125 @@
+{
+ "sha": "120c2c6332050a2d1494c19c687f447ed65620ad0db5f8b732189aa10e5162f1",
+ "TH": {
+  "AVM": 6,
+  "AVBL": 8,
+  "AVBR": 12,
+  "PVCL": 4,
+  "PVCR": 5,
+  "DB02": 3,
+  "DB03": 4
+ },
+ "verdict": {
+  "T1": true,
+  "T2": true,
+  "T3": true
+ },
+ "chem": [
+  [
+   "AVBL",
+   "AVBR",
+   1
+  ],
+  [
+   "AVBR",
+   "AVBL",
+   1
+  ],
+  [
+   "AVM",
+   "AVBL",
+   6
+  ],
+  [
+   "AVM",
+   "AVBR",
+   6
+  ],
+  [
+   "AVM",
+   "PVCL",
+   4
+  ],
+  [
+   "AVM",
+   "PVCR",
+   5
+  ],
+  [
+   "PVCL",
+   "AVBL",
+   5
+  ],
+  [
+   "PVCL",
+   "AVBR",
+   12
+  ],
+  [
+   "PVCL",
+   "DB02",
+   3
+  ],
+  [
+   "PVCL",
+   "DB03",
+   4
+  ],
+  [
+   "PVCL",
+   "PVCR",
+   2
+  ],
+  [
+   "PVCR",
+   "AVBL",
+   8
+  ],
+  [
+   "PVCR",
+   "AVBR",
+   6
+  ],
+  [
+   "PVCR",
+   "DB02",
+   1
+  ],
+  [
+   "PVCR",
+   "DB03",
+   3
+  ],
+  [
+   "PVCR",
+   "PVCL",
+   3
+  ]
+ ],
+ "gap": [
+  [
+   "AVBL",
+   "AVBR"
+  ],
+  [
+   "AVBL",
+   "DB03"
+  ],
+  [
+   "AVBR",
+   "DB02"
+  ],
+  [
+   "AVBR",
+   "DB03"
+  ],
+  [
+   "DB02",
+   "DB03"
+  ],
+  [
+   "PVCL",
+   "PVCR"
+  ]
+ ]
+}

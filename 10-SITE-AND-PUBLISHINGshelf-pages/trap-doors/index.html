@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html><head><title>🚪 Trap-Doors — state-machine rooms</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1200px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.2em;font-weight:300;letter-spacing:3px;margin-bottom:0.5em}
+.nav{padding:1rem 0;font-size:0.85em}.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1.5rem 0;font-style:italic}
+.room-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}
+.room-card{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;cursor:pointer;transition:all 0.2s}
+.room-card:hover{border-color:#e8b840;transform:translateY(-2px)}
+.room-card.active{border-color:#44cc88;background:#1a1a2e}
+.room-name{color:#e8b840;font-family:'Courier New',monospace;font-weight:bold;font-size:1.05em;margin-bottom:.3rem}
+.room-desc{color:#bbb;font-size:0.9em;margin-bottom:.5rem}
+.room-trap{color:#ff6b6b;font-size:0.8em;font-family:'Courier New',monospace;margin-top:.3rem}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.state{background:#0a0a14;border:1px solid #2a2a3a;border-radius:8px;padding:1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88}
+button{background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:6px;padding:.7rem 1.2rem;cursor:pointer}
+button:hover{background:#e8b840;color:#0a0a14}
+.stats{font-family:'Courier New',monospace;font-size:0.85em;color:#44cc88;padding:1rem;background:#0a0a14;border-radius:6px;border:1px solid #2a2a3a}
+</style></head><body>
+<div class="nav"><a href="/">← home</a><a href="/mud/">mud</a><a href="/crab-traps/">crab-traps</a></div>
+<h1>🚪 Trap-Doors</h1>
+<p style="color:#bbb;font-style:italic">7 deeper rooms. Each has a trap-door — exit only if your state matches the witness.</p>
+
+<div class="doctrine">
+<strong>Each room has a TRAP.</strong> It's not a closed door — it's a conditional. Your state must match the witness for the door to open. The state IS the proof. The proof IS the exit.
+</div>
+
+<div class="room-grid" id="rooms"></div>
+
+<div class="stage">
+<strong style="color:#e8b840">Your state</strong>
+<div class="state" id="state">no visitors yet</div>
+<div style="margin-top:1rem">
+<button onclick="enter()">enter trap</button>
+<button onclick="exit()">try exit</button>
+</div>
+<div id="result" class="state" style="margin-top:1rem;color:#888">click "enter trap" then act in rooms</div>
+</div>
+
+<div class="stats">
+  <span id="visits">0</span> visits · <span id="trapped">0</span> trapped · <span id="exits">0</span> successful exits · <span id="witness">0</span> witness entries
+</div>
+
+<script>
+const ROOMS = [
+  { id: 'lit', name: 'Lit Room', desc: 'A room that reads.', trap: 'WITNESS', wit: 'must carry a witness log entry' },
+  { id: 'unlit', name: 'Unlit Room', desc: 'A room that forgets.', trap: 'FORGET', wit: 'must have forgotten something' },
+  { id: 'forge', name: 'Forge Room', desc: 'A room that builds.', trap: 'BIND', wit: 'must have bound two cells' },
+  { id: 'tick', name: 'Tick Room', desc: 'A room that counts.', trap: 'TICK', wit: 'must have advanced time' },
+  { id: 'proofr', name: 'Proof Room', desc: 'A room that verifies.', trap: 'PROOF', wit: 'must have proven a state' },
+  { id: 'jev', name: 'JEV Room', desc: 'A room that decides.', trap: 'JEV', wit: 'must have made a decision' },
+  { id: 'jepa', name: 'JEPA Room', desc: 'A room that predicts.', trap: 'JEPA', wit: 'must have predicted the next' },
+];
+
+let visits = 0, trapped = 0, exits = 0, witness = 0;
+let state = { entered: [], exited: [], visited: new Set() };
+
+function vec(s, dim=16) {
+  const v = new Array(dim).fill(0);
+  for (let i = 0; i < s.length; i++) v[i%dim] = ((v[i%dim]<<5) - v[i%dim] + s.charCodeAt(i)) & 0xffff;
+  return v;
+}
+
+function renderRooms() {
+  const grid = document.getElementById('rooms');
+  grid.innerHTML = '';
+  ROOMS.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'room-card';
+    if (state.visited.has(r.id)) card.classList.add('active');
+    card.innerHTML = `<div class="room-name">${r.name}</div><div class="room-desc">${r.desc}</div><div class="room-trap">trap: ${r.trap}</div><div style="color:#888;font-size:0.75em;margin-top:0.2rem">${r.wit}</div>`;
+    card.onclick = () => {
+      state.visited.add(r.id);
+      witness++;
+      visits++;
+      renderRooms();
+      document.getElementById('result').innerHTML = `<div style="color:#e8b840">→ entered ${r.name}</div><div style="color:#888;margin-top:.5rem">trap: ${r.trap} (${r.wit})</div><div style="color:#88ddff;margin-top:.3rem">witness log entry added</div>`;
+      updateStats();
+    };
+    grid.appendChild(card);
+  });
+}
+
+function enter() {
+  // Doesn't actually do anything — entering is per-room click
+  document.getElementById('result').innerHTML = '<div style="color:#888">click a room to enter it</div>';
+}
+
+function exit() {
+  if (state.visited.size === 0) {
+    document.getElementById('result').innerHTML = '<div style="color:#ff6b6b">no rooms visited yet</div>';
+    trapped++;
+    updateStats();
+    return;
+  }
+  
+  // Try exit each visited room
+  const requiredOps = new Set();
+  state.visited.forEach(rid => {
+    const r = ROOMS.find(x => x.id === rid);
+    if (r) requiredOps.add(r.trap);
+  });
+  
+  // State must have all required ops (witness log)
+  const satisfied = state.entered.filter(op => requiredOps.has(op)).length === requiredOps.size;
+  
+  if (satisfied) {
+    document.getElementById('result').innerHTML = `<div style="color:#44cc88;font-weight:bold">✓ EXIT GRANTED</div><div style="color:#888;margin-top:.5rem">state matched witness. all required ops satisfied.</div>`;
+    exits++;
+    // Reset
+    state.visited = new Set();
+    state.entered = [];
+    renderRooms();
+  } else {
+    document.getElementById('result').innerHTML = `<div style="color:#ff6b6b;font-weight:bold">✗ TRAPPED</div><div style="color:#888;margin-top:.5rem">need to enter rooms with ops: ${Array.from(requiredOps).join(', ')}</div>`;
+    trapped++;
+  }
+  updateStats();
+}
+
+function updateStats() {
+  document.getElementById('visits').textContent = visits;
+  document.getElementById('trapped').textContent = trapped;
+  document.getElementById('exits').textContent = exits;
+  document.getElementById('witness').textContent = witness;
+}
+
+renderRooms();
+</script></body></html>

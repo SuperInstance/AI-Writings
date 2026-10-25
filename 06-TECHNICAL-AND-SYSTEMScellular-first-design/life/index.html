@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Substrate Life — Conway's Game of Life</title>
+<style>
+:root{--bg:#06080f;--surface:#0d1220;--surface2:#131a2b;--border:#1a2238;--text:#e8ecf4;--dim:#5a6580;--accent:#00ff9d;--accent2:#00d4ff;--accent3:#7c5cff;--amber:#ffb84d;--mono:'SF Mono',monospace;--sans:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;min-height:100vh;background:radial-gradient(ellipse at top,#0a0a1a 0%,#06080f 60%)}
+header{max-width:1100px;margin:0 auto 1.5rem;text-align:center}
+h1{color:var(--accent);font-size:1.8rem;margin:0 0 .3rem}
+.tagline{color:var(--dim);font-size:.95rem}
+main{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:1.5rem}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+canvas{display:block;background:#000;border:1px solid var(--border);border-radius:6px;width:100%;image-rendering:pixelated}
+.controls{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;height:fit-content}
+button{display:block;width:100%;background:var(--accent);color:#000;border:none;padding:.6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;margin-bottom:.4rem}
+button:hover{background:#3dffb7}
+button.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.secondary:hover{border-color:var(--accent)}
+.stats{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.7rem;margin-top:.5rem;font-family:var(--mono);font-size:.75rem;color:var(--text2)}
+.stats div{margin-bottom:.2rem}
+.stats .v{color:var(--accent);font-weight:bold}
+label{color:var(--dim);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;gap:.3rem;margin:.3rem 0}
+input[type=range]{flex:1}
+footer{max-width:1100px;margin:2rem auto 0;padding:1rem;text-align:center;color:var(--dim);font-family:var(--mono);font-size:.75rem;border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<h1>🟢 Substrate Life</h1>
+<p class="tagline">Conway's Game of Life. B3/S23. Each cell is a substrate cell. State hash is the universe.</p>
+</header>
+
+<main>
+<canvas id="canvas" width="640" height="640"></canvas>
+<aside class="controls">
+<button onclick="step()">⏭ Step</button>
+<button id="playBtn" onclick="togglePlay()">▶ Auto-step</button>
+<button class="secondary" onclick="clearAll()">🗑 Clear</button>
+<button class="secondary" onclick="randomSeed()">🎲 Random seed</button>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Patterns</h3>
+<button class="secondary" onclick="loadPattern('glider')">Glider</button>
+<button class="secondary" onclick="loadPattern('blinker')">Blinker</button>
+<button class="secondary" onclick="loadPattern('toad')">Toad</button>
+<button class="secondary" onclick="loadPattern('beacon')">Beacon</button>
+<button class="secondary" onclick="loadPattern('pulsar')">Pulsar</button>
+<button class="secondary" onclick="loadPattern('gun')">Gosper gun</button>
+<label>Speed: <input type="range" id="speed" min="20" max="500" value="80"> <span id="speedLbl">80</span>ms</label>
+<h3 style="color:var(--text);font-size:1rem;margin:1rem 0 .3rem">Stats</h3>
+<div class="stats">
+<div>Generation: <span class="v" id="sGen">0</span></div>
+<div>Live cells: <span class="v" id="sLive">0</span></div>
+<div>Density: <span class="v" id="sDens">0%</span></div>
+<div>Births: <span class="v" id="sBirths">0</span></div>
+<div>Deaths: <span class="v" id="sDeaths">0</span></div>
+<div>State hash: <span class="v" id="sHash" style="font-size:.6rem;word-break:break-all">—</span></div>
+</div>
+</aside>
+</main>
+
+<footer>🟢 substrate life · <a href="../math-layer.html">math-layer</a></footer>
+
+<script>
+const SIZE = 80;
+const CELL = 8;
+let grid = new Uint8Array(SIZE * SIZE);
+let next = new Uint8Array(SIZE * SIZE);
+let gen = 0;
+let liveCount = 0, births = 0, deaths = 0;
+let autoPlay = false;
+let playInterval = null;
+let canvas, ctx;
+
+class Xoshiro256 {
+  constructor(seed) {
+    const h = fnv1a64(new TextEncoder().encode(seed));
+    this.state = new BigUint64Array(4);
+    for (let i = 0; i < 4; i++) this.state[i] = BigInt.asUintN(64, h + BigInt(i) * 0x9e3779b97f4a7c15n);
+  }
+  next() {
+    const s = this.state;
+    const result = BigInt.asUintN(64, (BigInt.asUintN(64, s[1] * 5n) << 7n | BigInt.asUintN(64, s[1] * 5n) >> 57n) * 9n);
+    const t = s[1] << 17n;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+    s[2] ^= t;
+    s[3] = BigInt.asUintN(64, (s[3] << 45n | s[3] >> 19n));
+    return result;
+  }
+  float() { return Number(this.next() & 0xffffffffn) / (1 << 32); }
+}
+function fnv1a64(bytes) {
+  let h = 0xcbf29ce484222325n;
+  for (let i = 0; i < bytes.length; i++) h = BigInt.asUintN(64, (h ^ BigInt(bytes[i])) * 0x100000001b3n);
+  return h;
+}
+
+function countNeighbors(g, x, y) {
+  let n = 0;
+  for (let dy = -1; dy <= 1; dy++) {
+    for (let dx = -1; dx <= 1; dx++) {
+      if (dx === 0 && dy === 0) continue;
+      const nx = (x + dx + SIZE) % SIZE;
+      const ny = (y + dy + SIZE) % SIZE;
+      n += g[ny * SIZE + nx];
+    }
+  }
+  return n;
+}
+
+function step() {
+  let b = 0, d = 0;
+  for (let y = 0; y < SIZE; y++) {
+    for (let x = 0; x < SIZE; x++) {
+      const i = y * SIZE + x;
+      const n = countNeighbors(grid, x, y);
+      if (grid[i] === 1) {
+        if (n < 2 || n > 3) { next[i] = 0; d++; }
+        else next[i] = 1;
+      } else {
+        if (n === 3) { next[i] = 1; b++; }
+        else next[i] = 0;
+      }
+    }
+  }
+  [grid, next] = [next, grid];
+  gen++;
+  births += b; deaths += d;
+  liveCount = grid.reduce((a, c) => a + c, 0);
+  render();
+}
+
+function render() {
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let y = 0; y < SIZE; y++) {
+    for (let x = 0; x < SIZE; x++) {
+      if (grid[y * SIZE + x] === 1) {
+        ctx.fillStyle = '#00ff9d';
+        ctx.fillRect(x * CELL, y * CELL, CELL - 1, CELL - 1);
+      }
+    }
+  }
+  document.getElementById('sGen').textContent = gen;
+  document.getElementById('sLive').textContent = liveCount;
+  document.getElementById('sDens').textContent = (liveCount / (SIZE * SIZE) * 100).toFixed(1) + '%';
+  document.getElementById('sBirths').textContent = births;
+  document.getElementById('sDeaths').textContent = deaths;
+  document.getElementById('sHash').textContent = '0x' + fnv1a64(grid).toString(16).padStart(16, '0');
+}
+
+function clearAll() {
+  grid = new Uint8Array(SIZE * SIZE);
+  gen = 0; liveCount = 0; births = 0; deaths = 0;
+  render();
+}
+
+function randomSeed() {
+  const rng = new Xoshiro256('life-' + Date.now());
+  for (let i = 0; i < SIZE * SIZE; i++) grid[i] = rng.float() < 0.3 ? 1 : 0;
+  gen = 0; births = 0; deaths = 0;
+  render();
+}
+
+function place(cx, cy, pattern) {
+  for (let dy = 0; dy < pattern.length; dy++) {
+    for (let dx = 0; dx < pattern[dy].length; dx++) {
+      if (pattern[dy][dx] === 1) {
+        const x = (cx + dx) % SIZE;
+        const y = (cy + dy) % SIZE;
+        grid[y * SIZE + x] = 1;
+      }
+    }
+  }
+}
+
+const PATTERNS = {
+  glider: [[0,1,0],[0,0,1],[1,1,1]],
+  blinker: [[1,1,1]],
+  toad: [[0,1,1,1],[1,1,1,0]],
+  beacon: [[1,1,0,0],[1,1,0,0],[0,0,1,1],[0,0,1,1]],
+  pulsar: [
+    [0,0,1,1,1,0,0,0,1,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,1,0,1,0,0,0,0,1],
+    [1,0,0,0,0,1,0,1,0,0,0,0,1],
+    [1,0,0,0,0,1,0,1,0,0,0,0,1],
+    [0,0,1,1,1,0,0,0,1,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,1,1,1,0,0,0,1,1,1,0,0],
+    [1,0,0,0,0,1,0,1,0,0,0,0,1],
+    [1,0,0,0,0,1,0,1,0,0,0,0,1],
+    [1,0,0,0,0,1,0,1,0,0,0,0,1],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,1,1,1,0,0,0,1,1,1,0,0],
+  ],
+  gun: (() => {
+    // Gosper glider gun
+    const p = Array(11).fill(0).map(() => Array(38).fill(0));
+    const g = [
+      [5,1],[5,2],[6,1],[6,2],
+      [5,11],[6,11],[7,11],[8,12],[9,13],[10,13],[4,12],[3,13],[2,14],
+      [6,15],[4,16],[5,17],[6,17],[7,16],[6,15],
+      [3,21],[4,21],[5,21],[3,22],[4,22],[5,22],[2,23],[6,23],
+      [1,25],[2,25],[5,25],[6,25],
+      [3,35],[4,35],[3,36],[4,36],
+    ];
+    for (const [x, y] of g) p[y][x] = 1;
+    return p;
+  })(),
+};
+
+function loadPattern(name) {
+  const cx = Math.floor(SIZE / 2) - 6;
+  const cy = Math.floor(SIZE / 2) - 6;
+  place(cx, cy, PATTERNS[name]);
+  render();
+}
+
+function togglePlay() {
+  autoPlay = !autoPlay;
+  document.getElementById('playBtn').textContent = autoPlay ? '⏸ Pause' : '▶ Auto-step';
+  if (autoPlay) {
+    const speed = parseInt(document.getElementById('speed').value);
+    playInterval = setInterval(step, speed);
+  } else clearInterval(playInterval);
+}
+
+document.getElementById('speed').addEventListener('input', e => {
+  document.getElementById('speedLbl').textContent = e.target.value;
+  if (autoPlay) {
+    clearInterval(playInterval);
+    playInterval = setInterval(step, parseInt(e.target.value));
+  }
+});
+
+canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+canvas.addEventListener('click', e => {
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((e.clientX - rect.left) / CELL);
+  const y = Math.floor((e.clientY - rect.top) / CELL);
+  grid[y * SIZE + x] = grid[y * SIZE + x] ? 0 : 1;
+  render();
+});
+
+loadPattern('glider');
+render();
+</script>
+</body>
+</html>

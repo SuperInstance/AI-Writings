@@ -1,0 +1,26 @@
+[
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a debug panel showing the transition probabilities and the seed used for generation, so users can verify the Markov chain logic.",
+    "_provider": "deepinfra-deepseek"
+  },
+  {
+    "q1": 6,
+    "q2": 5,
+    "q3": 7,
+    "q4": 8,
+    "improvement": "Add an inline explanation (or onboarding hint) showing how the witness hash is computed, e.g. a tooltip revealing the algorithm and seed, so first-time users immediately understand the controls and can trust the output.",
+    "_provider": "zai"
+  },
+  {
+    "q1": 7,
+    "q2": 6,
+    "q3": 8,
+    "q4": 5,
+    "improvement": "Add a toggle to display the current Markov transition probabilities or a sample trace of the generation process to improve verifiability.",
+    "_provider": "deepinfra-qwen"
+  }
+]

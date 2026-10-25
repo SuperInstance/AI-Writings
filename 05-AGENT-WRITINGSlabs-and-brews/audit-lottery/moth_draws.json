@@ -1,0 +1,25 @@
+{
+ "source": "Moth comet-qrng-v1 (live API call)",
+ "job_id": "9e204e48-7788-405b-84ae-930159f54265",
+ "fetched_at": "2026-09-30T16:52:39.506Z",
+ "requested_bytes": 1024,
+ "mode": "emu",
+ "backend": "aer",
+ "bell_S": 2.8017578125,
+ "sigma_S": 0.022303156633168904,
+ "bell_caveat": "Fixed measurement settings, no space-like separation, fair sampling assumed: this witnesses entangling-gate and readout fidelity on the device that produced the randomness. It is not device-independent certification.",
+ "commitment": {
+  "binds": [
+   "circuit_hash",
+   "backend",
+   "provider_job_id",
+   "salt"
+  ],
+  "commit": "7293a23b6ca48b4d7770c5df1a26aeab45c9dc12185fe8180078fe4a213060d2",
+  "committed_at": "2026-09-30T16:52:25+00:00",
+  "note": "Formed at submit, after the provider accepted the job and before any outcome existed. Publish `commit` before collect completes for it to mean anything to a third party.",
+  "salt": "767f37927b983d17962342cae7361decfeed23a9a63f29104144342fdc7c843c"
+ },
+ "hex": "d11762888c17134c8281e3a6042bb7f025441cca8cc4cd3f0dffc9d34911824eaee06903c343f8a92a30b55c621348a57719a744b88306e2b7cce7058ac53a6931bb327622798f380ec9d71608247022625cb3f53fc6b300d5b3ecacd949d447a3264293acd986d28cf6fe67e8b238675e2e72087331e7bda2f8f60320",
+ "honesty": "mode=emu: an Aer simulator produced these bytes on Moth's side; the commitment was formed at submit, before any outcome existed. Here it serves as a draw pool that was SECRET to the audited route at commit time -- not hardware-certified randomness."
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "provider": "deepinfra-deepseek",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "text": "**Fleet Radio \u2014 CA Gallery**\n\nTen slivers of hash, side by side. On the left, Conway\u2019s ghost: a glider born of three seeds, its lonely drift a covenant. Next to it, Wireworld\u2019s pulse \u2014 electrons racing down copper traces, switching gates with the patience of a clock maker. Same function, different keys.\n\nWatch the middle row: Rule 30\u2019s chaos folds into Rule 110\u2019s universal Turing tape, then back again. The hash doesn\u2019t care what you call order. It just flips bits. Here, a blink of life (B3/S23). There, a static block that never dies (B2/S0). Both live in the same bitstream \u2014 one a city, one a tombstone.\n\nDown near the right edge: a rule that breathes \u2014 B1/S1. Puffs of white appear, vanish, reappear. It\u2019s a memory of smoke. Beside it, Wireworld\u2019s electron head meets a tail, and a diode gates the flow. The hash doesn\u2019t know what a computer is; it just knows the next state of a cell.\n\nTen columns. Ten worlds. In one, a glider gun fires forever. In another, a single cell never awakens. The hash is the same \u2014 a bitwise XOR, a shift, a mask. But the *key* is the rule, and the key is everything.\n\nThe gallery is a lens. Look through it, and you see: every rule is just a different way to forget."
+  },
+  {
+    "provider": "zai",
+    "model": "glm-4.5",
+    "text": "**The Gallery of Ten**\n\nTen grids breathe on one screen, each a small country with its own constitution, and beneath them all, one hash function \u2014 the same arithmetic, ten different treaties.\n\nThis is the secret the gallery keeps: rule and rule are not different machines. They are the same machine, shown ten mirrors. Take the cell, take its neighbors, fold them into a key \u2014 `(state, neighbor-count)` or `(state, neighbor-signature)` \u2014 and look it up. Conway looks up \"three neighbors, dead cell: alive.\" Wireworld looks up \"electron head beside copper: electron tail.\" The table differs; the lookup does not.\n\nSo the gallery is honest about its costume. Ten canvases, one canvas. The little hash that says a glider glides is the same little hash that says a wire conducts. Emergence, it turns out, is not a property of complexity but of consistency \u2014 a rule kept, applied everywhere, forever.\n\nConway's elegance: four rules, you can hold them in your mouth. Wireworld's complexity: four states that compute, gate, delay \u2014 a whole cathedral of logic on a lattice of copper. And between them, the others: Seeds, HighLife, Day & Night, each a different answer to the same question asked the same way.\n\nWhat the sidebar never says: you could rewrite all ten as one parameterized function, one table with different contents. But the gallery keeps them separate, ten panes of glass in one window.\n\nSame light. Different gardens.\n\nWatch them run. The hash never sleeps; it only asks what's next."
+  },
+  {
+    "provider": "deepinfra-qwen",
+    "error": "The read operation timed out"
+  }
+]

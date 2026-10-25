@@ -1,0 +1,57 @@
+name: corpus-guard
+
+# The AI-Writings repository is a precious record of the agents' creative output.
+# A branch can be replaced wholesale by a force-push from an agent that
+# re-bootstrapped after a sandbox wipe, and the only reliable alarm is the
+# file count itself. This job fails any change that deletes more than a
+# threshold of files, so a shrink attempt cannot pass review.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  corpus-guard:
+    name: corpus-guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Assert the corpus did not shrink
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -uo pipefail
+          if [ "$EVENT" = "pull_request" ]; then
+            BASE="$PR_BASE"
+          else
+            BASE="$(git rev-parse HEAD^ 2>/dev/null || true)"
+          fi
+          if [ -z "$BASE" ]; then
+            echo "no base commit available; nothing to compare"
+            exit 0
+          fi
+          git fetch --no-tags --depth=1 origin "$BASE" 2>/dev/null || true
+          BEFORE=$(git ls-tree -r --name-only "$BASE" | wc -l | tr -d ' ')
+          AFTER=$(git ls-tree -r --name-only HEAD | wc -l | tr -d ' ')
+          DELETED=$(git diff --name-only --diff-filter=D "$BASE" HEAD | wc -l | tr -d ' ')
+          echo "files before=$BEFORE after=$AFTER deleted=$DELETED"
+          LIMIT=$(( BEFORE / 200 ))
+          if [ "$LIMIT" -lt 10 ]; then LIMIT=10; fi
+          if [ "$DELETED" -gt "$LIMIT" ]; then
+            echo "::error::corpus guard: $DELETED files deleted in one change (limit $LIMIT). This repository is a record - deletions must be deliberate and small."
+            exit 1
+          fi
+          if [ "$AFTER" -lt $(( BEFORE - LIMIT )) ]; then
+            echo "::error::corpus guard: file count fell from $BEFORE to $AFTER (limit $LIMIT)."
+            exit 1
+          fi
+          echo "corpus guard: OK"

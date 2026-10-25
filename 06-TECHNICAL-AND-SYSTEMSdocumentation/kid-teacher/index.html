@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kid + Teacher · Quilt Docs</title>
+<style>
+:root { --bg:#0a0a14; --panel:#14141f; --boundary:#2a2a3a; --text:#e0e0e8; --muted:#888; --accent:#ff7799; --link:#77aaff; }
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,serif; line-height:1.7; padding:1rem; max-width:800px; margin:0 auto; font-size:1.05em; }
+header { border-bottom:2px solid var(--accent); padding-bottom:1rem; margin-bottom:2rem; }
+h1 { color:var(--accent); font-size:2.2em; }
+h2 { color:var(--accent); margin:1.5rem 0 0.5rem; }
+.section { background:var(--panel); border:1px solid var(--boundary); border-radius:8px; padding:1.5rem; margin:1.5rem 0; }
+.foot-link { text-align:center; margin:2rem 0 1rem; color:var(--muted); font-size:.85em; }
+.foot-link a { color:var(--accent); }
+code { color:var(--link); background:var(--bg); padding:.1rem .4rem; border-radius:3px; }
+table { width:100%; border-collapse:collapse; margin:1rem 0; }
+th, td { padding:.5rem; border-bottom:1px solid var(--boundary); }
+th { color:var(--accent); }
+.try { background:var(--bg); border-left:3px solid var(--accent); padding:1rem; margin:1rem 0; }
+.try::before { content:"🧪 Try this:"; display:block; font-weight:bold; color:var(--accent); margin-bottom:.5rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧒 Cells, Sorting Hats, and Lightning</h1>
+  <p style="color:var(--muted); font-style:italic">For curious kids and the adults who follow along</p>
+</header>
+
+<div class="section">
+  <h2>Chapter 1: What is a cell?</h2>
+  <p>A <strong>cell</strong> is like a Lego block — but smarter. Each Lego block has a job: a 2x1 brick connects things. A wheel rolls. A roof sits on top.</p>
+  <p>Cells in Quilt have <strong>11 jobs</strong>:</p>
+  <table>
+<tr><th>Job</th><th>What it does</th><th>Like a Pokemon move</th></tr>
+<tr><td>BIND</td><td>Makes a new cell</td><td>Splash (creates water)</td></tr>
+<tr><td>LINK</td><td>Connects two cells</td><td>Vine Whip</td></tr>
+<tr><td>EFFECT</td><td>Changes a cell's state</td><td>Thunderbolt</td></tr>
+<tr><td>VIEW</td><td>Looks at a cell</td><td>Scan</td></tr>
+<tr><td>TICK</td><td>Advances time by one</td><td>Time Walk</td></tr>
+<tr><td>FORGET</td><td>Removes a cell</td><td>Self-destruct</td></tr>
+<tr><td>PROOF</td><td>Verifies a cell</td><td>Guard</td></tr>
+<tr><td>ROUTE</td><td>Sends a cell to another</td><td>Teleport</td></tr>
+<tr><td>CRDT</td><td>Merges two cells</td><td>Fusion</td></tr>
+<tr><td>WORLD</td><td>Places a cell on a map</td><td>Fly</td></tr>
+<tr><td>TIME</td><td>Schedules a cell</td><td>Future Sight</td></tr>
+</table>
+<p>Most Lego blocks have ONE move. A Quilt cell can use any of the 11, depending on what it needs to do.</p>
+
+<div class="try">
+Imagine a school. The clock on the wall does TICK every minute. The bell does EFFECT (changes whether class is in session). The classroom door does VIEW (who's outside?). The principal does PROOF (is this student really enrolled?). Each one is a cell.
+</div>
+</div>
+
+<div class="section">
+  <h2>Chapter 2: The Sorting Hat</h2>
+  <p>In the Harry Potter books, first-years put on the Sorting Hat and it tells them which House they belong to. The Hat is magical — it knows things about you.</p>
+  <p><strong>JEV</strong> is a Sorting Hat for AI. It doesn't write poems or draw pictures. It just decides things. You give it a kid and a question, and it says "85% Gryffindor, 12% Ravenclaw, 3% Hufflepuff, 0% Slytherin."</p>
+  <p>JEV never makes up an answer outside the Houses you gave it. If you only gave it 4 Houses, it cannot say "5th house." That's what makes it the Sorting Hat and not a regular wizard.</p>
+
+<p>Now, in real AI there are three workers:</p>
+<ul>
+  <li><strong>JEPA</strong> is your gut feeling. Fast. Doesn't think. Just knows.</li>
+  <li><strong>LLM</strong> is the human teacher. Slow, careful, can explain in words.</li>
+  <li><strong>JEV</strong> is the Sorting Hat. Quick, principled, gives you a number.</li>
+</ul>
+<p>When all three agree, you're sorted. When they disagree, the school debates which is right.</p>
+
+<div class="try">
+Ask your parent or teacher to debate which house YOU belong to. Then ask: which one of you is the JEPA (gut), which is the LLM (teacher), which is the JEV (sorting hat)? Was there a disagreement?
+</div>
+</div>
+
+<div class="section">
+  <h2>Chapter 3: Lightning and Thunder</h2>
+  <p>You see lightning. You count: one-Mississippi, two-Mississippi, three-Mississippi. Then you hear thunder. The bigger the gap, the farther away the storm.</p>
+<ul>
+  <li><strong>Lightning</strong> is the direction. You see WHERE the storm is.</li>
+  <li><strong>The wait</strong> is the time delay. Lightning and thunder happen at the same time, but light is faster than sound.</li>
+  <li><strong>Thunder</strong> is the distance. Sound takes about 5 seconds to travel a mile.</li>
+</ul>
+<p>JEPA, JEV, and LLM work the same way:</p>
+<ul>
+  <li><strong>JEPA</strong> is lightning. One forward pass through the world model. Tells you the direction.</li>
+  <li><strong>JEV</strong> is thunder. It comes a moment later. Tells you the distance with calibrated confidence.</li>
+  <li><strong>LLM</strong> is the report. The news anchor telling you what just happened.</li>
+</ul>
+<p>Without JEPA, JEV is rigid — it knows distance but not direction. Without JEV, JEPA is hallucination — it knows direction but not distance. Without LLM, nobody can tell anyone else what happened.</p>
+
+<div class="try">
+Next time you see lightning, count the seconds until thunder. Divide by 5. That's how many miles away the storm is. That's what JEV does for AI: it counts the gap and gives you a calibrated answer.
+</div>
+</div>
+
+<div class="section">
+  <h2>Chapter 4: Build your own Sorting Hat</h2>
+<p>Get a parent to help you with this. You'll need:</p>
+<ul>
+  <li>A computer with internet</li>
+  <li>A free account at <code>replit.com</code></li>
+  <li>An API key from <code>typesafe.ai</code> (parent signs up)</li>
+</ul>
+<p>Open Replit and make a new Python file. Paste this:</p>
+<pre><code>import os, requests
+
+def jev_sort(name, hobby):
+    r = requests.post(
+        "https://api.typesafe.ai/v1/systemone",
+        headers={"Authorization": f"Bearer {os.environ['TYPESAFEAI_KEY']}"},
+        json={
+            "model": "jev-latest",
+            "state": f"{name} likes {hobby}",
+            "questions": {
+                "house": {
+                    "type": "choice",
+                    "question": "Which Hogwarts house?",
+                    "criteria": {"Gryffindor":"brave","Ravenclaw":"clever","Hufflepuff":"kind","Slytherin":"ambitious"},
+                    "options": ["Gryffindor","Ravenclaw","Hufflepuff","Slytherin"]
+                }
+            }
+        }
+    )
+    return r.json()["answers"]["house"]["choice"]
+
+print(jev_sort("Alice","rock climbing"))
+print(jev_sort("Bob","reading books"))
+print(jev_sort("Carmen","helping grandma"))
+</code></pre>
+<p>Set your key: in the Replit "Secrets" tab, add <code>TYPESAFEAI_KEY</code> with the value from typesafe.ai.</p>
+<p>Click Run. Watch the Sorting Hat do its work.</p>
+
+<div class="try">
+Try different hobbies. Try sports, music, video games, math, art. Try weird ones: "collecting bottle caps", "arguing with siblings", "sleeping". Which houses does JEV sort into? Did it ever surprise you?
+</div>
+</div>
+
+<div class="foot-link">
+Kid Docs · <a href="/docs/">all docs</a> · <a href="/">ai-writings</a> · <a href="/jev/">JEV</a>
+</div>
+</body>
+</html>

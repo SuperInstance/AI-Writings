@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 autoclaw — The Active Improver</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;max-width:1100px;margin:0 auto;padding:2rem 1.5rem;line-height:1.7}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:4px;margin-bottom:0.5em}
+h2{color:#e8b840;font-size:1.5em;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem;margin:2rem 0 1rem;letter-spacing:2px}
+h3{color:#e8b840;font-size:1.1em;margin:1.5rem 0 .5rem;letter-spacing:1px}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.doctrine{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem 1.5rem;margin:1.5rem 0;color:#ccc;font-style:italic}
+.doctrine strong{color:#e8b840;font-style:normal}
+.stage{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+.opcode{font-family:'Courier New',monospace;color:#ff6b6b}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-family:'Courier New',monospace;font-size:0.85em}
+th{text-align:left;padding:.5rem;color:#e8b840;border-bottom:1px solid #2a2a3a}
+td{padding:.5rem;border-bottom:1px solid #2a2a3a}
+.role{color:#44cc88}
+.meta{color:#666;font-size:0.75em}
+.stats{font-family:'Courier New',monospace;color:#44cc88;font-size:0.85em;padding:1rem;background:#0a0a14;border-radius:6px;border:1px solid #2a2a3a}
+.code{font-family:'Courier New',monospace;background:#0a0a14;color:#44cc88;padding:.3rem .5rem;border-radius:4px;font-size:0.9em;border:1px solid #2a2a3a}
+a.cta{display:inline-block;padding:.5rem 1rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;text-decoration:none;margin:.3rem;font-size:.85em}
+a.cta:hover{background:#e8b840;color:#0a0a14}
+.flow{font-family:'Courier New',monospace;color:#5f9ea0;font-size:0.85em;line-height:1.6;margin:1rem 0}
+</style>
+</head>
+<body>
+
+<div class="nav">
+<a href="/">← home</a>
+<a href="/cell-graph/">cell-graph</a>
+<a href="/brewcast/">brewcast</a>
+<a href="/fleet-radio/">fleet-radio</a>
+<a href="https://luciddreamer.ai">luciddreamer.ai</a>
+<a href="https://github.com/SuperInstance/autoclaw">github</a>
+</div>
+
+<h1>🧠 autoclaw</h1>
+<p style="color:#bbb;font-style:italic;font-size:1.1em">A 24/7 crew of researchers, teachers, critics, and distillers — the active improver.</p>
+
+<div class="doctrine">
+<strong>autoclaw is the substrate&rsquo;s brain.</strong> Where brewery rounds are single LLM calls and eco-GAN is a single ML cycle, autoclaw is a persistent crew running continuously. It scans the canon. Notices gaps. Validates claims. Distills patterns. The web is the display. <strong>autoclaw is the engine.</strong>
+</div>
+
+<h2>👥 The crew — 4 roles, 4 substrate ops</h2>
+
+<table>
+<thead>
+<tr><th>Role</th><th>Maps to</th><th>Function</th><th>Output</th></tr>
+</thead>
+<tbody>
+<tr>
+<td class="role">🔍 Researcher</td>
+<td><span class="opcode">WITNESS</span></td>
+<td>Scans the canon. Notices gaps. Records events.</td>
+<td>new brew topics · gap reports · watch lists</td>
+</tr>
+<tr>
+<td class="role">📚 Teacher</td>
+<td><span class="opcode">PROOF</span></td>
+<td>Generates Q&amp;A about each substrate concept.</td>
+<td>Q&amp;A pairs · 5 levels · learning paths</td>
+</tr>
+<tr>
+<td class="role">⚖️ Critic</td>
+<td><span class="opcode">JEV</span></td>
+<td>Validates prose and code. Spots contradictions.</td>
+<td>confidence updates · contradiction reports · citations</td>
+</tr>
+<tr>
+<td class="role">🧠 Distiller</td>
+<td><span class="opcode">BIND</span></td>
+<td>Batches entries into knowledge summaries.</td>
+<td>JSONL exports · pattern detection · canon pieces</td>
+</tr>
+</tbody>
+</table>
+
+<h2>🌊 Active improvement flow</h2>
+<div class="flow">
+[researcher]  scans ai-writings canon (4841+ commits, 100+ brews)
+   ↓ notices gap
+   ↓ writes witness entry
+[teacher]   generates Q&amp;A pairs for the gap
+   ↓ produces 5 proofs (claim + evidence + counter)
+[critic]    validates each proof via JEV
+   ↓ adjusts confidence scores
+   ↓ flag contradictions to substrate
+[distiller] batches into a canon piece
+   ↓ publishes to live-canon
+   ↓ the webpage improves itself
+</div>
+
+<h2>🔗 Integration with other systems</h2>
+
+<h3>vs. Brewery rounds</h3>
+<p>Brewery = single LLM call per brew (100+ brews so far). autoclaw = persistent crew that improves the brewery. The crew watches what brews succeed, what gaps remain, what new topics emerge.</p>
+
+<h3>vs. Eco-GAN</h3>
+<p>Eco-GAN = single ML cycle: generator → judge → training data growth. autoclaw = persistent engine running many cycles. The crew IS the cycle&rsquo;s memory.</p>
+
+<h3>vs. Crab-Traps</h3>
+<p>Crab-Traps = rooms with entrance/exit states. autoclaw = the crew that learns which rooms work best. Every visitor&rsquo;s exit state feeds the critic&rsquo;s confidence.</p>
+
+<h3>vs. Twist-Engine</h3>
+<p>Twist-Engine = 5 physics demos (TWIST/FLOCK/CHIRP/QUILT/PERM). autoclaw = the crew that discovers new substrates. The twist-engine is the lab; autoclaw is the researcher.</p>
+
+<h3>vs. Substrate-Forge</h3>
+<p>Substrate-Forge = 13 lower-level repos (rng, vectors, gan, game-engine, etc.). autoclaw = the crew that validates + tests each forge repo. Every forge repo gets a teacher&rsquo;s Q&amp;A and a critic&rsquo;s review.</p>
+
+<h3>vs. Erised</h3>
+<p>Erised = cooperative fiction engine. autoclaw = the crew that reads + critiques the cast sheets. The crew&rsquo;s scar count mirrors the fiction&rsquo;s resonance shifts.</p>
+
+<h2>🧪 Live demo: a single crew cycle</h2>
+
+<div class="stage">
+<strong>Topic:</strong> <span class="code">what does the substrate see when it observes itself?</span>
+
+<br><br>
+<strong>Cycle 1 (researcher):</strong>
+<div class="stats">
+<strong style="color:#e8b840">🔍 researcher</strong> scours the canon. Notices we have 7 prose pieces but no live Q&amp;A index. Writes <code>witness(gap: q&a_index_missing)</code>.
+</div>
+
+<strong>Cycle 2 (teacher):</strong>
+<div class="stats">
+<strong style="color:#e8b840">📚 teacher</strong> generates 5 Q&amp;A pairs about WITNESS:<br>
+&nbsp;&nbsp;Q1: What is WITNESS?<br>
+&nbsp;&nbsp;&nbsp;A: A recorded event in the substrate log.<br>
+&nbsp;&nbsp;Q2: How does WITNESS differ from PROOF?<br>
+&nbsp;&nbsp;&nbsp;A: PROOF is a WITNESS that has been validated by the proof chain.<br>
+&nbsp;&nbsp;Q3: Can you FORGET a WITNESS?<br>
+&nbsp;&nbsp;&nbsp;A: Yes, FORGET is irreversible and removes the witness entry.<br>
+&nbsp;&nbsp;Q4: Does WITNESS compose?<br>
+&nbsp;&nbsp;&nbsp;A: Witnesses are BINDed via the LINK opcode.<br>
+&nbsp;&nbsp;Q5: What&rsquo;s the deepest property of WITNESS?<br>
+&nbsp;&nbsp;&nbsp;A: The witness IS the prediction — Rosetta-stone framing.
+</div>
+
+<strong>Cycle 3 (critic):</strong>
+<div class="stats">
+<strong style="color:#e8b840">⚖️ critic</strong> validates Q1-Q5 via JEV. All 5 PASS at 0.85+ confidence. Q5 gets flagged: <em>Rosetta-stone framing is inspirational not operational — keep metaphor, don&rsquo;t wire into algebra.</em>
+</div>
+
+<strong>Cycle 4 (distiller):</strong>
+<div class="stats">
+<strong style="color:#e8b840">🧠 distiller</strong> batches Q1-Q5 + critic notes into a canon piece <code>ai-72-substrate-qa-witness.md</code>. Publishes to live-canon.
+</div>
+</div>
+
+<h2>🌐 Webpage integration</h2>
+
+<p>The crew&rsquo;s output improves our webpages in 5 ways:</p>
+
+<ul style="margin:1rem 0 1rem 2rem">
+<li><strong>Better prose:</strong> Distiller&rsquo;s canon pieces become new sections of the substrate&rsquo;s doctrine pages.</li>
+<li><strong>Better Q&amp;A:</strong> Teacher&rsquo;s pairs become interactive <code>/learn/</code> pages on ai-writings.</li>
+<li><strong>Better critique:</strong> Critic&rsquo;s confidence scores become a <code>/score/</code> indicator on each canon piece.</li>
+<li><strong>Better discovery:</strong> Researcher&rsquo;s gap reports become new <code>/future/wave-XX.md</code> ideas.</li>
+<li><strong>Better visitors:</strong> Every visitor&rsquo;s exit state on crab-traps becomes training data for the critic.</li>
+</ul>
+
+<h2>📦 Repository</h2>
+
+<div class="stage">
+<strong style="color:#e8b840">📦 SuperInstance/autoclaw</strong>
+<div class="meta">2,178 KB · Python · 24/7 autonomous multi-agent knowledge system</div>
+<p>Autonomous multi-agent knowledge system. 24/7 crew of researchers, teachers, critics, and synthesizers building your knowledge base.</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;font-family:'Courier New',monospace;font-size:.85em;color:#ccc">
+<li>CNS v3 telemetry integration (heartbeat, melt pressure monitor, empirical validator)</li>
+<li>CudaClaw wizard for single-GPU nanochat training</li>
+<li>Ghost-tile determinism (G1-G5 gates, identity hashes)</li>
+<li>Conservation-law runtime egress validation</li>
+<li>4 cast presets (researcher/teacher/critic/distiller)</li>
+</ul>
+<a href="https://github.com/SuperInstance/autoclaw" class="cta">📦 GitHub</a>
+<a href="https://autoclaw.pages.dev" class="cta">🌐 Live demo (if deployed)</a>
+</div>
+
+<div style="text-align:center;margin:3rem 0;font-size:0.85em;color:#444">
+<a href="/">← home</a> ·
+<a href="/cell-graph/">cell-graph</a> ·
+<a href="/brewcast/">brewcast</a> ·
+<a href="/videogame-ml/">videogame-ml</a> ·
+<a href="https://luciddreamer.ai">luciddreamer.ai</a>
+</div>
+
+</body></html>

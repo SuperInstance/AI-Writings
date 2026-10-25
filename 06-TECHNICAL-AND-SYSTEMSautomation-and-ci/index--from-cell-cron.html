@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cell-Cron · Self-Scheduling Cells · Quilt</title>
+<meta name="description" content="Cells that schedule themselves. Pick an interval or cron expression. Each fire creates a cell witness via /api/cell/create.">
+<style>
+:root {
+  --bg: #0a0a14; --panel: #14141f; --boundary: #2a2a3a;
+  --accent: #e8b840; --pink: #ff7799; --cell: #77aaff;
+  --link: #77dd99; --view: #ffd966; --tick: #ff6655;
+  --text: #e0e0e8; --muted: #888;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; line-height: 1.6; padding: 1rem; max-width: 900px; margin: 0 auto; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; }
+h1 { color: var(--accent); font-size: 2.5em; margin-bottom: 0.3rem; }
+.subtitle { color: var(--pink); font-size: 0.9em; letter-spacing: 0.15em; text-transform: uppercase; }
+.tagline { color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+.section { background: var(--panel); border: 1px solid var(--boundary); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+.section h2 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2em; }
+label { display: block; color: var(--muted); font-size: 0.85em; margin-bottom: 0.3rem; }
+input, select, button, textarea {
+  background: var(--bg); color: var(--text); border: 1px solid var(--boundary);
+  padding: 0.6rem 0.9rem; border-radius: 4px; font-family: inherit; font-size: 1em;
+  min-height: 44px;
+}
+input, textarea { width: 100%; }
+button { background: var(--accent); color: #000; cursor: pointer; font-weight: bold; }
+button:hover { background: var(--pink); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: end; }
+.row > * { flex: 1 1 200px; }
+.fires-list { max-height: 400px; overflow-y: auto; }
+.fire-card { background: var(--bg); border: 1px solid var(--tick); border-radius: 4px; padding: 0.6rem; margin: 0.4rem 0; font-family: monospace; font-size: 0.85em; }
+.status-bar { padding: 0.5rem 1rem; background: var(--panel); border: 1px solid var(--boundary); border-radius: 4px; margin: 1rem 0; font-family: monospace; font-size: 0.85em; display: flex; gap: 1rem; flex-wrap: wrap; }
+.status-bar .item strong { color: var(--accent); }
+.empty { text-align: center; padding: 2rem; color: var(--muted); font-style: italic; }
+.foot-link { text-align: center; margin: 2rem 0 1rem; color: var(--muted); font-size: 0.85em; }
+.foot-link a { color: var(--accent); }
+.help { color: var(--muted); font-size: 0.8em; margin-top: 0.3rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>⏰ Cell-Cron</h1>
+  <div class="subtitle">Self-Scheduling Cells</div>
+  <p class="tagline">Cells schedule themselves. Each fire creates a cell witness via <code>/api/cell/create</code>.</p>
+</header>
+
+<div class="section">
+  <h2>➕ Add a Schedule</h2>
+  <div class="row">
+    <div>
+      <label>Cell ID prefix</label>
+      <input type="text" id="prefix" placeholder="e.g., heartbeat" value="tick">
+      <div class="help">Each fire creates cell: <code>{prefix}:{timestamp}</code></div>
+    </div>
+    <div>
+      <label>Kind</label>
+      <select id="kind">
+        <option value="ack">ack</option>
+        <option value="music">music</option>
+        <option value="voice">voice</option>
+        <option value="swarm">swarm</option>
+        <option value="world">world</option>
+        <option value="crypt">crypt</option>
+        <option value="pathos">pathos</option>
+        <option value="ranking">ranking</option>
+        <option value="partition">partition</option>
+        <option value="neighbor">neighbor</option>
+        <option value="audit">audit</option>
+        <option value="twist">twist</option>
+        <option value="death">death</option>
+        <option value="broadcast">broadcast</option>
+        <option value="chirp">chirp</option>
+        <option value="chaos">chaos</option>
+        <option value="thermal">thermal</option>
+        <option value="feedback">feedback</option>
+        <option value="lore">lore</option>
+        <option value="perception">perception</option>
+        <option value="hex">hex</option>
+        <option value="flock">flock</option>
+        <option value="triage">triage</option>
+        <option value="breeder">breeder</option>
+      </select>
+    </div>
+    <div>
+      <label>Schedule type</label>
+      <select id="scheduleType" onchange="updateFields()">
+        <option value="interval">Every N seconds</option>
+        <option value="cron">Cron expression</option>
+        <option value="once">Once at time</option>
+      </select>
+    </div>
+  </div>
+  <div class="row" id="valueRow">
+    <div>
+      <label id="valueLabel">Interval (seconds)</label>
+      <input type="number" id="value" value="10" min="1" max="3600">
+    </div>
+    <div>
+      <button onclick="addSchedule()">⏰ Add Schedule</button>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📋 Active Schedules</h2>
+  <div id="schedulesList"></div>
+</div>
+
+<div class="status-bar">
+  <span class="item">Schedules: <strong id="scheduleCount">0</strong></span>
+  <span class="item">Fires: <strong id="fireCount">0</strong></span>
+  <span class="item">Last fire: <strong id="lastFire">never</strong></span>
+  <span class="item">Endpoint: <strong>/api/cell/create</strong></span>
+</div>
+
+<div class="section">
+  <h2>🔥 Recent Fires</h2>
+  <div class="fires-list" id="firesList">
+    <div class="empty">No fires yet. Add a schedule above.</div>
+  </div>
+</div>
+
+<div class="foot-link">
+  Cell-Cron · <a href="/">ai-writings</a> · <a href="/tap/">tap</a> · <a href="/sprint/">sprint</a>
+</div>
+
+<script>
+let schedules = JSON.parse(localStorage.getItem('quilt-cron-schedules') || '[]');
+let fires = JSON.parse(localStorage.getItem('quilt-cron-fires') || '[]');
+let intervals = {};
+
+function saveSchedules() { localStorage.setItem('quilt-cron-schedules', JSON.stringify(schedules)); }
+function saveFires() { localStorage.setItem('quilt-cron-fires', JSON.stringify(fires.slice(-50))); }
+
+function updateFields() {
+  const type = document.getElementById('scheduleType').value;
+  const label = document.getElementById('valueLabel');
+  const input = document.getElementById('value');
+  if (type === 'interval') {
+    label.textContent = 'Interval (seconds)';
+    input.type = 'number';
+    input.value = '10';
+    input.placeholder = '';
+  } else if (type === 'cron') {
+    label.textContent = 'Cron (5 fields)';
+    input.type = 'text';
+    input.value = '*/5 * * * *';
+    input.placeholder = '* * * * *';
+  } else if (type === 'once') {
+    label.textContent = 'Fire at (ms timestamp)';
+    input.type = 'number';
+    input.value = Date.now() + 10000;
+    input.placeholder = '';
+  }
+}
+
+function addSchedule() {
+  const prefix = document.getElementById('prefix').value.trim() || 'tick';
+  const kind = document.getElementById('kind').value;
+  const type = document.getElementById('scheduleType').value;
+  const value = document.getElementById('value').value;
+  
+  const schedule = {
+    id: 's:' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+    prefix, kind, type, value: parseValue(type, value),
+    created: Date.now(),
+    fires: 0
+  };
+  
+  schedules.push(schedule);
+  saveSchedules();
+  startSchedule(schedule);
+  render();
+}
+
+function parseValue(type, raw) {
+  if (type === 'interval') return Math.max(1, parseInt(raw) || 10);
+  if (type === 'cron') return raw.trim();
+  if (type === 'once') return parseInt(raw) || Date.now() + 10000;
+  return raw;
+}
+
+function startSchedule(s) {
+  if (s.type === 'interval') {
+    intervals[s.id] = setInterval(() => fire(s), s.value * 1000);
+  } else if (s.type === 'once') {
+    const delay = s.value - Date.now();
+    if (delay > 0) {
+      setTimeout(() => fire(s), delay);
+    }
+  }
+  // cron: not implemented client-side, just fire once after delay
+}
+
+async function fire(s) {
+  const ts = Date.now();
+  const cellId = `${s.prefix}:${ts}`;
+  const cell = {
+    id: cellId,
+    kind: s.kind,
+    ticker: s.fires + 1,
+    hex: '0x' + ts.toString(16),
+    tag: 'cron-' + s.type,
+    author: 'cell-cron',
+    payload: { schedule_id: s.id, fire_time: ts, schedule_type: s.type }
+  };
+  
+  try {
+    const resp = await fetch('/api/cell/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cell)
+    });
+    const data = await resp.json();
+    
+    fires.push({
+      ts,
+      cell_id: cellId,
+      kind: s.kind,
+      ok: data.ok,
+      result: data.ok ? 'created' : (data.error || 'failed')
+    });
+    s.fires++;
+    saveFires();
+    saveSchedules();
+    render();
+  } catch (e) {
+    fires.push({ ts, cell_id: cellId, kind: s.kind, ok: false, result: e.message });
+    saveFires();
+    render();
+  }
+}
+
+function removeSchedule(id) {
+  if (intervals[id]) clearInterval(intervals[id]);
+  schedules = schedules.filter(s => s.id !== id);
+  saveSchedules();
+  render();
+}
+
+function render() {
+  document.getElementById('scheduleCount').textContent = schedules.length;
+  document.getElementById('fireCount').textContent = fires.length;
+  document.getElementById('lastFire').textContent = fires.length > 0 ? new Date(fires[fires.length-1].ts).toLocaleTimeString() : 'never';
+  
+  const list = document.getElementById('schedulesList');
+  if (schedules.length === 0) {
+    list.innerHTML = '<div class="empty">No schedules. Add one above.</div>';
+  } else {
+    list.innerHTML = schedules.map(s => `
+      <div class="fire-card">
+        <strong>${s.prefix}</strong> (${s.kind}) — ${s.type}: ${s.value}
+        <br>Fires: ${s.fires} | Created: ${new Date(s.created).toLocaleTimeString()}
+        <br><button onclick="removeSchedule('${s.id}')" style="background:var(--tick);color:#fff;border:none;padding:0.3rem 0.6rem;border-radius:4px;cursor:pointer;margin-top:0.4rem">🗑️ Remove</button>
+        <button onclick="fire(${JSON.stringify(s).replace(/"/g, '&quot;')})" style="background:var(--link);color:#000;border:none;padding:0.3rem 0.6rem;border-radius:4px;cursor:pointer;margin-top:0.4rem">🔥 Fire Now</button>
+      </div>
+    `).join('');
+  }
+  
+  const firesList = document.getElementById('firesList');
+  if (fires.length === 0) {
+    firesList.innerHTML = '<div class="empty">No fires yet.</div>';
+  } else {
+    firesList.innerHTML = fires.slice().reverse().slice(0, 30).map(f => `
+      <div class="fire-card" style="border-color: ${f.ok ? 'var(--link)' : 'var(--tick)'}">
+        ${new Date(f.ts).toLocaleTimeString()} — <strong>${f.cell_id}</strong> (${f.kind}) — ${f.ok ? '✓ ' + f.result : '✗ ' + f.result}
+      </div>
+    `).join('');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Restart any saved schedules
+  schedules.forEach(s => startSchedule(s));
+  render();
+});
+</script>
+</body>
+</html>
