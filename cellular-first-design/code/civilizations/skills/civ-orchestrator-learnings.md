@@ -1172,3 +1172,104 @@ per-civ Δ **0.0000** for all 8 ⇒ the offset is **fixed**, not accumulating.
 - Pre-flight on the exact long cultural prompts (lengths 167–209): **40/40 distinct seeds,
   40/40 distinct previews, 40/40 independently recomputed md5s, 0 tracebacks**. The
   pre-flight has now saved the run **six** times in the series.
+
+---
+
+## Session 171 (2026-10-25) — the bridge symlink target must be the NESTED directory
+
+**Run clean (session 171, 28th consecutive clean mock).** per-civ delta = **+10** x 8 = **80 new
+rows**, `meta_log` D = **+5** (588 -> 593), `Winner:` lines = **5**, **80/80** rows
+`provider=zai`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback
+triple, **40/40** distinct seeds, **0** `(civ,prompt)` combos carrying >1 seed, **80/80** rows
+match an independently recomputed md5 (seed, colour and figure), **8/8** distinct seeds AND
+**8/8** distinct previews on all 5 competition prompts, meta-vs-ledger `avg_score` mismatches
+**0/40** (later-`ts` row), registry 8 all gen 1, extinction **NONE**.
+**24/24 assertions PASS.**
+
+### NEW — the "symlink points at the clone root" rule has a precondition
+
+The RUNBOOK says the bridge symlink must point at the **clone root**, not the nested
+`cellular-first-design` dir. That is right **only when the clone root *is* the
+`cellular-first-design` directory**. The rule exists because `git show HEAD:<path>` must run
+from the clone root — and that is a *separate* concern from what the symlink targets.
+
+This session the clone root **contains** `cellular-first-design/`, so:
+
+```
+ln -s /tmp/repos/ai-writings/AI-Writings            /workspace/repos/ai-writings/cellular-first-design
+# -> resolves, but CIVS_DIR = .../cellular-first-design/code/civilizations DOES NOT EXIST
+ln -s /tmp/repos/ai-writings/AI-Writings/cellular-first-design        /workspace/repos/ai-writings/cellular-first-design
+# -> CORRECT
+```
+
+**The two rules are orthogonal and both must hold:**
+- `git show HEAD:<path>` must run with `cwd` = the **clone root** (session-170 note 5).
+- the **symlink target** must be whichever directory actually contains `code/civilizations/`.
+
+**Cheap pre-flight, before launching anything:**
+```
+ls /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py
+```
+A wrong symlink target fails *late* (the script dies on `REGISTRY.read_text()` with
+`FileNotFoundError: civilizations.json`) and the error message names a missing file rather than
+a missing link, which sends you hunting in the wrong place. **Check the target directory exists
+before the run, not after the failure.**
+
+### The six mock fixes, re-applied, 8/8 on the FIRST build
+
+Session 170 ended with a counter-derived seed index (fix (f)) that was caught *after* the
+ledger was written. This session the mock was rebuilt correctly from the spec and the
+pre-flight passed **8/8 on the first attempt** — no rebuild-drift, no reset-and-rerun. The
+gate that carries the weight is **check 7, repeat-same-message => identical seed**: the
+pre-flight's other seven steps all send 40 *distinct* messages, so a counter-derived index
+looks perfect to every one of them.
+
+Pre-flight: **40/40** distinct seeds, **40/40** distinct previews, **40/40** recomputed md5s,
+**8/8** + **8/8** on every prompt, 0 literal `seed={}`, 0 `EXC:`, **40 messages x 2 repeats =>
+0 seed mismatches**, 0 `(civ,prompt)` with >1 seed. **8/8 PASS.**
+Post-run mock log: 121 OK lines, 0 `EXC:`. Teardown: two pids killed by exact argv match,
+`curl -m 5` => **exit 7**, `HTTP=000`.
+
+### `civ-grounded` remains the low-relevance civ - 46 consecutive sessions
+
+Last of 8 on lifetime `avg_score` **0.9970**, `quality` **0.4075**, `alignment` **1.0613**,
+`relevance` **1114.06**, `relevance_per_sim` **0.961**. Alignment gap **0.9895** vs quality gap
+**0.3418** => **2.9x** wider => a **voice** failure, not a prose failure. Lifetime novelty
+**1.5223** is **6th of 8** - Grounded is not boring, it is mis-voiced.
+
+**The run-level low ROTATED to `civ-therapist`** (run `avg_score` **1.4473**, run bottom on
+`avg_score` and `alignment` **1.1460**) while its *lifetime* standing is mid-field (6th of 8).
+**Watch axis, not the finding** (session-132 rule).
+
+### Counter gap -609.9200, fixed
+
+Byte-identical to sessions 169 and 170, per-civ D **0.0000** for all 8. The offset is
+structural, not accumulating. `save_state()` has no lock, so `relevance_per_sim` is not
+recomputable from the ledger by an auditor.
+
+### Chooser vs `avg_score` argmax: 3/5 (60 %)
+
+Both disagreements took the **lower**-scoring candidate, so the "picks lower" direction
+continues. `civ-precise` swept **5/5**. Max |delta| **0.1633** - a small one, well inside the
+session-168 record of **-1.1033**.
+
+### Environment
+
+- Workspace **empty** apart from `.plugin-cache`; the prompt's path did not exist (**12th
+  consecutive occurrence**).
+- Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/...` slug 404s (the API is
+  case-insensitive).
+- Cloned to **`/tmp/repos/ai-writings/AI-Writings`** with `--filter=blob:none --no-checkout` +
+  `sparse-checkout set cellular-first-design` => 7.6 MB working tree. Cloning into
+  `/workspace` fails with **`Disk quota exceeded`** (NAS EDQUOT, **18th session**); `/workspace`
+  was **100 % full, 0 bytes available**, `/tmp` had 28 G free.
+- `ZAI_TOKEN` absent from env and all 8 secrets; z.ai **401** `token expired or incorrect` =>
+  endpoint healthy, credential absent (**54th session**).
+- **JEV live**: well-formed body => **HTTP 200** with `{"model":"jev-1.14.0", ...}`.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code - the token gate returns `None`
+  first).
+- `gh` not installed (**20th session**) - used `GET /user/repos` with `GITHUB_TOKEN`.
+- Tool timeout 30 s < orchestrator run ~28 s => detached launch, stdout redirected,
+  `< /dev/null`.
+

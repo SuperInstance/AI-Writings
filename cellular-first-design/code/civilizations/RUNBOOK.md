@@ -1,3 +1,42 @@
+# Civ Orchestrator — Run Report, session 171 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 54th session) + **live JEV**.
+Baseline: `51fc662` (session 170). **All 24 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session171.md`.
+
+## Headline for the next session
+
+- **The mock needs SIX fixes, unchanged.** All six were re-applied and the pre-flight gate
+  passed **8/8 on the FIRST build** — no rebuild-drift this session. Fix (f)
+  (message-derived index) remains the one that matters, and it is covered by the
+  **repeat-same-message probe** (check 7) — the only gate step that can catch it, because the
+  other seven all send 40 *distinct* messages.
+- **THE BRIDGE SYMLINK TARGET MUST BE THE NESTED DIRECTORY.** The "point at the clone root"
+  rule holds only when the clone root *is* the `cellular-first-design` dir. Here the clone root
+  **contains** `cellular-first-design/`, so the link must target the **nested** dir, or
+  `CIVS_DIR` resolves to a path with no `code/civilizations` under it. **Check before the run:**
+  `ls /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py`
+- **`civ-grounded` remains the low-relevance civ — 46th consecutive session.** Last of 8 on
+  lifetime `avg_score` 0.9970, `quality` 0.4075, `alignment` 1.0613, `relevance` 1114.06,
+  `relevance_per_sim` 0.961. Alignment gap **0.9895** vs quality gap **0.3418** ⇒ **2.9×**
+  wider ⇒ a **voice** failure, not a prose failure. Lifetime novelty 1.5223 is **6th of 8**.
+- **The run-level low ROTATED to `civ-therapist`** (1.4473 run bottom on `avg_score`,
+  `alignment` 1.1460) while its *lifetime* standing is mid-field (6th of 8).
+  **Watch axis, not the finding** (session-132 rule).
+- **Chooser vs `avg_score` argmax: 3/5 (60 %)** — both disagreements took the lower-scoring
+  candidate. `civ-precise` swept **5/5**. Max |delta| **0.1633**.
+- **Counter gap −609.9200, fixed** — byte-identical to sessions 169 and 170.
+- Run spreads: `avg_score` 0.6167, `alignment` **1.5960**, quality 0.4380, novelty 0.2070.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (588 → 593),
+  `Winner:` **5**, `wins`/`losses` **8/8 exact**, `relevance` Δ = Σ`avg_score` **8/8 exact**,
+  0 JEV errors, 0 fallback triples, `zai × 80`, **40/40** distinct seeds, **0** `(civ,prompt)`
+  with >1 seed, **80/80** rows match an independently recomputed md5, 8/8 seeds AND previews
+  on all 5 prompts, meta-vs-ledger mismatches **0/40**, 80/80 distinct `(q,n,a)`, confidence
+  0.28–0.93, registry 8 all gen 1, extinction **NONE** (lowest +1114.06 = **111×** the floor).
+  **24/24 PASS.**
+
 # Civ Orchestrator — Run Report, session 170 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
