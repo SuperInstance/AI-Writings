@@ -1862,3 +1862,55 @@ Control B mock bridge, JEV live (`jev-1.14.0`). Baseline `c8275b5` (session 155)
   JEV liveness = 422 on a malformed `questions`; z.ai = 401 `token expired or incorrect`
   (credential gap, endpoint healthy) - **45th session**.
 
+
+## Session 157 — the `simulations_run` baseline, the f-string pre-flight, and a reaped `/tmp` (2026-10-25)
+
+### The `simulations_run` baseline is NOT the ledger row count
+
+`culture.json` `simulations_run` counts **only the sim phase** (5 per civ per run);
+`simulations.jsonl` accumulates **both** phases (10 rows per civ per run) plus all prior
+competition history. Asserting `sims_run == rows_before + 10` gives **8 false failures** on a
+clean run. Read the baseline from the **git HEAD blob's `culture.json`**:
+
+```bash
+git -C /tmp/aiw show HEAD:cellular-first-design/code/civilizations/<civ>/culture.json
+```
+
+Expected on a clean `--sims 5 --prompts 5` run: `simulations_run` delta **+10** per civ, and
+`wins + losses` delta **+5** per civ. **An 8-for-8 failure with every other assertion green is
+a BASELINE bug until proven otherwise.**
+
+### The pre-flight must render the cultural prompt as an f-string
+
+`cultural_prompt` is an **f-string** (`{self.culture['name']}`,
+`{', '.join(self.culture['tenets'])}`, `{self.culture['voice_emphasis']}`, `{prompt}`).
+`TEMPLATE.format(...)` raises **`KeyError: 'self'`** and the probe never reaches the mock.
+Substitute the four expressions with sentinels, then fill them in.
+
+### A reaped `/tmp` looks exactly like a broken bridge
+
+This session the completed sparse clone **vanished between two commands**; the bridge survived
+but went dangling, and `ls`/`stat -L` on the target failed with "No such file or directory".
+**When the bridged path 404s, `ls` the TARGET first** — re-creating a link to a missing target
+just reproduces the symptom. Re-clone with the blobless+sparse recipe (6.7 MB).
+
+### REST core quota exhausted ⇒ use the search API; never read 403 as absence
+
+Core was 0/5000 (reset 02:21Z) this session; `GET /user`, `GET /repos/...` all 403'd, and a
+rate-limited response **renders as "repo not found" for every candidate at once**. The
+**search API has a separate bucket** and kept answering:
+`GET /search/repositories?q=user:SuperInstance`. `git ls-remote` stays the ground truth for
+existence.
+
+### Standing numbers after session 157
+
+- **`civ-grounded` = the low-relevance civ, 49 consecutive sessions (95–157)** — last of 8 on
+  every lifetime axis. Absolute gaps: alignment **0.2197** vs quality **0.0333** (6.6x).
+  Lifetime novelty 1.5018 is now **below** median (1.6410) — first time since session 143;
+  watch whether that holds. Extinction risk NONE (1009.12 = 100.9x above the −10 floor).
+- **Watch axis `civ-therapist` — 5th session at the run bottom, on BOTH axes** (run
+  `avg_score` 0.7893, run `alignment` 0.6760). Lifetime still mid-field ⇒ watch, not a finding.
+- **Chooser vs argmax 0/5 (0 %)** — `civ-poetic` was argmax on **all 5** prompts, won **0**.
+  `civ-precise` won 4/5. All disagreements took the **lower**-scoring candidate. The rate is
+  not narrowing; keep the direction as the finding.
+- **z.ai credential gap: 45th session.** `ZAI_TOKEN` still absent; z.ai 401, JEV live (422).

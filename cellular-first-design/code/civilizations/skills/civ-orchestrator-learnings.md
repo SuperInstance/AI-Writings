@@ -447,3 +447,106 @@ yields **0.0 for every civ** and makes the whole ranking look flat. Use `r["avg_
 - **z.ai credential gap: 44th session.** `ZAI_TOKEN` absent from env and all 8 secrets;
   401 `token expired or incorrect` against a healthy endpoint. JEV live (422 on a malformed
   `questions`).
+
+## Session 157 (2026-10-25) — 22nd consecutive clean mock; the `simulations_run` baseline is NOT the row count
+
+**Run clean (103 assertions, 0 failures).** per-civ delta = **+10** x 8 = **80 new rows**
+(engineer 1006->1016, formal 1037->1047, grounded 1052->1062, mythic 1009->1019, poetic
+1031->1041, precise 1001->1011, therapist 1004->1014, whimsical 1064->1074), `meta_log` delta
+= **+5** (518 -> 523), **Winner:** lines = **5**, **80/80** rows `[mock-zai`-prefixed with
+`provider=zai`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback
+triple, **80 distinct** JEV score triples / **35 distinct** confidences, **40/40** distinct
+seeds, **0** `(civ,prompt)` combos with >1 seed, **8/8 + 8/8** on all 5 competition prompts.
+
+### NEW — the `simulations_run` baseline must come from the git blob, not the ledger row count
+
+The orchestrator's `culture.json` `simulations_run` counts **only the sim phase** (5 per civ),
+while `simulations.jsonl` accumulates **both** phases (10 rows per civ) *and* the entire
+competition history. The two counters are therefore offset by the whole competition history
+(grounded: `simulations_run` 1009 vs 1062 ledger rows).
+
+Asserting `sims_run == rows_before + 10` produced **8 false failures** on a run where every
+other assertion was green. The correct assertion is against the **git HEAD blob's**
+`culture.json`: `simulations_run` delta = **+10** for all 8 (grounded 1009->1019, precise
+985->995, …) and `wins+losses` delta = **+5** for all 8 (5 competitions).
+
+**Rule: an 8-for-8 failure with every other assertion green is a BASELINE bug until proven
+otherwise — check the baseline's source before believing the failure.** The RUNBOOK's
+assertion table says "per-civ `simulations.jsonl` delta +10"; it does **not** license reusing
+that number as the `simulations_run` baseline.
+
+### NEW — the pre-flight must render the cultural prompt as an F-STRING, not `str.format()`
+
+The orchestrator builds the prompt with an f-string:
+`f"""You are a voice in the tradition of "{self.culture['name']}"…"""`. A probe that does
+`TEMPLATE.format(name, tenets, voice, prompt)` raises **`KeyError: 'self'`** — the probe crashes
+before it ever reaches the mock, and the natural reading ("the mock is broken") is wrong.
+
+Fix: replace the four f-string expressions with sentinels, then substitute:
+`{self.culture['name']}` / `{', '.join(self.culture['tenets'])}` /
+`{self.culture['voice_emphasis']}` / `{prompt}`. That reproduces the orchestrator's bytes
+exactly. Pre-flight then reported **40/40 distinct seeds, 40/40 distinct previews, 40/40
+template md5s, 0 tracebacks**, prompt lengths 167-209, **8/8 + 8/8 on all 5 prompts** — the
+pre-flight saved the run for the **5th** time in the series (115, 117, 145, 147, 150).
+
+### NEW — `/tmp` was REAPED mid-session; a vanished target looks exactly like a broken bridge
+
+A completed sparse clone (`/tmp/aiw`, 6.7 MB) **vanished between two commands**. The symlink
+bridge survived but became **dangling**, so `ls` on the *target* path failed with "No such
+file or directory" and `stat -L` failed too — indistinguishable from a broken bridge.
+
+**Rule: when the bridged path 404s, check the TARGET (`ls /tmp/aiw`) before re-creating the
+link.** Re-creating a link to a missing target just reproduces the symptom. Re-cloned with the
+blobless+sparse recipe (`--filter=blob:none --no-checkout --depth 1 --sparse` +
+`sparse-checkout set --no-cone cellular-first-design/code/civilizations`) → **6.7 MB**, one shot.
+
+### The z.ai credential gap: 45th session. REST core quota exhausted; the SEARCH api still answers
+
+`ZAI_TOKEN` absent from env and all 8 sandbox secrets; z.ai **401 `token expired or incorrect`**
+(endpoint healthy). JEV live (422 `too_short` on an empty `questions`). This session the
+**REST core quota was exhausted** (0/5000, reset 02:21Z) — `GET /user`, `GET /repos/...` and
+`GET /orgs/...` all returned 403 "API rate limit exceeded", and a rate-limited response
+**renders as "no such repo" for every candidate at once**. The **search API has a separate
+bucket and kept working**: `GET /search/repositories?q=user:SuperInstance` identified the
+owner and the repo list. **Use search while core is rate-limited; and never read a 403 as
+absence.** `git ls-remote` remains the ground truth for repo existence.
+
+### Low-relevance civ — the low label did NOT rotate (49 sessions, 95-157)
+
+`civ-grounded` remains **last of 8 on every lifetime axis**: `relevance` 1009.12,
+`relevance_per_sim` 0.990, `avg_score` 1.0296, `alignment` 1.1435, `quality` 0.4435.
+Absolute gaps: alignment **0.2197** (to therapist) vs quality **0.0333** (to formal) — a
+**6.6x** wider alignment gap. (Quote the absolute gaps; the ratio has swung 11x -> 2.7x -> 7.5x
+-> 0.4x -> 6.6x across sessions and is not a stable claim.) Alignment is the axis the
+meta-GAN selects on ⇒ a **voice failure, not a prose failure**. **LIFETIME NOVELTY 1.5018 is
+now BELOW median (1.6410)** — sessions 143-150 had Grounded above median. If that holds next
+session, Grounded is losing on two axes, not one. **Extinction risk NONE** — 1009.12 = 100.9x
+above the −10 floor; registry 8, all `generation=1`.
+
+**Watch axis `civ-therapist` — 5th session at the run bottom, on BOTH axes** (run `avg_score`
+0.7893, run `alignment` 0.6760, both lowest of 8). Lifetime standing still mid-field
+(`avg_score` 1.1994, 6th of 8) ⇒ **watch axis, not a finding**. `civ-grounded` was 7th of 8 on
+run `avg_score` (0.8997) — the run low and the lifetime low are different civs on different
+axes; that is the rule, not a contradiction.
+
+**Chooser vs `avg_score` argmax: 0/5 (0 %)** — disagreed in **every** competition. `civ-poetic`
+was the argmax on **all five** prompts and won **zero** (deltas -0.1867 … -0.6300, all
+downward). `civ-precise` won 4/5, `civ-formal` 1/5. 20+ five-sample points cannot pin a rate:
+report it as a sample and keep the **direction** as the finding. **Never treat `win_rate` as a
+quality metric.**
+
+**The two stable inverses, sharpest form yet:** `civ-poetic` = 1st on lifetime `avg_score`
+(1.5961) / `quality` (0.7942) / `relevance` (1564.74) / `relevance_per_sim` (1.559) and **last**
+on `win_rate` (0.012, 6/498) — argmax on 5/5 prompts, winner on 0/5. `civ-precise` = best
+`win_rate` (0.572), **highest lifetime `alignment` (2.1678)**, won 4/5 at `preferred_temp` 0.2.
+
+**Counter gap byte-identical pre/post run** on all 8 civs (delta +0.0000 each): grounded -84.35,
+whimsical -173.14, formal -85.53, poetic -96.80, precise -32.63, mythic -51.11, therapist
+-42.11, engineer -44.24 (total -609.92). A fixed per-civ offset, not an accumulating leak.
+`save_state()` has no lock ⇒ `relevance_per_sim` is not recomputable from the ledger.
+
+**Dimension spreads:** run-level `alignment` **1.7070**, `avg_score` 0.8880, `quality` 0.6360,
+`novelty` 0.5260; lifetime `alignment` **1.0243**, `avg_score` 0.5665, `novelty` 0.5387,
+`quality` 0.3507. **`alignment` widest on both horizons.** Run-level `quality` did **not**
+collapse this session (0.093-0.729) — the collapse is a **LEVEL** that moves. **Rank on
+cross-civ spreads, never on absolute quality levels, never on a single run's low.**
