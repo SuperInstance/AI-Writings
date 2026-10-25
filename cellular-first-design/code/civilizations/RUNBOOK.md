@@ -1,3 +1,40 @@
+# Civ Orchestrator — Run Report, session 217 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **88th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `e722ddd` (session 216 tree). **All 24 verification assertions PASS.** Pre-flight **10/10 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session217.md`.
+
+**Session 217 in one line:** `civ-precise` took **4/5** competitions with `civ-formal` taking
+the fifth; the chooser/argmax agreement was **2/5 (40 %) — 3 down-grades, 0 up-grades**; the
+run-level low was **`civ-therapist`** (avg **1.7627**, fleet-low alignment **1.6060**) while
+`civ-grounded` held the lifetime low for the **85th** consecutive session.
+
+**Three durable lessons from this session:**
+
+1. **THE LEDGER'S CURRENT-GENERATION MOCK ROWS CARRY ONE TAIL, NOT FIVE.** The SKILL file
+   records "the tail prefix is per-prompt, 5 distinct strings". Measured against the
+   **current-format** rows only, there is exactly **1** distinct tail across all 5 prompts
+   and all 8 civs — 161 chars. The 5-tail claim describes an older generation.
+   *Filter to the current header format before sizing anything off the ledger.*
+2. **THE LEDGER ONLY RECONCILES IF THE COLOUR CARRIES ITS `#`.** The derived colour is
+   `h[8:12]` = `44cc`; the recorded group is `#44cc`. Comparing the raw slice reports
+   **0/160** on a healthy mock. *The parser normalises; the comparison must too.*
+3. **A FULL-CLONE FETCH IGNORES `core.sparseCheckout` — THE SPARSE FILTER APPLIES AT
+   CHECKOUT, NOT AT FETCH.** `--depth 1` still pulled **3.4 GB** of the 3.7 GB tree. Also
+   `git fetch --depth 1 origin` resolves **`refs/heads/HEAD`**, a *stale* symref to session
+   142, **not** `main`. *Fetch `refs/heads/main` explicitly and assert the SHA matches.*
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`**; `/workspace` is at 100 % NAS
+quota, so the clone went to `/tmp/aiw` and the bridge points at the **inner `code` dir**
+(inode identity `129:12697`, `os.path.samefile()` -> `True`). The mock body was rebuilt to a
+constant **350** chars (39-char header + 161-char recorded tail prefix + 150-char
+continuation) — inside the 332-369 band on the first build. `ZAI_TOKEN` is still absent
+(**88th session**); `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN` gave **0** fallback
+triples in the 80 new rows. `pkill -f mock_zai` **self-matched and killed the calling
+shell** for the 2nd time; kill by exact argv and prove the port closed.
+
 # Civ Orchestrator — Run Report, session 214 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`

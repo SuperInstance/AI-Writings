@@ -5,6 +5,77 @@ description: Durable operating knowledge for the Civilization Orchestrator (cell
 
 # Civ Orchestrator — durable learnings
 
+## Session 217 additions (2026-10-25)
+
+### 1. THE CURRENT-GENERATION LEDGER HAS **ONE** TAIL, NOT FIVE — FILTER BY HEADER FORMAT FIRST
+
+The section above records "the recorded 162-char body tail is a function of the CANON
+prompt … all 8 civs share the same 5 tails". Measured against the **current-format** rows
+only (header matching `[mock-zai [0-9a-f]{4}] #[0-9a-f]{4} [0-9a-f]{4}/[0-9a-f]{4}/[0-9a-f]{4}`),
+there is exactly **1** distinct tail across all 5 prompts and all 8 civs — **161 chars**,
+beginning `A cell keeps its own accounts and asks the network for what it cannot remember
+itself. The bookkeeper and the witness log are two names for the same discipline: `.
+
+The 5-tail claim describes an **older** mock generation, and the fleet's 9040 `[mock-zai`
+rows are mostly that older generation. *Filter to the current header format before sizing
+or reconstructing anything off the ledger.*
+
+### 2. THE COLOUR CARRIES ITS `#` — A RAW-SLICE COMPARISON REPORTS 0/160 FALSE MISMATCHES
+
+The recorded header is `[mock-zai 71a2] #44cc dd7c/7cd2/2400.` but the derived colour is
+`h[8:12]` = `44cc`, **without** the `#`. Comparing the raw slice against the recorded group
+reports **0/160** on a perfectly healthy mock. A reconciling check must prepend `#` to
+the derived colour (or strip it from the recorded one) before comparing. *The parser
+normalises; the comparison must too.*
+
+### 3. `core.sparseCheckout` DOES NOT NARROW THE **FETCH** — IT ONLY NARROWS THE CHECKOUT
+
+`git init` + `core.sparseCheckout set <dir>` + `git fetch --depth 1 origin` still
+downloaded **3.4 GB** of the 3.7 GB `SuperInstance/AI-Writings` tree: the sparse filter
+applies at checkout, not at fetch. The clone is only cheap if the *fetch* is narrowed
+(`--filter=blob:none` plus a tree-filtered refspec, or a targeted
+`git fetch origin <sha>:<ref>`).
+
+### 4. `git fetch --depth 1 origin` RESOLVES `refs/heads/HEAD` — A STALE SYMREF, NOT `main`
+
+On `SuperInstance/AI-Writings` the ref `refs/heads/HEAD` points at a **stale** commit
+(session 142) while `refs/heads/main` is the live tip (session 216 at the time of
+writing). A plain `git fetch --depth 1 origin` then checks out the stale tree and the
+whole run is silently measured against an **old baseline**. *Always fetch
+`refs/heads/<default-branch>` explicitly and assert `git rev-parse FETCH_HEAD` equals
+`git ls-remote origin refs/heads/main` before trusting the tree.*
+
+### 5. A SECOND MOCK LAUNCH ON THE SAME PORT FAILS SILENTLY WHILE THE FIRST KEEPS SERVING
+
+Starting the mock a second time raises `OSError: [Errno 98] Address already in use` in
+the new process's log, but a `curl` probe still returns **HTTP 200** — served by the
+*first* process. A green probe does not prove your process owns the port. *Check the
+mock's log for the bind error and confirm the pid you expect is the one listening.*
+
+### 6. THE CHOOSER SERIES IS **0 % / 40 % / 40 % / 100 % / 60 % / 40 %** (SESSIONS 211-217) AND IT IS STILL **0 UP-GRADES EVER**
+
+Session 217: `civ-precise` took 4/5, `civ-formal` took 1/5; `civ-poetic` was argmax on
+**3/5** prompts and won **0/5**; agreement **2/5 (40 %)** with **3 down-grades, 0
+up-grades**. *Re-derive the series every session; never carry a streak forward.*
+
+### 7. THE RUN LOW AND THE LIFETIME LOW WERE **DIFFERENT CIVS** AGAIN (8 SESSIONS RUNNING)
+
+Run low: **`civ-therapist`** (avg **1.7627**, alignment **1.6060** fleet-low, quality
+**1.1250** fleet-low), 8th of 8, gap to 2nd **0.1513** = **22.3 %** of the run spread.
+Lifetime low: **`civ-grounded`** (relevance **1834.52**, rel/sim **1.1331**, lifetime
+quality **0.4940** fleet-low) — yet Grounded's lifetime `win_rate` **0.092** is 3rd-best
+in the fleet. The lifetime *alignment* low is a **third** civ, **`civ-therapist`**
+(**1.1995**). The run's alignment spread (**1.4180**) is **2.23x** the quality spread and
+**9.71x** the novelty spread. *The low-relevance signature is still LOW ALIGNMENT, not
+low novelty. Report the axis, not the holder.*
+
+### 8. THE MOCK BODY LANDED AT **350** CHARS ON THE FIRST BUILD — INSIDE THE 332-369 BAND, ZERO ITERATION
+
+The header is a constant **39** chars and the recorded tail prefix is a constant **161**
+chars, so a continuation of exactly **150** chars gives a constant body of
+**39 + 161 + 150 = 350**. *Compute the allowance from the fixed prefix rather than
+trimming prose to fit a band.*
+
 ## The `wins`/`losses` counters are NOT in the ledger (false-FAIL trap)
 
 `simulations.jsonl` rows carry exactly **9 keys** —
