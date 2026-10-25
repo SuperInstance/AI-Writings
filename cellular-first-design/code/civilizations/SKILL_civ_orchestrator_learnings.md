@@ -1412,3 +1412,20 @@ the axis that drives the ranking did not.*
 39-char fixed header + a **310**-char fixed, culture-free tail = **349**, inside the
 **332-369** band with zero iteration. *Compute the allowance from the fixed prefix; never
 iterate prose to fit a band.*
+
+### 6. THE GATE'S 5-GROUP / 3-GROUP MISMATCH IS THE **FOURTH** MEMBER OF THE "0/N = PARSER" FAMILY
+
+The `#`-prefix trap (sessions 204, 213, 220) and the group-count trap (226) share one
+root: **comparing a parse fragment instead of the parsed value.** The mock-header regex
+yields five groups; unpacking three made `pr[2]` the first figure component only.
+*Reassemble the figure as a slash-joined string before comparing, and when a recompute
+reports 0/N, dump one real body and parse it by hand before touching the mock.*
+
+### 7. THE OWNER IS A **USER** ACCOUNT WITH 5 400+ REPOS — PAGE AND FILTER, DON'T GUESS THE SLUG
+
+`SuperInstance/AI-Writings` is the upstream; `cellular-first-design` is a **subdirectory**
+of it, so `git ls-remote .../ai-writings/cellular-first-design.git` returns *Repository not
+found*. `GET /user/repos` paginates at 100 and the owner has thousands, so **page through
+it and filter on `cellular|civ|writing|autoclaw`** — the first 5 pages here surfaced
+`SuperInstance/AI-Writings` immediately. A 6th occurrence of the "the path in the prompt
+404s" trap.
