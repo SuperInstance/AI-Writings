@@ -1,3 +1,105 @@
+## Session 193 (2026-10-25) — THE 12-SESSION DOWN-GRADE STREAK BROKE, and "distinct seeds" is a MESSAGE-level invariant
+
+**Run clean (session 193).** per-civ delta = **+10** x 8 = **80 new rows**,
+`meta_log` D = **+5** (698 -> 703), `Winner:` lines = **5**, **80/80** rows
+`provider=zai` with the `[mock-zai` prefix, **0** rows with a JEV `error` key, **0**
+rows with the 2.0/2.0/2.0 fallback triple, **80/80** rows match an independently
+recomputed seed+color+figure, **40/40** distinct seeds (message-level), **0**
+`(civ,prompt)` combos carrying >1 seed, per-prompt **8/8** distinct seeds AND previews
+on all 5 prompts, **80/80** distinct `(q,n,a)`, relevance delta == sum(`avg_score`)
+**8/8 exact** (max residual **6.6e-13**), wins **+5** / losses **+35**, meta-vs-ledger
+**0** mismatches, registry 8 all gen 1, extinction **NONE** (lowest +1406.82 = **141x**
+the floor). **Pre-flight PASS on the FIRST build (13/13).** **29/29 assertions PASS.**
+
+### NEW — the DOWN-GRADE STREAK IS BROKEN. Re-base it to 0.
+
+Chooser vs `avg_score` argmax = **5/5 (100 %)** agreement, **0** down-grade, **0**
+up-grade. `civ-precise` won all 5 competitions *and was the argmax on all 5*. This ends
+a **12-consecutive-session** run in which **every** chooser/argmax disagreement was a
+down-grade (sessions 181-192).
+
+*Rule: a streak statistic is a property of the series, and when the series breaks, the
+streak counter resets to 0 — it does not carry forward "12" into the next report.* The
+standing suspicion (**the `best_civ` criteria map `civ_id -> civ name` being read as a
+quality signal**) is **not** disproven: a chooser that agrees with the argmax on every
+prompt is exactly what a working chooser looks like, and the streak was a symptom of
+*something*, not proof of the cause. Re-base, keep watching, do not conclude.
+
+### NEW — "distinct seeds" is a MESSAGE-level invariant, not a ROW-level one
+
+The natural check "all 80 new rows carry distinct seeds" **cannot pass**, and its
+failure is **not a defect**. The seed is a function of the **message** (`civ` +
+`prompt`); the orchestrator appends **10 rows per civ** (5 sims + 5 competition rows)
+that span only **5 distinct prompts** per civ. So the 40 `(civ, prompt)` slots produce
+**40 distinct seeds across 80 rows**.
+
+Measured multiplicity distribution this session: **{3: 10, 2: 14, 1: 14, 4: 2}** — 12
+seeds appear on 3 or 4 rows, exactly what `random.choice` over 5 prompts produces. A
+`len(set(seeds)) == 80` assertion reports a false FAIL on a perfectly clean run.
+
+*Rule: before asserting distinctness, ask **what the value is a function of**. Here it
+is the message, so the distinctness count is bounded by the number of distinct
+**messages** (40), not the number of **rows** (80). This is the row-count analogue of
+the session-189 rule "assert distinctness against the GROUP SIZE, not the SAMPLE SIZE":
+the group size is the number of distinct *inputs*, not the number of *observations*.*
+
+The corrected check asserts three things at once: 40 distinct seeds; exactly one seed
+per `(civ, prompt)` slot; and each seed's multiplicity equal to its slot's row count.
+
+### NEW — the BRIDGE must point at the INNER `cellular-first-design` directory
+
+Upstream `SuperInstance/AI-Writings` has a `cellular-first-design/` **subdirectory** in
+its root, so a checkout lands content at
+`<root>/cellular-first-design/cellular-first-design/code/…`. The orchestrator's
+hardcoded `CIVS_DIR` wants `<root>/code/…`, so the symlink must target the **inner**
+directory. A bridge aimed one level too high fails with a bare
+`FileNotFoundError: 'civilizations.json'` and reads as a missing repo.
+
+Also: `git sparse-checkout disable` after a **cone**-sparse checkout leaves a
+**nested duplicate** tree. `git status` then reports the outer tree as clean while the
+real content sits one level deeper — so "the tree is clean" is not the same as "the
+content is where I think it is". Verify with `find <root> -maxdepth 3 -not -path '*/.git*'`.
+
+### Findings
+
+- **`civ-grounded` remains the lifetime low — 65th consecutive session.** Lifetime
+  `relevance` **1406.82** (last of 8), `relevance_per_sim` **1.020** (lowest in the
+  fleet), `win_rate` **0.103** — **3rd-best**. Run `avg_score` **1.7397** (6th of 8),
+  `quality` **1.0800** (2nd-lowest), `alignment` **1.7670** (5th), novelty **2.3720**
+  (mid-pack) ⇒ the deficit is **quality and alignment, not novelty**. Lowest relevance
+  **+1406.82 = 141x** the −10 floor.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-therapist`** (run `avg_score` **1.5117**,
+  `alignment` **1.1150** lowest, `quality` **1.0540** lowest) — a **12th different civ
+  in 12 sessions**, while its lifetime standing is 7th of 8. *The holder rotates; the
+  axis does not.*
+- Run spreads: `alignment` **1.8460** (widest, and the widest of the last three
+  sessions) › `avg_score` **0.7537** › `quality` **0.5790** › `novelty` **0.1470**.
+
+### Re-confirmations (this session)
+
+- NAS EDQUOT total (**19th session**) — 600 G/600 G, 0 bytes free; `cp` into
+  `/workspace` fails with "Disk quota exceeded" and leaves **0-byte files that `ls`
+  still lists**. Clone to the overlay (28 G free) and bridge by symlink.
+- z.ai **401** `token expired or incorrect` (credential gap, endpoint healthy) —
+  **67th session**. **JEV HTTP 200** on a well-formed body, disclosing **`jev-1.14.0`**;
+  **0 fallback triples**.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code behind the token gate).
+- `gh` not installed (**21st session**) — `GET /user/repos` with `GITHUB_TOKEN`;
+  `GET /search/code?q=…` survives core-quota exhaustion; the GitHub API is
+  case-insensitive.
+- The mock must return an **OpenAI-shaped envelope**; the body-length target is
+  computed from the **assembled** string (landed **360**, band 332-369) and the
+  cultural-prompt band is measured from the **real on-disk** `culture.json` files
+  (**167-209**) — never a hand-typed fixture.
+- Take the baseline from `git show HEAD:.../culture.json`, **unrounded**; max residual
+  this session **6.6e-13**.
+- Mock teardown: kill by **PID captured from `ps`**, never `pkill -f mock_zai`
+  (self-matches the calling shell).
+
+
+---
+
 ## Session 189 (2026-10-25) — THE TWO LENGTH BANDS, AND A VERIFIER THAT FAILS ITSELF
 
 **Run clean (session 189).** per-civ delta = **+10** x 8 = **80 new rows**,
