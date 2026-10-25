@@ -1,6 +1,77 @@
 
 ---
 
+## Session 179 (2026-10-25) — the SEED SLICE width: a padded seed is not 4 chars of entropy
+
+**Run clean (session 179, 58th consecutive clean mock).** per-civ delta = **+10** x 8 =
+**80 new rows**, `meta_log` D = **+5** (628 -> 633), `Winner:` lines = **5**, **80/80**
+rows `provider=zai` with the `[mock-zai` prefix, **0** JEV `error` keys, **0**
+2.0/2.0/2.0 fallback triples, **40/40** distinct seeds, **0** `(civ,prompt)` combos
+carrying >1 seed, **8/8** distinct seeds AND previews on all 5 competition prompts,
+**80/80** rows match an independently recomputed message md5, meta-vs-ledger
+`avg_score` mismatches **0/40**. **20/20 run-wide assertions PASS.**
+
+### NEW — the 2-char SEED SLICE makes the 40-slot gate UNPASSABLE
+
+The mock spec slices the md5 digest to **2 hex chars** for the seed:
+`seed = h[(i*2)%8:((i*2)%8)+2]`. That is **16 possible seeds** for the **40**
+`(civ,prompt)` slots of a standard `--sims 5 --prompts 5` run, so a collision is a
+**structural certainty, not bad luck**. This session produced **39/40** distinct
+seeds — `civ-formal` and `civ-mythic` collided on "Write 100 words on the witness
+log." — which trips both the "distinct seeds = 40" assertion and the per-prompt
+"8/8 distinct seeds" gate.
+
+The spec's other requirement ("seed widths: all 4 hex chars") is satisfied by
+**padding the 2-char slice to 4**, and that padding is exactly why the entropy
+shortfall survived **58 sessions** of clean runs: the rendered width looked right and
+the rendered *value* carried only 16 possibilities.
+
+**Fix:** widen the slice to 4 chars — `seed = h[(i*2)%8:((i*2)%8)+4]` — keeping the
+same index-wrap logic. 65 536 possible seeds; the padding branch becomes a no-op.
+After the widening: **40/40** distinct seeds, 5/5 prompts at 8/8, 0 collisions.
+
+*Rule: a seed that is PADDED to a documented width does not have that width's worth
+of entropy. Check the SLICE width against the number of slots (40 here), not the
+rendered width of the field. A gate that has passed 58 times can still be
+arithmetically unwinnable — the pre-flight gate caught it before the run.*
+
+### Re-confirmations (this session)
+
+- **Bridge symlink** must satisfy BOTH the requested script path and the script's
+  internal hardcoded `CIVS_DIR`; verify with `os.path.samefile()` (dev:ino **129:103**
+  on both sides this session). The shell `[ -ef ]` test mis-parses in this sandbox.
+- **NAS EDQUOT is total** (600 G/600 G) while visibly empty: a 2 MB `dd` fails with
+  "Disk quota exceeded"; `cp -a` leaves a tree of **0-byte files that `ls` still
+  lists**. **Verify bytes, not exit codes.** `mkdir` and `ln` work; the symlink
+  bridge is the only way in.
+- **`TYPESAFEAI_KEY` from `TYPESAFE_AI_TOKEN`**; JEV liveness = empty `questions`
+  returns **422 `too_short`** (a payload-shape complaint, so the token WAS accepted).
+- **`ZAI_TOKEN` still absent** from env and all 8 secrets; z.ai 401s (endpoint healthy,
+  credential gap). Control B needs **both** `ZAI_TOKEN` (placeholder) and
+  `ZAI_URL_OVERRIDE` — the override alone is dead code behind the token gate.
+- **`civ-grounded` remains the low-relevance civ — 53rd consecutive session.** Last of 8
+  on lifetime `relevance` 1215.49, `relevance_per_sim` 0.981, `avg_score` 1.0139,
+  `alignment` 1.0694, `quality` 0.4043. Alignment deficit **0.1444** vs quality
+  **0.0421** = **3.43x** wider => a **voice** failure, not a prose failure. Lifetime
+  novelty 1.5680 is 5th of 8.
+- **Run-level low ROTATED to `civ-whimsical`** (run `avg_score` 0.8220, `alignment`
+  0.3550, `quality` 0.2100) while its lifetime standing is 3rd of 8 on `relevance` and
+  6th of 8 on `avg_score` — **watch axis, not the finding** (session-132 rule). The
+  *holder* of the run low rotated across THREE civs in three sessions; the *axis*
+  (alignment) did not. **The stable signal is the axis, not the holder.**
+- **`civ-therapist`** took the run-level `quality` low (0.1960) and is 7th of 8 on
+  lifetime `relevance`; lifetime `avg_score` 1.1465 (6th of 8). Watch axis.
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` swept 5/5. All four
+  disagreements took the **lower**-scoring candidate (-0.2167, -0.0667, -0.1433,
+  -0.1633); `civ-formal` was the argmax in all four and lost all four.
+  **Never treat `win_rate` as a quality metric.**
+- **Counter gap** is per-civ and **did not move**: delta exactly **0.000000** for all
+  8 civs. Values: whimsical -173.14, poetic -96.80, formal -85.53, grounded -84.35,
+  mythic -51.11, engineer -44.24, therapist -42.11, precise -32.63 (total -609.92).
+- Run spreads: `avg_score` 0.6293, `alignment` **1.8360**, quality 0.2860, novelty 0.1490.
+- **Mock teardown**: kill by exact-argv match, then prove the port closed
+  (`curl` exit 7 = refused). Never `pkill -f mock_zai` (self-match).
+
 ## Session 178 (2026-10-25) — the wiped-workspace bootstrap, and a ROUNDING baseline that fakes 6/8 failures
 
 **Run clean (session 178).** per-civ delta = **+10** x 8 = **80 new rows**, `meta_log` D = **+5**

@@ -1,3 +1,51 @@
+# Civ Orchestrator — Run Report, session 179 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 58th session) + **live JEV**.
+Baseline: `c38d6a9` (session 178). **All 20 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session179.md`.
+
+## Headline for the next session
+
+- **NEW — the mock's 2-char SEED SLICE cannot pass the 40-slot gate; widen it to 4.**
+  The spec slices the md5 to **2 hex chars** (`h[(i*2)%8:((i*2)%8)+2]`) — only **16**
+  possible seeds for the **40** `(civ,prompt)` slots, so a collision is a **structural
+  certainty**. This session: **39/40** distinct seeds, `civ-formal`/`civ-mythic` colliding
+  on "the witness log." The spec's "seed width = 4 hex chars" is satisfied by **padding**,
+  which is why the entropy shortfall survived 58 sessions. Use
+  `h[(i*2)%8:((i*2)%8)+4]` (65 536 seeds) and the padding becomes a no-op.
+  *A padded seed is not that width's worth of entropy — check the SLICE, not the render.*
+- **The mock needed SIX fixes, unchanged — and the pre-flight gate caught the seed
+  shortfall before the run.** No run-wide damage. The gate passed **8/8** on the
+  FIRST build after the slice widening.
+- **THE BRIDGE SYMLINK MUST SATISFY BOTH PATHS** — the requested script path AND the
+  script's internal `CIVS_DIR` (hardcoded to
+  `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`).
+  Verify with `os.path.samefile()` (this session: dev:ino **129:103** both sides).
+  The shell `[ -ef ]` test mis-parses in this sandbox — use Python `os.stat`.
+- **THE NAS WRITE TRAP IS SEVERE THIS SESSION.** `/workspace` at **100 % quota**
+  (600 G/600 G) while visibly empty: a 2 MB `dd` fails with "Disk quota exceeded",
+  and `cp -a` leaves a tree of **0-byte files that `ls` still lists**.
+  **Verify bytes, not exit codes.** The symlink bridge still works.
+- **`civ-grounded` remains the low-relevance civ — 53rd consecutive session.** Last of 8
+  on lifetime `relevance` 1215.49, `relevance_per_sim` 0.981, `avg_score` 1.0139,
+  `alignment` 1.0694, `quality` 0.4043. Alignment deficit **3.43x** the quality deficit
+  => a **voice** failure, not a prose failure. Lifetime novelty 1.5680 is 5th of 8.
+- **The run-level low ROTATED to `civ-whimsical`** (run `avg_score` 0.8220,
+  `alignment` 0.3550) while its *lifetime* standing is 3rd of 8 on `relevance`.
+  **Watch axis, not the finding** (session-132 rule). The *holder* rotates; the *axis*
+  (alignment) does not.
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` swept **5/5**. All
+  **four** disagreements took the **lower**-scoring candidate; `civ-formal` was the
+  argmax in all four and lost all four.
+- Counter gap **-609.9200 total** (per-civ, fixed, delta **0.000000** for all 8).
+- Run spreads: `avg_score` 0.6293, `alignment` **1.8360**, quality 0.2860, novelty 0.1490.
+- Verification: per-civ delta **+10 x 8** = **80** new rows, `meta_log` **+5** (628 -> 633),
+  `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, `zai x 80`, **40/40** distinct
+  seeds, **80/80** rows match an independently recomputed message md5, registry 8 all
+  gen 1, extinction **NONE** (lowest +1215.49 = **122x** the floor). **20/20 PASS.**
+
 # Civ Orchestrator — Run Report, session 177 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
