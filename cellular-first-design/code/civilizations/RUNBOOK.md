@@ -1504,3 +1504,51 @@ only if the lifetime axis moves too.
   (`ENOTDIR: not a directory, mkdir '/workspace/repos/ai-writings/cellular-first-design'`).
   For files that must land inside the bridged tree, use a **bash heredoc** to the real
   `/tmp` path; use `printf`/heredoc to `/tmp` for throwaway analysis scripts.
+
+## Session 148 — the chooser swept a single civ 5/5, and quality stopped collapsing (2026-10-25)
+
+**20th consecutive clean mock measurement.** Two things broke series patterns, both worth
+recording because the standing rules were derived against them.
+
+**1. `civ-precise` won 5/5 competitions — the first clean-mock sweep in the series.**
+Session 147 split the wins 4 (`civ-precise`) + 1 (`civ-formal`); this session is a clean
+sweep by the same civ, at `preferred_temp` 0.2 — the coldest voice is what the chooser
+rewards. Do **not** read a 5/5 sweep as a new stable property: it is one sample of five
+competitions under a mock, and `civ-precise` was already the lifetime `win_rate` leader
+(0.567). The lifetime `win_rate` is the durable number; the per-run sweep is not.
+
+**Chooser vs `avg_score` argmax: 2/5 (40 %) — the highest in the clean-mock series**
+(0/5, 3/5, 1/5, 4/5, 4/5, 3/5, 0/5, 4/5, 4/5, 1/5, 2/5, 4/5, 4/5, 0/5, 2/5). Fifteen
+five-sample points still cannot pin a rate — the honest claim is *somewhere in 0–80 %*.
+**The direction rule survived again and is now 3-for-3 this session: every disagreement
+took the LOWER-scoring candidate.** That asymmetry is the durable finding; the rate is not.
+
+**2. Quality did NOT collapse this session** (run-level 0.042–0.217), breaking a run of
+**15 collapses in the last 16 clean-mock sessions**. This is the third observation in a row
+that the quality collapse is a **LEVEL that moves**, not a stable property of the mock or
+the fleet. Novelty ran high (1.93–2.20) against quality — the two axes moved in opposite
+directions. **Rank on cross-civ spreads, never on absolute quality levels, and never on a
+single run's low.** A future session that sees quality collapse again should not treat it
+as a regression, and a session that sees it recover should not treat it as a fix.
+
+**Low-relevance label: `civ-grounded`, 46 consecutive sessions (95–148) — still not
+rotating.** Lifetime alignment gap to the next civ **0.2515** vs quality gap **0.0334** — a
+**7.5x** wider alignment gap, and alignment is the axis the chooser selects on. Still a
+**voice failure, not a prose failure**. `relevance` 939.86 -> 947.98, `relevance_per_sim`
+1.023 -> 1.020; last of 8 on both before and after the run.
+
+**Watch axis: `civ-therapist`**, run-level low on `avg_score` (0.7810), `alignment` (0.1940)
+*and* `quality` (0.0420) — a triple-bottom, 2nd consecutive session at the run bottom.
+Lifetime standing is mid-field (avg_score 1.2487, 5th of 8) => **watch axis, not a finding**,
+per the session-132 rule (lifetime table = structural signal, run ranking = watch axis).
+
+**Counter gap unchanged, byte-identical to session 147:** whimsical -63, grounded -43,
+formal -42, poetic -37, engineer -22, mythic -20, therapist -17, precise -16. A fixed
+per-civ offset, not an accumulating leak.
+
+**Path/environment (27th session with the same shape):** the prompt's path was wrong on both
+segments and `/workspace` had no clone (only `.plugin-cache` + `.skills`). `gh` is **still
+not installed**. One API call settles it: `GET /repos/SuperInstance/ai-writings` -> **200**,
+`GET /repos/SuperInstance/cellular-first-design` -> **404**. NAS EDQUOT total (12th session)
+=> clone to `/tmp`, then bridge. `git clone --depth 1` of the 3.7 GB repo fetched in ~60 s
+to a 6 MB tree — the working tree is small; the size is in other branches' history.
