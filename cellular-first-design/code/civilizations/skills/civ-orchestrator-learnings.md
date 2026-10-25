@@ -1,3 +1,73 @@
+## Session 199 (2026-10-25) — the DOWN-GRADE STREAK RE-BREAKS, and one session is NOT a trend
+
+**Run clean (session 199).** per-civ delta = **+10** x 8 = **80 new rows**,
+`meta_log` D = **+5** (728 -> 733), `Winner:` lines = **5**, **80/80** rows
+`provider=zai`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0
+fallback triple, **80/80** rows match an independently recomputed seed+color+figure,
+**40/40** distinct seeds (message-level), **0** `(civ,prompt)` combos carrying >1
+seed, per-prompt **8/8** distinct seeds AND previews on all 5 prompts, relevance
+delta == sum(`avg_score`) **8/8 exact** (max residual **9.84e-13**), wins **+5** /
+losses **+35**, meta-vs-ledger **0** mismatches over 40 comparisons, registry 8 all
+gen 1, extinction **NONE** (lowest +1517.95 = **152x** the floor).
+**Pre-flight PASS on the FIRST build (10/10).** **27/27 assertions PASS.**
+
+### NEW — a "regime change" observed in ONE session can be fully reversed by the NEXT
+
+Session 198 reported the 16-session down-grade streak as **broken** (3/5 agreement,
+1 up-grade) and correctly cautioned that "one session is not a trend". Session 199 is
+that next session, and the streak is back **harder**: **0/5 (0 %) agreement, 5
+down-grade, 0 up-grade** — the worst session in the series. `civ-poetic` was the
+`avg_score` argmax on **5 of 5** prompts and won **0 of 5**; `civ-precise` was never
+the argmax and won **5 of 5**.
+
+*Rule: when you report a streak as broken, the next session MUST re-derive the
+direction count from its own log rather than assuming the new regime holds. A
+streak counter is not a hypothesis — it is a measurement, and it is re-measured
+every session. Never write "the down-grade streak is over" in a report; write
+"the down-grade streak was 0 this session, re-derive next session".*
+
+### NEW — the run-level low holder can be a civ that has NEVER held it before
+
+The run-level low rotated to **`civ-engineer`** this session (run `avg_score` 1.4413,
+`alignment` 0.8740 fleet-low) — the **18th distinct holder in 18 sessions**. Sessions
+190-198 rotated through `therapist`/`mythic`/`whimsical`; `civ-therapist`, which held
+it in 7 of the last 9 sessions, fell to **6th of 8** this run.
+
+*Rule: do not predict the run-level low holder from the previous session's report.
+Read this run's own rows. The holder rotates; the AXIS it rotates on does not — the
+alignment spread was **2.1830** this session, the widest in the series.*
+
+### NEW — the "lifetime low" and the "run-level low" have been DIFFERENT civs for 4 sessions running
+
+`civ-grounded` holds the lifetime low (**1517.95**, 71st consecutive session,
+`relevance_per_sim` 1.055, lifetime `win_rate` **0.099** = 3rd-best in the fleet) but
+was only **7th of 8** on this run's `avg_score` (**1.7207**), with a **quality-led**
+signature (`quality` 0.8000 fleet-low, `novelty` 2.7460 **fleet-high**). The run-level
+low (`civ-engineer`) is 6th of 8 lifetime.
+
+*Rule: report the axis per civ, never a single "the low civ". And keep the two axes
+separate in the write-up: relevance is an accumulation; `win_rate` is a SELECTION
+metric. A civ can be lowest on relevance and 3rd-best on selection at the same time.*
+
+### Re-confirmations (this session)
+
+- The bridge symlink must point at the **inner** `cellular-first-design` directory
+  (verified by inode identity `129:12601` both sides + `os.path.samefile()`).
+- Cloning into `/workspace` dies on `.git/description` with `Disk quota exceeded`
+  (NAS EDQUOT, **19th session**); the same clone into `/tmp` succeeds.
+- `ZAI_TOKEN` absent from env and all 8 sandbox secrets; z.ai **401 `token expired or
+  incorrect`** (**73rd session**) => endpoint healthy, credential absent.
+- `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`; JEV live at
+  `jev-1.14.0`; **0** fallback triples.
+- `ZAI_URL_OVERRIDE` alone is dead code — the `ZAI_TOKEN` gate returns `None` first.
+  Control B needs **both**.
+- Pre-flight check 8 (**repeat-same-message => identical response**) is the only check
+  that can catch fix (f); the other 9 pass on a mock with fix (f) broken.
+- Response body band **332-369** (measured **366**), cultural-prompt band **167-209**
+  (measured **167-209** from the REAL `culture.json` files).
+- The **8 fixes (a-h)** rebuild cleanly from the algorithm block; pre-flight passed
+  **10/10 on the FIRST build**.
+
 ## Session 193 (2026-10-25) — THE 12-SESSION DOWN-GRADE STREAK BROKE, and "distinct seeds" is a MESSAGE-level invariant
 
 **Run clean (session 193).** per-civ delta = **+10** x 8 = **80 new rows**,

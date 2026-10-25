@@ -1,36 +1,44 @@
-# Civ Orchestrator — Run Report, session 197 (2026-10-25)
+# Civ Orchestrator — Run Report, session 199 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
-Provider path: **Control B mock** (z.ai credential gap, 71st session) + **live JEV** (`jev-1.14.0`).
-Baseline: `e1ab42c` (session 196). **All 27 verification assertions PASS.** Pre-flight **14/14 PASS**.
+Provider path: **Control B mock** (z.ai credential gap, **73rd session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `62f7299` (session 198). **All 27 verification assertions PASS.** Pre-flight **10/10 PASS**.
 
-Full detail: `RUN_REPORT_2026-10-25_session197.md`.
+Full detail: `RUN_REPORT_2026-10-25_session199.md`.
 
-**Session 197 in one line:** `civ-precise` swept 5/5 for the **7th consecutive** sweep
-(chooser down-grade streak now **16**); `civ-grounded` is the lifetime low for the
-**69th** consecutive session; the run-level low rotated to `civ-therapist` (**16th**
-different holder in 16 sessions); and the fleet showed **three distinct low signatures
-at once** (`therapist` low on alignment, `whimsical` low on quality with the highest
-novelty, `mythic` low on novelty).
+**Session 199 in one line:** `civ-precise` swept 5/5 for the **9th consecutive** sweep,
+but the chooser/argmax **down-grade streak re-broke at 0/5 (0 %) agreement — 5
+down-grades, 0 up-grades, the worst session in the series**; `civ-grounded` is the
+lifetime low for the **71st** consecutive session; the run-level low rotated to
+`civ-engineer` (**18th** different holder in 18 sessions); and the alignment spread
+(**2.1830**) was the **widest ever recorded**, 2.33x the quality spread.
 
 **Three durable lessons from this session:**
 
-1. **SIZE THE MOCK'S FIXED PROSE FROM THE MEASURED VARIABLE RANGE — THE BODY BAND IS
-   SOLVABLE BY ARITHMETIC.** The band took **four builds** (506-537 → 468-483 → 437-468
-   → 396-411 → 348-363) because the tenet list and voice phrase are variable-length.
-   Measure the variable parts (87-102 chars this session), subtract from the 369 ceiling,
-   and size the fixed prose to land **every** civ in 332-369 at once. Target **267**.
-2. **CHECK SEMANTIC MARKERS, NOT DECORATIVE PREFIX STRINGS.** The historical check 8
-   counted rows whose preview begins with the literal `[mock-zai seed=`. This session's
-   template renders `seed=446f color=d64d figure=…/…/…` — the markers are all correct,
-   so the literal check false-failed a good dataset. The substantive check is the
-   **independent recompute** from the md5 of the whole message: **80/80**.
-3. **THE TWO LOW CIVS SPLIT INTO DISTINCT SIGNATURES FOR THE THIRD SESSION RUNNING.**
-   `civ-therapist` is low on **alignment** (2.3660, fleet-low); `civ-grounded` was
-   6th of 8 on `avg_score` this run and is low on **quality** (1.1610, 2nd-lowest) —
-   it is *not* the run-level holder. `civ-whimsical` is the run's quality low (1.1020)
-   with the run's *highest* novelty (2.4510); `civ-mythic` is the run's novelty low
-   (2.0780). **Report the axis per civ; one signature does not cover the fleet.**
+1. **A "REGIME CHANGE" OBSERVED IN ONE SESSION CAN BE FULLY REVERSED BY THE NEXT.**
+   Session 198 reported the 16-session down-grade streak as **broken** (3/5 agreement,
+   1 up-grade) and correctly cautioned that one session is not a trend. This session
+   IS that next session, and the streak is back harder: **0/5 agreement, 5 down-grades,
+   0 up-grades**. `civ-poetic` was the `avg_score` argmax on **5 of 5** prompts and won
+   **0 of 5**; `civ-precise` was never the argmax and won **5 of 5**. Never write "the
+   streak is over" in a report — write "the streak was 0 this session, re-derive next
+   session".
+
+2. **THE RUN-LEVEL LOW HOLDER CAN BE A CIV THAT HAS NEVER HELD IT BEFORE.**
+   `civ-engineer` took the run-level low for the **first** time in the series (run
+   `avg_score` 1.4413, `alignment` 0.8740 fleet-low). `civ-therapist`, which held it
+   in 7 of the last 9 sessions, fell to **6th of 8**. Do not predict the holder from
+   the previous report — read this run's own rows. The holder rotates; the **axis**
+   does not (alignment spread 2.1830, widest ever).
+
+3. **THE LIFETIME LOW AND THE RUN-LEVEL LOW HAVE BEEN DIFFERENT CIVS FOR 4 SESSIONS
+   RUNNING.** `civ-grounded` holds the lifetime low (1517.95, 71st consecutive) but
+   was only **7th of 8** on this run's `avg_score` (1.7207), with a **quality-led**
+   signature (`quality` 0.8000 fleet-low, `novelty` 2.7460 **fleet-high**). Report the
+   axis per civ, and keep relevance (an accumulation) separate from `win_rate` (a
+   **selection** metric) — `civ-grounded` is lowest on relevance and **3rd-best** on
+   selection (0.099) at the same time.
+
 
 # Civ Orchestrator — Run Report, session 196 (2026-10-25)
 
