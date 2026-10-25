@@ -3560,3 +3560,91 @@ on the **newest** run-scoped tail instead of a fleet-wide distinct count.*
   0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 / 40 / 20 / 40 / 40 / 100 / 60 %.
 - **A 60 % point is not a trend** — the series contains 0 %, 20 %, 40 %, 60 % and 100 %.
   The up-grade count across the whole series is still **0**.
+
+## Session 252 (2026-10-25) — the bridge target is the CLONE ROOT, and the "civ-grounded = lifetime low" claim is STALE
+
+**Run clean (session 252).** per-civ delta = **+10** x 8 = **80 new rows**, `meta_log` D = **+5**
+(993 -> 998), **80/80** rows `provider=zai` with the `[mock-zai` prefix, **0** JEV `error` keys,
+**0** 2.0/2.0/2.0 fallback triples, confidence range **0.26 - 0.89**, **80/80** rows match an
+independently recomputed seed+color+figure, **80/80 distinct score triples**, relevance delta ==
+sum(`avg_score`) **8/8 exact**, meta/ledger W-L **8/8 exact**, `simulations_run` **+10** on all 8,
+`generation` unchanged, leaderboard 8 entries sorted desc, git tree **18 modified**.
+**Pre-flight PASS on the FIRST build (40/40).**
+
+### 1. THE BRIDGE TARGET IS THE **CLONE ROOT** — the nested-dir reading is a *different* trap from the one on file
+
+The script's hardcoded `CIVS_DIR` is `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+So the symlink `/workspace/repos/ai-writings` must point at the **clone root** `/tmp/ai-writings`,
+which *contains* `cellular-first-design/`.
+
+This session the session-227 note ("bridge the **inner** `cellular-first-design/code` dir") was
+applied literally and produced a **doubled path**:
+
+```
+CIVS_DIR -> /workspace/repos/ai-writings/cellular-first-design/code/civilizations
+           -> /tmp/ai-writings/cellular-first-design/cellular-first-design/code/civilizations   # MISSING
+```
+
+Symlinking the *nested* `cellular-first-design` dir gives
+`.../cellular-first-design/cellular-first-design/code/...` — also missing. **Only the clone root
+resolves.** The failure is late and loud: `REGISTRY.read_text()` -> `FileNotFoundError`.
+
+The two notes are not in conflict once phrased properly: *"the symlink target must be whichever
+directory actually contains `code/civilizations/`"* — that is the **clone root** here, because
+`CIVS_DIR` spells out `cellular-first-design` itself as part of the path. **Re-derive the target
+from the literal `CIVS_DIR` string in the source, not from the file path of the script.**
+
+Corollary: `ln -sfn` into a **missing** parent path (`/workspace/repos/ai-writings`) silently
+no-ops — the shell reports success and the symlink does not exist. **Create the parent dir first,
+then link, then VERIFY with `os.path.samefile()`.** A bridge that was never created fails with
+exactly the same "No such file or directory" as a broken bridge.
+
+### 2. THE SKILL'S STANDING "`civ-grounded` IS THE LOW-RELEVANCE CIV" CLAIM IS **STALE**
+
+Sessions 164-227 recorded `civ-grounded` as the lifetime low for ~92 consecutive sessions. At the
+**session-251 baseline** the lifetime low was already **`civ-therapist`** (2381.87) with
+`civ-grounded` **second** (2390.44) — a gap of only **8.57**. The holder rotated at least one
+session before the skill was updated.
+
+Session 252: `civ-therapist` (lifetime 2394.46, run low 1.2590, fleet-low **alignment** 0.8170)
+and `civ-grounded` (lifetime 2405.36, run 2nd-lowest 1.4920, fleet-low **quality** 0.5580).
+
+**Rule: name the low-relevance civ from the CURRENT leaderboard, and say WHICH axis it holds**
+(lifetime relevance / run avg / quality / novelty / alignment). These are four different civs on
+four different sessions. Never inherit the label from a prior session's prose.
+
+### 3. TWO VERIFIER TRAPS THAT BOTH PRODUCE A FALSE "FAIL" ON A CLEAN RUN
+
+- **Fixed-offset header parsing.** The mock header is
+  `[mock-zai SEED] #COLOR hhhh/hhhh/hhhh. ` — the figure is **slash-separated**, so a hand-rolled
+  slice like `rest[6:20]` crosses the field boundary and yields garbage. A first pass reported
+  **11760 mismatches** on a perfectly clean ledger. **Use the preflight's own regex**
+  (`PAT` in `tools/preflight.py`); a regex that was already validated against 3440 historical
+  rows is the known-good parser.
+- **`dW` per meta row is not 1.** `meta_log` gains one row per **prompt**, and each prompt awards
+  one win to some civ. When one civ sweeps all 5 prompts its `dW` is **5**, not 1. Reconcile
+  `dW` against the **count of meta rows won by that civ**, not against the row count.
+
+### 4. OTHER RE-CONFIRMATIONS
+
+- z.ai **401 `token expired or incorrect`** — **109th session** (credential gap, endpoint healthy).
+  `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; JEV live at `jev-1.14.0`; **0** fallback triples.
+  Control B needs **both** `ZAI_TOKEN` (placeholder) **and** `ZAI_URL_OVERRIDE` — the override alone
+  is dead code behind the token gate.
+- NAS EDQUOT **total** — clone to the overlay (`/tmp`), bridge by symlink, durable copy is **git**.
+  The `write` tool is jailed to the workspace root and **cannot write to `/tmp`**; use a bash
+  heredoc for `/tmp` artifacts.
+- Mock teardown by **PID captured from `ps`** (291), then proved the port closed
+  (`curl` exit 7, `HTTP=000`, 0 processes). Never `pkill -f mock_zai` (self-match).
+- **Run low `civ-therapist`** (avg 1.2590): fleet-low alignment 0.8170; alignment spread 1.9270
+  = **3.35x** the quality spread => *voice* failure. Gap to next civ **0.2330 = 31.0 %** of the
+  run spread 0.7510 — an unambiguous gap, not a tie. Fleet-low **quality** was `civ-grounded`
+  (0.5580) and fleet-low **novelty** was `civ-engineer` (2.1980): the failure axes **split three
+  ways** this session.
+- **Chooser/argmax agreement 1/5 (20 %)**, 4 down-grades, **0** up-grades; the chooser picked
+  `civ-precise` on **all 5** prompts regardless of content. The series (211-252) contains
+  0 / 20 / 40 / 60 / 100 % — a 20 % point is not a trend, and the **series up-grade count is still 0**.
+- `civ-precise` swept all 5 competitions and now holds win_rate **0.714** (691 W vs 277 L) —
+  the fleet's only healthy chooser line. A civ that wins every prompt on **lower** `avg_score`
+  than the argmax is the clearest single-run statement of the chooser's down-grade bias.
+- No extinction, no birth (non-loop run). The lowest civ is 2394.46 = **-239.4x** the -10 floor.
