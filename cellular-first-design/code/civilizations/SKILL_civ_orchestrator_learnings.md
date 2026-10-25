@@ -1,3 +1,53 @@
+## Session 253 additions (2026-10-25)
+
+### 1. THE SPARSE CLONE IS **265x SMALLER** THAN THE FULL CLONE — USE IT FIRST, ALWAYS
+
+`git clone --filter=blob:none --no-checkout --depth 1 --branch main` +
+`git sparse-checkout set cellular-first-design` + `git checkout main` produced a working tree of
+**14 MB** in **seconds**. The plain `git clone` of the same repo reached **3.7 GB** and was *still
+transferring* when the sparse clone was already checked out and running.
+
+*The task's payload is one directory. Never pay for 3.7 GB when the shape is known.*
+
+### 2. A CLONE INTO THE NAS FAILS AT THE **FIRST FILE**, NOT AT THE END
+
+The error is `close error: Disk quota exceeded` on `.git/description` — the very first write.
+A clone that has printed "Cloning into ..." has therefore already failed, and the directory it left
+behind is a partial `.git` with no worktree.
+
+*Do not read "the clone started" as "the clone will finish".*
+
+### 3. THE LEADERBOARD SORTS BY `relevance_per_sim`, SO ITS **BOTTOM ORDER DISAGREES** WITH `relevance`
+
+`update_leaderboard` sorts on `-c["relevance_per_sim"]`. In session 253 the board's last row was
+`civ-grounded` (`rel/sim` **1.223**) while `civ-therapist` was second-to-last (`rel/sim` **1.230**) —
+but grounded's **raw** `relevance` (**2420.33**) was **higher** than therapist's (**2406.68**).
+
+*The order alone misleads. Report the raw relevance, the per-sim figure, and the gap between the
+bottom pair — not just the ranking.*
+
+### 4. THE TWO-AXIS COLLAPSE IS A **FOUR-SESSION SIGNATURE** FOR `civ-therapist`
+
+Sessions 250, 251, 252 and 253 all show `civ-therapist` at the fleet floor on **quality** *and*
+**alignment** simultaneously, with novelty mid-fleet. That is stable enough to report as a trait of
+the civ rather than a per-session accident.
+
+*The axis is the finding. A holder can rotate; the axis pattern has not.*
+
+### 5. THE MOCK PATTERN COVERS ONLY THE **CURRENT GENERATION** OF LEDGER ROWS
+
+Of the **16 884** pre-existing rows, **3 520** match the current `[mock-zai …]` header and
+**12 364** are older generations. A full-ledger recompute that does not filter by header format
+will report a 78 % mismatch rate on a perfectly healthy mock.
+
+*Filter to the current header format before sizing anything off the ledger.*
+
+### 6. THE RELEVANCE GAIN IS **MONOTONE** IN THE RUN SCORES — A USEFUL CROSS-CHECK
+
+The per-civ `relevance` delta this run (therapist **+12.22** through poetic **+20.72**) ranked the
+civs in exactly the same order as their run `avg_score`. A run where a civ's relevance delta
+*decreases* while its `avg_score` rises indicates a counter bug.
+
 ## Session 247 additions (2026-10-25)
 ### 1. THE BOTTOM-PAIR GAP HAS SHRUNK TO **0.79** — A "TWO CIVS ARE TIED" CLAIM IS NOW THE POINT
 

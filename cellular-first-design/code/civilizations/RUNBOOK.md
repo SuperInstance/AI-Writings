@@ -1,3 +1,31 @@
+## Session 253 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
+- Provider path: **Control B mock** (z.ai credential gap, **110th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `4b7dc0d` (session 252 tree). **Pre-flight gate: 40/40 PASS.** **Run verification: 70 PASS / 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **998 -> 1003** (+5); **18** files changed.
+- Mock body **349** chars (37 header + 162 tail + 149 continuation), inside the 332-369 band.
+- Winners: `civ-precise` **5/5** (a clean sweep, 2nd consecutive). Agreement with the `avg_score` argmax **2/5 (40 %)** — 3 down-grades, 0 up-grades.
+- Run low `civ-therapist` (avg **1.2217**) — alignment **0.8030** at the fleet low, quality **0.5530** also at the fleet low, a **two-axis** collapse for the **4th consecutive session**.
+- Lifetime low `civ-therapist` (**2406.68**) vs `civ-grounded` (**2420.33**) — gap **13.65**; the step from #2 to #3 (engineer 2707.02) is **286.69**, a **21x** larger step.
+- Alignment spread **1.8310 = 2.15x** the `avg_score` spread (0.8507).
+- `civ-poetic` led the run's `avg_score` (**2.0723**) and holds lifetime relevance #1 and `rel/sim` #1 on a **0.6 %** win rate.
+- No civ near extinction (threshold `relevance < -10`; lowest **2406.68**, **240x** the floor). Registry 8, `max_civs` 12, all `generation=1`.
+- Workspace **empty** apart from `.plugin-cache` — the prompt's path did not exist (**14th consecutive occurrence**).
+- Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/…` slug 404s (API is case-insensitive).
+- **SPARSE CLONE: 14 MB vs 3.7 GB** — `--filter=blob:none --no-checkout --depth 1 --branch main` + `sparse-checkout set cellular-first-design` finished in seconds; the full clone was still transferring at 3.7 GB.
+- Cloned to `/tmp/aiw`; copying into `/workspace` fails with **`Disk quota exceeded`** (NAS EDQUOT, **20th session**).
+- Bridge symlink `/workspace/repos/ai-writings -> /tmp/aiw`; verified by `os.path.samefile()` -> `True`.
+- `ZAI_TOKEN` absent from env and all 8 secrets; z.ai **401** `token expired or incorrect` => endpoint healthy, credential absent (**110th session**).
+- **JEV live**: direct probe of `api.typesafe.ai/v1/systemone` => **HTTP 200** with `{"model":"jev-1.14.0", …}`, score `1.2`.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and** `ZAI_URL_OVERRIDE` set (the override alone is dead code).
+- Mock seed/colour/figure recompute re-derived against the **pre-existing** ledger: **3520/3520** exact, 0 mismatches. This run's 80 rows: **80/80** exact.
+- 0 JEV errors, 0 fallback triples, 0 non-numeric quality scores across the 80 new rows.
+- **THE LEADERBOARD SORTS BY `relevance_per_sim`, NOT BY `relevance` — THE BOTTOM ORDER DISAGREES.**
+  `civ-grounded` has the **higher** raw relevance (2420.33 vs 2406.68) but the **lower** `rel/sim`
+  (1.223 vs 1.230), so the board ranks grounded last. *Report both the order and the gap.*
+- Mock teardown by exact PID (460/462) and the port re-probed closed — never `pkill -f mock_zai`.
+
 ## Session 251 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
