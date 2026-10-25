@@ -14,9 +14,20 @@
   export GIT_SSL_NO_VERIFY=1
   git clone --filter=blob:none --no-checkout --depth 1 \
     "https://x-access-token:$GITHUB_TOKEN@github.com/SuperInstance/AI-Writings.git" /tmp/aiw
-  cd /tmp/aiw && git sparse-checkout init --cone
-  git sparse-checkout set cellular-first-design && git checkout
+  cd /tmp/aiw && git sparse-checkout set --no-cone cellular-first-design/code/civilizations
+  git checkout main
   ```
+
+  **`--no-cone` vs `--cone` (session 151):** the older `--cone` form
+  (`init --cone` + `set cellular-first-design`) does **not** accept a path whose leaf is a
+  nested non-directory component. `set --no-cone cellular-first-design/code/civilizations`
+  works and is what was used. Either way the result is a ~6 MB working tree — the 3.7 GB is
+  other branches' history, not this subtree.
+
+  **Cloning straight into `/workspace` fails** with
+  `error: .../.git/description: close error: Disk quota exceeded` (session 151, confirmed).
+  Clone to `/tmp` **first**, then build the symlink bridge. The `ls` still shows the
+  half-created `.git` directory, so check the clone's stderr, not just its exit code.
 
 ## The NAS EDQUOT trap (workspace is 600 G/600 G, 0 bytes free)
 
@@ -74,6 +85,18 @@ the wrapper PID leaves the **server still serving** (port stayed open, HTTP
 `python3 /tmp/mock_zai.py` — not the `timeout ...` line — and verify the port
 is closed afterward (`curl` exit 7 = connection refused).
 
+**The `timeout` wrapper's PID is the TRAP (session 151, hit again):** killing the wrapper PID
+(301) left the real server (PID 303) still listening — the port probe still returned
+`STILL_OPEN`. Match on argv exactly instead of on the string "mock_zai":
+
+```bash
+for p in $(ps -eo pid,args | awk '$2=="python3" && $3=="/tmp/mock_zai.py" {print $1}'); do
+  kill -9 "$p"
+done
+```
+
+Then **re-verify** the port is closed. A killed wrapper is not a killed mock.
+
 ## Control B (mock provider bridge) — the override is DEAD CODE without a token
 
 `ZAI_URL_OVERRIDE` is committed upstream, but in `call_provider()` the token
@@ -97,6 +120,30 @@ The mock ignores the bearer value, so a placeholder is safe. Start it detached
 and **kill it by PID from `ps`** (match `python3 /tmp/mock_zai.py` exactly) —
 never `pkill -f mock_zai`, which self-matches. Verify the port is closed after.
 
+### The counter gap is NEGATIVE, and it is long-standing (session 151)
+
+Prior reports (sessions 147-150) described the gap between `culture.json`
+`relevance_score` and the ledger's `avg_score` sum as a **positive** per-civ offset. It is
+**negative**, and it was already negative in the pre-run git blobs:
+
+```
+civ-whimsical -173.15   civ-poetic -96.81   civ-formal -85.53   civ-grounded -84.35
+civ-mythic    -51.11   civ-engineer -44.25  civ-therapist -42.11  civ-precise -32.63
+TOTAL         -609.93
+```
+
+The per-civ values are a **fixed offset** (deltas <= 0.01 across a run) — `save_state()`
+has no lock, so `relevance_per_sim` is **not recomputable from the ledger** by an auditor.
+When you report this, compute the sign from the data; do not copy the sign from the
+previous report.
+
+### Competition `ts` carries no ordering (session 151)
+
+All five competition rows in `meta_log.jsonl` share the same timestamp to the microsecond
+(`00:52:27.172350`-`.172460`) because each JEV `choice` call returns in under 100 ms. The
+field is the wall-clock of the log append, not of the competition. Do not reconstruct a
+timeline or a per-prompt ordering from it.
+
 ### A mock that crashes still leaves a listening socket (session 112)
 
 The Control B mock's seed→word derivation used `seed[i*2:i*2+2]`, which is **empty for
@@ -118,6 +165,15 @@ None` — **all silently, with exit code 0.** Assert on:
 - per-civ `wc -l simulations.jsonl` delta (expect **+10 each** for `--sims 5`)
 - `meta_log.jsonl` delta (expect **+5** for `--prompts 5`)
 - the `Winner:` line count (expect **5**)
+- `culture.json` `simulations_run` delta (expect **+10 each**)
+- `git status --porcelain` on the civ tree (expect **18** modified: 8 ledgers + 8 cultures
+  + `meta_log.jsonl` + `leaderboard.json`)
+
+**Session 151 added a 67-assertion harness** that checks content, not just counts: no JEV
+`error` key, no `2.0/2.0/2.0` fallback triple, `provider == "zai"`, a parseable
+`[mock-zai seed=…]` on every row, **40 distinct seeds across the 80 new rows**, and **0**
+`(civ, prompt)` combos carrying more than one seed. The seed-distinctness checks are the ones
+that catch a mock that is alive but degenerate.
 
 **Isolate this run's rows by count, not by `ts` cutoff.** Prior sessions left
 mock rows in the ledger, so a `ts >=` filter pulls in historical rows (3360
