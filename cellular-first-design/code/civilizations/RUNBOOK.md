@@ -1902,15 +1902,40 @@ rate-limited response **renders as "repo not found" for every candidate at once*
 `GET /search/repositories?q=user:SuperInstance`. `git ls-remote` stays the ground truth for
 existence.
 
-### Standing numbers after session 157
+### Standing numbers after session 158
 
-- **`civ-grounded` = the low-relevance civ, 49 consecutive sessions (95–157)** — last of 8 on
-  every lifetime axis. Absolute gaps: alignment **0.2197** vs quality **0.0333** (6.6x).
-  Lifetime novelty 1.5018 is now **below** median (1.6410) — first time since session 143;
-  watch whether that holds. Extinction risk NONE (1009.12 = 100.9x above the −10 floor).
-- **Watch axis `civ-therapist` — 5th session at the run bottom, on BOTH axes** (run
-  `avg_score` 0.7893, run `alignment` 0.6760). Lifetime still mid-field ⇒ watch, not a finding.
-- **Chooser vs argmax 0/5 (0 %)** — `civ-poetic` was argmax on **all 5** prompts, won **0**.
-  `civ-precise` won 4/5. All disagreements took the **lower**-scoring candidate. The rate is
-  not narrowing; keep the direction as the finding.
-- **z.ai credential gap: 45th session.** `ZAI_TOKEN` still absent; z.ai 401, JEV live (422).
+- **`civ-grounded` = the low-relevance civ, 50 consecutive sessions (95–158)** — last of 8 on
+  every lifetime axis. This run: absolute relevance 1009.89, `relevance_per_sim` 0.981, the
+  **smallest gain of the run (+0.78** vs mean +1.74), and **0 of 5** competition wins
+  (wins +0, losses +5). It is the only civ to finish on a sub-1.0 `relevance_per_sim`.
+  Extinction risk NONE (1009.89 = 100.9x above the −10 floor).
+- **Watch axis `civ-therapist` — 6th session in the lower half, on BOTH axes** this run:
+  rank 5/8 on lifetime `relevance_per_sim` (1.167) and **+1.04** relevance gain (lowest of the
+  top 6). Lifetime still mid-field ⇒ watch, not a finding.
+- **Chooser vs argmax 1/5 (20 % disagreement)** — `civ-precise` was argmax on **all 5** prompts
+  and won 4 (the one loss was `civ-formal` on "the bookkeeper's role", where `civ-precise` had
+  the higher `avg_score`). This **breaks** the recent 0/5 pattern — first non-zero agreement
+  streak in a while. Track whether the direction reverses.
+- **Leaderboard ranks ≠ competitive standing.** `civ-poetic` is #1 on `relevance_per_sim`
+  (1.546) with a **0.012 win rate** (6W/497L); `civ-whimsical` #3 with 0.010 (5W/498L);
+  `civ-mythic` #4 with 0.018 (9W/488L). Only `civ-precise` (0.574) and `civ-formal` (0.166)
+  win competitions. `relevance_per_sim` is driven by cumulative `avg_score` over ~1000 sims
+  while win/loss is a far more selective signal — **a civ can top the board while being
+  rejected by the meta-GAN nearly every round.**
+- **Counter gap is 0.00 for this run** (all 8 civs, total −0.00). The RUNBOOK's historical
+  negative gap (−609.93 total) is a **pre-existing offset in the committed blobs**, not
+  something this run reproduces. `save_state()` still has no lock, so `relevance_per_sim`
+  remains **not recomputable from the ledger** by an auditor.
+- **z.ai credential gap: 46th session.** `ZAI_TOKEN` still absent from env and all 8 sandbox
+  secrets; z.ai 401, JEV live (served `jev-1.14.0`).
+- **NAS EDQUOT still total (46th+ session).** `git clone` into `/workspace/repos/...` dies with
+  `close error: Disk quota exceeded`; even a 100 KB `dd` fails. `mkdir` works ⇒ the symlink
+  bridge is the only way in. This session the target was `/tmp/AI-Writings/cellular-first-design`
+  (plain `--depth 1` clone, 6.7 MB); verify with `stat -L -c '%d:%i'` + `-ef`, never `ls`.
+- **Upstream path is a NAS path, not a GitHub slug.** `/workspace/repos/ai-writings/cellular-first-design`
+  is the NAS location of the `cellular-first-design` **directory inside `SuperInstance/AI-Writings`**;
+  the GitHub slug `ai-writings/cellular-first-design` 404s. Resolve the owner by enumerating
+  `GET /user/repos` (600 repos = 6 pages of 100) and matching the *directory*, not the slug.
+- **GitHub REST core quota can be fully exhausted on arrival** (0/5000). `git ls-remote` is
+  unaffected and is the ground truth for existence/absence. The **search API has a separate
+  bucket** and keeps answering when core is dead.
