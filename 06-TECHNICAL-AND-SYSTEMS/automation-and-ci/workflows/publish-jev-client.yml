@@ -1,0 +1,24 @@
+name: Publish jev-client to NPM
+
+on:
+  push:
+    tags:
+      - 'jev-client-v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: cd packages/jev-client && npm install
+      - name: Build TypeScript
+        run: cd packages/jev-client && npm run build
+      - name: Publish to NPM
+        run: cd packages/jev-client && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}

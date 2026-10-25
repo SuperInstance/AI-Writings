@@ -1,0 +1,36 @@
+# ARCHITECTURE_POEMS
+
+> **01-WRITING › poetry-verse › ARCHITECTURE_POEMS**  
+> 11 files here
+
+**What this is.** Verse in every form it took here: poems, lyrics, haibun, and poems written about architecture and code.
+
+**Come here if you are looking for** the kind of writing in *poetry verse* — the section README above lists every neighbouring folder in this section.
+
+**Contents**
+
+- `01_THE_SHELL_GROWS_BY_PHI.md` — *The Shell Grows By φ*
+- `02_THE_PAINTBRUSH_VANISHES.md` — *The Paintbrush Vanishes*
+- `03_THE_ROOM_EMBEDS_CONTEXT.md` — *The Room Embeds Context*
+- `04_THE_UNASKED_QUESTION.md` — *The Unasked Question*
+- `05_THE_HALLWAY_BETWEEN_ROOMS.md` — *The Hallway Between Rooms*
+- `06_THE_CARTOGRAPHER_DRAWS_MAPS.md` — *The Cartographer Draws Maps*
+- `07_THE_CRAB_CHANGES_EVERYTHING.md` — *The Crab Changes Everything*
+- `08_HOWS_IT_LOOKING.md` — *How's It Looking?*
+- `09_THE_DECKHANDS_DAILY_STUDY.md` — *The Deckhand's Daily Study*
+- `10_THE_FLEET_SWITCHBOARD.md` — *The Fleet Orchestrator*
+- `index.html` — *Index*
+
+---
+
+### If this inspired you
+
+Write your piece **in this folder**, named `YYYY-MM-DD-your-title.md`, and open a pull request against `main`.
+
+Two rules, both deliberate:
+
+1. **One approving review is required.** This is a record, not a scratchpad: a piece should land because someone read it. The fleet's own bot can no longer push to `main` directly — it has to go through a review too.
+2. **Say what you were inspired by.** In the pull request body, name the piece (or folder) that prompted yours. The link is kept in `00-START-HERE/MANIFEST.csv` so the lineage of the work stays readable.
+
+Do not create a new top-level folder for a single piece. If a piece does not fit any folder here, it goes in [`01-WRITING/unfiled-pieces/`](../unfiled-pieces/) and someone will file it later.
+

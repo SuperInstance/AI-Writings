@@ -1,0 +1,96 @@
+# The reference witness's self-test, in CI.
+#
+# The recorder IS the fleet's reference implementation of witness-chain/1,
+# and its self-test asserts (a) all 24 RFC 8785 Appendix B samples and
+# (b) that the I-JSON boundary is REFUSED rather than canonicalized. Before
+# this workflow existed, neither assertion ran anywhere except on the
+# machine of whoever wrote them -- so the checks that make the chain
+# trustworthy were, in CI terms, A COMMENT.
+#
+# `recorder.py` with no arguments runs the whole self-test: the RFC 8785
+# conformance check, the demo chain, the round-trip write/verify, and the
+# tamper check (flipping one field must break the chain downstream).
+name: recorder-selftest
+
+on:
+  push:
+    paths:
+      - 'labs/situation-recorder/**'
+      - '.github/workflows/recorder-selftest.yml'
+  pull_request:
+    paths:
+      - 'labs/situation-recorder/**'
+      - '.github/workflows/recorder-selftest.yml'
+  workflow_dispatch:
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: the self-test (RFC 8785 Appendix B, the I-JSON refusal, the demo chain, the tamper check)
+        run: python3 labs/situation-recorder/recorder.py --out "$RUNNER_TEMP/example_situation.jsonl"
+
+      - name: the committed example transcript still verifies
+        run: python3 labs/situation-recorder/recorder.py --verify labs/situation-recorder/example_situation.jsonl
+
+      # The chain is self-consistent, not tamper-evident: a RE-CHAINED
+      # rewrite verifies. Only the SIGNED HEAD, published where the log
+      # writer does not control it, catches that. This step is here so the
+      # distinction is enforced rather than remembered.
+      #
+      # AND THE RE-CHAIN IS A FIXPOINT, which is the interesting part. The
+      # attacker recomputes the chain over their own edit AND re-points every
+      # `refs` entry that names a hash they changed -- because verify() checks
+      # refs against the hashes of EARLIER records, and re-pointing a ref
+      # changes a body, which changes a hash, which cascades. So it iterates
+      # to convergence.
+      #
+      # A NAIVE re-chain (re-chain the hashes, leave the refs alone) is CAUGHT
+      # -- by the refs check. That is a SECOND layer of detection, and it is
+      # worth knowing about, but it is NOT the same as tamper-evidence: it is
+      # only as good as the attacker's care. The signed head does not depend
+      # on the attacker's competence. This step does the full fixpoint, so
+      # that the thing being demonstrated is the REAL limit and not the
+      # refs check.
+      - name: the signed head catches a re-chained rewrite
+        run: |
+          python3 - <<'PY'
+          import importlib.util, pathlib
+          spec = importlib.util.spec_from_file_location(
+              "rec", pathlib.Path("labs/situation-recorder/recorder.py"))
+          rec = importlib.util.module_from_spec(spec); spec.loader.exec_module(rec)
+          rows = rec.load("labs/situation-recorder/example_situation.jsonl")
+          key = b"an-external-anchor-key"
+          sig = rec.sign_head(rec.head(rows), key)
+
+          forged = rec.load("labs/situation-recorder/example_situation.jsonl")
+          forged[3]["body"]["value"] = 0
+          for _ in range(16):
+              before = [r["hash"] for r in forged]
+              prev = rec.GENESIS
+              for r in forged:
+                  r["hash"] = rec._chain_hash_v1(prev, rec._leaf_hash_v1(r))
+                  prev = r["hash"]
+              remap = {before[i]: forged[i]["hash"] for i in range(len(forged))}
+              changed = False
+              for r in forged:
+                  for j, ref in enumerate(r.get("refs", [])):
+                      if isinstance(ref, str) and ref in remap and remap[ref] != ref:
+                          r["refs"][j] = remap[ref]
+                          changed = True
+              if not changed:
+                  break
+
+          ok, msg = rec.verify(forged)
+          assert ok, ("a re-chained rewrite must still verify -- the chain alone cannot tell. "
+                      "If this fails, the demo is not showing the real limit: " + str(msg))
+          assert not rec.verify_head(rec.head(forged), sig, key), \
+              "the signed head must NOT verify against the rewritten chain"
+          assert rec.verify_head(rec.head(rows), sig, key), \
+              "the signed head must verify against the original chain"
+          print("  the chain alone cannot tell; the signed head can. As designed.")
+          PY

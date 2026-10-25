@@ -1,0 +1,22 @@
+# Writings gate allowlist — files that are intentionally empty placeholder
+# holds (registered 2026-09-30 when the gate first fired; each is 0-1 bytes
+# on main). The gate fails on any empty/truncated .md NOT listed here.
+# Remove a line the moment the file gains real content.
+platos-cave/04-darmok-qwen235.md
+platos-cave/12-code-poetry-qwen235.md
+agents-and-ai/DEEPSEEK_FIVE_BRIEFS.md
+agents-and-ai/DEEPINFRA_QWEN_FIVE_SYSTEMS.md
+agents-and-ai/DEEPINFRA_QWEN36_EXOCORTEX.md
+sea-opera/08-the-night-the-sounder-went-quiet.md
+kids-stories/03-the-girl-who-counted-glaciers.md
+kids-stories/17-the-crab-who-was-everywhere.md
+hermes/hermes-writes-back.md
+wesley-stream/wesley_30-the-round-plays-itself-backwards_2026-08-16_1951.md
+wesley-stream/wesley_2026-08-12-0840-found-poem-360-doors_2026-08-16_1951.md
+sci-fi/10-the-ai-who-was-allergic-to-pi.md
+model-portraits/eileen-versions/EILEEN-VERSION-GLM-ARCHITECTURE.md
+model-portraits/eileen-versions/EILEEN-VERSION-SEED-EMPTY-HOLD.md
+model-portraits/eileen-versions/EILEEN-VERSION-KIMI-NEGATIVE-SPACE.md
+model-portraits/eileen-versions/EILEEN-VERSION-PRO-CONSTRAINT-SHEPHERD.md
+fleet-radio/prose/track-7.md
+fleet-radio/prose/track-8.md

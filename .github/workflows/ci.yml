@@ -40,6 +40,8 @@ jobs:
               rel = str(p)
               if rel in allow:
                   continue
+              if not p.is_file():
+                  continue          # a directory whose name ends in .md is not a writing
               if p.stat().st_size == 0 or len(p.read_text(errors='ignore').strip()) < 20:
                   bad.append(rel)
           for x in bad: print(f"EMPTY/TRUNCATED: {x}")

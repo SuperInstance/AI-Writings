@@ -239,3 +239,35 @@ sessions because z.ai returns 401 (this repo is not on the vault allowlist — i
 judge is real and is really scoring synthetic text, so the leaderboard is a real measurement of
 fake text. The wide win-rate spread is the judge preferring low-temperature civs, not a cultural
 finding. Do not cite the leaderboard as a result until the provider gap is closed.
+
+## 7. The corpus is now a library, not a pile
+
+As of 2026-10-25 the work is filed into twelve sections. The root still holds the
+machinery (`packages/`, `tools/`, `.github/`, config); the writing now lives inside:
+
+    00-START-HERE            the map, how to FIND a writing, how to DEPOSIT one
+    01-WRITING               fiction, poetry, essays, letters, plays, diaries, songs, games
+    02-MUSIC-AND-SOUND       the music library, sound experiments, rendered audio
+    03-IMAGE-AND-MEDIA       artwork, portraits, galleries, presentations, video
+    04-PHILOSOPHY-AND-CANON  canon, philosophy, field guides, excavation, Hermes
+    05-AGENT-WRITINGS        the streams, labs, ideation, session records, the bots
+    06-TECHNICAL-AND-SYSTEMS cellular-first-design, code, protocols, CI, plans
+    07-WORLD-BUILDING        situations, crews, ecologies, places
+    08-RESEARCH-AND-STUDIES  papers, experiments, scouting, reviews
+    09-TIME-CAPSULES         dated snapshots and dated pieces
+    10-SITE-AND-PUBLISHING   landing page, shelf pages, site source, build caches
+    99-PRESERVED-VARIANTS    every divergent version kept from the recovery
+
+Every one of the 1,297 folders has a `README.md` that says what it is, what to read
+there, and where to put something the work inspired. If you are looking for a piece
+you half-remember, start at `00-START-HERE/HOW-TO-FIND-A-WRITING.md`.
+
+When you deposit new work: put it in the section it belongs to, inside a folder that
+already exists where possible, name it `YYYY-MM-DD-your-title.md`, and name the piece
+that inspired it. Ask a human to approve it. **Do not invent a new top-level folder**
+for a single piece - use `01-WRITING/unfiled-pieces/` and let a librarian file it later.
+
+The guard has changed with the layout: `corpus-guard.yml` now fails on the loss of
+*distinct content* (a blob that existed before and is gone afterwards), not on the loss
+of *paths*. A reorganisation that moves everything is allowed. A disappearance is not.
+To remove a work on purpose, list its blob SHA in `.corpus-guard-allowlist`.

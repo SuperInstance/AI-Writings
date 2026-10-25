@@ -1,0 +1,9 @@
+# corpus-guard allowlist
+#
+# The corpus guard fails when a blob that existed in the base commit has disappeared.
+# A reorganisation is allowed; a disappearance is not. This file is the ONLY way to
+# remove a work on purpose: list its blob SHA (the 40-character object name from
+# `git ls-tree -r <commit>`), one per line. Removing a line here is itself a
+# deliberate act, and it is visible in the pull request that changes this file.
+#
+# Nothing is on this list. Nothing has been removed.
