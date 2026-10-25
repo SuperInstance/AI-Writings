@@ -1,5 +1,4 @@
 ## Session 247 additions (2026-10-25)
-
 ### 1. THE BOTTOM-PAIR GAP HAS SHRUNK TO **0.79** — A "TWO CIVS ARE TIED" CLAIM IS NOW THE POINT
 
 `civ-grounded` 2330.34 vs `civ-therapist` 2331.13: a gap of **0.79** on a ~2330-point scale
@@ -56,6 +55,22 @@ to `/workspace` either.
 
 *Rule: for a repo that lives on `/tmp` behind a `/workspace` symlink bridge, write every artifact
 with a bash heredoc into the real path, and treat the `/workspace` copy as best-effort only.*
+
+### 6. THE NAS IS NOW AT **ZERO USABLE BYTES** — EVEN A 4 KB BLOCK FAILS
+
+Session 247 probed the mount boundary directly. `dd bs=4k count=1` -> `closing output file:
+Disk quota exceeded`; `head -c 100` -> exit 0 but the file lands **0 bytes**; 200/400/600/1000
+bytes -> all 0 bytes; gzip (3 KB) -> 0 bytes; a subdirectory -> 0 bytes. `du -sh /workspace` =
+**3.5K** while `df` says 600 G/600 G — the quota is consumed by **other sessions sharing the
+mount**, and this session's own footprint is negligible.
+
+*Rule: after any quota error, **delete the 0-byte artifact** (a phantom file that `ls` shows is
+worse than a missing one), then **stop retrying** — the durable copy is **git** (push + verify the
+sha via the commits API + a `raw.githubusercontent.com` HTTP 200), and the artifact stays readable
+through the `/workspace/repos/...` symlink bridge to the `/tmp` clone (verify with `md5sum` on
+both sides). Probe the boundary with `dd` **before** assuming a copy will land.*
+
+
 
 ## Session 240 additions (2026-10-25)
 
