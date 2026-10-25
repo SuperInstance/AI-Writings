@@ -649,3 +649,36 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   whimsical −173.14, formal −85.53, poetic −96.80, precise −32.63, mythic −51.11,
   therapist −42.11, engineer −44.24) — a run that dropped or duplicated rows would show
   a shifted gap immediately.
+
+## Session 209 additions (2026-10-25)
+
+- **THE BODY BAND IS NOW FOUR SESSIONS IN A ROW ON THE FIRST BUILD — THE ALGEBRA IS
+  STABLE.** Header `[mock-zai <4-hex>] #<6-hex> <figure>. ` with the figure fixed at
+  **18 chars** ⇒ a **constant 44-char header** ⇒ a **300-char** tail ⇒ body **340**,
+  inside the 332-369 band with **no** iteration. Sessions 207, 208 and 209 all landed
+  first try. *Compute the band algebraically before writing the template; do not iterate
+  the template.* The tail must be a **single fixed sentence with no culture-derived
+  fields** — that is what removes the length variance the band exists to catch.
+- **THE `ls -la` VERIFICATION THE PROMPT ASKS FOR NEEDS `-L` WHEN THE PATH IS A
+  SYMLINK BRIDGE.** `ls -la <dir>/civilizations/` returns **"No such file or
+  directory"** on a perfectly healthy run, because the last path component crosses a
+  symlink and `ls` does not follow it without `-L`. *A missing directory in the
+  verification step is a reporting artefact, not a missing run.* The bridge
+  (`.../cellular-first-design/code` → the clone's inner `code`) is the same shape as
+  sessions 200-208; `ls -laL` and the per-civ `ls -la` on `civ-*/simulations.jsonl`
+  both show the real mtimes.
+- **THE DOWN-GRADE SERIES NOW READS 0/5 → 4/5 → 1/5 → 3/5 (sessions 199, 207, 208,
+  209).** Agreement **3/5 (60 %)**, 2 down-grades, 0 up-grades. `civ-precise` won **4 of
+  5** and was the argmax on **4 of 5**; `civ-poetic` was argmax on **1 of 5** and won
+  **0 of 5**. *The series oscillates — re-derive the number every session and never
+  carry a streak forward as a current fact.*
+- **THE RUN LOW AND THE LIFETIME LOW HAVE NOW BEEN DIFFERENT CIVs FOR SIX SESSIONS
+  RUNNING** (`civ-grounded` lifetime-low at `relevance` **1684.58** /
+  `relevance_per_sim` **1.095**, run rank **6 of 8**; `civ-therapist` run-level low at
+  run `avg_score` **1.4617**). `civ-grounded`'s lifetime `win_rate` **0.094** is still
+  **3rd-best in the fleet** — *selection and relevance are separate axes.*
+- **THE LOW-RELEVANCE SIGNATURE HOLDS: HIGH NOVELTY, LOW ALIGNMENT.** Alignment
+  spread **1.9410** = **3.39x** the quality spread and **8.51x** the novelty spread.
+  The alignment tail beyond −1.5 is `civ-therapist` (**−1.9410**) and `civ-mythic`
+  (**−1.5450**); novelty gaps are **negative for every low civ**, so novelty is not a
+  separating axis. *Report the axis, not the holder.*
