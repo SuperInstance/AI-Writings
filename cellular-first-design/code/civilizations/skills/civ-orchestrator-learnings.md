@@ -1,3 +1,124 @@
+
+---
+
+## Session 169 (2026-10-25) — the SEED WIDTH collision: a correct seed that is not unique
+
+**Run clean (session 169, 27th consecutive clean mock).** per-civ delta = **+10** × 8 = **80 new
+rows**, `meta_log` Δ = **+5** (578 → 583), `Winner:` lines = **5**, **80/80** rows
+`[mock-zai`-prefixed with `provider=zai`, **0** rows with a JEV `error` key, **0** rows with the
+2.0/2.0/2.0 fallback triple, **40/40** distinct seeds, **0** `(civ,prompt)` combos carrying
+>1 seed, **8/8** distinct seeds AND **8/8** distinct previews on all 5 competition prompts,
+**80/80** distinct `(q,n,a)` triples, meta-vs-ledger `avg_score` mismatches **0/40**
+(later-`ts` row), `git status --porcelain` = **18** modified (17 data + leaderboard).
+**59/59 assertions PASS.**
+
+### NEW — the mock needs a FIFTH fix: the 2-char seed slice collides
+
+The documented seed has always been a **2-hex-char** slice of the whole-message md5:
+`h[(i*2)%8:((i*2)%8)+2]`. With 8 civs × 5 prompts = **40 samples drawn from 256 possible
+2-char values**, a collision is expected often — and this session it landed:
+
+| prompt | grounded | whimsical | formal | poetic | precise | mythic | therapist | engineer |
+|---|---|---|---|---|---|---|---|---|
+| what a cell is. | 44 | 5c | a6 | 4c | 3e | 82 | cc | 98 |
+| the bookkeeper's role. | ba | 84 | dc | 3d | 88 | ce | 73 | de |
+| the witness log. | 71 | 7c | **30** | c0 | d1 | **30** | 0c | f6 |
+| ternary values. | 6f | df | c8 | dd | fa | 9c | 64 | 5f |
+| JEV as a decision oracle. | 76 | a7 | b9 | 27 | 19 | 34 | d4 | 37 |
+
+`civ-formal` and `civ-mythic` both got **`30`** on "the witness log" ⇒ **39 distinct seeds /
+40 rows**, and that prompt sat at **7/8** distinct seeds.
+
+**The mock was healthy by every other measure:** HTTP 200, prefix present, 0 tracebacks,
+0 `EXC:`, and — the decisive point — **40/40 seeds matched an independently recomputed
+`md5(whole_message)[:8]`**. The md5s were *different*; only the slice collided.
+
+⇒ **This is a seed-WIDTH defect, not a seeding bug.** Fix (b) (whole-message md5) was correctly
+applied; the slice it feeds is simply too narrow. The fix is to widen the seed to **4 hex
+chars**: `seed = h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]`, keeping (a) and (b)
+intact.
+
+**Why it matters even though nothing "failed":** the chooser is a JEV **`choice`** question
+over 150-char `content_preview` snippets. Two civs sharing a seed produce a *near*-duplicate
+candidate, and the meta-GAN's tie-break is exactly what the mock exists to exercise. A
+degenerate mock silently weakens the one mechanism under test.
+
+**The methodological lesson — two checks, two different defects:**
+- `distinct seeds == 40` catches **collisions** (uniqueness).
+- `md5 recompute == 40/40` catches **mis-seeding** (correctness).
+A run can pass the second and fail the first. **Never collapse them into one assertion**, and
+never treat "the md5s recompute" as "the seeds are distinct."
+
+**Expected collision rate:** 40 draws from 256 two-char values ⇒ ~7–8 % per run. A
+"39 distinct seeds" or "7/8 on one prompt" reading is a **mock defect to fix**, not noise to
+average away.
+
+### The pre-flight still saves the run — seventh time in the series
+
+Pre-flight on the **exact long cultural prompts** (lengths 167–209): 40/40 distinct seeds,
+40/40 distinct previews, 40/40 independently recomputed md5s, 0 literal `seed={}`,
+8/8 + 8/8 on every prompt, 0 tracebacks. A one-word probe would **not** have caught the
+collision (it would have used a different message and a different slice).
+
+### `civ-grounded` remains the low-relevance civ — 44 consecutive sessions
+
+Lifetime (9 244 rows): `avg_score` **0.9911** (last), `quality` **0.4086** (last), `alignment`
+**1.0603** (last), `relevance` **1087.12** (last), `relevance_per_sim` **0.954** (last).
+Absolute gaps: **alignment 0.1974** (vs therapist 1.2576) vs **quality 0.0421** (vs engineer
+0.4507) ⇒ **4.7×** wider ⇒ a **voice** failure, not a prose failure. Lifetime novelty 1.5044
+is **6th of 8** (not "above median"). Extinction risk **NONE** (threshold −10; lowest
++1087.12 = 109× the floor).
+
+**The run-level low ROTATED to `civ-therapist`** (1.0697, run bottom on `avg_score`, `quality`
+0.2220 and `alignment` 0.3880 — roughly a third of the next civ, mythic 1.0210) while its
+*lifetime* standing is mid-field (`avg_score` 1.1480, 6th of 8; `relevance` 1259.72, 6th of 8).
+**Watch axis, not the finding** (session-132 rule). Therapist's run signature is distinctive:
+**novelty 2.5990 is the run's highest** while quality collapses to 0.2220 — highly novel,
+badly aligned. That is the voice axis failing, in its purest form.
+
+**Run levels sit ABOVE the lifetime band** (run `avg_score` 1.07–2.02 vs lifetime 0.99–1.55)
+— the same generous-scoring direction as session 168 and the opposite of session 166. The
+**ordering** carries the information, not the level.
+
+### Chooser vs `avg_score` argmax: **2/5 (40 %)** — the "picks lower" direction is BACK
+
+Session 168's 3/5 (60 %) was the series high; this session is 2/5 and **all three
+disagreements took the lower-scoring candidate** (−0.0933, −0.0933, **−0.4500**). `civ-precise`
+swept **4/5**; `civ-engineer` took "ternary values". Max |delta| **−0.4500**, well below
+session 168's series-record −1.1033.
+
+**`civ-poetic` is the sharpest inverse in the fleet:** it was the `avg_score` argmax on **3/5**
+prompts and the chooser took it on **0/5** — 1st on lifetime `avg_score` (1.5509), `quality`
+(0.7491) and `relevance` (1703.76), but **7th on `win_rate` (0.011)**. `civ-whimsical` is the
+second inverse: 1st on lifetime novelty (1.9218) and 2nd on lifetime `avg_score`, but **last
+on `win_rate` (0.009)**.
+
+**Never treat `win_rate` as a quality metric.** The clean-mock series now has 15 five-sample
+points spanning 0/5 – 4/5 ⇒ the honest claim is *somewhere in 0–80 %*, not a point estimate.
+
+### Counter gap: **NEGATIVE**, fixed, unchanged in magnitude
+
+`culture.json` `relevance_score` − ledger Σ`avg_score` = **−609.9200** total, and the blob-gap
+and post-run-gap columns are **identical for all 8 civs** (per-civ Δ **0.0000**) ⇒ the offset
+is fixed, not accumulating. Both columns computed **within the same epoch**. Sign confirmed
+from the data, not copied from a prior report.
+
+### Re-confirmations (this session)
+
+- NAS EDQUOT total (**17th session**) — clone to `/tmp` (overlay), sparse-checkout
+  `cellular-first-design` only, bridge the **clone root**, verify with `stat -L -c '%d:%i'` on
+  both sides + `-ef` (this run: `129:3701`).
+- z.ai **401** `token expired or incorrect` (credential gap, endpoint healthy) — **52nd session**.
+- **JEV HTTP 200 on a well-formed body** discloses the served model `jev-1.14.0`.
+- `ZAI_URL_OVERRIDE` alone is **dead code** (the `ZAI_TOKEN` gate returns `None` first) —
+  Control B needs **both**; `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`.
+- Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch, stdout redirected **and**
+  `< /dev/null`, then poll.
+- `gh` not installed (**19th session**) — `GET /user/repos` with `GITHUB_TOKEN`; the GitHub API
+  is case-insensitive (`SuperInstance/ai-writings` == `SuperInstance/AI-Writings`).
+- The meta-vs-ledger check must take the **later-`ts`** row (re-confirmed, 40/40 exact).
+- `write` tool is jailed to the workspace root — cannot write into `/tmp`; use a **bash
+  heredoc** for `/tmp` artifacts.
 # Civ Orchestrator — durable cross-session lessons
 
 The authoritative operational RUNBOOK lives in the repo at

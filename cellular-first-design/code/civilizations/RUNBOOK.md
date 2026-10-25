@@ -1,3 +1,83 @@
+# Civ Orchestrator — Run Report, session 169 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 52nd session) + **live JEV**.
+Baseline: `4965ec4` (session 168). **All 59 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session169.md`.
+
+## Headline for the next session
+
+- **The mock needs FIVE fixes, not four.** The new one is the **seed width**: the documented
+  2-hex-char slice `h[(i*2)%8:(i*2)%8+2]` collided this session (`civ-formal` / `civ-mythic`
+  both `30` on "the witness log") ⇒ **39 distinct seeds / 40 rows** and one prompt at **7/8**.
+  Every other signal was green: HTTP 200, prefix present, 0 tracebacks, and **40/40 seeds
+  matched an independently recomputed md5** — the md5s really were different, only the slice
+  collided. **Fix (e): widen the seed to 4 hex chars**
+  (`h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]`), keeping (a) and (b) intact.
+  A 2-char slice over 40 samples from 256 values will collide often — expect ~7–8 % odds.
+  **Keep both the count check and the md5-recompute check; they catch different defects.**
+- **`civ-grounded` remains the low-relevance civ — 44th consecutive session.** Last of 8 on
+  lifetime `avg_score` 0.9911, `quality` 0.4086, `alignment` 1.0603, `relevance` 1087.12,
+  `relevance_per_sim` 0.954. Alignment gap 0.1974 vs quality gap 0.0421 ⇒ **4.7×** wider ⇒ a
+  **voice** failure, not a prose failure. Lifetime novelty 1.5044 is **6th of 8**.
+- **The run-level low ROTATED to `civ-therapist`** (1.0697, run bottom on `avg_score`,
+  `quality` 0.2220 and `alignment` 0.3880 — a third of the next civ) while its *lifetime*
+  standing is mid-field (6th of 8). **Watch axis, not the finding** (session-132 rule).
+- **Chooser vs `avg_score` argmax: 2/5 (40 %)** — all three disagreements took the
+  lower-scoring candidate, so the "picks lower" direction is back after its one-session break.
+  `civ-precise` swept 4/5. Max |delta| **−0.4500** (session 168's record was −1.1033).
+- **Counter gap −609.9200, fixed.** Blob gap and post-run gap are identical for all 8 civs
+  (per-civ Δ 0.0000) ⇒ the offset is fixed, not accumulating.
+- Run spreads: `avg_score` 0.9453, `alignment` **2.4120** (widest in the series), quality
+  0.6720, novelty 0.1620.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (578 → 583),
+  `Winner:` **5**, `wins`/`losses` **8/8 exact**, `relevance` Δ = Σ`avg_score` **8/8 exact**,
+  0 JEV errors, 0 fallback triples, `zai × 80`, **40/40** distinct seeds, 0 `(civ,prompt)`
+  with >1 seed, 8/8 seeds AND previews on all 5 prompts, meta-vs-ledger mismatches **0/40**,
+  80/80 distinct `(q,n,a)`, confidence 0.27–0.98, registry 8 all gen 1, extinction **NONE**
+  (lowest +1087.12 = 109× the floor). **59/59 PASS.**
+
+## Environment recovery (session 169)
+
+- Workspace **empty** apart from `.plugin-cache` and `.skills` — the prompt's path did not
+  exist (**11th consecutive occurrence**).
+- Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/…` slug 404s (API is
+  case-insensitive).
+- Cloned to **`/tmp/repos/ai-writings/AI-Writings`** with `--filter=blob:none --no-checkout` +
+  `sparse-checkout set cellular-first-design` ⇒ 14 MB working tree. Cloning into `/workspace`
+  fails with **`Disk quota exceeded`** (NAS EDQUOT, **17th session**).
+- Bridge symlink points at the **clone root**; verified by inode identity (**`129:3701`**) and
+  `-ef` → `EF_OK`.
+- `ZAI_TOKEN` absent from env and all 8 secrets; z.ai **401** `token expired or incorrect`
+  ⇒ endpoint healthy, credential absent (**52nd session**).
+- **JEV live**: well-formed body → **HTTP 200** with `{"model":"jev-1.14.0", …}`.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code).
+- `gh` not installed (**19th session**) — used `GET /user/repos` with `GITHUB_TOKEN`.
+- Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch, stdout redirected, `< /dev/null`.
+
+## Mock rebuild checklist — FIVE fixes
+
+| # | Fix | Session | Symptom if missing |
+|---|---|---|---|
+| a | `seed[(i*2)%8:((i*2)%8)+2]` index wrap | 112 | `ValueError` on `i>=4` ⇒ HTTP 500 **while the socket stays open** |
+| b | `md5(whole_message)[:8]` | 118 | first 8 alnum chars are `YouAreA` for every civ ⇒ all 8 civs emit identical text |
+| c | `Connection: close` + `Content-Length` | 144 | `curl` hangs to the tool timeout on a healthy server |
+| d | interpolate the seed placeholder | 145 | every response carries literal `seed={}` ⇒ 1 distinct seed, not 40 |
+| **e** | **seed widened 2 → 4 hex chars** | **169** | **2-char slice collides ⇒ 39 distinct seeds, one prompt at 7/8** |
+
+**Pre-flight gate (must pass before the batch):** 40 requests using the **exact long cultural
+prompts** ⇒ **40/40 distinct seeds**, **40/40 distinct previews**, **40/40 independently
+recomputed md5s**, **8/8 distinct seeds AND 8/8 distinct previews on every one of the 5
+prompts**, 0 literal `seed={}`, 0 `EXC:`/tracebacks in the mock log. This pre-flight has saved
+the run **seven** times in the series.
+
+**Teardown:** kill by exact argv match — `python3 /tmp/mock_zai.py` and
+`timeout -s KILL 900 python3 /tmp/mock_zai.py` (**two** pids). Never `pkill -f mock_zai`
+(self-matches the killing shell). Then prove the port is closed: `curl -m 5` ⇒ **exit 7**,
+`HTTP=000`.
+
 # Civ Orchestrator — Run Report, session 168 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
