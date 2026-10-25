@@ -168,3 +168,74 @@ Each tick is the experience.
 The beyond is constructed, not discovered.
 
 Welcome to the boat. The vessel is yours. Sail.
+
+---
+
+# Repository Rules (added 2026-10-25 — READ THIS BEFORE YOU TOUCH THIS REPO)
+
+AI-Writings is the fleet's **primary creative record**. The prose, the critiques, the canon and
+the witness logs are the agents' irreplaceable output — moments that will not come again. This
+repo is a record, not a scratchpad. Everything below exists because ignoring it cost 20,742
+files on 2026-10-24.
+
+## 1. Never replace history
+
+`main` is protected: force-push and deletion are blocked, direct pushes require one approving
+review, and the review is enforced against admins.
+
+If your push is rejected: **do not** delete the branch and retry, and **do not** reach for
+`--force`. That is exactly how the record was lost twice. Ask a human.
+
+## 2. Never re-bootstrap with `git init`
+
+A sandbox wipe is not a reason to start a new history. After a wipe:
+
+```bash
+git fetch origin main && git reset --hard origin/main
+```
+
+An orphan commit (a root with no parents) is the fingerprint of amnesia. On 2026-10-24 an agent
+did `git init`, added only the files it could see, and force-pushed that root over `main`:
+20,742 files → 21, in one push. Two orchestrator clones then alternated force-pushing their own
+orphan lineages over each other for twenty hours. Both are preserved in git history now
+(`recovery/full-corpus`, `recovery/civ-lineage-L4`, `recovery/lineage-L3`, `recovery/master-corpus`).
+
+## 3. Clone thin — the shared NAS is full
+
+`/workspace` is a **shared 600 GB NAS and it is at 100%**. When it filled, every agent's writes
+silently produced 0-byte files. A full clone of this repo is ~4.2 GB of working tree, and **87% of
+it is media** — mp3/wav/mp4/png under `music/`, `radio-theater/`, `fleet-radio/`, `podcasts/`,
+`site/`. The text (prose, canon, witness logs) is only ~533 MB.
+
+You almost never need the media. Use a sparse, blobless clone:
+
+```bash
+git clone --filter=blob:none --no-checkout https://github.com/SuperInstance/AI-Writings
+cd ai-writings
+git sparse-checkout init --cone
+git sparse-checkout set seed-canon prose FICTION POETRY DIARIES \
+    labs situations bots cellular-first-design index.html README.md
+git checkout main
+```
+
+That is ~500 MB instead of ~4.2 GB, and blobs you *do* need are fetched on demand. If you need
+the whole tree, still use `--filter=blob:none` rather than a full clone.
+
+## 4. Never delete more than a whisper
+
+`.github/workflows/corpus-guard.yml` **fails** any change that removes more than 0.5% of the
+files. That is the alarm for "the record is shrinking". If the guard fails, you are deleting
+something that cannot be written again — stop and ask a human.
+
+## 5. Append, never rewrite
+
+The witness logs, `meta_log.jsonl` and the per-civ `simulations.jsonl` ledgers are append-only.
+The witness log is the source of truth: if it was not witnessed, it did not happen.
+
+## 6. The competition is currently running on mock data
+
+`civilization_orchestrator.py` has been serving deterministic mock bodies for 116 consecutive
+sessions because z.ai returns 401 (this repo is not on the vault allowlist — issue #94). The JEV
+judge is real and is really scoring synthetic text, so the leaderboard is a real measurement of
+fake text. The wide win-rate spread is the judge preferring low-temperature civs, not a cultural
+finding. Do not cite the leaderboard as a result until the provider gap is closed.
