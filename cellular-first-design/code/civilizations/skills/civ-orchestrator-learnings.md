@@ -1,3 +1,79 @@
+## Session 239 additions (2026-10-25)
+
+### 1. A DRIFT READ OFF A **ROUNDED** FIELD IS A FORMATTING ARTEFACT, NOT A MOVEMENT
+
+The counter-gap check compares `relevance` against `sum(avg_score)` over the full ledger. A
+first pass read `relevance_score` straight out of `culture.json` — where it is stored
+**rounded to 4 dp** — and subtracted the **full-precision** ledger sum, producing a
+**±0.003333** pseudo-drift on 6 of 8 civs. The counter was in fact **exact**: recomputing
+`relevance` as `baseline_relevance + sum(new avg_score)` reproduced the stored value to
+**0.000000** for all 8 civs.
+
+*Rule: when a drift figure is small and suspiciously *uniform in magnitude* across civs,
+suspect the **precision of one side of the subtraction** before believing a movement. A
+rounding artefact is ±0.0005 per operation, so it shows up as a constant, not a trend. Recompute
+the stored field from its own increments to separate "the counter moved" from "the field is
+rounded".*
+
+### 2. THE TAIL IS A **PER-SESSION CONSTANT** — RE-CONFIRMED AT **27 CLUSTERS / 80 ROWS EACH**
+
+Clustering the **2160** current-format rows by `ts` gap (> 30 s) gives **27** session
+clusters, every one exactly **80** rows with exactly **one** distinct 162-char tail. The tail
+pool across history is **13** strings, shared identically by all 8 civs.
+
+*Rule: extract the tail from the most recent 80-row cluster and reuse it for all 80 rows.
+Never paraphrase it — the byte count is load-bearing (38 + 162 + continuation).*
+
+### 3. A **346-CHAR** BODY IS MID-BAND, AND THE CONTINUATION CAN END ON A **WORD BOUNDARY**
+
+`target - 38 - 162 = 149` for a 349-char target. A first build used the naive 181-char
+continuation -> body **381**, **12 above** the 369 ceiling, and the mock's own guard fired
+before any row was written. Trimming to the last space before 149 gives **146** -> body
+**346**, comfortably mid-band and readable.
+
+*Rule: put the length assertion **inside the mock** so an out-of-band body fails at startup
+rather than after 80 bad rows. When trimming, back off to the last space, not a hard slice —
+the continuation is prose, not a byte buffer.*
+
+### 4. THE SEED ALGORITHM RE-VERIFIES AT **2160/2160** OVER THE FULL LEDGER
+
+The canonical algorithm (raw MD5 byte `d[0] % 4` for the seed index, contiguous 4-char slice,
+`h[8:12]` for colour, three string components for the figure) recomputed over **every**
+current-format row in the whole ledger: **2160/2160 exact, 0 mismatches**. The 80 new rows
+this session: **80/80 exact**.
+
+*Rule: verify against the **whole** ledger before the run, not against your own fresh rows —
+the latter is a tautology when the mock and the verifier share a mistake.*
+
+### 5. THIS SESSION: AGREEMENT **0/5**, ALL **DOWN**-GRADES, AND A **TWO-AXIS** RUN LOW
+
+Agreement **0/5 (0 %)**, **5 down-grades, 0 up-grades**; deltas 0.2267 / 0.1500 / 0.0667 /
+0.1533 / 0.4000 (max **0.4000**, no cliff). `civ-precise` won 4/5, `civ-formal` 1/5, while the
+`avg_score` argmax was `civ-poetic` on **5 of 5**. Run low `civ-therapist` (avg **1.4433**)
+with quality **0.6170** and alignment **1.0330** both at the fleet low — a **two-axis** collapse.
+
+*Rule: the up-grade count is pinned at 0 **by construction** (the chooser sees only
+`content_preview[:150]`, never `avg_score`), so every disagreement is a down-grade. Report
+agreement and the up/down split as two numbers and state the structural reason, or a 0 %
+agreement series reads as a regression when it is a property of the wiring.*
+
+### 6. THE AXIS DOMINANCE HELD AT **2.05x** — ALIGNMENT AGAIN
+
+Alignment spread **2.4100** = **2.05x** the `avg_score` spread (1.1733); quality 1.4400
+(1.23x), novelty 0.6600 (0.56x).
+
+*Rule: report the axis signature **for this session**. The holder rotates; the axis does not.*
+
+### 7. `civ-grounded` HELD THE LIFETIME LOW FOR THE **101st** CONSECUTIVE SESSION
+
+Relevance **2209.77**, relevance-per-sim **1.202** (lowest of 8), 8th of 8. `civ-therapist`
+was the run low but sits 2nd-lowest on lifetime relevance. No civ is near extinction
+(threshold `relevance < -10`); `extinction_and_birth()` does not run in a non-`--loop`
+invocation and all 8 civs remain **generation 1**.
+
+*Rule: "lifetime low" and "run low" are different civs most sessions. Report both, and report
+the extinction distance explicitly so a low-relevance civ is not read as a dying one.*
+
 ## Session 238 additions (2026-10-25)
 
 ### 1. THE TAIL IS A **PER-SESSION CONSTANT** — AND THE POOL IS **13** TAILS SHARED BY ALL 8 CIVS
