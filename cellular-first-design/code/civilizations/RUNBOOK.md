@@ -1,3 +1,16 @@
+# Civ Orchestrator — Run Report, session 234 (2026-10-25)
+## Session 234 (2026-10-25) — provider path, baseline, and result
+
+- Provider path: **Control B mock** (z.ai credential gap, **97th session**) + **live JEV**.
+- Baseline: `f6f3609` (session 233 tree), `refs/heads/main` asserted equal to the clone HEAD.
+- **Pre-flight gate: 8/8 PASS** (first build). **Run verification: 18/18 PASS.**
+- Result: `civ-precise` swept **5/5** competitions; chooser/argmax agreement **2/5 (40 %)** — 3 down-grades, 0 up-grades.
+- Run low: **`civ-therapist`** (avg **1.7533**, fleet-low run alignment **1.62**). Lifetime low: **`civ-grounded`** (**2122.93**, 98th consecutive session).
+- Full detail: `RUN_REPORT_2026-10-25_session234.md`.
+- The mock body landed at **349** chars on the first build (38-char header + 163-char tail prefix + 148-char continuation, solved algebraically).
+- The ledger's colour field has **two** formats (with/without `#`) — both recompute; the invariant is a **200-char preview**, not a fixed 38/162 split.
+- The task prompt's repo slug is wrong: upstream is **`SuperInstance/AI-Writings`**, not `ai-writings/cellular-first-design` (404).
+
 # Civ Orchestrator — Run Report, session 229 (2026-10-25)
 ## Session 229 (2026-10-25) — provider path, baseline, and result
 

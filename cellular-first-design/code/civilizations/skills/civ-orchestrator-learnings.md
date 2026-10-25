@@ -1,3 +1,71 @@
+## Session 234 additions (2026-10-25)
+
+### 1. THE TASK PROMPT'S REPO SLUG IS WRONG — `ai-writings/cellular-first-design` 404s
+
+The upstream is **`SuperInstance/AI-Writings`**. The `ai-writings` org is a *different* org
+holding one unrelated repo (an AI-writing tool list). The GitHub API is case-insensitive on
+the owner+repo path, so `SuperInstance/ai-writings` and `SuperInstance/AI-Writings` are the
+same repo — but the *owner* is `SuperInstance`, not `ai-writings`.
+
+*Rule: a 404 on the slug named in the task prompt is a **slug** defect, not a missing repo.
+Locate the file with `GET /search/code?q=civilization_orchestrator+in:path`, which survives
+core-quota exhaustion and returns the owning repo directly.*
+
+### 2. A BACKGROUND `git clone` CAN DIE SILENTLY AND REMOVE ITS OWN DIRECTORY
+
+Running `setsid nohup git clone ... &` produced a log containing only `Cloning into ...`,
+then the directory **vanished** — the clone had failed and cleaned up, and the log held no
+error. A foreground clone with a long timeout succeeded immediately.
+
+*Rule: after a backgrounded clone, **assert the directory still exists** before using it.
+A background clone that leaves an empty log and a missing directory is a silent failure —
+poll for the directory, not for the log.*
+
+### 3. THE LEDGER'S COLOUR FIELD HAS **TWO** FORMATS — BOTH RECOMPUTE
+
+The current-format rows carry the colour **with** a `#` prefix; older generations carry it
+**without**. A strict equality check against `h[8:12]` fails 2000/2000 while the values are
+in fact identical.
+
+*Rule: when fitting an algorithm against a ledger that spans generations, accept the
+**value** and normalise the presentation, or you will report a 0 % match on a perfect fit.
+Always print the first mismatching row — it distinguishes "wrong algorithm" from
+"right algorithm, wrong format" in one look.*
+
+### 4. THE 38/162/200 GEOMETRY IS APPROXIMATE — THE INVARIANT IS A **200-CHAR PREVIEW**
+
+The skill file says the header is 38 and the tail 162; the newest rows have a **163**-char
+tail (and some older generations 164). The header measures **38** exactly (37 + the space
+before the tail). The stable invariant is `content_preview` == **200** chars, always.
+
+*Rule: assert the *preview length* (200) and the *body band* (332-369) — never a fixed
+header/tail split, which drifts by a char between generations.*
+
+### 5. THIS SESSION'S NUMBERS
+
+- Pre-flight **8/8 PASS** on the **first** build (40/40 recomputed md5, 40/40 distinct seeds,
+  40/40 distinct previews, all bodies 349). Run verification **18/18 PASS**.
+- **80** new rows (+10 x 8), `meta_log` 903 -> **908**, `Winner:` **5**, all `civ-precise`.
+- **80/80** distinct `(q,n,a)` triples, 0 JEV errors, 0 fallbacks, 80/80 `provider=zai`.
+- Chooser/argmax agreement **2/5 (40 %)** — 3 down-grades, 0 up-grades; all 3 marginal
+  (max **0.1067**), the narrowest down-grade set of the series. Up-grades across the whole
+  211-234 series: still **0**.
+- Run low **`civ-therapist`** (avg **1.7533**; fleet-low run alignment **1.62**, and the
+  fleet-low lifetime alignment **1.1813**). Run high `civ-poetic` (2.4233).
+- Lifetime low **`civ-grounded`** (**2122.93**) for the **98th consecutive session**; lifetime
+  quality **0.5318** is the fleet low and lifetime alignment **1.2777** is 2nd-lowest, 2.6x
+  behind `civ-precise` (2.3291) => a *voice* failure, not a prose failure. Lifetime novelty
+  (1.8051) is 6th of 8 — check the rank, not the impression.
+- Counter gap **byte-identical** to session 230 (max drift **0.0000**): grounded -84.3467,
+  therapist -42.1133, engineer -44.2433, mythic -51.1100, formal -85.5267, whimsical
+  -173.1433, precise -32.6333, poetic -96.8033. Fixed, not accumulating.
+- `civ-poetic` 1st on lifetime `avg_score` (1.7118) / `quality` (0.9130) / `relevance`
+  (3003.28) but **last on `win_rate` (0.007)** — won 0/5. `civ-precise` best `win_rate`
+  (0.697) and highest lifetime alignment (2.3291), swept 5/5.
+- Run-level JEV scores are **higher** than session 230 (run avg 1.75-2.42 vs 0.50-1.14) — a
+  scorer level shift for this batch, not a civ effect.
+- Extinction risk **NONE** (floor -10, lowest +2122.93 = **212x**). Registry 8, `max_civs` 12.
+
 ## Session 230 additions (2026-10-25)
 
 ### 1. THE CONTROL B MOCK SOURCE IS **NOT IN THE REPO** — THE LEDGER IS THE SPECIFICATION
