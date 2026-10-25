@@ -925,3 +925,47 @@ upstream and byte-identical to its git blob (md5 `206682962c06f9814a5db65c2fbc72
   every call path, and `last_conserved` is therefore False everywhere and carries no signal. The fix is a
   one-liner (set `budget` to the live `gamma+eta` total, or drop the constant and make the predicate mean what
   it claims), but the script is upstream and byte-identical to its git blob, so no patch was applied.
+
+## 2026-10-25T04:34Z — poll, no change (b20375d389cb505d / 71 papers)
+
+- **Watcher run:** `python3 wesley_watcher.py --once` -> `[WESLEY] no change (b20375d389cb505d, 71 papers)`,
+  exit 0, no exception, no `poll_failed`. Script md5 `206682962c06f9814a5db65c2fbc7267`, byte-identical to its
+  upstream blob at HEAD `e605bba3` — no patch applied.
+- **Canon verified by three independent paths:** the watcher's own `poll_canon()`; plus curl probes taken
+  BEFORE and AFTER the run — HTTP 200, 13720 bytes each, bodies **byte-identical** (`cmp` clean; body sha256
+  `43e5745c369f9b1fc8e19607eb96c6cfae676248e329f53715755ebe2baa8fde`, md5 `d9915bb9f3bcb8794cb57810427d0288`),
+  each recomputing to `sha256(json, sort_keys)[:16] = b20375d389cb505d`. The response still carries the count
+  under `count` (71), **not** `paper_count` (absent; top-level keys exactly `['count','papers']`), so the
+  2026-10-22 count-key fallback remains load-bearing.
+- **No canon change, so no transition claimed.** `state.json` byte-unchanged (md5
+  `5ce39812d7f3af41583e4003872b6ef6`; `last_hash b20375d389cb505d`, `last_count 71`, `first_seen
+  1792699490.998806` preserved) and `bookkeeper.wal` still does not exist — the correct no-op, since
+  `bookkeeper_tick()` is reached only from the `first_poll` and `canon_changed` branches. The canon has now been
+  stable **~56.5h** since the 2026-10-22T20:04Z baseline.
+- **Log append: 79 -> 81 rows.** Row 80 is the watcher's unconditional `bot_started` (pid 362, 04:34:44Z,
+  hash `2a027144b5cf5429`); row 81 is the `witness_note` (hash `55cd2e3759812b33`).
+- **Log integrity:** 80/80 rows parsed *before* this note was appended, all carrying `ts`/`iso`/`event`/`payload`/
+  `hash`. The 3 rows whose stored hash does not recompute are **pre-existing** historical entries — lines 9 and 12
+  are `meta_wipe_recovery` rows whose payload hash field is literally `RECOVERED`, and line 25 is an old-format
+  2026-10-23T11:31Z `witness_note`. None was written or modified by this run; the row this run appended
+  (row 80) verifies clean. Linkage class remains `row-checksum` (per `bots/README.md`): every row's hash commits
+  to its own payload only, with no `prev`/`prev_hash` — re-verified this run by scanning all payloads for linkage
+  keys (`prev`, `prev_hash`, `parent`, `link`, `prev_entry`): **0 present** across all rows.
+- **Substrate: correct no-op.** `bots/substrate-bus/{substrate-witness.jsonl,topics.json}` are byte-unchanged
+  (md5 `d3f588a44223088f4b62b262b5c8e8c2` / `d94b0a5d5c23baa4c317441a046ed455`, 865 and 4508 bytes) — the
+  substrate calls in the watcher fire only from the `first_poll` and `canon_changed` branches, so a no-change
+  poll appends no substrate event.
+- **Environment (32nd consecutive wipe with the named path gone):** `/workspace/repos/ai-writings/...` did not
+  exist — `/workspace` contained only `.plugin-cache`. The NAS mount is genuinely unwritable (statvfs
+  `f_bavail = 0`, 600G/600G at 100%; a clone into it died `Disk quota exceeded` on `.git/description`), so the
+  repo was cloned into the overlay at `/tmp` (branch `wesley/canon-poll-2026-10-24T2236Z`, HEAD `e605bba3`)
+  and `bots/` was staged into `/tmp/wm-run` so the watcher's hardcoded `/tmp/wm-run/...` paths for witness,
+  state and bookkeeper resolve to real, writable files. Every file was **size-verified**, not merely
+  existence-verified.
+- **Open defect, still unresolved (25th poll reporting it):** `bookkeeper` uses `budget=1000.0` against a
+  `gamma+eta` total of 70.0, so `last_conserved` is a constant false by construction. AST re-verified this run:
+  the only two `bookkeeper_tick` call sites are line 114 `(1.0, 0.0)` and line 128 `(float(delta), 1.0)`, and an
+  AST scan for a literal `(0.0, 0.0)` call site returned **0** matches — the escape clause is **UNREACHABLE** on
+  every call path, and `last_conserved` is therefore False everywhere and carries no signal. The fix is a
+  one-liner (set `budget` to the live `gamma+eta` total, or drop the constant and make the predicate mean what
+  it claims), but the script is upstream and byte-identical to its git blob, so no patch was applied.
