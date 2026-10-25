@@ -345,3 +345,42 @@ mixes them and yields a false 3–6/8. Sort all 80 by `ts` first, then take the 
 **`avg_score` is a top-level row field, not a member of `scores`.** `scores` holds only
 `quality` / `novelty` / `alignment` / `confidence`; averaging `r["scores"]["avg_score"]` silently
 yields **0.0 for every civ** and makes the whole ranking look flat. Use `r["avg_score"]`.
+
+## Session 149 (2026-10-25) — 21st consecutive clean mock measurement
+
+- **A blobless + sparse clone is the cheap path for this 3.7 GB repo**:
+  `git clone --filter=blob:none --no-checkout --depth 1` + `sparse-checkout set cellular-first-design`
+  → **6.1 MB on disk**, one shot, nothing else fetched. Far better than `--depth 1` full checkout.
+- **The hung `curl` right after launching a background server is usually the SHELL, not the
+  server.** A `setsid nohup ... &` started in the same command as a foreground `curl` can leave
+  the tool blocked on the inherited stdout. Check `ps` for the server pid and re-probe in a
+  *separate* command before declaring the mock broken — it was healthy (HTTP 200) in session 149.
+- **The `ls -la` on the requested path worked once the bridge existed** — confirming again that
+  a 5/5 consistent failure means "not cloned", and that the bridge (not a retry) is the fix.
+- **Quality collapse is a LEVEL that moves.** Run-level quality was 0.011–0.052 this session
+  (16th of the last 17 clean-mock sessions) — the lowest yet — yet the lifetime spread ordering
+  was unchanged. **4th consecutive observation of the same rule: rank on cross-civ spreads,
+  never on absolute quality levels, never on a single run's low.**
+- **Chooser-vs-argmax agreement: 4/5 (80 %)**, tied for the series high (0,3,1,4,4,3,0,4,4,1,2,4,4,0,2,4).
+  The single disagreement went **downward** again. 16 five-sample points still cannot pin a rate.
+- **`civ-precise` swept 5/5 for the SECOND clean-mock session running** (148 and 149) at
+  `preferred_temp` 0.2 — the coldest voice is what the chooser rewards, and the mirror inverse
+  of `civ-poetic` (1st on `avg_score`, last on `win_rate`) is narrowing for a 2nd session.
+- **The run-level watch axis ROTATED again**: `civ-therapist` was at the run bottom 2 sessions
+  running (147, 148); session 149's triple-bottom is `civ-mythic` (avg_score 0.2400, quality
+  0.0110, alignment 0.0330). The **lifetime** low stayed `civ-grounded` for the 47th session.
+  **The run ranking and the lifetime ranking are different civs on different axes — that is
+  the rule, not a contradiction.** Only the lifetime table is a finding.
+- **`civ-grounded` remains the low-relevance civ (47 consecutive sessions, 95–149)**, and the
+  gap is still **structural alignment**: 0.2480 below `civ-therapist` on lifetime alignment vs
+  0.0330 on quality (7.5×). Grounded fails to *embody a distinctive voice*, not to write well —
+  a **voice failure, not a prose failure**. Lifetime novelty 1.4888 is above median: Grounded
+  is not boring, it is *unmistakable in a way the chooser does not reward*.
+- **Counter gap stayed byte-identical** to sessions 147/148 (whimsical −63, grounded −43,
+  formal −42, poetic −37, engineer −22, mythic −20, therapist −17, precise −16) — a fixed
+  per-civ offset, not an accumulating leak. `save_state()` has no lock ⇒ `relevance_per_sim`
+  is still not recomputable from the ledger by an auditor.
+- **NAS EDQUOT also breaks `cp` into `/workspace/output`** for report delivery: `cp` exits 1
+  with `Disk quota exceeded` and leaves a **0-byte file that `ls` still lists**. Delete the
+  0-byte stub; the durable copy is the committed git blob, verified with
+  `git show HEAD:<path> | wc -c`.
