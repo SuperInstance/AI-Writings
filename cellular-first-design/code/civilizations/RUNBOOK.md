@@ -1424,3 +1424,83 @@ it stays a **watch axis, not a finding**. It becomes one only if the lifetime ax
   directly** when the path slug is wrong. One authenticated request returned the exact
   `SuperInstance/AI-Writings | cellular-first-design/code/civilizations/civilization_orchestrator.py`
   hit. Cheaper than listing `/user/repos` and eyeballing sizes when you know the filename.
+
+### Session 147 — clean mock #19; chooser-vs-argmax 0/5; Grounded holds the low for the 45th session (2026-10-25)
+
+**The prompt's path was wrong on BOTH segments and the workspace had no clone at all.**
+`/workspace` contained only `.plugin-cache` — no `repos/`, no `ai-writings/`. The `ai-writings/`
+prefix is the **repo**; `cellular-first-design/` is a **subdirectory of it**, so the real path
+is `<repo>/cellular-first-design/code/civilizations/`. The orchestrator's own `CIVS_DIR`
+constant encodes the correct full path — **read it from the script before hunting the tree.**
+A 5/5 consistent `ls` failure on the workspace path here meant *not cloned*, not a mount race;
+the symlink bridge only helps **after** a clone exists.
+
+**Verification held:** per-civ delta = **+10** x 8 = **80 new rows** (engineer 906->916,
+formal 937->947, grounded 952->962, mythic 909->919, poetic 931->941, precise 901->911,
+therapist 904->914, whimsical 964->974), `meta_log` delta = **+5** (468 -> 473), `Winner:`
+lines = **5**, **80/80** rows `[mock-zai`-prefixed with `provider=zai`, **0** rows with a JEV
+`error` key, **0** rows with the 2.0/2.0/2.0 fallback triple, **40/40** distinct seeds, **0**
+`(civ,prompt)` combos with >1 seed, sim->competition ts gap at index 4 in **8/8** civs
+(1.06 s – 22.85 s), and **5/5** competition slots at 8/8 distinct seeds AND 8/8 distinct
+previews — the **19th clean mock measurement**.
+
+**Pre-flight saved the run for the 4th time in the series** (115, 117, 145, 147). `/tmp` was
+wiped, so the mock was rebuilt from scratch and **both** known mock bugs were live again in
+the naive rebuild: the session-112 index wrap (`seed[i*2:i*2+2]` -> empty for `i>=4` -> HTTP
+500 with the socket still open) and the session-145 literal-`{}` placeholder (every response
+carrying `seed={}` -> 1 distinct seed instead of 40). The session-118 md5-of-whole-message
+seeding and the session-144 `Connection: close` were also re-applied. Pre-flight reported
+**8/8 distinct seeds, 8/8 distinct previews, 8/8 template md5s, 0 tracebacks**, prompt
+lengths 167–199. **Never relax the seed-distinctness assertion.**
+
+**Chooser vs `avg_score` argmax: 0/5 (0 %)** — the chooser disagreed in **every** competition.
+`civ-precise` swept 4/5, `civ-formal` 1/5. Every disagreement again took the **lower**-
+scoring candidate (largest this run: winner 0.190 vs argmax 0.743). Clean-mock series:
+0/5 (118) -> 3/5 (119) -> 1/5 (120) -> 4/5 (121) -> 4/5 (122) -> 3/5 (123) -> 0/5 (124) ->
+4/5 (125) -> 4/5 (137) -> 1/5 (138) -> 2/5 (139) -> 4/5 (144) -> 4/5 (146) -> **0/5 (147)**.
+The rate is **not narrowing**; 14 five-sample points cannot pin it. Report it as a sample and
+keep the **direction** as the finding. `civ-precise` is the lifetime `win_rate` leader (0.562)
+at `preferred_temp` 0.2 — the coldest voice is what the chooser rewards.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ — 45 consecutive sessions
+(95–147).** Last on lifetime `relevance` (939.86), `relevance_per_sim` (1.023), `avg_score`
+(1.0647), `alignment` (1.2201) and `quality` (0.4828). The label did **not** rotate: last
+before the run (932.06 / 1.037) and last after it (939.86 / 1.023). **The structural gap is
+alignment: 0.2557 below the next civ** (`civ-therapist` 1.4758) versus **0.0336** on quality
+— a **7.6x** wider alignment gap. Alignment is the dimension the meta-GAN selects on, so
+Grounded fails to *embody a distinctive voice*: a **voice failure, not a prose failure**.
+Lifetime novelty 1.4911 is above median — Grounded is not boring, it is unmistakable in a way
+the chooser does not reward. `civ-formal` remains the distinct low-**novelty** axis (1.3840,
+last of 8). `civ-poetic` = 1st on lifetime `avg_score` (1.6398) / `quality` (0.8477) but last
+on `win_rate` (0.013) — the stable selection-failure inverse. `civ-precise` = best
+`win_rate` (0.562), highest `alignment` (2.2279), 6th on `avg_score` — the mirror inverse.
+
+**Watch axis `civ-therapist` — 3rd session at the run bottom, on BOTH axes** (run `avg_score`
+0.1470 and run `alignment` 0.0280, both lowest of 8). Still mid-field on the lifetime axis
+(`avg_score` 1.2538, 5th of 8), so it stays a **watch axis, not a finding**. It becomes one
+only if the lifetime axis moves too.
+
+- **Extinction risk NONE** — threshold -10, lowest relevance +939.86 (94x above floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`. Extinction/birth only under
+  `--loop`.
+- **Counter gap is a FIXED per-civ offset, not a growing one** — whimsical +63, grounded +43,
+  formal +42, poetic +37, engineer +22, mythic +20, therapist +17, precise +16, **byte-
+  identical to session 145**. A per-civ constant, not an accumulating leak. `save_state()`
+  has no lock => `relevance_per_sim` is still not recomputable from the ledger by an auditor.
+- **Dimension-spread discipline:** this run's cross-civ spreads were `alignment` 1.3920,
+  `avg_score` 0.5457, `novelty` 0.3610, `quality` 0.0430. `quality` collapsed again to a
+  0.007–0.050 band (15th of the last 16 clean-mock sessions). The quality collapse is a
+  **LEVEL that moves**, not a stable property — rank on cross-civ spreads, never on absolute
+  quality levels, and never on a single run's low.
+- **Re-confirmations:** NAS EDQUOT total (11th session) — `git clone` straight into
+  `/workspace` dies with `close error: Disk quota exceeded` and leaves a partial `.git`;
+  clone to `/tmp` first, then bridge the **nested** `cellular-first-design` dir and verify
+  with `stat -L -c '%d:%i'` + `-ef` (this session `129:2653` both sides, EF_OK). The bridge
+  *target* can be the overlay, so writes through the bridge succeed normally. `gh` not
+  installed (26th session). Tool timeout 30 s < run ~50 s. `ZAI_URL_OVERRIDE` alone is dead
+  code (needs `ZAI_TOKEN`). `TYPESAFEAI_KEY` must be exported from `TYPESAFE_AI_TOKEN`.
+- **Tooling note:** the `write` tool hit the known sporadic **`-122` on close** for a file
+  under `/workspace/analysis/`, and it **cannot traverse the `/workspace` symlink**
+  (`ENOTDIR: not a directory, mkdir '/workspace/repos/ai-writings/cellular-first-design'`).
+  For files that must land inside the bridged tree, use a **bash heredoc** to the real
+  `/tmp` path; use `printf`/heredoc to `/tmp` for throwaway analysis scripts.

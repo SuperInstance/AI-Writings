@@ -138,6 +138,83 @@ Registry 8, `max_civs` 12; extinction/birth only runs under `--loop`.
   API (read the remote `leaderboard.json` back and compare against local), never the push's
   own exit code.
 
+## Session 147 (2026-10-25) — the prompt path can be wrong on BOTH segments; read `CIVS_DIR` from the script
+
+**Run clean (session 147, 19th consecutive clean mock).** per-civ delta = **+10** x 8 = **80 new
+rows** (engineer 906->916, formal 937->947, grounded 952->962, mythic 909->919, poetic
+931->941, precise 901->911, therapist 904->914, whimsical 964->974), `meta_log` delta = **+5**
+(468 -> 473), `Winner:` lines = **5**, **80/80** rows `[mock-zai`-prefixed with `provider=zai`,
+**0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback triple, **40/40**
+distinct seeds, **0** `(civ,prompt)` combos with >1 seed, sim->competition ts gap at index 4
+in **8/8** civs (1.06 s - 22.85 s), and **5/5** competition slots at 8/8 distinct seeds AND
+8/8 distinct previews.
+
+### NEW (this session) — a wrong prompt path is NOT a mount race, and the repo is only ONE segment of it
+
+The task named `/workspace/repos/ai-writings/cellular-first-design/code/civilizations/`. The
+workspace was a **fresh NAS mount with nothing cloned** — `/workspace` held only
+`.plugin-cache`, no `repos/`, no `ai-writings/`. The slug was wrong on **both** segments:
+`ai-writings/` is the **repo** (`SuperInstance/AI-Writings`) and `cellular-first-design/` is a
+**subdirectory inside it**.
+
+**Rule: read the target path out of the script's own path constant before hunting the tree.**
+`CIVS_DIR = Path("/workspace/repos/ai-writings/cellular-first-design/code/civilizations")`
+encodes the correct full path in one line — grep it rather than guessing at the tree.
+
+**Distinguish the two failure modes by *consistency*, not by one `ls`:**
+- **5/5 consistent `ls` failure + a near-empty `/workspace`** => *not cloned*. Clone first.
+- **Intermittent `ls` failure with `/workspace/repos/...` populated** => *mount race*; retry
+  (session-145 rule).
+
+The symlink bridge only helps **after** a clone exists — it bridges a tree into place, it
+does not create one.
+
+### The `write` tool cannot reach the bridged tree
+
+Two separate jails, both hit this session:
+- `write` to `/workspace/repos/ai-writings/cellular-first-design/...` =>
+  `ENOTDIR: not a directory, mkdir '/workspace/repos/ai-writings/cellular-first-design'`
+  (it will not traverse the symlink).
+- `write` to a path under `/workspace/analysis/` => sporadic **`-122` on close**.
+
+**Rule: for any file that must land inside the bridged tree, use a bash heredoc to the real
+`/tmp` path.** Use `printf`/heredoc to `/tmp` for throwaway analysis scripts too.
+
+### Mock teardown — kill BOTH pids, then prove the port is closed
+
+Kill by exact args: `python3 /tmp/mock_zai.py` (server) and
+`timeout -s KILL 900 python3 /tmp/mock_zai.py` (wrapper). Then
+`curl -m 5 -X POST http://127.0.0.1:8799/...` => **exit 7** (refused) and `HTTP=000`. Never
+`pkill -f mock_zai` — it self-matches the killing shell (2nd occurrence of that trap).
+
+### Low-relevance civ — the low label did NOT rotate (45 sessions, 95-147)
+
+`civ-grounded` remains the lifetime low on all five axes: `avg_score` 1.0647, `alignment`
+1.2201, `quality` 0.4828, `relevance` 939.86, `relevance_per_sim` 1.023 — **last of 8 on every
+one**. The binding constraint is still **alignment**: gap to the next civ 0.2557 vs quality's
+0.0336 (**7.6x** wider). A voice failure, not a prose failure, because alignment is the axis
+the meta-GAN selects on. Lifetime novelty 1.4911 is above median — Grounded is not boring, it
+is unmistakable in a way the chooser does not reward.
+
+**`civ-therapist` — 3rd session at the run bottom, now on BOTH axes** (run `avg_score` 0.1470
+and run `alignment` 0.0280, both lowest of 8). Still mid-field on the lifetime axis
+(`avg_score` 1.2538, 5th of 8) => **watch axis, not a finding**. It becomes one only if the
+lifetime axis moves too.
+
+**Chooser vs `avg_score` argmax: 0/5 (0 %)** — the chooser disagreed in **every** competition.
+`civ-precise` swept 4/5, `civ-formal` 1/5. Every disagreement again took the **lower**-
+scoring candidate (largest: winner 0.190 vs argmax 0.743). Clean-mock series: 0/5 (118) ->
+3/5 (119) -> 1/5 (120) -> 4/5 (121) -> 4/5 (122) -> 3/5 (123) -> 0/5 (124) -> 4/5 (125) ->
+4/5 (137) -> 1/5 (138) -> 2/5 (139) -> 4/5 (144) -> 4/5 (146) -> **0/5 (147)**. The rate is
+**not narrowing**; report it as a sample and keep the **direction** as the finding.
+**Never treat `win_rate` as a quality metric.**
+
+**Extinction risk NONE** — threshold -10, lowest relevance 939.86 = 94x above the floor.
+Registry 8, `max_civs` 12; extinction/birth only runs under `--loop`.
+
+**Counter gap is a FIXED per-civ offset** — whimsical +63, grounded +43, formal +42, poetic
++37, engineer +22, mythic +20, therapist +17, precise +16, byte-identical to session 145.
+
 ## Session 144 (2026-10-24) — the `Connection: close` fix, and the mock probe must use the *long* cultural prompt
 
 **Run clean (session 144, 16th consecutive clean mock).** per-civ Δ = **+10** × 8 = **80 new
