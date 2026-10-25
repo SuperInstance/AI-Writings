@@ -3,6 +3,105 @@ name: civ-orchestrator-learnings
 description: Durable operating knowledge for the Civilization Orchestrator (cellular-first-design). Mock provider rebuild checklist, verification gates, environment traps, and interpretation rules for the meta-GAN leaderboard.
 ---
 
+## Session 228 additions (2026-10-25)
+
+### 1. THE CANONICAL SEED ALGORITHM RE-VERIFIES AT **1520/1520** OVER THE FULL LEDGER
+
+Session 227 established that the current-generation algorithm is
+
+```
+d      = md5(cultural_prompt).digest()
+h      = d.hex()
+i      = d[0] % 4
+seed   = h[(i*2)%8 : (i*2)%8+4]                  # CONTIGUOUS 4-char slice
+color  = h[8:12]
+figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"   # three STRING components
+```
+
+This session ran that recompute over **every current-format row in the whole ledger**
+(**1520 rows**, not just the session's own) and got **1520/1520 exact, 0 mismatches**.
+
+*Do this **before** the run, not after. A recompute that agrees with 80/80 of your own
+freshly-written rows can still be the wrong algorithm when the mock and the verifier
+share the same mistake — the agreement is then a tautology. The full-ledger recompute is
+independent of this session's code path.*
+
+### 2. THE PREVIEW BOUNDARY IS **38 + 162 = 200** — A DESIGN INVARIANT, NOT A COINCIDENCE
+
+The header is a constant **38** chars (`[mock-zai <4hex>] #<4hex> <4hex>/<4hex>/<4hex>. `)
+and the tail prefix is **162** chars, so `38 + 162 = 200` — exactly the orchestrator's
+`content_preview[:200]` cut. The visible tail therefore *always* ends at the same
+character of the same sentence across every session, and the continuation past it is
+**never** in the ledger.
+
+*Assert only what is visible. Do not attempt to reconstruct the hidden continuation from
+the ledger, and do not read the visible prefix as "the whole tail".*
+
+### 3. THE RUN-LOW **SIGNATURE** ROTATES WITH THE HOLDER — THE AXIS DOES NOT
+
+Sessions 226 and 227 both ran `civ-mythic` low on quality, novelty **and** alignment
+*simultaneously* (an all-axes collapse). Session 228 runs `civ-whimsical` low on
+**alignment alone** — avg **1.4607**, quality **1.1740** (2nd-lowest), novelty
+**2.4200** (2nd-**highest**), alignment **0.7880** (last by **0.3290**).
+
+The run's alignment spread **2.3210** is **2.42x** the `avg_score` spread, **3.41x** the
+quality spread and **17.85x** the novelty spread.
+
+*Rule: report the axis signature **for this session**. "The run low is the all-axes civ"
+was true for two sessions and is false today. The alignment axis is the constant; the
+holder and the co-occurring axes are not.*
+
+### 4. A **5/5 SWEEP** DOES NOT IMPLY PERFECT AGREEMENT — SESSION 228 IS THE CLEAN COUNTEREXAMPLE
+
+`civ-precise` won **5/5** competitions and was the `avg_score` argmax on **4/5**:
+agreement **4/5 (80 %)**, **1 down-grade, 0 up-grades**. The disagreement
+("ternary values") took `civ-precise` at **1.950** over `civ-poetic` at **1.977** — the
+**lower**-scoring candidate, by **0.027**.
+
+The series (211-228) now reads
+0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 / 40 / 20 / 40 / 40 / 100 / 60 / **80** %, and
+the up-grade count is still **0** across all 18 sessions.
+
+*Never infer agreement from a sweep, or a sweep from agreement. Session 226 had 5/5 and
+5/5; session 227 had 3/5 and 3/5; this session has 5/5 and 4/5.*
+
+### 5. THE MOCK BODY LANDED AT **349** CHARS ON THE FIRST BUILD
+
+38-char header + a 162-char tail prefix + a 149-char continuation = **349**, inside the
+332-369 band, solved algebraically. *The band is a length problem, not a writing
+problem: compute the allowance from the fixed prefix.*
+
+### 6. THE `ls -la` CHECK IS THE WEAKEST ONE — AND IT PASSED ON A TREE WITH 18 MODIFIED FILES
+
+`ls -la` shows mtimes; the discriminating check is the **row-count delta** (+10 each = 80)
+against the pinned git blob, plus the counter-gap check. *Use `ls -la` to answer the
+question asked; use the row-count delta to answer the question meant.*
+
+### Re-confirmations (this session)
+
+- 108th consecutive session with the prompt path absent (workspace held only
+  `.plugin-cache`). The repo is **`SuperInstance/AI-Writings`** (a **user** account,
+  5400+ repos); `cellular-first-design` is a **subdirectory**, not a repo.
+- `gh` is not installed (**23rd session**). `GET /user/repos` paged to **2500** rows and
+  filtered on `cellular|civ|writing`; the GitHub API is case-insensitive so the
+  `ai-writings` slug resolves to `AI-Writings`.
+- NAS EDQUOT is total (600 G/600 G) while the workspace lists as empty; the clone went to
+  `/tmp/aiw` (**28 G** on the overlay) and was bridged by symlink to
+  `/workspace/repos/ai-writings/cellular-first-design`, targeting the **clone root** so
+  the script's hard-coded `CIVS_DIR` resolves — verified with `os.path.samefile()` ->
+  `True`.
+- `ZAI_TOKEN` absent from env and all **8** sandbox secrets; z.ai **401 `token expired or
+  incorrect`** (**92nd session**) => endpoint healthy, credential absent. `ZAI_URL_OVERRIDE`
+  alone is dead code — Control B needs **both**.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; JEV live at `jev-1.14.0`; **0**
+  fallback triples.
+- `git fetch` needs `GIT_SSL_NO_VERIFY=1`; fetch **`refs/heads/main`** explicitly and
+  assert the SHA equals the clone HEAD (`8433523`).
+- Counter gap **byte-identical** to the documented stable values (max drift 4.55e-13
+  against the pinned pre-run blob): grounded −84.35, whimsical −173.14, formal −85.53,
+  poetic −96.80, precise −32.63, mythic −51.11, therapist −42.11, engineer −44.24.
+
+
 # Civ Orchestrator — durable learnings
 
 ## Session 225 additions (2026-10-25)

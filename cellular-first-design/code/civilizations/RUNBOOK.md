@@ -1,3 +1,14 @@
+# Civ Orchestrator — Run Report, session 228 (2026-10-25)
+## Session 228 (2026-10-25) — provider path, baseline, and result
+
+- Provider path: **Control B mock** (z.ai credential gap, **92nd session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `8433523` (session 227 tree), `refs/heads/main` asserted equal to the clone HEAD.
+- **Pre-flight gate: 11/11 PASS** (first build). **Run verification: 24/24 PASS.**
+- Result: `civ-precise` swept **5/5** competitions; chooser/argmax agreement **4/5 (80 %)** — 1 down-grade, 0 up-grades.
+- Run low: **`civ-whimsical`** (avg **1.4607**, fleet-low run alignment **0.7880**). Lifetime low: **`civ-grounded`** (**2012.80**, 92nd consecutive session).
+- Full detail: `RUN_REPORT_2026-10-25_session228.md`.
+- The mock body landed at **349** chars on the first build (38-char header + 162-char tail prefix + 149-char continuation, computed algebraically).
+
 # Civ Orchestrator — Run Report, session 226 (2026-10-25)
 ## Session 226 (2026-10-25) — provider path, baseline, and result
 
