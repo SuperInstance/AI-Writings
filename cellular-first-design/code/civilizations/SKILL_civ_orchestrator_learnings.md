@@ -189,3 +189,32 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   exact to 3.4e-13.)
 - Run `avg_score` levels sit **above** the lifetime band; the **ordering** carries the
   information, not the level.
+
+## Session 183 additions (2026-10-25)
+
+- **A plain `cp` into `/workspace` fails the same way `git clone` does.** The NAS EDQUOT trap is
+  not git-specific: `cp -r` of a 7 MB tree into `/workspace/repos/...` fails with
+  `cp: failed to close '<file>': Disk quota exceeded` on **every** file, and the partially-written
+  tree is left on disk looking present. Copy the working tree to the **local overlay**
+  (`/opt/…`) and bridge with a symlink — the overlay is exempt from the quota.
+- **The `git show HEAD:<path>` cwd rule has a second trap: a *copied* tree is not a git root.**
+  If the working copy was made with `cp` (or a sparse checkout was copied out of the clone),
+  `git show` from that directory returns empty stdout => `JSONDecodeError`. Run `git show`
+  with cwd = the **actual clone root** (`git rev-parse --show-toplevel`) and copy the *blobs*
+  out, rather than assuming the working directory is a repo.
+- **`GET /search/code?q=<filename>+in:path` is the fast way to locate a file inside a
+  3.7 GB repo.** The `ai-writings/cellular-first-design` slug 404s and `GET /user/repos` is
+  useless at 5 400+ repos, but a code search for the filename returns the owning repo directly.
+- **Sparse clone that fits the overlay:** `git clone --filter=blob:none --no-checkout --depth 1`
+  then `git sparse-checkout set <dir>` then `git checkout` — 7 MB instead of 3.7 GB.
+- **The chooser-argmax gap has a new maximum: -0.300** (`civ-formal` won "the witness log" at
+  2.257 against `civ-precise` at 2.557). The one-directional pattern (all disagreements take the
+  LOWER-scoring candidate) held for the third session running: sessions 179-182 all showed
+  disagree-on-lower, session 183 showed 3/3 disagreements on the lower candidate.
+- **Session 183 broke session 182's run-low/lifetime-low coincidence.** `civ-grounded` stayed the
+  lifetime low (57th consecutive session) while `civ-therapist` took the run-level low — the
+  run-level low **rotates**; the lifetime low is structural. Keep the two apart.
+- **A warm voice is not a distinctive voice.** The two lowest-alignment civs are `civ-grounded`
+  ("warm, factual") and `civ-therapist` ("warm, attentive") — the only two whose voice
+  emphasis starts with "warm". Alignment rewards *embodiment* of a specific register, not
+  pleasantness. This is a structural read of the alignment axis, not a one-session artefact.
