@@ -43,6 +43,7 @@ jobs:
           PR_BASE: ${{ github.event.pull_request.base.sha }}
         run: |
           set -uo pipefail
+          export LC_ALL=C
           if [ "$EVENT" = "pull_request" ]; then
             BASE="$PR_BASE"
           else
@@ -60,11 +61,17 @@ jobs:
           # Deliberately-removed work, declared by the author of the change.
           : > /tmp/allowed.txt
           if [ -f .corpus-guard-allowlist ]; then
-            grep -vE '^\s*(#|$)' .corpus-guard-allowlist | tr -d ' \t\r' | sort -u > /tmp/allowed.txt
+            # grep exits 1 when it selects nothing, and GitHub runs this step
+            # with `bash -e`, so a bare grep here would abort the whole step.
+            { grep -vE '^[[:space:]]*(#|$)' .corpus-guard-allowlist || true; } \
+              | tr -d ' \t\r' | sort -u > /tmp/allowed.txt
           fi
 
-          comm -23 /tmp/before.txt /tmp/after.txt > /tmp/lost_raw.txt
-          comm -23 /tmp/lost_raw.txt /tmp/allowed.txt > /tmp/lost.txt
+          # Set difference by whole line. comm is not used on purpose: it exits 1
+          # on unsorted input, and with `bash -e` that would fail the step for a
+          # reason that has nothing to do with the corpus.
+          grep -F -x -v -f /tmp/after.txt /tmp/before.txt > /tmp/lost_raw.txt || true
+          grep -F -x -v -f /tmp/allowed.txt /tmp/lost_raw.txt > /tmp/lost.txt || true
 
           BEFORE=$(wc -l < /tmp/before.txt | tr -d ' ')
           AFTER=$(wc -l < /tmp/after.txt | tr -d ' ')

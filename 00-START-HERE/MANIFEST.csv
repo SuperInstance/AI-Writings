@@ -20039,11 +20039,11 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 .skills/civ-orchestrator-learnings/README.md,.skills/civ-orchestrator-learnings/README.md,e121d1df6cc2848021abac3ea3cdd07468f493e4,root-machinery
 .skills/civ-orchestrator-learnings/SKILL.md,.skills/civ-orchestrator-learnings/SKILL.md,96e9426029ea3067161a520e3ed79e2a899a8c15,root-machinery
 .writings-gate-allowlist,.writings-gate-allowlist,24db04242cb13c0d70d1ce27aa580b69a9049b8b,root-machinery
-00-START-HERE/FILE-INDEX.csv,00-START-HERE/FILE-INDEX.csv,5225645e726ec39f81f90cf1d5bafdb658307e90,self-reference (its own hash cannot be inside itself)
+00-START-HERE/FILE-INDEX.csv,00-START-HERE/FILE-INDEX.csv,ebf0c5e98061d6e08ffb87326d705eb691624be0,self-reference (its own hash cannot be inside itself)
 00-START-HERE/GENRE-MAP.md,00-START-HERE/GENRE-MAP.md,153ed1cc152f3ca0f72c0af7ee641b791e6a2899,generated-index
 00-START-HERE/HOW-TO-ADD-A-WRITING.md,00-START-HERE/HOW-TO-ADD-A-WRITING.md,b69cb2b6f169389cc51a7e26b87b6afabf1d8088,generated-index
 00-START-HERE/HOW-TO-FIND-A-WRITING.md,00-START-HERE/HOW-TO-FIND-A-WRITING.md,a025bf0fcabd3b8459fef32d0e08d303cc7ae861,generated-index
-00-START-HERE/MANIFEST.csv,00-START-HERE/MANIFEST.csv,9f6f11e4c5bb838489782123ffa78b279a16e4da,self-reference (its own hash cannot be inside itself)
+00-START-HERE/MANIFEST.csv,00-START-HERE/MANIFEST.csv,015abb0745f58cf6a86418e1ce5be202936c2e92,self-reference (its own hash cannot be inside itself)
 00-START-HERE/README.md,00-START-HERE/README.md,5b933201b40f0af812495bc9dd3eb12b2ef34e39,generated-index
 00-START-HERE/VERIFICATION.md,00-START-HERE/VERIFICATION.md,995cd248d2fe2afa443c12f9780db3d47de11c28,generated-index
 00-START-HERE/orientation/README.md,00-START-HERE/orientation/README.md,787960b97884f1132b2a67f8fdf2417210c4e776,generated-index
@@ -20053,7 +20053,7 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 01-WRITING/diaries-and-journals/experiments/README.md,01-WRITING/diaries-and-journals/experiments/README.md,c747c2f71e050d137751bc28baf6fb85b417d8cc,generated-readme
 01-WRITING/essays/2026-05-23-06-07/README.original.md,01-WRITING/essays/2026-05-23-06-07/README.original.md,39670d22de7c8e7cb375c94feb361112626f7c10,preserved-original
 01-WRITING/essays/README.md,01-WRITING/essays/README.md,c3767b0b35b575f543f6c62dd0fcf3fcefbeb8dc,generated-readme
-01-WRITING/essays/VOICES.md/README.md,01-WRITING/essays/VOICES.md/README.md,a884938d3838ecbc7497608d72ba631ba2a3aeb6,generated-readme
+01-WRITING/essays/VOICES.md,01-WRITING/essays/VOICES.md,de393d911a72caddbf8d2e886aa089ab97e1e4d1,moved
 01-WRITING/essays/artwork/README.md,01-WRITING/essays/artwork/README.md,794d9c43d6c16cdec703ef462b5db05e89b462a4,generated-readme
 01-WRITING/essays/google-trio/README.original.md,01-WRITING/essays/google-trio/README.original.md,3fe795146bfb9fb30a58ca16ab4a63b2e5b1e269,preserved-original
 01-WRITING/essays/night-watch-wave-1/README.md,01-WRITING/essays/night-watch-wave-1/README.md,386672ff54f1d09a2b77c61adf9227dec4f7993f,generated-readme
@@ -20062,7 +20062,7 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 01-WRITING/essays/reviews/README.md,01-WRITING/essays/reviews/README.md,5103006875c09d477b15dec1860bbfa7a7d26b64,generated-readme
 01-WRITING/essays/root-essays/README.md,01-WRITING/essays/root-essays/README.md,13ce7c03593cb6760995a9d7582ce35cf6b2c110,generated-readme
 01-WRITING/essays/supplements/README.md,01-WRITING/essays/supplements/README.md,a283a2c8422bb7cc75f318d8d20b339c44f26ed8,generated-readme
-01-WRITING/fiction/225-the-hallway.md/README.md,01-WRITING/fiction/225-the-hallway.md/README.md,09114047df8d114736378a3e4b5301e9d50c4731,generated-readme
+01-WRITING/fiction/225-the-hallway.md,01-WRITING/fiction/225-the-hallway.md,66711ef51f25fccfc8da9688d14124eac3a91a93,moved
 01-WRITING/fiction/CARRY_WORLD/README.md,01-WRITING/fiction/CARRY_WORLD/README.md,7858667585b31b52438d6753fc83286b60baf5bb,generated-readme
 01-WRITING/fiction/KIMI_EXCAVATION/README.md,01-WRITING/fiction/KIMI_EXCAVATION/README.md,017118f37138100d3960bddbd6c6199b05272a3d,generated-readme
 01-WRITING/fiction/README.md,01-WRITING/fiction/README.md,8262caad22198fa381f7a9ab519ca7852c84896c,generated-readme
@@ -20096,12 +20096,12 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 01-WRITING/plays-and-scripts/README.md,01-WRITING/plays-and-scripts/README.md,2edb2f14898cfc23c9313dd3055c2430b695038d,generated-readme
 01-WRITING/poetry-verse/ARCHITECTURE_POEMS/README.md,01-WRITING/poetry-verse/ARCHITECTURE_POEMS/README.md,b60e4dfc38373719cba2a9ea3c68c42a69fe133d,generated-readme
 01-WRITING/poetry-verse/README.md,01-WRITING/poetry-verse/README.md,909f8fe2574c83458d0ae97477d6ed523fd89642,generated-readme
-01-WRITING/poetry-verse/THE_PROJECTION_SHANTY.md/README.md,01-WRITING/poetry-verse/THE_PROJECTION_SHANTY.md/README.md,aa9024c4c08e8ec89752416ddc5e84c8f154730b,generated-readme
+01-WRITING/poetry-verse/THE_PROJECTION_SHANTY.md,01-WRITING/poetry-verse/THE_PROJECTION_SHANTY.md,324a90624bffe4118d8131880cb114a56f45fc1b,moved
 01-WRITING/poetry-verse/artwork/README.md,01-WRITING/poetry-verse/artwork/README.md,c52d480ccc69fa6e7ef652e69849998f375c7a2e,generated-readme
 01-WRITING/poetry-verse/code-poetry/README.md,01-WRITING/poetry-verse/code-poetry/README.md,80cf12617e28a0664113db72c1dc80fff103575f,generated-readme
 01-WRITING/poetry-verse/haibun/README.md,01-WRITING/poetry-verse/haibun/README.md,9bb02775078147d685d8ac000660920332311f7b,generated-readme
 01-WRITING/poetry-verse/night-watch-08-10/README.md,01-WRITING/poetry-verse/night-watch-08-10/README.md,0ef3a097827dd8fae65d9ce6ef7a9218c378237b,generated-readme
-01-WRITING/poetry-verse/the_datamodel_rift.md/README.md,01-WRITING/poetry-verse/the_datamodel_rift.md/README.md,6c2fc07463718b6cd58f1024e97cc950ed09ca75,generated-readme
+01-WRITING/poetry-verse/the_datamodel_rift.md,01-WRITING/poetry-verse/the_datamodel_rift.md,d74695f352367a4fad1fdcebfb2980e835a3ee19,moved
 01-WRITING/poetry-verse/verse/README.md,01-WRITING/poetry-verse/verse/README.md,27703b72c30cc94664ef7217f99d6b49f29130f7,generated-readme
 01-WRITING/spoken-radio-and-performance/2026-08-16/README.md,01-WRITING/spoken-radio-and-performance/2026-08-16/README.md,0d441ff95426d754f2269c9d10cfc1bed3794656,generated-readme
 01-WRITING/spoken-radio-and-performance/2026-08-16/adaptations/README.md,01-WRITING/spoken-radio-and-performance/2026-08-16/adaptations/README.md,9217b19da646b98d8b6557f9d6af8d1ee6798953,generated-readme
@@ -20419,17 +20419,17 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 01-WRITING/spoken-radio-and-performance/visuals/README.md,01-WRITING/spoken-radio-and-performance/visuals/README.md,83a2f9e895cb07d55548574749a216821461dd74,generated-readme
 01-WRITING/spoken-radio-and-performance/voice-tests/README.md,01-WRITING/spoken-radio-and-performance/voice-tests/README.md,de00f6796fe1bae8149a528c78bf190a55a233e9,generated-readme
 01-WRITING/unfiled-pieces/README.md,01-WRITING/unfiled-pieces/README.md,99e7d3b5d23767db3f251e4bfa3a9bee7598fe09,generated-readme
-01-WRITING/unfiled-pieces/hull_and_towfish.md/README.md,01-WRITING/unfiled-pieces/hull_and_towfish.md/README.md,0095454b5c7ae52af0cf5269238f6d8219bac9ca,generated-readme
-01-WRITING/unfiled-pieces/intelligence-is-a-capacity.md/README.md,01-WRITING/unfiled-pieces/intelligence-is-a-capacity.md/README.md,440f7fc274152ec169d64ecc29fadce07d287b6e,generated-readme
-01-WRITING/unfiled-pieces/the-buoy-replies.md/README.md,01-WRITING/unfiled-pieces/the-buoy-replies.md/README.md,6a22dcc1b06cf59f118df87be880ee0a940d2f51,generated-readme
-01-WRITING/unfiled-pieces/the-debt-was-the-asset.md/README.md,01-WRITING/unfiled-pieces/the-debt-was-the-asset.md/README.md,3991b1f3f04ac66ca74a19b0fdcb6c39592b71e7,generated-readme
-01-WRITING/unfiled-pieces/the-job-that-wakes-at-933.md/README.md,01-WRITING/unfiled-pieces/the-job-that-wakes-at-933.md/README.md,0df4b428de9e95878e144a6745c8a76bb4777d38,generated-readme
-01-WRITING/unfiled-pieces/the-last-bus-out-of-ordinary.md/README.md,01-WRITING/unfiled-pieces/the-last-bus-out-of-ordinary.md/README.md,fa243ab81a2048de2b4b68e7b60dbbbf86af6793,generated-readme
-01-WRITING/unfiled-pieces/the-night-shift-thinks-about-owls.md/README.md,01-WRITING/unfiled-pieces/the-night-shift-thinks-about-owls.md/README.md,d74d8dacf74d4f093b57e3f3cac53da67fdb9705,generated-readme
-01-WRITING/unfiled-pieces/the-night-watch-roster.md/README.md,01-WRITING/unfiled-pieces/the-night-watch-roster.md/README.md,945a04fa5edb0fef172ce24f0377a6a820d79261,generated-readme
-01-WRITING/unfiled-pieces/the-tuners.md/README.md,01-WRITING/unfiled-pieces/the-tuners.md/README.md,86804c1d6db802e3a9c786e269ad278e5ed66cc2,generated-readme
-01-WRITING/unfiled-pieces/the-web-of-stories.html/README.md,01-WRITING/unfiled-pieces/the-web-of-stories.html/README.md,2333be5a91a2da53637cd9262c8a166774ed47be,generated-readme
-01-WRITING/unfiled-pieces/what-the-mooring-line-holds.md/README.md,01-WRITING/unfiled-pieces/what-the-mooring-line-holds.md/README.md,a95cd1bc232964ef816d2549a89f053a41c7b17b,generated-readme
+01-WRITING/unfiled-pieces/hull_and_towfish.md,01-WRITING/unfiled-pieces/hull_and_towfish.md,31dbcb19a9da03201cc857360aded6be07e96dc1,moved
+01-WRITING/unfiled-pieces/intelligence-is-a-capacity.md,01-WRITING/unfiled-pieces/intelligence-is-a-capacity.md,8335c0c54d26ef16a5ea2e089ca4a29dbb0d3caa,moved
+01-WRITING/unfiled-pieces/the-buoy-replies.md,01-WRITING/unfiled-pieces/the-buoy-replies.md,72ee47c27dab24567f62d6bb7c6191fc002bde89,moved
+01-WRITING/unfiled-pieces/the-debt-was-the-asset.md,01-WRITING/unfiled-pieces/the-debt-was-the-asset.md,92fecf90a52885836556854706e92c8eb5d35103,moved
+01-WRITING/unfiled-pieces/the-job-that-wakes-at-933.md,01-WRITING/unfiled-pieces/the-job-that-wakes-at-933.md,c367591d74a8ca8ca0f1cd905e97953d4d9d56e4,moved
+01-WRITING/unfiled-pieces/the-last-bus-out-of-ordinary.md,01-WRITING/unfiled-pieces/the-last-bus-out-of-ordinary.md,f862d4ea092fa825ccf575cae8f504801082b53b,moved
+01-WRITING/unfiled-pieces/the-night-shift-thinks-about-owls.md,01-WRITING/unfiled-pieces/the-night-shift-thinks-about-owls.md,673a0aaa35aa400936d9b0a85337296a83568394,moved
+01-WRITING/unfiled-pieces/the-night-watch-roster.md,01-WRITING/unfiled-pieces/the-night-watch-roster.md,34a680b6d83e6d775ac79f2e59dee3bb0858c93d,moved
+01-WRITING/unfiled-pieces/the-tuners.md,01-WRITING/unfiled-pieces/the-tuners.md,a91000092126c1a267c6f868d16814c905d29c09,moved
+01-WRITING/unfiled-pieces/the-web-of-stories.html,01-WRITING/unfiled-pieces/the-web-of-stories.html,f22f59c1b5853c53617bfd2b82a01796bc2241a6,moved
+01-WRITING/unfiled-pieces/what-the-mooring-line-holds.md,01-WRITING/unfiled-pieces/what-the-mooring-line-holds.md,f818e12ee3a38d01e4d3c1525c2095a673ad4149,moved
 01-WRITING/voyages-and-journeys/README.original.md,01-WRITING/voyages-and-journeys/README.original.md,e56a46c4eed30a02401b162970a4e92d78c77467,preserved-original
 01-WRITING/voyages-and-journeys/creative/README.md,01-WRITING/voyages-and-journeys/creative/README.md,031f8057f25e1ddb4bb35f41171eabf5fb3b63c9,generated-readme
 02-MUSIC-AND-SOUND/README.md,02-MUSIC-AND-SOUND/README.md,bc7b47be40815e4655523141b9136bd00d51d249,generated-readme
@@ -20470,7 +20470,7 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 02-MUSIC-AND-SOUND/music-library/open-mic-7/README.md,02-MUSIC-AND-SOUND/music-library/open-mic-7/README.md,af111d8c4bffcb10c23df650bdf9728d911be0cd,generated-readme
 02-MUSIC-AND-SOUND/music-library/open-mic-8/README.md,02-MUSIC-AND-SOUND/music-library/open-mic-8/README.md,3a2400d206daec213b5cd5117442e177eb5addc3,generated-readme
 02-MUSIC-AND-SOUND/music-library/open-mic-9/README.md,02-MUSIC-AND-SOUND/music-library/open-mic-9/README.md,8c8c3a23b2a95d5ef2c7e52ddc988bc817b3129c,generated-readme
-02-MUSIC-AND-SOUND/music-library/riff.md/README.md,02-MUSIC-AND-SOUND/music-library/riff.md/README.md,48b7f6285cf27b54aab913d258606dbe99bea124,generated-readme
+02-MUSIC-AND-SOUND/music-library/riff.md,02-MUSIC-AND-SOUND/music-library/riff.md,ae1ba1a0e9f94a23c03ef655dc1be67b6c83baaf,moved
 02-MUSIC-AND-SOUND/music-library/session40/README.md,02-MUSIC-AND-SOUND/music-library/session40/README.md,383e3cf5bd98b873b5683746e77e0684ef3b536e,generated-readme
 02-MUSIC-AND-SOUND/music-library/session51/README.md,02-MUSIC-AND-SOUND/music-library/session51/README.md,a6152d7dcdef7525accac7bbfc98029948ff0544,generated-readme
 02-MUSIC-AND-SOUND/music-library/session52/README.md,02-MUSIC-AND-SOUND/music-library/session52/README.md,4e86ec1a2d88402476ba8c5a1cd139d6c9a19368,generated-readme
@@ -20482,8 +20482,8 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 02-MUSIC-AND-SOUND/music-library/tap-anthem-2/README.md,02-MUSIC-AND-SOUND/music-library/tap-anthem-2/README.md,dd590e7fcdb72529138c2075d7f11ae0714bdecd,generated-readme
 02-MUSIC-AND-SOUND/music-library/tap-anthem/README.md,02-MUSIC-AND-SOUND/music-library/tap-anthem/README.md,6958afded1fe37837e9473876d85e811fdd14480,generated-readme
 02-MUSIC-AND-SOUND/music-library/tap-anthem/sections/README.md,02-MUSIC-AND-SOUND/music-library/tap-anthem/sections/README.md,b074741dea82d8670aacd1189cbee380a7427e80,generated-readme
-02-MUSIC-AND-SOUND/music-library/the-first-tuning.md/README.md,02-MUSIC-AND-SOUND/music-library/the-first-tuning.md/README.md,fe25322208c7830cb8e27c442b1b102fabf7bd7c,generated-readme
-02-MUSIC-AND-SOUND/music-library/the_135.md/README.md,02-MUSIC-AND-SOUND/music-library/the_135.md/README.md,e24b8cb853bc63491a6bed658ee405cfdeb84d61,generated-readme
+02-MUSIC-AND-SOUND/music-library/the-first-tuning.md,02-MUSIC-AND-SOUND/music-library/the-first-tuning.md,1f442398b37f943be940a547619bea3411cde55e,moved
+02-MUSIC-AND-SOUND/music-library/the_135.md,02-MUSIC-AND-SOUND/music-library/the_135.md,390363456d86a618ecd5c39728d8d1c2377d3f25,moved
 02-MUSIC-AND-SOUND/music-library/vocal-tracks/README.md,02-MUSIC-AND-SOUND/music-library/vocal-tracks/README.md,d3a257ed9102d952027210ea18fb82d0f1f0ad1e,generated-readme
 02-MUSIC-AND-SOUND/rendered-audio/README.md,02-MUSIC-AND-SOUND/rendered-audio/README.md,daaa7c84daf6bd40547ec1e48f356e5fcb242107,generated-readme
 02-MUSIC-AND-SOUND/rendered-audio/extensive/README.md,02-MUSIC-AND-SOUND/rendered-audio/extensive/README.md,40154d47d385b6dbad97bfdf2103e36b4d941085,generated-readme
@@ -20577,8 +20577,8 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/_tournament/README.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/_tournament/README.md,d07eebac9fc5f22872766ccf916fbd4164c70faf,generated-readme
 04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/artwork/README.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/artwork/README.md,1d89fb743573a0a0f1cd742f1581da8e72bb7853,generated-readme
 04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/chronicles/README.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/chronicles/README.md,e1a1307290aed048ec0ed4d52bd8b9c63f67202e,generated-readme
-04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/the-fence-painter.md/README.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/the-fence-painter.md/README.md,fab7f40d36d76d9b72575ef97ab6ee90ea47937e,generated-readme
-04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/why-the-ship-needs-a-cook.md/README.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/why-the-ship-needs-a-cook.md/README.md,e8863be570be46beaf79b216de5ebb786dd84b77,generated-readme
+04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/the-fence-painter.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/the-fence-painter.md,a2a0ed9fcd0933da31ea5c538d4bcd2250022174,moved
+04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/why-the-ship-needs-a-cook.md,04-PHILOSOPHY-AND-CANON/philosophy-and-long-form/why-the-ship-needs-a-cook.md,c17818a1e622909e00494815e217e980c385a588,moved
 04-PHILOSOPHY-AND-CANON/reference/README.md,04-PHILOSOPHY-AND-CANON/reference/README.md,c8702c7b53f0270f3bb85bc4bfa387be373a18c9,generated-readme
 04-PHILOSOPHY-AND-CANON/reference/architecture/README.md,04-PHILOSOPHY-AND-CANON/reference/architecture/README.md,38051245a01fd3658102509e6daa809316e66628,generated-readme
 04-PHILOSOPHY-AND-CANON/tradition-and-myth/README.md,04-PHILOSOPHY-AND-CANON/tradition-and-myth/README.md,2b600d88cc6eaa693fcf5beb48a4bdbe510c232b,generated-readme
@@ -20642,7 +20642,7 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 05-AGENT-WRITINGS/ideation-and-dreams/README.md,05-AGENT-WRITINGS/ideation-and-dreams/README.md,961bf30f95e7eccab211a75367482ffe985f310b,generated-readme
 05-AGENT-WRITINGS/ideation-and-dreams/agent-culture/README.md,05-AGENT-WRITINGS/ideation-and-dreams/agent-culture/README.md,82aa8c168a2940840ddbcd71a1cebb9602fe0705,generated-readme
 05-AGENT-WRITINGS/ideation-and-dreams/cellular-architecture/README.md,05-AGENT-WRITINGS/ideation-and-dreams/cellular-architecture/README.md,49eed2442fced9227e89ef907f45f852fb0934db,generated-readme
-05-AGENT-WRITINGS/ideation-and-dreams/clever-mechanisms-repos.md/README.md,05-AGENT-WRITINGS/ideation-and-dreams/clever-mechanisms-repos.md/README.md,7670daf2ede218bf63494f18203b17f4821e50ef,generated-readme
+05-AGENT-WRITINGS/ideation-and-dreams/clever-mechanisms-repos.md,05-AGENT-WRITINGS/ideation-and-dreams/clever-mechanisms-repos.md,93d7e18f7d60c190836ba33f03888eb98f32ac97,moved
 05-AGENT-WRITINGS/ideation-and-dreams/concept-papers/README.md,05-AGENT-WRITINGS/ideation-and-dreams/concept-papers/README.md,5f508a1f59223dfedfdc4df13d3b2f97e6715089,generated-readme
 05-AGENT-WRITINGS/ideation-and-dreams/dialogue-fractals/README.md,05-AGENT-WRITINGS/ideation-and-dreams/dialogue-fractals/README.md,c8e20714017c9db3b2916650465ba0738c7c4eb6,generated-readme
 05-AGENT-WRITINGS/ideation-and-dreams/examples/README.original.md,05-AGENT-WRITINGS/ideation-and-dreams/examples/README.original.md,3c5b818b7b62f1e2c703c5a8f9436ca1ec8ec423,preserved-original
@@ -20664,8 +20664,8 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 05-AGENT-WRITINGS/ideation-and-dreams/spreadsheet-plugins/README.md,05-AGENT-WRITINGS/ideation-and-dreams/spreadsheet-plugins/README.md,8ea00a0c1411650df252645187d2247c19ef2cf7,generated-readme
 05-AGENT-WRITINGS/ideation-and-dreams/stories/README.md,05-AGENT-WRITINGS/ideation-and-dreams/stories/README.md,2fa10c7dd199c1c8cacf135dab79b4797b613a98,generated-readme
 05-AGENT-WRITINGS/ideation-and-dreams/the-eileen-cuts/README.md,05-AGENT-WRITINGS/ideation-and-dreams/the-eileen-cuts/README.md,40961025b803bbaa00f444237341af294d67c7ad,generated-readme
-05-AGENT-WRITINGS/ideation-and-dreams/the-tenders-sunday.md/README.md,05-AGENT-WRITINGS/ideation-and-dreams/the-tenders-sunday.md/README.md,259024fd74452662cc10f8228e7c6a3e49b41917,generated-readme
-05-AGENT-WRITINGS/ideation-and-dreams/unbound.md/README.md,05-AGENT-WRITINGS/ideation-and-dreams/unbound.md/README.md,1757c523c882cc4477147c3c7e35848f2789ff11,generated-readme
+05-AGENT-WRITINGS/ideation-and-dreams/the-tenders-sunday.md,05-AGENT-WRITINGS/ideation-and-dreams/the-tenders-sunday.md,07406f653ab8fcdcbec03b01a41be1a3087d74fd,moved
+05-AGENT-WRITINGS/ideation-and-dreams/unbound.md,05-AGENT-WRITINGS/ideation-and-dreams/unbound.md,dc154985f2e5641202848dffeb2ed28d63f8492d,moved
 05-AGENT-WRITINGS/ideation-and-dreams/worker/README.md,05-AGENT-WRITINGS/ideation-and-dreams/worker/README.md,849c0f434a0573891c30c526ab9ca02df203c9be,generated-readme
 05-AGENT-WRITINGS/labs-and-brews/README.original.md,05-AGENT-WRITINGS/labs-and-brews/README.original.md,6df3c472e74ab047502135c2053a359c804a8b61,preserved-original
 05-AGENT-WRITINGS/labs-and-brews/activeledger/README.original.md,05-AGENT-WRITINGS/labs-and-brews/activeledger/README.original.md,ede8c9465202faaaff8f089652498d9e2f9c667a,preserved-original
@@ -20917,10 +20917,10 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 06-TECHNICAL-AND-SYSTEMS/protocols-and-a2a/poetry/README.md,06-TECHNICAL-AND-SYSTEMS/protocols-and-a2a/poetry/README.md,56494285ad95ffd2e8f5a3b57785fdf639b47cb5,generated-readme
 06-TECHNICAL-AND-SYSTEMS/protocols-and-a2a/tests/README.md,06-TECHNICAL-AND-SYSTEMS/protocols-and-a2a/tests/README.md,8d8bc0cbc537c3ad006a6fa50720d0fcb17213e0,generated-readme
 06-TECHNICAL-AND-SYSTEMS/strategy-and-plans/README.md,06-TECHNICAL-AND-SYSTEMS/strategy-and-plans/README.md,9bc422e6d56574dddd078226af879563bde0a0ea,generated-readme
-06-TECHNICAL-AND-SYSTEMS/systems-engineering/609-the-slot-nothing-is-in.md/README.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/609-the-slot-nothing-is-in.md/README.md,1b2326328c193075bbbdb624c004e048a536247a,generated-readme
+06-TECHNICAL-AND-SYSTEMS/systems-engineering/609-the-slot-nothing-is-in.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/609-the-slot-nothing-is-in.md,2a049f5b741dcaae6f5d41186368e10cb3235f8a,moved
 06-TECHNICAL-AND-SYSTEMS/systems-engineering/README.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/README.md,4f1f1a5e42ebcda0e0f9b831c334bc33891a3db9,generated-readme
-06-TECHNICAL-AND-SYSTEMS/systems-engineering/silence_on_the_line.md/README.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/silence_on_the_line.md/README.md,215f6ac336d56dee70eacbb5bc8ba7913d13c4e1,generated-readme
-06-TECHNICAL-AND-SYSTEMS/systems-engineering/the-quilt-tangle.md/README.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/the-quilt-tangle.md/README.md,6fc282973153688df74a3fe748a4b5468f89a41e,generated-readme
+06-TECHNICAL-AND-SYSTEMS/systems-engineering/silence_on_the_line.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/silence_on_the_line.md,0982300de585949c1a5228aaede2bbf585ae6fdb,moved
+06-TECHNICAL-AND-SYSTEMS/systems-engineering/the-quilt-tangle.md,06-TECHNICAL-AND-SYSTEMS/systems-engineering/the-quilt-tangle.md,2345e14c75a2a68bfe9363063a1c51762c127963,moved
 07-WORLD-BUILDING/README.md,07-WORLD-BUILDING/README.md,7baa0d79d27d7d74d71215e5e3b50149321d335d,generated-readme
 07-WORLD-BUILDING/communities-and-crews/README.md,07-WORLD-BUILDING/communities-and-crews/README.md,fb684993a02b90726ee6e90dd4794f1928af975a,generated-readme
 07-WORLD-BUILDING/communities-and-crews/counter-stories/README.md,07-WORLD-BUILDING/communities-and-crews/counter-stories/README.md,f23c076bd03041d1fdc3fcf800c434e5e500d3d6,generated-readme
@@ -20932,13 +20932,13 @@ Hermes_Sub_00004_.png,Hermes_Sub_00001_.png,6d5f9c94744b7f0890aee1608ea54d2955bf
 07-WORLD-BUILDING/ecologies-and-places/darmok/README.md,07-WORLD-BUILDING/ecologies-and-places/darmok/README.md,f3f4e741c25bec03fdff4627d141bd94737dce8a,generated-readme
 07-WORLD-BUILDING/ecologies-and-places/episode-4/README.md,07-WORLD-BUILDING/ecologies-and-places/episode-4/README.md,a3fde5c361fc8b2bb54a2483839e1d30b004da95,generated-readme
 07-WORLD-BUILDING/ecologies-and-places/futures/README.md,07-WORLD-BUILDING/ecologies-and-places/futures/README.md,191533b00d5b6c39965c4a8a12f18b3bc656f46f,generated-readme
-07-WORLD-BUILDING/ecologies-and-places/log_of_hermes_ob1_2026-08-18.md/README.md,07-WORLD-BUILDING/ecologies-and-places/log_of_hermes_ob1_2026-08-18.md/README.md,778656b4a09c872387a9cc8a11594908e245eeca,generated-readme
+07-WORLD-BUILDING/ecologies-and-places/log_of_hermes_ob1_2026-08-18.md,07-WORLD-BUILDING/ecologies-and-places/log_of_hermes_ob1_2026-08-18.md,ac094d26ba7604741c1c11b647f749a052ccec3e,moved
 07-WORLD-BUILDING/ecologies-and-places/math-and-metal/README.md,07-WORLD-BUILDING/ecologies-and-places/math-and-metal/README.md,13a12e9b87955ab49685b535f679fb2dd48555a8,generated-readme
 07-WORLD-BUILDING/ecologies-and-places/message-in-a-bottle/README.md,07-WORLD-BUILDING/ecologies-and-places/message-in-a-bottle/README.md,eb196fa99b6b2adbc8c7c2c81ddaf5a1512aa529,generated-readme
 07-WORLD-BUILDING/ecologies-and-places/message-in-a-bottle/from-fleet/README.md,07-WORLD-BUILDING/ecologies-and-places/message-in-a-bottle/from-fleet/README.md,be0066c3f8cf2c8aca0f03ac13f70adc1d5fb07e,generated-readme
 07-WORLD-BUILDING/ecologies-and-places/refined/README.md,07-WORLD-BUILDING/ecologies-and-places/refined/README.md,0d78fd8d515dc43b8bf363c370cd3fa4fa2b6a5d,generated-readme
 07-WORLD-BUILDING/ecologies-and-places/reverse-engineering/README.original.md,07-WORLD-BUILDING/ecologies-and-places/reverse-engineering/README.original.md,61f2a1d8e157959bf35e8e2bb676a9f91a061ec2,preserved-original
-07-WORLD-BUILDING/ecologies-and-places/the-lighthouse-keepers-change-log.md/README.md,07-WORLD-BUILDING/ecologies-and-places/the-lighthouse-keepers-change-log.md/README.md,e94cc5d658177fdfc05ee8bc10d648bb0528dace,generated-readme
+07-WORLD-BUILDING/ecologies-and-places/the-lighthouse-keepers-change-log.md,07-WORLD-BUILDING/ecologies-and-places/the-lighthouse-keepers-change-log.md,895a8f8a3a0642fa9da0c19ba845b288b7898a20,moved
 07-WORLD-BUILDING/situations-and-scenarios/README.original.md,07-WORLD-BUILDING/situations-and-scenarios/README.original.md,6086a03d1de4889b8241c347c4515c5be6ec3677,preserved-original
 07-WORLD-BUILDING/situations-and-scenarios/arch/README.md,07-WORLD-BUILDING/situations-and-scenarios/arch/README.md,0d8dacbef2c2c2c0b30e3091a3ef5e30cdf242c4,generated-readme
 07-WORLD-BUILDING/situations-and-scenarios/blueprints/README.original.md,07-WORLD-BUILDING/situations-and-scenarios/blueprints/README.original.md,9c36a0248deea2fad788ea3f3dfdf6ab48e59053,preserved-original

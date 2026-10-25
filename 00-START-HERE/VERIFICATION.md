@@ -47,8 +47,8 @@ The three real ones were rescued into this library:
 | byte-identical duplicates collapsed onto one address | 1,197 (each one listed in the manifest with its surviving address) |
 | divergent versions kept | **all** — nothing with different bytes was ever collapsed |
 | case-insensitive path collisions in the new tree | **0** |
-| directories with no `README.md` | **0** of 1,317 |
-| files in the library tree | 20,199 (18,818 corpus + 1,328 generated READMEs and indexes) |
+| directories with no `README.md` | **0** of 1,289 |
+| files in the library tree | 20,171 (18,818 corpus + 1,300 generated READMEs and indexes) |
 | files at the repository root (machinery: `packages/`, `tools/`, `.github/`, config) | 77 |
 
 The collapse rule is deliberately narrow: **two paths are merged only when their content hashes are identical.** Where two versions of the same work differ by even one byte, both are kept — see [`99-PRESERVED-VARIANTS/`](../99-PRESERVED-VARIANTS/).

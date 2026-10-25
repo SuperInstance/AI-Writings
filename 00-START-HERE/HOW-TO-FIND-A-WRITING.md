@@ -1,6 +1,6 @@
 # How to find the kind of writing you are looking for
 
-Every row is a door. If nothing fits, use [`FILE-INDEX.csv`](FILE-INDEX.csv) and search it by title, path or content hash — it lists all 20,199 files.
+Every row is a door. If nothing fits, use [`FILE-INDEX.csv`](FILE-INDEX.csv) and search it by title, path or content hash — it lists all 20,171 files.
 
 **If you are looking for something and it is not here**, the likeliest reason is that it was one of the 1,391 files that were sitting loose at the repository root. Most of those were byte-identical copies of files already in a proper folder; the rest were filed by hand into [`01-WRITING/unfiled-pieces/`](../01-WRITING/unfiled-pieces/) and the dated series. The manifest records every one of them.
 
