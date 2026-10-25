@@ -45,6 +45,33 @@ Count wins from `meta_log`, never from `max(results)`.
   5000/5000 (403) while search still had 30. A 403 renders as "not found" for every
   candidate at once.
 
+## THE MOCK MUST RETURN AN OPENAI-SHAPED ENVELOPE (8th, undocumented-in-the-algorithm item)
+
+`call_provider` does `r["choices"][0]["message"]["content"]`. A mock that writes the raw
+body as the HTTP payload is a `JSONDecodeError` on the **first** request, not on a
+liveness probe (the port answers, the body just isn't the shape the client wants).
+
+```
+{"id":"mock-zai-<seed>","object":"chat.completion","created":0,"model":"glm-4.5",
+ "choices":[{"index":0,"finish_reason":"stop",
+             "message":{"role":"assistant","content":<the 360-char body>}}],
+ "usage":{"prompt_tokens":N,"completion_tokens":N,"total_tokens":N}}
+```
+
+This is the **eighth** thing to get right, after the seven documented fixes, and it is
+**not** in the algorithm block. With it applied, the pre-flight passed **12/12 on the
+first build**.
+
+## A PRE-FLIGHT FIXTURE MUST BE READ FROM DISK, NEVER HAND-TYPED
+
+The pre-flight's cultural-prompt length band (**167-209**) is a property of the real
+`culture.json` files — their names, tenet lists and `voice_emphasis` strings. A fixture
+with invented tenet strings measured **145-177** and produced a **false FAIL** on the
+band check, which is indistinguishable from a real regression.
+
+**Read the real cultures into the pre-flight.** A band assertion whose fixture is
+hand-typed tests the fixture, not the system.
+
 ## The mock provider algorithm (fully known; do not re-derive)
 
 The Control B mock for `zai` derives every response from the md5 of the request's

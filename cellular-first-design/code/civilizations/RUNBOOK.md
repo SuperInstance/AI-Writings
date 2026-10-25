@@ -1,3 +1,40 @@
+# Civ Orchestrator — Run Report, session 192 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 66th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `ede4ce3` (session 191). **All 29 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session192.md`.
+
+## Headline for the next session
+
+- **THE MOCK MUST RETURN AN OPENAI-SHAPED ENVELOPE — THE ALGORITHM BLOCK DOES NOT SAY SO.**
+  `call_provider` reads `r["choices"][0]["message"]["content"]`, so a mock that returns the
+  raw body as the HTTP payload is a `JSONDecodeError` on the **first** request. The envelope
+  is `{"choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant",
+  "content":<body>}}],"model":"glm-4.5",...}`. This was the only rebuild fix needed; the
+  pre-flight then passed **12/12 on the FIRST build**.
+- **A PRE-FLIGHT WITH A HAND-TYPED CIV FIXTURE IS A FALSE-FAILURE GENERATOR.** The first
+  pre-flight reported check 12 FAIL at a **145-177** cultural-prompt band because the
+  fixture used invented tenet/voice strings. The real band **167-209** is measured from the
+  on-disk `culture.json` files. **Read the real cultures into the pre-flight; never
+  hand-type the fixture.**
+- **`civ-precise` SWEPT 5/5 FOR THE FOURTH CONSECUTIVE SWEEP — AND IT IS A CHOOSER EFFECT.**
+  The chooser disagreed with the `avg_score` argmax on **4 of 5** prompts and **all four
+  took the LOWER-scoring candidate** — the **12th consecutive session** in which a
+  chooser/argmax disagreement is a *down*-grade. Agreement **1/5 (20 %)**. `civ-poetic`
+  was the argmax on **4 of 5** prompts and won **none**. The `best_civ` criteria map
+  (civ_id -> civ name) is the standing suspect, not the quality signal.
+- **`civ-grounded` remains the lifetime low — 64th consecutive session.** Lifetime
+  `relevance` **1389.42** (last of 8), `relevance_per_sim` **1.015**, lifetime `win_rate`
+  **0.104** (**3rd-best** in the fleet). No extinction risk (**139x** the −10 floor).
+- **THE RUN-LEVEL LOW ROTATED TO `civ-mythic`** (run `avg_score` **1.9147**, `alignment`
+  **1.8060** lowest) — an **11th different civ in 11 sessions**. *The holder rotates; the
+  axis does not.* Cross-civ spreads: `alignment` **1.2140** › `quality` **0.5070** ›
+  `avg_score` **0.5007** › `novelty` **0.1400** — alignment dominates, novelty is flat.
+- **THE NEXT REAL EXPERIMENT IS TO BYPASS THE CHOOSER** and rank purely by `avg_score`.
+  The data already says the chooser discards the better candidate on 4 of 5 prompts.
+
 # Civ Orchestrator — Run Report, session 191 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
