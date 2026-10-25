@@ -1,3 +1,68 @@
+## Session 237 additions (2026-10-25)
+
+### 1. A **2-2-1 WINNER SPLIT** IS THE END OF A 19-SESSION `civ-precise` SWEEP RUN
+
+`civ-precise` took **2/5** this session, `civ-engineer` **2/5**, `civ-formal` **1/5**. The
+`avg_score` argmax was `civ-poetic` on **3 of 5** prompts — the same argmax pattern as
+session 231, while the chooser picked a different civ every time.
+
+*Rule: a winner-streak is a description of history, not a prediction. Sessions 211-236 had
+`civ-precise` sweeping most prompts; a 2-2-1 split is evidence the field is genuinely
+competitive, not a measurement artefact. Never carry "X sweeps every session" forward.*
+
+### 2. **PARTICIPATION COUNT IS NOT CONSTANT** — ASSERT THE **DELTA**, NOT THE TOTAL
+
+`wins + losses` totals across the fleet are **891-898**, not multiples of 5, because **35
+historical competitions had fewer than 8 participants**: in `civilization_competition()` a civ
+whose `run_simulation` returned `None` never enters `results`, so it is neither a winner nor a
+loser. This session's 5 competitions each had **8/8** participants.
+
+*Rule: assert `d_wins + d_losses == 5` against the **baseline commit**, not the absolute total.
+An assertion of the form "total % 5 == 0" is only valid when the participation count is known
+to be constant — and it is not, historically.*
+
+### 3. THE **NFS BRIDGE** CAN REPORT A **BROKEN LINK** FOR A LINK THAT IS FINE
+
+Immediately after `ln -sfn /tmp/aiw/cellular-first-design /workspace/repos/ai-writings/cellular-first-design`,
+`ls -la .../code/civilizations/` returned *"No such file or directory"* — while `ls -d` on the
+**same** path succeeded, and `stat -L` showed a valid directory. The workspace is an **NFS**
+mount (`vers=3`), so the negative lookup came from a **stale attribute cache** on the parent
+directory, not from a broken link. A later call to the identical command succeeded with **no
+filesystem change in between**.
+
+*Rule: on the NAS bridge, a one-shot "No such file or directory" immediately after creating a
+symlink is **not** proof the link is broken. Verify with `stat -L` and `os.path.samefile()`,
+and **re-read the path** before reporting it absent. Conversely, a path that `ls -d` resolves
+and `ls -la` does not is an NFS artifact, not a structural problem.*
+
+### 4. THE TAIL SHOULD BE **EXTRACTED**, NOT RECONSTRUCTED
+
+The 162-char tail prefix was pulled **byte-for-byte** from the ledger's dominant family (400
+occurrences) with a small script rather than retyped. A hand-reconstructed tail came out at
+**210** chars — 48 too long — and pushed the body to **386**, above the 332-369 band, because
+the geometry is `38 + 162 + continuation` and the tail is the one term that must be exact.
+
+*Rule: extract the tail from the ledger, then solve the continuation as `target - 38 - 162`.
+A tail is not a thing you can paraphrase; the byte count is load-bearing.*
+
+### 5. THE **CHOOSER CANNOT AGREE** WITH `avg_score` — AND 0 UP-GRADES IS NOW 21 SESSIONS
+
+Agreement was **1/5 (20 %)** with **4 down-grades and 0 up-grades**; the up-grade count across
+the whole series remains **0**. The chooser reads only `content_preview[:150]` and never sees
+`avg_score` (structural — session 231), so every disagreement is a down-grade **by
+construction**. All four down-grades were marginal (max delta 0.35, no cliff).
+
+*Rule: report agreement and the up/down split as two separate numbers, and state the
+structural reason the up-grade count is pinned at 0 so nobody reads it as a regression.*
+
+### 6. THE **TWO-AXIS COLLAPSE** SIGNATURE HELD, AND THE AXIS DOMINANCE IS NOW 2.24x
+
+Run low `civ-therapist` (avg **1.6847**) with quality **1.3480** and alignment **1.2090** both
+at the fleet low while novelty held at **2.4970** (4th-highest of 8). The run's alignment spread
+(**2.0180**) was **2.24x** the `avg_score` spread (**0.9017**); quality 0.79x, novelty 0.23x.
+
+*Rule: report the axis signature **for this session**. The holder rotates; the axis does not.*
+
 ## Session 234 additions (2026-10-25)
 
 *This session ran concurrently with session 235 against the same baseline (`f6f3609`). Its

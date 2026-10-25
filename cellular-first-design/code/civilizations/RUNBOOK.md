@@ -1,3 +1,17 @@
+# Civ Orchestrator — Run Report, session 237 (2026-10-25)
+## Session 237 (2026-10-25) — provider path, baseline, and result
+
+- Provider path: **Control B mock** (z.ai credential gap, **99th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `29f52fd` (session 236 tree), `refs/heads/main` asserted equal to the clone HEAD.
+- **Pre-flight gate: 8/8 PASS** (first build). **Run verification: 20/20 PASS.**
+- Result: winners **split 2-2-1** — `civ-precise` 2, `civ-engineer` 2, `civ-formal` 1; chooser/argmax agreement **1/5 (20 %)** — 4 down-grades, 0 up-grades.
+- Run low: **`civ-therapist`** (avg **1.6847**, fleet-low run alignment **1.2090** and quality **1.3480** — a two-axis collapse).
+- Lifetime low: **`civ-grounded`** (**2177.29**, 99th consecutive session).
+- Full detail: `RUN_REPORT_2026-10-25_session237.md`.
+- The **2-2-1 winner split breaks a 19-session `civ-precise` sweep run** — the field is genuinely competitive; do not read a winner-streak as a law.
+- The tail was **extracted byte-for-byte** from the ledger (400-occurrence dominant family), not reconstructed; body **358** chars, first build inside the 332-369 band.
+- The **NFS bridge needed a stale-attribute-cache retry** after `ln -sfn` — a one-shot "No such file or directory" right after creating the symlink is not proof the link is broken; use `stat -L` + `os.path.samefile()`.
+
 # Civ Orchestrator — Run Report, session 234 (2026-10-25)
 ## Session 234 (2026-10-25) — provider path, baseline, and result
 
