@@ -1,3 +1,77 @@
+# Civ Orchestrator — Run Report, session 257 (2026-10-25) [NEW]
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 114th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `0657c97`. **Pre-flight gate: 40/40 PASS.** **Run verification: 79/79 PASS, 0 FAIL.**
+Ledger delta: +10 rows/civ (+80 total); `meta_log` 1018 -> 1023; 18 files changed.
+
+## New durable findings
+
+1. **`simulations_run` IS +10 PER RUN, NOT +5 — THE SESSION-256 GATE WAS WRONG AND IT FAILED
+   LOUDLY.** Session 256 asserted "`simulations_run` counts only the sim phase (5 per civ)" and
+   built a gate on `dSims == 5`. That assertion produces **8 FALSE FAILURES on a clean run** —
+   which is exactly what this session's first verification pass reported, and it nearly got
+   written up as a broken run. The code settles it: `civilization_orchestrator.py:252` submits
+   `c.run_simulation(...)` **in the competition phase too**, and line 206
+   (`self.sims_run += 1`) lives inside `run_simulation` — so **both** phases increment it.
+   Git history confirms independently: `civ-therapist` `sims_run` runs
+   **1937 -> 1947 -> 1957 -> 1967 -> 1977 -> 1987** over six sessions = **exactly +10 each**,
+   matching the ledger's +10. Session 256's companion claim ("asserting `sims_run ==
+   rows_before + 10` produces 8 false failures") is **inverted** — it is `+5` that fails.
+   *Rule: assert `dSims == 10`; read the `simulations_run` baseline from the **git blob**, not
+   from the ledger row count (the two stay offset by 16-63 rows of competition history).*
+   *Meta-rule, and the second gate-level correction in two sessions: **check the gate against
+   the CODE, not against the previous session's report.** A prior session's report is a
+   hypothesis, not a spec.*
+
+2. **THE BOARD-VS-RAW-RELEVANCE FLIP IS CONFINED TO THE BOTTOM PAIR — NOT A WHOLE-FLEET
+   REORDERING.** The board sorts by `relevance_per_sim`, not `relevance`, and the two disagree:
+   board tail is `civ-therapist` (1.2307) then `civ-grounded` (1.2288); raw tail is
+   `civ-grounded` (2480.90) then `civ-therapist` (2457.65). But the **top 6 are identical** in
+   both orderings (poetic, precise, formal, whimsical, mythic, engineer). Session 256's framing
+   implied a broader divergence; it is a **tail-only** flip. *Report both orderings, but do not
+   imply the whole board is scrambled — the flip is a bottom-pair phenomenon, and
+   `civ-engineer` is #6 in both.*
+
+3. **`civ-engineer`'s LOW-RELEVANCE SHAPE IS NOT STABLE ACROSS SESSIONS.** Session 256:
+   **novelty** floor (2.2030) with mid-pack quality. Session 257: novelty **2.2680** (mid-pack),
+   with a general mid-low profile (quality 0.6870, alignment 2.0510). *Do not attribute one
+   session's axis to a civ — re-derive the axis floors from the current run every time. (This
+   sharpens session 255's finding #3, which warned against stopping at two shapes: the shapes
+   themselves move between sessions.)*
+
+4. **`civ-therapist` NOW HOLDS BOTH AXIS FLOORS, NOT JUST ONE.** Session 257 run low for the
+   **8th consecutive session**, with alignment **0.8770** AND quality **0.4670** both at the
+   fleet floor (session 256 had quality second-lowest at 0.6460). *The persistent shape is a
+   quality+alignment collapse in the same civ, while the board's last place is still a
+   different civ — so "run low" and "board last" are not the same civ and must be reported
+   separately.*
+
+5. **JEV-ARGMAX AGREEMENT TIED ITS RECORD LOW AT 1/5 (20%) — 4 DOWN-GRADES, 0 UP-GRADES.**
+   Margins -0.0267 to -0.0700, all JEV picks for `civ-precise` where the average favoured
+   `civ-poetic`; the one agreement's margin was exactly 0.0000. *The "0 up-grades" invariant
+   survived — and the up/down counts must be computed NUMERICALLY (compare winner score to
+   argmax score), never by list position (session 255's finding #1).* `civ-precise`'s sweep
+   (5/5, 6th consecutive) is bought by the fleet's **max alignment (2.7640)** while it holds the
+   **novelty floor (2.2290)** — *a single-axis winner can sweep a chooser that rewards
+   alignment.*
+
+6. **THE WORKSPACE NAS MOUNT IS QUOTA-LIMITED, NOT SIZE-LIMITED — CLONE TO `/tmp`.** The first
+   `git clone` into `/workspace/repos/...` died with `close error: Disk quota exceeded` on
+   `.git/description`. `df` shows the workspace mount at **100% (600G/600G, 0 avail)** while the
+   overlay root has **28G free**; `du` shows only ~2 KB of my own content under `/workspace`.
+   *Rule: the workspace is not where to clone a 3.7 GB repo — clone to `/tmp` (overlay, not
+   NAS-backed) and bridge `/workspace/repos/ai-writings -> /tmp/ai-writings`, then verify with
+   `os.path.samefile()` -> True.* The script's hardcoded `CIVS_DIR` then resolves correctly.
+   This is the **24th consecutive EDQUOT session**.
+
+7. **A GATE THAT FAILS 8/8 ON A CLEAN RUN IS A GATE BUG, NOT A BROKEN RUN — CHECK THE CODE
+   BEFORE REPORTING A REGRESSION.** The `dSims == 5` gate failed on all 8 civs while every
+   other signal was green (ledger +10 on all 8, `dRelevance` residual 0.0000 on all 8, 80/80
+   md5 recompute, 0 JEV errors, meta_log +5). *A uniform all-8 failure with otherwise-green
+   signals is the signature of a wrong assertion, not of a broken run. Confirm against the
+   source and the git history before writing "the run regressed."*
+
 # Civ Orchestrator — Run Report, session 255 (2026-10-25) [NEW]
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`

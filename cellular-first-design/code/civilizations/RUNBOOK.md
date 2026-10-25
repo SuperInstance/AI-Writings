@@ -1,3 +1,82 @@
+## Session 257 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
+- Provider path: **Control B mock** (z.ai credential gap, **114th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `0657c97`. **Pre-flight gate: 40/40 PASS.** **Run verification: 79/79 PASS, 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **1018 -> 1023** (+5); **18** files changed.
+
+> **GATE CORRECTION (carry this forward): `simulations_run` is +10 PER RUN, NOT +5.**
+> Session 256 recorded that `simulations_run` "counts only the sim phase (5 per civ)" and built a
+> gate asserting `dSims == 5`. **That assertion is wrong and produces 8 FALSE FAILURES on a
+> clean run** (it did, in this session's first verification pass). The code settles it:
+> `civilization_orchestrator.py:252` submits `c.run_simulation(...)` **in the competition phase
+> too**, and line 206 (`self.sims_run += 1`) is inside `run_simulation` — **both** phases
+> increment the counter. Git history confirms independently: `civ-therapist` `sims_run` runs
+> **1937 -> 1947 -> 1957 -> 1967 -> 1977 -> 1987** across six sessions = **exactly +10 per
+> session**, matching the ledger's +10. **Fix: assert `dSims == 10`.** The session-256 note
+> that "asserting `sims_run == rows_before + 10` produces 8 false failures" is **inverted** —
+> it is `+5` that is the false-failing expectation. Keep reading the `simulations_run`
+> baseline from the **git blob** (the ledger row count and `sims_run` stay offset by 16-63 rows
+> of accumulated competition history). **Second gate-level correction in two sessions: check
+> the gate against the CODE, not against the previous session's report.**
+
+- Mock body **349** chars (38 header + 162 tail + 149 continuation), inside the 332-369 band.
+- The spec was **re-derived from the live ledger** before launch (not trusted from the RUNBOOK):
+  `i = d[0] % 4`, `seed = h[(i*2)%8:(i*2)%8+4]`, `color = h[8:12]`,
+  `figure = h[12:16]/h[16:20]/h[20:24]`. The committed `tools/mock_zai.py` matches byte-for-byte.
+- Post-run: this run's 80 rows recompute **80/80** exact, 0 mismatches. 0 JEV errors,
+  0 fallback triples, 0 non-numeric quality scores.
+- `dRelevance == sum(new rows' avg_score)` to **0.0000** residual on all 8; `dSims == 10`,
+  `dW + dL == 5` on all 8 — all diffed against the **pristine git blob**, not a re-read.
+- Winners: `civ-precise` **5/5** (a clean sweep, **6th consecutive**). Agreement with the
+  `avg_score` argmax **1/5 (20 %)** — tied with 256 for the **lowest in the recorded series**
+  (255: 60 %, 253: 40 %), 4 down-grades, 0 up-grades, margins -0.0267 to -0.0700.
+- Run low `civ-therapist` (avg **1.2653**) — alignment **0.8770** AND quality **0.4670** both at
+  the **fleet floor** this session, a **two-axis** collapse for the **8th consecutive session**.
+- Lifetime low `civ-therapist` (**2457.65**) vs `civ-grounded` (**2480.90**) — gap **23.25**.
+- **THREE low-relevance shapes:** therapist (quality+alignment floor, and lowest raw
+  relevance), grounded (quality only — **0.6240**; alignment mid-pack; board **last**),
+  engineer (general mid-low — alignment **2.0510**, quality **0.6870**; its novelty **2.2680**
+  is mid-pack, so its session-256 novelty-floor shape **did not repeat**).
+- Run spread `avg_score` **0.7713**; alignment spread **1.8870** = **2.4x** the avg spread.
+  Quality spread 0.7210; novelty spread 0.2470 (tightest axis, narrowed from 0.2800).
+- `civ-poetic` led the run's `avg_score` (**2.0367**) and holds lifetime relevance #1 and
+  `rel/sim` #1 on a **0.6 %** win rate; `civ-precise` sweeps on a **72.1 %** lifetime win rate.
+- No civ near extinction (threshold `relevance < -10`; lowest **2457.65**, **246x** the floor).
+  Registry 8, `max_civs` 12, all `generation=1`.
+- Workspace **empty** apart from `.plugin-cache` — the prompt's path did not exist (**18th
+  consecutive occurrence**).
+- Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/...` slug 404s. Located via paged
+  `GET /user/repos?per_page=100` (5 pages, 500 rows) + name filter. `SuperInstance/AI-Writings`
+  matched; the sibling `ai-writings-generation-plato`, `-medium-is-math`, `-vectorizer` did not.
+- **NAS EDQUOT, 24th session.** The first `git clone` into `/workspace/repos/ai-writings` died
+  mid-clone with `close error: Disk quota exceeded` on `.git/description`. `df` shows the
+  workspace mount at **100% (600G/600G, 0 avail)** while the overlay root has **28G free** —
+  the workspace is **quota**-limited, not size-limited, and `du` shows only ~2 KB of my own
+  content. **Clone to `/tmp` (overlay, not NAS-backed)**, then bridge.
+- Bridge symlink `/workspace/repos/ai-writings -> /tmp/ai-writings`; verified by
+  `os.path.samefile()` -> **True**. The script's hardcoded `CIVS_DIR` then resolves correctly.
+- `ZAI_TOKEN` absent from env and from all 8 sandbox secrets; z.ai returns **401**
+  `token expired or incorrect` => endpoint healthy, credential absent (**114th session**).
+- **JEV live**: a well-formed `questions` body returns **HTTP 200** with
+  `{"model":"jev-1.14.0", "score":0.16, "confidence":0.87}`. The empty-`questions` probe returns
+  **HTTP 422 `too_short`** — which also proves the token is accepted, since the server rejects
+  the payload shape *after* authenticating.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code — the token gate returns `None` first).
+- `gh` not installed (**20th session**) — used `GET /user/repos` with `GITHUB_TOKEN`.
+- `SSL_CERT_FILE` points at the gateway-anchor-only bundle, but JEV and z.ai both answered over
+  TLS cleanly this session, so **no 289-cert bundle rebuild was needed**.
+- Tool timeout 30 s < orchestrator run ~30 s => detached launch with stdout redirected
+  **and** `< /dev/null`, then poll. Python buffers stdout — the log may look empty mid-run.
+- Teardown: mock pid 292 killed by **exact argv match**, 0 remaining processes, port re-probed
+  **closed** (`curl` exit **7**, `HTTP=000`). Never `pkill -f mock_zai` — self-match.
+- **Board-vs-raw-relevance disagreement is now 3 sessions running**, but the flip is confined to
+  the **bottom pair** (`civ-grounded` vs `civ-therapist`); the **top 6 are identical** in both
+  orderings this session. A report giving only one ordering is wrong about the tail.
+- `civ-engineer`'s low-relevance shape is **not stable across sessions** (novelty floor in 256,
+  general mid-low in 257) — do not attribute one session's axis to it.
+
 ## Session 256 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
