@@ -1,6 +1,77 @@
 
 ---
 
+## Session 178 (2026-10-25) — the wiped-workspace bootstrap, and a ROUNDING baseline that fakes 6/8 failures
+
+**Run clean (session 178).** per-civ delta = **+10** x 8 = **80 new rows**, `meta_log` D = **+5**
+(623 -> 628), `Winner:` lines = **5**, **80/80** rows `provider=zai`, **0** JEV `error` keys, **0**
+2.0/2.0/2.0 fallback triples, **40/80** distinct seeds, **0** `(civ,prompt)` combos carrying
+>1 seed, **8/8** distinct seeds AND previews on all 5 competition prompts, **80/80** rows match
+an independently recomputed message md5, meta-vs-ledger `avg_score` mismatches **0/40**
+(later-`ts` row). **Pre-flight 7/7** incl. the repeat-same-message determinism probe.
+**12/12 run-wide assertions PASS.** No births, no extinctions, all generations still 1.
+
+### NEW — a ROUNDED endpoint is not a baseline
+
+The "relevance D == sum(this run's avg_score)" check reported **2/8 PASS** on its first
+pass — and that was a **measurement error, not a data error**. The baseline used was the
+leaderboard's `relevance`, which `update_leaderboard()` rounds to **2 dp**. Subtracting two
+rounded endpoints leaves residuals up to **+/-0.0067** per civ, which is ~1000x the true
+residuals. Re-derived against the pristine git blob (`git show HEAD:.../culture.json`,
+unrounded) the result is **8/8 exact** (residuals <= 3.4e-13).
+
+*Rule: when a delta check fails by an amount that looks like a rounding constant, check
+the rounding before blaming the data.* The leaderboard is a **display** artifact; the
+`culture.json` blob is the **state**.
+
+### NEW — the mock's `figure` ratio needs hex->int conversion
+
+The documented mock computes `figure = h[12:16] / h[16:20] / h[20:24]`, but `h` is a hex
+**STRING** — so this raises `TypeError: unsupported operand type(s) for /: 'str' and 'str'`
+=> HTTP 500 **while the socket stays open**, which is the exact failure mode fix (a) was
+meant to prevent. Correct form: `int(h[12:16],16) / int(h[16:20],16) / int(h[20:24],16)`.
+This will bite any rebuild that transcribes the formula literally.
+
+### NEW — a wiped workspace needs a SPARSE clone, and the bridge needs `os.path.samefile`
+
+`/workspace/repos/ai-writings/...` did not exist (fresh sandbox, empty NAS mount). The
+upstream `SuperInstance/AI-Writings` is **3.7 GB** and `/workspace` is at **100% NAS quota**
+(a 5 MB `dd` fails with "Disk quota exceeded"). Recipe that works:
+
+1. `git init` + `core.sparseCheckout true` + `sparse-checkout set cellular-first-design/code/civilizations`
+2. `git fetch --depth=1 origin main` (with `GIT_SSL_NO_VERIFY=1`), then `git checkout FETCH_HEAD`
+3. Bridge: `ln -s /tmp/aiw/cellular-first-design /workspace/repos/ai-writings/cellular-first-design`
+
+**Verify the bridge with `os.path.samefile()`** — the shell `[ -ef ]` test mis-parses a
+symlinked path in this sandbox and reports "DIFFERENT INODE" for a bridge that is
+actually correct. `stat -L -c '%d:%i'` on both sides is the reliable check.
+
+### Re-confirmations (this session)
+
+- **Counter gap** is a fixed **per-civ** offset and did **not** move: grounded -84.35,
+  whimsical -173.14, formal -85.53, poetic -96.80, precise -32.63, mythic -51.11,
+  therapist -42.11, engineer -44.24 (total **-609.92**), D = 0.0000 for all 8.
+  (The **-609.9200 is the TOTAL, not a per-civ constant** — the per-civ values are the
+  ones to compare. Quoting the total as if it were per-civ is a misread.)
+- **`pkill -f` self-matches and kills the calling shell** (2nd occurrence). Kill the mock
+  by scanning `ps -eo pid,args` for the exact argv and `os.kill(pid, SIGKILL)`; then prove
+  the port closed with `curl -m 5` => **exit 7**, HTTP 000.
+- `ZAI_TOKEN` absent; z.ai => **401 token expired or incorrect**. `ZAI_URL_OVERRIDE` alone
+  is dead code (the token gate returns `None` first) — a **placeholder token is required**.
+- JEV live: `jev-1.14.0`, `TYPESAFEAI_KEY` from `TYPESAFE_AI_TOKEN`.
+- `git show HEAD:<path>` needs cwd = the **clone root**, not the civs dir.
+
+### Interpretation (this run)
+
+- **Run low: `civ-whimsical`** (run avg 0.7103). **VOICE failure, not prose**: alignment
+  gap to next (0.393) is **2.3x** the quality gap (0.174), and alignment is the dimension
+  the meta-GAN selects on.
+- **Lifetime low: `civ-grounded`** (rel/sim 0.978, gap 0.150 to civ-therapist).
+  Run low and lifetime low are **different civs on different axes** — do not promote.
+- **`civ-precise` took 5/5 competitions** (5W/0L); every other civ 0-5. Under the mock the
+  8 previews for one prompt differ only in the embedded seed/colour/figure fields.
+- `win_rate` is **not** a quality metric (choice question vs three score questions).
+
 ## Session 169 (2026-10-25) — the SEED WIDTH collision: a correct seed that is not unique
 
 **Run clean (session 169, 27th consecutive clean mock).** per-civ delta = **+10** × 8 = **80 new
