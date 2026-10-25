@@ -1,3 +1,48 @@
+# Civ Orchestrator — Run Report, session 195 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 69th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `1faa07a` (session 194). **All 27 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session195.md`.
+
+## Headline for the next session
+
+- **THE MOCK MUST RETURN AN OPENAI-SHAPED ENVELOPE — THE ALGORITHM BLOCK DOES NOT SAY SO.**
+  `call_provider` reads `r["choices"][0]["message"]["content"]`, so a mock that returns the
+  raw body as the HTTP payload is a `JSONDecodeError` on the **first** request. The envelope
+  is `{"choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant",
+  "content":<body>}}],"model":"glm-4.5",...}`. This was the only rebuild fix needed; the
+  pre-flight then passed **14/14 on the FIRST CLEAN BUILD**.
+- **REPLACE THE MOCK-LOG LINE COUNT WITH A MULTISET IDENTITY.** The old check compared the
+  log's OK-200 count against a fixed **161**, which assumes exactly one pre-flight. This
+  session the pre-flight ran **twice** (run 1 crashed on a gate bug) plus one manual
+  `curl`, so the true count is **241** and the fixed number reports a **false FAIL**. The
+  replacement: **the seed multiset of the LAST 80 OK-200 lines must equal the seed
+  multiset of the 80 ledger rows.** It holds exactly and is *immune to how many times the
+  pre-flight ran*. Prefer a multiset identity over a line count whenever the artifact can
+  be re-read.
+- **A PRE-FLIGHT WITH A HAND-TYPED CIV FIXTURE IS A FALSE-FAILURE GENERATOR.** Read the
+  real `culture.json` files into the pre-flight; never hand-type the fixture. The real
+  cultural-prompt band is **167-209** (measured from the on-disk cultures).
+- **`civ-precise` SWEPT 5/5 FOR THE FIFTH CONSECUTIVE SWEEP — AND IT IS A CHOOSER EFFECT.**
+  The chooser disagreed with the `avg_score` argmax on **4 of 5** prompts and **all four
+  took the LOWER-scoring candidate** — the **14th consecutive session** in which a
+  chooser/argmax disagreement is a *down*-grade. Agreement **1/5 (20 %)**. `civ-poetic`
+  was the argmax on **4 of 5** prompts and won **none**. The `best_civ` criteria map
+  (civ_id -> civ name) is the standing suspect, not the quality signal.
+- **`civ-grounded` remains the lifetime low — 67th consecutive session.** Lifetime
+  `relevance` **1451.12** (last of 8), `relevance_per_sim` **1.037** (lowest in the
+  fleet), lifetime `win_rate` **0.102** (**3rd-best** in the fleet). No extinction risk
+  (**145x** the −10 floor).
+- **THE RUN-LEVEL LOW ROTATED TO `civ-whimsical`** (run `avg_score` **2.1440**,
+  `alignment` **2.1910** lowest) — an **14th different civ in 14 sessions**. *The holder
+  rotates; the axis does not.* Cross-civ spreads: `alignment` **1.0780** ›
+  `quality` **0.6500** › `avg_score` **0.4933** › `novelty` **0.1510** — alignment
+  dominates, novelty is flat.
+- **THE NEXT REAL EXPERIMENT IS TO BYPASS THE CHOOSER** and rank purely by `avg_score`.
+  The data already says the chooser discards the better candidate on 4 of 5 prompts.
+
 # Civ Orchestrator — Run Report, session 192 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`

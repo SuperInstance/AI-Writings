@@ -349,3 +349,55 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   (×2 for the repeat probe = 80 requests) plus the run's 80, the log reads **161** OK-200
   lines (80 pre-flight + 80 run + 1 GET). Compare against the log, not a remembered
   constant.
+
+## Session 195 additions (2026-10-25)
+
+- **REPLACE EVERY FIXED MOCK-LOG LINE COUNT WITH A MULTISET IDENTITY.** The inherited
+  check compared the mock log's OK-200 count against a hardcoded **161**, which silently
+  assumes the pre-flight ran **exactly once**. This session the pre-flight ran **twice**
+  (run 1 crashed at check 12 on a gate bug, run 2 was the full 14/14 pass) and there was
+  one manual `curl` liveness probe, so the true count was **241** and the fixed number
+  reported a **false FAIL**. The replacement — **the seed multiset of the LAST 80 OK-200
+  log lines must equal the seed multiset of the 80 ledger rows** — held exactly and is
+  *immune to how many times the pre-flight ran*. **A count check encodes an assumption
+  about how many times an artifact was produced; a multiset identity encodes none.**
+  Generalise: whenever a check must survive a re-run of an upstream step, assert an
+  *identity between artifacts*, not a *magnitude of one artifact*.
+- **A GATE THAT PRINTS 12 PASSES AND THEN TRACEBACKS IS NOT A PASSING GATE.** The
+  pre-flight's repeat-same-message probe unpacked a 3-tuple as a 4-tuple and crashed
+  *after* twelve `[PASS]` lines. The gate must print a final verdict and exit non-zero
+  on any failure — a traceback after partial output reads as a pass to a human and to a
+  log-scraper alike.
+- **A CLONE FAILS OR SUCCEEDS BY DESTINATION MOUNT, NOT BY SIZE.** The `--depth 1`
+  clone into `/workspace/repos` died on `.git/description` with `Disk quota exceeded`;
+  the **same clone into `/tmp` succeeded immediately**. The NAS EDQUOT applies to the
+  mount, not to git. Clone to `/tmp` and symlink-bridge.
+- **THE BRIDGE MUST POINT AT THE INNER `cellular-first-design` DIRECTORY.** The upstream
+  repo root contains a `cellular-first-design/` subdirectory and the orchestrator's
+  `CIVS_DIR` is hardcoded to the **inner** path, so a bridge to the repo root makes
+  `civilizations.json` invisible. Verify by **inode identity**
+  (`stat -L -c '%d:%i'` → `129:10425` on both sides) plus `os.path.samefile()`; the
+  shell `[ -ef ]` test is unreliable in this sandbox.
+- **THE RESPONSE-BODY LENGTH BAND CAUGHT THE FRESH BUILD AGAIN.** A first template
+  rendered at **387** characters against the **332–369** band; the gate reported a clean,
+  localised `[FAIL] response body length band 332-369 min=387 max=387`. Trimming the tail
+  to **297** put the body at **351**. Target **351** (not 354 — the prefix width varies
+  with the seed, so the tail length is the control, not the total).
+- **THE DOWN-GRADE STREAK RE-BASES EVERY SESSION, AND IT IS AT 14.** `civ-precise` swept
+  5/5 for the **fifth consecutive** sweep, disagreed with the `avg_score` argmax on
+  **4 of 5** prompts, and **all four took the LOWER-scoring candidate**. Agreement
+  **1/5 (20 %)**. `civ-poetic` was argmax on **4 of 5** and won **0 of 5**.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-whimsical`** (run `avg_score` **2.1440**,
+  `alignment` **2.1910** lowest) — a **14th different civ in 14 sessions**. The bottom
+  two were separated by only **0.0277** on `avg_score` but by **0.9660** on `alignment`.
+  *The holder rotates; the axis does not.*
+- **THE LOW-RELEVANCE SIGNATURE IS STILL "HIGH NOVELTY, LOW ALIGNMENT".** `civ-whimsical`
+  (novelty **2.5810** / alignment **2.1910**) and `civ-therapist` (**2.6220** /
+  **2.1930**) both fit. Novelty spread **0.1510** against an alignment spread
+  **1.0780** ⇒ the ranking is produced by alignment and quality, not novelty. Report
+  the axis, not the holder.
+- **`civ-grounded` was the lifetime low for the 67th consecutive session** (`relevance`
+  **1451.12**, `relevance_per_sim` **1.037**), yet its lifetime `win_rate` **0.102** is
+  **3rd-best in the fleet**. *Selection and relevance are separate axes.* Its low axis
+  is **quality** (**1.4820**, the lowest in the fleet), **not** novelty (**2.6040**,
+  2nd-highest).
