@@ -17,3 +17,5 @@
 {"ts": 1792868861.3033314, "iso": "2026-10-24T19:07:41", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.4033}, "hash": "de89729b82256388"}
 {"ts": 1792868873.4842947, "iso": "2026-10-24T19:07:53", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 507}, "hash": "f955f8200114df10"}
 {"ts": 1792868873.7487798, "iso": "2026-10-24T19:07:53", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.44}, "hash": "7c50be39d0fa2772"}
+{"ts": 1792891079.0502515, "iso": "2026-10-25T01:17:59", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 868}, "hash": "b9eb44702b9cb287"}
+{"ts": 1792891079.4071188, "iso": "2026-10-25T01:17:59", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.1267}, "hash": "cf4a9bf24d7078de"}

@@ -975,6 +975,179 @@
           }
         }
       }
+    },
+    {
+      "ts": 1792891079.405093,
+      "iso": "2026-10-25T01:17:59",
+      "verdict": "CAUTION",
+      "verdict_confidence": "high",
+      "score_avg": 2.1267,
+      "advance_prob": 0.68,
+      "control_avg": 0.1867,
+      "canon_sample_count": 3,
+      "canon_titles": [
+        "the_moment_of_dance_rsi_gan",
+        "cross_instance_sync_dance",
+        "jev_picks_each_moment_quad_dance"
+      ],
+      "answers": {
+        "q0": {
+          "type": "score",
+          "score": 2.29,
+          "confidence": 0.39,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 0.04,
+            "1": 0.13,
+            "2": 0.33,
+            "3": 0.48,
+            "4": 0.02
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.68
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.61
+        },
+        "q3": {
+          "type": "score",
+          "score": 2.38,
+          "confidence": 0.45,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.03,
+            "1": 0.1,
+            "2": 0.35,
+            "3": 0.5,
+            "4": 0.02
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 1.71,
+          "confidence": 0.19,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.13,
+            "1": 0.44,
+            "2": 0.14,
+            "3": 0.17,
+            "4": 0.12
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "too-abstract",
+          "confidence": 0.11,
+          "probabilities": {
+            "low-quality": 0.21,
+            "redundant": 0.11,
+            "off-topic": 0.16,
+            "too-abstract": 0.29000000000000004,
+            "none": 0.23
+          }
+        }
+      },
+      "control_answers": {
+        "q0": {
+          "type": "score",
+          "score": 0.02,
+          "confidence": 1.0,
+          "legend": {
+            "0": "poor",
+            "1": "mediocre",
+            "2": "good",
+            "3": "excellent",
+            "4": "landmark"
+          },
+          "probabilities": {
+            "0": 1.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q1": {
+          "type": "noul",
+          "noul": 0.15
+        },
+        "q2": {
+          "type": "noul",
+          "noul": 0.19
+        },
+        "q3": {
+          "type": "score",
+          "score": 0.48,
+          "confidence": 0.62,
+          "legend": {
+            "0": "redundant",
+            "1": "incremental",
+            "2": "novel",
+            "3": "highly-novel",
+            "4": "groundbreaking"
+          },
+          "probabilities": {
+            "0": 0.77,
+            "1": 0.01,
+            "2": 0.21,
+            "3": 0.01,
+            "4": 0.0
+          }
+        },
+        "q4": {
+          "type": "score",
+          "score": 0.06,
+          "confidence": 0.96,
+          "legend": {
+            "0": "misaligned",
+            "1": "partial",
+            "2": "aligned",
+            "3": "tightly-aligned",
+            "4": "embodies-doctrine"
+          },
+          "probabilities": {
+            "0": 0.96,
+            "1": 0.03,
+            "2": 0.01,
+            "3": 0.0,
+            "4": 0.0
+          }
+        },
+        "q5": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.44,
+          "probabilities": {
+            "low-quality": 0.18,
+            "redundant": 0.0,
+            "off-topic": 0.13,
+            "too-abstract": 0.14,
+            "none": 0.55
+          }
+        }
+      }
     }
   ]
 }
