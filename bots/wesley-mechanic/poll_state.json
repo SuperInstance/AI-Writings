@@ -2,81 +2,81 @@
   "canon_root": "/tmp/ai-writings/cellular-first-design/code/civilizations",
   "changed": true,
   "changes": [
-    "canon snapshot moved 2026-10-25T20:13:31 -> 2026-10-25T20:23:05",
-    "civ civ-engineer relevance 2774.47 -> 2791.43",
-    "civ civ-engineer losses 932 -> 937",
-    "civ civ-engineer sims_run 1994 -> 2004",
-    "civ civ-formal relevance 2900.53 -> 2918.36",
-    "civ civ-formal losses 874 -> 879",
-    "civ civ-formal sims_run 2005 -> 2015",
-    "civ civ-grounded relevance 2480.9 -> 2496.07",
-    "civ civ-grounded losses 922 -> 927",
-    "civ civ-grounded sims_run 2019 -> 2029",
-    "civ civ-mythic relevance 2817.81 -> 2833.27",
-    "civ civ-mythic losses 982 -> 987",
-    "civ civ-mythic sims_run 1999 -> 2009",
-    "civ civ-poetic relevance 3481.76 -> 3501.85",
-    "civ civ-poetic losses 992 -> 997",
-    "civ civ-poetic sims_run 2004 -> 2014",
-    "civ civ-precise relevance 3347.54 -> 3366.81",
-    "civ civ-precise wins 716 -> 721",
-    "civ civ-precise sims_run 1995 -> 2005",
-    "civ civ-therapist relevance 2457.65 -> 2470.21",
-    "civ civ-therapist losses 984 -> 989",
-    "civ civ-therapist sims_run 1997 -> 2007",
-    "civ civ-whimsical relevance 2857.55 -> 2873.17",
-    "civ civ-whimsical losses 993 -> 998",
-    "civ civ-whimsical sims_run 2011 -> 2021",
-    "meta log rows 1023 -> 1028 (+5)"
+    "canon snapshot moved 2026-10-25T20:23:05 -> 2026-10-25T20:34:30",
+    "civ civ-engineer relevance 2791.43 -> 2808.3",
+    "civ civ-engineer losses 937 -> 942",
+    "civ civ-engineer sims_run 2004 -> 2014",
+    "civ civ-formal relevance 2918.36 -> 2936.07",
+    "civ civ-formal losses 879 -> 884",
+    "civ civ-formal sims_run 2015 -> 2025",
+    "civ civ-grounded relevance 2496.07 -> 2511.01",
+    "civ civ-grounded losses 927 -> 932",
+    "civ civ-grounded sims_run 2029 -> 2039",
+    "civ civ-mythic relevance 2833.27 -> 2849.32",
+    "civ civ-mythic losses 987 -> 992",
+    "civ civ-mythic sims_run 2009 -> 2019",
+    "civ civ-poetic relevance 3501.85 -> 3521.57",
+    "civ civ-poetic losses 997 -> 1002",
+    "civ civ-poetic sims_run 2014 -> 2024",
+    "civ civ-precise relevance 3366.81 -> 3386.26",
+    "civ civ-precise wins 721 -> 726",
+    "civ civ-precise sims_run 2005 -> 2015",
+    "civ civ-therapist relevance 2470.21 -> 2482.43",
+    "civ civ-therapist losses 989 -> 994",
+    "civ civ-therapist sims_run 2007 -> 2017",
+    "civ civ-whimsical relevance 2873.17 -> 2889.11",
+    "civ civ-whimsical losses 998 -> 1003",
+    "civ civ-whimsical sims_run 2021 -> 2031",
+    "meta log rows 1028 -> 1033 (+5)"
   ],
   "files": {
     "civilizations.json": "9e1882958d7d49b2915594ebf6a3e7c98d02b0dc2e697b0aec3ee1e79b35fb43",
-    "leaderboard.json": "60f80ce18e61b88ee0e9d5d78536e24d7dfede013bf2a459bfd9119ca95369d2",
-    "meta_log.jsonl": "8a50c03b4f3cb47f601b151821c37cee147a06ec23676da33a81df62e83674a8"
+    "leaderboard.json": "3384420306a80f73e331819bb45c25cdde60c464fc060eb68f62be233dad1021",
+    "meta_log.jsonl": "8737c2bec9c715a4995239eded3a9030995f6fe65757faad3150a5ed23647c5c"
   },
-  "fingerprint": "24ee14a0a230fb974fcf204397a24613882c4c9b489f75b8d003599f70263a99",
-  "note": "/tmp/ai-writings/bots/wesley-mechanic/notes/witness-note-20261025T203303Z.md",
-  "polled_at": "2026-10-25T20:33:03",
-  "polled_at_ts": 1792960383.0574243,
+  "fingerprint": "0cf2c2645a4a63343e4d95ee353801f2cbbcd55fe19cccb318ef21dd976200c4",
+  "note": "/tmp/ai-writings/bots/wesley-mechanic/notes/witness-note-20261025T204710Z.md",
+  "polled_at": "2026-10-25T20:47:10",
+  "polled_at_ts": 1792961230.881283,
   "view": {
     "last_event": {
-      "iso": "2026-10-25T20:23:05",
+      "iso": "2026-10-25T20:34:30",
       "prompt": "Write 100 words on JEV as a decision oracle.",
       "results": [
         [
           "civ-formal",
-          1.7733333333333334
+          1.8033333333333335
         ],
         [
           "civ-grounded",
-          1.5233333333333334
-        ],
-        [
-          "civ-therapist",
-          1.1533333333333333
-        ],
-        [
-          "civ-poetic",
-          2.1133333333333333
-        ],
-        [
-          "civ-precise",
-          2.04
+          1.5466666666666669
         ],
         [
           "civ-mythic",
-          1.5533333333333335
+          1.5333333333333332
+        ],
+        [
+          "civ-poetic",
+          2.1533333333333333
+        ],
+        [
+          "civ-precise",
+          2.0233333333333334
         ],
         [
           "civ-engineer",
-          1.7533333333333332
+          1.6966666666666665
+        ],
+        [
+          "civ-therapist",
+          1.1733333333333336
         ],
         [
           "civ-whimsical",
-          1.3399999999999999
+          1.4533333333333334
         ]
       ],
-      "ts": 1792959785.6090412,
+      "ts": 1792960470.2651289,
       "winner_civ": "civ-precise",
       "winner_name": "The Precise"
     },
@@ -86,12 +86,12 @@
           "color": "#f59e0b",
           "generation": 1,
           "id": "civ-poetic",
-          "losses": 997,
+          "losses": 1002,
           "name": "The Poetic",
           "preferred_temp": 0.8,
-          "relevance": 3501.85,
-          "relevance_per_sim": 1.739,
-          "sims_run": 2014,
+          "relevance": 3521.57,
+          "relevance_per_sim": 1.74,
+          "sims_run": 2024,
           "win_rate": 0.006,
           "wins": 6
         },
@@ -102,35 +102,35 @@
           "losses": 277,
           "name": "The Precise",
           "preferred_temp": 0.2,
-          "relevance": 3366.81,
-          "relevance_per_sim": 1.679,
-          "sims_run": 2005,
-          "win_rate": 0.722,
-          "wins": 721
+          "relevance": 3386.26,
+          "relevance_per_sim": 1.681,
+          "sims_run": 2015,
+          "win_rate": 0.724,
+          "wins": 726
         },
         {
           "color": "#8b5cf6",
           "generation": 1,
           "id": "civ-formal",
-          "losses": 879,
+          "losses": 884,
           "name": "The Formal",
           "preferred_temp": 0.3,
-          "relevance": 2918.36,
-          "relevance_per_sim": 1.448,
-          "sims_run": 2015,
-          "win_rate": 0.122,
+          "relevance": 2936.07,
+          "relevance_per_sim": 1.45,
+          "sims_run": 2025,
+          "win_rate": 0.121,
           "wins": 122
         },
         {
           "color": "#ec4899",
           "generation": 1,
           "id": "civ-whimsical",
-          "losses": 998,
+          "losses": 1003,
           "name": "The Whimsical",
           "preferred_temp": 0.95,
-          "relevance": 2873.17,
-          "relevance_per_sim": 1.422,
-          "sims_run": 2021,
+          "relevance": 2889.11,
+          "relevance_per_sim": 1.423,
+          "sims_run": 2031,
           "win_rate": 0.005,
           "wins": 5
         },
@@ -138,12 +138,12 @@
           "color": "#dc2626",
           "generation": 1,
           "id": "civ-mythic",
-          "losses": 987,
+          "losses": 992,
           "name": "The Mythic",
           "preferred_temp": 0.85,
-          "relevance": 2833.27,
-          "relevance_per_sim": 1.41,
-          "sims_run": 2009,
+          "relevance": 2849.32,
+          "relevance_per_sim": 1.411,
+          "sims_run": 2019,
           "win_rate": 0.01,
           "wins": 10
         },
@@ -151,46 +151,46 @@
           "color": "#3b82f6",
           "generation": 1,
           "id": "civ-engineer",
-          "losses": 937,
+          "losses": 942,
           "name": "The Engineer",
           "preferred_temp": 0.4,
-          "relevance": 2791.43,
-          "relevance_per_sim": 1.393,
-          "sims_run": 2004,
+          "relevance": 2808.3,
+          "relevance_per_sim": 1.394,
+          "sims_run": 2014,
           "win_rate": 0.059,
           "wins": 59
-        },
-        {
-          "color": "#fb7185",
-          "generation": 1,
-          "id": "civ-therapist",
-          "losses": 989,
-          "name": "The Therapist",
-          "preferred_temp": 0.6,
-          "relevance": 2470.21,
-          "relevance_per_sim": 1.231,
-          "sims_run": 2007,
-          "win_rate": 0.011,
-          "wins": 11
         },
         {
           "color": "#06b6d4",
           "generation": 1,
           "id": "civ-grounded",
-          "losses": 927,
+          "losses": 932,
           "name": "The Grounded",
           "preferred_temp": 0.5,
-          "relevance": 2496.07,
-          "relevance_per_sim": 1.23,
-          "sims_run": 2029,
-          "win_rate": 0.075,
+          "relevance": 2511.01,
+          "relevance_per_sim": 1.231,
+          "sims_run": 2039,
+          "win_rate": 0.074,
           "wins": 75
+        },
+        {
+          "color": "#fb7185",
+          "generation": 1,
+          "id": "civ-therapist",
+          "losses": 994,
+          "name": "The Therapist",
+          "preferred_temp": 0.6,
+          "relevance": 2482.43,
+          "relevance_per_sim": 1.231,
+          "sims_run": 2017,
+          "win_rate": 0.011,
+          "wins": 11
         }
       ],
-      "iso": "2026-10-25T20:23:05",
-      "ts": 1792959785.6090848
+      "iso": "2026-10-25T20:34:30",
+      "ts": 1792960470.2651718
     },
-    "meta_rows": 1028,
+    "meta_rows": 1033,
     "registry": [
       "civ-grounded",
       "civ-whimsical",
