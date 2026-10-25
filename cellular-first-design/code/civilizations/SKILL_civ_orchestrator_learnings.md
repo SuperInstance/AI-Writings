@@ -1020,3 +1020,81 @@ the run was clean while your own check is the thing that is broken.*
 crosses the symlink bridge. Use **`ls -laL`**, or `ls -la` on the per-civ
 `civ-*/simulations.jsonl` files directly. *A missing directory in the verification step is a
 reporting artefact, not a missing run.*
+
+## Session 216 additions (2026-10-25)
+
+### 1. THE COUNTER-GAP MUST BE MEASURED AGAINST THE **FULL** LEDGER — A SLICE MEASURES RELEVANCE, NOT THE GAP
+
+A first pass reported `[FAIL] counter_gap_stable_8of8` with per-civ gap deltas of ~**+2,700**
+(e.g. poetic **+2696.53**). The cause was the **check**, not the run: the gap was computed
+over the **10 new rows only**.
+
+```
+gap(civ) = culture.json.relevance_score  -  SUM(avg_score over the WHOLE simulations.jsonl)
+```
+
+The documented stable values (grounded −84.35, whimsical −173.14, formal −85.53,
+poetic −96.80, precise −32.63, mythic −51.11, therapist −42.11, engineer −44.24) all
+reproduce exactly when the **full** ledger is summed. Against the full ledger the deltas
+were **<= 3.3e-7**.
+
+**A slice of the ledger gives you `relevance`, not the gap** — the gap is a *cumulative*
+invariant by construction. *Same discipline as session 214: a pre-flight FAIL on an
+already-verified component is a CHECK bug until proven otherwise.*
+
+### 2. THE PRE-FLIGHT PROMPT SET MUST BE THE **RUN'S** PROMPT SET (`CANON_PROMPTS` HAS 10, THE RUN USES 5)
+
+The first gate pass reported `80/40` on four checks ("40 distinct seeds", "40 distinct
+previews", "40 recomputed md5", "[mock-zai prefix 40/40", "repeat-same-message"). The mock
+was healthy: the gate had built **8 civs x 10 prompts = 80** messages, because
+`CANON_PROMPTS` holds **10** prompts while the run is `--prompts 5`.
+
+```
+PROMPTS = ALL_CANON_PROMPTS[:args.prompts]      # the run slices the FIRST N
+```
+
+**A count mismatch of exactly `8 x (len(CANON) - N)` is a fixture bug, not a mock bug.**
+Assert the message count equals `len(civs) * N` before asserting on seeds.
+
+### 3. THE MOCK HEADER IS **39** CHARS, NOT 33 — AND THE BODY BAND IS 332-369
+
+Current-format body: `[mock-zai {seed}] #{color} {figure}.  {tail}` — the header is
+`"[mock-zai " (10) + seed (4) + "] #" (3) + color (4) + " " (1) + figure (14) + "." (1)
++ two spaces (2) = 39`.
+
+With a **324**-char fixed culture-free tail the body lands at **363** — inside the
+**332-369** band. The tail's first **162** chars are the recorded ledger's prefix,
+verbatim:
+
+```
+A cell keeps its own accounts and asks the network for what it cannot remember itself.
+The bookkeeper and the witness log are two names for the same discipline:
+```
+
+**There are exactly 3 distinct recorded tails (161, 162, 162 chars) and they are NOT
+per-prompt** — the same three appear against all five canon prompts. Session 215's
+"the tail prefix is per-prompt" reading is **wrong**; the tail is decoupled from the prompt.
+
+### 4. THE CONTIGUOUS SEED SLICE RE-CONFIRMED **320/320** AGAINST THE RECORDED LEDGER
+
+`seed = h[(i*2)%8 : (i*2)%8+4]` matched the recorded ledger **320/320**; the RUNBOOK's
+wrapped form matched **237/320**. The wrap still costs exactly the `i == 3` quartile
+(offset 6 -> `h[6:8] + h[0:2]` instead of `h[6:10]`). *The RUNBOOK's seed formula is
+still wrong — trust the learnings file, not the RUNBOOK.*
+
+### 5. THE CHOOSER-AGREEMENT SERIES IS NOW **0 / 40 / 40 / 100 / 60 %** (sessions 211-216)
+
+Session 216: `civ-precise` swept **5/5**; agreement **3/5 (60 %)** with **2 down-grades,
+0 up-grades**. Every disagreement again took the **lower**-scoring candidate. The series
+oscillates across the full range — *re-derive it every session and never carry a streak
+forward in either direction.*
+
+### 6. THE RUN LOW ROTATED TO `civ-therapist`; `civ-grounded` HELD THE LIFETIME LOW FOR THE 84th SESSION
+
+Run low `civ-therapist` (avg **1.4080**, fleet-low run quality **0.9510**, fleet-low run
+alignment **0.9450**), gap to next **0.1597** = **18.5 %** of the run spread **0.8623**.
+Lifetime low `civ-grounded` (relevance **1815.38**, rel/sim **1.1283**, lifetime avg
+**1.1500**, fleet-low lifetime quality **0.4897**) — yet its lifetime `win_rate` **0.092**
+is 3rd-best in the fleet. Lifetime alignment low is a **third** civ, `civ-therapist`
+(**1.1969**). The run's alignment spread **2.0620** was **3.41x** the quality spread and
+**16.11x** the novelty spread. *Report the axis, not the holder.*
