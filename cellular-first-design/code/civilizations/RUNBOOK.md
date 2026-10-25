@@ -1,3 +1,45 @@
+# Civ Orchestrator — Run Report, session 170 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 53rd session) + **live JEV**.
+Baseline: `029cf80` (session 169). **All 68 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session170.md`.
+
+## Headline for the next session
+
+- **The mock needs SIX fixes, not five.** The new one is the **seed index source**: it must
+  come from the **MESSAGE**, not from a request counter. A counter makes the same
+  `(civ, prompt)` pair yield a *different* seed every request ⇒ **64 distinct seeds /
+  80 rows** instead of 40, and **20 `(civ,prompt)` pairs carry >1 seed**.
+  **Fix (f): `i = md5(message).digest()[0] % 4`.**
+- **The pre-flight could NOT have caught fix (f)** — it sends 40 *distinct* messages, so a
+  counter-derived index looks perfect. **New gate step: send the same message twice and
+  assert the seed is identical.**
+- **The mock's full algorithm is now known and verified 80/80** against the session-169
+  ledger (seed, colour and figure all match) — do not re-derive it next session.
+- **`civ-grounded` remains the low-relevance civ — 45th consecutive session.** Last of 8 on
+  lifetime `avg_score` 0.9925, `quality` 0.4064, `alignment` 1.0573, `relevance` 1098.73,
+  `relevance_per_sim` 0.956. Alignment gap 0.9899 vs quality gap 0.3414 ⇒ **2.9×** wider ⇒
+  a **voice** failure, not a prose failure. Lifetime novelty 1.5138 is **6th of 8**.
+- **The run-level low ROTATED to `civ-therapist`** (1.0797, run bottom on `avg_score` and
+  `alignment` 0.4710) while its *lifetime* standing is mid-field (6th of 8).
+  **Watch axis, not the finding** (session-132 rule).
+- **Chooser vs `avg_score` argmax: 2/5 (40 %)** — all three disagreements took the
+  lower-scoring candidate. `civ-precise` swept 4/5. Max |delta| **−0.3400**.
+- **Counter gap −609.9200, fixed** — byte-identical to session 169's value.
+- Run spreads: `avg_score` 0.7423, `alignment` **1.9580** (widest in the series), quality
+  0.4400, novelty 0.1340.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (583 → 588),
+  `Winner:` **5**, `wins`/`losses` **8/8 exact**, `relevance` Δ = Σ`avg_score` **8/8 exact**,
+  0 JEV errors, 0 fallback triples, `zai × 80`, **40/40** distinct seeds, **0** `(civ,prompt)`
+  with >1 seed, **80/80** rows match an independently recomputed md5, 8/8 seeds AND previews
+  on all 5 prompts, meta-vs-ledger mismatches **0/40**, 80/80 distinct `(q,n,a)`, confidence
+  0.15–0.96, registry 8 all gen 1, extinction **NONE** (lowest +1098.73 = 110× the floor).
+  **68/68 PASS.**
+
+---
+
 # Civ Orchestrator — Run Report, session 169 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
@@ -57,21 +99,50 @@ Full detail: `RUN_REPORT_2026-10-25_session169.md`.
 - `gh` not installed (**19th session**) — used `GET /user/repos` with `GITHUB_TOKEN`.
 - Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch, stdout redirected, `< /dev/null`.
 
-## Mock rebuild checklist — FIVE fixes
+## Mock rebuild checklist — SIX fixes
 
 | # | Fix | Session | Symptom if missing |
 |---|---|---|---|
 | a | `seed[(i*2)%8:((i*2)%8)+2]` index wrap | 112 | `ValueError` on `i>=4` ⇒ HTTP 500 **while the socket stays open** |
-| b | `md5(whole_message)[:8]` | 118 | first 8 alnum chars are `YouAreA` for every civ ⇒ all 8 civs emit identical text |
+| b | `md5(whole_message)` (not the first 8 alnum chars) | 118 | first 8 alnum chars are `YouAreA` for every civ ⇒ all 8 civs emit identical text |
 | c | `Connection: close` + `Content-Length` | 144 | `curl` hangs to the tool timeout on a healthy server |
 | d | interpolate the seed placeholder | 145 | every response carries literal `seed={}` ⇒ 1 distinct seed, not 40 |
 | **e** | **seed widened 2 → 4 hex chars** | **169** | **2-char slice collides ⇒ 39 distinct seeds, one prompt at 7/8** |
+| **f** | **index derived from the MESSAGE (`d[0] % 4`), not a request counter** | **170** | **64 distinct seeds / 80 rows; 20 `(civ,prompt)` pairs carry >1 seed** |
 
-**Pre-flight gate (must pass before the batch):** 40 requests using the **exact long cultural
-prompts** ⇒ **40/40 distinct seeds**, **40/40 distinct previews**, **40/40 independently
-recomputed md5s**, **8/8 distinct seeds AND 8/8 distinct previews on every one of the 5
-prompts**, 0 literal `seed={}`, 0 `EXC:`/tracebacks in the mock log. This pre-flight has saved
-the run **seven** times in the series.
+### The mock algorithm — fully specified (verified 80/80 against the session-169 ledger)
+
+```
+d      = md5(cultural_prompt).digest()          # the FULL user message, verbatim
+h      = d.hex()
+i      = d[0] % 4                              # MESSAGE-derived, NOT a counter
+seed   = h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]
+color  = h[8:12]
+figure = h[12:16] / h[16:20] / h[20:24]
+```
+
+`cultural_prompt` is exactly what `civilization_orchestrator.py` builds:
+
+```
+You are a voice in the tradition of "{name}".
+Your tenets: {tenets joined by ", "}.
+Your voice: {voice_emphasis}.
+
+{prompt}
+```
+
+Only **4** distinct seeds are reachable from one message (the seed slices `h[0:8]` at even
+offsets), so `i mod 4` is the whole index space. The signature of a *message-derived* index
+is that the seed is **stable across every row of the same `(civ, prompt)` pair** — a request
+counter cannot produce that, because the competition phase fires 8 civs in parallel.
+
+**Pre-flight gate (must pass before the batch) — EIGHT checks:** 40 requests using the
+**exact long cultural prompts** ⇒ **40/40 distinct seeds**, **40/40 distinct previews**,
+**40/40 independently recomputed md5s** (seed, colour and figure), **8/8 distinct seeds AND
+8/8 distinct previews on every one of the 5 prompts**, 0 literal `seed={}`, 0 `EXC:`/
+tracebacks, and — **NEW** — **repeat-same-message ⇒ same seed (40 messages × 2 repeats)**.
+The repeat probe is what catches fix (f); the pre-flight alone cannot, because it only ever
+sends *distinct* messages.
 
 **Teardown:** kill by exact argv match — `python3 /tmp/mock_zai.py` and
 `timeout -s KILL 900 python3 /tmp/mock_zai.py` (**two** pids). Never `pkill -f mock_zai`
