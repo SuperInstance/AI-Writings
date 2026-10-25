@@ -1,3 +1,94 @@
+## Session 235 additions (2026-10-25)
+
+### 1. A **RE-DERIVATION** IS NOT A **CORRECTION** — PROVE THE TWO RULES ARE ACTUALLY DIFFERENT
+
+This session re-derived the Control B seed algorithm from the committed ledger and, in the
+process, briefly concluded that the documented index rule was wrong. It was not. The
+documented form uses the first **digest byte**; the re-derivation used the second **hex
+nibble**; and the two are *provably the same rule*:
+
+```
+d[0] = 16*h[0] + h[1]        and        16*h[0] % 4 == 0
+=> d[0] % 4 == h[1] % 4      for all 256 byte values
+```
+
+Both forms match the current-format ledger **1840/1840 exact, 0 mismatches**. The report was
+corrected before commit.
+
+*Rule: "I found a correction" is a claim that must itself be proved before it is written down.
+When a re-derivation disagrees with a documented rule, first check whether the two are
+**different rules or a re-spelling of the same one** — try expressing the documented rule in
+your own notation and test it. A near-miss that agrees with the documented rule on *some* rows
+is the dangerous case, not the obvious disagreement.*
+
+### 2. THE **NIBBLE** TRAP: `d[0] % 4` AND `h[0] % 4` LOOK INTERCHANGEABLE AND ARE NOT
+
+`h[0] % 4` (first hex **nibble**) matches only **638/1840** current-format rows; `d[0] % 4`
+(first digest **byte**) matches **1840/1840**. The nibble drops the low two bits the modulus
+depends on.
+
+The near-miss is invisible to **every** self-consistency check the mock can run: the wrong rule
+is still deterministic, still distinct per message, and still carries a colour and figures.
+Worse, **colour and figures sit at fixed offsets** (`h[8:12]`, `h[12:24]`) and are therefore
+correct under *any* index rule — so a pre-flight that checks "seed+colour+figure present"
+passes on a wrong seed.
+
+*Rule: assert the index rule itself over the **full historical ledger**, never over the rows
+you just produced. A colour/figure match is not a seed match.*
+
+### 3. THE **HOLDER ROTATION** IS NOT A LAW — AND A POST-ROTATION STREAK IS STILL A COUNTER
+
+The run-level low rotated every session from 220 through 231 (therapist, whimsical, therapist,
+therapist, therapist, mythic, mythic, whimsical, therapist, therapist, whimsical) and then
+**held `civ-therapist` for three sessions running** (232, 233, 234) — a **two-axis**
+quality+alignment collapse each time.
+
+*Rule: a rotation pattern is a description of history, not a prediction. When a streak forms
+*after* twenty rotations, it is still a counter to be re-derived next session, and the "holder
+rotates every session" phrasing must not be carried forward as a standing fact.*
+
+### 4. A **5/5 SWEEP** IS NOT **CHOOSER AGREEMENT** — THEY COINCIDED HERE
+
+`civ-precise` won **5/5** competitions. The chooser agreed with the `avg_score` argmax on only
+**2/5 (40 %)** — 3 down-grades, **0 up-grades** — and the argmax was `civ-poetic` on three of
+the five prompts.
+
+*Rule: winner count and chooser calibration are independent measurements. Report both, and
+never let a sweep imply agreement. The chooser reads only `content_preview[:150]` and never
+sees `avg_score` (see the session-231 structural note).*
+
+### 5. THE LIFETIME LOW AND THE RUN-LEVEL LOW WERE **DIFFERENT CIVS** — 7 SESSIONS RUNNING
+
+`civ-grounded` holds the lifetime low (`relevance` **2121.68**, `relevance_per_sim` **1.186**,
+**98th consecutive session**) but placed **6th of 8** on this run's `avg_score` (1.8087) — and
+its deficit axis **flipped** from alignment-led (session 233) to quality-led (1.0100 quality,
+2.0530 alignment, mid-field). `civ-therapist` took the run-level low (avg **1.6020**) and is the
+2nd-lowest lifetime civ.
+
+*Rule: the lifetime label and the run rank are different measurements; do not promote one to
+the other, and re-derive the deficit axis each session rather than carrying it forward.*
+
+### 6. `ln -s` FAILS WITH ENOENT WHEN THE **INTERMEDIATE DIRECTORY** IS MISSING
+
+Creating `/workspace/repos/ai-writings/cellular-first-design` as a symlink to the clone
+fails with `No such file or directory` unless `/workspace/repos/ai-writings` already exists as
+a real directory. The error names the **target** path, not the missing parent, so it reads
+like "the repo vanished" when it means "create the parent first".
+
+*Rule: on the NAS bridge, `mkdir -p` every intermediate path before linking, and verify with
+`os.path.samefile()` — the shell `test -ef` is unusable in this sandbox.*
+
+### 7. THE **38 / 162 / 200** GEOMETRY HELD AGAIN, AND THE TAIL POOL IS **8 FAMILIES x 3 PADS**
+
+A merged count over the current-format ledger yields **8 distinct tail families** (not 10 or 12
+as earlier sessions counted) and **3 whitespace pad widths** (0, 1, 2). All visible previews are
+exactly **200** chars = **38-char header + 162-char body**, for every row in every session. The
+body is **constant for a whole run** (one family + one pad per server start) and rotates between
+runs — so the tail prose is free, the geometry is not.
+
+*Rule: the invariant to assert is the **38 / 162 / 200 geometry**, not a tail-text count. A
+tail-family count changes as the pool grows; the geometry has never moved.*
+
 ## Session 231 additions (2026-10-25)
 
 ### 1. THE CHOOSER **CANNOT** AGREE WITH `avg_score` — IT NEVER SEES THE SCORES (STRUCTURAL, NOT A REGRESSION)
