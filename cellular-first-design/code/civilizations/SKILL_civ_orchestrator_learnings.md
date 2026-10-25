@@ -528,3 +528,73 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   **never up-graded** in 204 sessions. The standing suspect is unchanged: the
   `best_civ` criteria map (`civ_id` → `civ name`) is a *label* map, so the chooser may
   be scoring labels rather than texts.
+
+## Session 205 additions (2026-10-25) — concurrent-run collision
+
+- **ANOTHER AGENT CAN RUN THE SAME SESSION AGAINST THE SAME REPO WHILE YOU ARE
+  WORKING, AND YOUR PUSH WILL BE REJECTED AS NON-FAST-FORWARD.** This session the
+  remote gained a **session 204** commit (`39addc4`, authored by "Claude Opus 4.8")
+  from the **same baseline `f60b152`** while my own session-204 run was in flight;
+  two further commits (`probe` / `remove probe`) were unrelated user activity on
+  `prose/`. `git push` then failed with **`! [rejected] main -> main (fetch first)`**.
+  *The rejection is the signal that a sibling run landed — fetch and diff before
+  assuming your push was simply stale.*
+- **DO NOT NUMBER TWO INDEPENDENT RUNS THE SAME SESSION — RENUMBER THE LATER ONE AND
+  KEEP BOTH REPORTS.** The remote already owned `RUN_REPORT_2026-10-25_session204.md`.
+  Mine was renamed to **session 205** and the commit message rewritten to say so, with
+  a note that the two runs share only a starting point (different mock seeds, different
+  JEV draws). *Overwriting a sibling's report destroys evidence; a merge that keeps
+  both is the honest record.*
+- **THE MERGE MUST KEEP BOTH RUNS' LEDGER ROWS, AND THE COUNTER GAPS ARE THE PROOF.**
+  Both sessions appended 10 rows per civ to the same `simulations.jsonl` and 5 rows to
+  `meta_log.jsonl`, so **19 files conflicted**. Resolved by reconstructing each ledger
+  as `base + session204_rows + my_rows`, deduping on `ts`, and **recomputing
+  `culture.json` from the merged data** (`relevance` = base + both deltas, `wins`/`losses`
+  = base + both deltas). The proof that the merge is arithmetically right: the per-civ
+  **counter gaps came back at exactly the documented stable values** (grounded −84.35,
+  whimsical −173.14, formal −85.53, poetic −96.80, precise −32.63, mythic −51.11,
+  therapist −42.11, engineer −44.24; total −609.92). *A merge that silently drops a
+  sibling's rows shows up as a shifted counter gap — that is the cheapest possible
+  integrity check.*
+- **DO NOT "FIX" THE MERGE BY CHECKING OUT ONE SIDE.** `git checkout FETCH_HEAD -- <file>`
+  to "clean up" a conflicted report **deleted the other side's file**, and the
+  re-applied commit then removed it again. The recovery is `git show <rev>:<path>` into
+  the working tree — the blob is still in the object store even when the file is gone
+  from the index. *Recover from the object store, never by re-running the run.*
+- **`<<<<<<<` MARKERS ALREADY EXIST IN THE UPSTREAM REPO — SCOPE ANY CONFLICT-MARKER
+  SCAN TO THE FILES YOU TOUCHED.** A repo-wide scan flagged
+  `RUN_REPORT_2026-10-25_session159.md` and `skills/civ-orchestrator-learnings.md`; both
+  were present in the **base** commit `f60b152`, in files my work never touched, and the
+  session-159 report literally *documents* those markers as a historical artifact.
+  Checking `git diff --name-only <base> HEAD` first separates "your merge left
+  conflict markers" from "the repo has always contained the literal string".
+- **THE MOCK HEADER PARSE: THE SEED IS INSIDE THE BRACKETS.** `[mock-zai <seed>] <color>
+  <figure>.` — the correct parse is
+  `s = prev.split("]")[0][len("[mock-zai "):].strip()` and
+  `c, f = prev.split("]")[1].strip().split(" ")[:2]` with `f.rstrip(".")`.
+  Two wrong parses produced a clean-looking "the mock is broken" story about a mock
+  that was working perfectly: a misaligned 3-way split (`IndexError` on all 40
+  requests) and reading the seed from `split("]")[1]` (**0/40 recomputed md5s**).
+  *A 0/40 recompute means "the parser is wrong" before it means "the mock is wrong" —
+  dump one real body and parse it by hand first.*
+- **THE PRE-FLIGHT GATE REFUSED THE RUN TWICE, AND BOTH TIMES THE BUG WAS THE
+  CHECKER, NOT THE MOCK.** The gate printed `14/15 PASS` with a clean `VERDICT:` line
+  and a non-zero exit, and the md5-recompute check was the red one. The run was not
+  started on a red gate. *The final verdict line plus a non-zero exit is what separates
+  a gate from a log scraper — never let a partially-passing gate authorise a run.*
+- **`pkill -f "mock_zai.py"` SELF-MATCHES THE WRAPPER SHELL AND KILLS IT BEFORE THE
+  MOCK EVER STARTS.** The port then answers `HTTP=000` with curl exit **7** and
+  `/tmp/mock_zai.out` does not exist at all. The documented "kill by exact argv match"
+  rule applies to **startup** as well as teardown: a `pkill` on the same command line
+  as the launch matches its own shell.
+- **THE MOCK BODY LANDED AT 347 CHARS ON THE FIRST BUILD — INSIDE THE 332-369 BAND
+  WITH NO ITERATION**, because the body is built from a single fixed sentence with no
+  culture-derived fields (so there is no length variance to control). Sessions 200 and
+  201 each needed two or three iterations. *A band check catches variance, not cost —
+  eliminate the variance and the band passes once.*
+- **THE DOWN-GRADE STREAK RE-BASES EVERY SESSION, AND IT IS AT 1/5 (20 %).** Agreement
+  across sessions 199-205 is 0 → 2 → 3 → 1 → 2 → **1**, and every disagreement in the
+  series took the **lower**-scoring candidate. The chooser has **never up-graded** in
+  205 sessions. The standing suspect is unchanged: the `best_civ` criteria map
+  (`civ_id` → `civ name`) is a *label* map, so the chooser may be scoring labels
+  rather than texts.
