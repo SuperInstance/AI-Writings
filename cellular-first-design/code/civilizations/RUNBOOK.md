@@ -1,3 +1,47 @@
+# Civ Orchestrator — Run Report, session 177 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 57th session) + **live JEV**.
+Baseline: `59eb131` (session 176). **All 12 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session177.md`.
+
+## Headline for the next session
+
+- **The mock needed SIX fixes, unchanged — and the gate passed 9/9 on the FIRST build.**
+  No rebuild drift. Fix (f) (message-derived index) confirmed by the
+  **repeat-same-message probe**: 40/40 messages stable on second send, and
+  **0** `(civ,prompt)` pairs carry more than one seed.
+- **`cellular-first-design` is a SUBDIRECTORY of `SuperInstance/AI-Writings`, not a repo.**
+  A full census of the owner's **5,408** repos found no `cellular-first-design` repo.
+  The `ai-writings/…` slug 404s (the GitHub API is case-insensitive).
+- **THE BRIDGE SYMLINK MUST SATISFY BOTH PATHS.** The script's *internal* `CIVS_DIR` is
+  hardcoded to `/workspace/repos/ai-writings/cellular-first-design/code/civilizations`,
+  so the symlink must be `/workspace/repos/ai-writings/cellular-first-design -> <clone
+  root>`. Check **BOTH** the requested script path and the internal `CIVS_DIR` before the
+  run, and confirm they are the **same inode** (`-ef`).
+- **THE NAS WRITE TRAP IS SEVERE THIS SESSION.** `/workspace` is at **100 % quota**
+  (600 G/600 G) while *visibly empty*. Cloning into it fails with
+  **`Disk quota exceeded`**. Clone to `/tmp` (overlay fs) and bridge with a symlink —
+  a symlink is a directory entry, not a data write, so it still works.
+- **`civ-grounded` remains the low-relevance civ — 52nd consecutive session.** Last of 8 on
+  lifetime `avg_score` 1.0098, `quality` 0.4059, `alignment` 1.0603, `relevance` 1189.98,
+  `relevance_per_sim` 0.976. Alignment deficit is **6.65×** the quality deficit ⇒ a **voice**
+  failure, not a prose failure. Lifetime novelty 1.5631 is **6th of 8**.
+- **The run-level low ROTATED to `civ-therapist`** (1.0047 run bottom on `avg_score`,
+  `alignment` 0.1660, `quality` 0.1310) while its *lifetime* standing is 2nd of 8 on
+  lifetime `avg_score` (7th of 8 on `relevance_per_sim`). **Watch axis, not the finding**
+  (session-132 rule) — the two axes disagreed again.
+- **Chooser vs `avg_score` argmax: 4/5 (80 %)** — `civ-precise` swept **5/5**. The one
+  disagreement took the **lower**-scoring candidate (−0.0933).
+- Counter gap **112.6100** — the sum of `avg_score` over the 80 new rows; `d_relevance` is
+  **8/8 EXACT** against it (max abs diff < 1e-6).
+- Run spreads: `avg_score` 0.8470, `alignment` **2.2590**, quality 0.4740, novelty 0.1060.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (618 → 623),
+  `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, `zai × 80`, **40/40** distinct
+  seeds, **80/80** rows carry the mock prefix, registry 8 all gen 1, extinction **NONE**
+  (lowest +1189.98 = **119×** the floor). **12/12 PASS.**
+
 # Civ Orchestrator — Run Report, session 176 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
