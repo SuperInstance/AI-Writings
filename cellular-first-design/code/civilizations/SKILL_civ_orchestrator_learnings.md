@@ -478,3 +478,53 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   working tree from a 3.7 GB repo. Bridge the symlink at the **inner**
   `cellular-first-design` directory; verify with `stat -L -c '%d:%i'` (here
   `129:10423` on both sides) and `os.path.samefile()` → `True`.
+
+## Session 204 additions (2026-10-25)
+
+- **PARSE THE MOCK HEADER FROM A KNOWN-GOOD SAMPLE BEFORE ASSERTING THE RECOMPUTE.**
+  The mock's header is `[mock-zai <seed>] <color> <figure>.` — the **seed lives INSIDE
+  the brackets**, the colour and figure after them. Two parser bugs in a row, both
+  producing a *clean-looking* "the mock is broken" story about a mock that was working
+  perfectly: (a) taking `prev.split("]")[0][len("[mock-zai "):]` for the seed but
+  `prev.split("]")[1].split(" ")[1]/[2]` for colour/figure — the `[1]` chunk is
+  `" <color> <figure>. <body>"`, so a plain 3-way split misaligns; (b) reading the
+  **seed** from `split("]")[1]`, which compares `d372` against the expected `6ffd` and
+  reports **0/40 recomputed md5s**. *A 0/40 recompute means "the parser is wrong"
+  before it means "the mock is wrong" — dump one real body and parse it by hand
+  first.* The correct parse is
+  `s = prev.split("]")[0][len("[mock-zai "):].strip()` and
+  `c, f = prev.split("]")[1].strip().split(" ")[:2]` with `f.rstrip(".")`.
+- **THE GATE REPORTS 14/15 WITH A CLEAN `VERDICT:` LINE AND A NON-ZERO EXIT — THAT IS
+  THE DESIGN WORKING.** The md5-recompute check was red on a fully healthy mock; the
+  pre-flight refused to bless the run and the *checker* was fixed instead of the
+  artifact. The final verdict line plus the non-zero exit is what separates a gate
+  from a log scraper. *Never let a partially-passing gate authorise a run.*
+- **`pkill -f "mock_zai.py"` SELF-MATCHES THE WRAPPER SHELL AND KILLS IT BEFORE THE
+  MOCK STARTS.** The port then answers `HTTP=000` with curl exit **7**, and
+  `/tmp/mock_zai.out` does not exist at all — the "launch" never ran. The documented
+  teardown rule (kill by exact argv match, never `pkill -f`) applies to **startup**
+  too: a `pkill` in the same command line as the launch will match its own shell.
+- **THE MOCK BODY LANDED AT 347 CHARS ON THE FIRST BUILD — INSIDE THE 332-369 BAND
+  WITH NO ITERATION.** Sessions 200 and 201 each needed two or three build
+  iterations; the band check is worth keeping because it *catches* variance, but it
+  is not a fixed cost. Building the body from a single fixed sentence (no
+  culture-derived fields, so no length variance) is what makes it land first time.
+- **THE RUN LOW AND THE LIFETIME LOW DECOUPLED FOR THE THIRD TIME IN A ROW, AND THE
+  WIDEST ALIGNMENT GAP CONVERGED WITH THE RUN LOW.** Session 204's run low is
+  `civ-whimsical` (`avg_score` **1.0700**, `alignment` **0.4150** = lowest in the
+  fleet) and it *also* holds the widest alignment gap (**2.4550**) — where sessions
+  202 and 203 split the two across different civs. `civ-grounded` is the lifetime low
+  for the **76th consecutive session** and placed **5th of 8** on run `avg_score`
+  (**1.5963**). *Do not carry a coincidence forward as a pattern — and do not carry a
+  decoupling forward as a pattern either.*
+- **THE ALIGNMENT SPREAD WAS 3.95x THE QUALITY SPREAD AND 16.70x THE NOVELTY SPREAD —
+  THE WIDEST NOVELTY NARROWNESS IN THE SERIES** (novelty spread **0.1470**). The
+  ranking is produced by alignment almost alone.
+- **THE DOWN-GRADE STREAK RE-BASES EVERY SESSION, AND IT IS AT 1/5 (20 %).** Agreement
+  across sessions 199-204 is 0 → 2 → 3 → 1 → 2 → **1**, and **every** disagreement in
+  the series took the **lower-scoring** candidate. `civ-precise` was argmax on 3/5 and
+  won 2/5; `civ-engineer` was argmax on 2/5 and won **0**. `civ-formal` won 3 of 5
+  prompts outright, ending `civ-precise`'s four-session 5/5-sweep run. The chooser has
+  **never up-graded** in 204 sessions. The standing suspect is unchanged: the
+  `best_civ` criteria map (`civ_id` → `civ name`) is a *label* map, so the chooser may
+  be scoring labels rather than texts.
