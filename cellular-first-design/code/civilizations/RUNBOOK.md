@@ -1,3 +1,37 @@
+# Civ Orchestrator — Run Report, session 197 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 71st session) + **live JEV** (`jev-1.14.0`).
+Baseline: `e1ab42c` (session 196). **All 27 verification assertions PASS.** Pre-flight **14/14 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session197.md`.
+
+**Session 197 in one line:** `civ-precise` swept 5/5 for the **7th consecutive** sweep
+(chooser down-grade streak now **16**); `civ-grounded` is the lifetime low for the
+**69th** consecutive session; the run-level low rotated to `civ-therapist` (**16th**
+different holder in 16 sessions); and the fleet showed **three distinct low signatures
+at once** (`therapist` low on alignment, `whimsical` low on quality with the highest
+novelty, `mythic` low on novelty).
+
+**Three durable lessons from this session:**
+
+1. **SIZE THE MOCK'S FIXED PROSE FROM THE MEASURED VARIABLE RANGE — THE BODY BAND IS
+   SOLVABLE BY ARITHMETIC.** The band took **four builds** (506-537 → 468-483 → 437-468
+   → 396-411 → 348-363) because the tenet list and voice phrase are variable-length.
+   Measure the variable parts (87-102 chars this session), subtract from the 369 ceiling,
+   and size the fixed prose to land **every** civ in 332-369 at once. Target **267**.
+2. **CHECK SEMANTIC MARKERS, NOT DECORATIVE PREFIX STRINGS.** The historical check 8
+   counted rows whose preview begins with the literal `[mock-zai seed=`. This session's
+   template renders `seed=446f color=d64d figure=…/…/…` — the markers are all correct,
+   so the literal check false-failed a good dataset. The substantive check is the
+   **independent recompute** from the md5 of the whole message: **80/80**.
+3. **THE TWO LOW CIVS SPLIT INTO DISTINCT SIGNATURES FOR THE THIRD SESSION RUNNING.**
+   `civ-therapist` is low on **alignment** (2.3660, fleet-low); `civ-grounded` was
+   6th of 8 on `avg_score` this run and is low on **quality** (1.1610, 2nd-lowest) —
+   it is *not* the run-level holder. `civ-whimsical` is the run's quality low (1.1020)
+   with the run's *highest* novelty (2.4510); `civ-mythic` is the run's novelty low
+   (2.0780). **Report the axis per civ; one signature does not cover the fleet.**
+
 # Civ Orchestrator — Run Report, session 196 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
