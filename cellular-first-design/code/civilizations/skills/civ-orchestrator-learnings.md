@@ -2617,3 +2617,104 @@ proves nothing.** The gate must recompute from the *ledger* (the recorded artifa
   appears in `ls`; a 2-byte write succeeds. Do not trust `ls` for size — always `wc -c`.
   When the NAS is full, the durable copy is **git**, and the file can be delivered via its
   `raw.githubusercontent.com` URL (verify by md5 against the local copy).
+
+---
+
+## Session 227 (2026-10-25) — the `i` INDEX is computed on the DIGEST BYTE, and the ledger only shows 162 chars of the tail
+
+**Run clean (session 227).** per-civ delta = **+10** x 8 = **80 new rows**, `meta_log` D = **+5**
+(868 -> 873), `Winner:` lines = **5**, **80/80** rows `provider=zai` with the `[mock-zai`
+prefix, **0** JEV `error` keys, **0** 2.0/2.0/2.0 fallback triples, **80/80** rows match an
+independently recomputed seed+color+figure, **40/40** distinct seeds, **0**
+`(civ,prompt)` combos carrying >1 seed, per-prompt **8/8** distinct seeds AND previews on
+all 5 prompts (ts-sorted last-8), relevance delta == sum(`avg_score`) **8/8 exact** (max
+residual **4.42e-13**), wins/losses vs `meta_log.winner_civ` **8/8 exact**, `simulations_run`
+**+10** on all 8, `generation` unchanged, leaderboard 8 entries sorted desc, git tree **18
+modified**. **Pre-flight PASS on the FIRST build.** **20/20 run-wide assertions PASS.**
+
+### 1. THE INDEX IS `d[0] % 4` ON THE **DIGEST BYTE** — THE HEX-CHAR FORM IS A 65 % LOSS
+
+Re-derived against the 1200 current-format ledger rows:
+
+```
+d      = md5(user_message).digest()
+h      = d.hex()
+i      = d[0] % 4                              # DIGEST BYTE, not int(h[0],16)
+seed   = h[(i*2)%8 : (i*2)%8+4]                # CONTIGUOUS 4-hex slice
+color  = h[8:12]
+figure = f"{h[12:16]}/{h[16:20]}/{h[20:24]}"
+```
+
+| index form | ledger rows reproduced |
+|---|---|
+| `d[0] % 4` (digest byte) | **1200 / 1200** |
+| `int(h[0],16) % 4` (hex char) | **416 / 1200** |
+
+`d[0]` is the *first raw byte* of the digest; `int(h[0],16)` is the *high nibble* of that
+same byte. They coincide only when the byte's high nibble equals the byte itself — i.e. for
+bytes in `0x00-0x0F`, which is **1/16** of the space, and even then only for some of them.
+The two forms agree often enough that a small sample will land on an agreeing row and hide
+the defect. This is the **session-213 trap recurring one level up**: session 213 caught
+`int(h[0],16) % 4` vs `d[0] % 4` in a different field, and the ambiguity survived in the
+RUNBOOK text long enough to be re-derived wrongly again here.
+
+*Rule: when the spec says "the first byte", compute it from `digest()` and not from
+`hexdigest()`. Hex is a *rendering*; a byte index is an arithmetic operation on the digest.
+Derive the index form by **fitting against the ledger**, not by reading the prose.*
+
+### 2. THE LEDGER EXPOSES ONLY **162** CHARS OF THE TAIL — THE REST IS NOT RECOVERABLE
+
+`content_preview` truncates at **200** chars and the header is a constant **38**, so the
+visible portion of the body is 38 + 162 = 200. The real body band is **332-369**, meaning
+**132-169 chars of the tail are invisible in the ledger**. The ledger therefore contains
+**9 distinct 162-char tail prefixes** (one per mock configuration), not the tails themselves.
+
+Consequences:
+- Do not try to reconstruct the tail from the ledger — the information is not there.
+- Do not treat a visible 162-char prefix as the whole tail when computing a body length.
+- Build the continuation yourself and land `38 + len(tail)` in the band. This session: the
+  session-226 Control B prefix (162 chars, byte-for-byte) + a **136**-char continuation =
+  298-char tail = **336**-char body, in band on the **FIRST build**, no trimming iteration.
+
+*Rule: `content_preview` is a **prefix**, not the body. Every length assertion about the
+body has to be made on the mock side, and the visible prefix is the only part the ledger
+can corroborate.*
+
+### 3. THE "SIX DISTINCT TAILS" CLAIM IS ARTIFACT-ONLY, AND THE COUNT GROWS WITH THE LEDGER
+
+The ledger currently holds **9** distinct 162-char tail prefixes (320 / 174 / 173 / 94 / 93 /
+93 / 93 / 80 / 80 rows). The older session-218 note said "exactly 3 distinct 163-char tails"
+— that count was a property of *that session's* ledger, not of the format. Tail prefixes
+accumulate as mock configurations change across sessions, and the **current-generation
+session tail is simply the most recent one** (the Control B text, 80 rows).
+
+*Rule: a "there are N distinct tails" claim is scoped to the ledger, and N grows. Anchor
+on the **newest** run-scoped tail instead of a fleet-wide distinct count.*
+
+### 4. OTHER RE-CONFIRMATIONS
+
+- NAS EDQUOT **total** — the clone must land on the overlay (`/tmp`, ~28 G free) and be
+  bridged by symlink to `/workspace/repos/ai-writings/cellular-first-design`, targeting the
+  **nested** `cellular-first-design` dir. The script's hard-coded `CIVS_DIR` resolves against
+  the **clone root**, so a bridge to the inner `code` dir yields `code/code/civilizations`.
+  Verify with `os.path.samefile()` (dev:ino **129:3680** both sides this session).
+- z.ai **401 `token expired or incorrect`** — **91st session** (credential gap, endpoint
+  healthy). JEV live: empty-questions probe returns **422 `too_short`**, which proves the
+  token was accepted. `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` =
+  placeholder **and** `ZAI_URL_OVERRIDE` set.
+- `gh` **not installed**; `ai-writings/cellular-first-design` slug 404s. Upstream is
+  `SuperInstance/AI-Writings`. Located the file with
+  `GET /search/code?q=civilization_orchestrator+in:path` — survives core-quota exhaustion.
+- Mock teardown by **PID captured from `ps`** (345 wrapper + 347 server), then proved the
+  port closed (`curl` exit 7, `HTTP=000`). Never `pkill -f mock_zai` (self-match).
+- **Run low — `civ-mythic`** (avg 0.5043; fleet-low novelty 1.4130 AND fleet-low alignment
+  0.0330; quality 0.0670 is 2nd-lowest). Alignment spread 2.2700 = **5.58x** quality and
+  **6.12x** novelty ⇒ *voice* failure. Gap to next civ 0.0653 = **6.4 %** of the run spread.
+  **Lifetime low — `civ-grounded`** (relevance 1992.70, rel/sim 1.159, win_rate 0.087 =
+  3rd-best) for the **91st** consecutive session; **200.3x** the −10 extinction floor.
+  No extinction, no birth (non-loop run).
+- **Chooser/argmax agreement 3/5 (60 %)**, 2 down-grades, 0 up-grades; both disagreements
+  took the **lower**-scoring candidate. The series (211-227) reads
+  0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 / 40 / 20 / 40 / 40 / 100 / 60 %.
+- **A 60 % point is not a trend** — the series contains 0 %, 20 %, 40 %, 60 % and 100 %.
+  The up-grade count across the whole series is still **0**.
