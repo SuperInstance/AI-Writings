@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Witness Log — The Cell Substrate as It Happened</title>
+<style>
+:root{--bg:#0a0a14;--panel:#0d0d1a;--panel-2:#16162a;--fg:#e8e0d0;--accent:#e8b840;--cell:#44cc88;--link:#88aaff;--pink:#ff80c0;--red:#ff6666;--muted:#999;--boundary:#2a2a3a;--BIND:#88aaff;--LINK:#44cc88;--EFFECT:#ff80c0;--VIEW:#e8b840;--TICK:#cc6666;--FORGET:#666666;--PROOF:#a070f0;--ROUTE:#60d0d0;--CRDT:#90dd60;--WORLD:#f08060;--TIME:#dd60dd}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font-family:Georgia,serif;margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 0}
+header{background:radial-gradient(ellipse at top,rgba(232,184,64,0.12) 0%,transparent 70%);padding:2.5rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--accent)}
+h1{color:var(--accent);margin:0;font-size:2.2em;font-weight:300;letter-spacing:-0.02em}
+h1 .acc{color:var(--cell);font-weight:600;font-style:italic}
+.eyebrow{font-family:monospace;color:var(--accent);font-size:0.85em;letter-spacing:0.3em;text-transform:uppercase;margin:0 0 0.5rem}
+.tagline{color:var(--muted);font-style:italic;margin:0.5rem auto 1rem;max-width:680px;line-height:1.5;font-size:1.05em}
+.container{max-width:1300px;margin:0 auto;padding:1.5rem}
+
+.intro{background:linear-gradient(135deg,rgba(232,184,64,0.08),rgba(68,204,136,0.05));border:1px solid var(--accent);border-radius:12px;padding:1.5rem;margin-bottom:2rem}
+.intro h2{color:var(--accent);margin:0 0 0.5rem;font-size:1.3em}
+.intro p{margin:0.5rem 0;color:#ddd;line-height:1.6}
+
+.legend{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+.op-chip{padding:0.3rem 0.7rem;background:var(--panel-2);border:1px solid var(--boundary);border-radius:20px;font-family:monospace;font-size:0.85em;cursor:pointer;transition:all 0.15s}
+.op-chip:hover{transform:scale(1.05)}
+.op-chip.active{color:#000;font-weight:bold;border-width:2px}
+.op-chip[data-op="BIND"]{color:var(--BIND)}
+.op-chip[data-op="BIND"].active{background:var(--BIND)}
+.op-chip[data-op="LINK"]{color:var(--LINK)}
+.op-chip[data-op="LINK"].active{background:var(--LINK)}
+.op-chip[data-op="EFFECT"]{color:var(--EFFECT)}
+.op-chip[data-op="EFFECT"].active{background:var(--EFFECT)}
+.op-chip[data-op="VIEW"]{color:var(--VIEW)}
+.op-chip[data-op="VIEW"].active{background:var(--VIEW)}
+.op-chip[data-op="TICK"]{color:var(--TICK)}
+.op-chip[data-op="TICK"].active{background:var(--TICK)}
+.op-chip[data-op="FORGET"]{color:var(--FORGET)}
+.op-chip[data-op="FORGET"].active{background:var(--FORGET)}
+.op-chip[data-op="PROOF"]{color:var(--PROOF)}
+.op-chip[data-op="PROOF"].active{background:var(--PROOF)}
+.op-chip[data-op="ROUTE"]{color:var(--ROUTE)}
+.op-chip[data-op="ROUTE"].active{background:var(--ROUTE)}
+.op-chip[data-op="CRDT"]{color:var(--CRDT)}
+.op-chip[data-op="CRDT"].active{background:var(--CRDT)}
+.op-chip[data-op="WORLD"]{color:var(--WORLD)}
+.op-chip[data-op="WORLD"].active{background:var(--WORLD)}
+.op-chip[data-op="TIME"]{color:var(--TIME)}
+.op-chip[data-op="TIME"].active{background:var(--TIME)}
+
+.controls-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+.btn{padding:0.5rem 1rem;background:var(--panel-2);border:1px solid var(--boundary);color:var(--fg);border-radius:20px;cursor:pointer;font-family:inherit;font-size:0.9em;min-height:36px}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#000;font-weight:bold;border-color:var(--accent)}
+.btn.danger{border-color:var(--red);color:var(--red)}
+.btn.danger:hover{background:var(--red);color:#000}
+
+.search-box{flex:1;min-width:200px;padding:0.5rem 1rem;background:var(--bg);border:1px solid var(--boundary);border-radius:20px;color:var(--fg);font-family:monospace;font-size:0.9em}
+.search-box:focus{outline:none;border-color:var(--accent)}
+
+.feed{background:var(--panel);border:1px solid var(--boundary);border-radius:8px;padding:1rem;max-height:70vh;overflow-y:auto;position:relative}
+.feed::before{content:'';position:absolute;left:80px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--accent) 10%,var(--accent) 90%,transparent);opacity:0.4}
+
+.witness{padding:0.8rem 0 0.8rem 1rem;border-left:2px solid transparent;margin-left:90px;position:relative;animation:slideIn 0.4s ease-out}
+.witness:hover{background:rgba(232,184,64,0.05)}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+.witness::before{content:'';position:absolute;left:-15px;top:1rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);z-index:1}
+.witness[data-op="BIND"]::before{border-color:var(--BIND);background:var(--BIND);box-shadow:0 0 8px var(--BIND)}
+.witness[data-op="LINK"]::before{border-color:var(--LINK);background:var(--LINK);box-shadow:0 0 8px var(--LINK)}
+.witness[data-op="EFFECT"]::before{border-color:var(--EFFECT);background:var(--EFFECT);box-shadow:0 0 8px var(--EFFECT)}
+.witness[data-op="VIEW"]::before{border-color:var(--VIEW);background:var(--VIEW);box-shadow:0 0 8px var(--VIEW)}
+.witness[data-op="TICK"]::before{border-color:var(--TICK);background:var(--TICK);box-shadow:0 0 8px var(--TICK)}
+.witness[data-op="FORGET"]::before{border-color:var(--FORGET);background:var(--FORGET);box-shadow:0 0 8px var(--FORGET)}
+.witness[data-op="PROOF"]::before{border-color:var(--PROOF);background:var(--PROOF);box-shadow:0 0 8px var(--PROOF)}
+.witness[data-op="ROUTE"]::before{border-color:var(--ROUTE);background:var(--ROUTE);box-shadow:0 0 8px var(--ROUTE)}
+.witness[data-op="CRDT"]::before{border-color:var(--CRDT);background:var(--CRDT);box-shadow:0 0 8px var(--CRDT)}
+.witness[data-op="WORLD"]::before{border-color:var(--WORLD);background:var(--WORLD);box-shadow:0 0 8px var(--WORLD)}
+.witness[data-op="TIME"]::before{border-color:var(--TIME);background:var(--TIME);box-shadow:0 0 8px var(--TIME)}
+
+.witness-tick{position:absolute;left:-90px;top:1rem;font-family:monospace;color:var(--muted);font-size:0.85em;text-align:right;width:80px}
+.witness-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem;flex-wrap:wrap;gap:0.4rem}
+.witness-op{font-family:monospace;font-weight:bold;font-size:1.05em}
+.witness-cell{font-family:monospace;color:var(--muted);font-size:0.85em}
+.witness-params{background:var(--bg);border-radius:4px;padding:0.5rem;font-family:monospace;font-size:0.8em;color:#ccc;margin:0.4rem 0;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word;border-left:2px solid var(--boundary)}
+.witness-hash{font-family:monospace;color:var(--muted);font-size:0.75em;margin-top:0.3rem;opacity:0.7}
+.witness-hash .ok{color:var(--cell)}
+.witness-hash .break{color:var(--red)}
+
+.pulse{animation:pulse 1.5s ease-in-out}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+.ticker-bar{background:var(--panel);border:1px solid var(--boundary);border-radius:6px;padding:0.7rem 1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;font-family:monospace;flex-wrap:wrap;gap:0.4rem}
+.ticker-bar .label{color:var(--muted);font-size:0.85em}
+.ticker-bar .value{color:var(--accent);font-weight:bold;font-size:1.1em}
+.ticker-bar .group{display:flex;gap:1rem;align-items:center}
+
+.empty{padding:2rem;text-align:center;color:var(--muted);font-style:italic}
+
+@media (max-width:768px){body{padding:0 1rem}h1{font-size:1.6em}.container{padding:1rem}.witness{margin-left:50px}.witness-tick{left:-60px;width:50px;font-size:0.7em}.feed{padding:0.5rem}.feed::before{left:55px}}
+</style>
+</head>
+<body>
+
+<header>
+<p class="eyebrow">Witness Log · The Cell Substrate as It Happened</p>
+<h1>The <span class="acc">Witness</span> Log</h1>
+<p class="tagline">Every change is observed. Every observation is a witness. Append-only — never edited. The substrate remembers everything.</p>
+</header>
+
+<div class="container">
+
+<div class="intro">
+<h2>What is a witness?</h2>
+<p>A witness is the smallest possible record of one thing that happened to one cell. Each witness has 7 fields:</p>
+<ul style="line-height:1.8;color:#ddd">
+<li><strong style="color:var(--accent)">tick</strong> — when (monotonic by Law 5)</li>
+<li><strong style="color:var(--accent)">op</strong> — which of the 11 opcodes</li>
+<li><strong style="color:var(--accent)">cell</strong> — the cell it happened to</li>
+<li><strong style="color:var(--accent)">params</strong> — what was bound / linked / effected</li>
+<li><strong style="color:var(--accent)">hash</strong> — hash of (prev_hash + op + cell + params + tick)</li>
+<li><strong style="color:var(--accent)">prev_hash</strong> — the chain link (tamper-evident)</li>
+<li><strong style="color:var(--accent)">sig</strong> — optional HMAC</li>
+</ul>
+<p style="color:var(--cell);margin-top:0.5rem"><strong>The witness log IS the source of truth.</strong> Every cell is derived from the log. Tampering with the log changes the hashes — the chain breaks visibly.</p>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<div class="controls-row">
+<input type="text" class="search-box" id="searchBox" placeholder="Search by cell id, opcode, or text…" oninput="render()">
+<button class="btn" onclick="toggleAutoTick()"><span id="tickBtnLabel">▶ Auto TICK</span></button>
+<button class="btn primary" onclick="manualTick()">⚡ TICK now</button>
+<button class="btn" onclick="addCell()">⊕ New cell</button>
+<button class="btn" onclick="downloadLog()">💾 Export JSONL</button>
+<button class="btn danger" onclick="if(confirm('Clear all witnesses?')){localStorage.removeItem('quilt-witnesses');witnesses=[];render();}">🗑️ Clear</button>
+</div>
+
+<div class="ticker-bar">
+<div class="group">
+<div class="label">TICK:</div>
+<div class="value" id="tickNum">0</div>
+</div>
+<div class="group">
+<div class="label">cells:</div>
+<div class="value" id="cellCount">0</div>
+</div>
+<div class="group">
+<div class="label">witnesses:</div>
+<div class="value" id="witCount">0</div>
+</div>
+<div class="group">
+<div class="label">chain integrity:</div>
+<div class="value" id="chainOk">✓ valid</div>
+</div>
+</div>
+
+<div class="feed" id="feed"></div>
+
+<p style="color:var(--muted);font-style:italic;margin-top:1rem;text-align:center">
+  The witness log is append-only. Every TICK advances time.<br>
+  Each line is one act of witnessing. The substrate is what was witnessed.
+</p>
+
+</div>
+
+<script>
+const ALL_OPS = ['BIND','LINK','EFFECT','VIEW','TICK','FORGET','PROOF','ROUTE','CRDT','WORLD','TIME'];
+
+// Sample witnesses (demo content). In production, these come from the actual cell operations.
+const SAMPLE_WITNESSES = [
+  {tick:0, op:'BIND', cell:'ack:7', params:{timeoutMs:3000}, hash:'0xa1b2c3', prev_hash:'0x000000', sig:null},
+  {tick:1, op:'LINK', cell:'ack:7', params:{target:'ack:8', reason:'neighbor'}, hash:'0xd4e5f6', prev_hash:'0xa1b2c3', sig:null},
+  {tick:2, op:'BIND', cell:'ack:8', params:{timeoutMs:5000}, hash:'0xa7b8c9', prev_hash:'0xd4e5f6', sig:null},
+  {tick:3, op:'VIEW', cell:'ack:7', params:{viewer:'human'}, hash:'0xf0a1b2', prev_hash:'0xa7b8c9', sig:null},
+  {tick:4, op:'EFFECT', cell:'ack:7', params:{event:'TIMEOUT', elapsedMs:3001}, hash:'0xc3d4e5', prev_hash:'0xf0a1b2', sig:'hmac-sha256:7f8a'},
+  {tick:5, op:'TICK', cell:'ack:7', params:{delta:1}, hash:'0x123abc', prev_hash:'0xc3d4e5', sig:null},
+  {tick:6, op:'LINK', cell:'music:1', params:{target:'voice:3', reason:'harmonic'}, hash:'0x456def', prev_hash:'0x123abc', sig:null},
+  {tick:7, op:'BIND', cell:'music:1', params:{bpm:120, key:'C-minor'}, hash:'0x789fed', prev_hash:'0x456def', sig:null},
+  {tick:8, op:'CRDT', cell:'swarm:1', params:{merged_with:'swarm:2', resolution:'lww'}, hash:'0xabcf12', prev_hash:'0x789fed', sig:'hmac-sha256:c1d2'},
+  {tick:9, op:'EFFECT', cell:'voice:3', params:{event:'SAY', text:'the wind rises'}, hash:'0x345abc', prev_hash:'0xabcf12', sig:null},
+  {tick:10, op:'PROOF', cell:'crypt:1', params:{algorithm:'HMAC-SHA256', output:'0xe5f6...'}, hash:'0x678def', prev_hash:'0x345abc', sig:'hmac-sha256:proof'},
+  {tick:11, op:'ROUTE', cell:'ack:7', params:{from:'ack:7', to:'cry:42', path:['ack:7','ack:11','ack:23','cry:42']}, hash:'0x9ab123', prev_hash:'0x678def', sig:null},
+  {tick:12, op:'TIME', cell:'queue:1', params:{at_tick:18, deferred:true}, hash:'0xbcd456', prev_hash:'0x9ab123', sig:null},
+  {tick:13, op:'TICK', cell:'ack:7', params:{delta:1}, hash:'0xdef789', prev_hash:'0xbcd456', sig:null},
+  {tick:14, op:'WORLD', cell:'ack:7', params:{counterfactual:'ack:7 in next tick', confidence:0.83}, hash:'0xfed012', prev_hash:'0xdef789', sig:null},
+  {tick:15, op:'BIND', cell:'herd:1', params:{diversity:7, kin:'sheep'}, hash:'0x012fed', prev_hash:'0xfed012', sig:null},
+  {tick:16, op:'VIEW', cell:'music:1', params:{viewer:'human'}, hash:'0x345abc', prev_hash:'0x012fed', sig:null},
+  {tick:17, op:'LINK', cell:'pathos:3', params:{target:'death:1', reason:'tragic'}, hash:'0x678fed', prev_hash:'0x345abc', sig:null},
+  {tick:18, op:'TIME', cell:'queue:1', params:{fire:true}, hash:'0x9abdef', prev_hash:'0x678fed', sig:null},
+  {tick:19, op:'FORGET', cell:'herd:3', params:{reason:'right_to_erasure'}, hash:'0xbcd012', prev_hash:'0x9abdef', sig:null},
+  {tick:20, op:'BIND', cell:'witness:0', params:{log_id:'main'}, hash:'0xef345a', prev_hash:'0xbcd012', sig:null}
+];
+
+let witnesses = JSON.parse(localStorage.getItem('quilt-witnesses') || 'null');
+if (!witnesses || witnesses.length === 0) {
+  witnesses = SAMPLE_WITNESSES.slice();
+  localStorage.setItem('quilt-witnesses', JSON.stringify(witnesses));
+}
+
+let activeFilter = new Set(ALL_OPS);
+
+function renderLegend() {
+  const legend = document.getElementById('legend');
+  legend.innerHTML = ALL_OPS.map(op => {
+    const count = witnesses.filter(w => w.op === op).length;
+    return `<div class="op-chip ${activeFilter.has(op) ? 'active' : ''}" data-op="${op}" onclick="toggleOp('${op}')">${op} <small style="opacity:0.7">(${count})</small></div>`;
+  }).join('');
+}
+
+function toggleOp(op) {
+  if (activeFilter.has(op)) activeFilter.delete(op);
+  else activeFilter.add(op);
+  if (activeFilter.size === 0) ALL_OPS.forEach(o => activeFilter.add(o));
+  render();
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function render() {
+  renderLegend();
+  
+  const search = document.getElementById('searchBox').value.toLowerCase();
+  
+  // Stats
+  document.getElementById('tickNum').textContent = witnesses.length > 0 ? witnesses[witnesses.length-1].tick : 0;
+  const uniqueCells = new Set(witnesses.map(w => w.cell));
+  document.getElementById('cellCount').textContent = uniqueCells.size;
+  document.getElementById('witCount').textContent = witnesses.length;
+  
+  // Chain integrity check
+  let chainOk = true;
+  for (let i = 1; i < witnesses.length; i++) {
+    if (witnesses[i].prev_hash !== witnesses[i-1].hash) {
+      chainOk = false;
+      break;
+    }
+  }
+  const chainEl = document.getElementById('chainOk');
+  chainEl.textContent = chainOk ? '✓ valid' : '✗ broken';
+  chainEl.style.color = chainOk ? 'var(--cell)' : 'var(--red)';
+  
+  // Render feed (reverse chronological)
+  const filtered = witnesses.filter(w => 
+    activeFilter.has(w.op) && 
+    (!search || w.cell.toLowerCase().includes(search) || w.op.toLowerCase().includes(search) || JSON.stringify(w.params).toLowerCase().includes(search))
+  );
+  
+  const feed = document.getElementById('feed');
+  if (filtered.length === 0) {
+    feed.innerHTML = '<div class="empty">No witnesses match. Try clearing filters or searching for a different term.</div>';
+    return;
+  }
+  
+  feed.innerHTML = filtered.slice().reverse().map(w => `
+    <div class="witness" data-op="${w.op}">
+      <div class="witness-tick">tick ${w.tick}</div>
+      <div class="witness-header">
+        <span class="witness-op" style="color:var(--${w.op})">${w.op}</span>
+        <span class="witness-cell">${escapeHtml(w.cell)}</span>
+      </div>
+      <div class="witness-params">${escapeHtml(JSON.stringify(w.params, null, 2))}</div>
+      <div class="witness-hash">
+        <span class="ok">${w.hash}</span> ← prev: <span class="${w.prev_hash === (witnesses[witnesses.indexOf(w)-1]?.hash || '0x000000') ? 'ok' : 'break'}">${w.prev_hash}</span>
+        ${w.sig ? `· sig: ${escapeHtml(w.sig)}` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function manualTick() {
+  const last = witnesses[witnesses.length-1];
+  const cellId = `cell:${witnesses.length}`;
+  witnesses.push({
+    tick: last ? last.tick + 1 : 0,
+    op: 'TICK',
+    cell: cellId,
+    params: {delta: 1, manual: true},
+    hash: '0x' + Math.random().toString(16).slice(2, 8).padEnd(6, '0'),
+    prev_hash: last ? last.hash : '0x000000',
+    sig: null
+  });
+  localStorage.setItem('quilt-witnesses', JSON.stringify(witnesses));
+  render();
+}
+
+let autoInterval = null;
+function toggleAutoTick() {
+  if (autoInterval) {
+    clearInterval(autoInterval);
+    autoInterval = null;
+    document.getElementById('tickBtnLabel').textContent = '▶ Auto TICK';
+  } else {
+    autoInterval = setInterval(manualTick, 2000);
+    document.getElementById('tickBtnLabel').textContent = '⏸ Pause TICK';
+  }
+}
+
+function addCell() {
+  const cellId = prompt('Cell id (e.g. music:5):', `kind:${witnesses.length+1}`);
+  if (!cellId) return;
+  const op = prompt('Initial opcode (BIND/LINK/EFFECT/VIEW/TICK):', 'BIND');
+  if (!ALL_OPS.includes(op)) return alert('Invalid opcode');
+  const params = prompt('Params (JSON):', '{"value":1}');
+  let parsedParams;
+  try { parsedParams = JSON.parse(params || '{}'); }
+  catch { return alert('Invalid JSON'); }
+  
+  const last = witnesses[witnesses.length-1];
+  witnesses.push({
+    tick: last ? last.tick + 1 : 0,
+    op,
+    cell: cellId,
+    params: parsedParams,
+    hash: '0x' + Math.random().toString(16).slice(2, 8).padEnd(6, '0'),
+    prev_hash: last ? last.hash : '0x000000',
+    sig: null
+  });
+  localStorage.setItem('quilt-witnesses', JSON.stringify(witnesses));
+  render();
+}
+
+function downloadLog() {
+  const txt = witnesses.map(w => JSON.stringify(w)).join('\n');
+  const blob = new Blob([txt], {type: 'application/jsonl'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `quilt-witness-log-${new Date().toISOString().slice(0,10)}.jsonl`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+render();
+</script>
+
+</body>
+</html>

@@ -1347,36 +1347,42 @@ The 8 impossibility proofs (in order of discovery):
 
 ---
 
-### Civilization Orchestrator — session 36 environment corrections (2026-10-23)
+### Canon Watcher Operations (2026-10-25, 109th wipe)
 
-Three corrections to the standing environment notes, all of which contradict what
-was previously recorded:
+**Where the watcher actually lives.** The `bots/wesley-mechanic/` tree is **not on `main`**. `main` is a slim
+181-entry branch (`cellular-first-design/`, `prose/`). The live working branch is **`master`** (17,877 entries),
+and the watcher path `bots/wesley-mechanic/wesley_watcher.py` exists only there. Repo: `SuperInstance/AI-Writings`
+(3.7 GB — clone with `--filter=blob:none`).
 
-1. **`/tmp` is EPHEMERAL across tool calls in this sandbox — it is not a safe
-   clone target.** A clone reached 1.7 GB across two tool calls and the
-   directory was gone by the third (`ls: cannot access '/tmp/aw/': No such file
-   or directory`, log file still present). The old advice "clone to `/tmp`, it is
-   exempt from the NAS EDQUOT trap" is only half right: the EDQUOT exemption
-   holds, but the filesystem does not survive between calls.
+**The canon endpoint.** `https://live-canon.superinstance.dev/api/canon` serves `{"papers":[...],"count":71}`.
+The script's `paper_count` comes from `data.get("paper_count", data.get("count", 0))` — `paper_count` is a legacy
+key the endpoint no longer serves; **`count` is the live key**. It sits behind a User-Agent filter: a default
+Python-urllib agent gets **403**; the script sends `User-Agent: curl/8.5.0` and gets 200.
 
-   **Use `/root/work`** (overlay, 27 G free) for anything that must outlive one
-   tool call. `/var/tmp` and `/mnt/envd` are also overlay-backed. Only
-   `/workspace` hits the NAS quota.
+**Canon hash as of 2026-10-25T17:33Z: `b20375d389cb505d`, 71 papers** — unchanged across the last five polls
+(2026-10-24T20:20Z → 2026-10-25T17:33Z). A poll that reports "no change" is the expected steady state, not a fault.
 
-2. **`git clone --depth 1 --filter=blob:none --no-checkout` + `git sparse-checkout
-   set <one-dir>` is RELIABLE and fast** — 968 K, ~30 s, where `--depth 50` pulled
-   1.7 GB and timed out. This contradicts sessions 9/10/11's "the filtered clone
-   always fails". Restated rule: **filtered + sparse to ONE directory = reliable;
-   filtered alone = unreliable.**
+**NAS quota trap (recurrence).** The workspace mount was again at 600G/600G (100%). Symptoms this time: `cp` into
+`/workspace` reported **`failed to close ... Disk quota exceeded`** on *every* file and left **0-byte stubs** that
+still appeared in `ls -la`. A 100-byte write "succeeded" (exit 0) and produced a **0-byte file**; a 4 KB write
+failed with exit 1. **Never trust `ls -la` alone — stat the byte size.** `mount --bind` was **denied** (no
+CAP_SYS_ADMIN in this sandbox).
 
-3. **`/workspace` is an NFS mount at 100 % quota (600 G / 600 G, 0 avail).** Every
-   write there produces a **0-byte file that still appears in `ls`**, including
-   into `/workspace/.skills/`. File delivery to the user is therefore BLOCKED
-   while the quota is full — it is not a tooling problem. The durable channel is
-   the git remote (`SuperInstance/AI-Writings`, note the capitalisation: pushing
-   to `ai-writings` works but the server answers "This repository moved").
-   Verify a push via the **commits API**, not the push output.
+**The symlink workaround that works.** Copy the working tree to the overlay fs (28 G free at `/tmp`, not subject
+to EDQUOT), then make the hardcoded absolute path a symlink:
+`ln -s /tmp/aiw/bots/wesley-mechanic /workspace/repos/ai-writings/bots/wesley-mechanic`. The watcher hardcodes
+`/workspace/repos/ai-writings/bots/wesley-mechanic/...` for all four paths (witness.log, state.json,
+bookkeeper.wal) and `sys.path.insert(0, '/workspace/repos/ai-writings/bots/substrate-bus')`, so symlinking
+**both** dirs lets the script run **unmodified** — source md5 stayed `7e497f89d8396f5d6c04f4aec5e14a18`,
+`git diff` empty against HEAD. A symlinked `substrate-bus` leaves a `__pycache__/` dir behind; delete it before
+committing.
 
-Also confirmed this session: `gh` is still absent, `GIT_SSL_NO_VERIFY=1` is still
-required, and the `write` tool remains jailed to the workspace root (use a bash
-heredoc for files destined for `/root`).
+**Transient NFS glitch.** Right after creating the symlinks, one `ls` on the symlinked path returned
+`No such file or directory` while the symlink itself was present and the mount was still at 100%. A retry
+succeeded. **Re-run a failed `ls` before concluding the file is gone** — a single miss is not evidence of absence.
+
+**What a "no change" poll does and does not write.** `run_once` on an unchanged hash writes **only** the
+`bot_started` line to `witness.log`. `state.json` and `bookkeeper.wal` are **not** rewritten (no `save_state`,
+no `bookkeeper_tick` on the unchanged path), and `substrate-witness.jsonl` is untouched. `bookkeeper.wal` stays at
+`ticks: 1, gamma: 1.0, last_conserved: false` — the `false` is inherited, not recomputed, because
+`bookkeeper_tick` only runs on a change. **A witness note is only warranted on a real `canon_changed` event.**

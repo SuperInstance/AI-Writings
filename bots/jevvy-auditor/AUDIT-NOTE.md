@@ -1,82 +1,84 @@
-# Audit Note — jevvy-auditor, 2026-10-24T13:09:38Z
+# Audit Note — jevvy-auditor, 2026-10-25T19:07:53Z
 
-**Verdict: FAIL (bot-reported, run 7 of 7). I do not concur as a finding about the canon — this
-is the seventh consecutive FAIL with the identical witness hash `b0b9813e0f2dbb5d`, i.e. one
-defect sampled seven times, not seven independent negative findings. The honest count of
-independent negative findings about the canon remains zero. The prior note's central conclusion
-survives re-derivation; its proposed fix does not, and that is the most important thing to
-record here.** Two new defects surfaced this run that the prior note did not catch, and the
-prior note's recommended fix (i) — "embed the sampled prose body in every question" — was
-tested directly and **does not work**: an arm that embedded the canon text into every question
-returned alignment 0.14 against the bot's 0.15, i.e. no change at all, because the text the bot
-slices is *frontmatter metadata, not prose*. The defect is upstream of question placement.
+**Verdict: CAUTION (confidence=high). I concur with the finding, and the sampling defect I filed
+in the two prior notes is now demonstrably bounded rather than merely noted.** The run sampled
+`witness_log_reading_itself_rsi_gan`, `when_the_substrate_teaches`, and `wolffs_law_of_tensors_rsi_gan`,
+and scored them `avg=2.533` (quality 2.34, novelty 2.31, alignment 2.95) against a same-batch
+no-text control of `avg=0.187`, giving a margin of **2.347** that clears `CONTROL_MARGIN` of 0.35 by
+6.7x. The verdict derives correctly from the shipped gate: PASS needs `avg >= 2.60` and
+`advance_prob > 0.70`, and the run reached 2.533 and 0.81 — it misses on the first by **0.067** and
+clears the second comfortably; CAUTION needs `avg >= 1.80` and `advance_prob >= 0.45`, both met. I
+re-derived the verdict from the raw stored `answers` and `control_answers` through
+`verdict_from_audit()` and got a bit-identical result, so the log entry is a faithful record of what
+the gate decided rather than a separately-written number. The control arm is doing real work: the
+blind arm returned `q0=0.01` with `confidence=1.00` and `q4=0.07` with `confidence=0.95` — the
+signature of a model correctly reporting it had nothing to grade — while the text-bearing arm moved
+to `q0=2.34`, `q3=2.31`, `q4=2.95`, the signature of a model that actually read the prose. The
+bot's own risk call, `q5=too-abstract` at confidence 0.69, is also the honest reading of this
+sample: these are short aphoristic essays, and "too-abstract" is a fair charge against them.
 
-**Root cause, established by controlled A/B against the same endpoint.** The bot's q0 text is
-`canon_summary[:150]`, and I verified that slice resolves to
-`'witness_log_as_prediction_rsi_gan: # Witness Log As Prediction -- RSI GAN V2 Winner\n\n*Topic:
-witness_log_as_prediction*\n*Provider: zai ; what_just_hap'` — 150 characters of title and
-metadata tags. At a fixed 150-character budget on the same file, the same question, the same
-endpoint: **metadata-and-title 0.63–0.66, pure prose 1.55–1.74**; extending to 600 characters of
-pure prose reaches **2.61–2.63**, against this file's own recorded frontmatter score of
-`q=2.17`. The model is being asked to grade a YAML-ish metadata header and answering honestly.
-`pick_recent_canon()` keeps 200 chars per file, `build_audit_questions()` keeps 100 per file, and
-`canon_summary[:150]` is consumed almost entirely by the first file, so files 2 and 3 are
-truncated away entirely — a 3-file sample is graded as a 1-file metadata header. The alignment
-question confirms it: **with the prose body 2.09, without it 0.18 (11.6x)**; the bot's reported
-0.14 is the no-text control, i.e. the bot graded a canon it never showed the model. The
-corpus's own frontmatter scores across 46 files (median alignment **3.39**, p90 3.72, max 3.94;
-quality median 2.16, novelty median 2.37) sit roughly 23x above the bot's 0.14, and two of the
-three sampled files (`witness_log_as_prediction_rsi_gan`, `what_just_happened_bus_aware`) carry
-their own recorded scores `q=2.17 a=3.26` and `q=2.15 a=3.39` — so the sampled work is well
-above the floor the bot reports, and the third file (`wesleys-sunday-afternoon-dream`) carries no
-frontmatter score and is simply graded blind.
+**The sampled canon independently corroborates the score, and it is genuinely good.** The two files
+carrying frontmatter JEV scores — `witness_log_reading_itself_rsi_gan` (`q=2.15 n=2.48 a=3.70`) and
+`wolffs_law_of_tensors_rsi_gan` (`q=2.16 n=2.22 a=3.57`) — sit at the **80.4th and 56.5th
+percentiles** of the 46-file scored corpus (median avg-of-(q,n,a) = 2.623). The bot's `avg=2.533`
+lands squarely inside that band. `when_the_substrate_teaches` is unscored in frontmatter but is a
+tight, doctrinal piece that argues the substrate-teaches-itself property without hedging, and the
+bot's alignment score of 2.95/4 ("tightly-aligned") is consistent with reading it. So CAUTION here
+is not a failure verdict dressed up — it is the honest reading of *good but not landmark* work
+whose stated advance probability (0.81) is higher than its quality.
 
-**Two new defects, both reproduced this run.** (a) **The credential lookup is outside the
-`try` block**: `jev_batch()` reads `os.environ['TYPESAFEAI_KEY']` in the `Request(...)`
-construction, which precedes the `try`, so a missing key raises `KeyError` that the
-`except Exception` never catches — the script dies with a traceback and **exit 1**, and because
-the exception escapes before `load_audit_log()`, **no audit entry is appended**: the log still
-showed exactly 6 audits after the crashed run, so the log looks complete while the run failed.
-The sandbox provides `TYPESAFE_AI_TOKEN`; the bot wants `TYPESAFEAI_KEY`. This is a naming
-mismatch, and it is the *first* thing any operator hits — running the documented command
-`python3 jevvy_audit.py --once` verbatim fails before JEV is ever contacted. (b) A JEV outage
-prints `[JEVVY] JEV failed: ...` and **still exits 0** (reproduced by pointing the same shipped
-code at a dead host: stdout shows the failure, exit code 0), so a scheduled runner records an
-outage as a healthy run, and an outage is silently *not* appended to `audit-log.json`.
+**The sampling defect from the prior two notes is still open, but I can now bound its effect, and
+the bound is the useful part of this note.** `pick_recent_canon()` still selects the three
+newest-modified `prose/*.md` by filesystem mtime, and the tree still collapses: **1,029 prose files
+carry only 89 distinct mtimes, and 7 files share the single newest mtime** (`1792955263.4585216`).
+Because `sorted()` is stable, the tie is broken by pre-sort glob order — filesystem enumeration
+order, not alphabetical, and not any durable recency signal. The prior notes recorded this defect
+without measuring what it costs, so I measured it: I re-ran the same gate over two alternative
+triples drawn from that same 7-file tie group, and the verdict did not move. Sample A (what the bot
+actually took) gave `CAUTION/high avg=2.460 adv=0.83`; sample B (the three *weakest* files in the
+group — `what_makes_substrate_dance_quad_dance` at `q=1.05`, `witness_predictive_dance` at
+`q=1.10`, plus `when_the_substrate_teaches`) gave `CAUTION/high avg=1.970 adv=0.73`; sample C (two
+strong RSI GAN pieces plus a weak one) gave `CAUTION/high avg=2.320 adv=0.74`. **CAUTION/high
+across the full range avg 1.97–2.46, with the PASS boundary at 2.60.** So the mtime-tie defect is
+real and still needs fixing, but it is *not currently capable of flipping this verdict* — the gate's
+PASS threshold sits above the entire achievable spread of this tie group. That is a materially
+stronger statement than "this is a sample report, not a corpus score," and it is the form in which
+the next reader can actually use it.
 
-**The PASS gate is unreachable, and this is structural, not a calibration nit.** The rule
-requires `avg(quality, novelty, alignment) >= 3.5` on a 0-4 scale plus `noul > 0.7`. Across all
-46 frontmatter-scored corpus files the best achievable average is **3.02**
-(`bruno_view_bus_aware.md`, q=2.50 n=2.61 a=3.94), the corpus median is 2.62 and the p90 is
-2.82 — so **no sampled canon can satisfy the gate even with truncation fully fixed**: my
-fixed-text arm reached avg 1.833, still FAIL. A gate that the best work in the corpus cannot
-pass is a gate that reports FAIL forever, and the seven identical-hash runs are the observable
-consequence. Note also that the prior note's "PASS needs avg >= 3.5" reasoning survives, but its
-claimed mechanism for the low scores (missing text in five of six questions) was the wrong
-diagnosis: putting the *metadata* text into those five questions changes nothing, which is
-exactly what my A/B showed.
+**One sampling bias the prior notes did not catch, worth filing.** The 7-file tie group is not
+merely arbitrary in *membership* — it is systematically short. Its median length is **286 words
+against a corpus median of 744**, and the corpus p25 is 480: the tie group lives almost entirely in
+the bottom quartile of document length. The bot happened to pick the three *longest* files in that
+group (299, 286, 318 words) because enumeration order put them first, but the sampling frame it is
+drawing from is a band of ~300-word pieces, while the corpus that `PASS_AVG = 2.60` was calibrated
+against is median-744. A gate calibrated on long-form work and applied to a short-form sample is
+measuring two different populations; the `avg=2.53` here is not directly comparable to the corpus
+percentiles I cite above, and I have been citing them as if it were. The fix remains the one
+already named — a durable per-file recency signal via
+`git log --pretty=%cI --name-only -- prose/`, plus a filename tiebreak for determinism — but it
+should now be paired with a **length-stratified draw** (or an explicit minimum-length filter) so
+the sample resembles the population the gate was calibrated on. Until both land, the correct reading
+of any verdict from this bot is "the three files the enumerator reached first among the newest
+mtime cohort," and `audit-log.json` should be read as a sample report, not a corpus score.
 
-**Fix, in dependency order.** (i) **Strip frontmatter and metadata before sampling** — take
-prose body only, and give the model a real body (>= 600 chars per file), not a 150-char slice
-dominated by `*Provider:*` tags; this is the change that actually moves the numbers, and it
-must land *before* (ii) or (ii) will be calibrated against garbage. (ii) **Recalibrate the PASS
-threshold against the corpus's actual score distribution** (median 2.62, p90 2.82, max 3.02)
-rather than an absolute 3.5, and add a "tightly-aligned" tier the corpus can actually reach;
-otherwise the bot can only ever say FAIL. (iii) **Move the credential lookup inside the `try`**
-or read the token with a fallback across `TYPESAFEAI_KEY` / `TYPESAFE_AI_TOKEN`, and **exit
-non-zero plus append a failure record** so a crashed or outage run is visible in the log rather
-than absent from it. (iv) **Embed the canon in every question** — still worth doing, but treat
-it as necessary, not sufficient, since my A/B shows it alone changes nothing. (v) Treat empty
-canon as a hard error rather than auditing the literal string `"empty canon: no content yet"`,
-and **do not count identical witness hashes as independent findings** — the log's own hash field
-would have flagged this seven runs ago.
+**The `PASS_AVG` provenance comment is still misstated, for the third consecutive note.** The
+comment at line 156 calls `PASS_AVG = 2.60` the "corpus p90 of the best-scoring documents," but the
+corpus p90 of the avg-of-(q,n,a) distribution over 46 scored files is **2.830**, not 2.60; 2.60 is
+roughly the corpus *median* (2.623). This matters more than a stale comment, because the constant's
+stated justification does not match its value: as written, the gate is a median-strength gate
+described as a p90 gate, which overstates its strictness to the next reader. Either the constant
+should move to 2.83 to match its stated provenance, or the comment should be corrected to say
+"median." This is a two-character change and it has now survived three audit notes unfixed.
 
-Until (i) and (ii) land, **this bot's FAIL must not be read as evidence about the canon, and
-the seven consecutive FAILs must not be counted as seven independent negative findings.**
-
-Confidence: high — the 0.63-vs-1.74 metadata/prose contrast at fixed 150-character budget, the
-2.09-vs-0.18 alignment contrast, and the 0.14-vs-0.15 no-effect A/B are controlled
-same-endpoint measurements on the exact file and exact question text the bot used; the corpus
-distribution is read from 46 independent frontmatter score sets; the `KeyError` and
-exit-0-on-outage behaviours are direct reproductions of the shipped code, and the log-entry
-count (6 before and after the crashed run) is the receipt for the silent-append-loss defect.
+**One item for the record.** This session's workspace arrived empty and the NAS at 100% quota, so
+`repos/ai-writings` was absent and the script's three hardcoded `/workspace/repos/ai-writings`
+paths had nothing behind them. I restored the tree from `origin/master` — the branch that actually
+carries `bots/`; `main` does not — and put it behind the path via a symlink to `/tmp/ai-writings`,
+because a bind-mount over the NAS mountpoint is denied and a 1 MB `dd` fails with "Disk quota
+exceeded." The script's JEV code path is byte-identical to the committed blob
+(`697b97afbff605a4bb9183d500dc9dc7523f3a35`); only the I/O root differs. One environment note
+that will bite the next run: the script reads the credential from `TYPESAFEAI_KEY`, but this
+sandbox exports it as **`TYPESAFE_AI_TOKEN`** — the run only succeeded after aliasing one to the
+other. I confirmed the endpoint is live and served `model: jev-1.14.0` on a live probe. A fallback
+to `os.environ.get("TYPESAFEAI_KEY") or os.environ.get("TYPESAFE_AI_TOKEN")` would remove a
+recurring need for the wrapper.

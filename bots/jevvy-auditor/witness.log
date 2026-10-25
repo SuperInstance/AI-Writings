@@ -2,20 +2,28 @@
 {"ts": 1789964657.1744602, "iso": "2026-09-21T04:24:17", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
 {"ts": 1789967298.977806, "iso": "2026-09-21T05:08:18", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 4579}, "hash": "4c9020b02e59737c"}
 {"ts": 1789967299.313576, "iso": "2026-09-21T05:08:19", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
-{"ts": 1792739177.9123235, "iso": "2026-10-23T07:06:17", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 129}, "hash": "2e2758014522f895"}
-{"ts": 1792739178.1246638, "iso": "2026-10-23T07:06:18", "event": "jev_failed", "payload": {"error": "HTTP Error 503: Service Unavailable"}, "hash": "2deffd3a7ae1b48d"}
-{"ts": 1792739204.6627102, "iso": "2026-10-23T07:06:44", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 146}, "hash": "66f2da18fd02f148"}
-{"ts": 1792739204.8147109, "iso": "2026-10-23T07:06:44", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
-{"ts": 1792782266.9797359, "iso": "2026-10-23T19:04:26", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 374}, "hash": "9e2934c30fcdab11"}
-{"ts": 1792782267.110794, "iso": "2026-10-23T19:04:27", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
-{"ts": 1792803975.789275, "iso": "2026-10-24T01:06:15", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 293}, "hash": "57df2633c099765c"}
-{"ts": 1792803975.922622, "iso": "2026-10-24T01:06:15", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
-{"ts": 1792804006.4906504, "iso": "2026-10-24T01:06:46", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 346}, "hash": "b109ba3f01b8a1ca"}
-{"ts": 1792804006.5046492, "iso": "2026-10-24T01:06:46", "event": "jev_failed", "payload": {"error": "<urlopen error [Errno 111] Connection refused>"}, "hash": "27130d713759efda"}
-{"ts": 1792825562.9950702, "iso": "2026-10-24T07:06:02", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 185}, "hash": "5e85794ec19ec653"}
-{"ts": 1792825563.1889706, "iso": "2026-10-24T07:06:03", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
-{"ts": 1792847372.4165986, "iso": "2026-10-24T13:09:32", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 414}, "hash": "5bb5b26eb694b4d9"}
-{"ts": 1792847378.0893466, "iso": "2026-10-24T13:09:38", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 422}, "hash": "a6e0252eace5fc84"}
-{"ts": 1792847378.2353413, "iso": "2026-10-24T13:09:38", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
-{"ts": 1792847435.831807, "iso": "2026-10-24T13:10:35", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 484}, "hash": "bf35cb27535b12b5"}
-{"ts": 1792847435.8438787, "iso": "2026-10-24T13:10:35", "event": "jev_failed", "payload": {"error": "<urlopen error [Errno 111] Connection refused>"}, "hash": "27130d713759efda"}
+{"ts": 1792868717.3687012, "iso": "2026-10-24T19:05:17", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 340}, "hash": "b603139fa5515d71"}
+{"ts": 1792868717.5573385, "iso": "2026-10-24T19:05:17", "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3}, "hash": "b0b9813e0f2dbb5d"}
+{"ts": 1792868768.96027, "iso": "2026-10-24T19:06:08", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 417}, "hash": "2a0eae886b9589dd"}
+{"ts": 1792868771.7291415, "iso": "2026-10-24T19:06:11", "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 421}, "hash": "3863d10a1101c2e1"}
+{"ts": 1792868771.7888985, "iso": "2026-10-24T19:06:11", "event": "jev_failed", "payload": {"error": "<urlopen error [Errno 111] Connection refused>"}, "hash": "27130d713759efda"}
+{"ts": 1792868829.1335998, "iso": "2026-10-24T19:07:09", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 452}, "hash": "8917d3e69f149655"}
+{"ts": 1792868829.3926024, "iso": "2026-10-24T19:07:09", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.4367}, "hash": "953f9e86759f48b3"}
+{"ts": 1792868838.7288022, "iso": "2026-10-24T19:07:18", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 461}, "hash": "b20210846e0b40d1"}
+{"ts": 1792868838.792494, "iso": "2026-10-24T19:07:18", "seq": 2, "event": "jev_failed", "payload": {"error": "<urlopen error [Errno 111] Connection refused>"}, "hash": "886f5c60149f9653"}
+{"ts": 1792868848.7334235, "iso": "2026-10-24T19:07:28", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 475}, "hash": "c9a8a315c3815a61"}
+{"ts": 1792868849.077276, "iso": "2026-10-24T19:07:29", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.4533}, "hash": "e073ec8f0637f7fe"}
+{"ts": 1792868861.0157814, "iso": "2026-10-24T19:07:41", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 493}, "hash": "c44fadc65022eeb2"}
+{"ts": 1792868861.3033314, "iso": "2026-10-24T19:07:41", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.4033}, "hash": "de89729b82256388"}
+{"ts": 1792868873.4842947, "iso": "2026-10-24T19:07:53", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 507}, "hash": "f955f8200114df10"}
+{"ts": 1792868873.7487798, "iso": "2026-10-24T19:07:53", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.44}, "hash": "7c50be39d0fa2772"}
+{"ts": 1792891079.0502515, "iso": "2026-10-25T01:17:59", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 868}, "hash": "b9eb44702b9cb287"}
+{"ts": 1792891079.4071188, "iso": "2026-10-25T01:17:59", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.1267}, "hash": "cf4a9bf24d7078de"}
+{"ts": 1792912059.283398, "iso": "2026-10-25T07:07:39", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 9330}, "hash": "8705eca857a99e7a"}
+{"ts": 1792912059.6232324, "iso": "2026-10-25T07:07:39", "seq": 2, "event": "audit_complete", "payload": {"verdict": "FAIL", "canon_count": 3, "score_avg": 2.3167}, "hash": "8d02f087e56ed1f2"}
+{"ts": 1792933538.6152282, "iso": "2026-10-25T13:05:38", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 438}, "hash": "889de338c11fb303"}
+{"ts": 1792933538.9393632, "iso": "2026-10-25T13:05:38", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.7967}, "hash": "4cfcf1794778c5fd"}
+{"ts": 1792933568.3585107, "iso": "2026-10-25T13:06:08", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 543}, "hash": "21a2a65ca040b92b"}
+{"ts": 1792933568.6396952, "iso": "2026-10-25T13:06:08", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.78}, "hash": "20566da58c71aae8"}
+{"ts": 1792955273.4818501, "iso": "2026-10-25T19:07:53", "seq": 1, "event": "bot_started", "payload": {"bot": "jevvy-auditor", "pid": 599}, "hash": "249ed215beb3a27e"}
+{"ts": 1792955273.766676, "iso": "2026-10-25T19:07:53", "seq": 2, "event": "audit_complete", "payload": {"verdict": "CAUTION", "canon_count": 3, "score_avg": 2.5333}, "hash": "9cb17887e461a45d"}

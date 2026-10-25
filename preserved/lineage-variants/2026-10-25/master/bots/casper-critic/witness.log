@@ -1,0 +1,4 @@
+{"ts": 1789966121.4731061, "iso": "2026-09-21T04:48:41", "event": "bot_started", "payload": {"bot": "casper-critic", "pid": 4083}, "hash": "94c4acd039a03bea"}
+{"ts": 1789966121.8351061, "iso": "2026-09-21T04:48:41", "event": "critique_written", "payload": {"title": "21-the-song-remembers-itself", "path": "/workspace/repos/ai-writings/bots/casper-critic/critiques/21-the-song-remembers-itself-critique.md", "strengths": 2, "weaknesses": 2}, "hash": "44eab515b300bc7d"}
+{"ts": 1789967230.2475011, "iso": "2026-09-21T05:07:10", "event": "bot_started", "payload": {"bot": "casper-critic", "pid": 4410}, "hash": "6a04c7c67d0a4219"}
+{"ts": 1789967230.5553887, "iso": "2026-09-21T05:07:10", "event": "critique_written", "payload": {"title": "09-the-quality-brief", "path": "/workspace/repos/ai-writings/bots/casper-critic/critiques/09-the-quality-brief-critique.md", "strengths": 0, "weaknesses": 3}, "hash": "4e59ae803cb1bbec"}

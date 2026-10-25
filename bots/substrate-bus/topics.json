@@ -91,16 +91,16 @@
       ]
     },
     {
-      "ts": 1792782267.1085823,
-      "iso": "2026-10-23T19:04:27.108583+00:00",
+      "ts": 1792868717.5553033,
+      "iso": "2026-10-24T19:05:17.555305+00:00",
       "source": "jevvy-auditor",
       "content": {
         "verdict": "FAIL",
         "answers": {
           "q0": {
             "type": "score",
-            "score": 0.28,
-            "confidence": 0.77,
+            "score": 0.32,
+            "confidence": 0.75,
             "legend": {
               "0": "poor",
               "1": "mediocre",
@@ -109,25 +109,25 @@
               "4": "landmark"
             },
             "probabilities": {
-              "0": 0.78,
-              "1": 0.18,
-              "2": 0.03,
+              "0": 0.76,
+              "1": 0.19,
+              "2": 0.04,
               "3": 0.01,
               "4": 0.0
             }
           },
           "q1": {
             "type": "noul",
-            "noul": 0.55
+            "noul": 0.38
           },
           "q2": {
             "type": "noul",
-            "noul": 0.4
+            "noul": 0.38
           },
           "q3": {
             "type": "score",
-            "score": 2.21,
-            "confidence": 0.32,
+            "score": 2.0,
+            "confidence": 0.17,
             "legend": {
               "0": "redundant",
               "1": "incremental",
@@ -136,17 +136,17 @@
               "4": "groundbreaking"
             },
             "probabilities": {
-              "0": 0.07,
-              "1": 0.14,
-              "2": 0.32,
-              "3": 0.45999999999999996,
+              "0": 0.1,
+              "1": 0.17,
+              "2": 0.34,
+              "3": 0.38,
               "4": 0.01
             }
           },
           "q4": {
             "type": "score",
-            "score": 0.87,
-            "confidence": 0.43,
+            "score": 0.56,
+            "confidence": 0.54,
             "legend": {
               "0": "misaligned",
               "1": "partial",
@@ -155,23 +155,23 @@
               "4": "embodies-doctrine"
             },
             "probabilities": {
-              "0": 0.4,
-              "1": 0.44,
-              "2": 0.07,
-              "3": 0.06,
+              "0": 0.65,
+              "1": 0.24,
+              "2": 0.05,
+              "3": 0.03,
               "4": 0.03
             }
           },
           "q5": {
             "type": "choice",
             "choice": "too-abstract",
-            "confidence": 0.74,
+            "confidence": 0.36,
             "probabilities": {
-              "low-quality": 0.12,
-              "redundant": 0.04,
-              "off-topic": 0.04,
-              "too-abstract": 0.79,
-              "none": 0.01
+              "low-quality": 0.2,
+              "redundant": 0.21,
+              "off-topic": 0.07,
+              "too-abstract": 0.49,
+              "none": 0.03
             }
           }
         }
@@ -181,16 +181,16 @@
       ]
     },
     {
-      "ts": 1792803975.9209824,
-      "iso": "2026-10-24T01:06:15.920983+00:00",
+      "ts": 1792868829.390889,
+      "iso": "2026-10-24T19:07:09.390889+00:00",
       "source": "jevvy-auditor",
       "content": {
-        "verdict": "FAIL",
+        "verdict": "CAUTION",
         "answers": {
           "q0": {
             "type": "score",
-            "score": 0.09,
-            "confidence": 0.93,
+            "score": 2.58,
+            "confidence": 0.59,
             "legend": {
               "0": "poor",
               "1": "mediocre",
@@ -199,25 +199,25 @@
               "4": "landmark"
             },
             "probabilities": {
-              "0": 0.93,
-              "1": 0.06,
-              "2": 0.01,
-              "3": 0.0,
-              "4": 0.0
+              "0": 0.02,
+              "1": 0.08,
+              "2": 0.24,
+              "3": 0.63,
+              "4": 0.03
             }
           },
           "q1": {
             "type": "noul",
-            "noul": 0.39
+            "noul": 0.83
           },
           "q2": {
             "type": "noul",
-            "noul": 0.35
+            "noul": 0.71
           },
           "q3": {
             "type": "score",
-            "score": 1.8,
-            "confidence": 0.3,
+            "score": 1.98,
+            "confidence": 0.43,
             "legend": {
               "0": "redundant",
               "1": "incremental",
@@ -226,17 +226,17 @@
               "4": "groundbreaking"
             },
             "probabilities": {
-              "0": 0.19,
-              "1": 0.14,
+              "0": 0.03,
+              "1": 0.29,
               "2": 0.36,
-              "3": 0.3,
+              "3": 0.31,
               "4": 0.01
             }
           },
           "q4": {
             "type": "score",
-            "score": 0.49,
-            "confidence": 0.57,
+            "score": 2.75,
+            "confidence": 0.29,
             "legend": {
               "0": "misaligned",
               "1": "partial",
@@ -245,23 +245,23 @@
               "4": "embodies-doctrine"
             },
             "probabilities": {
-              "0": 0.66,
-              "1": 0.24,
-              "2": 0.05,
-              "3": 0.03,
-              "4": 0.02
+              "0": 0.01,
+              "1": 0.18,
+              "2": 0.16,
+              "3": 0.35,
+              "4": 0.3
             }
           },
           "q5": {
             "type": "choice",
             "choice": "too-abstract",
-            "confidence": 0.39,
+            "confidence": 0.75,
             "probabilities": {
-              "low-quality": 0.3,
-              "redundant": 0.06,
-              "off-topic": 0.09,
-              "too-abstract": 0.51,
-              "none": 0.04
+              "low-quality": 0.06,
+              "redundant": 0.05,
+              "off-topic": 0.03,
+              "too-abstract": 0.8,
+              "none": 0.06
             }
           }
         }
@@ -271,16 +271,16 @@
       ]
     },
     {
-      "ts": 1792825563.186945,
-      "iso": "2026-10-24T07:06:03.186947+00:00",
+      "ts": 1792868849.0737932,
+      "iso": "2026-10-24T19:07:29.073795+00:00",
       "source": "jevvy-auditor",
       "content": {
-        "verdict": "FAIL",
+        "verdict": "CAUTION",
         "answers": {
           "q0": {
             "type": "score",
-            "score": 1.39,
-            "confidence": 0.47,
+            "score": 2.61,
+            "confidence": 0.61,
             "legend": {
               "0": "poor",
               "1": "mediocre",
@@ -289,114 +289,24 @@
               "4": "landmark"
             },
             "probabilities": {
-              "0": 0.13,
-              "1": 0.43,
-              "2": 0.37,
-              "3": 0.07,
-              "4": 0.0
+              "0": 0.02,
+              "1": 0.08,
+              "2": 0.22,
+              "3": 0.65,
+              "4": 0.03
             }
           },
           "q1": {
             "type": "noul",
-            "noul": 0.11
+            "noul": 0.83
           },
           "q2": {
             "type": "noul",
-            "noul": 0.49
+            "noul": 0.7
           },
           "q3": {
             "type": "score",
-            "score": 1.76,
-            "confidence": 0.47,
-            "legend": {
-              "0": "redundant",
-              "1": "incremental",
-              "2": "novel",
-              "3": "highly-novel",
-              "4": "groundbreaking"
-            },
-            "probabilities": {
-              "0": 0.09,
-              "1": 0.26,
-              "2": 0.45999999999999996,
-              "3": 0.18,
-              "4": 0.01
-            }
-          },
-          "q4": {
-            "type": "score",
-            "score": 0.2,
-            "confidence": 0.83,
-            "legend": {
-              "0": "misaligned",
-              "1": "partial",
-              "2": "aligned",
-              "3": "tightly-aligned",
-              "4": "embodies-doctrine"
-            },
-            "probabilities": {
-              "0": 0.87,
-              "1": 0.09,
-              "2": 0.02,
-              "3": 0.01,
-              "4": 0.01
-            }
-          },
-          "q5": {
-            "type": "choice",
-            "choice": "low-quality",
-            "confidence": 0.26,
-            "probabilities": {
-              "low-quality": 0.41,
-              "redundant": 0.06,
-              "off-topic": 0.11,
-              "too-abstract": 0.38,
-              "none": 0.04
-            }
-          }
-        }
-      },
-      "recipients": [
-        "casper-critic"
-      ]
-    },
-    {
-      "ts": 1792847378.2331126,
-      "iso": "2026-10-24T13:09:38.233114+00:00",
-      "source": "jevvy-auditor",
-      "content": {
-        "verdict": "FAIL",
-        "answers": {
-          "q0": {
-            "type": "score",
-            "score": 0.21,
-            "confidence": 0.83,
-            "legend": {
-              "0": "poor",
-              "1": "mediocre",
-              "2": "good",
-              "3": "excellent",
-              "4": "landmark"
-            },
-            "probabilities": {
-              "0": 0.81,
-              "1": 0.16,
-              "2": 0.02,
-              "3": 0.0,
-              "4": 0.0
-            }
-          },
-          "q1": {
-            "type": "noul",
-            "noul": 0.13
-          },
-          "q2": {
-            "type": "noul",
-            "noul": 0.31
-          },
-          "q3": {
-            "type": "score",
-            "score": 2.08,
+            "score": 2.03,
             "confidence": 0.42,
             "legend": {
               "0": "redundant",
@@ -406,17 +316,17 @@
               "4": "groundbreaking"
             },
             "probabilities": {
-              "0": 0.09,
-              "1": 0.13,
-              "2": 0.4,
-              "3": 0.37,
+              "0": 0.03,
+              "1": 0.27,
+              "2": 0.35,
+              "3": 0.34,
               "4": 0.01
             }
           },
           "q4": {
             "type": "score",
-            "score": 0.14,
-            "confidence": 0.92,
+            "score": 2.72,
+            "confidence": 0.28,
             "legend": {
               "0": "misaligned",
               "1": "partial",
@@ -425,29 +335,583 @@
               "4": "embodies-doctrine"
             },
             "probabilities": {
-              "0": 0.91,
-              "1": 0.08,
-              "2": 0.01,
-              "3": 0.0,
-              "4": 0.0
+              "0": 0.01,
+              "1": 0.19,
+              "2": 0.16,
+              "3": 0.34,
+              "4": 0.3
             }
           },
           "q5": {
             "type": "choice",
-            "choice": "low-quality",
-            "confidence": 0.25,
+            "choice": "too-abstract",
+            "confidence": 0.76,
             "probabilities": {
-              "low-quality": 0.4,
-              "redundant": 0.07,
-              "off-topic": 0.26,
-              "too-abstract": 0.24,
-              "none": 0.03
+              "low-quality": 0.06,
+              "redundant": 0.03,
+              "off-topic": 0.04,
+              "too-abstract": 0.81,
+              "none": 0.06
             }
           }
         }
       },
       "recipients": [
         "casper-critic"
+      ]
+    },
+    {
+      "ts": 1792868861.3007412,
+      "iso": "2026-10-24T19:07:41.300742+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.58,
+            "confidence": 0.59,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.08,
+              "2": 0.23,
+              "3": 0.63,
+              "4": 0.04
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.83
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.67
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.03,
+            "confidence": 0.44,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.26,
+              "2": 0.37,
+              "3": 0.33,
+              "4": 0.01
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 2.6,
+            "confidence": 0.24,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.22,
+              "2": 0.18,
+              "3": 0.33,
+              "4": 0.26
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.78,
+            "probabilities": {
+              "low-quality": 0.06,
+              "redundant": 0.03,
+              "off-topic": 0.03,
+              "too-abstract": 0.8200000000000001,
+              "none": 0.06
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
+    },
+    {
+      "ts": 1792868873.7458394,
+      "iso": "2026-10-24T19:07:53.745840+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.57,
+            "confidence": 0.58,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.09,
+              "2": 0.23,
+              "3": 0.63,
+              "4": 0.03
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.83
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.7
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.02,
+            "confidence": 0.44,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.26,
+              "2": 0.37,
+              "3": 0.33,
+              "4": 0.01
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 2.73,
+            "confidence": 0.32,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.17,
+              "2": 0.17,
+              "3": 0.38,
+              "4": 0.27
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.7,
+            "probabilities": {
+              "low-quality": 0.07,
+              "redundant": 0.04,
+              "off-topic": 0.05,
+              "too-abstract": 0.76,
+              "none": 0.08
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
+    },
+    {
+      "ts": 1792891079.4039392,
+      "iso": "2026-10-25T01:17:59.403941+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.29,
+            "confidence": 0.39,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.04,
+              "1": 0.13,
+              "2": 0.33,
+              "3": 0.48,
+              "4": 0.02
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.68
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.61
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.38,
+            "confidence": 0.45,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.1,
+              "2": 0.35,
+              "3": 0.5,
+              "4": 0.02
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 1.71,
+            "confidence": 0.19,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.13,
+              "1": 0.44,
+              "2": 0.14,
+              "3": 0.17,
+              "4": 0.12
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.11,
+            "probabilities": {
+              "low-quality": 0.21,
+              "redundant": 0.11,
+              "off-topic": 0.16,
+              "too-abstract": 0.29000000000000004,
+              "none": 0.23
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
+    },
+    {
+      "ts": 1792933538.9353561,
+      "iso": "2026-10-25T13:05:38.935357+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.87,
+            "confidence": 0.76,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.03,
+              "2": 0.12,
+              "3": 0.76,
+              "4": 0.08
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.66
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.75
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.36,
+            "confidence": 0.43,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.03,
+              "1": 0.12,
+              "2": 0.34,
+              "3": 0.5,
+              "4": 0.01
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 3.16,
+            "confidence": 0.27,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.1,
+              "2": 0.09,
+              "3": 0.32,
+              "4": 0.47
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.52,
+            "probabilities": {
+              "low-quality": 0.05,
+              "redundant": 0.06,
+              "off-topic": 0.08,
+              "too-abstract": 0.62,
+              "none": 0.19
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
+    },
+    {
+      "ts": 1792933568.6351833,
+      "iso": "2026-10-25T13:06:08.635184+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.88,
+            "confidence": 0.77,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.03,
+              "2": 0.11,
+              "3": 0.77,
+              "4": 0.08
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.68
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.74
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.32,
+            "confidence": 0.42,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.13,
+              "2": 0.37,
+              "3": 0.47,
+              "4": 0.01
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 3.14,
+            "confidence": 0.28,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.09,
+              "2": 0.09,
+              "3": 0.34,
+              "4": 0.46
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.42,
+            "probabilities": {
+              "low-quality": 0.06,
+              "redundant": 0.07,
+              "off-topic": 0.11,
+              "too-abstract": 0.54,
+              "none": 0.22
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
+    },
+    {
+      "ts": 1792955273.7619543,
+      "iso": "2026-10-25T19:07:53.761956+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.34,
+            "confidence": 0.39,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.12,
+              "2": 0.28,
+              "3": 0.51,
+              "4": 0.03
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.81
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.68
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.31,
+            "confidence": 0.41,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.15,
+              "2": 0.33,
+              "3": 0.48,
+              "4": 0.02
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 2.95,
+            "confidence": 0.37,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.13,
+              "2": 0.12,
+              "3": 0.39,
+              "4": 0.35
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.69,
+            "probabilities": {
+              "low-quality": 0.06,
+              "redundant": 0.06,
+              "off-topic": 0.04,
+              "too-abstract": 0.75,
+              "none": 0.09
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
+    }
+  ],
+  "canon_changed": [
+    {
+      "ts": 1792858100.9880004,
+      "iso": "2026-10-24T16:08:20.988002+00:00",
+      "source": "wesley-mechanic",
+      "content": {
+        "hash": "b20375d389cb505d",
+        "count": 71
+      },
+      "recipients": [
+        "snowball-scout"
       ]
     }
   ]
