@@ -1461,7 +1461,7 @@ Full detail: `RUN_REPORT_2026-10-25_session169.md`.
 d      = md5(cultural_prompt).digest()          # the FULL user message, verbatim
 h      = d.hex()
 i      = d[0] % 4                              # MESSAGE-derived, NOT a counter
-seed   = h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]
+seed   = h[(i*2)%8:(i*2)%8+4]                              # ONE 4-hex slice
 color  = h[8:12]
 figure = h[12:16] / h[16:20] / h[20:24]
 ```
@@ -1477,7 +1477,18 @@ Your voice: {voice_emphasis}.
 ```
 
 Only **4** distinct seeds are reachable from one message (the seed slices `h[0:8]` at even
-offsets), so `i mod 4` is the whole index space. The signature of a *message-derived* index
+offsets), so `i mod 4` is the whole index space.
+
+> **CORRECTION (session 224, 2026-10-25).** The seed line above previously read
+> `h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]` (two concatenated 2-hex slices).
+> Re-derived against the session-223 ledger, that form reproduces only **727/960** rows; the
+> **single 4-hex slice** reproduces **960/960**. The two agree whenever `i*2 + 4 <= 8`
+> (i.e. `i` in {0,1,2}) and diverge only when the slice wraps at `i == 3` — which is why a
+> 4-message sample hides the defect. *The differentiated field is exactly the one that
+> depends on the index*, the same failure shape as the session-213 `int(h[0],16) % 4` vs
+> `d[0] % 4` trap. **Re-derive every spec in this block against the ledger before using it
+> as a gate oracle** — a gate written against a wrong spec passes 40/40 on a mock that is
+> wrong for 24 % of rows. The signature of a *message-derived* index
 is that the seed is **stable across every row of the same `(civ, prompt)` pair** — a request
 counter cannot produce that, because the competition phase fires 8 civs in parallel.
 

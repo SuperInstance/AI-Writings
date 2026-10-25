@@ -2557,3 +2557,63 @@ novelty **0.1570** (narrowest). **Rank on cross-civ spreads, never on absolute l
   **and** `< /dev/null`, then poll `ps` + the log.
 - Mock teardown by **PID captured from `ps`** (exact-argv match, never `pkill -f mock_zai`
   — self-match); **0** remaining procs; `curl` exit **7** = port closed.
+
+---
+
+## Session 224 (2026-10-25) — THE RUNBOOK'S SEED FORMULA IS WRONG
+
+The RUNBOOK algorithm block says:
+
+```
+seed = h[(i*2)%8:(i*2)%8+2] + h[((i*2)+2)%8:((i*2)+2)%8+2]   # two 2-char slices
+```
+
+Re-derived against the session-223 ledger, that reproduces only **727/960** rows.
+The correct form is a **single 4-hex slice**:
+
+```
+seed = h[(i*2)%8:(i*2)%8+4]                                  # 960/960
+```
+
+The two forms agree whenever `i*2 + 4 <= 8` (i.e. `i` in {0,1,2}) and diverge only when
+the slice wraps at `i == 3` — which is why a 4-message sample can hide the defect. The
+differentiated field is exactly the one that depends on the index, the same failure shape
+as the session-213 `int(h[0],16) % 4` vs `d[0] % 4` trap.
+
+**Rule: a stale spec in the RUNBOOK must be re-derived against the LEDGER, not trusted.**
+The RUNBOOK is the right place to look for the algorithm, but it is a *record of past
+sessions*, and one of its fields is now wrong. The pre-flight gate caught this only because
+the "40/40 recomputed md5" check recomputes from a **freshly re-derived** formula. Had the
+gate been written against the RUNBOOK's formula it would have reported 40/40 PASS on a mock
+that was wrong for 24 % of rows, and the corruption would have landed in the ledger silently.
+
+Corollary: **a pre-flight that recomputes the spec from the same source as the implementation
+proves nothing.** The gate must recompute from the *ledger* (the recorded artifact) and the
+*source of truth* (the orchestrator's own prompt template), independently of the mock code.
+
+### Other session-224 confirmations
+
+- **The response-body band is 332-369.** The header is a constant **38** chars, so a
+  **298**-char tail gives a constant **336**-char body — in band on the FIRST build.
+- **The 972-char corpus** is reconstructible from the ledger's 8 distinct 162-char windows
+  (offsets 0, 1, 2, 162, 324, 486, 648, 810); it reproduces **960/960** ledger bodies as
+  windows. 24 assignments are self-consistent (the corpus is ambiguous in unobserved
+  regions) — any of them reconciles the recorded rows.
+- **The body offset is a mock-side request counter, NOT a function of the message.** The
+  offset is constant within a run and advances between runs; the seed/color/figure ARE
+  message-derived. Do not try to derive the body from the prompt.
+- **The BATCH phase picks a RANDOM prompt per sim** (`random.choice(prompts)`), so a
+  `(civ, prompt)` pair appears **1-4 times**, not exactly twice. Only the COMPETITION phase
+  contributes exactly one row per `(civ, prompt)`. A check asserting "exactly 2x" is a
+  CHECK bug, not a data defect.
+- `civ-grounded` held the lifetime low for the **92nd** consecutive session (relevance
+  1958.87, per_sim 1.160, win_rate 0.089 = 3rd-best in the fleet). The run low rotated to
+  `civ-therapist` (avg 1.1227, fleet-low quality 0.2040 AND fleet-low alignment 0.8640).
+  Chooser/argmax agreement **0/5 (0 %) — 5 down-grades, 0 up-grades**. The axis gap
+  (alignment 1.3910 vs quality 0.5870 = 2.37x) says **voice** failure, not prose failure.
+  *The holder rotates; the axis does not.*
+- **The NAS can be at 100 % with ZERO bytes free while small writes still succeed.**
+  A 9 KB `cp` fails with `Disk quota exceeded` and leaves a **0-byte** file that still
+  appears in `ls`; a 2-byte write succeeds. Do not trust `ls` for size — always `wc -c`.
+  When the NAS is full, the durable copy is **git**, and the file can be delivered via its
+  `raw.githubusercontent.com` URL (verify by md5 against the local copy).
