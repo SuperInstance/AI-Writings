@@ -1,3 +1,60 @@
+# Civ Orchestrator — Run Report, session 181 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 60th session) + **live JEV**.
+Baseline: `9b43a105` (session 180). **All 23 verification assertions PASS**, pre-flight **8/8**.
+
+Full detail: `RUN_REPORT_2026-10-25_session181.md`.
+
+## Headline for the next session
+
+- **THE RUN-LEVEL LOW CONVERGED ONTO THE LIFETIME LOW — first time in the series.**
+  Sessions 178/179/180 each logged a *rotating* run-level low (whimsical,
+  whimsical, therapist); session 181's run low was **`civ-grounded`**, which is
+  also the lifetime low. The axis is unchanged (**alignment** carried the widest
+  run spread, 2.4230) but the *holder* stopped rotating. **A rotating run low is
+  a sample artifact; a run low that lands on the lifetime low is convergent
+  evidence — report them as ONE result, not two.**
+- **`civ-grounded` remains the low-relevance civ — 55th consecutive session.**
+  Last of 8 on lifetime `relevance` **1236.36**, `relevance_per_sim` **0.982**,
+  `avg_score` **1.0144**, `alignment` **1.0646**, `quality` **0.3997**. Alignment
+  gap **0.1375** vs quality gap **0.0432** = **3.18×** wider ⇒ a **voice** failure,
+  not a prose failure. Run-level: `avg_score` **0.7657**, `alignment` **0.1770**,
+  `quality` **0.0640** — worst in the fleet on every axis — while run novelty
+  **2.0560** is tied with the field. The low is not a novelty deficit.
+- **THE RUN ORDERING INVERTS THE LIFETIME ORDERING AT THE TOP.** `civ-precise` is
+  2nd of 8 on lifetime relevance but 5th of 8 this run. Run `avg_score` spread
+  (1.1203) is ~**2×** the lifetime spread (0.5534) ⇒ **never read a single-run
+  ordering as a lifetime ranking.**
+- **CHOOSER vs `avg_score` ARGMAX: 0/5 (0 %)** — the lowest agreement in the
+  series (`civ-precise` 4/5, `civ-formal` 1/5). If it stays at 0, the chooser may
+  have started selecting on a different axis than `avg_score` — diff the choice
+  state against the score vectors.
+- **THE MOCK NEEDS THE SAME SIX FIXES** (a) index wrap, (b) md5 over the whole
+  message, (c) `Connection: close` + `Content-Length`, (d) interpolate the seed
+  placeholder, (e) 4-hex-char seed halves, (f) message-derived index `d[0] % 4`.
+  The 4-char slice `h[(i*2)%8:(i*2)%8+4]` passed the gate **8/8 on the FIRST
+  build** again. The mock is **not** on disk at session start (`/tmp` wiped).
+- **WHEN THE VERIFIER DISAGREES WITH THE RUN, SUSPECT THE VERIFIER FIRST.** By
+  taking every baseline from `git show HEAD:…` up front (never a hand-typed 2-dp
+  number), this session produced **zero** spurious FAILs — the session-180 fix
+  held.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5**
+  (638 → 643), `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0
+  fallback triples, `zai × 80`, **40/80** distinct seeds, **0** `(civ,prompt)`
+  with >1 seed, **80/80** distinct `(q,n,a)`, registry 8 all gen 1, extinction
+  **NONE**, counter gap delta **0.000000**.
+- Environment: workspace empty (wipe, 110th); upstream is **`SuperInstance/AI-Writings`**
+  (the `ai-writings/…` slug 404s — the API is case-insensitive) and
+  `cellular-first-design` is a **subdirectory**. Sparse clone into `/tmp` (7.0 MB);
+  `/workspace` NAS is at **100 % quota** (EDQUOT trap, 19th session) ⇒ the
+  **symlink bridge** is the only way in. `ZAI_TOKEN` absent from env and all 8
+  sandbox secrets; z.ai **401** ⇒ Control B is the only provider path.
+  `gh` not installed (**20th session**) — used `GET /users/SuperInstance/repos`
+  with `GITHUB_TOKEN`.
+
+---
+
 # Civ Orchestrator — Run Report, session 180 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
