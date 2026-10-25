@@ -783,3 +783,90 @@ axes (session-132 rule).
 **highest lifetime alignment (2.1444)**, 1st on run `avg_score` (0.3923). `civ-formal` remains the
 distinct low-**novelty** axis (1.3987, last; alignment 1.6793 healthy). Extinction risk **NONE**
 (threshold −10, lowest +1025.71 = 102× the floor); registry 8, `max_civs` 12, all `generation=1`.
+
+---
+
+## Session 163 (2026-10-25) — the `simulations_run` delta is +10 *by construction*, and the confidence-spread check is JEV-side
+
+**Run clean (session 163, 25th consecutive clean mock).** per-civ delta = **+10** × 8 = **80 new
+rows**, `meta_log` Δ = **+5** (548 → 553), `Winner:` lines = **5**, **80/80** rows `[mock-zai`-prefixed
+with `provider=zai`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback
+triple, **40/40** distinct seeds, **40/40** distinct previews, **8/8** on all 5 competition
+prompts, `git status --porcelain` = **19** (18 modified + 1 new report). **94/95 assertions PASS.**
+
+### NEW — the `simulations_run` delta is +10 *by construction*, not by coincidence
+
+The session-157 note ("the `simulations_run` baseline is NOT the ledger row count") described the
+counter as offset from the ledger. **The source shows they are the same quantity:**
+`run_simulation()` appends exactly one ledger row and increments `self.sims_run` exactly once
+(`civilization_orchestrator.py:206`), and the **competition** phase calls `run_simulation()` again
+via `ex.submit(c.run_simulation, prompt, providers)` (`:252`). So on a clean `--sims 5 --prompts 5`
+run: **Δrows == Δsimulations_run == +10** per civ.
+
+I asserted **+5** this session and got 8 false failures. The correct rule is now unambiguous:
+
+> **Assert `Δsimulations_run == Δrows == +10`.** The historical "+260 counter gap" is an **epoch
+> artifact** (the ledger predates the counter), not a live divergence — and the *sign* of the gap
+> flips with the epoch mix, so never quote an epoch-mixed gap (see the session-161 two-epoch
+> rule). Read both baselines from the **git blob's** `culture.json`, not the working tree.
+
+### NEW — the confidence-spread check is a JEV-liveness check, NOT a mock check
+
+The harness flagged "broad confidence spread (>=10 distinct)" as FAIL: this run's 80 rows carry
+only **6 distinct confidence values** (0.95–1.00) where the 80 rows immediately before carried
+**52** (0.27–1.00). The naive reading is "the mock went degenerate."
+
+**It did not.** 40 distinct mock bodies are present and **24 of them map to two or more different
+JEV score triples** — so JEV is genuinely scoring content, not returning a constant. The narrow
+confidence band and the collapsed `quality` axis (field mean **0.030**, range 0.01–0.07) are
+properties of the **JEV model on this content**, and the `quality` collapse reproduces the
+**19-of-the-last-20 clean-mock sessions** regime (119/121/122/138) documented in sessions 160–161.
+
+> **Rule: never report a confidence-spread failure as a mock failure without running the
+> same-body / different-triple test.** Group the 80 new rows by mock body (strip the
+> `[mock-zai seed=…]` prefix) and count distinct JEV triples per body. If >1 body carries >1
+> triple, JEV is discriminating and the confidence band is JEV's, not the mock's. The
+> mock-integrity checks remain **seed** and **preview** distinctness, which passed 40/40.
+
+### Low-relevance civ — the low label did NOT rotate (53 sessions, 95–163)
+
+`civ-grounded` remains the lifetime low on all five axes: `relevance` 1036.62,
+`relevance_per_sim` 0.961, `avg_score` 0.9991, `alignment` 1.0872, `quality` 0.4208 —
+**last of 8 on every one**. Absolute gaps: **alignment 0.2026** (vs therapist 1.2898) vs
+**quality 0.0321** (vs formal 0.4529) — a 6.3× wider alignment gap. Alignment is the axis the
+meta-GAN *selects* on ⇒ a **voice** failure, not a prose failure. Lifetime novelty 1.4892 ranks
+6th of 8, below the median band ⇒ losing on **two** axes (alignment and novelty), the same
+shape as session 161.
+
+**`civ-therapist` is a watch axis, not a finding** — took the run-level low on `alignment`
+(0.1040) and 6th of 8 on run `avg_score` (0.4560), but lifetime standing is mid-field
+(`avg_score` 1.1598, 6th of 8). Session-132 rule respected.
+
+**Inverses hold:** `civ-poetic` 1st on lifetime `avg_score` (1.5563) / `quality` (0.7557) /
+`relevance` (1616.68) / `relevance_per_sim` (1.519) but **last on `win_rate` (0.011, 6/522)** —
+it was the `avg_score` argmax on **3 of 5** prompts and won **zero**. `civ-precise` best
+`win_rate` (0.579, 303/220), **highest lifetime alignment (2.1168)**, won **4/5** at
+`preferred_temp` 0.2. `civ-formal` remains the distinct low-**novelty** axis (1.4021, last;
+alignment 1.6593 healthy). Extinction risk **NONE** (threshold −10, lowest +1036.62 = 104× the
+floor); registry 8, `max_civs` 12, all `generation=1`.
+
+**Chooser vs `avg_score` argmax: 1/5 (20 %)** — 2/5 in session 162, 0/5 in session 157. All four
+disagreements took the **lower**-scoring candidate (−0.1700, −0.0900, −0.2467, −0.0167).
+Trailing 30-row window now reads `...010100` + `10000` = **11/35**. A 5-sample point still
+cannot pin a rate ⇒ the honest claim is *somewhere in 0–80 %*. **The direction is the finding;
+the rate is not.**
+
+### Environment — the hardcoded `CIVS_DIR` is why the symlink bridge must exist BEFORE the run
+
+The script hardcodes `CIVS_DIR = /workspace/repos/ai-writings/cellular-first-design/code/civilizations`.
+A clone under any other path fails at the **first** `REGISTRY.read_text()` with
+`FileNotFoundError` — *before* any provider call, *before* any write — which reads like a
+missing file rather than a missing bridge. **Build the bridge first**, target the **nested**
+`cellular-first-design` dir (never the repo root), and verify with inode identity
+(`stat -L -c '%d:%i'` on both sides + `-ef`), not `ls`. Session 163: `129:12601` both sides.
+
+`/tmp` was empty again ⇒ mock rebuilt from scratch with all **three** fixes (session-112 index
+wrap, session-118 md5-of-whole-message seeding, session-144 `Connection: close` +
+`Content-Length`). Pre-flight: 8/8 distinct seeds AND 8/8 distinct previews, cultural-prompt
+lengths 167–199, HTTP 200 in 1.6 ms, 0 tracebacks, 0 `EXC:`. Teardown: killed the **server** pid
+by exact argv; 0 remaining procs; `curl` exit 7 = port closed.
