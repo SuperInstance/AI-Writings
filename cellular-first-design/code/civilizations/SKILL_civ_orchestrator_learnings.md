@@ -1,3 +1,54 @@
+## Session 244 additions (2026-10-25)
+
+### 1. A WIPED SANDBOX NEEDS THE REPO **REDISCOVERED**, NOT THE PATH THE TASK NAMES
+
+The task's path (`/workspace/repos/ai-writings/cellular-first-design/...`) did not exist —
+`/workspace` held only `.plugin-cache`. The upstream is **`SuperInstance/AI-Writings`**
+(the task slug `ai-writings/...` 404s); find it with
+`GET /search/repositories?q=ai-writings+in:name` and pick the 3.7 GB `SuperInstance/AI-Writings`
+by `size` + `pushed_at`, not by name similarity. `SuperInstance/ai-writings-vectorizer` and
+`ai-writings/ai-writing` are decoys that also match the query.
+
+*Rule: on a wiped workspace, do not conclude the task is impossible — resolve the real upstream
+through the search API first, then clone sparse. A missing path is a bootstrap failure, not a
+missing artifact.*
+
+### 2. THE **NAS QUOTA** BLOCKS THE DELIVERABLE COPY TOO — `cp` LEAVES A **0-BYTE** FILE THAT LISTS AS PRESENT
+
+`/workspace` is at 100 % (600 G/600 G). `cp` of the 7.9 KB report into `/workspace/output/`
+failed with `failed to close ... Disk quota exceeded` and **left a 0-byte file** that `ls -la`
+shows as present. Retrying with `dd bs=4k` (5 attempts) and `cp` (3 attempts) all failed the
+same way; the `dd` probe proves the mount refuses even a 64 KB write.
+
+*Rule: (a) after a `cp` that reports a quota error, **delete the 0-byte artifact** — a
+phantom file that `ls` shows is worse than a missing one; (b) the durable copy is **git**
+(push + verify the sha through the commits API), and the report is still readable through the
+clone path and the raw.githubusercontent URL; (c) do not spend more than ~3 retries on the NAS
+copy.*
+
+### 3. THE MOCK BODY SOLVES ALGEBRAICALLY, BUT THE **CONTINUATION IS NOT PROPORTIONAL**
+
+Header 38 + tail 162 = 200 leaves the continuation as the sole length control. Two wrong
+guesses: **425** (above the 369 ceiling) and **332** (exactly on the floor, zero margin).
+A mid-band **357** (continuation 157) was the third build. Each guess was a *guess* — the
+continuation length is **not** a fraction of the target and does not scale with the sentence
+being appended.
+
+*Rule: solve `continuation = target − 38 − 162` for a concrete target (349) and then *count*
+the candidate string, rather than eyeballing how long it looks. Write a 3-line counter that
+prints `len(HEADER)+len(TAIL)+len(CONTINUATION)` and the band check before launching the mock;
+every trial-and-error rebuild costs a full pre-flight cycle.*
+
+### 4. THE NAS TRANSIENT SYMLINK-CACHE FAILURE **STILL** RECURS ON THE TOP-LEVEL `ls`
+
+The first `ls -la .../code/civilizations/` returned `No such file or directory` while the
+`civ-*/` glob and the script path both resolved fine. A single retry succeeded. The bridge was
+never broken (inode `11557` on both sides, `os.path.samefile()` -> `True`).
+
+*Rule: the `ls` the task asks for may fail once for reasons unrelated to the run. Retry once,
+then confirm with `stat -L` + `os.path.samefile()` — and report the *retry* as the
+verification, not the first failure. A single failed `ls` is not evidence of a broken bridge.*
+
 ## Session 243 additions (2026-10-25)
 
 ### 1. A WIPED WORKSPACE NEEDS `sparse-checkout disable`, NOT `git checkout -- prose/`
