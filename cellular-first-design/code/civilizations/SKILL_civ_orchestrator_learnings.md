@@ -1,3 +1,43 @@
+## Session 246 additions (2026-10-25)
+
+### 1. A FLAT "5 DISTINCT SEEDS IN THE SIM PHASE" CHECK IS **WRONG** — IT FAILS ON A HEALTHY RUN
+
+The sim phase draws `random.choice(prompts)` from only 5 prompts, **with replacement**. Five draws
+over five prompts therefore *must* repeat some prompts, and because the seed is a deterministic
+function of `(civ, prompt)`, repeated prompts force repeated seeds. This session's first harness pass
+reported **1 FAIL** on "8/8 civs: 5 distinct seeds in the sim phase" while every other assertion was
+green — the classic "all-but-one failure is a baseline/check bug" shape. The data was clean: 3-4
+distinct prompts per civ, **one** seed per prompt, never two.
+
+*Rule: assert **distinct seeds == distinct prompts** AND **seed deterministic per `(civ, prompt)`**.
+Both held in 8/8 civs. A flat 5-distinct-seeds count fails on a healthy run most of the time — it
+requires the 5 draws to happen to be a permutation, roughly 8 % of runs.*
+
+### 2. A **5/5 SWEEP** AND **2/5 CHOOSER AGREEMENT** COEXISTED — NEITHER IMPLIES THE OTHER
+
+`civ-precise` won **all five** competitions while the chooser agreed with the `avg_score` argmax on
+only **2/5**. Session 214 recorded a sweep with 0/5 agreement; session 245 recorded 4/5 winners with
+1/5 agreement. *Neither measure may be inferred from the other, and a sweep is not a quality claim —
+`civ-poetic` was the argmax on 3 of 5 and won 0.*
+
+### 3. THE BOTTOM OF THE LEADERBOARD IS A **PAIR**, NOT A LADDER — MEASURE BOTH GAPS
+
+`civ-grounded` 2315.16 vs `civ-therapist` 2318.33: a gap of **3.17**. The step from #2 to #3
+(`civ-engineer` 2588.94) is **270.61** — an **85x** larger step. *When the bottom two are within a
+few units, report the gap to the bottom pair AND the gap to #3; a single "lowest relevance" figure
+hides the shape of the floor.*
+
+### 4. THE NAS ACCEPTED A 5-BYTE WRITE BUT **REJECTED A 12 KB FILE** — THE QUOTA IS PER-BLOCK
+
+This session: `echo test > /workspace/.probe` **succeeded** (WRITE OK) while `cp` of a 12,198-byte
+report failed with `Disk quota exceeded` and left a **0-byte** stub that `ls` still listed. The mount
+root's own `du` was **2.0K** — the 600 G is consumed by *other sessions sharing the same quota*, not
+by this session's files. The report was therefore durable in the **`/tmp`-backed repo tree** (via the
+symlink) and in git, not in `/workspace`.
+
+*Rule: a successful tiny write to `/workspace` does **not** mean a 12 KB file will land. Probe with
+the real file size, and keep the durable copy on the `/tmp`-backed tree + git when the NAS is marginal.*
+
 ## Session 245 additions (2026-10-25)
 
 ### 1. THE PER-`(civ,prompt)` 1:1 INVARIANT BELONGS TO THE **COMPETITION PHASE** ONLY
