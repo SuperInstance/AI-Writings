@@ -1938,3 +1938,61 @@ print the per-check PASS/FAIL lines and the failure count, as `verify.py` does.*
 - Run-wide verification: ledger Δ +80 (10 per civ x 8), meta_log Δ +5, `Winner:` lines = 5,
   wins/losses 8/8 exact, distinct seeds 40/80, md5 recompute 80/80, meta-vs-ledger 0/40.
 - Extinction risk NONE: threshold -10.0, lowest civ 208.9x above it.
+
+## Session 233 additions (2026-10-25)
+
+### 1. THE 162-CHAR TAIL MUST BE **LIFTED FROM THE LEDGER**, NOT HAND-TYPED — AND THE ASSERTION IS WHAT CATCHES IT
+
+The first build of this session's mock asserted `TAIL_LEN == 162` against a hand-written tail and
+**failed loudly at startup** (measured 380, expected 162) — the mock never started, so the run was
+not at risk. The tail was then lifted **verbatim from a current-format ledger row** and the
+continuation solved algebraically for a **351**-char body (38 + 162 + 151), mid-band.
+
+*Rule: a hand-typed constant in a geometry-critical position is a latent failure even when the
+geometry is documented. Take geometry constants from the artifact they describe, and keep the
+assertion that enforces them.*
+
+### 2. THE PRE-FLIGHT IS **15 CHECKS** NOW, AND THE ALGORITHM GATE IS **1920/1920** OVER THE FULL LEDGER
+
+The canonical md5 algorithm was re-derived and matched **1920/1920 exact, 0 mismatches** over the
+current-format rows of the 8 civ ledgers **before** the mock was built. Pre-flight passed **15/15**
+on the first build that used the ledger-derived tail.
+
+*The full-ledger recompute is the gate that makes the pre-flight mean something. Proving the
+algorithm against your own fresh rows is circular.*
+
+### 3. THE MOCK LOG LINE COUNT IS **`2N + 1`** — AND THE REPEAT PROBE IS THE EXTRA LINE
+
+122 lines observed against an expected 121 (40 pre-flight + 1 repeat probe + 80 run + 1 GET). The
+`2N+1` rule from session 221 still holds, but the **repeat-same-message determinism probe** is
+itself a logged request — so the count is `2N + 1` *plus* the number of repeat probes, not a
+constant.
+
+*Rule: never assert a log line count that encodes an assumption about how many probes ran. Assert
+the property, not the count.*
+
+### 4. THE CHOOSER SERIES BROKE A 20-SESSION STREAK: **1 UP-GRADE** AT **20 %** AGREEMENT
+
+JEV-pick vs `avg_score` argmax was **1/5 (20 %)** — 4 down-grades and **1 up-grade**, the first
+up-grade after 20 sessions of zero. The `avg_score` argmax was `civ-poetic` on **4 of 5** prompts
+while the chooser picked `civ-precise` 4 and `civ-engineer` 1.
+
+*Rule: the up-grade/down-grade counter is part of the series. A new up-grade is a fact to report,
+not a number to smooth.*
+
+### 5. THE QUALITY AXIS WAS **NARROW** THIS RUN — ALIGNMENT DOMINATED AT 2.20x, NOT THE USUAL 5-13x
+
+Alignment spread 2.0780 = 2.20x the `avg_score` spread, but only **8.15x** novelty, and the
+quality axis was narrow (0.5950, vs 1.6600 in session 232). The run-low civ was
+`civ-therapist` (avg 1.1743) on a **two-axis** quality+alignment collapse — breaking session
+232's single-axis shape.
+
+*Rule: report the axis signature **for this session** and never carry a spread ratio forward. The
+axis dominates, but the ratio swings by 6x across adjacent sessions.*
+
+### 6. THE `wins`/`losses` DELTA MUST BE DERIVED AS **`W` / `5 - W`** — AND IT IS 8/8 EXACT
+
+`civ-precise` took 4 competitions (wins +4, losses +4) and `civ-engineer` took 1 (wins +1, losses
++5); the seven that lost every one took losses +5. Checked 8/8 against the git blob baseline. The
+counter gap (culture relevance - lifetime ledger sum) was **byte-identical** to the session-230
+documented values on all 8 civs — fixed, not accumulating.
