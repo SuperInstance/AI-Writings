@@ -1973,3 +1973,48 @@ Session 185's run-level low was `civ-mythic` — a **6th different civ in 6 sess
 **lifetime** low stayed `civ-grounded` for the **58th consecutive session**. The axis is stable:
 **alignment** gap 1.1880 vs quality gap 0.0100 = **119x wider** ⇒ every low-relevance civ is a
 **voice** failure, not a prose failure. **Watch the axis, not the holder.**
+
+## Session 203 additions (2026-10-25)
+
+- **A VERIFIER THAT READS A KEY THE ARTIFACT DOES NOT HAVE FAILS 5/5 AND STILL LOOKS
+  LIKE A DATA PROBLEM.** `meta_log.jsonl` rows carry **9 keys**
+  (`iso, prompt, results, ts, winner_civ, winner_name, …`) — there is **no top-level
+  `avg_score`**. The competition scores live **inside `results`** as
+  `[[civ_id, score], …]`. A check written as `r.get("avg_score", -99)` therefore
+  mismatches **every** row and reports "meta-vs-ledger mismatches 5/5", which reads
+  exactly like a corrupted ledger. The same comparison against `results` gave
+  **0/40 mismatches** on the very same run. *Assert the key EXISTS before comparing
+  its value; a silent default converts a schema mistake into a plausible "the data is
+  wrong" story.* The `results` shape also changes what "later-`ts` row" means — the
+  competition-phase row for a `(civ, prompt)` pair is the later-`ts` ledger row, and
+  its `avg_score` must equal that civ's entry in `meta.results`.
+- **THE 202 SESSION COINCIDENCE (RUN LOW == LIFETIME LOW) DID NOT REPRODUCE.** Session
+  202 had `civ-grounded` as both; session 203 put `civ-grounded` **6th of 8** on run
+  `avg_score` while the run low rotated to `civ-therapist`. *Never carry a coincidence
+  forward as a pattern — re-read this run's own rows.*
+- **THE NOVELTY SPREAD WAS THE NARROWEST IN THE SERIES (0.1770) AGAINST AN ALIGNMENT
+  SPREAD OF 1.9850 — A 2.50x ratio.** The alignment spread was also the **widest**
+  recorded. The low-relevance signature ("high novelty, low alignment") still holds, and
+  the two low civs are cleanly separated: `civ-whimsical` has the **widest alignment
+  gap** (1.9850) but `civ-therapist` has the **lowest `avg_score`** (1.3583) on the
+  fleet's lowest **quality** (0.6530). *The widest single-axis gap and the lowest
+  composite can belong to different civs — report both.*
+- **THE CHOOSER HAS NOW NEVER UP-GRADED ACROSS 203 SESSIONS.** Agreement across
+  sessions 199-203 is 0 → 2 → 3 → 1 → **2**; every disagreement took the **lower**-
+  scoring candidate. `civ-poetic` was argmax on **3 of 5** prompts and won **0 of 5**.
+  The `best_civ` criteria map (`civ_id` -> `civ name`) is a *label* map and remains the
+  standing suspect.
+- **THE WORKSPACE WAS WIPED AGAIN (ONLY `.plugin-cache` PRESENT) — THE SPARSE-CLONE
+  RECIPE STILL WORKS END-TO-END.** `SuperInstance/AI-Writings` sparse-cloned into
+  `/tmp` (NAS at 100 % quota), `git sparse-checkout set cellular-first-design/code/civilizations`,
+  then a symlink at `/workspace/repos/ai-writings/cellular-first-design` -> the
+  **inner** dir, verified by inode identity (`113:97` both sides) and
+  `os.path.samefile()` → `True`. `ls -remote`/`git ls-remote` on the `ai-writings/…`
+  slug still 404s; the real owner is `SuperInstance/AI-Writings` and `cellular-first-design`
+  is a **subdirectory**, not a repo.
+- **THE PRE-FLIGHT BAND GATE CAUGHT THE FRESH MOCK BUILD THREE TIMES: 287 → 294 → 352.**
+  The 332-369 band is the binding constraint on the response body. The fix each time was
+  to **change the constant tail**, never to trim the longest instance — the prefix width
+  varies with the seed, so the *tail* is the control, not the total. Target **352**.
+  Computing the tail length in Python first (`352 - len(current)`) beat three rounds of
+  guess-and-check.

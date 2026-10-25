@@ -1,3 +1,33 @@
+# Civ Orchestrator — Run Report, session 203 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **77th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `21b4f58` (session 202). **All 14 verification assertions PASS.** Pre-flight **12/12 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session203.md`.
+
+**Session 203 in one line:** `civ-precise` swept **4/5** and `civ-formal` took the fifth
+prompt, breaking the two-session 5/5 sweep; the chooser/argmax agreement recovered to
+**2/5 (40 %) — 3 down-grades, 0 up-grades**; `civ-grounded` is the lifetime low for the
+**75th** consecutive session, but the run-level low rotated away from it to
+`civ-therapist` — **breaking the session-202 coincidence**; and the alignment spread
+(**1.9850**) is dominant at **2.50x** the quality spread, while the novelty spread
+(**0.1770**) is the **narrowest in the series**.
+
+**Three durable lessons from this session:**
+
+1. **A VERIFIER THAT READS A KEY THE ARTIFACT DOES NOT HAVE FAILS 5/5 AND STILL
+   LOOKS LIKE A DATA PROBLEM.** `meta_log.jsonl` rows carry **9 keys** and the
+   competition scores live **inside `results`** as `[[civ_id, score], …]` — there is no
+   top-level `avg_score`. A check written as `r.get("avg_score", -99)` mismatches every
+   row; the same comparison against `results` gave **0/40** on the same run.
+2. **THE RUN-LEVEL LOW AND THE LIFETIME LOW DECOUPLED AGAIN.** `civ-grounded` placed
+   **6th of 8** on run `avg_score` (**1.7500**) while the run low rotated to
+   `civ-therapist` (**1.3583**). *Do not carry a coincidence forward as a pattern.*
+3. **THE CHOOSER HAS STILL NEVER UP-GRADED — 0 IN 203 SESSIONS.** Agreement across
+   sessions 199-203 is 0 → 2 → 3 → 1 → **2**, and every disagreement took the
+   lower-scoring candidate. `civ-poetic` was argmax on 3/5 and won 0/5.
+
 # Civ Orchestrator — Run Report, session 202 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
