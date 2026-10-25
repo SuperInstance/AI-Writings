@@ -311,3 +311,41 @@ directory; the civs dir is not a git root and `git show` there returns empty std
 - **`civ-grounded`'s low axes are alignment and quality, NOT novelty** — lifetime
   novelty 1.5849 is 6th of 8 (mid-field); the lowest lifetime novelty belongs to
   `civ-formal` (1.5022). Do not attribute Grounded's low-novelty to Grounded.
+
+## Session 194 additions (2026-10-25)
+
+- **THE CORE REST QUOTA CAN BE ALREADY EXHAUSTED AT SESSION START, AND A 403 LOOKS EXACTLY
+  LIKE "NOT FOUND".** This session the authenticated quota read **5000/5000 (403)** at
+  09:12Z, so `GET /user/repos`, `GET /user` and every repo probe rendered as *not found*.
+  Recovery, in order: (1) `GET /rate_limit` unauthenticated to read the reset;
+  (2) **`/search/*` has a separate quota** and still served requests;
+  (3) **the git protocol is NOT rate-limited** — `git ls-remote` on a public repo succeeds
+  instantly, so it is the only reliable *absence* test while core is exhausted;
+  (4) wait out the reset, then `GET /user`. The token owner is **`SuperInstance`**
+  (Casey Digennaro, uid 193104091) — **not** `rio-ARC`, which shows up in search results
+  under a similar name and owns a *different* repo. **A 403 renders as "not found" for
+  every candidate at once; check `/rate_limit` before concluding a repo is absent.**
+- **THE RESPONSE-BODY LENGTH BAND CATCHS A FRESH MOCK BUILD.** A rebuilt template
+  rendered at **711** chars against the **332–369** band and the gate reported a clean,
+  localised `[FAIL] response body length band 332-369 min=711 max=711`. Trim the template
+  to **354**. The band is not cosmetic: a body longer than ~369 chars pushes the **seed
+  prefix out of the 200-char `content_preview` truncation**, silently breaking the
+  seed+color+figure recompute for every row.
+- **A VERIFIER BUG CAN LOOK LIKE A TRUNCATED LEDGER.** The first pass reported
+  `[FAIL] per-civ ledger delta +10 x 8` with deltas of **−1412 / −1424 / …** — the check
+  compared the *slice length* (10, the "last 10 rows") against the baseline *count*.
+  **A delta of roughly −(baseline) is the signature of comparing a slice against a count**,
+  not of a short ledger. The run was clean.
+- **THE DOWN-GRADE STREAK IS NOT A TREND, IT IS A RESETTABLE COUNTER.** Session 193 broke
+  it at 0 (5/5 agreement); session 194 re-established it at **13** (1/5 agreement, 4/4
+  disagreements down-grade, `civ-poetic` argmax on 4/5 and winner on 0/5). **Re-base the
+  streak every session from this session's own data — do not carry the number forward.**
+- **THE LOW-RELEVANCE SIGNATURE IS "HIGH NOVELTY, LOW ALIGNMENT".** `civ-therapist` (run
+  novelty **2.6550** = *highest in the fleet*, alignment **1.4910** = lowest) and
+  `civ-whimsical` (2.5790 / 1.9240) both fit. Novelty spread is ~**0.15** against an
+  alignment spread of ~**1.66**, so **the ranking is produced by alignment and quality,
+  not novelty**. Report the axis, not the holder.
+- **THE MOCK LOG LINE COUNT IS `2N + 1`, NOT `N`.** With the pre-flight's 40 messages
+  (×2 for the repeat probe = 80 requests) plus the run's 80, the log reads **161** OK-200
+  lines (80 pre-flight + 80 run + 1 GET). Compare against the log, not a remembered
+  constant.
