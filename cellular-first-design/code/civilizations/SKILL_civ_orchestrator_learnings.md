@@ -401,3 +401,37 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   **3rd-best in the fleet**. *Selection and relevance are separate axes.* Its low axis
   is **quality** (**1.4820**, the lowest in the fleet), **not** novelty (**2.6040**,
   2nd-highest).
+
+## Session 200 addenda (2026-10-25)
+
+- **THE BRIDGE SYMLINK MUST TARGET THE *INNER* SUBDIRECTORY, AND THE SHALLOW-CLONE
+  TRICK IS FASTER THAN `--depth 50`.** `git clone --depth 1 --filter=blob:none --sparse`
+  + `git sparse-checkout set cellular-first-design` gave a **9.9 M** working tree versus
+  a multi-GB full clone. The symlink must point at
+  `<clone>/cellular-first-design` (the *inner* dir), not the clone root — pointing it
+  at the root makes `code/civilizations/` unresolvable and the failure looks like
+  "the repo is missing" rather than "the symlink is one level too high".
+- **THE NAS EDQUOT TRAP NOW REJECTS WRITES AS SMALL AS 1 KB.** `cp` of the 13.6 KB
+  report, then of a 5.9 KB gzip, then a 1 KB head — **all three** failed with
+  `Disk quota exceeded` and left **0-byte** files visible in `ls`. `df` shows
+  `600G/600G 100%`. *Do not spend attempts shrinking the payload — delivery by
+  `git push` is the only channel that works.* Always verify the copied size
+  (`wc -c`), never trust the `ls` entry.
+- **THE GITHUB REST CORE QUOTA IS 5000/5000 AND EXHAUSTS MID-SESSION.** After the
+  push, `GET /repos/.../commits/main` returned a JSON body of **nulls** — not a 404.
+  The raw body was `API rate limit exceeded`, and `/rate_limit` confirmed
+  `core: {limit: 5000, used: 5000, remaining: 0}`. *A null-field API response is
+  rate-limit noise, not absence.* Verify pushes with the **git protocol** instead:
+  `git ls-remote <token-url> refs/heads/main` (no quota) and
+  `git cat-file -p FETCH_HEAD:<path>` to confirm the blob is really in the pushed
+  commit. This is the same principle as "assert absence over the git protocol".
+- **THE JEV KEY ALIAS IS `TYPESAFEAI_KEY` BUT THE SANDBOX EXPORTS `TYPESAFE_AI_TOKEN`.**
+  Export the alias before running or `jev_score` silently falls through to the
+  `2.0/2.0/2.0` fallback triple. With the alias exported, JEV returns
+  `{"model":"jev-1.14.0"}` and **0 fallback triples** — this is a live credential,
+  unlike the z.ai one.
+- **PRE-FLIGHT 11/11 ON THE FIRST BUILD, WITH A 366-CHAR BODY.** Adding the
+  "cultural-prompt length band 167-209" check *read from the real `culture.json`
+  files* (never hand-typed) and the repeat-same-message determinism probe both
+  passed first time. The mock's response body is **366 chars** — inside the
+  documented 332-369 band on the first attempt.
