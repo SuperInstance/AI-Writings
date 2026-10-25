@@ -1,3 +1,38 @@
+# Civ Orchestrator — Run Report, session 200 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **74th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `0093c0a` (session 199). **All 27 verification assertions PASS.** Pre-flight **11/11 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session200.md`.
+
+**Session 200 in one line:** `civ-precise` swept 5/5 for the **10th consecutive** sweep,
+but the chooser/argmax agreement recovered only to **2/5 (40 %) — 3 down-grades, 0
+up-grades**; `civ-grounded` is the lifetime low for the **72nd** consecutive session;
+the run-level low rotated to `civ-therapist` (**19th** different holder in 19 sessions),
+which this session is *also* the 2nd-lowest lifetime civ — the first time in five
+sessions that the two coincide; and the alignment spread (**1.7620**) is still dominant
+but is the **2nd-widest** ever, not the widest.
+
+**Three durable lessons from this session:**
+
+1. **A TEN-SESSION SWEEP IS NOT A QUALITY SIGNAL.** `civ-precise` has swept 5/5 for ten
+   straight sessions while `civ-poetic` — **highest** lifetime `relevance` and
+   **highest** `relevance_per_sim` in the fleet — has won **6 of 1449** simulations. The
+   chooser is not selecting on `avg_score`. The `best_civ` criteria map (`civ_id` ->
+   `civ name`) remains the standing suspect; the next real experiment is still to
+   **bypass the chooser** and rank purely by `avg_score`.
+2. **THE RUN-LEVEL LOW HOLDER ROTATES; THE LIFETIME LOW DOES NOT.** `civ-grounded` has
+   held the lifetime low for 72 consecutive sessions. The run-level low has rotated
+   through 19 distinct civs in 19 sessions and landed on `civ-therapist` this time. *Do
+   not predict the holder from the previous report — read this run's own rows.*
+3. **THE `relevance_per_sim` DENOMINATOR KEEPS DRIFTING, SO RE-DERIVE IT FROM THE
+   LEDGER.** `civ-grounded` has the **highest** `simulations_run` (**1449**) and the
+   **lowest** `relevance_per_sim` (**1.057**). A civ that runs more sims is penalised on
+   the per-sim axis, so per-sim and lifetime relevance can disagree for the same civ.
+   *Report both, always, and name which one is the "low".*
+
+
 # Civ Orchestrator — Run Report, session 199 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
