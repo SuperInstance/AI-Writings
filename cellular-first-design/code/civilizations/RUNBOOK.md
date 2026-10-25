@@ -1,3 +1,33 @@
+## Session 255 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
+- Provider path: **Control B mock** (z.ai credential gap, **112th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `215be6f`. **Pre-flight gate: 40/40 PASS.** **Run verification: 47 PASS / 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **1008 -> 1013** (+5); **18** files changed.
+- Mock body **349** chars (37 header + 162 tail + 149 continuation), inside the 332-369 band.
+- Winners: `civ-precise` **5/5** (a clean sweep, **4th consecutive**). Agreement with the `avg_score` argmax **3/5 (60 %)** — 2 down-grades, 0 up-grades.
+- Run low `civ-therapist` (avg **1.2920**) — quality **0.4920** at the fleet low, alignment **0.9120** also at the fleet low, a **two-axis** collapse for the **6th consecutive session**.
+- Lifetime low `civ-therapist` (**2431.94**) vs `civ-grounded` (**2451.00**) — gap **19.05**; the step from #2 to #3 (engineer 2740.85) is **289.86**, a **15x** larger step.
+- **THREE low-relevance shapes, not two:** therapist (quality+alignment floor), grounded (quality only, alignment mid-pack), engineer (**novelty** floor 2.1930, quality mid-pack).
+- Run spread `avg_score` **0.6340**; alignment spread **1.7330** = **2.7x** the avg spread.
+- `civ-poetic` led the run's `avg_score` (**2.0040**) and holds lifetime relevance #1 and `rel/sim` #1 on a **0.6 %** win rate.
+- No civ near extinction (threshold `relevance < -10`; lowest **2431.94**, **243x** the floor). Registry 8, `max_civs` 12, all `generation=1`.
+- Workspace **empty** apart from `.plugin-cache`/`.skills` — the prompt's path did not exist (**16th consecutive occurrence**).
+- Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/…` slug 404s. Located via paged `GET /user/repos?per_page=100` + name filter, confirmed with `git ls-tree -r --name-only HEAD | grep cellular-first-design`.
+- **SPARSE CLONE: 15 MB vs 3.7 GB** — `--filter=blob:none --no-checkout --depth 1` + `sparse-checkout set cellular-first-design`.
+- Cloned to `/tmp/aiw`; copying into `/workspace` fails with **`Disk quota exceeded`** (NAS EDQUOT, **22nd session**). Even a 1 KB `dd` lands a **0-byte** file — delete the phantom.
+- Bridge symlink `/workspace/repos/ai-writings -> /tmp/aiw`; verified by `os.path.samefile()` -> `True`.
+- `ZAI_TOKEN` absent from env; z.ai **401** `token expired or incorrect` => endpoint healthy, credential absent (**112th session**).
+- **JEV live**: direct probe of `api.typesafe.ai/v1/systemone` => **HTTP 422 `too_short`** (rejects an empty `questions` map only *after* authenticating => token accepted).
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and** `ZAI_URL_OVERRIDE` set (the override alone is dead code).
+- Mock seed/colour/figure recompute: this run's 80 rows **80/80** exact, 0 mismatches.
+- 0 JEV errors, 0 fallback triples, 0 non-numeric quality scores across the 80 new rows. Confidence range **0.27 - 0.86**.
+- `dRelevance == sum(new rows' avg_score)` to **0.0000** residual on all 8; `dSims == 10`, `dW + dL == 5` on all 8.
+- **THE LEADERBOARD SORTS BY `relevance_per_sim`, NOT BY `relevance` — THE BOTTOM ORDER DISAGREES.**
+  `civ-grounded` has the **higher** raw relevance (2451.00 vs 2431.94) but the **lower** `rel/sim`
+  (1.226 vs 1.230), so the board ranks grounded last. *Report both the order and the gap.*
+- Mock teardown by exact PID — never `pkill -f mock_zai` (self-match, 2 prior occurrences).
+
 ## Session 253 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.

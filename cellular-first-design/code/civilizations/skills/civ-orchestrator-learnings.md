@@ -1,3 +1,49 @@
+# Civ Orchestrator — Run Report, session 255 (2026-10-25) [NEW]
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 112th session) + **live JEV** (`jev-1.14.0`).
+Baseline: `215be6f`. **Pre-flight gate: 40/40 PASS.** **Run verification: 47 PASS / 0 FAIL.**
+Ledger delta: +10 rows/civ (+80 total); `meta_log` 1008 -> 1013; 18 files changed.
+
+## New durable findings
+
+1. **THE UP-GRADE COUNT WAS A VERIFIER BUG, NOT A BREAK IN THE SERIES.** A first pass reported
+   "1 up-grade" — the first in 23 sessions, which would have invalidated a 22-session invariant.
+   The bug: it compared **list positions** inside `meta_log`'s `results` (whose order is whatever
+   the thread pool produced) instead of **scores**. A chooser that wins a *lower*-scoring slot
+   looks like an up-grade purely because the two lists are ordered differently.
+   *Rule: compare `winner_score` to `argmax_score` NUMERICALLY, never `results.index()`.* The
+   corrected count is **3 agree / 2 down / 0 up** and the 0-up-grade series survives.
+
+2. **THE BOTTOM-PAIR GAP SERIES IS NOT MONOTONE IN EITHER DIRECTION —
+   6.54 (s250) -> 13.65 (s253) -> 16.44 (s254) -> 19.05 (s255).** It fell through sessions 245-247
+   and has risen for three sessions straight. The session-247 note ("the floor is converging")
+   was a trend, not a law. *Report the gap and the step ratio and let the series move.*
+
+3. **THERE ARE THREE DISTINCT LOW-RELEVANCE SHAPES, NOT TWO.** `civ-therapist` = quality floor
+   **and** alignment floor (two-axis, now 6 sessions running). `civ-grounded` = low quality with
+   mid-pack alignment (one-axis). `civ-engineer` = **novelty floor** (2.1930) with mid-pack
+   quality (one-axis, different axis). *Do not stop at two shapes because the last two sessions
+   had two — re-derive the axis floors from the current run every time.*
+
+4. **THE RECONCILIATION RESIDUAL IS EXACT, NOT APPROXIMATE, WHEN THE BASELINE COMES FROM GIT.**
+   `dRelevance == sum(new rows' avg_score)` matched to **0.0000** on all 8 civs this session
+   (the session-254 note allowed 0.01 slack from "JSON float rounding" — there was no rounding
+   slack needed). `dSims == 10` and `dW + dL == 5` on all 8 as well.
+
+5. **THE NAS `dd` PROBE IS THE FASTEST QUOTA CHECK — AND IT LEAVES A 0-BYTE PHANTOM.**
+   `dd if=/dev/zero of=/workspace/t.bin bs=1k count=1` -> `closing output file: Disk quota
+   exceeded`, and the file then **exists at 0 bytes**. *Delete the phantom immediately* — a 0-byte
+   artifact that `ls` shows is worse than a missing one. The NAS is now 100 % full for the 22nd
+   consecutive session; the overlay (`/tmp/aiw`) plus a `/workspace/repos/ai-writings -> /tmp/aiw`
+   symlink bridge remains the only workable layout.
+
+6. **THE `git fetch --unshallow` STEP IS NEEDED FOR `git show HEAD:` BASELINES, NOT JUST HISTORY.**
+   A `--depth 1` clone is enough to *run* the orchestrator, but the reconciliation baseline is
+   `git show HEAD:<civ>/culture.json`. With `--filter=blob:none --no-checkout` the blob is fetched
+   on demand, so `git show HEAD:` works even at depth 1 — but only for paths inside the sparse
+   cone. *Confirm with `git ls-tree -r --name-only HEAD | grep <path>` before trusting a baseline.*
+
 # Civ Orchestrator — Run Report, session 251 (2026-10-25) [NEW]
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
