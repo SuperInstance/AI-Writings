@@ -1,3 +1,118 @@
+## Session 231 additions (2026-10-25)
+
+### 1. THE CHOOSER **CANNOT** AGREE WITH `avg_score` — IT NEVER SEES THE SCORES (STRUCTURAL, NOT A REGRESSION)
+
+This session's chooser-vs-`avg_score` agreement was **0/5 (0 %)** — the lowest in the 21-session
+series, and the first run where the `avg_score` argmax was the *same* civ (`civ-poetic`) on **all
+five** prompts while the chooser selected `civ-precise` on all five.
+
+The code settles it. `civilization_competition()` builds the JEV question as:
+
+```
+state = "PROMPT: ...\n\nCANDIDATES FROM CIVILIZATIONS:\n"
+      + "\n[<civ name>]: <content_preview[:150]>\n"      # for each civ
+questions = {"best_civ": {"type": "choice", ...}}
+```
+
+so the chooser reads **only the first 150 characters of each candidate's text**. The `avg_score`
+the battery compares against comes from a *different* JEV call (`quality`/`novelty`/`alignment`
+score questions over a different state) and is **never passed to the chooser**. The
+`max(results, key=avg_score)` line in the code is a **fallback for a failed JEV call**, not the
+normal path.
+
+*Rule: chooser-vs-`avg_score` divergence is a **structural property of the two-question design**.
+Do not read the agreement rate as a quality KPI, and do not call a 0 % run a regression. What
+is worth recording is the **direction** (up/down), the **margin**, and whether the argmax is a
+**single repeated civ** — a one-civ argmax sweep means the two axes have fully diverged, which
+is a stronger signal than a mixed one. Verify the chooser is live by replaying the `choice`
+question and checking for a `probabilities` distribution; a live answer looks like
+`{"choice": "civ-precise", "confidence": 0.73, "probabilities": {...}}`, while the fallback
+path produces a `max(...)` over `avg_score` with no probabilities.*
+
+### 2. A RESIDUAL THAT IS SMALL BUT **NOT FLOAT-SIZED** MEANS THE **BASELINE** WAS ROUNDED
+
+The battery's assertion 11 (`relevance` delta = Σ`avg_score`) failed at max residual
+**3.33e-05** — 4 orders of magnitude above the 1e-6 tolerance. The run was fine; the baseline
+I typed into the script was the **4-decimal table copied from the previous session's report**,
+not the true float. `git show HEAD:.../culture.json` gave the full-precision values and the same
+assertion then passed at **8.14e-13** across all 8 civs.
+
+*Rule: float noise is ~1e-13; a 3e-05 residual is exactly what a 4-decimal-rounded baseline
+predicts. When a residual is small but not float-noise-sized, suspect **baseline provenance**
+before suspecting the run. Recover the pre-run values from git, not from a report table.*
+
+### 3. THE FULL-LEDGER RECOMPUTE MUST **COUNT WHAT IT FINDS** — THE LEDGER GROWS EVERY SESSION
+
+Session 230 anchored its pre-run recompute at "1440 current-format rows". This session the same
+8 ledgers yielded **1760** current-format rows out of **14 124** total, matching
+**1760/1760 exact, 0 mismatches**.
+
+*Rule: never hardcode the expected current-format row count. Scan the ledgers and count the
+current-format rows actually found. A stale expected-count would report a healthy ledger as
+short — and a short ledger is exactly the symptom of a wrong algorithm, so the error would
+point at the mock instead of at the expectation.*
+
+### 4. THE RUN'S **QUALITY AXIS CAN COLLAPSE FLEET-WIDE** — A RUN-LEVEL PROPERTY, NOT A PER-CIV TRAIT
+
+Every civ's quality axis landed in a narrow low band this run (**0.7700 – 1.4320**, spread
+0.6620) while novelty was nearly flat (**2.4490 – 2.5840**, spread 0.1350) and alignment
+carried the whole discrimination (spread **1.8690**, **13.84x** the novelty spread). The
+alignment spread was 2.28x the `avg_score` spread and 2.82x the quality spread.
+
+*Rule: before attributing a low score axis to a civilization, check the **fleet-wide spread of
+that axis** in the same run. A collapsed axis separates nobody, so the "low holder" of that
+axis is an artifact of the run, not a trait of the civ. Report the axis signature for the
+session, and check the fleet spread before naming a weakness.*
+
+### 5. TWO-AXIS COLLAPSE, 2ND CONSECUTIVE SESSION — AND THE HOLDER ROTATED TO `civ-whimsical`
+
+The run low was `civ-whimsical` (avg **1.4267**), a **quality+alignment two-axis collapse**
+(quality **0.7700**, alignment **0.9500**, both fleet-low) with novelty untouched (**2.5600**,
+2nd-highest). Session 230's run low was `civ-therapist` with the same two-axis signature.
+
+*Rule: the **holder rotates** and so does the **axis set**, but the two-axis collapse
+(quality+alignment, novelty untouched) has now repeated for a second consecutive session. Keep
+reporting the axis signature per session and do not carry the previous axis diagnosis forward.*
+
+### 6. `civ-grounded` HELD THE LIFETIME LOW FOR THE **95th CONSECUTIVE SESSION** — AND STILL RANKED 5th ON THE RUN
+
+Lifetime relevance **2071.25** (from 2052.79), `relevance_per_sim` **1.1780** — last of 8, and
+the label did not rotate. Run-level it was **5th of 8** on `avg_score` (**1.8463**), *above* its
+lifetime rank, with an alignment/quality gap of **1.0640** — the weakness is again **prose
+quality, not voice**.
+
+*Rule: a lifetime-low label and a run rank are different measurements. Keep reporting both; a
+civ can hold the lifetime low while sitting mid-field in any given run.*
+
+### 7. THE COUNTER GAP IS **BYTE-IDENTICAL** ACROSS SESSIONS — CONFIRMED AGAIN
+
+Gaps: grounded **-84.3467**, whimsical **-173.1433**, formal **-85.5267**, poetic **-96.8033**,
+precise **-32.6333**, mythic **-51.1100**, therapist **-42.1133**, engineer **-44.2433** —
+max drift **0** against the published table. *The offset is fixed; a run neither repairs nor
+worsens it.*
+
+### Re-confirmations (this session)
+
+- 111th session with the prompt path absent; 95th session with the z.ai credential gap
+  (z.ai **401** on a direct live probe => endpoint healthy, credential absent).
+- Repo is `SuperInstance/AI-Writings`; `cellular-first-design` is a **subdirectory**. NAS
+  EDQUOT total (18th session) — clone to the overlay, bridge the **clone subdirectory**,
+  verify with `os.path.samefile()` -> `True`.
+- `gh` not installed (26th session). `git fetch` needs `GIT_SSL_NO_VERIFY=1`; fetch
+  `refs/heads/main` explicitly and assert the SHA equals the clone HEAD (`4305f6d`).
+- The mock source is **not in the repo on any branch**; rebuild it per session and prove the
+  algorithm against the full current-format ledger first.
+- `ZAI_URL_OVERRIDE` alone is **dead code** — Control B needs **both** `ZAI_TOKEN` (gate) and
+  `ZAI_URL_OVERRIDE` (destination). `TYPESAFEAI_KEY` from `TYPESAFE_AI_TOKEN`; JEV live at
+  `jev-1.14.0`; **0** fallback triples, **80/80** distinct triples.
+- Pre-flight **12/12 PASS on the first build**; run verification **18/18 PASS**.
+- Extinction risk **NONE** — lowest civ at **2071.25**, **207x** the -10 floor. Registry 8,
+  `max_civs` 12, all `generation=1`.
+- Mock teardown by **PID captured from `ps`**, then prove the port closed (`curl` exit 7,
+  `HTTP=000`). Never `pkill -f mock_zai` (self-match).
+- The **only** free variable in the mock body length is the continuation: solve
+  `target − 38 − 162` (this session: 351 = 38 + 162 + 151).
+
 ## Session 230 additions (2026-10-25)
 
 ### 1. THE CONTROL B MOCK SOURCE IS **NOT IN THE REPO** — THE LEDGER IS THE SPECIFICATION
