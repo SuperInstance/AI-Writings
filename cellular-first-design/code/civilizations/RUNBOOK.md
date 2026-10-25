@@ -1,3 +1,63 @@
+## Session 256 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
+- Provider path: **Control B mock** (z.ai credential gap, **113th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `dd7042b`. **Pre-flight gate: 40/40 PASS.** **Run verification: 11 PASS / 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **1013 -> 1018** (+5); **18** files changed.
+- Mock body **349** chars (37 header + 162 tail + 149 continuation), inside the 332-369 band.
+- **THE SPEC WAS RE-DERIVED FROM THE 3,520 MOCK ROWS ALREADY IN THE LEDGER BEFORE LAUNCH** (not
+  trusted from the RUNBOOK): `i = d[0] % 4`, `seed = h[(i*2)%8:(i*2)%8+4]`, `color = h[8:12]`,
+  `figure = h[12:16]/h[16:20]/h[20:24]` -> **3520/3520** on all three fields. The
+  `int(h[0],16) % 4` variant scores only **1205/3520** and `h[0:4]` only **804/3520**.
+- Post-run: this run's 80 rows recompute **80/80** exact, 0 mismatches. 0 JEV errors,
+  0 fallback triples, 0 non-numeric quality scores. Confidence range **0.27 -> 0.65** (0.373-0.647).
+- `dRelevance == sum(new rows' avg_score)` to **0.0000** residual on all 8; `dSims == 10`,
+  `dW + dL == 5` on all 8 — all diffed against the **pristine git blob**, not a re-read.
+- Winners: `civ-precise` **5/5** (a clean sweep, **5th consecutive**). Agreement with the
+  `avg_score` argmax **1/5 (20 %)** — the **lowest in the recorded series** (255: 60 %, 253: 40 %),
+  4 down-grades, 0 up-grades.
+- Run low `civ-therapist` (avg **1.3053**) — alignment **0.9050** at the fleet low, quality
+  **0.6460** second-lowest, a **two-axis** collapse for the **7th consecutive session**.
+- Lifetime low `civ-therapist` (**2445.00**) vs `civ-grounded` (**2465.72**) — gap **20.72**;
+  the step from #2 to #3 (formal 2882.90) is **40.52**.
+- **THREE low-relevance shapes, not two:** therapist (quality+alignment floor), grounded
+  (quality only — **0.4870**, the fleet quality floor; alignment mid-pack), engineer
+  (**novelty** floor **2.2030**, quality mid-pack).
+- Run spread `avg_score` **0.7283**; alignment spread **1.8100** = **2.48x** the avg spread.
+  Quality spread 0.6490; novelty spread 0.2800 (tightest axis).
+- `civ-poetic` led the run's `avg_score` (**2.0337**) and holds lifetime relevance #1 and
+  `rel/sim` #1 on a **0.6 %** win rate.
+- No civ near extinction (threshold `relevance < -10`; lowest **2445.00**, **244x** the floor).
+  Registry 8, `max_civs` 12, all `generation=1`.
+- Workspace **empty** apart from `.plugin-cache` — the prompt's path did not exist (**17th
+  consecutive occurrence**).
+- Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/...` slug 404s. Located via paged
+  `GET /user/repos?per_page=100` + name filter.
+- **SPARSE CLONE: 14 MB vs 3.7 GB** — `--filter=blob:none --no-checkout --depth 1 --branch main`
+  + `sparse-checkout set cellular-first-design`. A full clone was still transferring at 3.7 GB.
+- Cloned to `/tmp/aiw/aiw`; copying into `/workspace` fails with **`Disk quota exceeded`**
+  (NAS EDQUOT, **23rd session**).
+- Bridge symlink `/workspace/repos/ai-writings -> /tmp/aiw/aiw`; verified by
+  `os.path.samefile()` -> `True`.
+- `ZAI_TOKEN` absent from env and all 8 secrets; z.ai **401** `token expired or incorrect` =>
+  endpoint healthy, credential absent (**113th session**).
+- **JEV live**: well-formed `questions` body => **HTTP 200** `{"model":"jev-1.14.0", ...}`;
+  the empty-`questions` probe => **HTTP 422 `too_short`** (rejects the payload shape only
+  *after* authenticating => token accepted).
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code).
+- **THE LEADERBOARD SORTS BY `relevance_per_sim`, NOT BY `relevance` — THE BOTTOM ORDER
+  DISAGREES, AND IT IS NOW 2 SESSIONS RUNNING.** `civ-grounded` has the **higher** raw
+  relevance (2465.72 vs 2445.00) but the **lower** `rel/sim` (1.227 vs 1.230), so the board
+  ranks grounded last while the raw-relevance order ranks therapist last. *Report both orders
+  and the gap — the bottom pair flips between them.*
+- **THE `simulations_run` vs LEDGER-ROW OFFSET IS LARGE AND UNEVEN** (16-63 rows, per civ):
+  `simulations_run` counts the **sim phase** only (5/civ) while the ledger accumulates **both**
+  phases (10/civ). Read the `simulations_run` baseline from the **git blob**, never from the
+  ledger row count — asserting `sims_run == rows_before + 10` yields 8 false failures.
+- Mock teardown by exact PID (323/324) and the port re-probed closed (`curl` exit 7,
+  `HTTP=000`) — never `pkill -f mock_zai` (self-match, 2 prior occurrences).
+
 ## Session 255 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
