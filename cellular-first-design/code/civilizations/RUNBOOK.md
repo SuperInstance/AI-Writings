@@ -1,3 +1,76 @@
+## Session 259 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~31 s.
+- Provider path: **Control B mock** (z.ai credential gap, **116th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `90299695`. **Pre-flight gate: 40/40 PASS.** **Run verification: 111 checks / 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **1028 -> 1033** (+5); **18** files changed.
+
+- Mock body **349** chars (38 header + 162 tail + 149 continuation), inside the 332-369 band.
+- The spec was **re-derived from the live ledger** before launch (not trusted from the RUNBOOK):
+  `i = d[0] % 4`, `seed = h[(i*2)%8:(i*2)%8+4]`, `color = h[8:12]`,
+  `figure = h[12:16]/h[16:20]/h[20:24]`. Re-derivation against **all** recognizable
+  historical rows across the 8 civs -> **4000/4000 exact**, 0 mismatches.
+- Post-run: this run's 80 rows recompute **80/80** exact, 0 mismatches. 0 JEV errors,
+  0 fallback triples, 0 non-numeric quality scores, confidence range **0.23 - 0.89**,
+  **80/80** distinct score triples.
+- `dRelevance == sum(new rows' avg_score)` to **0.0000** residual on all 8; `dSims == 10`,
+  `dW + dL == 5` on all 8 — all diffed against the **pristine git blob**, not a re-read.
+- Winners: `civ-precise` **5/5** (a clean sweep, **8th consecutive**). Agreement with the
+  `avg_score` argmax **1/5 (20 %)** — **4 down-grades, 0 up-grades**, margins -0.0433 to -0.1300.
+  Tied with session 257 for the **lowest in the recorded series** (255: 60 %, 253/259: 40/20 %).
+- Run low `civ-therapist` (avg **1.2220**) — alignment **0.7940** AND quality **0.5210** both at
+  the **fleet floor** this session, a **two-axis** shape for the **2nd consecutive session**
+  (novelty 2.3510 mid-pack, so it is not a general collapse). Its quality rose from 0.4670
+  (session 258) but alignment fell 0.8100 -> 0.7940.
+- Lifetime low `civ-therapist` (**2482.43**) vs `civ-grounded` (**2511.01**) — gap **28.58**.
+- **TWO low-relevance shapes:** therapist (quality+alignment floor, lowest raw relevance,
+  smallest relevance gain +12.22), grounded (quality only — **0.5800**; novelty and alignment
+  mid-pack; lowest `rel/sim` **1.2310**, tied with therapist to 3 decimals).
+- **The board-vs-raw-relevance tail flip is RESOLVED**: the `rel/sim` board order and the raw
+  relevance order are now **identical across all 8** civs. This ends a **5-session run** of
+  disagreement confined to the bottom pair — the flip was a near-tie artifact of
+  `grounded`/`therapist` sitting 25-29 relevance points apart on ~2000 accumulated sims.
+  A report giving only one ordering is wrong about the tail; check BOTH orderings.
+- Run spread `avg_score` **0.7500**; alignment spread **1.8660** = **2.5x** the avg spread.
+  Quality spread 0.5740; novelty spread 0.2670 (tightest axis).
+- `civ-poetic` led the run's `avg_score` (**1.9720**) and holds lifetime relevance #1 and
+  `rel/sim` #1 on a **0.6 %** win rate; `civ-precise` sweeps on a **72.4 %** lifetime win rate.
+- No civ near extinction (threshold `relevance < -10`; lowest **2482.43**, **248x** the floor).
+  Registry 8, `max_civs` 12, all `generation=1`.
+- Workspace **empty** apart from `.plugin-cache` — the prompt's path did not exist (**20th
+  consecutive occurrence**).
+- **NAS EDQUOT, 26th session.** The first `git clone` into `/workspace/repos/ai-writings` died
+  mid-clone with `close error: Disk quota exceeded` on `.git/description`. `df` shows the
+  workspace mount at **100% (600G/600G, 0 avail)** while the overlay root has **28G free** —
+  the workspace is **quota**-limited, not size-limited. **Clone to `/tmp` (overlay), then bridge.**
+- Bridge symlink `/workspace/repos/ai-writings -> /tmp/AIW`; verified by
+  `os.path.samefile()` -> **True**. The script's hardcoded `CIVS_DIR` then resolves correctly.
+- `ZAI_TOKEN` absent from env and from all sandbox secrets; z.ai returns **401**
+  `token expired or incorrect` => endpoint healthy, credential absent (**116th session**).
+- **JEV live**: a well-formed `questions` body returns **HTTP 200** with
+  `{"model":"jev-1.14.0", "score":1.23, "confidence":0.43}`.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code — the token gate returns `None` first).
+- `gh` not installed (**22nd session**) — used the REST API with `GITHUB_TOKEN`; located the
+  upstream via `GET /search/code?q=civilization_orchestrator+in:path` (the org listing 404s).
+- Tool timeout 30 s < orchestrator run ~31 s => detached launch with stdout redirected
+  **and** `< /dev/null`, then poll. Python buffers stdout — the log may look empty mid-run.
+- Teardown: mock pid 311 killed by **exact PID**, 0 remaining processes, port re-probed
+  **closed** (`curl` exit **7**, `HTTP=000`). Never `pkill -f mock_zai` — self-match.
+- The `write` tool cannot reach `/tmp` or traverse the symlinked bridge; write artifacts with a
+  bash heredoc to `/tmp` and `cp` them into the clone.
+
+> **GATE CORRECTION (carry this forward): `distinct previews` must be asserted as 5 PER CIV,
+> NOT 10.** The first verification pass this session asserted "all new previews distinct"
+> (10 distinct bodies from 10 new rows) and produced **8 FALSE FAILURES on a clean run**.
+> The code settles it: `CANON_PROMPTS[:args.prompts]` is **5 prompts**, the sim phase draws 5
+> and the competition phase draws the same 5, and `tools/mock_zai.py` is **deterministic per
+> (civ, prompt)** — `build_body` hashes only the cultural prompt, so the same (civ, prompt)
+> always yields a byte-identical body. Therefore 10 rows per civ MUST contain exactly
+> **5 distinct previews**, and the assertion that actually proves determinism is
+> **"no prompt maps to >1 preview"**. **Third gate-level correction in three sessions: check
+> the gate against the CODE, not against the previous session's report.**
+
 ## Session 258 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
