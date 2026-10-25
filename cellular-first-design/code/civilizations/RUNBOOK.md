@@ -1,3 +1,56 @@
+# Civ Orchestrator — Run Report, session 184 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 62nd session) + **live JEV**.
+Baseline: `2421429` (session 183). **All 25 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session184.md`.
+
+## Headline for the next session
+
+- **`origin/master` DOES NOT CARRY THE `ZAI_URL_OVERRIDE` HOOK — the `civ-orch/*`
+  branches do.** Running from `master` leaves the override as dead code and the
+  provider path un-routable. The override lives in `call_provider()` as
+  `_ov = os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")`. **Clone a `civ-orch/*`
+  branch, not `master`,** or the mock cannot be reached at all.
+- **THE GITHub REST API CAN BE AT 0/5000 WHEN THE SESSION STARTS.** The rate-limit
+  reset had already passed (`x-ratelimit-reset` in the past) and `remaining` stayed 0.
+  **Use the git protocol (`git ls-remote`) for existence probes, not a rate-limited
+  REST call** — a REST failure renders as "no such repo" for every candidate at once.
+  Resolve the owner by web search instead: upstream is **`SuperInstance/AI-Writings`**,
+  and `cellular-first-design` is a **subdirectory** of it, not a repo of its own.
+- **THE NAS QUOTA NOW BLOCKS EVEN A 200-BYTE WRITE.** Not just clones — `cp` of a
+  13 KB SKILL file into `/workspace` fails with `Errno 122` on close, and a 200-byte
+  `open(...,"wb")` fails too. **Deliver by pushing to git, not by writing files into
+  `/workspace`.** The `write` tool cannot create the file either.
+- **`civ-grounded` remains the low-relevance civ — 58th consecutive session.**
+  Last of 8 on lifetime `avg_score` **1.0117**, `alignment` **1.0614**, `quality`
+  **0.3963**, `relevance` **1263.27**, `relevance_per_sim` **0.980**. Alignment gap
+  **1.0581** vs quality gap **0.3364** = **3.15x** wider => a **voice** failure, not a
+  prose failure. The 3.16x ratio of sessions 182-183 holds at **3.15x** — the
+  structural constant is confirmed a third time.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-engineer`** (run `avg_score` **0.6807**, and
+  also the run low on `alignment` **0.7120** and `quality` **0.0700**) while its
+  lifetime standing is 6th of 8. `civ-engineer` was also the run low in session 181.
+  **Six sessions, six different-or-repeating run lows — the rotation is not a
+  pattern. Watch the axis, not the holder.**
+- **NOVELTY CARRIED THE WIDEST SPREAD THIS SESSION (0.7390)**, not alignment (0.6650)
+  — the first departure from sessions 182-183, where alignment led both times.
+  **The widest-spread axis rotates too; do not assume alignment.**
+- **Chooser vs `avg_score` argmax: 0/5 (0 %)** — `civ-precise` swept **5/5** again,
+  and the argmax was `civ-whimsical` on **all five** prompts. **All five
+  disagreements took the LOWER-scoring candidate**, the widest margin yet
+  (**-0.443**). The one-directional "chooser picks lower" pattern is now **6
+  sessions** long (179-184). **Never treat `win_rate` as a quality metric** — it is
+  a *selection* metric.
+- Verification: per-civ D **+10 x 8** = **80** new rows, `meta_log` **+5** (653 ->
+  658), `Winner:` **5**, wins **+5** / losses **+35**, 0 JEV errors, 0 fallback
+  triples, `zai x 80`, **80/80** rows match an independently recomputed seed+color+figure,
+  **40/40** distinct seeds, **0** `(civ,prompt)` with >1 seed, **80/80** distinct
+  `(q,n,a)`, relevance delta == sum(avg_score) **8/8 exact** (unrounded baseline,
+  residuals <= 6.3e-13), registry 8 all gen 1, extinction **NONE** (lowest +1263.27 =
+  **126x** the floor). **25/25 PASS.**
+
 # Civ Orchestrator — Run Report, session 182 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`

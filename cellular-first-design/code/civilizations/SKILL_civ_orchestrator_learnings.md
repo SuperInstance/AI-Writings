@@ -212,3 +212,51 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   repos that `GET /user/repos` pagination never reaches (5 400+ owned repos). It also gives
   the exact path, so the sparse-checkout set can be written from the API response instead of
   guessed.
+
+## Session 184 additions (2026-10-25)
+
+- **`origin/master` does NOT carry the `ZAI_URL_OVERRIDE` hook; the `civ-orch/*`
+  branches do.** The override lives inside `call_provider()` as
+  `_ov = os.environ.get(f"{name.upper()}_URL_OVERRIDE", "")`, *after* the token gate.
+  From `master` the provider URL is hardcoded to `https://api.z.ai/...` and the mock
+  is unreachable. **Clone a `civ-orch/*` branch, not `master`.** (Upstream `master` at
+  `666dfff3` also has a much smaller civ ledger — 69 sims for `civ-grounded` vs 1279
+  on the branch — so the branch is also the correct *baseline*.)
+- **The GitHub REST API can be at `remaining: 0` from the first call of a session,
+  with the reset epoch already in the past.** `x-ratelimit-used: 5000` /
+  `x-ratelimit-limit: 5000`. A rate-limited REST call renders as
+  `{"message": "API rate limit exceeded"}` — and if you are looking for a repo, that
+  looks exactly like "repo not found". **Use the git protocol for existence probes
+  (`git ls-remote`), and web search to resolve an owner name.** Never issue an
+  absence claim from a rate-limited REST response.
+- **The NAS EDQUOT trap now blocks *any* write, not just clones.** `cp` of a 13 KB
+  file into `/workspace` fails with `[Errno 122] Disk quota exceeded` *on close*,
+  leaving a **0-byte** file behind. A 200-byte `open(path,"wb")` also fails. The
+  `write` tool fails the same way. **So: deliver artifacts by pushing to git, and
+  stage everything in `/tmp`.** Delete the 0-byte leftovers — a 0-byte
+  `SKILL.md` that *looks* present is worse than an absent one.
+- **A symlink bridge into a full-disk NAS is fine** — the symlink itself is a few
+  bytes in the NAS inode table, and the target lives in `/tmp`. Only *data* writes
+  hit the quota. The bridge is the right pattern; it is the payloads that must stay
+  in `/tmp` or in git.
+- **The run-level low and the lifetime low were different civs again** (run low
+  `civ-engineer` 0.6807; lifetime low `civ-grounded` 1.0117). **Six sessions, six
+  different-or-repeating run lows.** The *holder* rotates; the *axis* does not.
+  `civ-engineer` was ALSO the run low in session 181 — so the rotation is not a
+  clean permutation, and "a sixth civ in six sessions" was a claim I had to
+  soften. Do not code against it.
+- **The widest-spread axis rotated too.** Novelty carried the widest cross-civ
+  spread this session (**0.7390**) against alignment 0.6650; sessions 182-183 both
+  had alignment widest. Compare cross-civ spreads per session rather than assuming
+  alignment is structurally the widest.
+- **Chooser vs `avg_score` argmax was 0/5, with the argmax the SAME civ on all
+  five prompts** (`civ-whimsical`), and `civ-precise` sweeping 5/5 again. All five
+  disagreements took the **lower**-scoring candidate, widest margin yet (**-0.443**).
+  The one-directional "chooser picks lower" pattern is now **6 sessions** long
+  (179-184). Two readings are consistent with the data: a genuine selection bias
+  toward low-`avg_score` text, or a low-`avg_score` civ producing a *more
+  distinctive* 150-char preview that the `choice` question rewards. **Do not pick
+  one** — the mechanism is not observable from the ledger.
+- **The Grounded alignment-to-quality gap ratio held for a third session:**
+  **3.15x** (sessions 182 and 183 both 3.16x). The diagnosis "voice failure, not
+  prose failure" is safe to state as structural.
