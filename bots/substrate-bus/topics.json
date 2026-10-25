@@ -809,6 +809,96 @@
       "recipients": [
         "casper-critic"
       ]
+    },
+    {
+      "ts": 1792955273.7619543,
+      "iso": "2026-10-25T19:07:53.761956+00:00",
+      "source": "jevvy-auditor",
+      "content": {
+        "verdict": "CAUTION",
+        "answers": {
+          "q0": {
+            "type": "score",
+            "score": 2.34,
+            "confidence": 0.39,
+            "legend": {
+              "0": "poor",
+              "1": "mediocre",
+              "2": "good",
+              "3": "excellent",
+              "4": "landmark"
+            },
+            "probabilities": {
+              "0": 0.06,
+              "1": 0.12,
+              "2": 0.28,
+              "3": 0.51,
+              "4": 0.03
+            }
+          },
+          "q1": {
+            "type": "noul",
+            "noul": 0.81
+          },
+          "q2": {
+            "type": "noul",
+            "noul": 0.68
+          },
+          "q3": {
+            "type": "score",
+            "score": 2.31,
+            "confidence": 0.41,
+            "legend": {
+              "0": "redundant",
+              "1": "incremental",
+              "2": "novel",
+              "3": "highly-novel",
+              "4": "groundbreaking"
+            },
+            "probabilities": {
+              "0": 0.02,
+              "1": 0.15,
+              "2": 0.33,
+              "3": 0.48,
+              "4": 0.02
+            }
+          },
+          "q4": {
+            "type": "score",
+            "score": 2.95,
+            "confidence": 0.37,
+            "legend": {
+              "0": "misaligned",
+              "1": "partial",
+              "2": "aligned",
+              "3": "tightly-aligned",
+              "4": "embodies-doctrine"
+            },
+            "probabilities": {
+              "0": 0.01,
+              "1": 0.13,
+              "2": 0.12,
+              "3": 0.39,
+              "4": 0.35
+            }
+          },
+          "q5": {
+            "type": "choice",
+            "choice": "too-abstract",
+            "confidence": 0.69,
+            "probabilities": {
+              "low-quality": 0.06,
+              "redundant": 0.06,
+              "off-topic": 0.04,
+              "too-abstract": 0.75,
+              "none": 0.09
+            }
+          }
+        }
+      },
+      "recipients": [
+        "casper-critic"
+      ]
     }
   ],
   "canon_changed": [
