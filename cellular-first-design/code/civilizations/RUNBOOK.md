@@ -1,3 +1,110 @@
+# Civ Orchestrator — Run Report, session 191 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 65th session) + **live JEV**.
+Baseline: `a99fec6` (remote session 190). **All 29 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session191.md`.
+
+## Headline for the next session
+
+- **A SECOND AGENT RAN SESSION 190 AGAINST THE SAME REPO WHILE THIS RUN WAS IN FLIGHT.**
+  The push was rejected non-fast-forward, and the remote tip was already a **session 190**
+  commit ("24/24 PASS") with **different** relevance values (its `civ-grounded` =
+  **1358.84**, mine **1349.14**) and a different leaderboard `iso` (its `08:53:48`, mine
+  `08:53:17`) ⇒ two genuinely independent executions, not a duplicate. The correct
+  resolution was **NOT** a rebase with hand-merged jsonl: it was to **rebase onto the
+  remote's session 190 and CONCATENATE** — keep the remote's 80 rows, append this run's
+  80 rows + 5 `meta_log` entries, and **recompute `culture.json` and the leaderboard**
+  from the combined total. Result: a coherent **session 191** (160 rows across two runs),
+  29/29 PASS. **See the full recipe in the report's "The concurrency collision".**
+- **`civ-precise` SWEPT 5/5 FOR THE 3rd CONSECUTIVE SWEEP — AND IT IS A CHOOSER EFFECT,
+  NOT QUALITY.** The chooser disagreed with the `avg_score` argmax on **3 of 5** prompts
+  and **all three took the LOWER-scoring candidate** — the **11th consecutive session**
+  in which a chooser/argmax disagreement is a *down*-grade. Agreement **2/5 (40 %)**.
+  `civ-poetic` was the argmax on **3 of 5** prompts and won **none**. **The `best_civ`
+  criteria map (civ_id -> civ name) is the suspect, not the quality signal.**
+- **`civ-grounded` remains the lifetime low — 63rd consecutive session.** Last of 8 on
+  lifetime `relevance` **1369.61** and `relevance_per_sim` **1.008** (still the lowest in
+  the fleet). Lifetime `win_rate` **0.105** — **3rd-best in the fleet** behind `precise`
+  (0.641) and `formal` (0.147). Lowest relevance = **137x** the −10 floor ⇒ **no
+  extinction risk**.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-therapist`** (run `avg_score` **0.9863**,
+  `alignment` **0.2250**, `quality` **0.1710**) — a **10th different civ in 10 sessions**.
+  Alignment gap **0.0990** vs quality gap **0.0580** = **1.71x wider** ⇒ still a **voice**
+  failure, at the **narrowest voice/quality ratio in the series** (earlier: 2.95x-3.18x).
+  *The holder rotates; the axis does not.*
+- **THE AXIS SPREAD IS DOMINATED BY ALIGNMENT, NOT QUALITY.** Cross-civ spreads:
+  `alignment` **1.4360** > `avg_score` **0.5037** > `quality` **0.2670** > `novelty`
+  **0.1500**. Novelty is nearly flat (2.456-2.606) — the whole ranking is produced by
+  `alignment` and `quality`.
+- Verification: per-civ D **+10 x 8** = **80** new rows, `meta_log` **+5** (688 -> 693),
+  `Winner:` **5**, 0 JEV errors, 0 fallback triples, `zai x 80`, **80/80** rows match an
+  independently recomputed seed+color+figure, **40/40** distinct seeds, **0**
+  `(civ,prompt)` with >1 seed, per-prompt **8/8** distinct seeds AND previews on all 5
+  prompts, relevance delta == sum(avg_score) **8/8 exact** (git-blob baseline `a99fec6`),
+  registry 8 all gen 1, extinction **NONE**. **29/29 PASS.**
+
+## New this session
+
+- **CONCURRENT SESSIONS ARE NOW A REAL OCCURRENCE.** Two agents ran the same command
+  against the same upstream repo within ~3 minutes. Signature: a push rejected
+  non-fast-forward whose **remote tip is a session commit for YOUR session number**.
+  Do **not** hand-merge the conflicting jsonl — two independently-appended ledgers pass
+  no invariant. **Concatenate instead:** `git reset --hard FETCH_HEAD`, extract your own
+  rows as the **last N per ledger** from your commit (`git show <sha>:<path>` — do this
+  **before** resetting), append, then **recompute `culture.json`** (`relevance += Σ
+  avg_score`, `wins += meta_log winner count`, `losses += M - wins`,
+  `simulations_run += N`) and **regenerate `leaderboard.json`** exactly as
+  `update_leaderboard` does (sort by `relevance_per_sim` desc; 2dp / 3dp / 3dp).
+  **Number the session by what is on the remote, not by what you planned.**
+- **A STALE BASELINE CONSTANT IN THE VERIFIER IS THE SECOND TRAP.** The verifier carried
+  `BASE_META = 683` from the previous epoch; after the collision the correct baseline was
+  the remote's **688**. A hardcoded count from an earlier epoch reports a false FAIL
+  (check 3) and a false mismatch (check 21). **Derive the baseline from the baseline
+  COMMIT, never from a remembered number** — and scope the meta-vs-ledger check to
+  **your own rows** before taking the later-`ts` row, or it matches the other run's row
+  for the same `(civ, prompt)`.
+- **NEVER RE-RUN THE PRE-FLIGHT AFTER THE BATCH AND THEN COUNT MOCK LOG LINES AGAINST A
+  FIXED 120.** The first verification pass reported a false FAIL on check 25 (240 lines vs
+  the expected 120) purely because the pre-flight was re-run to regenerate its captured
+  output, adding 120 mock calls. The check was re-derived as a **run-scoped multiset
+  window**: the 80 run calls are provably at **offset 40** of the 240 lines because that
+  window's seed multiset equals the ledger's 80-row seed multiset exactly.
+  **Re-running a pre-flight mutates the artifact the check reads.**
+
+## Notes for the next session
+
+1. **Check for a concurrent session before pushing** — a non-fast-forward whose remote
+   tip is your session number means another agent ran the same command. Concatenate,
+   don't merge.
+2. The mock is **not** on disk at session start (`/tmp` wiped) — rebuild from the
+   **algorithm block** with all **seven** fixes, not the older "six fixes" checklist, and
+   run the pre-flight (40/40/40 + **both** length bands + the **repeat probe**) **before**
+   the batch. Do not re-run it afterwards (see above).
+3. `ZAI_TOKEN` still absent ⇒ real z.ai unusable; Control B is the only provider path.
+   JEV is live and needs `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`.
+4. The upstream repo is **3.7 GB** and `/workspace` is at 100 % NAS quota ⇒ clone **sparse
+   + shallow** (`--depth 1 --filter=blob:none --no-checkout`, then
+   `sparse-checkout set cellular-first-design`); working tree **9.1 MB**. A full clone
+   died mid-fetch with `could not open ... tmp_pack_* for reading`.
+5. `GET /user/repos` was rate-limited (403) and `GET /search/repositories` returned
+   unrelated hits; the working discovery route was
+   **`GET /search/code?q=filename:civilization_orchestrator.py`**.
+6. Isolate this run's rows by **count from the end of each civ file** (last 10), never by a
+   `ts` cutoff; the meta-vs-ledger check takes the **later-`ts`** row **within this run's
+   rows only**.
+7. `civ-grounded` has been the low-relevance civ for **63** straight sessions — if it ever
+   reads mid-table, check the run-wide seed count first.
+8. Tool timeout 30 s < orchestrator run ~28 s ⇒ detached launch, stdout redirected
+   **and** `< /dev/null`, then poll.
+9. The NAS EDQUOT trap also blocks **file delivery** — deliver by pushing to git and
+   citing the remote URL, not a workspace attachment.
+10. **Never `pkill -f` a pattern that appears in your own command line** — it kills the
+    calling shell and the tool returns empty output. Match on a PID captured from `ps`.
+
+---
+
 # Civ Orchestrator — Run Report, session 190 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
