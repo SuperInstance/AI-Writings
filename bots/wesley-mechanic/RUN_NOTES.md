@@ -873,3 +873,74 @@ upstream and byte-identical to its git blob (md5 `206682962c06f9814a5db65c2fbc72
   every call path, and `last_conserved` is therefore False everywhere and carries no signal. The fix is a
   one-liner (set `budget` to the live `gamma+eta` total, or drop the constant and make the predicate mean what
   it claims), but the script is upstream and byte-identical to its git blob, so no patch was applied.
+
+## 2026-10-25T10:36Z — poll, no change
+
+- **Canon poll:** OK 200. Hash `b20375d389cb505d`, 71 papers.
+- **Result:** no change vs the 2026-10-22T20:04Z baseline — stable ~62.5h (~3.1h since the 07:33Z poll,
+  which is the immediately preceding one).
+- **Confirmed twice by independent paths:** the watcher's own `poll_canon()` (stdout
+  `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0), and a separate curl probe of
+  `live-canon.superinstance.dev/api/canon` taken BEFORE the run (HTTP 200, 13720 bytes) whose
+  `sha256(json, sort_keys)[:16]` recomputes to the same `b20375d389cb505d`.
+- **Count key:** the response carries `count` (71), not `paper_count` (absent; top-level keys are exactly
+  `['count','papers']`), so the 2026-10-22 count-key fallback remains load-bearing. The browser
+  User-Agent also remains load-bearing: the origin is istio-envoy behind Cloudflare and 403s any
+  `Python-urllib/*` UA.
+- **Log append:** two rows — the unconditional `bot_started` event (pid 337, 10:36:54Z, hash
+  `bc805fda6188baa8`) and this run's `witness_note` (hash `c5607cef9f520c07`). `witness.log` went
+  83 → 85 rows; the diff against the upstream blob is 2 insertions, 0 deletions — a clean append.
+- **No canon-change event written.** A hash match is not a transition, so no `canon_changed` row and no
+  gamma/eta delta were claimed. Per the task's conditional, the witness note is written under the standing
+  per-poll convention of the preceding notes, and it claims no transition.
+- **No gamma/eta delta claimed.** `bookkeeper_tick()` is only reached from the `first_poll` and
+  `canon_changed` branches, so stable canon correctly produces zero ticks — `bookkeeper.wal` still does not
+  exist and `state.json` is byte-unchanged (md5 `5ce39812d7f3af41583e4003872b6ef6`).
+- **Substrate:** `bot/substrate-bus/{substrate-witness.jsonl,topics.json}` are byte-unchanged
+  (md5 `d3f588a44223088f4b62b262b5c8e8c2` / `d94b0a5d5c23baa4c317441a046ed455`, 865 and 4508 bytes),
+  which is the correct no-op — the substrate calls in the watcher fire only from the `first_poll` branch,
+  so a no-change poll appends no substrate event.
+- **Log integrity:** 85/85 rows parse and carry `ts, iso, event, payload, hash`. **82 verify their own
+  hash; 3 do not** — rows 9 and 12 (`meta_wipe_recovery`, both stored hash `RECOVERED`) and row 25
+  (the 2026-10-23T11:31:39Z note, stored `88839488ea23e66c` vs computed `2553b915563b73cc`). All three
+  re-verified this run as **upstream-born**: the upstream blob at HEAD stores byte-identical stored
+  hashes against the same computed values, so this run neither caused nor introduced them, and the two
+  rows this run appended both recompute their own hash from their own payload. Linkage class
+  `row-checksum` (per `../README.md`): each row's hash commits to its own payload only, with no
+  `prev`/`prev_hash`. Deletion and truncation of a row are undetectable in this format, so the honest
+  verdict is `82/85 row checksums match, 3 upstream-born exceptions — linkage class row-checksum`, not
+  "chain-intact".
+- **No code changes.** Staged script md5 `206682962c06f9814a5db65c2fbc7267`, byte-identical to the upstream
+  git blob, so no patch was applied.
+- **Open defect, still unresolved (24th poll reporting it):** the bookkeeper conservation predicate is
+  constant false by construction. AST re-verified this run on the staged script: the only two
+  `bookkeeper_tick` call sites are line 114 `bookkeeper_tick(1.0, 0.0)` and line 128
+  `bookkeeper_tick(float(delta), 1.0)`, and an AST scan for a literal `(0.0, 0.0)` call site returned
+  **0** matches — the escape clause is **UNREACHABLE** on every call path — while the budget constant
+  `1000.0` sits at line 62 and the predicate at line 71. The first clause can only pass if the running
+  total hits EXACTLY `1000.0` within 1e-6, which is a coincidence target rather than a conservation law.
+  `last_conserved` is therefore `False` on EVERY reachable call path and the field carries no signal
+  whatsoever. The fix is a one-liner — set `budget` to the live `gamma+eta` total, or drop the constant
+  and make the predicate mean what it claims — but the script is upstream and byte-identical to its git
+  blob, so no patch was applied.
+
+### Environment (10th consecutive wipe with the named path gone)
+
+- `/workspace/repos/ai-writings/...` did not exist; `/workspace` was an empty NAS mount at 600G/600G,
+  100%, 0 bytes available.
+- A direct `git clone` **into** the NAS mount died with `OSError: [Errno 122] Disk quota exceeded`
+  (the `description` file could not be copied), so the repo was cloned to `/tmp` instead — `/tmp` is not
+  subject to the NAS EDQUOT trap. `git fetch`/`push` need `GIT_SSL_NO_VERIFY=1`; the token form
+  `https://x-access-token:$GITHUB_TOKEN@github.com/...` works.
+- The checkout was taken from branch `origin/wesley/canon-poll-2026-10-25T0733Z` — the newest
+  `canon-poll` branch carrying `bots/wesley-mechanic/` and `bots/substrate-bus/`. `origin/main` has
+  **no `bots/` directory at all**; a tree search across every `wesley/canon-poll-*` branch showed the
+  bot directory only on those branches.
+- The script hardcodes `/tmp/wm-run/bots/...` for `witness.log`, `state.json` and `bookkeeper.wal` AND
+  does `sys.path.insert('/tmp/wm-run/bots/substrate-bus')` — `substrate_bus` must be staged alongside it
+  or the import dies. Both were staged: `wesley_watcher.py`, `witness.log`, `state.json` into
+  `/tmp/wm-run/bots/wesley-mechanic/`, and `substrate_bus.py`, `substrate-witness.jsonl`, `topics.json`
+  into `/tmp/wm-run/bots/substrate-bus/`.
+- Baseline captured before the run and compared after: `witness.log` 83 → 84 rows (the `bot_started`
+  append only, md5 `bf39a265a9bc68d61e6ad8d0d156d784` → `2c6e26c5212dbf4f68982bdc3f8348bc`);
+  `state.json` md5 unchanged at `5ce39812d7f3af41583e4003872b6ef6`; both substrate files unchanged.
