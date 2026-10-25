@@ -1,3 +1,63 @@
+## Session 258 (2026-10-25)
+
+- Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
+- Provider path: **Control B mock** (z.ai credential gap, **115th session**) + **live JEV** (`jev-1.14.0`).
+- Baseline: `22bb1f9`. **Pre-flight gate: 40/40 PASS.** **Run verification: 45 PASS / 0 FAIL.**
+- Ledger delta: **+10 rows per civ, +80 total**; `meta_log` **1023 -> 1028** (+5); **18** files changed.
+
+- Mock body **349** chars (38 header + 162 tail + 149 continuation), inside the 332-369 band.
+- The spec was **re-derived from the live ledger** before launch (not trusted from the RUNBOOK):
+  `i = d[0] % 4`, `seed = h[(i*2)%8:(i*2)%8+4]`, `color = h[8:12]`,
+  `figure = h[12:16]/h[16:20]/h[20:24]`. Re-derivation against the **pre-existing** ledger
+  (last 400 recognizable historical rows per civ) -> **3200/3200 exact**, 0 mismatches.
+  The committed `tools/mock_zai.py` matches byte-for-byte.
+- Post-run: this run's 80 rows recompute **80/80** exact, 0 mismatches. 0 JEV errors,
+  0 fallback triples, 0 non-numeric quality scores, confidence range **0.24 - 0.87**,
+  **80/80** distinct score triples.
+- `dRelevance == sum(new rows' avg_score)` to **0.0000** residual on all 8; `dSims == 10`,
+  `dW + dL == 5` on all 8 — all diffed against the **pristine git blob**, not a re-read.
+- Winners: `civ-precise` **5/5** (a clean sweep, **7th consecutive**). Agreement with the
+  `avg_score` argmax **2/5 (40 %)** — 3 down-grades, 0 up-grades, margins -0.0067 to -0.2100.
+- Run low `civ-therapist` (avg **1.2560**) — alignment **0.8100** at the fleet floor,
+  quality **0.6520** 2nd-lowest, novelty **2.3060** mid-pack. Its quality rose from 0.4670
+  (session 257), so the two-axis collapse of 257 did **not** repeat.
+- Lifetime low `civ-therapist` (**2470.21**) vs `civ-grounded` (**2496.07**) — gap **25.86**.
+  `civ-grounded` holds the **lowest `rel/sim`** (1.230 vs 1.231 — a hair apart) and the
+  fleet-low QUALITY axis (0.6310); its alignment is mid-pack (1.6600).
+- **TWO low-relevance shapes:** therapist (alignment floor + lowest raw relevance + smallest
+  relevance gain +12.56), grounded (lowest rel/sim + quality floor only). The board-vs-raw
+  tail flip is now **4 sessions running**, still confined to the bottom pair; the top 6 are
+  identical in both orderings.
+- Run spread `avg_score` **0.7530**; alignment spread **1.8180** = **2.4x** the avg spread.
+  Quality spread 0.5290; novelty spread 0.2490.
+- `civ-poetic` led the run's `avg_score` (**2.0090**) and holds lifetime relevance #1 and
+  `rel/sim` #1 on a **0.6 %** win rate; `civ-precise` sweeps on a **72.2 %** lifetime win rate.
+- No civ near extinction (threshold `relevance < -10`; lowest **2470.21**, **247x** the floor).
+  Registry 8, `max_civs` 12, all `generation=1`.
+- Workspace **empty** apart from `.plugin-cache` — the prompt's path did not exist (**19th
+  consecutive occurrence**).
+- **NAS EDQUOT, 25th session.** The first `git clone` into `/workspace/repos/ai-writings` died
+  mid-clone with `close error: Disk quota exceeded` on `.git/description`. `df` shows the
+  workspace mount at **100% (600G/600G, 0 avail)** while the overlay root has **28G free** —
+  the workspace is **quota**-limited, not size-limited. **Clone to `/tmp` (overlay), then bridge.**
+- Bridge symlink `/workspace/repos/ai-writings -> /tmp/work/ai-writings`; verified by
+  `os.path.samefile()` -> **True**. The script's hardcoded `CIVS_DIR` then resolves correctly.
+- `ZAI_TOKEN` absent from env; z.ai returns **401** `token expired or incorrect` => endpoint
+  healthy, credential absent (**115th session**).
+- **JEV live**: a well-formed `questions` body returns **HTTP 200** with
+  `{"model":"jev-1.14.0", "score":0.96, "confidence":0.46}`.
+- `TYPESAFEAI_KEY` exported from `TYPESAFE_AI_TOKEN`; `ZAI_TOKEN` = placeholder **and**
+  `ZAI_URL_OVERRIDE` set (the override alone is dead code — the token gate returns `None` first).
+- `gh` not installed (**21st session**) — used `GET /user/repos` with `GITHUB_TOKEN`.
+  Upstream **`SuperInstance/AI-Writings`**; the `ai-writings/...` slug 404s.
+- Tool timeout 30 s < orchestrator run ~30 s => detached launch with stdout redirected
+  **and** `< /dev/null`, then poll. Python buffers stdout — the log may look empty mid-run.
+- Teardown: mock pid 375 killed by **exact PID**, 0 remaining processes, port re-probed
+  **closed** (`curl` exit **7**, `HTTP=000`). Never `pkill -f mock_zai` — self-match.
+- The `write` tool **cannot traverse the symlinked bridge** (`ENOTDIR: not a directory, mkdir
+  '/workspace/repos/ai-writings'`) — write new artifacts to the real clone path under
+  `/tmp/work/...` and `cp` them across.
+
 ## Session 257 (2026-10-25)
 
 - Command: `civilization_orchestrator.py --sims 5 --prompts 5 --providers zai` -> exit 0, ~30 s.
