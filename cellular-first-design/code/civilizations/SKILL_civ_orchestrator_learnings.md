@@ -1368,3 +1368,47 @@ engineer −44.24) after a **+10 rows/civ** run. The mock log's **last 80** OK l
 the same seed multiset as the 80 new ledger rows (identity, not a count — the pre-flight
 had run once for 80 log lines and the run for another 80, total **160**). *This remains the
 cheapest end-to-end integrity check: the log and the ledger must be the same multiset.*
+
+## Session 226 additions (2026-10-25)
+
+### 1. THE `0/40` RECOMPUTE WAS A **GATE** GROUP-UNPACKING BUG — THE MOCK WAS PERFECT
+
+The mock-header regex yields **FIVE** groups `(seed, colour, fig1, fig2, fig3)`. The
+verifier unpacked **three** `(s, c, f)`, so `pr[2]` held only `c8a2` instead of the
+joined `c8a2/50a5/dcdd` and **every** row mismatched. A hand-dump of one real body
+confirmed seed `446f`, colour `d64d`, figure `c8a2/50a5/dcdd` matched the recompute
+**exactly**. *The figure must be reassembled as a slash-joined string before comparing.
+This is now the **fourth** occurrence of the "0/N recompute = parser diagnosis" rule
+(sessions 204, 213, 220, 226) — the `#`-prefix trap and the group-count trap are the
+same family: **compare the parsed value, not the parse fragment.***
+
+### 2. THE GATE AND THE VERIFIER EACH HAD A FIELD-NAME MISMATCH, AND BOTH SURFACED AS `KeyError`
+
+The baseline snapshot stores `relevance`; `culture.json` stores `relevance_score`. A blind
+search-and-replace across the verifier file fixed one occurrence and broke the other.
+*Name the two sides explicitly before editing. A `KeyError` mid-verification is a
+verifier bug, never a data defect — and a partially-patched verifier must be re-run from
+the top, not resumed.*
+
+### 3. A **100 %** AGREEMENT SESSION IS A 5-SAMPLE POINT AT 100 %, NOT A NEW REGIME
+
+Session 226: `civ-precise` swept **5/5** with **5/5 (100 %)** chooser/argmax agreement, the
+first perfect-agreement session since 216. The series (211-226) reads
+0 / 40 / 40 / 20 / 100 / 60 / 40 / 40 / 20 / 40 / 20 / 40 / 40 / 100 % and contains 0 % and
+20 % points. *The honest claim is "agreement can reach 5/5", not "agreement is 100 %". The
+up-grade count across the whole 16-session series is still **0**.*
+
+### 4. THIS RUN LOW WAS LOW ON **ALL THREE** AXES — A DIFFERENT SIGNATURE
+
+`civ-mythic` was the run low (avg **0.6120**) and the fleet-low on run quality (**0.0440**),
+run alignment (**0.0410**) **and** run novelty (**1.7510**) simultaneously — the first
+session where the run low is not the "high novelty, low alignment" shape. The run's
+alignment spread **2.3520** was **5.43x** the quality spread and **7.13x** the novelty
+spread, so the ranking is still produced by alignment. *The signature can change shape;
+the axis that drives the ranking did not.*
+
+### 5. THE MOCK BODY LANDED AT **349** CHARS ON THE FIRST BUILD — COMPUTE, DON'T ITERATE
+
+39-char fixed header + a **310**-char fixed, culture-free tail = **349**, inside the
+**332-369** band with zero iteration. *Compute the allowance from the fixed prefix; never
+iterate prose to fit a band.*
