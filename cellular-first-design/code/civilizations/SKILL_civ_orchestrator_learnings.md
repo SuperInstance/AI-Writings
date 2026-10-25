@@ -827,3 +827,76 @@ fleet-low, novelty **2.4860** fleet-high). But the **lifetime** alignment low is
 `civ-therapist` (spread **1.0570** over the full ledger) while `civ-grounded` is the
 lifetime low on `avg_score` and `quality`. The run table and the lifetime table are
 **two separate claims** — report both, and report the axis for each.
+
+## Session 214 additions (2026-10-25)
+
+### 1. A SWEEP AND A PERFECT CHOOSER-AGREEMENT RATE CAN COEXIST — AND NEITHER PREDICTS THE OTHER
+
+This session `civ-precise` won **5/5** competitions *and* the chooser agreed with the
+`avg_score` argmax on **5/5 (100 %)** — no down-grades, no up-grades. The three previous
+sessions were 0 % (211), 40 % (212), 40 % (213). Both measures were perfect at once.
+
+**Do not read a 100 % agreement as "the chooser is calibrated."** It is a **5-sample point
+at 100 %** sitting on a series whose last three points were 0 %, 40 %, 40 %. The honest
+claim is that this session's chooser and the argmax picked the same civ every time; the
+series-level calibration claim is unchanged.
+
+**Generalise the pairing rule:** the win count is *who won*; the agreement rate is *whether
+the chooser's reasoning matched the scores*. Sessions 211/212/213 all had a sweep
+coexisting with poor agreement; session 214 has both perfect. **Never infer either from
+the other, in either direction.**
+
+### 2. THE RUN LOW'S SIGNATURE IS LOW ALIGNMENT; THE FLEET GAP IS ALIGNMENT, NOT NOVELTY
+
+`civ-whimsical` was the run low (`avg_score` **1.2807**, quality **0.7180** fleet-low,
+alignment **0.6850** fleet-low) with novelty **2.4390** — mid-field. The run's alignment
+spread is **2.5690** against a novelty spread of **0.1250**: a factor of **20.6**. The
+ranking is produced by alignment and quality, not novelty.
+
+The bottom two were separated by **0.2243** on `avg_score` against a run spread of
+**1.1607** — a gap of **19 %** of the spread, so their *ordering* is weak but the
+*identity* of the bottom is not. **Print the gap next to the spread** (as in session 212)
+and report the axis, not the holder.
+
+### 3. THE COUNTER-GAP CHECK MUST BE TOLERANCED AT 1e-6 — A 1e-9 TOLERANCE IS A FALSE FAIL
+
+The per-civ counter gap (`culture.json` `relevance_score` − ledger Σ`avg_score`) is the
+cheapest integrity check in this project, and its documented stable values held **exactly**
+this session (grounded −84.35, whimsical −173.14, formal −85.53, poetic −96.80, precise
+−32.63, mythic −51.11, therapist −42.11, engineer −44.24) with per-civ gap deltas of
+**+0.0000000000 for all 8**.
+
+The first pass nevertheless reported `[FAIL] counter_gap_stable_8of8`. The cause was the
+**check**, not the run: it computed the current gap as
+`base_relevance + (csum - bsum) - bsum` and compared that to a *separately computed*
+baseline gap, so the two differed in the last float bits and the 1e-9 tolerance rejected
+them.
+
+**Compute both epochs the same way** — subtract the ledger sum from the `culture.json`
+blob on each side — and compare with **1e-6**. *A pre-flight FAIL on a component you have
+already independently verified is a CHECK bug until proven otherwise; re-derive the fact
+directly before touching the artifact.*
+
+### 4. THE MOCK BODY BAND CAN BE HIT WITHOUT BREAKING LEDGER RECONCILIATION
+
+The documented body band is **332–369** chars (a body longer than ~369 pushes the seed
+prefix out of the 200-char `content_preview` truncation and breaks the seed+colour+figure
+recompute). A body of **337** — a constant 38-char header plus a 299-char fixed,
+culture-free tail — lands in band on the first build.
+
+**The tail may be extended without breaking the existing ledger's reconciliation** as long
+as its first 162 characters match the recorded rows verbatim. The recorded preview is
+truncated at 200 chars, so the tail's visible prefix is what the historical rows pin
+down; everything after it is free. *When sizing the tail, preserve the recorded prefix
+exactly and only append.*
+
+### 5. THE BRIDGE TARGET AND THE CLONE LOCATION, RE-CONFIRMED
+
+`SuperInstance/AI-Writings` is a **user** account repo. `/workspace` is at 100 % NAS quota
+(600 G of 600 G) and `git clone` into it dies on `.git/description` with
+`Disk quota exceeded`; the **same clone into `/tmp` succeeds immediately**. The bridge is
+`ln -s /tmp/clone/ai-writings/cellular-first-design /workspace/repos/ai-writings/cellular-first-design`
+— it must point at the **inner** `cellular-first-design` directory, because the
+orchestrator's `CIVS_DIR` is hardcoded to the **inner** `code/civilizations` path. Verify
+with `stat -L -c '%d:%i'` → `129:12604` on both sides plus `os.path.samefile()` → `True`
+(`[ -ef ]` remains unusable in this sandbox).

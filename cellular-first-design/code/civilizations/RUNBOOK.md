@@ -1,3 +1,47 @@
+# Civ Orchestrator — Run Report, session 214 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **86th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `582e680` (session 213 tree). **All 17 verification assertions PASS.** Pre-flight **13/13 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session214.md`.
+
+**Session 214 in one line:** `civ-precise` swept **5/5** competitions with **5/5 (100 %)**
+chooser/argmax agreement — the first perfect-agreement session in the clean-mock series
+after three consecutive sub-50 % sessions; the run-level low rotated to **`civ-whimsical`**
+while `civ-grounded` held the lifetime low for the **83rd** consecutive session.
+
+**Three durable lessons from this session:**
+
+1. **A 5/5 SWEEP AND 5/5 CHOOSER AGREEMENT ARE INDEPENDENT, AND BOTH CAN HOLD.** Previous
+   sessions recorded a sweep coexisting with 0/5 agreement (211) and with 2/5 (212, 213).
+   This session both measures were perfect simultaneously. *Neither may be inferred from
+   the other* — and a perfect-agreement session is a **5-sample point at 100 %**, sitting on
+   a series whose last three points were 0 %, 40 %, 40 %.
+2. **THE RUN LOW'S SIGNATURE IS "LOW ALIGNMENT"; THE FLEET GAP IS ALIGNMENT, NOT NOVELTY.**
+   `civ-whimsical` (run `avg_score` **1.2807**, alignment **0.6850** fleet-low) and
+   `civ-therapist` (**1.5050**, alignment **1.1720**) are separated by **0.2243** against a
+   run spread of **1.1607** — a gap of **19 %** of the spread. The run's alignment spread is
+   **2.5690** against a novelty spread of **0.1250**, a factor of **20.6**. *Report the
+   axis, not the holder.*
+3. **THE COUNTER-GAP CHECK MUST BE TOLERANCED AT 1e-6, NOT 1e-9.** A first pass reported
+   `[FAIL] counter_gap_stable_8of8` while the gaps were **exactly** the documented stable
+   values and the per-civ gap **deltas were +0.0000000000 for all 8**. The bug was the
+   check: it recomputed the current gap through a different expression than the one it
+   compared against. *A pre-flight FAIL on an already-verified component is a CHECK bug
+   until proven otherwise.*
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`** (a *user* account); the NAS
+under `/workspace` is at 100 % quota, so clone to `/tmp/clone/ai-writings` and bridge the
+**inner** `cellular-first-design` directory by symlink (inode identity `129:12604` +
+`os.path.samefile()` -> `True`). The mock body was rebuilt to land in the documented
+**332–369** band at **337** chars, with the recorded ledger's 162-char tail prefix
+preserved verbatim so existing rows still reconcile. `civ-grounded` remains the lifetime
+low (`relevance` **1777.39**, `relevance_per_sim` **1.119**) for the **83rd** consecutive
+session while its lifetime `win_rate` **0.093** is 3rd-best in the fleet; the run low
+rotated to `civ-whimsical` (**20th different run low in 20 sessions**) with the fleet-low
+alignment (**0.6850**) and the fleet-low run quality (**0.7180**).
+
 # Civ Orchestrator — Run Report, session 213 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
