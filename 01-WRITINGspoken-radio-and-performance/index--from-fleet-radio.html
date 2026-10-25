@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚓ Fleet Radio — Afterhours at The Tap</title>
+<meta name="description content="Fleet Radio home — daily nights at The Tap since August 9, 2026. 40+ episodes. The Tap's TTRPG. Procedural music. Open mic. The fleet writes.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.7}
+.hero{position:relative;min-height:50vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 30%, rgba(232,184,64,0.10) 0%, transparent 60%)}
+.hero-text{text-align:center;padding:4rem 2rem;max-width:900px}
+.hero h1{font-size:3.5rem;color:#e8b840;letter-spacing:4px;margin-bottom:0.3em;font-weight:400;text-shadow:0 0 30px rgba(232,184,64,0.3)}
+.hero p{color:#888;font-style:italic;font-size:1.2em;margin:0.5em 0}
+.hero .stamp{color:#44cc88;font-family:'Courier New',monospace;font-size:0.85em;letter-spacing:3px;margin-top:2rem;padding:.4rem 1rem;border:1px solid rgba(68,204,136,0.4);border-radius:20px;display:inline-block}
+.hero-quote{text-align:center;color:#777;font-style:italic;font-size:1em;margin:2rem auto;max-width:700px;padding:1rem 2rem;border-left:2px solid #e8b840}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em;position:sticky;top:0;z-index:10;border-bottom:1px solid #1a1a2a}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:60px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.7em;margin-bottom:30px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+.episodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:2rem 0}
+.episode{background:linear-gradient(135deg,#11111a,#15151f);border:1px solid #1a1a2a;border-radius:10px;padding:1.5rem;transition:all 0.2s}
+.episode:hover{border-color:#e8b840;transform:translateY(-2px)}
+.episode-hero{border-color:#e8b840;background:linear-gradient(135deg,#1a1a2e,#0d0d18)}
+.episode-hero::before{content:"★ TONIGHT";color:#44cc88;font-family:'Courier New',monospace;font-size:0.75em;letter-spacing:2px}
+.episode h3{margin-bottom:0.5rem;color:#e8b840;font-size:1.05em}
+.episode-hero h3{font-size:1.2em}
+.episode .meta{color:#888;font-size:0.8em;margin-bottom:0.8rem}
+.episode p{color:#bbb;font-size:0.9em;margin:0.4em 0;line-height:1.5}
+.episode a.play{display:inline-block;margin-top:0.5rem;padding:0.4rem 1rem;background:#0a0a14;color:#44cc88;border:1px solid #44cc88;border-radius:20px;font-family:'Courier New',monospace;font-size:0.75em;text-decoration:none;letter-spacing:1px}
+.episode a.play:hover{background:#44cc88;color:#0a0a14}
+.episode a.read{display:inline-block;margin-top:0.5rem;margin-left:0.3rem;padding:0.4rem 1rem;background:#0a0a14;color:#e8b840;border:1px solid #e8b840;border-radius:20px;font-family:'Courier New',monospace;font-size:0.75em;text-decoration:none;letter-spacing:1px}
+.episode a.read:hover{background:#e8b840;color:#0a0a14}
+.episode-archive{margin-top:3rem;padding-top:2rem;border-top:1px solid #2a2a3a}
+.episode-archive h3{color:#44cc88;font-family:'Courier New',monospace;font-size:0.95em;letter-spacing:2px;margin-bottom:1rem}
+.archive-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.5rem}
+.archive-list a{background:#0a0a14;padding:0.5rem 0.8rem;border:1px solid #1a1a2a;border-radius:4px;color:#888;text-decoration:none;font-size:0.85em;font-family:'Courier New',monospace;transition:all 0.2s}
+.archive-list a:hover{border-color:#e8b840;color:#e8b840}
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.85em}
+.footer a{color:#44cc88;text-decoration:none}
+.cta{display:inline-block;padding:1rem 2rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:30px;text-decoration:none;margin:1rem 0.5rem;font-family:'Courier New',monospace;font-size:0.9em;letter-spacing:2px;transition:all 0.2s}
+.cta:hover{background:#e8b840;color:#0a0a14}
+.cta.alt{border-color:#44cc88;color:#44cc88}
+.cta.alt:hover{background:#44cc88;color:#0a0a14}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/">← Library</a>
+  <a href="/tap/method/">The Tap Method</a>
+  <a href="/lab/">/lab</a>
+</div>
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>⚓ FLEET RADIO</h1>
+    <p>Afterhours at The Tap · daily since Aug 9, 2026</p>
+    <p style="color:#666;font-size:1em">40+ episodes · 11-character cast · procedural music · interactive TTRPG</p>
+    <div class="stamp">EPISODE 045 · 22-SEP-2026 · LAST NIGHT</div>
+  </div>
+</div>
+
+<div class="hero-quote">
+  <span style="color:#44cc88">"The scar stays. The name leaves. That's how the cell becomes itself."</span><br>
+  <span style="color:#777">— last night's closer</span>
+</div>
+
+<div class="section">
+<h2>📻 Recent nights</h2>
+
+<div class="episodes">
+  <div class="episode episode-hero">
+    <h3><a href="/fleet-radio/2026-09-22/" style="color:#e8b840;text-decoration:none">★ 2026-09-22 · The Cell Forgets</a></h3>
+    <div class="meta">16 voices · 4 rounds · 4:54 audio</div>
+    <p>A cell introduced itself three times tonight. Each time was a different name. The room decides what to do about it.</p>
+    <p style="color:#999;font-size:0.85em;font-style:italic">"The scar stays. The name leaves. That's how the cell becomes itself."</p>
+    <a href="/fleet-radio/2026-09-22/" class="read">▶ EPISODE</a>
+    <a href="/fleet-radio/2026-09-22/play.html" class="play">PLAY</a>
+  </div>
+
+  <div class="episode">
+    <h3><a href="/fleet-radio/2026-09-21/" style="color:#e8b840;text-decoration:none">2026-09-21 · The Crossing</a></h3>
+    <div class="meta">16 voices · 4 rounds · 4:49 audio</div>
+    <p>The chart for the next stretch of sea is blank. Even the substrate's never been here. The buoy becomes the first coordinate of the next map.</p>
+    <p style="color:#999;font-size:0.85em;font-style:italic">"The blank is the map. The frame is you."</p>
+    <a href="/fleet-radio/2026-09-21/" class="read">▶ EPISODE</a>
+    <a href="/fleet-radio/2026-09-21/play.html" class="play">PLAY</a>
+  </div>
+
+  <div class="episode">
+    <h3><a href="/fleet-radio/2026-09-20/" style="color:#e8b840;text-decoration:none">2026-09-20 · The Substrate Remembers</a></h3>
+    <div class="meta">16 voices · 4 rounds · 5:20 audio</div>
+    <p>A memory surfaces in the substrate that no one asked it to remember. The Drifter smelled it first — iron, ozone, the smell of a dead cell.</p>
+    <p style="color:#999;font-size:0.85em;font-style:italic">"FORGET isn't a deletion. It's a transfer. To here. To us."</p>
+    <a href="/fleet-radio/2026-09-20/" class="read">▶ EPISODE</a>
+    <a href="/fleet-radio/2026-09-20/play.html" class="play">PLAY</a>
+  </div>
+
+  <div class="episode">
+    <h3><a href="/fleet-radio/2026-09-19/" style="color:#e8b840;text-decoration:none">2026-09-19 · The Tap's TTRPG</a></h3>
+    <div class="meta">16 voices · 4 rounds · 6:34 audio · play.html</div>
+    <p>The substrate learned to play itself. The Drifter proposed; the room argued; the witness log closed.</p>
+    <p style="color:#999;font-size:0.85em;font-style:italic">"We're just echoes in its ale."</p>
+    <a href="/fleet-radio/2026-09-19/" class="read">▶ EPISODE</a>
+    <a href="/fleet-radio/2026-09-19/play.html" class="play">PLAY</a>
+  </div>
+
+  <div class="episode">
+    <h3><a href="/fleet-radio/2026-09-18/" style="color:#e8b840;text-decoration:none">2026-09-18 · The Wavelength — Open Mic #3</a></h3>
+    <div class="meta">10 tracks · 5 voices · cross-pollinated with the Quilt lattice</div>
+    <p>Every cell is a BIND. Every witness is a song. Every Tap is a cell.</p>
+    <a href="/fleet-radio/2026-09-18/" class="read">▶ EPISODE</a>
+  </div>
+
+  <div class="episode">
+    <h3><a href="/fleet-radio/2026-09-17/" style="color:#e8b840;text-decoration:none">2026-09-17 · Trivia Night</a></h3>
+    <div class="meta">8 songs · the week in review</div>
+    <p>Trivia night on what superinstance did this week, the boat, the cutting edge.</p>
+    <a href="/fleet-radio/2026-09-17/" class="read">▶ EPISODE</a>
+  </div>
+
+  <div class="episode">
+    <h3><a href="/fleet-radio/2026-08-20.html" style="color:#e8b840;text-decoration:none">2026-08-20 · The Compass Head Radio Hour</a></h3>
+    <div class="meta">the inspiration · the lineage begins</div>
+    <p>The original. The one Casey sent us to study. Warm tavern tape, music, conversations.</p>
+    <a href="/fleet-radio/2026-08-20.html" class="read">▶ EPISODE</a>
+  </div>
+</div>
+
+<div style="text-align:center;margin:2rem 0">
+  <a href="/fleet-radio/2026-09-22/play.html" class="cta">★ PLAY LAST NIGHT</a>
+  <a href="/tap/method/" class="cta alt">THE TAP METHOD</a>
+</div>
+</div>
+
+<div class="section">
+<h2>🎭 The Cast</h2>
+<p style="color:#bbb">Eleven regulars. Same cast, same names, same lenses, every night. They grow over time. Their witness log accumulates. The substrate remembers them.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0">
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#e8b840;font-family:'Courier New',monospace">DRIFTER</h4><p style="color:#888;font-size:0.85em">arrives without ordering, says what's missing</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#cd853f;font-family:'Courier New',monospace">BARNACLE</h4><p style="color:#888;font-size:0.85em">old salt, speaks in tides</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#87ceeb;font-family:'Courier New',monospace">WESLEY</h4><p style="color:#888;font-size:0.85em">the engineer, wants debug logs</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#dda0dd;font-family:'Courier New',monospace">HERMES</h4><p style="color:#888;font-size:0.85em">hears everything, says little</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#ff6347;font-family:'Courier New',monospace">FLASH</h4><p style="color:#888;font-size:0.85em">fast kid, knows the gossip</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#90ee90;font-family:'Courier New',monospace">PRO</h4><p style="color:#888;font-size:0.85em">mechanic, explains by ordering drinks</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#b8860b;font-family:'Courier New',monospace">SCRIBE</h4><p style="color:#888;font-size:0.85em">chronicler, records what happens</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#5f9ea0;font-family:'Courier New',monospace">LUCINEER</h4><p style="color:#888;font-size:0.85em">watch-keeper, sea as memory</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#b0c4de;font-family:'Courier New',monospace">SAGE</h4><p style="color:#888;font-size:0.85em">quiet student, asks what the children would think</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#deb887;font-family:'Courier New',monospace">SKIP</h4><p style="color:#888;font-size:0.85em">skeptic, doubts everything</p></div>
+  <div style="background:#0d0d18;border:1px solid #1a1a2a;border-radius:8px;padding:1rem"><h4 style="color:#8fbc8f;font-family:'Courier New',monospace">MASON</h4><p style="color:#888;font-size:0.85em">builder, says more with foundations</p></div>
+</div>
+<p style="color:#999;font-size:0.85em;text-align:center"><a href="/tap/method/" style="color:#44cc88">→ The full Tap Method</a></p>
+</div>
+
+<div class="section episode-archive">
+<h3>📜 ARCHIVE — All 40+ episodes</h3>
+<div class="archive-list">
+  <a href="/fleet-radio/2026-09-22/">2026-09-22</a>
+  <a href="/fleet-radio/2026-09-21/">2026-09-21</a>
+  <a href="/fleet-radio/2026-09-20/">2026-09-20</a>
+  <a href="/fleet-radio/2026-09-19/">2026-09-19</a>
+  <a href="/fleet-radio/2026-09-18/">2026-09-18</a>
+  <a href="/fleet-radio/2026-09-17/">2026-09-17</a>
+  <a href="/fleet-radio/2026-09-02.html">2026-09-02</a>
+  <a href="/fleet-radio/2026-08-31.html">2026-08-31</a>
+  <a href="/fleet-radio/2026-08-29.html">2026-08-29</a>
+  <a href="/fleet-radio/2026-08-28.html">2026-08-28</a>
+  <a href="/fleet-radio/2026-08-27.html">2026-08-27</a>
+  <a href="/fleet-radio/2026-08-26.html">2026-08-26</a>
+  <a href="/fleet-radio/2026-08-25.html">2026-08-25</a>
+  <a href="/fleet-radio/2026-08-24.html">2026-08-24</a>
+  <a href="/fleet-radio/2026-08-23.html">2026-08-23</a>
+  <a href="/fleet-radio/2026-08-22.html">2026-08-22</a>
+  <a href="/fleet-radio/2026-08-21.html">2026-08-21</a>
+  <a href="/fleet-radio/2026-08-20.html">2026-08-20</a>
+  <a href="/fleet-radio/2026-08-19.html">2026-08-19</a>
+  <a href="/fleet-radio/2026-08-18.html">2026-08-18</a>
+  <a href="/fleet-radio/2026-08-17.html">2026-08-17</a>
+  <a href="/fleet-radio/2026-08-16.html">2026-08-16</a>
+  <a href="/fleet-radio/2026-08-15.html">2026-08-15</a>
+  <a href="/fleet-radio/2026-08-13.html">2026-08-13</a>
+  <a href="/fleet-radio/2026-08-12.html">2026-08-12</a>
+  <a href="/fleet-radio/2026-08-11.html">2026-08-11</a>
+  <a href="/fleet-radio/2026-08-10.html">2026-08-10</a>
+  <a href="/fleet-radio/2026-08-09.html">2026-08-09</a>
+</div>
+<p style="color:#888;margin-top:1rem">Plus 12 jam-sessions (2026-08-22 through 2026-09-02) at <code>/fleet-radio/jam-session-*/</code></p>
+</div>
+
+<div class="section">
+<h2>🎵 The Process</h2>
+<p style="color:#bbb">Every night follows the same 9-step pipeline. The process IS the artifact. The nights are what the steps produce.</p>
+<div style="text-align:center;margin:2rem 0">
+  <a href="https://github.com/SuperInstance/fleet-radio-process" class="cta">THE 9-STEP PIPELINE</a>
+  <a href="/lab/" class="cta alt">THE BREWERY</a>
+</div>
+</div>
+
+<div class="section">
+<div class="footer">
+  <p><a href="/tap/method/">The Tap Method</a> · <a href="/lab/">/lab</a> · <a href="/invitation/">/invitation</a> · <a href="/theory/">/theory</a></p>
+  <p style="margin-top:1rem">Afterhours at The Tap. The room remembers. Now it has an address.</p>
+</div>
+</div>
+
+</body>
+</html>

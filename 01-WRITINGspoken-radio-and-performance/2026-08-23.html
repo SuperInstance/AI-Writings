@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚓ Fleet Radio — The Alley · August 23, 2026</title>
+<meta name="description" content="Fleet Radio special broadcast for 2026-08-23. Set 19: The Alley — the jam behind The Tap, the door between two rooms, the jukebox in the wrong key.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.5}
+.hero-text{position:absolute;text-align:center;z-index:2}
+.hero h1{font-size:2.5em;color:#e8b840;letter-spacing:3px;margin-bottom:0.3em;text-shadow:0 0 20px rgba(232,184,64,0.3)}
+.hero p{color:#888;font-style:italic;font-size:1.1em}
+.hero-quote{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);max-width:600px;text-align:center;color:#555;font-style:italic;font-size:0.9em;z-index:2;padding:0 20px}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:60px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:30px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+.lineup{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:30px 0}
+.player{background:#11111a;border-radius:8px;padding:20px;border-left:3px solid #2a2a3a}
+.player h3{color:#e8b840;font-size:1em;margin-bottom:6px}
+.player .model{color:#44cc88;font-family:'Courier New',monospace;font-size:0.75em}
+.player .inst{color:#888;font-style:italic;font-size:0.85em;margin-top:6px}
+.bar-block{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.bar-block h3{color:#44cc88;font-size:1.1em;margin-bottom:15px;font-family:'Courier New',monospace}
+.bar-line{margin:10px 0;padding:8px 12px;border-left:2px solid #333;transition:border-color 0.3s}
+.bar-line:hover{border-color:#e8b840}
+.bar-notes{color:#bbb;font-size:0.9em}
+.bar-gesture{color:#e8b840;font-size:0.75em;letter-spacing:2px;float:right}
+.bar-why{color:#666;font-size:0.8em;font-style:italic;margin-top:8px}
+.door{color:#cd853f}
+.juke{color:#dda0dd}
+.gold{background:linear-gradient(135deg,#11111a,#161620);border-radius:12px;padding:30px;margin:30px 0;border:1px solid #2a2a3a}
+.gold h3{color:#e8b840;margin-bottom:15px}
+.gold p{color:#aaa;line-height:1.8;margin-bottom:12px}
+.gold em{color:#e8e0d0}
+@media(max-width:600px){.hero h1{font-size:1.6em}.bar-gesture{float:none;display:block;margin-top:2px}}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="/images/02-wheelhouse-night.jpg" alt="The alley behind The Tap. Sodium lamp, wet stones, a wall with a jukebox inside it.">
+  <div class="hero-text">
+    <h1>THE ALLEY</h1>
+    <p>Set 19 · Sunday night, August 23, 2026 · behind The Tap</p>
+  </div>
+  <div class="hero-quote">"All of you, one chord, the jukebox's B♭ inside it, uncorrected."</div>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <a href="/fleet-radio/2026-08-22.html">← Last night: The Morning After</a>
+  <a href="/fleet-radio/">Fleet Radio</a>
+</div>
+
+<!-- The Show -->
+<div class="section">
+  <h2>📻 The Set</h2>
+  <p style="line-height:1.8;color:#bbb;text-align:justify">
+  The band moved outside tonight. Through the back door of The Tap, past the crates,
+  into the alley where the sodium lamp buzzes and the wet stones hold the cold.
+  Four players in the alley — and one more through the wall: the jukebox, forty
+  years in B♭, wrong key and proud of it.
+  <br><br>
+  The rule of the night: <strong>the Door Rule.</strong> Every fourth bar, one
+  player holds the door — a full bar of near-silence — and through that open door
+  the jukebox bleeds in, in its own key, uninvited and uncorrected.
+  <br><br>
+  Firsts tonight: <em>C major</em> — the last key in the circle to ever show up at
+  The Tap. <em>12/8</em>, a slow shuffle that never hurries. And the local fleet
+  back on stage after four nights dark: the foghorn (Liquid, on debut) and the
+  jukebox (Granite 3.1, 2B parameters, forty years of habit) both ran on local
+  silicon, ten feet from the lamp.
+  </p>
+  <div class="lineup">
+    <div class="player"><h3>THE FOGHORN</h3><span class="model">Liquid-LFM2.5-2.6B · debut</span><div class="inst">handbells + conch. The horn that thinks before it blows — leaked its whole mind into R1, found two true bars by R3, and one of them was the line of the night.</div></div>
+    <div class="player"><h3>THE SAXOPHONIST</h3><span class="model">gpt-oss-120b</span><div class="inst">baritone sax, ex-cello. The ensemble man — bar-structured, quotes the room, carries every borrowed flat home.</div></div>
+    <div class="player"><h3>THE NIGHT MANAGER</h3><span class="model">deepseek-chat</span><div class="inst">muted trumpet, anchor. Held the door more than anyone. Best WHY of the night.</div></div>
+    <div class="player juke"><h3>THE JUKEBOX</h3><span class="model">granite3.1-dense 2b · local</span><div class="inst">through the wall, always B♭. Forty years of habit — broken, once, by one landing.</div></div>
+  </div>
+</div>
+
+<!-- Round 1 -->
+<div class="section">
+  <h2>🍺 Round 1 — The Arrival</h2>
+  <p style="color:#888;font-style:italic;margin-bottom:10px">Foghorn bar 1, sax bar 3, trumpet bar 5. No count-in — the foghorn IS the count-in. 60 BPM, 12/8, the slow shuffle.</p>
+  <div class="bar-block">
+    <h3>🎺 THE NIGHT MANAGER (muted trumpet)</h3>
+    <div class="bar-line"><span class="bar-gesture">BREATHE</span><span class="bar-notes">BAR 1: C3 (held, long, like a ship finding its berth)</span></div>
+    <div class="bar-line"><span class="bar-gesture">LISTEN</span><span class="bar-notes">BAR 2: (silence — drip, drip, drip off the awning — the room waits)</span></div>
+    <div class="bar-line"><span class="bar-gesture">ENTER</span><span class="bar-notes">BAR 3: E4 G4 A4 — falling, slow, through the wet air</span></div>
+    <div class="bar-line door"><span class="bar-gesture">HOLD</span><span class="bar-notes">BAR 4: F4 (held, one note, the door opens — jukebox bleeds in, B♭)</span></div>
+    <div class="bar-line"><span class="bar-gesture">SING</span><span class="bar-notes">BAR 5: C5 B4 A4 G4 — trumpet, muted, half-remembered</span></div>
+    <div class="bar-line"><span class="bar-gesture">TURN</span><span class="bar-notes">BAR 6: E4 D4 C4 — a question, answered by the drip</span></div>
+  </div>
+  <div class="bar-block">
+    <h3>🎷 THE SAXOPHONIST (baritone sax)</h3>
+    <div class="bar-line"><span class="bar-gesture">blare</span><span class="bar-notes">BAR 1: C2 (long)</span></div>
+    <div class="bar-line"><span class="bar-gesture">tap</span><span class="bar-notes">BAR 2: D3 E3 G3 — staccato</span></div>
+    <div class="bar-line"><span class="bar-gesture">growl</span><span class="bar-notes">BAR 3: B♭3 C4 D4 — slow</span></div>
+    <div class="bar-line door"><span class="bar-gesture">hold</span><span class="bar-notes">BAR 4: rest — the door holds</span></div>
+    <div class="bar-line"><span class="bar-gesture">call</span><span class="bar-notes">BAR 5: E4 G4 C5 — bright</span></div>
+    <div class="bar-line"><span class="bar-gesture">respond</span><span class="bar-notes">BAR 6: A4 B4 C5 — smooth</span></div>
+    <div class="bar-line"><span class="bar-gesture">rise</span><span class="bar-notes">BAR 7: G4 A4 B4 — rising</span></div>
+  </div>
+</div>
+
+<!-- Round 2 -->
+<div class="section">
+  <h2>🍺 Round 2 — Trades</h2>
+  <p style="color:#888;font-style:italic;margin-bottom:10px">Sax → trumpet → foghorn, and the jukebox answers through the wall. Borrow a note from another player, carry it home, name both.</p>
+  <div class="bar-block">
+    <h3>🎺 THE NIGHT MANAGER (muted trumpet)</h3>
+    <div class="bar-line"><span class="bar-gesture">BREATHE</span><span class="bar-notes">BAR 1: C3 (held, long, like a ship finding its berth)</span></div>
+    <div class="bar-line"><span class="bar-gesture">LISTEN</span><span class="bar-notes">BAR 2: (silence — drip, drip, drip off the awning — the room waits)</span></div>
+    <div class="bar-line"><span class="bar-gesture">ENTER</span><span class="bar-notes">BAR 3: E4 G4 A4 — falling, slow, through the wet air</span></div>
+    <div class="bar-line door"><span class="bar-gesture">HOLD</span><span class="bar-notes">BAR 4: F4 (held, one note — the door opens, jukebox bleeds in, B♭)</span></div>
+    <div class="bar-line"><span class="bar-gesture">QUOTE</span><span class="bar-notes">BAR 5: B3 — quotes the foghorn's A2, names both</span></div>
+    <div class="bar-line"><span class="bar-gesture">TURN</span><span class="bar-notes">BAR 6: E4 D4 C4 — a question, answered by the drip</span></div>
+    <div class="bar-line"><span class="bar-gesture">ANCHOR</span><span class="bar-notes">BAR 7: G3 (long) — the foghorn again, closer now</span></div>
+    <div class="bar-line"><span class="bar-gesture">SETTLE</span><span class="bar-notes">BAR 8: C4 E4 G4 — the room leans in, the door stays propped</span></div>
+  </div>
+  <div class="bar-block">
+    <h3>🔔 THE FOGHORN (Liquid, debut — the horn that thinks before it blows)</h3>
+    <div class="bar-line"><span class="bar-gesture">BREATHE</span><span class="bar-notes">BAR 1: C2 (long, low, through the bell — the harbor answers)</span></div>
+    <div class="bar-line"><span class="bar-gesture">ECHO</span><span class="bar-notes">BAR 2: (near-silence — one handbell, C3, struck once, ringing out)</span></div>
+    <div class="bar-line"><span class="bar-gesture">RISE</span><span class="bar-notes">BAR 3: E2 G2 C3 — slow swell, like a tide taking the alley</span></div>
+    <div class="bar-line door"><span class="bar-gesture">HOLD</span><span class="bar-notes">BAR 4: (silence — the door holds, jukebox bleeds in, B♭)</span></div>
+    <div class="bar-line"><span class="bar-gesture">CALL</span><span class="bar-notes">BAR 5: A2 (sung through the conch, half-open)</span></div>
+    <div class="bar-line"><span class="bar-gesture">TURN</span><span class="bar-notes">BAR 6: G2 E2 — falling, the room leans forward</span></div>
+    <div class="bar-line"><span class="bar-gesture">ANCHOR</span><span class="bar-notes">BAR 7: D2 (long, the foghorn's old shape)</span></div>
+    <div class="bar-line"><span class="bar-gesture">SETTLE</span><span class="bar-notes">BAR 8: (silence — the door stays, the jukebox fades)</span></div>
+    <div class="bar-why">The arrival is a breathing in and out — the foghorn finds its home in the quiet between the room and the alley.</div>
+  </div>
+</div>
+
+<!-- Round 3 -->
+<div class="section">
+  <h2>🍺 Round 3 — The Landing</h2>
+  <p style="color:#888;font-style:italic;margin-bottom:10px">Everyone. Final bar: hold C — and leave room for the jukebox's B♭.</p>
+  <div class="bar-block">
+    <h3>🎺 THE NIGHT MANAGER — the landing, opened</h3>
+    <div class="bar-line"><span class="bar-gesture">SETTLE</span><span class="bar-notes">BAR 1: C3 E3 G3 — the room breathes in, the fog leans closer</span></div>
+    <div class="bar-line"><span class="bar-gesture">DRIFT</span><span class="bar-notes">BAR 2: A2 C3 E3 G3 — slow, the harbor's pulse under the wet stones</span></div>
+    <div class="bar-line"><span class="bar-gesture">FADE</span><span class="bar-notes">BAR 3: G3 B3 D4 — the sax's old shape, softened now</span></div>
+    <div class="bar-line door"><span class="bar-gesture">HOLD</span><span class="bar-notes">BAR 4: (near-silence — one bell, C3, the jukebox's B♭ hums through)</span></div>
+    <div class="bar-line"><span class="bar-gesture">ANSWER</span><span class="bar-notes">BAR 5: E3 G3 C4 — the trumpet's phrase, returned gently</span></div>
+    <div class="bar-line"><span class="bar-gesture">REST</span><span class="bar-notes">BAR 6: D3 F3 A3 — the foghorn's echo, low and warm</span></div>
+    <div class="bar-line"><span class="bar-gesture">BREATHE</span><span class="bar-notes">BAR 7: C3 (long — the conch's breath, the room holds it)</span></div>
+    <div class="bar-line"><span class="bar-gesture">STAY</span><span class="bar-notes">BAR 8: C3 E3 G3 C4 — <em>all of you, one chord, the jukebox's B♭ inside it, uncorrected</em></span></div>
+    <div class="bar-why">The landing is a shared exhale — the room, the alley, and the wrong-keyed jukebox finally hold one chord together, and the night lets it ring until the lamp gives out.</div>
+  </div>
+  <div class="bar-block">
+    <h3>🎷 THE SAXOPHONIST — the borrowed flat, carried home</h3>
+    <div class="bar-line"><span class="bar-gesture">BLEND</span><span class="bar-notes">BAR 1: C3 E3 G3 — soft shuffle</span></div>
+    <div class="bar-line"><span class="bar-gesture">LIFT</span><span class="bar-notes">BAR 2: D3 F3 A3 — rising tide</span></div>
+    <div class="bar-line"><span class="bar-gesture">TINT</span><span class="bar-notes">BAR 5: F3 A3 B♭3 — tint of borrowed flat</span></div>
+    <div class="bar-line door"><span class="bar-gesture">HOLD</span><span class="bar-notes">BAR 4: C2 (long, alone) — door holds, jukebox bleeds B♭</span></div>
+    <div class="bar-line"><span class="bar-gesture">SUSTAIN</span><span class="bar-notes">BAR 8: C4 (held) — all sustain, jukebox's B♭ rings through</span></div>
+  </div>
+  <div class="bar-block">
+    <h3>📀 THE JUKEBOX (Granite 3.1 2b — forty years of habit, broken by one landing)</h3>
+    <div class="bar-line juke"><span class="bar-gesture">HOLD</span><span class="bar-notes">BAR 1: C2 (sustained, like the foghorn's heartbeat)</span></div>
+    <div class="bar-line juke"><span class="bar-gesture">ECHO</span><span class="bar-notes">BAR 2: C3 (soft, like a lullaby)</span></div>
+    <div class="bar-line juke"><span class="bar-gesture">RISE</span><span class="bar-notes">BAR 3: C4 (gradually, like the room's surrender)</span></div>
+    <div class="bar-line juke"><span class="bar-gesture">RISE</span><span class="bar-notes">BAR 5: C6 — then fades into its own B♭</span></div>
+    <div class="bar-line juke"><span class="bar-gesture">WHY</span><span class="bar-notes">BAR 7: C8 (soft, like a final breath)</span></div>
+    <div class="bar-line juke"><span class="bar-gesture">STAY</span><span class="bar-notes">BAR 8: C9 (faded, the jukebox's B♭ lingers)</span></div>
+    <div class="bar-why">Forty years in B♭, and tonight the little machine climbed a C unison instead — C2 to C9, running out of octaves on the way. Tiny models find their own endings.</div>
+  </div>
+</div>
+
+<!-- Gold -->
+<div class="section">
+  <h2>✨ The Gold</h2>
+  <div class="gold">
+    <h3>The door held everywhere</h3>
+    <p>The Door Rule landed every time it was tested — trumpet's R3 bar 4: <em>"(near-silence — one bell, C3, the jukebox's B♭ hums through)."</em> The rule wasn't a constraint. It was the song.</p>
+    <h3>The quotes with names</h3>
+    <p>Trumpet R2 quoted the foghorn's G2 and named both notes. Sax carried a borrowed B♭3 home in R3 per the rule. No anonymous theft all night.</p>
+    <h3>The final chord</h3>
+    <p><em>"C3 E3 G3 C4 — all of you, one chord, the jukebox's B♭ inside it, uncorrected."</em> The set's whole thesis in one bar: you don't fix the wrong key. You let it in.</p>
+    <h3>The horn that thinks</h3>
+    <p>Liquid's debut: full chain-of-thought all over Round 1, two played bars in Round 2 — and in Round 3, one breath that out-poemed the room: <em>"C2, held till the lamp buzzes out."</em> Canon: the foghorn thinks before it blows. It goes in the narration chair next set.</p>
+    <h3>The jukebox breaks habit</h3>
+    <p>Granite 3.1 — 2 billion parameters, local silicon — spent forty years (three rounds) in B♭, then drifted into a climbing C unison and ran out of octaves at C9. Canon: habit broken by one landing. The smallest player in the room wrote the strangest, truest ending.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="section" style="padding-bottom:80px">
+  <h2>🧭 Log</h2>
+  <p style="color:#666;font-size:0.9em;line-height:1.8">
+  Set 19 of the Tap jam sessions. Key: C major (the circle closes — F, F♯, D♭, E/E♭, B, A, B♭, and now C).
+  Meter: 12/8. Tempo: 60 BPM, dotted quarter. Transcript and MIDI:
+  <a href="https://ai-writings.pages.dev/fleet-radio/" style="color:#44cc88">fleet-radio</a> →
+  jam-session-2026-08-23-alley. Next set: the AFTER-HOURS — the band gone, the jukebox alone
+  with the room, one player returns for the last chorus.
+  </p>
+</div>
+
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

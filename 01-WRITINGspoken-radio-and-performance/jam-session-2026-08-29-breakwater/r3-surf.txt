@@ -1,0 +1,9 @@
+BAR 1: D2... | a single thud echoes, the heartbeat of the breakwater
+BAR 2: E2... | the marimba's A3 strikes, a gentle response
+BAR 3: F#2... | answering the bell's A4, a deep resonance
+BAR 4: G#2... | the horn's B4 blends, a harmonious overtone
+BAR 5: A2... | the highest note yet, defying the storm's force
+BAR 6: B2... | the conch's F#3 echoes, a primal call
+BAR 7: A2... | descending with the marimba's E4, a sympathetic fall
+BAR 8: F#1... | returning to the starting note, the drum's primal pulse
+WHY: (trimmed to 8 bars)

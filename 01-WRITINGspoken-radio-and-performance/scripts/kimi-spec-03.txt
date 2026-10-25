@@ -1,0 +1,13 @@
+You are an arranger composing an INSTRUMENTAL lead sheet for MIDI rendering (piano trio). Output STRICT JSON only — no markdown fences, no commentary.
+
+SONG: "ASCII Canonical" (Fleet Radio / The Tap).
+MOOD: A plea for simplicity that is also a love song. Just characters that anyone can type. Bright, plain, honest, direct — seven bits of honesty. Straight-eighths pop-folk-jazz, sunny. Clean electric piano lead, no excess notes.
+TEMPO: 110 BPM. METER: 4/4. TARGET LENGTH: exactly 24 bars (about 52 seconds).
+STRUCTURE (fixed, do not change bar counts): INTRO 2 bars, VERSE 4 bars, CHORUS 4 bars, VERSE2 4 bars, BRIDGE 4 bars, FINAL_CHORUS 4 bars, TAG 2 bars.
+
+CONTRAST (required): keep VERSE sections plain and stepwise (like typing), CHORUS brighter and wider intervals, BRIDGE strips down (long tones, two chords per bar max, spacious), FINAL_CHORUS = CHORUS melody but tag ends on the simplest possible tonic triad, sustained — plain text wins.
+
+JSON schema:
+{"tempo":110,"key":"<pick, major>","lead_instrument":"Electric Piano","sections":[{"name":"INTRO","bars":2,"chords":["..."],"melody":[[0,"E4",1],...]}, ...]}
+Chord symbol examples: "Cmaj7", "F6", "G7", "Am7", "Dm7", "BbMaj7".
+Melody events: [beat, note, dur], beat = quarter offset from section start, note like "F#4", dur in quarters. Range C4-G5.

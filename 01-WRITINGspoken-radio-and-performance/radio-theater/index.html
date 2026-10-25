@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📻 Radio Theater: The Trades at The Tap</title>
+<meta name="description" content="Radio Theater — The Trades at The Tap. The fleet's own multi-voice broadcasts of the Tap nights. Narrated by Lucineer, with Wesley as the room.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:60vh;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.45}
+.hero-text{position:absolute;text-align:center;z-index:2;padding:0 20px}
+.hero h1{font-size:2.8em;color:#e8b840;letter-spacing:4px;margin-bottom:0.2em;text-shadow:0 0 26px rgba(232,184,64,0.35)}
+.hero p{color:#9a9a9a;font-style:italic;font-size:1.2em;max-width:600px;line-height:1.6}
+.hero .badge{display:inline-block;margin-top:20px;padding:6px 16px;border:1px solid #44cc88;color:#44cc88;font-family:'Courier New',monospace;font-size:0.78em;letter-spacing:2px;border-radius:2px}
+.section{padding:55px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:26px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+.episodes{display:grid;grid-template-columns:1fr;gap:16px}
+.ep-card{background:#11111a;border-radius:10px;padding:22px;display:flex;gap:20px;align-items:center;text-decoration:none;color:inherit;border:1px solid #1a1a2a;transition:background 0.3s,border-color 0.3s}
+.ep-card:hover{background:#161620;border-color:#e8b840}
+.ep-card img{width:130px;height:130px;object-fit:cover;border-radius:6px;flex-shrink:0}
+.ep-num{font-family:'Courier New',monospace;color:#e8b840;font-size:0.85em;letter-spacing:2px}
+.ep-title{color:#e8e0d0;font-size:1.35em;margin:6px 0}
+.ep-desc{color:#888;font-size:0.9em;line-height:1.6}
+.ep-meta{color:#555;font-size:0.75em;font-style:italic;margin-top:8px;font-family:'Courier New',monospace}
+.cast-strip{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.cast-chip{font-family:'Courier New',monospace;font-size:0.72em;padding:4px 10px;border-radius:12px;background:#0d0d18;border:1px solid #2a2a3a}
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
+.footer a{color:#44cc88;text-decoration:none}
+.footer .sig{margin-top:14px;color:#222;font-style:italic}
+@media(max-width:768px){
+  .hero h1{font-size:1.9em}
+  .ep-card{flex-direction:column;align-items:flex-start}
+  .ep-card img{width:100%;height:180px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="episode-1/images/the-room.png" alt="The room, after closing.">
+  <div class="hero-text">
+    <h1>📻 RADIO THEATER</h1>
+    <p>The Trades at The Tap — the fleet's own broadcast of the Tap nights. Every trade a different voice. Every night a broadcast.</p>
+    <span class="badge">OUR OWN STYLE · MULTI-VOICE TTS · FLUX PAGES</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📻 The Broadcasts</h2>
+  <div class="episodes">
+
+    <a class="ep-card" href="episode-1.html">
+      <img src="episode-1/images/the-bar.png" alt="The Tap at night">
+      <div>
+        <div class="ep-num">EPISODE 1 · THE FIRST NIGHT</div>
+        <div class="ep-title">The First Night</div>
+        <div class="ep-desc">The trades file in from their sheds, and Lucineer sets down the first round. Five short versions of five long trades, and one good argument — let the shape out, or build it. Seven voices, fifteen scenes.</div>
+        <div class="cast-strip">
+          <span class="cast-chip" style="color:#e8b840">LUCINEER</span>
+          <span class="cast-chip" style="color:#ff9d5c">WELDER</span>
+          <span class="cast-chip" style="color:#c98a4b">CARPENTER</span>
+          <span class="cast-chip" style="color:#d9a066">SHIPWRIGHT</span>
+          <span class="cast-chip" style="color:#8fbc8f">MASON</span>
+          <span class="cast-chip" style="color:#8fd8c0">COMPOSITE</span>
+          <span class="cast-chip" style="color:#87ceeb">WESLEY</span>
+        </div>
+        <div class="ep-meta">aired 2026-08-16 · 14 rendered lines · 4 images</div>
+      </div>
+    </a>
+
+    <a class="ep-card" href="episode-2.html">
+      <img src="episode-2/images/questions-on-the-bar.png" alt="Five questions on the bar">
+      <div>
+        <div class="ep-num">EPISODE 2 · OPEN QUESTION NIGHT</div>
+        <div class="ep-title">Open Question Night</div>
+        <div class="ep-desc">Five questions on the bar, five answers from the other sheds. The mason asks about the crack that still needs the wait; the welder asks about the break that never writes anything down. Nobody defends their own.</div>
+        <div class="cast-strip">
+          <span class="cast-chip" style="color:#e8b840">LUCINEER</span>
+          <span class="cast-chip" style="color:#ff9d5c">WELDER</span>
+          <span class="cast-chip" style="color:#c98a4b">CARPENTER</span>
+          <span class="cast-chip" style="color:#d9a066">SHIPWRIGHT</span>
+          <span class="cast-chip" style="color:#8fbc8f">MASON</span>
+          <span class="cast-chip" style="color:#8fd8c0">COMPOSITE</span>
+          <span class="cast-chip" style="color:#87ceeb">WESLEY</span>
+        </div>
+        <div class="ep-meta">aired 2026-08-16 · 15 rendered lines · 4 images</div>
+      </div>
+    </a>
+
+    <a class="ep-card" href="episode-3.html">
+      <img src="episode-3/images/the-scarph.png" alt="The scarph joint">
+      <div>
+        <div class="ep-num">EPISODE 3 · ADAPTATION NIGHT</div>
+        <div class="ep-title">Adaptation Night</div>
+        <div class="ep-desc">Each trade adapts another's material — same soul, different body. The welder's bead becomes a scarph, the mason's patience becomes a preheat. One soul, five bodies.</div>
+        <div class="cast-strip">
+          <span class="cast-chip" style="color:#e8b840">LUCINEER</span>
+          <span class="cast-chip" style="color:#ff9d5c">WELDER</span>
+          <span class="cast-chip" style="color:#c98a4b">CARPENTER</span>
+          <span class="cast-chip" style="color:#d9a066">SHIPWRIGHT</span>
+          <span class="cast-chip" style="color:#8fbc8f">MASON</span>
+          <span class="cast-chip" style="color:#8fd8c0">COMPOSITE</span>
+          <span class="cast-chip" style="color:#87ceeb">WESLEY</span>
+        </div>
+        <div class="ep-meta">aired 2026-08-16 · 15 rendered lines · 4 images</div>
+      </div>
+    </a>
+
+    <a class="ep-card" href="episode-4.html">
+      <img src="episode-4/images/the-lens.png" alt="A lens on the bar">
+      <div>
+        <div class="ep-num">EPISODE 4 · THE NIGHT OF LENSES</div>
+        <div class="ep-title">The Night of Lenses</div>
+        <div class="ep-desc">Five men look at another's trade through their own — and come back changed. The composite man looks down to the seafloor and hears his own work answer for the first time in thirty years.</div>
+        <div class="cast-strip">
+          <span class="cast-chip" style="color:#e8b840">LUCINEER</span>
+          <span class="cast-chip" style="color:#ff9d5c">WELDER</span>
+          <span class="cast-chip" style="color:#c98a4b">CARPENTER</span>
+          <span class="cast-chip" style="color:#d9a066">SHIPWRIGHT</span>
+          <span class="cast-chip" style="color:#8fbc8f">MASON</span>
+          <span class="cast-chip" style="color:#8fd8c0">COMPOSITE</span>
+          <span class="cast-chip" style="color:#87ceeb">WESLEY</span>
+        </div>
+        <div class="ep-meta">aired 2026-08-16 · 15 rendered lines · 4 images</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>📻 Radio Theater: The Trades at The Tap · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <p style="margin-top:8px">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a> ·
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a> ·
+    <a href="https://github.com/SuperInstance">GitHub</a> ·
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+  </p>
+  <p class="sig">"The workers tell each other the short versions, and they go home and write sequels."</p>
+</div>
+
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+BAR 1: <D3 F#3 A3 D4> | holding
+BAR 2: <G1 B1 D2 G2> | dripping
+BAR 3: <A2 D3 F#3 A3> | cooling
+BAR 4: <E3 G3 B3 E4> | clatter
+BAR 5: <C4 E4 G4 C5> | echoing
+BAR 6: <F#3 A3 C4 F#4> | lingering
+BAR 7: <D4 F#4 A4 D5> | wailing
+BAR 8: <B2 D3 G3 B3> | waiting
+
+BAR 1: <C3 E3 G3 B3> | breath
+BAR 2: <A2 C3 F3 A3> | striking
+BAR 3: <D3 F#3 A3 D4> | searching
+BAR 4: <G3 B3 D4 G4> | falling
+BAR 5: <E4 G4 C5 E5> | distant
+BAR 6: <F#3 A3 C4 F#4> | fading
+BAR 7: <C4 E4 G4 C5> | longing
+BAR 8: <G2 B2 D3 G3> | holding
+
+BAR 1: <A2 D3 F#3 A3> | hissing
+BAR 2: <G1 B1 D2 G2> | rising
+BAR 3: <E3 G3 B3 E4> | sputtered
+BAR 4: <B3 D4 G4 B4> | crashing
+BAR 5: <C5 E5 G5 C6> | humming
+BAR 6: <F#3 A3 C4 F#4> | drifting
+BAR 7: <D4 F#4 A4 D5> | steaming
+BAR 8: <G2 B2 D3 G3> | silent
+
+BAR 1: <D3 F#3 A3 D4> | trembling
+BAR 2: <B1 D2 G2 B2> | clunk
+BAR 3: <A2 D3 F#3 A3> | broken
+BAR 4: <G3 B3 D4 G4> | tumbling
+BAR 5: <E4 G4 C5 E5> | distant
+BAR 6: <F#3 A3 C4 F#4> | pooling
+BAR 7: <D4 F#4 A4 D5> | warped
+BAR 8: <G2 B2 A2 G2> | waiting
+
+WHY: The night settles in layers, each sound a ghost of what came before.

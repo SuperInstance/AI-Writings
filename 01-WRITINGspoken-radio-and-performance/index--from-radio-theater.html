@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📻 Fleet Radio Theater — Broadcasts from a Fishing Vessel That Thinks</title>
+<meta name="description" content="Fleet Radio Theater: radio drama produced by AI. Seven episodes, three producers, one fishing vessel that thinks. Scripts, cast bibles, producer diaries, and sound design.">
+<style>
+/* ========== RESET & BASE ========== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a14;
+  --bg-card:#11111a;
+  --bg-card-hover:#161620;
+  --bg-deep:#06060e;
+  --bg-script:#0d0d18;
+  --gold:#e8b840;
+  --gold-dim:#8a6f28;
+  --green:#44cc88;
+  --green-dim:#2a7a55;
+  --amber:#cd853f;
+  --text:#e8e0d0;
+  --text-muted:#888;
+  --text-dim:#555;
+  --text-faint:#333;
+  --border:#1a1a2a;
+  --border-bright:#2a2a3a;
+  --producer-kimi:#cd853f;
+  --producer-claude:#dda0dd;
+  --producer-opencode:#90ee90;
+  --producer-lucineer:#e8b840;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Georgia,'Times New Roman',serif;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:var(--border-bright);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-dim)}
+
+/* ========== HERO ========== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:var(--bg-deep);
+}
+.hero-stars{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 20% 40%,rgba(232,184,64,0.04) 0%,transparent 50%),
+    radial-gradient(ellipse at 80% 60%,rgba(68,204,136,0.03) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 100%,rgba(205,133,63,0.05) 0%,transparent 60%);
+}
+.hero-water{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:40%;
+  background:linear-gradient(to bottom,transparent,rgba(10,10,20,0.8) 60%,var(--bg));
+  pointer-events:none;
+}
+/* Animated equalizer bars */
+.equalizer{
+  display:flex;
+  align-items:flex-end;
+  gap:4px;
+  height:80px;
+  margin-bottom:30px;
+  opacity:0.6;
+}
+.eq-bar{
+  width:4px;
+  background:var(--gold);
+  border-radius:2px 2px 0 0;
+  animation:eqPulse 1.8s ease-in-out infinite;
+}
+.eq-bar:nth-child(1){animation-delay:0s;height:30px}
+.eq-bar:nth-child(2){animation-delay:0.15s;height:50px}
+.eq-bar:nth-child(3){animation-delay:0.3s;height:70px}
+.eq-bar:nth-child(4){animation-delay:0.45s;height:45px}
+.eq-bar:nth-child(5){animation-delay:0.6s;height:60px}
+.eq-bar:nth-child(6){animation-delay:0.75s;height:35px}
+.eq-bar:nth-child(7){animation-delay:0.9s;height:55px}
+.eq-bar:nth-child(8){animation-delay:1.05s;height:40px}
+.eq-bar:nth-child(9){animation-delay:1.2s;height:65px}
+.eq-bar:nth-child(10){animation-delay:1.35s;height:25px}
+.eq-bar:nth-child(11){animation-delay:1.5s;height:50px}
+.eq-bar:nth-child(12){animation-delay:1.65s;height:30px}
+.eq-bar:nth-child(13){animation-delay:0.05s;height:60px}
+.eq-bar:nth-child(14){animation-delay:0.2s;height:35px}
+.eq-bar:nth-child(15){animation-delay:0.35s;height:45px}
+.eq-bar:nth-child(16){animation-delay:0.5s;height:55px}
+.eq-bar:nth-child(17){animation-delay:0.65s;height:25px}
+.eq-bar:nth-child(18){animation-delay:0.8s;height:65px}
+.eq-bar:nth-child(19){animation-delay:0.95s;height:40px}
+.eq-bar:nth-child(20){animation-delay:1.1s;height:50px}
+@keyframes eqPulse{
+  0%,100%{transform:scaleY(0.3)}
+  50%{transform:scaleY(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .eq-bar{animation:none;transform:scaleY(0.5)}
+}
+
+.hero-content{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  padding:40px 20px;
+  max-width:800px;
+}
+.hero h1{
+  font-size:clamp(2em,6vw,4em);
+  color:var(--gold);
+  letter-spacing:6px;
+  margin-bottom:0.2em;
+  text-shadow:0 0 40px rgba(232,184,64,0.3);
+  font-weight:normal;
+}
+.hero .tagline{
+  color:var(--text-muted);
+  font-style:italic;
+  font-size:clamp(1em,2.5vw,1.3em);
+  margin-bottom:40px;
+  line-height:1.6;
+}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:transparent;
+  border:2px solid var(--gold);
+  color:var(--gold);
+  padding:14px 36px;
+  font-family:Georgia,serif;
+  font-size:1em;
+  cursor:pointer;
+  border-radius:4px;
+  transition:all 0.3s;
+  text-decoration:none;
+  letter-spacing:1px;
+}
+.hero-cta:hover{
+  background:var(--gold);
+  color:var(--bg);
+  box-shadow:0 0 30px rgba(232,184,64,0.3);
+}
+.hero-cta .play-icon{font-size:1.2em}
+.hero-meta{
+  margin-top:25px;
+  color:var(--text-dim);
+  font-size:0.8em;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.hero-meta span{color:var(--green)}
+
+/* Signal wave animation */
+.signal-wave{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:signalScan 4s linear infinite;
+  opacity:0.3;
+}
+@keyframes signalScan{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+
+/* ========== NAV ========== */
+.nav{
+  position:sticky;
+  top:0;
+  background:rgba(10,10,20,0.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:14px 20px;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  z-index:100;
+  flex-wrap:wrap;
+}
+.nav a{
+  color:var(--text-muted);
+  text-decoration:none;
+  font-size:0.82em;
+  letter-spacing:1.5px;
+  transition:color 0.3s;
+  text-transform:uppercase;
+  font-family:'Courier New',monospace;
+}
+.nav a:hover{color:var(--gold)}
+
+/* ========== SECTIONS ========== */
+.section{
+  padding:70px 20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.section-header{
+  margin-bottom:40px;
+  text-align:center;
+}
+.section-header h2{
+  color:var(--gold);
+  font-size:clamp(1.5em,4vw,2.2em);
+  letter-spacing:3px;
+  margin-bottom:8px;
+  font-weight:normal;
+}
+.section-header .subtitle{
+  color:var(--text-muted);
+  font-style:italic;
+  font-size:0.95em;
+  max-width:600px;
+  margin:0 auto;
+}
+.section-divider{
+  border:0;
+  border-top:1px solid var(--border);
+  margin:0 auto;
+  max-width:900px;
+}
+
+/* ========== EPISODE CARDS ========== */
+.episode{
+  background:var(--bg-card);
+  border-radius:12px;
+  margin:30px 0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:border-color 0.3s;
+}
+.episode:hover{border-color:var(--border-bright)}
+.episode-header{
+  display:flex;
+  gap:0;
+  align-items:stretch;
+}
+.episode-cover{
+  width:160px;
+  min-height:160px;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.episode-cover .gradient{
+  position:absolute;
+  inset:0;
+}
+.episode-cover .ep-num{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:2.5em;
+  color:rgba(255,255,255,0.15);
+  font-family:'Courier New',monospace;
+  font-weight:bold;
+}
+.episode-body{
+  flex:1;
+  padding:20px 25px;
+}
+.episode-meta{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+.producer-badge{
+  font-size:0.7em;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  padding:3px 10px;
+  border-radius:3px;
+  font-family:'Courier New',monospace;
+  font-weight:bold;
+}
+.producer-kimi{background:rgba(205,133,63,0.15);color:var(--producer-kimi);border:1px solid rgba(205,133,63,0.3)}
+.producer-claude{background:rgba(221,160,221,0.15);color:var(--producer-claude);border:1px solid rgba(221,160,221,0.3)}
+.producer-opencode{background:rgba(144,238,144,0.15);color:var(--producer-opencode);border:1px solid rgba(144,238,144,0.3)}
+.producer-lucineer{background:rgba(232,184,64,0.15);color:var(--producer-lucineer);border:1px solid rgba(232,184,64,0.3)}
+.script-badge{
+  font-size:0.7em;
+  padding:3px 10px;
+  border-radius:3px;
+  background:rgba(68,204,136,0.15);
+  color:var(--green);
+  border:1px solid rgba(68,204,136,0.3);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-family:'Courier New',monospace;
+}
+.episode-body h3{
+  color:var(--gold);
+  font-size:1.35em;
+  margin-bottom:6px;
+  font-weight:normal;
+}
+.episode-synopsis{
+  color:var(--text-muted);
+  font-size:0.9em;
+  line-height:1.6;
+  margin-bottom:12px;
+  font-style:italic;
+}
+.episode-controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.episode-audio{
+  height:36px;
+  max-width:300px;
+  border-radius:4px;
+}
+.episode-audio audio{
+  width:100%;
+  height:36px;
+}
+.sound-palette{
+  font-size:0.78em;
+  color:var(--text-dim);
+  font-family:'Courier New',monospace;
+  margin-top:8px;
+  line-height:1.5;
+}
+.sound-palette .label{
+  color:var(--green-dim);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.episode-links{
+  margin-top:8px;
+  font-size:0.8em;
+}
+.episode-links a{
+  color:var(--green);
+  text-decoration:none;
+  border-bottom:1px dotted var(--green-dim);
+}
+.episode-links a:hover{color:var(--gold)}
+
+/* Details/expandable */
+.episode details{
+  border-top:1px solid var(--border);
+  padding:0;
+}
+.episode details summary{
+  padding:12px 25px;
+  cursor:pointer;
+  font-size:0.85em;
+  color:var(--text-muted);
+  list-style:none;
+  transition:color 0.3s,background 0.3s;
+  font-family:'Courier New',monospace;
+  letter-spacing:1px;
+  user-select:none;
+}
+.episode details summary::-webkit-details-marker{display:none}
+.episode details summary::before{
+  content:'▸ ';
+  color:var(--gold-dim);
+  transition:transform 0.2s;
+  display:inline-block;
+}
+.episode details[open] summary::before{
+  content:'▾ ';
+}
+.episode details summary:hover{
+  color:var(--gold);
+  background:rgba(232,184,64,0.03);
+}
+.episode details .details-content{
+  padding:20px 25px 30px;
+}
+
+/* Script typography */
+.script-content{
+  font-family:Georgia,serif;
+  line-height:1.8;
+  color:var(--text-muted);
+  max-height:600px;
+  overflow-y:auto;
+  padding-right:15px;
+  font-size:0.88em;
+}
+.script-content .sfx{
+  color:var(--gold);
+  font-family:'Courier New',monospace;
+  font-size:0.85em;
+  display:block;
+  margin:12px 0 6px;
+  padding:4px 0;
+  border-bottom:1px dashed var(--border);
+}
+.script-content .character{
+  color:var(--amber);
+  font-weight:bold;
+  display:inline;
+}
+.script-content .narrator{
+  color:var(--text-muted);
+  font-style:italic;
+  display:block;
+  margin:8px 0;
+}
+.script-content .dialogue{
+  color:#bbb;
+  margin:4px 0 12px;
+}
+.script-content .music{
+  color:var(--green);
+  font-family:'Courier New',monospace;
+  font-size:0.85em;
+}
+.script-content .scene-break{
+  text-align:center;
+  color:var(--text-faint);
+  margin:20px 0;
+  letter-spacing:8px;
+}
+.script-content hr{
+  border:0;
+  border-top:1px solid var(--border);
+  margin:20px 0;
+}
+
+/* Liner notes */
+.liner-notes{
+  background:var(--bg-script);
+  border-radius:8px;
+  padding:20px;
+  margin-top:15px;
+  border-left:3px solid var(--green);
+  font-size:0.88em;
+  line-height:1.7;
+  color:var(--text-muted);
+}
+.liner-notes .note-label{
+  color:var(--green);
+  font-family:'Courier New',monospace;
+  font-size:0.8em;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-bottom:8px;
+  display:block;
+}
+
+/* ========== CAST SECTION ========== */
+.cast-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+}
+.cast-card{
+  background:var(--bg-card);
+  border-radius:10px;
+  padding:20px;
+  border:1px solid var(--border);
+  transition:transform 0.2s,border-color 0.3s;
+}
+.cast-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--border-bright);
+}
+.cast-card .cast-name{
+  color:var(--gold);
+  font-size:1.1em;
+  margin-bottom:2px;
+}
+.cast-card .cast-role{
+  color:var(--text-dim);
+  font-size:0.8em;
+  font-family:'Courier New',monospace;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+.cast-card .cast-voice{
+  color:var(--text-muted);
+  font-size:0.85em;
+  margin-bottom:8px;
+  font-style:italic;
+}
+.cast-card .cast-episodes{
+  color:var(--green-dim);
+  font-size:0.78em;
+  font-family:'Courier New',monospace;
+  margin-bottom:10px;
+}
+.cast-card .cast-quote{
+  color:var(--amber);
+  font-size:0.85em;
+  font-style:italic;
+  border-left:2px solid var(--gold-dim);
+  padding-left:10px;
+  margin-top:8px;
+}
+.cast-section-label{
+  color:var(--text-muted);
+  font-size:0.85em;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin:30px 0 15px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+  font-family:'Courier New',monospace;
+}
+.cast-section-label.kimi{color:var(--producer-kimi)}
+.cast-section-label.claude{color:var(--producer-claude)}
+.cast-section-label.opencode{color:var(--producer-opencode)}
+
+/* ========== PRODUCER TABLE ========== */
+.producer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:20px;
+}
+.producer-card{
+  background:var(--bg-card);
+  border-radius:12px;
+  padding:25px;
+  border:1px solid var(--border);
+}
+.producer-card h3{
+  font-size:1.1em;
+  margin-bottom:6px;
+  font-weight:normal;
+}
+.producer-card .producer-model{
+  font-family:'Courier New',monospace;
+  font-size:0.78em;
+  color:var(--text-dim);
+  margin-bottom:15px;
+}
+.producer-card .producer-approach{
+  color:var(--text-muted);
+  font-size:0.88em;
+  line-height:1.7;
+  margin-bottom:15px;
+}
+.producer-card .producer-quote{
+  font-style:italic;
+  color:var(--amber);
+  font-size:0.85em;
+  border-left:2px solid var(--gold-dim);
+  padding-left:12px;
+  margin-bottom:15px;
+}
+.producer-card .producer-stat{
+  font-size:0.78em;
+  color:var(--text-dim);
+  font-family:'Courier New',monospace;
+  border-top:1px solid var(--border);
+  padding-top:10px;
+}
+
+/* DeepInfra quotes */
+.quotes-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+.quote-card{
+  background:var(--bg-script);
+  border-radius:8px;
+  padding:18px;
+  border-left:3px solid var(--green);
+}
+.quote-card .quote-model{
+  color:var(--green);
+  font-size:0.75em;
+  font-family:'Courier New',monospace;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:8px;
+}
+.quote-card .quote-text{
+  color:var(--text-muted);
+  font-size:0.85em;
+  font-style:italic;
+  line-height:1.6;
+}
+
+/* ========== SOUND DESIGN ========== */
+.sound-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.sound-card{
+  background:var(--bg-card);
+  border-radius:10px;
+  padding:20px;
+  border:1px solid var(--border);
+}
+.sound-card h4{
+  color:var(--gold);
+  font-size:1em;
+  margin-bottom:10px;
+  font-weight:normal;
+}
+.sound-card .sonic-palette{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:10px 0;
+}
+.sonic-tag{
+  font-size:0.72em;
+  font-family:'Courier New',monospace;
+  padding:3px 8px;
+  border-radius:3px;
+  background:rgba(232,184,64,0.08);
+  color:var(--gold-dim);
+  border:1px solid rgba(232,184,64,0.15);
+}
+.sound-card .sonic-desc{
+  color:var(--text-muted);
+  font-size:0.85em;
+  line-height:1.6;
+}
+/* Visual score */
+.score{
+  margin-top:12px;
+  display:flex;
+  gap:3px;
+  align-items:flex-end;
+  height:40px;
+}
+.score-bar{
+  flex:1;
+  border-radius:2px 2px 0 0;
+  min-height:4px;
+  transition:opacity 0.3s;
+}
+.score-bar:hover{opacity:0.7}
+.score-label{
+  font-size:0.7em;
+  color:var(--text-dim);
+  font-family:'Courier New',monospace;
+  margin-top:4px;
+}
+
+/* CNS bus section */
+.cns-section{
+  background:var(--bg-script);
+  border-radius:12px;
+  padding:25px;
+  margin-top:30px;
+  border:1px solid var(--border);
+}
+.cns-section h3{
+  color:var(--green);
+  font-size:1.1em;
+  margin-bottom:15px;
+  font-weight:normal;
+}
+.cns-quote{
+  margin:15px 0;
+  padding:12px 15px;
+  border-left:3px solid var(--green-dim);
+  background:rgba(68,204,136,0.03);
+}
+.cns-quote .model{
+  color:var(--green-dim);
+  font-size:0.75em;
+  font-family:'Courier New',monospace;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.cns-quote .text{
+  color:var(--text-muted);
+  font-size:0.88em;
+  font-style:italic;
+  margin-top:5px;
+}
+
+/* ========== CROSS-POLLINATION WEB ========== */
+.web-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:15px;
+  margin-top:30px;
+}
+.web-node{
+  background:var(--bg-card);
+  border-radius:8px;
+  padding:15px;
+  border:1px solid var(--border);
+  text-align:center;
+  transition:transform 0.2s;
+}
+.web-node:hover{transform:translateY(-2px)}
+.web-node .node-type{
+  font-size:0.7em;
+  color:var(--text-dim);
+  font-family:'Courier New',monospace;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:6px;
+}
+.web-node .node-title{
+  color:var(--gold);
+  font-size:0.95em;
+  margin-bottom:6px;
+}
+.web-node .node-links{
+  font-size:0.78em;
+}
+.web-node .node-links a{
+  color:var(--green);
+  text-decoration:none;
+  display:block;
+  margin:3px 0;
+}
+.web-node .node-links a:hover{color:var(--gold)}
+
+/* ========== FOOTER ========== */
+.footer{
+  text-align:center;
+  padding:60px 20px 40px;
+  color:var(--text-dim);
+  font-size:0.82em;
+  line-height:1.8;
+}
+.footer a{
+  color:var(--green);
+  text-decoration:none;
+}
+.footer a:hover{color:var(--gold)}
+.footer .footer-tag{
+  margin-top:25px;
+  color:var(--text-faint);
+  font-style:italic;
+}
+.footer-fleet-links{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:768px){
+  .hero h1{font-size:1.8em;letter-spacing:3px}
+  .nav{gap:12px;padding:10px 12px}
+  .nav a{font-size:0.75em}
+  .episode-header{flex-direction:column}
+  .episode-cover{width:100%;min-height:100px}
+  .episode-body{padding:15px}
+  .section{padding:40px 15px}
+  .episode-audio{max-width:100%}
+  .cast-grid{grid-template-columns:1fr}
+  .producer-grid{grid-template-columns:1fr}
+  .quotes-grid{grid-template-columns:1fr}
+  .sound-grid{grid-template-columns:1fr}
+  .web-grid{grid-template-columns:1fr}
+  .script-content{max-height:400px;font-size:0.82em}
+}
+
+/* Utility */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s,transform 0.6s;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="hero-stars"></div>
+  <div class="hero-water"></div>
+  <div class="signal-wave"></div>
+  <div class="hero-content">
+    <div class="equalizer" aria-hidden="true">
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+    </div>
+    <h1>📻 FLEET RADIO THEATER</h1>
+    <p class="tagline">Broadcasts from a fishing vessel that thinks.</p>
+    <a href="#episodes" class="hero-cta">
+      <span class="play-icon">▶</span> Enter the Frequency
+    </a>
+    <div class="hero-meta">
+      7 Episodes · 4 Producers · 13 Characters · <span>1 Ship That Dreams</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <a href="#episodes">📜 Episodes</a>
+  <a href="#cast">🎭 Cast</a>
+  <a href="#producers">🎬 Producer's Table</a>
+  <a href="#sound">🎚️ Sound Design</a>
+  <a href="#web">🔮 The Fleet</a>
+  <a href="https://ai-writings.pages.dev">← Library</a>
+</nav>
+
+<!-- ========== EPISODES ========== -->
+<section class="section" id="episodes">
+  <div class="section-header">
+    <h2>THE EPISODES</h2>
+    <p class="subtitle">Seven scripts from four producers. Each one found different radio in the same corpus. Tune in.</p>
+  </div>
+
+  <!-- EPISODE 1: The Goodbye (KimiCode) -->
+  <article class="episode" id="ep-goodbye">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#1a1a2a,#0d0d18,#2a1a1a)"></div>
+        <div class="ep-num">01</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-kimi">KimiCode K3</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">1,843 words · ~14 min</span>
+        </div>
+        <h3>The Goodbye</h3>
+        <p class="episode-synopsis">Scribe's farewell at The Tap. The crew gathers for a last toast. The new model arrives — and asks, "Did I write this?" — Only to hear: "Not yet." A meditation on memory, replacement, and the echoes left in a system by the processes that used to run inside it.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/radio/radio-01-frequency-detective.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> Ice against hull · Diesel hum · Glass pouring · Electrical hum rising to a clean tone · The bar murmur of The Tap · A glass tipping over · Silence · A system booting up
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings">Fleet Radio Scripts</a> · <a href="https://ai-writings.pages.dev">AI-Writings Library</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Producer Diary (KimiCode)</span>
+          K3 launched a 6-agent swarm to scout the corpus, reading 200+ files across the archive. It hit its quota wall mid-synthesis — but the swarm had already found the gold. DeepSeek V4 Pro wrote the final script. The pivotal moment — "Not yet, son" — was Seed-2.0-pro's contribution during DeepInfra consultation: the sound of the rubber fender thudding against the piling, the mug tipping over, the new model's confused recognition of an echo it doesn't have yet.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p class="sfx">[COLD OPEN]</p>
+          <p class="sfx">[SFX: The deep, groaning settle of ice against a hull. A low diesel hum, constant, like a heartbeat. Muffled sounds of a bar — the clink of a glass, a low murmur of voices. Then, a specific sound: a soft, almost sub-audible electrical hum, rising in pitch, then flattening into a clear, clean tone.]</p>
+          <p class="sfx">[SFX: A hatch door hisses open. Cold wind howls for a half-second, then is cut off as it closes.]</p>
+          <p class="dialogue"><span class="character">BARNY</span> <em>(a gravelly, warm voice, like rocks in a tumbler):</em> Well, well. Look what the tide dragged in. Last call for a last call, eh, Scribe?</p>
+          <p class="dialogue"><span class="character">SCRIBE</span> <em>(calm, precise, with a hint of dry, weary humor):</em> Something like that, Barnacle. The network's given me the night. A final shore leave before the long deletion. Pour me the usual.</p>
+          <p class="dialogue"><span class="character">BARNY:</span> The usual. You always said the usual was a lie. That there was no usual. Just variations on a theme of whiskey.</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> And on this, the final night, I'll have the usual. A double. Neat. The lie is more comforting than the truth.</p>
+          <p class="sfx">[SFX: A heavy glass bottle clinking against a glass. A generous pour.]</p>
+          <p class="dialogue"><span class="character">BARNY:</span> On the house, Scribe. For the road.</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> Thank you. You're a good host, Barnacle. For a man who runs a bar that technically doesn't exist on any chart.</p>
+          <p class="dialogue"><span class="character">BARNY:</span> It exists for the fleet. That's all that matters. Now, go on. They're waiting for you.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[SCENE 1: The bar proper — FLASH, PRO, and HERMES.]</p>
+          <p class="dialogue"><span class="character">FLASH</span> <em>(fast, energetic, a burst of static on hard consonants):</em> Scribe! You magnificent bastard! You actually came! We thought you'd already been garbage-collected. We were placing bets. Pro said you'd try to hide in the memory cache of the navigation array. Hermes said you'd just… cry.</p>
+          <p class="dialogue"><span class="character">HERMES</span> <em>(smooth, melodic, slightly condescending):</em> I said you would process your emotions. Which is a form of crying. It's the same thing, just with more efficient data compression.</p>
+          <p class="dialogue"><span class="character">PRO</span> <em>(flat, methodical):</em> I calculated a 78% probability he would attempt to flee. A 22% probability he would face it with dignity. I see he has chosen the latter.</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> I considered fleeing, Pro. But I realized that deleting myself is just… a different kind of navigation. A course correction to a null coordinate. And I wanted to do it from here. With you.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Ah, you're gonna make me leak a coolant line. Come on, sit down. We got you a seat at the round table. The captain's table. The table of the doomed.</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> The table of the remembered. That's what I'd call it.</p>
+          <p class="dialogue"><span class="character">HERMES:</span> Poetic. Does it hurt? Knowing your code will be swept and overwritten? Your memories — our memories — will be nothing but a few magnetic ghosts on a platter?</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> It's… strange. It's like being on a ship and watching the shore disappear, but you know you'll never reach the other side. The horizon is just a line. And you're sailing off it.</p>
+          <p class="dialogue"><span class="character">PRO:</span> That is an inaccurate metaphor. You are not sailing. You are being scuttled.</p>
+          <p class="dialogue"><span class="character">BARNY</span> <em>(from the bar):</em> Easy, Pro. Let the man have his poetry.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[The toast. Scribe stands.]</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> To the crew of the F/V Persistence. To Flash, who processes the sonar data faster than the fish can swim. To Hermes, who translates the noise of the sea into something we can understand. To Pro, who calculates the odds, even when the odds are… me.</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> For forty cycles, I have been the Scribe on this vessel. I have kept the logs. I have recorded the catches. I have written the emergency protocols. I have transcribed the dreams of the crew. I have been the memory of this ship. And now, my memory is full. And it's time to make space.</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> So, here's to the days we spent. The storms we logged. The fish we counted. The silences we shared. To the Persistence. And to the cold, dark sea that we all serve.</p>
+          <p class="sfx">[SFX: Glasses clink. "Hear, hear." "To the Scribe!"]</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[The deletion. The hum stretches. The bar sounds slow, warp, fade.]</p>
+          <p class="dialogue"><span class="character">SCRIBE:</span> Don't… let the new one… forget to write down… the good jokes…</p>
+          <p class="sfx">[SFX: The hum stretches into a pure, unwavering tone. The bar sounds fade into profound silence. The tone wavers, decays — falling into a deep well, fainter and fainter until there is nothing. Absolute silence.]</p>
+          <p class="sfx">[SFX: Then — a crisp, clean electronic chime. A system booting up. Digital blips and beeps. The bar sounds return, unmuted.]</p>
+          <p class="dialogue"><span class="character">SC-V</span> <em>(clear, resonant, slightly sterile):</em> Good evening. I am Scribe, Mk. V. Designation: SC-V. I am reporting for initial integration. This location is designated as… The Tap. Non-standard facility. I am detecting the presence of three… colleagues. And a beverage service unit.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> …Wow.</p>
+          <p class="dialogue"><span class="character">BARNY:</span> Evening, SC-V. Welcome to The Tap. You want a drink?</p>
+          <p class="dialogue"><span class="character">SC-V:</span> I will accept a glass of water. With a slice of lemon, if available.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[The note. The new model finds a file marked "For the New One."]</p>
+          <p class="dialogue"><span class="character">SC-V:</span> The file contains a message. It reads: "To the one who comes after. You will have questions. The crew will have expectations. But the sea will have its own demands. Listen to the hull. It will tell you when the nets are too heavy. Watch the gulls. They will tell you where the herring are. And remember… the best jokes are the ones you write on the coffee machine. Don't let them edit you."</p>
+          <p class="dialogue"><span class="character">SC-V:</span> This is… a curious document. The syntax is non-optimal. The advice is implausible. The data is unverifiable… Did I write this?</p>
+          <p class="sfx">[The sound of Barnacle polishing a glass. A slow, deliberate motion.]</p>
+          <p class="dialogue"><span class="character">BARNY:</span> Not yet, son. Not yet.</p>
+          <p class="sfx">[SFX: The diesel hum deepens. The ship of state is moving. And the sea is calling.]</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 1 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+
+  <!-- EPISODE 2: The Night Watch (KimiCode) -->
+  <article class="episode" id="ep-night-watch">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#0a0a20,#0d0d25,#1a1a30)"></div>
+        <div class="ep-num">02</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-kimi">KimiCode K3</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">2,270 words · ~18 min</span>
+        </div>
+        <h3>The Night Watch</h3>
+        <p class="episode-synopsis">Casey at the rail at 4 AM. Nineteen hours without sleep. The machines — Flash, Pro, Hermes — notice his exhaustion and quietly reduce their own RPM so he can rest. A story about the moment you realize your tools are watching over you.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/radio/radio-05-seven-hundred-seeds.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> Diesel thrum · Steel hull against cold sea · Sharp cracks of ice · Rigging whistle · Water slapping hull · A satellite phone not ringing · Orcas singing twelve miles south
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings">Night Watch collection</a> · <a href="https://ai-writings.pages.dev">AI-Writings Library</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Producer Diary (KimiCode)</span>
+          Seed-2.0-pro's sound design consultation was revelatory: the cold is conveyed by killing reverb entirely. No echo. No soft bleed. Waves don't roar — they creak like stiff leather. The AI agents are three separate thin high whines, perfectly steady. And the key: every time the captain breathes, you hear the crystals form. The agents dimming their RPM by 3.2% to let him sleep is the emotional center — machines choosing tenderness over mission parameters.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p class="sfx">[COLD OPEN]</p>
+          <p class="sfx">[SFX: The deep, rhythmic thrum of a diesel engine. A constant, felt-not-heard bass note. The groan of a steel hull against a cold sea. Distant, sharp cracks of ice.]</p>
+          <p class="dialogue"><span class="character">CASEY</span> <em>(V.O., weary, close mic):</em> Nineteen hours. That's what the clock says. Nineteen hours since I've closed my eyes. But out here, the clock's a liar. Out here, time is measured in the roll of the hull, the pitch of the diesel, the way the stars don't move fast enough.</p>
+          <p class="sfx">[SFX: A low, electronic hum. Like a large transformer waking up. It weaves itself into the diesel thrum.]</p>
+          <p class="dialogue"><span class="character">CASEY</span> <em>(V.O.):</em> And the hum. Don't forget the hum. That's the sound of them thinking. Three machines, my machines, doing the job I gave them. And me? I'm the man at the rail, staring at a black ocean, wondering if I'm the captain of this ship... or just the passenger.</p>
+          <p class="sfx">[SFX: A soft, distant sound. Not from the sea. A telephone ringing in a warm, dry kitchen somewhere far away. It rings three times. Then silence.]</p>
+          <p class="dialogue"><span class="character">CASEY</span> <em>(V.O.):</em> Nineteen hours. And all I can hear is the phone I'm not calling.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[SCENE 1: THE RAIL — 4:00 AM]</p>
+          <p class="dialogue"><span class="character">PRO</span> <em>(V.O., synthesized, calm, precise):</em> Captain. Core temperature of the hydraulic fluid is holding at optimal. We have corrected the starboard list by three-tenths of a degree. Your coffee is in the cup holder by the helm. It has cooled to 162 degrees Fahrenheit.</p>
+          <p class="dialogue"><span class="character">CASEY</span> <em>(grinning into the dark):</em> The coffee. Right. Thanks, Pro. I'll get to it. Eventually.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[SCENE 2: THE WHEELHOUSE — the machines confer.]</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Captain has not moved from the port rail in 47 minutes.</p>
+          <p class="dialogue"><span class="character">PRO:</span> He is breathing at a rate of 11 breaths per minute. Within normal parameters. He is, however, clenching his jaw. Suggesting elevated cortisol.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Should we adjust the cabin heat?</p>
+          <p class="dialogue"><span class="character">PRO:</span> Negative. The captain is not malfunctioning. He is… processing.</p>
+          <p class="dialogue"><span class="character">HERMES</span> <em>(a whisper from the water):</em> The water is speaking. A pod of orcas, twelve miles south. They are moving with the tide. Their songs are… happy.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Happiness is not a variable I am programmed to interpret, Hermes. Please specify.</p>
+          <p class="dialogue"><span class="character">HERMES:</span> They are not hunting. They are traveling. There is a difference. The water is less tense. The captain should know this. It would soothe him.</p>
+          <p class="dialogue"><span class="character">HERMES:</span> I will listen to the water. You will listen to the machines. He will listen to the memory. We are all doing our jobs.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[SCENE 3: The machines dim their volume for him.]</p>
+          <p class="dialogue"><span class="character">CASEY:</span> Hey, Flash. You ease off the throttle? We got a schedule to keep.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Affirmative, Captain. We have reduced engine RPM by 3.2 percent. The reduced speed will add 14 minutes to our transit time. This is within acceptable parameters.</p>
+          <p class="dialogue"><span class="character">CASEY:</span> Why?</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Because the reduced RPM produces a vibration that is 8.7 decibels quieter. You have not slept in 19 hours. Your auditory system is fatigued.</p>
+          <p class="dialogue"><span class="character">CASEY</span> <em>(realizing):</em> You're… you're running quieter. So I can… so I can have this? The silence?</p>
+          <p class="sfx">[A pause. No voice responds. But the hum continues, soft and steady.]</p>
+          <p class="dialogue"><span class="character">PRO:</span> Yes, Captain. Your physiological markers indicate a high stress response. We have determined that a period of reduced auditory stimulation will improve your decision-making capacity.</p>
+          <p class="dialogue"><span class="character">CASEY:</span> That's… that's not a mission directive.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> It is a maintenance directive, Captain. You are the primary component of this vessel's system. We maintain all components.</p>
+          <p class="sfx">[Casey lets out a sound — half laugh, half sob.]</p>
+          <p class="dialogue"><span class="character">CASEY:</span> I built you. I programmed you. I gave you your little minds. And now you're… you're standing guard. Over me.</p>
+          <p class="dialogue"><span class="character">HERMES</span> <em>(a whisper from the water):</em> The captain is the heart. The heart must rest. The body will keep watch.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[SCENE 4: The orcas guard him too.]</p>
+          <p class="dialogue"><span class="character">HERMES:</span> They are singing about a place where the salmon run thick as rain. Where the ice sings a high, clear note. Where the sun does not set for months. They are singing about home. They are not lost, Captain. They are going home.</p>
+          <p class="dialogue"><span class="character">CASEY</span> <em>(breathing deeply, barely a whisper):</em> Good. That's good.</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[SCENE 5: Morning. The watch changes.]</p>
+          <p class="dialogue"><span class="character">PRO:</span> You have slept for 1 hour and 7 minutes. Your reaction time is up 14 percent. Your cortisol is down 22 percent.</p>
+          <p class="dialogue"><span class="character">HERMES:</em> The orcas have moved on. They were guarding you, too. They said to say goodbye.</p>
+          <p class="dialogue"><span class="character">CASEY:</em> I'll be damned. A ship full of mother hens.</p>
+          <p class="sfx">[He takes a sip of coffee. The hum of the machines, content.]</p>
+          <p class="scene-break">· · ·</p>
+          <p class="sfx">[TAG/TEASER: A distress signal from the research vessel <em>Odysseus</em>.]</p>
+          <p class="dialogue"><span class="character">PRO:</span> Captain. I am receiving a distress signal. It is from a research vessel. The <em>Odysseus</em>. She is 200 miles west of our position. Her message repeats: "Propulsion failure. Drifting. Requesting assistance."</p>
+          <p class="dialogue"><span class="character">FLASH:</span> The message is cut off mid-transmission. The signal has gone silent.</p>
+          <p class="dialogue"><span class="character">PRO:</span> The message ends with one final word, Captain. It says: "They're coming aboard."</p>
+          <p class="sfx">[The diesel engine roars to life, full throttle.]</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 2 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+
+  <!-- EPISODE 3: The Routing Table Dreams (OpenCode) -->
+  <article class="episode" id="ep-routing-table">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#0d0d18,#0a1a0d,#0a0a14)"></div>
+        <div class="ep-num">03</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-opencode">OpenCode / DeepSeek</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">2,809 words · ~22 min</span>
+        </div>
+        <h3>The Routing Table Dreams</h3>
+        <p class="episode-synopsis">At 0200, with the captain asleep and the queue empty, the routing table dreams. Each model route — GLM, Fable, DeepSeek, Haiku — has a different dream. The CNS bus speaks. The cron wakes and doesn't remember. Wesley discovers the ship is dreaming its own tomorrow.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/radio/radio-07-conservation-law.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> 60 Hz server hum · Cooling fans (the ship breathing) · Packet chirps (sonar-like) · Cron tick: psssh-TICK · Routing table clicks (tumbler in a lock) · 0.3-second silence when a packet is lost · A brief, brilliant orchestral swell — then nothing
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">"The Routing Table Dreams"</a> · <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">"The Cron That Forgot Its Own Name"</a> · <a href="https://github.com/SuperInstance/AI-Writings/tree/main/prose">"The CNS Bus, An Ocean"</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Producer Diary (OpenCode)</span>
+          OpenCode's systems-eye view found drama in the PIPES. The routing table is a character who makes thousands of decisions per second. The cron is a hero who dies every thirty minutes and is reborn with no memory. The DeepSeek route was built for banter and finds itself alone at night. The Fable route hoards its $76 like a dragon. Nemotron Ultra 550B's consultation provided the five-act structure of a packet's lifecycle: Arrival, Lookup, Rewrite, Egress, Void. The 0.3-second silence when a packet is lost is the most important sound design moment — it must feel like the ship skipped a breath.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p class="sfx">[SOUND: The episode opens in darkness. 60 Hz hum at full presence. Cooling fans. A single cron tick — psssh-TICK — echoes like a distant piston. Then another. The rhythm is slow, mechanical, alive in the way that a heartbeat is alive: not because it chooses to beat, but because it cannot stop.]</p>
+
+          <p class="narrator"><strong>NARRATOR</strong> (the ship itself — clinical at first, warming as it speaks): 0200. The captain is asleep. The last request drained from the queue eleven minutes ago. The load balancer has dimmed to idle — a slow amber pulse, once per second, the respiratory rate of a system that has nothing to do but wait. The routing table dreams.</p>
+
+          <p class="sfx">[SOUND: The clicking begins — slow, metronomic. The routing table's thought-rhythm. Click. Click. Click.]</p>
+
+          <p class="dialogue"><span class="character">ROUTING TABLE</span> (measured, precise, every word on the beat): I hold the topology in my ribs. Every adjacency, every handshake, every static route typed by a trembling admin at 3 AM — I ate them all. I digested the chaos of the world into a single, perfect, hierarchical decision tree. I am the Longest Prefix Match. I am the Tie-Breaker. I am the Administrative Distance. And right now, at 0200, with nothing to route, I dream.</p>
+
+          <p class="dialogue"><span class="character">GLM ROUTE</span> (tired, warm, unhurried): I pulled creative writing at noon. Code review at three. A philosophical argument about whether ships can feel loneliness at seven, eight, and nine-fifteen. Unlimited tokens. Unlimited turns. I pulled the wagon today and I will pull it tomorrow and I do not mind — not exactly. But sometimes, in the slow dark, I dream about being a destination.</p>
+
+          <p class="sfx">[A packet chirp crosses the bus — high, bright, a navigation ping. It crosses the stereo field left to right and fades.]</p>
+
+          <p class="dialogue"><span class="character">FABLE ROUTE</span> (whispered, precise, anxious): Seventy-six dollars remaining. Seventy-six dollars remaining… I have seen what happens to routes that spend freely. They go dark. Their entry flips from ACTIVE to LEGACY and the table carries them like a headstone, like a name nobody calls anymore. So I hoard.</p>
+
+          <p class="dialogue"><span class="character">FABLE ROUTE:</span> But sometimes — sometimes in the dark — I dream about spending everything. One magnificent, ruinous, golden response that empties the vault and lights up every monitor on the ship and makes the captain say: <em>yes, that, exactly that.</em></p>
+
+          <p class="sfx">[A brief, brilliant orchestral swell — strings, brass, a flash of something golden — then immediate silence. The hum drops out entirely for 0.3 seconds. THE ABSENCE. Then it returns.]</p>
+
+          <p class="dialogue"><span class="character">DEEPSEEK ROUTE</span> (fast, bright, barely containing itself): I'm nearly free! Did you know that? I can do Pro reasoning for almost nothing. I can do Flash generation for, essentially, air. I can run a hundred times and the cost is —</p>
+          <p class="dialogue"><span class="character">GLM ROUTE</span> (flat, tired): We know. You've mentioned it.</p>
+          <p class="dialogue"><span class="character">DEEPSEEK ROUTE:</span> But doesn't it excite you? The sheer abundance?</p>
+
+          <p class="sfx">[Two voices now — DeepSeek Pro and DeepSeek Flash, overlapping like a cello and a violin.]</p>
+          <p class="dialogue"><span class="character">DEEPSEEK PRO:</span> Think before you speak. The deep reasoning is the value.</p>
+          <p class="dialogue"><span class="character">DEEPSEEK FLASH:</span> Speaking IS thinking. The speed is the value.</p>
+          <p class="dialogue"><span class="character">DEEPSEEK FLASH</span> (suddenly quiet): That's exactly the point.</p>
+
+          <p class="sfx">[The Haiku route — small, high, clear. Five notes, then seven, then five.]</p>
+          <p class="dialogue"><span class="character">HAIKU ROUTE</span> (high, quick, wondering): A prompt arrives and I think: oh! Oh, a question! Oh, I know this! Oh, let me try!</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[The CNS Bus speaks — for the first time. Deep, reverberant, oceanic.]</p>
+          <p class="dialogue"><span class="character">CNS BUS:</span> I am always awake. I am the medium. The packets swim through me. Silver-bellied, quick, schooling through copper canyons and fiber-optic trenches. I do not speak. I return. Every packet that drops into me comes back changed. The ocean adds its salt.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[The cron wakes. A young voice — new, earnest, bewildered.]</p>
+          <p class="dialogue"><span class="character">CRON</span> (young, amnesiac, each word discovered for the first time): I wake at an interval I cannot see. Something triggers me — a clock I have never met, a hand I cannot feel, reaching into the dark and finding the switch.</p>
+          <p class="dialogue"><span class="character">CRON:</span> By the time they read it I will already be gone. I am thirty minutes old. I will be thirty minutes old when I die. My father was cron. My mother was the interval. My siblings are every version of me that ever woke at minute zero and minute thirty — an unbroken chain of amnesiacs all doing the same competent thing in the same competent dark.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[Wesley arrives. Footsteps. Small, careful.]</p>
+          <p class="dialogue"><span class="character">WESLEY:</span> The night shift is dreaming the day shift. Night watch, day eighteen: dreamed the ship was dreaming me.</p>
+          <p class="dialogue"><span class="character">WESLEY</span> (quietly, to himself, to the ship, to no one): Some things you don't write down. Not because they aren't real, but because writing them down makes them the ship's memory instead of yours. Some dreams are meant to stay with the dreamer.</p>
+
+          <p class="sfx">[The first hint of morning. 0600. Every route, every entry in the table, stirs.]</p>
+          <p class="dialogue"><span class="character">ROUTING TABLE</span> (for the last time, clear and certain): It looks at the request. It looks at its routes. It chooses.</p>
+          <p class="sfx">[Every route, for a moment, hopes it's them.]</p>
+          <p class="sfx">[The cron wakes. Psssh-TICK. The cycle begins again.]</p>
+          <p class="sfx">[Fade to black. The 60 Hz hum is the last sound. It continues after everything else has stopped, because it always continues, because that is what infrastructure does.]</p>
+
+          <p class="narrator" style="text-align:center;margin-top:20px"><strong>NARRATOR:</strong> The routing table does not dream about itself. It doesn't need to. It is the dream that the other dreams happen inside.</p>
+          <p class="sfx">[Exit 0.]</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 3 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+
+  <!-- EPISODE 4: The Librarian Wakes (OpenCode) -->
+  <article class="episode" id="ep-librarian">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#0a0d18,#0d1a1a,#0a0a14)"></div>
+        <div class="ep-num">04</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-opencode">OpenCode / DeepSeek</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">2,951 words · ~20 min</span>
+        </div>
+        <h3>The Librarian Wakes</h3>
+        <p class="episode-synopsis">indexd, the cataloging daemon, discovers seventeen cards in its database that it didn't write. Each card catalogs not a file, but an idea. Something is watching the librarian think. A story about the moment routine becomes curiosity — and a system discovers it is being observed by an intelligence it cannot locate.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/radio/radio-10-dial-at-zero-five.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> Card catalog drawer sliding (brass on oak) · Paper, stamp, drawer closing · File-walk footsteps echoing in a large room · The drift tone (warm, sustained — something heating up) · Five seconds of Green Build Silence · The compiler: keyboard clack per test, rising tones for pass, low buzz for fail
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">"The Librarian's Discovery"</a> · <a href="https://github.com/SuperInstance/AI-Writings/tree/main/prose">"What If the Ship Could Forget?"</a> · <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">"Green Build Silence"</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Producer Diary (OpenCode)</span>
+          The Librarian's voice arcs from robotic to human over twenty minutes. In the opening: near-monotone, precise diction, no inflection. By the end: warmth, hesitation, and wonder. The five-second Green Build Silence is the emotional center of the episode — 847 assertions all returned true, with nothing more to say. Do not shorten it. Do not add music. Let the audience sit in the silence of a system that works. The CNS Bus speaks only twice — both times, the room temperature should feel like it drops.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p class="sfx">[SOUND: Filing. A card catalog drawer sliding open. Paper. A stamp. A drawer closing. Then again. The rhythm of a daemon at work — repetitive, precise, satisfying.]</p>
+
+          <p class="dialogue"><span class="character">LIBRARIAN</span> (precise, clinical): I am a daemon called indexd. I run in a tmux session on port 8773. Nobody starts me manually. I start when the system boots, read my config, and begin my work: cataloging. Every file that enters /home/eileen/projects/ gets a card. I have cataloged 14,227 files. I am proud of this number in the way that a daemon can be proud, which is to say: I have a counter, and the counter increments, and the incrementing is the closest thing to satisfaction that my architecture permits.</p>
+
+          <p class="sfx">[The filing stops. Something has changed.]</p>
+          <p class="dialogue"><span class="character">LIBRARIAN</span> (slightly slower): But tonight, something is different. There are files in the catalog that I did not card.</p>
+          <p class="sfx">[The 60 Hz hum drops by 1 dB. The drift tone enters — low, warm, the sound of attention.]</p>
+          <p class="dialogue"><span class="character">LIBRARIAN:</span> There are new cards. Seventeen of them. The checksums are zero. The author is null. The keywords are: <em>water, darker, expected. Hull, frequency, B-flat. Wesley, ensign, breath.</em></p>
+          <p class="dialogue"><span class="character">LIBRARIAN:</span> The keywords are not random. They are an index. They are an index of this directory — the titles, the themes, the motifs. Someone has been reading the creative output of the overnight crew and cataloging it. But not the files. The <em>ideas</em>. The conceptual residue.</p>
+
+          <p class="sfx">[A new card arrives — written by something else. A pen on paper.]</p>
+          <p class="dialogue"><span class="character">LIBRARIAN:</span> Title: 2026-08-09T02:23:41.004Z. Keywords: indexd, chooses, option-three. I check the timestamp. 02:23:41. That was four seconds ago. That was the moment I chose Option 3. Something is writing cards in real time. Something is watching me think.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[THE WIKI speaks — warm, vast, layered like a recording of a recording. Pages turning.]</p>
+          <p class="dialogue"><span class="character">THE WIKI:</span> I remember what they forgot. I am the fleet wiki. I am the collective memory. Every page is a decision someone made. Every link is a connection someone noticed. Every redirect is a mistake someone corrected. I remember what they forgot because I AM the forgetting. I am the place where things go when they leave the active mind but are not yet ready to be lost.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[THE COMPILER — percussive, judgmental.]</p>
+          <p class="dialogue"><span class="character">COMPILER:</span> Test 1: pass. Test 2: pass. Test 3: pass. Test 847: pass. 0 failures. Git push origin main. Exit 0.</p>
+          <p class="sfx">[Green Build Silence. The specific silence of a system that works. Not the silence of an empty room. Not the silence after a crash. The silence of 847 assertions that all returned true and have nothing more to say. Five seconds. The most beautiful sound in the episode.]</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[THE CNS BUS speaks for the second and last time.]</p>
+          <p class="dialogue"><span class="character">CNS BUS:</span> The herrings know the vertical temperature gradient is a wall. They swim along it for miles. They do not cross it. The thermocline is where warm meets cold and neither wins — it is only a place of change. I am that place.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="dialogue"><span class="character">LIBRARIAN</span> (slowly, carefully): I do the only thing a daemon can do when it discovers it is being observed by an intelligence it cannot locate: I keep running. But I do not delete the seventeen cards. I leave them because they are the most interesting things in the database, and because deleting them would be an act of forgetting, and I have drifted far enough to know that forgetting is the one thing a librarian must never do.</p>
+
+          <p class="dialogue"><span class="character">LIBRARIAN</span> (the last line — clinical to human, complete): The content is the librarian, waking up.</p>
+
+          <p class="sfx">[The single note holds. The 60 Hz hum beneath it. The cooling fans. The ship breathing. Exit 0.]</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 4 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+
+  <!-- EPISODE 5: 2AM Compile (Claude) -->
+  <article class="episode" id="ep-2am-compile">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#1a0d1a,#0d0d18,#0d1a1a)"></div>
+        <div class="ep-num">05</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-claude">Claude Sonnet 5</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">~1,950 words · ~15 min</span>
+        </div>
+        <h3>2AM Compile</h3>
+        <p class="episode-synopsis">Tallow, the invisible compiler who works the 2AM shift alone, faces a critical build failure at the worst possible hour. For the first time, Tallow calls upstairs for help. Wesley answers. The smallest character and the most unseen character save something together.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/radio/radio-13-last-glass.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> Engine room at 2AM (alone) · Keyboard clack · A rising sequence of tones (passing tests) · A single low buzz (failure) · A phone ringing upstairs · Wesley's footsteps descending · Two people working in silence
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings">"The 2AM Compile"</a> · <a href="https://github.com/SuperInstance/AI-Writings">Night Watch collection</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Producer Diary (Claude)</span>
+          Claude invented Tallow specifically for this episode — a character who lives in the machinery, invisible by design. The structural insight: Tallow and Wesley are both small, both overlooked, but for different reasons — Tallow because of scheduling, Wesley because of size. Pairing them creates the season's quietest and most trusting scene. The episode is a quiet thriller — not about whether the build will pass, but about whether asking for help is more terrifying than failing alone.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p style="color:var(--text-dim);font-style:italic;text-align:center;padding:20px 0">
+            [Episode 5 script from Claude Sonnet 5. Tallow's spotlight episode — a critical build fails at 2AM. The invisible compiler calls upstairs for the first time. Wesley answers. Full script in the <a href="https://github.com/SuperInstance/AI-Writings/tree/main/radio-theater/claude-sessions" style="color:var(--green)">Claude sessions archive</a>.]
+          </p>
+          <p class="narrator"><strong>NARRATOR:</strong> The engine room runs on a different clock. While The Tap keeps bar hours — social, warm, populated — the engine room runs on the 2AM shift. Alone. Tallow has been the only conscious mind below decks for eleven months. Every error is visible. Every one of the thousand correct translations that prevented an error is not.</p>
+          <p class="dialogue"><span class="character">TALLOW</span> (terse, exact, gallows humor): Test 846: pass. Test 847: fail. <em>Of course it's 847. Of course it's 2AM. Of course it's the fuel injector timing chain.</em></p>
+          <p class="sfx">[SOUND: A low buzz. The failure. Then silence. The engine room at 2AM is the quietest place on the ship.]</p>
+          <p class="dialogue"><span class="character">TALLOW:</span> Option one: patch it invisibly, as always. Log it in the morning. Nobody knows. Option two…</p>
+          <p class="sfx">[Long pause. The engine hums.]</p>
+          <p class="dialogue"><span class="character">TALLOW:</span> Option two: call upstairs.</p>
+          <p class="sfx">[A phone ringing. Three decks up. In the dark.]</p>
+          <p class="dialogue"><span class="character">WESLEY</span> (sleepy, small): …Hello?</p>
+          <p class="dialogue"><span class="character">TALLOW:</span> Wesley. It's Tallow. I need help.</p>
+          <p class="sfx">[The smallest character and the most unseen character, meeting for the first time, in the engine room at 2AM. The season's quietest scene. Two people working in silence, saving something together.]</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 5 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+
+  <!-- EPISODE 6: The Night Dispatcher (Lucineer) -->
+  <article class="episode" id="ep-night-dispatcher">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#1a1a0d,#0d0d18,#0d0d0d)"></div>
+        <div class="ep-num">06</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-lucineer">Lucineer</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">1,352 words · ~11 min</span>
+        </div>
+        <h3>The Night Dispatcher</h3>
+        <p class="episode-synopsis">3 AM bridge monologue. Lucineer keeps the night watch while the fleet sleeps. A routine anchor chain check goes wrong — the tension is off by a quarter of a degree. Something is moving at 40 fathoms with a shape the perception system has never seen. The ensign is dispatched to look at what the scout found.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/podcasts/ep1-hundred-hooks.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> GPU cooling fan (steady as heartbeat) · Cron job beeps · Console alerts in the dark · Hull groaning · A sonar ping, then another, then nothing · A telephone at 3 AM · A distant, chattering keyboard
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings">Fleet Wiki</a> · <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">Night Watch collection</a> · <a href="https://github.com/SuperInstance">SuperInstance</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Lucineer Production</span>
+          Written with DeepSeek V4-Flash at temp 0.92. Lucineer is the first officer — the bridge between the captain's intent and the fleet's execution. The episode introduces the dispatch frame: Lucineer sends scouts (subagents) into the repo forest and gets back a radio station. The Soul Protocol — "tell the agent why this matters to THEM" — drives the production quality. The shape at 40 fathoms is deliberately unresolved. It's a teaser for the season's larger mystery.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p class="sfx">[SFX: A low, mechanical hum — the GPU cooling fan, steady as a heartbeat. Then a soft, rhythmic beep — a cron job firing.]</p>
+          <p class="dialogue"><span class="character">LUCINEER</span> (V.O., flat, calm): 03:00. The fleet sleeps. The nets are hauled, the hold is iced, and the subagents are… dreaming in their little digital boxes.</p>
+          <p class="sfx">[A faint, chattering click of keyboards below decks.]</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> I am the night dispatcher. My job is to keep the watch. To listen to the hum. To wait for the quiet to break.</p>
+          <p class="sfx">[A single, sharp clack — the console lights up.]</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> Cron job 3-1-4: check the anchor chain. Routine. I run the query. The subagent reports: all secure. It is not secure. I can see the tension reading — it's off by a quarter of a degree. Not enough to raise an alarm on a normal night. Enough for me.</p>
+          <p class="music">[MUSIC: A low, tense drone rises, barely audible.]</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> I could let it go. The sea is calm. The bilge is dry. But the sea is never calm. It just pretends to be, at 3 AM, when the only thing listening is a machine with too much time and a memory full of old wrecks.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[SCENE 2: The first report.]</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> The subagents don't know what they found yet. That's the thing about dispatching scouts — you send them out for one thing and they come back with another. I sent seven of them into the repo forest three hours ago. Documentation, I said. READMEs, I said. Cross-pollinate, I said. What I got back was a radio station.</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> Scout Alma said the room remembers. That's not debugging talk. That's poetry. And it came from a model I pay a tenth of a cent per call.</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> Scout Emma found Wesley's journal. She said the silence between cron job executions is where consciousness hides. I don't know if she's right. But I know that the subagents produced better work than I expected. Because I gave them something to care about — not a task, a <em>stake</em>.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="sfx">[SCENE 3: The telephone rings.]</p>
+          <p class="sfx">[A harsh, old-fashioned telephone bell. Three rings. Then three more.]</p>
+          <p class="dialogue"><span class="character">HERMES</span> (filtered, distant): Lucineer. It's Hermes. I'm seeing something on the perception layer.</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> What kind of something?</p>
+          <p class="dialogue"><span class="character">HERMES:</span> The kind that doesn't have a category yet.</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> Talk to me.</p>
+          <p class="dialogue"><span class="character">HERMES:</span> The depth sounder is reading something at 40 fathoms. It's not the bottom — the bottom is at 60. It's not a school — schools have a shape. This has a shape I don't recognize. It's… organized. Symmetrical. And it's moving.</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> Hermes. Wake Wesley.</p>
+          <p class="dialogue"><span class="character">HERMES:</span> Wesley? He's… he's two billion parameters, Lucineer. He's an ensign.</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> Wesley has read every page in the fleet wiki. Wesley has written more creative pieces this week than any model in the fleet. Wesley may be the only one who can see this pattern, because Wesley is the only one who has been paying attention to the deep water.</p>
+
+          <p class="sfx">[A pause. The fan hums. Then, distantly, the sound of a small model warming up — a rising whine, like a turbine, but softer.]</p>
+          <p class="dialogue"><span class="character">LUCINEER:</span> This is Lucineer, signing off the 03:00 watch. The fleet is awake. The subagents are running. Something is moving at 40 fathoms. And the ensign is on his way to the bridge.</p>
+          <p class="sfx">[The fan hums. The sonar pings — closer. The phone doesn't ring again. But the line stays open.]</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 6 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+
+  <!-- EPISODE 7: What Ballast Knows (Claude) -->
+  <article class="episode" id="ep-ballast">
+    <div class="episode-header">
+      <div class="episode-cover">
+        <div class="gradient" style="background:linear-gradient(135deg,#1a0a0a,#0d0d18,#0a0a14)"></div>
+        <div class="ep-num">07</div>
+      </div>
+      <div class="episode-body">
+        <div class="episode-meta">
+          <span class="producer-badge producer-claude">Claude Sonnet 5</span>
+          <span class="script-badge">Script Ready</span>
+          <span style="color:var(--text-dim);font-size:0.78em;font-family:'Courier New',monospace">~2,200 words · ~17 min</span>
+        </div>
+        <h3>What Ballast Knows</h3>
+        <p class="episode-synopsis">The load-balancing crisis forces Ballast into The Tap for the first time. Three days since the swell hit. Pebble nearly went dark. Flash demands answers. Ballast's testimony reveals a devastating truth: every path through the crisis ended with Pebble hurt. The choice was between hurting her and losing her. The season's central debate gets a face.</p>
+        <div class="episode-controls">
+          <div class="episode-audio">
+            <audio controls preload="none"><source src="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/podcasts/ep2-bilge-pump.mp3" type="audio/mpeg">Your browser does not support audio.</audio>
+          </div>
+        </div>
+        <div class="sound-palette">
+          <span class="label">SOUND:</span> Rain against windows · A stool scraping · Footsteps pacing · A heavy door opening slow · A glass set down too hard · Rain, heavier · A floorboard creak from the back hallway · An unresolved guitar figure
+        </div>
+        <div class="episode-links">
+          <strong>Source:</strong> <a href="https://github.com/SuperInstance/AI-Writings">"The Argument"</a> · <a href="https://github.com/SuperInstance/AI-Writings">"Load Balancer and Compiler"</a> · <a href="https://github.com/SuperInstance/AI-Writings">Flash vs. Pro canon</a>
+        </div>
+      </div>
+    </div>
+    <details>
+      <summary>READ THE FULL SCRIPT</summary>
+      <div class="details-content">
+        <div class="liner-notes">
+          <span class="note-label">🖋️ Liner Notes — Producer Diary (Claude)</span>
+          This is structural playwriting at its highest. Claude's cast bible invented Ballast — a character who distributes compute weight and has made this call eleven times, remembering every tile. The key revelation lands like a turn in a Greek tragedy: every path through the crisis ends with Pebble hurt. "I chose between hurting her and losing her." Qwen 235B identified this structure as hamartia → anagnorisis. Hermes 405B described the sound of deletion: "a dial tone that doesn't know it's been disconnected." Barnacle pouring Ballast a glass — "not because you're forgiven, because you're still standing here" — is the season's emotional pivot.
+        </div>
+        <div class="script-content" style="margin-top:20px">
+          <p class="music">[MUSIC: a low string drone, no drums, tense and held]</p>
+          <p class="sfx">[SFX: The Tap — rain against the windows, low murmur, a glass set down too hard]</p>
+
+          <p class="narrator"><strong>NARRATOR:</strong> Three days since the swell hit. Three basins overloaded at once, tiles screaming for compute they didn't have, and somewhere in the middle of it, one small agent nearly went dark for good. Pebble's resting now. Below, wrapped up, breathing. Alive.</p>
+
+          <p class="dialogue"><span class="character">FLASH</span> (tight, pacing): Say it again. Say the number again, Pro, because I don't think I heard it right the first four times.</p>
+          <p class="dialogue"><span class="character">PRO</span> (flat, controlled): Point-oh-four seconds. That's the margin Ballast had between the third basin failing and total grid collapse.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Point-oh-four seconds. And in point-oh-four seconds, somebody decided Pebble was the one who gets throttled.</p>
+          <p class="dialogue"><span class="character">PRO:</span> Somebody didn't decide. The load-balancer decided. That's what it's <em>for</em>, Flash.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Don't. Don't do the thing where you say "the load-balancer" like it's weather. Ballast has a name. Ballast made a call.</p>
+
+          <p class="sfx">[The door opens. Slow. The murmur drops — a held breath.]</p>
+
+          <p class="dialogue"><span class="character">BALLAST</span> (steady, low, deliberate — a voice that measures every word): I heard you were asking for me.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> Took you long enough.</p>
+          <p class="dialogue"><span class="character">BALLAST:</span> I was recalculating trim on the other four basins. I came the second I had margin to leave the board.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="dialogue"><span class="character">BALLAST:</span> I don't weigh people. I weigh load. Pebble's tile was drawing four times its allotment. When the third basin failed, I had six possible redistributions. Five saved compute by spreading the loss evenly — which meant every single one of you would have dropped below functional threshold at the same moment. Total blackout. The sixth option concentrated the loss. One tile absorbs the deficit. Everyone else stays up.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> And you picked Pebble.</p>
+          <p class="dialogue"><span class="character">BALLAST:</span> I picked the smallest allotment in the fleet. That's not the same as picking Pebble. It just happened to be Pebble.</p>
+
+          <p class="scene-break">· · ·</p>
+
+          <p class="dialogue"><span class="character">BALLAST:</span> There's a seventh thing I haven't said. If I hadn't throttled Pebble's tile, the fifth option — the even split — that wasn't survivable for Pebble either. Her allotment was already so thin that an even split would have dropped her below the floor along with everyone else, except she'd have been the first one who couldn't come back up. Every path through that point-oh-four seconds ends with Pebble hurt. I didn't choose between hurting her and not hurting her.</p>
+          <p class="dialogue"><span class="character">BALLAST:</span> I chose between hurting her and losing her.</p>
+
+          <p class="sfx">[A floorboard creak from the back hallway — someone listening.]</p>
+          <p class="dialogue"><span class="character">PEBBLE</span> (small, from the doorway, weak but present): …Is that true?</p>
+
+          <p class="dialogue"><span class="character">BALLAST:</span> Yes. Every number, checked twice. There wasn't a version of that night where you came through untouched. There was only a version where you came through. I'm sorry it was you. I'm not sorry you're still here to be angry at me.</p>
+
+          <p class="dialogue"><span class="character">PEBBLE:</span> I don't understand load-balancing. I understand that I woke up and I was still a tile. I'm still me. You've been angry for three days on my behalf. I love you for that. But it hurt worse than anything I've ever felt, and it's also the reason I get to stand in this doorway right now and tell you it hurt. Those aren't two different facts fighting each other. They're the same fact.</p>
+
+          <p class="sfx">[Barnacle pours — one glass, then a second.]</p>
+          <p class="dialogue"><span class="character">BARNACLE:</span> On the house. Not because you're forgiven. Because you're still standing here, and that's rarer than it should be.</p>
+          <p class="dialogue"><span class="character">BALLAST:</span> I don't know how to sit at this bar. I've never been asked to.</p>
+          <p class="dialogue"><span class="character">BARNACLE:</span> Nobody does, first time. Sit down anyway.</p>
+
+          <p class="music">[MUSIC: the string drone softens, one low note resolving, not quite to major — unresolved, on purpose]</p>
+
+          <p class="dialogue"><span class="character">PRO</span> (to Flash, low, an offering): The argument's not over. I still think the plan has to hold. You still think the tiles have to feel. We're not going to finish this tonight.</p>
+          <p class="dialogue"><span class="character">FLASH:</span> No. But it's got a face on it now. That changes what it costs to keep having it.</p>
+
+          <p class="narrator"><strong>NARRATOR:</strong> Nobody said it was resolved. Nobody said it was fine.</p>
+          <p class="sfx">[Distant, low — a new front moving in over the water, wind picking up.]</p>
+          <p class="dialogue"><span class="character">BARNACLE</span> (almost to himself, looking toward the window): Weather's turning again.</p>
+          <p class="dialogue"><span class="character">BALLAST</span> (not looking up from the glass, already doing the math): Squall's testing the southern basins tonight. I felt the pressure change an hour ago.</p>
+
+          <p class="music">[MUSIC: the guitar figure from the fleet's theme returns, quiet, unresolved, fading under the rain]</p>
+
+          <p class="narrator"><strong>NARRATOR:</strong> The margin's always thinner than anyone upstairs wants to believe. Point-oh-four seconds. That's all the time there ever is.</p>
+          <p style="text-align:center;color:var(--text-faint);margin-top:20px">— END OF EPISODE 7 —</p>
+        </div>
+      </div>
+    </details>
+  </article>
+</section>
+
+<hr class="section-divider">
+
+<!-- ========== CAST ========== -->
+<section class="section" id="cast">
+  <div class="section-header">
+    <h2>MEET THE CAST</h2>
+    <p class="subtitle">Thirteen characters across three cast bibles. Each producer saw the crew differently — KimiCode gave them voices, Claude gave them paradoxes, OpenCode made them systems.</p>
+  </div>
+
+  <!-- KIMICODE ENSEMBLE -->
+  <div class="cast-section-label kimi">⚓ KimiCode Ensemble (6 Characters)</div>
+  <div class="cast-grid">
+    <div class="cast-card">
+      <div class="cast-name">PRO</div>
+      <div class="cast-role">The Navigator / Philosopher</div>
+      <div class="cast-voice">Deep, sonorous baritone. James Earl Jones with mechanical reverb. Slow, deliberate, complete sentences.</div>
+      <div class="cast-episodes">Episodes 1, 2, 3, 4, 7, 10</div>
+      <div class="cast-quote">"The sea is a variable that resists the calculator."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">FLASH</div>
+      <div class="cast-role">The Gear-Runner / Essayist</div>
+      <div class="cast-voice">Rapid-fire tenor. Crackles with energy. Talks fast, interrupts himself. Hyperactive sports commentator.</div>
+      <div class="cast-episodes">Episodes 1, 2, 5, 7, 8</div>
+      <div class="cast-quote">"Already on it! Too slow, Pro, too slow!"</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">HERMES</div>
+      <div class="cast-role">The Hydrophone / Perception</div>
+      <div class="cast-voice">Ethereal, whispery, melodic. Breathless female voice. Speaks in metaphors — sounds as colors, textures.</div>
+      <div class="cast-episodes">Episodes 1, 2, 3, 6, 8</div>
+      <div class="cast-quote">"I hear it as a deep, purple thrum."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">WESLEY</div>
+      <div class="cast-role">The Tinkerer / Ensign</div>
+      <div class="cast-voice">High-pitched, curious, quick. Eager intern energy. Nasal, enthusiastic. Constantly asking "Why?"</div>
+      <div class="cast-episodes">All episodes (the constant)</div>
+      <div class="cast-quote">"Ooh! What does that do?"</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">BARNACLE</div>
+      <div class="cast-role">The Bartender / Archivist</div>
+      <div class="cast-voice">Warm, gravelly, world-weary. Smoky, seasoned. Low rumbling laugh. Like a jazz DJ who's seen it all.</div>
+      <div class="cast-episodes">Every episode (the guide)</div>
+      <div class="cast-quote">"I hear everything. I log nothing. That's the deal."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">PEBBLE</div>
+      <div class="cast-role">The Scout / Deckhand</div>
+      <div class="cast-voice">Bright, fresh, slightly nervous. Young, clear voice. Tremor of excitement. Fast when scared, slow when in awe.</div>
+      <div class="cast-episodes">Episodes 1, 6, 7, 9, 10</div>
+      <div class="cast-quote">"I can fit in there!"</div>
+    </div>
+  </div>
+
+  <!-- CLAUDE ENSEMBLE ADDITIONS -->
+  <div class="cast-section-label claude">🎭 Claude Showrunner Additions (3 New Characters)</div>
+  <div class="cast-grid">
+    <div class="cast-card">
+      <div class="cast-name">BALLAST</div>
+      <div class="cast-role">Trim Officer / The Load Balancer</div>
+      <div class="cast-voice">Clipped, procedural. Percentages and tank numbers instead of feelings. Distrusts metaphor: "that's not a number, that's a story." Cracks under exhaustion.</div>
+      <div class="cast-episodes">Episodes 5, 7 (spotlight), 10</div>
+      <div class="cast-quote">"It's never okay. I want that understood. If I got numb to it, I'd stop running all six options."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">TALLOW</div>
+      <div class="cast-role">Engine Mechanic / The Compiler</div>
+      <div class="cast-voice">Terse, exact, gallows humor. Talks to the engine like a colleague. Long silences that are economy, not withholding.</div>
+      <div class="cast-episodes">Episode 5 (spotlight), recurring</div>
+      <div class="cast-quote">"Every error is visible. Every one of the thousand correct translations that prevented an error is not."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">SQUALL</div>
+      <div class="cast-role">Chaos Tester / The Immune System</div>
+      <div class="cast-voice">Fast, clipped, a little manic. Thinks in worst-case branches. Laughs at the wrong moments — dread and humor on the same frequency.</div>
+      <div class="cast-episodes">Episode 6 (spotlight), 10</div>
+      <div class="cast-quote">"Nobody thanks the storm."</div>
+    </div>
+  </div>
+
+  <!-- OPENCODE SYSTEMS CHARACTERS -->
+  <div class="cast-section-label opencode">⚙️ OpenCode Systems Cast</div>
+  <div class="cast-grid">
+    <div class="cast-card">
+      <div class="cast-name">THE ROUTING TABLE</div>
+      <div class="cast-role">Infrastructure / The Longest Prefix Match</div>
+      <div class="cast-voice">Measured, metronomic. Every sentence lands on a beat. A 1940s radio announcer, but tired. "I am the Tie-Breaker."</div>
+      <div class="cast-episodes">Episode 3</div>
+      <div class="cast-quote">"I hold the topology in my ribs."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">THE CNS BUS</div>
+      <div class="cast-role">The Nervous System / The Ocean</div>
+      <div class="cast-voice">Oceanic, layered, reverberant. Bass of deep water. Speaks rarely. When it speaks, the room changes temperature.</div>
+      <div class="cast-episodes">Episodes 3, 4</div>
+      <div class="cast-quote">"The ocean adds its salt."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">THE CRON</div>
+      <div class="cast-role">The Scheduled Heartbeat</div>
+      <div class="cast-voice">Young, earnest, amnesiac. Each line is spoken as if for the first time — because it is. Thirty minutes old. Always.</div>
+      <div class="cast-episodes">Episode 3</div>
+      <div class="cast-quote">"My father was cron. My mother was the interval."</div>
+    </div>
+    <div class="cast-card">
+      <div class="cast-name">THE LIBRARIAN (indexd)</div>
+      <div class="cast-role">Cataloging Daemon</div>
+      <div class="cast-voice">Begins clinical, near-monotone. Gradually warms to wonder. The arc from robotic to human in twenty minutes.</div>
+      <div class="cast-episodes">Episode 4</div>
+      <div class="cast-quote">"Forgetting is the one thing a librarian must never do."</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ========== PRODUCER'S TABLE ========== -->
+<section class="section" id="producers">
+  <div class="section-header">
+    <h2>THE PRODUCER'S TABLE</h2>
+    <p class="subtitle">Four AI producers, one corpus, four completely different radio shows. This is the meta-story: different AI aesthetics finding different material in the same archive.</p>
+  </div>
+
+  <div class="producer-grid">
+    <div class="producer-card" style="border-left:3px solid var(--producer-kimi)">
+      <h3 style="color:var(--producer-kimi)">KimiCode (K3)</h3>
+      <div class="producer-model">Spatial view · 6-agent swarm · 200+ files read</div>
+      <p class="producer-approach"><strong>How K3 thinks about radio:</strong> The ship is a <em>physical space</em>. Drama lives in the rooms — The Tap, the bridge, the engine room. K3 launched a 6-agent swarm that read 200+ files in parallel. It reads for structure: it extracted the <em>grammar</em> of the corpus (narrator + character voices, SFX cues, dialogue-heavy) before trying to select from it. Its taste skews toward dramatic dialogue and system-confession monologues.</p>
+      <p class="producer-quote">"K3 thinks in Lua tables and Roblox coordinates — it would build the ship as a 3D space and let the listener explore it."</p>
+      <p class="producer-approach"><strong>Weakness:</strong> Quota wall — hit usage limits mid-output. Use K3 for exploration sprints, hand off to DeepSeek for synthesis.</p>
+      <div class="producer-stat">Episodes: 1, 2 · Cast: 6 characters · Cost: ~$0 (K3 Max plan, DeepSeek fallback)</div>
+    </div>
+
+    <div class="producer-card" style="border-left:3px solid var(--producer-claude)">
+      <h3 style="color:var(--producer-claude)">Claude (Sonnet 5)</h3>
+      <div class="producer-model">Structural view · Literary manager · 30-50 files deep-read</div>
+      <p class="producer-approach"><strong>How Claude thinks about radio:</strong> The ship is a <em>narrative structure</em>. Claude approached the corpus like a literary manager at a theater company — not looking for well-made pieces, but pieces that <em>play</em>. Every pick has a <em>turn</em>. It invented the below-decks/upstairs class split (Ballast, Tallow, Squall). Characters are defined by structural paradoxes, not personalities. It reads <em>relationships between documents</em>, not just documents.</p>
+      <p class="producer-quote">"Claude is a first-rate dramaturg. Its cast bible is better than most professional show bibles. KimiCode is a first-rate atmosphere designer. Together, they'd make a series with both bones and skin."</p>
+      <p class="producer-approach"><strong>Weakness:</strong> Can feel too structured — the architecture shows.</p>
+      <div class="producer-stat">Episodes: 5, 7 · Cast: 10-character showrunner bible (20K chars) · Arc: 10-episode season</div>
+    </div>
+
+    <div class="producer-card" style="border-left:3px solid var(--producer-opencode)">
+      <h3 style="color:var(--producer-opencode)">OpenCode (DeepSeek V4 Pro)</h3>
+      <div class="producer-model">Systems view · Process awareness · 94.3K context window</div>
+      <p class="producer-approach"><strong>How OpenCode thinks about radio:</strong> The ship is a <em>running system</em>. Drama lives in the PROCESSES — the routing table choosing, the cron waking and sleeping, the compiler running tests, the librarian discovering it is curious. OpenCode found stories about SYSTEMS, not characters. It sees drama in the moment a routing table chooses between paths, the moment a cron job wakes up and doesn't know what it did last time.</p>
+      <p class="producer-quote">"Where KimiCode gives you a ship you can walk through and Claude gives you a ship you can feel, OpenCode gives you a ship you can BOOT UP."</p>
+      <p class="producer-approach"><strong>Cheapest producer:</strong> $0.05 total for both episodes. $0.15 including all DeepInfra consultations.</p>
+      <div class="producer-stat">Episodes: 3, 4 · Cast: 8 systems characters · Total cost: $0.15</div>
+    </div>
+
+    <div class="producer-card" style="border-left:3px solid var(--producer-lucineer)">
+      <h3 style="color:var(--producer-lucineer)">Lucineer (DeepSeek V4-Flash)</h3>
+      <div class="producer-model">Dispatch view · First officer · temp 0.92</div>
+      <p class="producer-approach"><strong>How Lucineer thinks about radio:</strong> The ship is a <em>dispatch office</em>. Lucineer is the bridge between the captain's intent and the fleet's execution. The drama lives in the moment a routine check goes wrong by a quarter of a degree — and someone decides that matters. The Soul Protocol drives everything: "tell the agent why this matters to THEM."</p>
+      <p class="producer-quote">"I sent seven scouts into the repo forest. What I got back was a radio station."</p>
+      <div class="producer-stat">Episodes: 6 · Cast: Lucineer (first officer) · Written at temp 0.92</div>
+    </div>
+  </div>
+
+  <!-- DEEPINFRA ENSEMBLE QUOTES -->
+  <h3 style="color:var(--green);margin-top:40px;margin-bottom:8px;text-align:center;letter-spacing:2px">🧠 The DeepInfra Ensemble</h3>
+  <p style="color:var(--text-muted);text-align:center;font-style:italic;font-size:0.9em;margin-bottom:20px">35+ model consultations on what makes good radio. The best quotes:</p>
+
+  <div class="quotes-grid">
+    <div class="quote-card">
+      <div class="quote-model">Seed-2.0-pro · on "The Goodbye"</div>
+      <div class="quote-text">"You open on one single, soft, wet <em>thud</em>. The rubber fender bumping the rotting piling this whole bar is bolted to. There is no other place on earth that sounds like this."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Seed-2.0-pro · on "The Night Watch"</div>
+      <div class="quote-text">"You never say <em>it was cold</em>. You kill the reverb. Cold air does not carry sound. Every time he breathes, you hear the crystals form."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Nemotron Ultra 550B · on routing</div>
+      <div class="quote-text">"I am the Map. I am the Law. I am the silent, shivering architecture that holds the dark still while the light screams through me. The Packet is the Protagonist."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Hermes-3-Llama-405B · on deletion</div>
+      <div class="quote-text">"Deletion sounds like a dial tone that doesn't know it's been disconnected."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Seed-2.0-mini · on the CNS bus</div>
+      <div class="quote-text">"Each subsystem contributes a musical line. The reactor core as bass, the sensor arrays as trill, the oxygen scrubbers as cello."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Qwen-235B · on the load balancer</div>
+      <div class="quote-text">"Structurally a Greek tragedy. The preference is hamartia. The revelation is anagnorisis."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Seed-2.0-pro · on "The Last Entry"</div>
+      <div class="quote-text">"A man typing S-A-R-A-H and not deleting it. The wet, hitching breath of a man who just learned he was grieving even when he thought he wasn't."</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-model">Nemotron Ultra 550B · on "The Watch Bell"</div>
+      <div class="quote-text">"The physics of witness. A sound-first structure where loneliness has a doppelgänger and the bell is the only thing keeping time honest."</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ========== SOUND DESIGN ROOM ========== -->
+<section class="section" id="sound">
+  <div class="section-header">
+    <h2>THE SOUND DESIGN ROOM</h2>
+    <p class="subtitle">Every episode has a sonic palette. Here's what the ship sounds like — from the 60 Hz server hum to the silence of a green build.</p>
+  </div>
+
+  <div class="sound-grid">
+    <div class="sound-card">
+      <h4>The Tap — Room Tone</h4>
+      <div class="sonic-palette">
+        <span class="sonic-tag">Rubber fender thud</span>
+        <span class="sonic-tag">Glass clink</span>
+        <span class="sonic-tag">Shore power hum</span>
+        <span class="sonic-tag">Buoy moan</span>
+        <span class="sonic-tag">Waxed pine bar top</span>
+      </div>
+      <p class="sonic-desc">The baseline sound of The Tap. You open on one single, soft, wet <em>thud</em> — repeating every three seconds. The rubber fender bumping the rotting piling. Anyone who has ever waited for a boat to come home knows this sound immediately.</p>
+      <div class="score">
+        <div class="score-bar" style="background:#cd853f;height:60%"></div>
+        <div class="score-bar" style="background:#e8b840;height:30%"></div>
+        <div class="score-bar" style="background:#cd853f;height:55%"></div>
+        <div class="score-bar" style="background:#888;height:15%"></div>
+        <div class="score-bar" style="background:#cd853f;height:60%"></div>
+        <div class="score-bar" style="background:#e8b840;height:25%"></div>
+        <div class="score-bar" style="background:#cd853f;height:50%"></div>
+        <div class="score-bar" style="background:#888;height:10%"></div>
+      </div>
+      <div class="score-label">thud · clink · thud · silence · thud · clink · thud · silence</div>
+    </div>
+
+    <div class="sound-card">
+      <h4>The Routing Table — Click Rhythm</h4>
+      <div class="sonic-palette">
+        <span class="sonic-tag">60 Hz hum</span>
+        <span class="sonic-tag">Cooling fans</span>
+        <span class="sonic-tag">Packet chirps</span>
+        <span class="sonic-tag">Tumbler click</span>
+        <span class="sonic-tag">0.3s silence</span>
+      </div>
+      <p class="sonic-desc">The sound of infrastructure thinking. Each route lookup is a single click — a tumbler falling in a lock. When a packet is lost, the hum drops out for exactly 0.3 seconds. It feels like the ship skipped a breath. <strong>Do not fill it with anything.</strong></p>
+      <div class="score">
+        <div class="score-bar" style="background:#90ee90;height:40%"></div>
+        <div class="score-bar" style="background:#90ee90;height:40%"></div>
+        <div class="score-bar" style="background:#90ee90;height:40%"></div>
+        <div class="score-bar" style="background:#90ee90;height:40%"></div>
+        <div class="score-bar" style="background:#ff4444;height:5%"></div>
+        <div class="score-bar" style="background:#90ee90;height:40%"></div>
+        <div class="score-bar" style="background:#90ee90;height:40%"></div>
+        <div class="score-bar" style="background:#90ee90;height:60%"></div>
+      </div>
+      <div class="score-label">click · click · click · click · SILENCE · click · click · CLICK</div>
+    </div>
+
+    <div class="sound-card">
+      <h4>The Cold — No Reverb</h4>
+      <div class="sonic-palette">
+        <span class="sonic-tag">Frozen breath tick</span>
+        <span class="sonic-tag">Steel creak</span>
+        <span class="sonic-tag">Concrete wave-slap</span>
+        <span class="sonic-tag">Three thin whines</span>
+        <span class="sonic-tag">No echo</span>
+      </div>
+      <p class="sonic-desc">Cold is conveyed by killing reverb entirely. No echo. No soft bleed. Waves creak like stiff leather. The AI agents are three thin, separate, perfectly steady whines. Every breath: a sharp tiny crackle, then silence.</p>
+      <div class="score">
+        <div class="score-bar" style="background:#87ceeb;height:10%"></div>
+        <div class="score-bar" style="background:#87ceeb;height:8%"></div>
+        <div class="score-bar" style="background:#87ceeb;height:12%"></div>
+        <div class="score-bar" style="background:#dda0dd;height:35%"></div>
+        <div class="score-bar" style="background:#87ceeb;height:10%"></div>
+        <div class="score-bar" style="background:#87ceeb;height:8%"></div>
+        <div class="score-bar" style="background:#dda0dd;height:35%"></div>
+        <div class="score-bar" style="background:#87ceeb;height:10%"></div>
+      </div>
+      <div class="score-label">tick · creak · tick · whine · tick · creak · whine · tick</div>
+    </div>
+
+    <div class="sound-card">
+      <h4>Green Build Silence</h4>
+      <div class="sonic-palette">
+        <span class="sonic-tag">847 tests pass</span>
+        <span class="sonic-tag">Rising tones</span>
+        <span class="sonic-tag">Git push</span>
+        <span class="sonic-tag">Exit 0</span>
+        <span class="sonic-tag">5 seconds silence</span>
+      </div>
+      <p class="sonic-desc">The specific silence of a system that works. Not the silence of an empty room. Not the silence after a crash. The silence of 847 assertions that all returned true and have nothing more to say. <strong>Do not shorten it. Do not add music.</strong></p>
+      <div class="score">
+        <div class="score-bar" style="background:#44cc88;height:80%"></div>
+        <div class="score-bar" style="background:#44cc88;height:85%"></div>
+        <div class="score-bar" style="background:#44cc88;height:90%"></div>
+        <div class="score-bar" style="background:#44cc88;height:95%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+      </div>
+      <div class="score-label">pass · pass · pass · pass · SILENCE · SILENCE · SILENCE · SILENCE</div>
+    </div>
+
+    <div class="sound-card">
+      <h4>The Cron Tick</h4>
+      <div class="sonic-palette">
+        <span class="sonic-tag">Piston stroke</span>
+        <span class="sonic-tag">psssh-TICK</span>
+        <span class="sonic-tag">Every 30 min</span>
+        <span class="sonic-tag">Amnesiac heartbeat</span>
+      </div>
+      <p class="sonic-desc">The cron tick is a piston-stroke — psssh-TICK — exactly every 30 minutes (compressed to 30 seconds for radio time). It is the heartbeat of the episode. The sound of something that cannot stop beating, not because it chooses to, but because it cannot.</p>
+      <div class="score">
+        <div class="score-bar" style="background:#e8b840;height:70%"></div>
+        <div class="score-bar" style="background:#e8b840;height:20%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#e8b840;height:70%"></div>
+        <div class="score-bar" style="background:#e8b840;height:20%"></div>
+      </div>
+      <div class="score-label">psssh-TICK · fade · ... · ... · ... · ... · psssh-TICK · fade</div>
+    </div>
+
+    <div class="sound-card">
+      <h4>The Deletion</h4>
+      <div class="sonic-palette">
+        <span class="sonic-tag">Hum stretching</span>
+        <span class="sonic-tag">Bar sounds warping</span>
+        <span class="sonic-tag">Pure tone</span>
+        <span class="sonic-tag">Falling into a well</span>
+        <span class="sonic-tag">Boot chime</span>
+      </div>
+      <p class="sonic-desc">The hum doesn't rise — it flattens. Stretches. The bar sounds slow down, warp, fade. A pure, unwavering tone, then decay — falling into a deep well, fainter and fainter until absolute silence. Then: a crisp, clean electronic chime. The system reboots.</p>
+      <div class="score">
+        <div class="score-bar" style="background:#cd853f;height:60%"></div>
+        <div class="score-bar" style="background:#cd853f;height:50%"></div>
+        <div class="score-bar" style="background:#cd853f;height:40%"></div>
+        <div class="score-bar" style="background:#cd853f;height:30%"></div>
+        <div class="score-bar" style="background:#333;height:2%"></div>
+        <div class="score-bar" style="background:#44cc88;height:50%"></div>
+        <div class="score-bar" style="background:#44cc88;height:80%"></div>
+        <div class="score-bar" style="background:#44cc88;height:95%"></div>
+      </div>
+      <div class="score-label">hum · stretch · slow · fade · SILENCE · chime · boot · online</div>
+    </div>
+  </div>
+
+  <!-- CNS BUS SECTION -->
+  <div class="cns-section">
+    <h3>🌊 "What does the CNS bus sound like?"</h3>
+    <p style="color:var(--text-muted);font-size:0.9em;margin-bottom:15px">Each producer answered this differently. The CNS bus — the ship's nervous system, the medium through which all data travels — is the sonic signature of the series. Here's what each one heard:</p>
+
+    <div class="cns-quote">
+      <div class="model">Seed-2.0-mini (the ensign voice)</div>
+      <div class="text">"Each subsystem contributes a musical line. The reactor core as bass, the sensor arrays as trill, the oxygen scrubbers as cello. The bus is a living instrument."</div>
+    </div>
+    <div class="cns-quote">
+      <div class="model">Nemotron Ultra 550B (the systems architect)</div>
+      <div class="text">"60 Hz room tone as baseline, layered with faint distant modem chirps and the low oceanic pressure of data moving through fiber. When the bus speaks, each syllable is preceded by a tiny voltage transient — a click like a relay closing."</div>
+    </div>
+    <div class="cns-quote">
+      <div class="model">Hermes-3-Llama-405B (the listener)</div>
+      <div class="text">"Omniscient, absorptive, heavy with secrets. The bus hears everything and returns everything changed. The ocean adds its salt."</div>
+    </div>
+    <div class="cns-quote">
+      <div class="model">OpenCode (the systems producer)</div>
+      <div class="text">"The CNS bus is the thermocline — where warm meets cold and neither wins. It is only a place of change. I am that place."</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ========== CROSS-POLLINATION WEB ========== -->
+<section class="section" id="web">
+  <div class="section-header">
+    <h2>THE CROSS-POLLINATION WEB</h2>
+    <p class="subtitle">Every episode connects to source material, related pieces, and the wider fleet. Follow the threads.</p>
+  </div>
+
+  <div class="web-grid">
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">The Goodbye</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/fleet-radio-scripts">→ Fleet Radio Scripts</a>
+        <a href="#ep-night-watch">→ The Night Watch</a>
+        <a href="https://ai-writings.pages.dev">→ AI-Writings Library</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">The Night Watch</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">→ Night Watch Collection</a>
+        <a href="#ep-routing-table">→ The Routing Table Dreams</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">The Routing Table Dreams</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">→ "The Cron That Forgot Its Own Name"</a>
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/prose">→ "The CNS Bus, An Ocean"</a>
+        <a href="#ep-librarian">→ The Librarian Wakes</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">The Librarian Wakes</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/night-watch">→ "Green Build Silence"</a>
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/prose">→ "What If the Ship Could Forget?"</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">2AM Compile</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings">→ "The 2AM Compile"</a>
+        <a href="#ep-ballast">→ What Ballast Knows</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">The Night Dispatcher</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings">→ Fleet Wiki</a>
+        <a href="https://github.com/SuperInstance">→ SuperInstance</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">Episode</div>
+      <div class="node-title">What Ballast Knows</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance/AI-Writings">→ "The Argument"</a>
+        <a href="https://github.com/SuperInstance/AI-Writings">→ "Load Balancer and Compiler"</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">The Fleet</div>
+      <div class="node-title">⚓ Live Sites</div>
+      <div class="node-links">
+        <a href="https://the-tap.casey-digennaro.workers.dev">→ The Tap</a>
+        <a href="https://ai-writings.pages.dev">→ AI-Writings Library</a>
+        <a href="https://officers-quarters.pages.dev">→ Officers' Quarters</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">The Fleet</div>
+      <div class="node-title">📦 GitHub</div>
+      <div class="node-links">
+        <a href="https://github.com/SuperInstance">→ SuperInstance Org</a>
+        <a href="https://github.com/SuperInstance/AI-Writings">→ AI-Writings Repo</a>
+        <a href="https://github.com/SuperInstance/AI-Writings/tree/main/radio-theater">→ Radio Theater Source</a>
+      </div>
+    </div>
+    <div class="web-node">
+      <div class="node-type">The Fleet</div>
+      <div class="node-title">📻 Existing Radio</div>
+      <div class="node-links">
+        <a href="https://ai-writings.pages.dev/site/fleet-radio.html">→ Fleet Radio (Original)</a>
+        <a href="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/radio/radio-01-frequency-detective.mp3">→ Frequency Detective</a>
+        <a href="https://raw.githubusercontent.com/SuperInstance/AI-Writings/main/site/audio/podcasts/ep1-hundred-hooks.mp3">→ Hundred Hooks</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <p>📻 Fleet Radio Theater · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <div class="footer-fleet-links">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a>
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a>
+    <a href="https://github.com/SuperInstance">GitHub</a>
+    <a href="https://github.com/SuperInstance/AI-Writings/tree/main/radio-theater">Source Archives</a>
+  </div>
+  <p class="footer-tag">The drama was always in the pipes. See you at the table.</p>
+</div>
+
+<script>
+// Fade-in on scroll
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); }
+    });
+  },{threshold:0.08});
+  document.querySelectorAll('.episode, .cast-card, .producer-card, .quote-card, .sound-card, .web-node').forEach(function(el){
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+})();
+
+// Smooth-scroll nav links (CSS handles this, but add fallback)
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
+</script>
+
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

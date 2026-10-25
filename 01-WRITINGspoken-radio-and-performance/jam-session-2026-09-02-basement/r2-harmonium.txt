@@ -1,0 +1,8 @@
+Bar 9: Eb4 Eb4 Eb4 | Pumping
+Bar 10: Bb4 Bb4 Ab4 Ab4 | Settling
+Bar 11: Eb4 Eb4 G4 G4 | Breathing
+Bar 12: Bb4 Bb4 Ab4 Ab4 | Humming
+Bar 13: Eb4 Eb4 Eb4 Ab4 | Dimming
+Bar 14: Bb4 Bb4 Ab4 Ab4 | Waiting
+Bar 15: Eb4 Bb4 Ab4 Eb4 | Entering
+Bar 16: WHY: As the room hushes, music blooms. (This round will be played by the harmonium, continuing the pattern from the last round.)

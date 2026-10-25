@@ -1,0 +1,9 @@
+BAR 1: rest
+BAR 2: rest
+BAR 3: [Ab2 Bb2] | rustle
+BAR 4: A2 | drip
+BAR 5: [C3 Db3] | hiss
+BAR 6: rest
+BAR 7: [Ab3 Bb3] | gurgle
+BAR 8: E3 | thud
+WHY: I join the room's symphony, adding my unique contribution to the cacophony.

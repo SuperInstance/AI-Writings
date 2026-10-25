@@ -1,0 +1,9 @@
+BAR 1: [F2 G2] | echo
+BAR 2: [C2 D2] | leak
+BAR 3: [E2 F2] | shudder
+BAR 4: rest
+BAR 5: [G2 A2] | crash
+BAR 6: [C2 D2] | murmur
+BAR 7: [F2 G2] | collapse
+BAR 8: C1 | silence
+WHY: The last low C echoes through the now still room, marking the end of the boiler's life and the beginning of a new silence.

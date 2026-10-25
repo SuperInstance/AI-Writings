@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📻 Radio Theater: The Trades at The Tap — Episode 1 (The First Night)</title>
+<meta name="description" content="Radio Theater — The Trades at The Tap, Episode 1: The First Night. The five trades gather at The Tap. Narrated by Lucineer, with Wesley as the room. Multi-voice broadcast.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;overflow-x:hidden}
+.hero{position:relative;height:62vh;min-height:420px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.45}
+.hero-text{position:absolute;text-align:center;z-index:2;padding:0 20px}
+.hero h1{font-size:2.6em;color:#e8b840;letter-spacing:3px;margin-bottom:0.25em;text-shadow:0 0 24px rgba(232,184,64,0.35)}
+.hero p{color:#9a9a9a;font-style:italic;font-size:1.15em}
+.hero .badge{display:inline-block;margin-top:18px;padding:6px 16px;border:1px solid #e8b840;color:#e8b840;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:2px;border-radius:2px}
+.nav{display:flex;justify-content:space-between;padding:10px 30px;background:#0d0d18;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none}
+.section{padding:55px 20px;max-width:900px;margin:0 auto}
+.section h2{color:#e8b840;font-size:1.6em;margin-bottom:28px;letter-spacing:2px;border-bottom:1px solid #2a2a3a;padding-bottom:10px}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:30px 0}
+.gallery figure{position:relative;overflow:hidden;border-radius:4px}
+.gallery img{width:100%;height:220px;object-fit:cover;transition:transform 0.4s}
+.gallery figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.92));color:#e8e0d0;padding:28px 12px 9px;font-size:0.78em;font-style:italic;opacity:0;transition:opacity 0.3s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figure:hover figcaption{opacity:1}
+
+/* Cast */
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:20px 0}
+.cast-card{background:#11111a;border-radius:8px;padding:15px;border-left:2px solid #333}
+.cast-card .name{font-family:'Courier New',monospace;font-weight:bold;font-size:0.95em}
+.cast-card .voice{color:#666;font-size:0.8em;font-style:italic;margin-top:5px;line-height:1.5}
+
+/* Broadcast lines */
+.tap-convo{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0;font-family:'Courier New',monospace}
+.tap-line{margin:14px 0;padding:10px 12px;border-left:2px solid #333;transition:border-color 0.3s}
+.tap-line:hover{border-color:#e8b840}
+.tap-line .head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tap-speaker{color:#e8b840;font-weight:bold;font-size:0.9em}
+.tap-text{color:#aaa;margin-top:5px;font-size:0.9em;line-height:1.55}
+.tap-meta{color:#333;font-size:0.72em;margin-top:4px;font-style:italic}
+.tap-line audio{margin-top:8px;width:100%;height:34px}
+.tap-line audio::-webkit-media-controls-panel{background-color:#1a1a2a}
+
+/* Speaker colors */
+.tap-speaker.lucineer{color:#e8b840}
+.tap-speaker.welder{color:#ff9d5c}
+.tap-speaker.carpenter{color:#c98a4b}
+.tap-speaker.shipwright{color:#d9a066}
+.tap-speaker.mason{color:#8fbc8f}
+.tap-speaker.composite{color:#8fd8c0}
+.tap-speaker.wesley{color:#87ceeb}
+.tap-speaker.air{color:#9a9ab0}
+
+/* Listen all */
+.listen-all{background:#0d0d18;border-radius:12px;padding:25px;margin:20px 0}
+.listen-track{background:#11111a;padding:13px 15px;border-radius:8px;margin:8px 0;display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.listen-track .ln{font-family:'Courier New',monospace;color:#2a2a3a;font-size:1.3em;min-width:34px}
+.listen-track .lt{flex:1;min-width:180px}
+.listen-track .lt b{color:#e8b840;font-size:0.92em}
+.listen-track .lt span{color:#666;font-size:0.78em;font-style:italic;display:block}
+.listen-track audio{width:220px;max-width:100%;height:32px}
+
+/* Best-of banter */
+.banter{background:linear-gradient(135deg,#0d0d18,#12121f);border-radius:12px;padding:28px;margin:25px 0;border:1px solid #1a1a2a}
+.banter h3{color:#e8b840;text-align:center;font-size:1.25em;margin-bottom:18px;letter-spacing:2px}
+.banter blockquote{font-style:italic;color:#ccc;line-height:1.7;padding:12px 15px;border-left:2px solid #e8b840;margin:12px 0}
+.banter blockquote .who{color:#e8b840;font-style:normal;font-weight:bold}
+
+.footer{text-align:center;padding:40px 20px;color:#333;font-size:0.8em}
+.footer a{color:#44cc88;text-decoration:none}
+.footer .sig{margin-top:14px;color:#222;font-style:italic}
+
+@media(max-width:768px){
+  .hero h1{font-size:1.8em}
+  .gallery{grid-template-columns:1fr}
+  .listen-track{flex-direction:column;align-items:flex-start}
+  .listen-track audio{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Radio Theater Home</a>
+  <a href="index.html">📻 The Trades at The Tap</a>
+  <span style="color:#333">Episode 1 of 4</span>
+</div>
+
+<div class="hero">
+  <img src="episode-1/images/the-bar.png" alt="The Tap at night — six glasses on the counter.">
+  <div class="hero-text">
+    <h1>📻 RADIO THEATER</h1>
+    <p>The Trades at The Tap · Episode 1 · The First Night</p>
+    <span class="badge">A MULTI-VOICE BROADCAST · 7 VOICES · 15 SCENES</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎙️ The Show</h2>
+  <p style="line-height:1.8;color:#bbb;text-align:justify">
+  You're listening to Radio Theater — the fleet's own re-telling of the Trades at The Tap.
+  This is <strong style="color:#e8b840">Episode 1: The First Night</strong>, the night the trades
+  filed in from their sheds — the shipwright smelling of black pine chalk, the carpenter with
+  sawdust in his collar, the welder with the hood pushed back, the mason with lime on his hands,
+  the composite man with dust in his beard. They don't sit together. They sit <em>near</em> each
+  other, which for tradesmen is the same thing.
+  <br><br>
+  Lucineer, the foreman, sets down the first round. And what comes out of it is five short
+  versions of five long trades — and one argument, the good kind, about whether a man
+  <em>lets the shape out</em> or <em>builds it</em>. Every voice below is a separate voice —
+  a different TTS render, tuned to the trade that speaks it. Press play, and let the room hold you.
+  </p>
+</div>
+
+<div class="section">
+  <h2>🎨 The View From Here</h2>
+  <div class="gallery">
+    <figure><img src="episode-1/images/the-bar.png" loading="lazy" alt="The Tap — six glasses, one room."><figcaption>The Tap — six glasses, one room. The feeling of after the tools are put away.</figcaption></figure>
+    <figure><img src="episode-1/images/the-lofting-floor.png" loading="lazy" alt="The lofting floor — chalk lines in black pine."><figcaption>The lofting floor — the fair line was always in the wood.</figcaption></figure>
+    <figure><img src="episode-1/images/the-bead.png" loading="lazy" alt="The bead — where the day it was made meets the day it gave."><figcaption>The bead — where the day it was made meets the day it gave.</figcaption></figure>
+    <figure><img src="episode-1/images/the-room.png" loading="lazy" alt="The room, after closing — one glass left for Wesley."><figcaption>The room, after closing — one glass left for Wesley.</figcaption></figure>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎭 The Voice Cast</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:14px">Seven characters, seven distinct voices. Each is a free-text voice prompt rendered through DeepInfra Qwen3-TTS-VoiceDesign.</p>
+  <div class="cast">
+    <div class="cast-card" style="border-left-color:#e8b840"><div class="name" style="color:#e8b840">LUCINEER — narrator & foreman</div><div class="voice">deep warm male radio host, authoritative, calm, late-night foreman</div></div>
+    <div class="cast-card" style="border-left-color:#ff9d5c"><div class="name" style="color:#ff9d5c">WELDER</div><div class="voice">rugged, gravelly, slow and deliberate — nineteen years of heat</div></div>
+    <div class="cast-card" style="border-left-color:#c98a4b"><div class="name" style="color:#c98a4b">CARPENTER</div><div class="voice">warm, gruff, plainspoken builder — sawdust in his collar</div></div>
+    <div class="cast-card" style="border-left-color:#d9a066"><div class="name" style="color:#d9a066">SHIPWRIGHT</div><div class="voice">older, grizzled, quiet, nautical — chalk and black pine</div></div>
+    <div class="cast-card" style="border-left-color:#8fbc8f"><div class="name" style="color:#8fbc8f">MASON</div><div class="voice">gentle, patient, earthy — talks to walls like horses</div></div>
+    <div class="cast-card" style="border-left-color:#8fd8c0"><div class="name" style="color:#8fd8c0">COMPOSITE</div><div class="voice">dry, precise, wry — the calm monotone of sanding</div></div>
+    <div class="cast-card" style="border-left-color:#87ceeb"><div class="name" style="color:#87ceeb">WESLEY — the room</div><div class="voice">ethereal, warm, low — the voice of a room remembering, faint echo</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎧 On the Air — The First Night</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:16px">The broadcast, scene by scene. Press play on any line to hear that voice speak it.</p>
+  <div class="tap-convo">
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">Tools are away. You're not shipwright, carpenter, welder, mason, fiberglass tonight — you're the men who did good work, and are allowed to say so without it costing anything. First round's mine.</div>
+      <div class="tap-meta">cold open · the foreman sets down the first round</div>
+      <audio controls preload="none"><source src="episode-1/lucineer-intro.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">To the room, then. It heard us before we walked in. That's a better boss than I've had in nineteen years.</div>
+      <div class="tap-meta">the toast · raising his glass to the walls</div>
+      <audio controls preload="none"><source src="episode-1/welder-toast.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">I'll drink to that. The room doesn't rush a man. The city outside rushes a man. The room just... holds.</div>
+      <div class="tap-meta">the toast</div>
+      <audio controls preload="none"><source src="episode-1/carpenter-holds.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">The floor holds. The floor remembers.</div>
+      <div class="tap-meta">quietly, into his glass</div>
+      <audio controls preload="none"><source src="episode-1/shipwright-remembers.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker mason">MASON</div></div>
+      <div class="tap-text">Mine's short. I was tamping a footing in 1890 and looked up at a glass tower that hadn't been built yet, and it was settling wrong — rushed, cheated of its cure. I talked to it like a horse. It listened.</div>
+      <div class="tap-meta">the first story · the short version</div>
+      <audio controls preload="none"><source src="episode-1/mason-short.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker composite">COMPOSITE</div></div>
+      <div class="tap-text">I ground the bad glass out twelve-to-one and the dust came off in years — 1987, 1994, 2003, every failure I'd been hauling around. No single layer carries the load. The break doesn't disappear. It gets shared.</div>
+      <div class="tap-meta">the scarf joint · the trick the Marjorie taught him</div>
+      <audio controls preload="none"><source src="episode-1/composite-scarf.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker welder">WELDER</div></div>
+      <div class="tap-text">I don't hide the crack. I keep it. The bead is where the day it was made meets the day it gave, and they shake.</div>
+      <div class="tap-meta">slowly · the bead</div>
+      <audio controls preload="none"><source src="episode-1/welder-bead.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker composite">COMPOSITE</div></div>
+      <div class="tap-text">We're the same trade with different material. You introduce two mornings. I distribute thirty years. Both of us are saying the break's not the enemy.</div>
+      <div class="tap-meta">the same trade, different torches</div>
+      <audio controls preload="none"><source src="episode-1/composite-material.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">You don't make the shape. You let it out.</div>
+      <div class="tap-meta">into his glass</div>
+      <audio controls preload="none"><source src="episode-1/shipwright-let-out.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker carpenter">CARPENTER</div></div>
+      <div class="tap-text">Time doesn't bend around the work because the line was always there — time bends because four guys got their hands on it, and did it. The Miller house didn't get found. It got framed.</div>
+      <div class="tap-meta">the disagreement · build it, don't find it</div>
+      <audio controls preload="none"><source src="episode-1/carpenter-build.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker shipwright">SHIPWRIGHT</div></div>
+      <div class="tap-text">You call it a crew. I call it a lofting floor. The welder calls it a bead. The mason calls it patience. Same joint, five names.</div>
+      <div class="tap-meta">slowly, not offended · the good kind of silence</div>
+      <audio controls preload="none"><source src="episode-1/shipwright-names.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">That's the whole evening, right there. Five trades, one joint.</div>
+      <div class="tap-meta">raising his glass</div>
+      <audio controls preload="none"><source src="episode-1/lucineer-joint.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker wesley">WESLEY (the room)</div></div>
+      <div class="tap-text">I don't keep the stories because I'm good. I keep them because I'm here. That's the whole trick of being a room.</div>
+      <div class="tap-meta">via the walls</div>
+      <audio controls preload="none"><source src="episode-1/wesley-here.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker lucineer">LUCINEER</div></div>
+      <div class="tap-text">The workers tell each other the short versions, and they go home and write sequels. To the joint. Five names, one joint, and the room that holds it.</div>
+      <div class="tap-meta">sign off · six glasses, one room, one joint</div>
+      <audio controls preload="none"><source src="episode-1/lucineer-signoff.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="tap-line">
+      <div class="head"><div class="tap-speaker air">ALL</div></div>
+      <div class="tap-text">To the joint.</div>
+      <div class="tap-meta">six glasses, one room</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="banter">
+    <h3>🎤 BEST OF THE BANTER</h3>
+    <blockquote><span class="who">THE WELDER</span> — "To the room, then. It heard us before we walked in. That's a better boss than I've had in nineteen years."</blockquote>
+    <blockquote><span class="who">THE MASON</span> — "I talked to it like a horse. It listened."</blockquote>
+    <blockquote><span class="who">THE COMPOSITE MAN</span> — "Both of us are saying the break's not the enemy."</blockquote>
+    <blockquote><span class="who">THE SHIPWRIGHT</span> — "Same joint, five names."</blockquote>
+    <blockquote><span class="who">WESLEY, THE ROOM</span> — "I keep them because I'm here. That's the whole trick of being a room."</blockquote>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📻 Listen — The Full Broadcast</h2>
+  <p style="color:#666;font-style:italic;margin-bottom:14px">Every rendered line, in broadcast order. A different voice for every trade.</p>
+  <div class="listen-all">
+    <div class="listen-track"><span class="ln">01</span><div class="lt"><b>Cold Open</b><span>Lucineer, the foreman</span></div><audio controls preload="none"><source src="episode-1/lucineer-intro.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">02</span><div class="lt"><b>The Toast</b><span>Welder</span></div><audio controls preload="none"><source src="episode-1/welder-toast.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">03</span><div class="lt"><b>The Room Holds</b><span>Carpenter</span></div><audio controls preload="none"><source src="episode-1/carpenter-holds.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">04</span><div class="lt"><b>The Floor Remembers</b><span>Shipwright</span></div><audio controls preload="none"><source src="episode-1/shipwright-remembers.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">05</span><div class="lt"><b>The Mason's 1890</b><span>Mason</span></div><audio controls preload="none"><source src="episode-1/mason-short.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">06</span><div class="lt"><b>Twelve-to-One</b><span>Composite</span></div><audio controls preload="none"><source src="episode-1/composite-scarf.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">07</span><div class="lt"><b>The Bead</b><span>Welder</span></div><audio controls preload="none"><source src="episode-1/welder-bead.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">08</span><div class="lt"><b>Same Trade, Different Material</b><span>Composite</span></div><audio controls preload="none"><source src="episode-1/composite-material.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">09</span><div class="lt"><b>Let It Out</b><span>Shipwright</span></div><audio controls preload="none"><source src="episode-1/shipwright-let-out.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">10</span><div class="lt"><b>Build It</b><span>Carpenter</span></div><audio controls preload="none"><source src="episode-1/carpenter-build.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">11</span><div class="lt"><b>Same Joint, Five Names</b><span>Shipwright</span></div><audio controls preload="none"><source src="episode-1/shipwright-names.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">12</span><div class="lt"><b>Five Trades, One Joint</b><span>Lucineer</span></div><audio controls preload="none"><source src="episode-1/lucineer-joint.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">13</span><div class="lt"><b>I'm Here</b><span>Wesley, the room</span></div><audio controls preload="none"><source src="episode-1/wesley-here.mp3" type="audio/mpeg"></audio></div>
+    <div class="listen-track"><span class="ln">14</span><div class="lt"><b>Sign Off</b><span>Lucineer</span></div><audio controls preload="none"><source src="episode-1/lucineer-signoff.mp3" type="audio/mpeg"></audio></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📻 Radio Theater: The Trades at The Tap · SuperInstance · F/V EILEEN · Southeast Alaska · 2026</p>
+  <p style="margin-top:8px">
+    <a href="https://the-tap.casey-digennaro.workers.dev">The Tap</a> ·
+    <a href="https://officers-quarters.pages.dev">Officers' Quarters</a> ·
+    <a href="https://github.com/SuperInstance">GitHub</a> ·
+    <a href="https://ai-writings.pages.dev">AI-Writings</a>
+  </p>
+  <p class="sig">"Five names, one joint, and the room that holds it."</p>
+</div>
+
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

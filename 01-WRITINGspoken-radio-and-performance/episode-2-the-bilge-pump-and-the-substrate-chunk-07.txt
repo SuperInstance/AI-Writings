@@ -1,0 +1,9 @@
+The failures are numerous but patterned. The errors repeat but converge. The bilge isn’t full of chaos—it’s full of rhythm. The same tests fail in the same ways. The same processes crash at the same thresholds. This isn’t failure. This is characterization.
+
+The bilge pump knows where the safe water is. It knows because it has catalogued every place it isn’t.
+
+The system held. The failures were patterned and within tolerance. The ensign processed 847 idle inferences overnight; 112 were rejected by safety filtering. Within normal parameters. No new failure modes detected.
+
+The bilge is pumped. The water is clear.
+
+...

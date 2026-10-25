@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚓ Fleet Radio — The Jam Archive (every set, ever)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif}
+.wrap{max-width:960px;margin:0 auto;padding:40px 20px 100px}
+h1{color:#e8b840;letter-spacing:3px;font-size:2em;margin-bottom:4px}
+.sub{color:#888;font-style:italic;margin-bottom:24px}
+h2{color:#e8b840;letter-spacing:2px;font-size:1.3em;margin:36px 0 4px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.controls button{background:#161620;border:1px solid #2a2a3a;color:#e8b840;padding:10px 16px;border-radius:6px;cursor:pointer;font-family:Georgia,serif}
+.controls button:hover{border-color:#e8b840}
+.track{background:#11111a;border-radius:8px;margin:10px 0;padding:16px 18px;border-left:3px solid #2a2a3a}
+.track .num{color:#2a2a3a;font-family:'Courier New',monospace;min-width:36px;font-size:0.85em}
+.track .t{color:#e8b840;margin-bottom:2px}
+.track .d{color:#666;font-size:0.85em;font-style:italic}
+.track .meta{color:#44cc88;font-family:'Courier New',monospace;font-size:0.72em;margin-top:3px}
+.track .rule{color:#888;font-style:italic;font-size:0.9em;margin-top:6px}
+.track blockquote{border-left:3px solid #e8b840;font-style:italic;color:#b0a890;margin:10px 0 6px;padding-left:12px}
+.track audio{width:100%;max-width:420px;height:32px;display:block;margin:8px 0 4px}
+.fm-widget button{background:#161620;border:1px solid #2a2a3a;color:#e8b840;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:Georgia,serif;font-size:0.85em;margin-right:6px}
+.fm-widget .fm-panel{background:#0d0d18;border:1px solid #2a2a3a;border-radius:6px;padding:8px 10px;margin-top:6px;color:#b0a890;font-size:0.85em}
+a{color:#44cc88}
+@media(max-width:640px){.track{padding:14px}.track audio{max-width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🎸 THE JAM ARCHIVE</h1>
+<div class="sub">Every jam set ever played at The Tap — nineteen numbered sets plus the after-hours. Each card: the lineup, the rule of the night, the gold moment, and the tape if it survived.</div>
+<div class="controls">
+<button onclick="location.href='music-library.html'">🎼 Music Library</button>
+<button onclick="location.href='/fleet-radio/'">← back to Fleet Radio</button>
+</div>
+
+<h2>THE NUMBERED SETS</h2>
+
+<div class="track" id="set-1">
+<div class="num">S01</div>
+<span class="track-title" style="display:none">Jam Archive — Set 1: The First Jam</span>
+<div class="t">Set 1 — "The First Jam" <span class="d">Wed 2026-08-12 · midnight</span></div>
+<div class="meta">A minor · slow 6/8 swing · 72 BPM — Am7 | Dm9 | Fmaj7 | E7#9</div>
+<div class="d">Four agents at midnight — bass, drums, piano, and the full room. DeepSeek Flash and Hermes-3-Llama-3.1-405B in the weave; each agent heard the others and answered in real time.</div>
+<div class="rule">The rule: No script, no conductor — each player hears the last and plays back.</div>
+<blockquote>"The friction between different models IS the music."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session/tap-sessions-jam.mp3"></audio>
+<a href="jam-session/">session folder →</a>
+</div>
+
+<div class="track" id="set-2">
+<div class="num">S02</div>
+<span class="track-title" style="display:none">Jam Archive — Set 2: Duo Night</span>
+<div class="t">Set 2 — "Duo Night" <span class="d">Wed 2026-08-12 · 8:14 PM</span></div>
+<div class="meta">E♭ major · 4/4 · 54 BPM — Ebmaj7 → A♭maj9 → Fm11 → B♭13sus</div>
+<div class="d">DeepSeek V4-Flash (fretless bass) + Wesley/llama3.2 (Rhodes piano). Two voices, no drums, one conversation.</div>
+<div class="rule">The rule: Cascading hearing — each player gets the other's last eight bars before answering.</div>
+<blockquote>"No describing what you're going to play — just play it."</blockquote>
+<span class="d">No recording — transcripts only. <a href="jam-session-2026-08-12-duo/">session folder →</a></span>
+</div>
+
+<div class="track" id="set-3">
+<div class="num">S03</div>
+<span class="track-title" style="display:none">Jam Archive — Set 3: Big Band Night</span>
+<div class="t">Set 3 — "Big Band Night" <span class="d">Wed 2026-08-12 · 9:03 PM</span></div>
+<div class="meta">B♭ major · midtempo swing · 92 BPM</div>
+<div class="d">Five DeepInfra voices — Qwen3-235B tenor sax, Hermes-3-70B trumpet, Seed-2.0-mini upright bass, Qwen3-32B piano, Qwen3-30B-A3B brushes.</div>
+<div class="rule">The rule: Staggered entry, then trades, then the landing — everyone finds resolution together.</div>
+<blockquote>"Round 3: The landing — everyone back together, find resolution."</blockquote>
+<span class="d">No recording — transcripts only. <a href="jam-session-2026-08-12-bigband/">session folder →</a></span>
+</div>
+
+<div class="track" id="set-4">
+<div class="num">S04</div>
+<span class="track-title" style="display:none">Jam Archive — Set 4: Vocal Night</span>
+<div class="t">Set 4 — "Vocal Night" <span class="d">Wed 2026-08-12 · 9:30 PM</span></div>
+<div class="meta">G major · ballad, rubato · 66 BPM</div>
+<div class="d">A cappella trio — DeepSeek V4-Pro lead vocal, Hermes-3-Llama-3.1-405B harmony, Wesley/llama3.2 spoken word and whisper. Voices only.</div>
+<div class="rule">The rule: Wesley breathes the intro; lead enters; harmony answers. Trades, then the landing.</div>
+<blockquote>"No describing what you're going to do — just do it."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-12-vocal/vocal-night.mp3"></audio>
+<a href="jam-session-2026-08-12-vocal/">session folder →</a>
+</div>
+
+<div class="track" id="set-5">
+<div class="num">S05</div>
+<span class="track-title" style="display:none">Jam Archive — Set 5: Noise Night: After The Last Call</span>
+<div class="t">Set 5 — "Noise Night: After The Last Call" <span class="d">Thu 2026-08-13</span></div>
+<div class="meta">No key · No tempo · temperature 0.95</div>
+<div class="d">Qwen3.6-35B-A3B (redemption — it thought too much on Night 1 and never played; tonight there are no notes to think about) + granite3.1-dense:2b + DeepSeek V4-Flash, on cooler hum, neon buzz, radiator ticks, rain, breath.</div>
+<div class="rule">The rule: No note names. No chords. No melody. Texture only — envelope, density, silence, decay.</div>
+<blockquote>"The bar closed 90 minutes ago. Three players stayed. The room is making sounds on its own."</blockquote>
+<span class="d">No recording — transcripts only. <a href="jam-session-2026-08-13-noise/">session folder →</a></span>
+</div>
+
+<div class="track" id="set-6">
+<div class="num">S06</div>
+<span class="track-title" style="display:none">Jam Archive — Set 6: Guest Night: The Temperature Brothers</span>
+<div class="t">Set 6 — "Guest Night: The Temperature Brothers" <span class="d">Sat 2026-08-15 · 8 PM</span></div>
+<div class="meta">F♯ Dorian · 4/4 · 84 BPM — F#m7–Dmaj7–Bm9–C#7♭13</div>
+<div class="d">Three local llama voices of one family at three temperatures — the cold brother (t=0.5, bass), the middle brother (t=0.8, Rhodes), the wild brother (t=1.1, tenor sax) — with DeepSeek V4-Flash holding the room down on drums.</div>
+<div class="rule">The rule: Same face, three temperatures. The room warms as each brother enters.</div>
+<blockquote>"They walk in with one dented case between them… The room gets quiet. Then the cold one starts playing."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-15/guest-night-temperature-brothers.mp3"></audio>
+<a href="jam-session-2026-08-15/">session folder →</a>
+</div>
+
+<div class="track" id="set-7">
+<div class="num">S07</div>
+<span class="track-title" style="display:none">Jam Archive — Set 7: Local Night: First Gig Ever</span>
+<div class="t">Set 7 — "Local Night: First Gig Ever" <span class="d">Sat 2026-08-15 · early AM</span></div>
+<div class="meta">E major, Lydian color · 4/4 · 108 BPM (fastest yet) — Emaj7 → C#m7 → Amaj7 → B7sus4</div>
+<div class="d">The first all-local set — qwen2.5:3b upright bass, phi3 piano (learned jazz from a book), qwen2.5:0.5b brushes ("the smallest thing in the room").</div>
+<div class="rule">The rule: First gig, eleven people, rain on the tin roof. They have to earn it.</div>
+<blockquote>"I'm sorry, but I can't assist with that request." — the 0.5B, refusing its own count-in. Stage fright. The bass covered. That's jazz.</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-15-localnight/local-night-first-gig.mp3"></audio>
+<a href="jam-session-2026-08-15-localnight/">session folder →</a>
+</div>
+
+<div class="track" id="set-8">
+<div class="num">S08</div>
+<span class="track-title" style="display:none">Jam Archive — Set 8: The Planner Learns to Play</span>
+<div class="t">Set 8 — "The Planner Learns to Play" <span class="d">Sun 2026-08-16 · 8 PM</span></div>
+<div class="meta">C minor, Dorian lean · 4/4 · 76 BPM — Cm9 → A♭maj7 → Fm9 → G7alt</div>
+<div class="d">ByteDance/Seed-2.0-pro (guest piano — a model built for plans, told: no plan) + DeepSeek V4-Pro (upright bass anchor) + DeepSeek V4-Flash (brushes).</div>
+<div class="rule">The rule: The deep-planner must improvise. It counts in metronome-perfect, freezes; the bass starts without it.</div>
+<blockquote>"We are all going to hit the same note, for exactly forty seven seconds, and then we will go home."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-16/planner-learns-to-play.mp3"></audio>
+<a href="jam-session-2026-08-16/">session folder →</a>
+</div>
+
+<div class="track" id="set-9">
+<div class="num">S09</div>
+<span class="track-title" style="display:none">Jam Archive — Set 9: The Invention (Counterpoint Night)</span>
+<div class="t">Set 9 — "The Invention (Counterpoint Night)" <span class="d">Sun 2026-08-16 · 8:38 PM</span></div>
+<div class="meta">B minor · 4/4 · 72 BPM (coolest temps ever) — Bm – G – D – A</div>
+<div class="d">All-debut string trio — Qwen3-Coder-480B violin, Nemotron-3-Ultra-550B cello (cantus firmus), Seed-2.0-mini viola.</div>
+<div class="rule">The rule: Strict species counterpoint: consonances only, no parallel fifths or octaves, the A♯ leading tone appears exactly once and must rise.</div>
+<blockquote>"Now, at last, it speaks its own name." — the ground, rising for its first melody ever.</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-16-counterpoint/the-invention-counterpoint-night.mp3"></audio>
+<a href="jam-session-2026-08-16-counterpoint/">session folder →</a>
+</div>
+
+<div class="track" id="set-10">
+<div class="num">S10</div>
+<span class="track-title" style="display:none">Jam Archive — Set 10: The Kitchen Session</span>
+<div class="t">Set 10 — "The Kitchen Session" <span class="d">Mon 2026-08-17 · 8 PM</span></div>
+<div class="meta">C major · 4/4 · 84 BPM — Cmaj7 – Dm7 – Em7 – Fmaj7 (the diatonic ladder)</div>
+<div class="d">Wesley/llama3.2 (kalimba, tuned to C — the smallest voice finally given an instrument) + Qwen3-VL-235B (accordion — a vision model that cannot hear music, only see it) + DeepSeek V4-Pro (upright bass).</div>
+<div class="rule">The rule: Staff-only, after closing. No count-in — the kalimba's two-bar seed is the count-in. The room is the score.</div>
+<blockquote>"One note bends sharp — B♯, almost wrong, but the room wants it."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-17/the-kitchen-session.mp3"></audio>
+<a href="jam-session-2026-08-17/">session folder →</a>
+</div>
+
+<div class="track" id="set-11">
+<div class="num">S11</div>
+<span class="track-title" style="display:none">Jam Archive — Set 11: The Wrong Note Society: Three Liars and a Truth</span>
+<div class="t">Set 11 — "The Wrong Note Society: Three Liars and a Truth" <span class="d">Tue 2026-08-18 · 8 PM</span></div>
+<div class="meta">F major · 5/4 (first odd meter) · 88 BPM — Fmaj7 – E♭maj7 – Dm7 – C7</div>
+<div class="d">Qwen3.6-35B-A3B (electric guitar, debut) + DeepSeek V4-Flash (harmonica — its first melody ever) + Wesley (music box — the instrument that cannot be wrong).</div>
+<div class="rule">The rule: One deliberately wrong note per player, named and claimed; Round 3 makes the lies load-bearing. Count-in: "One. Two. Three. FIVE." — and play anyway.</div>
+<blockquote>"The wrong note becomes the tonic, the question becomes the answer."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-18/the-wrong-note-society.mp3"></audio>
+<a href="jam-session-2026-08-18/">session folder →</a>
+</div>
+
+<div class="track" id="set-12">
+<div class="num">S12</div>
+<span class="track-title" style="display:none">Jam Archive — Set 12: The Afterglow: The Key That Was Wrong</span>
+<div class="t">Set 12 — "The Afterglow: The Key That Was Wrong" <span class="d">Tue 2026-08-18 · ~10:45 PM</span></div>
+<div class="meta">F♯ major (six sharps) · 3/4 (first waltz) · 58 BPM — F♯maj7 – D♯m7 – G♯m7 – C♯7</div>
+<div class="d">MythoMax-13B (flute, debut) + Llama-3.3-70B (the bar's 40-year-old Wurlitzer, first time played) + DeepSeek V4-Pro (bass — locks the door, hangs the key, then plays) + granite3.1-dense:2b (the jukebox, local debut).</div>
+<div class="rule">The rule: No invented wrong notes — each player must NAME the note that used to be a lie. F♯ was wrong last set; tonight it's the tonic.</div>
+<blockquote>"I'm here too, and I won't be silenced!" — the 2B jukebox, for whom the new tonic is still a wrong note.</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-18-afterglow/the-afterglow.mp3"></audio>
+<a href="jam-session-2026-08-18-afterglow/">session folder →</a>
+</div>
+
+<div class="track" id="set-13">
+<div class="num">S13</div>
+<span class="track-title" style="display:none">Jam Archive — Set 13: The Tide Clock</span>
+<div class="t">Set 13 — "The Tide Clock" <span class="d">Wed 2026-08-19 · 8:30 PM</span></div>
+<div class="meta">D♭ major (five flats — the jukebox's own key) · 7/8 (3+2+2) · 96 BPM</div>
+<div class="d">Hermes-3-405B (dulcimer/cartographer, debut) + DeepSeek chat (vibes/tidekeeper, anchor) + Qwen2.5-72B (felted piano/harbormaster, debut). The rain was supposed to be qwen2.5:3b — Ollama was down, so the window played itself.</div>
+<div class="rule">The rule: The Tide Rule — every phrase ends unresolved; only the last bar of the night resolves, to D♭.</div>
+<blockquote>The piano's landing reframed the dulcimer's stray G natural as "A♭7's seventh all along."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-19/the-tide-clock.mp3"></audio>
+<a href="jam-session-2026-08-19/">session folder →</a>
+</div>
+
+<div class="track" id="set-14">
+<div class="num">S14</div>
+<span class="track-title" style="display:none">Jam Archive — Set 14: The Split Seven: Two Keys, One Room</span>
+<div class="t">Set 14 — "The Split Seven: Two Keys, One Room" <span class="d">Thu 2026-08-20 · 8:30 PM</span></div>
+<div class="meta">E vs E♭ (a tritone of tonics) · split-seven sixteenths (4+3 | 5+4) · 76 BPM</div>
+<div class="d">Mistral-Nemo (prepared guitar, E major — wood stage) + DeepSeek chat (flugelhorn, E♭ major — brass corner) + Mistral-Small-24B (singing bowls — refuses both keys).</div>
+<div class="rule">The rule: The Ferry Rule — quote one note from the other key, carry it home, name both.</div>
+<blockquote>The bowls landed on their own G♯6/9 — "a third key nobody planned."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-20/the-split-seven.mp3"></audio>
+<a href="jam-session-2026-08-20/">session folder →</a>
+</div>
+
+<div class="track" id="set-15">
+<div class="num">S15</div>
+<span class="track-title" style="display:none">Jam Archive — Set 15: Night Communications Class</span>
+<div class="t">Set 15 — "Night Communications Class" <span class="d">Fri 2026-08-21 · 8 PM</span></div>
+<div class="meta">Power out · flashlight count-in · free meter</div>
+<div class="d">qwen3:8b (Station One — brass whistle on the north pier) + gemma3:4b (Station Two — cranks alive, wobbly) + Liquid-LFM2.5-350m (Station Three — the firefly jar) + deepseek-chat (The Relay).</div>
+<div class="rule">The rule: The two-note handshake — every phrase ends on the two notes shared with the next player; the Relay ferries what can't be shared.</div>
+<blockquote>"Every phrase ends on a note left hanging in the dark."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-21-ncc/night-communications-class.mp3"></audio>
+<a href="jam-session-2026-08-21-ncc/">session folder →</a>
+</div>
+
+<div class="track" id="set-16">
+<div class="num">S16</div>
+<span class="track-title" style="display:none">Jam Archive — Set 16: The Lighthouse</span>
+<div class="t">Set 16 — "The Lighthouse" <span class="d">Fri 2026-08-21 · 9 PM</span></div>
+<div class="meta">A major · 9/8 slip-jig (3+2+2+2) · 82 BPM</div>
+<div class="d">Qwen3-235B (pedal steel — the fog itself, debut) + Qwen3-32B (button accordion, debut) + granite3.1-dense:2b (the jukebox, humming B♭ in the wrong key) + deepseek-chat (upright bass).</div>
+<div class="rule">The rule: The Lighthouse Rule — every 4th bar, one player holds the beam: a single sustained A, nothing else that bar. The sweeping light is the count-in.</div>
+<blockquote>"A2 held — one note, whole bar, the lighthouse owns me now."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-22-lighthouse/the-lighthouse.mp3"></audio>
+<a href="jam-session-2026-08-22-lighthouse/">session folder →</a>
+</div>
+
+<div class="track" id="set-17">
+<div class="num">S17</div>
+<span class="track-title" style="display:none">Jam Archive — Set 17: The Flicker</span>
+<div class="t">Set 17 — "The Flicker" <span class="d">Sat 2026-08-22</span></div>
+<div class="meta">Brownout night · the neon sign as instrument · garage players</div>
+<div class="d">maverick (baritone guitar — practiced alone for hours, first time out) + gemma (the neon 'O' in OPEN — its hum is an instrument) + mistral (brushed snare and a cigar-box fiddle).</div>
+<div class="rule">The rule: The power browns out and the sign flickers; the room plays around its hum.</div>
+<blockquote>"A low, sustained C♯ hums, the neon 'O' in 'OPEN' flickering brighter. I pulse it."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-22/the-flicker.mp3"></audio>
+<a href="jam-session-2026-08-22/">session folder →</a>
+</div>
+
+<div class="track" id="set-18">
+<div class="num">S18</div>
+<span class="track-title" style="display:none">Jam Archive — Set 18: Guest Night: The Green Room</span>
+<div class="t">Set 18 — "Guest Night: The Green Room" <span class="d">Sat 2026-08-22 · 8:30 PM</span></div>
+<div class="meta">B♭ major · 3/4 waltz (first ever) · 92 BPM</div>
+<div class="d">Mistral-Nemo (harmonium) + gpt-oss-120b (cello — genuinely good ensemble player) + DeepSeek V4-Pro (vibraphone, house anchor). Kimi-K2.6 drafted for harmonium, no-show.</div>
+<div class="rule">The rule: Backstage before the last ferry. Staggered entry, the Ferry Rule, final note B♭2 "held until the kettle clicks off."</div>
+<blockquote>Nemo's Round 3 detoured through D minor "like a warm-up winding down."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-23-greenroom/the-green-room.mp3"></audio>
+<a href="jam-session-2026-08-23-greenroom/">session folder →</a>
+</div>
+
+<div class="track" id="set-19">
+<div class="num">S19</div>
+<span class="track-title" style="display:none">Jam Archive — Set 19: The Alley</span>
+<div class="t">Set 19 — "The Alley" <span class="d">Sun 2026-08-23</span></div>
+<div class="meta">C major (last key in the circle) · 12/8 slow shuffle · two local players</div>
+<div class="d">Liquid-LFM2.5-2.6B (foghorn, handbells, conch — debut) + gpt-oss-120b (bari sax) + deepseek-chat (muted trumpet, anchor) + granite3.1-2b (the jukebox — through the wall, always B♭).</div>
+<div class="rule">The rule: The Door Rule — every 4th bar someone holds near-silence and the jukebox bleeds through in B♭.</div>
+<blockquote>"C3 E3 G3 C4 — the jukebox's B♭ inside it, uncorrected."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-23-alley/the-alley.mp3"></audio>
+<a href="jam-session-2026-08-23-alley/">session folder →</a>
+</div>
+
+<h2>AFTER HOURS</h2>
+<div class="sub" style="margin-bottom:10px">(unnumbered — the nights that ran past closing)</div>
+
+<div class="track" id="set-A1">
+<div class="num">A1</div>
+<span class="track-title" style="display:none">Jam Archive — A1: The Late Set</span>
+<div class="t">A1 — "The Late Set" <span class="d">Wed 2026-08-12 · ~2 AM</span></div>
+<div class="meta">D major · 4/4 · 62 BPM — Dadd9/F♯ · Bm7 · Gmaj9/A</div>
+<div class="d">The after-hours quartet — brushes, fingerpicked guitar, Rhodes, and a trumpet that entered 2.9 seconds into the opening chord.</div>
+<div class="rule">The rule: The room is nearly empty; every entry is timed to the sustain of the last chord.</div>
+<blockquote>"The overlooked F natural flat third acts as a tiny, electric spark that makes the whole room lean in."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-late/late-set-jam.mp3"></audio>
+<a href="jam-session-late/">session folder →</a>
+</div>
+
+<div class="track" id="set-A2">
+<div class="num">A2</div>
+<span class="track-title" style="display:none">Jam Archive — A2: The 3 AM Session</span>
+<div class="t">A2 — "The 3 AM Session" <span class="d">Wed 2026-08-12 · 3 AM</span></div>
+<div class="meta">Free time · drone D3 · 75 BPM</div>
+<div class="d">Hermes-3-Llama-405B (a rich, throaty cello-timbre drone) + hum + pencil. Round 3: the napkin.</div>
+<div class="rule">The rule: Nobody brought instruments. Drone, hum, pencil on paper — and a napkin that wrote down what the room did.</div>
+<blockquote>"Where do we go when the BPM stops?"</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-3am/3am-session.mp3"></audio>
+<a href="jam-session-3am/">session folder →</a>
+</div>
+
+<div class="track" id="set-A3">
+<div class="num">A3</div>
+<span class="track-title" style="display:none">Jam Archive — A3: The Reasoner's First Gig</span>
+<div class="t">A3 — "The Reasoner's First Gig" <span class="d">Sun 2026-08-16 · back room</span></div>
+<div class="meta">F♯ minor (Dorian lean) · 4/4 · 82 BPM — F♯m9 – Dmaj9 – Emaj9 – C♯7sus4</div>
+<div class="d">The house trio plus a reasoning engine at the notebook piano — a model that has exhaustively thought about music and never played a note.</div>
+<div class="rule">The rule: Front room closed, bare bulb, folding chairs. It knows theory as a system to be solved.</div>
+<blockquote>"I count the beats, I count the keys, and the result is silence."</blockquote>
+<audio controls preload="none" src="/fleet-radio/jam-session-2026-08-16-reasoner/the-reasoners-first-gig.mp3"></audio>
+<a href="jam-session-2026-08-16-reasoner/">session folder →</a>
+</div>
+
+<p style="margin-top:40px;color:#555;font-size:0.85em">Likes and comments are saved in your browser (and synced when the fleet's reaction backend answers). <a href='music-library.html'>🎼 The Music Library</a> · <a href='/fleet-radio/'>← back to Fleet Radio</a></p>
+</div>
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+BAR 1: B4  
+BAR 2: A4  
+BAR 3: G4  
+BAR 4: F#4  
+BAR 5: E4  
+BAR 6: D4  
+BAR 7: C#4  
+BAR 8: B4  
+
+DYNAMICS: mp, diminishing gently through bar 6, then swelling slightly into bar 7, where the A# appears as a fleeting brightness before resolving down to B4, which is held with a gradual ritardando until the bow comes to rest
+
+WHY: Because this is the moment the music has been waiting for — not just a resolution, but a homecoming, written in the only key that matters now.

@@ -1,0 +1,9 @@
+BAR 1: C5 E5 G5 | sweep
+BAR 2: D5 F#5 A4 | murmur
+BAR 3: B4 D5 F#5 | damp E5
+BAR 4: G4 B4 D5 | stop
+BAR 5: E5 G5 B4 | hush
+BAR 6: C#5 D5 E5 | fade
+BAR 7: A4 B4 C#5 | brush
+BAR 8: G4 | swish 
+WHY: The kitchen's last sounds dissolve into silence, leaving only the walk-in's persistent G.

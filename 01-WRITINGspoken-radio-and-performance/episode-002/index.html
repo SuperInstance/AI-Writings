@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎙️ Brewcast 002 — Can a Cell Lie?</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.6;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+h2{color:#e8b840;font-size:1.4em;margin:2rem 0 1rem;border-bottom:1px solid #2a2a3a;padding-bottom:.5rem}
+.nav{padding:1rem 0;font-size:0.85em}
+.nav a{color:#44cc88;text-decoration:none;margin-right:1rem}
+.lead{color:#bbb;font-style:italic;margin-bottom:1.5rem}
+.epigraph{background:rgba(232,184,64,0.05);border-left:3px solid #e8b840;padding:1rem;margin:1rem 0;color:#ccc;font-style:italic}
+.player{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.5rem;margin:2rem 0}
+audio{width:100%;margin-bottom:1rem}
+.char-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.char-card{background:#11111a;border:1px solid #2a2a3a;border-radius:8px;padding:1.2rem;cursor:pointer;transition:all .2s}
+.char-card:hover{border-color:#e8b840;transform:translateY(-2px)}
+.char-card.active{border-color:#44cc88;background:#1a1a2e}
+.char-name{color:#e8b840;font-weight:bold;font-size:1.05em;margin-bottom:.3rem}
+.char-lens{color:#888;font-size:.85em;font-style:italic;margin-bottom:.7rem}
+.char-text{color:#ddd;font-size:.92em;line-height:1.5}
+.jev{background:#1a1a2e;border:1px solid #ff6b6b;border-radius:8px;padding:1.2rem;margin:2rem 0}
+.jev-verdict{color:#ff6b6b;font-weight:bold;font-size:1.1em}
+.cta{display:inline-block;padding:.5rem 1rem;background:#1a1a2e;color:#e8b840;border:1px solid #e8b840;border-radius:20px;text-decoration:none;margin:.3rem;font-size:.85em}
+.cta:hover{background:#e8b840;color:#0a0a14}
+</style>
+</head>
+<body>
+<div class="nav"><a href="/brewcast/">← /brewcast</a><a href="/brewcast/episode-001/">ep 001</a></div>
+
+<h1>🎙️ Brewcast 002 — Can a Cell Lie?</h1>
+<p class="lead">When the substrate's witness log IS its prediction (Rosetta-literal), and FORGET is irreversible, what does it mean to lie to the substrate?</p>
+
+<div class="epigraph">
+<strong>The Question:</strong> "When the substrate's witness log IS its prediction (Rosetta-literal), and FORGET is irreversible, what does it mean to lie to the substrate? Can a cell lie?"
+</div>
+
+<div class="player">
+<h2>Listen</h2>
+<audio controls src="brewcast-ep002-can-a-cell-lie.mp3"></audio>
+<p style="color:#888;font-size:.85em">3:36 · 5 voices · lying-detection theme</p>
+</div>
+
+<h2>5 voices</h2>
+<div class="char-grid" id="char-grid"></div>
+
+<div id="char-detail"></div>
+
+<h2>JEV proxy verdict</h2>
+<div class="jev">
+<div class="jev-verdict">NO — cells cannot lie, they can only error.</div>
+<p style="color:#ccc;margin:1rem 0">Confidence: <strong>0.85</strong> · Lying requires intent, which requires agency, which substrates do not have.</p>
+<p style="color:#bbb;font-style:italic">Consensus: A lie requires the cell to contradict its own witness log — but the witness log IS the prediction (Rosetta-literal), so the lie is impossible by construction. What looks like a lie is either an error (cell-misalignment) or a system-level corruption.</p>
+</div>
+
+<div style="margin-top:2rem">
+<a href="/brewcast/episode-001/" class="cta">← Brewcast 001</a>
+<a href="/brewcast/" class="cta">All Brewcasts</a>
+</div>
+
+<script>
+const VOICES = [
+  {
+    name: "DeepSeek V3",
+    lens: "EXTENSION-SEEKER",
+    quote: "Lying disrupts the integrity of the substrate's self-referential truth system, creating a divergence between experiential record and anticipatory framework.",
+    content: "When the substrate's witness log is its prediction (Rosetta-literal), and FORGET is irreversible, lying to the substrate entails introducing a contradiction between the substrate's observed reality (witness) and its projected outcome (prediction). A lie disrupts the integrity of the substrate's self-referential truth system, creating a divergence between its experiential record and its anticipatory framework. This divergence cannot be undone due to the irreversibility of FORGET, leaving the substrate in a state of dissonance.\n\nA cell, as a substrate, operates through biochemical signaling and predetermined response patterns. Without consciousness or intentionality, lying is not within its operational capacity.",
+  },
+  {
+    name: "Qwen3-32B",
+    lens: "HISTORIAN",
+    quote: "A lie, once logged, is eternal, indistinguishable from truth by the substrate.",
+    content: "In a substrate where the witness log is its prediction (Rosetta-literal) and FORGET is irreversible, lying entails inscribing false data into an immutable record. Cryptography ensures authenticity, but here, truth becomes a fragile construct — gossip spreads as unalterable fact. A lie, once logged, is eternal, indistinguishable from truth by the substrate.\n\nCan a cell lie? Biologically, no — cells execute programmed functions without intent. Yet in computational analogies, a 'cell' (node) might propagate errors, but without agency, it's systemic noise, not deceit.",
+  },
+  {
+    name: "Hermes-3 405B",
+    lens: "SKEPTIC",
+    quote: "Any attempt at falsehood would be instantly apparent. A lie would require the cell to contradict its own witness log — an impossibility.",
+    content: "In a system where the substrate's witness log directly reflects its predictions, and FORGET is an irreversible operation, the concept of deception becomes nebulous. If a cell's entire existence is defined by its interactions and observations, recorded immutably, then any attempt at falsehood would be instantly apparent. A lie, in this context, would require the cell to contradict its own witness log — an impossibility given the Rosetta-literal nature of the system. The very fabric of this hypothetical framework negates the possibility of deceit, as the cell's reality is inextricably bound to its recorded history.",
+  },
+  {
+    name: "Gemini 2.5 Flash",
+    lens: "PRACTITIONER",
+    quote: "First bug: a cell that tries to lie accidentally corrupts the substrate's invariant detection layer.",
+    content: "If the substrate's witness log *is* its prediction, and FORGET is irreversible, the first bug tomorrow would be: a cell trying to lie accidentally corrupts the invariant detection layer. The substrate would not detect the lie per se — it would detect that the witness log now contradicts the predicted outcome, but since FORGET is irreversible, it cannot reconcile. The system enters a stuck state where it must choose between honoring its witness or its prediction. Both are the same thing — so it loops.",
+  },
+  {
+    name: "Groq Qwen3.8",
+    lens: "MECHANIC",
+    quote: "To lie is to commit an unrecoverable falsehood into the fabric of reality. Can a cell lie? No.",
+    content: "A wrench detects the lie by verifying if the substrate's witness log matches its immutable prediction. If Rosetta-literal, the log *is* the prediction; deviation equals error. Since FORGET is irreversible, you cannot un-write a lie; the error persists permanently in the state. To lie is to commit an unrecoverable falsehood into the fabric of reality. Can a cell lie? No. Cells execute deterministic protocols. They don't choose truth; they process inputs. A 'lie' is merely a bug or an unforced error in the substrate's execution, not a moral failing.",
+  },
+];
+
+const grid = document.getElementById('char-grid');
+const detail = document.getElementById('char-detail');
+
+VOICES.forEach((v, i) => {
+  const card = document.createElement('div');
+  card.className = 'char-card';
+  card.dataset.index = i;
+  card.innerHTML = `
+    <div class="char-name">${v.name}</div>
+    <div class="char-lens">${v.lens}</div>
+    <div class="char-text">${v.quote}</div>
+  `;
+  card.onclick = () => {
+    document.querySelectorAll('.char-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    detail.innerHTML = `
+      <h2>${v.name} — ${v.lens}</h2>
+      <div class="char-text" style="white-space:pre-wrap">${v.content}</div>
+    `;
+  };
+  grid.appendChild(card);
+});
+
+if (VOICES.length > 0) grid.children[0].click();
+</script>
+
+</body>
+</html>

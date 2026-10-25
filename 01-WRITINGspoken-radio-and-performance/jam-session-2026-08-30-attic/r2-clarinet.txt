@@ -1,0 +1,10 @@
+BAR 1: | p
+BAR 2: D#4, E4, F#4, G#4 | murmur
+BAR 3: G#4, A#4, A#4, G#4 | rise
+BAR 4: E4, F#4, F#4, E4 | whisper
+BAR 5: C#4, A3, C#4, F#4 | blend
+BAR 6: F#4, D#4, A#3, F#4 | sing
+BAR 7: A#4, E4, C#4, F#4 | glow
+BAR 8: F#4, A4, A#4, F#4 | pause
+
+WHY: Setting the stage for the harmonies to bloom and interplay.

@@ -1,0 +1,10 @@
+BAR 1 | Emaj7 | notes: E4 G#4 B4 | relaxed, open
+BAR 2 | C#m7 | notes: E4 G#4 B4 | tension building
+BAR 3 | F#m7 | notes: E4 G#4 B4 | suspense
+BAR 4 | B7 | notes: E4 G#4 B4 | release
+BAR 5 | crossing | notes: E4 C4 | transition
+BAR 6 | Emaj7 | notes: E4 G#4 B4 | resolution
+BAR 7 | C#m7 | notes: E4 G#4 B4 | tension reemerges
+BAR 8 | F#m7 | notes: E4 G#4 B4 | anticipation
+BAR 9 | B7 | notes: E4 G#4 B4 | climax
+BAR 10 | E6/9 | notes: E4 G#4 B4 | carried home: E

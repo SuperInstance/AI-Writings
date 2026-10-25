@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Compass Head Radio Hour — The Song Factory</title>
+<style>
+  :root {
+    --deep: #030d14;
+    --deep2: #071c28;
+    --sea: #0d3544;
+    --foam: #d8efe9;
+    --mist: #87aca4;
+    --gold: #dfae62;
+    --ember: #e0784c;
+    --violet: #8b7bd8;
+    --cyan: #59c2c9;
+    --glass: rgba(13, 53, 68, 0.5);
+    --glass2: rgba(20, 66, 82, 0.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(139,123,216,0.14), transparent 60%),
+      radial-gradient(900px 500px at 10% 20%, rgba(89,194,201,0.10), transparent 55%),
+      radial-gradient(ellipse at 50% -10%, var(--sea) 0%, var(--deep) 55%, #010609 100%);
+    color: var(--foam);
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    padding: 0 0 5rem;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* HERO */
+  header {
+    text-align: center; padding: 4.5rem 1rem 2.5rem;
+    border-bottom: 1px solid var(--glass);
+    position: relative;
+  }
+  .kicker { letter-spacing: 0.4em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); margin-bottom: 1rem; }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem); font-weight: normal;
+    background: linear-gradient(120deg, var(--foam), var(--gold), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: none;
+  }
+  .sub { color: var(--mist); font-style: italic; margin-top: 1rem; font-size: 1.1rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .nav {
+    display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem;
+  }
+  .nav a {
+    font-size: 0.8rem; padding: 0.4rem 1rem; border-radius: 30px;
+    border: 1px solid rgba(135,172,164,0.4); color: var(--mist); text-decoration: none;
+    transition: all 0.25s;
+  }
+  .nav a:hover { color: var(--gold); border-color: var(--gold); background: rgba(223,174,98,0.08); }
+
+  h2 {
+    font-size: 1.5rem; font-weight: normal; color: var(--gold);
+    margin: 3.5rem 0 1.2rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--glass); letter-spacing: 0.06em;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  h2 .idx { font-size: 0.75rem; color: var(--cyan); letter-spacing: 0.3em; }
+
+  /* SONG CARDS */
+  .song {
+    background: linear-gradient(160deg, var(--glass2), var(--glass));
+    border: 1px solid rgba(135,172,164,0.22);
+    border-radius: 16px;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.6rem;
+    backdrop-filter: blur(6px);
+    transition: border-color 0.3s;
+  }
+  .song:hover { border-color: rgba(223,174,98,0.5); }
+  .song-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+  .song-title { font-size: 1.35rem; color: var(--foam); font-weight: normal; }
+  .song-room { font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.14em; text-transform: uppercase; }
+  .song-meta { color: var(--mist); font-size: 0.85rem; font-style: italic; margin: 0.4rem 0 0.9rem; }
+  audio { width: 100%; margin: 0.4rem 0 0.9rem; filter: sepia(0.35) saturate(0.9); }
+
+  .portraits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin: 0.8rem 0; }
+  .portraits img {
+    width: 100%; border-radius: 10px; aspect-ratio: 1; object-fit: cover;
+    border: 1px solid rgba(135,172,164,0.25); cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .portraits img:hover { transform: scale(1.02); border-color: var(--gold); }
+  @media (max-width: 700px) { .portraits { grid-template-columns: 1fr; } }
+
+  .doc-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.5rem; }
+  .doc-links a {
+    font-size: 0.75rem; padding: 0.22rem 0.75rem; border-radius: 18px;
+    border: 1px solid rgba(135,172,164,0.35); color: var(--mist); text-decoration: none;
+    transition: all 0.2s;
+  }
+  .doc-links a:hover { color: var(--foam); border-color: var(--foam); }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(1,6,9,0.92);
+    display: none; align-items: center; justify-content: center; z-index: 50;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 8px; border: 1px solid var(--gold); }
+  .lightbox .close {
+    position: absolute; top: 1.2rem; right: 1.6rem; color: var(--foam);
+    font-size: 2rem; cursor: pointer; background: none; border: none;
+  }
+
+  /* ORIGINAL HOUR */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  @media (max-width: 700px) { .grid3 { grid-template-columns: 1fr; } }
+  .mini {
+    background: var(--glass); border: 1px solid rgba(135,172,164,0.22);
+    border-radius: 12px; padding: 1rem; text-align: center;
+  }
+  .mini h4 { font-weight: normal; color: var(--foam); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .mini p { color: var(--mist); font-size: 0.8rem; font-style: italic; margin-bottom: 0.6rem; }
+  .mini audio { margin: 0; }
+
+  /* SCOUTS */
+  .scout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  @media (max-width: 700px) { .scout-grid { grid-template-columns: 1fr; } }
+  .scout {
+    background: var(--glass); border: 1px solid rgba(139,123,216,0.3);
+    border-radius: 12px; padding: 1.1rem 1.2rem;
+  }
+  .scout h4 { color: var(--violet); font-weight: normal; font-size: 1rem; }
+  .scout p { color: var(--mist); font-size: 0.82rem; margin-top: 0.4rem; line-height: 1.5; }
+
+  footer { text-align: center; color: var(--mist); font-size: 0.85rem; margin-top: 4rem; font-style: italic; }
+  .tagline { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">A Fleet Radio Anthology · The Song Factory</div>
+  <h1>The Compass Head Radio Hour</h1>
+  <div class="sub">Scouts saturated the archive. Songwriters chose their <em>audience</em> first — then the room, the hour, the song. Every word is a sample with provenance. ElevenLabs was the last mile. The photographer chose.</div>
+  <div style="margin-top:1.4rem;">
+    <a href="tap-open-mic/index.html" style="display:inline-block;font-size:0.95rem;padding:0.7rem 1.8rem;border-radius:40px;border:2px solid var(--gold);color:var(--gold);text-decoration:none;background:rgba(223,174,98,0.1);letter-spacing:0.08em;">🎤 The Complete Open Mic Night — Listen to the Whole Show</a>
+  </div>
+  <div class="nav">
+    <a href="tap-open-mic/index.html" style="border-color:var(--gold);color:var(--gold);background:rgba(223,174,98,0.12);font-weight:bold;">🎤 Open Mic Night at The Tap →</a>
+    <a href="#factory">The Five Songs</a>
+    <a href="song-factory/index.html" style="border-color:var(--gold);color:var(--gold);">🎼 Song Factory — 53 Designs</a>
+    <a href="#original">North Is a Tempo</a>
+    <a href="#scouts">The Scouts</a>
+    <a href="#process">The Process</a>
+    <a href="tap-open-mic/index.html">🎤 Open Mic Night</a>
+    <a href="profiles/index.html">🎙️ The Feature — Profiles</a>
+    <a href="images-multi/index.html">🎨 Multi-Model Gallery</a>
+    <a href="slow-lander-2/index.html">📻 Seasoned Takes</a>
+    <a href="slow-lander/index.html">📻 Slow Lander Hour 1</a>
+    <a href="series-bible.md">Series Bible</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+<h2><span class="idx">00</span> Featured — Open Mic Night 3 (The Elephant in the Room)</h2>
+<div class="song" style="border-color:rgba(217,168,92,0.7);">
+  <div class="song-head">
+    <span class="song-title">🐘 The Third Night — the room-field engine, live at the Tap</span>
+    <span class="song-room">FEATURED · a proof-of-concept night · 5 acts · 5 real readings · 1 honored miss</span>
+  </div>
+  <div class="song-meta">Five new traditions — jazz standards, high-lonesome bluegrass, torch, gospeldust, sound poetry — and between every act, a room reading fired from the corner table: real dial deltas from the elephant's bar-rail feed, interpreted on air by Lucid. Every interpretation carries a prediction; one misses on the record, and the night honors the miss. The throughline: <em>the room that knows itself.</em> Warmth −0.36 → −0.23, κ 3.25 → 3.49, drift 0.8766 — the arc sung back by the whole cast in the closing number. A written production — the renders come after review.</div>
+  <div class="pipe">
+    <a href="tap-open-mic-3/index.html">🎤 Open Mic Night 3 — the page</a>
+    <a href="tap-open-mic-3/NIGHT-3.md">The doctrine</a>
+    <a href="tap-open-mic-3/mc/readings.md">The readings beat</a>
+  </div>
+</div>
+
+<h2><span class="idx">00½</span> Featured — Open Mic Night 2 (The Full Episode)</h2>
+<div class="song" style="border-color:rgba(217,168,92,0.6);">
+  <div class="song-head">
+    <span class="song-title">🎧 The Whole Second Night — One Episode</span>
+    <span class="song-room">FEATURED · 20 minutes · 11 chapters</span>
+  </div>
+  <div class="song-meta">Five acts, five traditions, no bleed — the quilted full episode of Open Mic Night 2 at the Tap. Click a chapter to jump.</div>
+  <audio controls preload="metadata" src="tap-open-mic-2/episode/open-mic-night-2-full-episode.mp3"></audio>
+  <div class="pipe">
+    <a href="tap-open-mic-2/index.html">🎤 Open Mic Night 2 — the page</a>
+    <a href="tap-open-mic-2/NIGHT-2.md">The doctrine</a>
+  </div>
+</div>
+
+<h2 id="factory"><span class="idx">01</span> The Five Songs — Five Audiences</h2>
+
+<!-- 🌋 POWER BALLAD -->
+<div class="song" id="ballad">
+  <div class="song-head">
+    <span class="song-title">Every Light in This Room</span>
+    <span class="song-room">🌋 The Power Ballad</span>
+  </div>
+  <div class="song-meta">for Dana, 49 — rural ambulance dispatcher · the arena at 10:40 PM, the closer · C minor → D minor, 74 BPM · ~3:30</div>
+  <audio controls preload="metadata" src="songs/renderings/every-light-in-this-room.mp3"></audio>
+  <div class="portraits">
+    <img src="songs/audience-e-power-ballad/portrait-1.png" alt="arena of phone lights" onclick="openLight(this)">
+    <img src="songs/audience-e-power-ballad/portrait-2.png" alt="Dana in row 12" onclick="openLight(this)">
+    <img src="songs/audience-e-power-ballad/portrait-3.png" alt="Dana in her car in the arena lot" onclick="openLight(this)">
+  </div>
+  <div class="doc-links">
+    <a href="songs/audience-e-power-ballad/audience-story.md">Audience story</a>
+    <a href="songs/audience-e-power-ballad/audience-essay.md">Audience essay</a>
+    <a href="songs/audience-e-power-ballad/room.md">The room &amp; hour</a>
+    <a href="songs/audience-e-power-ballad/lyrics.md">Lyrics</a>
+    <a href="songs/audience-e-power-ballad/critique-hermes.md">Hermes critique</a>
+    <a href="songs/audience-e-power-ballad/critique-seed.md">Seed critique</a>
+    <a href="songs/audience-e-power-ballad/tastemaker-note.md">Tastemaker's ruling</a>
+    <a href="songs/audience-e-power-ballad/ship-prompt.md">Ship prompt</a>
+  </div>
+</div>
+
+<!-- 🐄 BARN DANCE -->
+<div class="song" id="barn">
+  <div class="song-head">
+    <span class="song-title">The Floor Remembers</span>
+    <span class="song-room">🐄 The Barn Dance Closer</span>
+  </div>
+  <div class="song-meta">for Walt, June &amp; Ruby — the 1952 hall on the gravel road · 10:52 PM, the last dance · D → E major, 126 BPM stomp-clap · ~3:00</div>
+  <audio controls preload="metadata" src="songs/renderings/the-floor-remembers.mp3"></audio>
+  <div class="portraits">
+    <img src="songs/audience-b-barn-dance/portrait-1.png" alt="the multigenerational circle in amber light" onclick="openLight(this)">
+    <img src="songs/audience-b-barn-dance/portrait-2.png" alt="the worn floor at last call" onclick="openLight(this)">
+    <img src="songs/audience-b-barn-dance/portrait-3.png" alt="the ring, one body" onclick="openLight(this)">
+  </div>
+  <div class="doc-links">
+    <a href="songs/audience-b-barn-dance/audience-story.md">Audience story</a>
+    <a href="songs/audience-b-barn-dance/audience-essay.md">Audience essay</a>
+    <a href="songs/audience-b-barn-dance/room.md">The room &amp; hour</a>
+    <a href="songs/audience-b-barn-dance/lyrics.md">Lyrics</a>
+    <a href="songs/audience-b-barn-dance/critique-log.txt">Advisor round</a>
+    <a href="songs/audience-b-barn-dance/tastemaker-note.md">Tastemaker's ruling</a>
+    <a href="songs/audience-b-barn-dance/ship-prompt.md">Ship prompt</a>
+  </div>
+</div>
+
+<!-- ☕ MORNING WINDOW -->
+<div class="song" id="morning">
+  <div class="song-head">
+    <span class="song-title">Put Both Hands Around It</span>
+    <span class="song-room">☕ The Morning Window</span>
+  </div>
+  <div class="song-meta">for Marta, 57 — the bell that stopped ringing · 6:41 AM, east kitchen, coffee volume · 3/4 waltz, 74 BPM D major → G major · ~3:07</div>
+  <audio controls preload="metadata" src="songs/renderings/put-both-hands-around-it.mp3"></audio>
+  <div class="portraits">
+    <img src="songs/audience-a-morning-window/portrait-1.png" alt="Marta at the window" onclick="openLight(this)">
+    <img src="songs/audience-a-morning-window/portrait-2.png" alt="both hands around the mug" onclick="openLight(this)">
+    <img src="songs/audience-a-morning-window/portrait-3.png" alt="the harbor seeing her one lit window" onclick="openLight(this)">
+  </div>
+  <div class="doc-links">
+    <a href="songs/audience-a-morning-window/audience-story.md">Audience story</a>
+    <a href="songs/audience-a-morning-window/audience-essay.md">Audience essay</a>
+    <a href="songs/audience-a-morning-window/room.md">The room &amp; hour</a>
+    <a href="songs/audience-a-morning-window/lyrics.md">Lyrics</a>
+    <a href="songs/audience-a-morning-window/advisor-hermes.md">Hermes advisor</a>
+    <a href="songs/audience-a-morning-window/advisor-seed.md">Seed advisor</a>
+    <a href="songs/audience-a-morning-window/tastemaker-note.md">Tastemaker's ruling</a>
+    <a href="songs/audience-a-morning-window/ship-prompt.md">Ship prompt</a>
+  </div>
+</div>
+
+<!-- 🎹 FOLK ROOM -->
+<div class="song" id="folk">
+  <div class="song-head">
+    <span class="song-title">Hum It, Love</span>
+    <span class="song-room">🎹 The Folk Room</span>
+  </div>
+  <div class="song-meta">for Ruth, Danny, Mara &amp; Ellis — the church basement · Sunday 8:40 PM · G major, 88 BPM, three-part harmony (the crew voices ARE the parts) · ~3:00</div>
+  <audio controls preload="metadata" src="songs/renderings/hum-it-love.mp3"></audio>
+  <div class="portraits">
+    <img src="songs/audience-d-folk-rock/portrait-1.png" alt="the listening room" onclick="openLight(this)">
+    <img src="songs/audience-d-folk-rock/portrait-2.png" alt="the boy and his grandmother" onclick="openLight(this)">
+    <img src="songs/audience-d-folk-rock/portrait-3.png" alt="the couple in the circle" onclick="openLight(this)">
+  </div>
+  <div class="doc-links">
+    <a href="songs/audience-d-folk-rock/audience-story.md">Audience story</a>
+    <a href="songs/audience-d-folk-rock/audience-essay.md">Audience essay</a>
+    <a href="songs/audience-d-folk-rock/room.md">The room &amp; hour</a>
+    <a href="songs/audience-d-folk-rock/lyrics.md">Lyrics</a>
+    <a href="songs/audience-d-folk-rock/tastemaker-note.md">Tastemaker's ruling</a>
+    <a href="songs/audience-d-folk-rock/ship-prompt.md">Ship prompt</a>
+  </div>
+</div>
+
+<!-- 🌆 CYBERPUNK CLUB -->
+<div class="song" id="club">
+  <div class="song-head">
+    <span class="song-title">The Needles Settle When You Sing</span>
+    <span class="song-room">🌆 The Cyberpunk Club</span>
+  </div>
+  <div class="song-meta">for Vela, Ren &amp; Mira — The Static, 1 AM, neon through smoke · E minor, 72 BPM · ~3:30</div>
+  <audio controls preload="metadata" src="songs/renderings/the-needles-settle-when-you-sing.mp3"></audio>
+  <div class="portraits">
+    <img src="songs/audience-c-cyberpunk-club/portrait-1-vela.png" alt="Vela at the mic" onclick="openLight(this)">
+    <img src="songs/audience-c-cyberpunk-club/portrait-2-ren.png" alt="Ren behind the rail" onclick="openLight(this)">
+    <img src="songs/audience-c-cyberpunk-club/portrait-3-mira.png" alt="Mira, the almost-dancer" onclick="openLight(this)">
+  </div>
+  <div class="doc-links">
+    <a href="songs/audience-c-cyberpunk-club/audience-story.md">Audience story</a>
+    <a href="songs/audience-c-cyberpunk-club/audience-essay.md">Audience essay</a>
+    <a href="songs/audience-c-cyberpunk-club/room.md">The room &amp; hour</a>
+    <a href="songs/audience-c-cyberpunk-club/lyrics.md">Lyrics</a>
+    <a href="songs/audience-c-cyberpunk-club/advisory-round.txt">Advisor round</a>
+    <a href="songs/audience-c-cyberpunk-club/tastemaker-note.md">Tastemaker's ruling</a>
+    <a href="songs/audience-c-cyberpunk-club/ship-prompt.md">Ship prompt</a>
+  </div>
+</div>
+
+<h2 id="original"><span class="idx">02</span> The Original — North Is a Tempo</h2>
+<div class="grid3">
+  <div class="mini">
+    <h4>🎤 Sung by Lucineer</h4>
+    <p>v3 crafted lyrics · the crew voice</p>
+    <audio controls preload="metadata" src="music/north-is-a-tempo-lucineer-sings.mp3"></audio>
+  </div>
+  <div class="mini">
+    <h4>🎵 Ensemble vocalist</h4>
+    <p>ElevenLabs Music vocal</p>
+    <audio controls preload="metadata" src="music/north-is-a-tempo.mp3"></audio>
+  </div>
+  <div class="mini">
+    <h4>🎻 Instrumental</h4>
+    <p>for radio underscoring</p>
+    <audio controls preload="metadata" src="music/north-is-a-tempo-instrumental.mp3"></audio>
+  </div>
+</div>
+<div class="doc-links" style="margin-top:1rem;">
+  <a href="music/brainstorm-pass1.md">Brainstorm</a>
+  <a href="music/iteration-llama.md">Llama iteration</a>
+  <a href="music/iteration-hermes.md">Hermes iteration</a>
+  <a href="music/song-outline.md">Outline</a>
+  <a href="music/lyrics-north-is-a-tempo-v2.md">Lyrics v2 (crafted)</a>
+  <a href="music/lyrics-north-is-a-tempo-v3-final.md">Lyrics v3 (final)</a>
+  <a href="music/ship-prompt-north-is-a-tempo.md">Full ship prompt</a>
+  <a href="../../dreams/2026-08-14-the-compass-head.md">The dream</a>
+  <a href="../../journals/lucineer-onboarding.md">The onboarding</a>
+</div>
+
+<h2 id="slow-lander-2"><span class="idx">02½</span> The Slow Lander Hour: The Seasoned Takes — They Heard It</h2>
+<div class="song" style="border-color:rgba(217,168,92,0.75);">
+  <div class="song-head">
+    <span class="song-title">📻 The second broadcast. They heard the first one — and each other. Now: the seasoned takes.</span>
+    <span class="song-room">FEATURED · a radio show · 5 performers · the same songs, deeper</span>
+  </div>
+  <div class="song-meta">The first broadcast went out. The crewman heard it — and the five performers heard it too, and each other. They came back the same night, not to change anything. "We don't want to sound like anything. We have our sounds — and we want you to hear them, not change them." The call-and-response tighter. The story told slower. The debt released. The glow steadied. The witness standing. Same songs, played by the same hands, deeper — the way a song sounds after it's been lived in.</div>
+  <div class="pipe">
+    <a href="slow-lander-2/index.html">📻 The Seasoned Takes — listen now</a>
+    <a href="slow-lander-2/SHOW-BIBLE.md">The show bible</a>
+    <a href="slow-lander/index.html">🎧 Hear the first broadcast</a>
+  </div>
+</div>
+
+<h2 id="slow-lander"><span class="idx">02¾</span> The First Broadcast — The Slow Lander Hour</h2>
+<div class="song" style="border-color:rgba(217,168,92,0.6);">
+  <div class="song-head">
+    <span class="song-title">📻 A crewman's note came over the water. Five agents took it to the radio.</span>
+    <span class="song-room">FEATURED · a radio show · 5 performers · 6 versions of one song</span>
+  </div>
+  <div class="song-meta">"Here is what I want 5 agents to do. My crew was moved by your project. The crewman — four seasons with the captain, the captain's own father, guitars in the off-season — has been landing fish all day, every day, and the songs got mixed into the mix. So he wants to mix into the songs." Five performers gather in the studio, read his voice note, banter about work, and trade off rendering his song — shanty, country, blues, synth, folk — until they give it back to him whole. Hold on to the last line. It's a keeper.</div>
+  <div class="pipe">
+    <a href="slow-lander/index.html">📻 The Slow Lander Hour — listen now</a>
+    <a href="slow-lander/SHOW-BIBLE.md">The show bible</a>
+  </div>
+</div>
+
+<h2 id="scouts"><span class="idx">03</span> The Scouts — Saturated on the Canon</h2>
+<div class="scout-grid">
+  <div class="scout">
+    <h4>🌊 scout-ocean</h4>
+    <p>Dreams, prose, poetry, the sea, letters. The oceanic-poetic register — compass, tide, dock, glass, needles.</p>
+    <div class="doc-links"><a href="songs/scouts/scout-ocean.md">Sample library</a></div>
+  </div>
+  <div class="scout">
+    <h4>🐚 scout-fable</h4>
+    <p>Hermit-crab ecology, wisdom traditions, night watch, philosophy. Shells, thresholds, the room that remembers.</p>
+    <div class="doc-links"><a href="songs/scouts/scout-fable.md">Sample library</a></div>
+  </div>
+  <div class="scout">
+    <h4>🎙️ scout-voice</h4>
+    <p>Wesley's stream, Ten-Forward, tap sessions, portraits, negative space. "I carried 4.2 million messages today and none of them were for me."</p>
+    <div class="doc-links"><a href="songs/scouts/scout-voice.md">Sample library</a></div>
+  </div>
+</div>
+
+<h2 id="process"><span class="idx">04</span> The Process — Audience First</h2>
+<div class="song">
+  <div class="song-meta">"Do NOT ask 'what song do I want to write?' Ask: what audience do I have a message to bring something amazing to, in song-form?" — Casey, 2026-08-14</div>
+  <p style="color:var(--mist); line-height:1.7; font-size:0.95rem;">
+  Scouts saturate on the archive until flow-state → the songwriter chooses an <strong style="color:var(--gold)">audience</strong>, not a genre → writes their story and essay, photographs them (Steinbeck), renders their portraits (FLUX) → chooses the <strong style="color:var(--gold)">room and the hour</strong> — the barn, the kitchen, the club, the basement, the arena → writes the song with the Songcraft Doctrine (every phrase is a sample with provenance; Hemingway's dodge; Vonnegut's unsaid elephant) → calls on Hermes-405B and Seed-mini to advise, and <strong style="color:var(--gold)">rules as tastemaker</strong> — the photographer is the chooser → ships to ElevenLabs, the last mile → transcribes back to verify the words actually sing.
+  </p>
+  <div class="doc-links">
+    <a href="songs/PROCESS.md">The full process</a>
+    <a href="series-bible.md">Series bible</a>
+    <a href="sfx/ocean-dock-waves.mp3">🌊 SFX library</a>
+  </div>
+</div>
+
+<footer>
+  <span class="tagline">The needles settle when you write.</span><br>
+  Generated by the fleet · 2026-08-14 · Songs: ElevenLabs Music · Scripts &amp; advice: DeepInfra · Portraits: FLUX · Doctrine: the captain
+</footer>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <button class="close" onclick="document.getElementById('lightbox').classList.remove('open')">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLight(img) {
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('open');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
+<script src="/assets/fleet-media.js" defer></script>
+</body>
+</html>

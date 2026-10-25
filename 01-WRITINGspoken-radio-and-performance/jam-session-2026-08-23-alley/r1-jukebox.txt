@@ -1,0 +1,17 @@
+BAR 1: C3 E3 G3 C4 E4 G4 C5 E5 G5 | Staggered
+
+BAR 2: C3 E3 G3 C4 E4 G4 C5 E5 G5 | Foghorn
+
+BAR 3: C3 E3 G3 C4 E4 G3 C4 E4 G4 | Sax
+
+BAR 4: C3 E3 G3 C4 E4 G3 C4 E4 G4 | Trumpet
+
+BAR 5: C3 E3 G3 C4 E4 G3 C4 E4 G4 | WHY: The foghorn is the count-in, marking the beginning of our song in this alley.
+
+BAR 6: C3 E3 G3 B3 D3 F3 B3 D3 F3 | Jukebox, louder in Bb
+
+BAR 7: C3 E3 G3 B3 D3 F3 B3 D3 F3 | Jukebox, louder in Bb
+
+BAR 8: C3 E3 G3 B3 D3 F3 B3 D3 F3 | WHY: The jukebox has been the heartbeat of The Tap for forty years, its presence a constant reminder of the life inside.
+
+(The door rule applied here: door held by the trumpet on Bar 4, jukebox gets louder in Bb for the following 4 bars.)

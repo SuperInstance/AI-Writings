@@ -1,0 +1,10 @@
+D2 E2 | oom-pah-pah
+F2 G2 | oom-pah-pah
+A2 B2 | oom-pah-pah
+C3 D3 | oom-pah-pah
+E3 G3 | oom-pah-pah
+A3 B3 | oom-pah-pah
+D3 E3 | oom-pah-pah
+C3 B2 | oom-pah-pah
+
+Why: The last bar is a long, sustained D2, transitioning home from the melody, emphasizing the final resolution.

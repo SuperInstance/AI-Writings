@@ -1,0 +1,19 @@
+BAR 1 (Cm9): C2 (half-note, round, patient) — rest, breathe — Eb2 (quarter, leaning forward) — G2 (quarter, soft, questioning).
+
+BAR 2 (Cm9): C2 (half-note, root with a shadow) — B1 (quarter, the lean — C-to-B, the pull toward Ab) — C2 (quarter, resolved but not finished).
+
+BAR 3 (Abmaj7): Ab1 (whole note, held long, dark as the room's corner) — let it ring, let the piano's 3rd and 7th float above it.
+
+BAR 4 (Abmaj7): Ab1 (half-note, warm) — C2 (quarter, the third, a smile) — Eb2 (quarter, the fifth, lifting).
+
+BAR 5 (Fm9): F2 (whole note, round, mid-register — the center of gravity) — hold it, let the brushes sweep around it.
+
+BAR 6 (Fm9): F2 (half-note) — Ab2 (quarter, the minor third, a sigh) — C3 (quarter, reaching up, gentle).
+
+BAR 7 (G7alt): G1 (half-note, low, dark) — B2 (quarter, the tritone lean, the question) — D3 (quarter, the tension, sharp but not loud).
+
+BAR 8 (Cm9): C2 (half-note, the answer) — B1 (quarter, the last lean, the goodbye) — C2 (quarter, the return, soft as a door closing).
+
+DYNAMICS: mezzo-piano throughout, swell only on bar 7 (the G7alt), then settle back. Never louder than a shared secret.
+
+WHY: You've walked these changes a hundred times. The C-to-B lean is the conversation — the root that whispers *I know where home is, but let me show you the way around it.* The long notes are the floor; the quarters are the questions. You're not playing the song — you're playing the space between the people who are listening to it.

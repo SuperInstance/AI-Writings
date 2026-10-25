@@ -1,0 +1,47 @@
+# ROUND 3
+
+### griddle (meta-llama/Llama-3.3-70B-Instruct-Turbo, 8s):
+BAR 1: C5 E5 G5 | sweep
+BAR 2: D5 F#5 A4 | murmur
+BAR 3: B4 D5 F#5 | damp E5
+BAR 4: G4 B4 D5 | stop
+BAR 5: E5 G5 B4 | hush
+BAR 6: C#5 D5 E5 | fade
+BAR 7: A4 B4 C#5 | brush
+BAR 8: G4 | swish 
+WHY: The kitchen's last sounds dissolve into silence, leaving only the walk-in's persistent G.
+
+### dishpit (zai-org/GLM-4.7-Flash, 8s):
+
+
+### piano (openai/gpt-oss-20b, 7s):
+
+
+### sax (mistralai/Mistral-Small-24B-Instruct-2501, 2s):
+BAR 1: B4 C#5 E5 | flicker
+BAR 2: D5 F#5 A5 | mutter
+BAR 3: G3 D4   B4  C#5 | call
+BAR 4: F#3    E5 G5, B4 | sience
+BAR 5: B4  D5  F#5 | whisper
+BAR 6: A5  C#5  E3   | die
+BAR 7: E5 A4 B4 | fall back
+BAR 8: A4 D3 G3 | broom
+WHY: The sweat stops ticking down as the walkin hums close.  The kitchen is closed for the night, except for the hum of the walk in.
+
+### steam (mistral:7b, 13s):
+B1: B4 (sax) | sweep
+B2: A#5 B5 C#5 D5 (sax) | stroke
+B3: D5 E5 F#5 G5 (sax) | swish
+B4: D5 # (dishpit) | scrape
+B5: C#5 D5 E5 F#5 (piano) | sweep
+B6: D5 E5 F#5 G#5 (piano) | damp
+B7: A4 B4 C#5 D5 (griddle) | sweep
+B8: E5 G5 B4 (griddle) | silence
+B9: G4 (walk-in) | hold
+B10: G4 (walk-in) | hum
+B11: G4 (walk-in) | breathe
+B12: G4 (walk-in) | rest
+B13: G4 (walk-in) | silence
+B14: G4 (walk-in) | hiss
+B15: G4 (walk-in) | close
+WHY: As the night winds down, the instruments and appliances of the kitchen perform their final act of unity, sweeping away the remnants of the night, leaving only the walk-in's G to hold the room together one last time before the building settles into quiet.

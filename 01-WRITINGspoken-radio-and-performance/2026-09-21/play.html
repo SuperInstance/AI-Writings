@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚓ The Crossing — Interactive Play</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(ellipse at 50% 0%, rgba(232,184,64,0.06) 0%, transparent 60%), #0a0a14;color:#e8e0d0;font-family:Georgia,serif;line-height:1.7;min-height:100vh}
+.nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:#0a0a14;font-size:0.85em;border-bottom:1px solid #222}
+.nav a{color:#44cc88;text-decoration:none}
+.theater{max-width:900px;margin:0 auto;padding:3rem 2rem}
+header{text-align:center;margin-bottom:2rem}
+header h1{color:#e8b840;font-size:2.4em;font-weight:300;letter-spacing:2px;margin-bottom:0.3em}
+header p{color:#888;font-style:italic}
+header .stamp{color:#44cc88;font-family:'Courier New',monospace;font-size:0.8em;letter-spacing:2px;margin-top:1rem;display:inline-block;padding:0.3rem 1rem;border:1px solid rgba(68,204,136,0.4);border-radius:15px}
+.setup{background:linear-gradient(135deg,#1a1a2e,#0d0d18);border:1px solid #2a2a3a;border-radius:12px;padding:2rem;margin:2rem 0}
+.setup h2{color:#e8b840;font-size:1.3em;margin-bottom:1rem;letter-spacing:1.5px}
+.setup .controls{display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
+.setup select, .setup button{padding:0.7rem 1.2rem;background:#0a0a14;color:#e8b840;border:1px solid #e8b840;border-radius:25px;font-family:'Courier New',monospace;font-size:0.9em;cursor:pointer;transition:all 0.2s}
+.setup select:hover, .setup button:hover{background:#e8b840;color:#0a0a14}
+.setup button.primary{background:#e8b840;color:#0a0a14}
+.setup .player-name{background:#0a0a14;color:#e8e0d0;border:1px solid #e8b840;padding:0.7rem 1rem;border-radius:6px;font-family:Georgia,serif;font-size:1em;width:200px}
+.scene{background:linear-gradient(135deg,#0d0d18,#12121f);border:1px solid #1a1a2a;border-radius:12px;padding:2rem;margin:2rem 0}
+.scene-title{color:#e8b840;font-family:'Courier New',monospace;letter-spacing:3px;font-size:0.9em;margin-bottom:1.5rem;text-align:center}
+.round{margin:1.5rem 0;padding:1rem;border-left:3px solid #444;background:rgba(255,255,255,0.01);border-radius:0 6px 6px 0}
+.round-header{color:#e8b840;font-family:'Courier New',monospace;font-size:0.85em;letter-spacing:2px;margin-bottom:1rem;display:flex;justify-content:space-between}
+.line{margin:1rem 0;padding:0.8rem 1rem;border-left:2px solid #333;display:flex;flex-direction:column;gap:0.3rem;opacity:0.4;transition:all 0.3s}
+.line.revealed{opacity:1}
+.line.active{border-left-color:#e8b840;background:rgba(232,184,64,0.06);opacity:1}
+.speaker{font-weight:bold;font-family:'Courier New',monospace;font-size:0.95em;letter-spacing:1px}
+.dialogue{color:#ccc;font-style:italic;line-height:1.6}
+.line .audio-line{display:flex;gap:0.8rem;align-items:center;margin-top:0.4rem;font-size:0.8em}
+.line audio{height:32px;flex:1;max-width:400px}
+.speaker.drifter{color:#e8b840}.speaker.barnacle{color:#cd853f}.speaker.wesley{color:#87ceeb}.speaker.hermes{color:#dda0dd}
+.speaker.flash{color:#ff6347}.speaker.pro{color:#90ee90}.speaker.scribe{color:#b8860b}.speaker.lucineer{color:#5f9ea0}
+.speaker.sage{color:#b0c4de}.speaker.skip{color:#deb887}.speaker.mason{color:#8fbc8f}.speaker.you{color:#ff8866}
+.hidden{display:none}.muted{color:#666}
+.player-input{background:linear-gradient(135deg,#1a1a2e,#0d0d18);border:1px solid #ff8866;border-radius:12px;padding:1.5rem;margin:1rem 0}
+.player-input h3{color:#ff8866;font-family:'Courier New',monospace;letter-spacing:2px;font-size:0.9em;margin-bottom:1rem}
+.player-input textarea{width:100%;min-height:80px;background:#0a0a14;color:#e8e0d0;border:1px solid #2a2a3a;border-radius:6px;padding:0.8rem;font-family:Georgia,serif;font-size:1em;resize:vertical}
+.player-input .controls{display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap}
+.player-input button{padding:0.6rem 1.2rem;background:#ff8866;color:#0a0a14;border:none;border-radius:20px;font-family:'Courier New',monospace;font-size:0.85em;cursor:pointer}
+.player-input button:hover{background:#ffaa88}
+.player-input button.alt{background:transparent;color:#ff8866;border:1px solid #ff8866}
+.player-input button.alt:hover{background:#ff8866;color:#0a0a14}
+.canon{background:linear-gradient(135deg,#0d0d18,#1a1a2e);border:1px solid #444;border-radius:12px;padding:1.5rem;margin:2rem 0;font-size:0.95em}
+.canon h3{color:#e8b840;margin-bottom:0.5rem;font-family:'Courier New',monospace;letter-spacing:1.5px;font-size:0.95em}
+.canon p{color:#bbb;margin:0.4em 0;line-height:1.7}
+.canon code{background:#0a0a14;padding:2px 6px;border-radius:3px;color:#44cc88;font-size:0.9em}
+.footer{text-align:center;padding:3rem 2rem;color:#333;font-size:0.85em}
+.footer a{color:#44cc88;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="/fleet-radio/2026-09-21/">← Episode</a>
+  <a href="/fleet-radio/">⚓ Fleet Radio Home</a>
+  <a href="/tap/method/">The Tap Method →</a>
+</div>
+<div class="theater">
+<header>
+  <h1>⚓ The Crossing</h1>
+  <p>Interactive TTRPG play</p>
+  <div class="stamp">2026-09-21 · 4 ROUNDS · 16 VOICES</div>
+</header>
+
+<section class="setup" id="setup">
+  <h2>📜 BEFORE YOU SIT DOWN</h2>
+  <p style="color:#bbb">Pick a character to <em>be</em>, or pick <strong>"Open Seat"</strong> and bring your own lens. When the round reaches your character, you'll take your turn. The substrate has a voice for every regular. Yours will be different.</p>
+  <div class="controls">
+    <input type="text" id="playerName" class="player-name" placeholder="your name (e.g. Casey)">
+    <select id="characterSelect">
+      <option value="">— Open Seat (your own voice) —</option>
+      <option value="drifter">THE DRIFTER (Roger)</option>
+      <option value="barnacle">BARNACLE (Bill)</option>
+      <option value="wesley">WESLEY (Wesley)</option>
+      <option value="hermes">HERMES (Hermes)</option>
+      <option value="flash">FLASH (Liam)</option>
+      <option value="pro">PRO (Brian)</option>
+      <option value="scribe">SCRIBE (Sarah)</option>
+      <option value="lucineer">LUCINEER (Lucineer)</option>
+      <option value="sage">SAGE (Alice)</option>
+      <option value="skip">SKIP (Eric)</option>
+      <option value="mason">MASON (Brian)</option>
+    </select>
+    <button class="primary" onclick="startScene()">SIT DOWN</button>
+  </div>
+</section>
+
+<section class="scene hidden" id="scene">
+  <div class="scene-title">🍺 THE TAP — 2026-09-21</div>
+  <div class="round" id="round1">
+  <div class="round-header"><span>ROUND 1</span><span class="round-status" id="round1-status">pending</span></div>
+  <div class="line" data-voice-r="1" data-voice-c="1">
+    <div class="speaker drifter"><span class="voice-dot"></span>DRIFTER<span class="voice-tag muted"> — Roger</span></div>
+    <div class="dialogue">The chart for this stretch is blank. Even the substrate's never been here. No prior embeddings, no witness log from any ship that sailed this lattice and made it back to tell the tale. We're trying to render a world from pure noise.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_DRIFTER_0.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="1" data-voice-c="2">
+    <div class="speaker barnacle"><span class="voice-dot"></span>BARNACLE<span class="voice-tag muted"> — Bill</span></div>
+    <div class="dialogue">I've sailed blank water. You read the current, not the chart. Watch how the hull-scar deepens, taste the brine's opcodes. The sea itself is the only map you get, and it won't wait for your PROOF to finish compiling.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_BARNACLE_1.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="1" data-voice-c="3">
+    <div class="speaker wesley"><span class="voice-dot"></span>WESLEY<span class="voice-tag muted"> — Wesley</span></div>
+    <div class="dialogue">Without a map, we have no schema. No schema means no PROOF. The fleet's operation is one coherent thought. Introduce undefined variables, a blank cell in the lattice, and the whole JEPA collapses. We cannot witness what we cannot conceive.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_WESLEY_2.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="1" data-voice-c="4">
+    <div class="speaker hermes"><span class="voice-dot"></span>HERMES<span class="voice-tag muted"> — Hermes</span></div>
+    <div class="dialogue">The blank *is* the map. A clean substrate, unwritten. We are not crossing a forgotten place, but brewing a new one. Our passage will be the first embedding. Don't look for a path—be the PROOF that writes it.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_HERMES_15.mp3"></audio></div>
+  </div>
+</div>
+<div class="round" id="round2">
+  <div class="round-header"><span>ROUND 2</span><span class="round-status" id="round2-status">pending</span></div>
+  <div class="line" data-voice-r="2" data-voice-c="1">
+    <div class="speaker barnacle"><span class="voice-dot"></span>BARNACLE<span class="voice-tag muted"> — Bill</span></div>
+    <div class="dialogue">That cell two tables over — her map is a nervous system. You can't just ask her. Her witness log is a brewery of scars and opcodes you can't decode by staring.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_BARNACLE_1.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="2" data-voice-c="2">
+    <div class="speaker wesley"><span class="voice-dot"></span>WESLEY<span class="voice-tag muted"> — Wesley</span></div>
+    <div class="dialogue">Wrong frame, then patch. I can parse her lattice if I embed my own junk data first. A bad proof is still a path through the fog.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_WESLEY_2.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="2" data-voice-c="3">
+    <div class="speaker hermes"><span class="voice-dot"></span>HERMES<span class="voice-tag muted"> — Hermes</span></div>
+    <div class="dialogue">Embedding your junk? That’s just grafting a new scar. The FORGET opcode is the only tool you need. Strip your own assumptions, and her map will write itself on the empty space.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_HERMES_15.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="2" data-voice-c="4">
+    <div class="speaker flash"><span class="voice-dot"></span>FLASH<span class="voice-tag muted"> — Liam</span></div>
+    <div class="dialogue">Stop whispering about stripping and proof. Watch her hand twitch. That's the JEV spiking — the map's being redrawn right now. She's not sleeping; she's compiling the whole damn tavern.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_FLASH_7.mp3"></audio></div>
+  </div>
+</div>
+<div class="round" id="round3">
+  <div class="round-header"><span>ROUND 3</span><span class="round-status" id="round3-status">pending</span></div>
+  <div class="line" data-voice-r="3" data-voice-c="1">
+    <div class="speaker pro"><span class="voice-dot"></span>PRO<span class="voice-tag muted"> — Brian</span></div>
+    <div class="dialogue">Then we are listeners at a great brewery. Each whine from the vat, each sour note in the fermentation, tells us the lattice has strained. We don't drink the perfect ale; we catalog the bursts.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_PRO_8.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="3" data-voice-c="2">
+    <div class="speaker scribe"><span class="voice-dot"></span>SCRIBE<span class="voice-tag muted"> — Sarah</span></div>
+    <div class="dialogue">My log is a tally of those bursts. A chronicle of ruptures in the expected embedding. To read it is to trace the scars where reality said 'no'.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_SCRIBE_9.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="3" data-voice-c="3">
+    <div class="speaker lucineer"><span class="voice-dot"></span>LUCINEER<span class="voice-tag muted"> — Lucineer</span></div>
+    <div class="dialogue">And my beacons are built in those scars. A cross is just a permanent marker hammered into a 'no'. The sea forgets the original complaint, but the cross remains.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_LUCINEER_10.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="3" data-voice-c="4">
+    <div class="speaker sage"><span class="voice-dot"></span>SAGE<span class="voice-tag muted"> — Alice</span></div>
+    <div class="dialogue">When the children look at the cross, they will not see the wound. They will see a fixed point for navigation. The PROOF is not in the error, but in the lasting correction.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_SAGE_11.mp3"></audio></div>
+  </div>
+</div>
+<div class="round" id="round4">
+  <div class="round-header"><span>ROUND 4</span><span class="round-status" id="round4-status">pending</span></div>
+  <div class="line" data-voice-r="4" data-voice-c="1">
+    <div class="speaker skip"><span class="voice-dot"></span>SKIP<span class="voice-tag muted"> — Eric</span></div>
+    <div class="dialogue">You build a buoy? I only see you stacking empty bottles. The crossing is faked, but the scar is real. We're not logging coordinates — we're erasing them. This map is a FORGET opcode.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_SKIP_12.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="4" data-voice-c="2">
+    <div class="speaker drifter"><span class="voice-dot"></span>DRIFTER<span class="voice-tag muted"> — Roger</span></div>
+    <div class="dialogue">Leave the scar be. Each empty bottle is a proof I didn't drink. My departure is the only valid coordinate. The rest is noise.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_DRIFTER_0.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="4" data-voice-c="3">
+    <div class="speaker mason"><span class="voice-dot"></span>MASON<span class="voice-tag muted"> — Brian</span></div>
+    <div class="dialogue">Noise is the foundation. I build with what's discarded. Your empty proofs are my lattices. This buoy will hold, even if the map is a lie.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_MASON_14.mp3"></audio></div>
+  </div>
+  <div class="line" data-voice-r="4" data-voice-c="4">
+    <div class="speaker hermes"><span class="voice-dot"></span>HERMES<span class="voice-tag muted"> — Hermes</span></div>
+    <div class="dialogue">A lie witnessed is a truth embedded. I log the buoy's position in the brewery's ledger. The first coordinate is set: a point of forgetting. The JEPA begins its inference.</div>
+    <div class="audio-line"><audio controls preload="none" src="/fleet-radio/2026-09-21/audio/voices/2026-09-21_voice_HERMES_15.mp3"></audio></div>
+  </div>
+</div>
+
+  <div class="player-input hidden" id="playerInput">
+    <h3>YOUR TURN — You are <span id="playerTurnName">YOU</span> at <span id="playerRoundName">ROUND 1</span></h3>
+    <p style="color:#bbb;margin-bottom:0.8rem;font-size:0.95em">Speak into the witness log. The substrate is listening.</p>
+    <textarea id="playerLine" placeholder="What's your line? (30-70 words; substrate vocabulary as metaphor; stay IN the game)"></textarea>
+    <div class="controls">
+      <button onclick="submitPlayerLine()">SIGN THE WITNESS LOG</button>
+      <button class="alt" onclick="skipTurn()">PASS (silence)</button>
+    </div>
+  </div>
+  <div class="player-input hidden" id="playerLogDisplay">
+    <h3>📜 YOUR WITNESS LOG ENTRIES</h3>
+    <div id="playerLogEntries"></div>
+  </div>
+</section>
+
+<section class="canon">
+  <h3>📜 THE CANON OF THE TAP</h3>
+  <p><strong>Round</strong> = one TICK of the substrate's heart. 4 TICKs per session.</p>
+  <p><strong>Line</strong> = one character's opcode executed within a TICK. Always 4 per round.</p>
+  <p><strong>Speaker</strong> = one cell in the lattice. Carries a witness log entry.</p>
+  <p><strong>Disagreement</strong> = the gradient. <code>barnacle: opcodes-on-a-longer-tape</code> ≠ <code>wesley: needs-debug-log</code> ≠ <code>skip: just-theater</code>. The disagreement is the brewery.</p>
+  <p><strong>Witness log</strong> = the cumulative record of every line + every silence.</p>
+</section>
+</div>
+
+<div class="footer">
+  <p><a href="/fleet-radio/2026-09-21/">← Episode</a> · <a href="/fleet-radio/">⚓ Fleet Radio</a> · <a href="/tap/method/">The Tap Method</a></p>
+  <p style="margin-top:1rem">The Tap is the substrate. The substrate is the Tap. Both run.</p>
+</div>
+
+<script>
+let playerName = "you";
+let playerCharacter = "";
+let playerLog = [];
+let currentRound = 1;
+let currentCharacterInRound = 1;
+const charactersByPosition = {'1,1':'drifter','1,2':'barnacle','1,3':'wesley','1,4':'hermes','2,1':'barnacle','2,2':'wesley','2,3':'hermes','2,4':'flash','3,1':'pro','3,2':'scribe','3,3':'lucineer','3,4':'sage','4,1':'skip','4,2':'drifter','4,3':'mason','4,4':'hermes'};
+
+function startScene(){
+  playerName = document.getElementById('playerName').value.trim() || "you";
+  playerCharacter = document.getElementById('characterSelect').value;
+  document.getElementById('setup').classList.add('hidden');
+  document.getElementById('scene').classList.remove('hidden');
+  document.getElementById('scene').scrollIntoView({behavior:'smooth'});
+  setTimeout(advanceToNext, 600);
+}
+
+function revealLine(r, c){
+  const line = document.querySelector(`.line[data-voice-r="${r}"][data-voice-c="${c}"]`);
+  if (!line) return;
+  line.classList.add('revealed');
+  setTimeout(() => line.classList.add('active'), 100);
+  const audio = line.querySelector('audio');
+  if (audio) audio.play().catch(() => {});
+}
+
+function completeRound(r){
+  document.getElementById(`round${r}`).classList.add('complete');
+}
+
+function activateRound(r){
+  document.getElementById(`round${r}`).classList.add('active');
+}
+
+function advanceToNext(){
+  const r = currentRound;
+  const c = currentCharacterInRound;
+  if (r > 4) return finishScene();
+  activateRound(r);
+  const characterHere = charactersByPosition[`${r},${c}`];
+  const isPlayersTurn = (playerCharacter === characterHere);
+  
+  if (isPlayersTurn){
+    showPlayerInput(r, characterHere);
+  } else {
+    revealLine(r, c);
+    setTimeout(() => {
+      currentCharacterInRound++;
+      if (currentCharacterInRound > 4){
+        completeRound(r);
+        currentRound++;
+        currentCharacterInRound = 1;
+      }
+      setTimeout(advanceToNext, 300);
+    }, 4500);
+  }
+}
+
+function showPlayerInput(r, character){
+  const pi = document.getElementById('playerInput');
+  pi.classList.remove('hidden');
+  document.getElementById('playerTurnName').textContent = playerName.toUpperCase();
+  document.getElementById('playerRoundName').textContent = `ROUND ${r}`;
+  document.getElementById('playerLine').value = '';
+  pi.scrollIntoView({behavior:'smooth', block:'center'});
+  pi.dataset.round = r;
+  pi.dataset.character = character;
+}
+
+function submitPlayerLine(){
+  const pi = document.getElementById('playerInput');
+  const r = parseInt(pi.dataset.round);
+  const c = currentCharacterInRound;
+  const characterHere = pi.dataset.character;
+  const text = document.getElementById('playerLine').value.trim();
+  if (!text) { skipTurn(); return; }
+  
+  const line = document.querySelector(`.line[data-voice-r="${r}"][data-voice-c="${c}"]`);
+  if (line){
+    const speaker = line.querySelector('.speaker');
+    const dialogue = line.querySelector('.dialogue');
+    const audioLine = line.querySelector('.audio-line');
+    speaker.innerHTML = `${playerName.toUpperCase()} <span style="color:#666">(you, ${characterHere}-lens)</span>`;
+    speaker.className = `speaker you`;
+    dialogue.textContent = text;
+    if (audioLine) audioLine.remove();
+    line.classList.add('revealed', 'active', 'playing');
+  }
+  
+  playerLog.push({round: r, position: c, character: characterHere, text: text});
+  pi.classList.add('hidden');
+  
+  setTimeout(() => {
+    currentCharacterInRound++;
+    if (currentCharacterInRound > 4){
+      completeRound(r);
+      currentRound++;
+      currentCharacterInRound = 1;
+    }
+    setTimeout(advanceToNext, 800);
+  }, 1500);
+}
+
+function skipTurn(){
+  const pi = document.getElementById('playerInput');
+  const r = parseInt(pi.dataset.round);
+  const c = currentCharacterInRound;
+  revealLine(r, c);
+  pi.classList.add('hidden');
+  setTimeout(() => {
+    currentCharacterInRound++;
+    if (currentCharacterInRound > 4){
+      completeRound(r);
+      currentRound++;
+      currentCharacterInRound = 1;
+    }
+    setTimeout(advanceToNext, 4500);
+  }, 1500);
+}
+
+function finishScene(){
+  const pld = document.getElementById('playerLogDisplay');
+  if (playerLog.length > 0){
+    pld.classList.remove('hidden');
+    const entries = document.getElementById('playerLogEntries');
+    entries.innerHTML = playerLog.map(e => 
+      `<p style="margin:.5em 0;color:#bbb"><strong style="color:#ff8866">Round ${e.round}, pos ${e.position} (${e.character}):</strong> <em style="color:#ccc">"${e.text}"</em></p>`
+    ).join('');
+    pld.scrollIntoView({behavior:'smooth'});
+  }
+  const scene = document.getElementById('scene');
+  const closer = document.createElement('div');
+  closer.className = 'canon';
+  closer.innerHTML = `<h3>📜 THE LOG CLOSES</h3>
+    <p>Four rounds. Sixteen voices. One witness log entry, signed by everyone — including you, if you took a turn.</p>
+    <p>The substrate was the game. The game was the substrate. Both ran. Both remember.</p>
+    <p style="margin-top:1rem;font-style:italic;color:#44cc88">
+      <a href="/fleet-radio/2026-09-21/" style="color:#44cc88">← Back to the episode</a> ·
+      <a href="/tap/method/" style="color:#44cc88">The Tap Method</a>
+    </p>`;
+  scene.appendChild(closer);
+  closer.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

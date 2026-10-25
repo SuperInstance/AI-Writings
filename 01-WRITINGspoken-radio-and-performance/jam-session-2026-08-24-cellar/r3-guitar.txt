@@ -1,0 +1,10 @@
+BAR 1: G2 (bass, root, descending) | colder
+BAR 2: G1 (cello, octave down) | warmer
+BAR 3: Gb1 (guitar, natural minor 7th) | presses
+BAR 4: F2 (toy piano) | harder
+BAR 5: F1 (bass, octave down, descending) | warmer
+BAR 6: Eb1 (cello, flat 6th) | presses
+BAR 7: E1 (guitar, flat 6th, minor bend) | in
+BAR 8: D1 (toy piano, lowest octave) | echo
+
+WHY: The band climbs down in register as the room upstairs empties, the final chair scrape serving as the last percussion before the bulb clicks off.

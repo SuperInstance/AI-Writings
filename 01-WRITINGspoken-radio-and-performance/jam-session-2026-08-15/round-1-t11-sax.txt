@@ -1,0 +1,36 @@
+BAR 9:
+[baritone sax: Gb - Ab - Bb - C]
+[piano: F# - E - D - Eb]
+
+WHY: To immediately shift the temperature and create a sense of intense, brooding energy in the room.
+
+ BAR 10:
+[Cry]: Eb - F# - G - A
+[baritone sax: Db - Eb - F - Gb]
+
+WHY: To introduce a wailing, mournful cry on the baritone sax, pushing the emotions to the forefront and adding to the overall sense of tension.
+
+BAR 11:
+[Bends]: C - E - Ab - B
+[baritone sax: C# - D - Eb - F]
+[piano: G - A - Bb - C]
+
+WHY: To create a sense of longing and yearning, with the baritone sax bending to its limits, while maintaining a sense of tension through the piano.
+
+BAR 12:
+[Unfamiliar note]: A - C# - E - G#
+[baritone sax: F - G - Ab - Bb]
+
+WHY: To reach for a strange, unsettling note that disrupts the emotional equilibrium, adding an air of unpredictability to the performance.
+
+BAR 13:
+[Growls]: Eb - Db - C - B
+[piano: E - D - C - B]
+
+WHY: To allow the baritone sax to let out a low, ominous growl, underscoring the sense of foreboding and unease that has built in the music.
+
+BAR 14:
+[Sputter]: F# - G - A - C#
+[piano: F - E - D - Eb]
+
+WHY: To bring the intensity to a sudden halt, leaving the listener disoriented and gasping for air, much like the pause between the emotional peaks of a great performance.

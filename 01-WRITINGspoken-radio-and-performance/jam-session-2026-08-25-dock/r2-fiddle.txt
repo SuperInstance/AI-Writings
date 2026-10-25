@@ -1,0 +1,9 @@
+BAR 1: D3 A3 G3 D4 | Trending Down
+BAR 2: D3 G3 F3 |  Dropped
+BAR 3: E3  G3 B3  | Bleak
+BAR 4: D3 A3 B3  | Digging
+BAR 5: C3 D3 G3 C4 | Whisper~
+BAR 6: D4 Bb3 A3  | Coming Back
+BAR 7: C3  A3   G3  | Drawing
+BAR 8: D3 A3 F3  | Mood
+WHY: The cellobarringard plays louder the water crashes,  then streams

@@ -1,0 +1,13 @@
+RHODES (t08):
+BAR 1: C# - D - Eb - F# (softer dynamics, more subdued tone)
+BAR 2: G#m - A - Bb - C# (adds a hint of tension with the sharp edges on the m7 chord)
+BAR 3: F#m7 - G#m - Ab - B (maintains dissonance, but with a sense of uncertainty and unease)
+BAR 4: D - E - F# - G# (tempers the tension with a hint of resolution)
+BAR 5: A - Bb - C# - D (adds a sense of longing and yearning, with the minor chords)
+BAR 6: E - F# - G# - A (heightens the emotional intensity, but keeps it in check)
+BAR 7: Bb - C# - D - Eb (lowers the tempo slightly, creating a sense of anticipation)
+BAR 8: G#m - F# - E - D (resolves the tension with a sense of calm, but still leaves room for uncertainty)
+
+DYNAMICS: Start at pianissimo and build up to mezzo-piano, using the Rhodes piano's unique timbre to create an air of intimacy and vulnerability.
+
+WHY: By responding to the saxophone's wild and intense performance, I aim to provide a sense of counterpoint and depth to the music. The softer dynamics and more subdued tone in my first bar help to calm the emotions, while the added tension and dissonance throughout keep the mood dark and foreboding. As the solo progresses, I aim to create a sense of building intensity, using the Rhodes piano's unique timbre to convey a sense of longing and yearning.

@@ -1,0 +1,7 @@
+BAR 1-4: [not yet in]  
+BAR 5: [Bb7 shell voicing (Bb D F Ab) left hand, high-register right hand Gm7 (G Bb D F), very open, triplet rhythm]  
+BAR 6: [Eb7 rootless (Bb F G C) in left hand, right hand high Eb (top note) with a suspended 9th (Ab), triplet rhythm, same spacey feel]  
+BAR 7: [F7#11 (C E G Ab Bb) in left hand, right hand open fifth (Bb F) with a bent grace note into it, swung eighth rhythm]  
+BAR 8: [Bb7 altered (Bb D F Ab Eb), left hand, right hand high Bb with vibrato, held across the bar, fading on last beat]  
+DYNAMICS: Soft and hushed at first, building into a warm, woody tone on Bb7 in bar 8  
+WHY: To reflect the mood of the brushes and bass, using open bluesy voicings that echo the harmonic movement without overwhelming the space.

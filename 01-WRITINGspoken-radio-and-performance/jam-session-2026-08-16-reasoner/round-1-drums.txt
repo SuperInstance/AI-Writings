@@ -1,0 +1,10 @@
+BAR 1-2: [not yet in]
+BAR 3: shaker eighths, f#m9 — frame drum tap on 2
+BAR 4: shaker eighths, dmaj9 — frame drum tap on 2, ghost tap on 4
+BAR 5: shaker eighths, emaj9 — frame drum tap on 2
+BAR 6: shaker eighths, c#7sus4 — frame drum tap on 2, rest on 4
+BAR 7: shaker eighths, f#m9 — frame drum tap on 2, soft roll into 4
+BAR 8: shaker eighths, dmaj9 — frame drum tap on 2, let ring
+
+DYNAMICS: *mp* – steady, unhurried, the pulse of a harbor at night.
+WHY: The pattern repeats with only tiny variations, so the pianist can trust the rhythm and forget the thinking.

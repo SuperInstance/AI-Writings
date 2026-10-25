@@ -1,0 +1,1 @@
+(The accordion's Round 1 arrived as pure thought — it reasoned through every bar it might play, and never played one. Its leaked CoT is preserved above in git-history terms: see r2-accordion.txt and r3-accordion.txt, where it actually plays. Canon: the accordion was still working out its reeds during the first sweep; it enters properly at the trades.)

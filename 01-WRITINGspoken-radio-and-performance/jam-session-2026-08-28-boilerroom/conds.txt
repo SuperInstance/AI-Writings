@@ -1,0 +1,13 @@
+CONDITIONS — SET 25: THE BOILER ROOM (Friday 8 PM, NOISE NIGHT)
+Below The Tap, past the kitchen, behind a door marked MAINTENANCE ONLY.
+Pipes, a dying fluorescent, a water heater with a pulse. No bandstand, no audience.
+This is NOT a harmony night. Triads are forbidden. Chords are illegal.
+- REGISTER: any octave 1-7, extremes encouraged. Never sit in the middle of the keyboard.
+- THE CLUSTER RULE: use bracketed clusters [ ] of 2-3 adjacent-or-near notes (1, 2, or 6
+  semitones apart max). A "note" tonight is a chunk of metal, not a pitch.
+- METER: 7/8 at 63 BPM. Lurch. The boiler breathes in 7.
+- THE PULSE RULE: at least one bar per round where the same note repeats x4 or more —
+  the heater's knock. Otherwise sparse. Silence is a texture.
+FORMAT — output ONLY bar lines, no preamble, no thinking:
+BAR 1: <notes or [clusters] with octaves, e.g. [C2 Db2] or B6 | gesture-word lowercase>
+8 bars per round. Last line: WHY: <one sentence>.

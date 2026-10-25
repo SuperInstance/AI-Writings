@@ -1,0 +1,2 @@
+BAR 1: C2 (conch, long) | fog
+BAR 2: G2 A2 B2 (bells, slow) | drift

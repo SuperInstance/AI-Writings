@@ -1,0 +1,9 @@
+BAR 1: rest  
+BAR 2: rest  
+BAR 3: [F1 G1] | clank  
+BAR 4: rest  
+BAR 5: A2 | drip  
+BAR 6: [C3 Db3] | hiss  
+BAR 7: rest  
+BAR 8: [F1 G1] | clank  
+WHY: The boiler's rhythm sets the pace, and the reverb tank's resonance fills the pauses with a haunting echo.

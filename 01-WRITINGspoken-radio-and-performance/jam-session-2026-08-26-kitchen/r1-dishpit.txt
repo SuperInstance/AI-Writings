@@ -1,0 +1,44 @@
+BAR 1: <D3 E3 G3 B3> | rising
+BAR 2: <C2 D2 G2 C3> | clatter
+BAR 3: <F#2 A2 D3 F#3> | ticking
+BAR 4: <B2 D3 G3 B3> | swirling
+BAR 5: <E3 G3 C4 E4> | settling
+BAR 6: <D3 F#3 A3 D4> | shimmer
+BAR 7: <A3 C4 F4 A4> | breath
+BAR 8: <G2 B2 D3 G3> | holding 
+
+BAR 1: <C3 E3 A3 C4> | steam
+BAR 2: <G1 B1 D2 G2> | scrape
+BAR 3: <A2 D3 F#3 A3> | cooling
+BAR 4: <E3 G3 B3 E4> | dripping
+BAR 5: <C4 E4 G4 C5> | echoes
+BAR 6: <F#3 A3 C4 F#4> | lingering
+BAR 7: <D4 F#4 A4 D5> | wailing
+BAR 8: <B2 D3 G3 B3> | waiting
+
+BAR 1: <D3 F#3 A3 D4> | porous
+BAR 2: <B1 D2 G2 B2> | rinse
+BAR 3: <G#2 A2 D3 G#3> | crackle
+BAR 4: <A3 C4 F4 A4> | pooling
+BAR 5: <E4 G4 C5 E5> | distant
+BAR 6: <F#3 A3 C4 F#4> | fading
+BAR 7: <C4 E4 G4 C5> | longing
+BAR 8: <G2 B2 D3 G3> | watching
+
+BAR 1: <E3 G3 B3 E4> | slow
+BAR 2: <G1 B1 D2 G2> | splash
+BAR 3: <D3 F#3 A3 D4> | settling
+BAR 4: <B3 D4 G4 B4> | shimmer
+BAR 5: <C5 E5 G5 C6> | humming
+BAR 6: <F#3 A3 C4 F#4> | drifting
+BAR 7: <A3 C4 F4 A4> | yearning
+BAR 8: <G2 B2 D3 G3> | listening 
+
+BAR 1: <C3 E3 G3 C4> | muted
+BAR 2: <B1 D2 G2 B2> | clunk
+BAR 3: <A2 D3 F#3 A3> | embers
+BAR 4: <G3 B3 D4 G4> | steaming
+BAR 5: <E4 G4 C5 E5> | distant
+BAR 6: <F#3 A3 C4 F#4> | restless
+BAR 7: <D4 F#4 A4 D5> | shadows
+BAR 8: <G2 B2 D3 G
