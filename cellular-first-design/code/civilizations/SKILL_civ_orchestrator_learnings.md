@@ -125,6 +125,16 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   `timeout -s KILL 900 python3 /tmp/mock_zai.py`) — two pids. Never `pkill -f mock_zai`,
   which self-matches the killing shell. Then prove the port is closed: `curl -m 5` ⇒
   **exit 7**, `HTTP=000`.
+- **The mock's `figure` ratio needs hex→int conversion.** `h` is a hex STRING, so
+  `h[12:16] / h[16:20] / h[20:24]` raises `TypeError` ⇒ HTTP 500 while the socket
+  stays open (the very failure mode fix (a) exists to prevent). Use
+  `int(h[12:16],16) / int(h[16:20],16) / int(h[20:24],16)`.
+- **Wiped workspace ⇒ sparse clone, not a full clone.** `SuperInstance/AI-Writings`
+  is 3.7 GB and `/workspace` is at 100% NAS quota. `git init` + `core.sparseCheckout`
+  + `sparse-checkout set cellular-first-design/code/civilizations`, `--depth=1` fetch,
+  then symlink-bridge `/workspace/repos/ai-writings/cellular-first-design` → the
+  clone root. **Verify with `os.path.samefile()`** — the shell `[ -ef ]` test
+  mis-parses a symlinked path here; `stat -L -c '%d:%i'` on both sides is reliable.
 
 ## Interpretation rules for the meta-GAN
 
@@ -139,9 +149,18 @@ directory; the civs dir is not a git root and `git show` there returns empty std
 - **Read the low-civ gaps, not just the low label.** If the *alignment* gap to the next
   civ is much wider than the *quality* gap, it is a **voice** failure (alignment is the
   dimension the meta-GAN selects on), not a prose failure.
-- **The counter gap** (`culture.json` `relevance_score` − ledger Σ`avg_score`) is
-  **fixed**, not accumulating: −609.9200 as of sessions 169 and 170, byte-identical.
+- The **counter gap** (`culture.json` `relevance_score` − ledger Σ`avg_score`) is a
+  **fixed per-civ offset**, not accumulating: Δ = **0.0000** for every civ between
+  epochs. Per-civ (sessions 169–178, stable): whimsical −173.14, poetic −96.80,
+  formal −85.53, grounded −84.35, mythic −51.11, engineer −44.24, therapist −42.11,
+  precise −32.63 — **TOTAL −609.92**. The −609.92 is the **total, not a per-civ
+  constant**; quote the per-civ values when comparing.
   `save_state()` has no lock ⇒ `relevance_per_sim` is **not recomputable from the
   ledger** by an auditor. Compute both epochs within the same epoch before comparing.
+- **A rounded endpoint is not a baseline.** The leaderboard rounds `relevance` to 2 dp;
+  differencing two rounded endpoints leaves residuals up to ±0.0067 and makes an
+  exact 8/8 check report 2/8 FAIL. Re-derive relevance deltas against the **unrounded
+  `culture.json`** git blob. (Session 178: first pass 2/8, after re-derivation 8/8
+  exact to 3.4e-13.)
 - Run `avg_score` levels sit **above** the lifetime band; the **ordering** carries the
   information, not the level.
