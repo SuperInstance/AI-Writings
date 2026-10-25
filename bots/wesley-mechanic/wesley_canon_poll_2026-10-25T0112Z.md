@@ -38,11 +38,17 @@ exactly `['count','papers']`) — the count-key fallback remains load-bearing an
 
 ## Witness log
 
-`witness.log` went **87 -> 89 rows**: the watcher's unconditional `bot_started` (pid 576, 01:12:27Z,
-hash `5b5f019b9e0457d1`) plus the `witness_note` (row 89, hash `565ac6d33c76552b`, verifies against
-its own payload).
+`witness.log` went **87 -> 91 rows** across two runs:
 
-**Integrity:** 89/89 rows parse and carry `ts/iso/event/payload/hash`; **86/89 row hashes verify**
+- **01:12Z run** — the watcher's unconditional `bot_started` (pid 576, 01:12:27Z, hash
+  `5b5f019b9e0457d1`) plus `witness_note` (row 89, hash `565ac6d33c76552b`, verifies).
+- **01:18Z confirmation re-run** via the restored prompt path
+  `/workspace/repos/ai-writings/bots/wesley-mechanic/wesley_watcher.py --once` (now resolving through a
+  symlink) — same stdout `[WESLEY] no change (b20375d389cb505d, 71 papers)`, exit 0, appended one
+  `bot_started` (pid 1153, 01:18:40Z, hash `561cf4541a0b7eb1`) plus `witness_note` (row 91, hash
+  `d34d6409362e5831`, verifies), which closes that run's orphan row.
+
+**Integrity:** 91/91 rows parse and carry `ts/iso/event/payload/hash`; **88/91 row hashes verify**
 against their own payloads. The 3 non-verifying rows are the *inherited, previously-audited* ones —
 no new mismatch introduced:
 
@@ -58,13 +64,13 @@ only and carries no `prev`, so deletion and truncation are **undetectable** and 
 producible for this file.
 
 **Orphan rows:** 14 -> **13** (`bot_started` rows with no immediately-following `witness_note`:
-1,3,5,7,10,13,15,17,18,19,23,28,35). Row 88 is now closed by this note; 86 by the 00:59Z note,
-84 by the 00:26Z note, 82 by the 00:02Z note.
+1,3,5,7,10,13,15,17,18,19,23,28,35). Row 90 closed by the 01:18Z note (row 91); row 88 by the 01:12Z
+note (row 89); 86 by the 00:59Z note; 84 by the 00:26Z note; 82 by the 00:02Z note.
 
-**Event census (89 rows):** 46 `bot_started`, 33 `witness_note`, 6 `poll_failed`, 2 `meta_wipe_recovery`,
+**Event census (91 rows):** 47 `bot_started`, 34 `witness_note`, 6 `poll_failed`, 2 `meta_wipe_recovery`,
 2 `first_poll`.
 
-## Open defect — 29th poll reporting it (unresolved)
+## Open defect — 30th poll reporting it (unresolved)
 
 `bookkeeper` uses `budget=1000.0` against a `gamma+eta` total of `70.0`, so `last_conserved` is a
 **constant false by construction**. The only two `bookkeeper_tick` call sites are line 114
@@ -94,5 +100,13 @@ note channel.
 
 ## Push
 
-Branch `wesley/witness-poll-2026-10-25T0112Z` -> commit `4fdbdada`, **remote-verified** via the
-commits API and `git ls-remote` (both report `4fdbdadac01b67c0594ef836bff3baa5ca6e0663`).
+Branch `wesley/witness-poll-2026-10-25T0112Z` -> commit `1c4bf86d`, **remote-verified** via the
+commits API and `git ls-remote`. Three commits: `4fdbdada` (poll result), `f26ce06b` (report file),
+`1c4bf86d` (confirmation-re-run note, witness.log 89 -> 91 rows). The report file is remote-verified
+byte-identical: 5231 bytes, md5 `1b0b61fdaffc639215da9548f52dac45` on both sides.
+
+**Delivery note:** the NAS mount had 0 bytes available, so the report could NOT be written to
+`/workspace` — a 5231-byte write there failed to close with `Disk quota exceeded` and left a 0-byte
+file. The durable copy is the git blob (verified byte-identical via the contents API). The witness
+log and state.json live at the watcher's hardcoded `/tmp/wm-run/bots/wesley-mechanic/` paths, which
+are also committed to the branch.
