@@ -1,5 +1,0 @@
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-bind.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-link.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-effect.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/cell-speaker-tick.mp3'
-file '/workspace/repos/ai-writings/music/open-mic-8/draco-v1.mp3'

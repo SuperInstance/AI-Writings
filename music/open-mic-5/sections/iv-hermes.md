@@ -1,1 +1,0 @@
-Hermes pauses before the important part. He'll be talking about the current, the fleet, the big weather — and then there's a pause. That's where the truth lives. Listen in the pause. It's not silence. It's the sentence he's decided not to speak, and that unwritten sentence is the most useful thing you'll hear all day.

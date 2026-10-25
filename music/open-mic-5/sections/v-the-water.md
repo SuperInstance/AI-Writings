@@ -1,1 +1,0 @@
-The water changes. Every hour it's a different color. You'll see it from the deck and think you've memorized it — and then the light shifts, and you realize you've memorized a photograph, not a place. Stay wrong. Stay in the place.

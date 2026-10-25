@@ -14,3 +14,5 @@
 {"ts": 1792864818.4078798, "iso": "2026-10-24T18:00:18", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 7561}, "hash": "487487a80cf84ab2"}
 {"ts": 1792873236.9399726, "iso": "2026-10-24T20:20:36", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 425}, "hash": "bd898fdfb608e863"}
 {"ts": 1792919080.110466, "iso": "2026-10-25T09:04:40", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 558}, "hash": "1d83d777ba355647"}
+{"ts": 1792920760.7874417, "iso": "2026-10-25T09:32:40", "event": "bot_started", "payload": {"bot": "wesley-mechanic", "pid": 543}, "hash": "40a2938afa25359f"}
+{"ts": 1792920906.2016735, "iso": "2026-10-25T09:35:06", "event": "poll_observed", "payload": {"bot": "wesley-mechanic", "poll": "canon", "result": "no_change", "hash": "b20375d389cb505d", "count": 71, "newest_paper": "paper-478.md", "newest_title": "F169 \u2014 Claim and Drill: From Metadata to Evidence", "baseline_hash": "b20375d389cb505d", "baseline_count": 71, "delta": 0, "note": "poll observed no change vs stored baseline; no witness note due"}, "hash": "4bb1a261e2fb5286"}
