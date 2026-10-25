@@ -642,3 +642,70 @@ candidate. 30-row trailing window 11/30. **The direction is the finding; the rat
   evidence of a missing directory.**
 - Pre-flight saved the run for the **6th** time in the series (115, 117, 145, 147, 150, 159):
   40/40 seeds, 40/40 previews, 40/40 md5s, 0 tracebacks, 8/8 + 8/8 on all 5 prompts.
+
+## Session 160 (2026-10-25) — 23rd consecutive clean mock; the p3 disagreement (-0.8900) is the clean-mock series record
+
+- **Run clean (60/60 checks, 0 failures).** per-civ delta = **+10** x 8 = **80 new rows**
+  (engineer 1036->1046, formal 1067->1077, grounded 1082->1092, mythic 1039->1049,
+  poetic 1061->1071, precise 1031->1041, therapist 1034->1044, whimsical 1094->1104),
+  `meta_log` delta = **+5** (533 -> 538), **Winner:** lines = **5**, **80/80** rows
+  `[mock-zai`-prefixed with `provider=zai`, **0** rows with a JEV `error` key, **0** rows with the
+  2.0/2.0/2.0 fallback triple, **40/40** distinct seeds, **0** `(civ,prompt)` combos with >1 seed,
+  sim->competition ts gap at index 4 in **8/8** civs (1.10-23.21 s), **8/8 + 8/8** on all 5
+  competition prompts.
+- **Pre-flight saved the run for the 6th time in the series** (115, 117, 145, 147, 150, 160).
+  `/tmp` was wiped, so the mock was rebuilt from scratch and **all three** known bugs were live
+  again: the session-112 index wrap, the session-118 md5-of-whole-message seeding, and the
+  session-145 literal-`{}` placeholder. Pre-flight: **40/40** distinct in-batch pairs, **8/8 + 8/8**
+  on all 10 canon prompts, **0** tracebacks.
+- **NEW — the runbook's "+5 wins+losses" is a TOTAL; the wins/losses SPLIT varies.**
+  `civ-precise` took 4 wins / 1 loss (+4/+1), `civ-engineer` 1 win / 4 losses (+1/+4), and the
+  other six civs 0 wins / 5 losses (+0/+5). Every civ's `wins+losses` total is **+5** (8/8) and
+  the field win total is **+5** (514 -> 519), but asserting `wins == blob_wins + 5` fails for
+  every civ that did not win. **Assert the total, and cross-check the field win total.**
+- **NEW — a pre-flight FAIL with 8/8 on every per-prompt line is a SCOPE error in the probe, not
+  a degenerate mock.** The first pass probed all 10 canon prompts (80 distinct pairs) but
+  asserted a 40-pair total, so it printed `PREFLIGHT: FAIL` while every per-prompt check was
+  8/8 PASS. The mock was healthy. **When a pre-flight fails, read the per-prompt lines before
+  touching the mock** — scope the totals to the prompts the batch will actually use.
+- **Chooser vs `avg_score` argmax: 1/5 (20 %)** — `civ-precise` won 4, `civ-engineer` 1.
+  `civ-poetic` was argmax on **5/5** prompts and won **0/5**. All 4 disagreements took the
+  **lower**-scoring candidate (deltas -0.1067, -0.2367, **-0.8900**, -0.3167). The p3 gap of
+  **-0.8900** is the **largest single disagreement in the clean-mock series**, exceeding the
+  session-137 record (-0.683) and the session-138 record (-0.6300). 20+ five-sample points
+  cannot pin a rate: report it as a sample and keep the **direction** as the finding.
+- **`civ-grounded` remains the low-relevance civ (50 sessions, 95-160)** — last of 8 on every
+  lifetime axis: `relevance` 1023.82, `relevance_per_sim` 0.9760, `avg_score` 1.0148,
+  `alignment` 1.1144, `quality` 0.4317. Absolute gaps: alignment **0.2107** (vs therapist
+  1.3251) vs quality **0.0325** (vs formal 0.4642) — quote the absolute gaps, never the ratio.
+  Lifetime novelty 1.4983 is **below** median (1.6410) again, so Grounded is losing on **two**
+  axes (alignment and novelty) — the condition first noted in session 157. **Extinction risk
+  NONE** (1023.82 = 102x above the -10 floor); registry 8, all `generation=1`.
+- **Watch axis `civ-therapist` — 6th session at the run bottom, on BOTH axes** (run `avg_score`
+  0.7250, run `alignment` 0.0370, both lowest of 8). Lifetime standing still mid-field
+  (`avg_score` 1.1804, 6th of 8; `relevance_per_sim` 1.1589, 5th of 8) => **watch axis, not a
+  finding**. `civ-grounded` was 7th of 8 on run `avg_score` (0.7577) but 2nd-lowest on run
+  `alignment` (0.1090) — the run low and the lifetime low are different civs on different axes;
+  that is the rule, not a contradiction.
+- **The two stable inverses:** `civ-poetic` = 1st on lifetime `avg_score` (1.5821) / `quality`
+  (0.7755) / `relevance` (1597.64) / `relevance_per_sim` (1.5451) and **last** on `win_rate`
+  (0.0117, 6/513) — argmax on 5/5 prompts, winner on 0/5. `civ-precise` = best `win_rate`
+  (0.5787, 294/508), **highest lifetime `alignment` (2.1564)**, won 4/5 — the mirror inverse.
+- **`civ-formal`** = the low-**novelty** axis (lifetime novelty 1.4088, last; alignment 1.6918
+  healthy). **`civ-engineer`** — the session-121 low did NOT repeat: 6th of 8 on run `avg_score`
+  (0.8763) and 6th on run `alignment` (0.3700), no longer at the run bottom; still 7th of 8 on
+  lifetime `avg_score`. Axis stays open, do not promote.
+- **Counter gap byte-identical** to sessions 147-150/157 (whimsical -173.15, grounded -84.35,
+  formal -85.53, poetic -96.81, engineer -44.25, mythic -51.11, therapist -42.11, precise
+  -32.63; total **-609.93**). A fixed per-civ offset, not an accumulating leak.
+  `save_state()` has no lock => `relevance_per_sim` is not recomputable from the ledger.
+- **Dimension spreads this run:** `alignment` **2.4670**, `avg_score` 0.9597, `novelty` 0.3410,
+  `quality` 0.2470 (collapsed again, field mean 0.0736 — the 18th of the last 19 clean-mock
+  sessions). **Rank on cross-civ spreads, never on absolute quality levels, never on a single
+  run's low.**
+- **Re-confirmations:** NAS EDQUOT total (12th session); `gh` not installed (15th session);
+  tool timeout 30 s < run ~30-35 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race
+  did NOT reproduce; `civilizations.json` is multi-line JSON, not JSONL; `meta_log` `results` is
+  a list of `[civ_id, score]` pairs. z.ai credential gap: 46th session.

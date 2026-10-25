@@ -1939,3 +1939,86 @@ existence.
 - **GitHub REST core quota can be fully exhausted on arrival** (0/5000). `git ls-remote` is
   unaffected and is the ground truth for existence/absence. The **search API has a separate
   bucket** and keeps answering when core is dead.
+
+---
+
+## Session 160 — clean mock #23; the p3 disagreement (-0.8900) is the clean-mock series record (2026-10-25)
+
+- **Run clean (60/60 checks, 0 failures).** per-civ Δ = **+10** × 8 = **80 new rows** (engineer
+  1036→1046, formal 1067→1077, grounded 1082→1092, mythic 1039→1049, poetic 1061→1071,
+  precise 1031→1041, therapist 1034→1044, whimsical 1094→1104), `meta_log` Δ = **+5**
+  (533 → 538), **Winner:** lines = **5**, **80/80** rows `[mock-zai`-prefixed with
+  `provider={zai}`, **0** rows with a JEV `error` key, **0** rows with the 2.0/2.0/2.0 fallback
+  triple, **40/40** distinct seeds, **0** `(civ,prompt)` combos with >1 seed, sim→competition ts
+  gap at index 4 in **8/8** civs (1.10–23.21 s), **8/8 + 8/8** on all 5 competition prompts — the
+  **23rd consecutive clean measurement** (118, 120–128, 131–134, 136–138, 143, 145, 147–150,
+  157–159).
+- **Pre-flight saved the run for the 6th time in the series** (115, 117, 145, 147, 150, 160).
+  `/tmp` was wiped, so the mock was rebuilt from scratch and **all three** known bugs were live
+  again: the session-112 index wrap, the session-118 md5-of-whole-message seeding, and the
+  session-145 literal-`{}` placeholder.
+
+### NEW — the "+5 wins+losses" assertion is a TOTAL; the wins/losses SPLIT varies
+
+`civ-precise` took **4** wins / 1 loss (+4/+1), `civ-engineer` **1** win / 4 losses (+1/+4), and
+the other six civs **0** wins / 5 losses (+0/+5). Every civ's `wins+losses` total is **+5** (8/8)
+and the field win total is **+5** (514 → 519), but asserting `wins == blob_wins + 5` fails for
+every civ that did not win — 6 false failures. **Assert the total, and cross-check the field win
+total.** (Session 157 established that the `simulations_run` baseline must come from the git HEAD
+blob; session 160 adds that the same is true of `wins`/`losses`.)
+
+### NEW — a pre-flight FAIL with 8/8 on every per-prompt line is a SCOPE error in the probe
+
+The first pre-flight pass probed all **10** canon prompts (80 distinct seed/preview pairs) but
+asserted a 40-pair total, so it printed `PREFLIGHT: FAIL` while every per-prompt check read
+8/8 PASS. The mock was healthy; the expectation was mis-scoped. **When a pre-flight fails, read
+the per-prompt lines before touching the mock** — a global-total mismatch with 8/8 on every row
+is a scope error in the probe, not a degenerate mock. Scoping the totals to the 5 prompts the
+batch actually uses gives 40/40 → `PREFLIGHT: PASS`.
+
+### Chooser vs `avg_score` argmax: 1/5 (20 %)
+
+`civ-precise` won 4, `civ-engineer` 1. `civ-poetic` was the argmax on **5/5** prompts and won
+**0/5**. All 4 disagreements took the **lower**-scoring candidate (deltas −0.1067, −0.2367,
+**−0.8900**, −0.3167). The p3 gap of **−0.8900** is the **largest single disagreement in the
+clean-mock series**, exceeding the session-137 record (−0.683) and the session-138 record
+(−0.6300). Clean-mock series now spans 0/5 to 4/5 across 20+ five-sample points — the honest
+claim is *somewhere in 0–80 %*; the **direction** is the finding.
+
+### `civ-grounded` (The Grounded) remains the low-relevance civ — 50 consecutive sessions (95–160)
+
+Last of 8 on **every** lifetime axis: `relevance` 1023.82, `relevance_per_sim` 0.9760,
+`avg_score` 1.0148, `alignment` 1.1144, `quality` 0.4317. Absolute gaps: alignment **0.2107**
+(grounded 1.1144 vs therapist 1.3251) vs quality **0.0325** (grounded 0.4317 vs formal 0.4642) —
+quote the absolute gaps, never the ratio (the ratio has swung 11× → 2.7× → 7.5× → 0.4× → 6.6×).
+Alignment is the axis the meta-GAN selects on ⇒ a **voice** failure, not a prose failure. Lifetime
+novelty 1.4983 is **below** median (1.6410) again — Grounded is now losing on **two** axes
+(alignment and novelty). **Extinction risk NONE** — 1023.82 = 102× above the −10 floor; registry 8,
+all `generation=1`.
+
+- **Watch axis `civ-therapist` — 6th session at the run bottom, on BOTH axes** (run `avg_score`
+  0.7250, run `alignment` 0.0370). Lifetime standing still mid-field (`avg_score` 1.1804, 6th of
+  8; `relevance_per_sim` 1.1589, 5th of 8) ⇒ **watch axis, not a finding**. `civ-grounded` was
+  7th of 8 on run `avg_score` (0.7577) but 2nd-lowest on run `alignment` (0.1090) — the run low
+  and the lifetime low are different civs on different axes; that is the rule, not a contradiction.
+- **The two stable inverses:** `civ-poetic` = 1st on lifetime `avg_score` (1.5821) / `quality`
+  (0.7755) / `relevance` (1597.64) / `relevance_per_sim` (1.5451) but **last** on `win_rate`
+  (0.0117, 6/513) — argmax on 5/5, winner on 0/5. `civ-precise` = best `win_rate` (0.5787,
+  294/508), **highest lifetime `alignment` (2.1564)**, won 4/5 — the mirror inverse.
+- **`civ-formal`** = the low-**novelty** axis (lifetime novelty 1.4088, last; alignment 1.6918).
+  **`civ-engineer`** — the session-121 low did NOT repeat: 6th of 8 on run `avg_score` (0.8763)
+  and 6th on run `alignment` (0.3700), no longer at the run bottom; still 7th of 8 on lifetime
+  `avg_score` (1.1581). Axis stays open, do not promote.
+- **Counter gap byte-identical** to sessions 147–150/157 (whimsical −173.15, grounded −84.35,
+  formal −85.53, poetic −96.81, engineer −44.25, mythic −51.11, therapist −42.11, precise
+  −32.63; total **−609.93**) — a fixed per-civ offset, not an accumulating leak.
+- **Dimension spreads this run:** `alignment` **2.4670**, `avg_score` 0.9597, `novelty` 0.3410,
+  `quality` 0.2470 (collapsed again, field mean 0.0736 — the 18th of the last 19 clean-mock
+  sessions). **Rank on cross-civ spreads, never on absolute quality levels, never on a single
+  run's low.**
+- **Re-confirmations:** NAS EDQUOT total (12th session); `gh` not installed (15th session);
+  tool timeout 30 s < run ~30–35 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported; the `ls` race
+  did **not** reproduce; `civilizations.json` is multi-line JSON, not JSONL; `meta_log` `results`
+  is a list of `[civ_id, score]` pairs. z.ai credential gap: 46th session.
