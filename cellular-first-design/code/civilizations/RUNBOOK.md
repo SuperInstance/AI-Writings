@@ -1,3 +1,41 @@
+# Civ Orchestrator — Run Report, session 211 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **83rd session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `a715cb9` (session 210 tree). **All 29 verification assertions PASS.** Pre-flight **13/13 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session211.md`.
+
+**Session 211 in one line:** `civ-precise` took **3/5** competitions and held the run's best
+`avg_score` (**2.3613**) and the widest alignment lead (**3.0410**); the chooser/argmax
+agreement fell to **0/5 (0 %) — 5 down-grades, 0 up-grades**; the run-level low rotated to
+**`civ-whimsical`** while `civ-grounded` held the lifetime low for the **80th** consecutive
+session.
+
+**Three durable lessons from this session:**
+
+1. **A 0 % CHOOSER/ARGMAX AGREEMENT IS A MEASUREMENT, NOT A DEFECT.** All **5**
+   disagreements took the **lower**-scoring candidate; **0** up-grades. The down-grade
+   count is re-derived from this session's own meta_log, never carried forward. This is
+   the **3rd** such session in the series (199, 201, 211).
+2. **THE RUN-LEVEL LOW ROTATED TO A CIV WHOSE LIFETIME STANDING IS 3rd OF 8.**
+   `civ-whimsical` (lifetime relevance 2134.47) was the run low at `avg_score` **1.3997**.
+   *Never predict the run low from the previous session's report.*
+3. **THE LIFETIME LOW AND THE RUN LOW DIVERGED ON THE *AXIS* FOR THE FIRST TIME IN THE
+   SERIES:** `civ-grounded`'s deficit was **quality** (1.2630, fleet-low), not alignment,
+   while the run low (`civ-whimsical`) was alignment-led (0.8430). *Report the axis per
+   civ, never a single "low civ".*
+
+**Also durable:** the repo is **`SuperInstance/AI-Writings`** (a *user* account — `GET
+/orgs/ai-writings/repos` 404s while `GET /user/repos` finds it); the NAS under `/workspace`
+is at 100 % quota, so clone to `/tmp` and bridge the **inner** `cellular-first-design/code`
+by symlink (inode identity **129:10424**, `os.path.samefile()` -> `True`). `civ-grounded`
+remains the lifetime low (**1720.01**, `relevance_per_sim` **1.103**) for the **80th**
+consecutive session while its lifetime `win_rate` **0.095** is 3rd-best in the fleet; the
+run low rotated to `civ-whimsical` (**17th different run low in 17 sessions**) and held
+the **widest alignment gap in the fleet** (**2.1980**). The down-grade streak is **5** and
+must be re-based from this session's own data.
+
 # Civ Orchestrator — Run Report, session 207 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
