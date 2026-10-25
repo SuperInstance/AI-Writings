@@ -435,3 +435,46 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   files* (never hand-typed) and the repeat-same-message determinism probe both
   passed first time. The mock's response body is **366 chars** — inside the
   documented 332-369 band on the first attempt.
+
+## Session 201 addenda (2026-10-25)
+
+- **A CRASH IN THE CHECKER IS A CHECKER FAILURE, AND IT CAN HIDE BEHIND PASSES.** Two
+  independent scripts crashed this session on trivial Python mistakes *after* printing
+  several `[PASS]` lines: the pre-flight died with `NameError: name 're' is not defined`
+  (an `import re` nested inside a helper was never in module scope when a module-level
+  loop called a second helper), and the verifier died with `TypeError: check() takes from
+  2 to 3 positional arguments but 4 were given` (a detail string passed as a 4th
+  positional arg to a 3-arg helper). Both were caught **only** because the gate prints a
+  final `VERDICT:` line and exits non-zero. *The run itself was clean in both cases and
+  was never re-run — the distinction between the artifact and the checker is what let a
+  clean run survive a broken checker.* Corollary: a helper's arity is part of its
+  contract; when a check helper's signature changes, grep every call site.
+- **THE 332-369 BODY BAND CAUGHT THE FRESH BUILD, AND THE RIGHT FIX WAS TO REMOVE THE
+  VARIANCE — NOT TO TRIM THE LONGEST INSTANCE.** The first template rendered at
+  **349-381** (a long civ name pushed it over). Truncating the culture-derived fields
+  (`trad` 12 chars, `tenet` 10, `voice` 10) made the body **constant at 298-304** —
+  *below* the band — so one fixed sentence was appended, landing at **352-358**.
+  *A band check is a variance check: fix the cause of the variance, not its maximum.*
+  Budget two build iterations for a fresh template; the band is not cosmetic.
+- **THE 5/5 SWEEP STREAK IS A COUNTER WITH A PRINTED EXPIRY DATE.** `civ-precise` won
+  5/5 for **ten consecutive sessions** (191-200); session 201 gave a prompt to
+  `civ-engineer`, ending the streak at 10. *The first honest statement of a streak's
+  length is the one that ends it* — never carry the count forward as a current fact.
+- **THE CHOOSER HAS NEVER UP-GRADED.** Agreement across sessions 198-201 is
+  3 → 0 → 2 → **3**, and **every disagreement in the series took the LOWER-scoring
+  candidate (0 up-grades ever)**. A chooser that only ever picks the worse candidate is
+  *anti-correlated* with `avg_score` where it disagrees, not merely noisy. The standing
+  suspect is unchanged: the `best_civ` criteria map (`civ_id` -> `civ name`) is a label
+  map, so the chooser may be scoring labels rather than texts.
+- **THE REPO CAN BE FOUND BY CODE SEARCH, WHICH THE REPO-LIST PATH CANNOT REACH.**
+  `GET /user/repos` needs ~54 pages for this owner; `GET /search/repositories?q=…+in:name`
+  and **`GET /search/code?q=civilization_orchestrator+in:path`** both resolved
+  `SuperInstance/AI-Writings` and the exact script path in one call, and `/search/*`
+  has a **separate quota** that survives a core-quota exhaustion. Use code search to
+  confirm the path before cloning.
+- **THE SPARSE-CLONE RECIPE WORKS FROM A BARE `--no-checkout` CLONE.** `git clone
+  --filter=blob:none --no-checkout --depth 1` then `git sparse-checkout init --cone` +
+  `git sparse-checkout set cellular-first-design` + `git checkout` gave a **9.9 M**
+  working tree from a 3.7 GB repo. Bridge the symlink at the **inner**
+  `cellular-first-design` directory; verify with `stat -L -c '%d:%i'` (here
+  `129:10423` on both sides) and `os.path.samefile()` → `True`.

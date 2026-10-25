@@ -1,3 +1,36 @@
+# Civ Orchestrator — Run Report, session 201 (2026-10-25)
+
+Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, **75th session**) + **live JEV** (`jev-1.14.0`).
+Baseline: `2a36622` (session 200). **All 27 verification assertions PASS.** Pre-flight **14/14 PASS**.
+
+Full detail: `RUN_REPORT_2026-10-25_session201.md`.
+
+**Session 201 in one line:** `civ-precise`'s **ten-session 5/5 sweep is over** —
+`civ-engineer` took the "ternary values" prompt, the first prompt `civ-precise` did not
+win in 11 sessions; the chooser/argmax agreement recovered to **3/5 (60 %) — 2
+down-grades, 0 up-grades**; `civ-grounded` is the lifetime low for the **73rd**
+consecutive session; the run-level low rotated to `civ-therapist` (**20th** different
+holder in 20 sessions), which is *also* the 2nd-lowest lifetime civ for the second time
+in seven sessions; and the alignment spread (**1.8170**) is still dominant at **2.6x**
+the quality spread, while the novelty spread (**0.2700**) is the **widest in the
+series** but still the narrowest axis.
+
+**Three durable lessons from this session:**
+
+1. **A GATE CRASH IS A GATE FAILURE — AND IT CAN HIDE BEHIND PASSES.** Both the
+   pre-flight and the verifier crashed on trivial Python mistakes *after* printing
+   several `[PASS]` lines (a nested `import re` out of scope; a 4th positional arg to a
+   3-arg helper). Only the final `VERDICT:` line caught them. *The run was clean and was
+   never re-run* — the artifact/checker distinction is what saved it.
+2. **REMOVE THE VARIANCE FROM A LENGTH-BANDED BODY; DO NOT TRIM THE LONGEST INSTANCE.**
+   The 332-369 band failed at 349-381; truncating the culture fields made the body
+   constant (298-304), and one appended sentence landed it at **352-358**.
+3. **THE CHOOSER HAS NEVER UP-GRADED.** Agreement 3 → 0 → 2 → **3** across sessions
+   198-201, and **every** disagreement took the LOWER-scoring candidate. That is
+   anti-correlation, not noise. The `best_civ` criteria map is a *label* map; the
+   standing suspect is unchanged.
+
 # Civ Orchestrator — Run Report, session 200 (2026-10-25)
 
 Command: `python3 /workspace/repos/ai-writings/cellular-first-design/code/civilizations/civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
