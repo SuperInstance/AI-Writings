@@ -1361,3 +1361,66 @@ alignment gap (the ratio has fallen from 8.2x in session 142, so quote the absol
 not the ratio). `civ-therapist` took the run low on `avg_score` (0.5033) for the 4th time
 (sessions 138, 141, 144, 145) and is still mid-field on the lifetime axis (1.2731, 5th of
 8) — **watch axis, not a finding.**
+
+### Session 146 — clean mock #18; chooser-vs-argmax 4/5; Grounded holds the low for the 44th session (2026-10-25)
+
+**The pre-flight saved the run a fourth time in the series** (sessions 115, 117, 145). `/tmp` was
+wiped, so the mock was rebuilt from scratch and **both** known mock bugs were live again: the
+session-112 index-wrap (`seed[i*2:i*2+2]` → empty for `i>=4` → HTTP 500 with the socket still
+open) and the session-145 literal-`{}` placeholder (every response carrying `seed={}` → 1 distinct
+seed instead of 40). The pre-flight reported **40/40 distinct seeds, 40/40 distinct previews,
+40/40 template md5s, 0 tracebacks** before the batch was launched. **Never relax the seed-
+distinctness assertion** — it is the only check that catches the silent degradations.
+
+**Verification held:** per-civ Δ = **+10** (5 sim-phase + 5 competition-phase), `meta_log` Δ =
+**+5** (463 → 468), `Winner:` lines = **5**, **80/80** rows with the `[mock-zai` prefix,
+`provider={zai}`, **0** rows with a JEV `error` key, **0** rows with a 2.0/2.0/2.0 fallback,
+**40/40** distinct seeds, **0** `(civ,prompt)` combos with >1 seed, sim→competition ts gap at
+index 4 in all 8 civs (1.05 s – 23.28 s), and **5/5 competition slots at 8/8 distinct previews** —
+the **18th clean mock measurement**.
+
+**Chooser vs `avg_score` argmax: 4/5 (80 %).** `civ-precise` swept **5 of 5** prompts and was
+argmax in 4/5; the one disagreement took the **lower**-scoring candidate (winner 1.25 vs argmax
+`civ-poetic` 1.48) — the same direction as every disagreement ever observed. Clean-mock series:
+0/5 (118) → 3/5 (119) → 1/5 (120) → 4/5 (121) → 4/5 (122) → 3/5 (123) → 0/5 (124) → 4/5 (125)
+→ 4/5 (137) → 1/5 (138) → 2/5 (139) → 4/5 (144) → **4/5 (146)**. The rate is **not** narrowing;
+keep reporting it as a sample and the **direction** as the finding. `civ-precise` is the lifetime
+`win_rate` leader (0.559) at `preferred_temp` 0.2 — the coldest voice is what the chooser rewards.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ — 44 consecutive sessions
+(95–146).** Last on lifetime `relevance` (938.30), `relevance_per_sim` (1.032), `avg_score`
+(1.0742), `alignment` (1.2321) and `quality` (0.4878). The label did **not** rotate: last before
+the run (932.06 / 1.037) and last after it (938.30 / 1.032). **The structural gap is alignment:
+0.2597 below the next civ** (`civ-therapist` 1.4918), versus **0.0341** on quality — a **7.6×**
+wider alignment gap. Alignment is the dimension the meta-GAN selects on, so Grounded fails to
+*embody a distinctive voice* — a voice failure, not a prose failure. `civ-formal` remains the
+distinct low-**novelty** axis (1.3944, last of 8). `civ-poetic` = 1st on lifetime `avg_score`
+(1.6500) / `quality` (0.8563) but last-ish on `win_rate` (0.014) — the stable selection-failure
+inverse. `civ-precise` = best `win_rate` (0.559), 3rd on `avg_score` — the mirror inverse.
+`civ-whimsical` is last on `win_rate` (0.011).
+
+**Watch-axis `civ-therapist` — 2nd session at the run bottom on `alignment`** (0.1760, below
+`civ-grounded`'s 0.2220). Still mid-field on the lifetime axis (`avg_score` 1.2661, 5th of 8), so
+it stays a **watch axis, not a finding**. It becomes one only if the lifetime axis moves too.
+
+- **Extinction risk NONE** — threshold −10, lowest relevance +938.30 (94× above floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`. Extinction/birth only under `--loop`.
+- **Counter gap is a FIXED per-civ offset, not a growing one** — whimsical +63, grounded +43,
+  formal +42, poetic +37, engineer +22, mythic +20, therapist +17, precise +16, **byte-identical
+  to session 145**. So it is a per-civ constant, not an accumulating leak. `save_state()` has no
+  lock ⇒ `relevance_per_sim` is still not recomputable from the ledger by an auditor.
+- **Dimension-spread discipline:** this run's cross-civ spreads were `alignment` 1.6970,
+  `avg_score` 0.6267, `novelty` 0.3550, `quality` 0.0910. `quality` collapsed again to a
+  0.025–0.116 band (14 of the last 15 clean-mock sessions). The quality collapse is a **LEVEL that
+  moves**, not a stable property — rank on cross-civ spreads, never on absolute quality levels,
+  and never on a single run's low.
+- **Re-confirmations:** NAS EDQUOT total (10th session); `gh` not installed (25th session);
+  tool timeout 30 s < run ~50 s; `ZAI_URL_OVERRIDE` alone is dead code (needs `ZAI_TOKEN`);
+  clone into `/tmp`, symlink the **nested** `cellular-first-design` dir, verify with
+  `stat -L -c '%d:%i'` + `-ef`; never flatten; `TYPESAFEAI_KEY` must be exported.
+  The z.ai credential gap is unchanged (**43rd session**) — 401 `token expired or incorrect`
+  against a healthy endpoint; no `ZAI_*` variable exists in the sandbox env.
+- **NEW — `GET /search/code?q=civilization_orchestrator+in:path` finds the upstream subtree
+  directly** when the path slug is wrong. One authenticated request returned the exact
+  `SuperInstance/AI-Writings | cellular-first-design/code/civilizations/civilization_orchestrator.py`
+  hit. Cheaper than listing `/user/repos` and eyeballing sizes when you know the filename.
