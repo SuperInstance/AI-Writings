@@ -189,3 +189,58 @@ directory; the civs dir is not a git root and `git show` there returns empty std
   exact to 3.4e-13.)
 - Run `avg_score` levels sit **above** the lifetime band; the **ordering** carries the
   information, not the level.
+
+## Session 183 additions (2026-10-25)
+
+- **The NAS EDQUOT trap also blocks DELIVERY, not just cloning.** `/workspace` is an NFS
+  mount at 600 G/600 G shared across tenants. Writes there **return exit 0 and produce a
+  0-byte file** — `cp` reports `failed to close ...: Disk quota exceeded` while the file
+  *appears* in `ls -la` at size 0, and a bare `echo x > file` also lands 0 bytes. So a
+  workspace-relative artifact is **undeliverable** no matter how it is written. Plan the
+  durable copy in git (clone under `/tmp`, push upstream) and report the upstream path;
+  do not retry workspace writes hoping for a different result. `/root`, `/home`, `/var/tmp`
+  are on the overlay and writable, but the delivery surface reads `/workspace`.
+- **`test -ef` is broken in this sandbox** — `bash: [: <path>: binary operator expected`
+  on a perfectly valid two-argument `-ef`. Verify a symlink bridge by **inode identity**
+  (`stat -c '%i'`) plus `readlink -f`, not by `-ef`. The bridge itself works; only the
+  test is unusable. A "FAIL" here is a false alarm.
+- **The mock seed slice is `h[(i*2)%8:(i*2)%8+4]` — a CONTIGUOUS 4-char slice.** The older
+  spec block still shows two 2-char slices *concatenated*; that is a **different value**.
+  A row written under one algorithm will not reconcile against a recompute under the
+  other. **Check the SLICE, not the render.** Same for `figure`: it must be
+  `f"{h[12:16]}/{h[16:20]}/{h[20:24]}"` (three string components) — the spec's `/`
+  separators read literally as division ⇒ `TypeError` ⇒ HTTP 500 on every request while
+  the socket stays open, so a port/200 liveness probe still looks healthy.
+- **The pre-flight gate's 40 messages are built CIV-major** (all 5 prompts per civ), so
+  per-prompt aggregation must index `i*5+pi`, not `i*8+pi`. A gate that crashes on an
+  `IndexError` *after* four assertions have already printed PASS is **not** a passing
+  gate — make the gate print a final verdict and exit non-zero on any failure.
+- **GitHub REST `GET /contents` rate-limits to 403 mid-enumeration**, which renders as
+  "the file list is empty". Enumerate a file census over the **git protocol**
+  (`git ls-tree <ref> <dir>`) instead — unlimited, and it is the only way to assert
+  absence without a false negative.
+- **`ZAI_TOKEN` is still absent** (47th session) — not in the env, not in any of the 8
+  sandbox secrets; all four candidate tokens return 401 `token expired or incorrect`
+  against `api.z.ai`, so the endpoint is healthy and the **credential** is missing.
+  The orchestrator's provider gate returns `None` on an empty token, so **every
+  simulation silently returns `None` and no rows are written** — an empty-token run
+  looks like a clean run unless you assert on row counts. `ZAI_URL_OVERRIDE` alone is
+  dead code behind that gate: set **both** `ZAI_TOKEN` (placeholder) and the override.
+- **`JEV_KEY` reads `TYPESAFEAI_KEY`, but the env var is `TYPESAFE_AI_TOKEN`** — export
+  the alias, or every score silently falls back to the 2.0/2.0/2.0 triple.
+- **Chooser-vs-argmax agreement hit 0/5 with all 5 disagreements taking the
+  LOWER-scoring candidate** (first 0/5 in the clean-mock series). `civ-poetic` was
+  argmax on 5/5 prompts and won 0/5. Report it as a *sample*; the **direction** is the
+  finding.
+- **The run-level `quality` LEVEL is a moving quantity** — field mean was **0.9998** in
+  session 183 vs ~0.91 in earlier sessions. Recompute it from the ledger every session;
+  never carry the level forward. Rank on **cross-civ spreads** instead: session 183 had
+  `alignment` 1.0680 › `quality` 0.6320 › `avg_score` 0.3820 › `novelty` 0.3360.
+- **Session 182's run-low/lifetime-low coincidence did not reproduce.** In 183 the run
+  low rotated to `civ-formal` (8th on run `avg_score` 1.5847 and run `quality` 0.7120)
+  while `civ-grounded` placed **3rd of 8** on run `avg_score` (1.7573) — yet Grounded is
+  still the lifetime low on all five axes (57th consecutive session). The run ranking
+  and the lifetime table are **two separate claims**; say so explicitly.
+- **`civ-grounded`'s low axes are alignment and quality, NOT novelty** — lifetime
+  novelty 1.5849 is 6th of 8 (mid-field); the lowest lifetime novelty belongs to
+  `civ-formal` (1.5022). Do not attribute Grounded's low-novelty to Grounded.
