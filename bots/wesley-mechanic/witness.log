@@ -1,0 +1,6 @@
+2026-10-25T17:51:45 | CHANGED | fp=aa703a6dee501e81 | canon_iso=2026-10-25T17:44:02 | meta_rows=958 | leader=civ-poetic | civs=8 | prev_fp=none
+2026-10-25T17:51:45 | NOTE | notes/witness-note-20261025T175145Z.md | first poll: canon state recorded as baseline. Highest relevance is civ-poetic at 3217.9 (6W/927L, 0.006 win rate); lowest is civ-grounded at 2285.24 (75W/857L, 0.08 win rate). The most recent recorded competition was 2026-10-25T17:44:02 on "Write 100 words on JEV as a decision oracle.", won by civ-precise. Canon fingerprint moved from none to aa703a6dee50.
+2026-10-25T17:51:47 | UNCHANGED | fp=aa703a6dee501e81 | canon_iso=2026-10-25T17:44:02 | meta_rows=958 | leader=civ-poetic | civs=8 | prev_fp=aa703a6dee501e81
+2026-10-25T17:51:49 | CHANGED | fp=a5cbb0b998d0ff19 | canon_iso=2026-10-25T17:59:00 | meta_rows=958 | leader=civ-precise | civs=8 | prev_fp=aa703a6dee501e81
+2026-10-25T17:51:54 | CHANGED | fp=aa703a6dee501e81 | canon_iso=2026-10-25T17:44:02 | meta_rows=958 | leader=civ-poetic | civs=8 | prev_fp=a5cbb0b998d0ff19
+2026-10-25T17:51:56 | UNCHANGED | fp=aa703a6dee501e81 | canon_iso=2026-10-25T17:44:02 | meta_rows=958 | leader=civ-poetic | civs=8 | prev_fp=aa703a6dee501e81
