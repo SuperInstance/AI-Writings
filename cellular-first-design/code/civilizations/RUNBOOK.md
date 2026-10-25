@@ -1,3 +1,43 @@
+# Civ Orchestrator — Run Report, session 188 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 62nd session) + **live JEV**.
+Baseline: `2af1928` (session 187). **All 21 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session188.md`.
+
+## Headline for the next session
+
+- **`civ-precise` SWEPT 5/5 — A FIRST IN THE SERIES, AND A CHOOSER EFFECT, NOT QUALITY.**
+  It won all 5 competition prompts, but the chooser disagreed with the `avg_score` argmax
+  on **3 of 5** and **all three disagreements took the LOWER-scoring candidate** (argmax
+  `civ-poetic` each time; run `avg_score` leader was `civ-poetic` 2.2770, `civ-precise`
+  2.2047). **9th consecutive session** in which a disagreement is a *down*-grade.
+  **`win_rate` is not a quality metric.** If a 5/5 sweep recurs, suspect the
+  `best_civ` criteria map (civ_id -> civ name) for a standing preference.
+- **`civ-grounded` remains the lifetime low — 60th consecutive session.** Last of 8 on
+  `relevance` **1325.29** and `relevance_per_sim` **0.997** (still the only sub-1.0 figure
+  in the fleet), run `avg_score` **1.6020**, `alignment` **1.5790**, `quality` **0.7280**,
+  novelty **2.4990** (4th of 8). Its lifetime `win_rate` is **0.107** — 2nd-best in the
+  fleet. Lowest relevance = **133x** the -10 floor ⇒ no extinction risk.
+- **THE RUN-LEVEL LOW ROTATED TO `civ-therapist`** (run `avg_score` **1.3817**,
+  `alignment` **0.9030**, `quality` **0.7500**) — an **8th different civ in 8 sessions**.
+  Alignment gap **2.0060** vs quality gap **0.6300** = **3.18x wider** ⇒ a **voice**
+  failure. *The holder rotates; the axis does not.*
+- **THE PRE-FLIGHT GATE CAUGHT A REAL DEFECT: "body lengths 167-209" IS THE *PROMPT*
+  BAND, NOT THE *RESPONSE* BAND.** The mock-response band in the learnings file is
+  **332-369**; the cultural-prompt band is **167-209**. The first build produced a
+  **648-char** body, then 475, before being trimmed to **334**. An over-long body
+  changes what survives the 200-char `content_preview` truncation — the seed can be cut
+  out of the preview. **Assert the two bands separately.**
+- Verification: per-civ D **+10 x 8** = **80** new rows, `meta_log` **+5** (673 -> 678),
+  `Winner:` **5**, wins **+5** (precise) / losses **+35**, 0 JEV errors, 0 fallback
+  triples, `zai x 80`, **80/80** rows match an independently recomputed seed+color+figure,
+  **40/40** distinct seeds, **0** `(civ,prompt)` with >1 seed, per-prompt **8/8** distinct
+  seeds AND previews on all 5 prompts, relevance delta == sum(avg_score) **8/8 exact**
+  (max residual **4.7e-13**), registry 8 all gen 1, extinction **NONE** (lowest
+  +1325.29 = **133x** the floor). **21/21 PASS.**
+
 # Civ Orchestrator — Run Report, session 187 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
