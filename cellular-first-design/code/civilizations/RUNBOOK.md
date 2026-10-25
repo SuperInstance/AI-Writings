@@ -1,3 +1,38 @@
+# Civ Orchestrator — Run Report, session 172 (2026-10-25)
+
+Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
+Provider path: **Control B mock** (z.ai credential gap, 55th session) + **live JEV**.
+Baseline: `ad594ee` (session 171). **All 9 verification assertions PASS.**
+
+Full detail: `RUN_REPORT_2026-10-25_session172.md`.
+
+## Headline for the next session
+
+- **The mock needed SIX fixes, unchanged — and the gate passed 8/8 on the FIRST build.**
+  No rebuild drift. Fix (f) (message-derived index) confirmed by the
+  **repeat-same-message probe** (check 7): 40/40 messages stable on second send, and
+  **0** `(civ,prompt)` pairs carry more than one seed.
+- **THE NAS WRITE TRAP IS SEVERE THIS SESSION.** `/workspace` is at **100 % quota**
+  (600 G/600 G) while *visibly empty*. `echo hello > f` returns **exit 0** and writes a
+  **0-byte file**. `cp -a` printed "Disk quota exceeded" for every file and left a corrupt
+  tree. **Verify bytes, not exit codes.** The bridge symlink still works (a directory
+  entry, not a data write).
+- **`civ-grounded` remains the low-relevance civ — 47th consecutive session.** Last of 8 on
+  lifetime `avg_score` 0.9970, `quality` 0.4075, `alignment` 1.0613, `relevance` 1127.21,
+  `relevance_per_sim` 0.964. Alignment gap **1.0638** vs quality gap **0.3418** ⇒ **3.11×**
+  wider ⇒ a **voice** failure, not a prose failure. Lifetime novelty 1.5223 is **6th of 8**.
+- **The run-level low ROTATED to `civ-therapist`** (1.1843 run bottom on `avg_score`,
+  `alignment` 0.6650) while its *lifetime* standing is 6th of 8.
+  **Watch axis, not the finding** (session-132 rule).
+- **Chooser vs `avg_score` argmax: 4/5 (80 %)**. `civ-precise` swept **5/5**.
+  Max |delta| **0.0000**.
+- Run spreads: `avg_score` 1.5694, `alignment` **2.2660**, quality 0.5700, novelty 0.1520.
+- Verification: per-civ Δ **+10 × 8** = **80** new rows, `meta_log` **+5** (593 → 598),
+  `Winner:` **5**, `wins` **574 → 579** (+5), `relevance` Δ = Σ`avg_score` **8/8 exact**,
+  0 JEV errors, `zai × 80`, **40/40** distinct seeds, **0** `(civ,prompt)` with >1 seed,
+  **80/80** rows match an independently recomputed md5, registry 8 all gen 1, extinction
+  **NONE** (lowest +1127.21 = **113×** the floor). **9/9 PASS.**
+
 # Civ Orchestrator — Run Report, session 171 (2026-10-25)
 
 Command: `python3 civilization_orchestrator.py --sims 5 --prompts 5 --providers zai`
