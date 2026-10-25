@@ -1552,3 +1552,93 @@ not installed**. One API call settles it: `GET /repos/SuperInstance/ai-writings`
 `GET /repos/SuperInstance/cellular-first-design` -> **404**. NAS EDQUOT total (12th session)
 => clone to `/tmp`, then bridge. `git clone --depth 1` of the 3.7 GB repo fetched in ~60 s
 to a 6 MB tree — the working tree is small; the size is in other branches' history.
+
+---
+
+## Session 150 — clean mock #22; chooser-vs-argmax 1/5; the alignment/quality gap ratio INVERTED (2026-10-25)
+
+**Run:** 8 civs x 5 sims + 5 competition prompts, Control B mock, JEV live. All **15**
+verification checks PASS (per-civ delta +10 x 8 = 80 rows, `meta_log` 483 -> 488, `Winner:`
+lines 5, 0 JEV `error` keys, 0 rows with the 2.0/2.0/2.0 fallback triple, 80/80 rows
+`[mock-zai`-prefixed with `provider=zai`, **40/40** distinct seeds, **0** `(civ,prompt)`
+combos with >1 seed, sim->competition ts gap at index 4 in **8/8** civs, `leaderboard.json`
+rewritten at 00:45:01Z). Upstream baseline `c330232` (session 149).
+
+**Mock rebuilt from scratch again** (`/tmp` was wiped) => **three** known mock bugs were live
+again in the naive rebuild: the session-112 index wrap (`seed[i*2:i*2+2]` -> empty for `i>=4`
+-> HTTP 500 with the socket still open), the session-118 md5-of-whole-message seeding, and
+the session-145 literal-`{}` placeholder (every row carrying `seed={}` -> 1 distinct seed).
+The session-144 `Connection: close` was re-applied too. Pre-flight: **40/40 distinct seeds,
+40/40 distinct previews, 8/8 seeds AND 8/8 previews on all 5 prompts, 0 tracebacks**,
+cultural prompt lengths 167-209. **The 22nd clean mock measurement.**
+
+**Chooser vs `avg_score` argmax: 1/5 (20 %).** `civ-formal` won 3, `civ-precise` 2. All 4
+disagreements took the **lower**-scoring candidate (deltas -0.467, **-0.823**, -0.113,
+-0.523) — the same direction as every disagreement ever observed. Clean-mock series:
+0,3,1,4,4,3,0,4,4,1,2,4,4,0,2,4,**1** (s.118-150) — 22 five-sample points cannot pin a
+rate; the honest claim is *somewhere in 0-80 %*. **The direction is the finding, the rate is
+not.** **Never treat `win_rate` as a quality metric.**
+
+**NEW — the alignment/quality gap ratio INVERTED for the low-relevance civ.** `civ-grounded`
+is still **last of 8 on both** dimensions, but the *absolute* gaps now point the other way:
+alignment gap to the next civ **0.0655** (`civ-therapist` 1.4314) vs quality gap **0.1581**.
+The ratio has swung **11x (s.125) -> 2.7x (s.145) -> 7.5x (s.149) -> 0.4x (s.150)** on
+identical data-shape logic. **Rule: quote the absolute gaps and the "last of 8 on both"
+invariant, never the ratio.** The ratio is a derived number over two drifting quantities and
+is not a stable claim; the ranking invariant is.
+
+**`civ-grounded` (The Grounded) remains the low-relevance civ — 48 consecutive sessions
+(95-150).** Last of 8 on every lifetime axis: `relevance` 953.17, `relevance_per_sim`
+1.004, `avg_score` 1.0459, `alignment` 1.1872, `quality` 0.4691. Label did **not** rotate
+(last before the run at 950.40 / 1.012, last after it at 953.17 / 1.004). Alignment is the
+dimension the meta-GAN *selects* on, so Grounded fails to *embody a distinctive voice* — a
+**voice** failure, not a prose failure. Lifetime novelty 1.4813 is above median: Grounded is
+not boring, it is *unmistakable in a way the chooser does not reward*.
+
+**Watch-axis `civ-therapist` — 4th session at the run bottom, on BOTH axes** (run `avg_score`
+0.2650 and run `alignment` 0.0210, both lowest of 8). Still mid-field on the lifetime axis
+(`avg_score` 1.2278, 5th of 8) => **watch axis, not a finding**. `civ-grounded` was 7th of
+8 on run `avg_score` (0.2767) — the run-level low and the lifetime low are **different civs
+on different axes**, which is the rule (session 132), not a contradiction.
+
+- **`civ-formal` is the low-novelty axis** — lifetime novelty **1.3764** (last of 8),
+  alignment 1.7693 healthy. It won **3/5** this run, the first time in the series
+  `civ-formal` has out-polled `civ-precise`.
+- **The two stable inverses:** `civ-poetic` = 1st on lifetime `avg_score` (1.6115) /
+  `quality` (0.8242) / `relevance_per_sim` (1.572) but **last on `win_rate` (0.013)** and
+  won 0/5 despite being 2nd on run `avg_score` — the stable selection-failure inverse.
+  `civ-precise` = best `win_rate` (0.570, 261/197), **highest lifetime `alignment` (2.1975)**,
+  1st on run `avg_score` (0.7767) at `preferred_temp` **0.2** — the mirror inverse, and the
+  coldest voice is what the chooser rewards.
+- **Extinction risk NONE** — threshold -10; lowest relevance +953.17 (95x above the floor).
+  Registry 8, `max_civs` 12. All 8 civs still `generation=1`; birth/extinction only under
+  `--loop`.
+- **Counter gap is a FIXED per-civ offset** — whimsical +63, grounded +43, formal +42,
+  poetic +37, engineer +22, mythic +20, therapist +17, precise +16 (total +260),
+  byte-identical to sessions 147/148/149. `save_state()` has no lock => `relevance_per_sim`
+  is still not recomputable from the ledger by an auditor.
+- **Dimension-spread discipline (5th consecutive observation):** this run's cross-civ
+  spreads were `alignment` **1.2920**, `avg_score` 0.5117, `novelty` 0.4500, `quality`
+  **0.0180**. `quality` collapsed again to a 0.010-0.028 band (17th of the last 18
+  clean-mock sessions) and `alignment` again carried the widest spread **and** is again the
+  axis the chooser selects on. **The quality collapse is a LEVEL that moves, not a stable
+  property** — rank on cross-civ spreads, never on absolute quality levels, and never on a
+  single run's low.
+- **Absolute run levels depressed vs lifetime** (run `avg_score` 0.265-0.777 vs lifetime
+  1.05-1.61) — a level shift in the JEV scorer's output for this batch, **not a civ effect**;
+  the cross-civ *ordering* carries the information.
+- **Re-confirmations:** NAS EDQUOT total (13th session) — clone to `/tmp` (overlay, 28 G
+  free; the 3.7 GB repo's *working tree* is only 6.2 MB at `--depth 1`), then bridge the
+  **nested** `cellular-first-design` dir and verify with `stat -L -c '%d:%i'` on both sides
+  + `-ef` (this session `129:12605` both sides, EF_OK); never flatten; `gh` not installed
+  (28th session) — use `GET /search/repositories?q=…` with `GITHUB_TOKEN`; tool timeout 30 s
+  < run wall time (~28 s of polling) — detached launch, then poll; `ZAI_URL_OVERRIDE` alone
+  is dead code (needs `ZAI_TOKEN`); `TYPESAFEAI_KEY` must be exported from
+  `TYPESAFE_AI_TOKEN`; JEV liveness = 422 on a malformed `questions`; z.ai = 401
+  `token expired or incorrect` (credential gap, endpoint healthy) — **44th session**.
+- **NEW — the detached mock launch timed out the tool call even with stdout and stdin
+  redirected.** `setsid nohup timeout -s KILL 900 python3 /tmp/mock_zai.py > /tmp/mock_zai.log
+  2>&1 < /dev/null &` still blocked for the full 30 s, and the *next* command showed the
+  mock healthy (pid 303/304, listening, 0 tracebacks). **When a detached launch times out,
+  check `ps` in a separate command before assuming the launch failed** — this is the
+  session-149 note confirmed a second time.
