@@ -38,7 +38,9 @@ def _writable(base):
         base.mkdir(parents=True, exist_ok=True)
         with probe.open("w") as f:
             f.write("x")
-        return True
+        # A quota-exceeded volume reports success but lands 0 bytes.
+        # Treat that as unusable, not writable.
+        return probe.stat().st_size > 0
     except OSError:
         return False
     finally:

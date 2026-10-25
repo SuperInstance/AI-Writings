@@ -8,8 +8,33 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 # Substrate-wide witness log
-SUBSTRATE_WITNESS = Path("/workspace/repos/ai-writings/bots/substrate-bus/substrate-witness.jsonl")
-SUBSTRATE_TOPICS = Path("/workspace/repos/ai-writings/bots/substrate-bus/topics.json")
+# Resolve relative to this file so the bus works from any checkout.
+# The canonical deployment lives at /workspace/repos/ai-writings; the
+# checkout-relative path is the fallback when that volume is unwritable.
+_HERE = Path(__file__).resolve().parent
+_CANON_BUS = Path("/workspace/repos/ai-writings/bots/substrate-bus")
+
+
+def _usable(base):
+    """A directory is usable only if a probe write actually lands bytes."""
+    probe = base / ".write-probe"
+    try:
+        base.mkdir(parents=True, exist_ok=True)
+        with probe.open("w") as f:
+            f.write("x")
+        return probe.stat().st_size > 0
+    except OSError:
+        return False
+    finally:
+        try:
+            probe.unlink()
+        except OSError:
+            pass
+
+
+_BUS_DIR = _CANON_BUS if _usable(_CANON_BUS) else _HERE
+SUBSTRATE_WITNESS = _BUS_DIR / "substrate-witness.jsonl"
+SUBSTRATE_TOPICS = _BUS_DIR / "topics.json"
 
 def now():
     return datetime.now(timezone.utc).isoformat()
